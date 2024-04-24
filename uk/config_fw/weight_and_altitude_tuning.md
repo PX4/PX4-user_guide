@@ -1,4 +1,4 @@
-# Advanced TECS Tuning (Weight and Altitude)
+# Покращене налаштування TECS (Вага та висота)
 
 Ця тема показує, як ви можете компенсувати зміни в [вагу транспортного засобу](#vehicle-weight-compensation) та [щільність повітря](#air-density-compensation), разом із інформацією про [алгоритми](#weight-and-density-compensation-algorithms), які використовуються.
 
@@ -23,29 +23,29 @@
 Масштабування виконується, коли _обидва_ `WEIGHT_BASE` та `WEIGHT_GROSS` більше `0`, і не матиме жодного впливу, якщо значення однакові.
 Дивіться розділ [алгоритми](#weight-and-density-compensation-algorithms) нижче для отримання додаткової інформації.
 
-## Air Density Compensation
+## Компенсація щільності повітря
 
-### Specify a Service Ceiling
+### Вкажіть максимальну висоту обслуговування
 
 У PX4 службовий стелі [FW_SERVICE_CEIL](../advanced_config/parameter_reference.md#FW_SERVICE_CEIL) вказує висоту в стандартних атмосферних умовах, на якій транспортний засіб все ще може досягти максимальної швидкості підйому 0,5 м/с при максимальному режимі газу та вагою, рівною [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
-By default this parameter is disabled and no compensation will take place.
+За замовчуванням цей параметр вимкнений, і компенсація не відбудеться.
 
-This parameter needs to be determined experimentally.
-It is always better to set a conservative value (lower value) than an optimistic value.
+Цей параметр потрібно визначити експериментально.
+Завжди краще встановлювати консервативне значення (нижче значення), ніж оптимістичне значення.
 
-### Apply Density Correction to Minimum Sink Rate
+### Застосувати корекцію щільності до мінімальної швидкості опускання
 
-The minimum sink rate is set in [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN).
+Мінімальна швидкість опускання встановлюється в [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN).
 
 Якщо налаштування [Основного налаштування TECS](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed) не було виконано в стандартних умовах рівня моря, тоді параметр [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) повинен бути змінений шляхом множення на корекційний фактор $P$ (де $\rho$ - густина повітря під час налаштування):
 
 $$P = \sqrt{\rho\over{\rho_{sealevel}}}$$
 
-For more information see [Effect of Density on minimum sink rate](#effect-of-density-on-minimum-sink-rate).
+Для отримання додаткової інформації див. [Ефект густини на мінімальну швидкість опускання](#effect-of-density-on-minimum-sink-rate).
 
-### Apply Density Correction to Trim Throttle
+### Застосувати корекцію щільності до обрізання ручки газу
 
-The trim throttle is set using [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM).
+Регулювання обтічної дроселі встановлюється за допомогою [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM).
 
 Якщо базове налаштування не було виконано в стандартних умовах рівня моря, тоді значення для [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) повинно бути змінено шляхом множення на корекційний фактор $P$:
 
@@ -53,7 +53,7 @@ $$P = \sqrt{\rho\over{\rho_{sealevel}}}$$
 
 Для отримання додаткової інформації див. [Ефект густини на обрізний регулятор](#effect-of-density-on-trim-throttle)
 
-## Weight and Density Compensation Algorithms
+## Алгоритми насиченості ваги та щільності
 
 У цьому розділі міститься інформація про операції масштабування, виконані PX4.
 Це надається лише для цікавості, і може бути цікавим для розробників, які хочуть змінити код масштабування.
@@ -65,71 +65,71 @@ $$P = \sqrt{\rho\over{\rho_{sealevel}}}$$
 
 Наприклад, за $\hat{\dot{h}}_{max}$ ми вказуємо максимальну швидкість підйому, яку транспортний засіб може досягти при [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) на рівні моря в стандартних атмосферних умовах.
 
-### Effect of Weight on Maximum Climb Rate
+### Вплив ваги на максимальну швидкість підйому
 
 Максимальна швидкість підйому ([FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)) масштабується як функція відношення ваги.
 
-From the steady state equations of motions of an airplane we find that the maximum climb rate can be written as:
+З рівноважних рівнянь руху літака ми встановлюємо, що максимальна швидкість підйому може бути записана як:
 
 $$\dot{h}_{max} = { V * ( Thrust - Drag ) \over{m*g}}$$
 
-where `V` is the true airspeed and `m` is the vehicle mass.
-From this equation we see that the maximum climb rates scales with vehicle mass.
+де `V` - це справжня швидкість повітря, а `m` - маса транспортного засобу.
+З цього рівняння ми бачимо, що максимальні швидкості підйому масштабуються з масою транспортного засобу.
 
-### Effect of Weight on Minimum Sink Rate
+### Вплив ваги на мінімальну швидкість опускання
 
-The minimum sink rate ([FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN)) is scaled as a function of weight ratio
+Мінімальна швидкість опускання ([FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN)) масштабується як функція відношення ваги
 
-The minimum sink rate can be written as:
+Мінімальна швидкість опускання може бути записана як:
 
 $$\dot{h}_{min} = \sqrt{2mg\over{\rho S}} f(C_L, C_D)$$
 
-where $\rho$ is the air density, S is the wing surface reference area and $f(C_L, C_D)$ is a function of the polars, lift and drag.
+де $\rho$ - щільність повітря, S - площа опорної поверхні крила, а $f(C_L, C_D)$ - функція полюсів, підйому та опору.
 
-From this equation we see that the minimum sink rate scales with the square root of the weight ratio.
+З цього рівняння бачимо, що мінімальна швидкість опускання масштабується з квадратним коренем відношення ваги.
 
-### Effect of Weight on Airspeed Limits
+### Вплив ваги на межі швидкості повітря
 
 The minimum airspeed ([FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)), the stall airspeed ([FW_AIRSPD_STALL](../advanced_config/parameter_reference.md#FW_AIRSPD_STALL)) and trim airspeed ([FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)) are adjusted based on the weight ratio specified by [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) and [WEIGHT_GROSS](../advanced_config/parameter_reference.md#WEIGHT_GROSS).
 
-In steady state flight we can demand that lift should equal weight of the vehicle:
+У стані сталого польоту ми можемо вимагати, щоб підйом був рівним вазіллю транспортного засобу:
 
 $$Lift = mg = {1\over{2}} \rho V^2 S C_L$$
 
-rearranging this equation for airspeed gives:
+перегруповування цього рівняння для швидкості повітря дає:
 
 $$V = \\sqrt{\\frac{2mg}{\\rho S C_D }}$$
 
-From this equation we see that if we assume a constant angle of attack (which we generally desire), the vehicle weight affects airspeed with a square root relation.
-Therefore, the airspeed limits mentioned above are all scaled using the square root of the weight ratio.
+З цього рівняння ми бачимо, що якщо ми припускаємо постійний кут атаки (який, як правило, ми бажаємо), вага транспортного засобу впливає на швидкість повітря з квадратним коренем відношення.
+Отже, обмеження швидкості повітря, згадані вище, масштабуються за допомогою квадратного кореня відношення ваги.
 
-### Effect of Density on Maximum Climb Rate
+### Вплив щільності на максимальну швидкість підйому
 
-The maximum climb rate is set using [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX).
+Максимальна швидкість підйому встановлюється за допомогою [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX).
 
-As we have seen previously, the maximum climb rate can be formulated as:
+Як ми вже бачили раніше, максимальна швидкість підйому може бути сформульована як:
 
 $$\dot{h}_{max} = { V * ( Thrust - Drag ) \over{m*g}}$$
 
-The air density affects the airspeed, the thrust and the drag and modelling this effects is not straight forward.
-However, we can refer to literature and experience, which suggest that for a propeller airplane the maximum climb rate reduces approximately linear with the air density.
-Therefore, we can write the maximum climb rate as:
+Густина повітря впливає на швидкість повітря, тягу та опір, і моделювання цих ефектів не є прямолінійним.
+Проте ми можемо посилатися на літературу та досвід, які вказують, що для літака з гвинтовим пропелером максимальна швидкість підйому зменшується приблизно лінійно з густиною повітря.
+Таким чином, ми можемо написати максимальну швидкість підйому як:
 
 $$\dot{h}_{max} = \hat{\dot{h}} * {\rho_{sealevel} \over{\rho}} K$$
 
-where $\rho_{sealevel}$ is the air density at sea level in the standard atmosphere and K is a scaling factor which determines the slope of the function.
-Rather than trying to identify this constants, the usual practice in aviation is to specify a service ceiling altitude at which the vehicle is still able to achieve a minimum specified climb rate.
+де$\rho_{sealevel}$ - щільність повітря на рівні моря в стандартній атмосфері, а К - масштабний фактор, який визначає нахил функції.
+Замість спроби ідентифікувати ці константи, звичайною практикою в авіації є вказання висоти службового стелі, на якій транспортний засіб все ще може досягти мінімально вказаної швидкості підйому.
 
-### Effect of Density on Minimum Sink Rate
+### Вплив щільності на мінімальну швидкість опускання
 
-The minimum sink rate is set using [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN).
+Мінімальна швидкість опускання встановлюється за допомогою [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN).
 
-In previous sections we have seen the formula for the minimum sink rate:
+У попередніх розділах ми бачили формулу для мінімальної швидкості опускання:
 
 $$\dot{h}_{min} = \sqrt{2mg\over{\rho S}} f(C_L, C_D)$$
 
-This shows that the minimum sink rate scales with the square root of the inverse air density.
+Це показує, що мінімальна швидкість опускання масштабується з квадратним коренем відношення оберненої густини повітря.
 
-### Effect of Density on Trim Throttle
+### Вплив щільності на обертовий регулятор обрізання
 
-TODO: Add derivation here.
+TODO: Додати тут похідну.

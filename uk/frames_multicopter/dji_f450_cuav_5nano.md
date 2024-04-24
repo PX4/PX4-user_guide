@@ -1,19 +1,19 @@
-# DJI FlameWheel 450 + CUAV V5 nano Build
+# Збірка DJI FlameWheel 450 + CUAV V5 nano
 
-This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
+Ця тема надає повні інструкції для збирання комплекту та налаштування PX4 з використанням *QGroundControl*.
 
-Key information
+Основна Інформація
 
-- **Frame:** DJI F450
-- **Flight controller:** [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
-- **Assembly time (approx.):** 90 minutes (45 minutes for frame, 45 minutes autopilot installation/configuration)
+- **Каркас:** DJI F450
+- **Контролер польоту:** [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
+- **Час зборки (приблизно):** 90 хвилин (45 хвилин на раму, 45 хвилин на встановлення/налаштування автопілота)
 
 ![Finished setup](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
-## Bill of materials
+## Специфікація матеріалів
 
-The components needed for this build are:
-- Flight controller: [CUAV V5 nano](https://store.cuav.net/shop/v5-nano/):
+Компоненти, необхідні для цієї збірки, є:
+- Контролер польоту: [CUAV V5 nano](https://store.cuav.net/shop/v5-nano/):
   - GPS: [CUAV NEO V2 GPS](https://store.cuav.net/index.php?id_product=97&id_product_attribute=0&rewrite=cuav-new-ublox-neo-m8n-gps-module-with-shell-stand-holder-for-flight-controller-gps-compass-for-pixhack-v5-plus-rc-parts-px4&controller=product&id_lang=1)
   - Power Module
 - Frame: [DJI F450](https://www.amazon.com/Flame-Wheel-Basic-Quadcopter-Drone/dp/B00HNMVQHY)
@@ -25,20 +25,20 @@ The components needed for this build are:
 - ESC: Hobbywing XRotor 20A APAC Brushless ESC 3-4S For RC Multicopters
 
 
-In addition, we used an FrSky Taranis controller. You will also need zip ties, double-sided tape, a soldering iron.
+Крім того, ми використовували контролер FrSky Taranis. Вам також знадобляться хомутів, двостороння стрічка, паяльник.
 
-The image below shows both frame and electronic components.
+На наведеному нижче зображенні показані як рама, так і електронні компоненти.
 
 ![All components used in this build](../../assets/airframes/multicopter/dji_f450_cuav_5nano/all_components.jpg)
 
 
-## Hardware
+## Обладнання
 
 ### Frame
 
-This section lists all hardware for the frame.
+Цей розділ містить усе обладнання для каркасів.
 
-| Description                                       | Quantity |
+| Опис                                              | Quantity |
 | ------------------------------------------------- | -------- |
 | DJI F450 Bottom plate                             | 1        |
 | DJI F450 Top plate                                | 1        |
@@ -104,71 +104,71 @@ The following tools are used in this assembly:
 
 ![Required tools](../../assets/airframes/multicopter/dji_f450_cuav_5nano/required_tools.jpg)
 
-## Assembly
+## Збірка
 
-Estimated time to assemble is approximately 90 minutes (about 45 minutes for the frame and 45 minutes installing the autopilot and configuring the airframe.
+Приблизний час для збирання становить приблизно 90 хвилин (близько 45 хвилин на раму та 45 хвилин на встановлення автопілота та налаштування корпусу.
 
-1. Attach the 4 arms to the bottom plate using the provided screws.
+1. Прикріпіть 4 ніжки до нижньої пластини за допомогою наданих гвинтів.
 
    ![Arms to bottom plate](../../assets/airframes/multicopter/dji_f450_cuav_5nano/1_attach_arms_bottom_plate.jpg)
 
-1. Solder ESC (Electronic Speed Controller) to the board, positive (red) and negative (black).
+1. Припаяйте ЕСК (електронний регулятор швидкості) до плати, позитивний (червоний) та негативний (чорний).
 
    ![Solder ESCs](../../assets/airframes/multicopter/dji_f450_cuav_5nano/2_solder_esc.jpg)
 
-1. Solder the Power Module, positive (red) and negative (black).
+1. Припаяйте модуль живлення, позитивний (червоний) та негативний (чорний).
 
    ![Solder power module](../../assets/airframes/multicopter/dji_f450_cuav_5nano/3_solder_power_module.jpg)
 
-1. Plug in the motors to the ESCs according to their positions.
+1. Підключіть двигуни до ESC відповідно до їхніх позицій.
 
    ![Plug in motors](../../assets/airframes/multicopter/dji_f450_cuav_5nano/4_plug_in_motors.jpg)
 
-1. Attach the motors to the corresponding arms.
+1. Прикріпіть двигуни до відповідних рук.
 
    ![Attach motors to arms (white)](../../assets/airframes/multicopter/dji_f450_cuav_5nano/5a_attach_motors_to_arms.jpg) ![Attach motors to arms (red)](../../assets/airframes/multicopter/dji_f450_cuav_5nano/5b_attach_motors_to_arms.jpg)
 
-1. Add the top board (screw into the top of the legs).
+1. Додайте верхню дошку (прикрутіть до верхньої частини ніг).
 
    ![Add top board](../../assets/airframes/multicopter/dji_f450_cuav_5nano/6_add_top_board.jpg)
 
-1. Add damping foam to the *CUAV V5 nano* flight controller.
+1. Додайте амортизаційну пінку до польотного контролера *CUAV V5 nano*.
 
    ![Damping foam](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7a_attach_cuav5nano.jpg) ![Damping foam](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7b_attach_cuav5nano.jpg)
 
-1. Attach the FrSky receiver to the bottom board with double-sided tape.
+1. Прикріпіть приймач FrSky до нижньої плати за допомогою двосторонньої стрічки.
 
    ![Attach FrSky receiver with double-sided tape](../../assets/airframes/multicopter/dji_f450_cuav_5nano/8_attach_frsky.jpg)
 
-1. Attach the telemetry module to the vehicle’s bottom board using double-sided tape.
+1. Прикріпіть телеметричний модуль до нижньої плати транспортного засобу за допомогою двосторонньої стрічки.
 
    ![Attach telemetry radio](../../assets/airframes/multicopter/dji_f450_cuav_5nano/9a_telemtry_radio.jpg) ![Attach telemetry radio](../../assets/airframes/multicopter/dji_f450_cuav_5nano/9b_telemtry_radio.jpg)
 
-1. Put the aluminium standoffs on the button plate and attach GPS.
+1. Поставте алюмінієві опори на платформу кнопок і прикріпіть GPS.
 
    ![Aluminium standoffs](../../assets/airframes/multicopter/dji_f450_cuav_5nano/10_aluminium_standoffs.jpg)
 
-1. Plug in Telemetry (`TELEM1`), GPS module (`GPS/SAFETY`), RC receiver (`RC`), all 4 ESC’s (`M1-M4`), and the power module (`Power1`) into the flight controller. ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5nano/12_fc_attach_periperhals.jpg)
+1. Підключіть телеметрію (`TELEM1`), модуль GPS (`GPS/SAFETY`), приймач RC (`RC`), всі 4 ESC (`M1-M4`), та модуль живлення (`Power1`) до контролера польоту. ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5nano/12_fc_attach_periperhals.jpg)
 
-   ::: info The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
+   :::info Порядок мотора визначено в [Довідник з літальних апаратів > Квадрокоптер x](../airframes/airframe_reference.md#quadrotor-x)
 :::
 
-That's it! The final build is shown below:
+Ось і все! Останню збірку показано нижче:
 
 ![Finished Setup](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
 
-## PX4 Configuration
+## Налаштування PX4
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl* використовується для встановлення автопілота PX4 та його налаштування / налаштування для рами. [Завантажте та встановіть](http://qgroundcontrol.com/downloads/) *QGroundControl* для вашої платформи.
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
+Повні інструкції щодо встановлення та налаштування PX4 можна знайти в [Основна конфігурація](../config/index.md).
 :::
 
-First update the firmware, airframe, geometry and outputs:
+Спочатку оновіть прошивку, конструкцію та виходи:
 
-- [Firmware](../config/firmware.md)
+- [Прошивка](../config/firmware.md)
 - [Airframe](../config/airframe.md)
 
   ::: info You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
@@ -201,18 +201,18 @@ Ideally you should also do:
 - [Safety](../config/safety.md)
 
 
-## Tuning
+## Вдосконалення
 
-Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
+Набори вибору конструкції встановлюють параметри автопілота *за замовчуванням* для рами. Ці можуть бути достатньо хороші для польоту, але вам слід налаштувати кожну конструкцію рами.
 
-For instructions on how, start from [Autotune](../config/autotune.md).
+Для інструкцій щодо того, як розпочати, почніть з [Автоналаштування](../config/autotune.md).
 
 
-## Video
+## Відео
 
 @[youtube](https://youtu.be/b0bKNdDqVHw)
 
 
-## Acknowledgments
+## Подяки
 
-This build log was provided by the Dronecode Test Flight Team.
+Цей журнал збірки був наданий Командою тестового польоту Dronecode.

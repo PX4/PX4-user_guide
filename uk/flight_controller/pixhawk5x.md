@@ -1,54 +1,54 @@
 # Holybro Pixhawk 5X
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 :::
 
-_Pixhawk 5X_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
+_Pixhawk 5X_<sup>&reg;</sup> є останнім оновленням успішної серії політних контролерів Pixhawk®, розроблених та виготовлених у співпраці між Holybro<sup>&reg;</sup> та командою PX4.
 
-It is based on the [Pixhawk​​® Autopilot FMUv5X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf), [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). It comes with the latest PX4 Autopilot​® pre-installed, triple redundancy, temperature-controlled, isolated sensor domain, delivering incredible performance and reliability.
+Він базується на [Pixhawk​​® Autopilot FMUv5X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf), [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), та [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). Він поставляється з попередньо встановленою найновішою версією PX4 Autopilot​®, потрійним резервуванням, температурним контролем, ізольованими датчиками, що забезпечує неймовірну продуктивність і надійність.
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_hero_upright.jpg" width="250px" title="Pixhawk5x Upright Image" /> <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_exploded_diagram.jpg" width="450px" title="Pixhawk5x Exploded Image" />
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
 :::
 
-## Introduction
+## Вступ
 
-Inside the Pixhawk® 5X, you can find an STMicroelectronics® based STM32F7, paired with sensor technology from Bosch®, InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications. The Pixhawk® 5X’s F7 microcontroller has 2MB flash memory and 512KB RAM. The PX4 Autopilot takes advantage of the increased power and RAM. Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+Всередині Pixhawk® 5X ви можете знайти STM32F7 на базі STMicroelectronics® у поєднанні з сенсорною технологією від Bosch®, InvenSense®, що дає вам гнучкість і надійність для керування будь-яким автономним транспортним засобом, придатним як для академічних, так і для комерційних застосувань. Мікроконтролер Pixhawk® 5X F7 має 2 МБ флеш-пам'яті та 512 КБ ОЗП. Автопілот PX4 використовує переваги збільшеної потужності та оперативної пам’яті. Завдяки оновленій потужності обробки розробники можуть бути більш продуктивними та ефективними у своїй роботі з розробкою, що дозволяє використовувати складні алгоритми та моделі.
 
-The FMUv5X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization. Triple redundant IMU & double redundant barometer on separate buses. When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
+Відкритий стандарт FMUv5X включає в себе високопродуктивні IMU з низьким рівнем шуму, призначені для кращої стабілізації. Потрійне резервування IMU & подвійний резервний барометр на окремих шинах. Коли автопілот PX4 виявляє відмову датчика, система безперервно переключається на інший, щоб забезпечити надійність керування польотом.
 
-An independent LDO powers every sensor set with independent power control. A newly designed vibration isolations to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances. External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface, and with an integrated Microchip Ethernet PHY (LAN8742AI-CZ-TR), high-speed communication with mission computers via ethernet is now supported. Two smart battery monitoring ports (SMBus), support for INA226 SMBus Power module.
+Кожен незалежний LDO живить кожен набір сенсорів з незалежним керуванням живленням. Нова конструкція віброізоляції для фільтрації високочастотної вібрації та зменшення шуму для забезпечення точних показань, що дозволяє транспортним засобам досягати кращих загальних характеристик польоту. Зовнішня шина датчика (SPI5) має дві лінії вибору мікросхем та сигнали готовності даних для додаткових датчиків та корисного навантаження з інтерфейсом SPI, а також з інтегрованим Ethernet PHY від Microchip (LAN8742AI-CZ-TR), підтримується високошвидкісний обмін даними з обчислювальними пристроями місії через Ethernet. Два розумних порти моніторингу батареї (SMBus), підтримка модуля живлення INA226 SMBus.
 
-The Pixhawk® 5X is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application.
+Pixhawk® 5X ідеально підходить для розробників у корпоративних дослідницьких лабораторіях, стартапах, академії (дослідження, професори, студенти) та комерційних застосувань.
 
-## Key Design Points
+## Ключові пункти дизайну
 
-- Modular flight controller
-  - separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk® Autopilot Bus connector, designed for flexible and customizable systems
-- Redundancy
-  - 3x IMU sensors & 2x Barometer sensors on separate buses, allowing parallel and continuous operation even in the event of a hardware failure
-- Triple redundancy domains
-  - Completely isolated sensor domains with separate buses and separate power control
-- Temperature-controlled IMUs
-  - Onboard IMU heating resistors, allowing optimum working temperature of IMUs
-- Vibration isolation system
-  - Newly designed system to filter out high frequency vibration and reduce noise to ensure accurate readings
-- Ethernet interface
-  - For high-speed mission computer integration
-- Automated sensor calibration eliminating varying signals and temperature
-- Two smart batteries monitoring on SMBus
-- Additional GPIO line and 5V for the external NFC reader
-- Secure element for secure authentication of the drone (SE050)
+- Модульний політний контролер
+  - відокремлений IMU, FMU та Base system, з'єднані за допомогою роз'ємів Pixhawk® Autopilot Bus на 100 & 50 контактів, призначені для гнучких та налаштовуваних систем
+- Резервування
+  - 3x датчики IMU & 2x датчики барометра на окремих шинах, що дозволяє паралельну та безперервну роботу навіть в разі відмови обладнання
+- Потрійне резервування доменів
+  - Повністю ізольовані сенсорні домени з окремими шинами та окремим керуванням живленням
+- IMU з контролем температури
+  - Вбудовані нагрівальні резистори IMU, що забезпечують оптимальну робочу температуру IMU
+- Система ізоляції вібрації
+  - Нова система, призначена для фільтрації високочастотних вібрацій та зменшення шуму для забезпечення точних даних
+- Інтерфейс Ethernet
+  - Для високошвидкісної інтеграції комп'ютера місії
+- Автоматизоване калібрування сенсорів, що усуває відхилення сигналів та температури
+- Моніторинг двох розумних батарей на SMBus
+- Додаткова лінія GPIO та 5V для зовнішнього NFC зчитувача
+- Безпечний елемент для безпечної аутентифікації дрона (SE050)
 
-## Technical specification
+## Технічна специфікація
 
 - FMU Processor: STM32F765
-  - 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
+  - 32 Bit Arm® Cortex®-M7, 216MHz, 2MB пам'ять, 512KB RAM
 - IO Processor: STM32F100
   - 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-- On-board Sensors:
+- Бортові сенсори:
 
   - Accel/Gyro: ICM-20649
   - Accel/Gyro: ICM-42688P
@@ -56,79 +56,79 @@ The Pixhawk® 5X is perfect for developers at corporate research labs, startups,
   - Magnetometer: BMM150
   - Barometer: 2x BMP388
 
-- Interfaces
+- Інтерфейси
 
-  - 16- PWM servo outputs
-  - R/C input for Spektrum / DSM
-  - Dedicated R/C input for PPM and S.Bus input
-  - Dedicated analog / PWM RSSI input and S.Bus output
-  - 4 general purpose serial ports
-    - 3 with full flow control
-    - 1 with separate 1.5A current limit
-    - 1 with I2C and additional GPIO line for external NFC reader
-  - 2 GPS ports
-    - 1 full GPS & Safety Switch Port
-    - 1 basic GPS port
-  - 1 I2C port
-  - 1 Ethernet port
+  - 16 PWM виводів сервоприводів
+  - R/C вхід для Spektrum / DSM
+  - Виділений R/C вхід для PPM та S.Bus входу
+  - Спеціалізований аналоговий / PWM вхід RSSI та вивід S.Bus
+  - 4 загальних послідовних порти
+    - 3 з повним контролем потоку
+    - 1 з окремим обмеженням струму 1,5 А
+    - 1 з I2C та додатковою лінією GPIO для зовнішнього NFC зчитувача
+  - 2 порти GPS
+    - 1 повний GPS порт & порт запобіжного перемикача
+    - 1 базовий порт GPS
+  - 1 I2C порт
+  - 1 порт Ethernet
     - Transformerless Applications
   - 100Mbps
-  - 1 SPI bus
-  - 2 chip select lines
-  - 2 data-ready lines
-  - 1 SPI SYNC line
-  - 1 SPI reset line
-  - 2 CAN Buses for CAN peripheral
-    - CAN Bus has individual silent controls or ESC RX-MUX control
+  - 1 шина SPI
+  - 2 лінії вибору чіпу
+  - 2 лінії даних
+  - 1 SPI SYNC лінія
+  - 1 лінія SPI reset
+  - 2 CAN шини для CAN периферії
+    - CAN шина має individual silent controls або ESC RX-MUX control
   - 2 Power input ports with SMBus
-  - 1 AD & IO port
-    - 2 additional analog input
-    - 1 PWM/Capture input
-    - 2 Dedicated debug and GPIO lines
+  - 1 AD & IO порт
+    - 2 додаткових аналогових входи
+    - 1 PWM/Capture вхід
+    - 2 виділені відладочні та GPIO лінії
 
-- Voltage Ratings
+- Номінальна напруга
 
-  - Max input voltage: 6V
-  - USB Power Input: 4.75~5.25V
-  - Servo Rail Input: 0~36V
+  - Максимальна вхідна напруга: 6V
+  - Живлення USB входу: 4.75~5.25V
+  - Вхід сервоприводу: 0~36V
 
-- Dimensions
+- Розміри
 
-  - Flight Controller Module: 38.8 x 31.8 x 14.6mm
-  - Standard Baseboard: 52.4 x 103.4 x 16.7mm
+  - Модуль політного контролера: 38.8 x 31.8 x 14.6mm
+  - Стандартна базова плата: 52.4 x 103.4 x 16.7mm
 
-- Weight
+- Вага
 
-  - Flight Controller Module: 23g
-  - Standard Baseboard: 51g
+  - Модуль політного контролера: 23g
+  - Стандартна базова плата: 51g
 
-- Other Characteristics:
-  - Operating & storage temperature: -40 ~ 85°c
+- Інші характеристики:
+  - Температура роботи та зберігання: -40 ~ 85°c
 
-## Where to Buy
+## Де купити
 
-Order from [Holybro](https://holybro.com/products/pixhawk-5x).
+Замовляйте на [Holybro](https://holybro.com/products/pixhawk-5x).
 
-## Assembly/Setup
+## Збірка/інсталяція
 
-The [Pixhawk 5X Wiring Quick Start](../assembly/quick_start_pixhawk5x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
+[Швидкий старт з підключення Pixhawk 5X](../assembly/quick_start_pixhawk5x.md) надає інструкції щодо збірки необхідних/важливих периферійних пристроїв, включаючи GPS, модуль живлення тощо.
 
-## Connections
+## З'єднання
 
-![Pixhawk 5x Wiring Overview](../../assets/flight_controller/pixhawk5x/pixhawk5x_wiring_diagram.jpg)
+![Огляд підключення Pixhawk 5x](../../assets/flight_controller/pixhawk5x/pixhawk5x_wiring_diagram.jpg)
 
-## Pinouts
+## Розводка
 
-![Pixhawk 5X Pinout](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
+![Схема контактів Pixhawk 5X](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
-::: info
-Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
-::: infos:
+:::info
+Призначення контактів роз'ємів відбувається зліва направо (тобто Pin 1 - це найлівіший контакт).
+:::info
 
-- The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
-- _Pixhawk 5X_ pinouts can be downloaded in PDF from from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
+- [Контакт камери](../peripherals/camera.md#camera-capture) (`PI0`) є контактом 2 порту AD&IO, позначеним вище як `FMU_CAP1`.
+- Схему контактів _Pixhawk 5X_ можна завантажити у форматі PDF [тут](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) або [тут](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
 | UART   | Device     | Port          |
 | ------ | ---------- | ------------- |
@@ -141,44 +141,44 @@ Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
 | UART7  | /dev/ttyS6 | TELEM1        |
 | UART8  | /dev/ttyS7 | GPS2          |
 
-## Dimensions
+## Розміри
 
-![Pixhawk 5X Dimensions](../../assets/flight_controller/pixhawk5x/pixhawk5x_dimensions_all.jpg)
+![Розміри Pixhawk 5X](../../assets/flight_controller/pixhawk5x/pixhawk5x_dimensions_all.jpg)
 
-## Voltage Ratings
+## Номінальна напруга
 
-_Pixhawk 5X_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**. The **POWER1** & **POWER2** ports on the Pixhawk 5X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
+_Pixhawk 5X_ може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шини живлення: **POWER1**, **POWER2** і **USB**. Порти **POWER1** та **POWER2** на Pixhawk 5X використовують 6-контактний [Роз'єм плати CLIK-Mate Wire-to-Board PCB з кроком 2,00 мм](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
-**Normal Operation Maximum Ratings**
+**Максимальна напруга нормальної роботи**
 
-Under these conditions all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1** та **POWER2** входи (4.9V до 5.5V)
+1. **USB** вхід (4.75V до 5.25V)
 
-**Absolute Maximum Ratings**
+**Абсолютна максимальна напруга**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+За таких умов система не буде витрачати жодної потужності (не буде працювати), але залишиться неушкодженою.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1** та **POWER2** входи (операційний діапазон 4.1V до 5.7V, 0V до 10V без пошкоджень)
+1. **USB** вхід (робочий діапазон 4.1V до 5.7V, 0V до 6V без пошкоджень)
+1. Вхід серводвигуна: контакт VDD_SERVO **FMU PWM OUT** та **I/O PWM OUT** (0V до 42V без пошкоджень)
 
-**Voltage monitoring**
+**Моніторинг напруги**
 
-Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_pixhawk5x.md#power)).
+Цифровий моніторинг батареї I2C увімкнено за замовчуванням (див. [Швидкий старт >  Живлення](../assembly/quick_start_pixhawk5x.md#power)).
 
-::: info
-Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
+:::info
+Аналоговий моніторинг батареї через ADC не підтримується на цій конкретній платі, але може підтримуватися в варіантах цього контролера польоту з іншою базовою платою.
 :::
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана і автоматично встановлюється за допомогою _QGroundControl_ при підключенні відповідного обладнання.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [ зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v5x_default
@@ -186,46 +186,46 @@ make px4_fmu-v5x_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Відладочний порт
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
+[Системна консоль PX4](../debug/system_console.md) та інтерфейс [SWD](../debug/swd_debug.md) працюють на порту **FMU Debug**.
 
-The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
+Розводка та роз’єм відповідають інтерфейсу [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full), визначеному в [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (роз’єм JST SM10B).
 
-| Pin      | Signal           | Volt  |
-| -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
-| 8 (blk)  | PH11             | +3.3V |
-| 9 (blk)  | nRST             | +3.3V |
-| 10 (blk) | `GND`            | GND   |
+| Контакт      | Сигнал           | Вольтаж |
+| ------------ | ---------------- | ------- |
+| 1 (червоний) | `Vtref`          | +3.3V   |
+| 2 (чорний)   | Console TX (OUT) | +3.3V   |
+| 3 (чорний)   | Console RX (IN)  | +3.3V   |
+| 4 (чорний)   | `SWDIO`          | +3.3V   |
+| 5 (чорний)   | `SWCLK`          | +3.3V   |
+| 6 (чорний)   | `SWO`            | +3.3V   |
+| 7 (чорний)   | NFC GPIO         | +3.3V   |
+| 8 (чорний)   | PH11             | +3.3V   |
+| 9 (чорний)   | nRST             | +3.3V   |
+| 10 (чорний)  | `GND`            | GND     |
 
-For information about using this port see:
+Інформацію про використання цього порту див:
 
-- [SWD Debug Port](../debug/swd_debug.md)
-- [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
+- [Порт відладки SWD](../debug/swd_debug.md)
+- [Системна консоль PX4](../debug/system_console.md) (Зауважте, що консоль FMU зіставляється з USART3).
 
-## Peripherals
+## Периферійні пристрої
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Цифровий датчик швидкості польоту](https://holybro.com/products/digital-air-speed-sensor)
+- [Радіо модулі телеметрії](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [Далекоміри / Датчики відстані](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / Конструкції
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus. Повний набір підтримуваних конфігурацій можна переглянути в розділі [Довідник про планери](../airframes/airframe_reference.md).
 
-## Further info
+## Подальша інформація
 
-- [Pixhawk 5X Wiring QuickStart](../assembly/quick_start_pixhawk5x.md)
-- [Pixhawk 5X Overview & Specification](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Spec_Overview.pdf) (Holybro)
-- [Pixhawk 5X Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf) (Holybro)
-- [FMUv5X reference design pinout](https://docs.google.com/spreadsheets/d/1Su7u8PHp-Y1AlLGVuH_I8ewkEEXt_bHHYBHglRuVH7E/edit#gid=562580340).
-- [Pixhawk Autopilot FMUv5X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf).
-- [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
-- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+- [Гайд з підключення Pixhawk 5X](../assembly/quick_start_pixhawk5x.md)
+- [Огляд & специфікація Pixhawk 5X](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Spec_Overview.pdf) (Holybro)
+- [Схеми виводів Pixhawk 5X](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf) (Holybro)
+- [Схема роз'ємів для посилання на FMUv5X](https://docs.google.com/spreadsheets/d/1Su7u8PHp-Y1AlLGVuH_I8ewkEEXt_bHHYBHglRuVH7E/edit#gid=562580340).
+- [Стандарт автопілота Pixhawk FMUv5X](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf).
+- [Стандарт шин автопілота Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
+- [Стандарт роз'ємів Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).

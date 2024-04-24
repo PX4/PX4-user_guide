@@ -1,103 +1,103 @@
 # Holybro Pixhawk 6C
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 :::
 
-_Pixhawk 6C_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
+_Pixhawk 6C_<sup>&reg;</sup> є останньою оновленою версією успішної родини автопілотів Pixhawk®, розроблених та виготовлених у співпраці з Holybro<sup>&reg;</sup>  та командою PX4.
 
-It is equipped with a high performance H7 Processor, and comes with IMU redundancy, temperature-controlled IMU board, and cost effective design, delivering incredible performance and reliability. It complies with the Pixhawk [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+Він оснащений високопродуктивним процесором H7, резервуванням IMU, платою IMU з контролем температури та економічно вигідним дизайном, що забезпечує неймовірну продуктивність і надійність. Він відповідає стандарту роз'ємів Pixhawk [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 <img src="../../assets/flight_controller/pixhawk6c/pixhawk6c_hero_upright.png" width="250px" title="Pixhawk6c Upright Image" />
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
 :::
 
-## Introduction
+## Вступ
 
-The Pixhawk® 6C is the latest update to the successful family of Pixhawk® flight controllers.
+Pixhawk® 6C - це останнє оновлення успішної родини контролерів польоту Pixhawk®.
 
-Inside the Pixhawk® 6C, you can find an STMicroelectronics® based STM32H743, paired with sensor technology from Bosch® & InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
+Всередині Pixhawk® 6C ви можете знайти STM32H743 на базі STMicroelectronics®, поєднаний з сенсорною технологією від Bosch® & InvenSense®, що надає вам гнучкість і надійність для керування будь-яким автономним транспортним засобом, придатним як для академічних, так і для комерційних застосувань.
 
-The Pixhawk® 6C's H7 microcontroller contain the Arm® Cortex®-M7 core running up to 480 MHz, has 2MB flash memory and 1MB RAM. Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+Мікроконтролер H7 Pixhawk® 6C містить ядро Arm® Cortex®-M7, що працює до 480 МГц, має 2 МБ флеш-пам’яті та 1 МБ RAM. Завдяки оновленій потужності обробки розробники можуть бути більш продуктивними та ефективними у своїй роботі з розробкою, що дозволяє використовувати складні алгоритми та моделі.
 
-The Pixhawk 6C includes high-performance, low-noise IMUs on board, designed to be cost effective while having IMU redundancy. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
+Pixhawk 6C включає в себе високопродуктивні, низькозвукові ІМП на борту, призначені для ефективності витрат при наявності резервування ІМП. Система віброізоляції для фільтрації високочастотної вібрації та зменшення шуму для забезпечення точних показань, що дозволяє транспортним засобам досягати кращих загальних характеристик польоту.
 
-The Pixhawk® 6C is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application.
+Pixhawk® 6C ідеально підходить для розробників у корпоративних дослідницьких лабораторіях, стартапах, академіях (дослідження, професори, студенти) та комерційних застосувань.
 
-**Key Design Points**
+**Ключові пункти дизайну**
 
-- High performance STM32H743 Processor with more computing power & RAM
-- New cost-effective design with low-profile form factor
-- Newly designed integrated vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
-- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
+- Високопродуктивний процесор STM32H743 з більшою обчислювальною потужністю та оперативною пам'яттю
+- Новий економічний дизайн із низькопрофільним форм-фактором
+- Нова інтегрована система віброізоляції, призначена для фільтрації високочастотних вібрацій та зменшення шуму для забезпечення точних даних
+- IMU температурно контролюються за допомогою вбудованих нагрівальних резисторів, що дозволяє досягти оптимальної робочої температури IMU&#x20;
 
-# Technical Specification
+# Технічна специфікація
 
-### **Processors & Sensors**
+### **Процесори & датчики**
 
 - FMU Processor: STM32H743&#x20;
-  - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB memory, 1MB SRAM&#x20;
+  - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB пам'ять, 1MB SRAM&#x20;
 - IO Processor: STM32F103
   - &#x20;32 Bit Arm® Cortex®-M3, 72MHz, 64KB SRAM&#x20;
-- On-board sensors&#x20;
+- Бортові сенсори&#x20;
   - &#x20;Accel/Gyro: ICM-42688-P&#x20;
   - Accel/Gyro: BMI055&#x20;
   - Mag: IST8310&#x20;
   - Barometer: MS5611
 
-### **Electrical data**
+### **Електричні дані**
 
-- Voltage Ratings:
-  - Max input voltage: 6V
-  - USB Power Input: 4.75\~5.25V
-  - Servo Rail Input: 0\~36V
-- Current Ratings:
-  - TELEM1 Max output current limiter: 1.5A
-  - All other port combined output current limiter: 1.5A
+- Номінальна напруга:
+  - Максимальна вхідна напруга: 6V
+  - Вхід USB Power: 4.75~5.25V
+  - Вхід Servo Rail: 0\~36V
+- Номінальний струм:
+  - TELEM1 Обмежувач максимального вихідного струму: 1.5A
+  - Комбінований обмежувач вихідного струму всіх інших портів: 1.5A
 
-### **Mechanical data**
+### **Механічні характеристики**
 
-- Dimensions: 84.8 \* 44 \* 12.4 mm
-- Weight: 59.3g
+- Розміри: 84.8 \* 44 \* 12.4 mm
+- Вага: 59.3g
 
-### **Interfaces**
+### **Інтерфейси**
 
-- 16- PWM servo outputs (8 from IO, 8 from FMU)
-- 3 general purpose serial ports
-  - TELEM1 - Full flow control, separate 1.5A current limit
-  - TELEM2 - Full flow control
+- 16- PWM серво виводів (8 з IO, 8 з FMU)
+- 3 загальних послідовних порти
+  - TELEM1 - Повний контроль потоку, окреме обмеження струму 1.5A
+  - TELEM2 - Повний контроль потоку
   - TELEM3
-- 2 GPS ports
-  - GPS1 - Full GPS port (GPS plus safety switch)
-  - GPS2 - Basic GPS port
-- 1 I2C port
-  - Supports dedicated I2C calibration EEPROM located on sensor module
-- 2 CAN Buses
-  - CAN Bus has individual silent controls or ESC RX-MUX control
-- 2 Debug ports:
+- 2 порти GPS
+  - GPS1 - Повний порт GPS (GPS плюс захисний перемикач)
+  - GPS2 - Basic GPS порт
+- 1 I2C порт
+  - Підтримує виділене I2C калібрування EEPROM, розташоване на модулі сенсорів
+- 2 CAN шини
+  - CAN шина має individual silent controls або ESC RX-MUX control
+- 2 порти відладки:
   - FMU Debug
   - I/O Debug
-- Dedicated R/C input for Spektrum / DSM and S.BUS, CPPM, analog / PWM RSSI
-- Dedicated S.BUS output
-- 2 Power input ports (Analog)
+- Виділений R/C вхід для Spektrum / DSM та S.BUS, CPPM, аналоговий / PWM RSSI
+- Виділений S.BUS вивід
+- 2 порти Power input (аналогові)
 
-- Other Characteristics:
-  - Operating & storage temperature: -40 ~ 85°c
+- Інші характеристики:
+  - Температура роботи та зберігання: -40 ~ 85°c
 
-## Where to Buy
+## Де придбати
 
-Order from [Holybro](https://holybro.com/products/pixhawk-6c).
+Замовляйте на [Holybro](https://holybro.com/products/pixhawk-6c).
 
-## Assembly/Setup
+## Збірка / налаштування
 
-The [Pixhawk 6C Wiring Quick Start](../assembly/quick_start_pixhawk6c.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
+[Швидкий старт з підключення Pixhawk 6C](../assembly/quick_start_pixhawk6c.md) надає інструкції щодо збирання необхідних/важливих периферійних пристроїв, включаючи GPS, модуль живлення тощо.
 
-## Pinouts
+## Розводка
 
 - [Holybro Pixhawk 6C Pinout](https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-6c-pinout)
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
 | UART   | Device     | Port          |
 | ------ | ---------- | ------------- |
@@ -109,46 +109,46 @@ The [Pixhawk 6C Wiring Quick Start](../assembly/quick_start_pixhawk6c.md) provid
 | UART7  | /dev/ttyS5 | TELEM1        |
 | UART8  | /dev/ttyS6 | GPS2          |
 
-## Dimensions
+## Розміри
 
-- [Pixhawk 6C Dimensions](https://docs.holybro.com/autopilot/pixhawk-6c/dimensions)
+- [Розміри Pixhawk 6C](https://docs.holybro.com/autopilot/pixhawk-6c/dimensions)
 
-## Voltage Ratings
+## Номінальна напруга
 
-_Pixhawk 6C_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+_Pixhawk 6C_ може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шини живлення: **POWER1**, **POWER2** і **USB**.
 
-**Normal Operation Maximum Ratings**
+**Максимальна напруга нормальної роботи**
 
-Under these conditions all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1** та **POWER2** входи (4.9V до 5.5V)
+1. **USB** вхід (4.75V до 5.25V)
 
-**Absolute Maximum Ratings**
+**Абсолютна максимальна напруга**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+За таких умов система не буде витрачати жодної потужності (не буде працювати), але залишиться неушкодженою.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1** та **POWER2** входи (операційний діапазон 4.1V до 5.7V, 0V до 10V без пошкоджень)
+1. **USB** вхід (операційний діапазон 4.1V до 5.7V, 0V до 6V без пошкоджень)
+1. Servo вхід: VDD_SERVO контакт **FMU PWM OUT** та **I/O PWM OUT** (0V до 42V без пошкоджень)
 
-**Voltage monitoring**
+**Моніторинг напруги**
 
-Pixhawk 6C uses analog power modules.
+Pixhawk 6C використовує аналогові модулі живлення.
 
-Holybro makes various analog [power modules](../power_module/index.md) for different needs:
+Holybro виготовляє різноманітні аналогові [модулі живлення](../power_module/index.md) для різних потреб:
 
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v6c_default
@@ -156,46 +156,46 @@ make px4_fmu-v6c_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Відладочний порт
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
+[Системна консоль PX4](../debug/system_console.md) та [SWD interface](../debug/swd_debug.md) працюють на порту **FMU Debug**.
 
-The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
+Розпиновка та роз’єм відповідають інтерфейсу [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full), визначеному в інтерфейсі [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (роз’єм JST SM10B).
 
-| Pin      | Signal           | Volt  |
-| -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
-| 8 (blk)  | PH11             | +3.3V |
-| 9 (blk)  | nRST             | +3.3V |
-| 10 (blk) | `GND`            | GND   |
+| Pin          | Signal           | Volt  |
+| ------------ | ---------------- | ----- |
+| 1 (червоний) | `Vtref`          | +3.3V |
+| 2 (чорний)   | Console TX (OUT) | +3.3V |
+| 3 (чорний)   | Console RX (IN)  | +3.3V |
+| 4 (чорний)   | `SWDIO`          | +3.3V |
+| 5 (чорний)   | `SWCLK`          | +3.3V |
+| 6 (чорний)   | `SWO`            | +3.3V |
+| 7 (чорний)   | NFC GPIO         | +3.3V |
+| 8 (чорний)   | PH11             | +3.3V |
+| 9 (чорний)   | nRST             | +3.3V |
+| 10 (чорний)  | `GND`            | GND   |
 
-For information about using this port see:
+Інформацію про використання цього порту див:
 
-- [SWD Debug Port](../debug/swd_debug.md)
-- [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
+- [Порт відладки SWD](../debug/swd_debug.md)
+- [Системна консоль PX4](../debug/system_console.md) (Зауважте, що консоль FMU зіставляється з USART3).
 
-## Peripherals
+## Периферійні пристрої
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Цифровий датчик швидкості польоту](https://holybro.com/products/digital-air-speed-sensor)
+- [Радіо модулі телеметрії](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [Далекоміри / Датчики відстані](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / Конструкції
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus. Повний набір підтримуваних конфігурацій можна переглянути в розділі [Довідник про планери](../airframes/airframe_reference.md).
 
-## Further info
+## Подальша інформація
 
-- [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Pixhawk 6C Wiring QuickStart](../assembly/quick_start_pixhawk6c.md)
+- [Документи Holybro](https://docs.holybro.com/) (Holybro)
+- [Швидке підключення Pixhawk 6C](../assembly/quick_start_pixhawk6c.md)
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
-- [FMUv6C reference design pinout](https://docs.google.com/spreadsheets/d/1FcmWRKd6zjdz3-cnjEDYEmANKZOFzNSc/edit?usp=sharing&ouid=113251442407318461574&rtpof=true&sd=true).
+- [Довідник з дизайну схеми контактів FMUv6C](https://docs.google.com/spreadsheets/d/1FcmWRKd6zjdz3-cnjEDYEmANKZOFzNSc/edit?usp=sharing&ouid=113251442407318461574&rtpof=true&sd=true).
 - [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).

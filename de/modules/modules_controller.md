@@ -289,14 +289,12 @@ Navigator publishes position setpoint triplets (`position_setpoint_triplet_s`), 
 ### Usage
 ```
 navigator <command> [arguments...]
- navigator <command> [arguments...]
- navigator <command> [arguments...]
  Commands:
    start
 
    fencefile     load a geofence file from SD card, stored at etc/geofence.txt
 
-   fake_traffic  publishes 4 fake transponder_report_s uORB messages
+   fake_traffic  publishes 24 fake transponder_report_s uORB messages
 
    stop
 

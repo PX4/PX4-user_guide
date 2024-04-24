@@ -160,7 +160,7 @@ That's it! The final build is shown below:
 ![Finished Setup](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_cuav5_plus_complete_2.jpg)
 
 
-## PX4 Configuration
+## Налаштування PX4
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
@@ -205,11 +205,11 @@ Airframe selection sets *default* autopilot parameters for the frame. These may 
 
 For instructions on how, start from [Autotune](../config/autotune.md).
 
-## Video
+## Відео
 
 @[youtube](https://youtu.be/r-IkaVpN1Ko)
 
 
-## Acknowledgments
+## Подяки
 
-This build log was provided by the Dronecode Test Flight Team.
+Цей журнал збірки був наданий Командою тестового польоту Dronecode.

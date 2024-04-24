@@ -41,7 +41,7 @@
 
 Основні концепції геометрії та конфігурація для ряду різних фреймів наведені в наступних розділах.
 
-#### Motor Geometry: Multicopter
+#### Мотор геометрія: Мультикоптер
 
 На зображенні нижче показано налаштування геометрії для рамки квадрокоптера з і без розширеними налаштуваннями.
 
@@ -51,35 +51,35 @@
 
 Для кожного двигуна ви можете встановити:
 
-- `Position X`: [X-position](#motor-position-coordinate-system), in metres.
-- `Position Y`: [Y-position](#motor-position-coordinate-system), in metres.
-- `Position Z`: [Z-position](#motor-position-coordinate-system), in metres.
-- (Advanced) `Direction CCW`: Checkbox to indicate motor spins counter-clockwise (uncheck for clockwise).
-- (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors)
-- (Advanced) `Slew Rate`: Refer to the [Control Surfaces Geometry](#control-surfaces-geometry) section for more information
+- `Позиція X`: [Позиція X](#motor-position-coordinate-system), у метрах.
+- `Позиція Y`: [Позиція Y](#motor-position-coordinate-system), у метрах.
+- `Позиція Z`: [Z-position](#motor-position-coordinate-system), у метрах.
+- (Advanced) `Напрямок проти годинникової стрілки`: Прапорець, що вказує на те, що двигун обертається проти годинникової стрілки (зніміть прапорець для обертання за годинниковою стрілкою).
+- (Розширений) `Бідирекційний`: Прапорець, що вказує, що двигун є [бідирекційним](#bidirectional-motors)
+- (Розширено) `Коефіцієнт нахилу`: Див. розділ [Геометрія керованих поверхонь](#control-surfaces-geometry) для отримання додаткової інформації
 
-::: info The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centre of gravity_](#motor-position-coordinate-system). Note, this may not be the same as the position of the flight controller!
+:::info Позиції `X`, `Y`, `Z` в [FRD координатній системі](#motor-position-coordinate-system) відносно _центру ваги_. Зверніть увагу, що це може не збігатися з позицією контролера польоту!
 :::
 
-#### Motor Geometry: VTOL Quadrotor Tailsitter
+#### Геометрія двигуна: VTOL Quadrotor Tailsitter
 
-The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar).
+Геометрія двигуна для [Вертикального зльоту Quad Tailsitter](../airframes/airframe_reference.md#vtol-tailsitter) показана нижче (підхід до налаштування інших вертикальних зльотних транспортних засобів буде подібним).
 
-Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
+Двигуни мають ті ж поля конфігурації, що й для [геометрії мультикоптера](#motor-geometry-multicopter).
 
 ![Geometry motor: tailsitter vtol](../../assets/config/actuators/qgc_geometry_tailsitter_motors.png)
 
-#### Motor Geometry: VTOL Tiltrotor
+#### Геометрія двигуна: VTOL Tiltrotor
 
-The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) is shown below (the approach for configuring other [VTOL tiltrotors](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) will be similar).
+Геометрія двигуна для [Загального квадроплана VTOL з креновими роторами](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) показана нижче (підхід до налаштування інших [VTOL кренових роторів](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) буде схожим).
 
 ![Geometry motor: tiltrotor vtol](../../assets/config/actuators/qgc_geometry_tiltrotor_motors.png)
 
-- `Tilted by`: The associated servo used for tilting the motor. The properties of this servo are defined in the [Motor Tilt Servo Geometry](#motor-tilt-servo-geometry).
+- `Нахилений на`: Супутній сервопривід, що використовується для нахилу двигуна. Властивості цього серводвигуна визначаються в [Геометрії серводвигуна нахилу двигуна](#motor-tilt-servo-geometry).
 
-#### Motor Geometry: Standard VTOL
+#### Геометрія двигуна: стандартний VTOL
 
-The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
+Геометрія двигуна для [Загального стандартного Вертикального зльоту](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) показана нижче (підхід до налаштування інших "Стандартних Вертикальних зльотів" буде подібним).
 
 ![Geometry motor: standard vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
 
@@ -121,24 +121,24 @@ The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference
 ::: info За замовчуванням відображаються лише найпоширеніші налаштування. Виберіть прапорець **Додаткові** в правому верхньому куті вікна, щоб відобразити всі налаштування.
 :::
 
-The fields are:
+Кроки наступні:
 
-- `Control Surfaces`: The number of control surfaces (set this first!)
-- `Type`: The type of each control surface: `LeftAileron`, `RightAileron`, `Elevator`, `Rudder`, `Left Elevon`, `Right Elevon`, `Left V-Tail`, `Right V-Tail`, `Left Flap`, `Right Flap`, `Airbrakes`, `Custom`.
-- `Roll Torque`: Effectiveness of actuator around roll axis (normalised: -1 to 1). [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Pitch Torque`: Effectiveness of actuator around pitch axis (normalised: -1 to 1). [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Yaw Torque`: Effectiveness of actuator around yaw axis (normalised: -1 to 1). [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Trim`: An offset added to the actuator so that it is centered without input. This might be determined by trial and error.
-- (Advanced) `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
-  - The setting limits the rate of change of an actuator (if not specified then no rate limit is applied). It is intended for actuators that may be damaged if they move too fast — such as the tilting actuators on a tiltrotor VTOL vehicle.
-  - For example, a setting of 2.0 means that the motor/servo will not be commanded to move from 0 to 1 at a rate that completes the operation in less than 2 seconds (in case of reversible motors, the range is -1 to 1).
-- (Advanced) `Flap Scale`: How much this actuator is deflected at the "full flaps configuration" \[0, 1\] (see [Flap Scale and Spoiler Scale Configuration](#flap-scale-and-spoiler-scale-configuration) below). Can be used to configure aerodynamic surface as flap or to compensate for generated torque through main flaps.
-- (Advanced) `Spoiler Scale`: How much this actuator is deflected at the "full spoiler configuration" \[0, 1\] (see [Flap Scale and Spoiler Scale Configuration](#flap-scale-and-spoiler-scale-configuration) below). Can be used to configure aerodynamic surface as spoiler or to compensate for generated torque through main spoiler.
-- (VTOL only) `Lock control surfaces in hover`:
-  - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
-  - `Disabled`: Set this for vehicles that use control surfaces in hover, such as the duo tailsitter (which uses elevons for pitch and yaw control). It should also be set for vehicles that use control surfaces to provide additional stabilization in hover mode when moving at speed or in high winds.
+- `Керуючі поверхні`: Кількість керуючих поверхонь (встановіть це спочатку!)
+- `Тип`: Тип кожної керуючої поверхні: `Лівий елерон`, `Правий елерон`, `Елеватор`, `Руль`, `Лівий елевон`, `Правий елевон`, `Ліва V-хвістка`, `Права V-хвістка`, `Лівий флап`, `Правий флап`, `Повітряні гальма`, `Користувацькі`.
+- `Крутний момент по крену`: Ефективність приводу навколо осі крену (нормалізована: -1 до 1). [Загалом ви повинні використовувати значення актуатора за замовчуванням](#actuator-roll-pitch-and-yaw-scaling).
+- `Крутний момент по тангажу`: Ефективність приводу навколо осі тангажу (нормалізована: -1 до 1). [Загалом ви повинні використовувати значення актуатора за замовчуванням](#actuator-roll-pitch-and-yaw-scaling).
+- `Крутний момент по курсу`: Ефективність приводу навколо осі курсу (нормалізована: -1 до 1). [Загалом ви повинні використовувати значення актуатора за замовчуванням](#actuator-roll-pitch-and-yaw-scaling).
+- `Обрізка`: Зміщення, додане до приводу, щоб він був в центрі без вводу. Це може бути визначено методом проб і помилок.
+- (Розширено) `Швидкість нахилу`: Мінімальний час, дозволений для сигналу двигуна/сервопривода для проходження повного діапазону виходу, в секундах.
+  - Параметр обмежує швидкість зміни приводу (якщо не вказано, то обмеження швидкості не застосовується). Призначено для приводів, які можуть пошкодитися, якщо вони рухаються занадто швидко — наприклад, приводи нахилу на повітряному судні VTOL з можливістю повороту.
+  - Наприклад, значення 2.0 означає, що двигун/сервопривід не буде командуватися рухатися від 0 до 1 зі швидкістю, яка завершить операцію менш ніж за 2 секунди (у випадку реверсивних двигунів діапазон -1 до 1).
+- (Розширено) `Масштаб закривання`: На скільки цей привод відхиляється в "повній конфігурації закрил" \[0, 1\] (див. [Конфігурацію масштабу закривання та масштабу спойлера](#flap-scale-and-spoiler-scale-configuration) нижче). Може бути використаний для налаштування аеродинамічної поверхні як закрилок або для компенсації обертового моменту, що виникає через головні закрилки.
+- (Розширено) `Масштаб спойлера`: На скільки цей привод відхиляється в "повній конфігурації спойлера" \[0, 1\] (див. [Конфігурацію масштабу закривання та масштабу спойлера](#flap-scale-and-spoiler-scale-configuration) нижче). Може бути використаний для налаштування аеродинамічної поверхні як закрилок або для компенсації обертового моменту, що виникає через головні закрилки.
+- (Тільки VTOL) `Заблокуйте керуючі поверхні у режимі гвинтокрилування`:
+  - `Ввімкнено`: Більшість транспортних засобів не використовують керуючі поверхні у режимі утримання на місці. Використовуйте цей параметр, щоб заблокувати їх, щоб вони не впливали на динаміку транспортного засобу.
+  - `Вимкнено`: Встановіть це для транспортних засобів, які використовують керуючі поверхні у режимі утримання на місці, такі як двокрильний вертольот (який використовує елерони для кочення та розвороту). Також воно повинно бути встановлено для транспортних засобів, які використовують поверхні керування для забезпечення додаткової стабілізації в режимі утримання на місці при русі зі швидкістю або при сильному вітрі.
 
-#### Flap Scale and Spoiler Scale Configuration
+#### Конфігурація масштабу закрилка та спойлера
 
 "Керування флапами" та "керування спойлерами" - це аеродинамічні конфігурації, які можуть керуватися вручну пілотом (наприклад, за допомогою RC) або встановлюватися автоматично контролером. Наприклад, пілот або система посадки можуть ввести "керування спойлерами", щоб зменшити швидкість повітря перед посадкою.
 
@@ -154,13 +154,13 @@ The fields are:
 - Елерони в основному призначені для забезпечення керованого крутного моменту. Вони також мають масштаби спойлерів `Spoiler Scale`, встановлені на 0,5, і додатково будуть відхилені вгору на 50%, якщо контролер вимагає повну конфігурацію спойлера. Таким чином, відхилення елеронів - це сума (асиметричного) відхилення для крутного моменту, плюс (симетричне) відхилення для вказаної точки спойлера.
 - Елеватор в основному призначений для забезпечення крутного моменту по тангажу. Він також має ненульні значення в полях масштабу флапів `Flap Scale` та спойлерів `Spoiler Scale`. Це відхилення елеватора, яке додається для компенсації моментів по тангажу, створених дією поверхні флапів та спойлерів. У цьому випадку елеватор буде відхилений на 0,3 вгору при повному розгортанні флапів для компенсації моменту, спрямованого вниз, який викликано дією флапів.
 
-#### Actuator Roll, Pitch, and Yaw Scaling
+#### Масштабування крену, кута та повороту приводу
 
-::: info
-For the majority of airframe setups the default values for each control surface types should not be changed.
+:::info
+Для більшості конструкцій аеросуден вихідні значення для кожного типу керуючої поверхні не повинні змінюватися.
 :::
 
-The `Roll scale`, `Pitch scale` and `Yaw scale` values indicate the normalized effectiveness of the actuator around the corresponding axis.
+Значення `Масштабу кочення`, `Масштабу тангажу` та `Масштабу риштування` вказують на нормалізовану ефективність приводу навколо відповідної вісі.
 
 Настройка значень є темою низького / рівня / продвинутої складності і, як правило, потрібна лише при налаштуванні зв'язаних поверхонь керування (наприклад, елерон, який контролює як кочення, так і тангаж). У цьому випадку важливо знати наступне:
 
@@ -169,104 +169,104 @@ The `Roll scale`, `Pitch scale` and `Yaw scale` values indicate the normalized e
 
 <!-- For more information see: []() (PX4 Dev Summit, 2022) -->
 
-#### Control Surface Deflection Convention
+#### Конвенція про відхилення поверхні керування
 
-The diagram below shows the convention for deflections:
+Діаграма нижче показує конвенцію для відхилень:
 
 ![Control Surface Deflections](../../assets/config/actuators/plane_control_surface_convention.png)
 
-In summary:
+Підсумовуючи:
 
-- **Horizontal Control Surfaces:** Upwards movement equals positive deflection. Includes Ailerons, etc
-- **Vertical Control Surfaces:** Rightwards movement is positive deflection. Includes rudders etc.
-- **Mixed Control Surfaces:** Upwards/rightwards movement is positive (as above). Includes V-Tail etc.
+- **Горизонтальні керуючі поверхні:** Вгору рух означає позитивне відхилення. Містить елерони, тощо
+- **Вертикальні керуючі поверхні:** Праворуч рух є позитивним відхиленням. Містить кермо тощо.
+- **Змішані керуючі поверхні:** Вгору/праворуч рух є позитивним (як вище). Включає в себе V-Tail тощо.
 
 <!-- Also see this comment: https://github.com/PX4/PX4-Autopilot/blob/96b03040491e727752751c0e0beed87f0966e6d4/src/modules/control_allocator/module.yaml#L492 -->
 
-### Motor Tilt Servo Geometry
+### Геометрія сервоприводу нахилу двигуна
 
-[VTOL tiltrotor vehicles](../frames_vtol/tiltrotor.md) can tilt their motors to transition between hover and forward flight. This section defines the properties of the tilting servos. These are mapped to specific motors in the motor geometry for a tiltrotor.
+[Літальні апарати VTOL](../frames_vtol/tiltrotor.md) з кільцевими роторами можуть нахиляти свої двигуни для переходу між вертикальним польотом і польотом вперед. Цей розділ визначає властивості сервоприводів з відхиленням. Ці значення відображаються на конкретні двигуни в геометрії двигуна для тільтротора.
 
-The example below shows the tilt servo setup for the [tiltrotor motor geometry shown above](../config/actuators.md#motor-geometry-vtol-tiltrotor).
+Наведений нижче приклад показує налаштування серводвигуна для [геометрії мотора тілтротора, показаної вище](../config/actuators.md#motor-geometry-vtol-tiltrotor).
 
 ![Tilt Servo Geometry Setup Example](../../assets/config/actuators/tilt_servo_geometry_config.png)
 
-The values that can be set are:
+Допустимі значення, які можна встановити:
 
-- `Tilt servos`: The number of servos (tiltable motors).
-- `Angle at min tilt`: [Maximum tilt angle](#tilt-servo-coordinate-system) in degrees, relative to the z axis.
-- `Angle at max tilt`: [Minimum tilt angle](#tilt-servo-coordinate-system) in degrees, relative to the z-axis.
-- `Tilt direction`: `Towards front` (positive x direction) or `Towards right` (positive y direction).
-- `Use for control`: [Tilt servo used for yaw/pitch](#tilt-servos-for-yaw-pitch-control)
-  - `None`: Torque control is not used.
-  - `Yaw`: Tilt servos used to control yaw.
-  - `Pitch`: Tilt servos used to control pitch.
-  - `Both Yaw and Pitch`: Tilt servos are used to control both yaw and pitch.
+- `Сервоприводи нахилу`: Кількість сервоприводів (похилих моторів).
+- `Кут при мінімальному нахилі`: [Максимальний кут нахилу](#tilt-servo-coordinate-system) в градусах, відносно вісі z.
+- `Кут у максимальному куті`: [Мінімальний кут нахилу](#tilt-servo-coordinate-system) у градусах, відносно осі z-осі.
+- `Напрямок нахилу`: `` (додатний х напрямок) або `до інструкцій справа від` (позитивний напрямок y).
+- `Використовуйте для контролю`: [Сервопривід нахилу використовується для крен/тангажу](#tilt-servos-for-yaw-pitch-control)
+  - `Жоден`: Контроль крутного моменту не використовується.
+  - `Крен`: Сервоприводи, що використовуються для керування креном.
+  - `Крен`: Сервоприводи, які використовуються для керування креном.
+  - `Як рульове і крен`: Сервоприводи нахилу використовуються для контролю як рульового, так і крену.
 
-#### Tilt Servo Coordinate System
+#### Система координат сервопривода нахилу
 
-The coordinate system for tilt rotor angles is shown below. The reference direction for tilt angles is straight upwards (0 degrees). Tilt angles towards the front or right of the vehicle are positive, and towards the back or to the left are negative.
+Система координат для кутів нахилу вітрокрила показана нижче. Орієнтація для кутів нахилу - пряме вгору (0 градусів). Кут нахилу вперед або праворуч від автомобіля є позитивним, а в напрямку назад або ліворуч - негативним.
 
 ![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
 
-The `Angle at min tilt` and `Angle at max tilt` indicate the range of movement for the tilt servo. The minimum tilt is the smaller _numerical value_ (not absolute) of the two angles.
+`Кут при мінімальному нахилі` та `Кут при максимальному нахилі` вказують на діапазон руху серводвигуна нахилу. Мінімальний нахил - це менше _числове значення_ (не абсолютне) двох кутів.
 
-If the max/min tilt vectors are **P<sub>0</sub>** and **P<sub>1</sub>** as shown above, both tilt angles are positive but **θ<sub>0</sub>** is smaller:
+Якщо максимальні/мінімальні вектори нахилу **P<sub>0</sub>** та **P<sub>1</sub>**, як показано вище, обидва кути нахилу є позитивними, але **θ<sub>0</sub>** менший:
 
-- `Angle at min tilt` = **θ<sub>0</sub>**
-- `Angle at max tilt` = **θ<sub>1</sub>**
+- `Кут при мінімальному нахилі` = **θ<sub>0</sub>**
+- `Кут при максимальному нахилі` = **θ<sub>1</sub>**
 
-::: info If the diagram was mirrored so that **P<sub>0</sub>** and **P<sub>1</sub>** were tilting into the -x, -y quadrant, then both the tilt angles would be negative. Because **θ<sub>1</sub>** would more negative (smaller) than **θ<sub>0</sub>**, it would be the `Angle at min tilt`.
+:::info Якщо діаграма була відображена дзеркально, так що **P<sub>0</sub>** та **P<sub>1</sub>** нахилялися в -x, -y квадрант, тоді обидва кути нахилу були б від'ємними. Тому що **θ<sub>1</sub>** буде більш від'ємним (меншим) ніж **θ<sub>0</sub>**, він буде `Кут при мінімальному нахилі`.
 
-Similarly, a servo that moves:
+Аналогічно, сервопривід, який рухається:
 
-- between the upright and forward positions would have `min=0` and `max=90`.
-- symmetrically 45 degrees around the upright position would have `min=-45` and `max=45`
-- between the upright and backward positions would have `min=-90` and `max=0`.
+- між вертикальним і впереднім положеннями буде мати `min=0` і `max=90`.
+- симетрично на 45 градусів навколо вертикального положення матиме `min=-45` та `max=45`
+- між вертикальним і назад положеннями буде мати `min=-90` і `max=0`.
 :::
 
-The `Tilt direction` indicates whether the servo tilts in the plane towards the `Front` or `Right` of the vehicle. On the diagram this would be represented by **α** that can only take values of 0 (front) or 90 (right).
+`Напрямок нахилу` вказує, чи нахиляється сервопривід у площині до `Передньої` або `Правої` частини транспортного засобу. На діаграмі це буде представлено **α**, яке може приймати лише значення 0 (вперед) або 90 (праворуч).
 
-#### Tilt Servos for Yaw/Pitch Control
+#### Сервоприводи для крену/тангажу
 
-Tilt servos can provide torque on one or more axes, which may be used to yaw or pitch the vehicle:
+Сервоприводи нахилу можуть надавати крутний момент на одній або декількох осях, які можуть бути використані для розвороту або крена транспортного засобу:
 
-- Yaw is commonly set in this way, though motors are often used instead on vehicles with four or more motors.
-- Pitch is more commonly controlled using differential motors thrust. Control using tilt servos is useful on airframes that can't use differential thrust, such as a [Bicopter](https://www.youtube.com/watch?v=hfss7nCN40A).
+- Yaw зазвичай налаштовується таким чином, хоча на транспортних засобах з чотирма або більше двигунами часто використовуються двигуни.
+- Крен керується в основному за допомогою різниці тяги двигунів. Керування за допомогою сервоприводів нахилу корисне на повітряних конструкціях, які не можуть використовувати диференційний тягу, наприклад, [Бікоптер](https://www.youtube.com/watch?v=hfss7nCN40A).
 
-Whether this feature is used is configured in the `Use for control` setting.
+Чи ця функція використовується, налаштовується в параметрі `Використовувати для управління`.
 
-## Actuator Outputs
+## Виводи приводу
 
-The _Actuator Outputs_ section is used to assign motors, control surface servos, and other actuators used by the particular frame to the physical outputs on the flight controller, and to set parameters for those outputs.
+Розділ _Виводи приводу_ використовується для призначення моторів, сервоприводів поверхні керування та інших приводів, які використовуються конкретною рамою, до фізичних виводів на контролері польоту та для встановлення параметрів для цих виводів.
 
 ![Actuator Outputs - Multicopter diagram](../../assets/config/actuators/qgc_actuators_mc_outputs.png)
 
-Separate tabs are displayed for each output bus supported by the connected flight controller: PWM MAIN (I/O Board output), PWM AUX (FMU Board output), UAVCAN.
+Для кожної підтримуваної вихідної шини, підключеної до керуючого контролера польоту, відображаються окремі вкладки: PWM MAIN (вихід дошки вводу/виводу), PWM AUX (вихід дошки FMU), UAVCAN.
 
-Motors and actuators (which are referred to as "[functions](#output-functions)") can be assigned to any physical output on any of the available buses.
+Двигуни та приводи (які називаються "[функціями](#output-functions)") можуть бути призначені для будь-якого фізичного виводу на будь-якій з наявних шин.
 
-::: info
-PWM AUX outputs are preferred over the PWM MAIN outputs for controlling motors (they have lower latency).
+:::info
+PWM AUX виходи вважаються бажаними для керування двигунами над PWM MAIN виходами (вони мають меншу затримку).
 :::
 
-PWM outputs are grouped based on the hardware timer groups. Meaning all the outputs in one group must operate under the same protocol at the same rate (e.g. PWM signal at 400Hz for all the outputs in one group). Therefore it is not possible to map Servo and a Motor in the same output group, as they usually operate at a different rate.
+Вихідні PWM групуються на основі груп апаратних таймерів. Це означає, що всі виходи в одній групі повинні працювати за одним протоколом з однаковою швидкістю (наприклад, сигнал ШІМ на частоті 400 Гц для всіх виходів в одній групі). Тому неможливо відобразити Серводвигун та Двигун в одній вихідній групі, оскільки вони зазвичай працюють на різних швидкостях.
 
-The PWM AUX tab has CAP outputs that are generally used as the [camera capture/trigger input](../peripherals/camera.md#trigger-configuration). However you can map the CAP outputs to other output functions, and other AUX outputs can be used as camera capture/triggering input.
+Вкладка PWM AUX має виходи CAP, які, як правило, використовуються як [вхід знімка/спуску камери](../peripherals/camera.md#trigger-configuration). Однак ви можете відобразити виводи CAP на інші функції виводу, і інші AUX виводи можуть бути використані як вхід для захоплення / спрацювання камери.
 
-::: info
-Configuring the Camera Capture / Trigger input requires a reboot to take effect
+:::info
+Налаштування захоплення камери / Тригер вхід потребує перезавантаження для набуття чинності
 :::
 
-You should assign functions to the outputs that match your physical wiring of motors and servos, and use the [Actuator Testing](#actuator-testing) section described below to determine appropriate output parameter values. These steps are covered in [Output Assignment and Configuration](#output-assignment-and-configuration).
+Ви повинні призначити функції виходам, які відповідають вашій фізичній з'єднаності моторів та сервоприводів, і використовувати розділ [Тестування приводів](#actuator-testing), описаний нижче, для визначення відповідних значень параметрів виходу. Ці кроки охоплені в [Вихідному призначенні та конфігурації](#output-assignment-and-configuration).
 
-### Output Functions
+### Функції виведення
 
-Output functions are used to map the "logical functions" of an airframe, such as `Motor 1` or `Landing gear`, to physical outputs like FMU output pin 2. This makes it easy to use a particular output pin for almost any purpose.
+Функції виводу використовуються для відображення "логічних функцій" конструкції повітряного каркасу, таких як `Мотор 1` або `Шасі`, на фізичні виводи, наприклад, вивідний пін FMU 2. Це дозволяє легко використовувати певний вихідний контакт для майже будь-якої мети.
 
-Some functions are only relevant to particular frames or output types, and will not be offered on others.
+Деякі функції є актуальними лише для певних кадрів або типів виведення, і не будуть запропоновані на інших.
 
-Functions include:
+Функції включають:
 
 - `Disabled`: Output has no assigned function.
 - `Constant_Min`: Output set to constant minimum value (-1).
@@ -275,7 +275,7 @@ Functions include:
 - `Servo 1` to `Servo 8`: Servo output. These are further assigned a specific meaning based on airframe, such as "tilt servo", "left aileron".
 - `Peripheral via Acutator Set 1` to `Peripheral via Acutator Set 6`: [Generic Actuator Control with MAVLink](../payloads/generic_actuator_control.md#generic-actuator-control-with-mavlink).
 - `Landing Gear`: Output is landing gear.
-- `Parachute`: Output is parachute. The minimum value is sent in normal use and the maximum value is emitted when a failsafe is triggered.
+- `Парашут`: Вихід - це парашут. The minimum value is sent in normal use and the maximum value is emitted when a failsafe is triggered.
 - `RC Roll`: Output is passthrough roll from RC ([RC_MAP_ROLL](../advanced_config/parameter_reference.md#RC_MAP_ROLL) maps an RC channel to this output). An RC channel is mapped to the output using .
 - `RC Pitch`: Output is passthrough pitch from RC ([RC_MAP_PITCH](../advanced_config/parameter_reference.md#RC_MAP_PITCH) maps an RC channel to this output).
 - `RC Throttle`: Output is passthrough throttle from RC ([RC_MAP_THROTTLE](../advanced_config/parameter_reference.md#RC_MAP_THROTTLE) maps an RC channel to this output).
@@ -297,197 +297,197 @@ The following functions can only be applied to FMU outputs:
 
 ## Actuator Testing
 
-The _Actuator Testing_ section in lower-right corner provides sliders that can be used to test (and determine) actuator and motor settings. A slider is provided for each output defined in the [Actuator Outputs](#actuator-outputs) section. The slider example below shows the section for a typical VTOL Tiltrotor airframe.
+Секція _Тестування приводів_ у нижньому правому куті надає повзунки, які можна використовувати для тестування (та визначення) налаштувань приводу та двигуна. Для кожного виводу, визначеного в розділі [Виводи приводу](#actuator-outputs), надається повзунок. Наведений нижче приклад слайдера показує розділ для типової повітряної конструкції VTOL Tiltrotor.
 
 ![Actuator Testing Slider](../../assets/config/actuators/vtol_tiltrotor_sliders_example.png)
 
-The section has an **Enable Sliders** switch that must be toggled before sliders can be used. The sliders can power the motors/servos across their full range of motion, and "snap" to the disarmed and minimum positions.
+Розділ має перемикач **Увімкнути слайдери**, який необхідно перемкнути перед використанням слайдерів. Повзунки можуть живити двигуни/сервоприводи в повному діапазоні їх руху, а також «прив’язувати» до вимкненого та мінімального положень.
 
-::: info After you toggle the **Enable sliders** switch, actuators/motors won't do anything until the corresponding slider is _moved_. This is a safety feature to prevent sudden motor movements after switch is enabled.
+:::info Після перемикання перемикача **Увімкнути слайдери**, приводи/мотори не будуть робити нічого, доки відповідний слайдер не буде _переміщений_. Це функція безпеки, що запобігає раптовим рухам двигуна після увімкнення перемикача.
 :::
 
-Sliders can be used to verify the following:
+Повзунки можуть бути використані для перевірки наступного:
 
-1. Actuators (Motors, Control surfaces, etc.) are assigned to the expected output.
-1. Motors don't spin when at the `disarmed` PWM output value
-1. Motors barely spin at the `minimum` PWM output value.
-1. Motors give **positive thrust** in the expected direction
-1. Control Surfaces are in the correct idle position for `disarmed` output value
-1. Control Surfaces move in the direction as defined in the [Control Surface Convention](#control-surface-deflection-convention)
-1. Motor Tilt Servos are in the correct idle position for `disarmed` output value
-1. Motor Tilt Servos move in the direction as defined in the [Tilt Servo Convention](#tilt-servo-coordinate-system)
+1. Приводи (мотори, керуючі поверхні тощо) призначені для очікуваного виводу.
+1. Двигуни не обертаються, коли досягнуто значення виводу ШШІ `роззброєно`
+1. Двигуни ледь, але надійно запускаються на `мінімальному` значенні вихідного сигналу ШІМ.
+1. Двигуни дають **позитивну тягу** в очікуваному напрямку
+1. Поверхні керування знаходяться в правильному положенні очікування для вихідного значення `знято з охорони`
+1. Поверхні керування знаходяться в правильному положенні очікування для вихідного значення [знято з охорони](#control-surface-deflection-convention)
+1. Моторні сервоприводи належним чином знаходяться в позиції покою для вихідного значення `disarmed`
+1. Сервоприводи нахилу двигуна рухаються в напрямку, визначеному в [Конвенції про сервоприводи нахилу](#tilt-servo-coordinate-system)
 
-## Output Assignment and Configuration
+## Призначення та конфігурація виходу
 
-Outputs are assigned to functions and configured in the [Actuator Outputs](#actuator-outputs) section, while the [Actuator Testing](#actuator-testing) sliders are commonly used to determine appropriate configuration values to enter:
+Виведення призначені для функцій та налаштовуються в розділі [Виведення приводу](#actuator-outputs), тоді як регулятори [Тестування приводу](#actuator-testing) зазвичай використовуються для визначення відповідних значень конфігурації, які слід ввести:
 
-- MC vehicles that have connected motors to PWM outputs can use the [Identify & Assign Motors](#multicopter-pwm-motor-assignment) button to perform motor assignment "semi-automatically".
-- Output assignment of both motors and actuators can be done/checked using sliders (see [Output Assignment (Manual)](#output-assignment-manual)).
-- Disarmed, minimum, and maximum settings, for all outputs can also be also determined using sliders. This is shown as part of [Motor Configuration](#motor-configuration), [Control Surface Setup](#control-surface-setup), [Tilt servo setup](#tilt-servo-setup)
+- Транспортні засоби MC, які мають підключені двигуни до виходів ШШІ, можуть використовувати кнопку [Ідентифікувати &  Призначити Двигуни](#multicopter-pwm-motor-assignment) для виконання призначення двигунів "пів-автоматично".
+- Виведення призначення обох двигунів та приводів може бути виконано / перевірено за допомогою слайдерів (див. [Призначення виведення (вручну)](#output-assignment-manual)).
+- Роззброєний, мінімальні та максимальні налаштування для всіх виходів також можуть бути визначені за допомогою слайдерів. Це показано як частина [Конфігурація двигуна](#motor-configuration), [Налаштування поверхні керування](#control-surface-setup), [Налаштування сервопривода нахилу](#tilt-servo-setup)
 
-### Multicopter PWM: Motor Assignment
+### PWM багатокоптера: Призначення двигуна
 
-You can use the **Identify & Assign Motors** button to assign motors to PWM outputs using a semi-automated process.
+Ви можете використовувати кнопку **Ідентифікувати та Призначити Двигуни** для призначення двигунів на виходи ШІМ з використанням напівавтоматизованого процесу.
 
-::: info This is the easiest way to assign motors, but is currently only supported for motors on **multicopter vehicles** that are connected to PWM outputs (UAVCAN outputs and other frame types do not support this feature). On other frames you can follow the instructions in [Output Assignment (Manual)](#output-assignment-manual).
+:::info Це найлегший спосіб призначення двигунів, але наразі підтримується лише для двигунів на **багокоптерних транспортних засобах**, які підключені до виходів ШШП (виходи UAVCAN та інші типи рамок не підтримують цю функцію). On other frames you can follow the instructions in [Output Assignment (Manual)](#output-assignment-manual).
 :::
 
 :::warning
-Remove the propellers from motors before assigning outputs or any testing.
+Видаліть гвинти з моторів перед призначенням виходів або будь-якими випробуваннями.
 :::
 
 ![Identify motor button](../../assets/config/actuators/identify_motors_button.png)
 
-When you click the button, QGC sends a command to a motor, causing it to spin. To assign that motor to an output you simply select the corresponding motor displayed in the screen. QGC will then spin the next motor for you to assign, and so on.
+Коли ви натискаєте кнопку, QGC відправляє команду до двигуна, що призводить до його обертання. Щоб призначити цей двигун виводу, просто виберіть відповідний двигун, який відображається на екрані. QGC потім автоматично обере наступний двигун для вас для призначення, і так далі.
 
-Instructions:
+Інструкції:
 
-1. Setup the motor geometry to match the motors on your frame.
-1. Select the PWM tab where you want to assign the motors.
-1. Click the **Identify & Assign Motors** button.
-1. One motor will start spinning (click **Spin Motor Again** if it stops spinning too quickly to note.)
+1. Налаштуйте геометрію двигуна, щоб вона відповідала двигунам на вашій рамі.
+1. Виберіть вкладку PWM, на якій ви хочете призначити двигуни.
+1. Натисніть кнопку **Визначити & призначити двигуни**.
+1. Один двигун почне обертатися (натисніть **Обертати двигун знову**, якщо він зупиниться занадто швидко, щоб зауважити.)
 
-   Select the corresponding motor in the geometry section.
+   Виберіть відповідний двигун в розділі геометрії.
 
    ![](../../assets/config/actuators/identify_motors_in_progress.png)
 
-1. After assigning all motors, the tool will set the correct motor mapping for the outputs and then exit.
+1. Після призначення всіх двигунів інструмент встановить правильне відображення двигунів для виходів, а потім вийде.
 
-### Output Assignment (Manual)
-
-:::warning
-Remove the propellers from motors before assigning outputs or any testing.
-:::
-
-Actuator outputs for both motors and servos can be _manually_ assigned using sliders in the [Actuator Testing](#actuator-testing) section.
-
-To assign an actuator:
-
-1. First assign functions to the outputs that you think are _likely_ to be correct in the _Actuator Outputs_ section.
-1. Toggle the **Enable sliders** switch in _Actuator Testing_ section.
-1. Move the slider for the actuator you want to test:
-   - Motors should be moved to the minimum thrust position.
-   - Servos should be moved near the middle position.
-1. Check which actuator moves on the vehicle. This should match the actuator positions for your geometry (the [airframe reference](../airframes/airframe_reference.md) shows motor positions for a number of standard airframes).
-   - If the correct actuator moves, then proceed to the next step.
-   - If a wrong actuator moves, swap the output assignment over.
-   - If nothing moves then increase the slider mid-way though the range, then higher if needed. If nothing moves after that the output might not be connected, the motor might not be powered, or the output might be misconfigured. You will need to troubleshoot (perhaps try other actuator outputs to see if "anything" moves).
-1. Return the slider to the "disarmed" position (bottom of slider for motors, centre of slider for servos).
-1. Repeat for all actuators
-
-### Motor Configuration
-
-::: info If using PWM or OneShot ESCs, you should first perform [ESC Calibration](../advanced_config/esc_calibration.md) (this topic also covers PWM specific motor configuration).
-
-[DShot](../peripherals/dshot.md) ESCs do not require configuration of the command limits but only rotation direction.
-:::
+### Вивід призначення (ручний)
 
 :::warning
-Remove propellers!
+Видаліть гвинти з моторів перед призначенням виходів або будь-якими випробуваннями.
 :::
 
-The motor configuration sets output values such that motors:
+Виходи приводів для обох двигунів та сервоприводів можна _вручну_ призначити за допомогою повзунків у розділі [Тестування приводів](#actuator-testing).
 
-- don't spin when disarmed (at the `disarmed` PWM output value).
-- barely but reliably spin up at the `minimum` PWM output value.
-- have the _lowest_ `maximum` PWM output value that spins the motor at its _highest_ rate.
-- give **positive thrust** in the expected direction.
+Для призначення приводу:
 
-For each motor:
+1. Спочатку призначте функції виходам, які, на вашу думку, _ймовірно_, є правильними в розділі _Вихідні пристрої_.
+1. Перемкніть перемикач **Увімкнути слайдери** у розділі _Тестування приводів_.
+1. Перемістіть повзунок для приводу, який ви хочете перевірити:
+   - Двигуни повинні бути переведені в положення мінімального тяги.
+   - Сервоприводи повинні бути переміщені близько до середнього положення.
+1. Перевірте, який привод рухається на транспортному засобі. Це повинно відповідати позиціям приводів для вашої геометрії (посилання на [довідник по конструкції повітряних суден](../airframes/airframe_reference.md) показує позиції двигунів для декількох стандартних конструкцій повітряних суден).
+   - Якщо правильний привод рухається, перейдіть до наступного кроку.
+   - Якщо неправильний привод рухається, поміняйте призначення виводу.
+   - Якщо нічого не рухається, то збільште регулятор наполовину діапазону, потім вище, якщо потрібно. Якщо після цього нічого не рухається, вихід може бути не підключений, можливо, двигун не живиться або вихід може бути неправильно налаштований. Вам потрібно буде вирішити проблему (можливо, спробуйте інші виходи виконавчих пристроїв, щоб побачити, чи "щось" рухається).
+1. Поверніть слайдер у положення "роззброєно" (донизу для двигунів, по центру для сервоприводів).
+1. Повторити для всіх приводів
 
-1. Pull the motor slider down so that it snaps to the bottom. In this position the motor is set to the outputs `disarmed` value.
-   - Verify that the motor doesn't spin in this position.
-   - If the motor spins, reduce the corresponding PWM `disarmed` value in the [Actuator Outputs](#actuator-outputs) section to below the level at which it still spins.
-2. Slowly move the slider up until it snaps to the _minimum_ position. In this position the motor is set to the outputs `minimum` value.
+### Конфігурація двигуна
 
-   - Verify that the motor is spinning very slowly in this position.
-   - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `minimum` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
+:::info Якщо використовуєте PWM або OneShot ESC, спочатку слід виконати [калібрування ESC](../advanced_config/esc_calibration.md) (ця тема також охоплює конфігурацію PWM-специфічних двигунів).
 
-     ![PWM Minimum Output](../../assets/config/actuators/pwm_minimum_output.png)   ::: info
-  For DShot output, this is not required.
+[DShot](../peripherals/dshot.md) ESCs не потребують налаштування меж команд, а лише напрямок обертання.
+:::
+
+:::warning
+Видаліть пропелери!
+:::
+
+Конфігурація двигуна встановлює вихідні значення так, що двигуни:
+
+- не обертайтеся, коли роззброєні (при значенні виводу ШШІ `роззброєно`).
+- ледь, але надійно запускати на `мінімальному` значенні вихідного сигналу ШІМ.
+- мають _найнижче_ `максимальне` вихідне значення ШІМ, яке обертає двигун із _найвищою_ швидкістю.
+- дати **позитивний тягу** в очікуваному напрямку.
+
+Для кожного двигуна:
+
+1. Тягніть слайдер мотора вниз, щоб він защелкнувся унизу. У цій позиції двигун встановлений на значення виводів `disarmed`.
+   - Перевірте, що двигун не обертається в цьому положенні.
+   - Якщо двигун крутиться, зменште відповідне значення ШІМ `disarmed` в розділі [Виводи виконавчих пристроїв](#actuator-outputs) до рівня, при якому він все ще крутиться.
+2. Повільно переміщуйте повзунок вгору, доки він не защелкнеться в положенні _мінімум_. У цій позиції двигун встановлено на виходи значення `мінімальне`.
+
+   - Перевірте, чи двигун обертається дуже повільно в цьому положенні.
+   - Якщо двигун не обертається або обертається занадто швидко, вам потрібно налаштувати відповідне мінімальне значення ШІМ `minimum` в [Виводах приводів](#actuator-outputs) так, щоб двигуни ледве оберталися.
+
+     ![PWM Minimum Output](../../assets/config/actuators/pwm_minimum_output.png)   :::info
+Для виходу DShot це не потрібно.
 
 :::
 
-3. Increase the slider value to a level where you can verify that the motor is spinning in the correct direction and that it would give a positive thrust in the expected direction.
+3. Збільште значення слайдера до рівня, на якому ви можете перевірити, що двигун обертається в правильному напрямку і що він надасть позитивний тяговий потік в очікуваному напрямку.
 
-   - The expected thrust direction can vary by vehicle type. For example in multicopters the thrust should always point upwards, while in a fixed-wing vehicle the thrust will push the vehicle forwards.
-   - For VTOL, thrust should point upwards when the Tilt Servo is at 0 degrees as defined the [Tilt Servo Convention](#tilt-servo-coordinate-system). Testing of the [Tilt Servo](#tilt-servo-setup) is covered below as well.
-   - If thrust is in the wrong direction, you may need to [reverse the motors](#reversing-motors).
+   - Очікувана напрямок тяги може відрізнятися в залежності від типу транспортного засобу. Наприклад, у багатороторних літаках тяга завжди повинна вказувати вгору, тоді як у повітряному судні з фіксованим крилом тяга буде тягти судно вперед.
+   - Для VTOL тяга повинна вказувати вгору, коли Сервопривід нахилу перебуває під кутом 0 градусів, як визначено у [Конвенції про Сервопривід нахилу](#tilt-servo-coordinate-system). Тестування [Крен-сервопривіду](#tilt-servo-setup) також описано нижче.
+   - Якщо тяга спрямована в неправильному напрямку, можливо, вам потрібно [перевернути мотори](#reversing-motors).
 
-4. Increase the slider value to the maximum value, so the motor is spinning quickly. Reduce the value of the PWM output's `maximum` value just below the default. Listen to the tone of the motors as you increase the value in small (25us) increments. The "optimal" maximum value is the value at which you last hear a change in the tone.
+4. Збільште значення слайдера до максимального значення, щоб двигун швидко обертався. Зменшіть значення `максимального` виходу ШІМ вище за типове значення. Прослухайте тон моторів, коли ви збільшуєте значення малими (25us) інкрементами. "Оптимальне" максимальне значення - це значення, при якому ви востаннє почули зміну тона.
 
-### Control Surface Setup
+### Налаштування поверхонь керування
 
-First set the _frame rate_ for the servos used in each group of outputs. This would normally be set to the maximum value supported by your servo. Below we show how you would set it to PWM50 (the most common value).
+Спочатку встановіть _частоту кадрів_ для сервоприводів, які використовуються в кожній групі виводів. Зазвичай це встановлюється на максимальне значення, підтримуване вашим серводвигуном. Нижче ми покажемо, як ви можете встановити його на PWM50 (найбільш поширене значення).
 
 ![Control Surface Disarmed 1500 Setting](../../assets/config/actuators/control_surface_disarmed_1500.png)
 
-::: info You will almost certainly need to change the pulse rate from the default of 400Hz because support is rare (if not supported the servo will usually make an "odd" noise). If you're using PWM servos, PWM50 is far more common. If a high rate servo is _really_ needed, DShot offers better value.
+:::info Вам майже точно знадобиться змінити частоту пульса зі значенням за замовчуванням 400 Гц, оскільки підтримка рідко зустрічається (якщо не підтримується, сервопривід зазвичай видаватиме "дивний" шум). Якщо ви використовуєте сервоприводи PWM, PWM50 є набагато поширенішим. Якщо _дійсно_ потрібен високовольтний сервопривід, DShot пропонує кращу вартість.
 :::
 
-For each of the control surfaces:
+Для кожної з поверхонь керування:
 
-1. Set the `Disarmed` value so that the surfaces will stay at neutral position when disarmed. This is usually around `1500` for PWM servos.
-2. Move the slider for the surface upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-deflection-convention).
-   - If the control surface moves in the opposite direction, click on the `Rev Range` checkbox to reverse the range.
-3. Move the slider again to the middle and check if the Control Surfaces are aligned in the neutral position of the wing
+1. Встановіть значення `Disarmed`, щоб поверхні залишалися в нейтральному положенні під час роззброєння. Зазвичай це становить близько `1500` для PWM сервоприводів.
+2. Перемістіть повзунок для поверхні вверх (позитивна команда) та переконайтеся, що він рухається в напрямку, визначеному в [Конвенції керуючої поверхнею](#control-surface-deflection-convention).
+   - Якщо поверхня керування рухається в протилежному напрямку, клацніть на прапорець `Rev Range`, щоб змінити діапазон.
+3. Перемістіть повзунок ще раз у середину та перевірте, чи вирівняні керуючі поверхні в нейтральному положенні крила
 
-   - If it is not aligned, you can set the **Trim** value for the control surface. ::: info This is done in the `Trim` setting of the Geometry panel, usually by "trial and error". ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
+   - Якщо воно не вирівняно, ви можете встановити значення **Trim** для поверхні керування. :::info Це робиться в налаштуванні `Trim` панелі Geometry, зазвичай методом "спроба і помилка". ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
 :::
 
-   - After setting the trim for a control surface, move its slider away from the center, release, and then back into disarmed (middle) position. Confirm that surface is in the neutral position.
+   - Після встановлення обрізки для поверхні керування перемістіть його ковзачок від центру, відпустіть, а потім поверніть у відключений (середній) положення. Підтвердіть, що поверхня знаходиться в нейтральному положенні.
 
      ```
 
      ```
 
-::: info Another way to test without using the sliders would be to set the [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) parameter to `Always`:
+:::info Ще один спосіб протестувати без використання слайдерів - це встановити параметр [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) на `Always`:
 
-- This will enable the control of servos even when the vehicle is disarmed, and will constantly be applying the Trim setting to the Control Surfaces
-- You can try setting different values for the Trim and check the alignment, and then settle on the value you are happy with.
+- Це дозволить керувати сервоприводами навіть коли транспортний засіб відброньований, і постійно застосовуватиме налаштування обрізки до керуючих поверхонь
+- Ви можете спробувати встановити різні значення для обрізки та перевірити вирівнювання, а потім вибрати значення, з яким ви будете задоволені.
 :::
 
-### Tilt Servo Setup
+### Налаштування серводвигуна нахилу
 
-First set the _frame rate_ for the servos used in each group of outputs. This would normally be set to the maximum value supported by your servo. Below it is set to PWM50 (the most common value). Note, this part of the setup is the same as for control surfaces above.
+Спочатку встановіть _частоту кадрів_ для сервоприводів, які використовуються в кожній групі виводів. Зазвичай це встановлюється на максимальне значення, підтримуване вашим серводвигуном. Нижче воно встановлено на PWM50 (найбільш поширене значення). Зверніть увагу, що ця частина налаштування є такою ж, як і для поверхонь керування вище.
 
 ![Tilt Servo Setup](../../assets/config/actuators/tilt_servo_setup.png)
 
-For each of the tilt servos:
+Для кожного з сервоприводів нахилу:
 
-1. Set the `Disarmed` value (e.g. `1000` or `2000` for PWM Servos) so that the servo will be positioned in expected direction when _disarmed_.
-2. Position the slider for the servo in the lowest position, and verify that a positive value increase will point towards the `Angle at Min Tilt` (defined in the Geometry section).
+1. Встановіть значення `Disarmed` (наприклад, `1000` або `2000` для PWM Servos), щоб сервопривід був розташований в очікуваному напрямку при _роззброєнні_.
+2. Розмістіть регулятор для сервоприводу в найнижчому положенні, і переконайтеся, що збільшення позитивного значення вказуватиме на `Кут при мінімальному нахилі` (визначено в розділі Геометрія).
 
    ![Tilt Servo Geometry Setup](../../assets/config/actuators/tilt_servo_geometry_config.png)
 
-3. Position the slider for the servo in the highest position, and verify that positive motor thrust will point towards the `Angle at Max Tilt` (as defined in the Geometry section).
+3. Розмістіть регулятор для сервоприводу в найвищому положенні, і переконайтеся, що позитивне зусилля двигуна вказуватиме на `Кут при максимальному нахилі` (як визначено в розділі Геометрія).
 
-### Other Notes
+### Інші примітки
 
-- If a safety button is used, it must be pressed before actuator testing is allowed.
-- The kill-switch can still be used to stop motors immediately.
-- Servos do not actually move until the corresponding slider is changed.
-- The parameter [COM_MOT_TEST_EN](../advanced_config/parameter_reference.md#COM_MOT_TEST_EN) can be used to completely disable actuator testing.
-- On the shell, [actuator_test](../modules/modules_command.md#actuator-test) can be used as well for actuator testing.
-- VTOLs will automatically turn off motors pointing upwards during **fixed-wing flight**:
-  - Standard VTOL : Motors defined as multicopter motors will be turned off
-  - Tiltrotors : Motors that have no associated tilt servo will turn off
-  - Tailsitters do not turn off any motors in fixed-wing flight
+- Якщо використовується кнопка безпеки, її потрібно натиснути перед тим, як буде дозволено проводити випробування приводу.
+- Вимикач вимкнення все ще може бути використаний для негайного зупинення двигунів.
+- Сервоприводи фактично не рухаються, поки не буде змінено відповідний слайдер.
+- Параметр [COM_MOT_TEST_EN](../advanced_config/parameter_reference.md#COM_MOT_TEST_EN) може бути використаний для повного вимкнення тестування приводів.
+- На оболонці, [actuator_test](../modules/modules_command.md#actuator-test) також може бути використаний для тестування приводу.
+- VTOLs автоматично вимикатимуть двигуни, що спрямовані вгору, під час **польоту з фіксованим крилом**:
+  - Стандартний VTOL: Двигуни, визначені як багатокоптерні двигуни, будуть вимкнені
+  - Tiltrotors : Двигуни, які не мають пов'язаного сервоприводу нахилу, вимкнуться
+  - Tailsitters не вимикають жодних двигунів у польоті з фіксованим крилом
 
-### Reversing Motors
+### Реверсивні мотори
 
-The motors must turn in the direction defined in configured geometry ("**Direction CCW**" checkboxes). If any motors do not turn in the correct direction they must be reversed.
+Двигуни повинні обертатися в напрямку, визначеному в налаштованій геометрії (прапорці "**Напрям CCW**"). Якщо будь-які двигуни не обертаються в правильному напрямку, їх необхідно перевернути.
 
-There are several options:
+Є декілька варіантів:
 
-- If the ESCs are configured as [DShot](../peripherals/dshot.md) you can permanently reverse the direction via UI. The **Set Spin Direction** buttons are displayed below the Actuator sliders (if DShot motors are used). These popup a dialog in which you select the motor for which you want to apply the direction.
+- Якщо ESC налаштовані як [DShot](../peripherals/dshot.md), ви можете назавжди змінити напрямок через інтерфейс користувача. Кнопки **Встановити напрямок обертання** відображаються нижче слайдерів приводів (якщо використовуються мотори DShot). Ці викидають діалогове вікно, в якому ви вибираєте мотор, для якого хочете застосувати напрямок.
 
   ![Set spin direction buttons](../../assets/config/actuators/reverse_dshot.png)
 
-  Note that the current direction cannot be queried, so you may need to try both options.
+  Зверніть увагу, що поточного напрямку не можна запитати, тому вам може знадобитися спробувати обидві опції.
 
-- Swap 2 of the 3 motor cables (it does not matter which ones).
+- Поміняйте місцями 2 з 3 кабелів двигуна (не має значення які саме).
 
-  ::: info
-If motors are not connected via bullet-connectors, re-soldering is required (this is a reason, among others, to prefer DShot ESCs).
+  :::info
+Якщо мотори не підключені за допомогою булет-конекторів, потрібно провести перепайку (це одна з причин, серед інших, чому варто віддавати перевагу DShot ESCs).
 :::

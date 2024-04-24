@@ -1,28 +1,28 @@
-# Holybro Pixhawk Mini (Discontinued)
+# Holybro Pixhawk Mini (Припинено)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. :::
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Звертайтесь до [виробника](https://holybro.com/) щодо питань апаратного забезпечення або питань відповідності. :::
 
-The Holybro *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk. It is about 1/3rd the size of the original Pixhawk and has more powerful processors and sensors.
+Автопілот Holybro *Pixhawk<sup>&reg;</sup> Mini* - це наступне покоління еволюції Pixhawk. Це близько 1/3 розміру оригінального Pixhawk та має потужніші процесори та сенсори.
 
-The Pixhawk Mini is based on the PX4 open-hardware project and has been optimized for the PX4 flight stack.
+Pixhawk Mini базується на відкритому проекті PX4 і був оптимізований для стеку керування польотом PX4.
 
 ![Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_hero.jpg)
 
-Wiring information is available [below](#wiring).
+Інформація щодо підключення доступна [нижче](#wiring).
 
-::: info This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini. :::
+:::info Цей контролер польоту був розроблений компанією 3DR у співпраці з HobbyKing<sup>&reg;</sup>. Раніше він був відомий як 3DR Pixhawk Mini. :::
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams. :::
+Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4. :::
 
-## Specifications
+## Специфікації
 
-**Processors:**
+**Процесори:**
 
 - **Main Processor:** STM32F427 Rev 3
 - **IO Processor:** STM32F103
 
-**Sensors:**
+**Сенсори:**
 
 - **Accel/Gyro/Mag:** MPU9250
   - [deprecated](https://github.com/PX4/PX4-Autopilot/pull/7618) by the PX4 firmware
@@ -37,7 +37,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - **USB Power Input:** 4.1\`5.5V
 - **Servo Rail Input:** 0\~10V
 
-**Interfaces:**
+**Інтерфейси:**
 
 - 1 x UART Serial Port (for GPS)
 - Spektrum DSM/DSM2/DSM-X® Satellite Compatible RC input
@@ -48,7 +48,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - ADC (for analog sensors)
 - Micro USB Port
 
-**Weight and dimensions:**
+**Вага та розміри:**
 
 - **Dimensions:** 38x43x12mm
 - **Weight:** 15.8g
@@ -59,17 +59,17 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - **Weight:** 22.4g
 - **Dimensions:** 37x37x12mm
 
-## Where to Buy
+## Де придбати
 
-Discontinued.
+Припинено.
 
 ## Connector assignments
 
 `<To be added>`
 
-## Features
+## Особливості
 
-Key features of the Pixhawk Mini are:
+Основні функції Pixhawk Mini:
 
 - Advanced 32 bit ARM Cortex® M4 Processor running NuttX RTOS
 - 8 PWM/servo outputs
@@ -93,9 +93,9 @@ The Pixhawk Mini is shipped with new **GPS module**:
 
 ## Kit package
 
-The _Pixhawk Mini_ is shipped with the following contents:
+_Pixhawk Mini_ поставляється з наступним вмістом:
 
-| Component                                                          | Image                                                                                                                                |
+| Компонент                                                          | Зображення                                                                                                                           |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
 | Pixhawk Mini Autopilot                                             | ![Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_drawing.png)                                                |
 | GPS module                                                         | ![Compass+GPS module](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_compass_drawing.png)                                  |
@@ -121,9 +121,9 @@ When installing the 3DR telemetry radios, use the connectors that come with Pixh
 - WiFi Telemetry Radio
 - Digital Airspeed Sensor
 
-## Compatibility
+## Сумісність
 
-### RC radio
+### RC радіо
 
 - PPM output RC receivers
 - Spektrum DSM RC receivers
@@ -157,91 +157,91 @@ When installing the 3DR telemetry radios, use the connectors that come with Pixh
 - Includes I2C breakout board for a total of 5 I2C connections.
 - Similar size.
 
-Pixhawk Mini features an advanced processor and sensor technology from ST Microelectronics® and a NuttX real-time operating system, delivering excellent performance, flexibility, and reliability for controlling any autonomous vehicle.
+Pixhawk Mini має вдосконалений процесор та сенсорну технологію від ST Microelectronics® та операційну систему реального часу NuttX, що забезпечує відмінну продуктивність, гнучкість та надійність для керування будь-яким безпілотним транспортним засобом.
 
-## Known issues
+## Відомі проблеми
 
-- Some Pixhawk Minis have a [hardware defect](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-317132917) that makes the internal MPU9250 IMU unreliable.
-  - The problem is only present in older hardware revisions, because [it was fixed at some point by the manufacturer](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-372393609).
-  - To check whether a specific board is affected or not, leave the board disconnected for some time, then power it on and try to start the mpu9250 driver from the PX4 command line. If the board is affected, the driver will not start.
-  - The MPU9250 is [disabled by default](https://github.com/PX4/PX4-Autopilot/pull/7618) on the PX4 firmware.
-  - The defective Pixhawk Minis will not calibrate without an external magnetometer or an attached GPS, even indoor.
-  - When using an external GPS, [this is not a problem](https://github.com/PX4/PX4-Autopilot/pull/7618#issuecomment-320270082) because the secondary ICM20608 provides the accelerometer and the gyro, while the external GPS provides the magnetometer.
+- Деякі Pixhawk Mini мають [дефект апаратного забезпечення](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-317132917), який робить внутрішній IMU MPU9250 ненадійним.
+  - Проблема присутня лише в старіших версіях апаратного забезпечення, оскільки [вона була виправлена якимось чином виробником](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-372393609).
+  - Щоб перевірити, чи певна плата постраждала чи ні, залиште плату відключеною на деякий час, потім увімкніть її та спробуйте запустити драйвер mpu9250 з командного рядка PX4. Якщо плата пошкоджена, драйвер не запуститься.
+  - MPU9250 [за замовчуванням вимкнено](https://github.com/PX4/PX4-Autopilot/pull/7618) у вбудованому програмному забезпеченні PX4.
+  - Дефектні Pixhawk Mini не будуть калібруватися без зовнішнього магнітометра або підключеного GPS, навіть у приміщенні.
+  - При використанні зовнішнього GPS, [це не проблема](https://github.com/PX4/PX4-Autopilot/pull/7618#issuecomment-320270082), оскільки вторинний ICM20608 надає акселерометр та гіроскоп, тоді як зовнішній GPS надає магнітометр.
 
 <a id="wiring"></a>
 
-## Wiring Quick Start
+## Посібник зі швидкого запуску підключення
 
 :::warning
-The _Pixhawk Mini_ is no longer manufactured or available from 3DR. :::
+_Pixhawk Mini_ більше не виробляється або не доступний від 3DR. :::
 
-This quick start guide shows how power the [Pixhawk Mini](../flight_controller/pixhawk_mini.md) and connect its most important peripherals.
+Цей швидкий старт показує, як живити польовий контролер [Pixhawk Mini](../flight_controller/pixhawk_mini.md) та підключити його найважливіші периферійні пристрої.
 
-### Standard Wiring Chart
+### Стандартна схема проводки
 
-The image below shows standard _quadcopter_ wiring using the _Pixhawk Mini Kit_ and 3DR Telemetry Radios (along with ESC, motor, battery and a ground control station running on a phone). We'll go through each main part in the following sections.
+Нижче показана стандартна замовлення _квадрокоптер_ використовуючи _Набір Pixhawk Mini_ та 3DR Телеметрія Радіо (разом з ESC, мотором, батареєю та станцією керування на землі, яка працює на телефоні). Ми розглянемо кожен основний елемент в наступних розділах.
 
 ![Pixhawk Mini Electronics Wiring for QAV250 (off frame)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)
 
-::: info
-The output wiring/powering is slightly different for other types of vehicles. This is covered in more detail below for VTOL, Plane, Copter.
+:::info
+Вивід проводки / живлення трохи відрізняється для інших типів транспортних засобів. Це докладніше описано нижче для VTOL, Plane, Copter.
 :::
 
-### Mount and Orient Controller
+### Монтаж та орієнтація контролера
 
-The _Pixhawk Mini_ should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle's center of gravity as possible, oriented top-side up with the arrow points towards the front of the vehicle.
+_Pixhawk Mini_ слід встановити на раму за допомогою віброгасильні поролонові накладки (входять в комплект). Вона повинна бути розташувати якомога ближче до центру тяжіння вашого автомобіля верхньою стороною вгору зі стрілкою в напрямку передньої частини автомобіля.
 
 ![Pixhawk Mini recommended orientation](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_mounting_arrow.jpg)
 
 ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md). :::
+:::info Якщо контролер не може бути змонтований в рекомендованій/стандартній орієнтації (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md). :::
 
-### GPS + Compass
+### GPS + Компас
 
-Attach the 3DR GPS + Compass to the Pixhawk Mini's **GPS&I2C** port (top right) using the supplied 6 pin cable. The GPS/Compass should be mounted on the frame as far away from other electronics as possible, facing the front of the vehicle (separating the compass from other electronics will reduce interference).
+Під’єднайте 3DR GPS + Compass до порту **GPS&I2C** Pixhawk Mini (угорі праворуч) за допомогою 6-контактного кабелю, що входить у комплект. GPS/компас слід монтувати на раму якомога подалі від інших електронних пристроїв, з напрямком вперед транспортного засобу (відокремлення компаса від інших електронних пристроїв зменшить втручання).
 
 ![Connecting compass/GPS to Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_with_compass.jpg)
 
 NOTE - INSERT IMAGE SHOWING BOTH PORTS? OR FRONT-FACING image of GPS&I2C
 
-The compass must be calibrated before it is first used: [Compass Calibration](../config/compass.md)
+Компас повинен бути калібрований перед першим використанням: [Калібрування компасу](../config/compass.md)
 
-### Power
+### Живлення
 
-The image below shows typical power-supply wiring when using _Pixhawk Mini_ in a Quadcopter. This uses the _Quad Power Distribution Board_ that comes in the kit to supply both the Pixhawk Mini and the ESC/Motor from the battery (and can also power other accessories).
+На зображенні нижче показано типове підключення живлення при використанні _Pixhawk Mini_ у квадрокоптері. Для цього використовується _четвірна плата розподілу живлення_, яка постачається в комплекті, щоб живити Pixhawk Mini і ESC/Motor від батареї (а також може живити інші аксесуари).
 
-::: info The _Quad Power Distribution Board_ includes a power module (PM) that is suitable for batteries <= 4S. The _3DR 10S Power Module_ (Discontinued) is recommended if you need more power. :::
+:::info До _Плата розподілу потужності Quad_ входить модуль живлення (PM), який підходить для акумуляторів <= 4S. Рекомендовано використовувати модуль живлення _3DR 10S Power_ (Скасовано), якщо вам потрібно більше потужності. :::
 
 ![Pixhawk Mini - Powering](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_powering_quad_board.jpg)
 
-The _Pixhawk Mini_ is powered through the **PM** port. When using a power module (as in this case) the port will also read analog voltage and current measurements.
+_Pixhawk Mini_ живиться через порт **PM**. При використанні модуля живлення (як у цьому випадку) порт також буде читати аналогові вимірювання напруги та струму.
 
-Up to 4 ESCs can be separately powered from the power distribution board (though in this case we only have one connected).
+До 4 ESC можна живити окремо від розподільного щита (хоча в цьому випадку підключено лише один).
 
-The control signals come from MAIN OUT. In this case there is only one control channel, which is connected to the ESC via the _8 Channel PWM Breakout Board_.
+Сигнали керування надходять з MAIN OUT. У цьому випадку є лише один керуючий канал, який підключений до ESC через _8 канальну плату розбору PWM_.
 
-The Pixhawk Mini output rail (MAIN OUT) cannot power attached devices (and does not need to in the circuit as shown). For vehicles where MAIN OUT is attached to devices that draw power (e.g. a servo used in a plane) then you will need to power the rail using a BEC (battery elimination circuit). The included breakout board allows one channel to provide power on the other outputs.
+Шина виводу Pixhawk Mini (MAIN OUT) не може живити підключені пристрої (і не потребує цього в схемі, як показано). Для транспортних засобів, де MAIN OUT підключений до пристроїв, які споживають енергію (наприклад, сервопривід, використовуваний у літаку), вам потрібно буде живити рейку за допомогою BEC (елімінаційна схема батареї). Включена плата розподільчого модуля дозволяє одному каналу надавати живлення на інші виходи.
 
-### Radio Control
+### Радіоуправління
 
-Pixhawk Mini supports many different radio receiver models:
+Pixhawk Mini підтримує багато різних моделей радіоприймачів:
 
-- Spektrum and DSM receivers connect to the **SPKT/DSM** input.
+- Приймачі Spektrum і DSM підключаються до входу **SPKT/DSM**.
 
   <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk Mini - Radio port for Spektrum receivers" />
 
-- PPM-SUM and S.BUS receivers connect to the **RCIN** port.
+- Приймачі PPM-SUM та S.BUS підключаються до порту **RCIN**.
 
   <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_rcin.png" width="350px" title="Pixhawk Mini - Radio port for PPM receivers" />
 
-- PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **RCIN** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- Приймачі PPM та PWM, які мають _окремий провід для кожного каналу_, повинні підключатися до порту **RCIN** _через PPM кодер_ [як цей](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (приймачі PPM-Sum використовують один сигнальний провід для всіх каналів).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+Для отримання додаткової інформації про вибір радіосистеми, сумісність приймача та зв'язок вашої передавача/приймача, див. статтю: [Пульт керування передавачів& приймачів](../getting_started/rc_transmitter_receiver.md).
 
 ### Safety switch (optional)
 
-The controller has an integrated safety switch that you can use for motor activation once the autopilot is ready to take off. If this switch is hard to access on a particular vehicle you can attach the (optional) external safety button, as shown below.
+Контролер має вбудований безпечний перемикач, який ви можете використовувати для активації двигуна, як тільки автопілот готовий злетіти. Якщо на певному транспортному засобі важкодоступний до цього перемикача, ви можете прикріпити (необов’язкову) зовнішню кнопку безпеки, як показано нижче.
 
 ![Pixhawk Mini - Optional Switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg)
 
@@ -249,10 +249,10 @@ The controller has an integrated safety switch that you can use for motor activa
 
 ### Motors
 
-The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
+Відображення між головними/допоміжними вихідними портами та двигунами/сервоприводами для всіх підтримуваних повітряних та наземних конструкцій перераховані в [Довіднику з повітряних конструкцій](../airframes/airframe_reference.md).
 
 :::warning
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
+Відображення не є однорідним для всіх конструкцій (наприклад, ви не можете покладатися на те, що ручка газу буде на тому ж вихідному порту для всіх повітряних конструкцій).
 Make sure to use the correct mapping for your vehicle.
 :::
 
@@ -260,16 +260,16 @@ Make sure to use the correct mapping for your vehicle.
 If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 ::: infos:
 
-- The output rail must be separately powered, as discussed in the [Power](#power) section above.
-- Pixhawk Mini cannot be used for QuadPlane VTOL airframes. This is because QuadPlane requires 9 outputs (4 Main, 5 AUX) and the Pixhawk Mini only has 8 outputs (8 Main).
+- Вихідна шина повинна мати окреме живлення, як описано в розділі [Живлення](#power) вище.
+- Pixhawk Mini не може бути використаний для каркасів QuadPlane VTOL. This is because QuadPlane requires 9 outputs (4 Main, 5 AUX) and the Pixhawk Mini only has 8 outputs (8 Main).
 
 <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk Mini - port for motors/servos" />
 
-### Other Peripherals
+### Інші периферійні пристрої
 
-The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Підключення та конфігурація інших компонентів описано в темах для окремих [периферійних пристроїв](../peripherals/index.md).
 
-### Configuration
+### Конфігурація
 
 General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
@@ -280,14 +280,14 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected. :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v3_default
 ```
 
-## Debug Port
+## Відладочний порт
 
-This board does not have a debug port (i.e it does not have a port for accessing the [System Console](../debug/system_console.md) or [SWD interface](../debug/swd_debug.md)).
+Ця плата не має роз'єму для налагодження (тобто вона не має роз'єму для доступу до [Системної консолі](../debug/system_console.md) або [інтерфейсу SWD](../debug/swd_debug.md)).
 
-Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.
+Розробники повинні будуть припаяти дроти до підключених площин для SWD, а також до STM32F4 (IC) TX і RX, щоб отримати консоль.

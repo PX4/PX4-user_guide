@@ -1,6 +1,6 @@
 # JLink Debug Probe
 
-The [J-Link debug probe][jlink] is a closed-source, commercial hardware probe which supports almost all ARM Cortex-M devices. You need to install the [J-Link drivers][drivers] for this probe to work:
+The [J-Link debug probe][jlink] is a closed-source, commercial hardware probe which supports almost all ARM Cortex-M devices. Для роботи цього зонду вам потрібно встановити [драйвери J-Link][drivers]:
 
 ```sh
 # Ubuntu
@@ -10,15 +10,15 @@ sudo dpkg -i JLink_Linux_x86_64.deb
 brew install segger-jlink
 ```
 
-Once installed, you can start the server using:
+Після встановлення ви можете запустити сервер за допомогою:
 
 ```sh
 JLinkGDBServer -if swd -device STM32F765II
 ```
 
-It might then prompt you to update the JLink which is recommended, and then to specify which device it is communicating with. Check the docs of your autopilot for the specific device.
+Можливо, перед вами відобразиться запит на оновлення JLink, що й рекомендується зробити, а потім вказати, з яким пристроєм він взаємодіє. Перевірте документацію вашого автопілота для конкретного пристрою.
 
-Once that's done, the GDB server should be start listening on port `2331`, e.g. like so:
+Щойно ви це виконаєте, сервер GDB повинен почати слухати порт `2331`, наприклад, так:
 
 ```sh
 Checking target voltage...
@@ -29,25 +29,25 @@ Connected to target
 Waiting for GDB connection...
 ```
 
-You can now start GDB with the exact elf file that is currently flashed on the autopilot (in a separate terminal):
+Тепер ви можете запустити GDB з точним elf-файлом, який зараз вивантажений на автопілот (у окремому терміналі):
 
 ```sh
-arm-none-eabi-gdb build/px4_fmu-v5_default/px4_fmu-v5_default.elf -ex "target extended-remote :2331"
+arm-none-eabi-gdb build/px4_fmu-v5x_default/px4_fmu-v5x_default.elf -ex "target extended-remote :2331"
 ```
 
-And now you should be connected.
+Тепер ви відключилися.
 
-To use an IDE instead, see the instructions for [Eclipse](../debug/eclipse_jlink.md) or [VSCode](../dev_setup/vscode.md#hardware-debugging). See the [Embedded Debug Tools][emdbg] for more advanced debug options.
+Щоб замість цього використовувати IDE, див. інструкції для [Eclipse](../debug/eclipse_jlink.md) або [VSCode](../dev_setup/vscode.md#hardware-debugging). Дивіться [Embedded Debug Tools][emdbg] для отримання додаткових опцій налагодження.
 
 <a id="segger_jlink_edu_mini"></a>
 
-### Segger JLink EDU Mini Debug Probe
+### Embedded Debug Tools
 
-The [Segger JLink EDU Mini](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/) is an inexpensive and popular SWD debug probe. The probe's connector pinout looks like the image below (connect to this using an ARM 10-pin mini connector like [FTSH-105-01-F-DV-K](https://www.digikey.com/products/en?keywords=SAM8796-ND)).
+[Segger JLink EDU Mini](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/) - це недорогий і популярний SWD зонд для відлагодження. Роз'єм підключення зонду виглядає так, як на зображенні нижче (підключіться до нього за допомогою міні-роз'єму ARM з 10 контактами, наприклад, [FTSH-105-01-F-DV-K](https://www.digikey.com/products/en?keywords=SAM8796-ND)).
 
 ![connector_jlink_mini.png](../../assets/debug/connector_jlink_mini.png)
 
-The pin mapping to connect the J-Link Edu Mini to [Pixhawk Debug Mini](swd_debug.md#pixhawk-debug-mini) is shown below.
+Схема підключення контактів для з'єднання J-Link Edu Mini з [Pixhawk Debug Mini](swd_debug.md#pixhawk-debug-mini) показана нижче.
 
 | Pin | Signal     | JLink |
 | ---:|:---------- | -----:|
@@ -58,7 +58,7 @@ The pin mapping to connect the J-Link Edu Mini to [Pixhawk Debug Mini](swd_debug
 |   5 | **SWDCLK** |     4 |
 |   6 | **GND**    |  3, 5 |
 
-Note that none of the JLink debug probes have a built in serial connection, so you need to connect the console separately.
+Зверніть увагу, що жоден з JLink debug зондів не має вбудованого послідовного з'єднання, тому вам потрібно підключити консоль окремо.
 
 <!-- Image of SWD cable and connector to debug port - proposed? -->
 

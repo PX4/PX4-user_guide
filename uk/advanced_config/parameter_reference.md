@@ -1,10 +1,11 @@
 # Довідник параметрів
 
-::: info This documentation was auto-generated from the source code for this PX4 version (using `make parameters_metadata`).
+::: note
+Ця документація була автоматично створена з вихідного коду для цієї версії PX4 (використовуючи `make parameters_metadata`).
 :::
 
 ::: tip
-If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](../advanced_config/parameters.md#parameter-not-in-firmware).
+Якщо в прошивці відсутній параметр зі списку, то див:: [Знайти/Оновити Параметри](../advanced_config/parameters.md#parameter-not-in-firmware).
 :::
 
 <!-- markdown generator: src/lib/parameters/px4params/markdownout.py -->
@@ -26,49 +27,43 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>За замовчуванням</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Мін, Макс] (ціна ділення)</th><th>За замовчуванням</th><th>Одиниці виміру</th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="ctl_bw">ctl_bw</strong> (INT32)</td>
- <td>Speed controller bandwidth <p><strong>Comment:</strong> Speed controller bandwidth, in Hz. Higher values result in faster speed and current rise times, but may result in overshoot and higher current consumption. For fixed-wing aircraft, this value should be less than 50 Hz; for multirotors, values up to 100 Hz may provide improvements in responsiveness.</p>   </td>
+ <td>Пропускна здатність регулятора швидкості <p><strong>Коментар:</strong> Пропускна спроможність регулятора швидкості, в герцах. Higher values result in faster speed and current rise times, but may result in overshoot and higher current consumption. Для літаків з фіксованим крилом це значення повинно бути менше 50 Гц; для багтороторних літаків значення до 100 Гц можуть покращити реакцію.</p>   </td>
  <td>[10, 250] </td>
  <td>75</td>
- <td>Hz</td>
+ <td>Гц</td>
 </tr>
 <tr>
  <td><strong id="ctl_dir">ctl_dir</strong> (INT32)</td>
- <td>Reverse direction <p><strong>Comment:</strong> Motor spin direction as detected during initial enumeration. Use 0 or 1 to reverse direction.</p>   </td>
+ <td>Зворотній напрямок <p><strong>Коментар:</strong> Напрямок обертання двигуна, виявлений під час початкового переліку. Використовуйте 0 або 1 для зворотнього напрямку.</p>   </td>
  <td>[0, 1] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="ctl_gain">ctl_gain</strong> (FLOAT)</td>
- <td>Speed (RPM) controller gain <p><strong>Comment:</strong> Speed (RPM) controller gain. Determines controller
-            aggressiveness; units are amp-seconds per radian. Systems with
-            higher rotational inertia (large props) will need gain increased;
-            systems with low rotational inertia (small props) may need gain
-            decreased. Higher values result in faster response, but may result
-            in oscillation and excessive overshoot. Lower values result in a
-            slower, smoother response.</p>   </td>
+ <td>Коефіцієнт керування швидкістю (об/хв) <p><strong>Коментар:</strong> Коефіцієнт керування швидкістю (об/хв). Визначає агресивність контролера; одиниці - ампер-секунди на радіан. Системи з вищою ротаційною інерцією (великі пропелери) будуть потребувати збільшення коефіцієнта підсилення; системи з низькою ротаційною інерцією (малі пропелери) можуть потребувати зменшення коефіцієнта підсилення. Вищі значення призводять до швидшої реакції, але можуть призвести до стрибків та надмірної реакції. Нижчі значення призводять до повільної, більш плавної відповіді.</p>   </td>
  <td>[0.00, 1.00] </td>
  <td>1</td>
  <td>C/rad</td>
 </tr>
 <tr>
  <td><strong id="ctl_hz_idle">ctl_hz_idle</strong> (FLOAT)</td>
- <td>Idle speed (e Hz) <p><strong>Comment:</strong> Idle speed (e Hz)</p>   </td>
+ <td>Частота холостого ходу (е Гц) <p><strong>Коментар:</strong> Частота холостого ходу (е Гц)</p>   </td>
  <td>[0.0, 100.0] </td>
  <td>3.5</td>
- <td>Hz</td>
+ <td>Гц</td>
 </tr>
 <tr>
  <td><strong id="ctl_start_rate">ctl_start_rate</strong> (INT32)</td>
  <td>Spin-up rate (e Hz/s) <p><strong>Comment:</strong> Spin-up rate (e Hz/s)</p>   </td>
  <td>[5, 1000] </td>
  <td>25</td>
- <td>1/s^2</td>
+ <td>1/с^2</td>
 </tr>
 <tr>
  <td><strong id="esc_index">esc_index</strong> (INT32)</td>
@@ -79,14 +74,14 @@ table {
 </tr>
 <tr>
  <td><strong id="id_ext_status">id_ext_status</strong> (INT32)</td>
- <td>Extended status ID <p><strong>Comment:</strong> Extended status ID</p>   </td>
+ <td>Розширений ідентифікатор статусу <p><strong>Коментар:</strong> Розширений ідентифікатор статусу</p>   </td>
  <td>[1, 1000000] </td>
  <td>20034</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="int_ext_status">int_ext_status</strong> (INT32)</td>
- <td>Extended status interval (µs) <p><strong>Comment:</strong> Extended status interval (µs)</p>   </td>
+ <td>Розширений інтервал статусу (мкс) <p><strong>Comment:</strong> Extended status interval (µs)</p>   </td>
  <td>[0, 1000000] </td>
  <td>50000</td>
  <td>us</td>
@@ -10933,6 +10928,14 @@ table {
  <td>[0, 3] </td>
  <td>3</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="EKF2_DELAY_MAX">EKF2_DELAY_MAX</strong> (FLOAT)</td>
+ <td>Maximum delay of all the aiding sensors <p><strong>Comment:</strong> Defines the delay between the current time and the delayed-time horizon. This value should be at least as large as the largest EKF2_XXX_DELAY parameter.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 1000] </td>
+ <td>200</td>
+ <td>ms</td>
 </tr>
 <tr>
  <td><strong id="EKF2_DRAG_CTRL">EKF2_DRAG_CTRL</strong> (INT32)</td>
@@ -27069,10 +27072,30 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="VOXL_ESC_T_OVER">VOXL_ESC_T_OVER</strong> (INT32)</td>
+ <td>UART ESC Over-Temperature Threshold (Degrees C) <p><strong>Comment:</strong> Only applicable to ESCs that report temperature</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 200] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="VOXL_ESC_T_PERC">VOXL_ESC_T_PERC</strong> (INT32)</td>
  <td>UART ESC Turtle Mode Crash Flip Motor Percent    </td>
  <td>[1, 100] (1)</td>
  <td>90</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_T_WARN">VOXL_ESC_T_WARN</strong> (INT32)</td>
+ <td>UART ESC Temperature Warning Threshold (Degrees C) <p><strong>Comment:</strong> Only applicable to ESCs that report temperature</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 200] </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>

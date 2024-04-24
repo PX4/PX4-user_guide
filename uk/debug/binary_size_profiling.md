@@ -1,12 +1,12 @@
-# Binary Size Profiling
+# Профілювання двійкового розміру
 
-The `bloaty_compare_master` build target allows you to get a better understanding of the impact of changes on code size. When it is used, the toolchain downloads the latest successful master build of a particular firmware and compares it to the local build (using the [bloaty](https://github.com/google/bloaty) size profiler for binaries).
+Ціль збірки `bloaty_compare_master` дозволяє вам краще зрозуміти вплив змін на розмір коду. Коли використовується, інструментарій завантажує останню успішну майстер-збірку певного прошивкового ПЗ та порівнює її з локальною збіркою (використовуючи [bloaty](https://github.com/google/bloaty) розмір профілювальника для бінарних файлів).
 
 :::tip
-This can help analyse changes that (may) cause `px4_fmu-v2_default` to hit the 1MB flash limit.
+Це може допомогти проаналізувати зміни, які (можливо) призводять до того, що `px4_fmu-v2_default` досягає обмеження 1 МБ для флешу.
 :::
 
-_Bloaty_ must be in your path and found at _cmake_ configure time. The PX4 [docker files](https://github.com/PX4/containers/blob/master/docker/Dockerfile_nuttx-bionic) install _bloaty_ as shown:
+_Bloaty_ повинен бути у вашому шляху та бути знайденим у час налаштування _cmake_. The PX4 [docker files](https://github.com/PX4/containers/blob/master/docker/Dockerfile_nuttx-bionic) install _bloaty_ as shown:
 
 ```sh
 git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
@@ -14,7 +14,7 @@ git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
     && rm -rf /tmp/*
 ```
 
-The example below shows how you might see the impact of removing the _mpu9250_ driver from `px4_fmu-v2_default`. First it locally sets up a build without the driver:
+Приклад нижче показує, як ви можете побачити вплив видалення драйвера _mpu9250_ з `px4_fmu-v2_default`. Спочатку локально налаштовує збірку без драйвера:
 
 ```sh
  % git diff
@@ -27,7 +27,7 @@ index 40d7778..2ce7972 100644
 +               CONFIG_DRIVERS_IMU_INVENSENSE_MPU9250=n
 ```
 
-Then use the make target, specifying the target build to compare (`px4_fmu-v2_default` in this case):
+Потім використовуйте ціль створення, вказавши ціль для порівняння (`px4_fmu-v2_default` у цьому випадку):
 
 ```sh
 % make px4_fmu-v2_default bloaty_compare_master
@@ -51,4 +51,4 @@ Then use the make target, specifying the target build to compare (`px4_fmu-v2_de
   -1.0% -10.3Ki TOTAL                                                                            +14.9Ki  +0.1%
 ```
 
-This shows that removing _mpu9250_ from `px4_fmu-v2_default` would save 10.3 kB of flash. It also shows the sizes of different pieces of the _mpu9250_ driver.
+Це показує, що видалення _mpu9250_ з `px4_fmu-v2_default` заощадило б 10,3 кБ флешу. Це також показує розміри різних частин драйвера _mpu9250_.

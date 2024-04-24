@@ -24,7 +24,7 @@ See [Simulation](../simulation/index.md) for general information about simulator
 
 ## 安装
 
-Linux、macOS和Windows版的 Gazebo Classic 9 或 11 安装包含在我们的 [标准构建说明}(../dev_setup/dev_env.md) 中。 其他安装说明可在 [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1) 上找到。
+Gazebo Classic 9 or 11 setup is included in our [standard build instructions](../dev_setup/dev_env.md) for Linux, macOS, and Windows. 其他安装说明可在 [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1) 上找到。
 
 ::: info
 If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo Classic (and thereby avoid installation conflicts).

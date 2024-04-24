@@ -1,78 +1,78 @@
 # CUAV Pixhawk V6X
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://store.cuav.net/) щодо питань технічної підтримки або відповідності вимогам.
 :::
 
-_Pixhawk V6X_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with CUAV<sup>&reg;</sup> and the PX4 team.
+_Pixhawk V6X_<sup>&reg;</sup> - останнє оновлення успішного сімейства польотних контролерів Pixhawk®, розроблене та виготовлене у співпраці з CUAV<sup>&reg;</sup> та командою PX4.
 
-It is based on the [Pixhawk​​® Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf), [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+Це базується на стандарті [Pixhawk​​® Autopilot FMUv6X](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf), [Стандарті шин автопілота](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) та [Стандарті коннектора Pixhawk​​®](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 ![Pixhawk V6X](../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x.jpg)
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
 :::
 
-Pixhawk<sup>&reg;</sup> V6X brings you the ultimate in performance, stability and reliability in all aspects.
+Pixhawk<sup>&reg;</sup> V6X принесе вам найвищий рівень продуктивності, стабільності та надійності у всіх аспектах.
 
-- Arm® Cortex®-M7 processor (STM32H753) with Floating Point Unit (FPU), 480MHz high-speed operations and 2MB flash. Developers can be more productive and efficient, allowing for more complex algorithms and models.
-- High-performance on-board, low-noise IMU and automotive-grade magnetic compass based on FMUv6X open standard. It aims to achieve better stability and anti-interference ability.
-- Triple redundant IMU & double redundant barometer on separate buses. When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
-- An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
-- External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface.
-- Integrated Microchip Ethernet PHY for high-speed communication over Ethernet with onboard devices such as mission computers.
-- Newly designed vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings.
-- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
-- Modular flight controller: separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk®​ Autopilot Bus connector.
+- Процесор Arm® Cortex®-M7 (STM32H753) з операційною точкою (FPU), високошвидкісні операції на частоті 480 МГц та 2 МБ флеш-пам'яті. Розробники можуть бути більш продуктивними та ефективними, що дозволяє використовувати складніші алгоритми та моделі.
+- Високопродуктивний бортовий, низькозвуковий ІНС та автомобільний магнітний компас на основі відкритого стандарту FMUv6X. Мета полягає в досягненні кращої стабільності та антиінтерференційної здатності.
+- Тройний резервний IMU & подвійний резервний барометр на окремих шинах. Коли автопілот PX4 виявляє відмову датчика, система безперервно переключається на інший, щоб забезпечити надійність керування польотом.
+- Кожен незалежний LDO живить кожен набір сенсорів з незалежним керуванням живленням. Система ізоляції вібрації для фільтрації високочастотної вібрації та зменшення шуму для забезпечення точних вимірювань, що дозволяє транспортним засобам досягти кращих загальних польотних характеристик.
+- Зовнішня шина датчика (SPI5) має дві лінії вибору мікросхем та сигнали готовності даних для додаткових датчиків та навантаження з інтерфейсом SPI.
+- Інтегрований мікросхемний Ethernet PHY для високошвидкісного зв'язку по Ethernet з пристроями на борту, такими як комп'ютери місій.
+- Нова система ізоляції вібрацій, призначена для фільтрації високочастотних вібрацій та зменшення шуму для забезпечення точних вимірювань.
+- IMUs контролюються за допомогою нагрівальних резисторів на борту, що дозволяє досягти оптимальної робочої температури IMUs&#x20;
+- Модульний керуючий пристрій: розділені IMU, FMU та базова система, з'єднані за допомогою роз'ємів Pixhawk® Autopilot Bus на 100 контактів та 50 контактів.
 
-The Pixhawk® V6X is ideal for corporate research labs, academic research and commercial applications.
+Pixhawk® V6X ідеально підходить для корпоративних дослідницьких лабораторій, академічних досліджень та комерційних застосувань.
 
-### Processors & Sensors
+### Процесори &  датчики
 
-- FMU Processor: STM32H753
+- Процесор FMU: STM32H753
   - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM
 - IO Processor: STM32F103
   - 32 Bit Arm® Cortex®-M3, 72MHz, 20KB SRAM
-- On-board sensors
-  - Accel/Gyro: BMI088
-  - Accel/Gyro: ICM-42688-P
-  - Accel/Gyro: ICM-20649
+- Сенсори на платі
+  - Акселератор/гіроскоп: BMI088
+  - Акселератор/гіроскоп: ICM-42688-P
+  - Акселератор/гіроскоп: ICM-20649
   - Mag: RM3100
-  - Barometer: 2x ICP-20100
+  - Барометр: 2x ICP-20100
 
-### Electrical data
+### Електротехнічні дані
 
-- Voltage Ratings:
-  - Max input voltage: 5.7V
-  - USB Power Input: 4.75\~5.25V
-  - Servo Rail Input: 0\~9.9V
-- Current Ratings:
-  - TELEM1 and GPS2 combined output current limiter: 1.5A
-  - All other port combined output current limiter: 1.5A
+- Номінальна напруга:
+  - Максимальна вхідна напруга: 5,7 В
+  - Вхід USB Power: 4.75~5.25В
+  - Вхід на серворейку: 0\~9.9В
+- Номінальний струм:
+  - Комбінований обмежувач вихідного струму TELEM1 і GPS2: 1,5 А
+  - Комбінований обмежувач вихідного струму всіх інших портів: 1.5A
 
-### Interfaces
+### Інтерфейси
 
-- 16- PWM servo outputs
-- 1 Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
-- 3 TELEM Ports（with full flow control）
-- 1 UART4(Seial and I2C)
-- 2 GPS ports
-  - 1 full GPS plus Safety Switch Port(GPS1)
-  - 1 basic GPS port(with I2C,GPS2)
-- 2 USB Ports
+- 16 PWM виводів сервоприводів
+- 1 Виділений R/C вхід для Spektrum / DSM та S.Bus з аналоговим / PWM RSSI входом
+- 3 TELEM-порти (з повним контролем потоку)
+- 1 UART4(Seial та I2C)
+- 2 порти GPS
+  - 1 повноцінний порт GPS плюс порт перемикача безпеки (GPS1)
+  - 1 базовий GPS-порт (з I2C, GPS2)
+- 2 USB порти
   - 1 TYPE-C
   - JST GH1.25
-- 1 Ethernet port
+- 1 порт Ethernet
   - Transformerless Applications
   - 100Mbps
-- 1 SPI bus
-  - 2 chip select lines
-  - 2 data-ready lines
-  - 1 SPI SYNC line
-  - 1 SPI reset line
-- 2 CAN Buses for CAN peripheral
-  - CAN Bus has individual silent controls or ESC RX-MUX control
+- 1 шина SPI
+  - 2 лінії вибору чіпу
+  - 2 лінії даних
+  - 1 SPI SYNC лінія
+  - 1 лінія SPI reset
+- 2 CAN шини для CAN периферії
+  - CAN шина має individual silent controls або ESC RX-MUX control
 - 4 power input ports
   - 2 Dronecan/UAVCAN power inputs
   - 2 SMBUS/I2C power inputs
@@ -100,13 +100,13 @@ The Pixhawk® V6X is ideal for corporate research labs, academic research and co
 
     ![Pixhawk V6X](../../assets/flight_controller/cuav_pixhawk_v6x/core.png)
 
-## Where to Buy
+## Де купити
 
-Order from [CUAV](https://store.cuav.net/).
+Замовлення від [CUAV](https://store.cuav.net/).
 
-## Assembly/Setup
+## Зборка/інсталяція
 
-The [Pixhawk V6X Wiring Quick Start](../assembly/quick_start_cuav_pixhawk_v6x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
+[Швидкий старт з підключення Pixhawk V6X](../assembly/quick_start_cuav_pixhawk_v6x.md) надає інструкції щодо збирання необхідних/важливих периферійних пристроїв, включаючи GPS, модуль живлення тощо.
 
 ## Схема розташування виводів
 
@@ -114,7 +114,7 @@ The [Pixhawk V6X Wiring Quick Start](../assembly/quick_start_cuav_pixhawk_v6x.md
 
 Примітки:
 
-- The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
+- [Захоплення камери](../peripherals/camera.md#camera-capture) (`PI0`) - це контакт 2 на порті AD&IO , позначений як `FMU_CAP1`.
 
 ## Зіставлення послідовних портів
 
@@ -151,21 +151,21 @@ Under these conditions the system will not draw any power (will not be operation
 1. **USB input** (operational range 4.7V to 5.7V, 0V to 6V undamaged)
 1. **Servo input:** `VDD_SERVO` pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
-**Voltage monitoring**
+**Моніторинг напруги**
 
-Digital DroneCAN/UAVCAN battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_cuav_pixhawk_v6x.md#power)).
+Моніторинг акумулятора цифрових DroneCAN/UAVCAN увімкнено за замовчуванням (див. [Швидкий старт > Живлення](../assembly/quick_start_cuav_pixhawk_v6x.md#power)).
 
 ::: info
-Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
+Аналоговий моніторинг батареї через ADC не підтримується на цій конкретній платі, але може підтримуватися в варіантах цього контролера польоту з іншою базовою платою.
 :::
 
-## Building Firmware
+## Створення прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v6x_default
@@ -173,7 +173,7 @@ make px4_fmu-v6x_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Відладочний порт
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
@@ -205,7 +205,7 @@ For information about wiring and using this port see:
 
 ## Підтримувані платформи / Airframes
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus. Повний набір підтримуваних конфігурацій можна переглянути в розділі [Довідник про планери  Copter(Вертоліт)](../airframes/airframe_reference.md).
 
 ## Подальша інформація
 

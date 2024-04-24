@@ -1,18 +1,18 @@
 # Holybro X500 V2 + Pixhawk 6C (PX4 Dev Kit)
 
-This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](https://holybro.com/collections/x500-kits), also known as the Holybro PX4 Dev Kit.
+Ця тема надає повні інструкції для збирання [Комплекту Holybro X500 V2 ARF](https://holybro.com/collections/x500-kits), також відомого як Holybro PX4 Dev Kit.
 
 ![The fully built vehicle with props removed](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/kit_no_props.jpg)
 
 
-## Assembly
+## Збірка
 
-::: info
-- The images in this document can be selected to see a youtube video of the step.
-- Each section lists any required screws at the top.
+:::info
+- Зображення в цьому документі можна вибрати, щоб переглянути відео на youtube крок за кроком.
+- Кожний розділ перелічує всі необхідні гвинти у верхній частині.
 :::
 
-### Payload and Battery Holder
+### Навантаження та тримач батареї
 
 **Screw**-  Sunk Screw M2.5*6 12pcs
 

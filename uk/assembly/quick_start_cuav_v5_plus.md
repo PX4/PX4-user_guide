@@ -13,21 +13,21 @@
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
-| Основний інтерфейс | Функція                                                                                                                                                                                            |
-|:------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power1             | Підключає модуль живлення. Вхід живлення з детекцією _аналогової_ напруги та струму. Не використовуйте Digital PM на цьому роз'ємі!                                                                |
-| Power2             | Підключає i2c розумну батарею.                                                                                                                                                                     |
-| TF CARD            | Карта SD для зберігання журналів (карта попередньо вставлена на заводі).                                                                                                                           |
-| M1~M8              | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
-| A1~A6              | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
-| DSU7               | Used for FMU debug, reading debug information.                                                                                                                                                     |
-| I2C1/I2C2          | Connect an I2C device such as an external compass.                                                                                                                                                 |
-| CAN1/CAN2          | Connect UAVCAN devices such as CAN GPS.                                                                                                                                                            |
-| TYPE-C\(USB\)    | Connect to a computer for communication between the flight controller and the computer, such as loading firmware.                                                                                  |
-| SBUS OUT           | Connect SBUS devices (e.g. camera gimbals).                                                                                                                                                        |
-| GPS&SAFETY         | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface.                                                                                                                           |
-| TELEM1/TELEM2      | Connect to the Telemetry System.                                                                                                                                                                   |
-| DSM/SBUS/RSSI      | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module. |
+| Основний інтерфейс | Функція                                                                                                                                                                                                                                   |
+|:------------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Power1             | Підключає модуль живлення. Вхід живлення з детекцією _аналогової_ напруги та струму. Не використовуйте Digital PM на цьому роз'ємі!                                                                                                       |
+| Power2             | Підключає i2c розумну батарею.                                                                                                                                                                                                            |
+| TF CARD            | Карта SD для зберігання журналів (карта попередньо вставлена на заводі).                                                                                                                                                                  |
+| M1~M8              | ШІМ виходи. Можна використовувати для контролю моторів чи сервоприводів.                                                                                                                                                                  |
+| A1~A6              | ШІМ виходи. Можна використовувати для контролю моторів чи сервоприводів.                                                                                                                                                                  |
+| DSU7               | Використовується для дебагінгу FMU, читання інформації щодо дебагінгу.                                                                                                                                                                    |
+| І2C1/I2C2          | Connect an I2C device such as an external compass.                                                                                                                                                                                        |
+| CAN1/CAN2          | Connect UAVCAN devices such as CAN GPS.                                                                                                                                                                                                   |
+| TYPE-C\(USB\)    | Під'єднати до комп'ютера для зв'язку між контролером польоту та комп'ютером, наприклад, як завантаження прошивки.                                                                                                                         |
+| SBUS OUT           | Підключає пристрої SBUS (наприклад, камери з карданним підвісом).                                                                                                                                                                         |
+| GPS&SAFETY         | Приєднайтесь до Neo GPS, який містить GPS, запобіжний вимикач, інтерфейс зумера.                                                                                                                                                          |
+| TELEM1/TELEM2      | Під'єднатися до системи телеметрії.                                                                                                                                                                                                       |
+| DSM/SBUS/RSSI      | Включає інтерфейси введення сигналів DSM, SBUS, RSSI, інтерфейс DSM може бути підключений до супутникового приймача DSM, інтерфейс SBUS - до приймача дистанційного керування SBUS, RSSI - для модуля зворотного повернення сили сигналу. |
 
 ::: info Для отримання додаткової інформації про інтерфейс, будь ласка, прочитайте [Посібник з V5+](http://manual.cuav.net/V5-Plus.pdf).
 :::
@@ -71,46 +71,46 @@
 
 ## Супутникові приймачі Spektrum
 
-The V5+ has a dedicated DSM cable. If using a Spektrum satellite receiver, this should be connected to the flight controller DSM/SBUS/RSSI interface.
+V5+ має присвячений кабель DSM. Якщо використовується супутниковий приймач Spektrum, його слід підключити до інтерфейсу DSM/SBUS/RSSI контролера польоту.
 
-## Power
+## Живлення
 
-The V5+ kit includes the _HV_PM_ module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the _HW_PM_ module to the flight control `Power1` interface.
+Набір V5+ включає модуль _HV_PM_, який підтримує LiPo-акумулятори від 2 до 14S. Підключіть 6-контактний роз'єм модуля _HW_PM_ до інтерфейсу живлення керування польотом `Power1`.
 
 :::warning
-The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
+The supplied power module is unfused. Живлення **повинне** бути вимкнене при підключенні периферійних пристроїв.
 :::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
 ::: info
-The power module is not a power source for peripherals connected to the PWM outputs.
+Модуль живлення не є джерелом живлення для периферійних пристроїв, підключених до виходів ШІМ.
 If you're connecting servos/actuators you will need to separately power them using a BEC.
 :::
 
-## Telemetry System (Optional)
+## Система телеметрії (Опціонально)
 
-A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+Система телеметрії дозволяє вам спілкуватися, спостерігати та керувати рухомим засобом у польоті з наземної станції (наприклад, ви можете направляти БПЛА в певне положення або завантажувати нове завдання).
 
-The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to either the `TELEM1` or `TELEM2` port (if connected to these ports, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
+Канал зв'язку здійснюється через телеметричні радіостанції. Радіостанцію, розташовану на рухомому засобі, слід підключити до порту `TELEM1` або `TELEM2` (якщо підключено до цих портів, додаткова конфігурація не потрібна). Інше радіо підключається до вашого комп'ютерного або мобільного пристрою наземної станції (зазвичай за допомогою USB).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
 
 <a id="sd_card"></a>
 
-## SD Card (Optional)
+## SD-карта (Опціонально)
 
-An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
+[SD-картку](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) вставляють на заводі (вам нічого не потрібно робити).
 
-## Motors
+## Мотори
 
-Motors/servos are connected to the MAIN and AUX ports in the order specified for your vehicle in the [Airframes Reference](../airframes/airframe_reference.md).
+Мотори/сервоприводи підключаються до портів MAIN та AUX в порядку, вказаному для вашого рухомого засобу в [Довідці по конструкції літака](../airframes/airframe_reference.md).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_07.png)
 
 ## Pinouts
 
-Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
+Завантажте схему розводки **V5+** [звідси](http://manual.cuav.net/V5-Plus.pdf).
 
 ## Further Information
 

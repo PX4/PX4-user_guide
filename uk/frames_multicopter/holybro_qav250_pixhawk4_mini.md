@@ -1,27 +1,27 @@
-# Holybro QAV250 + Pixhawk 4 Mini Build (Discontinued)
+# Holybro QAV250 + Pixhawk 4 Mini Build (Припинено)
 
-::: info The _Holybro Pixhawk 4 Mini QAV250 Kit_ is no longer available.
+:::info _Комплект Holybro Pixhawk 4 Mini QAV250_ більше не доступний.
 
-The instructions have been left here because very similar kits based on the Pix32 v6 are [available here](https://holybro.com/products/qav250-kit). These instructions can therefore still be followed (and might be updated to Pix32 v6).
+Інструкції залишено тут, оскільки дуже схожі комплекти на основі Pix32 v6 доступні [тут](https://holybro.com/products/qav250-kit). Ці інструкції все ще можна виконувати (і можуть бути оновлені до Pix32 v6).
 :::
 
-The complete kits include a carbon-fibre QAV250 racing frame, flight controller and almost all other components needed (except battery and receiver). There are variants of the kit both with and without FPV support. This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
+Повні комплекти включають карбонову раму для гонок QAV250, контролер польоту та майже всі інші необхідні компоненти (окрім акумулятора та приймача). Є варіанти набору як з підтримкою FPV, так і без неї. Ця тема надає повні інструкції для збирання комплекту та налаштування PX4 з використанням *QGroundControl*.
 
-Key information
+Основна Інформація
 
-- **Frame:** Holybro QAV250
-- **Flight controller:** [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
-- **Assembly time (approx.):** 3.5 hours (2 for frame, 1.5 autopilot installation/configuration)
+- **Каркас:** Holybro QAV250
+- **Контролер польоту:** [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
+- **Час зборки (приблизно):** 3.5 hours (2 for frame, 1.5 autopilot installation/configuration)
 
 ![Assembled Holybro QAV250 with Pixhawk4 Mini](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qav250_hero.jpg)
 
-## Quickstart Guide
+## Швидкий старт керівництво
 
-[Pixhawk 4 Mini QAV250 Kit Quickstart Guide](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_qav250kit_quickstart_web.pdf)
+[Керівництво початку роботи з комплектом Pixhawk 4 Mini QAV250](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_qav250kit_quickstart_web.pdf)
 
-## Bill of materials
+## Специфікація матеріалів
 
-The Holybro [QAV250 Kit](https://holybro.com/products/qav250-kit) kits includes almost all required components:
+Набір Holybro [QAV250 Kit](https://holybro.com/products/qav250-kit) включає майже всі необхідні компоненти:
 * [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md)
 * Power module holybro
 * Fully assembled Power Management Board with ESCs
@@ -36,7 +36,7 @@ Additionally you will need a battery and receiver (+compatible transmitter). Thi
 - Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
 
 
-## Hardware
+## Обладнання
 
 This section lists all hardware for the frame and the autopilot installation.
 
@@ -82,11 +82,11 @@ The image below shows both frame and electronic components.
 
 ## Assembly
 
-Estimated time to assemble frame is 2 hours and 1.5 hours installing the autopilot and configuring the airframe in *QGroundControl*.
+Очікуваний час для складання каркасу - 2 години, а для встановлення автопілоту та налаштування конструкції повітряного каркасу в *QGroundControl* - 1,5 години.
 
-### Tools needed
+### Необхідні інструменти
 
-The following tools are used in this assembly:
+Наступні інструменти використовуються у цій збірці:
 
 - 2.0mm Hex screwdriver
 - 3mm Phillips screwdriver
@@ -147,43 +147,43 @@ Test motor directions with propellers removed.
    ![QAV250 Velcro battery strap](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/16_velcro_strap.jpg)
 
 
-The "basic" frame build is now complete (though if you need them, you can find more information about connecting components in the [Pixhawk 4 Wiring Quickstart](../assembly/quick_start_pixhawk4.md)).
+"Базова" конструкція рами тепер завершена (хоча, якщо вам потрібна, ви можете знайти більше інформації про підключення компонентів у [Швидкі початкові вказівки з підключення Pixhawk 4](../assembly/quick_start_pixhawk4.md)).
 
-If you have the "basic" version of the kit, you can now jump ahead to instructions on how to [Install/Configure PX4](#px4-configuration).
+Якщо у вас є "базова" версія комплекту, ви можете перейти безпосередньо до інструкцій з того, як [встановити/налаштувати PX4](#px4-configuration).
 
 
-### FPV Assembly
+### Збирання FPV
 
-The "Complete" version of the kit additionally comes with an FPV system, which is mounted on the front of the vehicle as shown.
+"Complete" версія комплекту додатково поставляється з системою FPV, яка встановлена на передній частині транспортного засобу, як показано.
 
 ![QAV250 FPV Attach](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera.jpg)
 
-The steps to install the kit are:
+Кроки для встановлення комплекту:
 
-1. Install the camera bracket on the frame ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_bracket.jpg)
+1. Встановіть кріплення камери на раму ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_bracket.jpg)
 1. Install the camera on the bracket ![Camera on Bracket](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_on_bracket.jpg)
 1. The power module on the complete kit comes with wiring ready to connect the Video Transmitter and Camera: ![Connecting FPV](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection_board.jpg)
    - Attach the camera connector ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_connection.jpg) The wires are: blue=voltage sensor, yellow=video out, black=ground, red=+voltage.
    - Connect the Video Transmitter (VTX) connector ![Video Transmitter Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_video_transmitter_connection.jpg) The wires are: yellow=video out, black=ground, red=+voltage.
 1. Secure the Video Transmitter and OSD board to the frame using tape.
 
-::: info If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module: ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
+:::info Якщо вам потрібно підключити систему самостійно, на діаграмі нижче показані всі з'єднання між камерою, VTX та модулем живлення: ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
 :::
 
-## PX4 Configuration
+## Налаштування PX4
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl* використовується для встановлення автопілота PX4 та його налаштування / налаштування для рами QAV250. [Завантажте та встановіть](http://qgroundcontrol.com/downloads/) *QGroundControl* для вашої платформи.
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
+Повні інструкції щодо встановлення та налаштування PX4 можна знайти в [Основна конфігурація](../config/index.md).
 :::
 
-First update the firmware, airframe, and actuator mappings:
+Спочатку оновіть прошивку, конструкцію та відображення приводів:
 
-- [Firmware](../config/firmware.md)
+- [Прошивки](../config/firmware.md)
 - [Airframe](../config/airframe.md)
 
-  ::: info You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
+  :::info Вам потрібно буде вибрати шасі *HolyBro QAV250* (**Квадрокоптер x > HolyBro QAV250**).
 
   ![QGC - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qgc_airframe_holybro_qav250.png)
 :::
@@ -211,13 +211,13 @@ Ideally you should also do:
 - [Safety](../config/safety.md)
 
 
-## Tuning
+## Вдосконалення
 
-Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
+Набори вибору конструкції встановлюють параметри автопілота *за замовчуванням* для рами. Ці можуть бути достатньо хороші для польоту, але вам слід налаштувати кожну конструкцію рами.
 
-For instructions on how, start from [Autotune](../config/autotune.md).
+Для інструкцій щодо того, як розпочати, почніть з [Автоналаштування](../config/autotune.md).
 
 
-## Acknowledgements
+## Подяки
 
-This build log was provided by the PX4 Test Team.
+Цей журнал збірки був наданий Командою тестового польоту PX4.

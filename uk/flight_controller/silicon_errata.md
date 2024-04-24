@@ -1,19 +1,19 @@
 # Silicon Errata
 
-This page lists known issues with silicon (hardware) errata of 3rd-party parts (micro controller, sensors, etc.) used on the Pixhawk board series. Depending on the type of silicon error, these cannot be fixed in software and might impose specific limitations.
+На цій сторінці перераховано відомі проблеми з кремнієвими (апаратними) помилками частин сторонніх виробників (мікроконтроллер, датчики тощо), які використовуються на платах серії Pixhawk. Залежно від типу помилки кремнію, їх неможливо виправити програмним забезпеченням і можуть накладати певні обмеження.
 
 ## FMUv2 / Pixhawk Silicon Errata
 
 ### STM32F427VIT6 (errata)
 
-Flash Bank 2 and full speed USB device exclusive.
+Flash Bank 2 та ексклюзивний пристрій USB з повною швидкістю.
 
-Silicon revisions up to rev 2 (revision 3 is the first not affected) can produce errors / data corruption when accessing the 2nd flash bank while there is activity on PA12, which is one of the USB data lines. There is no workaround / software fix for this, except to not use the flash bank #2. Since USB is needed to program the device, Pixhawk revisions built with silicon revisions < rev 3 can only use up to 1MB of the 2MB flash of the microprocessor.
+Ревізії Silicon до версії 2 (ревізія 3 є першою, яка не зазнає впливу) можуть спричинити помилки/пошкодження даних під час доступу до 2-го банку флеш-пам’яті, коли є активність на PA12, який є однією з ліній даних USB. Не існує обхідного шляху / програмного виправлення для цього, крім як не використовувати флеш-банк #2. Оскільки для програмування пристрою потрібен USB, версії Pixhawk створені за допомогою кремнієвих версій < rev 3 може використовувати лише до 1 МБ із 2 МБ флеш-пам’яті мікропроцесора.
 
 :::tip
-The errata is fixed in later versions, but this may not be detected if you are using an older bootloader. See [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader) for more information.
+Помилка виправлена у пізніших версіях, але це може не бути виявлено, якщо ви використовуєте старший завантажувач. Див. [Оновлення завантажувача > FMUv2 Firmware](../config/firmware.md#bootloader) для отримання додаткової інформації.
 :::
 
 ## FMUv1 / Pixhawk Silicon Errata
 
-No known issues.
+Немає відомих проблем.

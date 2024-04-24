@@ -79,7 +79,7 @@ Some devices don't support DNA. Additionally, in certain mission-critical scenar
 At time of writing, PX4 does not run the node allocation server on the CAN2 port. This means that if you have a device that is _only_ connected to CAN2 (not redundantly to CAN1 and CAN2), you will need to manually configure its node ID.
 :::
 
-## PX4 Configuration
+## Конфігурація PX4
 
 DroneCAN is configured on PX4 by [setting specific PX4 parameters](../advanced_config/parameters.md) in QGroundControl. You will need to enable DroneCAN itself, along with subscriptions and publications for any features that you use.
 
@@ -178,7 +178,7 @@ These parameters can be [set on moving base and rover RTK CAN nodes](#qgc-cannod
 
 For PX4 you will also need to set [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) to indicate the relative position of the moving base and rover: 0 if your Rover is in front of your Moving Base, 90 if Rover is right of Moving Base, 180 if Rover is behind Moving Base, or 270 if Rover is left of Moving Base.
 
-#### Barometer
+#### Барометр
 
 PX4 DroneCAN parameters:
 
@@ -246,7 +246,7 @@ PX4 can upgrade device firmware over DroneCAN. To upgrade the device, all you ne
 
 Upon boot the flight controller will automatically transfer the firmware onto the device and upgrade it. If successful, the firmware binary will be removed from the root directory and there will be a file named **XX.bin** in the **/ufw** directory of the SD card.
 
-## Troubleshooting
+## Відстеження проблем
 
 **Q**: My DroneCAN devices aren't working.
 

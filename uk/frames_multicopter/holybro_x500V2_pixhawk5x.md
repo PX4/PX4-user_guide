@@ -1,13 +1,13 @@
-# Holybro X500 V2 (Pixhawk 5X Build)
+# Holybro X500 V2 (Побудова Pixhawk 5X)
 
-::: info Holybro initially supplied this kit with a [Pixhawk 5X](../flight_controller/pixhawk5x.md), but at time of writing this has been upgraded to a [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md). This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+:::info Holybro спочатку постачав цей комплект з [Pixhawk 5X](../flight_controller/pixhawk5x.md), але на момент написання це було оновлено до [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md). Цей журнал збірки все ще актуальний, оскільки збірка комплекту практично однакова і, ймовірно, залишиться такою ж, оскільки контролер польоту оновлюється.
 :::
 
-This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](https://holybro.com/collections/x500-kits) and configuring PX4 using *QGroundControl*.
+Ця тема надає повні інструкції для збирання [Комплекту Holybro X500 V2 ARF](https://holybro.com/collections/x500-kits) та налаштування PX4 з використанням *QGroundControl*.
 
-The ARF ("Almost Ready to Fly") kit provides the shortest and straightforward assembly experience for those who want to jump into drone development and not spend that much time on setting up the hardware. It includes the frame, motors, ESCs, propellers and power distribution board.
+Набір ARF ("Майже готовий до польоту") забезпечує найкоротший і простий досвід збирання для тих, хто хоче зайнятися розробкою дронів і не витрачати багато часу на налаштування апаратного забезпечення. Воно включає в себе раму, двигуни, ESC, пропелери та плату розподілу потужності.
 
-In addition to the kit you will need to have the flight controller, radio transmitters, GPS and RC controller. The ARF kit can be used with most flight controllers supported by PX4.
+Крім комплекту вам знадобиться платформа керування польотом, радіопередавачі, GPS та пульт дистанційного керування. Набір ARF може бути використаний з більшістю контролерів польоту, які підтримуються PX4.
 
 ## Основна Інформація
 
@@ -17,9 +17,9 @@ In addition to the kit you will need to have the flight controller, radio transm
 
 ![Full X500 V2 Kit](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500-kit.png)
 
-## Bill of materials
+## Специфікація матеріалів
 
-The Holybro [X500 V2 Kit](https://holybro.com/collections/x500-kits) includes almost all the required components:
+Набір Holybro [X500 V2 Kit](https://holybro.com/collections/x500-kits) включає майже всі необхідні компоненти:
 
 * X500V2 Frame Kit
   * Body - Full Carbon Fiber Top & Bottom plate (144 x 144mm, 2mm thick)

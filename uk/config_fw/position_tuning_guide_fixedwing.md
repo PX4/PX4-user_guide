@@ -1,73 +1,73 @@
-# Fixed-wing Altitude/Position Controller Tuning
+# Налаштування контролера висоти/положення фіксованого крила
 
 Ця інструкція надає певну допомогу в налаштуванні контролерів високого рівня, необхідних для літаючих місій, та в режимі контролю за висотою. PX4 використовує TECS для контролю висоти та швидкості повітря, а NPFG - для горизонтальних заголовків/позицій.
 
-::: info
-An incorrectly set gain during tuning can make altitude or heading control unstable.
+:::info
+Неправильно встановлені виграші під час налаштування можуть зробити управління станом нестабільним.
 Пілот, налаштовуючи коефіцієнти TECS, повинен мати змогу керувати польотом та посадкою літака в стабілізованому режимі керування.
 :::
 
 :::tip
-Всі параметри задокументовані в [Посилання на параметр](../advanced_config/parameter_reference.md#fw-tecs). The most important parameters are covered in this guide.
+Всі параметри задокументовані в [Посилання на параметр](../advanced_config/parameter_reference.md#fw-tecs). Найважливіші параметри охоплені в цьому керівництві.
 :::
 
-## TECS Tuning (Altitude and Airspeed)
+## Налаштування TECS (висота і швидкість)
 
-TECS (Total Energy Control System) is a guidance algorithm for fixed-wing aircraft that coordinates throttle and pitch angle setpoints to control the aircraft's altitude and airspeed. For a detailed description of the TECS algorithm and the control diagram, see [Controller Diagrams](../flight_stack/controller_diagrams.md).
+TECS (Total Energy Control System) - це алгоритм керування для літаків з фіксованими крилами, який координує установки керування керуванням та кутом нахилу, щоб контролювати висоту та швидкість літака. Для детального опису алгоритму TECS та блок-схеми керування див. [Блок-схеми керування](../flight_stack/controller_diagrams.md).
 
-A well-tuned attitude controller is required before tuning TECS: [PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
+Для налаштування TECS потрібен добре налаштований контролер налаштування: [Посібник з Налаштування PID](../config_fw/pid_tuning_guide_fixedwing.md).
 
-Tuning TECS is mainly about setting the airframe limitations correctly. Those limitations can be specified in terms of parameters that can be determined from a sequence of flight maneuvers, which are described below. Most of the maneuvers required the plane to be flown by a pilot in [Stabilized flight mode](../flight_modes_fw/stabilized.md).
+Налаштування TECS полягає головним чином у правильному встановленні обмежень повітряного каркасу. Ці обмеження можуть бути визначені у термінах параметрів, які можуть бути визначені з послідовності маневрів польоту, які описані нижче. Більшість маневрів вимагали, щоб літак керувався пілотом у режимі польоту [Стабілізований режим польоту](../flight_modes_fw/stabilized.md).
 
 :::tip
-It is highly beneficial to have a person available who can read and take note of telemetry data while the pilot is flying the maneuvers.
-To improve accuracy we also recommended that you verify the data obtained during flight with the data recorded in the flight logs.
+Корисно мати людину, яка може читати та робити записи телеметричних даних під час польоту пілота під час виконання маневрів.
+Для підвищення точності ми також рекомендуємо перевірити дані, отримані під час польоту, з даними, записаними в журналах польотів.
 :::
 
 #### 1st: Trim Conditions
 
-Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed. Use throttle to adjust airspeed and pitch to keep level flight.
+Літайте в [стабілізованому режимі](../flight_modes_fw/stabilized.md) та знаходьте значення триммера як для керування газом, так і для кута нахилу для рівноповітряного польоту на оптимальній швидкості триммера. Використовуйте дросель для налаштування швидкості повітря та кута для підтримання рівноваги польоту.
 
 Встановить наступні параметри:
 
-- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) - set to the desired trim airspeed flown during the maneuver.
-- [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) - set to the throttle required to fly at trim airspeed.
-- [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) - set to the pitch angle required to maintain level flight.
+- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) - встановлюється на потрібну обрізну швидкість повітря, яка летить під час маневру.
+- [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) - встановлюється на потрібне керування, необхідне для польоту з тримовою швидкістю повітря.
+- [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) - встановлюється на кут тангажу, необхідний для підтримання рівноваги польоту.
 
-#### 2nd: Airspeed & Throttle Limits
+#### 2-ге місце: Обмеження швидкості повітря &  керуванням газом
 
-Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and increase throttle while maintaining level flight using pitch control - until the vehicle reaches the maximum allowed airspeed.
+Літаєте в [стабілізованому режимі](../flight_modes_fw/stabilized.md) та збільшуєте керування газом, утримуючи рівновагу польоту за допомогою кутового керування - доки транспортний засіб не досягне максимально допустимої швидкості повітря.
 
-Set the following parameters:
+Встановить наступні параметри:
 
-- [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) - set to the throttle you applied to reach maximum airspeed during level flight.
-- [FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN) - set to the minimum throttle the plane should fly at.
-- [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) - set to the maximum airspeed you achieved during level flight at `FW_THR_MAX`.
+- [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) - встановлюється на гальмівник, який ви застосовували для досягнення максимальної швидкості повітря під час рівноповітряного польоту.
+- [FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN) - встановлюється на мінімальний режим газу, на якому літак повинен літати.
+- [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) - встановіть максимальну швидкість повітря, яку ви досягли під час рівноповітряного польоту на `FW_THR_MAX`.
 
-#### 3rd: Pitch & Climb Rate Limits
+#### 3-й: Обмеження швидкості &  швидкості підйому
 
 :::warning
-Не використовувати [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) або [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) для зазначення бажаного підйомності або швидкості, яку ви хотіли б отримати з транспорту! The parameters define the operating limitations and they should be set during the tuning phase, as described below.
+Не використовувати [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) або [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) для зазначення бажаного підйомності або швидкості, яку ви хотіли б отримати з транспорту! Параметри визначають обмеження функціонування і повинні бути встановлені під час фази налаштування, як описано нижче.
 :::
 
-Fly in stabilized mode, apply full throttle (`FW_THR_MAX`) and slowly increase the pitch angle of the vehicle until the airspeed reaches `FW_AIRSPD_TRIM`.
+Літайте в стабілізованому режимі, використовуйте повний газ (`FW_THR_MAX`) і повільно збільшуйте кут нахилу транспортного засобу до тих пір, поки швидкість повітря не досягне `FW_AIRSPD_TRIM`.
 
-- [FW_P_LIM_MAX](../advanced_config/parameter_reference.md#FW_P_LIM_MAX) - set to the pitch angle required to climb at trim airspeed when applying `FW_THR_MAX`.
-- [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) - set to the climb rate achieved during the climb at `FW_AIRSPD_TRIM`.
+- [FW_P_LIM_MAX](../advanced_config/parameter_reference.md#FW_P_LIM_MAX) - встановлюється на кут атаки, необхідний для підйому на швидкості тримання, коли застосовується `FW_THR_MAX`.
+- [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) - встановлюється на швидкість підйому, досягнуту під час підйому на `FW_AIRSPD_TRIM`.
 
-Fly in stabilized mode, reduce the throttle to `FW_THR_MIN` and slowly decrease the pitch angle until the vehicle reaches `FW_AIRSPD_MAX`.
+Літайте в стабілізованому режимі, зменшіть швидкість до `FW_THR_MIN` і повільно зменшуйте кут нахилу транспортного засобу до тих пір, поки транспортний засіб не досягне `FW_AIRSPD_MAX`.
 
-- [FW_P_LIM_MIN](../advanced_config/parameter_reference.md#FW_P_LIM_MIN) - set to the pitch angle required to reach `FW_AIRSPD_MAX` at `FW_THR_MIN`.
-- [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) - set to the sink rate achieved during the descent.
+- [FW_P_LIM_MIN](../advanced_config/parameter_reference.md#FW_P_LIM_MIN) - встановлюється на кут нахилу, необхідний для досягнення `FW_AIRSPD_MAX` на `FW_THR_MIN`.
+- [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) - встановлюється на максимальну швидкість опускання, досягнуту під час спуску.
 
-Fly in stabilized mode, reduce throttle to `FW_THR_MIN` and adjust the pitch angle such that the plane maintains `FW_AIRSPD_TRIM`.
+Літайте в стабілізованому режимі, зменште швидкість до `FW_THR_MIN` і відрегулюйте кут нахилу так, щоб літак підтримував `FW_AIRSPD_TRIM`.
 
-- [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - set to the sink rate achieved while maintaining `FW_AIRSPD_TRIM`.
+- [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - встановлюється на швидкість опускання, досягнуту під час підтримання `FW_AIRSPD_TRIM`.
 
-Specify the target climb and sink rate for autonomous missions by adjusting [FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) and [FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP). These specify the height rates at which the vehicle will climb or descend in order to change altitude. Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes_fw/altitude.md) and [Position mode](../flight_modes_fw/position.md).
+Вкажіть цільову швидкість підйому та швидкість опускання для автономних місій, налаштувавши [FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) та [FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP). Ці параметри вказують на швидкість, з якою транспортний засіб буде підніматися або сходити, щоб змінити висоту. Крім того, ці два значення визначають межі швидкості висоти, які вказує користувач у [режимі висоти](../flight_modes_fw/altitude.md) та [режимі позиції](../flight_modes_fw/position.md).
 
-### FW Path Control Tuning (Position)
+### Налаштування контролю траєкторії FW (Позиція)
 
-All path control parameters are described [here](../advanced_config/parameter_reference.md#fw-path-control).
+Усі параметри керування шляхом описані [тут](../advanced_config/parameter_reference.md#fw-path-control).
 
-- [NPFG_PERIOD](../advanced_config/parameter_reference.md#NPFG_PERIOD) - This is the previously called L1 distance and defines the tracking point ahead of the aircraft it's following. A value of 10-20 meters works for most aircraft. Shorten slowly during tuning until response is sharp without oscillation. Vehicles with a slow roll dynamic should have this value increased.
+- [NPFG_PERIOD](../advanced_config/parameter_reference.md#NPFG_PERIOD) - Це раніше називалося відстанню L1 і визначає точку відстеження попереду літака, за яким він слідує. Значення 10-20 метрів працює для більшості літаків. Повільно скорочуйте під час налаштування до тих пір, поки відповідь не буде гострою без коливань. Транспортні з повільною динамікою кочення повинні мати це значення збільшене.

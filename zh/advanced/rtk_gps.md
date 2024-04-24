@@ -2,14 +2,14 @@
 
 [实时载波相位差分定位](https://en.wikipedia.org/wiki/Real_Time_Kinematic) （RTK）能够提供厘米级的定位信息。 这一章节将介绍 RTK 是如何集成到 PX4 中的。
 
-:::tip
-Instructions for _using_ RTK GNSS are provided in [Hardware > RTK GPS](../gps_compass/rtk_gps.md). 多个移动的用户可以共用同一个差分基准站发播的差分修正信息，移动用户离差分基准站的距离越近，差分定位更精确。
+:::tip RTK
+GNSS 的_使用说明_在 [硬件部分 > RTK GPS](../gps_compass/rtk_gps.md). 多个移动的用户可以共用同一个差分基准站发播的差分修正信息，移动用户离差分基准站的距离越近，差分定位更精确。
 
 ## 综述
 
 RTK是使用导航信号的载波相位来进行测距的，而不是使用导航信号所搭载的信息。 它依靠一个单一的参考基站站实时校正，这种校正可以与多个流动站一起工作。
 
-PX4 配置 RTK 需要两个 RTK GPS 模块和一个数传。 The fixed-position ground-based GPS unit is called the _Base_ and the in-air unit is called the _Rover_. The Base unit connects to _QGroundControl_ (via USB) and uses the datalink to stream RTCM corrections to the vehicle (using the MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) message). 在自驾仪上，MAVLink消息包被解包得到RTCM的修正信息，并把这些信息发送给移动站，移动站结合修正信息最终解算得到 RTK 解。
+PX4 配置 RTK 需要两个 RTK GPS 模块和一个数传。 固定在地面上的GPS模块称为_基站端_，搭载在无人机上的称为_移动端_。 基站端通过USB连接到_QGroundControl_，然后通过数传将RTCM校正传输给无人机（使用MavLink的[GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA)消息）。 在自驾仪上，MAVLink消息包被解包得到RTCM的修正信息，并把这些信息发送给移动站，移动站结合修正信息最终解算得到 RTK 解。
 
 数据链通常能够处理上行数据率为300字节每秒的数据（更详细的信息参考下面的[上行数据速率](#uplink-datarate)章节）。
 
@@ -24,15 +24,15 @@ PX4 配置 RTK 需要两个 RTK GPS 模块和一个数传。 The fixed-position 
 
 ## 自动配置
 
-The PX4 GPS stack automatically sets up the GPS modules to send and receive the correct messages over the UART or USB, depending on where the module is connected (to _QGroundControl_ or the autopilot).
+PX4会自动设置GPS 模块，并通过UART或USB发送和接收正确的消息，具体取决于模块连接到 _QGroundControl_ 还是飞控。
 
-As soon as the autopilot receives `GPS_RTCM_DATA` MAVLink messages, it automatically forwards the RTCM data to the attached GPS module over existing data channels (a dedicated channel for correction data is not required).
+一旦飞控接收到`GPS_RTCM_DATA` MAVLink 消息，它就会自动将 RTCM 数据通过现有数据通道转发到连接的 GPS 模块（不需要专用的校正数据通道）
 
-:::note
+::: note
 u-blox U-Center RTK 模块配置工具不需要/使用！
 :::
 
-::: info Both _QGroundControl_ and the autopilot firmware share the same [PX4 GPS driver stack](https://github.com/PX4/GpsDrivers). In practice, this means that support for new protocols and/or messages only need to be added to one place.
+::: info _QGroundControl_和飞控固件共享相同的[PX4 GPS driver stack](https://github.com/PX4/GpsDrivers)。 实际上，这意味着只需要将新协议和/或消息添加到一个地方。
 :::
 
 ### RTCM 报文
@@ -52,15 +52,15 @@ QGroundControl 配置RTK 基地站输出以下 RTCM3.2 帧, 每个帧均为 1 Hz
 
 RTCM 基础位置消息(1005)长度为 22 字节， 而其他卫星的长度则因可见卫星的数量和卫星信号的数量而异（M8P等L1单元只有一个）。 在真实环境中，对于任一时刻，任何一个导航系统的可用卫星个数不超过12个，因此 300 B/s的上行速率就足够了。
 
-If _MAVLink 1_ is used, a 182-byte `GPS_RTCM_DATA` message is sent for every RTCM message, irrespective of its length. 因此，大约每秒上行需求是700多个字节。 这可能导致低带宽半双轨遥测模块 (如3DR Telemetry Radios) 连接的饱和。
+如果使用 _MAVLink 1_ ，则不论其长度，每条 RTCM 消息都会发送182字节 `GPS_RTCM_DATA` 消息。 因此，大约每秒上行需求是700多个字节。 这可能导致低带宽半双轨遥测模块 (如3DR Telemetry Radios) 连接的饱和。
 
-If _MAVLink 2_ is used then any empty space in the `GPS_RTCM_DATA message` is removed. 由此产生的上行链路需求与理论值 (约 300 字节/秒) 大致相同。
+如果使用 _MAVLink 2_，则 `GPS_RTCM_DATA消息` 中的所有的空将被删除。 由此产生的上行链路需求与理论值 (约 300 字节/秒) 大致相同。
 
 :::tip
 PX4 自动切换到 MAVLink 2，如果GCS 和遥测模块支持。
 :::
 
-MAVLink 2 必须用于低带宽链接以保证 RTK 性能。 Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. 您可以使用系统控制台上的 `mavlink status` 命令验证协议版本：
+MAVLink 2 必须用于低带宽链接以保证 RTK 性能。 必须注意确保数传链在整个过程中使用 MAVLink 2。 您可以使用系统控制台上的 `mavlink status` 命令验证协议版本：
 
 ```sh
 nsh> mavlink status

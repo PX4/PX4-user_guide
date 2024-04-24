@@ -2,31 +2,31 @@
 
 ![MindRacer 210](../../assets/hardware/hardware-mindracer210.png)
 
-### Summary
+### Підсумок
 
-A ready-to-fly racing beast running full PX4/MindPX stack. Can reach maximum 10:1 thrust-to-weight ratio!
+Готовий літній звір працює з повним стеком PX4/MindPX. Можна досягти максимального 10:1 коефіцієнта тяги до ваги!
 
-MR210 uses MindRacer as flight controller. MR210 is a fully modularized, stackable RTF racing drone. The soldering-free SEP/WEP sockets allow pilots to quickly replace broken parts without the needs for soldering iron. Pilots can further easily customize the build by adding-to or replacing stacking parts to make a more powerful drone.
+MR210 використовує MindRacer як польотний контролер. MR210 є повністю модульним, складним RTF дронтом. Безпаяльні SEP/WEP сокети дозволяють пілотам швидко замінити пошкоджені частини без потреб для паяльника. Пілоти можуть ще більше легко налаштувати конструювання, додавши до нього або замінивши частини складу, щоб зробити більш потужний дрон.
 
-### Highlights
+### Основні характеристики
 
-1. True 'X', 4mm thick, 210mm diagonal carbon fiber frame.
-2. Stackable SEP/WEP sockets for soldering-free ESC connection and parts replacement.
-3. 30A/4S/OneShot enabled BLHeli ESC.
-4. 5V universal voltage supply for all avionics including camera and VTX.
-5. DroneCode<sup>&reg;</sup> standard compliant JST GH connectors.
-6. Have options for PPM/S.Bus/Specktrum DSM receiver
+1. Справжній «X», рама з вуглецевого волокна товщиною 4 мм і діагоналлю 210 мм.
+2. Стабільні SEP/WEP сокети для безплатного ESC з'єднання та заміни частин.
+3. 30A/4S/OneShot увімкнув BLHeli ESC.
+4. 5V універсального постачання напруги для всіх авіонік, включаючи камери та VTX.
+5. DroneCode<sup>&reg;</sup> стандартний сумісний JST GH коннектори.
+6. Мають параметри PPM/S.Bus/Specktrum DSM приймача
 
-### User Guide
+### Посібник користувача
 
 :::info
-The user guide is [here](http://mindpx.net/assets/accessories/MR210usermanual_pdf.pdf).
+Посібник користувача – [here](http://mindpx.net/assets/accessories/MR210usermanual_pdf.pdf).
 :::
 
-### Where to buy
+### Де купити
 
-MindRacer 210 is available at [AirMind Store](https://airmind.mindpx.net/node/78). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+MindRacer 210 доступний в [AirMind Store](https://airmind.mindpx.net/node/78). Ви також можете знайти MindRacer в Amazon<sup>&reg;</sup> або eBay<sup>&reg;</sup>.
 
-### Support
+### Підтримка
 
-Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.
+Будь ласка, відвідайте http://www.mindpx.org для отримання додаткової інформації. Або ви можете надіслати email на [support@mindpx.net](mailto:support@mindpx.net) для будь-яких запитів або допомоги.

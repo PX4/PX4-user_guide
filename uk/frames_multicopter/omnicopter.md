@@ -1,14 +1,14 @@
-# Omnicopter
+# Омнікоптер
 
-An Omnicopter is a multicopter that can provide thrust in all directions (6 degrees of freedom). This allows it to move in any direction without having to tilt, and it can hover at an arbitrary tilt angle. All of this is achieved by arranging the motor positions and thrust axis in specific ways:
+Омнікоптер - це мультикоптер, який може забезпечити тягу в усіх напрямках (6 ступенів свободи). Це дозволяє йому рухатися в будь-якому напрямку без нахилу, і він може зависати під довільним кутом нахилу. Все це досягається шляхом розташування позицій двигуна і вісі тяги у певних способах:
 
-![Omnicopter](../../assets/airframes/multicopter/omnicopter/frame.jpg)
+![Омнікоптер](../../assets/airframes/multicopter/omnicopter/frame.jpg)
 
-This build follows the original design from [Brescianini, Dario, and Raffaello D'Andrea](https://www.youtube.com/watch?v=sIi80LMLJSY).
+Ця конструкція слідує оригінальному дизайну від [Бресчіаніні, Даріо та Рафаелло Д'Андреа](https://www.youtube.com/watch?v=sIi80LMLJSY).
 
-## Bill of Materials
+## Специфікація матеріалів
 
-The components needed for this build are:
+Компоненти, необхідні для цієї збірки, є:
 
 - Електроніка:
   - Flight controller: [Holybro KakuteH7](../flight_controller/kakuteh7.md)
@@ -74,30 +74,30 @@ Solder the peripherals to the flight controller. We used the following assignmen
 
 ### ESC
 
-First, configure the ESCs to 3D mode (bidirectional). We had issues with the stock ESC settings in 3D mode: when trying to switch direction, a motor sometimes did not start anymore until the ESC was rebooted. So we had to change ESC settings.
+Спочатку налаштуйте ESC на режим 3D (бідирекційний). Ми мали проблеми з налаштуваннями запасних ESC в режимі 3D: коли спробували змінити напрямок, мотор іноді більше не запускався, поки ESC не був перезавантажений. Так що нам довелося змінити налаштування ESC.
 
-To do so, you can use Betaflight on the flight controller and then use pass-through mode and the BL Heli suite (make sure there is an airframe with 8 motors configured in Betaflight). These are the settings:
+Для цього ви можете використовувати Betaflight на контролері польоту, а потім використовувати режим пропуску і набір BL Heli (переконайтеся, що в Betaflight налаштовано повітряну раму з 8 моторами). Це налаштування:
 
 ![ESC settings](../../assets/airframes/multicopter/omnicopter/esc_settings.png)
 
-In particular:
-- set the Motor Direction to **Bidirectional Soft**
-- increase the Rampup Power to **100%** (this is conservative and might reduce efficiency)
+Зокрема:
+- встановіть напрямок руху двигуна на **Обидва напрямки**
+- збільшити потужність розгону до **100%** (це консервативно і може знизити ефективність)
 
-::: info
-Make sure the motors do not overheat with the changed settings.
+:::info
+Переконайтеся, що двигуни не перегріваються зі зміненими налаштуваннями.
 :::
 
 ### PX4
 
-- Select a generic multicopter airframe
-- Use an [arming switch](../advanced_config/prearm_arm_disarm.md#arming-button-switch), do not use stick arming
-- [Select DShot](../config/actuators.md) as output protocol on all eight outputs
-- Configure the motors according to this: ![Motor Config](../../assets/airframes/multicopter/omnicopter/motors_configuration.png) We used the following convention: the motors are facing the direction of where the axis points to. The spinning direction matches the direction of positive thrust (moving the motor slider up). Make sure to use the right props, as there is a CCW and a CW version.
-- Parameters:
-  - Change the desaturation logic for better attitude tracking: set [CA_METHOD](../advanced_config/parameter_reference.md#CA_METHOD) to 0.
-  - Disable failure detection: set [FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P) and [FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R) to 0.
-- [This file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/multicopter/omnicopter/omnicopter.params) contains all the relevant parameters.
+- Виберіть загальний корпус багатокоптерного повітряного каркасу
+- Використовуйте перемикач увімкнення [зброювання](../advanced_config/prearm_arm_disarm.md#arming-button-switch), не використовуйте увімкнення палицею
+- [Виберіть DShot](../config/actuators.md) як протокол виводу на всіх восьми виходах
+- Налаштуйте двигуни відповідно до цього: ![Motor Config](../../assets/airframes/multicopter/omnicopter/motors_configuration.png) Ми використовували наступну конвенцію: двигуни спрямовані в напрямку, куди вказує вісь. Напрям обертання відповідає напряму позитивного тяги (переміщення слайдера двигуна вгору). Переконайтеся, що використовуєте правильні пропси, оскільки є версія CCW та CW.
+- Параметри:
+  - Змініть логіку десатурації для кращого відстеження настрою: встановіть [CA_METHOD](../advanced_config/parameter_reference.md#CA_METHOD) на 0.
+  - Вимкнути виявлення відмов: встановити [FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P) та [FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R) на 0.
+- [Цей файл](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/multicopter/omnicopter/omnicopter.params) містить всі відповідні параметри.
 
 ## Відео
 
@@ -105,16 +105,16 @@ Make sure the motors do not overheat with the changed settings.
 
 ## Моделювання
 
-There is an omnicopter simulation target in Gazebo Classic:
+Є мішень імітації омнікоптера в Gazebo Classic:
 
 ```sh
 make px4_sitl gazebo-classic_omnicopter
 ```
 ![Gazebo Sim](../../assets/airframes/multicopter/omnicopter/gazebo.png)
 
-## Remarks
+## Зауваження
 
-Some general remarks:
+Деякі загальні зауваження:
 
-- The hover throttle is about 30%.
-- The flight time is around 4-5min. This could probably be improved a bit by using larger propellers.
+- Швидкість реакції газу становить близько 30%.
+- Час польоту становить близько 4-5 хвилин. Можливо, це можна трохи покращити, використовуючи більші пропелери.

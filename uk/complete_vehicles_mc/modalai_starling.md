@@ -44,13 +44,13 @@ Starling має [відкрите SDK](https://docs.modalai.com/voxl-developer-b
 | M       | Motor 1504                                               |                  |
 | N       | XT30 Power Connector                                     |                  |
 
-## Datasheet
+## Документація
 
-### Specifications
+### Характеристики
 
-| Component       | Specification                                                     |
+| Компонент       | Специфікація                                                      |
 | --------------- | ----------------------------------------------------------------- |
-| Autopilot       | VOXL2                                                             |
+| Автопілот       | VOXL2                                                             |
 | Take-off Weight | 275g (172g without battery)                    |
 | Diagonal Size   | 211mm                                                             |
 | Flight Time     | > 30 minutes                                                      |
@@ -66,7 +66,7 @@ Starling має [відкрите SDK](https://docs.modalai.com/voxl-developer-b
 | Width           | 187mm (Props folded)                           |
 | Length          | 142mm (Props folded)                           |
 
-### Hardware Wiring Diagram
+### Стандартна схема проводки
 
 ![Hardware Overview](../../assets/hardware/complete_vehicles/modalai_starling/d0005_compute_wiring_d.jpg)
 

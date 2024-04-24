@@ -7,7 +7,7 @@
 
 [BeagleBone Blue](https://beagleboard.org/blue) - це багатофункціональний комп'ютер на базі Linux. Хоча ця компактна і недорога плата оптимізована для робототехніки, вона має всі необхідні датчики і периферійні пристрої, необхідні для керування польотом. У цій темі показано, як налаштувати плату для роботи PX4 з пакетом робототехніки [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol).
 
-![BeagleBone - labelled diagram](../../assets/hardware/BeagleBone_Blue_balloons.jpg)
+![BeagleBone - діаграма з мітками](../../assets/hardware/BeagleBone_Blue_balloons.jpg)
 
 ## OS Image
 
@@ -269,12 +269,12 @@ BeagleBone Blue має деякі унікальні функції, такі я
 
 Сигнал SBUS від приймача (наприклад, FrSky X8R) є інвертованим сигналом. UARTs на BeagleBone Blue можуть працювати лише з неінвертованим сигналом рівня 3,3 В. [У цьому навчальному посібнику](../tutorials/linux_sbus.md) міститься схема інвертора сигналу SBUS.
 
-#### Typical Connections
+#### Типові підключення
 
-For a quadcopter with GPS and an SBUS receiver, here are typical connections:
+Для квадрокоптера з GPS і приймачем SBUS, ось типові схеми підключення:
 
-1. Connect the ESC of motor 1, 2, 3 and 4 to channel 1, 2, 3 and 4 of servo outputs on BeagleBone Blue, respectively. If your ESC connector contains a power output pin, remove it and do not connect it to the power output pin of the servo channel on the BeagleBone Blue.
+1. Підключіть ESC двигуна 1, 2, 3 та 4 до каналу 1, 2, 3 та 4 вихідних сигналів сервоприводів на BeagleBone Blue відповідно. Якщо ваш роз'єм ESC містить вихідний контакт живлення, вийміть його і не підключайте його до вихідного контакту живлення каналу сервоприводу на BeagleBone Blue.
 
-1. Connect the above mentioned converted SBUS signal to the dsm2 port if you have the matching connector for dsm2, otherwise connect it to any other available UART port and change the corresponding port in **/home/debian/px4/px4.config** accordingly.
+1. Підключіть вищезазначений перетворений сигнал SBUS до порту dsm2, якщо у вас є відповідний роз'єм для dsm2, в іншому випадку підключіть його до будь-якого іншого доступного UART-порту та змініть відповідний порт у **/home/debian/px4/px4.config** відповідно.
 
-1. Connect the signals of GPS module to GPS port on the BeagleBone Blue. Note that the signal pins of the GPS port on the BeagleBone Blue are only 3.3V tolerant, so choose your GPS module accordingly.
+1. Підключіть сигнали модуля GPS до порту GPS на платі BeagleBone Blue. Зверніть увагу, що сигнальні контакти порту GPS на BeagleBone Blue підтримують лише 3,3 В, тому обирайте свій GPS-модуль відповідно.

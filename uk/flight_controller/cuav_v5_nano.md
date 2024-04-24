@@ -1,15 +1,15 @@
-# CUAV V5 nano Autopilot
+# Автопілот CUAV V5 nano
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://store.cuav.net/) щодо питань технічної підтримки або відповідності вимогам.
 :::
 
-**V5 nano**<sup>&reg;</sup> is an autopilot for space-constrained applications, designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
+**V5 nano**<sup>&reg;</sup> є автопілотом для просторово обмежених застосувань, розробленим CUAV<sup>&reg;</sup>у співпраці з командою PX4.
 
-The autopilot is small enough to use in 220mm racing drones, but remains powerful enough for most drone use.
+Автопілот досить малий, щоб використовувати в гоночних дронах розміром 220 мм, але залишається достатньо потужним для більшості використань дрона.
 
 ![V5 nano - Hero image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 
-::: info The V5 nano is similar to the [CUAV V5+](../flight_controller/cuav_v5_plus.md), but has an all-in-one form factor, fewer PWM ports (can't be used for [airframes](../airframes/airframe_reference.md) that use AUX ports), and does not have internal damping.
+:::info V5 nano подібний до [CUAV V5+](../flight_controller/cuav_v5_plus.md), але має форм-фактор все в одному, менше PWM-портів (не може бути використаний для [корпусів](../airframes/airframe_reference.md), які використовують AUX-порти), і не має внутрішнього демпфування.
 :::
 
 Some of its main features include:
@@ -19,14 +19,14 @@ Some of its main features include:
 - Firmware-compatible with PX4.
 - Generous 2.6mm spacing for I/O pins, making it easier to use all the interfaces.
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::info Цей польотний контролер [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-### Quick Summary
+### Короткий опис
 
-Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
+Основний процесор FMU: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB пам'яті, 512KB RAM
 
-- On-board sensors:
+- Сенсори на платі:
 
   - Accel/Gyro: ICM-20689
   - Accel/Gyro: ICM-20602
@@ -84,7 +84,7 @@ Download **V5 nano** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v5_default
@@ -92,7 +92,7 @@ make px4_fmu-v5_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Відладочний порт
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port (`DSU7`). The board does not have an I/O debug interface.
 
@@ -151,7 +151,7 @@ The _V5 nano_ has no over current protection.
 
 <a id="Optional-hardware"></a>
 
-## Peripherals
+## Периферійні пристрої
 
 - [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
 - [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
@@ -190,7 +190,7 @@ For direct connection to _Segger Jlink_ we recommended you use the 3.3 Volts of 
 `PM2` can only measure battery voltage and current, but **not** power the flight controller.
 
 :::warning
-PX4 does not support this interface.
+PX4 не підтримує цей інтерфейс.
 :::
 
 ## Відомі проблеми
@@ -199,10 +199,10 @@ The issues below refer to the _batch number_ in which they first appear. The bat
 
 <a id="pin1_unfused"></a>
 
-#### SBUS / DSM / RSSI interface Pin1 unfused
+#### Інтерфейс SBUS / DSM / RSSI Pin1 не захищений від перевантаження
 
 :::warning
-This is a safety issue.
+Це питання безпеки.
 :::
 
 Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this can lead to equipment damage!

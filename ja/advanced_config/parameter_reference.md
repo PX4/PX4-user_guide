@@ -10935,6 +10935,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="EKF2_DELAY_MAX">EKF2_DELAY_MAX</strong> (FLOAT)</td>
+ <td>Maximum delay of all the aiding sensors <p><strong>Comment:</strong> Defines the delay between the current time and the delayed-time horizon. This value should be at least as large as the largest EKF2_XXX_DELAY parameter.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 1000] </td>
+ <td>200</td>
+ <td>ms</td>
+</tr>
+<tr>
  <td><strong id="EKF2_DRAG_CTRL">EKF2_DRAG_CTRL</strong> (INT32)</td>
  <td>Multirotor wind estimation selection <p><strong>Comment:</strong> Activate wind speed estimation using specific-force measurements and a drag model defined by EKF2_BCOEF_[XY] and EKF2_MCOEF. Only use on vehicles that have their thrust aligned with the Z axis and no thrust in the XY plane.</p>   </td>
  <td></td>
@@ -11367,7 +11375,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MULTI_IMU">EKF2_MULTI_IMU</strong> (INT32)</td>
- <td>Multi-EKF IMUs <p><strong>Comment:</strong> Maximum number of IMUs to use for Multi-EKF. Requires SENS_IMU_MODE 0. Set 0 to disable.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Multi-EKF IMUs <p><strong>Comment:</strong> Maximum number of IMUs to use for Multi-EKF. Set 0 to disable. Set 0 to disable.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 4] </td>
  <td>0</td>
@@ -11375,7 +11383,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MULTI_MAG">EKF2_MULTI_MAG</strong> (INT32)</td>
- <td>Multi-EKF Magnetometers <p><strong>Comment:</strong> Maximum number of magnetometers to use for Multi-EKF. Set 0 to disable. Requires SENS_MAG_MODE 0.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Multi-EKF Magnetometers <p><strong>Comment:</strong> Maximum number of magnetometers to use for Multi-EKF. Requires SENS_IMU_MODE 0. Requires SENS_MAG_MODE 0.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 4] </td>
  <td>0</td>
@@ -12291,7 +12299,7 @@ table {
 <tr>
  <td><strong id="FW_AIRSPD_STALL">FW_AIRSPD_STALL</strong> (FLOAT)</td>
  <td>Stall Airspeed (CAS) <p><strong>Comment:</strong> The stall airspeed (calibrated airspeed) of the vehicle. It is used for airspeed sensor failure detection and for the control surface scaling airspeed limits.</p>   </td>
- <td>[0, ?] (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>7.0</td>
  <td>m/s</td>
 </tr>
@@ -17508,7 +17516,7 @@ table {
 <tr>
  <td><strong id="MC_YAWRATE_D">MC_YAWRATE_D</strong> (FLOAT)</td>
  <td>Yaw rate D gain <p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, ?] (0.0005)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -24111,7 +24119,7 @@ table {
 <tr>
  <td><strong id="SIH_L_ROLL">SIH_L_ROLL</strong> (FLOAT)</td>
  <td>Roll arm length <p><strong>Comment:</strong> This is the arm length generating the rolling moment This value can be measured with a ruler. This corresponds to half the distance between the left and right motors.</p>   </td>
- <td>[0.0, ?] (0.5)</td>
+ <td>[0.0, ?] (0.05)</td>
  <td>0.2</td>
  <td>m</td>
 </tr>
@@ -27069,10 +27077,30 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="VOXL_ESC_T_OVER">VOXL_ESC_T_OVER</strong> (INT32)</td>
+ <td>UART ESC Over-Temperature Threshold (Degrees C) <p><strong>Comment:</strong> Only applicable to ESCs that report temperature</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 200] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="VOXL_ESC_T_PERC">VOXL_ESC_T_PERC</strong> (INT32)</td>
  <td>UART ESC Turtle Mode Crash Flip Motor Percent    </td>
  <td>[1, 100] (1)</td>
  <td>90</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_T_WARN">VOXL_ESC_T_WARN</strong> (INT32)</td>
+ <td>UART ESC Temperature Warning Threshold (Degrees C) <p><strong>Comment:</strong> Only applicable to ESCs that report temperature</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 200] </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>

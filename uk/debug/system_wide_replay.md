@@ -1,10 +1,10 @@
 # System-wide Replay
 
-It is possible to record and replay arbitrary parts of the system based on ORB messages.
+Можливо записувати та відтворювати довільні частини системи на основі повідомлень ORB.
 
-Replay is useful to test the effect of different parameter values based on real data, compare different estimators, etc.
+Перегравання корисне для тестування ефекту різних значень параметрів на основі реальних даних, порівняння різних оцінювачів тощо.
 
-## Prerequisites
+## Передумови
 
 The first step is to identify the module or modules that should be replayed. Then, identify all the inputs to these modules, i.e. subscribed ORB topics. For system-wide replay, this consists of all hardware input: sensors, RC input, MAVLink commands and file system.
 
@@ -12,9 +12,9 @@ All identified topics need to be logged at full rate (see [logging](../dev_log/l
 
 It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`. Should there be more timestamps, they must be relative to the main timestamp. For an example, see [SensorCombined.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg). Reasons for this are given below.
 
-## Usage
+## Використання
 
-- First, choose the file to replay and build the target (from within the PX4-Autopilot directory):
+- Спочатку виберіть файл для відтворення та побудуйте ціль (з каталогу PX4-Autopilot):
 
   ```sh
   export replay=<absolute_path_to_log_file.ulg>
@@ -67,7 +67,7 @@ By default, all parameters from the original log file are applied during a repla
 
 Parameters can be overridden during a replay in two ways: _fixed_ and _dynamic_. When parameters are overridden, corresponding parameter changes in the log are not applied during replay.
 
-- **Fixed parameter overrides** will override parameters from the start of the replay. They are defined in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`, where each line should have the format `<param_name> <value>`. For example:
+- **Fixed parameter overrides** will override parameters from the start of the replay. They are defined in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`, where each line should have the format `<param_name> <value>`. Наприклад:
 
   ```sh
   EKF2_RNG_NOISE 0.1
@@ -121,7 +121,7 @@ To perform an EKF2 replay:
 
 ### Adjusting EKF2-specific Parameters for the Replay
 
-First install `pyulog`:
+Спочатку встановіть `pyulog`:
 
 ```sh
 pip install --user pyulog

@@ -21,20 +21,20 @@ Some of its main features include:
 ::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Quick Summary
+## Короткий опис
 
 - Main FMU Processor: STM32F765
   - 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
 - IO Processor: STM32F100
   - 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-- On-board sensors:
+- Сенсори на платі:
 
   - Accelerometer/Gyroscope: ICM-20689
   - Accelerometer/Gyroscope: BMI055
   - Magnetometer: IST8310
   - Barometer: MS5611
 
-- Interfaces:
+- Інтерфейси:
   - 8-14 PWM outputs (6 from IO, 8 from FMU)
   - 3 dedicated PWM/Capture inputs on FMU
   - Dedicated R/C input for CPPM

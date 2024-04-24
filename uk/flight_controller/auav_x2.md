@@ -1,62 +1,62 @@
-# AUAV-X2 Autopilot (Discontinued)
+# Автопілот AUAV-X2 (припинено)
 
 <Badge type="error" text="Discontinued" />
 
 :::warning
-This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+Цей політний контролер був [знятий з виробництва](../flight_controller/autopilot_experimental.md) і більше не продається комерційно.
 :::
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який) автопілот. Зверніться до [виробника](https://store.mrobotics.io/) щодо питань технічної підтримки або відповідності вимогам.
 :::
 
-The [AUAV<sup>&reg;</sup>](http://www.auav.com/) _AUAV-X2 autopilot_ is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+Автопілот [AUAV<sup>®</sup>](http://www.auav.com/) _AUAV-X2_ базується на відкритому апаратному дизайні [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2**. Він виконує PX4 на ОС [NuttX](https://nuttx.apache.org/).
 
 ![AUAVX2_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
 
-## Quick Summary
+## Короткий опис
 
-- Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
-  - CPU: STM32F427VIT6 ARM microcontroller - Revision 3
-  - IO: STM32F100C8T6 ARM microcontroller
-- Sensors:
+- Основна System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+  - Процесор: мікроконтролер ARM STM32F427VIT6 - Ревізія 3
+  - ІО: мікроконтролер ARM STM32F100C8T6
+- Датчики:
   - Invensense MPU9250 9DOF
   - Invensense ICM-20608 6DOF
-  - MEAS MS5611 barometer
-- Dimensions/Weight
-  - Size: 36mm x 50mm
-  - Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
-  - Weight: 10.9g
-- Power OR-ing schematic with reverse voltage protection. 5V power module is required!
+  - MEAS MS5611 барометр
+- Розміри/Вага
+  - Розмір: 36мм х 50мм
+  - Точки кріплення: 30,5 мм х 30,5 мм діаметр 3,2 мм
+  - Вага: 10.9g
+- Схема Power OR-ing з оберненою захистом від зворотної напруги. Необхідний модуль живлення 5V!
 
-## Connectivity
+## Підключення
 
-- 2.54mm headers:
+- 2.54 мм заголовки:
 - GPS (USART4)
 - i2c
-- RC input
-- PPM input
-- Spektrum input
-- RSSI input
-- sBus input
-- sBus output
-- Power input
-- Buzzer output
-- LED output
-- 8 x Servo outputs
+- Вхід RC
+- PPM вхід
+- Вхідний спектр
+- RSSI вхід
+- вхід SBUS
+- sBus вихід
+- Вхід живлення
+- Вихід зумера
+- Вихід світлодіода
+- 8 x Виводи сервоприводів
 - 6 x Aux outputs
-- USART7 (Console)
+- USART7 (Консоль)
 - USART8 (OSD)
 
-## Availability
+## Доступність
 
-No longer in production. This has been superseded by the [mRo X2.1](mro_x2.1.md). mRobotics is the distributor for the AUAV Products from August 2017.
+Більше не у виробництві. Це було замінено [mRo X2.1](mro_x2.1.md). mRobotics є дистриб'ютором продукції AUAV з серпня 2017 року.
 
-## Key Links
+## Ключові посилання
 
-- [User Manual](http://arsovtech.com/wp-content/uploads/2015/08/AUAV-X2-user-manual-EN.pdf)
-- [DIY Drones Post](http://diydrones.com/profiles/blogs/introducing-the-auav-x2-1-flight-controller)
+- [Посібник користувача](http://arsovtech.com/wp-content/uploads/2015/08/AUAV-X2-user-manual-EN.pdf)
+- [Пост про DIY дрони](http://diydrones.com/profiles/blogs/introducing-the-auav-x2-1-flight-controller)
 
-## Wiring Guide
+## Посібник з підключення
 
 ![AUAV-X2-basic-setup 3](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_3.png)
 
@@ -66,22 +66,22 @@ No longer in production. This has been superseded by the [mRo X2.1](mro_x2.1.md)
 
 ![AUAV-X2-airspeed-setup 3](../../assets/flight_controller/auav_x2/auav_x2_airspeed_setup_3.png)
 
-## Schematics
+## Креслення
 
-The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
+Плата базується на проекті [Pixhawk](https://pixhawk.org/) відкритого апаратного забезпечення **FMUv2**.
 
-- [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
+- [Схема FMUv2 + IOv2](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Схема та макет
 
-::: info As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+:::info Як дизайн Open Hardware з ліцензією CC-BY-SA 3.0, всі схеми та файли дизайну доступні [тут](https://github.com/PX4/Hardware).
 :::
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO debug              |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART   | Пристрій   | Порт                       |
+| ------ | ---------- | -------------------------- |
+| UART1  | /dev/ttyS0 | IO debug                   |
+| USART2 | /dev/ttyS1 | TELEM1 (керування потоком) |
+| USART3 | /dev/ttyS2 | TELEM2 (керування потоком) |
+| UART4  |            |                            |
+| UART7  | CONSOLE    |                            |
+| UART8  | SERIAL4    |                            |
