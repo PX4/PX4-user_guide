@@ -12,12 +12,12 @@
 :::info V5 nano подібний до [CUAV V5+](../flight_controller/cuav_v5_plus.md), але має форм-фактор все в одному, менше PWM-портів (не може бути використаний для [корпусів](../airframes/airframe_reference.md), які використовують AUX-порти), і не має внутрішнього демпфування.
 :::
 
-Some of its main features include:
+Деякі з його основних функцій включають:
 
-- Full compatibility with the [Pixhawk project](https://pixhawk.org/) **FMUv5** design standard and uses the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/) for all external interfaces.
-- More advanced processor, RAM and flash memory than FMU v3, along with more stable and reliable sensors.
-- Firmware-compatible with PX4.
-- Generous 2.6mm spacing for I/O pins, making it easier to use all the interfaces.
+- Повна сумісність зі стандартом проєкту [Pixhawk](https://pixhawk.org/) **FMUv5** і використовує [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/) для всіх зовнішніх інтерфейсів.
+- Більш продуктивний процесор, оперативна пам'ять та флеш-пам'ять, ніж у FMU v3, разом із більш стабільними та надійними датчиками.
+- Прошивка сумісна з PX4.
+- Велика відстань між контактами вводу/виводу 2,6 мм, що полегшує використання всіх інтерфейсів.
 
 :::info Цей польотний контролер [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
@@ -28,60 +28,60 @@ Some of its main features include:
 
 - Сенсори на платі:
 
-  - Accel/Gyro: ICM-20689
-  - Accel/Gyro: ICM-20602
-  - Accel/Gyro: BMI055
-  - Magnetometer: IST8310
-  - Barometer: MS5611
+  - Акселератор/гіроскоп: ICM-20689
+  - Акселератор/гіроскоп: ICM-20602
+  - Акселератор/гіроскоп: BMI055
+  - Магнітометр: IST8310
+  - Барометр: MS5611
 
-- Interfaces: 8 PWM outputs
+- Інтерфейси: 8 виходів PWM
 
-  - 3 dedicated PWM/Capture inputs on FMU
-  - Dedicated R/C input for CPPM
-  - Dedicated R/C input for Spektrum / DSM and S.Bus
-  - Analog / PWM RSSI input
-  - 4 general purpose serial ports
-  - 3 I2C ports
-  - 4 SPI buses
-  - 2 CAN Buses
-  - Analog inputs for voltage / current of battery
-  - 2 additional analog inputs
-  - Supports nARMED
+  - 3 виділених PWM/Capture входи на FMU
+  - Виділений R/C вхід для CPPM
+  - Виділений вхід R/C для Spektrum / DSM і S.Bus
+  - Аналоговий / PWM вхід RSSI
+  - 4 загальних послідовних порти
+  - 3 I2C порти
+  - 4 SPI шини
+  - 2 CAN шини
+  - Аналогові входи для напруги / струму з батареї
+  - 2 додаткових аналогових входи
+  - Підтримка nARMED
 
-- Power System: Power Brick Input: 4.75~5.5V
-- USB Power Input: 4.75~5.25V
+- Система енергопостачання: вхід Power Brick: 4,75~5,5В
+- Вхід USB Power: 4.75~5.25V
 
-- Weight and Dimensions:
-  - Dimensions: 60\*40\*14mm
-- Other Characteristics:
-  - Operating temperature: -20 ~ 85°C （Measured value）
+- Вага та розміри:
+  - Розміри: 60\*40\*14mm
+- Інші характеристики:
+  - Робоча температура: -20 ~ 85°С (виміряне значення)
 
 ## Де купити
 
-[CUAV Store](https://store.cuav.net/shop/v5-nano/)
+[Магазин CUAV](https://store.cuav.net/shop/v5-nano/)
 
-[CUAV Aliexpress](https://www.aliexpress.com/item/33050770314.html?storeId=3257035&spm=2114.12010612.8148356.9.dbe6790bjW2hpH) (international users)
+[CUAV Aliexpress](https://www.aliexpress.com/item/33050770314.html?storeId=3257035&spm=2114.12010612.8148356.9.dbe6790bjW2hpH) (міжнародні користувачі)
 
-[CUAV Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.8.26ab5258veQJRu&id=569404317857&ns=1&abbucket=13#detail) (China Mainland users)
+[CUAV Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.8.26ab5258veQJRu&id=569404317857&ns=1&abbucket=13#detail) (користувачі з материкового Китаю)
 
 ::: info
-Autopilot may be purchased with included Neo GPS module
+Автопілот можна придбати з модулем Neo GPS в комплекті
 :::
 
 <a id="connection"></a>
 
-## Connections (Wiring)
+## З'єднання (Проводка)
 
 [V5 nano Wiring Quickstart](../assembly/quick_start_cuav_v5_nano.md)
 
-## Pinouts
+## Схема розташування виводів
 
-Download **V5 nano** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
+Завантажте схему розводки **V5 nano** [звідси](http://manual.cuav.net/V5-Plus.pdf).
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
 Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
@@ -94,11 +94,11 @@ make px4_fmu-v5_default
 
 ## Відладочний порт
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port (`DSU7`). The board does not have an I/O debug interface.
+Системна консоль [PX4](../debug/system_console.md) та інтерфейс [SWD](../debug/swd_debug.md) працюють через порт **FMU Debug** (`DSU7`). Плата не має інтерфейсу відладки вводу/виводу.
 
 ![Debug port (DSU7)](../../assets/flight_controller/cuav_v5_nano/debug_port_dsu7.jpg)
 
-The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
+Відладочний порт (`DSU7`) використовує роз'єм [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) і має наступну розводку:
 
 | Pin     | Сигнал         | Вольт |
 | ------- | -------------- | ----- |
@@ -109,40 +109,40 @@ The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-de
 | 5 (blk) | FMU_SWCLK      | +3.3V |
 | 6 (blk) | GND            | GND   |
 
-The product package includes a convenient debug cable that can be connected to the `DSU7` port. This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging. The provided debug cable does not connect to the SWD port `Vref` pin (1).
+До комплекту поставки входить зручний відладочний кабель, який можна під'єднати до порту `DSU7`. Він розділяє кабель FTDI для підключення [PX4 System Console](../debug/system_console.md) до USB-порту комп'ютера і виводи SWD, які використовуються для налагодження SWD/JTAG. Відладочний кабель, що входить до комплекту, не підключається до контакту (1) порту SWD `Vref`.
 
 ![CUAV Debug cable](../../assets/flight_controller/cuav_v5_nano/cuav_nano_debug_cable.jpg)
 
 :::warning
-The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
+Вивід Vref SWD (1) використовує 5В як Vref, але процесор працює при напрузі 3,3В!
 
-Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to _Segger Jlink_ we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and _NOT_ 5V).
+Деякі JTAG-адаптери (SEGGER J-Link) використовують напругу Vref для встановлення напруги на лініях SWD. Для прямого підключення до _Segger Jlink_ ми рекомендуємо використовувати 3,3 вольта з контакту 4 роз'єму з позначкою `DSM`/`SBUS`/`RSSI` для забезпечення `Vtref` на JTAG (тобто для забезпечення 3,3 В і _NOT_ 5 В).
 
-For more information see [Using JTAG for hardware debugging](#using-jtag-for-hardware-debugging).
+За додатковою інформацією звертайтесь до розділу [Використання JTAG для апаратної налагодження](#using-jtag-for-hardware-debugging).
 :::
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
-| UART   | Пристрій   | Порт                                  |
-| ------ | ---------- | ------------------------------------- |
-| UART1  | /dev/ttyS0 | GPS                                   |
-| USART2 | /dev/ttyS1 | TELEM1 (керування потоком)            |
-| USART3 | /dev/ttyS2 | TELEM2 (керування потоком)            |
-| UART4  | /dev/ttyS3 | TELEM4                                |
-| USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector |
-| UART7  | /dev/ttyS5 | Debug Console                         |
-| UART8  | /dev/ttyS6 | Not connected (no PX4IO)              |
+| UART   | Пристрій   | Порт                           |
+| ------ | ---------- | ------------------------------ |
+| UART1  | /dev/ttyS0 | GPS                            |
+| USART2 | /dev/ttyS1 | TELEM1 (керування потоком)     |
+| USART3 | /dev/ttyS2 | TELEM2 (керування потоком)     |
+| UART4  | /dev/ttyS3 | TELEM4                         |
+| USART6 | /dev/ttyS4 | TX - RC-вхід з роз'єму SBUS_RC |
+| UART7  | /dev/ttyS5 | Debug Console                  |
+| UART8  | /dev/ttyS6 | Не підключено (без PX4IO)      |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-## Voltage Ratings
+## Номінальна напруга
 
-_V5 nano_ must be powered from the `Power` connector during flight, and may also/alternatively be powered from `USB` for bench testing.
+_V5 nano_ повинен живитися від роз'єму `Power` під час польоту, а також може живитися від `USB` для стендового тестування.
 
-::: info The `PM2` connector cannot not be used for powering the _V5 nano_ (see [this issue](#compatibility_pm2)).
+::: info Роз'єм `PM2` не може не використовуватися для живлення _V5 nano_ (див. [цей матеріал](#compatibility_pm2)).
 :::
 
-::: info The Servo Power Rail is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
+::: info Серворейка не живиться від FMU і не забезпечує його живленням. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
 :::
 
 ## Over Current Protection
