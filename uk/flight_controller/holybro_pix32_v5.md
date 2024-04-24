@@ -7,7 +7,7 @@
 
 Pix32 v5 розроблено для пілотів, які потребують потужності, гнучкої та настроюваної системи керування польотами. Він складається з окремого контролера польоту та базової плати, які з'єднані 100-контактним роз'ємом. Цей дизайн дозволяє користувачам вибирати базову плату від Holybro або налаштовувати свою власну.
 
-![Pix32 v5 Family](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_family.jpg)
+![Сімейство Pix32 v5](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_family.jpg)
 
 ::: info Цей польотний контролер [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
@@ -55,92 +55,92 @@ Pix32 v5 розроблено для пілотів, які потребують
   - Розміри: 45x45x13.5мм
   - Вага: 33.0гр
 - Дані про навколишнє середовище, якість & та надійність:
-  - Температура роботи: -40 ~ 85 °c
-  - Storage temp. -40~85℃
+  - Температура роботи: -40 ~ 85°c
+  - Температура зберігання: -40 / 85℃
   - CE
   - FCC
-  - RoHS compliant (lead-free)
+  - Сумісний із RoHS (без свинцю)
 
-Additional information can be found in the [Pix32 V5 Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf).
+Додаткову інформацію можна знайти в [Технічному описі Pix32 V5](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf).
 
-## Where to Buy
+## Де придбати
 
-Order from [Holybro website](https://holybro.com/products/pix32-v5).
+Замовляйте на [веб-сайті Holybro](https://holybro.com/products/pix32-v5).
 
-## Assembly/Setup
+## Збірка / налаштування
 
-The [Pix32 v5 Wiring Quick Start](../assembly/quick_start_holybro_pix32_v5.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
+[Швидкий старт з підключення Pix32 v5](../assembly/quick_start_holybro_pix32_v5.md) надає інструкції щодо збирання необхідних/важливих периферійних пристроїв, таких як GPS, плата управління живленням тощо.
 
-## Base Board Layouts
+## Макети базової плати
 
-![Pix32 v5 Image](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_base_boards_layout.jpg)
+![Зображення Pix32 v5](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_base_boards_layout.jpg)
 
-## Pinouts
+## Схема розташування виводів
 
-[_pix32 v5_ and mini baseboard](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
+[_pix32 v5_ та міні базова плата](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
 
-## Dimensions
+## Розміри
 
-![Pix32 v5 Image](../../assets/flight_controller/holybro_pix32_v5/Dimensions_no_border.jpg)
+![Зображення Pix32 v5](../../assets/flight_controller/holybro_pix32_v5/Dimensions_no_border.jpg)
 
-## Voltage Ratings
+## Номінальна напруга
 
-_Pix32 v5_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+_Pix32 v5_ може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шини живлення: **POWER1**, **POWER2** і **USB**.
 
-::: info The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+::: info Вихідні шини живлення **FMU PWM OUT** та **I/O PWM OUT** (від 0В до 36В) не живлять плату контролера польоту (і не живляться від неї). Ви повинні подавати живлення на один з **POWER1**, **POWER2** або **USB**, інакше плата буде знеструмлена.
 :::
 
-**Normal Operation Maximum Ratings**
+**Максимальна напруга нормальної роботи**
 
-Under these conditions all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1** and **POWER2** входи (від 4,9 В до 5,5 В)
+1. **USB** вхід (4.75В до 5.25В)
 
-**Absolute Maximum Ratings**
+**Абсолютна максимальна напруга**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+За таких умов система не буде витрачати жодної потужності (не буде працювати), але залишиться неушкодженою.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1** і **POWER2** входи (робочий діапазон від 4,1 В до 5,7 В, від 0 В до 10 В без пошкоджень)
+1. **USB** вхід (операційний діапазон 4.1В до 5.7В, 0В до 6В без пошкоджень)
+1. Серво-вхід: VDD_SERVO вивід **FMU PWM OUT** та **I/O PWM OUT** (від 0В до 42В без пошкоджень)
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана і автоматично встановлюється за допомогою _QGroundControl_ при підключенні відповідного обладнання.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [ зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
-make holybro_pix32v5_default
+зробіть holybro_durandal-v1_default
 ```
 
-## Debug Port
+## Відладочний порт
 
-The system's [serial console](../debug/system_console.md) and SWD interface runs on the **FMU Debug** port
+Системна консоль [серійного порту](../debug/system_console.md) та SWD інтерфейс працюють на порту **FMU Debug**
 
 <!--while the I/O console and SWD interface can be accessed via **I/O Debug** port.-->
 
-![FMU debug port diagram](../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Horizontal.jpg)
+![Діаграма порту налагодження FMU](../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Horizontal.jpg)
 
-The pinout uses the standard [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+Роз’єм використовує стандартний [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) інтерфейс, визначений у [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
-## Peripherals
+## Периферія
 
-- [Digital Airspeed Sensor](../sensor/airspeed.md)
-- [Telemetry Radio Modules](../telemetry/index.md)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Цифровий датчик швидкості польоту](../sensor/airspeed.md)
+- [Телеметричні радіо модулі](../telemetry/index.md)
+- [Далекомір/Датчики відстані](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / планери
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа чи човен, який може керуватися звичайними РК сервоприводами або сервоприводами Futaba S-Bus. Повний перелік підтримуваних конфігурацій можна переглянути в розділі [Довідник планерів](../airframes/airframe_reference.md).
 
-## Additional Information
+## Додаткова інформація
 
-- [Pix32 v5 Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)
-- [Pix32 v5 Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
-- [Pix32 v5 Base Board Schematic Diagram](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
-- [Pix32 v5 Mini Base Board Schematic Diagram](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5-Base-Mini-Board_Schematic_diagram.pdf)
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+- [Технічна інформація по Pix32 v5](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)
+- [Розпіновка Pix32 v5](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
+- [Базова принципова схема Pix32 v5](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
+- [Базова принципова схема Pix32 v5 Mini Base Board](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5-Base-Mini-Board_Schematic_diagram.pdf)
+- [Схема роз'ємів для посилання на FMUv5](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
