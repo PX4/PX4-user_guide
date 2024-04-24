@@ -8,9 +8,9 @@ PX4 can run as the firmware on many DroneCAN peripherals. There are multiple ben
 - PX4's estimation and control code makes it easy to create "smart" cannodes like integrated AHRS modules.
 - The firmware is completely open source (PX4 is BSD licensed).
 
-## Building the Firmware
+## Збірка прошивки
 
-Follow the [PX4 building docs](../dev_setup/building_px4.md) just as you would to build firmware for a flight controller. Device build configurations are stored [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards). After installing the [PX4 toolchain](../dev_setup/dev_env.md), clone the sources and build. For example, to build for the [Ark Flow](ark_flow.md) target:
+Дотримуйтесь [документів зі збірки PX4](../dev_setup/building_px4.md) точно так, як ви збудували б вбудоване програмне забезпечення для контролера польоту. Конфігурації збірки пристрою зберігаються [тут](https://github.com/PX4/PX4-Autopilot/tree/main/boards). Після встановлення [інструменту PX4](../dev_setup/dev_env.md), склонуйте джерела та зіберіть. Наприклад, для побудови для цілі [Ark Flow](ark_flow.md):
 
 ```sh
 git clone --recursive https://github.com/PX4/PX4-Autopilot
@@ -18,11 +18,11 @@ cd PX4-Autopilot
 make ark_can-flow_default
 ```
 
-This will create an output in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Follow the instructions at [DroneCAN firmware update](index.md#firmware-update) to flash the firmware.
+Це створить вихідний файл у **build/ark_can-flow_default** з назвою **XX-X.X.XXXXXXXX.uavcan.bin**. Дотримуйтесь інструкцій на [Оновлення прошивки DroneCAN](index.md#firmware-update), щоб оновити прошивку.
 
-## Developer Information
+## Інформація про розробника
 
-This section has information that is relevant to developers who want to add support for new DroneCAN hardware to the PX4 Autopilot.
+Цей розділ містить інформацію, яка є актуальною для розробників, які хочуть додати підтримку нового апаратного забезпечення DroneCAN до автопілота PX4.
 
 ### DroneCAN Bootloader Installation
 
@@ -40,7 +40,7 @@ This process ensures that a DroneCAN device can recover from invalid or corrupte
 
 Build the bootloader firmware by specifying the same peripheral target with the `canbootloader` build configuration instead of the `default` configuration.
 
-For example, to build for the [Ark Flow](ark_flow.md) target:
+Наприклад, для побудови для цілі [Ark Flow](ark_flow.md):
 
 ```sh
 git clone --recursive https://github.com/PX4/PX4-Autopilot
