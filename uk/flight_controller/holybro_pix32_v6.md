@@ -1,12 +1,12 @@
-# Holybro Pix32 v6
+# Holybro Pix32 v5
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 :::
 
-_Pix32 v6_<sup>&reg;</sup> is the latest update to the pix32 v5 flight controllers. It is a variant of the Pixhawk 6C with a modular design and shares the same FMUv6C Target. It is comprised of a separate flight controller and carrier board which are connected by a [100 pin connector](https://docs.holybro.com/autopilot/pix32-v6/download). It is designed for those pilots who need a high power, flexible and customizable flight control system.
+_Pix32 v6_<sup>&reg;</sup> є останньою оновленою версією контролерів польоту pix32 v5. Це варіант Pixhawk 6C з модульним дизайном та спільною ціллю з FMUv6C. Він складається з окремого контролера польоту та базової плати, які з'єднані [100-контактним роз'ємом](https://docs.holybro.com/autopilot/pix32-v6/download). Це призначено для тих пілотів, які потребують потужної, гнучкої та настроюваної системи керування польотами.
 
-It is equipped with a high performance H7 Processor, and comes with IMU redundancy, temperature-controlled IMU board, and cost effective design, delivering incredible performance and reliability. It complies with the [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+Він оснащений високопродуктивним процесором H7, і має резервування IMU, з контролем температури, і економічно вигідний дизайн, що забезпечує неймовірну продуктивність та надійність. Він відповідає [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 <img src="../../assets/flight_controller/pix32v6/pix32v6_fc_only.png" width="550px" title="pix32v6 Upright Image" />
 
@@ -19,53 +19,53 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 ## Вступ
 
-Inside the Pix32 v6, you can find an STMicroelectronics® based STM32H743, paired with sensor technology from Bosch® & InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
+Всередині Pix32 v6 ви можете знайти STM32H743 на базі STMicroelectronics®, у поєднанні з технологією сенсорів від Bosch® & InvenSense®, що надає гнучкість і надійність для керування будь-яким автономним апаратом, придатним як для академічних, так і для комерційних застосувань.
 
-The Pix32 v6’s H7 MCU contain the Arm® Cortex®-M7 core running up to 480 MHz, has 2MB flash memory and 1MB RAM. Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models. It includes high-performance, low-noise IMUs on board, designed to be cost effective while having IMU redundancy. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
+Pix32 v6’s H7 MCU містить ядро Arm® Cortex®-M7 до 480 MHz, має 2MB flash пам’яті та 1MB RAM. Завдяки оновленій потужності обробки розробники можуть бути більш продуктивними та ефективними у своїй роботі з розробкою, що дозволяє використовувати складні алгоритми та моделі. Це включає високопродуктивні, низькошумні IMU на платі, розроблені, щоб бути ефективними з точки зору вартості, при цьому мати резерв IMU. Система ізоляції вібрації для фільтрації високочастотної вібрації та зменшення шуму для забезпечення точних вимірювань, що дозволяє транспортним засобам досягти кращих загальних польотних характеристик.
 
-This flight controller is perfect for people that is looking for a affordable and modular flight controller that can use a customized baseboard. We have made the [pix32 v6 base board schematics public](https://docs.holybro.com/autopilot/pix32-v6/download), you can either make a custom carrier board yourself or just let us help you with it. By using a customize baseboard, you can make sure that the physical size, pinouts and power distribution requirements match your vehicle perfectly, ensuring that you have all the connections you need and none of the expense and bulk of connectors you don’t.
+Цей контролер польоту ідеально підходить для людей, які шукають доступний та модульний контролер польоту, який може використовувати настроювану базову плату. Ми зробили [схеми базової плати pix32 v6 загальнодоступними](https://docs.holybro.com/autopilot/pix32-v6/download), ви можете або зробити власну несучу плату, або просто дозвольте нам допомогти вам з цим. За допомогою налаштованої базової плати ви можете впевнитися, що фізичний розмір, виводи і вимоги до розподілу живлення відповідають вашому безпілотнику належним чином, забезпечуючи, що у вас є всі необхідні з'єднання і ніяких витрат і масштабу з'єднувачів, яких вам не потрібно.
 
-**Key Design Points**
+**Ключові пункти дизайну**
 
-- High performance STM32H743 Processor with more computing power & RAM
-- New cost-effective design with low-profile form factor
-- Integrated vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
-- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs
+- Високопродуктивний процесор STM32H743 з більшою обчислювальною потужністю & оперативною пам'яттю
+- Новий економічно ефективний дизайн із низькопрофільним форм-фактором
+- Інтегрована система ізоляції вібрацій для фільтрації високочастотних вібрацій та зменшення шуму для забезпечення точних вимірювань
+- IMU температурно контролюються за допомогою вбудованих нагрівальних резисторів, що дозволяє досягти оптимальної робочої температури IMU
 
 # Технічна специфікація
 
-### **Processors & Sensors**
+### **Процесори & датчики**
 
-- FMU Processor: STM32H743&#x20;
+- Процесор FMU: STM32H743&#x20;
   - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB memory, 1MB SRAM&#x20;
-- IO Processor: STM32F103
+- IO процесор: STM32F103
   - &#x20;32 Bit Arm® Cortex®-M3, 72MHz, 64KB SRAM&#x20;
-- On-board sensors&#x20;
-  - &#x20;Accel/Gyro: ICM-42688-P&#x20;
+- Бортові сенсори&#x20;
+  - &#x20;Accel/Gyro: ICM-42688-P &#x20;
   - Accel/Gyro: BMI055&#x20;
   - Mag: IST8310&#x20;
-  - Barometer: MS5611
+  - Барометр: MS5611
 
-### **Electrical data**
+### **Електричні дані**
 
-- Voltage Ratings:
-  - Max input voltage: 6V
-  - USB Power Input: 4.75\~5.25V
-  - Servo Rail Input: 0\~36V
-- Current Ratings:
-  - TELEM1 Max output current limiter: 1.5A
-  - All other port combined output current limiter: 1.5A
+- Номінальна напруга:
+  - Максимальна вхідна напруга: 6 В
+  - Вхід USB Power: 4.75\~5.25В
+  - Вхід сервоприводу: 0\~36В
+- Поточні рейтинги:
+  - TELEM1 Максимальний обмежувач вихідного струму: 1.5A
+  - Комбінований обмежувач вихідного струму всіх інших портів: 1.5A
 
 ### **Механічні характеристики**
 
-- FC Module Dimensions: 44.8 x 44.8 x 13.5
-- FC Module Weight: 36g
+- Розміри модуля FC: 44.8 x 44.8 x 13.5
+- Вага модуля FC: 36г
 
 ### **Інтерфейси**
 
-- 16- PWM servo outputs (8 from IO, 8 from FMU)
-- 3 general purpose serial ports
-  - `TELEM1` - Full flow control, separate 1.5A current limit
+- 16- PWM серво виводів (8 з IO, 8 з FMU)
+- 3 загальних послідовних портів
+  - `TELEM1` - Повний контроль потоку, повністю розділений поточним лімітом 1.5A
   - `TELEM2` - Full flow control
   - `TELEM3`
 - 2 GPS ports
