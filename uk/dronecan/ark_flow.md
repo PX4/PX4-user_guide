@@ -4,7 +4,7 @@ ARK Flow is an open source [DroneCAN](index.md) [optical flow](../sensor/optical
 
 ![ARK Flow](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
-## Where to Buy
+## Де купити
 
 Order this module from:
 
@@ -58,8 +58,8 @@ ARK Flow runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md). As such, it suppor
 
 ARK Flow boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
-- Firmware target: `ark_can-flow_default`
-- Bootloader target: `ark_can-flow_canbootloader`
+- Ціль прошивки: `ark_can-flow_default`
+- Ціль завантажувача: `ark_can-flow_canbootloader`
 
 ## Flight Controller Setup
 
@@ -103,9 +103,9 @@ Set the following parameters in _QGroundControl_:
 
 On the ARK Flow, you may need to configure the following parameters:
 
-| Parameter                                                                                       | Description                   |
-| ----------------------------------------------------------------------------------------------- | ----------------------------- |
-| <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
+| Параметр                                                                                        | Опис                           |
+| ----------------------------------------------------------------------------------------------- | ------------------------------ |
+| <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | Вбудована завершення шини CAN. |
 
 ## LED Meanings
 
@@ -117,7 +117,7 @@ If you see a solid red LED there is an error and you should check the following:
 - Make sure the Ark Flow has `ark_can-flow_canbootloader` installed prior to flashing `ark_can-flow_default`.
 - Remove binaries from the root and ufw directories of the SD card and try to build and flash again.
 
-## Video
+## Відео
 
 @[youtube](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0)
 
