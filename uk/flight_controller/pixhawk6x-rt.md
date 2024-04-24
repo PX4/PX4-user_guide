@@ -18,7 +18,7 @@ _Pixhawk 6X-RT_<sup>&reg;</sup> є останнім оновленням усп�
 
 ## Введення
 
-Inside the Pixhawk®​ 6X-RT, you can find an NXP i.mx RT1176, paired with sensor technology from Bosch®​​, InvenSense®​,​ giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
+Всередині Pixhawk®​ 6X-RT ви можете знайти NXP i.mx RT1176, поєднаний з сенсорною технологією від Bosch®​​, InvenSense®​​, що надає вам гнучкість і надійність для керування будь-яким автономним апаратом, придатним як для академічних, так і для комерційних застосувань.
 
 The Pixhawk® 6X-RT's i.mx RT1176 Crossover dual-core MCU contain an Arm® Cortex®-M7 core running up to 1GHz and Arm® Cortex®-M4 core running up to 400MHz, has 2MB SRAM and external XIP Flash with 64MB. The PX4 Autopilot takes advantage of the increased power and RAM. Thanks to the increased processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
 
