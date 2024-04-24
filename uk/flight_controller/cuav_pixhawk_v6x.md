@@ -73,30 +73,30 @@ Pixhawk® V6X ідеально підходить для корпоративн�
   - 1 лінія SPI reset
 - 2 CAN шини для CAN периферії
   - CAN шина має individual silent controls або ESC RX-MUX control
-- 4 power input ports
-  - 2 Dronecan/UAVCAN power inputs
-  - 2 SMBUS/I2C power inputs
-- 1 AD & IO port
-  - 2 additional analog input(3.3 and 6.6v）
-  - 1 PWM/Capture input
-- 2 Dedicated debug
-  - FMU debug
+- 4 порти вводу живлення
+  - 2 входи живлення Dronecan/UAVCAN
+  - 2 входи живлення SMBUS/I2C
+- 1 порт вводу-виводу AD & IO
+  - 2 додаткових аналогових входи (3,3 і 6,6 В)
+  - 1 PWM/Capture вхід
+- 2 виділених для відлагодження
+  - FMU Debug
   - IO debug
 
-### Mechanical data
+### Механічні дані
 
-- Weight
-  - Flight Controller Module: 99g
-  - Core module: 43g
-  - Baseboard: 56g
-- Operating & storage temperature: -20 ~ 85°c
-- Size
+- Вага
+  - Модуль політного контролера: 99г
+  - Основний модуль: 43г
+  - Baseboard: 56г
+- Температура роботи та зберігання: -20 ~ 85°c
+- Розмір
 
-  - Flight controller
+  - Політний контролер
 
     ![Pixhawk V6X](../../assets/flight_controller/cuav_pixhawk_v6x/v6x_size.jpg)
 
-  - Core module
+  - Основний модуль
 
     ![Pixhawk V6X](../../assets/flight_controller/cuav_pixhawk_v6x/core.png)
 
@@ -110,7 +110,7 @@ Pixhawk® V6X ідеально підходить для корпоративн�
 
 ## Схема розташування виводів
 
-![Pixhawk V6x Pinout](../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x_pinouts.png)
+![Схема контактів Pixhawk V6x](../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x_pinouts.png)
 
 Примітки:
 
@@ -129,27 +129,27 @@ Pixhawk® V6X ідеально підходить для корпоративн�
 | UART7  | /dev/ttyS6 | TELEM1        |
 | UART8  | /dev/ttyS7 | GPS2          |
 
-## Voltage Ratings
+## Номінальна напруга
 
-_Pixhawk V6X_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWERC1/POWER1**, **POWERC2/POWER2** and **USB**.
+_Pixhawk V6X_ може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шини живлення: **POWERC1/POWER1**, **POWERC2/POWER2** і **USB**.
 
-- **POWER C1** and **POWER C2** are DroneCAN/UAVCAN battery interfaces (recommended)；**POWER1** and **POWER2** are SMbus/I2C battery interfaces (backup).
-- **POWER C1** and **POWER1** use the same power switch, **POWER C2** and **POWER2** use the same power switch.
+- **POWER C1** і **POWER C2** - це інтерфейси акумуляторів DroneCAN/UAVCAN (рекомендовано); **POWER1** і **POWER2** - це інтерфейси акумуляторів SMbus/I2C (резервний варіант).
+- **POWER C1** і **POWER1** використовують один і той самий вимикач живлення, **POWER C2** і **POWER2** використовують один і той самий вимикач живлення.
 
-**Normal Operation Maximum Ratings**
+**Максимальна напруга нормальної роботи**
 
-Under these conditions all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
 1. **POWER C1**, **POWER C2**, **POWER1** і **POWER2** входи (4.75V в 5.7V)
 2. Вхід **USB** (4.75V до 5.25V)
 
-**Absolute Maximum Ratings**
+**Абсолютна максимальна напруга**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+За таких умов система не буде витрачати жодної потужності (не буде працювати), але залишиться неушкодженою.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.7V to 5.7V, 0V to 10V undamaged)
-1. **USB input** (operational range 4.7V to 5.7V, 0V to 6V undamaged)
-1. **Servo input:** `VDD_SERVO` pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. Входи **POWER1** і **POWER2** (робочий діапазон від 4,7 В до 5,7 В, від 0 В до 10 В без пошкоджень)
+1. **USB-вхід** (робочий діапазон від 4,7 В до 5,7 В, від 0 В до 6 В без пошкоджень)
+1. ** Серво-вхід:** `VDD_SERVO` вивід **FMU PWM OUT** та **I/O PWM OUT** (від 0В до 42В без пошкоджень)
 
 **Моніторинг напруги**
 
@@ -175,9 +175,9 @@ make px4_fmu-v6x_default
 
 ## Відладочний порт
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
+[Системна консоль PX4](../debug/system_console.md) та [SWD interface](../debug/swd_debug.md) працюють на порту **FMU Debug**.
 
-The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
+Розпиновка та роз’єм відповідають інтерфейсу [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full), визначеному в інтерфейсі [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (роз’єм JST SM10B).
 
 | Pin      | Сигнал           | Вольт |
 | -------- | ---------------- | ----- |
@@ -192,16 +192,16 @@ The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debu
 | 9 (blk)  | nRST             | +3.3V |
 | 10 (blk) | `GND`            | GND   |
 
-For information about wiring and using this port see:
+Інформацію про підключення та використання цього порту див:
 
-- [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to USART3).
+- [Системна консоль PX4](../debug/system_console.md#pixhawk_debug_port) (Зауважте, що консоль FMU зіставляється з USART3).
 - [SWD Debug Port](../debug/swd_debug.md)
 
 ## Периферія
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Цифровий датчик швидкості польоту](https://holybro.com/products/digital-air-speed-sensor)
+- [Радіо модулі телеметрії](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [Далекоміри / Датчики відстані](../sensor/rangefinders.md)
 
 ## Підтримувані платформи / Airframes
 
@@ -210,7 +210,7 @@ For information about wiring and using this port see:
 ## Подальша інформація
 
 - [CUAV Docs](https://doc.cuav.net/) (CUAV)
-- [Pixhawk V6X Wiring QuickStart](../assembly/quick_start_cuav_pixhawk_v6x.md)
-- [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
-- [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
-- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)
+- [Швидке підключення Pixhawk V6X Wiring](../assembly/quick_start_cuav_pixhawk_v6x.md)
+- [Стандарт Pixhawk Autopilot FMUv6X](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
+- [Стандарт шин Pixhawk Autopilot](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
+- [Стандарт роз'ємів Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)
