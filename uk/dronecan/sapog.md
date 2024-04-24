@@ -4,9 +4,9 @@
 
 While it can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](index.md).
 
-## Where to Buy
+## Де купити
 
-Multiple vendors sell ESC hardware that runs sapog firmware:
+Декілька постачальників продають апаратне забезпечення ESC, яке працює на прошивці sapog:
 
 - [Zubax Orel 20](https://zubax.com/products/orel_20)
 - [Holybro Kotleta20](https://holybro.com/products/kotleta20)
