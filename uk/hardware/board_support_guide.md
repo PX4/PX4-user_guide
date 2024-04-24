@@ -1,37 +1,37 @@
-# Manufacturer's PX4 Board Support Guide
+# Керівництво з підтримки плати PX4 від виробника
 
-The PX4 development and test teams fully support and maintain boards that are compliant with the [Pixhawk Standard](https://pixhawk.org/standards/). Manufacturers who wish to deviate from the standard or create completely new boards can do so, but will need to support any resulting compatibility differences.
+Команди розробки та тестування PX4 повністю підтримують та обслуговують плати, які відповідають [Стандарту Pixhawk](https://pixhawk.org/standards/). Виробники, які бажають відхилитися від стандарту або створити зовсім нові плати, можуть це зробити, але їм буде потрібно підтримувати будь-які виникаючі різниці в сумісності.
 
-This guide outlines the [general requirements](#general_requirements) for board support, along with the additional requirements for the different [board support categories](#board-support-categories).
+Цей посібник наводить [загальні вимоги](#general_requirements) до підтримки плати, разом з додатковими вимогами для різних [категорій підтримки плат](#board-support-categories).
 
-::: info Boards that are not compliant with the requirements are [unsupported](#unsupported); they will not be listed on the PX4 website hardware list and will be removed from the codebase.
+::: info Плати, які не відповідають вимогам, є [unsupported](#unsupported); вони не будуть включені до списку апаратного забезпечення веб-сайту PX4 і будуть видалені з кодової бази.
 :::
 
 <a id="general_requirements"></a>
 
-## General Requirements
+## Загальні вимоги
 
-The general requirements for all supported boards are:
+Загальні вимоги до всіх підтримуваних бордів:
 
-1. The hardware must be available in the market.
-1. The boards may not have blocking hardware bugs or unacceptable quality that make it impossible or dangerous to use the board with PX4 on a UAV. Board needs to pass acceptance criteria to ensure quality of parts and assembly.
-1. A clear and easy way to contact customer support for customers. One or more of the following is accepted:
+1. Апаратне забезпечення повинно бути доступним на ринку.
+1. Плати не повинні мати апаратні помилки або неприйнятну якість, що робить неможливим або небезпечним використання плати з PX4 на БЛА. Плата повинна пройти критерії прийняття для забезпечення якості деталей та збірки.
+1. Чіткий та простий спосіб зв'язатися з службою підтримки клієнтів для клієнтів. Один або декілька з наступних приймається:
 
-   - PX4 Discord server presence
-   - Support email
-   - Phone number
+   - Присутність сервера PX4 у Discord
+   - Електронна пошта підтримки
+   - Номер телефону
 
-1. Point of contact (PoC) for the PX4 maintainers (direct email or available in Slack/Forum/Github)
-1. The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader). For more information on bootloaders see: [PX4 Nuttx Porting Guide > Bootloader](../hardware/porting_guide_nuttx.md#bootloader).
-1. Adequate documentation, which includes, but is not limited to:
+1. Точка контакту (PoC) для зберігачів PX4 (прямий електронний лист або доступний у Slack/Форумі/Github)
+1. Борді потрібно використовувати протокол завантаження PX4 [завантажувача](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader). Для отримання додаткової інформації про завантажувачі див.: [Посібник з перенесення PX4 Nuttx > Завантажувач](../hardware/porting_guide_nuttx.md#bootloader).
+1. Достатня документація, яка включає, але не обмежується:
 
-   - A complete pinout made available publicly that maps PX4 pin definitions to:
-     1. Microcontroller pins
-     2. Physical external connectors
-   - A block diagram or full schematic of the main components (sensors, power supply, etc.) that allows to infer software requirements and boot order
-   - A manual of the finished product detailing its use
+   - Повний підключення, яке стало доступним для громадськості, яке відображає PX4 визначення контактів на:
+     1. Піни мікроконтролера
+     2. Фізичні зовнішні роз'ємники
+   - Блок-схема або повна схема основних компонентів (датчики, джерело живлення тощо), яка дозволяє вивести вимоги до програмного забезпечення та порядок завантаження
+   - Посібник з використання готового продукту
 
-1. There must be a dedicated webpage for the board with PX4, which lists the features and limitations for usage with PX4, and includes or links to the above described documentation.
+1. Має бути окрема веб-сторінка для плати з PX4, на якій перераховані функції та обмеження використання з PX4, включаючи або посилання на вищезазначену документацію.
 
 ## Board Support Categories
 
