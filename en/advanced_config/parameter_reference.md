@@ -10778,7 +10778,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_TAU">EKF2_ABL_TAU</strong> (FLOAT)</td>
- <td>Time constant used by acceleration and angular rate magnitude checks used to inhibit accel bias learning <p><strong>Comment:</strong> The vector magnitude of angular rate and acceleration used to check if learning should be inhibited has a peak hold filter applied to it with an exponential decay. This parameter controls the time constant of the decay.</p>   </td>
+ <td>Accel bias learning inhibit time constant <p><strong>Comment:</strong> The vector magnitude of angular rate and acceleration used to check if learning should be inhibited has a peak hold filter applied to it with an exponential decay. This parameter controls the time constant of the decay.</p>   </td>
  <td>[0.1, 1.0] </td>
  <td>0.5</td>
  <td>s</td>
@@ -10824,7 +10824,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_AGP_NOISE">EKF2_AGP_NOISE</strong> (FLOAT)</td>
- <td>Measurement noise for aux global position observations used to lower bound or replace the uncertainty included in the message    </td>
+ <td>Measurement noise for aux global position measurements <p><strong>Comment:</strong> Used to lower bound or replace the uncertainty included in the message</p>   </td>
  <td>[0.01, ?] </td>
  <td>0.9</td>
  <td>m</td>
@@ -10846,7 +10846,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_ASPD_MAX">EKF2_ASPD_MAX</strong> (FLOAT)</td>
- <td>Upper limit on airspeed along individual axes used to correct baro for position error effects    </td>
+ <td>Maximum airspeed used for baro static pressure compensation    </td>
  <td>[5.0, 50.0] </td>
  <td>20.0</td>
  <td>m/s</td>
@@ -10861,7 +10861,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_AVEL_DELAY">EKF2_AVEL_DELAY</strong> (FLOAT)</td>
- <td>Auxiliary Velocity Estimate (e.g from a landing target) delay relative to IMU measurements    <p><b>Reboot required:</b> True</p>
+ <td>Auxiliary Velocity Estimate delay relative to IMU measurements    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 300] </td>
  <td>5</td>
@@ -10952,7 +10952,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_DRAG_NOISE">EKF2_DRAG_NOISE</strong> (FLOAT)</td>
- <td>Specific drag force observation noise variance used by the multi-rotor specific drag force model <p><strong>Comment:</strong> Increasing this makes the multi-rotor wind estimates adjust more slowly.</p>   </td>
+ <td>Specific drag force observation noise variance <p><strong>Comment:</strong> Used by the multi-rotor specific drag force model. Increasing this makes the multi-rotor wind estimates adjust more slowly.</p>   </td>
  <td>[0.5, 10.0] </td>
  <td>2.5</td>
  <td>(m/s^2)^2</td>
@@ -10973,7 +10973,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
- <td>Measurement noise for vision angle observations used to lower bound or replace the uncertainty included in the message    </td>
+ <td>Measurement noise for vision angle measurements <p><strong>Comment:</strong> Used to lower bound or replace the uncertainty included in the message</p>   </td>
  <td>[0.05, ?] </td>
  <td>0.1</td>
  <td>rad</td>
@@ -10987,7 +10987,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_EVP_NOISE">EKF2_EVP_NOISE</strong> (FLOAT)</td>
- <td>Measurement noise for vision position observations used to lower bound or replace the uncertainty included in the message    </td>
+ <td>Measurement noise for vision position measurements <p><strong>Comment:</strong> Used to lower bound or replace the uncertainty included in the message</p>   </td>
  <td>[0.01, ?] </td>
  <td>0.1</td>
  <td>m</td>
@@ -11001,7 +11001,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_EVV_NOISE">EKF2_EVV_NOISE</strong> (FLOAT)</td>
- <td>Measurement noise for vision velocity observations used to lower bound or replace the uncertainty included in the message    </td>
+ <td>Measurement noise for vision velocity measurements <p><strong>Comment:</strong> Used to lower bound or replace the uncertainty included in the message</p>   </td>
  <td>[0.01, ?] </td>
  <td>0.1</td>
  <td>m/s</td>
@@ -11038,21 +11038,21 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_EV_POS_X">EKF2_EV_POS_X</strong> (FLOAT)</td>
- <td>X position of VI sensor focal point in body frame (forward axis with origin relative to vehicle centre of gravity)    </td>
+ <td>X position of VI sensor focal point in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_EV_POS_Y">EKF2_EV_POS_Y</strong> (FLOAT)</td>
- <td>Y position of VI sensor focal point in body frame (right axis with origin relative to vehicle centre of gravity)    </td>
+ <td>Y position of VI sensor focal point in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_EV_POS_Z">EKF2_EV_POS_Z</strong> (FLOAT)</td>
- <td>Z position of VI sensor focal point in body frame (down axis with origin relative to vehicle centre of gravity)    </td>
+ <td>Z position of VI sensor focal point in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
@@ -11132,21 +11132,21 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_POS_X">EKF2_GPS_POS_X</strong> (FLOAT)</td>
- <td>X position of GPS antenna in body frame (forward axis with origin relative to vehicle centre of gravity)    </td>
+ <td>X position of GPS antenna in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_POS_Y">EKF2_GPS_POS_Y</strong> (FLOAT)</td>
- <td>Y position of GPS antenna in body frame (right axis with origin relative to vehicle centre of gravity)    </td>
+ <td>Y position of GPS antenna in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_POS_Z">EKF2_GPS_POS_Z</strong> (FLOAT)</td>
- <td>Z position of GPS antenna in body frame (down axis with origin relative to vehicle centre of gravity)    </td>
+ <td>Z position of GPS antenna in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
@@ -11254,21 +11254,21 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_IMU_POS_X">EKF2_IMU_POS_X</strong> (FLOAT)</td>
- <td>X position of IMU in body frame (forward axis with origin relative to vehicle centre of gravity)    </td>
+ <td>X position of IMU in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_IMU_POS_Y">EKF2_IMU_POS_Y</strong> (FLOAT)</td>
- <td>Y position of IMU in body frame (right axis with origin relative to vehicle centre of gravity)    </td>
+ <td>Y position of IMU in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_IMU_POS_Z">EKF2_IMU_POS_Z</strong> (FLOAT)</td>
- <td>Z position of IMU in body frame (down axis with origin relative to vehicle centre of gravity)    </td>
+ <td>Z position of IMU in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
@@ -11362,7 +11362,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MCOEF">EKF2_MCOEF</strong> (FLOAT)</td>
- <td>Propeller momentum drag coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by the propellers when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_DRAG_CTRL parameter. The drag produced by this effect scales with speed not speed squared and is produced because some of the air velocity normal to the propeller axis of rotation is lost when passing through the rotor disc. This  changes the momentum of the flow which creates a drag reaction force. When comparing un-ducted propellers of the same diameter, the effect is roughly proportional to the area of the propeller blades when viewed side on and changes with propeller selection. Momentum drag is significantly higher for ducted rotors. To account for the drag produced by the body which scales with speed squared, see documentation for the EKF2_BCOEF_X and EKF2_BCOEF_Y parameters. Set this parameter to zero to turn off the momentum drag model for both axis.</p>   </td>
+ <td>Propeller momentum drag coefficient for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by the propellers when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_DRAG_CTRL parameter. The drag produced by this effect scales with speed not speed squared and is produced because some of the air velocity normal to the propeller axis of rotation is lost when passing through the rotor disc. This  changes the momentum of the flow which creates a drag reaction force. When comparing un-ducted propellers of the same diameter, the effect is roughly proportional to the area of the propeller blades when viewed side on and changes with propeller selection. Momentum drag is significantly higher for ducted rotors. To account for the drag produced by the body which scales with speed squared, see documentation for the EKF2_BCOEF_X and EKF2_BCOEF_Y parameters. Set this parameter to zero to turn off the momentum drag model for both axis.</p>   </td>
  <td>[0, 1.0] </td>
  <td>0.15</td>
  <td>1/s</td>
@@ -11399,7 +11399,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_NOAID_TOUT">EKF2_NOAID_TOUT</strong> (INT32)</td>
- <td>Maximum lapsed time from last fusion of measurements that constrain velocity drift before the EKF will report the horizontal nav solution as invalid    </td>
+ <td>Maximum inertial dead-reckoning time <p><strong>Comment:</strong> Maximum lapsed time from last fusion of measurements that constrain velocity drift before the EKF will report the horizontal nav solution as invalid</p>   </td>
  <td>[500000, 10000000] </td>
  <td>5000000</td>
  <td>us</td>
@@ -11428,49 +11428,49 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_OF_N_MAX">EKF2_OF_N_MAX</strong> (FLOAT)</td>
- <td>Measurement noise for the optical flow sensor <p><strong>Comment:</strong> (when it&#x27;s reported quality metric is at the minimum set by EKF2_OF_QMIN). The following condition must be met: EKF2_OF_N_MAXN &gt;= EKF2_OF_N_MIN</p>   </td>
+ <td>Optical flow maximum noise <p><strong>Comment:</strong> Measurement noise for the optical flow sensor when it&#x27;s reported quality metric is at the minimum</p>   </td>
  <td>[0.05, ?] </td>
  <td>0.5</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_N_MIN">EKF2_OF_N_MIN</strong> (FLOAT)</td>
- <td>Measurement noise for the optical flow sensor when it&#x27;s reported quality metric is at the maximum    </td>
+ <td>Optical flow minimum noise <p><strong>Comment:</strong> Measurement noise for the optical flow sensor when it&#x27;s reported quality metric is at the maximum</p>   </td>
  <td>[0.05, ?] </td>
  <td>0.15</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_POS_X">EKF2_OF_POS_X</strong> (FLOAT)</td>
- <td>X position of optical flow focal point in body frame (forward axis with origin relative to vehicle centre of gravity)    </td>
+ <td>X position of optical flow focal point in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_POS_Y">EKF2_OF_POS_Y</strong> (FLOAT)</td>
- <td>Y position of optical flow focal point in body frame (right axis with origin relative to vehicle centre of gravity)    </td>
+ <td>Y position of optical flow focal point in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_POS_Z">EKF2_OF_POS_Z</strong> (FLOAT)</td>
- <td>Z position of optical flow focal point in body frame (down axis with origin relative to vehicle centre of gravity)    </td>
+ <td>Z position of optical flow focal point in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_QMIN">EKF2_OF_QMIN</strong> (INT32)</td>
- <td>Optical Flow data will only be used in air if the sensor reports a quality metric &gt;= EKF2_OF_QMIN    </td>
+ <td>In air optical flow minimum quality <p><strong>Comment:</strong> Optical Flow data will only be used in air if the sensor reports a quality metric &gt;= EKF2_OF_QMIN</p>   </td>
  <td>[0, 255] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_QMIN_GND">EKF2_OF_QMIN_GND</strong> (INT32)</td>
- <td>Optical Flow data will only be used on the ground if the sensor reports a quality metric &gt;= EKF2_OF_QMIN_GND    </td>
+ <td>On ground optical flow minimum quality <p><strong>Comment:</strong> Optical Flow data will only be used on the ground if the sensor reports a quality metric &gt;= EKF2_OF_QMIN_GND</p>   </td>
  <td>[0, 255] </td>
  <td>0</td>
  <td></td>
@@ -11576,7 +11576,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_A_HMAX">EKF2_RNG_A_HMAX</strong> (FLOAT)</td>
- <td>Maximum absolute altitude (height above ground level) allowed for conditional range aid mode <p><strong>Comment:</strong> If the vehicle absolute altitude exceeds this value then the estimator will not fuse range measurements to estimate its height. This only applies when conditional range aid mode is activated (EKF2_RNG_CTRL = 1).</p>   </td>
+ <td>Maximum height above ground allowed for conditional range aid mode <p><strong>Comment:</strong> If the vehicle absolute altitude exceeds this value then the estimator will not fuse range measurements to estimate its height. This only applies when conditional range aid mode is activated (EKF2_RNG_CTRL = 1).</p>   </td>
  <td>[1.0, 10.0] </td>
  <td>5.0</td>
  <td>m</td>
@@ -11644,28 +11644,28 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_POS_X">EKF2_RNG_POS_X</strong> (FLOAT)</td>
- <td>X position of range finder origin in body frame (forward axis with origin relative to vehicle centre of gravity)    </td>
+ <td>X position of range finder origin in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_POS_Y">EKF2_RNG_POS_Y</strong> (FLOAT)</td>
- <td>Y position of range finder origin in body frame (right axis with origin relative to vehicle centre of gravity)    </td>
+ <td>Y position of range finder origin in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_POS_Z">EKF2_RNG_POS_Z</strong> (FLOAT)</td>
- <td>Z position of range finder origin in body frame (down axis with origin relative to vehicle centre of gravity)    </td>
+ <td>Z position of range finder origin in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_QLTY_T">EKF2_RNG_QLTY_T</strong> (FLOAT)</td>
- <td>Minimum duration during which the reported range finder signal quality needs to be non-zero in order to be declared valid (s)    </td>
+ <td>Minumum range validity period <p><strong>Comment:</strong> Minimum duration during which the reported range finder signal quality needs to be non-zero in order to be declared valid (s)</p>   </td>
  <td>[0.1, 5] </td>
  <td>1.0</td>
  <td>s</td>
@@ -11728,7 +11728,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_TAU_POS">EKF2_TAU_POS</strong> (FLOAT)</td>
- <td>Time constant of the position output prediction and smoothing filter. Controls how tightly the output track the EKF states    </td>
+ <td>Output predictor position time constant <p><strong>Comment:</strong> Controls how tightly the output track the EKF states</p>   </td>
  <td>[0.1, 1.0] </td>
  <td>0.25</td>
  <td>s</td>
@@ -11759,7 +11759,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_TERR_NOISE">EKF2_TERR_NOISE</strong> (FLOAT)</td>
- <td>Terrain altitude process noise - accounts for instability in vehicle height estimate    </td>
+ <td>Terrain altitude process noise    </td>
  <td>[0.5, ?] </td>
  <td>5.0</td>
  <td>m/s</td>
