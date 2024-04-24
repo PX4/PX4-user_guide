@@ -64,83 +64,83 @@ Pixhawk®️sco6X-RT ідеально підходить для розробни
 
 ### Електричні дані
 
-- Voltage Ratings:
-  - Max input voltage: 6V
-  - USB Power Input: 4.75\~5.25V
-  - Servo Rail Input: 0\~36V
-- Current Ratings:
-  - `TELEM1` output current limiter: 1.5A
-  - All other port combined output current limiter: 1.5A
+- Номінальна напруга:
+  - Максимальна вхідна напруга: 6V
+  - Вхід USB Power: 4.75\~5.25V
+  - Вхід Servo Rail: 0\~36V
+- Номінальний струм:
+  - `TELEM1` обмежувач вихідного струму: 1.5A
+  - Комбінований обмежувач вихідного струму всіх інших портів: 1.5A
 
-### Mechanical data
+### Механічні дані
 
-- Dimensions
-  - Flight Controller Module: 38.8 x 31.8 x 14.6mm
-  - Standard Baseboard: 52.4 x 103.4 x 16.7mm
-  - Mini Baseboard: 43.4 x 72.8 x 14.2 mm
-- Weight
-  - Flight Controller Module: 23g
-  - Standard Baseboard: 51g
-  - Mini Baseboard: 26.5g
+- Розміри
+  - Модуль політного контролера: 38.8 x 31.8 x 14.6mm
+  - Стандартна базова плата: 52.4 x 103.4 x 16.7mm
+  - Міні базова плата: 43.4 x 72.8 x 14.2 mm
+- Вага
+  - Модуль політного контролера: 23g
+  - Стандартна базова плата: 51g
+  - Міні базова плата: 26.5g
 
-### Interfaces
+### Інтерфейси
 
-- 16- PWM servo outputs
-- R/C input for Spektrum / DSM
-- Dedicated R/C input for PPM and S.Bus input
-- Dedicated analog / PWM RSSI input and S.Bus output
-- 4 general purpose serial ports
-  - 3 with full flow control
-  - 1 with separate 1.5A current limit (Telem1)
-  - 1 with I2C and additional GPIO line for external NFC reader
-- 2 GPS ports
-  - 1 full GPS plus Safety Switch Port
-  - 1 basic GPS port
-- 1 I2C port
-- 1 Ethernet port
+- 16- PWM серво виводів
+- R/C вхід для Spektrum / DSM
+- Виділений R/C вхід для PPM та S.Bus вхід
+- Спеціалізований аналоговий / PWM вхід RSSI та вивід S.Bus
+- 4 загальних послідовних порти
+  - 3 з повним контролем потоку
+  - 1 з окремим обмеженням струму 1.5A (Telem1)
+  - 1 з I2C та додатковою лінією GPIO для зовнішнього NFC зчитувача
+- 2 порти GPS
+  - 1 повний GPS плюс порт запобіжного перемикача
+  - 1 базовий порт GPS
+- 1 I2C порт
+- 1 порт Ethernet
   - Transformerless Applications
   - 100Mbps
-- 1 SPI bus
-  - 2 chip select lines
-  - 2 data-ready lines
-  - 1 SPI SYNC line
-  - 1 SPI reset line
-- 2 CAN Buses for CAN peripheral
-  - CAN Bus has individual silent controls or ESC RX-MUX control
-- 2 Power input ports with SMBus
+- 1 шина SPI
+  - 2 лінії вибору чіпу
+  - 2 лінії готових даних
+  - 1 лінія SPI SYNC
+  - 1 лінія SPI reset
+- 2 CAN шини для CAN периферії
+  - CAN шина має individual silent controls або ESC RX-MUX control
+- 2 порти вводу живлення з SMBus
 
-  - 1 AD & IO port
-  - 2 additional analog input
-  - 1 PWM/Capture input
-  - 2 Dedicated debug and GPIO lines
+  - 1 AD та IO порт
+  - 2 додаткових аналогових входи
+  - 1 PWM/Capture вхід
+  - 2 виділені відладочні та GPIO лінії
 
-- Other Characteristics:
-  - Operating & storage temperature: -40 ~ 85°c
+- Інші характеристики:
+  - Температура роботи та зберігання: -40 ~ 85°c
 
-## Where to Buy
+## Де придбати
 
-Order from [Holybro](https://holybro.com/products/fmuv6x-rt-developer-edition).
+Замовляйте на [Holybro](https://holybro.com/products/fmuv6x-rt-developer-edition).
 
-## Assembly/Setup
+## Збірка / налаштування
 
-The [Pixhawk 6X Wiring Quick Start](../assembly/quick_start_pixhawk6x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
+[Швидкий старт з підключення Pixhawk 6X](../assembly/quick_start_pixhawk6x.md) надає інструкції щодо збірки необхідних/важливих периферійних пристроїв, включаючи GPS, модуль живлення тощо.
 
-## Connections
+## З'єднання
 
-Sample Wiring Diagram
+Зразок схеми з'єднань
 
 ![Pixhawk 6X Wiring Overview](../../assets/flight_controller/pixhawk6x/pixhawk6x_wiring_diagram.png)
 
-## Pinouts
+## Розводка
 
-- [Holybro Pixhawk Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-baseboard-pinout)
-- [Holybro Pixhawk Mini-Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-mini-baseboard-pinout)
+- [Схема роз'ємів базової плати Holybro Pixhawk](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-baseboard-pinout)
+- [Схема роз'ємів міні-плати Holybro Pixhawk](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-mini-baseboard-pinout)
 
-Notes:
+Примітки:
 
-- The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
+- [Контакт камери](../peripherals/camera.md#camera-capture) (`PI0`) є контактом 2 порту AD&IO, позначеним вище як `FMU_CAP1`.
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
 | UART   | Device     | Port     |
 | ------ | ---------- | -------- |
@@ -153,11 +153,11 @@ Notes:
 | UART10 | /dev/ttyS6 | TELEM3   |
 | UART11 | /dev/ttyS7 | External |
 
-## Dimensions
+## Розміри
 
-[Pixhawk 6X Dimensions](https://docs.holybro.com/autopilot/pixhawk-6x/dimensions)
+[Розміри Pixhawk 6X](https://docs.holybro.com/autopilot/pixhawk-6x/dimensions)
 
-## Voltage Ratings
+## Номінальна напруга
 
 _Pixhawk 6X-RT_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**. The **POWER1** & **POWER2** ports on the Pixhawk 6X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
