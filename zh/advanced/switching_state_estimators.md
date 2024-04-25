@@ -2,7 +2,7 @@
 
 此页显示了可用的状态估计器以及如何在它们之间切换。
 
-:::tip EKF2 is highly recommended on vehicles with a GNSS/GPS. The Q-Estimator is recommended if you don't have GPS, and is commonly used in [multicopter racers](../config_mc/racer_setup.md).
+:::tip EKF2 is the default and should be used unless you have a reason not to (in particular on vehicles with a GNSS/GPS). The Q-Estimator can be used if you don't have GPS, and is commonly used in [multicopter racers](../config_mc/racer_setup.md).
 :::
 
 ## 可用的估计器
@@ -22,13 +22,17 @@ It works (at time of writing, in PX4 v1.14) but is no longer supported or mainta
 
 ## 如何启用不同的估计器
 
-For multirotors and VTOL use the parameter [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to choose between the following configurations (LPE is not supported for Fixed-wing).
+<!-- Changed in https://github.com/PX4/PX4-Autopilot/pull/22567 after v1.14 -->
 
-| SYS_MC_EST_GROUP | Q Estimator | LPE | EKF2 |
-| ------------------ | ----------- | --- | ---- |
-| 1                  | 启用          | 启用  |      |
-| 2                  |             |     | 启用   |
-| 0                  | 启用          |     |      |
+To enable a particular estimator enable its parameter and disable the others:
+
+- [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) - EKF2 (default/recommended)
+- [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN) - Q Estimator (quaternion based attitude estimator)
+- [LPE_EN](../advanced_config/parameter_reference.md#LPE_EN) - LPE (not supported for Fixed-wing)
+
+::: warning
+It is important to enable one, and only one, estimator. If more than one is enabled, the first to publish the UOrb topics [vehicle_attitude](../msg_docs/VehicleAttitude.md) or [vehicle_local_position](../msg_docs/VehicleLocalPosition.md) is used. If none are enabled then the topics are not published.
+:::
 
 :::note
 仅对于 FMU-v2 你也需要生成 PX4 以具体包含所需的估计器 (例如EKF2: `make px4_fmu-v2`, LPE: `make px4_fmu-v2_lpe`)。 这是因为 FMU-v2 不具有足够的资源同时包含这两个估计器。 其他的 Pixhawk FMU 版本同时拥有两个估计器。
