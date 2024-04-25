@@ -452,7 +452,7 @@ You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced
 
 ## How do I use the 'ecl' library EKF?
 
-Set the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter to 2 to use the ecl EKF.
+EKF2 is enabled by default (for more information see [Switching State Estimators](../advanced/switching_state_estimators.md) and [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN)).
 
 ## What are the advantages and disadvantages of the ecl EKF over other estimators?
 
