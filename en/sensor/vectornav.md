@@ -1,10 +1,19 @@
 # VectorNav
 
-VectorNav produces [IMU/AHRS](https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-ahrs), [GNSS/INS](https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-gpsins), [Dual GNSS/INS](https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-gnsscompass) systems.
+VectorNav Technologies designs and develops high-performance, low-SWaP [IMU/AHRS](https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-ahrs), [GNSS/INS](https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-gpsins), and [Dual GNSS/INS](https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-gnsscompass) solutions that enable safe and reliable autonomy at scale.
+
+![VN-300](../../assets/hardware/sensors/inertial/vn-300-smd-rugged.png)
+
+VectorNav products provide a range of benefits to PX4 users and can be integrated for:
+- Higher accuracy heading, pitch, and roll estimates
+- More robust and reliable GNSS positioning
+- Improved positioning and attitude performance in GNSS-contested environments
+- Performance under challenging dynamic conditions (e.g. catapult launches, VTOL operations, high-g or high angular rate operations)
+
+The VectorNav PX4 Driver is streamlined to provide a simple plug-and-play architecture, removing engineering obstacles and allowing the acceleration of the design, development, and launch of platforms to keep pace with the rapid rate of innovation.
 
 PX4 can use these as an [external INS](../sensor/inertial_navigation_systems.md), bypassing/replacing the EKF2 estimator, or as a source of raw sensor data provided to the estimator.
 
-![VN-300](../../assets/hardware/sensors/inertial/vn-300-smd-rugged.png)
 
 PX4 driver supports [all VectorNav sensors](https://www.vectornav.com/store/products).
 In particular the following systems are recommended:
@@ -14,9 +23,12 @@ In particular the following systems are recommended:
 
 ## Where to Buy
 
-Order VectorNav sensors device from:
+VectorNav IMU/AHRS, GNSS/INS, and Dual GNSS/INS solutions are available directly from [VectorNav Technologies](https://www.vectornav.com/store/products) (US) or through their Global Sales Representatives. For more information on their solutions or for international orders, please contact sales@vectornav.com.
 
-- [VectorNav Technologies](https://www.vectornav.com/store/products) (US)
+[Purchase VN-200 Development Kit](https://www.vectornav.com/store/products/gnss-ins/p/vn-200-rugged-development-kit) (GNSS/INS)
+[Purchase VN-300 Development Kit](https://www.vectornav.com/store/products/dual-gnss-ins/p/vn-300-rugged-development-kit) (Dual GNSS/INS)
+
+
 
 ## Hardware Setup
 
@@ -52,7 +64,7 @@ To use the VectorNav driver:
      1. If internal sensors are enabled, prioritize VectorNav sensors using [CAL_GYROn_PRIO](../advanced_config/parameter_reference.md#CAL_GYRO0_PRIO), [CAL_ACCELn_PRIO](../advanced_config/parameter_reference.md#CAL_ACCEL0_PRIO), [CAL_BAROn_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO), [CAL_MAGn_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO), where _n_ is the instance number of the IMU component (0, 1, etc.).
 
      ::: tip
-     In most cases the extenal IMU (VN) is the highest-numbered.
+     In most cases the external IMU (VN) is the highest-numbered.
      You can get a list of the IMU components available using [`uorb top -1`](../middleware/uorb.md#uorb-top-command), you can differentiate between them using the [`listener`](../modules/modules_command.md#listener) command and looking through the data, or just the rates itself.
 
      Alternatively, you can check [CAL_GYROn_ID](../advanced_config/parameter_reference.md#CAL_GYRO0_ID) to see the device id.
@@ -116,4 +128,5 @@ Published topics can be viewed using the `listener` command.
 
 ## Hardware Specifications
 
+- [Product Briefs](https://www.vectornav.com/resources/product-briefs)
 - [Datasheets](https://www.vectornav.com/resources/datasheets)
