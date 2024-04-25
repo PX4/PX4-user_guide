@@ -16344,6 +16344,7 @@ table {
 <li><strong>2:</strong> away from home</li>
 <li><strong>3:</strong> along trajectory</li>
 <li><strong>4:</strong> towards waypoint (yaw first)</li>
+<li><strong>5:</strong> yaw fixed</li>
 </ul>  </td>
  <td>[0, 4] </td>
  <td>0</td>
