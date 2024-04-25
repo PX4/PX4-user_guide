@@ -1,67 +1,67 @@
-# Cube Wiring Quick Start
+# Швидке підключення Cube
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://cubepilot.org/#/home) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 
-Note also that while [Cube Black](../flight_controller/pixhawk-2.md) is [fully supported by PX4](../flight_controller/autopilot_pixhawk_standard.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md) are [Manufacturer Supported](../flight_controller/autopilot_manufacturer_supported.md).
+Також варто зазначити, що, хоча [Cube Black](../flight_controller/pixhawk-2.md) [повністю підтримується PX4](../flight_controller/autopilot_pixhawk_standard.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) та [Cube Orange](../flight_controller/cubepilot_cube_orange.md) [підтримуються виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-This quick start guide shows how to power the _Cube_<sup>&reg;</sup> flight controllers and connect their most important peripherals.
+Цей короткий посібник показує, як живити польотні контролери _Cube_<sup>&reg;</sup> та під'єднати їх найважливіші периферійні пристрої.
 
 <img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="350px" /> <img src="../../assets/flight_controller/cube/cube_black_hero.png" width="350px" /> <img src="../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg" width="150px" />
 
 :::tip
-The instructions apply to all Cube variants, including [Cube Black](../flight_controller/pixhawk-2.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md). Further/updated information may be available in the [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual) (Cube Docs).
+Інструкції застосовуються до всіх варіантів Cube, включаючи [Cube Black](../flight_controller/pixhawk-2.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) та [Cube Orange](../flight_controller/cubepilot_cube_orange.md). Додаткову/оновлену інформацію можна знайти у [Посібнику користувача по Cube](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual) (Cube Docs).
 :::
 
-## Accessories
+## Аксесуари
 
-Cube comes with most (or all) of the accessories you will need when [purchased](../flight_controller/pixhawk-2.md#stores).
+Куб поставляється з більшістю (або всіма) аксесуарами, які вам знадобляться при [покупці](../flight_controller/pixhawk-2.md#stores).
 
 ![Cube Accessories](../../assets/flight_controller/cube/cube_accessories.jpg)
 
-The exception is that some kits do not include a GPS, which will have to be purchased separately ([see below](#gps)).
+Виняток полягає в тому, що деякі комплекти не включають GPS, який доведеться придбати окремо ([див. нижче](#gps)).
 
-## Wiring Overview
+## Загальний огляд проводки
 
-The image below shows how to connect the most important sensors and peripherals. We'll go through each of these in detail in the following sections.
+На зображенні нижче показано, як підключити найважливіші датчики та периферійні пристрої. Ми розглянемо кожен з них докладно в наступних розділах.
 
 ![Cube - Wiring Overview](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
 
-1. [Telemetry System](#telemetry) — Allows you to plan/run missions, and control and monitor the vehicle in real time. Typically includes telemetry radios, tablet/PC and ground station software.
-2. [Buzzer](#buzzer) — Provides audio signals that indicate what the UAV is doing
-3. [Remote Control Receiver System](#rc_control) — Connects to a hand-held transmitter that an operator can use to manually fly the vehicle (shown is a PWM receiver with PWM->PPM converter).
-4. (Dedicated) [Safety switch](#safety-switch) — Press and hold to lock and unlock motors. Only required if you are not using the recommended [GPS](#gps) with inbuilt safety switch.
-5. [GPS, Compass, LED, Safety Switch](#gps) — The recommended GPS module contains GPS, Compass, LED and Safety Switch.
-6. [Power System](#power) — Powers Cube and the motor ESCs. Consists of LiPo battery, power module, and optional battery warning system (audio warning if battery power goes below a predefined level).
+1. [Система телеметрії](#telemetry) — Дозволяє вам планувати/виконувати місії, контролювати та відстежувати транспортний засіб в реальному часі. Зазвичай включає телеметричні радіо, планшет / ПК та програмне забезпечення для земної станції.
+2. [Сигналізатор](#buzzer) — Надає аудіосигнали, які вказують, що робить БПЛА
+3. [Система приймача пульта дистанційного керування](#rc_control) — Підключається до ручного передавача, який оператор може використовувати для ручного керування транспортним засобом (показано приймач PWM з конвертером PWM>PPM).
+4. (Спеціалізований) [Безпечний перемикач](#safety-switch) — Натисніть і утримуйте, щоб заблокувати та розблокувати двигуни. Лише обов'язково, якщо ви не використовуєте рекомендований [GPS](#gps) з вбудованим безпечним вимикачем.
+5. [GPS, Компас, Світлодіод, Кнопка безпеки](#gps) — Рекомендований модуль GPS містить GPS, Компас, Світлодіод та Кнопку безпеки.
+6. [Система живлення](#power) — Куб живлення та регулятори швидкості моторів. Складається з LiPo акумулятора, модуля живлення та необов'язкової системи попередження про рівень заряду акумулятора (аудіо попередження, якщо рівень заряду акумулятора падає нижче попередньо встановленого рівня).
 
-::: info The port labeled `GPS2` maps to `TEL4` in PX4 (i.e. if connecting to the port labeled `GPS2`, assign the [serial port configuration parameter](../peripherals/serial_configuration.md) for the connected hardware to `TEL4`).
+::: info Порт, позначений як `GPS2`, відповідає `TEL4` в PX4 (тобто, якщо підключитися до порту, позначеного як `GPS2`, призначте [параметр конфігурації послідовного порту](../peripherals/serial_configuration.md) для підключеного обладнання до `TEL4`).
 :::
 
 :::tip
-More information about available ports can be found here: [Cube > Ports](../flight_controller/pixhawk-2.md#ports).
+Додаткову інформацію про доступні порти можна знайти тут: [Куб > Порти](../flight_controller/pixhawk-2.md#ports).
 :::
 
-## Mount and Orient Controller
+## Монтаж та орієнтація контролера
 
-Mount the Cube as close as possible to your vehicle’s center of gravity, ideally oriented top-side up and with the arrow pointing towards the front of the vehicle (note the _subtle_ arrow marker on top of the cube)
+Встановіть Куб якомога ближче до центру ваги вашого транспортного засобу, ідеально орієнтований верхньою стороною вгору і зі стрілкою, що вказує вперед транспортного засобу (зверніть увагу на _вишукану_ стрілкову позначку зверху на кубі)
 
 ![Cube Mount - Direction of Front](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+::: info Якщо контролер не може бути змонтований в рекомендованій/стандартній орієнтації (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 :::
 
-The Cube can be mounted using either vibration-damping foam pads (included in the kit) or mounting screws. The mounting screws in the Cube accessories are designed for a 1.8mm thick frameboard. Customized screws are supposed to be M2.5 with thread length inside Cube in range 6mm~7.55mm.
+Куб може бути встановлений за допомогою або амортизуючих вібрації пінопластових підкладок (включених у комплект) або кріпильних гвинтів. Гвинти кріплення в аксесуарах Куба призначені для рамки товщиною 1,8 мм. Налаштовані гвинти повинні бути M2.5 з довжиною різьблення всередині Куба в діапазоні від 6 мм до 7.55 мм.
 
 ![Cube Mount - Mounting Plate](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
 
 <a id="gps"></a>
 
-## GPS + Compass + Safety Switch + LED
+## GPS + Компас + Безпечний вимикач + Світлодіоди
 
-The recommended GPS modules are the _Here_ and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md). The difference between the modules is that _Here+_ supports centimeter level positioning via [RTK](../gps_compass/rtk_gps.md). Otherwise they are used/connected in the same way.
+Рекомендовані модулі GPS - _Here_ та [Here+](../gps_compass/rtk_gps_hex_hereplus.md), обидва з якими поєднані модуль GPS, компас, захисний вимикач та [світлодіоди](../getting_started/led_meanings.md). Різниця між модулями полягає в тому, що _Here+_ підтримує позиціонування на рівні сантиметрів через [RTK](../gps_compass/rtk_gps.md). В іншому випадку вони використовуються / підключаються так само.
 
 :::warning
-The [Here+](../gps_compass/rtk_gps_hex_hereplus.md) has been superseded by the [Here3](https://www.cubepilot.org/#/here/here3) a [DroneCAN](../dronecan/index.md) RTK-GNSS that incorporate a compass and [LEDs](../getting_started/led_meanings.md) (but no safety switch). See [DroneCAN](../dronecan/index.md) for _Here3_ wiring and PX4 configuration information.
+[Тут](../gps_compass/rtk_gps_hex_hereplus.md) було замінено на [Тут3](https://www.cubepilot.org/#/here/here3) - RTK-GNSS з компасом та [DroneCAN](../dronecan/index.md), які включають компас та [світлодіоди](../getting_started/led_meanings.md) (але без вимикача безпеки). See [DroneCAN](../dronecan/index.md) for _Here3_ wiring and PX4 configuration information.
 :::
 
 The module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference). It must be connected to the `GPS1` port using the supplied 8-pin cable.
