@@ -73,11 +73,13 @@ This page describes how to setup and configure a racer for optimal performance (
 
 GPS를 사용하는 경우에는 이 섹션을 건너 뛰고 기본 추정기를 사용할 수 있습니다. 그렇지 않으면 자력계나 기압계를 사용하지 않는 Q 자세 추정기로 전환하여야 합니다.
 
-이를 선택하려면 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP)을 1로 설정하고 다음의 매개변수를 변경하십시오.
+To enable it set [ATT_EN = 1](../advanced_config/parameter_reference.md#ATT_EN), [EKF2_EN =0 ](../advanced_config/parameter_reference.md#EKF2_EN) and [LPE_EN = 0](../advanced_config/parameter_reference.md#LPE_EN) (for more information see [Switching State Estimators](../advanced/switching_state_estimators.md#how-to-enable-different-estimators)).
 
-- 시스템에 자력계가 없는 경우 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)를 0으로 설정하십시오.
-- 시스템에 기압계가 없는 경우 [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO)를 0으로 설정하십시오.
-- Q 추정기를 설정합니다. [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP)를 0으로, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC)를 0.4로, [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS)를 0으로 설정합니다. 필요한 경우에 차후에 튜닝할 수 있습니다.
+Then change the following parameters:
+
+- Set [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) to `0` if the system does not have a magnetometer.
+- Set [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) to `0` if the system does not have a barometer.
+- Configure the Q estimator: set [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) to `0`, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC) to 0.4 and [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) to 0. 필요한 경우에 차후에 튜닝할 수 있습니다.
 
 ### 안전장치
 
