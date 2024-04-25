@@ -53,7 +53,7 @@ Because the risk of stalling is real, it is recommended to set the 'fixed-wing m
 
 그러면, VTOL이 멀티콥터 모드로 다시 전환되고 특정 고도 아래에서 [복귀 모드](../flight_modes/return.md)가 시작됩니다. 이 값을 15 미터 또는 20 미터로 설정하여 멀티콥터가 실속에서 회복할 시간을 제공할 수 있습니다.
 
-The position estimator tested for this mode is EKF2, you can set this by changing the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP).
+The position estimator tested for this mode is EKF2, which is enabled by default (for more information see [Switching State Estimators](../advanced/switching_state_estimators.md#how-to-enable-different-estimators) and [EKF2_EN ](../advanced_config/parameter_reference.md#EKF2_EN)).
 
 ## 대기속도 센서가 없는 첫 비행
 
@@ -80,7 +80,7 @@ The relevant parameters are:
 
 - [FW_USE_AIRSPD](../advanced_config/parameter_reference.md#FW_USE_AIRSPD)
 - [SYS_HAS_NUM_ASPD](../advanced_config/parameter_reference.md#SYS_HAS_NUM_ASPD)
-- [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP): EKF2 (2)
+- [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) (1), [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN) (0), [LPE_EN](../advanced_config/parameter_reference.md#LPE_EN) (0)
 - [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM): determined (e.g. 70%)
 - [VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM): 결정됨 (예: 10 초)
 - [VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT): 15
