@@ -361,7 +361,7 @@ The EKF considers uncertainty in the visual pose estimate. This uncertainty info
 
 ## ECL 라이브러리 EKF를 어떻게 사용합니까?
 
-Set the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter to 2 to use the ecl EKF.
+EKF2 is enabled by default (for more information see [Switching State Estimators](../advanced/switching_state_estimators.md) and [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN)).
 
 ## 다른 추정치들과 비교하여 ecl EKF의 장단점은 무엇입니까?
 
