@@ -54,7 +54,7 @@
 
 Це призведе до того, що VTOL повернеться в режим мультикоптера та запустить [режим повернення](../flight_modes_vtol/return.md) нижче певної висоти. Ви можете встановити значення 15 або 20 метрів, щоб дати мультикоптеру час відновитися після зупинки.
 
-Перевіреним для цього режиму оцінювачем позиції є EKF2, його можна встановити, змінивши [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP).
+The position estimator tested for this mode is EKF2, which is enabled by default (for more information see [Switching State Estimators](../advanced/switching_state_estimators.md#how-to-enable-different-estimators) and [EKF2_EN ](../advanced_config/parameter_reference.md#EKF2_EN)).
 
 ## Перший польот без датчика швидкості повітря
 
@@ -81,7 +81,7 @@
 
 - [FW_USE_AIRSPD](../advanced_config/parameter_reference.md#FW_USE_AIRSPD)
 - [SYS_HAS_NUM_ASPD](../advanced_config/parameter_reference.md#SYS_HAS_NUM_ASPD)
-- [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP): EKF2 (2)
+- [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) (1), [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN) (0), [LPE_EN](../advanced_config/parameter_reference.md#LPE_EN) (0)
 - [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM): визначено (наприклад, 70%)
 - [VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM): визначено (наприклад, 10 секунд)
 - [VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT): 15
