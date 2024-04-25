@@ -100,8 +100,7 @@ The value can further be tuned by varying the parameter to find the value that y
 
 ## LPE Tuning/Configuration
 
-You will first need to [switch to the LPE estimator](../advanced/switching_state_estimators.md) by setting the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter.
-
+You will first need to [switch to the LPE estimator](../advanced/switching_state_estimators.md) by setting the following parameters: [LPE_EN](../advanced_config/parameter_reference.md#LPE_EN) (1), [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) (0), [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN) (0).
 
 The LPE version can be found in the zip file for each PX4 release or it can be built from source using the build command `make px4_fmu-v2_lpe`. See [Building the Code](../dev_setup/building_px4.md) for more details. :::note If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and EKF).
 :::
