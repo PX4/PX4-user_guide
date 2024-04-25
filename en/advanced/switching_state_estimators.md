@@ -27,7 +27,7 @@ The available estimators are:
 
 <!-- Changed in https://github.com/PX4/PX4-Autopilot/pull/22567 after v1.14 -->
 
-To enable a particular estimator enable its parameter (disable the others):
+To enable a particular estimator enable its parameter and disable the others:
 
 - [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) - EKF2 (default/recommended)
 - [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN) - Q Estimator (quaternion based attitude estimator)
