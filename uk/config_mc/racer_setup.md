@@ -72,11 +72,13 @@
 
 Якщо ви використовуєте GPS, ви можете пропустити цей розділ і використовувати типовий оцінювач. В іншому випадку вам слід перейти на оцінювач відносин Q, який працює без магнітометра або барометра.
 
-Щоб вибрати його, встановіть [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) на 1, і змініть наступні параметри:
+To enable it set [ATT_EN = 1](../advanced_config/parameter_reference.md#ATT_EN), [EKF2_EN =0 ](../advanced_config/parameter_reference.md#EKF2_EN) and [LPE_EN = 0](../advanced_config/parameter_reference.md#LPE_EN) (for more information see [Switching State Estimators](../advanced/switching_state_estimators.md#how-to-enable-different-estimators)).
 
-- Встановіть [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) на 0, якщо у системі немає магнітометра.
-- Встановіть [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) на 0, якщо у системі немає барометра.
-- Налаштуйте оцінювач Q: встановіть [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) на 0, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC) на 0.4 та [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) на 0. Ви можете налаштувати це пізніше, якщо бажаєте.
+Then change the following parameters:
+
+- Set [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) to `0` if the system does not have a magnetometer.
+- Set [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) to `0` if the system does not have a barometer.
+- Configure the Q estimator: set [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) to `0`, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC) to 0.4 and [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) to 0. Ви можете налаштувати це пізніше, якщо бажаєте.
 
 ### Безаварійність
 
