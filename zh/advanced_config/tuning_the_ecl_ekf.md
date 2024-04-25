@@ -360,7 +360,7 @@ EKF 要考虑视觉姿态估计的不确定性。 此不确定性信息可以通
 
 ## 我如何启用 'ecl' 库中的 EKF ？
 
-将 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 参数设置为 2 以启用 ecl EKF。
+EKF2 is enabled by default (for more information see [Switching State Estimators](../advanced/switching_state_estimators.md) and [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN)).
 
 ## ecl EKF 和其它估计器相比的优点和缺点是什么？
 
