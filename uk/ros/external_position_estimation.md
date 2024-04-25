@@ -100,8 +100,7 @@ z_{mav} = - y_{mocap}
 
 ## LPE Конфігурація/Налаштування
 
-Спочатку потрібно [переключитися на оцінювач LPE](../advanced/switching_state_estimators.md), задавши параметр [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP).
-
+You will first need to [switch to the LPE estimator](../advanced/switching_state_estimators.md) by setting the following parameters: [LPE_EN](../advanced_config/parameter_reference.md#LPE_EN) (1), [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) (0), [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN) (0).
 
 :::info Якщо ви використовуєте обладнання `px4_fmu-v2`, вам також потрібно використовувати версію прошивки, яка містить модуль LPE (прошивка для іншого обладнання серії FMU містить як LPE, так і EKF). Версію LPE можна знайти у zip-файлі для кожного випуску PX4 або зібрати з вихідного коду за допомогою команди збірки `make px4_fmu-v2_lpe`. Дивіться [Створення коду](../dev_setup/building_px4.md) для більш детальної інформації.
 :::

@@ -20,11 +20,11 @@ TBD ...
 
 ### Common
 
-- TBD
+- `SYS_MC_EST_GROUP` has been removed and there are now dedicated parameters [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN), [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN), and [LPE_EN](../advanced_config/parameter_reference.md#LPE_EN) for [Switching State Estimators](../advanced/switching_state_estimators.md). Most setups should enable [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) (the default). Changed in [PX4-Autopilot#22567](https://github.com/PX4/PX4-Autopilot/pull/22567).
 
 ### Control
 
-- [offboard][ros2 offboard control](../flight_modes/offboard.md#ros-2-messages) allows for direct motors and servo control. Added in PX4 in [PX4-Autopilot#22222](https://github.com/PX4/PX4-Autopilot/pull/22222).
+- [offboard][ros2 offboard control](../flight_modes/offboard.md#ros-2-messages) allows for direct motors and servo control. Added in [PX4-Autopilot#22222](https://github.com/PX4/PX4-Autopilot/pull/22222).
 
 ### Estimation
 
