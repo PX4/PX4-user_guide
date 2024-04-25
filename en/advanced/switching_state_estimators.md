@@ -3,8 +3,8 @@
 This page shows you which state estimators are available and how you can switch between them.
 
 :::tip
-EKF2 is highly recommended on vehicles with a GNSS/GPS.
-The Q-Estimator is recommended if you don't have GPS, and is commonly used in [multicopter racers](../config_mc/racer_setup.md).
+EKF2 is the default and should be used unless you have a reason not to (in particular on vehicles with a GNSS/GPS).
+The Q-Estimator can be used if you don't have GPS, and is commonly used in [multicopter racers](../config_mc/racer_setup.md).
 :::
 
 ## Available Estimators
@@ -25,13 +25,19 @@ The available estimators are:
 
 ## How to Enable Different Estimators
 
-For multirotors and VTOL use the parameter [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to choose between the following configurations (LPE is not supported for Fixed-wing).
+<!-- Changed in https://github.com/PX4/PX4-Autopilot/pull/22567 after v1.14 -->
 
-| SYS_MC_EST_GROUP | Q Estimator | LPE     | EKF2    |
-| ---------------- | ----------- | ------- | ------- |
-| 1                | enabled     | enabled |         |
-| 2                |             |         | enabled |
-| 3                | enabled     |         |         |
+To enable a particular estimator enable its parameter (disable the others):
+
+- [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) - EKF2 (default/recommended)
+- [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN) - Q Estimator (quaternion based attitude estimator)
+- [LPE_EN](../advanced_config/parameter_reference.md#LPE_EN) - LPE (not supported for Fixed-wing)
+
+::: warning
+It is important to enable one, and only one, estimator.
+If more than one is enabled, the first to publish the UOrb topics [vehicle_attitude](../msg_docs/VehicleAttitude.md) or [vehicle_local_position](../msg_docs/VehicleLocalPosition.md) is used.
+If none are enabled then the topics are not published.
+:::
 
 ::: info
 For FMU-v2 (only) you will also need to build PX4 to specifically include required estimator (e.g. EKF2: `make px4_fmu-v2`, LPE: `make px4_fmu-v2_lpe`).
