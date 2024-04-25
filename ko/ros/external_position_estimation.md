@@ -99,8 +99,7 @@ IMU 속도와 EV 속도 간의 오프셋을 확인하여, 로그에서 대략적
 
 ## LPE 튜닝과 설정
 
-먼저 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 매개변수를 설정하여, [LPE 추정기로 전환](../advanced/switching_state_estimators.md)합니다.
-
+You will first need to [switch to the LPE estimator](../advanced/switching_state_estimators.md) by setting the following parameters: [LPE_EN](../advanced_config/parameter_reference.md#LPE_EN) (1), [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) (0), [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN) (0).
 
 ::: info If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and EKF). LPE 버전은 각 PX4 릴리스의 zip 파일에서 찾거나, 빌드 명령 `make px4_fmu-v2_lpe`를 사용하여 소스에서 빌드합니다. 자세한 내용은 [코드 빌드](../dev_setup/building_px4.md)을 참고하십시오.
 :::
