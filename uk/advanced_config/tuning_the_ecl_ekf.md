@@ -362,7 +362,7 @@ EKF враховує невизначеність в оцінці візуаль
 
 ## Як використовувати бібліотеку EKF "ecl"?
 
-Встановіть параметр [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) на 2, щоб використовувати EKF ecl.
+EKF2 is enabled by default (for more information see [Switching State Estimators](../advanced/switching_state_estimators.md) and [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN)).
 
 ## Які переваги та недоліки EKF ecl порівняно з іншими оцінювачами?
 
