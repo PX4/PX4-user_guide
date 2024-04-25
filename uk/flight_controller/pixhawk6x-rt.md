@@ -161,16 +161,16 @@ Pixhawk®️sco6X-RT ідеально підходить для розробни
 
 _Pixhawk 6X-RT_ може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шини живлення: **POWER1**, **POWER2** і **USB**. Порти **POWER1** та **POWER2** на Pixhawk 6X використовують 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
-**Normal Operation Maximum Ratings**
+**Максимальна напруга нормальної роботи**
 
-Under these conditions all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1** та **POWER2** входи (4.9V до 5.5V)
+1. **USB** вхід (4.75V до 5.25V)
 
-**Absolute Maximum Ratings**
+**Абсолютна максимальна напруга**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+За таких умов система не буде витрачати жодної енергії (не буде працювати), але залишиться неушкодженою.
 
 1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
 1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
