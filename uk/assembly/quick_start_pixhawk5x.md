@@ -1,62 +1,62 @@
-# Holybro Pixhawk 5x Wiring Quick Start
+# Швидке підключення Holybro Pixhawk 5x
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 :::
 
-This quick start guide shows how to power the [Pixhawk<sup>&reg;</sup> 5X](../flight_controller/pixhawk5x.md) flight controller and connect its most important peripherals.
+Цей швидкий старт показує, як живити польовий контролер [Pixhawk<sup>&reg;</sup> 5X](../flight_controller/pixhawk5x.md) та підключити його найважливіші периферійні пристрої.
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_standard_set.jpg" width="520px" title="Pixhawk5x standard set" />
 
-Pixhawk 5 Standard Set
+Набір Pixhawk 5 стандартний
 
-## Wiring Chart Overview
+## Огляд схеми підключення
 
-The image below shows how to connect the most important sensors and peripherals.
+На зображенні нижче показано, як підключити найважливіші датчики та периферійні пристрої.
 
 ![Pixhawk 5x Wiring Overview](../../assets/flight_controller/pixhawk5x/pixhawk5x_wiring_diagram.jpg)
 
 :::tip
-More information about available ports can be found here: [Pixhawk 5X > Connections](../flight_controller/pixhawk5x.md#connections).
+Додаткову інформацію про доступні порти можна знайти тут: [Pixhawk 5X > Connections](../flight_controller/pixhawk5x.md#connections).
 :::
 
-## Mount and Orient Controller
+## Монтаж та орієнтація контролера
 
-_Pixhawk 5X_ can be mounted on the frame using double side tape included in the kit. It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+_Pixhawk 5X_ можна змонтувати на раму за допомогою двосторонньої стрічки, включеної в комплект. Він повинен бути розташований якомога ближче до центру ваги вашого транспортного засобу, орієнтований верхньою стороною вгору зі стрілкою, що вказує вперед транспортного засобу.
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_vehicle_front1.jpg" width="400px" title="Pixhawk5x standard set" />
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+::: info Якщо контролер не може бути змонтований у рекомендованому/стандартному положенні (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 :::
 
-## GPS + Compass + Buzzer + Safety Switch + LED
+## GPS + компас + зумер + захисний вимикач + світлодіод
 
-The _Pixhawk5X Standard Set_ can be purchased with M8N or M9N GPS (10-pin connector) that should be connected to the **GPS1** port. These GNSS modules have an integrated compass, safety switch, buzzer and LED.
+Набір _Pixhawk5X Standard Set_ можна придбати з GPS M8N або M9N (10-контактний роз'єм), який слід підключити до порту **GPS1**. Ці модулі GNSS мають вбудований компас, безпечний перемикач, дзвіночок та світлодіод.
 
-A secondary [M8N or M9N GPS](https://holybro.com/collections/gps) (6-pin connector) can be purchased separately and connected to the **GPS2** port.
+Додатковий [GPS M8N або M9N](https://holybro.com/collections/gps) (6-контактний роз'єм) можна придбати окремо і підключити до порту **GPS2**.
 
-The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+GPS/Компас слід [монтувати на раму](../assembly/mount_gps_compass.md) якомога подалі від інших електронних пристроїв, з напрямком вперед транспортного засобу (відокремлення компаса від інших електронних пристроїв зменшить втручання).
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_gps_front.jpg" width="200px" title="Pixhawk5x standard set" />
 
-::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+::: info Вбудований безпечний вимикач в GPS-модулі увімкнений _за замовчуванням_ (коли включений, PX4 не дозволить вам готувати до польоту). Щоб вимкнути безпеку, натисніть і утримуйте безпечний вимикач протягом 1 секунди. Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
 
 ## Power
 
-Connect the output of the _PM02D Power Module_ (PM board) that comes with the Standard Set to one of the **POWER** port of _Pixhawk 5X_ using the 6-wire cable. The PM02D and Power ports on the Pixhawk 5X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670) & [Housing](https://www.molex.com/molex/products/part-detail/crimp_housings/5024390600).
+Підключіть вихід модуля живлення _PM02D Power Module_ (PM-плата), який поставляється зі стандартним набором, до одного з роз'ємів **POWER** _Pixhawk 5X_ за допомогою 6-жильного кабелю. Порти PM02D та Power на Pixhawk 5X використовують 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670) & [Housing](https://www.molex.com/molex/products/part-detail/crimp_housings/5024390600).
 
-The PM02D Power Module supports **2~6S** battery, the board input should be connected to your LiPo battery. Note that the PM board does not supply power to the + and - pins of **FMU PWM OUT** and **I/O PWM OUT**.
+Модуль живлення PM02D підтримує акумулятор **2~6S**, вхід до плати повинен бути підключений до вашого LiPo акумулятора. Зверніть увагу, що плата PM не постачає живлення на контакти + та - **FMU PWM OUT** та **I/O PWM OUT**.
 
-If using a plane or rover, the **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc. This can be done by connecting the 8 pin power (+) rail of the **FMU PWM-OUT** to a voltage regulator (for example, a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery).
+Якщо використовується літак або рухомий об'єкт, вихідна рейка **FMU PWM-OUT** повинна бути окремо живлена для керування сервоприводами для рульових пристроїв, елеронами тощо. Це можна зробити, під'єднавши 8-контактний живильний (+) рейл **FMU PWM-OUT** до стабілізатора напруги (наприклад, ESC з обладнаною BEC або автономною BEC на 5 В або акумулятором LiPo 2S).
 
 ::: info
-The power rail voltage must be appropriate for the servo being used!
+Напруга шини живлення повинна бути відповідною для використаного сервоприводу!
 :::
 
-| PIN & Connector | Function                                            |
-| --------------- | --------------------------------------------------- |
-| I/O PWM Out     | Connect Motor Signal and GND wires here.            |
-| FMU PWM Out     | Connect Servo Signal, positive, and GND wires here. |
+| PIN & Connector | Функція                                                           |
+| --------------- | ----------------------------------------------------------------- |
+| I/O PWM Out     | Підключіть сигнальні та земельні проводи двигуна тут.             |
+| FMU PWM Out     | Підключіть сигнальні, позитивні та GND-проводи сервоприводу сюди. |
 
 ::: info **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 5X_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 5x_. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**.
 :::
