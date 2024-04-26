@@ -1,142 +1,142 @@
 # _Pixhawk 4 Mini_ Wiring Quick Start
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 :::
 
-This quick start guide shows how to power the [_Pixhawk<sup>&reg;</sup> 4 Mini_](../flight_controller/pixhawk4_mini.md) flight controller and connect its most important peripherals.
+Цей швидкий старт показує, як живити автопілот [_Pixhawk<sup>&reg;</sup> 4 Mini_](../flight_controller/pixhawk4_mini.md) та підключити його найважливіші периферійні пристрої.
 
-![Pixhawk4 mini](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png)
+![Зображення Pixhawk4 mini](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png)
 
-## Wiring Chart Overview
+## Загальний огляд проводки
 
-The image below shows where to connect the most important sensors and peripherals (except for motors and servos).
+На зображенні нижче показано, куди підключити найважливіші датчики та периферійні пристрої (за винятком моторів та сервоприводів).
 
-![*Pixhawk 4 Mini* Wiring Overview](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_wiring_overview.png)
+![*Огляд підключення Pixhawk 4 Mini*](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_wiring_overview.png)
 
 :::tip
-More information about available ports can be found here: [_Pixhawk 4 Mini_ > Interfaces](../flight_controller/pixhawk4_mini.md#interfaces).
+Додаткову інформацію про доступні порти можна знайти тут: [_Pixhawk 4 Mini_ > Interfaces](../flight_controller/pixhawk4_mini.md#interfaces).
 :::
 
-## Mount and Orient Controller
+## Монтаж та орієнтація контролера
 
-_Pixhawk 4 Mini_ should be mounted on your frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+_Pixhawk 4 Mini_ повинен бути змонтований на вашу раму за допомогою амортизаційних підушок проти вібрації (включені в комплект). Вона повинна бути розташувана якомога ближче до центру тяжіння вашого автомобіля верхньою стороною вгору зі стрілкою, що вказує в напрямку передньої частини автомобіля.
 
-![*Pixhawk 4 Mini* Orientation](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_orientation.png)
+![Орієнтація *Pixhawk 4 Mini*](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_orientation.png)
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+::: info Якщо контролер не може бути змонтований у рекомендованому/стандартному положенні (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 :::
 
-## GPS + Compass + Buzzer + Safety Switch + LED
+## GPS + компас + зумер + захисний вимикач + світлодіод
 
-Attach the provided GPS with integrated compass, safety switch, buzzer, and LED to the **GPS MODULE** port. The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+Підключіть наданий GPS з інтегрованим компасом, безпечним перемикачем, піщальцем та світлодіодом до порту **МОДУЛЬ GPS**. GPS/компас слід [монтувати на раму](../assembly/mount_gps_compass.md) якомога подалі від інших електронних пристроїв, з напрямком вперед транспортного засобу (відокремлення компаса від інших електронних пристроїв зменшить втручання).
 
-![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_gps.png)
+![Підключіть компас / GPS до Pixhawk 4](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_gps.png)
 
-::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+::: info Вбудований безпечний вимикач в GPS-модулі увімкнений _за замовчуванням_ (коли включений, PX4 не дозволить вам готувати до польоту). Щоб вимкнути безпеку, натисніть і утримуйте безпечний вимикач протягом 1 секунди. Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
 
-## Power
+## Потужність
 
-The Power Management Board (PMB) serves the purpose of a power module as well as a power distribution board. In addition to providing regulated power to _Pixhawk 4 Mini_ and the ESCs, it sends information to the autopilot about the battery’s voltage and current draw.
+Плата управління живленням (PMB) виконує функції блоку живлення та розподільчої плати живлення. Крім надання регульованого живлення _Pixhawk 4 Mini_ та ESC, вона надсилає інформацію автопілоту про напругу батареї та поточний струм, який подається на керуючий пристрій польоту та двигуни.
 
-Connect the output of the PMB that comes with the kit to the **POWER** port of the _Pixhawk 4 Mini_ using a 6-wire cable. The connections of the PMB, including power supply and signal connections to the ESCs and servos, are explained in the image below.
+Підключіть вихід PMB, що постачається в комплекті, до порту **POWER** _Pixhawk 4 Mini_ за допомогою 6-жильного кабелю. Підключення PMB, включаючи живлення та сигнальні з'єднання з ESC та сервоприводами, пояснені на зображенні нижче.
 
-![Pixhawk 4 - Power Management Board](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_power_management.png)
+![Pixhawk 4 - Плата управління живленням](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_power_management.png)
 
-::: info
-The image above only shows the connection of a single ESC and a single servo.
-Connect the remaining ESCs and servos similarly.
+::: інформація
+Вище показано лише з'єднання одного ESC і одного сервопривода.
+Підключіть інші ESC та сервоприводи аналогічно.
 :::
 
-| Pin(s) or Connector | Function                                                                         |
-| ------------------- | -------------------------------------------------------------------------------- |
-| B+                  | Connect to ESC B+ to power the ESC                                               |
-| GND                 | Connect to ESC Ground                                                            |
-| PWR                 | JST-GH 6-pin Connector, 5V 3A output<br> connect to _Pixhawk 4 Mini_ POWER |
-| BAT                 | Power Input, connect to 2~12s LiPo Battery                                       |
+| Pin(s) або роз'єм | Функція                                                                            |
+| ----------------- | ---------------------------------------------------------------------------------- |
+| B+                | Підключіться до ESC B+, щоб живити ESC                                             |
+| GND               | Підключіться до землі ESC                                                          |
+| PWR               | Роз'єм JST-GH 6-pin, вихід 5V 3A<br> підключити до живлення _Pixhawk 4 Mini_ |
+| BAT               | Живлення, підключіть до акумулятора LiPo 2~12s                                     |
 
-The pinout of the _Pixhawk 4 Mini_ **POWER** port is shown below. The `CURRENT` signal should carry an analog voltage from 0-3.3V for 0-120A as default. The `VOLTAGE` signal should carry an analog voltage from 0-3.3V for 0-60V as default. The VCC lines have to offer at least 3A continuous and should default to 5.1V. A lower voltage of 5V is still acceptable, but discouraged.
+Схема роз'ємів _Pixhawk 4 Mini_ для підключення **живлення** показана нижче. Сигнал `CURRENT` повинен переносити аналогове напругу від 0 до 3,3 В для значення від 0 до 120 А за замовчуванням. Сигнал `VOLTAGE` повинен переносити аналогове напругу від 0-3.3V для 0-60V за замовчуванням. Лінії VCC повинні пропонувати принаймні 3A безперервного струму і за замовчуванням повинні мати напругу 5,1 В. Нижчий напруга 5V все ще прийнятний, але не рекомендується.
 
-| Pin      | Signal  | Volt  |
-| -------- | ------- | ----- |
-| 1(red)   | VCC     | +5V   |
-| 2(black) | VCC     | +5V   |
-| 3(black) | CURRENT | +3.3V |
-| 4(black) | VOLTAGE | +3.3V |
-| 5(black) | GND     | GND   |
-| 6(black) | GND     | GND   |
+| Pin      | Сигнал  | Вольтаж |
+| -------- | ------- | ------- |
+| 1(red)   | VCC     | +5V     |
+| 2(black) | VCC     | +5V     |
+| 3(black) | CURRENT | +3.3V   |
+| 4(black) | VOLTAGE | +3.3V   |
+| 5(black) | GND     | GND     |
+| 6(black) | GND     | GND     |
 
-::: info If using a plane or rover, the 8 pin power (+) rail of **MAIN OUT** will need to be separately powered in order to drive servos for rudders, elevons, etc. To do this, the power rail needs to be connected to a BEC equipped ESC, a standalone 5V BEC, or a 2S LiPo battery. Be careful with the voltage of servo you are going to use here.
+::: інформація Якщо використовується літак або ровер, рейка живлення (+) з 8 контактами **MAIN OUT** повинна бути окремо живлена для керування сервоприводами для рульових пристроїв, елеронами тощо. Щоб це зробити, живильну рейку потрібно підключити до ESC з BEC, автономного BEC на 5V або 2S LiPo акумулятора. Будьте обережні з напругою сервопривода, який ви збираєтеся використовувати тут.
 :::
 
 <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 
-::: info Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) but you won't need to calibrate the _voltage divider_. You will have to update the _voltage divider_ if you are using any other power module (e.g. the one from the Pixracer).
+::: info При використанні модуля живлення, який постачається з комплектом, вам потрібно налаштувати _Кількість елементів_ у [Налаштуваннях живлення](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html), але вам не потрібно калібрувати _подільник напруги_. Вам доведеться оновити _дільник напруги_, якщо ви використовуєте будь-який інший модуль живлення (наприклад, той, що від Pixracer).
 :::
 
 ## Radio Control
 
-A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+Для того щоб керувати транспортним засобом _вручну_, потрібна система радіоуправління (RC) (PX4 не потребує системи радіоуправління для автономних режимів польоту).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Вам потрібно [вибрати сумісний передавач/приймач](../getting_started/rc_transmitter_receiver.md) і _зв'язати_ їх таким чином, щоб вони взаємодіяли (ознайомтеся з інструкціями, що додаються до вашого конкретного передавача/приймача).
 
-The instructions below show how to connect the different types of receivers to _Pixhawk 4 Mini_:
+Нижче наведено інструкції з підключення різних типів приймачів до _Pixhawk 4 Mini_:
 
-- Spektrum/DSM or S.BUS receivers connect to the **DSM/SBUS RC** input.
+- Приймачі Spektrum/DSM або S.BUS підключаються до входу **DSM/SBUS RC**.
 
-  ![Pixhawk 4 Mini - Radio port for Spektrum receivers](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_dsmsbus.png)
+  ![Pixhawk 4 Mini - Радіопорт для приймачів Spektrum](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_dsmsbus.png)
 
-- PPM receivers connect to the **PPM RC** input port.
+- PPM приймачі підключаються до порту входу **PPM RC**.
 
-  ![Pixhawk 4 Mini - Radio port for PPM receivers](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_ppm.png)
+  ![Pixhawk 4 Mini - Радіопорт для PPM-приймачів](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_ppm.png)
 
-- PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **PPM RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- Приймачі PPM та PWM, які мають _окремий провід для кожного каналу_, повинні підключатися до порту **PPM RC** _через PPM кодер_ [як цей](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (приймачі PPM-Sum використовують один сигнальний провід для всіх каналів).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+Для отримання додаткової інформації про вибір системи радіо, сумісність приймачів та зв'язування вашої пари передавача/приймача дивіться: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
-## Telemetry Radio (Optional)
+## Телеметрійне радіо (Опціонально)
 
-Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+Телеметрійні радіомодулі можуть використовуватися для зв'язку та управління транспортним засобом в польоті з наземної станції (наприклад, ви можете направляти БПЛА в певне положення або завантажувати нове завдання).
 
-The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
+Радіостанцію, розташовану на транспортному засобі, слід підключити до порту **TELEM1** так, як показано нижче (якщо підключено до цього порту, додаткова конфігурація не потрібна). Інша радіостанція підключається до вашого комп'ютера або мобільного пристрою наземної станції (зазвичай за допомогою USB).
 
-![Pixhawk 4 Mini Telemetry](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_telemetry.png)
+![Телеметрія Pixhawk 4 Mini](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_telemetry.png)
 
-## microSD Card (Optional)
+## microSD-карта (Опціонально)
 
-SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the card (included in the kit) into _Pixhawk 4 Mini_ as shown below.
+Картки SD настійно рекомендується, оскільки вони потрібні для [запису та аналізу даних польоту](../getting_started/flight_reporting.md), для виконання місій та для використання апаратного засобу UAVCAN-bus. Вставте картку (включену в комплект) в _Pixhawk 4 Mini_, як показано нижче.
 
-![Pixhawk 4 Mini SD Card](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
+![Підключення Pixhawk 4 Mini SD Card](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
+Для отримання додаткової інформації див. [Основні концепції > SD-карти (знімна пам'ять)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
-## Motors
+## Двигуни
 
-Motors/servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). See [_Pixhawk 4 Mini_ > Supported Platforms](../flight_controller/pixhawk4_mini.md#supported-platforms) for more information.
+Мотори/сервоприводи підключені до портів **MAIN OUT** в порядку, вказаному для вашого апарату в [Довіднику планерів](../airframes/airframe_reference.md). Дивіться [_Pixhawk 4 Mini_ > Supported Platforms](../flight_controller/pixhawk4_mini.md#supported-platforms) для отримання додаткової інформації.
 
-::: info
-This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
+::: інформація
+Цей довідник містить зіставлення портів виводу до моторів/сервоприводів для всіх підтримуваних повітряних та наземних шасі (якщо ваше шасі не вказане в довіднику, то використовуйте "загальний" планер відповідного типу).
 :::
 
 :::warning
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
-Make sure to use the correct mapping for your vehicle.
+Відображення не є однорідним для всіх конструкцій (наприклад, ви не можете покладатися на те, що ручка газу буде на тому ж вихідному порту для всіх повітряних конструкцій).
+Переконайтеся, що ви використовуєте правильне відображення для вашого транспортного засобу.
 :::
 
-## Other Peripherals
+## Інші периферійні пристрої
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Підключення та конфігурація додаткових/менш поширених компонентів описано в темах для окремих [периферійних пристроїв](../peripherals/index.md).
 
-## Configuration
+## Конфігурація
 
-General configuration information is covered in: [Autopilot Configuration](../config/index.md).
+Загальна інформація про конфігурацію описана в: [Конфігурація автопілота](../config/index.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+Особливу конфігурацію QuadPlane описано тут: [Конфігурація QuadPlane VTOL](../config_vtol/vtol_quad_configuration.md)
 
 <!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
-## Further information
+## Подальша інформація
 
-- [_Pixhawk 4 Mini_](../flight_controller/pixhawk4_mini.md)
+- [_Підключення Pixhawk 4 Mini_](../flight_controller/pixhawk4_mini.md)
