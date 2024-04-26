@@ -139,13 +139,13 @@ Holybro виготовляє різноманітні аналогові [мод
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно створювати цю прошивку! Вона попередньо зібрана і автоматично встановлюється за допомогою _QGroundControl_ при підключенні відповідного обладнання.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v6c_default
@@ -153,39 +153,39 @@ make px4_fmu-v6c_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Відладочний порт
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
+[Системна консоль PX4](../debug/system_console.md) та [SWD interface](../debug/swd_debug.md) працюють на порту **FMU Debug**.
 
-The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
+Розпіновка та роз’єм відповідають інтерфейсу [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full), визначеному в [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (роз’єм JST SM10B).
 
-| Pin      | Сигнал           | Volt  |
-| -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
-| 8 (blk)  | PH11             | +3.3V |
-| 9 (blk)  | nRST             | +3.3V |
-| 10 (blk) | `GND`            | GND   |
+| Пін          | Сигнал           | Вольтаж |
+| ------------ | ---------------- | ------- |
+| 1 (червоний) | `Vtref`          | +3.3В   |
+| 2 (чорний)   | Консоль TX (OUT) | +3.3В   |
+| 3 (чорний)   | Консоль RX (IN)  | +3.3В   |
+| 4 (чорний)   | `SWDIO`          | +3.3В   |
+| 5 (чорний)   | `SWCLK`          | +3.3В   |
+| 6 (чорний)   | `SWO`            | +3.3В   |
+| 7 (чорний)   | NFC GPIO         | +3.3В   |
+| 8 (чорний)   | PH11             | +3.3В   |
+| 9 (чорний)   | nRST             | +3.3В   |
+| 10 (чорний)  | `GND`            | GND     |
 
-For information about using this port see:
+Інформацію про використання цього порту дивіться:
 
-- [SWD Debug Port](../debug/swd_debug.md)
-- [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
+- [Порт відладки SWD](../debug/swd_debug.md)
+- [Системна консоль PX4](../debug/system_console.md) (Зауважте, консоль FMU відображається на USART3).
 
 ## Периферія
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Цифровий датчик швидкості польоту](https://holybro.com/products/digital-air-speed-sensor)
+- [Радіо модулі телеметрії](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [Далекоміри / Датчики відстані](../sensor/rangefinders.md)
 
 ## Підтримувані платформи / Airframes
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus. Повний перелік підтримуваних конфігурацій можна переглянути в розділі [Довідник планерів](../airframes/airframe_reference.md).
 
 ## Подальша інформація
 
