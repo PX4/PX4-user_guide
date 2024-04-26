@@ -1,35 +1,35 @@
-# Holybro Kakute F7 (Discontinued)
+# Holybro Kakute F7 (Знято з виробництва)
 
 <Badge type="error" text="Discontinued" />
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 :::
 
-The _Kakute F7_ from Holybro is a flight controller board designed for racers.
+_Kakute F7_ від Holybro - це плата керування польотом, призначена для гонщиків.
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info Цей контролер польоту [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Key Features
+## Ключові особливості
 
-- Main System-on-Chip: [STM32F745VGT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f745vg.html)
-  - CPU: 216 MHz ARM Cortex M7 with single-precision FPU
+- Головний системний чіп: [STM32F745VGT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f745vg.html)
+  - ЦП: 216 МГц ARM Cortex M7 з одноточністю FPU
   - RAM: 320 KB SRAM
-  - FLASH: 1 MB
-- Standard racer form factor: 36x36 mm with standard 30.5 mm hole pattern
-- ICM20689 Accel / Gyro (Soft-mounted)
+  - FLASH: 1 МБ
+- Стандартна форма гонщика: 36x36 мм зі стандартним отвором 30,5 мм
+- ICM20689 Accel / Gyro (М'які кріплення)
 - BMP280 Baro
-- microSD (for logging)
+- microSD (логування)
 - 6 UARTs
-- 1 I2C bus
-- 6 PWM outputs
-- Built-in OSD chip (AB7456 via SPI)
+- 1 шина I2C
+- 6 PWM виводів
+- Вбудований чіп OSD (AB7456 через SPI)
 
-## Where to Buy
+## Де придбати
 
-The board can be bought from one of the following shops (for example):
+Дошку можна придбати в одному з наступних магазинів (наприклад):
 
 - [getfpv](https://www.getfpv.com/holybro-kakute-f7-tekko32-f3-metal-65a-4-in-1-esc-combo.html)
 
