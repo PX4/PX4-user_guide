@@ -4,15 +4,15 @@
 
 ### Підсумок
 
-Nano size (110mm diagonal) ready-to-fly quad copter for indoor flight/racing.
-NanoMind uses MindRacer as flight controller, which runs full PX4/MindPX flight stack.
+Готовий до польоту квадрокоптер готовий до польоту у приміщенні / на гонках з діагоналлю 110 мм.
+NanoMind використовує MindRacer як керування польотом, яке запускає повний стек польоту PX4/MindPX.
 
-### Highlights
+### Основні характеристики
 
-1. 36g empty weight, with maximum 80g take-off Weight, heavy lifter.
-2. 6~7 minutes flight time.
-3. built-in options for PPM/S.Bus/Specktrum DSM receiver.
-4. Soldering-free, fully stackable structure with SEP/WEP sockets for easy stacking and functional expansion.
+1. 36г порожньої ваги, з максимальною вагою взльоту 80г, важкій підйомник.
+2. 6~7 хвилин польоту.
+3. вбудовані параметри для PPM/S.Bus/Specktrum DSM приймача.
+4. Безпаяна, повністю стекована структура з роз'ємами SEP/WEP для легкого стекінгу та функціонального розширення.
 
 ### Посібник користувача
 
@@ -20,14 +20,14 @@ NanoMind uses MindRacer as flight controller, which runs full PX4/MindPX flight 
 Посібник користувача – [here](http://mindpx.net/assets/accessories/NanoMind_110_user_manual.pdf).
 :::
 
-### Flight video
+### Відео польоту
 
 @[youtube](https://youtu.be/bLtKa--Buic)
 
 ### Де купити
 
-NanoMind 110 is available at [AirMind<sup>&reg;</sup> Store](https://airmind.mindpx.net/node/92). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+NanoMind 110 доступний в [AirMind<sup>®</sup> Store](https://airmind.mindpx.net/node/92). Ви також можете знайти MindRacer в Amazon<sup>&reg;</sup> або eBay<sup>&reg;</sup>.
 
 ### Підтримка
 
-Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.
+Будь ласка, відвідайте http://www.mindpx.org для отримання додаткової інформації. Або ви можете надіслати email на [support@mindpx.net](mailto:support@mindpx.net) для будь-яких запитів або допомоги.
