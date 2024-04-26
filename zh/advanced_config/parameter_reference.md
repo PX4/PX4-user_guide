@@ -15873,6 +15873,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MAV_0_HL_FREQ">MAV_0_HL_FREQ</strong> (FLOAT)</td>
+ <td>Configures the frequency of HIGH_LATENCY2 stream for instance 0 <p><strong>Comment:</strong> Positive real value that configures the transmission frequency of the HIGH_LATENCY2 stream for instance 0, configured in iridium mode. This parameter has no effect if the instance mode is different from iridium.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0.0, 50.0] (0.001)</td>
+ <td>0.015</td>
+ <td>Hz</td>
+</tr>
+<tr>
  <td><strong id="MAV_0_MODE">MAV_0_MODE</strong> (INT32)</td>
  <td>MAVLink Mode for instance 0 <p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle&#x27;s attitude) and their sending rates.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Normal</li>
@@ -15926,7 +15934,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_BROADCAST">MAV_1_BROADCAST</strong> (INT32)</td>
- <td>Broadcast heartbeats on local network for MAVLink instance 1 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>参数对照:</strong><ul>
+ <td>Broadcast heartbeats on local network for MAVLink instance 1 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Never broadcast</li>
 <li><strong>1:</strong> Always broadcast</li>
 <li><strong>2:</strong> Only multicast</li>
@@ -15937,7 +15945,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_CONFIG">MAV_1_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15976,6 +15984,14 @@ table {
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_1_HL_FREQ">MAV_1_HL_FREQ</strong> (FLOAT)</td>
+ <td>Configures the frequency of HIGH_LATENCY2 stream for instance 1 <p><strong>Comment:</strong> Positive real value that configures the transmission frequency of the HIGH_LATENCY2 stream for instance 1, configured in iridium mode. This parameter has no effect if the instance mode is different from iridium.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0.0, 50.0] (0.001)</td>
+ <td>0.015</td>
+ <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="MAV_1_MODE">MAV_1_MODE</strong> (INT32)</td>
@@ -16081,6 +16097,14 @@ table {
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_2_HL_FREQ">MAV_2_HL_FREQ</strong> (FLOAT)</td>
+ <td>Configures the frequency of HIGH_LATENCY2 stream for instance 2 <p><strong>Comment:</strong> Positive real value that configures the transmission frequency of the HIGH_LATENCY2 stream for instance 2, configured in iridium mode. This parameter has no effect if the instance mode is different from iridium.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0.0, 50.0] (0.001)</td>
+ <td>0.015</td>
+ <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="MAV_2_MODE">MAV_2_MODE</strong> (INT32)</td>
@@ -22951,7 +22975,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MB12_10_ROT">SENS_MB12_10_ROT</strong> (INT32)</td>
- <td>MaxBotix MB12XX Sensor 10 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
+ <td>MaxBotix MB12XX Sensor 10 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
