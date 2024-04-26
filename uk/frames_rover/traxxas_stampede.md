@@ -1,23 +1,23 @@
 # Traxxas Stampede VXL
 
-This vehicle was chosen to understand how a Pixhawk could be used for wheeled platforms. We chose to use a Traxxas vehicle as they are very popular and it is a very strong brand in the RC community. The idea was to develop a platform that allows for easy control of wheeled UGVs with an autopilot.
+Це транспортний засіб було обрано для розуміння того, як Pixhawk може бути використаний для колісних платформ. Ми вибрали використовувати автомобіль Traxxas, оскільки вони дуже популярні і це дуже сильний бренд у спільноті RC. Ідея полягала в розробці платформи, яка дозволяє легко керувати колісними UGV з автопілотом.
 
 ![Traxxas Stampede VXL](../../assets/airframes/rover/traxxas_stampede_vxl/stampede.jpg)
 
-## Parts List
+## Список деталей
 
-* [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm) All of this is used except for the top plastic cover.
-* [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md)
+* [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm) Все це використовується за винятком верхньої пластикової кришки.
+* [Pixhawk Mini (Припинено)](../flight_controller/pixhawk_mini.md)
   * 3DR 10S Power Module
-  * 3DR 433MHz Telemetry Module (EU)
-* [Spektrum Dxe Controller](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) or other PX4-compatible remotes
-* [Spektrum Quad Race Serial Receiver w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
-* [PX4Flow](../sensor/px4flow.md) (Deprecated)
+  * Модуль телеметрії 3DR 433МГц (ЄС)
+* [Контролер Spektrum Dxe](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) або інші сумісні пультів керування з PX4
+* [Приймач серійного прийому Spektrum Quad Race з різноманіттям](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
+* [PX4Flow](../sensor/px4flow.md) (Застарілий)
 
 
-## Assembly
+## Збірка
 
-The assembly consists of a wooden frame on which all the autopilot parts were attached. Tests showed that a better vibration insulation should be used, especially for the Pixhawk and the Flow module.
+Збірка складається з дерев'яної рами, на яку були закріплені всі частини автопілота. Тести показали, що слід використовувати кращу віброізоляцію, особливо для Pixhawk та модуля Flow.
 
 ![Stampede Chassis](../../assets/airframes/rover/traxxas_stampede_vxl/stampede_chassis.jpg)
 
@@ -31,44 +31,44 @@ The assembly consists of a wooden frame on which all the autopilot parts were at
 
 ![Wodden panel fixture](../../assets/airframes/rover/traxxas_stampede_vxl/mounting_detail.jpg)
 
-For this particular mounting we chose to use the clip supplied with the rover to attach the upper plate. For this, two supports were 3D printed. The CAD files are provided [here](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
+Для цього конкретного кріплення ми вирішили використовувати прищіпку, яка постачається з ровером, щоб прикріпити верхню пластину. Для цього було надруковано дві опори з використанням 3D-друку. Файли CAD надані [тут](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
 
 :::warning
-It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampede Manual), which reduces power to 50%.
+Рекомендується **НАДЗВИЧАЙНО РЕКОМЕНДОВАНО** встановити ESC в режим навчання (див. посібник Traxxas Stampede), що знижує потужність до 50%.
 :::
 
-## Output Connections
+## Підключення виводу
 
-| PWM Output | Actuator             |
+| PWM Output | Актуатор             |
 | ---------- | -------------------- |
-| MAIN2      | Steering servo       |
-| MAIN4      | Throttle (ESC input) |
+| MAIN2      | Рульовий сервопривід |
+| MAIN4      | Дросель (вхід ESC)   |
 
-::: info As documented in the Airframe Reference: [Generic ground vehicle (Ackermann)](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle_(ackermann)).
+:::info Як документовано в Посиланні на конструкцію повітряного корпусу: [Загальний наземний транспортний засіб (Ackermann)](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle_(ackermann)).
 :::
 
 ## Конфігурація
 
-Rovers are configured using *QGroundControl* in the same way as any other vehicle.
+Ровери налаштовані за допомогою *QGroundControl* так само, як будь-який інший транспортний засіб.
 
-The main rover-specific configuration is setting the correct frame:
-1. Switch to the [Basic Configuration](../config/index.md) section in *QGroundControl*
-1. Select the [Airframe](../config/airframe.md) tab.
-1. Scroll down the list to find the **Rover** icon.
-1. Choose **Traxxas stampede vxl 2wd** from the drop down list.
+Основна конфігурація, специфічна для ровера, полягає в налаштуванні правильної рамки:
+1. Перейдіть до розділу [Основна конфігурація](../config/index.md) в *QGroundControl*
+1. Виберіть вкладку [Планер](../config/airframe.md).
+1. Прокрутіть список вниз, щоб знайти значок **Rover**.
+1. Виберіть **Traxxas stampede vxl 2wd** зі списку випадаючих пунктів.
 
 ![Select Airframe](../../assets/airframes/rover/traxxas_stampede_vxl/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
 
 
 ## Використання
 
-At the current time, PX4 only supports Mission and Manual modes when a RC remote is connected. To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm.
+На даний момент PX4 підтримує лише режими Місія та Ручний, коли підключений дистанційне керування RC. Для використання режиму місії спочатку завантажте нову місію на транспортний засіб за допомогою QGC. Потім, ПЕРЕД ОЗБРОЄННЯМ, виберіть `MISSION`, а потім озбройтеся.
 
 :::warning
-It is very important to do a mission composed *only** of normal waypoints (i.e. no takeoff waypoints etc.) and it is crucial to set the waypoint height of **every** waypoint to 0 for correct execution. Failing to do so will cause the rover to continuously spin around a waypoint.
+Дуже важливо виконати місію, складену *тільки** зі звичайних точок маршруту (тобто без точок зльоту тощо), і важливо встановити висоту точки маршруту **кожної** точки на 0 для правильного виконання. Не виконання цього призведе до того, що ровер буде безперервно обертатися навколо пункту маршруту.
 :::
 
-A correct mission setup looks as follows:
+Правильна налаштування місії виглядає наступним чином:
 
 ![mission](../../assets/airframes/rover/traxxas_stampede_vxl/correct_mission.jpg)
 
