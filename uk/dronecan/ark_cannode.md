@@ -14,22 +14,22 @@
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_CANNODE)
 - Датчики
-  - Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
+  - Bosch BMI088 6-Axis IMU або Invensense ICM-42688-P 6-Axis IMU
 - STM32F412CGU6 MCU
   - 1MB Flash
 - Два роз'єми стандарту CAN для Pixhawk
   - 4-контактний JST-GH
-- Pixhawk Standard I2C Connector
+- Роз'єм для налагодження стандарту Pixhawk I2C
   - 4-контактний JST-GH
 - Стандартний коннектор UART/I2C для Pixhawk (Основний порт GPS)
   - 6-контактний JST-GH
-- Pixhawk Standard SPI Connector
+- Роз'єм стандарту SPI для Pixhawk
   - 7-контактний JST-GH
 - Коннектор PWM
   - 10-контактний JST-SH
   - 8 PWM виводів
   - Відповідно до схеми підключення штирьових роз'ємів Pixhawk 4 PWM
-- Pixhawk Standard Debug Connector
+- Роз'єм для налагодження стандарту Pixhawk
   - 6-контактний JST-GH
 - Малий форм-фактор
   - 3см x 3см x 1.3см
