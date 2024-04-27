@@ -17,9 +17,9 @@ _Pixhawk 6X_<sup>&reg;</sup> є останнім оновленням успіш
 
 ## Введення
 
-Inside the Pixhawk®​ 6X, you can find an STMicroelectronics​® based STM32H753, paired with sensor technology from Bosch®​​, InvenSense®​,​ giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
+Всередині Pixhawk® 6X ви можете знайти STM32H753 на базі STMicroelectronics®, поєднаний з сенсорною технологією від Bosch®, InvenSense®, що надає вам гнучкість і надійність для керування будь-яким автономним апаратом, придатним як для академічних, так і для комерційних застосувань.
 
-The Pixhawk® 6X's H7 microcontroller contain the Arm® Cortex®-M7 core running up to 480 MHz, has 2MB flash memory and 1MB RAM. The PX4 Autopilot takes advantage of the increased power and RAM. Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+Мікроконтролер H7 Pixhawk® 6X містить ядро Arm® Cortex®-M7 до 480 MHz, має 2MB flash пам’яті та 1MB RAM. Автопілот PX4 використовує переваги збільшеної потужності та оперативної пам’яті. Завдяки оновленій потужності обробки розробники можуть бути більш продуктивними та ефективними у своїй роботі з розробкою, що дозволяє використовувати складні алгоритми та моделі.
 
 The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization. Triple redundant IMU & double redundant barometer on separate buses. When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
 
