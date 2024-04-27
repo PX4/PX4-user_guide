@@ -21,61 +21,61 @@ _Pixhawk 6X_<sup>&reg;</sup> є останнім оновленням успіш
 
 Мікроконтролер H7 Pixhawk® 6X містить ядро Arm® Cortex®-M7 до 480 MHz, має 2MB flash пам’яті та 1MB RAM. Автопілот PX4 використовує переваги збільшеної потужності та оперативної пам’яті. Завдяки оновленій потужності обробки розробники можуть бути більш продуктивними та ефективними у своїй роботі з розробкою, що дозволяє використовувати складні алгоритми та моделі.
 
-The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization. Triple redundant IMU & double redundant barometer on separate buses. When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
+Відкритий стандарт FMUv6X містить високопродуктивні IMU з низьким рівнем шуму, призначені для кращої стабілізації. IMU з потрійним резервуванням та барометр з подвійним резервуванням на окремих шинах. Коли автопілот PX4 виявляє відмову датчика, система безперервно перемикається на інший, щоб забезпечити надійність керування польотом.
 
-An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
+Незалежний LDO живить кожен набір сенсорів з незалежним керуванням живленням. Система ізоляції вібрації для фільтрації високочастотної вібрації та зменшення шуму для забезпечення точних вимірювань, що дозволяє апаратам досягти кращих загальних польотних характеристик.
 
-External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface, and with an integrated Microchip Ethernet PHY, high-speed communication with mission computers via ethernet is now possible.
+Зовнішня шина датчиків (SPI5) має дві лінії вибору чипів та сигнали готовності даних для додаткових датчиків та корисного навантаження з інтерфейсом SPI, а також з інтегрованим Microchip Ethernet PHY, високошвидкісний обмін даними з комп'ютерами місії через ethernet тепер можливий.
 
-The Pixhawk®​ 6X is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application.
+Pixhawk®​ 6X ідеально підходить для розробників у корпоративних дослідницьких лабораторіях, стартапах, академічних потреб (досліджень, професорів, студентів) та комерційного застосування.
 
-## Key Design Points
+## Ключові пункти дизайну
 
-- High performance STM32H753 Processor
-- Modular flight controller: separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk®​ Autopilot Bus connector.
-- Redundancy: 3x IMU sensors & 2x Barometer sensors on separate buses
-- Triple redundancy domains: Completely isolated sensor domains with separate buses and separate power control
-- Newly designed vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
-- Ethernet interface for high-speed mission computer integration
-- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
+- Високопродуктивний процесор STM32H753
+- Модульний політний контролер: розділені IMU, FMU та базова система, з'єднані за допомогою конекторів Pixhawk® Autopilot Bus на 100 пінів та 50 пінів.
+- Резервність: 3x датчики IMU та 2x датчики барометра на окремих шинах
+- Потрійне резервування доменів: повністю ізольовані сенсорні домени з окремими шинами та окремим керуванням живленням
+- Нова система ізоляції вібрацій для фільтрації високочастотних вібрацій та зменшення шуму для забезпечення точних вимірювань
+- Інтерфейс Ethernet для високошвидкісної інтеграції комп'ютера місії
+- IMU контролюються за допомогою нагрівальних резисторів на борту, що дозволяє досягти оптимальної робочої температури IMU&#x20;
 
-### Processors & Sensors
+### Процесори та датчики
 
-- FMU Processor: STM32H753
+- Процесор FMU: STM32H753
   - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM
-- IO Processor: STM32F100
+- IO процесор: STM32F100
   - 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-- On-board sensors
-  - Accel/Gyro: ICM-20649 or BMI088
+- Бортові сенсори
+  - Accel/Gyro: ICM-20649 або BMI088
   - Accel/Gyro: ICM-42688-P
   - Accel/Gyro: ICM-42670-P
   - Mag: BMM150
   - Barometer: 2x BMP388
 
-### Electrical data
+### Електричні дані
 
-- Voltage Ratings:
-  - Max input voltage: 6V
-  - USB Power Input: 4.75\~5.25V
-  - Servo Rail Input: 0\~36V
-- Current Ratings:
-  - `TELEM1` output current limiter: 1.5A
-  - All other port combined output current limiter: 1.5A
+- Номінальна напруга:
+  - Максимальна вхідна напруга: 6V
+  - Вхід USB Power: 4.75\~5.25V
+  - Вхід Servo Rail: 0\~36V
+- Номінальний струм:
+  - `TELEM1` обмежувач вихідного струму: 1.5A
+  - Комбінований обмежувач вихідного струму всіх інших портів: 1.5A
 
-### Mechanical data
+### Механічні дані
 
-- Dimensions
-  - Flight Controller Module: 38.8 x 31.8 x 14.6mm
-  - Standard Baseboard: 52.4 x 103.4 x 16.7mm
-  - Mini Baseboard: 43.4 x 72.8 x 14.2 mm
-- Weight
-  - Flight Controller Module: 23g
-  - Standard Baseboard: 51g
-  - Mini Baseboard: 26.5g
+- Розміри
+  - Модуль політного контролера: 38.8 x 31.8 x 14.6mm
+  - Стандартна базова плата: 52.4 x 103.4 x 16.7mm
+  - Міні базова плата: 43.4 x 72.8 x 14.2 mm
+- Вага
+  - Модуль політного контролера: 23g
+  - Стандартна базова плата: 51g
+  - Міні базова плата: 26.5g
 
-### Interfaces
+### Інтерфейси
 
-- 16- PWM servo outputs
+- 16- PWM серво виводів
 - R/C input for Spektrum / DSM
 - Dedicated R/C input for PPM and S.Bus input
 - Dedicated analog / PWM RSSI input and S.Bus output
