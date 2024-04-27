@@ -171,6 +171,6 @@ Optionally, you may add a logo of your choice printed on paper and cut to size. 
 
 ## Дивись також
 
-- [STLINK-V3MINIE debugger/programmer tiny probe for STM32 microcontrollers](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) (User Manual)
+- [Міні-зонд для відлагодження/програмування STLINK-V3MINIE для мікроконтролерів STM32](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) (Посібник користувача)
 
 [emdbg]: https://pypi.org/project/emdbg/
