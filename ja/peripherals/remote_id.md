@@ -5,9 +5,9 @@ Experimental
 Remote ID support is experimental.
 :::
 
-Remote ID is a government mandated technology for UAVs in Japan, the United States of America and the European Union, designed to enable safe sharing of airspace between UAVs and other aircraft. The specification requires that UAVs broadcast data such as: real-time location/altitude, serial number, operator ID/location, status, etc.
+リモートIDは、UAVと他の航空機との安全な空域共有を実現するために、日本、アメリカ合衆国、およびヨーロッパ連合で政府によって義務付けられた技術である。 この仕様により、UAVはリアルタイムの位置情報/高度、シリアル番号、オペレーターID/位置、ステータスなどのデータを無線で送信することが求められている。
 
-PX4 works with Remote ID modules that target the FAA [standard Remote ID rules](https://www.faa.gov/uas/getting_started/remote_id). These are designed to be integrated into the vehicle, and broadcast Open Drone ID messages using id, position, and other information that is supplied by an autopilot. The "standard rules" modules enable less restrictive operation than "broadcast rules" modules, which are standalone modules with an integrated GPS that do not have any communication with the autopilot.
+PX4は、FAAの[standard Remote ID rules](https://www.faa.gov/uas/getting_started/remote_id)を対象としたリモートIDモジュールと連携します。 これらは車両に統合されるように設計されており、自動操縦装置から提供されるID、位置情報、およびその他の情報を使用してOpen Drone IDメッセージを無線送信します。 The "standard rules" modules enable less restrictive operation than "broadcast rules" modules, which are standalone modules with an integrated GPS that do not have any communication with the autopilot.
 
 ## Supported Hardware
 
