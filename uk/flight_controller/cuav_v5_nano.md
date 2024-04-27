@@ -142,52 +142,52 @@ _V5 nano_ повинен живитися від роз'єму `Power` під ч
 ::: info Роз'єм `PM2` не може не використовуватися для живлення _V5 nano_ (див. [цей матеріал](#compatibility_pm2)).
 :::
 
-::: info Серворейка не живиться від FMU і не забезпечує його живленням. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
+::: info Серворейка не живиться від FMU і не забезпечує його живленням. Однак, контакти, позначені **+**, є загальними, і до будь-якого з наборів контактів серводвигуна може бути підключений BEC для живлення рейки живлення серводвигуна.
 :::
 
-## Over Current Protection
+## Захист від перенапруги
 
-The _V5 nano_ has no over current protection.
+_V5 nano_ не має захисту від перевищення струму.
 
 <a id="Optional-hardware"></a>
 
 ## Периферійні пристрої
 
-- [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
-- [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Цифровий датчик швидкості польоту](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
+- [Телеметричні радіо модулі](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
+- [Далекоміри / Датчики відстані](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / планери
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus. Повний набір підтримуваних конфігурацій можна переглянути в розділі [Довідник про планери](../airframes/airframe_reference.md).
 
-## Compatibility
+## Сумісність
 
-CUAV adopts some differentiated designs and is incompatible with some hardware, which will be described below.
+CUAV використовує деякі відмінні дизайни і несумісний з деяким обладнанням, про що буде описано нижче.
 
 <a id="compatibility_gps"></a>
 
-#### Neo v2.0 GPS not compatible with other devices
+#### Neo v2.0 GPS несумісний з іншими пристроями
 
-The _Neo v2.0 GPS_ that is recommended for use with _CUAV V5+_ and _CUAV V5 nano_ is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
+Рекомендований для використання з _CUAV V5+_ та _CUAV V5 nano_ _Neo v2.0 GPS_ не є повністю сумісним з іншими контролерами польоту Pixhawk (зокрема, частина дзвіночка несумісна і можуть виникнути проблеми з безпечним перемикачем).
 
-The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html) can also be used, and is compatible with other flight controllers.
+Пристрій прийому GNSS UAVCAN [NEO V2 PRO](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html) також може бути використаний і сумісний з іншими контролерами польоту.
 
 <a id="compatibility_jtag"></a>
 
-#### Using JTAG for hardware debugging
+#### Використання JTAG для апаратного налагодження
 
-`DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
+`DSU7` Штифт налагодження FMU 1 має напругу 5 вольтів - не 3,3 вольта від ЦП.
 
-Some JTAG probes use this voltage to set the IO levels when communicating to the target.
+Деякі JTAG-зонди використовують це напругу для встановлення рівнів введення-виведення при спілкуванні з цільовим об'єктом.
 
-For direct connection to _Segger Jlink_ we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
+Для прямого підключення до _Segger Jlink_ ми рекомендуємо використовувати 3,3 вольти з DSM/SBUS/RSSI пін 4 як Пін 1 на роз'ємі для налагодження (`Vtref`).
 
 <a id="compatibility_pm2"></a>
 
-#### PM2 cannot power the flight controller
+#### PM2 не може живити модульний політний контролер
 
-`PM2` can only measure battery voltage and current, but **not** power the flight controller.
+`PM2` може вимірювати лише напругу батареї та струм, але **не** живить контролер польоту.
 
 :::warning
 PX4 не підтримує цей інтерфейс.
@@ -195,7 +195,7 @@ PX4 не підтримує цей інтерфейс.
 
 ## Відомі проблеми
 
-The issues below refer to the _batch number_ in which they first appear. The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller. For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
+Проблеми нижче посилаються на _номер партії_, в якій вони вперше з'являються. Номер партії - це чотирицифрова дата виробництва за V01 та відображається на наклейці з боку контролера польоту. Наприклад, серійний номер партії V011904 ((V01 - це номер V5, 1904 - це дата виробництва, тобто номер партії).
 
 <a id="pin1_unfused"></a>
 
@@ -205,14 +205,14 @@ The issues below refer to the _batch number_ in which they first appear. The bat
 Це питання безпеки.
 :::
 
-Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this can lead to equipment damage!
+Будь ласка, не підключайте інше обладнання (крім RC приймача) до інтерфейсу SBUS / DSM / RSSI - це може призвести до пошкодження обладнання!
 
-- _Found:_ Batches V01190904xxxx
-- _Fixed:_ Batches later than V01190904xxxx
+- _Знайдено:_ Партії V01190904xxxx
+- _Виправлено:_ Партії пізніше, ніж V01190904xxxx
 
 ## Додаткова інформація
 
-- [V5 nano manual](http://manual.cuav.net/V5-nano.pdf) (CUAV)
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
+- [Посібник з V5 nano](http://manual.cuav.net/V5-nano.pdf) (CUAV)
+- [Схема роз'ємів для посилання на FMUv5](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
 - [CUAV Github](https://github.com/cuav) (CUAV)
-- [Airframe build-log using CUAV v5 nano on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5nano.md)
+- [Журнал збірки конструкції повітряного каркасу за допомогою CUAV v5 nano на рамі DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5nano.md)
