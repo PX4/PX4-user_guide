@@ -77,21 +77,21 @@ The ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Datasheet](https://
 
 ![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dimensions.jpg)
 
-[3D STEP File](https://storage.googleapis.com/modalai_public/modal_drawings/M0019_VOXL-Flight.zip)
+[Файл 3D STEP](https://storage.googleapis.com/modalai_public/modal_drawings/M0019_VOXL-Flight.zip)
 
-## PX4 Firmware Compatibility
+## Сумісність прошивки PX4
 
-_VOXL Flight_ is fully compatible with the official PX4 Firmware from PX4 v1.11.
+_Політ VOXL_ повністю сумісний з офіційною прошивкою PX4 від PX4 v1.11.
 
-ModalAI maintains a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/modalai-1.11) for PX4 v1.11. This includes UART ESC support and improvements in VIO and VOA that are planned to be upstreamed.
+ModalAI підтримує [гілка версії PX4](https://github.com/modalai/px4-firmware/tree/modalai-1.11) для PX4 v1.11. Це включає підтримку UART ESC та поліпшення в VIO та VOA, які планується включити в основний код.
 
-More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
+Додаткову інформацію про прошивку можна знайти [тут](https://docs.modalai.com/flight-core-firmware/).
 
-## QGroundControl Support
+## Підтримка QGroundControl
 
-This board supported in QGroundControl 4.0 and later.
+Ця плата підтримується в QGroundControl 4.0 та пізніше.
 
-## Availability
+## Доступність
 
 - [VOXL Flight Complete Kit](https://modalai.com/voxl-flight)
 - [VOXL Flight Board](https://www.modalai.com/products/voxl-flight?variant=31707275362355) (only)
@@ -165,7 +165,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make modalai_fc-v1
 ```
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
 _Note: mappings shown are for the PX4 controlled interfaces only_
 
@@ -182,9 +182,9 @@ _Note: mappings shown are for the PX4 controlled interfaces only_
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-## Support
+## Підтримка
 
-Please visit the [ModalAI Forum](https://forum.modalai.com/category/8/voxl-flight) for more information.
+Будь ласка, відвідайте [Форум ModalAI](https://forum.modalai.com/category/8/voxl-flight) для отримання додаткової інформації.
 
 [stm32f765ii]: https://www.st.com/en/microcontrollers-microprocessors/stm32f765ii.html
 [px4]: https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1
