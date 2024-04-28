@@ -1,10 +1,10 @@
-# Driver Development
+# Розробка драйверів
 
-PX4 device drivers are based on the [Device](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/drivers/device) framework.
+Драйвери пристроїв PX4 базуються на [Device](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/drivers/device) фреймворку.
 
-## Creating a Driver
+## Створення драйвера
 
-PX4 almost exclusively consumes data from [uORB](../middleware/uorb.md). Drivers for common peripheral types must publish the correct uORB messages (for example: gyro, accelerometer, pressure sensors, etc.).
+PX4 майже виключно використовує дані з [uORB](../middleware/uorb.md). Drivers for common peripheral types must publish the correct uORB messages (for example: gyro, accelerometer, pressure sensors, etc.).
 
 The best approach for creating a new driver is to start with a similar driver as a template (see [src/drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers)).
 
@@ -14,20 +14,20 @@ The best approach for creating a new driver is to start with a similar driver as
 ::: info Publishing the correct uORB topics is the only pattern that drivers *must* follow.
 :::
 
-## Core Architecture
+## Архітектура ядра
 
 PX4 is a [reactive system](../concept/architecture.md) and uses [uORB](../middleware/uorb.md) publish/subscribe to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used:
 
 * The publish / subscribe system which has a file, network or shared memory backend depending on the system PX4 runs on.
 * The global device registry, which can be used to enumerate devices and get/set their configuration. This can be as simple as a linked list or map to the file system.
 
-## Device IDs
+## Ідентифікатори пристрою(ID)
 
 PX4 uses device IDs to identify individual sensors consistently across the system. These IDs are stored in the configuration parameters and used to match sensor calibration values, as well as to determine which sensor is logged to which logfile entry.
 
 The order of sensors (e.g. if there is a `/dev/mag0` and an alternate `/dev/mag1`) does not determine priority - the priority is instead stored as part of the published uORB topic.
 
-### Decoding example
+### Приклад декодування
 
 For the example of three magnetometers on a system, use the flight log (.px4log) to dump the parameters. The three parameters encode the sensor IDs and `MAG_PRIME` identifies which magnetometer is selected as the primary sensor. Each MAGx_ID is a 24bit number and should be padded left with zeros for manual decoding.
 
@@ -81,7 +81,7 @@ struct DeviceStructure {
   uint8_t devtype;   // device class specific device type
 };
 ```
-The `bus_type` is decoded according to:
+`bus_type` декодується відповідно до:
 
 ```C
 enum DeviceBusType {
