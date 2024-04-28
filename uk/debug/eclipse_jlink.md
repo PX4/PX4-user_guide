@@ -14,7 +14,7 @@
 
 Налаштуйте PX4, дотримуючись звичайних вказівок:
 
-- [Setup the PX4 Developer Environment/Toolchain](../dev_setup/dev_env.md) for your platform (e.g. for Linux see: [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
+- [Налаштуйте середовище розробника/інструментальний набір PX4](../dev_setup/dev_env.md) для вашої платформи (наприклад, для Linux дивиться: [Середовище розробки на Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
 - [Завантажте PX4](../dev_setup/building_px4.md) та за потреби перезберіть його в командному рядку.
 
 ### Eclipse
@@ -25,7 +25,7 @@
 1. Розпакуйте папку Eclipse та скопіюйте її куди завгодно (немає потреби запускати будь-які сценарії установки).
 1. Запустіть _Eclipse_ та виберіть місце для вашої початкової робочої області.
 
-### Segger Jlink Tools
+### Інструменти Segger Jlink
 
 Для встановлення інструментів _Segger Jlink_:
 
@@ -39,7 +39,7 @@
 1. Підключіть _Segger JLink_ до комп'ютера-хоста та [порту відлагодження контролера польоту](../debug/swd_debug.md) (через адаптер).
 1. Увімкніть модульний політний контролер.
 1. Запустіть _Eclipse_.
-1. Add a source by choosing **File > Import > C/C++ > Existing Code as Makefile Project** and click **Next**.
+1. Додайте джерело вибравши **File > Import > C/C++ > Існуючий код як проект** та натисніть **Next**.
 1. Вказати шлях до папки **PX4-Autopilot** та дати йому ім'я, потім виберіть _ARM Cross GCC_ у _Toolchain for Indexer Settings_ та натисніть на **Finish**. Імпорт триває деякий час. Дочекайтеся його завершення.
 1. Встановіть налаштування MCU: клацніть правою кнопкою миші на проект верхнього рівня в досліднику проектів, виберіть _Properties_, а потім під MCU виберіть _SEGGER J-Link Path_. Встановіть його, як показано на знімку екрану нижче. ![Eclipse: Segger J-Link Path](../../assets/debug/eclipse_segger_jlink_path.png)
 1. Пакети з оновленнями:
@@ -58,7 +58,7 @@
 
 1. Налаштування конфігурації налагодження для цілі:
 
-   - Right click project and open the _Settings_ (menu: **C/C++ Build > Settings**)
+   - Натисніть правою кнопкою миші на проекті _Settings_ (menu: **C/C++ Build > Settings**)
    - Виберіть вкладку _Devices_, розділ _Devices_ (Не _Boards_).
    - Знайдіть FMU чіп, який ви хочете налагодити.
 
@@ -69,7 +69,7 @@
 1. Налаштування конфігурації збірки:
 
    - Дайте йому назву та встановіть _C/C++ Application_ до відповідного **.elf** файлу.
-   - Choose _Disable Auto build_
+   - Виберіть _Disable Auto build_
 
      ::: інформація
 Пам'ятайте, що ви повинні побудувати ціль з командного рядка перед початком сеансу налагодження.
@@ -83,7 +83,7 @@
 
 ## Відлагодження з урахуванням завдань SEGGER
 
-Task-aware debugging (also known as [thread-aware debugging](https://www.segger.com/products/debug-probes/j-link/tools/j-link-gdb-server/thread-aware-debugging/)) allows you to show the context of all running threads/tasks instead of just the stack current task. Це досить корисно, оскільки PX4 має тенденцію запускати виконання багато різних завдань.
+Відладка, яка враховує задачі (також відома як [відлагодження, яке враховує потоки](https://www.segger.com/products/debug-probes/j-link/tools/j-link-gdb-server/thread-aware-debugging/)), дозволяє вам показати контекст усіх запущених потоків/задач замість лише стеку поточної задачі. Це досить корисно, оскільки PX4 має тенденцію запускати виконання багато різних завдань.
 
 Для активації цієї функції в Eclipse:
 
