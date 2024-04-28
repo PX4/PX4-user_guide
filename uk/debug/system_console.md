@@ -66,7 +66,7 @@ screen /dev/ttyXXX BAUDRATE 8N1
 
 ### Windows: PuTTY
 
-Download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and start it.
+Завантажте [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) та запустіть його.
 
 Then select 'serial connection' and set the port parameters to:
 
