@@ -73,169 +73,169 @@ Cube має віброізоляцію на двох IMU, з третім фік
   - **Carrier:** 94,5 мм x 44,3 мм x 17,3 мм
 - **Інтерфейси**
   - Порти вводу-виводу: 14 ШІМ-виходів сервоприводів (8 від IO, 6 від FMU)
-  - 5x UART (serial ports), one high-power capable, 2x with HW flow control
-  - 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
-  - **R/C inputs:**
-    - Spektrum DSM / DSM2 / DSM-X® Satellite compatible input
-    - Futaba S.BUS® compatible input and output
-    - PPM-SUM signal input
-  - RSSI (PWM or voltage) input
+  - 5x UART (послідовні порти), один високої потужності, 2x з контролем потоку ГВП
+  - 2x CAN (один з внутрішнім 3.3В трансивером, один на конекторі розширювача)
+  - **Входи ПДУ (пульт дистанційного управління):**
+    - Spektrum DSM / DSM2 / DSM-X® Satellite сумісний вхід
+    - Futaba S.BUS® сумісний вхід і вивід
+    - Вхід сигналу PPM-SUM
+  - Вхід RSSI (ШІМ або напруга)
   - I2C
   - SPI
-  - 3.3v ADC input
-  - Internal microUSB port and external microUSB port extension
+  - 3.3В АЦП вхід
+  - Внутрішній порт microUSB і розширення зовнішнього порту microUSB
 
-## Ports
+## Порти
 
-### Top-Side (GPS, TELEM etc)
+### Верхня частина (GPS, TELEM тощо)
 
-![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
+![Cube Ports - Top (GPS, TELEM etc) і Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
-## Pinouts
+## Розводка
 
-#### TELEM1, TELEM2 ports
+#### TELEM1, TELEM2 порти
 
-| Pin     | Signal    | Volt  |
-| ------- | --------- | ----- |
-| 1 (red) | VCC       | +5V   |
-| 2 (blk) | TX (OUT)  | +3.3V |
-| 3 (blk) | RX (IN)   | +3.3V |
-| 4 (blk) | CTS (IN)  | +3.3V |
-| 5 (blk) | RTS (OUT) | +3.3V |
-| 6 (blk) | GND       | GND   |
+| Пін     | Сигнал    | Вольтаж |
+| ------- | --------- | ------- |
+| 1 (red) | VCC       | +5В     |
+| 2 (blk) | TX (OUT)  | +3.3В   |
+| 3 (blk) | RX (IN)   | +3.3В   |
+| 4 (blk) | CTS (IN)  | +3.3В   |
+| 5 (blk) | RTS (OUT) | +3.3В   |
+| 6 (blk) | GND       | GND     |
 
-#### GPS1 port
+#### GPS1 порт
 
-| Pin     | Signal        | Volt  |
-| ------- | ------------- | ----- |
-| 1 (red) | VCC           | +5V   |
-| 2 (blk) | TX (OUT)      | +3.3V |
-| 3 (blk) | RX (IN)       | +3.3V |
-| 4 (blk) | SCL I2C2      | +3.3V |
-| 5 (blk) | SDA I2C2      | +3.3V |
-| 6 (blk) | Safety Button | GND   |
-| 7 (blk) | Button LED    | GND   |
-| 8 (blk) | GND           | GND   |
+| Пін     | Сигнал        | Вольтаж |
+| ------- | ------------- | ------- |
+| 1 (red) | VCC           | +5В     |
+| 2 (blk) | TX (OUT)      | +3.3В   |
+| 3 (blk) | RX (IN)       | +3.3В   |
+| 4 (blk) | SCL I2C2      | +3.3В   |
+| 5 (blk) | SDA I2C2      | +3.3В   |
+| 6 (blk) | Safety Button | GND     |
+| 7 (blk) | Button LED    | GND     |
+| 8 (blk) | GND           | GND     |
 
 <!-- check is i2c2 -->
 
-#### GPS2 port
+#### GPS2 порт
 
-| Pin     | Signal   | Volt  |
-| ------- | -------- | ----- |
-| 1 (red) | VCC      | +5V   |
-| 2 (blk) | TX (OUT) | +3.3V |
-| 3 (blk) | RX (IN)  | +3.3V |
-| 4 (blk) | SCL I2C1 | +3.3V |
-| 5 (blk) | SDA I2C1 | +3.3V |
-| 6 (blk) | GND      | GND   |
+| Пін     | Сигнал   | Вольтаж |
+| ------- | -------- | ------- |
+| 1 (red) | VCC      | +5В     |
+| 2 (blk) | TX (OUT) | +3.3В   |
+| 3 (blk) | RX (IN)  | +3.3В   |
+| 4 (blk) | SCL I2C1 | +3.3В   |
+| 5 (blk) | SDA I2C1 | +3.3В   |
+| 6 (blk) | GND      | GND     |
 
 #### ADC
 
-| Pin     | Signal | Volt        |
-| ------- | ------ | ----------- |
-| 1 (red) | VCC    | +5V         |
-| 2 (blk) | ADC IN | up to +6.6V |
-| 3 (blk) | GND    | GND         |
+| Пін     | Сигнал | Вольтаж  |
+| ------- | ------ | -------- |
+| 1 (red) | VCC    | +5В      |
+| 2 (blk) | ADC IN | до +6.6В |
+| 3 (blk) | GND    | GND      |
 
 #### I2C
 
-| Pin     | Signal | Volt           |
+| Пін     | Сигнал | Вольтаж        |
 | ------- | ------ | -------------- |
-| 1 (red) | VCC    | +5V            |
+| 1 (red) | VCC    | +5В            |
 | 2 (blk) | SCL    | +3.3 (pullups) |
 | 3 (blk) | SDA    | +3.3 (pullups) |
 | 4 (blk) | GND    | GND            |
 
 #### CAN1 & CAN2
 
-| Pin     | Signal | Volt |
-| ------- | ------ | ---- |
-| 1 (red) | VCC    | +5V  |
-| 2 (blk) | CAN_H  | +12V |
-| 3 (blk) | CAN_L  | +12V |
-| 4 (blk) | GND    | GND  |
+| Пін     | Сигнал | Вольтаж |
+| ------- | ------ | ------- |
+| 1 (red) | VCC    | +5В     |
+| 2 (blk) | CAN_H  | +12В    |
+| 3 (blk) | CAN_L  | +12В    |
+| 4 (blk) | GND    | GND     |
 
 #### POWER1 & POWER2
 
-| Pin     | Signal          | Volt  |
-| ------- | --------------- | ----- |
-| 1 (red) | VCC             | +5V   |
-| 2 (red) | VCC             | +5V   |
-| 3 (blk) | CURRENT sensing | +3.3V |
-| 4 (blk) | VOLTAGE sensing | +3.3V |
-| 5 (blk) | GND             | GND   |
-| 6 (blk) | GND             | GND   |
+| Пін     | Сигнал          | Вольтаж |
+| ------- | --------------- | ------- |
+| 1 (red) | VCC             | +5В     |
+| 2 (red) | VCC             | +5В     |
+| 3 (blk) | CURRENT sensing | +3.3В   |
+| 4 (blk) | VOLTAGE sensing | +3.3В   |
+| 5 (blk) | GND             | GND     |
+| 6 (blk) | GND             | GND     |
 
 #### USB
 
-| Pin     | Signal        | Volt            |
+| Пін     | Сигнал        | Вольтаж         |
 | ------- | ------------- | --------------- |
-| 1 (red) | VCC           | +5V             |
-| 2 (blk) | OTG_DP1       | +3.3V           |
-| 3 (blk) | OTG_DM1       | +3.3V           |
+| 1 (red) | VCC           | +5В             |
+| 2 (blk) | OTG_DP1       | +3.3В           |
+| 3 (blk) | OTG_DM1       | +3.3В           |
 | 4 (blk) | GND           | GND             |
-| 5 (blk) | BUZZER        | Battery voltage |
+| 5 (blk) | BUZZER        | Напруга батареї |
 | 6 (blk) | FMU Error LED |                 |
 
 #### SPKT
 
-| Pin     | Signal | Volt  |
-| ------- | ------ | ----- |
-| 1 (blk) | IN     |       |
-| 2 (blk) | GND    | GND   |
-| 3 (red) | OUT    | +3.3V |
+| Пін     | Сигнал | Вольтаж |
+| ------- | ------ | ------- |
+| 1 (blk) | IN     |         |
+| 2 (blk) | GND    | GND     |
+| 3 (red) | OUT    | +3.3В   |
 
 #### TELEM1, TELEM2
 
-| Pin     | Signal    | Volt        |
+| Пін     | Сигнал    | Вольтаж     |
 | ------- | --------- | ----------- |
-| 1 (red) | VCC       | +5V         |
-| 2 (blk) | TX (OUT)  | +3.3V to 5V |
-| 3 (blk) | RX (IN)   | +3.3V to 5V |
-| 4 (blk) | CTS (OUT) | +3.3V to 5V |
-| 5 (blk) | RTS (IN)  | +3.3V to 5V |
+| 1 (red) | VCC       | +5В         |
+| 2 (blk) | TX (OUT)  | +3.3В до 5В |
+| 3 (blk) | RX (IN)   | +3.3В до 5В |
+| 4 (blk) | CTS (OUT) | +3.3В до 5В |
+| 5 (blk) | RTS (IN)  | +3.3В до 5В |
 | 6 (blk) | GND       | GND         |
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| USART2 | /dev/ttyS0 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS1 | TELEM2 (flow control) |
-| UART4  | /dev/ttyS2 | GPS1                  |
-| USART6 | /dev/ttyS3 | PX4IO                 |
-| UART7  | /dev/ttyS4 | CONSOLE/ADSB-IN       |
-| UART8  | /dev/ttyS5 | GPS2                  |
+| UART   | Пристрій   | Порт                     |
+| ------ | ---------- | ------------------------ |
+| USART2 | /dev/ttyS0 | TELEM1 (контроль потоку) |
+| USART3 | /dev/ttyS1 | TELEM2 (контроль потоку) |
+| UART4  | /dev/ttyS2 | GPS1                     |
+| USART6 | /dev/ttyS3 | PX4IO                    |
+| UART7  | /dev/ttyS4 | CONSOLE/ADSB-IN          |
+| UART8  | /dev/ttyS5 | GPS2                     |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/cubepilot/cubeorange/default.px4board -->
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/cubepilot/cubeorange/nuttx-config/nsh/defconfig#L188-L197 -->
 
-### USB/SDCard Ports
+### Порти USB/SDCard
 
-![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
+![Cube USB/SDCard порти](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно створювати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target, open up the terminal and enter:
+Для [збірки PX4](../dev_setup/building_px4.md) для цієї цілі, відкрийте термінал та введіть:
 
 ```
 make cubepilot_cubeorange
 ```
 
-## Schematics
+## Схеми
 
-Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
+Схеми плат та іншу документацію можна знайти тут: [Проект Cube](https://github.com/proficnc/The-Cube).
 
-## Further Information/Documentation
+## Додаткова інформація/документація
 
-- [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
-- Cube Docs (Manufacturer):
-  - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
-  - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
+- [Швидке підключення Cube](../assembly/quick_start_cube.md)
+- Cube Docs (виробник):
+  - [Огляд модуля Cube](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
+  - [Посібник користувача Cube](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
   - [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)
