@@ -127,7 +127,7 @@ make px4_fmu-v5_default
 
 До комплекту поставки входить зручний відладочний кабель, який можна під'єднати до порту `DSU7`. Він розділяє кабель FTDI для підключення [PX4 System Console](../debug/system_console.md) до USB-порту комп'ютера і виводи SWD, які використовуються для налагодження SWD/JTAG. Відладочний кабель, що входить до комплекту, не підключається до контакту (1) порту SWD `Vref`.
 
-![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
+![Відладочний кабель CUAV](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
 
 :::warning
 Вивід Vref SWD (1) використовує 5В як Vref, але процесор працює при напрузі 3,3В!
@@ -179,43 +179,43 @@ CUAV використовує деякі відмінні дизайни і не
 
 #### GPS несумісний з іншими пристроями
 
-The _Neo v2.0 GPS_ recommended for use with _CUAV V5+_ and _CUAV V5 nano_ is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
+_Neo v2.0 GPS_, рекомендований для використання з _CUAV V5+_ і _CUAV V5 nano_, не повністю сумісний з іншими контролерами польоту Pixhawk (зокрема, не сумісна частина сигнального зумера і можуть виникнути проблеми з перемикачем безпеки).
 
-The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html) can also be used, and is compatible with other flight controllers.
+Пристрій прийому GNSS UAVCAN [NEO V2 PRO](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html) також може бути використаний і сумісний з іншими контролерами польоту.
 
 <a id="compatibility_jtag"></a>
 
-#### Using JTAG for hardware debugging
+#### Використання JTAG для апаратного налагодження
 
-`DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
+`DSU7` Штифт налагодження FMU 1 має напругу 5 вольтів - не 3,3 вольта від ЦП.
 
-Some JTAG use this voltage to set the IO levels when communicating to the target.
+Деякі JTAG використовують цю напругу для встановлення рівнів вводу-виводу під час обміну даними з ціллю.
 
-For direct connection to _Segger Jlink_ we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
+Для прямого підключення до _Segger Jlink_ ми рекомендуємо використовувати 3,3 вольти з DSM/SBUS/RSSI пін 4 як Пін 1 на роз'ємі для налагодження (`Vtref`).
 
-## Known Issues
+## Відомі проблеми
 
-The issues below refer to the _batch number_ in which they first appear. The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller. For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
+Проблеми нижче посилаються на _номер партії_, в якій вони вперше з'являються. Номер партії - це чотирицифрова дата виробництва за V01 та відображається на наклейці з боку контролера польоту. Наприклад, серійний номер партії V011904 ((V01 - це номер V5, 1904 - це дата виробництва, тобто номер партії).
 
 <a id="pin1_unfused"></a>
 
-#### SBUS / DSM / RSSI interface Pin1 unfused
+#### Інтерфейс SBUS / DSM / RSSI Pin1 не захищений від перевантаження
 
 :::warning
-This is a safety issue.
+Це питання безпеки.
 :::
 
-Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this may lead to equipment damage.
+Будь ласка, не підключайте інше обладнання (крім RC приймача) до інтерфейсу SBUS / DSM / RSSI - це може призвести до пошкодження обладнання.
 
-- _Found:_ Batches V01190904xxxx
-- _Fixed:_ Batches later than V01190904xxxx
+- _Знайдено:_ Партії V01190904xxxx
+- _Виправлено:_ Партії пізніше, ніж V01190904xxxx
 
-## Further Information
+## Додаткова інформація
 
-- [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf)
-- [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html)
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)
+- [Керівництво користувача CUAV V5+](http://manual.cuav.net/V5-Plus.pdf)
+- [Документація CUAV V5+](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html)
+- [Еталонна розводка FMUv5](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)
 - [CUAV Github](https://github.com/cuav)
-- [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE)
-- [CUAV V5+ Wiring Quickstart](../assembly/quick_start_cuav_v5_plus.md)
-- [Airframe build-log using CUAV v5+ on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)
+- [Посилання на дизайн базової плати](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE)
+- [Швидке підключення CUAV V5+](../assembly/quick_start_cuav_v5_plus.md)
+- [Журнал збірки конструкції повітряного каркасу за допомогою CUAV v5+ на рамі DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)
