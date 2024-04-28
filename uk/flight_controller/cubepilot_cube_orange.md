@@ -1,78 +1,78 @@
-# CubePilot Cube Orange Flight Controller
+# Контролер польоту CubePilot Cube Orange
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який) автопілот. Зверніться до [виробника](https://cubepilot.org/#/home) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 :::
 
-The [Cube Orange](https://www.cubepilot.com/#/cube/features) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
+Контролер польоту [Cube Orange](https://www.cubepilot.com/#/cube/features) - це універсальний автопілот, призначений в першу чергу для виробників комерційних систем.
 
 ![Cube Orange](../../assets/flight_controller/cube/orange/cube_orange_hero.jpg)
 
-The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly. For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, while a carrier board for a racer could includes ESCs for the frame of the vehicle.
+Контролер призначений для використання зі специфічною для домену несучою платою, щоб зменшити кількість дротів, підвищити надійність і спростити збірку. Наприклад, несуча плата для комерційного інспекційного апарату може містити з'єднання для комп'ютера-компаньйона, тоді як несуча плата для пілота може містити ESC для рами транспортного засобу.
 
-The ADS-B carrier board includes a customized 1090MHz ADSB-In receiver from uAvionix. This provides attitude and location of commercial manned aircraft within the range of Cube. This is automatically configured and enabled in the default PX4 firmware.
+Несуча плата ADS-B включає налаштований приймач ADSB-In на 1090 МГц від uAvionix. Це забезпечує позиціонування і розташування комерційних пілотованих літаків в межах досяжності Cube. Ця функція автоматично налаштована і ввімкнена у прошивці PX4 за замовчуванням.
 
-Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as a reference / backup.
+Cube має віброізоляцію на двох IMU, з третім фіксованим IMU в якості еталонного/резервного.
 
 :::tip
-The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
+Документація виробника [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) містить детальну інформацію, включаючи огляд [Різниця між Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
 :::
 
-## Key Features
+## Ключові особливості
 
-- 32bit STM32H753VI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 1MB).
-- 32 bit STM32F103 failsafe co-processor
-- 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
-- Abundant connectivity options for additional peripherals (UART, I2C, CAN)
-- Integrated backup system for in-flight recovery and manual override with dedicated processor and stand-alone power supply (fixed-wing use)
-- Backup system integrates mixing, providing consistent autopilot and manual override mixing modes (fixed-wing use)
-- Redundant power supply inputs and automatic failover
-- External safety switch
-- Multicolor LED main visual indicator
-- High-power, multi-tone piezo audio indicator
-- microSD card for high-rate logging over extended periods of time
+- 32-біт STM32H753VI (32-біт [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 МГц, флеш 2 МБ, оперативна пам'ять 1 МБ).
+- 32 bit STM32F103 відмовостійкий копроцесор
+- 14 ШІМ / серво виходів (8 з відмовостійкими і ручним керуванням, 6 допоміжних, сумісних з великими потужностями)
+- Широкі можливості підключення додаткових периферійних пристроїв (UART, I2C, CAN)
+- Інтегрована система резервного копіювання для відновлення в польоті та ручного керування з виділеним процесором та автономним джерелом живлення (для літаків з фіксованим крилом)
+- Резервна система інтегрує систему мікшування, забезпечуючи узгоджені режими автопілота та ручного заміщення ( для літаків з фіксованим крилом)
+- Резервні входи живлення та автоматичне перемикання на резервне джерело
+- Зовнішній запобіжний вимикач
+- Головний візуальний індикатор - багатоколірний світлодіод
+- Потужний багатотональний п'єзозвуковий індикатор
+- Карта microSD для високошвидкісної фіксації даних протягом тривалого періоду часу
 
 <a id="stores"></a>
 
-## Where to Buy
+## Де придбати
 
-- [Reseller list](https://www.cubepilot.com/#/reseller/list)
+- [Список реселерів](https://www.cubepilot.com/#/reseller/list)
 
-## Assembly
+## Збірка
 
-[Cube Wiring Quickstart](../assembly/quick_start_cube.md)
+[Швидке підключення Cube](../assembly/quick_start_cube.md)
 
-## Specifications
+## Специфікації
 
-- **Processor:**
-  - STM32H753VI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
-  - 400 MHz
-  - 1 MB RAM
-  - 2 MB Flash \(fully accessible\)
-- **Failsafe co-processor:** <!-- inconsistent info on failsafe processor: 32 bit STM32F103 failsafe co-processor http://www.proficnc.com/all-products/191-pixhawk2-suite.html -->
-  - STM32F103 (32bit _ARM Cortex-M3_)
-  - 24 MHz
+- **Процесор:**
+  - STM32H753VI (32біт [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
+  - 400 МГц
+  - 1 МБ RAM
+  - 2 МБ флеш-пам'яті \(повністю доступна\)
+- **Відмовостійкий співпроцесор:** <!-- inconsistent info on failsafe processor: 32 bit STM32F103 failsafe co-processor http://www.proficnc.com/all-products/191-pixhawk2-suite.html -->
+  - STM32F103 (32біт _ARM Cortex-M3_)
+  - 24 МГц
   - 8 KB SRAM
-- **Sensors:** (all connected via SPI)
-  - **Accelerometer:** (3) ICM20948, ICM20649, ICM20602
-  - **Gyroscope:** (3) ICM20948, ICM20649, ICM20602
-  - **Compass:** (1) ICM20948
-  - **Barometric Pressure Sensor:** (2) MS5611
-- **Operating Conditions:**
-  - **Operating Temp:** -10C to 55C
-  - **IP rating/Waterproofing:** Not waterproof
-  - **Servo rail input voltage:** 3.3V / 5V
-  - **USB port input:**
-    - Voltage: 4V - 5.7V
-    - Rated current: 250 mA
+- **Датчики:** (всі підключені через SPI)
+  - **Акселерометр:** (3) ICM20948, ICM20649, ICM20602
+  - **Гіроскоп:** (3) ICM20948, ICM20649, ICM20602
+  - **Компас:** (1) ICM20948
+  - **Барометричний датчик тиску:** (2) MS5611
+- **Умови експлуатації:**
+  - **Робоча температура:** від -10C до 55C
+  - **Степень захисту IP/Водонепроникність:** Не водонепроникний
+  - **Вхідна напруга серворейки:** 3,3В / 5В
+  - **Вхід USB-порту:**
+    - Напруга: 4В - 5.7В
+    - Номінальний струм: 250 мА
   - **POWER:**
-    - Input voltage: 4.1V - 5.7V
-    - Rated input current: 2.5A
-    - Rated input/output power: 14W
-- **Dimensions:**
-  - **Cube:** 38.25mm x 38.25mm x 22.3mm
-  - **Carrier:** 94.5mm x 44.3mm x 17.3mm
-- **Interfaces**
-  - IO Ports: 14 PWM servo outputs (8 from IO, 6 from FMU)
+    - Вхідна напруга: 4.1В - 5.7В
+    - Номінальний вхідний струм: 2,5 А
+    - Номінальна вхідна/вихідна потужність: 14 Вт
+- **Розміри:**
+  - **Cube:** 38.25 мм x 38.25 мм x 22.3 мм
+  - **Carrier:** 94,5 мм x 44,3 мм x 17,3 мм
+- **Інтерфейси**
+  - Порти вводу-виводу: 14 ШІМ-виходів сервоприводів (8 від IO, 6 від FMU)
   - 5x UART (serial ports), one high-power capable, 2x with HW flow control
   - 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
   - **R/C inputs:**
