@@ -12,7 +12,7 @@ This topic provides a brief overview of fundamental MAVLink concepts, such as me
 ::: info The topic does not cover _command_ handling and sending, or how to implement your own microservices.
 :::
 
-## MAVLink Overview
+## Огляд MAVLink
 
 MAVLink is a lightweight protocol that was designed for efficiently sending messages over unreliable low-bandwidth radio links.
 
@@ -44,7 +44,7 @@ The shared identity of the message is conveyed by the message id, along with a C
 The receiving end of the communication will discard any packet for which the message id and the `CRC_EXTRA` do not match.
 -->
 
-## PX4 and MAVLink
+## PX4 та MAVLink
 
 PX4 releases build `common.xml` MAVLink definitions by default, for the greatest compatibility with MAVLink ground stations, libraries, and external components such as MAVLink cameras. In the `main` branch, these are included from `development.xml` on SITL, and `common.xml` for other boards.
 
@@ -82,7 +82,7 @@ Once the message is being built you can stream, receive, or otherwise use it, as
 ::: info The [MAVLink Developer guide](https://mavlink.io/en/getting_started/) has more information about using the MAVLink toolchain.
 :::
 
-## Streaming MAVLink Messages
+## Потокові повідомлення MAVLink
 
 MAVLink messages are streamed using a streaming class, derived from `MavlinkStream`, that has been added to the PX4 stream list. The class has framework methods that you implement so PX4 can get information it needs from the generated MAVLink message definition. It also has a `send()` method that is called each time the message needs to be sent — you override this to copy information from a uORB subscription to the MAVLink message object that is to be sent.
 
@@ -222,7 +222,7 @@ Most streaming classes are very similar (see examples in [/src/modules/mavlink/s
   In this particular example we have an array of uORB instances `_battery_status_subs` (because we have multiple batteries). We iterate the array and use `update()` on each subscription to check if the associated battery instance has changed (and update a structure with the current data). This allows us to send the MAVLink message _only_ if the associated battery uORB topic has changed:
 
   ```cpp
-  // Струкніть, щоб зберігати дані поточної теми.
+  // Структура, щоб зберігати дані поточної теми.
   battery_status_s battery_status;
 
   // update() populates battery_status and returns true if the status has changed
@@ -453,6 +453,6 @@ By default this is pre-included as a submodule from [https://github.com/mavlink/
 
 QGC uses the all.xml dialect by default, which includes **common.xml**. You can include your messages in either file or in your own dialect. However if you use your own dialect then it should include ArduPilotMega.xml (or it will miss all the existing messages), and you will need to change the dialect used by setting it in [`MAVLINK_CONF`](https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52) when running _qmake_.
 
-### Updating MAVSDK
+### Оновлення MAVSDK
 
 See the MAVSDK docs for information about how to work with [MAVLink headers and dialects](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html#mavlink-headers-and-dialects).
