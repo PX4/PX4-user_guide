@@ -169,7 +169,7 @@ Optionally, you may add a logo of your choice printed on paper and cut to size. 
 
 ![](../../assets/debug/stlinkv3_minie_p15.jpeg)
 
-## Дивись також
+## Дивіться також
 
 - [Міні-зонд для відлагодження/програмування STLINK-V3MINIE для мікроконтролерів STM32](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) (Посібник користувача)
 
