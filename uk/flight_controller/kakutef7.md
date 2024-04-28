@@ -34,36 +34,36 @@ _Kakute F7_ від Holybro - це плата керування польотом
 - [getfpv](https://www.getfpv.com/holybro-kakute-f7-tekko32-f3-metal-65a-4-in-1-esc-combo.html)
 
 :::tip
-The _Kakute F7_ is designed to work with the _Tekko32_ 4-in-1 ESC and they can be bought in combination.
+_Kakute F7_ призначений для сумісної роботи з 4-в-1 ESC _Tekko32_ і може бути придбаний в комплекті.
 :::
 
-## Connectors and Pins
+## Конектори та контакти
 
-This is the silkscreen for the _Kakute F7_, showing the top of the board:
+Це сілкскрін для _Kakute F7_, що показує верхню частину плати:
 
 ![Kakute F7 Silkscreen](../../assets/flight_controller/kakutef7/silk.png)
 
-| Pin      | Function                                                             | PX4 default         |
-| -------- | -------------------------------------------------------------------- | ------------------- |
-| B+       | Battery positive voltage (2S-6S)                                     |                     |
-| 5V       | 5V output (2A max)                                                   |                     |
-| VO       | Video output to video transmitter                                    |                     |
-| VI       | Video input from FPV camera                                          |                     |
-| G or GND | Ground                                                               |                     |
-| SDA, SCL | I2C connection (for peripherals)                                     |                     |
-| R1, T1   | UART1 RX and TX                                                      | TELEM1              |
-| R2, T2   | UART2 RX and TX                                                      | TELEM2              |
-| R3, T3   | UART3 RX and TX                                                      | NuttX debug console |
-| R4, T4   | UART4 RX and TX                                                      | GPS1                |
-| R6, T6   | UART6 RX and TX                                                      | RC port             |
-| R7, T7   | UART7 RX and TX (RX is located in the plug for use with 4-in-1 ESCs) | DShot telemetry     |
-| LED      | WS2182 addressable LED signal wire (not tested)                      |                     |
-| Buz-     | Piezo buzzer negative leg (Connect buzzer positive leg to 5V pad)    |                     |
-| 3V3      | 3.3V output (200 mA max)                                             |                     |
-| M1 to M4 | Motor signal outputs (located in plug for use in 4-in-1 ESCs)        |                     |
-| M5, M6   | Additional motor signal outputs (located on side of board)           |                     |
-| RSI      | Analog RSSI (0-3.3V) input from receiver                             |                     |
-| Boot     | Bootloader button                                                    |                     |
+| Піни      | Функція                                                              | PX4 default                 |
+| --------- | -------------------------------------------------------------------- | --------------------------- |
+| B+        | Позитивна напруга батареї (2S-6S)                                    |                             |
+| 5В        | Вихід 5В (максимум 2A)                                               |                             |
+| VO        | Відеовихід на відеопередавач                                         |                             |
+| VI        | Відеовхід з камери FPV                                               |                             |
+| G або GND | Заземлення                                                           |                             |
+| SDA, SCL  | Підключення I2C (для периферійних пристроїв)                         |                             |
+| R1, T1    | UART1 RX та TX                                                       | TELEM1                      |
+| R2, T2    | UART2 RX та TX                                                       | TELEM2                      |
+| R3, T3    | UART2 RX та TX                                                       | Консоль відлагодження NuttX |
+| R4, T4    | UART4 RX та TX                                                       | GPS1                        |
+| R6, T6    | UART6 RX та TX                                                       | RC порт                     |
+| R7, T7    | UART7 RX and TX (RX is located in the plug for use with 4-in-1 ESCs) | DShot telemetry             |
+| LED       | WS2182 addressable LED signal wire (not tested)                      |                             |
+| Buz-      | Piezo buzzer negative leg (Connect buzzer positive leg to 5V pad)    |                             |
+| 3V3       | 3.3V output (200 mA max)                                             |                             |
+| M1 to M4  | Motor signal outputs (located in plug for use in 4-in-1 ESCs)        |                             |
+| M5, M6    | Additional motor signal outputs (located on side of board)           |                             |
+| RSI       | Analog RSSI (0-3.3V) input from receiver                             |                             |
+| Boot      | Bootloader button                                                    |                             |
 
 <a id="bootloader"></a>
 
