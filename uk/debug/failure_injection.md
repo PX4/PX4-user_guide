@@ -17,7 +17,7 @@ Failure injection still in development. At time of writing (PX4 v1.14):
 
 Failures can be injected using the [failure system command](../modules/modules_command.md#failure) from any PX4 console/shell, specifying both the target and type of the failure.
 
-### Syntax
+### Синтаксис
 
 The full syntax of the [failure](../modules/modules_command.md#failure) command is:
 
@@ -25,10 +25,10 @@ The full syntax of the [failure](../modules/modules_command.md#failure) command 
 failure <component> <failure_type> [-i <instance_number>]
 ```
 
-where:
+де:
 
 - _component_:
-  - Sensors:
+  - Сенсори:
     - `gyro`: Gyro.
     - `accel`: Accelerometer.
     - `mag`: Magnetometer
@@ -36,15 +36,15 @@ where:
     - `gps`: GPS
     - `optical_flow`: Optical flow.
     - `vio`: Visual inertial odometry.
-    - `distance_sensor`: Distance sensor (rangefinder).
-    - `airspeed`: Airspeed sensor.
-  - Systems:
-    - `battery`: Battery.
-    - `motor`: Motor.
-    - `servo`: Servo.
+    - `distance_sensor`: Датчик відстані (дальніомір).
+    - `airspeed`: Датчик швидкості повітря.
+  - Системи:
+    - `battery`: Акумулятор.
+    - `motor`: Двигун.
+    - `servo`: Сервопривід.
     - `avoidance`: Avoidance.
-    - `rc_signal`: RC Signal.
-    - `mavlink_signal`: MAVLink signal (data telemetry).
+    - `rc_signal`: RC Сигнал.
+    - `mavlink_signal`: Сигнал MAVLink (телеметрія даних).
 - _failure_type_:
   - `ok`: Publish as normal (Disable failure injection).
   - `off`: Stop publishing.
@@ -56,7 +56,7 @@ where:
   - `intermittent`: Publish intermittently.
 - _instance number_ (optional): Instance number of affected sensor. 0 (default) indicates all sensors of specified type.
 
-### Example
+### Приклад
 
 To simulate losing RC signal without having to turn off your RC controller:
 
