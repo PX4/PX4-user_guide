@@ -1,23 +1,23 @@
-# Acro Mode (Fixed-Wing)
+# Режим Acro (фіксоване крило)
 
 <img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;
 
-_Acro mode_ is the manual mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+_Acro режим_ - це ручний режим для виконання акробатичних маневрів, наприклад, перекидів, сальто, стійок та акробатичних фігур.
 
-The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+Ручки крена, тангажу та риштування керують швидкістю кутової обертання навколо відповідних вісей, а керування тяги безпосередньо передається до розподілу керування. Коли стіки будуть відцентровані, апарат перестане обертатися, але залишиться у своїй поточній орієнтації (на боці, перевернутий, тощо) і рухатиметься відповідно до свого поточного імпульсу.
 
 ![FW Manual Acrobatic Flight](../../assets/flight_modes/acrobatic_fw.png)
 
-## Technical Description
+## Технічний опис
 
-Manual mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+Ручний режим для виконання акробатичних маневрів, наприклад, перекидів, сальто, стійок і акробатичних фігур.
 
-Roll-pitch-yaw stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to control allocation.
+Вхідні сигнали стіків крену-тангажу перетворюються на команди кутової швидкості, які стабілізуються автопілотом. Передача дроселя здійснюється безпосередньо для керування розподілом.
 
-## Parameters
+## Параметри
 
-| Parameter                                                                                           | Description                                                                                                                                              |
-| --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="FW_ACRO_X_MAX"></a>[FW_ACRO_X_MAX](../advanced_config/parameter_reference.md#FW_ACRO_X_MAX) | Acro body x max rate (the body x rate the controller is trying to achieve if the user applies full roll stick input in acro mode). Default: 90 degrees.  |
-| <a id="FW_ACRO_Y_MAX"></a>[FW_ACRO_Y_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Y_MAX) | Acro body y max rate (the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode). Default: 90 degrees. |
-| <a id="FW_ACRO_Z_MAX"></a>[FW_ACRO_Z_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Z_MAX) | Acro body z max rate (the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode). Default: 45 degrees.   |
+| Параметр                                                                                            | Опис                                                                                                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="FW_ACRO_X_MAX"></a>[FW_ACRO_X_MAX](../advanced_config/parameter_reference.md#FW_ACRO_X_MAX) | Максимальна швидкість обертання корпусу x (швидкість обертання корпусу x, яку контролер намагається досягти, якщо користувач вводить ролл-стік в режимі acro). За замовчуванням: 90 градусів.                              |
+| <a id="FW_ACRO_Y_MAX"></a>[FW_ACRO_Y_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Y_MAX) | Максимальна швидкість тіла y в режимі acro (максимальна швидкість тіла y, якої намагається досягти контролер, якщо користувач вводить пітч-стик у режимі acro). За замовчуванням: 90 градусів.                             |
+| <a id="FW_ACRO_Z_MAX"></a>[FW_ACRO_Z_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Z_MAX) | Максимальна швидкість обертання корпусу z в режимі acro (максимальна швидкість обертання корпусу, якої намагається досягти контролер, якщо користувач вводить стик рискання в режимі acro). За замовчуванням: 45 градусів. |
