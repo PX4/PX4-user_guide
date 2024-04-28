@@ -46,22 +46,22 @@ failure <component> <failure_type> [-i <instance_number>]
     - `rc_signal`: RC Сигнал.
     - `mavlink_signal`: Сигнал MAVLink (телеметрія даних).
 - _failure_type_:
-  - `ok`: Publish as normal (Disable failure injection).
-  - `off`: Stop publishing.
-  - `stuck`: Report same value every time (_could_ indicate a malfunctioning sensor).
-  - `garbage`: Publish random noise. This looks like reading uninitialized memory.
-  - `wrong`: Publish invalid values (that still look reasonable/aren't "garbage").
-  - `slow`: Publish at a reduced rate.
-  - `delayed`: Publish valid data with a significant delay.
-  - `intermittent`: Publish intermittently.
-- _instance number_ (optional): Instance number of affected sensor. 0 (default) indicates all sensors of specified type.
+  - `ok`: Опублікувати як звичайно (Вимкнути впровадження випадкових помилок).
+  - `off`: Зупинити публікацію.
+  - `stuck`: Повідомляє одне й те ж значення кожного разу (_може_ вказувати на несправність датчика).
+  - `garbage`: Опублікуйте випадковий шум. Це схоже на читання неініціалізованої пам'яті.
+  - `wrong`: Публікує недійсні значення (які все ще виглядають розумними / не є "сміттям").
+  - `slow`: Публікація зі зниженою швидкістю.
+  - `delayed`: Опублікуйте дійсні дані зі значним запізненням.
+  - `intermittent`: Публікувати періодично.
+- _instance number_ (необов'язково): Номер екземпляра пошкодженого датчика. 0 (за замовчуванням) вказує на всі сенсори вказаного типу.
 
 ### Приклад
 
-To simulate losing RC signal without having to turn off your RC controller:
+Щоб симулювати втрату сигналу RC без вимкнення вашого пульта керування RC:
 
-1. Enable the parameter [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
-1. Enter the following commands on the MAVLink console or SITL _pxh shell_:
+1. Увімкніть параметр [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
+1. Введіть наступні команди e консолі MAVLink або SITL _pxh shell_:
 
    ```sh
    # Fail RC (turn publishing off)
