@@ -1,14 +1,14 @@
-# uORB Messaging
+# Повідомлення uORB
 
-## Introduction
+## Введення
 
-The uORB is an asynchronous `publish()` / `subscribe()` messaging API used for inter-thread/inter-process communication.
+uORB - це асинхронний `publish()` / `subscribe()` API для обміну повідомленнями, який використовується для міжпотокового / міжпроцесного зв'язку.
 
-Look at the [tutorial](../modules/hello_sky.md) to learn how to use it in C++.
+Подивіться [посібник](../modules/hello_sky.md), щоб дізнатися, як його використовувати в C++.
 
-uORB is automatically started early on bootup as many applications depend on it. It is started with `uorb start`. Unit tests can be started with `uorb_tests`.
+uORB автоматично запускається при завантаженні, оскільки багато програм залежать від нього. Запускається за допомогою `uorb start`. Модульні тести можна запустити за допомогою `uorb_tests`.
 
-## Adding a new topic
+## Додавання нової теми
 
 New uORB topics can be added either within the main PX4/PX4-Autopilot repository, or can be added in an out-of-tree message definitions. For information on adding out-of-tree uORB message definitions, please see [this section](../advanced/out_of_tree_modules.md#out-of-tree-uorb-message-definitions).
 
@@ -33,11 +33,11 @@ By adding a line like the following in the `.msg` file, a single message definit
 Then in the code, use them as topic id: `ORB_ID(offboard_mission)`.
 
 
-## Publishing
+## Публікація
 
 Publishing a topic can be done from anywhere in the system, including interrupt context (functions called by the `hrt_call` API). However, the topic needs to be advertised and published outside of an interrupt context (at least once) before it can be published in an interrupt context.
 
-## Listing Topics and Listening in
+## Перелік тем та їх прослуховування
 
 ::: info The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
 :::
@@ -90,9 +90,9 @@ scaling: 0
 On NuttX-based systems (Pixhawk, Pixracer, etc) the `listener` command can be called from within the *QGroundControl* MAVLink Console to inspect the values of sensors and other topics. This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying). For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
 :::
 
-### uorb top Command
+### Команда uorb top
 
-The command `uorb top` shows the publishing frequency of each topic in real-time:
+Команда `uorb top` показує частоту публікації кожної теми в реальному часі:
 
 ```sh
 update: 1s, num topics: 77
