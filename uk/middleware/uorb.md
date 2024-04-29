@@ -16,7 +16,7 @@ uORB автоматично запускається при завантажен
 
 Подивіться на існуючі файли `msg` для визначення підтримуваних типів. Повідомлення також можна використовувати вкладеним в інші повідомлення.
 
-До кожної згенерованої структури C/C++, буде додано поле `uint64_t timestamp`. This is used for the logger, so make sure to fill it in when publishing the message.
+До кожної згенерованої структури C/C++, буде додано поле `uint64_t timestamp`. Це використовується в логері, тому переконайтеся, що він заповнюється при публікації повідомлення.
 
 Щоб використовувати тему у коді, додайте заголовок:
 
@@ -111,25 +111,25 @@ sensor_accel                         1    1  249    43 1
 sensor_baro                          0    1   42     0 1
 sensor_combined                      0    6  242   636 1
 ```
-The columns are: topic name, multi-instance index, number of subscribers, publishing frequency in Hz, number of lost messages per second (for all subscribers combined), and queue size.
+Колонки: назва теми, індекс, кількість підписників, частота публікації в Гц, кількість втрачених повідомлень за секунду (для всіх підписників разом) і розмір черги.
 
 
 ## Multi-instance
 
-uORB provides a mechanism to publish multiple independent instances of the same topic through `orb_advertise_multi`. It will return an instance index to the publisher. A subscriber will then have to choose to which instance to subscribe to using `orb_subscribe_multi` (`orb_subscribe` subscribes to the first instance). Having multiple instances is useful for example if the system has several sensors of the same type.
+uORB надає механізм публікації декількох незалежних екземплярів однієї теми за допомогою `orb_advertise_multi`. Він поверне публікувачу індекс екземпляра. Після цього підписник має вибрати, на який екземпляр підписатися за допомогою `orb_subscribe_multi` (`orb_subscribe` підписує на перший екземпляр). Наявність декількох екземплярів корисна, наприклад, якщо система має кілька сенсорів одного типу.
 
-Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic.
+Переконайтеся, що ви не змішуєте `orb_advertise_multi` і `orb_advertise` для однієї теми.
 
-The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
+Повний API задокументовано в [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 
 ## Message/Field Deprecation
-As there are external tools using uORB messages from log files, such as [Flight Review](https://github.com/PX4/flight_review), certain aspects need to be considered when updating existing messages:
+Оскільки існують зовнішні інструменти, що використовують повідомлення uORB з файлів журналів, такі як [Flight Review](https://github.com/PX4/flight_review), при оновленні існуючих повідомлень необхідно враховувати певні аспекти:
 
-- Changing existing fields or messages that external tools rely on is generally acceptable if there are good reasons for the update. In particular for breaking changes to *Flight Review*, *Flight Review* must be updated before code is merged to `master`.
-- In order for external tools to reliably distinguish between two message versions, the following steps must be followed:
-  - Removed or renamed messages must be added to the `deprecated_msgs` list in [msg/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/c5a6a60903455c3600f47e3c45ecaa48614559c8/msg/CMakeLists.txt#L189) and the **.msg** file needs to be deleted.
-  - Removed or renamed fields must be commented and marked as deprecated. For example `uint8 quat_reset_counter` would become `# DEPRECATED: uint8 quat_reset_counter`. This is to ensure that removed fields (or messages) are not re-added in future.
-  - In case of a semantic change (e.g. the unit changes from degrees to radians), the field must be renamed as well and the previous one marked as deprecated as above.
+- Зміна існуючих полів або повідомлень, на які покладаються зовнішні інструменти, зазвичай є прийнятною, якщо для оновлення є вагомі причини. Зокрема, для внесення змін до *Flight Review*, *Flight Review* має бути оновлено до того, як код буде об'єднано з `master`.
+- Для того, щоб зовнішні інструменти могли надійно розрізняти дві версії повідомлень, необхідно виконати наступні кроки:
+  - Вилучені або перейменовані повідомлення слід додати до списку `deprecated_msgs` у [msg/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/c5a6a60903455c3600f47e3c45ecaa48614559c8/msg/CMakeLists.txt#L189), а файл **.msg** слід видалити.
+  - Видалені або перейменовані поля повинні бути закоментовані та позначені як застарілі. Наприклад, `uint8 quat_reset_counter` стане `# DEPRECATED: uint8 quat_reset_counter`. Це робиться для того, щоб гарантувати, що видалені поля (або повідомлення) не будуть додані повторно в майбутньому.
+  - У разі семантичної зміни (наприклад, одиниця виміру змінюється з градусів на радіани), поле також має бути перейменоване, а попереднє позначене як застаріле, як зазначено вище.
 
