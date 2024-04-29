@@ -99,7 +99,7 @@
 - [LandingTargetPose](LandingTargetPose.md) — Relative position of precision land target in navigation (body fixed, north aligned, NED) and inertial (world fixed, north aligned, NED) frames
 - [LaunchDetectionStatus](LaunchDetectionStatus.md) — Status of the launch detection state machine (fixed-wing only)
 - [LedControl](LedControl.md) — LED control: control a single or multiple LED's. These are the externally visible LED's, not the board LED's
-- [LogMessage](LogMessage.md) — A logging message, output with PX4_{WARN,ERR,INFO}
+- [LogMessage](LogMessage.md) — A logging message, output with PX4_WARN, PX4_ERR, PX4_INFO
 - [LoggerStatus](LoggerStatus.md)
 - [MagWorkerData](MagWorkerData.md)
 - [MagnetometerBiasEstimate](MagnetometerBiasEstimate.md)
