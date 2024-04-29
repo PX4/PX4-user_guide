@@ -1,4 +1,4 @@
-# RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge
+# Інтерфейс RTPS/DDS: Міст PX4-Fast RTPS(DDS)
 
 <Badge type="error" text="Discontinued" />
 
