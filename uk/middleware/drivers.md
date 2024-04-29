@@ -4,14 +4,14 @@
 
 ## Створення драйвера
 
-PX4 майже виключно використовує дані з [uORB](../middleware/uorb.md). Drivers for common peripheral types must publish the correct uORB messages (for example: gyro, accelerometer, pressure sensors, etc.).
+PX4 майже виключно використовує дані з [uORB](../middleware/uorb.md). Драйвери для поширених типів периферійних пристроїв повинні публікувати правильні повідомлення uORB (наприклад: гіроскоп, акселерометр, датчики тиску тощо).
 
-The best approach for creating a new driver is to start with a similar driver as a template (see [src/drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers)).
+Найкращий підхід до створення нового драйвера - почати з аналогічного драйвера як шаблону (див. [src/drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers)).
 
 ::: info More detailed information about working with specific I/O buses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/index.md) section.
 :::
 
-::: info Publishing the correct uORB topics is the only pattern that drivers *must* follow.
+::: info Публікація правильних тем uORB є єдиним патерном, якого повинні *повинні* дотримуватися драйвери.
 :::
 
 ## Архітектура ядра
