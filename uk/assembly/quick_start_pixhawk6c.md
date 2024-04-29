@@ -117,16 +117,16 @@ GPS/компас повинен бути [закріплений на рамі](
 
 Загальну інформацію про конфігурацію описано в: [Конфігурація автопілота](../config/index.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+Конфігурація для QuadPlane описана тут: [Конфігурація QuadPlane VTOL](../config_vtol/vtol_quad_configuration.md)
 
 <!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
-## Further information
+## Додаткова інформація
 
-- [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Pixhawk 6C](../flight_controller/pixhawk6c.md) (PX4 Doc Overview page)
+- [Документація Holybro](https://docs.holybro.com/) (Holybro)
+- [Pixhawk 6C](../flight_controller/pixhawk6c.md) (сторінка з оглядом документації PX4)
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
-- [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
-- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+- [Стандарт шин автопілота Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
+- [Стандарт роз'ємів Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
