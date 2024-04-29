@@ -58,20 +58,20 @@ PX4 включає репозиторій [mavlink/mavlink](https://github.com/m
 - Для SITL `CONFIG_MAVLINK_DIALECT` встановлено у `development` у [boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board#L36). Ви можете змінити його на будь-який інший файл визначення, але він повинен містити `common.xml`.
 - Для інших плат `CONFIG_MAVLINK_DIALECT` не встановлено за замовчуванням, і PX4 збирає визначення у `common.xml` (за замовчуванням вони вбудовані у [mavlink module](../modules/modules_communication.md#mavlink) - шукайте `menuconfig MAVLINK_DIALECT` у [src/modules/mavlink/Kconfig](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/Kconfig#L10)).
 
-The files are generated into the build directory: `/build/<build target>/mavlink/`.
+Файли генеруються до каталогу збірки: `/build/<build target>/mavlink/`.
 
 ## Custom MAVLink Messages
 
-A custom MAVLink message is one that isn't in the default definitions included into PX4.
+Користувацьке повідомлення MAVLink - це повідомлення, якого немає у визначеннях за замовчуванням, включених до PX4.
 
 ::: info
 If you use a custom definition you will need maintain the definition in PX4, your ground station, and any other SDKs that communicate with it.
 Generally you should use (or add to) the standard definitions if at all possible to reduce the maintenance burden.
 :::
 
-Custom definitions can be added in a new dialect file in the same directory as the standard XML definitions. For example, create `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0/custom_messages.xml`, and set `CONFIG_MAVLINK_DIALECT` to build the new file for SITL. This dialect file should include `development.xml` so that all the standard definitions are also included.
+Користувацькі визначення можна додати до нового файлу діалекту у тому самому каталозі, що й стандартні визначення XML. Наприклад, створіть `PX4-Autopilot/src/modules/mavlink/mavlink/mavlink/message_definitions/v1.0/custom_messages.xml` і встановіть `CONFIG_MAVLINK_DIALECT` для створення нового файла для SITL. Цей файл діалекту має містити `development.xml`, щоб до нього було включено всі стандартні визначення.
 
-For initial prototyping, or if you intend your message to be "standard", you can also add your messages to `common.xml` (or `development.xml`). This simplifies building, because you don't need to modify the dialect that is built.
+Для початкового прототипування, або якщо ви плануєте, що ваше повідомлення буде "стандартним", ви також можете додати свої повідомлення до `common.xml` (або `development.xml`). Це спрощує збірку, оскільки вам не потрібно модифікувати вже зібраний діалект.
 
 The MAVLink developer guide explains how to define new messages in [How to Define MAVLink Messages & Enums](https://mavlink.io/en/guide/define_xml_element.html).
 
@@ -88,7 +88,7 @@ MAVLink messages are streamed using a streaming class, derived from `MavlinkStre
 
 This tutorial demonstrates how to stream a uORB message as a MAVLink message, and applies to both standard and custom messages.
 
-### Preconditions
+### Передумови
 
 Generally you will already have a [uORB](../middleware/uorb.md) message that contains information you'd like to stream and a definition of a MAVLink message that you'd like to stream it with.
 
