@@ -46,17 +46,17 @@ The receiving end of the communication will discard any packet for which the mes
 
 ## PX4 та MAVLink
 
-PX4 releases build `common.xml` MAVLink definitions by default, for the greatest compatibility with MAVLink ground stations, libraries, and external components such as MAVLink cameras. In the `main` branch, these are included from `development.xml` on SITL, and `common.xml` for other boards.
+PX4 за замовчуванням випускає збірку `common.xml` визначень MAVLink для забезпечення максимальної сумісності з наземними станціями MAVLink, бібліотеками та зовнішніми компонентами, такими як камери MAVLink. У гілці `main` вони містяться у `development.xml` на SITL та `common.xml` для інших плат.
 
-::: info To be part of a PX4 release, any MAVLink definitions that you use must be in `common.xml` (or included files such as `standard.xml` and `minimal.xml`). During development you can use definitions in `development.xml`. You will need to work with the [MAVLink team](https://mavlink.io/en/contributing/contributing.html) to define and contribute these definitions.
+::: info Щоб бути частиною випуску PX4, всі визначення MAVLink, які ви використовуєте, повинні знаходитися у `common.xml` (або у включених файлах, таких як `standard.xml` та `minimal.xml`). Під час розробки ви можете використовувати визначення в `development.xml`. Вам потрібно буде попрацювати з [командою MAVLink](https://mavlink.io/en/contributing/contributing.html), щоб визначити і внести ці визначення.
 :::
 
-PX4 includes the [mavlink/mavlink](https://github.com/mavlink/mavlink) repo as a submodule under [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink). This contains XML definition files in [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/).
+PX4 включає репозиторій [mavlink/mavlink](https://github.com/mavlink/mavlink) як підмодуль у [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink). Тут містяться файли визначень XML у каталозі [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/).
 
-The build toolchain generates the MAVLink 2 C header files at build time. The XML file for which headers files are generated may be defined in the [PX4 kconfig board configuration](../hardware/porting_guide_config.md#px4-board-configuration-kconfig) on a per-board basis, using the variable `CONFIG_MAVLINK_DIALECT`:
+Інструментарій збірки генерує заголовні файли MAVLink 2 C під час збірки. XML-файл, для якого генеруються файли заголовків, можна визначити у конфігурації плати [PX4 kconfig](../hardware/porting_guide_config.md#px4-board-configuration-kconfig) для кожної окремої плати за допомогою змінної `CONFIG_MAVLINK_DIALECT`:
 
-- For SITL `CONFIG_MAVLINK_DIALECT` is set to `development` in [boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board#L36). You can change this to any other definition file, but the file must include `common.xml`.
-- For other boards `CONFIG_MAVLINK_DIALECT` is not set by default, and PX4 builds the definitions in `common.xml` (these are build into the [mavlink module](../modules/modules_communication.md#mavlink) by default — search for `menuconfig MAVLINK_DIALECT` in [src/modules/mavlink/Kconfig](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/Kconfig#L10)).
+- Для SITL `CONFIG_MAVLINK_DIALECT` встановлено у `development` у [boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board#L36). Ви можете змінити його на будь-який інший файл визначення, але він повинен містити `common.xml`.
+- Для інших плат `CONFIG_MAVLINK_DIALECT` не встановлено за замовчуванням, і PX4 збирає визначення у `common.xml` (за замовчуванням вони вбудовані у [mavlink module](../modules/modules_communication.md#mavlink) - шукайте `menuconfig MAVLINK_DIALECT` у [src/modules/mavlink/Kconfig](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/Kconfig#L10)).
 
 The files are generated into the build directory: `/build/<build target>/mavlink/`.
 
