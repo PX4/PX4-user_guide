@@ -1,25 +1,25 @@
-# System Failure Injection
+# Інжекція помилки системи
 
-System failure injection allows you to induce different types of sensor and system failures, either programmatically using the [MAVSDK failure plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html), or "manually" via a PX4 console like the [MAVLink shell](../debug/mavlink_shell.md#mavlink-shell). This enables easier testing of [safety failsafe](../config/safety.md#safety-configuration-failsafes) behaviour, and more generally, of how PX4 behaves when systems and sensors stop working correctly.
+Ін'єкція відмов системи дозволяє викликати різні типи відмов датчиків та систем, або програмно за допомогою [плагіну відмови MAVSDK](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html), або "вручну" через консоль PX4, таку як [оболонка MAVLink](../debug/mavlink_shell.md#mavlink-shell). Це дозволяє легше тестування [захисної функції аварійного відключення](../config/safety.md#safety-configuration-failsafes), і загалом, як PX4 працює, коли системи та сенсори перестають працювати належним чином.
 
-Failure injection is disabled by default, and can be enabled using the [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN) parameter.
+Впровадження відмов вимкнено за замовчуванням і може бути увімкнено за допомогою параметра [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
 
 :::warning
-Failure injection still in development. At time of writing (PX4 v1.14):
+Впровадження відмов все ще знаходиться в розробці. На момент написання (PX4 v1.14):
 
-- It can only be used in simulation (support for both failure injection in real flight is planned).
-- It requires support in the simulator. It is supported in Gazebo Classic
-- Many failure types are not broadly implemented. In those cases the command will return with an "unsupported" message.
+- Це можна використовувати лише в симуляції (підтримка як для впровадження в реальному польоті запланована).
+- Потребує підтримки в симуляторі. Це підтримується в Gazebo Classic
+- Багато типів відмов не широко реалізовані. У таких випадках команда повернеться з повідомленням "unsupported".
 
 :::
 
-## Failure System Command
+## Команда системи збою
 
-Failures can be injected using the [failure system command](../modules/modules_command.md#failure) from any PX4 console/shell, specifying both the target and type of the failure.
+Помилки можна впроваджувати за допомогою [команди системи помилок](../modules/modules_command.md#failure) з будь-якої консолі/оболонки PX4, вказавши як ціль, так і тип помилки.
 
 ### Синтаксис
 
-The full syntax of the [failure](../modules/modules_command.md#failure) command is:
+Повний синтаксис команди [failure](../modules/modules_command.md#failure) є:
 
 ```sh
 failure <component> <failure_type> [-i <instance_number>]
@@ -71,8 +71,8 @@ failure <component> <failure_type> [-i <instance_number>]
    failure rc_signal ok
    ```
 
-## MAVSDK Failure Plugin
+## MAVSDK відлагоджувальний плагін
 
-The [MAVSDK failure plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html) can be used to programmatically inject failures. It is used in [PX4 Integration Testing](../test_and_ci/integration_testing_mavsdk.md) to simulate failure cases (for example, see [PX4-Autopilot/test/mavsdk_tests/autopilot_tester.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.cpp)).
+[Плагін невдачі MAVSDK](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html) може бути використаний для програмного впровадження невдач. Використовується в [PX4 Інтеграційному тестуванні](../test_and_ci/integration_testing_mavsdk.md) для моделювання випадків відмов (наприклад, див. [PX4-Autopilot/test/mavsdk_tests/autopilot_tester.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.cpp)).
 
-The plugin API is a direct mapping of the failure command shown above, with a few additional error signals related to the connection.
+API плагіна - це пряме відображення команди збою, показаної вище, з деякими додатковими сигналами про помилки, пов'язані з підключенням.
