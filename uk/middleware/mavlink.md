@@ -1,20 +1,20 @@
 # Повідомлення MAVLink
 
-[MAVLink](https://mavlink.io/en/) is a very lightweight messaging protocol that has been designed for the drone ecosystem.
+[MAVLink](https://mavlink.io/en/) це дуже легкий протокол обміну повідомленнями, який був спроектований для екосистеми дронів.
 
-PX4 uses _MAVLink_ to communicate with ground stations and MAVLink SDKs, such as _QGroundControl_ and [MAVSDK](https://mavsdk.mavlink.io/), and as the integration mechanism for connecting to drone components outside of the flight controller: companion computers, MAVLink enabled cameras, and so on.
+PX4 використовує _MAVLink_ для зв'язку з наземними станціями і MAVLink SDK, такими як _QGroundControl_ і [MAVSDK](https://mavsdk.mavlink.io/), а також як інтеграційний механізм для підключення до компонентів дрона за межами польотного контролера: комп'ютерів-компаньйонів, камер з підтримкою MAVLink і так далі.
 
-This topic provides a brief overview of fundamental MAVLink concepts, such as messages, commands, and microservices. It also provides tutorial instructions for how you can add PX4 support for:
+Ця тема надає короткий огляд основних концепцій MAVLink, таких як повідомлення, команди та мікросервіси. Він також надає інструкції посібника про те, як ви можете додати підтримку PX4 для:
 
-- Streaming MAVLink messages
-- Handling incoming MAVLink messages and writing to a uORB topic.
+- Потокових повідомлень MAVLink
+- Обробка вхідних повідомлень MAVLink та запис до теми uORB.
 
-::: info The topic does not cover _command_ handling and sending, or how to implement your own microservices.
+::: info Ця тема не охоплює обробку та надсилання _команд_ або реалізацію власних мікросервісів.
 :::
 
 ## Огляд MAVLink
 
-MAVLink is a lightweight protocol that was designed for efficiently sending messages over unreliable low-bandwidth radio links.
+MAVLink - це легкий протокол, який був розроблений для ефективної відправки повідомлень по ненадійним радіоканалах з низькою пропускною здатністю.
 
 _Messages_ are simplest and most "fundamental" definition in MAVLink, consisting of a name (e.g. [ATTITUDE](https://mavlink.io/en/messages/common.html#ATTITUDE)), id, and fields containing relevant data. They are deliberately lightweight, with a constrained size, and no semantics for resending and acknowledgement. Stand-alone messages are commonly used for streaming telemetry or status information, and for sending commands where no acknowledgement is required - such as setpoint commands sent at high rate.
 
