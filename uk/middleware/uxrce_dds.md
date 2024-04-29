@@ -12,7 +12,7 @@ PX4 uses an XRCE-DDS implementation that leverages [eProsima Micro XRCE-DDS](htt
 
 The following guide describes the architecture and various options for setting up the client and agent. In particular it covers the options that are most important to PX4 users.
 
-## Architecture
+## Архітектура
 
 The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial or UDP link. The agent acts as a proxy for the client, enabling it to publish and subscribe to topics in the global DDS data space.
 
@@ -28,7 +28,7 @@ The agent itself has no dependency on client-side code and can be built and/or i
 
 Code that wants to subscribe/publish to PX4 does have a dependency on client-side code; it requires uORB message definitions that match those used to create the PX4 uXRCE-DDS client so that it can interpret the messages.
 
-## Code Generation
+## Генерація коду
 
 The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is generated at build time and included in PX4 firmare by default. The agent has no dependency on client code. It can be built standalone or in a ROS 2 workspace, or installed as a snap package on Ubuntu.
 
@@ -307,7 +307,7 @@ Changing the namespace at runtime will append the desired namespace as a prefix 
 uxrce_dds_client start -n uav_1
 ```
 
-or
+або
 
 ```sh
 PX4_UXRCE_DDS_NS=uav_1 make px4_sitl gz_x500
