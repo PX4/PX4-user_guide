@@ -1,7 +1,7 @@
 # ThePeach FCC-R1
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://thepeach.kr/) for hardware support or compliance issues.
+PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://thepeach.kr/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
 :::
 
 **ThePeach FCC-R1** is an advanced autopilot designed and made in **ThePeach**.
