@@ -1,25 +1,25 @@
-# uORB Publication/Subscription Graph
+# Граф публікації/підписки uORB
 
-This page provides a uORB publication/subscription graph that shows the communication between modules. It is based on information that is extracted directly from the source code. Usage instructions are provided [below](#graph-properties). <iframe :src="withBase('/middleware/index.html')" frameborder="0" width="1300" height="1450px" style="text-align: center; margin-left: 0px; margin-right: 0px;"></iframe>
+Ця сторінка надає графік публікації/підписки uORB, який показує комунікацію між модулями. Він базується на інформації, яка витягується безпосередньо з вихідного коду. Інструкції з використання наведено [нижче](#graph-properties). <iframe :src="withBase('/middleware/index.html')" frameborder="0" width="1300" height="1450px" style="text-align: center; margin-left: 0px; margin-right: 0px;"></iframe>
 
 <script setup>
 import { withBase } from 'vitepress';
 </script>
 
-## Graph Properties
+## Властивості графа
 
-The graph has the following properties:
+Граф має наступні властивості:
 
-- Modules are shown in gray with rounded corners while topics are displayed as coloured rectangular boxes.
-- Associated modules and topics are connected by lines. Dashed lines indicate that the module publishes the topic, solid lines indicate that the module subscribes to the topic, while dot-dashed lines indicate that the module both publishes and subscribes to the topic.
-- Some modules and topics are excluded:
-  - Topics that are subscribed/published by many modules: `parameter_update`, `mavlink_log` and `log_message`.
-  - The set of logged topics.
-  - Topics that have no subscriber or no publisher.
-  - Modules in **src/examples**.
-- Hovering over a module/topic highlights all its connections.
-- Double-clicking on a topic opens its message definition.
-- Make sure your browser window is wide enough to display the full graph (the sidebar menu can be hidden with the icon in the top-left corner). You can also zoom the image.
-- The *Preset* selection list allows you to refine the list of modules that are shown.
-- The *Search* box can be used to find particular modules/topics (topics that are not selected by the search are greyed-out).
+- Модулі відображаються сірим кольором із закругленими кутами, а теми - у вигляді кольорових прямокутних блоків.
+- Пов'язані модулі та теми з'єднані лініями. Пунктирні лінії вказують на те, що модуль публікує тему, суцільні лінії вказують на те, що модуль підписується на тему, а пунктирно-пунктирні лінії вказують на те, що модуль і публікує, і підписується на тему.
+- Деякі модулі та теми виключені:
+  - Теми, на які підписано/публікуються багато модулів: `parameter_update`, `mavlink_log` і `log_message`.
+  - Набір зареєстрованих тем.
+  - Теми, які не мають підписника або публікації.
+  - Модулі у **src/examples**.
+- При наведенні на модуль/тему відображаються всі його зв'язки.
+- Подвійне клацання на темі відкриває визначення її повідомлення.
+- Переконайтеся, що вікно вашого браузера достатньо широке, щоб відобразити весь графік (меню бічної панелі можна приховати за допомогою іконки у верхньому лівому куті). Ви також можете збільшити зображення.
+- Список вибору *Preset* дозволяє вам уточнити список модулів, які буде показано.
+- Поле *Search* можна використовувати для пошуку певних модулів/тем (теми, які не були обрані пошуком, відображаються неяскравим сірим кольором).
 
