@@ -1,10 +1,10 @@
 # Poor Man's Sampling Profiler
 
-This section describes how you can use the [Poor Man's Sampling Profiler](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/nuttx/Debug/poor-mans-profiler.sh) (PMSP) shell script to assess the performance of PX4. This is an implementation of a known method originally invented by [Mark Callaghan and Domas Mituzas](https://poormansprofiler.org/).
+Цей розділ описує, як ви можете використовувати [Poor Man's Sampling Profiler](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/nuttx/Debug/poor-mans-profiler.sh) (PMSP) shell script для оцінки продуктивності PX4. Це реалізація відомого методу, яку спочатку винайшли [Марк Callaghan і Domas Mituzas](https://poormansprofiler.org/).
 
 ## Підхід
 
-PMSP is a shell script that operates by interrupting execution of the firmware periodically in order to sample the current stack trace. Sampled stack traces are appended into a text file. Once sampling is finished (which normally takes about an hour or more), the collected stack traces are _folded_. The result of _folding_ is another text file that contains the same stack traces, except that all similar stack traces (i.e. those that were obtained at the same point in the program) are joined together, and the number of their occurrences is recorded. The folded stacks are then fed into the visualization script, for which purpose we employ [FlameGraph - an open source stack trace visualizer](http://www.brendangregg.com/flamegraphs.html).
+PMSP - це оболонковий сценарій, який працює шляхом переривання виконання прошивки періодично для збору поточного стеку викликів. Відмічені трасування стеку додаються в текстовий файл. Once sampling is finished (which normally takes about an hour or more), the collected stack traces are _folded_. The result of _folding_ is another text file that contains the same stack traces, except that all similar stack traces (i.e. those that were obtained at the same point in the program) are joined together, and the number of their occurrences is recorded. The folded stacks are then fed into the visualization script, for which purpose we employ [FlameGraph - an open source stack trace visualizer](http://www.brendangregg.com/flamegraphs.html).
 
 ## Basic Usage
 
