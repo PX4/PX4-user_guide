@@ -4,17 +4,17 @@
 
 ## Підхід
 
-PMSP - це оболонковий сценарій, який працює шляхом переривання виконання прошивки періодично для збору поточного стеку викликів. Відмічені трасування стеку додаються в текстовий файл. Once sampling is finished (which normally takes about an hour or more), the collected stack traces are _folded_. The result of _folding_ is another text file that contains the same stack traces, except that all similar stack traces (i.e. those that were obtained at the same point in the program) are joined together, and the number of their occurrences is recorded. The folded stacks are then fed into the visualization script, for which purpose we employ [FlameGraph - an open source stack trace visualizer](http://www.brendangregg.com/flamegraphs.html).
+PMSP - це оболонковий сценарій, який працює шляхом переривання виконання прошивки періодично для збору поточного стеку викликів. Відмічені трасування стеку додаються в текстовий файл. Після завершення вибірки (що зазвичай займає близько години або більше), зібрані стек-відстеження _згортаються_. Результатом _складання_ є інший текстовий файл, який містить ті ж стекові відстеження, за винятком того, що всі схожі стекові відстеження (тобто ті, які були отримані в тій же точці в програмі) об'єднуються, і фіксується кількість їх випадків. Згорнуті стеки потім подаються в сценарій візуалізації, для цього ми використовуємо [FlameGraph - візуалізатор відкритого вихідного коду стеку викликів](http://www.brendangregg.com/flamegraphs.html).
 
-## Basic Usage
+## Базове використання
 
-### Prerequisites
+### Передумови
 
-The profiler relies on GDB to run PX4 on the embedded target. So before profiling a target, you must have the hardware you wish to profile, and you must compile and upload the firmware to that hardware. You will then need a [debug probe](../debug/swd_debug.md#debug-probes) (such as the DroneCode Probe), to run the GDB server and interact with the board.
+Профілер покладається на GDB для запуску PX4 на вбудованій цілі. Так що перед профілюванням цілі, вам потрібно мати обладнання, яке ви хочете профілювати, і вам потрібно скомпілювати та завантажити прошивку на це обладнання. Вам потрібно мати [зонд для налагодження](../debug/swd_debug.md#debug-probes) (такий як зонд DroneCode), щоб запустити сервер GDB та взаємодіяти з платою.
 
-### Determine the Debugger Device
+### Визначення пристрою відладки
 
-The `poor-mans-profiler.sh` automatically detects and uses the correct USB device if you use it with a [DroneCode Probe](../debug/probe_bmp.md#dronecode-probe). If you use a different kind of probe you may need to pass in the specific _device_ on which the debugger is located. You can use the bash command `ls -alh /dev/serial/by-id/` to enumerate the possible devices on Ubuntu. For example the following devices are enumerated with a Pixhawk 4 and DroneCode Probe connected over USB:
+`poor-mans-profiler.sh` автоматично виявляє та використовує правильний USB-пристрій, якщо ви використовуєте його з [DroneCode Probe](../debug/probe_bmp.md#dronecode-probe). Якщо ви використовуєте інший тип зонда, можливо, вам потрібно буде передати конкретний _пристрій_, на якому знаходиться відлагоджувач. Ви можете використовувати команду bash `ls -alh /dev/serial/by-id/` для переліку можливих пристроїв на Ubuntu. Наприклад, наступні пристрої перераховані з підключеними через USB Pixhawk 4 та DroneCode Probe:
 
 ```sh
 user@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
@@ -26,31 +26,31 @@ lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magi
 lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if02 -> ../../ttyACM2
 ```
 
-In this case, the script would automatically pick up the device named `*Black_Magic_Probe*-if00`. But if you were using a different device you would be able discover the appropriate id from the listing above.
+У цьому випадку скрипт автоматично вибере пристрій з назвою `*Black_Magic_Probe*-if00`. Але якщо ви використовуєте інший пристрій, ви зможете знайти відповідний ідентифікатор у вищезазначеному переліку.
 
-Then pass in the appropriate device using the `--gdbdev` argument like this:
+Потім передайте відповідний пристрій, використовуючи аргумент `--gdbdev`, як показано нижче:
 
 ```sh
 ./poor-mans-profiler.sh --elf=build/px4_fmu-v4_default/px4_fmu-v4_default.elf --nsamples=30000 --gdbdev=/dev/ttyACM2
 ```
 
-### Running
+### Запуск
 
-Basic usage of the profiler is available through the build system. For example, the following command builds and profiles px4_fmu-v4pro target with 10000 samples (fetching _FlameGraph_ and adding it to the path as needed).
+Основне використання профілера доступне через систему збірки. Наприклад, наступні командні збірки та профілі px4_fmu-v4pro ціль із 10000 зразками (отримання _FlameGraph_ і додавання його до шляху, як це необхідно).
 
 ```sh
 make px4_fmu-v4pro_default profile
 ```
 
-For more control over the build process, including setting the number of samples, see the [Implementation](#implementation).
+Для більшого контролю над процесом побудови, включаючи встановлення кількості вибірок, див. [Реалізація](#implementation).
 
-## Understanding the Output
+## Розуміння виводу
 
-A screenshot of an example output is provided below (note that it is not interactive here):
+Знизу наведено знімок екрану прикладового виводу (зверніть увагу, що тут він не є інтерактивним):
 
 ![FlameGraph Example](../../assets/debug/flamegraph-example.png)
 
-On the flame graph, the horizontal levels represent stack frames, whereas the width of each frame is proportional to the number of times it was sampled. In turn, the number of times a function ended up being sampled is proportional to the duration times frequency of its execution.
+На графіку пламені, горизонтальні рівні представляють рамки стеку, тоді як ширина кожної рамки пропорційна кількості разів, коли вона була вибрана. Зі свого боку, кількість разів, коли функцію виявилися вибраною, пропорційна тривалості множеній на частоту її виконання.
 
 ## Можливі проблеми
 
@@ -64,13 +64,13 @@ On the flame graph, the horizontal levels represent stack frames, whereas the wi
 
 ## Реалізація
 
-The script is located at [/platforms/nuttx/Debug/poor-mans-profiler.sh](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/nuttx/Debug/poor-mans-profiler.sh) Once launched, it will perform the specified number of samples with the specified time interval. Collected samples will be stored in a text file in the system temp directory (typically `/tmp`). Once sampling is finished, the script will automatically invoke the stack folder, the output of which will be stored in an adjacent file in the temp directory. If the stacks were folded successfully, the script will invoke the _FlameGraph_ script and store the result in an interactive SVG file. Please note that not all image viewers support interactive images; it is recommended to open the resulting SVG in a web browser.
+Сценарій розташований за посиланням [/platforms/nuttx/Debug/poor-mans-profiler.sh](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/nuttx/Debug/poor-mans-profiler.sh) Після запуску він виконає вказану кількість вибірок із вказаним інтервалом часу. Зібрані зразки будуть збережені в текстовому файлі у каталозі тимчасових файлів системи (зазвичай `/tmp`). Після завершення вибіркового відбору сценарій автоматично викличе папку стеку, вихід якої буде збережено в сусідньому файлі в тимчасовому каталозі. Якщо стеки були успішно згорнуті, сценарій викличе сценарій _FlameGraph_ та збереже результат у взаємодійному файлі SVG. Зверніть увагу, що не всі переглядачі зображень підтримують інтерактивні зображення; рекомендується відкрити отриманий SVG у веб-переглядачі.
 
-The FlameGraph script must reside in the `PATH`, otherwise PMSP will refuse to launch.
+Сценарій FlameGraph повинен знаходитися в `PATH`, інакше PMSP відмовиться запускатися.
 
-PMSP uses GDB to collect the stack traces. Currently it uses `arm-none-eabi-gdb`, other toolchains may be added in the future.
+PMSP використовує GDB для збору стек-відстежень. На даний момент використовує `arm-none-eabi-gdb`, інші інструментальні набори можуть бути додані у майбутньому.
 
-In order to be able to map memory locations to symbols, the script needs to be referred to the executable file that is currently running on the target. This is done with the help of the option `--elf=<file>`, which expects a path (relative to the root of the repository) pointing to the location of the currently executing ELF.
+Для того щоб мати можливість відображати місця розташування пам'яті на символи, сценарій повинен посилатися на виконуваний файл, який в даний момент працює на цільовому пристрої. Це робиться за допомогою опції `--elf=<file>`, яка очікує шлях (відносно кореня сховища), що вказує на місце розташування виконуваного в даний момент ELF.
 
 Приклад використання:
 
@@ -78,12 +78,12 @@ In order to be able to map memory locations to symbols, the script needs to be r
 ./poor-mans-profiler.sh --elf=build/px4_fmu-v4_default/px4_fmu-v4_default.elf --nsamples=30000
 ```
 
-Note that every launch of the script will overwrite the old stacks. Should you want to append to the old stacks rather than overwrite them, use the option `--append`:
+Зверніть увагу, що кожен запуск скрипта перезапише старі стеки. Якщо ви хочете додати до старих стеків замість їх перезапису, скористайтеся опцією `--append`:
 
 ```sh
 ./poor-mans-profiler.sh --elf=build/px4_fmu-v4_default/px4_fmu-v4_default.elf --nsamples=30000 --append
 ```
 
-As one might suspect, `--append` with `--nsamples=0` will instruct the script to only regenerate the SVG without accessing the target at all.
+Як можна запідозрити, `--append` з `--nsamples=0` буде вказувати скрипту лише регенерувати SVG без доступу до цілі взагалі.
 
-Please read the script for a more in depth understanding of how it works.
+Будь ласка, прочитайте сценарій для більш глибокого розуміння того, як це працює.
