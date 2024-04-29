@@ -10,51 +10,51 @@ uORB автоматично запускається при завантажен
 
 ## Додавання нової теми
 
-New uORB topics can be added either within the main PX4/PX4-Autopilot repository, or can be added in an out-of-tree message definitions. For information on adding out-of-tree uORB message definitions, please see [this section](../advanced/out_of_tree_modules.md#out-of-tree-uorb-message-definitions).
+Нові теми uORB можуть бути додані або в основний репозиторій PX4/PX4-Autopilot, або до визначень повідомлень поза деревом. Для отримання інформації щодо додавання визначень повідомлень uORB поза деревом, див. [цей розділ](../advanced/out_of_tree_modules.md#out-of-tree-uorb-message-definitions).
 
-To add a new topic, you need to create a new **.msg** file in the `msg/` directory and add the file name to the `msg/CMakeLists.txt` list. From this, the needed C/C++ code is automatically generated.
+Щоб додати нову тему, вам потрібно створити новий файл **.msg** у каталозі `msg/` та додати назву файлу до списку `msg/CMakeLists.txt`. З цього автоматично генерується потрібний C/C++ код.
 
-Have a look at the existing `msg` files for supported types. A message can also be used nested in other messages.
+Подивіться на існуючі файли `msg` для визначення підтримуваних типів. Повідомлення також можна використовувати вкладеним в інші повідомлення.
 
-To each generated C/C++ struct, a field `uint64_t timestamp` will be added. This is used for the logger, so make sure to fill it in when publishing the message.
+До кожної згенерованої структури C/C++, буде додано поле `uint64_t timestamp`. This is used for the logger, so make sure to fill it in when publishing the message.
 
-To use the topic in the code, include the header:
+Щоб використовувати тему у коді, додайте заголовок:
 
 ```
 #include <uORB/topics/topic_name.h>
 ```
 
-By adding a line like the following in the `.msg` file, a single message definition can be used for multiple independent topics:
+Додавши рядок, подібний наступному у файлі `.msg`, одне визначення повідомлення може бути використане для кількох незалежних тем:
 
 ```
 # TOPICS mission offboard_mission onboard_mission
 ```
 
-Then in the code, use them as topic id: `ORB_ID(offboard_mission)`.
+Потім у коді використовуйте їх як ідентифікатор теми: `ORB_ID(offboard_mission)`.
 
 
 ## Публікація
 
-Publishing a topic can be done from anywhere in the system, including interrupt context (functions called by the `hrt_call` API). However, the topic needs to be advertised and published outside of an interrupt context (at least once) before it can be published in an interrupt context.
+Публікацію теми можна виконати з будь-якого місця в системі, включаючи контекст переривання (функції, які викликаються API `hrt_call`). Однак, перш ніж публікувати тему в контексті переривання, її потрібно оголосити і опублікувати поза контекстом переривання (принаймні, один раз).
 
 ## Перелік тем та їх прослуховування
 
-::: info The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
+::: info Команда `listener` доступна лише на Pixracer (FMUv4) та Linux / OS X.
 :::
 
-To list all topics, list the file handles:
+Щоб перерахувати всі теми, перерахуйте файлові дескриптори:
 
 ```sh
 ls /obj
 ```
 
-To listen to the content of one topic for 5 messages, run the listener:
+Щоб прослухати зміст однієї теми з 5 повідомлень, запустіть команду прослуховувач:
 
 ```sh
 listener sensor_accel 5
 ```
 
-The output is n-times the content of the topic:
+На виході виводиться n-кратний вміст теми:
 
 ```sh
 TOPIC: sensor_accel #3
@@ -87,7 +87,7 @@ scaling: 0
 ```
 
 :::tip
-On NuttX-based systems (Pixhawk, Pixracer, etc) the `listener` command can be called from within the *QGroundControl* MAVLink Console to inspect the values of sensors and other topics. This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying). For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
+На системах на основі NuttX (Pixhawk, Pixracer і т.д.) команду `listener` можна викликати з консолі MAVLink *QGroundControl* для перевірки значень датчиків та інших тем. Це потужний інструмент для відлагодження, оскільки його можна використовувати навіть тоді, коли QGC підключений через бездротове з'єднання (наприклад, коли транспортний засіб летить). Для отримання додаткової інформації дивіться: [Відлагодження сенсорів/тем](../debug/sensor_uorb_topic_debugging.md).
 :::
 
 ### Команда uorb top
