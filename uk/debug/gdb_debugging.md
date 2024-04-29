@@ -42,7 +42,7 @@ Consult the [GDB documentation](https://sourceware.org/gdb/download/onlinedocs/g
 To avoid having to type all commands to connect in GDB each time, you can write them into `~/.gdbinit`.
 :::
 
-## Next Steps
+## Наступні кроки
 
 You've now connected the flight controller to an SWD debug probe!
 
