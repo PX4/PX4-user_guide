@@ -151,58 +151,58 @@ The debug port definition includes the following solder pads (on board next to c
 - [STLink](../debug/probe_stlink): найкраща вартість, інтегрована послідовна консоль, адаптер повинен бути паяним.
 - [MCU-Link](../debug/probe_mculink): найкраща вартість, інтегрована послідовна консоль, потребує адаптер.
 
-An adapter to connect to the debug port may come with your flight controller or debug probe. Other options are given below.
+Адаптер для підключення до роз'єму відладки може поставлятися разом із вашим контролером польоту або відлагоджувальним зондом. Other options are given below.
 
 ## Debug Adapters
 
 ### Holybro Pixhawk Debug Adapter
 
-The [Holybro Pixhawk Debug Adapter](https://holybro.com/products/pixhawk-debug-adapter) is _highly recommended_ when debugging controllers that use one of the Pixhawk-standard debug connectors.
+[Адаптер для відлагодження Holybro Pixhawk](https://holybro.com/products/pixhawk-debug-adapter) _високо рекомендований_ при відлагодженні контролерів, які використовують один із стандартних роз'ємів для відлагодження Pixhawk.
 
-It is the easiest way to connect:
+Це найлегший спосіб підключення:
 
-- Flight controllers that use either the [Pixhawk Debug Full](#pixhawk-debug-full) (10-pin SH) or [Pixhawk Debug Mini](#pixhawk-debug-mini) (6-pin SH) debug port.
-- SWD debug probes that support the 10-pin ARM compatible interface standard used by the [Segger JLink EDU mini](../debug/probe_jlink.md) or 20-pin compatible with the Segger JLink or STLink.
+- Контролери польоту, які використовують або [Повний відлагоджувальний порт Pixhawk](#pixhawk-debug-full) (10-контактний SH), або [Міні відлагоджувальний порт Pixhawk](#pixhawk-debug-mini) (6-контактний SH).
+- SWD відлагоджувальні зонди, які підтримують стандартний інтерфейс ARM з 10-контактною підтримкою, що використовується [Segger JLink EDU mini](../debug/probe_jlink.md) або 20-контактний, сумісний з Segger JLink або STLink.
 
 ![Holybro Pixhawk Debug Adapter](../../assets/debug/holybro_pixhawk_debug_adapter.png)
 
-### CUAV C-ADB Pixhawk Debug Adapter
+### Адаптер відлагодження CUAV C-ADB Pixhawk
 
-The [CUAV C-ADB Secondary Development Pixhawk Flight Controller Debug Adapter](https://store.cuav.net/shop/cuav-c-adb/) comes with an [STLinkv3-MINIE Debug Probe](../debug/probe_stlink.md).
+[CUAV C-ADB Додатковий Адаптер Відлагодження Політного Контролера Pixhawk](https://store.cuav.net/shop/cuav-c-adb/) поставляється з [STLinkv3-MINIE Відлагоджувальною Сондою](../debug/probe_stlink.md).
 
-This has a ports for connecting to the [Pixhawk Debug Full](#pixhawk-debug-full) (10-pin SH) and CUAV-standard DSU interface (but not the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) (6-pin SH)).
+Це має порти для підключення до [Pixhawk Debug Full](#pixhawk-debug-full) (10-контактний SH) та стандартного інтерфейсу CUAV DSU (але не для [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) (6-контактний SH)).
 
-The M2 connector on the adaptor is 14-pin CN4 STDC14 (see the [STLinkv3-MINIE User Manual](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) for more information). The cable used to connect the M2 and the STLinkv3-MINIE comes with the adaptor.
+Роз'єм M2 на перехіднику має 14 контактів CN4 STDC14 (див. [Посібник користувача STLinkv3-MINIE](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) для отримання додаткової інформації). Кабель, який використовується для підключення M2 та STLinkv3-MINIE, постачається з адаптером.
 
 ![CUAV C-ADB adaptor connected to the STLinkv3-MINIE](../../assets/debug/cuav_c-adb_debug_adapter/hero.jpg)
 
-### Debug Probe Adapters
+### Адаптери для відлагоджування
 
-Some SWD [debug probes](#debug-probes) come with adapters/cables for connecting to common Pixhawk [debug ports](#debug-ports). Probes that are known to come with connectors are listed below:
+Деякі SWD [програмні зонди](#debug-probes) поставляються з адаптерами / кабелями для підключення до загальних портів відладки Pixhawk [портів відладки](#debug-ports). Зонди, про які відомо, що поставляються з роз'ємами, перераховані нижче:
 
-- [DroneCode Probe](../debug/probe_bmp.md#dronecode-probe): comes with a connector for attaching to the [Pixhawk Debug Mini](#pixhawk-debug-mini)
+- [Датчик DroneCode](../debug/probe_bmp.md#dronecode-probe): поставляється з кабелем з'єднувача для підключення до [Pixhawk Debug Mini](#pixhawk-debug-mini)
 
-### Board-specific Adapters
+### Адаптери, специфічні для плати
 
-Some manufacturers provide cables to make it easy to connect the SWD interface and [System Console](../debug/system_console).
+Деякі виробники надають кабелі для зручного підключення інтерфейсу SWD та [Консолі системи](../debug/system_console).
 
-- [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port) and [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port) include this debug cable:
+- [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port) та [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port) включають у себе цей кабель для налагодження:
 
 ![6-pin JST SH Cable](../../assets/debug/cuav_v5_debug_cable.jpg)
 
-### Custom Cables
+### Користувацькі кабелі
 
-You can also create custom cables for connecting to different boards or probes:
+Ви також можете створити власні кабелі для підключення до різних плат або зондів:
 
-- Connect `SWDIO`, `SWCLK` and `GND` pins on the debug probe to the corresponding pins on the debug port.
-- Connect the VREF pin, if supported by the debug probe.
-- Connect the remaining pins, if present.
+- Підключіть піни `SWDIO`, `SWCLK` та `GND` на зонді для налагодження до відповідних пінів на порту для налагодження.
+- Підключіть контакт VREF, якщо його підтримує засіб відлагодження.
+- Підключіть залишкові контакти, якщо вони є.
 
-See the [STLinkv3-MINIE](probe_stlink) for a guide on how to solder a custom cable.
+Дивіться [STLinkv3-MINIE](probe_stlink) для керівництва з тим, як припаяти власний кабель.
 
 :::tip
-Where possible, we highly recommend that you create or obtain an adapter board rather than custom cables for connecting to SWD/JTAG debuggers and computers.
-This reduces the risk or poor wiring contributing to debugging problems, and has the benefit that adapters usually provide a common interface for connecting to multiple popular flight controller boards.
+Де це можливо, ми настійно рекомендуємо створювати або отримувати адаптерну плату, аніж користуватися власноруч виготовленими кабелями для підключення до SWD/JTAG відлагоджувачів та комп'ютерів.
+Це зменшує ризик неправильного підключення проводів, що призводить до проблем з налагодженням, і має перевагу в тому, що адаптери зазвичай надають спільний інтерфейс для підключення до кількох популярних плат керування польотом.
 :::
 
 <!-- Reference links used above -->
