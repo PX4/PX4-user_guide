@@ -52,15 +52,15 @@ A screenshot of an example output is provided below (note that it is not interac
 
 On the flame graph, the horizontal levels represent stack frames, whereas the width of each frame is proportional to the number of times it was sampled. In turn, the number of times a function ended up being sampled is proportional to the duration times frequency of its execution.
 
-## Possible Issues
+## Можливі проблеми
 
-The script was developed as an ad-hoc solution, so it has some issues. Please watch out for them while using it:
+Сценарій був розроблений як тимчасове рішення, тому він має деякі проблеми. Будь ласка, будьте обережні з ними під час використання:
 
-- If GDB is malfunctioning, the script may fail to detect that, and continue running. In this case, obviously, no usable stacks will be produced. In order to avoid that, the user should periodically check the file `/tmp/pmpn-gdberr.log`, which contains the stderr output of the most recent invocation of GDB. In the future the script should be modified to invoke GDB in quiet mode, where it will indicate issues via its exit code.
+- Якщо GDB працює некоректно, скрипт може не виявити це і продовжити виконання. У цьому випадку, очевидно, не буде вироблено жодних придатних стеків. Щоб уникнути цього, користувач повинен періодично перевіряти файл `/tmp/pmpn-gdberr. og`, який містить stderr вихід останнього покликання GDB. У майбутньому сценарій слід змінити так, щоб він викликав GDB у тихому режимі, де він буде вказувати проблеми через свій код виходу.
 
-- Sometimes GDB just sticks forever while sampling the stack trace. During this failure, the target will be halted indefinitely. The solution is to manually abort the script and re-launch it again with the `--append` option. In the future the script should be modified to enforce a timeout for every GDB invocation.
+- Іноді GDB просто залишається назавжди, поки відбувається вибіркове збереження стеку. Під час цієї несправності ціль буде припинена на невизначений термін. Рішення полягає вручну переривати скрипт і знову запускати його з опцією `--append`. У майбутньому сценарій слід змінити, щоб накладати тайм-аут на кожне викликання GDB.
 
-- Multithreaded environments are not supported. This does not affect single core embedded targets, since they always execute in one thread, but this limitation makes the profiler incompatible with many other applications. In the future the stack folder should be modified to support multiple stack traces per sample.
+- Багатопотокові середовища не підтримуються. Це не впливає на однопроцесорні вбудовані цілі, оскільки вони завжди виконуються в одному потоці, але це обмеження робить профілер несумісним з багатьма іншими програмами. У майбутньому папку стеку слід модифікувати для підтримки кількох стеків викликів на один зразок.
 
 ## Реалізація
 
