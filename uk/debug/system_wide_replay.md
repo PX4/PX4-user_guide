@@ -1,4 +1,4 @@
-# System-wide Replay
+# Відтворення усієї системи
 
 Можливо записувати та відтворювати довільні частини системи на основі повідомлень ORB.
 
@@ -6,11 +6,11 @@
 
 ## Передумови
 
-The first step is to identify the module or modules that should be replayed. Then, identify all the inputs to these modules, i.e. subscribed ORB topics. For system-wide replay, this consists of all hardware input: sensors, RC input, MAVLink commands and file system.
+Перший крок - визначити модуль або модулі, які слід відтворити. Потім визначте всі вхідні дані для цих модулів, тобто підписані теми ORB. Для системного відтворення це включає в себе всі апаратні вхідні дані: сенсори, вхід RC, команди MAVLink та файлову систему.
 
-All identified topics need to be logged at full rate (see [logging](../dev_log/logging.md)). For `ekf2` this is already the case with the default set of logged topics.
+Всі виявлені теми потрібно реєструвати з повною швидкістю (див. [журналювання](../dev_log/logging.md)). Для `ekf2` це вже є випадок зі стандартним набором залогованих тем.
 
-It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`. Should there be more timestamps, they must be relative to the main timestamp. For an example, see [SensorCombined.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg). Reasons for this are given below.
+Важливо, щоб усі повторені теми містили лише один абсолютний відмітковий час, який є автоматично створеним полем `timestamp`. Якщо потрібно додати більше відміток часу, вони повинні бути відносно основної відмітки. Наприклад, див. [SensorCombined.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg). Причини цього наведено нижче.
 
 ## Використання
 
@@ -21,9 +21,9 @@ It is important that all replayed topics contain only a single absolute timestam
   make px4_sitl_default
   ```
 
-  This will create the build/make output in a separate build directory `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds). It's possible to choose any posix SITL build target for replay, since the build system knows through the `replay` environment variable that it's in replay mode.
+  Це створить вихід збірки/результат у окремому каталозі збірки `build/px4_sitl_default_replay` (щоб параметри не втручалися в звичайні збірки). Можна вибрати будь-яку ціль побудови posix SITL для відтворення, оскільки система побудови знає через змінну середовища `replay`, що вона знаходиться в режимі відтворення.
 
-- Add ORB publisher rules in the file `build/px4_sitl_default_replay/rootfs/orb_publisher.rules`. This file defines the modules that are allowed to publish particular messages. It has the following format:
+- Додайте правила видавця ORB у файл `build/px4_sitl_default_replay/rootfs/orb_publisher.rules`. Цей файл визначає модулі, які мають право публікувати певні повідомлення. Має наступний формат:
 
   ```sh
   restrict_topics: <topic1>, <topic2>, ..., <topicN>
@@ -31,9 +31,9 @@ It is important that all replayed topics contain only a single absolute timestam
   ignore_others: <true/false>
   ```
 
-  This means that the given list of topics should only be published by `<module>` (which is the command name). Publications to any of these topics from another module are silently ignored. If `ignore_others` is `true`, publications to other topics from `<module>` are ignored.
+  Це означає, що заданий список тем повинен бути опублікований лише за допомогою `<module>` (яке є ім'ям команди). Публікації з будь-якої з цих тем з іншого модуля мовчки ігноруються. Якщо `ignore_others` встановлено в `true`, публікації в інші теми від `<module>` ігноруються.
 
-  For replay, we only want the `replay` module to be able to publish the previously identified list of topics. So, for replaying `ekf2`, the rules file should look like this:
+  Для відтворення ми хочемо, щоб модуль `replay` міг публікувати раніше визначений список тем. Отже, для повторення `ekf2` файл правил повинен виглядати так:
 
   ```sh
   restrict_topics: sensor_combined, vehicle_gps_position, vehicle_land_detected
@@ -41,39 +41,39 @@ It is important that all replayed topics contain only a single absolute timestam
   ignore_others: true
   ```
 
-  With this, the modules that usually publish these topics don't need to be disabled for the replay.
+  З цим модулями, які зазвичай публікують ці теми, не потрібно вимикати для повторення.
 
-- _(Optional)_ Setup parameter overrides (see [instructions below](#overriding-parameters-in-the-original-log)).
-- _(Optional)_ Copy a `dataman` mission file from the SD card to the build directory. This is only necessary if a mission should be replayed.
-- Start the replay:
+- _(Опціонально)_ Налаштуйте заміщення параметрів (див. [інструкції нижче](#overriding-parameters-in-the-original-log)).
+- _(Необов'язково)_ Скопіюйте файл місії `dataman` з SD-карти в каталог збірки. Це потрібно лише у випадку, якщо місію слід переграти.
+- Почніть відтворення:
 
   ```sh
   make px4_sitl_default jmavsim
   ```
 
-  This will automatically open the log file, apply the parameters and start the replay. Once done, it will report the outcome and exit. The newly generated log file can then be analyzed. It can be found in `rootfs/fs/microsd/log`, in subdirectories organised by date. Replayed log file names will have the `_replayed` suffix.
+  Це автоматично відкриє файл журналу, застосує параметри та почне відтворення. Після завершення буде повідомляти про результат і вихід. Новостворений файл журналу можна потім проаналізувати. Це можна знайти в `rootfs/fs/microsd/log`, у підкаталогах, організованих за датою. Імена файлів журналу повторення матимуть суфікс `_replayed`.
 
-  Note that the above command will show the simulator as well, but - depending on what is being replayed - it will not show what's actually going on. It is still possible to connect via QGC and, for example, view the changing attitude during replay.
+  Зверніть увагу, що вищезазначена команда також покаже симулятор, але - в залежності від того, що відтворюється - вона не покаже, що насправді відбувається. Ще завжди можна підключитися через QGC та, наприклад, переглянути зміну ставлення під час відтворення.
 
-- Finally, unset the environment variable, so that the normal build targets are used again:
+- Нарешті, скасуйте змінну середовища, щоб знову використовувалися звичайні цілі збирання:
 
   ```sh
   unset replay
   ```
 
-### Overriding Parameters in the Original Log
+### Перевизначення параметрів у вихідному журналі
 
-By default, all parameters from the original log file are applied during a replay. If a parameter changes during recording, it will be changed at the right time during the replay.
+За замовчуванням, під час відтворення застосовуються всі параметри зі стартового файлу журналу. Якщо параметр змінюється під час запису, він буде змінений у відповідний час під час відтворення.
 
-Parameters can be overridden during a replay in two ways: _fixed_ and _dynamic_. When parameters are overridden, corresponding parameter changes in the log are not applied during replay.
+Параметри можуть бути замінені під час повторного відтворення двома способами: _фіксований_ та _динамічний_. Коли параметри перевизначаються, відповідні зміни параметрів в журналі не застосовуються під час повторного відтворення.
 
-- **Fixed parameter overrides** will override parameters from the start of the replay. They are defined in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`, where each line should have the format `<param_name> <value>`. Наприклад:
+- **Фіксовані заміщення параметрів** замінять параметри з початку відтворення. Вони визначені у файлі `build/px4_sitl_default_replay/rootfs/replay_params.txt`, де кожний рядок повинен мати формат `<param_name> <value>`. Наприклад:
 
   ```sh
   EKF2_RNG_NOISE 0.1
   ```
 
-- **Dynamic parameter overrides** will update parameter values at specified times. These parameters will still be initialised to the values in the log or in the fixed overrides. Parameter update events should be defined in `build/px4_sitl_default_replay/rootfs/replay_params_dynamic.txt`, where each line has the format `<param_name> <value> <timestamp>`. The timestamp is the time in seconds from the start of the log. For example:
+- **Заміщення динамічних параметрів** оновить значення параметрів у вказані часи. Ці параметри все ще будуть ініціалізовані до значень у журналі або в зафіксованих замінах. Події оновлення параметрів повинні бути визначені у файлі `build/px4_sitl_default_replay/rootfs/replay_params_dynamic.txt`, де кожний рядок має формат `<param_name> <value> <timestamp>`. Відмітка часу - це час у секундах з моменту початку журналу. Наприклад:
 
   ```sh
   EKF2_RNG_NOISE 0.15 23.4
@@ -81,45 +81,45 @@ Parameters can be overridden during a replay in two ways: _fixed_ and _dynamic_.
   EKF2_RNG_DELAY 4.5 30.0
   ```
 
-### Important Notes
+### Важливе зауваження
 
-- During replay, all dropouts in the log file are reported. These have a negative effect on the replay, so care should be taken to avoid dropouts during recording.
-- It is currently only possible to replay in 'real-time': as fast as the recording was done. This is planned to be extended in the future.
-- A message that has a timestamp of 0 will be considered invalid and not be replayed.
+- Під час відтворення всі відключення в журналі звітуються. Вони мають негативний вплив на повторення, тому слід уникати втрат під час запису.
+- Наразі можливо лише відтворення в 'реальному часі': так швидко, як було зроблено запис. Це планується розширити у майбутньому.
+- Повідомлення з міткою часу 0 буде вважатися недійсним і не буде відтворено.
 
-## EKF2 Replay
+## EKF2 Повтор
 
-This is a specialization of the system-wide replay for fast EKF2 replay.
+Це спеціалізація системного повторення для швидкого відтворення EKF2.
 
-::: info The recording and replay of flight logs with [multiple EKF instances](../advanced_config/tuning_the_ecl_ekf.md#running-multiple-ekf-instances) is not supported. To enable recording for EKF replay you must set the parameters to enable a [single EKF instance](../advanced_config/tuning_the_ecl_ekf.md#running-a-single-ekf-instance).
+:::info Запис і відтворення журналів польоту з [декількома екземплярами EKF](../advanced_config/tuning_the_ecl_ekf.md#running-multiple-ekf-instances) не підтримується. Щоб увімкнути запис для відтворення EKF, ви повинні встановити параметри для увімкнення [одного екземпляра EKF](../advanced_config/tuning_the_ecl_ekf.md#running-a-single-ekf-instance).
 :::
 
-In EKF2 mode, the replay will automatically create the ORB publisher rules described above.
+У режимі EKF2 відтворення автоматично створить правила публікації ORB, описані вище.
 
-To perform an EKF2 replay:
+Для виконання повторення EKF2:
 
-- Record the original log. Optionally set `SDLOG_MODE` to `1` to log from boot.
+- Запишіть оригінальний журнал. Необов'язково встановіть `SDLOG_MODE` на `1`, щоб вести журнал з завантаження.
 
-- In addition to the `replay` environment variable, set `replay_mode` to `ekf2`:
+- Крім змінної середовища `replay`, встановіть `replay_mode` на `ekf2`:
 
   ```sh
   export replay_mode=ekf2
   export replay=<absolute_path_to_log.ulg>
   ```
 
-- Run the replay with the `none` target:
+- Виконайте відтворення з метою `none`:
 
   ```sh
   make px4_sitl none
   ```
 
-- Once finished, unset both `replay` and `replay_mode`.
+- Після завершення скиньте як `replay`, так і `replay_mode`.
 
   ```sh
   unset replay; unset replay_mode
   ```
 
-### Adjusting EKF2-specific Parameters for the Replay
+### Налаштування конкретних параметрів EKF2 для відтворення
 
 Спочатку встановіть `pyulog`:
 
@@ -127,23 +127,23 @@ To perform an EKF2 replay:
 pip install --user pyulog
 ```
 
-Extract the original log's parameters to `replay_params.txt`:
+Видобути параметри початкового журналу в `replay_params.txt`:
 
 ```sh
 ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/rootfs/replay_params.txt
 ```
 
-Adjust these as desired, and add dynamic parameter overrides in `replay_params_dynamic.txt` if necessary.
+Настроїть їх за потребою та додайте динамічні заміни параметрів у `replay_params_dynamic.txt`, якщо необхідно.
 
-## Behind the Scenes
+## Позаду кадру
 
-Replay is split into 3 components:
+Перегравання розділено на 3 компоненти:
 
-- A replay module These have a negative effect on replay, so care should be taken to avoid dropouts during recording.
-- It is currently only possible to replay in 'real-time': as fast as the recording was done.
+- Модуль повторення Вони мають негативний вплив на повторення, тому слід уникати втрат під час запису.
+- Наразі можливо лише відтворення в 'реальному часі': так швидко, як було зроблено запис.
 
-The replay module reads the log and publishes the messages at the same speed as they were recorded. A constant offset is added to the timestamp of each message to match the current system time (this is the reason why all other timestamps need to be relative). The command `replay tryapplyparams` is executed before all other modules are loaded and applies the parameters from the log and user-set parameters. Then as the last command, `replay trystart` will again apply the parameters and start the actual replay. Both commands do nothing if the environment variable `replay` is not set.
+Модуль відтворення читає журнал та публікує повідомлення з тією самою швидкістю, з якою вони були записані. До часового позначення кожного повідомлення додається постійний зсув, щоб відповідати поточному часу системи (це причина, чому всі інші часові позначення повинні бути відносними). Команда `replay tryapplyparams` виконується перед завантаженням усіх інших модулів та застосовує параметри з журналу та параметри, встановлені користувачем. Потім як остання команда, `replay trystart` знову застосує параметри та розпочне фактичне відтворення. Обидва команди нічого не роблять, якщо змінна середовища `replay` не встановлена.
 
-The ORB publisher rules allow to select which part of the system is replayed, as described above. They are only compiled for the posix SITL targets.
+Правила видавця ORB дозволяють вибрати, яка частина системи повторюється, як описано вище. Вони компілюються лише для цільових posix SITL.
 
-The **time handling** is still an **open point**, and needs to be implemented.
+**Обробка часу** все ще є **відкритою точкою**, і її потрібно реалізувати.
