@@ -1,4 +1,4 @@
-# VehicleAttitude (UORB message)
+# VehicleAttitude (повідомлення UORB)
 
 This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use The quaternion uses the Hamilton convention, and the order is q(w, x, y, z)
 
