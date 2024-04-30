@@ -1,19 +1,19 @@
-# Відлагодження з GDB
+# Налагодження з GDB
 
-The [GNU DeBugger (GDB)](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary. The debugger reads the debug symbols inside an ELF file to understand the static and dynamic memory layout of the PX4 firmware. To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
+[Налагоджувач GNU (GDB)](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) інстальовано разом з інструментарієм компілятора у вигляді бінарного файлу `arm-none-eabi-gdb`. Налагоджувач читає символи відладки у файлі формату виконання ELF щоб зрозуміти статичну та динамічну структуру пам'яті прошивки PX4. Для доступу до мікроконтролера автопілота PX4, йому потрібно з'єднатися з [віддаленою ціллю](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html), яка надається [зондом налагодження за протоколом SWD](swd_debug.md).
 
-The flow of information looks like this:
+Плин інформації виглядає таким чином:
 
 ```sh
-Developer <=> GDB <=> GDB Server <=> Debug Probe <=> SWD <=> PX4 Autopilot.
+Розробник <=> GDB <=> сервер GDB <=> зонд налагодження <=> SWD <=> автопілот PX4.
 ```
 
 ## Швидкий старт
 
-To start a debugging session you typically:
+Для початку сеансу налагодження вам зазвичай потрібно:
 
-1. Need a specialized [SWD debug probe](../debug/swd_debug.md#debug-probes).
-2. Find and connect to the [SWD debug port](../debug/swd_debug.md#autopilot-debug-ports). You may need a [debug adapter](swd_debug.md#debug-adapters).
+1. Спеціалізований [зонд налагодження за протоколом SWD](../debug/swd_debug.md#debug-probes).
+2. Знайти та під'єднатися до [порту налагодження SWD](../debug/swd_debug.md#autopilot-debug-ports). Можливо знадобиться [адаптер налагодження](swd_debug.md#debug-adapters).
 3. Configure and start the debug probe to create a GDB server.
 4. Launch GDB and connect to the GDB server as a remote target.
 5. Debug your firmware interactively.
