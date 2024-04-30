@@ -74,32 +74,32 @@ PX4 не виробляє цей (або будь-який інший) авто�
 
 Примітка:
 
-1. The output power rails **FMU PWM OUT** and **I/O PWM OUT** do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER** or **USB** or the board will be unpowered.
-2. The USB do not power the **Raspberry Pi CM3+**. You must supply power to **POWER** or the Raspberry Pi CM3+ will be unpowered.
+1. Вихідні шини живлення **FMU PWM OUT** і **I/O PWM OUT** не живлять плату контролера польоту (і не живляться від неї). Ви повинні подати живлення на один з роз'ємів **POWER** або **USB**, інакше плата буде знеструмлена.
+2. USB не живить **Raspberry Pi CM3+**. Ви повинні подати живлення на **POWER**, інакше Raspberry Pi CM3+ буде знеструмлено.
 
-**Normal Operation Maximum Ratings**
+**Максимальна напруга нормальної роботи**
 
-Under these conditions, all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. POWER input (5V to 5.5V)
-2. USB input (4.75V to 5.25V)
+1. POWER вхід (5В до 5.5В)
+2. USB вхід (4.75В до 5.25В)
 
-**Absolute Maximum Ratings**
+**Абсолютна максимальна напруга**
 
-Under these conditions, all power sources cause permanent damage to the flight controller.
+За таких умов всі джерела живлення спричиняють постійні пошкодження контролеру польоту.
 
-1. POWER input (5.5V Over)
+1. POWER вхід (більше 5.5В)
 
-2. USB input (5.5V Over)
+2. USB вхід (більше 5.5В)
 
-## Building Firmware
+## Збірка прошивки
 
-To build PX4 for this target:
+Щоб зібрати PX4 для цього контролера:
 
 ```jsx
 make thepeach_r1_default
 ```
 
-## Where to buy
+## Де купити
 
-Order from [ThePeach](http://thepeach.shop/)
+Замовляйте у [ThePeach](http://thepeach.shop/)
