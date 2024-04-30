@@ -4,7 +4,7 @@ ARK GPS is an open source [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.m
 
 ![ARK GPS](../../assets/hardware/gps/ark_gps.jpg)
 
-## Where to Buy
+## Де придбати
 
 Order this module from:
 
