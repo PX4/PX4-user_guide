@@ -113,66 +113,64 @@ STLinkv3-MINIE постачається ось таким чином.
 
 Довгий кабель особливо корисний, якщо ви використовуєте вже зібрані кабелі, оскільки він усуває потребу в обрізанні або знятті ізоляції з проводів.
 
-Carefully remove the two GPIO1/2 cables from one connector of the cable. Then remove all cables from the other connector. You are left with a eight crimped connectors at the end of the wires.
+Обережно вийміть два дроти GPIO1/2 з одного роз'єму кабелю. Потім від'єднайте всі дроти від іншого роз'єму. У вас залишилось вісім обжатих роз'ємів на кінці дротів.
 
 ![](../../assets/debug/stlinkv3_minie_p7.jpeg)
 
-Tin the crimped cable connectors and BTB connector and solder the crimped connectors directly to the STLinkv3. Be careful to not create shorts between the cables, as the crimped connectors are quite large.
+Залудіть обжаті роз'єми та роз'єм BTB та припаяйте обжаті роз'єми безпосередньо до STLinkv3. Будьте обережні, щоб не створити коротке замикання між дротами, оскільки обжаті роз'єми досить великі.
 
 ![](../../assets/debug/stlinkv3_minie_p8.jpeg)
 
-### Testing
+### Перевірка
 
-You should now test your debug probe to ensure you do not have any electrical shorts.
+Тепер слід протестувати зонд для налагодження, щоб переконатися, що немає жодних коротких замикань.
 
-1. Plug the probe into your target via the Pixhawk Debug Port.
-2. Test the serial port with a program of your choice.
-3. Test the SWD and RST connection via \[OpenOCD\]\[https://openocd.org\] or [STLink](https://www.st.com/en/development-tools/stsw-link004.html) software.
-4. Test the SWO connection via \[Orbuculum\]\[https://github.com/orbcode/orbuculum\].
+1. Під'єднайте зонд до цілі через роз'єм налагодження Pixhawk.
+2. Перевірте послідовний порт за допомогою програми за вибором.
+3. Перевірте з'єднання SWD та RST за допомогою програмного забезпечення \[OpenOCD\]\[https://openocd.org\] або [STLink](https://www.st.com/en/development-tools/stsw-link004.html).
+4. Перевірте підключення SWO за допомогою \[Orbuculum\]\[https://github.com/orbcode/orbuculum\].
 
-See the [Embedded Debug Tools][emdbg] for more information about software support for the PX4 FMUv5 and FMUv6 flight controllers.
+Дивіться [Вбудовані інструменти налагодження][emdbg] для отримання додаткової інформації про програмну підтримку контролерів польоту PX4 FMUv5 та FMUv6.
 
-### Make it Smaller
+### Зменшення зонду
 
-This step removes the 14-pin debug interface on the back of the STLinkv3-MINIE and adds shrink tubing around the entire device to improve handling and prevent shorting the STLink against metal parts or PCBs. This step is strictly optional and requires:
+Цей крок видаляє 14-контактний інтерфейс для налагодження на задній частині STLinkv3-MINIE та додає термоусадку навколо всього пристрою для поліпшення поводження та запобігання короткому замиканню STLink на металеві деталі або плати. Цей крок є виключно необов'язковим та потребує:
 
-- 1x 20mm shrink tubing about 5cm long.
-- 1x flat tongs to hold the STLinkv3 by the USB-C port.
-- 1x fine cutting pliers or soldering iron.
-- 1x heat gun.
+- 1x Термоусадка діаметром 20 мм та довжиною приблизно 5 см.
+- 1x плаский затискач для утримання STLinkv3 за порт USB-C.
+- 1x дрібні плоскогубці або паяльник.
+- 1x паяльний фен.
 
-Use the pliers to gently pull off the plastic part of the STDC14 connector. This leaves you with only the connector pins.
+Використайте плоскогубці, щоб обережно витягнути пластикову частину роз'єму STDC14. Залишаться тільки контакти роз'єму.
 
 ![](../../assets/debug/stlinkv3_minie_p9.jpeg)
 
-Using the fine pliers, cut off the connector pins being very careful not to damage the PCB or any components on the PCB. Alternatively, you can solder these connector pin off the PCB, but it can take longer.
+За допомогою дрібних плоскогубців відріжте контакти роз'єму дуже обережно, щоб не пошкодити плату або будь-які компоненти на платі. Або ж ви можете випаяти ці контакти роз'єму з плати, але це може зайняти більше часу.
 
 ![](../../assets/debug/stlinkv3_minie_p10.jpeg)
 
-Rotate the STLinkv3 to cut off the other row, again being very careful to not damage it.
+Поверніть STLinkv3, щоб обрізати інший ряд контактів, знову дуже обережно, щоб нічого не пошкодити.
 
 ![](../../assets/debug/stlinkv3_minie_p11.jpeg)
 
-Cut a ~5cm (~2in) long piece of shrink tube. It should be flush with the USB-C connector and extend a little beyond the end.
+Відріжте кусок термоусадки довжиною приблизно 5 см (2 дюйми). Він повинен бути вирівняний з роз'ємом USB-C і трохи виступати за межі краю.
 
 ![](../../assets/debug/stlinkv3_minie_p12.jpeg)
 
-Hold both the PCB and the shrink tube with the flat tongs by the **bottom** metal part of the USB-C connector. Be careful not to accidentally squeeze the middle plastic part of the USB-C connector!
+Утримуйте плату та термоусадку за допомогою плаского затискача за **нижню** металеву частину роз'єму USB-C. Будьте обережні, щоб помилково не стиснути середню пластикову частину роз'єму USB-C!
 
 ![](../../assets/debug/stlinkv3_minie_p13.jpeg)
 
-Use the heat gun to shrink the tubing all around the debug probe. Make sure the tubing is equally shrunk and protects the whole PCB.
+За допомогою фену зменште термоусадку навколо зонду налагодження. Переконайтеся, що усадка рівномірно стиснута і захищає всю плату.
 
 ![](../../assets/debug/stlinkv3_minie_p14.jpeg)
 
-Optionally, you may add a logo of your choice printed on paper and cut to size. Be aware that the heat can make the ink flow a little, so you may need to experiment with what settings work with your printer.
+За бажанням, ви можете додати логотип за вибором, надрукований на папері та обрізаний за розміром. Зверніть увагу, що нагрів може призвести до плину чорнил, тому може знадобитися поекспериментувати з налаштуваннями фену, які працюють з вашим принтером.
 
 ![](../../assets/debug/stlinkv3_minie_p15.jpeg)
 
 ## Дивіться також
 
 - [Міні-зонд для відлагодження/програмування STLINK-V3MINIE для мікроконтролерів STM32](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) (Посібник користувача)
-
-[emdbg]: https://pypi.org/project/emdbg/
 
 [emdbg]: https://pypi.org/project/emdbg/
