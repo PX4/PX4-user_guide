@@ -1,40 +1,40 @@
-# Log Analysis using Flight Review
+# Аналіз журналу за допомогою огляду польоту
 
-The [Flight Review](http://logs.px4.io) plots for a flight can be used to analyze general vehicle condition.
+Діаграми [огляду польоту](http://logs.px4.io) для польоту можуть бути використані для аналізу загального стану транспортного засобу.
 
-The plots are meant to be self-explanatory, but it takes some experience to know what ranges are acceptable and what a plot should look like. This page explains how to interpret the plots and identify common problems.
+Сюжети мають бути зрозумілими самі по собі, але для того, щоб знати, які діапазони є прийнятними і як повинен виглядати сюжет, потрібен деякий досвід. Ця сторінка пояснює, як інтерпретувати графіки та визначити загальні проблеми.
 
-## General Usage
+## Загальне використання
 
-Features that are common to many plots:
+Особливості, які є загальними для багатьох сюжетів:
 
-- Plot background color is used to indicate flight mode during recording (where graphs depend on mode): ![Flight Modes](../../assets/flight_log_analysis/flight_review/flight_modes.png)
-  - **Flight mode:** Background colour on the body of the plot indicates flight mode. Hovering with the mouse over a plot shows the flight mode labels.
-  - **VTOL flight mode:** VTOL vehicles additionally show the VTOL mode as background colour in the bottom part of the plot (blue for multicopter, yellow for fixed-wing, and red for transition).
-- Mouse scrolling on a particular plot axis zooms that axis (horizontally or vertically).
-- Mouse scrolling inside the plot zooms both axes.
+- Колір фону сюжету використовується для позначення режиму польоту під час запису (де графіки залежать від режиму): ![Flight Modes](../../assets/flight_log_analysis/flight_review/flight_modes.png)
+  - **Режим польоту:** Колір фону на тілі графіку вказує на режим польоту. Наведення курсору миші на діаграму показує мітки режиму польоту.
+  - **Режим польоту VTOL:** Транспортні засоби VTOL додатково показують режим VTOL як фоновий колір у нижній частині графіку (синій для багатокоптерних, жовтий для фіксованих крил та червоний для переходу).
+- Прокручування мишею на певній вісі графіка зумовлює збільшення цієї вісі (горизонтально або вертикально).
+- Прокручування миші всередині графіка збільшує обидва вісі.
 
 <a id="tracking"></a>
 
-## PID Tracking Performance
+## Виконання відстеження PID
 
-Depending on the flight mode, the vehicle controllers may attempt to track position, velocity, altitude or rate setpoints (the tracked setpoints depend on the mode, e.g.: in Stabilized mode there is no velocity setpoint).
+Залежно від режиму польоту, контролери транспортного засобу можуть намагатися відстежувати установочні точки положення, швидкості, висоти або швидкості (відстежувані установочні точки залежать від режиму, наприклад: в режимі стабілізації немає установочної точки швидкості).
 
-The **Estimated** line (red) should closely match with the **Setpoint** (green). If they do not, in most cases the PID gains of that controller need to be tuned.
+Лінія **Оцінена** (червона) повинна бути якомога ближчою до **Установленої точки** (зелена). Якщо вони цього не роблять, у більшості випадків потрібно налаштувати коефіцієнти ПІД цього контролера.
 
-The [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) contains example plots and information about analysing tracking performance.
+[Посібник з налаштування PID для багатокоптерів](../config_mc/pid_tuning_guide_multicopter.md) містить приклади графіків та інформацію про аналіз результатів слідкування.
 
 :::tip
-For the rate controller in particular, it is useful to enable the high-rate logging profile ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) to get more details when zooming in.
+Для контролера швидкості важливо увімкнути профіль високої швидкості журналювання ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)), щоб отримати більше деталей при збільшенні масштабу.
 :::
 
-## Vibration
+## Вібрація
 
-Vibration is one of the most common problems for multirotor vehicles. High vibration levels can lead to:
-- less efficient flight and reduced flight time
-- the motors can heat up
-- increased material wearout
-- inability to tune the vehicle tightly, resulting in degraded flight performance.
+Вібрація є однією з найпоширеніших проблем для багатороторних транспортних засобів. Високі рівні вібрації можуть призвести до:
+- менш ефективний польот і скорочений час польоту
+- двигуни можуть нагрітися
+- збільшене зношування матеріалу
+- неможливість налаштувати транспортний засіб тісно, що призводить до погіршення польотних характеристик.
 - sensor clipping
 - position estimation failures, potentially resulting in fly-aways.
 
