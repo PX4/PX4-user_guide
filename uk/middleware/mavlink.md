@@ -48,7 +48,7 @@ The receiving end of the communication will discard any packet for which the mes
 
 PX4 за замовчуванням випускає збірку `common.xml` визначень MAVLink для забезпечення максимальної сумісності з наземними станціями MAVLink, бібліотеками та зовнішніми компонентами, такими як камери MAVLink. У гілці `main` вони містяться у `development.xml` на SITL та `common.xml` для інших плат.
 
-::: info Щоб бути частиною випуску PX4, всі визначення MAVLink, які ви використовуєте, повинні знаходитися у `common.xml` (або у включених файлах, таких як `standard.xml` та `minimal.xml`). Під час розробки ви можете використовувати визначення в `development.xml`. Вам потрібно буде попрацювати з [командою MAVLink](https://mavlink.io/en/contributing/contributing.html), щоб визначити і внести ці визначення.
+:::info Щоб бути частиною випуску PX4, всі визначення MAVLink, які ви використовуєте, повинні знаходитися у `common.xml` (або у включених файлах, таких як `standard.xml` та `minimal.xml`). Під час розробки ви можете використовувати визначення в `development.xml`. Вам потрібно буде попрацювати з [командою MAVLink](https://mavlink.io/en/contributing/contributing.html), щоб визначити і внести ці визначення.
 :::
 
 PX4 включає репозиторій [mavlink/mavlink](https://github.com/mavlink/mavlink) як підмодуль у [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink). Тут містяться файли визначень XML у каталозі [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/).
@@ -64,7 +64,7 @@ PX4 включає репозиторій [mavlink/mavlink](https://github.com/m
 
 Користувацьке повідомлення MAVLink - це повідомлення, якого немає у визначеннях за замовчуванням, включених до PX4.
 
-::: info
+:::info
 Якщо ви використовуєте користувацьке визначення, вам потрібно буде підтримувати визначення у PX4, вашій наземній станції та будь-яких інших SDK, які взаємодіють з нею.
 Загалом, щоб зменшити тягар обслуговування, слід використовувати (або доповнювати) стандартні визначення, якщо це можливо.
 :::
@@ -90,7 +90,7 @@ PX4 включає репозиторій [mavlink/mavlink](https://github.com/m
 
 ### Передумови
 
-Generally you will already have a [uORB](../middleware/uorb.md) message that contains information you'd like to stream and a definition of a MAVLink message that you'd like to stream it with.
+Загалом у вас вже повинно бути повідомлення [uORB](../middleware/uorb.md), яке містить інформацію, яку ви хочете транслювати, та визначення повідомлення MAVLink, з яким ви хочете його транслювати.
 
 For this example we're going to assume that you want to stream the (existing) [BatteryStatus](../msg_docs/BatteryStatus.md) uORB message to a new MAVLink battery status message, which we will name `BATTERY_STATUS_DEMO`.
 
