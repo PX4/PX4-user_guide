@@ -73,45 +73,45 @@ arm-none-eabi-gdb build/px4_fmu-v5x_default/px4_fmu-v5x_default.elf -ex "target 
 |                       9 |                         | nRST               | RST        |              9 |
 |                      10 |                       6 | **GND**            | GND        |              6 |
 
-The GPIO1/2 pins are not supported by the STLinkv3, and we recommend using digital ITM profiling over SWO which is much more flexible and supports cycle accurate timestamping.
+Контакти GPIO1/2 не підтримуються STLinkv3 та ми рекомендуємо користуватись цифровим ITM профілюванням через SWO що є найбільш гнучким та підтримує точний вимір часу між циклами.
 
-You can choose to solder a short or long cable to the BTB connector. The short cable is better for high-speed communication, but is more difficult to solder. We recommend soldering the long cable first and testing how fast you can communicate with your target.
+Ви можете спаяти короткий або довгий кабель для BTB роз'єму. Короткий кабель краще підходить для високошвидкісного зв'язку, але його складніше паяти. Ми рекомендуємо спочатку спаяти довгий кабель і перевірити, наскільки швидким буде з'єднання з цільовим об'єктом.
 
 ::: info
-This guide is written for the full 10-pin debug port. If you want to solder the mini 6-pin version, just leave out the signals you don't have. The STLink supports any SWD/JTAG-based debug interface, so you can adapt this guide for any other connector you may have. The debug probes are so cheap, you can just have one per connector instead of using adapters.
+Ця інструкція написана для 10-контактного порту налагодження. Якщо ви хочете спаяти мініверсію з 6 контактами, просто пропустіть сигнали, яких у вас немає. STLink підтримує будь-який інтерфейс налагодження на основі SWD/JTAG, тому ви можете адаптувати цю інструкцію для будь-якого роз'єму, який у вас є. Зонди налагодження настільки дешеві, що ви можете мати по одному на кожен роз'єм замість використання адаптерів.
 :::
 
-This is how the STLinkv3-MINIE is delivered.
+STLinkv3-MINIE постачається ось таким чином.
 
 ![](../../assets/debug/stlinkv3_minie_p1.jpeg)
 
-Unwrap the PCB and check it for any damage. Plug it in and see if it powers on correctly.
+Розпакуйте плату і перевірте її на наявність пошкоджень. Під'єднайте її до живлення та переконайтеся, що вона вмикається правильно.
 
 ![](../../assets/debug/stlinkv3_minie_p2.jpeg)
 
-### Short Cable
+### Короткий кабель
 
-The short cable requires a wire cutter and stripper and requires a little more soldering skill. However, it makes the entire debug probe even smaller.
+Короткий кабель потребує інструмент для обрізання та зачистки кабелю та трохи більше навичок пайки. Однак це робить увесь зонд налагодження ще меншим.
 
-Assemble a 10-pin connector without GPIO1/2. If you already have an assembled cable, carefully remove the two GPIO1/2 cables with a tweezer by lifting the pegs that keep the cables secured. Cut the cables to a short ~2cm (~1in) length and strip the wires.
+Зберіть 10-контактний роз'єм без GPIO1/2. Якщо у вас вже є зібраний кабель, обережно видаліть два дроти GPIO1/2 за допомогою пінцета, піднімаючи штирі, які утримують їх на місці. Відріжте дроти на невелику довжину у приблизно 2 см (1 дюйм) та зачистить їх.
 
 ![](../../assets/debug/stlinkv3_minie_p3.jpeg)
 
-Tin both the BTB connector on the STLink and the cables.
+Залудіть як роз'єм BTB на STLink так і кабелі.
 
 ![](../../assets/debug/stlinkv3_minie_p4.jpeg)
 
-First solder the GND and VCC signals to align the connector in parallel to the edge. Then solder the TX and RX pins. Solder the RST connection last.
+Спочатку припаяйте сигнальні дроти для GND та VCC, щоб вирівняти роз'єм паралельно до краю. Потім припаяйте контакти TX та RX. Припаяйте з'єднання RST останнім.
 
 ![](../../assets/debug/stlinkv3_minie_p5.jpeg)
 
-Turn the STLink over and solder the remaining three wires. Start with SWDIO->TMS, then SWCLK->CLK, and finally SWO->TDO.
+Переверніть STLink і припаяйте три дроти, що залишились. Почніть з SWDIO->TMS, потім SWCLK->CLK, і нарешті SWO->TDO.
 
 ![](../../assets/debug/stlinkv3_minie_p6.jpeg)
 
-### Long Cable
+### Довгий кабель
 
-The long cable is particularly useful if you use pre-assembled cables as it removes the need to cut wires or strip them.
+Довгий кабель особливо корисний, якщо ви використовуєте вже зібрані кабелі, оскільки він усуває потребу в обрізанні або знятті ізоляції з проводів.
 
 Carefully remove the two GPIO1/2 cables from one connector of the cable. Then remove all cables from the other connector. You are left with a eight crimped connectors at the end of the wires.
 
