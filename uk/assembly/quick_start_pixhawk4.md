@@ -1,25 +1,25 @@
 # Pixhawk 4 Wiring Quick Start
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не займається виготовленням цього (чи якогось іншого) автопілоту. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
 :::
 
-This quick start guide shows how to power the [Pixhawk 4](../flight_controller/pixhawk4.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
+У цьому короткому посібнику показано, як увімкнути живлення польотного контролера [Pixhawk 6C](../flight_controller/pixhawk4.md)&reg;<sup></sup> та підʼєднати до нього найважливіші периферійні пристрої.
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
 
-## Wiring Chart Overview
+## Огляд схеми підключення
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+На зображенні нижче показано, як під'єднати найважливіші датчики та периферійні пристрої (за винятком виходів мотора та сервоприводів). Ми розглянемо кожен з них докладно в наступних розділах.
 
 ![Pixhawk 4 Wiring Overview](../../assets/flight_controller/pixhawk4/pixhawk4_wiring_overview.png)
 
 :::tip
-More information about available ports can be found here: [Pixhawk 4 > Connections](../flight_controller/pixhawk4.md#connectors).
+Додаткову інформацію про доступні порти можна знайти тут: [Pixhawk 4 > Connections](../flight_controller/pixhawk4.md#connectors).
 :::
 
-## Mount and Orient Controller
+## Монтаж та орієнтація контролера
 
-_Pixhawk 4_ should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+_Pixhawk_ необхідно змонтувати на раму разом з амортизаційними подушками проти вібрації (включені в комплект). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_mounting_and_foam.png" align="center" />
 
