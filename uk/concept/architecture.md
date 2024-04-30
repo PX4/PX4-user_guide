@@ -113,13 +113,13 @@ PX4 запускається на різних операційних систе
 
 ```cpp
 independent_task = px4_task_spawn_cmd(
-    "commander",                    // Ім'я процесу
-    SCHED_DEFAULT,                  // Тип планування (RR or FIFO)
-    SCHED_PRIORITY_DEFAULT + 40,    // Пріоритет планування
-    3600,                           // Розмір стеку нового завдання або потоку
-    commander_thread_main,          // Головна функція задання або потоку
-    (char * const *)&argv[0]        // Вказівник на процедуру для передачі новому завданню
-                                    // (аргументи командного рядка).
+    "commander",                    // Process name
+    SCHED_DEFAULT,                  // Scheduling type (RR or FIFO)
+    SCHED_PRIORITY_DEFAULT + 40,    // Scheduling priority
+    3600,                           // Stack size of the new task or thread
+    commander_thread_main,          // Task (or thread) main function
+    (char * const *)&argv[0]        // Void pointer to pass to the new task
+                                    // (here the commandline arguments).
     );
 ```
 
