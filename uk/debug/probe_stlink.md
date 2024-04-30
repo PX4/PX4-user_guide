@@ -1,21 +1,21 @@
-# STLink Debug Probe
+# Зонд налагодження STLink
 
-The [STLinkv3-MINIE](https://www.st.com/en/development-tools/stlink-v3minie.html) is a cheap, fast and highly capable debug probe that can serve as a stand-alone debug and console communicator for a PX4 developer:
+[STLinkv3-MINIE](https://www.st.com/en/development-tools/stlink-v3minie.html) дешевий, швидкий та високоякісний зонд для налагодження який може працювати як самостійний консольний та налагоджувальний передавач для розробника PX4:
 
-- Just one single USB-C connection for Reset, SWD, SWO, and serial in a very small package!
-- Up to 24MHz SWD and SWO connection. Up to 16 MBaud serial. 1.65V to 3.6V target voltage. USB2 high-speed 480 Mbps connection.
-- Driven by STLink or OpenOCD software with wide device support.
-- Much cheaper (<15€) than a Pixhawk Debug Adapter (~20€) with a JLink EDU mini (~55€) or JLink BASE (~400€) while having better hardware specs.
+- Тільки єдине USB-C з'єднання для Reset, SWD, SWO та послідовного входу у дуже компактному виконанні!
+- З'єднання по протоколах SWD та SWO - до 24 МГц. Послідовне з'єднання - до 16 мега бод. Цільова напруга від 1.65В до 3.6В. З'єднання по високошвидкісному протоколу USB2 до 480 Мбіт/c.
+- Керований програмним забезпеченням STLink або OpenOCD із широкою підтримкою пристроїв.
+- Набагато дешевше (<15€) ніж адаптер налагодження Pixhawk (~20€) з JLink EDU mini (~55€) або JLink BASE (~400€) при кращих апаратних характеристиках.
 
-The STLink Debug Probe does not come with an adapter for working with Pixhawk flight controllers. The [Pixhawk Debug Port Adapter](#pixhawk-debug-port-adapter) section below explains how you can create your own (some soldering required).
+Зонд STLink постачається без адаптера для роботи з контролерами польоту Pixhawk. Розділ [Адаптер порту налагодження Pixhawk](#pixhawk-debug-port-adapter) пояснює як можна створити власний (потрібно трохи паяння).
 
 ::: info
-The [CUAV C-ADB Pixhawk Debugging Adapter](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-adapter) (~65€) comes with an STLinkv3-MINIE! This has a connector for the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) 10-pin SH port (but not the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini)).
+The [Адаптер налагодження CUAV C-ADB Pixhawk](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-adapter) (~65€) постачається з STLinkv3-MINIE! Він має роз'єм для [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) SH порту з 10 контактами (але не для порту [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini)).
 :::
 
-## Налаштування відлагодження
+## Налаштування налагодження
 
-The STLink provides the [GDB server via OpenOCD](https://openocd.org/doc-release/html/index.html):
+STLink надає [GDB сервер за допомогою OpenOCD](https://openocd.org/doc-release/html/index.html):
 
 ```sh
 # Ubuntu
@@ -24,54 +24,54 @@ sudo apt install openocd
 brew install open-ocd
 ```
 
-You can launch the GDB server in a new terminal shell:
+Ви можете запустити сервер GDB в новому терміналі:
 
 ```sh
 openocd -f interface/stlink.cfg -f target/stm32f7x.cfg
 ```
 
-The config file needs to be:
+Файл налаштувань повинен бути:
 
 - FMUv2-v4: `-f target/stm32f4x.cfg`
 - FMUv5: `-f target/stm32f7x.cfg`
 - FMUv6: `-f target/stm32h7x.cfg`
 
-You can then connect to port 3333 via GDB:
+Потім можна під'єднатися до порту 3333 через GDB:
 
 ```sh
 arm-none-eabi-gdb build/px4_fmu-v5x_default/px4_fmu-v5x_default.elf -ex "target extended-remote :3333"
 ```
 
-See the [Embedded Debug Tools][emdbg] for more advanced debug options.
+Дивіться [Вбудовані інструменти налагодження][emdbg] для розширених варіантів налаштування налагодження.
 
-## Pixhawk Debug Port Adapter
+## Адаптер порту налагодження Pixhawk
 
-To connect to the Pixhawk Debug Port, you need to solder an adapter (unless using the [CUAV Debug Adaptor](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-adapter)).
+Для з'єднання з портом налагодження Pixhawk, потрібно спаяти адаптер (якщо не використовуєте [адаптер налагодження CUAV](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-adapter)).
 
-For this solder guide you need:
+Для цієї інструкції паяння вам знадобиться:
 
 - 1x [STLinkv3-MINIE](https://www.st.com/en/development-tools/stlink-v3minie.html).
-- 1x cable connector for mating with [JST SM10B (Full)](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A) or [JST SM06B (Mini)](https://www.digikey.com/products/en?keywords=A06SR06SR30K152A).
+- 1x роз'єм кабелю для сполучення з [JST SM10B (Full)](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A) або [JST SM06B (Mini)](https://www.digikey.com/products/en?keywords=A06SR06SR30K152A).
 
-  We recommend buying fully assembled cables with two connectors on either side.
+  Рекомендуємо купувати повністю зібрані кабелі з двома роз'ємами з обох боків.
 
-- 1x soldering iron and solder.
-- Some tongs, cutting pliers, and tweezers.
+- 1x паяльник та припій.
+- Щипці, плоскогубці та пінцет.
 
-The [Pixhawk Debug Port is standardized in DS-009](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) and needs to be connected to the STLinkv3-MINIE Board-To-Board (BTB) card edge connector CN2. The pinout mapping is described here:
+[Порт налагодження Pixhawk стандартизовано у документі DS-009](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) та повинен бути з'єднаний з роз'ємом CN2 плати з'єднання STLinkv3-MINIE Board-To-Board (BTB). Зіставлення контактів описано тут:
 
-| #Full | #Mini | Pixhawk Debug    | STLinkv3 | #BTB |
-| -----:| -----:|:---------------- |:-------- | ----:|
-|     1 |     1 | **VREF**         | VCC      |   10 |
-|     2 |     2 | Console TX (out) | TX (in)  |    8 |
-|     3 |     3 | Console RX (in)  | RX (out) |    7 |
-|     4 |     4 | **SWDIO**        | TMS      |    3 |
-|     5 |     5 | **SWCLK**        | CLK      |    4 |
-|     6 |       | SWO              | TDO      |    5 |
-|     7 |       | GPIO1            |          |      |
-|     8 |       | GPIO2            |          |      |
-|     9 |       | nRST             | RST      |    9 |
-|    10 |     6 | **GND**          | GND      |    6 |
+| № контакту SM10B (Full) | № контакту SM06B (Mini) | Порт Pixhawk       | STLinkv3   | № контакту BTB |
+| -----------------------:| -----------------------:|:------------------ |:---------- | --------------:|
+|                       1 |                       1 | **VREF**           | VCC        |             10 |
+|                       2 |                       2 | TX консолі (вихід) | TX (вхід)  |              8 |
+|                       3 |                       3 | RX консолі (вхід)  | RX (вихід) |              7 |
+|                       4 |                       4 | **SWDIO**          | TMS        |              3 |
+|                       5 |                       5 | **SWCLK**          | CLK        |              4 |
+|                       6 |                         | SWO                | TDO        |              5 |
+|                       7 |                         | GPIO1              |            |                |
+|                       8 |                         | GPIO2              |            |                |
+|                       9 |                         | nRST               | RST        |              9 |
+|                      10 |                       6 | **GND**            | GND        |              6 |
 
 The GPIO1/2 pins are not supported by the STLinkv3, and we recommend using digital ITM profiling over SWO which is much more flexible and supports cycle accurate timestamping.
 
@@ -172,5 +172,7 @@ Optionally, you may add a logo of your choice printed on paper and cut to size. 
 ## Дивіться також
 
 - [Міні-зонд для відлагодження/програмування STLINK-V3MINIE для мікроконтролерів STM32](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) (Посібник користувача)
+
+[emdbg]: https://pypi.org/project/emdbg/
 
 [emdbg]: https://pypi.org/project/emdbg/
