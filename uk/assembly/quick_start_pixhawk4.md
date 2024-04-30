@@ -19,18 +19,18 @@
 
 ## Монтаж та орієнтація контролера
 
-_Pixhawk_ необхідно змонтувати на раму разом з амортизаційними подушками проти вібрації (включені в комплект). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+_Pixhawk_ необхідно змонтувати на раму разом з амортизаційними подушками проти вібрації (включені в комплект). Вона повинна розташовуватися якомога ближче до центру тяжіння вашого апарату верхньою стороною вгору зі стрілкою, що вказує в напрямку передньої частини апарату.
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_mounting_and_foam.png" align="center" />
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+::: info Якщо контролер не може бути змонтований у рекомендованому/стандартному положенні (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 :::
 
-## GPS + Compass + Buzzer + Safety Switch + LED
+## GPS + компас + зумер + перемикач безпеки + LED
 
 Attach the provided GPS with integrated compass, safety switch, buzzer and LED to the **GPS MODULE** port.
 
-The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+GPS/компас повинен бути [закріплений на рамі](../assembly/mount_gps_compass.md) якомога далі від іншої електроніки, так, щоб маркер напрямку був спрямований до передньої частини апарату (відокремлення компаса від іншої електроніки зменшить радіоперешкоди).
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
