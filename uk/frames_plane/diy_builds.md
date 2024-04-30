@@ -9,5 +9,5 @@
 DIY Збірки:
 
 - [Reptile Dragon 2 (ARK6X)](../frames_plane/reptile_dragon_2.md)
-- [Турбо Тімбер Еволюція (../Pixhawk 4 Mini)](../frames_plane/turbo_timber_evolution.md)
-- [Wing Z84 (Pixracer)](../frames_plane/wing_wing_z84.md)
+- [Turbo Timber Evolution (../Pixhawk 4 Mini)](../frames_plane/turbo_timber_evolution.md)
+- [Wing Wing Z84 (Pixracer)](../frames_plane/wing_wing_z84.md)
