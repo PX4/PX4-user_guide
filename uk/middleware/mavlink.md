@@ -65,28 +65,28 @@ PX4 включає репозиторій [mavlink/mavlink](https://github.com/m
 Користувацьке повідомлення MAVLink - це повідомлення, якого немає у визначеннях за замовчуванням, включених до PX4.
 
 ::: info
-If you use a custom definition you will need maintain the definition in PX4, your ground station, and any other SDKs that communicate with it.
-Generally you should use (or add to) the standard definitions if at all possible to reduce the maintenance burden.
+Якщо ви використовуєте користувацьке визначення, вам потрібно буде підтримувати визначення у PX4, вашій наземній станції та будь-яких інших SDK, які взаємодіють з нею.
+Загалом, щоб зменшити тягар обслуговування, слід використовувати (або доповнювати) стандартні визначення, якщо це можливо.
 :::
 
 Користувацькі визначення можна додати до нового файлу діалекту у тому самому каталозі, що й стандартні визначення XML. Наприклад, створіть `PX4-Autopilot/src/modules/mavlink/mavlink/mavlink/message_definitions/v1.0/custom_messages.xml` і встановіть `CONFIG_MAVLINK_DIALECT` для створення нового файла для SITL. Цей файл діалекту має містити `development.xml`, щоб до нього було включено всі стандартні визначення.
 
 Для початкового прототипування, або якщо ви плануєте, що ваше повідомлення буде "стандартним", ви також можете додати свої повідомлення до `common.xml` (або `development.xml`). Це спрощує збірку, оскільки вам не потрібно модифікувати вже зібраний діалект.
 
-The MAVLink developer guide explains how to define new messages in [How to Define MAVLink Messages & Enums](https://mavlink.io/en/guide/define_xml_element.html).
+Посібник розробника MAVLink пояснює, як визначити нові повідомлення у розділі [How to Define MAVLink Messages & Enums](https://mavlink.io/en/guide/define_xml_element.html).
 
-You can check that your new messages are built by inspecting the headers generated in the build directory (`/build/<build target>/mavlink/`). If your messages are not built they may be incorrectly formatted, or use clashing ids. Inspect the build log for information.
+Ви можете перевірити, що ваші нові повідомлення зібрано, переглянувши заголовки, згенеровані у каталозі збірки (`/build/<build target>/mavlink/`). Якщо ваші повідомлення не збираються, вони можуть бути неправильно відформатовані або використовувати конфліктуючі ідентифікатори. Перевірте журнал збірки для отримання інформації.
 
-Once the message is being built you can stream, receive, or otherwise use it, as described in the following sections.
+Після того, як повідомлення створено, ви можете передавати, отримувати або використовувати його в інший спосіб, як описано в наступних розділах.
 
-::: info The [MAVLink Developer guide](https://mavlink.io/en/getting_started/) has more information about using the MAVLink toolchain.
+Посібник [MAVLink Developer Guide](https://mavlink.io/en/getting_started/) містить більше інформації про використання інструментарію MAVLink.
 :::
 
 ## Потокові повідомлення MAVLink
 
-MAVLink messages are streamed using a streaming class, derived from `MavlinkStream`, that has been added to the PX4 stream list. The class has framework methods that you implement so PX4 can get information it needs from the generated MAVLink message definition. It also has a `send()` method that is called each time the message needs to be sent — you override this to copy information from a uORB subscription to the MAVLink message object that is to be sent.
+Повідомлення MAVLink транслюються за допомогою потокового класу, похідного від `MavlinkStream`, який було додано до списку потоків PX4. Клас має фреймворкові методи, які ви реалізуєте, щоб PX4 міг отримати потрібну йому інформацію зі згенерованого визначення повідомлення MAVLink. Він також має метод `send()`, який викликається кожного разу, коли потрібно надіслати повідомлення - ви перевизначаєте його, щоб скопіювати інформацію з підписки uORB в об'єкт повідомлення MAVLink, який потрібно надіслати.
 
-This tutorial demonstrates how to stream a uORB message as a MAVLink message, and applies to both standard and custom messages.
+Цей посібник демонструє, як транслювати повідомлення uORB як повідомлення MAVLink, і застосовується як до стандартних, так і до користувацьких повідомлень.
 
 ### Передумови
 
