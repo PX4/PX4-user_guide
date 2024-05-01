@@ -29,7 +29,7 @@ To connect to your Pi via SSH, use the default username (`pi`) and hostname (`na
 ssh pi@navio.local
 ```
 
-or
+або
 
 ```sh
 ssh pi@<IP-ADDRESS>
@@ -51,7 +51,7 @@ The existing Navio RGB overlay claims GPIOs used by PX4 for RGB Led. Edit `/boot
 #dtoverlay=navio-rgb
 ```
 
-## Testing file transfer
+## Тестування передачі файлів
 
 We use SCP to transfer files from the development computer to the target board over a network (WiFi or Ethernet).
 
@@ -65,7 +65,7 @@ rm hello.txt
 
 This should copy over a "hello.txt" file into the home folder of your Pi. Validate that the file was indeed copied, and you can proceed to the next step.
 
-## Building the Code
+## Збірка коду
 
 ::: info
 PX4 binaries for Navio 2 can only be built on Ubuntu 18.04.
@@ -133,7 +133,7 @@ px4 starting.
 pxh>
 ```
 
-## Autostart
+## Автозавантаження
 
 To autostart px4, add the following to the file **/etc/rc.local** (adjust it accordingly if you use native build), right before the `exit 0` line:
 
