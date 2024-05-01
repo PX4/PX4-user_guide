@@ -90,31 +90,31 @@ Durafly Auto-G2, у своєму оригінальному дизайні, ма
 * [Адаптер пропелера](https://mpjet.com/shop/gb/prop-adapters/184-collet-prop-adapter-19-mm-4-mm-shaft-m629-standard.html)
 
 
-### Printable parts
+### Друковані частини
 
-* Rotor head:
-  * [Pylon end](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1001.stl)
-  * [Pitch part](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1002.stl)
-  * [Roll part](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1003.stl)
+* Голова ротора:
+  * [Кінцева опора](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1001.stl)
+  * [Частина кроку](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1002.stl)
+  * [Частина рулону](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1003.stl)
 
-* Rotor:
-  * [center part washer top](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1008.stl)
-  * [center part washer bottom](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1004.stl)
-  * [center plate with deformation zones](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1001.stl)
-  * [washers for setting AoA of blades](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1005.stl)
-  * [Rotor nut](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1002.stl)
+* Ротор:
+  * [верхня частина пральної машини](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1008.stl)
+  * [нижня частина пральної машини центральної частини](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1004.stl)
+  * [центральна пластина з деформаційними зонами](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1001.stl)
+  * [шайби для встановлення AoA лопаток](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1005.stl)
+  * [Гайка ротора](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1002.stl)
 
-* Rotor blades (optional)
-* Autopilot holder
-* [Release device](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1010.stl)
-* [Front wheels](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1011.stl)
+* Лопаті ротора (необов'язково)
+* Держатель автопілота
+* [Випуск пристрою](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1010.stl)
+* [Передні колеса](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1011.stl)
 
-### Recommended spare parts
+### Рекомендовані запасні частини
 
-* Servos with improved quality (recommended [BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm), original servos are not very durable))
-* Propeller ([APC 10x7](https://www.apcprop.com/product/10x7e/))
-* Rotor centre plate with deformation zones (3D printed)
-* Rotor blades ([HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html) or 3D printed)
+* Сервоприводи з покращеною якістю (рекомендовано [BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm), оригінальні сервоприводи не дуже довговічні))
+* Пропелер ([APC 10x7](https://www.apcprop.com/product/10x7e/))
+* Центральна пластина ротора з деформаційними зонами (надрукована в 3D)
+* Лопатки ротора ([HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html) або надруковані на 3D принтері)
 
 ## Відео
 
