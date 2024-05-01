@@ -3,7 +3,7 @@
 <LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
 :::warning
-Support for autogyro frames is [experimental](../airframes/index.md#experimental-vehicles). Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome! :::
+Підтримка для корпуса автогиро є [експериментальною](../airframes/index.md#experimental-vehicles). Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome! :::
 
 An [Autogyro](https://en.wikipedia.org/wiki/Autogyro) is a type of [rotary-wing](https://en.wikipedia.org/wiki/Rotorcraft). Compared to other designs it possesses following advantages:
 
