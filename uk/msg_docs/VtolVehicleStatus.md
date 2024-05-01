@@ -1,8 +1,8 @@
 # VtolVehicleStatus (UORB message)
 
-VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE
+VEHICLE_VTOL_STATE, повинен відповідати 1:1 MAVLinks_VTOL_STATE
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VtolVehicleStatus.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VtolVehicleStatus.msg)
 
 ```c
 # VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE
