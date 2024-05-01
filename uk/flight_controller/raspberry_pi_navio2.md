@@ -90,33 +90,33 @@ export AUTOPILOT_HOST=navio.local
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
-::: info The value of the environment variable should be set before the build, or `make upload` will fail to find your Pi.
+:::info Значення змінної оточення слід встановити перед збіркою, інакше `make upload` не зможе знайти ваш Pi.
 :::
 
-Build the executable file on your development machine:
+Скомпілюйте виконувальний файл на вашому комп'ютері для розробки:
 
 ```sh
 cd PX4-Autopilot
 make emlid_navio2
 ```
 
-The "px4" executable file is in the directory **build/emlid_navio2_default/**. Make sure you can connect to your Pi over SSH, see [instructions how to access your Pi](#setting-up-access) following the instructions for armhf under Raspberry Pi.
+Виконувальний файл "px4" знаходиться у каталозі **build/emlid_navio2_default/**. Переконайтеся, що ви можете підключитися до вашого Pi по SSH, див. [інструкції як отримати доступ до вашого Pi](#setting-up-access), слідуючи інструкціям для armhf під Raspberry Pi.
 
-Then upload it with:
+Потім завантажте його за допомогою:
 
 ```sh
 cd PX4-Autopilot
 make emlid_navio2 upload
 ```
 
-Then, connect over ssh and run it on the Pi (as root):
+Потім підключіться через ssh та запустіть його на Pi (як root):
 
 ```sh
 cd ~/px4
 sudo ./bin/px4 -s px4.config
 ```
 
-A successful build followed by executing px4 will give you something like this:
+Успішна збірка з подальшим виконанням px4 дасть вам щось на зразок цього:
 
 ```sh
 
@@ -135,7 +135,7 @@ pxh>
 
 ## Автозавантаження
 
-To autostart px4, add the following to the file **/etc/rc.local** (adjust it accordingly if you use native build), right before the `exit 0` line:
+Для автозапуску px4 додайте наступне до файлу **/etc/rc.local** (відкоригуйте його відповідним чином, якщо ви використовуєте власну збірку), безпосередньо перед рядком `вихід 0`:
 
 ```sh
 cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
