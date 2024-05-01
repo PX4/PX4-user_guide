@@ -13026,15 +13026,16 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_1_GNSS">GPS_1_GNSS</strong> (INT32)</td>
- <td>GNSS Systems for Primary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
+ <td>GNSS Systems for Primary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS 5 : Use NAVIC</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
   <li><strong>1:</strong> SBAS</li>
   <li><strong>2:</strong> Galileo</li>
   <li><strong>3:</strong> BeiDou</li>
   <li><strong>4:</strong> GLONASS</li>
+  <li><strong>5:</strong> NAVIC</li>
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 31] </td>
+ <td>[0, 63] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -13078,15 +13079,16 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_2_GNSS">GPS_2_GNSS</strong> (INT32)</td>
- <td>GNSS Systems for Secondary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
+ <td>GNSS Systems for Secondary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS 5 : Use NAVIC</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
   <li><strong>1:</strong> SBAS</li>
   <li><strong>2:</strong> Galileo</li>
   <li><strong>3:</strong> BeiDou</li>
   <li><strong>4:</strong> GLONASS</li>
+  <li><strong>5:</strong> NAVIC</li>
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 31] </td>
+ <td>[0, 63] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21909,7 +21911,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_AIR_CMODEL">CAL_AIR_CMODEL</strong> (INT32)</td>
- <td>Airspeed sensor compensation model for the SDP3x <p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor.</p> <strong>Values:</strong><ul>
+ <td>Airspeed sensor compensation model for the SDP3x <p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Model with Pitot</li>
 <li><strong>1:</strong> Model without Pitot (1.5 mm tubes)</li>
 <li><strong>2:</strong> Tube Pressure Drop</li>
