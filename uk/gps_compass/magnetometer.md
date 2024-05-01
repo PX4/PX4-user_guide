@@ -43,7 +43,7 @@ This list contains stand-alone magnetometer modules (without GNSS).
 | [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?    |                                 |
 | [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             |  RM3100 | &amp;check; |
 
-Note:
+Примітка:
 
 - &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported.
   "?" indicates "unknown".
