@@ -1,21 +1,21 @@
-# Wing Wing Z-84 Pixracer Build
+# Wing Wing Z84 Pixracer Збірка
 
-The Wing Wing Z-84 is a flying wing frame. It is small, rugged and just large enough to host a [Pixracer](../flight_controller/pixracer.md).
+Літаюче крило Wing Wing Z-84 - це каркас літаючого крила. Це невелике, міцне і достатньо велике, щоб розмістити [Pixracer](../flight_controller/pixracer.md).
 
 Основна Інформація:
 
-- **Frame:** Wing Wing Z-84
-- **Flight controller:** Pixracer
+- **Каркас:** Wing Wing Z-84
+- **Контролер польоту:** Pixracer
 
 ![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
 ## Список деталей
 
-### Z-84 Plug n' Fly (PNF/PNP) or Kit
+### Z-84 Plug n' Fly (PNF/PNP) або Комплект
 
-One of these:
+Один з цих:
 - [Banggood](https://www.banggood.com/Wing-Wing-Z-84-Z84-EPO-845mm-Wingspan-Flying-Wing-PNP-p-973125.html)
-- [Hobbyking US Warehouse](https://hobbyking.com/en_us/wing-wing-z-84-epo-845mm-kit.html)
+- [Склад Hobbyking у США](https://hobbyking.com/en_us/wing-wing-z-84-epo-845mm-kit.html)
 
 :::tip
 Версії PNF (або "PNP") включають двигун, гвинт і електронний регулятор швидкості.
@@ -25,28 +25,28 @@ One of these:
 
 ### Електронний регулятор швидкості (ESC)
 
-One of these (any small (>=12A) ESC will do):
+Один з цих (будь-який малий (>=12A) ESC підійде):
 
 - [Turnigy 20A Brushed ESC ESC](https://hobbyking.com/en_us/turnigy-20a-brushed-esc.html) (Hobbyking)
-- [Lumenier Regler 30A BLHeli_S ESC OPTO](https://www.getfpv.com/lumenier-30a-blheli-s-esc-opto-2-4s.html) (GetFPV)
+- [Регулятор Lumenier 30A BLHeli_S ESC OPTO](https://www.getfpv.com/lumenier-30a-blheli-s-esc-opto-2-4s.html) (GetFPV)
 
-### Autopilot and Essential Components
+### Автопілот та основні компоненти
 
-- [Pixracer](../flight_controller/pixracer.md) kit (including GPS and power module)
-- FrSky D4R-II receiver or equivalent (jumpered to PPM sum output according to its manual)
-- [Mini telemetry set](../flight_controller/pixfalcon.md#availability) for Holybro pix32
-- [Digital airspeed sensor](../flight_controller/pixfalcon.md#availability) for Holybro pix32 / Pixfalcon
-- 1800 mAh 2S LiPo Battery - e.g. [Team Orion 1800mAh 7.4V 50C 2S1P](https://teamorion.com/en/batteries-en/lipo/soft-case/team-orion-lipo-1800-2s-7-4v-50c-xt60-en/)
+- Набір [Pixracer](../flight_controller/pixracer.md) (включаючи GPS та модуль живлення)
+- Приймач FrSky D4R-II або йому еквівалентний (з'єднаний за допомогою перемички з виходом PPM sum відповідно до інструкції)
+- [Міні набір телеметрії](../flight_controller/pixfalcon.md#availability) для Holybro pix32
+- [Цифровий датчик швидкості повітря](../flight_controller/pixfalcon.md#availability) для Holybro pix32 / Pixfalcon
+- 1800 mAh 2S LiPo Battery - наприклад, [Team Orion 1800mAh 7.4V 50C 2S1P](https://teamorion.com/en/batteries-en/lipo/soft-case/team-orion-lipo-1800-2s-7-4v-50c-xt60-en/)
 
 
-### Recommended spare parts
+### Рекомендовані запасні частини
 
-- 1 cm diameter O-ring for prop saver ([Hobbyking](https://hobbyking.com/en_us/wing-wing-z-84-o-ring-10pcs.html))
-- 125x110 mm propellers ([Hobbyking](https://hobbyking.com/en_us/gws-ep-propeller-dd-5043-125x110mm-green-6pcs-set.html))
+- 1 см діаметр ущільнювача O-кільце для зберігача пропелера ([Hobbyking](https://hobbyking.com/en_us/wing-wing-z-84-o-ring-10pcs.html))
+- 125x110 мм пропелери ([Гобікінг](https://hobbyking.com/en_us/gws-ep-propeller-dd-5043-125x110mm-green-6pcs-set.html))
 
 ## Підключення
 
-Проведіть дроти до сервоприводів та двигунів, як показано. Використовуйте виходи `MAIN` (не ті, які позначені як AUX). The motor controller needs to have an in-built BEC, as the autopilot is not powering the servo rail.
+Проведіть дроти до сервоприводів та двигунів, як показано. Використовуйте виходи `MAIN` (не ті, які позначені як AUX). Регулятор обертань потрібно мати вбудований BEC, оскільки автопілот не живить рейку сервопривода.
 
 | Порт   | Підключення                 |
 | ------ | --------------------------- |
@@ -57,9 +57,9 @@ One of these (any small (>=12A) ESC will do):
 | MAIN 4 | Motor 1                     |
 
 
-## Build Log
+## Журнал збірки
 
-The images below give a rough idea about the assembly process, which is simple and can be done with a hot glue gun.
+Зображення нижче дають уявлення про процес збирання, який є простим і може бути виконаний за допомогою паяльної пістолета.
 
 ![wing wing build01](../../assets/airframes/fw/wing_wing/wing_wing_build01.jpg) ![wing wing build02](../../assets/airframes/fw/wing_wing/wing_wing_build02.jpg) ![wing wing build03](../../assets/airframes/fw/wing_wing/wing_wing_build03.jpg) ![wing wing build04](../../assets/airframes/fw/wing_wing/wing_wing_build04.jpg) ![wing wing build09](../../assets/airframes/fw/wing_wing/wing_wing_build09.jpg) ![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
@@ -67,11 +67,11 @@ The images below give a rough idea about the assembly process, which is simple a
 
 ### Конфігурація планера
 
-Select **Flying Wing > Generic Flying Wing** in the QGroundControl [Airframe Configuration](../config/airframe.md):
+Виберіть **Літаюче крило > Загальне літаюче крило** у конфігурації [Конфігурація повітряної рами](../config/airframe.md) QGroundControl:
 
 ![QGC - select firmware for West Wing](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png)
 
-### Actuator Mapping
+### Відображення приводів
 
 Налаштуйте [Конфігурацію приводів](../config/actuators.md), щоб відповідати з'єднанню для елеронів та керування, як [вказано вище](#wiring).
 
@@ -81,4 +81,4 @@ Select **Flying Wing > Generic Flying Wing** in the QGroundControl [Airframe Con
 
 Виконайте всі інші [Основні налаштування](../config/index.md), включаючи [Автоналаштування](../config/autotune.md).
 
-Advanced tuning is optional - see [Fixed-wing Vehicle Configuration](../config_fw/index.md).
+Розширене налаштування є необов'язковим - див. [Конфігурацію повітряного судна з фіксованим крилом](../config_fw/index.md).

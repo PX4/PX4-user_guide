@@ -2,49 +2,49 @@
 
 <Badge type="tip" text="PX4 v1.13" />
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 :::
 
-The [Holybro Kakute H7](https://holybro.com/products/kakute-h7) is full of features including dual plug-and-play 4in1 ESC ports, HD camera plug, barometer, OSD, 6x UARTs, full Blackbox MicroSD card slot, 5V and 9V BEC, easy soldering layout, and much more.
+[Holybro Kakute H7](https://holybro.com/products/kakute-h7) є повним набором функцій, включаючи подвійні роз'єми ESC 4in1 plug-and-play, роз'єм для HD-камери, барометр, OSD, 6x UART, слот для картки пам'яті Blackbox MicroSD, BEC на 5В та 9В, зручне розташування для паяння та багато іншого.
 
-The Kakute H7 builds upon the best features of its predecessor, the [Kakute F7](../flight_controller/kakutef7.md), and further improves on hardware components and layout. Dual plug'n'play 4-in-1 ESC connectors simplify support for x8 and Octocopter configurations, keeping assembly simple and clean.
+Kakute H7 базується на кращих рисах свого попередника, [Kakute F7](../flight_controller/kakutef7.md), та подальші вдосконалюють апаратні компоненти та компонування. Подвійні роз'єми підключення 4-в-1 ESC спрощують підтримку конфігурацій x8 та Octocopter, забезпечуючи простоту збирання.
 
-The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & SCL) for external GPS/Magnetometers.
+Плата також має вбудований барометр, світлодіод & п'єзоімпульс, а також плату I2C (SDA & SCL) для зовнішніх GPS/магнітомерів.
 
 ![Kakute h7](../../assets/flight_controller/kakuteh7/kakuteh7.png)
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info Цей польотний контролер [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Key Features
+## Ключові особливості
 
-- MCU: STM32H743 32-bit processor running at 480 MHz
+- MCU: Процесор STM32H743 32-біт, який працює на частоті 480 МГц
 - IMU: MPU6000
-- Barometer: BMP280
+- Барометр: BMP280
 - OSD: AT7456E
-- Onboard Bluetooth chip: Disabled with PX4
-- 2x JST-SH1.0_8pin port (For Single or 4in1 ESCs, x8/Octocopter plug & play compatible)
-- 1x JST-GH1.25_6pin port (For HD System like Caddx Vista & Air Unit)
-- Battery input voltage: 2S - 8S
-- BEC 5V 2A Cont.
-- BEC 9V 1.5A Cont.
-- Mounting: 30.5 x 30.5mm/Φ4mm hole with Φ3mm Grommets
-- Dimensions: 35x35mm
-- Weight: 8g
+- Bluetooth-чіп на борту: вимкнено з PX4
+- 2x порт JST-SH1.0_8pin (для одиночних або 4-в-1 ESCs, сумісний з x8/Octocopter plug & play)
+- 1x порт JST-GH1.25_6pin (для HD-системи, такої як Caddx Vista & Air Unit)
+- Напруга вхідної батареї: 2S - 8S
+- BEC 5В 2A &Cont.
+- BEC 9В 1.5A Cont.
+- Монтаж: 30,5 х 30,5 мм / отвір Φ4 мм з прокладками Φ3 люверси
+- Розміри: 35x35мм
+- Вага: 8г
 
-## Where to Buy
+## Де придбати
 
-The board can be bought from one of the following shops (for example):
+Плату можна придбати в одному з наступних магазинів (наприклад):
 
 - [Holybro](https://holybro.com/products/kakute-h7)
 
 :::tip
-The _Kakute H7_ is designed to work with the _Tekko32_ 4-in-1 ESC and they can be bought in combination.
+_Kakute H7_ призначений для сумісної роботи з _Tekko32_ 4-в-1 ESC і може бути придбаний в комплекті.
 :::
 
-## Connectors and Pins
+## Конектори та контакти
 
-This is the silkscreen for the _Kakute H7_, showing the top of the board:
+Це сілкскрін для _Kakute H7_, що показує верхню частину плати:
 
 <img src="../../assets/flight_controller/kakuteh7/kakuteh7_silk.png" width="380px" title="Kakute h7" />
 

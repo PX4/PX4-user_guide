@@ -1,83 +1,83 @@
-# MCU-Link Debug Probe
+# MCU-Link адаптер для налагодження
 
-The [MCU-Link Debug Probe](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcu-link-debug-probe:MCU-LINK) is a cheap, fast and highly capable debug probe that can serve as a stand-alone debug and console communicator whn working with Pixhawk boards.
+[MCU-Link Debug Probe](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcu-link-debug-probe:MCU-LINK) - це дешевий, швидкий і дуже потужний засіб відлагодження, який може використовуватися як самостійний засіб відлагодження та комунікатор консолі під час роботи з платами Pixhawk.
 
-Key features:
+Основні характеристики:
 
-- Just one single USB-C connection for Reset, SWD, SWO, and serial in a very small package!
-- Up to 9.6MBit/s SWO connection.
-  Up to 5 MBaud serial. 1.2V to 5V target voltage.
-  USB2 high-speed 480 Mbps connection.
-- Driven by NXP LinkServer or pyOCD software with wide device support.
-- Much cheaper (<15€) than a Pixhawk Debug Adapter (~20€) with a JLink EDU mini (~55€) or JLink BASE (~400€) while having better hardware specs.
+- Лише одне єдине підключення USB-C для скидання, SWD, SWO та послідовного порту в дуже маленькому пакеті!
+- До 9,6 Мбіт/с підключення SWO.
+  До 5 MBaud послідовний. 1.2V до 5V цільової напруги.
+  Підключення USB2 високої швидкості 480 Мбіт/с.
+- Приводимий в дію програмним забезпеченням NXP LinkServer або pyOCD з широкою підтримкою пристроїв.
+- Набагато дешевше (<15€) ніж адаптер відладки Pixhawk (~20€) з JLink EDU mini (~55€) або JLink BASE (~400€) при кращих технічних характеристиках апаратного забезпечення.
 
-The [Pixhawk Debug Adapter](https://holybro.com/products/pixhawk-debug-adapter) provides an easy way to connect a Pixhawk to an MCU-Link (the probe does not come with an adapter for working with Pixhawk flight controllers).
+[Адаптер відлагодження Pixhawk](https://holybro.com/products/pixhawk-debug-adapter) надає простий спосіб підключення Pixhawk до MCU-Link (зонд не постачається з адаптером для роботи з контролерами польоту Pixhawk).
 
 :::info
-These instructions have been tested on: FMUv6X-RT, FMUv6X, FMUv6c, FMUv5X.
+Ці інструкції було перевірено на: FMUv6X-RT, FMUv6X, FMUv6c, FMUv5X.
 :::
 
-## Debugging Configuration using NXP LinkServer
+## Налагодження конфігурації за допомогою NXP LinkServer
 
-The MCU-Link provides for NXP (FMUv6X-RT) chips the [LinkServer](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER) GDB server:
+MCU-Link забезпечує для чіпів NXP (FMUv6X-RT) сервер GDB [LinkServer](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER):
 
-[Download](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER#downloads) the Linkserver for your operating system and follow the installation instructions.
+[Завантажте](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER#downloads) Linkserver для вашої операційної системи та дотримуйтесь інструкцій з установки.
 
-On Windows LinkServer gets installed to `C:\NXP\LinkServer_x.x.x`
-On Linux LinkServer gets installed `/usr/local/LinkServer/LinkServer`
+На Windows LinkServer встановлюється в `C:\NXP\LinkServer_x.x.x`
+На Linux LinkServer встановлюється `/usr/local/LinkServer/LinkServer`
 
-To flash you can use the `LinkServer flash` command with target `MIMXRT1176xxxxx:MIMXRT1170-EVK-CM7-ONLY` for the FMUv6X-RT
+Для прошивки ви можете використовувати команду `LinkServer flash` з метою `MIMXRT1176xxxxx:MIMXRT1170-EVK-CM7-ONLY` для FMUv6X-RT
 
 ```sh
 /usr/local/LinkServer/LinkServer flash MIMXRT1176xxxxx:MIMXRT1170-EVK-CM7-ONLY load build/px4_fmu-v6xrt_default/px4_fmu-v6xrt_default.elf
 ```
 
-You can launch the GDB server in a new terminal shell:
+Ви можете запустити сервер GDB в новому терміналі:
 
 ```sh
 /usr/local/LinkServer/LinkServer gdbserver MIMXRT1176xxxxx:MIMXRT1170-EVK-CM7-ONLY
 ```
 
-Then connect to port 3333 via GDB:
+Потім підключіться до порту 3333 через GDB:
 
 ```sh
 arm-none-eabi-gdb build/px4_fmu-v6xrt_default/px4_fmu-v6xrt_default.elf -ex "target extended-remote :3333"
 ```
 
-Use GDB to load the binary into the Pixhawk:
+Використовуйте GDB, щоб завантажити двійковий файл в Pixhawk:
 
 ```sh
 (gdb) load
 ```
 
-## Debugging Configuration using pyOCD
+## Налаштування відлагодження за допомогою pyOCD
 
-The MCU-Link provides the [GDB server via pyOCD](https://pyocd.io/):
+MCU-Link надає [GDB сервер через pyOCD](https://pyocd.io/):
 
 ```sh
 python3 -m pip install -U pyocd
 ```
 
-You can launch the GDB server in a new terminal shell:
+Ви можете запустити сервер GDB в новому терміналі:
 
 ```sh
 pyocd gdb -t mimxrt1170_cm7
 ```
 
-The target needs to be one of:
+Потрібно, щоб ціль була однією з:
 
 - FMUv6X-RT: `mimxrt1170_cm7`
 - FMUv6X: `stm32h743xx`
 - FMUv6C: `stm32h743xx`
 - FMUv5X: `stm32f767zi`
 
-You can then connect to port 3333 via GDB:
+Потім підключіться до порту 3333 через GDB:
 
 ```sh
 arm-none-eabi-gdb build/px4_fmu-v6xrt_default/px4_fmu-v6xrt_default.elf -ex "target extended-remote :3333"
 ```
 
-Use GDB to load the binary into the Pixhawk:
+Використовуйте GDB, щоб завантажити двійковий файл в Pixhawk:
 
 ```sh
 (gdb) load

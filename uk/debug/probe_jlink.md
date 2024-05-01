@@ -1,6 +1,6 @@
 # JLink Debug Probe
 
-The [J-Link debug probe][jlink] is a closed-source, commercial hardware probe which supports almost all ARM Cortex-M devices. Для роботи цього зонду вам потрібно встановити [драйвери J-Link][drivers]:
+[Пробник відлагодження J-Link][jlink] - це закритий комерційний апаратний зонд, який підтримує майже всі пристрої ARM Cortex-M. Для роботи цього зонду вам потрібно встановити [драйвери J-Link][drivers]:
 
 ```sh
 # Ubuntu
@@ -21,7 +21,7 @@ JLinkGDBServer -if swd -device STM32F765II
 Щойно ви це виконаєте, сервер GDB повинен почати слухати порт `2331`, наприклад, так:
 
 ```sh
-Checking target voltage...
+Перевірка цільової напруги...
 Target voltage: 3.28 V
 Listening on TCP/IP port 2331
 Connecting to target...

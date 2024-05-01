@@ -1,60 +1,60 @@
-# Відлагодження з GDB
+# Налагодження з GDB
 
-The [GNU DeBugger (GDB)](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary. The debugger reads the debug symbols inside an ELF file to understand the static and dynamic memory layout of the PX4 firmware. To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
+[Налагоджувач GNU (GDB)](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) інстальовано разом з інструментарієм компілятора у вигляді бінарного файлу `arm-none-eabi-gdb`. Налагоджувач читає символи відладки у файлі формату виконання ELF щоб зрозуміти статичну та динамічну структуру пам'яті прошивки PX4. Для доступу до мікроконтролера автопілота PX4, йому потрібно з'єднатися з [віддаленою ціллю](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html), яка надається [зондом налагодження за протоколом SWD](swd_debug.md).
 
-The flow of information looks like this:
+Плин інформації виглядає таким чином:
 
 ```sh
-Developer <=> GDB <=> GDB Server <=> Debug Probe <=> SWD <=> PX4 Autopilot.
+Розробник <=> GDB <=> сервер GDB <=> зонд налагодження <=> SWD <=> автопілот PX4.
 ```
 
 ## Швидкий старт
 
-To start a debugging session you typically:
+Для початку сеансу налагодження вам зазвичай потрібно:
 
-1. Need a specialized [SWD debug probe](../debug/swd_debug.md#debug-probes).
-2. Find and connect to the [SWD debug port](../debug/swd_debug.md#autopilot-debug-ports). You may need a [debug adapter](swd_debug.md#debug-adapters).
-3. Configure and start the debug probe to create a GDB server.
-4. Launch GDB and connect to the GDB server as a remote target.
-5. Debug your firmware interactively.
+1. Спеціалізований [зонд налагодження за протоколом SWD](../debug/swd_debug.md#debug-probes).
+2. Знайти та під'єднатися до [порту налагодження SWD](../debug/swd_debug.md#autopilot-debug-ports). Можливо знадобиться [адаптер налагодження](swd_debug.md#debug-adapters).
+3. Налаштувати та запустити зонд налагодження для створення сервера GDB.
+4. Запустити GDB та під'єднатись до сервера GDB як віддаленої цілі.
+5. Налагоджувати прошивку інтерактивно.
 
-See the debug probe documentation for details on how to setup your debug connection:
+Дивіться документацію зонда налагодження для додаткової інформації як налаштувати з'єднання для налагодження:
 
-- [SEGGER J-Link](probe_jlink.md): commercial probe, no built-in serial console, requires adapter.
-- [Black Magic Probe](probe_bmp.md): integrated GDB server and serial console, requires adapter.
-- [STLink](probe_stlink): best value, integrated serial console, adapter must be soldered.
+- [SEGGER J-Link](probe_jlink.md): комерційний зонд, без вбудованої послідовної консолі, потребує адаптер.
+- [Зонд Black Magic](probe_bmp.md): інтегрований сервер GDB та послідовна консоль, потребує адаптер.
+- [STLink](probe_stlink): найкраще співвідношення ціни та якості, вбудована послідовна консоль, адаптер потрібно паяти.
 
-We recommend using the J-Link with the Pixhawk Debug Adapter or the STLinkv3-MINIE with a soldered custom cable.
+Рекомендуємо використовувати J-Link з адаптером налагодження Pixhawk або STLinkv3-MINIE зі спеціально спаяним кабелем.
 
-Once connected, you can use the usual GDB commands such as:
+Після підключення ви можете використовувати звичайні команди GDB, такі як:
 
-- `continue` to continue program execution
-- `run` to start from the beginning
-- `backtrace` to see the backtrace
-- `break somewhere.cpp:123` to set a breakpoint
-- `delete somewhere.cpp:123` to remove it again
-- `info locals` to print local variables
-- `info registers` to print the registers
+- `continue` для продовження виконання програми
+- `run` для того, щоб почати спочатку
+- `backtrace` для перегляду траси стеку
+- `break somewhere.cpp:123` для встановлення точки зупину
+- `delete somewhere.cpp:123` для видалення точки зупину
+- `info locals` для отримання локальних змінних
+- `info registers` для отримання регістрів
 
-Consult the [GDB documentation](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) for more details.
+Зверніться до [документації GDB](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) для отримання додаткових відомостей.
 
 :::tip
-To avoid having to type all commands to connect in GDB each time, you can write them into `~/.gdbinit`.
+Щоб уникнути необхідності вводити всі команди для підключення в GDB кожен раз, ви можете записати їх у файл `~/.gdbinit`.
 :::
 
-## Next Steps
+## Наступні кроки
 
-You've now connected the flight controller to an SWD debug probe!
+Ви під'єднали контролер польоту до налагоджувального зонда SWD!
 
-The following topics explain how to start on-target debugging:
+Наступні розділи пояснюють, як розпочати налагодження на цільовій платформі:
 
-- [MCU Eclipse/J-Link Debugging for PX4](eclipse_jlink.md).
+- [Налагодження з MCU Eclipse/J-Link для PX4](eclipse_jlink.md).
 - [Visual Studio Code IDE (VSCode)](../dev_setup/vscode.md).
 
-## Embedded Debug Tools
+## Вбудовані інструменти налагодження
 
-The [Embedded Debug Tools](https://pypi.org/project/emdbg/) connect several software and hardware debugging tools together in a user friendly Python package to more easily enable advanced use cases for ARM Cortex-M microcontrollers and related devices.
+[Вбудовані інструменти налагодження](https://pypi.org/project/emdbg/) поєднують декілька програмних та апаратних інструментів налагодження разом у зручному пакеті Python щоб полегшити складні випадки налагодження для мікроконтролерів ARM Cortex-M та пов'язаних пристроїв.
 
-The library orchestrates the launch and configuration of hardware debug and trace probes, debuggers, logic analyzers, and waveform generators and provides analysis tools, converters, and plugins to provide significant insight into the software and hardware state during or after execution.
+Ця бібліотека організовує запуск та налаштування апаратних зондів налагодження та зондів трасування, налагоджувачів, логічних аналізаторів, генераторів сигналу та надає інструменти аналізу, перетворювачі та плагіни для отримання суттєвого розуміння стану програмного та апаратного забезпечення під час або після виконання.
 
-The `emdbg` library contains [many useful GDB plugins](https://github.com/Auterion/embedded-debug-tools/blob/main/src/emdbg/debug/gdb.md#user-commands) that make debugging PX4 easier. It also provides tools for [profiling PX4 in real-time](https://github.com/Auterion/embedded-debug-tools/tree/main/ext/orbetto).
+Бібліотека `emdbg` містить [багато корисних плагінів GDB](https://github.com/Auterion/embedded-debug-tools/blob/main/src/emdbg/debug/gdb.md#user-commands) що спрощують налагодження PX4. Вона також надає інструменти для [профілювання PX4 в реальному часі](https://github.com/Auterion/embedded-debug-tools/tree/main/ext/orbetto).

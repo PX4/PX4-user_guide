@@ -1,132 +1,132 @@
-# Holybro Pixhawk 6C Wiring Quick Start
+# Швидке підключення Holybro Pixhawk 6C
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
 :::
 
-This quick start guide shows how to power the [Pixhawk 6C<sup>&reg;</sup>](../flight_controller/pixhawk6c.md) flight controller and connect its most important peripherals.
+У цьому короткому посібнику показано, як увімкнути живлення польотного контролера [Pixhawk 6C<sup>&reg;</sup>](../flight_controller/pixhawk6c.md) та підключити до нього найважливіші периферійні пристрої.
 
-## Kit Contents
+## Вміст комплекту
 
 Pixhawk 6C + PM02 + M8N GPS.
 
 ![Pixhawk6c standard set](../../assets/flight_controller/pixhawk6c/pixhawk6c_standard_set.jpg)
 
-## Mount and Orient Controller
+## Монтаж та орієнтація контролера
 
-_Pixhawk 6C_ can be mounted on the frame using double side tape included in the kit. It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+_Pixhawk 6С_ можна змонтувати на раму за допомогою двосторонньої стрічки, включеної в комплект. Він повинен бути розташований якомога ближче до центру ваги вашого транспортного засобу, орієнтований верхньою стороною вгору зі стрілкою, що вказує вперед транспортного засобу.
 
 <img src="../../assets/flight_controller/pixhawk6c/pixhawk6c_vehicle_front1.jpg" width="300px" title="Pixhawk6c - mounting orientation" />
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+::: info Якщо контролер не може бути змонтований у рекомендованому/стандартному положенні (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 :::
 
-## GPS + Compass + Buzzer + Safety Switch + LED
+## GPS + компас + зумер + захисний вимикач + світлодіод
 
-The _Pixhawk6C_ can be purchased with M8N or M9N GPS (10-pin connector) that should be connected to the **GPS1** port. These GNSS modules have an integrated compass, safety switch, buzzer and LED.
+Набір _Pixhawk6С_ можна придбати з GPS M8N або M9N (10-контактний роз'єм), який слід підключити до порту **GPS1**. Ці модулі GNSS мають вбудований компас, безпечний перемикач, дзвіночок та світлодіод.
 
-A secondary [M8N or M9N GPS](https://holybro.com/collections/gps) (6-pin connector) can be purchased separately and connected to the **GPS2** port.
+Додатковий [GPS M8N або M9N](https://holybro.com/collections/gps) (6-контактний роз'єм) можна придбати окремо і підключити до порту **GPS2**.
 
-The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+GPS/компас повинен бути [закріплений на рамі](../assembly/mount_gps_compass.md) якомога далі від іншої електроніки, так, щоб маркер напрямку був спрямований до передньої частини апарату (відокремлення компаса від іншої електроніки зменшить радіоперешкоди).
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_gps_front.jpg" width="200px" title="Pixhawk5x standard set" />
 
-::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+::: info Вбудований перемикач безпеки GPS-модуля за _замовчуванням_ увімкнений (коли він увімкнений, PX4 не дозволить вам привести апарат в працездатний стан). Щоб вимкнути функцію безпеки, натисніть і утримуйте запобіжник протягом 1 секунди. Ви можете повторно натиснути запобіжник, щоб увімкнути функцію безпеки та перевести апарат в неробоче положення (це може бути корисно, якщо з якихось причин ви не можете перевести апарат в неробоче положення за допомогою пульта дистанційного керування або наземної станції).
 :::
 
-## Power
+## Живлення
 
-Connect the output of the power module of your selection that comes with the Standard Set to one of the **POWER** port of _Pixhawk 6C_ using the 6-wire cable.
+Підключіть вихід обраного вами модуля живлення, що входить до стандартного комплекту, до одного з портів **POWER** _Pixhawk 6C_ за допомогою 6-провідного кабелю.
 
-If using a plane or rover, the **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc. This can be done by connecting the 8 pin power (+) rail of the **FMU PWM-OUT** to a voltage regulator (for example, a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery).
+Якщо використовується літак або ровер, **FMU PWM-OUT** повинно бути окремо живлене для керування сервоприводами для рульових пристроїв, елеронами тощо. Це можна зробити, під'єднавши 8-контактний живильний (+) рейл **FMU PWM-OUT** до стабілізатора напруги (наприклад, ESC з обладнаною BEC або автономною BEC на 5 В або акумулятором LiPo 2S).
 
 ::: info
-The power rail voltage must be appropriate for the servo being used!
+Напруга на шині живлення повинна відповідати використовуваному сервоприводу!
 :::
 
-| PIN & Connector | Function                                            |
-| --------------- | --------------------------------------------------- |
-| I/O PWM Out     | Connect Motor Signal and GND wires here.            |
-| FMU PWM Out     | Connect Servo Signal, positive, and GND wires here. |
+| PIN & Connector | Функція                                                           |
+| --------------- | ----------------------------------------------------------------- |
+| I/O PWM Out     | Підключіть сюди дроти Motor Signal і GND.                         |
+| FMU PWM Out     | Підключіть сигнальні, позитивні та GND-проводи сервоприводу сюди. |
 
-::: info **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 6C_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 6C_. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**.
+::: info Виходи **MAIN** у прошивці PX4 призначені для порту **I/O PWM OUT** на _Pixhawk 6C_, тоді як виходи **AUX** призначені для порту **FMU PWM OUT** на _Pixhawk 6C_. Наприклад, **MAIN1** відповідає виводу IO_CH1 **I/O PWM OUT**, а **AUX1** відповідає виводу FMU_CH1 **FMU PWM OUT**.
 :::
 
-The pinout of _Pixhawk 6C_’s power ports is shown below.
+Схема роз'ємів _Pixhawk 6С_ для підключення живлення показана нижче.
 
-| Pin      | Signal  | Volt  |
-| -------- | ------- | ----- |
-| 1(red)   | VDD     | +5V   |
-| 2(black) | VDD     | +5V   |
-| 3(black) | CURRENT | +3.3V |
-| 4(black) | VOLTAGE | +3.3V |
-| 5(black) | GND     | GND   |
-| 6(black) | GND     | GND   |
+| Пін      | Signal  | Вольтаж |
+| -------- | ------- | ------- |
+| 1(red)   | VDD     | +5В     |
+| 2(black) | VDD     | +5В     |
+| 3(black) | CURRENT | +3.3В   |
+| 4(black) | VOLTAGE | +3.3В   |
+| 5(black) | GND     | GND     |
+| 6(black) | GND     | GND     |
 
-## Radio Control
+## Радіоуправління
 
-A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+Для _ручного_ керування вашим апаратом потрібна система дистанційного керування радіо (RC) (PX4 не вимагає наявності системи радіо для автономних режимів польоту).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Вам буде потрібно [вибрати сумісний передавач/приймач](../getting_started/rc_transmitter_receiver.md) та потім _зв'язати_ їх, щоб вони взаємодіяли (прочитайте інструкції, що додаються до вашого конкретного передавача/приймача).
 
-- Spektrum/DSM receivers connect to the **DSM** input.
-- PPM or SBUS receivers connect to the **PPM/SBUS** input port.
+- Приймачі Spektrum/DSM підключаються до входу **DSM**.
+- Приймачі PPM або SBUS підключаються до вхідного порту **PPM/SBUS**.
 
-PPM and PWM receivers that have an _individual wire for each channel_ must connect to the *PPM/SBUS\*\* port *via a PPM encoder\* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+Приймачі PPM і ШІМ, які мають _окремий дріт для кожного каналу_, повинні підключатися до порту *PPM/SBUS\*\* через енкодер PPM\* [подібний до цього](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (приймачі PPM-Sum використовують один сигнальний дріт для всіх каналів).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+Для отримання додаткової інформації про вибір радіосистеми, сумісність приймача та налаштування пари передавач/приймач див.: [Пульт керування передавачів& приймачів](../getting_started/rc_transmitter_receiver.md).
 
-## Telemetry Radios (Optional)
+## Телеметричні радіостанції (Опціонально)
 
-[Telemetry radios](../telemetry/index.md) may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+[Телеметрійні радіомодулі](../telemetry/index.md) можуть використовуватися для зв'язку та управління апаратом в польоті з наземної станції (наприклад, ви можете направляти БПЛА в певне положення або завантажувати нове завдання).
 
-The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
+Бортову радіостанцію слід підключити до порту **TELEM1**, як показано нижче (у разі підключення до цього порту подальша конфігурація не потрібна). Інша радіостанція підключається до комп'ютера або мобільного пристрою наземної станції (зазвичай через USB).
 
-Radios are also available for purchase on [Holybro's website](https://holybro.com/collections/telemetry-radios) .
+Радіостанції також доступні для придбання на веб-сайті [Holybro](https://holybro.com/collections/telemetry-radios) .
 
-## SD Card (Optional)
+## SD-карта (Опціонально)
 
-SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the card (included in Pixhawk 6C) into _Pixhawk 6C_ as shown below.
+Наполегливо рекомендуємо використовувати SD-карти, оскільки вони необхідні для [запису та аналізу даних польоту](../getting_started/flight_reporting.md), запуску місій та використання обладнання UAVCAN-шини. Вставте картку (з комплекту Pixhawk 6C) в _Pixhawk 6C_, як показано нижче.
 
 <img src="../../assets/flight_controller/pixhawk6c/pixhawk6c_sd_slot.jpg" width="320px" title="Pixhawk6c SD" />
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
+Для отримання додаткової інформації див. [Основні концепції > SD-карти (знімна пам'ять)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
-## Motors
+## Двигуни
 
-Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
+Двигуни/сервоприводи підключаються до портів **I/O PWM OUT** (**MAIN**) та **FMU PWM OUT** (**AUX**) у порядку, вказаному для вашого апарату в [Airframe Reference](../airframes/airframe_reference.md).
 
 ::: info
-This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
+У цьому довіднику перераховані вихідні порти для мапування двигунів/сервоприводів для всіх підтримуваних повітряних і наземних каркасів (якщо ваш каркас не вказаний у довіднику, використовуйте "загальний" каркас відповідного типу).
 :::
 
 :::warning
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+Відображення не є однаковим для різних фреймів (наприклад, ви не можете покладатися на те, що дросель буде на одному і тому ж виході для всіх повітряних конструкцій). Переконайтеся, що ви використовуєте правильне відображення для вашого транспортного засобу.
 :::
 
-## Other Peripherals
+## Інші периферійні пристрої
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Підключення та конфігурація додаткових / менш поширених компонентів описано в темах для окремих [периферійних пристроїв](../peripherals/index.md).
 
-## Pinouts
+## Схема розташування виводів
 
 - [Holybro Pixhawk -6C Pinout](https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-6c-pinout)
 
-## Configuration
+## Конфігурація
 
-General configuration information is covered in: [Autopilot Configuration](../config/index.md).
+Загальну інформацію про конфігурацію описано в: [Конфігурація автопілота](../config/index.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+Конфігурація для QuadPlane описана тут: [Конфігурація QuadPlane VTOL](../config_vtol/vtol_quad_configuration.md)
 
 <!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
-## Further information
+## Додаткова інформація
 
-- [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Pixhawk 6C](../flight_controller/pixhawk6c.md) (PX4 Doc Overview page)
+- [Документація Holybro](https://docs.holybro.com/) (Holybro)
+- [Pixhawk 6C](../flight_controller/pixhawk6c.md) (сторінка з оглядом документації PX4)
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
-- [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
-- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+- [Стандарт шин автопілота Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
+- [Стандарт роз'ємів Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).

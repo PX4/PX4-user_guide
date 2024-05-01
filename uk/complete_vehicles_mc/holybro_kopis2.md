@@ -1,50 +1,50 @@
 # Holybro Kopis 2
 
-The [Holybro Kopis 2](https://holybro.com/products/kopis2-hdv-free-shipping) is a ready-to-fly race quad for flying FPV or line-of-sight.
+[Holybro Kopis 2] (https://holybro.com/products/kopis2-hdv-free-shipping) - це готовий до польотів гоночний квадрокоптер для польотів FPV або в межах прямої видимості.
 
 ![Kopis 2](../../assets/hardware/holybro_kopis2.jpg)
 
-## Where to Buy
+## Де купити
 
-The _Kopis 2_ can be bought from a number of vendors, including:
+_Kopis 2_ можна придбати від кількох виробників, включаючи:
 
 - [Holybro](https://holybro.com/products/kopis2-hdv-free-shipping) <!-- item code 30069, 30070 -->
 - [GetFPV](https://www.getfpv.com/holybro-kopis-2-fpv-racing-drone-pnp.html)
 
-In addition you will need:
+Крім того, вам знадобиться:
 
-- An RC transmitter. The _Kopis 2_ can ship with an FrSky receiver or no receiver at all.
-- LiPo battery and charger.
-- FPV goggles if you want to fly FPV.
-  There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3).
-  You can also use DJI FPV goggles if you have the HDV version of the Kopis 2.
+- Передавач дистанційного керування. _Kopis 2_ може бути поставлений з приймачем FrSky або без приймача взагалі.
+- Акумулятор LiPo та зарядний пристрій.
+- FPV окуляри, якщо ви хочете літати в режимі FPV.
+  Є багато сумісних варіантів, включаючи ці від [Fatshark](https://www.fatshark.com/product-page/dominator-v3).
+  Ви також можете використовувати окуляри DJI FPV, якщо у вас є версія Kopis 2 з HDV.
 
-  ::: info
-  FPV support is completely independent of PX4/flight controller.
+  ::: інформація
+  Підтримка FPV є абсолютно незалежною від PX4/контролера польоту.
 
 :::
 
-## Flashing PX4 Bootloader
+## Прошивка завантажувача PX4
 
-The _Kopis 2_ comes preinstalled with Betaflight.
+_Kopis 2_ поставляється із заздалегідь встановленим Betaflight.
 
-Before loading PX4 firmware you must first install the PX4 bootloader.
-Instructions for installing the bootloader can be found in the [Kakute F7](../flight_controller/kakutef7.md#bootloader) topic (this is the flight controller board on the _Kopis 2_).
+Перед завантаженням прошивки PX4 вам спочатку потрібно встановити завантажувач PX4.
+Інструкції по встановленню завантажувача можна знайти в темі [Kakute F7](../flight_controller/kakutef7.md#bootloader) (це плата польотного контролера на _Kopis 2_).
 
 :::tip
-You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall-betaflight) later if you want!
+Ви завжди можете [перевстановити Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall-betaflight) пізніше, якщо захочете!
 :::
 
-## Installation/Configuration
+## Встановлення/Налаштування
 
-Once the bootloader is installed, you should be able to connect the vehicle to _QGroundControl_ via a USB cable.
+Після установки завантажувача, ви зможете під'єднати апарат до _QGroundControl_ через USB-кабель.
 
 :::info
-At time of writing _Kopis 2_ is supported on the QGroundControl _Daily Build_, and prebuilt firmware is provided for the master branch only (stable releases are not yet available).
+На момент написання статті _Kopis 2_ підтримується на QGroundControl _Daily Build_, а попередньо зібрана прошивка надається лише для master гілки (стабільні випуски ще не доступні).
 :::
 
-To install and configure PX4:
+Для встановлення та налаштування PX4:
 
-- [Load PX4 Firmware](../config/firmware.md).
-- [Set the Airframe](../config/airframe.md) to _Holybro Kopis 2_.
-- Continue with [basic configuration](../config/index.md), including sensor calibration and radio setup.
+- [Завантажте прошивку PX4](../config/firmware.md).
+- [Встановіть Airframe](../config/airframe.md) в _Holybro Kopis 2_.
+- Продовжуйте з [базовою конфігурацією](../config/index.md), включаючи калібрування датчиків та радіо.

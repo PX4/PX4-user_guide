@@ -2,9 +2,10 @@
 
 Консоль MAVLink є _NSH console_, до якої можна отримати доступ через MAVLink через послідовний (USB/Telemetry) або WiFi (UDP/TCP) зв'язки (зокрема на системах на основі NuttX, таких як: Pixhawk, Pixracer, тощо).
 
-Консоль можна використовувати для виконання команд та модулів та відображення їх виводу. While the shell cannot _directly_ display the output of modules that it does not start, it can do so indirectly using the `dmesg` command (`dmesg -f &` can be used to display the output of other modules and tasks running on the work queue).
+Консоль можна використовувати для виконання команд та модулів та відображення їх виводу. Хоча оболонка не може _безпосередньо_ відображати вивід модулів, які вона не запускає, вона може це робити опосередковано за допомогою команди `dmesg` (можна використовувати `dmesg -f &` для відображення виводу інших модулів та завдань, що виконуються у черзі роботи).
 
-:::порада Найлегший спосіб отримати доступ до консолі [QGroundControl MAVLink](#qgroundcontrol) - це консоль QGroundControl MAVLink. Якщо система не запускається належним чином, вам слід замість цього використовувати [System Console](../debug/system_console.md).
+:::tip
+Найлегший спосіб отримати доступ до консолі [QGroundControl MAVLink](#qgroundcontrol) - це консоль QGroundControl MAVLink. Якщо система не запускається належним чином, вам слід замість цього використовувати [System Console](../debug/system_console.md).
 :::
 
 ## Відкриття консолі
@@ -13,7 +14,7 @@
 
 ### Консоль QGroundControl MAVLink
 
-The easiest way to access shell is to use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (see **Analyze View > Mavlink Console**).
+Найлегший спосіб доступу до оболонки - це використання [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (див. **Analyze View > Mavlink Console**).
 
 ### mavlink_shell.py
 

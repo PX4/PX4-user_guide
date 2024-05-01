@@ -58,7 +58,6 @@ mavlink stream -u 14556 -s HIGHRES_IMU -r 50
 ### Usage
 ```
 mavlink <command> [arguments...]
- mavlink <command> [arguments...]
  Commands:
    start         Start a new instance
      [-d <val>]  Select Serial Device
@@ -83,6 +82,8 @@ mavlink <command> [arguments...]
                  MAV_{i}_BROADCAST param)
                  values: Multicast address in the range
                  [239.0.0.0,239.255.255.255]
+     [-F <val>]  Sets the transmission frequency for iridium mode
+                 default: 0.0
      [-f]        Enable message forwarding to other Mavlink instances
      [-w]        Wait to send, until first message received
      [-x]        Enable FTP

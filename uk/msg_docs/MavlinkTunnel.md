@@ -1,8 +1,8 @@
-# MavlinkTunnel (UORB message)
+# MavlinkTunnel (повідомлення UORB)
 
 MAV_TUNNEL_PAYLOAD_TYPE enum
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/MavlinkTunnel.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/MavlinkTunnel.msg)
 
 ```c
 # MAV_TUNNEL_PAYLOAD_TYPE enum

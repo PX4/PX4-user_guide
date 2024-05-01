@@ -1,93 +1,93 @@
-# Cube Wiring Quick Start
+# Швидке підключення Cube
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://cubepilot.org/#/home) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 
-Note also that while [Cube Black](../flight_controller/pixhawk-2.md) is [fully supported by PX4](../flight_controller/autopilot_pixhawk_standard.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md) are [Manufacturer Supported](../flight_controller/autopilot_manufacturer_supported.md).
+Також варто зазначити, що, хоча [Cube Black](../flight_controller/pixhawk-2.md) [повністю підтримується PX4](../flight_controller/autopilot_pixhawk_standard.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) та [Cube Orange](../flight_controller/cubepilot_cube_orange.md) [підтримуються виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-This quick start guide shows how to power the _Cube_<sup>&reg;</sup> flight controllers and connect their most important peripherals.
+Цей короткий посібник показує, як живити польотні контролери _Cube_<sup>&reg;</sup> та під'єднати їх найважливіші периферійні пристрої.
 
 <img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="350px" /> <img src="../../assets/flight_controller/cube/cube_black_hero.png" width="350px" /> <img src="../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg" width="150px" />
 
 :::tip
-The instructions apply to all Cube variants, including [Cube Black](../flight_controller/pixhawk-2.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md). Further/updated information may be available in the [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual) (Cube Docs).
+Інструкції застосовуються до всіх варіантів Cube, включаючи [Cube Black](../flight_controller/pixhawk-2.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) та [Cube Orange](../flight_controller/cubepilot_cube_orange.md). Додаткову/оновлену інформацію можна знайти у [Посібнику користувача по Cube](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual) (Cube Docs).
 :::
 
-## Accessories
+## Аксесуари
 
-Cube comes with most (or all) of the accessories you will need when [purchased](../flight_controller/pixhawk-2.md#stores).
+Куб поставляється з більшістю (або всіма) аксесуарами, які вам знадобляться при [покупці](../flight_controller/pixhawk-2.md#stores).
 
-![Cube Accessories](../../assets/flight_controller/cube/cube_accessories.jpg)
+![Аксесуари cube](../../assets/flight_controller/cube/cube_accessories.jpg)
 
-The exception is that some kits do not include a GPS, which will have to be purchased separately ([see below](#gps)).
+Виняток полягає в тому, що деякі комплекти не включають GPS, який доведеться придбати окремо ([див. нижче](#gps)).
 
-## Wiring Overview
+## Загальний огляд проводки
 
-The image below shows how to connect the most important sensors and peripherals. We'll go through each of these in detail in the following sections.
+На зображенні нижче показано, як підключити найважливіші датчики та периферійні пристрої. Ми розглянемо кожен з них докладно в наступних розділах.
 
-![Cube - Wiring Overview](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
+![Cube - Огляд підключення](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
 
-1. [Telemetry System](#telemetry) — Allows you to plan/run missions, and control and monitor the vehicle in real time. Typically includes telemetry radios, tablet/PC and ground station software.
-2. [Buzzer](#buzzer) — Provides audio signals that indicate what the UAV is doing
-3. [Remote Control Receiver System](#rc_control) — Connects to a hand-held transmitter that an operator can use to manually fly the vehicle (shown is a PWM receiver with PWM->PPM converter).
-4. (Dedicated) [Safety switch](#safety-switch) — Press and hold to lock and unlock motors. Only required if you are not using the recommended [GPS](#gps) with inbuilt safety switch.
-5. [GPS, Compass, LED, Safety Switch](#gps) — The recommended GPS module contains GPS, Compass, LED and Safety Switch.
-6. [Power System](#power) — Powers Cube and the motor ESCs. Consists of LiPo battery, power module, and optional battery warning system (audio warning if battery power goes below a predefined level).
+1. [Система телеметрії](#telemetry) — Дозволяє вам планувати/виконувати місії, контролювати та відстежувати транспортний засіб в реальному часі. Зазвичай включає телеметричні радіо, планшет / ПК та програмне забезпечення для земної станції.
+2. [Сигналізатор](#buzzer) — Надає аудіосигнали, які вказують, що робить БПЛА
+3. [Система приймача пульта дистанційного керування](#rc_control) — Підключається до ручного передавача, який оператор може використовувати для ручного керування транспортним засобом (показано приймач PWM з конвертером PWM>PPM).
+4. (Спеціалізований) [Безпечний перемикач](#safety-switch) — Натисніть і утримуйте, щоб заблокувати та розблокувати двигуни. Лише обов'язково, якщо ви не використовуєте рекомендований [GPS](#gps) з вбудованим безпечним вимикачем.
+5. [GPS, Компас, Світлодіод, Кнопка безпеки](#gps) — Рекомендований модуль GPS містить GPS, Компас, Світлодіод та Кнопку безпеки.
+6. [Система живлення](#power) — Куб живлення та регулятори швидкості моторів. Складається з LiPo акумулятора, модуля живлення та необов'язкової системи попередження про рівень заряду акумулятора (аудіо попередження, якщо рівень заряду акумулятора падає нижче попередньо встановленого рівня).
 
-::: info The port labeled `GPS2` maps to `TEL4` in PX4 (i.e. if connecting to the port labeled `GPS2`, assign the [serial port configuration parameter](../peripherals/serial_configuration.md) for the connected hardware to `TEL4`).
+::: info Порт, позначений як `GPS2`, відповідає `TEL4` в PX4 (тобто, якщо підключитися до порту, позначеного як `GPS2`, призначте [параметр конфігурації послідовного порту](../peripherals/serial_configuration.md) для підключеного обладнання до `TEL4`).
 :::
 
 :::tip
-More information about available ports can be found here: [Cube > Ports](../flight_controller/pixhawk-2.md#ports).
+Додаткову інформацію про доступні порти можна знайти тут: [Куб > Порти](../flight_controller/pixhawk-2.md#ports).
 :::
 
-## Mount and Orient Controller
+## Монтаж та орієнтація контролера
 
-Mount the Cube as close as possible to your vehicle’s center of gravity, ideally oriented top-side up and with the arrow pointing towards the front of the vehicle (note the _subtle_ arrow marker on top of the cube)
+Встановіть Куб якомога ближче до центру ваги вашого транспортного засобу, ідеально орієнтований верхньою стороною вгору і зі стрілкою, що вказує вперед транспортного засобу (зверніть увагу на _вишукану_ стрілкову позначку зверху на кубі)
 
-![Cube Mount - Direction of Front](../../assets/flight_controller/cube/cube_mount_front.jpg)
+![Монтаж куба - напрямок вперед](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+::: info Якщо контролер не може бути змонтований в рекомендованій/стандартній орієнтації (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 :::
 
-The Cube can be mounted using either vibration-damping foam pads (included in the kit) or mounting screws. The mounting screws in the Cube accessories are designed for a 1.8mm thick frameboard. Customized screws are supposed to be M2.5 with thread length inside Cube in range 6mm~7.55mm.
+Куб може бути встановлений за допомогою або амортизуючих вібрації пінопластових підкладок (включених у комплект) або кріпильних гвинтів. Гвинти кріплення в аксесуарах Куба призначені для рамки товщиною 1,8 мм. Налаштовані гвинти повинні бути M2.5 з довжиною різьблення всередині Куба в діапазоні від 6 мм до 7.55 мм.
 
 ![Cube Mount - Mounting Plate](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
 
 <a id="gps"></a>
 
-## GPS + Compass + Safety Switch + LED
+## GPS + Компас + Безпечний вимикач + Світлодіоди
 
-The recommended GPS modules are the _Here_ and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md). The difference between the modules is that _Here+_ supports centimeter level positioning via [RTK](../gps_compass/rtk_gps.md). Otherwise they are used/connected in the same way.
+Рекомендовані модулі GPS - _Here_ та [Here+](../gps_compass/rtk_gps_hex_hereplus.md), обидва з якими поєднані модуль GPS, компас, захисний вимикач та [світлодіоди](../getting_started/led_meanings.md). Різниця між модулями полягає в тому, що _Here+_ підтримує позиціонування на рівні сантиметрів через [RTK](../gps_compass/rtk_gps.md). В іншому випадку вони використовуються / підключаються так само.
 
 :::warning
-The [Here+](../gps_compass/rtk_gps_hex_hereplus.md) has been superseded by the [Here3](https://www.cubepilot.org/#/here/here3) a [DroneCAN](../dronecan/index.md) RTK-GNSS that incorporate a compass and [LEDs](../getting_started/led_meanings.md) (but no safety switch). See [DroneCAN](../dronecan/index.md) for _Here3_ wiring and PX4 configuration information.
+[Тут](../gps_compass/rtk_gps_hex_hereplus.md) було замінено на [Тут3](https://www.cubepilot.org/#/here/here3) - RTK-GNSS з компасом та [DroneCAN](../dronecan/index.md), які включають компас та [світлодіоди](../getting_started/led_meanings.md) (але без вимикача безпеки). Див. [DroneCAN](../dronecan/index.md) для інформації про з'єднання _Here3_ та конфігурацію PX4.
 :::
 
-The module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference). It must be connected to the `GPS1` port using the supplied 8-pin cable.
+Модуль слід монтувати на раму якомога подалі від інших електронних пристроїв, з напрямком вперед транспортного засобу (відокремлення компаса від інших електронних пристроїв зменшить втручання). Він повинен бути підключений до порту `GPS1` за допомогою постачального 8-пінного кабелю.
 
-The diagram below shows a schematic view of the module and its connections.
+Діаграма нижче показує схематичний вигляд модуля та його з'єднань.
 
 ![Here+ Connector Diagram](../../assets/flight_controller/cube/here_plus_connector.png)
 
-::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+::: info Вбудований безпечний вимикач в GPS-модулі увімкнений _за замовчуванням_ (коли включений, PX4 не дозволить вам готувати до польоту). Щоб вимкнути безпеку, натисніть і утримуйте безпечний вимикач протягом 1 секунди. Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
 
 :::tip
-If you want to use an old-style 6-pin GPS module, the kit comes with a cable that you can use to connect both the GPS and [Safety Switch](#safety-switch).
+Якщо ви хочете використовувати старомодний 6-контактний модуль GPS, комплект поставки містить кабель, за допомогою якого ви можете підключити як GPS, так і [Вимикач безпеки](#safety-switch).
 :::
 
-## Safety Switch
+## Запобіжний перемикач
 
-The _dedicated_ safety switch that comes with the Cube is only required if you are not using the recommended [GPS](#gps) (which has an inbuilt safety switch).
+_Спеціальний_ запобіжний вимикач, який поставляється з кубом, потрібен лише у випадку, якщо ви не використовуєте рекомендований [GPS](#gps) (у якому вбудований запобіжний вимикач).
 
-If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (or via a supplied cable if using an old-style 6-pin GPS).
+Якщо ви літаєте без GPS, ви повинні прикріпити перемикач безпосередньо до порту `GPS1`, щоб мати можливість озброїти транспортний засіб і летіти (або за допомогою постачального кабелю, якщо використовуєте старий GPS з 6 контактами).
 
-## Buzzer
+## Зумер
 
-The buzzer plays [tones and tunes](../getting_started/tunes.md) that provide audible notification of vehicle status (including tones that are helpful for debugging startup issues, and that notify of conditions that might affect safe operation of the vehicle).
+Динамік відтворює [звуки та мелодії](../getting_started/tunes.md), які надають слухове сповіщення про стан транспортного засобу (включаючи звуки, які корисні для виправлення проблем під час запуску, та сповіщення про умови, які можуть впливати на безпечну експлуатацію транспортного засобу).
 
-The buzzer should be connected to the USB port as shown (no further configuration is required).
+Дзвіночок слід підключити до порту USB, як показано (додаткова конфігурація не потрібна).
 
 ![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
@@ -95,108 +95,108 @@ The buzzer should be connected to the USB port as shown (no further configuratio
 
 ## Radio Control
 
-A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+Для того щоб керувати транспортним засобом [система радіоуправління (RC)](../getting_started/rc_transmitter_receiver.md) потрібна, якщо ви хочете _вручну_ керувати своїм транспортним засобом (PX4 не потребує системи радіоуправління для автономних режимів польоту).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Вам потрібно [вибрати сумісний передавач/приймач](../getting_started/rc_transmitter_receiver.md) і _зв'язати_ їх таким чином, щоб вони взаємодіяли (ознайомтеся з інструкціями, що додаються до вашого конкретного передавача/приймача).
 
-The instructions below show how to connect the different types of receivers.
+Нижче наведено інструкції, як підключити різні типи приймачів.
 
-### PPM-SUM / Futaba S.Bus receivers
+### PPM-SUM / Futaba S.Bus отримувачі
 
-Connect the ground(-),power(+),and signal(S) wires to the RC pins using the provided 3-wire servo cable.
+Підключіть дріт землі (-), живлення (+) та сигналу (S) до контактів RC за допомогою наданого трьохжильного серво-кабелю.
 
 ![Cube - RCIN](../../assets/flight_controller/cube/cube_rc_in.jpg)
 
-### Spektrum Satellite Receivers
+### Супутникові приймачі Spektrum
 
-Spektrum DSM, DSM2, and DSM-X Satellite RC receivers connect to the **SPKT/DSM** port.
+Приймачі Spektrum DSM, DSM2 та DSM-X Satellite RC підключаються до порту **SPKT/DSM**.
 
 ![Cube - Spektrum](../../assets/flight_controller/cube/cube_rc_spektrum.jpg)
 
-### PWM Receivers
+### Приймачі PWM
 
-The Cube cannot directly connect to PPM or PWM receivers that have an _individual wire for each channel_. PWM receivers must therefore connect to the **RCIN** port _via_ a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
+Куб не може безпосередньо підключатися до приймачів PPM або PWM, які мають _окремий провід для кожного каналу_. Отримувачі PWM повинні тому підключатися до порту **RCIN** _через_ модуль енкодера PPM, який можна придбати на hex.aero або proficnc.com.
 
-## Power
+## Потужність
 
-Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board, and may _separately_ supply power to ESCs that are used to drive motors on a multicopter vehicle.
+Куб зазвичай живиться від батареї літій-полімеру (LiPo) через модуль живлення (постачається ​​з набором), який підключений до порту **POWER1**. Модуль живлення забезпечує надійне постачання та індикацію напруги / струму до плати, і може _окремо_ постачати живлення до ESC, які використовуються для приводу двигунів на багатороторному літальному апараті.
 
-A typical power setup for a Multicopter vehicle is shown below.
+Типове живлення для транспортного засобу Multicopter показано нижче.
 
 ![Power Setup - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
-::: info The power (+) rail of **MAIN/AUX** is _not powered_ by the power module supply to the flight controller. In order to drive servos for rudders, elevons, etc., it will need to be separately powered.
+::: info Контактна шина живлення (+) **MAIN/AUX** _не живиться_ блоком живлення модуля живлення контролера польоту. Для керування сервоприводами керма, елеронами тощо, їх потрібно буде окремо живити.
 
-This can be done by connecting the power rail to a BEC equipped ESC, a standalone 5V BEC, or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate!
+Це можна зробити, підключивши живильну рейку до ESC з BEC, автономного BEC на 5V або 2S LiPo акумулятора. Переконайтеся, що напруга сервопривода, яку ви збираєтеся використовувати, відповідає!
 :::
 
 <a id="telemetry"></a>
 
-## Telemetry System (Optional)
+## Система телеметрії (Опціонально)
 
-A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+Система телеметрії дозволяє вам спілкуватися, контролювати та керувати транспортним засобом у польоті з наземної станції (наприклад, ви можете направляти БПЛА до певної позиції або завантажувати нове завдання).
 
-The communication channel is via [Telemetry Radios](../telemetry/index.md). The vehicle-based radio should be connected to the **TELEM1** port (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
+Канал зв'язку здійснюється через [телеметричні радіостанції](../telemetry/index.md). Радіостанцію, розташовану на транспортному засобі, слід підключити до порту **TELEM1** (якщо підключено до цього порту, додаткова конфігурація не потрібна). Інша радіостанція підключається до вашого комп'ютера або мобільного пристрою наземної станції (зазвичай за допомогою USB).
 
 ![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
-## SD Card (Optional)
+## SD-карта (Опціонально)
 
-SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the Micro-SD card into Cube as shown (if not already present).
+Картки SD настійно рекомендується, оскільки вони потрібні для [запису та аналізу даних польоту](../getting_started/flight_reporting.md), для виконання місій та для використання апаратного засобу UAVCAN-bus. Вставте картку Micro-SD в Куб, як показано (якщо вона ще не вставлена).
 
 ![Cube - Mount SDCard](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
+Для отримання додаткової інформації див. [Основні концепції > SD-карти (знімна пам'ять)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
-## Motors
+## Двигуни
 
-Motors/servos are connected to the **MAIN** and **AUX** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
+Мотори/сервоприводи підключені до портів **MAIN** та **AUX** в порядку, вказаному для вашого апарату в [Довіднику планерів](../airframes/airframe_reference.md).
 
 ![Cube - Motor Connections](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
 ::: info
-This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
+Цей довідник містить зіставлення портів виводу до моторів/сервоприводів для всіх підтримуваних повітряних та наземних шасі (якщо ваше шасі не вказане в довіднику, то використовуйте "загальний" планер відповідного типу).
 :::
 
 :::warning
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+Відображення не є однорідним для всіх конструкцій (наприклад, ви не можете покладатися на те, що ручка газу буде на тому ж вихідному порту для всіх повітряних конструкцій). Переконайтеся, що ви використовуєте правильне відображення для вашого транспортного засобу.
 :::
 
-## Other Peripherals
+## Інші периферійні пристрої
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Підключення та конфігурація додаткових / менш поширених компонентів описано в темах для окремих [периферійних пристроїв](../peripherals/index.md).
 
-::: info If connecting peripherals to the port labeled `GPS2`, assign the PX4 [serial port configuration parameter](../peripherals/serial_configuration.md) for the hardware to `TEL4` (not GPS2).
+::: info Якщо підключаєте периферійні пристрої до порту з позначкою `GPS2`, призначте [параметр конфігурації послідовного порту](../peripherals/serial_configuration.md) PX4 для апаратного забезпечення `TEL4` (а не GPS2).
 :::
 
-## Configuration
+## Конфігурація
 
-Configuration is performed using [QGroundContro](http://qgroundcontrol.com/).
+Конфігурацію виконують за допомогою [QGroundContro](http://qgroundcontrol.com/).
 
-After downloading, installing and running _QGroundControl_, connect the board to your computer as shown.
+Після завантаження, встановлення та запуску _QGroundControl_ підключіть плату до комп'ютера, як показано.
 
 ![Cube - USB Connection to Computer](../../assets/flight_controller/cube/cube_usb_connection.jpg)
 
-Basic/common configuration information is covered in: [Autopilot Configuration](../config/index.md).
+Основна / загальна інформація про конфігурацію описана в: [Конфігурація автопілота](../config/index.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+Особливу конфігурацію QuadPlane описано тут: [Конфігурація QuadPlane VTOL](../config_vtol/vtol_quad_configuration.md)
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
-### Bootloader Updates
+### Оновлення завантажувача
 
-If you get the [Program PX4IO(../getting_started/tunes.md#program-px4io) warning tone after flashing PX4 firmware, you may need to update the bootloader.
+Якщо ви отримуєте сигнал попередження [Програма PX4IO(../getting_started/tunes.md#program-px4io) після прошивки програмного забезпечення PX4, вам може знадобитися оновити завантажувач.
 
-The safety switch can be used to force bootloader updates. To use this feature de-power the Cube, hold down the safety switch, then power the Cube over USB.
+Перемикач безпеки може бути використаний для примусового оновлення завантажувача. Для використання цієї функції вимкніть живлення Куба, утримуйте перемикач безпеки, а потім підключіть живлення Куба через USB.
 
-## Further information
+## Детальна інформація
 
-- [Cube Black](../flight_controller/pixhawk-2.md)
+- [Куб Чорний](../flight_controller/pixhawk-2.md)
 - [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md)
-- [Cube Orange](../flight_controller/cubepilot_cube_orange.md)
-- Cube Docs (Manufacturer):
-  - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
-  - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
-  - [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)
+- [Куб Оранжевий](../flight_controller/cubepilot_cube_orange.md)
+- Cube Docs (виробник):
+  - [Огляд модуля Cube](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
+  - [Посібник користувача Cube](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
+  - [Міні-платформа](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)

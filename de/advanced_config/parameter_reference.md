@@ -15873,6 +15873,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MAV_0_HL_FREQ">MAV_0_HL_FREQ</strong> (FLOAT)</td>
+ <td>Configures the frequency of HIGH_LATENCY2 stream for instance 0 <p><strong>Comment:</strong> Positive real value that configures the transmission frequency of the HIGH_LATENCY2 stream for instance 0, configured in iridium mode. This parameter has no effect if the instance mode is different from iridium.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0.0, 50.0] (0.001)</td>
+ <td>0.015</td>
+ <td>Hz</td>
+</tr>
+<tr>
  <td><strong id="MAV_0_MODE">MAV_0_MODE</strong> (INT32)</td>
  <td>MAVLink Mode for instance 0 <p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle&#x27;s attitude) and their sending rates.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Normal</li>
@@ -15978,6 +15986,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MAV_1_HL_FREQ">MAV_1_HL_FREQ</strong> (FLOAT)</td>
+ <td>Configures the frequency of HIGH_LATENCY2 stream for instance 1 <p><strong>Comment:</strong> Positive real value that configures the transmission frequency of the HIGH_LATENCY2 stream for instance 1, configured in iridium mode. This parameter has no effect if the instance mode is different from iridium.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0.0, 50.0] (0.001)</td>
+ <td>0.015</td>
+ <td>Hz</td>
+</tr>
+<tr>
  <td><strong id="MAV_1_MODE">MAV_1_MODE</strong> (INT32)</td>
  <td>MAVLink Mode for instance 1 <p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle&#x27;s attitude) and their sending rates.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Normal</li>
@@ -16081,6 +16097,14 @@ table {
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_2_HL_FREQ">MAV_2_HL_FREQ</strong> (FLOAT)</td>
+ <td>Configures the frequency of HIGH_LATENCY2 stream for instance 2 <p><strong>Comment:</strong> Positive real value that configures the transmission frequency of the HIGH_LATENCY2 stream for instance 2, configured in iridium mode. This parameter has no effect if the instance mode is different from iridium.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0.0, 50.0] (0.001)</td>
+ <td>0.015</td>
+ <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="MAV_2_MODE">MAV_2_MODE</strong> (INT32)</td>
@@ -16376,6 +16400,7 @@ table {
 <li><strong>2:</strong> away from home</li>
 <li><strong>3:</strong> along trajectory</li>
 <li><strong>4:</strong> towards waypoint (yaw first)</li>
+<li><strong>5:</strong> yaw fixed</li>
 </ul>  </td>
  <td>[0, 4] </td>
  <td>0</td>

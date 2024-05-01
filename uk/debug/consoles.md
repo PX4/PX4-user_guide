@@ -65,7 +65,7 @@ top
 work_queue status
 ```
 
-Для налагодження рубрик uORB:
+Для налагодження тем uORB:
 
 ```sh
 uorb top

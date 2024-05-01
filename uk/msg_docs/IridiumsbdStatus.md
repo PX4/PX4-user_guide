@@ -1,12 +1,12 @@
-# IridiumsbdStatus (UORB message)
+# IridiumsbdStatus (UORB повідомлення)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/IridiumsbdStatus.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/IridiumsbdStatus.msg)
 
 ```c
 uint64 timestamp                # time since system start (microseconds)
-uint64 last_heartbeat               # timestamp of the last successful sbd session
+uint64 last_at_ok_timestamp         # timestamp of the last "OK" received after the "AT" command
 uint16 tx_buf_write_index           # current size of the tx buffer
 uint16 rx_buf_read_index            # the rx buffer is parsed up to that index
 uint16 rx_buf_end_index             # current size of the rx buffer

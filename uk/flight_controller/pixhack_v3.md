@@ -28,7 +28,7 @@ _Pixhack V3_ has significant improvements with respect to the original design, i
   - MAVLink UART (2)
   - GPS UART (2)
   - DEBUG UART (1)
-  - RC IN (for PPM, SBUS, DSM/DSM2)
+  - RC IN (для PPM, SBUS, DSM/DSM2)
   - RSSI IN: PWM OR 3.3ADC
   - I2C (2)
   - CAN BUS (1)

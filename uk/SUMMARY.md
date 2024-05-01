@@ -233,7 +233,7 @@
     - [Акселерометр](sensor/accelerometer.md)
       - [Калібрування](config/accelerometer.md)
     - [Гіроскоп](sensor/gyroscope.md)
-      - [Calibration](config/gyroscope.md)
+      - [Калібрування](config/gyroscope.md)
     - [Магнітометр (компас)](gps_compass/magnetometer.md)
       - [Встановлення компаса](assembly/mount_gps_compass.md)
       - [Калібрування](config/compass.md)

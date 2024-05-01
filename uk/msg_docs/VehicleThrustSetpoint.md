@@ -1,8 +1,8 @@
-# VehicleThrustSetpoint (UORB message)
+# VehicleThrustSetpoint (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg)
 
 ```c
 

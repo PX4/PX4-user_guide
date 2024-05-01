@@ -129,7 +129,7 @@ Pixhawk®️sco6X-RT ідеально підходить для розробни
 
 Зразок схеми з'єднань
 
-![Pixhawk 6X Wiring Overview](../../assets/flight_controller/pixhawk6x/pixhawk6x_wiring_diagram.png)
+![Огляд підключення Pixhawk 6X](../../assets/flight_controller/pixhawk6x/pixhawk6x_wiring_diagram.png)
 
 ## Розводка
 
@@ -159,38 +159,38 @@ Pixhawk®️sco6X-RT ідеально підходить для розробни
 
 ## Номінальна напруга
 
-_Pixhawk 6X-RT_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**. The **POWER1** & **POWER2** ports on the Pixhawk 6X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
+_Pixhawk 6X-RT_ може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шини живлення: **POWER1**, **POWER2** і **USB**. Порти **POWER1** та **POWER2** на Pixhawk 6X використовують 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
-**Normal Operation Maximum Ratings**
+**Максимальна напруга нормальної роботи**
 
-Under these conditions all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1** та **POWER2** входи (4.9V до 5.5V)
+1. **USB** вхід (4.75V до 5.25V)
 
-**Absolute Maximum Ratings**
+**Абсолютна максимальна напруга**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+За таких умов система не буде витрачати жодної енергії (не буде працювати), але залишиться неушкодженою.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1** і **POWER2** входи (робочий діапазон від 4.1V до 5.7V, від 0V до 10V без пошкоджень)
+1. **USB** вхід (операційний діапазон від 4.1V до 5.7V, від 0V до 6V без пошкоджень)
+1. Серво вхід: пін VDD_SERVO **FMU PWM OUT** та **I/O PWM OUT** (від 0V до 42V без пошкоджень)
 
-**Voltage monitoring**
+**Моніторинг напруги**
 
-Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_pixhawk6x.md#power)).
+Цифровий I2C моніторинг акумулятора увімкнено за замовчуванням (див. [Швидкий старт > Живлення](../assembly/quick_start_pixhawk6x.md#power)).
 
 ::: info
-Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
+Аналоговий моніторинг батареї через ADC не підтримується на цій платі, але може підтримуватися в варіантах цього політного контролера з іншою базовою платою.
 :::
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цього контролера:
 
 ```
 make px4_fmu-v6xrt_default
@@ -198,45 +198,45 @@ make px4_fmu-v6xrt_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Відладочний порт
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
+[Системна консоль PX4](../debug/system_console.md) та інтерфейс [SWD](../debug/swd_debug.md) працюють на порту **FMU Debug**.
 
-The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
+Розпиновка та конектор відповідають інтерфейсу [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full), визначеному в інтерфейсі [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (конектор JST SM10B).
 
-| Pin      | Signal           | Volt  |
-| -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
-| 8 (blk)  | PH11             | +3.3V |
-| 9 (blk)  | nRST             | +3.3V |
-| 10 (blk) | `GND`            | GND   |
+| Пін          | Сигнал           | Вольт |
+| ------------ | ---------------- | ----- |
+| 1 (червоний) | `Vtref`          | +3.3V |
+| 2 (чорний)   | Console TX (OUT) | +3.3V |
+| 3 (чорний)   | Console RX (IN)  | +3.3V |
+| 4 (чорний)   | `SWDIO`          | +3.3V |
+| 5 (чорний)   | `SWCLK`          | +3.3V |
+| 6 (чорний)   | `SWO`            | +3.3V |
+| 7 (чорний)   | NFC GPIO         | +3.3V |
+| 8 (чорний)   | PH11             | +3.3V |
+| 9 (чорний)   | nRST             | +3.3V |
+| 10 (чорний)  | `GND`            | GND   |
 
-For information about using this port see:
+Інформацію про використання цього порту див:
 
 - [SWD Debug Port](../debug/swd_debug.md)
-- [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
+- [Системна консоль PX4](../debug/system_console.md) (Зауважте, що консоль FMU зіставляється з USART3).
 
-## Peripherals
+## Периферія
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Цифровий датчик швидкості польоту](https://holybro.com/products/digital-air-speed-sensor)
+- [Радіо модулі телеметрії](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [Далекоміри / Датчики відстані](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / шасі
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа чи човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus. Повний перелік підтримуваних конфігурацій можна переглянути в розділі [Довідник планерів](../airframes/airframe_reference.md).
 
-## Further info
+## Подальша інформація
 
 - [Update Pixhawk 6X-RT Bootloader](../advanced_config/bootloader_update_v6xrt.md)
-- [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
+- [Документація Holybro](https://docs.holybro.com/) (Holybro)
+- [Швидкий старт з підключення Pixhawk 6X](../assembly/quick_start_pixhawk6x.md)
 - [PM02D Power Module](../power_module/holybro_pm02d.md)
 - [PM03D Power Module](../power_module/holybro_pm03d.md)
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf).

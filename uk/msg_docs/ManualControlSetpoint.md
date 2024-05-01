@@ -1,8 +1,8 @@
-# ManualControlSetpoint (UORB message)
+# ManualControlSetpoint (Повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ManualControlSetpoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ManualControlSetpoint.msg)
 
 ```c
 uint64 timestamp                        # time since system start (microseconds)
@@ -26,7 +26,7 @@ uint8 data_source
 
 # Stick positions [-1,1]
 # on a common RC mode 1/2/3/4 remote/joystick the stick deflection: -1 is down/left, 1 is up/right
-# Note: QGC sends throttle/z in range [0,1000] - [0,1]. The MAVLink input conversion [0,1] to [-1,1] is at the moment kept backwards compatible.
+# Note: QGC sends throttle/z in range [0,1000] - [0,1]. Перетворення вводу MAVLink [0,1] на [-1,1] на даний момент залишається сумісним з попередніми версіями.
 # Positive values are generally used for:
 float32 roll     # move right,   positive roll rotation,  right side down
 float32 pitch    # move forward, negative pitch rotation, nose down

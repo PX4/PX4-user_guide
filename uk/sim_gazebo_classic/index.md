@@ -26,7 +26,7 @@ graph LR;
 
 ## Встановлення
 
-Gazebo Classic 9 or 11 setup is included in our [standard build instructions](../dev_setup/dev_env.md) for Linux, macOS, and Windows. Додаткові інструкції для встановлення можна знайти на [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
+Налаштування Gazebo Classic 9 або 11 включено в наші [стандартні інструкції зі збірки](../dev_setup/dev_env.md) для Linux, macOS та Windows. Додаткові інструкції для встановлення можна знайти на [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
 
 :::info
 Якщо ви плануєте використовувати PX4 з ROS вам **потрібно дотримуватись** [інструкцій ROS](../simulation/ros_interface.md) для встановлення ROS та Gazebo Classic (а також уникнення конфліктів установки).

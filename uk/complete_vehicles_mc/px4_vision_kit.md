@@ -119,139 +119,139 @@ PX4 Vision DevKit містить наступні компоненти:
   - Передавач _FrSky Taranis_ з приймачем R-XSR - одна з найпопулярніших комбінацій.
 - Шестигранний ключ H2.0 (для відкручування верхньої панелі, з метою підключення пульта дистанційного керування)
 
-In addition, users will need ground station hardware/software:
+Крім того, користувачам знадобиться апаратне / програмне забезпечення для земної станції:
 
-- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html) (QGC).
+- Ноутбук або планшет, на якому працює [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html) (QGC).
 
-## First-time Setup
+## Перший запуск
 
-1. Attach a [compatible RC receiver](../getting_started/rc_transmitter_receiver.md#connecting-receivers) to the vehicle (not supplied with kit):
+1. Підключіть [сумісний RC приймач](../getting_started/rc_transmitter_receiver.md#connecting-receivers) до транспортного засобу (не постачається в комплекті):
 
-   - Remove/unscrew the top plate (where the battery goes) using an H2.0 hex key tool.
-   - [Connect the receiver to the flight controller](../assembly/quick_start_pixhawk4.md#radio-control).
-   - Re-attach the top plate.
-   - Mount the RC receiver on the _UP Core_ carrier board plate at the back of the vehicle (use zipties or double-sided tape).
-   - Ensure the antennas are clear of any obstructions and electrically isolated from the frame (e.g. secure them under the carrier board or to the vehicle arms or legs).
+   - Видаліть/відкрутіть верхню пластину (де йде батарея) за допомогою інструменту з головками шестигранника H2.0.
+   - [Підключіть приймач до контролера польоту](../assembly/quick_start_pixhawk4.md#radio-control).
+   - Прикріпіть знову верхню пластину.
+   - Встановіть RC-приймач на плату кар'єра _UP Core_ на задній частині транспортного засобу (використовуйте зажими або двосторонній скотч).
+   - Переконайтеся, що антени вільні від будь-яких перешкод і електрично ізольовані від рами (наприклад, закріпіть їх під платою або до рук або ніг транспортного засобу).
 
-2. [Bind](../getting_started/rc_transmitter_receiver.md#binding) the RC ground and air units (if not already done).
-   The binding procedure depends on the specific radio system used (read the receiver manual).
+2. [Прив'яжіть](../getting_started/rc_transmitter_receiver.md#binding) земельні та повітряні блоки керування RC (якщо ще не зроблено).
+   Процедура прив'язки залежить від конкретної радіосистеми, яку використовують (прочитайте посібник користувача приймача).
 
-3. Raise the GPS mast to the vertical position and screw the cover onto the holder on the base plate. (Not required for v1.5)
+3. Підніміть стійку GPS до вертикального положення та вкрутіть кришку на тримач на базовій пластині. (Не потрібно для v1.5)
 
-   ![Raise GPS mast](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
+   ![Підніміть мачту GPS](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
-4. Insert the pre-imaged USB2.0 stick from the kit into the _UP Core_ port labeled `USB1` (highlighted below).
+4. Уставте попередньо зображену USB2.0-ручку зі набору в порт _UP Core_, позначений як `USB1` (виділено нижче).
 
-   ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
+   ![UP Core: Порт USB1 ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
 
-5. Power the vehicle with a fully charged battery.
-   ::: info
-   Ensure propellers are removed before connecting the battery.
+5. Запустіть транспортний засіб з повністю зарядженою батареєю.
+   :::info
+   Переконайтеся, що гвинти від'єднані перед підключенням батареї.
 
 :::
 
-6. Connect the ground station to the vehicle WiFi network (after a few seconds) using the following default credentials:
+6. Підключіть земельну станцію до мережі WiFi транспортного засобу (через кілька секунд) за допомогою наступних типових облікових даних:
 
    - **SSID:** pixhawk4
-   - **Password:** pixhawk4
+   - **Пароль:** px4vision
 
    :::tip
-   WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`.
-   The baud rate must not be changed from 921600.
+   Ім'я мережі WiFi, пароль та інші облікові дані можуть бути змінені після підключення (за бажанням), використовуючи веб-переглядач для відкриття URL-адреси: `http://192.168.4.1`.
+   Швидкість передачі даних (baud rate) не повинна змінюватися з 921600.
 
 :::
 
-7. Start _QGroundControl_ on the ground station.
+7. Почніть _QGroundControl_ на земній станції.
 
-8. [Configure/calibrate](../config/index.md) the vehicle:
+8. [Налаштувати/калібрувати](../config/index.md) транспортний засіб:
 
-   ::: info
-   The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup).
-   You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
-
-:::
-
-   - [Calibrate the Radio System](../config/radio.md)
-   - [Calibrate the Compass](../config/compass.md)
-
-9. (Optional) Configure a [Flight Mode selector switch](../config/flight_mode.md) on the remote controller.
-
-   ::: info
-   Modes can also be changed using _QGroundControl_
+   :::info
+   Транспортний засіб повинен прибути попередньо каліброваним (наприклад, з вбудованим програмним забезпеченням, конструкцією корпусу, батареєю та датчиками, всі встановлені).
+   Проте вам все одно потрібно калібрувати радіосистему (яку ви щойно підключили), і часто варто повторно виконати калібрування компаса.
 
 :::
 
-   We recommend RC controller switches are define for:
+   - [Калібрування Радісистеми](../config/radio.md)
+   - [Калібрувати Компас](../config/compass.md)
 
-   - [Position Mode](../flight_modes_mc/position.md) - a safe manual flight mode that can be used to test collision prevention.
-   - [Mission Mode](../flight_modes_mc/mission.md) - run missions and test obstacle avoidance.
-   - [Return Mode](../flight_modes_mc/return.md) - return vehicle safely to its launch point and land.
+9. (Опціонально) Налаштуйте перемикач режиму польоту на пульті дистанційного керування, скориставшись [вибором режиму польоту](../config/flight_mode.md).
 
-10. Attach the propellers with the rotations as shown:
+   :::info
+   Режими також можна змінити за допомогою _QGroundControl_
+
+:::
+
+   Ми рекомендуємо визначити RC контролери для перемикачів:
+
+   - [Режим позиції](../flight_modes_mc/position.md) - безпечний ручний режим польоту, який можна використовувати для тестування запобігання зіткнень.
+   - [Режим місії](../flight_modes_mc/mission.md) - виконуйте місії та тестуйте уникання перешкод.
+   - [Режим повернення](../flight_modes_mc/return.md) - повернення транспортного засобу безпечно до точки запуску та посадка.
+
+10. Прикріпіть гвинти з обертанням, як показано:
 
     ![Motor Order Diagram](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
 
-    - The propellers directions can be determined from the labels: _6045_ (normal, counter-clockwise) and _6045_**R** (reversed, clockwise).
+    - Напрямки гвинтів можна визначити за мітками: _6045_ (звичайний, проти годинникової стрілки) та _6045_**R** (обернений, за годинниковою стрілкою).
 
-      ![Propeller identification](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
+      ![Ідентифікація гвинта](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
 
-    - Screw down firmly using the provided propellor nuts:
+    - Закрутіть тісно за допомогою наданих гайок пропелера:
 
-      ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.png)
+      ![Гайки гвинтів](../../assets/hardware/px4_vision_devkit/propeller_nuts.png)
 
-## Fly the Drone with Avoidance
+## Політ дроном з униканням
 
-When the vehicle setup described above is complete:
+Коли налаштування транспортного засобу, описані вище, завершені:
 
-1. Connect the battery to power the vehicle.
+1. Підключіть батарею, щоб живити транспортний засіб.
 
-2. Wait until the boot sequence completes and the avoidance system has started (the vehicle will reject arming commands during boot).
+2. Зачекайте, доки завершиться послідовність завантаження та система уникання розпочне роботу (транспортний засіб відхилить команди на озброєння під час завантаження).
 
    :::tip
-   The boot/startup process takes around 1 minute from the supplied USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
+   Процес завантаження/початку роботи триває близько 1 хвилини з постачаної USB-флешки (або 30 секунд з [внутрішньої пам'яті](#install_image_mission_computer)).
 
 :::
 
-3. Check that the avoidance system has started properly:
+3. Перевірте, що система уникання почала працювати належним чином:
 
-   - The _QGroundControl_ notification log displays the message: **Avoidance system connected**.
+   - Журнал сповіщень _QGroundControl_ відображає повідомлення: **Підключена система уникнення**.
 
-     ![QGC Log showing avoidance system has started](../../assets/hardware/px4_vision_devkit/qgc_console_vision_system_started.jpg)
+     ![QGC Журнал показує, що система уникання почалася](../../assets/hardware/px4_vision_devkit/qgc_console_vision_system_started.jpg)
 
-   - A red laser is visible on the front of the _Structure Core_ camera.
+   - Червоний лазер видно на передній частині камери _Structure Core_.
 
-4. Wait for the GPS LED to turn green.
-   This means that the vehicle has a GPS fix and is ready to fly!
+4. Зачекайте, доки світлодіод GPS не засвітиться зеленим кольором.
+   Це означає, що у транспортного засобу є GPS фіксація і він готовий до польоту!
 
-5. Connect the ground station to the vehicle WiFi network.
+5. Підключіть наземну станцію до мережі WiFi транспортного засобу.
 
-6. Find a safe outdoor location for flying, ideally with a tree or some other convenient obstacle for testing PX4 Vision.
+6. Знайдіть безпечне зовнішнє місце для польоту, ідеально з деревом або якою-небудь іншою зручною перешкодою для тестування PX4 Vision.
 
-7. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes_mc/position.md) and fly manually towards an obstacle.
-   The vehicle should slow down and then stop within 6m of the obstacle (the distance can be [changed](../advanced_config/parameters.md) using the [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) parameter).
+7. Для тестування [попередження про зіткнення](../computer_vision/collision_prevention.md), увімкніть [Режим Позиції](../flight_modes_mc/position.md) та літайте вручну до перешкоди.
+   Транспортний засіб повинен сповільнити і зупинитися протягом 6м від перешкоди (відстань може бути [змінена](../advanced_config/parameters.md) за допомогою параметра [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)).
 
-8. To test [obstacle avoidance](../computer_vision/obstacle_avoidance.md), create a mission where the path is blocked by an obstacle.
-   Then switch to [Mission Mode](../flight_modes_mc/mission.md) to run the mission, and observe the vehicle moving around the obstacle and then returning to the planned course.
+8. Для тестування [уникнення перешкод](../computer_vision/obstacle_avoidance.md), створіть місію, де шлях блокується перешкодою.
+   Потім перейдіть до [Режиму Місії](../flight_modes_mc/mission.md), щоб запустити місію, і спостерігайте, як транспортний засіб рухається навколо перешкоди, а потім повертається на запланований курс.
 
-## Development using the Kit
+## Розробка за допомогою комплекту
 
-The following sections explain how to use the kit as an environment for developing computer vision software.
+Наступні розділи пояснюють, як використовувати комплект як середовище для розробки програмного забезпечення комп'ютерного зору.
 
-### PX4 Avoidance Overview
+### Огляд уникання PX4
 
-The _PX4 Avoidance_ system consists of computer vision software running on a companion computer (with attached depth camera) that provides obstacle and/or route information to the PX4 flight stack running on a _flight controller_.
+Система _PX4 Avoidance_ складається з програмного забезпечення комп'ютерного зору, що працює на супутниковому комп'ютері (з підключеною камерою глибини), яке надає інформацію про перешкоди та/або маршрут до стеку керування польотом PX4, який працює на _контролері польоту_.
 
-Documentation about the companion computer vision/planning software can be found on github here: [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance).
-The project provides a number of different planner implementations (packaged as ROS nodes):
+Документацію про програмне забезпечення для компаньйон комп'ютерного зору/планування можна знайти на github тут: [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance).
+Проект надає ряд різних реалізацій планувальника (упакованих у вигляді вузлів ROS):
 
-- The PX4 Vision Kit runs the _localplanner_ by default and this is the recommended starting point for your own software.
-- The _globalplanner_ has not been tested with this kit.
-- The _landing planner_ requires a downward facing camera, and cannot used without first modifying the camera mounting.
+- Комплект PX4 Vision запускає _localplanner_ за замовчуванням, і це рекомендована вихідна точка для вашого власного програмного забезпечення.
+- _Глобальний планувальник_ не був протестований з цим комплектом.
+- _Планер посадки_ потребує камери, спрямованої вниз, і не може бути використаний без попередньої модифікації кріплення камери.
 
-PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/en/) using these interfaces:
+PX4 та супутниковий комп'ютер обмінюються даними через [MAVLink](https://mavlink.io/en/) за допомогою цих інтерфейсів:
 
-- [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
-- [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
+- [Інтерфейс планування маршруту](../computer_vision/path_planning_interface.md) - API для впровадження функцій уникання в автоматичних режимах.
+- [Інтерфейс запобігання зіткненням](../computer_vision/collision_prevention.md) - API для уникнення зіткнень на основі мапи перешкод у ручному режимі позиціонування на транспортному засобі (в даний час використовується для запобігання зіткнень).
 
 <a id="install_image_mission_computer"></a>
 
@@ -298,58 +298,58 @@ The avoidance system should start within about 1 minute (though this does depend
 [Fly the Drone with Avoidance](#fly-the-drone-with-avoidance) additionally explains how to verify that the avoidance system is active.
 :::
 
-If you've already [installed the image on the companion computer](#install_image_mission_computer) you can just power the vehicle (i.e. no USB stick is needed).
-The avoidance system should be up and running within around 30 seconds.
+Якщо ви вже [встановили зображення на супутньому комп'ютері](#install_image_mission_computer), ви можете просто увімкнути транспортний засіб (тобто не потрібен USB-накопичувач).
+Система уникання повинна бути активована та працювати протягом близько 30 секунд.
 
-Once started the companion computer can be used both as a computer vision development environment and for running the software.
+Після початку роботи компаньйонний комп'ютер може бути використаний як середовище розробки комп'ютерного зору, так і для запуску програмного забезпечення.
 
 <a id="login_mission_computer"></a>
 
-### Login to the Companion Computer
+### Увійдіть в бортовий комп'ютер
 
-To login to the companion computer:
+Для входу на компаньйоновий комп'ютер:
 
-1. Connect a keyboard and mouse to the _UP Core_ via port `USB2`:
+1. Підключіть клавіатуру та мишу до _UP Core_ через порт `USB2`:
 
    ![UP Core: USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
 
-   - Use the USB-JST cable from the kit to get a USB A connector
+   - Використовуйте кабель USB-JST з комплекту, щоб отримати роз'єм USB A
 
      ![USB to JST cable](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
 
-   - A USB hub can be attached to the cable if the keyboard and mouse have separate connectors.
+   - До кабелю можна підключити USB хаб, якщо клавіатура та миша мають окремі роз'єми.
 
-2. Connect a monitor to the _UP Core_ HDMI port.
+2. Підключіть монітор до порту HDMI _UP Core_.
 
-   ![UP Core: HDMI port](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
+   ![UP Core: Порт HDMI](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
 
-   The Ubuntu login screen should then appear on the monitor.
+   Екран входу в Ubuntu повинен з'явитися на моніторі.
 
-3. Login to the _UP Core_ using the credentials:
+3. Увійдіть в _UP Core_ за допомогою облікових даних:
 
    - **Username:** px4vision
    - **Password:** px4vision
 
-### Developing/Extending PX4 Avoidance
+### Розробка / Розширення уникнення PX4
 
-The PX4 Vision's _UP Core_ computer provides a complete and fully configured environment for extending PX4 Avoidance software (and more generally, for developing new computer vision algorithms using ROS 2).
-You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo.
+Комп'ютер _UP Core_ PX4 Vision надає повне та повністю налаштоване середовище для розширення програмного забезпечення PX4 Avoidance (і, загалом, для розробки нових алгоритмів комп'ютерного зору за допомогою ROS 2).
+Ви повинні розробляти та тестувати своє програмне забезпечення на транспортному засобі, синхронізувати його з власним git-сховищем та ділитися будь-якими виправленнями та покращеннями з широкою спільнотою PX4 на репозиторії github [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance).
 
-The catkin workspace is at `~/catkin_ws`, and is preconfigured for running the PX4 avoidance local planner.
-The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package (modify this file to change what planner is launched).
+Робочий простір catkin знаходиться в `~/catkin_ws`, і попередньо налаштований для запуску локального планувальника уникнення PX4.
+Файл запуску з включенням (`avoidance.launch`) знаходиться в пакеті `px4vision_ros` (змініть цей файл, щоб змінити, який планувальник запускається).
 
-The avoidance package is started on boot.
-To integrate a different planner, this needs to be disabled.
+Пакет уникнення запускається при завантаженні.
+Для інтеграції іншого планувальника це потрібно вимкнути.
 
-1. Disable the avoidance process using the following command:
+1. Вимкніть процес уникання за допомогою наступної команди:
 
    ```sh
    systemctl stop avoidance.service
    ```
 
-   You can simply reboot the machine to restart the service.
+   Ви можете просто перезавантажити машину, щоб перезапустити службу.
 
-   Other useful commands are:
+   Інші корисні команди підтримуються:
 
    ```sh
    # restart service
@@ -362,58 +362,58 @@ To integrate a different planner, this needs to be disabled.
    systemctl enable avoidance.service
    ```
 
-2. The source code of the obstacle avoidance package can be found in https://github.com/PX4/PX4-Avoidance which is located in `~/catkin_ws/src/avoidance`.
+2. Вихідний код пакету уникання перешкод можна знайти за адресою https://github.com/PX4/PX4-Avoidance, який розташований в `~/catkin_ws/src/avoidance`.
 
-3. Make changes to the code! To get the latest code of avoidance pull the code from the avoidance repo:
+3. Внесіть зміни до коду! Щоб отримати останній код уникання, витягніть код з репозиторію уникання:
 
    ```sh
    git pull origin
    git checkout origin/master
    ```
 
-4. Build the package
+4. Побудуйте пакет
 
    ```sh
    catkin build local_planner
    ```
 
-The ROS workspace is placed in `~/catkin_ws`.
-For reference on developing in ROS and using the catkin workspace, see the [ROS catkin tutorials](http://wiki.ros.org/catkin/Tutorials).
+Робоче середовище ROS розміщене в `~/catkin_ws`.
+Для посилання на розробку в ROS та використання робочого простору catkin, див. [Посібники ROS catkin](http://wiki.ros.org/catkin/Tutorials).
 
-### Developing PX4 Firmware
+### Розробка прошивки PX4
 
-The kit is designed for creating computer vision software that runs on the companion computer, and which integrates with PX4’s flexible path planning and collision prevention interfaces.
+Набір призначений для створення програмного забезпечення комп'ютерного зору, яке працює на супутниковому комп'ютері, та яке інтегрується з гнучкими інтерфейсами планування шляху та запобігання зіткнень PX4.
 
-You can also modify PX4 itself, and [install it as custom firmware](../config/firmware.md#custom):
+Ви також можете змінити сам PX4, та [встановити його як власне прошивку](../config/firmware.md#custom):
 
-- You will need to connect _QGroundControl_ to the kit's _Pixhawk_ **via USB** in order to update firmware.
-- Select the _PX4 Vision DevKit_ airframe after loading new firmware:
-  ![Airframe Selection - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
+- Для оновлення прошивки вам потрібно підключити _QGroundControl_ до _Pixhawk_ комплекту **через USB**.
+- Оберіть корпус _PX4 Vision DevKit_ після завантаження нового прошивки:
+  ![Вибір корпусу - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
 :::info
-Modification of PX4 code is not _needed_ to meet most computer vision use cases.
-To discuss the interfaces or how to integrate other features join the [PX4 support channels](../contribute/support.md).
+Модифікація коду PX4 не потрібна для задоволення більшості випадків використання комп'ютерного зору.
+Щоб обговорити інтерфейси або способи інтеграції інших функцій, приєднуйтесь до [каналів підтримки PX4](../contribute/support.md).
 :::
 
-## PX4 Vision Carrier Board Pinouts
+## Виводи пінів плати-носія PX4 Vision
 
-Information for the PX4 Vision 1.15 can be found at [https://docs.holybro.com](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5).
-The carrier board pinouts and other information are in the [downloads section](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/downloads).
+Інформацію про PX4 Vision 1.15 можна знайти за посиланням [https://docs.holybro.com](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5).
+Пін-роз'єми плати переносу та інша інформація знаходяться у розділі [завантаження](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/downloads).
 
-## Other Development Resources
+## Інші Ресурси Розробника
 
-- [_UP Core_ Wiki](https://github.com/up-board/up-community/wiki/Ubuntu) - _Up Core_ companion computer technical information
-- [Occipital Developer Forum](https://structure.io/developers) - _Structure Core_ camera information
-- [Pixhawk 4 Overview](../flight_controller/pixhawk4.md)
-- [Pixhawk 6C Overview](../flight_controller/pixhawk6c.md)
-- [PX4 Avoidance software/documentation](https://github.com/PX4/PX4-Avoidance)
-- [Path Planning Interface](../computer_vision/path_planning_interface.md)
+- [_UP Core_ Wiki](https://github.com/up-board/up-community/wiki/Ubuntu) - _Up Core_ супутниковий комп'ютер технічна інформація
+- [Форум розробників Occipital](https://structure.io/developers) - інформація про камеру _Structure Core_
+- [Огляд Pixhawk 4](../flight_controller/pixhawk4.md)
+- [Огляд Pixhawk 6C](../flight_controller/pixhawk6c.md)
+- [ПЗ4 Уникнення програмне забезпечення/документація](https://github.com/PX4/PX4-Avoidance)
+- [Інтерфейс планування маршруту](../computer_vision/path_planning_interface.md)
 
-## How to get Technical Support
+## Як отримати технічну підтримку
 
-For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
+Щодо апаратних проблем, будь ласка, звертайтеся до Holybro за адресою: [productservice@holybro.com](mailto:productservice@holybro.com).
 
-For software issues, use the following community support channels:
+Для проблем з програмним забезпеченням використовуйте наступні канали підтримки спільноти:
 
 - [Holybro PX4 Vision Wikifactory](https://wikifactory.com/+holybro/px4-vision)
-- [PX4 Support channels](../contribute/support.md)
+- [Канали підтримки PX4](../contribute/support.md)

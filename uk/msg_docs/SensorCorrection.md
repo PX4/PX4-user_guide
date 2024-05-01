@@ -1,8 +1,8 @@
-# SensorCorrection (UORB message)
+# SensorCorrection (Повідомлення UORB)
 
-Sensor corrections in SI-unit form for the voted sensor
+Датчики корекції по SI-одиницях для датчика голосувань
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCorrection.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCorrection.msg)
 
 ```c
 #

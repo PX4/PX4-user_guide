@@ -21,19 +21,19 @@ PX4 підтримує рухомі з використанням:
 
 Підтримувані каркаси можна переглянути в [Довіднику про планери  >  Rover(Рухавець)](../airframes/airframe_reference.md#rover).
 
-## How to Configure a Rover
+## Як налаштувати Rover
 
-### Ackermann Steering Configuration
+### Конфігурація керування Акермана
 
-Setting up a rover with Ackermann steering is straightforward:
+Налаштування ровера з керуванням Аккермана просте:
 
-1. In the [Airframe](../config/airframe.md) configuration, select the _Generic Ground Vehicle_.
+1. У конфігурації [Airframe](../config/airframe.md) виберіть _Загальний наземний транспортний засіб_.
 
    ![Select Ackermann steered airframe](../../assets/config/airframe/airframe_rover_ackermann.png)
 
-   Select the **Apply and Restart** button.
+   Виберіть кнопку **Застосувати та перезапустити**.
 
-1. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
+1. Відкрийте [Конфігурацію та  & тестування приводів](../config/actuators.md) для відображення функцій керування та регулювання на виходи контролера польоту.
 
 ### Конфігурація диференційного керування
 
@@ -41,16 +41,16 @@ Setting up a rover with Ackermann steering is straightforward:
 
    ![Select Differential steered airframe](../../assets/config/airframe/airframe_rover_aion.png)
 
-Select the **Apply and Restart** button.
+Виберіть кнопку **Застосувати та перезапустити**.
 
-1. Open the [Actuators Configuration & Testing](../config/actuators.md) and map the left and right motor functions to flight controller outputs.
+1. Відкрийте [Конфігурацію та & тестування приводів](../config/actuators.md) та відобразіть функції лівого та правого двигуна на виходи контролера польоту.
 
 ## Симуляція
 
 [Класичний Газебо](../sim_gazebo_classic/index.md) надає симуляції для обох типів керування:
 
-- Ackermann: [ackermann rover](../sim_gazebo_classic/vehicles.md#ackermann-ugv)
-- Differential: [r1 rover](../sim_gazebo_classic/vehicles.md#differential-ugv)
+- Ackermann: [акерманський ровер](../sim_gazebo_classic/vehicles.md#ackermann-ugv)
+- Диференціал: [роувер r1](../sim_gazebo_classic/vehicles.md#differential-ugv)
 
 ## Відео
 

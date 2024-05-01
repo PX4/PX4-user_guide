@@ -110,8 +110,8 @@
    git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
    ```
 
-   ::: info
-   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.:::
+   :::info
+   Для забезпечення сумісності, використовуйте останні _main_ гілки для PX4, _px4_msgs_ та бібліотеки.:::
 
 3. Побудуйте робочий простір:
 
@@ -138,8 +138,8 @@
 
 6. Запустіть QGroundControl.
 
-   ::: info
-   Use QGroundControl Daily, which supports dynamically updating the list of modes.
+   :::info
+   Використовуйте QGroundControl Daily, яка підтримує динамічне оновлення списку режимів.
 
 :::
 

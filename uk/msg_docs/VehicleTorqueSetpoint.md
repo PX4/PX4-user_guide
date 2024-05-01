@@ -1,8 +1,8 @@
-# VehicleTorqueSetpoint (UORB message)
+# VehicleTorqueSetpoint (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
 
 ```c
 

@@ -1,39 +1,39 @@
 # Повідомлення MAVLink
 
-[MAVLink](https://mavlink.io/en/) is a very lightweight messaging protocol that has been designed for the drone ecosystem.
+[MAVLink](https://mavlink.io/en/) це дуже легкий протокол обміну повідомленнями, який був спроектований для екосистеми дронів.
 
-PX4 uses _MAVLink_ to communicate with ground stations and MAVLink SDKs, such as _QGroundControl_ and [MAVSDK](https://mavsdk.mavlink.io/), and as the integration mechanism for connecting to drone components outside of the flight controller: companion computers, MAVLink enabled cameras, and so on.
+PX4 використовує _MAVLink_ для зв'язку з наземними станціями і MAVLink SDK, такими як _QGroundControl_ і [MAVSDK](https://mavsdk.mavlink.io/), а також як інтеграційний механізм для підключення до компонентів дрона за межами польотного контролера: комп'ютерів-компаньйонів, камер з підтримкою MAVLink і так далі.
 
-This topic provides a brief overview of fundamental MAVLink concepts, such as messages, commands, and microservices. It also provides tutorial instructions for how you can add PX4 support for:
+Ця тема надає короткий огляд основних концепцій MAVLink, таких як повідомлення, команди та мікросервіси. Він також надає інструкції посібника про те, як ви можете додати підтримку PX4 для:
 
-- Streaming MAVLink messages
-- Handling incoming MAVLink messages and writing to a uORB topic.
+- Потокових повідомлень MAVLink
+- Обробка вхідних повідомлень MAVLink та запис до теми uORB.
 
-::: info The topic does not cover _command_ handling and sending, or how to implement your own microservices.
+::: info Ця тема не охоплює обробку та надсилання _команд_ або реалізацію власних мікросервісів.
 :::
 
-## MAVLink Overview
+## Огляд MAVLink
 
-MAVLink is a lightweight protocol that was designed for efficiently sending messages over unreliable low-bandwidth radio links.
+MAVLink - це легкий протокол, який був розроблений для ефективної відправки повідомлень по ненадійним радіоканалах з низькою пропускною здатністю.
 
-_Messages_ are simplest and most "fundamental" definition in MAVLink, consisting of a name (e.g. [ATTITUDE](https://mavlink.io/en/messages/common.html#ATTITUDE)), id, and fields containing relevant data. They are deliberately lightweight, with a constrained size, and no semantics for resending and acknowledgement. Stand-alone messages are commonly used for streaming telemetry or status information, and for sending commands where no acknowledgement is required - such as setpoint commands sent at high rate.
+_Повідомлення_ є найпростішим і найбільш "фундаментальним" визначенням у MAVLink, що складається з назви (наприклад, [ATTITUDE](https://mavlink.io/en/messages/common.html#ATTITUDE)), ідентифікатора та полів, що містять відповідні дані. Вони навмисно легкі, мають обмежений розмір і не мають семантики для повторного надсилання та підтвердження. Окремі повідомлення зазвичай використовуються для потокової передачі телеметрії або інформації про стан, а також для надсилання команд, які не потребують підтвердження - наприклад, команд уставки, що надсилаються з високою швидкістю.
 
-The [Command Protocol](https://mavlink.io/en/services/command.html) is a higher level protocol for sending commands that may need acknowledgement. Specific commands are defined as values of the [MAV_CMD](https://mavlink.io/en/messages/common.html#mav_commands) enumeration, such as the takeoff command [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF), and include up to 7 numeric "param" values. The protocol sends a command by packaging the parameter values in a `COMMAND_INT` or `COMMAND_LONG` message, and waits for an acknowledgement with a result in a `COMMAND_ACK`. The command is resent automatically if no acknowledgment is received. Note that [MAV_CMD](https://mavlink.io/en/messages/common.html#mav_commands) definitions are also used to define mission actions, and that not all definitions are supported for use in commands/missions on PX4.
+[Command Protocol](https://mavlink.io/en/services/command.html) - це протокол вищого рівня для надсилання команд, які можуть потребувати підтвердження. Конкретні команди визначаються як значення списку [MAV_CMD](https://mavlink.io/en/messages/common.html#mav_commands), наприклад, команда зльоту [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF), і включають до 7 числових значень "param". Протокол надсилає команду, упаковуючи значення параметрів у повідомлення `COMMAND_INT` або `COMMAND_LONG`, і чекає на підтвердження з результатом у `COMMAND_ACK`. Якщо команда не буде отримана, вона буде повторно надіслана автоматично. Зауважте, що визначення [MAV_CMD](https://mavlink.io/en/messages/common.html#mav_commands) також використовуються для визначення дій місії, і що не всі визначення підтримуються для використання у командах/місіях на PX4.
 
-[Microservices](https://mavlink.io/en/services/) are other higher level protocols built on top of MAVLink messages. They are used to communicate information that cannot be sent in a single message, and to deliver features such as reliable communication. The command protocol described above is one such service. Others include the [File Transfer Protocol](https://mavlink.io/en/services/ftp.html), [Camera Protocol](https://mavlink.io/en/services/camera.html) and [Mission Protocol](https://mavlink.io/en/services/mission.html).
+[Мікросервіси](https://mavlink.io/en/services/) - це інші протоколи вищого рівня, побудовані на основі повідомлень MAVLink. Вони використовуються для передачі інформації, яку неможливо надіслати одним повідомленням, а також для забезпечення таких функцій, як надійний зв'язок. Описаний вище командний протокол є одним з таких сервісів. Інші включають [Протокол передачі файлів](https://mavlink.io/en/services/ftp.html), [Протокол камери](https://mavlink.io/en/services/camera.html) і [Протокол місії](https://mavlink.io/en/services/mission.html).
 
-MAVLink messages, commands and enumerations are defined in [XML definition files](https://mavlink.io/en/guide/define_xml_element.html). The MAVLink toolchain includes code generators that create programming-language-specific libraries from these definitions for sending and receiving messages. Note that most generated libraries do not create code to implement microservices.
+MAVLink повідомлення, команди та переліки визначаються у [XML-файлах визначень](https://mavlink.io/en/guide/define_xml_element.html). Інструментарій MAVLink включає в себе генератори коду, які створюють з цих визначень специфічні для мови програмування бібліотеки для надсилання та отримання повідомлень. Зверніть увагу, що більшість згенерованих бібліотек не створюють код для реалізації мікросервісів.
 
-The MAVLink project standardizes a number of messages, commands, enumerations, and microservices, for exchanging data using the following definition files (note that higher level files _include_ the definitions of the files below them):
+Проект MAVLink стандартизує ряд повідомлень, команд, переліків та мікросервісів для обміну даними за допомогою наступних файлів визначень (зауважте, що файли вищого рівня _ включають_ визначення файлів нижчого рівня):
 
-- [development.xml](https://mavlink.io/en/messages/development.html) — Definitions that are proposed to be part of the standard. The definitions move to `common.xml` if accepted following testing.
-- [common.xml](https://mavlink.io/en/messages/common.html) — A "library" of definitions meeting many common UAV use cases. These are supported by many flight stacks, ground stations, and MAVLink peripherals. Flight stacks that use these definitions are more likely to interoperate.
-- [standard.xml](https://mavlink.io/en/messages/standard.html) — Definitions that are actually standard. They are present on the vast majority of flight stacks and implemented in the same way.
-- [minimal.xml](https://mavlink.io/en/messages/minimal.html) — Definitions required by a minimal MAVLink implementation.
+- [development.xml](https://mavlink.io/en/messages/development.html) - Визначення, які пропонується включити до стандарту. Визначення переміщуються до `common.xml`, якщо їх прийнято після тестування.
+- [common.xml](https://mavlink.io/en/messages/common.html) - "бібліотека" визначень, що відповідають багатьом поширеним випадкам використання БПЛА. Вони підтримуються багатьма польотними стеками, наземними станціями та периферійними пристроями MAVLink. Польотні стеки, які використовують ці визначення, з більшою ймовірністю будуть взаємодіяти.
+- [standard.xml](https://mavlink.io/en/messages/standard.html) - Визначення, які є стандартними. Вони присутні на переважній більшості польотних стеків і реалізовані однаково.
+- [minimal.xml](https://mavlink.io/en/messages/minimal.html) - Визначення, необхідні для мінімальної реалізації MAVLink.
 
-The project also hosts [dialect XML definitions](https://mavlink.io/en/messages/#dialects), which contain MAVLink definitions that are specific to a flight stack or other stakeholder.
+Проект також містить [діалектні XML-визначення](https://mavlink.io/en/messages/#dialects), які містять визначення MAVLink, специфічні для польотного стеку або інших зацікавлених сторін.
 
-The protocol relies on each end of the communication having a shared definition of what messages are being sent. What this means is that in order to communicate both ends of the communication must use libraries generated from the same XML definition.
+Протокол покладається на те, що кожна сторона комунікації має спільне визначення того, які повідомлення надсилаються. Це означає, що для того, щоб взаємодіяти, обидва кінці комунікації повинні використовувати бібліотеки, створені на основі одного і того ж визначення XML.
 
 
 <!--
@@ -44,53 +44,53 @@ The shared identity of the message is conveyed by the message id, along with a C
 The receiving end of the communication will discard any packet for which the message id and the `CRC_EXTRA` do not match.
 -->
 
-## PX4 and MAVLink
+## PX4 та MAVLink
 
-PX4 releases build `common.xml` MAVLink definitions by default, for the greatest compatibility with MAVLink ground stations, libraries, and external components such as MAVLink cameras. In the `main` branch, these are included from `development.xml` on SITL, and `common.xml` for other boards.
+PX4 за замовчуванням випускає збірку `common.xml` визначень MAVLink для забезпечення максимальної сумісності з наземними станціями MAVLink, бібліотеками та зовнішніми компонентами, такими як камери MAVLink. У гілці `main` вони містяться у `development.xml` на SITL та `common.xml` для інших плат.
 
-::: info To be part of a PX4 release, any MAVLink definitions that you use must be in `common.xml` (or included files such as `standard.xml` and `minimal.xml`). During development you can use definitions in `development.xml`. You will need to work with the [MAVLink team](https://mavlink.io/en/contributing/contributing.html) to define and contribute these definitions.
+:::info Щоб бути частиною випуску PX4, всі визначення MAVLink, які ви використовуєте, повинні знаходитися у `common.xml` (або у включених файлах, таких як `standard.xml` та `minimal.xml`). Під час розробки ви можете використовувати визначення в `development.xml`. Вам потрібно буде попрацювати з [командою MAVLink](https://mavlink.io/en/contributing/contributing.html), щоб визначити і внести ці визначення.
 :::
 
-PX4 includes the [mavlink/mavlink](https://github.com/mavlink/mavlink) repo as a submodule under [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink). This contains XML definition files in [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/).
+PX4 включає репозиторій [mavlink/mavlink](https://github.com/mavlink/mavlink) як підмодуль у [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink). Тут містяться файли визначень XML у каталозі [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/).
 
-The build toolchain generates the MAVLink 2 C header files at build time. The XML file for which headers files are generated may be defined in the [PX4 kconfig board configuration](../hardware/porting_guide_config.md#px4-board-configuration-kconfig) on a per-board basis, using the variable `CONFIG_MAVLINK_DIALECT`:
+Інструментарій збірки генерує заголовні файли MAVLink 2 C під час збірки. XML-файл, для якого генеруються файли заголовків, можна визначити у конфігурації плати [PX4 kconfig](../hardware/porting_guide_config.md#px4-board-configuration-kconfig) для кожної окремої плати за допомогою змінної `CONFIG_MAVLINK_DIALECT`:
 
-- For SITL `CONFIG_MAVLINK_DIALECT` is set to `development` in [boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board#L36). You can change this to any other definition file, but the file must include `common.xml`.
-- For other boards `CONFIG_MAVLINK_DIALECT` is not set by default, and PX4 builds the definitions in `common.xml` (these are build into the [mavlink module](../modules/modules_communication.md#mavlink) by default — search for `menuconfig MAVLINK_DIALECT` in [src/modules/mavlink/Kconfig](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/Kconfig#L10)).
+- Для SITL `CONFIG_MAVLINK_DIALECT` встановлено у `development` у [boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board#L36). Ви можете змінити його на будь-який інший файл визначення, але він повинен містити `common.xml`.
+- Для інших плат `CONFIG_MAVLINK_DIALECT` не встановлено за замовчуванням, і PX4 збирає визначення у `common.xml` (за замовчуванням вони вбудовані у [mavlink module](../modules/modules_communication.md#mavlink) - шукайте `menuconfig MAVLINK_DIALECT` у [src/modules/mavlink/Kconfig](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/Kconfig#L10)).
 
-The files are generated into the build directory: `/build/<build target>/mavlink/`.
+Файли генеруються до каталогу збірки: `/build/<build target>/mavlink/`.
 
 ## Custom MAVLink Messages
 
-A custom MAVLink message is one that isn't in the default definitions included into PX4.
+Користувацьке повідомлення MAVLink - це повідомлення, якого немає у визначеннях за замовчуванням, включених до PX4.
 
-::: info
-If you use a custom definition you will need maintain the definition in PX4, your ground station, and any other SDKs that communicate with it.
-Generally you should use (or add to) the standard definitions if at all possible to reduce the maintenance burden.
+:::info
+Якщо ви використовуєте користувацьке визначення, вам потрібно буде підтримувати визначення у PX4, вашій наземній станції та будь-яких інших SDK, які взаємодіють з нею.
+Загалом, щоб зменшити тягар обслуговування, слід використовувати (або доповнювати) стандартні визначення, якщо це можливо.
 :::
 
-Custom definitions can be added in a new dialect file in the same directory as the standard XML definitions. For example, create `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0/custom_messages.xml`, and set `CONFIG_MAVLINK_DIALECT` to build the new file for SITL. This dialect file should include `development.xml` so that all the standard definitions are also included.
+Користувацькі визначення можна додати до нового файлу діалекту у тому самому каталозі, що й стандартні визначення XML. Наприклад, створіть `PX4-Autopilot/src/modules/mavlink/mavlink/mavlink/message_definitions/v1.0/custom_messages.xml` і встановіть `CONFIG_MAVLINK_DIALECT` для створення нового файла для SITL. Цей файл діалекту має містити `development.xml`, щоб до нього було включено всі стандартні визначення.
 
-For initial prototyping, or if you intend your message to be "standard", you can also add your messages to `common.xml` (or `development.xml`). This simplifies building, because you don't need to modify the dialect that is built.
+Для початкового прототипування, або якщо ви плануєте, що ваше повідомлення буде "стандартним", ви також можете додати свої повідомлення до `common.xml` (або `development.xml`). Це спрощує збірку, оскільки вам не потрібно модифікувати вже зібраний діалект.
 
-The MAVLink developer guide explains how to define new messages in [How to Define MAVLink Messages & Enums](https://mavlink.io/en/guide/define_xml_element.html).
+Посібник розробника MAVLink пояснює, як визначити нові повідомлення у розділі [How to Define MAVLink Messages & Enums](https://mavlink.io/en/guide/define_xml_element.html).
 
-You can check that your new messages are built by inspecting the headers generated in the build directory (`/build/<build target>/mavlink/`). If your messages are not built they may be incorrectly formatted, or use clashing ids. Inspect the build log for information.
+Ви можете перевірити, що ваші нові повідомлення зібрано, переглянувши заголовки, згенеровані у каталозі збірки (`/build/<build target>/mavlink/`). Якщо ваші повідомлення не збираються, вони можуть бути неправильно відформатовані або використовувати конфліктуючі ідентифікатори. Перевірте журнал збірки для отримання інформації.
 
-Once the message is being built you can stream, receive, or otherwise use it, as described in the following sections.
+Після того, як повідомлення створено, ви можете передавати, отримувати або використовувати його в інший спосіб, як описано в наступних розділах.
 
-::: info The [MAVLink Developer guide](https://mavlink.io/en/getting_started/) has more information about using the MAVLink toolchain.
+Посібник [MAVLink Developer Guide](https://mavlink.io/en/getting_started/) містить більше інформації про використання інструментарію MAVLink.
 :::
 
-## Streaming MAVLink Messages
+## Потокові повідомлення MAVLink
 
-MAVLink messages are streamed using a streaming class, derived from `MavlinkStream`, that has been added to the PX4 stream list. The class has framework methods that you implement so PX4 can get information it needs from the generated MAVLink message definition. It also has a `send()` method that is called each time the message needs to be sent — you override this to copy information from a uORB subscription to the MAVLink message object that is to be sent.
+Повідомлення MAVLink транслюються за допомогою потокового класу, похідного від `MavlinkStream`, який було додано до списку потоків PX4. Клас має фреймворкові методи, які ви реалізуєте, щоб PX4 міг отримати потрібну йому інформацію зі згенерованого визначення повідомлення MAVLink. Він також має метод `send()`, який викликається кожного разу, коли потрібно надіслати повідомлення - ви перевизначаєте його, щоб скопіювати інформацію з підписки uORB в об'єкт повідомлення MAVLink, який потрібно надіслати.
 
-This tutorial demonstrates how to stream a uORB message as a MAVLink message, and applies to both standard and custom messages.
+Цей посібник демонструє, як транслювати повідомлення uORB як повідомлення MAVLink, і застосовується як до стандартних, так і до користувацьких повідомлень.
 
-### Preconditions
+### Передумови
 
-Generally you will already have a [uORB](../middleware/uorb.md) message that contains information you'd like to stream and a definition of a MAVLink message that you'd like to stream it with.
+Загалом у вас вже повинно бути повідомлення [uORB](../middleware/uorb.md), яке містить інформацію, яку ви хочете транслювати, та визначення повідомлення MAVLink, з яким ви хочете його транслювати.
 
 For this example we're going to assume that you want to stream the (existing) [BatteryStatus](../msg_docs/BatteryStatus.md) uORB message to a new MAVLink battery status message, which we will name `BATTERY_STATUS_DEMO`.
 
@@ -222,7 +222,7 @@ Most streaming classes are very similar (see examples in [/src/modules/mavlink/s
   In this particular example we have an array of uORB instances `_battery_status_subs` (because we have multiple batteries). We iterate the array and use `update()` on each subscription to check if the associated battery instance has changed (and update a structure with the current data). This allows us to send the MAVLink message _only_ if the associated battery uORB topic has changed:
 
   ```cpp
-  // Струкніть, щоб зберігати дані поточної теми.
+  // Структура, щоб зберігати дані поточної теми.
   battery_status_s battery_status;
 
   // update() populates battery_status and returns true if the status has changed
@@ -453,6 +453,6 @@ By default this is pre-included as a submodule from [https://github.com/mavlink/
 
 QGC uses the all.xml dialect by default, which includes **common.xml**. You can include your messages in either file or in your own dialect. However if you use your own dialect then it should include ArduPilotMega.xml (or it will miss all the existing messages), and you will need to change the dialect used by setting it in [`MAVLINK_CONF`](https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52) when running _qmake_.
 
-### Updating MAVSDK
+### Оновлення MAVSDK
 
 See the MAVSDK docs for information about how to work with [MAVLink headers and dialects](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html#mavlink-headers-and-dialects).

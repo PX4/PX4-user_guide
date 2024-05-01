@@ -1,4 +1,4 @@
-# VehicleCommand (UORB message)
+# VehicleCommand (повідомлення UORB)
 
 Vehicle Command uORB message. Used for commanding a mission / action / etc. Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
 

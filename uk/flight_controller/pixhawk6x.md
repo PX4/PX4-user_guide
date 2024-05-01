@@ -1,136 +1,136 @@
 # Holybro Pixhawk 6X
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
 :::
 
-_Pixhawk 6X_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
+_Pixhawk 6X_<sup>&reg;</sup> є останнім оновленням успішної серії політних контролерів Pixhawk®, розроблених та виготовлених у співпраці між Holybro<sup>&reg;</sup> та командою PX4.
 
-It is based on the [Pixhawk​​® Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf), [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+Він базується на [Pixhawk​​® Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf), [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), та [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
-Equipped with a high performance H7 Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
+Оснащений високопродуктивним процесором H7, модульним дизайном, потрійним резервуванням, платою IMU з контролем температури, ізольованими доменами сенсорів, що забезпечує неймовірну продуктивність, надійність та гнучкість.
 
 <img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_hero_upright.png" width="230px" title="Pixhawk6X Upright Image" /> <img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_exploded_diagram.png" width="400px" title="Pixhawk6X Exploded Image" />
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
 :::
 
-## Introduction
+## Введення
 
-Inside the Pixhawk®​ 6X, you can find an STMicroelectronics​® based STM32H753, paired with sensor technology from Bosch®​​, InvenSense®​,​ giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
+Всередині Pixhawk® 6X ви можете знайти STM32H753 на базі STMicroelectronics®, поєднаний з сенсорною технологією від Bosch®, InvenSense®, що надає вам гнучкість і надійність для керування будь-яким автономним апаратом, придатним як для академічних, так і для комерційних застосувань.
 
-The Pixhawk® 6X's H7 microcontroller contain the Arm® Cortex®-M7 core running up to 480 MHz, has 2MB flash memory and 1MB RAM. The PX4 Autopilot takes advantage of the increased power and RAM. Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+Мікроконтролер H7 Pixhawk® 6X містить ядро Arm® Cortex®-M7 до 480 MHz, має 2MB flash пам’яті та 1MB RAM. Автопілот PX4 використовує переваги збільшеної потужності та оперативної пам’яті. Завдяки оновленій потужності обробки розробники можуть бути більш продуктивними та ефективними у своїй роботі з розробкою, що дозволяє використовувати складні алгоритми та моделі.
 
-The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization. Triple redundant IMU & double redundant barometer on separate buses. When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
+Відкритий стандарт FMUv6X містить високопродуктивні IMU з низьким рівнем шуму, призначені для кращої стабілізації. IMU з потрійним резервуванням та барометр з подвійним резервуванням на окремих шинах. Коли автопілот PX4 виявляє відмову датчика, система безперервно перемикається на інший, щоб забезпечити надійність керування польотом.
 
-An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
+Незалежний LDO живить кожен набір сенсорів з незалежним керуванням живленням. Система ізоляції вібрації для фільтрації високочастотної вібрації та зменшення шуму для забезпечення точних вимірювань, що дозволяє апаратам досягти кращих загальних польотних характеристик.
 
-External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface, and with an integrated Microchip Ethernet PHY, high-speed communication with mission computers via ethernet is now possible.
+Зовнішня шина датчиків (SPI5) має дві лінії вибору чипів та сигнали готовності даних для додаткових датчиків та корисного навантаження з інтерфейсом SPI, а також з інтегрованим Microchip Ethernet PHY, високошвидкісний обмін даними з комп'ютерами місії через ethernet тепер можливий.
 
-The Pixhawk®​ 6X is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application.
+Pixhawk®​ 6X ідеально підходить для розробників у корпоративних дослідницьких лабораторіях, стартапах, академічних потреб (досліджень, професорів, студентів) та комерційного застосування.
 
-## Key Design Points
+## Ключові пункти дизайну
 
-- High performance STM32H753 Processor
-- Modular flight controller: separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk®​ Autopilot Bus connector.
-- Redundancy: 3x IMU sensors & 2x Barometer sensors on separate buses
-- Triple redundancy domains: Completely isolated sensor domains with separate buses and separate power control
-- Newly designed vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
-- Ethernet interface for high-speed mission computer integration
-- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
+- Високопродуктивний процесор STM32H753
+- Модульний політний контролер: розділені IMU, FMU та базова система, з'єднані за допомогою конекторів Pixhawk® Autopilot Bus на 100 пінів та 50 пінів.
+- Резервність: 3x датчики IMU та 2x датчики барометра на окремих шинах
+- Потрійне резервування доменів: повністю ізольовані сенсорні домени з окремими шинами та окремим керуванням живленням
+- Нова система ізоляції вібрацій для фільтрації високочастотних вібрацій та зменшення шуму для забезпечення точних вимірювань
+- Інтерфейс Ethernet для високошвидкісної інтеграції комп'ютера місії
+- IMU контролюються за допомогою нагрівальних резисторів на борту, що дозволяє досягти оптимальної робочої температури IMU&#x20;
 
-### Processors & Sensors
+### Процесори та датчики
 
-- FMU Processor: STM32H753
+- Процесор FMU: STM32H753
   - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM
-- IO Processor: STM32F100
+- IO процесор: STM32F100
   - 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-- On-board sensors
-  - Accel/Gyro: ICM-20649 or BMI088
+- Бортові сенсори
+  - Accel/Gyro: ICM-20649 або BMI088
   - Accel/Gyro: ICM-42688-P
   - Accel/Gyro: ICM-42670-P
   - Mag: BMM150
   - Barometer: 2x BMP388
 
-### Electrical data
+### Електричні дані
 
-- Voltage Ratings:
-  - Max input voltage: 6V
-  - USB Power Input: 4.75\~5.25V
-  - Servo Rail Input: 0\~36V
-- Current Ratings:
-  - `TELEM1` output current limiter: 1.5A
-  - All other port combined output current limiter: 1.5A
+- Номінальна напруга:
+  - Максимальна вхідна напруга: 6V
+  - Вхід USB Power: 4.75\~5.25V
+  - Вхід Servo Rail: 0\~36V
+- Номінальний струм:
+  - `TELEM1` обмежувач вихідного струму: 1.5A
+  - Комбінований обмежувач вихідного струму всіх інших портів: 1.5A
 
-### Mechanical data
+### Механічні дані
 
-- Dimensions
-  - Flight Controller Module: 38.8 x 31.8 x 14.6mm
-  - Standard Baseboard: 52.4 x 103.4 x 16.7mm
-  - Mini Baseboard: 43.4 x 72.8 x 14.2 mm
-- Weight
-  - Flight Controller Module: 23g
-  - Standard Baseboard: 51g
-  - Mini Baseboard: 26.5g
+- Розміри
+  - Модуль політного контролера: 38.8 x 31.8 x 14.6mm
+  - Стандартна базова плата: 52.4 x 103.4 x 16.7mm
+  - Міні базова плата: 43.4 x 72.8 x 14.2 mm
+- Вага
+  - Модуль політного контролера: 23g
+  - Стандартна базова плата: 51g
+  - Міні базова плата: 26.5g
 
-### Interfaces
+### Інтерфейси
 
-- 16- PWM servo outputs
-- R/C input for Spektrum / DSM
-- Dedicated R/C input for PPM and S.Bus input
-- Dedicated analog / PWM RSSI input and S.Bus output
-- 4 general purpose serial ports
-  - 3 with full flow control
-  - 1 with separate 1.5A current limit (Telem1)
-  - 1 with I2C and additional GPIO line for external NFC reader
-- 2 GPS ports
-  - 1 full GPS plus Safety Switch Port
-  - 1 basic GPS port
-- 1 I2C port
-- 1 Ethernet port
+- 16- PWM серво виводів
+- R/C вхід для Spektrum / DSM
+- Виділений R/C вхід для PPM та S.Bus вхід
+- Виділений аналоговий / PWM вхід RSSI та вивід S.Bus
+- 4 загальних послідовних порти
+  - 3 з повним контролем потоку
+  - 1 з окремим обмеженням струму 1.5A (Telem1)
+  - 1 з I2C та додатковою лінією GPIO для зовнішнього NFC зчитувача
+- 2 порти GPS
+  - 1 повний GPS плюс порт запобіжного перемикача
+  - 1 базовий порт GPS
+- 1 I2C порт
+- 1 порт Ethernet
   - Transformerless Applications
   - 100Mbps
-- 1 SPI bus
-  - 2 chip select lines
-  - 2 data-ready lines
-  - 1 SPI SYNC line
-  - 1 SPI reset line
-- 2 CAN Buses for CAN peripheral
-  - CAN Bus has individual silent controls or ESC RX-MUX control
-- 2 Power input ports with SMBus
+- 1 шина SPI
+  - 2 лінії вибору чіпу
+  - 2 лінії готових даних
+  - 1 SPI SYNC лінія
+  - 1 лінія SPI reset
+- 2 CAN шини для CAN периферії
+  - CAN шина має individual silent controls або ESC RX-MUX control
+- 2 порти вводу живлення з SMBus
 
-  - 1 AD & IO port
-  - 2 additional analog input
-  - 1 PWM/Capture input
-  - 2 Dedicated debug and GPIO lines
+  - 1 AD та IO порт
+  - 2 додаткових аналогових входи
+  - 1 PWM/Capture вхід
+  - 2 виділені відладочні та GPIO лінії
 
-- Other Characteristics:
-  - Operating & storage temperature: -40 ~ 85°c
+- Інші характеристики:
+  - Температура роботи та зберігання: -40 ~ 85°c
 
-## Where to Buy
+## Де придбати
 
-Order from [Holybro](https://holybro.com/products/pixhawk-6x).
+Замовляйте на [Holybro](https://holybro.com/products/pixhawk-6x).
 
-## Assembly/Setup
+## Збірка / налаштування
 
-The [Pixhawk 6X Wiring Quick Start](../assembly/quick_start_pixhawk6x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
+[Швидкий старт з підключення Pixhawk 6X](../assembly/quick_start_pixhawk6x.md) надає інструкції щодо збірки необхідних/важливих периферійних пристроїв, включаючи GPS, модуль живлення тощо.
 
-## Connections
+## З'єднання
 
-Sample Wiring Diagram ![Pixhawk 6X Wiring Overview](../../assets/flight_controller/pixhawk6x/pixhawk6x_wiring_diagram.png)
+Зразок схеми підключення ![Огляд підключення Pixhawk 6X](../../assets/flight_controller/pixhawk6x/pixhawk6x_wiring_diagram.png)
 
-## Pinouts
+## Розпіновка
 
-- [Holybro Pixhawk Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-baseboard-pinout)
-- [Holybro Pixhawk Mini-Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-mini-baseboard-pinout)
+- [Розпиновка базової плати Holybro Pixhawk](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-baseboard-pinout)
+- [Розпиновка міні базової плати Holybro Pixhawk](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-mini-baseboard-pinout)
 
-Notes:
+Примітки:
 
-- The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
+- [Пін камери](../peripherals/camera.md#camera-capture) (`PI0`) є піном 2 порту AD&IO, позначеним вище як `FMU_CAP1`.
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
-| UART   | Device     | Port          |
+| UART   | Девайс     | Порт          |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | GPS           |
 | USART2 | /dev/ttyS1 | TELEM3        |
@@ -141,44 +141,44 @@ Notes:
 | UART7  | /dev/ttyS6 | TELEM1        |
 | UART8  | /dev/ttyS7 | GPS2          |
 
-## Dimensions
+## Розміри
 
-[Pixhawk 6X Dimensions](https://docs.holybro.com/autopilot/pixhawk-6x/dimensions)
+[Розміри Pixhawk 6X](https://docs.holybro.com/autopilot/pixhawk-6x/dimensions)
 
-## Voltage Ratings
+## Номінальна напруга
 
-_Pixhawk 6X_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**. The **POWER1** & **POWER2** ports on the Pixhawk 6X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
+_Pixhawk 6X_ може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шини живлення: **POWER1**, **POWER2** і **USB**. Порти **POWER1** та **POWER2** на Pixhawk 6X використовують 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
-**Normal Operation Maximum Ratings**
+**Максимальна напруга нормальної роботи**
 
-Under these conditions all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1** та **POWER2** входи (від 4,9 В до 5,5 В)
+1. **USB** вхід (4.75В до 5.25В)
 
-**Absolute Maximum Ratings**
+**Абсолютна максимальна напруга**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+За таких умов система не буде витрачати жодної енергії (не буде працювати), але залишиться неушкодженою.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1** і **POWER2** входи (робочий діапазон від 4.1V до 5.7V, від 0V до 10V без пошкоджень)
+1. **USB** вхід (операційний діапазон від 4.1V до 5.7V, від 0V до 6V без пошкоджень)
+1. Серво вхід: пін VDD_SERVO **FMU PWM OUT** та **I/O PWM OUT** (від 0V до 42V без пошкоджень)
 
-**Voltage monitoring**
+**Моніторинг напруги**
 
-Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_pixhawk6x.md#power)).
+Цифровий I2C моніторинг акумулятора увімкнено за замовчуванням (див. [Швидкий старт > Живлення](../assembly/quick_start_pixhawk6x.md#power)).
 
 ::: info
-Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
+Аналоговий моніторинг батареї через ADC не підтримується на цій конкретній платі, але може підтримуватися в варіантах цього політного контролера з іншою базовою платою.
 :::
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно створювати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цього контролера:
 
 ```
 make px4_fmu-v6x_default
@@ -186,44 +186,44 @@ make px4_fmu-v6x_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Відладочний порт
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
+[Системна консоль PX4](../debug/system_console.md) та інтерфейс [SWD](../debug/swd_debug.md) працюють на порту **FMU Debug**.
 
-The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
+Розпіновка та конектор відповідають інтерфейсу [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full), визначеному в [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (конектор JST SM10B).
 
-| Pin      | Signal           | Volt  |
-| -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
-| 8 (blk)  | PH11             | +3.3V |
-| 9 (blk)  | nRST             | +3.3V |
-| 10 (blk) | `GND`            | GND   |
+| Пін          | Сигнал           | Вольт |
+| ------------ | ---------------- | ----- |
+| 1 (червоний) | `Vtref`          | +3.3V |
+| 2 (чорний)   | Console TX (OUT) | +3.3V |
+| 3 (чорний)   | Console RX (IN)  | +3.3V |
+| 4 (чорний)   | `SWDIO`          | +3.3V |
+| 5 (чорний)   | `SWCLK`          | +3.3V |
+| 6 (чорний)   | `SWO`            | +3.3V |
+| 7 (чорний)   | NFC GPIO         | +3.3V |
+| 8 (чорний)   | PH11             | +3.3V |
+| 9 (чорний)   | nRST             | +3.3V |
+| 10 (чорний)  | `GND`            | GND   |
 
-For information about using this port see:
+Інформацію про використання цього порту дивіться:
 
-- [SWD Debug Port](../debug/swd_debug.md)
-- [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
+- [Порт відладки SWD](../debug/swd_debug.md)
+- [Системна консоль PX4](../debug/system_console.md) (Зауважте, що консоль FMU зіставляється з USART3).
 
-## Peripherals
+## Периферія
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Цифровий датчик швидкості польоту](https://holybro.com/products/digital-air-speed-sensor)
+- [Радіо модулі телеметрії](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [Далекоміри / Датчики відстані](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / шасі
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа чи човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus. Повний перелік підтримуваних конфігурацій можна переглянути в розділі [Довідник планерів](../airframes/airframe_reference.md).
 
-## Further info
+## Подальша інформація
 
-- [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
+- [Документація Holybro](https://docs.holybro.com/) (Holybro)
+- [Швидкий старт з підключення Pixhawk 6X](../assembly/quick_start_pixhawk6x.md)
 - [PM02D Power Module](../power_module/holybro_pm02d.md)
 - [PM03D Power Module](../power_module/holybro_pm03d.md)
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf).

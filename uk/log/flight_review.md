@@ -1,132 +1,132 @@
-# Log Analysis using Flight Review
+# Аналіз журналу за допомогою огляду польоту
 
-The [Flight Review](http://logs.px4.io) plots for a flight can be used to analyze general vehicle condition.
+Діаграми [огляду польоту](http://logs.px4.io) для польоту можуть бути використані для аналізу загального стану транспортного засобу.
 
-The plots are meant to be self-explanatory, but it takes some experience to know what ranges are acceptable and what a plot should look like. This page explains how to interpret the plots and identify common problems.
+Сюжети мають бути зрозумілими самі по собі, але для того, щоб знати, які діапазони є прийнятними і як повинен виглядати сюжет, потрібен деякий досвід. Ця сторінка пояснює, як інтерпретувати графіки та визначити загальні проблеми.
 
-## General Usage
+## Загальне використання
 
-Features that are common to many plots:
+Особливості, які є загальними для багатьох сюжетів:
 
-- Plot background color is used to indicate flight mode during recording (where graphs depend on mode): ![Flight Modes](../../assets/flight_log_analysis/flight_review/flight_modes.png)
-  - **Flight mode:** Background colour on the body of the plot indicates flight mode. Hovering with the mouse over a plot shows the flight mode labels.
-  - **VTOL flight mode:** VTOL vehicles additionally show the VTOL mode as background colour in the bottom part of the plot (blue for multicopter, yellow for fixed-wing, and red for transition).
-- Mouse scrolling on a particular plot axis zooms that axis (horizontally or vertically).
-- Mouse scrolling inside the plot zooms both axes.
+- Колір фону сюжету використовується для позначення режиму польоту під час запису (де графіки залежать від режиму): ![Flight Modes](../../assets/flight_log_analysis/flight_review/flight_modes.png)
+  - **Режим польоту:** Колір фону на тілі графіку вказує на режим польоту. Наведення курсору миші на діаграму показує мітки режиму польоту.
+  - **Режим польоту VTOL:** Транспортні засоби VTOL додатково показують режим VTOL як фоновий колір у нижній частині графіку (синій для багатокоптерних, жовтий для фіксованих крил та червоний для переходу).
+- Прокручування мишею на певній вісі графіка зумовлює збільшення цієї вісі (горизонтально або вертикально).
+- Прокручування миші всередині графіка збільшує обидва вісі.
 
 <a id="tracking"></a>
 
-## PID Tracking Performance
+## Виконання відстеження PID
 
-Depending on the flight mode, the vehicle controllers may attempt to track position, velocity, altitude or rate setpoints (the tracked setpoints depend on the mode, e.g.: in Stabilized mode there is no velocity setpoint).
+Залежно від режиму польоту, контролери транспортного засобу можуть намагатися відстежувати установочні точки положення, швидкості, висоти або швидкості (відстежувані установочні точки залежать від режиму, наприклад: в режимі стабілізації немає установочної точки швидкості).
 
-The **Estimated** line (red) should closely match with the **Setpoint** (green). If they do not, in most cases the PID gains of that controller need to be tuned.
+Лінія **Оцінена** (червона) повинна бути якомога ближчою до **Установленої точки** (зелена). Якщо вони цього не роблять, у більшості випадків потрібно налаштувати коефіцієнти ПІД цього контролера.
 
-The [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) contains example plots and information about analysing tracking performance.
-
-:::tip
-For the rate controller in particular, it is useful to enable the high-rate logging profile ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) to get more details when zooming in.
-:::
-
-## Vibration
-
-Vibration is one of the most common problems for multirotor vehicles. High vibration levels can lead to:
-- less efficient flight and reduced flight time
-- the motors can heat up
-- increased material wearout
-- inability to tune the vehicle tightly, resulting in degraded flight performance.
-- sensor clipping
-- position estimation failures, potentially resulting in fly-aways.
-
-It is therefore important to keep an eye on the vibration levels and improve the setup if needed.
-
-There is a point where vibration levels are clearly too high, and generally lower vibration levels are better. However there is a broad range between 'everything is ok' and 'the levels are too high'. This range depends on a number of factors, including vehicle size - as larger vehicles have higher inertia, allowing for more software filtering (at the same time the vibrations on larger vehicles are of lower frequency).
-
-The following paragraphs and sections provide information about what plots to use for checking vibration levels, and how to analyse them.
+[Посібник з налаштування PID для багатокоптерів](../config_mc/pid_tuning_guide_multicopter.md) містить приклади графіків та інформацію про аналіз результатів слідкування.
 
 :::tip
-It is worth looking at multiple charts when analyzing vibration (different charts can better highlight some issues).
+Для контролера швидкості важливо увімкнути профіль високої швидкості журналювання ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)), щоб отримати більше деталей при збільшенні масштабу.
 :::
 
-### Actuator Controls FFT
+## Вібрація
 
-::: info You need to enable the high-rate logging profile ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) to see this plot.
+Вібрація є однією з найпоширеніших проблем для багатороторних транспортних засобів. Високі рівні вібрації можуть призвести до:
+- менш ефективний польот і скорочений час польоту
+- двигуни можуть нагрітися
+- збільшене зношування матеріалу
+- неможливість налаштувати транспортний засіб тісно, що призводить до погіршення польотних характеристик.
+- обрізання сенсора
+- оцінка позиції провалилася, що потенційно призводить до збоїв.
+
+Тому важливо слідкувати за рівнем вібрації та вдосконалювати налаштування у разі необхідності.
+
+Є точка, де рівень вібрації однозначно занадто високий, і, як правило, нижчі рівні вібрації краще. Однак є широкий діапазон між 'все в порядку' та 'рівні занадто високі'. Цей діапазон залежить від кількох факторів, включаючи розмір транспортного засобу - оскільки більші транспортні засоби мають вищу інерцію, що дозволяє більше програмного фільтрування (у той ж час вібрації на більших транспортних засобах мають меншу частоту).
+
+Наступні абзаци та розділи надають інформацію про те, які графіки використовувати для перевірки рівнів вібрації, та як їх аналізувати.
+
+:::tip
+Варто розглянути кілька графіків при аналізі вібрації (різні графіки можуть краще підкреслити деякі проблеми).
 :::
 
-This graph shows a frequency plot for the roll, pitch and yaw axis based on the actuator controls signal (the PID output from the rate controller). It helps to identify frequency peaks and configuring the software filters. There should only be a single peak at the lowest end (below around 20 Hz), the rest should be low and flat.
+### Керування приводами FFT
 
-Note that the y-axis scaling is different for different vehicles, but logs from the same vehicle can be directly compared to each other.
+:::info Необхідно активувати профіль високочастотного ведення журналу ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)), щоб побачити цей графік.
+:::
 
-#### Examples: Good Vibration
+Цей графік показує частотний графік для відвалу, крена та осі курсу на основі сигналу керування приводами (вихід PID від контролера швидкості). Це допомагає визначити частотні піки та налаштувати програмні фільтри. Повинен бути лише один пік на найнижчому кінці (нижче близько 20 Гц), решта повинна бути низькою та плоскою.
 
-[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) frame (excellent vibration).
+Зверніть увагу, що масштабування по осі Y відрізняється для різних транспортних засобів, але журнали з одного й того ж транспортного засобу можуть бути безпосередньо порівняні між собою.
+
+#### Приклади: Хороша вібрація
+
+[QAV-R 5" Гонщик](../frames_multicopter/qav_r_5_kiss_esc_racer.md) рамка (відмінна вібрація).
 
 ![Low vibration QAV-R 5 Racer - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
-::: info The excellent vibration characteristics of the above frame mean that we can considerably increase the cutoff frequency of the [software filters](../config_mc/filter_tuning.md) (reducing control latency).
+:::info Відмінні вібраційні характеристики вищезазначеної рами означають, що ми можемо значно збільшити частоту відсічення [програмних фільтрів](../config_mc/filter_tuning.md) (зменшуючи затримку управління).
 :::
 
-DJI F450 frame (good vibration).
+Каркас DJI F450 (добре вібрує).
 
 ![Low vibration DJI F450 - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
 
-S500 frame:
+Каркас S500:
 
 ![Low vibration S500 actuator controls - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
-::: info While the plot above looks good, the [Raw Acceleration graph for the same flight](#raw_acc_s500) shows that the vibration levels are a bit high for x and y. This is a good example of why it is worth checking several graphs!
+:::info Хоча графік вище виглядає добре, графік сирового прискорення для цього ж польоту показує, що рівні вібрації трохи високі для x та y. [Raw Acceleration graph for the same flight](#raw_acc_s500) Це хороший приклад того, чому варто перевіряти кілька графіків!
 :::
 
-#### Examples: Bad Vibration
+#### Приклади: Погана вібрація
 
-This example shows a peak in frequency close to 50 Hz (in this case due to "loose" landing gear).
+Цей приклад показує пік частоти близько 50 Гц (у цьому випадку через "вільне" шасі).
 
 ![Vibrations in landing gear - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_actuator_controls_fft.png)
 
 
-### Acceleration Power Spectral Density
+### Спектральна густина потужності прискорення
 
-This is a 2D frequency plot showing the frequency response of the raw accelerometer data over time (it displays the sum for the x, y and z axis). The more yellow an area is, the higher the frequency response at that time and frequency.
+Це двовимірний графік частот, що показує частотну відповідь сирих даних акселерометра з часом (він відображає суму для вісей x, y та z). Чим більше жовтий ділянка, тим вище частотна відповідь в цей час і частоту.
 
-Ideally only the lowest part up to a few Hz is yellow, and the rest is mostly green or blue.
+Ідеально лише найнижча частина до кількох Гц є жовтою, а решта в основному зелена або синя.
 
 
-#### Examples: Good Vibration
+#### Приклади: Гарна вібрація
 
-[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) frame (excellent vibration).
+[QAV-R 5" Гонщик](../frames_multicopter/qav_r_5_kiss_esc_racer.md) рамка (відмінна вібрація).
 
 ![Low vibration QAV-R 5 Racer - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_good_spectral.png)
 <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-DJI F450 frame (good vibration). ![Low vibration DJI F450 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
+Каркас DJI F450 (добре вібрує). ![Low vibration DJI F450 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
 
-::: info
-Above you can see the blade passing frequency of the propellers at around 100 Hz.
+:::info
+Вище ви можете побачити частоту проходження лопатей гвинтів приблизно 100 Гц.
 :::
 
-S500 frame: ![Vibration S500 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
+Каркас S500: ![Vibration S500 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
 
 
-#### Examples: Bad Vibration
+#### Приклади: Погана вібрація
 
-The strong yellow lines at around 100Hz indicate a potential issue that requires further investigation (starting with a review of the other charts).
+Міцні жовті лінії приблизно на 100 Гц вказують на можливу проблему, яка вимагає подальшого вивчення (починаючи з перегляду інших діаграм).
 
 ![High vibration in spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_too_high_spectral.png)
 
-This plot below shows a peak in frequency close to 50 Hz (in this case due to "loose" landing gear).
+Цей графік нижче показує пік частоти близько 50 Гц (у цьому випадку через "вільне" шасі).
 
 :::tip
-This indicates a possible problem because it is a strong single low frequency that is close to the vehicle dynamics.
-With the default filter settings of 80 Hz vibrations at 50 Hz will not be filtered.
+Це вказує на можливу проблему тому, що це сильна низька частота, що близька до динаміки автомобіля.
+Зі стандартними налаштуваннями фільтрації на частоті 80 Гц вібрації на частоті 50 Гц не будуть фільтруватися.
 :::
 
 ![Vibrations in landing gear - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_spectral.png)
 
 
-Extremely high (unsafe) vibration! Note that the graph is almost completely yellow.
+Дуже висока (небезпечна) вібрація! Зверніть увагу, що графік майже повністю жовтий.
 
 :::warning
-You should not fly with such high vibration levels.
+Не слід літати з такими високими рівнями вібрації.
 :::
 
 ![Exceedingly high vibration in spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_spectral.png)
@@ -134,29 +134,29 @@ You should not fly with such high vibration levels.
 
 ### Raw Acceleration
 
-This graph shows the raw accelerometer measurements for the x, y and z axis. Ideally each line is thin and clearly shows the vehicle's accelerations.
+Цей графік показує сирі вимірювання акселерометра для вісей x, y та z. Ідеально, якщо кожна лінія тонка і чітко показує прискорення транспортного засобу.
 
-As a rule of thumb if the z-axis graph is touching the x/y-axis graph during hover or slow flight, the vibration levels are too high.
+Зазвичай, якщо графік по осі z торкається графіка по осях x/y під час наведення або повільного польоту, рівні вібрації є занадто високими.
 
 :::tip
-The best way to use this graph is to zoom in a bit to a part where the vehicle is hovering.
+Найкращий спосіб використання цього графіка - трохи збільшити масштаб, де транспортний засіб перебуває в повітрі.
 :::
 
-#### Examples: Good Vibration
+#### Приклади: Хороша вібрація
 
-[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) frame (excellent vibration).
+[QAV-R 5" Гонщик](../frames_multicopter/qav_r_5_kiss_esc_racer.md) рамка (відмінна вібрація).
 
 ![Low vibration QAV-R 5 Racer - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
 
-DJI F450 frame (good vibration). ![Low vibration DJI F450 - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
+DJI F450 кадр (добра вібрація). ![Low vibration DJI F450 - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
 
 <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
 
-#### Examples: Bad Vibration
+#### Приклади: Погана вібрація
 
 <a id="raw_acc_s500"></a>
-S500 frame. Borderline vibration levels - a bit high for x and y (which is typical for an S500 airframe). This is at the limit where it starts to negatively affect flight performance.
+Каркас S500. Рівні вібрації на межі - трохи високі для x та y (що є типовим для конструкції S500). This is at the limit where it starts to negatively affect flight performance.
 
 ![Borderline vibration S500 x, y - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
 

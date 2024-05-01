@@ -1,8 +1,8 @@
-# Sapog ESC Firmware
+# Прошивка Sapog ESC
 
-[Sapog](https://github.com/PX4/sapog#px4-sapog) firmware is an advanced open source sensorless PMSM/BLDC motor controller firmware designed for use in propulsion systems of electric unmanned vehicles.
+Фірмварне [Sapog](https://github.com/PX4/sapog#px4-sapog) є передовим відкритим джерелом фірмварного засобу управління бездатчиковими моторами PMSM/BLDC, призначеним для використання в системах приводу електричних безпілотних транспортних засобів.
 
-While it can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](index.md).
+Хоча його можна контролювати за допомогою традиційного введення ШІМ, він призначений для роботи через шину CAN за допомогою [DroneCAN](index.md).
 
 ## Де купити
 
