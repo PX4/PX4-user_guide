@@ -8,7 +8,7 @@ PX4 майже виключно використовує дані з [uORB](../m
 
 Найкращий підхід до створення нового драйвера - почати з аналогічного драйвера як шаблону (див. [src/drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers)).
 
-::: info More detailed information about working with specific I/O buses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/index.md) section.
+:::info Більш детальну інформацію про роботу з конкретними шинами вводу/виводу та датчиками можна знайти у розділі [Шини датчиків та приводів](../sensor_bus/index.md).
 :::
 
 ::: info Публікація правильних тем uORB є єдиним патерном, якого повинні *повинні* дотримуватися драйвери.
@@ -16,20 +16,20 @@ PX4 майже виключно використовує дані з [uORB](../m
 
 ## Архітектура ядра
 
-PX4 is a [reactive system](../concept/architecture.md) and uses [uORB](../middleware/uorb.md) publish/subscribe to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used:
+PX4 є [реактивною системою](../concept/architecture.md) і використовує [uORB](../middleware/uorb.md) для публікації/підписки на комунікаційні повідомлення. Файлові дескриптори не потрібні або не використовуються для основної роботи системи. Використовуються дві основні API:
 
-* The publish / subscribe system which has a file, network or shared memory backend depending on the system PX4 runs on.
-* The global device registry, which can be used to enumerate devices and get/set their configuration. This can be as simple as a linked list or map to the file system.
+* Система публікації/підписки, яка має файлову, мережеву або загальну пам'ять, залежно від системи, на якій працює PX4.
+* Глобальний реєстр пристроїв, який можна використовувати для переліку пристроїв та отримання/налаштування їх конфігурації. Це може бути простий зв'язаний список або схема файлової системи.
 
 ## Ідентифікатори пристрою(ID)
 
-PX4 uses device IDs to identify individual sensors consistently across the system. These IDs are stored in the configuration parameters and used to match sensor calibration values, as well as to determine which sensor is logged to which logfile entry.
+PX4 використовує ідентифікатори пристроїв для постійної ідентифікації окремих сенсорів у всій системі. Ці ідентифікатори зберігаються в параметрах конфігурації та використовуються для відповідності значень калібрування сенсора, а також для визначення того, який сенсор зареєстрований в якому записі журналу.
 
-The order of sensors (e.g. if there is a `/dev/mag0` and an alternate `/dev/mag1`) does not determine priority - the priority is instead stored as part of the published uORB topic.
+Порядок датчиків (наприклад, якщо є `/dev/mag0` і альтернативний `/dev/mag1`) не визначає пріоритет - пріоритет зберігається як частина опублікованої теми uORB.
 
 ### Приклад декодування
 
-For the example of three magnetometers on a system, use the flight log (.px4log) to dump the parameters. The three parameters encode the sensor IDs and `MAG_PRIME` identifies which magnetometer is selected as the primary sensor. Each MAGx_ID is a 24bit number and should be padded left with zeros for manual decoding.
+Для прикладу трьох магнітометрів у системі використовуйте журнал польотів (.px4log) для вивантаження параметрів. Три параметри кодують ідентифікатори датчиків, а `MAG_PRIME` визначає, який магнітометр вибрано основним датчиком. Кожен MAGx_ID є 24-бітним числом і повинен бути доповнений зліва нулями для ручного декодування.
 
 
 ```
@@ -39,7 +39,7 @@ CAL_MAG2_ID = 263178.0
 CAL_MAG_PRIME = 73225.0
 ```
 
-This is the external HMC5983 connected via I2C, bus 1 at address `0x1E`: It will show up in the log file as `IMU.MagX`.
+Це зовнішній HMC5983, підключений через I2C, шину 1 за адресою `0x1E`: він буде показаний у файлі журналу як `IMU.MagX`.
 
 ```
 # device ID 73225 in 24-bit binary:
@@ -49,7 +49,7 @@ This is the external HMC5983 connected via I2C, bus 1 at address `0x1E`: It will
 HMC5883   0x1E    bus 1 I2C
 ```
 
-This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. It will show up in the log file as `IMU1.MagX`.
+This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. У файлі журналу це буде показано як `IMU1.MagX`.
 
 ```
 # device ID 66826 in 24-bit binary:
@@ -59,7 +59,7 @@ This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. It w
 HMC5883   dev 5   bus 1 SPI
 ```
 
-And this is the internal MPU9250 magnetometer connected via SPI, bus 1, slave select slot 4. It will show up in the log file as `IMU2.MagX`.
+And this is the internal MPU9250 magnetometer connected via SPI, bus 1, slave select slot 4. У файлі журналу це буде показано як `IMU2.MagX`.
 
 ```
 # device ID 263178 in 24-bit binary:
@@ -69,9 +69,9 @@ And this is the internal MPU9250 magnetometer connected via SPI, bus 1, slave se
 MPU9250   dev 4   bus 1 SPI
 ```
 
-### Device ID Encoding
+### Кодування ID пристрою
 
-The device ID is a 24bit number according to this format. Note that the first fields are the least significant bits in the decoding example above.
+Ідентифікатор пристрою - це 24-бітове число відповідно до цього формату. Зверніть увагу, що перші поля - це молодші біти у наведеному вище прикладі декодування.
 
 ```C
 struct DeviceStructure {
@@ -92,7 +92,7 @@ enum DeviceBusType {
 };
 ```
 
-and `devtype` is decoded according to:
+і `devtype` декодується відповідно до:
 
 ```C
 #define DRV_MAG_DEVTYPE_HMC5883  0x01
@@ -119,11 +119,11 @@ and `devtype` is decoded according to:
 
 ### Докладне ведення журналу
 
-Drivers (and other modules) output minimally verbose logs strings by default (e.g. for `PX4_DEBUG`, `PX4_WARN`, `PX4_ERR`, etc.).
+Драйвери (та інші модулі) за замовчуванням виводять мінімально докладні рядки логів (наприклад, для `PX4_DEBUG`, `PX4_WARN`, `PX4_ERR` і т.д.).
 
-Log verbosity is defined at build time using the `RELEASE_BUILD` (default), `DEBUG_BUILD` (verbose) or `TRACE_BUILD` (extremely verbose) macros.
+Докладність логів визначається під час збирання за допомогою макросів `RELEASE_BUILD` (за замовчуванням), `DEBUG_BUILD` (докладно) або `TRACE_BUILD` (дуже докладно).
 
-Change the logging level using `COMPILE_FLAGS` in the driver `px4_add_module` function (**CMakeLists.txt**). The code fragment below shows the required change to enable DEBUG_BUILD level debugging for a single module or driver.
+Змініть рівень протоколювання за допомогою `COMPILE_FLAGS` у функції драйвера `px4_add_module` (**CMakeLists.txt**). У наведеному нижче фрагменті коду показано необхідну зміну, щоб увімкнути налагодження на рівні DEBUG_BUILD для окремого модуля або драйвера.
 
 ```
 px4_add_module(
@@ -143,5 +143,5 @@ px4_add_module(
 ```
 
 :::tip
-Verbose logging can also be enabled on a per-file basis, by adding `#define DEBUG_BUILD` at the very top of a .cpp file (before any includes).
+Докладний лог також можна увімкнути для кожного файлу, додавши `#define DEBUG_BUILD` у самому верху .cpp-файлу (перед будь-якими модулями).
 :::
