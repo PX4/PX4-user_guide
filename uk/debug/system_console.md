@@ -1,4 +1,4 @@
-# PX4 System Console
+# Системна консоль PX4
 
 The PX4 _System Console_ provides low-level access to the system, debug output and analysis of the system boot process.
 
@@ -44,13 +44,13 @@ These ports have pins for console TX and RX which can connect to an FTDI cable. 
 
 The [SWD Debug Port](../debug/swd_debug.md) page and individual flight controller pages have more information about debug port pinouts.
 
-## Opening the Console
+## Відкриття консолі
 
 After the console connection is wired up, use the default serial port tool of your choice or the defaults described below:
 
 ### Linux / Mac OS: Screen
 
-Install screen on Ubuntu (Mac OS already has it installed):
+Встановіть screen на Ubuntu (Mac OS вже має його встановленим):
 
 ```sh
 sudo apt-get install screen
