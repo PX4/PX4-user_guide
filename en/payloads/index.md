@@ -8,6 +8,6 @@ Payloads are connected to [Flight Controller outputs](../getting_started/px4_bas
 - [Payload Use Cases](../payloads/use_cases.md)
 - [Package Delivery Mission](../flying/package_delivery_mission.md)
 - [Generic Actuator Control](../payloads/generic_actuator_control.md)
-- [Camera](../peripherals/camera.md)
+- [Camera](../camera/index.md)
 - [Gimbal \(Mount\) Configuration](../advanced/gimbal_control.md)
 - [Grippers](../peripherals/gripper.md)

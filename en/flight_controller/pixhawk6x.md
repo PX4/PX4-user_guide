@@ -129,7 +129,7 @@ Sample Wiring Diagram
 
 Notes:
 
-- The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
+- The [camera capture pin](../camera/configuration.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
 ## Serial Port Mapping
 
