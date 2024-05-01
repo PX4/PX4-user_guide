@@ -1,8 +1,8 @@
-# LogMessage (UORB message)
+# LogMessage (повідомлення UORB)
 
-A logging message, output with PX4_WARN, PX4_ERR, PX4_INFO
+Повідомлення логування, що виводиться з PX4_WARN, PX4_ERR, PX4_INFO
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LogMessage.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LogMessage.msg)
 
 ```c
 # A logging message, output with PX4_WARN, PX4_ERR, PX4_INFO
