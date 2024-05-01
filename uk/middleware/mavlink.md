@@ -207,19 +207,19 @@ protected:
 };
 ```
 
-Most streaming classes are very similar (see examples in [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams)):
+Більшість потокових класів дуже схожі (див. приклади у [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams)):
 
-- The streaming class derives from [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_stream.h) and is named using the pattern `MavlinkStream<CamelCaseMessageName>`.
-- The `public` definitions are "near-boilerplate", allowing PX4 to get an instance of the class (`new_instance()`), and then to use it to fetch the name, id, and size of the message from the MAVLink headers (`get_name()`, `get_name_static()`, `get_id_static()`, `get_id()`, `get_size()`). For your own streaming classes these can just be copied and modified to match the values for your MAVLink message.
-- The `private` definitions subscribe to the uORB topics that need to be published. In this case the uORB topic has multiple instances: one for each battery. We use `uORB::SubscriptionMultiArray` to get an array of battery status subscriptions.
+- Клас потокового передавання є похідним від [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_stream.h) і названий за паттерном `MavlinkStream<CamelCaseMessageName>`.
+- The `public` definitions are "near-boilerplate", allowing PX4 to get an instance of the class (`new_instance()`), and then to use it to fetch the name, id, and size of the message from the MAVLink headers (`get_name()`, `get_name_static()`, `get_id_static()`, `get_id()`, `get_size()`). Для ваших власних потокових класів їх можна просто скопіювати і змінити, щоб вони відповідали значенням для вашого повідомлення MAVLink.
+- Визначення `private` підписуються на теми uORB, які потрібно опублікувати. У цьому випадку тема uORB має кілька екземплярів: по одному для кожної батареї. Ми використовуємо `uORB::SubscriptionMultiArray` для отримання масиву підписок про стан батареї.
 
-  Here we also define constructors to prevent the definition being copied.
+  Тут ми також визначаємо конструктори, щоб уникнути копіювання визначення.
 
-- The `protected` section is where the important work takes place!
+- Секція `protected` - це місце, де відбувається важлива робота!
 
-  Here we override the `send()` method, copying values from the subscribed uORB topic(s) into appropriate fields in the MAVLink message, and then send the message.
+  Тут ми перевизначаємо метод `send()`, копіюючи значення з підписаних тем uORB у відповідні поля повідомлення MAVLink, а потім надсилаємо повідомлення.
 
-  In this particular example we have an array of uORB instances `_battery_status_subs` (because we have multiple batteries). We iterate the array and use `update()` on each subscription to check if the associated battery instance has changed (and update a structure with the current data). This allows us to send the MAVLink message _only_ if the associated battery uORB topic has changed:
+  У цьому конкретному прикладі у нас є масив екземплярів uORB `_battery_status_subs` (тому що у нас є кілька батарей). Ми ітеруємо масив і використовуємо `update()` для кожної підписки, щоб перевірити, чи змінився пов'язаний з нею екземпляр батареї (і оновити структуру поточними даними). Це дозволяє нам надсилати повідомлення MAVLink _лише_, якщо пов'язана з батареєю uORB тема змінилася:
 
   ```cpp
   // Структура, щоб зберігати дані поточної теми.
@@ -231,21 +231,21 @@ Most streaming classes are very similar (see examples in [/src/modules/mavlink/s
   }
   ```
 
-  If wanted to send a MAVLink message whether or not the data changed, we could instead use `copy()` as shown:
+  Якщо ви хочете надіслати повідомлення MAVLink незалежно від того, чи змінилися дані, ми можемо замість цього використати `copy()`, як показано тут:
 
   ```cpp
   battery_status_s battery_status;
   battery_sub.copy(&battery_status);
   ```
 
-  ::: info For a single-instance topic like [VehicleStatus](../msg_docs/VehicleStatus.md) we would subscribe like this:
+  :::info Для теми з одним екземпляром, наприклад, [VehicleStatus](../msg_docs/VehicleStatus.md), ми підписуємося таким чином:
 
   ```cpp
   // Create subscription _vehicle_status_sub
   uORB::Subscription _vehicle_status_sub{ORB_ID(vehicle_status)};
   ```
 
-  And we could use the resulting subscription in the same way with update or copy.
+  І ми можемо використовувати отриману підписку так само, з оновленням або копіюванням.
 
   ```cpp
   vehicle_status_s vehicle_status{}; // vehicle_status_s is the definition of the uORB topic
@@ -279,24 +279,24 @@ The class is now available for streaming, but won't be streamed by default. We c
 
 ### Трансляція за замовчуванням
 
-The easiest way to stream your messages by default (as part of a build) is to add them to [mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp) in the appropriate message group.
+Найлегший спосіб транслювати ваші повідомлення за замовчуванням (як частину збірки) - це додати їх до [mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp) у відповідну групу повідомлень.
 
-If you search in the file you'll find groups of messages defined in a switch statement:
+Якщо ви виконаєте пошук у файлі, то знайдете групи повідомлень, визначені в інструкції switch:
 
-- `MAVLINK_MODE_NORMAL`: Streamed to a GCS.
-- `MAVLINK_MODE_ONBOARD`: Streamed to a companion computer on a fast link, such as Ethernet
-- `MAVLINK_MODE_ONBOARD_LOW_BANDWIDTH`: Streamed to a companion computer for re-routing to a reduced-traffic link, such as a GCS.
-- `MAVLINK_MODE_GIMBAL`: Streamed to a gimbal
-- `MAVLINK_MODE_EXTVISION`: Streamed to an external vision system
-- `MAVLINK_MODE_EXTVISIONMIN`: Streamed to an external vision system on a slower link
-- `MAVLINK_MODE_OSD`: Streamed to an OSD, such as an FPV headset.
-- `MAVLINK_MODE_CUSTOM`: Stream nothing by default. Used when configuring streaming using MAVLink.
-- `MAVLINK_MODE_MAGIC`: Same as `MAVLINK_MODE_CUSTOM`
-- `MAVLINK_MODE_CONFIG`: Streaming over USB with higher rates than `MAVLINK_MODE_NORMAL`.
-- `MAVLINK_MODE_MINIMAL`: Stream a minimal set of messages. Normally used for poor telemetry links.
-- `MAVLINK_MODE_IRIDIUM`: Streamed to an iridium satellite phone
+- `MAVLINK_MODE_NORMAL`: Трансляція до GCS.
+- `MAVLINK_MODE_ONBOARD`: Трансляція на комп'ютер-супутник через швидке з'єднання, наприклад Ethernet
+- `MAVLINK_MODE_ONBOARD_LOW_BANDWIDTH`: передається на комп'ютер-компаньйон для перенаправлення на канал зі зниженим трафіком, наприклад GCS.
+- `MAVLINK_MODE_GIMBAL`: Потік на гімбол
+- `MAVLINK_MODE_EXTVISION`: Трансляція на систему зовнішнього зору
+- `MAVLINK_MODE_EXTVISIONMIN`: Потокове передавання до системи зовнішнього зору на повільнішому каналі
+- `MAVLINK_MODE_OSD`: транслюється на OSD, наприклад, на FPV гарнітуру.
+- `MAVLINK_MODE_CUSTOM`: Нічого не транслювати за замовчуванням. Використовується при налаштуванні потокового передавання за допомогою MAVLink.
+- `MAVLINK_MODE_MAGIC`: Те ж саме, що й `MAVLINK_MODE_CUSTOM`
+- `MAVLINK_MODE_CONFIG`: Потік через USB з вищими швидкостями, ніж `MAVLINK_MODE_NORMAL`.
+- `MAVLINK_MODE_MINIMAL`: Потік мінімального набору повідомлень. Зазвичай використовується для поганого зв'язку телеметрії.
+- `MAVLINK_MODE_IRIDIUM`: Трансляція на супутниковий телефон iridium
 
-Normally you'll be testing on a GCS, so you could just add the message to the `MAVLINK_MODE_NORMAL` case using the `configure_stream_local()` method. For example, to stream CA_TRAJECTORY at 5 Hz:
+Зазвичай ви будете тестувати на GCS, тому ви можете просто додати повідомлення у регістр `MAVLINK_MODE_NORMAL` за допомогою методу `configure_stream_local()`. Наприклад, для трансляції CA_TRAJECTORY з частотою 5 Гц:
 
 ```cpp
     case MAVLINK_MODE_CONFIG: // USB
@@ -455,4 +455,4 @@ QGC uses the all.xml dialect by default, which includes **common.xml**. You can 
 
 ### Оновлення MAVSDK
 
-See the MAVSDK docs for information about how to work with [MAVLink headers and dialects](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html#mavlink-headers-and-dialects).
+Дивіться документацію MAVSDK для отримання інформації про роботу з [заголовками та діалектами MAVLink](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html#mavlink-headers-and-dialects).
