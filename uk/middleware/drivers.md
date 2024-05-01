@@ -113,11 +113,11 @@ and `devtype` is decoded according to:
 #define DRV_RNG_DEVTYPE_LL40LS   0x32
 ```
 
-## Debugging
+## Відлагодження
 
-For general debugging topics see: [Debugging/Logging](../debug/index.md).
+Для загальних тем відладки див. : [Debugging/Logging](../debug/index.md).
 
-### Verbose Logging
+### Докладне ведення журналу
 
 Drivers (and other modules) output minimally verbose logs strings by default (e.g. for `PX4_DEBUG`, `PX4_WARN`, `PX4_ERR`, etc.).
 
