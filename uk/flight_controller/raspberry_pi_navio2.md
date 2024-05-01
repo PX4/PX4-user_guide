@@ -2,14 +2,14 @@
 
 <LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.html"/>
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://emlid.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](https://emlid.com/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
 :::
 
 This is the developer "quickstart" for Raspberry Pi 2/3/4 Navio2 autopilots. It allows you to build PX4 and transfer to the RasPi, or build natively.
 
 ![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
 
-## OS Image
+## Образ OS
 
 Use the preconfigured [Emlid Raspberry Pi OS image for Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi). The default image will have most of the setup procedures shown below already done.
 
@@ -17,7 +17,7 @@ Use the preconfigured [Emlid Raspberry Pi OS image for Navio 2](https://docs.eml
 Make sure not to upgrade the system (more specifically the kernel). By upgrading, a new kernel can get installed which lacks the necessary HW support (you can check with `ls /sys/class/pwm`, the directory should not be empty).
 :::
 
-## Setting up Access
+## Встановлення доступу
 
 The Raspberry Pi OS image has SSH setup already. Username is "pi" and password is "raspberry". We assume that the username and password remain at their defaults for the purpose of this guide.
 
@@ -74,11 +74,11 @@ Ubuntu 20.04 and later do not currently work (as of September 2023).
 
 Follow the instructions below to build the source code on your development machine and transfer the compiled program to the Pi. Note that earlier versions allowed code to be built natively (on the Pi), but this option is no longer available.
 
-### Cross-compiler Build
+### Збірка крос-компілятора
 
-First install the [standard PX4 developer environment](../dev_setup/dev_env_linux_ubuntu.md#raspberry-pi) on your Ubuntu 18.04 development computer.
+Спочатку встановіть [стандартне середовище розробника PX4](../dev_setup/dev_env_linux_ubuntu.md#raspberry-pi) на ваш комп'ютер з Ubuntu 18.04.
 
-Specify the IP (or hostname) of your Pi using:
+Вкажіть IP-адресу (або ім'я хоста) вашого Pi:
 
 ```sh
 export AUTOPILOT_HOST=navio.local
