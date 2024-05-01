@@ -84,7 +84,7 @@ Specify the IP (or hostname) of your Pi using:
 export AUTOPILOT_HOST=navio.local
 ```
 
-or
+або
 
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
