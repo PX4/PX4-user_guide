@@ -1,4 +1,4 @@
-# Готовий до польоту дрон Intel Aero
+# Intel Aero Ready to Fly Drone
 
 <Badge type="error" text="Discontinued" />
 
