@@ -272,7 +272,7 @@ For example, the following command can be used to start a Gazebo simulation with
 ROS_DOMAIN_ID=3 PX4_UXRCE_DDS_PORT=9999 PX4_UXRCE_DDS_NS=drone make px4_sitl gz_x500
 ```
 
-## Supported uORB Messages
+## Підтримувані повідомлення uORB
 
 The set of [PX4 uORB topics](../msg_docs/index.md) that are exposed through the client are set in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
 
@@ -499,7 +499,7 @@ In your ROS 2 nodes, you will need to:
   msg.timestamp = int(self.get_clock().now().nanoseconds / 1000)
   ```
 
-## Helpful Resources
+## Корисні ресурси
 
 - [ROS 2 in PX4: Technical Details of a Seamless Transition to XRCE-DDS](https://www.youtube.com/watch?v=F5oelooT67E) - Pablo Garrido & Nuno Marques (youtube)
 - [PX4 ROS 2 offboard tutorial](https://gist.github.com/julianoes/adbf76408663829cd9aed8d14c88fa29) (Github gist - JulianOes)
