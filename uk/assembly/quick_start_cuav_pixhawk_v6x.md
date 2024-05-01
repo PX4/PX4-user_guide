@@ -89,7 +89,7 @@ SD cards are highly recommended as they are required for [recording and analyzin
 For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
-## Motors/Servo
+## Мотори/Сервоприводи
 
 Motors/servos are connected to the **M1~M8** (**MAIN**) and **A1~A8** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
