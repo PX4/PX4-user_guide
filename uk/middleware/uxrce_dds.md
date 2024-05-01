@@ -172,9 +172,9 @@ To run the micro XRCE-DDS agent in the workspace:
    MicroXRCEAgent udp4 -p 8888
    ```
 
-## Starting Agent and Client
+## Запуск агента та клієнта
 
-### Starting the Agent
+### Запуск агента
 
 The agent is used to connect to the client over a particular channel, such as UDP or a serial connection. The channel settings are specified when the agent is started, using command line options. These are documented in the eProsima user guide: [Micro XRCE-DDS Agent > Agent CLI](https://micro-xrce-dds.docs.eprosima.com/en/latest/agent.html#agent-cli). Note that the agent supports many channel options, but PX4 only supports UDP and serial connections.
 
@@ -198,7 +198,7 @@ sudo MicroXRCEAgent serial --dev /dev/AMA0 -b 921600
 For more information about setting up communications channels see [Pixhawk + Companion Setup > Serial Port setup](../companion_computer/pixhawk_companion.md#serial-port-setup), and sub-documents.
 :::
 
-### Starting the Client
+### Запуск клієнта
 
 The uXRCE-DDS client module ([uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client)) is included by default in all firmware and the simulator. This must be started with appropriate settings for the communication channel that you wish to use to communicate with the agent.
 
@@ -322,7 +322,7 @@ will generate topics under the namespaces:
 
 :::
 
-## PX4 ROS 2 QoS Settings
+## Налаштування PX4 ROS 2 QoS
 
 PX4 QoS settings for publishers are incompatible with the default QoS settings for ROS 2 subscribers. So if ROS 2 code needs to subscribe to a uORB topic, it will need to use compatible QoS settings. One example of which is shown in [ROS 2 User Guide > ROS 2 Subscriber QoS Settings](../ros/ros2_comm.md#ros-2-subscriber-qos-settings).
 
@@ -337,7 +337,7 @@ uxrQoS_t qos = {
 };
 ```
 
-PX4 uses the following QoS settings for subscribers:
+PX4 використовує наступні параметри QoS для підписників:
 
 ```cpp
 uxrQoS_t qos = {
@@ -352,11 +352,11 @@ ROS 2 uses the following QoS settings (by default) for publishers and subscripti
 
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
-## DDS Topics YAML
+## DDS теми YAML
 
 The PX4 yaml file [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) defines the set of PX4 uORB topics that are built into firmware and published. More precisely, it completely defines the relationship/pairing between PX4 uORB and ROS 2 messages.
 
-The file is structured as follows:
+Файл структурований наступним чином:
 
 ```yaml
 publications:
@@ -487,13 +487,13 @@ In your ROS 2 nodes, you will need to:
 - Change the names of your topics, unless you edited [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
 - Remove everything related to time synchronization, as XRCE-DDS automatically takes care of agent/client time synchronization.
 
-  In C++ applications you can set the `timestamp` field of your messages like this:
+  У додатках C++ ви можете встановити поле `timestamp` вашого повідомлення таким чином:
 
   ```cpp
   msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
   ```
 
-  In Python applications you can set the `timestamp` field of your messages like this:
+  У додатках Python ви можете встановити поле `timestamp` для ваших повідомлень таким чином:
 
   ```python
   msg.timestamp = int(self.get_clock().now().nanoseconds / 1000)
