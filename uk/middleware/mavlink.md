@@ -92,7 +92,7 @@ PX4 включає репозиторій [mavlink/mavlink](https://github.com/m
 
 Загалом у вас вже повинно бути повідомлення [uORB](../middleware/uorb.md), яке містить інформацію, яку ви хочете транслювати, та визначення повідомлення MAVLink, з яким ви хочете його транслювати.
 
-For this example we're going to assume that you want to stream the (existing) [BatteryStatus](../msg_docs/BatteryStatus.md) uORB message to a new MAVLink battery status message, which we will name `BATTERY_STATUS_DEMO`.
+У цьому прикладі ми припустимо, що ви хочете перетворити (існуюче) повідомлення [BatteryStatus](../msg_docs/BatteryStatus.md) uORB у нове повідомлення про стан батареї MAVLink, яке ми назвемо `BATTERY_STATUS_DEMO`.
 
 Скопіюйте це повідомлення `BATTERY_STATUS_DEMO` у розділ повідомлень `development.xml` у вихідному коді PX4, який буде розташований за адресою: `\src\modules\mavlink\mavlink\message_definitions\v1.0\development.xml`.
 
@@ -105,18 +105,18 @@ For this example we're going to assume that you want to stream the (existing) [B
     </message>
 ```
 
-::: info Note that this is a cut-down version of the not-yet-implemented [BATTERY_STATUS_V2](https://mavlink.io/en/messages/development.html#BATTERY_STATUS_V2) message with randomly chosen unused id of `11514`. Here we've put the message in `development.xml`, which is fine for testing and if the message is intended to eventually be part of the standard message set, but you might also put a [custom message](#custom-mavlink-messages) in its own dialect file.
+:::info Зауважте, що це урізана версія ще не реалізованого повідомлення [BATTERY_STATUS_V2](https://mavlink.io/en/messages/development.html#BATTERY_STATUS_V2) з випадково вибраним невикористаним ідентифікатором `11514`. Тут ми помістили повідомлення у `development.xml`, що добре підходить для тестування і якщо повідомлення буде згодом включено до стандартного набору повідомлень, але ви також можете помістити [кастомне повідомлення](#custom-mavlink-messages) у власний діалектний файл.
 :::
 
-Build PX4 for SITL and confirm that the associated message is generated in `/build/px4_sitl_default/mavlink/common/mavlink_msg_battery_status_demo.h`.
+Зберіть PX4 для SITL і переконайтеся, що відповідне повідомлення згенеровано в `/build/px4_sitl_default/mavlink/common/mavlink_msg_battery_status_demo.h`.
 
-Because `BatteryStatus` already exists you will not need to do anything to create or build it.
+Оскільки `BatteryStatus` вже існує, вам не потрібно нічого робити, щоб створити або зібрати його.
 
-### Define the Streaming Class
+### Об'явлення класу потокового відтворення
 
-First create a file named `BATTERY_STATUS_DEMO.hpp` for your streaming class (named after the message to stream) inside the [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams) directory.
+Спочатку створіть файл з назвою `BATTERY_STATUS_DEMO.hpp` для вашого класу потокового передавання (названого за повідомленням, яке потрібно передавати) у директорії [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams).
 
-Add the headers for the uORB message(s) to the top of the file (the required MAVLink headers should already be available):
+Додайте заголовки для повідомлень uORB у верхню частину файлу (необхідні заголовки MAVLink вже мають бути доступними):
 
 ```cpp
 #include <uORB/topics/battery_status.h>
@@ -126,7 +126,7 @@ Add the headers for the uORB message(s) to the top of the file (the required MAV
 The uORB topic's snake-case header file is generated from the CamelCase uORB filename at build time.
 :::
 
-Then copy the streaming class definition below into the file:
+Потім скопіюйте визначення класу трансляції нижче у файл:
 
 ```cpp
 class MavlinkStreamBatteryStatusDemo : public MavlinkStream
@@ -277,7 +277,7 @@ StreamListItem *streams_list[] = {
 
 The class is now available for streaming, but won't be streamed by default. We cover that in the next sections.
 
-### Streaming by Default
+### Трансляція за замовчуванням
 
 The easiest way to stream your messages by default (as part of a build) is to add them to [mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp) in the appropriate message group.
 
@@ -318,7 +318,7 @@ Some messages are only needed once, when particular hardware is connected, or un
 
 If you needed, a GCS or other MAVLink API can request that particular messages are streamed at a particular rate using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL). A particular message can be requested just once using [MAV_CMD_REQUEST_MESSAGE](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE).
 
-## Receiving MAVLink Messages
+## Отримання повідомлень MAVLink
 
 This section explains how to receive a message over MAVLink and publish it to uORB.
 
@@ -437,13 +437,13 @@ You can get the port number with `mavlink status` which will output (amongst oth
 mavlink stream -u 14556 -s CA_TRAJECTORY -r 300
 ```
 
-## Updating Ground Stations
+## Оновлення наземних станцій
 
 Ultimately you'll want to use your new MAVLink interface by providing the corresponding ground station or MAVSDK implementation.
 
 The important thing to remember here is that MAVLink requires that you use a version of the library that is built to the same definition (XML file). So if you have created a custom message in PX4 you won't be able to use it unless you build QGC or MAVSDK with that same definition.
 
-### Updating QGroundControl
+### Оновлення QGroundControl
 
 You will need to [Build QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-dev-guide/getting_started/index.html) including a pre-built C library that contains your custom messages.
 
