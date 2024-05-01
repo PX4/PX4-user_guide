@@ -4,7 +4,7 @@ Docker containers are provided for the complete [PX4 development toolchain](../d
 
 This topic shows how to use the [available docker containers](#px4_containers) to access the build environment in a local Linux computer.
 
-::: info Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/index.md). They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/).
+::: info Dockerfiles and README can be found on [Github here](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy). They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/).
 :::
 
 ## Prerequisites
@@ -35,7 +35,7 @@ sudo usermod -aG docker $USER
 
 ## Container Hierarchy
 
-The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/index.md#container-hierarchy).
+The available containers are on [Github here](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy).
 
 These allow testing of various build targets and configurations (the included tools can be inferred from their names). The containers are hierarchical, such that containers have the functionality of their parents. For example, the partial hierarchy below shows that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 
