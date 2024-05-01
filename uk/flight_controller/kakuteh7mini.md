@@ -3,14 +3,14 @@
 <Badge type="tip" text="PX4 v1.13" />
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+PX4 не займається виготовленням цього (чи якогось іншого) автопілоту. Звертайтесь до [виробника](https://holybro.com/) щодо питань апаратного забезпечення або питань відповідності.
 :::
 
-The [Holybro Kakute H7 mini](https://holybro.com/collections/autopilot-flight-controllers/products/kakute-h7-mini) flight controller is intended for lightweight frame builds (such as racers, etc.).
+Польотний контролер [Holybro Kakute H7 mini](https://holybro.com/collections/autopilot-flight-controllers/products/kakute-h7-mini) призначений для легких корпусів (таких як гонщики тощо).
 
-This flight controller is full of features including HD camera plug, dual plug-and-play 4in1 ESC ports, VTX ON/OFF Pit Switch (Battery Voltage), barometer, OSD, 6x UARTs, 128MB Flash for logging (not supported with PX4 yet), 5V BEC, and bigger soldering pad with easy layout and much more.
+Цей контролер польоту повний функцій, включаючи роз'єм для HD-камери, подвійні роз'єми ESC 4in1 plug-and-play, перемикач VTX ON/OFF Pit (напруга батареї), барометр, OSD, 6x UART, 128 МБ Flash для журналювання (ще не підтримується з PX4), BEC на 5В, та більші пластини для паяння з простим розташуванням та багато іншого.
 
-The Kakute H7 mini builds upon the best features of its predecessor, the [Kakute F7](../flight_controller/kakutef7.md), and the [Kakute H7](../flight_controller/kakuteh7.md). The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & SCL) for external GPS/magnetometers.
+Kakute H7 mini базується на кращих рисах свого попередника, [Kakute F7](../flight_controller/kakutef7.md), та [Kakute H7](../flight_controller/kakuteh7.md). Плата також має вбудований барометр, світлодіод & п'єзоімпульс, а також контакт I2C (SDA & SCL) для зовнішніх GPS/магнітомерів.
 
 <img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_top.jpg" width="300px" title="KakuteH7Mini Top Image" /> <img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_bottom.jpg" width="300px" title="KakuteH7Mini Bottom Image" />
 
