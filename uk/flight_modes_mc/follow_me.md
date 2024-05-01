@@ -151,7 +151,7 @@ The follow-me behavior can be configured using the following parameters:
 
    @[youtube](https://www.youtube.com/watch?v=o3DhvCL_M1E) This video demonstrates a Google-Earth view perspective, by adjusting the height to around 50 meters (high), distance to 1 meter (close). Which allows a perspective as shot from a satellite.
 
-## Known Issues
+## Відомі проблеми
 
 - The SiK 915 Mhz [telemetry radio](../telemetry/sik_radio.md) is known to interfere with the GPS signal being received by some Android devices. Keep the radio and Android device as far apart as possible when using the follow target mode to avoid interference.
 - QGC for Android reports an incorrect altitude (altitude above elipsoid rather than AMSL). The follow altitude can be off by up to 200m!
