@@ -43,17 +43,17 @@ Motor and servo wiring is nearly entirely up to you, but should match the [Gener
 For example, you might wire it up like this example (orientation as if "sitting in the plane"):
 
 
-| Port   | Connection              |
-| ------ | ----------------------- |
-| MAIN 1 | Front right motor (CCW) |
-| MAIN 2 | Back left motor (CCW)   |
-| MAIN 3 | Front left motor (CW)   |
-| MAIN 4 | Back right motor (CW)   |
-| AUX 1  | Left aileron TODO       |
-| AUX 2  | Right aileron           |
-| AUX 3  | Elevator                |
-| AUX 4  | Rudder                  |
-| AUX 5  | Throttle                |
+| Порт   | Connection                  |
+| ------ | --------------------------- |
+| MAIN 1 | Передній правий мотор (CCW) |
+| MAIN 2 | Задній лівий мотор (CCW)    |
+| MAIN 3 | Передній лівий мотор (CW)   |
+| MAIN 4 | Правий задній мотор (CW)    |
+| AUX 1  | Лівий елерон TODO           |
+| AUX 2  | Правий елерон               |
+| AUX 3  | Elevator                    |
+| AUX 4  | Rudder                      |
+| AUX 5  | Throttle                    |
 
 For further instructions on wiring and configurations please see: [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
 
@@ -69,12 +69,12 @@ For further instructions on wiring and configurations please see: [Standard VTOL
 After you finish calibration the VTOL is ready to fly.
 
 
-## Video
+## Відео
 
 @[youtube](https://youtu.be/4K8yaa6A0ks)
 
 
-## Support
+## Підтримка
 
 If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
 
