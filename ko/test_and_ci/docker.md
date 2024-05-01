@@ -4,7 +4,7 @@ Docker containers are provided for the complete [PX4 development toolchain](../d
 
 [도커 컨테이너](#px4_containers)를 사용하여 Linux 컴퓨터에서 빌드하는 방법을 설명합니다.
 
-::: info Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/index.md). [Docker Hub](https://hub.docker.com/u/px4io/)에서 자동으로 빌드됩니다.
+::: info Dockerfiles and README can be found on [Github here](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy). [Docker Hub](https://hub.docker.com/u/px4io/)에서 자동으로 빌드됩니다.
 :::
 
 ## 전제 조건
@@ -35,7 +35,7 @@ sudo usermod -aG docker $USER
 
 ## 컨테이너 계층
 
-The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/index.md#container-hierarchy).
+The available containers are on [Github here](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy).
 
 이를 통하여 다양한 빌드 대상 및 구성을 테스트할 수 있습니다(포함된 도구는 이름에서 유추할 수 있음). The containers are hierarchical, such that containers have the functionality of their parents. For example, the partial hierarchy below shows that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 
