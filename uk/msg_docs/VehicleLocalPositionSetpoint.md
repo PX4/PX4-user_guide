@@ -1,12 +1,12 @@
-# VehicleLocalPositionSetpoint (UORB message)
+# VehicleLocalPositionSetpoint (повідомлення UORB)
 
-Local position setpoint in NED frame Telemetry of PID position controller to monitor tracking. NaN means the state was not controlled
+Місцева позиція задана в рамці NED Телеметрія контролера позиції PID для відстеження. NaN означає, що стан не був контрольований
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPositionSetpoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPositionSetpoint.msg)
 
 ```c
-# Local position setpoint in NED frame
-# Telemetry of PID position controller to monitor tracking.
+# Місцева позиція задана в рамці NED
+# Телеметрія контролера позиції PID для відстеження.
 # NaN means the state was not controlled
 
 uint64 timestamp    # time since system start (microseconds)
