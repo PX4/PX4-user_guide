@@ -49,7 +49,7 @@ CAL_MAG_PRIME = 73225.0
 HMC5883   0x1E    bus 1 I2C
 ```
 
-This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. У файлі журналу це буде показано як `IMU1.MagX`.
+Це внутрішній HMC5983, підключений через SPI, шина 1, слот вибору slave 5. У файлі журналу це буде показано як `IMU1.MagX`.
 
 ```
 # device ID 66826 in 24-bit binary:
@@ -59,7 +59,7 @@ This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. У �
 HMC5883   dev 5   bus 1 SPI
 ```
 
-And this is the internal MPU9250 magnetometer connected via SPI, bus 1, slave select slot 4. У файлі журналу це буде показано як `IMU2.MagX`.
+І це внутрішній магнітометр MPU9250, підключений через SPI, шина 1, слот вибору slave 4. У файлі журналу це буде показано як `IMU2.MagX`.
 
 ```
 # device ID 263178 in 24-bit binary:
