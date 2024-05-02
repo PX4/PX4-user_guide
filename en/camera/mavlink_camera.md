@@ -2,49 +2,46 @@
 
 MAVLink cameras are [cameras](../camera/index.md) that can be controlled using the [MAVLink camera protocol](https://mavlink.io/en/services/camera.html).
 
-They provide the best integration with PX4, QGroundControl, and MAVSDK and other MAVLink-based SDKs.
 They allow a ground station and autopilot access to any feature of the camera that has been exposed via the protocol, such as image and video capture, control over where captured data is saved, video streaming to a ground station, control over zoom and focus, selecting between infrared and visible light feeds, and so on.
   
-Since most cameras do not natively support the MAVLink camera protocol, usually MAVLink camera setups involve PX4 communicating with a [camera manager](#camera-managers) running on a companion computer, which then interfaces between MAVLink and the camera's native protocol.
+Usually MAVLink camera setups involve PX4 communicating with a [camera manager](#camera-managers) running on a companion computer, which then interfaces between MAVLink and the camera's native protocol.
+
+## Overview
+
+### Camera Commands
+
+PX4 should be configured to forward MAVLink camera messages and commands between the camera, ground stations, and other MAVLink SDKs as needed (PX4 does not actually do any "handling" of incoming camera commands when using a MAVLink camera).
+
+### Camera Commands in Missions
+
+PX4 re-emits camera commands found in missions as MAVLink commands, addressed to a camera with the same system id and the component id of [MAV_COMP_ID_CAMERA (100)](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_CAMERA).
+If there is a MAVLink camera associated with the system that has this component ID, it will execute the indicated command.
+
+The supported commands at time of writing are: `MAV_CMD_DO_TRIGGER_CONTROL`, `MAV_CMD_DO_DIGICAM_CONTROL`, `MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL`, `MAV_CMD_DO_SET_CAM_TRIGG_DIST`, `MAV_CMD_OBLIQUE_SURVEY`.
+
+- `MAV_CMD_IMAGE_START_CAPTURE`, `MAV_CMD_IMAGE_STOP_CAPTURE`, `MAV_CMD_VIDEO_START_CAPTURE`, `MAV_CMD_VIDEO_STOP_CAPTURE`, `MAV_CMD_DO_CONTROL_VIDEO`,  `MAV_CMD_SET_CAMERA_MODE`, `NAV_CMD_SET_CAMERA_FOCUS`.
+
+:::info
+PX4 currently ignores the target camera `id` in [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE) and other camera messages.
+See [PX4-Autopilot#23083](https://github.com/PX4/PX4-Autopilot/issues/23083).
+:::
+
+<!-- Note, not sure about `MAV_CMD_SET_CAMERA_MODE`, `NAV_CMD_SET_CAMERA_FOCUS` - do not seem to be resent??? -->
+
+<!-- void Navigator::publish_vehicle_cmd(vehicle_command_s *vcmd)
+https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/navigator_main.cpp#L1381
+https://github.com/PX4/PX4-Autopilot/issues/23083
+-->
+
+### Joystick
+
+When using a MAVLink camera, Joystick buttons can be mapped to capture images, and to toggle video capture on and off.
 
 ## PX4 Configuration
 
-### Camera Driver
-
-First configure the PX4 camera driver to enable the MAVLink camera backend, and the triggering mode to capture on command in survey missions.
-
-You can do this using _QGroundControl_:
-
-- Open [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup).
-- Set the values as shown:
-
-  ![Camera Setup Screen - Trigger mode and interface for MAVLink](../../assets/camera/mavlink_camera_settings.png)
-
-- Select **Apply and Reboot** to apply the parameters.
-
-::: info
-You can also [set the parameters directly](../advanced_config/parameters.md) and then reboot the flight controller:
-
-- [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) — `4`: Distance based, on command (Survey mode)
-- [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) — `3`: MAVLink (forward via MAV_CMD_IMAGE_START_CAPTURE)
-
-:::
-
-This configuration ensures that PX4 properly handles the [camera trigger commands](../camera/index.md#commands-supported-by-all-cameras) found in missions by re-emitting them as MAVLink commands to the camera, and forwards the same commands if received from a ground station.
-
-Whenever a camera is triggered, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is also published containing a sequence number (i.e. the current session's image sequence number) and the corresponding timestamp.
-This timestamp can be used for several applications, including: timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
-
-:::info
-The camera itself may also emit [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) when it actually captures the image, and this will be more accurate.
-:::
-
-Other than the above actions, PX4 doesn't do any other explicit processing of MAVLink camera messages and commands.
-You may however need to set up PX4 to forward MAVLink camera protocol communications between the ground station and the camera (as discussed below).
-
 ### MAVLink Port & Forwarding Configuration
 
-You will also need to set up a MAVLink connection between PX4 and the camera/camera manager.
+First set up a MAVLink connection between PX4 and the camera/camera manager.
 If your MAVLink network is such that PX4 is "between" your camera and your ground station you will also need to forward communications so that they can communicate.
 
 To connect PX4 to your camera you need to attach the camera to an unused serial port on your flight controller, such as `TELEM2`, or even the Ethernet port (if there is one).
@@ -67,6 +64,39 @@ For more information see:
 - [Using a Companion Computer with Pixhawk Controllers](../companion_computer/pixhawk_companion.md)
 - [Companion Computers > Companion Computer Software](http://localhost:5173/px4_user_guide/en/companion_computer/index.md#companion-computer-software): In particular note [MAVLink-Router](https://github.com/mavlink-router/mavlink-router), which you can setup to route MAVLink traffic between a serial port and an IP link (or other camera manager interface).
 - [SIYI A8 mini camera manager](https://github.com/julianoes/siyi-a8-mini-camera-manager) has a tutorial showing a setup with an RPi.
+
+<!-- Do we really need this? I don't see any benefit with a MAVLink setup
+
+### Camera Driver
+
+You can also configure the PX4 camera driver to enable the MAVLink camera backend, and the triggering mode to capture on command in survey missions.
+
+Using _QGroundControl_:
+
+- Open [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup).
+- Set the values as shown:
+
+  ![Camera Setup Screen - Trigger mode and interface for MAVLink](../../assets/camera/mavlink_camera_settings.png)
+
+- Select **Apply and Reboot** to apply the parameters.
+
+::: info
+You can also [set the parameters directly](../advanced_config/parameters.md) and then reboot the flight controller:
+
+- [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) — `4`: Distance based, on command (Survey mode)
+- [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) — `3`: MAVLink
+
+:::
+
+This configuration ensures that PX4 properly handles the [camera trigger commands](../camera/index.md#commands-supported-by-all-cameras) found in missions by re-emitting them as MAVLink commands to the camera, and forwards the same commands if received from a ground station.
+
+Whenever a camera is triggered, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is also published containing a sequence number (i.e. the current session's image sequence number) and the corresponding timestamp.
+This timestamp can be used for several applications, including: timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
+
+:::info
+The camera itself may also emit [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) when it actually captures the image, and this will be more accurate.
+:::
+-->
 
 ## Camera Managers
 

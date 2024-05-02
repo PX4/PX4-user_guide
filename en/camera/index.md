@@ -35,7 +35,7 @@ If there is a MAVLink camera associated with the system that has this component 
 <!-- Note, not sure about `MAV_CMD_SET_CAMERA_MODE`, `NAV_CMD_SET_CAMERA_FOCUS` - do not seem to be resent??? -->
 
 :::info
-PX4 does not currently accept the specification of a target camera id in camera commands and can hence only target a single camera (for an example, see `id` in [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE)).
+PX4 currently ignores the target camera `id` in [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE) and other camera messages.
 See [PX4-Autopilot#23083](https://github.com/PX4/PX4-Autopilot/issues/23083).
 :::
 
@@ -80,8 +80,8 @@ PX4 MAVLink forwarding must be set up to ensure that the commands/messages are s
 ### Camera Capture
 
 PX4 also support camera-capture notification through a flight controller pin.
-This can be connected to the camera hotshoe and the PX4 camera capture driver will then emit `CAMERA_TRIGGER` when the camere is sent.
-Note that this is more accurate than the timestamping provided by the `CAMERA_TRIGGER` emitted when the camera is commanded to capture the image.
+The pin can be connected to the camera hotshoe and the PX4 camera capture driver will then emit `CAMERA_TRIGGER` if a camera capture event is detected.
+This is more accurate than the timestamp provided by the `CAMERA_TRIGGER` emitted when the camera is commanded to capture the image.
 
 ## Subtopics
 
