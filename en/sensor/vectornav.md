@@ -55,6 +55,7 @@ To use the VectorNav driver:
 1. Include the module in firmware in the [kconfig board configuration](../hardware/porting_guide_config.md#px4-board-configuration-kconfig) by setting the kconfig variables: `CONFIG_DRIVERS_INS_VECTORNAV` or `CONFIG_COMMON_INS`.
 1. [Set the parameter](../advanced_config/parameters.md) [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG) to the hardware port connected to the VectorNav (for more information see [Serial Port Configuration](../peripherals/serial_configuration.md)).
 1. Disable magnetometer preflight checks by setting [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) to `0`.
+1. Allow VectorNav driver to initialize by restarting PX4 with [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG) set to nondefault.
 1. Configure driver as either an external INS or to provide raw data:
 
    - If using the VectorNav as an external INS, set [VN_MODE](../advanced_config/parameter_reference.md#VN_MODE) to `INS`. This disables EKF2.
@@ -72,12 +73,14 @@ To use the VectorNav driver:
      The priority is 0-255, where 0 is entirely disabled and 255 is highest priority.
      :::
 
-1. Restart PX4
+1. Restart PX4.
 
 Once enabled, the module will be detected on boot.
 IMU data should be published at 800Hz (400Hz if using VN-300).
 
 ## VectorNav Configuration
+
+Definitions for all commands and registers referenced in this section can be found in the respective [VectorNav ICD](https://www.vectornav.com/resources/interface-control-documents).
 
 Upon initialization, PX4 configures the VectorNav unit as follows:
 
@@ -106,11 +109,7 @@ Upon initialization, the driver should print the following information to consol
 
 This should be accessible using the [`dmesg`](../modules/modules_system.md#dmesg) command.
 
-The VectorNav driver publishes the unit's data to the following UOrb topics:
-
-- [external_ins_local_position]()
-- [external_ins_global_position]()
-- [external_ins_attitude]()
+The VectorNav driver always publishes the unit's data to the following UOrb topics:
 - [sensor_accel](../msg_docs/SensorAccel.md)
 - [sensor_gyro](../msg_docs/SensorGyro.md)
 - [sensor_mag](../msg_docs/SensorMag.md)
@@ -122,6 +121,11 @@ and, if enabled as an external INS, publishes:
 - [vehicle_local_position](../msg_docs/VehicleLocalPosition.md)
 - [vehicle_global_positon](../msg_docs/VehicleGlobalPosition.md)
 - [vehicle_attitude](../msg_docs/VehicleAttitude.md)
+
+or, if enabled as external sensor only, publishes:
+- [external_ins_local_position]()
+- [external_ins_global_position]()
+- [external_ins_attitude]()
 
 ::: tip
 Published topics can be viewed using the `listener` command.
