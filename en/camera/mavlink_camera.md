@@ -1,6 +1,6 @@
 # MAVLink Cameras
 
-MAVLink cameras are cameras that can be controlled using the [MAVLink camera protocol](https://mavlink.io/en/services/camera.html).
+MAVLink cameras are [cameras](../camera/index.md) that can be controlled using the [MAVLink camera protocol](https://mavlink.io/en/services/camera.html).
 
 They provide the best integration with PX4, QGroundControl, and MAVSDK and other MAVLink-based SDKs.
 They allow a ground station and autopilot access to any feature of the camera that has been exposed via the protocol, such as image and video capture, control over where captured data is saved, video streaming to a ground station, control over zoom and focus, selecting between infrared and visible light feeds, and so on.
@@ -30,7 +30,7 @@ You can also [set the parameters directly](../advanced_config/parameters.md) and
 
 :::
 
-This configuration ensures that PX4 properly handles the [camera trigger commands](/camera/index.md#commands-supported-by-all-cameras) found in missions by re-emitting them as MAVLink commands to the camera, and forwards the same commands if received from a ground station.
+This configuration ensures that PX4 properly handles the [camera trigger commands](../camera/index.md#commands-supported-by-all-cameras) found in missions by re-emitting them as MAVLink commands to the camera, and forwards the same commands if received from a ground station.
 
 Whenever a camera is triggered, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is also published containing a sequence number (i.e. the current session's image sequence number) and the corresponding timestamp.
 This timestamp can be used for several applications, including: timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
@@ -80,7 +80,7 @@ Generic/extensible camera managers:
 
 Camera-specfic camera managers:
 
-- [SIYI A8 mini camera manager](https://github.com/julianoes/siyi-a8-mini-camera-manager) - Community-supported MAVSDK-plugin based camera manager for the [SIYI A8 mini](https://shop.siyi.biz/products/siyi-a8-mini) (includes tutorial).
+- [SIYI A8 mini camera manager](https://github.com/julianoes/siyi-a8-mini-camera-manager) - MAVSDK-plugin based camera manager for the [SIYI A8 mini](https://shop.siyi.biz/products/siyi-a8-mini) (includes tutorial).
   A good example of how MAVSDK can be used to create a MAVLink camera protocol interface for a particular camera.
 
 ## Further Information
