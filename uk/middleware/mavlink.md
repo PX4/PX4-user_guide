@@ -314,23 +314,23 @@ mavlink stream -r 50 -s BATTERY_STATUS_DEMO -u 14556
 
 ### Streaming on Request
 
-Some messages are only needed once, when particular hardware is connected, or under other circumstances. In order to avoid clogging communications links with messages that aren't needed you may not stream all messages by default, even at low rate.
+Деякі повідомлення потрібні лише один раз, при підключенні певного обладнання або за інших обставин. In order to avoid clogging communications links with messages that aren't needed you may not stream all messages by default, even at low rate.
 
-If you needed, a GCS or other MAVLink API can request that particular messages are streamed at a particular rate using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL). A particular message can be requested just once using [MAV_CMD_REQUEST_MESSAGE](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE).
+Якщо вам потрібно, GCS або інший API MAVLink може запросити, щоб певні повідомлення передавалися з певною швидкістю за допомогою [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL). Певне повідомлення можна запросити лише один раз за допомогою [MAV_CMD_REQUEST_MESSAGE](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE).
 
 ## Отримання повідомлень MAVLink
 
-This section explains how to receive a message over MAVLink and publish it to uORB.
+Цей розділ пояснює, як отримати повідомлення через MAVLink та опублікувати його в uORB.
 
-It assumes that we are receiving the `BATTERY_STATUS_DEMO` message and we want to update the (existing) [BatteryStatus uORB message](../msg_docs/BatteryStatus.md) with the contained information. This is the kind of implementation that you would provide to support a MAVLink battery integration with PX4.
+Припускається, що ми отримуємо повідомлення `BATTERY_STATUS_DEMO` і хочемо оновити (існуюче) [BatteryStatus uORB повідомлення](../msg_docs/BatteryStatus.md) зі збереженою інформацією. Це той тип реалізації, який ви надаєте для підтримки інтеграції батареї MAVLink з PX4.
 
-Add the headers for the uORB topic to publish to in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77):
+Додайте заголовки теми uORB для публікації у [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77):
 
 ```cpp
 #include <uORB/topics/battery_status.h>
 ```
 
-Add a function signature for a function that handles the incoming MAVLink message in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L126)
+Додайте сигнатуру функції, яка обробляє вхідне повідомлення MAVLink у класі `MavlinkReceiver` у [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L126)
 
 ```cpp
 void handle_message_battery_status_demo(mavlink_message_t *msg);
@@ -378,7 +378,7 @@ Above we only write to the battery fields that are defined in the topic.
 In practice you'd update all fields with either valid or invalid values: this has been cut back for brevity.
 :::
 
-and finally make sure it is called in [MavlinkReceiver::handle_message()](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp#L228)
+і нарешті, переконайтеся, що він викликається в [MavlinkReceiver:handle_message()](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp#L228)
 
 ```cpp
 MavlinkReceiver::handle_message(mavlink_message_t *msg)
@@ -412,7 +412,7 @@ As a first step, and while debugging, commonly you'll just want to confirm that 
 
 You should should first use the `uorb top [<message_name>]` command to verify in real-time that your message is published and the rate (see [uORB Messaging](../middleware/uorb.md#uorb-top-command)). This approach can also be used to test incoming messages that publish a uORB topic (for other messages you might use `printf` in your code and test in SITL).
 
-There are several approaches you can use to view MAVLink traffic:
+Існує кілька підходів для перегляду трафіку MAVLink:
 
 - Create a [Wireshark MAVLink plugin](https://mavlink.io/en/guide/wireshark.html) for your dialect. This allows you to inspect MAVLink traffic on an IP interface - for example between _QGroundControl_ or MAVSDK and your real or simulated version of PX4.
 
