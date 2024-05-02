@@ -2,132 +2,132 @@
 
 <LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.html"/>
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](mailto:lhf2613@gmail.com) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
 :::
 
-The _PilotPi_ shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community. PCB and schematic are open source as well.
+_PilotPi_ shield - це повнофункціональне рішення для запуску автопілота PX4 безпосередньо на Raspberry Pi. Він розроблений як низькобюджетна, але високомасштабована платформа з постійними оновленнями як зі сторони Linux, так і PX4. Не потрібні пропрієтарні драйвери, оскільки всі компоненти мають підтримку від спільноти RPi та PX4. PCB та схема також є відкритими.
 
-![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
+![PilotPi з RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
 
-## Quick Summary
+## Короткий опис
 
-- Supported RPi boards:
+- Підтримувані плати RPi:
   - Raspberry Pi 2B/3B/3B+/4B
-- Supported OS:
+- Підтримувані ОС:
   - Raspberry Pi OS
   - Ubuntu Server (armhf/arm64)
-- Accelerometer / Gyro:
+- Акселерометр / Гіроскоп:
   - ICM42688P
-- Magnetometer:
+- Магнітометр:
   - IST8310
-- Barometer:
+- Барометр:
   - MS5611
 - PWM:
   - PCA9685
 - ADC:
   - ADS1115
-- Power:
-  - 3~6S battery with built-in voltage sensing.
-  - Power the Pi through USB cable
-- Availability: _preparing for shipping_
+- Живлення:
+  - Акумулятор 3~6S з вбудованим вимірюванням напруги.
+  - Живлення Pi через кабель USB
+- Доступність: _підготовка до відправлення_
 
-## Connectivity
+## Підключення
 
-Shield provides:
+Shield надає:
 
-- 16x PWM outputting channels
-- GPS connector
-- Telemetry connector
-- External I2C bus connector (**Note:** conflicts with CSI camera)
-- RC input port (SBUS)
-- 3x ADC channels range 0~5V
-- 2\*8 2.54mm unused GPIO connector
+- 16 вихідних каналів PWM
+- GPS конектор
+- Конектор телеметрії
+- Зовнішній конектор шини I2C (**Примітка:** конфліктує з камерою CSI)
+- Вхідний порт RC (SBUS)
+- 3x канали ADC діапазоном 0~5V
+- 2\*8 2.54 мм не використовуваний конектор GPIO
 
-Direct accessible from RPi:
+Прямий доступ з RPi:
 
-- 4x USB connector
-- CSI connector(**Note:** conflict with external I2C bus)
-- etc.
+- 4x USB конектори
+- CSI конектор(**Примітка:** конфліктує з зовнішньою I2C шиною)
+- тощо.
 
-## Recommended Wiring
+## Рекомендована проводка
 
 ![PilotPi PowerPart wiring](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
 
 ![PilotPi SensorPart wiring](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
 
-## Pinout
+## Розпіновка
 
 :::warning
-It still uses old GH1.25 connectors.
-Wiring is compatible with Pixhawk 2.4.8
+Все ще використовує старі конектори GH1.25.
+Проводка сумісна з Pixhawk 2.4.8
 :::
 
-### Connectors
+### Конектори
 
-#### GPS connector
+#### GPS конектор
 
-Mapped to `/dev/ttySC0`
+Зіставлено на `/dev/ttySC0`
 
-| Pin | Signal | Volt |
-| --- | ------ | ---- |
-| 1   | VCC    | +5V  |
-| 2   | TX     | +3v3 |
-| 3   | RX     | +3v3 |
-| 4   | NC     | +3v3 |
-| 5   | NC     | +3v3 |
-| 6   | GND    | GND  |
+| Пін | Сигнал | Вольт |
+| --- | ------ | ----- |
+| 1   | VCC    | +5V   |
+| 2   | TX     | +3v3  |
+| 3   | RX     | +3v3  |
+| 4   | NC     | +3v3  |
+| 5   | NC     | +3v3  |
+| 6   | GND    | GND   |
 
-#### Telemetry connector
+#### Конектор телеметрії
 
-Mapped to `/dev/ttySC1`
+Зіставлено на `/dev/ttySC1`
 
-| Pin | Signal | Volt |
-| --- | ------ | ---- |
-| 1   | VCC    | +5V  |
-| 2   | TX     | +3v3 |
-| 3   | RX     | +3v3 |
-| 4   | CTS    | +3v3 |
-| 5   | RTS    | +3v3 |
-| 6   | GND    | GND  |
+| Пін | Сигнал | Вольт |
+| --- | ------ | ----- |
+| 1   | VCC    | +5V   |
+| 2   | TX     | +3v3  |
+| 3   | RX     | +3v3  |
+| 4   | CTS    | +3v3  |
+| 5   | RTS    | +3v3  |
+| 6   | GND    | GND   |
 
-#### External I2C connector
+#### Зовнішній I2C конектор
 
-Mapped to `/dev/i2c-0`
+Зіставлено на `/dev/i2c-0`
 
-| Pin | Signal | Volt          |
+| Пін | Сигнал | Вольт         |
 | --- | ------ | ------------- |
 | 1   | VCC    | +5V           |
 | 2   | SCL    | +3v3(pullups) |
 | 3   | SDA    | +3v3(pullups) |
 | 4   | GND    | GND           |
 
-#### RC & ADC2/3/4
+#### RC та ADC2/3/4
 
-RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
+RC мапиться на `/dev/ttyAMA0` з перемикачем інвертора сигналу на лінії RX.
 
-| Pin | Signal | Volt     |
+| Пін | Сигнал | Вольт    |
 | --- | ------ | -------- |
 | 1   | RC     | +3V3~+5V |
 | 2   | VCC    | +5V      |
 | 3   | GND    | GND      |
 
-- ADC1 is internally connected to voltage divider for battery voltage monitoring.
-- ADC2 is left unused.
-- ADC3 can be connected to an analog airspeed sensor.
-- ADC4 has a jumper cap between ADC and VCC, to monitor system voltage level.
+- ADC1 внутрішньо підключений до розподільника напруги для моніторингу напруги батареї.
+- ADC2 залишається невикористаним.
+- ADC3 може бути підключений до аналогового датчика швидкості.
+- ADC4 має перемичку між ADC та VCC, щоб відстежувати рівень напруги системи.
 
-| Pin | Signal | Volt   |
+| Пін | Сигнал | Вольт  |
 | --- | ------ | ------ |
 | 1   | ADCx   | 0V~+5V |
 | 2   | VCC    | +5V    |
 | 3   | GND    | GND    |
 
 ::: info
-ADC3 & 4 have an alternative VCC source
-When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
+ADC3 та 4 мають альтернативне джерело VCC
+Коли перемикач 'Vref' увімкнено, пін 'VCC' керується REF5050.
 :::
 
-#### Unused GPIO available on top of the board
+#### Вільні GPIO доступні зверху на платі
 
 | Shield Pin | BCM | WiringPi | RPi Pin |
 | ---------- | --- | -------- | ------- |
@@ -148,32 +148,32 @@ When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
 | 15         | 26  | 25       | 37      |
 | 16         | GND | GND      | GND     |
 
-### Switches
+### Перемикачі
 
-#### RC Inverter
+#### RC Інвертор
 
-This switch will decide the signal polarity of RX line: `UART_RX = SW xor RC_INPUT`
+Цей перемикач вирішуватиме полярність сигналу лінії RX: `UART_RX = SW xor RC_INPUT`
 
-- On: suitable with SBUS (signal inverted)
-- Off: preserved
+- On: підходить з SBUS (сигнал інвертований)
+- Off: збережено
 
 #### Vref
 
-ADC 3 & 4 will have VCC driven by:
+ADC 3 та 4 матимуть VCC, що кероване:
 
-- Vref output from REF5050 if on
-- 5V pin directly from RPi if off
+- Вихід Vref від REF5050, якщо увімкнено
+- 5V пін напряму з RPi, якщо вимкнено
 
-#### Boot Mode
+#### Режим завантаження
 
-This switch is connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
+Цей перемикач підключений до Pin22(BCM25). Системний rc script перевірить його значення і вирішить, чи повинен PX4 запускатися разом із завантаженням системи чи ні.
 
-- On: start PX4 automatically
-- Off: don' t start PX4
+- On: автоматичний запуск PX4
+- Off: не запускати PX4
 
-## Developer Quick Start
+## Швидкий старт для розробника
 
-Refer to specific instructions for the OS running on your RPi:
+Зверніться до інструкцій для вашої операційної системи на RPi:
 
 - [Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
 - [Ubuntu Server (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
