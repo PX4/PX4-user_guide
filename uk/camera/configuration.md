@@ -1,46 +1,46 @@
 # Налаштування камери
 
-PX4 може бути налаштований для під'єднання фізичних виходів для запуску камери, або його можна використовувати з [камерою MAVLink](#mavlink-cameras).
+PX4 може бути налаштований для під'єднання фізичних виходів для спрацювання камери, або його можна використовувати з [камерою MAVLink](#mavlink-cameras).
 
 :::info
-We recommend that you use a MAVLink camera as this allows comprehensive control of cameras via the [camera protocol](https://mavlink.io/en/services/camera.html).
-Directly connected cameras only support [a small subset](#mavlink-command-interface-directly-connected-cameras) of MAVLink camera commands.
+Рекомендуємо вам використовувати камеру MAVLink оскільки це робить можливим повний контроль камер через [протокол камери](https://mavlink.io/en/services/camera.html).
+Камери, підключені безпосередньо, підтримують лише [невеликий набір](#mavlink-command-interface-directly-connected-cameras) команд камери MAVLink.
 :::
 
-Whenever a camera is triggered, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is published containing a sequence number (i.e. the current session's image sequence number) and the corresponding timestamp.
-This timestamp can be used for several applications, including: timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
+Кожен раз, коли спрацьовує камера, публікується повідомлення MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER), що містить номер послідовності (тобто послідовний номер зображення поточного сеансу) та відповідну відмітку часу.
+Ця відмітка може бути використана багато де, включаючи: відмітку фотографій повітряного обстеження та реконструкції, синхронізацію системи з багатьма камерами або для візуально-інерційної навігації.
 
-Cameras can also (optionally) signal PX4 at the exact moment that a photo/frame is taken using a camera capture pin.
-This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
+Також камери можуть (не обов'язково) сигналізувати PX4 в момент знімання, що фото/кадр зроблені за допомогою виводу захоплення камери.
+Це дозволяє більш точну прив'язку зображень до позиції GPS для прив'язки до місцевості або потрібну вибірку IMU для синхронізації ВІО, тощо.
 
 <!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger -->
 
 <!-- Camera capture driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture -->
 
-## Trigger Configuration
+## Налаштування спрацьовування
 
-Camera triggering is usually configured from the _QGroundControl_ [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup) section.
+Спрацювання камери зазвичай налаштовується з розділу _QGroundControl_ [Налаштування рухомого засобу > Камера](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup).
 
-![Trigger pins](../../assets/camera/trigger_pins.png)
+![Пускові контакти](../../assets/camera/trigger_pins.png)
 
-The different [trigger modes](#trigger-modes), [backend interfaces](#trigger-interface-backends) and [trigger output configuration](#trigger-output-pin-configuration) are described below (these can also be set directly from [parameters](../advanced_config/parameters.md)).
+Різні [режими спрацювання](#trigger-modes), [внутрішні інтерфейси](#trigger-interface-backends) та [конфігурації виводу спрацювання](#trigger-output-pin-configuration) описані нижче (їх також можна встановити прямо з [параметрів](../advanced_config/parameters.md)).
 
 :::info
-The camera settings section is not available by default for FMUv2-based flight controllers (e.g. 3DR Pixhawk) because the camera module is not automatically included in firmware.
-For more information see [Finding/Updating Parameters > Parameters Not In Firmware](../advanced_config/parameters.md#parameter-not-in-firmware).
+Розділ налаштувань камери за замовчуванням недоступний для польотних контролерів на основі FMUv2 (наприклад 3DR Pixhawk), оскільки модуль камери не включено в прошивку автоматично.
+Для додаткової інформації дивіться [Пошук/Оновлення параметрів > Параметри, яких немає в прошивці](../advanced_config/parameters.md#parameter-not-in-firmware).
 :::
 
-### Trigger Modes
+### Режими спрацювання
 
-Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
+Підтримуються чотири різні режими, керуються параметром [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE):
 
-| Mode | Description                                                                                                                                                                                                                                                    |
-| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | Camera triggering is disabled.                                                                                                                                                                                                                 |
-| 1    | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#mavlink-command-interface-directly-connected-cameras) for more details. |
-| 2    | Switches the intervalometer constantly on.                                                                                                                                                                                                     |
-| 3    | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval.                 |
-| 4    | triggers automatically when flying a survey in Mission mode.                                                                                                                                                                                   |
+| Режим | Опис                                                                                                                                                                                                                                                                                     |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | Спрацювання камери вимкнено.                                                                                                                                                                                                                                             |
+| 1     | Працює як звичайний вимірювач інтервалів який можна увімкнути або вимкнути використовуючи команду MAVLink `MAV_CMD_DO_TRIGGER_CONTROL`. Дивіться [командний інтерфейс](#mavlink-command-interface-directly-connected-cameras) для додаткової інформації. |
+| 2     | Вмикає вимірювач інтервалів.                                                                                                                                                                                                                                             |
+| 3     | Спрацювання основані на відстані. Знімок робиться кожного разу, коли перевищується встановлена горизонтальна відстань. Мінімальний інтервал часу між двома знімками, однак, обмежується встановленим інтервалом спрацьовування.          |
+| 4     | triggers automatically when flying a survey in Mission mode.                                                                                                                                                                                                             |
 
 :::info
 If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
