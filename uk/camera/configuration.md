@@ -92,29 +92,29 @@ At time of writing triggering only works on FMU pins:
 Захоплення/зворотний зв'язок камери вмикається в PX4 встановленням [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK).
 Контакт, використаний для захоплення камерою потім налаштовується на екрані налаштувань _QGroundControl_ [Приводи](../config/actuators.md), призначенням функції `Camera_Capture` на будь-який вихід FMU.
 
-Note that if a _PWM output_ is used as a camera capture input, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera trigger, because the timer has already been used).
+Зверніть увагу, якщо _вивід ШІМ_ було використано як вхід захоплення камерою, уся група ШІМ не може бути використана для чого-небудь ще (ви не зможете використати інший вивід в групі для приводу, двигуна або спуску камери, оскільки таймер вже використано).
 
 ::: info
 At time of writing camera capture only works on FMU pins:
 
-- On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+).
-- A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
+- На контролері польоту Pixhawk, який має як FMU, так і плати вводу-виводу, контакти FMU призначені на виходи `AUX` (наприклад Pixhawk 4, CUAV v5+).
+- Контакти контролера, що має лише FMU призначено на виходи `MAIN` (наприклад Pixhawk 4 mini, CUAV v5 nano).
 
 :::
 
-PX4 detects a rising edge with the appropriate voltage level on the camera capture pin (for Pixhawk flight controllers this is normally 3.3V).
-If the camera isn't outputting an appropriate voltage, then additional circuitry will be required to make the signal compatible.
+PX4 виявляє висхідний фронт сигналу з відповідним рівнем напруги на контакті захоплення камерою (для контролерів польоту Pixhawk це зазвичай 3,3 В).
+Якщо камера не видає відповідної напруги, то для забезпечення сумісності сигналу буде потрібен додатковий контур.
 
-Cameras that have a hotshoe connector (for connecting a flash) can usually be connected via a hotshoe-adaptor.
-For example, the [Seagull #SYNC2 Universal Camera Hot Shoe Adapter](https://www.seagulluav.com/product/seagull-sync2/) is an optocoupler that decouples and shifts the flash voltage to the Pixhawk voltage.
-This slides into the flash slot on the top of the camera.
-The red and black ouptputs are connected to the servo rail/ground and the white wire is connected to the input capture pin.
+Камери, які мають роз'єм типу "гарячий башмак" (для підключення спалаху), зазвичай можна під'єднати за допомогою адаптера для цього роз'єму.
+Наприклад [універсальний адаптер роз'єму "гарячий башмак" Seagull #SYNC2](https://www.seagulluav.com/product/seagull-sync2/) - це оптрон, який відокремлює та зсуває напругу спалаху до напруги Pixhawk.
+Він вставляється в роз'єм для спалаху зверху камери.
+Червоні та чорні вихідні дроти під'єднані до шини живлення/землі сервоприводу, а білий дріт - до вхідного контакту захоплення.
 
 ![Seagull SYNC#2](../../assets/peripherals/camera_capture/seagull_sync2.png)
 
 :::info
-PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message on both camera trigger and camera capture.
-If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
+PX4 видає повідомлення MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) як на спрацювання камери, так і на захоплення камерою.
+Якщо налаштовано захоплення камерою, використовується відмітка часу від драйвера захоплення камери, в іншому випадку використовується відмітка часу спрацювання.
 :::
 
 ## MAVLink Command Interface (Directly Connected Cameras)
