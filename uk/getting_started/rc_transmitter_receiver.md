@@ -4,8 +4,8 @@
 
 :::tip PX4 також може керуватися вручну за допомогою [Джойстика](../config/joystick.md) або подібного до геймпаду контролера, це відрізняється від керування за допомогою RC! Параметр [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) [може бути встановлено](../advanced_config/parameters.md) для вибору режиму керування за допомогою RC системи (за замовчуванням), джойстика, обома або жодним з них. :::
 
-::: info
-PX4 does not require a remote control system for autonomous flight modes.
+:::info
+PX4 не потребує системи дистанційного керування для автономних режимів польоту.
 :::
 
 ## Як працюють системи радіо керування?
@@ -18,7 +18,7 @@ PX4 does not require a remote control system for autonomous flight modes.
 
 <!-- image showing the different parts here would be nice -->
 
-::: info The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. RC контролер та включений в нього радіомодуль часто називають просто "передавачем". :::
+:::info Наземний та розташований на апараті радіомодулі називаються передавачем та приймачем відповідно (навіть якщо вони підтримують двосторонню передачу) та загалом називаються *пара передавач/приймач*. RC контролер та включений в нього радіомодуль часто називають просто "передавачем". :::
 
 Важлива якість RC системи це кількість "каналів", яку вона підтримує. Кількість каналів визначає скільки різних фізичних елементів керування на пульті можна використовувати для відправлення команд рухомому засобу (наприклад скільки перемикачів, стіків керування можна використовувати).
 
@@ -38,7 +38,7 @@ PX4 does not require a remote control system for autonomous flight modes.
 
 ![Режим1-Режим2](../../assets/concepts/mode1_mode2.png)
 
-::: info The choice of mode is largely one of taste (*Mode 2* is more popular). :::
+:::info Вибір режиму значною мірою обумовлений смаком (*Режим 2* найбільш популярний). :::
 
 ## Пристрої керування для наземних засобів
 
@@ -58,7 +58,7 @@ PX4 does not require a remote control system for autonomous flight modes.
 
 Один з найбільш популярних RC пристроїв - це *Fry Taranis X9D*. Він має внутрішній передавач, який може бути використано одразу з рекомендованим приймачами *FrSky X4R-SB* (S-BUS, низька затримка) або *X4R* (PPM-Sum, застарілий). Він також має спеціальний роз'єм для радіо передавача та прошивку з відкритим кодом OpenTX яку можна налаштувати.
 
-::: info This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules. :::
+:::info Дистанційний блок може відображати телеметрію автомобіля під час використання з [FrSky](../peripherals/frsky_telemetry.md) або [TBS Crossfire](../telemetry/crsf_telemetry.md) радіо-модулів. :::
 
 Інші популярні пари передавач/приймач
 
