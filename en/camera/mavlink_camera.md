@@ -88,7 +88,7 @@ You can also [set the parameters directly](../advanced_config/parameters.md) and
 
 :::
 
-This configuration ensures that PX4 properly handles the [camera trigger commands](../camera/index.md#commands-supported-by-all-cameras) found in missions by re-emitting them as MAVLink commands to the camera, and forwards the same commands if received from a ground station.
+This configuration ensures that PX4 properly handles the [camera trigger commands](../camera/fc_connected_camera.md#mavlink-command-interface) found in missions by re-emitting them as MAVLink commands to the camera, and forwards the same commands if received from a ground station.
 
 Whenever a camera is triggered, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is also published containing a sequence number (i.e. the current session's image sequence number) and the corresponding timestamp.
 This timestamp can be used for several applications, including: timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
