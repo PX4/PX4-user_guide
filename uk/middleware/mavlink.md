@@ -336,7 +336,7 @@ Add a function signature for a function that handles the incoming MAVLink messag
 void handle_message_battery_status_demo(mavlink_message_t *msg);
 ```
 
-Normally you would add a uORB publisher for the uORB topic to publish in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L296). In this case the [BatteryStatus](../msg_docs/BatteryStatus.md) uORB topic already exists:
+Normally you would add a uORB publisher for the uORB topic to publish in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L296). У цьому випадку вже існує тема uORB [BatteryStatus](../msg_docs/BatteryStatus.md):
 
 ```cpp
 uORB::Publication<battery_status_s> _battery_pub{ORB_ID(battery_status)};
@@ -347,7 +347,7 @@ This creates a publication to a single uORB topic instance, which by default wil
 ::: info This implementation won't work on multi-battery systems, because several batteries might be publishing data to the first instance of the topic, and there is no way to differentiate them. To support multiple batteries we'd need to use `PublicationMulti` and map the MAVLink message instance IDs to specific uORB topic instances.
 :::
 
-Implement the `handle_message_battery_status_demo` function in [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp).
+Реалізація функції `handle_message_battery_status_demo` в [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp).
 
 ```cpp
 void
@@ -393,7 +393,7 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
  }
 ```
 
-## Alternative to Creating Custom MAVLink Messages
+## Альтернатива створення користувацьких повідомлень MAVLink
 
 Sometimes there is the need for a custom MAVLink message with content that is not fully defined.
 
@@ -406,7 +406,7 @@ This solution is not efficient as it sends character string over the network and
 It should be used for development only!
 :::
 
-## Testing
+## Тестування
 
 As a first step, and while debugging, commonly you'll just want to confirm that any messages you've created are being sent/received as you expect.
 
