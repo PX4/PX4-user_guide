@@ -13,7 +13,7 @@ PX4 integrates with two types of cameras (follow links for setup/configuration i
 
   Usually a camera manager running on a companion computer is used to interface between MAVLink and a camera's native protocol.
 
-- [Cameras Attached to Flight Controller Outputs](../camera/configuration.md)
+- [Cameras Attached to Flight Controller Outputs](../camera/fc_connected_camera.md)
 
   Photo capture can be triggered from a flight controller pin, and in some cases an additional pin can toggle camera modes.
 
@@ -86,7 +86,7 @@ This is more accurate than the timestamp provided by the `CAMERA_TRIGGER` emitte
 ## Subtopics
 
 - [MAVLink Cameras](../camera/mavlink_camera.md)
-- [Cameras Attached to Flight Controller Outputs](../camera/configuration.md)
+- [Cameras Attached to Flight Controller Outputs](../camera/fc_connected_camera.md)
 
 ## See Also
 

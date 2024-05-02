@@ -342,7 +342,7 @@
     - [Generic Actuator Control](payloads/generic_actuator_control.md)
     - [Camera](camera/index.md)
       - [MAVLink Cameras](camera/mavlink_camera.md)
-      - [Configuration](camera/configuration.md)
+      - [Cameras Connected to FC Outputs](camera/fc_connected_camera.md)
     - [Gimbal \(Mount\) Configuration](advanced/gimbal_control.md)
     - [Grippers](peripherals/gripper.md)
       - [Servo Gripper](peripherals/gripper_servo.md)
