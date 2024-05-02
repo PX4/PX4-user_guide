@@ -336,15 +336,15 @@ mavlink stream -r 50 -s BATTERY_STATUS_DEMO -u 14556
 void handle_message_battery_status_demo(mavlink_message_t *msg);
 ```
 
-Normally you would add a uORB publisher for the uORB topic to publish in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L296). У цьому випадку вже існує тема uORB [BatteryStatus](../msg_docs/BatteryStatus.md):
+Зазвичай ви додаєте публікатор uORB для публікації теми uORB у класі `MavlinkReceiver` у файлі [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L296). У цьому випадку вже існує тема uORB [BatteryStatus](../msg_docs/BatteryStatus.md):
 
 ```cpp
 uORB::Publication<battery_status_s> _battery_pub{ORB_ID(battery_status)};
 ```
 
-This creates a publication to a single uORB topic instance, which by default will be the _first_ instance.
+Це створить публікацію в одному екземплярі теми uORB, який за замовчуванням буде _першим_ екземпляром.
 
-::: info This implementation won't work on multi-battery systems, because several batteries might be publishing data to the first instance of the topic, and there is no way to differentiate them. To support multiple batteries we'd need to use `PublicationMulti` and map the MAVLink message instance IDs to specific uORB topic instances.
+:::info Ця реалізація не працюватиме в системах з кількома батареями, оскільки декілька батарей можуть публікувати дані до першого екземпляру теми, і немає можливості їх розрізнити. Для підтримки кількох батарей нам потрібно використовувати `PublicationMulti` та відображати ідентифікатори екземплярів повідомлення MAVLink на конкретні екземпляри тем uORB.
 :::
 
 Реалізація функції `handle_message_battery_status_demo` в [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp).
@@ -373,9 +373,9 @@ MavlinkReceiver::handle_message_battery_status_demo(mavlink_message_t *msg)
 }
 ```
 
-::: info
-Above we only write to the battery fields that are defined in the topic.
-In practice you'd update all fields with either valid or invalid values: this has been cut back for brevity.
+:::info
+Вище ми записуємо лише поля батареї, які визначені у темі.
+На практиці ви оновлювали б всі поля або з дійсними, або з недійсними значеннями: це було скорочено для стислості.
 :::
 
 і нарешті, переконайтеся, що він викликається в [MavlinkReceiver:handle_message()](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp#L228)
@@ -421,7 +421,7 @@ It is much easier to generate a wireshark plugin and inspect traffic in Wireshar
 :::
 
 - [Log uORB topics](../dev_log/logging.md) associate with your MAVLink message.
-- View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html). You will need to rebuild QGroundControl with the custom message definitions, [as described below](h#updating-qgroundcontrol)
+- Перегляд отриманих повідомлень в QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html). You will need to rebuild QGroundControl with the custom message definitions, [as described below](h#updating-qgroundcontrol)
 
 ### Set Streaming Rate using a Shell
 
@@ -447,7 +447,7 @@ The important thing to remember here is that MAVLink requires that you use a ver
 
 You will need to [Build QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-dev-guide/getting_started/index.html) including a pre-built C library that contains your custom messages.
 
-QGC uses a pre-built C library that must be located at [/qgroundcontrol/libs/mavlink/include/mavlink](https://github.com/mavlink/qgroundcontrol/tree/master/libs/mavlink/include/mavlink) in the QGC source.
+QGC використовує попередньо скомпільовану бібліотеку C, яку має бути розташовано за адресою [/qgroundcontrol/libs/mavlink/include/mavlink](https://github.com/mavlink/qgroundcontrol/tree/master/libs/mavlink/include/mavlink) у вихідному коді QGC.
 
 By default this is pre-included as a submodule from [https://github.com/mavlink/c_library_v2](https://github.com/mavlink/c_library_v2) but you can [generate your own MAVLink Libraries](https://mavlink.io/en/getting_started/generate_libraries.html).
 
