@@ -16,7 +16,7 @@ Order this module from:
 
 |                           | DroneCAN M8N                         |
 | ------------------------- | ------------------------------------ |
-| GNSS Receiver             | Ublox NEO M8N                        |
+| Приймач GNSS              | Ublox NEO M8N                        |
 | Number of Concurrent GNSS | 2 (Default GPS + GLONASS)            |
 | Processor                 | STM32G4 (170MHz, 512K FLASH)         |
 | Compass                   | BMM150                               |
