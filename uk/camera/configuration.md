@@ -1,6 +1,6 @@
-# Camera Configuration
+# Налаштування камери
 
-PX4 can be configured to connect physical outputs to trigger a camera, or it can be used with a [MAVLink camera](#mavlink-cameras).
+PX4 може бути налаштований для під'єднання фізичних виходів для запуску камери, або його можна використовувати з [камерою MAVLink](#mavlink-cameras).
 
 :::info
 We recommend that you use a MAVLink camera as this allows comprehensive control of cameras via the [camera protocol](https://mavlink.io/en/services/camera.html).
