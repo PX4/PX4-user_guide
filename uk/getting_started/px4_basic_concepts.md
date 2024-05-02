@@ -31,9 +31,9 @@
 
 Для отримання додаткової інформації:
 
-- [Vehicle Types & Setup](../airframes/index.md)
-- [Airframe setup](../config/airframe.md)
-- [Airframe Reference](../airframes/airframe_reference.md).
+- [Типи літальних апаратів & налаштування](../airframes/index.md)
+- [Налаштування аерофрейму](../config/airframe.md)
+- [Довідник по конструкції літального апарату](../airframes/airframe_reference.md).
 
 ## Автопілоти
 
@@ -46,14 +46,14 @@
 
 ## Політний стек PX4
 
-[PX4](https://px4.io/) is powerful open source autopilot _flight stack_ running on the NuttX RTOS.
+[PX4](https://px4.io/) - це потужний відкритий автопілот _політного стеку_, який працює на операційній системі NuttX.
 
 Деякі ключові можливості PX4:
 
-- Supports many different vehicle frames/types, including: [multicopters](../frames_multicopter/index.md), [fixed-wing aircraft](../frames_plane/index.md) (planes), [VTOLs](../frames_vtol/index.md) (hybrid multicopter/fixed-wing), [ground vehicles](../frames_rover/index.md), and [underwater vehicles](../frames_sub/index.md).
-- Great choice of drone components for [flight controller](#flight-controller), [sensors](#sensors), [payloads](#payloads), and other peripherals.
+- Підтримує багато різних рам/типів транспортних засобів, включаючи: [багтороторники](../frames_multicopter/index.md), [літаки з фіксованим крилом](../frames_plane/index.md) (літаки), [VTOL-и](../frames_vtol/index.md) (гібридні багтороторники/літаки з фіксованим крилом), [наземні транспортні засоби](../frames_rover/index.md) та [водні транспортні засоби](../frames_sub/index.md).
+- Великий вибір компонентів дрона для [контролеру польоту](#flight-controller), [датчиків](#sensors), [вантажів](#payloads) та іншої периферії.
 - Гнучкі та потужні [режими польоту](#flight-modes) та [функції безпеки](#safety-settings-failsafe).
-- Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/index.md) such as [ROS 2](../ros/ros2_comm.md) and [MAVSDK](http://mavsdk.mavlink.io)).
+- Надійна та глибока інтеграція з [companion комп'ютерами](#offboard-companion-computer) та [robotics API](../robotics/index.md) такі як [ROS 2](../ros/ros2_comm.md) та [MAVSDK](http://mavsdk.mavlink.io)).
 
 PX4 є основною частиною ширшої платформи для безпілотників що включає програмне забезпечення для наземної станції керування [QGroundControl](#qgc), апаратне забезпечення [Pixhawk](https://pixhawk.org/) та [MAVSDK](http://mavsdk.mavlink.io) для інтеграції з companion комп'ютерами, камерами та іншим обладнанням за допомогою протоколу MAVLink. PX4 підтримується [Dronecode Project](https://www.dronecode.org/).
 
