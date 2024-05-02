@@ -1,51 +1,51 @@
 # CUAV C-RTK 9Ps
 
-The CUAV [C-RTK 9Ps](https://www.cuav.net/en/c_rtk_9ps/) is a multi-satellite, multi-band, centimeter-level, RTK GNSS system.
+CUAV [C-RTK 9Ps](https://www.cuav.net/en/c_rtk_9ps/) - це багатосупутникова, багатодіапазонна, сантиметрового рівня RTK GNSS система.
 
-The module simultaneously receives GPS, GLONASS, Galileo and Beidou satellite signals, enabling faster positioning and higher accuracy. It also supports [RTK GPS Heading](../gps_compass/u-blox_f9p_heading.md) using dual modules.
+Модуль одночасно приймає сигнали супутників GPS, ГЛОНАСС, Galileo та Beidou, що забезпечує швидке позиціонування та вищу точність. Також підтримує [RTK GPS Heading](../gps_compass/u-blox_f9p_heading.md) за допомогою подвійних модулів.
 
-Using the C-RTK 9Ps gives PX4 centimeter-level positioning precision. This is ideal for survey drones, agricultural drones and other application scenarios.
+Використання C-RTK 9Ps надає PX4 точність позиціювання на рівні сантиметрів. Це ідеальний варіант для дронів для зйомки, сільськогосподарських дронів та інших сценаріїв застосування.
 
 ![C-RTK 9Ps](../../assets/hardware/gps/cuav_9ps/c-rtk9s.jpg)
 
-## Where to Buy
+## Де придбати
 
-[cuav Store](https://store.cuav.net/shop/c-rtk-9ps/)
+[магазин cuav](https://store.cuav.net/shop/c-rtk-9ps/)
 
-## Specification
+## Характеристики
 
 ![Specification](../../assets/hardware/gps/cuav_9ps/c-rtk9s-specification.jpg)
 
-## Wiring and Connections
+## Проводка та з'єднання
 
-**C-RTK 9Ps (Base)**
+**C-RTK 9Ps (База)**
 
 ![Base module setup](../../assets/hardware/gps/cuav_9ps/c-rtk9ps_base.png)
 
-- Use a tripod to mount the base station's antenna to the top, and connect the antenna to the base station
-- Connect the base station and telemetry to the computer with a usb cable.
+- Використовуйте штатив, щоб закріпити антену базової станції зверху, і підключіть антену до базової станції
+- Підключіть базову станцію та телеметрію до комп'ютера за допомогою USB-кабелю.
 
 **C-RTK 9Ps (Rover)**
 
 ![Rover mode setup](../../assets/hardware/gps/cuav_9ps/c-rtk9ps-rover.png)
 
-- Mount the C-RTK 9Ps (Rover) antenna vertically.
-- Connect the antenna to the C-RTK 9Ps (Rover).
-- Connect the C-RTK 9Ps (Rover) to the flight controller.
-- Connect telemetry to the flight controller `TELEM1`/`TELEM2` interface
+- Встановіть антену C-RTK 9Ps (Rover) вертикально.
+- Підключіть антену до C-RTK 9Ps (Rover).
+- Підключіть C-RTK 9Ps (Rover) до контролера польоту.
+- Підключіть телеметрію до інтерфейсу керування польотом `TELEM1`/`TELEM2`
 
-::: info C-RTK 9Ps come with 6-pin and 10-pin connectors compatible with Pixhawk-standard flight controllers. Connect to `GPS1` or `GPS2`. Select the appropriate cable for the flight controller.
+::: info C-RTK 9P поставляються з 6-контактними і 10-контактними роз'ємами, сумісними з польотними контролерами стандарту Pixhawk. Підключіться до `GPS1` або `GPS2`. Виберіть відповідний кабель для контролера польоту.
 :::
 
-## Configuration
+## Конфігурація
 
-RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
+Налаштування та використання RTK на PX4 за допомогою _QGroundControl_ відбувається за принципом "підключи і працюй" (див. [RTK GPS](../gps_compass/rtk_gps.md) для отримання додаткової інформації).
 
-## Pinouts
+## Схема розташування виводів
 
 ![Pinouts](../../assets/hardware/gps/cuav_9ps/pinouts-en.jpg)
 
-## Physical Dimensions
+## Фізичні розміри
 
 ![Cuav-9ps dimensions](../../assets/hardware/gps/cuav_9ps/c-rtk9ps_dimensions.jpg)
 
@@ -54,11 +54,11 @@ RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK
 ![Sky unit antenna: physical dimensions](../../assets/hardware/gps/cuav_9ps/c-rtk9ps_sky_unit_antenna_dimensions.jpg)
 
 
-## Navigation update rates
+## Частота оновлення навігації
 
 ![Navigation update rate information](../../assets/hardware/gps/cuav_9ps/nav-rate-en.png)
 
 
-## More information
+## Докладніше
 
-[CUAV docs](https://doc.cuav.net/gps/c-rtk-series/en/c-rtk-9ps/)
+[Документація CUAV](https://doc.cuav.net/gps/c-rtk-series/en/c-rtk-9ps/)
