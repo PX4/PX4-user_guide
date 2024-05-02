@@ -9,7 +9,7 @@ PX4 використовує _MAVLink_ для зв'язку з наземним�
 - Потокових повідомлень MAVLink
 - Обробка вхідних повідомлень MAVLink та запис до теми uORB.
 
-::: info Ця тема не охоплює обробку та надсилання _команд_ або реалізацію власних мікросервісів.
+:::info Ця тема не охоплює обробку та надсилання _команд_ або реалізацію власних мікросервісів.
 :::
 
 ## Огляд MAVLink
@@ -60,7 +60,7 @@ PX4 включає репозиторій [mavlink/mavlink](https://github.com/m
 
 Файли генеруються до каталогу збірки: `/build/<build target>/mavlink/`.
 
-## Custom MAVLink Messages
+## Спеціальні повідомлення MAVLink
 
 Користувацьке повідомлення MAVLink - це повідомлення, якого немає у визначеннях за замовчуванням, включених до PX4.
 
@@ -122,8 +122,8 @@ PX4 включає репозиторій [mavlink/mavlink](https://github.com/m
 #include <uORB/topics/battery_status.h>
 ```
 
-::: info
-The uORB topic's snake-case header file is generated from the CamelCase uORB filename at build time.
+:::info
+Заголовний файл уORB-теми у форматі snake-case генерується з імені файлу уORB у форматі CamelCase під час збірки.
 :::
 
 Потім скопіюйте визначення класу трансляції нижче у файл:
@@ -210,7 +210,7 @@ protected:
 Більшість потокових класів дуже схожі (див. приклади у [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams)):
 
 - Клас потокового передавання є похідним від [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_stream.h) і названий за паттерном `MavlinkStream<CamelCaseMessageName>`.
-- The `public` definitions are "near-boilerplate", allowing PX4 to get an instance of the class (`new_instance()`), and then to use it to fetch the name, id, and size of the message from the MAVLink headers (`get_name()`, `get_name_static()`, `get_id_static()`, `get_id()`, `get_size()`). Для ваших власних потокових класів їх можна просто скопіювати і змінити, щоб вони відповідали значенням для вашого повідомлення MAVLink.
+- `Публічні` визначення є "наближеними до шаблону", що дозволяє PX4 отримати екземпляр класу (`new_instance()`), а потім використовувати його для отримання назви, ідентифікатора та розміру повідомлення з заголовків MAVLink (`get_name()`, `get_name_static()`, `get_id_static()`, `get_id()`, `get_size()`). Для ваших власних потокових класів їх можна просто скопіювати і змінити, щоб вони відповідали значенням для вашого повідомлення MAVLink.
 - Визначення `private` підписуються на теми uORB, які потрібно опублікувати. У цьому випадку тема uORB має кілька екземплярів: по одному для кожної батареї. Ми використовуємо `uORB::SubscriptionMultiArray` для отримання масиву підписок про стан батареї.
 
   Тут ми також визначаємо конструктори, щоб уникнути копіювання визначення.
@@ -257,13 +257,13 @@ protected:
 
 :::
 
-Next we include our new class in [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp#L2193). Add the line below to the part of the file where all the other streams are included:
+Далі ми включаємо наш новий клас у [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp#L2193). Додайте рядок нижче до частини файлу, де включені всі інші потоки:
 
 ```cpp
 #include "streams/BATTERY_STATUS_DEMO.hpp"
 ```
 
-Finally append the stream class to the `streams_list` at the bottom of [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp)
+Нарешті додайте клас потоку до `streams_list` у нижній частині [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp)
 
 ```C
 StreamListItem *streams_list[] = {
@@ -275,7 +275,7 @@ StreamListItem *streams_list[] = {
 }
 ```
 
-The class is now available for streaming, but won't be streamed by default. We cover that in the next sections.
+Клас тепер доступний для потокової передачі, але за замовчуванням не буде транслюватися. Ми розглянемо це в наступних розділах.
 
 ### Трансляція за замовчуванням
 
