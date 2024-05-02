@@ -20,10 +20,10 @@ This allows more precise mapping of images to GPS position for geotagging, or th
 
 The camera driver supports the following MAVLink commands in missions and if received from a GCS:
 
-- [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](#mav_cmd_do_set_cam_trigg_interval) — set time interval between captures.
-- [MAV_CMD_DO_SET_CAM_TRIGG_DIST](#mav_cmd_do_set_cam_trigg_dist) — set distance between captures
-- [MAV_CMD_DO_TRIGGER_CONTROL](#mav_cmd_do_trigger_control) — start/stop capturing (using distance or time, as defined using above messages).
-- [MAV_CMD_OBLIQUE_SURVEY](#mav_cmd_oblique_survey) — start/stop oblique survey
+- [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](#mav-cmd-do-set-cam-trigg-interval) — set time interval between captures.
+- [MAV_CMD_DO_SET_CAM_TRIGG_DIST](#mav-cmd-do-set-cam-trigg-dist) — set distance between captures
+- [MAV_CMD_DO_TRIGGER_CONTROL](#mav-cmd-do-trigger-control) — start/stop capturing (using distance or time, as defined using above messages).
+- [MAV_CMD_OBLIQUE_SURVEY](#mav-cmd-oblique-survey) — start/stop oblique survey
 
 ::: info
 [MAVLink Cameras](../camera/mavlink_camera.md) implement a newer command set: [MAVLink camera protocol](https://mavlink.io/en/services/camera.html)
