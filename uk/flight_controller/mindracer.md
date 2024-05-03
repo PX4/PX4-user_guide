@@ -1,85 +1,85 @@
-# MindRacer Hardware
+# Апаратне забезпечення MindRacer
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](http://mindpx.net) щодо підтримки обладнання або питань сумісності.
 :::
 
-The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight _platform_ for miniature UAVs. The platform currently has two RTF vehicles: [MindRacer 210](../complete_vehicles_mc/mindracer210.md) and [NanoMind 110](../complete_vehicles_mc/nanomind110.md).
+Серія AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) - це повністю стекована _платформа_ для польотів для мініатюрних БПЛА. На платформі наразі є два транспортні засоби RTF: [MindRacer 210](../complete_vehicles_mc/mindracer210.md) та [NanoMind 110](../complete_vehicles_mc/nanomind110.md).
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info Цей контролер польоту [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Короткий опис
 
-MindRacer is a fully stackable flight platform for miniature UAVs. Based on [MindPX](../flight_controller/mindpx.md), _MindRacer_ further scales down in formfactor while focused on providing modularity. MindRacer is a _platform_ rather than a flight controller.
+MindRacer - це повністю стекована платформа для польотів для мініатюрних БПЛА. На основі [MindPX](../flight_controller/mindpx.md), _MindRacer_ зменшується, зосереджуючись на наданні модульності. MindRacer - це _платформа_, а не контролер польоту.
 
-MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimination-protocol) concepts. Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
+MindRacer імплементує концепт SEP (паяльно-елімінаційний-порт) та WEP (протокол-елімінації-проводів). Перед SEP та WEP паяння та проводка завжди є основним джерелом проблем та зниження ефективності під час виготовлення та налаштування БПЛА.
 
-::: info The main hardware documentation is [here](http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf).
+::: info Основна документація щодо апаратного забезпечення знаходиться [тут](http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf).
 :::
 
-- Ultra mini size, weight ~6g
-- High performance STM32F427 168MHz floating point processor, super fast throttle response
-- Support OneShot ESC
-- Support PPM/SBUS/DSM radio receivers, support D.Port/S.Port/Wifi telemetry
-- On board flight data recorder
-- Support IMU isolation
-- DroneCode<sup>&reg;</sup> standard compliance connector
+- Ультра-міні розмір, вага ~6г
+- Високопродуктивний процесор з плаваючою точкою STM32F427 на частоті 168 МГц, надзвичайно швидка відповідь "педалі" газу
+- Підтримка OneShot ESC
+- Підтримка радіоприймачів PPM/SBUS/DSM, підтримка телеметрії D.Port/S.Port/Wifi
+- На борту реєстратора даних польоту
+- Підтримка ізоляції IMU
+- Cтандартний DroneCode<sup>&reg;</sup> сумісний коннектор
 
 |                  Елемент                   |                         Опис                          |
 |:------------------------------------------:|:-----------------------------------------------------:|
-|        Flight controller/Processor         |                       F427VIT6                        |
-|                   Weight                   |                          ~6g                          |
-|                 Dimension                  |                        35x35mm                        |
-|                PWM Outputs                 |                       maximum 6                       |
+|        Політний контролер/Процесор         |                       F427VIT6                        |
+|                    Вага                    |                          ~6г                          |
+|                   Розмір                   |                        35х35мм                        |
+|                 PWM Виходи                 |                      максимум 6                       |
 |                    IMU                     |                         10DOF                         |
-|               IMU isolation                |                     YES/Optional                      |
-|               Radio Receiver               |             S.BUS/PPM/DSM/DSM2/DSMX/SUMD              |
-|                 Telemetry                  | FrSky<sup>&reg;</sup> D.Port, S.Port, Wifi, 3DR radio |
-| On board TF card for flight data recording |                          YES                          |
-|            OneShot ESC Support             |                          YES                          |
-|              Expansion Slots               |                      2x7(pin)x2                       |
-|          On board Real time clock          |                          YES                          |
-|                 Connector                  |      JST GH(compliance with DroneCode standard)       |
+|                Ізоляція IMU                |                    ТАК/Опціонально                    |
+|               Приймач радіо                |             S.BUS/PPM/DSM/DSM2/DSMX/SUMD              |
+|                 Телеметрія                 | FrSky<sup>&reg;</sup> D.Port, S.Port, Wifi, 3DR radio |
+| На борту TF-карти для запису даних польоту |                          ТАК                          |
+|           Підтримка OneShot ESC            |                          ТАК                          |
+|             Розширення слотів              |                      2x7(pin)x2                       |
+|      На борту годинник реального часу      |                          ТАК                          |
+|                 З’єднання                  |       JST GH(відповідність стандарту DroneCode)       |
 
 ## Швидкий Старт
 
-### Pin-out Map
+### Карта виводів
 
-![Mindracer pinout](../../assets/hardware/hardware-mindracer-pinout.png)
+![Підключення Mindracer](../../assets/hardware/hardware-mindracer-pinout.png)
 
-### How to Build
+### Як зібрати
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно створювати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make airmind_mindpx-v2_default
 ```
 
-### Companion PC Connection
+### Підключення ПК компаньйона
 
-MindRacer has an attached Adapt IO board.
+MindRacer має приєднану до себе плату Adapt IO.
 
-![Attached Adapt IO board](../../assets/hardware/hardware-mindracer-conn.png)
+![Прикріплена плата адаптації IO](../../assets/hardware/hardware-mindracer-conn.png)
 
-MindRacer has a built-in UART-to-USB converter. To connect a companion computer, stack MindRacer on an interface board, and connect the companion computer to the USB port on the interface board.
+MindRacer має вбудований конвертер UART-to-USB. Для підключення комп'ютера-компаньйона встановіть MindRacer на плату інтерфейсу та підключіть супутній комп'ютер до USB-порту на платі інтерфейсу.
 
-And the max BAUD rate is the same with px4 family, which is up to 921600.
+Максимальна швидкість BAUD така ж, як у родини px4, яка становить до 921600.
 
 ### Посібник користувача
 
-::: info The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
+::: info Посібник користувача доступний [тут](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
 :::
 
 ## Де купити
 
-MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+MindRacer доступний на [AirMind Store](http://drupal.xitronet.com/?q=catalog). Ви також можете знайти MindRacer на Amazon<sup>&reg;</sup> або на eBay<sup>&reg;</sup>.
 
 ## Підтримка
 
-Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto::support@mindpx.net) for any inquiries or help.
+Будь ласка, зайдіть на http://www.mindpx.org для отримання додаткової інформації. Або ви можете надіслати email на [support@mindpx.net](mailto::support@mindpx.net) для будь-яких запитів або допомоги.
