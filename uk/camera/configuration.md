@@ -117,17 +117,17 @@ PX4 видає повідомлення MAVLink [CAMERA_TRIGGER](https://mavlink
 Якщо налаштовано захоплення камерою, використовується відмітка часу від драйвера захоплення камери, в іншому випадку використовується відмітка часу спрацювання.
 :::
 
-## MAVLink Command Interface (Directly Connected Cameras)
+## Командний інтерфейс MAVLink (камери, підключені безпосередньо)
 
-When using a camera connected to the flight controller as described in this document (e.g. using the GPIO, PWM or seagull backend interfaces) the camera driver supports the following subset of MAVLink commands:
+При використанні камери, під'єднаної до польотного контролера як описано у цьому документі (наприклад при використанні інтерфейсів бекенду GPIO, ШІМ або Seagull MAP2) драйвер камери підтримує наступний набір команд MAVLink:
 
-[MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - Accepted in "command controlled" mode (`TRIG_MODE` 1).
+[MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - Приймається в "командному" режимі (`TRIG_MODE` 1).
 
-| Command Parameter | Description                                                                                                                                                        |
+| Параметри команди | Опис                                                                                                                                                               |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Param #1          | Trigger enable/disable. `1`: enable (start), `0`: disable.                      |
-| Param #2          | Reset trigger sequence. `1`: reset, any other value does nothing.                                                  |
-| Param #3          | Pause triggering, but without switching the camera off or retracting it. `1`: pause, `0`: restart. |
+| Параметр №1       | Увімкнення/вимкнення спрацювання. `1`: увімкнути (запуск), `0`: вимкнути.       |
+| Параметр №2       | Скидання послідовності спрацьовування. `1`: скинути, будь-яке інше значення нічого не робить.                      |
+| Параметр №3       | Pause triggering, but without switching the camera off or retracting it. `1`: pause, `0`: restart. |
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/camera_trigger/camera_trigger.cpp#L549 -->
 
