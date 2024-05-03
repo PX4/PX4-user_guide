@@ -2,31 +2,31 @@
 
 <Badge type="tip" text="PX4 v1.14" />
 
-::: info
-uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13. If you were using the Fast-RTPS Bridge, please follow the [migration guidelines](#fast-rtps-to-uxrce-dds-migration-guidelines).
+:::info
+uXRCE-DDS замінює [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge), який використовувався в PX4 v1.13. Якщо ви використовували Fast-RTPS Bridge, будь ласка, дотримуйтесь [ інструкцій з міграції](#fast-rtps-to-uxrce-dds-migration-guidelines).
 :::
 
-PX4 uses uXRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics. This provides a fast and reliable integration between PX4 and ROS 2, and makes it much easier for ROS 2 applications to get vehicle information and send commands.
+PX4 використовує проміжне програмне забезпечення uXRCE-DDS, яке дозволяє публікувати [uORB-повідомлення](../middleware/uorb.md) та підписуватись на них на комп'ютері-компаньйоні так, ніби вони є темами [ROS 2](../ros/ros2_comm.md). Це забезпечує швидку та надійну інтеграцію між PX4 та ROS 2, а також значно спрощує для додатків ROS 2 отримання інформації про транспортний засіб та надсилання команд.
 
-PX4 uses an XRCE-DDS implementation that leverages [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html).
+PX4 використовує реалізацію XRCE-DDS, яка використовує [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html).
 
-The following guide describes the architecture and various options for setting up the client and agent. In particular it covers the options that are most important to PX4 users.
+У цьому посібнику описано архітектуру та різні варіанти налаштування клієнта та агента. Зокрема, він охоплює опції, які є найбільш важливими для користувачів PX4.
 
 ## Архітектура
 
-The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial or UDP link. The agent acts as a proxy for the client, enabling it to publish and subscribe to topics in the global DDS data space.
+Проміжне програмне забезпечення uXRCE-DDS складається з клієнта, що працює на PX4, і агента, що працює на комп'ютері-компаньйоні, з двостороннім обміном даними між ними по послідовному або UDP каналу. Агент діє як проксі-сервер для клієнта, дозволяючи йому публікувати та підписуватися на теми в глобальному просторі даних DDS.
 
 ![Architecture uXRCE-DDS with ROS 2](../../assets/middleware/xrce_dds/architecture_xrce-dds_ros2.svg)
 
-In order for PX4 uORB topics to be shared on the DDS network you will need _uXRCE-DDS client_ running on PX4, connected to the _micro XRCE-DDS agent_ running on the companion.
+Для того, щоб теми PX4 uORB можна було поширювати у мережі DDS, вам знадобиться _uXRCE-DDS клієнт_, запущений на PX4, підключений до _micro XRCE-DDS агента_, запущеного на комп'ютері-компаньйоні.
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) publishes to/from a defined set of uORB topics to the global DDS data space.
+PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) публікує до/з визначеного набору тем uORB до глобального простору даних DDS.
 
-The [eProsima micro XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) runs on the companion computer and acts as a proxy for the client in the DDS/ROS 2 network.
+[eProsima micro XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) працює на комп'ютері-компаньйоні і виконує роль проксі-сервера для клієнта в мережі DDS/ROS 2.
 
-The agent itself has no dependency on client-side code and can be built and/or installed independent of PX4 or ROS.
+Сам агент не залежить від коду на стороні клієнта і може бути побудований та/або встановлений незалежно від PX4 або ROS.
 
-Code that wants to subscribe/publish to PX4 does have a dependency on client-side code; it requires uORB message definitions that match those used to create the PX4 uXRCE-DDS client so that it can interpret the messages.
+Код, який хоче підписатися/публікувати до PX4, залежить від коду на стороні клієнта; йому потрібні визначення повідомлень uORB, які збігаються з тими, що були використані для створення клієнта PX4 uXRCE-DDS, щоб він міг інтерпретувати повідомлення.
 
 ## Генерація коду
 
