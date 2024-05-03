@@ -30,24 +30,24 @@ The image below shows how to connect the most important sensors and peripherals 
 
 ## Vehicle Front
 
-::: info
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::info 
+Якщо контролер не може бути змонтований у рекомендованому/стандартному положенні (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 :::
 
 ![front](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_02.jpg)
 
 ## GPS + компас + зумер + захисний вимикач + світлодіод
 
-The Pixhawk<sup>&reg;</sup> V6X can be purchased with a [NEO3 GPS](https://store.cuav.net/shop/neo-3/) (10-pin connector) and should be connected to the **GPS1** port. These GNSS modules feature an integrated compass, safety switch, buzzer and LEDs.
+Pixhawk<sup>®</sup> V6X можна придбати з GPS [NEO3](https://store.cuav.net/shop/neo-3/) (10-контактний роз'єм) та слід підключити до порту **GPS1**. Ці модулі GNSS мають вбудований компас, безпечний перемикач, дзвіночок та світлодіод.
 
-If you need to use assisted GPS, connect to the **GPS2** port.
+Якщо вам потрібно використовувати допоміжний GPS, підключіться до порту **GPS2**.
 
 GPS/компас слід [монтувати на раму](../assembly/mount_gps_compass.md) якомога подалі від інших електронних пристроїв, з напрямком вперед транспортного засобу (відокремлення компаса від інших електронних пристроїв зменшить втручання).
 
 ![GPS](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_03.jpg)
 
-::: info
-Pixhawk V6X<sup>&reg;</sup> is not compatible with NEO V2 GPS built-in buzzer: you should use [NEO3/NEO 3Pro](https://store.cuav.net/shop/neo-3/) instead. The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::info 
+Pixhawk V6X<sup>®</sup> несумісний з NEO V2 GPS вбудованим дзвіночком: вам слід використовувати [NEO3/NEO 3Pro](https://store.cuav.net/shop/neo-3/) замість нього. Вбудований безпечний вимикач в GPS-модулі увімкнений _за замовчуванням_ (коли включений, PX4 не дозволить вам готувати до польоту). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 :::
 
 ## Радіоуправління
@@ -83,10 +83,11 @@ You can also purchase telemetry radios from the [CUAV store](https://store.cuav.
 
 ## SD-карта
 
-SD cards are highly recommended as they are required for [recording and analyzing flight details](../getting_started/flight_reporting.md), running tasks and using UAVCAN bus hardware. An SD card is already installed on Pixhawk V6X<sup>&reg;</sup> when it leaves the factory.
+Картки SD настійно рекомендується, оскільки вони потрібні для [запису та аналізу даних польоту](../getting_started/flight_reporting.md), для виконання завдань та використання апаратного засобу UAVCAN bus. An SD card is already installed on Pixhawk V6X<sup>&reg;</sup> when it leaves the factory.
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
+
+Для отримання додаткової інформації див. [Основні концепції > SD-карти (знімна пам'ять)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
 ## Мотори/Сервоприводи
@@ -109,8 +110,8 @@ Pixhawk V6X<sup>&reg;</sup> does not supply power to the servos. If using a plan
 
 ![servo power supply](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_08.jpg)
 
-::: info
-The power rail voltage must be appropriate for the servo being used!
+:::info 
+Напруга шини живлення повинна бути відповідною для використаного сервоприводу!
 :::
 
 ## Other Peripherals
