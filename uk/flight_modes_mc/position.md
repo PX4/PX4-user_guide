@@ -2,76 +2,76 @@
 
 <img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
-_Position_ is an easy-to-fly RC mode in which roll and pitch sticks control acceleration over ground in the vehicle's left-right and forward-back directions (similar to a car's accelerator pedal), and throttle controls speed of ascent-descent. When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces. With full stick deflection the vehicle accelerates initially with [MPC_ACC_HOR_MAX](#MPC_ACC_HOR_MAX) ramping down until it reaches the final velocity [MPC_VEL_MANUAL](#MPC_VEL_MANUAL).
+_Положення_ - це відносно простий у керуванні режим, в якому стіки крену і тангажу керують прискоренням по землі вліво-вправо і вперед-назад (аналогічно педалі прискорювача автомобіля), а дросель - швидкістю підйому-спуску. Коли стіки відпускаються/центруються, автомобіль активно гальмує, вирівнюється і фіксується в певному положенні в 3D-просторі — компенсуючи вітер та інші сили. При повному відхиленні рукоятки транспортний засіб спочатку прискорюється з [MPC_ACC_HOR_MAX](#MPC_ACC_HOR_MAX), поступово зменшуючи швидкість до досягнення кінцевої швидкості [MPC_VEL_MANUAL](#MPC_VEL_MANUAL).
 
 :::tip
-Position mode is the safest manual mode for new fliers. Unlike [Altitude](../flight_modes_mc/altitude.md) and [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance.
+Режим позиціонування є найбезпечнішим ручним режимом для нових льотчиків. На відміну від [Висота](../flight_modes_mc/altitude.md) і [Ручний/Стабілізація](../flight_modes_mc/manual_stabilized.md) режимів автомобіль зупиниться, коли стіки будуть відцентровані, а не буде безперервно продовжувати рух, поки не буде сповільнений опором вітру.
 :::
 
-The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
+Діаграма нижче візуально показує поведінку режиму (для передавача режиму 2).
 
 ![MC Position Mode](../../assets/flight_modes/position_mc.png)
 
-### Landing
+### Посадка
 
-Landing in this mode is easy:
+Приземлення в цьому режимі легко:
 
-1. Position the drone horizontally above the landing spot using the roll and pitch stick.
-1. Let go of the roll and pitch stick and give it enough time to come to a complete stop.
-1. Pull the throttle stick down gently until the vehicle touches the ground.
-1. Pull the throttle stick all the way down to facilitate and accelerate land detection.
-1. The vehicle will lower propeller thrust, detect the ground and [automatically disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (by default).
+1. Розмістіть дрон горизонтально над місцем посадки, використовуючи палиці кочення та тангажу.
+1. Відпустіть рукоятку кочення і тангажу та дайте їй достатньо часу, щоб повністю зупинитися.
+1. Потягніть палицю газу вниз обережно, доки транспортний засіб не доторкнеться до землі.
+1. Тягніть палицю газу до максимуму, щоб полегшити і прискорити виявлення землі.
+1. Транспортний засіб знизить тягу пропелера, виявить землю та [автоматично роззброїться](../advanced_config/prearm_arm_disarm.md#auto-disarming) (за замовчуванням).
 
 :::warning
-While very rare on a well calibrated vehicle, sometimes there may be problems with landing.
+У дуже рідкісних випадках на добре налаштованому транспортному засобі можуть виникнути проблеми з посадкою.
 
-- If the vehicle does not stop moving horizontally:
-  - You can still land under control in [Altitude mode](../flight_modes_mc/altitude.md). The approach is the same as above, except that you must manually ensure that the vehicle stays above the landing spot using the roll and pitch stick.
-  - After landing check GPS and magnetometer orientation, calibration.
-- If the vehicle does not detect the ground/landing and disarm:
-  - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md) keeping the throttle stick low, and manually disarm using a gesture or other command. Alternatively you can also use the kill switch when the vehicle is already on the ground.
+- Якщо транспортний засіб не зупиняється горизонтально:
+  - Ви все ще можете приземлитися під контролем у режимі [Висота](../flight_modes_mc/altitude.md). Підхід такий самий, як у вищезазначеному випадку, за винятком того, що вам потрібно вручну забезпечити, щоб транспортний засіб залишався вище місця посадки, використовуючи руль і підйомний механізм.
+  - Після приземлення перевірте орієнтацію GPS та магнітометра, калібруйте.
+- Якщо транспортний засіб не виявляє землю/посадку і не роззброюється:
+  - Після того як транспортний засіб знаходиться на землі, перемикайтеся на режим [Ручного/Стабілізованого режиму](../flight_modes_mc/manual_stabilized.md), тримаючи палицю газу вниз, і вручну дезармуйте за допомогою жесту або іншої команди. За потреби ви також можете використовувати вимикач вимкнення, коли транспортний засіб вже знаходиться на землі.
 
 :::
 
-## Technical Summary
+## Технічний підсумок
 
-RC mode where roll, pitch, throttle (RPT) sticks control movement in corresponding axes/directions. Centered sticks level vehicle and hold it to fixed altitude and position against wind.
+Режим RC, де рульові, кренові, керування газом (RPT) керують рухом у відповідних осях/напрямках. Центральні палиці рівняють транспортний засіб і утримують його на фіксованій висоті та позиції проти вітру.
 
-- Centered roll, pitch, throttle sticks (within RC deadzone [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ)) hold x, y, z position steady against any disturbance like wind.
-- Outside center:
-  - Roll/Pitch sticks control horizontal acceleration over ground in the vehicle's left-right and forward-back directions (respectively).
-  - Throttle stick controls speed of ascent-descent.
-  - Yaw stick controls rate of angular rotation above the horizontal plane.
-- Takeoff:
-  - When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
-- Global position estimate is required.
-- Manual control input is required (such as RC control, joystick).
-  - Roll, Pitch, Throttle: Assistance from autopilot to hold position against wind.
-  - Yaw: Assistance from autopilot to stabilize the attitude rate. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
+- Центровані важелі рулів, крену, газу (в мертвій зоні RC [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ)) утримують позицію x, y, z стійкою проти будь-яких перешкод, таких як вітер.
+- Зовнішній центр:
+  - Ручки кочення/крена керують горизонтальним прискоренням над землею у ліво-правому та передньо-задньому напрямках транспортного засобу (відповідно).
+  - Палиця дросельного клапана контролює швидкість підйому-спуску.
+  - Палиця крену контролює швидкість кутової ротації вище горизонтальної площини.
+- Зліт:
+  - Після посадки транспортний засіб злетить, якщо важіль керування газом підніметься вище 62.5% від повного діапазону (від низу).
+- Потрібна глобальна оцінка положення.
+- Потрібен ручний ввід управління (наприклад, за допомогою пульта дистанційного керування, джойстика).
+  - Крен, Тангаж, Газ: Допомога від автопілота для утримання позиції проти вітру.
+  - Курс: Допомога від автопілота для стабілізації швидкості кутового руху. Положення палиці RC відображає швидкість обертання транспортного засобу в цій орієнтації.
 
-### Parameters
+### Parameter
 
-All the parameters in the [Multicopter Position Control](../advanced_config/parameter_reference.md#multicopter-position-control) group are relevant. A few parameters of particular note are listed below.
+Усі параметри у групі [Керування позицією багатокоптера](../advanced_config/parameter_reference.md#multicopter-position-control) є відповідними. Декілька параметрів, на які варто звернути увагу, перераховані нижче.
 
-| Parameter                                                                                                   | Description                                                                                                                                                                                                                                                                                                          |
-| ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="MPC_HOLD_DZ"></a>[MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ)             | Deadzone of sticks where position hold is enabled. Default: 0.1 (10% of full stick range).                                                                                                                                                                                                                           |
-| <a id="MPC_Z_VEL_MAX_UP"></a>[MPC_Z_VEL_MAX_UP](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_UP) | Maximum vertical ascent velocity. Default: 3 m/s.                                                                                                                                                                                                                                                                    |
-| <a id="MPC_Z_VEL_MAX_DN"></a>[MPC_Z_VEL_MAX_DN](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_DN) | Maximum vertical descent velocity. Default: 1 m/s.                                                                                                                                                                                                                                                                   |
-| <a id="MPC_LAND_ALT1"></a>[MPC_LAND_ALT1](../advanced_config/parameter_reference.md#MPC_LAND_ALT1)         | Altitude for triggering first phase of slow landing. Below this altitude descending velocity gets limited to a value between [MPC_Z_VEL_MAX_DN](#MPC_Z_VEL_MAX_DN) (or `MPC_Z_V_AUTO_DN`) and [MPC_LAND_SPEED](#MPC_LAND_SPEED). Value needs to be higher than [MPC_LAND_ALT2](#MPC_LAND_ALT2). Default 10m. |
-| <a id="MPC_LAND_ALT2"></a>[MPC_LAND_ALT2](../advanced_config/parameter_reference.md#MPC_LAND_ALT2)         | Altitude for second phase of slow landing. Below this altitude descending velocity gets limited to [`MPC_LAND_SPEED`](#MPC_LAND_SPEED). Value needs to be lower than "MPC_LAND_ALT1". Default 5m.                                                                                                                  |
-| <a id="RCX_DZ"></a>`RCX_DZ`                                                                           | RC dead zone for channel X. The value of X for throttle will depend on the value of [RC_MAP_THROTTLE](../advanced_config/parameter_reference.md#RC_MAP_THROTTLE). For example, if the throttle is channel 4 then [RC4_DZ](../advanced_config/parameter_reference.md#RC4_DZ) specifies the deadzone.                |
-| <a id="MPC_xxx"></a>`MPC_XXXX`                                                                         | Most of the MPC_xxx parameters affect flight behaviour in this mode (at least to some extent). For example, [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) defines the thrust at which a vehicle will hover.                                                                             |
-| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)           | Stick input to movement translation strategy. From PX4 v1.12 the default (4) is that stick position controls acceleration (in a similar way to a car accelerator pedal). Other options allow stick deflection to directly control speed over ground, with and without smoothing and acceleration limits.             |
-| <a id="MPC_ACC_HOR_MAX"></a>[MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX)     | Maximum horizontal acceleration.                                                                                                                                                                                                                                                                                     |
-| <a id="MPC_VEL_MANUAL"></a>[MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL)       | Maximum horizontal velocity.                                                                                                                                                                                                                                                                                         |
-| <a id="MPC_LAND_SPEED"></a>[MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)      | Landing descend rate. Default 0.7 m/s.                                                                                                                                                                                                                                                                               |
+| Параметр                                                                                                    | Опис                                                                                                                                                                                                                                                                                                                  |
+| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MPC_HOLD_DZ"></a>[MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ)             | Мертва зона палиць, де активовано утримання позиції. За замовчуванням: 0.1 (10% від повного діапазону палиці).                                                                                                                                                                                                        |
+| <a id="MPC_Z_VEL_MAX_UP"></a>[MPC_Z_VEL_MAX_UP](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_UP) | Максимальна швидкість вертикального підйому. Значення за замовчуванням: 3 м/с.                                                                                                                                                                                                                                        |
+| <a id="MPC_Z_VEL_MAX_DN"></a>[MPC_Z_VEL_MAX_DN](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_DN) | Максимальна швидкість вертикального спуску. За замовчуванням: 1 m/s.                                                                                                                                                                                                                                                  |
+| <a id="MPC_LAND_ALT1"></a>[MPC_LAND_ALT1](../advanced_config/parameter_reference.md#MPC_LAND_ALT1)         | Висота для спрацювання першої фази повільної посадки. Нижче цієї висоти швидкість спуску обмежується значенням між [MPC_Z_VEL_MAX_DN](#MPC_Z_VEL_MAX_DN) (або `MPC_Z_V_AUTO_DN`) та [MPC_LAND_SPEED](#MPC_LAND_SPEED). Значення повинно бути вище, ніж [MPC_LAND_ALT2](#MPC_LAND_ALT2). За замовчуванням 10м. |
+| <a id="MPC_LAND_ALT2"></a>[MPC_LAND_ALT2](../advanced_config/parameter_reference.md#MPC_LAND_ALT2)         | Висота для другої фази повільної посадки. Нижче цієї висоти швидкість спуску обмежується до [`MPC_LAND_SPEED`](#MPC_LAND_SPEED). Значення повинно бути нижче, ніж "MPC_LAND_ALT1". Значення за замовчуванням: 5m.                                                                                                   |
+| <a id="RCX_DZ"></a>`RCX_DZ`                                                                           | RC зона мертвої зони для каналу X. Значення X для керування газом буде залежати від значення [RC_MAP_THROTTLE](../advanced_config/parameter_reference.md#RC_MAP_THROTTLE). Наприклад, якщо дросель - це канал 4, то [RC4_DZ](../advanced_config/parameter_reference.md#RC4_DZ) вказує діапазон нечутливості.        |
+| <a id="MPC_xxx"></a>`MPC_XXXX`                                                                         | Більшість параметрів MPC_xxx впливають на поведінку польоту в цьому режимі (принаймні до певної міри). Наприклад, [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) визначає тягу, при якій транспортний засіб буде утримуватися в повітрі.                                                  |
+| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)           | Стратегія перекладу введення на рух. З версії PX4 v1.12 за замовчуванням (4) є те, що положення палиці контролює прискорення (аналогічно педалі прискорювача автомобіля). Інші параметри дозволяють відхилення палиці безпосередньо контролювати швидкість над землею, з і без згладжування та обмежень прискорення.  |
+| <a id="MPC_ACC_HOR_MAX"></a>[MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX)     | Максимальне горизонтальне прискорення.                                                                                                                                                                                                                                                                                |
+| <a id="MPC_VEL_MANUAL"></a>[MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL)       | Maximum horizontal velocity.                                                                                                                                                                                                                                                                                          |
+| <a id="MPC_LAND_SPEED"></a>[MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)      | Landing descend rate. Default 0.7 m/s.                                                                                                                                                                                                                                                                                |
 
 ## Additional Information
 
 ### Position Loss/Safety
 
-Position mode is dependent on having an acceptable position estimate. If the estimate falls below acceptable levels, for example due to GPS loss, this may trigger a [Position (GPS) Loss Failsafe](../config/safety.md#position-gps-loss-failsafe). Depending on configuration, whether you have a remote control, and whether there is an adequate altitude estimate, PX4 may switch to altitude mode, manual mode, land mode or terminate.
+Режим позиціонування залежить від наявності прийнятної оцінки позиції. Якщо оцінка падає нижче припустимих рівнів, наприклад через втрату GPS, це може спричинити [Позиційний (GPS) Захисний Режим Втрати](../config/safety.md#position-gps-loss-failsafe). Залежно від конфігурації, наявності пульта дистанційного керування та наявності достатньої оцінки висоти, PX4 може переключитися в режим висоти, ручний режим, режим посадки або завершити роботу.
 
 ## See Also
 
