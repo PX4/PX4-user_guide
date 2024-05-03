@@ -306,15 +306,15 @@ StreamListItem *streams_list[] = {
         ...
 ```
 
-It is also possible to add a stream by calling the [mavlink](../modules/modules_communication.md#mavlink) module with the `stream` argument in a [startup script](../concept/system_startup.md). For example, you might add the following line to [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink) in order to stream `BATTERY_STATUS_DEMO` at 50Hz on UDP port `14556` (`-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
+Також можна додати потік, викликавши модуль [mavlink](../modules/modules_communication.md#mavlink) з аргументом `stream` у [скрипті запуску](../concept/system_startup.md). Наприклад, ви можете додати наступний рядок до [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink), щоб передавати `BATTERY_STATUS_DEMO` зі швидкістю 50 Гц на UDP-порт `14556` (`-r` налаштовує швидкість передачі, а `-u` ідентифікує канал MAVLink на UDP-порту 14556).
 
 ```sh
 mavlink stream -r 50 -s BATTERY_STATUS_DEMO -u 14556
 ```
 
-### Streaming on Request
+### Транслювання за запитом
 
-Деякі повідомлення потрібні лише один раз, при підключенні певного обладнання або за інших обставин. In order to avoid clogging communications links with messages that aren't needed you may not stream all messages by default, even at low rate.
+Деякі повідомлення потрібні лише один раз, при підключенні певного обладнання або за інших обставин. Щоб уникнути перевантаження каналів зв'язку непотрібними повідомленнями, ви можете не передавати всі повідомлення за замовчуванням, навіть з низькою швидкістю.
 
 Якщо вам потрібно, GCS або інший API MAVLink може запросити, щоб певні повідомлення передавалися з певною швидкістю за допомогою [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL). Певне повідомлення можна запросити лише один раз за допомогою [MAV_CMD_REQUEST_MESSAGE](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE).
 
@@ -395,43 +395,43 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
 
 ## Альтернатива створення користувацьких повідомлень MAVLink
 
-Sometimes there is the need for a custom MAVLink message with content that is not fully defined.
+Іноді існує потреба в довільному повідомленні MAVLink з вмістом, який не повністю визначений.
 
-For example when using MAVLink to interface PX4 with an embedded device, the messages that are exchanged between the autopilot and the device may go through several iterations before they are stabilized. In this case, it can be time-consuming and error-prone to regenerate the MAVLink headers, and make sure both devices use the same version of the protocol.
+Наприклад, при використанні MAVLink для інтерфейсу PX4 з вбудованим пристроєм, повідомлення, якими обмінюються автопілот і пристрій, можуть пройти кілька ітерацій, перш ніж вони будуть стабілізовані. У цьому випадку відновлення заголовків MAVLink може зайняти багато часу і призвести до помилок, а також переконатися, що обидва пристрої використовують одну і ту ж версію протоколу.
 
-An alternative - and temporary - solution is to re-purpose debug messages. Instead of creating a custom MAVLink message `CA_TRAJECTORY`, you can send a message `DEBUG_VECT` with the string key `CA_TRAJ` and data in the `x`, `y` and `z` fields. See [this tutorial](../debug/debug_values.md) for an example usage of debug messages.
+Альтернативним - і тимчасовим - рішенням є перепризначення налагоджувальних повідомлень. Замість створення спеціального повідомлення MAVLink `CA_TRAJECTORY`, ви можете надіслати повідомлення `DEBUG_VECT` з рядковим ключем `CA_TRAJ` і даними у полях `x`, `y` і `z`. Приклади використання відладочних повідомлень наведено у [цьому посібнику](../debug/debug_values.md).
 
-::: info
-This solution is not efficient as it sends character string over the network and involves comparison of strings.
-It should be used for development only!
+:::info
+Це рішення не є ефективним, оскільки надсилає символьний рядок через мережу і передбачає порівняння рядків.
+Це повинно використовуватися лише для розробки!
 :::
 
 ## Тестування
 
-As a first step, and while debugging, commonly you'll just want to confirm that any messages you've created are being sent/received as you expect.
+Як перший крок і під час відлагодження, зазвичай ви просто хочете переконатися, що всі створені вами повідомлення надсилаються/отримуються так, як ви очікуєте.
 
-You should should first use the `uorb top [<message_name>]` command to verify in real-time that your message is published and the rate (see [uORB Messaging](../middleware/uorb.md#uorb-top-command)). This approach can also be used to test incoming messages that publish a uORB topic (for other messages you might use `printf` in your code and test in SITL).
+Спочатку вам слід скористатися командою `uorb top [<message_name>]` для перевірки у реальному часі того, що ваше повідомлення опубліковано, а також швидкості (див. [uORB Повідомлення](../middleware/uorb.md#uorb-top-command)). Цей підхід також можна використовувати для тестування вхідних повідомлень, які публікують тему uORB (для інших повідомлень ви можете використовувати `printf` у вашому коді і тестувати у SITL).
 
 Існує кілька підходів для перегляду трафіку MAVLink:
 
-- Create a [Wireshark MAVLink plugin](https://mavlink.io/en/guide/wireshark.html) for your dialect. This allows you to inspect MAVLink traffic on an IP interface - for example between _QGroundControl_ or MAVSDK and your real or simulated version of PX4.
+- Створіть плагін [Wireshark MAVLink](https://mavlink.io/en/guide/wireshark.html) для вашого діалекту. Це дозволяє перевіряти трафік MAVLink на IP-інтерфейсі - наприклад, між _QGroundControl_ або MAVSDK і вашою реальною або змодельованою версією PX4.
 
   :::tip
-It is much easier to generate a wireshark plugin and inspect traffic in Wireshark, than to rebuild QGroundControl with your dialect and use MAVLink Inspector.
+Набагато простіше згенерувати плагін wireshark і перевіряти трафік у Wireshark, ніж збирати QGroundControl з вашим діалектом і використовувати MAVLink Inspector.
 :::
 
-- [Log uORB topics](../dev_log/logging.md) associate with your MAVLink message.
-- Перегляд отриманих повідомлень в QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html). You will need to rebuild QGroundControl with the custom message definitions, [as described below](h#updating-qgroundcontrol)
+- [Теми логу uORB](../dev_log/logging.md) пов'язані з вашим повідомленням MAVLink.
+- Перегляд отриманих повідомлень в QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html). Вам потрібно буде перезібрати QGroundControl з користувацькими визначеннями повідомлень, [як описано нижче](h#updating-qgroundcontrol)
 
-### Set Streaming Rate using a Shell
+### Встановити швидкість передачі за допомогою оболонки
 
-For testing, it is sometimes useful to increase the streaming rate of individual topics at runtime (e.g. for inspection in QGC). This can be achieved using by calling the [mavlink](../modules/modules_communication.md#mavlink) module through the [QGC MAVLink console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (or some other shell):
+Для тестування іноді корисно збільшити швидкість передачі окремих тем під час виконання (наприклад, для перевірки в QGC). Цього можна досягти за допомогою виклику модуля [mavlink](../modules/modules_communication.md#mavlink) через консоль [QGC MAVLink](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (або іншої оболонки):
 
 ```sh
 mavlink stream -u <port number> -s <mavlink topic name> -r <rate>
 ```
 
-You can get the port number with `mavlink status` which will output (amongst others) `transport protocol: UDP (<port number>)`. An example would be:
+Ви можете отримати номер порту за допомогою `mavlink status`, який виведе (серед іншого) `транспортний протокол: UDP (<port number>)`. Прикладом може бути:
 
 ```sh
 mavlink stream -u 14556 -s CA_TRAJECTORY -r 300
@@ -439,19 +439,19 @@ mavlink stream -u 14556 -s CA_TRAJECTORY -r 300
 
 ## Оновлення наземних станцій
 
-Ultimately you'll want to use your new MAVLink interface by providing the corresponding ground station or MAVSDK implementation.
+Зрештою, ви захочете використовувати ваш новий інтерфейс MAVLink, надавши відповідну наземну станцію або реалізацію MAVSDK.
 
-The important thing to remember here is that MAVLink requires that you use a version of the library that is built to the same definition (XML file). So if you have created a custom message in PX4 you won't be able to use it unless you build QGC or MAVSDK with that same definition.
+Важливо пам'ятати, що MAVLink вимагає, щоб ви використовували версію бібліотеки, яка побудована за тим самим визначенням (XML-файл). Отже, якщо ви створили власне повідомлення у PX4, ви не зможете його використати, доки не зберете QGC або MAVSDK з тим самим визначенням.
 
 ### Оновлення QGroundControl
 
-You will need to [Build QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-dev-guide/getting_started/index.html) including a pre-built C library that contains your custom messages.
+Вам потрібно [зібрати QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-dev-guide/getting_started/index.html), включно з попередньо зібраною бібліотекою C, яка містить ваші власні повідомлення.
 
 QGC використовує попередньо скомпільовану бібліотеку C, яку має бути розташовано за адресою [/qgroundcontrol/libs/mavlink/include/mavlink](https://github.com/mavlink/qgroundcontrol/tree/master/libs/mavlink/include/mavlink) у вихідному коді QGC.
 
-By default this is pre-included as a submodule from [https://github.com/mavlink/c_library_v2](https://github.com/mavlink/c_library_v2) but you can [generate your own MAVLink Libraries](https://mavlink.io/en/getting_started/generate_libraries.html).
+За замовчуванням її попередньо включено як підмодуль з [https://github.com/mavlink/c_library_v2](https://github.com/mavlink/c_library_v2), але ви можете [згенерувати власні бібліотеки MAVLink](https://mavlink.io/en/getting_started/generate_libraries.html).
 
-QGC uses the all.xml dialect by default, which includes **common.xml**. You can include your messages in either file or in your own dialect. However if you use your own dialect then it should include ArduPilotMega.xml (or it will miss all the existing messages), and you will need to change the dialect used by setting it in [`MAVLINK_CONF`](https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52) when running _qmake_.
+За замовчуванням QGC використовує діалект all.xml, який включає **common.xml**. Ви можете додавати свої повідомлення як у файлі, так і у власному діалекті. Однак, якщо ви використовуєте власний діалект, то він має містити ArduPilotMega.xml (інакше буде пропущено всі наявні повідомлення), і вам потрібно буде змінити діалект, встановивши його у [`MAVLINK_CONF`](https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52) під час запуску _qmake_.
 
 ### Оновлення MAVSDK
 
