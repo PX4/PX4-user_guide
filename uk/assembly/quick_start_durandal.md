@@ -1,4 +1,4 @@
-# Durandal Wiring Quick Start
+# Швидке підключення Durandal Wiring
 
 <Badge type="tip" text="PX4 v1.11" />
 
@@ -85,69 +85,69 @@ GPS/компас слід монтувати на раму якомога под
 - Вага: 20г
 - Пакет включає:
   - Плата PM02
-  - 6pin MLX cable (1)
+  - 6-контактний кабель MLX (1)
   - 6pin GH cable (1)
 
 <a id="pm07"></a>
 
-### Pixhawk 4 Power Module (PM07)
+### Модуль живлення Pixhawk 4 (PM07)
 
-The [Pixhawk 4 Power Module (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07) can be bundled/used with _Durandal_. It acts as both a power module and power distribution board, providing regulated power to flight controller and the ESCs, and sending battery voltage/current to the flight controller.
+Модуль живлення [Pixhawk 4 (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07) може бути поставлений/використаний разом з _Durandal_. Це виступає як модуль живлення та розподільник живлення, який забезпечує регульоване живлення контролеру польоту та регуляторам швидкості, а також надсилає напругу/сили до контролера польоту.
 
-This is wired up in the same way as described in the [Pixhawk 4 Quick Start > Power](../assembly/quick_start_pixhawk4.md#power) documentation.
+Це підключено так само, як описано в документації [Швидкий старт Pixhawk 4 > Живлення](../assembly/quick_start_pixhawk4.md#power).
 
-It has the following characteristics/limits:
+Має наступні характеристики/обмеження:
 
-- PCB Current: total 120A outputs (MAX)
-- UBEC 5V output current: 3A
-- UBEC input voltage : 7~51v (2~12s LiPo)
-- Dimensions: 68*50*8 mm
-- Mounting Holes: 45\*45mm
-- Weight: 36g
-- Package includes:
-  - PM07 board (1)
-  - 80mm XT60 connector wire (1)
+- Поточний PCB: загальна потужність виходів 120A (MAX)
+- UBEC вихідний струм 5В: 3А
+- Напруга входу UBEC: 7~51v (2~12s LiPo)
+- Розміри: 68*50*8 мм
+- Отвір для монтажу: 45\*45мм
+- Вага: 36g
+- Пакет включає:
+  - Плата PM07 (1)
+  - 80мм коннекторія XT60 (1)
 
 :::info Див. також [Керівництво зі швидкого запуску PM07](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro).
 :::
 
-### Battery Configuration
+### Конфігурація батареї
 
-The battery/power setup must be configured in [Battery Estimation Tuning](../config/battery.md). For either Power Module you will need to configure the _Number of Cells_.
+Налаштування батареї/живлення потрібно налаштувати в [Налаштування оцінки батареї](../config/battery.md). Для будь-якого модуля живлення вам потрібно буде налаштувати _кількість комірок_.
 
-You will not need to update the _voltage divider_ unless you are using some other power module (e.g. the one from the Pixracer).
+Вам не потрібно буде оновлювати _дільник напруги_, якщо ви використовуєте який-небудь інший модуль живлення (наприклад, той, що від Pixracer).
 
-## Radio Control
+## Радіоуправління
 
-A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+Для того щоб керувати транспортним засобом _вручну_, потрібна система радіоуправління (RC) (PX4 не потребує системи радіоуправління для автономних режимів польоту).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Вам потрібно [вибрати сумісний передавач/приймач](../getting_started/rc_transmitter_receiver.md) і _зв'язати_ їх таким чином, щоб вони взаємодіяли (ознайомтеся з інструкціями, що додаються до вашого конкретного передавача/приймача).
 
-The instructions below show how to connect the different types of receivers to _Durandal_:
+Нижче наведено інструкції, як підключити різні типи приймачів до _Durandal_:
 
-- Spektrum/DSM receivers connect to the [DSM RC](../flight_controller/durandal.md#dsm-rc-port) input.
+- Приймачі Spektrum/DSM підключаються до входу [DSM RC](../flight_controller/durandal.md#dsm-rc-port).
 
   ![Durandal - DSM](../../assets/flight_controller/durandal/dsm.jpg)
 
-- PPM and S.Bus receivers connect to the [SBUS_IN/PPM_IN](../flight_controller/durandal.md#rc-in) input port (marked as RC IN, next to the MAIN/AUX inputs).
+- Приймачі PPM і S.Bus підключаються до входу [SBUS_IN/PPM_IN](../flight_controller/durandal.md#rc-in) (позначений як RC IN, поруч з головними/допоміжними входами).
 
   ![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
-- PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **PPM RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- Приймачі PPM та PWM, які мають _окремий провід для кожного каналу_, повинні підключатися до порту **PPM RC** _через PPM кодер_ [як цей](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (приймачі PPM-Sum використовують один сигнальний провід для всіх каналів).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+Для отримання додаткової інформації про вибір радіосистеми, сумісність приймача та зв'язок вашої передавача/приймача, див. статтю: [Пульт керування передавачів & приймачів](../getting_started/rc_transmitter_receiver.md).
 
-## Telemetry Radios (Optional)
+## Телеметричні радіостанції (Опціонально)
 
-Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+Телеметрійні радіомодулі можуть використовуватися для зв'язку та управління транспортним засобом в польоті з наземної станції (наприклад, ви можете направляти БПЛА в певне положення або завантажувати нове завдання).
 
-The vehicle-based radio should be connected to the [TELEM1](../flight_controller/durandal.md#telem1_2_3) port as shown below using one of the 6-pos connectors (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
+Радіостанцію, розташовану на транспортному засобі, слід підключити до порту [TELEM1](../flight_controller/durandal.md#telem1_2_3) так, як показано нижче за допомогою одного з 6-позиційних роз'ємів (якщо підключено до цього порту, додаткова конфігурація не потрібна). Інша радіостанція підключається до вашого комп'ютера або мобільного пристрою наземної станції (зазвичай за допомогою USB).
 
 ![Durandal/Telemetry Radio](../../assets/flight_controller/durandal/holybro_telemetry_radio.jpg)
 
-## SD Card (Optional)
+## SD-карта (Опціонально)
 
-SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert an SD card into the _Durandal_ where indicated below.
+Картки SD настійно рекомендується, оскільки вони потрібні для [запису та аналізу даних польоту](../getting_started/flight_reporting.md), для виконання місій та для використання апаратного засобу UAVCAN-bus. Вставте SD-карту в _Durandal_ туди, де показано нижче.
 
 ![Durandal SD Card](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
 
@@ -155,13 +155,13 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 Для додаткової інформації дивіться [Основні поради > SD-карти (можливістю Видалення пам'яті)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
-## Motors
+## Двигуни
 
-Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN OUT**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
+Сигнали керування двигунами/сервоприводами підключаються до портів **I/O PWM OUT** (**MAIN OUT**) та **FMU PWM OUT** (**AUX**) у порядку, вказаному для вашого апарату в [Airframe Reference](../airframes/airframe_reference.md).
 
 ![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
-The motors must be separately [powered](#power).
+Двигуни повинні мати окреме [живлення](#power).
 
 :::info
 Якщо ваша конструкція не зазначена у довіднику конструкцій, скористайтеся "загальною" конструкцією потрібного типу.
@@ -171,31 +171,31 @@ The motors must be separately [powered](#power).
 _Durandal_ має 5 допоміжних портів, тому не може бути використаний з повітряними рамами, які відображають AUX6, AUX7, AUX8 на двигуни або інші критичні керування польотом.
 :::
 
-## Other Peripherals
+## Інші периферійні пристрої
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Підключення та конфігурація додаткових / менш поширених компонентів описано в темах для окремих [периферійних пристроїв](../peripherals/index.md).
 
-## Pinouts
+## Розпіновка
 
-[Durandal > Pinouts](../flight_controller/durandal.md#pinouts)
+[Durandal > Виводи](../flight_controller/durandal.md#pinouts)
 
 <a id="configuration"></a>
 
-## PX4 Configuration
+## Конфігурація PX4
 
-First you will need to install [PX4 "Master" Firmware](../config/firmware.md#custom) onto the controller using _QGroundControl_.
+Спочатку вам потрібно встановити [Прошивку PX4 "Master"](../config/firmware.md#custom) на контролер, використовуючи _QGroundControl_.
 
 :::info Підтримка Durandal буде в релізі PX4, який слідує за PX4 v1.10, який є _стабільним_.
 :::
 
-Further general configuration information is covered in: [Autopilot Configuration](../config/index.md).
+Додаткову загальну інформацію щодо конфігурації описано в: [Конфігурація автопілота](../config/index.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+Конкретні конфігурації QuadPlane тут: [QuadPlane VTOL налаштування](../config_vtol/vtol_quad_configuration.md)
 
-## Further information
+## Подальша інформація
 
-- [Durandal Overview](../flight_controller/durandal.md)
-- [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf) (Holybro)
-- [Durandal Pinouts](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)
-- [Durandal_MB_H743sch.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Durandal Schematics)
-- [STM32H743IIK_pinout.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/durandal/STM32H743IIK_pinout.pdf) (Durandal Pinmap)
+- [Огляд Durandal](../flight_controller/durandal.md)
+- [Технічний опис Durandal](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf) (Holybro)
+- [Durandal розпіновка](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)
+- [Durandal_MB_H743sch.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Схеми Durandal)
+- [STM32H743IIK_pinout.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/durandal/STM32H743IIK_pinout.pdf) (Схема виводів Durandal)
