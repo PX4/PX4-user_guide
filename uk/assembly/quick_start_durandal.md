@@ -2,89 +2,89 @@
 
 <Badge type="tip" text="PX4 v1.11" />
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 :::
 
-This quick start guide shows how to power the Holybro [Durandal](../flight_controller/durandal.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
+У цьому короткому посібнику показано, як увімкнути живлення польотного контролера Holybro [Durandal](../flight_controller/durandal.md)<sup>&reg;</sup> та підʼєднати до нього найважливіші периферійні пристрої.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
 
-## Unboxing
+## Розпаковка
 
-Durandal is sold bundled with a number of different combinations of accessories, including power modules: _PM02 V3_ and _PM07_, and the _Pixhawk 4 GPS/Compass_ ( u-blox NEO-M8N).
+Durandal продається в комплекті з різноманітними комбінаціями аксесуарів, включаючи модулі живлення: _PM02 V3_ та _PM07_, та _GPS/Компас Pixhawk 4_ (u-blox NEO-M8N).
 
-The content of the box with the _PM02 V3_ power module is shown below (the box also includes a pinout guide and power module instructions).
+Вміст коробки з модулем живлення _PM02 V3_ показано нижче (у коробці також є посібник з роз'ємами та інструкція з модулю живлення).
 
 ![Durandal Box](../../assets/flight_controller/durandal/durandal_unboxing_schematics.jpg)
 
-## Wiring Chart Overview
+## Огляд схеми підключення
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+На зображенні нижче показано, як під'єднати найважливіші датчики та периферійні пристрої (за винятком виходів мотора та сервоприводів). Ми розглянемо кожен з них детально в наступних розділах.
 
 ![Durandal Wiring Overview](../../assets/flight_controller/durandal/durandal_wiring_overview.jpg)
 
 :::tip
-More information about available ports can be found here: [Durandal > Pinouts](../flight_controller/durandal.md#pinouts).
+Додаткову інформацію про доступні порти можна знайти тут: [Durandal >  Pinouts](../flight_controller/durandal.md#pinouts).
 :::
 
-## Mount and Orient Controller
+## Монтаж та орієнтація контролера
 
-_Durandal_ should be mounted on the frame positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+_Дюрандал_ повинен бути встановлений на раму, розташований якомога ближче до центру ваги вашого апарату, орієнтований верхньою стороною вгору зі стрілкою, що вказує вперед апарату.
 
 ![Mounting/Orientation](../../assets/flight_controller/durandal/orientation.jpg)
 
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+Якщо контролер не може бути змонтований у рекомендованому/стандартному положенні (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 
 :::tip
-The board has internal vibration-isolation.
-Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
+Плата має внутрішню вібраційну ізоляцію.
+Не використовуйте віброізоляційну пінку для монтажу контролера (подвійна стрічка на клейовій основі зазвичай достатня).
 :::
 
 ## GPS + Compass + Buzzer + Safety Switch + LED
 
-Durandal is designed to work well with the _Pixhawk 4 GPS module_, which has an integrated compass, safety switch, buzzer and LED. It connects directly to the [GPS port](../flight_controller/durandal.md#gps) using the 10 pin cable.
+Durandal розроблений для успішної роботи з _модулем GPS Pixhawk 4_, який має вбудований компас, безпечний вимикач, сигналізацію, світлодіоди. Він підключається безпосередньо до [порту GPS](../flight_controller/durandal.md#gps) за допомогою 10-жильного кабелю.
 
-The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+GPS/компас слід монтувати на раму якомога подалі від інших електронних пристроїв, з напрямком вперед транспортного засобу (відокремлення компаса від інших електронних пристроїв зменшить втручання).
 
 ![Connect compass/GPS to Durandal](../../assets/flight_controller/durandal/connection_gps_compass.jpg)
 
-::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::info Вбудований безпечний вимикач в GPS-модулі увімкнений _за замовчуванням_ (коли включений, PX4 не дозволить вам готувати до польоту). Щоб вимкнути безпеку, натисніть і утримуйте безпечний вимикач протягом 1 секунди. Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
 
-## Power
+## Потужність
 
-You can use a power module or power distribution board to power motors/servos and measure power consumption. The recommended power modules are shown below.
+Ви можете використовувати модуль живлення або розподільник живлення для живлення двигунів/сервоприводів та виміру споживаної потужності. Рекомендовані модулі живлення показані нижче.
 
 <a id="pm02_v3"></a>
 
-### PM02 v3 Power Module
+### PM02D Power Module
 
-The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with _Durandal_. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
+[Модуль живлення (PM02 v3)](../power_module/holybro_pm02.md) може бути поставлений разом з _Durandal_. Він надає регульоване живлення контролеру польоту та надсилає напругу/силу струму акумулятора контролеру польоту.
 
-Connect the output of the _Power Module_ as shown.
+Підключіть вихід _Модуля живлення_, як показано.
 
 ![Durandal PM02v3 Power connections](../../assets/flight_controller/durandal/connection_power.jpg)
 
-- PM voltage/current port: connect to [POWER1](../flight_controller/durandal.md#power) port (or `POWER2`) using the 6-wire GH cable supplied.
-- PM input (XT60 male connector): connect to the LiPo battery (2~12S).
-- PM power output (XT60 female connector): wire out to any motor ESCs.
+- Порт напруги/струму PM: підключіться до [POWER1](../flight_controller/durandal.md#power) порту (або `POWER2`) за допомогою 6-жильного кабелю GH, що входить у комплект.
+- Вхід PM (роз'єм XT60): підключіть до ліпо-акумулятора (2~12S).
+- Вихід живлення PM (роз'єм XT60): підведіть до будь-якого контролера регулятора обертів мотора.
 
 :::tip
-As this power module does not include power distribution wiring, you would normally just connect all the ESCs in parallel to the power module output (the ESC must be appropriate for the supplied voltage level).
+Оскільки цей модуль живлення не містить проводки розподілу живлення, ви зазвичай просто підключаєте всі контролери регуляторів обертів мотора паралельно до виходу модуля живлення (контролер регулятора обертів мотора повинен бути відповідним для постачаного рівня напруги).
 :::
 
 :::tip
-The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
+Контактна шина живлення (+) 8-контактного рейлу **MAIN/AUX** не живиться блоком живлення модуля живлення контролера польоту. Якщо вона повинна бути окремо живленою для керування сервоприводами для рульових поверхонь, елеронами тощо, лінію живлення потрібно підключити до ESC зі вбудованим BEC або окремого BEC напругою 5V або акумулятора LiPo 2S. Переконайтеся, що напруга сервопривода, який ви збираєтеся використовувати, є відповідною.
 :::
 
-The power module has the following characteristics/limits:
+Модуль живлення має наступні характеристики/обмеження:
 
-- Max input voltage: 60V
-- Max current sensing: 120A Voltage
-- Current measurement configured for SV ADC Switching regulator outputs 5.2V and 3A max
-- Weight: 20g
-- Package includes:
-  - PM02 board
+- Максимальна вхідна напруга: 60V
+- Максимальне вимірювання струму: 120A Voltage
+- Вимірювання струму, налаштоване для SV АЦП Перемикання виходів регулятора 5,2 В і 3А макс
+- Вага: 20г
+- Пакет включає:
+  - Плата PM02
   - 6pin MLX cable (1)
   - 6pin GH cable (1)
 
@@ -108,7 +108,7 @@ It has the following characteristics/limits:
   - PM07 board (1)
   - 80mm XT60 connector wire (1)
 
-::: info See also [PM07 Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro).
+:::info Див. також [Керівництво зі швидкого запуску PM07](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro).
 :::
 
 ### Battery Configuration
@@ -152,7 +152,7 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 ![Durandal SD Card](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
+Для додаткової інформації дивіться [Основні поради > SD-карти (можливістю Видалення пам'яті)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
 ## Motors
@@ -163,12 +163,12 @@ Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN OUT**
 
 The motors must be separately [powered](#power).
 
-::: info
-If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
+:::info
+Якщо ваша конструкція не зазначена у довіднику конструкцій, скористайтеся "загальною" конструкцією потрібного типу.
 :::
 
 :::tip
-_Durandal_ has 5 AUX ports, so cannot be used with airframes that map AUX6, AUX7, AUX8 to motors or other critical flight controls.
+_Durandal_ має 5 допоміжних портів, тому не може бути використаний з повітряними рамами, які відображають AUX6, AUX7, AUX8 на двигуни або інші критичні керування польотом.
 :::
 
 ## Other Peripherals
@@ -185,7 +185,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 First you will need to install [PX4 "Master" Firmware](../config/firmware.md#custom) onto the controller using _QGroundControl_.
 
-::: info Durandal support will be in the _stable_ PX4 release that follows PX4 v1.10.
+:::info Підтримка Durandal буде в релізі PX4, який слідує за PX4 v1.10, який є _стабільним_.
 :::
 
 Further general configuration information is covered in: [Autopilot Configuration](../config/index.md).
