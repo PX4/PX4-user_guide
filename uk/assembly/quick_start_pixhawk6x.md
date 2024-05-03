@@ -1,17 +1,17 @@
-# Holybro Pixhawk 6X Wiring Quick Start
+# Короткий посібник з підключення Holybro Pixhawk 6X
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 :::
 
-This quick start guide shows how to power the [Pixhawk 6X<sup>&reg;</sup>](../flight_controller/pixhawk6x.md) flight controller and connect its most important peripherals.
+Цей короткий посібник показує, як живити польовий контролер [Pixhawk 6X<sup>&reg;</sup>](../flight_controller/pixhawk6x.md) та під'єднати його найважливіші периферійні пристрої.
 
-## Kit Contents
+## Вміст набору
 
-### Pixhawk 6X Standard Set
+### Набір Pixhawk 6X Standard
 
 ![Pixhawk 6x standard set](../../assets/flight_controller/pixhawk6x/pixhawk6x_standard_set.jpg)
 
-### Pixhawk 6X Mini Set
+### Набір Pixhawk 6X Mini
 
 ![Pixhawk 6x mini standard set](../../assets/flight_controller/pixhawk6x/pixhawk6x_mini_set.jpg)
 
