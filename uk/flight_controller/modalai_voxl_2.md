@@ -1,7 +1,7 @@
 # ModalAI VOXL 2
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://forum.modalai.com/) for hardware support or compliance issues.
+PX4 не виробляє цей (або будь-який інший) автопілот. Звертайтесь до [виробника](https://forum.modalai.com/) щодо питань апаратного забезпечення або питань відповідності.
 :::
 
 The ModalAI [VOXL 2](https://modalai.com/voxl-2) ([Datasheet](https://docs.modalai.com/voxl2-datasheets/)) is ModalAI’s next-gen autonomous computing platform built around the Qualcomm QRB5165 processor. VOXL 2 boasts 8 cores, integrated PX4, seven camera concurrency, advanced onboard AI up to 15+ TOPS, and 5G connectivity. At 16 grams, VOXL 2 is the future of fully autonomous and connected drones!
