@@ -1,39 +1,39 @@
-# MindPX Hardware
+# Апаратне забезпечення MindPX
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](http://mindpx.net) щодо підтримки обладнання або питань сумісності.
 :::
 
-The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>.
+Серія AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) - це нове покоління автопілотів, що відгалужується від Pixhawk<sup>&reg;</sup>.
 
 ![MindPX Controller](../../assets/hardware/hardware-mindpx.png)
 
-::: info These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info Ці контролери польоту [підтримуються виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Quick Summary
+## Короткий опис
 
-::: info The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
+::: info Основна документація щодо апаратного забезпечення знаходиться [тут](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
 :::
 
-MindPX is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>, been revised in schematic and structure, and been further enhanced with new features to make un-manned vehicle more smart and more friendly to use.
+MindPX - це нова система автопілотів, що створена з Pixhawk<sup>&reg;</sup>, переглянута в схематиці та структурі, і вони були ще більше розширені новими можливостями, щоб безпілотний пристрій був "розумнішим" та простшим у користуванні.
 
-MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs). This means that MindPX can support more complicated VTOL configurations and more fine control. It is especially meaningful for those FMU-V4 based flight controllers as MindPX implements main and aux output in one single FMU.
+MindPX збільшує загальну кількість каналів виведення PWM до 16 (8 основних виводів + 8 допоміжних виводів). Це означає, що MindPX може підтримувати більш складні конфігурації VTOL і кращий контроль. Це особливо важливо для тих контролерів польоту на основі FMU-V4, оскільки MindPX реалізує основний та додатковий вивід в одному FMU.
 
 ![](../../assets/hardware/hardware-mindpx-specs.png)
 
-- Main System-on-Chip: STM32F427
+- Головний системний чіп: STM32F427
 
-  - CPU: 32bits, 168 MHz ARM Cortex<sup>&reg;</sup> M4 with FPU
+  - Процесор: 32bits, 168 MHz ARM Cortex<sup>&reg;</sup> M4 з FPU
   - RAM: 256 KB SRAM
   - 2MB Flash
-  - ST Micro LSM303D 14 bit accelerometer/magnetometer
-  - MEAS MS5611 barometer
-  - InvenSense<sup>&reg;</sup> MPU6500 integrated 6-axis sensors
+  - ST Micro LSM303D 14 бітний акселерометр/магнітометр
+  - MEAS MS5611 барометр
+  - Інтегровані датчики 6-осевого сенсора InvenSense<sup>&reg;</sup> MPU6500
 
-- Highlighted features:
-  - CNC processed aluminum alloy case, light and solid
-  - Built-in isolated IMU redundancy
-  - Total 16 PWM output channel (8 main + 8 aux)
+- Виділені функції:
+  - Корпус із обробленого CNC алюмінієвого сплаву, легкий і міцний
+  - Вбудована ізольована резервна IMU
+  - Загалом 16 каналів виведення PWM (8 основних + 8 додаткових)
   - 1 extra I2C port for flow connection.
   - 1 extra USB port for companion computer connection (built-in UART-to-USB converter)
   - Exposed debug port for development
