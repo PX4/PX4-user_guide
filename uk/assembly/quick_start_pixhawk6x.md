@@ -15,23 +15,23 @@
 
 ![Pixhawk 6x mini standard set](../../assets/flight_controller/pixhawk6x/pixhawk6x_mini_set.jpg)
 
-## Wiring Chart Overview
+## Огляд схеми підключення
 
-The image below is sample wiring diagram that shows how to connect the most important sensors and peripherals.
+На зображенні нижче показано, як під'єднати найважливіші датчики та периферійні пристрої.
 
 ![Pixhawk 6x Wiring Overview](../../assets/flight_controller/pixhawk6x/pixhawk6x_wiring_diagram.png)
 
 :::tip
-More information about available ports can be found here: [Pixhawk 6X > Connections](../flight_controller/pixhawk6x.md#connections).
+Додаткову інформацію про доступні порти можна знайти тут: [Pixhawk 6X > Connections](../flight_controller/pixhawk6x.md#connections).
 :::
 
-## Mount and Orient Controller
+## Монтаж та орієнтація контролера
 
-_Pixhawk 6X_ can be mounted on the frame using double side tape included in the kit. It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+_Pixhawk 6X_ можна змонтувати на раму за допомогою двосторонньої стрічки, включеної в комплект. Він повинен бути розташований якомога ближче до центру ваги вашого апарату, орієнтований верхньою стороною вгору зі стрілкою, що вказує вперед апарату.
 
 <img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_vehicle_front1.jpg" width="400px" title="Pixhawk6x" />
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+::: info Якщо контролер не може бути змонтований в рекомендованій/стандартній орієнтації (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 :::
 
 ## GPS + Compass + Buzzer + Safety Switch + LED
