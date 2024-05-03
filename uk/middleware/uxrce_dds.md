@@ -30,25 +30,25 @@ PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) публі
 
 ## Генерація коду
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is generated at build time and included in PX4 firmare by default. The agent has no dependency on client code. It can be built standalone or in a ROS 2 workspace, or installed as a snap package on Ubuntu.
+PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) генерується під час збирання і входить до складу прошивки PX4 за замовчуванням. Агент не залежить від клієнтського коду. Він може бути побудований окремо або в робочому просторі ROS 2, або встановлений як snap пакет в Ubuntu.
 
-When PX4 is built, a code generator uses the uORB message definitions in the source tree ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) to compile support for the subset of uORB topics in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) into [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
+Під час збирання PX4 генератор коду використовує визначення повідомлень uORB у дереві вихідних текстів ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) для компіляції підтримки підмножини тем uORB у [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) у [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
 
-PX4 main or release builds automatically export the set of uORB messages definitions in the build to an associated branch in [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
+Основні або релізні збірки PX4 автоматично експортують набір визначень повідомлень uORB у збірці до відповідної гілки у [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
 
-ROS 2 applications need to be built in a workspace that includes the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware. These can be included into a workspace by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace and switching to the appropriate branch. Note that all code generation associated with the messages is handled by ROS 2.
+Додатки ROS 2 потрібно створювати у робочій області, яка містить _такі самі_ визначення повідомлень, які були використані для створення клієнтського модуля uXRCE-DDS у прошивці PX4. Їх можна включити до робочого простору шляхом клонування інтерфейсного пакунка [PX4/px4_msgs](https://github.com/PX4/px4_msgs) до вашого робочого простору ROS 2 і переходу до відповідної гілки. Зауважте, що вся генерація коду, пов'язана з повідомленнями, обробляється ROS 2.
 
-## Micro XRCE-DDS Agent Installation
+## Встановлення Micro XRCE-DDS Agent
 
-The Micro XRCE-DDS Agent can be installed on the companion computer using a binary package, built and installed from source, or built and run from within a ROS 2 workspace. All of these methods fetch _all_ the dependencies needed to communicate with the client (such as FastCDR)
+Micro XRCE-DDS Agent може бути встановлений на комп'ютер за допомогою бінарного пакета, зібраний і встановлений з вихідного коду, або зібраний і запущений з робочого простору ROS 2. Всі ці методи отримують _всі_ залежності, необхідні для зв'язку з клієнтом (наприклад, FastCDR)
 
-::: info
-The official (and more complete) installation guide is the Eprosima: [micro XRCE-DDS Installation Guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html). This section summarises the options that have been tested with PX4 during creation of these docs.
+:::info
+Офіційним (і більш повним) посібником зі встановлення є Eprosima: [micro XRCE-DDS Installation Guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html). У цьому розділі узагальнено варіанти, які були протестовані за допомогою PX4 під час створення цієї документації.
 :::
 
-### Install Standalone from Source
+### Окреме встановлення з вихідного коду
 
-On Ubuntu you can build from source and install the Agent standalone using the following commands:
+В Ubuntu ви можете зібрати з вихідного коду і встановити Агент окремо за допомогою наступних команд:
 
 ```sh
 git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
@@ -61,54 +61,54 @@ sudo make install
 sudo ldconfig /usr/local/lib/
 ```
 
-::: info
-There are various build configuration options linked from the corresponding topic in the [official guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html#installing-the-agent-standalone), but these have not been tested.
+:::info
+Існують різні варіанти конфігурації збірки, посилання на які можна знайти у відповідній темі [офіційного посібника](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html#installing-the-agent-standalone), але вони не були протестовані.
 :::
 
-To start the agent with settings for connecting to the uXRCE-DDS client running on the simulator:
+Запустити агент з налаштуваннями для підключення до клієнта uXRCE-DDS, запущеного у симуляторі:
 
 ```sh
 MicroXRCEAgent udp4 -p 8888
 ```
 
-### Install from Snap Package
+### Встановлення з Snap пакунку
 
-Install from a snap package on Ubuntu using the following command:
+Встановіть з пакунка snap на Ubuntu за допомогою наступної команди:
 
 ```sh
 sudo snap install micro-xrce-dds-agent --edge
 ```
 
-To start the agent with settings for connecting to the uXRCE-DDS client running on the simulator (note that the command name is different than if you build the agent locally):
+Запустити агента з налаштуваннями для підключення до клієнта uXRCE-DDS, запущеного у симуляторі (зверніть увагу, що назва команди відрізняється від назви, яку ви збираєте локально):
 
 ```sh
 micro-xrce-dds-agent udp4 -p 8888
 ```
 
-::: info
-At time of writing the stable of version installed from snap connects to PX4 but reports errors creating topics. The development version, fetched using `--edge` above, does work.
+:::info
+На момент написання статті стабільна версія, встановлена з snap, підключається до PX4, але повідомляє про помилки при створенні тем. Версія для розробки, отримана за допомогою `--edge` вище, працює.
 :::
 
-### Build/Run within ROS 2 Workspace
+### Збірка/Запуск у межах робочого простору ROS 2
 
-The agent can be built and launched within a ROS 2 workspace (or build standalone and launched from a workspace. You must already have installed ROS 2 following the instructions in: [ROS 2 User Guide > Install ROS 2](../ros/ros2_comm.md#install-ros-2).
+Агент може бути створений і запущений в робочому просторі ROS 2 (або створений окремо і запущений з робочого простору. Ви вже повинні мати встановлений ROS 2, дотримуючись інструкцій у цьому розділі: [Посібник користувача ROS 2 > Встановлення ROS 2](../ros/ros2_comm.md#install-ros-2).
 
-To build the agent within ROS:
+Створити агента в межах ROS:
 
-1. Create a workspace directory for the agent:
+1. Створіть директорію робочого простору для агента:
 
    ```sh
    mkdir -p ~/px4_ros_uxrce_dds_ws/src
    ```
 
-1. Clone the source code for the eProsima [Micro-XRCE-DDS-Agent](https://github.com/eProsima/Micro-XRCE-DDS-Agent) to the `/src` directory (the `main` branch is cloned by default):
+1. Клонуйте вихідний код eProsima [Micro-XRCE-DDS-Agent](https://github.com/eProsima/Micro-XRCE-DDS-Agent) до каталогу `/src` (за замовчуванням клонується гілка `main`):
 
    ```sh
    cd ~/px4_ros_uxrce_dds_ws/src
    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
    ```
 
-1. Source the ROS 2 development environment, and compile the workspace using `colcon`:
+1. Зберіть середовище розробки ROS 2 і скомпілюйте робочу область за допомогою `colcon`:
 
    :::: tabs
 
@@ -135,11 +135,11 @@ To build the agent within ROS:
    :
 :::
 
-   This builds all the folders under `/src` using the sourced toolchain.
+   У результаті буде зібрано усі каталоги у `/src` за допомогою вихідного набору інструментів.
 
-To run the micro XRCE-DDS agent in the workspace:
+Для запуску агента micro XRCE-DDS в робочому просторі:
 
-1. Source the `local_setup.bash` to make the executables available in the terminal (also `setup.bash` if using a new terminal).
+1. Виконайте `local_setup.bash`, щоб зробити виконувані файли доступними у терміналі (також `setup.bash`, якщо ви використовуєте новий термінал).
 
    :::: tabs
 
@@ -166,7 +166,7 @@ To run the micro XRCE-DDS agent in the workspace:
    :
 :::
 
-1) Start the agent with settings for connecting to the uXRCE-DDS client running on the simulator:
+1) Запустіть агент з налаштуваннями для підключення до клієнта uXRCE-DDS, запущеного на симуляторі:
 
    ```sh
    MicroXRCEAgent udp4 -p 8888
@@ -176,26 +176,26 @@ To run the micro XRCE-DDS agent in the workspace:
 
 ### Запуск агента
 
-The agent is used to connect to the client over a particular channel, such as UDP or a serial connection. The channel settings are specified when the agent is started, using command line options. These are documented in the eProsima user guide: [Micro XRCE-DDS Agent > Agent CLI](https://micro-xrce-dds.docs.eprosima.com/en/latest/agent.html#agent-cli). Note that the agent supports many channel options, but PX4 only supports UDP and serial connections.
+Агент використовується для підключення до клієнта через конкретний канал, такий як UDP або послідовне з'єднання. The channel settings are specified when the agent is started, using command line options. Вони задокументовані в посібнику користувача eProsima: [Micro XRCE-DDS Agent > Agent CLI](https://micro-xrce-dds.docs.eprosima.com/en/latest/agent.html#agent-cli). Зверніть увагу, що агент підтримує багато варіантів каналів, але PX4 підтримує тільки UDP і послідовні з'єднання.
 
-::: info
-You should create a single instance of the agent for each channel over which you need to connect.
+:::info
+Ви повинні створити один екземпляр агента для кожного каналу, через який ви хочете підключитися.
 :::
 
-For example, the PX4 simulator runs the uXRCE-DDS client over UDP on port 8888, so to connect to the simulator you would start the agent with the command:
+Наприклад, симулятор PX4 запускає клієнт uXRCE-DDS через UDP на порт 8888, тому для підключення до симулятора потрібно запустити агент за допомогою команди:
 
 ```sh
 MicroXRCEAgent udp4 -p 8888
 ```
 
-When working with real hardware, the setup depends on the hardware, OS, and channel. For example, if you're using the RasPi `UART0` serial port, you might connect using this command (based on the information in [Raspberry Pi Documentation > Configuring UARTS](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts)):
+При роботі з реальним обладнанням налаштування залежить від апаратного забезпечення, операційної системи та каналу. For example, if you're using the RasPi `UART0` serial port, you might connect using this command (based on the information in [Raspberry Pi Documentation > Configuring UARTS](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts)):
 
 ```sh
 sudo MicroXRCEAgent serial --dev /dev/AMA0 -b 921600
 ```
 
-::: info
-For more information about setting up communications channels see [Pixhawk + Companion Setup > Serial Port setup](../companion_computer/pixhawk_companion.md#serial-port-setup), and sub-documents.
+:::info
+Для отримання додаткової інформації про налаштування каналів зв'язку див. [Налаштування Pixhawk + Companion > Налаштування послідовного порту](../companion_computer/pixhawk_companion.md#serial-port-setup), а також пов'язану документацію.
 :::
 
 ### Запуск клієнта
