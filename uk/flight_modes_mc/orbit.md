@@ -1,20 +1,20 @@
 # Orbit (Multicopter)
 
-<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
+<img src="../../assets/site/difficulty_easy.png" title="Легко літати" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="Необхідне виправлення позиції (напр. GPS)" width="30px" />
 
-The _Orbit_ guided flight mode allows you to command a multicopter (or VTOL in multicopter mode) to fly in a circle at a particular location, by [default](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) yawing so that it always faces towards the center.
+Мод керованого польоту _Orbit_ дозволяє вам керувати багтротором (або VTOL у режимі багтротора) у кілі навколо певного місця, [автоматично](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) розвертаючись так, щоб завжди бути спрямованим на центр.
 
 ::: info
 
-- Mode is automatic - no user intervention is _required_ to control the vehicle.
-- Mode requires at least a valid local position estimate (does not require a global position).
-  - Flying vehicles can't switch to this mode without valid local position.
-  - Flying vehicles will failsafe if they lose the position estimate.
-- Mode prevents arming (vehicle must be armed when switching to this mode).
-- Mode requires wind and flight time are within allowed limits (specified via parameters).
-- This mode is currently only supported on multicopter (or VTOL in MC mode).
-- RC stick movement can control ascent/descent and orbit speed and direction.
-- The mode can be triggered using the [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MMAV_CMD_DO_ORBIT) MAVLink command.
+- Режим автоматичний - для керування автомобілем _не потрібно_ втручання користувача.
+- Режим потребує принаймні дійсної локальної оцінки позиції (не потребує глобальної позиції).
+  - Літаючі транспортні засоби не можуть переключатися на цей режим без глобального положення.
+  - Літаючі транспортні засоби перейдуть в режим аварійної безпеки, якщо втратять оцінку положення.
+- Режим перешкоджає зброюванню (транспортний засіб повинен бути зброєний при переході на цей режим).
+- Режим вимагає, щоб швидкість вітру та час польоту були в межах допустимих значень (вказано через параметри).
+- Цей режим в даний час підтримується лише на багатокоптерних (або VTOL у режимі MC).
+- Рух палиці RC може контролювати підйом/спуск та швидкість та напрямок оберту.
+- Режим може бути викликаний за допомогою команди MAVLink [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MMAV_CMD_DO_ORBIT).
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
@@ -22,46 +22,46 @@ The _Orbit_ guided flight mode allows you to command a multicopter (or VTOL in m
 
 ## Загальний огляд
 
-![Orbit Mode - MC](../../assets/flying/orbit.jpg)
+![Режим орбіти - MC](../../assets/flying/orbit.jpg)
 
-_QGroundControl_ (or other compatible GCS or MAVLink API) is _required_ to enable the mode, and to set the center position, initial radius and altitude of the orbit. Once enabled the vehicle will fly as fast as possible to the closest point on the commanded circle trajectory and do a slow (1m/s) clockwise orbit on the planned circle, facing the center.
+_QGroundControl_ (або інші сумісні GCS або MAVLink API) _потрібно_ для увімкнення режиму, а також для встановлення центральної позиції, початкового радіусу та висоти орбіти. Після активації транспортний засіб полетить якнайшвидше до найближчої точки на запланованій траєкторії кола і виконає повільний (1 м/с) ходовий оберт навколо запланованого кола за годинниковою стрілкою, обертаючись до центру.
 
-Instructions for how to start an orbit can be found here: [FlyView > Orbit Location](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.html#orbit) (_QGroundControl_ guide).
+Інструкції з того, як почати орбіту, можна знайти тут: [FlyView > Orbit Location](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.html#orbit) (посібник _QGroundControl_).
 
-::: info
-The use of an RC control is _optional_. If no RC control is present the orbit will proceed as described above. RC control cannot be used to start the mode (if you switch to the mode via RC it will sit idle).
+::: інформація
+Використання керування RC є _необов'язковим_. Якщо відсутній керування RC, орбіта буде продовжуватися, як описано вище. RC керування не може бути використане для запуску режиму (якщо ви перемикаєтеся на режим через RC, він буде просто працювати у мирі).
 :::
 
-RC control can be used to change the orbit altitude, radius, speed, and orbit direction:
+RC керування може бути використане для зміни висоти орбіти, радіусу, швидкості та напрямку обертання:
 
-- **Left stick:**
-  - _up/down:_ controls speed of ascent/descent, as in [Position mode](../flight_modes_mc/position.md). When in center deadzone, altitude is locked.
-  - _left/right:_ no effect.
-- **Right stick:**
-  - _left/right:_ controls acceleration of orbit in clockwise/counter-clockwise directions. When centered the current speed is locked.
-    - Maximum velocity is 10m/s and further limited to keep the centripetal acceleration below 2m/s^2.
-  - _up/down:_ controls orbit radius (smaller/bigger). When centered the current radius is locked.
-    - Minimum radius is 1m. Maximum radius is 100m.
+- **Лівий джойстик:**
+  - _вгору/вниз:_ контролює швидкість підйому/спуску, як у режимі [Положення](../flight_modes_mc/position.md). Коли в центрі мертвої зони, висота заблокована.
+  - _ліворуч/праворуч:_ без ефекту.
+- **Лівий джойстик:**
+  - _ліворуч/праворуч:_ контролює прискорення орбіти у годинниковому/противогодинниковому напрямку. Коли центрується, поточна швидкість заблокована.
+    - Максимальна швидкість становить 10 м/с і подальше обмеження з метою збереження центростремального прискорення нижче 2 м/с².
+  - _вгору/вниз:_ контролює радіус орбіти (менший/більший). Коли центрується, поточний радіус заблокований.
+    - Мінімальний радіус - 1м. Максимальний радіус становить 100 м.
 
-The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
+Діаграма нижче візуально показує поведінку режиму (для [передавача режиму 2](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![Orbit Mode - MC](../../assets/flight_modes/orbit_mc.png)
+![Режим орбіти - MC](../../assets/flight_modes/orbit_mc.png)
 
-The mode can be stopped by switching to any other flight mode (using RC or QGC).
+Режим можна припинити, переключившись на будь-який інший режим польоту (використовуючи RC або QGC).
 
-## Parameters/Limits
+## Параметри/Обмеження
 
-There are no orbit mode-specific parameters.
+Немає жодних параметрів, специфічних для режиму орбіти.
 
-The following limits are hard coded:
+Наступні обмеження зафіксовані у вихідному коді:
 
-- Initial/default rotation is 1 m/s in a clockwise direction.
-- The maximum acceleration is limited to 2 m/s^2, with priority on keeping the commanded circle trajectory rather than commanded ground speed (i.e. the vehicle will slow down in order to achieve the correct circle if the acceleration exceeds 2m/s^2).
-- Maximum radius is 100m.
+- Початкове / типове обертання 1 м/с у годинному напрямку.
+- Максимальне прискорення обмежено до 2 м/с^2, з пріоритетом на збереження командованої траєкторії кола, а не командованої швидкості на землі (тобто транспортний засіб сповільнюватиметься, щоб досягти правильного кола, якщо прискорення перевищує 2 м/с^2).
+- Максимальний радіус - 100м.
 
-## MAVLink Messages (Developers)
+## Повідомлення MAVLink (розробники)
 
-Orbit mode uses the following MAVLink commands:
+Режим орбіти використовує наступні команди MAVLink:
 
-- [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_ORBIT) - Start an orbit with specified center point, radius, direction, altitude, speed and [yaw direction](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) (vehicle defaults to faceing centre of orbit).
-- [ORBIT_EXECUTION_STATUS](https://mavlink.io/en/messages/common.html#ORBIT_EXECUTION_STATUS) - Orbit status emitted during orbit to update GCS of current orbit parameters (these may be changed by the RC controller).
+- [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_ORBIT) - Розпочати орбіту з вказаною центральною точкою, радіусом, напрямком, висотою, швидкістю та [напрямком yaw](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) (транспортний засіб за замовчуванням повертається до центру орбіти).
+- [СТАН ВИКОНАННЯ ОРБІТИ](https://mavlink.io/en/messages/common.html#ORBIT_EXECUTION_STATUS) - Статус орбіти, випущений під час оберту для оновлення GCS поточних параметрів орбіти (ці параметри можуть бути змінені контролером RC).
