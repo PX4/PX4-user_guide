@@ -2,18 +2,18 @@
 
 <img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
-_Follow Me_ mode allows a multicopter to autonomously hold position and altitude relative to another system that is broadcasting its position (and optionally velocity) using the [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) MAVLink message.
+Режим _Follow Me_ дозволяє багтротору автономно утримувати позицію та висоту відносно іншої системи, яка транслює свою позицію (і, за бажанням, швидкість) за допомогою повідомлення MAVLink [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET).
 
 ::: info
 
-- Mode is automatic - no user intervention is _required_ to control the vehicle.
-- Mode requires at least a valid local position estimate (does not require a global position).
-  - Flying vehicles can't switch to this mode without valid local position.
-  - Flying vehicles will failsafe if they lose the position estimate.
-- Mode prevents arming (vehicle must be armed when switching to this mode).
-- Mode requires wind and flight time are within allowed limits (specified via parameters).
-- This mode is currently only supported on multicopter (or VTOL in MC mode).
-- The follow target must also be able to supply position information.
+- Режим є автоматичним - для керування транспортним засобом не потрібне _втручання_ користувача.
+- Режим потребує принаймні дійсної локальної оцінки позиції (не потребує глобальної позиції).
+  - Літаючі апарати не можуть перемикатися в цей режим без валідної локальної позиції.
+  - Літаючі транспортні засоби будуть аварійно переходити в безпечний режим, якщо втрачають оцінку позиції.
+- Режим перешкоджає взброєнню (транспортний засіб повинен бути включеним при переході в цей режим).
+- Режим вимагає, щоб швидкість вітру та час польоту були в межах допустимих значень (вказано через параметри).
+- Цей режим в даний час підтримується лише на багатокоптерних (або VTOL у режимі MC).
+- Також обраний об'єкт повинен мати можливість постачання інформації про позицію.
 - Follow-me mode is supported by _QGroundControl_ on Android devices with a GPS module, and [MAVSDK](#follow-me-with-mavsdk).
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
