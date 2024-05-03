@@ -16,7 +16,7 @@ An overview of the Crazyflie 2.1 can be [found here](https://www.bitcraze.io/pro
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie21/crazyflie_2.1.jpg)
 
-## Quick Summary
+## Короткий опис
 
 :::info
 The main hardware documentation is [here](https://wiki.bitcraze.io/projects:crazyflie2:index)
@@ -34,7 +34,7 @@ The main hardware documentation is [here](https://wiki.bitcraze.io/projects:craz
 - Partial USB OTG capability (USB OTG present but no 5V output)
 - 8KB EEPROM
 
-## Where to Buy
+## Де придбати
 
 The vehicle can be purchased here: [Crazyflie 2.1](https://store.bitcraze.io/products/crazyflie-2-1) (store.bitcraze.io)
 
@@ -83,7 +83,7 @@ After setting up the PX4 development environment, follow these steps to install 
    - After a second, the blue LED should start blinking and after 5 seconds should start blinking faster.
    - Release button.
 
-4. Install _dfu-util_:
+4. Встановіть _dfu-util_:
 
    ```sh
    sudo apt-get update
