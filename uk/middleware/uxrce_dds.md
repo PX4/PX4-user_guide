@@ -230,37 +230,37 @@ sudo MicroXRCEAgent serial --dev /dev/AMA0 -b 921600
 
 - Якщо використовується послідовне підключення:
 
-  - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), [SER_URT6_BAUD](../advanced_config/parameter_reference.md#SER_URT6_BAUD) (and so on): Use the `_BAUD` parameter associated with the serial port to set the baud rate. For example, you'd set a value for `SER_TEL2_BAUD` if you are connecting to the companion using `TELEM2`. For more information see [Serial port configuration](../peripherals/serial_configuration.md#serial-port-configuration).
+  - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), [SER_URT6_BAUD](../advanced_config/parameter_reference.md#SER_URT6_BAUD) (і так далі): Використовуйте параметр `_BAUD`, пов'язаний з послідовним портом, для встановлення швидкості передачі даних. Наприклад, ви встановите значення для `SER_TEL2_BAUD`, якщо ви підключаєтеся до комп'ютера-компаньйона за допомогою `TELEM2`. Докладнішу інформацію наведено у розділі [Конфігурація послідовного порту](../peripherals/serial_configuration.md#serial-port-configuration).
 
 - Деякі налаштування можуть також потребувати встановлення цих параметрів:
 
-  - [UXRCE_DDS_KEY](../advanced_config/parameter_reference.md#UXRCE_DDS_KEY): The uXRCE-DDS key. If you're working in a multi-client, single agent configuration, each client should have a unique non-zero key. This is primarily important for multi-vehicle simulations, where all clients are connected in UDP to the same agent. (See the [official eprosima documentation](https://micro-xrce-dds.docs.eprosima.com/en/stable/client_api.html#session) , `uxr_init_session`.)
-  - [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID): The DDS domain ID. This provides a logical separation between DDS networks, and can be used to separate clients on different networks. By default, ROS 2 operates on ID 0.
-  - [UXRCE_DDS_PTCFG](../advanced_config/parameter_reference.md#UXRCE_DDS_PTCFG): uXRCE-DDS participant configuration. It allows to restrict the visibility of the DDS topics to the _localhost_ only and to use user-customized participant configuration files stored on the agent side.
-  - [UXRCE_DDS_SYNCT](../advanced_config/parameter_reference.md#UXRCE_DDS_SYNCT): Bridge time synchronization enable. The uXRCE-DDS client module can synchronize the timestamp of the messages exchanged over the bridge. This is the default configuration. In certain situations, for example during [simulations](../ros/ros2_comm.md#ros-gazebo-and-px4-time-synchronization), this feature may be disabled.
+  - [UXRCE_DDS_KEY](../advanced_config/parameter_reference.md#UXRCE_DDS_KEY): Ключ uXRCE-DDS. Якщо ви працюєте в мультиклієнтській конфігурації з одним агентом, кожен клієнт повинен мати унікальний ненульовий ключ. Це насамперед важливо для симуляцій з кількома транспортними засобами, де всі клієнти під'єднані до UDP одного агента. (Див. [офіційну документацію eprosima](https://micro-xrce-dds.docs.eprosima.com/en/stable/client_api.html#session) , `uxr_init_session`.)
+  - [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID): ідентифікатор домену DDS. Це забезпечує логічне розділення мереж DDS і може бути використано для розділення клієнтів на різні мережі. За замовчуванням, ROS 2 працює з ID 0.
+  - [UXRCE_DDS_PTCFG](../advanced_config/parameter_reference.md#UXRCE_DDS_PTCFG): Конфігурація учасника uXRCE-DDS. Це дозволяє обмежити видимість тем DDS лише для _localhost_ і використовувати користувацькі конфігураційні файли учасників, що зберігаються на стороні агента.
+  - [UXRCE_DDS_SYNCT](../advanced_config/parameter_reference.md#UXRCE_DDS_SYNCT): увімкнути синхронізацію часу мосту. Клієнтський модуль uXRCE-DDS може синхронізувати мітку часу повідомлень, якими обмінюються через міст. Це стандартна конфігурація. У певних ситуаціях, наприклад, під час [симуляцій](../ros/ros2_comm.md#ros-gazebo-and-px4-time-synchronization), ця функція може бути вимкнена.
 
 ::: info
-Багато портів вже мають конфігурацію за замовчуванням. To use these ports you must first disable the existing configuration:
+Багато портів вже мають конфігурацію за замовчуванням. Щоб використовувати ці порти, спочатку вимкніть існуючу конфігурацію:
 
-- `TELEM1` and `TELEM2` are set up by default to connect via MAVLink to a GCS and a companion computer (respectively). Disable by setting [MAV_0_CONFIG=0](../advanced_config/parameter_reference.md#MAV_0_CONFIG) or [MAV_1_CONFIG=0](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to zero. See [MAVLink Peripherals](../peripherals/mavlink_peripherals.md) for more information.
-- Other ports can similarly be configured. See [Serial port configuration](../peripherals/serial_configuration.md#serial-port-configuration).
+- `TELEM1` і `TELEM2` за замовчуванням налаштовані на підключення через MAVLink до GCS і комп'ютера-компаньйона (відповідно). Вимкніть, встановивши [MAV_0_CONFIG=0](../advanced_config/parameter_reference.md#MAV_0_CONFIG) або [MAV_1_CONFIG=0](../advanced_config/parameter_reference.md#MAV_1_CONFIG) на нуль. Докладнішу інформацію див. у розділі [Периферійні пристрої MAVLink](../peripherals/mavlink_peripherals.md).
+- Інші порти можуть бути налаштовані аналогічним чином. Дивіться [Конфігурація послідовного порту](../peripherals/serial_configuration.md#serial-port-configuration).
 :::
 
-Once set, you may need to reboot PX4 for the parameters to take effect. They will then persist through subsequent reboots.
+Після встановлення можливо знадобиться перезавантаження PX4, щоб параметри набрали чинності. Після цього вони зберігатимуться під час наступних перезавантажень.
 
-You can also start the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) using a command line. This can be called as part of [System Startup](../concept/system_startup.md) or through the [MAVLink Shell](../debug/mavlink_shell.md) (or a system console). This method is useful when you need to set a custom client namespace, as no parameter is provided for this purpose. For example, the following command can be used to connect via Ethernet to a remote host at `192.168.0.100:8888` and to set the client namespace to `/drone/`.
+Ви також можете запустити [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) за допомогою командного рядка. Його можна викликати як частину [System Startup](../concept/system_startup.md) або за допомогою [Оболонки MAVLink](../debug/mavlink_shell.md) (або системної консолі). Цей метод корисний, коли вам потрібно встановити власний простір імен клієнта, оскільки для цього не передбачено жодного параметра. Наприклад, наступна команда може бути використана для підключення через Ethernet до віддаленого хоста за адресою `192.168.0.100:8888` і встановлення простору імен клієнта на `/drone/`.
 
 ```sh
 uxrce_dds_client start -t udp -p 8888 -h 192.168.0.100 -n drone
 ```
 
-Options `-p` or `-h` are used to bypass `UXRCE_DDS_PRT` and `UXRCE_DDS_AG_IP`.
+Параметри `-p` або `-h` використовуються для обходу `UXRCE_DDS_PRT` і `UXRCE_DDS_AG_IP`.
 
 #### Запуск клієнта в симуляції
 
-The simulator [startup logic](../concept/system_startup.md) ([init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS)) uses the client startup commands for single and [multi vehicle simulations](../ros/ros2_multi_vehicle.md), enabling the setting of appropriate instance ids and DDS namespaces. By default the client is started on localhost UDP port `8888` with no additional namespace.
+Логіка запуску симулятора [логіка запуску](../concept/system_startup.md) ([init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS)) використовує команди запуску клієнта для одного та [декількох транспортних засобів](../ros/ros2_multi_vehicle.md), що дозволяє встановлювати відповідні ідентифікатори екземплярів та простори імен DDS. За замовчуванням клієнт запускається на локальному хості через UDP-порт `8888` без додаткового простору імен.
 
-Environment variables are provided that override some [UXRCE-DDS parameters](../advanced_config/parameter_reference.md#uxrce-dds-client). These allow users to create custom startup files for their simulations:
+Надаються змінні середовища, які перевизначають деякі [параметри UXRCE-DDS](../advanced_config/parameter_reference.md#uxrce-dds-client). Це дозволяє користувачам створювати власні файли запуску для своїх симуляцій:
 
 - `PX4_UXRCE_DDS_NS`: Use this to specify the topic [namespace](#customizing-the-topic-namespace).
 - `ROS_DOMAIN_ID`: Use this to replace [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID).
