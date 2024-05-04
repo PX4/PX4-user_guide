@@ -100,8 +100,8 @@ There is also an [ARM20-CTX 20-Pin to TC2030-IDC adapter](https://www.tag-connec
 
 | UART   | Device     | Port                                                            |
 | ------ | ---------- | --------------------------------------------------------------- |
-| USART2 | /dev/ttyS0 | TELEM1 (flow control)                                           |
-| USART3 | /dev/ttyS1 | TELEM2 (flow control)                                           |
+| USART2 | /dev/ttyS0 | TELEM1 (контроль потоку)                                        |
+| USART3 | /dev/ttyS1 | TELEM2 (контроль потоку)                                        |
 | UART4  | /dev/ttyS2 | GPS1                                                            |
 | USART6 | /dev/ttyS3 | Flex port (can be configured as SPI or UART with Flow Control). |
 | UART7  | /dev/ttyS4 | CONSOLE                                                         |
