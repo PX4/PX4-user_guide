@@ -37,7 +37,7 @@
 
 ESCs are connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions. ESC order does not matter.
 
-## Firmware Setup
+## Встановлення прошивки
 
 ESCs come with an existing build of Sapog installed. If you want to update:
 
@@ -53,7 +53,7 @@ This will create a file `*.application.bin`. in `build/`. This binary can be fla
 
 Refer to the [project page](https://github.com/PX4/sapog) to learn more, including how to flash without using the DroneCAN bootloader (i.e. on a not-yet-programmed device) or for development.
 
-## Flight Controller Setup
+## Налаштування польотного контролера
 
 ### Увімкнення DroneCAN
 
