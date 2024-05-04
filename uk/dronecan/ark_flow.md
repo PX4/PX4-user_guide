@@ -10,7 +10,7 @@ Order this module from:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-flow/) (US)
 
-## Hardware Specifications
+## Характеристики обладнання
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Flow)
 - Sensors
@@ -38,11 +38,11 @@ Order this module from:
 
 ## Hardware Setup
 
-### Wiring
+### Підключення
 
 The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
-### Mounting
+### Встановлення
 
 The recommended mounting orientation is with the connectors on the board pointing towards **back of vehicle**, as shown in the following picture.
 
@@ -52,7 +52,7 @@ This corresponds to the default value (`0`) of the parameter [SENS_FLOW_ROT](../
 
 The sensor can be mounted anywhere on the frame, but you will need to specify the focal point position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
-## Firmware Setup
+## Налаштування прошивки
 
 ARK Flow runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](index.md#node-id-allocation).
 
@@ -61,13 +61,13 @@ ARK Flow boards ship with recent firmware pre-installed, but if you want to buil
 - Ціль прошивки: `ark_can-flow_default`
 - Ціль завантажувача: `ark_can-flow_canbootloader`
 
-## Flight Controller Setup
+## Налаштування польотного контролера
 
 ::: info
 The Ark Flow will not boot if there is no SD card in the flight controller when powered on.
 :::
 
-### Enable DroneCAN
+### Увімкнення DroneCAN
 
 In order to use the ARK Flow board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
@@ -80,7 +80,7 @@ Once enabled, the module will be detected on boot. Flow data should arrive at 10
 
 DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
-### PX4 Configuration
+### Конфігурація PX4
 
 You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [DroneCAN](index.md) parameters, and define offsets if the sensor is not centred within the vehicle.
 
