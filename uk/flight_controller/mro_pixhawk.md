@@ -17,10 +17,10 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## Key Features
+## Основні характеристики
 
-- Microprocessor:
-  - 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
+- Мікропроцесор:
+  - 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core з FPU
   - 168 MHz/256 KB RAM/2 MB Flash
   - 32 bit STM32F100 failsafe co-processor
   - 24 MHz/8 KB RAM/64 KB Flash
@@ -80,14 +80,14 @@ See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO debug              |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART   | Device     | Port                     |
+| ------ | ---------- | ------------------------ |
+| UART1  | /dev/ttyS0 | IO debug                 |
+| USART2 | /dev/ttyS1 | TELEM1 (контроль потоку) |
+| USART3 | /dev/ttyS2 | TELEM2 (контроль потоку) |
+| UART4  |            |                          |
+| UART7  | CONSOLE    |                          |
+| UART8  | SERIAL4    |                          |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
