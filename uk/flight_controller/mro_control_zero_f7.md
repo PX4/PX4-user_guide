@@ -14,7 +14,7 @@ It is a no-compromise triple IMU commercial grade flight controller. It includes
 
 ## Key Features
 
-- Microprocessor:
+- Мікропроцесор:
 
   - 32-bit STM32F777 Cortex<sup>&reg;</sup> M4 core with FPU rev. 3
   - 216 MHz/512 KB RAM/2 MB Flash
@@ -52,14 +52,14 @@ It is a no-compromise triple IMU commercial grade flight controller. It includes
 - Power System:
   - 3x Ultra low noise LDO voltage regulator
 
-## Where to Buy
+## Де купити
 
 - [mRo Control Zero](https://store.mrobotics.io/mRo-Control-Zero-F7-p/mro-ctrl-zero-f7.htm)
 
-## Building Firmware
+## Створення прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно створювати цю прошивку! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
