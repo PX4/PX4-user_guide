@@ -4,7 +4,7 @@
 
 Плата живлення підключається за допомогою протоколу I2C. Вона призначена для керуючих пристроїв польоту на основі відкритого стандарту Pixhawk FMUv5X та FMUv6X, включаючи [Pixhawk 5X](../flight_controller/pixhawk5x.md).
 
-::: info The PM is **NOT** compatible with flight controllers that require an analog power module, including: [Pixhawk 4](../flight_controller/pixhawk4.md), [Durandal](../flight_controller/durandal.md), [Pix32 v5](../flight_controller/holybro_pix32_v5.md), etc.
+:::info PM **НЕ Є** сумісний з керуючими пристроями польоту, які потребують аналогового модуля живлення, включаючи: [Pixhawk 4](../flight_controller/pixhawk4.md), [Durandal](../flight_controller/durandal.md), [Pix32 v5](../flight_controller/holybro_pix32_v5.md), тощо.
 :::
 
 ![PM02D](../../assets/hardware/power_module/holybro_pm02d/pm02d_hero.jpg)
@@ -34,4 +34,4 @@
 
 ![pm02d_pinout](../../assets/hardware/power_module/holybro_pm02d/pm02d_pinout.png)
 
-Additional wiring and connection information can be found in: [Holybro Pixhawk 5x Wiring Quick Start](../assembly/quick_start_pixhawk5x.md).
+Додаткову інформацію про проводку та підключення можна знайти в: [Holybro Pixhawk 5x Wiring Quick Start](../assembly/quick_start_pixhawk5x.md).
