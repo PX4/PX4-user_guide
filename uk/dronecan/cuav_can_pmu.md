@@ -45,7 +45,7 @@ It is recommended for use in large commercial vehicles, but might also be used f
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_pinouts_en2.png)
 
-## Wiring
+## Підключення
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_connection_en.png)
 
@@ -66,8 +66,8 @@ Set the following parameters in _QGroundControl_ [Vehicle Setup > Parameters](..
 
   ![QGC - Set UAVCAN_SUB_BAT parameter to raw data](../../assets/hardware/power_module/cuav_can/qgc_set_usavcan_sub_bat.png)
 
-## Further Information
+## Додаткова інформація
 
-[CAN PMU Manual](http://manual.cuav.net/power-module/CAN-PMU.pdf)
+[Керівництво користувача CAN PMU](http://manual.cuav.net/power-module/CAN-PMU.pdf)
 
-[CAN PMU Power detection module > Enable CAN PMU > PX4 firmware](http://doc.cuav.net/power-module/can-pmu/en/) (CUAV docs)
+[Модуль виявлення живлення CAN PMU > Увімкніть CAN PMU > Прошивка PX4](http://doc.cuav.net/power-module/can-pmu/en/) (документи CUAV)
