@@ -262,11 +262,11 @@ uxrce_dds_client start -t udp -p 8888 -h 192.168.0.100 -n drone
 
 Надаються змінні середовища, які перевизначають деякі [параметри UXRCE-DDS](../advanced_config/parameter_reference.md#uxrce-dds-client). Це дозволяє користувачам створювати власні файли запуску для своїх симуляцій:
 
-- `PX4_UXRCE_DDS_NS`: Use this to specify the topic [namespace](#customizing-the-topic-namespace).
-- `ROS_DOMAIN_ID`: Use this to replace [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID).
-- `PX4_UXRCE_DDS_PORT`: Use this to replace [UXRCE_DDS_PRT](../advanced_config/parameter_reference.md#UXRCE_DDS_PRT).
+- `PX4_UXRCE_DDS_NS`: Використовуйте це, щоб вказати тему [простір імен](#customizing-the-topic-namespace).
+- `ROS_DOMAIN_ID`: Використовуйте це для заміни [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID).
+- `PX4_UXRCE_DDS_PORT`: Використовуйте це для заміни [UXRCE_DDS_PRT](../advanced_config/parameter_reference.md#UXRCE_DDS_PRT).
 
-For example, the following command can be used to start a Gazebo simulation with che client operating on the DDS domain `3`, port `9999` and topic namespace `drone`.
+Наприклад, наступну команду можна використовувати для запуску симуляції Gazebo з клієнтом, який працює в DDS домені `3`, портом `9999` та простором імен теми `drone`.
 
 ```sh
 ROS_DOMAIN_ID=3 PX4_UXRCE_DDS_PORT=9999 PX4_UXRCE_DDS_NS=drone make px4_sitl gz_x500
