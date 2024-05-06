@@ -97,7 +97,7 @@ Make sure the JST cable is wired correctly (since this is not a standard cable):
 
 :::
 
-::: info 
+::: info
 PX4 will ensure that the GNSS module is automatically configured however, if you have a dual antenna setup, it is required to set the layout as accurately as possible in the web app.
 :::
 
@@ -109,10 +109,10 @@ The attitude (heading/pitch) can be computed from the orientation of the baselin
 
 To enable multi-antenna attitude determination, follow the following procedure:
 
-1. Attach two antennas to your vehicle, using cables of approximately the same length. The default antenna configuration is as depicted in the figure. It consists in placing the antennas aligned with the longitudinal axis of the vehicle, main antenna behind aux1. For best accuracy, try to maximize the distance between the antennas, and avoid significant height difference between the antenna ARPs.
+1. Attach two antennas to your vehicle, using cables of approximately the same length. The default antenna configuration is as depicted in the figure. It consists in placing the antennas aligned with the longitudinal axis of the vehicle, main antenna behind AUX1. For best accuracy, try to maximize the distance between the antennas, and avoid significant height difference between the antenna ARPs.
 2. In practice, the two antenna ARPs may not be exactly at the same height in the vehicle frame, or the main-aux1 baseline may not be exactly parallel or perpendicular to the longitudinal axis of the vehicle. This leads to offsets in the computed attitude angles. These offsets can be compensated for with the **setAttitudeOffset** command.
 
-::: info 
+::: info
 For optimal heading results, the two antennas should be seperated by at least 30cm / 11.8 in (ideally 50cm / 19.7in or more)
 
 For additional configuration of the dual antenna setup, please refer to our [Knowledge Base](https://support.septentrio.com/l/858493/2022-04-19/xgrqd) or the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrql)
@@ -137,7 +137,7 @@ Edit the following parameters in the GPS tab:
 - [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG): GPS 1
 - [GPS_1_GNSS](../advanced_config/parameter_reference.md#GPS_1_GNSS): 31
 - [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL): Auto detect (or SBF)
-- [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD): 115200 8N1
+- [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD): 115200 8N1
 
 Go to **Tools > Reboot Vehicle**
 
@@ -145,16 +145,15 @@ Go to **Tools > Reboot Vehicle**
 
 Edit the following parameters in the GPS tab:
 
-- [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG): TELEM1
+- [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG): GPS 1
 - [GPS_1_GNSS](../advanced_config/parameter_reference.md#GPS_1_GNSS): 31
 - [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL): Auto detect (or SBF)
-- [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD): 115200 8N1
-- [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL): Bit 3 Dual antenna heading
-- [GPS_PITCH_OFFSET](../advanced_config/parameter_reference.md#GPS_PITCH_OFFSET): set according to your setup
-- [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET): set according to your setup
+- [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD): 115200 8N1
+- [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL): Add bit 3 (Dual antenna heading) which adds up to 15
+- [GPS_PITCH_OFFSET](../advanced_config/parameter_reference.md#GPS_PITCH_OFFSET): set according to your setup (note that Aux is forward at 0 offset)
+- [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET): set according to your setup (note that Aux is forward at 0 offset)
 
 Go to **Tools > Reboot Vehicle**
-
 
 ## LED Status
 
@@ -168,7 +167,6 @@ Go to **Tools > Reboot Vehicle**
 | Red + Green   | &check;️ |    &check;️     |              |    &check;️     |
 
 :::tip
-
 For more detailed information about the mosaic-go and its module, please refer to the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrrd) or the [Septentrio Support](https://support.septentrio.com/l/858493/2022-04-19/xgrrl) page.
 :::
 
