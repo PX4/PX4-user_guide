@@ -15,7 +15,7 @@ They provide a gentle introduction to building drones, as all the parts are know
 
 ## Набори
 
-The following kits are currently available:
+Наступні комплекти в даний час доступні:
 
 - [Holybro X500 v2 PX4 Development Kit](https://holybro.com/collections/x500-kits) (Pixhawk 6c) ([Build instructions](../frames_multicopter/holybro_x500v2_pixhawk6c.md))
 - [Holybro S500 Kit v2](https://holybro.com/collections/s500/products/s500-v2-development-kit) (Pixhawk 6c)
