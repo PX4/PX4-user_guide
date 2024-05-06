@@ -54,48 +54,48 @@ sudo nano /etc/default/crda
 
 Потім ваш Pi зможе приєднатися до вашої мережі WiFi після перезавантаження.
 
-#### Hostname and mDNS
+#### Hostname та mDNS
 
-Let's set up hostname at first.
+Давайте спочатку налаштуємо ім'я хоста.
 
 ```sh
 sudo nano /etc/hostname
 ```
 
-Change the hostname to whatever you like. Then install the package required by mDNS:
+Змініть значення hostname на те, що вам подобається. Потім встановіть пакет, необхідний для mDNS:
 
 ```sh
 sudo apt-get update
 sudo apt-get install avahi-daemon
 ```
 
-Perform a reboot.
+Виконайте перезавантаження.
 
 ```sh
 sudo reboot
 ```
 
-Regain the accessibility through WiFi connection after the above operation.
+Відновіть доступність через підключення WiFi після вищезазначеної операції.
 
 ```sh
 ssh ubuntu@pi_hostname.local
 ```
 
-#### Password-less Auth (Optional)
+#### Автентифікація без пароля (необов'язково)
 
-You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well.
+Ви також можете налаштувати [безпарольну автентифікацію](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md).
 
-### Setting up OS
+### Налаштування ОС
 
 #### config.txt
 
-The corresponding file in Ubuntu is `/boot/firmware/usercfg.txt`.
+Відповідний файл в Ubuntu - `/boot/firmware/usercfg.txt`.
 
 ```sh
 sudo nano /boot/firmware/usercfg.txt
 ```
 
-Replace the file with:
+Замініть контент файлу на:
 
 ```sh
 # enable sc16is752 overlay
@@ -114,53 +114,53 @@ dtoverlay=miniuart-bt
 
 #### cmdline.txt
 
-On Ubuntu Server 20.04:
+В Ubuntu Server 20.04:
 
 ```sh
 sudo nano /boot/firmware/cmdline.txt
 ```
 
-On Ubuntu Server 18.04 or earlier, `nobtcmd.txt` and `btcmd.txt` should both be modified.
+Для Ubuntu Server 18.04 або ранішої версії, слід змінити `nobtcmd.txt` та `btcmd.txt`.
 
 ```sh
 sudo nano /boot/firmware/nobtcmd.txt
 ```
 
-Find `console=/dev/ttyAMA0,115200` and remove that part to disable the login shell on serial interface.
+Знайдіть `console=/dev/ttyAMA0,115200` та видаліть цю частину, щоб вимкнути командний рядок логіну на послідовному інтерфейсі.
 
-Append `isolcpus=2` after the last word. The whole file will then look like:
+Додайте `isolcpus=2` після останнього слова. Весь файл буде виглядати так:
 
 ```sh
 net.ifnames=0 dwc_otg.lpm_enable=0 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc isolcpus=2
 ```
 
-The above line tells the Linux kernel do not schedule any process on CPU core 2. We will manually run PX4 onto that core later.
+Вищезазначений рядок вказує ядру Linux не планувати жодного процесу на ядрі CPU 2. Ми пізніше вручну запустимо PX4 на цьому ядрі.
 
-Reboot and SSH onto your Pi.
+Перезавантажте та увійдіть за допомогою SSH на ваш Pi.
 
-Check UART interface:
+Перевірте інтерфейс UART:
 
 ```sh
 ls /dev/tty*
 ```
 
-There should be `/dev/ttyAMA0`, `/dev/ttySC0` and `/dev/ttySC1`.
+Має бути `/dev/ttyAMA0`, `/dev/ttySC0` та `/dev/ttySC1`.
 
-Check I2C interface:
+Перевірте інтерфейс I2C:
 
 ```sh
 ls /dev/i2c*
 ```
 
-There should be `/dev/i2c-0` and `/dev/i2c-1`
+Повинно бути `/dev/i2c-0` та `/dev/i2c-1`
 
-Check SPI interface:
+Перевірте інтерфейс SPI:
 
 ```sh
 ls /dev/spidev*
 ```
 
-There should be `/dev/spidev0.0`.
+Має бути `/dev/spidev0.0`.
 
 #### rc.local
 
