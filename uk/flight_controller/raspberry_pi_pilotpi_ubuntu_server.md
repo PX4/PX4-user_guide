@@ -1,58 +1,58 @@
 # PilotPi with Ubuntu Server
 
-:::warning
-Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat.
-Design for better heat dissipation and high power consumption when using this hardware.
+::::warning
+Ubuntu Server на RPi 4B споживає багато струму і генерує багато тепла.
+Розробляйте дизайн для кращого відведення тепла та високого енергоспоживання при використанні цього обладнання.
 :::
 
-## Developer Quick Start
+## Швидкий старт для розробника
 
 ### OS Image
 
-Both armhf and arm64 arch are supported.
+Підтримуються і armhf і arm64.
 
 #### armhf
 
-- [Ubuntu Server 18.04.5 for RPi2](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi2.img.xz)
-- [Ubuntu Server 18.04.5 for RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi3.img.xz)
-- [Ubuntu Server 18.04.5 for RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi4.img.xz)
-- [Ubuntu Server 20.04.1 for RPi 2/3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz)
+- [Ubuntu Server 18.04.5 для RPi2](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi2.img.xz)
+- [Ubuntu Server 18.04.5 для RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi3.img.xz)
+- [Ubuntu Server 18.04.5 для RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi4.img.xz)
+- [Ubuntu Server 20.04.1 для RPi 2/3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz)
 
 #### arm64
 
-- [Ubuntu Server 18.04.5 for RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi3.img.xz)
-- [Ubuntu Server 18.04.5 for RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz)
-- [Ubuntu Server 20.04.1 for RPi 3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz)
+- [Ubuntu Server 18.04.5 для RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi3.img.xz)
+- [Ubuntu Server 18.04.5 для RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz)
+- [Ubuntu Server 20.04.1 для RPi 3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz)
 
-#### Latest OS
+#### Найновіша ОС
 
-Please refer to official [cdimage](https://cdimage.ubuntu.com/releases/) page for any new updates.
+Будь ласка, звертайтеся до офіційної сторінки [cdimage](https://cdimage.ubuntu.com/releases/) для отримання будь-яких нових оновлень.
 
-### First boot
+### Перший запуск
 
-When setting up RaPi's WiFi for the first time we recommended using a wired Ethernet connection between your home router and RPi, and a monitor and keyboard.
+Під час налаштування Wi-Fi для RaPi вперше ми рекомендуємо використовувати провідне підключення Ethernet між домашнім маршрутизатором та RPi, а також монітор та клавіатуру.
 
-#### Before booting
+#### Перед завантаженням
 
-Mount the SD card onto your computer and modify the network settings. Please follow the official instruction [here](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet).
+Встановіть SD-карту на ваш комп'ютер та змініть налаштування мережі. Будь ласка, дотримуйтесь офіційної інструкції [тут](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet).
 
-Now plug the SD card onto your Pi and boot for the first time. Make sure you have shell access to the RPi - either SSH connection over wired Ethernet, or direct accessing with keyboard and monitor.
+Тепер під'єднайте SD-карту до вашого Pi та завантажтеся вперше. Переконайтеся, що у вас є доступ до RPi через командний рядок - або через з'єднання SSH по кабелю Ethernet, або безпосередній доступ за допомогою клавіатури та монітора.
 
-#### WiFi region
+#### WiFi регіон
 
-First install required package:
+Спочатку встановіть необхідний пакет:
 
 ```sh
 sudo apt-get install crda
 ```
 
-Edit the file `/etc/default/crda` to change the correct WiFi region. [Reference List](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
+Відредагуйте файл `/etc/default/crda`, щоб встановити правильний WiFi регіон. [Reference List](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
 
 ```sh
 sudo nano /etc/default/crda
 ```
 
-Then your Pi will able to join your WiFi network after reboot.
+Потім ваш Pi зможе приєднатися до вашої мережі WiFi після перезавантаження.
 
 #### Hostname and mDNS
 
