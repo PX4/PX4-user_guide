@@ -1,34 +1,34 @@
 # Швидке підключення CUAV Pixhawk V6X
 
-This quick start guide shows how to power the [Pixhawk V6X<sup>&reg;</sup>](../flight_controller/cuav_pixhawk_v6x.md) flight controller and connect its most important peripherals.
+У цьому короткому посібнику показано, як увімкнути живлення польотного контролера [Pixhawk V6X<sup>&reg;</sup>](../flight_controller/cuav_pixhawk_v6x.md) та підключити до нього найважливіші периферійні пристрої.
 
-## Wiring Chart Overview
+## Огляд схеми підключення
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+На зображенні нижче показано, як підключити найважливіші датчики та периферійні пристрої (за винятком виходів мотора та сервоприводів). Ми розглянемо кожен з них детально в наступних розділах.
 
 ![wiring](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_01_en.jpg)
 
-| Інтерфейс     | **Функція**                                                                                                                                                                                       |
-|:------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POWER C1      | Connect CAN PMU SE to this interface; this interface is connected to UAVCAN power module                                                                                                          |
-| POWER C2      | Connect CAN PMU SE to this interface; this interface is connected to UAVCAN power module                                                                                                          |
-| POWER 1       | Connect SMbus (I2C) power module                                                                                                                                                                  |
-| POWER 2       | Connect SMbus (I2C) power module                                                                                                                                                                  |
-| GPS&SAFETY    | Connect Neo series GPS/C-RTK 9PS, including GPS, safety switch, buzzer interface.                                                                                                                 |
-| GPS2          | Connect GPS/RTK module                                                                                                                                                                            |
-| UART 4        | User customizable                                                                                                                                                                                 |
-| TELEM (1,2,3) | Connect telemetry or MAVLink devices                                                                                                                                                              |
-| TF CARD       | SD card for log storage (card pre-inserted in factory).                                                                                                                                           |
-| M1~M8         | IO PWM output (for connecting to ESC and Servo)                                                                                                                                                   |
-| A1~A8         | FMU PWM output. Can be defined as PWM/GPIO; supports dshot; used to connect camera shutter/hot shoe, servo, etc.                                                                                  |
-| USB           | Connect to a computer for communication between the flight controller and the computer, such as loading firmware.                                                                                 |
-| CAN1/CAN2     | Connect Dronecan/UAVCAN devices such as NEO3 Pro.                                                                                                                                                 |
-| DSM/SUB/RSSI  | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module |
-| PPM           | Connecting the PPM RC Receiver                                                                                                                                                                    |
-| ETH           | Ethernet interface. Connect Ethernet devices such as task computers                                                                                                                               |
-| AD&IO         | There are two analog inputs (ADC3.3/ADC6.6); generally not used                                                                                                                                   |
+| Інтерфейс     | **Функція**                                                                                                                                                                                                                              |
+|:------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| POWER C1      | Підключіть CAN PMU SE до цього інтерфейсу; цей інтерфейс підключений до модуля живлення UAVCAN                                                                                                                                           |
+| POWER C2      | Підключіть CAN PMU SE до цього інтерфейсу; цей інтерфейс підключений до модуля живлення UAVCAN                                                                                                                                           |
+| POWER 1       | Підключіть модуль живлення SMbus (I2C)                                                                                                                                                                                                   |
+| POWER 2       | Підключіть модуль живлення SMbus (I2C)                                                                                                                                                                                                   |
+| GPS&SAFETY    | Підключіть Neo серії GPS/C-RTK 9PS, включаючи GPS, запобіжний вимикач, інтерфейс зумера.                                                                                                                                                 |
+| GPS2          | Підключіть модуль GPS/RTK                                                                                                                                                                                                                |
+| UART 4        | Користувацькі налаштування                                                                                                                                                                                                               |
+| TELEM (1,2,3) | Підключіть телеметрію або пристрої MAVLink                                                                                                                                                                                               |
+| TF CARD       | Карта SD для зберігання журналів (карта попередньо вставлена на заводі).                                                                                                                                                                 |
+| M1~M8         | Вихідний IO PWM (для підключення до ESC і Servo)                                                                                                                                                                                         |
+| A1~A8         | FMU PWM вивід. Може бути визначено як PWM/GPIO; підтримує dshot; використовується для підключення затвора камери/гарячого черевика, сервоприводу тощо.                                                                                   |
+| USB           | Під'єднатися до комп'ютера для зв'язку між контролером польоту та комп'ютером, наприклад, як завантаження прошивки.                                                                                                                      |
+| CAN1/CAN2     | Підключає пристрої Dronecan/UAVCAN, такі як NEO3 Pro.                                                                                                                                                                                    |
+| DSM/SUB/RSSI  | Включає інтерфейси введення сигналів DSM, SBUS, RSSI, інтерфейс DSM може бути підключений до супутникового приймача DSM, інтерфейс SBUS - до приймача дистанційного керування SBUS, RSSI - для модуля зворотного повернення сили сигналу |
+| PPM           | Підключення PPM RC Receiver                                                                                                                                                                                                              |
+| ETH           | Інтерфейс Ethernet. Підключіть пристрої Ethernet, такі як комп'ютери завдань                                                                                                                                                             |
+| AD&IO         | Є два аналогових входи (ADC3.3/ADC6.6); зазвичай не використовуються                                                                                                                                                                     |
 
-## Vehicle Front
+## Передній бампер
 
 :::info 
 Якщо контролер не може бути змонтований у рекомендованому/стандартному положенні (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
@@ -47,43 +47,43 @@ GPS/компас слід [монтувати на раму](../assembly/mount_g
 ![GPS](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_03.jpg)
 
 :::info 
-Pixhawk V6X<sup>®</sup> несумісний з NEO V2 GPS вбудованим дзвіночком: вам слід використовувати [NEO3/NEO 3Pro](https://store.cuav.net/shop/neo-3/) замість нього. Вбудований безпечний вимикач в GPS-модулі увімкнений _за замовчуванням_ (коли включений, PX4 не дозволить вам готувати до польоту). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+Pixhawk V6X<sup>®</sup> несумісний з NEO V2 GPS вбудованим дзвіночком: вам слід використовувати [NEO3/NEO 3Pro](https://store.cuav.net/shop/neo-3/) замість нього. Вбудований безпечний вимикач в GPS-модулі увімкнений _за замовчуванням_ (коли включений, PX4 не дозволить вам готувати до польоту). Щоб вимкнути безпеку, натисніть і утримуйте безпечний вимикач протягом 1 секунди. Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
 
 ## Радіоуправління
 
-A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+Для того щоб керувати транспортним засобом _вручну_, потрібна система радіоуправління (RC) (PX4 не потребує системи радіоуправління для автономних режимів польоту).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Вам потрібно [вибрати сумісний передавач/приймач](../getting_started/rc_transmitter_receiver.md) і _зв'язати_ їх таким чином, щоб вони взаємодіяли (ознайомтеся з інструкціями, що додаються до вашого конкретного передавача/приймача).
 
-- Spektrum/DSM receivers connect to the **DSM/SBUS** input.
-- PPM receivers connect to the **PPM** input port.
+- Приймачі Spektrum/DSM підключаються до входу **DSM/SBUS**.
+- Приймачі PPM підключаються до вхідного порту **PPM**.
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+Для отримання додаткової інформації про вибір радіосистеми, сумісність приймача та зв'язок вашої передавача/приймача, див. статтю: [Пульт керування передавачів & приймачів](../getting_started/rc_transmitter_receiver.md).
 
 ![RC control](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_04.jpg)
 
 ## Живлення
 
-Pixhawk V6X<sup>&reg;</sup> is equipped with a CAN PMU lite module that supports 3~14s lithium battery. Connect the 6pin connector of the module to the flight control **Power C1** or **Power C2** interface.
+Pixhawk V6X<sup>&reg;</sup> обладнаний модулем CAN PMU lite, який підтримує літійну батарею від 3 до 14s. Підключіть 6-контактний роз'єм модуля до інтерфейсу керування польотом **Power C1** або **Power C2**.
 
 ![Power](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_05.jpg)
 
-_Pixhawk V6X_ power port receives Dronecan digital signal from CAN PMU lite power module for voltage, current and remaining battery data, the VCC line must provide at least 3A continuous current and should default to 5.2V. A lower voltage of 5V is still acceptable but discouraged.
+Порт живлення _Pixhawk V6X_ отримує цифровий сигнал Dronecan від модуля живлення CAN PMU lite для напруги, поточного струму та даних про залишкову ємність батареї, лінія VCC повинна забезпечувати принаймні 3А постійного струму та за замовчуванням повинна бути 5,2 В. Нижчий напруга 5V все ще прийнятний, але не рекомендується.
 
-## Telemetry (Radio) System
+## Телеметрійна (радіо) система
 
-[Telemetry radios](../telemetry/index.md) may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+[Телеметричні радіостанції](../telemetry/index.md) можуть використовуватися для зв'язку та управління транспортним засобом у польоті з наземної станції (наприклад, ви можете направляти БПЛА до певної позиції або завантажувати нове завдання).
 
-The vehicle-based radio should be connected to the **TELEM1**/**TELEM2**/**TELEM3** port as shown below (if connected to **TELEM1**, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
+Бортову радіостанцію слід підключити до порту **TELEM1**/**TELEM2**/**TELEM3**, як показано нижче (у разі підключення до **TELEM1**, подальша конфігурація не потрібна). Інша радіостанція підключається до вашого комп'ютера або мобільного пристрою наземної станції (зазвичай за допомогою USB).
 
-You can also purchase telemetry radios from the [CUAV store](https://store.cuav.net/uav-telemetry-module/).
+Ви також можете придбати телеметричні радіо з [магазину CUAV](https://store.cuav.net/uav-telemetry-module/).
 
 ![Telemetry radios](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_06.jpg)
 
 ## SD-карта
 
-Картки SD настійно рекомендується, оскільки вони потрібні для [запису та аналізу даних польоту](../getting_started/flight_reporting.md), для виконання завдань та використання апаратного засобу UAVCAN bus. An SD card is already installed on Pixhawk V6X<sup>&reg;</sup> when it leaves the factory.
+Картки SD настійно рекомендується, оскільки вони потрібні для [запису та аналізу даних польоту](../getting_started/flight_reporting.md), для виконання завдань та використання апаратного засобу UAVCAN bus. Карта пам'яті SD вже встановлена на Pixhawk V6X<sup>&reg;</sup>, коли вона залишає фабрику.
 
 :::tip
 
@@ -92,21 +92,21 @@ You can also purchase telemetry radios from the [CUAV store](https://store.cuav.
 
 ## Мотори/Сервоприводи
 
-Motors/servos are connected to the **M1~M8** (**MAIN**) and **A1~A8** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
+Двигуни/сервоприводи підключаються до портів **M1~M8** (**MAIN**) та **A1~A8** (**AUX**) в порядку, вказаному для вашого транспортного засобу в [Airframe Reference](../airframes/airframe_reference.md).
 
 ![Motors](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_07.jpg)
 
-::: info
-The **MAIN** outputs in the PX4 firmware are mapped to the Pixhawk V6X's M1~M8 ports (from IO), while the **AUX outputs** are mapped to the A1~A8 ports (from the FMU). For example, **MAIN1** maps to M1 pin and **AUX1** maps to A1 pin. This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
+:::info
+**Основні** виходи в ПЗ PX4 відображені на портах M1~M8 Pixhawk V6X (від IO), тоді як виходи **AUX** допоміжних функцій відображені на портах A1~A8 (від FMU). Наприклад, **MAIN1** відображається на вивід M1, а **AUX1** відображається на вивід A1. Цей довідник містить зіставлення портів виводу до моторів/сервоприводів для всіх підтримуваних повітряних та наземних шасі (якщо ваше шасі не вказане в довіднику, то використовуйте "загальний" планер відповідного типу).
 :::
 
 :::warning
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+Відображення не є однорідним для всіх конструкцій (наприклад, ви не можете покладатися на те, що ручка газу буде на тому ж вихідному порту для всіх повітряних конструкцій). Переконайтеся, що ви використовуєте правильне відображення для вашого транспортного засобу.
 :::
 
-## Servo Power Supply
+## Джерело живлення для сервоприводу
 
-Pixhawk V6X<sup>&reg;</sup> does not supply power to the servos. If using a plane or rover, an external BEC (e.g., BEC-equipped ESC or separate 5V BEC or 2S LiPo battery) needs to be connected to any of the power (+) pins in M1~M8/A1~A8 to drive the servos .
+Pixhawk V6X<sup>&reg;</sup> не подає живлення на сервоприводи. Якщо використовується літак або ровер, до будь-якої з контактів живлення (+) в M1~M8/A1~A8 потрібно підключити зовнішній BEC (наприклад, ESC з BEC або окремий BEC на 5 В або акумулятор LiPo на 2S) для керування сервоприводами.
 
 ![servo power supply](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_08.jpg)
 
@@ -114,24 +114,24 @@ Pixhawk V6X<sup>&reg;</sup> does not supply power to the servos. If using a plan
 Напруга шини живлення повинна бути відповідною для використаного сервоприводу!
 :::
 
-## Other Peripherals
+## Інші периферійні пристрої
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Підключення та конфігурація додаткових/менш поширених компонентів описано в темах для окремих [периферійних пристроїв](../peripherals/index.md).
 
-## Pinouts
+## Розводка
 
 ![Pixhawk V6x Pinout](../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x_pinouts.png)
 
 ## Конфігурація
 
-General configuration information is covered in: [Autopilot Configuration](../config/index.md).
+Загальну інформацію про конфігурацію описано в: [Конфігурація автопілота](../config/index.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+Конкретні конфігурації QuadPlane тут: [QuadPlane VTOL налаштування](../config_vtol/vtol_quad_configuration.md)
 
 ## Детальна інформація
 
-- [CUAV Docs](https://doc.cuav.net/) (CUAV)
-- [Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md) (PX4 Doc Overview page)
-- [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
-- [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
-- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)
+- [Документація CUAV](https://doc.cuav.net/) (CUAV)
+- [Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md) (Сторінка огляду документа PX4)
+- [Pixhawk Автопілот FMUv6X Стандартний](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
+- [Стандарт шини автопілота Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
+- [Стандарт Pixhawk Connector](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)
