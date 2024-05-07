@@ -324,9 +324,9 @@ will generate topics under the namespaces:
 
 ## Налаштування PX4 ROS 2 QoS
 
-PX4 QoS settings for publishers are incompatible with the default QoS settings for ROS 2 subscribers. So if ROS 2 code needs to subscribe to a uORB topic, it will need to use compatible QoS settings. One example of which is shown in [ROS 2 User Guide > ROS 2 Subscriber QoS Settings](../ros/ros2_comm.md#ros-2-subscriber-qos-settings).
+Налаштування QoS PX4 для видавців несумісні з налаштуваннями QoS за замовчуванням для підписників ROS 2. Таким чином, якщо код ROS 2 потрібно підписатися на тему uORB, йому потрібно використовувати сумісні налаштування QoS. Один із прикладів показано в [Посібнику користувача ROS 2 > Налаштування QoS підписника ROS 2](../ros/ros2_comm.md#ros-2-subscriber-qos-settings).
 
-PX4 uses the following QoS settings for publishers:
+PX4 використовує наступні параметри QoS для видавців:
 
 ```cpp
 uxrQoS_t qos = {
