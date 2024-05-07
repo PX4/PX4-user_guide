@@ -12706,6 +12706,13 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="FW_T_F_ALT_ERR">FW_T_F_ALT_ERR</strong> (FLOAT)</td>
+ <td>Minimum altitude error needed to descend with max airspeed. A negative value disables fast descend    </td>
+ <td>[0.0, ?] </td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="FW_T_HRATE_FF">FW_T_HRATE_FF</strong> (FLOAT)</td>
  <td>Height rate feed forward    </td>
  <td>[0.0, 1.0] (0.05)</td>
@@ -19978,7 +19985,7 @@ table {
 <tr>
  <td><strong id="RWTO_ROT_AIRSPD">RWTO_ROT_AIRSPD</strong> (FLOAT)</td>
  <td>Takeoff rotation airspeed <p><strong>Comment:</strong> The calibrated airspeed threshold during the takeoff ground roll when the plane should start rotating (pitching up). Must be less than the takeoff airspeed, will otherwise be capped at the takeoff airpeed (see FW_TKO_AIRSPD). If set &lt;= 0.0, defaults to 0.9 * takeoff airspeed (see FW_TKO_AIRSPD)</p>   </td>
- <td>[0.0, ?] (0.01)</td>
+ <td>[-1.0, ?] (0.01)</td>
  <td>-1.0</td>
  <td>m/s</td>
 </tr>
