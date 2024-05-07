@@ -12707,6 +12707,13 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="FW_T_F_ALT_ERR">FW_T_F_ALT_ERR</strong> (FLOAT)</td>
+ <td>Minimum altitude error needed to descend with max airspeed. A negative value disables fast descend    </td>
+ <td>[-1.0, ?] </td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="FW_T_HRATE_FF">FW_T_HRATE_FF</strong> (FLOAT)</td>
  <td>Height rate feed forward    </td>
  <td>[0.0, 1.0] (0.05)</td>
