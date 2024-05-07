@@ -224,53 +224,53 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 Це все, що вам необхідно для збірки найновішого коду.
 :::
 
-#### Встановити RPi upload target
+#### Встановити точку призначення завантаження RPi
 
-Set the IP (or hostname) of your RPi using:
+Встановіть IP-адресу (або ім'я хоста) вашого RPi за допомогою:
 
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
-or
+або
 
 ```sh
 export AUTOPILOT_HOST=pi_hostname.local
 ```
 
-Additionally, we need to set the username:
+Додатково, нам потрібно встановити ім'я користувача:
 
 ```sh
 export AUTOPILOT_USER=ubuntu
 ```
 
-#### Build for armhf target
+#### Збірка для архітектури armhf
 
-Build the executable file:
+Зберіть виконуваний файл:
 
 ```sh
 cd Firmware
 make scumaker_pilotpi_default
 ```
 
-Then upload it with:
+Потім завантажте його за допомогою:
 
 ```sh
 make scumaker_pilotpi_default upload
 ```
 
-#### Alternative build method for armhf (using docker)
+#### Альтернативний метод збірки для armhf (з використанням Docker)
 
-If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
+Якщо ви вперше компілюєте з докером, будь ласка, зверніться до [офіційної документації](../test_and_ci/docker.md#prerequisites).
 
-Execute the command in firmware folder:
+Виконайте команду в директорії firmware:
 
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
 
 ::: info
-mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
+mDNS не підтримується з Docker. Ви повинні вказати правильну IP-адресу кожного разу при завантаженні.
 :::
 
 ::: info If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
