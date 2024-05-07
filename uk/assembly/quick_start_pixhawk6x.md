@@ -55,95 +55,95 @@ GPS/Компас слід [монтувати на раму](../assembly/mount_g
 
 Якщо використовується літак або рухомий об'єкт, вихідна рейка **FMU PWM-OUT** повинна бути окремо живлена для керування сервоприводами для рульових пристроїв, елеронами тощо. Це можна зробити, під'єднавши 8-контактний живильний (+) рейл **FMU PWM-OUT** до стабілізатора напруги (наприклад, ESC з обладнаною BEC або автономною BEC на 5 В або акумулятором LiPo 2S).
 
-::: info
-The power rail voltage must be appropriate for the servo being used!
+:::info
+Напруга шини живлення повинна бути відповідною для використаного сервоприводу!
 :::
 
-| PIN & Connector | Function                                            |
-| --------------- | --------------------------------------------------- |
-| I/O PWM Out     | Connect Motor Signal and GND wires here.            |
-| FMU PWM Out     | Connect Servo Signal, positive, and GND wires here. |
+| PIN& Connector | Функція                                             |
+| -------------- | --------------------------------------------------- |
+| I/O PWM Out    | Тут під'єднайте сигнал Motor та GND дроти.          |
+| FMU PWM Out    | Під'єднайте сигнальні, позитивні та GND дроти сюди. |
 
-::: info **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 6X_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 6X_. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**.
+:::info Виходи **MAIN** у прошивці PX4 призначені для порту **I/O PWM OUT** на _Pixhawk 6X_, тоді як виходи **AUX** призначені для порту **FMU PWM OUT** на _Pixhawk 6X_. Наприклад, **MAIN1** відповідає виводу IO_CH1 **I/O PWM OUT**, а **AUX1** відповідає виводу FMU_CH1 **FMU PWM OUT**.
 :::
 
-The pinout of _Pixhawk 6X_’s power ports is shown below. The power ports takes in I2C digital signal from the PM02D power module for voltage and current data. The VCC lines have to offer at least 3A continuous and should default to 5.2V. A lower voltage of 5V is still acceptable, but discouraged.
+Схема роз'ємів _Pixhawk 6X_ для підключення живлення показана нижче. Роз'єми живлення приймають цифровий сигнал I2C від модуля живлення PM02D для даних про напругу та силу струму. Лінії VCC повинні пропонувати принаймні 3A безперервного струму і за замовчуванням повинні мати напругу 5.2В. Нижчий напруга 5V все ще прийнятний, але не рекомендується.
 
-| Pin      | Signal | Volt  |
-| -------- | ------ | ----- |
-| 1(red)   | VCC    | +5V   |
-| 2(black) | VCC    | +5V   |
-| 3(black) | SCL    | +3.3V |
-| 4(black) | SDA    | +3.3V |
-| 5(black) | GND    | GND   |
-| 6(black) | GND    | GND   |
+| Пін          | Сигнал | Вольт |
+| ------------ | ------ | ----- |
+| 1 (червоний) | VCC    | +5V   |
+| 2 (чорний)   | VCC    | +5V   |
+| 3 (чорний)   | SCL    | +3.3V |
+| 4 (чорний)   | SDA    | +3.3V |
+| 5 (чорний)   | GND    | GND   |
+| 6 (чорний)   | GND    | GND   |
 
-## Radio Control
+## Радіоуправління
 
-A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+Для того щоб керувати транспортним засобом _вручну_, потрібна система радіоуправління (RC) (PX4 не потребує системи радіоуправління для автономних режимів польоту).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Вам потрібно [вибрати сумісний передавач/приймач](../getting_started/rc_transmitter_receiver.md) і _зв'язати_ їх таким чином, щоб вони взаємодіяли (ознайомтеся з інструкціями, що додаються до вашого конкретного передавача/приймача).
 
-- Spektrum/DSM receivers connect to the **DSM/SBUS RC** input.
-- PPM or SBUS receivers connect to the **RC IN** input port.
+- Приймачі Spektrum/DSM підключаються до входу **DSM/SBUS RC**.
+- Приймачі PPM або SBUS підключаються до вхідного порту **RC IN**.
 
-PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **RC IN** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+Приймачі PPM та PWM, які мають _окремий провід для кожного каналу_, повинні підключатися до порту **RC IN** _через PPM кодер_ [як цей](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (приймачі PPM-Sum використовують один сигнальний провід для всіх каналів).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+Для отримання додаткової інформації про вибір радіосистеми, сумісність приймача та зв'язок вашої передавача/приймача, див. статтю: [Пульт керування передавачів & приймачів](../getting_started/rc_transmitter_receiver.md).
 
-## Telemetry Radios (Optional)
+## Телеметричні радіостанції (Опціонально)
 
-[Telemetry radios](../telemetry/index.md) may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+[Телеметричні радіостанції](../telemetry/index.md) можуть використовуватися для зв'язку та управління транспортним засобом у польоті з наземної станції (наприклад, ви можете направляти БПЛА до певної позиції або завантажувати нове завдання).
 
-The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
+Бортову радіостанцію слід підключити до порту **TELEM1**, як показано нижче (у разі підключення до цього порту подальша конфігурація не потрібна). Інша радіостанція підключається до вашого комп'ютера або мобільного пристрою наземної станції (зазвичай за допомогою USB).
 
-Radios are also available for purchase on [Holybro's website](https://holybro.com/collections/telemetry-radios) .
+Радіостанції також доступні для придбання на веб-сайті [Holybro](https://holybro.com/collections/telemetry-radios) .
 
-## SD Card (Optional)
+## SD-карта (Опціонально)
 
-SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the card (included in Pixhawk 6X) into _Pixhawk 6X_ as shown below.
+Картки SD настійно рекомендується, оскільки вони потрібні для [запису та аналізу даних польоту](../getting_started/flight_reporting.md), для виконання місій та для використання апаратного засобу UAVCAN-bus. Вставте картку (включену в комплект Pixhawk 6X) в _Pixhawk 6X_, як показано нижче.
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_sd_slot.jpg" width="420px" title="Pixhawk5x standard set" />
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
+Для отримання додаткової інформації див. [Основні концепції > SD-карти (знімна пам'ять)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
-## Motors
+## Двигуни
 
-Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
+Мотори/сервоприводи підключені до портів **I/O PWM OUT** (**MAIN**) та **FMU PWM OUT** (**AUX**) в порядку, вказаному для вашого апарату в [Довіднику планерів](../airframes/airframe_reference.md).
 
-::: info
-This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
+:::info
+Цей довідник містить зіставлення портів виводу до моторів/сервоприводів для всіх підтримуваних повітряних та наземних шасі (якщо ваше шасі не вказане в довіднику, то використовуйте "загальний" планер відповідного типу).
 :::
 
 :::warning
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+Відображення не є однорідним для всіх конструкцій (наприклад, ви не можете покладатися на те, що ручка газу буде на тому ж вихідному порту для всіх повітряних конструкцій). Переконайтеся, що ви використовуєте правильне відображення для вашого транспортного засобу.
 :::
 
-## Other Peripherals
+## Інші периферійні пристрої
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Підключення та конфігурація додаткових/менш поширених компонентів описано в темах для окремих [периферійних пристроїв](../peripherals/index.md).
 
-## Pinouts
+## Розпіновка
 
-- [Holybro Pixhawk Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-baseboard-pinout)
-- [Holybro Pixhawk Mini-Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-mini-baseboard-pinout)
+- [Розпиновка базової плати Holybro Pixhawk](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-baseboard-pinout)
+- [Розпиновка міні-базової плати Holybro Pixhawk](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-mini-baseboard-pinout)
 
-## Configuration
+## Конфігурація
 
-General configuration information is covered in: [Autopilot Configuration](../config/index.md).
+Загальну інформацію про конфігурацію описано в: [Конфігурація автопілота](../config/index.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+Конфігурація для QuadPlane описана тут: [Конфігурація QuadPlane VTOL](../config_vtol/vtol_quad_configuration.md)
 
 <!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
-## Further information
+## Подальша інформація
 
-- [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Pixhawk 6X](../flight_controller/pixhawk6x.md) (PX4 Doc Overview page)
-- [PM02D Power Module](../power_module/holybro_pm02d.md)
-- [PM03D Power Module](../power_module/holybro_pm03d.md)
-- [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf).
-- [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
-- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+- [Документи Holybro](https://docs.holybro.com/) (Holybro)
+- [Pixhawk 6X](../flight_controller/pixhawk6x.md) (сторінка з оглядом документації PX4)
+- [Модуль потужності PM02D](../power_module/holybro_pm02d.md)
+- [PM03D Модуль живлення](../power_module/holybro_pm03d.md)
+- [Стандарт автопілота Pixhawk FMUv6X](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf).
+- [Стандарт шин автопілота Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
+- [Стандарт роз'ємів Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
