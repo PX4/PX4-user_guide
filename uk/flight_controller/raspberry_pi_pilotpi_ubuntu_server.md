@@ -164,13 +164,13 @@ ls /dev/spidev*
 
 #### rc.local
 
-In this section we will configure the auto-start script in **rc.local**. Note that we need to create this file, as it is not present on a fresh Ubuntu OS.
+У цьому розділі ми налаштуємо скрипт автозапуску в **rc.local**. Зверніть увагу, що нам потрібно створити цей файл, оскільки він відсутній у свіжій операційній системі Ubuntu.
 
 ```sh
 sudo nano /etc/rc.local
 ```
 
-Append the content below to the file:
+Додати вміст нижче до файлу:
 
 ```sh
 #!/bin/sh
@@ -186,45 +186,45 @@ echo "25" > /sys/class/gpio/unexport
 exit 0
 ```
 
-Save and exit. Then set the correct permissions:
+Збережіть та вийдіть. Потім встановіть правильні права:
 
 ```sh
 sudo chmod +x /etc/rc.local
 ```
 
 ::: info
-Don't forget to turn off the switch when it is not needed!
+Не забудьте вимкнути перемикач, коли він не потрібен!
 :::
 
-#### CSI camera
+#### CSI камера
 
 :::warning
-Enable CSI camera will stop anything works on I2C-0.
+Увімкнення камери CSI призведе до зупинки роботи будь-чого на I2C-0.
 :::
 
 ```sh
 sudo nano /boot/firmware/usercfg.txt
 ```
 
-Append the following line at the end of file:
+Додайте наступний рядок в кінці файлу:
 
 ```sh
 start_x=1
 ```
 
-### Building the code
+### Збірка коду
 
-To get the _very latest_ version onto your computer, enter the following command into a terminal:
+Для завантаження _найостаннішої_ версії на свій комп'ютер, введіть у терміналі наступну команду:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 ::: info
-This is all you need to do just to build the latest code.
+Це все, що вам необхідно для збірки найновішого коду.
 :::
 
-#### Set RPi upload target
+#### Встановити RPi upload target
 
 Set the IP (or hostname) of your RPi using:
 
