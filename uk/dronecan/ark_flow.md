@@ -6,14 +6,14 @@ ARK Flow is an open source [DroneCAN](index.md) [optical flow](../sensor/optical
 
 ## Де купити
 
-Order this module from:
+Замовте цей модуль з:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-flow/) (US)
 
 ## Характеристики обладнання
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Flow)
-- Sensors
+- Сенсори
   - PixArt PAW3902 Optical Flow Sensor
     - Tracks under super low light condition of >9 lux
     - Wide working range from 80mm up to 30m
@@ -36,7 +36,7 @@ Order this module from:
 - LED Indicators
 - USA Built
 
-## Hardware Setup
+## Налаштування обладнання
 
 ### Підключення
 
