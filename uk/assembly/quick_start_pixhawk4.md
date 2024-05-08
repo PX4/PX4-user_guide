@@ -1,4 +1,4 @@
-# Pixhawk 4 Wiring Quick Start
+# Швидкий старт підключення Pixhawk 4
 
 :::warning PX4 не займається виготовленням цього (чи якогось іншого) автопілоту. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
 :::
@@ -50,7 +50,7 @@ GPS/компас повинен бути [закріплений на рамі](
 
 | PIN&Connector | Функція                                                                                                     |
 | ------------- | ----------------------------------------------------------------------------------------------------------- |
-| I/O PWM-IN    | See note below for connection to _Pixhawk 4_                                                                |
+| I/O PWM-IN    | Дивіться примітку нижче для підключення до _Pixhawk 4_                                                      |
 | M1            | I/O PWM OUT 1: connect signal wire to ESC of motor 1 here                                                   |
 | M2            | I/O PWM OUT 2: connect signal wire to ESC of motor 2 here                                                   |
 | M3            | I/O PWM OUT 3: connect signal wire to ESC of motor 3 here                                                   |
