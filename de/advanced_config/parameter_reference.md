@@ -13196,7 +13196,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_YAW_OFFSET">GPS_YAW_OFFSET</strong> (FLOAT)</td>
- <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. The offset angle increases clockwise. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover (or Unicore primary) antenna is in front. Set this to 90 if the rover (or Unicore primary) antenna is placed on the right side of the vehicle and the moving base antenna is on the left side. (Note: the Unicore primary antenna is the one connected on the right as seen from the top).</p>   <p><b>Reboot required:</b> true</p>
+ <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. The offset angle increases clockwise. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover (or Unicore primary) antenna is in front. Set this to 90 if the rover (or Unicore primary, or Septentrio Mosaic Aux) antenna is placed on the right side of the vehicle and the moving base antenna is on the left side. (Note: the Unicore primary antenna is the one connected on the right as seen from the top).</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 360] </td>
  <td>0.</td>
