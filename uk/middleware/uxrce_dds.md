@@ -397,32 +397,32 @@ subscriptions_multi:
 Кожна пара (`topic`,`type`) визначає:
 
 1. Нова `publication`, `subscription`, або `subscriptions_multi`, залежно від списку, до якого її додано.
-2. The topic _base name_, which **must** coincide with the desired uORB topic name that you want to publish/subscribe. It is identified by the last token in `topic:` that starts with `/` and does not contains any `/` in it. `vehicle_odometry`, `vehicle_status` and `offboard_control_mode` are examples of base names.
-3. The topic [namespace](https://design.ros2.org/articles/topic_and_service_names.html#namespaces). By default it is set to:
-   - `/fmu/out/` for topics that are _published_ by PX4.
-   - `/fmu/in/` for topics that are _subscribed_ by PX4.
-4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
+2. Назва теми _base name_, яка **повинна** збігатися з бажаною назвою теми uORB, яку ви хочете опублікувати/підписатися. Він ідентифікується за останнім токеном у `topic:`, який починається з `/` і не містить жодного `/` у своєму складі. `vehicle_odometry`, `vehicle_status` та `offboard_control_mode` - це приклади базових імен.
+3. [простір імен](https://design.ros2.org/articles/topic_and_service_names.html#namespaces) теми. За замовчуванням встановлено ​​на:
+   - `/fmu/out/` для тем, які _публікуються_ PX4.
+   - `/fmu/in/` для тем, які _підписані_ PX4.
+4. Тип повідомлення (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode` тощо) та пакет ROS 2 (`px4_msgs`), який очікує для надання визначення повідомлення.
 
-`subscriptions` and `subscriptions_multi` allow us to choose the uORB topic instance that ROS 2 topics are routed to: either a shared instance that may also be getting updates from internal PX4 uORB publishers, or a separate instance that is reserved for ROS2 publications, respectively. Without this mechanism all ROS 2 messages would be routed to the _same_ uORB topic instance (because ROS 2 does not have the concept of [multiple topic instances](../middleware/uorb.md#multi-instance)), and it would not be possible for PX4 subscribers to differentiate between streams from ROS 2 or PX4 publishers.
+`subscriptions` і `subscriptions_multi` дозволяють нам вибрати екземпляр теми uORB, до якого надсилатимуться теми ROS 2: або спільний екземпляр, який також може отримувати оновлення від внутрішніх видавців uORB PX4, або окремий екземпляр, зарезервований для публікацій ROS2 відповідно. Без цього механізму всі повідомлення ROS 2 перенаправлятимуться до _одного і того ж_ екземпляра теми uORB (оскільки у ROS 2 немає поняття [кількох екземплярів тем](../middleware/uorb.md#multi-instance)), і підписники PX4 не зможуть розрізняти потоки від видавців ROS 2 або PX4.
 
-Add a topic to the `subscriptions` section to:
+Додайте тему до розділу `subscriptions` для:
 
-- Create a unidirectional route going from the ROS2 topic to the _default_ instance (instance 0) of the associated uORB topic. For example, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher of `vehicle_odometry`.
-- If other (internal) PX4 modules are already publishing on the same uORB topic instance as the ROS2 publisher, the instance's subscribers will receive all streams of messages. The uORB subscriber will not be able to determine if an incoming message was published by PX4 or by ROS2.
-- This is the desired behavior when the ROS2 publisher is expected to be the sole publisher on the topic instance (for example, replacing an internal publisher to the topic during offboard control), or when the source of multiple publishing streams does not matter.
+- Створіть односпрямований маршрут від теми ROS2 до екземпляра _default_ (екземпляр 0) пов'язаної з нею теми uORB. Наприклад, він створює підписника ROS2 `/fmu/in/vehicle_odometry` та видавця uORB `vehicle_odometry`.
+- Якщо інші (внутрішні) модулі PX4 вже публікують у тому ж екземплярі теми uORB, що й публікатор ROS2, підписники цього екземпляра будуть отримувати всі потоки повідомлень. Підписник uORB не зможе визначити, чи вхідне повідомлення було опубліковане PX4 або ROS2.
+- Це бажана поведінка, коли очікується, що ROS2-видавець буде єдиним видавцем у екземплярі теми (наприклад, для заміни внутрішнього видавця теми під час автономного керування), або коли джерело декількох потоків публікацій не має значення.
 
 Додайте тему до розділу `subscriptions_multi` для:
 
-- Create a unidirectional route going from the ROS2 topic to a _new_ instance of the associated uORB topic. For example, if `vehicle_odometry` has already `2` instances, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher on instance `3` of `vehicle_odometry`.
-- This ensures that no other internal PX4 module will publish on the same instance used by uXRCE-DDS. The subscribers will be able to subscribe to the desired instance and distinguish between publishers.
-- Note, however, that this guarantees separation between PX4 and ROS2 publishers, not among multiple ROS2 publishers. In that scenario, their messages will still be routed to the same instance.
-- This is the desired behavior, for example, when you want PX4 to log the readings of two equal sensors; they will both publish on the same topic, but one will use instance 0 and the other will use instance 1.
+- Створіть односпрямований маршрут від теми ROS2 до _нового_ екземпляра пов'язаної з нею теми uORB. Наприклад, якщо `vehicle_odometry` вже має `2` екземплярів, він створює підписника ROS2 на `/fmu/in/vehicle_odometry` і видавця uORB на екземплярі `3` з `vehicle_odometry`.
+- Це гарантує, що жоден інший внутрішній модуль PX4 не публікуватиметься на тому самому екземплярі, що використовується uXRCE-DDS. Підписники зможуть підписатися на потрібний екземпляр і розрізняти видавців.
+- Зауважте, однак, що це гарантує розділення між видавцями PX4 і ROS2, а не між кількома видавцями ROS2. У цьому випадку їхні повідомлення все одно будуть перенаправлені на той самий екземпляр.
+- Це бажана поведінка, наприклад, коли ви хочете, щоб PX4 реєстрував показання двох однакових датчиків; вони обидва публікуватимуться в одній темі, але один з них використовуватиме екземпляр 0, а інший - екземпляр 1.
 
-You can arbitrarily change the configuration. For example, you could use different default namespaces or use a custom package to store the message definitions.
+Ви можете довільно змінювати конфігурацію. Наприклад, ви можете використовувати різні простори імен за замовчуванням або використовувати власний пакет для зберігання визначень повідомлень.
 
 ## Посібник міграції з Fast-RTPS на uXRCE-DDS
 
-These guidelines explain how to migrate from using PX4 v1.13 [Fast-RTPS](../middleware/micrortps.md) middleware to PX4 v1.14 `uXRCE-DDS` middleware. These are useful if you have [ROS 2 applications written for PX4 v1.13](https://docs.px4.io/v1.13/en/ros/ros2_comm.html), or you have used Fast-RTPS to interface your applications to PX4 [directly](https://docs.px4.io/v1.13/en/middleware/micrortps.html#agent-in-an-offboard-fast-dds-interface-ros-independent).
+Ці настанови пояснюють, як перейти від використання проміжного програмного забезпечення PX4 v1.13 [Fast-RTPS](../middleware/micrortps.md) до проміжного програмного забезпечення PX4 v1.14 `uXRCE-DDS`. Вони корисні, якщо у вас є [ROS 2 додатки, написані для PX4 v1.13](https://docs.px4.io/v1.13/en/ros/ros2_comm.html), або ви використовували Fast-RTPS для інтерфейсу ваших додатків з PX4 [безпосередньо](https://docs.px4.io/v1.13/en/middleware/micrortps.html#agent-in-an-offboard-fast-dds-interface-ros-independent).
 
 :::info
 Цей розділ містить інформацію, що стосується міграції. Вам також слід прочитати решту цієї сторінки, щоб правильно зрозуміти uXRCE-DDS.
@@ -430,45 +430,45 @@ These guidelines explain how to migrate from using PX4 v1.13 [Fast-RTPS](../midd
 
 #### Залежності не потрібно видаляти
 
-uXRCE-DDS не потребує залежностей, які були потрібні для Fast-RTPS, зокрема тих, що встановлюються за допомогою статті [Встановлення Fast DDS](https://docs.px4.io/v1.13/en/dev_setup/fast-dds-installation.html). You can keep them if you want, without affecting your uXRCE-DDS applications.
+uXRCE-DDS не потребує залежностей, які були потрібні для Fast-RTPS, зокрема тих, що встановлюються за допомогою статті [Встановлення Fast DDS](https://docs.px4.io/v1.13/en/dev_setup/fast-dds-installation.html). Ви можете зберегти їх, якщо хочете, не впливаючи на ваші додатки uXRCE-DDS.
 
-If you do choose to remove the dependencies, take care not to remove anything that is used by applications (for example, Java).
+Якщо ви вирішили видалити залежності, будьте обережні, щоб не видалити нічого, що використовується програмами (наприклад, Java).
 
 #### `_rtps` targets have been removed
 
-Anywhere you previously used a build target with extension `_rtps`, such as `px4_fmu-v5_rtps` or `px4_sitl_rtps`, you can now use the equivalent default target (for these cases `px4_fmu-v5_default` and `px4_sitl_default`).
+Якщо ви раніше використовували ціль збірки з розширенням `_rtps`, наприклад, `px4_fmu-v5_rtps` або `px4_sitl_rtps`, тепер ви можете використовувати еквівалентну ціль за замовчуванням (для цих випадків `px4_fmu-v5_default` і `px4_sitl_default`).
 
-The make targets with extension `_rtps` were used to build firmware that included client side RTPS code. The uXRCE-DDS middleware is included by default in builds for most boards, so you no longer need a special firmware to work with ROS 2.
+Цілі make з розширенням `_rtps` було використано для створення прошивки, яка містила код RTPS на стороні клієнта. Проміжне програмне забезпечення uXRCE-DDS за замовчуванням включено до збірок для більшості плат, тому вам більше не потрібна спеціальна прошивка для роботи з ROS 2.
 
-To check if your board has the middleware, look for `CONFIG_MODULES_UXRCE_DDS_CLIENT=y` in the `.px4board` file of your board. Those files are nested in [PX4-Autopilot/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards).
+Щоб перевірити, чи має ваша плата проміжне програмне забезпечення, знайдіть `CONFIG_MODULES_UXRCE_DDS_CLIENT=y` у файлі `.px4board` вашої плати. Ці файли вкладено до каталогу [PX4-Autopilot/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards).
 
-If it is not present, or if it is set to `n`, then you have to clone the PX4 repo, modify the board configuration and manually [compile](../dev_setup/building_px4.md) the firmware.
+Якщо його немає, або якщо він має значення `n`, то вам доведеться клонувати репозиторій PX4, змінити конфігурацію плати і вручну [скомпілювати](../dev_setup/building_px4.md) прошивку.
 
 #### Новий модуль клієнта та нові параметри запуску
 
-As the client is implemented by a new PX4 module, you now have new parameters to start it. Take a look at the [client startup section](#starting-the-client) to learn how this is done.
+Оскільки клієнт реалізовано новим модулем PX4, тепер у вас є нові параметри для його запуску. Перегляньте розділ [запуску клієнта](#starting-the-client), щоб дізнатися, як це робиться.
 
-#### New file for setting which topics are published
+#### Новий файл для налаштування того, які теми публікуються
 
-The list of topics that are published and subscribed for a particular firmware is now managed by the [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) configuration file, which replaces [urtps_bridge_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/tools/urtps_bridge_topics.yaml)
+Перелік тем, які публікуються і на які здійснюється підписка для певної прошивки, тепер керується конфігураційним файлом [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), який замінює [urtps_bridge_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/tools/urtps_bridge_topics.yaml)
 
-See [Supported uORB Messages](#supported-uorb-messages) and [DDS Topics YAML](#dds-topics-yaml) sections for more information.
+Дивіться розділи [Підтримувані повідомлення uORB](#supported-uorb-messages) та [DDS Теми YAML](#dds-topics-yaml) для отримання додаткової інформації.
 
-#### Topics no longer need to be synced between client and agent.
+#### Теми більше не потрібно синхронізувати між клієнтом і агентом.
 
-The list of bridged topics between agent and client no longer needs to be synced for ROS 2, so the `update_px4_ros2_bridge.sh` script is no longer needed.
+Список проміжних тем між агентом і клієнтом більше не потрібно синхронізувати для ROS 2, тому скрипт `update_px4_ros2_bridge.sh` більше не потрібен.
 
-#### Default topic naming convention has changed
+#### Налаштування назви теми за замовчуванням змінено
 
-The topic naming format changed:
+Змінився формат назв тем:
 
-- Published topics: `/fmu/topic-name/out` (Fast-RTPS) to `/fmu/out/topic-name` (XRCE-DDS).
-- Subscribed topics: `/fmu/topic-name/in`(Fast-RTPS) to `/fmu/in/topic-name` (XRCE-DDS).
+- Опубліковані теми: `/fmu/topic-name/out` (Fast-RTPS) до `/fmu/out/topic-name` (XRCE-DDS).
+- Підписані теми: `/fmu/topic-name/in`(Fast-RTPS) до `/fmu/in/topic-name` (XRCE-DDS).
 
-You should update your application to the new convention.
+Вам слід оновити свій додаток відповідно до нової конвенції.
 
-::: info
-You might also edit [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) to revert to the old convention. This is not recommended because it means that you would have to always use custom firmware.
+:::info
+Ви також можете відредагувати [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), щоб повернутися до старої конвенції. Це не рекомендується, оскільки це означає, що вам доведеться завжди використовувати кастомну прошивку.
 :::
 
 #### XRCE-DDS-Agent
