@@ -22,12 +22,12 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## Key Features
+## Ключові особливості
 
-- 32bit STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4)<sup>&reg;</sup> core with FPU
+- 32bit STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4)<sup>&reg;</sup> ядро з FPU
 - 168 MHz / 252 MIPS
 - 256 KB RAM
-- 2 MB Flash \(fully accessible\)
+- 2 MB Flash \(повністю доступна\)
 - 32 bit STM32F103 failsafe co-processor
 - 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
 - Abundant connectivity options for additional peripherals (UART, I2C, CAN)
@@ -41,29 +41,29 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 <a id="stores"></a>
 
-## Where to Buy
+## Де придбати
 
 [Cube Black](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
-## Assembly
+## Збірка
 
-[Cube Wiring Quickstart](../assembly/quick_start_cube.md)
+[Швидке підключення Cube](../assembly/quick_start_cube.md)
 
-## Specifications
+## Характеристики
 
-### Processor
+### Процесор
 
-- 32bit STM32F427 [Cortex M4](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) core with FPU
+- 32bit STM32F427 [Cortex M4](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) ядро з FPU
 - 168 MHz / 252 MIPS
 - 256 KB RAM
-- 2 MB Flash (fully accessible)
-- 32 bit STM32F103 failsafe co-processor
+- 2 MB Flash (повністю доступна)
+- 32 bit STM32F103 відмовостійкий співпроцесор
 
-### Sensors
+### Сенсори
 
 - TBA
 
-### Interfaces
+### Інтерфейси
 
 - 5x UART (serial ports), one high-power capable, 2x with HW flow control
 - 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
@@ -106,7 +106,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
 
-## Ports
+## Порти
 
 ### Top-Side (GPS, TELEM etc)
 
@@ -137,7 +137,7 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
@@ -149,11 +149,11 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make px4_fmu-v3_default
 ```
 
-## Issues
+## Проблеми
 
 CAN1 and CAN2 silk screen on the Cube Black are flipped (CAN1 is CAN2 and vice versa).
 
-## Further Information/Documentation
+## Додаткова інформація/документація
 
 - [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
 - Cube Docs (Manufacturer):
