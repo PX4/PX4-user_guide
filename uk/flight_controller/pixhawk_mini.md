@@ -19,51 +19,51 @@ Pixhawk Mini базується на відкритому проекті PX4 і 
 
 **Процесори:**
 
-- **Main Processor:** STM32F427 Rev 3
-- **IO Processor:** STM32F103
+- **Основний процесор:** STM32F427 Rev 3
+- **IO процесор:** STM32F103
 
 **Сенсори:**
 
 - **Accel/Gyro/Mag:** MPU9250
-  - [deprecated](https://github.com/PX4/PX4-Autopilot/pull/7618) by the PX4 firmware
+  - [застарілий](https://github.com/PX4/PX4-Autopilot/pull/7618) для прошивки PX4
 - **Accel/Gyro:** ICM20608
 - **Barometer:** MS5611
 
-**Voltage ratings:**
+**Номінальна напруга:**
 
-- **Power module output:** 4.1\~5.5V
-- **Max input voltage:** 45V (10S LiPo)
-- **Max current sensing:** 90A
-- **USB Power Input:** 4.1\`5.5V
-- **Servo Rail Input:** 0\~10V
+- **Вивід модуля живлення:** 4.1\~5.5V
+- **Максимальна вхідна напруга:** 45V (10S LiPo)
+- **Максимальне вимірювання струму:** 90A
+- **Вхід живлення USB:** 4.1\`5.5V
+- **Вхід Servo Rail:** 0\~10V
 
 **Інтерфейси:**
 
-- 1 x UART Serial Port (for GPS)
-- Spektrum DSM/DSM2/DSM-X® Satellite Compatible RC input
-- Futaba S BUS® Compatible RC input
-- PPM Sum Signal RC Input
-- I2C (for digital sensors)
-- CAN (for digital motor control with compatible controllers)
-- ADC (for analog sensors)
-- Micro USB Port
+- 1 x UART Serial Port (для GPS)
+- Spektrum DSM/DSM2/DSM-X® Satellite Compatible RC вхід
+- Futaba S BUS® Compatible RC вхід
+- PPM Sum Signal RC вхід
+- I2C (для цифрових сенсорів)
+- CAN (для цифрового керування мотором з сумісними контролерами)
+- ADC (для аналогових сенсорів)
+- Мікро USB порт
 
 **Вага та розміри:**
 
-- **Dimensions:** 38x43x12mm
-- **Weight:** 15.8g
+- **Розміри:** 38x43x12мм
+- **Вага:** 15.8g
 
-**GPS module (supplied with kit):**
+**Модуль GPS (постачається з комплектом):**
 
-- **GNSS receiver:** u-blox<sup>&reg;</sup> Neo-M8N; compass HMC5983
-- **Weight:** 22.4g
-- **Dimensions:** 37x37x12mm
+- **GNSS приймач:** u-blox<sup>&reg;</sup> Neo-M8N; компас HMC5983
+- **Вага:** 22.4g
+- **Розміри:** 37x37x12мм
 
 ## Де придбати
 
 Припинено.
 
-## Connector assignments
+## Призначення конекторів
 
 `<To be added>`
 
@@ -71,8 +71,8 @@ Pixhawk Mini базується на відкритому проекті PX4 і 
 
 Основні функції Pixhawk Mini:
 
-- Advanced 32 bit ARM Cortex® M4 Processor running NuttX RTOS
-- 8 PWM/servo outputs
+- Просунутий 32 bit ARM Cortex® M4 Processor що управляється NuttX RTOS
+- 8 PWM/servo виводів
 - Multiple connectivity options for additional peripherals (UART, I2C, CAN)
 - Redundant power supply inputs and automatic failover
 - Integrated safety switch and optional external safety button for easy motor activation
