@@ -354,7 +354,7 @@ ROS 2 використовує наступні налаштування QoS (з
 
 ## DDS теми YAML
 
-The PX4 yaml file [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) defines the set of PX4 uORB topics that are built into firmware and published. More precisely, it completely defines the relationship/pairing between PX4 uORB and ROS 2 messages.
+Файл PX4 yaml [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) визначає набір тем PX4 uORB, які вбудовано у прошивку та опубліковано. Точніше, він повністю визначає взаємозв'язок/сполучення між повідомленнями PX4 uORB і ROS 2.
 
 Файл структурований наступним чином:
 
@@ -394,7 +394,7 @@ subscriptions_multi:
 
 ```
 
-Each (`topic`,`type`) pairs defines:
+Кожна пара (`topic`,`type`) визначає:
 
 1. A new `publication`, `subscription`, or `subscriptions_multi`, depending on the list to which it is added.
 2. The topic _base name_, which **must** coincide with the desired uORB topic name that you want to publish/subscribe. It is identified by the last token in `topic:` that starts with `/` and does not contains any `/` in it. `vehicle_odometry`, `vehicle_status` and `offboard_control_mode` are examples of base names.
