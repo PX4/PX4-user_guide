@@ -341,7 +341,7 @@
     - [Місія доставки посилок](flying/package_delivery_mission.md)
     - [Загальне керування приводом](payloads/generic_actuator_control.md)
     - [Камера](camera/index.md)
-      - [Configuration](camera/index.md)
+      - [Налаштування](camera/index.md)
     - [Конфігурація Gimbal \(Mount\)](advanced/gimbal_control.md)
     - [Grippers](peripherals/gripper.md)
       - [Servo Gripper](peripherals/gripper_servo.md)
