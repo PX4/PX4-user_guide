@@ -273,83 +273,83 @@ make scumaker_pilotpi_default upload
 mDNS не підтримується з Docker. Ви повинні вказати правильну IP-адресу кожного разу при завантаженні.
 :::
 
-::: info If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
+::: info Якщо ваша IDE не підтримує збірку ninja, опція `NO_NINJA_BUILD=1` допоможе. Ви можете компілювати без завантаження також. Просто видаліть `upload`.
 :::
 
-It is also possible to just compile the code with command:
+Також можливо просто скомпілювати код за допомогою команди:
 
 ```sh
 ./Tools/docker_run.sh "make scumaker_pilotpi_default"
 ```
 
-#### Build for arm64 target
+#### Збірка для архітектури arm64
 
-::: info This step requires `aarch64-linux-gnu` tool-chain to be installed.
+::: info Цей крок потребує встановлення утиліти `aarch64-linux-gnu`.
 :::
 
-Build the executable file:
+Зберіть виконуваний файл:
 
 ```sh
 cd PX4-Autopilot
 make scumaker_pilotpi_arm64
 ```
 
-Then upload it with:
+Потім завантажте його за допомогою:
 
 ```sh
 make scumaker_pilotpi_arm64 upload
 ```
 
-#### Alternative build method for arm64 (using docker)
+#### Альтернативний метод збірки для arm64 (з використанням Docker)
 
-If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
+Якщо ви вперше компілюєте з докером, будь ласка, зверніться до [офіційної документації](../test_and_ci/docker.md#prerequisites).
 
-Execute the command in `PX4-Autopilot` folder:
+Виконайте команду в директорії `PX4-Autopilot`:
 
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_arm64 upload"
 ```
 
 ::: info
-mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
+mDNS не підтримується з Docker. Ви повинні вказати правильну IP-адресу кожного разу при завантаженні.
 :::
 
-::: info If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too - just remove the `upload` target.
+::: info Якщо ваша IDE не підтримує збірку ninja, опція `NO_NINJA_BUILD=1` допоможе. Ви можете компілювати без завантаження - просто видаліть `upload`.
 :::
 
-It is also possible to just compile the code with command:
+Також можливо просто скомпілювати код за допомогою команди:
 
 ```sh
 ./Tools/docker_run.sh "make scumaker_pilotpi_arm64"
 ```
 
-#### Manually run PX4
+#### Ручний запуск PX4
 
-Connect over SSH and run it with:
+Під'єднайтесь через ssh та запустіть за допомогою:
 
 ```sh
 cd px4
 sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 ```
 
-Now PX4 is started with multi-rotor configuration.
+Тепер PX4 запустився з конфігурацією мультиротора.
 
-If you encountered the similar problem executing `bin/px4` on your Pi as following:
+Якщо ви стикалися з аналогічною проблемою під час виконання `bin/px4` на вашому Pi, як показано нижче:
 
 ```
 bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
 ```
 
-Then you should compile with docker instead.
+Тоді ви повинні скомпілювати з Docker.
 
-Before proceeding to next step, clear the existing building at first:
+Перш ніж перейти до наступного кроку, спочатку видаліть наявну збірку:
 
 ```sh
 rm -rf build/scumaker_pilotpi_*
 ```
 
-Then go back to the corresponding chapter above.
+Потім поверніться до відповідного розділу вище.
 
-### Post-configuration
+### Post налаштування
 
-Please refer to the instructions [here](raspberry_pi_pilotpi_rpios.md)
+Будь ласка, зверніться до інструкцій [тут](raspberry_pi_pilotpi_rpios.md)
