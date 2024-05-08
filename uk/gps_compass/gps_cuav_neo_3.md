@@ -7,7 +7,7 @@ It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, an
 
 ![Hero image of Neo3 GPS](../../assets/hardware/gps/cuav_gps_neo3/neo_3.jpg)
 
-## Technical Specification
+## Технічні характеристики
 
 | Hardware                                          | Type                                                                                                                       |
 | :------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------- |
@@ -37,7 +37,7 @@ It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, an
 | Size                                              | 60\*60\*16MM                                                                                                               |
 | Weight                                            | 33g                                                                                                                        |
 
-## Dimensions
+## Розміри
 
 ![Neo 3 Size](../../assets/hardware/gps/cuav_gps_neo3/neo_3_size.png)
 
@@ -45,16 +45,16 @@ It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, an
 
 ![Neo 3 Pinouts](../../assets/hardware/gps/cuav_gps_neo3/neo_3_pinouts.png)
 
-## Where to Buy
+## Де придбати
 
 - [CUAV](https://cuav.en.alibaba.com/product/1600217379204-820872629/CUAV_NEO_3_M9N_GPS_Module_for_Pixhawk_Compass_gps_tracker_navigation_gps.html?spm=a2700.shop_oth.74.1.636e28725EvVHb)
 
-## Wiring and Connections
+## Підключення та з'єднання
 
 Neo3 wiring and connection diagram
 
 ![Neo3 wiring and connection diagram](../../assets/hardware/gps/cuav_gps_neo3/neo_3_connect.png)
 
-## More info
+## Додаткова інформація
 
 - [CUAV docs](https://doc.cuav.net/gps/neo-series-gnss/zh-hans/neo-3.html)
