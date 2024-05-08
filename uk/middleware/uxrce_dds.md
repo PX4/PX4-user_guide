@@ -396,7 +396,7 @@ subscriptions_multi:
 
 Кожна пара (`topic`,`type`) визначає:
 
-1. A new `publication`, `subscription`, or `subscriptions_multi`, depending on the list to which it is added.
+1. Нова `publication`, `subscription`, або `subscriptions_multi`, залежно від списку, до якого її додано.
 2. The topic _base name_, which **must** coincide with the desired uORB topic name that you want to publish/subscribe. It is identified by the last token in `topic:` that starts with `/` and does not contains any `/` in it. `vehicle_odometry`, `vehicle_status` and `offboard_control_mode` are examples of base names.
 3. The topic [namespace](https://design.ros2.org/articles/topic_and_service_names.html#namespaces). By default it is set to:
    - `/fmu/out/` for topics that are _published_ by PX4.
