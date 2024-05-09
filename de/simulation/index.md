@@ -219,7 +219,7 @@ PX4 supports capture of both still images and video from within the [Gazebo Clas
 
 The simulated camera is a gazebo classic plugin that implements the [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html) <!-- **PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/src/gazebo_geotagged_images_plugin.cpp -->. PX4 connects/integrates with this camera in _exactly the same way_ as it would with any other MAVLink camera:
 
-1. For more information see [Camera](../peripherals/camera.md). [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) must be set to `3` to configure the camera trigger driver for use with a MAVLink camera :::tip In this mode the driver just sends a [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message whenever an image capture is requested.
+1. For more information see [Camera](../peripherals/camera.md). For more information see [Cameras Connected to Flight Controller Outputs](../camera/fc_connected_camera.md).
 :::
 1. PX4 must forward all camera commands between the GCS and the (simulator) MAVLink Camera. You can do this by starting [MAVLink](../modules/modules_communication.md#mavlink) with the `-f` flag as shown, specifying the UDP ports for the new connection.
 
