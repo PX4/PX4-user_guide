@@ -114,7 +114,7 @@ The [Pixhawk V6X Wiring Quick Start](../assembly/quick_start_cuav_pixhawk_v6x.md
 
 Notes:
 
-- The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
+- The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
 ## Serial Port Mapping
 
