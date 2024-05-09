@@ -217,7 +217,7 @@ PX4 підтримує захоплення як нерухомих зображ
 
 Симуляція камери - це класичний gazebo плагін, який реалізує [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html). <!-- **PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/src/gazebo_geotagged_images_plugin.cpp -->. PX4 з'єднується/інтегрується з цією камерою _точно так само_, як і з будь-якою іншою камерою MAVLink:
 
-1. [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) має бути встановлено у `3`, щоб налаштувати драйвер тригера камери для використання з камерою MAVLink :::tip У цьому режимі драйвер просто надсилає повідомлення [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) щоразу, коли запитується захоплення зображення. Для отримання додаткової інформації див. [Камера](../peripherals/camera.md).
+1. [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) має бути встановлено у `3`, щоб налаштувати драйвер тригера камери для використання з камерою MAVLink :::tip У цьому режимі драйвер просто надсилає повідомлення [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) щоразу, коли запитується захоплення зображення. For more information see [Cameras Connected to Flight Controller Outputs](../camera/fc_connected_camera.md).
 :::
 1. PX4 повинен перенаправляти всі команди камери між GCS і (симулятором) MAVLink Camera. Ви можете зробити це, запустивши [MAVLink](../modules/modules_communication.md#mavlink) з прапором `-f`, як показано на малюнку, вказавши UDP-порти для нового з'єднання.
 
