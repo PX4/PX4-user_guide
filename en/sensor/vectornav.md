@@ -123,9 +123,11 @@ and, if enabled as an external INS, publishes:
 - [vehicle_attitude](../msg_docs/VehicleAttitude.md)
 
 or, if enabled as external sensor only, publishes:
-- [external_ins_local_position]()
-- [external_ins_global_position]()
-- [external_ins_attitude]()
+
+- `external_ins_local_position`
+- `external_ins_global_position`
+- `external_ins_attitude`
+
 
 ::: tip
 Published topics can be viewed using the `listener` command.
