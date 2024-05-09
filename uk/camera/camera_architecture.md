@@ -3,10 +3,10 @@
 This topic provides a brief overview of how PX4 camera support is **implemented**.
 
 :::info
-See [Camera](../camera/index.md) for information about _using_ cameras.
+Дивіться [Камера](../camera/index.md) для отримання інформації щодо _використання_ камер.
 :::
 
-## Overview
+## Загальний огляд
 
 PX4 integrates with three types of cameras:
 
@@ -114,5 +114,5 @@ Note that camera capture events are not logged when using the [MAVLink cameras t
 
 ## See Also
 
-- Camera trigger driver: [source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger) <!-- no module doc -->
-- Camera capture driver: [source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture) <!-- no module doc -->
+- Драйвер Тригера камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger) <!-- no module doc -->
+- Драйвер захоплення камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture) <!-- no module doc -->
