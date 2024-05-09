@@ -63,17 +63,17 @@ ModalAI активно працює на [розгалудженій версі�
 
 Додаткову інформацію про прошивку можна знайти [тут](https://docs.modalai.com/voxl2-px4-developer-guide/).
 
-### main branch
+### основна гілка
 
-PX4 mainline support is a work in progress (currently started [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
+Підтримка основної лінії PX4 є роботою у процесі (на даний момент розпочата [тут](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
 
-## QGroundControl Support
+## Підтримка QGroundControl
 
-This board supported in QGroundControl 4.0 and later.
+Ця плата підтримується QGroundControl 4.0 та пізнішими версіями.
 
-## Availability
+## Доступність
 
-- [Sentinel Development Drone powered by VOXL 2](https://www.modalai.com/pages/sentinel)
+- [Sentinel Development Drone, працює на VOXL 2](https://www.modalai.com/pages/sentinel)
   - [Demo Video](https://www.youtube.com/watch?v=hMhQgWPLGXo)
 - [VOXL 2 Flight Deck, ready to mount, tune and fly](https://www.modalai.com/collections/ready-to-mount/products/voxl-2-flight-deck)
 - [VOXL 2 Development Kits](https://www.modalai.com/products/voxl-2)
