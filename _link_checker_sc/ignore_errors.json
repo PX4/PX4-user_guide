@@ -922,5 +922,10 @@
     "type": "PageNotInTOC",
     "fileRelativeToRoot": "en\\msg_docs\\README.md",
     "hideReason": "Because I'm goign to delete it"
+  },
+  {
+    "type": "PageNotInTOC",
+    "fileRelativeToRoot": "en\\camera\\camera_intel_realsense_t265_vio.md",
+    "hideReason": null
   }
 ]

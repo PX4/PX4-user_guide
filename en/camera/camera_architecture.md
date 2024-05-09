@@ -33,7 +33,7 @@ The `camera_trigger`, `camera_capture` and `camera_feedback` modules are not use
 
 [Cameras attached to flight controller outputs](../camera/fc_connected_camera.md) need PX4 to activate the outputs to trigger the camera, and may need PX4 to detect when a [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) has been triggered by the camera hotshoe (in order to improve the logged camera-capture time).
 
-This work is handled by three PX4 components: [`camera_trigger` driver](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger), [`camera_capture` driver](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture), [`camera-feedback` module](../modules/modules_system.html#camera-feedback).
+This work is handled by three PX4 components: [`camera_trigger` driver](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger), [`camera_capture` driver](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture), [`camera-feedback` module](../modules/modules_system.md#camera-feedback).
 
 `camera_trigger` subscribes to the [VehicleCommand](../msg_docs/VehicleCommand.md) topic and monitors for updates to its [supported commands](../camera/fc_connected_camera.md#mavlink-command-interface).
 Thes updates occur when either a command is received via MAVLink or when a [camera item is reached in a mission](#camera-commands-in-missions).
