@@ -40,44 +40,44 @@ _Omnibus F4 SD_ - це плата контролера, розроблена д�
 - BMP280 Baro (встановлений не на всі плати)
 - microSD (логування)
 - Futaba S.BUS і S.BUS2 / Spektrum DSM2 і DSMX / Graupner SUMD / PPM input / Yuneec ST24
-- OneShot PWM out (configurable)
-- Built-in current sensor
-- Built-in OSD chip (AB7456 via SPI)
+- OneShot PWM (налаштовується)
+- Вбудований датчик струму
+- Вбудований чіп OSD (AB7456 через SPI)
 
-## Where to Buy
+## Де придбати
 
-The board is produced by different vendors, with some variations (e.g. with or without a barometer).
+Дошка виробляється різними вендорами, з деякими варіаціями (наприклад, з барометром або без нього).
 
-:::tip PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if _OMNIBUSF4SD_ is present on the product page the board should work with PX4).
+:::tip PX4 сумісний з платами, які підтримують таргет Betaflight OMNIBUSF4SD (якщо на сторінці продукту вказано _OMNIBUSF4SD_, то плата повинна працювати з PX4).
 :::
 
 :::tip
-Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, power distribution on these boards is of varying quality.
+Будь-яка похідна з міткою Omnibus F4 (наприклад, клон) також повинна працювати. Однак розподіл живлення на цих платах має різну якість.
 :::
 
-These are the boards tested and known to work:
+Ось дошки, які були протестовані і відомо, що працюють:
 
 - [Hobbywing XRotor Flight Controller F4](https://www.hobbywing.com/en/products/info.html?id=164)
 
-  ::: info This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. This ESC board also provides power for the Omnibus board.
+  ::: info Ця плата встановлюється на [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) без пайки. Ця плата ESC також забезпечує живлення для плати Omnibus.
 :::
 
-  Purchase from:
+  Купуйте у:
 
   - [Hobbywing XRotor F4 Flight Controller w/OSD](https://www.getfpv.com/hobbywing-xrotor-f4-flight-controller-w-osd.html) (getfpv)
 
 - Original Airbot Omnibus F4 SD
 
-  Purchase from:
+  Купуйте у:
 
-  - [Airbot (CN manufacturer)](https://store.myairbot.com/omnibusf4prov3.html)
-  - [Ready To Fly Quads (US reseller)](https://quadsrtf.com/product/flip-32-f4-omnibus-rev-2/)
+  - [Airbot (китайський виробник)](https://store.myairbot.com/omnibusf4prov3.html)
+  - [Ready To Fly Quads (США реселлер)](https://quadsrtf.com/product/flip-32-f4-omnibus-rev-2/)
 
-Accessories include:
+Аксесуари в комплекті:
 
-- [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md) for MAVLink telemetry. You need to connect these pins: GND, RX, TX, VCC and CH-PD (CH-PD to 3.3V). The baud rate is 921600.
+- [ESP8266 WiFi модуль](../telemetry/esp8266_wifi_module.md) для телеметрії MAVLink. Потрібно підключити ці контакти: GND, RX, TX, VCC та CH-PD (CH-PD до 3,3В). Швидкість передачі даних становить 921600.
 
-## Connectors
+## Конектори
 
 Boards from different vendors (based on this design) can have significantly different layout. Layouts/Silkscreens for various versions are shown below.
 
