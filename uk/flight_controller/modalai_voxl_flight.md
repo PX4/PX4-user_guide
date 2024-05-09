@@ -70,7 +70,7 @@ Voxl Flight від ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Те
 
 <!-- reference links for above table (improve layout) -->
 
-::: інформація Докладнішу документацію щодо апаратного забезпечення можна знайти [тут](https://docs.modalai.com/voxl-flight-datasheet/).
+:::info Докладнішу документацію щодо апаратного забезпечення можна знайти [тут](https://docs.modalai.com/voxl-flight-datasheet/).
 :::
 
 ## Розміри
