@@ -7,6 +7,6 @@
 - [Використання корисного навантаження](../payloads/use_cases.md)
 - [Місія доставки посилок](../flying/package_delivery_mission.md)
 - [Керування Загальним Приводом](../payloads/generic_actuator_control.md)
-- [Камера](../peripherals/camera.md)
+- [Камера](../camera/index.md)
 - [Конфігурація \(монтаж\) підвісу](../advanced/gimbal_control.md)
 - [Захват](../peripherals/gripper.md)
