@@ -278,6 +278,8 @@
       - [Septentrio mosaic-go](gps_compass/septentrio_mosaic-go.md)
       - [Trimble MB-Two](gps_compass/rtk_gps_trimble_mb_two.md)
       - [CubePilot Here+ (Discontined)](gps_compass/rtk_gps_hex_hereplus.md)
+    - [INS (Inertial Navigation/GNSS)](sensor/inertial_navigation_systems.md)
+      - [VectorNav](sensor/vectornav.md)
     - [Optical Flow](sensor/optical_flow.md)
       - [ARK Flow](dronecan/ark_flow.md)
       - [PMW3901](sensor/pmw3901.md)
