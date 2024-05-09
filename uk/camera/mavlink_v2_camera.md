@@ -3,7 +3,7 @@
 This topic explains how to use PX4 with a MAVLink [camera](../camera/index.md) that implements the [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) with PX4 and a Ground Station.
 
 :::tip
-This is the recommended way to integrate a camera with PX4!
+Це рекомендований спосіб інтеграції камери з PX4!
 :::
 
 ## Overview
