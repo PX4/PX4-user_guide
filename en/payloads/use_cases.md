@@ -6,20 +6,8 @@ This topic lists a few common drone "payload use cases", and how they are suppor
 
 Mapping drones use cameras to capture images at time or distance intervals during surveys.
 
-MAVLink cameras that support the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html) provide the best integration with PX4 and QGroundControl.
-The MAVSDK provides simple APIs to use this protocol for both [standalone camera operations](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html) and in [missions](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4).
-
-Cameras can also be connected directly to a flight controller using PWM or GPI outputs.
-PX4 supports the following set of MAVLink commands/mission items for cameras that are connected to the flight controller:
-
-- [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL) - set time interval between captures.
-- [MAV_CMD_DO_SET_CAM_TRIGG_DIST](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST) - set distance between captures
-- [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - start/stop capturing (using distance or time, as defined using above messages).
-
-The following topics show how to _connect_ and configure a camera:
-
-- [Camera Triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink.
-- [Camera Capture](../peripherals/camera.md#camera-capture) feedback via hotshoe input.
+PX4 supports cameras that are connected via either [MAVLink](../camera/mavlink_v2_camera.md) or to [Flight Controller Outputs](../camera/fc_connected_camera.md).
+Both types of cameras support the mapping use case, but via a different set of MAVLink commands/mission items.
 
 ## Cargo Drones (Package Delivery)
 
@@ -44,9 +32,9 @@ If you need to perform cargo delivery using hardware that is not yet integrated,
 Surveillance and Search & Rescue drones have similar requirements to mapping drones.
 The main differences are that, in addition to flying a planned survey area, they typically need good standalone control over the camera for image and video capture, and they may need to be able to work during both day and night
 
-Use a camera that supports the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html) as this supports image and video capture, zooming, storage management, multiple cameras on the same vehicle and switching between them, etc.
+Use a [MAVLink](../camera/mavlink_v2_camera.md) that supports the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html), as this enables image and video capture, zooming, storage management, multiple cameras on the same vehicle and switching between them, etc.
 These cameras can be controlled either manually from QGroundControl or via MAVSDK (for both [standalone camera operations](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html) and in [missions](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4)).
-See [Camera triggering](../peripherals/camera.md) for information on how to configure your camera to work with MAVLink.
+See [MAVLink Camera](../camera/mavlink_v2_camera.md) for information on how to configure your camera to work with MAVLink.
 
 ::: info
 Cameras connected directly to the flight controller _only_ support camera triggering, and are unlikely to be suitable for most surveillance/search work.
