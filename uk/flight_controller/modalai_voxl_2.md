@@ -63,68 +63,68 @@ ModalAI активно працює на [розгалудженій версі�
 
 Додаткову інформацію про прошивку можна знайти [тут](https://docs.modalai.com/voxl2-px4-developer-guide/).
 
-### main branch
+### основна гілка
 
-PX4 mainline support is a work in progress (currently started [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
+Підтримка основної лінії PX4 є роботою у процесі (на даний момент розпочата [тут](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
 
-## QGroundControl Support
+## Підтримка QGroundControl
 
-This board supported in QGroundControl 4.0 and later.
+Ця плата підтримується QGroundControl 4.0 та пізнішими версіями.
 
-## Availability
+## Доступність
 
-- [Sentinel Development Drone powered by VOXL 2](https://www.modalai.com/pages/sentinel)
-  - [Demo Video](https://www.youtube.com/watch?v=hMhQgWPLGXo)
-- [VOXL 2 Flight Deck, ready to mount, tune and fly](https://www.modalai.com/collections/ready-to-mount/products/voxl-2-flight-deck)
-- [VOXL 2 Development Kits](https://www.modalai.com/products/voxl-2)
-  - [Demo Video](https://www.youtube.com/watch?v=aVHBWbwp488)
+- [Sentinel Development Drone, працює на VOXL 2](https://www.modalai.com/pages/sentinel)
+  - [Відео-демонстрація](https://www.youtube.com/watch?v=hMhQgWPLGXo)
+- [VOXL 2 Flight Deck, готовий до встановлення, налаштування і польоту](https://www.modalai.com/collections/ready-to-mount/products/voxl-2-flight-deck)
+- [VOXL 2 Набори розробки](https://www.modalai.com/products/voxl-2)
+  - [Відео-демонстрація](https://www.youtube.com/watch?v=aVHBWbwp488)
 
-## Quick Start
+## Швидкий старт
 
-Quickstarts from the vendor are located [here](https://docs.modalai.com/voxl2-quickstarts/).
+Quickstarts від постачальника розташовані [тут](https://docs.modalai.com/voxl2-quickstarts/).
 
 ### VOXL SDK
 
-VOXL SDK (Software Development Kit) consists of the open source [voxl-px4](https://docs.modalai.com/voxl-px4/), [core libraries](https://docs.modalai.com/core-libs/), [services](https://docs.modalai.com/mpa-services/), [tools](https://docs.modalai.com/inspect-tools/), [utilities](https://docs.modalai.com/sdk-utilities/), and [build environments](https://docs.modalai.com/build-environments/) that ModalAI provide to accelerate the use and development of VOXL compute boards and accessories.
+VOXL SDK (Набір розробки програмного забезпечення) складається з відкритих [voxl-px4](https://docs.modalai.com/voxl-px4/), [core бібліотек](https://docs.modalai.com/core-libs/), [сервісу](https://docs.modalai.com/mpa-services/), [інструментів](https://docs.modalai.com/inspect-tools/), [утиліт](https://docs.modalai.com/sdk-utilities/) та [середовищ розробки](https://docs.modalai.com/build-environments/), які ModalAI надає для прискорення використання та розвитку обчислювальних плат і аксесуарів VOXL.
 
-VOXL SDK runs on VOXL, VOXL 2 and RB5 Flight!
+VOXL SDK працює на VOXL, VOXL 2 та RB5 Flight!
 
-The source code for projects within VOXL SDK can be found at https://gitlab.com/voxl-public, alongside build instructions.
+Вихідний код для проєктів у межах VOXL SDK можна знайти на https://gitlab.com/voxl-public, поруч з інструкціями зі збірки.
 
-### Connectors
+### З’єднання
 
-Detailed information about the pinouts can be found [here](https://docs.modalai.com/voxl2-connectors/) along with a [video overview here](https://www.youtube.com/watch?v=xmqI3msjqdo)
+Детальну інформацію про роз'єми можна знайти [тут](https://docs.modalai.com/voxl2-connectors/) разом з [відеооглядом тут](https://www.youtube.com/watch?v=xmqI3msjqdo)
 
 ![VOXLConnectors](../../assets/flight_controller/modalai/voxl_2/voxl-2-connectors.jpg)
 
-All single ended signals on B2B connectors J3, J5, J6, J7, and J8 are 1.8V CMOS unless explicitly noted. All single ended signals on cable-to-board connectors J10, J18, & J19 are 3.3V CMOS unless explicitly noted.
+Усі односторонні сигнали на роз'ємах B2B J3, J5, J6, J7 та J8 є 1,8В CMOS, якщо явно не вказано інше. Усі односторонні сигнали на кабель-плата роз'ємах J10, J18, & J19 є 3,3В CMOS, якщо явно не вказано інше.
 
-| Connector | Description                   | MPN (Board Side)        | Mating MPN (Board/Cable Side) | Type                         | Signal Feature Summary                                                                                                                                                                                     |
-| --------- | ----------------------------- | ----------------------- | ----------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| J2        | Fan                           | SM02B-SRSS-TB(LF)(SN)   | SHR-02V-S                     | Cable Header, 2-pin R/A      | 5V DC for FAN + PWM Controlled FAN-Return (GND)                                                                                                                                                            |
-| J3        | Legacy B2B                    | QSH-030-01-L-D-K-TR     | QTH-030-01-L-D-A-K-TR         | B2B Receptacle, 60-pin       | 5V/3.8V/3.3V/1.8V power for plug-in boards, JTAG and Debug Signals, QUP expansion, GPIOs, USB3.1 Gen 2 (USB1)                                                                                              |
-| J4        | Prime Power In                | 22057045                | 0050375043                    | Cable Connector, 4-pin R/A   | +5V main DC power in + GND, I2C@5V for power monitors                                                                                                                                                      |
-| J5        | High Speed B2B                | ADF6-30-03.5-L-4-2-A-TR | ADM6-30-01.5-L-4-2-A-TR       | B2B Socket, 120-pin          | More 3.8V/3.3V/1.8V power for plug-in boards, 5V power in for “SOM Mode”, QUP expansion, GPIOS (including I2S), SDCC (SD Card V3.0), UFS1 (secondary UFS Flash), 2L PCIe Gen 3, AMUX and SPMI PMIC signals |
-| J6        | Camera Group 0                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V               | B2B Plug, 60-pin             | Qty-2 4L MIPI CSI ports, CCI and camera control signals, 8 power rails (from 1.05V up to 5V) for cameras and other sensors, dedicated SPI (QUP) port                                                       |
-| J7        | Camera Group 1                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V               | B2B Plug, 60-pin             | Qty-2 4L MIPI CSI ports, CCI and camera control signals, 8 power rails (from 1.05V up to 5V) for cameras and other sensors, dedicated SPI (QUP) port                                                       |
-| J8        | Camera Group 2                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V               | B2B Plug, 60-pin             | Qty-2 4L MIPI CSI ports, CCI and camera control signals, 8 power rails (from 1.05V up to 5V) for cameras and other sensors, dedicated SPI (QUP) port                                                       |
-| J9        | USB-C (ADB)                   | UJ31-CH-3-SMT-TR        | USB Type-C                    | Cable Receptacle, 24-pin R/A | ADB USB-C with re-driver and display port alternate mode (USB0)                                                                                                                                            |
-| J10       | SPI Expansion                 | SM08B-GHS-TB(LF)(SN)    | GHR-08V-S                     | Cable Header, 8-pin R/A      | SPI@3.3V with 2 CS_N pins, 32kHz CLK_OUT@3.3V                                                                                                                                                            |
-| J18       | ESC (SLPI Access)             | SM04B-GHS-TB(LF)(SN)    | GHR-04V-S                     | Cable Header, 4-pin R/A      | ESC UART@3.3V, 3.3V reference voltage                                                                                                                                                                      |
-| J19       | GNSS/MAG/RC/I2C (SLPI Access) | SM12B-GHS-TB(LF)(SN)    | GHR-12V-S                     | Cable Header, 6-pin R/A      | GNSS UART@3.3V, Magnetometer I2C@3.3V, 5V, RC UART, Spare I2C                                                                                                                                              |
+| З’єднання | Опис                                          | MPN (Сторона плати)     | З'єднання MPN (сторона плати/кабелю) | Тип                          | Загальний опис функцій сигналізації                                                                                                                                                                                        |
+| --------- | --------------------------------------------- | ----------------------- | ------------------------------------ | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| J2        | Охолодження                                   | SM02B-SRSS-TB(LF)(SN)   | SHR-02V-S                            | Cable Header, 2-pin R/A      | 5V DC для вентилятора + регулювання FAN-повернення (GND)                                                                                                                                                                   |
+| J3        | Legacy B2B                                    | QSH-030-01-L-D-K-TR     | QTH-030-01-L-D-A-K-TR                | B2B накопичувач, 60-pin      | 5V/3.8V/3.3V/1.8V живлення для плати, JTAG і Debug Signals QUP expansion, GPIOs, USB3.1 Gen 2 (USB1)                                                                                                                       |
+| J4        | Максимальна потужність                        | 22057045                | 0050375043                           | Конектор, 4-pin R/A          | +5В основний постійний струм + GND, I2C@5V для живлення моніторів                                                                                                                                                          |
+| J5        | Високошвидкісне підключення плата-плата (B2B) | ADF6-30-03.5-L-4-2-A-TR | ADM6-30-01.5-L-4-2-A-TR              | B2B Роз'єм, 120-pin          | Більше потужності 3.8V/3.3V/1.8V для встановлюваних плат, потужність 5V для режиму «SOM», розширення QUP, GPIO (включно з I2S), SDCC (SD Card V3.0), UFS1 (другорядна UFS Flash), 2L PCIe Gen 3, AMUX та сигнали SPMI PMIC |
+| J6        | Група камери 0                                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V                      | B2B плагін, 60-пін           | Qty-2 4L MIPI порти CSI, сигнали управління CCI і камери, 8 рейок живлення (від 1.05-V до 5V) для камер і інших сенсорів, виділених порту SPI (QUP)                                                                        |
+| J7        | Група камери 1                                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V                      | B2B плагін, 60-пін           | Qty-2 4L MIPI CSI порти, сигнали управління CCI і камери, 8 рейок живлення (від 1.05-V до 5V) для камер і інших сенсорів, виділений порт SPI (QUP)                                                                         |
+| J8        | Група камери 2                                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V                      | B2B плагін, 60-пін           | Qty-2 4L MIPI CSI порти, сигнали управління CCI і камери, 8 рейок живлення (від 1.05-V до 5V) для камер і інших сенсорів, виділений порт SPI (QUP)                                                                         |
+| J9        | USB-C (ADB)                                   | UJ31-CH-3-SMT-TR        | USB Type-C                           | Кабель-з'єднувач, 24-pin R/A | ADB USB-C з перезапуском та альтернативним режимом відображення порту (USB0)                                                                                                                                               |
+| J10       | Розширення SPI                                | SM08B-GHS-TB(LF)(SN)    | GHR-08V-S                            | Конектор, 8-pin R/A          | SPI@3.3V з 2 CS_N пінами, 32kHz CLK_OUT@3.3V                                                                                                                                                                             |
+| J18       | ESC (Доступ SLPI)                             | SM04B-GHS-TB(LF)(SN)    | GHR-04V-S                            | Конектор, 4-pin R/A          | ESC UART@3.3V, опорна напруга 3.3V                                                                                                                                                                                         |
+| J19       | GNSS/MAG/RC/I2C (доступ SLPI)                 | SM12B-GHS-TB(LF)(SN)    | GHR-12V-S                            | Конектор, 6-pin R/A          | GNSS UART@3.3V, Магнетометр I2C@3.3V, 5V, RC UART, Запасна I2C                                                                                                                                                             |
 
-### User Guide
+### Посібник користувача
 
-The PX4 user guide for VOXL 2 is available [here](https://docs.modalai.com/voxl-px4/).
+Посібник користувача PX4 для VOXL 2 доступний [тут](https://docs.modalai.com/voxl-px4/).
 
-### Developer Guide
+### Інструкція розробника
 
-The PX4 developer guide for VOXL 2 is available [here](https://docs.modalai.com/voxl-px4-developer-guide/).
+The Посібник розробника PX4 для VOXL 2 доступний [тут](https://docs.modalai.com/voxl-px4-developer-guide/).
 
-### How to Build
+### Як зібрати
 
-See the [VOXL PX4 Build Guide](https://docs.modalai.com/voxl2-px4-build-guide/) on how to build.
+Дивіться [VOXL PX4 Посібник зі збірки](https://docs.modalai.com/voxl2-px4-build-guide/) щодо збірки.
 
-## Support
+## Підтримка
 
-Please visit the [ModalAI Forum](https://forum.modalai.com/category/26/voxl-2) for more information.
+Будь ласка, відвідайте [Форум ModalAI](https://forum.modalai.com/category/26/voxl-2) для отримання додаткової інформації.

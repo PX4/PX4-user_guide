@@ -1,13 +1,13 @@
 # mRo-X2.1 Autopilot
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](https://store.mrobotics.io/) щодо підтримки обладнання або питань сумісності.
 :::
 
-The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+Автопілот [mRo-X2.1](http://www.mRobotics.io/) базується на [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** відкритому апаратному забезпеченні. Він виконує PX4 на ОС [NuttX](https://nuttx.apache.org/).
 
 ![mRo X2.1](../../assets/flight_controller/mro/mro_x2.1.jpg)
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info Цей контролер польоту [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Короткий опис

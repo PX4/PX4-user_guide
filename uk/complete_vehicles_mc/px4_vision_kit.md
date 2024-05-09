@@ -255,47 +255,47 @@ PX4 та супутниковий комп'ютер обмінюються да�
 
 <a id="install_image_mission_computer"></a>
 
-### Installing the image on the Companion Computer
+### Встановлення образу на  супутній комп’ютер
 
-You can install the image on the _UP Core_ and boot from internal memory (instead of the USB stick).
+Ви можете встановити зображення на _UP Core_ та завантажитися з внутрішньої пам'яті (замість USB-накопичувача).
 
-This is recommended because booting from internal memory is much faster, frees up a USB port, and may well provide more memory than your USB stick.
+Це рекомендується, оскільки завантаження з внутрішньої пам'яті відбувається набагато швидше, звільняє один USB-порт і, можливо, надасть більше пам'яті, ніж ваш USB-накопичувач.
 
 :::info
-Booting from internal memory takes around 30 seconds while booting from the supplied USB2 stick boots in about a minute (other cards may take several times longer).
+Завантаження з внутрішньої пам'яті займає близько 30 секунд при завантаженні із поставлених USB2 завантажувачів (інша карта може тривати кілька разів довше).
 :::
 
-To flash the USB image to the _UP Core_:
+Щоб прошити зображення USB для _UP Core_:
 
-1. Insert the pre-flashed USB drive into the _UP Core_ port labeled `USB1`.
+1. Вставте передфлешний USB-накопичувач у порт _UP Core_, позначений як `USB1`.
 
-2. [Login to the companion computer](#login_mission_computer) (as described above).
+2. [Увійдіть в супровідний комп'ютер](#login_mission_computer) (як описано вище).
 
-3. Open a terminal and run the following command to copy the image onto internal memory (eMMC).
-   The terminal will prompt for a number of responses during the flashing process.
+3. Відкрийте термінал та виконайте наступну команду, щоб скопіювати зображення на внутрішню пам'ять (eMMC).
+   Термінал буде пропонувати ввести кількість відповідей під час процесу прошивки.
 
    ```sh
    cd ~/catkin_ws/src/px4vision_ros/tools
    sudo ./flash_emmc.sh
    ```
 
-   ::: info
-   All information saved in the _UP Core_ computer will be removed when executing this script.
+   :::info
+   Всю інформацію, збережену в комп'ютері _UP Core_, буде видалено при виконанні цього сценарію.
 
 :::
 
-4. Pull out the USB stick.
+4. Витягніть USB-флешку.
 
-5. Restart the vehicle.
-   The _UP Core_ computer will now boot from internal memory (eMMC).
+5. Перезавантажте пристрій.
+   Тепер ком'ютер _UP Core_ буде завантажений з внутрішньої пам'яті (eMMC).
 
-### Boot the Companion Computer
+### Запустіть супутній комп'ютер
 
-First insert the provided USB2.0 stick into the _UP Core_ port labeled `USB1`, and then power the vehicle using a 4S battery.
-The avoidance system should start within about 1 minute (though this does depend on the USB stick supplied).
+Спочатку вставте наданий USB2.0-накопичувач у порт _UP Core_, позначений `USB1`, а потім включіть живлення пристрою за допомогою батареї 4S.
+Система уникнення перешкод повинна почати працювати приблизно за 1 хвилину (хоча це залежить від встановленої USB-флешки).
 
 :::tip
-[Fly the Drone with Avoidance](#fly-the-drone-with-avoidance) additionally explains how to verify that the avoidance system is active.
+[Політ дроном з униканням колізій](#fly-the-drone-with-avoidance) додатково пояснює, як перевірити, що система уникання перешкод активна.
 :::
 
 Якщо ви вже [встановили зображення на супутньому комп'ютері](#install_image_mission_computer), ви можете просто увімкнути транспортний засіб (тобто не потрібен USB-накопичувач).

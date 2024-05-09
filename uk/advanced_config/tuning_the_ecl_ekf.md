@@ -362,7 +362,7 @@ EKF враховує невизначеність в оцінці візуаль
 
 ## Як використовувати бібліотеку EKF "ecl"?
 
-EKF2 is enabled by default (for more information see [Switching State Estimators](../advanced/switching_state_estimators.md) and [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN)).
+EKF2 увімкнено за замовчуванням (додаткову інформацію див. у розділах [Оцінки стану перемикання](../advanced/switching_state_estimators.md) та [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN)).
 
 ## Які переваги та недоліки EKF ecl порівняно з іншими оцінювачами?
 

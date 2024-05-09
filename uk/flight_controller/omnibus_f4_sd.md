@@ -1,83 +1,83 @@
 # Omnibus F4 SD
 
 :::warning
-This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+Цей політний контролер був [знятий з виробництва](../flight_controller/autopilot_experimental.md) і більше не продається комерційно.
 :::
 
 :::warning
-PX4 does not manufacture this (or any) autopilot.
-Contact the manufacturer for support or compliance issues.
+PX4 не виробляє цей (чи будь-який інший) автопілот.
+Звертайтесь до виробника з питань щодо підтримки або відповідності.
 :::
 
-The _Omnibus F4 SD_ is a controller board designed for racers. In contrast to a typical racer board it has some additional features, such as an SD card and a faster CPU.
+_Omnibus F4 SD_ - це плата контролера, розроблена для гонщиків. На відміну від звичайної гоночної дошки, вона має деякі додаткові функції, такі як SD-карта та швидший процесор.
 
 <img src="../../assets/flight_controller/omnibus_f4_sd/board.jpg" width="400px" title="Omnibus F4 SD" />
 
-These are the main differences compared to a [Pixracer](../flight_controller/pixracer.md):
+Ось основні відмінності в порівнянні з [Pixracer](../flight_controller/pixracer.md):
 
-- Lower price
-- Fewer IO ports (though it's still possible to attach a GPS or a Flow sensor for example)
-- Requires external pull up resistor on the I2C bus for external GPS, see [I2C](#i2c) below.
-- Less RAM (192 KB vs. 256 KB) and FLASH (1 MB vs. 2 MB)
-- Same board dimensions as a _Pixracer_, but slightly smaller form factor (because it has less connectors)
-- Integrated OSD (not yet implemented in software)
+- Нижча ціна
+- Менше портів вводу/виводу (хоча все ще можна підключити GPS або датчик потоку, наприклад)
+- Для зовнішнього GPS потрібен зовнішній підтягувальний резистор на шині I2C, див. [I2C](#i2c) нижче.
+- Менше ОЗП (192 КБ проти 256 КБ) та FLASH (1 МБ проти 2 МБ)
+- Ті ж розміри плати, що й у _Pixracer_, але трохи менший форм-фактор (тому що в неї менше роз'ємів)
+- Інтегрований OSD (ще не реалізований у програмному забезпеченні)
 
 :::tip
-All the usual PX4 features can still be used for your racer!
+Усі звичайні функції PX4 все ще можна використовувати для вашого гонщика!
 :::
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info Цей польотний контролер [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Key Features
+## Основні характеристики
 
-- Main System-on-Chip: [STM32F405RGT6](https://www.st.com/en/microcontrollers/stm32f405rg.html)
-  - CPU: 168 MHz ARM Cortex M4 with single-precision FPU
+- Основний System-on-Chip: [STM32F405RGT6](https://www.st.com/en/microcontrollers/stm32f405rg.html)
+  - CPU: 168 МГц ARM Cortex M4 з одноточним FPU
   - RAM: 192 KB SRAM
-  - FLASH: 1 MB
-- Standard racer form factor: 36x36 mm with standard 30.5 mm hole pattern
-- MPU6000 Accel / Gyro
-- BMP280 Baro (not all boards have it mounted)
-- microSD (for logging)
-- Futaba S.BUS and S.BUS2 / Spektrum DSM2 and DSMX / Graupner SUMD / PPM input / Yuneec ST24
-- OneShot PWM out (configurable)
-- Built-in current sensor
-- Built-in OSD chip (AB7456 via SPI)
+  - FLASH: 1 МБ
+- Стандартний гоночний форм-фактор: 36x36 мм зі стандартним розміром отворів 30,5 мм
+- MPU6000 Акселератор / Гіроскоп
+- BMP280 Baro (встановлений не на всі плати)
+- microSD (логування)
+- Futaba S.BUS і S.BUS2 / Spektrum DSM2 і DSMX / Graupner SUMD / PPM input / Yuneec ST24
+- OneShot PWM (налаштовується)
+- Вбудований датчик струму
+- Вбудований чіп OSD (AB7456 через SPI)
 
-## Where to Buy
+## Де придбати
 
-The board is produced by different vendors, with some variations (e.g. with or without a barometer).
+Дошка виробляється різними вендорами, з деякими варіаціями (наприклад, з барометром або без нього).
 
-:::tip PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if _OMNIBUSF4SD_ is present on the product page the board should work with PX4).
+:::tip PX4 сумісний з платами, які підтримують таргет Betaflight OMNIBUSF4SD (якщо на сторінці продукту вказано _OMNIBUSF4SD_, то плата повинна працювати з PX4).
 :::
 
 :::tip
-Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, power distribution on these boards is of varying quality.
+Будь-яка похідна з міткою Omnibus F4 (наприклад, клон) також повинна працювати. Однак розподіл живлення на цих платах має різну якість.
 :::
 
-These are the boards tested and known to work:
+Ось дошки, які були протестовані і відомо, що працюють:
 
 - [Hobbywing XRotor Flight Controller F4](https://www.hobbywing.com/en/products/info.html?id=164)
 
-  ::: info This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. This ESC board also provides power for the Omnibus board.
+  ::: info Ця плата встановлюється на [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) без пайки. Ця плата ESC також забезпечує живлення для плати Omnibus.
 :::
 
-  Purchase from:
+  Купуйте у:
 
   - [Hobbywing XRotor F4 Flight Controller w/OSD](https://www.getfpv.com/hobbywing-xrotor-f4-flight-controller-w-osd.html) (getfpv)
 
 - Original Airbot Omnibus F4 SD
 
-  Purchase from:
+  Купуйте у:
 
-  - [Airbot (CN manufacturer)](https://store.myairbot.com/omnibusf4prov3.html)
-  - [Ready To Fly Quads (US reseller)](https://quadsrtf.com/product/flip-32-f4-omnibus-rev-2/)
+  - [Airbot (китайський виробник)](https://store.myairbot.com/omnibusf4prov3.html)
+  - [Ready To Fly Quads (США реселлер)](https://quadsrtf.com/product/flip-32-f4-omnibus-rev-2/)
 
-Accessories include:
+Аксесуари в комплекті:
 
-- [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md) for MAVLink telemetry. You need to connect these pins: GND, RX, TX, VCC and CH-PD (CH-PD to 3.3V). The baud rate is 921600.
+- [ESP8266 WiFi модуль](../telemetry/esp8266_wifi_module.md) для телеметрії MAVLink. Потрібно підключити ці контакти: GND, RX, TX, VCC та CH-PD (CH-PD до 3,3В). Швидкість передачі даних становить 921600.
 
-## Connectors
+## Конектори
 
 Boards from different vendors (based on this design) can have significantly different layout. Layouts/Silkscreens for various versions are shown below.
 

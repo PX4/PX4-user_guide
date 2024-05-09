@@ -252,7 +252,7 @@ PWM AUX виходи вважаються бажаними для керуван
 
 Вихідні PWM групуються на основі груп апаратних таймерів. Це означає, що всі виходи в одній групі повинні працювати за одним протоколом з однаковою швидкістю (наприклад, сигнал ШІМ на частоті 400 Гц для всіх виходів в одній групі). Тому неможливо відобразити Серводвигун та Двигун в одній вихідній групі, оскільки вони зазвичай працюють на різних швидкостях.
 
-The PWM AUX tab has CAP outputs that are generally used as the [camera capture/trigger input](../camera/fc_connected_camera.md#trigger-configuration). Однак ви можете відобразити виводи CAP на інші функції виводу, і інші AUX виводи можуть бути використані як вхід для захоплення / спрацювання камери.
+Вкладка PWM AUX має виходи CAP, які, як правило, використовуються як [вхід знімка/спуску камери](../camera/fc_connected_camera.md#trigger-configuration). Однак ви можете відобразити виводи CAP на інші функції виводу, і інші AUX виводи можуть бути використані як вхід для захоплення / спрацювання камери.
 
 :::info
 Налаштування захоплення камери / Тригер вхід потребує перезавантаження для набуття чинності
@@ -292,7 +292,7 @@ The following functions can only be applied to FMU outputs:
 - `Camera_Capture`: Input to get image capture notification. Enabled when [CAM_CAP_FBACK==0](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). Configured via `CAM_CAP_*` parameters.
 - `PPS_Input`: Pulse-per-second input capture. Used for GPS synchronisation. Enabled when [`PPS_CAP_ENABLE==0`](../advanced_config/parameter_reference.md#PPS_CAP_ENABLE)
 
-::: info This list is correct at PX4 v1.13. The functions are defined in source at [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
+::: info This list is correct at PX4 v1.13. Функції визначені у джерелі за посиланням на [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
 :::
 
 ## Actuator Testing
