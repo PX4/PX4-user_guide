@@ -27,7 +27,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - OneShot PWM out (configurable)
 - Optional: Safety switch and buzzer
 
-## Where to Buy
+## Де придбати
 
 Pixracer is available from the [mRobotics.io](https://store.mrobotics.io/mRo-PixRacer-R15-Official-p/m10023a.htm).
 
@@ -56,7 +56,7 @@ Firmware upgrade is not yet enabled over WiFi (it is supported by the default bo
 Setup and telemetry are supported.
 :::
 
-## Assembly
+## Збірка
 
 See the [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
 
@@ -100,7 +100,7 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 | 5 (blk) | RTS (OUT) | +3.3V |
 | 6 (blk) | GND       | GND   |
 
-#### GPS port
+#### Порт GPS
 
 | Pin     | Signal   | Volt  |
 | ------- | -------- | ----- |
@@ -111,7 +111,7 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 | 5 (blk) | I2C1 SDA | +3.3V |
 | 6 (blk) | GND      | GND   |
 
-#### FrSky Telemetry / SERIAL4
+#### Телеметрія FrSky / SERIAL4
 
 | Pin     | Signal   | Volt  |
 | ------- | -------- | ----- |

@@ -561,8 +561,6 @@ Test the speed of an SD Card
 ### Usage
 ```
 sd_bench [arguments...]
-     sd_bench [arguments...]
-     sd_bench [arguments...]
      [-b <val>]  Block size for each read/write
                  default: 4096
      [-r <val>]  Number of runs
@@ -572,6 +570,7 @@ sd_bench [arguments...]
      [-k]        Keep the test file
      [-s]        Call fsync after each block (default=at end of each run)
      [-u]        Test performance with unaligned data
+     [-U]        Test performance with forced byte unaligned data
      [-v]        Verify data and block number
 ```
 ## sd_stress

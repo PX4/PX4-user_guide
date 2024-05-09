@@ -12706,6 +12706,13 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="FW_T_F_ALT_ERR">FW_T_F_ALT_ERR</strong> (FLOAT)</td>
+ <td>Minimum altitude error needed to descend with max airspeed. A negative value disables fast descend    </td>
+ <td>[-1.0, ?] </td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="FW_T_HRATE_FF">FW_T_HRATE_FF</strong> (FLOAT)</td>
  <td>Height rate feed forward    </td>
  <td>[0.0, 1.0] (0.05)</td>
@@ -13026,15 +13033,16 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_1_GNSS">GPS_1_GNSS</strong> (INT32)</td>
- <td>GNSS Systems for Primary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
+ <td>GNSS Systems for Primary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS 5 : Use NAVIC</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
   <li><strong>1:</strong> SBAS</li>
   <li><strong>2:</strong> Galileo</li>
   <li><strong>3:</strong> BeiDou</li>
   <li><strong>4:</strong> GLONASS</li>
+  <li><strong>5:</strong> NAVIC</li>
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 31] </td>
+ <td>[0, 63] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -13078,15 +13086,16 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_2_GNSS">GPS_2_GNSS</strong> (INT32)</td>
- <td>GNSS Systems for Secondary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
+ <td>GNSS Systems for Secondary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS 5 : Use NAVIC</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
   <li><strong>1:</strong> SBAS</li>
   <li><strong>2:</strong> Galileo</li>
   <li><strong>3:</strong> BeiDou</li>
   <li><strong>4:</strong> GLONASS</li>
+  <li><strong>5:</strong> NAVIC</li>
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 31] </td>
+ <td>[0, 63] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -13187,7 +13196,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_YAW_OFFSET">GPS_YAW_OFFSET</strong> (FLOAT)</td>
- <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover (or Unicore primary) antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover (or Unicore primary) antenna is placed on the right side of the vehicle and the moving base antenna is on the left side. (Note: the Unicore primary antenna is the one connected on the right as seen from the top).</p>   <p><b>Reboot required:</b> true</p>
+ <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover (or Unicore primary) antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover (or Unicore primary, or Septentrio Mosaic Aux) antenna is placed on the right side of the vehicle and the moving base antenna is on the left side. (Note: the Unicore primary antenna is the one connected on the right as seen from the top).</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 360] </td>
  <td>0.</td>

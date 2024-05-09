@@ -37,7 +37,7 @@ The [MINI2 Receiver](http://www.femtomes.com) is connected to a UART on the flig
 ![MINI_II_2](../../assets/hardware/gps/rtk_fem_miniII_2.jpg)
 
 
-## Configuration
+## Конфігурація
 
 For heading estimation the two antennas need to be on the same level and at least 30 cm apart from each other. The direction that they are facing does not matter as it can be configured with the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) parameter.
 

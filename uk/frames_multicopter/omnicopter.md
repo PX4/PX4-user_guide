@@ -11,9 +11,9 @@
 Компоненти, необхідні для цієї збірки, є:
 
 - Електроніка:
-  - Flight controller: [Holybro KakuteH7](../flight_controller/kakuteh7.md)
-  - Coupled with 2x [Tekko32 F4 4in1 ESCs](https://holybro.com/products/tekko32-f4-4in1-50a-esc) ::: info
-You can select your own flight controller of choice, it just needs to support 8 DShot outputs.
+  - Контролер польоту: [Holybro KakuteH7](../flight_controller/kakuteh7.md)
+  - Пара з 2x [Tekko32 F4 4in1 ESCs](https://holybro.com/products/tekko32-f4-4in1-50a-esc) :::info
+Ви можете вибрати свій власний контролер польоту за власним вибором, він просто повинен підтримувати 8 виходів DShot.
 :::
   - GPS: [ZED-F9P](https://www.gnss.store/gnss-gps-modules/105-ublox-zed-f9p-rtk-gnss-receiver-board-with-sma-base-or-rover.html?search_query=ZED-F9P&results=11)
   - [GPS helix antenna](https://www.gnss.store/rf-gps-antennas/28-high-performance-multi-band-gnss-active-quad-helix-antenna-for-rtk.html) ::: info
@@ -28,46 +28,46 @@ Any other GPS may work as well, however a helix antenna is expected to perform b
   - Battery: we used a 6S 3300mAh LiPo. Make sure to check the dimensions so it fits the frame.
   - Battery strap
 - Frame:
-  - Carbon square tube R 8mm X 7mm X 1000mm, e.g. [here](https://shop.swiss-composite.ch/pi/Halbfabrikate/Rohre/Vierkant-Rohre/CFK-Vierkantrohr-8x8-7x7mm.html)
-  - Carbon Rods R 3mm X 2mm X 1000mm, e.g. [here](https://shop.swiss-composite.ch/pi/Halbfabrikate/Rohre/CFK-Rohre-pultrudiert-pullwinding/Carbon-Microtubes-100cm-x-20-3mm.html)
-  - Required lengths:
+  - Карбонова квадратна труба R 8мм X 7мм X 1000мм, наприклад, [тут](https://shop.swiss-composite.ch/pi/Halbfabrikate/Rohre/Vierkant-Rohre/CFK-Vierkantrohr-8x8-7x7mm.html)
+  - Вуглецеві стержні R 3мм X 2мм X 1000мм, наприклад, [тут](https://shop.swiss-composite.ch/pi/Halbfabrikate/Rohre/CFK-Rohre-pultrudiert-pullwinding/Carbon-Microtubes-100cm-x-20-3mm.html)
+  - Необхідні довжини:
     - square tube: 8 pieces with length of 248mm
     - rods: 12x328mm, 6x465mm
   - Screws:
     - Motors and standoffs: 40x M3x12mm
     - FC mount: 4x M3x35mm, 4x M3 nuts
   - Standoffs: 4x 40mm
-- [3D model](https://cad.onshape.com/documents/eaff30985f1298dc6ce8ce13/w/2f662e604240c4082682e5e3/e/ad2b2245b73393cf369132f7)
+- [3D модель](https://cad.onshape.com/documents/eaff30985f1298dc6ce8ce13/w/2f662e604240c4082682e5e3/e/ad2b2245b73393cf369132f7)
 
 ![Parts List](../../assets/airframes/multicopter/omnicopter/parts_list.jpg)
 
-## Assembly
+## Збірка
 
-### Frame
+### Рамка
 
-- Print the 3D parts ::: info
-The orientation of the corner pieces matters.
-You will notice if it's wrong when the angles of the rods are not correct.
+- Друкуйте деталі 3D :::info
+Орієнтація кутових частин має значення.
+Ви помітите, якщо це неправильно, коли кути важеля не вірні.
 :::
-- Cut the rods
-- Test that it all works by connecting the frame pieces together:
+- Відріжте важелі
+- Перевірте, що все працює, з'єднуючи частини рамки разом:
 
   ![Frame](../../assets/airframes/multicopter/omnicopter/frame_only.jpg)
-- Place the motors as far out as possible, without the propellers touching the rods.
+- Розмістіть двигуни якомога далі від центру, без торкання гвинтів до важелів.
 
 ### Електроніка
 
-Solder the peripherals to the flight controller. We used the following assignments:
-- ESCs: the 2 ESCs can be connected directly to the two connectors of the KakuteH7. To avoid conflicts we removed the power pin (right-most pin) from one of the connectors.
-- Telemetry to UART1
+Пропаяйте периферійні пристрої до керуючого контролера. Ми використовували наступні завдання:
+- Регулятори швидкості: 2 регулятори швидкості можуть бути підключені безпосередньо до двох роз'ємів KakuteH7. Щоб уникнути конфліктів, ми видалили контакт живлення (праворуч) з одного з'єднувачів.
+- Телеметрія до UART1
 - GPS до UART4
 - RC до UART6 ![FC closeup](../../assets/airframes/multicopter/omnicopter/fc_closeup.jpg)
 
 Зауваження:
 
-- Make sure the magnetometer is placed away from power. We ended up placing it to the bottom of the center-piece with a 4cm padding styrofoam.
-- Put some tape on the barometer (without taping the opening!) to avoid any influence from light.
-- We did not glue the frame. It is certainly advisible to do so after initial test flights, but it might work without.
+- Переконайтеся, що магнітометр розташований подалі від джерел живлення. Ми закінчили тим, що розмістили його внизу центрального елементу з пінопластом товщиною 4 см.
+- Покладіть деяку стрічку на барометр (не заклеюючи отвору!) для уникнення будь-якого впливу світла.
+- Ми не склеїли рамку. Це безумовно рекомендується зробити після початкових випробувань, але воно може працювати без цього.
 
 
 ## Конфігурація програмного забезпечення

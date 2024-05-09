@@ -9,7 +9,7 @@ PX4 використовує _MAVLink_ для зв'язку з наземним�
 - Потокових повідомлень MAVLink
 - Обробка вхідних повідомлень MAVLink та запис до теми uORB.
 
-::: info Ця тема не охоплює обробку та надсилання _команд_ або реалізацію власних мікросервісів.
+:::info Ця тема не охоплює обробку та надсилання _команд_ або реалізацію власних мікросервісів.
 :::
 
 ## Огляд MAVLink
@@ -60,7 +60,7 @@ PX4 включає репозиторій [mavlink/mavlink](https://github.com/m
 
 Файли генеруються до каталогу збірки: `/build/<build target>/mavlink/`.
 
-## Custom MAVLink Messages
+## Спеціальні повідомлення MAVLink
 
 Користувацьке повідомлення MAVLink - це повідомлення, якого немає у визначеннях за замовчуванням, включених до PX4.
 
@@ -92,7 +92,7 @@ PX4 включає репозиторій [mavlink/mavlink](https://github.com/m
 
 Загалом у вас вже повинно бути повідомлення [uORB](../middleware/uorb.md), яке містить інформацію, яку ви хочете транслювати, та визначення повідомлення MAVLink, з яким ви хочете його транслювати.
 
-For this example we're going to assume that you want to stream the (existing) [BatteryStatus](../msg_docs/BatteryStatus.md) uORB message to a new MAVLink battery status message, which we will name `BATTERY_STATUS_DEMO`.
+У цьому прикладі ми припустимо, що ви хочете перетворити (існуюче) повідомлення [BatteryStatus](../msg_docs/BatteryStatus.md) uORB у нове повідомлення про стан батареї MAVLink, яке ми назвемо `BATTERY_STATUS_DEMO`.
 
 Скопіюйте це повідомлення `BATTERY_STATUS_DEMO` у розділ повідомлень `development.xml` у вихідному коді PX4, який буде розташований за адресою: `\src\modules\mavlink\mavlink\message_definitions\v1.0\development.xml`.
 
@@ -105,28 +105,28 @@ For this example we're going to assume that you want to stream the (existing) [B
     </message>
 ```
 
-::: info Note that this is a cut-down version of the not-yet-implemented [BATTERY_STATUS_V2](https://mavlink.io/en/messages/development.html#BATTERY_STATUS_V2) message with randomly chosen unused id of `11514`. Here we've put the message in `development.xml`, which is fine for testing and if the message is intended to eventually be part of the standard message set, but you might also put a [custom message](#custom-mavlink-messages) in its own dialect file.
+:::info Зауважте, що це урізана версія ще не реалізованого повідомлення [BATTERY_STATUS_V2](https://mavlink.io/en/messages/development.html#BATTERY_STATUS_V2) з випадково вибраним невикористаним ідентифікатором `11514`. Тут ми помістили повідомлення у `development.xml`, що добре підходить для тестування і якщо повідомлення буде згодом включено до стандартного набору повідомлень, але ви також можете помістити [кастомне повідомлення](#custom-mavlink-messages) у власний діалектний файл.
 :::
 
-Build PX4 for SITL and confirm that the associated message is generated in `/build/px4_sitl_default/mavlink/common/mavlink_msg_battery_status_demo.h`.
+Зберіть PX4 для SITL і переконайтеся, що відповідне повідомлення згенеровано в `/build/px4_sitl_default/mavlink/common/mavlink_msg_battery_status_demo.h`.
 
-Because `BatteryStatus` already exists you will not need to do anything to create or build it.
+Оскільки `BatteryStatus` вже існує, вам не потрібно нічого робити, щоб створити або зібрати його.
 
-### Define the Streaming Class
+### Об'явлення класу потокового відтворення
 
-First create a file named `BATTERY_STATUS_DEMO.hpp` for your streaming class (named after the message to stream) inside the [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams) directory.
+Спочатку створіть файл з назвою `BATTERY_STATUS_DEMO.hpp` для вашого класу потокового передавання (названого за повідомленням, яке потрібно передавати) у директорії [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams).
 
-Add the headers for the uORB message(s) to the top of the file (the required MAVLink headers should already be available):
+Додайте заголовки для повідомлень uORB у верхню частину файлу (необхідні заголовки MAVLink вже мають бути доступними):
 
 ```cpp
 #include <uORB/topics/battery_status.h>
 ```
 
-::: info
-The uORB topic's snake-case header file is generated from the CamelCase uORB filename at build time.
+:::info
+Заголовний файл уORB-теми у форматі snake-case генерується з імені файлу уORB у форматі CamelCase під час збірки.
 :::
 
-Then copy the streaming class definition below into the file:
+Потім скопіюйте визначення класу трансляції нижче у файл:
 
 ```cpp
 class MavlinkStreamBatteryStatusDemo : public MavlinkStream
@@ -207,19 +207,19 @@ protected:
 };
 ```
 
-Most streaming classes are very similar (see examples in [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams)):
+Більшість потокових класів дуже схожі (див. приклади у [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams)):
 
-- The streaming class derives from [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_stream.h) and is named using the pattern `MavlinkStream<CamelCaseMessageName>`.
-- The `public` definitions are "near-boilerplate", allowing PX4 to get an instance of the class (`new_instance()`), and then to use it to fetch the name, id, and size of the message from the MAVLink headers (`get_name()`, `get_name_static()`, `get_id_static()`, `get_id()`, `get_size()`). For your own streaming classes these can just be copied and modified to match the values for your MAVLink message.
-- The `private` definitions subscribe to the uORB topics that need to be published. In this case the uORB topic has multiple instances: one for each battery. We use `uORB::SubscriptionMultiArray` to get an array of battery status subscriptions.
+- Клас потокового передавання є похідним від [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_stream.h) і названий за паттерном `MavlinkStream<CamelCaseMessageName>`.
+- `Публічні` визначення є "наближеними до шаблону", що дозволяє PX4 отримати екземпляр класу (`new_instance()`), а потім використовувати його для отримання назви, ідентифікатора та розміру повідомлення з заголовків MAVLink (`get_name()`, `get_name_static()`, `get_id_static()`, `get_id()`, `get_size()`). Для ваших власних потокових класів їх можна просто скопіювати і змінити, щоб вони відповідали значенням для вашого повідомлення MAVLink.
+- Визначення `private` підписуються на теми uORB, які потрібно опублікувати. У цьому випадку тема uORB має кілька екземплярів: по одному для кожної батареї. Ми використовуємо `uORB::SubscriptionMultiArray` для отримання масиву підписок про стан батареї.
 
-  Here we also define constructors to prevent the definition being copied.
+  Тут ми також визначаємо конструктори, щоб уникнути копіювання визначення.
 
-- The `protected` section is where the important work takes place!
+- Секція `protected` - це місце, де відбувається важлива робота!
 
-  Here we override the `send()` method, copying values from the subscribed uORB topic(s) into appropriate fields in the MAVLink message, and then send the message.
+  Тут ми перевизначаємо метод `send()`, копіюючи значення з підписаних тем uORB у відповідні поля повідомлення MAVLink, а потім надсилаємо повідомлення.
 
-  In this particular example we have an array of uORB instances `_battery_status_subs` (because we have multiple batteries). We iterate the array and use `update()` on each subscription to check if the associated battery instance has changed (and update a structure with the current data). This allows us to send the MAVLink message _only_ if the associated battery uORB topic has changed:
+  У цьому конкретному прикладі у нас є масив екземплярів uORB `_battery_status_subs` (тому що у нас є кілька батарей). Ми ітеруємо масив і використовуємо `update()` для кожної підписки, щоб перевірити, чи змінився пов'язаний з нею екземпляр батареї (і оновити структуру поточними даними). Це дозволяє нам надсилати повідомлення MAVLink _лише_, якщо пов'язана з батареєю uORB тема змінилася:
 
   ```cpp
   // Структура, щоб зберігати дані поточної теми.
@@ -231,21 +231,21 @@ Most streaming classes are very similar (see examples in [/src/modules/mavlink/s
   }
   ```
 
-  If wanted to send a MAVLink message whether or not the data changed, we could instead use `copy()` as shown:
+  Якщо ви хочете надіслати повідомлення MAVLink незалежно від того, чи змінилися дані, ми можемо замість цього використати `copy()`, як показано тут:
 
   ```cpp
   battery_status_s battery_status;
   battery_sub.copy(&battery_status);
   ```
 
-  ::: info For a single-instance topic like [VehicleStatus](../msg_docs/VehicleStatus.md) we would subscribe like this:
+  :::info Для теми з одним екземпляром, наприклад, [VehicleStatus](../msg_docs/VehicleStatus.md), ми підписуємося таким чином:
 
   ```cpp
   // Create subscription _vehicle_status_sub
   uORB::Subscription _vehicle_status_sub{ORB_ID(vehicle_status)};
   ```
 
-  And we could use the resulting subscription in the same way with update or copy.
+  І ми можемо використовувати отриману підписку так само, з оновленням або копіюванням.
 
   ```cpp
   vehicle_status_s vehicle_status{}; // vehicle_status_s is the definition of the uORB topic
@@ -257,13 +257,13 @@ Most streaming classes are very similar (see examples in [/src/modules/mavlink/s
 
 :::
 
-Next we include our new class in [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp#L2193). Add the line below to the part of the file where all the other streams are included:
+Далі ми включаємо наш новий клас у [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp#L2193). Додайте рядок нижче до частини файлу, де включені всі інші потоки:
 
 ```cpp
 #include "streams/BATTERY_STATUS_DEMO.hpp"
 ```
 
-Finally append the stream class to the `streams_list` at the bottom of [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp)
+Нарешті додайте клас потоку до `streams_list` у нижній частині [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp)
 
 ```C
 StreamListItem *streams_list[] = {
@@ -275,28 +275,28 @@ StreamListItem *streams_list[] = {
 }
 ```
 
-The class is now available for streaming, but won't be streamed by default. We cover that in the next sections.
+Клас тепер доступний для потокової передачі, але за замовчуванням не буде транслюватися. Ми розглянемо це в наступних розділах.
 
-### Streaming by Default
+### Трансляція за замовчуванням
 
-The easiest way to stream your messages by default (as part of a build) is to add them to [mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp) in the appropriate message group.
+Найлегший спосіб транслювати ваші повідомлення за замовчуванням (як частину збірки) - це додати їх до [mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp) у відповідну групу повідомлень.
 
-If you search in the file you'll find groups of messages defined in a switch statement:
+Якщо ви виконаєте пошук у файлі, то знайдете групи повідомлень, визначені в інструкції switch:
 
-- `MAVLINK_MODE_NORMAL`: Streamed to a GCS.
-- `MAVLINK_MODE_ONBOARD`: Streamed to a companion computer on a fast link, such as Ethernet
-- `MAVLINK_MODE_ONBOARD_LOW_BANDWIDTH`: Streamed to a companion computer for re-routing to a reduced-traffic link, such as a GCS.
-- `MAVLINK_MODE_GIMBAL`: Streamed to a gimbal
-- `MAVLINK_MODE_EXTVISION`: Streamed to an external vision system
-- `MAVLINK_MODE_EXTVISIONMIN`: Streamed to an external vision system on a slower link
-- `MAVLINK_MODE_OSD`: Streamed to an OSD, such as an FPV headset.
-- `MAVLINK_MODE_CUSTOM`: Stream nothing by default. Used when configuring streaming using MAVLink.
-- `MAVLINK_MODE_MAGIC`: Same as `MAVLINK_MODE_CUSTOM`
-- `MAVLINK_MODE_CONFIG`: Streaming over USB with higher rates than `MAVLINK_MODE_NORMAL`.
-- `MAVLINK_MODE_MINIMAL`: Stream a minimal set of messages. Normally used for poor telemetry links.
-- `MAVLINK_MODE_IRIDIUM`: Streamed to an iridium satellite phone
+- `MAVLINK_MODE_NORMAL`: Трансляція до GCS.
+- `MAVLINK_MODE_ONBOARD`: Трансляція на комп'ютер-супутник через швидке з'єднання, наприклад Ethernet
+- `MAVLINK_MODE_ONBOARD_LOW_BANDWIDTH`: передається на комп'ютер-компаньйон для перенаправлення на канал зі зниженим трафіком, наприклад GCS.
+- `MAVLINK_MODE_GIMBAL`: Потік на гімбол
+- `MAVLINK_MODE_EXTVISION`: Трансляція на систему зовнішнього зору
+- `MAVLINK_MODE_EXTVISIONMIN`: Потокове передавання до системи зовнішнього зору на повільнішому каналі
+- `MAVLINK_MODE_OSD`: транслюється на OSD, наприклад, на FPV гарнітуру.
+- `MAVLINK_MODE_CUSTOM`: Нічого не транслювати за замовчуванням. Використовується при налаштуванні потокового передавання за допомогою MAVLink.
+- `MAVLINK_MODE_MAGIC`: Те ж саме, що й `MAVLINK_MODE_CUSTOM`
+- `MAVLINK_MODE_CONFIG`: Потік через USB з вищими швидкостями, ніж `MAVLINK_MODE_NORMAL`.
+- `MAVLINK_MODE_MINIMAL`: Потік мінімального набору повідомлень. Зазвичай використовується для поганого зв'язку телеметрії.
+- `MAVLINK_MODE_IRIDIUM`: Трансляція на супутниковий телефон iridium
 
-Normally you'll be testing on a GCS, so you could just add the message to the `MAVLINK_MODE_NORMAL` case using the `configure_stream_local()` method. For example, to stream CA_TRAJECTORY at 5 Hz:
+Зазвичай ви будете тестувати на GCS, тому ви можете просто додати повідомлення у регістр `MAVLINK_MODE_NORMAL` за допомогою методу `configure_stream_local()`. Наприклад, для трансляції CA_TRAJECTORY з частотою 5 Гц:
 
 ```cpp
     case MAVLINK_MODE_CONFIG: // USB
@@ -306,48 +306,48 @@ Normally you'll be testing on a GCS, so you could just add the message to the `M
         ...
 ```
 
-It is also possible to add a stream by calling the [mavlink](../modules/modules_communication.md#mavlink) module with the `stream` argument in a [startup script](../concept/system_startup.md). For example, you might add the following line to [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink) in order to stream `BATTERY_STATUS_DEMO` at 50Hz on UDP port `14556` (`-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
+Також можна додати потік, викликавши модуль [mavlink](../modules/modules_communication.md#mavlink) з аргументом `stream` у [скрипті запуску](../concept/system_startup.md). Наприклад, ви можете додати наступний рядок до [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink), щоб передавати `BATTERY_STATUS_DEMO` зі швидкістю 50 Гц на UDP-порт `14556` (`-r` налаштовує швидкість передачі, а `-u` ідентифікує канал MAVLink на UDP-порту 14556).
 
 ```sh
 mavlink stream -r 50 -s BATTERY_STATUS_DEMO -u 14556
 ```
 
-### Streaming on Request
+### Транслювання за запитом
 
-Some messages are only needed once, when particular hardware is connected, or under other circumstances. In order to avoid clogging communications links with messages that aren't needed you may not stream all messages by default, even at low rate.
+Деякі повідомлення потрібні лише один раз, при підключенні певного обладнання або за інших обставин. Щоб уникнути перевантаження каналів зв'язку непотрібними повідомленнями, ви можете не передавати всі повідомлення за замовчуванням, навіть з низькою швидкістю.
 
-If you needed, a GCS or other MAVLink API can request that particular messages are streamed at a particular rate using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL). A particular message can be requested just once using [MAV_CMD_REQUEST_MESSAGE](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE).
+Якщо вам потрібно, GCS або інший API MAVLink може запросити, щоб певні повідомлення передавалися з певною швидкістю за допомогою [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL). Певне повідомлення можна запросити лише один раз за допомогою [MAV_CMD_REQUEST_MESSAGE](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE).
 
-## Receiving MAVLink Messages
+## Отримання повідомлень MAVLink
 
-This section explains how to receive a message over MAVLink and publish it to uORB.
+Цей розділ пояснює, як отримати повідомлення через MAVLink та опублікувати його в uORB.
 
-It assumes that we are receiving the `BATTERY_STATUS_DEMO` message and we want to update the (existing) [BatteryStatus uORB message](../msg_docs/BatteryStatus.md) with the contained information. This is the kind of implementation that you would provide to support a MAVLink battery integration with PX4.
+Припускається, що ми отримуємо повідомлення `BATTERY_STATUS_DEMO` і хочемо оновити (існуюче) [BatteryStatus uORB повідомлення](../msg_docs/BatteryStatus.md) зі збереженою інформацією. Це той тип реалізації, який ви надаєте для підтримки інтеграції батареї MAVLink з PX4.
 
-Add the headers for the uORB topic to publish to in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77):
+Додайте заголовки теми uORB для публікації у [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77):
 
 ```cpp
 #include <uORB/topics/battery_status.h>
 ```
 
-Add a function signature for a function that handles the incoming MAVLink message in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L126)
+Додайте сигнатуру функції, яка обробляє вхідне повідомлення MAVLink у класі `MavlinkReceiver` у [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L126)
 
 ```cpp
 void handle_message_battery_status_demo(mavlink_message_t *msg);
 ```
 
-Normally you would add a uORB publisher for the uORB topic to publish in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L296). In this case the [BatteryStatus](../msg_docs/BatteryStatus.md) uORB topic already exists:
+Зазвичай ви додаєте публікатор uORB для публікації теми uORB у класі `MavlinkReceiver` у файлі [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L296). У цьому випадку вже існує тема uORB [BatteryStatus](../msg_docs/BatteryStatus.md):
 
 ```cpp
 uORB::Publication<battery_status_s> _battery_pub{ORB_ID(battery_status)};
 ```
 
-This creates a publication to a single uORB topic instance, which by default will be the _first_ instance.
+Це створить публікацію в одному екземплярі теми uORB, який за замовчуванням буде _першим_ екземпляром.
 
-::: info This implementation won't work on multi-battery systems, because several batteries might be publishing data to the first instance of the topic, and there is no way to differentiate them. To support multiple batteries we'd need to use `PublicationMulti` and map the MAVLink message instance IDs to specific uORB topic instances.
+:::info Ця реалізація не працюватиме в системах з кількома батареями, оскільки декілька батарей можуть публікувати дані до першого екземпляру теми, і немає можливості їх розрізнити. Для підтримки кількох батарей нам потрібно використовувати `PublicationMulti` та відображати ідентифікатори екземплярів повідомлення MAVLink на конкретні екземпляри тем uORB.
 :::
 
-Implement the `handle_message_battery_status_demo` function in [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp).
+Реалізація функції `handle_message_battery_status_demo` в [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp).
 
 ```cpp
 void
@@ -373,12 +373,12 @@ MavlinkReceiver::handle_message_battery_status_demo(mavlink_message_t *msg)
 }
 ```
 
-::: info
-Above we only write to the battery fields that are defined in the topic.
-In practice you'd update all fields with either valid or invalid values: this has been cut back for brevity.
+:::info
+Вище ми записуємо лише поля батареї, які визначені у темі.
+На практиці ви оновлювали б всі поля або з дійсними, або з недійсними значеннями: це було скорочено для стислості.
 :::
 
-and finally make sure it is called in [MavlinkReceiver::handle_message()](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp#L228)
+і нарешті, переконайтеся, що він викликається в [MavlinkReceiver:handle_message()](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp#L228)
 
 ```cpp
 MavlinkReceiver::handle_message(mavlink_message_t *msg)
@@ -393,66 +393,66 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
  }
 ```
 
-## Alternative to Creating Custom MAVLink Messages
+## Альтернатива створення користувацьких повідомлень MAVLink
 
-Sometimes there is the need for a custom MAVLink message with content that is not fully defined.
+Іноді існує потреба в довільному повідомленні MAVLink з вмістом, який не повністю визначений.
 
-For example when using MAVLink to interface PX4 with an embedded device, the messages that are exchanged between the autopilot and the device may go through several iterations before they are stabilized. In this case, it can be time-consuming and error-prone to regenerate the MAVLink headers, and make sure both devices use the same version of the protocol.
+Наприклад, при використанні MAVLink для інтерфейсу PX4 з вбудованим пристроєм, повідомлення, якими обмінюються автопілот і пристрій, можуть пройти кілька ітерацій, перш ніж вони будуть стабілізовані. У цьому випадку відновлення заголовків MAVLink може зайняти багато часу і призвести до помилок, а також переконатися, що обидва пристрої використовують одну і ту ж версію протоколу.
 
-An alternative - and temporary - solution is to re-purpose debug messages. Instead of creating a custom MAVLink message `CA_TRAJECTORY`, you can send a message `DEBUG_VECT` with the string key `CA_TRAJ` and data in the `x`, `y` and `z` fields. See [this tutorial](../debug/debug_values.md) for an example usage of debug messages.
+Альтернативним - і тимчасовим - рішенням є перепризначення налагоджувальних повідомлень. Замість створення спеціального повідомлення MAVLink `CA_TRAJECTORY`, ви можете надіслати повідомлення `DEBUG_VECT` з рядковим ключем `CA_TRAJ` і даними у полях `x`, `y` і `z`. Приклади використання відладочних повідомлень наведено у [цьому посібнику](../debug/debug_values.md).
 
-::: info
-This solution is not efficient as it sends character string over the network and involves comparison of strings.
-It should be used for development only!
+:::info
+Це рішення не є ефективним, оскільки надсилає символьний рядок через мережу і передбачає порівняння рядків.
+Це повинно використовуватися лише для розробки!
 :::
 
-## Testing
+## Тестування
 
-As a first step, and while debugging, commonly you'll just want to confirm that any messages you've created are being sent/received as you expect.
+Як перший крок і під час відлагодження, зазвичай ви просто хочете переконатися, що всі створені вами повідомлення надсилаються/отримуються так, як ви очікуєте.
 
-You should should first use the `uorb top [<message_name>]` command to verify in real-time that your message is published and the rate (see [uORB Messaging](../middleware/uorb.md#uorb-top-command)). This approach can also be used to test incoming messages that publish a uORB topic (for other messages you might use `printf` in your code and test in SITL).
+Спочатку вам слід скористатися командою `uorb top [<message_name>]` для перевірки у реальному часі того, що ваше повідомлення опубліковано, а також швидкості (див. [uORB Повідомлення](../middleware/uorb.md#uorb-top-command)). Цей підхід також можна використовувати для тестування вхідних повідомлень, які публікують тему uORB (для інших повідомлень ви можете використовувати `printf` у вашому коді і тестувати у SITL).
 
-There are several approaches you can use to view MAVLink traffic:
+Існує кілька підходів для перегляду трафіку MAVLink:
 
-- Create a [Wireshark MAVLink plugin](https://mavlink.io/en/guide/wireshark.html) for your dialect. This allows you to inspect MAVLink traffic on an IP interface - for example between _QGroundControl_ or MAVSDK and your real or simulated version of PX4.
+- Створіть плагін [Wireshark MAVLink](https://mavlink.io/en/guide/wireshark.html) для вашого діалекту. Це дозволяє перевіряти трафік MAVLink на IP-інтерфейсі - наприклад, між _QGroundControl_ або MAVSDK і вашою реальною або змодельованою версією PX4.
 
   :::tip
-It is much easier to generate a wireshark plugin and inspect traffic in Wireshark, than to rebuild QGroundControl with your dialect and use MAVLink Inspector.
+Набагато простіше згенерувати плагін wireshark і перевіряти трафік у Wireshark, ніж збирати QGroundControl з вашим діалектом і використовувати MAVLink Inspector.
 :::
 
-- [Log uORB topics](../dev_log/logging.md) associate with your MAVLink message.
-- View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html). You will need to rebuild QGroundControl with the custom message definitions, [as described below](h#updating-qgroundcontrol)
+- [Теми логу uORB](../dev_log/logging.md) пов'язані з вашим повідомленням MAVLink.
+- Перегляд отриманих повідомлень в QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html). Вам потрібно буде перезібрати QGroundControl з користувацькими визначеннями повідомлень, [як описано нижче](h#updating-qgroundcontrol)
 
-### Set Streaming Rate using a Shell
+### Встановити швидкість передачі за допомогою оболонки
 
-For testing, it is sometimes useful to increase the streaming rate of individual topics at runtime (e.g. for inspection in QGC). This can be achieved using by calling the [mavlink](../modules/modules_communication.md#mavlink) module through the [QGC MAVLink console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (or some other shell):
+Для тестування іноді корисно збільшити швидкість передачі окремих тем під час виконання (наприклад, для перевірки в QGC). Цього можна досягти за допомогою виклику модуля [mavlink](../modules/modules_communication.md#mavlink) через консоль [QGC MAVLink](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (або іншої оболонки):
 
 ```sh
 mavlink stream -u <port number> -s <mavlink topic name> -r <rate>
 ```
 
-You can get the port number with `mavlink status` which will output (amongst others) `transport protocol: UDP (<port number>)`. An example would be:
+Ви можете отримати номер порту за допомогою `mavlink status`, який виведе (серед іншого) `транспортний протокол: UDP (<port number>)`. Прикладом може бути:
 
 ```sh
 mavlink stream -u 14556 -s CA_TRAJECTORY -r 300
 ```
 
-## Updating Ground Stations
+## Оновлення наземних станцій
 
-Ultimately you'll want to use your new MAVLink interface by providing the corresponding ground station or MAVSDK implementation.
+Зрештою, ви захочете використовувати ваш новий інтерфейс MAVLink, надавши відповідну наземну станцію або реалізацію MAVSDK.
 
-The important thing to remember here is that MAVLink requires that you use a version of the library that is built to the same definition (XML file). So if you have created a custom message in PX4 you won't be able to use it unless you build QGC or MAVSDK with that same definition.
+Важливо пам'ятати, що MAVLink вимагає, щоб ви використовували версію бібліотеки, яка побудована за тим самим визначенням (XML-файл). Отже, якщо ви створили власне повідомлення у PX4, ви не зможете його використати, доки не зберете QGC або MAVSDK з тим самим визначенням.
 
-### Updating QGroundControl
+### Оновлення QGroundControl
 
-You will need to [Build QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-dev-guide/getting_started/index.html) including a pre-built C library that contains your custom messages.
+Вам потрібно [зібрати QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-dev-guide/getting_started/index.html), включно з попередньо зібраною бібліотекою C, яка містить ваші власні повідомлення.
 
-QGC uses a pre-built C library that must be located at [/qgroundcontrol/libs/mavlink/include/mavlink](https://github.com/mavlink/qgroundcontrol/tree/master/libs/mavlink/include/mavlink) in the QGC source.
+QGC використовує попередньо скомпільовану бібліотеку C, яку має бути розташовано за адресою [/qgroundcontrol/libs/mavlink/include/mavlink](https://github.com/mavlink/qgroundcontrol/tree/master/libs/mavlink/include/mavlink) у вихідному коді QGC.
 
-By default this is pre-included as a submodule from [https://github.com/mavlink/c_library_v2](https://github.com/mavlink/c_library_v2) but you can [generate your own MAVLink Libraries](https://mavlink.io/en/getting_started/generate_libraries.html).
+За замовчуванням її попередньо включено як підмодуль з [https://github.com/mavlink/c_library_v2](https://github.com/mavlink/c_library_v2), але ви можете [згенерувати власні бібліотеки MAVLink](https://mavlink.io/en/getting_started/generate_libraries.html).
 
-QGC uses the all.xml dialect by default, which includes **common.xml**. You can include your messages in either file or in your own dialect. However if you use your own dialect then it should include ArduPilotMega.xml (or it will miss all the existing messages), and you will need to change the dialect used by setting it in [`MAVLINK_CONF`](https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52) when running _qmake_.
+За замовчуванням QGC використовує діалект all.xml, який включає **common.xml**. Ви можете додавати свої повідомлення як у файлі, так і у власному діалекті. Однак, якщо ви використовуєте власний діалект, то він має містити ArduPilotMega.xml (інакше буде пропущено всі наявні повідомлення), і вам потрібно буде змінити діалект, встановивши його у [`MAVLINK_CONF`](https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52) під час запуску _qmake_.
 
 ### Оновлення MAVSDK
 
-See the MAVSDK docs for information about how to work with [MAVLink headers and dialects](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html#mavlink-headers-and-dialects).
+Дивіться документацію MAVSDK для отримання інформації про роботу з [заголовками та діалектами MAVLink](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html#mavlink-headers-and-dialects).

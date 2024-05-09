@@ -54,7 +54,7 @@
 
 Це призведе до того, що VTOL повернеться в режим мультикоптера та запустить [режим повернення](../flight_modes_vtol/return.md) нижче певної висоти. Ви можете встановити значення 15 або 20 метрів, щоб дати мультикоптеру час відновитися після зупинки.
 
-The position estimator tested for this mode is EKF2, which is enabled by default (for more information see [Switching State Estimators](../advanced/switching_state_estimators.md#how-to-enable-different-estimators) and [EKF2_EN ](../advanced_config/parameter_reference.md#EKF2_EN)).
+Оцінювачем стану, протестованим для цього режиму, є EKF2, який увімкнено за замовчуванням (для отримання додаткової інформації див. [Перемикання оцінювачів стану](../advanced/switching_state_estimators.md#how-to-enable-different-estimators) та [EKF2_EN ](../advanced_config/parameter_reference.md#EKF2_EN)).
 
 ## Перший польот без датчика швидкості повітря
 

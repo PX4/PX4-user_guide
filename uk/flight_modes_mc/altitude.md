@@ -2,36 +2,36 @@
 
 <img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />
 
-_Altitude mode_ is a _relatively_ easy-to-fly RC mode in which roll and pitch sticks control vehicle movement in the left-right and forward-back directions (relative to the "front" of the vehicle), yaw stick controls rate of rotation over the horizontal plane, and throttle controls speed of ascent-descent.
+_Режим висоти_ - це _відносно_ простий у керуванні режим пульта дистанційного керування, в якому стики крену і тангажу керують рухом транспортного засобу в напрямках вліво-вправо і вперед-назад (відносно "переду" транспортного засобу), стик риштування керує швидкістю обертання над горизонтальною площиною, а дросель контролює швидкість підйому-спуску.
 
-When the sticks are released/centered the vehicle will level and maintain the current _altitude_. If moving in the horizontal plane the vehicle will continue until any momentum is dissipated by wind resistance. If the wind blows the aircraft will drift in the direction of the wind.
+Коли стіки відпускаються/центруються, апарат вирівнюється і підтримує поточну _висоту_. Якщо апарат рухається в горизонтальній площині, він буде продовжувати рух до тих пір, поки будь-який імпульс не буде погашений опором вітру. Якщо дме вітер, літак буде дрейфувати у напрямку вітру.
 
 :::tip
-_Altitude mode_ is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) mode but additionally locks the vehicle altitude when the sticks are released.
+_Режим висоти_ - найбезпечніший ручний режим без GPS для нових льотчиків. Він схожий на [Ручний/Стабілізація](../flight_modes_mc/manual_stabilized.md) режим, але додатково фіксує висоту апарата, коли стіки відпускаються.
 :::
 
-The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
+Діаграма нижче візуально показує поведінку режиму (для [передавача режиму 2](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
 ![Altitude Control MC - Mode2 RC Controller](../../assets/flight_modes/altitude_mc.png)
 
-## Technical Summary
+## Технічний підсумок
 
-RC/manual mode like [Manual/Stabilized (MC)](../flight_modes_mc/manual_stabilized.md) mode but with _altitude stabilization_ (centered sticks level vehicle and hold it to fixed altitude). The horizontal position of the vehicle can move due to wind (or pre-existing momentum).
+РК/ручний режим подібний до режиму [Посібник/Стабілізований (МК)](../flight_modes_mc/manual_stabilized.md), але з _стабілізацією висоти_ (центральні палиці рівняють транспортний засіб і утримують його на фіксованій висоті). Горизонтальне положення транспортного засобу може змінюватися через вплив вітру (або наявного імпульсу).
 
-- Centered sticks (inside deadband):
-  - RPY sticks levels vehicle.
-  - Throttle (~50%) holds current altitude steady against wind.
-- Outside center:
-  - Roll/Pitch sticks control tilt angle in respective orientations, resulting in corresponding left-right and forward-back movement.
-  - Throttle stick controls up/down speed with a predetermined maximum rate (and movement speed in other axes).
-  - Yaw stick controls rate of angular rotation above the horizontal plane.
-- Takeoff:
-  - When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
-- Altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
-- Manual control input is required (such as RC control, joystick).
-  - Roll, Pitch: Assistance from autopilot to stabilize the attitude. Position of RC stick maps to the orientation of vehicle.
-  - Throttle: Assistance from autopilot to hold position against wind.
-  - Yaw: Assistance from autopilot to stabilize the attitude rate. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
+- Центровані палиці (в межах дедбенду):
+  - Рівень RPY прикріплюється до транспортного засобу.
+  - Дросель (~50%) утримує поточну висоту стабільно проти вітру.
+- Зовнішній центр:
+  - Палиці кочення/крену керують кут нахилу у відповідних орієнтаціях, що призводить до відповідного руху ліворуч-праворуч та вперед-назад.
+  - Ручка дроселя керує швидкістю вгору/вниз з попередньо визначеною максимальною швидкістю (та швидкістю руху в інших осях).
+  - Палиця крену контролює швидкість кутової ротації вище горизонтальної площини.
+- Зліт:
+  - Після посадки транспортний засіб злетить, якщо важіль керування газом підніметься вище 62.5% від повного діапазону (від низу).
+- Висота зазвичай вимірюється за допомогою барометра, який може стати неточним в екстремальних погодних умовах. Транспортні засоби, які включають датчик LIDAR/дальнісний датчик, зможуть керувати висотою з більшою надійністю та точністю.
+- Потрібен ручний ввід управління (наприклад, за допомогою пульта дистанційного керування, джойстика).
+  - Крен, Тангаж: Допомога від автопілота для стабілізації польоту. Положення палиці RC відображає орієнтацію транспортного засобу.
+  - Газ: Допомога від автопілота для утримання позиції проти вітру.
+  - Курс: Допомога від автопілота для стабілізації швидкості польоту. Положення палиці RC відображає швидкість обертання транспортного засобу в цій орієнтації.
 
 ## Параметри
 
@@ -39,7 +39,7 @@ The mode is affected by the following parameters:
 
 | Параметр                                                                                                    | Опис                                                                                                                                                                                                                                                                                                  |
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="MPC_Z_VEL_MAX_UP"></a>[MPC_Z_VEL_MAX_UP](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_UP) | Maximum vertical ascent velocity. Default: 3 m/s.                                                                                                                                                                                                                                                     |
+| <a id="MPC_Z_VEL_MAX_UP"></a>[MPC_Z_VEL_MAX_UP](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_UP) | Максимальна швидкість вертикального підйому. За замовчуванням: 3 m/s.                                                                                                                                                                                                                                 |
 | <a id="MPC_Z_VEL_MAX_DN"></a>[MPC_Z_VEL_MAX_DN](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_DN) | Maximum vertical descent velocity. Default: 1 m/s.                                                                                                                                                                                                                                                    |
 | <a id="RCX_DZ"></a>`RCX_DZ`                                                                           | RC dead zone for channel X. The value of X for throttle will depend on the value of [RC_MAP_THROTTLE](../advanced_config/parameter_reference.md#RC_MAP_THROTTLE). For example, if the throttle is channel 4 then [RC4_DZ](../advanced_config/parameter_reference.md#RC4_DZ) specifies the deadzone. |
 | <a id="MPC_xxx"></a>`MPC_XXXX`                                                                         | Most of the MPC_xxx parameters affect flight behaviour in this mode (at least to some extent). For example, [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) defines the thrust at which a vehicle will hover.                                                              |

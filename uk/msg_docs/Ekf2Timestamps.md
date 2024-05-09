@@ -1,17 +1,16 @@
-# Ekf2Timestamps (UORB message)
+# Ekf2Timestamps (повідомлення UORB)
 
-this message contains the (relative) timestamps of the sensor inputs used by EKF2. It can be used for reproducible replay.
+це повідомлення містить (відносні) відмітки часу введення датчиків, які використовує EKF2. Це може бути використано для відтворення.
 
-the timestamp field is the ekf2 reference time and matches the timestamp of the sensor_combined topic.
+поле мітки часу - це посилання на час ekf2 і відповідає мітці часу теми sensor_combined.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Ekf2Timestamps.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Ekf2Timestamps.msg)
 
 ```c
-# this message contains the (relative) timestamps of the sensor inputs used by EKF2.
-# It can be used for reproducible replay.
+# це повідомлення містить (відносні) відмітки часу введення датчиків, які використовує EKF2.
+# Це може бути використано для відтворення.
 
-# the timestamp field is the ekf2 reference time and matches the timestamp of
-# the sensor_combined topic.
+# поле мітки часу - це посилання на час ekf2 і відповідає мітці часу теми sensor_combined.
 
 uint64 timestamp             # time since system start (microseconds)
 
@@ -19,8 +18,7 @@ int16 RELATIVE_TIMESTAMP_INVALID = 32767 # (0x7fff) If one of the relative times
                                          # is set to this value, it means the associated sensor values did not update
 
 # timestamps are relative to the main timestamp and are in 0.1 ms (timestamp +
-# *_timestamp_rel = absolute timestamp). For int16, this allows a maximum
-# difference of +-3.2s to the sensor_combined topic.
+# *_timestamp_rel = absolute timestamp). Для int16 це дозволяє максимальну різницю +-3.2s для теми sensor_combined.
 
 int16 airspeed_timestamp_rel
 int16 distance_sensor_timestamp_rel

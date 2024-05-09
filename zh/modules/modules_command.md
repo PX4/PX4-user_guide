@@ -485,16 +485,17 @@ Source: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/main/src
 ### 用法
 ```
 sd_bench [arguments...]
-     [-b <val>]  每次读/写的块大小
-                 默认: 4096
-     [-r <val>]  运行次数
-                 默认: 5
-     [-d <val>]  以毫秒为单位的运行持续时间
-                 默认: 2000
-     [-k]        保持测试文件
-     [-s]        在每个块后调用 fsync  (默认=每次运行结束)
-     [-u]        使用非对其数据测试性能
-     [-v]        校验数据和块序号
+     [-b <val>]  Block size for each read/write
+                 default: 4096
+     [-r <val>]  Number of runs
+                 default: 5
+     [-d <val>]  Duration of a run in ms
+                 default: 2000
+     [-k]        Keep the test file
+     [-s]        Call fsync after each block (default=at end of each run)
+     [-u]        Test performance with unaligned data
+     [-U]        Test performance with forced byte unaligned data
+     [-v]        Verify data and block number
 ```
 ## sd_stress
 Source: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/sd_stress)

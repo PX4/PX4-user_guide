@@ -58,7 +58,7 @@ GPS/Компас слід [монтувати на раму](../assembly/mount_g
 | I/O PWM Out     | Підключіть сигнальні та земельні проводи двигуна тут.             |
 | FMU PWM Out     | Підключіть сигнальні, позитивні та GND-проводи сервоприводу сюди. |
 
-::: info **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 5X_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 5x_. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**.
+:::info **MAIN** виходи у прошивці PX4 призначені для порту **I/O PWM OUT** на _Pixhawk 5X_, тоді як виходи **AUX** призначені для порту **FMU PWM OUT** на _Pixhawk 5X_. Наприклад, **MAIN1** відповідає виводу IO_CH1 **I/O PWM OUT**, а **AUX1** відповідає виводу FMU_CH1 **FMU PWM OUT**.
 :::
 
 Схема роз'ємів _Pixhawk 5X_ для підключення живлення показана нижче. Роз'єми живлення приймають цифровий сигнал I2C від модуля живлення PM02D для даних про напругу та силу струму. Лінії VCC повинні пропонувати принаймні 3A безперервного струму і за замовчуванням повинні мати напругу 5,2 В. Нижчий напруга 5V все ще прийнятний, але не рекомендується.
@@ -72,7 +72,7 @@ GPS/Компас слід [монтувати на раму](../assembly/mount_g
 | 5(black) | GND    | GND     |
 | 6(black) | GND    | GND     |
 
-## Radio Control
+## Радіоуправління
 
 Для того щоб керувати транспортним засобом _вручну_, потрібна система радіоуправління (RC) (PX4 не потребує системи радіоуправління для автономних режимів польоту).
 
@@ -123,7 +123,7 @@ PPM та PWM приймачі, які мають _окремий дріт для
 
 ![Схема контактів Pixhawk 5X Pinout1](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
-You can also download _Pixhawk 5X_ pinouts from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
+Ви також можете завантажити схему розташування виводів _Pixhawk 5X_ [тут](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) або [тут](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
 
 ## Конфігурація
 

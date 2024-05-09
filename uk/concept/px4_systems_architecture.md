@@ -19,13 +19,13 @@
 - [Політного контролера](../flight_controller/README.md) (запускає набір польотного ПЗ PX4). Часто включає внутрішні ІВП, компас та барометр.
 - [Електронного регулятора ходу двигунів](../peripherals/esc_motors.md) під'єднаного до [виводів ШІМ](../peripherals/pwm_escs_and_servo.md), [DroneCAN](../dronecan/escs.md) (DroneCAN дозволяє двонапрямну комунікацію, не в одному напрямку як показано) або іншої шини.
 - Датчиків ([GPS](../gps_compass/README.md), [компас](../gps_compass/README.md), датчики відстані, барометри, датчики оптичного потоку, ADSB транспондери і т. ін.) під'єднані через I2C, SPI, CAN, UART тощо.
-- [Камери](../peripherals/camera.md) або іншого корисне навантаження. Камери можуть бути підключені до ШІМ виходів або за допомогою MAVLink.
+- [Camera](../camera/index.md) or other payload. Камери можуть бути підключені до ШІМ виходів або за допомогою MAVLink.
 - [Радіопередавачі телеметрії](../telemetry/README.md) для з'єднання з комп'ютером або ПЗ наземної станції.
 - [Система радіо керування](../getting_started/rc_transmitter_receiver.md) для ручного керування
 
 Ліва частина діаграми показує набір програмного забезпечення, що по горизонталі (приблизно) вирівняно згідно з апаратними частинами діаграми.
 
-- The ground station computer typically runs [QGroundControl](../getting_started/px4_basic_concepts.md#qgc) (or some other ground station software). Він також може виконувати робототехнічне ПЗ [MAVSDK](https://mavsdk.mavlink.io/) або [ROS](../ros/README.md).
+- На комп'ютері наземної станції зазвичай працює [QGroundControl](../getting_started/px4_basic_concepts.md#qgc) (або інше програмне забезпечення наземної станції). Він також може виконувати робототехнічне ПЗ [MAVSDK](https://mavsdk.mavlink.io/) або [ROS](../ros/README.md).
 - Набір політного ПО PX4, що запущено на польотному контролері включає [драйвери](../modules/modules_driver.md), [модулі каналів зв'язку](../modules/modules_communication.md), [контролери](../modules/modules_controller.md), [спостерігачі](../modules/modules_controller.md) та інше [проміжне ПЗ та системні модулі](../modules/modules_main.md).
 
 ## Польотний контролер та супутній комп'ютер

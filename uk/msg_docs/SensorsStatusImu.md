@@ -1,6 +1,6 @@
 # SensorsStatusImu (UORB message)
 
-Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
+Метрики перевірки сенсора. This will be zero for a sensor that's primary or unpopulated.
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorsStatusImu.msg)
 

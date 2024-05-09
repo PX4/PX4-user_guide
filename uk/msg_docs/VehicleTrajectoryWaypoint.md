@@ -1,13 +1,13 @@
-# VehicleTrajectoryWaypoint (UORB message)
+# VehicleTrajectoryWaypoint (повідомлення UORB)
 
-Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg The topic vehicle_trajectory_waypoint_desired is used to send the user desired waypoints from the position controller to the companion computer / avoidance module. The topic vehicle_trajectory_waypoint is used to send the adjusted waypoints from the companion computer / avoidance module to the position controller.
+Опис траєкторії транспортних точок. Дивіться також MAVLink MAV_TRAJECTORY_REPRESENTATION msg Тема vehicle_trajectory_waypoint_desired використовується для надсилання користувачем бажаних точок шляху від контролера положення до комп'ютера-супутника/модуля уникання перешкод. Тема vehicle_trajectory_waypoint використовується для надсилання відкоригованих точок маршруту від комп'ютера-супутника/модуля уникання перешкод до контролера положення.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTrajectoryWaypoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTrajectoryWaypoint.msg)
 
 ```c
-# Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg
-# The topic vehicle_trajectory_waypoint_desired is used to send the user desired waypoints from the position controller to the companion computer / avoidance module.
-# The topic vehicle_trajectory_waypoint is used to send the adjusted waypoints from the companion computer / avoidance module to the position controller.
+# Опис траєкторії транспортних точок. Дивіться також MAVLink MAV_TRAJECTORY_REPRESENTATION msg
+# Тема vehicle_trajectory_waypoint_desired використовується для надсилання бажаних користувачем точок маршруту від контролера положення до комп'ютера-супутника/модуля уникання перешкод.
+# Тема vehicle_trajectory_waypoint використовується для надсилання коригованих точок маршруту від комп'ютера-супутника/модуля уникання перешкод до контролера положення.
 
 uint64 timestamp        # time since system start (microseconds)
 

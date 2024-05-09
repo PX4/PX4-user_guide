@@ -29,12 +29,12 @@
 
 ## Налаштування PX4
 
-[Battery Estimation Tuning](../config/battery.md) describes how to configure the battery setting for a power module.
+[Налаштування оцінювання батареї](../config/battery.md) описує як налаштувати налаштування батареї для модуля живлення.
 
-The key configuration settings are:
+Етапи конфігурації ключових налаштувань:
 
-- Voltage divider: 15.51
-- Amps per volt: 36.00
+- Подільник напруги: 15.51
+- Ампери на вольт: 36.00
 
 
 ## Де купити
@@ -59,5 +59,5 @@ The key configuration settings are:
 
 ## Подальша інформація
 
-- [Buy SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html)
+- [Купити SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html)
 - [Документація](https://docs.sky-drones.com/avionics/smartap-pdb)

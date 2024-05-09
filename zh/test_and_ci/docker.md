@@ -4,7 +4,7 @@ Docker containers are provided for the complete [PX4 development toolchain](../d
 
 本主题说明如何使用 [available docker containers](#px4_containers) 访问本地 Linux 计算机中的构建环境。
 
-::: info Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/index.md). 您可以使用 *Enterprise Edition* 或（free）*Community Edition*。
+::: info Dockerfiles and README can be found on [Github here](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy). 您可以使用 *Enterprise Edition* 或（free）*Community Edition*。
 :::
 
 ## 系统必备组件
@@ -35,7 +35,7 @@ sudo usermod -aG docker $ USER
 
 ## 本地编辑层次结构
 
-The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/index.md#container-hierarchy).
+The available containers are on [Github here](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy).
 
 使用容器的最简单方法是通过 [docker_run.sh](https://github.com/PX4/Firmware/blob/master/Tools/docker_run.sh) 帮助程序脚本。 The containers are hierarchical, such that containers have the functionality of their parents. For example, the partial hierarchy below shows that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 

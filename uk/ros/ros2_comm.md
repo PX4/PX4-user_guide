@@ -363,7 +363,7 @@ subscription_ = this->create_subscription<px4_msgs::msg::SensorCombined>("/fmu/o
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
 
-### Конвенції рамки ROS 2 та PX4
+### Узгодження систем координат ROS 2 & PX4
 
 Локальна/світова та тілові системи координат, що використовуються в ROS та PX4, відрізняються.
 
@@ -514,7 +514,7 @@ int main(int argc, char *argv[])
 
 ### ROS 2 Advertiser
 
-Вузол рекламодавця ROS 2 публікує дані в мережу DDS/RTPS (і, отже, до автопілота PX4).
+Вузол відправника ROS 2 публікує дані в мережу DDS/RTPS (і, отже, в автопілот PX4).
 
 Беручи як приклад `debug_vect_advertiser.cpp` під `px4_ros_com/src/advertisers`, спочатку ми імпортуємо необхідні заголовки, включаючи заголовок повідомлення `debug_vect`.
 

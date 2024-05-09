@@ -190,18 +190,18 @@ Then perform the mandatory setup/calibration:
 - [Radio Setup](../config/radio.md)
 - [Flight Modes](../config/flight_mode.md)
 
-  ::: info For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
+  :::info Для цієї збірки ми налаштували режими *Стабілізований*, *Висота* та *Позиція* на трьохпозиційний перемикач на приймачі (відображений на один канал - 5). This is the recommended minimal set of modes for beginners.
 :::
 
-Ideally you should also do:
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [Battery Estimation Tuning](../config/battery.md)
-* [Safety](../config/safety.md)
+Ідеально ви також повинні зробити:
+* [Калібрування ESC](../advanced_config/esc_calibration.md)
+* [Налаштування оцінки заряду батареї](../config/battery.md)
+* [Індикатор безпеки](../config/safety.md)
 
 
-## Tuning
+## Вдосконалення
 
-Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
+Набори вибору конструкції встановлюють параметри автопілота *за замовчуванням* для каркасу. These may be good enough to fly with, but you should tune each frame build.
 
 For instructions on how, start from [Autotune](../config/autotune.md).
 

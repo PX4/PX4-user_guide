@@ -1,19 +1,19 @@
-# Hard Fault Debugging
+# Жорстке відлагодження помилок
 
-A hard fault is a state when a CPU executes an invalid instruction or accesses an invalid memory address. This might occur when key areas in RAM have been corrupted.
+Помилка апаратної частини - це стан, коли ЦП виконує недійсну інструкцію або звертається до недійсної адреси пам'яті. Це може статися, коли ключові області в RAM були пошкоджені.
 
-## Video
+## Відео
 
-The following video demonstrates hardfault debugging on PX4 using Eclipse and a JTAG debugger. It was presented at the PX4 Developer Conference 2019.
+Наступне відео демонструє відлагодження hardfault на PX4 за допомогою Eclipse та JTAG-відлагоджувача. Це було представлено на конференції розробників PX4 2019 року.
 
 @[youtube](https://youtu.be/KZkAM_PVOi0)
 
-## Debugging Hard Faults in NuttX
+## Відлагодження важких відмов в NuttX
 
-A typical scenario that can cause a hard fault is when the processor overwrites the stack and then the processor returns to an invalid address from the stack. This may be caused by a bug in code were a wild pointer corrupts the stack, or another task overwrites this task's stack.
+Типовий сценарій, який може спричинити важку помилку, - це коли процесор перезаписує стек, а потім процесор повертається до недійсної адреси зі стеку. Це може бути спричинено помилкою в коді, де дикий вказівник порушує стек, або інша задача перезаписує стек цієї задачі.
 
-- NuttX maintains two stacks: The IRQ stack for interrupt processing and the user stack
-- The stack grows downward. So the highest address in the example below is 0x20021060, the size is 0x11f4 (4596 bytes) and consequently the lowest address is 0x2001fe6c.
+- NuttX підтримує два стеки: стек IRQ для обробки переривань та стек користувача
+- Стек зростає вниз. Таким чином, найвища адреса в наведеному нижче прикладі - 0x20021060, розмір - 0x11f4 (4596 байтів), і, відповідно, найнижча адреса - 0x2001fe6c.
 
 ```sh
 Assertion failed at file:armv7-m/up_hardfault.c line: 184 task: ekf_att_pos_estimator

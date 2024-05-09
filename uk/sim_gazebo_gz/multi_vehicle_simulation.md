@@ -2,8 +2,8 @@
 
 Цей розділ пояснює як моделювати кілька безпілотних рухомих засобів використовуючи [Gazebo (Gz)](../sim_gazebo_gz/index.md) та SITL.
 
-::: info
-Multi-Vehicle Simulation with Gazebo is only supported on Linux.
+:::note
+Симуляція кількох засобів з Gazebo підтримується тільки на Linux.
 :::
 
 У Gazebo дуже легко налаштувати сценарії з кількома рухомими засобами (у порівнянні з іншими симуляторами).

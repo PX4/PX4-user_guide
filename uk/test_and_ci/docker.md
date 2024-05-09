@@ -4,7 +4,7 @@
 
 Цей розділ розповідає як використовувати [Наявні docker контейнери](#px4_containers), щоб отримати доступ до середовища збірки на локальному Linux комп'ютері.
 
-::: info Файли Docker і README можна знайти на [Github тут](https://github.com/PX4/containers/blob/master/index.md). Вони автоматично збираються на [Docker Hub](https://hub.docker.com/u/px4io/).
+:::info Ви можете знайти Dockerfile та README на [Github](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy). Вони автоматично збираються на [Docker Hub](https://hub.docker.com/u/px4io/).
 :::
 
 ## Необхідні умови
@@ -36,7 +36,7 @@ sudo usermod -aG docker $USER
 
 ## Ієрархія контейнерів
 
-Усі доступні контейнери можна знайти на [Github](https://github.com/PX4/PX4-containers/blob/master/README.md#container-hierarchy).
+Усі доступні контейнери можна знайти на [Github](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy).
 
 Вони дозволяють тестувати різні цілі збірки та конфігурації (включені інструменти можна зрозуміти з їх назв). Контейнери є ієрархічними, тобто такими, що мають функціональність вихідних контейнерів. Наприклад, часткова ієрархія нижче показує, що docker контейнер з  інструментами збірки nuttx (`px4-dev-nuttx-focal`) не містить ROS 2, на відміну від контейнерів симуляції:
 

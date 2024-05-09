@@ -1,15 +1,15 @@
-# VehicleGlobalPosition (UORB message)
+# VehicleGlobalPosition (повідомлення UORB)
 
-Fused global position in WGS84. This struct contains global position estimation. It is not the raw GPS measurement (@see vehicle_gps_position). This topic is usually published by the position estimator, which will take more sources of information into account than just GPS, e.g. control inputs of the vehicle in a Kalman-filter implementation.
+Об'єднана глобальна позиція в WGS84. Ця структура містить глобальну оцінку позиції. Це не сирі GPS вимірювання (@see vehicle_gps_position). Ця тема зазвичай публікується позиціонером, який враховує більше джерел інформації, ніж просто GPS, наприклад, керування введеннями транспортного засобу в реалізації фільтра Калмана.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleGlobalPosition.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleGlobalPosition.msg)
 
 ```c
-# Fused global position in WGS84.
-# This struct contains global position estimation. It is not the raw GPS
-# measurement (@see vehicle_gps_position). This topic is usually published by the position
-# estimator, which will take more sources of information into account than just GPS,
-# e.g. control inputs of the vehicle in a Kalman-filter implementation.
+# Об'єднана глобальна позиція в WGS84.
+# Ця структура містить глобальну оцінку позиції. Це не сирі GPS
+# вимірювання (@see vehicle_gps_position). Ця тема зазвичай публікується позиціонером,
+# який враховує більше джерел інформації, ніж просто GPS,
+# наприклад, керування введеннями транспортного засобу в реалізації фільтра Калмана.
 #
 
 uint64 timestamp        # time since system start (microseconds)

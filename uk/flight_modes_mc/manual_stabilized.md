@@ -14,7 +14,7 @@ As soon as you release the control sticks they will return to the center deadzon
 
 ![MC Manual Flight](../../assets/flight_modes/stabilized_mc.png)
 
-## Technical Description
+## Технічний опис
 
 RC mode where centered sticks level vehicle (only - position is not stabilized).
 

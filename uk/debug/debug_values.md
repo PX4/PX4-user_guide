@@ -12,7 +12,7 @@
 | DEBUG                | debug_value       |
 | DEBUG_VECT           | debug_vect        |
 
-## Tutorial: Send String / Float Pairs
+## Посібник: Надсилання Стрічок / Плаваючих пар
 
 Цей посібник показує, як надіслати повідомлення MAVLink `NAMED_VALUE_FLOAT`, використовуючи пов'язану тему uORB `debug_key_value`.
 
@@ -55,7 +55,7 @@ orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 
 ![QGC debugvalue plot](../../assets/gcs/qgc-debugval-plot.jpg)
 
-## Tutorial: Receive String / Float Pairs
+## Посібник: Отримання Стрічок / Плаваючих пар
 
 Наведені нижче уривки коду показують, як отримати змінну відлагодження `velx`, яка була відправлена в попередньому посібнику.
 

@@ -19,7 +19,7 @@
 - [비행 콘트롤러](../flight_controller/README.md)(PX4 비행 스택 실행). 콘트롤러에는 대부분 내부 IMU, 나침반 및 기압계가 포함되어 있습니다.
 - [Motor ESCs](../peripherals/esc_motors.md) connected to [PWM outputs](../peripherals/pwm_escs_and_servo.md), [DroneCAN](../dronecan/escs.md) (DroneCAN allows two-way communication, not single direction as shown) or some other bus.
 - Sensors ([GPS](../gps_compass/index.md), [compass](../gps_compass/index.md), distance sensors, barometers, optical flow, barometers, ADSB transponders, etc.) connected via I2C, SPI, CAN, UART etc.
-- [카메라](../peripherals/camera.md) 또는 기타 페이로드. 카메라는 PWM 출력에 연결하거나 MAVLink로 연결할 수 있습니다.
+- [Camera](../camera/index.md) or other payload. 카메라는 PWM 출력에 연결하거나 MAVLink로 연결할 수 있습니다.
 - 지상국 컴퓨터/소프트웨어에 연결하기 위한 [텔레메트리 라디오](../telemetry/README.md).
 - 수동 제어를 위한 [RC 제어 시스템](../getting_started/rc_transmitter_receiver.md)
 

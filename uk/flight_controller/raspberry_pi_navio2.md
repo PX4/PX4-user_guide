@@ -1,61 +1,61 @@
-# Raspberry Pi 2/3/4 Navio2 Autopilot
+# Автопілот Raspberry Pi 2/3/4 Navio2
 
 <LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.html"/>
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://emlid.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](https://emlid.com/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
 :::
 
-This is the developer "quickstart" for Raspberry Pi 2/3/4 Navio2 autopilots. It allows you to build PX4 and transfer to the RasPi, or build natively.
+Це "швидкий старт" розробника для автопілотів Raspberry Pi 2/3/4 Navio2. Він дозволяє збирати PX4 і переносити на RasPi, або збирати нативно.
 
 ![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
 
-## OS Image
+## Образ OS
 
-Use the preconfigured [Emlid Raspberry Pi OS image for Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi). The default image will have most of the setup procedures shown below already done.
+Використовуйте попередньо налаштований образ [Emlid Raspberry Pi OS для Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi). Образ за замовчуванням вже містить більшість процедур налаштування, показаних нижче.
 
 :::warning
-Make sure not to upgrade the system (more specifically the kernel). By upgrading, a new kernel can get installed which lacks the necessary HW support (you can check with `ls /sys/class/pwm`, the directory should not be empty).
+Переконайтеся, що ви не оновлюєте систему (точніше, ядро). Під час оновлення може бути встановлено нове ядро, у якому відсутня необхідна підтримка HW (ви можете перевірити за допомогою `ls /sys/class/pwm`, каталог не повинен бути порожнім).
 :::
 
-## Setting up Access
+## Встановлення доступу
 
-The Raspberry Pi OS image has SSH setup already. Username is "pi" and password is "raspberry". We assume that the username and password remain at their defaults for the purpose of this guide.
+Образ OS Raspberry Pi вже має налаштований SSH. Ім'я користувача "pi" та пароль "raspberry". Для цілей цього посібника ми припускаємо, що ім'я користувача та пароль залишаються цими за замовчуванням.
 
-To setup the Pi to join your local wifi, follow [this guide](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md), or connect it via an ethernet cable.
+Щоб налаштувати підключення Pi до локальної мережі Wi-Fi, дотримуйтесь [цього посібника](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) або підключіть його за допомогою кабелю Ethernet.
 
-To connect to your Pi via SSH, use the default username (`pi`) and hostname (`navio`). Alternatively (if this doesn't work), you can find the IP address of your RPi and specify it.
+Для підключення до вашого Pi через SSH використовуйте стандартне ім'я користувача (`pi`) та ім'я хоста (`navio`). Крім того (якщо це не спрацювало), ви можете знайти IP-адресу вашого RPi та вказати її.
 
 ```sh
 ssh pi@navio.local
 ```
 
-or
+або
 
 ```sh
 ssh pi@<IP-ADDRESS>
 ```
 
-## Expand the Filesystem
+## Розширення файлової системи
 
-Expand the file system to take advantage of the entire SD card by running:
+Розширте файлову систему, щоб використовувати всю SD-карту під час запуску:
 
 ```sh
 sudo raspi-config --expand-rootfs
 ```
 
-## Disable Navio RGB Overlay
+## Вимикання оверлея Navio RGB
 
-The existing Navio RGB overlay claims GPIOs used by PX4 for RGB Led. Edit `/boot/config.txt` by commenting the line enabling the `navio-rgb` overlay.
+Існуючий оверлей Navio RGB використовує GPIO, що використовуються PX4 для RGB Led. Відредагуйте `/boot/config.txt`, закоментувавши рядок, що вмикає оверлей `navio-rgb`.
 
 ```
 #dtoverlay=navio-rgb
 ```
 
-## Testing file transfer
+## Тестування передачі файлів
 
-We use SCP to transfer files from the development computer to the target board over a network (WiFi or Ethernet).
+Ми використовуємо SCP для передачі файлів з комп'ютера для розробки на цільову плату через мережу (WiFi або Ethernet).
 
-To test your setup, try pushing a file from the development PC to the Pi over the network now. Make sure the Pi has network access, and you can SSH into it.
+Щоб перевірити налаштування, спробуйте передати файл з ПК для розробки на Pi через мережу зараз. Переконайтеся, що у Pi є доступ до мережі, і ви можете використовувати SSH для входу.
 
 ```sh
 echo "Hello" > hello.txt
@@ -63,60 +63,60 @@ scp hello.txt pi@navio.local:/home/pi/
 rm hello.txt
 ```
 
-This should copy over a "hello.txt" file into the home folder of your Pi. Validate that the file was indeed copied, and you can proceed to the next step.
+Це повинно скопіювати файл "hello.txt" у домашню директорію вашого Pi. Перевірте, що файл дійсно було скопійовано, і ви можете перейти до наступного кроку.
 
-## Building the Code
+## Збірка коду
 
-::: info
-PX4 binaries for Navio 2 can only be built on Ubuntu 18.04.
-Ubuntu 20.04 and later do not currently work (as of September 2023). 
+:::info
+Бінарні файли PX4 для Navio 2 можна зібрати лише в Ubuntu 18.04.
+Ubuntu 20.04 та пізніші версії на даний момент не працюють (на вересень 2023 року). 
 :::
 
-Follow the instructions below to build the source code on your development machine and transfer the compiled program to the Pi. Note that earlier versions allowed code to be built natively (on the Pi), but this option is no longer available.
+Дотримуйтесь наведених нижче інструкцій, щоб зібрати вихідний код на вашому комп'ютері для розробки і перенести скомпільовану програму на Pi. Зверніть увагу, що у попередніх версіях дозволялося збудувати код нативно (на Pi), але ця опція більше не доступна.
 
-### Cross-compiler Build
+### Збірка крос-компілятора
 
-First install the [standard PX4 developer environment](../dev_setup/dev_env_linux_ubuntu.md#raspberry-pi) on your Ubuntu 18.04 development computer.
+Спочатку встановіть [стандартне середовище розробника PX4](../dev_setup/dev_env_linux_ubuntu.md#raspberry-pi) на ваш комп'ютер з Ubuntu 18.04.
 
-Specify the IP (or hostname) of your Pi using:
+Вкажіть IP-адресу (або ім'я хоста) вашого Pi:
 
 ```sh
 export AUTOPILOT_HOST=navio.local
 ```
 
-or
+або
 
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
-::: info The value of the environment variable should be set before the build, or `make upload` will fail to find your Pi.
+:::info Значення змінної оточення слід встановити перед збіркою, інакше `make upload` не зможе знайти ваш Pi.
 :::
 
-Build the executable file on your development machine:
+Скомпілюйте виконувальний файл на вашому комп'ютері для розробки:
 
 ```sh
 cd PX4-Autopilot
 make emlid_navio2
 ```
 
-The "px4" executable file is in the directory **build/emlid_navio2_default/**. Make sure you can connect to your Pi over SSH, see [instructions how to access your Pi](#setting-up-access) following the instructions for armhf under Raspberry Pi.
+Виконувальний файл "px4" знаходиться у каталозі **build/emlid_navio2_default/**. Переконайтеся, що ви можете підключитися до вашого Pi по SSH, див. [інструкції як отримати доступ до вашого Pi](#setting-up-access), слідуючи інструкціям для armhf під Raspberry Pi.
 
-Then upload it with:
+Потім завантажте його за допомогою:
 
 ```sh
 cd PX4-Autopilot
 make emlid_navio2 upload
 ```
 
-Then, connect over ssh and run it on the Pi (as root):
+Потім підключіться через ssh та запустіть його на Pi (як root):
 
 ```sh
 cd ~/px4
 sudo ./bin/px4 -s px4.config
 ```
 
-A successful build followed by executing px4 will give you something like this:
+Успішна збірка з подальшим виконанням px4 дасть вам щось на зразок цього:
 
 ```sh
 
@@ -133,9 +133,9 @@ px4 starting.
 pxh>
 ```
 
-## Autostart
+## Автозавантаження
 
-To autostart px4, add the following to the file **/etc/rc.local** (adjust it accordingly if you use native build), right before the `exit 0` line:
+Для автозапуску px4 додайте наступне до файлу **/etc/rc.local** (відкоригуйте його відповідним чином, якщо ви використовуєте власну збірку), безпосередньо перед рядком `вихід 0`:
 
 ```sh
 cd /home/pi && ./bin/px4 -d -s px4.config > px4.log

@@ -2,53 +2,53 @@
 
 <Badge type="tip" text="PX4 v1.14" />
 
-::: info
-uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13. If you were using the Fast-RTPS Bridge, please follow the [migration guidelines](#fast-rtps-to-uxrce-dds-migration-guidelines).
+:::info
+uXRCE-DDS замінює [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge), який використовувався в PX4 v1.13. Якщо ви використовували Fast-RTPS Bridge, будь ласка, дотримуйтесь [ інструкцій з міграції](#fast-rtps-to-uxrce-dds-migration-guidelines).
 :::
 
-PX4 uses uXRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics. This provides a fast and reliable integration between PX4 and ROS 2, and makes it much easier for ROS 2 applications to get vehicle information and send commands.
+PX4 використовує проміжне програмне забезпечення uXRCE-DDS, яке дозволяє публікувати [uORB-повідомлення](../middleware/uorb.md) та підписуватись на них на комп'ютері-компаньйоні так, ніби вони є темами [ROS 2](../ros/ros2_comm.md). Це забезпечує швидку та надійну інтеграцію між PX4 та ROS 2, а також значно спрощує для додатків ROS 2 отримання інформації про транспортний засіб та надсилання команд.
 
-PX4 uses an XRCE-DDS implementation that leverages [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html).
+PX4 використовує реалізацію XRCE-DDS, яка використовує [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html).
 
-The following guide describes the architecture and various options for setting up the client and agent. In particular it covers the options that are most important to PX4 users.
+У цьому посібнику описано архітектуру та різні варіанти налаштування клієнта та агента. Зокрема, він охоплює опції, які є найбільш важливими для користувачів PX4.
 
 ## Архітектура
 
-The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial or UDP link. The agent acts as a proxy for the client, enabling it to publish and subscribe to topics in the global DDS data space.
+Проміжне програмне забезпечення uXRCE-DDS складається з клієнта, що працює на PX4, і агента, що працює на комп'ютері-компаньйоні, з двостороннім обміном даними між ними по послідовному або UDP каналу. Агент діє як проксі-сервер для клієнта, дозволяючи йому публікувати та підписуватися на теми в глобальному просторі даних DDS.
 
 ![Architecture uXRCE-DDS with ROS 2](../../assets/middleware/xrce_dds/architecture_xrce-dds_ros2.svg)
 
-In order for PX4 uORB topics to be shared on the DDS network you will need _uXRCE-DDS client_ running on PX4, connected to the _micro XRCE-DDS agent_ running on the companion.
+Для того, щоб теми PX4 uORB можна було поширювати у мережі DDS, вам знадобиться _uXRCE-DDS клієнт_, запущений на PX4, підключений до _micro XRCE-DDS агента_, запущеного на комп'ютері-компаньйоні.
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) publishes to/from a defined set of uORB topics to the global DDS data space.
+PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) публікує до/з визначеного набору тем uORB до глобального простору даних DDS.
 
-The [eProsima micro XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) runs on the companion computer and acts as a proxy for the client in the DDS/ROS 2 network.
+[eProsima micro XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) працює на комп'ютері-компаньйоні і виконує роль проксі-сервера для клієнта в мережі DDS/ROS 2.
 
-The agent itself has no dependency on client-side code and can be built and/or installed independent of PX4 or ROS.
+Сам агент не залежить від коду на стороні клієнта і може бути побудований та/або встановлений незалежно від PX4 або ROS.
 
-Code that wants to subscribe/publish to PX4 does have a dependency on client-side code; it requires uORB message definitions that match those used to create the PX4 uXRCE-DDS client so that it can interpret the messages.
+Код, який хоче підписатися/публікувати до PX4, залежить від коду на стороні клієнта; йому потрібні визначення повідомлень uORB, які збігаються з тими, що були використані для створення клієнта PX4 uXRCE-DDS, щоб він міг інтерпретувати повідомлення.
 
 ## Генерація коду
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is generated at build time and included in PX4 firmare by default. The agent has no dependency on client code. It can be built standalone or in a ROS 2 workspace, or installed as a snap package on Ubuntu.
+PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) генерується під час збирання і входить до складу прошивки PX4 за замовчуванням. Агент не залежить від клієнтського коду. Він може бути побудований окремо або в робочому просторі ROS 2, або встановлений як snap пакет в Ubuntu.
 
-When PX4 is built, a code generator uses the uORB message definitions in the source tree ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) to compile support for the subset of uORB topics in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) into [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
+Під час збирання PX4 генератор коду використовує визначення повідомлень uORB у дереві вихідних текстів ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) для компіляції підтримки підмножини тем uORB у [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) у [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
 
-PX4 main or release builds automatically export the set of uORB messages definitions in the build to an associated branch in [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
+Основні або релізні збірки PX4 автоматично експортують набір визначень повідомлень uORB у збірці до відповідної гілки у [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
 
-ROS 2 applications need to be built in a workspace that includes the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware. These can be included into a workspace by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace and switching to the appropriate branch. Note that all code generation associated with the messages is handled by ROS 2.
+Додатки ROS 2 потрібно створювати у робочій області, яка містить _такі самі_ визначення повідомлень, які були використані для створення клієнтського модуля uXRCE-DDS у прошивці PX4. Їх можна включити до робочого простору шляхом клонування інтерфейсного пакунка [PX4/px4_msgs](https://github.com/PX4/px4_msgs) до вашого робочого простору ROS 2 і переходу до відповідної гілки. Зауважте, що вся генерація коду, пов'язана з повідомленнями, обробляється ROS 2.
 
-## Micro XRCE-DDS Agent Installation
+## Встановлення Micro XRCE-DDS Agent
 
-The Micro XRCE-DDS Agent can be installed on the companion computer using a binary package, built and installed from source, or built and run from within a ROS 2 workspace. All of these methods fetch _all_ the dependencies needed to communicate with the client (such as FastCDR)
+Micro XRCE-DDS Agent може бути встановлений на комп'ютер за допомогою бінарного пакета, зібраний і встановлений з вихідного коду, або зібраний і запущений з робочого простору ROS 2. Всі ці методи отримують _всі_ залежності, необхідні для зв'язку з клієнтом (наприклад, FastCDR)
 
-::: info
-The official (and more complete) installation guide is the Eprosima: [micro XRCE-DDS Installation Guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html). This section summarises the options that have been tested with PX4 during creation of these docs.
+:::info
+Офіційним (і більш повним) посібником зі встановлення є Eprosima: [micro XRCE-DDS Installation Guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html). У цьому розділі узагальнено варіанти, які були протестовані за допомогою PX4 під час створення цієї документації.
 :::
 
-### Install Standalone from Source
+### Окреме встановлення з вихідного коду
 
-On Ubuntu you can build from source and install the Agent standalone using the following commands:
+В Ubuntu ви можете зібрати з вихідного коду і встановити Агент окремо за допомогою наступних команд:
 
 ```sh
 git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
@@ -61,54 +61,54 @@ sudo make install
 sudo ldconfig /usr/local/lib/
 ```
 
-::: info
-There are various build configuration options linked from the corresponding topic in the [official guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html#installing-the-agent-standalone), but these have not been tested.
+:::info
+Існують різні варіанти конфігурації збірки, посилання на які можна знайти у відповідній темі [офіційного посібника](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html#installing-the-agent-standalone), але вони не були протестовані.
 :::
 
-To start the agent with settings for connecting to the uXRCE-DDS client running on the simulator:
+Запустити агент з налаштуваннями для підключення до клієнта uXRCE-DDS, запущеного у симуляторі:
 
 ```sh
 MicroXRCEAgent udp4 -p 8888
 ```
 
-### Install from Snap Package
+### Встановлення з Snap пакунку
 
-Install from a snap package on Ubuntu using the following command:
+Встановіть з пакунка snap на Ubuntu за допомогою наступної команди:
 
 ```sh
 sudo snap install micro-xrce-dds-agent --edge
 ```
 
-To start the agent with settings for connecting to the uXRCE-DDS client running on the simulator (note that the command name is different than if you build the agent locally):
+Запустити агента з налаштуваннями для підключення до клієнта uXRCE-DDS, запущеного у симуляторі (зверніть увагу, що назва команди відрізняється від назви, яку ви збираєте локально):
 
 ```sh
 micro-xrce-dds-agent udp4 -p 8888
 ```
 
-::: info
-At time of writing the stable of version installed from snap connects to PX4 but reports errors creating topics. The development version, fetched using `--edge` above, does work.
+:::info
+На момент написання статті стабільна версія, встановлена з snap, підключається до PX4, але повідомляє про помилки при створенні тем. Версія для розробки, отримана за допомогою `--edge` вище, працює.
 :::
 
-### Build/Run within ROS 2 Workspace
+### Збірка/Запуск у межах робочого простору ROS 2
 
-The agent can be built and launched within a ROS 2 workspace (or build standalone and launched from a workspace. You must already have installed ROS 2 following the instructions in: [ROS 2 User Guide > Install ROS 2](../ros/ros2_comm.md#install-ros-2).
+Агент може бути створений і запущений в робочому просторі ROS 2 (або створений окремо і запущений з робочого простору. Ви вже повинні мати встановлений ROS 2, дотримуючись інструкцій у цьому розділі: [Посібник користувача ROS 2 > Встановлення ROS 2](../ros/ros2_comm.md#install-ros-2).
 
-To build the agent within ROS:
+Створити агента в межах ROS:
 
-1. Create a workspace directory for the agent:
+1. Створіть директорію робочого простору для агента:
 
    ```sh
    mkdir -p ~/px4_ros_uxrce_dds_ws/src
    ```
 
-1. Clone the source code for the eProsima [Micro-XRCE-DDS-Agent](https://github.com/eProsima/Micro-XRCE-DDS-Agent) to the `/src` directory (the `main` branch is cloned by default):
+1. Клонуйте вихідний код eProsima [Micro-XRCE-DDS-Agent](https://github.com/eProsima/Micro-XRCE-DDS-Agent) до каталогу `/src` (за замовчуванням клонується гілка `main`):
 
    ```sh
    cd ~/px4_ros_uxrce_dds_ws/src
    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
    ```
 
-1. Source the ROS 2 development environment, and compile the workspace using `colcon`:
+1. Зберіть середовище розробки ROS 2 і скомпілюйте робочу область за допомогою `colcon`:
 
    :::: tabs
 
@@ -135,11 +135,11 @@ To build the agent within ROS:
    :
 :::
 
-   This builds all the folders under `/src` using the sourced toolchain.
+   У результаті буде зібрано усі каталоги у `/src` за допомогою вихідного набору інструментів.
 
-To run the micro XRCE-DDS agent in the workspace:
+Для запуску агента micro XRCE-DDS в робочому просторі:
 
-1. Source the `local_setup.bash` to make the executables available in the terminal (also `setup.bash` if using a new terminal).
+1. Виконайте `local_setup.bash`, щоб зробити виконувані файли доступними у терміналі (також `setup.bash`, якщо ви використовуєте новий термінал).
 
    :::: tabs
 
@@ -166,142 +166,142 @@ To run the micro XRCE-DDS agent in the workspace:
    :
 :::
 
-1) Start the agent with settings for connecting to the uXRCE-DDS client running on the simulator:
+1) Запустіть агент з налаштуваннями для підключення до клієнта uXRCE-DDS, запущеного на симуляторі:
 
    ```sh
    MicroXRCEAgent udp4 -p 8888
    ```
 
-## Starting Agent and Client
+## Запуск агента та клієнта
 
-### Starting the Agent
+### Запуск агента
 
-The agent is used to connect to the client over a particular channel, such as UDP or a serial connection. The channel settings are specified when the agent is started, using command line options. These are documented in the eProsima user guide: [Micro XRCE-DDS Agent > Agent CLI](https://micro-xrce-dds.docs.eprosima.com/en/latest/agent.html#agent-cli). Note that the agent supports many channel options, but PX4 only supports UDP and serial connections.
+Агент використовується для підключення до клієнта через конкретний канал, такий як UDP або послідовне з'єднання. The channel settings are specified when the agent is started, using command line options. Вони задокументовані в посібнику користувача eProsima: [Micro XRCE-DDS Agent > Agent CLI](https://micro-xrce-dds.docs.eprosima.com/en/latest/agent.html#agent-cli). Зверніть увагу, що агент підтримує багато варіантів каналів, але PX4 підтримує тільки UDP і послідовні з'єднання.
 
-::: info
-You should create a single instance of the agent for each channel over which you need to connect.
+:::info
+Ви повинні створити один екземпляр агента для кожного каналу, через який ви хочете підключитися.
 :::
 
-For example, the PX4 simulator runs the uXRCE-DDS client over UDP on port 8888, so to connect to the simulator you would start the agent with the command:
+Наприклад, симулятор PX4 запускає клієнт uXRCE-DDS через UDP на порт 8888, тому для підключення до симулятора потрібно запустити агент за допомогою команди:
 
 ```sh
 MicroXRCEAgent udp4 -p 8888
 ```
 
-When working with real hardware, the setup depends on the hardware, OS, and channel. For example, if you're using the RasPi `UART0` serial port, you might connect using this command (based on the information in [Raspberry Pi Documentation > Configuring UARTS](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts)):
+При роботі з реальним обладнанням налаштування залежить від апаратного забезпечення, операційної системи та каналу. For example, if you're using the RasPi `UART0` serial port, you might connect using this command (based on the information in [Raspberry Pi Documentation > Configuring UARTS](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts)):
 
 ```sh
 sudo MicroXRCEAgent serial --dev /dev/AMA0 -b 921600
 ```
 
-::: info
-For more information about setting up communications channels see [Pixhawk + Companion Setup > Serial Port setup](../companion_computer/pixhawk_companion.md#serial-port-setup), and sub-documents.
+:::info
+Для отримання додаткової інформації про налаштування каналів зв'язку див. [Налаштування Pixhawk + Companion > Налаштування послідовного порту](../companion_computer/pixhawk_companion.md#serial-port-setup), а також пов'язану документацію.
 :::
 
-### Starting the Client
+### Запуск клієнта
 
-The uXRCE-DDS client module ([uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client)) is included by default in all firmware and the simulator. This must be started with appropriate settings for the communication channel that you wish to use to communicate with the agent.
+Клієнтський модуль uXRCE-DDS ([uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client)) за замовчуванням включено до всіх прошивок та симулятора. This must be started with appropriate settings for the communication channel that you wish to use to communicate with the agent.
 
-::: info
-The simulator automatically starts the client on localhost UDP port `8888` using the default uxrce-dds namespace.
+:::info
+Симулятор автоматично запускає клієнта на localhost UDP порту `8888`, використовуючи за замовчуванням простір імен uxrce-dds.
 :::
 
-The configuration can be done using the [UXRCE-DDS parameters](../advanced_config/parameter_reference.md#uxrce-dds-client):
+Конфігурацію можна виконати за допомогою параметрів [UXRCE-DDS](../advanced_config/parameter_reference.md#uxrce-dds-client):
 
-- [UXRCE_DDS_CFG](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG): Set the port to connect on, such as `TELEM2`, `Ethernet`, or `Wifi`.
-- If using an Ethernet connection:
+- [UXRCE_DDS_CFG](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG): вкажіть порт для підключення, наприклад `TELEM2`, `Ethernet` або `Wifi`.
+- Якщо використовується Ethernet-підключення:
 
-  - [UXRCE_DDS_PRT](../advanced_config/parameter_reference.md#UXRCE_DDS_PRT): Use this to specify the agent UDP listening port. The default value is `8888`.
-  - [UXRCE_DDS_AG_IP](../advanced_config/parameter_reference.md#UXRCE_DDS_AG_IP): Use this to specify the IP address of the agent. The IP address must be provided in `int32` format as PX4 does not support string parameters. The default value is `2130706433` which corresponds to the _localhost_ `127.0.0.1`.
+  - [UXRCE_DDS_PRT](../advanced_config/parameter_reference.md#UXRCE_DDS_PRT): Використовуйте цей параметр, щоб вказати порт прослуховування агента UDP. Значення за замовчуванням `8888`.
+  - [UXRCE_DDS_AG_IP](../advanced_config/parameter_reference.md#UXRCE_DDS_AG_IP): Використовуйте цей параметр, щоб вказати IP адресу агента. IP-адрес повинен бути наданий у форматі `int32`, оскільки PX4 не підтримує рядкові параметри. Значенням за замовчуванням є `2130706433`, що відповідає _localhost_ `127.0.0.1`.
 
-    You can use [Tools/convert_ip.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/convert_ip.py) to convert between the formats:
+    Ви можете скористатися [Tools/convert_ip.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/convert_ip.py) для конвертації між форматами:
 
-    - To obtain the `int32` version of an IP in decimal dot notation the command is:
+    - Для отримання версії IP у вигляді `int32` у десятковій системі числення виконується команда:
 
       ```sh
       python3 ./PX4-Autopilot/Tools/convert_ip.py <the IP address in decimal dot notation>
       ```
 
-    - To get the IP address in decimal dot notation from the `int32` version:
+    - Щоб отримати IP-адресу у десятковій системі числення з версії `int32`:
 
       ```sh
       python3 ./PX4-Autopilot/Tools/convert_ip.py -r <the IP address in int32 notation>
       ```
 
-- If using a serial connection:
+- Якщо використовується послідовне підключення:
 
-  - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), [SER_URT6_BAUD](../advanced_config/parameter_reference.md#SER_URT6_BAUD) (and so on): Use the `_BAUD` parameter associated with the serial port to set the baud rate. For example, you'd set a value for `SER_TEL2_BAUD` if you are connecting to the companion using `TELEM2`. For more information see [Serial port configuration](../peripherals/serial_configuration.md#serial-port-configuration).
+  - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), [SER_URT6_BAUD](../advanced_config/parameter_reference.md#SER_URT6_BAUD) (і так далі): Використовуйте параметр `_BAUD`, пов'язаний з послідовним портом, для встановлення швидкості передачі даних. Наприклад, ви встановите значення для `SER_TEL2_BAUD`, якщо ви підключаєтеся до комп'ютера-компаньйона за допомогою `TELEM2`. Докладнішу інформацію наведено у розділі [Конфігурація послідовного порту](../peripherals/serial_configuration.md#serial-port-configuration).
 
-- Some setups might also need these parameters to be set:
+- Деякі налаштування можуть також потребувати встановлення цих параметрів:
 
-  - [UXRCE_DDS_KEY](../advanced_config/parameter_reference.md#UXRCE_DDS_KEY): The uXRCE-DDS key. If you're working in a multi-client, single agent configuration, each client should have a unique non-zero key. This is primarily important for multi-vehicle simulations, where all clients are connected in UDP to the same agent. (See the [official eprosima documentation](https://micro-xrce-dds.docs.eprosima.com/en/stable/client_api.html#session) , `uxr_init_session`.)
-  - [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID): The DDS domain ID. This provides a logical separation between DDS networks, and can be used to separate clients on different networks. By default, ROS 2 operates on ID 0.
-  - [UXRCE_DDS_PTCFG](../advanced_config/parameter_reference.md#UXRCE_DDS_PTCFG): uXRCE-DDS participant configuration. It allows to restrict the visibility of the DDS topics to the _localhost_ only and to use user-customized participant configuration files stored on the agent side.
-  - [UXRCE_DDS_SYNCT](../advanced_config/parameter_reference.md#UXRCE_DDS_SYNCT): Bridge time synchronization enable. The uXRCE-DDS client module can synchronize the timestamp of the messages exchanged over the bridge. This is the default configuration. In certain situations, for example during [simulations](../ros/ros2_comm.md#ros-gazebo-and-px4-time-synchronization), this feature may be disabled.
+  - [UXRCE_DDS_KEY](../advanced_config/parameter_reference.md#UXRCE_DDS_KEY): Ключ uXRCE-DDS. Якщо ви працюєте в мультиклієнтській конфігурації з одним агентом, кожен клієнт повинен мати унікальний ненульовий ключ. Це насамперед важливо для симуляцій з кількома транспортними засобами, де всі клієнти під'єднані до UDP одного агента. (Див. [офіційну документацію eprosima](https://micro-xrce-dds.docs.eprosima.com/en/stable/client_api.html#session) , `uxr_init_session`.)
+  - [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID): ідентифікатор домену DDS. Це забезпечує логічне розділення мереж DDS і може бути використано для розділення клієнтів на різні мережі. За замовчуванням, ROS 2 працює з ID 0.
+  - [UXRCE_DDS_PTCFG](../advanced_config/parameter_reference.md#UXRCE_DDS_PTCFG): Конфігурація учасника uXRCE-DDS. Це дозволяє обмежити видимість тем DDS лише для _localhost_ і використовувати користувацькі конфігураційні файли учасників, що зберігаються на стороні агента.
+  - [UXRCE_DDS_SYNCT](../advanced_config/parameter_reference.md#UXRCE_DDS_SYNCT): увімкнути синхронізацію часу мосту. Клієнтський модуль uXRCE-DDS може синхронізувати мітку часу повідомлень, якими обмінюються через міст. Це стандартна конфігурація. У певних ситуаціях, наприклад, під час [симуляцій](../ros/ros2_comm.md#ros-gazebo-and-px4-time-synchronization), ця функція може бути вимкнена.
 
 ::: info
-Many ports are already have a default configuration. To use these ports you must first disable the existing configuration:
+Багато портів вже мають конфігурацію за замовчуванням. Щоб використовувати ці порти, спочатку вимкніть існуючу конфігурацію:
 
-- `TELEM1` and `TELEM2` are set up by default to connect via MAVLink to a GCS and a companion computer (respectively). Disable by setting [MAV_0_CONFIG=0](../advanced_config/parameter_reference.md#MAV_0_CONFIG) or [MAV_1_CONFIG=0](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to zero. See [MAVLink Peripherals](../peripherals/mavlink_peripherals.md) for more information.
-- Other ports can similarly be configured. See [Serial port configuration](../peripherals/serial_configuration.md#serial-port-configuration).
+- `TELEM1` і `TELEM2` за замовчуванням налаштовані на підключення через MAVLink до GCS і комп'ютера-компаньйона (відповідно). Вимкніть, встановивши [MAV_0_CONFIG=0](../advanced_config/parameter_reference.md#MAV_0_CONFIG) або [MAV_1_CONFIG=0](../advanced_config/parameter_reference.md#MAV_1_CONFIG) на нуль. Докладнішу інформацію див. у розділі [Периферійні пристрої MAVLink](../peripherals/mavlink_peripherals.md).
+- Інші порти можуть бути налаштовані аналогічним чином. Дивіться [Конфігурація послідовного порту](../peripherals/serial_configuration.md#serial-port-configuration).
 :::
 
-Once set, you may need to reboot PX4 for the parameters to take effect. They will then persist through subsequent reboots.
+Після встановлення можливо знадобиться перезавантаження PX4, щоб параметри набрали чинності. Після цього вони зберігатимуться під час наступних перезавантажень.
 
-You can also start the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) using a command line. This can be called as part of [System Startup](../concept/system_startup.md) or through the [MAVLink Shell](../debug/mavlink_shell.md) (or a system console). This method is useful when you need to set a custom client namespace, as no parameter is provided for this purpose. For example, the following command can be used to connect via Ethernet to a remote host at `192.168.0.100:8888` and to set the client namespace to `/drone/`.
+Ви також можете запустити [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) за допомогою командного рядка. Його можна викликати як частину [System Startup](../concept/system_startup.md) або за допомогою [Оболонки MAVLink](../debug/mavlink_shell.md) (або системної консолі). Цей метод корисний, коли вам потрібно встановити власний простір імен клієнта, оскільки для цього не передбачено жодного параметра. Наприклад, наступна команда може бути використана для підключення через Ethernet до віддаленого хоста за адресою `192.168.0.100:8888` і встановлення простору імен клієнта на `/drone/`.
 
 ```sh
 uxrce_dds_client start -t udp -p 8888 -h 192.168.0.100 -n drone
 ```
 
-Options `-p` or `-h` are used to bypass `UXRCE_DDS_PRT` and `UXRCE_DDS_AG_IP`.
+Параметри `-p` або `-h` використовуються для обходу `UXRCE_DDS_PRT` і `UXRCE_DDS_AG_IP`.
 
-#### Starting the Client in Simulation
+#### Запуск клієнта в симуляції
 
-The simulator [startup logic](../concept/system_startup.md) ([init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS)) uses the client startup commands for single and [multi vehicle simulations](../ros/ros2_multi_vehicle.md), enabling the setting of appropriate instance ids and DDS namespaces. By default the client is started on localhost UDP port `8888` with no additional namespace.
+Логіка запуску симулятора [логіка запуску](../concept/system_startup.md) ([init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS)) використовує команди запуску клієнта для одного та [декількох транспортних засобів](../ros/ros2_multi_vehicle.md), що дозволяє встановлювати відповідні ідентифікатори екземплярів та простори імен DDS. За замовчуванням клієнт запускається на локальному хості через UDP-порт `8888` без додаткового простору імен.
 
-Environment variables are provided that override some [UXRCE-DDS parameters](../advanced_config/parameter_reference.md#uxrce-dds-client). These allow users to create custom startup files for their simulations:
+Надаються змінні середовища, які перевизначають деякі [параметри UXRCE-DDS](../advanced_config/parameter_reference.md#uxrce-dds-client). Це дозволяє користувачам створювати власні файли запуску для своїх симуляцій:
 
-- `PX4_UXRCE_DDS_NS`: Use this to specify the topic [namespace](#customizing-the-topic-namespace).
-- `ROS_DOMAIN_ID`: Use this to replace [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID).
-- `PX4_UXRCE_DDS_PORT`: Use this to replace [UXRCE_DDS_PRT](../advanced_config/parameter_reference.md#UXRCE_DDS_PRT).
+- `PX4_UXRCE_DDS_NS`: Використовуйте це, щоб вказати тему [простір імен](#customizing-the-topic-namespace).
+- `ROS_DOMAIN_ID`: Використовуйте це для заміни [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID).
+- `PX4_UXRCE_DDS_PORT`: Використовуйте це для заміни [UXRCE_DDS_PRT](../advanced_config/parameter_reference.md#UXRCE_DDS_PRT).
 
-For example, the following command can be used to start a Gazebo simulation with che client operating on the DDS domain `3`, port `9999` and topic namespace `drone`.
+Наприклад, наступну команду можна використовувати для запуску симуляції Gazebo з клієнтом, який працює в DDS домені `3`, портом `9999` та простором імен теми `drone`.
 
 ```sh
 ROS_DOMAIN_ID=3 PX4_UXRCE_DDS_PORT=9999 PX4_UXRCE_DDS_NS=drone make px4_sitl gz_x500
 ```
 
-## Supported uORB Messages
+## Підтримувані повідомлення uORB
 
-The set of [PX4 uORB topics](../msg_docs/index.md) that are exposed through the client are set in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
+Набір [PX4 uORB тем](../msg_docs/index.md), які використовуються через клієнт, встановлені в [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
 
-The topics are release specific (support is compiled into [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) at build time). While most releases should support a very similar set of messages, to be certain you would need to check the yaml file for your particular release.
+Теми є специфічними для релізу (підтримка компілюється в [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) на етапі збірки). Хоча більшість випусків мають підтримувати дуже схожий набір повідомлень, щоб бути впевненими, вам слід перевірити файл yaml для вашого конкретного релізу.
 
 <!-- Jublish the set we use?: https://github.com/PX4/px4_msgs/issues/22 -->
 
-Note that ROS 2/DDS needs to have the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware in order to interpret the messages. The message definitions are stored in the ROS 2 interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs), and they are automatically synchronized by CI on the `main` and release branches. Note that all the messages from PX4 source code are present in the repository, but only those listed in `dds_topics.yaml` will be available as ROS 2 topics. Therefore,
+Зауважте, що для інтерпретації повідомлень ROS 2/DDS повинен мати _такі самі_ визначення повідомлень, які були використані для створення клієнтського модуля uXRCE-DDS у прошивці PX4. Визначення повідомлень зберігаються в пакеті інтерфейсу ROS 2 [PX4/px4_msgs](https://github.com/PX4/px4_msgs), і вони автоматично синхронізуються CI у гілках `main` та release. Зверніть увагу, що всі повідомлення з вихідного коду PX4 присутні в репозиторії, але лише ті, які перелічені в `dds_topics.yaml`, будуть доступні як теми ROS 2. Тому,
 
-- If you're using a main or release version of PX4 you can get the message definitions by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your workspace.
-- If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree. Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders. Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be:
+- Якщо ви використовуєте основну або релізну версію PX4, ви можете отримати визначення повідомлень, клонуючи пакет інтерфейсу [PX4/px4_msgs](https://github.com/PX4/px4_msgs) у вашу робочу область.
+- Якщо ви створюєте або змінюєте повідомлення uORB, вам потрібно вручну оновити повідомлення у вашому робочому просторі з вихідного дерева PX4. Загалом це означає, що вам слід оновити [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), клонувати пакет інтерфейсу, а потім вручну синхронізувати його, скопіювавши нові/змінені визначення повідомлень з [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) до його папки `msg`. Якщо припустити, що PX4-Autopilot знаходиться у вашому домашньому каталозі `~`, а `px4_msgs` - у `~/px4_ros_com/src/`, то команда може бути такою:
 
   ```sh
   rm ~/px4_ros_com/src/px4_msgs/msg/*.msg
   cp ~/PX4-Autopilot/mgs/*.msg ~/px4_ros_com/src/px4_msgs/msg/
   ```
 
-  ::: info Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages. For more information see [DDS Topics YAML](#dds-topics-yaml) below.
+  :::info Технічно, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) повністю визначає зв'язок між темами PX4 uORB і повідомленнями ROS 2. Для отримання додаткової інформації див. [DDS Topics YAML](#dds-topics-yaml) нижче.
 :::
 
-## Customizing the Topic Namespace
+## Налаштування простору імен теми
 
-Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) or at runtime (which is useful for multi vehicle operations):
+Власні простори імен тем можна застосовувати під час збирання (змінюючи [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) або під час виконання (що є корисним для роботи з декількома транспортними засобами):
 
-- One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line. This technique can be used both in simulation and real vehicles.
-- A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
+- Однією з можливостей є використання опції `-n` при запуску [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) з командного рядка. Ця техніка може бути використана як у симуляторах, так і на реальних транспортних засобах.
+- Користувацький простір імен можна створити (лише) для симуляцій, встановивши змінну оточення `PX4_UXRCE_DDS_NS` перед початком симуляції.
 
 ::: info
-Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). Therefore, commands like:
+Зміна простору імен під час виконання додасть потрібний простір імен як префікс до всіх полів `topic` у [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). Отже, команди, подібні до:
 
 ```sh
 uxrce_dds_client start -n uav_1
@@ -322,11 +322,11 @@ will generate topics under the namespaces:
 
 :::
 
-## PX4 ROS 2 QoS Settings
+## Налаштування PX4 ROS 2 QoS
 
-PX4 QoS settings for publishers are incompatible with the default QoS settings for ROS 2 subscribers. So if ROS 2 code needs to subscribe to a uORB topic, it will need to use compatible QoS settings. One example of which is shown in [ROS 2 User Guide > ROS 2 Subscriber QoS Settings](../ros/ros2_comm.md#ros-2-subscriber-qos-settings).
+Налаштування QoS PX4 для видавців несумісні з налаштуваннями QoS за замовчуванням для підписників ROS 2. Таким чином, якщо код ROS 2 потрібно підписатися на тему uORB, йому потрібно використовувати сумісні налаштування QoS. Один із прикладів показано в [Посібнику користувача ROS 2 > Налаштування QoS підписника ROS 2](../ros/ros2_comm.md#ros-2-subscriber-qos-settings).
 
-PX4 uses the following QoS settings for publishers:
+PX4 використовує наступні параметри QoS для видавців:
 
 ```cpp
 uxrQoS_t qos = {
@@ -337,7 +337,7 @@ uxrQoS_t qos = {
 };
 ```
 
-PX4 uses the following QoS settings for subscribers:
+PX4 використовує наступні параметри QoS для підписників:
 
 ```cpp
 uxrQoS_t qos = {
@@ -348,15 +348,15 @@ uxrQoS_t qos = {
 };
 ```
 
-ROS 2 uses the following QoS settings (by default) for publishers and subscriptions: "keep last" for history with a queue size of 10, "reliable" for reliability, "volatile" for durability, and "system default" for liveliness. Deadline, lifespan, and lease durations are also all set to "default".
+ROS 2 використовує наступні налаштування QoS (за замовчуванням) для видавців та підписок: «зберігати останніми» для історії з розміром черги 10, «reliable» для надійності, «volatile» для тривалості і «system default» для життєздатності. Deadline, lifespan, and lease durations are also all set to "default".
 
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
-## DDS Topics YAML
+## DDS теми YAML
 
-The PX4 yaml file [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) defines the set of PX4 uORB topics that are built into firmware and published. More precisely, it completely defines the relationship/pairing between PX4 uORB and ROS 2 messages.
+Файл PX4 yaml [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) визначає набір тем PX4 uORB, які вбудовано у прошивку та опубліковано. Точніше, він повністю визначає взаємозв'язок/сполучення між повідомленнями PX4 uORB і ROS 2.
 
-The file is structured as follows:
+Файл структурований наступним чином:
 
 ```yaml
 publications:
@@ -394,112 +394,112 @@ subscriptions_multi:
 
 ```
 
-Each (`topic`,`type`) pairs defines:
+Кожна пара (`topic`,`type`) визначає:
 
-1. A new `publication`, `subscription`, or `subscriptions_multi`, depending on the list to which it is added.
-2. The topic _base name_, which **must** coincide with the desired uORB topic name that you want to publish/subscribe. It is identified by the last token in `topic:` that starts with `/` and does not contains any `/` in it. `vehicle_odometry`, `vehicle_status` and `offboard_control_mode` are examples of base names.
-3. The topic [namespace](https://design.ros2.org/articles/topic_and_service_names.html#namespaces). By default it is set to:
-   - `/fmu/out/` for topics that are _published_ by PX4.
-   - `/fmu/in/` for topics that are _subscribed_ by PX4.
-4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
+1. Нова `publication`, `subscription`, або `subscriptions_multi`, залежно від списку, до якого її додано.
+2. Назва теми _base name_, яка **повинна** збігатися з бажаною назвою теми uORB, яку ви хочете опублікувати/підписатися. Він ідентифікується за останнім токеном у `topic:`, який починається з `/` і не містить жодного `/` у своєму складі. `vehicle_odometry`, `vehicle_status` та `offboard_control_mode` - це приклади базових імен.
+3. [простір імен](https://design.ros2.org/articles/topic_and_service_names.html#namespaces) теми. За замовчуванням встановлено ​​на:
+   - `/fmu/out/` для тем, які _публікуються_ PX4.
+   - `/fmu/in/` для тем, які _підписані_ PX4.
+4. Тип повідомлення (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode` тощо) та пакет ROS 2 (`px4_msgs`), який очікує для надання визначення повідомлення.
 
-`subscriptions` and `subscriptions_multi` allow us to choose the uORB topic instance that ROS 2 topics are routed to: either a shared instance that may also be getting updates from internal PX4 uORB publishers, or a separate instance that is reserved for ROS2 publications, respectively. Without this mechanism all ROS 2 messages would be routed to the _same_ uORB topic instance (because ROS 2 does not have the concept of [multiple topic instances](../middleware/uorb.md#multi-instance)), and it would not be possible for PX4 subscribers to differentiate between streams from ROS 2 or PX4 publishers.
+`subscriptions` і `subscriptions_multi` дозволяють нам вибрати екземпляр теми uORB, до якого надсилатимуться теми ROS 2: або спільний екземпляр, який також може отримувати оновлення від внутрішніх видавців uORB PX4, або окремий екземпляр, зарезервований для публікацій ROS2 відповідно. Без цього механізму всі повідомлення ROS 2 перенаправлятимуться до _одного і того ж_ екземпляра теми uORB (оскільки у ROS 2 немає поняття [кількох екземплярів тем](../middleware/uorb.md#multi-instance)), і підписники PX4 не зможуть розрізняти потоки від видавців ROS 2 або PX4.
 
-Add a topic to the `subscriptions` section to:
+Додайте тему до розділу `subscriptions` для:
 
-- Create a unidirectional route going from the ROS2 topic to the _default_ instance (instance 0) of the associated uORB topic. For example, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher of `vehicle_odometry`.
-- If other (internal) PX4 modules are already publishing on the same uORB topic instance as the ROS2 publisher, the instance's subscribers will receive all streams of messages. The uORB subscriber will not be able to determine if an incoming message was published by PX4 or by ROS2.
-- This is the desired behavior when the ROS2 publisher is expected to be the sole publisher on the topic instance (for example, replacing an internal publisher to the topic during offboard control), or when the source of multiple publishing streams does not matter.
+- Створіть односпрямований маршрут від теми ROS2 до екземпляра _default_ (екземпляр 0) пов'язаної з нею теми uORB. Наприклад, він створює підписника ROS2 `/fmu/in/vehicle_odometry` та видавця uORB `vehicle_odometry`.
+- Якщо інші (внутрішні) модулі PX4 вже публікують у тому ж екземплярі теми uORB, що й публікатор ROS2, підписники цього екземпляра будуть отримувати всі потоки повідомлень. Підписник uORB не зможе визначити, чи вхідне повідомлення було опубліковане PX4 або ROS2.
+- Це бажана поведінка, коли очікується, що ROS2-видавець буде єдиним видавцем у екземплярі теми (наприклад, для заміни внутрішнього видавця теми під час автономного керування), або коли джерело декількох потоків публікацій не має значення.
 
-Add a topic to the `subscriptions_multi` section to:
+Додайте тему до розділу `subscriptions_multi` для:
 
-- Create a unidirectional route going from the ROS2 topic to a _new_ instance of the associated uORB topic. For example, if `vehicle_odometry` has already `2` instances, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher on instance `3` of `vehicle_odometry`.
-- This ensures that no other internal PX4 module will publish on the same instance used by uXRCE-DDS. The subscribers will be able to subscribe to the desired instance and distinguish between publishers.
-- Note, however, that this guarantees separation between PX4 and ROS2 publishers, not among multiple ROS2 publishers. In that scenario, their messages will still be routed to the same instance.
-- This is the desired behavior, for example, when you want PX4 to log the readings of two equal sensors; they will both publish on the same topic, but one will use instance 0 and the other will use instance 1.
+- Створіть односпрямований маршрут від теми ROS2 до _нового_ екземпляра пов'язаної з нею теми uORB. Наприклад, якщо `vehicle_odometry` вже має `2` екземплярів, він створює підписника ROS2 на `/fmu/in/vehicle_odometry` і видавця uORB на екземплярі `3` з `vehicle_odometry`.
+- Це гарантує, що жоден інший внутрішній модуль PX4 не публікуватиметься на тому самому екземплярі, що використовується uXRCE-DDS. Підписники зможуть підписатися на потрібний екземпляр і розрізняти видавців.
+- Зауважте, однак, що це гарантує розділення між видавцями PX4 і ROS2, а не між кількома видавцями ROS2. У цьому випадку їхні повідомлення все одно будуть перенаправлені на той самий екземпляр.
+- Це бажана поведінка, наприклад, коли ви хочете, щоб PX4 реєстрував показання двох однакових датчиків; вони обидва публікуватимуться в одній темі, але один з них використовуватиме екземпляр 0, а інший - екземпляр 1.
 
-You can arbitrarily change the configuration. For example, you could use different default namespaces or use a custom package to store the message definitions.
+Ви можете довільно змінювати конфігурацію. Наприклад, ви можете використовувати різні простори імен за замовчуванням або використовувати власний пакет для зберігання визначень повідомлень.
 
-## Fast-RTPS to uXRCE-DDS Migration Guidelines
+## Посібник міграції з Fast-RTPS на uXRCE-DDS
 
-These guidelines explain how to migrate from using PX4 v1.13 [Fast-RTPS](../middleware/micrortps.md) middleware to PX4 v1.14 `uXRCE-DDS` middleware. These are useful if you have [ROS 2 applications written for PX4 v1.13](https://docs.px4.io/v1.13/en/ros/ros2_comm.html), or you have used Fast-RTPS to interface your applications to PX4 [directly](https://docs.px4.io/v1.13/en/middleware/micrortps.html#agent-in-an-offboard-fast-dds-interface-ros-independent).
+Ці настанови пояснюють, як перейти від використання проміжного програмного забезпечення PX4 v1.13 [Fast-RTPS](../middleware/micrortps.md) до проміжного програмного забезпечення PX4 v1.14 `uXRCE-DDS`. Вони корисні, якщо у вас є [ROS 2 додатки, написані для PX4 v1.13](https://docs.px4.io/v1.13/en/ros/ros2_comm.html), або ви використовували Fast-RTPS для інтерфейсу ваших додатків з PX4 [безпосередньо](https://docs.px4.io/v1.13/en/middleware/micrortps.html#agent-in-an-offboard-fast-dds-interface-ros-independent).
 
-::: info
-This section contains migration-specific information. You should also read the rest of this page to properly understand uXRCE-DDS.
+:::info
+Цей розділ містить інформацію, що стосується міграції. Вам також слід прочитати решту цієї сторінки, щоб правильно зрозуміти uXRCE-DDS.
 :::
 
-#### Dependencies do not need to be removed
+#### Залежності не потрібно видаляти
 
-uXRCE-DDS does not need the dependencies that were required for Fast-RTPS, such as those installed by following the topic [Fast DDS Installation](https://docs.px4.io/v1.13/en/dev_setup/fast-dds-installation.html). You can keep them if you want, without affecting your uXRCE-DDS applications.
+uXRCE-DDS не потребує залежностей, які були потрібні для Fast-RTPS, зокрема тих, що встановлюються за допомогою статті [Встановлення Fast DDS](https://docs.px4.io/v1.13/en/dev_setup/fast-dds-installation.html). Ви можете зберегти їх, якщо хочете, не впливаючи на ваші додатки uXRCE-DDS.
 
-If you do choose to remove the dependencies, take care not to remove anything that is used by applications (for example, Java).
+Якщо ви вирішили видалити залежності, будьте обережні, щоб не видалити нічого, що використовується програмами (наприклад, Java).
 
 #### `_rtps` targets have been removed
 
-Anywhere you previously used a build target with extension `_rtps`, such as `px4_fmu-v5_rtps` or `px4_sitl_rtps`, you can now use the equivalent default target (for these cases `px4_fmu-v5_default` and `px4_sitl_default`).
+Якщо ви раніше використовували ціль збірки з розширенням `_rtps`, наприклад, `px4_fmu-v5_rtps` або `px4_sitl_rtps`, тепер ви можете використовувати еквівалентну ціль за замовчуванням (для цих випадків `px4_fmu-v5_default` і `px4_sitl_default`).
 
-The make targets with extension `_rtps` were used to build firmware that included client side RTPS code. The uXRCE-DDS middleware is included by default in builds for most boards, so you no longer need a special firmware to work with ROS 2.
+Цілі make з розширенням `_rtps` було використано для створення прошивки, яка містила код RTPS на стороні клієнта. Проміжне програмне забезпечення uXRCE-DDS за замовчуванням включено до збірок для більшості плат, тому вам більше не потрібна спеціальна прошивка для роботи з ROS 2.
 
-To check if your board has the middleware, look for `CONFIG_MODULES_UXRCE_DDS_CLIENT=y` in the `.px4board` file of your board. Those files are nested in [PX4-Autopilot/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards).
+Щоб перевірити, чи має ваша плата проміжне програмне забезпечення, знайдіть `CONFIG_MODULES_UXRCE_DDS_CLIENT=y` у файлі `.px4board` вашої плати. Ці файли вкладено до каталогу [PX4-Autopilot/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards).
 
-If it is not present, or if it is set to `n`, then you have to clone the PX4 repo, modify the board configuration and manually [compile](../dev_setup/building_px4.md) the firmware.
+Якщо його немає, або якщо він має значення `n`, то вам доведеться клонувати репозиторій PX4, змінити конфігурацію плати і вручну [скомпілювати](../dev_setup/building_px4.md) прошивку.
 
-#### New client module and new start parameters
+#### Новий модуль клієнта та нові параметри запуску
 
-As the client is implemented by a new PX4 module, you now have new parameters to start it. Take a look at the [client startup section](#starting-the-client) to learn how this is done.
+Оскільки клієнт реалізовано новим модулем PX4, тепер у вас є нові параметри для його запуску. Перегляньте розділ [запуску клієнта](#starting-the-client), щоб дізнатися, як це робиться.
 
-#### New file for setting which topics are published
+#### Новий файл для налаштування того, які теми публікуються
 
-The list of topics that are published and subscribed for a particular firmware is now managed by the [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) configuration file, which replaces [urtps_bridge_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/tools/urtps_bridge_topics.yaml)
+Перелік тем, які публікуються і на які здійснюється підписка для певної прошивки, тепер керується конфігураційним файлом [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), який замінює [urtps_bridge_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/tools/urtps_bridge_topics.yaml)
 
-See [Supported uORB Messages](#supported-uorb-messages) and [DDS Topics YAML](#dds-topics-yaml) sections for more information.
+Дивіться розділи [Підтримувані повідомлення uORB](#supported-uorb-messages) та [DDS Теми YAML](#dds-topics-yaml) для отримання додаткової інформації.
 
-#### Topics no longer need to be synced between client and agent.
+#### Теми більше не потрібно синхронізувати між клієнтом і агентом.
 
-The list of bridged topics between agent and client no longer needs to be synced for ROS 2, so the `update_px4_ros2_bridge.sh` script is no longer needed.
+Список проміжних тем між агентом і клієнтом більше не потрібно синхронізувати для ROS 2, тому скрипт `update_px4_ros2_bridge.sh` більше не потрібен.
 
-#### Default topic naming convention has changed
+#### Налаштування назви теми за замовчуванням змінено
 
-The topic naming format changed:
+Змінився формат назв тем:
 
-- Published topics: `/fmu/topic-name/out` (Fast-RTPS) to `/fmu/out/topic-name` (XRCE-DDS).
-- Subscribed topics: `/fmu/topic-name/in`(Fast-RTPS) to `/fmu/in/topic-name` (XRCE-DDS).
+- Опубліковані теми: `/fmu/topic-name/out` (Fast-RTPS) до `/fmu/out/topic-name` (XRCE-DDS).
+- Підписані теми: `/fmu/topic-name/in`(Fast-RTPS) до `/fmu/in/topic-name` (XRCE-DDS).
 
-You should update your application to the new convention.
+Вам слід оновити свій додаток відповідно до нової конвенції.
 
-::: info
-You might also edit [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) to revert to the old convention. This is not recommended because it means that you would have to always use custom firmware.
+:::info
+Ви також можете відредагувати [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), щоб повернутися до старої конвенції. Це не рекомендується, оскільки це означає, що вам доведеться завжди використовувати кастомну прошивку.
 :::
 
 #### XRCE-DDS-Agent
 
-The XRCE-DDS agent is "generic" and independent of PX4: [micro-xrce-dds-agent](https://micro-xrce-dds.docs.eprosima.com/en/latest/agent.html). There are many ways to install it on your PC / companion computer - for more information see the [dedicated section](#micro-xrce-dds-agent-installation).
+Агент XRCE-DDS є "загальним" і не залежить від PX4: [micro-xrce-dds-agent](https://micro-xrce-dds.docs.eprosima.com/en/latest/agent.html). Існує багато способів встановити його на ваш ПК / комп'ютер-компаньйон - для отримання додаткової інформації див. [відповідний розділ](#micro-xrce-dds-agent-installation).
 
-#### Application-Specific Changes
+#### Зміни, що стосуються конкретних додатків
 
-If you where not using ROS 2 alongside the agent ([Fast DDS Interface ROS-Independent](https://docs.px4.io/v1.13/en/middleware/micrortps.html#agent-in-an-offboard-fast-dds-interface-ros-independent)), then you need to migrate to [eProsima Fast DDS](https://fast-dds.docs.eprosima.com/en/latest/index.html).
+Якщо ви не використовуєте ROS 2 разом з агентом ([Fast DDS Interface ROS-Independent](https://docs.px4.io/v1.13/en/middleware/micrortps.html#agent-in-an-offboard-fast-dds-interface-ros-independent)), вам потрібно перейти на [eProsima Fast DDS](https://fast-dds.docs.eprosima.com/en/latest/index.html).
 
-ROS 2 applications still need to compile alongside the PX4 messages, which you do by adding the [px4_msgs](https://github.com/PX4/px4_msgs) package to your workspace. You can remove the [px4_ros_com](https://github.com/PX4/px4_ros_com) package as it is no longer needed, other than for example code.
+Програми ROS 2, як і раніше, мають компілюватися разом із повідомленнями PX4, для чого вам слід додати до робочого простору пакунок [px4_msgs](https://github.com/PX4/px4_msgs). Ви можете вилучити пакунок [px4_ros_com](https://github.com/PX4/px4_ros_com), оскільки він більше не потрібен, окрім як для прикладу коду.
 
-In your ROS 2 nodes, you will need to:
+У ваших вузлах ROS 2 вам знадобиться:
 
-- Update the [QoS](#px4-ros-2-qos-settings) of your publishers and subscribers as PX4 does not use the ROS 2 default settings.
-- Change the names of your topics, unless you edited [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
-- Remove everything related to time synchronization, as XRCE-DDS automatically takes care of agent/client time synchronization.
+- Оновіть [QoS](#px4-ros-2-qos-settings) ваших видавців і підписників, оскільки PX4 не використовує налаштування ROS 2 за замовчуванням.
+- Змініть назви своїх тем, якщо ви не редагували [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
+- Видаліть все, що стосується синхронізації часу, оскільки XRCE-DDS автоматично піклується про синхронізацію часу агента/клієнта.
 
-  In C++ applications you can set the `timestamp` field of your messages like this:
+  У додатках C++ ви можете встановити поле `timestamp` вашого повідомлення таким чином:
 
   ```cpp
   msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
   ```
 
-  In Python applications you can set the `timestamp` field of your messages like this:
+  У додатках Python ви можете встановити поле `timestamp` для ваших повідомлень таким чином:
 
   ```python
   msg.timestamp = int(self.get_clock().now().nanoseconds / 1000)
   ```
 
-## Helpful Resources
+## Корисні ресурси
 
 - [ROS 2 in PX4: Technical Details of a Seamless Transition to XRCE-DDS](https://www.youtube.com/watch?v=F5oelooT67E) - Pablo Garrido & Nuno Marques (youtube)
 - [PX4 ROS 2 offboard tutorial](https://gist.github.com/julianoes/adbf76408663829cd9aed8d14c88fa29) (Github gist - JulianOes)

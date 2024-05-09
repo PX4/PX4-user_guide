@@ -1,11 +1,11 @@
-# Pixhawk 4 Wiring Quick Start
+# Швидкий старт підключення Pixhawk 4
 
 :::warning PX4 не займається виготовленням цього (чи якогось іншого) автопілоту. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
 :::
 
 У цьому короткому посібнику показано, як увімкнути живлення польотного контролера [Pixhawk 6C](../flight_controller/pixhawk4.md)&reg;<sup></sup> та підʼєднати до нього найважливіші периферійні пристрої.
 
-<img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
+<img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Зображення Pixhawk4" />
 
 ## Огляд схеми підключення
 
@@ -28,29 +28,29 @@ _Pixhawk_ необхідно змонтувати на раму разом з а
 
 ## GPS + компас + зумер + перемикач безпеки + LED
 
-Attach the provided GPS with integrated compass, safety switch, buzzer and LED to the **GPS MODULE** port.
+Підключіть наданий GPS з інтегрованим компасом, безпечним перемикачем, піщальцем та світлодіодом до порту **МОДУЛЬ GPS**.
 
 GPS/компас повинен бути [закріплений на рамі](../assembly/mount_gps_compass.md) якомога далі від іншої електроніки, так, щоб маркер напрямку був спрямований до передньої частини апарату (відокремлення компаса від іншої електроніки зменшить радіоперешкоди).
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
-::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::info Вбудований перемикач безпеки GPS-модуля за _замовчуванням_ увімкнений (коли він увімкнений, PX4 не дозволить вам привести апарат в працездатний стан). Щоб вимкнути безпеку, натисніть і утримуйте безпечний вимикач протягом 1 секунди. Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
 
-## Power
+## Живлення
 
-Connect the output of the _Power Management Board_ (PM board) that comes with the kit to one of the **POWER** bricks of _Pixhawk 4_ using a 6-wire cable. The PM input **2~12S** will be connected to your LiPo battery. The connections of Power Management Board, including power supply and signal connections to the ESCs and servos, are explained in the table below. Note that the PM board does not supply power to the servos via + and - pins of **FMU PWM-OUT**.
+Підключіть вихід _плати управління живленням_ (PM board), яка постачається в комплекті, до одного з кирпичів **POWER** _Pixhawk 4_ за допомогою 6-провідного кабелю. Вхід PM **2~12S** буде підключений до вашої LiPo батареї. Підключення плати управління живленням, включаючи живлення та сигнальні з'єднання з ESC та сервоприводами, пояснені в таблиці нижче. Зверніть увагу, що плата PM не постачає живлення до сервоприводів через контакти + та - **FMU PWM-OUT**.
 
-The image below shows the power management board provided with _Pixhawk 4_.
+На зображенні нижче показана плата управління живленням, яка постачається разом з _Pixhawk 4_.
 
 ![Pixhawk 4 - Power Management Board](../../assets/hardware/power_module/holybro_pm07/pixhawk4_power_management_board.png)
 
-::: info If using a plane or rover, the 8 pin power (+) rail of **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc. To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Be careful with the voltage of servo you are going to use here.
+:::info Якщо використовується літак або ровер, 8-контактна шина живлення (+) **FMU PWM-OUT** повинна бути окремо живлена для керування сервоприводами для рульових пристроїв, елеронами тощо. Щоб це зробити, живильну рейку потрібно підключити до ESC з BEC або автономного BEC на 5V або 2S LiPo акумулятора. Будьте обережні з напругою сервопривода, який ви збираєтеся використовувати тут.
 :::
 
-| PIN&Connector | Function                                                                                                    |
+| PIN&Connector | Функція                                                                                                     |
 | ------------- | ----------------------------------------------------------------------------------------------------------- |
-| I/O PWM-IN    | See note below for connection to _Pixhawk 4_                                                                |
+| I/O PWM-IN    | Дивіться примітку нижче для підключення до _Pixhawk 4_                                                      |
 | M1            | I/O PWM OUT 1: connect signal wire to ESC of motor 1 here                                                   |
 | M2            | I/O PWM OUT 2: connect signal wire to ESC of motor 2 here                                                   |
 | M3            | I/O PWM OUT 3: connect signal wire to ESC of motor 3 here                                                   |
@@ -69,21 +69,21 @@ The image below shows the power management board provided with _Pixhawk 4_.
 | PWR2          | 5v output 3A, connect to _Pixhawk 4_ POWER 2                                                                |
 | 2~12S         | Power Input, connect to 12S LiPo Battery                                                                    |
 
-::: info Depending on your airframe type, refer to [Airframe Reference](../airframes/airframe_reference.md) to connect **I/O PWM OUT** and **FMU PWM OUT** ports of _Pixhawk 4_ to PM board. **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 4_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 4_. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**. **FMU PWM-IN** of PM board is internally connected to **FMU PWM-OUT**. **I/O PWM-IN** of PM board is internally connected to **M1-8**.
+:::info Залежно від типу вашої авіаструктури, зверніться до [Довідника з авіаструктур](../airframes/airframe_reference.md), щоб підключити порти **I/O PWM OUT** та **FMU PWM OUT** _Pixhawk 4_ до плати PM. **MAIN** виходи у прошивці PX4 призначені для порту **I/O PWM OUT** на _Pixhawk 4_, тоді як виходи **AUX** призначені для порту **FMU PWM OUT** на _Pixhawk 4_. Наприклад, **MAIN1** відповідає виводу IO_CH1 **I/O PWM OUT**, а **AUX1** відповідає виводу FMU_CH1 **FMU PWM OUT**. **FMU PWM-IN** плати PM внутрішньо підключений до **FMU PWM-OUT**. **Вхід I/O PWM** плати PM внутрішньо підключений до **M1-8**.
 :::
 
-The following table summarizes how to connect _Pixhawk 4_'s PWM OUT ports to PM board's PWM-IN ports, depending on the Airframe Reference.
+Наступна таблиця узагальнює, як підключити PWM OUT порти _Pixhawk 4_ до PWM-IN портів PM плати, залежно від посилання на конструкцію повітряного судна.
 
-| Airframe Reference | Connection between _Pixhawk 4_ --> PM board |
-| ------------------ | ------------------------------------------- |
-| **MAIN**: motor    | I/O PWM OUT --> I/O PWM IN                  |
-| **MAIN**: servo    | I/O PWM OUT --> FMU PWM IN                  |
-| **AUX**: motor     | FMU PWM OUT --> I/O PWM IN                  |
-| **AUX**: servo     | FMU PWM OUT --> FMU PWM IN                  |
+| Довідник зі структури літальних апаратів | З'єднання між _Pixhawk 4_ -- > PM плата |
+| ---------------------------------------- | --------------------------------------- |
+| **MAIN**: motor                          | I/O PWM OUT --> I/O PWM IN              |
+| **MAIN**: servo                          | I/O PWM OUT --> FMU PWM IN              |
+| **AUX**: motor                           | FMU PWM OUT --> I/O PWM IN              |
+| **AUX**: servo                           | FMU PWM OUT --> FMU PWM IN              |
 
 <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 
-The pinout of _Pixhawk 4_’s power ports is shown below. The CURRENT signal should carry an analog voltage from 0-3.3V for 0-120A as default. The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60V as default. The VCC lines have to offer at least 3A continuous and should default to 5.1V. A lower voltage of 5V is still acceptable, but discouraged.
+Схема роз'ємів _Pixhawk 4_ для підключення живлення показана нижче. Сигнал CURRENT повинен переносити аналогове напругу від 0-3.3V для 0-120A за замовчуванням. Сигнал VOLTAGE повинен переносити аналогове напругу від 0-3.3V для 0-60V за замовчуванням. Лінії VCC повинні пропонувати принаймні 3A безперервного струму і за замовчуванням повинні мати напругу 5,1 В. Нижчий напруга 5V все ще прийнятний, але не рекомендується.
 
 | Pin      | Сигнал  | Volt  |
 | -------- | ------- | ----- |
@@ -94,34 +94,34 @@ The pinout of _Pixhawk 4_’s power ports is shown below. The CURRENT signal sho
 | 5(black) | GND     | GND   |
 | 6(black) | GND     | GND   |
 
-::: info Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) but you won't need to calibrate the _voltage divider_. You will have to update the _voltage divider_ if you are using any other power module (e.g. the one from the Pixracer).
+:::info При використанні модуля живлення, який постачається з комплектом, вам потрібно налаштувати _Кількість елементів_ у [Налаштуваннях живлення](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html), але вам не потрібно калібрувати _подільник напруги_. Вам доведеться оновити _дільник напруги_, якщо ви використовуєте будь-який інший модуль живлення (наприклад, той з Pixracer).
 :::
 
-## Radio Control
+## Радіоуправління
 
-A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+Для того щоб керувати транспортним засобом _вручну_, потрібна система радіоуправління (RC) (PX4 не потребує системи радіоуправління для автономних режимів польоту).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Вам потрібно [вибрати сумісний передавач/приймач](../getting_started/rc_transmitter_receiver.md) і _зв'язати_ їх таким чином, щоб вони взаємодіяли (ознайомтеся з інструкціями, що додаються до вашого конкретного передавача/приймача).
 
-The instructions below show how to connect the different types of receivers to _Pixhawk 4_:
+Нижче наведено інструкції, як підключити різні типи приймачів до _Pixhawk 4_:
 
-- Spektrum/DSM or S.BUS receivers connect to the **DSM/SBUS RC** input.
+- Приймачі Spektrum/DSM або S.BUS підключаються до входу **DSM/SBUS RC**.
 
   ![Pixhawk 4 - Radio port for Spektrum receivers](../../assets/flight_controller/pixhawk4/pixhawk4_receiver_sbus.png)
 
-- PPM receivers connect to the **PPM RC** input port.
+- Приймачі PPM підключаються до вхідного порту **PPM RC**.
 
   ![Pixhawk 4 - Radio port for PPM receivers](../../assets/flight_controller/pixhawk4/pixhawk_4_receiver_ppm.png)
 
-- PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **PPM RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- Приймачі PPM та PWM, які мають _окремий провід для кожного каналу_, повинні підключатися до порту **PPM RC** _через PPM кодер_ [як цей](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (приймачі PPM-Sum використовують один сигнальний провід для всіх каналів).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+Для отримання додаткової інформації про вибір радіосистеми, сумісність приймача та налаштування пари передавач/приймач див.: [Пульт керування передавачів& приймачів](../getting_started/rc_transmitter_receiver.md).
 
-## Telemetry Radios (Optional)
+## Телеметричні радіостанції (Опціонально)
 
-Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+Телеметричні радіостанції можуть використовуватися для зв'язку та управління транспортним засобом у польоті з наземної станції (наприклад, ви можете направляти БПЛА до певної позиції або завантажувати нове завдання).
 
-The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
+Радіостанцію, розташовану на транспортному засобі, слід підключити до порту **TELEM1** так, як показано нижче (якщо підключено до цього порту, додаткова конфігурація не потрібна). Інша радіостанція підключається до комп'ютера або мобільного пристрою наземної станції (зазвичай через USB).
 
 ![Pixhawk 4/Telemetry Radio](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
 
@@ -129,45 +129,45 @@ The vehicle-based radio should be connected to the **TELEM1** port as shown belo
 
 ## SD Card (Optional)
 
-SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the card (included in Pixhawk 4 kit) into _Pixhawk 4_ as shown below.
+Картки SD настійно рекомендується, оскільки вони потрібні для [запису та аналізу даних польоту](../getting_started/flight_reporting.md), для виконання місій та для використання апаратного засобу UAVCAN-bus. Вставте картку (з комплекту Pixhawk 4) в _Pixhawk 4_, як показано нижче.
 
 ![Pixhawk 4/SD Card](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
+Для отримання додаткової інформації див. [Основні концепції > SD-карти (знімна пам'ять)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
-## Motors
+## Мотори
 
-Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
+Мотори/сервоприводи підключені до портів **I/O PWM OUT** (**MAIN**) та **FMU PWM OUT** (**AUX**) в порядку, вказаному для вашого апарату в [Довіднику планерів](../airframes/airframe_reference.md).
 
-::: info
-This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
+:::info
+Цей довідник перелічує протокол виводу порту до автора/servo зіставлення всіх підтримуваних повітря і наземних кадрів (якщо кадр відсутній, використовуйте блок "типової" рамки правильного типу).
 :::
 
 :::warning
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+Відображення не є однорідним для всіх конструкцій (наприклад, ви не можете покладатися на те, що ручка газу буде на тому ж вихідному порту для всіх повітряних конструкцій). Переконайтеся, що ви використовуєте правильне відображення для вашого транспортного засобу.
 :::
 
-## Other Peripherals
+## Інші периферійні пристрої
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Підключення та конфігурація додаткових/менш поширених компонентів описано в темах для окремих [периферійних пристроїв](../peripherals/index.md).
 
-## Pinouts
+## Розпіновка
 
-[Pixhawk 4 Pinouts](https://holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
+[Розводка Pixhawk 4](https://holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 
-## Configuration
+## Конфігурація
 
-General configuration information is covered in: [Autopilot Configuration](../config/index.md).
+Загальну інформацію про конфігурацію описано в: [Конфігурація автопілота](../config/index.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+Конфігурація для QuadPlane описана тут: [Конфігурація QuadPlane VTOL](../config_vtol/vtol_quad_configuration.md)
 
 <!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
-## Further information
+## Подальша інформація
 
-- [Pixhawk 4](../flight_controller/pixhawk4.md) (Overview page)
-- [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-- [Pixhawk 4 Pinouts](https://holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
-- [Pixhawk 4 Quick Start Guide (Holybro)](https://holybro.com/manual/Pixhawk4-quickstartguide.pdf)
+- [Pixhawk 4](../flight_controller/pixhawk4.md) (сторінка огляду)
+- [Технічна інформація по Pixhawk 4](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+- [Розводка Pixhawk 4](https://holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
+- [Посібник з швидкого запуску Pixhawk 4 (Holybro)](https://holybro.com/manual/Pixhawk4-quickstartguide.pdf)

@@ -4,13 +4,13 @@ ARK RTK GPS is an open source [DroneCAN](index.md) [RTK GPS](../gps_compass/rtk_
 
 ![ARK RTK GPS](../../assets/hardware/gps/ark_rtk_gps.jpg)
 
-## Where to Buy
+## Де купити
 
 Order this module from:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-rtk-gps/) (US)
 
-## Hardware Specifications
+## Характеристики апаратного забезпечення
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_RTK_GPS)
 - Sensors
@@ -44,17 +44,17 @@ Order this module from:
 
 ## Hardware Setup
 
-### Wiring
+### Підключення
 
 The ARK RTK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
-### Mounting
+### Встановлення
 
 The recommended mounting orientation is with the connectors on the board pointing towards the **back of vehicle**.
 
 The sensor can be mounted anywhere on the frame, but you will need to specify its position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
-## Firmware Setup
+## Налаштування прошивки
 
 ARK RTK GPS runs the [PX4 cannode firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](index.md#node-id-allocation).
 
@@ -62,9 +62,9 @@ ARK RTK GPS boards ship with recent firmware pre-installed, but if you want to b
 
 Ціль прошивки: `ark_can-rtk-gps_default` Ціль завантажувача: `ark_can-rtk-gps_canbootloader`
 
-## Flight Controller Setup
+## Налаштування польотного контролера
 
-### Enabling DroneCAN
+### Увімкнення DroneCAN
 
 In order to use the ARK RTK GPS, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
@@ -75,7 +75,7 @@ The steps are:
 
 Once enabled, the module will be detected on boot. GPS data should arrive at 10Hz.
 
-### PX4 Configuration
+### Конфігурація PX4
 
 You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle:
 

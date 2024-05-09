@@ -1,67 +1,67 @@
 # ModalAI VOXL 2
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://forum.modalai.com/) for hardware support or compliance issues.
+PX4 не виробляє цей (або будь-який інший) автопілот. Звертайтесь до [виробника](https://forum.modalai.com/) щодо питань апаратного забезпечення або питань відповідності.
 :::
 
-The ModalAI [VOXL 2](https://modalai.com/voxl-2) ([Datasheet](https://docs.modalai.com/voxl2-datasheets/)) is ModalAI’s next-gen autonomous computing platform built around the Qualcomm QRB5165 processor. VOXL 2 boasts 8 cores, integrated PX4, seven camera concurrency, advanced onboard AI up to 15+ TOPS, and 5G connectivity. At 16 grams, VOXL 2 is the future of fully autonomous and connected drones!
+ModalAI [VOXL 2](https://modalai.com/voxl-2) ([Datasheet](https://docs.modalai.com/voxl2-datasheets/)) - це наступне покоління автономної обчислювальної платформи ModalAI, побудованої навколо процесора Qualcomm QRB5165. VOXL 2 має 8 ядер, вбудований PX4, сім одночасних камер, бортовий ШІ до 15+ TOPS та підтримку 5G зв'язку. З вагою 16 грамів, VOXL 2 - це майбутнє повністю автономних та підключених дронів!
 
 ![VOXL-2](../../assets/flight_controller/modalai/voxl_2/voxl-2-hero.jpg)
 
 ::: info
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+Цей польотний контролер [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Specifications
+## Характеристики
 
-### System
+### Система
 
-| Feature                                                                 | VOXL 2                                                                             |
-| ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| CPU                                                                     | QRB5165 <br>8 cores up to 3.091GHz <br>8GB LPDDR5<br>128GB Flash |
-| OS                                                                      | Ubuntu 18.04 - Linux Kernel v4.19                                                  |
-| GPU                                                                     | Adreno 650 GPU – 1024 ALU                                                          |
-| NPU                                                                     | 15 TOPS                                                                            |
-| Flight Controller Embedded                                              | Yes (Sensors DSP, PX4)                                                             |
-| Built in WiFi                                                           | No                                                                                 |
-| Add-on Connectivity                                                     | WiFi, 5G, 4G/LTE, Microhard                                                        |
-| Video Encoding                                                          | 8K30 h.264/h.265 108MP still images                                                |
-| Computer Vision Sensors                                                 | QTY 6 4-lane CSI, QTY4 CCI (e.g. 2 stereo pair, hires, tracking)                   |
-| Tracking Sensor                                                         | Yes                                                                                |
-| Dimensions                                                              | 70mm x 36mm                                                                        |
-| Weight                                                                  | 16g                                                                                |
-| VOXL SDK: GPS-denied nav., SLAM, obstacle avoidance, object recognition | Yes                                                                                |
-| ROS                                                                     | ROS 1 & 2                                                                          |
-| QGroundControl                                                          | Yes                                                                                |
-| ATAK                                                                    | Yes                                                                                |
-| NDAA ’20 Section 848 Compliant                                          | Yes, Assembled in USA                                                              |
-| PMD TOF                                                                 | Yes (SDK 1.0 and newer)                                                            |
-| FLIR Boson                                                              | USB                                                                                |
-| FLIR Lepton                                                             | USB, SPI in development                                                            |
+| Характеристика                                                               | VOXL 2                                                                         |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| CPU                                                                          | QRB5165 <br>8 ядер до 3.091ГГц <br>8ГБ LPDDR5<br>128ГБ Flash |
+| OS                                                                           | Ubuntu 18.04 - Linux Kernel v4.19                                              |
+| GPU                                                                          | Графічний процесор Adreno 650 - 1024 ALU                                       |
+| NPU                                                                          | 15 TOPS                                                                        |
+| Налаштування контролера польоту                                              | Так (датчики DSP, PX4)                                                         |
+| Вбудований WiFi                                                              | Ні                                                                             |
+| Додаткове підключення                                                        | WiFi, 5G, 4G/LTE, Microhard                                                    |
+| Кодування відео                                                              | 8K30 h.264/h.265 108MP still images                                            |
+| Датчики комп'ютерного зору                                                   | QTY 6 4-lane CSI, QTY4 CCI (e.g. 2 stereo pair, hires, трекінг)                |
+| Датчик трекінгу                                                              | Так                                                                            |
+| Розміри                                                                      | 70мм х 36мм                                                                    |
+| Вага                                                                         | 16г                                                                            |
+| VOXL SDK: навігація без GPS, SLAM, уникання перешкод, розпізнавання об'єктів | Так                                                                            |
+| ROS                                                                          | ROS 1 & 2                                                                      |
+| QGroundControl                                                               | Так                                                                            |
+| ATAK                                                                         | Так                                                                            |
+| Сумісний з NDAA ’20 Section 848                                              | Так, зібрано в США                                                             |
+| PMD TOF                                                                      | Так (SDK 1.0 та новіше)                                                        |
+| FLIR Boson                                                                   | USB                                                                            |
+| FLIR Lepton                                                                  | USB, SPI в розробці                                                            |
 
 ::: info
-More detailed hardware documentation can be found [here](https://docs.modalai.com/voxl-flight-datasheet/).
+Докладнішу документацію щодо апаратного забезпечення можна знайти [тут](https://docs.modalai.com/voxl-flight-datasheet/).
 :::
 
-## Dimensions
+## Розміри
 
-### 2D Dimensions
+### 2D розмір
 
 ![VOXL2Dimensions](../../assets/flight_controller/modalai/voxl_2/voxl-2-dimensions.jpg)
 
-### 3D Dimensions
+### 3D розміри
 
-[3D STEP File](https://storage.googleapis.com/modalai_public/modal_drawings/M0054_VOXL2_PVT_SIP_REVA.step)
+[Файл 3D STEP](https://storage.googleapis.com/modalai_public/modal_drawings/M0054_VOXL2_PVT_SIP_REVA.step)
 
-## PX4 Firmware Compatibility
+## Сумісність прошивки PX4
 
-### voxl-dev branch
+### гілка voxl-dev
 
-ModalAI is actively working on a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/voxl-dev) that can be used.
+ModalAI активно працює на [розгалудженій версії PX4](https://github.com/modalai/px4-firmware/tree/voxl-dev), яку можна використовувати.
 
-As VOXL 2 runs Ubuntu, the production releases of PX4 for VOXL 2 are distributed through [apt package management](https://docs.modalai.com/configure-pkg-manager/) and the [VOXL SDK](https://docs.modalai.com/voxl-sdk/).
+Оскільки VOXL 2 працює під управлінням Ubuntu, виробничі версії PX4 для VOXL 2 розповсюджуються через [apt пакетний менеджер](https://docs.modalai.com/configure-pkg-manager/) та [VOXL SDK](https://docs.modalai.com/voxl-sdk/).
 
-More information about the firmware can be found [here](https://docs.modalai.com/voxl2-px4-developer-guide/).
+Додаткову інформацію про прошивку можна знайти [тут](https://docs.modalai.com/voxl2-px4-developer-guide/).
 
 ### main branch
 

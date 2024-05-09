@@ -30,7 +30,7 @@
 
 PX4 можна використовувати з комп'ютерами, які можна налаштувати для зв’язку через MAVLink або microROS/uXRCE-DDS через послідовний порт (або порт Ethernet, якщо є). Невеликий набір можливих альтернатив наведено нижче.
 
-Larger high power examples:
+Більші приклади високої потужності:
 
 - [ModalAI VOXL 2](https://docs.modalai.com/voxl2-external-flight-controller/)
 - [NXP NavQPlus](https://nxp.gitbook.io/navqplus/user-contributed-content/ros2/microdds)
