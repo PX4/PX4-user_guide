@@ -24,7 +24,7 @@
 
 ## Джерела
 
-Some references that you may find useful are:
+Деякі посилання, які ви можете знайти корисними:
 
-- [An Introduction to Shock & Vibration Response Spectra, Tom Irvine](http://www.vibrationdata.com/tutorials2/srs_intr.pdf) (free paper)
-- [Structural Dynamics and Vibration in Practice - An Engineering Handbook, Douglas Thorby](https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover) (preview).
+- [Вступ до спектрів відповіді на удари & вібрацію, Том Ірвайн](http://www.vibrationdata.com/tutorials2/srs_intr.pdf) (безкоштовна стаття)
+- [Динаміка та вібрація в практиці - Інженерний посібник, Дуглас Торбі](https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover) (попередній перегляд).
