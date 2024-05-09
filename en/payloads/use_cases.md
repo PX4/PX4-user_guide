@@ -6,7 +6,7 @@ This topic lists a few common drone "payload use cases", and how they are suppor
 
 Mapping drones use cameras to capture images at time or distance intervals during surveys.
 
-PX4 supports cameras that are connected via either [MAVLink](../camera/mavlink_camera.md) or to [Flight Controller Outputs](../camera/fc_connected_camera.md).
+PX4 supports cameras that are connected via either [MAVLink](../camera/mavlink_v2_camera.md) or to [Flight Controller Outputs](../camera/fc_connected_camera.md).
 Both types of cameras support the mapping use case, but via a different set of MAVLink commands/mission items.
 
 ## Cargo Drones (Package Delivery)
@@ -32,9 +32,9 @@ If you need to perform cargo delivery using hardware that is not yet integrated,
 Surveillance and Search & Rescue drones have similar requirements to mapping drones.
 The main differences are that, in addition to flying a planned survey area, they typically need good standalone control over the camera for image and video capture, and they may need to be able to work during both day and night
 
-Use a [MAVLink](../camera/mavlink_camera.md) that supports the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html), as this enables image and video capture, zooming, storage management, multiple cameras on the same vehicle and switching between them, etc.
+Use a [MAVLink](../camera/mavlink_v2_camera.md) that supports the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html), as this enables image and video capture, zooming, storage management, multiple cameras on the same vehicle and switching between them, etc.
 These cameras can be controlled either manually from QGroundControl or via MAVSDK (for both [standalone camera operations](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html) and in [missions](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4)).
-See [MAVLink Camera](../camera/mavlink_camera.md) for information on how to configure your camera to work with MAVLink.
+See [MAVLink Camera](../camera/mavlink_v2_camera.md) for information on how to configure your camera to work with MAVLink.
 
 ::: info
 Cameras connected directly to the flight controller _only_ support camera triggering, and are unlikely to be suitable for most surveillance/search work.
