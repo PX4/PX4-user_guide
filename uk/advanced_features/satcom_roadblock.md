@@ -63,7 +63,7 @@
 
 [Налаштуйте послідовний порт](../peripherals/serial_configuration.md), на якому буде працювати модуль RockBlock, використовуючи [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG). Немає потреби встановлювати швидкість передачі для порту, оскільки це налаштовано драйвером.
 
-::: info Якщо параметр конфігурації недоступний у _QGroundControl_, можливо, вам знадобиться [додати драйвер до мікропрограми](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+:::info Якщо параметр конфігурації недоступний у _QGroundControl_, можливо, вам знадобиться [додати драйвер до мікропрограми](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
 ```
 drivers/telemetry/iridiumsbd
