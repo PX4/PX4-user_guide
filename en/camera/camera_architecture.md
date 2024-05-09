@@ -48,11 +48,6 @@ The `camera_feedback` module monitors for updates to the [CameraTrigger](../msg_
 The information that is used depends on whether the camera capture pin is enabled and the value is of the `CameraTrigger.feedback` field.
 This `CameraCapture` topic is logged, and can be used to get the time of the capture.
 
-::: info
-The `camera_feedback` module may currently be logging all capture events.
-See [PX4-Autopilot#23103](https://github.com/PX4/PX4-Autopilot/pull/23103).
-:::
-
 ## MAVLink Cameras (Camera Protocol v1)
 
 [MAVLink cameras that support the older Camera Protocol v1](../camera/mavlink_v1_camera.md) are integrated in much the same way as [FC-connected cameras](fc-connected-cameras).
