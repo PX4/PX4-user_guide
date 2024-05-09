@@ -1,6 +1,6 @@
 # ARK Flow
 
-ARK Flow is an open source [DroneCAN](index.md) [optical flow](../sensor/optical_flow.md), [distance sensor](../sensor/rangefinders.md), and IMU module.
+ARK Flow - це відкритий код [DroneCAN](index.md) [optical flow](../sensor/optical_flow.md), [сенсор відстані](../sensor/rangefinders.md) та IMU модуль.
 
 ![ARK Flow](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
