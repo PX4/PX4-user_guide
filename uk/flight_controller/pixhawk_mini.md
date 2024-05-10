@@ -73,32 +73,32 @@ Pixhawk Mini базується на відкритому проекті PX4 і 
 
 - Просунутий 32 bit ARM Cortex® M4 Processor що управляється NuttX RTOS
 - 8 PWM/servo виводів
-- Multiple connectivity options for additional peripherals (UART, I2C, CAN)
-- Redundant power supply inputs and automatic failover
-- Integrated safety switch and optional external safety button for easy motor activation
-- Multicolor LED indicator
-- Integrated multi-tone piezo audio indicator
-- microSD card for long-time high-rate logging
-- Easy-to-use Micro JST connectors
+- Кілька варіантів підключення для додаткової периферії (UART, I2C, CAN)
+- Резервні входи живлення та автоматичне перемикання на резервне джерело
+- Інтегрований перемикач безпеки та опційна зовнішня кнопка безпеки для легкої активації мотора
+- Мультиколірний LED індикатор
+- Інтегрований багатотональний п'єзозвуковий індикатор
+- microSD-карта для довгострокового логування
+- Легкі у використанні конектори Micro JST
 
-The Pixhawk Mini is shipped with new **GPS module**:
+Pixhawk Mini поставляється з новим **модулем GPS**:
 
-- Based on the u-blox M8N
-- Concurrent reception of up to 3 GNSS (GPS, Galileo, GLONASS, BeiDou)
-- Industry leading -167 dBm navigation sensitivity
-- Security and integrity protection
-- Supports all satellite augmentation systems
-- Advanced jamming and spoofing detection
-- Product variants to meet performance and cost requirements
+- На основі u-blox M8N
+- Одночасне приймання до 3 GNSS (GPS, Galileo, GLONASS, BeiDou)
+- Найкраща в галузі навігаційна чутливість -167 dBm
+- Безпека та захист цілісності
+- Підтримує всі супутникові системи доповнення
+- Просунуте виявлення перешкод і спуфінгу
+- Варіативність продукту для задоволення вимог до продуктивності та вартості
 
-## Kit package
+## Набір комплекту
 
 _Pixhawk Mini_ поставляється з наступним вмістом:
 
 | Компонент                                                          | Зображення                                                                                                                           |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
 | Pixhawk Mini Autopilot                                             | ![Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_drawing.png)                                                |
-| GPS module                                                         | ![Compass+GPS module](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_compass_drawing.png)                                  |
+| Модуль GPS                                                         | ![Compass+GPS module](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_compass_drawing.png)                                  |
 | Quad Power Distribution Board                                      | ![Quad Power Distribution Board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_quad_power_distribution_board_drawing.png) |
 | 8 Channel PWM Breakout board                                       | ![8 Channel PWM Breakout board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8_channel_pwm_breakout_board_drawing.png)   |
 | 4-pin cable (for I2C)                                              | ![4-pin cable (for I2C)](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_4_pin_cable_drawing.png)                           |
