@@ -79,31 +79,31 @@ _Omnibus F4 SD_ - це плата контролера, розроблена д�
 
 ## Конектори
 
-Boards from different vendors (based on this design) can have significantly different layout. Layouts/Silkscreens for various versions are shown below.
+Плати від різних виробників (на основі цього дизайну) можуть мати дуже різні макети. Макети / Silkscreen-и для різних версій показані нижче.
 
 ### Airbot Omnibus F4 SD
 
-Below are silkscreens for the Airbot Omnibus F4 SD (V1), showing both top and bottom.
+Нижче подані silkscreen-и для Airbot Omnibus F4 SD (V1), що показують як верхню, так і нижню частину.
 
 ![Omnibus F4 SD v1 Silkscreen Top](../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg) ![Omnibus F4 SD v1 Silkscreen Bottom](../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg)
 
 ### Hobbywing XRotor Flight Controller F4
 
-Below are silkscreens for the Hobbywing XRotor Flight Controller F4.
+Нижче наведені silkscreen-и для Hobbywing XRotor Flight Controller F4.
 
 ![Hobbywing XRotor Flight Controller F4 Silkscreen](../../assets/flight_controller/omnibus_f4_sd/hobbywing_xrotor_silk.png)
 
-## Pinouts
+## Розпіновка
 
-### Radio Control
+### Радіоуправління
 
-RC is connected to one of the following ports:
+RC підключений до одного з наступних портів:
 
 - UART1
-- SBUS/PPM port (via inverter, internally goes to UART1)
+- Порт SBUS/PPM (через інвертор, йде до UART1)
 
 ::: info
-Some Omnibus F4 boards have a jumper connecting either or both the MCU SBUS and PPM to a single pin header. Set your jumper or solder bridge to the appropriate MCU pin before use.
+Деякі плати Omnibus F4 мають перемикач, який з'єднує MCU SBUS та PPM з одним роз'ємом для контактів. Set your jumper or solder bridge to the appropriate MCU pin before use.
 :::
 
 ### UARTs
