@@ -12,47 +12,47 @@
 
 ## Короткий опис
 
-- Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
-  - CPU: STM32F427VIT6 ARM<sup>&reg;</sup> microcontroller - Revision 3
-  - IO: STM32F100C8T6 ARM<sup>&reg;</sup> microcontroller
-- Sensors:
+- Основна System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+  - CPU: STM32F427VIT6 ARM<sup>&reg;</sup> мікроконтроллер - Revision 3
+  - ІО: мікроконтролер STM32F100C8T6 ARM<sup>&reg;</sup>
+- Датчики:
   - Invensense<sup>&reg;</sup> MPU9250 9DOF
   - Invensense ICM-20602 6DOF
-  - MEAS MS5611 barometer
-- Dimensions/Weight
-  - Size: 36mm x 50mm (Can be ordered with vertical, horizontal or no headers installed)
-  - Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
-  - Weight: 10.9g
+  - MEAS MS5611 барометр
+- Розміри/Вага
+  - Розміри: 36мм x 50мм (Можна замовити з вертикальним, горизонтальним або без голівок)
+  - Точки кріплення: 30,5 мм х 30,5 мм діаметр 3,2 мм
+  - Вага: 10.9г
 
-The diagram below provides a side-by-side comparison with a Pixhawk 1. The mRo features almost identical hardware and connectivity but has a much smaller footprint. Major differences are updated sensors and Rev 3 FMU.
+Діаграма нижче надає порівняльний аналіз з Pixhawk 1. mRo має практично ідентичне апаратне забезпечення й підключення, але має значно менший слід. Основні відмінності - це оновлені датчики та Rev 3 FMU.
 
 ![Mro Pixhawk 1 vs X2.1 comparison](../../assets/flight_controller/mro/px1_x21.jpg)
 
-## Connectivity
+## Підключення
 
-- 2.54mm headers:
-- GPS (UART4) with I2C
-- CAN Bus
-- RC input
-- PPM input
+- 2.54 мм головки:
+- GPS (UART4) з I2C
+- CAN шина
+- Вхід RC
+- PPM вхід
 - Spektrum input
-- RSSI input
-- sBus input
-- sBus output
-- Power input
+- RSSI вхід
+- sBus вхід
+- sBus вихід
+- Вхід живлення
 - Buzzer output
-- LED output
-- 8 x Servo outputs
-- 6 x Aux outputs
-- Offboard microUSB connector
-- Kill Pin output _(Currently not supported by firmware)_
+- Вихід світлодіода
+- 8 x Виводи сервоприводів
+- 6 x Aux виходів
+- Позабортовий конектор microUSB
+- Вимкнути вивід Pin _(Зараз не підтримується програмним забезпеченням)_
 - AirSpeed Sensor
 - USART2 (Telem 1)
 - USART3 (Telem 2)
 - UART7 (Console)
 - UART8 (OSD)
 
-## PX4 BootLoader Issue
+## Проблема PX4 BootLoader
 
 By default a mRo X2.1 might come preconfigured for ArduPilot<sup>&reg;</sup> rather than PX4. This can be seen during firmware update when the board is recognized as FMUv2 instead of X2.1.
 
