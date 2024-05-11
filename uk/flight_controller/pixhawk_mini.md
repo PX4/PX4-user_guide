@@ -101,14 +101,14 @@ _Pixhawk Mini_ поставляється з наступним вмістом:
 | Модуль GPS                                                             | ![Compass+GPS модуль](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_compass_drawing.png)                                  |
 | Quad Power Distribution Board                                          | ![Quad Power Distribution Board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_quad_power_distribution_board_drawing.png) |
 | 8 Channel PWM Breakout board                                           | ![8 Channel PWM Breakout board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8_channel_pwm_breakout_board_drawing.png)   |
-| кабель на 4 піна (для I2C)                                             | ![4-pin cable (for I2C)](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_4_pin_cable_drawing.png)                           |
-| RC-in кабель для PPM/SBUS                                              | ![RC-in cable for PPM/SBUS](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_rc_in_cable_drawing.png)                        |
+| кабель на 4 піна (для I2C)                                             | ![кабель на 4 піна (для I2C)](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_4_pin_cable_drawing.png)                      |
+| RC-in кабель для PPM/SBUS                                              | ![RC-in кабель для PPM/SBUS](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_rc_in_cable_drawing.png)                       |
 | 6 to 6/4 ‘Y’ адаптер для GPS та додаткових пристроїв I2C               | ![6 to 6/4 ‘Y’ adapter](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_to_6_and_4_pin_Y_cable_drawing.png)               |
-| 6-піновий кабель (2) (для плати розподілу живлення та для компасу/gps) | ![6 pin cable](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_pin_cable_drawing.png)                                     |
+| 6-піновий кабель (2) (для плати розподілу живлення та для компасу/gps) | ![кабель на 6 пінів](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_pin_cable_drawing.png)                               |
 | 6-піновий JST для легасі телеметрійного радіо до DF13                  | ![6 pin JST to DF13](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6pin_JST_to_DF13_cable_drawing.png)                    |
-| Запобіжний перемикач                                                   | ![Safety switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_drawing.png)                                 |
-| 8 Channel PWM Breakout cable                                           | ![8 Channel PWM Breakout cable](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8channel_pwm_breakout_cable_drawing.png)    |
-| Монтажна піна                                                          | ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)                                                |
+| Запобіжний перемикач                                                   | ![Запобіжний перемикач](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_drawing.png)                          |
+| 8 Channel PWM Breakout cable                                           | ![8 Channel PWM Breakout кабель](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8channel_pwm_breakout_cable_drawing.png)   |
+| Монтажна піна                                                          | ![Монтажна піна](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)                                                |
 | I2C breakout board ? - не входить до списку запчастин у додатку        | -                                                                                                                                    |
 
 ## Додаткові аксесуари
@@ -191,9 +191,9 @@ _Pixhawk Mini_ більше не виробляється або не досту
 
 _Pixhawk Mini_ слід встановити на раму за допомогою віброгасильні поролонові накладки (входять в комплект). Вона повинна бути розташувати якомога ближче до центру тяжіння вашого автомобіля верхньою стороною вгору зі стрілкою в напрямку передньої частини автомобіля.
 
-![Pixhawk Mini recommended orientation](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_mounting_arrow.jpg)
+![Рекомендована орієнтація Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_mounting_arrow.jpg)
 
-![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
+![Монтажна піна](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
 :::info Якщо контролер не може бути змонтований в рекомендованій/стандартній орієнтації (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md). :::
 
@@ -201,7 +201,7 @@ _Pixhawk Mini_ слід встановити на раму за допомого
 
 Під’єднайте 3DR GPS + Compass до порту **GPS&I2C** Pixhawk Mini (угорі праворуч) за допомогою 6-контактного кабелю, що входить у комплект. GPS/компас слід монтувати на раму якомога подалі від інших електронних пристроїв, з напрямком вперед транспортного засобу (відокремлення компаса від інших електронних пристроїв зменшить втручання).
 
-![Connecting compass/GPS to Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_with_compass.jpg)
+![Підключення компасу / GPS до Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_with_compass.jpg)
 
 NOTE - INSERT IMAGE SHOWING BOTH PORTS? OR FRONT-FACING image of GPS&I2C
 
@@ -213,7 +213,7 @@ NOTE - INSERT IMAGE SHOWING BOTH PORTS? OR FRONT-FACING image of GPS&I2C
 
 :::info До _Плата розподілу потужності Quad_ входить модуль живлення (PM), який підходить для акумуляторів <= 4S. Рекомендовано використовувати модуль живлення _3DR 10S Power_ (Скасовано), якщо вам потрібно більше потужності. :::
 
-![Pixhawk Mini - Powering](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_powering_quad_board.jpg)
+![Pixhawk Mini - живлення](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_powering_quad_board.jpg)
 
 _Pixhawk Mini_ живиться через порт **PM**. При використанні модуля живлення (як у цьому випадку) порт також буде читати аналогові вимірювання напруги та струму.
 
@@ -229,11 +229,11 @@ Pixhawk Mini підтримує багато різних моделей рад�
 
 - Приймачі Spektrum і DSM підключаються до входу **SPKT/DSM**.
 
-  <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk Mini - Radio port for Spektrum receivers" />
+  <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk Mini - порт радіопередавача для приймачів Spektrum" />
 
 - Приймачі PPM-SUM та S.BUS підключаються до порту **RCIN**.
 
-  <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_rcin.png" width="350px" title="Pixhawk Mini - Radio port for PPM receivers" />
+  <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_rcin.png" width="350px" title="Pixhawk Mini - радіопорт для PPM приймачів" />
 
 - Приймачі PPM та PWM, які мають _окремий провід для кожного каналу_, повинні підключатися до порту **RCIN** _через PPM кодер_ [як цей](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (приймачі PPM-Sum використовують один сигнальний провід для всіх каналів).
 
@@ -243,7 +243,7 @@ Pixhawk Mini підтримує багато різних моделей рад�
 
 Контролер має вбудований безпечний перемикач, який ви можете використовувати для активації двигуна, як тільки автопілот готовий злетіти. Якщо на певному транспортному засобі важкодоступний до цього перемикача, ви можете прикріпити (необов’язкову) зовнішню кнопку безпеки, як показано нижче.
 
-![Pixhawk Mini - Optional Switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg)
+![Pixhawk Mini - опціональний перемикач](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg)
 
 ### Телеметричні радіопередавачі
 
@@ -263,7 +263,7 @@ Pixhawk Mini підтримує багато різних моделей рад�
 - Вихідна шина повинна мати окреме живлення, як описано в розділі [Живлення](#power) вище.
 - Pixhawk Mini не може бути використаний для каркасів QuadPlane VTOL. Це через те, що QuadPlane потребує 9 виводів (4 основних, 5 додаткових) і Pixhawk Mini має лише 8 виводів (8 основних).
 
-<img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk Mini - port for motors/servos" />
+<img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk Mini - порт для моторів/серво" />
 
 ### Інші периферійні пристрої
 
