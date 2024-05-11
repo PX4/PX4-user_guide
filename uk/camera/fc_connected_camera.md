@@ -1,12 +1,12 @@
-# Cameras Connected to Flight Controller Outputs
+# Камери, підключені до виходів керування польотом
 
-This topic explains how to use PX4 with a [camera](../camera/index.md) that is attached to flight controller outputs.
+Ця тема пояснює, як використовувати PX4 з [камерою](../camera/index.md), яка приєднана до виходів контролера польоту.
 
 :::warning
-[MAVLink cameras](../camera/mavlink_v2_camera.md) that use the [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) are recommended.
+[Камери MAVLink](../camera/mavlink_v2_camera.md), які використовують [Протокол камери MAVLink v2](https://mavlink.io/en/services/camera.html), рекомендовані.
 :::
 
-## Overview
+## Огляд
 
 PX4 can trigger a [camera](../camera/index.md) connected to flight controller outputs using [camera commands](#mavlink-command-interface) in missions or sent by a ground control stations.
 The supported commands are a subset of those defined in the MAVLink [Camera Protocol v1](https://mavlink.io/en/services/camera.html).
