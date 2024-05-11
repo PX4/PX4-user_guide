@@ -3,32 +3,32 @@
 <LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.html"/>
 
 :::warning
-PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
+PX4 не виробляє цей (чи будь-який інший) автопілот.
+Зверніться до [виробника](https://www.bitcraze.io/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
 :::
 
 :::warning
-Crazyflie 2.1 is only able to fly in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md).
+Crazyflie 2.1 може літати лише в режимі [Ручний/Стабілізований режим](../flight_modes_mc/manual_stabilized.md).
 :::
 
-The Crazyflie line of micro quads was created by Bitcraze AB.
-An overview of the Crazyflie 2.1 can be [found here](https://www.bitcraze.io/products/crazyflie-2-1/).
+Лінійка мікро-квадрокоптерів Crazyflie була створена компанією Bitcraze AB.
+Огляд Crazyflie 2.1 можна [знайти тут](https://www.bitcraze.io/products/crazyflie-2-1/).
 
-![Crazyflie2 Image](../../assets/flight_controller/crazyflie21/crazyflie_2.1.jpg)
+![Зображення Crazyflie2](../../assets/flight_controller/crazyflie21/crazyflie_2.1.jpg)
 
 ## Короткий опис
 
 :::info
-The main hardware documentation is [here](https://wiki.bitcraze.io/projects:crazyflie2:index)
+Основна документація з апаратного забезпечення [тут](https://wiki.bitcraze.io/projects:crazyflie2:index)
 :::
 
-- Main System-on-Chip: STM32F405RG
-  - CPU: 168 MHz ARM Cortex M4 with single-precision FPU
+- Основний System-on-Chip: STM32F405RG
+  - CPU: 168 МГц ARM Cortex M4 з одноточним FPU
   - RAM: 192 KB SRAM
-- nRF51822 radio and power management MCU
-- BMI088 3 axis accelerometer / gyroscope
-- BMP388 high precision pressure sensor
-- uUSB connector
+- nRF51822 радіо та керування живленням MCU
+- BMI088 3 вісний акселерометр / гіроскоп
+- Високоточний датчик тиску BMP388
+- uUSB конектор
 - On-board LiPo charger with 100mA, 500mA and 980mA modes available
 - Full speed USB device interface
 - Partial USB OTG capability (USB OTG present but no 5V output)
