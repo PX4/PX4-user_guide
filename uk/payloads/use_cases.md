@@ -6,8 +6,8 @@
 
 Дрони для картографування використовують камери для знімання зображень з інтервалами у часі або відстані під час обстежень.
 
-PX4 supports cameras that are connected via either [MAVLink](../camera/mavlink_v2_camera.md) or to [Flight Controller Outputs](../camera/fc_connected_camera.md).
-Both types of cameras support the mapping use case, but via a different set of MAVLink commands/mission items.
+PX4 підтримує камери, які підключені через [MAVLink](../camera/mavlink_v2_camera.md) або до [Flight Controller Outputs](../camera/fc_connected_camera.md).
+Обидва типи камер підтримують використання варіанту використання картографування, але за допомогою іншого набору команд/елементів місій MAVLink.
 
 ## Вантажні дрони (доставлення посилок)
 
@@ -32,9 +32,9 @@ Support for winches and other release mechanisms is also intended.
 Дрони Спостереження, Пошуку & Порятунку мають вимоги, подібні до картографічних дронів.
 Основні відмінності полягають у тому, що, окрім польоту в запланованій зоні огляду, їм зазвичай потрібен хороший автономний контроль над камерою для знімання зображень і відео, і їм може знадобитися можливість працювати вдень і вночі
 
-Use a [MAVLink](../camera/mavlink_v2_camera.md) that supports the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html), as this enables image and video capture, zooming, storage management, multiple cameras on the same vehicle and switching between them, etc.
+Використовуйте [MAVLink](../camera/mavlink_v2_camera.md), який підтримує [протокол камери MAVLink](https://mavlink.io/en/services/camera.html), оскільки це дозволяє захоплення зображень і відео, масштабування, керування сховищем, кілька камер на одному апараті та перемикання між ними тощо.
 Ці камери можна контролювати як вручну з QGroundControl, так і через MAVSDK (як для [операцій автономної камери](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html), так і в [місіях](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4)).
-See [MAVLink Camera](../camera/mavlink_v2_camera.md) for information on how to configure your camera to work with MAVLink.
+Дивіться [MAVLink Camera](../camera/mavlink_v2_camera.md), щоб дізнатися як налаштувати камеру на роботу з MAVLink.
 
 :::info
 Камери, підключені безпосередньо до політного контролера підтримують _тільки_ активацію камери та навряд чи підходять для більшості діяльностей зі спостереження/пошуку.
