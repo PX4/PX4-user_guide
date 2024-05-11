@@ -235,88 +235,88 @@ Crazyflie 2.0 може літати з точним керуванням у ре
 
 - Для польоту в режимі _Altitude_ вам знадобиться [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck).
   Якщо ви також хочете літати в режимі _Position_, рекомендується придбати [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), який також має вбудований сенсор Z-ranger.
-- Покладений барометр дуже чутливий до будь-яких зовнішніх вітрових порушень, включаючи ті, які створюються Crazyflie власними гвинтами. Hence, we isolated the barometer with a piece of foam, and then mounted the distance sensor on top of it as shown below:
+- Покладений барометр дуже чутливий до будь-яких зовнішніх вітрових порушень, включаючи ті, які створюються Crazyflie власними гвинтами. Отже, ми відокремили барометр за допомогою шматка піни, а потім встановили датчик відстані зверху, як показано нижче:
 
-![Crazyflie barometer](../../assets/flight_controller/crazyflie/crazyflie_barometer.jpg)
+![Барометр Crazyflie](../../assets/flight_controller/crazyflie/crazyflie_barometer.jpg)
 
-![Crazyflie barometer foam](../../assets/flight_controller/crazyflie/crazyflie_baro_foam.jpg)
+![Піна для барометра Crazyflie](../../assets/flight_controller/crazyflie/crazyflie_baro_foam.jpg)
 
-![Crazyflie optical flow](../../assets/flight_controller/crazyflie/crazyflie_opticalflow.jpg)
+![Оптичний потік Crazyflie](../../assets/flight_controller/crazyflie/crazyflie_opticalflow.jpg)
 
-In order to log flight details, you can mount SD card deck on top of crazyflie as shown below:
+Для реєстрації деталей польоту ви можете встановити наверху Crazyflie карту SD, як показано нижче:
 
 ![Crazyflie SDCard](../../assets/flight_controller/crazyflie/crazyflie_sdcard.jpg)
 
-Then, you need to stick the battery on top of the SD card deck using a double sided tape:
+Потім вам потрібно приклеїти батарею зверху до покриття карти SD за допомогою двостороннього скотчу:
 
-![Crazyflie battery setup](../../assets/flight_controller/crazyflie/crazyflie_battery_setup.jpg)
+![Налаштування батареї Crazyflie](../../assets/flight_controller/crazyflie/crazyflie_baro_foam.jpg)
 
-## Altitude Control
+## Контроль висоти
 
-Crazyflie is able to fly in _Altitude_ mode if you use a [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck).
-According to the datasheet, the maximum height (above ground) the range finder can sense is 2 m. However, when tested on dark surfaces this value decreases to 0.5 m. On a light floor, it goes up to max 1.3 m. This means you cannot hold altitudes above this value in _Altitude_ or _Position_ flight modes.
+Crazyflie може літати в режимі _Altitude_, якщо ви використовуєте [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck).
+Згідно з технічною характеристикою, максимальна висота (над землею), яку може відчути дальномер, становить 2 м. Проте, коли це перевірялося на темних поверхнях, це значення зменшується до 0.5 м. На світлій підлозі він піднімається до максиму 1.3 м. Це означає, що ви не можете утримувати висоти вище цієї величини у режимах польоту _Altitude_ або _Position_.
 
 :::tip
-If the Crazyflie 2.0 height drifts at mid-throttle command in _Altitude mode_ or _Position mode_, first try rebooting the vehicle. If this does not fix the problem, recalibrate the accel and mag (compass).\
+Якщо висота Crazyflie 2.0 зсувається при команді середнього газу в _Altitude mode_ або _Position mode_, спочатку спробуйте перезавантажити дрон. Якщо це не виправляє проблему, перекалібруйте акселерометр та магніт (компас).\
 :::
 
 :::info
-Since the onboard barometer is highly susceptible to wind disturbances created by the Crazyflie's own propellers, you cannot rely on it to hold altitude.
+Оскільки бортовий барометр дуже вразливий до вітрових турбулентностей, створених власними пропелерами Crazyflie, ви не можете покладатися на нього для збереження висоти.
 :::
 
-## Position Control
+## Керування позицією
 
-With [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), you can fly Crazyflie 2.0 in _Position mode_.
-Unlike [PX4FLOW](../sensor/px4flow.md), the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates.
-Moreover, the flow deck shares the same SPI bus as the SD card deck, therefore logging at high rate on SD card is not recommended when flying in _Position mode_.
+З [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck) ви можете літати на Crazyflie 2.0 в _Position mode_.
+На відміну від [PX4FLOW](../sensor/px4flow.md), плата потоку не містить гіроскоп, тому вбудований гіроскоп використовується для об'єднання потоку з метою знаходження місцевих оцінок позиції.
+Крім того, палуба потоку використовує ту саму шину SPI, що й палуба SD-карти, тому ведення журналу на високій швидкості на SD-картці не рекомендується під час польоту у режимі _Position mode_.
 
-## Using FrSky Taranis RC Transmitter as Joystick
+## Використання пульта дистанційного керування FrSky Taranis як джойстика
 
-If you already own a Taranis RC transmitter and want to use it as a controller, it can be configured as a USB Joystick:
+Якщо у вас вже є пульт дистанційного керування Taranis і ви хочете використовувати його як контролер, його можна налаштувати як USB джойстик:
 
-- Create a new model in Taranis.
+- Створити нову модель у Taranis.
 
-  ![Taranis - new model](../../assets/flight_controller/crazyflie/taranis_model.jpg)
+  ![Taranis - нова модель](../../assets/flight_controller/crazyflie/taranis_model.jpg)
 
-- In _MODEL SETUP_ menu page, turn off both internal and external TX modules.
+- На сторінці меню _MODEL SETUP_ вимикайте обидва внутрішні і зовнішні TX модулі.
 
-  ![Taranis - model setup](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
+  ![Taranis - налаштування моделі](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
 
-- In _OUTPUTS_ menu page (also called “SERVOS” page in some Taranis transmitters), invert Throttle (CH1) and Aileron (CH3).
+- На сторінці меню _OUTPUTS_ (також називаній сторінкою “SERVOS” у деяких передавачах Taranis) інвертуйте Throttle (CH1) та Aileron (CH3).
 
-  ![Taranis - outputs](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
+  ![Taranis - виходи](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
 
-To use Taranis switches to arm/disarm and switch to different flight modes:
+Для використання перемикачів Taranis для озброєння/роззброєння та перемикання між різними режимами польоту:
 
-- In Taranis UI _MIXER_ menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGroundControl Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
+- На сторінці меню _MIXER_ в Taranis UI ви можете призначити перемикачі для будь-якого каналу в діапазоні каналів 9-16, які відповідають кнопкам 0-7 у налаштуванні джойстика QGroundControl. Наприклад, перемикач Taranis "SD" може бути встановлений на канал 9 в інтерфейсі Taranis UI:
 
-  ![Taranis switch setup](../../assets/flight_controller/crazyflie/taranis_switch_setup.jpg)
+  ![Налаштування перемикача Taranis](../../assets/flight_controller/crazyflie/taranis_switch_setup.jpg)
 
-- Connect Taranis to PC with a USB cable and Open QGroundControl.
+- Підключіть Taranis до ПК за допомогою USB-кабелю та відкрийте QGroundControl.
 
-- In QGroundControl Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGroundControl Joystick setup. You can assign any mode to this button e.g. _Altitude_ mode. Now when you lower the switch "SD", flight mode will change to _Altitude_.
+- У налаштуваннях джойстика QGroundControl ви можете побачити, як кнопки стають жовтими, коли ви їх увімкнете. Наприклад, канал 9 в Taranis відповідає кнопці 0 в налаштуванні джойстика QGroundControl. Ви можете призначити будь-який режим для цієї кнопки, наприклад, режим _Altitude_. Тепер, коли ви опускаєте перемикач "SD", режим польоту зміниться на _Altitude_.
 
-  ![Joystick setup](../../assets/flight_controller/crazyflie/crazyflie_QGCjoystick_setup.png)
+  ![Налаштування джойстика](../../assets/flight_controller/crazyflie/crazyflie_QGCjoystick_setup.png)
 
 ### ROS
 
-To connect to Crazyflie 2.0 via MAVROS:
+Для підключення до Crazyflie 2.0 через MAVROS:
 
-- Start up _cfbridge_ using the above instructions.
+- Запустіть _cfbridge_ за допомогою вищезазначених інструкцій.
 
-- Change the UDP port QGroundControl listens to:
-  - In QGroundControl, navigate to **Application Settings > General** and uncheck all the boxes under _Autoconnect to the following devices_.
-  - Add in **Comm Links** a link of type _UDP_, check the _Automatically Connect on Start_ option, change the _Listening Port_ to 14557, add Target Hosts: 127.0.0.1 and then press **OK**.
+- Змінити порт UDP, на який прослуховує QGroundControl:
+  - У QGroundControl перейдіть до **Налаштувань додатка > Загальні** і знять позначки з усіх полів під _Autoconnect to the following devices_.
+  - Додайте в **Comm Links** посилання типу _UDP_, встановіть параметр _Automatically Connect on Start_, змініть _Listening Port_ на 14557, додайте Цільові хости: 127.0.0.1, а потім натисніть **OK**.
 
-- Make sure you have [MAVROS](https://github.com/mavlink/mavros/tree/master/mavros#installation) installed.
+- Переконайтеся, що встановлено [MAVROS](https://github.com/mavlink/mavros/tree/master/mavros#installation).
 
-- Start MAVROS with command:
+- Запустіть MAVROS за допомогою команди:
 
   ```sh
   roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"
   ```
 
-- Restart QGroundControl if it doesn't connect.
+- Перезапустіть QGroundControl, якщо він не підключається.
 
 ## Політ
 
