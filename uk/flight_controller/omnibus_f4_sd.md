@@ -193,65 +193,65 @@ Omnibus підтримує телеметрію до передавача RC з�
 
 #### Встановлення
 
-Connect the Nano RX and Omnibus pins as shown:
+Підключіть контакти Nano RX та Omnibus, як показано:
 
 | Omnibus UART1 | Nano RX |
 | ------------- | ------- |
 | TX            | Ch2     |
 | RX            | Ch1     |
 
-Next update the TX/RX modules to use the CRSF protocol and set up telemetry. Instructions for this are provided in the [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (search for 'Setting up radio for CRSF').
+Наступне оновіть модулі TX/RX для використання протоколу CRSF та налаштуйте телеметрію. Інструкції з цього наведені в [Посібнику TBS Crossfire](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (шукайте 'Налаштування радіо для CRSF').
 
-#### PX4 CRSF Configuration
+#### Налаштування CRSF PX4
 
-You will need to build custom firmware to use CRSF. For more information see [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration).
+Вам потрібно буде створити власну прошивку, щоб використовувати CRSF. Для отримання додаткової інформації див. [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration).
 
-## Schematics
+## Схема
 
-The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
+Схеми надає [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
 
 <a id="bootloader"></a>
 
-## PX4 Bootloader Update
+## Оновлення завантажувача PX4
 
-The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed. Download the [omnibusf4sd_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
+Плата поставляється із заздалегідь встановленою [Betaflight](https://github.com/betaflight/betaflight/wiki). Перед встановленням прошивки PX4 необхідно прошити _заванажувач PX4_. Завантажте завантажувальний бінарний файл [omnibusf4sd_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) та прочитайте [цю сторінку](../advanced_config/bootloader_update_from_betaflight.md) для інструкцій з прошивки.
 
-## Building Firmware
+## Створення прошивки
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make omnibus_f4sd_default
 ```
 
-## Installing PX4 Firmware
+## Встановлення прошивки PX4
 
-You can use either pre-built firmware or your own custom firmware.
+Ви можете використовувати або готове вбудоване програмне забезпечення, або власне користувацьке програмне забезпечення.
 
 :::warning
 
-If you use [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration) in your radio system, as describe above, then you must use custom firmware.
+Якщо ви використовуєте [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration) у вашій радіосистемі, як описано вище, то вам потрібно використовувати власну прошивку.
 :::
 
-The firmware can be installed in any of the normal ways:
+Прошивку можна встановити будь-якими звичайними способами:
 
-- Build and upload the source
+- Джерело для збірки та завантаження
 
   ```
   make omnibus_f4sd_default upload
   ```
 
-- [Load the firmware](../config/firmware.md) using _QGroundControl_.
+- [Завантажте прошивку](../config/firmware.md) за допомогою _QGroundControl_.
 
-## Configuration
+## Налаштування
 
-In addition to the [basic configuration](../config/index.md), the following parameters are important:
+Крім [основних налаштувань](../config/index.md), важливі наступні параметри:
 
-| Parameter                                                                | Setting                                                                                                                 |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)   | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
-| [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Disable this if your board does not have a barometer.                                                                   |
+| Параметр                                                                 | Налаштування                                                                                                                  |
+| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)   | Це має бути вимкнено, оскільки у платі немає внутрішнього магніту. Ви можете активувати це, якщо приєднаєте зовнішній магніт. |
+| [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Вимкніть це, якщо ваша плата не має барометра.                                                                                |
 
-## Further Info
+## Додаткова інформація
 
-[This page](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/) provides a good overview with pinouts and setup instructions.
+[Ця сторінка](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/) надає хороший огляд з контактами та інструкціями щодо налаштування.
