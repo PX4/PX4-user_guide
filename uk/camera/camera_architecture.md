@@ -1,6 +1,6 @@
-# PX4 Camera Architecture/Integration
+# Архітектура/Інтеграція камери PX4
 
-This topic provides a brief overview of how PX4 camera support is **implemented**.
+Ця тема надає короткий огляд того, як підтримується камера PX4 **реалізована**.
 
 :::info
 Дивіться [Камера](../camera/index.md) для отримання інформації щодо _використання_ камер.
@@ -8,111 +8,106 @@ This topic provides a brief overview of how PX4 camera support is **implemented*
 
 ## Загальний огляд
 
-PX4 integrates with three types of cameras:
+PX4 інтегрується з трьома типами камер:
 
-- [MAVLink cameras](../camera/mavlink_v2_camera.md) that support the [Camera Protocol v2](https://mavlink.io/en/services/camera.html) (**RECOMMENDED**).
-- [Simple MAVLink cameras](../camera/mavlink_v1_camera.md) that support the older [Camera Protocol v1](https://mavlink.io/en/services/camera.html).
-- [Cameras attached to flight controller outputs](../camera/fc_connected_camera.md), which are controlled using the [Camera Protocol v1](https://mavlink.io/en/services/camera.html).
+- [Камери MAVLink](../camera/mavlink_v2_camera.md), які підтримують [Протокол Камери v2](https://mavlink.io/en/services/camera.html) (**РЕКОМЕНДОВАНО**).
+- [Прості камери MAVLink](../camera/mavlink_v1_camera.md), які підтримують старший [Протокол камери v1](https://mavlink.io/en/services/camera.html).
+- [Камери, підключені до виходів контролера польоту](../camera/fc_connected_camera.md), які керуються з використанням [протоколу камери v1](https://mavlink.io/en/services/camera.html).
 
-All of these cameras need to respond to MAVLink commands received over MAVLink or found in missions (the specific protocol depends on the camera).
+Всі ці камери повинні реагувати на команди MAVLink, отримані через MAVLink або знайдені в місіях (конкретний протокол залежить від камери).
 
-The broad architecture used is described below.
+Використана широка архітектура описана нижче.
 
-## MAVLink Cameras (Camera Protocol v2)
+## Камери MAVLink (Протокол камери v2)
 
-PX4 does not have specific handling for [MAVLink cameras](../camera/mavlink_v2_camera.md) that support the [Camera Protocol v2](https://mavlink.io/en/services/camera.html), other than [re-emitting camera items in missions as commands](#camera-commands-in-missions)
+PX4 не має конкретної обробки для [MAVLink камер](../camera/mavlink_v2_camera.md), які підтримують [Протокол камери v2](https://mavlink.io/en/services/camera.html), крім [переемітації елементів камери в місіях як команди](#camera-commands-in-missions)
 
-Ground stations are expected to communicate with these cameras directly in order to send commands.
-PX4 must be configured to route MAVLink traffic between the camera and ground stations if needed.
-
-:::info
-The `camera_trigger`, `camera_capture` and `camera_feedback` modules are not used with this camera.
-:::
-
-## FC-connected Cameras
-
-[Cameras attached to flight controller outputs](../camera/fc_connected_camera.md) need PX4 to activate the outputs to trigger the camera, and may need PX4 to detect when a [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) has been triggered by the camera hotshoe (in order to improve the logged camera-capture time).
-
-This work is handled by three PX4 components: [`camera_trigger` driver](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger), [`camera_capture` driver](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture), [`camera-feedback` module](../modules/modules_system.md#camera-feedback).
-
-`camera_trigger` subscribes to the [VehicleCommand](../msg_docs/VehicleCommand.md) topic and monitors for updates to its [supported commands](../camera/fc_connected_camera.md#mavlink-command-interface).
-Thes updates occur when either a command is received via MAVLink or when a [camera item is reached in a mission](#camera-commands-in-missions).
-
-The commands enable and disable triggering, and configure triggering at time and distance intervals.
-The driver tracks these intervals, and when needed triggers the outputs.
-The driver publishes a [CameraTrigger](../msg_docs/CameraTrigger.md) topic (with `feedback` field set to `false`) that causes a [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) MAVLink message to be emitted.
-
-The `camera_capture` driver, if enabled, monitors the camera capture pin and on triggering publishes a [CameraTrigger](../msg_docs/CameraTrigger.md) topic (with `feedback` field set to `true`) which also causes a [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) MAVLink message to be emitted.
-
-The `camera_feedback` module monitors for updates to the [CameraTrigger](../msg_docs/CameraTrigger.md) topic, and publishes a [CameraCapture](../msg_docs/CameraCapture.md) topic for `CameraTrigger` updates from _either_ `camera_trigger` or `camera_capture`.
-The information that is used depends on whether the camera capture pin is enabled and the value is of the `CameraTrigger.feedback` field.
-This `CameraCapture` topic is logged, and can be used to get the time of the capture.
+Очікується, що земні станції будуть спілкуватися з цими камерами безпосередньо, щоб надсилати команди.
+PX4 повинен бути налаштований для маршрутизації трафіку MAVLink між камерою та земними станціями за необхідності.
 
 :::info
-The `camera_feedback` module may currently be logging all capture events.
-See [PX4-Autopilot#23103](https://github.com/PX4/PX4-Autopilot/pull/23103).
+Модулі `camera_trigger`, `camera_capture` та `camera_feedback` не використовуються з цією камерою.
 :::
 
-## MAVLink Cameras (Camera Protocol v1)
+## Камери, підключені за допомогою FC
 
-[MAVLink cameras that support the older Camera Protocol v1](../camera/mavlink_v1_camera.md) are integrated in much the same way as [FC-connected cameras](fc-connected-cameras).
+Камери, підключені до виходів контролера польоту, потребують PX4 для активації виходів для запуску камери, і можуть потребувати PX4 для виявлення, коли [пін захоплення камери](../camera/fc_connected_camera.md#camera-capture-configuration) був спрацьований камерним гарячим черевиком (для покращення часу реєстрації захопленої камери).
 
-`camera_trigger` subscribes to the [VehicleCommand](../msg_docs/VehicleCommand.md) topic and monitors for updates in the [commands it supports](../camera/fc_connected_camera.md#mavlink-command-interface).
-This happens when either a command is received via MAVLink or when a [camera item is found in a missions](#camera-commands-in-missions).
+Ця робота виконується трьома компонентами PX4: [`camera_trigger` driver](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger), [`camera_capture` driver](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture), модуль `camera-feedback` (../modules/modules_system.md#camera-feedback).
 
-The commands enable and disable triggering, and configure triggering at time and distance intervals.
-The driver tracks these intervals, but with the "MAVLink backend" does not need to actually trigger any outputs (since the commands are forwarded to the camera).
-When the camera would trigger the driver publishes a [CameraTrigger](../msg_docs/CameraTrigger.md) topic (with `feedback` field set to `false`) that causes a [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) MAVLink message to be emitted.
-The `camera_feedback` module should then log a corresponding `CameraCapture` topic.
+`camera_trigger` підписується на тему [VehicleCommand](../msg_docs/VehicleCommand.md) та відстежує оновлення в [команди, які він підтримує](../camera/fc_connected_camera.md#mavlink-command-interface).
+Ці оновлення відбуваються, коли отримано команду через MAVLink або коли [елемент камери досягнутий у місії](#camera-commands-in-missions).
 
-## Camera Commands in Missions
+Команди увімкнення та вимкнення спрацьовують, а також налаштовують спрацьовування за часовими та відстаневими інтервалами.
+Водій відстежує ці інтервали, і коли це потрібно, спрацьовують виходи.
+Водій публікує тему [CameraTrigger](../msg_docs/CameraTrigger.md) (з полем `feedback`, встановленим на `false`), що спричиняє відсилання повідомлення MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER).
 
-PX4 re-emits camera items found in missions as MAVLink commands for all supported [Camera Protocol v2](https://mavlink.io/en/services/camera.html) and [Camera Protocol v1](https://mavlink.io/en/services/camera.html) commands.
-The system id of the emitted commands is the same as the ID of the autopilot.
-The component id of the commands can vary, but these are usually sent to either [MAV_COMP_ID_CAMERA (100)](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_CAMERA) or [MAV_COMP_ID_ALL](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_ALL) (see the individual camera documents for what ID is used in each case).
+Драйвер `camera_capture`, якщо він увімкнений, слідкує за підключенням камери та, спрацьовуючи, оприлюднює тему [CameraTrigger](../msg_docs/CameraTrigger.md) (з полем `feedback`, встановленим на `true`), що також спричиняє відсилання повідомлення MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER).
 
-The commands are emitted irrespective of whether or not there is a connected camera of any type, provided there is a MAVLink channel to emit to.
+Модуль 'camera_feedback' відстежує оновлення теми [CameraTrigger](../msg_docs/CameraTrigger.md), та публікує тему [CameraCapture](../msg_docs/CameraCapture.md) для оновлення `CameraTrigger` від _або_ `camera_trigger`, або `camera_capture`.
+Інформація, яка використовується, залежить від того, чи увімкнений пін захоплення камери, і значення поля `CameraTrigger.feedback`.
+Ця тема `CameraCapture` реєструється і може бути використана для отримання часу знімку.
+
+## Камери MAVLink (Протокол камери v1)
+
+[Камери MAVLink, що підтримують старий Протокол Камери v1](../camera/mavlink_v1_camera.md) інтегруються практично так само, як [камери, підключені до ПП](fc-connected-cameras).
+
+`camera_trigger` підписується на тему [VehicleCommand](../msg_docs/VehicleCommand.md) та відстежує оновлення в [команди, які він підтримує](../camera/fc_connected_camera.md#mavlink-command-interface).
+Це відбувається, коли команда надходить через MAVLink або коли [елемент камери знаходиться в місіях](#camera-commands-in-missions).
+
+Команди дозволяють увімкнути та вимкнути спрацьовування, а також налаштувати спрацювання за часовими та відстаневими інтервалами.
+Водій відслідковує ці інтервали, але з "MAVLink backend" не потрібно фактично спрацьовувати будь-які виводи (оскільки команди переадресовуються на камеру).
+Коли камера спрацьовує, водій публікує тему [CameraTrigger](../msg_docs/CameraTrigger.md) (з полем `feedback`, встановленим на `false`), що спричиняє відсилання повідомлення MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER).
+Модуль `camera_feedback` повинен, а потім записати відповідну тему `CameraCapture`.
+
+## Команди камери у місіях
+
+PX4 повторно видає пункти камери, знайдені в місіях, як команди MAVLink для всіх підтримуваних [Протоколів камери v2] (https://mavlink.io/en/services/camera.html) та [Протоколів камери v1] (https://mavlink.io/en/services/camera.html).
+Системний ідентифікатор випущених команд співпадає з ідентифікатором автопілота.
+Ідентифікатор компоненту команд може відрізнятися, але зазвичай вони надсилаються на [MAV_COMP_ID_CAMERA (100)](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_CAMERA) або [MAV_COMP_ID_ALL](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_ALL) (дивіться документацію камери для того, який ID використовується у кожному випадку).
+
+Команди випромінюються незалежно від того, чи є підключена камера будь-якого типу, за умови наявності каналу MAVLink для випромінювання.
 
 :::info
-More generally PX4 re-emits all mission commands that may be consumed by external MAVLink components, such as gimbals.
-Commands for waypoints and conditional behaviour are not emitted.
+Загалом PX4 повторно видає всі команди місій, які можуть бути використані зовнішніми компонентами MAVLink, такими як джимбалі.
+Команди для точок маршруту та умовної поведінки не випускаються.
 :::
 
-The sections below highlight interesting parts of the codebase
+Розділи нижче висвітлюють цікаві частини кодової бази
 
-### Commands supported in missions
+### Команди, підтримувані у місіях
 
-Commands supported in missions, including camera commands, are shown in these methods:
+Команди, підтримувані в місіях, включаючи команди камери, показані в цих методах:
 
 - [`bool FeasibilityChecker::checkMissionItemValidity(mission_item_s &mission_item, const int current_index)`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/MissionFeasibility/FeasibilityChecker.cpp#L257-L306)
 - [`format_mavlink_mission_item()`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp#L1672-L1693)
 
-### Flow for re-emitting camera commands found in missions
+### Потік для повторної відправки команд камери, знайденої у місіях
 
 - [`void Mission::setActiveMissionItems()`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/mission.cpp#L187-L281)
-  - Mission items are executed when set active.
-  - `issue_command(_mission_item)` is called at the end of this to send the current non-waypoint command
-    - [`MissionBlock::issue_command(const mission_item_s &item)`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/mission_block.cpp#L543-L562)
-      - Creates a vehicle command for the mission item then calls `publish_vehicle_cmd` to publish it (`_navigator->publish_vehicle_cmd(&vcmd);`)
+  - Предмети місії виконуються, коли вони активовані.
+  - `issue_command(_mission_item)` викликається в кінці цього, щоб відправити поточну непунктову команду
+    - [`MissionBlock::видача_команди(const mission_item_s &item)`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/mission_block.cpp#L543-L562)
+      - Створює команду для місії транспортного засобу, а потім викликає `publish_vehicle_cmd` для публікації її (`_navigator->publish_vehicle_cmd(&vcmd);`)
         - [`void Navigator::publish_vehicle_cmd(vehicle_command_s *vcmd)`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/navigator_main.cpp#L1358)
-          - For some camera commands it sets the component ID to the camera component id (`vcmd->target_component = 100; // MAV_COMP_ID_CAMERA`)
-          - All others just get published to default component ID.
-          - The `VehicleCommand` UORB topic is published.
+          - Для деяких команд камери це встановлює ідентифікатор компонента на ідентифікатор компонента камери (`vcmd->target_component = 100; // MAV_COMP_ID_CAMERA`)
+          - Усі інші просто публікуються під стандартний компонент ID.
+          - Тема UORB `VehicleCommand` публікується.
 
-The MAVLink streaming code monitors for changes to the `VehicleCommand` topic and publishes them over MAVLink.
-The MAVLink command is sent irrespective of whether the camera is a MAVLink camera, or connected to the flight controller.
+Код потоку MAVLink відстежує зміни у темі `VehicleCommand` та публікує їх через MAVLink.
+Команда MAVLink надсилається незалежно від того, чи є камера камерою MAVLink, чи підключена до контролера польоту.
 
-The `camera_trigger` driver, if enabled, also monitors for changes to the `VehicleCommand`.
-If it is configured with a backend for a camera connected to the flight controller outputs, it will trigger those outputs appropriately.
+Драйвер `camera_trigger`, якщо включений, також контролює зміни для `VehicleCommand`.
+Якщо він налаштований з внутрішнім інтерфейсом для камери, підключеної до вихідних сигналів контролера польоту, він відповідним чином активує ці вихідні сигнали.
 
-## Logging
+## Журналювання
 
-`CameraCapture` topics are logged when there is a `CameraTrigger` update.
-The logged topic will depend on whether or not the camera capture pin is enabled.
+Теми `CameraCapture` реєструються при оновленні `CameraTrigger`.
+Введений тема буде залежати від того, чи увімкнений пін захоплення камери.
 
-Note that camera capture events are not logged when using the [MAVLink cameras that support Camera Protocol v2](../camera/mavlink_v2_camera.md), because the corresponding trigger events are not generated within PX4.
+Зверніть увагу, що події захоплення камери не реєструються, коли використовується [камери MAVLink, що підтримують протокол камери v2](../camera/mavlink_v2_camera.md), оскільки відповідні події спрацювання тригера не генеруються в межах PX4.
 
-## See Also
+## Дивіться також
 
 - Драйвер Тригера камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger) <!-- no module doc -->
 - Драйвер захоплення камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture) <!-- no module doc -->
