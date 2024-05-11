@@ -1,35 +1,35 @@
-# Multicopter PID Tuning Guide (Manual/Advanced)
+# 多旋翼PID调参（手动/高级）
 
-This topic provides detailed information about PX4 controllers, and how they are tuned.
+本主题提供有关 PX4 控制器以及如何调参的详细信息。
 
 :::tip
-[Autotune](../config/autotune.md) is recommended for tuning the vehicles _around the hover thrust point_, as the approach described is intuitive, easy, and fast. This is all that is required for many vehicles.
+推荐用[自动调参](../config/autotune.md) ，用于 _在悬停油门附近_， 因为这个方法简单直观且快速. 这就是许多机体所需要的全部。
 :::
 
-Use this topic when tuning around the hover thrust point is not sufficient (e.g. on vehicles where there are non-linearities and oscillations at higher thrusts). It is also useful for a deeper understanding of how the basic tuning works, and to understand how to use the [airmode](#airmode-mixer-saturation) setting.
+当调整悬停推力点不足时使用自动调参（例如，在机体上，在更高推力时存在非线性和振荡）。 它还有助于更深入地了解基本调参原理的工作方式，并了解如何使用[airmode](#airmode-mixer-saturation)设置。
 
-## Tuning Steps
+## 调参步骤
 
 ::: info
-For safety reasons, the default gains are set to low values.
-You must increase the gains before you can expect good control responses.
+出于安全原因，这些默认参数增益都比较低。
+您必须增加增益才能得到良好的控制响应。
 :::
 
-Here are some general points to follow when tuning:
+以下是做调参时要遵循的一些要点：
 
-- All gains should be increased very slowly as large gains may cause dangerous oscillations! Typically increase gains by 20-30% per iteration, reducing to 5-10% for final fine tuning.
-- Land before changing a parameter. Slowly increase the throttle and check for oscillations.
-- Tune the vehicle around the hovering thrust point, and use the [thrust curve parameter](#thrust-curve) to account for thrust non-linearities or high-thrust oscillations.
+- 调整增益时，所有的增益值都应该慢慢增加, 因为增益过大可能会导致危险的振荡! 一般情况下，每次增益值的调整幅度大约在20%到30%，获得最优增益值后，基于最优值再下调5%到10%。
+- 在修改参数之前务必先着陆。 慢慢增加油门，观察振荡的现象。
+- 调参时的油门值应该在无人机的悬停油门, 并使用 [ 推力曲线参数 ](#thrust-curve) 来观察或判断推力非线性或高推力振荡现象。
 - 可以通过 [ SDLOG_PROFILE ](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 参数，启用高速率日志记录配置文件, 以便使用日志来查看角速率和姿态跟踪性能  (之后可以禁用该选项) 。
 
 ::warning 在调参过程中，禁用 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE)。
 :::
 
-### 速率控制器
+### 角速度控制器
 
-The rate controller is the inner-most loop with three independent PID controllers to control the body rates (yaw, pitch, roll).
+角速度控制是最内环的控制器，它用三个独立的PID控制来控制机身角速度(航向，俯仰，横滚)。
 
-::: info A well-tuned rate controller is very important as it affects _all_ flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes_mc/position.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+::: info 把角速度控制器调好非常重要，因为它会影响 _所有_ 飞行模式。 角速度控制器调得好不好可以在[位置模式](../flight_modes_mc/position.md)中体现出来，举个例子，你的飞机可能会「抽搐」（飞行器无法很好地悬停在空中）
 :::
 
 #### 速率控制器架构/形式
