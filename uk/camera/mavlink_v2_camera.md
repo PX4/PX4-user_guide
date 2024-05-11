@@ -1,28 +1,28 @@
-# MAVLink Cameras (Camera Protocol v2)
+# Камери MAVLink (Протокол камери v2)
 
-This topic explains how to use PX4 with a MAVLink [camera](../camera/index.md) that implements the [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) with PX4 and a Ground Station.
+Ця тема пояснює, як використовувати PX4 з MAVLink [камера](../camera/index.md), що реалізує [MAVLink Camera Protocol v2] (https://mavlink.io/en/services/camera.html) з PX4 та Наземною Станцією.
 
 :::tip
 Це рекомендований спосіб інтеграції камери з PX4!
 :::
 
-## Overview
+## Огляд
 
-The [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) allows querying of what features are supported by a camera, and provides commands to control image and video capture, stream video, set zoom and focus, select between infrared and visible light feeds, set where captured data is saved, and so on.
+[Протокол камери MAVLink v2](https://mavlink.io/en/services/camera.html) дозволяє запитувати, які функції підтримуються камерою, і надає команди для керування захопленням зображень та відео, передачі відео, встановлення зуму та фокусу, вибору між інфрачервоними та видимими потоками світла, встановлення місця, куди зберігаються зібрані дані, та інше.
 
-A camera may implement the protocol natively, but most MAVLink camera setups involve PX4 communicating with a [camera manager](#camera-managers) running on a companion computer, which then interfaces between MAVLink and the camera's native protocol.
+Камера може реалізувати протокол на рівні системи, але більшість налаштувань камер MAVLink передбачають взаємодію PX4 з [менеджером камер](#camera-managers), що працює на супутниковому комп'ютері, який потім взаємодіє між MAVLink та вихідним протоколом камери.
 
-Generally speaking PX4's "integration" with a camera is to re-emit camera commands found in missions using the command protocol.
-Otherwise it may act as a bridge, forwarding commands between a ground station and the camera if there is no direct MAVLink channel.
+Загалом можна сказати, що "інтеграція" PX4 з камерою полягає в повторному відтворенні команд камери, знайдених у місіях за допомогою протоколу команд.
+В іншому випадку вона може діяти як міст, пересилаючи команди між земною станцією та камерою, якщо немає прямого каналу MAVLink.
 
 :::info
-PX4 does not support using [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) commands to control cameras that are attached to flight controller outputs.
-While this is technically possible, it would require PX4 to implement a camera manager interface.
+PX4 не підтримує використання команд [MAVLink Протокол Камери v2](https://mavlink.io/en/services/camera.html) для управління камерами, які підключені до виходів контролера польоту.
+Хоча це технічно можливо, це вимагатиме від PX4 реалізації інтерфейсу керування камерою.
 :::
 
-## Controlling the Camera
+## Керування камерою
 
-### MAVLink Commands & Messages
+### Команди та повідомлення MAVLink
 
 Cameras are discovered using the MAVLink [connection protocol](https://mavlink.io/en/services/heartbeat.html), based on their [HEARTBEAT.type](https://mavlink.io/en/messages/common.html#HEARTBEAT) being set to [MAV_TYPE_CAMERA](https://mavlink.io/en/messages/common.html#MAV_TYPE_CAMERA).
 
