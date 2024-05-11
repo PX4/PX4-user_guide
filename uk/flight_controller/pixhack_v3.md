@@ -70,11 +70,11 @@ make px4_fmu-v3_default
 
 ## Зіставлення послідовних портів
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO debug              |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART   | Девайс     | Порт                     |
+| ------ | ---------- | ------------------------ |
+| UART1  | /dev/ttyS0 | IO debug                 |
+| USART2 | /dev/ttyS1 | TELEM1 (контроль потоку) |
+| USART3 | /dev/ttyS2 | TELEM2 (контроль потоку) |
+| UART4  |            |                          |
+| UART7  | CONSOLE    |                          |
+| UART8  | SERIAL4    |                          |
