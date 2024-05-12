@@ -1,22 +1,22 @@
-# Position Mode (Fixed-Wing)
+# Режим позиції (фіксоване крило)
 
 <img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
-_Position mode_ is the easiest and safest manual mode. It is supported on vehicles that have a position estimate (e.g. GPS). It makes it easier for pilots to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will hold the vehicle's course against wind. Airspeed is actively controlled if an airspeed sensor is installed.
+_Режим позиції_ є найлегшим і найбезпечнішим ручним режимом. Підтримується на транспортних засобах, які мають прогноз позиціонування (наприклад, GPS). Це полегшує пілотам контроль висоти транспортного засобу, і зокрема досягати і підтримувати фіксовану висоту. Режим буде утримувати курс транспортного засобу від вітру. Швидкість активно контролюється, якщо встановлений датчик швидкості.
 
-The vehicle performs a [coordinated turn](https://en.wikipedia.org/wiki/Coordinated_flight) if the roll sticks are non-zero, while the pitch stick controls the rate of ascent/descent. The throttle determines airspeed — at 50% throttle the aircraft will hold its current altitude with a preset cruise speed.
+Транспортний засіб виконує [координований поворот](https://en.wikipedia.org/wiki/Coordinated_flight), якщо рулі не нульові, тоді як pitch -стік контролює швидкість підйому/спуску. Засувка визначає швидкість — при 50% засувки літак буде утримувати свою поточну висоту з заданою крейсерською швидкістю.
 
-When all sticks are released/centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight, and keep its current altitude and flight path irrespective of wind. This makes it easy to recover from any problems when flying. Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
+Коли всі стіки управління відпущені/центровані (без крену, тангажу, курсу та близько 50% керування газом), літак повернеться до прямого, рівного польоту та збереже свою поточну висоту та траєкторію польоту не залежно від вітру. This makes it easy to recover from any problems when flying. Крен та тангаж - кутово-керовані (тому неможливо перевалюватися або робити петлю транспортному засобу).
 
-The yaw stick can be used to increase/reduce the yaw rate of the vehicle in turns. If left at center the controller does the turn coordination by itself, meaning that it will apply the necessary yaw rate for the current roll angle to perform a smooth turn. The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
+Стік повороту може бути використана для збільшення/зменшення кута рискання при поворотах. Якщо контролер фіксований у центрі, то він самостійно здійснює координацію повороту, що означає, що він застосовує необхідну швидкість розвороту для поточного кута крену, щоб виконати плавний поворот. Діаграма нижче візуально показує поведінку режиму (для [передавача режиму 2](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
 ![FW Position Mode](../../assets/flight_modes/position_fw.png)
 
 ## Технічний опис
 
-Position mode is like [Stabilized mode](../flight_modes_fw/altitude.md) but with course stabilization. Airspeed is also stabilized if an airspeed sensor is present.
+Режим позиції, як [Режим стабілізації](../flight_modes_fw/altitude.md), але зі стабілізацією курсу. Швидкість також стабілізується, якщо встановлений датчик швидкості.
 
-- Centered Roll/Pitch/Yaw inputs (inside deadband):
+- Центровані вхідні показники крену/тангажу/рискання (в межах дедбенду):
   - Autopilot levels vehicle and maintains altitude, airspeed and course over ground.
 - Outside center:
   - Pitch stick controls altitude.
