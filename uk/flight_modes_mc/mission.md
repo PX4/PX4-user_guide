@@ -2,132 +2,132 @@
 
 <img src="../../assets/site/position_fixed.svg" title="Global position fix required (e.g. GPS)" width="30px" />
 
-_Mission mode_ causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller.
-The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/master/en/) (QGC).
+_Режим місії_ змушує транспортний засіб виконувати передбачений автономний [план місії](../flying/missions.md) (план польоту), який був завантажений до керуючого пристрою польоту.
+Зазвичай місія створюється та завантажується за допомогою програми для керування наземною станцією (GCS), такої як [QGroundControl](https://docs.qgroundcontrol.com/master/en/) (QGC).
 
 ::: info
 
-- This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
-- The vehicle must be armed before this mode can be engaged.
-- This mode is automatic - no user intervention is _required_ to control the vehicle.
-- RC control switches can be used to change flight modes on any vehicle.
-- RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
-  This is true for multicopters and VTOL in MC mode.
+- Для цього режиму потрібна глобальна оцінка 3D-позиції (за допомогою GPS або виведеної з [локальної позиції](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+- Транспортний засіб повинен бути озброєний перед тим, як цей режим може бути активований.
+- Цей режим є автоматичним - для керування транспортним засобом не потрібне _втручання_ користувача.
+- Перемикачі керування RC можуть бути використані для зміни режимів польоту на будь-якому транспортному засобі.
+- Рух палиць дистанційного керування буде [за замовчуванням](#COM_RC_OVERRIDE) змінювати транспортний засіб на [режим позиції](../flight_modes_mc/position.md), якщо не виникне критична аварія батареї.
+  Це справжнє для багтороторів і ВПС у режимі КУ.
 
 :::
 
 ## Опис
 
-Missions are usually created in a ground control station (e.g. [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html)) and uploaded prior to launch.
-They may also be created by a developer API, and/or uploaded in flight.
+Місії зазвичай створюються в земній контрольній станції (наприклад, [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html)) та завантажуються перед запуском.
+Вони також можуть бути створені за допомогою розробника API або завантажені під час польоту.
 
-Individual [mission commands](#mission-commands) are handled in a way that is appropriate to multicopter flight characteristics (for example loiter is implemented as _hover_ ).
+Індивідуальні [команди місії](#mission-commands) обробляються таким чином, який є відповідним для характеристик багтороторного польоту (наприклад, обертання виконується у вигляді _залишання на місці_).
 
 :::info
 Missions are uploaded onto a SD card that needs to be inserted **before** booting up the autopilot.
 :::
 
-At high level all vehicle types behave in the same way when MISSION mode is engaged:
+На високому рівні всі типи транспортних засобів ведуть себе однаково, коли ввімкнено режим МІСІЯ:
 
-1. If no mission is stored, or if PX4 has finished executing all mission commands, or if the [mission is not feasible](#mission-feasibility-checks):
+1. Якщо місія не збережена, або якщо PX4 завершив виконання всіх команд місії, або якщо [місія не є можливою](#mission-feasibility-checks):
 
-   - If flying the vehicle will hold.
-   - If landed the vehicle will "wait".
+   - Якщо літає транспортний засіб, він буде утримувати.
+   - Якщо посадять транспортний засіб, він буде "чекати".
 
-2. If a mission is stored and PX4 is flying it will execute the [mission/flight plan](../flying/missions.md) from the current step.
-   - A `TAKEOFF` item is treated as a normal waypoint.
+2. Якщо місія збережена, а PX4 летить, вона виконає [місію / план польоту](../flying/missions.md) з поточного кроку.
+   - Пункт `TAKEOFF` трактується як звичайна точка місії.
 
-3. If a mission is stored and PX4 is landed:
-   - PX4 will execute the [mission/flight plan](../flying/missions.md).
-   - If the mission does not have a `TAKEOFF` item then PX4 will fly the vehicle to the minimum altitude before executing the remainder of the flight plan from the current step.
+3. Якщо місія збережена і PX4 приземлився:
+   - PX4 виконає [місію/план польоту](../flying/missions.md).
+   - Якщо місія не має пункту `TAKEOFF`, то PX4 підніме транспортний засіб на мінімальну висоту перед виконанням решти польотного плану з поточного кроку.
 
-4. If no mission is stored, or if PX4 has finished executing all mission commands:
-   - If flying the vehicle will hold.
-   - If landed the vehicle will "wait".
+4. Якщо жодне завдання не збережено, або якщо PX4 завершив виконання всіх команд місії:
+   - Якщо літає транспортний засіб, він буде утримувати.
+   - Якщо посадять транспортний засіб, він буде "чекати".
 
-5. You can manually change the current mission command by selecting it in _QGroundControl_.
+5. Ви можете вручну змінити поточну команду місії, вибравши її в _QGroundControl_.
 
    ::: info
    If you have a _Jump to item_ command in the mission, moving to another item will **not** reset the loop counter.
-   One implication is that if you change the current mission command to 1 this will not "fully restart" the mission.
+   Однією з наслідків є те, що якщо ви зміните поточну команду місії на 1, це не призведе до "повного перезапуску" місії.
 
 :::
 
-6. The mission will only reset when the vehicle is disarmed or when a new mission is uploaded.
+6. Місія скине тільки тоді, коли транспортний засіб буде роззброєний або коли буде завантажена нова місія.
 
    :::tip
-   To automatically disarm the vehicle after it lands, in _QGroundControl_ go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/safety.html), navigate to _Land Mode Settings_ and check the box labeled _Disarm after_.
-   Enter the time to wait after landing before disarming the vehicle.
+   Щоб автоматично роззброїти транспортний засіб після посадки, у _QGroundControl_ перейдіть до [Налаштування Транспортного Засобу > Безпека](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/safety.html), перейдіть до _Налаштувань Режиму Посадки_ та позначте прапорець _Роззброювати після_.
+   Введіть час очікування після посадки перед відброюванням транспортного засобу.
 
 :::
 
-Missions can be paused by switching out of mission mode to any other mode (such as [Hold mode](../flight_modes_mc/hold.md) or [Position mode](../flight_modes_mc/position.md)), and resumed by switching back to mission mode.
-If the vehicle was not capturing images when it was paused, on resuming it will head from its _current position_ towards the same waypoint as it as was heading towards originally.
-If the vehicle was capturing images (has camera trigger items) it will instead head from its current position towards the last waypoint it traveled through (before pausing), and then retrace its path at the same speed and with the same camera triggering behaviour.
-This ensures that in survey/camera missions the planned path is captured.
-A mission can be uploaded while the vehicle is paused, in which which case the current active mission item is set to 1.
+Місії можна призупинити, переключившись з режиму місії на будь-який інший режим (наприклад, [режим утримання](../flight_modes_mc/hold.md) або [режим позиціонування](../flight_modes_mc/position.md)), і продовжити, переключившись назад в режим місії.
+Якщо транспортний засіб не захоплював зображення, коли він був призупинений, під час відновлення він рухатиметься зі своєї _поточної позиції_ до тієї ж точки шляху, до якої він спочатку рухався.
+Якщо транспортний засіб захоплював зображення (має елементи спуску камери), він замість цього рухатиметься зі своєї поточної позиції до останньої точки шляху, якою він проїхав (перед зупинкою), а потім пройде свій шлях з тією самою швидкістю та з такою самою поведінкою спуску камери.
+Це забезпечує, що планований шлях зафіксований під час місій з опитування/камери.
+Місію можна завантажити, коли транспортний засіб зупинений, у такому випадку поточний активний елемент місії встановлюється на 1.
 
 :::info
-When a mission is paused while the camera on the vehicle was triggering, PX4 sets the current active mission item to the previous waypoint, so that when the mission is restarted the vehicle will retrace its last mission leg.
-In addition, PX4 stores the last applied mission items for speed setting and camera triggering (from the already covered mission plan), and re-applies those settings on resuming the mission.
+Коли місію призупинено під час спрацювання камери на транспортному засобі, PX4 встановлює поточний активний пункт місії на попередню точку маршруту, так що при відновленні місії транспортний засіб буде повторювати свій останній етап місії.
+Крім того, PX4 зберігає останні застосовані пункти місії для налаштування швидкості та спуску камери (з вже покритого плану місії) та знову застосовує ці налаштування при відновленні місії.
 :::
 
 :::warning
-Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).
-We recommend you centre the control sticks before switching to any other mode.
+Переконайтеся, що палиця регулювання газу не дорівнює нулю перед переключенням в будь-який режим RC (інакше транспортний засіб розбився).
+Ми рекомендуємо вам вирівнювати ручки керування перед переходом до будь-якого іншого режиму.
 :::
 
-For more information about mission planning, see:
+Для отримання додаткової інформації про планування місії дивіться:
 
-- [Mission Planning](../flying/missions.md)
+- [Планування місії](../flying/missions.md)
 - [Plan View](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html) (_QGroundControl_ User Guide)
 
 ## Mission Feasibility Checks
 
-PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded, and when the vehicle is first armed.
-If any of the checks fail, the user is notified and it is not possible to start the mission.
+PX4 виконує деякі базові перевірки на розумність, щоб визначити, чи є місія можливою під час завантаження, і коли транспортний засіб вперше зброєний.
+Якщо будь-яка з перевірок не пройде успішно, користувач отримує повідомлення, і почати місію неможливо.
 
-A subset of the most important checks are listed below:
+Підмножина найважливіших перевірок перерахована нижче:
 
-- First mission item too far away from vehicle ([MIS_DIST_1WP](#MIS_DIST_1WP))
-- Any mission item conflicts with a plan or safety geofence
+- Перший пункт місії занадто далеко від транспортного засобу ([MIS_DIST_1WP](#MIS_DIST_1WP))
+- Будь-який елемент місії конфліктує з планом або безпечним геозахистом
 
-## QGroundControl Support
+## Налаштування підтримки QGroundControl
 
-_QGroundControl_ provides additional GCS-level mission handling support (in addition to that provided by the flight controller).
+_QGroundControl_ надає додаткову підтримку обробки місій на рівні GCS (на додачу до того, що надає контролер польоту).
 
-For more information see:
+Для отримання додаткової інформації дивіться:
 
-- [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
-- [Resume mission after Return mode](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#resume-mission)
+- [Видалити місію після приземлення транспортного засобу](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
+- [Відновити місію після режиму Повернутися](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#resume-mission)
 
-## Mission Parameters
+## Параметри місії
 
-Mission behaviour is affected by a number of parameters, most of which are documented in [Parameter Reference > Mission](../advanced_config/parameter_reference.md#mission).
-A very small subset are listed below.
+Поведінка місій залежить від ряду параметрів, більшість з яких задокументовані в [Довідник параметрів > Місія](../advanced_config/parameter_reference.md#mission).
+Дуже маленька підмножина наведені нижче.
 
 Загальні параметри:
 
-| Параметр                                                                                                                                                                | Опис                                                                                                                                                                                                                                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)                                  | RC loss failsafe mode (what the vehicle will do if it looses RC connection) - e.g. enter hold mode, return mode, terminate etc.                                                                                                                         |
-| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE)                      | Controls whether stick movement on a multicopter (or VTOL in MC mode) gives control back to the pilot in [Position mode](../flight_modes_mc/position.md). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default. |
-| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes_mc/position.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).                                                                                 |
+| Параметр                                                                                                                                                                | Опис                                                                                                                                                                                                                                                                                                                                                      |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)                                  | Режим аварійного відновлення зв'язку RC (що робить транспортний засіб, якщо втрачає зв'язок RC) - наприклад, увійти в режим утримання, режим повернення, завершити тощо.                                                                                                                                               |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE)                      | Контролює переміщення джойстика на мультикоптері (або конвертоплані у режимі MC) повертає керування пілоту в [Режим положення](../flight_modes_mc/position.md). Це можна окремо увімкнути для автоматичних режимів та для режиму поза бортом, і в автоматичних режимах воно включено за замовчуванням. |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | Кількість рухів стиків, яка викликає перехід у [режим Положення](../flight_modes_mc/position.md) (якщо [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) увімкнено).                                                                                                                       |
 
-Parameters related to [mission feasibility checks](#mission-feasibility-checks):
+Параметри, пов'язані з [перевірками можливостей місії](#mission-feasibility-checks):
 
-| Параметр                                                                                                                                                                   | Опис                                                                                                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)                                  | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.         |
-| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                                        | Maximum landing slope angle.                                                                                                                                            |
-| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW and VTOL both have it set to 2 by default, which means that the mission has to contain a landing. |
+| Параметр                                                                                                                                                                   | Опис                                                                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)                                  | Місія не буде розпочата, якщо поточна точка шляху віддаленіша від домашньої позиції, ніж це значення. Вимкнено, якщо значення дорівнює 0 або менше.         |
+| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                                        | Maximum landing slope angle.                                                                                                                                                |
+| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW та VTOL обидва мають його задано на 2 за замовчуванням, що означає, що місія повинна містити посадку. |
 
 <a id="mission_commands"></a>
 
 ## Mission Commands
 
-PX4 "accepts" the following MAVLink mission commands in Mission mode (with some _caveats_, given after the list).
-Unless otherwise noted, the implementation is as defined in the MAVLink specification.
+PX4 "приймає" наступні команди місії MAVLink у режимі Місії (з деякими _попередженнями_, які наведені після списку).
+Якщо не вказано інше, реалізація відповідає визначенню у специфікації MAVLink.
 
 Предмети місії:
 

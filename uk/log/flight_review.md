@@ -156,25 +156,25 @@ DJI F450 кадр (добра вібрація). ![Low vibration DJI F450 - raw 
 #### Приклади: Погана вібрація
 
 <a id="raw_acc_s500"></a>
-Каркас S500. Рівні вібрації на межі - трохи високі для x та y (що є типовим для конструкції S500). This is at the limit where it starts to negatively affect flight performance.
+Каркас S500. Рівні вібрації на межі - трохи високі для x та y (що є типовим для конструкції S500). Це на межі, де це починає негативно впливати на польотові характеристики.
 
 ![Borderline vibration S500 x, y - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
 
 
-Vibration too high. Note how the graph of the z-axis overlaps with the x/y-axis graph:
+Вібрація занадто висока. Зверніть увагу, як графік вісі z накладається на графік вісі x/y:
 
 ![Vibrations in landing gear - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_accel.png)
 
 
-Vibration levels are too high. Note how the graph of the z-axis overlaps with the x/y-axis graph:
+Рівні вібрації занадто високі. Зверніть увагу, як графік вісі z накладається на графік вісі x/y:
 
 ![High vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_too_high_accel.png)
 
 
-Very high (unsafe) vibration levels.
+Дуже високі (небезпечні) рівні вібрації.
 
 :::warning
-You should not fly with such high vibration levels.
+Не слід літати з такими високими рівнями вібрації.
 :::
 
 ![Exceedingly high vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
@@ -182,158 +182,158 @@ You should not fly with such high vibration levels.
 
 <a id="fifo_logging"></a>
 
-### Raw High-rate IMU Data Plots
+### Графіки даних високошвидкісних ІМУ
 
-For an in-depth analysis there is an option to log the raw IMU data at full rate (several kHz, depending on the IMU). This allows inspection of much higher frequencies than with normal logging, which can help when selecting vibration mounts or configuring low-pass and notch filters appropriately.
+Для детального аналізу є можливість реєструвати сирові дані ІМП на повну швидкість (кілька кГц, в залежності від ІМП). Це дозволяє інспекцію набагато вищих частот, ніж при звичайному веденні журналування, що може допомогти при виборі віброізоляторів або налаштуванні нижніх та полосних фільтрів належним чином.
 
-To use it, some parameters need to be changed:
-- Set [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX) to 400. This ensures that the raw sensor data is more efficiently packed when sent from the sensor to the rest of the system, and reduces the log size (without reducing useful data). 
+Щоб використовувати його, деякі параметри потрібно змінити:
+- Встановіть [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX) на 400. Це забезпечує те, що сирові дані датчика ефективніше упаковані при відсиланні з датчика до решти системи та зменшує розмір звітів (не зменшуючи корисних даних). 
   <!-- Explanation in https://github.com/PX4/PX4-user_guide/pull/751/files#r440509688
   Data is sent in a fixed size array that will largely empty if sent at higher rate. The "empty data" is also logged.-->
-- Use a good SD card, as the IMU data requires a high logging bandwidth (Flight Review will show dropouts if the logging rate gets too high).
+- Використовуйте хороший SD-картку, оскільки дані ІМП потребують високої ширини смуги реєстрації (Огляд польотів покаже втрати, якщо швидкість реєстрації стане занадто великою).
 
 :::tip
-See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of popular SD card.
+Див. [Ведення журнала > SD-карти](../dev_log/logging.md#sd-cards) для порівняння популярних SD-карт.
 :::
 
-- Enable either the gyro or accel high-rate FIFO profile in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) and disable the rest of the entries. If you are using a really good SD card (seeing few/no dropouts), you can:
-  - either enable both accel and gyro profiles
-  - or enable accel/gyro plus the default logging profile
+- Увімкніть профіль високочастотного FIFO або гіроскопа або акселерометра в [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) та вимкніть решту записів. Якщо ви використовуєте дійсно хорошу SD-карту (бачите кілька / немає викидів), ви можете:
+  - або увімкніть обидві профілі прискорення та гіроскопу
+  - або увімкніть аксел/гіроскоп плюс профіль реєстрації за замовчуванням
 
-Example plot:
+Приклад графіка:
 
 ![high-rate accel power spectral density](../../assets/flight_log_analysis/flight_review/accel_spectral_density_fifo.png)
 
-::: info
-Data of the first IMU is logged, which is not necessarily the same as the one used for flying.
-This is mostly only important in cases where IMU's are mounted differently (e.g. hard-mounted vs. soft-mounted).
+:::info
+Зберігаються дані першого ІМП, який не обов'язково співпадає з тим, що використовується для польоту.
+Це в основному важливо лише у випадках, коли ІХА встановлені по-різному (наприклад, жорстко кріплені проти м'яко кріплених).
 :::
 
-::: info
-Do not forget to restore the parameters after testing.
+:::info
+Не забудьте відновити параметри після тестування.
 :::
 
 <a id="solutions"></a>
 
-### Fixing Vibration Problems
+### Виправлення проблем з вібрацією
 
-Often a source of vibration (or combination of multiple sources) cannot be identified from logs alone.
+Дуже часто джерело вібрації (або поєднання декількох джерел) не може бути ідентифіковано тільки з журналів.
 
-In this case the vehicle should be inspected. [Vibration Isolation](../assembly/vibration_isolation.md) explains some basic things you can check (and do) to reduce vibration levels.
+У цьому випадку транспортний засіб слід перевірити. [Ізоляція вібрації](../assembly/vibration_isolation.md) пояснює деякі основні речі, які ви можете перевірити (і зробити), щоб зменшити рівні вібрації.
 
 
 
-## Actuator Outputs
+## Виводи приводу
 
-The *Actuator Outputs* graph shows the signals that are sent to the individual actuators (motors/servos). Generally it is in the range between the minimum and maximum configured PWM values (e.g. from 1000 to 2000).
+Графік *Виводи приводів* показує сигнали, що надсилаються до окремих приводів (двигуни/сервоприводи). Загалом воно знаходиться в діапазоні між мінімальним і максимальним налаштованими значеннями ШІМ (наприклад, від 1000 до 2000).
 
-This is an example for a quadrotor where everything is OK (all of the signals are within the range, approximately overlap each other, and are not too noisy): ![Good actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
+Це приклад для квадрокоптера, коли все в порядку (всі сигнали знаходяться в межах діапазону, приблизно перекривають один одного і не занадто шумні): ![Good actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
 
-The plot can help to identify different problems:
-- If one or more of the signals is at the maximum over a longer time, it means the controller runs into **saturation**. It is not necessarily a problem, for example when flying at full throttle this is expected. But if it happens for example during a mission, it's an indication that the vehicle is overweight for the amount of thrust that it can provide.
-- For a multicopter the plot can be a good indication if the vehicle is **imbalanced**. It shows in the plot that one or more neighboring motors (two in case of a quadrotor) need to run at higher thrust on average. Note that this can also be the case if some motors provide more thrust than others or the ESCs are not calibrated. An imbalanced vehicle is generally not a big problem as the autopilot will automatically account for it. However it reduces the maximum achievable thrust and puts more strain on some motors, so it is better to balance the vehicle.
-- An imbalance can also come from the yaw axis. The plot will look similar as in the previous case, but opposite motors will run higher or lower respectively. The cause is likely that one or more motors are tilted.
+Сюжет може допомогти виявити різні проблеми:
+- Якщо один або кілька сигналів протягом тривалого часу перебувають на максимальному рівні, це означає, що контролер потрапив у **насичення**. Не обов'язково, що це проблема, наприклад, коли літаєте на повному газі, це очікується. Але якщо це стається, наприклад, під час місії, це ознака того, що транспортний засіб перевищує вагою кількість тяги, яку він може забезпечити.
+- Для багатокоптера графік може бути хорошою індикацією того, чи є транспортний засіб **незбалансованим**. Показано на графіку, що один або більше сусідніх двигунів (два у випадку квадрокоптера) мають працювати з вищим потужностю в середньому. Зверніть увагу, що це також може бути справа, якщо деякі двигуни надають більше тяги, ніж інші, або РПТ не відкалібровані. Дисбалансний транспортний засіб, як правило, не є великою проблемою, оскільки автопілот автоматично врахує це. Однак це зменшує максимальний досяжний тягун і навантажує деякі двигуни більше, тому краще збалансувати літальний апарат.
+- Дисбаланс також може виникнути від осі рискання. Сюжет буде схожий з попереднім випадком, але протилежні двигуни будуть працювати вище або нижче відповідно. Причина ймовірно у тому, що один або кілька моторів нахилений.
 
-  This is an example from a hexarotor: motors 1, 3 and 6 run at higher thrust: ![Hexrotor imbalanced actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png)
+  Це приклад з гексаротора: двигуни 1, 3 та 6 працюють з більшим тяговим зусиллям: ![Hexrotor imbalanced actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png)
   <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
-- If the signals look very **noisy** (with high amplitudes), it can have two causes: sensor noise or vibrations passing through the controller (this shows up in other plots as well, see previous section) or too high PID gains. This is an extreme example: ![Noisy actuator outputs - extreme case](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
+- Якщо сигнали виглядають дуже **шумними** (з високими амплітудами), це може мати дві причини: шум датчика або вібрації, які проходять через контролер (це також проявляється в інших графіках, див. попередній розділ) або надто високі значення PID. Це є крайнім прикладом: ![Noisy actuator outputs - extreme case](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
 
 
-## GPS Uncertainty
+## Невизначеність GPS
 
-The *GPS Uncertainty* plot shows information from the GPS device:
-- Number of used satellites (should be around 12 or higher)
-- Horizontal position accuracy (should be below 1 meter)
-- Vertical position accuracy (should be below 2 meters)
-- GPS fix: this is 3 for a 3D GPS fix, 4 for GPS + Dead Reckoning, 5 for RTK float and 6 for RTK fixed type
+Графік *Невизначеності GPS* показує інформацію від пристрою GPS:
+- Кількість використаних супутників (повинна бути близько 12 або вище)
+- Точність горизонтального положення (має бути менше 1 метра)
+- Точність вертикального положення (має бути менше 2 метрів)
+- GPS фіксація: це 3 для 3D GPS фіксації, 4 для GPS + Dead Reckoning, 5 для RTK float та 6 для RTK фіксованого типу
 
 
-## GPS Noise & Jamming
+## Перешкоди GPS & перешкоди
 
-The GPS Noise & Jamming plot is useful to check for GPS signal interferences and jamming. The GPS signal is very weak and thus it can easily be disturbed/jammed by components transmitting (via cable) or radiating in a frequency used by the GPS.
+Графік шуму &перешкод GPS корисний для перевірки перешкод сигналу GPS та блокування. Сигнал GPS дуже слабкий і, отже, його легко можна порушити / перешкодити компонентами, що передають (через кабель) або випромінюють на частоті, яку використовує GPS.
 
 :::tip USB
-3 is [known to be](https://www.usb.org/sites/default/files/327216.pdf) an effective GPS jamming source.
+3 це [відомий](https://www.usb.org/sites/default/files/327216.pdf) ефективний джемер GPS.
 :::
 
-The **jamming indicator** should be around or below 40. Values around 80 or higher are too high and the setup must be inspected. Signal interference is also noticeable as reduced accuracy and lower number of satellites up to the point where no GPS fix is possible.
+Індикатор перешкод **джемінгу** повинен бути близько або нижче 40. Значення навколо 80 або вище є занадто високими, і налаштування повинні бути перевірені. Перешкоди сигналу також помітні як зменшення точності та менша кількість супутників до того моменту, коли неможливо отримати фіксацію GPS.
 
-This is an example without any interference:
+Це приклад без будь-якого втручання:
 
 ![GPS jamming - good plot](../../assets/flight_log_analysis/flight_review/gps_jamming_good.png)
 
 
-## Thrust and Magnetic Field
+## Тяга та магнітне поле
 
-The *Thrust and Magnetic Field* plot shows the thrust and the norm of the magnetic sensor measurement vector.
+Діаграма *Тяги та Магнітного Поля* показує тягу та норму вектора вимірювання магнітного датчика.
 
-The norm should be constant over the whole flight and uncorrelated with the thrust. This is a good example where the norm is very close to constant: ![Thrust and mag close to constant](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
+Норма повинна бути постійною протягом усього польоту і не пов'язана з тягою. Це добрий приклад того, де норма дуже близька до постійної: ![Thrust and mag close to constant](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
 
-*If it is correlated*, it means that the current drawn by the motors (or other consumers) is influencing the magnetic field. This must be avoided as it leads to incorrect yaw estimation. The following plot shows a strong correlation between the thrust and the norm of the magnetometer: ![Correlated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
+*Якщо воно корелює*, це означає, що струм, який споживають двигуни (або інші споживачі), впливає на магнітне поле. Це слід уникати, оскільки це призводить до невірної оцінки кута розвороту. Наступний сюжет показує сильну кореляцію між тягою та нормою магнітоскопа: ![Correlated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
 
-Solutions to this are:
-- Use an external magnetometer (avoid using the internal magnetometer)
-- If using an external magnetometer, move it further away from strong currents (i.e. by using a (longer) GPS mast).
+Рішення для цього є:
+- Використовуйте зовнішній магнітомер (уникайте використання внутрішнього магнітомера)
+- Якщо використовується зовнішній магнітометр, перемістіть його подалі від сильних течій (тобто за допомогою (довшої) GPS-стійки).
 
-If the norm is uncorrelated but not constant, most likely it is not properly calibrated. However it could also be due to external disturbances (for example when flying close to metal constructs).
+Якщо норма не корелює, але не постійна, найімовірніше вона не відкалібрована належним чином. Проте це також може бути пов'язано з зовнішніми перешкодами (наприклад, коли літаєте близько до металевих конструкцій).
 
-This example shows that the norm is non-constant, but it does not correlate with the thrust: ![Uncorrelated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
+Цей приклад показує, що норма є незмінною, але вона не корелює з тягою: ![Uncorrelated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
 
 
-## Estimator Watchdog
+## Сторожовий оцінювач
 
-The *Estimator Watchdog* plot shows the health report of the estimator. It should be constant zero.
+Графік *Спостерігача оцінювача* показує звіт про стан здоров'я оцінювача. Воно має бути постійним нулем.
 
-This is what it should look like if there are no problems: ![Estimator watchdog - good](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
+Отак виглядатиме, якщо немає проблем:![Estimator watchdog - good](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
 
-If one of the flags is non-zero, the estimator detected a problem that needs to be further investigated. Most of the time it is an issue with a sensor, for example magnetometer interferences. It usually helps to look at the plots of the corresponding sensor.
+Якщо один з прапорців не є нульовим, оцінювач виявив проблему, яку потрібно додатково вивчити. У більшості випадків це проблема з сенсором, наприклад, перешкоди магнітомера. Зазвичай це допомагає глянути на графіки відповідного сенсора.
 <!-- TODO: separate page for estimator issues? -->
 
-Here is an example with magnetometer problems: ![Estimator watchdog with magnetometer problems](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
+Ось приклад з проблемами магнітометра: ![Estimator watchdog with magnetometer problems](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
 
 
-## Sampling Regularity of Sensor Data
+## Регулярність вибірки даних сенсора
 
-The sampling regularity plot provides insights into problems with the logging system and scheduling.
+Графік регулярного вибіркового відтворення надає уявлення про проблеми з системою ведення журналу та плануванням.
 
-The amount of **logging dropouts** start to increase if the log buffer is too small, the logging rate is too high or a low-quality SD card is used.
+Кількість випадків **відвалів журналювання** починає зростати, якщо буфер журналювання занадто малий, швидкість журналювання занадто висока або використовується карта SD низької якості.
 
-::: info
-Occasional dropouts can be expected on medium quality cards.
+:::info
+Час від часу можна очікувати випадки відключень у картах середньої якості.
 :::
 
-The **delta t** shows the time difference between two logged IMU samples. It should be close to 4 ms because the data publishing rate is 250Hz. If there are spikes that are a multiple of that (and the estimator time slip does not increase), it means the logger skipped some samples. Occasionally this can happen because the logger runs at lower priority. If there are spikes that are not a multiple, it indicates an irregular sensor driver scheduling, which needs to be investigated.
+**Дельта t** показує різницю в часі між двома записаними вибірками IMU. Це повинно бути близько до 4 мс, оскільки швидкість публікації даних становить 250 Гц. Якщо є піки, які є кратними цьому (і затримка часу оцінювача не збільшується), це означає, що журналізатор пропустив деякі зразки. Іноді це може трапитися через те, що реєстратор працює з нижчою пріоритетністю. Якщо є шипи, які не є кратними, це вказує на неправильне планування драйвера датчика, яке потрібно дослідити.
 
-The **estimator timeslip** shows the difference between the current time and the time of the integrated sensor intervals up to that time. If it changes it means either the estimator missed sensor data or the driver publishes incorrect integration intervals. It should stay at zero, but it can increase slightly for in-flight parameter changes, which is generally not an issue.
+Час вимірювача **затримки** показує різницю між поточним часом та часом інтервалів інтегрованого сенсора до цього часу. Якщо це змінюється, це означає, що або оцінювач пропустив дані датчика, або водій публікує невірні інтервали інтеграції. Воно повинно залишатися на нулі, але може трохи збільшуватися при змінах параметрів в польоті, що, як правило, не є проблемою.
 
-This is a good example: ![Sampling regularity good](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
+Це хороший приклад: ![Sampling regularity good](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
 
-The following example contains too many dropouts, the quality of the used SD card was too low in that case (see [here](../dev_log/logging.md#sd-cards) for good SD cards):
+Наведений приклад містить занадто багато випадань, якість використаної SD-карти була занадто низькою в цьому випадку (див. [тут](../dev_log/logging.md#sd-cards) для хороших SD-карт):
 
 ![Many Dropouts](../../assets/flight_log_analysis/flight_review/sampling_regularity_many_drops.png)
 
-## Logged Messages
+## Зареєстровані повідомлення
 
-This is a table with system error and warning messages. For example they show when a task becomes low on stack size.
+Це таблиця з повідомленнями про системні помилки та попередження. Наприклад, вони показують, коли завдання стає низьким за об'ємом стеку.
 
-The messages need to be examined individually, and not all of them indicate a problem. For example the following shows a kill-switch test: ![Logged Messages](../../assets/flight_log_analysis/flight_review/logged_messages.png)
+Повідомлення потрібно розглядати індивідуально, і не всі з них вказують на проблему. Наприклад, нижче наведено тест вимикача аварійного вимкнення: ![Logged Messages](../../assets/flight_log_analysis/flight_review/logged_messages.png)
 
 
-## Flight/Frame Log Review Examples
+## Приклади огляду журналу польотів / кадру
 
-It is often worth looking at multiple charts for a particular flight when analyzing vehicle condition (different charts can better highlight some issues). This is particularly important when reviewing for possible vibration problems.
+Часто варто розглянути кілька графіків для певного польоту при аналізі стану транспортного засобу (різні графіки можуть краще підкреслити деякі проблеми). Це особливо важливо при перегляді можливих проблем з вібрацією.
 
-The section below groups a few (previously presented) charts by flight/vehicle.
+Розділ нижче групує кілька (раніше презентованих) графіків за рейс/транспортний засіб.
 
 ### QAV-R 5" Racer
 
-These charts are all from the same flight of a [QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md).
+Ці діаграми всі з того ж польоту квадрокоптера [QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md).
 <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-They show a vehicle that has very low vibration:
-- Actuator Controls FFT shows only a single peak at the lowest end, with the rest low and flat.
-- Spectral density is mostly green, with only a little yellow at the low frequencies.
-- Raw Acceleration has z-axis trace well separated from the x/y-axis traces.
+Вони показують транспортний засіб, який має дуже низькі вібрації:
+- Контролер приводу FFT показує лише один пік в найнижчій частині, а решта низька та плоска.
+- Спектральна щільність в основному зелена, лише трохи жовта на низьких частотах.
+- Прискорення в сирому вигляді має слід по осі z, чітко відокремлений від слідів по осі x/y.
 
 ![Low vibration QAV-R 5 Racer - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
@@ -344,13 +344,13 @@ They show a vehicle that has very low vibration:
 
 ### DJI F450
 
-These charts are all from the same flight of a *DJI F450*.
+Ці діаграми усі з одного рейсу літака *DJI F450*.
 <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-They show a vehicle that has low vibration (but not as low as the QAV-R above!):
-- Actuator Controls FFT shows a peak at the lowest end. Most of the rest is flat, except for a bump at around 100Hz (this is the blade passing frequency of the propellers).
-- Spectral density is mostly green. The blade passing frequency is again visible.
-- Raw Acceleration has z-axis trace well separated from the x/y-axis traces.
+Вони показують автомобіль, який має низьку вібрацію (але не таку низьку, як у QAV-R вище!):
+- Контрольні Фурнкції FFT показують пік в найнижчій точці. Більшість решти є плоскою, за винятком випинання на близько 100 Гц (це частота проходження лопастей гвинтів).
+- Спектральна густина переважно зелена. Частота проходження леза знову видима.
+- Прискорення в сирому вигляді має слід по осі z, який добре відокремлений від слідів по осі x/y.
 
 ![Low vibration DJI F450 - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
 
@@ -361,12 +361,12 @@ They show a vehicle that has low vibration (but not as low as the QAV-R above!):
 
 ### S500
 
-These charts are all from the same flight of an S500.
+Ці діаграми усі з одного рейсу літака S500.
 
-They show a vehicle that has borderline-acceptable vibration:
-- Actuator Controls FFT shows a peak at the lowest end. Most of the rest is flat, except for a bump at around 100Hz.
-- Spectral density is mostly green, but more yellow than for the DJI F450 at 100Hz.
-- Raw Acceleration has z-axis trace fairly close to the x/y-axis traces. This is at the limit where it starts to negatively affect flight performance.
+Вони показують транспортний засіб, який має майже прийнятні вібрації:
+- Контрольні Фурнкції FFT показують пік в найнижчій точці. Більшість решти є плоскою, за винятком виступу близько 100 Гц.
+- Спектральна щільність в основному зелена, але жовта більше, ніж у DJI F450 на частоті 100 Гц.
+- Прискорення в сирому вигляді має слід зісипу в напрямку осі z, досить близький до слідів по осі x/y. Це на межі, де це починає негативно впливати на польотові характеристики.
 
 ![Low vibration S500 actuator controls - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 

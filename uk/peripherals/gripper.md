@@ -6,7 +6,7 @@ PX4 дозволяє викликати захвати автоматично у
 
 ![High-load gripper example](../../assets/hardware/grippers/highload_gripper_example.jpg)
 
-::: info
+:::info
 Захват замість цього може бути налаштований як [загальний привод RC або MAVLink](../payloads/generic_actuator_control.md#generic-actuator-control-with-rc). Загальний привід не може бути використаний з джойстиком або в місіях з вантажем, але його можна використовувати з пультом дистанційного керування.
 :::
 

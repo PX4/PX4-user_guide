@@ -2,42 +2,42 @@
 
 <img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
-The _Hold_ flight mode causes the vehicle to stop and hover at its current GPS position and altitude.
+Режим _Hold_ призводить до того, щоб транспорт зупинявся і зависав на своєму поточному GPS-положенні та висоті.
 
 :::tip
-_Hold mode_ can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch.
+_Режим утримання_ може бути використаний для призупинення місії або для допомоги у відновленні контролю над транспортним засобом у випадку надзвичайної ситуації. Зазвичай він активується за допомогою наперед заданого перемикача.
 :::
 
 ::: info
 
-- Mode is automatic - no user intervention is _required_ to control the vehicle.
-- Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
-  - Flying vehicles can't switch to this mode without global position.
-  - Flying vehicles will failsafe if they lose the position estimate.
-  - Disarmed vehicles can switch to mode without valid position estimate but can't arm.
-- Mode requires wind and flight time are within allowed limits (specified via parameters).
-- RC control switches can be used to change flight modes on any vehicle.
-- RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
+- Режим є автоматичним - для керування транспортним засобом не потрібне _втручання_ користувача.
+- Режим вимагає глобальної тривимірної оцінки позиції (з GPS або виведеної з [локальної позиції](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+  - Літаючі апарати не можуть перемикатися в цей режим без глобальної позиції.
+  - Літаючі транспортні засоби будуть аварійно переходити в безпечний режим, якщо втрачають оцінку позиції.
+  - Роззброєні транспортні засоби можуть переключатися в режим без дійсної оцінки позиції, але не можуть озброюватися.
+- Режим вимагає, щоб швидкість вітру та час польоту були в межах допустимих значень (вказано через параметри).
+- Перемикачі керування RC можна використовувати для зміни режимів польоту на будь-якому автомобілі.
+- Рух палиць дистанційного керування буде [за замовчуванням](#COM_RC_OVERRIDE) змінювати транспортний засіб на [режим позиції](../flight_modes_mc/position.md), якщо не виникне критична аварія батареї.
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 
-## Technical Summary
+## Технічний підсумок
 
-The vehicle hovers at the current position and altitude. The vehicle will first ascend to [NAV_MIN_LTR_ALT](#NAV_MIN_LTR_ALT) if the mode is engaged below this altitude.
+Транспортний засіб ширяє у поточному положенні на поточній висоті. Транспортний засіб спочатку підніметься до [NAV_MIN_LTR_ALT](#NAV_MIN_LTR_ALT), якщо режим увімкнено нижче цієї висоти.
 
-RC stick movement will change the vehicle to [Position mode](../flight_modes_mc/position.md) (by [default](#COM_RC_OVERRIDE)).
+Рух палиці RC змінить транспортний засіб на [Режим положення](../flight_modes_mc/position.md) (за [за замовчуванням](#COM_RC_OVERRIDE)).
 
 ### Параметри
 
 Hold mode behaviour can be configured using the parameters below.
 
-| Параметр                                                                                                | Опис                                                                                                                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <a id="NAV_MIN_LTR_ALT"></a>[NAV_MIN_LTR_ALT](../advanced_config/parameter_reference.md#NAV_MIN_LTR_ALT) | This is the minimum altitude above Home the system will always obey in Hold mode if switched into this mode without specifying an altitude (e.g. through switch on RC).                                                                                      |
-| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) causes a mode change to [Position mode](../flight_modes_mc/position.md). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default. |
-| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes_mc/position.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).                                                                                              |
+| Параметр                                                                                                | Опис                                                                                                                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="NAV_MIN_LTR_ALT"></a>[NAV_MIN_LTR_ALT](../advanced_config/parameter_reference.md#NAV_MIN_LTR_ALT) | Це мінімальна висота над домашньою позицією, яку система завжди буде дотримуватися в режимі утримання, якщо перемикається в цей режим без вказівки висоти (наприклад, за допомогою перемикача на дистанційному керуванні).                                                                                 |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Контролює, чи рух палиць на багтрековому літальному апараті (або VTOL у режимі MC) викликає зміну режиму на [Режим позиціонування](../flight_modes_mc/position.md). Це можна окремо увімкнути для автоматичних режимів та для режиму поза бортом, і в автоматичних режимах воно включено за замовчуванням. |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | Кількість рухів стиків, яка викликає перехід у режим [Положення](../flight_modes_mc/position.md) (якщо [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) увімкнено).                                                                                                                                                   |
 
 <!-- Code for this here: https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/loiter.cpp#L61 -->
 

@@ -8,16 +8,16 @@ PX4 працює на мікроконтролерах ARM Cortex-M, які мі
 
 Чотири сигнали необхідні для відлагодження (в жирному шрифті), а решту лише рекомендується.
 
-| Назва       | Тип    | Опис                                                                                      |
-|:----------- |:------ |:----------------------------------------------------------------------------------------- |
-| **GND**     | Power  | Shared potential, common ground.                                                          |
-| **VREF**    | Power  | The target reference voltage allows the debug probe to use level shifters on the signals. |
-| **SWDIO**   | I/O    | Serial Wire Debug data pin.                                                               |
-| **SWCLK**   | Input  | Serial Wire Debug clock pin.                                                              |
-| nRST        | Input  | The reset pin is optional (n = active low).                                               |
-| SWO         | Output | Single wire trace asynchronous data out can output ITM and DWT data.                      |
-| TRACECK     | Output | Trace clock for parallel bus.                                                             |
-| TRACED[0-3] | Output | Trace synchronous data bus with 1, 2, or 4 bits.                                          |
+| Назва       | Тип        | Опис                                                                                         |
+|:----------- |:---------- |:-------------------------------------------------------------------------------------------- |
+| **GND**     | Живлення   | Спільний потенціал, спільна основа.                                                          |
+| **VREF**    | Живлення   | Цільове довідкове напруга дозволяє засоби налагодження використовувати рівнеміри на сигнали. |
+| **SWDIO**   | Вхід/вихід | Пін даних для послідовного знавантаження через мережу.                                       |
+| **SWCLK**   | Вхід       | Пін годинника для послідовного знавантаження через мережу.                                   |
+| nRST        | Вхід       | PIN скидання є необов’язковим (n = активним низьким).                                        |
+| SWO         | Вивід      | Однопровідний шлейф асинхронних даних з можливістю виведення даних ITM та DWT.               |
+| TRACECK     | Вивід      | Трасування годинника для паралельної шини.                                                   |
+| TRACED[0-3] | Вивід      | Трасування синхронної шини даних з 1, 2 чи 4 бітами.                                         |
 
 Пін скидання апаратного забезпечення є необов'язковим, оскільки більшість пристроїв також можуть бути скинуті через лінії SWD. Однак швидке скидання пристрою за допомогою кнопки може бути великим плюсом для розробки.
 
@@ -37,23 +37,23 @@ SWO-пін може випромінювати дані профілювання
 
 <a id="port-information"></a>
 
-| Автопілот                                                                           | Відладочний порт                                                                                                                                                        |
-|:----------------------------------------------------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Holybro Pixhawk 6X-RT (FMUv6X-RT)                                                   | [Порти відладки Pixhawk Full](#pixhawk-debug-full)                                                                                                                      |
-| Holybro Pixhawk 6X (FMUv6x)                                                         | [Порти відладки Pixhawk Full](#pixhawk-debug-full)                                                                                                                      |
-| Holybro Pixhawk 5X (FMUv5x)                                                         | [Порти відладки Pixhawk Full](#pixhawk-debug-full)                                                                                                                      |
-| [Holybro Durandal](../flight_controller/durandal.md#debug-port)                     | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
-| [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)                    | Solder pads                                                                                                                                                             |
-| [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) (FMUv5)  | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
-| [Holybro Pixhawk 4](../flight_controller/pixhawk4.md#debug_port) (FMUv5)            | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
-| [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md#debug-port) (FMU-v4pro) | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
-| [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                         | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (side mount) |
-| [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)                      | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (side mount) |
-| [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                             | ARM 10-pin JTAG Connector (also used for FMUv2 boards including: _mRo Pixhawk_, _HobbyKing HKPilot32_).                                                                 |
+| Автопілот                                                                           | Відладочний порт                                                                                                                                                                |
+|:----------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Holybro Pixhawk 6X-RT (FMUv6X-RT)                                                   | [Порти відладки Pixhawk Full](#pixhawk-debug-full)                                                                                                                              |
+| Holybro Pixhawk 6X (FMUv6x)                                                         | [Порти відладки Pixhawk Full](#pixhawk-debug-full)                                                                                                                              |
+| Holybro Pixhawk 5X (FMUv5x)                                                         | [Порти відладки Pixhawk Full](#pixhawk-debug-full)                                                                                                                              |
+| [Holybro Durandal](../flight_controller/durandal.md#debug-port)                     | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                                       |
+| [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)                    | Паяльні майданчики                                                                                                                                                              |
+| [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) (FMUv5)  | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                                       |
+| [Holybro Pixhawk 4](../flight_controller/pixhawk4.md#debug_port) (FMUv5)            | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                                       |
+| [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md#debug-port) (FMU-v4pro) | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                                       |
+| [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                         | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (вертикальний монтаж), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (бічний монтаж) |
+| [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)                      | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (вертикальний монтаж), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (бічний монтаж) |
+| [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                             | Роз'єм JTAG ARM на 10 контактів (також використовується для плат FMUv2, включаючи: _mRo Pixhawk_, _HobbyKing HKPilot32_).                                                       |
 
 <a id="pixhawk-standard-debug-ports"></a>
 
-## Pixhawk Connector Standard Debug Ports
+## Стандарт роз'ємів Pixhawk Debug Портів
 
 Проект Pixhawk визначив стандартну схему виводів та тип роз'єму для різних випусків Pixhawk FMU:
 
@@ -93,7 +93,7 @@ SWO-пін може випромінювати дані профілювання
 |   5 | **SWDCLK** |
 |   6 | **GND**    |
 
-The debug port definition includes the following solder pads (on board next to connector):
+Визначення порту налагодження містить наступні припояні пластины (на платі поряд із роз'ємом):
 
 | Pad | Signal | Voltage |
 | ---:|:------ |:------- |

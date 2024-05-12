@@ -6,31 +6,31 @@
 
 _Position Slow_ mode is a velocity and yaw rate limited version of the regular [Position mode](../flight_modes_mc/position.md).
 
-The mode works in exactly the same way as _Position mode_ but with the controller stick deflection re-scaled to lower maximum velocities (and proportionally lower acceleration).
-You can use it to quickly slow down the vehicle to a safe speed (if it is moving faster than the maximum velocity in the limited axis).
-You can also use it to get more precision from stick input, in particular when flying close to obstacles, or to comply with regulations such as [EASA's low-speed mode/function](https://www.easa.europa.eu/en/light/topics/flying-drones-close-people).
+Режим працює точно так само, як _Режим позиціонування_, але з перемасштабованим відхиленням стіку контролера до менших максимальних швидкостей (і пропорційно меншим прискоренням).
+Ви можете використовувати її, щоб швидко зменшити швидкість транспортного засобу до безпечної швидкості (якщо вона рухається швидше, ніж максимальна швидкість в обмеженій вісі).
+Ви також можете використовувати його, щоб отримати більшу точність введення стіків, зокрема, при польотах поблизу перешкод, або для дотримання правил, таких як [режим/функція низької швидкості EASA](https://www.easa.europa.eu/en/light/topics/flying-drones-close-people).
 
-The velocity limits can be set using parameters, from an [RC Controller](../getting_started/rc_transmitter_receiver.md) rotary knob, slider, or switch, or using MAVLink.
-Limits set using an RC controller override those set by MAVLink, which in turn override those set using parameters.
-The limits can only be reduced below those for normal _Position_ mode.
+Межу швидкості можна встановити за допомогою параметрів, з використанням роторної кнопки, слайдера або перемикача [ПДУ](../getting_started/rc_transmitter_receiver.md), або за допомогою MAVLink.
+Обмеження, встановлені за допомогою пульту керування RC, перевищують ті, що встановлені за допомогою MAVLink, які, зі свого боку, перевищують ті, що встановлені за допомогою параметрів.
+Ліміти можуть бути зменшені тільки нижче тих, що діють для звичайного режиму _Position_.
 
-## Set Limits using Parameters
+## Встановлення обмежень за допомогою параметрів
 
-The maximum values for slow mode horizontal velocity, vertical velocity, and yaw rate can be set using parameters.
-This approach is useful when the maximum desired speed in slow mode is fixed, and you just want to be able to quickly drop to a safer speed range (perhaps using a switch on your controller).
+Максимальні значення для горизонтальної швидкості у режимі повільного руху, вертикальної швидкості та швидкості кочання можна встановити за допомогою параметрів.
+Цей підхід корисний, коли максимальна бажана швидкість в повільному режимі фіксована, і ви просто хочете швидко знизити швидкість до безпечного діапазону (можливо, використовуючи перемикач на вашому контролері).
 
-The table below shows the parameters used to set the maximum values for _Position slow_ mode and _Position_ mode, respectively, along with their default values.
+Таблиця нижче показує параметри, що використовуються для встановлення максимальних значень для режиму _Повільне встановлення позиції_ та режиму _Позиції_, відповідно, разом із їхніми значеннями за замовчуванням.
 
-| Axis                | Position slow mode                               | Position mode                                                                                         |
+| Вісь                | Режим повільного позиціювання                    | Position mode                                                                                         |
 | ------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
 | Horizontal velocity | [MC\_SLOW\_DEF\_HVEL][mc_slow_def_hvel] (3 m/s)  | [MPC\_VEL\_MANUAL][mpc_vel_manual] (10 m/s)                                                           |
 | Vertical velocity   | [MC\_SLOW\_DEF\_VVEL][mc_slow_def_vvel] (1 m/s)  | [MPC\_Z\_VEL\_MAX\_UP][mpc_z_vel_max_up] (3 m/s) / [MPC\_Z\_VEL\_MAX\_DN][mpc_z_vel_max_dn] (1.5 m/s) |
 | Yaw rate            | [MC\_SLOW\_DEF\_YAWR][mc_slow_def_yawr] (45 °/s) | [MPC\_MAN\_Y\_MAX][mpc_man_y_max] (150 °/s)                                                           |
 
-From this you can see, for example, that when switching from Position mode to Position slow mode, the default maximum upward horizontal velocity is reduced from 10 m/s to 3 m/s.
-If traveling faster than 3 m/s horizontally you'd be slowed to 3 m/s.
+З цього можна побачити, наприклад, що при переході з режиму Позиції в режим Повільної позиції, максимальна висотна швидкість у горизонтальному напрямку за замовчуванням зменшується з 10 м/с до 3 м/с.
+Якщо подорожуєте швидше, ніж 3 м/с горизонтально, ви сповільнюватиметесь до 3 м/с.
 
-Note that the parameters are used only if limits are not provided by from RC or MAVLink.
+Зверніть увагу, що параметри використовуються лише у випадку, якщо обмеження не надаються від RC або MAVLink.
 
 <!-- links used in table above -->
 
@@ -44,20 +44,20 @@ Note that the parameters are used only if limits are not provided by from RC or 
 
 ## Set Limits using RC Control
 
-You can map a rotary knob, slider, or switch, on a [RC Controller](../getting_started/rc_transmitter_receiver.md) to set the maximum velocity of an axis (horizontal/vertical/yaw).
-This approach is useful when the appropriate slow-mode maximum values can vary while flying.
+Ви можете зіставити обертовий регулятор, слайдер або перемикач на [RC-контролері](../getting_started/rc_transmitter_receiver.md), щоб встановити максимальну швидкість вісі (горизонтальної/вертикальної/повороту).
+Цей підхід корисний, коли відповідні значення максимальної сповільнення можуть відрізнятися під час польоту.
 
-If the input control is set to its highest value the vehicle will go as fast as in _Position_ mode.
-If the input is set to its lowest value, the vehicle maximum velocity is set to the value in the corresponding `MC_SLOW_MIN_` parameter (shown in the table below).
-If an RC control input is mapped for an axis it has priority over all other inputs.
+Якщо вхідне керування встановлено на найвище значення, транспортний засіб поїде так швидко, як у режимі _Position_.
+Якщо вхід встановлено на найнижче значення, максимальна швидкість транспортного засобу встановлюється ​​на значення в відповідному параметрі `MC_SLOW_MIN_` (показано в таблиці нижче).
+Якщо ввімкнено керування RC для вісі, воно має пріоритет над усіма іншими входами.
 
-The table below lists each axis along with the parameter used to select which RC AUX channel corresponds to the control knob, and the parameter that sets the lowest possible "maximum value" for the axis.
+Таблиця нижче містить кожну вісь разом з параметром, який використовується для вибору того, який канал RC AUX відповідає кнопці керування, та параметром, що встановлює найнижче можливе "максимальне значення" для вісі.
 
-| Axis                | Parameter to map auxiliary input        | Parameter for minimum value of maximum velocity |
-| ------------------- | --------------------------------------- | ----------------------------------------------- |
-| Horizontal velocity | [MC\_SLOW\_MAP\_HVEL][mc_slow_map_hvel] | [MC\_SLOW\_MIN\_HVEL][mc_slow_min_hvel]         |
-| Vertical velocity   | [MC\_SLOW\_MAP\_VVEL][mc_slow_map_vvel] | [MC\_SLOW\_MIN\_VVEL][mc_slow_min_vvel]         |
-| Yaw rate            | [MC\_SLOW\_MAP\_YAWR][mc_slow_map_yawr] | [MC\_SLOW\_MIN\_YAWR][mc_slow_min_yawr]         |
+| Вісь                    | Параметр для відображення допоміжного вводу | Параметр для мінімального значення максимальної швидкості |
+| ----------------------- | ------------------------------------------- | --------------------------------------------------------- |
+| Горизонтальна швидкість | [MC\_SLOW\_MAP\_HVEL][mc_slow_map_hvel]     | [MC\_SLOW\_MIN\_HVEL][mc_slow_min_hvel]                   |
+| Vertical velocity       | [MC\_SLOW\_MAP\_VVEL][mc_slow_map_vvel]     | [MC\_SLOW\_MIN\_VVEL][mc_slow_min_vvel]                   |
+| Yaw rate                | [MC\_SLOW\_MAP\_YAWR][mc_slow_map_yawr]     | [MC\_SLOW\_MIN\_YAWR][mc_slow_min_yawr]                   |
 
 <!-- links used in table above -->
 
@@ -70,23 +70,23 @@ The table below lists each axis along with the parameter used to select which RC
 
 To use this approach:
 
-1. Make sure you have a remote with an extra input and an extra RC channel to transmit it's position.
-2. Map the channel which contains the knobs position as one of the 6 auxiliary passthrough inputs by setting [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to the corresponding RC channel number.
-3. Map that auxiliary input using the appropriate `MC_SLOW_MAP_` parameter for the axis you want it to control (see table above).
+1. Переконайтеся, що в вашому пульті є додатковий вхід та додатковий канал дистанційного керування для передачі його положення.
+2. Відобразіть канал, який містить позицію ручок, як один з 6 додаткових входів пропускання, встановивши [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) на відповідний номер каналу RC.
+3. Карта введення, використовуючи відповідний параметр `MC_SLOW_MAP_` для вісі, яку ви хочете контролювати (див. таблицю вище).
 
 Наприклад, якщо ви хочете відобразити канал RC 8 для обмеження горизонтальної швидкості, ви можете встановити для [RC\_MAP\_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) значення 8, а для [MC\_SLOW\_MAP\_HVEL][mc_slow_map_hvel] значення значення "1".
 Потім вхід RC з каналу 8 встановлює обмеження горизонтальної швидкості між [MC\_SLOW\_MIN\_HVEL][mc_slow_min_hvel] і [MPC\_VEL\_MANUAL][mpc_vel_manual].
 
 ## Set Limits using MAVLink
 
-You can adjust the velocity limits using the MAVLink message [SET_VELOCITY_LIMITS](https://mavlink.io/en/messages/development.html#SET_VELOCITY_LIMITS).
-This approach is used primarily by automatic systems, for example to slow a vehicle when zooming a camera.
+Ви можете налаштувати ліміти швидкості, використовуючи повідомлення MAVLink [SET_VELOCITY_LIMITS](https://mavlink.io/en/messages/development.html#SET_VELOCITY_LIMITS).
+Цей підхід використовується переважно автоматичними системами, наприклад, для сповільнення транспортного засобу при збільшенні масштабування камери.
 
-The message can set the maximum value on any of the axes by supplying a non-`NAN` limit value.
-This overrides limit values set in parameters, but is ignored if the axis is mapped to an RC knob.
-The value can be updated from a message at any time, and is latched until either the next message or a mode switch.
+Повідомлення може встановити максимальне значення на будь-якій з осей, надавши не-`NAN` обмеження.
+Це заміняє обмеження, встановлені в параметрах, але ігнорується, якщо вісь відображена на ручку RC.
+Значення може бути оновлене з повідомлення у будь-який момент, і залишається затриманим до наступного повідомлення або перемикання режиму.
 
-Note that PX4 does not provide velocity limit telemetry (i.e. it does not support streaming the [VELOCITY_LIMITS](https://mavlink.io/en/messages/development.html#VELOCITY_LIMITS) message).
+Зверніть увагу, що PX4 не надає телеметрію обмеження швидкості (тобто воно не підтримує передавання повідомлення [VELOCITY_LIMITS](https://mavlink.io/en/messages/development.html#VELOCITY_LIMITS)).
 
 ## Дивіться також
 

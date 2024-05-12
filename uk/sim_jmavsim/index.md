@@ -199,24 +199,24 @@ Inconsistency detected by ld.so: dl-lookup.c: 112: check_match: Assertion versio
 ### java.awt.AWTError: Assistive Technology not found: org.GNOME.Accessibility.AtkWrapper
 
 ```sh
-Exception in thread "main" java.lang.reflect.InvocationTargetException
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.lang.reflect.Method.invoke(Method.java:498)
-at org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader.main(JarRsrcLoader.java:58)
-Caused by: java.awt.AWTError: Assistive Technology not found: org.GNOME.Accessibility.AtkWrapper
-at java.awt.Toolkit.loadAssistiveTechnologies(Toolkit.java:807)
-at java.awt.Toolkit.getDefaultToolkit(Toolkit.java:886)
-at java.awt.Window.getToolkit(Window.java:1358)
-at java.awt.Window.init(Window.java:506)
-at java.awt.Window.(Window.java:537)
-at java.awt.Frame.(Frame.java:420)
-at java.awt.Frame.(Frame.java:385)
-at javax.swing.JFrame.(JFrame.java:189)
-at me.drton.jmavsim.Visualizer3D.(Visualizer3D.java:104)
-at me.drton.jmavsim.Simulator.(Simulator.java:157)
-at me.drton.jmavsim.Simulator.main(Simulator.java:678)
+Виключення в потоці "main" java.lang.reflect.InvocationTargetException
+в sun.reflect.NativeMethodAccessorImpl.invoke0 (Нативний метод)
+в sun.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:62)
+в sun.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
+в java.lang.reflect.Method.invoke (Method.java:498)
+в org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader.main (JarRsrcLoader.java:58)
+Викликано: java.awt.AWTError: Не знайдено технологію сприяння: org.GNOME.Accessibility.AtkWrapper
+в java.awt.Toolkit.loadAssistiveTechnologies (Toolkit.java:807)
+в java.awt.Toolkit.getDefaultToolkit (Toolkit.java:886)
+в java.awt.Window.getToolkit (Window.java:1358)
+в java.awt.Window.init (Window.java:506)
+в java.awt.Window. (Window.java:537)
+в java.awt.Frame. (Frame.java:420)
+в java.awt.Frame. (Frame.java:385)
+в javax.swing.JFrame. (JFrame.java:189)
+в me.drton.jmavsim.Visualizer3D. (Visualizer3D.java:104)
+в me.drton.jmavsim.Simulator. (Simulator.java:157)
+в me.drton.jmavsim.Simulator.main (Simulator.java:678)
 ```
 
 Якщо ви бачите цю помилку, спробуйте цей обхідний шлях:

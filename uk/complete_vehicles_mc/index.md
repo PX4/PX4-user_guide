@@ -7,12 +7,12 @@
 Ви можете знайти інші на [px4.io](https://px4.io/ecosystem/commercial-systems/) і в [Посиланні на конструкції](../airframes/airframe_reference.md).
 :::
 
-## Drone Development Kits/Reference Platforms
+## Набори для розробки дронів/посилання на платформи
 
 Цей розділ містить перелік наборів дронів, які призначені як платформи для подальшого розвитку.
 Вони можуть бути як повністю зібраними, так і у частинах.
 
-- [ModalAI VOXL 2 Starling PX4 Development Drone](../complete_vehicles_mc/modalai_starling.md) - SLAM development drone supercharged by VOXL 2 and PX4.
+- [MODALAI VOXL 2 STARLING PX4 РОЗРОБКА ДРОНА](../complete_vehicles_mc/modalai_starling.md) - ДРОН ДЛЯ РОЗРОБКИ SLAM, ПОТУЖЕНИЙ НАДМІЧКОЮ VOXL 2 ТА PX4.
 - [PX4 Vision DevKit](../complete_vehicles_mc/px4_vision_kit.md) - Мультикоптер, що використовується для розробки комп'ютерного зору PX4
 
 ## Попередньо встановлений PX4
@@ -45,7 +45,7 @@
 
 ## Дивіться також
 
-- [Kits (MC)](../frames_multicopter/kits.md)
-- [DIY Builds](../frames_multicopter/diy_builds.md)
-- [Готові апарати(VTOL)](../complete_vehicles_vtol/index.md)
+- [Комплекти (MC)](../frames_multicopter/kits.md)
+- [DIY Збірки](../frames_multicopter/diy_builds.md)
+- [Укомплектовані транспортні засоби (VTOL)](../complete_vehicles_vtol/index.md)
 - [Готові апарати (Fixed-Wing)](../complete_vehicles_fw/index.md)

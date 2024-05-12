@@ -1,56 +1,56 @@
-# MAVLink Cameras (Camera Protocol v2)
+# Камери MAVLink (Протокол камери v2)
 
-This topic explains how to use PX4 with a MAVLink [camera](../camera/index.md) that implements the [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) with PX4 and a Ground Station.
+Ця тема пояснює, як використовувати PX4 з MAVLink [камера](../camera/index.md), що реалізує [MAVLink Camera Protocol v2] (https://mavlink.io/en/services/camera.html) з PX4 та Наземною Станцією.
 
 :::tip
 Це рекомендований спосіб інтеграції камери з PX4!
 :::
 
-## Overview
+## Огляд
 
-The [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) allows querying of what features are supported by a camera, and provides commands to control image and video capture, stream video, set zoom and focus, select between infrared and visible light feeds, set where captured data is saved, and so on.
+[Протокол камери MAVLink v2](https://mavlink.io/en/services/camera.html) дозволяє запитувати, які функції підтримуються камерою, і надає команди для керування захопленням зображень та відео, передачі відео, встановлення зуму та фокусу, вибору між інфрачервоними та видимими потоками світла, встановлення місця, куди зберігаються зібрані дані, та інше.
 
-A camera may implement the protocol natively, but most MAVLink camera setups involve PX4 communicating with a [camera manager](#camera-managers) running on a companion computer, which then interfaces between MAVLink and the camera's native protocol.
+Камера може реалізувати протокол на рівні системи, але більшість налаштувань камер MAVLink передбачають взаємодію PX4 з [менеджером камер](#camera-managers), що працює на супутниковому комп'ютері, який потім взаємодіє між MAVLink та вихідним протоколом камери.
 
-Generally speaking PX4's "integration" with a camera is to re-emit camera commands found in missions using the command protocol.
-Otherwise it may act as a bridge, forwarding commands between a ground station and the camera if there is no direct MAVLink channel.
+Загалом можна сказати, що "інтеграція" PX4 з камерою полягає в повторному відтворенні команд камери, знайдених у місіях за допомогою протоколу команд.
+В іншому випадку вона може діяти як міст, пересилаючи команди між земною станцією та камерою, якщо немає прямого каналу MAVLink.
 
 :::info
-PX4 does not support using [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) commands to control cameras that are attached to flight controller outputs.
-While this is technically possible, it would require PX4 to implement a camera manager interface.
+PX4 не підтримує використання команд [MAVLink Протокол Камери v2](https://mavlink.io/en/services/camera.html) для управління камерами, які підключені до виходів контролера польоту.
+Хоча це технічно можливо, це вимагатиме від PX4 реалізації інтерфейсу керування камерою.
 :::
 
-## Controlling the Camera
+## Керування камерою
 
-### MAVLink Commands & Messages
+### Команди та повідомлення MAVLink
 
-Cameras are discovered using the MAVLink [connection protocol](https://mavlink.io/en/services/heartbeat.html), based on their [HEARTBEAT.type](https://mavlink.io/en/messages/common.html#HEARTBEAT) being set to [MAV_TYPE_CAMERA](https://mavlink.io/en/messages/common.html#MAV_TYPE_CAMERA).
+Камери виявлені за допомогою протоколу підключення MAVLink (https://mavlink.io/en/services/heartbeat.html), заснованого на їх [HEARTBEAT.type](https://mavlink.io/en/messages/common.html#HEARTBEAT), заснованими на MAV_TYPE_CAMERA (https://mavlink.io/en/messages/common.html#MAV_TYPE_CAMERA).
 
 :::tip
-Cameras should also use a component ID in the recommended range, such as [MAV_COMP_ID_CAMERA](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_CAMERA), but generally this cannot be relied on to verify that a MAVLink component is a camera.
+Камери також повинні використовувати ID компонента в рекомендованому діапазоні, такому як [MAV_COMP_ID_CAMERA](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_CAMERA), але, як правило, на це не можна покладатися для перевірки того, що компонент MAVLink є камерою.
 :::
 
-Once a camera is discovered its properties and capabilities can be queried by using [MAV_CMD_REQUEST_MESSAGE](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE) to request the [CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#CAMERA_INFORMATION) message, and then inspecting the `flags` field to determine what standard features in [CAMERA_CAP_FLAGS](https://mavlink.io/en/messages/common.html#CAMERA_CAP_FLAGS) are supported.
+Якщо камера виявлена, можна подивитися її властивості та можливості за допомогою [MAV_CMD_REQUEST_MESSAGE](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE), щоб запросити повідомлення [CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#CAMERA_INFORMATION), а потім інспектувати поле `flags`, щоб визначити, які стандартні функції в [CAMERA_CAP_FLAGS](https://mavlink.io/en/messages/common.html#CAMERA_CAP_FLAGS) підтримуються.
 
-Based on the flags, you can determine what other commands and messages are supported by the camera.
-The full set of messages, commands, and enums are [summarised here](https://mavlink.io/en/services/camera.html#messagecommandenum-summary).
+На основі прапорців ви можете визначити, які інші команди та повідомлення підтримуються камерою.
+Повний набір повідомлень, команд та констант [узагальнено тут](https://mavlink.io/en/services/camera.html#messagecommandenum-summary).
 
-Additional parameters of a camera _may_ be exposed in a [camera definition file](https://mavlink.io/en/services/camera_def.html) that is linked from `CAMERA_INFORMATION.cam_definition_uri`.
-A GCS or SDK can expose these settings though a generic UI, without having to understand any context.
-These parameters cannot directly be set in missions and have no specific setter commands.
+Додаткові параметри камери_можуть_бути викриті у [файлі-визначенні камери](https://mavlink.io/en/services/camera_def.html), який зв'язаний з `CAMERA_INFORMATION.cam_definition_uri`.
+GCS або SDK можуть відкрити ці параметри через загальний інтерфейс користувача, не маючи розуміння будь-якого контексту.
+Ці параметри не можуть бути встановлені безпосередньо в місіях і не мають конкретних команд-встановлювачів.
 
-[MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) describes all the interactions in more detail.
+[Протокол камери MAVLink v2](https://mavlink.io/en/services/camera.html) описує всі взаємодії більш детально.
 
-### Ground Stations & MAVLink SDKS
+### Наземні станції & MAVLink SDKS
 
-Ground stations and MAVLink SDKs discover cameras and their capabilities as described in the previous section.
+Наземні станції та MAVLink SDK виявляють камери та їх можливості, як описано в попередньому розділі.
 
-A ground station can use any feature exposed by the camera.
-PX4 has no role in this interaction other than forwarding MAVLink traffic between the camera and ground station or SDK, if needed.
+Наземна станція може використовувати будь-яку функцію, яку надає камера.
+PX4 не має жодної ролі в цій взаємодії, крім пересилання трафіку MAVLink між камерою та наземною станцією або SDK, якщо потрібно.
 
-### Camera Commands in Missions
+### Команди камери у місіях
 
-PX4 allows the following subset of [Camera Protocol v2](https://mavlink.io/en/services/camera.html) commands in missions:
+PX4 дозволяє використовувати наступний піднабір команд [Camera Protocol v2](https://mavlink.io/en/services/camera.html) під час місій:
 
 - [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE)
 - [MAV_CMD_IMAGE_STOP_CAPTURE](https://mavlink.io/en/messages/common.html#MMAV_CMD_IMAGE_STOP_CAPTURE)
@@ -60,15 +60,15 @@ PX4 allows the following subset of [Camera Protocol v2](https://mavlink.io/en/se
 - [MAV_CMD_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_CMD_SET_CAMERA_ZOOM)
 - [MAV_CMD_SET_CAMERA_FOCUS](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_FOCUS)
 
-PX4 re-emits the camera commands found in missions as MAVLink commands.
-The system id of the emitted commands is the same as the ID of the autopilot.
-The component id of the commands can vary.
-The first four commands are addressed to [MAV_COMP_ID_CAMERA (100)](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_CAMERA) (if a camera has this component ID, it will execute the indicated command).
-The camera mode, zoom, and focus, commands are sent to a component with id of [MAV_COMP_ID_ALL](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_ALL).
+PX4 відновлює команди камери, знайдені в місіях, як команди MAVLink.
+Системний ідентифікатор випущених команд співпадає з ідентифікатором автопілота.
+Ідентифікатор компонента команд може відрізнятися.
+Перші чотири команди адресовані [MAV_COMP_ID_CAMERA (100)](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_CAMERA) (якщо у камери є цей ідентифікатор компонента, вона виконає вказану команду).
+Режим камери, зум та фокусування, команди надсилаються до компонента з ідентифікатором [MAV_COMP_ID_ALL](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_ALL).
 
 :::info
-PX4 currently ignores the target camera `id` in [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE) and other camera messages.
-See [PX4-Autopilot#23083](https://github.com/PX4/PX4-Autopilot/issues/23083).
+PX4 в даний час ігнорує ідентифікатор цілі камери `id` в [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE) та інших повідомленнях камери.
+Див. [PX4-Autopilot#23083](https://github.com/PX4/PX4-Autopilot/issues/23083).
 :::
 
 <!--
@@ -91,65 +91,65 @@ void Navigator::publish_vehicle_cmd(vehicle_command_s *vcmd)  => https://github.
   All others just get published as-is
 -->
 
-### Manual Controllers
+### Ручне керування
 
-Joystick buttons can be configured to trigger image capture or toggle video capture.
+Стіки джойстика можуть бути налаштовані на спрацьовування захоплення зображення або перемикання захоплення відео.
 
-PX4 emits [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) commands such as `MAV_CMD_IMAGE_START_CAPTURE` when the associated Joystick button is pressed.
-This feature only works for this kind of camera and joystick - there is no support for RC Controllers.
+PX4 видає команди [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html), такі як `MAV_CMD_IMAGE_START_CAPTURE`, коли натиснута відповідна кнопка джойстика.
+Ця функція працює лише для цього типу камери та джойстика - підтримки для радіокерованних-контролерів немає.
 
 ## Конфігурація PX4
 
-### MAVLink Port & Forwarding
+### Налаштування порту & перенаправлення MAVLink
 
-You will need to provide a MAVLink channel to any connected cameras so that PX4 can emit any camera commands found in missions.
-If your MAVLink network is such that PX4 is "between" your camera and your ground station, you will also need to forward communications so that they can communicate.
+Вам потрібно буде надати канал MAVLink для будь-яких підключених камер, щоб PX4 міг висилати будь-які команди камери, знайдені в місіях.
+Якщо ваша мережа MAVLink така, що PX4 є "між" вашою камерою та наземною станцією, вам також потрібно буде пересилати комунікації, щоб вони могли спілкуватися.
 
-First attach the camera to an unused serial port on your flight controller, such as `TELEM2` (you might also use an Ethernet port if present on both your flight controller and the camera).
-Then configure the selected port as a [MAVLink Peripheral](../peripherals/mavlink_peripherals.md).
+Спочатку під'єднайте камеру до не використаного послідовного порту на контролері польоту, такого як `TELEM2` (ви також можете використовувати порт Ethernet, якщо він присутній як на контролері польоту, так і на камері).
+Потім налаштуйте обраний порт як [MAVLink Peripheral](../peripherals/mavlink_peripherals.md).
 
-The linked document explains how, but in summary:
+Документ пояснює, як, але коротко:
 
-1. Modify an unused `MAV_n_CONFIG` parameter, such as [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), so that it is assigned to port to which you connected the camera/companion computer.
-2. Set the corresponding [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to `2` (Onboard).
-   This ensures that the right set of MAVLink messages are emitted for a companion computer (or camera).
-3. Set [MAV_2_FORWARD](../advanced_config/parameter_reference.md#MAV_2_FORWARD) to enable forwarding of communications from the port to other ports, such as the one that is connected to the ground station.
-4. You may need to set some of the other parameters, depending on your connection type and any particular requirements of the camera on the expected baud rate, and so on.
+1. Змініть невикористаний параметр `MAV_n_CONFIG`, такий як [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), щоб він був присвоєний порту, до якого підключена ваша камера/компаньйонський комп'ютер.
+2. Встановіть відповідний [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) на `2` (На борту).
+   Це забезпечує, що правильний набір повідомлень MAVLink випромінюється для супутнього комп'ютера (або камери).
+3. Встановіть [MAV_2_FORWARD](../advanced_config/parameter_reference.md#MAV_2_FORWARD), щоб дозволити пересилання комунікацій з порту на інші порти, такі як той, що підключений до наземної станції.
+4. Можливо, вам доведеться встановити деякі інші параметри, залежно від типу підключення та будь-яких конкретних вимог камери щодо очікуваної швидкості передачі даних і т. д.
 
-### Manual Control
+### Ручне керування
 
-Joystick buttons can be mapped to capture images, and to toggle video capture on and off.
+Кнопки джойстика можуть бути налаштовані для захоплення зображень та перемикання запису відео включено/виключено.
 
-- [Joystick](../config/joystick.md#enabling-px4-joystick-support) explains how to enable Joysticks on PX4.
-- [QGroundControl > Joystick Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/joystick.html) explains how to map buttons to flight stack functions
+- [Joystick](../config/joystick.md#enabling-px4-joystick-support) пояснює, як увімкнути джойстики на PX4.
+- [QGroundControl > Налаштування джойстика](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/joystick.html) пояснює, як задати кнопки на функції стеку польоту
 
 <!-- Cameras cannot be controlled from an RC controller as far as I can tell -->
 
-## Camera Managers
+## Менеджери камер
 
-If you want to use a camera that does not natively support the MAVLink camera protocol you will need a MAVLink camera manager.
-The camera manager runs on a companion computer and bridges between the MAVLink camera protocol interface and the camera's native interface.
+Якщо ви хочете використовувати камеру, яка не підтримує протокол камери MAVLink за замовчуванням, вам знадобиться менеджер камери MAVLink.
+Менеджер камери працює на супутниковому комп'ютері та з'єднує інтерфейс протоколу камери MAVLink і нативний інтерфейс камери.
 
-There are "extensible" camera managers that can be used with many different cameras, camera managers designed to work with a specific camera, and you can also write your own (for example, using MAVSDK server plugins).
+Існують "розширювані" менеджери камер, якими можна користуватися з багатьма різними камерами, менеджери камер, розроблені для роботи з певною камерою, а також ви можете написати свій власний (наприклад, використовуючи додатки сервера MAVSDK).
 
-Generic/extensible camera managers:
+Загальні/розширені менеджери камер:
 
-- [MAVLink Camera Manager](https://github.com/mavlink/mavlink-camera-manager) - Extensible cross-platform MAVLink Camera Server built on top of GStreamer and Rust-MAVLink.
-- [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/) - Adds Camera Protocol interface for cameras connected to Linux computer.
+- [Менеджер камери MAVLink](https://github.com/mavlink/mavlink-camera-manager) - Розширюваний крос-платформенний сервер камери MAVLink, побудований на базі GStreamer та Rust-MAVLink.
+- [Менеджер камери Dronecode](https://camera-manager.dronecode.org/en/) - Додає інтерфейс протоколу камери для камер, підключених до комп'ютера з Linux.
 
-Camera-specfic camera managers:
+Специфічні менеджери камери:
 
-- [SIYI A8 mini camera manager](https://github.com/julianoes/siyi-a8-mini-camera-manager) - MAVSDK-plugin based camera manager for the [SIYI A8 mini](https://shop.siyi.biz/products/siyi-a8-mini) (includes tutorial).
+- [Менеджер камери SIYI A8 mini](https://github.com/julianoes/siyi-a8-mini-camera-manager) - Менеджер камери на основі плагіна MAVSDK для [SIYI A8 mini] (включає навчальний посібник).
 
   ::: tip
-  This is a good example of how MAVSDK can be used to create a MAVLink camera protocol interface for a particular camera.
+  Це добрий приклад того, як MAVSDK може бути використаний для створення інтерфейсу протоколу камери MAVLink для певної камери.
 
 :::
 
-When using a camera manager you connect the companion computer to the flight controller (rather than directly to the camera), and you'll need additional software on the computer to route MAVLink traffic to the camera manager on the companion computer, such as [mavlink-router](https://github.com/mavlink-router/mavlink-router).
+Під час використання менеджера камери ви підключаєте компаньйон-комп'ютер до контролера польоту (замість прямого підключення до камери), і вам знадобиться додаткове програмне забезпечення на комп'ютері для направлення трафіку MAVLink до менеджера камери на компаньйон-комп'ютері, таке як [mavlink-router](https://github.com/mavlink-router/mavlink-router).
 
-More information about camera manager and companion computer setups can be found in:
+Додаткову інформацію щодо камерного менеджера та налаштувань компаньйона можна знайти в:
 
-- [SIYI A8 mini camera manager](https://github.com/julianoes/siyi-a8-mini-camera-manager) - Tutorial for integrating with the [SIYI A8 mini](https://shop.siyi.biz/products/siyi-a8-mini) using a MAVSDK-based camera manager running on a Raspberry Pi companion computer.
-- [Using a Companion Computer with Pixhawk Controllers](../companion_computer/pixhawk_companion.md)
-- [Companion Computers > Companion Computer Software](../companion_computer/index.md#companion-computer-software): In particular note [MAVLink-Router](https://github.com/mavlink-router/mavlink-router), which you can setup to route MAVLink traffic between a serial port and an IP link (or other camera manager interface).
+- [Менеджер камери SIYI A8 mini](https://github.com/julianoes/siyi-a8-mini-camera-manager) - Навчальний посібник з інтеграції з [SIYI A8 mini](https://shop.siyi.biz/products/siyi-a8-mini), використовуючи менеджер камери на основі MAVSDK, який працює на комп'ютері-компаньйоні Raspberry Pi.
+- [Використання комп'ютера-компаньйона з контролерами Pixhawk](../companion_computer/pixhawk_companion.md)
+- [Компаньйони комп'ютери > Програмне забезпечення комп'ютера-компаньйона](../companion_computer/index.md#companion-computer-software): Зауважте [MAVLink-Router](https://github.com/mavlink-router/mavlink-router), який можна налаштувати для маршрутизації трафіку MAVLink між послідовним портом та IP-лінком (або іншим інтерфейсом керування камерою).

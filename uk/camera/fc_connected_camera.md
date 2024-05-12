@@ -1,39 +1,39 @@
-# Cameras Connected to Flight Controller Outputs
+# Камери, підключені до виходів керування польотом
 
-This topic explains how to use PX4 with a [camera](../camera/index.md) that is attached to flight controller outputs.
+Ця тема пояснює, як використовувати PX4 з [камерою](../camera/index.md), яка приєднана до виходів контролера польоту.
 
 :::warning
-[MAVLink cameras](../camera/mavlink_v2_camera.md) that use the [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) are recommended.
+[Камери MAVLink](../camera/mavlink_v2_camera.md), які використовують [Протокол камери MAVLink v2](https://mavlink.io/en/services/camera.html), рекомендовані.
 :::
 
-## Overview
+## Огляд
 
-PX4 can trigger a [camera](../camera/index.md) connected to flight controller outputs using [camera commands](#mavlink-command-interface) in missions or sent by a ground control stations.
-The supported commands are a subset of those defined in the MAVLink [Camera Protocol v1](https://mavlink.io/en/services/camera.html).
+PX4 може викликати [camera](../camera/index.md), підключену до виходів керування польотом за допомогою [команд камери](#mavlink-command-interface) в місіях або відправлений наземними станціями.
+Підтримувані команди є підмножиною тих, що визначені в MAVLink [Протоколі камери v1](https://mavlink.io/en/services/camera.html).
 
-Whenever a camera is triggered, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is published containing the current session's image _sequence number_ and the corresponding timestamp.
-This timestamp can be used for several purposes, including: timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
+Кожен раз, коли спрацьовує камера, опубліковано повідомлення MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER), що містить номер послідовності (тобто поточний номер послідовності зображення сеансу) та відповідний часовий позначення.
+Цей часовий міткий може бути використаний для кількох цілей, включаючи: міткування фотографій для повітряного обстеження та реконструкції, синхронізацію багатокамерної системи або візуально-інерціальної навігації.
 
-The camera can be connected to different outputs, including PWM outputs, GPIO outputs, and a Seagull MAP2 via PWM outputs.
+Камера може бути підключена до різних виходів, включаючи виходи PWM, виходи GPIO та кару MAP2 від Seagull через виходи PWM.
 
-Cameras can also (optionally) signal PX4 at the exact moment that a photo/frame is taken using a [camera capture pin](#camera-capture-configuration) that is attached to their hot shoe.
+Камери також можуть (за бажанням) сигналізувати PX4 у саму точну мить, коли знімається фото/кадр, використовуючи [вивід захоплення камери](#camera-capture-configuration), який приєднаний до їх гарячого черевика.
 Це дозволяє більш точну прив'язку зображень до позиції GPS для прив'язки до місцевості або потрібну вибірку IMU для синхронізації ВІО, тощо.
 
 <!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger -->
 
 <!-- Camera capture driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture -->
 
-## MAVLink Command Interface
+## Командний інтерфейс MAVLink
 
-PX4 supports the following MAVLink commands for FC-connected cameras, in both missions and if received from a GCS:
+PX4 підтримує наступні команди MAVLink для камер, підключених до КП, як у місіях, так і в разі їх отримання від БПК(GCS):
 
-- [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](#mav-cmd-do-set-cam-trigg-interval) — set time interval between captures.
-- [MAV_CMD_DO_SET_CAM_TRIGG_DIST](#mav-cmd-do-set-cam-trigg-dist) — set distance between captures
-- [MAV_CMD_DO_TRIGGER_CONTROL](#mav-cmd-do-trigger-control) — start/stop capturing (using distance or time, as defined using above messages).
-- [MAV_CMD_OBLIQUE_SURVEY](#mav-cmd-oblique-survey) — start/stop oblique survey
-- [MAV_CMD_DO_DIGICAM_CONTROL](#mav-cmd-do-digicam-control) — test-shoot the camera from the GCS.
+- [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](#mav-cmd-do-set-cam-trigg-interval) — встановити інтервал часу між зніманнями.
+- [MAV_CMD_DO_SET_CAM_TRIGG_DIST](#mav-cmd-do-set-cam-trigg-dist) — встановити відстань між зніманнями
+- [MAV_CMD_DO_TRIGGER_CONTROL](#mav-cmd-do-trigger-control) — почати/зупинити знімання (використовуючи відстань або час, як визначено попередніми командами).
+- [MAV_CMD_OBLIQUE_SURVEY](#mav-cmd-oblique-survey) — початок/зупинка відхиленого обстеження
+- [MAV_CMD_DO_DIGICAM_CONTROL](#мав-команда-керування-цифровою-камерою) — тестова зйомка камери з GCS.
 
-The supported behaviour is listed below (these do not precisely match the MAVLink specification).
+Підтримувана поведінка перерахована нижче (вони не точно відповідають специфікації MAVLink).
 
 ### MAV_CMD_DO_TRIGGER_CONTROL
 
@@ -100,10 +100,10 @@ This configuration can most easily be done from the _QGroundControl_ [Vehicle Se
 | Режим | Опис                                                                                                                                                                                                                                                                            |
 | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0     | Спрацювання камери вимкнено.                                                                                                                                                                                                                                    |
-| 1     | Працює як звичайний вимірювач інтервалів який можна увімкнути або вимкнути використовуючи команду MAVLink `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#mavlink-command-interface) for more details.                                   |
+| 1     | Працює як звичайний вимірювач інтервалів який можна увімкнути або вимкнути використовуючи команду MAVLink `MAV_CMD_DO_TRIGGER_CONTROL`. Дивіться [командний інтерфейс](#mavlink-command-interface) для додаткової інформації.                   |
 | 2     | Вмикає вимірювач інтервалів.                                                                                                                                                                                                                                    |
 | 3     | Спрацювання основані на відстані. Знімок робиться кожного разу, коли перевищується встановлена горизонтальна відстань. Мінімальний інтервал часу між двома знімками, однак, обмежується встановленим інтервалом спрацьовування. |
-| 4     | Triggers automatically when flying a survey in Mission mode.                                                                                                                                                                                                    |
+| 4     | Спрацьовує автоматично при виконанні опитування в режимі місії.                                                                                                                                                                                                 |
 
 :::info
 Якщо ви вперше вмикаєте додаток спрацювання камери, не забудьте перезавантажитись після зміни параметру `TRIG_MODE`.
@@ -117,7 +117,7 @@ This configuration can most easily be done from the _QGroundControl_ [Vehicle Se
 | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1     | Вмикає інтерфейс GPIO. AUX виходи дають періодичний високий або низький сигнал (в залежності від параметра `TRIG_POLARITY`) кожен інтервал часу [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL). Це може бути використано для безпосереднього спуску більшості стандартних камер машинного зору. Зверніть увагу, що на апаратному забезпеченні серії PX4FMU (Pixhawk, Pixracer тощо) рівень сигналу на AUX контактах становить 3,3 В.                                                                             |
 | 2     | Вмикає інтерфейс Seagull MAP2. Це дозволяє використовувати [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) для взаємодії з безліччю камер, що підтримуються. Контакт/канал 1 (спуск камери) так контакт/канал 2 (селектор режиму) MAP2 повинні бути підключені до [контактів спрацювання камери](#trigger-output-pin-configuration) з налаштованим низьким та високим сигналом. За допомогою Seagull MAP2, PX4 також підтримує автоматичний контроль потужності та функційність утримання в робочому стані камер Sony Multiport, таких як QX-1. |
-| 3     | This mode enables MAVLink cameras that used the legacy [MAVLink interface listed above](#mavlink-command-interface). The messages are automatically emitted on the MAVLink `onboard` channel when found in missions. PX4 emits the `CAMERA_TRIGGER` MAVLink message when a camera is triggered, by default to the `onboard` channel (if this is not used, custom stream will need to be enabled). [Simple MAVLink cameras](../camera/mavlink_v1_camera.md) explains this use case in more detail.                                                                                  |
+| 3     | Цей режим дозволяє використовувати камери MAVLink, які використовували старі інтерфейси [описані вище](#mavlink-command-interface). Повідомлення автоматично видаються на каналі `onboard` MAVLink під час знаходження їх в місіях. PX4 випускає повідомлення MAVLink `CAMERA_TRIGGER`, коли спрацьовує камера, за замовчуванням на канал `onboard` (якщо він не використовується, буде потрібно ввімкнути власний потік). [Прості камери MAVLink](../camera/mavlink_v1_camera.md) пояснюють цей випадок більш детально.                                                           |
 | 4     | Вмикає загальний інтерфейс ШІМ. Це дозволяє використовувати [інфрачервоні спускові пристрої](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) або сервоприводи для спуску камери.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ### Налаштування вихідних контактів спуску
@@ -147,7 +147,7 @@ At time of writing triggering only works on FMU pins:
 
 Повний список параметрів, що стосуються модуля спуску камери можна знайти на сторінці [довіднику параметрів](../advanced_config/parameter_reference.md#camera-trigger).
 
-## Camera Capture Configuration
+## Налаштування захоплення камери
 
 Камери можуть також (необов'язково) використовувати контакт захоплення камерою, щоб сигналізувати точну мить, коли зроблено фото/кадр.
 Це дозволяє більш точну прив'язку зображень до позиції GPS для прив'язки до місцевості або потрібну вибірку IMU для синхронізації ВІО, тощо.
@@ -310,7 +310,7 @@ end
 Вам доведеться змінити свій драйвер, щоб дотримуватися схеми послідовності вище.
 Для камер [IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) та для камер, що відповідають стандарту [IEEE1394 compliant](https://github.com/andre-nguyen/camera1394), доступні публічні посилання на референтні реалізації.
 
-## See Also
+## Дивіться також
 
-- Camera trigger driver: [source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger) <!-- no module doc -->
-- Camera capture driver: [source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture) <!-- no module doc -->
+- Тригер драйверу камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger)<!-- no module doc -->
+- Драйвер захоплення камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture) <!-- no module doc -->

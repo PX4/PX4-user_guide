@@ -83,14 +83,14 @@ In this section we create a _minimal application_ that just prints out `Hello Sk
      ```
 
 :::tip
-The main function must be named `<module_name>_main` and exported from the module as shown.
+Основна функція повинна мати назву `<module_name>_main` та експортуватися з модулю, як показано.
 :::
 
 :::tip
-`PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**). There are different log levels: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`. Warnings and errors are additionally added to the [ULog](../dev_log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
+`PX4_INFO` є еквівалентом `printf` для оболонки PX4 (включено з **px4_platform_common/log.h**). Існують різні рівні журналування: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`. Попередження та помилки додатково додаються до [ULog](../dev_log/ulog_file_format.md) та показуються на [Flight Review](https://logs.px4.io/).
 :::
 
-1. Create and open a new _cmake_ definition file named **CMakeLists.txt**. Copy in the text below:
+1. Створіть та відкрийте новий файл визначення _cmake_ з ім'ям **CMakeLists.txt**. Скопіюйте текст нижче:
 
    ```cmake
    ############################################################################
@@ -135,20 +135,20 @@ The main function must be named `<module_name>_main` and exported from the modul
     )
    ```
 
-   The `px4_add_module()` method builds a static library from a module description.
+   Метод `px4_add_module()` створює статичну бібліотеку з опису модуля.
 
-   - The `MODULE` block is the Firmware-unique name of the module (by convention the module name is prefixed by parent directories back to `src`).
-   - The `MAIN` block lists the entry point of the module, which registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
+   - Блок `MODULE` - унікальне для прошивки ім'я модуля (за умовчанням, ім'я модуля передує батьківським каталогам назад до `src`).
+   - Блок `MAIN` містить точку входу модуля, яка реєструє команду з NuttX, щоб вона могла бути викликана з оболонки PX4 або консолі SITL.
 
 :::tip
-The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
+Формат `px4_add_module()` документований у [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
 
 :::
 
-   ::: info If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`. You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
+   :::info Якщо ви вказуєте `DYNAMIC` як параметр для `px4_add_module`, на платформах POSIX замість статичної бібліотеки створюється _спільна бібліотека_ (їх можна завантажувати без перекомпіляції PX4 та ділити з іншими у вигляді бінарних файлів, а не вихідного коду). Ваш додаток не стане вбудованою командою, але виявиться в окремому файлі під назвою `examples__px4_simple_app.px4mod`. Потім ви можете виконати свою команду, завантаживши файл під час виконання за допомогою команди `dyn`: `dyn ./examples__px4_simple_app.px4mod`
 :::
 
-1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Copy in the text below:
+1. Створіть та відкрийте новий файл визначення _Kconfig_ з назвою **Kconfig** та визначте свій символ для найменування (див. [Конвенцію найменування Kconfig](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Скопіюйте текст нижче:
 
    ```
    menuconfig EXAMPLES_PX4_SIMPLE_APP
@@ -158,49 +158,49 @@ The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_modu
         Enable support for px4_simple_app
    ```
 
-## Build the Application/Firmware
+## Побудуйте Програму/прошивку
 
-The application is now complete. In order to run it you first need to make sure that it is built as part of PX4. Applications are added to the build/firmware in the appropriate board-level _px4board_ file for your target:
+Додаток завершено. Для запуску його спершу потрібно переконатись, що він побудований як частина PX4. Заявки додаються до збірки / прошивки у відповідному файлі рівня дошки _px4board_ для вашої цілі:
 
 - PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board)
 - Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v2/default.px4board)
 - Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v4/default.px4board)
 - _px4board_ files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
 
-To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the _px4board_ file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
+Для активації компіляції додатка в прошивку додайте відповідний ключ Kconfig `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` у файл _px4board_ або виконайте [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
 ```
 examples  --->
     [x] PX4 Simple app  ----
 ```
 
-::: info
-The line will already be present for most files, because the examples are included in firmware by default.
+::::info
+Рядок вже буде присутній у більшості файлів, тому що за замовчуванням приклади включені в прошивку.
 :::
 
-Build the example using the board-specific command:
+Побудуйте приклад, використовуючи команду для конкретної плати:
 
 - jMAVSim Simulator: `make px4_sitl_default jmavsim`
 - Pixhawk v1/2: `make px4_fmu-v2_default` (or just `make px4_fmu-v2`)
 - Pixhawk v3: `make px4_fmu-v4_default`
 - Інші прошивки: [Building the Code](../dev_setup/building_px4.md#building-for-nuttx)
 
-## Test App (Hardware)
+## Тестовий додаток (апаратне забезпечення)
 
-### Upload the firmware to your board
+### Завантажте прошивку на вашу плату
 
-Enable the uploader and then reset the board:
+Увімкніть завантажувач, а потім скиньте плату:
 
 - Pixhawk v1/2: `make px4_fmu-v2_default upload`
 - Pixhawk v3: `make px4_fmu-v4_default upload`
 
-It should print before you reset the board a number of compile messages and at the end:
+Перед скиданням дошки повинно бути надруковано певну кількість компілювальних повідомлень та в кінці:
 
 ```sh
-Loaded firmware for X,X, waiting for the bootloader...
+Завантажена прошивка для X, X, очікування на загрузчик...
 ```
 
-Once the board is reset, and uploads, it prints:
+Після скидання дошки та завантаження вона друкує:
 
 ```sh
 Erase  : [====================] 100.0%
@@ -211,15 +211,15 @@ Rebooting.
 [100%] Built target upload
 ```
 
-### Connect the Console
+### Підключіть консоль
 
-Now connect to the [system console](../debug/system_console.md) either via serial or USB. Hitting **ENTER** will bring up the shell prompt:
+Зараз підключіться до [системного консолі](../debug/system_console.md) або через послідовний або USB-порт. Натискання **ENTER** приведе до виведення оболонкового вікна:
 
 ```sh
 nsh>
 ```
 
-Type ''help'' and hit ENTER
+Введіть ''help'' та натисніть ENTER
 
 ```sh
 nsh> help
@@ -243,40 +243,40 @@ Builtin Apps:
   serdis
 ```
 
-Note that `px4_simple_app` is now part of the available commands. Start it by typing `px4_simple_app` and ENTER:
+Зверніть увагу, що `px4_simple_app` тепер є частиною доступних команд. Почніть його, введіть `px4_simple_app` та натисніть ENTER:
 
 ```sh
 nsh> px4_simple_app
 Hello Sky!
 ```
 
-The application is now correctly registered with the system and can be extended to actually perform useful tasks.
+Заява зараз правильно зареєстрована в системі і може бути розширена для фактичного виконання корисних завдань.
 
-## Test App (SITL)
+## Тестовий додаток (SITL)
 
-If you're using SITL the _PX4 console_ is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator)). As with the _nsh console_ (see previous section) you can type `help` to see the list of built-in apps.
+Якщо ви використовуєте SITL, _консоль PX4_ автоматично запускається (див. [Кодова база > Перше Компілювання (Використання Симулятора jMAVSim)](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator)). Так само, як і з _консоллю nsh_ (див. попередній розділ), ви можете ввести `help`, щоб переглянути список вбудованих додатків.
 
-Enter `px4_simple_app` to run the minimal app.
+Введіть `px4_simple_app`, щоб запустити мінімальний додаток.
 
 ```sh
 pxh> px4_simple_app
 INFO  [px4_simple_app] Hello Sky!
 ```
 
-The application can now be extended to actually perform useful tasks.
+Додаток тепер може бути розширений для фактичного виконання корисних завдань.
 
-## Subscribing to Sensor Data
+## Підписка на дані сенсорів
 
-To do something useful, the application needs to subscribe inputs and publish outputs (e.g. motor or servo commands).
+Для того щоб зробити щось корисне, додаток повинен підписати входи та опублікувати виходи (наприклад, команди для мотору або серводвигуна).
 
 :::tip
-The benefits of the PX4 hardware abstraction comes into play here!
-There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.
+Користь від абстракції апаратного забезпечення PX4 виявляється ось тут!
+Немає потреби взаємодіяти з драйверами сенсорів та оновлювати додаток, якщо плата або сенсори оновлені.
 :::
 
-Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg) topic, which holds the synchronized sensor data of the complete system.
+Індивідуальні канали повідомлень між додатками називаються [темами](../middleware/uorb.md). Для цього навчального посібника нас цікавить тема [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg), яка містить узгоджені дані сенсора всієї системи.
 
-Subscribing to a topic is straightforward:
+Підписка на тему проста:
 
 ```cpp
 #include <uORB/topics/sensor_combined.h>
@@ -284,9 +284,9 @@ Subscribing to a topic is straightforward:
 int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 ```
 
-The `sensor_sub_fd` is a topic handle and can be used to very efficiently perform a blocking wait for new data. The current thread goes to sleep and is woken up automatically by the scheduler once new data is available, not consuming any CPU cycles while waiting. To do this, we use the [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX system call.
+`sensor_sub_fd` - це керування темою та його можна використовувати для ефективного виконання блокуючого очікування нових даних. Поточний потік переходить у режим сну і автоматично буде розбуджений планувальником, як тільки буде доступні нові дані, не використовуючи жодних циклів ЦП під час очікування. Для цього ми використовуємо системний виклик POSIX [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html).
 
-Adding `poll()` to the subscription looks like (_pseudocode, look for the full implementation below_):
+Додавання `poll()` до підписки виглядає як (_псевдокод, дивіться повну реалізацію нижче_):
 
 ```cpp
 #include <poll.h>
@@ -316,21 +316,21 @@ while (true) {
 }
 ```
 
-Compile the app again by entering:
+Знову скомпілюйте додаток, введіть:
 
 ```sh
 make
 ```
 
-### Testing the uORB Subscription
+### Тестування підписки на uORB
 
-The final step is to start your application as a background process/task by typing the following in the nsh shell:
+Останнім кроком є запуск вашої програми як фонового процесу / завдання, набираючи наступне у оболонці nsh:
 
 ```sh
 px4_simple_app &
 ```
 
-Your app will display 5 sensor values in the console and then exit:
+Ваш застосунок відображатиме 5 значень датчиків у консолі, а потім завершить виконання:
 
 ```sh
 [px4_simple_app] Accelerometer:   0.0483          0.0821          0.0332
@@ -342,17 +342,17 @@ Your app will display 5 sensor values in the console and then exit:
 ```
 
 :::tip
-The [Module Template for Full Applications](../modules/module_template.md) can be used to write background process that can be controlled from the command line.
+[Шаблон модуля для повноцінних додатків](../modules/module_template.md) може бути використаний для написання фонових процесів, які можна контролювати з командного рядка.
 :::
 
-## Publishing Data
+## Публікація Даних
 
-To use the calculated outputs, the next step is to _publish_ the results. Below we show how to publish the attitude topic.
+Для використання розрахованих виходів, наступним кроком є _опублікувати_ результати. Нижче ми покажемо, як опублікувати тему ставлення.
 
-::: info We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results.
+:::info Ми обрали `відношення`, оскільки знаємо, що програма _mavlink_ передає його на земну станцію керування - це забезпечує простий спосіб перегляду результатів.
 :::
 
-The interface is pretty simple: initialize the `struct` of the topic to be published and advertise the topic:
+Інтерфейс досить простий: ініціалізуйте `struct` теми для публікації та рекламуйте тему:
 
 ```c
 #include <uORB/topics/vehicle_attitude.h>
@@ -363,15 +363,15 @@ memset(&att, 0, sizeof(att));
 orb_advert_t att_pub_fd = orb_advertise(ORB_ID(vehicle_attitude), &att);
 ```
 
-In the main loop, publish the information whenever its ready:
+У головному циклі опублікуйте інформацію, коли вона буде готова:
 
 ```c
 orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 ```
 
-## Full Example Code
+## Наприклад: Код Повного Прикладу
 
-The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_simple_app/px4_simple_app.c) is now:
+Повний код прикладу зараз: [посилання на код](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_simple_app/px4_simple_app.c)
 
 ```c
 /****************************************************************************
@@ -505,20 +505,20 @@ int px4_simple_app_main(int argc, char *argv[])
 }
 ```
 
-## Running the Complete Example
+## Виконання повного прикладу
 
-And finally run your app:
+І, нарешті, запустіть свою програму:
 
 ```sh
 px4_simple_app
 ```
 
-If you start _QGroundControl_, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html)).
+Якщо ви почнете _QGroundControl_, ви можете перевірити значення датчиків у реальному часі на графіку ([Аналізувати > Інспектор MAVLink](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html)).
 
-## Wrap-Up
+## Згортання
 
-This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/main/msg/) and that the headers are well documented and serve as reference.
+Цей посібник охоплює все необхідне для розробки базової програми автопілота PX4. Пам'ятайте, що повний список повідомлень/тем uORB доступний [тут](https://github.com/PX4/PX4-Autopilot/tree/main/msg/), а заголовки добре задокументовані і служать для посилання.
 
-Further information and troubleshooting/common pitfalls can be found here: [uORB](../middleware/uorb.md).
+Додаткову інформацію та усунення неполадок/типові проблеми можна знайти тут: [uORB](../middleware/uorb.md).
 
-The next page presents a template for writing a full application with start and stop functionality.
+Наступна сторінка презентує шаблон для написання повної програми з можливістю запуску та зупинки.

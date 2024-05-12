@@ -1,6 +1,6 @@
 # VelocityLimits (повідомлення UORB)
 
-Velocity and yaw rate limits for a multicopter position slow mode only
+Обмеження швидкості та кутової швидкості для мультикоптера лише в режимі повільного переміщення позиції
 
 [вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VelocityLimits.msg)
 

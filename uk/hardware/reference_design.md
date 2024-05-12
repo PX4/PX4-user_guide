@@ -1,12 +1,12 @@
-# PX4 Reference Flight Controller Design
+# Проектування контролера польоту PX4
 
-The PX4 reference design is the [Pixhawk series](../flight_controller/pixhawk_series.md) of flight controllers. First released in 2011, this design is now in its 5th [generation](#reference_design_generations) (with the 6th generation board design in progress).
+Референсний дизайн PX4 - це серія польотних контролерів [Pixhawk](../flight_controller/pixhawk_series.md). Спочатку випущений у 2011 році, цей дизайн зараз на своєму 5-му [поколінні](#reference_design_generations) (десяте покоління дошки знаходиться в процесі розробки).
 
-## Binary Compatibility
+## Сумісність з бінарним кодом
 
-All boards manufactured to a particular design are expected to be binary compatible (i.e. can run the same firmware). From 2018 we will offer a binary compatibility test suite that will allow us to verify and certify this compatibility.
+Всі плати, виготовлені за певним дизайном, мають бути сумісними з двійковим кодом (тобто можуть запускати ту ж саму прошивку). З 2018 року ми будемо надавати набір тестів для перевірки бінарної сумісності, який дозволить нам перевірити та сертифікувати цю сумісність.
 
-FMU generations 1-3 were designed as open hardware, while FMU generations 4 and 5 provided only pinout and power supply specifications (schematics were created by individual manufacturers). In order to better ensure compatibility, FMUv6 and onward will return to a complete reference design model.
+Покоління FMU 1-3 були розроблені як відкрите обладнання, тоді як покоління FMU 4 та 5 надали лише специфікації роз'ємів та живлення (схеми були створені окремими виробниками). Для кращої сумісності, починаючи з FMUv6 і пізніше, буде використано повний модельний референтний дизайн.
 
 <a id="reference_design_generations"></a>
 
@@ -20,22 +20,22 @@ FMU generations 1-3 were designed as open hardware, while FMU generations 4 and 
 - FMUv5: Holybro Pixhawk 4 \(STM32F765, 216 MHz, 512 KB RAM, 2 MB flash, [pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)\)
 - FMUv6: work in progress, final name TBD, variant 6s \(STM32H7, 400 MHz, 2 MB RAM, 2 MB flash\) and variant 6i \(i.MX RT1050, 600 MHz, 512 KB RAM, external flash\)
 
-## Main/IO Function Breakdown
+## Розподіл функцій основної / ввід-вивідної функції
 
-The diagram below shows the division of bus and functional responsibilities between the FMU and I/O boards in a Pixhawk-series flight controller (the boards are incorporated into a single physical module).
+Діаграма нижче показує розподіл обов'язків автобуса та функціональних відповідальностей між платами FMU та I/O в контролері польоту серії Pixhawk (плати вбудовані в один фізичний модуль).
 
 ![PX4 Main/IO Functional Breakdown](../../assets/diagrams/px4_fmu_io_functions.png)
 
 <!-- Draw.io version of file can be found here: https://drive.google.com/file/d/1H0nK7Ufo979BE9EBjJ_ccVx3fcsilPS3/view?usp=sharing -->
 
-Some Pixhawk-series controllers are built without the I/O board in order to reduce space or complexity, or to better address certain board use-cases. In this case the I/O driver is not started.
+Деякі контролери серії Pixhawk будуються без плати введення-виведення для зменшення розміру або складності, або для кращого вирішення певних сценаріїв використання плати. У цьому випадку І/O драйвер не запущений.
 
-::: info Manufacturer flight controller variants without an I/O board are often named as a "diminutive" of a version that includes the I/O board: e.g. _Pixhawk 4_ **Mini**_, \_CUAV v5 **nano**_.
+:::info Виробник варіантів польотного контролера без плати введення/виведення часто називають "зменшеною" версією тієї, яка включає плату I/O: наприклад, _Pixhawk 4_ **Міні**_, \_CUAV v5 **нано**_.
 :::
 
-Build targets that must run on flight controllers with an I/O board map the FMU outputs to `AUX` and the I/0 outputs to `MAIN` (see diagram above). If the target is run on hardware where I/O board is not present or has been disabled, the PWM MAIN outputs will not be present. You might see this, for example, by running `px4_fmu-v5_default` on [Pixhawk 4](../flight_controller/pixhawk4.md) (with IO) and [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (without I/O).
+Побудовані цілі, які повинні працювати на контролерах польоту з платою вводу/виводу, картують виходи FMU на `AUX`, а виходи введення/виводу на `MAIN` (див. діаграму вище). Якщо ціль запускається на обладнанні, де відсутня або вимкнена плата вводу-виводу, вихідні сигнали головних ШШ не будуть присутні. Можливо, ви побачите це, наприклад, запустивши `px4_fmu-v5_default` на [Pixhawk 4](../flight_controller/pixhawk4.md) (з IO) та [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (без IO).
 
 :::warning
-On [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) this results in a mismatch between the `MAIN` label screenprinted on the flight controller and the `AUX` bus shown during [Actuator Configuration](../config/actuators.md). ::: info that if a build target is only ever intended to run on a flight controller that does not have an I/0 board, then the FMU outputs are mapped to `MAIN` (for example, the `px4_fmu-v4_default` target for [Pixracer](../flight_controller/pixracer.md)).
+На [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) це призводить до неспівпадіння між екранованим написом `MAIN` на пульті управління кольорової літальної апаратури та шини `AUX`, яка відображається під час [Конфігурації приводів](../config/actuators.md). :::info якщо ціль збірки призначена виконуватися лише на контролері польоту, який не має вводу/виводу, тоді вихідні FMU відображаються на `MAIN` (наприклад, ціль `px4_fmu-v4_default` для [Pixracer](../flight_controller/pixracer.md)).
 
-PX4 PWM outputs are mapped to either `MAIN` or `AUX` ports in [Actuator Configuration](../config/actuators.md).
+Вихідні PWM PX4 відображені на порти `MAIN` або `AUX` у [Конфігурації Приводів](../config/actuators.md).

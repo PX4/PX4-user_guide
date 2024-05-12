@@ -1,33 +1,33 @@
-# Simple MAVLink Cameras (Camera Protcol v1)
+# Прості камери MAVLink (Протокол камери v1)
 
-This topic explains how to use PX4 with a MAVLink [camera](../camera/index.md) that implements the [Camera Protocol v1 (Simple Trigger Protocol)](https://mavlink.io/en/services/camera_v1.html) with PX4 and a Ground Station.
+Ця тема пояснює, як використовувати PX4 з MAVLink [камерою](../camera/index.md), що реалізує [Протокол Камери v1 (Простий Протокол Тригера)](https://mavlink.io/en/services/camera_v1.html) з PX4 та Наземною Станцією.
 
 :::warning
-[MAVLink cameras](../camera/mavlink_v2_camera.md) that use the [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) should be used instead when possible!
-This approach is retained for use with older MAVLink cameras.
+[Камери MAVLink](../camera/mavlink_v2_camera.md), що використовують [Протокол Камери MAVLink v2](https://mavlink.io/en/services/camera.html) слід використовувати замість цього, коли це можливо!
+Цей підхід зберігається для використання зі старими камерами MAVLink.
 :::
 
-## Overview
+## Загальний огляд
 
-[Camera Protocol v1](https://mavlink.io/en/services/camera_v1.html) defines a small set of commands that allow triggering of a camera for:
+[Протокол камери v1](https://mavlink.io/en/services/camera_v1.html) визначає невеликий набір команд, які дозволяють викликати камеру для:
 
-- still image capture at a frequency based on either time or distance
-- video capture
-- limited camera configuration
+- знімок неперервне зйомка з частотою, залежно від часу або відстані
+- захоплення відео
+- обмежені налаштування камери
 
-PX4 supports this command set for triggering cameras with native support for the protocol (as described in this topic), and also for [cameras attached to flight controller outputs](../camera/fc_connected_camera.md).
+PX4 підтримує цей набір команд для спрацьовування камер з вбудованою підтримкою протоколу (як описано в цій темі), а також для [камер, підключених до виходів контролера польоту](../camera/fc_connected_camera.md).
 
-Ground stations and MAVLink SDKs generally address camera commands to the autopilot, which then forwards them to a connected MAVLink channel of type `onboard`.
-PX4 also re-emits any camera mission items it encouters in a mission as camera commands: commands that aren't accepted are logged.
-In all cases the commands are sent with the system id of the autopilot and the component ID of 0 (i.e. addressed to all components, including cameras).
+Наземні станції та SDK MAVLink, як правило, надсилають команди камери автопілоту, який потім передає їх на підключений канал MAVLink типу `onboard`.
+PX4 також повторно відправляє будь-які елементи місії камери, з якими він зустрічається у місії як команди камери: команди, які не приймаються, реєструються.
+У всіх випадках команди надсилаються з системним ідентифікатором автопілота та ідентифікатором компоненту 0 (тобто адресовані всім компонентам, включаючи камери).
 
-PX4 will also emit a [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) whenever an image capture is triggered (the camera itself may also emit this message on triggering).
+PX4 також буде випускати [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) кожного разу, коли спрацьовує захоплення зображення (сама камера також може випускати це повідомлення при спрацьовуванні).
 
-## Controlling the Camera
+## Керування камерою
 
-### MAVLink Commands & Messages
+### Команди та повідомлення MAVLink
 
-The [Camera Protocol v1 (Simple Trigger Protocol)](https://mavlink.io/en/services/camera_v1.html) defines the following commands:
+[Протокол камери v1 (простий тригер протокол)](https://mavlink.io/en/services/camera_v1.html) визначає наступні команди:
 
 - [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL)
 - [MAV_CMD_NAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_CMD_DO_DIGICAM_CONTROL)
@@ -36,80 +36,80 @@ The [Camera Protocol v1 (Simple Trigger Protocol)](https://mavlink.io/en/service
 - [MAV_CMD_OBLIQUE_SURVEY](https://mavlink.io/en/messages/common.html#MAV_CMD_OBLIQUE_SURVEY)
 - [MAV_CMD_DO_CONTROL_VIDEO](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CONTROL_VIDEO)
 
-A MAVLink camera will support some subset of these commands.
-As the protocol has no feature discovery process, the only way to know is by inspecting the [COMMAND_ACK](https://mavlink.io/en/messages/common.html#COMMAND_ACK) returned in response.
+Камера MAVLink буде підтримувати певний піднабір цих команд.
+Оскільки протокол не має процесу виявлення функцій, єдиний спосіб дізнатися - це оглянути [COMMAND_ACK](https://mavlink.io/en/messages/common.html#COMMAND_ACK), що повернено у відповіді.
 
-Cameras should also emit [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) each time an image is captured.
+Камери також повинні видавати [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) кожного разу, коли захоплюється зображення.
 
-[Camera Protocol v1](https://mavlink.io/en/services/camera_v1.html) describes the protocol in more detail.
+[Протокол камери v1](https://mavlink.io/en/services/camera_v1.html) детальніше описує протокол.
 
-### Ground Stations
+### Радіостанції наземної станції
 
-Ground stations can use any commands in the [Camera Protocol v1 (Simple Trigger Protocol)](https://mavlink.io/en/services/camera_v1.html) and should address them to the autopilot component id.
-If the commands are not supported by the camera, it will return a [COMMAND_ACK](https://mavlink.io/en/messages/common.html#COMMAND_ACK) with an error result.
+Наземні станції можуть використовувати будь-які команди у [Протоколі Камери v1 (Простий Протокол Тригера)](https://mavlink.io/en/services/camera_v1.html) і повинні надсилати їх до ідентифікатора компонента автопілоту.
+Якщо команди не підтримуються камерою, вона поверне [COMMAND_ACK](https://mavlink.io/en/messages/common.html#COMMAND_ACK) з помилковим результатом.
 
-Generally the commands are addressed to the autopilot, because this works whether the camera is connected via MAVLink or directly to the flight controller.
-If addressed to the autopilot PX4 will emit [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) each time an image is captured, and may log the camera capture event.
+Зазвичай команди адресовані автопілоту, оскільки це працює незалежно від того, чи підключено камеру через MAVLink, чи безпосередньо до керування польотом.
+Якщо звернення до автопілота PX4, він буде висилати [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) кожного разу, коли захоплюється зображення, і може реєструвати подію захоплення камери.
 
 <!-- "May" because the camera feedback module is "supposed"  to log just camera capture from a capture pin connected to camera hotshoe, but currently logs all camera trigger events from the camera trigger driver https://github.com/PX4/PX4-Autopilot/pull/23103 -->
 
-In theory you might also address commands to the camera directly.
+У теорії ви також можете надсилати команди безпосередньо до камери.
 
-### Camera Commands in Missions
+### Команди камери у місіях
 
-The following [Camera Protocol v1 (Simple Trigger Protocol)](https://mavlink.io/en/services/camera_v1.html) commands can be used in missions (this is the same list as above).
+Можна використовувати наступні команди [Протокол камери v1 (простий тригер протокол)](https://mavlink.io/en/services/camera_v1.html) в місіях (це той самий список, що і вище).
 
-- [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL)
+- [MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL)
 - [MAV_CMD_NAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_CMD_DO_DIGICAM_CONTROL)
 - [MAV_CMD_DO_SET_CAM_TRIGG_DIST](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST)
 - [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL)
 - [MAV_CMD_OBLIQUE_SURVEY](https://mavlink.io/en/messages/common.html#MAV_CMD_OBLIQUE_SURVEY)
 - [MAV_CMD_DO_CONTROL_VIDEO](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CONTROL_VIDEO)
 
-PX4 re-emits them with the same system ID as the autopilot and component ID of [MAV_COMP_ID_ALL](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_ALL):
+PX4 переістовує їх з тим самим ідентифікатором системи, що й автопілот, та ідентифікатором компонента [MAV_COMP_ID_ALL](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_ALL):
 
 <!-- See camera_architecture.md topic for detail on how this is implemented -->
 
-### Manual Control
+### Ручне керування
 
-Manual triggering using these cameras is not supported (for either Joystick or RC Controllers).
+Ручне спрацьовування за допомогою цих камер не підтримується (ні для джойстика, ні для дистанційного керування).
 
-## PX4 Configuration
+## Конфігурація PX4
 
 <!-- set up the mode and triggering -->
 
-### MAVLink Port & Forwarding Configuration
+### Налаштування порту та перенаправлення MAVLink
 
-Connect PX4 to your MAVLink camera by attaching it to an unused serial port on your flight controller, such as `TELEM2`.
-You can then configure the port as a [MAVLink Peripheral](../peripherals/mavlink_peripherals.md).
-The document explains how, but in summary:
+Підключіть PX4 до камери MAVLink, приєднавши її до не використаного послідовного порту на вашому авіаційному контролері, наприклад, `TELEM2`.
+Потім ви можете налаштувати порт як [MAVLink Peripheral](../peripherals/mavlink_peripherals.md).
+Документ пояснює, як, але в описі:
 
-1. Modify an unused `MAV_n_CONFIG` parameter, such as [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), so that it is assigned to port to which your camera is connected.
-2. Set the corresponding [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to `2` (Onboard).
-   This ensures that the right set of MAVLink messages are emitted and forwarded.
-3. You may need to set some of the other parameters, depending on your connection - such as the baud rate.
+1. Змініть невикористаний параметр `MAV_n_CONFIG`, такий як [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), щоб він був присвоєний порту, до якого підключена ваша камера.
+2. Встановіть відповідний [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) на `2` (На борту).
+   Це забезпечує, що правильний набір повідомлень MAVLink випромінюється та пересилається.
+3. Можливо, вам доведеться встановити деякі інші параметри, залежно від вашого з'єднання - наприклад, швидкість передачі даних.
 
-Then connect and configure the camera as recommended in its user guide.
+Підключіться та налаштуйте камеру, як рекомендовано в її посібнику користувача.
 
 <!-- Removed this because I am pretty sure forwarding happens automatically for this set. Keeping it simple.
 1. Set [MAV_2_FORWARD](../advanced_config/parameter_reference.md#MAV_2_FORWARD) if you want to enable forwarding of MAVLink messages to other ports, such as the one that is connected to the ground station.
 -->
 
-### Camera Mode & Triggering
+### Режим камери та режим запуску
 
-Configure the PX4 camera driver to enable the MAVLink camera backend, and set the triggering mode to capture on command in survey missions.
+Налаштуйте водій камери PX4 для включення фонового процесу камери MAVLink та встановіть режим спуску для захоплення по команді в місіях обстеження.
 
-Using _QGroundControl_:
+Використання Від _QGroundControl_:
 
-- Open [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup).
-- Set the values as shown:
+- Відкрийте [Налаштування рухомого засобу > Камера](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup).
+- Встановіть значення, як показано:
 
-  ![Camera Setup Screen - Trigger mode and interface for MAVLink](../../assets/camera/mavlink_camera_settings.png)
+  ![Екран налаштування камери - Режим тригера та інтерфейс для MAVLink](../../assets/camera/mavlink_camera_settings.png)
 
 ::: info
 You can also [set the parameters directly](../advanced_config/parameters.md):
 
-- [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) — `4`: Distance based, on command (Survey mode)
+- [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) — `4`: Основано на відстані, за командою (режим опитування)
 - [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) — `3`: MAVLink
 
 :::

@@ -2,40 +2,40 @@
 
 <img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;
 
-The _Manual/Stabilized_ mode stabilizes the multicopter when the RC control sticks are centred. To manually move/fly the vehicle you move the sticks outside of the centre.
+Режим _Ручний/Стабілізація_ стабілізує мультикоптер, коли стіки дистанційного керування відцентровані. Щоб ручно перемістити/полетіти на транспортному засобі, ви пересуваєте палички за межі центру.
 
-::: info
-This multicopter mode is enabled if you set either _Manual_ or _Stabilized_ modes.
+::: інформація
+Цей режим багатороторного вертольота активується, якщо ви встановили режими _Ручний_ або _Стабілізований_.
 :::
 
-When under manual control the roll and pitch sticks control the _angle_ of the vehicle (attitude) around the respective axes, the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
+Під час ручного керування рульові палиці керують _кутом_ рухомого засобу (положенням) навколо відповідних осей, рульова палиця керує швидкістю обертання над горизонтальною площиною, а педаль газу керує висотою / швидкістю.
 
-As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately (see [below](#params)), and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
+Як тільки ви відпустите ручки керування, вони повернуться до центральної мертвої зони. Багатороторник вирівняється і зупиниться, як тільки палиці кочення та тангажу будуть в центрі. Автомобіль потім буде зависати на місці / підтримувати висоту - за умови, що він належним чином збалансований, ручка газу налаштована належним чином (див. [нижче](#params)), й не застосовуються зовнішні сили (наприклад, вітер). Літальний апарат буде дрейфувати в напрямку будь-якого вітру, і вам доведеться керувати реостатом, щоб утримати висоту.
 
 ![MC Manual Flight](../../assets/flight_modes/stabilized_mc.png)
 
 ## Технічний опис
 
-RC mode where centered sticks level vehicle (only - position is not stabilized).
+Режим RC, у якому центровані стіки вирівнюють транспортний засіб (тільки - позиція не стабілізується).
 
-The pilot's inputs are passed as roll and pitch angle commands and a yaw rate command. Throttle is rescaled (see [below](#params)) and passed directly to control allocation. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude). The autopilot does not compensate for drift due to wind (or other sources).
+Команди пілота передаються як команди кутів крену та тангажу, а рискання як команда швидкості. Тяга масштабується (див. [нижче](#params)) і передається напряму до розподілу керування. Автопілот контролює положення, це означає що він регулює кути крену та тангажу до нуля коли органи керування пульту РК центровані всередині мертвої зони контролера (як наслідок вирівнюючи положення). Автопілот не компенсує дрейф через вітер (або інші джерела).
 
-- Centered sticks (inside deadband):
-  - Roll/Pitch sticks level vehicle.
-- Outside center:
-  - Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.
-  - Throttle stick controls up/down speed (and movement speed in other axes).
-  - Yaw stick controls rate of angular rotation above the horizontal plane.
-- Manual control input is required (such as RC control, joystick).
-  - Roll, Pitch: Assistance from autopilot to stabilize the attitude. Position of RC stick maps to the orientation of vehicle.
-  - Throttle: Manual control via RC sticks. RC input is sent directly to control allocation.
-  - Yaw: Assistance from autopilot to stabilize the attitude rate. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
+- Центровані палиці (в межах дедбенду):
+  - Рівень ковзання/крена прикріплюється до транспортного засобу.
+- Зовнішній центр:
+  - Палиці кочення/крену керують кутом нахилу у цих орієнтаціях, що призводить до відповідного руху ліворуч-праворуч та вперед-назад.
+  - Ручка дроселя керує швидкістю вгору/вниз (та швидкістю руху в інших осях).
+  - Палиця крену контролює швидкість кутової ротації вище горизонтальної площини.
+- Потрібен ручний ввід управління (наприклад, за допомогою пульта дистанційного керування, джойстика).
+  - Крен, Тангаж: Допомога від автопілота для стабілізації поклику. Положення палиці RC відображає орієнтацію транспортного засобу.
+  - Дросель: Ручне керування за допомогою палиць RC. RC ввід передається напряму до розподілу керування.
+  - Курс: Допомога від автопілота для стабілізації швидкості польоту. Положення палиці RC відображає швидкість обертання транспортного засобу в цій орієнтації.
 
 <a id="params"></a>
 
 ## Параметри
 
-| Параметр                                                                                            | Опис                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="MPC_THR_HOVER"></a>[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) | Hover throttle that is output when the throttle stick is centered and `MPC_THR_CURVE` is set to default.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| <a id="MPC_THR_CURVE"></a>[MPC_THR_CURVE](../advanced_config/parameter_reference.md#MPC_THR_CURVE) | Defines the throttle scaling. By default this is set to **Rescale to hover thrust**, which means that when the throttle stick is centered the configured hover throttle is output (`MPC_THR_HOVER`) and the stick input is linearly rescaled below and above that (allowing for a smooth transition between Stabilized and Altitude/Position control). <br>On powerful vehicles the hover throttle might be very low (e.g. below 20%) so that rescaling distorts the throttle input - i.e. here 80% of the thrust would be controlled by just the top half of the stick input and 20% by the bottom. If needed `MPC_THR_CURVE` can be set to **No Rescale** so that there is no rescaling (stick input to throttle mapping is independent of `MPC_THR_HOVER`). |
+| Параметр                                                                                            | Опис                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MPC_THR_HOVER"></a>[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) | Наведення дроселя, яке видається, коли важіль дроселя знаходиться в центрі, а `MPC_THR_CURVE` встановлено ​​в значення за замовчуванням.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| <a id="MPC_THR_CURVE"></a>[MPC_THR_CURVE](../advanced_config/parameter_reference.md#MPC_THR_CURVE) | Defines the throttle scaling. За замовчуванням це встановлено на **Масштабування до утримування тяги**, що означає, що коли дросельна важіль у центрі, виводиться налаштована тяга утримування (`MPC_THR_HOVER`), а вхід важеля лінійно масштабується вище і нижче цього (дозволяючи плавний перехід між стабілізованим та регулюванням висоти/позиції контролю). <br>На потужних транспортних засобах керування порогу може бути дуже низьким (наприклад, нижче 20%), тому що масштабування спотворює вхід газу - тобто тут 80% тяги керується лише верхньою половиною входу палиці, а 20% - нижнім. Якщо потрібно `MPC_THR_CURVE` може бути встановлений ​​на **No Rescale**, щоб не було масштабування (вхід стіку до картографування польоту є незалежним від `MPC_THR_HOVER`). |

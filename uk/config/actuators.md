@@ -260,7 +260,7 @@ PWM AUX виходи вважаються бажаними для керуван
 
 Ви повинні призначити функції виходам, які відповідають вашій фізичній з'єднаності моторів та сервоприводів, і використовувати розділ [Тестування приводів](#actuator-testing), описаний нижче, для визначення відповідних значень параметрів виходу. Ці кроки охоплені в [Вихідному призначенні та конфігурації](#output-assignment-and-configuration).
 
-### Функції виведення
+### Функції виводу
 
 Функції виводу використовуються для відображення "логічних функцій" конструкції повітряного каркасу, таких як `Мотор 1` або `Шасі`, на фізичні виводи, наприклад, вивідний пін FMU 2. Це дозволяє легко використовувати певний вихідний контакт для майже будь-якої мети.
 
@@ -268,14 +268,14 @@ PWM AUX виходи вважаються бажаними для керуван
 
 Функції включають:
 
-- `Disabled`: Output has no assigned function.
-- `Constant_Min`: Output set to constant minimum value (-1).
-- `Constant_Max`: Output is set to constant maximum value (+1).
-- `Motor 1` to `Motor 12`: Output is indicated motor. Only motors allowed for airframe are displayed.
-- `Servo 1` to `Servo 8`: Servo output. These are further assigned a specific meaning based on airframe, such as "tilt servo", "left aileron".
+- `Відключено`: Виводу не призначено жодної функції.
+- `Constant_Min`: Вивід постійного мінімального значення (-1).
+- `Constant_Max`: Вивід встановлюється на постійне максимальне значення (+1).
+- `Motor 1` до `Motor 12`: На виході вказано двигун. Відображаються тільки двигуни, дозволені для авіаконструкції.
+- `Servo 1` - `Servo 8`: вихід сервоприводу. Ці об'єкти отримують конкретне значення на основі конструкції, таке як "серводвигун нахилу", "лівий елерон".
 - `Peripheral via Acutator Set 1` to `Peripheral via Acutator Set 6`: [Generic Actuator Control with MAVLink](../payloads/generic_actuator_control.md#generic-actuator-control-with-mavlink).
 - `Landing Gear`: Output is landing gear.
-- `Парашут`: Вихід - це парашут. The minimum value is sent in normal use and the maximum value is emitted when a failsafe is triggered.
+- `Парашут`: Вихід - це парашут. Мінімальне значення надсилається у звичайному режимі, а максимальне - при спрацьовуванні захисту від збоїв.
 - `RC Roll`: Output is passthrough roll from RC ([RC_MAP_ROLL](../advanced_config/parameter_reference.md#RC_MAP_ROLL) maps an RC channel to this output). An RC channel is mapped to the output using .
 - `RC Pitch`: Output is passthrough pitch from RC ([RC_MAP_PITCH](../advanced_config/parameter_reference.md#RC_MAP_PITCH) maps an RC channel to this output).
 - `RC Throttle`: Output is passthrough throttle from RC ([RC_MAP_THROTTLE](../advanced_config/parameter_reference.md#RC_MAP_THROTTLE) maps an RC channel to this output).
@@ -286,16 +286,16 @@ PWM AUX виходи вважаються бажаними для керуван
 - `Gimbal Pitch`: Output controls Gimbal pitch.
 - `Gimbal Yaw`: Output controls Gimbal pitch.
 
-The following functions can only be applied to FMU outputs:
+Наведені функції можуть бути застосовані тільки до виходів FMU:
 
-- `Camera_Trigger`: Output to trigger camera. Enabled when [`TRIG_MODE==0`](../advanced_config/parameter_reference.md#TRIG_MODE). Configured via `TRIG_*` parameters.
-- `Camera_Capture`: Input to get image capture notification. Enabled when [CAM_CAP_FBACK==0](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). Configured via `CAM_CAP_*` parameters.
-- `PPS_Input`: Pulse-per-second input capture. Used for GPS synchronisation. Enabled when [`PPS_CAP_ENABLE==0`](../advanced_config/parameter_reference.md#PPS_CAP_ENABLE)
+- `Camera_Trigger`: Вихід для запуску камери. Увімкнено, коли [`TRIG_MODE==0`](../advanced_config/parameter_reference.md#TRIG_MODE). Налаштовано через параметри `TRIG_*`.
+- `Camera_Capture`: Вхід для отримання сповіщення про захоплення зображення. Увімкнено, коли [CAM_CAP_FBACK==0](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). Налаштовано через параметри `CAM_CAP_*`.
+- `PPS_Input`: Захоплення вводу імпульсів на секунду. Використовується для синхронізації GPS. Увімкнено, коли [`PPS_CAP_ENABLE==0`](../advanced_config/parameter_reference.md#PPS_CAP_ENABLE)
 
-::: info This list is correct at PX4 v1.13. Функції визначені у джерелі за посиланням на [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
+:::info Цей список є правильним у PX4 v1.13. Функції визначені у джерелі за посиланням на [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
 :::
 
-## Actuator Testing
+## Тестування актуаторів
 
 Секція _Тестування приводів_ у нижньому правому куті надає повзунки, які можна використовувати для тестування (та визначення) налаштувань приводу та двигуна. Для кожного виводу, визначеного в розділі [Виводи приводу](#actuator-outputs), надається повзунок. Наведений нижче приклад слайдера показує розділ для типової повітряної конструкції VTOL Tiltrotor.
 

@@ -1,30 +1,30 @@
 # Pixhack V3
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Звертайтесь до [виробника](https://store.cuav.net/) щодо питань апаратного забезпечення або питань відповідності.
 :::
 
-The CUAV _Pixhack V3_ flight controller board is a flexible autopilot intended primarily for manufacturers of commercial systems.
+Контролер польоту CUAV _Pixhack V3_ є гнучким автопілотом, призначеним в основному для виробників комерційних систем.
 
-The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight controller, which is in turn based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS, and is fully compatible with both PX4 or ArduPilot<sup>&reg;</sup> (APM) firmware.
+Плата є варіантом контролера польоту SOLO Pixhawk<sup>&reg;</sup> 2 (PH2), який, в свою чергу, базується на [Pixhawk-project](https://pixhawk.org/) відкритому апаратному дизайні **FMUv3**. Він працює з PX4 на ОС [NuttX](https://nuttx.apache.org/), і повністю сумісний з прошивкою PX4 або ArduPilot<sup>&reg;</sup> (APM).
 
-_Pixhack V3_ has significant improvements with respect to the original design, including better interface layout and the addition of vibration damping and a thermostat system.
+_Pixhack V3_ має значні поліпшення щодо оригінального дизайну, включаючи краще розташування інтерфейсу та додавання системи поглинання вібрації та термостата.
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info Цей контролер польоту [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Quick Summary
+## Короткий опис
 
-- Microprocessor:
+- Мікропроцесор:
   - STM32F427
-  - STM32F100 (Failsafe co-processor)
-- Sensors:
-  - Accelerometers (3): LS303D, MPU6000, MPU9250/hmc5983
-  - Gyroscopes (3): L3GD20, MPU6000, MPU9250
-  - Compass (2): LS303D, MPU9250
-  - Barometer (2): MS5611 X2
-- Interfaces:
+  - STM32F100 (відмовостійкий співпроцесор)
+- Датчики:
+  - Акселерометри (3): LS303D, MPU6000, MPU9250/hmc5983
+  - Гіроскопи (3): L3GD20, MPU6000, MPU9250
+  - Компаси (2): LS303D, MPU9250
+  - Барометри (2): MS5611 X2
+- Інтерфейси:
   - MAVLink UART (2)
   - GPS UART (2)
   - DEBUG UART (1)
@@ -32,49 +32,49 @@ _Pixhack V3_ has significant improvements with respect to the original design, i
   - RSSI IN: PWM OR 3.3ADC
   - I2C (2)
   - CAN BUS (1)
-  - ADC IN: 3.3V X1 , 6.6V X1
+  - ADC IN: 3.3В X1 , 6.6В X1
   - PWM OUT: 8 PWM IO + 4 IO
-- Power System:
-  - PM POWER IN: 4.5 ~ 5.5 V
-  - USB POWER IN: 5.0 V +- 0.25v
-- Weight and Dimensions:
-  - Weight: 63g
-  - Width: 68mm
-  - Thickness: 17mm
-  - Length: 44mm
-- Other Characteristics:
-  - Operating temperature: -20 ~ 60°C
+- Система живлення:
+  - PM POWER IN: 4.5 ~ 5.5 В
+  - USB POWER IN: 5.0 В +- 0.25В
+- Вага та розміри:
+  - Вага: 63г
+  - Ширина: 68мм
+  - Товщина: 17мм
+  - Довжина: 44мм
+- Інші характеристики:
+  - Температура роботи: -20 ~ 60°C
 
-## Availability
+## Доступність
 
-The board can be purchased from:
+Плату можна придбати з:
 
 - [store.cuav.net](http://store.cuav.net/index.php?id_product=8&id_product_attribute=0&rewrite=pixhack-v3-autopilot&controller=product&id_lang=3)
 - [leixun.aliexpress.com/store](https://leixun.aliexpress.com/store)
 
-## Building Firmware
+## Створення прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно створювати цю прошивку! Вона попередньо зібрана і автоматично встановлюється за допомогою _QGroundControl_ при підключенні відповідного обладнання.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v3_default
 ```
 
-## Pinouts and Schematics
+## Розпіновки та схеми
 
-- [Documentation/wiring guides](http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html)
+- [Документація/посібники з написання](http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html)
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO debug              |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART   | Девайс     | Порт                     |
+| ------ | ---------- | ------------------------ |
+| UART1  | /dev/ttyS0 | IO debug                 |
+| USART2 | /dev/ttyS1 | TELEM1 (контроль потоку) |
+| USART3 | /dev/ttyS2 | TELEM2 (контроль потоку) |
+| UART4  |            |                          |
+| UART7  | CONSOLE    |                          |
+| UART8  | SERIAL4    |                          |

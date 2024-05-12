@@ -1,23 +1,23 @@
-# Hold Mode (Fixed-Wing)
+# Режим утримання (з нерухомим крилом)
 
 <img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
-The _Hold_ flight mode causes the vehicle to loiter (circle) around its current GPS position and maintain its current altitude.
+Режим _Hold_ призводить до того, щоб транспорт затримувався (обходив) навколо свого поточного GPS-положення та зберігав свою поточну висоту.
 
 :::tip
-_Hold mode_ can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch.
+_Режим утримання_ може бути використаний для призупинення місії або для допомоги у відновленні контролю над транспортним засобом у випадку надзвичайної ситуації. Зазвичай він активується за допомогою наперед заданого перемикача.
 :::
 
 ::: info
 
-- Mode is automatic - no user intervention is _required_ to control the vehicle.
-- Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
-  - Flying vehicles can't switch to this mode without global position.
-  - Flying vehicles will failsafe if they lose the position estimate.
-  - Disarmed vehicles can switch to mode without valid position estimate but can't arm.
-- Mode requires wind and flight time are within allowed limits (specified via parameters).
-- RC control switches can be used to change flight modes on any vehicle.
-- RC stick movement is ignored.
+- Режим автоматичний - для керування транспортним засобом _не потрібно_ втручання користувача.
+- Режим вимагає глобальної тривимірної оцінки позиції (з GPS або виведеної з [локальної позиції](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+  - Літаючі транспортні засоби не можуть переключатися на цей режим без глобального положення.
+  - Літаючі транспортні засоби перейдуть в режим аварійної безпеки, якщо втратять оцінку положення.
+  - Роззброєні транспортні засоби можуть переключатися в режим без дійсної оцінки позиції, але не можуть озброюватися.
+- Режим вимагає, щоб швидкість вітру та час польоту були в межах допустимих значень (вказано через параметри).
+- Перемикачі керування RC можуть використовуватися для зміни режимів польоту на будь-якому транспортному засобі.
+- Рух стіків радіокерування ігнорується.
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
@@ -25,18 +25,18 @@ _Hold mode_ can be used to pause a mission or to help you regain control of a ve
 
 ## Технічний підсумок
 
-The aircraft circles around the GPS hold position at the current altitude. The vehicle will first ascend to [NAV_MIN_LTR_ALT](#NAV_MIN_LTR_ALT) if the mode is engaged below this altitude.
+Літак кружляє навколо позиції утримання GPS на поточній висоті. Транспортний засіб спочатку підніметься до [NAV_MIN_LTR_ALT](#NAV_MIN_LTR_ALT), якщо режим увімкнено нижче цієї висоти.
 
-RC stick movement is ignored.
+Рух стіків радіокерування ігнорується.
 
 ### Параметри
 
-Hold mode behaviour can be configured using the parameters below.
+Поведінку режиму утримання можна налаштувати за допомогою наведених нижче параметрів.
 
-| Параметр                                                                                                | Опис                                                                                                          |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)                            | The radius of the loiter circle.                                                                              |
-| <a id="NAV_MIN_LTR_ALT"></a>[NAV_MIN_LTR_ALT](../advanced_config/parameter_reference.md#NAV_MIN_LTR_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude). |
+| Параметр                                                                                                | Опис                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)                            | Радіус кола обертання.                                                                                                        |
+| <a id="NAV_MIN_LTR_ALT"></a>[NAV_MIN_LTR_ALT](../advanced_config/parameter_reference.md#NAV_MIN_LTR_ALT) | Мінімальна висота для режиму очікування (транспортний засіб підніметься на цю висоту, якщо режим увімкнуто на меншій висоті). |
 
 ## Дивись також
 

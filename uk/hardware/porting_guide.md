@@ -8,15 +8,15 @@ PX4 складається з двох основних рівнів: шару [
 
 Цей посібник спрямований лише на операційну систему хоста та проміжне програмне забезпечення, оскільки програми/стек польоту будуть працювати на будь-якій цільовій платі.
 
-## Flight Controller Configuration File Layout
+## Налаштування режиму польоту файлової структури
 
-Board startup and configuration files are located under [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards/) in each board's vendor-specific directory (i.e. **boards/_VENDOR_/_MODEL_/**).
+Файли запуску та конфігурації дошки розташовані під [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards/) в кожному каталозі постачальника дошки (тобто **boards/_VENDOR_/_MODEL_/**).
 
-For example, for FMUv5:
+Наприклад, для FMUv5:
 
-- (All) Board-specific files: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5).<!-- NEED px4_version -->
-- Build configuration: [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board).<!-- NEED px4_version -->
-- Board-specific initialisation file: [/boards/px4/fmu-v5/init/rc.board_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/init/rc.board_defaults) <!-- NEED px4_version -->
+- (Усі) Файли, специфічні для плати: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5)<!-- NEED px4_version -->
+- Конфігурація збирання: [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board).<!-- NEED px4_version -->
+- Файл ініціалізації для конкретної плати: [/boards/px4/fmu-v5/init/rc.board_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/init/rc.board_defaults) <!-- NEED px4_version -->
   - Файл ініціалізації, специфічний для плати, автоматично включається в сценарії запуску, якщо він знайдений у каталозі плат під шляхом **init/rc.board**.
   - Файл використовується для запуску сенсорів (та інших речей), які існують лише на конкретній платі. Це також може бути використано для встановлення параметрів за замовчуванням дошки, відображень UART та будь-яких інших виняткових випадків.
   - Для FMUv5 ви можете побачити, як запускаються всі датчики Pixhawk 4, а також встановлюється більший LOGGER_BUF.
@@ -33,7 +33,7 @@ For example, for FMUv5:
 
 Плати Linux не включають ОС та конфігурацію ядра. Ці дані вже надаються зображенням Linux, доступним для плати (яке повинно підтримувати інерційні сенсори з коробки).
 
-- [boards/px4/raspberrypi/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/raspberrypi/default.px4board) - RPI cross-compilation. <!-- NEED px4_version -->
+- [дошки/px4/raspberrypi/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/raspberrypi/default.px4board) - Крос-компиляція RPI. <!-- NEED px4_version -->
 
 ## Компоненти та конфігурація проміжного програмного забезпечення
 
@@ -67,9 +67,9 @@ For example, for FMUv5:
 Виробники повинні ретельно розглянути витрати на обслуговування перед відхиленням від специфікації (витрати виробника пропорційні рівню відхилення).
 :::
 
-We welcome any individual or company to submit their port for inclusion in our supported hardware, provided they are willing to follow our [Code of Conduct](https://github.com/PX4/PX4-Autopilot/blob/main/CODE_OF_CONDUCT.md) and work with the Dev Team to provide a safe and fulfilling PX4 experience to their customers.
+Ласкаво просимо будь-яку фізичну особу або компанію подати їхній порт для включення в нашу підтримувану апаратуру, за умови, що вони готові дотримуватися нашого [Кодексу поведінки](https://github.com/PX4/PX4-Autopilot/blob/main/CODE_OF_CONDUCT.md) та співпрацювати з Технічною Командою, щоб забезпечити безпечний та задоволений досвід з PX4 для їхніх клієнтів.
 
-It's also important to note that the PX4 dev team has a responsibility to release safe software, and as such we require any board manufacturer to commit any resources necessary to keep their port up-to-date, and in a working state.
+Також важливо зауважити, що команда розробників PX4 має відповідальність випускати безпечне програмне забезпечення, тому ми вимагаємо, щоб будь-який виробник плати зобов'язався витрачати всі необхідні ресурси для підтримки їхнього порту в актуальному стані та працездатному.
 
 Якщо ви хочете, щоб ваша дошка була офіційно підтримана в PX4:
 

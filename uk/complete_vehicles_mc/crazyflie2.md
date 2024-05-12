@@ -1,108 +1,108 @@
-# Crazyflie 2.0 (Discontinued)
+# Crazyflie 2.0 (Припинено)
 
 <Badge type="error" text="Discontinued" />
 
 :::warning
-_Crazyflie 2.0_ has been [discontinued/superseded](../flight_controller/autopilot_experimental.md).
-Try [Bitcraze Crazyflie 2.1](../complete_vehicles_mc/crazyflie21.md) instead!
+_Crazyflie 2.0_ було [припинено/замінено](../flight_controller/autopilot_experimental.md).
+Натомість спробуйте [Bitcraze Crazyflie 2.1](../complete_vehicles_mc/crazyflie21.md)!
 :::
 
 :::warning
 
-- PX4 does not manufacture this (or any) autopilot.
-  Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
-- PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+- PX4 не розробляє цей (або будь-який інший) автопілот.
+  Зверніться до [виробника](https://www.bitcraze.io/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
+- Підтримка PX4 для цього контролера польоту є [експериментальною](../flight_controller/autopilot_experimental.md).
 
 :::
 
-The Crazyflie line of micro quads was created by Bitcraze AB.
-An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
+Лінійка мікро-квадрокоптерів Crazyflie була створена компанією Bitcraze AB.
+Огляд Crazyflie 2.0 можна [знайти тут](https://www.bitcraze.io/crazyflie-2/).
 
-![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
+![Зображення Crazyflie2](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
 ## Короткий опис
 
 ::: info
-The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
+Основна документація з апаратного забезпечення тут: https://wiki.bitcraze.io/projects:crazyflie2:index
 :::
 
-- Main System-on-Chip: STM32F405RG
-  - CPU: 168 MHz ARM Cortex M4 with single-precision FPU
+- Основний System-on-Chip: STM32F405RG
+  - CPU: 168 МГц ARM Cortex M4 з одноточним FPU
   - RAM: 192 KB SRAM
-- nRF51822 radio and power management MCU
-- MPU9250 Accel / Gyro / Mag
-- LPS25H barometer
+- nRF51822 радіо та керування живленням MCU
+- MPU9250 Акселератор / Гіроскоп / Магнит
+- Барометр LPS25H
 
 ## Де придбати
 
 - [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0).
-- [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between _QGroundControl_ and Crazyflie 2.0.
-- [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): breakout expansion board for connecting new peripherals.
-- [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck): contains an optical flow sensor to measure movements of the ground and a distance sensor to measure the distance to the ground.
-  This will be useful for precise altitude and position control.
-- [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) has the same distance sensor as the Flow deck to measure the distance to the ground.
-  This will be useful for precise altitude control.
-- [SD-card deck](https://store.bitcraze.io/collections/decks/products/sd-card-deck): used for high speed onboard logging to a micro SD card.
-- [Logitech Joystick](https://support.logi.com/hc/en-us/articles/360024326793--Getting-Started-Gamepad-F310).
+- [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): використовується для бездротового зв'язку між _QGroundControl_ та Crazyflie 2.0.
+- [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): плата розширення для підключення нових периферійних пристроїв.
+- [Дека потоку](https://store.bitcraze.io/collections/decks/products/flow-deck): містить оптичний сенсор потоку для вимірювання рухів землі та датчик відстані для вимірювання відстані до землі.
+  Це буде корисно для точного контролю висоти та положення.
+- [Deck Z-ranger](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) має той самий датчик відстані, як і Deck Flow, щоб виміряти відстань до землі.
+  Це буде корисно для точного контролю висоти.
+- [Набір SD-картки](https://store.bitcraze.io/collections/decks/products/sd-card-deck): використовується для швидкого внутрішнього журналювання на карту micro SD.
+- [Джойстик Logitech](https://support.logi.com/hc/en-us/articles/360024326793--Getting-Started-Gamepad-F310).
 
-## Flashing PX4
+## Прошивка PX4
 
-After setting up the PX4 development environment, follow these steps to install the PX4 Autopilot on the Crazyflie 2.0:
+Після налаштування середовища розробки PX4 слідкуйте цим крокам, щоб встановити автопілот PX4 на Crazyflie 2.0:
 
-1. Download the source code of the PX4 Bootloader:
+1. Завантажте вихідний код завантажувача PX4:
 
    ```sh
    git clone https://github.com/PX4/Bootloader.git
    ```
 
-2. Navigate into the top directory of the source code and compile it using:
+2. Перейдіть до верхньої директорії вихідного коду та скомпілюйте його за допомогою:
 
    ```sh
    make crazyflie_bl
    ```
 
-3. Put the Crazyflie 2.0 into DFU mode by following these steps:
-   - Ensure it is initially unpowered.
-   - Hold down the reset button (see figure below...).
+3. Поставте Crazyflie 2.0 у режим DFU, виконавши ці кроки:
+   - Спочатку переконайтеся, що він знеструмлений.
+   - Утримуйте кнопку скидання (див. малюнок нижче...).
      ![Crazyflie2 Reset Button](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
-   - Plug into computer's USB port.
-   - After a second, the blue LED should start blinking and after 5 seconds should start blinking faster.
-   - Release button.
+   - Підключіть до USB-порту комп'ютера.
+   - Через секунду синій світлодіод повинен почати блимати, а через 5 секунд повинен почати блимати швидше.
+   - Відпустіть кнопку.
 
-4. Install _dfu-util_:
+4. Встановіть _dfu-util_:
 
    ```sh
    sudo apt-get update
    sudo apt-get install dfu-util
    ```
 
-5. Flash bootloader using _dfu-util_ and unplug Crazyflie 2.0 when done:
+5. Виконайте прошивку завантажувальника за допомогою _dfu-util_ та від'єднайте Crazyflie 2.0, коли це зроблено:
 
    ```sh
    sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D ./build/crazyflie_bl/crazyflie_bl.bin
    ```
 
-   When powering on the Crazyflie 2.0 the yellow LED should blink.
+   Коли увімкнено Crazyflie 2.0, жовтий світлодіод повинен мигати.
 
-6. Download the source code of the PX4 autopilot:
+6. Завантажте вихідний код завантажувача автопілоту PX4:
 
    ```sh
    git clone https://github.com/PX4/PX4-Autopilot.git
    ```
 
-7. Navigate into the top directory of the source code and compile it using:
+7. Перейдіть до верхньої директорії вихідного коду та скомпілюйте його за допомогою:
 
    ```sh
    make bitcraze_crazyflie_default upload
    ```
 
-8. When prompted to plug in device, plug in Crazyflie 2.0.
-   The yellow LED should start blinking indicating bootloader mode.
-   Then the red LED should turn on indicating that the flashing process has started.
+8. Коли вас попросять підключити пристрій, підключіть Crazyflie 2.0.
+   Жовтий світлодіод повинен почати блимати, що вказує на режим завантажувача.
+   Потім червоний світлодіод повинен увімкнутися, що вказує на те, що процес мигання розпочався.
 
-9. Wait for completion.
+9. Очікування завершення.
 
-10. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors.html).
+10. Готово! Калібруйте сенсори за допомогою [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors.html).
 
 ::: info
 If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/main/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`.
@@ -112,7 +112,7 @@ This should be done using _menuconfig_:
 make bitcraze_crazyflie_default menuconfig
 ```
 
-or _qconfig_ (Check _Low-level console support_ under _Serial Driver Support_ in GUI):
+або _qconfig_ (Перевірте _Low-level console support_ в розділі _Serial Driver Support_ у GUI):
 
 ```sh
 make bitcraze_crazyflie_default qconfig
@@ -120,96 +120,96 @@ make bitcraze_crazyflie_default qconfig
 
 :::
 
-## Wireless Setup Instructions
+## Інструкції з налаштування бездротового з'єднання
 
-The onboard nRF module allows connecting to the board via Bluetooth or through the proprietary 2.4GHz Nordic ESB protocol.
+Модуль nRF на борту дозволяє підключатися до плати через Bluetooth або через пропрієтарний протокол Nordic ESB на частоті 2,4 ГГц.
 
-- A [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/) is recommended.
-- To fly the Crazyflie 2.0 right away, the Crazyflie phone app is supported via Bluetooth.
+- Рекомендується [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/).
+- Щоб одразу летіти на Crazyflie 2.0, додаток для смартфона Crazyflie підтримується через Bluetooth.
 
-Using the official Bitcraze **Crazyflie phone app**:
+Використання офіційного додатка **Crazyflie для телефону**:
 
-- Connect via Bluetooth.
-- Change mode in settings to 1 or 2.
-- Calibrate via QGroundControl.
+- Підключіться через Bluetooth.
+- Змініть режим у налаштуваннях на 1 або 2.
+- Відкалібруйте через QGroundControl.
 
 Підключення через **MAVLink**:
 
-- Use a Crazyradio PA alongside a compatible GCS.
-- Download the _crazyflie-lib-python_ source code:
+- Використовуйте Crazyradio PA разом із сумісним GCS.
+- Завантажте вихідний код _crazyflie-lib-python_:
 
   ```sh
   git clone https://github.com/bitcraze/crazyflie-lib-python.git
   ```
 
 :::info
-We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) to setup a wireless MAVlink communication link between Crazyflie 2.0 (flashed with PX4) and QGroundControl. _Cfbridge_ enables QGroundControl to communicate with the crazyradio PA.
-The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use **cfbridge.py**.
+Ми будемо використовувати [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) для налаштування бездротового зв'язку MAVlink між Crazyflie 2.0 (прошитий PX4) та QGroundControl. _Cfbridge_ дозволяє QGroundControl комунікувати з crazyradio PA.
+Цей [базований на C cfbridge](https://github.com/dennisss/cfbridge) наразі має проблеми з втратою даних, тому ми вирішили використовувати **cfbridge.py**.
 :::
 
-- Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/installation/usb_permissions/) and **restart** your computer.
+- Переконайтеся, що ви налаштували дозволи udev для використання USB радіо. Для цього виконайте наступні кроки [тут](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/installation/usb_permissions/) та **перезапустіть** ваш комп'ютер.
 
-- Connect a Crazyradio PA via USB.
+- Підключіть Crazyradio PA через USB.
 
-- Build a [virtual environment (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies using the following method:
+- Побудуйте [віртуальне середовище (локальне середовище Python)](https://virtualenv.pypa.io/en/latest/) залежностей в пакеті, використовуючи наступний метод:
 
   ```sh
   pip install tox --user
   ```
 
-- Navigate to the crazyflie-lib-python folder and type:
+- Перейдіть до папки crazyflie-lib-python та введіть:
 
   ```sh
   make venv
   ```
 
-- Activate the virtual environment:
+- Активуйте віртуальне середовище:
 
   ```sh
   source venv-cflib/bin/activate
   ```
 
-- Install required dependencies:
+- Встановіть необхідні залежності:
 
   ```sh
   pip install -r requirements.txt --user
   ```
 
-To connect Crazyflie 2.0 with crazyradio, **launch cfbridge** by following these steps:
+Щоб підключити Crazyflie 2.0 з crazyradio, **запустіть cfbridge** за допомогою цих кроків:
 
-- Power off and power on Crazyflie 2.0 and wait for it to boot up.
+- Вимкніть та увімкніть Crazyflie 2.0 та зачекайте, поки він завантажиться.
 
-- Connect a Crazyflie radio device via USB.
+- Підключіть радіопристрій Crazyflie через USB.
 
-- Navigate to the crazyflie-lib-python folder.
+- Перейдіть до папки crazyflie-lib-python.
 
-- Activate the environment:
+- Активуйте середовище:
 
   ```sh
   source venv-cflib/bin/activate
   ```
 
-- Navigate to the examples folder:
+- Перейдіть до папки прикладів:
 
   ```sh
   cd examples
   ```
 
-- Launch cfbridge:
+- Запустіть cfbridge:
 
 ```sh
 python cfbridge.py
 ```
 
 :::info
-_Cfbridge_ by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7.
-If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/index.md#advanced-swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGroundControl via a USB cable and change the syslink parameters (channel, address) in QGroundControl.
-Next, launch the cfbridge by giving the same channel and address as the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
+_Cfbridge_ за замовчуванням намагається ініціювати комунікацію радіоканалу на каналі 80 та з адресою crazyflie 0xE7E7E7E7E7.
+Якщо ви використовуєте [кілька crazyflies та/або crazyradios](https://github.com/dennisss/cfbridge/blob/master/index.md#advanced-swarming) в одній кімнаті і хочете використовувати різні канали та/або адреси для кожного, спочатку підключіть crazyflie до QGroundControl через USB-кабель і змініть параметри syslink (канал, адреса) в QGroundControl.
+Після цього запустіть cfbridge, надаючи той самий канал та адресу як перший та другий аргументи відповідно, наприклад: `python cfbridge.py 90 0x0202020202`
 :::
 
-- Open QGroundControl.
-- After using _cfbridge_, you can deactivate the virtualenv if you activated it by pressing `CTRL+z`.
-  Most of the time, launching _cfbridge_ again from the same terminal doesn't connect to crazyflie, this can be solved by closing the terminal and relaunching _cfbridge_ in a new terminal.
+- Відкрийте QGroundControl.
+- Після використання _cfbridge_ ви можете вимкнути віртуальне середовище, якщо ви його активували, натиснувши `CTRL+z`.
+  Більшість часу, запуск _cfbridge_ знову з того ж терміналу не підключається до crazyflie, це можна вирішити, закривши термінал і знову запустивши _cfbridge_ в новому терміналі.
 
 :::tip
 If you change any driver in [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python) or if launching _cfbridge_ in a new terminal does not find crazyflie, you can try navigating to the crazyflie-lib-python folder and run the script below to rebuild cflib.
@@ -221,102 +221,102 @@ make venv
 :::
 
 :::info
-To use Joystick, set `COM_RC_IN_MODE` in QGroundControl to "Joystick/No RC Checks".
-Calibrate the Joystick and set the Joystick message frequency in QGroundControl to any value between 5 to 14 Hz (10 Hz is recommended).
-To be able to set the frequency, the advanced option should be enabled.
-This is the rate at which Joystick commands are sent from QGroundControl to Crazyflie 2.0 (to do this, you will need to follow the instructions [here](https://github.com/mavlink/qgroundcontrol) to obtain the latest QGroundControl source code (master) and build it).
+Для використання джойстика встановіть `COM_RC_IN_MODE` в QGroundControl на "Joystick/No RC Checks".
+Калібруйте джойстик та встановіть частоту повідомлень джойстика в QGroundControl на будь-яке значення від 5 до 14 Гц (рекомендовано 10 Гц).
+Щоб мати можливість встановити частоту, потрібно ввімкнути розширену опцію.
+Це швидкість, з якою команди джойстика відправляються з QGroundControl до Crazyflie 2.0 (для цього вам потрібно слідувати інструкціям [тут](https://github.com/mavlink/qgroundcontrol), щоб отримати останній вихідний код QGroundControl (master) і скомпілювати його).
 :::
 
 ![](../../assets/hardware/joystick-message-frequency.png)
 
-## Hardware Setup
+## Налаштування програмного забезпечення
 
-Crazyflie 2.0 is able to fly with precise control in [Stabilized mode](../flight_modes_mc/manual_stabilized.md), [Altitude mode](../flight_modes_mc/altitude.md) and [Position mode](../flight_modes_mc/position.md).
+Crazyflie 2.0 може літати з точним керуванням у режимі [Стабілізований режим](../flight_modes_mc/manual_stabilized.md), режимі [Висотний режим](../flight_modes_mc/altitude.md) та режимі [Позиційний режим](../flight_modes_mc/position.md).
 
-- You will need the [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) to fly in _Altitude_ mode.
-  If you also want to fly in the _Position_ mode, it is recommended you buy the [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck) which also has the integrated Z-ranger sensor.
-- The onboard barometer is highly susceptible to any external wind disturbances including those created by Crazyflie's own propellers. Hence, we isolated the barometer with a piece of foam, and then mounted the distance sensor on top of it as shown below:
+- Для польоту в режимі _Altitude_ вам знадобиться [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck).
+  Якщо ви також хочете літати в режимі _Position_, рекомендується придбати [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), який також має вбудований сенсор Z-ranger.
+- Покладений барометр дуже чутливий до будь-яких зовнішніх вітрових порушень, включаючи ті, які створюються Crazyflie власними гвинтами. Отже, ми відокремили барометр за допомогою шматка піни, а потім встановили датчик відстані зверху, як показано нижче:
 
-![Crazyflie barometer](../../assets/flight_controller/crazyflie/crazyflie_barometer.jpg)
+![Барометр Crazyflie](../../assets/flight_controller/crazyflie/crazyflie_barometer.jpg)
 
-![Crazyflie barometer foam](../../assets/flight_controller/crazyflie/crazyflie_baro_foam.jpg)
+![Піна для барометра Crazyflie](../../assets/flight_controller/crazyflie/crazyflie_baro_foam.jpg)
 
-![Crazyflie optical flow](../../assets/flight_controller/crazyflie/crazyflie_opticalflow.jpg)
+![Оптичний потік Crazyflie](../../assets/flight_controller/crazyflie/crazyflie_opticalflow.jpg)
 
-In order to log flight details, you can mount SD card deck on top of crazyflie as shown below:
+Для реєстрації деталей польоту ви можете встановити наверху Crazyflie карту SD, як показано нижче:
 
 ![Crazyflie SDCard](../../assets/flight_controller/crazyflie/crazyflie_sdcard.jpg)
 
-Then, you need to stick the battery on top of the SD card deck using a double sided tape:
+Потім вам потрібно приклеїти батарею зверху до покриття карти SD за допомогою двостороннього скотчу:
 
-![Crazyflie battery setup](../../assets/flight_controller/crazyflie/crazyflie_battery_setup.jpg)
+![Налаштування батареї Crazyflie](../../assets/flight_controller/crazyflie/crazyflie_baro_foam.jpg)
 
-## Altitude Control
+## Контроль висоти
 
-Crazyflie is able to fly in _Altitude_ mode if you use a [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck).
-According to the datasheet, the maximum height (above ground) the range finder can sense is 2 m. However, when tested on dark surfaces this value decreases to 0.5 m. On a light floor, it goes up to max 1.3 m. This means you cannot hold altitudes above this value in _Altitude_ or _Position_ flight modes.
+Crazyflie може літати в режимі _Altitude_, якщо ви використовуєте [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck).
+Згідно з технічною характеристикою, максимальна висота (над землею), яку може відчути дальномер, становить 2 м. Проте, коли це перевірялося на темних поверхнях, це значення зменшується до 0.5 м. На світлій підлозі він піднімається до максиму 1.3 м. Це означає, що ви не можете утримувати висоти вище цієї величини у режимах польоту _Altitude_ або _Position_.
 
 :::tip
-If the Crazyflie 2.0 height drifts at mid-throttle command in _Altitude mode_ or _Position mode_, first try rebooting the vehicle. If this does not fix the problem, recalibrate the accel and mag (compass).\
+Якщо висота Crazyflie 2.0 зсувається при команді середнього газу в _Altitude mode_ або _Position mode_, спочатку спробуйте перезавантажити дрон. Якщо це не виправляє проблему, перекалібруйте акселерометр та магніт (компас).\
 :::
 
 :::info
-Since the onboard barometer is highly susceptible to wind disturbances created by the Crazyflie's own propellers, you cannot rely on it to hold altitude.
+Оскільки бортовий барометр дуже вразливий до вітрових турбулентностей, створених власними пропелерами Crazyflie, ви не можете покладатися на нього для збереження висоти.
 :::
 
-## Position Control
+## Керування позицією
 
-With [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), you can fly Crazyflie 2.0 in _Position mode_.
-Unlike [PX4FLOW](../sensor/px4flow.md), the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates.
-Moreover, the flow deck shares the same SPI bus as the SD card deck, therefore logging at high rate on SD card is not recommended when flying in _Position mode_.
+З [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck) ви можете літати на Crazyflie 2.0 в _Position mode_.
+На відміну від [PX4FLOW](../sensor/px4flow.md), плата потоку не містить гіроскоп, тому вбудований гіроскоп використовується для об'єднання потоку з метою знаходження місцевих оцінок позиції.
+Крім того, палуба потоку використовує ту саму шину SPI, що й палуба SD-карти, тому ведення журналу на високій швидкості на SD-картці не рекомендується під час польоту у режимі _Position mode_.
 
-## Using FrSky Taranis RC Transmitter as Joystick
+## Використання пульта дистанційного керування FrSky Taranis як джойстика
 
-If you already own a Taranis RC transmitter and want to use it as a controller, it can be configured as a USB Joystick:
+Якщо у вас вже є пульт дистанційного керування Taranis і ви хочете використовувати його як контролер, його можна налаштувати як USB джойстик:
 
-- Create a new model in Taranis.
+- Створити нову модель у Taranis.
 
-  ![Taranis - new model](../../assets/flight_controller/crazyflie/taranis_model.jpg)
+  ![Taranis - нова модель](../../assets/flight_controller/crazyflie/taranis_model.jpg)
 
-- In _MODEL SETUP_ menu page, turn off both internal and external TX modules.
+- На сторінці меню _MODEL SETUP_ вимикайте обидва внутрішні і зовнішні TX модулі.
 
-  ![Taranis - model setup](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
+  ![Taranis - налаштування моделі](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
 
-- In _OUTPUTS_ menu page (also called “SERVOS” page in some Taranis transmitters), invert Throttle (CH1) and Aileron (CH3).
+- На сторінці меню _OUTPUTS_ (також називаній сторінкою “SERVOS” у деяких передавачах Taranis) інвертуйте Throttle (CH1) та Aileron (CH3).
 
-  ![Taranis - outputs](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
+  ![Taranis - виходи](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
 
-To use Taranis switches to arm/disarm and switch to different flight modes:
+Для використання перемикачів Taranis для озброєння/роззброєння та перемикання між різними режимами польоту:
 
-- In Taranis UI _MIXER_ menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGroundControl Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
+- На сторінці меню _MIXER_ в Taranis UI ви можете призначити перемикачі для будь-якого каналу в діапазоні каналів 9-16, які відповідають кнопкам 0-7 у налаштуванні джойстика QGroundControl. Наприклад, перемикач Taranis "SD" може бути встановлений на канал 9 в інтерфейсі Taranis UI:
 
-  ![Taranis switch setup](../../assets/flight_controller/crazyflie/taranis_switch_setup.jpg)
+  ![Налаштування перемикача Taranis](../../assets/flight_controller/crazyflie/taranis_switch_setup.jpg)
 
-- Connect Taranis to PC with a USB cable and Open QGroundControl.
+- Підключіть Taranis до ПК за допомогою USB-кабелю та відкрийте QGroundControl.
 
-- In QGroundControl Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGroundControl Joystick setup. You can assign any mode to this button e.g. _Altitude_ mode. Now when you lower the switch "SD", flight mode will change to _Altitude_.
+- У налаштуваннях джойстика QGroundControl ви можете побачити, як кнопки стають жовтими, коли ви їх увімкнете. Наприклад, канал 9 в Taranis відповідає кнопці 0 в налаштуванні джойстика QGroundControl. Ви можете призначити будь-який режим для цієї кнопки, наприклад, режим _Altitude_. Тепер, коли ви опускаєте перемикач "SD", режим польоту зміниться на _Altitude_.
 
-  ![Joystick setup](../../assets/flight_controller/crazyflie/crazyflie_QGCjoystick_setup.png)
+  ![Налаштування джойстика](../../assets/flight_controller/crazyflie/crazyflie_QGCjoystick_setup.png)
 
 ### ROS
 
-To connect to Crazyflie 2.0 via MAVROS:
+Для підключення до Crazyflie 2.0 через MAVROS:
 
-- Start up _cfbridge_ using the above instructions.
+- Запустіть _cfbridge_ за допомогою вищезазначених інструкцій.
 
-- Change the UDP port QGroundControl listens to:
-  - In QGroundControl, navigate to **Application Settings > General** and uncheck all the boxes under _Autoconnect to the following devices_.
-  - Add in **Comm Links** a link of type _UDP_, check the _Automatically Connect on Start_ option, change the _Listening Port_ to 14557, add Target Hosts: 127.0.0.1 and then press **OK**.
+- Змінити порт UDP, на який прослуховує QGroundControl:
+  - У QGroundControl перейдіть до **Налаштувань додатка > Загальні** і знять позначки з усіх полів під _Autoconnect to the following devices_.
+  - Додайте в **Comm Links** посилання типу _UDP_, встановіть параметр _Automatically Connect on Start_, змініть _Listening Port_ на 14557, додайте Цільові хости: 127.0.0.1, а потім натисніть **OK**.
 
-- Make sure you have [MAVROS](https://github.com/mavlink/mavros/tree/master/mavros#installation) installed.
+- Переконайтеся, що встановлено [MAVROS](https://github.com/mavlink/mavros/tree/master/mavros#installation).
 
-- Start MAVROS with command:
+- Запустіть MAVROS за допомогою команди:
 
   ```sh
   roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"
   ```
 
-- Restart QGroundControl if it doesn't connect.
+- Перезапустіть QGroundControl, якщо він не підключається.
 
 ## Політ
 

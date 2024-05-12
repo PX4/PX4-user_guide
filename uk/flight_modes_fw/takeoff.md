@@ -1,4 +1,4 @@
-# Режим зльоту (з нерухомим крилом)
+# Режим зльоту (з фіксованим крилом)
 
 <img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
@@ -8,14 +8,14 @@
 
 ::: info
 
-- Mode is automatic - no user intervention is _required_ to control the vehicle.
-- Mode requires at least a valid local position estimate (does not require a global position).
-  - Flying vehicles can't switch to this mode without valid local position.
-  - Flying vehicles will failsafe if they lose the position estimate.
-  - Disarmed vehicles can switch to mode without valid position estimate but can't arm.
-- RC control switches can be used to change flight modes.
-- RC stick movement is ignored in catapult takeoff but can can be used to nudge the vehicle in runway takeoff.
-- The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
+- Режим автоматичний - для керування апаратом _не потрібно_ втручання користувача.
+- Режим потребує принаймні дійсної локальної оцінки позиції (не потребує глобальної позиції).
+  - Літаючі апарати не можуть перемикатися в цей режим без дійсної локальної позиції.
+  - Літаючі транспортні засоби перейдуть в режим аварійної безпеки, якщо втратять оцінку положення.
+  - Роззброєні транспортні засоби можуть переключатися в режим без дійсної оцінки позиції, але не можуть озброюватися.
+- Перемикачі радіокерування можна використовувати для зміни режимів польоту.
+- Рух стіка радіокерування ігнорується при зліті за допомогою катапульти, але може бути використана для легкого перекочування транспортного засобу при зльоті зі злітної смуги.
+- [Детектор несправностей](../config/safety.md#failure-detector) автоматично зупинить мотори, якщо на зльоті виникне проблема.
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
@@ -23,28 +23,28 @@
 
 ## Технічний підсумок
 
-Takeoff mode (and [fixed wing mission takeoff](../flight_modes_fw/mission.md#mission-takeoff)) has two modalities: [catapult/hand-launch](#catapult-hand-launch) or [runway takeoff](#runway-takeoff) (hardware-dependent). За замовчуванням режим встановлений для старту з катапульта або ручного запуску, але його можна встановити для старту зі злітної смуги, встановивши [RWTO_TKOFF](#RWTO_TKOFF) на 1.
+Режим зльоту (та [зльот у рамках місії фіксованого крила](../flight_modes_fw/mission.md#mission-takeoff)) має два режими: [катапультний/ручний запуск](#catapult-hand-launch) або [зліт зі злітної смуги](#runway-takeoff) (залежно від обладнання). За замовчуванням режим встановлений для старту з катапульта або ручного запуску, але його можна встановити для старту зі злітної смуги, встановивши [RWTO_TKOFF](#RWTO_TKOFF) на 1.
 
-To use _Takeoff mode_ you first switch to the mode, and then arm the vehicle. The acceleration of hand/catapult launch triggers the motors to start. For runway launch, motors ramp up automatically once the vehicle has been armed.
+Щоб використовувати _режим Зльоту_, ви спершу переключаєтеся в режим, а потім озброюєте транспортний засіб. Прискорення запуску з руки/катапульти спричиняє запуск двигунів. Для запуску на злітну смугу мотори автоматично посилюються, як тільки транспортний засіб був увімкнений.
 
-Irrespective of the modality, a flight path (starting point and takeoff course) and clearance altitude are defined:
+Незалежно від модальності, шлях польоту (початкова точка та курс взльоту) та висота дозволу визначені:
 
-- The starting point is the vehicle position when the takeoff mode is first entered.
-- The course is set to the vehicle heading on arming
-- The clearance altitude is set to [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT).
+- Точкою виходу є позиція транспортного засобу, коли спочатку ввімкнений режим зльоту.
+- Курс встановлено на напрям руху транспортного засобу при загорянні
+- Висота дозволу встановлена на [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT).
 
-On takeoff, the aircraft will follow line defined by the starting point and course, climbing at the maximum climb rate ([FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)) until reaching the clearance altitude. Reaching the clearance altitude causes the vehicle to enter [Hold mode](../flight_modes_fw/takeoff.md).
+При зльоті літак буде слідувати лінією, визначеною точкою старту та курсом, піднімаючись з максимальною швидкістю підйому ([FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)), доки не досягне заданої висоти. Досягнення висоти відкриття спричинює вхід транспортного засобу в режим [Hold mode](../flight_modes_fw/takeoff.md).
 
 ### Параметри
 
 Параметри, які впливають як на катапульту/ручний старт, так і на зліт зі злітно-посадкової смуги:
 
-| Параметр                                                                                                  | Опис                                                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="MIS_TAKEOFF_ALT"></a>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT)   | Minimum altitude setpoint above Home that the vehicle will climb to during takeoff.                                                |
-| <a id="FW_TKO_AIRSPD"></a>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD)       | Takeoff airspeed (is set to [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) if not defined by operator) |
-| <a id="FW_TKO_PITCH_MIN"></a>[FW_TKO_PITCH_MIN](../advanced_config/parameter_reference.md#FW_TKO_PITCH_MIN) | This is the minimum pitch angle setpoint during the climbout phase                                                                 |
-| <a id="FW_T_CLMB_MAX"></a>[FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)       | Maximum climb rate.                                                                                                                |
+| Параметр                                                                                                  | Опис                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| <a id="MIS_TAKEOFF_ALT"></a>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT)   | Мінімальна висота встановлення над будинком, на яку підніметься транспортний засіб під час зльоту.                                         |
+| <a id="FW_TKO_AIRSPD"></a>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD)       | Швидкість зльоту (встановлюється на [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN), якщо оператор не визначив) |
+| <a id="FW_TKO_PITCH_MIN"></a>[FW_TKO_PITCH_MIN](../advanced_config/parameter_reference.md#FW_TKO_PITCH_MIN) | Це мінімальний кут нахилу заданий під час фази зльоту                                                                                      |
+| <a id="FW_T_CLMB_MAX"></a>[FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)       | Максимальний кут підйому.                                                                                                                  |
 
 ::: info
 Транспортний засіб завжди дотримується нормальних максимальних/мінальних налаштувань дросельної заслінки FW під час зльоту ([FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN), [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX)).
@@ -52,69 +52,69 @@ On takeoff, the aircraft will follow line defined by the starting point and cour
 
 <a id="hand_launch"></a>
 
-## Catapult/Hand Launch
+## Катапульта/ручний запуск
 
-In _catapult/hand-launch mode_ the vehicle waits to detect launch (based on acceleration trigger). On launch it enables the motor(s) and climbs with the maximum climb rate [FW_T_CLMB_MAX](#FW_T_CLMB_MAX) while keeping the pitch setpoint above [FW_TKO_PITCH_MIN](#FW_TKO_PITCH_MIN). Once it reaches [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT) it will automatically switch to [Hold mode](../flight_modes_fw/hold.md) and loiter.
+У режимі _катапульти/ручного запуску_ транспортний засіб очікує виявлення запуску (на основі тригера прискорення). Під час запуску воно активує двигуни і піднімається з максимальною швидкістю підйому [FW_T_CLMB_MAX](#FW_T_CLMB_MAX), утримуючи установочний кут по висоті вище [FW_TKO_PITCH_MIN](#FW_TKO_PITCH_MIN). Після досягнення [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT), вона автоматично перейде в режим [Утримування](../flight_modes_fw/hold.md) та круговид.
 
-All RC stick movement is ignored during the full takeoff sequence.
+Всі рухи стіку радіоуправління ігноруються під час повного взлітного процесу.
 
-To launch in this mode:
+Для запуску в цьому режимі:
 
-1. Arm the vehicle
-1. Put the vehicle into _Takeoff mode_
-1. Launch/throw the vehicle (firmly) directly into the wind. You can also shake the vehicle first, wait till the motor spins up and then throw it
+1. Увімкніть дрон
+1. Поставте транспортний засіб в режим _Взліт_
+1. Запустіть / киньте транспортний засіб (міцно) безпосередньо у вітер. Ви також можете спершу потрясти транспортний засіб, зачекати, поки рушить двигун, а потім кинути його
 
-### Parameters (Launch Detector)
+### Параметри (виявник запуску)
 
-The _launch detector_ is affected by the following parameters:
+_Детектор запуску_ піддається впливу наступних параметрів:
 
-| Параметр                                                                                                  | Опис                                                                                     |
-| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| <a id="FW_LAUN_DETCN_ON"></a>[FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON) | Enable automatic launch detection. If disabled motors spin up on arming already          |
-| <a id="FW_LAUN_AC_THLD"></a>[FW_LAUN_AC_THLD](../advanced_config/parameter_reference.md#FW_LAUN_AC_THLD)   | Acceleration threshold (acceleration in body-forward direction must be above this value) |
-| <a id="FW_LAUN_AC_T"></a>[FW_LAUN_AC_T](../advanced_config/parameter_reference.md#FW_LAUN_AC_T)         | Trigger time (acceleration must be above threshold for this amount of seconds)           |
-| <a id="FW_LAUN_MOT_DEL"></a>[FW_LAUN_MOT_DEL](../advanced_config/parameter_reference.md#FW_LAUN_MOT_DEL)   | Delay from launch detection to motor spin up                                             |
+| Параметр                                                                                                  | Опис                                                                                                  |
+| --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| <a id="FW_LAUN_DETCN_ON"></a>[FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON) | Увімкнути автоматичне визначення запуску. Якщо вимкнені двигуни обертаються при підготовці до польоту |
+| <a id="FW_LAUN_AC_THLD"></a>[FW_LAUN_AC_THLD](../advanced_config/parameter_reference.md#FW_LAUN_AC_THLD)   | Поріг прискорення (прискорення в напрямку руху тіла повинно бути вище цієї величини)                  |
+| <a id="FW_LAUN_AC_T"></a>[FW_LAUN_AC_T](../advanced_config/parameter_reference.md#FW_LAUN_AC_T)         | Час спрацьовування (прискорення повинно бути вище порогу на цю кількість секунд)                      |
+| <a id="FW_LAUN_MOT_DEL"></a>[FW_LAUN_MOT_DEL](../advanced_config/parameter_reference.md#FW_LAUN_MOT_DEL)   | Затримка від виявлення запуску до відкручування мотору                                                |
 
 <a id="runway_launch"></a>
 
-## Runway Takeoff
+## Взліт зі злітної смуги
 
-Runway takeoffs can be used by vehicles with landing gear and and steerable wheel (only). You will first need to enable the wheel controller using the parameter [FW_W_EN](#FW_W_EN).
+Зліт зі злітної смуги можна використовувати тільки для транспортних засобів з посадковим шасі та керованим колесом. Спочатку вам потрібно активувати контролер колеса, використовуючи параметр [FW_W_EN](#FW_W_EN).
 
-Vehicle should be centered and aligned with runway when takeoff is initiated. The operator can "nudge" the vehicle while on the runway to help keeping it centered and aligned (see [RWTO_NUDGE](../advanced_config/parameter_reference.md#RWTO_NUDGE)).
+Транспортний засіб повинен бути в центрі та вирівняний по злітній смузі, коли починається зльот. Оператор може "підштовхнути" транспортний засіб під час руху по злітній смузі, щоб допомогти утримати його по центру та вирівняним (див. [RWTO_NUDGE](../advanced_config/parameter_reference.md#RWTO_NUDGE)).
 
-The _runway takeoff mode_ has the following phases:
+Режим зльоту знімається зі шляхом _взліту на зльотну смугу_ має наступні фази:
 
-1. **Throttle ramp**: Throttle is ramped up within [RWTO_RAMP_TIME](../advanced_config/parameter_reference.md#RWTO_RAMP_TIME) to [RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR).
-2. **Clamped to runway**: Pitch fixed, no roll and takeoff path controlled until the rotation airspeed ([RWTO_ROT_AIRSPD](../advanced_config/parameter_reference.md#RWTO_ROT_AIRSPD)) is reached. The operator is able to nudge the vehicle left/right via yaw stick.
-3. **Climbout**: Increase pitch setpoint and climb to takeoff altitude. To prevent wingstrikes, the controller will keep the roll setpoint locked to 0 when close to the ground, and then gradually allow more roll while climbing. It is based on the vehicle geometry as configured in [FW_WING_SPAN](#FW_WING_SPAN) and [FW_WING_HEIGHT](#FW_WING_HEIGHT).
+1. **Затримка ручки газу**: Ручка газу збільшується в межах від [RWTO_RAMP_TIME](../advanced_config/parameter_reference.md#RWTO_RAMP_TIME) до [RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR).
+2. **Закріплений на злітній смузі**: Кут атаки зафіксований, відсутній крен і контрольований шлях взліту до досягнення швидкості обертання в повітрі ([RWTO_ROT_AIRSPD](../advanced_config/parameter_reference.md#RWTO_ROT_AIRSPD)). Оператор може підганяти транспортний засіб ліворуч/праворуч за допомогою стіка рискання.
+3. **Підйом**: Збільште встановлене значення кута польоту та підніміться до висоти зльоту. Щоб уникнути ударів крил, контролер буде тримати встановлений кут кочення заблокованим на 0, коли близько до землі, а потім поступово дозволить більше кочення під час підйому. Це базується на геометрії транспортного засобу, як налаштовано в [FW_WING_SPAN](#FW_WING_SPAN) та [FW_WING_HEIGHT](#FW_WING_HEIGHT).
 
 ::: info
-For a smooth takeoff, the runway wheel controller possibly needs to be tuned. It consists of a rate controller (P-I-FF-controller with the parameters [FW_WR_P](../advanced_config/parameter_reference.md#FW_WR_P), [FW_WR_I](../advanced_config/parameter_reference.md#FW_WR_I), [FW_WR_FF](../advanced_config/parameter_reference.md#FW_WR_FF)) and an outer loop that calculates heading setpoints from course errors and can be tuned via [RWTO_NPFG_PERIOD](#RWTO_NPFG_PERIOD).
+Для плавного зльоту, контролер колеса рульової доріжки потрібно налаштувати. Це складається з регулятора швидкості (P-I-FF-контролер з параметрами [FW_WR_P](../advanced_config/parameter_reference.md#FW_WR_P), [FW_WR_I](../advanced_config/parameter_reference.md#FW_WR_I), [FW_WR_FF](../advanced_config/parameter_reference.md#FW_WR_FF)) та зовнішньої петлі, яка обчислює встановлені точки напрямку з помилками курсу і може настроюватися через [RWTO_NPFG_PERIOD](#RWTO_NPFG_PERIOD).
 :::
 
-### Parameters (Runway Takeoff)
+### Параметри (зліт зі злітної смуги)
 
-Runway takeoff is affected by the following parameters:
+Зліт зі злітної смуги залежить від наступних параметрів:
 
-| Параметр                                                                                                   | Опис                                                                                                                           |
-| ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| <a id="RWTO_TKOFF"></a>[RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF)               | Enable runway takeoff                                                                                                          |
-| <a id="FW_W_EN"></a>[FW_W_EN](../advanced_config/parameter_reference.md#FW_W_EN)                   | Enable wheel controller                                                                                                        |
-| <a id="RWTO_MAX_THR"></a>[RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR)         | Max throttle during runway takeoff                                                                                             |
-| <a id="RWTO_RAMP_TIME"></a>[RWTO_RAMP_TIME](../advanced_config/parameter_reference.md#RWTO_RAMP_TIME)     | Throttle ramp up time                                                                                                          |
-| <a id="RWTO_ROT_AIRSPD"></a>[RWTO_ROT_AIRSPD](../advanced_config/parameter_reference.md#RWTO_ROT_AIRSPD)   | Airspeed threshold to start rotation (pitching up). If not configured by operator is set to 0.9\*FW_TKO_AIRSPD.            |
-| <a id="RWTO_ROT_TIME"></a>[RWTO_ROT_TIME](../advanced_config/parameter_reference.md#RWTO_ROT_TIME)       | This is the time desired to linearly ramp in takeoff pitch constraints during the takeoff rotation.                            |
-| <a id="FW_TKO_AIRSPD"></a>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD)       | Airspeed setpoint during the takeoff climbout phase (after rotation). If not configured by operator is set to FW_AIRSPD_MIN. |
-| <a id="RWTO_NUDGE"></a>[RWTO_NUDGE](../advanced_config/parameter_reference.md#RWTO_NUDGE)               | Enable wheel controller nudging while on the runway                                                                            |
-| <a id="FW_WING_SPAN"></a>[FW_WING_SPAN](../advanced_config/parameter_reference.md#FW_WING_SPAN)         | The wingspan of the vehicle. Used to prevent wingstrikes.                                                                      |
-| <a id="FW_WING_HEIGHT"></a>[FW_WING_HEIGHT](../advanced_config/parameter_reference.md#FW_WING_HEIGHT)     | The height of the wings above ground (ground clearance). Used to prevent wingstrikes.                                          |
-| <a id="RWTO_NPFG_PERIOD"></a>[RWTO_NPFG_PERIOD](../advanced_config/parameter_reference.md#RWTO_NPFG_PERIOD) | L1 period while steering on runway. Increase for less aggressive response to course errors.                                    |
-| <a id="FW_FLAPS_TO_SCL"></a>[FW_FLAPS_TO_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_TO_SCL)   | Flaps setpoint during takeoff                                                                                                  |
+| Параметр                                                                                                   | Опис                                                                                                                                     |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="RWTO_TKOFF"></a>[RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF)               | Увімкніть зліт по взлітній смузі                                                                                                         |
+| <a id="FW_W_EN"></a>[FW_W_EN](../advanced_config/parameter_reference.md#FW_W_EN)                   | Увімкнути контролер колеса                                                                                                               |
+| <a id="RWTO_MAX_THR"></a>[RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR)         | Максимальне розгін під час взліту зі злітної смуги                                                                                       |
+| <a id="RWTO_RAMP_TIME"></a>[RWTO_RAMP_TIME](../advanced_config/parameter_reference.md#RWTO_RAMP_TIME)     | Час прискорення ручки газу                                                                                                               |
+| <a id="RWTO_ROT_AIRSPD"></a>[RWTO_ROT_AIRSPD](../advanced_config/parameter_reference.md#RWTO_ROT_AIRSPD)   | Поріг швидкості для початку підняття (нахилення вгору). Якщо не налаштовано оператором, встановлюється на 0,9\*FW_TKO_AIRSPD.        |
+| <a id="RWTO_ROT_TIME"></a>[RWTO_ROT_TIME](../advanced_config/parameter_reference.md#RWTO_ROT_TIME)       | Це час, який необхідно лінійно нарощувати обмеження швидкості прийому під час обертання на зльоті.                                       |
+| <a id="FW_TKO_AIRSPD"></a>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD)       | Задана швидкість під час розгону під час зльоту (після відкочування). Якщо не налаштовано оператором, встановлюється на FW_AIRSPD_MIN. |
+| <a id="RWTO_NUDGE"></a>[RWTO_NUDGE](../advanced_config/parameter_reference.md#RWTO_NUDGE)               | Увімкніть керування колесом під час руху по злітній смузі                                                                                |
+| <a id="FW_WING_SPAN"></a>[FW_WING_SPAN](../advanced_config/parameter_reference.md#FW_WING_SPAN)         | Розмах крила транспортного засобу. Використовується для запобігання ударів крилом.                                                       |
+| <a id="FW_WING_HEIGHT"></a>[FW_WING_HEIGHT](../advanced_config/parameter_reference.md#FW_WING_HEIGHT)     | Висота крил над землею (дорожній просвіт). Використовується для запобігання ударів крилом.                                               |
+| <a id="RWTO_NPFG_PERIOD"></a>[RWTO_NPFG_PERIOD](../advanced_config/parameter_reference.md#RWTO_NPFG_PERIOD) | Час L1 під час керування на злітній смузі. Збільшення для менш агресивної відповіді на помилки курсу.                                    |
+| <a id="FW_FLAPS_TO_SCL"></a>[FW_FLAPS_TO_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_TO_SCL)   | Налаштування закрилок під час зльоту                                                                                                     |
 
 ## Дивись також
 
-- [Takeoff Mode (MC)](../flight_modes_mc/takeoff.md)
-- [Planning a mission takeoff](../flight_modes_fw/mission.md#mission-takeoff)
+- [Зліт (MC)](../flight_modes_mc/takeoff.md)
+- [Планування місії зльоту](../flight_modes_fw/mission.md#mission-takeoff)
 
 <!-- this maps to AUTO_TAKEOFF in dev -->
