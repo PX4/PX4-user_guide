@@ -156,25 +156,25 @@ DJI F450 кадр (добра вібрація). ![Low vibration DJI F450 - raw 
 #### Приклади: Погана вібрація
 
 <a id="raw_acc_s500"></a>
-Каркас S500. Рівні вібрації на межі - трохи високі для x та y (що є типовим для конструкції S500). This is at the limit where it starts to negatively affect flight performance.
+Каркас S500. Рівні вібрації на межі - трохи високі для x та y (що є типовим для конструкції S500). Це на межі, де це починає негативно впливати на польотові характеристики.
 
 ![Borderline vibration S500 x, y - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
 
 
-Vibration too high. Note how the graph of the z-axis overlaps with the x/y-axis graph:
+Вібрація занадто висока. Зверніть увагу, як графік вісі z накладається на графік вісі x/y:
 
 ![Vibrations in landing gear - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_accel.png)
 
 
-Vibration levels are too high. Note how the graph of the z-axis overlaps with the x/y-axis graph:
+Рівні вібрації занадто високі. Зверніть увагу, як графік вісі z накладається на графік вісі x/y:
 
 ![High vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_too_high_accel.png)
 
 
-Very high (unsafe) vibration levels.
+Дуже високі (небезпечні) рівні вібрації.
 
 :::warning
-You should not fly with such high vibration levels.
+Не слід літати з такими високими рівнями вібрації.
 :::
 
 ![Exceedingly high vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
@@ -182,23 +182,23 @@ You should not fly with such high vibration levels.
 
 <a id="fifo_logging"></a>
 
-### Raw High-rate IMU Data Plots
+### Графіки даних високошвидкісних ІМУ
 
-For an in-depth analysis there is an option to log the raw IMU data at full rate (several kHz, depending on the IMU). This allows inspection of much higher frequencies than with normal logging, which can help when selecting vibration mounts or configuring low-pass and notch filters appropriately.
+Для детального аналізу є можливість реєструвати сирові дані ІМП на повну швидкість (кілька кГц, в залежності від ІМП). Це дозволяє інспекцію набагато вищих частот, ніж при звичайному веденні журналування, що може допомогти при виборі віброізоляторів або налаштуванні нижніх та полосних фільтрів належним чином.
 
-To use it, some parameters need to be changed:
-- Set [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX) to 400. This ensures that the raw sensor data is more efficiently packed when sent from the sensor to the rest of the system, and reduces the log size (without reducing useful data). 
+Щоб використовувати його, деякі параметри потрібно змінити:
+- Встановіть [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX) на 400. Це забезпечує те, що сирові дані датчика ефективніше упаковані при відсиланні з датчика до решти системи та зменшує розмір звітів (не зменшуючи корисних даних). 
   <!-- Explanation in https://github.com/PX4/PX4-user_guide/pull/751/files#r440509688
   Data is sent in a fixed size array that will largely empty if sent at higher rate. The "empty data" is also logged.-->
-- Use a good SD card, as the IMU data requires a high logging bandwidth (Flight Review will show dropouts if the logging rate gets too high).
+- Використовуйте хороший SD-картку, оскільки дані ІМП потребують високої ширини смуги реєстрації (Огляд польотів покаже втрати, якщо швидкість реєстрації стане занадто великою).
 
 :::tip
-See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of popular SD card.
+Див. [Ведення журнала > SD-карти](../dev_log/logging.md#sd-cards) для порівняння популярних SD-карт.
 :::
 
-- Enable either the gyro or accel high-rate FIFO profile in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) and disable the rest of the entries. If you are using a really good SD card (seeing few/no dropouts), you can:
-  - either enable both accel and gyro profiles
-  - or enable accel/gyro plus the default logging profile
+- Увімкніть профіль високочастотного FIFO або гіроскопа або акселерометра в [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) та вимкніть решту записів. Якщо ви використовуєте дійсно хорошу SD-карту (бачите кілька / немає викидів), ви можете:
+  - або увімкніть обидві профілі прискорення та гіроскопу
+  - або увімкніть аксел/гіроскоп плюс профіль реєстрації за замовчуванням
 
 Приклад графіка:
 
@@ -253,12 +253,12 @@ See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of pop
 Графік шуму &перешкод GPS корисний для перевірки перешкод сигналу GPS та блокування. Сигнал GPS дуже слабкий і, отже, його легко можна порушити / перешкодити компонентами, що передають (через кабель) або випромінюють на частоті, яку використовує GPS.
 
 :::tip USB
-3 is [known to be](https://www.usb.org/sites/default/files/327216.pdf) an effective GPS jamming source.
+3 це [відомий](https://www.usb.org/sites/default/files/327216.pdf) ефективний джемер GPS.
 :::
 
-The **jamming indicator** should be around or below 40. Values around 80 or higher are too high and the setup must be inspected. Signal interference is also noticeable as reduced accuracy and lower number of satellites up to the point where no GPS fix is possible.
+Індикатор перешкод **джемінгу** повинен бути близько або нижче 40. Значення навколо 80 або вище є занадто високими, і налаштування повинні бути перевірені. Перешкоди сигналу також помітні як зменшення точності та менша кількість супутників до того моменту, коли неможливо отримати фіксацію GPS.
 
-This is an example without any interference:
+Це приклад без будь-якого втручання:
 
 ![GPS jamming - good plot](../../assets/flight_log_analysis/flight_review/gps_jamming_good.png)
 
@@ -282,7 +282,7 @@ This is an example without any interference:
 
 ## Сторожовий оцінювач
 
-The *Estimator Watchdog* plot shows the health report of the estimator. Воно має бути постійним нулем.
+Графік *Спостерігача оцінювача* показує звіт про стан здоров'я оцінювача. Воно має бути постійним нулем.
 
 Отак виглядатиме, якщо немає проблем:![Estimator watchdog - good](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
 
