@@ -2,20 +2,20 @@
 
 [Системи GNSS/GPS з реальним кінематичним положенням (RTK)](https://en.wikipedia.org/wiki/Real_Time_Kinematic) забезпечують точність на рівні сантиметрів, що дозволяє використовувати PX4 у таких застосунках, як точне обстеження (де важлива точність до кожного сантиметра).
 
-This feature requires _QGroundControl_ running on a laptop/PC and a vehicle with a WiFi or Telemetry radio link to the ground station laptop.
+Ця функція потребує _QGroundControl_, який працює на ноутбуці/ПК та транспортного засобу з бездротовим або телеметричним радіозв'язком з наземним лаптопом.
 
-::: info Some RTK GNSS setups can provide yaw/heading information, as an alternative to the compass:
+:::info Деякі налаштування RTK GNSS можуть надавати інформацію про курс/головний напрямок як альтернативу компасу:
 
-- [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
-- GPS directly output yaw (see table below).
+- [Напрямок за допомогою RTK GPS з подвійним u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
+- GPS безпосередньо виводить курс (див. таблицю нижче).
 
 :::
 
 ## Пристрої, що підтримуються
 
-PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS, and products that incorporate them.
+PX4 підтримує GPS [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) та [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx), а також продукцію, що включає їх.
 
-The RTK compatible devices below that are expected to work with PX4 (it omits discontined devices). The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used. It also highlights devices that connect via the CAN bus, and those which support PPK (Post-Processing Kinematic).
+Список сумісних пристроїв RTK нижче, які очікуються для роботи з PX4 (він виключає припинені пристрої). Таблиця вказує пристрої, які також виводять курсову відмітку, а також можуть надавати курсову відмітку, коли використовуються дві одиниці на транспортному засобі. Він також відзначає пристрої, які підключаються через CAN шину, та ті, які підтримують PPK (пост-процесуальну кінематику).
 
 | Пристрій                                                                                          |         GPS          |  Компас   | [DroneCAN](../dronecan/index.md) | [GPS Yaw](#configuring-gps-as-yaw-heading-source) | [Подвійний курс F9P GPS](../gps_compass/u-blox_f9p_heading.md) |   PPK   |
 |:------------------------------------------------------------------------------------------------- |:--------------------:|:---------:|:--------------------------------:|:-------------------------------------------------:|:--------------------------------------------------------------:|:-------:|
@@ -47,125 +47,125 @@ The RTK compatible devices below that are expected to work with PX4 (it omits di
 
 Примітки:
 
-- &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported. "?" indicates "unknown".
-- Where possible and relevant the part name is used (i.e. &check; in the GPS column indicates that a GPS module is present but the part is not known).
-- Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
-- The list may omit some discontinued hardware that is still supported. For example [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) is discontinued and may be removed from the list in a future release. Check earlier versions if a discontinued module is not mentioned here.
+- &check; або конкретний номер артикулу вказує на те, що функція підтримується, тоді як &cross; або пусте поле вказує на те, що функція не підтримується. "?" означає "невідомо".
+- Там, де це можливо і доречно, використовується назва деталі (наприклад, &check; у колонці GPS вказує на наявність GPS-модуля, але деталь невідома).
+- Деякі RTK-модулі можна використовувати лише в певній ролі (база або ровер), тоді як інші можна використовувати як взаємозамінні.
+- У списку може бути відсутнє деяке зняте з виробництва обладнання, яке все ще підтримується. Наприклад, [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) більше не випускається і може бути вилучений зі списку у наступному релізі. Перевірте попередні версії, якщо тут не згадано модуль, який перестали випускати.
 
 
-## Positioning Setup/Configuration
+## Налаштування/Конфігурація розташування
 
-RTK positioning requires a _pair_ of [RTK GNSS devices](#supported-devices): a "base" for the ground station and a "rover" for the vehicle.
+Позиціонування RTK вимагає _пару_ [пристроїв RTK GNSS](#supported-devices): "базового" для земельної станції та "роувера" для транспортного засобу.
 
-In addition you will need:
+Крім того, вам знадобиться:
 
-- A _laptop/PC_ with QGroundControl (QGroundControl for Android/iOS do not support RTK)
-- A vehicle with a WiFi or Telemetry radio link to the laptop.
+- _Ноутбук/ПК_ з QGroundControl (QGroundControl для Android/iOS не підтримує RTK)
+- Транспортний засіб із WiFi або телеметричним радіозв'язком з ноутбуком.
 
-::: info _QGroundControl_ with a base module can theoretically enable RTK GPS for multiple vehicles/rover modules. At time of writing this use case has not been tested.
+:::info _QGroundControl_ with a base module can theoretically enable RTK GPS for multiple vehicles/rover modules. На момент написання цього випадку використання цей випадок не був протестований.
 :::
 
-### Hardware Setup
+### Налаштування обладнання
 
-#### Rover RTK Module (Vehicle)
+#### Модуль Rover RTK (Транспортний)
 
-The connection method and cables/connectors required depends on the selected RTK module (and on the [flight controller](../flight_controller/index.md)).
+Спосіб підключення та необхідні кабелі/роз'єми залежать від вибраного модуля RTK (і від [контролера польоту](../flight_controller/index.md)).
 
-Most are connected via the flight controller's GPS port, in the same way as any other GPS module. Some are connected to the [CAN](../can/index.md) bus (i.e. using [DroneCAN](../dronecan/index.md)).
+Більшість з'єднані через порт GPS контролера польоту, так само, як будь-який інший модуль GPS. Деякі з них підключені до шини [CAN](../can/index.md) (тобто використовують [DroneCAN](../dronecan/index.md)).
 
-See [documentation for the selected device](#supported-devices) and [DroneCAN](../dronecan/index.md) for more information on wiring and configuration.
+Дивіться [документацію для вибраного пристрою](#supported-devices) та [DroneCAN](../dronecan/index.md) для отримання додаткової інформації щодо з'єднання та конфігурації.
 
-#### Base RTK Module (Ground)
+#### Базовий модуль RTK (наземний)
 
-Connect the base module to _QGroundControl_ via USB. The base module must not be moved while it is being used.
+Підключіть базовий модуль до _QGroundControl_ за допомогою USB. Модуль бази не повинен зміщуватися, коли його використовують.
 
 :::tip
-Choose a position where the base module won't need to be moved, has a clear view of the sky, and is well separated from any buildings.
-Often it is helpful to elevate the base GPS, by using a tripod or mounting it on a roof.
+Виберіть позицію, де базовий модуль не потрібно буде переміщувати, має чіткий вид на небо і добре відокремлений від будь-яких будівель.
+Часто корисно підняти базовий GPS, використовуючи штатив або монтувавши його на дах.
 :::
 
-#### Telemetry Radio/WiFi
+#### Телеметрійне радіо/WiFi
 
-The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../telemetry/index.md).
+Автомобіль і ноутбук керування на землі повинні бути підключені через [Wi-Fi або радіозв'язок телеметрії](../telemetry/index.md).
 
-The link _must_ use the MAVLink 2 protocol as it makes more efficient use of the channel. This should be set by default, but if not, follow the [MAVLink2 configuration instructions](#mavlink2) below.
+Посилання _має_ використовувати протокол MAVLink 2, оскільки він більш ефективно використовує канал. Це повинно бути встановлено за замовчуванням, але якщо ні, слід дотримуватися [конфігураційні інструкції MAVLink2](#mavlink2) нижче.
 
-### RTK Connection Process
+### Процес підключення RTK
 
-The RTK GPS connection is essentially plug and play:
+Підключення RTK GPS насправді просте:
 
-1. Start _QGroundControl_ and attach the base RTK GPS via USB to the ground station. The device is recognized automatically.
-1. Start the vehicle and make sure it is connected to _QGroundControl_.
+1. Розпочніть виконання _QGroundControl_ та підключіть базовий RTK GPS через USB до наземної станції. Пристрій визнається автоматично.
+1. Запустіть автомобіль і переконайтеся, що він підключений до _QGroundControl_.
 
 :::tip
-_QGroundControl_ displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon). The icon is red while RTK is being set up, and then changes to white once RTK GPS is active. You can click the icon to see the current state and RTK accuracy.
+_QGroundControl_ показує значок статусу RTK GPS у верхній панелі значків, коли підключено пристрій RTK GPS (на додачу до звичайного значка статусу GPS). Іконка червона, поки налаштовується RTK, а потім змінюється на білу, коли RTK GPS активний. Ви можете натиснути на піктограму, щоб побачити поточний стан та точність RTK.
 :::
 
-1. _QGroundControl_ then starts the RTK setup process (known as "Survey-In").
+1. _QGroundControl_ потім починає процес налаштування RTK (відомий як "Survey-In").
 
-   Survey-In is a startup procedure to get an accurate position estimate of the base station. The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
+   Survey-In - це процедура запуску для отримання точної оцінки положення базової станції. Процес зазвичай триває кілька хвилин (він закінчується після досягнення мінімального часу та точності, вказаних у налаштуваннях [RTK](#rtk-gps-settings)).
 
-   You can track the progress by clicking the RTK GPS status icon.
+   Ви можете відстежити прогрес, натиснувши на піктограму стану RTK GPS.
 
    ![survey-in](../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png)
 
-1. Once Survey-in completes:
+1. Після завершення опитування:
 
-   - The RTK GPS icon changes to white and _QGroundControl_ starts to stream position data to the vehicle:
+   - Іконка RTK GPS змінюється на білу, а _QGroundControl_ починає транслювати дані про позицію на транспортний засіб:
 
      ![RTK streaming](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
 
-   - Vehicle GPS switches to RTK mode. The new mode is displayed in the _normal_ GPS status icon (`3D RTK GPS Lock`):
+   - Транспортний GPS переходить у режим RTK. Новий режим відображається у _звичайному_ піктограмі стану GPS (<0>звичайний</0> блокування GPS RTK 3D):
 
      ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
 
-### Configuring GPS as Yaw/Heading Source
+### Налаштування GPS як Джерело розділення/Курсування
 
-GPS can be used as a source for yaw fusion when using modules where _yaw output is supported by the device_ (e.g. [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)) or when using some [RTK GPS Setups with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
+GPS може бути використаний як джерело для об'єднання повороту, коли використовуються модулі, де _вихід повороту підтримується пристроєм_ (наприклад, [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)) або при використанні деяких [Налаштувань RTK GPS з подвійними u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
 
-When using GPS for yaw fusion you will need to configure the following parameters:
+Під час використання GPS для злиття по курсу вам доведеться налаштувати наступні параметри:
 
-| Параметр                                                                     | Налаштування                                                                                                                                                                                                    |
-| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) | The angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)). |
-| [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)   | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                                                                                           |
+| Параметр                                                                     | Налаштування                                                                                                                                                                                                     |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) | Кут, який утворює *базова лінія* (лінія між двома GPS антенами) відносно осі x транспортного засобу (передня/задня вісь, як показано [тут](../config/flight_controller_orientation.md#calculating-orientation)). |
+| [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)   | Встановіть бітову позицію 3 "Напрямок подвійної антени" на `1` (тобто додайте 8 до значення параметра).                                                                                                          |
 
 :::tip
-If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
+Якщо ви використовуєте цю функцію, всі інші конфігурації мають бути налаштовані стандартно (наприклад, [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
 :::
 
-### Optional PX4 Configuration
+### Додаткова конфігурація PX4
 
-The following settings may need to be changed (using _QGroundControl_).
+Можливо, знадобиться змінити наступні налаштування (використовуючи _QGroundControl_).
 
-#### RTK GPS settings
+#### Налаштування RTK GPS
 
-The RTK GPS settings are specified in the _QGroundControl_ [General Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/general.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
+Налаштування RTK GPS вказано у _QGroundControl_ [Загальних налаштуваннях](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/general.html#rtk_gps) (**SettingsView > Загальні налаштування > Налаштування RTK GPS**).
 
 ![RTK GPS Setup](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
-These settings define the minimum duration and minimum accuracy for completing the RTK GPS setup process (known as "Survey-In).
+Ці параметри визначають мінімальну тривалість та мінімальну точність для завершення процесу налаштування RTK GPS (відомий як "Survey-In).
 
 :::tip
-You can save and reuse a base position in order to save time: perform Survey-In once, select _Use Specified Base Position_ and press **Save Current Base Position** to copy in the values for the last survey. The values will then persist across QGC reboots until they are changed.
+Можна зберегти й повторно використовувати базове положення, щоб заощадити час: виконайте Вимірювання-In один раз, виберіть _Використовувати Вказану Базову Позицію_ та натисніть **Зберегти Поточне Базове Положення**, щоб скопіювати значення для останнього вимірювання. Значення будуть збережені після перезавантажень QGC до тих пір, поки їх не змінять.
 :::
 
 #### MAVLink2
 
-The MAVLink2 protocol must be used because it makes more efficient use of lower-bandwidth channels. This should be enabled by default on recent builds.
+Протокол MAVLink2 повинен бути використаний, оскільки він ефективніше використовує канали з низькою пропускною здатністю. Це має бути увімкнено за замовчуванням на останніх збірках.
 
-To ensure MAVLink2 is used:
+Для забезпечення використання MAVLink2:
 
-- Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html)).
-- Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html))
+- Оновіть прошивку модуля телеметрії до останньої версії (див. [QGroundControl > Налаштування > Прошивка](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html)).
+- Встановіть [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) на 2 (див. [QGroundControl Налаштування > Параметри](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html))
 
-#### Tuning
+#### Налаштування
 
-You may also need to tune some parameters as the default parameters are tuned assuming a GPS accuracy in the order of meters, not centimeters. For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE) and [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) to 0.2.
+Вам може додатково знадобитися налаштувати деякі параметри, оскільки параметри за замовчуванням налаштовані з припущенням точності GPS в порядку метрів, а не сантиметрів. Наприклад, ви можете зменшити [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE) та [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) на 0.2.
 
-#### Dual Receivers
+#### Подвійні приймачі
 
-A second GPS receiver can be used as a backup (either RTK or non RTK). See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
+Другий приймач GPS може бути використаний як резервний (RTK або не RTK). Дивіться розділ [Конфігурація GPS EKF2](../advanced_config/tuning_the_ecl_ekf.md#gps).
 
 
 <!--
@@ -173,7 +173,7 @@ A second GPS receiver can be used as a backup (either RTK or non RTK). See the [
 - something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
 -->
 
-## Further Information
+## Додаткова інформація
 
-- [RTK-GPS (PX4-Integration)](../advanced/rtk_gps.md): Developer information about integrating RTK-GPS support into PX4.
-- [Real Time Kinematic](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (Wikipedia)
+- [RTK-GPS (Інтеграція PX4)](../advanced/rtk_gps.md): Інформація розробника про інтеграцію підтримки RTK-GPS до PX4.
+- [Реально-часова кінематика](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (Wikipedia)
