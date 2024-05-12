@@ -2,17 +2,17 @@
 
 <Badge type="tip" text="PX4 v1.13" />
 
-This NEO 3 GPS is manufactured by CUAV.
-It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, and is compatible with CUAV and Pixhawk standard controllers.
+Цей NEO 3 GPS виготовлений CUAV.
+Вона інтегрує Ublox M9N, IST8310, світлодіодні лампи трьох кольорів та безпечні перемикачі, і сумісна з контролерами стандарту CUAV та Pixhawk.
 
 ![Hero image of Neo3 GPS](../../assets/hardware/gps/cuav_gps_neo3/neo_3.jpg)
 
 ## Технічні характеристики
 
-| Hardware                                          | Type                                                                                                                       |
+| Апаратне забезпечення                             | Тип                                                                                                                        |
 | :------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------- |
-| Compass                                           | IST8310                                                                                                                    |
-| GNSS receiver                                     | UBLOX NEO M9N                                                                                                              |
+| Компас                                            | IST8310                                                                                                                    |
+| Приймач GNSS                                      | UBLOX NEO M9N                                                                                                              |
 | RGB drive                                         | NC5623C                                                                                                                    |
 | Buzzer                                            | Passive buzzer                                                                                                             |
 | Safety switch                                     | Physical button                                                                                                            |
@@ -25,8 +25,8 @@ It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, an
 | Nav. update rate                  | 25Hz(Max)                                                                                               |
 | Acquisition                                       | Cold start：24S<br>Hot start：2S<br>Aided start:2s                                                           |
 | Number of satellites(MAX)      | 32+                                                                                                                        |
-| Sensitivity                                       | Tracking and nav-167dBm<br>Cold start Hot star-148dBm<br>Reacquisition -160dBm                                             |
-| Protocol                                          | UART+IO+I2C                                                                                                                |
+| Чутливість                                        | Відстеження та нав-167dBm<br>Холодний старт Гарячий старт-148dBm<br>Повторний збір -160dBm                                 |
+| Протокол                                          | UART+IO+I2C                                                                                                                |
 | Port TYpe                                         | GHR-10V-S                                                                                                                  |
 | Supported flight controller                       | CUAV series,<br>Pixahwk series                                                                                             |
 | Wave filtering                                    | SAW+LNA+SAW                                                                                                                |
@@ -41,7 +41,7 @@ It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, an
 
 ![Neo 3 Size](../../assets/hardware/gps/cuav_gps_neo3/neo_3_size.png)
 
-## Pinouts
+## Розпіновка
 
 ![Neo 3 Pinouts](../../assets/hardware/gps/cuav_gps_neo3/neo_3_pinouts.png)
 
@@ -51,7 +51,7 @@ It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, an
 
 ## Підключення та з'єднання
 
-Neo3 wiring and connection diagram
+Схема підключення та з'єднання Neo3
 
 ![Neo3 wiring and connection diagram](../../assets/hardware/gps/cuav_gps_neo3/neo_3_connect.png)
 
