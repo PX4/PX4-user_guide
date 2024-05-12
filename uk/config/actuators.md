@@ -295,7 +295,7 @@ The following functions can only be applied to FMU outputs:
 ::: info This list is correct at PX4 v1.13. Функції визначені у джерелі за посиланням на [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
 :::
 
-## Actuator Testing
+## Тестування актуаторів
 
 Секція _Тестування приводів_ у нижньому правому куті надає повзунки, які можна використовувати для тестування (та визначення) налаштувань приводу та двигуна. Для кожного виводу, визначеного в розділі [Виводи приводу](#actuator-outputs), надається повзунок. Наведений нижче приклад слайдера показує розділ для типової повітряної конструкції VTOL Tiltrotor.
 
