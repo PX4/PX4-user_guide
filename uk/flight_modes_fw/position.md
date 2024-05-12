@@ -1,6 +1,6 @@
 # Режим позиції (фіксоване крило)
 
-<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
+<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Необхідний ручний/дистанційний пульт" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
 _Режим позиції_ є найлегшим і найбезпечнішим ручним режимом. Підтримується на транспортних засобах, які мають прогноз позиціонування (наприклад, GPS). Це полегшує пілотам контроль висоти транспортного засобу, і зокрема досягати і підтримувати фіксовану висоту. Режим буде утримувати курс транспортного засобу від вітру. Швидкість активно контролюється, якщо встановлений датчик швидкості.
 
@@ -17,26 +17,26 @@ _Режим позиції_ є найлегшим і найбезпечніши�
 Режим позиції, як [Режим стабілізації](../flight_modes_fw/altitude.md), але зі стабілізацією курсу. Швидкість також стабілізується, якщо встановлений датчик швидкості.
 
 - Центровані вхідні показники крену/тангажу/рискання (в межах дедбенду):
-  - Autopilot levels vehicle and maintains altitude, airspeed and course over ground.
-- Outside center:
-  - Pitch stick controls altitude.
-  - Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the vehicle will fly level at trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)), increasing or decreasing throttle as needed to climb or descend.
-  - Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight).
-  - Yaw stick adds an additional yaw rate setpoint (added to the one calculated by the autopilot to maintain coordinated flight). Can be used to manually change the side slip of the vehicle.
-- Manual control input is required (such as RC control, joystick).
-- An altitude measurement source is required (usually barometer or GPS)
+  - Автопілот рівномірно підтримує транспортний засіб і утримує висоту, швидкість і курс над землею.
+- Зовнішній центр:
+  - Стік регулює висоту польоту.
+  - Резервний стік керує швидкістю літального апарату, якщо підключений датчик швидкості. Без датчика швидкості, транспортний засіб летітиме прямо на малому газу ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)), збільшуючи або зменшуючи газ у міру необхідності для підйому або спуску.
+  - Стік керування використовує кут крена. Автопілот буде підтримувати [координований польот](https://en.wikipedia.org/wiki/Coordinated_flight).
+  - Стік крену додає додатковий значення швидкості рискання (додається до розрахованого автопілотом для підтримки координованого польоту). Може бути використаний для ручної зміни кута рискання безпілотного засобу.
+- Потрібен ручний ввід управління (наприклад, за допомогою пульта дистанційного керування, джойстика).
+- Необхідний пристрій вимірювання висоти (зазвичай барометр або GPS)
 
 ## Параметри
 
-The mode is affected by the following parameters:
+На режим впливають наступні параметри:
 
-| Параметр                                                                                                    | Опис                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)         | Min airspeed. Default: 10 m/s.                                       |
-| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)         | Max airspeed. Default: 20 m/s.                                       |
-| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)       | Cruise speed. Default: 15 m/s.                                       |
-| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)           | Max pitch setpoint in attitude stabilized mode. Default: 45 degrees. |
-| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)           | Max roll setpoint in attitude stabilized mode. Default: 45 degrees.  |
-| <a id="FW_T_CLMB_R_SP"></a>[FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP)     | Max climb rate setpoint. Default: 3 m/s.                             |
-| <a id="FW_T_SINK_R_SP"></a>[FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP)     | Max sink rate setpoint. Default: 2 m/s.                              |
-| <a id="FW_PN_R_SLEW_MAX"></a>[FW_PN_R_SLEW_MAX](../advanced_config/parameter_reference.md#FW_PN_R_SLEW_MAX) | Roll setpoint slew rate limit. Default: 90 °/s.                      |
+| Параметр                                                                                                    | Опис                                                                                               |
+| ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)         | Мінімальна швидкість. За замовчуванням: 10 м/с.                                                    |
+| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)         | Максимальна швидкість. За замовчуванням: 20 м/с.                                                   |
+| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)       | Крейсерська швидкість. За замовчуванням: 15 м/с.                                                   |
+| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)           | Установлення максимального кроку в режимі стабілізації кута нахилу. За замовчуванням: 45 градусів. |
+| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)           | Максимальне значення крена в режимі стабілізації кута нахилу. За замовчуванням: 45 градусів.       |
+| <a id="FW_T_CLMB_R_SP"></a>[FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP)     | Максимальна задана швидкість підйому. За замовчуванням: 3 м/с.                                     |
+| <a id="FW_T_SINK_R_SP"></a>[FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP)     | Максимальне значення зниження швидкості. За замовчуванням: 2 м/с.                                  |
+| <a id="FW_PN_R_SLEW_MAX"></a>[FW_PN_R_SLEW_MAX](../advanced_config/parameter_reference.md#FW_PN_R_SLEW_MAX) | Обмеження швидкості нахилу вихідного значення. За замовчуванням: 90 °/с.                           |
