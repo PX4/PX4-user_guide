@@ -27,44 +27,44 @@ Starling має [відкрите SDK](https://docs.modalai.com/voxl-developer-b
 
 ![Огляд апаратної частини](../../assets/hardware/complete_vehicles/modalai_starling/mrb_d0005_4_v2_c6_m22__callouts_a.jpg)
 
-| Callout | Опис                                                     | MPN              |
-| ------- | -------------------------------------------------------- | ---------------- |
-| A       | VOXL 2                                                   | MDK-M0054-1      |
-| B       | VOXL 4-in-1 ESC                                          | MDK-M0117-1      |
-| C       | Barometer Shield Cap                                     | M10000533        |
-| D       | ToF Image Sensor (PMD)                | MDK-M0040        |
-| E       | Tracking Image Sensor (OV7251)        | M0014            |
-| F       | Hires Image Sensor (IMX214)           | M0025-2          |
-| G       | AC600 WiFi Dongle                                        | AWUS036EACS      |
-| H       | GNSS GPS Module & Compass            | M10-5883         |
-| I       | 915MHz ELRS Receiver                                     | BetaFPV Nano RX  |
-| J       | USB C Connector on VOXL 2 (not shown) |                  |
-| K       | VOXL Power Module                                        | MCCA-M0041-5-B-T |
-| L       | 4726FM Propellor                                         | M10000302        |
-| M       | Motor 1504                                               |                  |
-| N       | XT30 Power Connector                                     |                  |
+| Callout | Опис                                                         | MPN              |
+| ------- | ------------------------------------------------------------ | ---------------- |
+| A       | VOXL 2                                                       | MDK-M0054-1      |
+| B       | VOXL 4-in-1 ESC                                              | MDK-M0117-1      |
+| C       | Заглушка для барометра                                       | M10000533        |
+| D       | Датчик зображення ToF (PMD)               | MDK-M0040        |
+| E       | Датчик відстеження зображень (OV7251)     | M0014            |
+| F       | Датчик зображення високої якості (IMX214) | M0025-2          |
+| G       | AC600 WiFi Dongle                                            | AWUS036EACS      |
+| H       | Модуль GNSS GPS & Компас                 | M10-5883         |
+| I       | Приймач ELRS 915МГц                                          | BetaFPV Nano RX  |
+| J       | Роз'єм USB C на VOXL 2 (не відображено)   |                  |
+| K       | Блок живлення VOXL                                           | MCCA-M0041-5-B-T |
+| L       | 4726FM Пропелер                                              | M10000302        |
+| M       | Мотор 1504                                                   |                  |
+| N       | XT30 Конектор живлення                                       |                  |
 
 ## Документація
 
 ### Характеристики
 
-| Компонент       | Специфікація                                                        |
-| --------------- | ------------------------------------------------------------------- |
-| Автопілот       | VOXL2                                                               |
-| Take-off Weight | 275g (172g without battery)                      |
-| Diagonal Size   | 211mm                                                               |
-| Flight Time     | > 30 minutes                                                        |
-| Motors          | 1504                                                                |
-| Propellers      | 120mm                                                               |
-| Frame           | 3mm Carbon Fiber                                                    |
-| ESC             | ModalAI VOXL 4-in-1 ESC V2                                          |
-| GPS             | UBlox M10                                                           |
-| RC Receiver     | 915mhz ELRS                                                         |
-| Power Module    | ModalAI Power Module v3 - 5V/6A                                     |
-| Батарея         | Sony VTC6 3000mah 2S, або будь-яка 2S 18650 батарея з роз'ємом XT30 |
-| Висота          | 83мм                                                                |
-| Ширина          | 187мм (пропелери складені)                       |
-| Довжина         | 142мм (пропелери складені)                       |
+| Компонент                | Специфікація                                                        |
+| ------------------------ | ------------------------------------------------------------------- |
+| Автопілот                | VOXL2                                                               |
+| Максимальна взлітна вага | 275г (172г без батареї)                          |
+| Розмір по діагоналі      | 211мм                                                               |
+| Час польоту              | 30 хвилин                                                           |
+| Двигуни                  | 1504                                                                |
+| Пропелери                | 120mm                                                               |
+| Рамка                    | Карбонове волокно 3мм                                               |
+| ESC                      | ModalAI VOXL 4-in-1 ESC V2                                          |
+| GPS                      | UBlox M10                                                           |
+| Приймач радіокерування   | 915мгц ELRS                                                         |
+| Силовий Модуль           | Модуль живлення ModalAI v3 - 5V/6A                                  |
+| Батарея                  | Sony VTC6 3000mah 2S, або будь-яка 2S 18650 батарея з роз'ємом XT30 |
+| Висота                   | 83мм                                                                |
+| Ширина                   | 187мм (пропелери складені)                       |
+| Довжина                  | 142мм (пропелери складені)                       |
 
 ### Стандартна схема проводки
 
