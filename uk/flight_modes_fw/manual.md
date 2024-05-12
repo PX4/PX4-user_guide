@@ -1,27 +1,27 @@
-# Manual Mode (Fixed-Wing)
+# Ручний режим (фіксоване крило)
 
 <!-- this requires review -->
 
-<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;
+<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Необхідний ручний/дистанційний пульт" width="30px" />&nbsp;
 
-_Manual mode_ sends manual stick input directly to control allocation for fully manual control.
+_Ручний режим_ надсилає введення стіків безпосередньо до розподілу керування для повного ручного управління.
 
-This is the hardest mode to fly, because nothing is stabilised. Unlike [Acro Mode](../flight_modes_fw/acro.md), if the roll-pitch stick is centered the vehicle will not automatically stop rotating around the axis — the pilot actually has to move the stick to apply force in the other direction.
+Це найважчий режим польоту, оскільки нічого не стабілізовано. На відміну від [режиму Акро](../flight_modes_fw/acro.md), якщо стік руля буде в центрі, транспортний засіб не автоматично зупинить обертання навколо осі — пілот фактично повинен перемістити палицю для накладання сили в іншому напрямку.
 
 ::: info
-This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
+Це єдиний режим, що перевизначає FMU (команди відправляються через копроцесор безпеки). Він забезпечує механізм безпечності, який дозволяє повний контроль газового засуву, елеватора, елеронів та руля через RC в разі виникнення несправності програмного забезпечення FMU.
 :::
 
 ## Технічний опис
 
-Manual mode where stick input is sent directly to control allocation (for "fully" manual control).
+Ручний режим, де введення стіків надсилається безпосередньо до розподілу керування (для "повного" ручного керування).
 
-This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
+Це єдиний режим, що перевизначає FMU (команди відправляються через копроцесор безпеки). Він забезпечує механізм безпеки, який дозволяє повний контроль газового засуву, елеватора, елеронів та руля через RC в разі виникнення несправності програмного забезпечення FMU.
 
 ## Параметри
 
-| Параметр                                                                                        | Опис                                                                                                                                                                                       |
-| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <a id="FW_MAN_P_SC"></a>[FW_MAN_P_SC](../advanced_config/parameter_reference.md#FW_MAN_P_SC) | Manual pitch scale. Scale factor applied to the desired pitch actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces. Default: 1.0 norm. |
-| <a id="FW_MAN_R_SC"></a>[FW_MAN_R_SC](../advanced_config/parameter_reference.md#FW_MAN_R_SC) | Manual roll scale. Scale factor applied to the desired roll actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces. Default: 1.0 norm.   |
-| <a id="FW_MAN_Y_SC"></a>[FW_MAN_Y_SC](../advanced_config/parameter_reference.md#FW_MAN_Y_SC) | Manual yaw scale. Scale factor applied to the desired yaw actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces. Default: 1.0 norm.     |
+| Параметр                                                                                        | Опис                                                                                                                                                                                                                                |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="FW_MAN_P_SC"></a>[FW_MAN_P_SC](../advanced_config/parameter_reference.md#FW_MAN_P_SC) | Масштаб ручної шкали. Множник масштабу, застосований до бажаної команди приводу висоти в режимі повного ручного керування. Цей параметр дозволяє налаштовувати кидання поверхонь керування. За замовчуванням: 1.0 norm.             |
+| <a id="FW_MAN_R_SC"></a>[FW_MAN_R_SC](../advanced_config/parameter_reference.md#FW_MAN_R_SC) | Масштаб ручної шкали. Множник масштабу, застосований до бажаної команди приводу висоти в режимі повного ручного керування. Цей параметр дозволяє налаштовувати кидання поверхонь керування. За замовчуванням: 1.0 norm.             |
+| <a id="FW_MAN_Y_SC"></a>[FW_MAN_Y_SC](../advanced_config/parameter_reference.md#FW_MAN_Y_SC) | Масштаб ручної шкали рискання. Множник масштабу, застосований до бажаної команди приводу розвороту в режимі повного ручного керування. Цей параметр дозволяє налаштовувати кидання поверхонь керування. За замовчуванням: 1.0 norm. |
