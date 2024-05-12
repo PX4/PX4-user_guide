@@ -48,27 +48,27 @@ Starling має [відкрите SDK](https://docs.modalai.com/voxl-developer-b
 
 ### Характеристики
 
-| Компонент       | Специфікація                                                      |
-| --------------- | ----------------------------------------------------------------- |
-| Автопілот       | VOXL2                                                             |
-| Take-off Weight | 275g (172g without battery)                    |
-| Diagonal Size   | 211mm                                                             |
-| Flight Time     | > 30 minutes                                                      |
-| Motors          | 1504                                                              |
-| Propellers      | 120mm                                                             |
-| Frame           | 3mm Carbon Fiber                                                  |
-| ESC             | ModalAI VOXL 4-in-1 ESC V2                                        |
-| GPS             | UBlox M10                                                         |
-| RC Receiver     | 915mhz ELRS                                                       |
-| Power Module    | ModalAI Power Module v3 - 5V/6A                                   |
-| Battery         | Sony VTC6 3000mah 2S, or any 2S 18650 battery with XT30 connector |
-| Height          | 83mm                                                              |
-| Width           | 187mm (Props folded)                           |
-| Length          | 142mm (Props folded)                           |
+| Компонент       | Специфікація                                                        |
+| --------------- | ------------------------------------------------------------------- |
+| Автопілот       | VOXL2                                                               |
+| Take-off Weight | 275g (172g without battery)                      |
+| Diagonal Size   | 211mm                                                               |
+| Flight Time     | > 30 minutes                                                        |
+| Motors          | 1504                                                                |
+| Propellers      | 120mm                                                               |
+| Frame           | 3mm Carbon Fiber                                                    |
+| ESC             | ModalAI VOXL 4-in-1 ESC V2                                          |
+| GPS             | UBlox M10                                                           |
+| RC Receiver     | 915mhz ELRS                                                         |
+| Power Module    | ModalAI Power Module v3 - 5V/6A                                     |
+| Батарея         | Sony VTC6 3000mah 2S, або будь-яка 2S 18650 батарея з роз'ємом XT30 |
+| Висота          | 83мм                                                                |
+| Ширина          | 187мм (пропелери складені)                       |
+| Довжина         | 142мм (пропелери складені)                       |
 
 ### Стандартна схема проводки
 
-![Hardware Overview](../../assets/hardware/complete_vehicles/modalai_starling/d0005_compute_wiring_d.jpg)
+![Огляд апаратної частини](../../assets/hardware/complete_vehicles/modalai_starling/d0005_compute_wiring_d.jpg)
 
 ## Посібники
 
