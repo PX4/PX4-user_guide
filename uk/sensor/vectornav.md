@@ -9,134 +9,134 @@
 - Вища точність оцінки напрямку, крену та кочення
 - Більш надійна геоприв'язка GNSS
 - Покращена точність позиціонування та установки під час конфлікту супутникового зв'язку
-- Performance under challenging dynamic conditions (e.g. catapult launches, VTOL operations, high-g or high angular rate operations)
+- Продуктивність при динамічних умовах (наприклад, запуски катапультою, операції VTOL, високі g або високі операції з великою кутовою швидкістю)
 
-The VectorNav PX4 Driver is streamlined to provide a simple plug-and-play architecture, removing engineering obstacles and allowing the acceleration of the design, development, and launch of platforms to keep pace with the rapid rate of innovation.
+VectorNav PX4 Driver спрощений для забезпечення простої архітектури plug-and-play, видаляючи інженерні перешкоди і дозволяючи прискорити проєктування, розробку та запуск платформ, щоб відповідати швидкому темпу інновацій.
 
-PX4 can use these as an [external INS](../sensor/inertial_navigation_systems.md), bypassing/replacing the EKF2 estimator, or as a source of raw sensor data provided to the estimator.
+PX4 може використовувати це як [зовнішній INS] (../sensor/inertial_navigation_systems.md), обходячи/замінюючи оцінювач EKF2 або як джерело сирої сенсорної інформації, наданої оцінювачеві.
 
-The driver supports [all VectorNav sensors](https://www.vectornav.com/store/products).
-In particular the following systems are recommended:
+Драйвер підтримує [всі сенсори VectorNav](https://www.vectornav.com/store/products).
+Зокрема, рекомендуємо наступні системи:
 
-- **VN-200 GNSS/INS:** Recommended for fixed-wing systems without hovering, where static heading is not necessary.
-- **VN-300 DUAL GNSS/INS:** Recommended for multicopter systems where hovering and low dynamics requires the use of static heading.
+- **VN-200 ГЛОНАСС/ІНС:** Рекомендується для фіксованих крилових систем без постійного зависання, де статичний курс не є необхідним.
+- **VN-300 DUAL GNSS/INS:** Рекомендований для багатокоптерних систем, де для утримання на місці та низької динаміки потрібно використання статичного напрямку.
 
-## Where to Buy
+## Де придбати
 
-VectorNav IMU/AHRS, GNSS/INS, and Dual GNSS/INS solutions are available directly from [VectorNav Technologies](https://www.vectornav.com/store/products) (US) or through their Global Sales Representatives. For more information on their solutions or for international orders, please contact sales@vectornav.com.
+Рішення VectorNav IMU/AHRS, GNSS/INS та подвійні GNSS/INS доступні безпосередньо від [VectorNav Technologies](https://www.vectornav.com/store/products) (США) або через їх Глобальних Представників з Продажу. Для отримання додаткової інформації про їх рішення або для міжнародних замовлень, будь ласка, звертайтеся sales@vectornav.com.
 
-[Purchase VN-200 Development Kit](https://www.vectornav.com/store/products/gnss-ins/p/vn-200-rugged-development-kit) (GNSS/INS)
-[Purchase VN-300 Development Kit](https://www.vectornav.com/store/products/dual-gnss-ins/p/vn-300-rugged-development-kit) (Dual GNSS/INS)
+[Придбати Набір Розробника VN-200](https://www.vectornav.com/store/products/gnss-ins/p/vn-200-rugged-development-kit) (ГНСС/ІНС)
+[Придбати Набір Розробника VN-300](https://www.vectornav.com/store/products/dual-gnss-ins/p/vn-300-rugged-development-kit) (Подвійний ГНСС/ІНС)
 
-## Hardware Setup
+## Встановлення обладнання
 
-### Wiring
+### Підключення
 
-Connect any unused flight controller serial interface, such as a spare `GPS` or `TELEM` port, to the VectorNav UART2 port (required by PX4).
+Підключіть будь-який не використанний інтерфейс серійного керування контролера польоту, такий як запасний порт `GPS` або `TELEM`, до порту UART2 VectorNav (необхідно для PX4).
 
-### Mounting
+### Встановлення
 
-The VectorNav sensor can be mounted in any orientation, in any position on the vehicle, without regard to center of gravity.
-All VectorNav sensors default to a coordinate system of x-forward, y-right, and z-down, making the default mounting as connector-back, base down.
-This can be changed to any rigid rotation using the VectorNav Reference Frame Rotation register.
+Датчик VectorNav може бути встановлений в будь-якому положенні, в будь-якому положенні на транспортному засобі, без врахування центру важіння.
+Всі сенсори VectorNav за замовчуванням використовують систему координат x-вперед, y-справа та z-вниз, що робить замовчуванням монтаж як з'єднувач-ззаду, основа внизу.
+Це можна змінити на будь-який жорсткий оберт використовуючи реєстр обертання в опорній системі VectorNav.
 
-If using a GNSS-enabled product, the GNSS antenna must be mounted rigidly with respect to the inertial sensor and with an unobstructed sky view. If using a dual-GNSS-enabled product (VN-3X0), the secondary antenna must be mounted rigidly with respect to the primary antenna and the inertial sensor with an unobstructed sky view.
+Якщо використовується продукт з підтримкою GNSS, антена GNSS повинна бути жорстко монтуватися щодо інерційного датчика та мати необмежений вид на небо. Якщо використовується продукт з підтримкою двоканальної ГНСС (VN-3X0), друга антена повинна бути жорстко змонтована щодо первинної антени та інерціального датчика з неперешкодженим видом на небо.
 
-For more mounting requirements and recommendations, see the relevant [Quick Start Guide](https://www.vectornav.com/resources/quick-start-guides).
+Для отримання додаткових вимог і рекомендацій щодо монтажу, див. відповідний [Керівний початок роботи](https://www.vectornav.com/resources/quick-start-guides).
 
-## Firmware Configuration
+## Конфігурація прошивки
 
-### PX4 Configuration
+### Налаштування PX4
 
-To use the VectorNav driver:
+Для використання драйвера VectorNav:
 
-1. Include the module in firmware in the [kconfig board configuration](../hardware/porting_guide_config.md#px4-board-configuration-kconfig) by setting the kconfig variables: `CONFIG_DRIVERS_INS_VECTORNAV` or `CONFIG_COMMON_INS`.
+1. Включіть модуль в прошивку в [конфігурації плати kconfig](../hardware/porting_guide_config.md#px4-board-configuration-kconfig), встановивши змінні конфігурації kconfig: `CONFIG_DRIVERS_INS_VECTORNAV` або `CONFIG_COMMON_INS`.
 
-2. [Set the parameter](../advanced_config/parameters.md) [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG) to the hardware port connected to the VectorNav (for more information see [Serial Port Configuration](../peripherals/serial_configuration.md)).
+2. [Встановіть параметр](../advanced_config/parameters.md) [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG) на апаратний порт, що підключений до VectorNav (докладнішу інформацію див. у розділі [Конфігурація послідовного порту](../peripherals/serial_configuration.md)).
 
-3. Disable magnetometer preflight checks by setting [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) to `0`.
+3. Вимкніть попередні перевірки магнітометра, встановивши [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) на `0`.
 
-4. Allow the VectorNav driver to initialize by restarting PX4.
+4. Дозвольте драйвер VectorNav ініціалізуватися, перезапустивши PX4.
 
-5. Configure driver as either an external INS or to provide raw data:
+5. Налаштуйте водія як зовнішній INS або надайте сирові дані:
 
-   - If using the VectorNav as an external INS, set [VN_MODE](../advanced_config/parameter_reference.md#VN_MODE) to `INS`.
-     This disables EKF2.
-   - If using the VectorNav as external inertial sensors:
+   - Якщо використовувати VectorNav як зовнішній INS, встановіть [VN_MODE](../advanced_config/parameter_reference.md#VN_MODE) на `INS`.
+     Це вимикає EKF2.
+   - Якщо використовувати VectorNav як зовнішні інерційні сенсори:
 
-     1. Set [VN_MODE](../advanced_config/parameter_reference.md#VN_MODE) to `Sensors Only`
-     2. If internal sensors are enabled, prioritize VectorNav sensors using [CAL_GYROn_PRIO](../advanced_config/parameter_reference.md#CAL_GYRO0_PRIO), [CAL_ACCn_PRIO](../advanced_config/parameter_reference.md#CAL_ACC0_PRIO), [CAL_BAROn_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO), [CAL_MAGn_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO), where _n_ is the instance number of the IMU component (0, 1, etc.).
+     1. Встановіть [VN_MODE](../advanced_config/parameter_reference.md#VN_MODE) на `Sensors Only`
+     2. Якщо внутрішні датчики увімкнені, пріоритетом є датчики VectorNav за допомогою [CAL_GYROn_PRIO](../advanced_config/parameter_reference.md#CAL_GYRO0_PRIO), [CAL_ACCn_PRIO](../advanced_config/parameter_reference.md#CAL_ACC0_PRIO), [CAL_BAROn_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO), [CAL_MAGn_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO), де _n_ - це номер екземпляра компонента ІМП (0, 1 і т.д.).
 
-     ::: tip
-     In most cases the external IMU (VN) is the highest-numbered.
-     You can get a list of the IMU components available using [`uorb top -1`](../middleware/uorb.md#uorb-top-command), you can differentiate between them using the [`listener`](../modules/modules_command.md#listener) command and looking through the data, or just the rates.
+     :::tip
+     У більшості випадків зовнішній IMU (VN) має найвищий номер.
+     Ви можете отримати список доступних компонентів IMU, використовуючи [`uorb top -1`](../middleware/uorb.md#uorb-top-command), ви можете відрізняти їх за допомогою команди [`listener`](../modules/modules_command.md#listener) та розглядаючи дані чи просто швидкості.
 
-     Alternatively, you can check [CAL_GYROn_ID](../advanced_config/parameter_reference.md#CAL_GYRO0_ID) to see the device id.
-     The priority is 0-255, where 0 is entirely disabled and 255 is highest priority.
+     За потреби ви можете перевірити [CAL_GYROn_ID](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), щоб побачити ідентифікатор пристрою.
+     Пріоритет становить 0-255, де 0 абсолютно вимкнено, а 255 - найвищий пріоритет.
 
 :::
 
-6. Restart PX4.
+6. Перезавантажте PX4.
 
-Once enabled, the module will be detected on boot.
-IMU data should be published at 800Hz (400Hz if using VN-300).
+Після активації модуль буде виявлено при завантаженні.
+Дані ІМП мають бути опубліковані з частотою 800 Гц (400 Гц, якщо використовується VN-300).
 
-## VectorNav Configuration
+## Конфігурація VectorNav
 
-Definitions for all commands and registers referenced in this section can be found in the respective [VectorNav ICD](https://www.vectornav.com/resources/interface-control-documents).
+Визначення для всіх команд та реєстрів, на які посилаються в цьому розділі, можна знайти в відповідному [VectorNav ICD](https://www.vectornav.com/resources/interface-control-documents).
 
-Upon initialization, PX4 configures the VectorNav unit as follows:
+Під час ініціалізації PX4 налаштовує пристрій VectorNav наступним чином:
 
-- Enables necessary binary outputs
-- Disables ASCII outputs on active serial port
-- Configures VPE Heading Mode to Absolute
-- Autoscans baudrates and configures active port to 921600 bps
+- Увімкнує необхідні бінарні виходи
+- Вимкнути ASCII виводи на активному послідовному порту
+- Налаштовує режим керування заголовком VPE на Абсолютний
+- Автосканує швидкості передачі і конфігурує активний порт на 921600 біт/с
 
-All other necessary configuration parameters must be separately loaded to the VectorNav unit manually. These most commonly include:
+Всі інші необхідні параметри конфігурації повинні бути окремо завантажені в пристрій VectorNav вручну. Найчастіше ці включають:
 
-- `GNSS Antenna A Offset` Necessary if using a GNSS-enabled product and the GNSS antenna is mounted more than 10 cm from the VectorNav unit
-- `GNSS Antenna Baseline` Necessary if using a dual-GNSS-enabled product
-- `Reference Frame Rotation` Necessary if not mounted as connector-back, base-down
-- `IMU Filtering Config` Recommended to adjust the default 200Hz IMU filtering
+- `Зміщення GNSS антени A` Необхідно у випадку використання продукту з підтримкою GNSS та якщо антена GNSS встановлена більш ніж на 10 см від блоку VectorNav
+- `Базова антена ГНСС` Необхідна, якщо використовується продукт з підтримкою двох систем ГНСС
+- `Поворот рамки посилання` Необхідно, якщо не встановлено як коннектор-назад, база-вниз
+- `Конфігурація фільтрації ІМП` Рекомендується налаштувати фільтрацію ІМП 200 Гц за замовчуванням
 
-After setting these parameters, the settings must be set to persist over a power cycle using a Write Non Volatile command.
+Після встановлення цих параметрів налаштування повинні бути встановлені для збереження після циклу живлення за допомогою команди Write Non Volatile.
 
-## Published Data
+## Опубліковані дані
 
-Upon initialization, the driver should print the following information to console (printed using `PX4_INFO`)
+При ініціалізації водій повинен надрукувати наступну інформацію до консолі (надруковано за допомогою `PX4_INFO`)
 
-- Unit model number
-- Unit hardware version
-- Unit serial number
-- Unit firmware number
+- Номер моделі блока
+- Версія апаратної одиниці
+- Номер серійного номеру блока
+- Номер прошивки одиниці
 
-This should be accessible using the [`dmesg`](../modules/modules_system.md#dmesg) command.
+Цей текст має бути доступний за допомогою команди [`dmesg`](../modules/modules_system.md#dmesg).
 
-The VectorNav driver always publishes the unit's data to the following UOrb topics:
+Водій VectorNav завжди публікує дані пристрою на наступні теми UOrb:
 
 - [sensor_accel](../msg_docs/SensorAccel.md)
-- [sensor_gyro](../msg_docs/SensorGyro.md)
+- [датчик_гіроскопа](../msg_docs/SensorGyro.md)
 - [sensor_mag](../msg_docs/SensorMag.md)
 - [sensor_baro](../msg_docs/SensorBaro.md)
 - [sensor_gps](../msg_docs/SensorGps.md)
 
-and, if enabled as an external INS, publishes:
+і, якщо увімкнено як зовнішнє INS, публікує:
 
 - [vehicle_local_position](../msg_docs/VehicleLocalPosition.md)
 - [vehicle_global_positon](../msg_docs/VehicleGlobalPosition.md)
 - [vehicle_attitude](../msg_docs/VehicleAttitude.md)
 
-or, if enabled as external sensor only, publishes:
+або, якщо увімкнено як зовнішній датчик, публікує:
 
 - `external_ins_local_position`
 - `external_ins_global_position`
 - `external_ins_attitude`
 
 :::tip
-Published topics can be viewed using the `listener` command.
+Опубліковані теми можна переглянути за допомогою команди `listener`.
 :::
 
-## Hardware Specifications
+## Характеристики обладнання
 
-- [Product Briefs](https://www.vectornav.com/resources/product-briefs)
-- [Datasheets](https://www.vectornav.com/resources/datasheets)
+- [Короткі описи продуктів](https://www.vectornav.com/resources/product-briefs)
+- [Документи з даними](https://www.vectornav.com/resources/datasheets)
