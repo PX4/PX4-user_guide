@@ -1,48 +1,48 @@
 # ARK RTK GPS
 
-ARK RTK GPS is an open source [DroneCAN](index.md) [RTK GPS](../gps_compass/rtk_gps.md), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module), magnetometer, barometer, IMU, buzzer, and safety switch module.
+ARK RTK GPS є проєктом з відкритим кодом [DroneCAN](index.md) [RTK GPS](../gps_compass/rtk_gps.md), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module), магнітометром, барометром, ІВП, сигналом звукового оповіщення та модулем безпеки.
 
 ![ARK RTK GPS](../../assets/hardware/gps/ark_rtk_gps.jpg)
 
 ## Де купити
 
-Order this module from:
+Замовте цей модуль з:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-rtk-gps/) (US)
 
 ## Характеристики апаратного забезпечення
 
-- [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_RTK_GPS)
-- Sensors
+- [Схема з відкритим кодом та BOM](https://github.com/ARK-Electronics/ARK_RTK_GPS)
+- Сенсори
   - Ublox F9P GPS
-    - Multi-band GNSS receiver delivers centimeter level accuracy in seconds
-    - Concurrent reception of GPS, GLONASS, Galileo and BeiDou
-    - Multi-band RTK with fast convergence times and reliable performance
-    - High update rate for highly dynamic applications
-    - Centimeter accuracy in a small and energy efficient module
+    - Багатосмуговий приймач супутникової навігації, що забезпечує точність на рівні сантиметрів за кілька секунд
+    - Одночасний прийом GPS, GLONASS, Galileo та BeiDou
+    - Багатосмуговий RTK зі швидкими часами збіжності та надійною продуктивністю
+    - Висока швидкість оновлення для високодинамічних додатків
+    - Сантиметрова точність у невеликому та енергоефективному модулі
   - Bosch BMM150 Magnetometer
   - Bosch BMP388 Barometer
   - Invensense ICM-42688-P 6-Axis IMU
 - STM32F412CEU6 MCU
-- Safety Button
-- Buzzer
-- Two Pixhawk Standard CAN Connectors (4 Pin JST GH)
-- F9P “UART 2” Connector
-  - 3 Pin JST GH
+- Кнопка безпеки
+- Динамік
+- Два роз'єми стандарту CAN для Pixhawk (4 контакти JST GH)
+- Роз'єм F9P "UART 2"
+  - 3-контактний JST-GH
   - TX, RX, GND
-- Pixhawk Standard Debug Connector (6 Pin JST SH)
-- LED Indicators
-  - Safety LED
+- Роз'єм для відлагодження стандарту Pixhawk (6 контактів JST SH)
+- LED індикатори
+  - Індикатор безпеки
   - GPS Fix
-  - RTK Status
-  - RGB system status
+  - Статус RTK
+  - RGB Статус системи
 - USA Built
-- Power Requirements
+- Вимоги до живлення
   - 5V
-  - 170mA Average
-  - 180mA Max
+  - Середній струм 170мA
+  - 180мА Макс
 
-## Hardware Setup
+## Встановлення обладнання
 
 ### Підключення
 
