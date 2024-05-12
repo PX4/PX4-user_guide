@@ -46,19 +46,19 @@ ARK RTK GPS є проєктом з відкритим кодом [DroneCAN](inde
 
 ### Підключення
 
-The ARK RTK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
+ARK RTK GPS підключений до шини CAN за допомогою стандартного кабелю Pixhawk 4 pin JST GH. Для отримання додаткової інформації, зверніться до інструкцій з [проводки CAN](../can/index.md#wiring).
 
 ### Встановлення
 
-The recommended mounting orientation is with the connectors on the board pointing towards the **back of vehicle**.
+Рекомендоване положення монтажу є таким, щоб конектори на платі вказували у напрямку **задньої частини дрону**.
 
-The sensor can be mounted anywhere on the frame, but you will need to specify its position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
+Датчик може бути встановлений де завгодно на каркасі, але ви повинні вказати його позицію, відносно центру мас транспортного засобу, під час [налаштування PX4](#px4-configuration).
 
 ## Налаштування прошивки
 
-ARK RTK GPS runs the [PX4 cannode firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](index.md#node-id-allocation).
+ARK RTK GPS працює з [PX4 cannode firmware](px4_cannode_fw.md). Таким чином, він підтримує оновлення прошивки через шину CAN та [dynamic node allocation](index.md#node-id-allocation).
 
-ARK RTK GPS boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself, refer to the [cannode firmware build instructions](px4_cannode_fw.md#building-the-firmware).
+Плати ARK RTK GPS поставляються з останнім вбудованим програмним забезпеченням, але якщо ви хочете побудувати й прошити останнє програмне забезпечення самостійно, звертайтеся до [інструкцій з побудови прошивки cannode](px4_cannode_fw.md#building-the-firmware).
 
 Ціль прошивки: `ark_can-rtk-gps_default` Ціль завантажувача: `ark_can-rtk-gps_canbootloader`
 
@@ -66,99 +66,99 @@ ARK RTK GPS boards ship with recent firmware pre-installed, but if you want to b
 
 ### Увімкнення DroneCAN
 
-In order to use the ARK RTK GPS, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
+Для використання ARK RTK GPS підключіть його до шини CAN Pixhawk та увімкніть драйвер DroneCAN, встановивши параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) на `2` для динамічного призначення вузла (або `3`, якщо використовуєте [DroneCAN ESCs](../dronecan/escs.md)).
 
-The steps are:
+Кроки наступні:
 
-- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
-- Connect ARK RTK GPS CAN to the Pixhawk CAN.
+- У _QGroundControl_ встановіть параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) на `2` або `3` та перезавантажте (див. [Finding/Updating Parameters](../advanced_config/parameters.md)).
+- Підключіть ARK RTK GPS CAN до шини CAN Pixhawk.
 
-Once enabled, the module will be detected on boot. GPS data should arrive at 10Hz.
+Після активації, модуль буде виявлено при завантаженні. Дані GPS повинні надходити з частотою 10 Гц.
 
 ### Конфігурація PX4
 
-You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle:
+Вам потрібно встановити необхідні [параметри DroneCAN](index.md) та визначити зсуви, якщо датчик не знаходиться у центрі транспортного засобу:
 
-- Enable GPS yaw fusion by setting bit 3 of [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to true.
-- Enable GPS blending to ensure the heading is always published by setting [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 7 (all three bits checked).
-- Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS), [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG), and [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO).
-- The parameters [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z) can be set to account for the offset of the ARK RTK GPS from the vehicles centre of gravity.
-- Set [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) to `1` on the GPS if this it that last node on the CAN bus.
+- Увімкніть GPS сигнал, встановивши біт 3 [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) на true.
+- Увімкніть злиття GPS, щоб завжди публікувати напрямок, встановивши [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) на 7 (перевірено всі три біти).
+- Увімкніть [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS), [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG) та [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO).
+- Параметри [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) та [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z) можуть бути встановлені для врахування зміщення ARK RTK GPS від центру мас транспортного засобу.
+- Встановіть [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) на `1` на GPS, якщо це останній вузол на шині CAN.
 
-### Setting Up Moving Baseline & GPS Heading
+### Налаштування Переміщувальної Базової Лінії & GPS Напрямку
 
-The simplest way to set up moving baseline and GPS heading with two ARK RTK GPS modules is via CAN, though it can be done via UART to reduce traffic on the CAN bus if desired.
+Найпростіший спосіб налаштування рухомого базису та напрямку GPS з двома модулями GPS ARK RTK відбувається через CAN, хоча можна зробити це через UART, щоб зменшити обсяг даних на шині CAN, якщо це потрібно.
 
-Note that a heading is only output if the Rover is in RTX Fixed mode. It will not output a heading in RTK Float.
+Зверніть увагу, що заголовок виводиться лише у випадку, якщо Rover знаходиться в режимі фіксованого RTX. Він не виведе заголовок у RTK Float.
 
-Setup via CAN:
+Налаштування через CAN:
 
-- Ensure the ARK RTK GPS modules are connected to the Pixhawk via CAN (one can connect to another's secondary CAN port). The two ARK RTK GPS must be connected to the same CAN bus for corrections to be sent.
-- Choose one ARK RTK GPS to be the _Rover_ and one to be the _Moving Base_.
-- Reopen QGroundControl, go to parameters, and select `Standard` to hide that dropdown and select `Component ##` to view each of your ARK RTK GPS's CAN node parameters ::: info `Component ##` won't be visible unless the ARK RTK GPS is connected to the Pixhawk prior to opening QGroundControl.
+- Переконайтеся, що ARK RTK GPS модулі підключені до Pixhawk через CAN (один може бути підключений до вторинного порту CAN). Два ARK RTK GPS повинні бути підключені до однієї і тієї ж CAN шини для надсилання корекцій.
+- Виберіть один ARK RTK GPS для _Ровера_ та один для _Рухової Бази_.
+- Перевідкрийте QGroundControl, перейдіть до параметрів та виберіть `Standard`, щоб приховати цей розкривний список та виберіть `Component ##`, щоб переглянути кожний з параметрів вузла CAN вашого ARK RTK GPS ::: info `Component ##` не буде видимим, якщо ARK RTK GPS не підключено до Pixhawk до відкриття QGroundControl.
 :::
-- On the _Rover_, set the following:
-  - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `3`
-  - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) to `0` if your _Rover_ is in front of your _Moving Base_, `90` if _Rover_ is right of _Moving Base_, `180` if _Rover_ is behind _Moving Base_, or `270` if _Rover_ is left of _Moving Base_.
-  - [CANNODE_SUB_MBD](../advanced_config/parameter_reference.md#CANNODE_SUB_MBD) to `1`.
-- On the _Moving Base_, set the following:
-  - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `4`.
-  - [CANNODE_PUB_MBD](../advanced_config/parameter_reference.md#CANNODE_PUB_MBD) to `1`.
+- На _Rover_, встановіть наступне:
+  - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) на `3`
+  - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) до `0`, якщо ваш _Rover_ знаходиться попереду вашої _Рухливої Бази_, `90`, якщо _Rover_ справа від _Рухливої Бази_, `180`, якщо _Rover_ ззаду _Рухливої Бази_, або `270`, якщо _Rover_ зліва від _Рухливої Бази_.
+  - [CANNODE_SUB_MBD](../advanced_config/parameter_reference.md#CANNODE_SUB_MBD) на `1`.
+- На _Рухомій Базі_, встановіть наступне:
+  - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) на `4`.
+  - [CANNODE_PUB_MBD](../advanced_config/parameter_reference.md#CANNODE_PUB_MBD) на `1`.
 
-Setup via UART:
+Налаштування через UART:
 
-- Ensure the ARK RTK GPS modules are connected to the Pixhawk via CAN.
-- Ensure the ARK RTK GPS modules are connected to each other via their UART2 port (UART2 pinout shown below). Note that TX of one module needs to connect with RX of the other.
+- Переконайтеся, що модулі GPS ARK RTK підключені до Pixhawk через CAN.
+- Переконайтеся, що модулі GPS ARK RTK підключені один до одного через їх порт UART2 (схема виводів UART2 показана нижче). Зверніть увагу, що TX одного модуля потрібно підключити до RX іншого.
 
-| Pin | Name |
-| --- | ---- |
-| 1   | TX   |
-| 2   | RX   |
-| 3   | GND  |
+| Pin | Назва |
+| --- | ----- |
+| 1   | TX    |
+| 2   | RX    |
+| 3   | GND   |
 
-- On the _Rover_, set the following:
-  - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `1`
-  - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) to `0` if your _Rover_ is in front of your _Moving Base_, `90` if _Rover_ is right of _Moving Base_, `180` if _Rover_ is behind _Moving Base_, or `270` if _Rover_ is left of _Moving Base_.
-- On the _Moving Base_, set the following:
-  - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `2`.
+- На _Rover_, встановіть наступне:
+  - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) на `1`
+  - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) до `0`, якщо ваш _Rover_ знаходиться попереду вашої _Рухливої Бази_, `90`, якщо _Rover_ справа від _Рухливої Бази_, `180`, якщо _Rover_ ззаду _Рухливої Бази_, або `270`, якщо _Rover_ зліва від _Рухливої Бази_.
+- На _Рухомій Базі_, встановіть наступне:
+  - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) на `2`.
 
-## LED Meanings
+## Значення LED індикаторів
 
-- The GPS status lights are located to the right of the connectors
+- Світлодіоди статусу GPS розташовані праворуч від роз'ємів
 
-  - Blinking green is GPS fix
-  - Blinking blue is received corrections and RTK Float
-  - Solid blue is RTK Fixed
+  - Миготіння зеленого - це фіксація GPS
+  - Миготіння синього - це отримані корекції та RTK Float
+  - Сталий синій - це RTK зафіксовано
 
-- The CAN status lights are located top the left of the connectors
-  - Slow blinking green is waiting for CAN connection
-  - Fast blinking green is normal operation
-  - Slow blinking green and blue is CAN enumeration
-  - Slow blinking green, blue, and red is firmware update in progress
-  - Blinking red is error
-    - If you see a red LED there is an error and you should check the following
-      - Make sure the flight controller has an SD card installed
-      - Make sure the ARK RTK GPS has `ark_can-rtk-gps_canbootloader` installed prior to flashing `ark_can-rtk-gps_default`
-      - Remove binaries from the root and ufw directories of the SD card and try to build and flash again
+- Світлодіоди статусу CAN розташовані зверху ліворуч від роз'ємів
+  - Повільне блимання зеленого - чекає на підключення CAN
+  - Швидко блимаюче зелене світло - нормальна робота
+  - Повільне блимання зеленим і синім - перелік CAN
+  - Повільне блимання зеленого, синього і червоного - оновлення прошивки в процесі
+  - Миготливий червоний - помилка
+    - Якщо ви бачите червоний світлодіод, це означає, що виникла помилка, і вам слід перевірити наступне
+      - Переконайтеся, що у польотному контролері встановлено SD-картку
+      - Переконайтеся, що ARK RTK GPS має встановлене `ark_can-rtk-gps_canbootloader` перед тим, як прошивати `ark_can-rtk-gps_default`
+      - Видаліть бінарні файли з кореневих та ufw директорій SD-карти та спробуйте зібрати та знову прошити
 
-### Updating Ublox F9P Module
+### Оновлення модуля Ublox F9P
 
-ARK RTK GPS comes with the Ublox F9P module up to date with version 1.13 or newer. However, you can check the version and update the firmware if desired.
+ARK RTK GPS поставляється з модулем Ublox F9P з версією 1.13 або новішою. Проте ви можете перевірити версію та оновити прошивку за бажанням.
 
-The steps are:
+Кроки наступні:
 
-- [Download u-center from u-blox.com](https://www.u-blox.com/en/product/u-center) and install on your PC (Windows only)
-- Open the [u-blox ZED-F9P website](https://www.u-blox.com/en/product/zed-f9p-module#tab-documentation-resources)
-- Scroll down and click on the "Show Legacy Documents" box
-- Scroll down again to Firmware Update and download your desired firmware (at least version 1.13 is needed)
-- While holding down the safety switch on the ARK RTK GPS, connect it to power via one of its CAN ports and hold until all 3 LEDs blink rapidly
-- Connect the ARK RTK GPS to your PC via its debug port with a cable such as the Black Magic Probe or an FTDI
-- Open u-center, select the COM port for the ARK RTK GPS and connect ![U-Center Connect](../../assets/hardware/gps/ark_rtk_gps_ucenter_connect.png)
-- Check the current firmware version by selecting View, Messages View, UBX, MON, VER ![Check Version](../../assets/hardware/gps/ark_rtk_gps_ublox_version.png)
-- To update the firmware:
-  - Select Tools, Firmware Update
-  - The Firmware image field should be the .bin file downloaded from the u-blox ZED-F9P website
-  - Check the "Use this baudrate for update" checkbox and select 115200 from the drop-down
-  - Ensure the other checkboxes are as shown below
-  - Push the green GO button on the bottom left
-  - "Firmware Update SUCCESS" should be displayed if it updated successfully ![Firmware Update](../../assets/hardware/gps/ark_rtk_gps_ublox_f9p_firmware_update.png)
+- [Завантажте u-center з сайту u-blox.com](https://www.u-blox.com/en/product/u-center) та встановіть на свій ПК (лише для Windows)
+- Відкрийте [веб-сайт u-blox ZED-F9P](https://www.u-blox.com/en/product/zed-f9p-module#tab-documentation-resources)
+- Прокрутіть вниз і клацніть на поле "Show Legacy Documents"
+- Прокрутіть вниз ще раз до Оновлення прошивки та завантажте потрібну прошивку (потрібна версія не нижче 1.13)
+- Підтримуючи перемикач безпеки на ARK RTK GPS, підключіть його до живлення через один з його портів CAN і утримуйте до тих пір, поки всі 3 світлодіода не почнуть швидко мигати
+- Підключіть ARK RTK GPS до комп'ютера за допомогою його порту відладки через кабель, такого як Black Magic Probe або FTDI
+- Відкрийте u-center, виберіть COM-порт для ARK RTK GPS та підключіться ![U-Center Connect](../../assets/hardware/gps/ark_rtk_gps_ucenter_connect.png)
+- Перевірте поточну версію прошивки, вибравши View, Messages View, UBX, MON, VER ![Перевірте версію](../../assets/hardware/gps/ark_rtk_gps_ublox_version.png)
+- Для оновлення прошивки:
+  - Виберіть Tools, Firmware Update
+  - Поле зображення прошивки повинно бути файлом .bin, завантаженим зі сторінки веб-сайту u-blox ZED-F9P
+  - Поставте прапорець "Використовувати цю швидкість передачі для оновлення" та виберіть 115200 зі списку
+  - Переконайтеся, що інші прапорці відображаються так, як показано нижче
+  - Натисніть зелену кнопку GO внизу зліва
+  - "Firmware Update SUCCESS" повинно бути відображено, якщо оновлення пройшло успішно ![Оновлення прошивки](../../assets/hardware/gps/ark_rtk_gps_ublox_f9p_firmware_update.png)
