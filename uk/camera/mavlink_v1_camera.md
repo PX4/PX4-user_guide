@@ -1,4 +1,4 @@
-# Simple MAVLink Cameras (Camera Protcol v1)
+# Прості камери MAVLink (Протокол камери v1)
 
 Ця тема пояснює, як використовувати PX4 з MAVLink [камерою](../camera/index.md), що реалізує [Протокол Камери v1 (Простий Протокол Тригера)](https://mavlink.io/en/services/camera_v1.html) з PX4 та Наземною Станцією.
 
@@ -11,9 +11,9 @@
 
 [Протокол камери v1](https://mavlink.io/en/services/camera_v1.html) визначає невеликий набір команд, які дозволяють викликати камеру для:
 
-- still image capture at a frequency based on either time or distance
-- video capture
-- limited camera configuration
+- знімок неперервне зйомка з частотою, залежно від часу або відстані
+- захоплення відео
+- обмежені налаштування камери
 
 PX4 підтримує цей набір команд для спрацьовування камер з вбудованою підтримкою протоколу (як описано в цій темі), а також для [камер, підключених до виходів контролера польоту](../camera/fc_connected_camera.md).
 
@@ -36,14 +36,14 @@ PX4 також буде випускати [CAMERA_TRIGGER](https://mavlink.io/e
 - [MAV_CMD_OBLIQUE_SURVEY](https://mavlink.io/en/messages/common.html#MAV_CMD_OBLIQUE_SURVEY)
 - [MAV_CMD_DO_CONTROL_VIDEO](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CONTROL_VIDEO)
 
-A MAVLink camera will support some subset of these commands.
+Камера MAVLink буде підтримувати певний піднабір цих команд.
 Оскільки протокол не має процесу виявлення функцій, єдиний спосіб дізнатися - це оглянути [COMMAND_ACK](https://mavlink.io/en/messages/common.html#COMMAND_ACK), що повернено у відповіді.
 
 Камери також повинні видавати [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) кожного разу, коли захоплюється зображення.
 
-[Camera Protocol v1](https://mavlink.io/en/services/camera_v1.html) describes the protocol in more detail.
+[Протокол камери v1](https://mavlink.io/en/services/camera_v1.html) детальніше описує протокол.
 
-### Ground Stations
+### Радіостанції наземної станції
 
 Наземні станції можуть використовувати будь-які команди у [Протоколі Камери v1 (Простий Протокол Тригера)](https://mavlink.io/en/services/camera_v1.html) і повинні надсилати їх до ідентифікатора компонента автопілоту.
 Якщо команди не підтримуються камерою, вона поверне [COMMAND_ACK](https://mavlink.io/en/messages/common.html#COMMAND_ACK) з помилковим результатом.
