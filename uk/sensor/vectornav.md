@@ -1,14 +1,14 @@
 # VectorNav
 
-VectorNav Technologies designs and develops high-performance, low-SWaP [IMU/AHRS](https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-ahrs), [GNSS/INS](https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-gpsins), and [Dual GNSS/INS](https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-gnsscompass) solutions that enable safe and reliable autonomy at scale.
+Компанія VectorNav Technologies розробляє та створює високопродуктивні, малих розмірів та маси [IMU/AHRS](https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-ahrs), [GNSS/INS](https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-gpsins) та [Dual GNSS/INS](https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-gnsscompass) рішення, які забезпечують безпечну та надійну автономію в масштабі.
 
 ![VN-300](../../assets/hardware/sensors/inertial/vn-300-smd-rugged.png)
 
-VectorNav products provide a range of benefits to PX4 users and can be integrated for:
+Продукція VectorNav надає ряд переваг користувачам PX4 і може бути інтегрована для:
 
-- Higher accuracy heading, pitch, and roll estimates
-- More robust and reliable GNSS positioning
-- Improved positioning and attitude performance in GNSS-contested environments
+- Вища точність оцінки напрямку, крену та кочення
+- Більш надійна геоприв'язка GNSS
+- Покращена точність позиціонування та установки під час конфлікту супутникового зв'язку
 - Performance under challenging dynamic conditions (e.g. catapult launches, VTOL operations, high-g or high angular rate operations)
 
 The VectorNav PX4 Driver is streamlined to provide a simple plug-and-play architecture, removing engineering obstacles and allowing the acceleration of the design, development, and launch of platforms to keep pace with the rapid rate of innovation.
