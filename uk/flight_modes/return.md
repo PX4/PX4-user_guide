@@ -175,7 +175,7 @@ PX4 надає чотири альтернативні підходи для п�
 
 Шаблон посадки місії - це шаблон посадки, визначений як частина плану місії. Це включає в себе [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), одне або кілька позиційних точок маршруту та [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) (або [MAV_CMD_NAV_VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND) для VTOL-транспортного засобу).
 
-Landing patterns defined in missions are the safest way to automatically land a _fixed-wing_ vehicle on PX4. For this reason fixed-wing vehicles are configured to use [Mission landing/really point return](#mission-landing-rally-point-return-type-rtl-type-1) by default.
+Посадкові маршрути, визначені в місіях, - це найбезпечніший спосіб автоматично посадити літак з _фіксованими крилами_ на PX4. З цієї причини повітряні судна фіксованого крила налаштовані на використання [Посадку/повернення на пункт ралі/вильоту місії](#mission-landing-rally-point-return-type-rtl-type-1) за замовчуванням.
 
 ## Параметри
 

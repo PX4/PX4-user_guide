@@ -1,10 +1,10 @@
-# Position Slow Mode (Multicopter)
+# Повільний режим позиціонування (Мультикоптер)
 
 <Badge type="warning" text="main (PX4 v1.15)" />
 
 <img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
-_Position Slow_ mode is a velocity and yaw rate limited version of the regular [Position mode](../flight_modes_mc/position.md).
+Режим повільного позиціювання - це версія з обмеженою швидкістю руху та повороту звичайного [Режиму позиціювання](../flight_modes_mc/position.md).
 
 Режим працює точно так само, як _Режим позиціонування_, але з перемасштабованим відхиленням стіку контролера до менших максимальних швидкостей (і пропорційно меншим прискоренням).
 Ви можете використовувати її, щоб швидко зменшити швидкість транспортного засобу до безпечної швидкості (якщо вона рухається швидше, ніж максимальна швидкість в обмеженій вісі).
@@ -21,11 +21,11 @@ _Position Slow_ mode is a velocity and yaw rate limited version of the regular [
 
 Таблиця нижче показує параметри, що використовуються для встановлення максимальних значень для режиму _Повільне встановлення позиції_ та режиму _Позиції_, відповідно, разом із їхніми значеннями за замовчуванням.
 
-| Вісь                | Режим повільного позиціювання                    | Position mode                                                                                         |
-| ------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
-| Horizontal velocity | [MC\_SLOW\_DEF\_HVEL][mc_slow_def_hvel] (3 m/s)  | [MPC\_VEL\_MANUAL][mpc_vel_manual] (10 m/s)                                                           |
-| Vertical velocity   | [MC\_SLOW\_DEF\_VVEL][mc_slow_def_vvel] (1 m/s)  | [MPC\_Z\_VEL\_MAX\_UP][mpc_z_vel_max_up] (3 m/s) / [MPC\_Z\_VEL\_MAX\_DN][mpc_z_vel_max_dn] (1.5 m/s) |
-| Yaw rate            | [MC\_SLOW\_DEF\_YAWR][mc_slow_def_yawr] (45 °/s) | [MPC\_MAN\_Y\_MAX][mpc_man_y_max] (150 °/s)                                                           |
+| Вісь                    | Режим повільного позиціювання                    | Режим позиції                                                                                         |
+| ----------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| Горизонтальна швидкість | [MC\_SLOW\_DEF\_HVEL][mc_slow_def_hvel] (3 m/s)  | [MPC\_VEL\_MANUAL][mpc_vel_manual] (10 m/s)                                                           |
+| Вертикальна швидкість   | [MC\_SLOW\_DEF\_VVEL][mc_slow_def_vvel] (1 m/s)  | [MPC\_Z\_VEL\_MAX\_UP][mpc_z_vel_max_up] (3 m/s) / [MPC\_Z\_VEL\_MAX\_DN][mpc_z_vel_max_dn] (1.5 m/s) |
+| Швидкість крену         | [MC\_SLOW\_DEF\_YAWR][mc_slow_def_yawr] (45 °/s) | [MPC\_MAN\_Y\_MAX][mpc_man_y_max] (150 °/s)                                                           |
 
 З цього можна побачити, наприклад, що при переході з режиму Позиції в режим Повільної позиції, максимальна висотна швидкість у горизонтальному напрямку за замовчуванням зменшується з 10 м/с до 3 м/с.
 Якщо подорожуєте швидше, ніж 3 м/с горизонтально, ви сповільнюватиметесь до 3 м/с.
@@ -42,7 +42,7 @@ _Position Slow_ mode is a velocity and yaw rate limited version of the regular [
 [mpc_man_y_max]: ../advanced_config/parameter_reference.md#MPC_MAN_Y_MAX
 [mc_slow_def_yawr]: ../advanced_config/parameter_reference.md#MC_SLOW_DEF_YAWR
 
-## Set Limits using RC Control
+## Встановлення обмежень за допомогою керування RC
 
 Ви можете зіставити обертовий регулятор, слайдер або перемикач на [RC-контролері](../getting_started/rc_transmitter_receiver.md), щоб встановити максимальну швидкість вісі (горизонтальної/вертикальної/повороту).
 Цей підхід корисний, коли відповідні значення максимальної сповільнення можуть відрізнятися під час польоту.
@@ -56,8 +56,8 @@ _Position Slow_ mode is a velocity and yaw rate limited version of the regular [
 | Вісь                    | Параметр для відображення допоміжного вводу | Параметр для мінімального значення максимальної швидкості |
 | ----------------------- | ------------------------------------------- | --------------------------------------------------------- |
 | Горизонтальна швидкість | [MC\_SLOW\_MAP\_HVEL][mc_slow_map_hvel]     | [MC\_SLOW\_MIN\_HVEL][mc_slow_min_hvel]                   |
-| Vertical velocity       | [MC\_SLOW\_MAP\_VVEL][mc_slow_map_vvel]     | [MC\_SLOW\_MIN\_VVEL][mc_slow_min_vvel]                   |
-| Yaw rate                | [MC\_SLOW\_MAP\_YAWR][mc_slow_map_yawr]     | [MC\_SLOW\_MIN\_YAWR][mc_slow_min_yawr]                   |
+| Вертикальна швидкість   | [MC\_SLOW\_MAP\_VVEL][mc_slow_map_vvel]     | [MC\_SLOW\_MIN\_VVEL][mc_slow_min_vvel]                   |
+| Швидкість крену         | [MC\_SLOW\_MAP\_YAWR][mc_slow_map_yawr]     | [MC\_SLOW\_MIN\_YAWR][mc_slow_min_yawr]                   |
 
 <!-- links used in table above -->
 
@@ -68,7 +68,7 @@ _Position Slow_ mode is a velocity and yaw rate limited version of the regular [
 [mc_slow_map_yawr]: ../advanced_config/parameter_reference.md#MC_SLOW_MAP_YAWR
 [mc_slow_min_yawr]: ../advanced_config/parameter_reference.md#MC_SLOW_MIN_YAWR
 
-To use this approach:
+Щоб використовувати цей підхід:
 
 1. Переконайтеся, що в вашому пульті є додатковий вхід та додатковий канал дистанційного керування для передачі його положення.
 2. Відобразіть канал, який містить позицію ручок, як один з 6 додаткових входів пропускання, встановивши [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) на відповідний номер каналу RC.
@@ -77,7 +77,7 @@ To use this approach:
 Наприклад, якщо ви хочете відобразити канал RC 8 для обмеження горизонтальної швидкості, ви можете встановити для [RC\_MAP\_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) значення 8, а для [MC\_SLOW\_MAP\_HVEL][mc_slow_map_hvel] значення значення "1".
 Потім вхід RC з каналу 8 встановлює обмеження горизонтальної швидкості між [MC\_SLOW\_MIN\_HVEL][mc_slow_min_hvel] і [MPC\_VEL\_MANUAL][mpc_vel_manual].
 
-## Set Limits using MAVLink
+## Встановлення обмежень за допомогою MAVLink
 
 Ви можете налаштувати ліміти швидкості, використовуючи повідомлення MAVLink [SET_VELOCITY_LIMITS](https://mavlink.io/en/messages/development.html#SET_VELOCITY_LIMITS).
 Цей підхід використовується переважно автоматичними системами, наприклад, для сповільнення транспортного засобу при збільшенні масштабування камери.
@@ -90,4 +90,4 @@ To use this approach:
 
 ## Дивіться також
 
-- [Position Slow Mode](../flight_modes_mc/position.md)
+- [Режим уповільненого розташування](../flight_modes_mc/position.md)

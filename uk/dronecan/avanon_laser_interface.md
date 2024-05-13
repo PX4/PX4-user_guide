@@ -1,23 +1,23 @@
-# Avionics Anonymous Laser Altimeter DroneCan Interface
+# Інтерфейс лазерного альтиметра Avionics Anonymous DroneCan
 
-::: info In 2022, UAVCAN (v0) was forked and is maintained as `DroneCAN`. While this product still mentions "UAVCAN", it is fully compatible with PX4's DroneCAN support.
+::: info У 2022 році UAVCAN (v0) був форкнутий і підтримується як `DroneCAN`. Хоча цей продукт все ще згадує "UAVCAN", він повністю сумісний з підтримкою DroneCAN в PX4.
 :::
 
-The [Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/) allows a [number of common rangefinders](#supported_rangefinders) to be connected via the CAN bus (this is a more robust interface than I2C).
+Інтерфейс лазерного альтиметра Avionics Anonymous дозволяє підключати [ряд звичайних далекомірів](#supported_rangefinders) за допомогою шини CAN (це надійніший інтерфейс, ніж I2C).
 
 ![Avionics Anonymous Laser Altimeter DroneCAN Interface](../../assets/hardware/sensors/avionics_anon_uavcan_alt_interface/avionics_anon_altimeter_uavcan_interface.jpg)
 
-## Where to Buy
+## Де придбати
 
 - [AvAnon Laser Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/)
 
 <a id="supported_rangefinders"></a>
 
-## Supported Rangefinders
+## Підтримувані далекоміри
 
-A full list of supported rangefinders can be found on the link above.
+Повний список підтримуваних далекомірів можна знайти за посиланням вище.
 
-At time of writing the following rangefinders are supported:
+Наступні далекоміри підтримуються на момент написання:
 
 - Lightware SF30/D
 - Lightware SF10/a
@@ -27,38 +27,38 @@ At time of writing the following rangefinders are supported:
 - Lightware SF/LW20/b
 - Lightware SF/LW20/c
 
-## Hardware Setup
+## Встановлення обладнання
 
-### Wiring
+### Підключення
 
-The rangefinder (laser) is connected to the AvAnon interface board, which is connected to one of the CAN ports on your autopilot. The wiring is as per the pinout above, or the necessary cables can be purchased to connect to your system right out of the box. These are available at the links [here](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/).
+Далекомір (лазер) підключений до плати інтерфейсу AvAnon, яка підключена до одного з CAN-портів вашого автопілота. Проводка відбувається згідно з виведенням контактів вище, або необхідні кабелі можна придбати, щоб підключити їх безпосередньо до вашої системи. Ці продукти доступні за посиланнями [тут](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/).
 
-The interface board provides a filtered power output for the laser, but does not provide its own regulation. Therefore the laser must be compatible with whatever voltage is supplied to the board.
+Інтерфейсна плата забезпечує фільтрований вихід живлення для лазера, але не забезпечує власного регулювання. Отже, лазер повинен бути сумісним з напругою, яка подається на плату.
 
-### Pinouts
+### Розпіновка
 
-### CAN Connector
+### Конектор шини CAN
 
-| Pin | Name     | Description                                                                         |
-| --- | -------- | ----------------------------------------------------------------------------------- |
-| 1   | POWER_IN | Power Supply. 4.0-5.5V supported, but must also be compatible with connected laser. |
-| 2   | TX/SCL   | TX for serial mode, Clock for I2C mode.                                             |
-| 3   | RX/SDA   | RX for serial mode, Data for I2C mode.                                              |
-| 4   | GND      | Signal/power ground.                                                                |
+| Pin | Назва    | Опис                                                                                             |
+| --- | -------- | ------------------------------------------------------------------------------------------------ |
+| 1   | POWER_IN | Джерело живлення. Підтримується 4.0-5.5В, але також повинно бути сумісним з підключеним лазером. |
+| 2   | TX/SCL   | TX для послідовного режиму, Clock для режиму I2C.                                                |
+| 3   | RX/SDA   | RX для послідовного режиму, Data для режиму I2C.                                                 |
+| 4   | GND      | Заземлення сигналу/напруги.                                                                      |
 
-### Laser Connector
+### З'єднувач лазеру
 
-| Pin | Name      | Description                             |
-| --- | --------- | --------------------------------------- |
-| 1   | POWER_OUT | Filtered power at the supply voltage.   |
-| 2   | CAN+      | TX for serial mode, Clock for I2C mode. |
-| 3   | RX/SDA    | RX for serial mode, Data for I2C mode.  |
-| 4   | GND       | Signal/power ground.                    |
+| Pin | Назва     | Опис                                              |
+| --- | --------- | ------------------------------------------------- |
+| 1   | POWER_OUT | Фільтрована потужність при напрузі живлення.      |
+| 2   | CAN+      | TX для послідовного режиму, Clock для режиму I2C. |
+| 3   | RX/SDA    | RX для послідовного режиму, Data для режиму I2C.  |
+| 4   | GND       | Заземлення сигналу/напруги.                       |
 
-## PX4 Configuration
+## Налаштування PX4
 
-To enable the laser altimeter you will need to [set the following parameters](../advanced_config/parameters.md) (in QGroundControl):
+Для увімкнення лазерного альтиметра вам необхідно [встановити наступні параметри](../advanced_config/parameters.md) (у QGroundControl):
 
-- Enable DroneCAN by setting [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) non zero.
-- Enable DroneCAN rangefinder subscription by setting [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG)
-- Set the minimum and maximum range of the rangefinder using [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN) and [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX).
+- Увімкніть DroneCAN, встановивши [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) не нульовим.
+- Увімкніть підписку на лазерний далекомір DroneCAN, встановивши [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG)
+- Встановіть мінімальний та максимальний діапазон далекоміра, використовуючи [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN) та [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX).

@@ -1,19 +1,19 @@
 # AsteRx OEM with Robotics Interface Board
 
-Septentrio is the leading worldwide supplier of OEM GPS / GNSS receivers. Septentrio OEM receivers deliver accurate and reliable positions to demanding industrial applications in a small, light-weight form factor. There are several dual antenna receiver options that allows for GPS information to be fused into the heading (other attitude information can also be determined, but is not fused by PX4).
+Septentrio - провідний постачальник OEM GPS / GNSS приймачів по всьому світу. Пристрої Septentrio OEM надають точні і надійні позиції для вимогливих промислових застосувань у невеликому, легкому форм-факторі. Є кілька варіантів двохполюсного антенного приймача, які дозволяють злити інформацію GPS в заголовок (інша інформація про атитуду також може бути визначена, але PX4 не зливає її).
 
-Inertial sensor integration of the AsteRx-i family offers a full attitude solution (heading, pitch and roll) synchronized with accurate positioning.
+Інерційна інтеграція сенсорів сімейства AsteRx-i надає повне рішення щодо орієнтації (азимут, крен та кривина), синхронізоване з точним позиціонуванням.
 
-The Robotics Interface Board coupled with Septentrio GNSS receiver boards provides common interfaces like USB, ethernet, on board logging and other functionalities designed for rapid prototyping, product evaluation or efficient integration.
+Платка інтерфейсу робототехніки, сполучена з платами приймача GNSS від Septentrio, надає загальні інтерфейси такі як USB, Ethernet, журналювання на платі та інші функції, що призначені для швидкого прототипування, оцінки продукту або ефективної інтеграції.
 
 ![Septentrio Robotics Interface Board](../../assets/hardware/gps/septentrio_sbf/asterx_m3_and_rib_board.png)
 
 
-## Key Features
+## Основні характеристики
 
-- Credit-card size boards with low power consumption
-- Easy-to-integrate into any system
-- Best-in-class RTK performance with true multi-constellation, multi-frequency GNSS technology
+- Плати розміром з кредитну картку з низьким споживанням енергії
+- Легко інтегрується в будь-яку систему
+- Найкраща продуктивність RTK з справжньою технологією багаточастотного ГНСС на основі кількох констелляцій
 - Advanced Interference Mitigation (AIM+) anti-jamming and anti-spoofing technology
 - Resilient to vibrations and shocks
 - 44 pins I/O connector for autopilots such as Pixhawk
@@ -24,7 +24,7 @@ The Robotics Interface Board coupled with Septentrio GNSS receiver boards provid
 
 ## Purchase
 
-All AsteRx receivers and Robotic Interface Boards can be purchased from the Septentrio webshop:
+Усі приймачі AsteRx та Роботизовані Інтерфейсні Плати можна придбати в інтернет-магазині Septentrio:
 
 - [AsteRx-m3 Pro](https://web.septentrio.com/l/858493/2022-04-19/xgrrz)
 - [AsteRx-m3 Pro+](https://web.septentrio.com/l/858493/2022-04-19/xgrs3)
@@ -39,20 +39,20 @@ Other PX4 supported devices from Septentrio:
 ### USB
 _Connector type: micro-USB type B._
 
-The micro USB type B connector can be attached to a PC to power the receiver and to communicate with it over its USB port.
+Роз'єм micro USB типу B може бути підключений до ПК для живлення приймача та спілкування з ним через його USB-порт.
 
-### 44-pin header
-_Connector type: SAMTEC TMM-122-03-S-D, 2-mm pitch._
+### 44-контактний роз'єм
+_Тип роз'єму: SAMTEC TMM-122-03-S-D, крок 2 мм._
 
-The 44-pin header can be used to connect multiple GPIO devices. Refer to the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsw) for the pinout.
+44-контактний заголовок можна використовувати для підключення кількох пристроїв GPIO. Дивіться [посібник з апаратного забезпечення](https://web.septentrio.com/l/858493/2022-04-19/xgrsw) для роз'ємов.
 
-### LED's
+### Світлодіоди
 
-The LED pins can be used to monitor the receiver status. They can be used to drive external LEDs (max drive current 10mA). It is assumed that the LED lights when the electrical level of the corresponding pin is high. The general-purpose LED (GPLED pin) is configured with the setLEDMode command.
+Піни світлодіоду можуть бути використані для моніторингу статусу отримувача. Вони можуть бути використані для керування зовнішніми світлодіодами (максимальний струм управління 10 мА). Припускається, що світлодіод загориться, коли електричний рівень відповідного контакту буде високий. Загального призначення світлодіод (пін GPLED) конфігурується командою setLEDMode.
 
-### Log Button Header
+### Заголовок кнопки журнала
 
-Putting a jumper on the LOG Button header (.100” vertical header) is equivalent to pressing a “log button”. The interface board takes care of debouncing.
+Надійне підключення контактів в колодку кнопки ЖУРНАЛУ (.100-дюймова вертикальна колодка) еквівалентно натисканню кнопки «протокол». The interface board takes care of debouncing.
 
 ### PPS/Event Header
 
@@ -62,48 +62,48 @@ The 6-pin 2mm header next to the micro USB connector exposes the first PPS signa
 
 ### Power Supply Options
 
-When a USB cable is connected to the micro USB connector, the interface board is powered from the computer through the USB connector. Alternatively, the power can be applied from the PWR_IN pins of the 44-pin connector. The voltage range when powering from the PWR_IN pins is 4.5V to 30V. Power can be applied from both sources at the same time. On-board diodes prevent short circuits. The interface board provides the 3V3 supply to the AsteRx-m3 OEM receiver and a 5V DC voltage to the VANT pin of the AsteRx-m3 OEM.
+Коли кабель USB підключений до роз'єму micro USB, плата інтерфейсу живиться від комп'ютера через роз'єм USB. Альтернативно, живлення може бути подано з контактів PWR_IN роз'єму з 44 контактами. Діапазон напруги при живленні з контактів PWR_IN становить від 4,5В до 30В. Електроживлення можна подавати одночасно з обох джерел. На борту діоди запобігають коротким замиканням. Дошка інтерфейсу надає живлення 3V3 приймачу OEM AsteRx-m3 та напругу постійного струму 5V до контакту VANT приймача OEM AsteRx-m3.
 
-## Hardware setup
+## Встановлення обладнання
 
 ![Septentrio Robotics Interface Board wiring diagram](../../assets/hardware/gps/septentrio_sbf/rib_wiring.png)
 
-1. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the open ended supply (labeled "PWR & GND") on the 44 pin cable for this.
-3. Connect one or two GNSS antennas to the external antenna ports on the AsteRx-i3 D board.
-4. Connect the 44-pin cable to the AsteRx-i3 D board on RIB and connect the 10-pin JST connector to the `GPS MODULE` port on the Pixhawk 4 as shown in the diagram above.
+1. Переконайтеся, що приймач живиться щонайменше 3,3 В. Ви можете використовувати роз'єм micro USB або відкритий живлення (позначений "PWR & GND") на 44-контактному кабелі для цього.
+3. Підключіть одну або дві антени GNSS до зовнішніх антенних портів щодо плати AsteRx-i3 D.
+4. Підключіть 44-контактний кабель до плати AsteRx-i3 D на RIB та підключіть 10-контактний роз'єм JST до порту `МОДУЛЯ GPS` на Pixhawk 4, як показано на діаграмі вище.
 5. In the web interface or with Rx Tools, set the receiver's baut rate to 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (this is the default value).
 
 
 ::: info
 
-PX4 will ensure that the GNSS module is automatically configured. However, if you have a dual antenna setup, you will need to set the layout as accurately as possible in the web app.
+PX4 забезпечить автоматичну конфігурацію модуля GNSS. Проте, якщо у вас є подвійна антенна установка, вам потрібно налаштувати макет якнай точніше в веб-додатку.
 :::
 
 
 ### Dual antenna
 
-The attitude (heading/pitch) can be computed from the orientation of the baseline between the main and the aux1 GNSS antennas.
+Ставлення (клін/тангаж) може бути обчислене з орієнтації базової лінії між основною та допоміжною антенами GNSS aux1.
 
 ![Multi-antenna attitude determination setup](../../assets/hardware/gps/septentrio_sbf/multi-antenna_attitude_setup.png)
 
-To enable multi-antenna attitude determination, follow the following procedure:
+Для забезпечення визначення багатоантенного стану слід дотримуватися наступної процедури:
 
-1. Attach two antennas to your vehicle, using cables of approximately the same length. The default antenna configuration is as depicted in the figure. It consists in placing the antennas aligned with the longitudinal axis of the vehicle, main antenna behind AUX1. For best accuracy, try to maximize the distance between the antennas, and avoid significant height difference between the antenna ARPs.
-2. In practice, the two antenna ARPs may not be exactly at the same height in the vehicle frame, or the main-aux1 baseline may not be exactly parallel or perpendicular to the longitudinal axis of the vehicle. This leads to offsets in the computed attitude angles. These offsets can be compensated for with the **setAttitudeOffset** command.
+1. Приєднайте дві антени до вашого автомобіля, використовуючи кабелі приблизно однакової довжини. Конфігурація за замовчуванням антени відповідає зображеному на малюнку. Це полягає у розташуванні антен, вирівняних з віссю транспортного засобу, основна антена за AUX1. Для найкращої точності спробуйте максимізувати відстань між антенами та уникайте значних висотних відмінностей між ЛАР антенами.
+2. На практиці дві антени ARPs можуть не бути розташовані на однаковій висоті в рамі транспортного засобу, або базова лінія головна-допоміжна1 може не бути абсолютно паралельною або перпендикулярною до поздовжньої вісі транспортного засобу. Це призводить до зміщень у обчислених кутах нахилу. Ці зрушення можна компенсувати за допомогою команди **setAttitudeOffset**.
 
 ::: info
 
 For optimal heading results, the two antennas should be seperated by at least 30cm / 11.8 in (ideally 50cm / 19.7in or more)
 
-For additional configuration of the dual antenna setup, please refer to our [Knowledge Base](https://support.septentrio.com/l/858493/2022-04-19/xgrsh) or the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsl)
+Для додаткової настройки двох антен, будь ласка, зверніться до нашої [бази знань](https://support.septentrio.com/l/858493/2022-04-19/xgrsh) або [керівства з обслуговування](https://web.septentrio.com/l/858493/2022-04-19/xgrsl)
 :::
 
 
-### Web app
+### Веб-додаток
 
-mosaic-H GPS/GNSS receiver module with heading comes with fully documented interfaces, commands and data messages. The included GNSS receiver control and analysis software [RxTools](https://web.septentrio.com/l/858493/2022-04-19/xgrss) allows receiver configuration, monitoring as well as data logging and analysis.
+модуль приймача GPS/GNSS з компасом mosaic-H поставляється з повністю задокументованими інтерфейсами, командами та даними повідомленнями. Включене програмне забезпечення керування та аналізу приймача GNSS [RxTools](https://web.septentrio.com/l/858493/2022-04-19/xgrss) дозволяє настроювання приймача, моніторинг, а також реєстрацію та аналіз даних.
 
-The receiver includes an intuitive web user interface for easy operation and monitoring allowing you to control the receiver from any mobile device or computer. The web interface also uses easy-to-read quality indicators ideal to monitor the receiver operation during the job at hand.
+Отримувач містить інтуїтивний веб-інтерфейс користувача для легкої роботи та контролю, що дозволяє вам керувати отримувачем з будь-якого мобільного пристрою або комп'ютера. Веб-інтерфейс також використовує легко читані показники якості, ідеальні для контролю операції приймача під час виконання завдання.
 
 ![Illustrative image for Septentrio mosaic-H GNSS Receiver Module Web User Interface (WebUI)](../../assets/hardware/gps/septentrio_sbf/septentrio_mosaic_a5_h_t_clas_gnss_module_receiverwebui.png)
 
