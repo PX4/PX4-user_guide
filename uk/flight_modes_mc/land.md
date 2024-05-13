@@ -1,4 +1,4 @@
-# Land Mode (Multicopter)
+# Режим посадки (Мультикоптер)
 
 <img src="../../assets/site/position_fixed.svg" title="Position estimate required (e.g. GPS)" width="30px" />
 
@@ -38,5 +38,5 @@
 
 ## Дивіться також
 
-- [Land Mode (FW)](../flight_modes_fw/land.md)
-- [Land Mode (VTOL)](../flight_modes_vtol/land.md)
+- [Режим посадки (FW)](../flight_modes_fw/land.md)
+- [Режим посадки(VTOL)](../flight_modes_vtol/land.md)
