@@ -19,7 +19,7 @@
 
 ![TFSLOT integrated in TF-G2](../../assets/hardware/sensors/airspeed/tfslot_integration.jpg) _Перша інтеграція TFSLOT у автожир [TF-G2](https://github.com/ThunderFly-aerospace/TF-G2/)_
 
-::: info
+:::info
 
 Повна документація та вихідні файли можна знайти на [GitHub](https://github.com/ThunderFly-aerospace/TFSLOT01).
 
