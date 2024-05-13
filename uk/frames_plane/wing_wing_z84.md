@@ -51,10 +51,10 @@
 | Порт   | Підключення                 |
 | ------ | --------------------------- |
 | RC IN  | PPM або вхід S.BUS / S.BUS2 |
-| MAIN 1 | Left Aileron                |
-| MAIN 2 | Right Aileron               |
-| MAIN 3 | Empty                       |
-| MAIN 4 | Motor 1                     |
+| MAIN 1 | Лівий елерон                |
+| MAIN 2 | Правий елерон               |
+| MAIN 3 | Пусто                       |
+| MAIN 4 | Двигун 1                    |
 
 
 ## Журнал збірки
