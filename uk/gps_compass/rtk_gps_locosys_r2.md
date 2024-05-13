@@ -2,52 +2,52 @@
 
 <Badge type="tip" text="PX4 v1.13" />
 
-The [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk. The only difference between this module and the [LOCOSYS Hawk R1](rtk_gps_locosys_r1.md) is the presence of a magnetometer on Hawk R2.
+The [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk. Єдине відмінність між цим модулем та [LOCOSYS Hawk R1](rtk_gps_locosys_r1.md) полягає у наявності магнітометра на Hawk R2.
 
-The module can act as an RTK GPS rover when installed on the aircraft.
+Модуль може діяти як RTK GPS ровер, коли встановлено на літак.
 
-The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS. It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
+Отримувач здатний одночасно відстежувати всі глобальні цивільні навігаційні системи, включаючи GPS, GLONASS, GALILEO, BEIDOU і QZSS. Воно одночасно отримує сигнали як L1, так і L5, забезпечуючи точність RTK-позиціонування на рівні сантиметрів.
 
-The built-in lightweight helical antenna enhances RTK positioning stability. Additionally, it is equipped with a compass. The fast time-to-first-fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk-based platform UAVs.
+Вбудована легка гвинтова антена підвищує стабільність позиціювання RTK. Додатково, він обладнаний компасом. Швидкий час першої установки, збіжність RTK, вища чутливість, низьке споживання енергії роблять його кращим вибором для безпілотних літальних апаратів на базі Pixhawk.
 
-## Main Features
+## Основні характеристики
 
-- Centimeter-level RTK high position accuracy+ integrated 3-axis magnetometer
-- Concurrent reception of L1 and L5 band signals
-- Support GPS, GLONASS, BEIDOU, GALILEO, QZSS
-- Capable of SBAS (WAAS, EGNOS, MSAS, GAGAN)
-- Support 135-channel GNSS
-- Fast TTFF at low signal level
-- Free hybrid ephemeris prediction to achieve faster cold start
-- Default 5Hz, up to 10 Hz update rate (SBAS support 5Hz only)
-- Build-in super capacitor to reserve system data for rapid satellite acquisition
-- Build-in 3 axis compass function
-- Three LED indicator for Power, PPS and Data transmit
+- Висока точність позиціонування на рівні сантиметра RTK + інтегрований магнітометр з 3 осями
+- Одночасний прийом сигналів смуг L1 і L5
+- Підтримка GPS, ГЛОНАСС, BEIDOU, GALILEO, QZSS
+- Здатний до SBAS (WAAS, EGNOS, MSAS, GAGAN)
+- Підтримка GNSS з 135 каналами
+- Швидкий TTFF на низькому рівні сигналу
+- Безкоштовне гібридне передбачення ефемерид для досягнення швидкого холодного запуску
+- Стандартна частота оновлення 5 Гц, до 10 Гц (підтримка SBAS лише 5 Гц)
+- Вбудований суперконденсатор для резервування системних даних для швидкого отримання супутників
+- Вбудована функція компасу 3-х вимірів
+- Три світлодіодного індикатора для живлення, PPS та передачі даних
 
 ![LOCOSYS Hawk R2](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
 
-## Where to Buy
+## Де купити
 
 * [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html)
 
-## Kit Contents
+## Вміст набору
 
-An RTK GPS kit includes:
-- 1x GPS Module
-- 1x Helix antenna
-- 1x 6-pin JST-ready cable
+Набір RTK GPS включає в себе:
+- 1x Модуль GPS
+- 1x Геліксова антена
+- 1x 6-пінний кабель готовий до JST
 
 
-## Wiring and Connections
+## Проводка та з'єднання
 
-Hawk R2 RTK GPS comes with an 6 pin JST connector that can be plugged into the GPS2 port on Pixhawk-standard autopilots.
+Hawk R2 RTK GPS поставляється з роз'ємом JST на 6 контактів, який можна підключити до порту GPS2 на автопілотах стандарту Pixhawk.
 
 ![LOCOSYS Hawk R2 cable for connecting to flight controller](../../assets/hardware/gps/locosys_hawk_r2/locosys_hawk_r2_jst6_cable.jpg)
 
-It can also be used on other UART ports, but you would need to connect and configure the port used. The pinout below is provided in case you need to create a custom cable.
+Це також може бути використано на інших портах UART, але вам доведеться підключити й налаштувати використаний порт. Нижче наведено роз'єм для надання вам можливості створити власний кабель.
 
-### Pinout
+### Схема розташування виводів
 
 LOCOSYS GPS pinout is provided below.
 
@@ -68,7 +68,7 @@ LOCOSYS GPS pinout is provided below.
 
 After connecting your Hawk R2 to the `GPS2` port on compatible Pixhawk boards, RTK setup and use on PX4 via *QGroundControl* is largely plug and play. For more information see: [RTK GPS](../gps_compass/rtk_gps.md#positioning-setup-configuration).
 
-You should also configure the serial port you are using to the correct baud rate. If you're using GPS2, set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS2_BAUD) to 230400 8N1.
+Ви також повинні налаштувати послідовний порт, який ви використовуєте на правильну швидкість передачі даних. Якщо ви використовуєте GPS2, встановіть параметр [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS2_BAUD) на 230400 8N1.
 
 The compass only requires the usual [Compass Calibration](../config/compass.md).
 
@@ -108,4 +108,4 @@ The compass only requires the usual [Compass Calibration](../config/compass.md).
 
 ## More Information
 
-More information can be found on [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html)
+Більше інформації можна знайти на [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html)
