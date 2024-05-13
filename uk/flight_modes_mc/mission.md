@@ -1,4 +1,4 @@
-# Mission Mode (Multicopter)
+# Режим місії (Мультикоптер)
 
 <img src="../../assets/site/position_fixed.svg" title="Global position fix required (e.g. GPS)" width="30px" />
 
@@ -24,7 +24,7 @@ _Режим місії_ змушує транспортний засіб вик�
 Індивідуальні [команди місії](#mission-commands) обробляються таким чином, який є відповідним для характеристик багтороторного польоту (наприклад, обертання виконується у вигляді _залишання на місці_).
 
 :::info
-Missions are uploaded onto a SD card that needs to be inserted **before** booting up the autopilot.
+Місії завантажуються на SD-карту, яку потрібно вставити **перед** запуском автопілота.
 :::
 
 На високому рівні всі типи транспортних засобів ведуть себе однаково, коли ввімкнено режим МІСІЯ:
@@ -47,8 +47,8 @@ Missions are uploaded onto a SD card that needs to be inserted **before** bootin
 
 5. Ви можете вручну змінити поточну команду місії, вибравши її в _QGroundControl_.
 
-   ::: info
-   If you have a _Jump to item_ command in the mission, moving to another item will **not** reset the loop counter.
+   :::info
+   Якщо у вас є команда _Перейти до елементу_ в місії, переміщення до іншого елементу **не** скине лічильник циклу.
    Однією з наслідків є те, що якщо ви зміните поточну команду місії на 1, це не призведе до "повного перезапуску" місії.
 
 :::
@@ -80,9 +80,9 @@ Missions are uploaded onto a SD card that needs to be inserted **before** bootin
 Для отримання додаткової інформації про планування місії дивіться:
 
 - [Планування місії](../flying/missions.md)
-- [Plan View](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html) (_QGroundControl_ User Guide)
+- [План Перегляду](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html) (_Посібник користувача QGroundControl_)
 
-## Mission Feasibility Checks
+## Перевірка можливості виконання місії
 
 PX4 виконує деякі базові перевірки на розумність, щоб визначити, чи є місія можливою під час завантаження, і коли транспортний засіб вперше зброєний.
 Якщо будь-яка з перевірок не пройде успішно, користувач отримує повідомлення, і почати місію неможливо.
@@ -116,15 +116,15 @@ _QGroundControl_ надає додаткову підтримку обробки
 
 Параметри, пов'язані з [перевірками можливостей місії](#mission-feasibility-checks):
 
-| Параметр                                                                                                                                                                   | Опис                                                                                                                                                                                        |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)                                  | Місія не буде розпочата, якщо поточна точка шляху віддаленіша від домашньої позиції, ніж це значення. Вимкнено, якщо значення дорівнює 0 або менше.         |
-| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                                        | Maximum landing slope angle.                                                                                                                                                |
-| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW та VTOL обидва мають його задано на 2 за замовчуванням, що означає, що місія повинна містити посадку. |
+| Параметр                                                                                                                                                                   | Опис                                                                                                                                                                                   |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)                                  | Місія не буде розпочата, якщо поточна точка шляху віддаленіша від домашньої позиції, ніж це значення. Вимкнено, якщо значення дорівнює 0 або менше.    |
+| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                                        | Максимальний кут нахилу для посадки.                                                                                                                                   |
+| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Конфігурація вимоги для зльоту/посадки місії. FW та VTOL обидва мають його задано на 2 за замовчуванням, що означає, що місія повинна містити посадку. |
 
 <a id="mission_commands"></a>
 
-## Mission Commands
+## Команди місій
 
 PX4 "приймає" наступні команди місії MAVLink у режимі Місії (з деякими _попередженнями_, які наведені після списку).
 Якщо не вказано інше, реалізація відповідає визначенню у специфікації MAVLink.
@@ -132,7 +132,7 @@ PX4 "приймає" наступні команди місії MAVLink у ре�
 Предмети місії:
 
 - [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)
-  - _Param3_ (flythrough) is ignored. Flythrough is always enabled if _param 1_ (time_inside) > 0.
+  - _Param3_ (проліт) ігнорується. Flythrough завжди ввімкнено, якщо _param 1_ (time_inside) > 0.
 - [MAV_CMD_NAV_LOITER_UNLIM](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_UNLIM)
 - [MAV_CMD_NAV_LOITER_TIME](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TIME)
 - [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)
@@ -168,10 +168,10 @@ PX4 "приймає" наступні команди місії MAVLink у ре�
 - [MAV_CMD_DO_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAMERA_ZOOM)
 - [MAV_CMD_DO_SET_CAMERA_FOCUS](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAMERA_FOCUS)
 - [MAV_CMD_NAV_VTOL_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_TAKEOFF)
-  - `MAV_CMD_NAV_VTOL_TAKEOFF.param2` (transition heading) is ignored.
-    Instead the heading to the next waypoint is used for the transition heading. <!-- at LEAST until PX4 v1.13: https://github.com/PX4/PX4-Autopilot/issues/12660 -->
+  - `MAV_CMD_NAV_VTOL_TAKEOFF.param2` (заголовок переходу) ігнорується.
+    Замість цього напрямок до наступної маршрутної точки використовується для переходу. <!-- at LEAST until PX4 v1.13: https://github.com/PX4/PX4-Autopilot/issues/12660 -->
 
-GeoFence Definitions
+Визначення GeoFence
 
 - [MAV_CMD_NAV_FENCE_RETURN_POINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_FENCE_RETURN_POINT)
 - [MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION)
@@ -179,45 +179,45 @@ GeoFence Definitions
 - [MAV_CMD_NAV_FENCE_CIRCLE_INCLUSION](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_FENCE_CIRCLE_INCLUSION)
 - [MAV_CMD_NAV_FENCE_CIRCLE_EXCLUSION](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_FENCE_CIRCLE_EXCLUSION)
 
-Rally Points
+Точки збору
 
 - [MAV_CMD_NAV_RALLY_POINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RALLY_POINT)
 
-::: info
-Please add an issue report or PR if you find a missing/incorrect message.
-::: info:
+:::info
+Будь ласка, додайте звіт про проблему або PR, якщо ви знайшли відсутнє / некоректне повідомлення.
+:::info:
 
-- PX4 parses the above messages, but they are not necessary _acted_ on. For example, some messages are vehicle-type specific.
-- PX4 does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
-- Not all messages/commands are exposed via _QGroundControl_.
-- The list may become out of date as messages are added.
-  You can check the current set by inspecting the code.
-  Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp).
+- PX4 аналізує вищезазначені повідомлення, але на них не обов'язково _реагує_. Наприклад, деякі повідомлення є специфічними для типу транспортного засобу.
+- PX4 не підтримує локальні координати для команд місій (наприклад, [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
+- Не всі повідомлення/команди доступні через _QGroundControl_.
+- Список може стати застарілим, оскільки додаються повідомлення.
+  Ви можете перевірити поточний набір, оглянувши код.
+  Підтримка - `MavlinkMissionManager::parse_mavlink_mission_item` у [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp).
 
-## Rounded turns: Inter-Waypoint Trajectory
+## Закруглені повороти: Траєкторія міжточкового маршруту
 
-PX4 expects to follow a straight line from the previous waypoint to the current target (it does not plan any other kind of path between waypoints - if you need one you can simulate this by adding additional waypoints).
+PX4 очікує пряму лінію від попередньої точки маршруту до поточної цілі (він не планує будь-якого іншого шляху між точками маршруту - якщо вам потрібен такий, ви можете симулювати це додаванням додаткових точок маршруту).
 
-MC vehicles will change the _speed_ when approaching or leaving a waypoint based on the [jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) tuning.
-The vehicle will follow a smooth rounded curve towards the next waypoint (if one is defined) defined by the acceptance radius ([NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)).
-The diagram below shows the sorts of paths that you might expect.
+Технічні засоби керування MC будуть змінювати _швидкість_ при наближенні або виходженні з точки відповідно до налаштувань [обмеження ривків](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode).
+Транспортний засіб буде рухатися по плавній закругленій кривій до наступної точки шляху (якщо вона визначена) визначеної радіусом прийняття ([NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)).
+Діаграма нижче показує види шляхів, які ви можете очікувати.
 
 ![acc-rad](../../assets/flying/acceptance_radius_mission.png)
 
-Vehicles switch to the next waypoint as soon as they enter the acceptance radius ([NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)).
+Транспортні засоби переключаються на наступну точку шляху, як тільки вони потрапляють в радіус прийняття ([NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)).
 
-## Mission Takeoff
+## Місія зльоту
 
-Plan a multicopter mission takeoff by adding a `TAKEOFF` mission item to the map (this corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command).
+Заплануйте місію зльоту мультикоптера, додавши елемент місії `TAKEOFF` на карту (це відповідає [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) команді MAVLink).
 
-During mission execution this will cause the vehicle to ascend vertically to the minimum takeoff altitude defined in the [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) parameter, then head towards the 3D position defined in the mission item.
+Під час виконання цієї місії транспортний засіб підніметься вертикально до мінімальної висоти взяття на озброєння, визначеної в параметрі [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT), а потім рушить у напрямку 3D-позиції, визначеної у елементі місії.
 
-If a mission with no takeoff mission item is started, the vehicle will ascend to the minimum takeoff altitude and then proceed to the first `Waypoint` mission item.
+Якщо місія без виконання завдань стартує, транспортний засіб підійде на мінімальну висоту взльоту, а потім перейде до першого елементу місії `Waypoint`.
 
-If the vehicle is already flying when the mission is started, a takeoff mission item is treated as a normal waypoint.
+Якщо транспортний засіб вже знаходиться в повітрі під час початку місії, місія зльоту розглядається як звичайний точка шляху.
 
 ## Дивіться також
 
-- [Missions](../flying/missions.md)
-  - [Package Delivery Mission](../flying/package_delivery_mission.md)
-- [Mission Mode (FW)](../flight_modes_fw/mission.md)
+- [Місії](../flying/missions.md)
+  - [Місія доставки посилок](../flying/package_delivery_mission.md)
+- [Режим Місії (FW)](../flight_modes_fw/mission.md)
