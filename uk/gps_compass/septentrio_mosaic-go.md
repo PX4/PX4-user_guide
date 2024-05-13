@@ -1,63 +1,63 @@
 # Septentrio mosaic-go evaluation kit
 
-The mosaic-go Evaluation Kit is composed of the mosaic module soldered on an interface board inside a metallic housing.
+Комплект оцінки mosaic-go складається з модуля mosaic, звареного на інтерфейсну плату всередині металевого корпусу.
 
-Sized at only 71 x 59 x 12 mm and weighing only 58 g, mosaic-go offers unmatched size to performance ratio. mosaic-go includes:
+Розміром всього 71 х 59 х 12 мм і вагою всього 58 г, mosaic-go пропонує неперевершений співвідношення розміру до продуктивності. mosaic-go містить:
 
-- High update rate (>100 Hz) and low latency, both crucial for control systems of autonomous applications
-- Reliable centimetre-level positioning
-- Full L2 support via P(Y) code
+- Висока швидкість оновлення (>100 Гц) та низька затримка, обидва важливі для систем управління автономних додатків
+- Надійне позиціонування на рівні декількох сантиметрів
+- Повна підтримка L2 через код P(Y)
 
-  Mosaic-go part number: Single-antenna version, incorporating mosaic-X5: 410386(including accessories). Dual-antennaversion, incorporatingmosaic-H: 410397(including accessories).
+  Номер частини Mosaic-go: Версія з однією антеною, яка включає mosaic-X5: 410386 (включаючи аксесуари). Подвійна антенна версія, включаючи мозаїчне-H: 410397 (включаючи аксесуари).
 
-- Size: 71 x 59 x 12 mm ± 1mm
-- Weight: 58g ± 1g
+- Розмір: 71 x 59 x 12 мм ± 1 мм
+- Вага: 58г ± 1г
 
 ![Highly accurate GNSS receiver module](../../assets/hardware/gps/septentrio_sbf/mosaic-go.png "Highly accurate GNSS receiver module")
 
 
-## Purchase
+## Купівля
 
-The mosaic-go kit is available on the [official shop](https://web.septentrio.com/l/858493/2022-04-19/xgrnz) of Septentrio.
+Набір mosaic-go доступний у [офіційному магазині](https://web.septentrio.com/l/858493/2022-04-19/xgrnz) Septentrio.
 
-- [mosaic-go heading GNSS module evaluation kit](https://web.septentrio.com/l/858493/2022-04-19/xgrp9)
+- [набір для оцінки модуля GNSS mosaic-go](https://web.septentrio.com/l/858493/2022-04-19/xgrp9)
 - [mosaic-go GNSS module receiver evaluation kit](https://web.septentrio.com/l/858493/2022-04-19/xgrpd)
 
 Other PX4 supported devices from Septentrio:
 
 - [AsteRx OEM with Robotics Interface Board](../gps_compass/septentrio_asterx-rib.md)
 
-## The mosaic-go Heading Evaluation Kit Contains:
+## Набір для оцінки заголовка mosaic-go містить:
 
-- 1 mosaic-H or mosaic-X5 module soldered on an interface board inside a metallic housing.
-- 1 USB cable
-- 6-pin COM1 open-ended cable
-- 4-pin COM2 open-ended cable
-- Help user guide card
+- 1 модуль mosaic-H або mosaic-X5, зварений на інтерфейсну плату всередині металевого корпусу.
+- 1 USB кабель
+- Кабель COM1 з відкритими контактами на 6 контактів
+- Кабель з відкритим кінцем COM2 на 4 контактній роз'єм
+- Довідник користувача карта
 
-## Interfaces
+## Інтерфейси
 
-### USB
-_Connector type: micro-USB type B._
+### USB-C
+_Тип роз'єму: мікро-USB типу B._
 
-This micro-B connector is used to access the mosaic-go over USB. It can also be used to power the mosaic-go.
+Цей мікро-B роз'єм використовується для доступу до mosaic-go через USB. Це також може бути використано для живлення мозаїки-go.
 
 ### RSV USB
 _Connector type: micro-USB type B._
 
-This connector is reserved and should not be used.
+Цей з'єднувач зарезервований і не повинен використовуватися.
 
-### RF_IN1 and RF_IN2
-_Connector type: SMA._
+### RF_IN1 та RF_IN2
+_Тип роз'єму: SMA._
 
-These are the main and auxiliary antenna connectors, connected to the ANT_1 and ANT_2 pins of the internal mosaic. Mosaic-go provides a 5V DC supply to both antenna connectors. The combined main and auxiliary antenna power consumption must not exceed 150mA.
+Це основні та додаткові роз'єми антен, підключені до контактів ANT_1 та ANT_2 внутрішнього мозаїчного. Mosaic-go надає живлення постійного струму 5 В по обох роз'ємах антени. Спільне споживання потужності основної та допоміжної антени не повинно перевищувати 150 мА.
 
-Note that RF_IN2 is only available on the dual-antenna mosaic-go.
+Зверніть увагу, що RF_IN2 доступний лише на двох антенах mosaic-go.
 
-### TF Card
-_Connector type: MicroSD._
+### Карта TF
+_Тип роз'єму: MicroSD._
 
-Socket for a micro SD Card. The module can log (SBF/NMEA) files on the micro SD Card in this socket.
+Роз'єм для картки micro SD. Модуль може зберігати файли (SBF/NMEA) на картку micro SD у цьому гнізді.
 
 ### 6-pin Connector
 _Connector type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GHR-06V-S._
@@ -85,9 +85,9 @@ _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR
 
 ![Wiring diagram, Pixhawk 4 - mosaic-go](../../assets/hardware/gps/septentrio_sbf/mosaic-go_wiring.png "Wiring diagram, Pixhawk 4 - mosaic-go")
 
-1. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the 6-pin connector.
-2. Connect one or two GNSS antennas to the RF-IN ports on the mosaic-go.
-3. Connect the 6-pin connector (COM1) to the Pixhawk's `GPS MODULE` port. This will provide power to the mosaic-go and with this single connection it will be able to send single and dual antenna information to the Pixhawk 4.
+1. Переконайтеся, що приймач живиться щонайменше 3,3 В. Ви можете використовувати роз'єм micro USB або 6-контактний роз'єм.
+2. Підключіть одну або дві антени GNSS до портів RF-IN на пристрої mosaic-go.
+3. Підключіть 6-контактний коннектор (COM1) до роз'єму `GPS MODULE` Pixhawk. Це забезпечить живлення для mosaic-go, і за допомогою цього одного з'єднання він зможе надсилати інформацію про одинарну та подвійну антени до Pixhawk 4.
 4. In the web interface or with Rx Tools, set the receiver's baud rate to 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (this is the default value).
 
 :::warning
@@ -97,74 +97,74 @@ Make sure the JST cable is wired correctly (since this is not a standard cable):
 
 :::
 
-::: info
-PX4 will ensure that the GNSS module is automatically configured however, if you have a dual antenna setup, it is required to set the layout as accurately as possible in the web app.
+::: інформація
+PX4 гарантує, що модуль GNSS буде автоматично налаштований, однак, якщо у вас встановлено подвійну антену, необхідно встановити компонування якнайточніше в веб-додатку.
 :::
 
-### Dual antenna
+### Подвійна антена
 
-The attitude (heading/pitch) can be computed from the orientation of the baseline between the main and the aux1 GNSS antennas.
+Ставлення (клін/тангаж) може бути обчислене з орієнтації базової лінії між основною та допоміжною антенами GNSS aux1.
 
 ![Multi-antenna attitude determination setup](../../assets/hardware/gps/septentrio_sbf/multi-antenna_attitude_setup.png)
 
-To enable multi-antenna attitude determination, follow the following procedure:
+Для забезпечення визначення багатоантенного стану слід дотримуватися наступної процедури:
 
-1. Attach two antennas to your vehicle, using cables of approximately the same length. The default antenna configuration is as depicted in the figure. It consists in placing the antennas aligned with the longitudinal axis of the vehicle, main antenna behind AUX1. For best accuracy, try to maximize the distance between the antennas, and avoid significant height difference between the antenna ARPs.
-2. In practice, the two antenna ARPs may not be exactly at the same height in the vehicle frame, or the main-aux1 baseline may not be exactly parallel or perpendicular to the longitudinal axis of the vehicle. This leads to offsets in the computed attitude angles. These offsets can be compensated for with the **setAttitudeOffset** command.
+1. Приєднайте дві антени до вашого автомобіля, використовуючи кабелі приблизно однакової довжини. Конфігурація антени за замовчуванням така, як показано на малюнку. Це полягає у розташуванні антен, вирівняних з віссю транспортного засобу, основна антена за AUX1. Для найкращої точності спробуйте максимізувати відстань між антенами та уникайте значних висотних відмінностей між ЛАР антенами.
+2. На практиці дві антени ARPs можуть не бути розташовані на однаковій висоті в рамі транспортного засобу, або базова лінія головна-допоміжна1 може не бути абсолютно паралельною або перпендикулярною до поздовжньої вісі транспортного засобу. Це призводить до зміщень у обчислених кутах нахилу. Ці зрушення можна компенсувати за допомогою команди **setAttitudeOffset**.
 
 ::: info
-For optimal heading results, the two antennas should be seperated by at least 30cm / 11.8 in (ideally 50cm / 19.7in or more)
+Для оптимальних результатів підпису, дві антени повинні бути відокремлені принаймні на 30 см / 11,8 дюйма (ідеально 50 см / 19,7 дюйма або більше)
 
-For additional configuration of the dual antenna setup, please refer to our [Knowledge Base](https://support.septentrio.com/l/858493/2022-04-19/xgrqd) or the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrql)
+Для додаткової настройки двох антен, будь ласка, зверніться до нашої [бази знань](https://support.septentrio.com/l/858493/2022-04-19/xgrqd) або [керівства з обслуговування](https://web.septentrio.com/l/858493/2022-04-19/xgrql)
 :::
 
-### Web app
+### Веб-додаток
 
-mosaic-H GPS/GNSS receiver module with heading comes with fully documented interfaces, commands and data messages. The included GNSS receiver control and analysis software [RxTools](https://web.septentrio.com/l/858493/2022-04-19/xgrqp) allows receiver configuration, monitoring as well as data logging and analysis.
+модуль приймача GPS/GNSS з компасом mosaic-H поставляється з повністю задокументованими інтерфейсами, командами та даними повідомленнями. Включене програмне забезпечення керування та аналізу приймача GNSS [RxTools](https://web.septentrio.com/l/858493/2022-04-19/xgrqp) дозволяє настроювання приймача, моніторинг, а також реєстрацію та аналіз даних.
 
-The receiver includes an intuitive web user interface for easy operation and monitoring allowing you to control the receiver from any mobile device or computer. The web interface also uses easy-to-read quality indicators ideal to monitor the receiver operation during the job at hand.
+Отримувач містить інтуїтивний веб-інтерфейс користувача для легкої роботи та контролю, що дозволяє вам керувати отримувачем з будь-якого мобільного пристрою або комп'ютера. Веб-інтерфейс також використовує легко читані показники якості, ідеальні для контролю операції приймача під час виконання завдання.
 
 ![Septentrio web user interface](../../assets/hardware/gps/septentrio_sbf/septentrio_mosaic_a5_h_t_clas_gnss_module_receiverwebui.png)
 
-## PX4 setup
+## Налаштування PX4
 
 ![QGroundControl parameter settings](../../assets/hardware/gps/septentrio_sbf/qgc_param.png)
 
-### Single antenna
+### Одинарна антена
 
-Edit the following parameters in the GPS tab:
-
-- [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG): GPS 1
-- [GPS_1_GNSS](../advanced_config/parameter_reference.md#GPS_1_GNSS): 31
-- [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL): Auto detect (or SBF)
-- [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD): 115200 8N1
-
-Go to **Tools > Reboot Vehicle**
-
-### Dual antenna
-
-Edit the following parameters in the GPS tab:
+Відредагуйте наступні параметри на вкладці GPS:
 
 - [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG): GPS 1
 - [GPS_1_GNSS](../advanced_config/parameter_reference.md#GPS_1_GNSS): 31
-- [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL): Auto detect (or SBF)
+- [Протокол GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL): Автоматичне визначення (або SBF)
 - [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD): 115200 8N1
-- [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL): Add bit 3 (Dual antenna heading) which adds up to 15
-- [GPS_PITCH_OFFSET](../advanced_config/parameter_reference.md#GPS_PITCH_OFFSET): set according to your setup (note that Aux is forward at 0 offset)
-- [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET): set according to your setup (note that Aux is forward at 0 offset)
 
-Go to **Tools > Reboot Vehicle**
+Перейдіть до **Інструменти > Перезавантаження Транспортного Засобу**
 
-## LED Status
+### Подвійна антена
 
-| LED Color     | Powered  | SD card mounted | PVT Solution | Logging enabled |
-| ------------- |:--------:|:---------------:|:------------:|:---------------:|
-| Red           | &check;️ |                 |              |                 |
-| Green         | &check;️ |    &check;️     |              |                 |
-| Blue          | &check;️ |    &check;️     |   &check;️   |                 |
-| Purple        | &check;️ |                 |   &check;️   |                 |
-| Purple + Blue | &check;️ |    &check;️     |   &check;️   |    &check;️     |
-| Red + Green   | &check;️ |    &check;️     |              |    &check;️     |
+Редагуйте наступні параметри на вкладці GPS:
+
+- [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG): GPS 1
+- [GPS_1_GNSS](../advanced_config/parameter_reference.md#GPS_1_GNSS): 31
+- [Протокол GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL): Автоматичне визначення (або SBF)
+- [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD): 115200 8N1
+- [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL): Додайте біт 3 (подвійний кут антени), який додається до 15
+- [GPS_PITCH_OFFSET](../advanced_config/parameter_reference.md#GPS_PITCH_OFFSET): встановіть відповідно до вашої настройки (зауважте, що Aux впереді під час нульового зміщення)
+- [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET): встановіть відповідно до вашої настройки (зауважте, що Aux спрямована вперед при нульовому зміщенні)
+
+Перейдіть до **Інструменти > Перезавантаження Транспортного Засобу**
+
+## Статус LED
+
+| Колір світлодіоду | Живлення | SD карта змонтована | PVT Solution | Logging enabled |
+| ----------------- |:--------:|:-------------------:|:------------:|:---------------:|
+| Red               | &check;️ |                     |              |                 |
+| Green             | &check;️ |      &check;️       |              |                 |
+| Blue              | &check;️ |      &check;️       |   &check;️   |                 |
+| Purple            | &check;️ |                     |   &check;️   |                 |
+| Purple + Blue     | &check;️ |      &check;️       |   &check;️   |    &check;️     |
+| Red + Green       | &check;️ |      &check;️       |              |    &check;️     |
 
 :::tip
 For more detailed information about the mosaic-go and its module, please refer to the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrrd) or the [Septentrio Support](https://support.septentrio.com/l/858493/2022-04-19/xgrrl) page.
