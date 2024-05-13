@@ -362,7 +362,7 @@ ExpressLRS потребує `AUX1` як "канал вибору режиму". 
 
 Я рекомендую перевірити наступні елементи:
 
-- Sensor calibration (QGC)
+- Калібрування датчиків (QGC)
   - Mag calibration
   - Accelerometer calibration
   - Airspeed calibration
