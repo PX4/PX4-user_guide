@@ -1,8 +1,8 @@
-# LOCOSYS Hawk R2 RTK-Compass GPS
+# Геодезичний компас LOCOSYS Hawk R2 RTK-GPS
 
 <Badge type="tip" text="PX4 v1.13" />
 
-The [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk. Єдине відмінність між цим модулем та [LOCOSYS Hawk R1](rtk_gps_locosys_r1.md) полягає у наявності магнітометра на Hawk R2.
+[LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) є двочастотним модулем [RTK GPS-приймачем](../gps_compass/rtk_gps.md), розробленим для сумісності з Pixhawk. Єдине відмінність між цим модулем та [LOCOSYS Hawk R1](rtk_gps_locosys_r1.md) полягає у наявності магнітометра на Hawk R2.
 
 Модуль може діяти як RTK GPS ровер, коли встановлено на літак.
 
@@ -70,11 +70,11 @@ After connecting your Hawk R2 to the `GPS2` port on compatible Pixhawk boards, R
 
 Ви також повинні налаштувати послідовний порт, який ви використовуєте на правильну швидкість передачі даних. Якщо ви використовуєте GPS2, встановіть параметр [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS2_BAUD) на 230400 8N1.
 
-The compass only requires the usual [Compass Calibration](../config/compass.md).
+Компас вимагає лише звичайного [Калібрування Компасу](../config/compass.md).
 
-## Status LEDs
+## Індикатори статусу LEDs
 
-| Color | Name            | Description                        |
+| Колір | Name            | Опис                               |
 | ----- | --------------- | ---------------------------------- |
 | Green | TX Indicator    | GNSS Data transmission             |
 | Red   | Power Indicator | Power                              |
@@ -82,7 +82,7 @@ The compass only requires the usual [Compass Calibration](../config/compass.md).
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
 
-## Specification
+## Специфікація
 
 - Frequency
   - GPS/QZSS: L1 C/A, L5C
@@ -106,6 +106,6 @@ The compass only requires the usual [Compass Calibration](../config/compass.md).
   - DC supply voltage 3.3V ~ 5.0V input
   - Power consumption <1W
 
-## More Information
+## Докладніше
 
 Більше інформації можна знайти на [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html)
