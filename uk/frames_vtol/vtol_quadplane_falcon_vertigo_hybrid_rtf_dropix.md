@@ -1,70 +1,69 @@
 # Припинено: Falcon Vertigo Hybrid VTOL RTF (Dropix)
 
-:::warning
-Discontinued
-The Falcon Venturi FPV Wing frame on which this vehicle is based is no longer available.
+:::попередження Виробляється
+Каркас для польотів з переглядом на місцевості Falcon Venturi FPV Wing, на якому базується ця транспортний засіб, більше недоступний.
 :::
 
-The *Falcon Vertigo Hybrid VTOL* is a quadplane VTOL aircraft that has been designed to work with PX4 and the Dropix (Pixhawk compatible) flight controller. It can carry a small GoPro camera.
+*Falcon Vertigo Hybrid VTOL* - це квадропланний літальний апарат VTOL, що був розроблений для роботи з PX4 та керування польотом Dropix (сумісне з Pixhawk). Він може нести невелику камеру GoPro.
 
-The RTF kit contains everything needed for a full system except an RC receiver and telemetry module. The components can also be purchased separately.
+Набір RTF містить все необхідне для повної системи, за винятком приймача RC та телеметричного модуля. Компоненти також можуть бути куплені окремо.
 
 Основна Інформація:
 
-- **Frame:** Falcon Vertigo Hybrid VTOL
-- **Flight controller:** Dropix
-- **Wing span:** 1.3m
+- **Каркас:** Falcon Vertigo Hybrid VTOL
+- **Контролер польоту:** Dropix
+- **Розмах крил:** 1.3м
 
 ![Falcon Vertigo Hybrid VTOL RTF](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_complete.jpg)
 
 
-## Bill of Materials
+## Специфікація матеріалів
 
-Almost everything you need is provided in the RTF kit (the links next to components below are provided in case you wished to purchase any component separately):
+Майже все необхідне надається в комплекті RTF (посилання поруч з компонентами нижче надаються у випадку, якщо ви бажаєте придбати будь-який компонент окремо):
 
-* Pre laminated EPP wings
-* Wingtips and full hardware
-* Dropix flight controller (discontinued) with
+* Попередньо ламіновані крила з EPP
+* Кінчики крил і повне обладнання
+* Контролер польоту Dropix (знято з виробництва) з
   * GPS u-blox M8N
-  * Power Sensor
-  * [Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-* Quad power set  [Tiger Motor MT-2216-11 900kv V2](https://www.getfpv.com/tiger-motor-mt-2216-11-900kv-v2.html) (discontinued)
-* 4 x propeller 10”x 5” (quad motors)
+  * Датник живлення
+  * [Датчик швидкості](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
+* Чотирьохмоторний набір потужності [Tiger Motor MT-2216-11 900kv V2](https://www.getfpv.com/tiger-motor-mt-2216-11-900kv-v2.html) (виробництва припинено)
+* 4 x пропелер 10”x 5” (квадро-мотори)
 * 4 x [ESC 25A](http://www.getfpv.com/tiger-motor-flame-25a-esc.html)
-* 1 x propeller 10” x 5” (pusher motor)
+* 1 x пропелер 10” x 5” (двигун-штовхач)
 * 1 x ESC 30A
-* Pusher motor power system
-* Carbon fiber tubes and mounts
-* G10 motor mounts
-* 1 x [3700mah 4S 30C Lipo battery](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
-* Dropix power distribution board and cable
+* Система потужності двигуна-штовхача
+* Вуглецеві труби та кріплення
+* Кронштейни для мотора G10
+* 1 x [3700mah 4S 30C Lipo акумулятор](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
+* Плата розподілу живлення Dropix та кабель
 
-The kit does not come with a radio receiver or (optional) telemetry modules. For this build we used the following components:
+Набір не постачається з радіоприймачем або (опціональними) модулями телеметрії. Для цієї конфігурації ми використали наступні компоненти:
 
-- Receiver: [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
-- Telemetry: [Holybro 100mW 915MHz modules](https://www.getfpv.com/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html) (Discontinued)
+- Отримувач: [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
+- Телеметрія: [Модулі Holybro 100 мВт 915МГц](https://www.getfpv.com/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html) (Припинено)
 
 
 ## Необхідні інструменти
 
-The following tools were used to assemble the airframe:
+Наступні інструменти використовувалися для збирання корпусу повітряного судна:
 
-* Philips screwdriver
-* 5.5 mm Hex Socket Screwdriver
-* Wire cutters
-* Soldering iron and solder
-* Hobby stainless steel tweezer
-* Gorilla glue
-* Fiberglass reinforced tape
+* Шуруповерт Phillips
+* 5.5 мм шестигранник гайковерт
+* Кусачки
+* 1x паяльник та припій
+* Hobby пінцет з нержавіючої сталі
+* Клей Gorilla
+* Скловолоконна армована стрічка
 
 ![Build tools](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_build_tools.jpg)
 
 
-## Assembly steps
+## Кроки збірки
 
-The RTF kit requires the following assembly.
+Набір RTF потребує наступного монтажу.
 
-### Step 1: Attach motors mounts
+### Крок 1: Прикріпіть кріплення двигунів
 
 1. Spread gorilla glue inside the wing brackets as shown.
 
