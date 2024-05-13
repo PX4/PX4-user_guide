@@ -1,10 +1,10 @@
-# Follow-Me Mode (Multicopter)
+# Режим Follow-Me Слідуй за мною (мультикоптер)
 
 <img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
 Режим _Follow Me_ дозволяє багтротору автономно утримувати позицію та висоту відносно іншої системи, яка транслює свою позицію (і, за бажанням, швидкість) за допомогою повідомлення MAVLink [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET).
 
-::: info
+:::info
 
 - Режим є автоматичним - для керування транспортним засобом не потрібне _втручання_ користувача.
 - Режим потребує принаймні дійсної локальної оцінки позиції (не потребує глобальної позиції).
@@ -38,7 +38,7 @@
 
   ![Follow-me Angle Diagram](../../assets/flight_modes/followme_angle.png)
 
-::: info
+:::info
 Кут, висота та відстань, встановлені за допомогою пульта керування RC, відкидаються, коли ви виходите з режиму слідування за мною. Якщо ви вийдете з режиму "Follow-Me" й активуєте його знову, значення будуть скинуті до їх типових значень.
 :::
 
@@ -98,9 +98,9 @@ For more information see the [Follow Me class](https://mavsdk.mavlink.io/main/en
 MAVSDK наразі не рекомендується через помилку ([MAVSDK#1756](https://github.com/mavlink/MAVSDK/issues/1756), коли той самий повідомлення іноді відправляється двічі. Це може заплутати оцінювач цільового положення та швидкості.
 :::
 
-## Configuration
+## Налаштування
 
-### Altitude Control Mode
+### Режим контролю висоти
 
 ![Follow Me Altitude Modes](../../assets/flight_modes/followme_altitude_modes.svg)
 
