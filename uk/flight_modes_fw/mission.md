@@ -182,11 +182,11 @@ PX4 "приймає" наступні команди місії MAVLink у ре�
 Please add an issue report or PR if you find a missing/incorrect message.
 ::: info:
 
-- PX4 parses the above messages, but they are not necessary _acted_ on. For example, some messages are vehicle-type specific.
-- PX4 does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
-- Not all messages/commands are exposed via _QGroundControl_.
-- The list may become out of date as messages are added.
-  You can check the current set by inspecting the code.
+- PX4 аналізує вищезазначені повідомлення, але на них не обов'язково _реагує_. Наприклад, деякі повідомлення є специфічними для типу транспортного засобу.
+- PX4 не підтримує локальні координати для команд місій (наприклад, [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
+- Не всі повідомлення/команди доступні через _QGroundControl_.
+- Список може стати застарілим, оскільки додаються повідомлення.
+  Ви можете перевірити поточний набір, оглянувши код.
   Підтримка - `MavlinkMissionManager::parse_mavlink_mission_item` у [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp).
 
 ## Закруглені повороти: Траєкторія міжточкового маршруту
@@ -281,47 +281,47 @@ $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}_{ 
 
 Параметри, які впливають на вогнення, перераховані нижче.
 
-| Параметр                                                                                                                                                             | Опис                                                                                                                                                                                                   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <a id="FW_LND_FL_TIME"></a>[FW_LND_FL_TIME](../advanced_config/parameter_reference.md#FW_LND_FL_TIME) | Time before impact (at current descent rate) at which the vehicle should flare.                                                                                     |
-| <a id="FW_LND_FL_SINK"></a>[FW_LND_FL_SINK](../advanced_config/parameter_reference.md#FW_LND_FL_SINK) | A shallow sink rate the aircraft will track during the flare.                                                                                                                          |
-| <a id="FW_LND_FLALT"></a>[FW_LND_FLALT](../advanced_config/parameter_reference.md#FW_LND_FLALT)                            | Minimum altitude above ground the aircraft must flare. This is only used when the time-based flare altitude is too low.                                                |
-| <a id="FW_LND_FL_PMAX"></a>[FW_LND_FL_PMAX](../advanced_config/parameter_reference.md#FW_LND_FL_PMAX) | Maximum allowed pitch during the flare.                                                                                                                                                |
-| <a id="FW_LND_FL_PMIN"></a>[FW_LND_FL_PMIN](../advanced_config/parameter_reference.md#FW_LND_FL_PMIN) | Minimum allowed pitch during the flare (often necessary to avoid negative pitch angles commanded to increase airspeed, as the throttle is reduced to idle setting.) |
-| <a id="FW_LND_TD_TIME"></a>[FW_LND_TD_TIME](../advanced_config/parameter_reference.md#FW_LND_TD_TIME) | The time after flare start when the vehicle should pitch the nose down.                                                                                                                |
-| <a id="RWTO_PSP"></a>[RWTO_PSP](../advanced_config/parameter_reference.md#RWTO_PSP)                                                             | Pitch setpoint while on the runway. For tricycle gear, typically near zero. For tail draggers, positive.                                               |
-| <a id="FW_THR_IDLE"></a>[FW_THR_IDLE](../advanced_config/parameter_reference.md#FW_THR_IDLE)                               | Idle throttle setting. The vehicle will retain this setting throughout the flare and roll out.                                                                         |
+| Параметр                                                                                                                                                             | Опис                                                                                                                                                                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="FW_LND_FL_TIME"></a>[FW_LND_FL_TIME](../advanced_config/parameter_reference.md#FW_LND_FL_TIME) | Час до удару (при поточній швидкості спуску), коли транспортний засіб повинен піднятися.                                                                                                                                   |
+| <a id="FW_LND_FL_SINK"></a>[FW_LND_FL_SINK](../advanced_config/parameter_reference.md#FW_LND_FL_SINK) | Поверхотинна швидкість опускання літака буде слідувати під час розкриття.                                                                                                                                                                     |
+| <a id="FW_LND_FLALT"></a>[FW_LND_FLALT](../advanced_config/parameter_reference.md#FW_LND_FLALT)                            | Мінімальна висота над землею, на якій повинен спрацювати шасі літака. Він використовується лише тоді, коли висота на основі часу занадто низька.                                                                              |
+| <a id="FW_LND_FL_PMAX"></a>[FW_LND_FL_PMAX](../advanced_config/parameter_reference.md#FW_LND_FL_PMAX) | Максимальний допустимий кут нахилу під час зближення.                                                                                                                                                                                         |
+| <a id="FW_LND_FL_PMIN"></a>[FW_LND_FL_PMIN](../advanced_config/parameter_reference.md#FW_LND_FL_PMIN) | Мінімально допустимий кут нахилення під час підйому (часто необхідний для уникнення командування від'ємними кутами нахилу для збільшення швидкості польоту, оскільки регулювання газа зменшується до нульового положення.) |
+| <a id="FW_LND_TD_TIME"></a>[FW_LND_TD_TIME](../advanced_config/parameter_reference.md#FW_LND_TD_TIME) | Час після початку спалаху, коли транспортний засіб повинен опустити ніс.                                                                                                                                                                      |
+| <a id="RWTO_PSP"></a>[RWTO_PSP](../advanced_config/parameter_reference.md#RWTO_PSP)                                                             | Налагодження польоту під час зльоту. Для шасі трициклів, зазвичай близько до нуля. Для літаків з хвостовим краденцем, позитивно.                                                                              |
+| <a id="FW_THR_IDLE"></a>[FW_THR_IDLE](../advanced_config/parameter_reference.md#FW_THR_IDLE)                               | Встановлення планки холостого ходу. Транспортний засіб буде зберігати цей параметр протягом спалаху та розвороту.                                                                                                             |
 
-### Abort
+### Відміна
 
-#### Operator Abort
+#### Оператор відміни Abort
 
 Приземлення може бути перервано оператором в будь-якій точці під час остаточного підходу з використанням команди [MAV_CMD_DO_GO_AROUND](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GO_AROUND).
-On _QGroundControl_ a popup button appears during landing to enable this.
+Під час посадки на _QGroundControl_ висувається кнопка спливаючого вікна для активації цього.
 
-Aborting the landing results in a climb out to an orbit pattern centered above the land waypoint.
-The maximum of the aircraft's current altitude and [MIS_LND_ABRT_ALT](#MIS_LND_ABRT_ALT) is set as the abort orbit altitude height relative to (above) the landing waypoint.
-Landing configuration (e.g. flaps, spoilers, landing airspeed) is disabled during abort and the aicraft flies in cruise conditions.
+Переривання посадки призводить до вибору курсу вище для формування орбіти над цільовою точкою на землі.
+Максимальна висота поточної висоти літака та [MIS_LND_ABRT_ALT](#MIS_LND_ABRT_ALT) встановлюється як висота витягу абортного орбіту відносно (вище) пункту посадки.
+Конфігурація посадки (наприклад, закрилки, спойлери, швидкість повітряного судна під час посадки) відключена під час спинення, і повітряне судно летить в умовах круїзу.
 
-The abort command is disabled during the flare for safety.
-Operators may still manually abort the landing by switching to any manual mode, such as [Stabilized mode](../flight_modes_fw/stabilized.md)), though it should be noted that this is risky!
+Команда відміни вимкнена під час спалаху для безпеки.
+Оператори все ще можуть вручну припинити посадку, переключившись на будь-який ручний режим, такий як [Режим стабілізації](../flight_modes_fw/stabilized.md)), але варто зазначити, що це ризиковано!
 
-#### Automatic Abort
+#### Автоматичний вихід із системи
 
-Automatic abort logic is additionally available for several conditions, if configured.
-Available automatic abort criteria may be enabled via bitmask parameter [FW_LND_ABORT](#FW_LND_ABORT).
-One example of an automatic abort criteria is the absence of a valid range measurement from a distance sensor.
+Автоматична логіка аварійного відміни додатково доступна для кількох умов, якщо налаштована.
+Доступні автоматичні критерії перерви можуть бути увімкнені за допомогою параметра бітмаски [FW_LND_ABORT](#FW_LND_ABORT).
+Один приклад автоматичних критеріїв аварійного відключення - це відсутність дійсного виміру діапазону від датчика відстані.
 
 :::warning
-Landing without a distance sensor is **strongly** discouraged.
-Disabling terrain estimation with [FW_LND_USETER](#FW_LND_USETER) and select bits of [FW_LND_ABORT](#FW_LND_ABORT) will remove the default distance sensor requirement, but consequently falls back to GNSS altitude to determine the flaring altitude, which may be several meters too high or too low, potentially resulting in damage to the airframe.
+Посадка без датчика відстані **строго** не рекомендується.
+Вимкнення оцінки місцевості за допомогою [FW_LND_USETER](#FW_LND_USETER) та обрані біти [FW_LND_ABORT](#FW_LND_ABORT) призведе до видалення вимоги до датчика відстані за замовчуванням, але внаслідок цього спадає до висоти посадки GNSS для визначення висоти опускання, яка може бути кілька метрів занадто високо або занадто низько, що потенційно може призвести до пошкодження фюзеляжу.
 :::
 
-| Параметр                                                                                                                                                                   | Опис                                                                                       |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| <a id="MIS_LND_ABRT_ALT"></a>[MIS_LND_ABRT_ALT](../advanced_config/parameter_reference.md#MIS_LND_ABRT_ALT) | The minimum altitude above the land point an abort orbit can be commanded. |
-| <a id="FW_LND_ABORT"></a>[FW_LND_ABORT](../advanced_config/parameter_reference.md#FW_LND_ABORT)                                  | Determines which automatic abort criteria are enabled.                     |
-| <a id="FW_LND_USETER"></a>[FW_LND_USETER](../advanced_config/parameter_reference.md#FW_LND_USETER)                               | Enables use of the distance sensor during the final approach.              |
+| Параметр                                                                                                                                                                   | Опис                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| <a id="MIS_LND_ABRT_ALT"></a>[MIS_LND_ABRT_ALT](../advanced_config/parameter_reference.md#MIS_LND_ABRT_ALT) | Мінімальна висота над точкою на землі, на яку може бути вказано відмову від орбіти. |
+| <a id="FW_LND_ABORT"></a>[FW_LND_ABORT](../advanced_config/parameter_reference.md#FW_LND_ABORT)                                  | Визначає, які критерії автоматичної відмови увімкнені.                              |
+| <a id="FW_LND_USETER"></a>[FW_LND_USETER](../advanced_config/parameter_reference.md#FW_LND_USETER)                               | Увімкнення використання датчика відстані під час фінального підходу.                |
 
 ### Торкання
 
@@ -340,29 +340,29 @@ Disabling terrain estimation with [FW_LND_USETER](#FW_LND_USETER) and select bit
 Зверніть увагу, що якщо контролер колеса увімкнено ([FW_W_EN](#FW_W_EN)), контролер активно намагатиметься керувати транспортним засобом до шляху підходу, тобто "боротьба" з введеннями оператора посадки.
 
 :::info
-Nudging should not be used to supplement poor position control tuning.
-If the vehicle is regularly showing poor tracking peformance on a defined path, please refer to the [fixed-wing control tuning guide](../flight_modes_fw/position.md) for instruction.
+Відштовхування (Nudging) не повинно використовуватися для доповнення поганого налаштування контролю позиції.
+Якщо транспортний засіб постійно показує погану роботу слідування по визначеній траєкторії, будь ласка, зверніться до [керівництва з настройки керування фіксованим крилом](../flight_modes_fw/position.md) за інструкціями.
 :::
 
-| Параметр                                                                                                                                                          | Опис                                                                                               |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| <a id="FW_LND_NUDGE"></a>[FW_LND_NUDGE](../advanced_config/parameter_reference.md#FW_LND_NUDGE)                         | Enable nudging behavior for fixed-wing landing.                                    |
-| <a id="FW_LND_TD_OFF"></a>[FW_LND_TD_OFF](../advanced_config/parameter_reference.md#FW_LND_TD_OFF) | Configure the allowable touchdown lateral offset from the commanded landing point. |
-| <a id="FW_W_EN"></a>[FW_W_EN](../advanced_config/parameter_reference.md#FW_W_EN)                                        | Enable the nose wheel steering controller.                                         |
+| Параметр                                                                                                                                                          | Опис                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| <a id="FW_LND_NUDGE"></a>[FW_LND_NUDGE](../advanced_config/parameter_reference.md#FW_LND_NUDGE)                         | Увімкнути рух управляння для посадки літака з нерухомим крилом.              |
+| <a id="FW_LND_TD_OFF"></a>[FW_LND_TD_OFF](../advanced_config/parameter_reference.md#FW_LND_TD_OFF) | Налаштувати допустиме бічне зміщення посадки від командованої точки посадки. |
+| <a id="FW_W_EN"></a>[FW_W_EN](../advanced_config/parameter_reference.md#FW_W_EN)                                        | Увімкніть контролер керування передніми колесами.                            |
 
-### Near Ground Safety Constraints
+### Обмеження безпеки на низькій висоті
 
-In landing mode, the distance sensor is used to determine proximity to the ground, and the airframe's geometry is used to calculate roll contraints to prevent wing strike.
+У режимі посадки використовується датчик відстані для визначення близькості до землі, а геометрія підфрейму використовується для розрахунку обмежень кочення для запобігання удару крилом.
 
-![Fixed-wing landing nudging](../../assets/flying/wing_geometry.png)
+![Посадка літака з фіксованим криломТоркання(../../assets/flying/wing_geometry.png)
 
-| Параметр                                                                                                             | Опис                                                                                         |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| [FW_WING_SPAN](../advanced_config/parameter_reference.md#FW_WING_SPAN)     | Wing span of the airframe.                                                   |
-| [FW_WING_HEIGHT](../advanced_config/parameter_reference.md#FW_WING_HEIGHT) | Height of wing from bottom of gear (or belly if no gear). |
+| Параметр                                                                                                             | Опис                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| [FW_WING_SPAN](../advanced_config/parameter_reference.md#FW_WING_SPAN)     | Розмах крила каркасу.                                                                   |
+| [FW_WING_HEIGHT](../advanced_config/parameter_reference.md#FW_WING_HEIGHT) | Висота крила від нижньої частини шасі (або живота, якщо немає шасі). |
 
 ## Дивіться також
 
-- [Missions](../flying/missions.md)
-  - [Package Delivery Mission](../flying/package_delivery_mission.md)
-- [Mission Mode (MC)](../flight_modes_mc/mission.md)
+- [Місії](../flying/missions.md)
+  - [Місія доставки посилок](../flying/package_delivery_mission.md)
+- [Режим Місії (MC)](../flight_modes_mc/mission.md)
