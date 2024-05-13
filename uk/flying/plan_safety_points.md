@@ -18,7 +18,7 @@
 1. Виберіть **Upload Required**, щоб завантажити точки збору (разом із будь-якою [місією](../flying/missions.md) та [геозоною](../flying/geofence.md)) на апарат.
 
 :::tip
-More complete documentation can be found in the *QGroundControl User Guide*: [Plan View - Rally Points](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_rally_points.html).
+Більш повну документацію можна знайти в *Посібнику користувача QGroundControl*: [Екран плану - Точки збору](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_rally_points.html).
 :::
 
 ## Використання точок безпеки
