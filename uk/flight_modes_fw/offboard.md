@@ -1,3 +1,3 @@
 <Redirect to="../flight_modes/offboard" />
 
-# Offboard Mode (Fixed-Wing)
+# Режим офлайн (з нерухомим крилом)
