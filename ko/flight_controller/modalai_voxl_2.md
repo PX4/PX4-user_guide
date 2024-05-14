@@ -37,7 +37,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 | NDAA ’20 Section 848 Compliant                                          | Yes, Assembled in USA                                                              |
 | PMD TOF                                                                 | Yes (SDK 1.0 and newer)                                                            |
 | FLIR Boson                                                              | USB                                                                                |
-| FLIR Lepton                                                             | USB, SPI in development                                                            |
+| FLIR Lepton                                                             | USB, SPI                                                                           |
 
 ::: info
 More detailed hardware documentation can be found [here](https://docs.modalai.com/voxl-flight-datasheet/).
@@ -57,7 +57,7 @@ More detailed hardware documentation can be found [here](https://docs.modalai.co
 
 ### voxl-dev branch
 
-ModalAI is actively working on a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/voxl-dev) that can be used.
+ModalAI is actively maintaining a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/voxl-dev) that can be used.
 
 As VOXL 2 runs Ubuntu, the production releases of PX4 for VOXL 2 are distributed through [apt package management](https://docs.modalai.com/configure-pkg-manager/) and the [VOXL SDK](https://docs.modalai.com/voxl-sdk/).
 
@@ -65,7 +65,7 @@ More information about the firmware can be found [here](https://docs.modalai.com
 
 ### main branch
 
-PX4 mainline support is a work in progress (currently started [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
+PX4 mainline supports VOXL 2 (board documentation [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
 
 ## QGroundControl Support
 
@@ -73,6 +73,9 @@ This board supported in QGroundControl 4.0 and later.
 
 ## Availability
 
+- [PX4 Autonomy Developer Kit](https://www.modalai.com/products/px4-autonomy-developer-kit)
+- [Starling 2](https://www.modalai.com/products/starling-2)
+- [Starling 2 MAX](https://www.modalai.com/products/starling-2-max)
 - [Sentinel Development Drone powered by VOXL 2](https://www.modalai.com/pages/sentinel)
   - [Demo Video](https://www.youtube.com/watch?v=hMhQgWPLGXo)
 - [VOXL 2 Flight Deck, ready to mount, tune and fly](https://www.modalai.com/collections/ready-to-mount/products/voxl-2-flight-deck)

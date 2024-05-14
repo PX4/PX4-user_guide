@@ -1,11 +1,11 @@
-# VehicleOpticalFlow (UORB message)
+# VehicleOpticalFlow (повідомлення UORB)
 
-Optical flow in XYZ body frame in SI units.
+Оптичний потік в кадрі тіла XYZ в одиницях SI.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleOpticalFlow.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleOpticalFlow.msg)
 
 ```c
-# Optical flow in XYZ body frame in SI units.
+# Оптичний потік у корпусній системі координат XYZ в одиницях СІ.
 
 uint64 timestamp               # time since system start (microseconds)
 uint64 timestamp_sample

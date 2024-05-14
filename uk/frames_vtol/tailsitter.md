@@ -1,34 +1,34 @@
-# Tailsitter VTOL
+# Тейлсіттер
 
-A **Tailsitter VTOL** takes off and lands on its tail, but flips into the fixed-wing orientation for normal flight. The tailsitter rotors are permanently fixed in position for forward flight.
+** Тейлсіттер** злітає і приземляється на хвіст, але під час звичайного польоту переходить в режим фіксованого крила. Ротори тейлсіттера постійно зафіксовані в положенні для польоту вперед.
 
-Tailsitters are typically mechanically less complex than [other types of VTOL](../frames_vtol/index.md), and hence may be less expensive to build and maintain. However they are aerodynamically more complex, and can be harder to tune and fly for hover and transition, particularly in windy conditions.
+Тейлсіттери, як правило, механічно менш складні, ніж [інші типи літальні апарат із вертикальним зльотом і посадкою (VTOL)](../frames_vtol/index.md), а отже, можуть бути дешевшими у виробництві та обслуговуванні. Однак вони мають складнішу аеродинаміку, їх важче налаштовувати і керувати ними в режимі вертикального зльоту і переходу, особливо у вітряну погоду.
 
-## Tailsitter Airframes
+## Тейлсіттер фрейми
 
 <div class="grid_wrapper two_column">
   <div class="grid_item">
     <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-tailsitter">VTOL Duo Tailsitter</a></big></div>
     <div class="grid_text">
-    Two rotor VTOL that uses elevons to flip from hover into fixed-wing flight.<br><br>
+    Двороторний VTOL, який використовує елевони для переходу від зависання до польоту на фіксованому крилі.<br><br>
     <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL Duo Tailsitter" alt="wingtraone" /> 
     <ul>
-      <li>Forward flight more efficient</li>
-      <li>Hover harder to fly, particularly in wind</li>
-      <li>Hover and transition harder to tune</li>
-      <li>More compact form factor</li>
+      <li>Прямолінійний політ більш ефективний</li>
+      <li>Важче зависати в повітрі, особливо під час вітру</li>
+      <li>Важче налаштувати наведення та перехід</li>
+      <li>Більш компактний форм-фактор</li>
     </ul>
     </div>
   </div>
 <div class="grid_item">
   <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-tailsitter">VTOL Tailsitter</a></big></div>
-  VTOL with optional elevons. Uses rotors to transition between modes (along with elevons if present).
+  VTOL з можливістю встановлення опціональних елеронів. Використовує ротори для переходу між режимами (разом з елеронами, якщо вони є).
   <div class="grid_text">
   <img title="Skypull SP-1 VTOL QuadTailsitter" src="../../assets/airframes/vtol/skypull/skypull_sp1.jpg" />
   <ul>
-    <li>Hover mode easier to fly and more stable</li>
-    <li>Less compact form factor (harder to transport)</li>
-    <li>"X" and "+" rotor configurations are supported (see Airframe Reference)</li>
+    <li>У режимі зависання керувати літальним апаратом легше, він є більш стабільним</li>
+    <li>Менш компактний форм-фактор (важче транспортувати)</li>
+    <li>Підтримується конфігурація роторів "X" та "+" (див. Airframe Reference)</li>
   </ul>
   </div>
 </div>

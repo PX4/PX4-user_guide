@@ -49,9 +49,9 @@ Hawk R2 RTK GPS поставляється з роз'ємом JST на 6 кон�
 
 ### Схема розташування виводів
 
-LOCOSYS GPS pinout is provided below.
+LOCOSYS схема виводів GPS наведена нижче.
 
-| Pin | Hawk R2 GPS |
+| Пін | Hawk R2 GPS |
 | --- | ----------- |
 | 1   | VCC_5V      |
 | 2   | GPS_RX      |
@@ -64,9 +64,9 @@ LOCOSYS GPS pinout is provided below.
 | 9   | GND         |
 
 
-## PX4 Configuration
+## Налаштування PX4
 
-After connecting your Hawk R2 to the `GPS2` port on compatible Pixhawk boards, RTK setup and use on PX4 via *QGroundControl* is largely plug and play. For more information see: [RTK GPS](../gps_compass/rtk_gps.md#positioning-setup-configuration).
+Після підключення вашого Hawk R2 до порту `GPS2` на сумісних платах Pixhawk, налаштування та використання RTK на PX4 через *QGroundControl* в основному є "встав і грай" (plug and play). Для отримання додаткової інформації дивіться: [RTK GPS](../gps_compass/rtk_gps.md#positioning-setup-configuration).
 
 Ви також повинні налаштувати послідовний порт, який ви використовуєте на правильну швидкість передачі даних. Якщо ви використовуєте GPS2, встановіть параметр [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS2_BAUD) на 230400 8N1.
 
@@ -74,7 +74,7 @@ After connecting your Hawk R2 to the `GPS2` port on compatible Pixhawk boards, R
 
 ## Індикатори статусу LEDs
 
-| Колір | Name            | Опис                               |
+| Колір | Назва           | Опис                               |
 | ----- | --------------- | ---------------------------------- |
 | Green | TX Indicator    | GNSS Data transmission             |
 | Red   | Power Indicator | Power                              |

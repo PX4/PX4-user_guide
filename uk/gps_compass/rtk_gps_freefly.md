@@ -1,45 +1,45 @@
-# Freefly Systems RTK GPS
+# Freefly Системи RTK GPS
 
-The [Freefly Systems RTK GPS Module](https://store.freeflysystems.com/products/rtk-gps-ground-station) is a multiband [RTK GPS module](../gps_compass/rtk_gps.md) from Freefly Systems that provides highly reliable navigation. The modules can act as either rovers (when installed on an aircraft) or base stations (when plugged into a computer).
+[Модуль RTK GPS від Freefly Systems](https://store.freeflysystems.com/products/rtk-gps-ground-station) - це багатосмуговий [модуль RTK GPS](../gps_compass/rtk_gps.md) від Freefly Systems, який забезпечує дуже надійну навігацію. Модулі можуть діяти як роувери (коли встановлені на повітряну судну), так і базові станції (коли підключені до комп'ютера).
 
-Main features include:
-- Multiband (L1/L2) receiver (u-blox ZED-F9P)
-- Concurrent reception of all 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
-- Built-in magnetometer (IST8310), baro (BMP388), RGB LED, safety switch and safety LED
+Основні функції включають:
+- Отримувач з багаторозрядним (L1/L2) (u-blox ZED-F9P)
+- Одночасний прийом всіх 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
+- Вбудований магнітометр (IST8310), баро (BMP388), RGB LED, безпечний вимикач та світлодіод безпеки
 
-::: info
-This module can be used with PX4 v1.9 or above (support for the u-blox ZED-F9P was added in PX4 v1.9).
+:::info
+Цей модуль можна використовувати з PX4 v1.9 або вище (підтримка для u-blox ZED-F9P була додана в PX4 v1.9).
 :::
 
 ![FreeFly GPS Module](../../assets/hardware/gps/freefly_gps_module.jpg)
 
 
-## Where to Buy
+## Де купити
 
-* [Freefly Store](https://store.freeflysystems.com/products/rtk-gps-ground-station)
+* [Магазин Freefly](https://store.freeflysystems.com/products/rtk-gps-ground-station)
 
-## Kit Contents
+## Вміст набору
 
-An RTK GPS kit includes:
-- 2x GPS modules with antennas
-- 3m USB C to A cable
-- Magnetic quick-mount for base station module (1/4-20 thread for tripod mounting)
-- Screws to mount onto a Freefly AltaX
+Набір RTK GPS включає в себе:
+- 2x GPS модулі з антенами
+- Кабель USB C на USB A довжиною 3 метри
+- Магнітний швидкозамок для базової станції модуля (1/4-20 різьблення для монтажу на штатив)
+- Гвинти для кріплення на Freefly AltaX
 
 
-## Configuration
+## Налаштування
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
+Налаштування та використання RTK на PX4 за допомогою *QGroundControl* відбувається за принципом "підключи і працюй" (див. [RTK GPS](../gps_compass/rtk_gps.md) для отримання додаткової інформації).
 
-For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
+Для літака вам слід встановити параметр [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) на 115200 8N1, щоб забезпечити, що PX4 налаштує правильну швидкість передачі.
 
-## Wiring and Connections
+## Підключення та з'єднання
 
-The Freefly RTK GPS comes with an 8 pin JST-GH connector that can be plugged into a PixHawk autopilot. For use as a base station, the module has a USB-C connector
+RTK GPS Freefly поставляється з роз'ємом JST-GH на 8 контактів, який можна підключити до автопілота PixHawk. Для використання як базова станція, модуль має роз'єм USB-C
 
-### Pinout
+### Розпіновка
 
-The Freefly GPS pinout is provided below. For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and [PixRacer](../flight_controller/pixracer.md), all that is needed is a 1-1 8-pin JST-GH cable.
+Схема виводів Freefly GPS наведена нижче. Для деяких автопілотів, таких як [Hex Cube](../flight_controller/pixhawk-2.md) та [PixRacer](../flight_controller/pixracer.md), все, що потрібно, це кабель JST-GH 1-1 8-контактний.
 
 | Pin | Freefly GPS |
 | --- | ----------- |
@@ -52,13 +52,13 @@ The Freefly GPS pinout is provided below. For some autopilots, like the [Hex Cub
 | 7   | BUTTON_LED  |
 | 8   | GND         |
 
-## Specification
+## Специфікація
 
-- u-blox ZED-F9P GPS Receiver
+- Приймач GPS u-blox ZED-F9P
   - Ultracap backup power for fast (hot-start) restarts
   - EMI shield over receiver for improved EMI immunity
-- IST8310 Magnetometer
-- Safety-switch and safety LED
+- Магнітометр IST8310
+- Блок безпеки та безпечний світлодіод LED
 - RGB LEDs for status indication
   - NCP5623CMUTBG I2C Driver
 - BMP388 Baro on I2C bus
@@ -66,7 +66,7 @@ The Freefly GPS pinout is provided below. For some autopilots, like the [Hex Cub
   - SMA connector
 - STM32 MCU for future CAN-based communication
   - FW updates through USB connector
-- Connectivity:
+- Підключення:
   - USB-C
   - 2-way USB Switch to MCU and F9P
   - SMA for active antenna (20mA max)
@@ -74,11 +74,11 @@ The Freefly GPS pinout is provided below. For some autopilots, like the [Hex Cub
   - 8-pin JST-GH UART/I2C -** Power:
   - Input from either (diode OR'd):
   - USB (5V)
-  - CAN (4.7 to 25.2V)
-  - (4.7 to 25.2V)
+  - CAN (4.7 до 25.2В)
+  - (4.7 до 25.2V)
   - Power consumption <1W
 
-## More Information
+## Докладніше
 
-More information can be found on [Freefly's Wiki](https://freefly.gitbook.io/freefly-public/products/rtk-gps)
+Більше інформації можна знайти на [Вікі Freefly](https://freefly.gitbook.io/freefly-public/products/rtk-gps)
   

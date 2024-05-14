@@ -1,11 +1,11 @@
-# VehicleImu (UORB message)
+# VehicleImu (повідомлення UORB)
 
-IMU readings in SI-unit form.
+Вимірювання IMU у вигляді одиниць SI.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleImu.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleImu.msg)
 
 ```c
-# IMU readings in SI-unit form.
+# Вимірювання IMU в SI-одиницях.
 
 uint64 timestamp          # time since system start (microseconds)
 uint64 timestamp_sample

@@ -33,15 +33,15 @@
   </div>
 </div>
 
-## Hardware Setup
+## Встановлення обладнання
 
-ESCs are connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions. ESC order does not matter.
+ESCs підключені до шини CAN за допомогою стандартного кабелю Pixhawk 4 pin JST GH. Для отримання додаткової інформації, зверніться до інструкцій з [проводки CAN](../can/index.md#wiring). Порядок ESC не має значення.
 
 ## Встановлення прошивки
 
-ESCs come with an existing build of Sapog installed. If you want to update:
+ESCs поставляються з встановленою заздалегідь ​​сбіркою Sapog. Якщо ви хочете оновити:
 
-To build the firmware:
+Збірка прошивки:
 
 ```sh
 git clone --recursive https://github.com/PX4/sapog
@@ -49,71 +49,71 @@ cd sapog/firmware
 make RELEASE=1
 ```
 
-This will create a file `*.application.bin`. in `build/`. This binary can be flashed through the autopilot over DroneCAN via the sapog bootloader. See [DroneCAN Firmware Update](index.md#firmware-update).
+Це створить файл `*.application.bin`. в `build/`. Цей бінарний файл може бути прошитий через автопілот по DroneCAN через завантажувальник sapog. Див. [Оновлення програмного забезпечення DroneCAN](index.md#firmware-update).
 
-Refer to the [project page](https://github.com/PX4/sapog) to learn more, including how to flash without using the DroneCAN bootloader (i.e. on a not-yet-programmed device) or for development.
+Звертайтеся до [сторінки проекту](https://github.com/PX4/sapog), щоб дізнатися більше, включаючи як прошивати без використання загрузчика DroneCAN (тобто на ще не програмованому пристрої) або для розробки.
 
 ## Налаштування польотного контролера
 
 ### Увімкнення DroneCAN
 
-Connect the ESCs to the Pixhawk CAN bus. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to '3' to enable both dynamic node ID allocation and DroneCAN ESC output.
+Підключіть ESC до шини CAN Pixhawk. Увімкніть весь транспортний засіб за допомогою акумулятора або джерела живлення (не лише контролера польоту через USB) та увімкніть драйвер DroneCAN, встановивши параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) на '3', щоб увімкнути як динамічне призначення ідентифікатора вузла, так і вивід ESC DroneCAN.
 
-### Automatic ESC Enumeration using QGroundControl
+### Автоматичне перерахування кодів ESC за допомогою QGroundControl
 
-This section shows how to enumerate any [Sapog-based](https://github.com/PX4/sapog#px4-sapog)-based ESCs "automatically" using _QGroundControl_.
+Цей розділ показує, як перелічити будь-які [Sapog-основані](https://github.com/PX4/sapog#px4-sapog) ESCs "автоматично" за допомогою _QGroundControl_.
 
 :::tip
-You can skip this section if there is only one ESC in your setup, because the ESC index is already set to zero by default.
+Ви можете пропустити цей розділ, якщо в вашій настройці є лише один регулятор ESC, оскільки індекс ESC вже встановлений за замовчуванням на нуль.
 :::
 
-To enumerate the ESC:
+Для переліку ESC:
 
-1. Power the vehicle with a battery and connect to _QGroundControl_
-2. Navigate to **Vehicle Setup > Power** in QGC.
-3. Start the process of ESC auto-enumeration by pressing the **Start Assignment** button, as shown on the screenshot below.
+1. Увімкніть пристрій за допомогою батареї й підключіть до _QGroundControl_
+2. Перейдіть в **Налаштування транспортного засобу > Енергія** у QGC.
+3. Почніть процес автоматичного переліку ESC, натиснувши кнопку **Почати призначення**, як показано на знімку екрану нижче.
 
    ![QGC - DroneCAN ESC auto-enumeration](../../assets/peripherals/esc_qgc/qgc_uavcan_settings.jpg)
 
-   You will hear a sound indicating that the flight controller has entered the ESC enumeration mode.
+   Ви почуєте звук, що вказує на те, що керування польотом увійшло в режим переліку ESC.
 
-4. Manually turn each motor in the correct direction of its rotation (as specified in the [Airframe Reference](../airframes/airframe_reference.md)), starting from the first motor and finishing with the last motor. Each time you turn a motor, you should hear a confirmation beep.
+4. Вручну поверніть кожен двигун у правильному напрямку його обертання (як вказано у [Посилання на корпус ](../airframes/airframe_reference.md)), починаючи з першого двигуна й закінчуючи останнім двигуном. Кожного разу, коли ви ввімкнете мотор, ви повинні почути підтвердний сигнал.
 
-   ::: info
-Make sure to turn each of the motors in the correct direction, as the ESC will automatically learn and remember the direction (i.e. motors that spin clockwise during normal operation must also be turned clockwise during enumeration).
+   :::info
+Переконайтеся, що кожен з моторів обертається у правильному напрямку, оскільки ESC автоматично навчиться і запам'ятає напрямок (тобто мотори, які обертаються за годинниковою стрілкою під час звичайної роботи, також повинні обертатися за годинниковою стрілкою під час перелічення).
 :::
 
-5. After the last motor is enumerated, the confirmation sound should change to indicate that the enumeration procedure is complete.
-6. Reboot PX4 and the Sapog ESCs to apply the new enumeration IDs.
+5. Після того, як останній двигун перелічено, звук підтвердження повинен змінитися, щоб показати, що процедура переліку завершена.
+6. Перезавантажте PX4 та Sapog ESC, щоб застосувати нові ідентифікатори переліку.
 
-The following video demonstrates the process:
+Наступне відео демонструє процес:
 
 @[youtube](https://www.youtube.com/watch?v=4nSa8tvpbgQ)
 
-### Manual ESC Enumeration using Sapog
+### Ручне перерахування ESC за допомогою Sapog
 
 :::tip
-We recommend automated [Sapog ESC Enumeration using QGroundControl](#automatic-esc-enumeration-using-qgroundcontrol) shown above rather than manual enumeration (as it is easier and safer).
+Ми рекомендуємо автоматизоване [перерахунок Sapog ESC за допомогою QGroundControl](#automatic-esc-enumeration-using-qgroundcontrol), показаний вище, аніж ручний перерахунок (це простіше та безпечніше).
 :::
 
-You can manually configure the ESC index and direction using the [DroneCAN GUI Tool](https://dronecan.github.io/GUI_Tool/Overview/). This assigns the following Sapog configuration parameters for each enumerated ESC:
+Ви можете вручну налаштувати індекс ESC та напрямок, використовуючи [DroneCAN GUI Tool](https://dronecan.github.io/GUI_Tool/Overview/). Це надає наступні параметри конфігурації Sapog для кожного переліченого ESC:
 
 - `esc_index`
 - `ctl_dir`
 
-::: info See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
+:::info Див. [посібник з посиланням на Sapog](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) для отримання додаткової інформації про параметри.
 :::
 
 ### Конфігурація PX4
 
-Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
+Назначте двигуни на виходи, використовуючи екран конфігурації [Acutator](../config/actuators.md#actuator-testing).
 
-## Troubleshooting
+## Вирішення проблем
 
-See [DroneCAN Troubleshooting](index.md#troubleshooting)
+Див. [Усунення несправностей DroneCAN](index.md#troubleshooting)
 
-## Further Information
+## Детальна інформація
 
 - [PX4/Sapog](https://github.com/PX4/sapog#px4-sapog) (Github)
-- [Sapog v2 Reference Manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf)
-- [Using Sapog based ESC with PX4](https://kb.zubax.com/display/MAINKB/Using+Sapog-based+ESC+with+PX4) (Zubax KB)
+- [Довідник з посиланням на Sapog v2](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf)
+- [Використання Sapog засноване ESC з PX4](https://kb.zubax.com/display/MAINKB/Using+Sapog-based+ESC+with+PX4) (Zubax KB)
