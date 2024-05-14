@@ -45,7 +45,7 @@ Order this module from:
 
 ### Встановлення
 
-The recommended mounting orientation is with the arrow on the GPS pointing towards the **front of vehicle**.
+Рекомендоване положення монтажу полягає в тому, щоб стрілка на GPS вказувала у напрямку **передньої частини дрону**.
 
 The sensor can be mounted anywhere on the frame, but you will need to specify its position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
@@ -63,15 +63,15 @@ The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 
 
 ## Налаштування PX4
 
-You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle. The required settings are outlined below.
+Вам потрібно встановити необхідні [параметри DroneCAN](index.md) та визначити зсуви, якщо датчик не знаходиться у центрі транспортного засобу. Необхідні налаштування наведено нижче.
 
-::: info
-The GPS will not boot if there is no SD card in the flight controller when powered on.
+:::info
+GPS не завантажиться, якщо SD-карти немає у контролері польоту під час ввімкнення.
 :::
 
 ### Увімкнення DroneCAN
 
-In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
+Для використання плати ARK GPS підключіть її до шини CAN Pixhawk та увімкніть драйвер DroneCAN, встановивши параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) на `2` для динамічного призначення вузла (або `3`, якщо використовуєте [DroneCAN ESCs](../dronecan/escs.md)).
 
 Кроки наступні:
 
