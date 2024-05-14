@@ -1,49 +1,49 @@
 # FunCub QuadPlane (Pixhawk)
 
-The Fun Cub QuadPlane VTOL is a standard tailplane aircraft (the Multiplex FunCub) that has been retrofitted with a QuadCopter system.
+QuadPlane VTOL Fun Cub є стандартним повітряним судном з хвостовим оперенням (Multiplex FunCub), яке було модернізовано з системою QuadCopter.
 
-Key information:
+Основна Інформація:
 
-- **Frame:** Multiplex FunCub
-- **Flight controller:** Pixhawk
+- **Каркас:** Multiplex FunCub
+- **Контролер польоту:** Pixhawk
 
 ![Fun Cub VTOL](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_vtol_complete.jpg)
 
-Unmodified, the Fun Cub is a relatively affordable plane and relatively easy to fly. After the conversion the plane is significantly heavier and less aerodynamic. It still flies quite well but needs around 75% throttle in forward flight.
+Без змін, Fun Cub - це відносно доступний літак і відносно легкий у польоті. Після конвертації літак стає значно важчим і менш аеродинамічним. Він все ще досить добре літає, але потребує близько 75% газу у польоті вперед.
 
 
-## Bill of Materials
+## Специфікація матеріалів
 
-The actual plane looks roughly like as shown in the image above (other similar models will work just fine - this is a Multiplex Fun Cub).
+Справжній літак приблизно виглядає так, як показано на зображенні вище (інші схожі моделі також підійдуть добре - це Multiplex Fun Cub).
 
-The minimal equipment required is:
+Мінімально необхідне обладнання:
 
-- Multiplex FunCub (or similar)
-- Pixhawk or compatible
-- Digital airspeed sensor
-- 900 kV motors (e.g. Iris propulsion set - motors and ESC)
-- 10" props for quad motors (10x45 or 10x47)
-- 10" prop for fixed-wing motor (10×7)
-- GPS module
-- 4S battery
-- Aluminum frame for mounting the quad motors (10x10mm square tube, 1mm wall thickness)
-- TOW is ~2.3kg with a 4200mAh 4S battery
+- Multiplex FunCub (або подібний)
+- Pixhawk або сумісний
+- Цифровий датчик швидкості польоту
+- 900 кВ двигуни (наприклад, комплект пропульсії Iris - двигуни та регулятори швидкості)
+- 10" пропелери для квадрокоптерів (10х45 або 10х47)
+- 10" гвинт для мотора фіксованого крила (10×7)
+- Модуль GPS
+- Батарея 4S
+- Алюмінієва рама для кріплення двигунів квадрокоптера (квадратна труба 10х10 мм, стінка 1 мм)
+- TOW важить ~2.3кг з батареєю 4S на 4200mAh
 
 
-## Structure
+## Структура
 
-The structure is made out of aluminum booms as shown below.
+Структура виготовлена з алюмінієвих стрижнів, як показано нижче.
 
 ![quad_frame](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol.jpg) ![Fun Cub -frame for vtol mounted](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
 
-## Wiring
+## Підключення
 
-Motor and servo wiring is nearly entirely up to you, but should match the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) configuration, as shown in the airframe reference. The geometry and output assignment can be configured in the [Actuators Configuration](../config/actuators.md#actuator-outputs)
+Проводка двигуна та сервоприводу практично взагалі залежить від вас, але повинна відповідати конфігурації [Загального стандартного VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), як показано в посиланні на конструкцію корпусу. Геометрія та призначення виводу можуть бути налаштовані в [Конфігурації приводів](../config/actuators.md#actuator-outputs)
 
-For example, you might wire it up like this example (orientation as if "sitting in the plane"):
+Наприклад, ви можете з’єднати його так, як у цьому прикладі (орієнтація як у "сидячи в літаку"):
 
 
-| Порт   | Connection                  |
+| Порт   | Підключення                 |
 | ------ | --------------------------- |
 | MAIN 1 | Передній правий мотор (CCW) |
 | MAIN 2 | Задній лівий мотор (CCW)    |
@@ -52,21 +52,21 @@ For example, you might wire it up like this example (orientation as if "sitting 
 | AUX 1  | Лівий елерон TODO           |
 | AUX 2  | Правий елерон               |
 | AUX 3  | Elevator                    |
-| AUX 4  | Rudder                      |
-| AUX 5  | Throttle                    |
+| AUX 4  | Кермо                       |
+| AUX 5  | Тяга                        |
 
-For further instructions on wiring and configurations please see: [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
+Для подальших інструкцій щодо проводки та конфігурацій дивіться: [Стандартна Проводка та Налаштування VTOL](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
 
-## Airframe Configuration
+## Конфігурація планера
 
-1. For [Airframe](../config/airframe.md) select the vehicle group/type as *Standard VTOL* and the specific vehicle as [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) as shown below (do not forget to click **Apply and Restart** in the top).
+1. Для [планера](../config/airframe.md) виберіть групу/тип транспортного засобу як *Standard VTOL* та конкретний транспортний засіб як [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), як показано нижче (не забудьте натиснути **Застосувати та перезапустити** зверху).
 
    ![QCG - Select Generic Standard VTOL](../../assets/qgc/setup/airframe/px4_frame_generic_standard_vtol.png)
 
-1. Configure the outputs and geometry following the instructions in [Actuators Configuration](../config/actuators.md)
-1. The default parameters are often sufficient for stable flight. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md).
+1. Налаштуйте виводи та геометрію, дотримуючись інструкцій у [Налаштування приводів](../config/actuators.md)
+1. За замовчуванням параметри часто достатні для стабільного польоту. Для отримання докладнішої інформації з настройки дивіться [Стандартна Проводка та Налаштування VTOL](../config_vtol/vtol_quad_configuration.md).
 
-After you finish calibration the VTOL is ready to fly.
+Після завершення калібрування, VTOL готовий до польоту.
 
 
 ## Відео
@@ -76,5 +76,5 @@ After you finish calibration the VTOL is ready to fly.
 
 ## Підтримка
 
-If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
+Якщо у вас виникли запитання щодо перетворення або конфігурації VTOL, зайдіть на <https://discuss.px4.io/c/px4/vtol>.
 
