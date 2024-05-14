@@ -118,7 +118,7 @@
 
 ![Control Surface Setup Example](../../assets/config/actuators/control_surfaces_geometry.png)
 
-::: info За замовчуванням відображаються лише найпоширеніші налаштування. Виберіть прапорець **Додаткові** в правому верхньому куті вікна, щоб відобразити всі налаштування.
+:::info За замовчуванням відображаються лише найпоширеніші налаштування. Виберіть прапорець **Додаткові** в правому верхньому куті вікна, щоб відобразити всі налаштування.
 :::
 
 Кроки наступні:
@@ -273,18 +273,18 @@ PWM AUX виходи вважаються бажаними для керуван
 - `Constant_Max`: Вивід встановлюється на постійне максимальне значення (+1).
 - `Motor 1` до `Motor 12`: На виході вказано двигун. Відображаються тільки двигуни, дозволені для авіаконструкції.
 - `Servo 1` - `Servo 8`: вихід сервоприводу. Ці об'єкти отримують конкретне значення на основі конструкції, таке як "серводвигун нахилу", "лівий елерон".
-- `Peripheral via Acutator Set 1` to `Peripheral via Acutator Set 6`: [Generic Actuator Control with MAVLink](../payloads/generic_actuator_control.md#generic-actuator-control-with-mavlink).
-- `Landing Gear`: Output is landing gear.
+- `Периферійний за допомогою набору приводів 1` до `Периферійний за допомогою набору приводів 6`: [Загальний контроль виконавчого пристрою з MAVLink](../payloads/generic_actuator_control.md#generic-actuator-control-with-mavlink).
+- `Шасі`: Вивід - це шасі.
 - `Парашут`: Вихід - це парашут. Мінімальне значення надсилається у звичайному режимі, а максимальне - при спрацьовуванні захисту від збоїв.
-- `RC Roll`: Output is passthrough roll from RC ([RC_MAP_ROLL](../advanced_config/parameter_reference.md#RC_MAP_ROLL) maps an RC channel to this output). An RC channel is mapped to the output using .
-- `RC Pitch`: Output is passthrough pitch from RC ([RC_MAP_PITCH](../advanced_config/parameter_reference.md#RC_MAP_PITCH) maps an RC channel to this output).
+- `RC Roll`: Вихід - це вихідний рол з RC ([RC_MAP_ROLL](../advanced_config/parameter_reference.md#RC_MAP_ROLL) відображає канал RC на цей вихід). Потік RC вимикача зіставляється з виходом за допомогою .
+- `RC Pitch`: Вихід - це паспортний крок від RC ([RC_MAP_PITCH](../advanced_config/parameter_reference.md#RC_MAP_PITCH) відображає канал RC на цей вихід).
 - `RC Throttle`: Output is passthrough throttle from RC ([RC_MAP_THROTTLE](../advanced_config/parameter_reference.md#RC_MAP_THROTTLE) maps an RC channel to this output).
-- `RC Yaw`: Output is yaw from RC ([RC_MAP_YAW](../advanced_config/parameter_reference.md#RC_MAP_YAW) maps an RC channel to this output).
-- `RC Flaps`: Output is flaps from RC ([RC_MAP_FLAPS](../advanced_config/parameter_reference.md#RC_MAP_FLAPS) maps an RC channel to this output).
-- `RC AUXn` to `RC AUX1`: Outputs used for [arbitrary payloads triggered by RC passthrough](../payloads/generic_actuator_control.md#generic-actuator-control-with-rc).
-- `Gimbal Roll`: Output controls gimbal roll.
-- `Gimbal Pitch`: Output controls Gimbal pitch.
-- `Gimbal Yaw`: Output controls Gimbal pitch.
+- `RC Yaw`: Вихід - це розворот від RC ([RC_MAP_YAW](../advanced_config/parameter_reference.md#RC_MAP_YAW) відображає канал RC на цей вихід).
+- `RC Flaps`: Вихід - це закрилки з RC ([RC_MAP_FLAPS](../advanced_config/parameter_reference.md#RC_MAP_FLAPS) відображає канал RC на цей вихід).
+- `RC AUXn` до `RC AUX1`: Виводи, які використовуються для [довільних навантажень, спрацьованих через RC-передавання](../payloads/generic_actuator_control.md#generic-actuator-control-with-rc).
+- `Gimbal Roll`: Вихід контролює відвід Gimbal.
+- `Gimbal Pitch`: Вихід контролює крок Gimbal.
+- `Gimbal Yaw`: вихід контролює крок підвісу.
 
 Наведені функції можуть бути застосовані тільки до виходів FMU:
 
