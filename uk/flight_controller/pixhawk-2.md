@@ -102,19 +102,19 @@ Pixhawk може мати потрійну резервність у джере�
 - Вхід сервоприводу (4.1В до 5.7В, 0В до 20В)
 - Вхід живлення USB (4.1В до 5.7В, 0В до 6В)
 
-## Pinouts and Schematics
+## Розпіновки та схеми
 
-Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
+Схеми плат та іншу документацію можна знайти тут: [Проект Cube](https://github.com/proficnc/The-Cube).
 
 ## Порти
 
-### Top-Side (GPS, TELEM etc)
+### Верхня частина (GPS, TELEM тощо)
 
 ![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
 <a id="serial_ports"></a>
 
-### Serial Port Mapping
+### Зіставлення послідовних портів
 
 | UART   | Device     | Port                         |
 | ------ | ---------- | ---------------------------- |
@@ -129,21 +129,21 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 <!-- This originally said " **TEL4:** /dev/ttyS6 (ttyS4 UART):  **Note** `TEL4` is labeled as `GPS2` on Cube." -->
 
-### Debug Ports
+### Відладочні порти
 
 ![Cube Debug Ports](../../assets/flight_controller/cube/cube_ports_debug.jpg)
 
-### USB/SDCard Ports
+### Порти USB/SDCard
 
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
 ## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана і автоматично встановлюється за допомогою _QGroundControl_ при підключенні відповідного обладнання.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v3_default
@@ -151,12 +151,12 @@ make px4_fmu-v3_default
 
 ## Проблеми
 
-CAN1 and CAN2 silk screen on the Cube Black are flipped (CAN1 is CAN2 and vice versa).
+Розташування сілкскрінів CAN1 і CAN2 на Cube Black перевернуте (CAN1 - це CAN2 і навпаки).
 
 ## Додаткова інформація/документація
 
-- [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
-- Cube Docs (Manufacturer):
-  - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
-  - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
-  - [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)
+- [Швидке підключення Cube](../assembly/quick_start_cube.md)
+- Cube Docs (виробник):
+  - [Огляд модуля Cube](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
+  - [Посібник користувача Cube](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
+  - [Міні-платформа](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)
