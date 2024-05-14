@@ -1,12 +1,12 @@
-# VehicleLocalPosition (UORB message)
+# VehicleLocalPosition (повідомлення UORB)
 
 Fused local position in NED. Початкова точка координатної системи - це позиція транспортного засобу в момент запуску модуля EKF2.
 
 [вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPosition.msg)
 
 ```c
-# Fused local position in NED.
-# The coordinate system origin is the vehicle position at the time when the EKF2-module was started.
+# Об'єднана локальна позиція в NED.
+# Початкова точка координатної системи - це позиція транспортного засобу в момент запуску модуля EKF2.
 
 uint64 timestamp            # time since system start (microseconds)
 uint64 timestamp_sample                 # the timestamp of the raw data (microseconds)
