@@ -1,4 +1,4 @@
-# VtolVehicleStatus (UORB message)
+# VtolVehicleStatus (повідомлення UORB)
 
 VEHICLE_VTOL_STATE, повинен відповідати 1:1 MAVLinks_VTOL_STATE
 
