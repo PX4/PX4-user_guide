@@ -189,10 +189,10 @@ make px4_fmu-v6c_default
 
 ## Подальша інформація
 
-- [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Reference: Pixhawk 6C Wiring QuickStart](../assembly/quick_start_pixhawk6c.md)
-- [PM02 Power Module](../power_module/holybro_pm02.md)
-- [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
-- [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
+- [Документи Holybro](https://docs.holybro.com/) (Holybro)
+- [Reference: Швидке підключення Pixhawk 6C](../assembly/quick_start_pixhawk6c.md)
+- [Модуль потужності PM02 ](../power_module/holybro_pm02.md)
+- [Модуль потужності PM06](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
+- [Модуль потужності PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
 - [FMUv6C reference design pinout](https://docs.google.com/spreadsheets/d/1FcmWRKd6zjdz3-cnjEDYEmANKZOFzNSc/edit?usp=sharing&ouid=113251442407318461574&rtpof=true&sd=true).
-- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+- [Стандарт роз'ємів Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
