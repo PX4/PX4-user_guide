@@ -1,6 +1,6 @@
 # Довідка Планера
 
-::: info **Цей список є [автоствореним](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) з вихідного коду** за допомогою команди збірки: `make airframe_metadata`.
+:::info **Цей список є [автоствореним](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) з вихідного коду** за допомогою команди збірки: `make airframe_metadata`.
 :::
 
 Сторінка перелічує всі підтримувані планери й типи, включаючи призначення та нумерацію двигуна. Мотори у **зеленому** обертаються за годинниковою стрілкою, у **синьому** - проти.
