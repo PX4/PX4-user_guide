@@ -20,7 +20,7 @@
 
 ### Загальні
 
-- `SYS_MC_EST_GROUP` has been removed and there are now dedicated parameters [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN), [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN), and [LPE_EN](../advanced_config/parameter_reference.md#LPE_EN) for [Switching State Estimators](../advanced/switching_state_estimators.md). Most setups should enable [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) (the default). Changed in [PX4-Autopilot#22567](https://github.com/PX4/PX4-Autopilot/pull/22567).
+- `SYS_MC_EST_GROUP` був видалений, і тепер є окремі параметри [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN), [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN), та [LPE_EN](../advanced_config/parameter_reference.md#LPE_EN) для [Перемикаючих станових оцінювачів](../advanced/switching_state_estimators.md). Більшість налаштувань повинні дозволяти [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) (значення за замовчуванням). Змінено в [PX4-Autopilot#22567](https://github.com/PX4/PX4-Autopilot/pull/22567).
 
 ### Управління
 
@@ -48,10 +48,10 @@
 
 - Уточнюється
 
-### Multi-Rotor
+### Мульти-Ротор
 
-- [Throw launch](../flight_modes_mc/throw_launch.md)<Badge text="Experimental" type="warning"/>: Start a multicopter by throwing it into the air. Added to PX4 in [PX4-Autopilot#21170](https://github.com/PX4/PX4-Autopilot/pull/21170).
-- [Position Slow Mode](../flight_modes_mc/position_slow.md): A slower version of _Position mode_, where the maximum horizontal velocity, vertical velocity and yaw-rate axes can be configured to lower values (using parameters, RC controller knobs/switches, or MAVLink). Added to PX4 in [PX4-Autopilot#22102](https://github.com/PX4/PX4-Autopilot/pull/22102).
+- [Запуск киданням](../flight_modes_mc/throw_launch.md)<Badge text="Experimental" type="warning"/>: Запустити багатокоптер, кидаючи його в повітря. Додано до PX4 у [PX4-Autopilot#21170](https://github.com/PX4/PX4-Autopilot/pull/21170).
+- [Повільний Режим Позиції](../flight_modes_mc/position_slow.md): Повільна версія _Режиму Позиції_, де максимальні горизонтальна швидкість, вертикальна швидкість і швидкість повороту можуть бути налаштовані на менші значення (використовуючи параметри, ручки/перемикачі контролера RC або MAVLink). Додано до PX4 у [PX4-Autopilot#22102](https://github.com/PX4/PX4-Autopilot/pull/22102).
 
 ### VTOL
 
@@ -59,12 +59,12 @@
 
 ### Літак з фіксованим крилом
 
-- [Simplified airspeed sensor configuration](../config_vtol/vtol_without_airspeed_sensor.md): Replacef parameter `CBRK_AIRSPD_CHK` with [SYS_HAS_NUM_ASPD](../advanced_config/parameter_reference.md#SYS_HAS_NUM_ASPD) and renamed parameter `FW_ARSP_MODE` to [FW_USE_AIRSPD](../advanced_config/parameter_reference.md#FW_USE_AIRSPD). To be able to arm without an airspeed sensor set `SYS_HAS_NUM_ASPD` to 0. To not use the airspeed sensor data in the controller, set `FW_USE_AIRSPD` to 0. Added to PX4 in [PX4-Autopilot#22510](https://github.com/PX4/PX4-Autopilot/pull/22510).
+- [Спрощена конфігурація датчика швидкості повітря](../config_vtol/vtol_without_airspeed_sensor.md): Параметр `CBRK_AIRSPD_CHK` замінений на [SYS_HAS_NUM_ASPD](../advanced_config/parameter_reference.md#SYS_HAS_NUM_ASPD), а параметр `FW_ARSP_MODE` перейменовано на [FW_USE_AIRSPD](../advanced_config/parameter_reference.md#FW_USE_AIRSPD). Щоб мати можливість озброїти без датчика швидкості повітря, встановіть `SYS_HAS_NUM_ASPD` на 0. Щоб не використовувати дані датчика швидкості повітря в контролері, встановіть `FW_USE_AIRSPD` на 0. Додано до PX4 у [PX4-Autopilot#22510](https://github.com/PX4/PX4-Autopilot/pull/22510).
 
 ### Ровер
 
-- [Aion R1](../frames_rover/aion_r1.md)<Badge text="Experimental" type="warning"/>: ESC Driver for Roboclaw motor controller. This comes with build instructions and support for the Aion R1, a new differential drive rover, along with information about integrating the Roboclaw motor controller.
+- [Aion R1](../frames_rover/aion_r1.md)<Badge text="Експериментальний" type="warning"/>: ESC драйвер для контролера руху Roboclaw. Це постачається разом із інструкціями зі збірки та підтримкою для Aion R1, нового рухомого ровера з диференційним приводом, разом із інформацією про інтеграцію контролера руху мотора Roboclaw.
 
 ### ROS 2
 
-- [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md)<Badge text="Experimental" type="warning"/>: A new C++ library that simplifies controlling PX4 from ROS 2. Supports adding flight modes in ROS 2 that are peers of the PX4 modes running on the flight controller. Added to PX4 in [PX4-Autopilot#20707](https://github.com/PX4/PX4-Autopilot/pull/20707) (initial support). Goto Setpoint: https://github.com/PX4/PX4-Autopilot/pull/22375
+- [PX4 ROS 2 Interface бібліотека](../ros2/px4_ros2_interface_lib.md)<Badge text="Experimental" type="warning"/>: A new C++ library that simplifies controlling PX4 from ROS 2. Підтримує додавання режимів польоту в ROS 2, які є рівними режимів PX4, які працюють на керуванні польоту. Додано до PX4 у [PX4-Autopilot#20707](https://github.com/PX4/PX4-Autopilot/pull/20707) (початкова підтримка). Перейти до точки установки: https://github.com/PX4/PX4-Autopilot/pull/22375
