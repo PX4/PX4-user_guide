@@ -1,19 +1,19 @@
 # mRo Pixracer
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](https://store.mrobotics.io/) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 :::
 
-The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing quads and planes. In contrast to [Pixfalcon](../flight_controller/pixfalcon.md) and [Pixhawk](../flight_controller/pixhawk.md) it has in-built WiFi, new sensors, convenient full servo headers, CAN and supports 2M flash.
+Сімейство плат Pixhawk<sup>&reg;</sup> XRacer оптимізоване для малих гоночних квадрокоптерів та літаків. На відміну від [Pixfalcon](../flight_controller/pixfalcon.md) і [Pixhawk](../flight_controller/pixhawk.md) він має вбудований WiFi, нові сенсори, зручні роз'єми для серво, CAN та підтримує 2M флеш-пам'яті.
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
 :::
 
-## Key Features
+## Основні характеристики
 
-- Main System-on-Chip: [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+- Основна System-on-Chip: [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   - CPU: 180 MHz ARM Cortex<sup>&reg;</sup> M4 with single-precision FPU
   - RAM: 256 KB SRAM (L1)
 - Standard FPV form factor: 36x36 mm with standard 30.5 mm hole pattern
