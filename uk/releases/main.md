@@ -24,7 +24,7 @@
 
 ### Управління
 
-- [offboard][ros2 offboard control](../flight_modes/offboard.md#ros-2-messages) allows for direct motors and servo control. Added in [PX4-Autopilot#22222](https://github.com/PX4/PX4-Autopilot/pull/22222).
+- [offboard][ros2 керування польотом](../flight_modes/offboard.md#ros-2-messages) дозволяє пряме керування двигунами та сервоприводами. Додано у [PX4-Autopilot#22222](https://github.com/PX4/PX4-Autopilot/pull/22222).
 
 ### Оцінки
 
@@ -36,13 +36,13 @@
 
 ### Моделювання
 
-- [Gazebo](../sim_gazebo_gz/index.md): Support for [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane), a simulated fixed-wing vehicle that provides better aerodynamic simulation than the regular plane. Added to PX4 in [PX4-Autopilot#22167](https://github.com/PX4/PX4-Autopilot/pull/22167) and [gz-sim#2185](https://github.com/gazebosim/gz-sim/pull/2185) (advanced lift drag plugin).
-- [Gazebo](../sim_gazebo_gz/index.md): The environment variable `PX4_SIM_MODEL` can now be used to indicate the simulation model. This supersedes `PX4_GZ_MODEL`, which is now deprecated. Added to PX4 in [PX4-Autopilot#22400](https://github.com/PX4/PX4-Autopilot/pull/22400).
-- [Gazebo](../sim_gazebo_gz/index.md): Separation of Gazebo and PX4 SITL. The two parts of the simulation are now separated. They can be independently launched in any order, and even run on different hosts across a network. Gazebo additional supports drag-and-drop via the resource spawner in Gazebo GUI. Added to PX4 in [PX4-Autopilot#22467](https://github.com/PX4/PX4-Autopilot/pull/22467).
+- [Gazebo](../sim_gazebo_gz/index.md): Підтримка [Розширеного Літака](../sim_gazebo_gz/vehicles.md#advanced-plane), симульованого фіксованого крила, який забезпечує кращу аеродинамічну симуляцію, ніж звичайний літак. Додано до PX4 у [PX4-Autopilot#22167](https://github.com/PX4/PX4-Autopilot/pull/22167) та [gz-sim#2185](https://github.com/gazebosim/gz-sim/pull/2185) (плагін розштовхування та тяги).
+- [Gazebo](../sim_gazebo_gz/index.md): Наразі змінна середовища `PX4_SIM_MODEL` може бути використана для вказання моделі симуляції. Це скасовує `PX4_GZ_MODEL`, яке тепер застаріло. Додано до PX4 у [PX4-Autopilot#22400](https://github.com/PX4/PX4-Autopilot/pull/22400).
+- [Gazebo](../sim_gazebo_gz/index.md): Розділення між Gazebo та PX4 SITL. Дві частини симуляції зараз розділені. Вони можуть бути запущені незалежно в будь-якому порядку, і навіть працювати на різних хостах у мережі. Допомога Gazebo підтримує функцію перетягування за допомогою ресурсу ресурсу в Gazebo GUI. Додано у PX4 у [PX4-Autopilot#22467](https://github.com/PX4/PX4-Autopilot/pull/22467).
 
 ### uXRCE-DDS / ROS2
 
-- [uXRCE-DDS](../middleware/uxrce_dds.md): [DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml) now allows the use of `subscription_multi` to specify that indicated ROS 2 topics are sent to a separate uORB topic instance reserved for ROS 2. This allows PX4 to differentiate between updates from ROS and those from PX4 uORB publishers. With this change ROS2 users can now decide if the messages that they are sending to PX4 will overlap with the existing uORB ones or be kept in separate instances. Added in PX4 in [PX4-Autopilot#22266](https://github.com/PX4/PX4-Autopilot/pull/22266).
+- [uXRCE-DDS](../middleware/uxrce_dds.md): [DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml) тепер дозволяє використовувати `subscription_multi`, щоб вказати, що вказані теми ROS 2 надсилаються до окремого екземпляра теми uORB, зарезервованого для ROS 2. Це дозволяє PX4 розрізняти між оновленнями від ROS і тими, які надходять від видавців PX4 uORB. З цією зміною користувачі ROS2 тепер можуть вирішувати, чи повідомлення, які вони відправляють в PX4, будуть перекриватися з існуючими uORB або будуть збережені в окремих екземплярах. Додано в PX4 у [PX4-Autopilot#22266](https://github.com/PX4/PX4-Autopilot/pull/22266).
 
 ### MAVLink
 
