@@ -101,14 +101,14 @@ make holybro_kakutef7_default
 
 ## Зіставлення послідовних портів
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| USART1 | /dev/ttyS0 | TELEM1                |
-| USART2 | /dev/ttyS1 | TELEM2                |
-| USART3 | /dev/ttyS2 | Debug Console         |
-| UART4  | /dev/ttyS3 | GPS1                  |
-| USART6 | /dev/ttyS4 | RC SBUS               |
-| UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
+| UART   | Пристрій   | Порт                   |
+| ------ | ---------- | ---------------------- |
+| USART1 | /dev/ttyS0 | TELEM1                 |
+| USART2 | /dev/ttyS1 | TELEM2                 |
+| USART3 | /dev/ttyS2 | Консоль відладки       |
+| UART4  | /dev/ttyS3 | GPS1                   |
+| USART6 | /dev/ttyS4 | RC SBUS                |
+| UART7  | /dev/ttyS5 | Телеметрія ESC (DShot) |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
