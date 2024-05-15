@@ -2,62 +2,62 @@
 
 <Badge type="tip" text="PX4 v1.13" />
 
-NEO 3Pro is a DroneCan GPS receiver produced by CUAV.
-It integrates UBLOX M9N, STM32F4 MCU, RM3100 compass, three-color LED light and safety switch.
+NEO 3Pro - це приймач GPS DroneCan, вироблений CUAV.
+Він інтегрує UBLOX M9N, STM32F4 MCU, компас RM3100, триколірний світлодіодний індикатор та вимикач безпеки.
 
-![Hero image of Neo3 Pro GPS](../../assets/hardware/gps/cuav_gps_neo3/neo_3pro.jpg)
+![Зображення Hero Neo3 Pro GPS](../../assets/hardware/gps/cuav_gps_neo3/neo_3pro.jpg)
 
-## Technical Specifications
+## Технічні характеристики
 
-| Hardware                                          | Type                                                                                                                       |
-| :------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------- |
-| Processor                                         | STM32F412                                                                                                                  |
-| Compass                                           | RM3100                                                                                                                     |
-| Barometer                                         | MS5611                                                                                                                     |
-| GNSS receiver                                     | UBLOX NEO M9N                                                                                                              |
-| RGB drive                                         | NCP5623C                                                                                                                   |
-| Buzzer                                            | Passive buzzer                                                                                                             |
-| Safety switch                                     | Physical button                                                                                                            |
-| GNSS                                              | Beidou, Galileo, GLONASS, GPS                                                                                              |
-| GNSS Augmentation System                          | SBAS:WAAS,EGNOS,MSAS<br>QZSS:L1s(SAIF)<br>other：RTCM3.3 |
-| Number of concurrent GNSS                         | 4                                                                                                                          |
-| Frequency band                                    | GPS:L1C/A<br>GLONASS:L10F<br>Beidou:B1I<br>Galileo:E1B/C   |
-| Horizontal accuracy                               | 2.0M                                                                                                       |
-| Speed accuracy                                    | 0.05M/S                                                                                                    |
-| Nav. update rate                  | 25Hz(Max)                                                                                               |
-| Acquisition                                       | Cold start：24S<br>Hot start：2S<br>Aided start:2s                                                           |
-| Number of satellites(MAX)      | 32+                                                                                                                        |
-| Sensitivity                                       | Tracking and nav-167dBm<br>Cold start Hot star-148dBm<br>Reacquisition -160dBm                                             |
-| Protocol                                          | UAVCAN                                                                                                                     |
-| Port TYpe                                         | GHR-04V-S                                                                                                                  |
-| Supported flight controller                       | CUAV series,<br>Pixahwk series                                                                                             |
-| Wave filtering                                    | SAW+LNA+SAW                                                                                                                |
-| Anti-Electromagnetic/radio frequency interference | EMI+RFI                                                                                                                    |
-| Upgrade firmware                                  | support                                                                                                                    |
-| Input voltage                                     | 5V                                                                                                                         |
-| Operating temperature                             | -10~70℃                                                                                                    |
-| Size                                              | 60_60_16MM                                                                                                                 |
-| Weight                                            | 33g                                                                                                                        |
+| Апаратне забезпечення                                  | Тип                                                                                                                        |
+| :----------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- |
+| Процесор                                               | STM32F412                                                                                                                  |
+| Компас                                                 | RM3100                                                                                                                     |
+| Барометр                                               | MS5611                                                                                                                     |
+| Приймач GNSS                                           | UBLOX NEO M9N                                                                                                              |
+| RGB привід                                             | NCP5623C                                                                                                                   |
+| Зумер                                                  | Пасивний зумер                                                                                                             |
+| Запобіжний перемикач                                   | Фізична кнопка                                                                                                             |
+| GNSS                                                   | Beidou, Galileo, GLONASS, GPS                                                                                              |
+| Система розширення GNSS                                | SBAS:WAAS,EGNOS,MSAS<br>QZSS:L1s(SAIF)<br>other：RTCM3.3 |
+| Кількість одночасних GNSS                              | 4                                                                                                                          |
+| Смуга частот                                           | GPS:L1C/A<br>GLONASS:L10F<br>Beidou:B1I<br>Galileo:E1B/C   |
+| Горизонтальна точність                                 | 2.0M                                                                                                       |
+| Точність швидкості                                     | 0.05M/S                                                                                                    |
+| Nav. Навігаційні темпи оновлення даних | 25Hz(Max)                                                                                               |
+| Придбання                                              | Холодний старт: 24 с<br>Гарячий старт: 2 с<br>Допоміжний старт: 2 с        |
+| Кількість супутників(MAX)           | 32+                                                                                                                        |
+| Чутливість                                             | Відстеження та нав-167dBm<br>Холодний старт Гарячий старт-148dBm<br>Повторний збір -160dBm                                 |
+| Протокол                                               | UAVCAN                                                                                                                     |
+| Тип порту                                              | GHR-04V-S                                                                                                                  |
+| Підтримувані автопілоти включають                      | серія CUAV,<br>серія Pixahwk                                                                                               |
+| Фільтрування хвиль                                     | SAW+LNA+SAW                                                                                                                |
+| Протиелектромагнітний/радіочастотний перешкід          | EMI+RFI                                                                                                                    |
+| Оновлення прошивки                                     | підтримка                                                                                                                  |
+| Вхідна напруга                                         | 5V                                                                                                                         |
+| Робоча температура                                     | -10~70℃                                                                                                    |
+| Розмір                                                 | 60_60_16MM                                                                                                                 |
+| Вага                                                   | 33г                                                                                                                        |
 
-## Where to Buy
+## Де придбати
 
 - [CUAV](https://cuav.en.alibaba.com/product/1600165544920-820872629/Free_shipping_CUAV_Neo_3_pro_drone_UAVCAN_GNSS_processor_STM32F412_autopilot_ublox_M9N_positioning_RM3100_compass_uav_gps_module.html?spm=a2700.shop_oth.74.2.636e28725EvVHb)
 
-## Wiring and Connections
+## Підключення та з'єднання
 
-NEO 3 Pro connected to autopilot CAN1/CAN2 interface
+NEO 3 Pro, підключений до інтерфейсу автопілоту CAN1/CAN2
 
-![NEO 3 Pro connected to autopilot CAN1/CAN2 interface](../../assets/hardware/gps/cuav_gps_neo3/neo_3pro_connect.png)
+![NEO 3 Pro підключений до інтерфейсу автопілота CAN1/CAN2](../../assets/hardware/gps/cuav_gps_neo3/neo_3pro_connect.png)
 
-## PX4 Configuration
+## Конфігурація PX4
 
-Open **QGroundControl > Parameters** and modify the following parameters:
+Відкрийте **QGroundControl > Parameters** та змініть наступні параметри:
 
-- `UAVCAN_ENABLE`Set to `Sensors Automatic config` .
-- `UAVCAN_SUB_GPS` Set to `Enable`.
+- `UAVCAN_ENABLE`: встановити на `Sensors Automatic config` .
+- `UAVCAN_SUB_GPS` Встановлено на `Увімкнути`.
 
-![QGC Full Parameter screen showing DroneCan (UAVCAN) parameters](../../assets/hardware/gps/cuav_gps_neo3/px4_can.jpg)
+![Повний екран параметрів QGC, що показує параметри DroneCan (UAVCAN)](../../assets/hardware/gps/cuav_gps_neo3/px4_can.jpg)
 
-## More info
+## Детальніше
 
-- [CUAV docs](https://doc.cuav.net/gps/neo-series-gnss/en/neo-3-pro.html)
+- [Документація CUAV](https://doc.cuav.net/gps/neo-series-gnss/en/neo-3-pro.html)
