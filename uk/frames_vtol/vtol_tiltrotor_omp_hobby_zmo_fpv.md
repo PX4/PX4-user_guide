@@ -8,19 +8,19 @@ The OMP Hobby ZMO is a small [tiltrotor VTOL](../frames_vtol/tiltrotor.md) that 
 
 ## Загальний огляд
 
-Key airframe features:
+Основні особливості конструкції фюзеляжу:
 
-- Compact and easy to transport
-- Pre installed actuators
-- Quick release wing connecting system
-- Transport case in kit included
-- ~35 minute long flight times (depending on takeoff weight)
-- VTOL enables flying in locations where a fixed wing couldn't fly
-- Battery and charger included in the kit
-- Easy overall build
-- Space to mount FPV and/or action camera in the front
+- Компактна і легка для транспортування
+- Попередньо встановлені приводи
+- Система швидкого від'єднання крил
+- Кейс для транспортування у комплекті
+- ~35 хвилинний час польоту (залежить від ваги зльоту)
+- VTOL дозволяє літати в місцях, де не може літати дрон з фіксованим крилом
+- Батарея та зарядний пристрій включені в комплект
+- Легка загальна збірка
+- Місце для монтажу FPV або екшн-камери спереду
 
-Depending on the final takeoff weight the hover time might be limited (there is not a lot of air circulation inside the fuselage when the vehicle is hovering so the ESCs might overheat).
+Залежно від кінцевої злітної ваги час зависанні може бути обмежений (у фюзеляжі мало циркуляції повітря під час зависання транспортного засобу, тому ESC регулятори швидкості можуть перегрітися).
 
 ## Де купити
 
@@ -28,17 +28,17 @@ Depending on the final takeoff weight the hover time might be limited (there is 
 - [GetFPV](https://www.getfpv.com/omphobby-zmo-z3-vtol-fpv-1200mm-arf-plane-kit-no-fpv-system.html)
 - [FoxtechFPV](https://www.foxtechfpv.com/zmo-pro-fpv-vtol.html)
 
-## Flight Controller
+## Політний контролер
 
-The following options have been tested:
+Наступна конфігурація протестована:
 
 - [Auterion Skynode evaluation kit](../companion_computer/auterion_skynode.md)
-- [Pixhawk 6C](../flight_controller/pixhawk6c.md) with [PM02 V3](../power_module/holybro_pm02.md)
-- [Pixhawk 6C mini](../flight_controller/pixhawk6c_mini.md) with [PM02 V3](../power_module/holybro_pm02.md)
+- [Pixhawk 6C](../flight_controller/pixhawk6c.md) з [PM02 V3](../power_module/holybro_pm02.md)
+- [Pixhawk 6C mini](../flight_controller/pixhawk6c_mini.md) з [PM02 V3](../power_module/holybro_pm02.md)
 
-The approximate maximum size of the FC is: 50x110x22mm
+Приблизний максимальний розмір FC становить: 50x110x22мм
 
-## Additional Accessories
+## Додаткові аксесуари
 
 - [GPS F9P (included in Skynode eval. kit)](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
 - [GPS M9N (cheaper alternative to F9P)](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
@@ -60,48 +60,48 @@ The approximate maximum size of the FC is: 50x110x22mm
 - [USB camera (included in Skynode dev kit)](https://www.amazon.com/ELP-megapixel-surveillance-machine-monitor/dp/B015FIKTZC)
 - Screws, inserts, heat shrink, etc.
 
-## Tools
+## Інструменти
 
-The following tools were used for this build.
+Наступні інструменти використовувалися у цій збірці.
 
-- Hex driver set
-- Wrench set
-- Soldering station
+- Набір шестигранних викруток
+- Набір гаєчних ключів
+- Паяльна станція
 - Glue: Hot glue, 5 min Epoxy
-- Tape
-- 3M Double sided tape ([3M VHB tape](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y))
-- Sandpaper
-- 3D-Printer
+- Скотч
+- Двосторонній скотч 3M ([3M VHB скотч](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y))
+- Наждачний папір
+- 3D-принтер
 
-## Hardware Integration
+## Інтеграція апаратних засобів
 
-### Preparations
+### Підготовка
 
-Remove the original flight controller, ESC and wing connector cables. Also remove the the propellers. This will help you with the handling of the vehicle and will reduce the risk of an injury due to an unintentional motor startup.
+Вийміть оригінальний контролер польоту, ESC регулятор швидкості та кабелі з'єднання крила. Також зніміть пропелери. Це допоможе вам з управлінням транспортного засобу і зменшить ризик отримання травми внаслідок ненавмисного запуску двигуна.
 
-ZMO FPV in it's original state.
+ZMO FPV в його початковому стані.
 
 ![ZMO FPV in it's original state](../../assets/airframes/vtol/omp_hobby_zmo_fpv/zmo-01.jpg)
 
-Flight controller and wing connectors removed from the vehicle.
+Контролер польоту та з'єднувачі крила знято з транспортного засобу.
 
 ![ZMO FPV with FC and wing connectors removed](../../assets/airframes/vtol/omp_hobby_zmo_fpv/zmo-02.jpg)
 
-### ESCs
+### ESC регулятори швидкості
 
-1. Unsolder the ESC PWM-signal and ground pins and solder some servo extension wire to the pins. The cable should be long enough to connect the wire to the FMU pins of the flight controller.
+1. Відпаяйте сигнальні контакти PWM та контакти заземлення ESC регулятора швидкості та припаяйте до контактів подовжувач сервоприводу. Кабель повинен бути достатньо довгим, щоб підключити дріт до контактів FMU плати керування польотом.
 1. Unsolder the 3 female banana plug connectors of the rear motor (might not be necessary for the Pixhawk 6 integration).
-1. Screw the ESC back in place with 4 M2.5 x 12 screws.
-1. Shorten the rear motor wires and solder them as shown in the picture into place.
-1. Solder signal and GND wires to the PWM input ot the ESC.
+1. Прикрутіть ESC регулятор швидкості назад на місце 4 гвинтами M2.5 x 12.
+1. Укоротіть дроти заднього двигуна та припаяйте їх на місце, як показано на малюнку.
+1. Припаяйте сигнальні та GND-дроти до входу PWM ESC регулятора швидкості.
 
    ![ESC 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/esc-01.jpg)
 
-1. Remove the female banana plug on the ESC. This will give you more space to install the flight controller.
+1. Remove the female banana plug on the ESC. Це надасть вам більше місця для встановлення польотного контролера.
 
    ![ESC 02](../../assets/airframes/vtol/omp_hobby_zmo_fpv/esc-02.jpg)
 
-1. Solder the rear motor wires to the ESC. Make sure to connect such that the motor spins in the correct direction.
+1. Припаяйте проводи заднього двигуна до ESC регулятора швидкості. Make sure to connect such that the motor spins in the correct direction.
 
    ![ESC 03](../../assets/airframes/vtol/omp_hobby_zmo_fpv/esc-03.jpg)
 
