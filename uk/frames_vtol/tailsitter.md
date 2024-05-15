@@ -34,15 +34,15 @@
 </div>
 </div>
 
-Duo Tailsitters зазвичай більш ефективні в крейсерському польоті (4 менших гвинта менш ефективні, ніж 2 більших) і фізично більш компактні. However as they are aerodynamically much more complex in hover mode, they are much harder to tune for both hover and transition. Quad tailsitters are easier to fly in hover mode, and more stable in windy conditions. Both are supported using the same aiframe type in PX4.
+Duo Tailsitters зазвичай більш ефективні в крейсерському польоті (4 менших гвинта менш ефективні, ніж 2 більших) і фізично більш компактні. Однак, оскільки аеродинамічно вони набагато складніші в режимі зависання, їх набагато важче налаштовувати як для зависання, так і для переходу. Квадрокоптерам легше літати в режимі зависання, і вони більш стабільні у вітряну погоду. Обидва варіанти підтримуються за допомогою одного типу айфреймів у PX4.
 
-## Setup/Flying
+## Налаштування/політ
 
-VTOL setup and flying are covered in the [VTOL](../frames_vtol/index.md) parent topic.
+Налаштування та польоти VTOL описано у головній темі [VTOL](../frames_vtol/index.md).
 
 ::: info
-The instructions are essentially the same for all VTOL.
-The main frame-specific differences are the motor wiring, and some aspects of tuning the configuration.
+Інструкції в принципі однакові для всіх VTOL.
+Основні специфічні для рами відмінності - це електропроводка двигуна та деякі аспекти тюнінгу конфігурації.
 :::
 
 ## Build Logs
