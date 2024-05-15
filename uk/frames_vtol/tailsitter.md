@@ -40,36 +40,36 @@ Duo Tailsitters зазвичай більш ефективні в крейсер
 
 Налаштування та польоти VTOL описано у головній темі [VTOL](../frames_vtol/index.md).
 
-::: info
+:::info
 Інструкції в принципі однакові для всіх VTOL.
 Основні специфічні для рами відмінності - це електропроводка двигуна та деякі аспекти тюнінгу конфігурації.
 :::
 
-## Build Logs
+## Журнали збірки
 
-Step-by-step guides of how to set up PX4 on tailsitter frames are listed below:
+Нижче наведені покрокові інструкції з налаштування PX4 на фреймах з тайлсіттером:
 
 - [TBS Caipiroshka Tailsitter Build (Pixracer)](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
 
 :::tip
-We recommend that you also review build logs for other PX4 VTOL, and Copter vehicles (most of the setup is the same).
+Рекомендуємо вам також ознайомитися з логами збірки інших апаратів PX4 VTOL та коптерів (більшість налаштувань є однаковими).
 :::
 
 ## Відео
 
-This section contains videos that are specific to Tailsitter VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/index.md)).
+Цей розділ містить відео, які стосуються саме тейлсіттера (відео, які стосуються всіх типів VTOL, можна знайти в розділі [VTOL](../frames_vtol/index.md)).
 
 ### Duo
 
 ---
 
-[TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md) - Tailsitter takeoff (close up), hover, level flight, transitions.
+[TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md) - Зліт тейлсіттера (крупним планом), зависання, горизонтальний політ, переходи.
 
 @[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
 
 ---
 
-[Woshark](http://uav-cas.ac.cn/WOSHARK/) *PX4 Tailsitter prototype* - Tailsitter takeoff, transition, landing. 
+[Woshark](http://uav-cas.ac.cn/WOSHARK/) *PX4 Тейлсіттер прототип* - зліт, перехід, посадка тейлсіттера. 
 <!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
 <!-- Update issue https://github.com/PX4/PX4-user_guide/issues/3007 -->
 @[youtube](https://youtu.be/gjHj6YsxcZk)
@@ -81,12 +81,12 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 @[youtube](https://youtu.be/6s-Izqb_GVs)
 -->
 
-[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - Tailsitter takeoff, transition, landing.
+[БПЛА Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - зліт, перехід, посадка тейлсіттера.
 
 @[youtube](https://youtu.be/pWt6uoqpPIw)
 
 
-## Gallery
+## Галерея
 
 <div class="grid_wrapper three_column">
   <div class="grid_item">
