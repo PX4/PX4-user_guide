@@ -45,24 +45,24 @@
   - SWD debugging port.
 - Video OUT + Audio OUT on VTX socket.
 - USB з можливістю OTG (ID та VBUS з'єднані з CPU)
-- Power System
-  - Integrated PDB.
+- Система живлення
+  - Інтегрований PDB.
   - 2-6S BEC
-  - TVS Protection Diode
-  - Dedicated 500ma VREG for Gyros, with gyro noise filter capacitors.
-  - Second 500ma VREG for CPU, Baro, Microphone, etc.
-- Other features
-  - Status Led
-  - LED strip support (with well-placed connection pads).
-  - Bootable from SD Card or External flash.
-  - Flashable from SD Card.
-  - Solder-from-top design.
-  - PCB Cutouts for battery wires.
-  - No Compass, use an external GPS with a magnometer/compass sensor connected to the GPS IO port.
-  - Also runs Betaflight 4.x+, Cleanflight 4.x+.
-  - Designed by Dominic Clifton, the guy that created Cleanflight
+  - Телевізійний захистний діод
+  - Призначений 500ma VREG для гіроскопів, з конденсаторами для фільтрації шуму гіроскопа.
+  - Другий 500 мА VREG для ЦП, барометра, мікрофону тощо.
+- Інші характеристики
+  - LED-статус
+  - Підтримка світлодіодної стрічки (з добре розташованими підключеннями).
+  - Запуск з картки SD або зовнішнього флеш-накопичувача.
+  - Прошивка з SD карти.
+  - Дизайн з припаями зверху.
+  - Вирізи на платах друкованих плат для дротів батарей.
+  - Немає компаса, використовуйте зовнішній GPS з магнітометром/компасним датчиком, підключеним до порту GPS IO.
+  - Також працює з Betaflight 4.x +, Cleanflight 4.x +.
+  - Розроблено Домініком Кліфтоном, хлопцем, що створив Cleanflight
 - Розміри
-  - 36x36mm with 30.5\*30.5 mouting pattern, M4 holes.
+  - 36x36 мм із зразком кріплення 30.5\*30.5, отвори M4.
   - Втулки з м’яким кріпленням від M4 до M3 постачаються.
 
 ## Де придбати
