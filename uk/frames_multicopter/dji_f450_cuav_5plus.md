@@ -89,7 +89,7 @@
 | FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver        | 1         |
 | DJI E305 2312E Motor (800kv,CW)                       | 4         |
 | Hobbywing XRotor 20A APAC Brushless ESC               | 4         |
-| Power Module(Included in the CUAV V5+ package)        | 1         |
+| Модуль живлення (включено в набір CUAV V5+)           | 1         |
 | Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60 | 1         |
 
 
