@@ -1,35 +1,35 @@
 # E-flite Convergence Tiltrotor VTOL (Pixfalcon)
 
-The [E-Flite Convergence](https://youtu.be/HNedXQ_jhYo) can easily be converted to a fully autonomous VTOL with PX4. There is not much space but it's enough for a [Pixfalcon](../flight_controller/pixfalcon.md) flight controller with GPS and telemetry.
+[E-Flite Convergence](https://youtu.be/HNedXQ_jhYo) легко можна перетворити на повністю автономний ВТОЛ з PX4. Тут не так багато місця, але цього вистачить для контролера політного пристрою [Pixfalcon](../flight_controller/pixfalcon.md) з GPS та телеметрією.
 
-::: info The original Horizon Hobby *E-Flite Convergence* frame and [Pixfalcon](../flight_controller/pixfalcon.md) have been discontinued. Alternatives are provided in the [Purchase](#where-to-buy) section. :::
+:::info Оригінальна рама *E-Flite Convergence* від Horizon Hobby та [Pixfalcon](../flight_controller/pixfalcon.md) були припинені. Альтернативи наведено в розділі [Придбання](#where-to-buy). :::
 
 @[youtube](https://youtu.be/E61P2f2WPNU)
 
 
 ## Де купити
 
-Vehicle frame options:
-- **WL Tech XK X450** - [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
+Опції рами транспортного засобу:
+- **WL Технологія XK X450** - [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
 - **JJRC M02** - [Banggood (AU)](https://au.banggood.com/JJRC-M02-2_4G-6CH-450mm-Wingspan-EPO-Brushless-6-axis-Gyro-Aerobatic-RC-Airplane-RTF-3D-or-6G-Mode-Aircraft-p-1588201.html), [AliExpress](https://www.aliexpress.com/item/4001031497018.html)
 
-Flight controller options ():
+Вибір контролера польоту ():
 - [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
-- [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md).
-- Any other compatible flight controller with small enough form-factor.
+- [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md)
+- Будь-який інший сумісний контролер польоту з достатньо малим форм-фактором.
 
-## Hardware Setup
+## Встановлення обладнання
 
-The vehicle needs 7 PWM signals for the motors and control surfaces:
-- Motor (left/right/back)
-- Tilt servos (right/left)
-- Elevons (left/right)
+Транспортний засіб потребує 7 сигналів ШШД для моторів та поверхонь управління:
+- Мотор (лівий/правий/задній)
+- Сервоприводи нахилу (право/ліво)
+- Elevons (вліво/вправо)
 
-These can be wired to flight controller outputs more-or-less in any way you want (though outputs for motors should be grouped together, and so on).
+Ці можна підключити до виходів регулятора польоту більш-менш у будь-якому порядку (хоча виходи для двигунів повинні бути груповані разом і так далі).
 
-The outputs are configured in the [Actuators Configuration](../config/actuators.md) by following the instructions for VTOL tiltrotor geometry and output configuration. Note that you will need to start from the [Generic Tiltrotor VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) frame.
+Виводи налаштовані в [Конфігурації приводів](../config/actuators.md) шляхом виконання інструкцій для геометрії VTOL тілтротора та конфігурації виводу. Зверніть увагу, що вам потрібно буде почати з [Загального VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) фрейму.
 
-Note that left and right in the configuration screen and frame reference are defined from the perspective of a human pilot inside a real plane (or looking from above, as shown below):
+Зверніть увагу, що ліворуч і праворуч на екрані конфігурації та посилання на раму визначені з точки зору людини-пілота всередині реального літака (або дивлячись зверху, як показано нижче):
 
 <img src="../../assets/airframes/types/VTOLTiltRotor_eflite_convergence.svg" width="300px" />
 
@@ -48,7 +48,7 @@ Note that left and right in the configuration screen and frame reference are def
 
 ### GPS
 
-For the GPS we cut out a section of foam inside the "cockpit". That way the GPS can be put inside the body and is nicely stowed away without compromising the vehicle appearance.
+Для GPS ми вирізали частину піни всередині «кабіни». Таким чином GPS може бути поміщений всередину корпусу і ретельно зберігається без порушення зовнішнього вигляду транспортного засобу.
 
 ![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
@@ -57,8 +57,8 @@ For the GPS we cut out a section of foam inside the "cockpit". That way the GPS 
 
 Дотримуйтеся [Стандартної конфігурації](../config/index.md) в *QGroundControl* (радіо, датчики, режими польоту тощо).
 
-The particular settings that are relevant to this vehicle are:
-- [Airframe](../config/airframe.md)
-  - Select the airframe configuration **E-flite Convergence** under **VTOL Tiltrotor** and restart *QGroundControl*. ![QGroundControl Vehicle Setting - Airframe selection E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
-- [Flight Modes/Switches](../config/flight_mode.md)
-  - As this is a VTOL vehicle, you must [assign an RC controller switch](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) for transitioning between multicopter and fixed-wing modes.
+Особливі налаштування, які є важливими для цього транспортного засобу:
+- [Планер](../config/airframe.md)
+  - Виберіть конфігурацію підфрейму **E-flite Convergence** під **VTOL Tiltrotor** та перезапустіть *QGroundControl*. ![QGroundControl Vehicle Setting - Airframe selection E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
+- [Режими польоту / перемикачі](../config/flight_mode.md)
+  - Оскільки це повітряне судно VTOL, вам потрібно [призначити перемикач RC-контролера](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) для переходу між режимами багатокоптера та фіксованого крила.
