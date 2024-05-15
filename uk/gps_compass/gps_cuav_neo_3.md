@@ -9,33 +9,33 @@
 
 ## Технічні характеристики
 
-| Апаратне забезпечення                             | Тип                                                                                                                        |
-| :------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------- |
-| Компас                                            | IST8310                                                                                                                    |
-| Приймач GNSS                                      | UBLOX NEO M9N                                                                                                              |
-| RGB drive                                         | NC5623C                                                                                                                    |
-| Buzzer                                            | Passive buzzer                                                                                                             |
-| Safety switch                                     | Physical button                                                                                                            |
-| GNSS                                              | Beidou, Galileo, GLONASS, GPS                                                                                              |
-| GNSS Augmentation System                          | SBAS:WAAS,EGNOS,MSAS<br>QZSS:L1s(SAIF)<br>other：RTCM3.3 |
-| Number of concurrent GNSS                         | 4                                                                                                                          |
-| Frequency band                                    | GPS:L1C/A<br>GLONASS:L10F<br>Beidou:B1I<br>Galileo:E1B/C   |
-| Horizontal accuracy                               | 2.0M                                                                                                       |
-| Speed accuracy                                    | 0.05M/S                                                                                                    |
-| Nav. update rate                  | 25Hz(Max)                                                                                               |
-| Acquisition                                       | Cold start：24S<br>Hot start：2S<br>Aided start:2s                                                           |
-| Number of satellites(MAX)      | 32+                                                                                                                        |
-| Чутливість                                        | Відстеження та нав-167dBm<br>Холодний старт Гарячий старт-148dBm<br>Повторний збір -160dBm                                 |
-| Протокол                                          | UART+IO+I2C                                                                                                                |
-| Port TYpe                                         | GHR-10V-S                                                                                                                  |
-| Supported flight controller                       | CUAV series,<br>Pixahwk series                                                                                             |
-| Wave filtering                                    | SAW+LNA+SAW                                                                                                                |
-| Anti-Electromagnetic/radio frequency interference | EMI+RFI                                                                                                                    |
-| Upgrade firmware                                  | support                                                                                                                    |
-| Input voltage                                     | 5V                                                                                                                         |
-| Operating temperature                             | -10~70℃                                                                                                    |
-| Size                                              | 60\*60\*16MM                                                                                                               |
-| Weight                                            | 33g                                                                                                                        |
+| Апаратне забезпечення                                  | Тип                                                                                                                        |
+| :----------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- |
+| Компас                                                 | IST8310                                                                                                                    |
+| Приймач GNSS                                           | UBLOX NEO M9N                                                                                                              |
+| RGB привід                                             | NC5623C                                                                                                                    |
+| Зумер                                                  | Пасивний зумер                                                                                                             |
+| Запобіжний перемикач                                   | Фізична кнопка                                                                                                             |
+| GNSS                                                   | Beidou, Galileo, GLONASS, GPS                                                                                              |
+| Система розширення GNSS                                | SBAS:WAAS,EGNOS,MSAS<br>QZSS:L1s(SAIF)<br>other：RTCM3.3 |
+| Кількість одночасних GNSS                              | 4                                                                                                                          |
+| Смуга частот                                           | GPS:L1C/A<br>GLONASS:L10F<br>Beidou:B1I<br>Galileo:E1B/C   |
+| Горизонтальна точність                                 | 2.0M                                                                                                       |
+| Точність швидкості                                     | 0.05M/S                                                                                                    |
+| Nav. Навігаційні темпи оновлення даних | 25Hz(Max)                                                                                               |
+| Придбання                                              | Холодний старт: 24 с<br>Гарячий старт: 2 с<br>Допоміжний старт: 2 с        |
+| Кількість супутників(MAX)           | 32+                                                                                                                        |
+| Чутливість                                             | Відстеження та нав-167dBm<br>Холодний старт Гарячий старт-148dBm<br>Повторний збір -160dBm                                 |
+| Протокол                                               | UART+IO+I2C                                                                                                                |
+| Тип порту                                              | GHR-10V-S                                                                                                                  |
+| Підтримувані автопілоти включають                      | серія CUAV,<br>серія Pixahwk                                                                                               |
+| Фільтрування хвиль                                     | SAW+LNA+SAW                                                                                                                |
+| Протиелектромагнітний/радіочастотний перешкід          | EMI+RFI                                                                                                                    |
+| Оновлення прошивки                                     | підтримка                                                                                                                  |
+| Вхідна напруга                                         | 5V                                                                                                                         |
+| Робоча температура                                     | -10~70℃                                                                                                    |
+| Розмір                                                 | 60\*60\*16MM                                                                                                               |
+| Вага                                                   | 33g                                                                                                                        |
 
 ## Розміри
 
