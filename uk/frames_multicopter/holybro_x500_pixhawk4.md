@@ -22,122 +22,122 @@
 * [Керування живленням - PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
 * Двигуни Holybro - 2216 KV880 x4 (скасовано - перевірте [список запасних частин](https://holybro.com/products/spare-parts-x500-v2-kit) для поточної версії).
 * ESC Holybro BLHeli S 20A x4 (скасовано - перевірте [список запасних частин](https://holybro.com/products/spare-parts-x500-v2-kit) для поточної версії).
-* Propellers - 1045 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
-* Battery Strap
-* Power and Radio Cables
-* Wheelbase - 500 mm
-* Dimensions - 410x410x300 mm
-* 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
+* Пропелери - 1045 x4 (скасовано - перевірте [список запчастин](https://holybro.com/products/spare-parts-x500-v2-kit) для поточної версії).
+* Ремінь для акумулятора
+* Живлення та радіокабелі
+* Колісна база - 500 мм
+* Розміри - 410x410x300 мм
+* 433 МГц / 915 МГц [Телеметричне радіо Holybro](../telemetry/holybro_sik_radio.md)
 
-Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
+Додатково вам знадобиться акумулятор і приймач ([сумісна радіосистема](../getting_started/rc_transmitter_receiver.md)), якщо ви хочете керувати дроном вручну.
 
-## Main Hardware
+## Головне апаратне забезпечення
 
-This section lists all hardware for the frame and the autopilot installation.
+У цьому розділі перераховано все обладнання для встановлення рами та автопілота.
 
-| Item                         | Опис                                             | Quantity |
-| ---------------------------- | ------------------------------------------------ | -------- |
-| Bottom plate                 | Carbon fiber (2mm thick)                         | 1        |
-| Top plate                    | Carbon fiber (1.5mm thick)                       | 1        |
-| Arm                          | Carbon fiber tube (Diameter: 16mm length: 200mm) | 4        |
-| Landing gear - Vertical pole | Carbon fiber tube + engineering plastic          | 2        |
-| Landing gear - Cross bar     | Carbon fiber tube + engineering plastic + foam   | 2        |
-| Motor base                   | Consists of 6 parts and 4 screws 4 nuts          | 4        |
-| Slide bar                    | Diameter: 10mm length: 250mm                     | 2        |
-| Battery mounting board       | Thickness: 2mm                                   | 1        |
-| Battery pad                  | 3mm Silicone sheet black                         | 1        |
-| Platform board               | Thickness: 2mm                                   | 1        |
-| Hanger & rubber ring gasket  | Inner hole diameter: 10mm black                  | 8        |
+| Елемент                                 | Опис                                                     | Кількість |
+| --------------------------------------- | -------------------------------------------------------- | --------- |
+| Нижня пластина                          | Вуглецеве волокно (товщиною 2 мм)                        | 1         |
+| Верхня пластина                         | Вуглецеве волокно (товщиною 1.5мм)                       | 1         |
+| Кронштейн                               | Вуглепластикова трубка (діаметр: 16 мм, довжина: 200 мм) | 4         |
+| Шасі - Вертикальна стійка               | Вуглепластикова трубка + інженерний пластик              | 2         |
+| Шасі - Поперечна балка                  | Вуглепластикова трубка + інженерний пластик + пінопласт  | 2         |
+| Моторна база                            | Складається з 6 частин і 4 гвинтів 4 гайок               | 4         |
+| Бокова панель                           | Діаметр: 10мм довжина: 250мм                             | 2         |
+| Плата кріплення акумулятора             | Товщина: 2мм                                             | 1         |
+| Підставка для батареї                   | Чорний лист силікону товщиною 3 мм                       | 1         |
+| Дошка платформи                         | Товщина: 2мм                                             | 1         |
+| Кріплення та гумове кільцеве ущільнення | Діаметр внутрішнього отвору: 10 мм чорний                | 8         |
 
 ![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/whats_inside_x500_labeled.jpg)
 
-### Electronics
+### Електроніка
 
-| Item Description                                                               | Quantity |
-| ------------------------------------------------------------------------------ | -------- |
-| Pixhawk4 & Assorted Cables                                                     | 1        |
-| Pixhawk4 GPS Module                                                            | 1        |
-| Power Management PM07 (with pre-soldered ESC power cables)                     | 1        |
-| Motors 2216 KV880（V2 Update)                                                   | 4        |
-| Holybro BLHeli S ESC 20A x4                                                    | 1        |
-| 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md) | 1        |
+| Опис предмету                                                                     | Кількість |
+| --------------------------------------------------------------------------------- | --------- |
+| Pixhawk4 & Assorted Cables                                                        | 1         |
+| Pixhawk4 GPS Module                                                               | 1         |
+| Управління живленням PM07 (з попередньо припаяними кабелями живлення ESC)         | 1         |
+| Двигуни 2216 KV880 (оновлення V2)                                                 | 4         |
+| Holybro BLHeli S ESC 20A x4                                                       | 1         |
+| 433 МГц / 915 МГц [Телеметричне радіо Holybro](../telemetry/holybro_sik_radio.md) | 1         |
 
-### Tools needed
+### Необхідні інструменти
 
-The following tools are used in this assembly:
+У цій збірці використовуються наступні інструменти:
 
-- 1.5 mm Hex screwdriver
-- 2.0 mm Hex screwdriver
-- 2.5 mm Hex screwdriver
-- 3mm Phillips screwdriver
-- 5.5 mm socket wrench or small piler
-- Wire cutters
-- Precision tweezers
+- Викрутка з шестигранником 1,5 мм
+- Викрутка з шестигранником 2,0 мм
+- Викрутка з шестигранником 2,5 мм
+- Хрестоподібна викрутка 3 мм
+- Торцевий ключ 5,5 мм або невелика викрутка
+- Кусачки
+- Прецизійний пінцет
 
 
-## Assembly
+## Збірка
 
-Estimate time to assemble is 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
+Час збірки (приблизно): 3.75 години (180 хвилин на раму, 45 хвилин на встановлення/налаштування автопілота)
 
-1. Start by assembling the landing gear. Unscrew the landing gear screws and insert the vertical pole (figures 1 and 2).
+1. Почніть зі збирання шасі. Відкрутіть гвинти шасі і вставте вертикальну стійку (зобр. 1 і 2).
 
    ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig1.jpg)
 
-   _Figure 2_: Landing gear components
+   _Зображення 1_: Компоненти шасі
 
    ![Landing Figure 2: Assembled](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig2.jpg)
 
-   _Figure 2_: Landing gear assembled
+   _Зображення 2_: Шасі в зібраному вигляді
 
-1. Then put the 4 arms through the 4 motor bases shown in figure 3. Make sure the rods protrude the base slightly and are consistent throughout all 4 arms, and be sure to have the motor wires facing outward.
+1. Потім просуньте 4 кронштейни через 4 основи двигуна, як показано на малюнку 3. Переконайтеся, що штанги злегка виступають з основи і є однаковими на всіх 4-х плечах, а також переконайтеся, що дроти електродвигуна спрямовані назовні.
 
    ![Attach arms to motor bases](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_2_fig3.png)
 
-   _Figure 3_: Attach arms to motor bases
+   _Зображення 3_: Приєднання кронштейнів до основи двигуна
 
-1. Insert 4 nylon screws and nylon standoffs and attach the power module PM07 to the bottom plate using 4 nylon nuts as shown in Figures 4.
+1. Вставте 4 нейлонові гвинти та нейлонові стійки і прикріпіть модуль живлення PM07 до нижньої панелі за допомогою 4 нейлонових гайок, як показано на зображенні 4.
 
    ![Attach power module](../../assets/airframes/multicopter/x500_holybro_pixhawk4/power_module.jpg)
 
-   _Figure 4_: Attach power module
+   _Зображення 4_: Приєднання модуля живлення
 
-1. Feed the 4 motor ESCs through each of the arms and connect the 3-wires end to the motors shown in Figure 5.
+1. Протягніть 4 двигуни ESC через кожне з кронштейнів і підключіть трижильні дроти до двигунів, як показано на зображенні 5.
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig17.jpg" width="250" title="Connect motors" />
 
-   _Figure 5_: Connect motors
+   _Зображення 5_: Підключення двигунів
 
-1. Connect the ESCs power wires onto the power module PM07, black->black and red->red, ESC PWM signal wires goes to "FMU-PWM-Out". Make sure you connect the motor ESC PWM wires in the correct order. Refer to Figure 7 for airframe motor number and connect to the corresponding number on the PM07 board.
+1. Підключіть дроти живлення ESC до модуля живлення PM07, чорний - до чорного, червоний - до червоного, дроти сигналу ШІМ ESC йдуть на "FMU-PWM-Out". Переконайтеся, що ви підключили дроти ШІМ ESC двигуна в правильному порядку. Номер двигуна повітряного корпусу дивіться на зображенні 7 і підключіть його до відповідного номера на платі PM07.
 
-   ![ESC power module and signal wiring](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_pwm.jpg) _Figure 7_: ESC power module and signal wiring
+   ![ESC power module and signal wiring](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_pwm.jpg) _Зображення 7_: Модуль живлення ESC та сигнальна проводка
 
-   The color on top of the motor indicate the spin direction (figure 7-1), black tip is clockwise, and white tip is counter-clockwise. Make sure the follow the px4 quadrotor x airframe reference for motor direction (figure 7-2).
+   Колір на верхній частині двигуна вказує на напрямок обертання (зображення 7-1), чорний кінчик - за годинниковою стрілкою, а білий - проти годинникової стрілки. Переконайтеся, що при виборі напрямку двигуна ви дотримуєтесь орієнтира px4 quadrotor x airframe (зображення 7-2).
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/quadx.png" width="240" />
 
-   _Figure 7_: Motor order/direction diagram
+   _Зображення 7_: Діаграма порядку/напряму руху двигуна
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/motor_direction1.jpg" width="400" />
 
-   _Figure 7-1_: Motor direction
+   _Зображення 7-1_: Напрямок руху двигуна
 
-1. Connect the 10 pin cables to FMU-PWM-in, the 6 pin cables to the PWR1 on the PM07 power module.
+1. Підключіть 10-контактні кабелі до FMU-PWM-in, а 6-контактні - до PWR1 на модулі живлення PM07.
 
    ![Flight controller/Power module PWM and Power connections](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_cable.jpg)
 
-   _Figure 8_: Power module PWM and power wiring
+   _Зображення 8_: Модуль живлення ШІМ і силова проводка
 
-1. If you want to mount the GPS on the top plate, you can now secure the GPS mount onto the top plate using 4 screws and nuts.
+1. Якщо ви хочете встановити GPS на верхній панелі, то тепер ви можете закріпити кріплення GPS на верхній панелі за допомогою 4 гвинтів і гайок.
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gpsmount.jpg" width="400" title="Secure GPS mount onto top plate" />
 
-   _Figure 9_: Secure GPS mount onto top plate
+   _Зображення 9_: Кріплення GPS на верхній панелі
 
-1. Feed the PM07 cables through the top plate. Connect the top and bottom plate by using 4 U-shaped nylon straps, screws, and nuts on each side, ensure that the motor ESC cables are inside the U-shape nylon straps like Figure 10, keep the nut loose.
+1. Протягніть кабелі PM07 через верхню пластину. З'єднайте верхню і нижню пластини за допомогою 4 U-подібних нейлонових ременів, гвинтів і гайок з кожного боку, переконайтеся, що кабелі ESC двигуна знаходяться всередині U-подібних нейлонових ременів, як показано на зображенні 10, гайки не затягуйте.
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/top_plate.jpg" width="300" />
 
-   _Figure 10-1_: Feed power module cables through top plate
+   _Зображення 10-1_: Кабелі силового модуля прокладені через верхню панель
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/ushape.jpg" width="355" title="Connecting top and bottom plate" />
 
