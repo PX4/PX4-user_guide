@@ -74,11 +74,11 @@ LOCOSYS схема виводів GPS наведена нижче.
 
 ## Індикатори статусу LEDs
 
-| Колір | Назва           | Опис                               |
-| ----- | --------------- | ---------------------------------- |
-| Green | TX Indicator    | GNSS Data transmission             |
-| Red   | Power Indicator | Power                              |
-| Blue  | PPS             | Precise Positioning Service active |
+| Колір    | Назва              | Опис                                  |
+| -------- | ------------------ | ------------------------------------- |
+| Зелений  | Індикатор TX       | Передача даних GNSS                   |
+| Червоний | Індикатор живлення | Потужність                            |
+| Синій    | PPS                | Служба точного позиціонування активна |
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
 
