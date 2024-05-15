@@ -108,9 +108,9 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## Balloon
+## Повітряна куля
 
-### Balloon
+### Повітряна куля
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/Balloon.svg"/>
@@ -130,7 +130,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## Copter
+## Коптер
 
 ### Dodecarotor cox
 
@@ -230,7 +230,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
@@ -254,7 +254,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
@@ -323,7 +323,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_quadrotor_+_generic_quad_+_geometry">
@@ -424,11 +424,11 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_droneblocks_dexi_5">
  <td>Droneblocks DEXI 5</td>
- <td>Maintainer: Alex klimaj &lt;alex@arkelectron.com&gt;<p><code>SYS_AUTOSTART</code> = 4601</p></td>
+ <td>Супроводжуючий: Алекс klimaj &lt;alex@arkelectron.com&gt;<p><code>SYS_AUTOSTART</code> = 4601</p></td>
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2.1">
  <td>Crazyflie 2.1</td>
- <td>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4901</p></td>
+ <td>Супроводжуючий: Денніс Штатов <densht@gmail.com><p><code>SYS_AUTOSTART</code> = 4901</p></td>
 </tr>
 </tbody>
 </table>
@@ -448,7 +448,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="copter_simulation_hil_quadcopter_x">
  <td>HIL Quadcopter X</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 1001</p></td>
+ <td>Підтримувач: Lorenz Meier <lorenz@px4.io><p><code>SYS_AUTOSTART</code> = 1001</p></td>
 </tr>
 <tr id="copter_simulation_sih_quadcopter_x">
  <td>SIH Quadcopter X</td>
@@ -489,7 +489,7 @@ div.frame_variant td, div.frame_variant th {
 
 ## Літак
 
-### Flying Wing
+### Літаюче крило
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/FlyingWing.svg"/>
@@ -498,12 +498,12 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_flying_wing_generic_flying_wing">
  <td>Generic Flying Wing</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 3000</p></td>
+ <td>Супроводжуючий:: John Doe <john@example.com><p><code>SYS_AUTOSTART</code> = 3000</p></td>
 </tr>
 </tbody>
 </table>
@@ -531,14 +531,14 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="plane_plane_a-tail_applied_aeronautics_albatross">
- <td>Applied Aeronautics Albatross</td>
- <td>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2106</p></td>
+ <td>Прикладна авіація Альбатрос</td>
+ <td>Менеджер: Андреас Антенер <andreas@uaventure.com><p><code>SYS_AUTOSTART</code> = 2106</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Simulation
+### Симуляція
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
@@ -551,14 +551,14 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="plane_simulation_sih_plane_aert">
- <td>SIH plane AERT</td>
- <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1101</p></td>
+ <td>SIH літак AERT</td>
+ <td>Супроводжуючий: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1101</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Standard Plane
+### Стандартний літак
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/Plane.svg"/>
@@ -571,16 +571,16 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="plane_standard_plane_generic_standard_plane">
- <td>Generic Standard Plane</td>
+ <td>Загальний Стандартний літак</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 2100</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-## Rover
+## Ровер
 
-### Rover
+### Землехід
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/Rover.svg"/>
@@ -608,9 +608,9 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## Underwater Robot
+## Підводний робот
 
-### Underwater Robot
+### Підводний робот
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeUnknown.svg"/>
@@ -623,7 +623,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
- <td>Generic Underwater Robot</td>
+ <td>Загальний підводний робот</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
@@ -652,12 +652,12 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="underwater_robot_vectored_6_dof_uuv_bluerov2_(heavy_configuration)">
  <td>BlueROV2 (Heavy Configuration)</td>
- <td>Maintainer: Thies Lennart Alff &lt;thies.lennart.alff@tuhh.de&gt;<p><code>SYS_AUTOSTART</code> = 60002</p></td>
+ <td>Супроводжуючий: Thies Lennart Alff &lt;thies.lennart.alff@tuhh.de&gt;<p><code>SYS_AUTOSTART</code> = 60002</p></td>
 </tr>
 </tbody>
 </table>
@@ -665,13 +665,13 @@ div.frame_variant td, div.frame_variant th {
 
 ## VTOL
 
-### Simulation
+### Симуляція
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
 <table>
  <thead>
-   <tr><th>Common Outputs</th></tr>
+   <tr><th>Загальні виходи</th></tr>
  </thead>
  <tbody>
 <tr>
@@ -683,7 +683,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_simulation_sih_tailsitter_duo">
@@ -703,7 +703,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
@@ -740,7 +740,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="vtol_vtol_tailsitter_generic_vtol_tailsitter">
  <td>Generic VTOL Tailsitter</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13200</p></td>
+ <td>Супроводжуючий: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13200</p></td>
 </tr>
 </tbody>
 </table>
@@ -755,7 +755,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor">
@@ -764,7 +764,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_vtol_tiltrotor_generic_tiltrotor_vtol">
  <td>Generic Tiltrotor VTOL</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
+ <td>Супроводжуючий:: John Doe <john@example.com><p><code>SYS_AUTOSTART</code> = 13100</p></td>
 </tr>
 </tbody>
 </table>
