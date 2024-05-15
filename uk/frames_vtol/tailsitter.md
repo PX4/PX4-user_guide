@@ -34,7 +34,7 @@
 </div>
 </div>
 
-Duo Tailsitters are generally more efficient in cruise flight (4 smaller propellers are less efficient than 2 larger ones) and physically more compact. However as they are aerodynamically much more complex in hover mode, they are much harder to tune for both hover and transition. Quad tailsitters are easier to fly in hover mode, and more stable in windy conditions. Both are supported using the same aiframe type in PX4.
+Duo Tailsitters зазвичай більш ефективні в крейсерському польоті (4 менших гвинта менш ефективні, ніж 2 більших) і фізично більш компактні. However as they are aerodynamically much more complex in hover mode, they are much harder to tune for both hover and transition. Quad tailsitters are easier to fly in hover mode, and more stable in windy conditions. Both are supported using the same aiframe type in PX4.
 
 ## Setup/Flying
 
