@@ -123,8 +123,8 @@ ttyS6 CONFIG_STM32F7_UART8=y PX4IO
 
 ## Інші архітектури
 
-::: info
-Contributions welcome!
+:::info
+Внески від контрибюторів вітаються!
 :::
 
 ## Дивіться також
