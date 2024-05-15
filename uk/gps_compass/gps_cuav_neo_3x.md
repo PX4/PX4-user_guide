@@ -35,25 +35,25 @@ Main features :
 | Size                                         | 67_67_21.2mm                                                                                                      |
 | Weight                                       | 46g (without cable）                                                                                            |
 
-## Where to Buy
+## Де придбати
 
 - [CUAV](https://www.alibaba.com/product-detail/Free-shipping-CUAV-NEO-3X-GPS_1601004167114.html?spm=a2747.manage.0.0.6aa271d2urCPnP)
 
-## Wiring and Connections
+## Підключення та з'єднання
 
-NEO 3X connected to autopilot CAN1/CAN2 interface
+NEO 3X, підключений до інтерфейсу автопілоту CAN1/CAN2
 
-![NEO 3X connected to autopilot CAN1/CAN2 interface](../../assets/hardware/gps/cuav_gps_neo3/neo_3x_connect.jpg)
+![NEO 3X, підключений до інтерфейсу каналу CAN1/CAN2 автопілота](../../assets/hardware/gps/cuav_gps_neo3/neo_3x_connect.jpg)
 
-## PX4 Configuration
+## Конфігурація PX4
 
-Open **QGroundControl > Parameters** and modify the following parameters:
+Відкрийте **QGroundControl > Parameters** та змініть наступні параметри:
 
-- `UAVCAN_ENABLE`Set to `Sensors Automatic config` .
-- `UAVCAN_SUB_GPS` Set to `Enable`.
+- `UAVCAN_ENABLE` встановити на `Sensors Automatic config` .
+- `UAVCAN_SUB_GPS` Встановлено на `Увімкнути`.
 
-![QGC Full Parameter screen showing DroneCan (UAVCAN) parameters](../../assets/hardware/gps/cuav_gps_neo3/px4_can.jpg)
+![Повний екран параметрів QGC, що показує параметри DroneCan (UAVCAN)](../../assets/hardware/gps/cuav_gps_neo3/px4_can.jpg)
 
-## More info
+## Детальніше
 
-- [CUAV docs](https://doc.cuav.net/gps/neo-series-gnss/en/neo-3x.html)
+- [Документація CUAV](https://doc.cuav.net/gps/neo-series-gnss/en/neo-3x.html)
