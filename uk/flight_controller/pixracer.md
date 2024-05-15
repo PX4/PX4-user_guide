@@ -14,57 +14,57 @@
 ## Основні характеристики
 
 - Основна System-on-Chip: [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
-  - CPU: 180 MHz ARM Cortex<sup>&reg;</sup> M4 with single-precision FPU
+  - CPU: 180 МГц ARM Cortex<sup>&reg;</sup> M4 з одноточним FPU
   - RAM: 256 KB SRAM (L1)
-- Standard FPV form factor: 36x36 mm with standard 30.5 mm hole pattern
+- Стандартний FPV form factor: 36x36 mm зі стандартним 30.5 mm hole pattern
 - Invensense<sup>&reg;</sup> ICM-20608 Accel / Gyro (4 KHz) / MPU9250 Accel / Gyro / Mag (4 KHz)
-- HMC5983 magnetometer with temperature compensation
-- Measurement Specialties MS5611 barometer
-- JST GH connectors
-- microSD (logging)
-- Futaba S.BUS and S.BUS2 / Spektrum DSM2 and DSMX / Graupner SUMD / PPM input / Yuneec ST24
-- FrSky<sup>&reg;</sup> telemetry port
-- OneShot PWM out (configurable)
-- Optional: Safety switch and buzzer
+- Магнітометр HMC5983 з компенсацією температури
+- Measurement Specialties MS5611 барометр
+- JST GH конектори
+- microSD (логування)
+- Futaba S.BUS та S.BUS2 / Spektrum DSM2 і DSMX / Graupner SUMD / PPM вхід / Yuneec ST24
+- FrSky<sup>&reg;</sup> порт телеметрії
+- OneShot PWM out (налаштовується)
+- Опціонально: запобіжний перемикач та базер
 
 ## Де придбати
 
-Pixracer is available from the [mRobotics.io](https://store.mrobotics.io/mRo-PixRacer-R15-Official-p/m10023a.htm).
+Pixracer доступний на [mRobotics.io](https://store.mrobotics.io/mRo-PixRacer-R15-Official-p/m10023a.htm).
 
-Accessories include:
+Аксесуари включають:
 
-- [Digital airspeed sensor](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
+- [Цифровий датчик швидкості](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
 - [Hobbyking<sup>&reg;</sup> OSD + EU Telemetry (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
 
-## Kit
+## Набір
 
-The Pixracer is designed to use a separate avionics power supply. This is necessary to avoid current surges from motors or ESCs to flow back to the flight controller and disturb its delicate sensors.
+Pixracer розроблений для використання окремого джерела живлення авіоніки. Це необхідно для того, щоб уникнути стрибків струму від моторів чи ESC, що повертається до політного контролера і турбує його чутливі сенсори.
 
-- Power module (with voltage and current sensing)
-- I2C splitter (supporting AUAV, Hobbyking and 3DR<sup>&reg;</sup> peripherals)
-- Cable kit for all common peripherals
+- Модуль живлення (з вимірюванням напруги та струму)
+- Розгалужувач I2C (підтримка AUAV, Hobbyking та 3DR<sup>&reg;</sup> периферійних пристроїв)
+- Набір кабелів для всіх поширених периферійних пристроїв
 
-## Wifi (no USB required)
+## Wifi (без необхідності USB)
 
-One of the main features of the board is its ability to use Wifi for flashing new firmware, system setup and in-flight telemetry. This frees it of the need of any desktop system.
+Одна з головних особливостей плати - це її можливість використовувати Wifi для прошивки, налаштування системи та телеметрії в польоті. Це звільняє його від потреби будь-якої десктопної системи.
 
 - [ESP8266 Wifi](../telemetry/esp8266_wifi_module.md)
-- [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
+- [Кастомна прошивка ESP8266 MAVLink](https://github.com/dogmaphobic/mavesp8266)
 
 ::: info
-Firmware upgrade is not yet enabled over WiFi (it is supported by the default bootloader but not yet enabled).
-Setup and telemetry are supported.
+Оновлення прошивки через WiFi ще не активовано (підтримується заводським завантажувачем за замовчуванням, але ще не активовано).
+Підтримуються налаштування та телеметрія.
 :::
 
 ## Збірка
 
-See the [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
+Дивіться [Посібник зі швидкого підключення Pixracer](../assembly/quick_start_pixracer.md)
 
-## Wiring Diagrams
+## Схеми з'єднань
 
 ![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
 
-::: info If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port. For more information see: [Pixracer Wiring Quickstart > External Telemetry](../assembly/quick_start_pixracer.md#external-telemetry)
+::: info Якщо використовуєте `TELEM2` для зовнішнього модуля телеметрії, вам потрібно буде налаштувати його як послідовний порт MAVLink. Для отримання додаткової інформації див. : [Pixracer Wiring Quickstart > External Telemetry](../assembly/quick_start_pixracer.md#external-telemetry)
 :::
 
 ![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
@@ -77,11 +77,11 @@ See the [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
 
 ![Grau ACSP5 roh](../../assets/flight_controller/pixracer/grau_acsp5_roh.jpg)
 
-## Connectors
+## Конектори
 
-All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixhawk-connector-standard/). Unless noted otherwise all connectors are JST GH.
+Всі конектори відповідають [Pixhawk connector standard](https://pixhawk.org/pixhawk-connector-standard/). Якщо не вказано інше, всі конектори - це JST GH.
 
-## Pinouts
+## Розпіновка
 
 ![Pixracer top pinouts](../../assets/flight_controller/pixracer/pixracer_r09_top_pinouts.jpg)
 
@@ -89,7 +89,7 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 
 ![Pixracer esp](../../assets/flight_controller/pixracer/pixracer_r09_esp_01.jpg)
 
-#### TELEM1, TELEM2+OSD ports
+#### TELEM1, TELEM2+OSD порти
 
 | Pin     | Signal    | Volt  |
 | ------- | --------- | ----- |
@@ -120,7 +120,7 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 | 3 (blk) | RX (IN)  | +3.3V |
 | 4 (blk) | GND      | GND   |
 
-#### RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)
+#### RC вхід (приймає PPM / S.BUS / Spektrum / SUMD / ST24)
 
 | Pin     | Signal  | Volt  |
 | ------- | ------- | ----- |
@@ -139,7 +139,7 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 | 3 (blk) | CAN_L  | +12V |
 | 4 (blk) | GND    | GND  |
 
-#### POWER
+#### ЖИВЛЕННЯ
 
 | Pin     | Signal  | Volt  |
 | ------- | ------- | ----- |
@@ -150,7 +150,7 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 | 5 (blk) | GND     | GND   |
 | 6 (blk) | GND     | GND   |
 
-#### SWITCH
+#### ПЕРЕМИКАЧ
 
 | Pin     | Signal           | Volt  |
 | ------- | ---------------- | ----- |
@@ -160,9 +160,9 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 | 4 (blk) | BUZZER-          | -     |
 | 5 (blk) | BUZZER+          | -     |
 
-#### Debug Port
+#### Відладочний порт
 
-The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
+Розпіновка та конектор відповідають інтерфейсу [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini), визначеному в [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (конектор JST SM06B).
 
 | Pin     | Signal           | Volt  |
 | ------- | ---------------- | ----- |
@@ -173,12 +173,12 @@ The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debu
 | 5 (blk) | SWCLK            | +3.3V |
 | 6 (blk) | GND              | GND   |
 
-For information about using this port see:
+Інформацію про використання цього порту дивіться:
 
 - [SWD Debug Port](../debug/swd_debug.md)
-- [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to UART7).
+- [Системна консоль PX4](../debug/system_console.md) (Зауважте, що консоль FMU зіставляється з UART7).
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
 | UART   | Device     | Port                  |
 | ------ | ---------- | --------------------- |
@@ -191,33 +191,33 @@ For information about using this port see:
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-## Schematics
+## Схеми
 
-The reference is provided as: [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)
+Референс надано як: [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)
 
-The following PDF files are provided for _convenience only_:
+Наведені нижче файли PDF надаються лише для _зручності_:
 
 - [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
-- [pixracer-r14.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
+- [pixracer-r14.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 або RC14 надруковано поруч з сокетом SDCard
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цього контролера:
 
 ```
 make px4_fmu-v4_default
 ```
 
-## Configuration
+## Налаштування
 
-[Compass calibration](../config/compass.md) should be done with USB disconnected. This is always recommended, but is necessary on Pixracer because the USB connection produces particularly large levels of magnetic interference.
+[Калібрування компасу](../config/compass.md) повинно бути виконано з відключеним USB. Це завжди рекомендується, але необхідно на Pixracer, оскільки підключення USB виробляє особливо великі рівні магнітного перешкодження.
 
-Configuration is otherwise the same as for other boards.
+Конфігурація в інших випадках така ж, як для інших плат.
 
-## Credits
+## Подяки
 
-This design was created by Nick Arsov and Phillip Kocmoud and architected by Lorenz Meier, David Sidrane and Leonard Hall.
+Цей дизайн був створений Nick Arsov і Phillip Kocmoud і архітектурно запроєктований Lorenz Meier, David Sidrane і Leonard Hall.
