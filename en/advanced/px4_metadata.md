@@ -8,7 +8,8 @@ PX4 uses and generates data that has associated human- and machine- readable met
 - [Events](../concept/events_interface.md) provide notification of events, such as reasons for a failsafe, low battery warnings, end of calibration, and so on.
   - An event is represented by an id, and is sent with a log level and arguments.
   - The associated metadata includes a message, a description and a list of arguments (including their type) of each event.
-- [Actuators](../config/actuators.md) metadata contains information about supported vehicle geometries, a list of output drivers, and how to configure them. QGroundControl uses that information to dynamically build a configuration UI.
+- [Actuators](../config/actuators.md) metadata contains information about supported vehicle geometries, a list of output drivers, and how to configure them.
+  QGroundControl uses that information to dynamically build a configuration UI.
 
 The metadata and metadata translations are shared with external systems, such as QGroundControl, allowing them to display information about parameters and events as a string in the user's own language.
 
@@ -62,7 +63,7 @@ For more information see [PX4-Metadata-Translations](https://github.com/PX4/PX4-
 The parameter XML file of the main branch is copied into the QGC source tree via CI and is used as a fallback in cases where no metadata is available via the component metadata protocol (this approach predates the existence of the component metadata protocol).
 :::
 
-### Actuator metadata
+### Actuator Metadata
 
 The following diagram shows how actuator metadata is assembled from the source code and used by QGroundControl:
 
