@@ -14,102 +14,102 @@
 
 ### Навантаження та тримач батареї
 
-**Screw**-  Sunk Screw M2.5*6 12pcs
+**Саморіз**- Закріпний винт M2.5*6 12шт
 
-1. Insert the hanger rubber ring gasket in each of their respective hangers. Do not use sharp objects to press the rubbers inside.
+1. Вставте резинове кільце підвіски-висувки в кожну з їхніх відповідних підвісок. Не використовуйте гострi предмети для натискання резинок всередині.
 
    [![Assembly1](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly1.png)](https://www.youtube.com/watch?v=4Tid-FCP_aI)
 
-1. Take the battery mounting board and screw it with the slide bar clip using the Sunk Screw M2.5*6.
+1. Візьміть плату кріплення батареї і закрутіть її за допомогою затискача зі слайдом за допомогою відвірки винта M2.5*6.
 
    [![Assembly2](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly2.png)](https://youtu.be/9E-rld6tPWQ)
 
-1. Screw 4 hangers to the Platform Board using Sunk Screw M2.5*6.
+1. Закрутіть 4 вішалки на дошку платформи, використовуючи поглиблену винт M2.5*6.
 
    [![Assembly3](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly3.png)](https://youtu.be/4qIBABc9KsY))
 
-1. Take the slide bar and insert 4 hangers to screw to the bottom plate later.
+1. Візьміть зациклювальну планку та вставте 4 вісця, щоб прикрутити до нижньої плати пізніше.
 
    [![Assembly4](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly4.png)](https://youtu.be/CFx6Ct7FCIc))
 
-1. Now insert the battery holder and payload holders assembled in step 2 & 3
+1. Зараз вставте тримач батареї та тримачі навантаження, зібрані на кроці 2 & 3
 
 
-### Power Module
+### Модуль живлення
 
-**Screw**- Socket Cap Screw M2.5*6 8pcs | Locknut M3 4pcs |Nylon Standoff M3*5 4pcs | Screw M3*14 4pcs
+**Шуруп**- Шуруп з шестигранною головкою M2.5*6 8шт | Гайка M3 4шт | Нейлонова опора M3*5 4шт | Шуруп M3*14 4шт
 
    [![Assembly5](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly5.png)](https://youtu.be/0knU3Q_opEo))
 
-1. Take the bottom plate and insert 4 M3*14 screws and fasten the nylon standoffs on the same.
+1. Візьміть нижню пластину і вставте 4 гвинти M3*14 та закрутіть нейлонові заглушки на них.
 
    [![Assembly6](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly6.png)](https://youtu.be/IfsMXTr3Uy4)
 
-1. Place the Power distribution board and use the locknuts to assemble them. The power module PM02 (for Pixhawk 6C) would power this board
+1. Розмістіть Планку розподілу живлення та використовуйте гайки-самостопорювачі для їх збирання. Модуль живлення PM02 (для Pixhawk 6C) буде живити цю плату
 
    [![Assembly7](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly7.png)](https://youtu.be/Qjs6pqarRIY)
 
-1. Use Socket Cap Screws M2.5*6 and screw the bottom plate on the 4 hangers (that we inserted in the 2 bars on the 3rd step of the payload holder assembly)<!--  @\[youtube\](https://youtu.be/Qjs6pqarRIY) -->### Landing Gear
+1. Використовуйте винти гніздові з головкою M2.5*6 та закрутіть нижню пластину на 4 вісці (які ми вставили в 2 планки на 3-му кроці збірки тримача навантаження)<!--  @\[youtube\](https://youtu.be/Qjs6pqarRIY) -->### Шасі
 
-1. To assemble the landing gear, loosen the pre-assembled screws of the Landing Gear-Cross Bar and insert the Landing Gear-Vertical Pole and fasten the same.
+1. Для збирання станції шасі відкрутіть заздалегідь складені винти шасі - перекрестна стрічка та вставте шасі - вертикальний стовп і затягніть той же.
 
    [![Assembly8](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly8.png)](https://youtu.be/mU4vm4zyjcY)
 
    [![Assembly9](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly9.png)](https://youtu.be/7REaF3YAqLg)
 
-1. Use the Socket Cap Screw M3*8 to screw the landing gears to the bottom plate
+1. Використовуйте Гвинт кришки розетки M3*8, щоб прикрутити посадкові шасі до нижньої пластини
 
    [![Assembly11](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly11.png)](https://youtu.be/iDxzWeyCN54)
 
    [![Assembly12](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly12.png)](https://youtu.be/3fNJQraCJx0)
 
 
-Because it’s cumbersome to insert the wires once the top plate is assembled, do the wiring beforehand. Although the design is well built such that you can do this later as well.
+Оскільки важко вставити проводи після того, як верхня плита складена, зробіть проводку заздалегідь. Хоча дизайн добре спроектований таким чином, що ви зможете зробити це пізніше також.
 
 [![Assembly13](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly13.png)](https://youtu.be/3en4DlQF4XU)
 
-### Power
+### Потужність
 
-The Pixhawk 6C gets powered by a power module PM02 (in this case). This power module is supplied by a battery (4S 16.8V 5200 mAh)
+Pixhawk 6C запитується за допомогою плати живлення PM02 (у цьому випадку). Цей модуль живлення постачається від батареї (4S 16.8V 5200 мАг)
 
-The motors are powered through the power distribution board, as shown in the diagram below.
+Двигуни живляться через розподільчу дошку живлення, як показано на наведеній нижче схемі.
 
 ![motors_pdb_pixhawk6c](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/motors_pdb_pixhawk6c.png)
 
-Note that the ESC connectors are color-coded and must be inserted in the PWM out such that the white cable faces up.
+Зверніть увагу, що роз'єми ESC мають кольорову кодировку і повинні бути вставлені в PWM out так, що білий кабель зверху.
 
 ![esc_connector_pixhawk6c](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/esc_connector.jpg)
 
 
-### Arms
+### Зброя
 
-**Screw-** Socket Cap Screw M3*38 16pcs | Flange Locknut M3 16pcs
+**Винт-** болт з гніздовою головкою M3*38 16шт | Фланцева гайка M3 16шт
 
 [![Assembly14](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly14.png)](https://youtu.be/66Hfy6ysOpg)
 
-1. Putting the arms is quite simple as the motors come pre-assembled.
-   - Ensure that you have the right numbered arm with its motor on the respective side.
+1. Поставити руки досить просто, оскільки двигуни поставляються вже зібраними.
+   - Переконайтесь, що у вас є правильна пронумерована рука з мотором на відповідному боці.
 
    [![Assembly15](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly15.png)](https://youtu.be/45KCey3WiJ4)
 
    :::tip
-Use your allen keys/ any elongated item and insert it on the opposite side of the bolt that you're trying to fasten.
+Використовуйте свої ключі аллен / будь-який витягнутий предмет і вставте його на протилежний бік болта, який ви намагаєтеся закрутити.
 :::
 
-1. Take one arm and insert the rectangle extrusion inside the rectangular hollow on the bottom plate.
+1. Возьміть одну руку та вставте прямокутний виступ всередину прямокутного порожнини на нижній плиті.
 
    [![Assembly16](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly16.png)](https://youtu.be/GOTqmjq9_3s)
 
-1. While inserting the top plate on top of this the 3 piece assembly (bottom plate, top plate & arms) have to screwed using Socket Cap Screw M3*38 and Flange Locknut M3.
-1. Hold one side using the mini cross wrench provided in the developer kit.
+1. Під час встановлення верхньої пластини поверх цієї 3-шарової конструкції (нижня пластина, верхня пластина і плечі) необхідно закрутити гвинтом з шестигранною головкою M3*38 та гайкою з фланцем M3.
+1. Утримуйте одну сторону, використовуючи міні-гайковий ключ, який надається у розробницькому комплекті.
 
    [![Assembly17](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly17.png)](https://youtu.be/2rcNVekJQd0)
 
-1. Do not fasten any screws before all 3 motors are in place as this might make it difficult while you’re assembling the 3rd and 4th motor.
+1. Не зав'язуйте жодних болтів, поки всі 3 мотори не будуть на місці, оскільки це може зробити складним збирання 3-го та 4-го моторів.
 
    [![Assembly18](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly18.png)](https://youtu.be/SlKRuNoE_AY)
 
-### Propellers
+### Пропелери
 
 [![Assembly19](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly19.png)](https://youtu.be/yu75VkMaIyc)
 
@@ -203,6 +203,6 @@ Airframe selection sets *default* autopilot parameters for the frame. These are 
 For instructions on how, start from [Auto-tune](../config/autotune.md).
 
 
-## Acknowledgements
+## Подяки
 
-This build log was contributed by Akshata and Hamish Willee with many thanks to Holybro and Dronecode for Hardware and technical support.
+Цей журнал збірки був наданий Акшата та Хамішем Віллі з великими подяками компанії Holybro та Dronecode за апаратне забезпечення та технічну підтримку.
