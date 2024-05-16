@@ -764,7 +764,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_vtol_tiltrotor_generic_tiltrotor_vtol">
  <td>Generic Tiltrotor VTOL</td>
- <td>Супроводжуючий:: John Doe <john@example.com><p><code>SYS_AUTOSTART</code> = 13100</p></td>
+ <td>Супроводжуючий: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
 </tr>
 </tbody>
 </table>
