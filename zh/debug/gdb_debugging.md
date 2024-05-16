@@ -1,6 +1,6 @@
 # 使用 GDB 调试
 
-[GNU DeBugger（GDB）](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html)是用编译器工具链安装的形式为二进制`arm-none-eabi-gdb`。 调试器读取ELF文件内的调试富豪，以了解PX4固件的静态和动态内存布局。 要访问PX4自动驾驶仪微控制器，需要连接到[远程目标](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html)，这是由[SWD 调试探测器](swd_debug.md)提供的。
+The [GNU DeBugger (GDB)](https://sourceware.org/gdb/documentation/) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary. 调试器读取ELF文件内的调试富豪，以了解PX4固件的静态和动态内存布局。 To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
 
 信息流看起来像这样：
 
@@ -36,7 +36,7 @@ Once connected, you can use the usual GDB commands such as:
 - `info locals` to print local variables
 - `info registers` to print the registers
 
-Consult the [GDB documentation](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) for more details.
+Consult the [GDB documentation](https://sourceware.org/gdb/documentation/) for more details.
 
 :::tip
 To avoid having to type all commands to connect in GDB each time, you can write them into `~/.gdbinit`.
