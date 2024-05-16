@@ -16,6 +16,7 @@
 
 Плати контролерів, які постачаються з попередньо інтегрованим комп'ютером-компаньйоном і польотним контролером, можуть значно полегшити як програмне, так і апаратне налаштування. У деяких випадках плати налаштовані так, щоб можна було легко замінити контролер польоту та/або деталі супутнього комп'ютера.
 
+- [Holybro Pixhawk Jetson Baseboard](https://holybro.com/products/pixhawk-jetson-baseboard)
 - [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
 - [ARK Jetson PAB Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier)
 
