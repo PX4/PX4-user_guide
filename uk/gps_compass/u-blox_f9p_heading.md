@@ -1,4 +1,4 @@
-# RTK GPS Heading with Dual u-blox F9P
+# Напрямок за допомогою RTK GPS з подвійним u-blox F9P
 
 Два модулі [RTK GPS](../gps_compass/rtk_gps.md) u-blox F9P, встановлені на транспортному засобі, можуть бути використані для точного обчислення кута напрямку (тобто альтернатива оцінці напрямку на основі компасу). У цьому сценарії дві пристрої GPS називаються *Рухомою базою* та *Роувером*.
 
@@ -15,7 +15,7 @@
 * [Holybro ДронCAN H-RTK F9P Ровер або Гелікальний](https://holybro.com/collections/dronecan-h-rtk) (Магазин Holybro)
 * [CUAV C-RTK 9Ps](https://store.cuav.net/shop/c-rtk-9ps/) (Магазин CUAV)
 
-::: info
+:::info
 - [RTK GPS Freefly](../gps_compass/rtk_gps_freefly.md) та [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) не можуть бути використані, оскільки вони не роблять доступними порт CAN або UART2.
 - Підтримувані пристрої також перераховані в [RTK GNSS (GPS) > Підтримувані пристрої](../gps_compass/rtk_gps.md#supported-devices).
 :::
@@ -39,9 +39,9 @@
 
 ### CAN Налаштування
 
-Refer to the CAN RTK GPS documentation for each specific device for the setup instructions (such as [ARK RTK GPS > Setting Up Moving Baseline & GPS Heading](../dronecan/ark_rtk_gps.md#setting-up-moving-baseline-gps-heading))
+Для налаштування відсилайтесь до документації CAN RTK GPS для кожного конкретного пристрою (такого як [ARK RTK GPS > Налаштування Рухомого Базового Лінійного & Орієнтування GPS](../dronecan/ark_rtk_gps.md#setting-up-moving-baseline-gps-heading))
 
-::: інформація
+:::info
 Якщо використовується RTK з фіксованою базовою станцією, другий GPS буде показувати стан RTK відносно. станція базова.
 :::
 

@@ -125,7 +125,7 @@ Pixhawk® 5X ідеально підходить для розробників �
 Призначення контактів роз'ємів відбувається зліва направо (тобто Pin 1 - це найлівіший контакт).
 :::info
 
-- The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
+- [Контакт камери](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) є контактом 2 порту AD&IO, позначеним вище як `FMU_CAP1`.
 - Схему контактів _Pixhawk 5X_ можна завантажити у форматі PDF [тут](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) або [тут](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
 
 ## Зіставлення послідовних портів

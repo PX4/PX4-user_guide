@@ -8,7 +8,7 @@
 Ця функція спирається на FMU наявності спеціального архіву EEPROM або супроводжуючого IMU PCBA, який має достатньо місця для даних. PX4 збереже дані у `/fs/mtd_caldata`, створивши файл у разі необхідності.
 :::
 
-:::note
+:::info
 Ці значення не можуть бути збережені в [конфігурації кадрів](../dev_airframes/adding_a_new_frame.md) оскільки вони відрізняються від пристрою в пристрої (конфігурація рамки визначає набір параметрів, які застосовуються на всіх автомобілях того ж типу, такі, як увімкнені датчики, [обертання автопілота](../config/flight_controller_orientation.md) і настроювання PID).
 :::
 
@@ -19,7 +19,7 @@
 1. Перезавантажте пристрій. Це запише всі параметри `CAL_ACC*`, `CAL_GYRO*` і `CAL_MAG*` в `/fs/mtd_caldata`.
 1. Знову встановіть параметр `SYS_FAC_CAL_MODE` на 0 (за замовчуванням).
 
-:::note
+:::info
 Якщо ви хочете провести заводську калібрування лише акселерометра та гіроскопа, ви можете встановити [SYS_FAC_CAL_MODE](../advanced_config/parameter_reference.md#SYS_FAC_CAL_MODE) на 2, у цьому випадку магнітометр виключається.
 :::
 
@@ -27,4 +27,4 @@
 
 ## Подальша інформація
 
-- [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html)
+- [Посібник користувача з QGroundControl > Датчики](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html)

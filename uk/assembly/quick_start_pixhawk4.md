@@ -48,26 +48,26 @@ GPS/компас повинен бути [закріплений на рамі](
 :::info Якщо використовується літак або ровер, 8-контактна шина живлення (+) **FMU PWM-OUT** повинна бути окремо живлена для керування сервоприводами для рульових пристроїв, елеронами тощо. Щоб це зробити, живильну рейку потрібно підключити до ESC з BEC або автономного BEC на 5V або 2S LiPo акумулятора. Будьте обережні з напругою сервопривода, який ви збираєтеся використовувати тут.
 :::
 
-| PIN&Connector | Функція                                                                                                     |
-| ------------- | ----------------------------------------------------------------------------------------------------------- |
-| I/O PWM-IN    | Дивіться примітку нижче для підключення до _Pixhawk 4_                                                      |
-| M1            | I/O PWM OUT 1: connect signal wire to ESC of motor 1 here                                                   |
-| M2            | I/O PWM OUT 2: connect signal wire to ESC of motor 2 here                                                   |
-| M3            | I/O PWM OUT 3: connect signal wire to ESC of motor 3 here                                                   |
-| M4            | I/O PWM OUT 4: connect signal wire to ESC of motor 4 here                                                   |
-| M5            | I/O PWM OUT 5: connect signal wire to ESC of motor 5 here                                                   |
-| M6            | I/O PWM OUT 6: connect signal wire to ESC of motor 6 here                                                   |
-| M7            | I/O PWM OUT 7: connect signal wire to ESC of motor 7 here                                                   |
-| M8            | I/O PWM OUT 8: connect signal wire to ESC of motor 8 here                                                   |
-| FMU PWM-IN    | See note below for connection to _Pixhawk 4_                                                                |
-| FMU PWM-OUT   | If FMU PWM-IN is connected to _Pixhawk 4_, connect signal wires to ESC or signal, +, - wires to servos here |
-| CAP&ADC-OUT   | connect to CAP & ADC IN port of _Pixhawk 4_                                                                 |
-| CAP&ADC-IN    | CAP&ADC input: Pinouts are printed on the back side of the board                                            |
-| B+            | connect to ESC B+ to power the ESC                                                                          |
-| GND           | connect to ESC Ground                                                                                       |
-| PWR1          | 5v output 3A, connect to _Pixhawk 4_ POWER 1                                                                |
-| PWR2          | 5v output 3A, connect to _Pixhawk 4_ POWER 2                                                                |
-| 2~12S         | Power Input, connect to 12S LiPo Battery                                                                    |
+| PIN&Connector | Функція                                                                                                                       |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| I/O PWM-IN    | Дивіться примітку нижче для підключення до _Pixhawk 4_                                                                        |
+| M1            | I/O PWM OUT 1: підключіть дрот сигналу до ESC мотору 1 тут                                                                    |
+| M2            | I/O PWM OUT 2: підключіть сигнальний провід до ESC двигуна 2 тут                                                              |
+| M3            | I/O PWM OUT 3: підключіть дрот сигналу до ESC мотору 3 тут                                                                    |
+| M4            | I/O PWM OUT 4: підключіть дрот сигналу до ESC мотору 4 тут                                                                    |
+| M5            | I/O PWM OUT 5: підключіть дрот сигналу до ESC мотору 5 тут                                                                    |
+| M6            | I/O PWM OUT 6: підключіть дрот сигналу до ESC мотору 6 тут                                                                    |
+| M7            | I/O PWM OUT 7: підключіть дрот сигналу до ESC мотору 7 тут                                                                    |
+| M8            | I/O PWM OUT 8: підключіть дрот сигналу до ESC мотору 8 тут                                                                    |
+| FMU PWM-IN    | Дивіться примітку нижче для підключення до _Pixhawk 4_                                                                        |
+| FMU PWM-OUT   | Якщо FMU PWM-IN підключено до _Pixhawk 4_, підключіть сигнальні проводи до ESC або сигналу, +, - проводи до сервоприводів тут |
+| CAP&ADC-OUT   | підключіться до порту CAP & ADC IN _Pixhawk 4_                                                                                |
+| CAP&ADC-IN    | Вхід CAP & ADC: Pinouts надруковані ззаду дошки                                                                               |
+| B+            | підключіться до ESC B+, щоб живити ESC                                                                                        |
+| GND           | підключіться до землі ESC                                                                                                     |
+| PWR1          | 5v вихід 3A, підключення до _Pixhawk 4_ POWER 1                                                                               |
+| PWR2          | 5в вихід 3A, підключити до _Pixhawk 4_ POWER 2                                                                                |
+| 2~12S         | Живлення, підключіть до акумулятора LiPo ~12s                                                                                 |
 
 :::info Залежно від типу вашої авіаструктури, зверніться до [Довідника з авіаструктур](../airframes/airframe_reference.md), щоб підключити порти **I/O PWM OUT** та **FMU PWM OUT** _Pixhawk 4_ до плати PM. **MAIN** виходи у прошивці PX4 призначені для порту **I/O PWM OUT** на _Pixhawk 4_, тоді як виходи **AUX** призначені для порту **FMU PWM OUT** на _Pixhawk 4_. Наприклад, **MAIN1** відповідає виводу IO_CH1 **I/O PWM OUT**, а **AUX1** відповідає виводу FMU_CH1 **FMU PWM OUT**. **FMU PWM-IN** плати PM внутрішньо підключений до **FMU PWM-OUT**. **Вхід I/O PWM** плати PM внутрішньо підключений до **M1-8**.
 :::

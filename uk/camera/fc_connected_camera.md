@@ -79,10 +79,10 @@ PX4 підтримує наступні команди MAVLink для камер
 
 ## Налаштування спрацьовування
 
-Cameras can be connected to the FC for triggering using different intefaces, such as PWM, and GPIO, by specifying the appropriate [trigger interface backend](#trigger-interface-backends).
-You can also indicate the camera [trigger mode](#trigger-modes).
+Камери можна підключати до FC для виклику за допомогою різних інтерфейсів, таких як PWM та GPIO, вказавши відповідний [задній інтерфейс тригера](#trigger-interface-backends).
+Ви також можете вказати камеру [режим тригера](#trigger-mode).
 
-This configuration can most easily be done from the _QGroundControl_ [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup) section.
+Цю конфігурацію найлегше виконати з розділу _QGroundControl_ [Налаштування рухомого засобу > Камера](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup).
 
 ![Пускові контакти](../../assets/camera/trigger_pins.png)
 

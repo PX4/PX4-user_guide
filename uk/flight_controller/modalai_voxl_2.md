@@ -8,7 +8,7 @@ ModalAI [VOXL 2](https://modalai.com/voxl-2) ([Datasheet](https://docs.modalai.c
 
 ![VOXL-2](../../assets/flight_controller/modalai/voxl_2/voxl-2-hero.jpg)
 
-::: info
+:::info
 Цей польотний контролер [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
@@ -57,7 +57,7 @@ ModalAI [VOXL 2](https://modalai.com/voxl-2) ([Datasheet](https://docs.modalai.c
 
 ### гілка voxl-dev
 
-ModalAI is actively maintaining a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/voxl-dev) that can be used.
+ModalAI активно підтримує [гілку версії PX4](https://github.com/modalai/px4-firmware/tree/voxl-dev), яку можна використовувати.
 
 Оскільки VOXL 2 працює під управлінням Ubuntu, виробничі версії PX4 для VOXL 2 розповсюджуються через [apt пакетний менеджер](https://docs.modalai.com/configure-pkg-manager/) та [VOXL SDK](https://docs.modalai.com/voxl-sdk/).
 
@@ -65,7 +65,7 @@ ModalAI is actively maintaining a [branched PX4 version](https://github.com/moda
 
 ### основна гілка
 
-PX4 mainline supports VOXL 2 (board documentation [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
+Підтримка основної лінії PX4 для VOXL 2 (документація плати [тут](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
 
 ## Підтримка QGroundControl
 
@@ -73,11 +73,11 @@ PX4 mainline supports VOXL 2 (board documentation [here](https://github.com/PX4/
 
 ## Доступність
 
-- [PX4 Autonomy Developer Kit](https://www.modalai.com/products/px4-autonomy-developer-kit)
+- [Автономний набір розробника PX4](https://www.modalai.com/products/px4-autonomy-developer-kit)
 - [Starling 2](https://www.modalai.com/products/starling-2)
 - [Starling 2 MAX](https://www.modalai.com/products/starling-2-max)
 - [Sentinel Development Drone, працює на VOXL 2](https://www.modalai.com/pages/sentinel)
-  - [Demo Video](https://www.youtube.com/watch?v=hMhQgWPLGXo)
+  - [Демо відео](https://www.youtube.com/watch?v=hMhQgWPLGXo)
 - [VOXL 2 Flight Deck, готовий до встановлення, налаштування і польоту](https://www.modalai.com/collections/ready-to-mount/products/voxl-2-flight-deck)
 - [VOXL 2 Набори розробки](https://www.modalai.com/products/voxl-2)
   - [Відео-демонстрація](https://www.youtube.com/watch?v=aVHBWbwp488)
@@ -110,7 +110,7 @@ VOXL SDK працює на VOXL, VOXL 2 та RB5 Flight!
 | J5        | Високошвидкісне підключення плата-плата (B2B) | ADF6-30-03.5-L-4-2-A-TR | ADM6-30-01.5-L-4-2-A-TR              | B2B Роз'єм, 120-pin          | Більше потужності 3.8V/3.3V/1.8V для встановлюваних плат, потужність 5V для режиму «SOM», розширення QUP, GPIO (включно з I2S), SDCC (SD Card V3.0), UFS1 (другорядна UFS Flash), 2L PCIe Gen 3, AMUX та сигнали SPMI PMIC |
 | J6        | Група камери 0                                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V                      | B2B плагін, 60-пін           | Qty-2 4L MIPI порти CSI, сигнали управління CCI і камери, 8 рейок живлення (від 1.05-V до 5V) для камер і інших сенсорів, виділених порту SPI (QUP)                                                                        |
 | J7        | Група камери 1                                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V                      | B2B плагін, 60-пін           | Qty-2 4L MIPI CSI порти, сигнали управління CCI і камери, 8 рейок живлення (від 1.05-V до 5V) для камер і інших сенсорів, виділений порт SPI (QUP)                                                                         |
-| J8        | Група камери 2                                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V                      | B2B Plug, 60-pin             | Qty-2 4L MIPI CSI ports, CCI and camera control signals, 8 power rails (from 1.05V up to 5V) for cameras and other sensors, dedicated SPI (QUP) port                                                                       |
+| J8        | Група камери 2                                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V                      | B2B плагін, 60-пін           | Qty-2 4L MIPI порти CSI, сигнали управління CCI і камери, 8 рейок живлення (від 1.05-V до 5V) для камер і інших сенсорів, виділений порт SPI (QUP)                                                                         |
 | J9        | USB-C (ADB)                                   | UJ31-CH-3-SMT-TR        | USB Type-C                           | Кабель-з'єднувач, 24-pin R/A | ADB USB-C з перезапуском та альтернативним режимом відображення порту (USB0)                                                                                                                                               |
 | J10       | Розширення SPI                                | SM08B-GHS-TB(LF)(SN)    | GHR-08V-S                            | Конектор, 8-pin R/A          | SPI@3.3V з 2 CS_N пінами, 32kHz CLK_OUT@3.3V                                                                                                                                                                             |
 | J18       | ESC (Доступ SLPI)                             | SM04B-GHS-TB(LF)(SN)    | GHR-04V-S                            | Конектор, 4-pin R/A          | ESC UART@3.3V, опорна напруга 3.3V                                                                                                                                                                                         |

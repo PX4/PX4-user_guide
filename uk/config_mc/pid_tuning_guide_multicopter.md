@@ -10,7 +10,7 @@
 
 ## Настройка крокування
 
-::: info
+:::info
  З міркувань безпеки значення за замовчуванням встановлені на низькі значення.
 Вам потрібно збільшити значення перед очікуванням гарної реакції управління.
 :::
@@ -181,7 +181,7 @@ PX4 підтримує дві (математично еквівалентні) 
 
 ![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)] <!-- removed link to THR_MDL_FAC_Calculation as causes problems for link checker -->
 
-::: info 
+:::info 
 Відображення між ШІМ і статичною тягою сильно залежить від напруги батареї.
 :::
 

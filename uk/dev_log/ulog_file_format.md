@@ -370,7 +370,7 @@ struct message_logging_s {
 | INFO    | '6'            | Інформаційний                      |
 | DEBUG   | '7'            | Повідомлення рівня налагодження    |
 
-#### 'C': Tagged Logged String Message
+#### 'C': позначене зареєстроване рядкове повідомлення
 
 ```c
 struct message_logging_tagged_s {

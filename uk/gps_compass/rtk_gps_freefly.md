@@ -55,28 +55,28 @@ RTK GPS Freefly поставляється з роз'ємом JST-GH на 8 ко
 ## Специфікація
 
 - Приймач GPS u-blox ZED-F9P
-  - Ultracap backup power for fast (hot-start) restarts
-  - EMI shield over receiver for improved EMI immunity
+  - Резервне живлення Ultracap для швидкого (гарячого запуску)
+  - Штормова пластина над приймачем для покращення стійкості до ЕМП
 - Магнітометр IST8310
 - Блок безпеки та безпечний світлодіод LED
-- RGB LEDs for status indication
-  - NCP5623CMUTBG I2C Driver
-- BMP388 Baro on I2C bus
-- External, active antenna (Maxtena M7HCT)
-  - SMA connector
-- STM32 MCU for future CAN-based communication
-  - FW updates through USB connector
+- Світлодіоди RGB для показу статусу
+  - Драйвер I2C NCP5623CMUTBG
+- BMP388 Baro на шині I2C
+- Зовнішня активна антена (Maxtena M7HCT)
+  - SMA конектор
+- STM32 МКП для майбутньої комунікації на основі CAN
+  - Оновлення ПЗ через USB-роз'єм
 - Підключення:
   - USB-C
-  - 2-way USB Switch to MCU and F9P
-  - SMA for active antenna (20mA max)
-  - 4-pin JST-GH CAN Bus (dronecode compliant)
-  - 8-pin JST-GH UART/I2C -** Power:
-  - Input from either (diode OR'd):
+  - 2-way USB перемикач до МКП та F9P
+  - SMA для активної антени (макс. 20 мА)
+  - 4-контактний JST-GH CAN шина (сумісність зі стандартами dronecode)
+  - 8-контактний JST-GH UART/I2C -** Живлення:
+  - Вхід з одного з (діод OR'd):
   - USB (5V)
   - CAN (4.7 до 25.2В)
   - (4.7 до 25.2V)
-  - Power consumption <1W
+  - Споживання електроенергії <1W
 
 ## Докладніше
 

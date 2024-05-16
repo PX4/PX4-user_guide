@@ -114,7 +114,7 @@ Pixhawk® V6X ідеально підходить для корпоративн�
 
 Примітки:
 
-- The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
+- [Контакт камери](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) є контактом 2 порту AD&IO, позначеним вище як `FMU_CAP1`.
 
 ## Зіставлення послідовних портів
 
