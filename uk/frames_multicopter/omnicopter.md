@@ -22,12 +22,12 @@ Any other GPS may work as well, however a helix antenna is expected to perform b
   - Any RC receiver
   - An external Magnetometer. We used the [RM-3100](https://store-drotek.com/893-professional-grade-magnetometer-rm3100.html).
   - Telemetry link, e.g. [WiFi](../telemetry/telemetry_wifi.md)
-- Propulsion:
-  - Motors: 8x [BrotherHobby LPD 2306.5 2000KV/2450KV/2650KV](https://www.getfpv.com/brotherhobby-lpd-2306-5-2000kv-2450kv-2650kv-motor.html)
-  - 3D Propellers: 2x [HQProp 3D 5X3.5X3 3-Blade Propeller (Set of 4)](https://www.getfpv.com/hqprop-3d-5x3-5x3-3-blade-propeller-set-of-4.html) or 2x [Gemfan 513D 3-Blade 3D Propeller (Set of 4)](https://www.getfpv.com/gemfan-513d-durable-3-blade-propeller-set-of-4.html)
-  - Battery: we used a 6S 3300mAh LiPo. Make sure to check the dimensions so it fits the frame.
+- Пропульсія:
+  - Двигуни: 8x [BrotherHobby LPD 2306.5 2000KV/2450KV/2650KV](https://www.getfpv.com/brotherhobby-lpd-2306-5-2000kv-2450kv-2650kv-motor.html)
+  - 3D Гвинти: 2x [HQProp 3D 5X3.5X3 3-х лопастний гвинт (набір з 4)](https://www.getfpv.com/hqprop-3d-5x3-5x3-3-blade-propeller-set-of-4.html) або 2x [Gemfan 513D 3-х лопастний 3D гвинт (набір з 4)](https://www.getfpv.com/gemfan-513d-durable-3-blade-propeller-set-of-4.html)
+  - Акумулятор: ми використовували LiPo на 6S 3300mAh. Make sure to check the dimensions so it fits the frame.
   - Battery strap
-- Frame:
+- Рама:
   - Карбонова квадратна труба R 8мм X 7мм X 1000мм, наприклад, [тут](https://shop.swiss-composite.ch/pi/Halbfabrikate/Rohre/Vierkant-Rohre/CFK-Vierkantrohr-8x8-7x7mm.html)
   - Вуглецеві стержні R 3мм X 2мм X 1000мм, наприклад, [тут](https://shop.swiss-composite.ch/pi/Halbfabrikate/Rohre/CFK-Rohre-pultrudiert-pullwinding/Carbon-Microtubes-100cm-x-20-3mm.html)
   - Необхідні довжини:
