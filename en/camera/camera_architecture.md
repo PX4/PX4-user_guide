@@ -50,7 +50,7 @@ This `CameraCapture` topic is logged, and can be used to get the time of the cap
 
 ## MAVLink Cameras (Camera Protocol v1)
 
-[MAVLink cameras that support the older Camera Protocol v1](../camera/mavlink_v1_camera.md) are integrated in much the same way as [FC-connected cameras](fc-connected-cameras).
+[MAVLink cameras that support the older Camera Protocol v1](../camera/mavlink_v1_camera.md) are integrated in much the same way as [FC-connected cameras](#fc-connected-cameras).
 
 `camera_trigger` subscribes to the [VehicleCommand](../msg_docs/VehicleCommand.md) topic and monitors for updates in the [commands it supports](../camera/fc_connected_camera.md#mavlink-command-interface).
 This happens when either a command is received via MAVLink or when a [camera item is found in a missions](#camera-commands-in-missions).
