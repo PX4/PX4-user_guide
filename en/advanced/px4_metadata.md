@@ -1,4 +1,4 @@
-# PX4 Metadata: Translation & Publishing (Params, Events)
+# PX4 Metadata
 
 PX4 uses and generates data that has associated human- and machine- readable metadata:
 
@@ -6,8 +6,9 @@ PX4 uses and generates data that has associated human- and machine- readable met
   - A parameter is represented by an ID string that maps to a value stored in PX4.
   - The associated metadata includes a description of the setting, its possible values, information about how the value might be presented (say for bitmasks).
 - [Events](../concept/events_interface.md) provide notification of events, such as reasons for a failsafe, low battery warnings, end of calibration, and so on.
-  - An event is represented by an id, and is sent with a log level, some message, and arguments.
-  - The associated metadata includes a description of the event and the arguments.
+  - An event is represented by an id, and is sent with a log level and arguments.
+  - The associated metadata includes a message, a description and a list of arguments (including their type) of each event.
+- [Actuators](../config/actuators.md) metadata contains information about supported vehicle geometries, a list of output drivers, and how to configure them. QGroundControl uses that information to dynamically build a configuration UI.
 
 The metadata and metadata translations are shared with external systems, such as QGroundControl, allowing them to display information about parameters and events as a string in the user's own language.
 
@@ -21,8 +22,7 @@ For more information about working with PX4 and Crowdin see [Translation](../con
 ## Defining Metadata
 
 PX4 metadata is defined in PX4 source code alongside its associated data.
-Often this is done in a C/C++ comment with special markup to indicate metadata fields and their values.
-In some cases YAML files are used.
+This is done either in a C/C++ comment with special markup to indicate metadata fields and their values, or using YAML files.
 
 For more information see the topics for each data type:
 
@@ -31,13 +31,14 @@ For more information see the topics for each data type:
 
 ## Metadata Toolchain
 
-The process for handling metadata is the same for both event and parameter metadata.
+The process for handling metadata is the same for all metadata types.
 
-Metadata is collected into JSON and XML files every time PX4 is built.
+Metadata is collected into JSON files every time PX4 is built.
 
 For most flight controllers (as most have enough FLASH available), the JSON file is xz-compressed and stored within the generated binary.
-The file is then shared to ground stations using the MAVLink [Component Information Protocol](https://mavlink.io/en/services/component_information.html).
+The file is then shared to ground stations using the MAVLink [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html).
 Using the component metadata protocol ensures that the recipient can always fetch up-to-date metadata for the code running on the vehicle.
+Events metadata is also added to the log files, allowing log analysis tools (such as Flight Review) to use the correct metadata to display events.
 
 Binaries for flight controller targets with constrained memory do not store the parameter metadata in the binary, but instead reference the same data stored on `px4-travis.s3.amazonaws.com`.
 This applies, for example, to the [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md).
@@ -60,6 +61,20 @@ For more information see [PX4-Metadata-Translations](https://github.com/PX4/PX4-
 ::: info
 The parameter XML file of the main branch is copied into the QGC source tree via CI and is used as a fallback in cases where no metadata is available via the component metadata protocol (this approach predates the existence of the component metadata protocol).
 :::
+
+### Actuator metadata
+
+The following diagram shows how actuator metadata is assembled from the source code and used by QGroundControl:
+
+![Actuators Metadata](../../assets/diagrams/actuator_metadata_processing.svg)
+<!-- Source: https://docs.google.com/drawings/d/1hMQmIijdFjr21rREcXj50qz0C1b47JW0OEa6p5P231k/edit -->
+
+- **Left**: the metadata is defined in `module.yml` files in different modules.
+  The `control_allocator` modules defines the geometries, while each output driver defines its set of channels and configuration parameters.
+  [The schema file](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) documents the structure of these yaml files.
+- **Middle**: At build time, the `module.yml` files for all enabled modules for the currently built target are parsed and turned into an `actuators.json` file using the [Tools/module_config/generate_actuators_metadata.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/module_config/generate_actuators_metadata.py) script.
+  There is also [schema file](https://github.com/mavlink/mavlink/blob/master/component_metadata/actuators.schema.json) for this.
+- **Right**: At runtime, the JSON file is requested by QGroundControl via MAVLink Component Metadata API (described above).
 
 ## Further Information
 
