@@ -54,7 +54,7 @@ There you should see the message that a new branch has been pushed to your forke
   git commit -m "<your commit message>"
   ```
 
-  For a good commit message, please refer to the [Source Code Management](../contribute//code.md#commits-and-commit-messages) section.
+  For a good commit message, please refer to the [Source Code Management](../contribute/code.md#commits-and-commit-messages) section.
 
 - Some time might have passed and the [upstream main](https://github.com/PX4/PX4-Autopilot.git) has changed. PX4 prefers a linear commit history and uses [git rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing). To include the newest changes from upstream in your local branch, switch to your main branch
 
