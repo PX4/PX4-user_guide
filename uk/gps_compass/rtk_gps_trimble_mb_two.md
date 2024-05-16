@@ -17,11 +17,11 @@ The [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-
 
 ## Antennas and Cable
 
-Для Trimble MB-Two потрібні дві двохчастотні (L1/L2) антени. A good example is the [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) (which can be bought, for instance, from [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)).
+Для Trimble MB-Two потрібні дві двохчастотні (L1/L2) антени. Хорошим прикладом є [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) (який можна купити, наприклад, від [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)).
 
-The antenna connector type on the device is MMCX. Suitable cables for the above antennas (SMA connector) can be found here:
-- [30 cm version](https://www.digikey.com/products/en?mpart=415-0073-012&v=24)
-- [45 cm version](https://www.digikey.com/products/en?mpart=415-0073-018&v=24)
+Тип роз'єму антени на пристрої - MMCX. Підходящі кабелі для вищезазначених антен (коннектор SMA) можна знайти тут:
+- [30 см версія](https://www.digikey.com/products/en?mpart=415-0073-012&v=24)
+- [45 см версія](https://www.digikey.com/products/en?mpart=415-0073-018&v=24)
 
 ## Wiring and Connections
 
@@ -29,17 +29,17 @@ The Trimble MB-Two is connected to a UART on the flight controller (GPS port) fo
 
 To power the module you will need a separate 3.3V power supply (the maximum consumption is 360mA).
 
-::: info
-The module cannot be powered from a Pixhawk.
+:::info
+Модуль не може бути живлений з Pixhawk.
 :::
 
 The pins on the 28-pin connector are numbered as shown below:
 
 ![MB-Two Pinout](../../assets/hardware/gps/rtk_trimble_two_gnss_pinouts.jpg)
 
-| Pin | Name     | Description                                          |
+| Пін | Назва    | Опис                                                 |
 | --- | -------- | ---------------------------------------------------- |
-| 6   | Vcc 3.3V | Power supply                                         |
+| 6   | Vcc 3.3V | Джерело живлення                                     |
 | 14  | GND      | Connect to power the supply and GND of the Autopilot |
 | 15  | TXD1     | Connect to RX of the Autopilot                       |
 | 16  | RXD1     | Connect to TX of the Autopilot                       |
@@ -53,9 +53,9 @@ First set the GPS protocol to Trimble ([GPS_x_PROTOCOL=3](../advanced_config/par
 ::: info Кут `GPS_YAW_OFFSET` утворюється *базовою лінією* (лінія між двома GPS антенами) відносно осі x транспортного засобу (передня/задня вісь, як показано [тут](../config/flight_controller_orientation.md#calculating-orientation)).
 :::
 
-[Configure the serial port](../peripherals/serial_configuration.md) on which the Trimple will run using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), and set the baud rate to 115200 using [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD).
+[Налаштуйте послідовний порт](../peripherals/serial_configuration.md), на якому працюватиме Trimple, використовуючи [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), і встановіть швидкість передачі даних на 115200 за допомогою [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD).
 
-To activate heading fusion for the attitude estimation, set the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter to enable *Dual antenna heading*.
+Для активації ф’южена покриву для оцінки нахилу, встановіть параметр [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) для увімкнення *Орієнтація з подвійною антеною*.
 
-::: info See also: [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/index.md#configuring-gps-as-yaw-heading-source)
+:::info Див. також: [GPS > Configuration > GPS як Yaw/Heading Source](../gps_compass/index.md#configuring-gps-as-yaw-heading-source)
 :::
