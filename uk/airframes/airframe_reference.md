@@ -428,7 +428,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2.1">
  <td>Crazyflie 2.1</td>
- <td>Супроводжуючий: Денніс Штатов <densht@gmail.com><p><code>SYS_AUTOSTART</code> = 4901</p></td>
+ <td>Супроводжуючий: Денніс Штатов &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4901</p></td>
 </tr>
 </tbody>
 </table>
