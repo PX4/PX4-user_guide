@@ -421,7 +421,7 @@ It is much easier to generate a wireshark plugin and inspect traffic in Wireshar
 :::
 
 - [Log uORB topics](../dev_log/logging.md) associate with your MAVLink message.
-- View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html). You will need to rebuild QGroundControl with the custom message definitions, [as described below](h#updating-qgroundcontrol)
+- View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html). You will need to rebuild QGroundControl with the custom message definitions, [as described below](#updating-qgroundcontrol)
 
 ### Set Streaming Rate using a Shell
 
@@ -455,4 +455,4 @@ QGC uses the all.xml dialect by default, which includes **common.xml**. You can 
 
 ### Updating MAVSDK
 
-See the MAVSDK docs for information about how to work with [MAVLink headers and dialects](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html#mavlink-headers-and-dialects).
+See the MAVSDK docs for information about how to work with [MAVLink headers and dialects](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html).
