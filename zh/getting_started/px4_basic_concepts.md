@@ -78,7 +78,7 @@ QGroundControl desktop versions are also used to install (flash) PX4 firmware an
 For more information see:
 
 - [AMC docs](https://docs.auterion.com/vehicle-operation/auterion-mission-control)
-- [AMC on Google Play](https://play.google.com/store/apps/details?id=com.auterion.auteriongs)
+- [Download from Auterion Suite](https://suite.auterion.com/)
 
 ## Drone Components & Parts
 
