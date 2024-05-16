@@ -34,7 +34,7 @@
 
 ## Обладнання
 
-### Frame
+### Рама
 
 Цей розділ містить усе обладнання для каркасів.
 
@@ -77,29 +77,29 @@ This section lists the components in the CUAV v5 nano package.
 | GPS Bracket               | -                          | 1                       |
 
 
-### Electronics
+### Електроніка
 
-| Description                                           | Quantity |
-| ----------------------------------------------------- | -------- |
-| CUAV V5 nano                                          | 1        |
-| CUAV NEO V2 GPS                                       | 1        |
-| Holibro Telemetry                                     | 1        |
-| FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver        | 1        |
-| DJI E305 2312E Motor (800kv,CW)                       | 4        |
-| Hobbywing XRotor 20A APAC Brushless ESC               | 4        |
-| Power Module(Included in the CUAV V5 nano package)    | 1        |
-| Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60 | 1        |
+| Опис                                                  | Кількість |
+| ----------------------------------------------------- | --------- |
+| CUAV V5 nano                                          | 1         |
+| CUAV NEO V2 GPS                                       | 1         |
+| Holibro Telemetry                                     | 1         |
+| FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver        | 1         |
+| DJI E305 2312E Motor (800kv,CW)                       | 4         |
+| Hobbywing XRotor 20A APAC Brushless ESC               | 4         |
+| Power Module(Included in the CUAV V5 nano package)    | 1         |
+| Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60 | 1         |
 
 
-### Tools needed
+### Необхідні інструменти
 
-The following tools are used in this assembly:
+У цій збірці використовуються наступні інструменти:
 
-- 2.0mm Hex screwdriver
-- 3mm Phillips screwdriver
-- Wire cutters
-- Precision tweezers
-- Soldering iron
+- Викрутка з шестигранником 2,0 мм
+- Шуруповерт Phillips 3 мм
+- Кусачки
+- Прецизійний пінцет
+- Паяльник
 
 
 ![Required tools](../../assets/airframes/multicopter/dji_f450_cuav_5nano/required_tools.jpg)
@@ -177,9 +177,9 @@ The following tools are used in this assembly:
 :::
 
 - [Приводи](../config/actuators.md)
-  - Update the vehicle geometry to match the frame.
-  - Assign actuator functions to outputs to match your wiring.
-  - Test the configuration using the sliders.
+  - Оновіть геометрію транспортного засобу, щоб вона відповідала рамі.
+  - Призначте функції приводу до виходів, щоб відповідати вашому підключенню.
+  - Перевірте конфігурацію, використовуючи слайдери.
 
 
 Потім виконайте обов'язкове налаштування / калібрування:
