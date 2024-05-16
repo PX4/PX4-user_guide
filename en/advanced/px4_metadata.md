@@ -11,7 +11,7 @@ PX4 uses and generates data that has associated human- and machine- readable met
 - [Actuators](../config/actuators.md) metadata contains information about supported vehicle geometries, a list of output drivers, and how to configure them.
   QGroundControl uses that information to dynamically build a configuration UI.
 
-The metadata and metadata translations are shared with external systems, such as QGroundControl, allowing them to display information about parameters and events as a string in the user's own language.
+The metadata and metadata translations are shared with external systems, such as QGroundControl, allowing them to display information about parameters and events, and to configure vehicle geometry and actuator output mappings.
 
 This topic explains how you can define metadata and help translate strings (and "just for your information", how it all works).
 
