@@ -29,7 +29,7 @@ For more information see the topics for each data type:
 
 - [Parameters & Configurations > Creating/Defining Parameters](../advanced/parameters_and_configurations.md#creating-defining-parameters)
 - [Events Interface](../concept/events_interface.md)
-
+- [Actuator Metadata](#actuator-metadata) (below)
 ## Metadata Toolchain
 
 The process for handling metadata is the same for all metadata types.
