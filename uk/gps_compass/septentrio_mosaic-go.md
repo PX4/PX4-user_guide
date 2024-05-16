@@ -62,14 +62,14 @@ _Тип роз'єму: MicroSD._
 ### 6-pin Connector
 _Connector type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GHR-06V-S._
 
-| Pin Name | Напрямок | Рівень     | Опис                      | Коментар                                                          |
-| -------- | -------- | ---------- | ------------------------- | ----------------------------------------------------------------- |
-| VCC      | PWR      | 4.75V-5.5V | Main power supply         |                                                                   |
-| GND      |          | 0          | Ground                    |                                                                   |
-| TXD1     | Out      | 3V3_LVTTL  | Serial COM1 transmit line | Directly connects to TXD1 of internal mosaic                      |
-| RXD1     | In       | 3V3_LVTTL  | Serial COM1 receive line  | Directly connects to RXD1 of internal mosaic                      |
-| PPS      | Out      | 3V3_LVTTL  | PPSoutput                 | PPSO from mosaic converted to 3.3V                                |
-| EVENT    | In       | 3V3_LVTTL  | Event timer input         | Connects to EVENTA of mosaic through a 3V3to 1V8 level translator |
+| Назва виводу | Напрямок | Рівень     | Опис                      | Коментар                                                          |
+| ------------ | -------- | ---------- | ------------------------- | ----------------------------------------------------------------- |
+| VCC          | PWR      | 4.75V-5.5V | Main power supply         |                                                                   |
+| GND          |          | 0          | Ground                    |                                                                   |
+| TXD1         | Out      | 3V3_LVTTL  | Serial COM1 transmit line | Directly connects to TXD1 of internal mosaic                      |
+| RXD1         | In       | 3V3_LVTTL  | Serial COM1 receive line  | Directly connects to RXD1 of internal mosaic                      |
+| PPS          | Out      | 3V3_LVTTL  | PPSoutput                 | PPSO from mosaic converted to 3.3V                                |
+| EVENT        | In       | 3V3_LVTTL  | Event timer input         | Connects to EVENTA of mosaic through a 3V3to 1V8 level translator |
 
 ### 4-pin Connector
 _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR-04V-S._
@@ -88,7 +88,7 @@ _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR
 1. Переконайтеся, що приймач живиться щонайменше 3,3 В. Ви можете використовувати роз'єм micro USB або 6-контактний роз'єм.
 2. Підключіть одну або дві антени GNSS до портів RF-IN на пристрої mosaic-go.
 3. Підключіть 6-контактний коннектор (COM1) до роз'єму `GPS MODULE` Pixhawk. Це забезпечить живлення для mosaic-go, і за допомогою цього одного з'єднання він зможе надсилати інформацію про одинарну та подвійну антени до Pixhawk 4.
-4. In the web interface or with Rx Tools, set the receiver's baud rate to 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (this is the default value).
+4. У веб-інтерфейсі або за допомогою інструментів Rx встановіть швидкість передачі даних приймача на 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (це значення за замовчуванням).
 
 :::warning
 Make sure the JST cable is wired correctly (since this is not a standard cable):

@@ -60,8 +60,8 @@ Key build features
   - FPV pod and camera mount
   - Pitot static probe "plug" adapter
 - [Custom designed power distribution PCB](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/xt30_power_distro_pcb.zip)
-- Misc hardware: M3 hardware (standoffs, washers, O-rings, bolts), M2.5 nylon standoffs and screws, XT30 connectors, hot glue, heatshrink, Molex Microfit connectors
-- Silicone wiring (14awg for high current, 16awg for low current, 22awg for low power and signals)
+- Різноманітне кріплення: М3-фурнітура (розмітки, шайби, O-кільця, болти), підкладки та гвинти M2.5 з нейлону, роз'єми XT30, гарячий клей, термоусадка, роз'єми Molex Microfit
+- Силіконові проводи (14 Awg для високого струму, 16 Awg для низького струму, 22 Awg для низької потужності та сигналів)
 
 ## Інструменти
 
@@ -72,7 +72,7 @@ Key build features
 - 3D-принтер
 - Набір гаєчних ключів
 - Клей: гарячий клей, клей CA (цианакрилат), клей "Foamtac"
-- Sandpaper
+- Наждачний папір
 
 ## Побудова фюзеляжа
 

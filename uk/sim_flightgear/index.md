@@ -129,7 +129,7 @@ INFO  [simulator] Simulator connected on TCP port 4560.
 INFO  [commander] LED: open /dev/led0 failed (22)
 INFO  [commander] Mission #3 loaded, 9 WPs, curr: 8
 INFO  [mavlink] mode: Normal, data rate: 4000000 B/s on udp port 18570 remote port 14550
-INFO  [airspeed_selector] No airspeed sensor detected. Switch to non-airspeed mode.
+INFO  [airspeed_selector] No airspeed sensor detected. Переключитися в режим, що не використовує швидкість повітря.
 INFO  [mavlink] mode: Onboard, data rate: 4000000 B/s on udp port 14580 remote port 14540
 INFO  [mavlink] mode: Onboard, data rate: 4000 B/s on udp port 14280 remote port 14030
 INFO  [logger] logger started (mode=all)

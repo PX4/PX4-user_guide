@@ -96,53 +96,53 @@ The image below shows both frame and electronic components.
 ![Tools required for assembling QAV250](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/assembly_tools.jpg)
 
 
-### Frame assembly
+### Збірка рами
 
-1. Attach arms to the button plate with the 15mm screws as shown:
+1. Прикріпіть руки до плати кнопки за допомогою гвинтів довжиною 15 мм, як показано:
 
    ![QAV250 Add arms to button plate](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/1_button_plate_add_arms.jpg)
-1. Put the short plate over the arms
+1. Покладіть коротку пластину над руками
 
    ![QAV250 Add short plate over arms](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/2_short_plate_over_arms.jpg)
-1. Put the nuts on the 15mm screws (shown next step)
-1. Insert the plastic screws into the indicated holes (note that this part of the frame faces down when the vehicle is complete). ![QAV250 Add nuts to 15mm screws and put  plastic nuts in holes](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/3_nuts_screws_holes.jpg)
-1. Add the plastic nuts to the screws (turn over, as shown) ![QAV250 Plastic nuts onto screws](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/4_plastic_nuts_on_screws.jpg)
-1. Lower the power module over the plastic screws and then add the plastics standoffs ![QAV250 Add power module and standoffs](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/5_power_module_on_screws.jpg)
-1. Put the flight controller plate on the standoffs (over the power module) ![QAV250 Add flight controller plate](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/6_flight_controller_plate.jpg)
-1. Attach the motors. The motors have an arrow indicating the direction of rotation. ![QAV250 Add motors](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/7_motors.jpg)
-1. Use double sided tape from kit to attach the *Pixhawk 4 Mini* to the flight controller plate. ![QAV250 Add doublesided tape](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/8_double_sided_tape_controller.jpg)
-1. Connect the power module's "power" cable to *Pixhawk 4 mini*. ![QAV250 Power Pixhawk](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/9_power_module_power_pixhawk.jpg)
-1. Attach the aluminium standoffs to the button plate ![QAV250 Aluminium standoffs](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/10_aluminium_standoffs.jpg)
-1. Connect the Esc’s with the motors and hold. In this image shown the order of the motors and direction of the rotation. ![QAV250 Connect ESCs](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/11_escs.jpg)
+1. Покладіть гайки на відносно 15 мм гвинти (показано в наступному кроці)
+1. Вставте пластикові гвинти в показані отвори (зверніть увагу, що ця частина рами звернена донизу, коли транспортний засіб буде готовий). ![QAV250 Add nuts to 15mm screws and put  plastic nuts in holes](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/3_nuts_screws_holes.jpg)
+1. Додайте пластикові гайки на гвинти (переверніть, як показано) ![QAV250 Plastic nuts onto screws](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/4_plastic_nuts_on_screws.jpg)
+1. Опустіть модуль живлення над пластиковими гвинтами, а потім додайте пластикові опори ![QAV250 Add power module and standoffs](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/5_power_module_on_screws.jpg)
+1. Встановіть плату керування польотом на стойки (над модулем живлення) ![QAV250 Add flight controller plate](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/6_flight_controller_plate.jpg)
+1. Підключіть двигуни. Двигуни мають стрілку, що показує напрямок обертання. ![QAV250 Add motors](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/7_motors.jpg)
+1. Використовуйте двосторонній скотч з комплекту для кріплення *Pixhawk 4 Mini* до пластини керування польотом. ![QAV250 Add doublesided tape](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/8_double_sided_tape_controller.jpg)
+1. Підключіть кабель живлення модуля живлення до *Pixhawk 4 mini*. ![QAV250 Power Pixhawk](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/9_power_module_power_pixhawk.jpg)
+1. Прикріпіть алюмінієві опори до платформи кнопок ![QAV250 Aluminium standoffs](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/10_aluminium_standoffs.jpg)
+1. Підключіть ESC з моторами та утримуйте. На цьому зображенні показаний порядок розташування двигунів та напрямок обертання. ![QAV250 Connect ESCs](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/11_escs.jpg)
 
-   Connect the motors on the ESC’s, make sure the motors turns to the correct side, if the motor turns of the opposite side change the cable A to the pad C and C to the pad A of the ESC.
+   Підключіть двигуни на ESC, переконайтеся, що двигуни обертаються у правильному напрямку, якщо двигун обертається у протилежний бік, змініть кабель A на плату C та C на плату A ESC.
 
    :::warning
-Test motor directions with propellers removed.
+Перевірте напрямки руху моторів без гвинтів.
 :::
 
    ![QAV250 Connect ESCs to Power](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/11b_escs.jpg)
-1. Connect the signal ESC cables to the PWM outputs of the Pixhawk in the correct order (see previous image)
+1. Підключіть кабелі сигналу ESC до виходів PWM Pixhawk у правильному порядку (див. попереднє зображення)
 
    ![QAV250 Connect ESCs to Pixhawk PWM](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/12_escs_pixhawk.jpg)
-1. Connect the receiver.
-   * If using a PPM receiver connect to the PPM port.
+1. Підключіть приймач.
+   * Якщо використовуєте приймач PPM, підключіть його до порту PPM.
 
      ![QAV250 Connect Receiver PPM](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/13_rc_receiver_ppm.jpg)
-   * If using the SBUS receiver connect to the RC IN port
+   * Якщо використовується приймач SBUS, підключіть його до порту RC IN
 
      ![QAV250 Connect Receiver SBUS](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/13_rc_receiver_sbus.jpg)
-1. Connect the telemetry module. Paste the module with double tape and connect on the port of the telemetry.
+1. Підключіть модуль телеметрії. Вставте модуль за допомогою двостворчастої стрічки та підключіть його до порту телеметрії.
 
    ![QAV250 Telemetry module](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/14_telemetry.jpg)
-1. Connect the GPS module
+1. Підключіть модуль GPS
 
    ![QAV250 Connect GPS](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/15a_connect_gps.jpg)
 
-   Attach the module on the top plate (using provided 3M tape, or paste). Then put the top plate on the standoffs as shown
+   Прикріпіть модуль на верхню плату (використовуючи наданий стрічку 3M, або пастою). Потім покладіть верхню плиту на стойки, як показано
 
    ![QAV250 Connect GPS](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/15b_attach_gps.jpg)
-1. The last "mandatory" assembly step is to add the velcro to hold the battery
+1. Останнім "обов'язковим" кроком зборки є додавання липучки для утримання батареї
 
    ![QAV250 Velcro battery strap](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/16_velcro_strap.jpg)
 
@@ -161,11 +161,11 @@ Test motor directions with propellers removed.
 Кроки для встановлення комплекту:
 
 1. Встановіть кріплення камери на раму ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_bracket.jpg)
-1. Install the camera on the bracket ![Camera on Bracket](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_on_bracket.jpg)
-1. The power module on the complete kit comes with wiring ready to connect the Video Transmitter and Camera: ![Connecting FPV](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection_board.jpg)
-   - Attach the camera connector ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_connection.jpg) The wires are: blue=voltage sensor, yellow=video out, black=ground, red=+voltage.
-   - Connect the Video Transmitter (VTX) connector ![Video Transmitter Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_video_transmitter_connection.jpg) The wires are: yellow=video out, black=ground, red=+voltage.
-1. Secure the Video Transmitter and OSD board to the frame using tape.
+1. Встановіть камеру на кріплення ![Camera on Bracket](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_on_bracket.jpg)
+1. Модуль живлення на комплекті має проводку, готову для підключення відеопередавача та камери: ![Connecting FPV](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection_board.jpg)
+   - Прикріпіть роз'єм камери ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_connection.jpg) Проводи: синій=вольтажний датчик, жовтий=відеовихід, чорний=земля, червоний=+вольтаж.
+   - Підключіть роз'єм відеопередавача (VTX) ![Video Transmitter Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_video_transmitter_connection.jpg) Жили: жовтий = відео вихід, чорний = земля, червоний = напруга.
+1. Закріпіть відеопередавач і плату OSD на рамку за допомогою стрічки.
 
 :::info Якщо вам потрібно підключити систему самостійно, на діаграмі нижче показані всі з'єднання між камерою, VTX та модулем живлення: ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
 :::
@@ -181,34 +181,34 @@ Test motor directions with propellers removed.
 Спочатку оновіть прошивку, конструкцію та відображення приводів:
 
 - [Прошивки](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [Планер](../config/airframe.md)
 
   :::info Вам потрібно буде вибрати шасі *HolyBro QAV250* (**Квадрокоптер x > HolyBro QAV250**).
 
   ![QGC - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qgc_airframe_holybro_qav250.png)
 :::
 
-- [Actuators](../config/actuators.md)
-  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
-  - Assign actuator functions to outputs to match your wiring.
-    - For the Pixhawk 4 Mini, and other controllers that do not have an [I/O board](../hardware/reference_design.md#main-io-function-breakdown), you will need to assign actuators to outputs on the `PWM AUX` tab in the configuration screen.
-    - The Pix32 v6 has an I/O board, so you can assign to either AUX or MAIN.
-  - Test the configuration using the sliders.
+- [Приводи](../config/actuators.md)
+  - Вам не потрібно оновлювати геометрію транспортного засобу (оскільки це попередньо налаштована конструкція повітряного каркасу).
+  - Призначте функції приводу до виходів, щоб відповідати вашому підключенню.
+    - Для Pixhawk 4 Mini та інших контролерів, які не мають [плати вводу/виводу (I/O board)](../hardware/reference_design.md#main-io-function-breakdown), вам потрібно призначити приводи до виходів на вкладці `PWM AUX` на екрані конфігурації.
+    - Pix32 v6 має плату введення/виведення, щоб ви могли призначити його до AUX або MAIN.
+  - Перевірте конфігурацію, використовуючи слайдери.
 
-Then perform the mandatory setup/calibration:
+Потім виконайте обов'язкове налаштування / калібрування:
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Radio Setup](../config/radio.md)
-- [Flight Modes](../config/flight_mode.md)
+- [Орієнтація сенсорів](../config/flight_controller_orientation.md)
+- [Компас](../config/compass.md)
+- [Акселерометр](../config/accelerometer.md)
+- [Калібрування рівня горизонту](../config/level_horizon_calibration.md)
+- [Налаштування радіо](../config/radio.md)
+- [Режими польоту](../config/flight_mode.md)
 
-Ideally you should also do:
+В ідеалі ви також повинні зробити:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery Estimation Tuning](../config/battery.md)
-- [Safety](../config/safety.md)
+- [Калібрування ESC](../advanced_config/esc_calibration.md)
+- [Налаштування оцінки заряду батареї](../config/battery.md)
+- [Загальна безпека](../config/safety.md)
 
 
 ## Вдосконалення

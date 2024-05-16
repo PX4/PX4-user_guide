@@ -107,10 +107,10 @@ ZMO FPV в його початковому стані.
 
 ### З'єднувач крила
 
-Для безпосереднього підключення крилового з'єднувача при кріпленні крила потрібні деякі виготовлені на 3D-принтері кріплення, щоб відцентрувати з'єднувач. This step is not essential, but makes the handling much easier and there is one step less you need to worry about when you mount the plane in the field.
+Для безпосереднього підключення крилового з'єднувача при кріпленні крила потрібні деякі виготовлені на 3D-принтері кріплення, щоб відцентрувати з'єднувач. Цей крок не обов'язковий, але значно полегшує обробку, і вам потрібно буде робити на крок менше, коли будете встановлювати літак у полі.
 
-1. Glue the wing connectors into the 3D-Printed part with hot-glue or 5 min epoxy.
-1. Glue the 3D-printed part with the connector in to the fuselage. Make sure to properly align the connector while the glue cures.
+1. Приклейте з'єднувачі крила до деталі, надрукованої на 3D-принтері, гарячим клеєм або 5 хвилинною епоксидною смолою.
+1. Приклейте 3D-друковану частину разом із з'єднувачем у фюзеляж. Переконайтеся, що правильно вирівняли з'єднувач, поки клей сохне.
 
    The easiest way to align the connector is to mount the wing while the glue is curing, but make sure that no glue is between the fuselage and the wing, otherwise the wing might get stuck.
 
