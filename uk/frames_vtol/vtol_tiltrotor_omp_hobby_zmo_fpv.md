@@ -101,13 +101,13 @@ ZMO FPV в його початковому стані.
 
    ![ESC 02](../../assets/airframes/vtol/omp_hobby_zmo_fpv/esc-02.jpg)
 
-1. Припаяйте проводи заднього двигуна до ESC регулятора швидкості. Make sure to connect such that the motor spins in the correct direction.
+1. Припаяйте проводи заднього двигуна до ESC регулятора швидкості. Переконайтеся, що підключаєте так, щоб двигун обертався у правильному напрямку.
 
    ![ESC 03](../../assets/airframes/vtol/omp_hobby_zmo_fpv/esc-03.jpg)
 
-### Wing Connector
+### З'єднувач крила
 
-To directly connect the wing connector when the wing gets attached, some 3D-printed mounts are needed to center the connector. This step is not essential, but makes the handling much easier and there is one step less you need to worry about when you mount the plane in the field.
+Для безпосереднього підключення крилового з'єднувача при кріпленні крила потрібні деякі виготовлені на 3D-принтері кріплення, щоб відцентрувати з'єднувач. This step is not essential, but makes the handling much easier and there is one step less you need to worry about when you mount the plane in the field.
 
 1. Glue the wing connectors into the 3D-Printed part with hot-glue or 5 min epoxy.
 1. Glue the 3D-printed part with the connector in to the fuselage. Make sure to properly align the connector while the glue cures.
@@ -157,11 +157,11 @@ The connector glued into the fuselage. Make sure to properly align the connector
 
 ### Sensors
 
-#### Pitot Tube
+#### Трубка Піто
 
-1. First check if the pitot tube fits into the 3D-Printed mount. If this is the case, glue the pitot tube mount into place.
+1. Спочатку перевірте, чи трубка Піто влазить у кріплення, надруковане на 3D-принтері. Якщо це так, то приклейте трубку Піто на місце у кріплення.
 
-   To align the tube feed it through the second hole from the right of the FPV front plate. The mount will enable you to push the tube back into the fuselage to protect it during transportation and handling. The sensor unit can be mounted on top of the 3D-Printed mount with double sided tape.
+   Щоб вирівняти трубку пропустіть її через другий отвір праворуч від передньої пластини FPV. Кріплення дозволить вам вдавити трубку назад у фюзеляж, щоб захистити її під час транспортування та обробки. The sensor unit can be mounted on top of the 3D-Printed mount with double sided tape.
 
 1. Glue the 3D-Printed mount into place.
 
