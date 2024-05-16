@@ -169,36 +169,36 @@ The following tools are used in this assembly:
 Спочатку оновіть прошивку, конструкцію та виходи:
 
 - [Прошивка](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [Планер](../config/airframe.md)
 
-  ::: info You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
+  :::info Вам потрібно буде вибрати шасі *Generic Quadcopter* (**Квадрокоптер x > Generic Quadcopter**).
 
   ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_airframe_generic_quadx.png)
 :::
 
-- [Actuators](../config/actuators.md)
+- [Приводи](../config/actuators.md)
   - Update the vehicle geometry to match the frame.
   - Assign actuator functions to outputs to match your wiring.
   - Test the configuration using the sliders.
 
 
-Then perform the mandatory setup/calibration:
+Потім виконайте обов'язкове налаштування / калібрування:
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Radio Setup](../config/radio.md)
-- [Flight Modes](../config/flight_mode.md)
+- [Орієнтація сенсора](../config/flight_controller_orientation.md)
+- [Компас](../config/compass.md)
+- [Акселерометр](../config/accelerometer.md)
+- [Калібрування рівня горизонту](../config/level_horizon_calibration.md)
+- [Налаштування радіо](../config/radio.md)
+- [Режими польоту](../config/flight_mode.md)
 
-  ::: info For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
+  :::info Для цієї збірки ми налаштували режими *Стабілізований*, *Висота* та *Позиція* на трьохпозиційний перемикач на приймачі (відображений на один канал - 5). Це рекомендований мінімальний набір режимів для початківців.
 :::
 
-Ideally you should also do:
+В ідеалі ви також повинні зробити:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery Estimation Tuning](../config/battery.md)
-- [Safety](../config/safety.md)
+- [Калібрування ESC](../advanced_config/esc_calibration.md)
+- [Налаштування оцінки батареї](../config/battery.md)
+- [Безпека](../config/safety.md)
 
 
 ## Вдосконалення
