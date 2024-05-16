@@ -90,7 +90,7 @@ Note Вам знадобиться обліковий запис (безкошт
    git commit -m "<your commit message>"
    ```
 
-   Для зручного збереження змін, будь ласка, зверніться до розділу [Управління вихідним кодом](../contribute//code.md#commits-and-commit-messages) для отримання корисних порад щодо написання змістовних коментарів до комітів.
+   For a good commit message, please refer to the [Source Code Management](../contribute/code.md#commits-and-commit-messages) section.
 
 1. Натисніть "Push" вашу локальну гілку (включаючи додані до неї коміти) у вашу репозиторію-форк на Github.
 
