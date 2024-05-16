@@ -1,8 +1,8 @@
 # Debugging with GDB
 
-The [GNU DeBugger (GDB)](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary.
+The [GNU DeBugger (GDB)](https://sourceware.org/gdb/documentation/) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary.
 The debugger reads the debug symbols inside an ELF file to understand the static and dynamic memory layout of the PX4 firmware.
-To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
+To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
 
 The flow of information looks like this:
 
@@ -39,7 +39,7 @@ Once connected, you can use the usual GDB commands such as:
 - `info locals` to print local variables
 - `info registers` to print the registers
 
-Consult the [GDB documentation](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) for more details.
+Consult the [GDB documentation](https://sourceware.org/gdb/documentation/) for more details.
 
 :::tip
 To avoid having to type all commands to connect in GDB each time, you can write them into `~/.gdbinit`.

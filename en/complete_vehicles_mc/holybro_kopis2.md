@@ -9,7 +9,7 @@ The [Holybro Kopis 2](https://holybro.com/products/kopis2-hdv-free-shipping) is 
 The _Kopis 2_ can be bought from a number of vendors, including:
 
 - [Holybro](https://holybro.com/products/kopis2-hdv-free-shipping) <!-- item code 30069, 30070 -->
-- [GetFPV](https://www.getfpv.com/holybro-kopis-2-fpv-racing-drone-pnp.html)
+- [GetFPV](https://www.getfpv.com/holybro-kopis-2-6s-fpv-racing-drone-pnp.html)
 
 In addition you will need:
 

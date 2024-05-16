@@ -95,7 +95,7 @@ The instructions below explain how to get git and use it on your local computer.
    git commit -m "<your commit message>"
    ```
 
-   For a good commit message, please refer to the [Source Code Management](../contribute//code.md#commits-and-commit-messages) section.
+   For a good commit message, please refer to the [Source Code Management](../contribute/code.md#commits-and-commit-messages) section.
 
 1. Push your local branch (including commits added to it) to your forked repository on Github.
 
