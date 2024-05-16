@@ -697,7 +697,7 @@
     - [비행 로그 분석](dev_log/flight_log_analysis.md)
     - [ULog 파일 포맷](dev_log/ulog_file_format.md)
   - [고급 주제](advanced/index.md)
-    - [PX4 Metadata (Publication)](advanced/px4_metadata.md)
+    - [PX4 Metadata](advanced/px4_metadata.md)
     - [Package Delivery Architecture](advanced/package_delivery.md)
     - [Camera Integration/Architecture](camera/camera_architecture.md)
     - [컴퓨터 비전](advanced/computer_vision.md)
