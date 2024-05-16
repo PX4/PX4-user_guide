@@ -376,7 +376,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_holybro_s500">
  <td>Holybro S500</td>
- <td>Підтримувач: Lorenz Meier &lt; lorenz@px4. io&gt;<p><code>SYS_AUTOSTART</code> = 4015</p></td>
+ <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4015</p></td>
 </tr>
 <tr id="copter_quadrotor_x_px4_vision_dev_kit_v1">
  <td>PX4 Vision Dev Kit v1</td>
@@ -384,11 +384,11 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_nxp_hovergames">
  <td>NXP HoverGames</td>
- <td><p><code>SYS_AUTOSTART</code> = 4017</p></td>
+ <td>Підтримувач: Iain Galloway &lt;iain.galloway@nxp.com&gt;<p><code>SYS_AUTOSTART</code> = 4017</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_x500_v2">
  <td>Holybro X500 V2</td>
- <td>Maintainer: Farhang Naderi &lt;farhang.nba@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4019</p></td>
+ <td>Підтримувач: Farhang Naderi &lt;farhang.nba@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4019</p></td>
 </tr>
 <tr id="copter_quadrotor_x_px4_vision_dev_kit_v1.5">
  <td>PX4 Vision Dev Kit v1.5</td>
@@ -412,7 +412,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td>UVify IFO</td>
- <td>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4071</p></td>
+ <td>Підтримувач: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4071</p></td>
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td>UVify IFO</td>
@@ -448,7 +448,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="copter_simulation_hil_quadcopter_x">
  <td>HIL Quadcopter X</td>
- <td>Підтримувач: Lorenz Meier <lorenz@px4.io><p><code>SYS_AUTOSTART</code> = 1001</p></td>
+ <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 1001</p></td>
 </tr>
 <tr id="copter_simulation_sih_quadcopter_x">
  <td>SIH Quadcopter X</td>
@@ -503,7 +503,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="plane_flying_wing_generic_flying_wing">
  <td>Generic Flying Wing</td>
- <td>Супроводжуючий:: John Doe <john@example.com><p><code>SYS_AUTOSTART</code> = 3000</p></td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 3000</p></td>
 </tr>
 </tbody>
 </table>
@@ -532,7 +532,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="plane_plane_a-tail_applied_aeronautics_albatross">
  <td>Прикладна авіація Альбатрос</td>
- <td>Менеджер: Андреас Антенер <andreas@uaventure.com><p><code>SYS_AUTOSTART</code> = 2106</p></td>
+ <td>Менеджер: Андреас Антенер &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2106</p></td>
 </tr>
 </tbody>
 </table>
