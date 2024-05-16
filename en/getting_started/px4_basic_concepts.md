@@ -97,7 +97,7 @@ While designed to work with Auterion products, it can be used with "vanilla" PX4
 For more information see:
 
 - [AMC docs](https://docs.auterion.com/vehicle-operation/auterion-mission-control)
-- [AMC on Google Play](https://play.google.com/store/apps/details?id=com.auterion.auteriongs)
+- [Download from Auterion Suite](https://suite.auterion.com/)
 
 ## Drone Components & Parts
 
