@@ -90,7 +90,7 @@ Simple changes to _existing content_ can be made by clicking the **Edit on GitHu
    git commit -m "<your commit message>"
    ```
 
-   For a good commit message, please refer to the [Source Code Management](../contribute//code.md#commits-and-commit-messages) section.
+   For a good commit message, please refer to the [Source Code Management](../contribute/code.md#commits-and-commit-messages) section.
 
 1. 로컬 분기(추가된 커밋 포함)를 Github의 분기된 저장소에 푸시합니다.
 

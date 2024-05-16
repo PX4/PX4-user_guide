@@ -69,7 +69,7 @@ Duo Tailsitters зазвичай більш ефективні в крейсер
 
 ---
 
-[Woshark](http://uav-cas.ac.cn/WOSHARK/) *PX4 Тейлсіттер прототип* - зліт, перехід, посадка тейлсіттера. 
+[Woshark](http://www.laarlab.cn/#/) *PX4 Tailsitter prototype* - Tailsitter takeoff, transition, landing. 
 <!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
 <!-- Update issue https://github.com/PX4/PX4-user_guide/issues/3007 -->
 @[youtube](https://youtu.be/gjHj6YsxcZk)

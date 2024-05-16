@@ -488,7 +488,7 @@ There are several approaches you can use to view traffic:
 :::
 
 - [Log uORB topics](../dev_log/logging.md) associate with your MAVLink message.
-- View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html). For the messages to appear you will need to [Build QGroundControl](https://dev.qgroundcontrol.com/master/en/getting_started/) including a pre-built C library that contains your custom messages.
+- View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html). You will need to rebuild QGroundControl with the custom message definitions, [as described below](#updating-qgroundcontrol)
 
 ### Set streaming rate
 
@@ -522,4 +522,4 @@ QGC uses the ArduPilotMega.xml dialect by default, which includes **common.xml**
 
 ### Updating MAVSDK
 
-See the MAVSDK docs for information about how to work with [MAVLink headers and dialects](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html#mavlink-headers-and-dialects).
+See the MAVSDK docs for information about how to work with [MAVLink headers and dialects](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html).

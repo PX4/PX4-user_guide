@@ -50,7 +50,7 @@ PX4 повинен бути налаштований для маршрутиза
 
 ## Камери MAVLink (Протокол камери v1)
 
-[Камери MAVLink, що підтримують старий Протокол Камери v1](../camera/mavlink_v1_camera.md) інтегруються практично так само, як [камери, підключені до ПП](fc-connected-cameras).
+[MAVLink cameras that support the older Camera Protocol v1](../camera/mavlink_v1_camera.md) are integrated in much the same way as [FC-connected cameras](#fc-connected-cameras).
 
 `camera_trigger` підписується на тему [VehicleCommand](../msg_docs/VehicleCommand.md) та відстежує оновлення в [команди, які він підтримує](../camera/fc_connected_camera.md#mavlink-command-interface).
 Це відбувається, коли команда надходить через MAVLink або коли [елемент камери знаходиться в місіях](#camera-commands-in-missions).

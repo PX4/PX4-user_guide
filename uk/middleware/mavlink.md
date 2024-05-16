@@ -421,7 +421,7 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
 :::
 
 - [Теми логу uORB](../dev_log/logging.md) пов'язані з вашим повідомленням MAVLink.
-- Перегляд отриманих повідомлень в QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html). Вам потрібно буде перезібрати QGroundControl з користувацькими визначеннями повідомлень, [як описано нижче](h#updating-qgroundcontrol)
+- Перегляд отриманих повідомлень в QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html). You will need to rebuild QGroundControl with the custom message definitions, [as described below](#updating-qgroundcontrol)
 
 ### Встановити швидкість передачі за допомогою оболонки
 
@@ -455,4 +455,4 @@ QGC використовує попередньо скомпільовану б�
 
 ### Оновлення MAVSDK
 
-Дивіться документацію MAVSDK для отримання інформації про роботу з [заголовками та діалектами MAVLink](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html#mavlink-headers-and-dialects).
+See the MAVSDK docs for information about how to work with [MAVLink headers and dialects](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html).

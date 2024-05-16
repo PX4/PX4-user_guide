@@ -110,7 +110,7 @@ PX4 дозволяє налаштовувати роботу передпуск�
 - [libevents > Групи подій](https://github.com/mavlink/libevents#event-groups)
 - [health_and_arming_checks.h](https://github.com/mavlink/libevents/blob/main/libs/cpp/parse/health_and_arming_checks.h)
 
-QGC реалізації: [HealthAndArmingCheckReport.cc](https://github.com/mavlink/qgroundcontrol/blob/master/src/Vehicle/HealthAndArmingCheckReport.cc).
+QGC implementation: [HealthAndArmingCheckReport.cc](https://github.com/mavlink/qgroundcontrol/blob/master/src/MAVLink/LibEvents/HealthAndArmingCheckReport.cc).
 :::
 
 PX4 також видає підмножину інформації перевірки постановки на охорону в повідомленні [SYS_STATUS](https://mavlink.io/en/messages/common.html#SYS_STATUS) (див. [MAV_SYS_STATUS_SENSOR](https://mavlink.io/en/messages/common.html#MAV_SYS_STATUS_SENSOR)).
