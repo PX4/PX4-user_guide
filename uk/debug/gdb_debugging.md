@@ -1,6 +1,6 @@
 # Налагодження з GDB
 
-[Налагоджувач GNU (GDB)](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) інстальовано разом з інструментарієм компілятора у вигляді бінарного файлу `arm-none-eabi-gdb`. Налагоджувач читає символи відладки у файлі формату виконання ELF щоб зрозуміти статичну та динамічну структуру пам'яті прошивки PX4. Для доступу до мікроконтролера автопілота PX4, йому потрібно з'єднатися з [віддаленою ціллю](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html), яка надається [зондом налагодження за протоколом SWD](swd_debug.md).
+The [GNU DeBugger (GDB)](https://sourceware.org/gdb/documentation/) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary. Налагоджувач читає символи відладки у файлі формату виконання ELF щоб зрозуміти статичну та динамічну структуру пам'яті прошивки PX4. To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
 
 Плин інформації виглядає таким чином:
 
@@ -36,7 +36,7 @@
 - `info locals` для отримання локальних змінних
 - `info registers` для отримання регістрів
 
-Зверніться до [документації GDB](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) для отримання додаткових відомостей.
+Consult the [GDB documentation](https://sourceware.org/gdb/documentation/) for more details.
 
 :::tip
 Щоб уникнути необхідності вводити всі команди для підключення в GDB кожен раз, ви можете записати їх у файл `~/.gdbinit`.
