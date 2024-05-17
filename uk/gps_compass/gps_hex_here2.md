@@ -1,6 +1,6 @@
 # HEX/ProfiCNC Here2 GPS
 
-The [Here2 GPS receiver](http://www.proficnc.com/all-products/152-gps-module.html) is an update to the Here GPS module from HEX.
+GPS-приймач [Here2](http://www.proficnc.com/all-products/152-gps-module.html) є оновленням GPS-модуля Here від компанії HEX.
 
 Основні функції включають:
 - Одночасний прийом до 3 GNSS (GPS, Galileo, GLONASS, BeiDou)
@@ -39,7 +39,7 @@ Pin 6 and 7 are for the safety button - these can be attached as well if needed.
 
 ### Pinout
 
-The Here2 GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
+The Here2 GPS pinout is provided below. Це може бути використано для модифікації роз'єму для інших плат автопілота.
 
 | pin | Here2 GPS  | pin | Pixhawk 3 Pro GPS |
 | --- | ---------- | --- | ----------------- |
@@ -58,27 +58,27 @@ The Here2 GPS pinout is provided below. This can be used to help modify the conn
 - **Сенсор**
   - **Компас, Гіроскоп, Акселерометр:** ICM20948
   - **Барометр:** MS5611
-- **Receiver Type:** 72-channel u-blox M8N engine, GPS/QZSS L2 C/A, GLONASS L10F, BeiDou B11, Galileo E1B/C, SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
-- **Navigation Update Rate:** Max: 10 Hz
-- **Positionaing Accuracy:** 3D Fix
-- **Time to first fix:**
-  - **Cold start:** 26s
-  - **Aided start:** 2s
-  - **Reacquisition:** 1s
+- **Тип приймача:** 72-канальний модуль u-blox M8N, GPS/QZSS L2 C/A, GLONASS L10F, BeiDou B11, Galileo E1B/C, SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
+- **Частота оновлення навігації:** Max: 10 Гц
+- **Точність позиціювання:** 3D Fix
+- **Час до першого виправлення:**
+  - **Холодний запуск:** 26с
+  - **Допоміжний запуск:** 2с
+  - ** Повторне отримання:** 1с
 - **Чутливість:**
-  - **Tracking & Navigation:** -167 dBm
-  - **Hot start:** -148 dBm
-  - **Cold start:** -157 dBm
+  - **Відстеження & навігація:** -167 дБм
+  - **Гарячий старт:** -148 dBm
+  - **Холодний старт:** -157 dBm
 - **Допоміжний GNSS**
   - AssistNow GNSS Online
-  - AssistNow GNSS Offline (up to 35 days)
-  - AssistNow Autonomous (up to 6 days)
-  - OMA SUPL& 3GPP compliant
-- **Oscillator:** TCXO (NEO-8MN/Q)
-- **RTC crystal:** Build in
+  - AssistNow GNSS Offline (до 35 днів)
+  - AssistNow Autonomous (до 6 днів)
+  - OMA SUPL& сумісність з 3GPP
+- **Осцилятор:** TCXO (NEO-8MN/Q)
+- **RTC кристал:** Вбудований
 - **ROM:** Flash (NEO-8MN)
-- **Available Antennas:** Active Antenna & Passive Antenna
-- **Signal Integrity:** Signature feature with SHA 256
-- **Protocols & Interfaces:**
+- **Доступні антени:** Активна антена & Пасивна антена
+- **Цілісність сигналу:** Функція підпису з SHA 256
+- **Протоколи & Інтерфейси:**
   - **UART/I2C/CAN:** JST_GH Main interface, Switch internally.
-  - **STM32 Main Programming Interface:** JST_SUR
+  - **Основний інтерфейс програмування STM32:** JST_SUR
