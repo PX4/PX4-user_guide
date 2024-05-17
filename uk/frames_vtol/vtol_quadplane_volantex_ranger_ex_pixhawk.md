@@ -1,84 +1,84 @@
 # Volantex Ranger-Ex QuadPlane VTOL (Pixhawk)
 
-The QuadRanger VTOL is a standard tailplane aircraft based on the Volantex Ranger-Ex that has been retrofitted with a QuadCopter system. The Ranger-Ex is an easy to fly FPV platform that is widely available. It is also available from HobbyKing where it is rebranded as the Quanum Observer. The plasic fuselage and 2 meter EPO wing makes it a rugged airframe with a lot of payload capacity.
+QuadRanger VTOL - це стандартний повітряний літак з хвостовим оперенням на основі Volantex Ranger-Ex, який був модернізований з системою QuadCopter. Ranger-Ex є простою у виліті платформою FPV, яка широко доступна. Він також доступний в магазині HobbyKing, де він перевиданий як Quanum Observer. Пластиковий фюзеляж і 2-метрове крило EPO роблять його міцною конструкцією з величезним обсягом корисного навантаження.
 
-Key information:
+Ключова інформація:
 
-- **Frame:** Volantex Ranger-Ex or *Quanum Observer*
-- **Flight controller:** Pixhawk
+- **Рама:** Volantex Ranger-Ex або *Quanum Observer*
+- **Контролер польоту:** Pixhawk
 
 ![QuadRanger](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_complete_build.jpg)
 
-The VTOL conversion makes the plane a bit heavier (around 3.5kg including LiPo). With this conversion the plane will cruise at approximately 65% throttle. The suggested quad setup provides a thrust of 7.5kg and the airframe can fly with a total weight of around 4.5kg. This leaves enough payload capacity for payloads like FPV gear and cameras.
+Конверсія VTOL робить літак трохи важчим (близько 3,5 кг, включаючи LiPo). З цією конверсією літак буде летіти приблизно на 65% потужності двигуна. Запропонована чотирьохмоторна установка забезпечує тягу 7,5 кг, а конструкція повітряного каркасу може летіти з загальною вагою близько 4,5 кг. Це залишає достатньо потужності для вантажів, таких як обладнання для перегляду з першої особи та камери.
 
-The conversion is designed to minimize impact on the aerodynamics and provide additional strength minimize wing flexing.
+Конверсія призначена для мінімізації впливу на аеродинаміку та надання додаткової міцності для мінімізації згину крила.
 
 
-## Bill of Materials
+## Специфікація матеріалів
 
-- Volantex Ranger-Ex or Quanum Observer
-- 1200KV 530W motors
-- 30A Speed Controllers
-- 4s battery
-- APC Electric 11x5 propellers
+- Volantex Ranger-Ex або Quanum Observer
+- 1200KV 530W двигуни
+- Регулятори швидкості 30A
+- батарея 4s
+- Електричні гвинти APC 11x5
 
-## Conversion kit
+## Комплект конверсії
 
--   The basic parts required are;
--   Pixhawk or compatible
--   Digital airspeed sensor
--   3DR Power module or compatible
+-   Необхідні основні частини;
+-   Pixhawk або сумісний
+-   Цифровий датчик швидкості польоту
+-   Модуль живлення 3DR або сумісний
 -   GPS
 
-For a full parts list with links to Hobbyking EU and International warehouse see: [QuadRanger-VTOL-partslist](https://px4.io/wp-content/uploads/2016/01/QuadRanger-VTOL-partslist-1.xlsx)
+Для повного списку частин з посиланнями на склади Hobbyking у Європі та міжнародні склади перегляньте: [Список частин QuadRanger-VTOL](https://px4.io/wp-content/uploads/2016/01/QuadRanger-VTOL-partslist-1.xlsx)
 
-The image below depicts the parts required for one wing.
+Зображення нижче показує деталі, необхідні для одного крила.
 
 ![QuadRanger Parts](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_parts_for_one_wing.jpg)
 
 
-The tools required for the conversion are;
+Необхідні інструменти для конвертації;
 
--   A Dremel or similar rotary tool
--   A hobby knife
--   UHU POR glue
--   CA glue
--   Tape-line
--   Tape
+-   Інструмент Dremel або подібний поворотний інструмент
+-   Ніж для хобі
+-   Клей UHU POR
+-   Клей CA
+-   Вимірювальний стрічка
+-   Скотч
 
 ![QuadRanger conversion tools](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_conversion_tools.jpg)
 
-## Wing conversion
+## Конверсія крила
 
-A full build log is provided in the following video.
+Повний журнал збірки наведено в наступному відео.
 
 ::: info
-Please note that the conversion in this build log is performed on a wing that shows damage from a previous conversion. 
+Зверніть увагу, що конверсія в цьому журналі компіляції виконується на крилі, яке показує пошкодження від попередньої конверсії. 
 :::
 
 @[youtube](https://youtu.be/l_ppJ_HhAUQ)
 
-Cut both 800mm square carbon tubes to a length of 570mm and 230mm.
+Відріжте обидва 800 мм квадратні вуглецеві труби до довжини 570 мм та 230 мм.
 
-Making a slot in the Styrofoam wing 1.5cm deep using a rotary tool with some form of guidance to keep a fixed depth. The slot should be the length, depth and width of one 230mm square carbon tube. It should be located as indicated below.
+Виготовлення пазу у понівеченому крилі глибиною 1,5 см за допомогою обертаючого інструменту з якоюсь формою керівництва для збереження постійної глибини. Ящірка повинна мати довжину, глибину і ширину одного квадратного вуглецевого труби розміром 230 мм. Воно повинно бути розташоване так, як показано нижче.
 
 ![QuadRanger carbon tube slot](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_carbon_tube_slot.jpg)
 
-Glue the 300x150x1.5mm carbon sheet to the 230mm carbon tube using CA glue and create an opening to run wires through. Insert the wires for power and signal to the ESC's. Using UHU POR glue the sheet and carbon tube to the Styrofoam wing as indicated below.
+Приклейте вуглецевий лист розміром 300x150x1,5 мм до вуглецевої труби розміром 230 мм за допомогою клею CA та створіть отвір для прокладання проводів через нього. Вставте проводи для живлення та сигналу до ESC. Використовуючи клей UHU POR, приклейте лист і вуглепластикову трубку до крила з пінопласту, як показано нижче.
 
 ![QuadRanger sheet attachment](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_sheet_attachment.jpg)
 
-Using CA glue, glue the 570mm square carbon tube to the carbon sheet. It should be located 285mm from where the wings join. The tube should be centred relative to the vertical area of the wing. It should extend exactly 165mm on both sides.
+Використовуючи клей СА, заліпіть квадратну вуглецеву трубу довжиною 570 мм на вуглецевий лист. Воно повинно знаходитись на відстані 285 мм від місця приєднання крил. Трубка повинна бути центрована відносно вертикальної області крила. Він повинен розширюватися точно на 165 мм з обох сторін.
 
-Attach the motor mount to the motor. With another motor mount plate and 4 M3x25mm screws clamp the motor on the end of the square carbon tube as indicated below. Attach the ESC's with tie wraps to the carbon tube. When using the Afro ESC be sure to connect at least signal and ground wire.
+Прикріпіть кронштейн для двигуна до двигуна. З іншою пластиною кріплення двигуна та 4 гвинтами M3x25 мм закріпіть двигун на кінці квадратної вуглецевої труби, як показано нижче. Прикріпіть РЕБ зі стяжками до вуглецевої труби. Під час використання Afro ESC обов'язково підключіть принаймні сигнальний та земельний провід.
 
 ![QuadRanger motor and esc](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_motor_and_esc.jpg)
 
-## Wiring
+## Підключення
 
-The outputs of Pixhawk should be wired like this (orientation as seen like "sitting in the plane").
+Виходи Pixhawk повинні бути підключені таким чином (орієнтація, як бачиться як "сидячи в літаку").
 
-| Port   | Connection             |
+| Порт   | З'єднання              |
 | ------ | ---------------------- |
 | MAIN 1 | Front right motor, CCW |
 | MAIN 2 | Back left motor, CCW   |
@@ -95,12 +95,12 @@ The outputs of Pixhawk should be wired like this (orientation as seen like "sitt
 The servo direction can be reversed using the PWM\_REV parameters in the PWM\_OUTPUT group of QGroundControl (cogwheel tab, last item in the left menu)
 :::
 
-For further instructions on wiring and configurations please see: [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md)
+Для подальших інструкцій щодо проводки та налаштувань дивіться: [Стандартна Проводка та Налаштування VTOL](../config_vtol/vtol_quad_configuration.md)
 
 
 ## Конфігурація
 
-Configure the frame as shown in QGroundControl below (do not forget to click **Apply and Restart** in the top).
+Налаштуйте рамку, як показано внизу в QGroundControl (не забудьте клацнути **Застосувати і перезапустити** у верхній частині).
 
 ![QGC - select firmware for standard VTOL](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
 
