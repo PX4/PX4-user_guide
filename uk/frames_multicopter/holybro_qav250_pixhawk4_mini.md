@@ -23,22 +23,22 @@
 
 Набір Holybro [QAV250 Kit](https://holybro.com/products/qav250-kit) включає майже всі необхідні компоненти:
 * [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md)
-* Power module holybro
-* Fully assembled Power Management Board with ESCs
-* Motors - DR2205 KV2300
-* 5” Plastic Props
-* Carbon fiber 250 airframe with hardware
-* Foxer camera
+* Модуль живлення holybro
+* Повністю зібрана плата керування живленням з ESC
+* Двигуни - DR2205 KV2300
+* 5-дюймові пластикові стійки
+* Вуглепластиковий планер 250 з обладнанням
+* Камера Foxer
 * Vtx 5.8ghz
 
-Additionally you will need a battery and receiver (+compatible transmitter). This build uses:
-- Receiver: [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
-- Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
+Додатково вам знадобиться акумулятор та приймач (+сумісний передавач). Ця збірка використовує:
+- Отримувач: [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
+- Батарея: [4S 1300 мАг](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
 
 
 ## Обладнання
 
-This section lists all hardware for the frame and the autopilot installation.
+У цьому розділі перераховано все обладнання для встановлення рами та автопілота.
 
 ### Frame QAV250
 
