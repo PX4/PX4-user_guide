@@ -11,9 +11,9 @@
 
 ## Основна Інформація
 
-- **Kit:** [Holybro X500 V2 ARF Kit](https://holybro.com/collections/x500-kits)
-- **Flight controller:** [Pixhawk 5X](../flight_controller/pixhawk5x.md)
-- **Assembly time (approx.):** 55 min (25 minutes for frame, 30 minutes for autopilot installation/configuration)
+- **Комплект:** [Holybro X500 V2 ARF Kit](https://holybro.com/collections/x500-kits)
+- **Польотний контролер:** [Pixhawk 5X](../flight_controller/pixhawk5x.md)
+- **Час збірки (приблизно):** 55 хвилин (25 хвилин на раму, 30 хвилин на встановлення/налаштування автопілота)
 
 ![Full X500 V2 Kit](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500-kit.png)
 
@@ -36,10 +36,10 @@
 * Camera mount (optional and the 3D file can be downloaded from [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_X500_V2_3D_Print.rar?v=1665561017))
 
 Other parts in this build(**Not included in the ARF kit**):
-* [Pixhawk 5X autopilot](../flight_controller/pixhawk5x.md)
+* [Pixhawk 5X автопілот](../flight_controller/pixhawk5x.md)
 * [M8N GPS](https://holybro.com/products/m8n-gps)
-* [Power Module - PM02D](../power_module/holybro_pm02d.md)
-* [433/915 MHz Telemetry Radio](../telemetry/holybro_sik_radio.md)
+* [Модуль живлення - PM02D](../power_module/holybro_pm02d.md)
+* [433/915 MHz Радіо телеметрія](../telemetry/holybro_sik_radio.md)
 
 Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
 
@@ -64,7 +64,7 @@ This section lists all hardware for the frame and the autopilot installation.
 
    _Figure 1_: X500 V2 ARF Kit what's inside
 
-### Electronics
+### Електроніка
 
 | Item Description                                                               | Quantity |
 | ------------------------------------------------------------------------------ | -------- |
@@ -86,9 +86,9 @@ Tools are included to do the assembly, however you may need:
 
 ## Assembly
 
-Estimate time to assemble is 55 min (25 minutes for frame, 30 minutes for autopilot installation/configuration)
+Орієнтовний час збірки - 55 хвилин (25 хвилин на раму, 30 хвилин на встановлення/налаштування автопілота)
 
-1. Start by assembling the payload & battery holder. Push the rubbers into grippers (Do not use sharp items to push them in!). Next, pass the holders through the holder bars with the battery holder bases as Figure 3.
+1. Почніть зі складання корисного навантаження & тримача акумулятора. Push the rubbers into grippers (Do not use sharp items to push them in!). Next, pass the holders through the holder bars with the battery holder bases as Figure 3.
 
    ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_required_stuff.png)
 
@@ -151,7 +151,7 @@ Estimate time to assemble is 55 min (25 minutes for frame, 30 minutes for autopi
 
    _Figure 13_: Sticker tapes on Pixhawk
 
-1. If you want to mount the GPS on the companion computer plate, you can now secure the GPS mount onto it using 4 screws and nuts.
+1. Якщо ви хочете встановити GPS на плату компаньйона-комп'ютера, тепер ви можете закріпити кріплення GPS на ній за допомогою 4 гвинтів і гайок.
 
    <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/gps_mount_plate.png" width="400" title="Secure GPS mount onto companion plate" />
 
@@ -218,6 +218,6 @@ Airframe selection sets *default* autopilot parameters for the frame. These are 
 
 For instructions on how, start from [Autotune](../config/autotune.md).
 
-## Acknowledgements
+## Подяки
 
-This build log was provided by PX4 Team.
+Цей журнал збірки був наданий Командою PX4.
