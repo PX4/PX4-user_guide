@@ -1,28 +1,28 @@
 # First Application Tutorial (Hello Sky)
 
-This topic explains how to create and run your first onboard application. It covers all the basic concepts and APIs required for app development on PX4.
+У цій темі пояснюється, як створити та запустити свій перший бортовий додаток. Він охоплює всі основні концепції та API, необхідні для розробки додатків на PX4.
 
-::: info For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in [Application/Module Template](../modules/module_template.md).
+:::info Для простоти, більш складні функції, такі як функція запуску/зупинки та аргументи командного рядка, не розглядаються. Це описано в [Шаблоні Застосунку/Модуля](../modules/module_template.md).
 :::
 
-## Prerequisites
+## Необхідні умови
 
-You will require the following:
+Вам знадобиться наступне:
 
-- [PX4 SITL Simulator](../simulation/index.md) _or_ a [PX4-compatible flight controller](../flight_controller/index.md).
-- [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
-- [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
+- [PX4 SITL Simulator](../simulation/index.md) _або_ [PX4-сумісний польотний контролер](../flight_controller/index.md).
+- [PX4 Development Toolchain](../dev_setup/dev_env.md) для потрібної цілі.
+- [Завантажений вихідний код PX4](../dev_setup/building_px4.md#download-the-px4-source-code) з Github
 
-The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
+У каталозі вихідного коду [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) міститься повна версія цього посібника, яку ви можете переглянути, якщо у вас виникнуть труднощі.
 
-- Rename (or delete) the **px4_simple_app** directory.
+- Перейменуйте (або видаліть) каталог **px4_simple_app**.
 
-## Minimal Application
+## Мінімальна програма
 
-In this section we create a _minimal application_ that just prints out `Hello Sky!`. This consists of a single _C_ file and a _cmake_ definition (which tells the toolchain how to build the application).
+У цьому розділі ми створимо _мінімальну програму_, яка просто виводить `Hello Sky!`. Він складається з одного файлу _C_ та визначення _cmake_ (яке вказує інструментарію, як зібрати програму).
 
-1. Create a new directory **PX4-Autopilot/src/examples/px4_simple_app**.
-1. Create a new C file in that directory named **px4_simple_app.c**:
+1. Створіть новий каталог **PX4-Autopilot/src/examples/px4_simple_app**.
+1. Створіть новий файл C у цьому каталозі з назвою **px4_simple_app.c**:
 
    - Copy in the default header to the top of the page. This should be present in all contributed files!
 
