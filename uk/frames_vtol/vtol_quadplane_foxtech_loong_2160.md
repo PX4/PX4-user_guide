@@ -40,9 +40,9 @@ Foxtech Loong 2160 VTOL - це легкий у монтажі майже гот�
 ## Додаткові ресурси
 
 - Auterion 12S Power Module
-- [Holybro PM08D Power Module (alternative to Auterion PM)](https://holybro.com/collections/power-modules-pdbs/products/pm08d-digital-power-module-14s-200a)
+- [Модуль живлення Holybro PM08D (альтернатива Auterion PM)](https://holybro.com/collections/power-modules-pdbs/products/pm08d-digital-power-module-14s-200a)
 - [GPS F9P (included in Skynode eval. kit)](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
-- [GPS M9N (cheaper alternative to F9P)](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
+- [GPS M9N (дешевша альтернатива F9P)](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
 - [Airspeed sensor (included in Skynode eval. kit)](https://www.dualrc.com/parts/airspeed-sensor-sdp33) — recommended for improved safety and performance
 - [Airspeed sensor (cheaper alternative)](https://holybro.com/products/digital-air-speed-sensor?pr_prod_strat=use_description\&pr_rec_id=236dfda00\&pr_rec_pid=7150470561981\&pr_ref_pid=7150472462525\&pr_seq=uniform)
 - [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) (Optional)
@@ -64,21 +64,21 @@ Foxtech Loong 2160 VTOL - це легкий у монтажі майже гот�
 - [XT30 connectors](https://www.amazon.com/Connectors-Female-Pieces-Shrink-Battery/dp/B0875MBLNH/ref=sr_1_1?keywords=xt30+connector\&qid=1700643604\&sr=8-1)
 - [Div. Screws](https://de.aliexpress.com/item/1005005999729125.html?spm=a2g0o.productlist.main.1.7fe0c7fcvInMsM\&algo_pvid=2e5373e9-747f-4a28-9739-cd59d05d64f1\&aem_p4p_detail=202311220106396068090130108300006423842\&algo_exp_id=2e5373e9-747f-4a28-9739-cd59d05d64f1-0\&pdp_npi=4%40dis%21CHF%2114.42%213.72%21%21%2116.01%21%21%402101f04d17006439995917563eeeb0%2112000035246480339%21sea%21CH%210%21AB\&curPageLogUid=24AixvgVOlG3\&search_p4p_id=202311220106396068090130108300006423842_1)
 - [Zip ties](https://www.amazon.com/Superun-Cable-Tie-Kit-Assorted/dp/B07TMKJP5S/ref=sr_1_2?crid=968Z3XJK9N3J\&keywords=zip%2Bties%2Bset\&qid=1700644053\&sprefix=zip%2Bties%2Bset%2Caps%2C155\&sr=8-2\&th=1)
-- [Antenna extension cable - matching your radio system](https://www.digikey.ch/de/products/detail/amphenol-rf/095-902-536-012/13246174)
+- [Кабель продления антенны - соответствует вашей радиосистеме](https://www.digikey.ch/de/products/detail/amphenol-rf/095-902-536-012/13246174)
 - [Recommended Battery (12S 22Ah)](https://genstattu.com/tattu-22-2v-30c-6s-22000mah-lipo-battery-with-xt90-s-plug-for-uav.html)
 
 ## Інструменти
 
-The following tools were used for this build.
+Наступні інструменти використовувалися для цієї збірки.
 
-- Hex driver set
-- Wrench set
+- Набір гофроксена
+- Набір гаєчних ключів
 - [Soldering station](https://www.amazon.com/UY-CHAN-Programmable-Pocket-size-Soldering/dp/B07G71CKC4/ref=sr_1_7?crid=2S2XK6363XRDF\&keywords=ts+80+soldering+iron\&qid=1700644208\&sprefix=ts+80%2Caps%2C151\&sr=8-7)
-- Glue: Hot glue, 5 min Epoxy
+- Клей: гарячий клей, 5 хв епоксидка
 - Tape
-- 3M Double sided tape ([3M VHB tape](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y))
+- Двостороння стрічка 3M ([стрічка 3M VHB](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y))
 - 3D-Printer
-- [Blue Loctite](https://www.amazon.com/Loctite-Heavy-Duty-Threadlocker-Single/dp/B000I1RSNS?th=1)
+- [Синій Loctite](https://www.amazon.com/Loctite-Heavy-Duty-Threadlocker-Single/dp/B000I1RSNS?th=1)
 
 ## Інтеграція з обладнанням
 
@@ -94,76 +94,76 @@ The installation of a Pixhawk can be done similarly.
 #### Prepare 3D-Printed Parts
 
 :::info
-Use a soldering iron to press the threaded inserts into the 3D-Printed parts.
+Використовуйте паяльник, щоб натиснути різьбові вкладки в надруковані деталі 3D.
 :::
 
 1. Insert 10x M3 threaded inserts into the baseplate as shown in the picture:
 
    ![Baseplate with threaded inserts](../../assets/airframes/vtol/foxtech_loong_2160/03-baseplate.jpg)
 
-2. Insert 2x M3 threaded inserts into the stack fixture as shown in the picture below:
+2. Вставте 2x різьбові вставки M3 в пристрій для накладання, як показано на зображенні нижче:
 
-   ![Stack fixture with threaded inserts](../../assets/airframes/vtol/foxtech_loong_2160/04-stack-fixture.jpg)
+   ![Фіксатор стекла з нарізними вкладками](../../assets/airframes/vtol/foxtech_loong_2160/04-stack-fixture.jpg)
 
-3. Insert 2x M4 threaded inserts into the fan mount and radio mount as shown in the picture below.
+3. Вставте 2x різьбові вкладки M4 в кріплення вентилятора та кріплення радіо, як показано на малюнку нижче.
 
-   ![Radio-mount](../../assets/airframes/vtol/foxtech_loong_2160/05-radio-mount.jpg)
+   ![Кріплення радіо](../../assets/airframes/vtol/foxtech_loong_2160/05-radio-mount.jpg)
 
-   If you would like to add a 40mm 5V fan to the fan mount, insert 4x M3 inserts.
+   Якщо ви хочете додати 40-мм вентилятор з напругою 5 В на кріплення вентилятора, вставте 4x вставки M3.
 
    ![Fan-mount](../../assets/airframes/vtol/foxtech_loong_2160/06-fan-mount.jpg)
 
-4. Change the cable connector to a servo connector so it can be plugged into the servo rail to be powered.
+4. Змініть кабельний роз'єм на роз'єм для сервоприводу, щоб його можна було вставити в шину сервоприводу для живлення.
 
    ::: info
-   A fan might be needed if a powerful radio is used.
+   Можливо знадобиться вентилятор, якщо використовується потужне радіо.
 
 :::
 
    ![Fan-mount with fan](../../assets/airframes/vtol/foxtech_loong_2160/07-fan-mount.jpg)
 
 5. Remove the original mounting plate from the vehicle.
-   Tape the cables to the outside of the fuselage.
+   Приклейте кабелі до зовнішньої частини фюзеляжу.
 
-   ![Empty fuselage](../../assets/airframes/vtol/foxtech_loong_2160/08-preparations.jpg)
+   ![Порожнє фюзеляж](../../assets/airframes/vtol/foxtech_loong_2160/08-preparations.jpg)
 
-6. Slide the baseplate into the vehicle.
+6. Перемістіть підставку в транспортний засіб.
 
 7. Screw the stack fixture to the baseplate and mark the location of the stack fixture with tape or a pen.
 
-8. Remove the parts from the fuselage and glue the stack fixture into place using hot glue.
+8. Вилучіть частини з фюзеляжу та склейте кріплення стопки на місце за допомогою гарячого клею.
 
 ![Mounting stack fixture](../../assets/airframes/vtol/foxtech_loong_2160/09-stack-fixure.jpg)
 
 ### 40A Power Module
 
-The 40A power module provides power for the avionics when using Skynode (and comes with the Skynode evaluation kit):
+Модуль живлення 40A забезпечує живлення для авіоніки при використанні Skynode (і поставляється із комплектом оцінки Skynode):
 
-1. Remove the case from the 40A PM.
-2. Screw the PM with 2x M2x6mm to the bottom of the baseplate.
-3. Create a cable to extend the XT60 connector to an XT30 that is mounted on the baseplate.
-   With that, the 6S battery power can be directly plugged into the XT30 connector with the pre-configured cable that comes with the vehicle.
+1. Вилучіть корпус з 40A PM.
+2. Зафіксуйте ПМ з 2x M2x6mm до нижньої пластини.
+3. Створіть кабель для подовження роз'єму XT60 до XT30, який закріплений на базовій платі.
+   З цим, живлення від акумулятора 6S може бути підключено безпосередньо до роз'єму XT30 за допомогою попередньо налаштованого кабелю, що поставляється з транспортним засобом.
 
-   ![40A Power Module installation](../../assets/airframes/vtol/foxtech_loong_2160/10-40a-power-module.jpg)
+   ![Встановлення модуля живлення 40A](../../assets/airframes/vtol/foxtech_loong_2160/10-40a-power-module.jpg)
 
-If necessary, the 10V output of the radio port on the PM can also be exposed via an XT30 that can be mounted next to the 6S battery input XT60.
+Якщо потрібно, вихід 10V з радіопорту на PM також може бути викладений через XT30, який може бути встановлений поруч зі входом батареї 6S XT60.
 
 ### Sensors
 
 #### Pitot Tube
 
-1. The sensor can be installed with 2x M3x16mm screws in the front right corner of the baseplate.
+1. Датчик може бути встановлений за допомогою 2x винтів M3x16мм в передньому правому куті підставки.
    Take care that the connector is facing the center of the fuselage.
 
    ![Mounted airspeed sensor](../../assets/airframes/vtol/foxtech_loong_2160/11-airspeed-sensor.jpg)
 
-   Only the front tube (not as shown in the picture) is used; the other tube can be removed since our experience showed that the pressure inside the fuselage is sufficient as static pressure.
+   Лише передню трубу (не так, як показано на картинці) використовується; іншу трубу можна видалити, оскільки наш досвід показав, що тиск всередині фюзеляжу достатній як статичний тиск.
 
-2. When the stack is mounted inside the fuselage, the tube coming from the wing and the one from the airspeed sensor need to be spliced together.
-   Use some spit (that's the easiest way) to push them together and afterward use a heat shrink tube to reinforce the connection.
+2. Коли стек встановлено всередині фюзеляжу, труба, що йде з крила, та труба, що йде з датчика швидкості повітря, повинні бути з'єднані разом.
+   Використовуйте трохи слини (це найлегший спосіб) щоб з'єднати їх разом, а потім використовуйте термоусадочну трубку, щоб посилити з'єднання.
 
    :::warning
-   Use a heat source carefully since the foam starts to melt at high temperatures.
+   Використовуйте джерело тепла обережно, оскільки піна починаєтся танути при високих температурах.
 
 :::
 
@@ -174,14 +174,14 @@ A lidar is recommended!
 If no lidar is mounted you should disable using fixed-wing actuation in hover to accelerate forward (set [VT_FWD_THRUST_EN](../advanced_config/parameter_reference.md#VT_FWD_THRUST_EN) to `0` instead of `1`).
 :::
 
-1. Mark the location to install the lidar with some tape or a pen.
-   Cut a hole inside the PVC shell and the foam, so that the lidar fits in place.
+1. Позначте місце для встановлення лідару за допомогою скотчу або ручки.
+   Виріжте отвір всередині оболонки з ПВХ та піни, щоб лідар вміщувався на місце.
 
-   ![Prepared lidar hole](../../assets/airframes/vtol/foxtech_loong_2160/12-lidar-01.jpg)
+   ![Підготоване отвір лідару](../../assets/airframes/vtol/foxtech_loong_2160/12-lidar-01.jpg)
 
-2. Secure the lidar with hot glue.
+2. Закріпіть лідар з гарячим клеєм.
 
-   ![Installed lidar](../../assets/airframes/vtol/foxtech_loong_2160/13-lidar-02.jpg)
+   ![Встановлений лідар](../../assets/airframes/vtol/foxtech_loong_2160/13-lidar-02.jpg)
 
 #### GPS/Compass
 
