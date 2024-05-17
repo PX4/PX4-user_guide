@@ -171,7 +171,7 @@
 Спочатку оновіть прошивку, конструкцію та виходи:
 
 - [Прошивка](../config/firmware.md)
-- [Airframe](../config/airframe.md) ::: info You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
+- [Конструкція літального апарату](../config/airframe.md) ::: info Вам потрібно вибрати корпус *Generic Quadcopter* (**Quadrotor x > Generic Quadcopter**).
 
   ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5plus/qgc_airframe_generic_quadx.png)
 :::
