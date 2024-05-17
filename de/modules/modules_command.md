@@ -186,15 +186,14 @@ Used in startup scripts to handle hardfaults
 ### Usage
 ```
 hardfault_log <command> [arguments...]
- hardfault_log <command> [arguments...]
- hardfault_log <command> [arguments...]
  Commands:
    check         Check if there's an uncommitted hardfault
 
    rearm         Drop an uncommitted hardfault
 
    fault         Generate a hardfault (this command crashes the system :)
-     [0|1]       Hardfault type: 0=divide by 0, 1=Assertion (default=0)
+     [0|1|2|3]   Hardfault type: 0=divide by 0, 1=Assertion, 2=jump to 0x0,
+                 3=write to 0x0 (default=0)
 
    commit        Write uncommitted hardfault to /fs/microsd/fault_%i.txt (and
                  rearm, but don't reset)
