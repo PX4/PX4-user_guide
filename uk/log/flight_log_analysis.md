@@ -119,51 +119,51 @@ Name (multi id, message size in bytes)    number of data points, total bytes
 
 ### FlightPlot
 
-[FlightPlot](https://github.com/PX4/FlightPlot) is a desktop based tool for log analysis. It can be downloaded from [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows).
+[FlightPlot](https://github.com/PX4/FlightPlot) це десктопний інструмент для аналізу логів. Його можна завантажити з [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows).
 
 Основні функції:
 
-- Java based, cross-platform.
-- Intuitive GUI, no programming knowledge required.
-- Supports both new and old PX4 log formats (.ulg, .px4log, .bin)
-- Allows saving plots as images.
+- На основі Java, кросплатформенний.
+- Інтуїтивний GUI, не потрібні знання програмування.
+- Підтримує як нові, так і старі формати журналів PX4 (.ulg, .px4log, .bin)
+- Дозволяє зберігати графіки як зображення.
 
 ![FlightPlot Charts](../../assets/flight_log_analysis/flightplot_0.2.16.png)
 
 ### PX4Tools
 
-[PX4Tools](https://github.com/dronecrew/px4tools) is a log analysis toolbox for the PX4 autopilot written in Python. The recommended installation procedure is to use [anaconda3](https://conda.io/docs/index.html). See [px4tools github page](https://github.com/dronecrew/px4tools) for details.
+[PX4Tools](https://github.com/dronecrew/px4tools) - інструментарій для аналізу логів для автопілота PX4, написаний на Python. Рекомендованою процедурою встановлення є використання [anaconda3](https://conda.io/docs/index.html). Дивіться [сторінку px4tools на github](https://github.com/dronecrew/px4tools) для отримання подробиць.
 
 Основні функції:
 
-- Easy to share, users can view notebooks on Github (e.g. [15-09-30 Kabir Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb))
-- Python based, cross platform, works with anaconda 2 and anaconda3
-- iPython/ jupyter notebooks can be used to share analysis easily
-- Advanced plotting capabilities to allow detailed analysis
+- Користувачі можуть легко ділитися на Github (наприклад, [15-09-30 Kabir Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb))
+- На основі Python, кросплатформенний, працює з anaconda 2 та anaconda3
+- Блокноти iPython/jupyter можна використовувати для легкого обміну аналізом
+- Розширені можливості графіків для детального аналізу
 
 ![PX4Tools-based analysis](../../assets/flight_log_analysis/px4tools.png)
 
 ### MAVGCL
 
-[MAVGCL](https://github.com/ecmnet/MAVGCL) is an in-flight log analyzer for PX4. It can also be used in offline mode with downloaded uLog files.
+[MAVGCL](https://github.com/ecmnet/MAVGCL) це аналізатор логів польоту для PX4. Його також можна використовувати в офлайн режимі із завантаженими файлами uLog.
 
 Основні функції:
 
-- Realtime data acquisition (50ms sampling, 100ms rolling display) based on MAVLink messages or ULOG data over MAVLink
-- Timechart annotated by messages (MAVLink and ULog) and parameter changes (MAVLink only)
-- XY Analysis for selected key-figures
-- 3D View (vehicle and observer perspective)
-- MAVLink inspector (reporting raw MAVLink messages)
-- Offline-mode: Import of key-figures from PX4Log/ULog (file or last log from device via WiFi)
-- Java based. Known to work on macOS and Ubuntu.
-- And many more ...
+- Збір даних в реальному часі (вибірка 50 мс, відображення 100 мс) на основі повідомлень MAVLink або даних ULOG через MAVLink
+- Часова діаграма, анотована повідомленнями (MAVLink та ULog) та змінами параметрів (тільки MAVLink)
+- XY-аналіз для обраних ключових фігур
+- 3D-вигляд (перспектива транспортного засобу та спостерігача)
+- Інспектор MAVLink (звітування про необроблені повідомлення MAVLink)
+- Офлайн-режим: Імпорт ключових показників з PX4Log/ULog (файл або останній лог з пристрою через WiFi)
+- На основі Java. Відомо, що працює в macOS та Ubuntu.
+- Та багато іншого...
 
 ![MAVGCL](../../assets/flight_log_analysis/mavgcl/time_series.png)
 
 ### Data Comets
 
-[Data Comets](https://github.com/dsaffo/DataComets) is a interactive PX4 flight log analysis tool that allows you to encode flight data onto the flight path, filter and brush the data by time - and much more!
+[Data Comets](https://github.com/dsaffo/DataComets) - це інтерактивний інструмент аналізу журналу польотів PX4, який дозволяє кодувати польотні дані на траєкторію польоту, фільтрувати і чистити дані за часом - і багато іншого!
 
-You can use the online version of the tool for small log files (< 32Mb), or run it locally in order to analyze longer flights.
+Ви можете використовувати онлайн-версію інструменту для невеликих лог-файлів (< 32Mb) або запустити його локально, щоб проаналізувати довші польоти.
 
 ![Data Comets](../../assets/flight_log_analysis/data_comets/data_comets_overview.gif)
