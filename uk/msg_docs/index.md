@@ -1,16 +1,16 @@
-# uORB Message Reference
+# Опис повідомлень uORB
 
-::: info This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/msg/generate_msg_docs.py) from the source code.
+:::info Цей список [автоматично згенеровано](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/msg/generate_msg_docs.py) з вихідного коду.
 :::
 
-This topic lists the UORB messages available in PX4 (some of which may be may be shared by the [PX4-ROS 2 Bridge](../ros/ros2_comm.md)). Graphs showing how these are used [can be found here](../middleware/uorb_graph.md).
+У цій темі перелічено повідомлення UORB, доступні у PX4 (деякі з них можуть бути спільними для моста [PX4-ROS 2](../ros/ros2_comm.md)). Графи, що показують, як вони використовуються [можна знайти тут](../middleware/uorb_graph.md).
 
 - [ActionRequest](ActionRequest.md)
 - [ActuatorArmed](ActuatorArmed.md)
 - [ActuatorControlsStatus](ActuatorControlsStatus.md)
-- [ActuatorMotors](ActuatorMotors.md) — Motor control message
+- [ActuatorMotors](ActuatorMotors.md) — Повідомлення керування двигуном
 - [ActuatorOutputs](ActuatorOutputs.md)
-- [ActuatorServos](ActuatorServos.md) — Servo control message
+- [ActuatorServos](ActuatorServos.md) — Повідомлення керування сервоприводом
 - [ActuatorServosTrim](ActuatorServosTrim.md) — Servo trims, added as offset to servo outputs
 - [ActuatorTest](ActuatorTest.md)
 - [AdcReport](AdcReport.md)
