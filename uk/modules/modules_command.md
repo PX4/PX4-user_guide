@@ -1,4 +1,4 @@
-# Посилання на модулі: Command
+# Modules Reference: Command
 
 ## actuator_test
 Джерело: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/actuator_test)
