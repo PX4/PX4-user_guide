@@ -136,7 +136,7 @@ The connector glued into the fuselage. Make sure to properly align the connector
 
    ![BEC mounting](../../assets/airframes/vtol/omp_hobby_zmo_fpv/bec-02.jpg)
 
-### Cables
+### Кабелі
 
 1. Cut the connectors off the servos and solder the servo extension cables to the cables. Make sure that the cables are long enough to reach the Pixhawk adapter board. If you own a crimp tool, then you can also directly add the connectors without soldering.
 
@@ -161,13 +161,13 @@ The connector glued into the fuselage. Make sure to properly align the connector
 
 1. Спочатку перевірте, чи трубка Піто влазить у кріплення, надруковане на 3D-принтері. Якщо це так, то приклейте трубку Піто на місце у кріплення.
 
-   Щоб вирівняти трубку пропустіть її через другий отвір праворуч від передньої пластини FPV. Кріплення дозволить вам вдавити трубку назад у фюзеляж, щоб захистити її під час транспортування та обробки. The sensor unit can be mounted on top of the 3D-Printed mount with double sided tape.
+   Щоб вирівняти трубку пропустіть її через другий отвір праворуч від передньої пластини FPV. Кріплення дозволить вам вдавити трубку назад у фюзеляж, щоб захистити її під час транспортування та обробки. Датчик може бути встановлений зверху на кріпленні, надрукованому на 3D-принтері, за допомогою двостороннього скотчу.
 
-1. Glue the 3D-Printed mount into place.
+1. Приклейте кріплення, надруковане на 3D-принтері, на місце.
 
    ![Pitot tube 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/pitot-tube-01.png)
 
-1. The sensor can be mounted on top of the 3D-Printed mount.
+1. Датчик може бути встановлений зверху на кріпленні, надрукованому на 3D-принтері.
 
    ![Pitot tube 02](../../assets/airframes/vtol/omp_hobby_zmo_fpv/pitot-tube-02.png)
 
