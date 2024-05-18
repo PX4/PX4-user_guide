@@ -1,4 +1,4 @@
-# DatamanResponse (UORB message)
+# DatamanResponse (повідомлення UORB)
 
 
 
