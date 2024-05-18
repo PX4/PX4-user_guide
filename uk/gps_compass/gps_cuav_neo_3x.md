@@ -2,38 +2,38 @@
 
 <Badge type="tip" text="PX4 v1.13" />
 
-CUAV Neo 3X is a GNSS receiver that is waterproof and dustproof.
-It has IP66 protection capability and integrates UBLOX M9N module, RM3100 compass, color LED light and safety switch.
+CUAV Neo 3X - це водо- та пилонепроникний GNSS-приймач.
+Він має ступінь захисту IP66 та інтегрує модуль UBLOX M9N, компас RM3100, кольоровий світлодіодний індикатор і запобіжний вимикач.
 
-Main features :
+Основні характеристики:
 
-- Professional waterproof and dustproof design.
-- DroneCAN protocol support.
+- Професійний водонепроникний і пилонепроникний дизайн.
+- Підтримка протоколу DroneCAN.
 - Quad Satellite System Receiver (Ublox M9N).
 
 ![Hero image of Neo3x GPS](../../assets/hardware/gps/cuav_gps_neo3/neo_3x.jpg)
 
-## Technical Specification
+## Технічні характеристики
 
-| Hardware                                     | Type                                                                                                                              |
-| :------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| MUC                                          | STM32F412                                                                                                                         |
-| Protocol                                     | DroneCAN                                                                                                                          |
-| Compass                                      | RM3100                                                                                                                            |
-| Barometer                                    | ICP-20100                                                                                                                         |
-| GNSS receiver                                | Ublox M9N                                                                                                                         |
-| Frequency band                               | GPS: L1C/A<br>GLONASS:L10F <br>Beidou:B1I<br>Galileo:E1B/C        |
-| Number of concurrent GNSS                    | 4                                                                                                                                 |
-| Horizontal accuracy                          | 1.5m                                                                                                              |
-| Number of satellites(MAX) | 32+                                                                                                                               |
-| Acquisition                                  | Cold start：24S<br>Hot start：2S<br>Aided start:2s                                                                  |
-| Nav. update rate             | 5Hz(default)，25Hz(MAX)                                                                      |
-| Sensitivity                                  | Tracking and nav:-167dBm<br>Cold start Hot star:-148dBm<br>Reacquisition: -160dBm |
-| Protection level                             | IP66                                                                                                                              |
-| Input voltage                                | 4.7~5.2V                                                                          |
-| Operating temperature                        | -10~70℃                                                                                                           |
-| Size                                         | 67_67_21.2mm                                                                                                      |
-| Weight                                       | 46g (without cable）                                                                                            |
+| Апаратне забезпечення                        | Тип                                                                                                                                                 |
+| :------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MUC                                          | STM32F412                                                                                                                                           |
+| Протокол                                     | DroneCAN                                                                                                                                            |
+| Компас                                       | RM3100                                                                                                                                              |
+| Барометр                                     | ICP-20100                                                                                                                                           |
+| Приймач GNSS                                 | Ublox M9N                                                                                                                                           |
+| Смуга частот                                 | GPS: L1C/A<br>GLONASS:L10F <br>Beidou:B1I<br>Galileo:E1B/C                          |
+| Кількість одночасних GNSS                    | 4                                                                                                                                                   |
+| Горизонтальна точність                       | 1,5 м                                                                                                                                               |
+| Кількість супутників(MAX) | 32+                                                                                                                                                 |
+| Отримання даних                              | Холодний запуск: 24c<br>Гарячий запуск: 2c<br>Автоматичний запуск: 2c                               |
+| Частота оновлення навігації                  | 5Гц (за замовчуванням), 25Гц (MAX)                                                                            |
+| Чутливість                                   | Відстеження та навігація:-167дБм<br>Холодний старт Гарячий старт:-148дБм<br>Повторний збір: -160дБм |
+| Рівень захисту                               | IP66                                                                                                                                                |
+| Вхідна напруга                               | 4.7~5.2В                                                                                            |
+| Робоча температура                           | -10~70℃                                                                                                                             |
+| Розмір                                       | 67_67_21.2мм                                                                                                                        |
+| Вага                                         | 46г (без кабелю)                                                                                                                 |
 
 ## Де придбати
 
