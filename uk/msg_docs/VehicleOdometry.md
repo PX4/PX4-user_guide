@@ -1,4 +1,4 @@
-# VehicleOdometry (UORB message)
+# VehicleOdometry (повідомлення UORB)
 
 Дані odometry Техніки. Відповідає ROS REP 147 для повітряних суден
 
