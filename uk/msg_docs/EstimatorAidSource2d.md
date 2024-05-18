@@ -1,4 +1,4 @@
-# EstimatorAidSource2d (UORB message)
+# EstimatorAidSource2d (повідомлення UORB)
 
 
 
