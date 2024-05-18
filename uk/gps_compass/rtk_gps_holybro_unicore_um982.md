@@ -14,7 +14,7 @@ The module also includes a magnetometer, LED, and safety switch button. It also 
 
 Additional technical information can be found at [Holybro Technical Documentation page](https://docs.holybro.com/gps-and-rtk-system/h-rtk-unicore-um982)
 
-## Where to Buy
+## Де придбати
 
 * [Holybro Website](https://holybro.com/products/h-rtk-um982)
 
