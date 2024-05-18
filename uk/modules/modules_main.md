@@ -3,7 +3,7 @@
 
 На наступних сторінках описано модулі, драйвери та команди PX4. Вони описують надані функціональні можливості, загальний огляд реалізації на високому рівні та способи використання інтерфейсу командного рядка.
 
-::: info **This is auto-generated from the source code** and contains the most recent modules documentation.
+:::info **Це автоматично згенеровано з вихідного коду** і містить найновішу документацію модулів.
 :::
 
 Це не повний список, і NuttX надає деякі додаткові команди (такі як `free`). Використовуйте `help` в консолі, щоб отримати список всіх доступних команд, і в більшості випадків `help команди` виведе використання.
@@ -21,7 +21,7 @@ make module_documentation
 - [Зв’язок](modules_communication.md)
 - [Контролер](modules_controller.md)
 - [Драйвер](modules_driver.md)
-- [Estimator](modules_estimator.md)
+- [Оцінювач](modules_estimator.md)
 - [Моделювання](modules_simulation.md)
 - [Система](modules_system.md)
 - [Шаблони](modules_template.md)
