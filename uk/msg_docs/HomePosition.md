@@ -1,8 +1,8 @@
-# HomePosition (UORB message)
+# HomePosition (повідомлення UORB)
 
-GPS home position in WGS84 coordinates.
+Домашнє GPS положення в координатах WGS84.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/HomePosition.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/HomePosition.msg)
 
 ```c
 # GPS home position in WGS84 coordinates.
