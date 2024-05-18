@@ -1,4 +1,4 @@
-# EscStatus (UORB message)
+# EscStatus (повідомлення UORB)
 
 
 
