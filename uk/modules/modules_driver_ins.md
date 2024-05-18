@@ -1,30 +1,30 @@
 # Modules Reference: Ins (Driver)
 ## vectornav
-Source: [drivers/ins/vectornav](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/ins/vectornav)
+Джерело: [drivers/ins/vectornav](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/ins/vectornav)
 
 
-### Description
+### Опис
 
-Serial bus driver for the VectorNav VN-100, VN-200, VN-300.
+Драйвер послідовної шини для VectorNav VN-100, VN-200, VN-300.
 
-Most boards are configured to enable/start the driver on a specified UART using the SENS_VN_CFG parameter.
+Більшість плат налаштовано на увімкнення/запуск драйвера на вказаному UART за допомогою параметра SENS_VN_CFG.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/vectornav.html
+Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/vectornav.html
 
-### Examples
+### Приклади
 
-Attempt to start driver on a specified serial device.
+Спроба запустити драйвер на вказаному послідовному пристрої.
 ```
 vectornav start -d /dev/ttyS1
 ```
-Stop driver
+Зупинити драйвер
 ```
 vectornav stop
 ```
 
 <a id="vectornav_usage"></a>
 
-### Usage
+### Використання
 ```
 vectornav <command> [arguments...]
  Commands:
