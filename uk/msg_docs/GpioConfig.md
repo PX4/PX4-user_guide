@@ -1,8 +1,8 @@
-# GpioConfig (UORB message)
+# GpioConfig (повідомлення UORB)
 
-GPIO configuration
+Конфігурація GPIO
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GpioConfig.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GpioConfig.msg)
 
 ```c
 # GPIO configuration
