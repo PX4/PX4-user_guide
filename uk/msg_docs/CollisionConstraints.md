@@ -1,8 +1,8 @@
-# CollisionConstraints (UORB message)
+# CollisionConstraints (повідомлення UORB)
 
-Local setpoint constraints in NED frame setting something to NaN means that no limit is provided
+Локальні обмеження заданих значень у фреймі NED встановлення чогось у NaN означає, що обмеження не передбачено
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/CollisionConstraints.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/CollisionConstraints.msg)
 
 ```c
 # Local setpoint constraints in NED frame
