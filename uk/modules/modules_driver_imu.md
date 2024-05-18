@@ -4,7 +4,7 @@ Source: [drivers/imu/analog_devices/adis16448](https://github.com/PX4/PX4-Autopi
 
 <a id="adis16448_usage"></a>
 
-### Usage
+### Використання
 ```
 adis16448 <command> [arguments...]
  Commands:
