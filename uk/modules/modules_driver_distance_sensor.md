@@ -331,7 +331,7 @@ srf02 <command> [arguments...]
 Source: [drivers/distance_sensor/srf05](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/srf05)
 
 
-  ### Description
+  ### Опис
 
   Driver for HY-SRF05 / HC-SR05 and HC-SR04 rangefinders.
 
