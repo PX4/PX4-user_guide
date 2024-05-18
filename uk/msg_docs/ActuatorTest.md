@@ -1,4 +1,4 @@
-# ActuatorTest (UORB message)
+# ActuatorTest (повідомлення UORB)
 
 
 
