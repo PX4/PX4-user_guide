@@ -20,87 +20,87 @@
 * Останній автопілот Pixhawk
   - Для цього журналу був використаний Pixhawk 4, але зараз включені набагато більш нові версії.
 * Керування живленням PM02 (зібране)
-* ARM adopts high strength plastics
-* Motors - 2216 KV880（ V2 Update）
-* Propeller 1045（ V2 Update）
+* ARM використовує високоміцні пластмаси
+* Двигуни - 2216 KV880 (версія V2）
+* Пропелер 1045 (версія V2)
 * Pixhawk4 GPS
-* Fully assembled Power Management Board with ESCs
-* 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
-* Power and Radio Cables
-* Battery Straps
-* Dimensions:383*385*240mm
-* Wheelbase:480mm
+* Повністю зібрана плата керування живленням з ESC
+* 433 МГц / 915 МГц [Телеметричне радіо Holybro](../telemetry/holybro_sik_radio.md)
+* Живлення та радіокабелі
+* Ремені для акумуляторів
+* Розміри:383*385*240мм
+* Колісна база: 480мм
 
 ::: info
-No LiPo battery is included. 
-In addition, we use a FrSky Taranis controller.
+До комплекту не входить LiPo акумулятор. 
+Крім того, ми використовуємо контролер FrSky Taranis.
 :::
 
-## Hardware
+## Апаратне забезпечення (Hardware)
 
-| Опис предмету              | Кількість |
-| -------------------------- | --------- |
-| Wheelbase: 480mm           | 1         |
-| Arms                       | 4         |
-| Set of Landing Gear        | 2         |
-| M3*8 screws                | 18        |
-| M2 5*6 screws              | 24        |
-| Battery Straps             | 1         |
-| Propeller 1045 (V2 Update) | 1         |
+| Опис предмету             | Кількість |
+| ------------------------- | --------- |
+| Колісна база: 480мм       | 1         |
+| Кронштейн                 | 4         |
+| Комплект шасі             | 2         |
+| Гвинти M3*8               | 18        |
+| Гвинти M2 5*6             | 24        |
+| Ремені для акумуляторів   | 1         |
+| Пропелер 1045 (версія V2) | 1         |
 
 ![S500 Hardware](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_hardware.jpg)
 
-## Package
-| Елементи                         | Пакет |
-| -------------------------------- | ----- |
-| Pixhawk 4                        | 1     |
-| Pixhawk4 GPS MODULE              | 1     |
-| I2C splitter Board               | 2     |
-| 6 to 6 pin cable (power)         | 3     |
-| 4 to 4 pin cable (CAN)           | 2     |
-| 6 to 4 pin cable (Data)          | 1     |
-| 10 to 10 pin cable (PWM)         | 2     |
-| 8 to 8 pin cable(AUX)            | 1     |
-| 7 to 7 pin cable(SPI)            | 1     |
-| 6 to 6 pin cable(Debug)          | 1     |
-| PPM/SBUS out cable               | 1     |
-| XSR receiver cable               | 1     |
-| DSMX receiver cable              | 1     |
-| SBUS receiver cable              | 1     |
-| USB cable                        | 1     |
-| 'X'type folding pedestal mount   | 1     |
-| 70mm & 140mm carbon rod standoff | 2     |
-| 6*3 2.54mm pitch Horizontal Pin  | 1     |
-| 8*3 2.54mm pitch Horizontal Pin  | 2     |
-| Foam Set                         | 1     |
-| Pixhawk4 Quick Start Guide       | 1     |
-| Pixhawk4 Pinouts                 | 1     |
-| GPS Quick Start Guide            | 1     |
+## Набір
+| Елементи                                  | Пакет |
+| ----------------------------------------- | ----- |
+| Pixhawk 4                                 | 1     |
+| Pixhawk4 GPS MODULE                       | 1     |
+| Плата розгалужувача I2C                   | 2     |
+| Кабель з 6 на 6 контактів (живлення)      | 3     |
+| Кабель з 4 на 4 контакти (CAN)            | 2     |
+| Кабель з 6 на 4 контакти (Data)           | 1     |
+| Кабель з 10 на 10 контакт (PWM)           | 2     |
+| Кабель з 8 на 8 контактів (AUX)           | 1     |
+| Кабель з 7 на 7 контактів (SPI)           | 1     |
+| Кабель з 6 на 6 контактів (Debug)         | 1     |
+| Кабель виходу PPM/SBUS                    | 1     |
+| Кабель приймача XSR                       | 1     |
+| Кабель приймача DSMX                      | 1     |
+| Кабель приймача SBUS                      | 1     |
+| USB кабель                                | 1     |
+| Складне кріплення для п'єдесталу типу 'X' | 1     |
+| 70 мм & 140 мм карбоновий стрижень опори  | 2     |
+| Горизонтальний штифт 6*3 з кроком 2,54 мм | 1     |
+| Горизонтальний штифт 8*3 з кроком 2,54 мм | 2     |
+| Набір для піноутворення                   | 1     |
+| Короткий посібник користувача Pixhawk4    | 1     |
+| Розведення Pixhawk4                       | 1     |
+| Короткий посібник з використання GPS      | 1     |
 
 ![S500 Package Contents](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_package.jpg)
 
-### Electronics
-| Item Description                                 | Quantity |
-| ------------------------------------------------ | -------- |
-| Pixhawk 4 autopilot (PM06 not included)          | 1        |
-| Power Management PM02 (Assembled)                | 1        |
-| Motors - 2216 KV880 (V2 Update)                  | 4        |
-| Pixhawk 4 GPS                                    | 1        |
-| Fully assembled Power Management Board with ESCs | 1        |
-| 433MHz Telemetry Radio / 915MHz Telemetry Radio  | 1        |
+### Електроніка
+| Опис предмету                                           | Кількість |
+| ------------------------------------------------------- | --------- |
+| Автопілот Pixhawk 4 (PM06 не входить до комплекту)      | 1         |
+| Управління живленням PM02 (в комплекті)                 | 1         |
+| Двигуни - 2216 KV880 (версія V2)                        | 4         |
+| Pixhawk 4 GPS                                           | 1         |
+| Повністю зібрана плата керування живленням з ESC        | 1         |
+| Телеметричне радіо 433 МГц / Телеметричне радіо 915 МГц | 1         |
 
 ![S500 Electronics](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_electronics.jpg)
 
-### Tools needed
+### Необхідні інструменти
 
-The following tools are used in this assembly:
+У цій збірці використовуються наступні інструменти:
 
-- 1.5 mm Hex screwdriver
-- 2.0 mm Hex screwdriver
-- 2.5 mm Hex screwdriver
-- 3mm Phillips screwdriver
-- Wire cutters
-- Precision tweezers
+- Викрутка з шестигранником 1,5 мм
+- Викрутка з шестигранником 2,0 мм
+- Викрутка з шестигранником 2,5 мм
+- Хрестоподібна викрутка 3 мм
+- Кусачки
+- Прецизійний пінцет
 
 ![S500 Tools](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_tools2.png)
 
@@ -259,33 +259,33 @@ The following tools are used in this assembly:
 Спочатку оновіть прошивку та конструкцію:
 
 * [Прошивка](../config/firmware.md)
-* [Airframe](../config/airframe.md)
+* [Рама або планер](../config/airframe.md)
 
-  You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
+  Вам потрібно буде вибрати шасі *Holybro S500* (**Квадрокоптер x > Holybro S500**).
 
   ![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
 
-Then set the actuator outputs:
+Потім налаштуйте виходи привода:
 
-- [Actuators](../config/actuators.md)
-  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
-  - Assign actuator functions to outputs to match your wiring.
-  - Test the configuration using the sliders.
+- [Приводи](../config/actuators.md)
+  - Вам не потрібно оновлювати геометрію транспортного засобу (оскільки це попередньо сконфігурований повітряний каркас).
+  - Призначте функції приводу до виходів, щоб відповідати вашому підключенню.
+  - Перевірте конфігурацію, використовуючи слайдери.
 
-Then perform the mandatory setup/calibration:
+Потім виконайте обов'язкове налаштування / калібрування:
 
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+* [Орієнтація сенсора](../config/flight_controller_orientation.md)
+* [Компас](../config/compass.md)
+* [Акселерометр](../config/accelerometer.md)
+* [Калібрування рівня горизонту](../config/level_horizon_calibration.md)
+* [Налаштування радіо](../config/radio.md)
+* [Режими польоту](../config/flight_mode.md)
 
-Ideally you should also do:
+В ідеалі ви також повинні зробити:
 
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [Battery Estimation Tuning](../config/battery.md)
-* [Safety](../config/safety.md)
+* [Калібрування ESC](../advanced_config/esc_calibration.md)
+* [Налаштування оцінки заряду батареї](../config/battery.md)
+* [Безпека](../config/safety.md)
 
 
 ## Вдосконалення
