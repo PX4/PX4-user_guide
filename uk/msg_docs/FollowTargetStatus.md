@@ -1,8 +1,8 @@
-# FollowTargetStatus (UORB message)
+# FollowTargetStatus (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/FollowTargetStatus.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/FollowTargetStatus.msg)
 
 ```c
 uint64 timestamp                  # [microseconds] time since system start
