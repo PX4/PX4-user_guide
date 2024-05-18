@@ -1,8 +1,8 @@
-# EstimatorSensorBias (UORB message)
+# EstimatorSensorBias (повідомлення UORB)
 
-Sensor readings and in-run biases in SI-unit form. Sensor readings are compensated for static offsets, scale errors, in-run bias and thermal drift (if thermal compensation is enabled and available).
+Показання датчиків та похибки в процесі роботи в одиницях СІ. Показання датчиків компенсуються для статичних зсувів, похибки шкали, зсув під час роботи та тепловий зсув (якщо термокомпенсація увімкнена та доступна).
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorSensorBias.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorSensorBias.msg)
 
 ```c
 #
