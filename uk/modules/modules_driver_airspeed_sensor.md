@@ -1,14 +1,14 @@
 # Modules Reference: Airspeed Sensor (Driver)
 ## asp5033
-Source: [drivers/differential_pressure/asp5033](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/asp5033)
+Джерело: [drivers/differential_pressure/asp5033](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/asp5033)
 
 
-### Description
-Driver to enable an external \[ASP5033\] (https://www.qio-tek.com/index.php/product/qiotek-asp5033-dronecan-airspeed-and-compass-module/) TE connected via I2C. This is not included by default in firmware. It can be included with terminal command: "make <your_board> boardconfig" or in default.px4board with adding the line: "CONFIG_DRIVERS_DIFFERENTIAL_PRESSURE_ASP5033=y" It can be enabled with the "SENS_EN_ASP5033" parameter set to 1.
+### Опис
+Драйвер для включення зовнішнього \[ASP5033\] (https://www.qio-tek.com/index.php/product/qiotek-asp5033-dronecan-airspeed-and-compass-module/) TE підключається через I2C. За замовчуванням це не включено до прошивки. Його можна включити з командою терміналу: «make <your_board> boardconfig" or in default.px4board with adding the line: "CONFIG_DRIVERS_DIFFERENTIAL_PRESSURE_ASP5033=y" Його можна увімкнути, встановивши параметр «SENS_EN_ASP5033» на 1.
 
 <a id="asp5033_usage"></a>
 
-### Usage
+### Використання
 ```
 asp5033 <command> [arguments...]
  Commands:
@@ -27,11 +27,11 @@ asp5033 <command> [arguments...]
    status        print status info
 ```
 ## ets_airspeed
-Source: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ets)
+Джерело: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ets)
 
 <a id="ets_airspeed_usage"></a>
 
-### Usage
+### Використання
 ```
 ets_airspeed <command> [arguments...]
  Commands:
@@ -50,11 +50,11 @@ ets_airspeed <command> [arguments...]
    status        print status info
 ```
 ## ms4515
-Source: [drivers/differential_pressure/ms4515](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms4515)
+Джерело: [drivers/differential_pressure/ms4515](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms4515)
 
 <a id="ms4515_usage"></a>
 
-### Usage
+### Використання
 ```
 ms4515 <command> [arguments...]
  Commands:
@@ -73,11 +73,11 @@ ms4515 <command> [arguments...]
    status        print status info
 ```
 ## ms4525do
-Source: [drivers/differential_pressure/ms4525do](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms4525do)
+Джерело: [drivers/differential_pressure/ms4525do](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms4525do)
 
 <a id="ms4525do_usage"></a>
 
-### Usage
+### Використання
 ```
 ms4525do <command> [arguments...]
  Commands:
@@ -96,11 +96,11 @@ ms4525do <command> [arguments...]
    status        print status info
 ```
 ## ms5525dso
-Source: [drivers/differential_pressure/ms5525dso](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms5525dso)
+Джерело: [drivers/differential_pressure/ms5525dso](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms5525dso)
 
 <a id="ms5525dso_usage"></a>
 
-### Usage
+### Використання
 ```
 ms5525dso <command> [arguments...]
  Commands:
@@ -119,11 +119,11 @@ ms5525dso <command> [arguments...]
    status        print status info
 ```
 ## sdp3x
-Source: [drivers/differential_pressure/sdp3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/sdp3x)
+Джерело: [drivers/differential_pressure/sdp3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/sdp3x)
 
 <a id="sdp3x_usage"></a>
 
-### Usage
+### Використання
 ```
 sdp3x <command> [arguments...]
  Commands:
