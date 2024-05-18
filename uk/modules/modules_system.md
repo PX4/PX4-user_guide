@@ -1,16 +1,16 @@
 # Modules Reference: System
 
 ## battery_simulator
-Source: [modules/simulation/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/battery_simulator)
+Джерело: [modules/simulation/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/battery_simulator)
 
 
-### Description
+### Опис
 
 
 
 <a id="battery_simulator_usage"></a>
 
-### Usage
+### Використання
 ```
 battery_simulator <command> [arguments...]
  Commands:
@@ -21,22 +21,22 @@ battery_simulator <command> [arguments...]
    status        print status info
 ```
 ## battery_status
-Source: [modules/battery_status](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/battery_status)
+Джерело: [modules/battery_status](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/battery_status)
 
 
-### Description
+### Опис
 
 The provided functionality includes:
 - Read the output from the ADC driver (via ioctl interface) and publish `battery_status`.
 
 
-### Implementation
+### Імплементація
 It runs in its own thread and polls on the currently selected gyro topic.
 
 
 <a id="battery_status_usage"></a>
 
-### Usage
+### Використання
 ```
 battery_status <command> [arguments...]
  Commands:
@@ -47,7 +47,7 @@ battery_status <command> [arguments...]
    status        print status info
 ```
 ## camera_feedback
-Source: [modules/camera_feedback](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/camera_feedback)
+Джерело: [modules/camera_feedback](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/camera_feedback)
 
 
 ### Description
