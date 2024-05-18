@@ -1,8 +1,8 @@
-# EstimatorEventFlags (UORB message)
+# EstimatorEventFlags (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorEventFlags.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorEventFlags.msg)
 
 ```c
 uint64 timestamp                        # time since system start (microseconds)
