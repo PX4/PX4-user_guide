@@ -77,7 +77,7 @@ PX4 підтримує два процедури калібрування:
 
 1. Переконайтеся, що тип кадру встановлено перед калібруванням, інакше параметри калібрування будуть втрачені під час налаштування плати.
 1. Увімкніть плату та встановіть параметри [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) і [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) на `1`.
-1. Set all [CAL_ACC\*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_GYRO\*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), [CAL_MAG\*](../advanced_config/parameter_reference.md#CAL_MAG0_ID), and [CAL_BARO\*](../advanced_config/parameter_reference.md#CAL_BARO0_ID) parameters to defaults.
+1. Встановіть всі параметри [CAL_ACC\*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_GYRO\*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), [CAL_MAG\*](../advanced_config/parameter_reference.md#CAL_MAG0_ID), and [CAL_BARO\*](../advanced_config/parameter_reference.md#CAL_BARO0_ID) на значення за замовчуванням.
 1. Установіть для параметра [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) значення 2, щоб увімкнути реєстрацію даних під час завантаження.
 1. Установіть прапорець [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) для _термічного калібрування_ (біт 2), щоб зареєструвати необроблені дані датчика, необхідні для калібрування.
 1. Охолодіть дошку до мінімальної температури, при якій вона буде потрібна для роботи.
