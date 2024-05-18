@@ -141,55 +141,55 @@
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/ushape.jpg" width="355" title="Connecting top and bottom plate" />
 
-   _Figure 10-2_: Connecting top and bottom plate
+   _Зображення 10-2_: З'єднання верхньої та нижньої пластин
 
-1. Push the arm tubes a bit into the frame and make sure the amount of protrusion (red square from Figure 11) are consistent on all 4 arms. Ensure all the motors are pointed directly upward, then tighten all the nuts and screws.
+1. Трохи всуньте трубки кронштейнів у раму і переконайтеся, що величина виступу (червоний квадрат на зображенні 11) є однаковою на всіх 4-х кронштейнах. Переконайтеся, що всі двигуни спрямовані прямо вгору, а потім затягніть усі гайки та гвинти.
 
    ![Arms 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig16.jpg)
 
-1. Put the hanger gaskets into the 4 hangers and mount them onto the bottom plate using 8 hex screws (Figure 11). The screw holes are noted by the white arrow in Figure 12. We recommend tilting the drone sideway to make the installation easier.
+1. Вставте прокладки для підвісів у 4 підвіси та закріпіть їх на нижній пластині за допомогою 8 шестигранних гвинтів (Зображення 11). Отвори для гвинтів позначені білою стрілкою на зображенні 12. Ми рекомендуємо нахилити дрон убік, щоб полегшити встановлення.
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig9.png" width="400" title="Hanger gaskets" />
 
-   _Figure 11_: Hanger gaskets
+   _Зображення 11_: Ущільнювачі для кріпленнь
 
    ![Battery Mount 4](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig10.jpg)
 
-   _Figure 12_: Screw holes
+   _Зображення 12_: Отвори для гвинтів
 
-1. Insert the slide bars onto the hanger rings (Figure 13). Assemble the battery mount and platform board and mount them onto the slide bars as shown in Figure 14.
+1. Вставте направляючі планки на кільця кріплення (зображення 13). Зберіть кріплення для батареї та плату платформи і встановіть їх на направляючі, як показано на зображенні 14.
 
    ![Battery Mount 2: Slide bars](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig8.png)
 
-   _Figure 13_: Slide bars
+   _Зображення 13_: Повзунки
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/battery_mount1.jpg" width="400" title="Battery mount on slide bars" />
 
-   _Figure 14_: Battery mount on slide bars
+   _Зображення 14_: Кріплення акумулятора на висувних планках
 
-1. Mount the landing gear onto the bottom plate. We recommend tilting the drone sideway to make this installation process easier.
+1. Встановіть шасі на нижню пластину. Ми рекомендуємо нахилити дрон убік, щоб полегшити встановлення.
 
    ![Landing Gear](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig5.jpg)
 
-   _Figure 15_: Landing Gear
+   _Зображення 15_: Компоненти шасі
 
 
-1. Use the tape and stick the GPS to the top of the GPS mast and mount the GPS mast. Make sure the arrow on the gps is pointing forward (Figure 16).
+1. За допомогою скотча приклейте GPS до верхньої частини GPS-щогли і встановіть її на щоглу. Переконайтеся, що стрілка на gps вказує вперед (зображення 16).
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gps2.jpg" width="400" title="Figure 16: GPS and mast" />
 
-   _Figure 16_: GPS and mast
+   _Зображення 16_: GPS і щогла
 
 
-1. Mount the telemetry radio onto the top plate. Plug the telemetry cable into `TELEM1` port and GPS module to `GPS MODULE` port on the flight controller. Plug the cable from PM07 `FMU-PWM-in` to `I/O-PWM-out`on the FC and PM07 `PWR1` to `POWER1` on the FC, as shown in Figure 17.
+1. Встановіть телеметричну радіостанцію на верхню пластину. Підключіть телеметричний кабель до порту `TELEM1`, а модуль GPS до порту `GPS MODULE` на польотному контролері. Підключіть кабель від PM07 `FMU-PWM-in` до `I/O-PWM-out` на FC і PM07 `PWR1` до `POWER1` на FC, як показано на зображенні 17.
 
    ![Pixhawk 4 wiring 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/fc_connections.jpg)
 
-   _Figure 17_: Mount telemetry radio/plug in PWM and Power cables to Flight controller.
+   _Зображення 17_: Встановлення телеметричного радіоприймача/підключення ШІМ та кабелів живлення до контролера польоту.
 
-Please refer to [Pixhawk 4 Quick Start](../assembly/quick_start_pixhawk4.md) for more information.
+Будь ласка, зверніться до [Pixhawk 4 Посібник зі швидкого запуску](../assembly/quick_start_pixhawk4.md) для отримання додаткової інформації.
 
-That's it. The fully assembled kit is shown below:
+Ось і все. Повністю зібраний комплект показаний нижче:
 
 ![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
@@ -219,17 +219,17 @@ That's it. The fully assembled kit is shown below:
 Потім виконайте обов'язкове налаштування / калібрування:
 
 - [Орієнтація сенсора](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Radio Setup](../config/radio.md)
-- [Flight Modes](../config/flight_mode.md)
+- [Компас](../config/compass.md)
+- [Акселерометр](../config/accelerometer.md)
+- [Калібрування рівня горизонту](../config/level_horizon_calibration.md)
+- [Налаштування радіо](../config/radio.md)
+- [Режими польоту](../config/flight_mode.md)
 
-Ideally you should also do:
+В ідеалі ви також повинні зробити:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery Estimation Tuning](../config/battery.md)
-- [Safety](../config/safety.md)
+- [Калібрування ESC](../advanced_config/esc_calibration.md)
+- [Налаштування оцінки заряду батареї](../config/battery.md)
+- [Загальна безпека](../config/safety.md)
 
 
 ## Вдосконалення

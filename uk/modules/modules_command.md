@@ -1,10 +1,10 @@
-# Modules Reference: Command
+# Посилання на модулі: Command
 
 ## actuator_test
-Source: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/actuator_test)
+Джерело: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/actuator_test)
 
 
-Utility to test actuators.
+Утиліта для тестування актуаторів.
 
 WARNING: remove all props before using this command.
 
@@ -29,7 +29,7 @@ actuator_test <command> [arguments...]
    iterate-servos Iterate all servos deflecting one after the other
 ```
 ## bl_update
-Source: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bl_update)
+Джерело: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bl_update)
 
 Utility to flash the bootloader from a file
 <a id="bl_update_usage"></a>
@@ -59,7 +59,7 @@ Source: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/main/src
 Dump file utility. Prints file size and contents in binary mode (don't replace LF with CR LF) to stdout.
 <a id="dumpfile_usage"></a>
 
-### Usage
+### Використання
 ```
 dumpfile [arguments...]
      <file>      File to dump
@@ -68,10 +68,10 @@ dumpfile [arguments...]
 Source: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dyn)
 
 
-### Description
+### Опис
 Load and run a dynamic PX4 module, which was not compiled into the PX4 binary.
 
-### Example
+### Приклад
 ```
 dyn ./hello.px4mod start
 ```
@@ -79,7 +79,7 @@ dyn ./hello.px4mod start
 
 <a id="dyn_usage"></a>
 
-### Usage
+### Використання
 ```
 dyn [arguments...]
      <file>      File containing the module
@@ -176,7 +176,8 @@ hardfault_log <command> [arguments...]
    rearm         Drop an uncommitted hardfault
 
    fault         Generate a hardfault (this command crashes the system :)
-     [0|1]       Hardfault type: 0=divide by 0, 1=Assertion (default=0)
+     [0|1|2|3]   Hardfault type: 0=divide by 0, 1=Assertion, 2=jump to 0x0,
+                 3=write to 0x0 (default=0)
 
    commit        Write uncommitted hardfault to /fs/microsd/fault_%i.txt (and
                  rearm, but don't reset)
@@ -193,7 +194,7 @@ Source: [systemcmds/hist](https://github.com/PX4/PX4-Autopilot/tree/main/src/sys
 Command-line tool to show the px4 message history. There are no arguments.
 <a id="hist_usage"></a>
 
-### Usage
+### Використання
 ```
 hist [arguments...]
 ```
@@ -203,7 +204,7 @@ Source: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/main/sr
 Utility to scan for I2C devices on a particular bus.
 <a id="i2cdetect_usage"></a>
 
-### Usage
+### Використання
 ```
 i2cdetect [arguments...]
      [-b <val>]  I2C bus

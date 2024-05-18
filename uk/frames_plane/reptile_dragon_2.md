@@ -14,7 +14,7 @@ Reptile Dragon 2 - це двомоторний літак RC, спеціальн
 Основні особливості конструкції фюзеляжу:
 
 - Просторий салон
-- Easy access to the entire fuselage cavity with large top hatch
+- Легкий доступ до всієї порожнини фюзеляжу завдяки великому верхньому люку
 - Rear hatch
 - Removable V tail or conventional tail options included
 - Threaded inserts in the wings and fuselage top for external mounting
@@ -29,32 +29,32 @@ Reptile Dragon 2 - це двомоторний літак RC, спеціальн
 - Low stall speed
 - Gentle handling
 
-Key build features
+Основні особливості збірки
 
-- Easy overall build
-- Easy access to Pixhawk and all peripherals
-- FPV with camera pan mount
-- Air data from pitot/static probe
-- ~40 minute long flight times
+- Легка загальна збірка
+- Легкий доступ до Pixhawk та всіх периферійних пристроїв
+- FPV з кріпленням для панорамної камери
+- Дані про повітря з піто/статичного датчика
+- ~40 хвилин тривалості польотів
 
 ## Список деталей
 
 - [Reptile Dragon 2 kit](https://usa.banggood.com/REPTILE-DRAGON-2-1200mm-Wingspan-Twin-Motor-Double-Tail-EPP-FPV-RC-Airplane-KIT-or-PNP-p-1805237.html?cur_warehouse=CN&ID=531466)
 
 - [ARK6X FMU](https://arkelectron.com/product/arkv6x/)
-- [ARK6X carrier](https://arkelectron.com/product/ark-pixhawk-autopilot-bus-carrier/)
-- [Alternative FMU carrier: Holybro Pixhawk 5x Carrier board](https://holybro.com/products/pixhawk-baseboards)
-- [Holybro power module](https://holybro.com/products/pm02d-power-module)
-- [Holybro M9N GPS module](https://holybro.com/products/m9n-gps)
+- [Платформа ARK6X](https://arkelectron.com/product/ark-pixhawk-autopilot-bus-carrier/)
+- [Альтернативне кріплення FMU: плата Holybro Pixhawk 5x Carrier](https://holybro.com/products/pixhawk-baseboards)
+- [Модуль живлення Holybro](https://holybro.com/products/pm02d-power-module)
+- [Holybro M9N GPS модуль](https://holybro.com/products/m9n-gps)
 - Holybro PWM breakout board
-- MS4525DO differential pressure module and pitot tube
+- Модуль диференціального тиску MS4525DO і трубка Піто
 - [Caddx Vista FPV air unit](https://caddxfpv.com/products/caddx-vista-kit)
 - [Emax ES08MA ii](https://emaxmodel.com/products/emax-es08ma-ii-12g-mini-metal-gear-analog-servo-for-rc-model-robot-pwm-servo)
 - [DJI FPV Goggles](https://www.dji.com/fpv)
 - [ExpressLRS Matek Diversity RX](http://www.mateksys.com/?portfolio=elrs-r24)
 - [5V BEC](https://www.readymaderc.com/products/details/rmrc-3a-power-regulator-5-to-6-volt-ubec)
-- [6s2p 18650 LiIon flight battery](https://www.upgradeenergytech.com/product-page/6s-22-2v-5600mah-30c-dark-lithium-liion-drone-battery) (select XT60 connector)
-- [Custom designed 3D printed parts](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/rd2_3d_printed_parts.zip)
+- [6s2p 18650 Літій-іонний акумулятор для польотів](https://www.upgradeenergytech.com/product-page/6s-22-2v-5600mah-30c-dark-lithium-liion-drone-battery) (виберіть роз'єм XT60)
+- [Спеціально розроблені 3D-друковані деталі](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/rd2_3d_printed_parts.zip)
   - ARK6X carrier mount
   - Holybro Pixhawk 5x carrier mount
   - FPV pod and camera mount
@@ -110,13 +110,13 @@ Foamtac не здається добре прилипає до цієї піни
 
 Сервоприводи на RD2 підключені до поверхонь керування з регульованими зчепленнями сервоприводів. Інструкції RD2 відзначать, що кожна керуюча поверхня використовує конкретну довжину зв'язки (включено в комплект). Переконайтеся, що виміряли кожне з'єднання перед установкою, щоб бути впевненими, що це правильна довжина з'єднання для цієї поверхні керування. Дуже важливо вирівнювати сервоприводи так, щоб механічний діапазон сервопривода був добре вирівняний з механічним діапазоном поверхні керування. Коли серводвигун знаходиться в центрі, рука серводвигуна повинна знаходитися під кутом 90 градусів до серводвигуна, а поверхня керування повинна бути приблизно в центрі. Можливо, не вдасться досягти ідеального вирівнювання, тому будь-який залишковий зсув буде виправлено в програмному забезпеченні.
 
-The following steps can be used to perform servo alignment:
+Вирівнювання сервоприводів можна виконати за допомогою наступних кроків:
 
-1. Begin with the servo outside of the airplane
-2. Use the servo tester to move the servo to its center point
-3. Install the servo horn with the included retaining screw, taking care to align the horn to extend as close as possible to 90 degrees out on the correct side of the servo
-4. Install the servo in the servo pocket on the airplane
-5. Install the linkage, and twist to adjust it such that the control surface is as close to centered as possible
+1. Почніть з сервоприводу за межами літака
+2. За допомогою сервотестера перемістіть сервопривід до його центральної точки
+3. Встановіть вал сервоприводу за допомогою кріпильного гвинта, що входить до комплекту, намагаючись вирівняти вал так, щоб він виходив якомога ближче до 90 градусів на правильному боці сервоприводу
+4. Встановіть сервопривід у гніздо для сервоприводу на літаку
+5. Встановіть кріплення та відрегулюйте його таким чином, щоб поверхня управління була якомога ближче до центру
 
 :::info
 

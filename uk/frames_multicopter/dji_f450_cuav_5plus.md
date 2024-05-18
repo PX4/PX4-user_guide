@@ -17,9 +17,9 @@
   - GPS: [CUAV NEO V2 GPS](https://store.cuav.net/index.php?id_product=97&id_product_attribute=0&rewrite=cuav-new-ublox-neo-m8n-gps-module-with-shell-stand-holder-for-flight-controller-gps-compass-for-pixhack-v5-plus-rc-parts-px4&controller=product&id_lang=1)
   - Модуль живлення
 - Рама: [DJI F450](https://www.amazon.com/Flame-Wheel-Basic-Quadcopter-Drone/dp/B00HNMVQHY)
-- Propellers: [DJI Phantom Built-in Nut Upgrade Propellers 9.4x5](https://www.masterairscrew.com/products/dji-phantom-built-in-nut-upgrade-propellers-in-black-mr-9-4x5-prop-set-x4-phantom)
-- Battery: [Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60](https://hobbyking.com/en_us/turnigy-high-capacity-5200mah-3s-12c-multi-rotor-lipo-pack-w-xt60.html?___store=en_us)
-- Telemetry: [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md)
+- Пропелери: [DJI Phantom Built-in Nut Upgrade Propellers 9.4x5](https://www.masterairscrew.com/products/dji-phantom-built-in-nut-upgrade-propellers-in-black-mr-9-4x5-prop-set-x4-phantom)
+- Батарея: [Turnigy High Capacity 5200mAh 3S 12C Lipo Pack з XT60](https://hobbyking.com/en_us/turnigy-high-capacity-5200mah-3s-12c-multi-rotor-lipo-pack-w-xt60.html?___store=en_us)
+- Телеметрія: [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md)
 - RC Приймач: [FrSky D4R-II 2.4G 4CH ACCST Приймач телеметрії](https://www.banggood.com/FrSky-D4R-II-2_4G-4CH-ACCST-Telemetry-Receiver-for-RC-Drone-FPV-Racing-p-929069.html?cur_warehouse=GWTR)
 - Мотори: [DJI E305 2312E Мотор (960kv,CW)](https://www.amazon.com/DJI-E305-2312E-Motor-960kv/dp/B072MBMCZN)
 - ESC: Hobbywing XRotor 20A APAC Brushless ESC 3-4S для RC Мультикоптерів
@@ -55,26 +55,26 @@
 
 У цьому розділі перераховані компоненти в наборі CUAV v5+.
 
-| Опис                       | Кількість (Набір за замовчуванням) | Кількість (+GPS Набір) |
-| -------------------------- | ---------------------------------- | ---------------------- |
-| Автопілот V5+              | 1                                  | 1                      |
-| Кабель DuPont              | 2                                  | 2                      |
-| Кабель I2C/CAN             | 2                                  | 2                      |
-| Кабель ADC 6.6             | 2                                  | 2                      |
-| Сигнальний кабель SBUS     | 1                                  | 1                      |
-| Кабель IRSSI               | 1                                  | 1                      |
-| Сигнальний кабель DSM      | 1                                  | 1                      |
-| Кабель ADC 3.3             | 1                                  | 1                      |
-| Debug Cable                | 1                                  | 1                      |
-| Safety Switch Cable        | 1                                  | 1                      |
-| Voltage & Current Cable    | 1                                  | 1                      |
-| PW-Link Module Cable       | 1                                  | 1                      |
-| Модуль живлення            | 1                                  | 1                      |
-| Карта пам'яті SanDisk 16GB | 1                                  | 1                      |
-| 12C Expansion Board        | 1                                  | 1                      |
-| TTL Plate                  | 1                                  | 1                      |
-| NEO GPS                    | -                                  | 1                      |
-| 1                          | -                                  | 1                      |
+| Опис                        | Кількість (Набір за замовчуванням) | Кількість (+GPS Набір) |
+| --------------------------- | ---------------------------------- | ---------------------- |
+| Автопілот V5+               | 1                                  | 1                      |
+| Кабель DuPont               | 2                                  | 2                      |
+| Кабель I2C/CAN              | 2                                  | 2                      |
+| Кабель ADC 6.6              | 2                                  | 2                      |
+| Сигнальний кабель SBUS      | 1                                  | 1                      |
+| Кабель IRSSI                | 1                                  | 1                      |
+| Сигнальний кабель DSM       | 1                                  | 1                      |
+| Кабель ADC 3.3              | 1                                  | 1                      |
+| Кабель для відладки         | 1                                  | 1                      |
+| Кабель запобіжного вимикача | 1                                  | 1                      |
+| Кабель напруги та струму    | 1                                  | 1                      |
+| Кабель модуля PW-Link       | 1                                  | 1                      |
+| Модуль живлення             | 1                                  | 1                      |
+| Карта пам'яті SanDisk 16GB  | 1                                  | 1                      |
+| Платка розширення 12C       | 1                                  | 1                      |
+| ТТЛ-пластина                | 1                                  | 1                      |
+| NEO GPS                     | -                                  | 1                      |
+| 1                           | -                                  | 1                      |
 
 ![CUAV V5+ components](../../assets/airframes/multicopter/dji_f450_cuav_5plus/cuav5plus_components.png)
 
@@ -168,10 +168,10 @@
 Повні інструкції щодо встановлення та налаштування PX4 можна знайти в [Основна конфігурація](../config/index.md).
 :::
 
-First update the firmware, airframe, geometry, and outputs:
+Спочатку оновіть прошивку, конструкцію та виходи:
 
 - [Прошивка](../config/firmware.md)
-- [Airframe](../config/airframe.md) ::: info You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
+- [Конструкція літального апарату](../config/airframe.md) ::: info Вам потрібно вибрати корпус *Generic Quadcopter* (**Quadrotor x > Generic Quadcopter**).
 
   ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5plus/qgc_airframe_generic_quadx.png)
 :::

@@ -1,8 +1,8 @@
-# GpsDump (UORB message)
+# GpsDump (повідомлення UORB)
 
-This message is used to dump the raw gps communication to the log. Set the parameter GPS_DUMP_COMM to 1 to use this.
+Це повідомлення використовується для виведення необробленої gps комунікації до журналу. Встановіть параметр GPS_DUMP_COMM на 1, щоб скористатися цим.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GpsDump.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GpsDump.msg)
 
 ```c
 # This message is used to dump the raw gps communication to the log.

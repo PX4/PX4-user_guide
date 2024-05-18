@@ -15,14 +15,14 @@
 Компоненти, необхідні для цієї збірки, є:
 - Контролер польоту: [CUAV V5 nano](https://store.cuav.net/shop/v5-nano/):
   - GPS: [CUAV NEO V2 GPS](https://store.cuav.net/index.php?id_product=97&id_product_attribute=0&rewrite=cuav-new-ublox-neo-m8n-gps-module-with-shell-stand-holder-for-flight-controller-gps-compass-for-pixhack-v5-plus-rc-parts-px4&controller=product&id_lang=1)
-  - Power Module
-- Frame: [DJI F450](https://www.amazon.com/Flame-Wheel-Basic-Quadcopter-Drone/dp/B00HNMVQHY)
-- Propellers: [DJI Phantom Built-in Nut Upgrade Propellers 9.4x5](https://www.masterairscrew.com/products/dji-phantom-built-in-nut-upgrade-propellers-in-black-mr-9-4x5-prop-set-x4-phantom)
-- Battery: [Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60](https://hobbyking.com/en_us/turnigy-high-capacity-5200mah-3s-12c-multi-rotor-lipo-pack-w-xt60.html?___store=en_us)
-- Telemetry: [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md)
-- RC Receiver: [FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver](https://www.banggood.com/FrSky-D4R-II-2_4G-4CH-ACCST-Telemetry-Receiver-for-RC-Drone-FPV-Racing-p-929069.html?cur_warehouse=GWTR)
-- Motors: [DJI E305 2312E Motor (960kv,CW)](https://www.amazon.com/DJI-E305-2312E-Motor-960kv/dp/B072MBMCZN)
-- ESC: Hobbywing XRotor 20A APAC Brushless ESC 3-4S For RC Multicopters
+  - Модуль живлення
+- Фрейм: [DJI F450](https://www.amazon.com/Flame-Wheel-Basic-Quadcopter-Drone/dp/B00HNMVQHY)
+- Пропелери: [DJI Phantom Built-in Nut Upgrade Propellers 9.4x5](https://www.masterairscrew.com/products/dji-phantom-built-in-nut-upgrade-propellers-in-black-mr-9-4x5-prop-set-x4-phantom)
+- Акумулятор: [Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60](https://hobbyking.com/en_us/turnigy-high-capacity-5200mah-3s-12c-multi-rotor-lipo-pack-w-xt60.html?___store=en_us)
+- Телеметрія: [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md)
+- Пульт дистанційного керування: [FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver](https://www.banggood.com/FrSky-D4R-II-2_4G-4CH-ACCST-Telemetry-Receiver-for-RC-Drone-FPV-Racing-p-929069.html?cur_warehouse=GWTR)
+- Мотори: [DJI E305 2312E Мотор (960kv,CW)](https://www.amazon.com/DJI-E305-2312E-Motor-960kv/dp/B072MBMCZN)
+- ESC: Hobbywing XRotor 20A APAC Brushless ESC 3-4S для RC Мультикоптерів
 
 
 Крім того, ми використовували контролер FrSky Taranis. Вам також знадобляться хомутів, двостороння стрічка, паяльник.
@@ -38,43 +38,43 @@
 
 Цей розділ містить усе обладнання для каркасів.
 
-| Опис                                              | Quantity |
-| ------------------------------------------------- | -------- |
-| DJI F450 Bottom plate                             | 1        |
-| DJI F450 Top plate                                | 1        |
-| DJI F450 legs with landing gear                   | 4        |
-| M3*8 screws                                       | 18       |
-| M2 5*6 screws                                     | 24       |
-| Velcro Battery Strap                              | 1        |
-| DJI Phantom Built-in Nut Upgrade Propellers 9.4x5 | 1        |
+| Опис                                              | Кількість |
+| ------------------------------------------------- | --------- |
+| DJI F450 Нижня пластина                           | 1         |
+| DJI F450 Верхня пластина                          | 1         |
+| DJI F450 ніжки з шасі                             | 4         |
+| Гвинти M3*8                                       | 18        |
+| Гвинти M2 5*6                                     | 24        |
+| Акумуляторний ремінь на липучці                   | 1         |
+| DJI Phantom Built-in Nut Upgrade Propellers 9.4x5 | 1         |
 
 ![F450 frame components](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_frame_components.png)
 
 
 ### CUAV v5 nano Package
 
-This section lists the components in the CUAV v5 nano package.
+У цьому розділі перераховані компоненти, що входять до складу пакета CUAV v5 nano.
 
-| Description               | Quantity (Default Package) | Quantity (+GPS Package) |
-| ------------------------- | -------------------------- | ----------------------- |
-| V5 nano flight controller | 1                          | 1                       |
-| DuPont Cable              | 2                          | 2                       |
-| I2C/CAN Cable             | 2                          | 2                       |
-| ADC 6.6 Cable             | 2                          | 2                       |
-| SBUS Signal Cable         | 1                          | 1                       |
-| IRSSI Cable               | 1                          | 1                       |
-| DSM Signal Cable          | 1                          | 1                       |
-| ADC 3.3 Cable             | 1                          | 1                       |
-| Debug Cable               | 1                          | 1                       |
-| Safety Switch Cable       | 1                          | 1                       |
-| Voltage & Current Cable   | 1                          | 1                       |
-| PW-Link Module Cable      | 1                          | 1                       |
-| Power Module              | 1                          | 1                       |
-| SanDisk 16GB Memory Card  | 1                          | 1                       |
-| 12C Expansion Board       | 1                          | 1                       |
-| TTL Plate                 | 1                          | 1                       |
-| NEO GPS                   | -                          | 1                       |
-| GPS Bracket               | -                          | 1                       |
+| Опис                        | Кількість (Набір за замовчуванням) | Кількість (+GPS Набір) |
+| --------------------------- | ---------------------------------- | ---------------------- |
+| V5 nano політний контролер  | 1                                  | 1                      |
+| Кабель DuPont               | 2                                  | 2                      |
+| Кабель I2C/CAN              | 2                                  | 2                      |
+| Кабель ADC 6.6              | 2                                  | 2                      |
+| Сигнальний кабель SBUS      | 1                                  | 1                      |
+| Кабель IRSSI                | 1                                  | 1                      |
+| Сигнальний кабель DSM       | 1                                  | 1                      |
+| Кабель ADC 3.3              | 1                                  | 1                      |
+| Кабель для відладки         | 1                                  | 1                      |
+| Кабель запобіжного вимикача | 1                                  | 1                      |
+| Кабель напруги та струму    | 1                                  | 1                      |
+| Кабель модуля PW-Link       | 1                                  | 1                      |
+| Модуль живлення             | 1                                  | 1                      |
+| Карта пам'яті SanDisk 16GB  | 1                                  | 1                      |
+| Платка розширення 12C       | 1                                  | 1                      |
+| ТТЛ-пластина                | 1                                  | 1                      |
+| NEO GPS                     | -                                  | 1                      |
+| GPS Bracket                 | -                                  | 1                      |
 
 
 ### Електроніка
@@ -87,7 +87,7 @@ This section lists the components in the CUAV v5 nano package.
 | FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver        | 1         |
 | DJI E305 2312E Motor (800kv,CW)                       | 4         |
 | Hobbywing XRotor 20A APAC Brushless ESC               | 4         |
-| Power Module(Included in the CUAV V5 nano package)    | 1         |
+| Модуль живлення (включено в набір CUAV V5 nano)       | 1         |
 | Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60 | 1         |
 
 
