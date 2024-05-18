@@ -1,8 +1,8 @@
-# DebugArray (UORB message)
+# DebugArray (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/DebugArray.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/DebugArray.msg)
 
 ```c
 uint8 ARRAY_SIZE = 58
