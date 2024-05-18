@@ -1,8 +1,8 @@
-# LandingTargetPose (UORB message)
+# LandingTargetPose (повідомлення UORB)
 
 Relative position of precision land target in navigation (body fixed, north aligned, NED) and inertial (world fixed, north aligned, NED) frames
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LandingTargetPose.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LandingTargetPose.msg)
 
 ```c
 # Relative position of precision land target in navigation (body fixed, north aligned, NED) and inertial (world fixed, north aligned, NED) frames
