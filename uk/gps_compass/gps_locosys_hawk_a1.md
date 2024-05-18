@@ -15,7 +15,7 @@ Main features include:
 
 ![Hawk A1](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
-## Where to Buy
+## Де купити
 
 * [LOCOSYS](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) (Taiwan)
 
