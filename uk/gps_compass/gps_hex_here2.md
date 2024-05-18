@@ -29,19 +29,19 @@ GPS-приймач [Here2](http://www.proficnc.com/all-products/152-gps-module.h
 
 ## Підключення та з'єднання
 
-The Here2 GPS comes with an 8 pin connector that can be inserted directly into the [Pixhawk 2](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf) GPS UART port.
+Here2 GPS постачається з 8-контактним роз'ємом, який можна вставити безпосередньо в [Pixhawk 2](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf) GPS UART порт.
 
-The Pixhawk 3 Pro and Pixracer have a 6 pin GPS port connector. For these controllers you can modify the GPS cable (as shown below) to remove pin 6 and 7.
+У Pixhawk 3 Pro та Pixracer є роз'єм для GPS з 6 контактами. Для цих контролерів ви можете модифікувати GPS-кабель (як показано нижче), видаливши контакти 6 і 7.
 
 <img src="../../assets/hardware/gps/rtk_here_plug_gps_to_6pin_connector.jpg" width="500px" />
 
-Pin 6 and 7 are for the safety button - these can be attached as well if needed.
+Виводи 6 і 7 призначені для кнопки безпеки - їх також можна прикріпити за потреби.
 
-### Pinout
+### Розпіновка
 
-The Here2 GPS pinout is provided below. Це може бути використано для модифікації роз'єму для інших плат автопілота.
+Схема виводів Here2 GPS наведена нижче. Це може бути використано для модифікації роз'єму для інших плат автопілота.
 
-| pin | Here2 GPS  | pin | Pixhawk 3 Pro GPS |
+| пін | Here2 GPS  | пін | Pixhawk 3 Pro GPS |
 | --- | ---------- | --- | ----------------- |
 | 1   | VCC_5V     | 1   | VCC               |
 | 2   | GPS_RX     | 2   | GPS_TX            |
@@ -80,5 +80,5 @@ The Here2 GPS pinout is provided below. Це може бути використ�
 - **Доступні антени:** Активна антена & Пасивна антена
 - **Цілісність сигналу:** Функція підпису з SHA 256
 - **Протоколи & Інтерфейси:**
-  - **UART/I2C/CAN:** JST_GH Main interface, Switch internally.
+  - **UART/I2C/CAN:** JST_GH Головний інтерфейс, внутрішній перемикач.
   - **Основний інтерфейс програмування STM32:** JST_SUR
