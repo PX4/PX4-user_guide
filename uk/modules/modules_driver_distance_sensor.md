@@ -5,11 +5,11 @@ Source: [drivers/distance_sensor/broadcom/afbrs50](https://github.com/PX4/PX4-Au
 
 ### Опис
 
-Driver for the Broadcom AFBRS50.
+Драйвер для Broadcom AFBRS50.
 
 ### Приклади
 
-Attempt to start driver on a specified serial device.
+Спроба запустити драйвер на вказаному послідовному пристрої.
 ```
 afbrs50 start
 ```
@@ -62,19 +62,19 @@ Source: [drivers/distance_sensor/leddar_one](https://github.com/PX4/PX4-Autopilo
 
 ### Опис
 
-Serial bus driver for the LeddarOne LiDAR.
+Драйвер послідовної шини для LiDAR LeddarOne.
 
-Most boards are configured to enable/start the driver on a specified UART using the SENS_LEDDAR1_CFG parameter.
+Більшість плат налаштовано на ввімкнення/запуск драйвера на вказаному UART за допомогою параметра SENS_LEDDAR1_CFG.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/leddar_one.html
+Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/leddar_one.html
 
 ### Приклади
 
-Attempt to start driver on a specified serial device.
+Спроба запустити драйвер на вказаному послідовному пристрої.
 ```
 leddar_one start -d /dev/ttyS1
 ```
-Stop driver
+Зупинити драйвер
 ```
 leddar_one stop
 ```
@@ -93,14 +93,14 @@ leddar_one <command> [arguments...]
    stop          Stop driver
 ```
 ## lightware_laser_i2c
-Source: [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_laser_i2c)
+Джерело: [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_laser_i2c)
 
 
 ### Опис
 
-I2C bus driver for Lightware SFxx series LIDAR rangefinders: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20.
+Драйвер шини I2C для LIDAR-далекомірів Lightware серії SFxx: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
+Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
 
 <a id="lightware_laser_i2c_usage"></a>
 
@@ -125,31 +125,31 @@ lightware_laser_i2c <command> [arguments...]
    status        print status info
 ```
 ## lightware_laser_serial
-Source: [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_laser_serial)
+Джерело: [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_laser_serial)
 
 
-### Description
+### Опис
 
-Serial bus driver for the LightWare SF02/F, SF10/a, SF10/b, SF10/c, SF11/c Laser rangefinders.
+Драйвер послідовної шини для лазерних далекомірів LightWare SF02/F, SF10/a, SF10/b, SF10/c, SF11/c.
 
-Most boards are configured to enable/start the driver on a specified UART using the SENS_SF0X_CFG parameter.
+Більшість плат налаштовано на увімкнення/запуск драйвера на вказаному UART за допомогою параметра SENS_SF0X_CFG.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
+Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
 
-### Examples
+### Приклади
 
-Attempt to start driver on a specified serial device.
+Спроба запустити драйвер на вказаному послідовному пристрої.
 ```
 lightware_laser_serial start -d /dev/ttyS1
 ```
-Stop driver
+Зупинити драйвер
 ```
 lightware_laser_serial stop
 ```
 
 <a id="lightware_laser_serial_usage"></a>
 
-### Usage
+### Використання
 ```
 lightware_laser_serial <command> [arguments...]
  Commands:
@@ -161,22 +161,22 @@ lightware_laser_serial <command> [arguments...]
    stop          Stop driver
 ```
 ## lightware_sf45_serial
-Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_sf45_serial)
+Джерело: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_sf45_serial)
 
 
 ### Опис
 
-Serial bus driver for the Lightware SF45/b Laser rangefinder.
+Драйвер послідовної шини для лазерного далекоміра Lightware SF45/b.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
+Інформація про налаштування/використання: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
 
 ### Приклади
 
-Attempt to start driver on a specified serial device.
+Спроба запустити драйвер на вказаному послідовному пристрої.
 ```
 lightware_sf45_serial start -d /dev/ttyS1
 ```
-Stop driver
+Зупинити драйвер
 ```
 lightware_sf45_serial stop
 ```
@@ -199,11 +199,11 @@ Source: [drivers/distance_sensor/ll40ls](https://github.com/PX4/PX4-Autopilot/tr
 
 ### Опис
 
-I2C bus driver for LidarLite rangefinders.
+Драйвер шини I2C для далекомірів LidarLite.
 
-The sensor/driver must be enabled using the parameter SENS_EN_LL40LS.
+Датчик/драйвер має бути увімкнений за допомогою параметра SENS_EN_LL40LS.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/lidar_lite.html
+Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/lidar_lite.html
 
 <a id="ll40ls_usage"></a>
 
@@ -281,11 +281,11 @@ Source: [drivers/distance_sensor/pga460](https://github.com/PX4/PX4-Autopilot/tr
 
 ### Опис
 
-Ultrasonic range finder driver that handles the communication with the device and publishes the distance via uORB.
+Драйвер ультразвукового далекоміра, який здійснює зв'язок з пристроєм і публікує відстань через uORB.
 
-### Implementation
+### Реалізація
 
-This driver is implemented as a NuttX task. This Implementation was chosen due to the need for polling on a message via UART, which is not supported in the work_queue. This driver continuously takes range measurements while it is running. A simple algorithm to detect false readings is implemented at the driver levelin an attemptto improve the quality of data that is being published. The driver will not publish data at all if it deems the sensor data to be invalid or unstable.
+Цей драйвер реалізовано як завдання NuttX. Ця реалізація була обрана через необхідність опитування на повідомлення через UART, що не підтримується у work_queue. Цей драйвер безперервно вимірює дальність коли він працює. На рівні драйверів реалізовано простий алгоритм виявлення хибних показань, що має на меті покращити якість даних, що публікуються. Драйвер взагалі не публікуватиме дані, якщо вважатиме, що дані датчика недійсними або нестабільними.
 
 <a id="pga460_usage"></a>
 
@@ -333,9 +333,9 @@ Source: [drivers/distance_sensor/srf05](https://github.com/PX4/PX4-Autopilot/tre
 
   ### Опис
 
-  Driver for HY-SRF05 / HC-SR05 and HC-SR04 rangefinders.
+  Драйвер для далекомірів HY-SRF05 / HC-SR05 та HC-SR04.
 
-  The sensor/driver must be enabled using the parameter SENS_EN_HXSRX0X.
+  Датчик/драйвер потрібно увімкнути за допомогою параметра SENS_EN_HXSRX0X.
 
 
 <a id="srf05_usage"></a>
@@ -357,16 +357,16 @@ srf05 <command> [arguments...]
    status        print status info
 ```
 ## teraranger
-Source: [drivers/distance_sensor/teraranger](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/teraranger)
+Джерело: [drivers/distance_sensor/teraranger](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/teraranger)
 
 
 ### Опис
 
-I2C bus driver for TeraRanger rangefinders.
+Драйвер шини I2C для далекомірів TeraRanger.
 
-The sensor/driver must be enabled using the parameter SENS_EN_TRANGER.
+Датчик/драйвер має бути увімкнений за допомогою параметра SENS_EN_TRANGER.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/rangefinders.html#teraranger-rangefinders
+Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/rangefinders.html#teraranger-rangefinders
 
 <a id="teraranger_usage"></a>
 
@@ -419,21 +419,21 @@ tf02pro <command> [arguments...]
 Source: [drivers/distance_sensor/tfmini](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/tfmini)
 
 
-### Description
+### Опис
 
-Serial bus driver for the Benewake TFmini LiDAR.
+Серійний драйвер шини для Benewake TFmini LiDAR.
 
-Most boards are configured to enable/start the driver on a specified UART using the SENS_TFMINI_CFG parameter.
+Більшість плат налаштовано на ввімкнення/вимкнення драйвера на вказаному UART за допомогою параметра SENS_TFMINI_CFG.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/tfmini.html
+Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/tfmini.html
 
 ### Приклади
 
-Attempt to start driver on a specified serial device.
+Спроба запустити драйвер на вказаному послідовному пристрої.
 ```
 tfmini start -d /dev/ttyS1
 ```
-Stop driver
+Зупинити драйвер
 ```
 tfmini stop
 ```
@@ -458,14 +458,14 @@ tfmini <command> [arguments...]
    status        Print driver status
 ```
 ## ulanding_radar
-Source: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/ulanding_radar)
+Джерело: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/ulanding_radar)
 
 
 ### Опис
 
-Serial bus driver for the Aerotenna uLanding radar.
+Серійний драйвер шини для радара Aerotenna uLanding.
 
-Setup/usage information: https://docs.px4.io/v1.9.0/en/sensor/ulanding_radar.html
+Інформація про налаштування/використання: https://docs.px4.io/v1.9.0/en/sensor/ulanding_radar.html
 
 ### Приклади
 
