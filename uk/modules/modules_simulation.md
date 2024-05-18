@@ -18,7 +18,7 @@
 
 <a id="simulator_sih_usage"></a>
 
-### Usage
+### Використання
 ```
 simulator_sih <command> [arguments...]
  Commands:
