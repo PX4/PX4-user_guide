@@ -1,9 +1,9 @@
 # Modules Reference: Communication
 
 ## frsky_telemetry
-Source: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/frsky_telemetry)
+Джерело: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/frsky_telemetry)
 
-FrSky Telemetry support. Auto-detects D or S.PORT protocol.
+Підтримка FrSky Telemetry. Автоматичне визначення протоколу D або S.PORT.
 <a id="frsky_telemetry_usage"></a>
 
 ### Використання
@@ -28,7 +28,7 @@ Source: [modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/mod
 
 
 ### Опис
-This module implements the MAVLink protocol, which can be used on a Serial link or UDP network connection. It communicates with the system via uORB: some messages are directly handled in the module (eg. mission protocol), others are published via uORB (eg. vehicle_command).
+Цей модуль реалізує протокол MAVLink, який можна використовувати на послідовному каналі або мережевому з'єднанні UDP. It communicates with the system via uORB: some messages are directly handled in the module (eg. mission protocol), others are published via uORB (eg. vehicle_command).
 
 Streams are used to send periodic messages with a specific rate, such as the vehicle attitude. When starting the mavlink instance, a mode can be specified, which defines the set of enabled streams with their rates. For a running instance, streams can be configured via `mavlink stream` command.
 
