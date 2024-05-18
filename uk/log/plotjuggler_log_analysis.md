@@ -1,96 +1,96 @@
-# Log Analysis using PlotJuggler
+# Аналіз журналу за допомогою PlotJuggler
 
-[PlotJuggler](https://github.com/facontidavide/PlotJuggler) can be used to analyze ULogs for in-depth, development purposes. It is incredibly useful as every uORB topic is exposed / can be graphed, as well as having custom functions to modify the data (e.g. from Quaternion values to Roll / Pitch / Yaw).
+[PlotJuggler](https://github.com/facontidavide/PlotJuggler) може бути використаний для аналізу ULogs для більш глибоких розробок. Це надзвичайно корисно, оскільки кожна тема uORB відкрита / може бути побудована на графіку, а також має власні функції для зміни даних (наприклад, зі значень кватерніону на Крен / Тангаж / Риштування).
 
-## Installation
+## Встановлення
 
-You can find the latest releases of the Plot Juggler [here](https://github.com/facontidavide/PlotJuggler/releases).
+Ви можете знайти останні версії Plot Juggler [тут](https://github.com/facontidavide/PlotJuggler/releases).
 
-#### Notes on Windows distribution
+#### Примітки щодо розподілу Windows
 
-The latest version of PlotJuggler for Windows may not work. In this case fallback to [v2.8.4 here](https://github.com/facontidavide/PlotJuggler/releases/tag/2.8.4) (this is known to work with Windows).
+Остання версія PlotJuggler для Windows може не працювати. У цьому випадку використовуйте [v2.8.4 тут](https://github.com/facontidavide/PlotJuggler/releases/tag/2.8.4) (відомо, що це працює з Windows).
 
-#### Notes on AppImage for Linux distributions
+#### Примітки про AppImage для дистрибутивів Linux
 
-If the downloaded AppImage does not open, you may need to change its access settings. This is done in the terminal using the following command:
+Якщо завантажений AppImage не відкривається, можливо, вам потрібно змінити його налаштування доступу. Це робиться в терміналі за допомогою наступної команди:
 
 ```sh
 chmod 777 <Path-To-PlotJuggler-AppImage>
 ```
 
-## General Usage
+## Загальне використання
 
-Two most common tasks are "Searching" for the logged uORB topic, and "Drag and Dropping" a field in a specific topic onto the graph view. These are demonstrated in the diagram below.
+Два найпоширеніші завдання - "Пошук" залогованої теми уORB та "Перетягування та Відпускання" поля в певну тему на графічний вигляд. Це показано на діаграмі нижче.
 
 ![Plot Juggler basic usage](../../assets/flight_log_analysis/plot_juggler/plotjuggler_timeseries_search_and_drop.svg)
 
-### Splitting Horizontally / Vertically : Multi Panel
+### Розбиття по горизонталі / вертикалі: Багатопанельний
 
-One of the most powerful feature is splitting the screen in either horizontal/vertical orientation and displaying different graphs at the same time ( with a synchronized time-bar on top, as you move the time cursor in the bottom).
+Одна з найбільш потужних функцій - розділення екрану у горизонтальному або вертикальному положенні та відображення різних графіків одночасно (з синхронізованою панеллю часу зверху, якщо переміщуєте курсор часу внизу).
 
-This is demonstrated in an animation below:
+Це показано на анімації нижче:
 
 ![Plot Juggler Multi panel demonstration](../../assets/flight_log_analysis/plot_juggler/plotjuggler_dragdrop_multipanel.gif)
 
-In this example, `vehicle_local_position` topic's `ax`, `ay` and `az` (Acceleration estimate) components were graphed first by splitting the screen in 3 sections. Then, the `vz` (Velocity estimate) component was added under right pane, and finally `battery_status` topic's `current_a` (Battery current) was graphed in the lower-mid pane.
+У цьому прикладі складові `ax`, `ay` та `az` (Оцінка прискорення) теми `vehicle_local_position` були спочатку графічно відобразжені, ділячи екран на 3 секції. Потім компонент `vz` (оцінка швидкості) був доданий під праву панель, і наостанок графік `current_a` (струм акумулятора) теми `battery_status` був побудований у нижній середній панелі.
 
-Although not obvious in the beginning you can observe that whenever the vehicle starts moving (battery current value goes high), the acceleration and velocity values start to move around as well. This is because all the data is displayed as a time-series, which shows each value at on a specific timestamp.
+Хоча спочатку це не очевидно, ви можете помітити, що кожного разу, коли автомобіль починає рухатися (значення поточного заряду батареї зростає), значення прискорення та швидкості також починають змінюватися. Це тому, що всі дані відображаються як часова послідовність, яка показує кожне значення на певному міткостемпу.
 
-This is useful for providing a broad view of what happened and why. It is often hard to troubleshoot a problem just by looking at one graph, but by having multiple graphs displayed, it is much easier to figure out what was going on in the system.
+Це корисно для отримання загального уявлення про те, що сталося і чому. Часто важко вирішувати проблеми, просто глянувши на один графік, але якщо відображені кілька графіків, набагато легше зрозуміти, що відбувалося в системі.
 
-### Displaying Data in 2D
+### Відображення даних у 2D
 
-Another powerful feature is the ability to display 2D data on a XY plane (each data on X, Y axis) in a scatter-plot manner. This is done by selecting two data points by holding `Ctrl` key while selecting each of them (e.g. `vehicle_local_position` topic's `x` and `y` components), and drag & dropping it with the `Right mouse cursor` pressed.
+Іншою потужною функцією є можливість відображення 2D даних на площині XY (кожні дані на вісі X, Y) у вигляді діаграми розсіювання. Це робиться шляхом вибору двох точок даних, утримуючи клавішу `Ctrl` під час вибору кожної з них (наприклад, компоненти `x` та `y` теми `vehicle_local_position`), і перетягуючи їх з натиснутою правою клавішею миші.
 
 ![Plot Juggler 2D graphing](../../assets/flight_log_analysis/plot_juggler/plotjuggler_2d_graph.gif)
 
-In this example, the estimated vehicle's position in local coordinate frame is graphed onto a XY-plane which shows a 2D view of the estimated position, and the `vx` and `vy` components (Velocity estimate) are graphed on the right, with the `vz` (Vertical velocity estimate) graphed underneath it in a split view.
+У цьому прикладі положення оціненого транспортного засобу в локальній координатній системі графічно відображено на площині XY, яка показує двовимірний вид оціненого положення, а компоненти `vx` та `vy` (оцінка швидкості) графічно відображено справа, і `vz` (оцінка вертикальної швидкості) відображено під ним на розділеному вигляді.
 
-This in turn shows the relationship between position and the velocity of the vehicle intuitively. For example, note how when the vehicle moves in the X-axis direction, the `vx` value goes high, and as the vehicle turns to the Y-axis direction, the `vy` value starts to change as well.
+Це в свою чергу показує взаємозв'язок між позицією та швидкістю руху транспортного засобу інтуїтивно. Наприклад, зверніть увагу, що коли транспортний засіб рухається в напрямку X-осі, значення `vx` зростає, і коли транспортний засіб повертається у напрямку Y-осі, значення `vy` також починає змінюватись.
 
-#### Using the 'Play' button
+#### Використання кнопки 'Play'
 
-Here the **Play** button is used to play the recorded data in real time (speed factor can be adjusted in the lower-right corner). This shows the position / velocity relationship described above in detail.
+Тут кнопка **Відтворити** використовується для програвання записаних даних в реальному часі (коефіцієнт швидкості можна налаштувати в правому нижньому куті). Це показує детально зв'язок позиції / швидкості, описаний вище.
 
 ![Plot Juggler 2D in-depth analysis](../../assets/flight_log_analysis/plot_juggler/plotjuggler_2d_graph_pos_vel_analysis.gif)
 
-::: info Try out the boat testing log analysis yourself by downloading the ULog and Layout file used above!
-- [Boat testing ULog](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_log_analysis/plot_juggler/sample_log_boat_testing_2022-7-28-13-31-16.ulg)
-- [Boat testing Analysis Layout](https://raw.githubusercontent.com/PX4/PX4-user_guide/main/assets/flight_log_analysis/plot_juggler/sample_log_boat_testing_layout.xml)
+:::info Спробуйте самі аналізувати журнал тестування човна, завантаживши вищезазначений файл ULog та макет!
+- [Тестування човна ULog](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_log_analysis/plot_juggler/sample_log_boat_testing_2022-7-28-13-31-16.ulg)
+- [Макет аналізу тестування човна](https://raw.githubusercontent.com/PX4/PX4-user_guide/main/assets/flight_log_analysis/plot_juggler/sample_log_boat_testing_layout.xml)
 :::
 
-### Layout Templates
+### Шаблони макетів
 
-There are a number of PlotJuggler layout files shared by PX4 Developers. Each can be used for a specific purpose (Multicopter tuning, VTOL tuning, Boat debugging, etc.):
+Існує кілька файлів розташування PlotJuggler, якими діляться розробники PX4. Кожен може бути використаний для конкретної мети (настройка багтрекера, настройка VTOL, налагодження човна і т. Д.):
 
-* [Sample View layout](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_log_analysis/plot_juggler/plotjuggler_sample_view.xml) : Template used in the [Multi-panel example](#splitting-horizontally-vertically-multi-panel) above.
+* [Зразок макету перегляду](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_log_analysis/plot_juggler/plotjuggler_sample_view.xml) : Шаблон, який використовується у [прикладі з декількома панелями](#splitting-horizontally-vertically-multi-panel) вище.
 
 
-## Advanced Usage
+## Розширене використання
 
-### Creating custom time series using LUA script
+### Створення власних часових рядів за допомогою LUA скрипта
 
-Plot Juggler supports having LUA scripts to process and display data. This is a powerful feature that can do things like integrating the curve, averaging two curves, removing offsets, etc.
+Plot Juggler підтримує використання LUA скриптів для обробки та відображення даних. Це потужна функція, яка може робити такі речі, як інтегрування кривої, усереднювання двох кривих, видалення зміщень та інше.
 
-#### Calculating Roll/Pitch/Yaw from Quaternion
+#### Розрахунок кута крену/тангажу/риск з кватеріону
 
 ![Quaternion to Roll using Lua script](../../assets/flight_log_analysis/plot_juggler/plotjuggler_quaternion_to_roll_lua_script.png)
 
-To know vehicle's attitude, PX4 logs the estimated attitude's quaternion in the `vehicle_attitude` topic in an array of floating point values (q[4]). Since these values don't give contextual information (e.g. `roll`), it needs a transformation involving trigonometric functions.
+Щоб знати ставлення транспортного засобу, PX4 реєструє оцінку кватерніону ставлення в темі `vehicle_attitude` у масиві значень з плаваючою комою (q[4]). Оскільки ці значення не надають контекстної інформації (наприклад, `roll`), вони потребують перетворення за допомогою тригонометричних функцій.
 
-1. Search for `vehicle_attitude` topic in Timeseries List panel on the left
-2. Select 4 quaternion members (`q.00, q.01, q.02, q.03`) by clicking `q.00` first, then holding Shift + clicking `q.03`. They should all be selected
-3. Click the '+' symbol in the lower-left 'Custom Series' section to create new series
-4. Select 4 quaternion members again, and drag them to 'Input timeseries + Additional source timeseries' tab on upper-left corner
-5. Double click on the `quat_to_roll` from the Function Library. Now you should have the plot on upper section
-6. Assign the name for the plot (e.g. `roll`) in the text box in upper-right corner
-7. Click 'Create New Timeseries'. You should now have the plot in 'Custom Series'
+1. Пошукати тему `vehicle_attitude` у панелі списку часових рядів зліва
+2. Виберіть 4 кватерніони (`q.00, q.01, q.02, q.03`) , натиснувши спершу `q.00`, а потім утримуючи Shift + натискайте `q.03`. Вони всі повинні бути вибрані
+3. Клацніть на символ '+' у нижньому лівому розділі 'Користувацькі серії', щоб створити нову серію
+4. Виберіть ще 4 члени кватерніона та перетягніть їх на вкладку 'Вхідний часовий ряд + Додатковий джереловий часовий ряд' у верхньому лівому куті
+5. Подвійне клацання на `quat_to_roll` у бібліотеці функцій. Тепер ви маєте сюжет на верхній секції
+6. Призначте назву для графіку (наприклад, `roll`) у полі вводу в верхньому правому куті
+7. Клацніть 'Створити нову часову послідовність'. Тепер ви маєте сюжет у 'Спеціальній серії'
 
-Here the custom series `Roll` is displayed along with other timeseries, including it's original form in Quaternion on the right, which is not human-readable (using PlotJuggler 3.5.0):
+Тут серія власної `Roll` відображається разом з іншими часовими рядами, включаючи його початкову форму в кватерніоні справа, яка не є придатною для сприйняття людиною (використовуючи PlotJuggler 3.5.0):
 
 ![Quaternion Roll plotted](../../assets/flight_log_analysis/plot_juggler/plotjuggler_quaternion_roll_plotted.png)
 
-The `quat_to_roll` function looks like this:
+Функція `quat_to_roll` виглядає так:
 ```lua
 w = value
 x = v1
