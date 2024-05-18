@@ -1,21 +1,21 @@
 # Modules Reference: Driver
-Subcategories:
+Підкатегорії:
 - [Imu](modules_driver_imu.md)
-- [Distance Sensor](modules_driver_distance_sensor.md)
+- [Датчик відстані](modules_driver_distance_sensor.md)
 - [Ins](modules_driver_ins.md)
-- [Airspeed Sensor](modules_driver_airspeed_sensor.md)
-- [Baro](modules_driver_baro.md)
+- [Датчик швидкості](modules_driver_airspeed_sensor.md)
+- [Барометер](modules_driver_baro.md)
 - [Transponder](modules_driver_transponder.md)
-- [Rpm Sensor](modules_driver_rpm_sensor.md)
+- [Rpm датчик](modules_driver_rpm_sensor.md)
 - [Optical Flow](modules_driver_optical_flow.md)
-- [Magnetometer](modules_driver_magnetometer.md)
+- [Магнітометр](modules_driver_magnetometer.md)
 
 ## MCP23009
-Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
+Джерело: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
 
 <a id="MCP23009_usage"></a>
 
-### Usage
+### Використання
 ```
 MCP23009 <command> [arguments...]
  Commands:
@@ -42,16 +42,16 @@ MCP23009 <command> [arguments...]
    status        print status info
 ```
 ## adc
-Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/board_adc)
+Джерело: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/board_adc)
 
 
-### Description
-ADC driver.
+### Опис
+ADC драйвер.
 
 
 <a id="adc_usage"></a>
 
-### Usage
+### Використання
 ```
 adc <command> [arguments...]
  Commands:
@@ -65,21 +65,21 @@ adc <command> [arguments...]
    status        print status info
 ```
 ## ads1115
-Source: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/ads1115)
+Джерело: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/ads1115)
 
 
-### Description
+### Опис
 
-Driver to enable an external [ADS1115](https://www.adafruit.com/product/1085) ADC connected via I2C.
+Драйвер для активації зовнішнього [ADS1115](https://www.adafruit.com/product/1085) ADC підключеного через I2C.
 
-The driver is included by default in firmware for boards that do not have an internal analog to digital converter, such as [PilotPi](../flight_controller/raspberry_pi_pilotpi.md) or [CUAV Nora](../flight_controller/cuav_nora.md) (search for `CONFIG_DRIVERS_ADC_ADS1115` in board configuration files).
+Драйвер за замовчуванням включено у прошивку для плат, які не мають внутрішнього аналого-цифрового перетворювача, таких як [PilotPi](../flight_controller/raspberry_pi_pilotpi.md) або [CUAV Nora](../flight_controller/cuav_nora.md). (шукайте `CONFIG_DRIVERS_ADC_ADS1115` у файлах конфігурації плати).
 
-It is enabled/disabled using the [ADC_ADS1115_EN](../advanced_config/parameter_reference.md#ADC_ADS1115_EN) parameter, and is disabled by default. If enabled, internal ADCs are not used.
+Вмикається/вимикається за допомогою [ADC_ADS1115_EN](../advanced_config/parameter_reference.md#ADC_ADS1115_EN) і за замовчуванням вимкнено. Якщо увімкнено, внутрішні ADC не використовуються.
 
 
 <a id="ads1115_usage"></a>
 
-### Usage
+### Використання
 ```
 ads1115 <command> [arguments...]
  Commands:
@@ -98,17 +98,17 @@ ads1115 <command> [arguments...]
    status        print status info
 ```
 ## atxxxx
-Source: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/atxxxx)
+Джерело: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/atxxxx)
 
 
-### Description
+### Опис
 OSD driver for the ATXXXX chip that is mounted on the OmnibusF4SD board for example.
 
-It can be enabled with the OSD_ATXXXX_CFG parameter.
+Його можна увімкнути за допомогою параметра OSD_ATXXXX_CFG.
 
 <a id="atxxxx_usage"></a>
 
-### Usage
+### Використання
 ```
 atxxxx <command> [arguments...]
  Commands:
@@ -127,13 +127,13 @@ atxxxx <command> [arguments...]
    status        print status info
 ```
 ## batmon
-Source: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/smart_battery/batmon)
+Джерело: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/smart_battery/batmon)
 
 
-### Description
+### Опис
 Driver for SMBUS Communication with BatMon enabled smart-battery Setup/usage information: https://rotoye.com/batmon-tutorial/
-### Examples
-To start at address 0x0B, on bus 4
+### Приклади
+Почати з адреси 0x0B, на шині 4
 ```
 batmon start -X -a 11 -b 4
 ```
@@ -141,7 +141,7 @@ batmon start -X -a 11 -b 4
 
 <a id="batmon_usage"></a>
 
-### Usage
+### Використання
 ```
 batmon <command> [arguments...]
  Commands:
@@ -166,14 +166,14 @@ batmon <command> [arguments...]
    status        print status info
 ```
 ## batt_smbus
-Source: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/batt_smbus)
+Джерело: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/batt_smbus)
 
 
-### Description
+### Опис
 Smart battery driver for the BQ40Z50 fuel gauge IC.
 
-### Examples
-To write to flash to set parameters. address, number_of_bytes, byte0, ... , byteN
+### Приклади
+Записати у прошивку для встановлення параметрів. address, number_of_bytes, byte0, ... , byteN
 ```
 batt_smbus -X write_flash 19069 2 27 0
 ```
@@ -181,7 +181,7 @@ batt_smbus -X write_flash 19069 2 27 0
 
 <a id="batt_smbus_usage"></a>
 
-### Usage
+### Використання
 ```
 batt_smbus <command> [arguments...]
  Commands:
@@ -217,11 +217,11 @@ batt_smbus <command> [arguments...]
    status        print status info
 ```
 ## bst
-Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/bst)
+Джерело: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/bst)
 
 <a id="bst_usage"></a>
 
-### Usage
+### Використання
 ```
 bst <command> [arguments...]
  Commands:
@@ -240,16 +240,16 @@ bst <command> [arguments...]
    status        print status info
 ```
 ## crsf_rc
-Source: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/crsf_rc)
+Джерело: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/crsf_rc)
 
 
-### Description
+### Опис
 This module parses the CRSF RC uplink protocol and generates CRSF downlink telemetry data
 
 
 <a id="crsf_rc_usage"></a>
 
-### Usage
+### Використання
 ```
 crsf_rc <command> [arguments...]
  Commands:
@@ -262,20 +262,20 @@ crsf_rc <command> [arguments...]
    status        print status info
 ```
 ## dshot
-Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/dshot)
+Джерело: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/dshot)
 
 
-### Description
-This is the DShot output driver. It is similar to the fmu driver, and can be used as drop-in replacement to use DShot as ESC communication protocol instead of PWM.
+### Опис
+Це драйвер виводу DShot. Він схожий на драйвер fmu і може бути використаний як заміна використовувати DShot як протокол зв'язку ESC замість PWM.
 
 On startup, the module tries to occupy all available pins for DShot output. It skips all pins already in use (e.g. by a camera trigger module).
 
-It supports:
+Він підтримує:
 - DShot150, DShot300, DShot600, DShot1200
 - telemetry via separate UART and publishing as esc_status message
 - sending DShot commands via CLI
 
-### Examples
+### Приклади
 Permanently reverse motor 1:
 ```
 dshot reverse -m 1
@@ -285,7 +285,7 @@ After saving, the reversed direction will be regarded as the normal one. So to r
 
 <a id="dshot_usage"></a>
 
-### Usage
+### Використання
 ```
 dshot <command> [arguments...]
  Commands:
@@ -332,15 +332,15 @@ dshot <command> [arguments...]
    status        print status info
 ```
 ## fake_gps
-Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_gps)
+Джерело: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_gps)
 
 
-### Description
+### Опис
 
 
 <a id="fake_gps_usage"></a>
 
-### Usage
+### Використання
 ```
 fake_gps <command> [arguments...]
  Commands:
@@ -351,15 +351,15 @@ fake_gps <command> [arguments...]
    status        print status info
 ```
 ## fake_imu
-Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_imu)
+Джерело: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_imu)
 
 
-### Description
+### Опис
 
 
 <a id="fake_imu_usage"></a>
 
-### Usage
+### Використання
 ```
 fake_imu <command> [arguments...]
  Commands:
@@ -370,15 +370,15 @@ fake_imu <command> [arguments...]
    status        print status info
 ```
 ## fake_magnetometer
-Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_magnetometer)
+Джерело: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_magnetometer)
 
 
-### Description
+### Опис
 Publish the earth magnetic field as a fake magnetometer (sensor_mag). Requires vehicle_attitude and vehicle_gps_position.
 
 <a id="fake_magnetometer_usage"></a>
 
-### Usage
+### Використання
 ```
 fake_magnetometer <command> [arguments...]
  Commands:
@@ -389,16 +389,16 @@ fake_magnetometer <command> [arguments...]
    status        print status info
 ```
 ## ft_technologies_serial
-Source: [drivers/wind_sensor/ft_technologies](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/wind_sensor/ft_technologies)
+Джерело: [drivers/wind_sensor/ft_technologies](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/wind_sensor/ft_technologies)
 
 
-### Description
+### Опис
 
 Serial bus driver for the FT Technologies Digital Wind Sensor FT742. This driver is required to operate alongside a RS485 to UART signal transfer module.
 
 Most boards are configured to enable/start the driver on a specified UART using the SENS_FTX_CFG parameter.
 
-### Examples
+### Приклади
 
 Attempt to start driver on a specified serial device.
 ```
@@ -411,7 +411,7 @@ ft_technologies_serial stop
 
 <a id="ft_technologies_serial_usage"></a>
 
-### Usage
+### Використання
 ```
 ft_technologies_serial <command> [arguments...]
  Commands:
@@ -421,15 +421,15 @@ ft_technologies_serial <command> [arguments...]
    stop          Stop driver
 ```
 ## gimbal
-Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gimbal)
+Джерело: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gimbal)
 
 
-### Description
+### Опис
 Mount/gimbal Gimbal control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).
 
 Documentation how to use it is on the [gimbal_control](https://docs.px4.io/main/en/advanced/gimbal_control.html) page.
 
-### Examples
+### Приклади
 Test the output by setting a angles (all omitted axes are set to 0):
 ```
 gimbal test pitch -45 yaw 30
@@ -437,7 +437,7 @@ gimbal test pitch -45 yaw 30
 
 <a id="gimbal_usage"></a>
 
-### Usage
+### Використання
 ```
 gimbal <command> [arguments...]
  Commands:
@@ -457,18 +457,18 @@ gimbal <command> [arguments...]
    status        print status info
 ```
 ## gps
-Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gps)
+Джерело: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gps)
 
 
-### Description
+### Опис
 GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
 
 The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
 
-### Implementation
+### Імплементація
 There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
 
-### Examples
+### Приклади
 
 Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4):
 ```
@@ -482,7 +482,7 @@ gps reset warm
 
 <a id="gps_usage"></a>
 
-### Usage
+### Використання
 ```
 gps <command> [arguments...]
  Commands:
@@ -510,15 +510,15 @@ gps <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## gz_bridge
-Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/gz_bridge)
+Джерело: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/gz_bridge)
 
 
-### Description
+### Опис
 
 
 <a id="gz_bridge_usage"></a>
 
-### Usage
+### Використання
 ```
 gz_bridge <command> [arguments...]
  Commands:
@@ -534,10 +534,10 @@ gz_bridge <command> [arguments...]
    status        print status info
 ```
 ## ina220
-Source: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina220)
+Джерело: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina220)
 
 
-### Description
+### Опис
 Driver for the INA220 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -549,7 +549,7 @@ If the INA220 module is not powered, then by default, initialization of the driv
 
 <a id="ina220_usage"></a>
 
-### Usage
+### Використання
 ```
 ina220 <command> [arguments...]
  Commands:
@@ -573,10 +573,10 @@ ina220 <command> [arguments...]
    status        print status info
 ```
 ## ina226
-Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina226)
+Джерело: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina226)
 
 
-### Description
+### Опис
 Driver for the INA226 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -588,7 +588,7 @@ If the INA226 module is not powered, then by default, initialization of the driv
 
 <a id="ina226_usage"></a>
 
-### Usage
+### Використання
 ```
 ina226 <command> [arguments...]
  Commands:
@@ -610,10 +610,10 @@ ina226 <command> [arguments...]
    status        print status info
 ```
 ## ina228
-Source: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina228)
+Джерело: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina228)
 
 
-### Description
+### Опис
 Driver for the INA228 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
