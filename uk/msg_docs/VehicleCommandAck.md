@@ -1,17 +1,16 @@
-# VehicleCommandAck (UORB message)
+# VehicleCommandAck (повідомлення UORB)
 
-Vehicle Command Ackonwledgement uORB message. Used for acknowledging the vehicle command being received. Follows the MAVLink COMMAND_ACK message definition
+Повідомлення uORB підтвердження команди автомобіля. Використовується для підтвердження отримання команди для транспортного засобу. Дотримується визначення MAVLink COMMAND_ACK повідомлення
 
 [вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleCommandAck.msg)
 
 ```c
-# Vehicle Command Ackonwledgement uORB message.
-# Used for acknowledging the vehicle command being received.
-# Follows the MAVLink COMMAND_ACK message definition
+# Повідомлення про підтвердження команди транспортного засобу uORB.
+# Використовується для підтвердження отримання команди для транспортного засобу.
+# Слідує за визначенням повідомлення MAVLink COMMAND_ACK
+uint64 timestamp   # час з початку роботи системи (мікросекунди)
 
-uint64 timestamp        # time since system start (microseconds)
-
-# Result cases. This follows the MAVLink MAV_RESULT enum definition
+# Випадки результату. This follows the MAVLink MAV_RESULT enum definition
 uint8 VEHICLE_CMD_RESULT_ACCEPTED = 0           # Command ACCEPTED and EXECUTED |
 uint8 VEHICLE_CMD_RESULT_TEMPORARILY_REJECTED = 1   # Command TEMPORARY REJECTED/DENIED |
 uint8 VEHICLE_CMD_RESULT_DENIED = 2         # Command PERMANENTLY DENIED |

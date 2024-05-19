@@ -1,11 +1,11 @@
-# UlogStream (UORB message)
+# UlogStream (повідомлення UORB)
 
-Message to stream ULog data from the logger. Corresponds to the LOGGING_DATA mavlink message
+Повідомлення для потоку даних ULog з пристрою реєстрування. Відповідає повідомленню mavlink LOGGING_DATA mavlink message
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/UlogStream.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/UlogStream.msg)
 
 ```c
-# Message to stream ULog data from the logger. Corresponds to the LOGGING_DATA
+# Повідомлення для потоку даних ULog з пристрою реєстрування. Corresponds to the LOGGING_DATA
 # mavlink message
 
 uint64 timestamp        # time since system start (microseconds)

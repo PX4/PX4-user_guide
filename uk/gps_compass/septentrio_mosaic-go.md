@@ -1,6 +1,6 @@
-# Septentrio mosaic-go evaluation kit
+# Діагностичний набір mosaic-go Septentrio
 
-Комплект оцінки mosaic-go складається з модуля mosaic, звареного на інтерфейсну плату всередині металевого корпусу.
+Оціночний комплект mosaic-go складається з модуля mosaic, розпаяного на інтерфейсній платі всередині металевого корпусу.
 
 Розміром всього 71 х 59 х 12 мм і вагою всього 58 г, mosaic-go пропонує неперевершений співвідношення розміру до продуктивності. mosaic-go містить:
 
@@ -21,11 +21,11 @@
 Набір mosaic-go доступний у [офіційному магазині](https://web.septentrio.com/l/858493/2022-04-19/xgrnz) Septentrio.
 
 - [набір для оцінки модуля GNSS mosaic-go](https://web.septentrio.com/l/858493/2022-04-19/xgrp9)
-- [mosaic-go GNSS module receiver evaluation kit](https://web.septentrio.com/l/858493/2022-04-19/xgrpd)
+- [набір для оцінки приймача GNSS-модуля mosaic-go](https://web.septentrio.com/l/858493/2022-04-19/xgrpd)
 
-Other PX4 supported devices from Septentrio:
+Інші пристрої з підтримкою PX4 від Septentrio:
 
-- [AsteRx OEM with Robotics Interface Board](../gps_compass/septentrio_asterx-rib.md)
+- [AsteRx OEM з Robotics Interface Board](../gps_compass/septentrio_asterx-rib.md)
 
 ## Набір для оцінки заголовка mosaic-go містить:
 
@@ -43,7 +43,7 @@ _Тип роз'єму: мікро-USB типу B._
 Цей мікро-B роз'єм використовується для доступу до mosaic-go через USB. Це також може бути використано для живлення мозаїки-go.
 
 ### RSV USB
-_Connector type: micro-USB type B._
+_Тип підключення: micro-USB type B._
 
 Цей з'єднувач зарезервований і не повинен використовуватися.
 
@@ -60,28 +60,28 @@ _Тип роз'єму: MicroSD._
 Роз'єм для картки micro SD. Модуль може зберігати файли (SBF/NMEA) на картку micro SD у цьому гнізді.
 
 ### 6-pin Connector
-_Connector type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GHR-06V-S._
+_Тип роз'єму: GH роз'єм, шаг 1,25 мм, 6 контактів. Корпус роз'єму для з'єднання: GHR-06V-S._
 
-| Назва виводу | Напрямок | Рівень     | Опис                      | Коментар                                                          |
-| ------------ | -------- | ---------- | ------------------------- | ----------------------------------------------------------------- |
-| VCC          | PWR      | 4.75V-5.5V | Main power supply         |                                                                   |
-| GND          |          | 0          | Ground                    |                                                                   |
-| TXD1         | Out      | 3V3_LVTTL  | Serial COM1 transmit line | Directly connects to TXD1 of internal mosaic                      |
-| RXD1         | In       | 3V3_LVTTL  | Serial COM1 receive line  | Directly connects to RXD1 of internal mosaic                      |
-| PPS          | Out      | 3V3_LVTTL  | PPSoutput                 | PPSO from mosaic converted to 3.3V                                |
-| EVENT        | In       | 3V3_LVTTL  | Event timer input         | Connects to EVENTA of mosaic through a 3V3to 1V8 level translator |
+| Назва виводу | Напрямок | Рівень     | Опис                      | Коментар                                                         |
+| ------------ | -------- | ---------- | ------------------------- | ---------------------------------------------------------------- |
+| VCC          | PWR      | 4.75V-5.5V | Головне джерело живлення  |                                                                  |
+| GND          |          | 0          | Ground                    |                                                                  |
+| TXD1         | Out      | 3V3_LVTTL  | Serial COM1 transmit line | Підключається безпосередньо до TXD1 внутрішньої mosaic           |
+| RXD1         | In       | 3V3_LVTTL  | Serial COM1 receive line  | Підключається безпосередньо до RXD1 внутрішньої mosaic           |
+| PPS          | Out      | 3V3_LVTTL  | PPSoutput                 | PPSO з mosaic перетворений на 3,3 В                              |
+| EVENT        | In       | 3V3_LVTTL  | Вхідний таймер події      | Підключається до EVENTA mosaic через транслятор рівня 3V3 на 1V8 |
 
 ### 4-pin Connector
-_Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR-04V-S._
+_Тип роз'єму: роз'єм GH, шаг 1,25 мм, 4 шляхи. Корпус роз'єму для з'єднання: GHR-04V-S._
 
-| Pin Name | Напрямок | Рівень    | Опис                      | Коментар                                        |
-| -------- | -------- | --------- | ------------------------- | ----------------------------------------------- |
-| NRST     | In       | 3V3_LVTTL | Reset input               | Directly connects to nRST_IN of internal mosaic |
-| TXD2     | Out      | 3V3_LVTTL | Serial COM2 transmit line | Directly connects to TXD2 of internal mosaic    |
-| RXD2     | In       | 3V3_LVTTL | Serial COM2 receive line  | Directly connects to RXD2 of internal mosaic    |
-| GND      |          | 0         | Ground                    |                                                 |
+| Назва виводу | Напрямок | Рівень    | Опис                      | Коментар                                                  |
+| ------------ | -------- | --------- | ------------------------- | --------------------------------------------------------- |
+| NRST         | In       | 3V3_LVTTL | Reset input               | Підключається безпосередньо до nRST_IN внутрішньої mosaic |
+| TXD2         | Out      | 3V3_LVTTL | Serial COM2 transmit line | Підключається безпосередньо до TXD2 внутрішньої mosaic    |
+| RXD2         | In       | 3V3_LVTTL | Serial COM2 receive line  | Підключається безпосередньо до RXD2 внутрішньої mosaic    |
+| GND          |          | 0         | Ground                    |                                                           |
 
-## Hardware setup
+## Налаштування обладнання
 
 ![Wiring diagram, Pixhawk 4 - mosaic-go](../../assets/hardware/gps/septentrio_sbf/mosaic-go_wiring.png "Wiring diagram, Pixhawk 4 - mosaic-go")
 
@@ -91,7 +91,7 @@ _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR
 4. У веб-інтерфейсі або за допомогою інструментів Rx встановіть швидкість передачі даних приймача на 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (це значення за замовчуванням).
 
 :::warning
-Make sure the JST cable is wired correctly (since this is not a standard cable):
+Переконайтеся, що кабель JST підключено правильно (оскільки це не стандартний кабель):
 
 ![Wiring of JST cable](../../assets/hardware/gps/septentrio_sbf/jst_cable.png)
 
@@ -167,6 +167,6 @@ PX4 гарантує, що модуль GNSS буде автоматично н�
 | Red + Green       | &check;️ |      &check;️       |              |    &check;️     |
 
 :::tip
-For more detailed information about the mosaic-go and its module, please refer to the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrrd) or the [Septentrio Support](https://support.septentrio.com/l/858493/2022-04-19/xgrrl) page.
+Для більш детальної інформації про mosaic-go та його модуль, будь ласка, зверніться до [посібника з апаратного забезпечення](https://web.septentrio.com/l/858493/2022-04-19/xgrrd) або сторінки [Підтримка Septentrio](https://support.septentrio.com/l/858493/2022-04-19/xgrrl).
 :::
 

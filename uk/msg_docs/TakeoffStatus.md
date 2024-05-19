@@ -1,8 +1,8 @@
-# TakeoffStatus (UORB message)
+# TakeoffStatus (UORB повідомлення)
 
-Status of the takeoff state machine currently just available for multicopters
+Статус злітної машини наразі доступний лише для мультикоптерів
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TakeoffStatus.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TakeoffStatus.msg)
 
 ```c
 # Status of the takeoff state machine currently just available for multicopters

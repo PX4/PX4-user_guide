@@ -1,4 +1,4 @@
-# Modules Reference: Imu (Driver)
+# Modules Reference: Imu (Драйвер)
 ## adis16448
 Джерело: [drivers/imu/analog_devices/adis16448](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/analog_devices/adis16448)
 

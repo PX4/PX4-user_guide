@@ -113,94 +113,94 @@ Pixhawk 6C запитується за допомогою плати живле�
 
 [![Assembly19](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly19.png)](https://youtu.be/yu75VkMaIyc)
 
-- The bottom plate indicates the direction of the motor.
-- The propellers that have a white/silver coating go on that respective motor with the similar coat.
-- The unlocking and locking of the propeller is indicated on the propeller itself.
-- Use the 4 propellers and insert them on the motors keeping the above 3 points in mind.
+- Нижня пластина вказує напрямок двигуна.
+- Пропелери, які мають біле/сріблясте покриття, йдуть на відповідний двигун із подібним покриттям.
+- Розблокування та блокування пропелера вказано на самому пропелері.
+- Використовуйте 4 пропелери та вставте їх у мотори, пам’ятаючи про 3 пункти вище.
 
-The following parts can be placed as per usual.
+Наступні частини можна розмістити, як завжди.
 
 ### GPS
 
-**Screw-** Locknut M3 4 pcs | Screw M3*10 4pcs
+**Гвинт-** гайка M3 4 шт | Гвинт М3*10 4шт
 
 
-1. Assemble the GPS by following the video.
+1. Зберіть GPS, дотримуючись відео.
 
    [![Assembly20](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly20.png)](https://youtu.be/aiFxVJFjlos)
 
-   This guide uses the GPS mount location suggested in Holybro’s guide.
-1. Screw the GPS mount’s bottom end on the payload holder side using Locknut M3 & Screw M3*10
+   У цьому посібнику використовується місце кріплення GPS, запропоноване в посібнику Holybro.
+1. Прикрутіть нижній кінець кріплення GPS до тримача корисного навантаження за допомогою гайки M3 та гвинта М3*10
 
    [![Assembly21](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly21.png)](https://youtu.be/uG5UKy3FrIc)
 
 ### Pixhawk 6C
 
-- The wire from the PM02 goes to POWER1 in Pixhawk
-- The telemetry goes to TELEM1
-- The GPS to GPS1
+- Дріт від PM02 йде до POWER1 в Pixhawk
+- Телеметрія йде на TELEM1
+- GPS до GPS1
 
 [![Assembly22](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly22.png)](https://youtu.be/wFlr_I3jERQ)
 
-### Companion Computer (Optional)
+### Супутній комп'ютер (необов'язково)
 
-**Screw-** Socket Cap Screw M2.5*12 4pcs | Nylon Standoff M2.5*5 4pcs Locknut M2.5 4pcs
+**Гвинт-** Socket Cap Screw M2.5*12 4pcs | Nylon Standoff M2.5*5 4pcs Locknut M2.5 4pcs
 
-The X500 kit is provides space for a companion computer, such as Raspberry Pi or Jetson nano can be placed here [TBD].
-- Insert 4 Socket Cap Screw M2.5*12 and put the standoffs on the same.
-- Now place the companion computer and assemble it using Locknut M2.5
+Набір X500 забезпечує місце для супутнього комп'ютера, такого як Raspberry Pi або Jetson nano, що можуть бути розміщені тут [TBD].
+- Вставте 4 гвинти з головкою M2.5*12 та поставте штифти на те ж саме місце.
+- Тепер розмістіть супутній комп'ютер і змонтуйте його, використовуючи гайку з фіксацією M2.5
 
-### Camera
+### Камера
 
-- Cameras such as Intel Realsense depth/ tracking camera or Structure Core can be mounted using the Depth Camera Mount
-- Simply insert the mount inside the 2 bars and use the screws according to the camera you’re using.
+- Камери, такі як камера глибини / відстеження Intel Realsense або Structure Core, можна встановити за допомогою кріплення для Depth Camera
+- Просто вставте кріплення всередину 2-х планок і використовуйте гвинти залежно від камери, яку ви використовуєте.
 
 ![payloads_x500v2](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/payloads_x500v2.png)
 
 
-## Install/Configure PX4
+## Встановлення/Налаштування PX4
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
+Повні інструкції щодо встановлення та налаштування PX4 можна знайти в [Базова конфігурація](../config/index.md).
 :::
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl* використовується для встановлення автопілота PX4 та його налаштування / відладки для рами X500. [Завантажте та встановіть](http://qgroundcontrol.com/downloads/) *QGroundControl* для вашої платформи.
 
-First update the firmware, airframe, and actuator mappings:
+Спочатку оновіть прошивку, раму та зіставлення актуаторів:
 
-- [Firmware](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [Прошивка](../config/firmware.md)
+- [Рама](../config/airframe.md)
 
-  You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro 500 V2**)
+  Вам потрібно буде вибрати раму *Holybro X500 V2* (**Квадрокоптер x > Holybro 500 V2**)
 
   ![QGroundControl - Select HolyBro 500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
 
-- [Actuators](../config/actuators.md)
-  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
-  - Assign actuator functions to outputs to match your wiring. The airframe is preconfigured with the motors on the **FMU PWM Out**.
-  - Test the configuration using the sliders.
+- [Актуатори](../config/actuators.md)
+  - Вам не потрібно оновлювати геометрію апарту (оскільки це попередньо сконфігурована рама).
+  - Призначте функції приводу до актуаторів, щоб відповідати вашому підключенню. Рама попередньо налаштована з моторами на **FMU PWM Out**.
+  - Перевірте конфігурацію, використовуючи слайдери.
 
-Then perform the mandatory setup/calibration:
+Потім виконайте обов'язкове налаштування / калібрування:
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Radio Setup](../config/radio.md)
-- [Flight Modes](../config/flight_mode.md)
+- [Орієнтація сенсора](../config/flight_controller_orientation.md)
+- [Компас](../config/compass.md)
+- [Акселерометр](../config/accelerometer.md)
+- [Калібрування рівня горизонту](../config/level_horizon_calibration.md)
+- [Налаштування радіо](../config/radio.md)
+- [Режими польоту](../config/flight_mode.md)
 
-Ideally you should also do:
+В ідеалі ви також повинні зробити:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery Estimation Tuning](../config/battery.md)
-- [Safety](../config/safety.md)
+- [Калібрування ESC](../advanced_config/esc_calibration.md)
+- [Регулювання оцінки заряду акумулятора](../config/battery.md)
+- [Загальна безпека](../config/safety.md)
 
 
-## Tuning
+## Вдосконалення
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+Вибір рами встановлює параметри автопілота *за замовчуванням* для рами. Вони достатньо хороші для польоту, але гарною ідеєю є тюнінг параметрів для конкретної конструкції рами.
 
-For instructions on how, start from [Auto-tune](../config/autotune.md).
+Для інструкцій щодо того, як розпочати, почніть з [Авто тюнінг](../config/autotune.md).
 
 
 ## Подяки

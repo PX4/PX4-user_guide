@@ -125,18 +125,18 @@ gpio write <PORT><PIN>/<DEVICE> <VALUE> [PUSHPULL|OPENDRAIN] [--force]
 ```
 
 ### Приклади
-Read the value on port H pin 4 configured as pullup, and it is high
+Зчитати значення на port H pin 4 налаштований як імпульс, і це високо
 ```
 gpio read H4 PULLUP
 ```
 1 OK
 
-Set the output value on Port E pin 7 to high
+Встановіть вихідне значення на виводі порту E на високий рівень
 ```
 gpio write E7 1 --force
 ```
 
-Set the output value on device /dev/gpio1 to high
+Встановіть вихідне значення на пристрої /dev/gpio1 на високе значення
 ```
 gpio write /dev/gpio1 1
 ```
@@ -431,7 +431,7 @@ param <command> [arguments...]
 
 
 ### Опис
-Handles payload delivery with either Gripper or a Winch with an appropriate timeout / feedback sensor setting, and communicates back the delivery result as an acknowledgement internally
+Керує доставкою вантажу за допомогою захвату або лебідки з відповідним налаштуванням тайм-ауту / датчиком зворотнього зв'язку, та повертає результат доставки як підтвердження внутрішньо
 
 
 <a id="payload_deliverer_usage"></a>

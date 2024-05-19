@@ -78,21 +78,21 @@ QuadRanger VTOL - це стандартний повітряний літак з
 
 Виходи Pixhawk повинні бути підключені таким чином (орієнтація, як бачиться як "сидячи в літаку").
 
-| Порт   | З'єднання              |
-| ------ | ---------------------- |
-| MAIN 1 | Front right motor, CCW |
-| MAIN 2 | Back left motor, CCW   |
-| MAIN 3 | Front left motor, CW   |
-| MAIN 4 | Back right motor, CW   |
-| AUX  1 | Left aileron           |
-| AUX  2 | Right aileron          |
-| AUX  3 | Elevator               |
-| AUX  4 | Rudder                 |
-| AUX  5 | Throttle               |
+| Порт   | З'єднання                  |
+| ------ | -------------------------- |
+| MAIN 1 | Передній правий мотор, CCW |
+| MAIN 2 | Задній лівий мотор, CCW    |
+| MAIN 3 | Передній лівий мотор, CW   |
+| MAIN 4 | Задній правий мотор, CW    |
+| AUX  1 | Лівий елерон               |
+| AUX  2 | Правий елерон              |
+| AUX  3 | Elevator                   |
+| AUX  4 | Rudder                     |
+| AUX  5 | Throttle                   |
 
 
-::: info
-The servo direction can be reversed using the PWM\_REV parameters in the PWM\_OUTPUT group of QGroundControl (cogwheel tab, last item in the left menu)
+:::info
+Напрямок сервоприводу можна змінити за допомогою параметрів PWM\_REV у групі PWM\_OUTPUT програми QGroundControl (вкладка з шестернею, останній пункт у лівому меню)
 :::
 
 Для подальших інструкцій щодо проводки та налаштувань дивіться: [Стандартна Проводка та Налаштування VTOL](../config_vtol/vtol_quad_configuration.md)
@@ -107,5 +107,5 @@ The servo direction can be reversed using the PWM\_REV parameters in the PWM\_OU
 
 ## Підтримка
 
-If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
+Якщо у вас виникли запитання щодо налаштування або конвертації VTOL, будь ласка, відвідайте <https://discuss.px4.io/c/px4/vtol>.
 

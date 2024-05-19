@@ -1,8 +1,8 @@
-# SensorSelection (UORB message)
+# SensorSelection (UORB повідомлення)
 
-Sensor ID's for the voted sensors output on the sensor_combined topic. Will be updated on startup of the sensor module and when sensor selection changes
+Ідентифікатори датчиків для вибраних датчиків, виведених на темі sensor_combined. Буде оновлено при запуску модуля датчика та при зміні вибору датчика
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorSelection.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorSelection.msg)
 
 ```c
 #

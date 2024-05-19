@@ -19,7 +19,7 @@ Reptile Dragon 2 - це двомоторний літак RC, спеціальн
 - Removable V tail or conventional tail options included
 - Threaded inserts in the wings and fuselage top for external mounting
 - Numerous mounting features
-  - Top antenna hole
+  - Отвір для верхньої антени
   - Top GPS cover
   - Side "T" antenna mounts
   - Rear electronics tray

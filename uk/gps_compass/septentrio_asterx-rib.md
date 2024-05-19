@@ -14,13 +14,13 @@ Septentrio - провідний постачальник OEM GPS / GNSS прий
 - Плати розміром з кредитну картку з низьким споживанням енергії
 - Легко інтегрується в будь-яку систему
 - Найкраща продуктивність RTK з справжньою технологією багаточастотного ГНСС на основі кількох констелляцій
-- Advanced Interference Mitigation (AIM+) anti-jamming and anti-spoofing technology
-- Resilient to vibrations and shocks
-- 44 pins I/O connector for autopilots such as Pixhawk
-- On-board logging
-- Micro USB connector
-- Size: 71.53 x 47.5 x 18.15 mm
-- Weight = 50g
+- Технологія Advanced Interference Mitigation (AIM+) проти глушіння та спуфінгу
+- Стійкість до вібрацій та ударів
+- 44-піновий роз'єм вводу/виводу для автопілотів, таких як Pixhawk
+- Логування на борту
+- Micro USB конектор
+- Розмір: 71.53 x 47.5 x 18.15 mm
+- Вага = 50g
 
 ## Купівля
 

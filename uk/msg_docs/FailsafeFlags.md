@@ -1,8 +1,8 @@
 # FailsafeFlags (повідомлення UORB)
 
-Input flags for the failsafe state machine set by the arming & health checks.
+Прапорці введення для безпечної станової машини встановлені під час озброєння та перевірок стану здоров'я.
 
-Flags must be named such that false == no failure (e.g. _invalid, _unhealthy, _lost) The flag comments are used as label for the failsafe state machine simulation
+Прапорці повинні мати назви такі, що false == відсутність відмови (наприклад, _invalid, _unhealthy, _lost) Коментарі до прапорців використовуються як мітка для симуляції аварійного стану машини
 
 [вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/FailsafeFlags.msg)
 

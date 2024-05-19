@@ -5,12 +5,12 @@
 
 
 ### Опис
-This implements the airship attitude and rate controller. Ideally it would take attitude setpoints (`vehicle_attitude_setpoint`) or rate setpoints (in acro mode via `manual_control_setpoint` topic) as inputs and outputs actuator control messages.
+Це реалізує регулятор положення аеростата і швидкості. В ідеалі це має приймати задані значення положення (`vehicle_attitude_setpoint`) або задані значення швидкості (у режимі acro через тему `manual_control_setpoint`) як вхідні та вихідні повідомлення керування приводом.
 
-Currently it is feeding the `manual_control_setpoint` topic directly to the actuators.
+Наразі він передає тему `manual_control_setpoint_setpoint` безпосередньо до актуаторів.
 
 ### Реалізація
-To reduce control latency, the module directly polls on the gyro topic published by the IMU driver.
+Щоб зменшити затримку керування, модуль безпосередньо опитує тему гіроскопа, опубліковану драйвером IMU.
 
 
 <a id="airship_att_control_usage"></a>
@@ -30,7 +30,7 @@ airship_att_control <command> [arguments...]
 
 
 ### Опис
-This implements control allocation. It takes torque and thrust setpoints as inputs and outputs actuator setpoint messages.
+Це реалізує розподіл управління. Він приймає задані значення крутного моменту та тяги як вхідні та вихідні повідомлення про задані значення привода.
 
 <a id="control_allocator_usage"></a>
 
@@ -49,7 +49,7 @@ control_allocator <command> [arguments...]
 
 
 ### Опис
-Rover Differential Drive controller.
+Rover Differential Drive контроллер.
 
 <a id="differential_drive_usage"></a>
 
@@ -68,7 +68,7 @@ differential_drive <command> [arguments...]
 
 
 ### Опис
-This implements the setpoint generation for all modes. It takes the current mode state of the vehicle as input and outputs setpoints for controllers.
+Це реалізує генерацію заданого значення для всіх режимів. Він приймає поточний стан режиму транспортного засобу як вхідні дані і виводить задані значення для контролерів.
 
 
 <a id="flight_mode_manager_usage"></a>
@@ -88,7 +88,7 @@ flight_mode_manager <command> [arguments...]
 
 
 ### Опис
-fw_att_control is the fixed wing attitude controller.
+fw_att_control - регулятор положення фіксованого крила.
 
 
 <a id="fw_att_control_usage"></a>
@@ -109,7 +109,7 @@ fw_att_control <command> [arguments...]
 
 
 ### Опис
-fw_pos_control is the fixed-wing position controller.
+fw_pos_control - контролер положення фіксованого крила.
 
 
 <a id="fw_pos_control_usage"></a>
@@ -130,7 +130,7 @@ fw_pos_control <command> [arguments...]
 
 
 ### Опис
-fw_rate_control is the fixed-wing rate controller.
+fw_rate_control - регулятор швидкості фіксованого крила.
 
 
 <a id="fw_rate_control_usage"></a>
@@ -147,15 +147,15 @@ fw_rate_control <command> [arguments...]
    status        print status info
 ```
 ## mc_att_control
-Source: [modules/mc_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_att_control)
+Джерело: [modules/mc_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_att_control)
 
 
 ### Опис
-This implements the multicopter attitude controller. It takes attitude setpoints (`vehicle_attitude_setpoint`) as inputs and outputs a rate setpoint.
+Це реалізує контролер положення мультикоптера. Він приймає значення кута нахилу (`vehicle_attitude_setpoint`) як вхідні дані, а на виході отримує значення швидкості.
 
-The controller has a P loop for angular error
+Контролер має P цикл для кутової похибки
 
-Publication documenting the implemented Quaternion Attitude Control: Nonlinear Quadrocopter Attitude Control (2013) by Dario Brescianini, Markus Hehn and Raffaello D'Andrea Institute for Dynamic Systems and Control (IDSC), ETH Zurich
+Публікація, що документує реалізоване кватерніонне керування положенням: Nonlinear Quadrocopter Attitude Control (2013) by Dario Brescianini, Markus Hehn and Raffaello D'Andrea Institute for Dynamic Systems and Control (IDSC), ETH Zurich
 
 https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf
 
@@ -174,13 +174,13 @@ mc_att_control <command> [arguments...]
    status        print status info
 ```
 ## mc_pos_control
-Source: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_pos_control)
+Джерело: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_pos_control)
 
 
 ### Опис
-The controller has two loops: a P loop for position error and a PID loop for velocity error. Output of the velocity controller is thrust vector that is split to thrust direction (i.e. rotation matrix for multicopter orientation) and thrust scalar (i.e. multicopter thrust itself).
+Контролер має два контури: P цикл для помилки положення і PID цикл для помилки швидкості. Виходом контролера швидкості є вектор тяги, який розділяється на напрямок тяги (тобто матрицю обертання для орієнтації мультикоптера) та скаляр тяги (тобто саму тягу мультикоптера).
 
-The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
+Контролер не використовує кути Ейлера для своєї роботи, вони генеруються лише для більш зручного керування та логування.
 
 <a id="mc_pos_control_usage"></a>
 
@@ -196,13 +196,13 @@ mc_pos_control <command> [arguments...]
    status        print status info
 ```
 ## mc_rate_control
-Source: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_rate_control)
+Джерело: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_rate_control)
 
 
 ### Опис
-This implements the multicopter rate controller. It takes rate setpoints (in acro mode via `manual_control_setpoint` topic) as inputs and outputs actuator control messages.
+Це реалізує мультикоптерний регулятор швидкості. Він приймає значення швидкості (у режимі acro через тему `manual_control_setpoint_setpoint`) як вхідні та вихідні повідомлення керування актуатором.
 
-The controller has a PID loop for angular rate error.
+Контролер має PID-цикл для компенсації похибки кутової швидкості.
 
 
 <a id="mc_rate_control_usage"></a>
@@ -219,16 +219,16 @@ mc_rate_control <command> [arguments...]
    status        print status info
 ```
 ## navigator
-Source: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/navigator)
+Джерело: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/navigator)
 
 
 ### Опис
-Module that is responsible for autonomous flight modes. This includes missions (read from dataman), takeoff and RTL. It is also responsible for geofence violation checking.
+Модуль відповідає за автономні режими польоту. Це включає місії (читайте з dataman), взліт та RTL. Він також відповідає за перевірку порушень геозони.
 
 ### Реалізація
-The different internal modes are implemented as separate classes that inherit from a common base class `NavigatorMode`. The member `_navigation_mode` contains the current active mode.
+Різні внутрішні режими реалізовано у вигляді окремих класів, які успадковуються від загального базового класу `NavigatorMode`. Елемент `_navigation_mode` містить поточний активний режим.
 
-Navigator publishes position setpoint triplets (`position_setpoint_triplet_s`), which are then used by the position controller.
+Навігатор публікує триплети заданих значень позиції (`position_setpoint_triplet_s`), які потім використовуються контролером положення.
 
 
 <a id="navigator_usage"></a>
@@ -252,16 +252,16 @@ navigator <command> [arguments...]
 
 
 ### Опис
-Controls the position of a ground rover using an L1 controller.
+Контролює положення ровера за допомогою L1 контролера.
 
-Publishes `vehicle_thrust_setpoint (only in x) and vehicle_torque_setpoint (only yaw)` messages at IMU_GYRO_RATEMAX.
+Публікує `vehicle_thrust_setpoint (тільки по x) і vehicle_torque_setpoint (тільки по yaw)` повідомлення на IMU_GYRO_RATEMAX.
 
 ### Реалізація
-Currently, this implementation supports only a few modes:
+Наразі ця реалізація підтримує лише декілька режимів:
 
- * Full manual: Throttle and yaw controls are passed directly through to the actuators
- * Auto mission: The rover runs missions
- * Loiter: The rover will navigate to within the loiter radius, then stop the motors
+ * Повна ручна: Throttle та yaw контроль передається безпосередньо на актуатори
+ * Автоматична місія: Ровер виконує місії
+ * Loiter: Ровер буде рухатися в межах радіусу очікування, а потім вимкне двигуни
 
 ### Приклади
 Приклад використання CLI:
@@ -285,19 +285,19 @@ rover_pos_control <command> [arguments...]
    status        print status info
 ```
 ## uuv_att_control
-Source: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_att_control)
+Джерело: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_att_control)
 
 
 ### Опис
-Controls the attitude of an unmanned underwater vehicle (UUV).
+Контролює положення безпілотного підводного апарату (UUV).
 
-Publishes `vehicle_thrust_setpont` and `vehicle_torque_setpoint` messages at a constant 250Hz.
+Публікує повідомлення `vehicle_thrust_setpont` та `vehicle_torque_setpoint` зі сталою частотою 250 Гц.
 
 ### Реалізація
-Currently, this implementation supports only a few modes:
+Наразі ця реалізація підтримує лише декілька режимів:
 
- * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators
- * Auto mission: The uuv runs missions
+ * Повна ручна: Roll, pitch, yaw, та throttle контроль передається безпосередньо до актуаторів
+ * Автоматична місія: UUV виконує місії
 
 ### Приклади
 Приклад використання CLI:
@@ -321,15 +321,15 @@ uuv_att_control <command> [arguments...]
    status        print status info
 ```
 ## uuv_pos_control
-Source: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_pos_control)
+Джерело: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_pos_control)
 
 
 ### Опис
-Controls the attitude of an unmanned underwater vehicle (UUV). Publishes `attitude_setpoint` messages.
+Контролює положення безпілотного підводного апарату (UUV). Публікує повідомлення `attitude_setpoint`.
 ### Реалізація
-Currently, this implementation supports only a few modes:
- * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators
- * Auto mission: The uuv runs missions
+Наразі ця реалізація підтримує лише декілька режимів:
+ * Повна ручна: Roll, pitch, yaw, та throttle контроль передається безпосередньо до актуаторів
+ * Автоматична місія: UUV виконує місії
 ### Приклади
 Приклад використання CLI:
 ```
@@ -351,11 +351,11 @@ uuv_pos_control <command> [arguments...]
    status        print status info
 ```
 ## vtol_att_control
-Source: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/vtol_att_control)
+Джерело: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/vtol_att_control)
 
 
 ### Опис
-fw_att_control is the fixed wing attitude controller.
+fw_att_control - регулятор положення фіксованого крила.
 
 <a id="vtol_att_control_usage"></a>
 

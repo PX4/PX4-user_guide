@@ -326,76 +326,76 @@ AUX:
 Ми рекомендуємо вам призначити RC перемикачі для набору режимів, визначених у [Flight Mode Configuration > What Flight Modes and Switches Should I Set?](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set).
 Зокрема, ви повинні призначити _VTOL Transition Switch_, _Kill Switch_ та перемикач для вибору [Режиму стабілізації](../flight_modes_fw/stabilized.md) та [Режиму позиціювання](../flight_modes_fw/position.md).
 
-### Actuator Setup and ESC Calibration
+### Налаштування приводу та калібрування ESC
 
 :::warning
-Make sure the props are removed!
-The motors are easy to start in the actuators tab by accident.
+Переконайтеся, що реквізит видалено!
+Двигуни легко запустити на вкладці приводів випадково.
 :::
 
-Motors, control surfaces, and other actuators are configured in the QGroundControl [Actuator Configuration & Testing](../config/actuators.md).
+Двигуни, керуючі поверхні та інші виконавчі пристрої налаштовані в [Керуванні актуаторами та тестуванні](../config/actuators.md) QGroundControl.
 
-The [parameter file](#load-parameters-file) loaded previously means that this screen should already be correctly setup: you just need to adjust the trims for your particular vehicle.
-If motors/servos were connected to different outputs than suggested, you will need to change the output to function mappings in the actuator output section.
+Файл параметрів, завантажений раніше [параметр-файл](#load-parameters-file), означає, що цей екран вже повинен бути налаштований правильно: вам лише потрібно відрегулювати обтинання для вашого конкретного транспортного засобу.
+Якщо двигуни / сервоприводи були підключені до інших виходів, ніж рекомендовані, вам потрібно буде змінити відображення виходу на функції в розділі виведення приводу.
 
-To calibrate the ESC's power up the vehicle with the wings not connected and go into the **Actuators** tab in QGC.
-Enable motor test and side the slider for Motor you would like to calibrate up to the maximum.
-Plug the wings into the fuselage and wait until the beeb-sequence if finished (ca. 5s).
-Then side the slider to the minimum.
+Для калібрування потужності ESC увімкніть транспортний засіб без крил і перейдіть на вкладку **Actuators** в QGC.
+Увімкніть тестування двигуна та зсуньте слайдер для двигуна, який ви бажаєте налаштувати, до максимуму.
+Вставте крила в фюзеляж і зачекайте, поки закінчиться послідовність звуків (близько 5 секунд).
+Потім передвиньте боковий слайдер на мінімум.
 
-#### Control Surfaces
+#### Керування поверхнями
 
-Check if the actuators need to be reversed using the RC-Controller:
+Перевірте, чи потрібно перекласти приводи, використовуючи пульт дистанційного керування:
 
-- Switch into [Manual mode](../flight_modes_fw/stabilized.md)
-- Roll stick to the right.
-  The right aileron should go up, left aileron should go down.
-- Pitch stick to the back (fly upwards).
-  Both V-tail surfaces should move up.
-- Yaw stick to the right.
-  Both surfaces should move to the right
+- Перемкніться в [Ручний режим](../flight_modes_fw/stabilized.md)
+- Перемістіть стік вправо.
+  Правий елерон повинен іти вгору, лівий елерон повинен опускатися.
+- Нахили стік назад (політ вверх).
+  Обидві поверхні V-хвоста повинні підніматися.
+- Перемістіть стік вправо.
+  Обидві поверхні повинні рухатися вправо
 
-Now adjust the trim value so that all the surfaces are in neutral position.
+Тепер відкоригуйте значення газу так, щоб всі поверхні були в нейтральному положенні.
 
-![Servo trim](../../assets/airframes/vtol/omp_hobby_zmo_fpv/servo_trim.png)
+![Подруливаюче серво](../../assets/airframes/vtol/omp_hobby_zmo_fpv/servo_trim.png)
 
-#### Motor Direction and Orientation
+#### Напрямок та орієнтація двигуна
 
-Arm the vehicle with the propellers still detached in [Stabilized mode](../flight_modes_fw/stabilized.md).
-Check that all the quad-motors spin with a similar low idle speed and verify that the direction is correct.
-Check the following reactions:
+Зафіксуйте літальний апарат зі знімними пропелерами у режимі [Стабілізованого польоту](../flight_modes_fw/stabilized.md).
+Перевірте, щоб всі чотирьохмотори обертались з схожою низькою швидкістю холостого ходу та перевірте, що напрямок правильний.
+Перевірте наступні реакції:
 
-- Roll stick to the right.
-  The left two motors should spool up
-- Roll stick to the back.
-  The front two motors should spool up
-- Yaw stick to the right.
-  Front right and rear left motor should spool up
+- Перемістіть стік вправо.
+  Ліві два двигуни повинні розганятися
+- Перемістіть стік вниз.
+  Передні два двигуни повинні розганятися
+- Упріть стік вправо.
+  Передній правий та задній лівий двигун повинні розганятися
 
 :::info
-increase the throttle a bit if you can't see a reaction since [Airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode-mixer-saturation) is not enabled for the yaw axis.
+збільшіть газ трохи, якщо ви не бачите реакції, оскільки [Airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode-mixer-saturation) не ввімкнено для осі розвороту.
 :::
 
-## First Flight
+## Перший політ
 
-- Mount the propellers (use blue Loctite for the screws).
-- Check center of gravity (GG).
-  To check the CG lift the vehicle with two fingers up at the latches that connect the wing.
-  The vehicle should balance horizontally.
-  If the vehicle tips to either the tail or to the nose then you need to move the battery into the opposite direction.
-  If you are not able to balance the vehicle with this method you will need to reposition some components or add weight to balance the vehicle.
-- Check actuator orientations and neutral trim
-- Check control surface reactions in [Stabilized mode](../flight_modes_fw/stabilized.md).
-  Switch the vehicle into forward flight mode.
-  - Roll the vehicle to the right.
-    The right aileron should go down.
-    The left aileron should go up.
-  - Pitch the vehicle up (nose up).
-    Both elevons should go down.
-  - Yaw the vehicle to the right (nose to the right).
-    Both elevons should go to the left.
-- If a [kill-switch](../config/safety.md#kill-switch) is used, make sure it's working properly and will not be activated accidentally in flight!
-- Arm in [Stabilized mode](../flight_modes_fw/stabilized.md) and check if motors respond to the commands, e.g. roll left increases throttle on the right motor
-- Takeoff in [Stabilized mode](../flight_modes_fw/stabilized.md) and make some basic maneuvers
-- If everything went without any issue, takeoff in [Position mode](../flight_modes_fw/position.md) and do a transition at around 50m.
-  If something goes wrong switch back to multicopter mode as fast as possible (using the transition switch).
+- Встановити гвинти (використовувати блакитний Loctite для гвинтів).
+- Перевірте центр мас (GG).
+  Щоб перевірити ЦМ ліфтінг - підніміть транспортний засіб двома пальцями вгору на засувках, що з'єднують крило.
+  Транспортний засіб повинен бути в горизонтальному положенні.
+  Якщо транспортний засіб нахилився вперед або назад, вам потрібно перемістити батарею в протилежному напрямку.
+  Якщо ви не здатні врівноважити транспортний засіб цим методом, вам доведеться перенести деякі компоненти або додати вагу для вирівнювання транспортного засобу.
+- Перевірте орієнтацію приводів та нейтральну передачу
+- Перевірте реакції поверхонь управління в режимі [Стабілізованого польоту](../flight_modes_fw/stabilized.md).
+  Перемикайте транспортний засіб у режим польоту вперед.
+  - Переваліть транспортний засіб на праве крило.
+    Правий елерон повинен опуститися.
+    Лівий елерон повинен піти вгору.
+  - Підійміть транспортний засіб вверх (носом вгору).
+    Обидва елерони повинні опуститися.
+  - Рискніть транспортним засобом праворуч (носом вправо).
+    Обидва елерони повинні йти вліво.
+- Якщо використовується [kill-switch](../config/safety.md#kill-switch), переконайтеся, що він працює належним чином і не буде активований випадково в повітрі!
+- Включіть [режим стабілізації](../flight_modes_fw/stabilized.md) та перевірте, чи відповідають двигуни на команди, наприклад, перевалюємося вліво, збільшувати оберти на правому двигуні
+- Злетайте у режимі [стабілізованого положення](../flight_modes_fw/stabilized.md) і виконайте деякі базові маневри
+- Якщо все пройшло без проблем, злітайте у [Position mode](../flight_modes_fw/position.md) та зробіть перехід приблизно на висоті 50м.
+  Якщо щось пішло не так, якнайшвидше перейдіть в режим мультикоптера (використовуючи перемикач переходу).

@@ -1,55 +1,55 @@
 # CUAV C-RTK2 GNSS Module (RTK/PPK)
 
-The [CUAV C-RTK2 receiver](https://www.cuav.net/en/c_rtk_9ps/) is a high-performance PPK/RTK positioning module created by CUAV for professional applications such as drone aerial surveying and mapping. It has a high-precision IMU and positioning module, and can reduce the number of required [control points](https://www.youtube.com/watch?v=3k7v5aXyuKQ) by more than to 80%. In addition to surveying/mapping, it is suitable for many other use-cases, including: agricultural plant protection and drone swarms.
+Приймач [CUAV C-RTK2](https://www.cuav.net/en/c_rtk_9ps/) - це високопродуктивний модуль позиціонування PPK/RTK, створений компанією CUAV для професійних застосувань, таких як аерофотозйомка та картографування з дронів. Він має високоточний IMU і модуль позиціонування, і може зменшити кількість необхідних [ контрольних точок](https://www.youtube.com/watch?v=3k7v5aXyuKQ) більш ніж на 80%. На додаток до зйомки/картографування, він підходить для багатьох інших випадків використання, включаючи: захист сільськогосподарських рослин та рої дронів.
 
 ![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2.png)
 
-## Other characteristics
+## Інші характеристики
 
-* High-performance H7 processor
-* High precision industrial grade IMU
-* Support RTK and save RAW raw data (PPK) at the same time
-* Multi-satellite and multi-frequency receivers
-* UAVCAN/Dronecan protocol
+* Потужний процесор H7
+* Високоточний IMU промислового класу
+* Підтримка RTK та одночасне збереження необроблених даних RAW (PPK)
+* Багатосупутникові та багаточастотні приймачі
+* Протокол UAVCAN/Dronecan
 * Support hotshoe and shutter trigger
-* HS_USB and U disk mode
+* Режими HS_USB та U диск
 
-## Where to Buy
+## Де купити
 
 * [CUAV Store](https://store.cuav.net/shop/c-rtk-2/)
 * [CUAV aliexpress](https://pt.aliexpress.com/item/1005003754165772.html?spm=a2g0o.store_pc_groupList.8148356.13.2f893550i0NE4o)
 
-# Quick Summary
+# Короткий опис
 
-* RTK Receiver
+* Приймач RTK
   * ZED-F9P
-* Receiving channel
+* Канал прийому
   * 184
-* Main FMU Processor
+* Головний FMU процесор
   * STM32H743VIH6(2M flash、1M RAM）
-* On-board sensors:
-  * Accelerometer/Gyroscope: ICM20689
-* Magnetometer: RM3100
-  * Barometer: ICP10111
-* TF card expansion
+* Бортові сенсори:
+  * Акселерометр/Гіроскоп: ICM20689
+* Магнітометр: RM3100
+  * Барометр: ICP10111
+* Розширення TF-карти
   * 32G(MAX)
 * PPK(post processed kinematic)
-  * support
+  * підтримка
 * RTK(Real - time kinematic)
-  * support
-* GNSS Bands
+  * підтримка
+* Діапазони GNSS
   * GPS:L1C/A,L2C
   * GLONASS:L1OF,L2OF
   * GALILEO: E1B/C E5b
   * Beidou:B1I B2I
-* Enhanced system
+* Покращена система
   * QZSS:L1C/A,L2C,L1S
   * SBAS:L1C/A
-* Number of concurrent GNSS
+* Кількість одночасних GNSS
   * 4(GPS、GLONASS、GALILEO、Beidou）
-* Nav. update rate
-  * RTK Up to 20HZ
-  * RAW Up to 25hz
+* Nav. частота оновлення
+  * RTK До 20 Гц
+  * RAW До 25 Гц
   * default：5hz
 * Convergence time
   * RTK < 10 sec
@@ -67,38 +67,38 @@ The [CUAV C-RTK2 receiver](https://www.cuav.net/en/c_rtk_9ps/) is a high-perform
   * Reacquisition –160 dBm
 * Anti-spoofng
   * Advanced anti-spoofng algorithms
-* Protocols
+* Протоколи
   * NMEA
   * UBX binary
-  * RTCM version 3.x
-* Time pulse
-  * 0.25Hz~10Hz(Configurable)
+  * RTCM версія 3.x
+* Часовий імпульс
+  * 0.25 Гц ~ 10 Гц (налаштовується)
 * Anti-jamming
   * Active CW detection and removal Onboard band pass ﬂter
 * Support flight control type
   * Compatible with flight controllers running PX4 firmware
-* interface
+* інтерфейс
   * 1 Hotshoe
   * 1 shutter in
   * 1 sutter out
   * 1 Type(HS_USB)
   * 1 F9P USB
   * 1 F9P UART
-  * 1 Antenna(mmcx)
-* Supply voltage
+  * 1 Антена(mmcx)
+* Напруга живлення
   * 4.5~6v
-* Operating temperature
+* Робоча температура
   * -20~85℃
-* Size
+* Розмір
   *  56x33x16.5mm
-* Weight
+* Вага
   * 39g
 
-## Configuration
+## Налаштування
 
 [CUAV Docs](https://doc.cuav.net/gps/c-rtk2/en/quick-start-c-rtk2.html)
 
-## Pinout
+## Розпіновка
 
 ![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2_pinouts1.jpg)
 
@@ -106,7 +106,7 @@ The [CUAV C-RTK2 receiver](https://www.cuav.net/en/c_rtk_9ps/) is a high-perform
 
 ![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2_pinouts2.jpg)
 
-## More information
+## Більше інформації
 
 [CUAV Docs](https://doc.cuav.net/gps/c-rtk-series/en/c-rtk-9ps/)
 

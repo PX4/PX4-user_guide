@@ -1,8 +1,8 @@
-# UavcanParameterValue (UORB message)
+# UavcanParameterValue (Параметр UORB)
 
-UAVCAN-MAVLink parameter bridge response type
+Тип відповіді моста параметрів UAVCAN-MAVLink
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/UavcanParameterValue.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/UavcanParameterValue.msg)
 
 ```c
 # UAVCAN-MAVLink parameter bridge response type

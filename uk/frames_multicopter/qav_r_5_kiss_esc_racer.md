@@ -14,32 +14,32 @@ Lumenier QAV-R 5" FPV Гоночний квадрокоптер - це жорс�
 
 ## Список деталей
 
-### Vehicle (needed for flying)
+### Транспортний засіб (потрібний для польоту)
 
-* Autopilot: [Pixracer](../flight_controller/pixracer.md) from [AUAV](https://store.mrobotics.io/mRo-PixRacer-R14-Official-p/auav-pxrcr-r14-mr.htm) including ESP8266  WiFi- and [ACSP5](https://store.mrobotics.io/product-p/auav-acsp5-mr.htm)  power-module
-* Frame:  [Lumenier QAV-R 5"](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html)
-* Motors:  [Lumenier RX2206-11 2350KV](http://www.getfpv.com/lumenier-rx2206-11-2350kv-motor.html)
+* Автопілот: [Pixracer](../flight_controller/pixracer.md) від [AUAV](https://store.mrobotics.io/mRo-PixRacer-R14-Official-p/auav-pxrcr-r14-mr.htm) з WiFi-модулем ESP8266 та силовим модулем [ACSP5](https://store.mrobotics.io/product-p/auav-acsp5-mr.htm)
+* Рама:  [Lumenier QAV-R 5"](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html)
+* Двигуни:  [Lumenier RX2206-11 2350KV](http://www.getfpv.com/lumenier-rx2206-11-2350kv-motor.html)
 * ESCs:  [KISS 24A Race Edition](http://www.getfpv.com/kiss-24a-esc-race-edition-32bit-brushless-motor-ctrl.html)
-* Props: HQProp 5x4.5x3 [CW](http://www.getfpv.com/hqprop-5x4-5x3rg-cw-propeller-3-blade-2-pack-green-nylon-glass-fiber.html) [CCW](http://www.getfpv.com/hqprop-5x4-5x3g-ccw-propeller-3-blade-2-pack-green-nylon-glass-fiber.html)
-* GPS / Ext. Mag.: M8N taken from a [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md) set and rewired
-* Battery: [TATTU 1800mAh 4s 75c Lipo](http://www.getfpv.com/tattu-1800mah-4s-75c-lipo-battery.html)
-* RC Receiver: [FrSky X4R-SB](http://www.getfpv.com/frsky-x4r-sb-3-16-channel-receiver-w-sbus.html)
-* RC Transmitter: [FrSky Taranis](http://www.getfpv.com/frsky-taranis-x9d-plus-2-4ghz-accst-radio-w-soft-case-mode-2.html)
+* Пропелери: HQProp 5x4.5x3 [CW](http://www.getfpv.com/hqprop-5x4-5x3rg-cw-propeller-3-blade-2-pack-green-nylon-glass-fiber.html) [CCW](http://www.getfpv.com/hqprop-5x4-5x3g-ccw-propeller-3-blade-2-pack-green-nylon-glass-fiber.html)
+* GPS / Ext. Магнітометр.: M8N взятий з [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md) встановлений та перепрошитий
+* Акумулятор: [TATTU 1800mAh 4s 75c Lipo](http://www.getfpv.com/tattu-1800mah-4s-75c-lipo-battery.html)
+* RC Приймач: [FrSky X4R-SB](http://www.getfpv.com/frsky-x4r-sb-3-16-channel-receiver-w-sbus.html)
+* RC Трансмітер: [FrSky Taranis](http://www.getfpv.com/frsky-taranis-x9d-plus-2-4ghz-accst-radio-w-soft-case-mode-2.html)
 * FC dampening: [O-Rings](http://www.getfpv.com/multipurpose-o-ring-set-of-8.html)
-* GPS Mount: [GPS mast](http://www.getfpv.com/folding-aluminum-gps-mast-for-dji.html)
+* GPS Кріплення: [GPS mast](http://www.getfpv.com/folding-aluminum-gps-mast-for-dji.html)
 
-### FPV (optional)
+### FPV (необов'язково)
 
-* Camera: [RunCam Swift RR Edition](https://www.getfpv.com/runcam-swift-rotor-riot-special-edition-ir-block-black.html) **includes must-have high quality wide angle lens from GoPro!**
-* Video Tx: [ImmersionRC Tramp HV 5.8GHz 600mW](https://www.getfpv.com/immersionrc-tramp-hv-5-8ghz-video-tx-us-version.html) (Discontinued).
-* Video Antennas: [TBS Triumph 5.8GHz CP](http://www.getfpv.com/fpv/antennas/tbs-triumph-5-8ghz-cp-fpv-antenna-3275.html) (SMA port fits ImmercionRC Tx)
-* FPV voltage source plug: [Male JST Battery Pigtail](http://www.getfpv.com/male-jst-battery-pigtail-10cm-10pcs-bag.html)
+* Камера: [RunCam Swift RR Edition](https://www.getfpv.com/runcam-swift-rotor-riot-special-edition-ir-block-black.html) **включає в себе обов'язковий високоякісний ширококутний об'єктив від GoPro!**
+* Відео ТХ: [ImmersionRC Tramp HV 5.8GHz 600mW](https://www.getfpv.com/immersionrc-tramp-hv-5-8ghz-video-tx-us-version.html) (Припинено).
+* Відеоантени: [TBS Triumph 5.8GHz CP](http://www.getfpv.com/fpv/antennas/tbs-triumph-5-8ghz-cp-fpv-antenna-3275.html) (роз'єм SMA підходить для передавача ImmercionRC Tx)
+* Роз'єм джерела напруги FPV: [Male JST Battery Pigtail](http://www.getfpv.com/male-jst-battery-pigtail-10cm-10pcs-bag.html)
 
-::: info
-These parts cover the sending side for standard FPV 5.8GHz analog FM video. You need to have a compatible receiver and display device to actually consume the live video stream.
+:::info
+Ці деталі покривають сторону відправлення для стандартного аналогового FM-відео FPV на частоті 5,8 ГГц. Для перегляду відеопотоку в реальному часі вам потрібен сумісний приймач і пристрій відображення.
 :::
 
-## Assembling the Basic Frame
+## Збирання базової рами
 
 Я зібрав основну центральну плату та руки, як показано у цьому відео між 09:25 та 13:26:
 
@@ -77,9 +77,9 @@ These parts cover the sending side for standard FPV 5.8GHz analog FM video. You 
 
 ![Power motor connections](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-motor-connections.jpg)
 
-### Power Module
+### Модуль живлення
 
-Спочатку я зварив роз'єм XT60, який поставляється з рамою, на позначену бічну сторону акумулятора *модуля живлення ACSP5*, який був відправлений разом з Pixracer, і додав електролітичний конденсатор, який поставляється з модулем живлення з правильною полярністю на ту саму сторону.
+Спочатку я припаяв роз'єм XT60, що йде в комплекті з рамою, до маркованого боку батареї модуля живлення *ACSP5*, який поставляється з Pixracer, і додав конденсатор elco, що поставляється з модулем живлення, з правильною полярністю на тій же стороні.
 
 ![ACSP5 power module](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/acsp5_power_module.jpg)
 
@@ -103,7 +103,7 @@ These parts cover the sending side for standard FPV 5.8GHz analog FM video. You 
 
 <a id="mounting"></a>
 
-## Connecting & Mounting Electronics
+## Підключення & встановлення електроніки
 
 :::tip
 Перевірте подвійно призначення контактів кожного підключеного вами компонента.
@@ -134,7 +134,7 @@ These parts cover the sending side for standard FPV 5.8GHz analog FM video. You 
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-receiver-connections.jpg)
 
-### RC Antenna Mount
+### Кріплення антени RC
 
 Щоб мати хороше з'єднання RC, не ризикуючи мати антену в гвинтах, я використовував метод міцного кріплення за допомогою термоусадки та затяжок.
 
@@ -144,35 +144,35 @@ These parts cover the sending side for standard FPV 5.8GHz analog FM video. You 
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-antenna-mount.jpg)
 
-### ESC Signal
+### Сигнал ESC
 
 Для сигналів ESC я дотримувався [апаратної документації Pixracer](../flight_controller/pixracer.md) та схеми нумерації моторів [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x). Оскільки у нас немає з'єднань землі або позитивного напруги BEC, ми підключаємо кабелі сигналу ESC `PWM` кожен до його верхніх контактів відповідного вихідного роз'єму.
 
-### GPS / External Magnetometer
+### GPS / Зовнішній магнітометр
 
 Я взяв кабель GPS, який підходить до роз'єму використаного GPS і поставляється ​​з набором Pixracer. На жаль, призначення контакту було абсолютно неправильним, і я знову повторно використовував ханцерів згідно з [3DR Pixhawk посібник користувача](../flight_controller/pixhawk_mini.md#connector-pin-assignments-pin-outs) з GPS портом.
 
 #### Pixracer GPS/I2C Port
 
-| Pin | Assignment |
-| --- | ---------- |
-| 1   | GND        |
-| 2   | SDA        |
-| 3   | SCL        |
-| 4   | RX         |
-| 5   | TX         |
-| 6   | +5V        |
+| Pin | Призначення |
+| --- | ----------- |
+| 1   | GND         |
+| 2   | SDA         |
+| 3   | SCL         |
+| 4   | RX          |
+| 5   | TX          |
+| 6   | +5V         |
 
 #### M8N 3DR Pixhawk mini GPS Connector
 
-| Pin     | Assignment | Connect to Pixracer Pin |
-| ------- | ---------- | ----------------------- |
-| 1 (red) | SCL        | 3                       |
-| 2       | SDA        | 2                       |
-| 3       | VCC 5V     | 6                       |
-| 4       | RX         | 5                       |
-| 5       | TX         | 4                       |
-| 6       | GND        | 1                       |
+| Pin     | Призначення | Connect to Pixracer Pin |
+| ------- | ----------- | ----------------------- |
+| 1 (red) | SCL         | 3                       |
+| 2       | SDA         | 2                       |
+| 3       | VCC 5V      | 6                       |
+| 4       | RX          | 5                       |
+| 5       | TX          | 4                       |
+| 6       | GND         | 1                       |
 
 Я встановив модуль GPS, використовуючи перерахований загальний мультікоптерний стійку GPS, оскільки встановлення його ближче до основного корпусу зробило показання магнітометра абсолютно непридатними для використання. Експеримент, в якому модуль було прямо закріплено на далекому задньому краї рами, показав, що шум величини магнітометра в шість разів ймовірно спричинений магнітним полем струмів ESC. Зверніть увагу, що я скоротив мачту на ~2 см, щоб вона краще підходила за довжиною кабелю та розмірами рами. Модуль GPS приклеєний двостороннім скотчем до верхньої плити мачти.
 
@@ -202,43 +202,43 @@ These parts cover the sending side for standard FPV 5.8GHz analog FM video. You 
 
 :::warning
 Завжди переконайтеся, що під час будь-якої початкової конфігурації вашого транспортного засобу або батарею, або гвинти фізично вилучено.
-Better safe than sorry!
+Краще перестрахуватися, ніж потім шкодувати!
 :::
 
 
-First update the firmware, airframe, and actuator mappings:
+Спочатку оновіть прошивку, конструкцію та відображення актуаторів:
 
-- [Firmware](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [Прошивка](../config/firmware.md)
+- [Планер](../config/airframe.md)
 
-  You will need to select the *Generic 250 Racer* airframe (**Quadrotor x > Generic 250 Racer**).
+  Вам потрібно вибрати планер *Generic 250 Racer* (**Quadrotor x > Generic 250 Racer**).
 
   ![QGC airframe selection of generic 250 racer](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/qgc_airframe_generic_250_racer.png)
 
-- [Actuators](../config/actuators.md)
-  - You should not need to update the vehicle geometry.
-  - Assign actuator functions to outputs to match your wiring.
-  - Test the configuration using the sliders.
+- [Актуатори](../config/actuators.md)
+  - Вам не потрібно оновлювати геометрію транспортного засобу.
+  - Призначте функції приводу до актуаторів, щоб відповідати вашому підключенню.
+  - Перевірте конфігурацію, використовуючи слайдери.
 
-Then perform the mandatory setup/calibration:
+Потім виконайте обов'язкове налаштування / калібрування:
 
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+* [Орієнтація сенсора](../config/flight_controller_orientation.md)
+* [Компас](../config/compass.md)
+* [Акселерометр](../config/accelerometer.md)
+* [Калібрування рівня горизонту](../config/level_horizon_calibration.md)
+* [Налаштування радіо](../config/radio.md)
+* [Режими польоту](../config/flight_mode.md)
 
-Ideally you should also do:
+В ідеалі ви також повинні зробити:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery Estimation Tuning](../config/battery.md)
-  - 4S (4 cell LiPo) with charged cell voltage 4.15V and empty cell voltage 3.5V (or appropriate values for your battery).
-- [Safety](../config/safety.md)
+- [Калібрування ESC](../advanced_config/esc_calibration.md)
+- [Регулювання оцінки заряду акумулятора](../config/battery.md)
+  - 4S (4 елементи LiPo) з напругою зарядженого елемента 4,15 В і напругою розрядженого елемента 3,5 В (або відповідні значення для вашого акумулятора).
+- [Безпека](../config/safety.md)
 
 
-### Tuning
+### Налаштування
 
 Набори вибору конструкції встановлюють параметри автопілота *за замовчуванням* для рами. Ці вистачають для польоту, але це добра ідея налаштувати параметри для конкретної конструкції рами.
 
-For instructions on how, start from [Autotune](../config/autotune.md).
+Для інструкцій щодо того, як розпочати, почніть з [Автоналаштування](../config/autotune.md).

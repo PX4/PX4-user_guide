@@ -2,7 +2,7 @@
 
 ParameterResetRequest : Used by the primary to reset one or all parameter value(s) on the remote
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ParameterResetRequest.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ParameterResetRequest.msg)
 
 ```c
 # ParameterResetRequest : Used by the primary to reset one or all parameter value(s) on the remote

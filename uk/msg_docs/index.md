@@ -30,7 +30,7 @@
 - [CellularStatus](CellularStatus.md)
 - [CollisionConstraints](CollisionConstraints.md) — Local setpoint constraints in NED frame setting something to NaN means that no limit is provided
 - [CollisionReport](CollisionReport.md)
-- [ConfigOverrides](ConfigOverrides.md) — Configurable overrides by (external) modes or mode executors
+- [ConfigOverrides](ConfigOverrides.md) - Конфігуровані перевизначення (зовнішніми) режимами або виконавцями режимів
 - [ControlAllocatorStatus](ControlAllocatorStatus.md)
 - [Cpuload](Cpuload.md)
 - [DatamanRequest](DatamanRequest.md)
@@ -41,8 +41,8 @@
 - [DebugVect](DebugVect.md)
 - [DifferentialDriveSetpoint](DifferentialDriveSetpoint.md)
 - [DifferentialPressure](DifferentialPressure.md)
-- [DistanceSensor](DistanceSensor.md) — DISTANCE_SENSOR message data
-- [Ekf2Timestamps](Ekf2Timestamps.md) — this message contains the (relative) timestamps of the sensor inputs used by EKF2. It can be used for reproducible replay.
+- [DistanceSensor](DistanceSensor.md) - дані повідомлення DISTANCE_SENSOR
+- [Ekf2Timestamps](Ekf2Timestamps.md) - це повідомлення містить (відносні) часові мітки входів датчиків, що використовуються EKF2. Його можна використовувати для відтворення.
 - [EscReport](EscReport.md)
 - [EscStatus](EscStatus.md)
 - [EstimatorAidSource1d](EstimatorAidSource1d.md)
@@ -58,7 +58,7 @@
 - [EstimatorStates](EstimatorStates.md)
 - [EstimatorStatus](EstimatorStatus.md)
 - [EstimatorStatusFlags](EstimatorStatusFlags.md)
-- [Event](Event.md) — Events interface
+- [Event](Event.md) — Інтерфейс подій
 - [FailsafeFlags](FailsafeFlags.md) — Input flags for the failsafe state machine set by the arming & health checks.
 - [FailureDetectorStatus](FailureDetectorStatus.md)
 - [FigureEightStatus](FigureEightStatus.md)
@@ -77,11 +77,11 @@
 - [GimbalManagerSetAttitude](GimbalManagerSetAttitude.md)
 - [GimbalManagerSetManualControl](GimbalManagerSetManualControl.md)
 - [GimbalManagerStatus](GimbalManagerStatus.md)
-- [GotoSetpoint](GotoSetpoint.md) — Position and (optional) heading setpoints with corresponding speed constraints Setpoints are intended as inputs to position and heading smoothers, respectively Setpoints do not need to be kinematically consistent Optional heading setpoints may be specified as controlled by the respective flag Unset optional setpoints are not controlled Unset optional constraints default to vehicle specifications
-- [GpioConfig](GpioConfig.md) — GPIO configuration
-- [GpioIn](GpioIn.md) — GPIO mask and state
-- [GpioOut](GpioOut.md) — GPIO mask and state
-- [GpioRequest](GpioRequest.md) — Request GPIO mask to be read
+- [GotoSetpoint](GotoSetpoint.md) — Задання положення та (опціонально) курсу з відповідними обмеженнями швидкості Заданi значення призначенi для використання як вхiднi данi для згладжувачiв положення та курсу вiдповiдно Задані значення не обов'язково повинні бути кінематично узгодженими Опціональні значення курсу можуть бути визначені як такі, що контролюються відповідним прапорцем Невстановлені опціональні значення не контролюються Невстановлені опціональні обмеження за замовчуванням відповідають специфікаціям транспортного засобу
+- [GpioConfig](GpioConfig.md) — Конфігурація GPIO
+- [GpioIn](GpioIn.md) — маска та стан GPIO
+- [GpioOut](GpioOut.md) — Маска та стан GPIO
+- [GpioRequest](GpioRequest.md) — Запит на зчитування маски GPIO
 - [GpsDump](GpsDump.md) — This message is used to dump the raw gps communication to the log. Set the parameter GPS_DUMP_COMM to 1 to use this.
 - [GpsInjectData](GpsInjectData.md)
 - [Gripper](Gripper.md) — # Used to command an actuation in the gripper, which is mapped to a specific output in the control allocation module
@@ -196,7 +196,7 @@
 - [VehicleCommandAck](VehicleCommandAck.md) — Vehicle Command Ackonwledgement uORB message. Used for acknowledging the vehicle command being received. Follows the MAVLink COMMAND_ACK message definition
 - [VehicleConstraints](VehicleConstraints.md) — Local setpoint constraints in NED frame setting something to NaN means that no limit is provided
 - [VehicleControlMode](VehicleControlMode.md)
-- [VehicleGlobalPosition](VehicleGlobalPosition.md) — Fused global position in WGS84. This struct contains global position estimation. It is not the raw GPS measurement (@see vehicle_gps_position). This topic is usually published by the position estimator, which will take more sources of information into account than just GPS, e.g. control inputs of the vehicle in a Kalman-filter implementation.
+- [VehicleGlobalPosition](VehicleGlobalPosition.md) — Об'єднана глобальна позиція у WGS84. Ця структура містить оцінку глобальної позиції. Це не необроблений GPS (@see vehicle_gps_position). Цю тему зазвичай публікують з положення який враховує більше джерел інформації, ніж просто GPS, наприклад, входи керування транспортним засобом у реалізації фільтра Калмана.
 - [VehicleImu](VehicleImu.md) — IMU readings in SI-unit form.
 - [VehicleImuStatus](VehicleImuStatus.md)
 - [VehicleLandDetected](VehicleLandDetected.md)

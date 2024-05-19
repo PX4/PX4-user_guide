@@ -52,7 +52,7 @@ QuadPlane VTOL Fun Cub є стандартним повітряним судно
 | AUX 1  | Лівий елерон TODO           |
 | AUX 2  | Правий елерон               |
 | AUX 3  | Elevator                    |
-| AUX 4  | Кермо                       |
+| AUX 4  | Rudder                      |
 | AUX 5  | Тяга                        |
 
 Для подальших інструкцій щодо проводки та конфігурацій дивіться: [Стандартна Проводка та Налаштування VTOL](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->

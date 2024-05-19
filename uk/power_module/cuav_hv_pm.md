@@ -1,4 +1,4 @@
-# CUAV HV PM (High-Voltage Power Module)
+# CUAV HV PM (High-Voltage модуль живлення)
 
 Модуль живлення CUAV<sup>&reg;</sup> *HV_PM* є модулем живлення "високого напруги", розробленим незалежно від CUAV.
 

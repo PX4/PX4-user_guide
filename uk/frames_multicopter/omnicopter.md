@@ -16,27 +16,27 @@
 Ви можете вибрати свій власний контролер польоту за власним вибором, він просто повинен підтримувати 8 виходів DShot.
 :::
   - GPS: [ZED-F9P](https://www.gnss.store/gnss-gps-modules/105-ublox-zed-f9p-rtk-gnss-receiver-board-with-sma-base-or-rover.html?search_query=ZED-F9P&results=11)
-  - [GPS helix antenna](https://www.gnss.store/rf-gps-antennas/28-high-performance-multi-band-gnss-active-quad-helix-antenna-for-rtk.html) ::: info
-Any other GPS may work as well, however a helix antenna is expected to perform better for inverted flights.
+  - [GPS спіральна антена](https://www.gnss.store/rf-gps-antennas/28-high-performance-multi-band-gnss-active-quad-helix-antenna-for-rtk.html) ::: info
+Будь-який інший GPS також може працювати, однак очікується, що спіральна антена буде працювати краще для перевернутих польотів.
 :::
-  - Any RC receiver
-  - An external Magnetometer. We used the [RM-3100](https://store-drotek.com/893-professional-grade-magnetometer-rm3100.html).
-  - Telemetry link, e.g. [WiFi](../telemetry/telemetry_wifi.md)
+  - Будь-який RC приймач
+  - Зовнішній магнітометр. Ми використовували [RM-3100](https://store-drotek.com/893-professional-grade-magnetometer-rm3100.html).
+  - Телеметричний зв'язок, наприклад, [WiFi](../telemetry/telemetry_wifi.md)
 - Пропульсія:
   - Двигуни: 8x [BrotherHobby LPD 2306.5 2000KV/2450KV/2650KV](https://www.getfpv.com/brotherhobby-lpd-2306-5-2000kv-2450kv-2650kv-motor.html)
   - 3D Гвинти: 2x [HQProp 3D 5X3.5X3 3-х лопастний гвинт (набір з 4)](https://www.getfpv.com/hqprop-3d-5x3-5x3-3-blade-propeller-set-of-4.html) або 2x [Gemfan 513D 3-х лопастний 3D гвинт (набір з 4)](https://www.getfpv.com/gemfan-513d-durable-3-blade-propeller-set-of-4.html)
-  - Акумулятор: ми використовували LiPo на 6S 3300mAh. Make sure to check the dimensions so it fits the frame.
-  - Battery strap
+  - Акумулятор: ми використовували LiPo на 6S 3300mAh. Обов'язково перевірте розміри, щоб він підійшов до рами.
+  - Ремінь для акумулятора
 - Рама:
   - Карбонова квадратна труба R 8мм X 7мм X 1000мм, наприклад, [тут](https://shop.swiss-composite.ch/pi/Halbfabrikate/Rohre/Vierkant-Rohre/CFK-Vierkantrohr-8x8-7x7mm.html)
   - Вуглецеві стержні R 3мм X 2мм X 1000мм, наприклад, [тут](https://shop.swiss-composite.ch/pi/Halbfabrikate/Rohre/CFK-Rohre-pultrudiert-pullwinding/Carbon-Microtubes-100cm-x-20-3mm.html)
   - Необхідні довжини:
-    - square tube: 8 pieces with length of 248mm
-    - rods: 12x328mm, 6x465mm
-  - Screws:
-    - Motors and standoffs: 40x M3x12mm
-    - FC mount: 4x M3x35mm, 4x M3 nuts
-  - Standoffs: 4x 40mm
+    - квадратна трубка: 8 штук довжиною 248 мм
+    - стрижні: 12x328мм, 6x465мм
+  - Гвинти:
+    - Двигуни та стійки: 40x M3x12мм
+    - FC кріплення: 4x M3x35mm, 4x M3 гайки
+  - Опори: 4x 40мм
 - [3D модель](https://cad.onshape.com/documents/eaff30985f1298dc6ce8ce13/w/2f662e604240c4082682e5e3/e/ad2b2245b73393cf369132f7)
 
 ![Parts List](../../assets/airframes/multicopter/omnicopter/parts_list.jpg)

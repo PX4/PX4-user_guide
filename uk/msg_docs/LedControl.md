@@ -1,8 +1,8 @@
-# LedControl (UORB message)
+# LedControl (повідомлення UORB)
 
-LED control: control a single or multiple LED's. These are the externally visible LED's, not the board LED's
+Керування світлодіодами: керування одним чи кількома світлодіодами. Це зовнішні світлодіоди, а не світлодіоди плати
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LedControl.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LedControl.msg)
 
 ```c
 # LED control: control a single or multiple LED's.

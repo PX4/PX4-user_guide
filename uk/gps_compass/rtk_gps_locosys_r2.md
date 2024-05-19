@@ -84,27 +84,27 @@ LOCOSYS схема виводів GPS наведена нижче.
 
 ## Специфікація
 
-- Frequency
+- Частоти
   - GPS/QZSS: L1 C/A, L5C
   - GLONASS: L1OF
   - BEIDOU: B1I, B2a
   - GALILEO: E1, E5a
-- 135 Channels support
-- Up to 10 Hz update rate (default to 5Hz)
-- Acquisition Time
-  - Hot start (Open Sky) in 2 seconds
-  - Cold Start (Open Sky) in 28 seconds without AGPS
-- PPS with 100ms pulse width, 1.8Vdc
-- External, active Helix antenna
-  - SMA connector
-- UBlox Protocol Support
+- Підтримка 135 каналів
+- Частота оновлення до 10 Гц (за замовчуванням 5 Гц)
+- Час отримання
+  - Гарячий старт (Open Sky) за 2 секунди
+  - Холодний старт (Open Sky) за 28 секунд без AGPS
+- PPS з тривалістю імпульсу 100 мс, 1,8 В постійного струму
+- Зовнішня, активна антена Helix
+  - SMA конектор
+- Підтримка протоколу UBlox
   - U5Hz:UBX-NAV-PVT,UBX-NAV-DOP
   - 1Hz: UBX-NAV-TIMEGPS
-- Connectivity:
-  - 6-pin JST-GH UART/I2C (Pixhawk compatible)
-- Power:
-  - DC supply voltage 3.3V ~ 5.0V input
-  - Power consumption <1W
+- Підключення:
+  - 6-контактний JST-GH UART/I2C (сумісний з Pixhawk)
+- Живлення:
+  - Напруга живлення постійного струму 3,3 В ~ 5,0 В на вході
+  - Енергоспоживання <1 Вт
 
 ## Докладніше
 

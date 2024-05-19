@@ -1,8 +1,8 @@
-# SensorUwb (UORB message)
+# SensorUwb (Повідомлення UORB)
 
-UWB distance contains the distance information measured by an ultra-wideband positioning system, such as Pozyx or NXP Rddrone.
+UWB відстань містить інформацію про відстань, виміряну системою позиціонування з використанням ультраширокосмугової технології, такою як Pozyx або NXP Rddrone.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorUwb.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorUwb.msg)
 
 ```c
 # UWB distance contains the distance information measured by an ultra-wideband positioning system,

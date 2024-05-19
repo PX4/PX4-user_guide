@@ -2,59 +2,59 @@
 
 <Badge type="tip" text="PX4 v1.13" />
 
-The [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk.
+[LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html) - це двочастотний [RTK GPS модуль](../gps_compass/rtk_gps.md) приймач, розроблений для сумісності з Pixhawk.
 
-The module can act as an RTK GPS rover when installed on the aircraft.
+Модуль може діяти як RTK GPS ровер при встановленні на літак.
 
-The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS. It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
+Приймач здатний одночасно відстежувати всі глобальні цивільні навігаційні системи, включаючи GPS, ГЛОНАСС, GALILEO, BEIDOU і QZSS. Він приймає сигнали L1 і L5 одночасно, забезпечуючи сантиметрову точність позиціонування RTK.
 
-The built-in lightweight helical antenna enhances RTK positioning stability. The fast time-to-first-fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk-based platform UAVs.
+Вбудована легка спіральна антена підвищує стабільність позиціонування RTK. Швидкий час до першої перевірки, сумісність з RTK, чудова чутливість, низьке енергоспоживання роблять його кращим вибором для платформних БПЛА на базі Pixhawk.
 
-::: info
+:::info
 
-This module does not have a compass. For an equivalent GPS module with a compass try: [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md).
+Цей модуль не має компасу. Спробуйте еквівалентний модуль GPS з компасом: [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md).
 :::
 
 
-## Main Features
+## Основні характеристики
 
-- Concurrent reception of L1 and L5 band signals
-- Support GPS, GLONASS, BEIDOU, GALILEO, QZSS
-- Capable of SBAS (WAAS, EGNOS, MSAS, GAGAN)
-- Support 135-channel GNSS
-- Fast TTFF at low signal level
+- Одночасний прийом сигналів діапазонів L1 і L5
+- Підтримка GPS, ГЛОНАСС, BEIDOU, GALILEO, QZSS
+- Підтримка SBAS (WAAS, EGNOS, MSAS, GAGAN)
+- Підтримка GNSS з 135 каналами
+- Швидкий TTFF на низькому рівні сигналу
 - Free hybrid ephemeris prediction to achieve faster cold start
-- Default 5Hz, up to 10 Hz update rate (SBAS support 5Hz only).
+- За замовчуванням 5 Гц, частота оновлення до 10 Гц (SBAS підтримує тільки 5 Гц).
 - Build-in super capacitor to reserve system data for rapid satellite acquisition
 
 ![LOCOSYS Hawk R1](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
 
-## Where to Buy
+## Де купити
 
 * [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
 
-## Kit Contents
+## Вміст набору
 
-An RTK GPS kit includes:
-- 1x GPS Module
-- 1x Helix antenna
-- 1x 6-pin JST-GH
+Набір RTK GPS включає в себе:
+- 1x Модуль GPS
+- 1x Спіральна антена
+- 1x 6-контактний JST-GH
 
 
-## Configuration
+## Налаштування
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information). Connect your Hawk R1 to the `GPS2` port on compatible Pixhawk boards (preferred, though you can use any other unused UART port).
+Налаштування та використання RTK на PX4 за допомогою *QGroundControl* відбувається за принципом «підключи і працюй» (див. [RTK GPS](../gps_compass/rtk_gps.md) для отримання додаткової інформації). Підключіть Hawk R1 до порту `GPS2` на сумісних платах Pixhawk (бажано, але ви можете використовувати будь-який інший невикористаний порт UART).
 
-For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 230400 8N1 to ensure that PX4 configures the correct baudrate.
+Для літака слід встановити параметр [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) на 230400 8N1, щоб переконатися, що PX4 налаштував правильну швидкість передачі даних.
 
-## Wiring and Connections
+## Підключення та з'єднання
 
-Hawk R1 RTK GPS comes with an 6 pin JST-GH connector that can be plugged into a Pixhawk autopilot.
+Hawk R1 RTK GPS поставляється з 6-контактним роз'ємом JST-GH, який можна підключити до автопілота Pixhawk.
 
 ### Pinout
 
-LOCOSYS GPS pinout is provided below.
+Нижче наведена розводка LOCOSYS GPS.
 
 | Pin | Hawk R1 GPS |
 | --- | ----------- |
@@ -68,40 +68,40 @@ LOCOSYS GPS pinout is provided below.
 | 8   | Null        |
 | 9   | GND         |
 
-## Status LEDs
+## LEDs статуси
 
-| Color | Name            | Description                        |
-| ----- | --------------- | ---------------------------------- |
-| Green | TX Indicator    | GNSS Data transmission             |
-| Red   | Power Indicator | Power                              |
-| Blue  | PPS             | Precise Positioning Service active |
+| Колір | Назва           | Опис                                |
+| ----- | --------------- | ----------------------------------- |
+| Green | TX Indicator    | Передача даних GNSS                 |
+| Red   | Power Indicator | Живлення                            |
+| Blue  | PPS             | Precise Positioning Service активна |
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
 
-## Specification
+## Характеристики
 
-- Frequency
+- Частоти
   - GPS/QZSS: L1 C/A, L5C
   - GLONASS: L1OF
   - BEIDOU: B1I, B2a
   - GALILEO: E1, E5a
-- 135 Channels support
-- Up to 10 Hz update rate (default to 5Hz)
-- Acquisition Time
-  - Hot start (Open Sky) in 2 seconds
-  - Cold Start (Open Sky) in 28 seconds without AGPS
-- PPS with 100ms pulse width, 1.8Vdc
-- External, active Helix antenna
-  - SMA connector
-- UBlox Protocol Support
+- Підтримка 135 каналів
+- Частота оновлення до 10 Гц (за замовчуванням 5 Гц)
+- Час отримання
+  - Гарячий старт (Open Sky) за 2 секунди
+  - Холодний старт (Open Sky) за 28 секунд без AGPS
+- PPS з тривалістю імпульсу 100 мс, 1,8 В постійного струму
+- Зовнішня, активна антена Helix
+  - SMA конектор
+- Підтримка протоколу UBlox
   - U5Hz:UBX-NAV-PVT,UBX-NAV-DOP
   - 1Hz: UBX-NAV-TIMEGPS
-- Connectivity:
-  - 6-pin JST-GH UART/I2C (Pixhawk compatible)
-- Power:
-  - DC supply voltage 3.3V ~ 5.0V input
-  - Power consumption <1W
+- Підключення:
+  - 6-контактний JST-GH UART/I2C (сумісний з Pixhawk)
+- Живлення:
+  - Напруга живлення постійного струму 3,3 В ~ 5,0 В на вході
+  - Енергоспоживання <1 Вт
 
-## More Information
+## Більше інформації
 
-More information can be found on [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
+Більше інформації можна знайти на [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
