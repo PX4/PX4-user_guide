@@ -118,17 +118,17 @@ ZMO FPV в його початковому стані.
 
 ![Wing connector 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/wing-connector-01.jpg)
 
-Роз'єм, вклеєний у фюзеляж. Make sure to properly align the connector.
+Роз'єм, вклеєний у фюзеляж. Не забудьте належним чином вирівняти конектор.
 
 ![Wing connector 02](../../assets/airframes/vtol/omp_hobby_zmo_fpv/wing-connector-02.jpg)
 
-### Pixhawk Adapter Boards and BEC
+### Плати адаптерів Pixhawk та BEC
 
-1. Cut the foam as shown in the pictures to create space to mount the Pixhawk adapter boards and BEC with double sided tape. The FMU board is placed on the left side (in flight direction) of the fuselage. Solder a servo connector and a cable for the battery voltage to the BEC.
+1. Виріжте пінопласт, як показано на малюнках, щоб створити простір для кріплення адаптерних плат Pixhawk і BEC двостороннім скотчем. Плата FMU розміщується зліва (у напрямку польоту) від фюзеляжу. Зпаяйте серво конектор та кабель для напруги батареї до BEC.
 
    ![Foam cutout 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/foam-cut-01.png) ![Pixhawk adapter board mount 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/pixhawk-adapter-01.jpg)
 
-1. Prepare the BEC to connect to the IO board and to the battery. The BEC can also be soldered directly to the battery pads of the ESC.
+1. Підготуйте BEC для підключення до IO плати та батареї. The BEC can also be soldered directly to the battery pads of the ESC.
 
    ![BEC preparation](../../assets/airframes/vtol/omp_hobby_zmo_fpv/bec-01.jpg)
 
