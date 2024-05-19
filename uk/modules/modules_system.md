@@ -132,13 +132,13 @@ Module to provide persistent storage for the rest of the system in form of a sim
 
 It is used to store structured data of different types: mission waypoints, mission state and geofence polygons. Each type has a specific type and a fixed maximum amount of storage items, so that fast random access is possible.
 
-### Implementation
+### Імплементація
 Reading and writing a single item is always atomic.
 
 
 <a id="dataman_usage"></a>
 
-### Usage
+### Використання
 ```
 dataman <command> [arguments...]
  Commands:
@@ -155,14 +155,14 @@ dataman <command> [arguments...]
    status        print status info
 ```
 ## dmesg
-Source: [systemcmds/dmesg](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dmesg)
+Джерело: [systemcmds/dmesg](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dmesg)
 
 
-### Description
+### Опис
 
 Command-line tool to show bootup console messages. Note that output from NuttX's work queues and syslog are not captured.
 
-### Examples
+### Приклади
 
 Keep printing all messages in the background:
 ```
@@ -178,16 +178,16 @@ dmesg <command> [arguments...]
      [-f]        Follow: wait for new messages
 ```
 ## esc_battery
-Source: [modules/esc_battery](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/esc_battery)
+Джерело: [modules/esc_battery](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/esc_battery)
 
 
-### Description
+### Опис
 This implements using information from the ESC status and publish it as battery status.
 
 
 <a id="esc_battery_usage"></a>
 
-### Usage
+### Використання
 ```
 esc_battery <command> [arguments...]
  Commands:
@@ -198,16 +198,16 @@ esc_battery <command> [arguments...]
    status        print status info
 ```
 ## gyro_calibration
-Source: [modules/gyro_calibration](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gyro_calibration)
+Джерело: [modules/gyro_calibration](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gyro_calibration)
 
 
-### Description
+### Опис
 Simple online gyroscope calibration.
 
 
 <a id="gyro_calibration_usage"></a>
 
-### Usage
+### Використання
 ```
 gyro_calibration <command> [arguments...]
  Commands:
@@ -218,15 +218,15 @@ gyro_calibration <command> [arguments...]
    status        print status info
 ```
 ## gyro_fft
-Source: [modules/gyro_fft](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gyro_fft)
+Джерело: [modules/gyro_fft](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gyro_fft)
 
 
-### Description
+### Опис
 
 
 <a id="gyro_fft_usage"></a>
 
-### Usage
+### Використання
 ```
 gyro_fft <command> [arguments...]
  Commands:
@@ -237,17 +237,17 @@ gyro_fft <command> [arguments...]
    status        print status info
 ```
 ## heater
-Source: [drivers/heater](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/heater)
+Джерело: [drivers/heater](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/heater)
 
 
-### Description
+### Опис
 Background process running periodically on the LP work queue to regulate IMU temperature at a setpoint.
 
 This task can be started at boot from the startup scripts by setting SENS_EN_THERMAL or via CLI.
 
 <a id="heater_usage"></a>
 
-### Usage
+### Використання
 ```
 heater <command> [arguments...]
  Commands:
@@ -258,16 +258,16 @@ heater <command> [arguments...]
    status        print status info
 ```
 ## i2c_launcher
-Source: [systemcmds/i2c_launcher](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2c_launcher)
+Джерело: [systemcmds/i2c_launcher](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2c_launcher)
 
 
-### Description
-Daemon that starts drivers based on found I2C devices.
+### Опис
+Демон, який запускає драйвери на основі виявлених пристроїв I2C.
 
 
 <a id="i2c_launcher_usage"></a>
 
-### Usage
+### Використання
 ```
 i2c_launcher <command> [arguments...]
  Commands:
@@ -279,10 +279,10 @@ i2c_launcher <command> [arguments...]
    status        print status info
 ```
 ## land_detector
-Source: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/land_detector)
+Джерело: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/land_detector)
 
 
-### Description
+### Опис
 Module to detect the freefall and landed state of the vehicle, and publishing the `vehicle_land_detected` topic. Each vehicle type (multirotor, fixedwing, vtol, ...) provides its own algorithm, taking into account various states, such as commanded thrust, arming state and vehicle motion.
 
 ### Реалізація
@@ -311,17 +311,17 @@ land_detector <command> [arguments...]
    status        print status info
 ```
 ## load_mon
-Source: [modules/load_mon](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/load_mon)
+Джерело: [modules/load_mon](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/load_mon)
 
 
-### Description
+### Опис
 Background process running periodically on the low priority work queue to calculate the CPU load and RAM usage and publish the `cpuload` topic.
 
 On NuttX it also checks the stack usage of each process and if it falls below 300 bytes, a warning is output, which will also appear in the log file.
 
 <a id="load_mon_usage"></a>
 
-### Usage
+### Використання
 ```
 load_mon <command> [arguments...]
  Commands:
@@ -332,10 +332,10 @@ load_mon <command> [arguments...]
    status        print status info
 ```
 ## logger
-Source: [modules/logger](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
+Джерело: [modules/logger](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
 
 
-### Description
+### Опис
 System logger which logs a configurable set of uORB topics and system printf messages (`PX4_WARN` and `PX4_ERR`) to ULog files. These can be used for system and flight performance evaluation, tuning, replay and crash analysis.
 
 It supports 2 backends:
@@ -346,14 +346,14 @@ Both backends can be enabled and used at the same time.
 
 The file backend supports 2 types of log files: full (the normal log) and a mission log. The mission log is a reduced ulog file and can be used for example for geotagging or vehicle management. It can be enabled and configured via SDLOG_MISSION parameter. The normal log is always a superset of the mission log.
 
-### Implementation
+### Імплементація
 The implementation uses two threads:
 - The main thread, running at a fixed rate (or polling on a topic if started with -p) and checking for data updates
 - The writer thread, writing data to the file
 
 In between there is a write buffer with configurable size (and another fixed-size buffer for the mission log). It should be large to avoid dropouts.
 
-### Examples
+### Приклади
 Typical usage to start logging immediately:
 ```
 logger start -e -t
@@ -366,7 +366,7 @@ logger on
 
 <a id="logger_usage"></a>
 
-### Usage
+### Використання
 ```
 logger <command> [arguments...]
  Commands:
@@ -400,15 +400,15 @@ logger <command> [arguments...]
    status        print status info
 ```
 ## mag_bias_estimator
-Source: [modules/mag_bias_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mag_bias_estimator)
+Джерело: [modules/mag_bias_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mag_bias_estimator)
 
 
-### Description
+### Опис
 Online magnetometer bias estimator.
 
 <a id="mag_bias_estimator_usage"></a>
 
-### Usage
+### Використання
 ```
 mag_bias_estimator <command> [arguments...]
  Commands:
