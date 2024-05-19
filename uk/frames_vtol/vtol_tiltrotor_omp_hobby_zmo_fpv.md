@@ -128,19 +128,19 @@ ZMO FPV в його початковому стані.
 
    ![Foam cutout 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/foam-cut-01.png) ![Pixhawk adapter board mount 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/pixhawk-adapter-01.jpg)
 
-1. Підготуйте BEC для підключення до IO плати та батареї. The BEC can also be soldered directly to the battery pads of the ESC.
+1. Підготуйте BEC для підключення до IO плати та батареї. BEC також можна припаяти безпосередньо до акумуляторних колодок ESC.
 
    ![BEC preparation](../../assets/airframes/vtol/omp_hobby_zmo_fpv/bec-01.jpg)
 
-1. Mount the BEC with double sided tape.
+1. Закріпіть BEC двостороннім скотчем.
 
    ![BEC mounting](../../assets/airframes/vtol/omp_hobby_zmo_fpv/bec-02.jpg)
 
 ### Кабелі
 
-1. Cut the connectors off the servos and solder the servo extension cables to the cables. Make sure that the cables are long enough to reach the Pixhawk adapter board. If you own a crimp tool, then you can also directly add the connectors without soldering.
+1. Відріжте роз’єми від сервоприводів і припаяйте подовжувачі сервоприводів до кабелів. Переконайтеся, що кабелі достатньо довгі, щоб дістатися до адаптерної плати Pixhawk. Якщо у вас є обтискний інструмент, ви також можете безпосередньо додати роз’єми без пайки.
 
-1. Plug the servo cables into the adapter IO board in the following order:
+1. Під'єднайте кабелі сервоприводу до IO плати адаптера в такому порядку:
 
    - 1 - Aileron left
    - 2 - Aileron right
@@ -149,13 +149,13 @@ ZMO FPV в його початковому стані.
    - 5 - Tilt left
    - 6 - Tilt right
 
-1. Plug in the motor signal cables into the FMU adapter board in the following order:
+1. Під'єднайте сигнальні кабелі мотора до адаптерної плати FMU у такому порядку:
 
-   - 1 - Front left
-   - 2 - Front right
-   - 3 - Rear
+   - 1 - Передній лівий
+   - 2 - Передній правий
+   - 3 - Задній
 
-### Sensors
+### Датчики
 
 #### Трубка Піто
 
@@ -173,71 +173,71 @@ ZMO FPV в його початковому стані.
 
 #### Лідар
 
-If needed a lidar can be installed in the front of the fuselage.
+За потреби лідар можна встановити спереду фюзеляжу.
 
-To install the Lidar:
+Щоб встановити Лідар:
 
-1. Remove the heat sink
-1. Glue the lidar + 3D-Printed lidar mount into place.
+1. Зніміть радіатор
+1. Приклейте лідар + надруковане на 3D-принтері кріплення для лідара на місце.
 
 ![Lidar 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/lidar-01.jpg)
 
-#### GPS/Compass
+#### GPS/компас
 
-To mount the GPS:
+Щоб встановити GPS:
 
-1. Screw the two 3D-Printed parts with 3x M3x10 screws together.
-1. Take the GPS out of the plastic case and unplug the connector.
-1. Feed the cable through the carbon spar.
-1. Glue the 3D-Printed part with 5 min epoxy in place. ![Glue the GPS mount into place](../../assets/airframes/vtol/omp_hobby_zmo_fpv/gps-01.jpg)
-1. After the glue has cured, screw the GPS with 4x M2.5x10 screws to the plate. ![Screw the GPS to the mount2](../../assets/airframes/vtol/omp_hobby_zmo_fpv/gps-02.jpg)
+1. З’єднайте дві надруковані на 3D-принтері частини трьома гвинтами M3x10.
+1. Вийміть GPS із пластикового корпусу та від’єднайте роз’єм.
+1. Протягніть кабель через вуглецевий лонжерон.
+1. Приклейте 3D-друковану частину епоксидною смолою на 5 хвилин. ![Glue the GPS mount into place](../../assets/airframes/vtol/omp_hobby_zmo_fpv/gps-01.jpg)
+1. Після застигання клею прикрутіть GPS 4x гвинтами M2,5x10 до пластини. ![Screw the GPS to the mount2](../../assets/airframes/vtol/omp_hobby_zmo_fpv/gps-02.jpg)
 
-#### USB Camera
+#### USB Камера
 
-1. Cut the USB cable of the camera so that the length is 15 cm.
-1. Cut the USB-Adapter cable to be 25 cm and solder the two cables together.
-1. To install the camera you need to cut a hole into the foam of the wall.
+1. Обріжте USB-кабель камери так, щоб його довжина становила 15 см.
+1. Відріжте кабель USB-адаптера на 25 см і спаяйте два кабелі між собою.
+1. Для встановлення камери потрібно вирізати отвір у пінопласті перегородки.
 
    ![USB Camera 01: Hole to feed the USB cable through the wall.](../../assets/airframes/vtol/omp_hobby_zmo_fpv/camera-01.jpg)
 
-   Then you can mount the camera with double sided tape to the wall.
+   Потім ви можете закріпити камеру на перегородці за допомогою двостороннього скотча.
 
 ### Політний контролер
 
-The Flight Controller can be installed above the ESC.
+Польотний контролер може бути встановлений над ESC.
 
 #### Pixhawk 6c/6c mini
 
-If a Pixhawk 6c or 6c mini is used, simply stick the flight controller with double sided tape into place.
+Якщо використовується Pixhawk 6c або 6c mini, просто приклейте контролер польоту двостороннім скотчем на місце.
 
 #### Skynode
 
-If a Skynode is used:
+Якщо використовується Skynode:
 
-1. Place it at the on top of the ESCs and mark the 2 rear mounting locations on the injection molded plastic part of the ZMO.
-1. Remove the Skynode from the vehicle and drill 2 holes with a 2.8 mm drill bit into the plastic part. ![Mounting holes for the Skynode in the back](../../assets/airframes/vtol/omp_hobby_zmo_fpv/flight-controller-01.jpg)
-1. Put the Skynode back into place and screw it down with 2x M3x10 screws.
+1. Помістіть його на верхню частину ESC і позначте 2 задніх місця кріплення на литій пластиковій частині ZMO.
+1. Зніміть Skynode з транспортного засобу та просвердліть 2 отвори свердлом 2,8 мм у пластиковій частині. ![Mounting holes for the Skynode in the back](../../assets/airframes/vtol/omp_hobby_zmo_fpv/flight-controller-01.jpg)
+1. Встановіть Skynode на місце і прикрутіть його 2-ма гвинтами M3x10.
 
-Another option is to add some threaded inserts into the holes. Since the injection molded part of the ZMO is very thin, they need to be glued in place.
+Інший варіант - додати в отвори різьбові вставки. Оскільки литі під тиском частини ZMO дуже тонкі, їх потрібно склеїти на місці.
 
-1. Screw the front Skynode mount with 2x M3x10 screws at the Skynode.
-1. Then add some 5 min epoxy at the bottom of the mount and put a weight on top of the Skynode until the glue is cured. To access the 2 mounting screws at the front, poke 2 holes from the top through the foam.
+1. Прикрутіть переднє кріплення Skynode 2-ма гвинтами M3x10 до Skynode.
+1. Потім додайте трохи епоксидного клею на 5 хвилин в нижню частину кріплення і покладіть вантаж зверху на Skynode, поки клей не затвердіє. Щоб отримати доступ до 2 кріпильних гвинтів спереду, проткніть 2 отвори зверху через пінопласт.
 
    ![Skynode mount in the front](../../assets/airframes/vtol/omp_hobby_zmo_fpv/flight-controller-02.jpg)
 
-### Antennas and RC Receiver
+### Антени та RC приймач
 
 :::info
 
-If a Skynode is installed the LTE can be used as telemetry and video link. If a Pixhawk is used a different [telemetry link](../telemetry/index.md) will be needed. An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.md).
+Якщо встановлено Skynode, LTE можна використовувати для телеметрії та відеозв'язку. Якщо використовується Pixhawk, потрібне інше [телеметричне сполучення](../telemetry/index.md). Недорогим прикладом може бути телеметричне радіо [SiK Telemetry Radio](../telemetry/sik_radio.md).
 :::
 
 
-1. One LTE antenna can be installed on the bottom of the vehicle. For that you can feed the antenna wire through the opening for the ESC heat-sink.
+1. Одна антена LTE може бути встановлена в нижній частині транспортного засобу. Для цього ви можете протягнути дріт антени через отвір для радіатора ESC.
 
    ![LTE antenna 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/lte-antenna-01.jpg)
 
-1. The second antenna can be installed on the inside of the vehicle on the left side of the battery compartment. The RC receiver can also be placed at the left side of the battery compartment.
+1. Другу антену можна встановити всередині транспортного засобу з лівого боку акумуляторного відсіку. Пульт дистанційного керування також можна розмістити з лівого боку батарейного відсіку.
 
    ![LTE antenna 2 and RC receiver](../../assets/airframes/vtol/omp_hobby_zmo_fpv/lte-antenna-02.jpg)
 
@@ -245,45 +245,45 @@ If a Skynode is installed the LTE can be used as telemetry and video link. If a 
 
 ### Вибір планера
 
-1. Open QGC, select the **Q** icon, and then select **Vehicle Setup**.
-1. Select the [Airframe](../config/airframe.md) tab
+1. Відкрийте QGC, виберіть іконку **Q**, а потім виберіть **Vehicle Setup**.
+1. Виберіть вкладку [Airframe](../config/airframe.md)
 
-1. Select [Generic Tiltrotor VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) from the _VTOL Tiltrotor_ group, and then and click **Apply and Restart**.
+1. Виберіть [Generic Tiltrotor VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) з групи _VTOL Tiltrotor_, а потім натисніть **Apply and Restart**.
 
-### Load Parameters File
+### Завантажте файл параметрів
 
-Next we load a [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo.params) that contains parameters that define the frame geometry, output mappings, and tuning values — so you don't have to! If you have followed the wiring instructions for the motors you probably won't need to do much further configuration other than sensor calibration and fixing the trims.
+Далі ми завантажуємо файл [параметрів](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo.params), який містить параметри, що визначають геометрію рами, відображення виводу та значення налаштувань - тож вам не доведеться цього робити! Якщо ви дотримувалися інструкцій з підключення двигунів, вам, ймовірно, не знадобиться багато додаткових налаштувань, окрім калібрування датчиків і фіксації кріплень.
 
-To load the file:
+Щоб завантажити файл:
 
-1. Download the [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo.params).
-1. Select the [Parameters](../advanced_config/parameters.md#finding-updating-parameters) tab and then click on **Tools** in the top right corner.
-1. Select **Load from file** and then choose the `omp_hobby_zmo.params` file you just downloaded.
-1. Reboot the vehicle.
+1. Завантажте [файл параметрів](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo.params).
+1. Виберіть вкладку [Parameters](../advanced_config/parameters.md#finding-updating-parameters), а потім натисніть на **Tools** у верхньому правому куті.
+1. Виберіть **Load from file**, а потім виберіть файл `omp_hobby_zmo.params`, який ви щойно завантажили.
+1. Перезапустіть транспортний засіб.
 
-### Sensor Selection
+### Вибір сенсора
 
-The airspeed sensor can be enabled in the [Parameters](../advanced_config/parameters.md#finding-updating-parameters) tab.
+Датчик швидкості повітря можна увімкнути на вкладці [Parameters](../advanced_config/parameters.md#finding-updating-parameters).
 
-- If the [recommended airspeed sensor (SDP33)](https://www.dualrc.com/parts/airspeed-sensor-sdp33) is used, `SENS_EN_SDP3X` needs to be enabled.
-- If the [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) is used, `SENS_EN_SF1XX` needs to be set to 6 (SF/LW/20c).
+- Якщо використовується [рекомендований датчик швидкості повітря (SDP33)](https://www.dualrc.com/parts/airspeed-sensor-sdp33), потрібно увімкнути `SENS_EN_SDP3X`.
+- Якщо [Lidar Lightware lw20-c (входить до складу Skynode eval. kit)](../sensor/sfxx_lidar.md) використовується, `SENS_EN_SF1XX` потрібно встановити на 6 (SF/LW/20c).
 
 ### Калібрування сенсорів
 
-First make sure to set the [correct orientation of the flight controller](../config/flight_controller_orientation.md). This should be the default (`ROTATION_NONE`).
+Спочатку переконайтеся, що ви встановили [правильну орієнтацію контролера польоту](../config/flight_controller_orientation.md). Це має бути значення за замовчуванням (`ROTATION_NONE`).
 
-Then calibrate the main sensors:
+Потім відкалібруйте основні датчики:
 
 - [Компас](../config/compass.md)
 - [Гіроскоп](../config/gyroscope.md)
 - [Акселерометр](../config/accelerometer.md)
 - [Airspeed](../config/airspeed.md)
 
-### RC-Setup
+### RC-налаштування
 
-[Calibrate your RC Controller](../config/radio.md) and setup the [flight mode switches](../config/flight_mode.md).
+[Відкалібруйте ваш пульт дистанційного керування](../config/radio.md) та налаштуйте перемикачі [режиму польоту](../config/flight_mode.md).
 
-We recommend you assign RC switches for the set of modes defined in [Flight Mode Configuration > What Flight Modes and Switches Should I Set?](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set). In particular you should assign a _VTOL Transition Switch_, _Kill Switch_, and a switch to select [Stabilized mode](../flight_modes_fw/stabilized.md) and [Position mode](../flight_modes_fw/position.md).
+Ми рекомендуємо призначити RC-перемикачі для набору режимів, визначених у розділі [Конфігурація режимів польоту > Які режими польоту та перемикачі мені слід встановити?](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set). In particular you should assign a _VTOL Transition Switch_, _Kill Switch_, and a switch to select [Stabilized mode](../flight_modes_fw/stabilized.md) and [Position mode](../flight_modes_fw/position.md).
 
 ### Actuator Setup
 
@@ -319,13 +319,13 @@ Now adjust the trim value so that all the surfaces are in neutral position.
 
 ![Servo trim](../../assets/airframes/vtol/omp_hobby_zmo_fpv/servo_trim.png)
 
-#### Motor Direction and Orientation
+#### Напрямок та орієнтація моторів
 
-Make sure the props are removed!!
+Переконайтеся, що пропелери зняті!!
 
-- `Motor 1`: Front left motor should spin CW
-- `Motor 2`: Front right motor should spin CCW
-- `Motor 3`: Rear motor should spin CCW
+- `Motor 1`: Передній лівий двигун повинен обертатися за годинниковою стрілкою
+- `Motor 2`: Передній правий двигун повинен обертатися проти годинникової стрілки
+- `Motor 3`: Задній двигун повинен обертатися проти годинникової стрілки
 
 If the motor spins in the wrong directions two of the three motor wires need to be swapped. The direction can't be changed in software because the vehicle does not use [DShot ESC](../peripherals/dshot.md).
 
