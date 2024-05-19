@@ -21,11 +21,11 @@
 Набір mosaic-go доступний у [офіційному магазині](https://web.septentrio.com/l/858493/2022-04-19/xgrnz) Septentrio.
 
 - [набір для оцінки модуля GNSS mosaic-go](https://web.septentrio.com/l/858493/2022-04-19/xgrp9)
-- [mosaic-go GNSS module receiver evaluation kit](https://web.septentrio.com/l/858493/2022-04-19/xgrpd)
+- [набір для оцінки приймача GNSS-модуля mosaic-go](https://web.septentrio.com/l/858493/2022-04-19/xgrpd)
 
-Other PX4 supported devices from Septentrio:
+Інші пристрої з підтримкою PX4 від Septentrio:
 
-- [AsteRx OEM with Robotics Interface Board](../gps_compass/septentrio_asterx-rib.md)
+- [AsteRx OEM з Robotics Interface Board](../gps_compass/septentrio_asterx-rib.md)
 
 ## Набір для оцінки заголовка mosaic-go містить:
 
