@@ -27,7 +27,7 @@ At time of writing PX4 does not yet fully support a second GPS. The 4-pin port n
 The cables/connectors may need to be modified in order to connect to other flight controller boards. The pin mappings for *Pixhawk 3 Pro* and *Pixracer* are shown below.
 
 
-### Pinout
+### Розпіновка
 
 The C-RTK GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
 
