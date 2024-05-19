@@ -1,8 +1,8 @@
-# PowerMonitor (UORB message)
+# PowerMonitor (повідомлення UORB)
 
 power monitor message
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PowerMonitor.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PowerMonitor.msg)
 
 ```c
 # power monitor message
