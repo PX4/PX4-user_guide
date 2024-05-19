@@ -113,8 +113,8 @@ Pixhawk 6C запитується за допомогою плати живле�
 
 [![Assembly19](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly19.png)](https://youtu.be/yu75VkMaIyc)
 
-- The bottom plate indicates the direction of the motor.
-- The propellers that have a white/silver coating go on that respective motor with the similar coat.
+- Нижня пластина вказує напрямок двигуна.
+- Пропелери, які мають біле/сріблясте покриття, йдуть на відповідний двигун із подібним покриттям.
 - The unlocking and locking of the propeller is indicated on the propeller itself.
 - Use the 4 propellers and insert them on the motors keeping the above 3 points in mind.
 
@@ -150,7 +150,7 @@ The X500 kit is provides space for a companion computer, such as Raspberry Pi or
 - Insert 4 Socket Cap Screw M2.5*12 and put the standoffs on the same.
 - Now place the companion computer and assemble it using Locknut M2.5
 
-### Camera
+### Камера
 
 - Cameras such as Intel Realsense depth/ tracking camera or Structure Core can be mounted using the Depth Camera Mount
 - Simply insert the mount inside the 2 bars and use the screws according to the camera you’re using.
@@ -158,7 +158,7 @@ The X500 kit is provides space for a companion computer, such as Raspberry Pi or
 ![payloads_x500v2](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/payloads_x500v2.png)
 
 
-## Install/Configure PX4
+## Встановлення/Налаштування PX4
 
 :::tip
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
@@ -175,28 +175,28 @@ First update the firmware, airframe, and actuator mappings:
 
   ![QGroundControl - Select HolyBro 500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
 
-- [Actuators](../config/actuators.md)
+- [Актуатори](../config/actuators.md)
   - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
-  - Assign actuator functions to outputs to match your wiring. The airframe is preconfigured with the motors on the **FMU PWM Out**.
-  - Test the configuration using the sliders.
+  - Призначте функції приводу до актуаторів, щоб відповідати вашому підключенню. The airframe is preconfigured with the motors on the **FMU PWM Out**.
+  - Перевірте конфігурацію, використовуючи слайдери.
 
-Then perform the mandatory setup/calibration:
+Потім виконайте обов'язкове налаштування / калібрування:
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Radio Setup](../config/radio.md)
-- [Flight Modes](../config/flight_mode.md)
+- [Орієнтація сенсора](../config/flight_controller_orientation.md)
+- [Компас](../config/compass.md)
+- [Акселерометр](../config/accelerometer.md)
+- [Калібрування рівня горизонту](../config/level_horizon_calibration.md)
+- [Налаштування радіо](../config/radio.md)
+- [Режими польоту](../config/flight_mode.md)
 
-Ideally you should also do:
+В ідеалі ви також повинні зробити:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery Estimation Tuning](../config/battery.md)
-- [Safety](../config/safety.md)
+- [Калібрування ESC](../advanced_config/esc_calibration.md)
+- [Регулювання оцінки заряду акумулятора](../config/battery.md)
+- [Загальна безпека](../config/safety.md)
 
 
-## Tuning
+## Вдосконалення
 
 Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
