@@ -1,10 +1,10 @@
 # Modules Reference: Magnetometer (Driver)
 ## ak09916
-Source: [drivers/magnetometer/akm/ak09916](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/akm/ak09916)
+Джерело: [drivers/magnetometer/akm/ak09916](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/akm/ak09916)
 
 <a id="ak09916_usage"></a>
 
-### Usage
+### Використання
 ```
 ak09916 <command> [arguments...]
  Commands:
@@ -25,11 +25,11 @@ ak09916 <command> [arguments...]
    status        print status info
 ```
 ## ak8963
-Source: [drivers/magnetometer/akm/ak8963](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/akm/ak8963)
+Джерело: [drivers/magnetometer/akm/ak8963](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/akm/ak8963)
 
 <a id="ak8963_usage"></a>
 
-### Usage
+### Використання
 ```
 ak8963 <command> [arguments...]
  Commands:
@@ -50,11 +50,11 @@ ak8963 <command> [arguments...]
    status        print status info
 ```
 ## bmm150
-Source: [drivers/magnetometer/bosch/bmm150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/bosch/bmm150)
+Джерело: [drivers/magnetometer/bosch/bmm150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/bosch/bmm150)
 
 <a id="bmm150_usage"></a>
 
-### Usage
+### Використання
 ```
 bmm150 <command> [arguments...]
  Commands:
@@ -75,11 +75,11 @@ bmm150 <command> [arguments...]
    status        print status info
 ```
 ## hmc5883
-Source: [drivers/magnetometer/hmc5883](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/hmc5883)
+Джерело: [drivers/magnetometer/hmc5883](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/hmc5883)
 
 <a id="hmc5883_usage"></a>
 
-### Usage
+### Використання
 ```
 hmc5883 <command> [arguments...]
  Commands:
@@ -103,11 +103,11 @@ hmc5883 <command> [arguments...]
    status        print status info
 ```
 ## iis2mdc
-Source: [drivers/magnetometer/st/iis2mdc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/st/iis2mdc)
+Джерело: [drivers/magnetometer/st/iis2mdc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/st/iis2mdc)
 
 <a id="iis2mdc_usage"></a>
 
-### Usage
+### Використання
 ```
 iis2mdc <command> [arguments...]
  Commands:
@@ -126,11 +126,11 @@ iis2mdc <command> [arguments...]
    status        print status info
 ```
 ## ist8308
-Source: [drivers/magnetometer/isentek/ist8308](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/isentek/ist8308)
+Джерело: [drivers/magnetometer/isentek/ist8308](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/isentek/ist8308)
 
 <a id="ist8308_usage"></a>
 
-### Usage
+### Використання
 ```
 ist8308 <command> [arguments...]
  Commands:
@@ -151,11 +151,11 @@ ist8308 <command> [arguments...]
    status        print status info
 ```
 ## ist8310
-Source: [drivers/magnetometer/isentek/ist8310](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/isentek/ist8310)
+Джерело: [drivers/magnetometer/isentek/ist8310](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/isentek/ist8310)
 
 <a id="ist8310_usage"></a>
 
-### Usage
+### Використання
 ```
 ist8310 <command> [arguments...]
  Commands:
@@ -176,11 +176,11 @@ ist8310 <command> [arguments...]
    status        print status info
 ```
 ## lis2mdl
-Source: [drivers/magnetometer/lis2mdl](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/lis2mdl)
+Джерело: [drivers/magnetometer/lis2mdl](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/lis2mdl)
 
 <a id="lis2mdl_usage"></a>
 
-### Usage
+### Використання
 ```
 lis2mdl <command> [arguments...]
  Commands:
@@ -205,11 +205,11 @@ lis2mdl <command> [arguments...]
    status        print status info
 ```
 ## lis3mdl
-Source: [drivers/magnetometer/lis3mdl](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/lis3mdl)
+Джерело: [drivers/magnetometer/lis3mdl](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/lis3mdl)
 
 <a id="lis3mdl_usage"></a>
 
-### Usage
+### Використання
 ```
 lis3mdl <command> [arguments...]
  Commands:
@@ -236,11 +236,11 @@ lis3mdl <command> [arguments...]
    status        print status info
 ```
 ## lsm9ds1_mag
-Source: [drivers/magnetometer/lsm9ds1_mag](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/lsm9ds1_mag)
+Джерело: [drivers/magnetometer/lsm9ds1_mag](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/lsm9ds1_mag)
 
 <a id="lsm9ds1_mag_usage"></a>
 
-### Usage
+### Використання
 ```
 lsm9ds1_mag <command> [arguments...]
  Commands:
@@ -261,11 +261,11 @@ lsm9ds1_mag <command> [arguments...]
    status        print status info
 ```
 ## mmc5983ma
-Source: [drivers/magnetometer/memsic/mmc5983ma](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/memsic/mmc5983ma)
+Джерело: [drivers/magnetometer/memsic/mmc5983ma](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/memsic/mmc5983ma)
 
 <a id="mmc5983ma_usage"></a>
 
-### Usage
+### Використання
 ```
 mmc5983ma <command> [arguments...]
  Commands:
@@ -286,11 +286,11 @@ mmc5983ma <command> [arguments...]
    status        print status info
 ```
 ## qmc5883l
-Source: [drivers/magnetometer/qmc5883l](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/qmc5883l)
+Джерело: [drivers/magnetometer/qmc5883l](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/qmc5883l)
 
 <a id="qmc5883l_usage"></a>
 
-### Usage
+### Використання
 ```
 qmc5883l <command> [arguments...]
  Commands:
@@ -311,11 +311,11 @@ qmc5883l <command> [arguments...]
    status        print status info
 ```
 ## rm3100
-Source: [drivers/magnetometer/rm3100](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/rm3100)
+Джерело: [drivers/magnetometer/rm3100](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/rm3100)
 
 <a id="rm3100_usage"></a>
 
-### Usage
+### Використання
 ```
 rm3100 <command> [arguments...]
  Commands:
@@ -338,11 +338,11 @@ rm3100 <command> [arguments...]
    status        print status info
 ```
 ## vcm1193l
-Source: [drivers/magnetometer/vtrantech/vcm1193l](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/vtrantech/vcm1193l)
+Джерело: [drivers/magnetometer/vtrantech/vcm1193l](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/vtrantech/vcm1193l)
 
 <a id="vcm1193l_usage"></a>
 
-### Usage
+### Використання
 ```
 vcm1193l <command> [arguments...]
  Commands:
