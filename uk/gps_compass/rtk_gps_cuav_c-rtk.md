@@ -1,6 +1,6 @@
 # CUAV C-RTK
 
-The [CUAV C-RTK GPS receiver](https://www.cuav.net/en/c_rtk_9ps/) is an [RTK GPS module](../gps_compass/rtk_gps.md) for the mass market. A complete RTK system consists of at least two C-RTK modules \(one for the base station and the others for the aircraft\). Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
+GPS-приймач [CUAV C-RTK](https://www.cuav.net/en/c_rtk_9ps/) - це [RTK GPS-модуль](../gps_compass/rtk_gps.md) для масового ринку. Повна система RTK складається щонайменше з двох модулів C-RTK (один для базової станції, а інший для літака). Використовуючи RTK, PX4 може визначати своє місцезнаходження з точністю до сантиметра, що набагато точніше, ніж може забезпечити звичайний GPS.
 
 <img src="../../assets/hardware/gps/rtk_c-rtk.jpg" width="500px" title="C-RTK" />
 
@@ -12,24 +12,24 @@ The [CUAV C-RTK GPS receiver](https://www.cuav.net/en/c_rtk_9ps/) is an [RTK GPS
 
 ## Налаштування
 
-RTK setup and use on PX4 via _QGroundControl_ is largely plug and play \(see [RTK GPS](../gps_compass/rtk_gps.md) for more information\).
+Налаштування та використання RTK на PX4 за допомогою _QGroundControl_ відбувається за принципом «підключи і працюй» \(див. [RTK GPS](../gps_compass/rtk_gps.md) для отримання додаткової інформації\).
 
-## Wiring and Connections
+## Підключення та з'єднання
 
-C-RTK GPS comes with a cable that terminates in a 6-pin connector and 4-pin connector that are compatible with [Pixhack v3](https://doc.cuav.net/flight-controller/pixhack/en/quick-start-pixhack-v3x.html#gps--compass). The 6-pin connector provides the interface for RTK GPS, and should be connected to the flight controller's GPS port. The 4-pin connector is an m8n (standard) GPS interface that is intended for (optional) use as a second GPS.
+C-RTK GPS поставляється з кабелем, який закінчується 6-контактним роз'ємом і 4-контактним роз'ємом, сумісним з [Pixhack v3](https://doc.cuav.net/flight-controller/pixhack/en/quick-start-pixhack-v3x.html#gps--compass). 6-контактний роз'єм забезпечує інтерфейс для RTK GPS і повинен бути підключений до GPS-порту польотного контролера. 4-контактний роз'єм - це GPS-інтерфейс m8n (стандартний), який призначений для (додаткового) використання в якості другого GPS.
 
 :::tip
-At time of writing PX4 does not yet fully support a second GPS. The 4-pin port need not be connected.
+На момент написання цієї статті PX4 ще не повністю підтримує другий GPS. 4-контактний порт не потрібно підключати.
 :::
 
 <img src="../../assets/hardware/gps/rtk_cuav_c-rtk_to_6pin_connector.jpg" width="500px" title="C-RTK_6PIN" />
 
-The cables/connectors may need to be modified in order to connect to other flight controller boards. The pin mappings for *Pixhawk 3 Pro* and *Pixracer* are shown below.
+Може знадобитися модифікація кабелів/роз'ємів для підключення до інших плат польотних контролерів. Нижче наведено схеми підключення виводів для *Pixhawk 3 Pro* і *Pixracer*.
 
 
 ### Розпіновка
 
-The C-RTK GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
+Нижче наведено розводку GPS-приймача C-RTK. Це може бути використано для модифікації роз'єму для інших плат автопілота.
 
 | pin | C-RTK GPS 6P | pin | Pixhawk 3 Pro GPS | C-RTK GPS 4P |
 | --- | ------------ | --- | ----------------- | ------------ |
