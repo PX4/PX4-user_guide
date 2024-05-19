@@ -44,7 +44,7 @@ The pins on the 28-pin connector are numbered as shown below:
 | 15  | TXD1     | Connect to RX of the Autopilot                       |
 | 16  | RXD1     | Connect to TX of the Autopilot                       |
 
-## Configuration
+## Налаштування
 
 First set the GPS protocol to Trimble ([GPS_x_PROTOCOL=3](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL)).
 
