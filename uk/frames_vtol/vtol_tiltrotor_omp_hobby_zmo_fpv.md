@@ -51,14 +51,14 @@ OMP Hobby ZMO - це невеликий [апарат вертикального
 - [Подовжувач серво кабелю чоловічий 30 см 10 шт](https://www.getfpv.com/male-to-male-servo-extension-cable-twisted-22awg-jr-style-5-pcs.html)
 - [USB-C подовжувальний кабель](https://www.digitec.ch/en/s1/product/powerguard-usb-c-usb-c-025-m-usb-cables-22529949?dbq=1&gclid=Cj0KCQjw2cWgBhDYARIsALggUhrh-z-7DSU0wKfLBVa8filkXLQaxUpi7pC0ffQyRzLng8Ph01h2R1gaAp0mEALw_wcB&gclsrc=aw.ds)
 - [Стрічка 3M VHB](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y)
-- [3D-Printed mounts](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo_3d_prints.zip)
-  - 2x wing connector mount
-  - 1x Airspeed sensor mount
-  - 1x GPS-Mount
-  - 1x Lidar-Mount
-  - 1x Skynode mount
-- [USB camera (included in Skynode dev kit)](https://www.amazon.com/ELP-megapixel-surveillance-machine-monitor/dp/B015FIKTZC)
-- Screws, inserts, heat shrink, etc.
+- [Кріплення, надруковані на 3D-принтері](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo_3d_prints.zip)
+  - 2x кріплення для роз’єму крила
+  - 1x кріплення датчика швидкості
+  - 1x GPS-кріплення
+  - 1x кріплення лідару
+  - 1x кріплення Skynode
+- [USB-камера (включено в Skynode dev kit)](https://www.amazon.com/ELP-megapixel-surveillance-machine-monitor/dp/B015FIKTZC)
+- Гвинти, вставки, термоусадка та ін.
 
 ## Інструменти
 
@@ -67,7 +67,7 @@ OMP Hobby ZMO - це невеликий [апарат вертикального
 - Набір шестигранних викруток
 - Набір гаєчних ключів
 - Паяльна станція
-- Glue: Hot glue, 5 min Epoxy
+- Клей: гарячий клей, епоксидна смола 5 хв
 - Скотч
 - Двосторонній скотч 3M ([3M VHB скотч](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y))
 - Наждачний папір
@@ -90,14 +90,14 @@ ZMO FPV в його початковому стані.
 ### ESC регулятори швидкості
 
 1. Відпаяйте сигнальні контакти PWM та контакти заземлення ESC регулятора швидкості та припаяйте до контактів подовжувач сервоприводу. Кабель повинен бути достатньо довгим, щоб підключити дріт до контактів FMU плати керування польотом.
-1. Unsolder the 3 female banana plug connectors of the rear motor (might not be necessary for the Pixhawk 6 integration).
+1. Розпаяйте 3 роз’єми «банан» заднього двигуна (може не знадобитися для інтеграції Pixhawk 6).
 1. Прикрутіть ESC регулятор швидкості назад на місце 4 гвинтами M2.5 x 12.
 1. Укоротіть дроти заднього двигуна та припаяйте їх на місце, як показано на малюнку.
 1. Припаяйте сигнальні та GND-дроти до входу PWM ESC регулятора швидкості.
 
    ![ESC 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/esc-01.jpg)
 
-1. Remove the female banana plug on the ESC. Це надасть вам більше місця для встановлення польотного контролера.
+1. Зніміть гніздову вилку на ESC. Це надасть вам більше місця для встановлення польотного контролера.
 
    ![ESC 02](../../assets/airframes/vtol/omp_hobby_zmo_fpv/esc-02.jpg)
 
