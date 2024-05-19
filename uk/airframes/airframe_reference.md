@@ -1,6 +1,6 @@
 # Довідка Планера
 
-:::info **Цей список є [автоствореним](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) з вихідного коду** за допомогою команди збірки: `make airframe_metadata`.
+:::info **Цей список є [автозгенерованим](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) з вихідного коду** за допомогою команди збірки: `make airframe_metadata`.
 :::
 
 Сторінка перелічує всі підтримувані планери й типи, включаючи призначення та нумерацію двигуна. Мотори у **зеленому** обертаються за годинниковою стрілкою, у **синьому** - проти.
@@ -62,7 +62,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="airship_airship_cloudship">
@@ -93,7 +93,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
@@ -119,7 +119,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="balloon_balloon_thunderfly_balloon_tf-b1">
@@ -141,7 +141,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
@@ -161,7 +161,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_helicopter_generic_helicopter_(tail_esc)">
@@ -181,7 +181,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_hexarotor_+_generic_hexarotor_+_geometry">
@@ -210,7 +210,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
@@ -283,7 +283,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10__octo_coaxial_geometry">
@@ -303,7 +303,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
@@ -589,7 +589,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="rover_rover_generic_ground_vehicle_(ackermann)">
