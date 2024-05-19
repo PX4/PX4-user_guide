@@ -102,7 +102,7 @@ ads1115 <command> [arguments...]
 
 
 ### Опис
-OSD driver for the ATXXXX chip that is mounted on the OmnibusF4SD board for example.
+Наприклад, OSD драйвер для мікросхеми ATXXXX, яка встановлена на платі OmnibusF4SD.
 
 Його можна увімкнути за допомогою параметра OSD_ATXXXX_CFG.
 
@@ -131,7 +131,7 @@ atxxxx <command> [arguments...]
 
 
 ### Опис
-Driver for SMBUS Communication with BatMon enabled smart-battery Setup/usage information: https://rotoye.com/batmon-tutorial/
+Драйвер для зв'язку SMBUS зі смарт-батареєю з підтримкою BatMon Інформація про налаштування/використання: https://rotoye.com/batmon-tutorial/
 ### Приклади
 Почати з адреси 0x0B, на шині 4
 ```
@@ -244,7 +244,7 @@ bst <command> [arguments...]
 
 
 ### Опис
-This module parses the CRSF RC uplink protocol and generates CRSF downlink telemetry data
+Цей модуль парсить uplink протокол CRSF RC і генерує дані CRSF downlink телеметрії
 
 
 <a id="crsf_rc_usage"></a>
@@ -268,20 +268,20 @@ crsf_rc <command> [arguments...]
 ### Опис
 Це драйвер виводу DShot. Він схожий на драйвер fmu і може бути використаний як заміна використовувати DShot як протокол зв'язку ESC замість PWM.
 
-On startup, the module tries to occupy all available pins for DShot output. It skips all pins already in use (e.g. by a camera trigger module).
+Під час запуску модуль намагається зайняти всі доступні піни для виходу DShot. Він пропускає всі піни, які вже використовуються (наприклад, модулем запуску камери).
 
 Він підтримує:
 - DShot150, DShot300, DShot600, DShot1200
-- telemetry via separate UART and publishing as esc_status message
-- sending DShot commands via CLI
+- телеметрія через окремий UART та публікація у вигляді повідомлення esc_status
+- надсилання команд DShot через CLI
 
 ### Приклади
-Permanently reverse motor 1:
+Постійно реверсує двигун 1:
 ```
 dshot reverse -m 1
 dshot save -m 1
 ```
-After saving, the reversed direction will be regarded as the normal one. So to reverse again repeat the same commands.
+Після збереження змінений напрямок буде вважатися нормальним. Щоб розвернути назад, повторіть ті ж самі команди.
 
 <a id="dshot_usage"></a>
 
@@ -374,7 +374,7 @@ fake_imu <command> [arguments...]
 
 
 ### Опис
-Publish the earth magnetic field as a fake magnetometer (sensor_mag). Requires vehicle_attitude and vehicle_gps_position.
+Publish the earth magnetic field as a fake magnetometer (sensor_mag). Потребує vehicle_attitude та vehicle_gps_position.
 
 <a id="fake_magnetometer_usage"></a>
 
@@ -394,17 +394,17 @@ fake_magnetometer <command> [arguments...]
 
 ### Опис
 
-Serial bus driver for the FT Technologies Digital Wind Sensor FT742. This driver is required to operate alongside a RS485 to UART signal transfer module.
+Драйвер послідовної шини для цифрового датчика вітру FT Technologies FT742. Цей драйвер потрібен для роботи разом з з модулем передачі сигналу RS485 на UART.
 
-Most boards are configured to enable/start the driver on a specified UART using the SENS_FTX_CFG parameter.
+Більшість плат налаштовано на увімкнення/запуск драйвера на вказаному UART за допомогою параметра SENS_FTX_CFG.
 
 ### Приклади
 
-Attempt to start driver on a specified serial device.
+Спроба запустити драйвер на вказаному послідовному пристрої.
 ```
 ft_technologies_serial start -d /dev/ttyS1
 ```
-Stop driver
+Зупинити драйвер
 ```
 ft_technologies_serial stop
 ```
@@ -461,21 +461,21 @@ gimbal <command> [arguments...]
 
 
 ### Опис
-GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
+Модуль GPS-драйвера, який здійснює зв'язок з пристроєм і публікує позицію через uORB. Він підтримує кілька протоколів (постачальників пристроїв) і за замовчуванням автоматично вибирає правильний.
 
-The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
+Модуль підтримує додатковий GPS пристрій, який задається параметром `-e`. Позиція буде опублікована на другому екземплярі теми uORB, але наразі вона не використовується рештою системи (однак дані будуть зареєстровані, щоб їх можна було використовувати для порівняння).
 
 ### Імплементація
-There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
+Для кожного пристрою існує потік, який опитує дані. Класи протоколу GPS реалізовано з функцією зворотного виклику щоб їх можна було використовувати і в інших проектах (наприклад, QGroundControl також використовує їх).
 
 ### Приклади
 
-Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4):
+Запуск 2 GPS-пристроїв (основний GPS на /dev/ttyS3 і додатковий на /dev/ttyS4):
 ```
 gps start -d /dev/ttyS3 -e /dev/ttyS4
 ```
 
-Initiate warm restart of GPS device
+Ініціюйте гарячий перезапуск GPS-пристрою
 ```
 gps reset warm
 ```
@@ -538,13 +538,13 @@ gz_bridge <command> [arguments...]
 
 
 ### Опис
-Driver for the INA220 power monitor.
+Драйвер для монітора живлення INA220.
 
-Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+Кілька екземплярів цього драйвера можуть працювати одночасно, якщо кожен екземпляр має окрему адресу шини АБО I2C.
 
-For example, one instance can run on Bus 2, address 0x41, and one can run on Bus 2, address 0x43.
+Наприклад, один екземпляр може працювати на шині 2, адреса 0x41, а інший - на шині 2, адреса 0x43.
 
-If the INA220 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+Якщо модуль INA220 не має живлення, то за замовчуванням ініціалізація драйвера не відбудеться. Щоб змінити це, використовуйте прапор -f. Якщо цей прапорець встановлено, то у разі невдалої ініціалізації драйвер буде повторювати спроби ініціалізації кожні 0.5 секунди. Якщо цей прапорець встановлено, ви можете підключити батарею після запуску драйвера, і він буде працювати. Якщо цей прапорець не встановлено, перед запуском драйвера необхідно підключити батарею.
 
 
 <a id="ina220_usage"></a>
@@ -577,13 +577,13 @@ ina220 <command> [arguments...]
 
 
 ### Опис
-Driver for the INA226 power monitor.
+Драйвер для монітора живлення INA226.
 
-Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+Кілька екземплярів цього драйвера можуть працювати одночасно, якщо кожен екземпляр має окрему адресу шини АБО I2C.
 
-For example, one instance can run on Bus 2, address 0x41, and one can run on Bus 2, address 0x43.
+Наприклад, один екземпляр може працювати на шині 2, адреса 0x41, а інший - на шині 2, адреса 0x43.
 
-If the INA226 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+Якщо модуль INA226 не живиться, то за замовчуванням ініціалізація драйвера не відбудеться. Щоб змінити це, використовуйте прапор -f. Якщо цей прапорець встановлено, то у разі невдалої ініціалізації драйвер буде повторювати спроби ініціалізації кожні 0.5 секунди. Якщо цей прапорець встановлено, ви можете підключити батарею після запуску драйвера, і він буде працювати. Якщо цей прапорець не встановлено, перед запуском драйвера необхідно підключити батарею.
 
 
 <a id="ina226_usage"></a>
@@ -614,13 +614,13 @@ ina226 <command> [arguments...]
 
 
 ### Опис
-Driver for the INA228 power monitor.
+Драйвер для монітора живлення INA228.
 
-Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+Кілька екземплярів цього драйвера можуть працювати одночасно, якщо кожен екземпляр має окрему адресу шини АБО I2C.
 
-For example, one instance can run on Bus 2, address 0x45, and one can run on Bus 2, address 0x45.
+Наприклад, один екземпляр може працювати на шині 2, адреса 0x41, а інший - на шині 2, адреса 0x43.
 
-If the INA228 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+Якщо модуль INA228 не має живлення, то за замовчуванням ініціалізація драйвера не відбудеться. Щоб змінити це, використовуйте прапор -f. Якщо цей прапорець встановлено, то у разі невдалої ініціалізації драйвер буде повторювати спроби ініціалізації кожні 0.5 секунди. Якщо цей прапорець встановлено, ви можете підключити батарею після запуску драйвера, і він буде працювати. Якщо цей прапорець не встановлено, перед запуском драйвера необхідно підключити батарею.
 
 
 <a id="ina228_usage"></a>
