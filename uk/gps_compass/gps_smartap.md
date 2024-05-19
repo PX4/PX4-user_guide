@@ -43,21 +43,21 @@ SmartAP GPS has 10 pin JST-GH connector that can be plugged into a Pixhawk fligh
 | 10         | GND        |
 
 
-## Specification
+## Характеристики
 
-- U-blox M8N GPS Receiver
-- IST8310 Magnetometer
-- HMC5983 Magnetometer
-- LIS3MDL Magnetometer
-- MS5611 Pressure sensor
-- RGB LEDs for status indication
+- Приймач GPS u-blox M8N
+- Магнітометр IST8310
+- Магнітометр HMC5983
+- Магнітометр LIS3MDL
+- Датчик тиску MS5611
+- RGB-світлодіоди для індикації стану
   - NCP5623 I2C Driver
-- Diameter: 75mm
-- Weight: 34g
+- Діаметр: 75 мм
+- Вага: 34g
 
 
-## Further Information
+## Подальша інформація
 
-- [Buy SmartAP GPS](https://sky-drones.com/navigation/smartap-gnss.html)
-- [Documentation](https://docs.sky-drones.com/avionics/smartap-gnss)
-- [CAD Models](https://docs.sky-drones.com/avionics/smartap-gnss/cad-model)
+- [Купити SmartAP GPS](https://sky-drones.com/navigation/smartap-gnss.html)
+- [Документація](https://docs.sky-drones.com/avionics/smartap-gnss)
+- [CAD Моделі](https://docs.sky-drones.com/avionics/smartap-gnss/cad-model)
