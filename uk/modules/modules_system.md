@@ -769,10 +769,10 @@ tune_control <command> [arguments...]
 Source: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
 
 
-### Description
+### Опис
 UXRCE-DDS Client used to communicate uORB topics with an Agent over serial or UDP.
 
-### Examples
+### Приклади
 ```
 uxrce_dds_client start -t serial -d /dev/ttyS3 -b 921600
 uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
@@ -780,7 +780,7 @@ uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
 
 <a id="uxrce_dds_client_usage"></a>
 
-### Usage
+### Використання
 ```
 uxrce_dds_client <command> [arguments...]
  Commands:
@@ -805,14 +805,14 @@ uxrce_dds_client <command> [arguments...]
 Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue)
 
 
-### Description
+### Опис предмету
 
 Command-line tool to show work queue status.
 
 
 <a id="work_queue_usage"></a>
 
-### Usage
+### Використання
 ```
 work_queue <command> [arguments...]
  Commands:
