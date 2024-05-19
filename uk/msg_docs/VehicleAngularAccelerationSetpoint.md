@@ -1,8 +1,8 @@
-# VehicleAngularAccelerationSetpoint (UORB message)
+# VehicleAngularAccelerationSetpoint (Повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAngularAccelerationSetpoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAngularAccelerationSetpoint.msg)
 
 ```c
 
