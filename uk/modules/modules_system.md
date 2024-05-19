@@ -126,14 +126,14 @@ commander <command> [arguments...]
 
 
 ### Опис
-Module to provide persistent storage for the rest of the system in form of a simple database through a C API. Multiple backends are supported:
-- a file (eg. on the SD card)
-- RAM (this is obviously not persistent)
+Модуль для забезпечення постійного сховища для решти системи у вигляді простої бази даних через C API. Підтримується декілька бекендів:
+- файл (наприклад, на SD-карті)
+- Оперативна пам'ять (очевидно, що вона не є постійною)
 
-It is used to store structured data of different types: mission waypoints, mission state and geofence polygons. Each type has a specific type and a fixed maximum amount of storage items, so that fast random access is possible.
+Використовується для зберігання структурованих даних різних типів: маршрутні точки місії, стан місії та полігони геозони. Кожен тип має певний тип і фіксовану максимальну кількість елементів зберігання, щоб забезпечити швидкий випадковий доступ.
 
 ### Імплементація
-Reading and writing a single item is always atomic.
+Читання і запис одного елемента завжди атомарні.
 
 
 <a id="dataman_usage"></a>
@@ -160,11 +160,11 @@ dataman <command> [arguments...]
 
 ### Опис
 
-Command-line tool to show bootup console messages. Note that output from NuttX's work queues and syslog are not captured.
+Інструмент командного рядка для показу повідомлень консолі завантаження. Зауважте, що вивід з робочих черг NuttX та syslog не перехоплюється.
 
 ### Приклади
 
-Keep printing all messages in the background:
+Продовжує друкувати всі повідомлення у фоновому режимі:
 ```
 dmesg -f &
 ```
@@ -182,7 +182,7 @@ dmesg <command> [arguments...]
 
 
 ### Опис
-This implements using information from the ESC status and publish it as battery status.
+Це реалізує використання інформації зі статусу ESC і публікує її як стан батареї.
 
 
 <a id="esc_battery_usage"></a>
@@ -202,7 +202,7 @@ esc_battery <command> [arguments...]
 
 
 ### Опис
-Simple online gyroscope calibration.
+Просте онлайн-калібрування гіроскопа.
 
 
 <a id="gyro_calibration_usage"></a>
@@ -241,9 +241,9 @@ gyro_fft <command> [arguments...]
 
 
 ### Опис
-Background process running periodically on the LP work queue to regulate IMU temperature at a setpoint.
+Фоновий процес, що періодично запускається в робочій черзі LP для регулювання температури IMU на заданому рівні.
 
-This task can be started at boot from the startup scripts by setting SENS_EN_THERMAL or via CLI.
+Це завдання можна запустити під час завантаження зі скриптів запуску, встановивши SENS_EN_THERMAL, або через CLI.
 
 <a id="heater_usage"></a>
 
@@ -283,19 +283,19 @@ i2c_launcher <command> [arguments...]
 
 
 ### Опис
-Module to detect the freefall and landed state of the vehicle, and publishing the `vehicle_land_detected` topic. Each vehicle type (multirotor, fixedwing, vtol, ...) provides its own algorithm, taking into account various states, such as commanded thrust, arming state and vehicle motion.
+Модуль для визначення стану вільного падіння та приземлення транспортного засобу, а також публікації теми `vehicle_land_detected`. Для кожного типу літального апарату (мультиротор, фіксоване крило, гвинтокрил, ...) передбачено власний алгоритм, що враховує різні стани, такі як задана тяга, стан озброєння та рух апарату.
 
 ### Реалізація
-Every type is implemented in its own class with a common base class. The base class maintains a state (landed, maybe_landed, ground_contact). Each possible state is implemented in the derived classes. A hysteresis and a fixed priority of each internal state determines the actual land_detector state.
+Кожен тип реалізовано у власному класі зі спільним базовим класом. Базовий клас підтримує стан (landed, maybe_landed, ground_contact). Кожен можливий стан реалізується в похідних класах. Гістерезис та фіксований пріоритет кожного внутрішнього стану визначає фактичний стан land_detector.
 
-#### Multicopter Land Detector
-**ground_contact**: thrust setpoint and velocity in z-direction must be below a defined threshold for time GROUND_CONTACT_TRIGGER_TIME_US. When ground_contact is detected, the position controller turns off the thrust setpoint in body x and y.
+#### Мультикоптер Land Detector
+**ground_contact**: задане значення тяги та швидкість у напрямку z повинні бути нижче визначеного порогу протягом певного часу GROUND_CONTACT_TRIGGER_TIME_US. При виявленні контакту з землею регулятор положення вимикає задане значення тяги у тілі x та y.
 
-**maybe_landed**: it requires ground_contact together with a tighter thrust setpoint threshold and no velocity in the horizontal direction. The trigger time is defined by MAYBE_LAND_TRIGGER_TIME. When maybe_landed is detected, the position controller sets the thrust setpoint to zero.
+**maybe_landed**: він вимагає контакту з землею разом з більш жорстким порогом заданого значення тяги і відсутності швидкості в горизонтальному напрямку. Час спрацьовування визначається параметром MAYBE_LAND_TRIGGER_TIME. Коли виявляється maybe_landed, контролер положення встановлює задане значення тяги на нуль.
 
-**landed**: it requires maybe_landed to be true for time LAND_DETECTOR_TRIGGER_TIME_US.
+**landed**: він вимагає, щоб maybe_landed було true для часу LAND_DETECTOR_TRIGGER_TIME_US.
 
-The module runs periodically on the HP work queue.
+Модуль періодично запускається у черзі робіт HP.
 
 <a id="land_detector_usage"></a>
 
@@ -315,9 +315,9 @@ land_detector <command> [arguments...]
 
 
 ### Опис
-Background process running periodically on the low priority work queue to calculate the CPU load and RAM usage and publish the `cpuload` topic.
+Фоновий процес, що періодично запускається у низькопріоритетній робочій черзі для підрахунку завантаження процесора та оперативної пам'яті і публікувати тему `cpuload`.
 
-On NuttX it also checks the stack usage of each process and if it falls below 300 bytes, a warning is output, which will also appear in the log file.
+У NuttX він також перевіряє використання стеку кожним процесом, і якщо воно падає нижче 300 байт, виводиться попередження, яке також буде показано у файлі логу.
 
 <a id="load_mon_usage"></a>
 
@@ -336,30 +336,30 @@ load_mon <command> [arguments...]
 
 
 ### Опис
-System logger which logs a configurable set of uORB topics and system printf messages (`PX4_WARN` and `PX4_ERR`) to ULog files. These can be used for system and flight performance evaluation, tuning, replay and crash analysis.
+Системний логгер, який реєструє конфігурований набір тем uORB та системних повідомлень printf (`PX4_WARN` і `PX4_ERR`) до файлів ULog. Вони можуть бути використані для оцінки продуктивності системи та польоту, налаштування, відтворення та аналізу збоїв.
 
-It supports 2 backends:
-- Files: write ULog files to the file system (SD card)
-- MAVLink: stream ULog data via MAVLink to a client (the client must support this)
+Він підтримує 2 бекенди:
+- Файли: запис файлів ULog до файлової системи (SD-карта)
+- MAVLink: передача даних ULog через MAVLink клієнту (клієнт повинен це підтримувати)
 
-Both backends can be enabled and used at the same time.
+Обидва бекенди можуть бути активовані та використовуватися одночасно.
 
-The file backend supports 2 types of log files: full (the normal log) and a mission log. The mission log is a reduced ulog file and can be used for example for geotagging or vehicle management. It can be enabled and configured via SDLOG_MISSION parameter. The normal log is always a superset of the mission log.
+Файловий бекенд підтримує 2 типи логів: повний (звичайний лог) і журнал місій. Журнал місії - це скорочений файл ulog, який можна використовувати, наприклад, для географічних міток або управління транспортним засобом. Його можна увімкнути та налаштувати за допомогою параметра SDLOG_MISSION. Звичайний журнал завжди є підмножиною журналу місій.
 
 ### Імплементація
-The implementation uses two threads:
-- The main thread, running at a fixed rate (or polling on a topic if started with -p) and checking for data updates
-- The writer thread, writing data to the file
+Реалізація використовує два потоки:
+- Основний потік, що працює з фіксованою швидкістю (або опитування на тему, якщо запущено з -p) і перевіряє оновлення даних
+- Потік запису, що записує дані у файл
 
-In between there is a write buffer with configurable size (and another fixed-size buffer for the mission log). It should be large to avoid dropouts.
+Між ними знаходиться буфер запису з конфігурованим розміром (і ще один буфер фіксованого розміру для журналу місій). Він повинен бути великим, щоб уникнути втрати даних.
 
 ### Приклади
-Typical usage to start logging immediately:
+Типове використання для початку ведення журналу негайно:
 ```
 logger start -e -t
 ```
 
-Or if already running:
+Або якщо вже працює:
 ```
 logger on
 ```
@@ -404,7 +404,7 @@ logger <command> [arguments...]
 
 
 ### Опис
-Online magnetometer bias estimator.
+Онлайн-оцінювач похибки магнітометра.
 
 <a id="mag_bias_estimator_usage"></a>
 
