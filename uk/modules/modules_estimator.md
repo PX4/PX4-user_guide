@@ -1,11 +1,11 @@
-# Modules Reference: Estimator
+# Посилання на Модулі: Оцінка
 
 ## AttitudeEstimatorQ
 Джерело: [modules/attitude_estimator_q](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/attitude_estimator_q)
 
 
 ### Опис
-Attitude estimator q.
+Оцінювач висоти q.
 
 
 <a id="AttitudeEstimatorQ_usage"></a>
@@ -45,7 +45,7 @@ airspeed_estimator <command> [arguments...]
 
 
 ### Опис
-Attitude and position estimator using an Extended Kalman Filter. It is used for Multirotors and Fixed-Wing.
+Оцінювач відношення та позиції за допомогою розширеного фільтра Калмана. Використовується для багатороторних і фіксованих крил.
 
 Документацію можна знайти на сторінці [Огляд ECL/EKF & налаштування](https://docs.px4.io/main/en/advanced_config/tuning_the_ecl_ekf.html).
 
