@@ -1,8 +1,8 @@
-# VehicleAirData (UORB message)
+# VehicleAirData (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAirData.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAirData.msg)
 
 ```c
 
@@ -19,6 +19,6 @@ float32 baro_pressure_pa        # Absolute pressure in Pascals
 float32 rho             # air density
 float32 eas2tas         # equivalent airspeed to true airspeed conversion factor
 
-uint8 calibration_count     # Calibration changed counter. Monotonically increases whenever calibration changes.
+uint8 calibration_count     # Calibration changed counter. Монотонічно збільшується, коли змінюється калібрування.
 
 ```
