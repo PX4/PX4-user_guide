@@ -1,8 +1,8 @@
-# TaskStackInfo (UORB message)
+# TaskStackInfo (повідомлення UORB)
 
-stack information for a single running process
+інформація про стек для одного запущеного процесу
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TaskStackInfo.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TaskStackInfo.msg)
 
 ```c
 # stack information for a single running process
