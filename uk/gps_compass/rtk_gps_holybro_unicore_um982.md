@@ -19,7 +19,7 @@ Additional technical information can be found at [Holybro Technical Documentatio
 * [Holybro Website](https://holybro.com/products/h-rtk-um982)
 
 
-## Wiring
+## Підключення
 
 The module comes with both GH 10-pin & 6-pin cables that are compatible with the GPS1 & GPS2 ports on flight controllers that use the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf), such as [Pixhawk 6x](../flight_controller/pixhawk6x.md) and [Pixhawk 6c](../flight_controller/pixhawk6c.md).
 
@@ -27,9 +27,9 @@ It can also be used with Cubepilot Flight Controller. The 10Pin - 6Pin cable all
 
 The module can be used with one antenna or both antennas. If it is used with only one antenna, the right/primary antenna connector must be connected.
 
-## PX4 Configuration
+## Конфігурація PX4
 
-### Port Setup
+### Налаштування порту
 
 The Unicore module talks the NMEA protocol extended with some proprietary Unicore sentences. The serial baudrate is 230400.
 
