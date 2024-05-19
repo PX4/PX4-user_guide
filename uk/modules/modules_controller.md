@@ -5,12 +5,12 @@
 
 
 ### Опис
-This implements the airship attitude and rate controller. Ideally it would take attitude setpoints (`vehicle_attitude_setpoint`) or rate setpoints (in acro mode via `manual_control_setpoint` topic) as inputs and outputs actuator control messages.
+Це реалізує регулятор положення аеростата і швидкості. Ideally it would take attitude setpoints (`vehicle_attitude_setpoint`) or rate setpoints (in acro mode via `manual_control_setpoint` topic) as inputs and outputs actuator control messages.
 
-Currently it is feeding the `manual_control_setpoint` topic directly to the actuators.
+Наразі він передає тему `manual_control_setpoint_setpoint` безпосередньо до актуаторів.
 
 ### Реалізація
-To reduce control latency, the module directly polls on the gyro topic published by the IMU driver.
+Щоб зменшити затримку керування, модуль безпосередньо опитує тему гіроскопа, опубліковану драйвером IMU.
 
 
 <a id="airship_att_control_usage"></a>
@@ -30,7 +30,7 @@ airship_att_control <command> [arguments...]
 
 
 ### Опис
-This implements control allocation. It takes torque and thrust setpoints as inputs and outputs actuator setpoint messages.
+Це реалізує розподіл управління. It takes torque and thrust setpoints as inputs and outputs actuator setpoint messages.
 
 <a id="control_allocator_usage"></a>
 
@@ -49,7 +49,7 @@ control_allocator <command> [arguments...]
 
 
 ### Опис
-Rover Differential Drive controller.
+Rover Differential Drive контроллер.
 
 <a id="differential_drive_usage"></a>
 
@@ -88,7 +88,7 @@ flight_mode_manager <command> [arguments...]
 
 
 ### Опис
-fw_att_control is the fixed wing attitude controller.
+fw_att_control - регулятор положення фіксованого крила.
 
 
 <a id="fw_att_control_usage"></a>
@@ -325,11 +325,11 @@ uuv_att_control <command> [arguments...]
 
 
 ### Опис
-Controls the attitude of an unmanned underwater vehicle (UUV). Publishes `attitude_setpoint` messages.
+Контролює положення безпілотного підводного апарату (UUV). Публікує повідомлення `attitude_setpoint`.
 ### Реалізація
-Currently, this implementation supports only a few modes:
- * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators
- * Auto mission: The uuv runs missions
+Наразі ця реалізація підтримує лише декілька режимів:
+ * Повна ручна: Roll, pitch, yaw, та throttle контроль передається безпосередньо до актуаторів
+ * Автоматична місія: UUV виконує місії
 ### Приклади
 Приклад використання CLI:
 ```
@@ -355,7 +355,7 @@ uuv_pos_control <command> [arguments...]
 
 
 ### Опис
-fw_att_control is the fixed wing attitude controller.
+fw_att_control - регулятор положення фіксованого крила.
 
 <a id="vtol_att_control_usage"></a>
 
