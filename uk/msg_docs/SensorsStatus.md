@@ -1,6 +1,6 @@
-# SensorsStatus (UORB message)
+# SensorsStatus (повідомлення UORB)
 
-Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
+Метрики перевірки датчика. Це значення буде нульовим для датчика, який є первинним або незаповненим.
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorsStatus.msg)
 
