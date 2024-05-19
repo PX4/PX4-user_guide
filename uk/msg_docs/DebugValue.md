@@ -1,8 +1,8 @@
-# DebugValue (UORB message)
+# DebugValue (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/DebugValue.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/DebugValue.msg)
 
 ```c
 uint64 timestamp    # time since system start (microseconds)

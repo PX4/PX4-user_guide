@@ -1,10 +1,10 @@
-# FailsafeFlags (UORB message)
+# FailsafeFlags (повідомлення UORB)
 
 Input flags for the failsafe state machine set by the arming & health checks.
 
 Flags must be named such that false == no failure (e.g. _invalid, _unhealthy, _lost) The flag comments are used as label for the failsafe state machine simulation
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/FailsafeFlags.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/FailsafeFlags.msg)
 
 ```c
 # Input flags for the failsafe state machine set by the arming & health checks.

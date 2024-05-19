@@ -1,8 +1,8 @@
-# LandingGearWheel (UORB message)
+# LandingGearWheel (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LandingGearWheel.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LandingGearWheel.msg)
 
 ```c
 uint64 timestamp # time since system start (microseconds)

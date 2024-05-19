@@ -1,6 +1,6 @@
-# Buffer128 (UORB message)
+# Buffer128 (повідомлення UORB)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Buffer128.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Buffer128.msg)
 
 ```c
 uint64 timestamp		# time since system start (microseconds)

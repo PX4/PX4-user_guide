@@ -1,16 +1,16 @@
 # Modules Reference: Estimator
 
 ## AttitudeEstimatorQ
-Source: [modules/attitude_estimator_q](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/attitude_estimator_q)
+Джерело: [modules/attitude_estimator_q](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/attitude_estimator_q)
 
 
-### Description
+### Опис
 Attitude estimator q.
 
 
 <a id="AttitudeEstimatorQ_usage"></a>
 
-### Usage
+### Використання
 ```
 AttitudeEstimatorQ <command> [arguments...]
  Commands:
@@ -21,16 +21,16 @@ AttitudeEstimatorQ <command> [arguments...]
    status        print status info
 ```
 ## airspeed_estimator
-Source: [modules/airspeed_selector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airspeed_selector)
+Джерело: [modules/airspeed_selector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airspeed_selector)
 
 
-### Description
-This module provides a single airspeed_validated topic, containing indicated (IAS), calibrated (CAS), true airspeed (TAS) and the information if the estimation currently is invalid and if based sensor readings or on groundspeed minus windspeed. Supporting the input of multiple "raw" airspeed inputs, this module automatically switches to a valid sensor in case of failure detection. For failure detection as well as for the estimation of a scale factor from IAS to CAS, it runs several wind estimators and also publishes those.
+### Опис
+Цей модуль надає єдину тему airspeed_validated, яка містить вказану (IAS), калібровану (CAS), справжню повітряну швидкість (TAS) та інформацію, чи є оцінка зараз недійсною і чи ґрунтується на показаннях датчика чи на швидкості на землі мінус швидкість вітру. Підтримуючи введення декількох «сирих» входів швидкості повітря, цей модуль автоматично перемикається на коректний датчик у разі виявлення несправності. Для виявлення несправностей, а також для оцінки масштабного коефіцієнта від IAS до CAS, вона запускає кілька оцінювачів вітру а також публікує їх.
 
 
 <a id="airspeed_estimator_usage"></a>
 
-### Usage
+### Використання
 ```
 airspeed_estimator <command> [arguments...]
  Commands:
@@ -41,20 +41,20 @@ airspeed_estimator <command> [arguments...]
    status        print status info
 ```
 ## ekf2
-Source: [modules/ekf2](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2)
+Джерело: [modules/ekf2](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2)
 
 
-### Description
+### Опис
 Attitude and position estimator using an Extended Kalman Filter. It is used for Multirotors and Fixed-Wing.
 
-The documentation can be found on the [ECL/EKF Overview & Tuning](https://docs.px4.io/main/en/advanced_config/tuning_the_ecl_ekf.html) page.
+Документацію можна знайти на сторінці [Огляд ECL/EKF & налаштування](https://docs.px4.io/main/en/advanced_config/tuning_the_ecl_ekf.html).
 
-ekf2 can be started in replay mode (`-r`): in this mode, it does not access the system time, but only uses the timestamps from the sensor topics.
+ekf2 можна запустити у режимі відтворення (`-r`): у цьому режимі він не звертається до системного часу, а лише використовує мітки часу з тем датчиків.
 
 
 <a id="ekf2_usage"></a>
 
-### Usage
+### Використання
 ```
 ekf2 <command> [arguments...]
  Commands:
@@ -70,16 +70,16 @@ ekf2 <command> [arguments...]
      <instance>  Specify desired estimator instance
 ```
 ## local_position_estimator
-Source: [modules/local_position_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/local_position_estimator)
+Джерело: [modules/local_position_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/local_position_estimator)
 
 
-### Description
-Attitude and position estimator using an Extended Kalman Filter.
+### Опис
+Оцінювач відношення та позиції за допомогою розширеного фільтра Калмана.
 
 
 <a id="local_position_estimator_usage"></a>
 
-### Usage
+### Використання
 ```
 local_position_estimator <command> [arguments...]
  Commands:
@@ -90,15 +90,15 @@ local_position_estimator <command> [arguments...]
    status        print status info
 ```
 ## mc_hover_thrust_estimator
-Source: [modules/mc_hover_thrust_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_hover_thrust_estimator)
+Джерело: [modules/mc_hover_thrust_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_hover_thrust_estimator)
 
 
-### Description
+### Опис
 
 
 <a id="mc_hover_thrust_estimator_usage"></a>
 
-### Usage
+### Використання
 ```
 mc_hover_thrust_estimator <command> [arguments...]
  Commands:

@@ -1,6 +1,6 @@
 # OMP Hobby ZMO FPV
 
-The OMP Hobby ZMO is a small [tiltrotor VTOL](../frames_vtol/tiltrotor.md) that is available in an RTF kit. This build guide shows add a flight controller system (using [Auterion Skynode evaluation kit](../companion_computer/auterion_skynode.md), [Pixhawk 6C](../flight_controller/pixhawk6c.md) or [Pixhawk 6C mini](../flight_controller/pixhawk6c_mini.md)) and setup PX4.
+OMP Hobby ZMO - це невеликий [апарат вертикального зльоту та посадки](../frames_vtol/tiltrotor.md), який доступний в наборі RTF. Цей посібник збірки показує, як додати політний контролер (використовуючи [Auterion Skynode evaluation kit](../companion_computer/auterion_skynode.md), [Pixhawk 6C](../flight_controller/pixhawk6c.md) або [Pixhawk 6C mini](../flight_controller/pixhawk6c_mini.md)) та налаштувати PX4.
 
 ![Finished ZMO hover 1](../../assets/airframes/vtol/omp_hobby_zmo_fpv/airframe-hover.jpg)
 
@@ -40,7 +40,7 @@ The OMP Hobby ZMO is a small [tiltrotor VTOL](../frames_vtol/tiltrotor.md) that 
 
 ## Додаткові аксесуари
 
-- [GPS F9P (included in Skynode eval. kit)](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
+- [GPS F9P (включено в Skynode оціночний набір)](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
 - [GPS M9N (cheaper alternative to F9P)](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
 - [Airspeed sensor (included in Skynode eval. kit)](https://www.dualrc.com/parts/airspeed-sensor-sdp33) — recommended for improved safety and performance
 - [Airspeed sensor (cheaper alternative)](https://holybro.com/products/digital-air-speed-sensor?pr_prod_strat=use_description&pr_rec_id=236dfda00&pr_rec_pid=7150470561981&pr_ref_pid=7150472462525&pr_seq=uniform)
@@ -136,7 +136,7 @@ The connector glued into the fuselage. Make sure to properly align the connector
 
    ![BEC mounting](../../assets/airframes/vtol/omp_hobby_zmo_fpv/bec-02.jpg)
 
-### Cables
+### Кабелі
 
 1. Cut the connectors off the servos and solder the servo extension cables to the cables. Make sure that the cables are long enough to reach the Pixhawk adapter board. If you own a crimp tool, then you can also directly add the connectors without soldering.
 
@@ -161,13 +161,13 @@ The connector glued into the fuselage. Make sure to properly align the connector
 
 1. Спочатку перевірте, чи трубка Піто влазить у кріплення, надруковане на 3D-принтері. Якщо це так, то приклейте трубку Піто на місце у кріплення.
 
-   Щоб вирівняти трубку пропустіть її через другий отвір праворуч від передньої пластини FPV. Кріплення дозволить вам вдавити трубку назад у фюзеляж, щоб захистити її під час транспортування та обробки. The sensor unit can be mounted on top of the 3D-Printed mount with double sided tape.
+   Щоб вирівняти трубку пропустіть її через другий отвір праворуч від передньої пластини FPV. Кріплення дозволить вам вдавити трубку назад у фюзеляж, щоб захистити її під час транспортування та обробки. Датчик може бути встановлений зверху на кріпленні, надрукованому на 3D-принтері, за допомогою двостороннього скотчу.
 
-1. Glue the 3D-Printed mount into place.
+1. Приклейте кріплення, надруковане на 3D-принтері, на місце.
 
    ![Pitot tube 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/pitot-tube-01.png)
 
-1. The sensor can be mounted on top of the 3D-Printed mount.
+1. Датчик може бути встановлений зверху на кріпленні, надрукованому на 3D-принтері.
 
    ![Pitot tube 02](../../assets/airframes/vtol/omp_hobby_zmo_fpv/pitot-tube-02.png)
 

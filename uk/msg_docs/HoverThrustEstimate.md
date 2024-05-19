@@ -1,8 +1,8 @@
-# HoverThrustEstimate (UORB message)
+# HoverThrustEstimate (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/HoverThrustEstimate.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/HoverThrustEstimate.msg)
 
 ```c
 uint64 timestamp                # time since system start (microseconds)

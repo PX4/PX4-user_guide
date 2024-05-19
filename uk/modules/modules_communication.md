@@ -1,9 +1,9 @@
 # Modules Reference: Communication
 
 ## frsky_telemetry
-Source: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/frsky_telemetry)
+Джерело: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/frsky_telemetry)
 
-FrSky Telemetry support. Auto-detects D or S.PORT protocol.
+Підтримка FrSky Telemetry. Автоматичне визначення протоколу D або S.PORT.
 <a id="frsky_telemetry_usage"></a>
 
 ### Використання
@@ -28,24 +28,24 @@ Source: [modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/mod
 
 
 ### Опис
-This module implements the MAVLink protocol, which can be used on a Serial link or UDP network connection. It communicates with the system via uORB: some messages are directly handled in the module (eg. mission protocol), others are published via uORB (eg. vehicle_command).
+Цей модуль реалізує протокол MAVLink, який можна використовувати на послідовному каналі або мережевому з'єднанні UDP. Він взаємодіє з системою через uORB: деякі повідомлення обробляються безпосередньо в модулі (наприклад, протокол місії), інші публікуються через uORB (наприклад, vehicle_command).
 
-Streams are used to send periodic messages with a specific rate, such as the vehicle attitude. When starting the mavlink instance, a mode can be specified, which defines the set of enabled streams with their rates. For a running instance, streams can be configured via `mavlink stream` command.
+Потоки використовуються для надсилання періодичних повідомлень з певною частотою, наприклад, про положення транспортного засобу. При запуску екземпляра mavlink можна вказати режим, який визначає набір увімкнених потоків з їхніми швидкостями. Для запущеного екземпляра потоки можна налаштувати за допомогою команди `mavlink stream`.
 
-There can be multiple independent instances of the module, each connected to one serial device or network port.
+Може бути декілька незалежних екземплярів модуля, кожен з яких підключений до одного послідовного пристрою або мережевого порту.
 
 ### Реалізація
-The implementation uses 2 threads, a sending and a receiving thread. The sender runs at a fixed rate and dynamically reduces the rates of the streams if the combined bandwidth is higher than the configured rate (`-r`) or the physical link becomes saturated. This can be checked with `mavlink status`, see if `rate mult` is less than 1.
+Реалізація використовує 2 потоки, потік відправлення та потік отримання. Відправник працює на фіксованій швидкості і динамічно зменшує швидкість потоків, якщо сумарна пропускна здатність перевищує задану (`-r`) або якщо фізичний канал перевантажений. Це можна перевірити за допомогою `mavlink status`, подивіться, чи `rate mult` менше 1.
 
-**Careful**: some of the data is accessed and modified from both threads, so when changing code or extend the functionality, this needs to be take into account, in order to avoid race conditions and corrupt data.
+**Обережно**: доступ до деяких даних здійснюється з обох потоків, тому при зміні коду або розширенні функціональності, це потрібно враховувати, щоб уникнути стану перевантаження та пошкодження даних.
 
 ### Приклади
-Start mavlink on ttyS1 serial with baudrate 921600 and maximum sending rate of 80kB/s:
+Запустіть mavlink на послідовному каналі ttyS1 з швидкістю передачі даних 921600 і максимальною швидкістю надсилання 80 кБ/с:
 ```
 mavlink start -d /dev/ttyS1 -b 921600 -m onboard -r 80000
 ```
 
-Start mavlink on UDP port 14556 and enable the HIGHRES_IMU message with 50Hz:
+Запустіть mavlink на UDP-порт 14556 і увімкніть повідомлення HIGHRES_IMU з частотою 50 Гц:
 ```
 mavlink start -u 14556 -r 1000000
 mavlink stream -u 14556 -s HIGHRES_IMU -r 50
@@ -113,19 +113,19 @@ Source: [systemcmds/uorb](https://github.com/PX4/PX4-Autopilot/tree/main/src/sys
 
 
 ### Опис
-uORB is the internal pub-sub messaging system, used for communication between modules.
+uORB - це внутрішня система обміну повідомленнями pub-sub, яка використовується для комунікації між модулями.
 
 ### Реалізація
-The implementation is asynchronous and lock-free, ie. a publisher does not wait for a subscriber and vice versa. This is achieved by having a separate buffer between a publisher and a subscriber.
+Реалізація є асинхронною та безблоковою, тобто видавець не чекає на підписника і навпаки. Це досягається завдяки наявності окремого буфера між публікатором і підписником.
 
-The code is optimized to minimize the memory footprint and the latency to exchange messages.
+Код оптимізовано для мінімізації використання пам'яті та затримок при обміні повідомленнями.
 
-Messages are defined in the `/msg` directory. They are converted into C/C++ code at build-time.
+Повідомлення визначені в каталозі `/msg`. Вони перетворюються в код C/C++ під час збірки.
 
-If compiled with ORB_USE_PUBLISHER_RULES, a file with uORB publication rules can be used to configure which modules are allowed to publish which topics. This is used for system-wide replay.
+Якщо ви компілюєте з ORB_USE_PUBLISHER_RULES, файл з правилами публікації uORB можна використовувати для налаштування того, яким модулям дозволено публікувати які теми. Це використовується для загальносистемного відтворення.
 
 ### Приклади
-Monitor topic publication rates. Besides `top`, this is an important command for general system inspection:
+Відстежуйте показники публікацій тем. До того ж `top` є важливою командою для загальної перевірки системи:
 ```
 uorb top
 ```

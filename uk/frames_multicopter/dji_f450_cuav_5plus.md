@@ -152,7 +152,7 @@
 
 1. Підключіть приймач RC (`RC`), всі 4 ESC (`M1-M4`), та модуль живлення (`Power1`) до контролера польоту. ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5plus/12_fc_attach_periperhals.jpg)
 
-   ::: info The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
+   ::: info Порядок моторів визначено в [Довідник літальних апаратів > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
 :::
 
 Ось і все! Остаточну збірку показано нижче:

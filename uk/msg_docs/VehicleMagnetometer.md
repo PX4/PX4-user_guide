@@ -1,8 +1,8 @@
-# VehicleMagnetometer (UORB message)
+# VehicleMagnetometer (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleMagnetometer.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleMagnetometer.msg)
 
 ```c
 

@@ -1,8 +1,8 @@
-# GpioIn (UORB message)
+# GpioIn (повідомлення UORB)
 
-GPIO mask and state
+Маска та стан GPIO
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GpioIn.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GpioIn.msg)
 
 ```c
 # GPIO mask and state

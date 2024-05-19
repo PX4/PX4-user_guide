@@ -4,15 +4,15 @@ Lumenier QAV-R 5" FPV Гоночний квадрокоптер - це жорс�
 
 Основна Інформація:
 
-- **Frame:** [Lumenier QAV-R 5"](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html)
-- **Flight controller:** [Pixracer](../flight_controller/pixracer.md)
+- **Каркас:** [Lumenier QAV-R 5"](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html)
+- **Контролер польоту:** [ Pixracer](../flight_controller/pixracer.md)
 
 @[youtube](https://youtu.be/wMYgqvsNEwQ)
 
 ![QAV Racer complete](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg) ![QAV Racer complete 2](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
 
 
-## Parts List
+## Список деталей
 
 ### Vehicle (needed for flying)
 

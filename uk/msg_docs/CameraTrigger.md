@@ -1,8 +1,8 @@
-# CameraTrigger (UORB message)
+# CameraTrigger (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/CameraTrigger.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/CameraTrigger.msg)
 
 ```c
 uint64 timestamp    # time since system start (microseconds)

@@ -1,8 +1,8 @@
-# EstimatorAidSource1d (UORB message)
+# EstimatorAidSource1d (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorAidSource1d.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorAidSource1d.msg)
 
 ```c
 uint64 timestamp             # time since system start (microseconds)

@@ -1,8 +1,8 @@
-# IrlockReport (UORB message)
+# IrlockReport (повідомлення UORB)
 
-IRLOCK_REPORT message data
+Дані повідомлення IRLOCK_REPORT
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/IrlockReport.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/IrlockReport.msg)
 
 ```c
 # IRLOCK_REPORT message data

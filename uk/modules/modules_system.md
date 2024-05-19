@@ -1,16 +1,16 @@
 # Modules Reference: System
 
 ## battery_simulator
-Source: [modules/simulation/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/battery_simulator)
+Джерело: [modules/simulation/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/battery_simulator)
 
 
-### Description
+### Опис
 
 
 
 <a id="battery_simulator_usage"></a>
 
-### Usage
+### Використання
 ```
 battery_simulator <command> [arguments...]
  Commands:
@@ -21,22 +21,22 @@ battery_simulator <command> [arguments...]
    status        print status info
 ```
 ## battery_status
-Source: [modules/battery_status](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/battery_status)
+Джерело: [modules/battery_status](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/battery_status)
 
 
-### Description
+### Опис
 
-The provided functionality includes:
-- Read the output from the ADC driver (via ioctl interface) and publish `battery_status`.
+Надана функціональність включає в себе:
+- Читання вихідних даних драйвера ADC (через інтерфейс ioctl) і публікація `battery_status`.
 
 
-### Implementation
-It runs in its own thread and polls on the currently selected gyro topic.
+### Імплементація
+Він запускається у власній темі і проводить опитування на поточну обрану тему гіроскопа.
 
 
 <a id="battery_status_usage"></a>
 
-### Usage
+### Використання
 ```
 battery_status <command> [arguments...]
  Commands:
@@ -47,16 +47,16 @@ battery_status <command> [arguments...]
    status        print status info
 ```
 ## camera_feedback
-Source: [modules/camera_feedback](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/camera_feedback)
+Джерело: [modules/camera_feedback](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/camera_feedback)
 
 
-### Description
+### Опис
 
 
 
 <a id="camera_feedback_usage"></a>
 
-### Usage
+### Використання
 ```
 camera_feedback <command> [arguments...]
  Commands:
@@ -67,15 +67,15 @@ camera_feedback <command> [arguments...]
    status        print status info
 ```
 ## commander
-Source: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/commander)
+Джерело: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/commander)
 
 
-### Description
-The commander module contains the state machine for mode switching and failsafe behavior.
+### Опис
+Модуль командира містить машину станів для перемикання режимів та аварійної поведінки.
 
 <a id="commander_usage"></a>
 
-### Usage
+### Використання
 ```
 commander <command> [arguments...]
  Commands:
@@ -122,10 +122,10 @@ commander <command> [arguments...]
    status        print status info
 ```
 ## dataman
-Source: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/dataman)
+Джерело: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/dataman)
 
 
-### Description
+### Опис
 Module to provide persistent storage for the rest of the system in form of a simple database through a C API. Multiple backends are supported:
 - a file (eg. on the SD card)
 - RAM (this is obviously not persistent)
@@ -494,19 +494,19 @@ pwm_input <command> [arguments...]
    status        print status info
 ```
 ## rc_update
-Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rc_update)
+Джерело: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rc_update)
 
 
-### Description
+### Опис
 The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
 
-### Implementation
+### Реалізація
 To reduce control latency, the module is scheduled on input_rc publications.
 
 
 <a id="rc_update_usage"></a>
 
-### Usage
+### Використання
 ```
 rc_update <command> [arguments...]
  Commands:

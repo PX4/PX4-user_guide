@@ -1,8 +1,8 @@
-# SensorsStatusImu (UORB message)
+# SensorsStatusImu (повідомлення UORB)
 
-Метрики перевірки сенсора. This will be zero for a sensor that's primary or unpopulated.
+Метрики перевірки сенсора. Це значення буде нульовим для датчика, який є первинним або незаповненим.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorsStatusImu.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorsStatusImu.msg)
 
 ```c
 #

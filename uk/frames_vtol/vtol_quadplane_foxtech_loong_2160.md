@@ -41,31 +41,31 @@ Foxtech Loong 2160 VTOL - це легкий у монтажі майже гот�
 
 - Auterion 12S Power Module
 - [Модуль живлення Holybro PM08D (альтернатива Auterion PM)](https://holybro.com/collections/power-modules-pdbs/products/pm08d-digital-power-module-14s-200a)
-- [GPS F9P (included in Skynode eval. kit)](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
+- [GPS F9P (включено в Skynode оціночний. комплект)](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
 - [GPS M9N (дешевша альтернатива F9P)](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
-- [Airspeed sensor (included in Skynode eval. kit)](https://www.dualrc.com/parts/airspeed-sensor-sdp33) — recommended for improved safety and performance
-- [Airspeed sensor (cheaper alternative)](https://holybro.com/products/digital-air-speed-sensor?pr_prod_strat=use_description\&pr_rec_id=236dfda00\&pr_rec_pid=7150470561981\&pr_ref_pid=7150472462525\&pr_seq=uniform)
-- [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) (Optional)
-- [Lidar Seeed Studio PSK-CM8JL65-CC5 (cheaper alternative)](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html) (Optional)
-- [Radio (RC) System](../getting_started/rc_transmitter_receiver.md) of your preference
-- [Groundstation and Radio link](https://holybro.com/collections/rc-radio-transmitter-receiver/products/skydroid-h12?variant=42940989931709)
-- [USB-C extension cable](https://www.digitec.ch/en/s1/product/powerguard-usb-c-usb-c-025-m-usb-cables-22529949?dbq=1\&gclid=Cj0KCQjw2cWgBhDYARIsALggUhrh-z-7DSU0wKfLBVa8filkXLQaxUpi7pC0ffQyRzLng8Ph01h2R1gaAp0mEALw_wcB\&gclsrc=aw.ds)
-- [I2C Splitter](https://www.3dxr.co.uk/autopilots-c2/the-cube-aka-pixhawk-2-1-c9/cube-cables-accessories-sensors-c15/cubepilot-i2c-can-splitter-jst-gh-4pin-p2840)
-- [3D-Printed mounts](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/foxtech_loong_2160/loong-3d-prints.zip)
-  - 1x Baseplate
+- [Датчик швидкості (включено в Skynode eval. kit)](https://www.dualrc.com/parts/airspeed-sensor-sdp33) — рекомендований для покращення безпеки та продуктивності
+- [Датчик швидкості (дешевший альтернативний варіант)](https://holybro.com/products/digital-air-speed-sensor?pr_prod_strat=use_description\&pr_rec_id=236dfda00\&pr_rec_pid=7150470561981\&pr_ref_pid=7150472462525\&pr_seq=uniform)
+- [Lidar Lightware lw20-c (включено в Skynode eval. kit)](../sensor/sfxx_lidar.md) (Необов'язково)
+- [Інфрачервоний сенсор вимірювання відстані Seeed Studio PSK-CM8JL65-CC5 (дешевший аналог)](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html) (Опціонально)
+- [Радіо (RC) система](../getting_started/rc_transmitter_receiver.md) на ваш вибір
+- [Наземна станція та радіо зв'язок](https://holybro.com/collections/rc-radio-transmitter-receiver/products/skydroid-h12?variant=42940989931709)
+- [Розширення кабеля USB-C](https://www.digitec.ch/en/s1/product/powerguard-usb-c-usb-c-025-m-usb-cables-22529949?dbq=1\&gclid=Cj0KCQjw2cWgBhDYARIsALggUhrh-z-7DSU0wKfLBVa8filkXLQaxUpi7pC0ffQyRzLng8Ph01h2R1gaAp0mEALw_wcB\&gclsrc=aw.ds)
+- [Розгалужувач I2C](https://www.3dxr.co.uk/autopilots-c2/the-cube-aka-pixhawk-2-1-c9/cube-cables-accessories-sensors-c15/cubepilot-i2c-can-splitter-jst-gh-4pin-p2840)
+- [Монтажі, виготовлені на 3D-принтері](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/foxtech_loong_2160/loong-3d-prints.zip)
+  - 1x Базова плита
   - 1x Stack-fixture
-  - 1x Fan-Mount
-  - 1x Radio-Mount
-  - 1x Top-Plate
-  - 1x Radio-Antenna-Adapter
+  - 1x Кріплення вентилятора
+  - 1x Монтаж радіо
+  - 1x Верхня плита
+  - 1x Адаптер радіоантени
   - 1x USB-C Holder 1
   - 1x USB-C Holder 2
-- [Messing threaded inserts](https://cnckitchen.store/products/gewindeeinsatz-threaded-insert-set-standard-200-stk-pcs)
-- [XT30 connectors](https://www.amazon.com/Connectors-Female-Pieces-Shrink-Battery/dp/B0875MBLNH/ref=sr_1_1?keywords=xt30+connector\&qid=1700643604\&sr=8-1)
+- [Монтаж вставних гвинтових вкладень](https://cnckitchen.store/products/gewindeeinsatz-threaded-insert-set-standard-200-stk-pcs)
+- [XT30 роз'єми](https://www.amazon.com/Connectors-Female-Pieces-Shrink-Battery/dp/B0875MBLNH/ref=sr_1_1?keywords=xt30+connector\&qid=1700643604\&sr=8-1)
 - [Div. Screws](https://de.aliexpress.com/item/1005005999729125.html?spm=a2g0o.productlist.main.1.7fe0c7fcvInMsM\&algo_pvid=2e5373e9-747f-4a28-9739-cd59d05d64f1\&aem_p4p_detail=202311220106396068090130108300006423842\&algo_exp_id=2e5373e9-747f-4a28-9739-cd59d05d64f1-0\&pdp_npi=4%40dis%21CHF%2114.42%213.72%21%21%2116.01%21%21%402101f04d17006439995917563eeeb0%2112000035246480339%21sea%21CH%210%21AB\&curPageLogUid=24AixvgVOlG3\&search_p4p_id=202311220106396068090130108300006423842_1)
-- [Zip ties](https://www.amazon.com/Superun-Cable-Tie-Kit-Assorted/dp/B07TMKJP5S/ref=sr_1_2?crid=968Z3XJK9N3J\&keywords=zip%2Bties%2Bset\&qid=1700644053\&sprefix=zip%2Bties%2Bset%2Caps%2C155\&sr=8-2\&th=1)
+- [Кабельні стяжки-затискачі](https://www.amazon.com/Superun-Cable-Tie-Kit-Assorted/dp/B07TMKJP5S/ref=sr_1_2?crid=968Z3XJK9N3J\&keywords=zip%2Bties%2Bset\&qid=1700644053\&sprefix=zip%2Bties%2Bset%2Caps%2C155\&sr=8-2\&th=1)
 - [Кабель продления антенны - соответствует вашей радиосистеме](https://www.digikey.ch/de/products/detail/amphenol-rf/095-902-536-012/13246174)
-- [Recommended Battery (12S 22Ah)](https://genstattu.com/tattu-22-2v-30c-6s-22000mah-lipo-battery-with-xt90-s-plug-for-uav.html)
+- [Рекомендована батарея (12S 22Аг)](https://genstattu.com/tattu-22-2v-30c-6s-22000mah-lipo-battery-with-xt90-s-plug-for-uav.html)
 
 ## Інструменти
 
@@ -73,33 +73,33 @@ Foxtech Loong 2160 VTOL - це легкий у монтажі майже гот�
 
 - Набір гофроксена
 - Набір гаєчних ключів
-- [Soldering station](https://www.amazon.com/UY-CHAN-Programmable-Pocket-size-Soldering/dp/B07G71CKC4/ref=sr_1_7?crid=2S2XK6363XRDF\&keywords=ts+80+soldering+iron\&qid=1700644208\&sprefix=ts+80%2Caps%2C151\&sr=8-7)
+- [Станція для паяння](https://www.amazon.com/UY-CHAN-Programmable-Pocket-size-Soldering/dp/B07G71CKC4/ref=sr_1_7?crid=2S2XK6363XRDF\&keywords=ts+80+soldering+iron\&qid=1700644208\&sprefix=ts+80%2Caps%2C151\&sr=8-7)
 - Клей: гарячий клей, 5 хв епоксидка
-- Tape
+- Ізострічка
 - Двостороння стрічка 3M ([стрічка 3M VHB](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y))
-- 3D-Printer
+- 3D-принтер
 - [Синій Loctite](https://www.amazon.com/Loctite-Heavy-Duty-Threadlocker-Single/dp/B000I1RSNS?th=1)
 
 ## Інтеграція з обладнанням
 
-In this documentation the integration of a Auterion Skynode is described.
-The installation of a Pixhawk can be done similarly.
+У цій документації описано інтеграцію Auterion Skynode.
+Встановлення Pixhawk можна виконати аналогічно.
 
-### Preparations
+### Підготовка
 
-### Avionics Unit
+### Авіонічний блок
 
-![Complete stack assembly](../../assets/airframes/vtol/foxtech_loong_2160/02-stack.png)
+![Повна збірка стеку](../../assets/airframes/vtol/foxtech_loong_2160/02-stack.png)
 
-#### Prepare 3D-Printed Parts
+#### Підготуйте деталі, надруковані на 3D-принтері
 
 :::info
 Використовуйте паяльник, щоб натиснути різьбові вкладки в надруковані деталі 3D.
 :::
 
-1. Insert 10x M3 threaded inserts into the baseplate as shown in the picture:
+1. Вставте 10x різьбових вкладок M3 в піддон, як показано на малюнку:
 
-   ![Baseplate with threaded inserts](../../assets/airframes/vtol/foxtech_loong_2160/03-baseplate.jpg)
+   ![Основна плита з різбленими вставками](../../assets/airframes/vtol/foxtech_loong_2160/03-baseplate.jpg)
 
 2. Вставте 2x різьбові вставки M3 в пристрій для накладання, як показано на зображенні нижче:
 
@@ -120,22 +120,22 @@ The installation of a Pixhawk can be done similarly.
 
 :::
 
-   ![Fan-mount with fan](../../assets/airframes/vtol/foxtech_loong_2160/07-fan-mount.jpg)
+   ![Кріплення вентилятора](../../assets/airframes/vtol/foxtech_loong_2160/07-fan-mount.jpg)
 
-5. Remove the original mounting plate from the vehicle.
+5. Вилучіть оригінальну кронштейнну пластину з автомобіля.
    Приклейте кабелі до зовнішньої частини фюзеляжу.
 
    ![Порожнє фюзеляж](../../assets/airframes/vtol/foxtech_loong_2160/08-preparations.jpg)
 
 6. Перемістіть підставку в транспортний засіб.
 
-7. Screw the stack fixture to the baseplate and mark the location of the stack fixture with tape or a pen.
+7. Закрутіть кріплення стопора до основної плити та позначте місце розташування кріплення стопора стрічкою або ручкою.
 
 8. Вилучіть частини з фюзеляжу та склейте кріплення стопки на місце за допомогою гарячого клею.
 
 ![Mounting stack fixture](../../assets/airframes/vtol/foxtech_loong_2160/09-stack-fixure.jpg)
 
-### 40A Power Module
+### Модуль потужністю 40A
 
 Модуль живлення 40A забезпечує живлення для авіоніки при використанні Skynode (і поставляється із комплектом оцінки Skynode):
 
@@ -148,14 +148,14 @@ The installation of a Pixhawk can be done similarly.
 
 Якщо потрібно, вихід 10V з радіопорту на PM також може бути викладений через XT30, який може бути встановлений поруч зі входом батареї 6S XT60.
 
-### Sensors
+### Датчики (сенсори)
 
-#### Pitot Tube
+#### Трубка Піто
 
 1. Датчик може бути встановлений за допомогою 2x винтів M3x16мм в передньому правому куті підставки.
-   Take care that the connector is facing the center of the fuselage.
+   Піклуйтесь, щоб конектор був звернутий у бік центру фюзеляжу.
 
-   ![Mounted airspeed sensor](../../assets/airframes/vtol/foxtech_loong_2160/11-airspeed-sensor.jpg)
+   ![Встановлений датчик швидкості повітря](../../assets/airframes/vtol/foxtech_loong_2160/11-airspeed-sensor.jpg)
 
    Лише передню трубу (не так, як показано на картинці) використовується; іншу трубу можна видалити, оскільки наш досвід показав, що тиск всередині фюзеляжу достатній як статичний тиск.
 
@@ -167,11 +167,11 @@ The installation of a Pixhawk can be done similarly.
 
 :::
 
-#### Lidar
+#### Лідар
 
 :::info
-A lidar is recommended!
-If no lidar is mounted you should disable using fixed-wing actuation in hover to accelerate forward (set [VT_FWD_THRUST_EN](../advanced_config/parameter_reference.md#VT_FWD_THRUST_EN) to `0` instead of `1`).
+Лідар є рекомендованим!
+Якщо лідар не встановлено, ви повинні вимкнути використання дії фіксованого крила в режимі утримання для прискорення вперед (встановіть [VT_FWD_THRUST_EN](../advanced_config/parameter_reference.md#VT_FWD_THRUST_EN) на `0` замість `1`).
 :::
 
 1. Позначте місце для встановлення лідару за допомогою скотчу або ручки.
@@ -183,148 +183,148 @@ If no lidar is mounted you should disable using fixed-wing actuation in hover to
 
    ![Встановлений лідар](../../assets/airframes/vtol/foxtech_loong_2160/13-lidar-02.jpg)
 
-#### GPS/Compass
+#### GPS/компас
 
-1. Use double sided tape to mount the GPS in the rear of the vehicle underneath the rear latch.
+1. Використовуйте двосторонній скотч для кріплення GPS на задній частині транспортного засобу під задньою засувкою.
 
-   ![Installed GPS](../../assets/airframes//vtol/foxtech_loong_2160/14-gps.jpg)
+   ![Встановлений GPS](../../assets/airframes//vtol/foxtech_loong_2160/14-gps.jpg)
 
-   The arrow on the GPS for the orientation can be ignored.
-   The orientation will be detected by the flight controller during the calibration.
+   Стрілка на GPS для орієнтації може бути проігнорована.
+   Орієнтацію буде визначено під час калібрування автопілота.
 
-### Flight Controller
+### Політний контролер
 
-Install either the Pixhawk or Skynode onto the baseplate.
+Встановіть на базову платформу або Pixhawk, або Skynode.
 
 #### Pixhawk 6c/6c mini
 
-1. Use double sided tape to mount the flight controller to the baseplate.
+1. Використовуйте двосторонню стрічку для кріплення контролера польоту до базової платформи.
 
 #### Skynode
 
-1. Use 4x M3x8 screws to mount the Skynode to the baseplate.
-   Make sure that the top of the "A" is facing to the front of the vehicle.
-2. Plug the 40A Power Module into the upper one of the two power connectors.
-3. Plug one (or if needed two) USB adapters into the 4-pin JST-GH connectors into the back of the Skynode and feed them to the front of the plate.
-   Fix the cables with zip ties in place.
-4. Tape a I2C splitter to the front right side of the baseplate (The splitter can be used to plug in ETH devices such as a radio link.)
-5. Connect the I2C splitter with the ETH port in the back of the Skynode.
-6. Plug in the two 40-pin cables into the front of the Skynode.
-7. Plug in the USB-C extension cable and bend it over to the front.
-   The bend needs to be very tight, so that the plate will fit into the vehicle.
+1. Використовуйте 4x гвинти M3x8 для кріплення Skynode до підстави.
+   Переконайтеся, що верхня частина "A" спрямована вперед транспортного засобу.
+2. Вставте 40-амперний модуль живлення в верхній з двох роз'ємів живлення.
+3. Вставте один (або якщо потрібно, два) USB адаптери в 4-контактні роз'єми JST-GH на задній частині Skynode та прокладіть їх до передньої панелі.
+   Виправте кабелі за допомогою хомутів-ґудзиків на місці.
+4. Приклейте розгалужувач I2C до правої передньої сторони підставки (Розгалужувач може бути використаний для підключення пристроїв ETH, таких як радіозв'язок.)
+5. Підключіть розгалужувач I2C до порту ETH на задній панелі Skynode.
+6. Вставте два 40-контактних кабелі у передню частину Skynode.
+7. Підключіть USB-C кабель подовження та згинайте його впереду.
+   Згин повинен бути дуже тугим, щоб пластина влізла в дрон.
 
-![Installed Skynode](../../assets/airframes/vtol/foxtech_loong_2160/15-skynode.jpg)
+![Встановлений Skynode](../../assets/airframes/vtol/foxtech_loong_2160/15-skynode.jpg)
 
-#### Adapter Boards
+#### Плати адаптерів
 
-1. Screw the Pixhawk adapter Boards to the top plate.
+1. Закрутіть до верхньої пластини плати адаптерів Pixhawk.
 
-### Antennas and RC Receiver
+### Антени та RC приймач
 
-1. Tape the Skynode LTE antennas to the side of the fuselage as shown in the picture:
+1. Приклейте антени Skynode LTE до боку фюзеляжу, як показано на зображенні:
 
-   ![LTE-Antennas](../../assets/airframes/vtol/foxtech_loong_2160/16-lte-antennas.jpg)
+   ![Антени LTE](../../assets/airframes/vtol/foxtech_loong_2160/16-lte-antennas.jpg)
 
-2. If you are using a radio telemetry module you can mount the antennas to the top of the fuselage.
-   In the front you can mount the antenna extension cable directly.
+2. Якщо ви використовуєте модуль радіотелеметрії, ви можете встановити антени на верх фюзеляжу.
+   Зверху ви можете прямо встановити кабель подовження антени.
 
-   ![WIFI-Antennas-Front](../../assets/airframes/vtol/foxtech_loong_2160/17-antenna-front.jpg)
+   ![WIFI-Антени-Фронтальні](../../assets/airframes/vtol/foxtech_loong_2160/17-antenna-front.jpg)
 
-   In the back you can use the 3D-Printed antenna adapter.
-   The adapter can be glued in place with hot glue.
+   На задній частині ви можете використовувати адаптер антени з використанням технології 3D-друку.
+   Адаптер можна склеювати на місці гарячим клеєм.
 
-   ![WIFI-Antenna-Back](../../assets/airframes/vtol/foxtech_loong_2160/19-rear-antenna.jpg)
+   ![Задня WIFI антена](../../assets/airframes/vtol/foxtech_loong_2160/19-rear-antenna.jpg)
 
-### 12S Power Module
+### Модуль потужності 12S
 
-This 12S power module is the main power module for the motors.
-It can handle higher currents than the 40A power module used to power the avionics, and is needed since the Loong uses up to 120A in the hover phase.
+Цей модуль живлення 12S є основним модулем живлення для двигунів.
+Цей блок може витримувати більше струму, ніж блок живлення потужністю 40A, що використовується для живлення авіоніки, і потрібен, оскільки Loong використовує до 120A у фазі зависання.
 
-The 12S Power Module will be mounted on top of the battery.
-Plug the XT90 that is installed inside the vehicle into the PM.
-The power cable to connect the Skynode needs to be extended.
-This is necessary to get battery readings from the power module.
+Модуль живлення 12S буде встановлено на верхній частині батареї.
+Підключіть XT90, який встановлений всередині транспортного засобу, до PM.
+Потрібно подовжити кабель живлення для підключення до Skynode.
+Це необхідно для отримання показників батареї з блоку живлення.
 
-The power module can be used as a 5V backup for Skynode.
+Модуль живлення може бути використаний як резервна для Skynode на 5В.
 
 ![12S-Power-Module](../../assets/airframes/vtol/foxtech_loong_2160/18-12s-power-module.jpg)
 
-### Assembly
+### Збірка
 
-The assembly steps are:
+Кроки зборки:
 
-1. Slide the baseplate into the vehicle.
-2. Plug in the LTE-Antennas into the Skynode.
-3. Screw the Fan-Mount and Radio-Mount to the baseplate.
-4. Slide the baseplate all the way back and screw it to the stack fixture.
-5. Place the top plate on top of the stack and feed the 40-pin cables from the Skynode through the two holes in front of the Pixhawk adapter boards.
-6. Make sure to connect the top connector to the adapter board that has the 'GPS1' input.
+1. Перемістіть підставку в транспортний засіб.
+2. Вставте LTE-антени в Skynode.
+3. Закрутіть кріплення вентилятора та радіо на базову пластину.
+4. Зсуньте основну пластину назад і закрутіть її на фіксатор стопки.
+5. Поставте верхню плиту на верх стека та прокладіть 40-контактні кабелі від Skynode через дві отвори перед платами адаптерів Pixhawk.
+6. Впевніться, що підключите верхній з'єднувач до плати адаптера, на якій є вхід 'GPS1'.
 
-Plug the actuators in to the Pixhawk adapter board in the following order:
+Вставте приводи в адаптерну плату Pixhawk у такій послідовності:
 
 MAIN:
 
-1. Puller Motor
-2. Empty, or fan if installed
-3. Aileron right
-4. Aileron left
-5. Elevator right
-6. Elevator left
-7. Rudder
+1. Мотор
+2. Порожній, або вентилятор, якщо встановлено
+3. Правий ельєрон
+4. Лівий ейлерон
+5. Правий руль висоти
+6. Лівий руль висоти
+7. Кермо
 
 AUX:
 
-1. Motor front right
-2. Motor rear left
-3. Motor front left
-4. Motor rear right
+1. Мотор правий передній
+2. Мотор лівий задній
+3. Мотор лівий передній
+4. Мотор правий задній
 
-If you wish connect the actuators to different outputs you will need to modify the Actuator Output mappings (see [Actuator Configuration](../config/actuators.md)).
+Якщо ви бажаєте підключити приводи до різних виходів, вам потрібно буде змінити відображення виходів приводу (див. [Конфігурацію приводу](../config/actuators.md)).
 
-## Software Setup
+## Налаштування програмного забезпечення
 
-### Select Airframe
+### Вибір планера
 
-1. Open QGC, select the **Q** icon, and then select **Vehicle Setup**.
-2. Select the [Airframe](../config/airframe.md) tab
-3. Select [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) from the _Standard VTOL_ group, and then and click **Apply and Restart**.
+1. Відкрийте QGC, виберіть значок **Q**, а потім виберіть **Налаштування транспортного засобу**.
+2. Виберіть вкладку [Airframe](../config/airframe.md)
+3. Виберіть [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) з групи _Standard VTOL_ а потім клікніть **Apply and Restart**.
 
-### Load Parameters File
+### Завантажте файл параметрів
 
-Next we load a [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/foxtech_loong_2160/loong.params) that contains parameters that define the frame geometry, output mappings, and tuning values — so you don't have to!
-If you have followed the wiring instructions for the motors you probably won't need to do much further configuration other than sensor calibration and fixing the trims.
+Далі ми завантажуємо [файл параметрів](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/foxtech_loong_2160/loong.params), який містить параметри, що визначають геометрію каркасу, відображення виводів та значення настройки - тож вам не потрібно!
+Якщо ви вже дотримувалися інструкцій щодо підключення моторів, вам, ймовірно, не знадобиться багато подальшої конфігурації, окрім калібрування сенсорів та фіксація обтискань.
 
-To load the file:
+Щоб завантажити файл:
 
-1. Download the [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/foxtech_loong_2160/loong.params).
-2. Select the [Parameters](../advanced_config/parameters.md#finding-updating-parameters) tab and then click on **Tools** in the top right corner.
-3. Select **Load from file** and then choose the `loong.params` file you just downloaded.
-4. Reboot the vehicle.
+1. Завантажте [файл параметрів](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/foxtech_loong_2160/loong.params).
+2. Виберіть вкладку [Параметри](../advanced_config/parameters.md#finding-updating-parameters), а потім натисніть на **Tools** в правому верхньому кутку.
+3. Виберіть **Завантажити з файлу**, а потім виберіть файл `loong.params`, який ви щойно завантажили.
+4. Перезапустіть транспортний засіб.
 
-### Sensor Selection
+### Вибір датчика
 
-- If the [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) is used, [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) needs to be set to 6 (SF/LW/20c).
-- Make that the correct airspeed sensor is selected.
-  If you use the recommended [SDP33 airspeed sensor](https://www.dualrc.com/parts/airspeed-sensor-sdp33) no changes will be needed as [SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X) is enabled (set to `1`) in the parameter file.
+- Якщо [Lidar Lightware lw20-c (включено в Skynode eval. kit)](../sensor/sfxx_lidar.md) використовується, потрібно встановити [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) на 6 (SF/LW/20c).
+- Впевніться, що обраний правильний датчик швидкості.
+  Якщо ви використовуєте рекомендований [датчик швидкості SDP33](https://www.dualrc.com/parts/airspeed-sensor-sdp33), зміни не будуть потрібні, оскільки [SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X) увімкнено (встановлено на `1`) в файлі параметрів.
 
-### Sensor Calibration
+### Калібрування датчика
 
-First make sure to set the [correct orientation of the flight controller](../config/flight_controller_orientation.md).
-This should be the default (`ROTATION_NONE`).
+Спочатку переконайтеся, що встановлено [правильну орієнтацію контролера політної системи](../config/flight_controller_orientation.md).
+Це має бути значенням за замовчуванням (`ROTATION_NONE`).
 
-Then calibrate the main sensors:
+Потім калібруйте основні сенсори:
 
-- [Compass](../config/compass.md)
-- [Gyroscope](../config/gyroscope.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Airspeed](../config/airspeed.md)
+- [Компас](../config/compass.md)
+- [Гіроскоп](../config/gyroscope.md)
+- [Акселерометр](../config/accelerometer.md)
+- [Швидкість](../config/airspeed.md)
 
-### RC-Setup
+### RC-Установка
 
-[Calibrate your RC Controller](../config/radio.md) and setup the [flight mode switches](../config/flight_mode.md).
+[Відкалібруйте ваш RC Controller](../config/radio.md) та налаштуйте [перемикач режиму польоту](../config/flight_mode.md).
 
-We recommend you assign RC switches for the set of modes defined in [Flight Mode Configuration > What Flight Modes and Switches Should I Set?](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set).
-In particular you should assign a _VTOL Transition Switch_, _Kill Switch_, and a switch to select [Stabilized mode](../flight_modes_fw/stabilized.md) and [Position mode](../flight_modes_fw/position.md).
+Ми рекомендуємо вам призначити RC перемикачі для набору режимів, визначених у [Flight Mode Configuration > What Flight Modes and Switches Should I Set?](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set).
+Зокрема, ви повинні призначити _VTOL Transition Switch_, _Kill Switch_ та перемикач для вибору [Режиму стабілізації](../flight_modes_fw/stabilized.md) та [Режиму позиціювання](../flight_modes_fw/position.md).
 
 ### Actuator Setup and ESC Calibration
 

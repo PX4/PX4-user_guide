@@ -1,8 +1,8 @@
-# ConfigOverrides (UORB message)
+# ConfigOverrides (повідомлення UORB)
 
-Configurable overrides by (external) modes or mode executors
+Конфігуровані перевизначення (зовнішніми) режимами або виконавцями режимів
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ConfigOverrides.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ConfigOverrides.msg)
 
 ```c
 # Configurable overrides by (external) modes or mode executors

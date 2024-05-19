@@ -1,6 +1,6 @@
-# GeofenceStatus (UORB message)
+# GeofenceStatus (повідомлення UORB)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GeofenceStatus.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GeofenceStatus.msg)
 
 ```c
 uint64 timestamp                        # time since system start (microseconds)

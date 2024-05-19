@@ -1,4 +1,4 @@
-# CellularStatus (UORB message)
+# CellularStatus (повідомлення UORB)
 
 
 

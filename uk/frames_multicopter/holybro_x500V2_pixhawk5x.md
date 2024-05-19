@@ -22,154 +22,154 @@
 Набір Holybro [X500 V2 Kit](https://holybro.com/collections/x500-kits) включає майже всі необхідні компоненти:
 
 * X500V2 Frame Kit
-  * Body - Full Carbon Fiber Top & Bottom plate (144 x 144mm, 2mm thick)
-  * Arm - High strength & ultra-lightweight 16mm carbon fiber tubes
-  * Landing gear - 16mm & 10mm diameter carbon fiber tubes
-  * Platform board - With mounting holes for GPS & popular companion computer
-  * Dual 10mm Ø rod x 250 mm long rail mounting system
-  * Battery mount with two Battery Straps
-  * Hand tools for installation
-* Holybro Motors - 2216 KV880 x6 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
-* Holybro BLHeli S ESC 20A x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
-* Propellers - 1045 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
-* Power Distribution Board – XT60 plug for battery & XT30 plug for ESCs & peripherals
-* Camera mount (optional and the 3D file can be downloaded from [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_X500_V2_3D_Print.rar?v=1665561017))
+  * Корпус - верхня & нижня плити з повним вуглецевим волокном (144 х 144 мм, товщиною 2 мм)
+  * Кронштейн - Високоміцні & надлегкі 16-міліметрові вуглецеві труби
+  * Стільники - трубки з вуглецевого волокна діаметром 16 мм & 10 мм
+  * Платформа - З отворами для кріплення GPS & популярного компаньйон-комп'ютера
+  * Система кріплення з подвійними пружинними валиками 10 мм Ø та довжиною 250 мм
+  * Кріплення батареї з двома стропами для батареї
+  * Ручні інструменти для встановлення
+* Двигуни Holybro - 2216 KV880 x6 (зупинено - перевірте [список запасних частин](https://holybro.com/products/spare-parts-x500-v2-kit) для поточної версії).
+* ESC Holybro BLHeli S 20A x4 (зупинено - перевірте [список запасних частин](https://holybro.com/products/spare-parts-x500-v2-kit) для поточної версії).
+* Пропелери - 1045 x4 (зупинено - перевірте [список запчастин](https://holybro.com/products/spare-parts-x500-v2-kit) для поточної версії).
+* Розподільча плата живлення – роз'єм XT60 для акумулятора & роз'єм XT30 для ESC & периферійних пристроїв
+* Кріплення для камери (необов'язкове, а 3D-файл можна завантажити [тут](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_X500_V2_3D_Print.rar?v=1665561017))
 
-Other parts in this build(**Not included in the ARF kit**):
+Інші частини у цій збірці(**Не включені в комплект ARF**):
 * [Pixhawk 5X автопілот](../flight_controller/pixhawk5x.md)
 * [M8N GPS](https://holybro.com/products/m8n-gps)
 * [Модуль живлення - PM02D](../power_module/holybro_pm02d.md)
 * [433/915 MHz Радіо телеметрія](../telemetry/holybro_sik_radio.md)
 
-Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
+Додатково вам знадобиться акумулятор (Holybro рекомендує 4S 5000mAh) і приймач ([сумісна радіосистема](../getting_started/rc_transmitter_receiver.md)), якщо ви хочете керувати дроном вручну.
 
-## Kit Hardware
+## Комплект апаратного забезпечення
 
-This section lists all hardware for the frame and the autopilot installation.
+У цьому розділі перераховано все обладнання для встановлення рами та автопілота.
 
-| Item                         | Description                                       | Quantity |
-| ---------------------------- | ------------------------------------------------- | -------- |
-| Bottom plate                 | Carbon fiber (2mm thick)                          | 1        |
-| Top plate                    | Carbon fiber (1.5mm thick)                        | 1        |
-| Arm                          | Carbon fiber tube (Assembled with motors mounted) | 4        |
-| Landing gear - Vertical pole | Carbon fiber tube + engineering plastic           | 2        |
-| Landing gear - Cross bar     | Carbon fiber tube + engineering plastic + foam    | 2        |
-| Mounting Rail                | Diameter: 10mm length: 250mm                      | 2        |
-| Battery mounting board       | Thickness: 2mm                                    | 1        |
-| Battery pad                  | 3mm Silicone sheet black                          | 1        |
-| Platform board               | Thickness: 2mm                                    | 1        |
-| Hanger & rubber ring gasket  | Inner hole diameter: 10mm black                   | 8        |
+| Елемент                                | Опис                                                    | Кількість |
+| -------------------------------------- | ------------------------------------------------------- | --------- |
+| Нижня пластина                         | Вуглецеве волокно (товщиною 2 мм)                       | 1         |
+| Верхня пластина                        | Вуглецеве волокно (товщиною 1.5мм)                      | 1         |
+| Кронштейн                              | Вуглецева труба (складена з монтованими двигунами)      | 4         |
+| Шасі - Вертикальна стійка              | Вуглепластикова трубка + інженерний пластик             | 2         |
+| Шасі - Поперечна балка                 | Вуглепластикова трубка + інженерний пластик + пінопласт | 2         |
+| Монтажна рейка                         | Діаметр: 10мм довжина: 250мм                            | 2         |
+| Плата кріплення акумулятора            | Товщина: 2мм                                            | 1         |
+| Підставка для батареї                  | Чорний лист силікону товщиною 3 мм                      | 1         |
+| Плата платформи                        | Товщина: 2мм                                            | 1         |
+| Кріплення & гумове кільцеве ущільнення | Діаметр внутрішнього отвору: 10 мм чорний               | 8         |
 
  ![X500V2 ARF Kit Full Package Contents](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500_v2_whats_inside.png)
 
-   _Figure 1_: X500 V2 ARF Kit what's inside
+   _Рисунок 1_: Набір X500 V2 ARF - що всередині
 
 ### Електроніка
 
-| Item Description                                                               | Quantity |
-| ------------------------------------------------------------------------------ | -------- |
-| Pixhawk5x & Assorted Cables                                                    | 1        |
-| M8N GPS Module                                                                 | 1        |
-| Power Module PM02D (with pre-soldered ESC power cables)                        | 1        |
-| Motors 2216 KV880（V2 Update)                                                   | 4        |
-| Holybro BLHeli S ESC 20A x4                                                    | 1        |
-| Holybro BLHeli S ESC 20A x4                                                    | 1        |
-| 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md) | 1        |
+| Опис предмету                                                                     | Кількість |
+| --------------------------------------------------------------------------------- | --------- |
+| Pixhawk5x & Assorted Cables                                                       | 1         |
+| Модуль GPS M8N                                                                    | 1         |
+| Модуль живлення PM02D (з попередньо припаяними кабелями живлення ESC)             | 1         |
+| Двигуни 2216 KV880 (оновлення V2)                                                 | 4         |
+| Holybro BLHeli S ESC 20A x4                                                       | 1         |
+| Holybro BLHeli S ESC 20A x4                                                       | 1         |
+| 433 МГц / 915 МГц [Телеметричне радіо Holybro](../telemetry/holybro_sik_radio.md) | 1         |
 
-### Tools needed
+### Необхідні інструменти
 
-Tools are included to do the assembly, however you may need:
+У комплект включені інструменти для зборки, проте вам може знадобитися:
 
-- Wire cutters
-- Precision tweezers
+- Кусачки
+- Прецизійний пінцет
 
 
-## Assembly
+## Збірка
 
 Орієнтовний час збірки - 55 хвилин (25 хвилин на раму, 30 хвилин на встановлення/налаштування автопілота)
 
-1. Почніть зі складання корисного навантаження & тримача акумулятора. Push the rubbers into grippers (Do not use sharp items to push them in!). Next, pass the holders through the holder bars with the battery holder bases as Figure 3.
+1. Почніть зі складання корисного навантаження & тримача акумулятора. Втисніть гумки в захоплювачі (не використовуйте гострі предмети, щоб їх втиснути в них!). Далі пропустіть тримачі через планки тримача з основами тримача батарей, як показано на рисунку 3.
 
    ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_required_stuff.png)
 
-   _Figure 2_: Payload holder components
+   _Рисунок 2_: Компоненти тримача вантажу
 
    ![Landing Figure 2: Assembled](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_assembled.png)
 
-   _Figure 3_: Payload holder assembled
+   _Рисунок 3_: Встановлювач навантаження складений
 
-1. The next is to go for attaching the bottom plate to the payload holder.
+1. Наступним кроком буде прикріплення нижньої пластини до тримача вантажу.
 
-   You will need the parts as shown in Figure 4. Then mount the base for power distribution board using nylon nuts as Figure 5. Finally using 8 hex screws you can join the bottom plate to the payload holder (Figure 7)
+   Вам знадобляться деталі, як показано на рисунку 4. Потім встановіть основу для розподільної плати живлення, використовуючи нейлонові гайки, як зображено на Рис. 5. Нарешті, використовуючи 8 шестигранних гвинтів, ви можете приєднати нижню пластину до тримача навантаження (Рисунок 7)
 
    ![Materials to attach bottom plate](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/topplate_holder_stuff.png)
 
-   _Figure 4_: Needed Materials
+   _Рисунок 4_: Необхідні матеріали
 
    ![PDB mountbase](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/powerboard-mountbase.png)
 
-   _Figure 5_: PDB mount base
+   _Рисунок 5_: База кріплення PDB
 
    ![PDB attachment](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/pdb_bottom_plate.png)
 
-   _Figure 6_: Mounted pdb with nylon nuts
+   _Рисунок 6_: Змонтований pdb з поліамідними гайками
 
    ![Bottom plate Final](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/bottom_plate_holder_final.png)
 
-   _Figure 7_: Mounted Plate on payload holder
+   _Рисунок 7_: Встановлена плата на тримач для навантаження
 
-1. Let's gather the stuff needed for mounting landing gear as Figure 8. Use the hex screws to join landing gears to the bottom plate. You also need to open three hex screws on each of the leg stands so you can push them into carbon fiber pipes. Do not forget to tighten them back again.
+1. Давайте зберемо речі, необхідні для монтажу посадкового шасі, як на рисунку 8. Використовуйте гвинти, щоб приєднати посадкові шасі до нижньої пластини. Також потрібно відкрити три шестигранних гвинти на кожній з ніжок, щоб ви могли вставити їх у вуглецеві труби. Не забудьте знову їх затягнути.
 
    ![Attach Landing Gear Stuff](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/landing_gear_materials.png)
 
-   _Figure 8_: Required parts for landing gear attachment
+   _Рисунок 8_: Обов'язкові частини для кріплення посадочного шасі
 
    ![Lanfing great to bottom plate](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/attached_landing_gear.png)
 
-   _Figure 9_: Landing gear attachment to the body
+   _Рисунок 9_: Кріплення посадочно шасі до корпусу
 
-1. We will gather all the arms now to mount the top plate. Please pay attention that the motor numbers on arms are a match with the ones mentioned on the top plate. Fortunately, motors are mounted and ESCs have been connected in advance. Start by passing through all the screws as you have the arms fixed in their own places (They have a guide as shown in Figure 11 to ensure they are in place) and tighten all nylon nuts a bit. Then you can connect XT30 power connectors to the power board. Please keep in mind that the signal wires have to be passed through the top plate such that we can connect them later to Pixhawk.
+1. Зараз ми зберемо все оснащення, щоб встановити верхню пластину. Прошу звернути увагу, що номери моторів на кронштейнах відповідають тим, що згадані на верхній платі. На щастя, мотори встановлені, а ESCs були з'єднані заздалегідь. Почніть, проходячи через всі гвинти, так як ви зафіксували кронштейни на їхніх власних місцях (Вони мають направляючий елемент, як показано на рисунку 11, щоб переконатися, що вони на місці), і трохи підтягніть всі нейлонові гайки. Потім ви зможете підключити роз'єми живлення XT30 до плати живлення. Пам'ятайте, що дроти сигналу повинні бути проведені через верхню пластину так, що ми зможемо пізніше їх підключити до Pixhawk.
 
    <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/needed_stuff_top_plate.png" width="700" title="Arms and top plate materials" />
 
-   _Figure 10_: Connecting arms needed materials.
+   _Рисунок 10_: Потрібні матеріали для підключення кронштейнів.
 
    <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/guide_for_arm_mount.png" width="700" title="Guide for the arms mount" />
 
-   _Figure 11_: Guide for the arms mount
+   _Рисунок 11_: Керівництво для установки кронштенів
 
-1. Tighten all 16 screws and nuts by using both hex wrench and nut driver.
+1. Для затягування всіх 16 гвинтів і гайок використовуйте як шестигранний ключ, так і гайковий ключ.
 
    ![Top plae mounted](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_top_plate.png)
 
-   _Figure 12_: Mounted top plate
+   _Рисунок 12_: Монтуємо верхню панель
 
 
-1. Next you can mount your pixhawk on the top plate by using the stickers. It is recommended to have the direction of your Pixhawk's arrow the same as the one mentioned on the top plate.
+1. Наступним кроком ви можете закріпити свій pixhawk на верхній плиті, використовуючи наклейки. Рекомендується мати напрямок стрілки вашого Pixhawk таким же, як зазначено на верхній плиті.
 
    ![Flight controller mounting stickers](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/pixhawk5x_stickertapes.png)
 
-   _Figure 13_: Sticker tapes on Pixhawk
+   _Рисунок 13_: Наклейки на Pixhawk
 
 1. Якщо ви хочете встановити GPS на плату компаньйона-комп'ютера, тепер ви можете закріпити кріплення GPS на ній за допомогою 4 гвинтів і гайок.
 
    <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/gps_mount_plate.png" width="400" title="Secure GPS mount onto companion plate" />
 
-   _Figure 14_: Secure GPS mount onto companion plate
+   _Зображення 14_: Кріплення GPS на додатковій панелі
 
 
-1. Use the tape and stick the GPS to the top of the GPS mast and mount the GPS mast. Make sure the arrow on the gps is pointing forward (Figure 15).
+1. За допомогою скотча приклейте GPS до верхньої частини GPS-щогли і встановіть її на щоглу. Переконайтеся, що стрілка на gps вказує вперед (зображення 15).
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gps2.jpg" width="400" title="Figure 16: GPS and mast" />
 
-   _Figure 15_: GPS and mast
+   _Рисунок 15_: GPS та щогла
 
 
-1. Finally, you can connect the Pixhawk interfaces such as telemetry radio to 'TELEM1' and motors signal cables accordingly.
+1. Наразі ви можете підключити інтерфейси Pixhawk, такі як телеметрійне радіо до 'TELEM1' та відповідно кабелі сигналів для моторів.
 
-Please refer to [Pixhawk 5X Quick Start](../assembly/quick_start_pixhawk5x.md) for more information.
+Будь ласка, зверніться до [Pixhawk 5X Посібник зі швидкого старту](../assembly/quick_start_pixhawk5x.md) для отримання додаткової інформації.
 
-That's it. The fully assembled kit is shown below (Depth camera not included in the kit):
+Ось і все. Повністю зібраний комплект показаний нижче (глибинна камера не входить до комплекту):
 
 ![Assembled Kit](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_x500v2_kit.png)
 
@@ -177,46 +177,46 @@ That's it. The fully assembled kit is shown below (Depth camera not included in 
 ## Конфігурація PX4
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
+Повні інструкції щодо встановлення та налаштування PX4 можна знайти в [Основна конфігурація](../config/index.md).
 :::
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl* використовується для встановлення автопілота PX4 та його налаштування / налаштування для рами X500. [Завантажте та встановіть](http://qgroundcontrol.com/downloads/) *QGroundControl* для вашої платформи.
 
-First update the firmware, airframe, and actuator mappings:
+Спочатку оновіть прошивку, конструкцію та відображення приводів:
 
-- [Firmware](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [Прошивка](../config/firmware.md)
+- [Планер](../config/airframe.md)
 
-  You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro 500 V2**)
+  Вам потрібно буде вибрати шасі *Holybro X500 V2* (**Квадрокоптер x > Holybro 500 V2**)
 
   ![QGroundControl - Select HolyBro 500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
 
-- [Actuators](../config/actuators.md)
-  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
-  - Assign actuator functions to outputs to match your wiring.
-  - Test the configuration using the sliders.
+- [Приводи](../config/actuators.md)
+  - Вам не потрібно оновлювати геометрію транспортного засобу (оскільки це попередньо налаштована конструкція повітряного каркасу).
+  - Призначте функції приводу до виходів, щоб відповідати вашому підключенню.
+  - Перевірте конфігурацію, використовуючи слайдери.
 
-Then perform the mandatory setup/calibration:
+Потім виконайте обов'язкове налаштування / калібрування:
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Radio Setup](../config/radio.md)
-- [Flight Modes](../config/flight_mode.md)
+- [Орієнтація сенсора](../config/flight_controller_orientation.md)
+- [Компас](../config/compass.md)
+- [Акселерометр](../config/accelerometer.md)
+- [Калібрування рівня горизонту](../config/level_horizon_calibration.md)
+- [Налаштування радіо](../config/radio.md)
+- [Режими польоту](../config/flight_mode.md)
 
-Ideally you should also do:
+В ідеалі ви також повинні зробити:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery Estimation Tuning](../config/battery.md)
-- [Safety](../config/safety.md)
+- [Калібрування ESC](../advanced_config/esc_calibration.md)
+- [Налаштування оцінки заряду батареї](../config/battery.md)
+- [Безпека](../config/safety.md)
 
 
-## Tuning
+## Вдосконалення
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+Набори вибору конструкції встановлюють параметри автопілота *за замовчуванням* для каркасу. Ці вистачають для польоту, але це добра ідея налаштувати параметри для конкретної конструкції рами.
 
-For instructions on how, start from [Autotune](../config/autotune.md).
+Для інструкцій щодо того, як розпочати, почніть з [Автоналаштування](../config/autotune.md).
 
 ## Подяки
 

@@ -1,8 +1,8 @@
-# LaunchDetectionStatus (UORB message)
+# LaunchDetectionStatus (повідомлення UORB)
 
 Status of the launch detection state machine (fixed-wing only)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LaunchDetectionStatus.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LaunchDetectionStatus.msg)
 
 ```c
 # Status of the launch detection state machine (fixed-wing only)

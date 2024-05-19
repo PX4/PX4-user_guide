@@ -1,19 +1,19 @@
 # Modules Reference: Template
 
 ## module
-Source: [templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/main/src/templates/template_module)
+Джерело: [templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/main/src/templates/template_module)
 
 
-### Description
-Section that describes the provided module functionality.
+### Опис
+Розділ, що описує наданий функціонал модуля.
 
-This is a template for a module running as a task in the background with start/stop/status functionality.
+Це шаблон для модуля, що працює як завдання у фоновому режимі з функціями start/stop/status.
 
-### Implementation
-Section describing the high-level implementation of this module.
+### Імплементація
+Секція, що описує високорівневу реалізацію цього модуля.
 
-### Examples
-CLI usage example:
+### Приклади
+Приклад використання в CLI:
 ```
 module start -f -p 42
 ```
@@ -21,7 +21,7 @@ module start -f -p 42
 
 <a id="module_usage"></a>
 
-### Usage
+### Використання
 ```
 module <command> [arguments...]
  Commands:
@@ -35,16 +35,16 @@ module <command> [arguments...]
    status        print status info
 ```
 ## work_item_example
-Source: [examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/work_item)
+Джерело: [examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/work_item)
 
 
-### Description
-Example of a simple module running out of a work queue.
+### Опис
+Приклад простого модуля, який виконується з черги завдань.
 
 
 <a id="work_item_example_usage"></a>
 
-### Usage
+### Використання
 ```
 work_item_example <command> [arguments...]
  Commands:

@@ -1,7 +1,7 @@
 # Modules Reference: Controller
 
 ## airship_att_control
-Source: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airship_att_control)
+Джерело: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airship_att_control)
 
 
 ### Опис
@@ -26,7 +26,7 @@ airship_att_control <command> [arguments...]
    status        print status info
 ```
 ## control_allocator
-Source: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/control_allocator)
+Джерело: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/control_allocator)
 
 
 ### Опис
@@ -45,7 +45,7 @@ control_allocator <command> [arguments...]
    status        print status info
 ```
 ## differential_drive
-Source: [modules/differential_drive](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/differential_drive)
+Джерело: [modules/differential_drive](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/differential_drive)
 
 
 ### Опис
@@ -64,7 +64,7 @@ differential_drive <command> [arguments...]
    status        print status info
 ```
 ## flight_mode_manager
-Source: [modules/flight_mode_manager](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager)
+Джерело: [modules/flight_mode_manager](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager)
 
 
 ### Опис
@@ -84,7 +84,7 @@ flight_mode_manager <command> [arguments...]
    status        print status info
 ```
 ## fw_att_control
-Source: [modules/fw_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_att_control)
+Джерело: [modules/fw_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_att_control)
 
 
 ### Опис
@@ -105,7 +105,7 @@ fw_att_control <command> [arguments...]
    status        print status info
 ```
 ## fw_pos_control
-Source: [modules/fw_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_pos_control)
+Джерело: [modules/fw_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_pos_control)
 
 
 ### Опис
@@ -126,7 +126,7 @@ fw_pos_control <command> [arguments...]
    status        print status info
 ```
 ## fw_rate_control
-Source: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_rate_control)
+Джерело: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_rate_control)
 
 
 ### Опис

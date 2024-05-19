@@ -1,8 +1,8 @@
-# GpioRequest (UORB message)
+# GpioRequest (повідомлення UORB)
 
-Request GPIO mask to be read
+Запит на зчитування маски GPIO
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GpioRequest.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GpioRequest.msg)
 
 ```c
 # Request GPIO mask to be read

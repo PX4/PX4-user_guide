@@ -1,8 +1,8 @@
-# ActuatorMotors (UORB message)
+# ActuatorMotors (повідомлення UORB)
 
-Motor control message
+Повідомлення про керування двигуном
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorMotors.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorMotors.msg)
 
 ```c
 # Motor control message

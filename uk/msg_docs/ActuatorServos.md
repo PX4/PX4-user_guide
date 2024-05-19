@@ -1,8 +1,8 @@
-# ActuatorServos (UORB message)
+# ActuatorServos (повідомлення UORB)
 
-Servo control message
+Повідомлення про керування сервоприводом
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorServos.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorServos.msg)
 
 ```c
 # Servo control message

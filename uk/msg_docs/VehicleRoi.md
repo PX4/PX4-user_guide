@@ -1,8 +1,8 @@
-# VehicleRoi (UORB message)
+# VehicleRoi (повідомлення UORB)
 
 Vehicle Region Of Interest (ROI)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRoi.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRoi.msg)
 
 ```c
 # Vehicle Region Of Interest (ROI)

@@ -1,8 +1,8 @@
-# DistanceSensor (UORB message)
+# DistanceSensor (повідомлення UORB)
 
-DISTANCE_SENSOR message data
+Дані повідомлення DISTANCE_SENSOR
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/DistanceSensor.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/DistanceSensor.msg)
 
 ```c
 # DISTANCE_SENSOR message data

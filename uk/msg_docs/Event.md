@@ -1,8 +1,8 @@
-# Event (UORB message)
+# Event (повідомлення UORB)
 
-Events interface
+Інтерфейс подій
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Event.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Event.msg)
 
 ```c
 # Events interface

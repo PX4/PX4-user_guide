@@ -42,45 +42,45 @@
 
 ### Frame QAV250
 
-| Description                   | Quantity |
-| ----------------------------- | -------- |
-| Unibody frame plate           | 1        |
-| Flight controller cover plate | 1        |
-| PDB                           | 1        |
-| Camera plate                  | 1        |
-| 35mm standoffs                | 6        |
-| Vinyl screws and nuts         | 4        |
-| 15mm steel screws             | 8        |
-| Steel nuts                    | 8        |
-| 7mm steel screws              | 12       |
-| Velcro battery strap          | 1        |
-| Foam for battery              | 1        |
-| Landing pads                  | 4        |
+| Опис                            | Кількість |
+| ------------------------------- | --------- |
+| Каркасна пластина Unibody       | 1         |
+| Кришка контролера польоту       | 1         |
+| PDB                             | 1         |
+| Пластина камери                 | 1         |
+| 35-міліметрові стійки           | 6         |
+| Вінілові гвинти та гайки        | 4         |
+| Cталеві шурупи 15 мм            | 8         |
+| Сталеві гайки                   | 8         |
+| Cталеві шурупи 7 мм             | 12        |
+| Акумуляторний ремінь на липучці | 1         |
+| Піна для акумуляторів           | 1         |
+| Посадкові майданчики            | 4         |
 
 ![QAV250 components for frame](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/frame_components.jpg)
 
 
-### Electronics
+### Електроніка
 
-| Description                                                                 | Quantity |
-| --------------------------------------------------------------------------- | -------- |
-| Motors - DR2205 KV2300                                                      | 4        |
-| Fully assembled Power Management Board with ESCs                            | 4        |
-| Holybro power module                                                        | 1        |
-| Fr-sky D4R-II receiver                                                      | 1        |
-| Pixhawk 4 mini                                                              | 1        |
-| Holybro GPS Neo-M8N                                                         | 1        |
-| [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md) | 1        |
-| Battery lumenier 1300 mAh 4S 14.8V                                          | 1        |
-| Vtx 5.8gHz                                                                  | 1        |
-| FPV camera (Complete Kit - only)                                            | 1        |
+| Опис                                                                        | Кількість |
+| --------------------------------------------------------------------------- | --------- |
+| Двигуни - DR2205 KV2300                                                     | 4         |
+| Повністю зібрана плата керування живленням з ESC                            | 4         |
+| Модуль живлення Holybro                                                     | 1         |
+| Приймач Fr-sky D4R-II                                                       | 1         |
+| Pixhawk 4 mini                                                              | 1         |
+| Holybro GPS Neo-M8N                                                         | 1         |
+| [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md) | 1         |
+| Акумуляторна батарея люмінесцентної лампи 1300 mAh 4S 14.8V                 | 1         |
+| Vtx 5.8gHz                                                                  | 1         |
+| FPV-камера (тільки для повного комплекту)                                   | 1         |
 
-The image below shows both frame and electronic components.
+На наведеному нижче зображенні показані як рама, так і електронні компоненти.
 
 ![QAV250 Frame/Pixhawk 4 Mini Electronics before assembly](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/frame_and_electronics_components.jpg)
 
 
-## Assembly
+## Монтаж
 
 Очікуваний час для складання каркасу - 2 години, а для встановлення автопілоту та налаштування конструкції повітряного каркасу в *QGroundControl* - 1,5 години.
 
@@ -88,10 +88,10 @@ The image below shows both frame and electronic components.
 
 Наступні інструменти використовуються у цій збірці:
 
-- 2.0mm Hex screwdriver
-- 3mm Phillips screwdriver
-- Wire cutters
-- Precision tweezers
+- Викрутка з шестигранником 2,0 мм
+- Хрестоподібна викрутка 3 мм
+- Кусачки
+- Прецизійний пінцет
 
 ![Tools required for assembling QAV250](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/assembly_tools.jpg)
 

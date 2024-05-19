@@ -1,4 +1,4 @@
-# GotoSetpoint (UORB message)
+# GotoSetpoint (повідомлення UORB)
 
 Position and (optional) heading setpoints with corresponding speed constraints
 Setpoints are intended as inputs to position and heading smoothers, respectively
@@ -7,7 +7,7 @@ Optional heading setpoints may be specified as controlled by the respective flag
 Unset optional setpoints are not controlled
 Unset optional constraints default to vehicle specifications
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GotoSetpoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GotoSetpoint.msg)
 
 ```c
 # Position and (optional) heading setpoints with corresponding speed constraints

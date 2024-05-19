@@ -1,8 +1,8 @@
-# GimbalControls (UORB message)
+# GimbalControls (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GimbalControls.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GimbalControls.msg)
 
 ```c
 uint64 timestamp            # time since system start (microseconds)
