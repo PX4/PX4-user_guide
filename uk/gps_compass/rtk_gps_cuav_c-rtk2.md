@@ -47,9 +47,9 @@
   * SBAS:L1C/A
 * Кількість одночасних GNSS
   * 4(GPS、GLONASS、GALILEO、Beidou）
-* Nav. update rate
-  * RTK Up to 20HZ
-  * RAW Up to 25hz
+* Nav. частота оновлення
+  * RTK До 20 Гц
+  * RAW До 25 Гц
   * default：5hz
 * Convergence time
   * RTK < 10 sec
