@@ -422,13 +422,13 @@ mag_bias_estimator <command> [arguments...]
 Джерело: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/manual_control)
 
 
-### Description
-Module consuming manual_control_inputs publishing one manual_control_setpoint.
+### Опис
+Модуль споживає вхідні дані вручним керуванням, публікуючи одну установку керування вручну.
 
 
 <a id="manual_control_usage"></a>
 
-### Usage
+### Використання
 ```
 manual_control <command> [arguments...]
  Commands:
@@ -439,28 +439,28 @@ manual_control <command> [arguments...]
    status        print status info
 ```
 ## netman
-Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/netman)
+Джерело: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/netman)
 
 
-  ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted.
+  ### Опис Менеджер конфігурації мережі зберігає налаштування мережі в неволатильній пам'яті. При запуску `update` опція буде виконана. Якщо конфігурація мережі не існує. Значення за замовчуванням буде збережено в неплавучій пам'яті та система перезавантажена.
 
   #### update
 
-  `netman update` is run automatically by [a startup script](../concept/system_startup.md#system-startup). When run, the `update` option will check for the existence of `net.cfg` in the root of the SD Card. It then saves the network settings from `net.cfg` in non-volatile memory, deletes the file and reboots the system.
+  `оновлення мережі` автоматично виконується за допомогою [скрипту запуску системи](../concept/system_startup.md#system-startup). Під час виконання параметра `update` буде перевірено наявність `net.cfg` в корені картки SD. Після цього він зберігає мережеві налаштування з `net.cfg` у неволатильну пам'ять, видаляє файл і перезавантажує систему.
 
   #### save
 
-  The `save` option will save settings from non-volatile memory to a file named `net.cfg` on the SD Card filesystem for editing. Use this to edit the settings. Save does not immediately apply the network settings; the user must reboot the flight stack. By contrast, the `update` command is run by the start-up script, commits the settings to non-volatile memory, and reboots the flight controller (which will then use the new settings).
+  Опція `save` збереже налаштування з необхідної пам'яті в файл з назвою `net.cfg` на файловій системі SD картки для редагування. Використовуйте це, щоб відредагувати налаштування. Збереження не негайно застосовує мережеві налаштування; користувач повинен перезавантажити стек польоту. Напротив, команда `update` запускається сценарієм запуску, зберігає налаштування в постійну пам'ять, та перезавантажує контролер польоту (який потім використовуватиме нові налаштування).
 
-  #### show
+  #### показати
 
-  The `show` option will display the network settings in `net.cfg` to the console.
+  Опція `show` відобразить мережеві налаштування в `net.cfg` на консолі.
 
-  ### Examples $ netman save           # Save the parameters to the SD card. $ netman show           # display current settings. $ netman update -i eth0 # do an update
+  ### Приклади $ netman save           # Зберегти параметри на SD-картку. $ netman show           # відображення поточних налаштувань. $ netman update -i eth0 # зробити оновлення
 
 <a id="netman_usage"></a>
 
-### Usage
+### Використання
 ```
 netman <command> [arguments...]
  Commands:
@@ -474,16 +474,16 @@ netman <command> [arguments...]
                  default: eth0
 ```
 ## pwm_input
-Source: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_input)
+Джерело: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_input)
 
 
-### Description
-Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes via the uORB 'pwm_input` message.
+### Опис
+Вимірює вхід PWM на AUX5 (або MAIN5) через таймер захоплення ISR та публікує через повідомлення uORB 'pwm_input'.
 
 
 <a id="pwm_input_usage"></a>
 
-### Usage
+### Використання
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -498,10 +498,10 @@ pwm_input <command> [arguments...]
 
 
 ### Опис
-The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
+Модуль rc_update обробляє відображення каналів RC: зчитує сирі вхідні канали (`input_rc`), потім застосовує калібрування, відображає канали RC на налаштовані канали та перемикачі режиму а потім публікує як `rc_channels` та `manual_control_input`.
 
 ### Реалізація
-To reduce control latency, the module is scheduled on input_rc publications.
+Щоб зменшити затримку управління, модуль запланований на опублікування введення_управління.
 
 
 <a id="rc_update_usage"></a>
@@ -517,23 +517,23 @@ rc_update <command> [arguments...]
    status        print status info
 ```
 ## replay
-Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
+Джерело: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
 
 
-### Description
-This module is used to replay ULog files.
+### Опис
+Цей модуль використовується для відтворення файлів ULog.
 
-There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
-- `replay_mode=ekf2`: specific EKF2 replay mode. It can only be used with the ekf2 module, but allows the replay to run as fast as possible.
-- Generic otherwise: this can be used to replay any module(s), but the replay will be done with the same speed as the log was recorded.
+Існує 2 змінні середовища, які використовуються для конфігурації: `replay`, яка повинна бути встановлена на ім'я файлу ULog - це файл журналу, який має бути відтворений. Другий - це режим, вказаний через `replay_mode`:
+- `replay_mode=ekf2`: специфічний режим відтворення EKF2. Це можна використовувати лише з модулем ekf2, але дозволяє відтворювати процес якомога швидше.
+- Загальне в іншому випадку: це може бути використано для повторення будь-яких модулів, але відтворення буде здійснене з тією самою швидкістю, що і було записано в журнал.
 
-The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
+Модуль зазвичай використовується разом з правилами видавця uORB, щоб вказати, які повідомлення потрібно відтворити. Модуль відтворення просто опублікує всі повідомлення, які знаходяться в журналі. Це також застосовує параметри з журналу.
 
-The replay procedure is documented on the [System-wide Replay](https://docs.px4.io/main/en/debug/system_wide_replay.html) page.
+Процедура відтворення документована на сторінці [Система Широкомасштабного Відтворення](https://docs.px4.io/main/en/debug/system_wide_replay.html).
 
 <a id="replay_usage"></a>
 
-### Usage
+### Використання
 ```
 replay <command> [arguments...]
  Commands:
@@ -548,17 +548,17 @@ replay <command> [arguments...]
    status        print status info
 ```
 ## send_event
-Source: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/events)
+Джерело: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/events)
 
 
-### Description
-Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
+### Описання
+Фоновий процес, що періодично виконується в черзі завдань LP для виконання рутинних завдань. Зараз він відповідає лише за сигнал тривоги на втрату RC.
 
-The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
+Завдання можна почати через CLI або теми uORB (vehicle_command з MAVLink тощо).
 
 <a id="send_event_usage"></a>
 
-### Usage
+### Використання
 ```
 send_event <command> [arguments...]
  Commands:
@@ -569,16 +569,16 @@ send_event <command> [arguments...]
    status        print status info
 ```
 ## sensor_arispeed_sim
-Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)
+Джерело: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)
 
 
-### Description
+### Опис
 
 
 
 <a id="sensor_arispeed_sim_usage"></a>
 
-### Usage
+### Використання
 ```
 sensor_arispeed_sim <command> [arguments...]
  Commands:
@@ -589,16 +589,16 @@ sensor_arispeed_sim <command> [arguments...]
    status        print status info
 ```
 ## sensor_baro_sim
-Source: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_baro_sim)
+Джерело: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_baro_sim)
 
 
-### Description
+### Опис
 
 
 
 <a id="sensor_baro_sim_usage"></a>
 
-### Usage
+### Використання
 ```
 sensor_baro_sim <command> [arguments...]
  Commands:
@@ -609,16 +609,16 @@ sensor_baro_sim <command> [arguments...]
    status        print status info
 ```
 ## sensor_gps_sim
-Source: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_gps_sim)
+Джерело: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_gps_sim)
 
 
-### Description
+### Опис
 
 
 
 <a id="sensor_gps_sim_usage"></a>
 
-### Usage
+### Застосування
 ```
 sensor_gps_sim <command> [arguments...]
  Commands:
@@ -629,16 +629,16 @@ sensor_gps_sim <command> [arguments...]
    status        print status info
 ```
 ## sensor_mag_sim
-Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_mag_sim)
+Джерело: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_mag_sim)
 
 
-### Description
+### Опис
 
 
 
 <a id="sensor_mag_sim_usage"></a>
 
-### Usage
+### Використання
 ```
 sensor_mag_sim <command> [arguments...]
  Commands:
@@ -649,24 +649,24 @@ sensor_mag_sim <command> [arguments...]
    status        print status info
 ```
 ## sensors
-Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sensors)
+Джерело: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sensors)
 
 
-### Description
-The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
+### Описання
+Модуль сенсорів є центральним у всій системі. Він отримує вихід низького рівня від драйверів, перетворює його в більш придатну форму і публікує його для решти системи.
 
-The provided functionality includes:
-- Read the output from the sensor drivers (`SensorGyro`, etc.). If there are multiple of the same type, do voting and failover handling. Then apply the board rotation and temperature calibration (if enabled). And finally publish the data; one of the topics is `SensorCombined`, used by many parts of the system.
-- Make sure the sensor drivers get the updated calibration parameters (scale & offset) when the parameters change or on startup. The sensor drivers use the ioctl interface for parameter updates. For this to work properly, the sensor drivers must already be running when `sensors` is started.
-- Do sensor consistency checks and publish the `SensorsStatusImu` topic.
+Надана функціональність включає в себе:
+- Прочитайте вивід від драйверів датчиків (`SensorGyro`, тощо). Якщо існують кілька екземплярів того самого типу, виконуйте голосування та обробку аварійної ситуації. Потім застосуйте обертання дошки та калібрування температури (якщо ввімкнено). І, нарешті, опублікуйте дані; одну з тем є `SensorCombined`, яка використовується багатьма частинами системи.
+- Переконайтеся, що драйвери сенсора отримують оновлені калібрувальні параметри (масштаб & зміщення), коли параметри змінюються або на запуску. Драйвери сенсора використовують інтерфейс ioctl для оновлення параметрів. Для того, щоб це працювало належним чином, драйвери сенсора повинні вже працювати, коли `sensors` запускається.
+- Виконайте перевірку узгодженості датчиків та опублікуйте тему `SensorsStatusImu`.
 
-### Implementation
-It runs in its own thread and polls on the currently selected gyro topic.
+### Імплементація
+Він запускається у власній темі і проводить опитування на поточну обрану тему гіроскопа.
 
 
 <a id="sensors_usage"></a>
 
-### Usage
+### Використання
 ```
 sensors <command> [arguments...]
  Commands:
@@ -678,16 +678,16 @@ sensors <command> [arguments...]
    status        print status info
 ```
 ## tattu_can
-Source: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tattu_can)
+Джерело: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tattu_can)
 
 
-### Description
-Driver for reading data from the Tattu 12S 16000mAh smart battery.
+### Опис
+Драйвер для зчитування даних з розумної батареї Tattu 12S 16000mAh.
 
 
 <a id="tattu_can_usage"></a>
 
-### Usage
+### Використання
 ```
 tattu_can <command> [arguments...]
  Commands:
@@ -698,16 +698,16 @@ tattu_can <command> [arguments...]
    status        print status info
 ```
 ## temperature_compensation
-Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/temperature_compensation)
+Джерело: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/temperature_compensation)
 
 
-### Description
-The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
+### Опис
+Модуль компенсації температури дозволяє всім гіроскопам, акселерометрам та барометрам у системі бути температурно компенсованими. Модуль відстежує дані, які надходять від датчиків та оновлює пов'язану тему sensor_correction кожного разу, коли виявляється зміна температури. Модуль також може бути налаштований для виконання обчислення коефіцієнта наступного завантаження, що дозволяє обчислити калібрувальні коефіцієнти теплової калібрації під час циклу температури автомобіля.
 
 
 <a id="temperature_compensation_usage"></a>
 
-### Usage
+### Використання
 ```
 temperature_compensation <command> [arguments...]
  Commands:
@@ -726,27 +726,27 @@ temperature_compensation <command> [arguments...]
    status        print status info
 ```
 ## tune_control
-Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tune_control)
+Джерело: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tune_control)
 
 
-### Description
+### Опис
 
-Command-line tool to control & test the (external) tunes.
+Інструмент командного рядка для керування & тестування (зовнішніх) melodies.
 
-Tunes are used to provide audible notification and warnings (e.g. when the system arms, gets position lock, etc.). The tool requires that a driver is running that can handle the tune_control uorb topic.
+Мелодії використовуються для надання слухових сповіщень та попереджень (наприклад, коли система озброєна, отримує позицію блокування тощо). Інструмент вимагає, щоб був запущений драйвер, який може керувати темою управління tune_control uorb.
 
-Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc
+Інформацію про формат мелодії та попередньо визначені системні мелодії можна знайти тут: https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc
 
-### Examples
+### Приклади
 
-Play system tune #2:
+Грайте системний мелодію #2:
 ```
 tune_control play -t 2
 ```
 
 <a id="tune_control_usage"></a>
 
-### Usage
+### Використання
 ```
 tune_control <command> [arguments...]
  Commands:
@@ -766,11 +766,11 @@ tune_control <command> [arguments...]
    stop          Stop playback (use for repeated tunes)
 ```
 ## uxrce_dds_client
-Source: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
+Джерело: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
 
 
 ### Опис
-UXRCE-DDS Client used to communicate uORB topics with an Agent over serial or UDP.
+Клієнт UXRCE-DDS використовується для спілкування з агентом за допомогою тем uORB через послідовний або UDP.
 
 ### Приклади
 ```
@@ -802,12 +802,12 @@ uxrce_dds_client <command> [arguments...]
    status        print status info
 ```
 ## work_queue
-Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue)
+Джерело: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue)
 
 
 ### Опис предмету
 
-Command-line tool to show work queue status.
+Інструмент командного рядка для відображення статусу черги роботи.
 
 
 <a id="work_queue_usage"></a>
