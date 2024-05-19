@@ -132,7 +132,7 @@
 ![Exceedingly high vibration in spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_spectral.png)
 
 
-### Raw Acceleration
+### Прискорення без обробки
 
 Цей графік показує сирі вимірювання акселерометра для вісей x, y та z. Ідеально, якщо кожна лінія тонка і чітко показує прискорення транспортного засобу.
 
