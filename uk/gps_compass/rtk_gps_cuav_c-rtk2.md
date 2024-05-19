@@ -4,7 +4,7 @@ The [CUAV C-RTK2 receiver](https://www.cuav.net/en/c_rtk_9ps/) is a high-perform
 
 ![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2.png)
 
-## Other characteristics
+## Інші характеристики
 
 * High-performance H7 processor
 * High precision industrial grade IMU
@@ -14,12 +14,12 @@ The [CUAV C-RTK2 receiver](https://www.cuav.net/en/c_rtk_9ps/) is a high-perform
 * Support hotshoe and shutter trigger
 * HS_USB and U disk mode
 
-## Where to Buy
+## Де купити
 
 * [CUAV Store](https://store.cuav.net/shop/c-rtk-2/)
 * [CUAV aliexpress](https://pt.aliexpress.com/item/1005003754165772.html?spm=a2g0o.store_pc_groupList.8148356.13.2f893550i0NE4o)
 
-# Quick Summary
+# Короткий опис
 
 * RTK Receiver
   * ZED-F9P
@@ -89,16 +89,16 @@ The [CUAV C-RTK2 receiver](https://www.cuav.net/en/c_rtk_9ps/) is a high-perform
   * 4.5~6v
 * Operating temperature
   * -20~85℃
-* Size
+* Розмір
   *  56x33x16.5mm
-* Weight
+* Вага
   * 39g
 
-## Configuration
+## Налаштування
 
 [CUAV Docs](https://doc.cuav.net/gps/c-rtk2/en/quick-start-c-rtk2.html)
 
-## Pinout
+## Розпіновка
 
 ![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2_pinouts1.jpg)
 
@@ -106,7 +106,7 @@ The [CUAV C-RTK2 receiver](https://www.cuav.net/en/c_rtk_9ps/) is a high-perform
 
 ![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2_pinouts2.jpg)
 
-## More information
+## Більше інформації
 
 [CUAV Docs](https://doc.cuav.net/gps/c-rtk-series/en/c-rtk-9ps/)
 
