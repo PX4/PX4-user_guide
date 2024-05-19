@@ -1,77 +1,77 @@
-# Magnetometer (Compass) Hardware & Setup
+# Магнітометр (компас) Апаратне забезпечення та налаштування
 
-PX4 uses a magnetometer (compass) for determining the yaw and heading of the vehicle relative to the earth's magnetic field.
+PX4 використовує магнітометр (компас) для визначення курсу та напрямку руху транспортного засобу відносно магнітного поля Землі.
 
-[Pixhawk series](../flight_controller/pixhawk_series.md) flight controllers, and many others, include an internal compass.
-On small vehicles the performance of the internal compass is almost always poor, because the flight controller has to be mounted close to motor/ESC power lines and other sources of electromagnetic interference.
-The internal compass _may_ be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the flight controller a long way from power supply lines.
+[Серія Pixhawk](../flight_controller/pixhawk_series.md) контролерів польоту, а також багато інших, включають внутрішній компас.
+На невеликих літальних апаратах робота внутрішнього компаса майже завжди погана, оскільки контролер польоту повинен бути встановлений близько до кабелів живлення двигуна/ЕСК та інших джерел електромагнітних завад.
+Внутрішній компас може бути корисним на великих апаратах (наприклад, VTOL), де можна зменшити електромагнітні перешкоди, встановивши контролер польоту на великій відстані від джерел живлення.
 
-On most vehicles, and in particular on small vehicles, we recommend using a _combined GPS + Compass_ [mounted as far away from the motor/ESC power supply lines as possible](../assembly/mount_gps_compass.md) - typically on a pedestal or wing (for fixed-wing).
-While you can use a [stand-alone external compass](#stand-alone-compass-modules) (as listed below) it is far more common to use a [combined GPS/Compass module](#combined-gnss-compass-modules).
+На більшості апаратів, особливо на малих, ми рекомендуємо використовувати _комбінований GPS + компас_ [встановлений якомога далі від джерел живлення двигуна/ЕСК] (../assembly/mount_gps_compass.md) - як правило, на підставці або крилі (для літаків з фіксованим крилом).
+Хоча ви можете використовувати [автономний зовнішній компас] (#stand-alone-compass-modules) (як вказано нижче), набагато частіше використовують [комбінований модуль GPS/компас] (#combined-gnss-compass-modules).
 
-Magnetometers support connection to either the I2C/SPI-bus (Pixhawk `GPS1` or `GPS2` ports) or to the CAN bus.
-If a module doesn't include "CAN" in its product name then it is probably an I2C/SPI compass.
+Магнітометри підтримують підключення до шини I2C/SPI (порти Pixhawk `GPS1` або `GPS2`) або до шини CAN.
+Якщо модуль не містить "CAN" у назві, то це, ймовірно, I2C/SPI-компас.
 
-Up to 4 internal or external magnetometers can be connected, though only one will actually be used as a heading source.
-The system automatically chooses the best available compass based on their _priority_ (external magnetometers have a higher priority than internal magnetometers).
-If the primary compass fails in-flight, it will failover to the next one.
-If it fails before flight, arming will be denied.
+Можна підключити до 4 внутрішніх або зовнішніх магнітометрів, хоча тільки один з них буде використовуватися як джерело курсу.
+Система автоматично вибирає найкращий з доступних компасів на основі їхнього _пріоритету_ (зовнішні магнітометри мають вищий пріоритет, ніж внутрішні магнітометри).
+Якщо основний компас виходить з ладу в польоті, він перемикається на наступний.
+Якщо він вийде з ладу до вильоту, в приведенні в стан готовності буде відмовлено.
 
-## Supported Compasses
+## Компаси, що підтримуються
 
-### Compass Parts
+### Частини компасу
 
-PX4 can be used with many magnetometer parts, including: Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C), LIS3MDL (I2C or SPI), RM3100, and more.
-Other supported magnetometer parts and their busses can be inferred from the drivers listed in [Modules Reference: Magnetometer (Driver)](../modules/modules_driver_magnetometer.md).
+PX4 можна використовувати з багатьма деталями магнітометрів, включаючи: Bosch BMM 150 MEMS (через шину I2C), HMC5883 / HMC5983 (I2C або SPI), IST8310 (I2C), LIS3MDL (I2C або SPI), RM3100 та інші.
+Інші підтримувані частини магнітометра та їхні шини можна дізнатися з драйверів, перелічених у [Посилання на модулі: Магнітометр (драйвер)](../modules/modules_driver_magnetometer.md).
 
-These parts are included in stand alone compass modules, combined compass/GNSS modules, and also in many flight controllers,
+Ці деталі входять до складу автономних модулів компаса, комбінованих модулів компаса/ГНСС, а також до складу багатьох контролерів польоту,
 
-### Combined GNSS/Compass Modules
+### Комбіновані модулі ГНСС/компас
 
-See [Global Navigation Satellite Systems (GNSS)](../gps_compass/index.md#supported-gnss) for a list of appropriate modules.
+Список відповідних модулів див. у [Глобальні навігаційні супутникові системи (ГНСС)](../gps_compass/index.md#supported-gnss).
 
 :::info
-If GNSS is required, then a combined GNSS/Compass module will be preferred over the stand-alone modules below.
+Якщо потрібна ГНСС, то комбінований модуль ГНСС/компас буде кращим, ніж окремі модулі, наведені нижче.
 :::
 
-### Stand-Alone Compass Modules
+### Модулі магнітного компасу автономного використання
 
-This list contains stand-alone magnetometer modules (without GNSS).
+Цей список містить самостійні модулі магнітометрів (без ГНСС).
 
-| Пристрій                                                                                                         | Compass |             DroneCan            |
-| :--------------------------------------------------------------------------------------------------------------- | :-----: | :-----------------------------: |
-| [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?    |                                 |
-| [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             |  RM3100 | &amp;check; |
+| Пристрій                                                                                                        | Компас |             DroneCan            |
+| :-------------------------------------------------------------------------------------------------------------- | :----: | :-----------------------------: |
+| [Магнітометр UAVCAN Avionics Anonymous](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?   |                                 |
+| [Компас/Магнітометр Holybro DroneCAN RM3100](https://holybro.com/products/dronecan-rm3100-compass)              | RM3100 | &amp;check; |
 
 Примітка:
 
-- &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported.
-  "?" indicates "unknown".
-- A compass that is not "DroneCAN" can be assumed to be SPI or I2C.
+- &check; або конкретний номер артикулу вказує на те, що функція підтримується, тоді як &cross; або пусте поле вказує на те, що функція не підтримується.
+  "?" означає "невідомо".
+- Компас, який не є "DroneCAN", можна вважати SPI або I2C.
 
-## Mounting
+## Монтаж
 
-[Mounting the Compass](../assembly/mount_gps_compass.md) explains how to mount a compass or GPS/Compass module.
+[Монтаж компаса](../assembly/mount_gps_compass.md) пояснює, як встановити компас або модуль GPS/компас.
 
-## I2C/SPI Compass Setup
+## Налаштування компаса I2C/SPI
 
-On [Pixhawk Series](../flight_controller/pixhawk_series.md) flight controllers you can connect to either the `GPS1` or `GPS2` ports (which have pins for I2C/SPI).
-No further configuration is required.
+На контролерах польоту [Pixhawk Series](../flight_controller/pixhawk_series.md) ви можете підключитися до портів `GPS1` або `GPS2` (які мають виводи для I2C/SPI).
+Немає потреби у додатковій конфігурації.
 
 <!-- On flight controllers that do not follow the Pixhawk connector standard, you will need to connect to an I2C/SPI port. -->
 
-## CAN Compass Setup
+## Налаштування компаса CAN
 
-[DroneCAN](../dronecan/index.md) covers the setup for DroneCAN peripherals, including compasses.
+[DroneCAN](../dronecan/index.md) охоплює налаштування дрона для периферійних пристроїв DroneCAN, включаючи компаси.
 
-You will need to connect the compass to the [CAN bus](../can/index.md#wiring), enable DroneCAN, and specifically enable magnetometers (search for `UAVCAN_SUB_MAG`).
+Вам потрібно буде підключити компас до [CAN шини](../can/index.md#wiring), увімкнути DroneCAN і спеціально увімкнути магнітомери (шукайте `UAVCAN_SUB_MAG`).
 
-## Calibration
+## Калібрування
 
-[Compass Calibration](../config/compass.md) explains how to calibrate all compasses on the vehicle.
+[Калібрування компасу](../config/compass.md) пояснює, як калібрувати всі компаси на апараті.
 
-The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all connected magnetometers.
+Процес є простим і автоматично виявляє, [встановлює обертання за замовчуванням](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), калібрує і розставляє пріоритети для всіх підключених магнітометрів.
 
 ## Дивись також
 
-- [Compass Power Compensation](../advanced_config/compass_power_compensation.md)
+- [Компенсація живлення компаса](../advanced_config/compass_power_compensation.md)
