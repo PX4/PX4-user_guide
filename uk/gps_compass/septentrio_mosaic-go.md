@@ -60,7 +60,7 @@ _Тип роз'єму: MicroSD._
 Роз'єм для картки micro SD. Модуль може зберігати файли (SBF/NMEA) на картку micro SD у цьому гнізді.
 
 ### 6-pin Connector
-_Connector type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GHR-06V-S._
+_Тип роз'єму: GH роз'єм, шаг 1,25 мм, 6 контактів. Корпус роз'єму для з'єднання: GHR-06V-S._
 
 | Назва виводу | Напрямок | Рівень     | Опис                      | Коментар                                                         |
 | ------------ | -------- | ---------- | ------------------------- | ---------------------------------------------------------------- |
@@ -72,14 +72,14 @@ _Connector type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GH
 | EVENT        | In       | 3V3_LVTTL  | Вхідний таймер події      | Підключається до EVENTA mosaic через транслятор рівня 3V3 на 1V8 |
 
 ### 4-pin Connector
-_Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR-04V-S._
+_Тип роз'єму: роз'єм GH, шаг 1,25 мм, 4 шляхи. Корпус роз'єму для з'єднання: GHR-04V-S._
 
-| Назва виводу | Напрямок | Рівень    | Опис                      | Коментар                                        |
-| ------------ | -------- | --------- | ------------------------- | ----------------------------------------------- |
-| NRST         | In       | 3V3_LVTTL | Reset input               | Directly connects to nRST_IN of internal mosaic |
-| TXD2         | Out      | 3V3_LVTTL | Serial COM2 transmit line | Directly connects to TXD2 of internal mosaic    |
-| RXD2         | In       | 3V3_LVTTL | Serial COM2 receive line  | Directly connects to RXD2 of internal mosaic    |
-| GND          |          | 0         | Ground                    |                                                 |
+| Назва виводу | Напрямок | Рівень    | Опис                      | Коментар                                                  |
+| ------------ | -------- | --------- | ------------------------- | --------------------------------------------------------- |
+| NRST         | In       | 3V3_LVTTL | Reset input               | Підключається безпосередньо до nRST_IN внутрішньої mosaic |
+| TXD2         | Out      | 3V3_LVTTL | Serial COM2 transmit line | Підключається безпосередньо до TXD2 внутрішньої mosaic    |
+| RXD2         | In       | 3V3_LVTTL | Serial COM2 receive line  | Підключається безпосередньо до RXD2 внутрішньої mosaic    |
+| GND          |          | 0         | Ground                    |                                                           |
 
 ## Налаштування обладнання
 
