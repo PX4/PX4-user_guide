@@ -112,13 +112,13 @@ ZMO FPV в його початковому стані.
 1. Приклейте з'єднувачі крила до деталі, надрукованої на 3D-принтері, гарячим клеєм або 5 хвилинною епоксидною смолою.
 1. Приклейте 3D-друковану частину разом із з'єднувачем у фюзеляж. Переконайтеся, що правильно вирівняли з'єднувач, поки клей сохне.
 
-   The easiest way to align the connector is to mount the wing while the glue is curing, but make sure that no glue is between the fuselage and the wing, otherwise the wing might get stuck.
+   Найпростіший спосіб вирівняти роз'єм - встановити крило, поки клей застигає, але переконайтеся, що клей не потрапив між фюзеляжем і крилом, інакше крило може застрягти.
 
-The connector glued into the 3D-Printed part
+Роз'єм, вклеєний у 3D-друковану частину
 
 ![Wing connector 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/wing-connector-01.jpg)
 
-The connector glued into the fuselage. Make sure to properly align the connector.
+Роз'єм, вклеєний у фюзеляж. Make sure to properly align the connector.
 
 ![Wing connector 02](../../assets/airframes/vtol/omp_hobby_zmo_fpv/wing-connector-02.jpg)
 
@@ -171,7 +171,7 @@ The connector glued into the fuselage. Make sure to properly align the connector
 
    ![Pitot tube 02](../../assets/airframes/vtol/omp_hobby_zmo_fpv/pitot-tube-02.png)
 
-#### Lidar
+#### Лідар
 
 If needed a lidar can be installed in the front of the fuselage.
 
@@ -202,7 +202,7 @@ To mount the GPS:
 
    Then you can mount the camera with double sided tape to the wall.
 
-### Flight Controller
+### Політний контролер
 
 The Flight Controller can be installed above the ESC.
 
@@ -241,9 +241,9 @@ If a Skynode is installed the LTE can be used as telemetry and video link. If a 
 
    ![LTE antenna 2 and RC receiver](../../assets/airframes/vtol/omp_hobby_zmo_fpv/lte-antenna-02.jpg)
 
-## Software Setup
+## Налаштування програмного забезпечення
 
-### Select Airframe
+### Вибір планера
 
 1. Open QGC, select the **Q** icon, and then select **Vehicle Setup**.
 1. Select the [Airframe](../config/airframe.md) tab
@@ -268,15 +268,15 @@ The airspeed sensor can be enabled in the [Parameters](../advanced_config/parame
 - If the [recommended airspeed sensor (SDP33)](https://www.dualrc.com/parts/airspeed-sensor-sdp33) is used, `SENS_EN_SDP3X` needs to be enabled.
 - If the [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) is used, `SENS_EN_SF1XX` needs to be set to 6 (SF/LW/20c).
 
-### Sensor Calibration
+### Калібрування сенсорів
 
 First make sure to set the [correct orientation of the flight controller](../config/flight_controller_orientation.md). This should be the default (`ROTATION_NONE`).
 
 Then calibrate the main sensors:
 
-- [Compass](../config/compass.md)
-- [Gyroscope](../config/gyroscope.md)
-- [Accelerometer](../config/accelerometer.md)
+- [Компас](../config/compass.md)
+- [Гіроскоп](../config/gyroscope.md)
+- [Акселерометр](../config/accelerometer.md)
 - [Airspeed](../config/airspeed.md)
 
 ### RC-Setup
@@ -329,7 +329,7 @@ Make sure the props are removed!!
 
 If the motor spins in the wrong directions two of the three motor wires need to be swapped. The direction can't be changed in software because the vehicle does not use [DShot ESC](../peripherals/dshot.md).
 
-## First Flight
+## Перший політ
 
 - Check tilt rotor reactions in [Stabilized mode](../flight_modes_fw/stabilized.md). Keep the throttle stick at the minimum and place the vehicle at the ground. To enable the tilt servos you need to arm the vehicle.
   - Yaw the vehicle to the right (nose to the right) -> left motor should tilt down
