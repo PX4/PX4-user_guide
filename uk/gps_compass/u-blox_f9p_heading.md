@@ -22,7 +22,7 @@
 
 ## Установка
 
-Ideally the two antennas should be identical, on the same level/horizontal plane and oriented the same way, and on an identical ground plane size and shape ([Application note](https://content.u-blox.com/sites/default/files/documents/ZED-F9P-MovingBase_AppNote_UBX-19009093.pdf), section *System Level Considerations*).
+В ідеалі обидві антени повинні бути ідентичними, знаходитися на одному рівні/горизонталі і бути орієнтованими однаково, а також мати однаковий розмір і форму площини заземлення ([Примітка щодо застосування](https://content.u-blox.com/sites/default/files/documents/ZED-F9P-MovingBase_AppNote_UBX-19009093.pdf), розділ *Розгляди на рівні системи*).
 - Довідка із застосування не вказує на мінімально необхідний інтервал між модулями (у тестових транспортних засобах, що працюють з PX4, використовувалася відстань 50 см).
 - Антени можуть бути розміщені за необхідністю, але [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) повинен бути налаштований: [RTK GPS > GPS як джерело курсу/прямого ходу](../gps_compass/rtk_gps.md#configuring-gps-as-yaw-heading-source).
 
@@ -49,5 +49,5 @@ Ideally the two antennas should be identical, on the same level/horizontal plane
 
 ## Детальна інформація
 
-- [ZED-F9P Moving base applications (Application note)](https://content.u-blox.com/sites/default/files/documents/ZED-F9P-MovingBase_AppNote_UBX-19009093.pdf) - General setup/instructions.
+- [ZED-F9P Moving base applications (Application note)](https://content.u-blox.com/sites/default/files/documents/ZED-F9P-MovingBase_AppNote_UBX-19009093.pdf) - Загальне налаштування/інструкції.
 - [RTK GPS > Налаштування GPS як Джерело розділення/Курсування](../gps_compass/rtk_gps.md#configuring-gps-as-yaw-heading-source)
