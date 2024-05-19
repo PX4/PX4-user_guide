@@ -68,7 +68,7 @@ differential_drive <command> [arguments...]
 
 
 ### Опис
-This implements the setpoint generation for all modes. It takes the current mode state of the vehicle as input and outputs setpoints for controllers.
+Це реалізує генерацію заданого значення для всіх режимів. Він приймає поточний стан режиму транспортного засобу як вхідні дані і виводить задані значення для контролерів.
 
 
 <a id="flight_mode_manager_usage"></a>
@@ -109,7 +109,7 @@ fw_att_control <command> [arguments...]
 
 
 ### Опис
-fw_pos_control is the fixed-wing position controller.
+fw_pos_control - контролер положення фіксованого крила.
 
 
 <a id="fw_pos_control_usage"></a>
@@ -130,7 +130,7 @@ fw_pos_control <command> [arguments...]
 
 
 ### Опис
-fw_rate_control is the fixed-wing rate controller.
+fw_rate_control - регулятор швидкості фіксованого крила.
 
 
 <a id="fw_rate_control_usage"></a>
@@ -151,11 +151,11 @@ fw_rate_control <command> [arguments...]
 
 
 ### Опис
-This implements the multicopter attitude controller. It takes attitude setpoints (`vehicle_attitude_setpoint`) as inputs and outputs a rate setpoint.
+Це реалізує контролер положення мультикоптера. Він приймає значення кута нахилу (`vehicle_attitude_setpoint`) як вхідні дані, а на виході отримує значення швидкості.
 
-The controller has a P loop for angular error
+Контролер має P цикл для кутової похибки
 
-Publication documenting the implemented Quaternion Attitude Control: Nonlinear Quadrocopter Attitude Control (2013) by Dario Brescianini, Markus Hehn and Raffaello D'Andrea Institute for Dynamic Systems and Control (IDSC), ETH Zurich
+Публікація, що документує реалізоване кватерніонне керування положенням: Nonlinear Quadrocopter Attitude Control (2013) by Dario Brescianini, Markus Hehn and Raffaello D'Andrea Institute for Dynamic Systems and Control (IDSC), ETH Zurich
 
 https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf
 
@@ -289,15 +289,15 @@ rover_pos_control <command> [arguments...]
 
 
 ### Опис
-Controls the attitude of an unmanned underwater vehicle (UUV).
+Контролює положення безпілотного підводного апарату (UUV).
 
-Publishes `vehicle_thrust_setpont` and `vehicle_torque_setpoint` messages at a constant 250Hz.
+Публікує повідомлення `vehicle_thrust_setpont` та `vehicle_torque_setpoint` зі сталою частотою 250 Гц.
 
 ### Реалізація
-Currently, this implementation supports only a few modes:
+Наразі ця реалізація підтримує лише декілька режимів:
 
- * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators
- * Auto mission: The uuv runs missions
+ * Повна ручна: Roll, pitch, yaw, та throttle контроль передається безпосередньо до актуаторів
+ * Автоматична місія: UUV виконує місії
 
 ### Приклади
 Приклад використання CLI:
