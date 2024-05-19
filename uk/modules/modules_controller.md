@@ -5,7 +5,7 @@
 
 
 ### Опис
-Це реалізує регулятор положення аеростата і швидкості. Ideally it would take attitude setpoints (`vehicle_attitude_setpoint`) or rate setpoints (in acro mode via `manual_control_setpoint` topic) as inputs and outputs actuator control messages.
+Це реалізує регулятор положення аеростата і швидкості. В ідеалі це має приймати задані значення положення (`vehicle_attitude_setpoint`) або задані значення швидкості (у режимі acro через тему `manual_control_setpoint`) як вхідні та вихідні повідомлення керування приводом.
 
 Наразі він передає тему `manual_control_setpoint_setpoint` безпосередньо до актуаторів.
 
@@ -30,7 +30,7 @@ airship_att_control <command> [arguments...]
 
 
 ### Опис
-Це реалізує розподіл управління. It takes torque and thrust setpoints as inputs and outputs actuator setpoint messages.
+Це реалізує розподіл управління. Він приймає задані значення крутного моменту та тяги як вхідні та вихідні повідомлення про задані значення привода.
 
 <a id="control_allocator_usage"></a>
 
@@ -178,9 +178,9 @@ mc_att_control <command> [arguments...]
 
 
 ### Опис
-The controller has two loops: a P loop for position error and a PID loop for velocity error. Output of the velocity controller is thrust vector that is split to thrust direction (i.e. rotation matrix for multicopter orientation) and thrust scalar (i.e. multicopter thrust itself).
+Контролер має два контури: P цикл для помилки положення і PID цикл для помилки швидкості. Виходом контролера швидкості є вектор тяги, який розділяється на напрямок тяги (тобто матрицю обертання для орієнтації мультикоптера) та скаляр тяги (тобто саму тягу мультикоптера).
 
-The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
+Контролер не використовує кути Ейлера для своєї роботи, вони генеруються лише для більш зручного керування та логування.
 
 <a id="mc_pos_control_usage"></a>
 
@@ -200,9 +200,9 @@ mc_pos_control <command> [arguments...]
 
 
 ### Опис
-This implements the multicopter rate controller. It takes rate setpoints (in acro mode via `manual_control_setpoint` topic) as inputs and outputs actuator control messages.
+Це реалізує мультикоптерний регулятор швидкості. Він приймає значення швидкості (у режимі acro через тему `manual_control_setpoint_setpoint`) як вхідні та вихідні повідомлення керування актуатором.
 
-The controller has a PID loop for angular rate error.
+Контролер має PID-цикл для компенсації похибки кутової швидкості.
 
 
 <a id="mc_rate_control_usage"></a>
@@ -223,12 +223,12 @@ mc_rate_control <command> [arguments...]
 
 
 ### Опис
-Module that is responsible for autonomous flight modes. This includes missions (read from dataman), takeoff and RTL. It is also responsible for geofence violation checking.
+Модуль відповідає за автономні режими польоту. Це включає місії (читайте з dataman), взліт та RTL. Він також відповідає за перевірку порушень геозони.
 
 ### Реалізація
-The different internal modes are implemented as separate classes that inherit from a common base class `NavigatorMode`. The member `_navigation_mode` contains the current active mode.
+Різні внутрішні режими реалізовано у вигляді окремих класів, які успадковуються від загального базового класу `NavigatorMode`. Елемент `_navigation_mode` містить поточний активний режим.
 
-Navigator publishes position setpoint triplets (`position_setpoint_triplet_s`), which are then used by the position controller.
+Навігатор публікує триплети заданих значень позиції (`position_setpoint_triplet_s`), які потім використовуються контролером положення.
 
 
 <a id="navigator_usage"></a>
@@ -252,16 +252,16 @@ navigator <command> [arguments...]
 
 
 ### Опис
-Controls the position of a ground rover using an L1 controller.
+Контролює положення ровера за допомогою L1 контролера.
 
-Publishes `vehicle_thrust_setpoint (only in x) and vehicle_torque_setpoint (only yaw)` messages at IMU_GYRO_RATEMAX.
+Публікує `vehicle_thrust_setpoint (тільки по x) і vehicle_torque_setpoint (тільки по yaw)` повідомлення на IMU_GYRO_RATEMAX.
 
 ### Реалізація
-Currently, this implementation supports only a few modes:
+Наразі ця реалізація підтримує лише декілька режимів:
 
- * Full manual: Throttle and yaw controls are passed directly through to the actuators
- * Auto mission: The rover runs missions
- * Loiter: The rover will navigate to within the loiter radius, then stop the motors
+ * Повна ручна: Throttle та yaw контроль передається безпосередньо на актуатори
+ * Автоматична місія: Ровер виконує місії
+ * Loiter: Ровер буде рухатися в межах радіусу очікування, а потім вимкне двигуни
 
 ### Приклади
 Приклад використання CLI:
