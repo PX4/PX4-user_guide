@@ -1,6 +1,6 @@
 # Trimble MB-Two
 
-The [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) is a high-end, dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) that can be configured as either base or rover.
+GPS-приймач [Trimble MB-Two RTK](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) - це високоякісний двочастотний [RTK GPS-модуль](../gps_compass/rtk_gps.md), який можна налаштувати як базовий або трекерний.
 
 Крім того, надаючи точну інформацію про положення, MB-Two може оцінити кут напрямку (він має підтримку двох антен). Це корисно для ситуацій, де компас не може надати надійну інформацію про напрямок, наприклад, при польоті близько до металевих конструкцій.
 
@@ -12,10 +12,10 @@ The [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-
 При купівлі пристрою необхідно вибрати наступні параметри вбудованого програмного забезпечення:
 - \[X\] \[2\] \[N\] \[G\] \[W\] \[Y\] \[J\] для оновлень позиції 20 Гц та підтримки RTK, горизонтальна точність позиції 1 см та вертикальна 2 см
 - \[L\] LBAND
-- \[D\] DUO - Dual Antenna Heading
-- \[B\] BEIDOU + \[O\] GALILEO, if needed
+- \[D\] DUO - Напрямок з двома антенами
+- \[B\] BEIDOU + \[O\] GALILEO, за потреби
 
-## Antennas and Cable
+## Антени та кабель
 
 Для Trimble MB-Two потрібні дві двохчастотні (L1/L2) антени. Хорошим прикладом є [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) (який можна купити, наприклад, від [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)).
 
@@ -23,17 +23,17 @@ The [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-
 - [30 см версія](https://www.digikey.com/products/en?mpart=415-0073-012&v=24)
 - [45 см версія](https://www.digikey.com/products/en?mpart=415-0073-018&v=24)
 
-## Wiring and Connections
+## Підключення та з'єднання
 
-The Trimble MB-Two is connected to a UART on the flight controller (GPS port) for data.
+Trimble MB-Two підключений до UART на польотному контролері (порт GPS) для передачі даних.
 
-To power the module you will need a separate 3.3V power supply (the maximum consumption is 360mA).
+Для живлення модуля вам знадобиться окреме джерело живлення 3,3 В (максимальне споживання 360 мА).
 
 :::info
-Модуль не може бути живлений з Pixhawk.
+Модуль не може запитуватися з Pixhawk.
 :::
 
-The pins on the 28-pin connector are numbered as shown below:
+Контакти на 28-контактному роз'ємі пронумеровані, як показано нижче:
 
 ![MB-Two Pinout](../../assets/hardware/gps/rtk_trimble_two_gnss_pinouts.jpg)
 
@@ -46,7 +46,7 @@ The pins on the 28-pin connector are numbered as shown below:
 
 ## Налаштування
 
-First set the GPS protocol to Trimble ([GPS_x_PROTOCOL=3](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL)).
+Спочатку встановіть протокол GPS на Trimble ([GPS_x_PROTOCOL=3](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL)).
 
 Для оцінювання заголовку потрібно, щоб дві антени були на одному рівні і були відстані щонайменше 30 см одна від одної. Напрям, у якому вони обертаються, не має значення, оскільки його можна налаштувати за допомогою параметра [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET).
 
