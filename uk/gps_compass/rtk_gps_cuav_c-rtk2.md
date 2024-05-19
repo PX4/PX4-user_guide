@@ -71,23 +71,23 @@ The [CUAV C-RTK2 receiver](https://www.cuav.net/en/c_rtk_9ps/) is a high-perform
   * NMEA
   * UBX binary
   * RTCM version 3.x
-* Time pulse
-  * 0.25Hz~10Hz(Configurable)
+* Часовий імпульс
+  * 0.25 Гц ~ 10 Гц (налаштовується)
 * Anti-jamming
   * Active CW detection and removal Onboard band pass ﬂter
 * Support flight control type
   * Compatible with flight controllers running PX4 firmware
-* interface
+* інтерфейс
   * 1 Hotshoe
   * 1 shutter in
   * 1 sutter out
   * 1 Type(HS_USB)
   * 1 F9P USB
   * 1 F9P UART
-  * 1 Antenna(mmcx)
-* Supply voltage
+  * 1 Антена(mmcx)
+* Напруга живлення
   * 4.5~6v
-* Operating temperature
+* Робоча температура
   * -20~85℃
 * Розмір
   *  56x33x16.5mm
