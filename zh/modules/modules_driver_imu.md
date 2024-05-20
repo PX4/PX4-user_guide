@@ -861,3 +861,28 @@ mpu9520 <command> [arguments...]
 
    status        print status info
 ```
+## sch16t
+Source: [drivers/imu/murata/sch16t](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/murata/sch16t)
+
+<a id="sch16t_usage"></a>
+
+### Usage
+```
+sch16t <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
