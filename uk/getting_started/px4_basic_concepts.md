@@ -78,7 +78,7 @@ QGroundControl спілкується з дроном за допомогою т
 Для додаткової інформації дивіться:
 
 - [Документи AMC](https://docs.auterion.com/vehicle-operation/auterion-mission-control)
-- [Download from Auterion Suite](https://suite.auterion.com/)
+- [Завантажити з служби Auterion](https://suite.auterion.com/)
 
 ## Компоненти &  частини дрона
 
