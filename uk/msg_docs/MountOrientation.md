@@ -1,8 +1,8 @@
-# MountOrientation (UORB message)
+# MountOrientation (повідомлення UORB)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/MountOrientation.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/MountOrientation.msg)
 
 ```c
 uint64 timestamp                # time since system start (microseconds)
