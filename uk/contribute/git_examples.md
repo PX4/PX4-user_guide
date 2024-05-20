@@ -53,7 +53,7 @@
   git commit -m "<your commit message>"
   ```
 
-  For a good commit message, please refer to the [Source Code Management](../contribute/code.md#commits-and-commit-messages) section.
+  Щоб отримати гарне повідомлення про фіксацію, зверніться до розділу [Керування вихідним кодом](../contribute/code.md#commits-and-commit-messages).
 
 - Можливо, минув деякий час, і [головний вихідний канал](https://github.com/PX4/PX4-Autopilot.git) змінився. PX4 віддає перевагу лінійній журнал комітів і використовує [git rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing). Щоб включити найновіші зміни з початкової версії до локальної гілки, перейдіть до головної гілки
 
