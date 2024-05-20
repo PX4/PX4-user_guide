@@ -289,30 +289,30 @@ ZMO FPV в його початковому стані.
 
 :::warning
 
-Make sure the props are removed! The motors are easy to start in the actuators tab by accident.
+Переконайтеся, що пропелери зняті! Двигуни легко випадково запустити на вкладці приводів.
 :::
 
 
-Motors, control surfaces, and other actuators are configured in the QGroundControl [Actuator Configuration & Testing](../config/actuators.md).
+Двигуни, поверхні керування та інші приводи конфігуруються в QGroundControl [Actuator Configuration & Testing](../config/actuators.md).
 
-The [parameter file](#load-parameters-file) loaded previously means that this screen should already be correctly setup: you just need to adjust the trims for your particular vehicle. If motors/servos were connected to different outputs than suggested, you will need to change the output to function mappings in the actuator output section.
+Завантажений раніше файл [параметрів](#load-parameters-file) означає, що цей екран вже має бути правильно налаштований: вам потрібно лише відрегулювати налаштування для вашого транспортного засобу. Якщо двигуни/сервоприводи були підключені до інших виходів, ніж запропоновано, вам потрібно буде змінити відповідність між виходами та функціями в розділі «Виходи приводів».
 
 #### Tilt Servos
 
 1. Switch the vehicle into manual mode (either via the flight mode switch or type `commander mode manual` into the MAVLink shell).
-1. Check if the motors point upwards. If the motors point forwards then their associated Tilt servos need to be reversed (selecting the checkbox next to each servo).
+1. Перевірте, чи двигуни спрямовані вгору. If the motors point forwards then their associated Tilt servos need to be reversed (selecting the checkbox next to each servo).
 
    ![Tilt Servo adjustment](../../assets/airframes/vtol/omp_hobby_zmo_fpv/tilt-limits-01.jpg)
 
-1. Adjust the minimum or maximum value that the servo is pointing vertical up.
-1. Then type `commander transition` into the MAVLink shell to adjust the horizontal position.
+1. Налаштуйте мінімальне або максимальне значення, на яке сервопривід спрямовується вертикально вгору.
+1. Потім введіть `commander transition` у командній оболонці MAVLink, щоб відрегулювати горизонтальне положення.
 
-#### Control Surfaces
+#### Керуючі поверхні
 
 Check if the actuators need to be reversed using the RC-Controller:
 
-- Roll stick to the right. The right aileron should go up, left aileron should go down.
-- Pitch stick to the back (fly upwards). Both V-tail surfaces should move up.
+- Roll stick to the right. Правий елерон повинен піднятися вгору, лівий елерон повинен опуститися вниз.
+- Pitch stick to the back (fly upwards). Обидві поверхні V-подібного хвоста повинні піднятися.
 - Yaw stick to the right. Both surfaces should move to the right
 
 Now adjust the trim value so that all the surfaces are in neutral position.
