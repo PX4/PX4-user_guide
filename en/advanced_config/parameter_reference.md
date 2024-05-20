@@ -22671,6 +22671,17 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_SCH16T">SENS_EN_SCH16T</strong> (INT32)</td>
+ <td>Murata SCH16T IMU (external SPI)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Enabled</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_SDP3X">SENS_EN_SDP3X</strong> (INT32)</td>
  <td>Sensirion SDP3X differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
 </td>
