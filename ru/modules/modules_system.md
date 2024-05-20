@@ -66,6 +66,25 @@ camera_feedback <command> [arguments...]
 
    status        print status info
 ```
+## cdcacm_autostart
+Source: [drivers/cdcacm_autostart](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/cdcacm_autostart)
+
+
+### Description
+This module listens on USB and auto-configures the protocol depending on the bytes received. The supported protocols are: MAVLink, nsh, and ublox serial passthrough. If the parameter SYS_USB_AUTO=2 the module will only try to start mavlink as long as the USB VBUS is detected. Otherwise it will spin and continue to check for VBUS and start mavlink once it is detected.
+
+<a id="cdcacm_autostart_usage"></a>
+
+### Usage
+```
+cdcacm_autostart <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## commander
 Source: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/commander)
 
