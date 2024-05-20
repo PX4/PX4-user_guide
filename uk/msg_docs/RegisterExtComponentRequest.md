@@ -1,8 +1,8 @@
-# RegisterExtComponentRequest (UORB message)
+# RegisterExtComponentRequest (Повідомлення UORB)
 
-Request to register an external component
+Запит на реєстрацію зовнішнього компонента
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/RegisterExtComponentRequest.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/RegisterExtComponentRequest.msg)
 
 ```c
 # Request to register an external component

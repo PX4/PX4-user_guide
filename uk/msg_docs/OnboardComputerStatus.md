@@ -1,8 +1,8 @@
-# OnboardComputerStatus (UORB message)
+# OnboardComputerStatus (повідомлення UORB)
 
-ONBOARD_COMPUTER_STATUS message data
+ONBOARD_COMPUTER_STATUS ДАНІ ПОВІДОМЛЕННЯ ПРО СТАН БОРТОВОГО КОМП'ЮТЕРА
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/OnboardComputerStatus.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/OnboardComputerStatus.msg)
 
 ```c
 # ONBOARD_COMPUTER_STATUS message data

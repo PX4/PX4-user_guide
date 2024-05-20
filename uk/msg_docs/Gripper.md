@@ -1,6 +1,6 @@
 # Gripper (повідомлення UORB)
 
-# Used to command an actuation in the gripper, which is mapped to a specific output in the control allocation module
+# Використовується для виклику активації в захоплювачі, яка відображена на конкретний вихід в модулі розподілу керування
 
 [вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Gripper.msg)
 

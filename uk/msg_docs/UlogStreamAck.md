@@ -1,8 +1,8 @@
-# UlogStreamAck (UORB message)
+# UlogStreamAck (повідомлення UORB)
 
-Ack a previously sent ulog_stream message that had the NEED_ACK flag set
+Підтверджуйте попереднє повідомлення ulog_stream, в якому був встановлений прапорець NEED_ACK
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/UlogStreamAck.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/UlogStreamAck.msg)
 
 ```c
 # Ack a previously sent ulog_stream message that had

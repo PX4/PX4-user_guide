@@ -9494,6 +9494,50 @@ table {
 </tr>
 </tbody></table>
 
+## CDCACM
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="SYS_USB_AUTO">SYS_USB_AUTO</strong> (INT32)</td>
+ <td>Enable USB autostart  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Auto-detect</li>
+<li><strong>2:</strong> MAVLink</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="USB_MAV_MODE">USB_MAV_MODE</strong> (INT32)</td>
+ <td>Specify USB MAVLink mode  <strong>Values:</strong><ul>
+<li><strong>0:</strong> normal</li>
+<li><strong>1:</strong> custom</li>
+<li><strong>2:</strong> onboard</li>
+<li><strong>3:</strong> osd</li>
+<li><strong>4:</strong> magic</li>
+<li><strong>5:</strong> config</li>
+<li><strong>6:</strong> iridium</li>
+<li><strong>7:</strong> minimal</li>
+<li><strong>8:</strong> extvision</li>
+<li><strong>9:</strong> extvisionmin</li>
+<li><strong>10:</strong> gimbal</li>
+<li><strong>11:</strong> onboard_low_bandwidth</li>
+<li><strong>12:</strong> uavionix</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>2</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## Camera Capture
 
 <table>
@@ -22626,6 +22670,17 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_SCH16T">SENS_EN_SCH16T</strong> (INT32)</td>
+ <td>Murata SCH16T IMU (external SPI)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Enabled</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_SDP3X">SENS_EN_SDP3X</strong> (INT32)</td>
  <td>Sensirion SDP3X differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
 </td>
@@ -24069,14 +24124,14 @@ table {
 <tr>
  <td><strong id="SIH_IXX">SIH_IXX</strong> (FLOAT)</td>
  <td>Vehicle inertia about X axis <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
- <td>[0.0, ?] [0.0, ?] (0.005)</td>
+ <td>[0.0, ?] (0.005)</td>
  <td>0.025</td>
  <td>kg m^2</td>
 </tr>
 <tr>
  <td><strong id="SIH_IXY">SIH_IXY</strong> (FLOAT)</td>
  <td>Vehicle cross term inertia xy <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. This value can be set to 0 for a quad symmetric about its center of mass.</p>   </td>
- <td>(0.005)</td>
+ <td>[0.0, ?] (0.005)</td>
  <td>0.0</td>
  <td>kg m^2</td>
 </tr>

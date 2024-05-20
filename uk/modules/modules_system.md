@@ -66,6 +66,25 @@ camera_feedback <command> [arguments...]
 
    status        print status info
 ```
+## cdcacm_autostart
+Source: [drivers/cdcacm_autostart](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/cdcacm_autostart)
+
+
+### Опис
+This module listens on USB and auto-configures the protocol depending on the bytes received. The supported protocols are: MAVLink, nsh, and ublox serial passthrough. If the parameter SYS_USB_AUTO=2 the module will only try to start mavlink as long as the USB VBUS is detected. Otherwise it will spin and continue to check for VBUS and start mavlink once it is detected.
+
+<a id="cdcacm_autostart_usage"></a>
+
+### Використання
+```
+cdcacm_autostart <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## commander
 Джерело: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/commander)
 
@@ -520,7 +539,7 @@ rc_update <command> [arguments...]
 Джерело: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
 
 
-### Опис
+### Описання
 Цей модуль використовується для відтворення файлів ULog.
 
 Існує 2 змінні середовища, які використовуються для конфігурації: `replay`, яка повинна бути встановлена на ім'я файлу ULog - це файл журналу, який має бути відтворений. Другий - це режим, вказаний через `replay_mode`:
@@ -551,7 +570,7 @@ replay <command> [arguments...]
 Джерело: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/events)
 
 
-### Описання
+### Опис
 Фоновий процес, що періодично виконується в черзі завдань LP для виконання рутинних завдань. Зараз він відповідає лише за сигнал тривоги на втрату RC.
 
 Завдання можна почати через CLI або теми uORB (vehicle_command з MAVLink тощо).
@@ -598,7 +617,7 @@ sensor_arispeed_sim <command> [arguments...]
 
 <a id="sensor_baro_sim_usage"></a>
 
-### Використання
+### Застосування
 ```
 sensor_baro_sim <command> [arguments...]
  Commands:
@@ -618,7 +637,7 @@ sensor_baro_sim <command> [arguments...]
 
 <a id="sensor_gps_sim_usage"></a>
 
-### Застосування
+### Використання
 ```
 sensor_gps_sim <command> [arguments...]
  Commands:
@@ -632,7 +651,7 @@ sensor_gps_sim <command> [arguments...]
 Джерело: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_mag_sim)
 
 
-### Опис
+### Описання
 
 
 
@@ -652,7 +671,7 @@ sensor_mag_sim <command> [arguments...]
 Джерело: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sensors)
 
 
-### Описання
+### Опис
 Модуль сенсорів є центральним у всій системі. Він отримує вихід низького рівня від драйверів, перетворює його в більш придатну форму і публікує його для решти системи.
 
 Надана функціональність включає в себе:
@@ -746,7 +765,7 @@ tune_control play -t 2
 
 <a id="tune_control_usage"></a>
 
-### Використання
+### Usage
 ```
 tune_control <command> [arguments...]
  Commands:
@@ -769,7 +788,7 @@ tune_control <command> [arguments...]
 Джерело: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
 
 
-### Опис
+### Опис предмету
 Клієнт UXRCE-DDS використовується для спілкування з агентом за допомогою тем uORB через послідовний або UDP.
 
 ### Приклади
@@ -805,14 +824,14 @@ uxrce_dds_client <command> [arguments...]
 Джерело: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue)
 
 
-### Опис предмету
+### Description
 
 Інструмент командного рядка для відображення статусу черги роботи.
 
 
 <a id="work_queue_usage"></a>
 
-### Використання
+### Usage
 ```
 work_queue <command> [arguments...]
  Commands:

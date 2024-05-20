@@ -697,7 +697,7 @@
     - [Аналіз логу польоту](dev_log/flight_log_analysis.md)
     - [Формат файлу ULog](dev_log/ulog_file_format.md)
   - [Просунуті теми](advanced/index.md)
-    - [PX4 Metadata](advanced/px4_metadata.md)
+    - [Метадані PX4](advanced/px4_metadata.md)
     - [Архітектера доставки вантажів](advanced/package_delivery.md)
     - [Інтеграція камери/Архітектура](camera/camera_architecture.md)
     - [Комп'ютерний зір](advanced/computer_vision.md)

@@ -1,8 +1,8 @@
-# TrajectoryBezier (UORB message)
+# TrjectoryBezier (UORB повідомлення)
 
-Bezier Trajectory description. See also Mavlink TRAJECTORY msg The topic trajectory_bezier describe each waypoint defined in vehicle_trajectory_bezier
+Опис траекторії Безьє. Див. також Повідомлення Mavlink TRAJECTORY Тема trajectory_bezier описує кожну точку маршруту, визначену в vehicle_trajectory_bezier
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectoryBezier.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectoryBezier.msg)
 
 ```c
 # Bezier Trajectory description. See also Mavlink TRAJECTORY msg

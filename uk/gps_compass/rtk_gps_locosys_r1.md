@@ -23,9 +23,9 @@
 - Підтримка SBAS (WAAS, EGNOS, MSAS, GAGAN)
 - Підтримка GNSS з 135 каналами
 - Швидкий TTFF на низькому рівні сигналу
-- Free hybrid ephemeris prediction to achieve faster cold start
+- Безкоштовне гібридне передбачення ефемерид для досягнення швидкого холодного запуску
 - За замовчуванням 5 Гц, частота оновлення до 10 Гц (SBAS підтримує тільки 5 Гц).
-- Build-in super capacitor to reserve system data for rapid satellite acquisition
+- Вбудований суперконденсатор для резервування системних даних для швидкого отримання супутникових даних
 
 ![LOCOSYS Hawk R1](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 

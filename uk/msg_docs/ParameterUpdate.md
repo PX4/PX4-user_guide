@@ -1,8 +1,8 @@
-# ParameterUpdate (UORB message)
+# Оновлення параметрів (Повідомлення UORB)
 
-This message is used to notify the system about one or more parameter changes
+Це повідомлення використовується для повідомлення системі про одну або кілька змін параметрів
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ParameterUpdate.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ParameterUpdate.msg)
 
 ```c
 # This message is used to notify the system about one or more parameter changes

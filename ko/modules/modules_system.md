@@ -66,6 +66,25 @@ camera_feedback <command> [arguments...]
 
    status        print status info
 ```
+## cdcacm_autostart
+Source: [drivers/cdcacm_autostart](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/cdcacm_autostart)
+
+
+### 설명
+This module listens on USB and auto-configures the protocol depending on the bytes received. The supported protocols are: MAVLink, nsh, and ublox serial passthrough. If the parameter SYS_USB_AUTO=2 the module will only try to start mavlink as long as the USB VBUS is detected. Otherwise it will spin and continue to check for VBUS and start mavlink once it is detected.
+
+<a id="cdcacm_autostart_usage"></a>
+
+### 사용법
+```
+cdcacm_autostart <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## commander
 소스: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/commander)
 
@@ -253,9 +272,7 @@ heater <command> [arguments...]
  Commands:
    start
 
-   stop
-
-   status        print status info
+   test          prints PWM capture info.
 ```
 ## i2c_launcher
 Source: [systemcmds/i2c_launcher](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2c_launcher)
@@ -314,14 +331,14 @@ land_detector <command> [arguments...]
 소스: [modules/load_mon](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/load_mon)
 
 
-### 설명
+### 사용법
 CPU 로드 및 RAM 사용량을 계산하고, `cpuload` 주제를 게시하기 위하여 낮은 우선순위 작업 대기열에서 주기적으로 실행되는 백그라운드 프로세스입니다.
 
 NuttX에서는 각 프로세스의 스택 사용량도 확인하고, 300바이트 미만으로 떨어지면 경고가 출력되고 로그 파일에도 기록됩니다.
 
 <a id="load_mon_usage"></a>
 
-### 사용법
+### 설명
 ```
 load_mon <command> [arguments...]
  Commands:
@@ -403,7 +420,7 @@ logger <command> [arguments...]
 소스: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
 
-### 사용법
+### Description
 Online magnetometer bias estimator.
 
 <a id="mag_bias_estimator_usage"></a>
@@ -424,13 +441,15 @@ Module consuming manual_control_inputs publishing one manual_control_setpoint.
 
 <a id="manual_control_usage"></a>
 
-### 설명
+### Usage
 ```
 pwm_input <command> [arguments...]
  Commands:
    start
 
-   test          prints PWM capture info.
+   stop
+
+   status        print status info
 ```
 ## netman
 Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
@@ -454,7 +473,7 @@ Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src
 
 <a id="netman_usage"></a>
 
-### Usage
+### 사용법
 ```
 netman <command> [arguments...]
  Commands:
@@ -471,13 +490,13 @@ netman <command> [arguments...]
 Source: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_input)
 
 
-### Description
+### 설명
 Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes via the uORB 'pwm_input` message.
 
 
 <a id="pwm_input_usage"></a>
 
-### 사용법
+### Usage
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -491,7 +510,7 @@ pwm_input <command> [arguments...]
 Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
 
 
-### 설명
+### Description
 The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
 
 ### Implementation
@@ -592,7 +611,7 @@ Source: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilo
 
 <a id="sensor_baro_sim_usage"></a>
 
-### Usage
+### 사용법
 ```
 sensor_baro_sim <command> [arguments...]
  Commands:
@@ -606,13 +625,13 @@ sensor_baro_sim <command> [arguments...]
 Source: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_gps_sim)
 
 
-### Description
+### 설명
 
 
 
 <a id="sensor_gps_sim_usage"></a>
 
-### 사용법
+### Usage
 ```
 sensor_gps_sim <command> [arguments...]
  Commands:
@@ -626,7 +645,7 @@ sensor_gps_sim <command> [arguments...]
 Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_mag_sim)
 
 
-### 설명
+### Description
 
 
 
@@ -723,7 +742,7 @@ temperature_compensation <command> [arguments...]
 Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
 
 
-### Description
+### 설명
 
 Command-line tool to control & test the (external) tunes.
 
@@ -763,7 +782,7 @@ tune_control <command> [arguments...]
 Source: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
 
 
-### 설명
+### Description
 UXRCE-DDS Client used to communicate uORB topics with an Agent over serial or UDP.
 
 ### Examples
@@ -774,7 +793,7 @@ uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
 
 <a id="uxrce_dds_client_usage"></a>
 
-### 사용법
+### Usage
 ```
 uxrce_dds_client <command> [arguments...]
  Commands:

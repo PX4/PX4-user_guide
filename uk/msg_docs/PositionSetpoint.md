@@ -1,8 +1,8 @@
-# PositionSetpoint (UORB message)
+# PositionSetpoint (повідомлення UORB)
 
-this file is only used in the position_setpoint triple as a dependency
+цей файл використовується лише у потрійному підпорядкуванні позиції як залежність
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PositionSetpoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PositionSetpoint.msg)
 
 ```c
 # this file is only used in the position_setpoint triple as a dependency

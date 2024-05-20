@@ -1,6 +1,6 @@
-# ParameterResetRequest (UORB message)
+# ParameterResetRequest (повідомлення UORB)
 
-ParameterResetRequest : Used by the primary to reset one or all parameter value(s) on the remote
+ParameterResetRequest : Параметр скинути запит. Використовується в основному для скидання одного або всіх параметрів значення на віддаленому
 
 [вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ParameterResetRequest.msg)
 
