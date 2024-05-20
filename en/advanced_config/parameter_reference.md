@@ -9495,6 +9495,50 @@ table {
 </tr>
 </tbody></table>
 
+## CDCACM
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="SYS_USB_AUTO">SYS_USB_AUTO</strong> (INT32)</td>
+ <td>Enable USB autostart  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Auto-detect</li>
+<li><strong>2:</strong> MAVLink</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="USB_MAV_MODE">USB_MAV_MODE</strong> (INT32)</td>
+ <td>Specify USB MAVLink mode  <strong>Values:</strong><ul>
+<li><strong>0:</strong> normal</li>
+<li><strong>1:</strong> custom</li>
+<li><strong>2:</strong> onboard</li>
+<li><strong>3:</strong> osd</li>
+<li><strong>4:</strong> magic</li>
+<li><strong>5:</strong> config</li>
+<li><strong>6:</strong> iridium</li>
+<li><strong>7:</strong> minimal</li>
+<li><strong>8:</strong> extvision</li>
+<li><strong>9:</strong> extvisionmin</li>
+<li><strong>10:</strong> gimbal</li>
+<li><strong>11:</strong> onboard_low_bandwidth</li>
+<li><strong>12:</strong> uavionix</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>2</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## Camera Capture
 
 <table>
