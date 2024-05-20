@@ -69,6 +69,26 @@ camera_feedback <command> [arguments...]
 
    status        打印状态信息
 ```
+## cdcacm_autostart
+Source: [drivers/cdcacm_autostart](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/cdcacm_autostart)
+
+
+### 描述
+This module listens on USB and auto-configures the protocol depending on the bytes received. The supported protocols are: MAVLink, nsh, and ublox serial passthrough. If the parameter SYS_USB_AUTO=2 the module will only try to start mavlink as long as the USB VBUS is detected. Otherwise it will spin and continue to check for VBUS and start mavlink once it is detected.
+
+<a id="cdcacm_autostart_usage"></a>
+
+### 描述
+```
+cdcacm_autostart <command> [arguments...]
+ mc_att_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        打印状态信息
+```
 ## commander
 Source: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/commander)
 
@@ -78,7 +98,7 @@ Source: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/main/src/m
 
 <a id="commander_usage"></a>
 
-### 描述
+### 用法
 ```
 commander <command> [arguments...]
  Commands:
@@ -128,7 +148,7 @@ commander <command> [arguments...]
 Source: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/dataman)
 
 
-### 描述
+### 示例
 该模块通过基于C语言的API以简单数据库的形式为系统的其他部分提供持续性存储功能。 支持多种后端：
 - a file (eg. on the SD card)
 - FLASH(需要飞控板支持)
@@ -141,7 +161,7 @@ It is used to store structured data of different types: mission waypoints, missi
 
 <a id="dataman_usage"></a>
 
-### 用法
+### 描述
 ```
 dataman <command> [arguments...]
  dataman <command> [arguments...]
@@ -172,7 +192,7 @@ dataman <command> [arguments...]
 Source: [systemcmds/dmesg](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dmesg)
 
 
-### 示例
+### 描述
 
 用于显示启动控制台消息的命令行工具 需要注意的是，NuttX系统的工作队列和系统日志输出都未被捕捉到。
 
@@ -222,7 +242,7 @@ Source: [modules/gyro_calibration](https://github.com/PX4/PX4-Autopilot/tree/mai
 
 <a id="gyro_calibration_usage"></a>
 
-### 描述
+### 用法
 ```
 gyro_calibration <command> [arguments...]
  mc_att_control <command> [arguments...]
@@ -242,31 +262,9 @@ Source: [modules/gyro_fft](https://github.com/PX4/PX4-Autopilot/tree/main/src/mo
 
 <a id="gyro_fft_usage"></a>
 
-### 用法
-```
-gyro_fft <command> [arguments...]
- mc_att_control <command> [arguments...]
- Commands:
-   start
-
-   stop
-
-   status        打印状态信息
-```
-## land_detector
-Source: [drivers/heater](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/heater)
-
-
-### 描述
-源码：[modules/land_detector](https://github.com/PX4/Firmware/tree/master/src/modules/land_detector)
-
-This task can be started at boot from the startup scripts by setting SENS_EN_THERMAL or via CLI.
-
-<a id="heater_usage"></a>
-
 ### 实现
 ```
-heater <command> [arguments...]
+gyro_fft <command> [arguments...]
  land_detector <command> [arguments...]
  Commands:
    start         启动后台任务
@@ -276,17 +274,43 @@ heater <command> [arguments...]
 
    status        打印状态信息
 ```
+## land_detector
+Source: [drivers/heater](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/heater)
+
+
+### 用法
+源码：[modules/land_detector](https://github.com/PX4/Firmware/tree/master/src/modules/land_detector)
+
+This task can be started at boot from the startup scripts by setting SENS_EN_THERMAL or via CLI.
+
+<a id="heater_usage"></a>
+
+### 用法
+```
+heater <command> [arguments...]
+ replay <command> [arguments...]
+ Commands:
+   start         Start replay, using log file from ENV variable 'replay'
+
+   trystart      Same as 'start', but silently exit if no log file given
+
+   tryapplyparams Try to apply the parameters from the log file
+
+   stop
+
+   status        print status info
+```
 ## i2c_launcher
 Source: [systemcmds/i2c_launcher](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2c_launcher)
 
 
-### 用法
+### 描述
 Daemon that starts drivers based on found I2C devices.
 
 
 <a id="i2c_launcher_usage"></a>
 
-### 用法
+### 实现
 ```
 i2c_launcher <command> [arguments...]
  Commands:
@@ -301,7 +325,7 @@ i2c_launcher <command> [arguments...]
 Source: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/land_detector)
 
 
-### 描述
+### 示例
 **ground_contact**: thrust setpoint and velocity in z-direction must be below a defined threshold for time GROUND_CONTACT_TRIGGER_TIME_US. When ground_contact is detected, the position controller turns off the thrust setpoint in body x and y. 当检测到 ground_contact 状态时，位置控制器将关闭机体 x 方向和 y 方向上的推力设定值。
 
 ### 描述
@@ -318,7 +342,7 @@ There are 2 environment variables used for configuration: `replay`, which must b
 
 <a id="land_detector_usage"></a>
 
-### 实现
+### 用法
 ```
 land_detector <command> [arguments...]
  load_mon <command> [arguments...]
@@ -333,14 +357,14 @@ land_detector <command> [arguments...]
 Source: [modules/load_mon](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/load_mon)
 
 
-### 示例
+### 参数描述
 源码：[modules/logger](https://github.com/PX4/Firmware/tree/master/src/modules/logger)
 
 On NuttX it also checks the stack usage of each process and if it falls below 300 bytes, a warning is output, which will also appear in the log file.
 
 <a id="load_mon_usage"></a>
 
-### 用法
+### 实现
 ```
 load_mon <command> [arguments...]
  Commands:
@@ -354,7 +378,7 @@ load_mon <command> [arguments...]
 Source: [modules/logger](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
 
 
-### 参数描述
+### 用法
 System logger which logs a configurable set of uORB topics and system printf messages (`PX4_WARN` and `PX4_ERR`) to ULog files. These can be used for system and flight performance evaluation, tuning, replay and crash analysis.
 
 It supports 2 backends:
@@ -385,7 +409,7 @@ logger on
 
 <a id="logger_usage"></a>
 
-### 实现
+### 参数描述
 ```
 logger <command> [arguments...]
  Commands:
@@ -422,12 +446,12 @@ logger <command> [arguments...]
 Source: [modules/mag_bias_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mag_bias_estimator)
 
 
-### 用法
+### Description
 Online magnetometer bias estimator.
 
 <a id="mag_bias_estimator_usage"></a>
 
-### 参数描述
+### 用法
 ```
 mag_bias_estimator <command> [arguments...]
  wind_estimator &lt;command&gt; [arguments...]
@@ -448,16 +472,11 @@ Module consuming manual_control_inputs publishing one manual_control_setpoint.
 
 <a id="manual_control_usage"></a>
 
-### 用法
+### Usage
 ```
 manual_control <command> [arguments...]
- replay <command> [arguments...]
  Commands:
-   start         Start replay, using log file from ENV variable 'replay'
-
-   trystart      Same as 'start', but silently exit if no log file given
-
-   tryapplyparams Try to apply the parameters from the log file
+   start
 
    stop
 
@@ -485,7 +504,7 @@ Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/main/src/s
 
 <a id="netman_usage"></a>
 
-### Usage
+### 用法
 ```
 netman <command> [arguments...]
  Commands:
@@ -502,13 +521,13 @@ netman <command> [arguments...]
 Source: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_input)
 
 
-### Description
+### 参数描述
 Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes via the uORB 'pwm_input` message.
 
 
 <a id="pwm_input_usage"></a>
 
-### 用法
+### Usage
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -522,7 +541,7 @@ pwm_input <command> [arguments...]
 Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rc_update)
 
 
-### 参数描述
+### Description
 The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
 
 ### Implementation
@@ -623,7 +642,7 @@ Source: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilo
 
 <a id="sensor_baro_sim_usage"></a>
 
-### Usage
+### 实现
 ```
 sensor_baro_sim <command> [arguments...]
  Commands:
@@ -637,13 +656,13 @@ sensor_baro_sim <command> [arguments...]
 Source: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_gps_sim)
 
 
-### Description
+### 描述
 
 
 
 <a id="sensor_gps_sim_usage"></a>
 
-### 实现
+### Usage
 ```
 sensor_gps_sim <command> [arguments...]
  Commands:
@@ -657,7 +676,7 @@ sensor_gps_sim <command> [arguments...]
 Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_mag_sim)
 
 
-### 描述
+### Description
 
 
 
@@ -715,12 +734,13 @@ Driver for reading data from the Tattu 12S 16000mAh smart battery.
 ### Usage
 ```
 tattu_can <command> [arguments...]
+ wind_estimator &lt;command&gt; [arguments...]
  Commands:
    start
 
    stop
 
-   status        print status info
+   status        打印状态信息
 ```
 ## temperature_compensation
 Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/temperature_compensation)
@@ -754,7 +774,7 @@ temperature_compensation <command> [arguments...]
 Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tune_control)
 
 
-### Description
+### 描述
 
 Command-line tool to control & test the (external) tunes.
 
@@ -794,7 +814,7 @@ tune_control <command> [arguments...]
 Source: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
 
 
-### 描述
+### Description
 UXRCE-DDS Client used to communicate uORB topics with an Agent over serial or UDP.
 
 ### Examples
@@ -805,7 +825,7 @@ uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
 
 <a id="uxrce_dds_client_usage"></a>
 
-### 实现
+### Usage
 ```
 uxrce_dds_client <command> [arguments...]
  Commands:
@@ -840,11 +860,10 @@ Command-line tool to show work queue status.
 ### Usage
 ```
 work_queue <command> [arguments...]
- wind_estimator &lt;command&gt; [arguments...]
  Commands:
    start
 
    stop
 
-   status        打印状态信息
+   status        print status info
 ```
