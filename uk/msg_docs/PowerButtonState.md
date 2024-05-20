@@ -1,8 +1,8 @@
-# PowerButtonState (UORB message)
+# PowerButtonState (UORB повідомлення)
 
-power button state notification message
+повідомлення стану кнопки вимкнення живлення
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PowerButtonState.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PowerButtonState.msg)
 
 ```c
 # power button state notification message
