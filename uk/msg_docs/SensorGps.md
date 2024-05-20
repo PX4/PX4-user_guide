@@ -1,11 +1,11 @@
-# SensorGps (UORB message)
+# SensorGps (повідомлення UORB)
 
-GPS position in WGS84 coordinates. the field 'timestamp' is for the position & velocity (microseconds)
+Домашнє GPS положення в координатах WGS84. поле 'відмітка часу' призначене для позиції та швидкості (мікросекунди)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGps.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGps.msg)
 
 ```c
-# GPS position in WGS84 coordinates.
+# Домашнє GPS положення в координатах WGS84.
 # the field 'timestamp' is for the position & velocity (microseconds)
 uint64 timestamp        # time since system start (microseconds)
 uint64 timestamp_sample
