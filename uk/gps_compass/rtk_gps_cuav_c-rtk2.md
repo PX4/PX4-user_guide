@@ -47,41 +47,41 @@
   * SBAS:L1C/A
 * Кількість одночасних GNSS
   * 4(GPS、GLONASS、GALILEO、Beidou）
-* Nav. частота оновлення
+* Частота оновлення навігації
   * RTK До 20 Гц
   * RAW До 25 Гц
   * default：5hz
-* Convergence time
+* Час конвергенції
   * RTK < 10 sec
-* Position accuracy（RMS)
-  * RTK:0.01m+1ppm(level);0.02m+1ppm(vertical)
-  * GPS:1.5m(level)
-* Acquisition
-  * Cold starts 24 s
-  * Aided starts 2 s
-  * Reacquisition 2 s
-* Sensitivity
-  * Tracking & Nav –167 dBm
-  * Cold starts –148 dBm
-  * Hot starts –157 dBm
-  * Reacquisition –160 dBm
-* Anti-spoofng
-  * Advanced anti-spoofng algorithms
+* Точність позиціонування (середньоквадратичне значення)
+  * RTK:0.01m+1ppm(рівень);0.02m+1ppm(вертикаль)
+  * GPS:1.5м(рівень)
+* Отримання даних
+  * Холодний запуск 24с
+  * Допоміжний запуск 2с
+  * Повторне отримання 2с
+* Чутливість
+  * Відстеження та навігація -167 дБм
+  * Холодний старт –148 dBm
+  * Гарячий старт –157 dBm
+  * Повторне отримання –160с
+* Анти-пуфінг
+  * Вдосконалені алгоритми захисту від підробок
 * Протоколи
   * NMEA
   * UBX binary
   * RTCM версія 3.x
 * Часовий імпульс
   * 0.25 Гц ~ 10 Гц (налаштовується)
-* Anti-jamming
-  * Active CW detection and removal Onboard band pass ﬂter
-* Support flight control type
-  * Compatible with flight controllers running PX4 firmware
+* Захист від глушіння
+  * Активне виявлення та усунення радіозавад Вбудований фільтр смугового пропускання
+* Підтримка типу керування польотом
+  * Сумісність з польотними контролерами з прошивкою PX4
 * інтерфейс
   * 1 Hotshoe
   * 1 shutter in
   * 1 sutter out
-  * 1 Type(HS_USB)
+  * 1 Тип (HS_USB)
   * 1 F9P USB
   * 1 F9P UART
   * 1 Антена(mmcx)
