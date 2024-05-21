@@ -1,4 +1,4 @@
-# Довідка Планера
+# Довідник планерів
 
 :::info **Цей список є [автозгенерованим](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) з вихідного коду** за допомогою команди збірки: `make airframe_metadata`.
 :::
@@ -42,19 +42,19 @@ div.frame_variant td, div.frame_variant th {
 }
 </style>
 
-## Airship
+## Дирижабль
 
-### Airship
+### Дирижабль
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/Airship.svg"/>
 <table>
  <thead>
-   <tr><th>Common Outputs</th></tr>
+   <tr><th>Загальні виводи</th></tr>
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: starboard thruster</li><li><b>Motor2</b>: port thruster</li><li><b>Motor3</b>: tail thruster</li><li><b>Servo1</b>: thrust tilt</li></ul></td>
+ <td><ul><li><b>Motor1</b>: підрулювач правого борту</li><li><b>Motor2</b>: підрулювач порту</li><li><b>Motor3</b>: хвостовий підрулювач</li><li><b>Servo1</b>: нахил тяги</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -67,7 +67,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="airship_airship_cloudship">
  <td>Cloudship</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 2507</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 2507</p></td>
 </tr>
 </tbody>
 </table>
@@ -81,11 +81,11 @@ div.frame_variant td, div.frame_variant th {
 <img src="../../assets/airframes/types/Autogyro.svg"/>
 <table>
  <thead>
-   <tr><th>Common Outputs</th></tr>
+   <tr><th>Загальні виводи</th></tr>
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: throttle</li><li><b>Servo1</b>: rotor_head_L</li><li><b>Servo2</b>: rotor_head_R</li></ul></td>
+ <td><ul><li><b>Motor1</b>: газ</li><li><b>Servo1</b>: rotor_head_L</li><li><b>Servo2</b>: rotor_head_R</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -98,11 +98,11 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td>Maintainer: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>Specific Outputs:</b><ul><li><b>Servo3</b>: elevator</li><li><b>Servo4</b>: rudder</li><li><b>Servo5</b>: rudder (second, optional)</li><li><b>Servo6</b>: wheel</li></ul></p></td>
+ <td>Підтримувач: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>Спеціальні виводи:</b><ul><li><b>Servo3</b>: ліфт</li><li><b>Servo4</b>: кермо</li><li><b>Servo5</b>: кермо (друге, опційно)</li><li><b>Servo6</b>: колесо</li></ul></p></td>
 </tr>
 <tr id="autogyro_autogyro_thunderfly_tf-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/TF-G2/">ThunderFly TF-G2</a></td>
- <td>Maintainer: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><p><b>Specific Outputs:</b><ul><li><b>Servo3</b>: rudder</li></ul></p></td>
+ <td>Підтримувач: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><p><b>Спеціальні виводи:</b><ul><li><b>Servo3</b>: кермо</li></ul></p></td>
 </tr>
 </tbody>
 </table>
@@ -124,7 +124,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="balloon_balloon_thunderfly_balloon_tf-b1">
  <td><a href="https://github.com/ThunderFly-aerospace/TF-B1/">ThunderFly balloon TF-B1</a></td>
- <td>Maintainer: ThunderFly s.r.o.<p><code>SYS_AUTOSTART</code> = 18001</p></td>
+ <td>Підтримувач: ThunderFly s.r.o.<p><code>SYS_AUTOSTART</code> = 18001</p></td>
 </tr>
 </tbody>
 </table>
@@ -146,13 +146,13 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
  <td>Generic Dodecarotor cox geometry</td>
- <td>Maintainer: William Peale &lt;develop707@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 24001</p></td>
+ <td>Підтримувач: William Peale &lt;develop707@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 24001</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Helicopter
+### Гелікоптер
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/Helicopter.svg"/>
@@ -165,14 +165,14 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_helicopter_generic_helicopter_(tail_esc)">
- <td>Generic Helicopter (Tail ESC)</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 16001</p></td>
+ <td>Загальний гелікоптер (хвостовий ESC)</td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 16001</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Hexarotor +
+### Гексаротор +
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/HexaRotorPlus.svg"/>
@@ -185,8 +185,8 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_hexarotor_+_generic_hexarotor_+_geometry">
- <td>Generic Hexarotor + geometry</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 7001</p></td>
+ <td>Загальний гексаротор + геометрія</td>
+ <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 7001</p></td>
 </tr>
 </tbody>
 </table>
@@ -198,11 +198,11 @@ div.frame_variant td, div.frame_variant th {
 <img src="../../assets/airframes/types/Y6B.svg"/>
 <table>
  <thead>
-   <tr><th>Common Outputs</th></tr>
+   <tr><th>Загальні виводи</th></tr>
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: front right top, CW; angle:60; direction:CW</li><li><b>Motor2</b>: front right bottom, CCW; angle:60; direction:CCW</li><li><b>Motor3</b>: back top, CW; angle:180; direction:CW</li><li><b>Motor4</b>: back bottom, CCW; angle:180; direction:CCW</li><li><b>Motor5</b>: front left top, CW; angle:-60; direction:CW</li><li><b>Motor6</b>: front left bottom, CCW;angle:-60; direction:CCW</li></ul></td>
+ <td><ul><li><b>Motor1</b>: передній правий верхній, CW; кут:60; напрямок: CW</li><li><b>Motor2</b>: передній правий нижній, CCW; кут:60; напрямок: CCW</li><li><b>Motor3</b>: задній верхній, CW; кут:180; напрямок: CW</li><li><b>Motor4</b>: задній нижній, CCW; кут:180; напрямок: CCW</li><li><b>Motor5</b>: передній лівий верхній, CW; кут:-60; напрямок:CW</li><li><b>Motor6</b>: передній лівий нижній, CCW;кут:-60; напрямок:CCW</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -215,13 +215,13 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
  <td>Generic Hexarotor coaxial geometry</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 11001</p></td>
+ <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 11001</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Hexarotor x
+### Гексаротор x
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/HexaRotorX.svg"/>
@@ -234,18 +234,18 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
- <td>Generic Hexarotor x geometry</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 6001</p></td>
+ <td>Загальний гексаротор х геометрія</td>
+ <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 6001</p></td>
 </tr>
 <tr id="copter_hexarotor_x_uvify_draco-r">
  <td>UVify Draco-R</td>
- <td>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 6002</p></td>
+ <td>Підтримувач: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 6002</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Octorotor +
+### Окторотор +
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/OctoRotorPlus.svg"/>
@@ -258,8 +258,8 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
- <td>Generic Octocopter + geometry</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 9001</p></td>
+ <td>Загальний октокоптер + геометрія</td>
+ <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 9001</p></td>
 </tr>
 </tbody>
 </table>
@@ -271,11 +271,11 @@ div.frame_variant td, div.frame_variant th {
 <img src="../../assets/airframes/types/OctoRotorXCoaxial.svg"/>
 <table>
  <thead>
-   <tr><th>Common Outputs</th></tr>
+   <tr><th>Загальні виводи</th></tr>
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Motor4</b>: motor 4</li><li><b>Motor5</b>: motor 5</li><li><b>Motor6</b>: motor 6</li><li><b>Motor7</b>: motor 7</li><li><b>Motor8</b>: motor 8</li></ul></td>
+ <td><ul><li><b>Motor1</b>: мотор 1</li><li><b>Motor2</b>: мотор 2</li><li><b>Motor3</b>: мотор 3</li><li><b>Motor4</b>: мотор 4</li><li><b>Motor5</b>: мотор 5</li><li><b>Motor6</b>: мотор 6</li><li><b>Motor7</b>: мотор 7</li><li><b>Motor8</b>: мотор 8</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -288,13 +288,13 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10__octo_coaxial_geometry">
  <td>Generic 10" Octo coaxial geometry</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 12001</p></td>
+ <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 12001</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Octorotor x
+### Окторотор x
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/OctoRotorX.svg"/>
@@ -307,14 +307,14 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
- <td>Generic Octocopter X geometry</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 8001</p></td>
+ <td>Загальний октокоптер X геометрія</td>
+ <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 8001</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Quadrotor +
+### Квадротор +
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/QuadRotorPlus.svg"/>
@@ -327,14 +327,14 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_quadrotor_+_generic_quad_+_geometry">
- <td>Generic Quad + geometry</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 5001</p></td>
+ <td>Загальний квадро + геометрія</td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 5001</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Quadrotor H
+### Квадротор H
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/QuadRotorH.svg"/>
@@ -354,7 +354,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Quadrotor x
+### Квадротор x
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/QuadRotorX.svg"/>
@@ -392,19 +392,19 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_px4_vision_dev_kit_v1.5">
  <td>PX4 Vision Dev Kit v1.5</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 4020</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 4020</p></td>
 </tr>
 <tr id="copter_quadrotor_x_generic_250_racer">
  <td>Generic 250 Racer</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4050</p></td>
+ <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4050</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_qav250">
  <td><a href="https://docs.px4.io/main/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html">HolyBro QAV250</a></td>
- <td>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4050</p></td>
+ <td>Підтримувач: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4050</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_kopis_2">
  <td>Holybro Kopis 2</td>
- <td>Maintainer: Beat Kueng &lt;beat@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4053</p></td>
+ <td>Підтримувач: Beat Kueng &lt;beat@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4053</p></td>
 </tr>
 <tr id="copter_quadrotor_x_advanced_technology_labs_(atl)_mantis_edu">
  <td>Advanced Technology Labs (ATL) Mantis EDU</td>
@@ -452,7 +452,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_simulation_sih_quadcopter_x">
  <td>SIH Quadcopter X</td>
- <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1100</p></td>
+ <td>Підтримувач: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1100</p></td>
 </tr>
 </tbody>
 </table>
@@ -464,11 +464,11 @@ div.frame_variant td, div.frame_variant th {
 <img src="../../assets/airframes/types/YPlus.svg"/>
 <table>
  <thead>
-   <tr><th>Common Outputs</th></tr>
+   <tr><th>Загальні виводи</th></tr>
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Servo1</b>: yaw servo</li></ul></td>
+ <td><ul><li><b>Motor1</b>: мотор 1</li><li><b>Motor2</b>: мотор 2</li><li><b>Motor3</b>: мотор 3</li><li><b>Servo1</b>: yaw servo</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -480,8 +480,8 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_tricopter_y+_generic_multirotor_with_tilt">
- <td>Generic Multirotor with tilt</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 14001</p></td>
+ <td>Загальний Мультиротор з нахилом</td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 14001</p></td>
 </tr>
 </tbody>
 </table>
@@ -502,24 +502,24 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="plane_flying_wing_generic_flying_wing">
- <td>Generic Flying Wing</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 3000</p></td>
+ <td>Загальне літаюче крило</td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 3000</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Plane A-Tail
+### Літак A-Tail
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/PlaneATail.svg"/>
 <table>
  <thead>
-   <tr><th>Common Outputs</th></tr>
+   <tr><th>Загальні виводи</th></tr>
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: throttle</li><li><b>Servo1</b>: aileron right</li><li><b>Servo2</b>: aileron left</li><li><b>Servo3</b>: v-tail right</li><li><b>Servo4</b>: v-tail left</li><li><b>Servo5</b>: wheel</li><li><b>Servo6</b>: flaps right</li><li><b>Servo7</b>: flaps left</li></ul></td>
+ <td><ul><li><b>Motor1</b>: газ</li><li><b>Servo1</b>: правий елерон</li><li><b>Servo2</b>: лівий елерон</li><li><b>Servo3</b>: v-tail right</li><li><b>Servo4</b>: v-tail left</li><li><b>Servo5</b>: колесо</li><li><b>Servo6</b>: закрилки праворуч</li><li><b>Servo7</b>: закрилки ліворуч</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -572,7 +572,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="plane_standard_plane_generic_standard_plane">
  <td>Загальний Стандартний літак</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 2100</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 2100</p></td>
 </tr>
 </tbody>
 </table>
@@ -593,16 +593,16 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="rover_rover_generic_ground_vehicle_(ackermann)">
- <td>Generic Ground Vehicle (Ackermann)</td>
- <td><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: throttle</li><li><b>Servo1</b>: steering</li></ul></p></td>
+ <td>Загальний наземний транспортний засіб (Ackermann)</td>
+ <td><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>Спеціальні виводи:</b><ul><li><b>Motor1</b>: газ</li><li><b>Servo1</b>: кермування</li></ul></p></td>
 </tr>
 <tr id="rover_rover_aion_robotics_r1_ugv">
  <td><a href="https://www.aionrobotics.com/r1">Aion Robotics R1 UGV</a></td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50003</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50003</p></td>
 </tr>
 <tr id="rover_rover_nxp_cup_car:_df_robot_gpx">
  <td>NXP Cup car: DF Robot GPX</td>
- <td>Maintainer: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: Speed of left wheels</li><li><b>Servo1</b>: Steering servo</li></ul></p></td>
+ <td>Підтримувач: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Спеціальні виводи:</b><ul><li><b>Motor1</b>: Швидкість лівих коліс</li><li><b>Servo1</b>: кермувальний сервопривід</li></ul></p></td>
 </tr>
 </tbody>
 </table>
@@ -627,8 +627,8 @@ div.frame_variant td, div.frame_variant th {
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
- <td>HippoCampus UUV (Unmanned Underwater Vehicle)</td>
- <td>Maintainer: Daniel Duecker &lt;daniel.duecker@tuhh.de&gt;<p><code>SYS_AUTOSTART</code> = 60001</p></td>
+ <td>HippoCampus TUHH (безпілотний підводний апарат)</td>
+ <td>Підтримувач: Daniel Duecker &lt;daniel.duecker@tuhh.de&gt;<p><code>SYS_AUTOSTART</code> = 60001</p></td>
 </tr>
 </tbody>
 </table>
@@ -640,11 +640,11 @@ div.frame_variant td, div.frame_variant th {
 <img src="../../assets/airframes/types/Vectored6DofUUV.svg"/>
 <table>
  <thead>
-   <tr><th>Common Outputs</th></tr>
+   <tr><th>Загальні виводи</th></tr>
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: motor 1 CCW, bow starboard horizontal, , propeller CCW</li><li><b>Motor2</b>: motor 2 CCW, bow port horizontal, propeller CCW</li><li><b>Motor3</b>: motor 3 CCW, stern starboard horizontal, propeller CW</li><li><b>Motor4</b>: motor 4 CCW, stern port horizontal, propeller CW</li><li><b>Motor5</b>: motor 5 CCW, bow starboard vertical, propeller CCW</li><li><b>Motor6</b>: motor 6 CCW, bow port vertical, propeller CW</li><li><b>Motor7</b>: motor 7 CCW, stern starboard vertical, propeller CW</li><li><b>Motor8</b>: motor 8 CCW, stern port vertical, propeller CCW</li></ul></td>
+ <td><ul><li><b>Motor1</b>: мотор 1 CCW, bow starboard horizontal, пропелер CCW</li><li><b>Motor2</b>: мотор 2 CCW, bow port horizontal, пропелер CCW</li><li><b>Motor3</b>: мотор 3 CCW, stern starboard horizontal, пропелер CW</li><li><b>Motor4</b>: мотор 4 CCW, stern port horizontal, пропелер CW</li><li><b>Motor5</b>: мотор 5 CCW, bow starboard vertical, пропелер CCW</li><li><b>Motor6</b>: мотор 6 CCW, bow port vertical, пропелер CW</li><li><b>Motor7</b>: мотор 7 CCW, stern starboard vertical, пропелер CW</li><li><b>Motor8</b>: мотор 8 CCW, stern port vertical, пропелер CCW</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -675,7 +675,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: motor right</li><li><b>Motor2</b>: motor left</li><li><b>Servo1</b>: elevon right</li><li><b>Servo2</b>: elevon left</li></ul></td>
+ <td><ul><li><b>Motor1</b>: правий мотор</li><li><b>Motor2</b>: лівий мотор</li><li><b>Servo1</b>: правий елерон</li><li><b>Servo2</b>: лівий елерон</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -688,13 +688,13 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="vtol_simulation_sih_tailsitter_duo">
  <td>SIH Tailsitter Duo</td>
- <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1102</p></td>
+ <td>Підтримувач: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1102</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Standard VTOL
+### Стандартний VTOL
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/VTOLPlane.svg"/>
@@ -708,15 +708,15 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
  <td>HIL Standard VTOL QuadPlane</td>
- <td>Maintainer: Roman Bapst &lt;roman@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 1002</p></td>
+ <td>Підтримувач: Roman Bapst &lt;roman@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 1002</p></td>
 </tr>
 <tr id="vtol_standard_vtol_generic_standard_vtol">
- <td>Generic Standard VTOL</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
+ <td>Загальний Стандартний VTOL</td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
 </tr>
 <tr id="vtol_standard_vtol_vertical_technologies_deltaquad">
  <td>Vertical Technologies DeltaQuad</td>
- <td>Maintainer: Sander Smeets &lt;sander@droneslab.com&gt;<p><code>SYS_AUTOSTART</code> = 13013</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Motor4</b>: motor 4</li><li><b>Servo1</b>: Right elevon</li><li><b>Servo2</b>: Left elevon</li><li><b>Servo3</b>: Pusher motor</li><li><b>Servo4</b>: Pusher reverse channel</li></ul></p></td>
+ <td>Підтримувач: Sander Smeets &lt;sander@droneslab.com&gt;<p><code>SYS_AUTOSTART</code> = 13013</p><p><b>Спеціальні виводи:</b><ul><li><b>Motor1</b>: мотор 1</li><li><b>Motor2</b>: мотор 2</li><li><b>Motor3</b>: мотор 3</li><li><b>Motor4</b>: мотор 4</li><li><b>Servo1</b>: правий елерон</li><li><b>Servo2</b>: лівий елерон</li><li><b>Servo3</b>: Pusher мотор</li><li><b>Servo4</b>: Pusher reverse channel</li></ul></p></td>
 </tr>
 <tr id="vtol_standard_vtol_babyshark_vtol">
  <td>BabyShark VTOL</td>
