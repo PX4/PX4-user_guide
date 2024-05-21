@@ -283,9 +283,9 @@ ZMO FPV в його початковому стані.
 
 [Відкалібруйте ваш пульт дистанційного керування](../config/radio.md) та налаштуйте перемикачі [режиму польоту](../config/flight_mode.md).
 
-Ми рекомендуємо призначити RC-перемикачі для набору режимів, визначених у розділі [Конфігурація режимів польоту > Які режими польоту та перемикачі мені слід встановити?](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set). In particular you should assign a _VTOL Transition Switch_, _Kill Switch_, and a switch to select [Stabilized mode](../flight_modes_fw/stabilized.md) and [Position mode](../flight_modes_fw/position.md).
+Ми рекомендуємо призначити RC-перемикачі для набору режимів, визначених у розділі [Конфігурація режимів польоту > Які режими польоту та перемикачі мені слід встановити?](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set). Зокрема, вам слід призначити _перехідний перемикач VTOL_, _перемикач вимкнення_, а також перемикач для вибору [стабілізованого режиму](../flight_modes_fw/stabilized.md) та [позиційного режиму](../flight_modes_fw/position.md).
 
-### Actuator Setup
+### Налаштування приводу
 
 :::warning
 
@@ -297,10 +297,10 @@ ZMO FPV в його початковому стані.
 
 Завантажений раніше файл [параметрів](#load-parameters-file) означає, що цей екран вже має бути правильно налаштований: вам потрібно лише відрегулювати налаштування для вашого транспортного засобу. Якщо двигуни/сервоприводи були підключені до інших виходів, ніж запропоновано, вам потрібно буде змінити відповідність між виходами та функціями в розділі «Виходи приводів».
 
-#### Tilt Servos
+#### Сервоприводи кута нахилу
 
-1. Switch the vehicle into manual mode (either via the flight mode switch or type `commander mode manual` into the MAVLink shell).
-1. Перевірте, чи двигуни спрямовані вгору. If the motors point forwards then their associated Tilt servos need to be reversed (selecting the checkbox next to each servo).
+1. Переведіть апарат у ручний режим (або за допомогою перемикача режиму польоту, або введіть `commander mode manual` в командній строчці MAVLink).
+1. Перевірте, чи двигуни спрямовані вгору. Якщо двигуни спрямовані вперед, то пов'язані з ними сервоприводи нахилу потрібно змінити на протилежні (встановіть прапорець біля кожного сервоприводу).
 
    ![Tilt Servo adjustment](../../assets/airframes/vtol/omp_hobby_zmo_fpv/tilt-limits-01.jpg)
 
@@ -309,13 +309,13 @@ ZMO FPV в його початковому стані.
 
 #### Керуючі поверхні
 
-Check if the actuators need to be reversed using the RC-Controller:
+Перевірте, чи потрібно реверсувати приводи за допомогою пульта дистанційного керування:
 
-- Roll stick to the right. Правий елерон повинен піднятися вгору, лівий елерон повинен опуститися вниз.
-- Pitch stick to the back (fly upwards). Обидві поверхні V-подібного хвоста повинні піднятися.
-- Yaw stick to the right. Both surfaces should move to the right
+- Перемістіть стік вправо. Правий елерон повинен піднятися вгору, лівий елерон повинен опуститися вниз.
+- Нахили стік назад (політ вверх). Обидві поверхні V-подібного хвоста повинні піднятися.
+- Упріть стік вправо. Обидві площини повинні зміститися вправо
 
-Now adjust the trim value so that all the surfaces are in neutral position.
+Тепер відкоригуйте значення газу так, щоб всі поверхні були в нейтральному положенні.
 
 ![Servo trim](../../assets/airframes/vtol/omp_hobby_zmo_fpv/servo_trim.png)
 
@@ -327,11 +327,11 @@ Now adjust the trim value so that all the surfaces are in neutral position.
 - `Motor 2`: Передній правий двигун повинен обертатися проти годинникової стрілки
 - `Motor 3`: Задній двигун повинен обертатися проти годинникової стрілки
 
-If the motor spins in the wrong directions two of the three motor wires need to be swapped. The direction can't be changed in software because the vehicle does not use [DShot ESC](../peripherals/dshot.md).
+Якщо двигун обертається в неправильному напрямку, необхідно поміняти місцями два з трьох дротів двигуна. Напрямок не може бути змінено програмно, оскільки апарат не використовує [DShot ESC](../peripherals/dshot.md).
 
 ## Перший політ
 
-- Check tilt rotor reactions in [Stabilized mode](../flight_modes_fw/stabilized.md). Keep the throttle stick at the minimum and place the vehicle at the ground. To enable the tilt servos you need to arm the vehicle.
+- Перевірте реакцію ротора на нахил у режимі [Стабілізація](../flight_modes_fw/stabilized.md). Keep the throttle stick at the minimum and place the vehicle at the ground. To enable the tilt servos you need to arm the vehicle.
   - Yaw the vehicle to the right (nose to the right) -> left motor should tilt down
   - Yaw the vehicle to the left (nose to the left) -> right motor should tilt down
 - Mount the propellers.
