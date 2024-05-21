@@ -720,7 +720,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_standard_vtol_babyshark_vtol">
  <td>BabyShark VTOL</td>
- <td>Maintainer: Silvan Fuhrer &lt;silvan@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Motor4</b>: motor 4</li><li><b>Motor5</b>: Pusher motor</li><li><b>Servo1</b>: Ailerons</li><li><b>Servo2</b>: A-tail left</li><li><b>Servo3</b>: A-tail right</li></ul></p></td>
+ <td>Підтримувач: Silvan Fuhrer &lt;silvan@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Спеціальні виводи:</b><ul><li><b>Motor1</b>: мотор 1</li><li><b>Motor2</b>: мотор 2</li><li><b>Motor3</b>: мотор 3</li><li><b>Motor4</b>: мотор 4</li><li><b>Motor5</b>: Pusher мотор</li><li><b>Servo1</b>: елерони</li><li><b>Servo2</b>: A-tail left</li><li><b>Servo3</b>: A-tail right</li></ul></p></td>
 </tr>
 </tbody>
 </table>
@@ -739,7 +739,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="vtol_vtol_tailsitter_generic_vtol_tailsitter">
- <td>Generic VTOL Tailsitter</td>
+ <td>Загальний VTOL Tailsitter</td>
  <td>Супроводжуючий: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13200</p></td>
 </tr>
 </tbody>
@@ -759,11 +759,11 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor">
- <td>Generic Quadplane VTOL Tiltrotor</td>
+ <td>Загальний Quadplane VTOL Tiltrotor</td>
  <td><p><code>SYS_AUTOSTART</code> = 13030</p></td>
 </tr>
 <tr id="vtol_vtol_tiltrotor_generic_tiltrotor_vtol">
- <td>Generic Tiltrotor VTOL</td>
+ <td>Загальний Tiltrotor VTOL</td>
  <td>Супроводжуючий: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
 </tr>
 </tbody>
