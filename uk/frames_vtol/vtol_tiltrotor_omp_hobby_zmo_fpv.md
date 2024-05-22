@@ -277,7 +277,7 @@ ZMO FPV в його початковому стані.
 - [Компас](../config/compass.md)
 - [Гіроскоп](../config/gyroscope.md)
 - [Акселерометр](../config/accelerometer.md)
-- [Airspeed](../config/airspeed.md)
+- [Швидкість повітря](../config/airspeed.md)
 
 ### RC-налаштування
 
