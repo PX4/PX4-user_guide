@@ -104,6 +104,8 @@ You can access these from the Languages menu (top right):
 
 ![Language Selector](../assets/vuepress/language_selector.png)
 
+<!--@include: _contributors.md-->
+
 ## License
 
 PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause).
