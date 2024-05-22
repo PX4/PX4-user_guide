@@ -170,7 +170,7 @@ batmon <command> [arguments...]
 
 
 ### Опис
-Smart battery driver for the BQ40Z50 fuel gauge IC.
+Розумний драйвер акумулятора для BQ40Z50 палива IC.
 
 ### Приклади
 Записати у прошивку для встановлення параметрів. address, number_of_bytes, byte0, ... , byteN
@@ -425,12 +425,12 @@ ft_technologies_serial <command> [arguments...]
 
 
 ### Опис
-Mount/gimbal Gimbal control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).
+Водій керування монтажем / гімбалю. Він відображає кілька різних методів введення (наприклад, RC або MAVLink) на налаштований вивід (наприклад, AUX канали або MAVLink).
 
-Documentation how to use it is on the [gimbal_control](https://docs.px4.io/main/en/advanced/gimbal_control.html) page.
+Документація з тим, як його використовувати, знаходиться на сторінці управління гімбалем [gimbal_control](https://docs.px4.io/main/en/advanced/gimbal_control.html).
 
 ### Приклади
-Test the output by setting a angles (all omitted axes are set to 0):
+Перевірте вихідні дані, встановивши кути (всі пропущені вісі установлені на 0):
 ```
 gimbal test pitch -45 yaw 30
 ```
