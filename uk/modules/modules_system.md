@@ -67,11 +67,11 @@ camera_feedback <command> [arguments...]
    status        print status info
 ```
 ## cdcacm_autostart
-Source: [drivers/cdcacm_autostart](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/cdcacm_autostart)
+Джерело: [drivers/cdcacm_autostart](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/cdcacm_autostart)
 
 
 ### Опис
-This module listens on USB and auto-configures the protocol depending on the bytes received. The supported protocols are: MAVLink, nsh, and ublox serial passthrough. If the parameter SYS_USB_AUTO=2 the module will only try to start mavlink as long as the USB VBUS is detected. Otherwise it will spin and continue to check for VBUS and start mavlink once it is detected.
+Цей модуль прослуховує USB і автоматично налаштовує протокол в залежності від отриманих байтів. Підтримувані протоколи: MAVLink, nsh та ublox послідовний прохід. Якщо параметр SYS_USB_AUTO=2 модуль буде намагатися запустити mavlink лише тоді, коли буде виявлено USB VBUS. В іншому випадку він буде обертатися і продовжувати перевіряти VBUS та запускати mavlink, як тільки він виявиться.
 
 <a id="cdcacm_autostart_usage"></a>
 
@@ -765,7 +765,7 @@ tune_control play -t 2
 
 <a id="tune_control_usage"></a>
 
-### Usage
+### Використання
 ```
 tune_control <command> [arguments...]
  Commands:
@@ -824,14 +824,14 @@ uxrce_dds_client <command> [arguments...]
 Джерело: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue)
 
 
-### Description
+### Опис
 
 Інструмент командного рядка для відображення статусу черги роботи.
 
 
 <a id="work_queue_usage"></a>
 
-### Usage
+### Використання
 ```
 work_queue <command> [arguments...]
  Commands:
