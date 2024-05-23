@@ -95,6 +95,8 @@ The "supported" vehicles are listed in the [Airframes Reference](airframes/airfr
 
 ![选择语言](../assets/vuepress/language_selector.png)
 
+<!--@include: _contributors.md-->
+
 ## 许可证
 
 PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). 文档在[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)中获得许可。 更多信息请参见：[许可证](contribute/licenses.md)。
