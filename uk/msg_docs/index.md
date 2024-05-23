@@ -82,24 +82,24 @@
 - [GpioIn](GpioIn.md) — маска та стан GPIO
 - [GpioOut](GpioOut.md) — Маска та стан GPIO
 - [GpioRequest](GpioRequest.md) — Запит на зчитування маски GPIO
-- [GpsDump](GpsDump.md) — This message is used to dump the raw gps communication to the log. Set the parameter GPS_DUMP_COMM to 1 to use this.
+- [GpsDump](GpsDump.md) — Це повідомлення використовується для виведення необробленої gps комунікації до журналу. Встановіть параметр GPS_DUMP_COMM на 1, щоб використовувати це.
 - [GpsInjectData](GpsInjectData.md)
-- [Gripper](Gripper.md) — # Used to command an actuation in the gripper, which is mapped to a specific output in the control allocation module
+- [ Gripper ](Gripper.md) — # Використовується для виклику активації в захоплювачі, яка відображена на конкретний вихід в модулі розподілу керування
 - [HealthReport](HealthReport.md)
 - [HeaterStatus](HeaterStatus.md)
-- [HomePosition](HomePosition.md) — GPS home position in WGS84 coordinates.
+- [ HomePosition ](HomePosition.md) — GPS домашня позиція у координатах WGS84.
 - [HoverThrustEstimate](HoverThrustEstimate.md)
 - [InputRc](InputRc.md)
 - [InternalCombustionEngineStatus](InternalCombustionEngineStatus.md)
 - [IridiumsbdStatus](IridiumsbdStatus.md)
-- [IrlockReport](IrlockReport.md) — IRLOCK_REPORT message data
+- [ IrlockReport ](IrlockReport.md) — дані повідомлення IRLOCK_REPORT
 - [LandingGear](LandingGear.md)
 - [LandingGearWheel](LandingGearWheel.md)
 - [LandingTargetInnovations](LandingTargetInnovations.md)
-- [LandingTargetPose](LandingTargetPose.md) — Relative position of precision land target in navigation (body fixed, north aligned, NED) and inertial (world fixed, north aligned, NED) frames
-- [LaunchDetectionStatus](LaunchDetectionStatus.md) — Status of the launch detection state machine (fixed-wing only)
-- [LedControl](LedControl.md) — LED control: control a single or multiple LED's. These are the externally visible LED's, not the board LED's
-- [LogMessage](LogMessage.md) — A logging message, output with PX4_WARN, PX4_ERR, PX4_INFO
+- [LandingTargetPose](LandingTargetPose.md) — Відносне положення цільової точки з високою точністю в навігаційних кадрах (тіло фіксоване, орієнтоване на північ, NED) та інерційних (фіксовані на світі, орієнтовані на північ, NED) кадрах
+- [LaunchDetectionStatus](LaunchDetectionStatus.md) — Стан машини виявлення запуску (тільки фіксованокрил)
+- [LedControl](LedControl.md) — Керування світлодіодами: керування одним чи кількома світлодіодами. Це зовнішні світлодіоди, а не світлодіоди плати
+- [LogMessage](LogMessage.md) — Повідомлення логування, що виводиться з PX4_WARN, PX4_ERR, PX4_INFO
 - [LoggerStatus](LoggerStatus.md)
 - [MagWorkerData](MagWorkerData.md)
 - [MagnetometerBiasEstimate](MagnetometerBiasEstimate.md)
@@ -111,30 +111,30 @@
 - [MessageFormatResponse](MessageFormatResponse.md)
 - [Mission](Mission.md)
 - [MissionResult](MissionResult.md)
-- [ModeCompleted](ModeCompleted.md) — Mode completion result, published by an active mode. The possible values of nav_state are defined in the VehicleStatus msg. Note that this is not always published (e.g. when a user switches modes or on failsafe activation)
+- [ModeCompleted](ModeCompleted.md) — Результат завершення режиму, опублікований активним режимом. Можливі значення nav_state визначені в повідомленні VehicleStatus. Зверніть увагу, що це не завжди публікується (наприклад, коли користувач переходить у режими або при активації failsafe)
 - [MountOrientation](MountOrientation.md)
 - [NavigatorMissionItem](NavigatorMissionItem.md)
 - [NormalizedUnsignedSetpoint](NormalizedUnsignedSetpoint.md)
 - [NpfgStatus](NpfgStatus.md)
-- [ObstacleDistance](ObstacleDistance.md) — Obstacle distances in front of the sensor.
-- [OffboardControlMode](OffboardControlMode.md) — Off-board control mode
-- [OnboardComputerStatus](OnboardComputerStatus.md) — ONBOARD_COMPUTER_STATUS message data
+- [ IrlockReport ](ObstacleDistance.md) — Відстані до перешкод перед сенсором.
+- [ OffboardControlMode ](OffboardControlMode.md) — Режим керування поза платформою
+- [ OnboardComputerStatus ](OnboardComputerStatus.md) — дані повідомлення про ONBOARD_COMPUTER_STATUS
 - [OrbTest](OrbTest.md)
 - [OrbTestLarge](OrbTestLarge.md)
 - [OrbTestMedium](OrbTestMedium.md)
-- [OrbitStatus](OrbitStatus.md) — ORBIT_YAW_BEHAVIOUR
-- [ParameterResetRequest](ParameterResetRequest.md) — ParameterResetRequest : Used by the primary to reset one or all parameter value(s) on the remote
-- [ParameterSetUsedRequest](ParameterSetUsedRequest.md) — ParameterSetUsedRequest : Used by a remote to update the used flag for a parameter on the primary
-- [ParameterSetValueRequest](ParameterSetValueRequest.md) — ParameterSetValueRequest : Used by a remote or primary to update the value for a parameter at the other end
-- [ParameterSetValueResponse](ParameterSetValueResponse.md) — ParameterSetValueResponse : Response to a set value request by either primary or secondary
-- [ParameterUpdate](ParameterUpdate.md) — This message is used to notify the system about one or more parameter changes
+- [ OrbitStatus ](OrbitStatus.md) — ORBIT_YAW_BEHAVIOUR
+- [ParameterResetRequest](ParameterResetRequest.md) — Параметр скинути запит. Використовується в основному для скидання одного або всіх параметрів значення на віддаленому
+- [ParameterSetUsedRequest](ParameterSetUsedRequest.md) — ParameterSetUsedRequest : Використовується для того, щоб вдало оновити прапорець, вказаний для параметру на основному
+- [ParameterSetValueRequest](ParameterSetValueRequest.md) — ParameterSetValueRequest : Використовується віддалено або основним для оновлення значення параметра на іншому кінці
+- [ParameterSetValueResponse](ParameterSetValueResponse.md) — ParameterSetValueResponse : Результат відповіді на запит на встановлення значення від будь-якого первинного або вторинного
+- [ ParameterUpdate ](ParameterUpdate.md) — Це повідомлення використовується для повідомлення системі про одну або кілька змін параметрів
 - [Ping](Ping.md)
 - [PositionControllerLandingStatus](PositionControllerLandingStatus.md)
 - [PositionControllerStatus](PositionControllerStatus.md)
-- [PositionSetpoint](PositionSetpoint.md) — this file is only used in the position_setpoint triple as a dependency
-- [PositionSetpointTriplet](PositionSetpointTriplet.md) — Global position setpoint triplet in WGS84 coordinates. This are the three next waypoints (or just the next two or one).
-- [PowerButtonState](PowerButtonState.md) — power button state notification message
-- [PowerMonitor](PowerMonitor.md) — power monitor message
+- [PositionSetpoint](PositionSetpoint.md) — цей файл використовується лише у потрійному підпорядкуванні позиції як залежність
+- [ PositionSetpointTriplet ](PositionSetpointTriplet.md) — Глобальний триплет позиції у географічних координатах WGS84. Ось наступні три способи вказівань (або просто наступні два або один).
+- [ PowerButtonState ](PowerButtonState.md) — повідомлення про стан кнопки живлення
+- [ PowerMonitor ](PowerMonitor.md) — повідомлення монітору електроживлення
 - [PpsCapture](PpsCapture.md)
 - [PwmInput](PwmInput.md)
 - [Px4ioStatus](Px4ioStatus.md)
@@ -154,10 +154,10 @@
 - [SensorAccelFifo](SensorAccelFifo.md)
 - [SensorAirflow](SensorAirflow.md)
 - [SensorBaro](SensorBaro.md)
-- [SensorCombined](SensorCombined.md) — Sensor readings in SI-unit form. These fields are scaled and offset-compensated where possible and do not change with board revisions and sensor updates.
-- [SensorCorrection](SensorCorrection.md) — Sensor corrections in SI-unit form for the voted sensor
-- [SensorGnssRelative](SensorGnssRelative.md) — GNSS relative positioning information in NED frame. The NED frame is defined as the local topological system at the reference station.
-- [SensorGps](SensorGps.md) — GPS position in WGS84 coordinates. the field 'timestamp' is for the position & velocity (microseconds)
+- [VehicleStatus](SensorCombined.md) — Показники датчика в одиницях СІ. Ці поля масштабуються та компенсуються зміщенням, де це можливо, і не змінюються з ревізіями плати та оновленнями сенсора.
+- [SensorCorrection](SensorCorrection.md) — Датчики корекції по SI-одиницях для датчика голосувань
+- [SensorGnssRelative](SensorGnssRelative.md) — Інформація про відносне позиціонування GNSS в рамці NED. Фрейм NED визначається як локальна топологічна система на довідковій станції.
+- [SensorGps](SensorGps.md) — Домашнє GPS положення в координатах WGS84. поле 'відмітка часу' призначене для позиції& швидкості (мікросекунди)
 - [SensorGyro](SensorGyro.md)
 - [SensorGyroFft](SensorGyroFft.md)
 - [SensorGyroFifo](SensorGyroFifo.md)
@@ -165,56 +165,56 @@
 - [SensorMag](SensorMag.md)
 - [SensorOpticalFlow](SensorOpticalFlow.md)
 - [SensorPreflightMag](SensorPreflightMag.md) — Pre-flight sensor check metrics. The topic will not be updated when the vehicle is armed
-- [SensorSelection](SensorSelection.md) — Sensor ID's for the voted sensors output on the sensor_combined topic. Will be updated on startup of the sensor module and when sensor selection changes
-- [SensorUwb](SensorUwb.md) — UWB distance contains the distance information measured by an ultra-wideband positioning system, such as Pozyx or NXP Rddrone.
-- [SensorsStatus](SensorsStatus.md) — Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
-- [SensorsStatusImu](SensorsStatusImu.md) — Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
+- [SensorSelection](SensorSelection.md) — Sensor ID's for the voted sensors output on the sensor_combined topic. Буде оновлено при запуску модуля датчика та при зміні вибору датчика
+- [SensorUwb](SensorUwb.md) — Відстань UWB містить інформацію про відстань, виміряну системою позиціонування з дуже широкою смугою пропускання, такою як Pozyx або NXP Rddrone.
+- [ SensorsStatus ](SensorsStatus.md) — Метрика перевірки датчика. Це значення буде нульовим для датчика, який є первинним або незаповненим.
+- [ SensorsStatusImu ](SensorsStatusImu.md) — Метрика перевірки сенсорів. Це значення буде нульовим для датчика, який є первинним або незаповненим.
 - [SystemPower](SystemPower.md)
-- [TakeoffStatus](TakeoffStatus.md) — Status of the takeoff state machine currently just available for multicopters
-- [TaskStackInfo](TaskStackInfo.md) — stack information for a single running process
+- [TakeoffStatus](TakeoffStatus.md) — Статус злітної машини наразі доступний лише для мультикоптерів
+- [ TaskStackInfo ](TaskStackInfo.md) — інформація про стек для одного запущеного процесу
 - [TecsStatus](TecsStatus.md)
 - [TelemetryStatus](TelemetryStatus.md)
 - [TiltrotorExtraControls](TiltrotorExtraControls.md)
 - [TimesyncStatus](TimesyncStatus.md)
-- [TrajectoryBezier](TrajectoryBezier.md) — Bezier Trajectory description. See also Mavlink TRAJECTORY msg The topic trajectory_bezier describe each waypoint defined in vehicle_trajectory_bezier
-- [TrajectorySetpoint](TrajectorySetpoint.md) — Trajectory setpoint in NED frame Input to PID position controller. Needs to be kinematically consistent and feasible for smooth flight. setting a value to NaN means the state should not be controlled
-- [TrajectoryWaypoint](TrajectoryWaypoint.md) — Waypoint Trajectory description. See also Mavlink TRAJECTORY msg The topic trajectory_waypoint describe each waypoint defined in vehicle_trajectory_waypoint
+- [TrajectoryBezier](TrajectoryBezier.md) — Bezier Trajectory description. Див. також Повідомлення Mavlink TRAJECTORY The topic trajectory_bezier описує кожну точку маршруту, визначену в vehicle_trajectory_bezier
+- [TrajectorySetpoint](TrajectorySetpoint.md) — Траєкторія установки в рамці NED Вхід до контролера позиції PID. Потрібно мати кінематичну послідовність і бути можливим для гладкого польоту. встановлення значення NaN означає, що стан не повинен контролюватися
+- [ TrajectoryWaypoint ](TrajectoryWaypoint.md) — Опис траєкторії точки маршруту. Див. також Повідомлення Mavlink TRAJECTORY The topic trajectory_waypoint describe each waypoint defined in vehicle_trajectory_waypoint
 - [TransponderReport](TransponderReport.md)
-- [TuneControl](TuneControl.md) — This message is used to control the tunes, when the tune_id is set to CUSTOM then the frequency, duration are used otherwise those values are ignored.
-- [UavcanParameterRequest](UavcanParameterRequest.md) — UAVCAN-MAVLink parameter bridge request type
-- [UavcanParameterValue](UavcanParameterValue.md) — UAVCAN-MAVLink parameter bridge response type
-- [UlogStream](UlogStream.md) — Message to stream ULog data from the logger. Corresponds to the LOGGING_DATA mavlink message
-- [UlogStreamAck](UlogStreamAck.md) — Ack a previously sent ulog_stream message that had the NEED_ACK flag set
+- [ TrajectoryWaypoint ](TuneControl.md) — Це повідомлення використовується для контролю мелодій, коли tune_id встановлено на CUSTOM то частота, тривалість використовуються, в іншому випадку ці значення ігноруються.
+- [UavcanParameterRequest](UavcanParameterRequest.md) — Тип запиту моста параметрів UAVCAN-MAVLink
+- [UavcanParameterValue](UavcanParameterValue.md) — Тип відповіді мостику параметрів UAVCAN-MAVLink
+- [UlogStream](UlogStream.md) — Повідомлення для потоку даних ULog з пристрою реєстрування. Відповідає повідомленню mavlink LOGGING_DATA mavlink message
+- [UlogStreamAck](UlogStreamAck.md) — Підтверджуйте попереднє повідомлення ulog_stream, в якому був встановлений прапорець NEED_ACK
 - [UnregisterExtComponent](UnregisterExtComponent.md)
 - [VehicleAcceleration](VehicleAcceleration.md)
 - [VehicleAirData](VehicleAirData.md)
 - [VehicleAngularAccelerationSetpoint](VehicleAngularAccelerationSetpoint.md)
 - [VehicleAngularVelocity](VehicleAngularVelocity.md)
-- [VehicleAttitude](VehicleAttitude.md) — This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use The quaternion uses the Hamilton convention, and the order is q(w, x, y, z)
+- [VehicleAttitude](VehicleAttitude.md) — Це повідомлення подібне до повідомлення mavlink ATTITUDE_QUATERNION, але для використання на борту Для кватерніону використовується конвенція Гамільтона, а порядок має вигляд q(w, x, y, z)
 - [VehicleAttitudeSetpoint](VehicleAttitudeSetpoint.md)
-- [VehicleCommand](VehicleCommand.md) — Vehicle Command uORB message. Used for commanding a mission / action / etc. Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
-- [VehicleCommandAck](VehicleCommandAck.md) — Vehicle Command Ackonwledgement uORB message. Used for acknowledging the vehicle command being received. Follows the MAVLink COMMAND_ACK message definition
-- [VehicleConstraints](VehicleConstraints.md) — Local setpoint constraints in NED frame setting something to NaN means that no limit is provided
+- [VehicleCommand](VehicleCommand.md) — Повідомлення чи команда транспортного засобу. Використовується для управління місією / дією / тощо. Дотримується визначення MAVLink COMMAND_INT / COMMAND_LONG
+- [VehicleCommandAck](VehicleCommandAck.md) — Повідомлення про підтвердження команди транспортного засобу uORB. Використовується для підтвердження отримання команди для транспортного засобу. Дотримується визначення повідомлення MAVLink COMMAND_ACK
+- [VehicleConstraints](VehicleConstraints.md) — Локальні обмеження заданих значень у фреймі NED встановлення чогось у NaN означає, що обмеження не передбачено
 - [VehicleControlMode](VehicleControlMode.md)
 - [VehicleGlobalPosition](VehicleGlobalPosition.md) — Об'єднана глобальна позиція у WGS84. Ця структура містить оцінку глобальної позиції. Це не необроблений GPS (@see vehicle_gps_position). Цю тему зазвичай публікують з положення який враховує більше джерел інформації, ніж просто GPS, наприклад, входи керування транспортним засобом у реалізації фільтра Калмана.
-- [VehicleImu](VehicleImu.md) — IMU readings in SI-unit form.
+- [VehicleImu](VehicleImu.md) — Виміри в IMU у СІ-одиницях.
 - [VehicleImuStatus](VehicleImuStatus.md)
 - [VehicleLandDetected](VehicleLandDetected.md)
-- [VehicleLocalPosition](VehicleLocalPosition.md) — Fused local position in NED. The coordinate system origin is the vehicle position at the time when the EKF2-module was started.
-- [VehicleLocalPositionSetpoint](VehicleLocalPositionSetpoint.md) — Local position setpoint in NED frame Telemetry of PID position controller to monitor tracking. NaN means the state was not controlled
+- [VehicleLocalPosition](VehicleLocalPosition.md) — Об'єднана локальна позиція в NED. Початкова точка координатної системи - це позиція транспортного засобу в момент запуску модуля EKF2.
+- [VehicleLocalPositionSetpoint](VehicleLocalPositionSetpoint.md) — Місцева позиція задана в рамці NED Телеметрія контролера позиції PID для відстеження. NaN означає, що стан не був контрольований
 - [VehicleMagnetometer](VehicleMagnetometer.md)
-- [VehicleOdometry](VehicleOdometry.md) — Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
-- [VehicleOpticalFlow](VehicleOpticalFlow.md) — Optical flow in XYZ body frame in SI units.
+- [VehicleOdometry](VehicleOdometry.md) — Дані про відомість автомобіля. Відповідає ROS REP 147 для повітряних суден
+- [VehicleOpticalFlow](VehicleOpticalFlow.md) — Оптичний потік у тілі XYZ у системі одиниць SI.
 - [VehicleOpticalFlowVel](VehicleOpticalFlowVel.md)
 - [VehicleRatesSetpoint](VehicleRatesSetpoint.md)
-- [VehicleRoi](VehicleRoi.md) — Vehicle Region Of Interest (ROI)
-- [VehicleStatus](VehicleStatus.md) — Encodes the system state of the vehicle published by commander
+- [VehicleRoi](VehicleRoi.md) — Область Інтересів Транспортного Засобу (ROI)
+- [VehicleStatus](VehicleStatus.md) — Кодує стан системи транспортного засобу, опублікований командиром
 - [VehicleThrustSetpoint](VehicleThrustSetpoint.md)
 - [VehicleTorqueSetpoint](VehicleTorqueSetpoint.md)
-- [VehicleTrajectoryBezier](VehicleTrajectoryBezier.md) — Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg The topic vehicle_trajectory_bezier is used to send a smooth flight path from the companion computer / avoidance module to the position controller.
-- [VehicleTrajectoryWaypoint](VehicleTrajectoryWaypoint.md) — Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg The topic vehicle_trajectory_waypoint_desired is used to send the user desired waypoints from the position controller to the companion computer / avoidance module. The topic vehicle_trajectory_waypoint is used to send the adjusted waypoints from the companion computer / avoidance module to the position controller.
-- [VelocityLimits](VelocityLimits.md) — Velocity and yaw rate limits for a multicopter position slow mode only
-- [VtolVehicleStatus](VtolVehicleStatus.md) — VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE
+- [VehicleTrajectoryBezier](VehicleTrajectoryBezier.md) — Опис траєкторії шляхопунктів транспортного засобу. Дивіться також MAVLink MAV_TRAJECTORY_REPRESENTATION msg Тема vehicle_trajectory_bezier використовується для надсилання гладкого шляху польоту від компаньйона-комп'ютера/модуля уникання перешкод до контролера положення.
+- [VehicleTrajectoryWaypoint](VehicleTrajectoryWaypoint.md) — Опис траєкторії шляхопунктів транспортного засобу. Дивіться також MAVLink MAV_TRAJECTORY_REPRESENTATION msg Тема vehicle_trajectory_waypoint_desired використовується для надсилання бажаних користувачем точок маршруту від контролера положення до комп'ютера-супутника/модуля уникання перешкод. Тема vehicle_trajectory_waypoint використовується для надсилання коригованих точок маршруту від компаньйонського комп'ютера / модуля уникання перешкод до контролера положення.
+- [VelocityLimits](VelocityLimits.md) — Обмеження швидкості та кутової швидкості для мультикоптера лише в режимі повільного переміщення позиції
+- [VtolVehicleStatus](VtolVehicleStatus.md) — VEHICLE_VTOL_STATE, повинен відповідати 1:1 MAVLinks_VTOL_STATE
 - [WheelEncoders](WheelEncoders.md)
 - [Wind](Wind.md)
 - [YawEstimatorStatus](YawEstimatorStatus.md)
