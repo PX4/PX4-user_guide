@@ -277,7 +277,7 @@ ZMO FPV в його початковому стані.
 - [Компас](../config/compass.md)
 - [Гіроскоп](../config/gyroscope.md)
 - [Акселерометр](../config/accelerometer.md)
-- [Airspeed](../config/airspeed.md)
+- [Швидкість повітря](../config/airspeed.md)
 
 ### RC-налаштування
 
@@ -331,17 +331,17 @@ ZMO FPV в його початковому стані.
 
 ## Перший політ
 
-- Перевірте реакцію ротора на нахил у режимі [Стабілізація](../flight_modes_fw/stabilized.md). Keep the throttle stick at the minimum and place the vehicle at the ground. To enable the tilt servos you need to arm the vehicle.
-  - Yaw the vehicle to the right (nose to the right) -> left motor should tilt down
-  - Yaw the vehicle to the left (nose to the left) -> right motor should tilt down
-- Mount the propellers.
-- Check center of gravity (GG). Switch the vehicle into forward flight mode. To check the CG lift the vehicle with two fingers up at the markings underneath the wing. The vehicle should balance horizontally. If the vehicle tips to either the tail or to the nose then you need to move the battery into the opposite direction. If you are not able to balance the vehicle with this method you will need to reposition some components or add weight to balance the vehicle.
-- Check actuator orientations and neutral trim
-- Check control surface reactions in [Stabilized mode](../flight_modes_fw/stabilized.md). Switch the vehicle into forward flight mode.
-  - Roll the vehicle to the right. The right aileron should go down. The left aileron should go up.
-  - Pitch the vehicle up (nose up). Both elevons should go down.
-  - Yaw the vehicle to the right (nose to the right). Both elevons should go to the left.
-- If a [kill-switch](../config/safety.md#kill-switch) is used, make sure it's working properly and will not be activated accidentally in flight!
-- Arm in [Stabilized mode](../flight_modes_fw/stabilized.md) and check if motors respond to the commands, e.g. roll left increases throttle on the right motor
-- Takeoff in [Stabilized mode](../flight_modes_fw/stabilized.md) and make some basic maneuvers
-- If everything went without any issue, takeoff in [Position mode](../flight_modes_fw/position.md) and do a transition at around 50m. If something goes wrong switch back to multicopter mode as fast as possible (using the transition switch).
+- Перевірте реакцію ротора на нахил у режимі [Стабілізація](../flight_modes_fw/stabilized.md). Утримуйте палицю керування газом в мінімумі і помістіть транспортний засіб на землю. Для активації сервоприводів нахилу вам потрібно озброїти транспортний засіб.
+  - Поверніть автомобіль праворуч (носом праворуч) -> лівий двигун повинен нахилитися донизу
+  - Поверніть транспортний засіб вліво (носом вліво) -> правий двигун повинен нахилитися вниз
+- Встановіть пропелери.
+- Перевірте центр мас (GG). Перемикайте транспортний засіб у режим польоту вперед. Щоб перевірити ЦМ, підніміть транспорт з двома пальцями вгору на маркування під крилом. Транспортний засіб повинен бути в горизонтальному положенні. Якщо транспортний засіб нахилився вперед або назад, вам потрібно перемістити батарею в протилежному напрямку. Якщо ви не здатні врівноважити транспортний засіб цим методом, вам доведеться перенести деякі компоненти або додати вагу для вирівнювання транспортного засобу.
+- Перевірте орієнтацію приводів та нейтральну передачу
+- Перевірте реакцію поверхні керування в режимі [Стабілізація](../flight_modes_fw/stabilized.md). Перемикайте транспортний засіб у режим польоту вперед.
+  - Перемістіть транспортний засіб праворуч. Правий елерон повинен піти вниз. Лівий елерон повинен піднятися.
+  - Підійміть транспортний засіб вверх (носом вгору). Обидва елерони повинні йти вниз.
+  - Поверніть транспортний засіб праворуч (носом праворуч). Обидва елерони повинні опуститися вліво.
+- Якщо використовується [kill-switch](../config/safety.md#kill-switch), переконайтеся, що він працює належним чином і не буде активований випадково в повітрі!
+- Включіть [режим стабілізації](../flight_modes_fw/stabilized.md) та перевірте, чи відповідають двигуни на команди, наприклад, перевалюємося вліво, збільшувати оберти на правому двигуні
+- Злітайте в режимі [Стабілізованого режиму](../flight_modes_fw/stabilized.md) та виконайте деякі базові маневри
+- Якщо все пройшло без проблем, злітайте у [Position mode](../flight_modes_fw/position.md) та зробіть перехід приблизно на висоті 50м. Якщо щось пішло не так, якнайшвидше перейдіть в режим мультикоптера (використовуючи перемикач переходу).

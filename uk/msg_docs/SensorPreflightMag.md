@@ -1,8 +1,8 @@
 # SensorPreflightMag (UORB message)
 
-Pre-flight sensor check metrics. The topic will not be updated when the vehicle is armed
+Метрики перевірки сенсорів перед польотом. Тема не буде оновлена, коли транспортний засіб зброєний
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorPreflightMag.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorPreflightMag.msg)
 
 ```c
 #

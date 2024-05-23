@@ -95,6 +95,8 @@ PX4 사용에 문제가 있으시면, 먼저 [지원 포럼](contribute/support.
 
 ![언어 선택](../assets/vuepress/language_selector.png)
 
+<!--@include: _contributors.md-->
+
 ## 라이센스
 
 PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). 이 문서는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 라이센스를 준수합니다. 자세한 정보는 [라이센스](contribute/licenses.md)를 참고하십시오.

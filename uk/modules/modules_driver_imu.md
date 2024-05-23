@@ -862,11 +862,11 @@ mpu9520 <command> [arguments...]
    status        print status info
 ```
 ## sch16t
-Source: [drivers/imu/murata/sch16t](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/murata/sch16t)
+Джерело: [drivers/imu/murata/sch16t](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/murata/sch16t)
 
 <a id="sch16t_usage"></a>
 
-### Usage
+### Використання
 ```
 sch16t <command> [arguments...]
  Commands:
