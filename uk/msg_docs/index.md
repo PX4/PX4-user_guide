@@ -11,7 +11,7 @@
 - [ActuatorMotors](ActuatorMotors.md) — Повідомлення керування двигуном
 - [ActuatorOutputs](ActuatorOutputs.md)
 - [ActuatorServos](ActuatorServos.md) — Повідомлення керування сервоприводом
-- [ActuatorServosTrim](ActuatorServosTrim.md) — Servo trims, added as offset to servo outputs
+- [ActuatorServosTrim](ActuatorServosTrim.md) — налаштування сервоприводу, додані як зсув до виводів сервоприводу
 - [ActuatorTest](ActuatorTest.md)
 - [AdcReport](AdcReport.md)
 - [Airspeed](Airspeed.md)
@@ -28,7 +28,7 @@
 - [CameraTrigger](CameraTrigger.md)
 - [CanInterfaceStatus](CanInterfaceStatus.md)
 - [CellularStatus](CellularStatus.md)
-- [CollisionConstraints](CollisionConstraints.md) — Local setpoint constraints in NED frame setting something to NaN means that no limit is provided
+- [CollisionConstraints](CollisionConstraints.md) — локальні обмеження заданих значень у кадрі NED, встановлення значення NaN означає відсутність обмежень
 - [CollisionReport](CollisionReport.md)
 - [ConfigOverrides](ConfigOverrides.md) - Конфігуровані перевизначення (зовнішніми) режимами або виконавцями режимів
 - [ControlAllocatorStatus](ControlAllocatorStatus.md)
@@ -54,12 +54,12 @@
 - [EstimatorGpsStatus](EstimatorGpsStatus.md)
 - [EstimatorInnovations](EstimatorInnovations.md)
 - [EstimatorSelectorStatus](EstimatorSelectorStatus.md)
-- [EstimatorSensorBias](EstimatorSensorBias.md) — Sensor readings and in-run biases in SI-unit form. Sensor readings are compensated for static offsets, scale errors, in-run bias and thermal drift (if thermal compensation is enabled and available).
+- [EstimatorSensorBias](EstimatorSensorBias.md) — показання датчиків і зміщення під час виконання в одиницях SI. Показання датчиків компенсуються для статичних зсувів, похибки шкали, зсув під час роботи та тепловий зсув (якщо термокомпенсація увімкнена та доступна).
 - [EstimatorStates](EstimatorStates.md)
 - [EstimatorStatus](EstimatorStatus.md)
 - [EstimatorStatusFlags](EstimatorStatusFlags.md)
 - [Event](Event.md) — Інтерфейс подій
-- [FailsafeFlags](FailsafeFlags.md) — Input flags for the failsafe state machine set by the arming & health checks.
+- [FailsafeFlags](FailsafeFlags.md) — вхідні позначки для безвідмовного кінцевого автомата, встановлені увімкненням та перевіркою стану системи.
 - [FailureDetectorStatus](FailureDetectorStatus.md)
 - [FigureEightStatus](FigureEightStatus.md)
 - [FlightPhaseEstimation](FlightPhaseEstimation.md)
