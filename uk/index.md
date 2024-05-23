@@ -95,6 +95,8 @@ PX4 це _Professional Autopilot_. Розроблений розробникам
 
 ![Вибір мови](../assets/vuepress/language_selector.png)
 
+<!--@include: _contributors.md-->
+
 ## Ліцензія
 
 PX4 код є вільним для використання та зміни термінів дозволеного [Ліцензія на речення BSD 3 символів](https://opensource.org/licenses/BSD-3-Clause). Ця документація ліцензована за [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Для отримання додаткової інформації: [ліцензії](contribute/licenses.md).
