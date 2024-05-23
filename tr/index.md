@@ -95,6 +95,8 @@ There are several [translations](contribute/translation.md) of this guide. You c
 
 ![Language Selector](../assets/vuepress/language_selector.png)
 
+<!--@include: _contributors.md-->
+
 ## Lisans
 
 PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [Licences](contribute/licenses.md).
