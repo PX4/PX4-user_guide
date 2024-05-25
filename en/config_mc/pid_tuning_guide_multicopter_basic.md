@@ -24,7 +24,7 @@ The controllers are layered, which means a higher-level controller passes its re
 The lowest-level controller is the **rate controller**, followed by the **attitude controller**, and finally the **velocity & position controller**.
 The PID tuning needs to be done in this same order, starting with the rate controller, as it will affect all other controllers.
 
-The testing procedure for each controller (rate, attitude, velocity/posibition) and axis (yaw, roll, pitch) is always the same: create a fast setpoint change by moving the sticks very rapidly and observe the response.
+The testing procedure for each controller (rate, attitude, velocity/position) and axis (yaw, roll, pitch) is always the same: create a fast setpoint change by moving the sticks very rapidly and observe the response.
 Then adjust the sliders (as discussed below) to improve the tracking of the response to the setpoint.
 
 :::tip
