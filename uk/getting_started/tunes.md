@@ -1,6 +1,6 @@
 # Значення мелодії (серія Pixhawk)
 
-[Контролери польоту серії Pixhawk](../flight_controller/pixhawk_series.md) використовують звукові сигнали/мелодії та [ світлодіоди](../getting_started/led_meanings.md) для індикації стану та подій (наприклад, успішне або невдале приведення в бойове положення, попередження про низький рівень заряду батареї).
+[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use audible tones/tunes from a [buzzer](../getting_started/px4_basic_concepts.html#buzzer) and colours/sequences from a [LED](../getting_started/led_meanings.md) to indicate vehicle state and events (e.g. arming success and failure, low battery warnings).
 
 Набір стандартних звуків наведено нижче.
 
