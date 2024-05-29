@@ -5,6 +5,7 @@ A GNSS system is needed for missions, and some other automatic and manual/assist
 
 Most GNSS modules also contain a [compass/magnetometer](../gps_compass/magnetometer.md) part (see link for calibration/setup information).
 Because of this the GNSS module should be mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
+Many also include a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), [buzzer](../getting_started/px4_basic_concepts.md#buzzer) and [UI LED](../getting_started/led_meanings.html#ui-led).
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
