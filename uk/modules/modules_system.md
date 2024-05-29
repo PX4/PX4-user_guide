@@ -52,6 +52,17 @@ battery_status <command> [arguments...]
 
 ### Опис
 
+The camera_feedback module publishes `CameraCapture` UORB topics when image capture has been triggered.
+
+If camera capture is enabled, then trigger information from the camera capture pin is published; otherwise trigger information at the point the camera was commanded to trigger is published (from the `camera_trigger` module).
+
+The `CAMERA_IMAGE_CAPTURED` message is then emitted (by streaming code) following `CameraCapture` updates. `CameraCapture` topics are also logged and can be used for geotagging.
+
+### Імплементація
+
+`CameraTrigger` topics are published by the `camera_trigger` module (`feedback` field set `false`) when image capture is triggered, and may also be published by the  `camera_capture` driver (with `feedback` field set `true`) if the camera capture pin is activated.
+
+The `camera_feedback` module subscribes to `CameraTrigger`. It discards topics from the `camera_trigger` module if camera capture is enabled. For the topics that are not discarded it creates a `CameraCapture` topic with the timestamp information from the `CameraTrigger` and position information from the vehicle.
 
 
 <a id="camera_feedback_usage"></a>
@@ -151,7 +162,7 @@ commander <command> [arguments...]
 
 Використовується для зберігання структурованих даних різних типів: маршрутні точки місії, стан місії та полігони геозони. Кожен тип має певний тип і фіксовану максимальну кількість елементів зберігання, щоб забезпечити швидкий випадковий доступ.
 
-### Імплементація
+### Реалізація
 Читання і запис одного елемента завжди атомарні.
 
 
@@ -304,7 +315,7 @@ i2c_launcher <command> [arguments...]
 ### Опис
 Модуль для визначення стану вільного падіння та приземлення транспортного засобу, а також публікації теми `vehicle_land_detected`. Для кожного типу літального апарату (мультиротор, фіксоване крило, гвинтокрил, ...) передбачено власний алгоритм, що враховує різні стани, такі як задана тяга, стан озброєння та рух апарату.
 
-### Реалізація
+### Імплементація
 Кожен тип реалізовано у власному класі зі спільним базовим класом. Базовий клас підтримує стан (landed, maybe_landed, ground_contact). Кожен можливий стан реалізується в похідних класах. Гістерезис та фіксований пріоритет кожного внутрішнього стану визначає фактичний стан land_detector.
 
 #### Мультикоптер Land Detector
@@ -365,7 +376,7 @@ load_mon <command> [arguments...]
 
 Файловий бекенд підтримує 2 типи логів: повний (звичайний лог) і журнал місій. Журнал місії - це скорочений файл ulog, який можна використовувати, наприклад, для географічних міток або управління транспортним засобом. Його можна увімкнути та налаштувати за допомогою параметра SDLOG_MISSION. Звичайний журнал завжди є підмножиною журналу місій.
 
-### Імплементація
+### Реалізація
 Реалізація використовує два потоки:
 - Основний потік, що працює з фіксованою швидкістю (або опитування на тему, якщо запущено з -p) і перевіряє оновлення даних
 - Потік запису, що записує дані у файл
@@ -502,7 +513,7 @@ netman <command> [arguments...]
 
 <a id="pwm_input_usage"></a>
 
-### Використання
+### Usage
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -516,10 +527,10 @@ pwm_input <command> [arguments...]
 Джерело: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rc_update)
 
 
-### Опис
+### Description
 Модуль rc_update обробляє відображення каналів RC: зчитує сирі вхідні канали (`input_rc`), потім застосовує калібрування, відображає канали RC на налаштовані канали та перемикачі режиму а потім публікує як `rc_channels` та `manual_control_input`.
 
-### Реалізація
+### Імплементація
 Щоб зменшити затримку управління, модуль запланований на опублікування введення_управління.
 
 
@@ -539,7 +550,7 @@ rc_update <command> [arguments...]
 Джерело: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
 
 
-### Описання
+### Опис
 Цей модуль використовується для відтворення файлів ULog.
 
 Існує 2 змінні середовища, які використовуються для конфігурації: `replay`, яка повинна бути встановлена на ім'я файлу ULog - це файл журналу, який має бути відтворений. Другий - це режим, вказаний через `replay_mode`:
@@ -552,7 +563,7 @@ rc_update <command> [arguments...]
 
 <a id="replay_usage"></a>
 
-### Використання
+### Usage
 ```
 replay <command> [arguments...]
  Commands:
@@ -570,7 +581,7 @@ replay <command> [arguments...]
 Джерело: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/events)
 
 
-### Опис
+### Description
 Фоновий процес, що періодично виконується в черзі завдань LP для виконання рутинних завдань. Зараз він відповідає лише за сигнал тривоги на втрату RC.
 
 Завдання можна почати через CLI або теми uORB (vehicle_command з MAVLink тощо).
@@ -679,7 +690,7 @@ sensor_mag_sim <command> [arguments...]
 - Переконайтеся, що драйвери сенсора отримують оновлені калібрувальні параметри (масштаб & зміщення), коли параметри змінюються або на запуску. Драйвери сенсора використовують інтерфейс ioctl для оновлення параметрів. Для того, щоб це працювало належним чином, драйвери сенсора повинні вже працювати, коли `sensors` запускається.
 - Виконайте перевірку узгодженості датчиків та опублікуйте тему `SensorsStatusImu`.
 
-### Імплементація
+### Implementation
 Він запускається у власній темі і проводить опитування на поточну обрану тему гіроскопа.
 
 
@@ -706,7 +717,7 @@ sensors <command> [arguments...]
 
 <a id="tattu_can_usage"></a>
 
-### Використання
+### Usage
 ```
 tattu_can <command> [arguments...]
  Commands:
@@ -720,7 +731,7 @@ tattu_can <command> [arguments...]
 Джерело: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/temperature_compensation)
 
 
-### Опис
+### Description
 Модуль компенсації температури дозволяє всім гіроскопам, акселерометрам та барометрам у системі бути температурно компенсованими. Модуль відстежує дані, які надходять від датчиків та оновлює пов'язану тему sensor_correction кожного разу, коли виявляється зміна температури. Модуль також може бути налаштований для виконання обчислення коефіцієнта наступного завантаження, що дозволяє обчислити калібрувальні коефіцієнти теплової калібрації під час циклу температури автомобіля.
 
 
@@ -799,7 +810,7 @@ uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
 
 <a id="uxrce_dds_client_usage"></a>
 
-### Використання
+### Usage
 ```
 uxrce_dds_client <command> [arguments...]
  Commands:
