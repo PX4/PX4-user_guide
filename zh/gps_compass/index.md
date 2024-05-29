@@ -2,7 +2,7 @@
 
 PX4支持全球导航卫星系统（GNSS），如GPS、格罗纳斯、伽利略、北斗、QZSS和SBAS等。 其通过u-blox、MTK Ashtech 或 Emlid 协议或UAVCAN进行通信。 任务模式以及一些其他的自动和手工/辅助模式会用到GPS。
 
-大多数GPS模块还包含一个 [指南针/磁力计](../gps_compass/magnetometer.md) （校准/安装信息见链接）。 我们建议GPS模块的安装尽可能远离电机/电调的电源线 - 通常在支座或机翼（固定翼）上。
+大多数GPS模块还包含一个 [指南针/磁力计](../gps_compass/magnetometer.md) （校准/安装信息见链接）。 我们建议GPS模块的安装尽可能远离电机/电调的电源线 - 通常在支座或机翼（固定翼）上。 Many also include a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), [buzzer](../getting_started/px4_basic_concepts.md#buzzer) and [UI LED](../getting_started/led_meanings.html#ui-led).
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
