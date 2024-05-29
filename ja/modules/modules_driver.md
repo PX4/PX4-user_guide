@@ -8,6 +8,7 @@ Subcategories:
 - [Transponder](modules_driver_transponder.md)
 - [Rpm Sensor](modules_driver_rpm_sensor.md)
 - [Optical Flow](modules_driver_optical_flow.md)
+- [Camera](modules_driver_camera.md)
 - [Magnetometer](modules_driver_magnetometer.md)
 
 ## MCP23009
