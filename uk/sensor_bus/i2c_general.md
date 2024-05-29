@@ -4,7 +4,7 @@
 
 Рекомендовано для:
 
-* Підключення зовнішніх компонентів, які вимагають комунікації з низькою пропускною здатністю та низькими затримками, наприклад, [дальномери](../sensor/rangefinders.md), [магнітомери](../gps_compass/index.md), [датчики швидкості повітря ](../sensor/airspeed.md)та [тахометри](../sensor/tachometers.md).
+* Connecting offboard components that require low bandwidth and low latency communication, e.g. [rangefinders](../sensor/rangefinders.md), [magnetometers](../gps_compass/magnetometer.md), [airspeed sensors](../sensor/airspeed.md) and [tachometers](../sensor/tachometers.md) .
 * Сумісність з периферійними пристроями, які підтримують лише I2C.
 * Можливість підключення декількох пристроїв до однієї шини, що корисно для збереження портів.
 

@@ -52,6 +52,17 @@ battery_status <command> [arguments...]
 
 ### 설명
 
+The camera_feedback module publishes `CameraCapture` UORB topics when image capture has been triggered.
+
+If camera capture is enabled, then trigger information from the camera capture pin is published; otherwise trigger information at the point the camera was commanded to trigger is published (from the `camera_trigger` module).
+
+The `CAMERA_IMAGE_CAPTURED` message is then emitted (by streaming code) following `CameraCapture` updates. `CameraCapture` topics are also logged and can be used for geotagging.
+
+### 구현
+
+`CameraTrigger` topics are published by the `camera_trigger` module (`feedback` field set `false`) when image capture is triggered, and may also be published by the  `camera_capture` driver (with `feedback` field set `true`) if the camera capture pin is activated.
+
+The `camera_feedback` module subscribes to `CameraTrigger`. It discards topics from the `camera_trigger` module if camera capture is enabled. For the topics that are not discarded it creates a `CameraCapture` topic with the timestamp information from the `CameraTrigger` and position information from the vehicle.
 
 
 <a id="camera_feedback_usage"></a>
@@ -363,7 +374,7 @@ load_mon <command> [arguments...]
 
 파일 백엔드는 전체(일반 로그)와 미션 로그의 두 가지 유형의 로그 파일을 지원합니다. 임무 로그는 축소된 ulog 파일이며, 지오태깅 또는 차량 관리 등에 사용할 수 있습니다. SDLOG_MISSION 매개변수를 통하여 활성화 및 설정할 수 있습니다. 일반 로그는 항상 미션 로그의 상위 집합입니다.
 
-### 구현
+### Implementation
 구현은 두 개의 스레드를 사용합니다.
 - 고정된 속도로 실행되는 메인 스레드(또는 -p로 시작된 경우 주제에 대한 폴링) 및 데이터 업데이트 확인
 - 작성자 스레드, 파일에 데이터 쓰기
@@ -742,7 +753,7 @@ temperature_compensation <command> [arguments...]
 Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
 
 
-### 설명
+### Description
 
 Command-line tool to control & test the (external) tunes.
 

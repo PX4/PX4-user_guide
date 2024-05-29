@@ -1,6 +1,6 @@
 # 소리 설명 (Pixhawk 시리즈)
 
-[ Pixhawk 비행 콘트롤러 시리즈](../flight_controller/pixhawk_series.md)는 가청 음향과 [LED](../getting_started/led_meanings.md)를 사용하여 기체 상태와 이벤트(예 : 시동 성공 및 실패, 배터리 부족 등)들을 표시합니다.
+[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use audible tones/tunes from a [buzzer](../getting_started/px4_basic_concepts.html#buzzer) and colours/sequences from a [LED](../getting_started/led_meanings.md) to indicate vehicle state and events (e.g. arming success and failure, low battery warnings).
 
 표준 사운드 세트는 다음과 같습니다.
 

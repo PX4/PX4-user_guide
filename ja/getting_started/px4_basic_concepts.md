@@ -157,9 +157,28 @@ Joysticks are often used in integrated GCS/manual control systems because it is 
 
 ### Safety Switch
 
-Some vehicles have a _safety switch_ that must be engaged before the vehicle can be [armed](#arming-and-disarming) (when armed, motors are powered and propellers can turn).
+Vehicles may include a _safety switch_ that must be engaged before the vehicle can be [armed](#arming-and-disarming) (when armed, motors are powered and propellers can turn).
 
-Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+This switch is almost always integrated into the [GPS](../gps_compass/index.md) module that is connected to the Pixhawk `GPS1` port — along with the [buzzer](#buzzer) and [UI LED](#leds).
+
+The switch may be disabled by default, though this depends on the particular flight controller and airframe configuration. You can disable/enable use of the switch with the [CBRK_IO_SAFETY](../advanced_config/parameter_reference.md#CBRK_IO_SAFETY) parameter.
+
+::: info
+Safety switches are optional.
+Many argue that it is safer for users never to approach a powered system, even to enable/disable this interlock.
+:::
+
+### Buzzer
+
+Vehicles commonly include a buzzer for providing audible notification of vehicle state and readiness to fly (see [Tune meanings](../getting_started/tunes.md)).
+
+This buzzer is almost always integrated into the [GPS](../gps_compass/index.md) module that is connected to the Pixhawk `GPS1` port — along with the [safety switch](#safety-switch) and [UI LED](#leds). You can disable the notification tunes using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
+
+### LEDs
+
+Vehicles should have a superbright [UI RGB LED](../getting_started/led_meanings.html#ui-led) that indicates the current readiness for flight.
+
+Historically this was included in the flight controller board. On more recent flight controllers this is almost always an [I2C peripheral](../sensor_bus/i2c_general.md) integrated into the [GPS](../gps_compass/index.md) module that is connected to the Pixhawk `GPS1` port — along with the [safety switch](#safety-switch) and [buzzer](#buzzer).
 
 ### Data/Telemetry Radios
 

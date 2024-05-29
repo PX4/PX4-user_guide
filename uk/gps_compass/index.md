@@ -2,7 +2,7 @@
 
 PX4 підтримує глобальні навігаційні супутникові системи (GNSS) (включаючи GPS, ГЛОНАСС, Galileo, BeiDou, QZSS і SBAS) за допомогою приймачів, які підтримують зв'язок через протоколи u-blox, MTK Ashtech або Emlid, або через UAVCAN. Він також підтримує [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) і **Post-Processing Kinematic (PPK)** GPS-приймачі, які розширюють можливості GPS-систем до сантиметрової точності.
 
-PX4 можна використовувати з наступними частинами компаса (магнітометрами): Bosch BMM 150 MEMS (через шину I2C), HMC5883 / HMC5983 (I2C або SPI), IST8310 (I2C) і LIS3MDL (I2C або SPI). Можна підключити до 4 внутрішніх або зовнішніх магнітометрів, хоча тільки один з них буде використовуватися як джерело курсу.
+PX4 можна використовувати з наступними частинами компаса (магнітометрами): Bosch BMM 150 MEMS (через шину I2C), HMC5883 / HMC5983 (I2C або SPI), IST8310 (I2C) і LIS3MDL (I2C або SPI). Можна підключити до 4 внутрішніх або зовнішніх магнітометрів, хоча тільки один з них буде використовуватися як джерело курсу. Many also include a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), [buzzer](../getting_started/px4_basic_concepts.md#buzzer) and [UI LED](../getting_started/led_meanings.html#ui-led).
 
 ![GPS + Компас](../../assets/hardware/gps/gps_compass.jpg)
 

@@ -54,6 +54,17 @@ Source: [modules/camera_feedback](https://github.com/PX4/PX4-Autopilot/tree/main
 
 ### 描述
 
+The camera_feedback module publishes `CameraCapture` UORB topics when image capture has been triggered.
+
+If camera capture is enabled, then trigger information from the camera capture pin is published; otherwise trigger information at the point the camera was commanded to trigger is published (from the `camera_trigger` module).
+
+The `CAMERA_IMAGE_CAPTURED` message is then emitted (by streaming code) following `CameraCapture` updates. `CameraCapture` topics are also logged and can be used for geotagging.
+
+### 实现
+
+`CameraTrigger` topics are published by the `camera_trigger` module (`feedback` field set `false`) when image capture is triggered, and may also be published by the  `camera_capture` driver (with `feedback` field set `true`) if the camera capture pin is activated.
+
+The `camera_feedback` module subscribes to `CameraTrigger`. It discards topics from the `camera_trigger` module if camera capture is enabled. For the topics that are not discarded it creates a `CameraCapture` topic with the timestamp information from the `CameraTrigger` and position information from the vehicle.
 
 
 <a id="camera_feedback_usage"></a>
@@ -155,7 +166,7 @@ Source: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/main/src/mod
 
 It is used to store structured data of different types: mission waypoints, mission state and geofence polygons. Each type has a specific type and a fixed maximum amount of storage items, so that fast random access is possible. 每种类型的数据都有一个特定的类型和一个固定的最大存储条目的数量，因此可以实现对数据的快速随机访问。
 
-### 实现
+### 描述
 单个数据的读取和写入是原子操作。
 
 
@@ -328,7 +339,7 @@ Source: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/main/s
 ### 示例
 **ground_contact**: thrust setpoint and velocity in z-direction must be below a defined threshold for time GROUND_CONTACT_TRIGGER_TIME_US. When ground_contact is detected, the position controller turns off the thrust setpoint in body x and y. 当检测到 ground_contact 状态时，位置控制器将关闭机体 x 方向和 y 方向上的推力设定值。
 
-### 描述
+### 用法
 Every type is implemented in its own class with a common base class. 触发时间由变量 MAYBE_LAND_TRIGGER_TIME 定义。 当检测到 maybe_landed 状态时，位置控制器会将推理设定值设置为零。 A hysteresis and a fixed priority of each internal state determines the actual land_detector state.
 
 #### 多旋翼的 Land Detector
@@ -389,7 +400,7 @@ It supports 2 backends:
 
 In between there is a write buffer with configurable size (and another fixed-size buffer for the mission log). It should be large to avoid dropouts. 缓冲区应大到可以避免出现数据溢出。 It can be enabled and configured via SDLOG_MISSION parameter. The normal log is always a superset of the mission log.
 
-### 用法
+### Implementation
 立刻开始记录日志的典型用法：
 - The main thread, running at a fixed rate (or polling on a topic if started with -p) and checking for data updates
 - 写入线程，将数据写入文件中、
@@ -774,7 +785,7 @@ temperature_compensation <command> [arguments...]
 Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tune_control)
 
 
-### 描述
+### Description
 
 Command-line tool to control & test the (external) tunes.
 
