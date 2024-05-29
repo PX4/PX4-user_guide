@@ -4,7 +4,7 @@
 
 It is recommended for:
 
-* Connecting offboard components that require low bandwidth and low latency communication, e.g. [rangefinders](../sensor/rangefinders.md), [magnetometers](../gps_compass/index.md), [airspeed sensors](../sensor/airspeed.md) and [tachometers](../sensor/tachometers.md) .
+* Connecting offboard components that require low bandwidth and low latency communication, e.g. [rangefinders](../sensor/rangefinders.md), [magnetometers](../gps_compass/magnetometer.md), [airspeed sensors](../sensor/airspeed.md) and [tachometers](../sensor/tachometers.md) .
 * Compatibility with peripheral devices that only support I2C.
 * Allowing multiple devices to attach to a single bus, which is useful for conserving ports.
 
