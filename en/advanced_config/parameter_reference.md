@@ -16384,7 +16384,7 @@ table {
  <td><strong id="MIS_DIST_1WP">MIS_DIST_1WP</strong> (FLOAT)</td>
  <td>Maximal horizontal distance from current position to first waypoint <p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIST_1WP from the current position.</p>   </td>
  <td>[-1, 10000] (100)</td>
- <td>900</td>
+ <td>10000</td>
  <td>m</td>
 </tr>
 <tr>
