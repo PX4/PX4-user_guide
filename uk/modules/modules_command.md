@@ -45,13 +45,13 @@ bl_update [arguments...]
 ## bsondump
 Джерело: [systemcmds/bsondump](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bsondump)
 
-зчитує BSON з файлу та виводить у читабельній формі
+Utility to read BSON from a file and print or output document size.
 <a id="bsondump_usage"></a>
 
 ### Використання
 ```
 bsondump [arguments...]
-     <file>      File name
+     <file>      The BSON file to decode and print.
 ```
 ## dumpfile
 Джерело: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dumpfile)
