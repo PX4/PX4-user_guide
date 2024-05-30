@@ -30,13 +30,13 @@ dumpfile [arguments...]
 ## bsondump
 Source: [systemcmds/bsondump](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bsondump)
 
-read BSON from a file and print in human form
+Utility to read BSON from a file and print or output document size.
 <a id="bsondump_usage"></a>
 
 ### 설명
 ```
 bsondump [arguments...]
-     <file>      File name
+     <file>      The BSON file to decode and print.
 ```
 ## dyn
 소스: [systemcmds/esc_calib](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/esc_calib)
