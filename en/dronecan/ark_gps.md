@@ -1,4 +1,4 @@
-# ARK GPS
+# ARK GPS (DroneCAN)
 
 ARK GPS is an open source [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.md), magnetometer, IMU, barometer, buzzer, and safety switch module.
 
