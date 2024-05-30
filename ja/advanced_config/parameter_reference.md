@@ -10746,6 +10746,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="DSHOT_BIDIR_EN">DSHOT_BIDIR_EN</strong> (INT32)</td>
+ <td>Enable bidirectional DShot <p><strong>Comment:</strong> This parameter enables bidirectional DShot which provides RPM feedback. Note that this requires ESCs that support bidirectional DSHot, e.g. BlHeli32. This is not the same as DShot telemetry which requires an additional serial connection.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="DSHOT_MIN">DSHOT_MIN</strong> (FLOAT)</td>
  <td>Minimum DShot Motor Output <p><strong>Comment:</strong> Minimum Output Value for DShot in percent. The value depends on the ESC. Make sure to set this high enough so that the motors are always spinning while armed.</p>   </td>
  <td>[0, 1] (0.01)</td>
@@ -16413,7 +16421,7 @@ table {
 <tr>
  <td><strong id="MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</strong> (FLOAT)</td>
  <td>Default take-off altitude <p><strong>Comment:</strong> This is the relative altitude the system will take off to if not otherwise specified.</p>   </td>
- <td>(0.5) [0.5, ?]</td>
+ <td>[0, ?] [0.5, ?]</td>
  <td>2.5</td>
  <td>m</td>
 </tr>
@@ -17413,7 +17421,7 @@ table {
 <tr>
  <td><strong id="MC_SLOW_DEF_VVEL">MC_SLOW_DEF_VVEL</strong> (FLOAT)</td>
  <td>Default vertical velocity limit <p><strong>Comment:</strong> This value is used in slow mode if no aux channel is mapped and no limit is commanded through MAVLink.</p>   </td>
- <td>(0.01) [0.0, ?]</td>
+ <td>[0.1, ?] [0.0, ?]</td>
  <td>1.</td>
  <td>m/s</td>
 </tr>
@@ -17479,14 +17487,14 @@ table {
 <tr>
  <td><strong id="MC_SLOW_MIN_VVEL">MC_SLOW_MIN_VVEL</strong> (FLOAT)</td>
  <td>Vertical velocity lower limit <p><strong>Comment:</strong> The lowest input maps and is clamped to this velocity.</p>   </td>
- <td>[0.0, ?] (0.05)</td>
+ <td>[0.1, ?] (0.05)</td>
  <td>.3</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MC_SLOW_MIN_YAWR">MC_SLOW_MIN_YAWR</strong> (FLOAT)</td>
  <td>Yaw rate lower limit <p><strong>Comment:</strong> The lowest input maps and is clamped to this rate.</p>   </td>
- <td>[-1, ?] (0.5)</td>
+ <td>[-1, ?] (0.1)</td>
  <td>3.</td>
  <td>deg/s</td>
 </tr>
@@ -17608,7 +17616,7 @@ table {
 <tr>
  <td><strong id="MC_YAWRATE_I">MC_YAWRATE_I</strong> (FLOAT)</td>
  <td>Yaw rate I gain <p><strong>Comment:</strong> Yaw rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>[0.0, ?] (0.005)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.1</td>
  <td></td>
 </tr>
@@ -20036,7 +20044,7 @@ table {
 <tr>
  <td><strong id="RWTO_ROT_TIME">RWTO_ROT_TIME</strong> (FLOAT)</td>
  <td>Takeoff rotation time <p><strong>Comment:</strong> This is the time desired to linearly ramp in takeoff pitch constraints during the takeoff rotation</p>   </td>
- <td>[0.0, ?] (0.05)</td>
+ <td>[0.0, ?] (0.1)</td>
  <td>1.0</td>
  <td>s</td>
 </tr>
