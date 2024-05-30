@@ -49,7 +49,7 @@ bl_update [arguments...]
 ## bsondump
 Source: [systemcmds/bsondump](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bsondump)
 
-read BSON from a file and print in human form
+Utility to read BSON from a file and print or output document size.
 <a id="bsondump_usage"></a>
 
 ### Usage
@@ -57,8 +57,7 @@ read BSON from a file and print in human form
 bsondump [arguments...]
      bsondump [arguments...]
      <file>      File name
-     bsondump [arguments...]
-     <file>      File name
+     <file>      The BSON file to decode and print.
 ```
 ## dumpfile
 Source: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dumpfile)
