@@ -1,6 +1,6 @@
 # 소리 설명 (Pixhawk 시리즈)
 
-[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use audible tones/tunes from a [buzzer](../getting_started/px4_basic_concepts.html#buzzer) and colours/sequences from a [LED](../getting_started/led_meanings.md) to indicate vehicle state and events (e.g. arming success and failure, low battery warnings).
+[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use audible tones/tunes from a [buzzer](../getting_started/px4_basic_concepts.md#buzzer) and colours/sequences from a [LED](../getting_started/led_meanings.md) to indicate vehicle state and events (e.g. arming success and failure, low battery warnings).
 
 표준 사운드 세트는 다음과 같습니다.
 
