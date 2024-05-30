@@ -10741,6 +10741,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="DSHOT_BIDIR_EN">DSHOT_BIDIR_EN</strong> (INT32)</td>
+ <td>Enable bidirectional DShot <p><strong>Comment:</strong> This parameter enables bidirectional DShot which provides RPM feedback. Note that this requires ESCs that support bidirectional DSHot, e.g. BlHeli32. This is not the same as DShot telemetry which requires an additional serial connection.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="DSHOT_MIN">DSHOT_MIN</strong> (FLOAT)</td>
  <td>Minimum DShot Motor Output <p><strong>Comment:</strong> Minimum Output Value for DShot in percent. The value depends on the ESC. Make sure to set this high enough so that the motors are always spinning while armed.</p>   </td>
  <td>[0, 1] (0.01)</td>
@@ -22809,7 +22817,7 @@ table {
  <td>VL53L1X Distance Sensor    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Вимкнено (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -24332,7 +24340,7 @@ table {
  <td>Bootloader update <p><strong>Comment:</strong> If enabled, update the bootloader on the next boot. WARNING: do not cut the power during an update process, otherwise you will have to recover using some alternative method (e.g. JTAG). Instructions: - Insert an SD card - Enable this parameter - Reboot the board (plug the power or send a reboot command) - Wait until the board comes back up (or at least 2 minutes) - If it does not come back, check the file bootlog.txt on the SD card</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>Вимкнено (0)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
