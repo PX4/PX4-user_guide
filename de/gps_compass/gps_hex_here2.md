@@ -1,4 +1,8 @@
-# HEX/ProfiCNC Here2 GPS
+# HEX/ProfiCNC Here2 GPS (Discontinued)
+
+::: warning
+This has been superseded by the [Cube Here 3](https://www.cubepilot.com/#/here/here3)
+:::
 
 The [Here2 GPS receiver](http://www.proficnc.com/all-products/152-gps-module.html) is an update to the Here GPS module from HEX.
 
