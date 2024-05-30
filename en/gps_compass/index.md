@@ -88,7 +88,7 @@ There is nothing to stop you from connecting the GPS pins to any other free UART
 However if you do this then you will need to [configure the ports](../peripherals/serial_configuration.md).
 :::
 
-For [DroneCAN](../dronecan/index.md#supported-hardware/index.md) GNSS/compass modules:
+For [DroneCAN](../dronecan/index.md#supported-hardware) GNSS/compass modules:
 
 - DroneCan GPS modules are connected to CAN-bus ports, which are 4-pin ports labeled `CAN1` or `CAN2`.
 
@@ -148,7 +148,7 @@ After setting up the second GPS port:
 
 ### DroneCAN GNSS Configuration
 
-[DroneCAN](../dronecan/index.md#supported-hardware/index.md) GNSS configuration is covered in the linked document (and in the documentation for specific modules).
+[DroneCAN](../dronecan/index.md#supported-hardware) GNSS configuration is covered in the linked document (and in the documentation for specific modules).
 
 ### Configuring GPS as Yaw/Heading Source
 
