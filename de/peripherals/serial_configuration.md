@@ -50,7 +50,7 @@ All the serial drivers/ports are configured in the same way:
 
 1. Set the configuration parameter for the service/peripheral to the port it will use.
 1. Reboot the vehicle in order to make the additional configuration parameters visible.
-1. Set the baud rate parameter for the selected port to the desired value.
+1. Set the baud rate parameter for the selected port to the desired value (e.g. [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD))
 1. Configure module-specific parameters (i.e. Configure module-specific parameters (i.e. Configure module-specific parameters (i.e. MAVLink streams and data rate configuration). Configure module-specific parameters (i.e. Configure module-specific parameters (i.e. MAVLink streams and data rate configuration).
 
 The [GPS/Compass > Secondary GPS](../gps_compass/index.md#dual_gps) section provides a practical example of how to configure a port in _QGroundControl_ (it shows how to use `GPS_2_CONFIG` to run a secondary GPS on the `TELEM 2` port).
@@ -77,7 +77,7 @@ The following ports are commonly mapped to specific functions on all boards:
 
 - `GPS 1` is configured as a GPS port (using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)).
 
-  This maps the [gps driver](../modules/modules_driver.md#gps) to the port with a baud rate of _Auto_ (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baud rate).
+  The default baud rate is set in the [gps driver](../modules/modules_driver.md#gps) by the value of [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD), which has a default rate of _Auto_. With this setting a GPS will automatically detect the baudrate — except for the Trimble MB-Two, which you will need to explicitly set to 115200 baud rate.
 
 - `RC IN` is configured as an RC input (using [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG)).
 - `TELEM 1` is configured as a MAVLink serial port suitable for connection to a GCS via a [telemetry module](../telemetry/index.md).
