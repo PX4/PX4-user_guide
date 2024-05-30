@@ -1,6 +1,6 @@
 # Tune Meanings (Pixhawk Series)
 
-[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use audible tones/tunes from a [buzzer](../getting_started/px4_basic_concepts.html#buzzer) and colours/sequences from a [LED](../getting_started/led_meanings.md) to indicate vehicle state and events (e.g. arming success and failure, low battery warnings).
+[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use audible tones/tunes from a [buzzer](../getting_started/px4_basic_concepts.md#buzzer) and colours/sequences from a [LED](../getting_started/led_meanings.md) to indicate vehicle state and events (e.g. arming success and failure, low battery warnings).
 
 The set of standard sounds are listed below.
 
