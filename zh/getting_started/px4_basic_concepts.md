@@ -176,7 +176,7 @@ This buzzer is almost always integrated into the [GPS](../gps_compass/index.md) 
 
 ### LEDs
 
-Vehicles should have a superbright [UI RGB LED](../getting_started/led_meanings.html#ui-led) that indicates the current readiness for flight.
+Vehicles should have a superbright [UI RGB LED](../getting_started/led_meanings.md#ui-led) that indicates the current readiness for flight.
 
 Historically this was included in the flight controller board. On more recent flight controllers this is almost always an [I2C peripheral](../sensor_bus/i2c_general.md) integrated into the [GPS](../gps_compass/index.md) module that is connected to the Pixhawk `GPS1` port — along with the [safety switch](#safety-switch) and [buzzer](#buzzer).
 
