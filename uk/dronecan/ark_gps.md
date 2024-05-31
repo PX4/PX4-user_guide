@@ -1,4 +1,4 @@
-# ARK GPS
+# ARK GPS (DroneCAN)
 
 ARK GPS проєкт із відкритим кодом [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.md), магнітометром, ІВП, барометром, сигналом звукового оповіщення та модулем безпеки.
 

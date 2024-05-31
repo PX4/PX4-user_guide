@@ -36,7 +36,7 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 | [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                       |         F9P          |  IST8310  |                                  |                                                   |                                                              |         |
 | [Holybro DroneCAN H-RTK F9P Rover](https://holybro.com/products/dronecan-h-rtk-f9p-rover)         |         F9P          |  BMM150   |                                  |                                                   |                           &check;                            |         |
 | [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)                             |         M8P          |  IST8310  |                                  |                                                   |                                                              |         |
-| [Holybro H-RTK Unicore UM982 GPS](../gps_compass/rtk_gps_holybro_unicore_um982.md)                |        UM982         |  IST8310  |                                  |                      &check;                      |                                                              |         |
+| [Holybro H-RTK Unicore UM982 GPS](../gps_compass/rtk_gps_holybro_unicore_um982.md)                |        UM982         |  IST8310  |                                  |                                                   |                                                              |         |
 | [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                                           |     MC-1612-V2b      |           |                                  |                                                   |                                                              |         |
 | [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                                           |     MC-1612-V2b      |  IST8310  |                                  |                                                   |                                                              |         |
 | [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm)               |         F9P          |  &check;  |                                  |                                                   |                           &check;                            |         |
@@ -74,7 +74,7 @@ RTK positioning requires a _pair_ of [RTK GNSS devices](#supported-devices): a "
 
 대부분은 다른 GPS 모듈과 같은 방식으로 비행 콘트롤러의 GPS 포트를 통해 연결됩니다. Some are connected to the [CAN](../can/index.md) bus (i.e. using [DroneCAN](../dronecan/index.md)).
 
-See [documentation for the selected device](#supported-devices) and [DroneCAN](../dronecan/index.md) for more information on wiring and configuration.
+See [documentation for the selected device](#supported-devices), general [GNSS Hardware/Configuration Setup](../gps_compass/index.md#hardware-setup), and [DroneCAN](../dronecan/index.md) for more information on wiring and configuration.
 
 #### 기본 RTK 모듈 (접지)
 

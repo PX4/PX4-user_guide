@@ -2,7 +2,7 @@
 
 PX4는 u-blox, MTK Ashtech 또는 Emlid 프로토콜이나 UAVCAN 통신 수신기를 사용하여 글로벌 내비게이션 위성시스템(GNSS)(GPS, GLONASS, Galileo, BeiDou, QZSS 및 SBAS 포함)을 지원합니다. A GNSS system is needed for missions, and some other automatic and manual/assisted modes.
 
-PX4는 Bosch BMM 150 MEMS (I2C 버스를 통해), HMC5883/HMC5983 (I2C 또는 SPI), IST8310 (I2C) 및 LIS3MDL (I2C 또는 SPI)과 같은 나침반 부품(자기계)과 함께 사용할 수 있습니다. 최대 4 개의 내외부 자력계를 연결할 수 있지만, 실제로는 하나만 헤딩 소스로 사용됩니다. Many also include a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), [buzzer](../getting_started/px4_basic_concepts.md#buzzer) and [UI LED](../getting_started/led_meanings.html#ui-led).
+PX4는 Bosch BMM 150 MEMS (I2C 버스를 통해), HMC5883/HMC5983 (I2C 또는 SPI), IST8310 (I2C) 및 LIS3MDL (I2C 또는 SPI)과 같은 나침반 부품(자기계)과 함께 사용할 수 있습니다. 최대 4 개의 내외부 자력계를 연결할 수 있지만, 실제로는 하나만 헤딩 소스로 사용됩니다. Many also include a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), [buzzer](../getting_started/px4_basic_concepts.md#buzzer) and [UI LED](../getting_started/led_meanings.md#ui-led).
 
 ![GPS와 나침반](../../assets/hardware/gps/gps_compass.jpg)
 
@@ -15,36 +15,38 @@ PX4는 u-blox, MTK Ashtech 또는 Emlid 프로토콜 또는 UAVCAN 통신 장치
 
 This table contains non-RTK GNSS units (most of which also have a compass). These have been tested by the PX4 dev team, or which are popular within the PX4 community.
 
-| 장치                                                                        |     GPS     |            나침반            | Notes                                                                                                              |
-|:------------------------------------------------------------------------- |:-----------:|:-------------------------:|:------------------------------------------------------------------------------------------------------------------ |
-| [ARK GPS](https://arkelectron.com/product/ark-gps/)                       |     M9N     |         ICM42688p         |                                                                                                                    |
-| [Avionics Anonymous UAVCAN GNSS/Mag][avionics_anon_can_gnss]              |   SAM-M8Q   |         MMC5983MA         |                                                                                                                    |
-| [CUAV NEO 3 GPS](../gps_compass/gps_cuav_neo_3.md)                        |     M9N     |          IST8310          |                                                                                                                    |
-| [CUAV NEO 3 Pro GPS](../gps_compass/gps_cuav_neo_3pro.md)                 |     M9N     |          RM3100           |                                                                                                                    |
-| [CUAV NEO 3X GPS](../gps_compass/gps_cuav_neo_3x.md)                      |     M9N     |          RM3100           |                                                                                                                    |
-| [CubePilot Here2 GNSS GPS (M8N)](../gps_compass/gps_hex_here2.md)         |     M8N     |         ICM20948          |                                                                                                                    |
-| [Drotek DP0804](https://store-drotek.com/920-DP0804.html)                 |     M9N     |          LIS3MDL          | Also see other [Drotek u-blox GPS/Compasses](https://store-drotek.com/index.php?controller=search&s=ublox+compass) |
-| [Emlid Reach M+](https://emlid.com/reach/)                                |   &check;   |          &cross;          | Supports PPK. RTK expected.                                                                                        |
-| [Holybro DroneCAN M8N GPS](../dronecan/holybro_m8n_gps.md)                |     M8N     |          BMM150           |                                                                                                                    |
-| [Holybro Micro M8N GPS](https://holybro.com/products/micro-m8n-gps)       |     M8N     |          IST8310          |                                                                                                                    |
-| [Holybro Nano Ublox M8 5883 GPS][hb_nano_m8_5883]                         |  UBX-M8030  |          QMC5883          |                                                                                                                    |
-| [Holybro M8N GPS](../gps_compass/gps_holybro_m8n_m9n.md)                  |     M8N     |          IST8310          |                                                                                                                    |
-| [Holybro M9N GPS](../gps_compass/gps_holybro_m8n_m9n.md)                  |     M9N     |          IST8310          |                                                                                                                    |
-| [Holybro DroneCAN M9N GPS](https://holybro.com/products/dronecan-m9n-gps) |     M9N     |          BMM150           |                                                                                                                    |
-| [Hobbyking u-blox Neo-M8N GPS with Compass][hk_ublox_neo_8mn]             |     M8N     |          &check;          |                                                                                                                    |
-| [LOCOSYS Hawk A1 GNSS receiver](../gps_compass/gps_locosys_hawk_a1.md)    | MC-1612-V2b |         optional          |                                                                                                                    |
-| [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                   | MC-1612-V2b |                           |                                                                                                                    |
-| [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                   | MC-1612-V2b |          IST8310          |                                                                                                                    |
-| [mRo GPS u-blox Neo-M8N Dual Compass][mro_neo8mn_dual_mag]                |     M8N     |     LIS3MDL, IST8308      |                                                                                                                    |
-| [Sky-Drones SmartAP GPS](../gps_compass/gps_smartap.md)                   |     M8N     | HMC5983, IST8310, LIS3MDL |                                                                                                                    |
-| [Zubax GNSS 2](https://zubax.com/products/gnss_2)                         |   MAX-M8Q   |          LIS3MDL          |                                                                                                                    | 
+| 장치                                                                        |     GPS     |            나침반            | [CAN](../dronecan/index.md) | Buzzer / SafeSw / LED | Notes                       |
+|:------------------------------------------------------------------------- |:-----------:|:-------------------------:|:---------------------------:|:---------------------:|:--------------------------- |
+| [ARK GPS](https://arkelectron.com/product/ark-gps/)                       |     M9N     |         ICM42688p         |           &check;           |        &check;        | + Baro, IMU                 |
+| [Avionics Anonymous UAVCAN GNSS/Mag][avionics_anon_can_gnss]              |   SAM-M8Q   |         MMC5983MA         |           &check;           |        &cross;        |                             |
+| [CUAV NEO 3 GPS](../gps_compass/gps_cuav_neo_3.md)                        |     M9N     |          IST8310          |                             |        &check;        |                             |
+| [CUAV NEO 3 Pro GPS](../gps_compass/gps_cuav_neo_3pro.md)                 |     M9N     |          RM3100           |           &check;           |        &check;        | + Baro                      |
+| [CUAV NEO 3X GPS](../gps_compass/gps_cuav_neo_3x.md)                      |     M9N     |          RM3100           |           &check;           | &cross;&check;&check; | + Baro.                     |
+| [CubePilot Here2 GNSS GPS (M8N)](../gps_compass/gps_hex_here2.md)         |     M8N     |         ICM20948          |                             |        &check;        | Superseded by HERE3         |
+| [Emlid Reach M+](https://emlid.com/reach/)                                |   &check;   |          &cross;          |                             |        &cross;        | Supports PPK. RTK expected. |
+| [Holybro DroneCAN M8N GPS](../dronecan/holybro_m8n_gps.md)                |     M8N     |          BMM150           |           &check;           |        &cross;        | + Baro                      |
+| [Holybro Micro M8N GPS](https://holybro.com/products/micro-m8n-gps)       |     M8N     |          IST8310          |                             |        &cross;        |                             |
+| [Holybro Nano Ublox M8 5883 GPS][hb_nano_m8_5883]                         |  UBX-M8030  |          QMC5883          |                             |        &cross;        |                             |
+| [Holybro M8N GPS](../gps_compass/gps_holybro_m8n_m9n.md)                  |     M8N     |          IST8310          |                             |        &check;        |                             |
+| [Holybro M9N GPS](../gps_compass/gps_holybro_m8n_m9n.md)                  |     M9N     |          IST8310          |                             |        &check;        |                             |
+| [Holybro DroneCAN M9N GPS](https://holybro.com/products/dronecan-m9n-gps) |     M9N     |          BMM150           |           &check;           |        &check;        |                             |
+| [Hobbyking u-blox Neo-M8N GPS with Compass][hk_ublox_neo_8mn]             |     M8N     |          &check;          |                             |        &cross;        |                             |
+| [LOCOSYS Hawk A1 GNSS receiver](../gps_compass/gps_locosys_hawk_a1.md)    | MC-1612-V2b |         optional          |                             | &cross;&cross;&check; |                             |
+| [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                   | MC-1612-V2b |                           |                             | &cross;&cross;&check; |                             |
+| [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                   | MC-1612-V2b |          IST8310          |                             | &cross;&cross;&check; |                             |
+| [mRo GPS u-blox Neo-M8N Dual Compass][mro_neo8mn_dual_mag]                |     M8N     |     LIS3MDL, IST8308      |                             |        &cross;        |                             |
+| [Sky-Drones SmartAP GPS](../gps_compass/gps_smartap.md)                   |     M8N     | HMC5983, IST8310, LIS3MDL |                             |        &check;        | + Baro                      |
+| [Zubax GNSS 2](https://zubax.com/products/gnss_2)                         |   MAX-M8Q   |          LIS3MDL          |                             |        &cross;        | + Baro                      |
 
 <!-- links to improve layout of table for editing -->
+
 Notes:
 
 - &check; 또는 특정 부품 번호는 기능이 지원되는 것을 나타내며, &cross; 또는 비어 있으면 해당 기능이 지원되지 않는 것을 나타냅니다. "?"는 "알 수 없음"을 나타냅니다.
 - 가능하고 관련성이있는 경우 부품 이름이 사용됩니다 (예 : GPS 열의 &check; GPS 모듈이 있지만 부품을 알 수 없음을 나타냄).
-- 일부 단종품은 목록에서 생략될 수 있습니다. The original _Here_ has already been removed. 단종된 모듈이 여기에 언급되지 않은 경우에는 이전 버전에서 확인하십시오.
+- The list may omit some discontinued hardware that is still supported (check earlier versions for info about discontinued modules). Removed items include:
+  - _Here_ GPS
+  - Drotek DP0804
 
 ## Mounting the GNSS/Compass
 
@@ -52,48 +54,76 @@ Notes:
 
 ## 하드웨어 설정
 
-GPS(및 나침반 있는 경우) 연결 방법은 일반적으로 제조업체에서 제공합니다 (일반적인 [Autopilot 하드웨어](../flight_controller/README.md)의 경우).
+The hardware setup depends on the flight controller, the GNSS module, and the connection bus it supports - UART/I2C or CAN.
 
-[Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에는 GPS 연결용으로 표시된 포트가 있으며, 나침반은 I2C 또는 SPI 포트/버스(장치에 따라 다름)에 연결됩니다.
+### Pixhawk Standard Connectors
 
-The [ARK GPS](../dronecan/ark_gps.md), [ARK RTK GPS](../dronecan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [DroneCAN](../dronecan/index.md).
+Connecting GNSS/Compass modules is easiest when using a flight controller that supports the [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). All flight controllers that follow this standard, including most [Pixhawk Standard](../flight_controller/autopilot_pixhawk_standard.md) controllers (and many others) use the same port connectors and wiring for connecting GNSS modules. Because of this standardization, many popular GNSS/Compass modules plug directly into the flight controller "out of the box".
+
+If you're using GNSS/Compass modules that connect via generic UARTs and serial protocols like I2C:
+
+- The primary GNSS/Compass module should be connected to the 10-pin port labelled `GPS1`, `GPS&SAFETY`, or `GPS` (this is port described as "Full GPS + Safety Switch Port" in the connector standard). The GPS should incorporate a [buzzer](../getting_started/px4_basic_concepts.md#buzzer), [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), and [UI LED](../getting_started/led_meanings.md#ui-led).
+- An (optional) secondary module can be connected to the 6-pin `GPS2` port, if present (this is "Basic GPS Port" in the standard).
+- The ports are generally plug-n-play for u-blox modules (only).
+
+::: info The ports include a UART for the GNSS and an I2C port for connecting the Compass. The "Full GPS + Safety Switch Port" includes additional I2C connectors for LEDs, buzzer and safety switch. There is nothing to stop you from connecting the GPS pins to any other free UART as a GNSS port, and the compass or buzzer to an I2C port. However if you do this then you will need to [configure the ports](../peripherals/serial_configuration.md).
+:::
+
+For [DroneCAN](../dronecan/index.md#supported-hardware) GNSS/compass modules:
+
+- DroneCan GPS modules are connected to CAN-bus ports, which are 4-pin ports labeled `CAN1` or `CAN2`.
+
+### Other Flight Controllers/GNSS Modules
+
+If you're working with a flight controller and GNSS module combination that does not comply with the Pixhawk connector standard then you will need to pay particular attention to the connector pinouts on the flight controller and the module. You may need to rewire/solder the connectors.
 
 :::warning
-GPS 모듈을 연결시 핀배열에 주의하십시오.
-모두 소프트웨어와 호환되지만, 핀 순서를 주의하여 연결하여야 합니다.
+Some flight controllers use ports that are software-compatible but not connector compatible (even if they use the same connector!) because they use different pin orderings.
 :::
+
+The pinouts for the connector standard are documented in the standard. Pinouts for other controllers and the GNSS modules should be included in their manufacturer documentation.
 
 ## GNSS 설정
 
-"표준" GPS 설정은 다음과 같습니다. 추가 장치 설정은 PX4 또는 제조업체 장치설명서에서 제공될 수 있습니다 (예 : [Trimble MB-Two &gt; 설정](../gps_compass/rtk_gps_trimble_mb_two.md#configuration)).
+The default configuration for GPS module connected via the GPS serial port is provided below. 추가 장치 설정은 PX4 또는 제조업체 장치설명서에서 제공될 수 있습니다 (예 : [Trimble MB-Two &gt; 설정](../gps_compass/rtk_gps_trimble_mb_two.md#configuration)).
 
-:::warning PX4의 GPS 프로토콜은 기본적으로 u-blox로 설정됩니다. 기본적으로 Trimble, Emlid, MTK와 같은 다른 GPS 유형은 자동으로 감지되지 않습니다. 프로토콜은 [GPS_x_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL)에서 설정 가능합니다.
-:::
+### Primary GPS Configuration (UART)
 
-### 메인 GPS 구성
+Primary GPS configuration on Pixhawk is handled transparently for U-Blox GPS modules — simply connect the GPS module to the port labeled `GPS1`, `GPS&SAFETY`, or `GPS` (if there is only one GPS port), and everything should work.
 
-Pixhawk의 GPS 설정은 투명하게 처리됩니다. GPS 모듈을 **GPS**라고 표시된 포트에 연결하기 만하면 작동합니다.
+The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) configures `GPS1` as a GPS port using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), sets the protocol to `u-blox` with [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL), and a baud rate of `0: Auto` with [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD).
 
-::: info The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices. If you are using the _Trimble MB-Two_ you will need to modify the configuration to explicitly set the rate to 115200 baud.
-:::
+For GPS types like Trimble, Emlid, MTK, you will need to change the `GPS_1_PROTOCOL` appropriately. For _Trimble MB-Two_ you will also need to modify `SER_GPS1_BAUD` to set the rate to 115200 baud.
 
 <a id="dual_gps"></a>
 
-### 보조 GPS 설정(듀얼 GPS 시스템)
+### Secondary GPS Configuration (UART)
 
-보조 GPS를 사용하려면, 포트에 연결후 [직렬 포트 설정](../peripherals/serial_configuration.md)을 수행하여 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)를 선택 포트를 할당합니다.
+To use a secondary GPS, you will generally attach it to the port named `GPS2`, if present, and otherwise attach it to any free UART port. The port may be pre-configured, but unlike the primary port, this is not guaranteed.
 
-The following steps show how to configure a secondary GPS on the `TELEM 2` port in _QGroundControl_:
+To ensure the port is set up correctly perform a [Serial Port Configuration](../peripherals/serial_configuration.md) to assign [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to the selected port.
 
-1. [찾기 및 설정](../advanced_config/parameters.md) 매개 변수 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)에서 **TELEM 2**까지.
+The following steps show how to configure a secondary GPS on the `GPS 2` port in _QGroundControl_:
+
+1. [Find and set](../advanced_config/parameters.md) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **GPS 2**.
+
    - *QGroundControl*에서 **기체 설정 &gt; 매개변수** 섹션으로 이동합니다.
-   - **GPS** 탭 (1)을 선택한 다음 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) 매개변수 (2)를 열고 드롭 다운 목록 (3)에서 *TELEM 2*를 선택합니다. ![QGC Serial 예시](../../assets/peripherals/qgc_serial_config_example.png)
+   - Select the **GPS** tab, then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter and select `GPS 2` from the dropdown list.
+
+     ![QGC Serial 예시](../../assets/peripherals/qgc_serial_config_example.png)
+
 1. 다른 매개변수를 표시하려면 기체를 재부팅하십시오.
-1. **Serial** 탭을 선택하고 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) 매개변수 (`TELEM 2` 포트 전송 속도)를 열어서 *Auto*로 설정합니다. ![QGC Serial Baudrate 예시](../../assets/peripherals/qgc_serial_baudrate_example.png)
+1. Select the **Serial** tab, and open the [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS2_BAUD) parameter (`GPS 2` port baud rate): set it to _Auto_ (or 115200 for the Trimble).
+
+   ![QGC Serial Baudrate 예시](../../assets/peripherals/qgc_serial_baudrate_example.png)
 
 보조 GPS 포트를 설정 후 :
 
 1. 두 GPS 시스템의 데이터를 혼합하도록 ECL/EKF2 추정기를 설정합니다. 자세한 지침은 [ECL EKF 사용 &gt; 이중 수신기](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers)를 참고하십시오.
+
+### DroneCAN GNSS Configuration
+
+[DroneCAN](../dronecan/index.md#supported-hardware) GNSS configuration is covered in the linked document (and in the documentation for specific modules).
 
 ### GPS를 Yaw/Heading 소스로 설정
 

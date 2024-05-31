@@ -49,7 +49,7 @@ PX4 визначає [типові функції](#default-serial-port-configur
 
 1. Встановіть параметр конфігурації для сервісу/периферійного пристрою на порт, який він буде використовувати.
 1. Перезавантажте апарат, щоб побачити додаткові параметри конфігурації.
-1. Встановіть параметр швидкості передачі даних для вибраного порту на потрібне значення.
+1. Set the baud rate parameter for the selected port to the desired value (e.g. [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD))
 1. Налаштуйте параметри, специфічні для модуля (тобто. Потоки та конфігурація швидкості передачі даних MAVLink).
 
 [GPS/Compass > Secondary GPS](../gps_compass/index.md#dual_gps) розділ надається практичний приклад налаштування порту _QGroundControl_ (показує як використовувати `GPS_2_CONFIG` щоб запускати додатковий GPS на `TELEM 2`).
@@ -76,7 +76,7 @@ PX4 визначає [типові функції](#default-serial-port-configur
 
 - `GPS 1` налаштований як порт GPS (використовуючи [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)).
 
-  Це відображає [gps driver](../modules/modules_driver.md#gps) на порт з швидкістю передачі даних _Auto_ (з цим налаштуванням GPS автоматично визначатиме швидкість передачі даних - за винятком Trimble MB-Two, який вимагає швидкість передачі 115200 біт/с).
+  The default baud rate is set in the [gps driver](../modules/modules_driver.md#gps) by the value of [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD), which has a default rate of _Auto_. With this setting a GPS will automatically detect the baudrate — except for the Trimble MB-Two, which you will need to explicitly set to 115200 baud rate.
 
 - `RC IN` налаштовано як вхід RC (використовуючи [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG)).
 - `TELEM 1` налаштований як послідовний порт MAVLink, придатний для підключення до GCS через [модуль телеметрії](../telemetry/index.md).

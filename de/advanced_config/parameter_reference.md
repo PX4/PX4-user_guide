@@ -10746,6 +10746,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="DSHOT_BIDIR_EN">DSHOT_BIDIR_EN</strong> (INT32)</td>
+ <td>Enable bidirectional DShot <p><strong>Comment:</strong> This parameter enables bidirectional DShot which provides RPM feedback. Note that this requires ESCs that support bidirectional DSHot, e.g. BlHeli32. This is not the same as DShot telemetry which requires an additional serial connection.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="DSHOT_MIN">DSHOT_MIN</strong> (FLOAT)</td>
  <td>Minimum DShot Motor Output <p><strong>Comment:</strong> Minimum Output Value for DShot in percent. The value depends on the ESC. Make sure to set this high enough so that the motors are always spinning while armed.</p>   </td>
  <td>[0, 1] (0.01)</td>
@@ -16383,7 +16391,7 @@ table {
  <td><strong id="MIS_DIST_1WP">MIS_DIST_1WP</strong> (FLOAT)</td>
  <td>Maximal horizontal distance from current position to first waypoint <p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIST_1WP from the current position.</p>   </td>
  <td>[-1, 10000] (100)</td>
- <td>900</td>
+ <td>10000</td>
  <td>m</td>
 </tr>
 <tr>
@@ -17413,7 +17421,7 @@ table {
 <tr>
  <td><strong id="MC_SLOW_DEF_VVEL">MC_SLOW_DEF_VVEL</strong> (FLOAT)</td>
  <td>Default vertical velocity limit <p><strong>Comment:</strong> This value is used in slow mode if no aux channel is mapped and no limit is commanded through MAVLink.</p>   </td>
- <td>[0.1, ?] (0.1) (0.1)</td>
+ <td>[0.1, ?] (0.1)</td>
  <td>1.</td>
  <td>m/s</td>
 </tr>
@@ -17479,7 +17487,7 @@ table {
 <tr>
  <td><strong id="MC_SLOW_MIN_VVEL">MC_SLOW_MIN_VVEL</strong> (FLOAT)</td>
  <td>Vertical velocity lower limit <p><strong>Comment:</strong> The lowest input maps and is clamped to this velocity.</p>   </td>
- <td>[0.1, ?] (0.1) (0.1)</td>
+ <td>[0.1, ?] (0.1)</td>
  <td>.3</td>
  <td>m/s</td>
 </tr>
@@ -17608,7 +17616,7 @@ table {
 <tr>
  <td><strong id="MC_YAWRATE_I">MC_YAWRATE_I</strong> (FLOAT)</td>
  <td>Yaw rate I gain <p><strong>Comment:</strong> Yaw rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>[0.0, ?] [0, ?] (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.1</td>
  <td></td>
 </tr>
