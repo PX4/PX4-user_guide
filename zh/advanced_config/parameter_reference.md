@@ -11401,10 +11401,11 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_TYPE">EKF2_MAG_TYPE</strong> (INT32)</td>
- <td>Type of magnetometer fusion <p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fusion of magnetometer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to &#x27;Automatic&#x27; magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to &#x27;Magnetic heading&#x27; magnetic heading fusion is used at all times. If set to &#x27;None&#x27; the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality).</p> <strong>参数对照:</strong><ul>
+ <td>Type of magnetometer fusion <p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fusion of magnetometer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to &#x27;Automatic&#x27; magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight. If set to &#x27;Magnetic heading&#x27; magnetic heading fusion is used at all times. If set to &#x27;None&#x27; the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GNSS velocity measurements to align the yaw angle. If set to &#x27;Init&#x27; the magnetometer is only used to initalize the heading.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Automatic</li>
 <li><strong>1:</strong> Magnetic heading</li>
 <li><strong>5:</strong> None</li>
+<li><strong>6:</strong> Init</li>
 </ul>  <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
