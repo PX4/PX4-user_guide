@@ -27556,6 +27556,52 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="SCH16T_ACC_FILT">SCH16T_ACC_FILT</strong> (INT32)</td>
+ <td>Accel filter settings  <strong>Values:</strong><ul>
+<li><strong>0:</strong> 13 Hz</li>
+<li><strong>1:</strong> 30 Hz</li>
+<li><strong>2:</strong> 68 Hz</li>
+<li><strong>3:</strong> 235 Hz</li>
+<li><strong>4:</strong> 280 Hz</li>
+<li><strong>5:</strong> 370 Hz</li>
+<li><strong>6:</strong> No filter</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>6</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SCH16T_DECIM">SCH16T_DECIM</strong> (INT32)</td>
+ <td>Gyro and Accel decimation settings  <strong>Values:</strong><ul>
+<li><strong>0:</strong> None</li>
+<li><strong>1:</strong> 5900 Hz</li>
+<li><strong>2:</strong> 2950 Hz</li>
+<li><strong>3:</strong> 1475 Hz</li>
+<li><strong>4:</strong> 738 Hz</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>4</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SCH16T_GYRO_FILT">SCH16T_GYRO_FILT</strong> (INT32)</td>
+ <td>Gyro filter settings  <strong>Values:</strong><ul>
+<li><strong>0:</strong> 13 Hz</li>
+<li><strong>1:</strong> 30 Hz</li>
+<li><strong>2:</strong> 68 Hz</li>
+<li><strong>3:</strong> 235 Hz</li>
+<li><strong>4:</strong> 280 Hz</li>
+<li><strong>5:</strong> 370 Hz</li>
+<li><strong>6:</strong> No filter</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SF1XX_MODE">SF1XX_MODE</strong> (INT32)</td>
  <td>Lightware SF1xx/SF20/LW20 Operation Mode  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
