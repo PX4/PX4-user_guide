@@ -1,13 +1,17 @@
 # Global Navigation Satellite Systems (GNSS)
 
-PX4 supports Global Navigation Satellite Systems (GNSS) such as GPS, GLONASS, Galileo, Beidou, QZSS and SBAS, etc. using receivers that communicate via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN. A GNSS system is needed for missions, and some other automatic and manual/assisted modes.
+A GNSS system is needed for missions, and some other automatic and manual/assisted modes. PX4 supports Global Navigation Satellite Systems (GNSS) such as GPS, GLONASS, Galileo, Beidou, QZSS and SBAS, etc. using receivers that communicate via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN.
 
-Most GNSS modules also contain a [compass/magnetometer](../gps_compass/magnetometer.md) part (see link for calibration/setup information). Because of this the GNSS module should be mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing). Many also include a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), [buzzer](../getting_started/px4_basic_concepts.md#buzzer) and [UI LED](../getting_started/led_meanings.md#ui-led).
+Up to two GPS modules can be connected using either a UART or the CAN bus:
+
+- A primary [GNSS module](../gps_compass/#supported-gnss) that usually also includes a [compass/magnetometer](../gps_compass/magnetometer.md), [buzzer](../getting_started/px4_basic_concepts.md#buzzer), [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), and [UI LED](../getting_started/led_meanings.md#ui-led).
+- An optional secondary GNSS/compass module that is used as a fallback. This may include a buzzer, safety switch, LEDs, but these are not used by PX4.
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
 :::note PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GNSS Receivers, which extend GNSS systems to centimetre-level precision.
 :::
+
 
 ## Supported GNSS
 
@@ -50,7 +54,9 @@ Notes:
 
 ## Mounting the GNSS/Compass
 
-[Mounting the Compass](../assembly/mount_gps_compass.md) explains how to mount a GNSS module that has a compass (it is the compass part that is affected by electromagnetic radiation).
+Most GNSS modules also contain a [compass/magnetometer](../gps_compass/magnetometer.md) part (see link for calibration/setup information). Because of this the GNSS module should be mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
+
+[Mounting the Compass](../assembly/mount_gps_compass.md) explains how to mount a GNSS module that has a compass.
 
 ## Hardware Setup
 
