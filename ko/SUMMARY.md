@@ -662,6 +662,7 @@
     - [드라이버](modules/modules_driver.md)
       - [항속 센서](modules/modules_driver_airspeed_sensor.md)
       - [기압 센서](modules/modules_driver_baro.md)
+      - [Camera](modules/modules_driver_camera.md)
       - [거리 센서](modules/modules_driver_distance_sensor.md)
       - [관성 센서](modules/modules_driver_imu.md)
       - [INS](modules/modules_driver_ins.md)
