@@ -1,13 +1,17 @@
 # GPS와 나침반
 
-PX4는 u-blox, MTK Ashtech 또는 Emlid 프로토콜이나 UAVCAN 통신 수신기를 사용하여 글로벌 내비게이션 위성시스템(GNSS)(GPS, GLONASS, Galileo, BeiDou, QZSS 및 SBAS 포함)을 지원합니다. A GNSS system is needed for missions, and some other automatic and manual/assisted modes.
+A GNSS system is needed for missions, and some other automatic and manual/assisted modes. PX4는 u-blox, MTK Ashtech 또는 Emlid 프로토콜이나 UAVCAN 통신 수신기를 사용하여 글로벌 내비게이션 위성시스템(GNSS)(GPS, GLONASS, Galileo, BeiDou, QZSS 및 SBAS 포함)을 지원합니다.
 
-PX4는 Bosch BMM 150 MEMS (I2C 버스를 통해), HMC5883/HMC5983 (I2C 또는 SPI), IST8310 (I2C) 및 LIS3MDL (I2C 또는 SPI)과 같은 나침반 부품(자기계)과 함께 사용할 수 있습니다. 최대 4 개의 내외부 자력계를 연결할 수 있지만, 실제로는 하나만 헤딩 소스로 사용됩니다. Many also include a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), [buzzer](../getting_started/px4_basic_concepts.md#buzzer) and [UI LED](../getting_started/led_meanings.md#ui-led).
+Up to two GPS modules can be connected using either a UART or the CAN bus:
+
+- A primary [GNSS module](../gps_compass/#supported-gnss) that usually also includes a [compass/magnetometer](../gps_compass/magnetometer.md), [buzzer](../getting_started/px4_basic_concepts.md#buzzer), [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), and [UI LED](../getting_started/led_meanings.md#ui-led).
+- An optional secondary GNSS/compass module that is used as a fallback. This may include a buzzer, safety switch, LEDs, but these are not used by PX4.
 
 ![GPS와 나침반](../../assets/hardware/gps/gps_compass.jpg)
 
 ::: info PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GNSS Receivers, which extend GNSS systems to centimetre-level precision.
 :::
+
 
 ## 지원되는 GNSS와 나침반
 
@@ -50,7 +54,9 @@ Notes:
 
 ## Mounting the GNSS/Compass
 
-[Mounting the Compass](../assembly/mount_gps_compass.md) explains how to mount a GNSS module that has a compass (it is the compass part that is affected by electromagnetic radiation).
+PX4는 Bosch BMM 150 MEMS (I2C 버스를 통해), HMC5883/HMC5983 (I2C 또는 SPI), IST8310 (I2C) 및 LIS3MDL (I2C 또는 SPI)과 같은 나침반 부품(자기계)과 함께 사용할 수 있습니다. 최대 4 개의 내외부 자력계를 연결할 수 있지만, 실제로는 하나만 헤딩 소스로 사용됩니다.
+
+[Mounting the Compass](../assembly/mount_gps_compass.md) explains how to mount a GNSS module that has a compass.
 
 ## 하드웨어 설정
 
