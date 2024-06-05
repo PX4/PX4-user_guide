@@ -662,6 +662,7 @@
     - [Drivers](modules/modules_driver.md)
       - [Airspeed Sensor](modules/modules_driver_airspeed_sensor.md)
       - [Baro](modules/modules_driver_baro.md)
+      - [Camera](modules/modules_driver_camera.md)
       - [Distance Sensor](modules/modules_driver_distance_sensor.md)
       - [IMU](modules/modules_driver_imu.md)
       - [INS](modules/modules_driver_ins.md)
