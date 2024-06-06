@@ -112,10 +112,15 @@ In addition to the transmitter/receiver pairs being compatible, the receiver mus
 
 As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
 
-- Spektrum and DSM receivers must connect to a **SPKT/DSM** input.
-- Graupner HoTT receivers: SUMD output must connect to a **SPKT/DSM** input.
-- PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
+- Spektrum/DSM receivers connect to the "DSM" input.
+  Pixhawk flight controllers variously label this as: `SPKT/DSM`, `DSM`, `DSM/SBUS RC`, `DSM RC`, `DSM/SBUS/RSSI`.
+- Graupner HoTT receivers: SUMD output must connect to a **SPKT/DSM** input (as above).
+- PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins.
+  This is typically labeled: `RC IN`, `RCIN` or `RC`, but has in some FCs has been labeled `PPM RC` or `PPM`.
 - PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- TBS Crossfire/Express LRS Receivers using [CRSF Telemetry](../telemetry/crsf_telemetry.md) connect via a spare UART.
+
+Flight controllers usually include appropriate cables for connecting common receiver types.
 
 Instructions for connecting to specific flight controllers are given in their [quick-start](../assembly/index.md) guides (such as [CUAV Pixhawk V6X Wiring Quick Start: Radio Control](../assembly/quick_start_cuav_pixhawk_v6x.md#radio-control) or [Holybro Pixhawk 6X Wiring Quick Start: Radio Control](../assembly/quick_start_pixhawk6x.md#radio-control)).
 
