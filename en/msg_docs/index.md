@@ -162,6 +162,7 @@ This are the three next waypoints (or just the next two or one).
 - [RcParameterMap](RcParameterMap.md)
 - [RegisterExtComponentReply](RegisterExtComponentReply.md)
 - [RegisterExtComponentRequest](RegisterExtComponentRequest.md) — Request to register an external component
+- [RoverAckermannGuidanceStatus](RoverAckermannGuidanceStatus.md)
 - [Rpm](Rpm.md)
 - [RtlStatus](RtlStatus.md)
 - [RtlTimeEstimate](RtlTimeEstimate.md)
