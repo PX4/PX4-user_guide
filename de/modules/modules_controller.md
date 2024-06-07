@@ -300,6 +300,25 @@ navigator <command> [arguments...]
 
    status        print status info
 ```
+## rover_ackermann
+Source: [modules/rover_ackermann](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_ackermann)
+
+
+### Description
+Rover state machine.
+
+<a id="rover_ackermann_usage"></a>
+
+### Usage
+```
+rover_ackermann <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## rover_pos_control
 Source: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_pos_control)
 
@@ -372,6 +391,13 @@ uuv_att_control stop
 ### Usage
 ```
 uuv_att_control <command> [arguments...]
+ differential_drive_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  Commands:
    start
 
@@ -402,13 +428,6 @@ uuv_pos_control stop
 ### Usage
 ```
 uuv_pos_control <command> [arguments...]
- Commands:
-   start
-
-   stop
-
-   status        print status info
- differential_drive_control <command> [arguments...]
  Commands:
    start
 
