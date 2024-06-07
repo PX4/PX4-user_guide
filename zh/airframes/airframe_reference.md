@@ -604,6 +604,10 @@ div.frame_variant td, div.frame_variant th {
  <td>NXP Cup car: DF Robot GPX</td>
  <td>Maintainer: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Specific Outputs:</b><ul><li><b>电机1</b>: 剩余轮子速度</li><li><b>舵机1</b>: 转向</li></ul></p></td>
 </tr>
+<tr id="rover_rover_generic_ackermann_rover">
+ <td>Generic ackermann rover</td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50010</p></td>
+</tr>
 </tbody>
 </table>
 </div>
