@@ -604,6 +604,10 @@ div.frame_variant td, div.frame_variant th {
  <td>NXP Cup car: DF Robot GPX</td>
  <td>Підтримувач: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Спеціальні виводи:</b><ul><li><b>Motor1</b>: Швидкість лівих коліс</li><li><b>Servo1</b>: кермувальний сервопривід</li></ul></p></td>
 </tr>
+<tr id="rover_rover_generic_ackermann_rover">
+ <td>Generic ackermann rover</td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50010</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -624,7 +628,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
  <td>Загальний підводний робот</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
  <td>HippoCampus TUHH (безпілотний підводний апарат)</td>
@@ -712,7 +716,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_standard_vtol_generic_standard_vtol">
  <td>Загальний Стандартний VTOL</td>
- <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
+ <td>Супроводжуючий: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
 </tr>
 <tr id="vtol_standard_vtol_vertical_technologies_deltaquad">
  <td>Vertical Technologies DeltaQuad</td>
@@ -764,7 +768,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_vtol_tiltrotor_generic_tiltrotor_vtol">
  <td>Загальний Tiltrotor VTOL</td>
- <td>Супроводжуючий: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
 </tr>
 </tbody>
 </table>
