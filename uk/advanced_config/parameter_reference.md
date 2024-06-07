@@ -12291,7 +12291,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_PN_R_SLEW_MAX">FW_PN_R_SLEW_MAX</strong> (FLOAT)</td>
- <td>Path navigation roll slew rate limit <p><strong>Comment:</strong> The maximum change in roll angle setpoint per second.</p>   </td>
+ <td>Path navigation roll slew rate limit <p><strong>Comment:</strong> The maximum change in roll angle setpoint per second. This limit is applied in all Auto modes, plus manual Position and Altitude modes.</p>   </td>
  <td>[0, ?] (1)</td>
  <td>90.0</td>
  <td>deg/s</td>
