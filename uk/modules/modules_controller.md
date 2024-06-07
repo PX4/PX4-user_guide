@@ -247,6 +247,25 @@ navigator <command> [arguments...]
 
    status        print status info
 ```
+## rover_ackermann
+Source: [modules/rover_ackermann](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_ackermann)
+
+
+### Опис
+Rover state machine.
+
+<a id="rover_ackermann_usage"></a>
+
+### Використання
+```
+rover_ackermann <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## rover_pos_control
 Джерело: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_pos_control)
 
@@ -354,12 +373,12 @@ uuv_pos_control <command> [arguments...]
 Джерело: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/vtol_att_control)
 
 
-### Опис
+### Description
 fw_att_control - регулятор положення фіксованого крила.
 
 <a id="vtol_att_control_usage"></a>
 
-### Використання
+### Usage
 ```
 vtol_att_control <command> [arguments...]
  Commands:
