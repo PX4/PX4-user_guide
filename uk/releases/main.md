@@ -40,6 +40,10 @@
 - [Gazebo](../sim_gazebo_gz/index.md): Наразі змінна середовища `PX4_SIM_MODEL` може бути використана для вказання моделі симуляції. Це скасовує `PX4_GZ_MODEL`, яке тепер застаріло. Додано до PX4 у [PX4-Autopilot#22400](https://github.com/PX4/PX4-Autopilot/pull/22400).
 - [Gazebo](../sim_gazebo_gz/index.md): Розділення між Gazebo та PX4 SITL. Дві частини симуляції зараз розділені. Вони можуть бути запущені незалежно в будь-якому порядку, і навіть працювати на різних хостах у мережі. Допомога Gazebo підтримує функцію перетягування за допомогою ресурсу ресурсу в Gazebo GUI. Додано у PX4 у [PX4-Autopilot#22467](https://github.com/PX4/PX4-Autopilot/pull/22467).
 
+### Ethernet
+
+- [Ethernet](../advanced_config/ethernet_setup.md): The default static IP address (used as a fallback for DHCP) has changed from `192.168.0.3` to `10.41.10.2`. This avoids potential conflicts where the`192.168.0.x` range is used by routers for WIFI/ethernet networks. Changed in PX4 in [PX4-Autopilot#22517](https://github.com/PX4/PX4-Autopilot/pull/22517).
+
 ### uXRCE-DDS / ROS2
 
 - [uXRCE-DDS](../middleware/uxrce_dds.md): [DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml) тепер дозволяє використовувати `subscription_multi`, щоб вказати, що вказані теми ROS 2 надсилаються до окремого екземпляра теми uORB, зарезервованого для ROS 2. Це дозволяє PX4 розрізняти між оновленнями від ROS і тими, які надходять від видавців PX4 uORB. З цією зміною користувачі ROS2 тепер можуть вирішувати, чи повідомлення, які вони відправляють в PX4, будуть перекриватися з існуючими uORB або будуть збережені в окремих екземплярах. Додано в PX4 у [PX4-Autopilot#22266](https://github.com/PX4/PX4-Autopilot/pull/22266).
