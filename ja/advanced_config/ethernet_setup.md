@@ -31,7 +31,7 @@ Supported flight controllers include:
 
 To connect systems over Ethernet you need to configure them to run on the same IP network, so that each system has a unique IP address and can find the other systems. This might be done using a DHCP server to allocate addresses, or by manually configuring the addresses of each system on the network.
 
-There is no single "out of the box configuration" that we can provide that will necessarily work in your local network. Therefore as an example of the kind of configuration you might do, below we show how to set up the systems on an IP network with static addresses in the range `192.168.0.Xxx`, where PX4 has a statically allocated address `192.168.0.4` and the computer has address `192.168.0.1`. If you wanted to connect a companion computer or other system to the network you could use a similar approach to allocate a static address.
+There is no single "out of the box configuration" that we can provide that will necessarily work in your local network. Therefore as an example of the kind of configuration you might do, below we show how to set up the systems on an IP network with static addresses in the range `10.41.10.Xxx`, where PX4 has a statically allocated address `10.41.10.2` (PX4-default) and the computer has address `10.41.10.1`. If you wanted to connect a companion computer or other system to the network you could use a similar approach to allocate a static address.
 
 ::: info
 There is nothing "special" about the network configuration (other than perhaps the tools used to modify the network settings); it works much the same as any home or business network.
@@ -44,15 +44,21 @@ Which is to say that a knowledge of how IP networks work is highly desirable!
 
 PX4 uses the [netman](../modules/modules_system.md#netman) module to apply and update network settings.
 
+The default configuration first requests an IP address from DHCP, and if that fails will fallback to the default static address `10.41.10.2`. You can explicitly set any static IP address (including the default address), to bypass the initial DHCP check and make the connection a little faster.
+
+:::note
+If you want to use the default static IP address for PX4 you can skip forward to the next section.
+:::
+
 Network settings are defined in the configuration file `/fs/microsd/net.cfg` on the SD card. This is a text file, that defines each setting on a new line as a `name=value` pair. A configuration file might look like this:
 
-```
+```ini
 DEVICE=eth0
 BOOTPROTO=fallback
-IPADDR=192.168.0.4
+IPADDR=10.41.10.2
 NETMASK=255.255.255.0
-ROUTER=192.168.0.254
-DNS=192.168.0.254
+ROUTER=10.41.10.254
+DNS=10.41.10.254
 ```
 
 Where the values are:
@@ -73,10 +79,10 @@ To set the above "example" configuration using the _QGroundControl_:
    ```sh
    echo DEVICE=eth0 > /fs/microsd/net.cfg
    echo BOOTPROTO=fallback >> /fs/microsd/net.cfg
-   echo IPADDR=192.168.0.4 >> /fs/microsd/net.cfg
+   echo IPADDR=10.41.10.2 >> /fs/microsd/net.cfg
    echo NETMASK=255.255.255.0 >>/fs/microsd/net.cfg
-   echo ROUTER=192.168.0.254 >>/fs/microsd/net.cfg
-   echo DNS=192.168.0.254 >>/fs/microsd/net.cfg
+   echo ROUTER=10.41.10.254 >>/fs/microsd/net.cfg
+   echo DNS=10.41.10.254 >>/fs/microsd/net.cfg
    ```
 
 1. Once the network configuration has been set you can disconnect the USB cable.
@@ -107,12 +113,12 @@ To setup the Ubuntu Computer:
      ethernets:
          enp2s0:
              addresses:
-                 - 192.168.0.1/24
+                 - 10.41.10.1/24
              nameservers:
-                 addresses: [192.168.0.1]
+                 addresses: [10.41.10.1]
              routes:
-                 - to: 192.168.0.1
-                   via: 192.168.0.1
+                 - to: 10.41.10.1
+                   via: 10.41.10.1
    ```
 
    Save and exit the editor.
@@ -182,7 +188,7 @@ To setup MAVSDK-Python running on a companion computer:
    For example, your code will connect to the PX4 using:
 
    ```python
-   await drone.connect(system_address="udp://192.168.0.4:14540")
+   await drone.connect(system_address="udp://10.41.10.2:14540")
    ```
 
 ::: info MAVSDK can connect to the PX4 on port `14550` if you don't modify the PX4 Ethernet port configuration. However this is not recommended because the default configuration is optimised for communicating with a GCS (not a companion computer).
@@ -200,7 +206,7 @@ To setup MAVSDK-Python running on a companion computer:
 To set up ROS 2:
 
 1. Connect your flight controller and companion computer via Ethernet.
-2. [Start the uXRCE-DDS client on PX4](../middleware/uxrce_dds.md#starting-the-client), either manually or by customizing the system startup script. Note that you must use the IP address of the companion computer and the UDP port on which the agent is listening (the example configuration above sets the companion IP address to `192.168.0.1`, and the agent UDP port is set to `8888` in the next step).
+2. [Start the uXRCE-DDS client on PX4](../middleware/uxrce_dds.md#starting-the-client), either manually or by customizing the system startup script. Note that you must use the IP address of the companion computer and the UDP port on which the agent is listening (the example configuration above sets the companion IP address to `10.41.10.1`, and the agent UDP port is set to `8888` in the next step).
 3. [Start the micro XRCE-DDS agent on the companion computer](../middleware/uxrce_dds.md#starting-the-agent). For example, enter the following command in a terminal to start the agent listening on UDP port `8888`.
 
    ```sh
