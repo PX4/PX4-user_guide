@@ -8799,17 +8799,17 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="ASPD_FS_T_START">ASPD_FS_T_START</strong> (INT32)</td>
+ <td><strong id="ASPD_FS_T_START">ASPD_FS_T_START</strong> (FLOAT)</td>
  <td>Airspeed failsafe start delay <p><strong>Comment:</strong> Delay before switching back to using airspeed sensor if checks indicate sensor is good. Set to a negative value to disable the re-enabling in flight.</p>   </td>
- <td>[-1, 1000] </td>
- <td>-1</td>
+ <td>[-1.0, ?] </td>
+ <td>-1.</td>
  <td>s</td>
 </tr>
 <tr>
- <td><strong id="ASPD_FS_T_STOP">ASPD_FS_T_STOP</strong> (INT32)</td>
+ <td><strong id="ASPD_FS_T_STOP">ASPD_FS_T_STOP</strong> (FLOAT)</td>
  <td>Airspeed failsafe stop delay <p><strong>Comment:</strong> Delay before stopping use of airspeed sensor if checks indicate sensor is bad.</p>   </td>
- <td>[1, 10] </td>
- <td>2</td>
+ <td>[0.0, ?] </td>
+ <td>1.</td>
  <td>s</td>
 </tr>
 <tr>
