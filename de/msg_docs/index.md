@@ -146,6 +146,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [RcParameterMap](RcParameterMap.md)
 - [RegisterExtComponentReply](RegisterExtComponentReply.md)
 - [RegisterExtComponentRequest](RegisterExtComponentRequest.md) — Request to register an external component
+- [RoverAckermannGuidanceStatus](RoverAckermannGuidanceStatus.md)
 - [Rpm](Rpm.md)
 - [RtlStatus](RtlStatus.md)
 - [RtlTimeEstimate](RtlTimeEstimate.md)

@@ -662,6 +662,7 @@
     - [驱动](modules/modules_driver.md)
       - [空速传感器](modules/modules_driver_airspeed_sensor.md)
       - [气压计](modules/modules_driver_baro.md)
+      - [Camera](modules/modules_driver_camera.md)
       - [距离传感器](modules/modules_driver_distance_sensor.md)
       - [IMU](modules/modules_driver_imu.md)
       - [INS](modules/modules_driver_ins.md)

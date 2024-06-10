@@ -607,6 +607,10 @@ div.frame_variant td, div.frame_variant th {
  <td>NXP Cup car: DF Robot GPX</td>
  <td>유지보수: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: Speed of left wheels</li><li><b>Servo1</b>: Steering servo</li></ul></p></td>
 </tr>
+<tr id="rover_rover_generic_ackermann_rover">
+ <td>Generic ackermann rover</td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50010</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -716,7 +720,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_standard_vtol_generic_standard_vtol">
  <td>Generic Standard VTOL</td>
- <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
 </tr>
 <tr id="vtol_standard_vtol_vertical_technologies_deltaquad">
  <td>Vertical Technologies DeltaQuad</td>

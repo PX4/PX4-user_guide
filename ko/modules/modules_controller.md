@@ -247,6 +247,25 @@ navigator <command> [arguments...]
 
    status        print status info
 ```
+## rover_ackermann
+Source: [modules/rover_ackermann](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_ackermann)
+
+
+### 설명
+Rover state machine.
+
+<a id="rover_ackermann_usage"></a>
+
+### 사용법
+```
+rover_ackermann <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## rover_pos_control
 소스: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rover_pos_control)
 
@@ -324,7 +343,7 @@ uuv_att_control <command> [arguments...]
 소스: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/uuv_pos_control)
 
 
-### 설명
+### Description
 무인수중선(UUV)의 자세를 제어합니다. Publishes `attitude_setpoint` messages.
 ### 구현
 현재 이 구현은 일부 모드만 지원합니다.
@@ -340,7 +359,7 @@ uuv_pos_control stop
 
 <a id="uuv_pos_control_usage"></a>
 
-### 사용법
+### Usage
 ```
 uuv_pos_control <command> [arguments...]
  Commands:

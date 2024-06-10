@@ -258,6 +258,25 @@ navigator <command> [arguments...]
 
    status        print status info
 ```
+## rover_ackermann
+Source: [modules/rover_ackermann](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_ackermann)
+
+
+### Description
+Rover state machine.
+
+<a id="rover_ackermann_usage"></a>
+
+### Usage
+```
+rover_ackermann <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## rover_pos_control
 Source: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_pos_control)
 
@@ -299,7 +318,7 @@ rover_pos_control <command> [arguments...]
 Source: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_att_control)
 
 
-### Description
+### 描述
 Controls the attitude of an unmanned underwater vehicle (UUV).
 
 Publishes `vehicle_thrust_setpont` and `vehicle_torque_setpoint` messages at a constant 250Hz.
@@ -321,7 +340,7 @@ uuv_att_control stop
 
 <a id="uuv_att_control_usage"></a>
 
-### Usage
+### 实现
 ```
 uuv_att_control <command> [arguments...]
  Commands:
@@ -335,7 +354,7 @@ uuv_att_control <command> [arguments...]
 Source: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_pos_control)
 
 
-### 描述
+### Description
 Controls the attitude of an unmanned underwater vehicle (UUV). Publishes `attitude_setpoint` messages.
 ### Implementation
 Currently, this implementation supports only a few modes:
@@ -351,7 +370,7 @@ uuv_pos_control stop
 
 <a id="uuv_pos_control_usage"></a>
 
-### 实现
+### Usage
 ```
 uuv_pos_control <command> [arguments...]
  Commands:

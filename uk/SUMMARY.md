@@ -662,6 +662,7 @@
     - [Драйвери](modules/modules_driver.md)
       - [Датчик швидкості повітря](modules/modules_driver_airspeed_sensor.md)
       - [Барометер](modules/modules_driver_baro.md)
+      - [Camera](modules/modules_driver_camera.md)
       - [Датчик відстані](modules/modules_driver_distance_sensor.md)
       - [Інерційний вимірювальний пристрій](modules/modules_driver_imu.md)
       - [INS](modules/modules_driver_ins.md)

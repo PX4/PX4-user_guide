@@ -8794,17 +8794,17 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="ASPD_FS_T_START">ASPD_FS_T_START</strong> (INT32)</td>
+ <td><strong id="ASPD_FS_T_START">ASPD_FS_T_START</strong> (FLOAT)</td>
  <td>Airspeed failsafe start delay <p><strong>Comment:</strong> Delay before switching back to using airspeed sensor if checks indicate sensor is good. Set to a negative value to disable the re-enabling in flight.</p>   </td>
- <td>[-1, 1000] </td>
- <td>-1</td>
+ <td>[-1.0, ?] </td>
+ <td>-1.</td>
  <td>s</td>
 </tr>
 <tr>
- <td><strong id="ASPD_FS_T_STOP">ASPD_FS_T_STOP</strong> (INT32)</td>
+ <td><strong id="ASPD_FS_T_STOP">ASPD_FS_T_STOP</strong> (FLOAT)</td>
  <td>Airspeed failsafe stop delay <p><strong>Comment:</strong> Delay before stopping use of airspeed sensor if checks indicate sensor is bad.</p>   </td>
- <td>[1, 10] </td>
- <td>2</td>
+ <td>[0.0, ?] </td>
+ <td>1.</td>
  <td>s</td>
 </tr>
 <tr>
@@ -12291,7 +12291,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_PN_R_SLEW_MAX">FW_PN_R_SLEW_MAX</strong> (FLOAT)</td>
- <td>Path navigation roll slew rate limit <p><strong>Comment:</strong> The maximum change in roll angle setpoint per second.</p>   </td>
+ <td>Path navigation roll slew rate limit <p><strong>Comment:</strong> The maximum change in roll angle setpoint per second. This limit is applied in all Auto modes, plus manual Position and Altitude modes.</p>   </td>
  <td>[0, ?] (1)</td>
  <td>90.0</td>
  <td>deg/s</td>
@@ -19751,6 +19751,114 @@ table {
 </tr>
 </tbody></table>
 
+## Rover Ackermann
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="RA_ACC_RAD_DEF">RA_ACC_RAD_DEF</strong> (FLOAT)</td>
+ <td>Default acceptance radius    </td>
+ <td>[0.1, 100] (0.01)</td>
+ <td>0.5</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="RA_ACC_RAD_GAIN">RA_ACC_RAD_GAIN</strong> (FLOAT)</td>
+ <td>Tuning parameter for corner cutting <p><strong>Comment:</strong> The geometric ideal acceptance radius is multiplied by this factor to account for kinematic and dynamic effects. Higher value -&gt; The rover starts to cut the corner earlier.</p>   </td>
+ <td>[1, 100] (0.01)</td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RA_ACC_RAD_MAX">RA_ACC_RAD_MAX</strong> (FLOAT)</td>
+ <td>Maximum acceptance radius <p><strong>Comment:</strong> The controller scales the acceptance radius based on the angle between the previous, current and next waypoint. Used as tuning parameter. Higher value -&gt; smoother trajectory at the cost of how close the rover gets to the waypoint (Set equal to RA_ACC_RAD_DEF to disable corner cutting).</p>   </td>
+ <td>[0.1, 100] (0.01)</td>
+ <td>3</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="RA_LOOKAHD_GAIN">RA_LOOKAHD_GAIN</strong> (FLOAT)</td>
+ <td>Tuning parameter for the pure pursuit controller <p><strong>Comment:</strong> Lower value -&gt; More aggressive controller (beware overshoot/oscillations)</p>   </td>
+ <td>[0.1, 100] (0.01)</td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RA_LOOKAHD_MAX">RA_LOOKAHD_MAX</strong> (FLOAT)</td>
+ <td>Maximum lookahead distance for the pure pursuit controller <p><strong>Comment:</strong> This is the maximum crosstrack error before the controller starts targeting the current waypoint rather then the path between the previous and next waypoint.</p>   </td>
+ <td>[0.1, 100] (0.01)</td>
+ <td>10</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="RA_LOOKAHD_MIN">RA_LOOKAHD_MIN</strong> (FLOAT)</td>
+ <td>Minimum lookahead distance for the pure pursuit controller    </td>
+ <td>[0.1, 100] (0.01)</td>
+ <td>1</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="RA_MAX_SPEED">RA_MAX_SPEED</strong> (FLOAT)</td>
+ <td>Speed the rover drives at maximum throttle <p><strong>Comment:</strong> This is used for the feed-forward term of the speed controller. A value of -1 disables the feed-forward term in which case the Integrator (RA_SPEED_I) becomes necessary to track speed setpoints.</p>   </td>
+ <td>[-1, 100] (0.01)</td>
+ <td>-1</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="RA_MAX_STR_ANG">RA_MAX_STR_ANG</strong> (FLOAT)</td>
+ <td>Maximum steering angle <p><strong>Comment:</strong> The maximum angle that the rover can steer</p>   </td>
+ <td>[0.1, 1.5708] (0.01)</td>
+ <td>0.5236</td>
+ <td>rad</td>
+</tr>
+<tr>
+ <td><strong id="RA_MISS_VEL_DEF">RA_MISS_VEL_DEF</strong> (FLOAT)</td>
+ <td>Default rover velocity during a mission    </td>
+ <td>[0.1, 100] (0.01)</td>
+ <td>3</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="RA_MISS_VEL_GAIN">RA_MISS_VEL_GAIN</strong> (FLOAT)</td>
+ <td>Tuning parameter for the velocity reduction during cornering <p><strong>Comment:</strong> Lower value -&gt; More velocity reduction during cornering</p>   </td>
+ <td>[0.1, 100] (0.01)</td>
+ <td>5</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RA_MISS_VEL_MIN">RA_MISS_VEL_MIN</strong> (FLOAT)</td>
+ <td>Minimum rover velocity during a mission <p><strong>Comment:</strong> The velocity off the rover is reduced based on the corner it has to take to smooth the trajectory (To disable this feature set it equal to RA_MISSION_VEL_DEF)</p>   </td>
+ <td>[0.1, 100] (0.01)</td>
+ <td>1</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="RA_SPEED_I">RA_SPEED_I</strong> (FLOAT)</td>
+ <td>Integral gain for ground speed controller    </td>
+ <td>[0, 100] (0.01)</td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RA_SPEED_P">RA_SPEED_P</strong> (FLOAT)</td>
+ <td>Proportional gain for ground speed controller    </td>
+ <td>[0, 100] (0.01)</td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RA_WHEEL_BASE">RA_WHEEL_BASE</strong> (FLOAT)</td>
+ <td>Wheel base <p><strong>Comment:</strong> Distance from the front to the rear axle</p>   </td>
+ <td>[0.001, 100] (0.001)</td>
+ <td>0.5</td>
+ <td>m</td>
+</tr>
+</tbody></table>
+
 ## Rover Differential Drive
 
 <table>
@@ -21913,7 +22021,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -22818,7 +22926,7 @@ table {
  <td>VL53L1X Distance Sensor    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>Вимкнено (0)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -24315,7 +24423,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -26350,7 +26458,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -26414,7 +26522,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -26697,7 +26805,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -26787,7 +26895,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>За замовчуванням</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -26849,7 +26957,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>За замовчуванням</th><th>Units</th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -26950,7 +27058,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -27534,7 +27642,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -27555,6 +27663,52 @@ table {
    <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td><strong id="SCH16T_ACC_FILT">SCH16T_ACC_FILT</strong> (INT32)</td>
+ <td>Accel filter settings  <strong>Values:</strong><ul>
+<li><strong>0:</strong> 13 Hz</li>
+<li><strong>1:</strong> 30 Hz</li>
+<li><strong>2:</strong> 68 Hz</li>
+<li><strong>3:</strong> 235 Hz</li>
+<li><strong>4:</strong> 280 Hz</li>
+<li><strong>5:</strong> 370 Hz</li>
+<li><strong>6:</strong> No filter</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>6</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SCH16T_DECIM">SCH16T_DECIM</strong> (INT32)</td>
+ <td>Gyro and Accel decimation settings  <strong>Values:</strong><ul>
+<li><strong>0:</strong> None</li>
+<li><strong>1:</strong> 5900 Hz</li>
+<li><strong>2:</strong> 2950 Hz</li>
+<li><strong>3:</strong> 1475 Hz</li>
+<li><strong>4:</strong> 738 Hz</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>4</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SCH16T_GYRO_FILT">SCH16T_GYRO_FILT</strong> (INT32)</td>
+ <td>Gyro filter settings  <strong>Values:</strong><ul>
+<li><strong>0:</strong> 13 Hz</li>
+<li><strong>1:</strong> 30 Hz</li>
+<li><strong>2:</strong> 68 Hz</li>
+<li><strong>3:</strong> 235 Hz</li>
+<li><strong>4:</strong> 280 Hz</li>
+<li><strong>5:</strong> 370 Hz</li>
+<li><strong>6:</strong> No filter</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>2</td>
+ <td></td>
+</tr>
 <tr>
  <td><strong id="SF1XX_MODE">SF1XX_MODE</strong> (INT32)</td>
  <td>Lightware SF1xx/SF20/LW20 Operation Mode  <strong>Values:</strong><ul>
