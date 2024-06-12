@@ -1,6 +1,6 @@
 # Snapdragon Flight Autopilot (Discontinued)
 
-<Badge type="error" text="Discontinued" />
+<Badge type="info" text="Discontinued" />
 
 :::warning
 The Snapdragon Flight Autopilot has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available. For information about how it is/was used see [PX4 User Guide v1.11](https://docs.px4.io/v1.11/en/flight_controller/snapdragon_flight.html)
