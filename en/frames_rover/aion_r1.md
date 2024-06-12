@@ -1,6 +1,6 @@
 # Aion Robotics R1 UGV
 
-<Badge type="warning" text="main (PX4 v1.15)" />
+<Badge type="tip" text="PX4 v1.15" />
 
 The [Aion R1](https://www.aionrobotics.com/)vehicle was chosen to test and improve the differential drive support for PX4, and to improve driver support for Roboclaw Motor Controllers, such as the [RoboClaw 2x15A](https://www.basicmicro.com/RoboClaw-2x15A-Motor-Controller_p_10.html).
 

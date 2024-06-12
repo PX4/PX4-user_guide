@@ -1,6 +1,6 @@
 # PX4FLOW Smart Camera (Deprecated)
 
-<Badge type="error" text="Discontinued" />
+<Badge type="info" text="Discontinued" />
 
 PX4 does not support the PX4Flow [optical flow](../sensor/optical_flow.md) sensor from PX4 v1.13 (it doesn't work with current firmware).
 PX4 may work with older PX4Flow firmware.

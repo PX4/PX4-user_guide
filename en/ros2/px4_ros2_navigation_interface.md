@@ -1,6 +1,6 @@
 # PX4 ROS 2 Navigation Interface
 
-<Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
+<Badge type="tip" text="PX4 v1.15" /> <Badge type="warning" text="Experimental" />
 
 :::warning Experimental
 At the time of writing, parts of the PX4 ROS 2 Interface Library are experimental, and hence subject to change.

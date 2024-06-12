@@ -1,6 +1,6 @@
 # Crazyflie 2.0 (Discontinued)
 
-<Badge type="error" text="Discontinued" />
+<Badge type="info" text="Discontinued" />
 
 :::warning
 _Crazyflie 2.0_ has been [discontinued/superseded](../flight_controller/autopilot_experimental.md).
