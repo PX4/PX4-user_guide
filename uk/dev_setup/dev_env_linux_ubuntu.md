@@ -16,12 +16,6 @@ Bash скрипти надаються для спрощення процесу.
 Інструкції також можуть працювати на інших системах заснованих на Debian Linux.
 :::
 
-## Відеоінструкція
-
-Це відео показує як встановити інструментарій для цільових платформ NuttX та симуляції ([описано нижче](#simulation-and-nuttx-pixhawk-targets)) разом із базовим тестуванням що охоплено в розділі [Збірка програмного забезпечення PX4](../dev_setup/building_px4.md).
-
-@[youtube](https://youtu.be/OtValQdAdrU).
-
 ## Симуляція та NuttX (Pixhawk)
 
 :::warning
@@ -229,6 +223,12 @@ make
 - Робоче середовище catkin (система збірки ROS) створено за шляхом **~/catkin_ws/**.
 - Скрипт використовує інструкції зі  сторінки Wiki ROS "Melodic" [Ubuntu](http://wiki.ros.org/melodic/Installation/Ubuntu).
 :::
+
+## Відеоінструкція
+
+Це відео показує як встановити інструментарій для цільових платформ NuttX та симуляції ([описано нижче](#simulation-and-nuttx-pixhawk-targets)) разом із базовим тестуванням що охоплено в розділі [Збірка програмного забезпечення PX4](../dev_setup/building_px4.md). Note however that it was created some years ago and has not been verified to work on recent builds, while the documentation has.
+
+@[youtube](https://youtu.be/OtValQdAdrU).
 
 ## Наступні кроки
 
