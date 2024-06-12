@@ -1,6 +1,6 @@
 # DroPix Польотний контролер (Призупинено)
 
-<Badge type="error" text="Discontinued" />
+<Badge type="info" text="Discontinued" />
 
 Drotek<sup>&reg;</sup> _DroPix autopilot_ більше не доступний на сайті Drotek, і є призупиненим софтом.
 
