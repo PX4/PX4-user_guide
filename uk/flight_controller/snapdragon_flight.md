@@ -1,6 +1,6 @@
 # Snapdragon Flight автопілот (знятий з виробництва)
 
-<Badge type="error" text="Discontinued" />
+<Badge type="info" text="Discontinued" />
 
 :::warning
 Польотний автопілот Snapdragon був [знятий з виробництва](../flight_controller/autopilot_experimental.md) і більше не є комерційно доступним. Для отримання інформації про те, як він використовується/використовувався, див. [PX4 Посібник користувача v1.11](https://docs.px4.io/v1.11/en/flight_controller/snapdragon_flight.html)
