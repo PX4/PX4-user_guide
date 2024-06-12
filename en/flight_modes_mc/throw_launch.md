@@ -1,9 +1,9 @@
 # Throw Launch (Multicopter)
 
- <Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
+<Badge type="tip" text="PX4 v1.15" /> <Badge type="warning" text="Experimental" />
 
 :::warning Experimental
-This feature was introduced after PX4 v1.14.
+This feature was introduced in PX4 v1.15.
 
 - It has not yet been broadly tested on different vehicle configurations or scenarios.
 - The majority of testing has been done in position mode.

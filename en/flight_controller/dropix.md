@@ -1,6 +1,6 @@
 # DroPix Flight Controller (Discontinued)
 
-<Badge type="error" text="Discontinued" />
+<Badge type="info" text="Discontinued" />
 
 The Drotek<sup>&reg;</sup> _DroPix autopilot_ is no longer available on the Drotek website, and is assumed to be discontinued.
 
