@@ -1,6 +1,6 @@
 # Інтерфейс навігації PX4 ROS 2
 
-<Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
+<Badge type="tip" text="PX4 v1.15" /> <Badge type="warning" text="Experimental" />
 
 :::warning
 Експериментальні налаштування
