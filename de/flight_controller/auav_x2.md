@@ -1,6 +1,6 @@
 # AUAV-X2 Autopilot (Discontinued)
 
-<Badge type="error" text="Discontinued" />
+<Badge type="info" text="Discontinued" />
 
 :::warning PX4 does not manufacture this (or any) autopilot.
 :::
