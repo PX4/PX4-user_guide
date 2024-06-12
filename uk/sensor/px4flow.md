@@ -1,6 +1,6 @@
 # PX4FLOW Smart Camera (Застаріла версія)
 
-<Badge type="error" text="Discontinued" />
+<Badge type="info" text="Discontinued" />
 
 PX4 не підтримує датчик оптичного потоку PX4Flow з версії PX4 v1.13 (він не працює з поточною прошивкою). PX4 може працювати зі старішою прошивкою PX4Flow.
 
