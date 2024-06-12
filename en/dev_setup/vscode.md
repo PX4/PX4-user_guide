@@ -62,7 +62,7 @@ To build:
      ![Select Cmake build target](../../assets/toolchain/vscode/cmake_build_config.jpg)
 
      ::: info
-     The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v5`).
+     The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v6`).
      :::
 
    - Click the target on the config bar to display other options, and select the one you want (this will replace any selected target).

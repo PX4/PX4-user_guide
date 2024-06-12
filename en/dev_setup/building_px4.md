@@ -26,10 +26,14 @@ If needed you can also [get the source code specific to a particular release](..
 [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
 :::
 
-## First Build (Using the jMAVSim Simulator)
+## First Build (Using a Simulator)
 
 First we'll build a simulated target using a console environment.
 This allows us to validate the system setup before moving on to real hardware and an IDE.
+
+
+[Gazebo SITL](../sim_gazebo_gz/index.md)
+[Gazebo Classic SITL](../sim_gazebo_classic/index.md)
 
 Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim/index.md) using the following command:
 

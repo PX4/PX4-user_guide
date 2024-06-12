@@ -6,23 +6,30 @@ We recommend that developers obtain the basic equipment and software described b
 
 :::tip
 PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups.
-A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
+A Taranis RC and a mid-range Android tablet make a very inexpensive field kit.
 :::
 
 The equipment below is highly recommended:
 
-- **Remote control** for the safety pilot
-  - Taranis Plus remote control (or equivalent)
+- **RC controller** for the safety pilot
+  - [Taranis Plus](https://www.frsky-rc.com/product/taranis-x9d-plus-2/) RC control (or equivalent)
 - **Development computer**
-  - MacBook Pro (early 2015 and later) with OSX 10.15 or later
-  - Lenovo Thinkpad 450 (i5) with Ubuntu Linux 18.04 or later
+
+  ::: info
+  The listed computers have acceptable performance, but a more recent and powerful computer is recommended.
+  :::
+
+  - Lenovo Thinkpad with i5-core running Windows 11
+  - MacBook Pro (early 2015 and later) with macOS 10.15 or later
+  - Lenovo Thinkpad i5 with Ubuntu Linux 20.04 or later
+
 - **Ground control station** (computer or tablet):
-  - iPad (requires Wifi telemetry adapter)
+  - iPad (may require Wifi telemetry adapter)
   - Any MacBook or Ubuntu Linux laptop (can be the development computer)
-  - Samsung Note 4 or equivalent (any recent Android tablet or phone with a large enough screen to run _QGroundControl_ effectively).
+  - A recent mid-range Android tablet or phone with a large enough screen to run _QGroundControl_ effectively (6 inches).
 - **Vehicle capable of running PX4**:
   - [Get a prebuilt vehicle](../complete_vehicles_mc/index.md)
-  - [Build your own](../airframes/index.md)
+  - [Build your own](../frames_multicopter/kits.md)
 - **Safety glasses**
 - **Tether** (multicopter only - for more risky tests)
 

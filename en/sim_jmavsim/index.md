@@ -1,5 +1,12 @@
 # jMAVSim with SITL
 
+:::warning
+This simulator is [community supported and maintained](../simulation/community_supported_simulators.md).
+It may or may not work with current versions of PX4 and may be removed in future releases.
+
+See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+:::
+
 jMAVSim is a simple multirotor/Quad simulator that allows you to fly _copter_ type vehicles running PX4 around a simulated world.
 It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure).
 
@@ -15,7 +22,32 @@ jMAVSim can also be used for HITL Simulation ([as shown here](../simulation/hitl
 
 ## Installation
 
-jMAVSim setup is included in our [standard build instructions](../dev_setup/dev_env.md) (for macOS, Ubuntu Linux, Windows).
+jMAVSim setup is included in our [standard build instructions](../dev_setup/dev_env.md) for Ubuntu Linux and Windows.
+Follow the instructions below to install jMAVSim on macOS.
+
+### macOS
+
+To setup the environment for [jMAVSim](../sim_jmavsim/index.md) simulation:
+
+1. Install a recent version of Java (e.g. Java 15).
+   You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
+
+   ```sh
+   brew install --cask temurin
+   ```
+
+1. Install jMAVSim:
+
+   ```sh
+   brew install px4-sim-jmavsim
+   ```
+
+   :::warning
+   PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
+
+   For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`.
+   You can find the fix in the [jMAVSim with SITL > Troubleshooting](../sim_jmavsim/index.md#troubleshooting)).
+   :::
 
 ## Simulation Environment
 
