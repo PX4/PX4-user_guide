@@ -16,12 +16,6 @@ The [supported targets](../dev_setup/dev_env.md#supported-targets) are:
 The instructions may also work on other Debian Linux based systems.
 :::
 
-## 영상 가이드
-
-This video shows how to install the toolchain for NuttX and simulation targets ([as covered below](#simulation-and-nuttx-pixhawk-targets)) along with the basic testing covered in [Building PX4 Software](../dev_setup/building_px4.md).
-
-@[youtube](https://youtu.be/OtValQdAdrU).
-
 ## Simulation and NuttX (Pixhawk) Targets
 
 :::warning ROS
@@ -228,6 +222,12 @@ If you're working with ROS "Melodic on Ubuntu 18.04:
 - catkin(ROS 빌드 시스템) 작업 공간은 **~/catkin_ws/**에 생성됩니다.
 - 스크립트는 ROS Wiki "Melodic" [Ubuntu 페이지](http://wiki.ros.org/melodic/Installation/Ubuntu)의 지침을 사용합니다.
 :::
+
+## 영상 가이드
+
+This video shows how to install the toolchain for NuttX and simulation targets ([as covered below](#simulation-and-nuttx-pixhawk-targets)) along with the basic testing covered in [Building PX4 Software](../dev_setup/building_px4.md). Note however that it was created some years ago and has not been verified to work on recent builds, while the documentation has.
+
+@[youtube](https://youtu.be/OtValQdAdrU).
 
 ## 다음 단계
 
