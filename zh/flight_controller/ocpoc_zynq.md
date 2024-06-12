@@ -1,6 +1,6 @@
 # Aerotenna OcPoC-Zynq Mini Flight Controller (Discontinued)
 
-<Badge type="error" text="Discontinued" />
+<Badge type="info" text="Discontinued" />
 
 :::warning
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
