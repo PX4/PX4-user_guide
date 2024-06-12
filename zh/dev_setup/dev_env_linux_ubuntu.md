@@ -16,12 +16,6 @@ This setup is supported by the PX4 dev team.
 The instructions may also work on other Debian Linux based systems.
 :::
 
-## 一键安装脚本
-
-This video shows how to install the toolchain for NuttX and simulation targets ([as covered below](#simulation-and-nuttx-pixhawk-targets)) along with the basic testing covered in [Building PX4 Software](../dev_setup/building_px4.md).
-
-@[youtube](https://youtu.be/OtValQdAdrU).
-
 ## Simulation and NuttX (Pixhawk) Targets
 
 :::warning ROS
@@ -233,6 +227,12 @@ If you're working with ROS "Melodic on Ubuntu 18.04:
 - 你的 catkin （ROS 构建系统）工作目录生成在**~/catkin_ws/**。
 - The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
 :::
+
+## 一键安装脚本
+
+This video shows how to install the toolchain for NuttX and simulation targets ([as covered below](#simulation-and-nuttx-pixhawk-targets)) along with the basic testing covered in [Building PX4 Software](../dev_setup/building_px4.md). Note however that it was created some years ago and has not been verified to work on recent builds, while the documentation has.
+
+@[youtube](https://youtu.be/OtValQdAdrU).
 
 ## Gazebo dependencies
 
