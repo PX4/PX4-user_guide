@@ -3,8 +3,8 @@
 _Платформи що підтримуються_ для розробки з PX4:
 
 - [Ubuntu Linux](../dev_setup/dev_env_linux_ubuntu.md) (рекомендовано)
-- [Mac OS](../dev_setup/dev_env_mac.md)
 - [Windows (10/11)](../dev_setup/dev_env_windows_wsl.md)
+- [Mac OS](../dev_setup/dev_env_mac.md)
 
 ## Цільові платформи що підтримуються
 
