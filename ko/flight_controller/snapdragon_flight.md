@@ -1,6 +1,6 @@
 # Snapdragon 비행 자동조종장치 (단종됨)
 
-<Badge type="error" text="Discontinued" />
+<Badge type="info" text="Discontinued" />
 
 PX4에서는 이 제품을 만들지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://www.intrinsyc.com/)에 문의하십시오.
 
