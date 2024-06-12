@@ -62,6 +62,8 @@ make px4_sitl gz_rc_cessna
 
 ### Advanced Plane
 
+<Badge type="tip" text="PX4 v1.15" />
+
 ```sh
 make px4_sitl gz_advanced_plane
 ```
