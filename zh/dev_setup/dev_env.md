@@ -3,8 +3,8 @@
 The _supported platforms_ for PX4 development are:
 
 - [Ubuntu Linux](../dev_setup/dev_env_linux_ubuntu.md) (Recommended)
-- [Linux](../dev_setup/dev_env_mac.md)
 - [Windows (10/11)](../dev_setup/dev_env_windows_wsl.md)
+- [Linux](../dev_setup/dev_env_mac.md)
 
 ## 支持的编译目标
 
