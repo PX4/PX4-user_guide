@@ -16,9 +16,9 @@ Gazebo раніше була відома як "Gazebo Ignition" (тоді як 
 
 ## Встановлення (Ubuntu Linux)
 
-Gazebo встановлений на Ubuntu 22.04 за замовчуванням як частина середовища розробки: [Налаштування середовища розробки Ubuntu > Цілі збірки для симуляції та NuttX (Pixhawk)](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets)
+Gazebo is installed by default on Ubuntu 22.04 as part of the normal [development environment setup](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets).
 
-Якщо ви бажаєте використовувати Gazebo на Ubuntu 20.04? ви можете встановити його вручну після виконання звичайного встановлення (встановлення `gz-garden` видалить Gazebo-Classic!):
+If you want to use Gazebo on Ubuntu 20.04 you can install it manually, after first following the normal setup process (installing `gz-garden` will uninstall Gazebo-Classic!):
 
 ```sh
 sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
