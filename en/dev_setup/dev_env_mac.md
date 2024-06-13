@@ -113,7 +113,7 @@ To setup the environment for [Gazebo Classic](../sim_gazebo_classic/index.md) si
 Once you have finished setting up the command-line toolchain:
 
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html)
+- Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
 
   :::tip
   The _daily build_ includes development tools that are hidden in release builds.
