@@ -100,7 +100,7 @@ The above concepts provide a number of advantages over traditional [offboard con
 
 The following steps are required to get started:
 
-1. Make sure you have a working [ROS 2 setup](../ros/ros2_comm.md), with [`px4_msgs`](https://github.com/PX4/px4_msgs) in the ROS 2 workspace.
+1. Make sure you have a working [ROS 2 setup](../ros2/user_guide.md), with [`px4_msgs`](https://github.com/PX4/px4_msgs) in the ROS 2 workspace.
 
 2. Clone the repository into the workspace:
 
