@@ -26,7 +26,7 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
 - `<target>`: ціль збірки, наприклад: `px4_sitl_default` (за замовчуванням), `px4_sitl_nolockstep`
 - `<label>` : певна мітка для моделі, наприклад: `rplidar`
 
-Кожному екземпляру рухомого засобу виділяється унікальний системний ідентифікатор MAVLink (2, 3, 4 тощо). Системний ідентифікатор MAVLink 1 пропускається, щоб мати узгодженість у [просторі імен](../ros/ros2_multi_vehicle.md#principle-of-operation). Екземпляри засобів доступні з послідовно виділених віддалених UDP портів PX4: `14541` - `14548` (усі додаткові екземпляри доступні по тому ж самому UDP порту `14549`).
+Кожному екземпляру рухомого засобу виділяється унікальний системний ідентифікатор MAVLink (2, 3, 4 тощо). MAVLink system id 1 is skipped in order to have consistency among [namespaces](../ros2/multi_vehicle.md#principle-of-operation). Екземпляри засобів доступні з послідовно виділених віддалених UDP портів PX4: `14541` - `14548` (усі додаткові екземпляри доступні по тому ж самому UDP порту `14549`).
 
 :::info
 Обмеження на 254 засоби з'явилось тому що системний ідентифікатор mavlink `MAV_SYS_ID` підтримує тільки 255 засобів в одній мережі (а перша мережа пропускається). `MAV_SYS_ID` виділяється у SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS#L131)
@@ -49,7 +49,7 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
 `Tools/simulation/gazebo-classic/sitl_multiple_run.sh` може бути використано для симуляції кількох засобів, з'єднаних за допомогою XRCE-DDS в Gazebo Classic.
 
 ::: info
-Потрібно буде встановити залежності XRCE-DDS. Для додаткової інформації дивіться: [Посібник користувача ROS 2 (Міст PX4-ROS 2)](../ros/ros2_comm.md) для взаємодії з вузлами ROS 2.
+Потрібно буде встановити залежності XRCE-DDS. For more information see: [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros2/user_guide.md), for interfacing with ROS 2 nodes.
 :::
 
 Для збірки прикладу установки дотримуйтесь наступних кроків:
@@ -62,7 +62,7 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
    DONT_RUN=1 make px4_sitl gazebo-classic
    ```
 
-1. Зберіть `мікроагента xrce-dds` та пакунок взаємодії дотримуючись [інструкцій тут](../ros/ros2_comm.md).
+1. Build the `micro xrce-dds agent` and the interface package following the [instructions here](../ros2/user_guide.md).
 
 1. Запустіть `Tools/simulation/gazebo-classic/sitl_multiple_run.sh`. Наприклад, для відтворення 4 рухомих засобів виконайте:
 
@@ -81,7 +81,7 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
    MicroXRCEAgent udp4 -p 8888
    ```
 
-   :::info Скрипт запуску симулятора автоматично призначить [унікальний простір імен](../ros/ros2_multi_vehicle.md) кожному засобу.
+   ::: info The simulator startup script automatically assigns a [unique namespace](../ros2/multi_vehicle.md) to each vehicle.
 :::
 
 ## Кілька рухомих засобів з MAVROS та Gazebo Classic
@@ -90,12 +90,7 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
 
 ### Вимоги
 
-- Поточне [Середовище розробки PX4 ROS/Gazebo](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo)
-
-  :::info На момент написання це Ubuntu 18.04 з ROS Melodic/Gazebo 9. Дивіться також [Симуляція Gazebo Classic](../sim_gazebo_classic/README.md).
-:::
-
-- [Пакет MAVROS](http://wiki.ros.org/mavros)
+- Current [PX4 ROS/Gazebo development environment](../ros/mavros_installation.md) (which includes the [MAVROS package](http://wiki.ros.org/mavros)).
 - Клонований вихідний код [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot)
 
 ### Збірка та тестування
