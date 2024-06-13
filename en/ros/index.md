@@ -19,12 +19,12 @@ PX4 supports both ROS 2 and ROS 1, with the following configurations:
   This effectively allows direct access to PX4 internals from ROS 2 workflows and nodes in realtime.
 - **[ROS 1 via MAVROS](../ros/ros1.md):** PX4 and ROS 1 communicate over [MAVLink](../middleware/mavlink.md), using the [MAVROS](../ros/mavros_installation.md) package to bridge ROS topics to MAVLink.
 
-::: info
-ROS 2 can also connect with PX4 using [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (instead of XRCE-DDS).
-This option is supported by the MAVROS project.
-::: info that ROS 2 can be installed on Ubuntu Linux, macOS, Windows, while ROS 1 is only available on Linux.
+
+ROS 2 can be installed on Ubuntu Linux, macOS, Windows, while ROS 1 is only available on Linux.
 Although it might work on the other platforms, PX4 primarily tests and documents ROS on _Linux_.
 
+Note that ROS 2 can also connect with PX4 using [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (instead of XRCE-DDS).
+This option is supported by the MAVROS project (not PX4).
 
 ## ROS Support Roadmap
 

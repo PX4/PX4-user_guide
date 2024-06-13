@@ -7,12 +7,11 @@ This environment can be used to build PX4 for:
 - [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
 - [Gazebo Simulation](../sim_gazebo_gz/index.md)
 - [Gazebo-Classic Simulation](../sim_gazebo_classic/index.md)
-- [jMAVSim Simulation](../sim_jmavsim/index.md)
 
 :::tip
 This setup is supported by the PX4 dev team.
 The environment should in theory be able to build any target that can be built on Ubuntu.
-The list above are those targets that have been tested.
+The list above are those targets that are regularly tested.
 :::
 
 ## Overview
@@ -126,7 +125,7 @@ Alternatively, after entering `exit` you can just close the prompt.
 ### Install PX4 Toolchain
 
 Next we download the PX4 source code within the WSL2 environment, and use the normal _Ubuntu installer script_ to set up the developer environment.
-This will install the toolchain for Gazebo Classic simulation, JMAVSim simulation and Pixhawk/NuttX hardware.
+This will install the toolchain for Gazebo Classic simulation and Pixhawk/NuttX hardware.
 
 To install the development toolchain:
 
@@ -156,7 +155,7 @@ To install the development toolchain:
    ```
 
    ::: info
-   This installs tools to build PX4 for Pixhawk, Gazebo Classic and JMAVSim targets:
+   This installs tools to build PX4 for Pixhawk and either Gazebo or Gazebo Classic targets:
 
    - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
    - Other Linux build targets are untested (you can try these by entering the appropriate commands in [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) into the WSL shell).

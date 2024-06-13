@@ -14,45 +14,78 @@ If you have any problems after following these steps see the [Troubleshooting](#
 
 The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository.
 
-To get the _very latest_ ("main") version onto your computer, enter the following command into a terminal:
+To get the _very latest_ (`main` branch) version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
+Note that you may already have done this when installing the [Developer Toolchain](../dev_setup/dev_env.md)
+
 ::: info
-This is all you need to do just to build the latest code.
+This is all you need to do in order to get the latest code.
 If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release).
 [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
 :::
 
-## First Build (Using the jMAVSim Simulator)
+## First Build (Using a Simulator)
 
 First we'll build a simulated target using a console environment.
 This allows us to validate the system setup before moving on to real hardware and an IDE.
 
-Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim/index.md) using the following command:
+Navigate into the **PX4-Autopilot** directory.
+Depending on your operating system you will have installed either [Gazebo SITL](../sim_gazebo_gz/index.md) or [Gazebo Classic SITL](../sim_gazebo_classic/index.md) (if you don't know which you can try both).
+
+:::: tabs
+
+::: tab Gazebo
+Start [Gazebo SITL](../sim_gazebo_gz/index.md) using the following command:
 
 ```sh
-make px4_sitl jmavsim
+make px4_sitl gz_x500
 ```
 
-This will bring up the PX4 console below:
+:::
 
-![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
+::: tab Gazebo-Classic
+Start [Gazebo SITL](../sim_gazebo_gz/index.md) using the following command:
+
+```sh
+make px4_sitl gazebo-classic
+```
+
+:::
+
+::::
+
+This will bring up the PX4 console:
+
+![PX4 Console](../../assets/toolchain/console_gazebo.png)
 
 ::: info
 You may need to start _QGroundControl_ before proceeding, as the default PX4 configuration requires a ground control connection before takeoff.
 This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html).
 :::
 
-The drone can be flown by typing:
+The drone can be flown by typing the following command (as shown in the console above):
 
 ```sh
 pxh> commander takeoff
 ```
 
-![jMAVSim UI](../../assets/toolchain/jmavsim_first_takeoff.png)
+The vehicle will take off and you'll see this in the simulator UI:
+
+:::: tabs
+
+::: tab Gazebo
+![Gazebo UI with vehicle taking off](../../assets/toolchain/gazebo_takeoff.png)
+:::
+
+::: tab Gazebo-Classic
+![Gazebo Classic UI with vehicle taking off](../../assets/toolchain/gazebo_classic_takeoff.png)
+:::
+
+::::
 
 The drone can be landed by typing `commander land` and the whole simulation can be stopped by doing **CTRL+C** (or by entering `shutdown`).
 
@@ -61,16 +94,6 @@ Click on a location in the map while the vehicle is flying (takeoff flight mode)
 This will reposition the vehicle.
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
-
-:::tip
-PX4 can be used with a number of other [Simulators](../simulation/index.md), including [Gazebo](../sim_gazebo_gz/index.md), [Gazebo Classic](../sim_gazebo_classic/index.md) and [AirSim](../sim_airsim/index.md).
-These are also started with _make_ - e.g.
-
-```sh
-make px4_sitl gazebo-classic
-```
-
-:::
 
 ## NuttX / Pixhawk Based Boards
 
@@ -315,7 +338,9 @@ You can get a list of _all_ available `VIEWER_MODEL_DEBUGGER_WORLD` options usin
 make px4_sitl list_vmd_make_targets
 ```
 
-::: infos:
+:::
+
+::: info
 
 - Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional.
   For example, `gazebo-classic` is equivalent to `gazebo-classic_iris` or `gazebo-classic_iris_none`.
@@ -323,6 +348,8 @@ make px4_sitl list_vmd_make_targets
   For example, `gazebo-classic___gdb` is equivalent to `gazebo-classic_iris_gdb`.
 - You can use a `none` value for `VIEWER_MODEL_DEBUGGER` to start PX4 and wait for a simulator.
   For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/simulation/jmavsim/jmavsim_run.sh -l`.
+
+:::
 
 The `VENDOR_MODEL_VARIANT` options map to particular _px4board_ configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards) directory.
 Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.px4board**
