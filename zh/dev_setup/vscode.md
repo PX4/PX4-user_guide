@@ -1,11 +1,11 @@
 # Visual Studio Code IDE (VSCode)
 
-[Visual Studio Code](https://code.visualstudio.com/) 是一个强大的跨平台源代码编辑器/IDE，可用于在 Ubuntu 18.04  LTS 和 macOS (即将提供Windows支持)的 PX4 开发。
+[Visual Studio Code](https://code.visualstudio.com/) is a powerful cross-platform source code editor/IDE that can be used for PX4 development on Ubuntu, Windows, and macOS.
 
 使用 VSCode 进行PX4 开发的原因：
 
 - 仅需数分钟即可完成设置
-- 丰富的扩展生态系统，能够用于PX4开发所需的大量工具：C/C++ (有固体的 _cmake_ 整合)， _Python_, _Jinja2_, ROS消息, 甚至UAVCAN dsdl.
+- A rich extension ecosystem that enables a huge range of tools needed for PX4 development: C/C++ (with solid _cmake_ integration), _Python_, _Jinja2_, ROS messages, and even DroneCAN dsdl.
 - 非常好的Github 集成功能
 
 本主题解释了如何设置IDE并开始开发。
@@ -56,7 +56,7 @@ To build:
 
    - The current _cmake build target_ is shown on the blue _config_ bar at the bottom (if this is already your desired target, skip to next step). ![Select Cmake build target](../../assets/toolchain/vscode/cmake_build_config.jpg)
 
-     ::: info The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v5`).
+     ::: info The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v6`).
 :::
 
    - Click the target on the config bar to display other options, and select the one you want (this will replace any selected target).
