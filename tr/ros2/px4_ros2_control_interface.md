@@ -100,7 +100,7 @@ The above concepts provide a number of advantages over traditional [offboard con
 
 The following steps are required to get started:
 
-1. Make sure you have a working [ROS 2 setup](../ros/ros2_comm.md), with [`px4_msgs`](https://github.com/PX4/px4_msgs) in the ROS 2 workspace, and a Daily Build of [QGroundControl](https://docs.qgroundcontrol.com/Stable_V4.3/zh/qgc-user-guide/releases/daily_builds.html).
+1. Make sure you have a working [ROS 2 setup](../ros/ros2_comm.md), with [`px4_msgs`](https://github.com/PX4/px4_msgs) in the ROS 2 workspace.
 
 2. Clone the repository into the workspace:
 
@@ -138,7 +138,12 @@ The following steps are required to get started:
    MicroXRCEAgent udp4 -p 8888
    ```
 
-6. Start Daily QGroundControl.
+6. Start QGroundControl.
+
+   ::: info
+   Use QGroundControl Daily, which supports dynamically updating the list of modes.
+
+:::
 
 7. Back in the ROS 2 terminal, run one of the example modes:
 
