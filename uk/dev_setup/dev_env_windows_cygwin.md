@@ -79,7 +79,7 @@
 
 Після того, як ви закінчите налаштування інструментів командного рядка:
 
-- Встановіть [денну збірку QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html).
+- Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
 - Переходьте до [інструкцій збірки](../dev_setup/building_px4.md).
 
 ## Усунення проблем
