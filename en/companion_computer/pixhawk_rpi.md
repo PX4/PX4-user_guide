@@ -1,6 +1,6 @@
 # Raspberry Pi Companion with Pixhawk
 
-This topic describes how to setup a Raspberry Pi ("RPi") companion companion running [ROS 2](../ros/ros2_comm.md) on Linux Ubuntu OS, connecting to a [Pixhawk](../flight_controller/autopilot_pixhawk_standard.md) flight controller using a serial connection between the Pixhawk `TELEM2` port and the RPi's TX/RX pins.
+This topic describes how to setup a Raspberry Pi ("RPi") companion companion running [ROS 2](../ros2/user_guide.md) on Linux Ubuntu OS, connecting to a [Pixhawk](../flight_controller/autopilot_pixhawk_standard.md) flight controller using a serial connection between the Pixhawk `TELEM2` port and the RPi's TX/RX pins.
 
 These instructions should be readily extensible to other RPi and flight controller configurations.
 
@@ -241,7 +241,7 @@ In the next section we'll set up the both Pixhawk and RPi to use uXRCE-DDS and R
 
 ## ROS 2 and uXRCE-DDS
 
-The [ROS 2 Guide](../ros/ros2_comm.md) and [uXRCE-DDS](../middleware/uxrce_dds.md) pages cover the options for setting up the uXRCE-DDS and ROS, focussing on ROS 2 "Foxy".
+The [ROS 2 Guide](../ros2/user_guide.md) and [uXRCE-DDS](../middleware/uxrce_dds.md) pages cover the options for setting up the uXRCE-DDS and ROS, focussing on ROS 2 "Foxy".
 This tutorial uses ROS 2 "Humble" and covers the specific setup for working with RPi.
 It is worth reading both!
 
@@ -330,4 +330,4 @@ ros2 topic list
 ```
 
 That's it.
-Once you have the connection working, see the [ROS 2 Guide](../ros/ros2_comm.md) for more information about working with PX4 and ROS 2.
+Once you have the connection working, see the [ROS 2 Guide](../ros2/user_guide.md) for more information about working with PX4 and ROS 2.

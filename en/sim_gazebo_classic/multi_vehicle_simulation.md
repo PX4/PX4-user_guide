@@ -31,7 +31,7 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
 - `<label>` : specific label for model, e.g: `rplidar`
 
 Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
-MAVLink system id 1 is skipped in order to have consistency among [namespaces](../ros/ros2_multi_vehicle.md#principle-of-operation).
+MAVLink system id 1 is skipped in order to have consistency among [namespaces](../ros2/multi_vehicle.md#principle-of-operation).
 Vehicle instances are accessed from sequentially allocated PX4 remote UDP ports: `14541` - `14548` (additional instances are all accessed using the same remote UDP port: `14549`).
 
 ::: info
@@ -57,7 +57,7 @@ The `MAV_SYS_ID` is allocated in the SITL rcS: [init.d-posix/rcS](https://github
 
 ::: info
 You will need to have installed the XRCE-DDS dependencies.
-For more information see: [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS 2 nodes.
+For more information see: [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros2/user_guide.md), for interfacing with ROS 2 nodes.
 :::
 
 To build an example setup, follow the steps below:
@@ -70,7 +70,7 @@ To build an example setup, follow the steps below:
    DONT_RUN=1 make px4_sitl gazebo-classic
    ```
 
-1. Build the `micro xrce-dds agent` and the interface package following the [instructions here](../ros/ros2_comm.md).
+1. Build the `micro xrce-dds agent` and the interface package following the [instructions here](../ros2/user_guide.md).
 
 1. Run `Tools/simulation/gazebo-classic/sitl_multiple_run.sh`.
    For example, to spawn 4 vehicles, run:
@@ -92,7 +92,7 @@ To build an example setup, follow the steps below:
    ```
 
    ::: info
-   The simulator startup script automatically assigns a [unique namespace](../ros/ros2_multi_vehicle.md) to each vehicle.
+   The simulator startup script automatically assigns a [unique namespace](../ros2/multi_vehicle.md) to each vehicle.
    :::
 
 ## Multiple Vehicles with MAVROS and Gazebo Classic

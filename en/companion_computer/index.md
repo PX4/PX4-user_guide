@@ -62,7 +62,7 @@ Drone APIs and SDKs allow you to write software that can control PX4.
 Popular alternatives include:
 
 - [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) - libraries in various programming languages to interface with MAVLink systems such as drones, cameras or ground systems.
-- [ROS 2](../ros/ros2.md) to communicate to ROS 2 nodes (may also be used).
+- [ROS 2](../ros2/index.md) to communicate to ROS 2 nodes (may also be used).
 - [ROS 1 and MAVROS](../ros/mavros_installation.md)
 
 MAVSDK is generally easier to learn and use, while ROS provides more pre-written software for advanced cases like computer vision.

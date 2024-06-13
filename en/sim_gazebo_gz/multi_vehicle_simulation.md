@@ -32,10 +32,10 @@ This allows for greater flexibility and customization.
 
 ## Multiple Vehicles with ROS 2 and Gazebo
 
-[Multiple vehicles with ROS 2](../ros/ros2_multi_vehicle.md) are possible.
+[Multiple vehicles with ROS 2](../ros2/multi_vehicle.md) are possible.
 
 - First follow the installation instructions for [Gazebo](../sim_gazebo_gz/index.md).
-- Then configure your system for [ROS 2 / PX4 operations](../ros/ros2_comm.md#installation-setup).
+- Then configure your system for [ROS 2 / PX4 operations](../ros2/user_guide.md#installation-setup).
 - In different terminals manually start a multi vehicle simulation.
   This example spawns 2 X500 Quadrotors and aFPX fixed-wing:
 

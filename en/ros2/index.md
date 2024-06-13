@@ -12,12 +12,12 @@ This middleware exposes PX4 [uORB messages](../msg_docs/index.md) as ROS 2 messa
 The middleware uses uORB message definitions to generate code to serialise and deserialise the messages heading in and out of PX4.
 These same message definitions are used in ROS 2 applications to allow the messages to be interpreted.
 
-To use the [ROS 2](../ros/ros2_comm.md) over XRCE-DDS effectively, you must (at time of writing) have a reasonable understanding of the PX4 internal architecture and conventions, which differ from those used by ROS.
+To use the [ROS 2](../ros2/user_guide.md) over XRCE-DDS effectively, you must (at time of writing) have a reasonable understanding of the PX4 internal architecture and conventions, which differ from those used by ROS.
 In the near term future we plan to provide ROS 2 APIs to abstract PX4 conventions, along with examples demonstrating their use.
 
 The main topics in this section are:
-- [ROS 2 User Guide](../ros/ros2_comm.md): A PX4-centric overview of ROS 2, covering installation, setup, and how to build ROS 2 applications that communicate with PX4.
-- [ROS 2 Offboard Control Example](../ros/ros2_offboard_control.md)
+- [ROS 2 User Guide](../ros2/user_guide.md): A PX4-centric overview of ROS 2, covering installation, setup, and how to build ROS 2 applications that communicate with PX4.
+- [ROS 2 Offboard Control Example](../ros2/offboard_control.md)
 
 ::: info
 ROS 2 is officially supported only on Linux platforms.
@@ -33,6 +33,6 @@ This option is supported by the MAVROS project.
 
 ## Further Reading/Information
 
-- [ROS 2 User Guide](../ros/ros2_comm.md)
+- [ROS 2 User Guide](../ros2/user_guide.md)
 - [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md): PX4 middleware for connecting to ROS 2.
 
