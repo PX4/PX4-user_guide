@@ -270,7 +270,7 @@ The application is now correctly registered with the system and can be extended 
 
 ## Test App (SITL)
 
-If you're using SITL the _PX4 console_ is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator)).
+If you're using SITL the _PX4 console_ is automatically started (see [Building the Code > First Build (Using a Simulator)](../dev_setup/building_px4.md#first-build-using-a-simulator)).
 As with the _nsh console_ (see previous section) you can type `help` to see the list of built-in apps.
 
 Enter `px4_simple_app` to run the minimal app.
