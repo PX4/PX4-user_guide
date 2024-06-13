@@ -29,10 +29,10 @@ ARGS ./build/px4_sitl_default/bin/px4 [-i <instance>]
 
 ## Кілька рухомих засобів з ROS 2 та Gazebo
 
-Існує можливість [кількох засобів з ROS 2](../ros/ros2_multi_vehicle.md).
+[Multiple vehicles with ROS 2](../ros2/multi_vehicle.md) are possible.
 
 - Спочатку дотримуйтесь інструкцій по встановленню [Gazebo](../sim_gazebo_gz/index.md).
-- Потім налаштуйте систему для [ROS 2 / операцій PX4](../ros/ros2_comm.md#installation-setup).
+- Then configure your system for [ROS 2 / PX4 operations](../ros2/user_guide.md#installation-setup).
 - В різних терміналах вручну запустіть симуляцію декількох рухомих засобів. Цей приклад відтворює 2 квадрокоптери X500 та літак з фіксованим крилом aFPX:
 
   ```sh
