@@ -11,54 +11,72 @@ You need to build PX4 in order to use [simulators](../simulation/index.md), or i
 
 PX4 소스 코드는 Github의 [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) 저장소에 저장되어 있습니다.
 
-To get the _very latest_ ("main") version onto your computer, enter the following command into a terminal:
+To get the _very latest_ (`main` branch) version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-:::note
-이것이 최신 코드를 빌드하기 위해 필요합니다. If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release). [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
+Note that you may already have done this when installing the [Developer Toolchain](../dev_setup/dev_env.md)
+
+::: info This is all you need to do in order to get the latest code. If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release). [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
 :::
 
-## 최초 빌드 (jMAVSim 시뮬레이션 활용)
+## First Build (Using a Simulator)
 
 먼저 콘솔 환경에서 시뮬레이션 대상을 빌드합니다. 이를 통하여 실제 하드웨어와 IDE로 사용전에 시스템 설정을 검증할 수 있습니다.
 
-Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim/index.md) using the following command:
+Navigate into the **PX4-Autopilot** directory. Depending on your operating system you will have installed either [Gazebo SITL](../sim_gazebo_gz/index.md) or [Gazebo Classic SITL](../sim_gazebo_classic/index.md) (if you don't know which you can try both).
+
+:::: tabs
+
+::: tab Gazebo Start [Gazebo SITL](../sim_gazebo_gz/index.md) using the following command:
 
 ```sh
-make px4_sitl jmavsim
+make px4_sitl gz_x500
 ```
 
-그러면, 아래와 같은 PX4 콘솔이 나타납니다.
-
-![PX4 콘솔 (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
-
-::: info You may need to start _QGroundControl_ before proceeding, as the default PX4 configuration requires a ground control connection before takeoff. This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html).
 :::
 
-The drone can be flown by typing:
-
-```sh
-pxh> commander takeoff
-```
-
-![jMAVSim UI](../../assets/toolchain/jmavsim_first_takeoff.png)
-
-The drone can be landed by typing `commander land` and the whole simulation can be stopped by doing **CTRL+C** (or by entering `shutdown`).
-
-Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.
-
-![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
-
-:::tip PX4 can be used with a number of other [Simulators](../simulation/index.md), including [Gazebo](../sim_gazebo_gz/index.md), [Gazebo Classic](../sim_gazebo_classic/index.md) and [AirSim](../sim_airsim/index.md). These are also started with _make_ - e.g.
+::: tab Gazebo-Classic Start [Gazebo SITL](../sim_gazebo_gz/index.md) using the following command:
 
 ```sh
 make px4_sitl gazebo-classic
 ```
 
 :::
+
+::::
+
+This will bring up the PX4 console:
+
+![PX4 Console](../../assets/toolchain/console_gazebo.png)
+
+::: info You may need to start _QGroundControl_ before proceeding, as the default PX4 configuration requires a ground control connection before takeoff. This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html). NuttX 또는 Pixhawk 기반 보드용으로 빌드하려면, **PX4-Autopilot** 디렉토리로 이동한 다음 보드용 빌드 타겟으로 `make`를 호출하십시오.
+
+The drone can be flown by typing the following command (as shown in the console above):
+
+```sh
+pxh> commander takeoff
+```
+
+The vehicle will take off and you'll see this in the simulator UI:
+
+:::: tabs
+
+::: tab Gazebo ![Gazebo UI with vehicle taking off](../../assets/toolchain/gazebo_takeoff.png)
+:::
+
+::: tab Gazebo-Classic ![Gazebo Classic UI with vehicle taking off](../../assets/toolchain/gazebo_classic_takeoff.png)
+:::
+
+::::
+
+The drone can be landed by typing `commander land` and the whole simulation can be stopped by doing **CTRL+C** (or by entering `shutdown`).
+
+Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.
+
+![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
 ## NuttX/Pixhawk 기반 보드
 
@@ -82,7 +100,7 @@ A successful run will end with similar output to:
 
 The first part of the build target `px4_fmu-v4` indicates the target flight controller hardware for the firmware. The suffix, in this case `_default`, indicates a firmware _configuration_, such as supporting or omitting particular features.
 
-::: info The `_default` suffix is optional. For example, `make px4_fmu-v5` and `px4_fmu-v5_default` result in the same firmware. NuttX 또는 Pixhawk 기반 보드용으로 빌드하려면, **PX4-Autopilot** 디렉토리로 이동한 다음 보드용 빌드 타겟으로 `make`를 호출하십시오.
+::: info The `_default` suffix is optional. For example, `make px4_fmu-v5` and `px4_fmu-v5_default` result in the same firmware. 이 저장소를 Github 계정과 연결된 복사본을 [만들어](https://help.github.com/articles/fork-a-repo/), 이 원본을 로컬 컴퓨터에 [복제](https://help.github.com/articles/cloning-a-repository/)하는 것이 좋습니다.
 
 The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
 
@@ -258,15 +276,14 @@ You can get a list of _all_ available `CONFIGURATION_TARGET` options using the c
 make list_config_targets
 ```
 
-이 저장소를 Github 계정과 연결된 복사본을 [만들어](https://help.github.com/articles/fork-a-repo/), 이 원본을 로컬 컴퓨터에 [복제](https://help.github.com/articles/cloning-a-repository/)하는 것이 좋습니다.
+:::
 
 **VIEWER_MODEL_DEBUGGER_WORLD:**
 
 - **VIEWER:** This is the simulator ("viewer") to launch and connect: `gz`, `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
 
 :::tip
-`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, Gazebo, Gazebo Classic, or some other simulator). 예를 들어, `make px4_sitl none_iris`는 시뮬레이터 없이(그러나 홍채 기체가 있는) PX4를 시작합니다.
-:::
+`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, Gazebo, Gazebo Classic, or some other simulator). 예를 들어, `make px4_sitl none_iris`는 시뮬레이터 없이(그러나 홍채 기체가 있는) PX4를 시작합니다. 이 저장소를 Github 계정과 연결된 복사본을 [만들어](https://help.github.com/articles/fork-a-repo/), 이 원본을 로컬 컴퓨터에 [복제](https://help.github.com/articles/cloning-a-repository/)하는 것이 좋습니다.
 
 - **MODEL:** The _vehicle_ model to use (e.g. `iris` (_default_), `rover`, `tailsitter`, etc), which will be loaded by the simulator. 환경 변수 `PX4_SIM_MODEL`은 선택한 모델로 설정되며, 이 모델은 [시작 스크립트](../simulation/README.md#startup-scripts)에서 적절한 매개변수 선택합니다.
 - **DEBUGGER:** Debugger to use: `none` (_default_), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. 자세한 내용은 [시뮬레이션 디버깅](../debug/simulation_debugging.md)을 참고하십시오.
@@ -279,11 +296,15 @@ You can get a list of _all_ available `VIEWER_MODEL_DEBUGGER_WORLD` options usin
 make px4_sitl list_vmd_make_targets
 ```
 
-::: infos:
+:::
+
+::: info
 
 - `CONFIGURATION_TARGET`과 `VIEWER_MODEL_DEBUGGER`에 있는 대부분의 값에는 기본값이 있으므로 선택사항입니다. For example, `gazebo-classic` is equivalent to `gazebo-classic_iris` or `gazebo-classic_iris_none`.
 - 두 개의 다른 설정 사이에 기본값을 지정하려는 경우에는, 세 개의 밑줄을 사용할 수 있습니다. For example, `gazebo-classic___gdb` is equivalent to `gazebo-classic_iris_gdb`.
 - `VIEWER_MODEL_DEBUGGER`에 `없음` 값을 사용하여 PX4를 시작하고 시뮬레이터를 실행할 수 있습니다. For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/simulation/jmavsim/jmavsim_run.sh -l`.
+
+:::
 
 The `VENDOR_MODEL_VARIANT` options map to particular _px4board_ configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.px4board** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board)).
 
@@ -301,4 +322,5 @@ The _PX4 Firmware Version_ and _Custom Firmware Version_ are published using the
 These are extracted at build time from the active _git tag_ for your repo tree. The git tag should be formatted as `<PX4-version>-<vendor-version>` (e.g. the tag in the image above was set to `v1.8.1-2.22.1`).
 
 :::warning
-If you use a different git tag format, versions information may not be displayed properly. 이 저장소를 Github 계정과 연결된 복사본을 [만들어](https://help.github.com/articles/fork-a-repo/), 이 원본을 로컬 컴퓨터에 [복제](https://help.github.com/articles/cloning-a-repository/)하는 것이 좋습니다.
+If you use a different git tag format, versions information may not be displayed properly.
+:::
