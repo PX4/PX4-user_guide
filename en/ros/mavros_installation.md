@@ -25,6 +25,7 @@ They cover the _ROS Melodic and Noetic_ releases.
 :::: tabs
 
 ::: tab ROS Noetic (Ubuntu 22.04)
+
 If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
 
 1. Install PX4 without the simulator toolchain:
@@ -56,6 +57,7 @@ If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
 :::
 
 ::: tab ROS Melodic (Ubuntu 18.04)
+
 If you're working with ROS "Melodic on Ubuntu 18.04:
 
 1. Download the [ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh) script in a bash shell:
