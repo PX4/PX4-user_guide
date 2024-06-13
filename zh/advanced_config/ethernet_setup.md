@@ -199,7 +199,7 @@ To setup MAVSDK-Python running on a companion computer:
 ::: info Prerequisites:
 
 - You have a supported autopilot hardware running PX4 firmware that includes [uXRCE-DDS](../middleware/uxrce_dds.md) middleware. Note that PX4 v1.14 and later include the required [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module by default.
-- [ROS 2](../ros/ros2_comm.md) has been set up correctly on the companion computer.
+- [ROS 2](../ros2/user_guide.md) has been set up correctly on the companion computer.
 - You have followed the Ethernet network and port setup as discussed at the top of this page.
 :::
 
@@ -213,7 +213,7 @@ To set up ROS 2:
    MicroXRCEAgent udp4 -p 8888
    ```
 
-4. Run a [listener node](../ros/ros2_comm.md#running-the-example) in a new terminal to confirm the connection is established:
+4. Run a [listener node](../ros2/user_guide.md#running-the-example) in a new terminal to confirm the connection is established:
 
    ```sh
    source ~/ws_sensor_combined/install/setup.bash

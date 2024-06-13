@@ -24,7 +24,7 @@ PX4 очікує, що супутні комп'ютери будуть підк�
 
 Якщо використовується MAVLink, іншої конфігурації з боку PX4 не потрібно. Щоб використовувати MAVLink на іншому порту і/або вимкнути його на `TELEM2`, див. [Периферійні пристрої MAVLink (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) та [Налаштування послідовного порту](../peripherals/serial_configuration.md).
 
-Щоб використовувати [ROS 2/uXRCE-DDS](../ros/ros2_comm.md) замість MAVLink на `TELEM2`, вимкніть MAVLink на цьому порту, а потім увімкніть клієнт uXRCE-DDS на `TELEM2` (див. [uXRCE-DDS > Запуск клієнта](../middleware/uxrce_dds.md#starting-the-client)).
+To use [ROS 2/uXRCE-DDS](../ros2/user_guide.md) instead of MAVLink on `TELEM2`, disable MAVLink on the port and then enable the uXRCE-DDS client on `TELEM2`(see [uXRCE-DDS > Starting the client](../middleware/uxrce_dds.md#starting-the-client)).
 
 ### Налаштування апаратної частини послідовного порту
 

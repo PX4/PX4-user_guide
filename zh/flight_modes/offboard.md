@@ -2,7 +2,7 @@
 
 <img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />
 
-飞行器根据飞行控制栈外部（如机载计算机）提供的设定值控制位置、速度、加速度、姿态以及推力/力矩。 设置值可以经由 MAVLink 提供(也可以是一个类似 [MAVSDK](https://mavsdk.mavlink.io/)的MAVLink API)或者经由 [ROS 2](../ros/ros2.md) 提供。
+飞行器根据飞行控制栈外部（如机载计算机）提供的设定值控制位置、速度、加速度、姿态以及推力/力矩。 The setpoints may be provided using MAVLink (or a MAVLink API such as [MAVSDK](https://mavsdk.mavlink.io/)) or by [ROS 2](../ros2/index.md).
 
 PX4要求外部控制器提供2Hz连续的“有效存在”信号，该信号可由任意支持的 MAVLink 设置点消息或ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 消息提供。 PX4只有在收到该种信号超过1秒后才有效，如果该种信号停止飞行控制栈将重新获得控制权（脱离Offboard模式）。
 
@@ -64,8 +64,7 @@ bool actuator
 
 &check; 代表该位设置为有效， &cross; 代表该值未设置， `-` 表示该值无关紧要。
 
-:::note
-在使用 ROS 2 的Offboard模式之前, 请花几分钟时间了解PX4和ROS2使用的不同的 [坐标系](../ros/ros2_comm.md#ros-2-px4-frame-conventions)。
+::: info Before using offboard mode with ROS 2, please spend a few minutes understanding the different [frame conventions](../ros2/user_guide.md#ros-2-px4-frame-conventions) that PX4 and ROS 2 use.
 :::
 
 ### 旋翼机

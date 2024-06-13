@@ -1,34 +1,23 @@
 # Ubuntu Development Environment
 
-The following instructions set up a PX4 development environment on the [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) versions supported by PX4. This includes: 18.04 (Bionic Beaver), 20.04 (Focal Fossa), and Ubuntu 22.04 (Jammy Jellyfish).
+The following instructions use a bash script to set up the PX4 development environment on the [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) versions supported by PX4: Ubuntu 22.04 (Jammy Jellyfish), 20.04 (Focal Fossa), and 18.04 (Bionic Beaver).
 
-Bash scripts are provided to simplify the process. They are intended to be run on _clean_ Ubuntu LTS installations, and may not work if run "on top" of an existing system, or on a different Ubuntu release.
+The environment includes:
 
-The [supported targets](../dev_setup/dev_env.md#supported-targets) are:
+- [Gazebo Simulator](../sim_gazebo_gz/index.md) on Ubuntu 22.04 and Ubuntu 20.04
+- [Gazebo Classic Simulator](../sim_gazebo_classic/index.md) on Ubuntu 20.04 and Ubuntu 18.04
+- [Build toolchain for Pixhawk (and other NuttX-based hardware)](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 
-- [Simulation and NuttX (Pixhawk) Targets](#simulation-and-nuttx-pixhawk-targets). This includes: [Gazebo](../sim_gazebo_gz/index.md), [Gazebo Classic](../sim_gazebo_classic/index.md), [jMAVSim](../sim_jmavsim/index.md), [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)).
-- [Raspberry Pi](#raspberry-pi)
-- [ROS 2](#ros-2) (Robotics Operating System)
-- [ROS 1](#ros-gazebo-classic) (Robotics Operating System)
-
-:::tip
-This setup is supported by the PX4 dev team.
-The instructions may also work on other Debian Linux based systems.
+::: info The build toolchain for other flight controllers, simulators, and working with ROS are discussed in the [Other Targets](#other-targets) section below.
 :::
-
-## Video Guide
-
-This video shows how to install the toolchain for NuttX and simulation targets ([as covered below](#simulation-and-nuttx-pixhawk-targets)) along with the basic testing covered in [Building PX4 Software](../dev_setup/building_px4.md).
-
-@[youtube](https://youtu.be/OtValQdAdrU).
 
 ## Simulation and NuttX (Pixhawk) Targets
 
-:::warning ROS
-users should first read/skip ahead to the [ROS/Gazebo](#rosgazebo) or [ROS 2](#ros-2) sections.
-:::
+Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) script to set up a development environment that allows you to build for simulators and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain.
 
-Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) script to set up a development environment that allows you to build for simulators and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain. The script installs [jMAVSim](../sim_jmavsim/index.md) on all targets, [Gazebo Classic](../sim_gazebo_classic/index.md) 9 on Ubuntu 18.04, Gazebo Classic 11 on Ubuntu 20.04, and [Gazebo](../sim_gazebo_gz/index.md) "Garden" on Ubuntu 22.04.
+:::tip
+The script is intended to be run on _clean_ Ubuntu LTS installations, and may not work if run "on top" of an existing system, or on a different Ubuntu release.
+:::
 
 To install the toolchain:
 
@@ -42,18 +31,23 @@ To install the toolchain:
 :::
 
 1. Run the **ubuntu.sh** with no arguments (in a bash shell) to install everything:
+
    ```sh
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
+
    - Acknowledge any prompts as the script progress.
    - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
+
 1. Restart the computer on completion.
 
 :::details
 Additional notes These notes are provided "for information only":
 
+- This setup is supported by the PX4 Dev Team. The instructions may also work on other Debian Linux based systems.
+- The script installs [Gazebo](../sim_gazebo_gz/index.md) "Garden" on Ubuntu 22.04, [Gazebo Classic](../sim_gazebo_classic/index.md) 11 on Ubuntu 20.04, and Gazebo Classic 9 on Ubuntu 18.04.
 - If you want to use Gazebo on Ubuntu 20.04 you can add it manually. See [Gazebo > Installation](../sim_gazebo_gz/index.md#installation-ubuntu-linux).
-- You can verify the NuttX installation by confirming the gcc version as shown:
+- You can verify the NuttX installation by confirming the `gcc` version as shown:
 
   ```sh
   $arm-none-eabi-gcc --version
@@ -72,168 +66,42 @@ Additional notes These notes are provided "for information only":
   bash ubuntu.sh
   ```
 
-     <!-- From https://gazebosim.org/docs/garden/install_ubuntu -->
-
 
 :::
 
-<a id="raspberry-pi-hardware"></a>
+## Video Guide
 
-## Raspberry Pi
+This video shows how to install the toolchain for NuttX and simulation targets ([as covered below](#simulation-and-nuttx-pixhawk-targets)) along with the basic testing covered in [Building PX4 Software](../dev_setup/building_px4.md).
 
-The following instructions explain how to set up a build toolchain for RasPi on _Ubuntu 18.04_.
-
-:::warning
-To build for Ubuntu 20.04 (focal) you must use docker (the GCC toolchain on Ubuntu 20.04 can build PX4, but the generated binary files are too new to run on actual Pi). For more information see [PilotPi with Raspberry Pi OS Developer Quick Start > Alternative build method using docker](../flight_controller/raspberry_pi_pilotpi_rpios.md#alternative-build-method-using-docker).
+::: warning
+The video suggests that you build source using JMAVSim, entering the command: `make px4_sitl jmavsim`. As JMAVSim is now community-supported, you should instead build using Gazebo or Gazebo Classic, as shown in [Building the Code](../dev_setup/building_px4.md#first-build-using-a-simulator)
 :::
 
-To get the common dependencies for Raspberry Pi:
+@[youtube](https://youtu.be/OtValQdAdrU).
 
-1. Download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) from the PX4 source repository (**/Tools/setup/**): <!-- NEED px4_version -->
-   ```
-   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh
-   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
-   ```
-1. Run **ubuntu.sh** in a terminal to get just the common dependencies:
-   ```sh
-   bash ubuntu.sh --no-nuttx --no-sim-tools
-   ```
-1. Then setup an cross-compiler (either GCC or clang) as described in the following sections.
+## Other Targets
 
-### GCC (armhf)
+The Ubuntu development environment for ROS, other simulators, and other hardware targets, is covered in their respective documentation. A subset of the relevant topics are linked below.
 
-Ubuntu software repository provides a set of pre-compiled toolchains. Note that Ubuntu Focal comes up with `gcc-9-arm-linux-gnueabihf` as its default installation which is not fully supported, so we must manually install `gcc-8-arm-linux-gnueabihf` and set it as the default toolchain. This guide also applies to earlier Ubuntu releases (Bionic). The following instruction assumes you haven't installed any version of arm-linux-gnueabihf, and will set up the default executable with `update-alternatives`. Install them with the terminal command:
+Raspberry Pi
 
-```sh
-sudo apt-get install -y gcc-8-arm-linux-gnueabihf g++-8-arm-linux-gnueabihf
-```
-
-Set them as default:
-
-```sh
-sudo update-alternatives --install /usr/bin/arm-linux-gnueabihf-gcc arm-linux-gnueabihf-gcc /usr/bin/arm-linux-gnueabihf-gcc-8 100 --slave /usr/bin/arm-linux-gnueabihf-g++ arm-linux-gnueabihf-g++ /usr/bin/arm-linux-gnueabihf-g++-8
-sudo update-alternatives --config arm-linux-gnueabihf-gcc
-```
-
-### GCC (aarch64)
-
-If you want to build PX4 for ARM64 devices, this section is required.
-
-```sh
-sudo apt-get install -y gcc-8-aarch64-linux-gnu g++-8-aarch64-linux-gnu
-sudo update-alternatives --install /usr/bin/aarch64-linux-gnu-gcc aarch64-linux-gnu-gcc /usr/bin/aarch64-linux-gnu-gcc-8 100 --slave /usr/bin/aarch64-linux-gnu-g++ aarch64-linux-gnu-g++ /usr/bin/aarch64-linux-gnu-g++-8
-sudo update-alternatives --config aarch64-linux-gnu-gcc
-```
-
-### Clang (optional)
-
-First install GCC (needed to use clang).
-
-We recommend you to get clang from the Ubuntu software repository, as shown below:
-
-```
-sudo apt-get install clang
-```
-
-Example below for building PX4 firmware out of tree, using _CMake_.
-
-```sh
-cd <PATH-TO-PX4-SRC>
-mkdir build/px4_raspberrypi_default_clang
-cd build/px4_raspberrypi_default_clang
-cmake \
--G"Unix Makefiles" \
--DCONFIG=px4_raspberrypi_default \
--UCMAKE_C_COMPILER \
--DCMAKE_C_COMPILER=clang \
--UCMAKE_CXX_COMPILER \
--DCMAKE_CXX_COMPILER=clang++ \
-../..
-make
-```
-
-### Detailed Information
-
-Additional developer information for using PX4 on Raspberry Pi (including building PX4 natively) can be found here:
-
-- [Raspberry Pi 2/3 Navio2 Autopilot](../flight_controller/raspberry_pi_navio2.md).
+- [Raspberry Pi 2/3 Navio2 Autopilot > PX4 Development Environment](../flight_controller/raspberry_pi_navio2.md#px4-development-environment)
 - [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md).
 
-## ROS 2
+ROS
 
-Information about ROS 2 setup and development with PX4 can be found in the [ROS 2 User Guide](../ros/ros2_comm.md).
-
-Generally speaking if you're working with hardware and don't need to modify PX4 itself, then you do not need a PX4 development environment (dependencies for working with ROS 2 are included and built into PX4 firmware by default).
-
-You will need to install the normal development [simulator environment](#simulation-and-nuttx-pixhawk-targets) in order to work with the PX4 simulator.
-
-<a id="rosgazebo"></a>
-
-## ROS/Gazebo Classic
-
-This section explains how to install [ROS 1](../ros/index.md) with PX4. ROS 1 full desktop builds come with Gazebo Classic, so normally you will not install PX4 simulator dependencies yourself!
-
-### ROS Noetic/Ubuntu 20.04
-
-If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
-
-1. Install PX4 without the simulator toolchain:
-
-   1. [Download PX4 Source Code](../dev_setup/building_px4.md):
-
-      ```sh
-      git clone https://github.com/PX4/PX4-Autopilot.git --recursive
-      ```
-
-   1. Run the **ubuntu.sh** the `--no-sim-tools` (and optionally `--no-nuttx`):
-
-      ```sh
-      bash ./PX4-Autopilot/Tools/setup/ubuntu.sh --no-sim-tools --no-nuttx
-      ```
-
-      - Acknowledge any prompts as the script progress.
-
-   1. Restart the computer on completion.
-
-1. You _may_ need to install the following additional dependencies:
-
-   ```
-   sudo apt-get install protobuf-compiler libeigen3-dev libopencv-dev -y
-   ```
-
-1. Follow the [Noetic Installation instructions](http://wiki.ros.org/noetic/Installation/Ubuntu#Installation) (ros-noetic-desktop-full is recommended).
-1. Intall MAVROS by following the [MAVROS Installation Guide](../ros/mavros_installation.md).
-
-### ROS Melodic/Ubuntu 18.04
-
-If you're working with ROS "Melodic on Ubuntu 18.04:
-
-1. Download the [ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh) script in a bash shell:
-
-   ```sh
-   wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
-   ```
-
-1. Run the script:
-
-   ```sh
-   bash ubuntu_sim_ros_melodic.sh
-   ```
-
-   You may need to acknowledge some prompts as the script progresses.
-
-::: info
-
-- ROS Melodic is installed with Gazebo (Classic) 9 by default.
-- Your catkin (ROS build system) workspace is created at **~/catkin_ws/**.
-- The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
-:::
+- ROS 2: [ROS 2 User Guide > Installation & Setup](../ros2/user_guide.md#installation-setup).
+- ROS (1): [ROS (1) Installation Guide](../ros/mavros_installation.md)
 
 ## Next Steps
 
 Once you have finished setting up the command-line toolchain:
 
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html) :::tip The _daily build_ includes development tools that hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+- Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
+
+:::tip
+The _daily build_ includes development tools that hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
 :::
+
 - Continue to the [build instructions](../dev_setup/building_px4.md).

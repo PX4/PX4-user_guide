@@ -1,7 +1,7 @@
 # ROS 1 з MAVROS
 
 :::tip
-Команда розробників PX4 рекомендує перейти на [ROS 2](../ros/ros2.md) (тобто пропустити цей розділ)!
+The PX4 development team recommend that users migrate to [ROS 2](../ros2/index.md) (i.e. skip this section)!
 :::
 
 [ROS](../ros/README.md) (Robot Operating System) це бібліотека загального призначення для робототехніки, яку можна використовувати для створення потужних додатків для дронів разом з PX4 Autopilot.

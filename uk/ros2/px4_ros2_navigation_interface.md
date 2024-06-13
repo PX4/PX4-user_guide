@@ -1,6 +1,6 @@
 # Інтерфейс навігації PX4 ROS 2
 
-<Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
+<Badge type="tip" text="PX4 v1.15" /> <Badge type="warning" text="Experimental" />
 
 :::warning
 Експериментальні налаштування
@@ -18,7 +18,7 @@
 
 Для початку роботи необхідно виконати наступні кроки:
 
-1. Переконайтеся, що у вас працює налаштована система ROS 2 з px4_msgs у робочому просторі ROS 2.
+1. Make sure you have a working [ROS 2 setup](../ros2/user_guide.md), with [`px4_msgs`](https://github.com/PX4/px4_msgs) in the ROS 2 workspace.
 
 2. Клонуйте репозиторій в робочий простір:
 

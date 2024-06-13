@@ -1,11 +1,11 @@
 # 비주얼 스튜디오 코드 IDE(VSCode)
 
-[Visual Studio Code](https://code.visualstudio.com/)는 Ubuntu 18.04 LT, macOS 및 Windows에서 PX4 개발에 사용할 수 있는 강력한 플랫폼 간 소스 코드 편집기/IDE입니다.
+[Visual Studio Code](https://code.visualstudio.com/) is a powerful cross-platform source code editor/IDE that can be used for PX4 development on Ubuntu, Windows, and macOS.
 
 PX4 개발에 VSCode를 사용하는 데에는 많은 이유가 있습니다.
 
 - Getting setup _really_ only takes a few minutes.
-- A rich extension ecosystem that enables a huge range of tools needed for PX4 development: C/C++ (with solid _cmake_ integration), _Python_, _Jinja2_, ROS messages, and even UAVCAN dsdl.
+- A rich extension ecosystem that enables a huge range of tools needed for PX4 development: C/C++ (with solid _cmake_ integration), _Python_, _Jinja2_, ROS messages, and even DroneCAN dsdl.
 - 뛰어난 Github 통합 기능
 
 IDE를 설정과 개발 방법에 대하여 설명합니다.
@@ -56,7 +56,7 @@ You must already have installed the command line [PX4 developer environment](../
 
    - The current _cmake build target_ is shown on the blue _config_ bar at the bottom (if this is already your desired target, skip to next step). ![Select Cmake build target](../../assets/toolchain/vscode/cmake_build_config.jpg)
 
-     ::: info The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v5`).
+     ::: info The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v6`).
 :::
 
    - Click the target on the config bar to display other options, and select the one you want (this will replace any selected target).

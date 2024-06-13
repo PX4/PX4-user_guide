@@ -1,6 +1,6 @@
 # Автопілот AUAV-X2 (припинено)
 
-<Badge type="error" text="Discontinued" />
+<Badge type="info" text="Discontinued" />
 
 :::warning
 Цей політний контролер був [знятий з виробництва](../flight_controller/autopilot_experimental.md) і більше не продається комерційно.

@@ -2,8 +2,9 @@
 
 Перелік PX4 реліз, вони містять список змін, що відбулися в кожному релізі, пояснення включених функцій, виправлень, застарілих та оновлень.
 
-- [основна](../releases/main.md) (зміни з v1.14)
-- [v1.14](../releases/1.14.md)
+- [main](../releases/main.md) (changes since v1.15)
+- [v1.15](../releases/1.15.md) <Badge type="warning" text="Beta"/>
+- [v1.14](../releases/1.14.md) <Badge type="info" text="Stable"/>
 - [v1.13](../releases/1.13.md)
 - [v1.12](../releases/1.12.md)
 

@@ -1,6 +1,6 @@
 # Crazyflie 2.0 (Припинено)
 
-<Badge type="error" text="Discontinued" />
+<Badge type="info" text="Discontinued" />
 
 :::warning
 _Crazyflie 2.0_ було [припинено/замінено](../flight_controller/autopilot_experimental.md).

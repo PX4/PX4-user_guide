@@ -3,7 +3,6 @@
 MacOS 是受支持的 PX4 开发平台。 根据本文的指示构建的开发环境可以用编译：
 
 - 基于 NuttX 的硬件 (Pixhawk等)
-- [额外工具](../sim_jmavsim/index.md)
 - [Gazebo Classic Simulation](../sim_gazebo_classic/index.md)
 
 :::tip
@@ -103,33 +102,13 @@ September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#
    sh macos.sh
    ```
 
-## 额外工具
-
-To setup the environment for [jMAVSim](../sim_jmavsim/index.md) simulation:
-
-1. Install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
-
-   ```sh
-   brew install --cask temurin
-   ```
-
-1. Install jMAVSim:
-
-   ```sh
-   brew install px4-sim-jmavsim
-   ```
-
-   :::warning PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
-
-   For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../sim_jmavsim/index.md#troubleshooting)).
-:::
 
 ## 后续步骤
 
 Once you have finished setting up the command-line toolchain:
 
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html)
+- Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
 
 :::tip
 The _daily build_ includes development tools that are hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.

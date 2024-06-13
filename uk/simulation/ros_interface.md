@@ -11,12 +11,9 @@
 
 ## Встановлення ROS та Gazebo Classic
 
+[ROS (1) with MAVROS Installation Guide](../ros/mavros_installation.md) explains how to set up a guide for working with ROS (1), MAVROS, and PX4.
+
 :::info _ROS_ підтримується тільки на Linux (не macOS або Windows).
-:::
-
-Найпростіший спосіб налаштувати симуляцію PX4 з ROS на Ubuntu Linux це використати стандартний скрипт установки який можна знайти у [Середовище розробки на Linux > Gazebo з ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). Скрипт встановлює все, що вам потрібно: PX4, ROS "Melodic", симулятор Gazebo Classic 9, та [MAVROS](../ros/mavros_installation.md).
-
-:::info Скрипт дотримується [стандартних інструкцій з встановлення ROS "Melodic" ](http://wiki.ros.org/melodic/Installation/Ubuntu), які включають Gazebo 9.
 :::
 
 ## Запуск ROS/симуляції
@@ -30,13 +27,13 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@192.168.1.36:14557"
 Для з'єднання з localhost (локальним комп'ютером), використовуйте цей URL:
 
 ```sh
-roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
+roslaunch -w 2 -v mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
 :::info Може бути корисно викликати _roslaunch_ з `-w NUM_WORKERS` (перевизначити кількість робочих потоків) та/або `-v` (verbose, або розлогий вивід), щоб отримати попередження про відсутні залежності у вашій установці. Наприклад:
 
 ```sh
-roslaunch -w 2 -v mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
+roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
 :::

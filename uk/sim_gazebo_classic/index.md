@@ -1,7 +1,7 @@
 # Симуляція Gazebo Classic
 
 :::warning
-_Gazebo Classic_ підтримується з PX4 аж до Ubuntu Linux 20.04. Він був замінений [Gazebo](../sim_gazebo_gz/README.md) ([раніше відомий](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) як "Gazebo Ignition") для використання на Ubuntu 22.04 і новіше.
+_Gazebo Classic_ підтримується з PX4 аж до Ubuntu Linux 20.04. In Ubuntu 22.04 and later you must use [Gazebo](../sim_gazebo_gz/index.md) (which was [formerly known](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) as "Gazebo Ignition").
 :::
 
 Gazebo Classic - це потужне середовище 3D симуляції для автономних систем яке зокрема підходить для перевірки уникання об'єктів та комп'ютерного зору. Ця сторінка описує її використання з SITL та єдиним рухомим засобом. Gazebo Classic також може бути використано з [HITL](../simulation/hitl.md) та для [симуляції кількох засобів](../sim_gazebo_classic/multi_vehicle_simulation.md).

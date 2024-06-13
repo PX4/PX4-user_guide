@@ -62,14 +62,16 @@ make px4_sitl gz_rc_cessna
 
 ### Покращений літак
 
+<Badge type="tip" text="PX4 v1.15" />
+
 ```sh
 make px4_sitl gz_advanced_plane
 ```
 
-![Покращений літак у Gazebo](../../assets/simulation/gazebo/vehicles/advanced_plane.png)
+![Advanced Plane in Gazebo](../../assets/simulation/gazebo/vehicles/advanced_plane.png)
 
-:::info
-Різниця між покращеним літаком та "стандартним літаком" полягає у фізиці піднімної сили які ці дві моделі використовують:
+::: info
+The difference between the Advanced Plane and the "regular plane" lies in the Lift Physics that the two models use:
 
 - Можна налаштувати плагін _покращеної піднімної сили_ що використовуються моделлю для точнішої відповідності певному засобу використовуючи [Інструмент "Покращена піднімна сила"](../sim_gazebo_gz/tools_avl_automation.md).
 - Для отримання додаткової інформації про розрахунки піднімної сили для покращеного літака, дивіться [PX4-SITL_gazebo-classic/src/liftdrag_plugin/index.md](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/20ded0757b4f2cb362833538716caf1e938b162a/src/liftdrag_plugin/index.md)
@@ -84,4 +86,4 @@ make px4_sitl gz_advanced_plane
 make px4_sitl gz_standard_vtol
 ```
 
-![Стандартний ВЗІП у Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
+![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)

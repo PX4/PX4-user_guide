@@ -62,13 +62,15 @@ make px4_sitl gz_rc_cessna
 
 ### Advanced Plane
 
+<Badge type="tip" text="PX4 v1.15" />
+
 ```sh
 make px4_sitl gz_advanced_plane
 ```
 
 ![Advanced Plane in Gazebo](../../assets/simulation/gazebo/vehicles/advanced_plane.png)
 
-:::note
+::: info
 The difference between the Advanced Plane and the "regular plane" lies in the Lift Physics that the two models use:
 
 - You can configure the _Advanced Lift Drag_ plugin used by the model to more closely match a particular vehicle using the [Advanced Lift Drag Tool](../sim_gazebo_gz/tools_avl_automation.md).

@@ -8,13 +8,13 @@
 
 Апаратне забезпечення в контурі (HITL або HIL) режим симуляції в якому звичайна прошивка PX4 виконується на реальному пристрої польотного контролера. Цей підхід має перевагу у вигляді можливості тестування більшості коду для польоту на реальному апаратному забезпеченні.
 
-PX4 підтримує HITL для мультикоптерів (за допомогою jMAVSim або Gazebo Classic) та ВЗІП (за допомогою Gazebo Classic).
+PX4 supports HITL for multicopters (using [jMAVSim](../sim_jmavsim/index.md) or [Gazebo Classic](../sim_gazebo_classic/index.md)) and VTOL (using Gazebo Classic).
 
 <a id="compatible_airframe"></a>
 
 ## Планери сумісні з HITL
 
-Поточний набір сумісних планерів проти симуляторів:
+The set of compatible airframes vs simulators is:
 
 | Планер                                                                                                               | `SYS_AUTOSTART` | Gazebo Classic | jMAVSim |
 | -------------------------------------------------------------------------------------------------------------------- | --------------- | -------------- | ------- |

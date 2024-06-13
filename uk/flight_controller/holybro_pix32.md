@@ -1,19 +1,21 @@
 # Контролер польоту Holybro pix32 (знято з виробництва)
 
-:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи проблем сумісності.
+<Badge type="info" text="Discontinued" />
+
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-Автопілот Holybro<sup>&reg;</sup> [pix32](https://holybro.com/collections/autopilot-flight-controllers/products/pix32pixhawk-flight-controller) (також відомий як "Pixhawk 2", і раніше як HKPilot32) базується на відкритому апаратному дизайні [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) модуль **FMUv2**. Ця плата базується на апаратній версії Pixhawk 2.4.6. Він запускає стек польоту PX4 на ОС [NuttX](https://nuttx.apache.org/).
+The Holybro<sup>&reg;</sup> [pix32 autopilot](https://holybro.com/collections/autopilot-flight-controllers/products/pix32pixhawk-flight-controller) (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. This board is based on hardware version Pixhawk 2.4.6. It runs the PX4 flight stack on the [NuttX](https://nuttx.apache.org/) OS.
 
 ![pix32](../../assets/flight_controller/holybro_pix32/pix32_hero.jpg)
 
-Як ліцензований Open Hardware дизайн CC-BY-SA 3.0, схеми та файли дизайну повинні бути [доступні тут](https://github.com/PX4/Hardware).
+As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files should be [available here](https://github.com/PX4/Hardware).
 
 :::tip
-Holybro pix32 сумісний з програмним забезпеченням [3DR Pixhawk 1](../flight_controller/pixhawk.md). Це несумісний з'єднувач, але фізично дуже схожий на 3DR Pixhawk або mRo Pixhawk.
+The Holybro pix32 is software compatible with the [3DR Pixhawk 1](../flight_controller/pixhawk.md). It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
 :::
 
-::: info Цей контролер польоту [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
+::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Основні характеристики
@@ -61,10 +63,10 @@ Holybro pix32 сумісний з програмним забезпечення�
 ## Створення прошивки
 
 :::tip
-Більшості користувачів не потрібно створювати цю прошивку! Вона попередньо зібрана і автоматично встановлюється за допомогою _QGroundControl_ при підключенні відповідного обладнання.
+Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-Щоб [ зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make px4_fmu-v3_default
@@ -72,15 +74,15 @@ make px4_fmu-v3_default
 
 ## Дебаг Порт
 
-Дивіться [3DR Pixhawk 1 > Налагодження портів](../flight_controller/pixhawk.md#debug-ports).
+See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports).
 
 ## Розпіновки та схеми
 
-Плата базується на [Pixhawk проекті](https://pixhawk.org/) відкритого апаратного забезпечення **FMUv2**.
+The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
 
 - [FMUv2 + IOv2 схема](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Схема та макет
 
-::: info Як дизайн Open Hardware з ліцензією CC-BY-SA 3.0, всі схеми та файли дизайну доступні [тут](https://github.com/PX4/Hardware).
+::: info As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 :::
 
 ## Налаштування послідовного порту

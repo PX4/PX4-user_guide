@@ -11,55 +11,74 @@
 
 Вихідний код PX4 зберігається на Github в репозиторії [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot).
 
-Для завантаження _найсвіжішої_ ("main") версії на свій комп'ютер, введіть у терміналі наступну команду:
+To get the _very latest_ (`main` branch) version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-:::note
-Це все, що вам необхідно для збірки найновішого коду. За потреби ви також можете [отримати вихідний код певного релізу](../contribute/git_examples.md#get-a-specific-release). [Приклади GIT](../contribute/git_examples.md) пропонують значно більше інформації про роботу з релізами та внеску у PX4.
+Note that you may already have done this when installing the [Developer Toolchain](../dev_setup/dev_env.md)
+
+::: info This is all you need to do in order to get the latest code. За потреби ви також можете [отримати вихідний код певного релізу](../contribute/git_examples.md#get-a-specific-release). [Приклади GIT](../contribute/git_examples.md) пропонують значно більше інформації про роботу з релізами та внеску у PX4.
 :::
 
-## Перша збірка (з використанням симулятору jMAVSim)
+## First Build (Using a Simulator)
 
 Спочатку ми зберемо цільову платформу симуляції з використанням консольного середовища. Це дозволяє нам перевірити налаштування системи перед її запуском на реальному обладнанні та IDE.
 
-Перейдіть до директорії **PX4-Autopilot** та запустіть [jMAVSim](../sim_jmavsim/README.md) використовуючи команду нижче:
+Navigate into the **PX4-Autopilot** directory. Depending on your operating system you will have installed either [Gazebo SITL](../sim_gazebo_gz/index.md) or [Gazebo Classic SITL](../sim_gazebo_classic/index.md) (if you don't know which you can try both).
+
+:::: tabs
+
+::: tab Gazebo Start [Gazebo SITL](../sim_gazebo_gz/index.md) using the following command:
 
 ```sh
-make px4_sitl jmavsim
+make px4_sitl gz_x500
 ```
 
-Це запустить консоль PX4 як показано нижче:
-
-![Консоль PX4 (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
-
-:::note
-Можливо, ще знадобиться запустити _QGroundControl_ перед тим, як рушити далі, оскільки стандартне налаштування PX4 вимагає наявність звʼязку з наземним оператором перед злетом. Його можна завантажити [звідси](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
 :::
 
-Для злету дрону наберіть наступну команду:
-
-```sh
-pxh> commander takeoff
-```
-
-![jMAVSim UI](../../assets/toolchain/jmavsim_first_takeoff.png)
-
-Дрон можна приземлити, набравши `commander land`. Зупинити симуляцію можна через клавіатурну комбінацію  **CTRL+C** (або через введення `shutdown`).
-
-Симуляція польоту з управлінням з боку наземного оператора є ближчою до реального запуску дрону. В польоті (режимі зльоту) натисніть на місце розташування на карті та пересуньте (увімкніть) повзунковий перемикач. Це перемістить літальний засіб.
-
-![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
-
-:::tip PX4 можна використовувати з низкою інших [симуляторів](../simulation/README.md), включаючи [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) і [AirSim](../sim_airsim/README.md). Вони також запускаються за допомогою _make_, наприклад:
+::: tab Gazebo-Classic Start [Gazebo SITL](../sim_gazebo_gz/index.md) using the following command:
 
 ```sh
 make px4_sitl gazebo-classic
 ```
 
 :::
+
+::::
+
+This will bring up the PX4 console:
+
+![PX4 Console](../../assets/toolchain/console_gazebo.png)
+
+:::note
+Можливо, ще знадобиться запустити _QGroundControl_ перед тим, як рушити далі, оскільки стандартне налаштування PX4 вимагає наявність звʼязку з наземним оператором перед злетом. Його можна завантажити [звідси](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
+:::
+
+The drone can be flown by typing the following command (as shown in the console above):
+
+```sh
+pxh> commander takeoff
+```
+
+The vehicle will take off and you'll see this in the simulator UI:
+
+:::: tabs
+
+::: tab Gazebo ![Gazebo UI with vehicle taking off](../../assets/toolchain/gazebo_takeoff.png)
+:::
+
+::: tab Gazebo-Classic ![Gazebo Classic UI with vehicle taking off](../../assets/toolchain/gazebo_classic_takeoff.png)
+:::
+
+::::
+
+Дрон можна приземлити, набравши `commander land`. Зупинити симуляцію можна через клавіатурну комбінацію  **CTRL+C** (або через введення `shutdown`).
+
+Симуляція польоту з управлінням з боку наземного оператора є ближчою до реального запуску дрону. В польоті (режимі зльоту) натисніть на місце розташування на карті та пересуньте (увімкніть) повзунковий перемикач. Це перемістить літальний засіб.
+
+![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
 ## Плати на основі NuttX / Pixhawk
 
@@ -283,11 +302,15 @@ make list_config_targets
 make px4_sitl list_vmd_make_targets
 ```
 
-:::info
+:::
+
+::: info
 
 - Більшість значень у `CONFIGURATION_TARGET` та `VIEWER_MODEL_DEBUGGER` мають значення за замовчуванням і тому є необов'язковими. Наприклад, `gazebo-classic` еквівалентна `gazebo-classic_iris` або `gazebo-classic_iris_none`.
 - Ви можете використати три підкреслювання, якщо хочете вказати значення за замовчуванням між двома іншими налаштуваннями. Наприклад, `gazebo-classic___gdb` еквівалентно `gazebo-classic_iris_gdb`.
 - Ви можете використати значення `none` для `VIEWER_MODEL_DEBUGGER` для запуску PX4 та очікування симуляції. Наприклад запустити PX4 з `make px4_sitl_default none` та jMAVSim за допомогою `./Tools/simulation/jmavsim/jmavsim_run.sh -l`.
+
+:::
 
 Параметри `VENDOR_MODEL_VARIANT` відображаються на певні файли налаштувань _px4board_ у вихідному коду PX4 в директорії [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards). Зокрема `VENDOR_MODEL_VARIANT` відповідає файлу **boards/VENDOR/MODEL/VARIANT.px4board** (наприклад `px4_fmu-v5_default` відповідає [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board)).
 

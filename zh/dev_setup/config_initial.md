@@ -6,29 +6,36 @@
 
 :::tip
 PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups.
-A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
+A Taranis RC and a mid-range Android tablet make a very inexpensive field kit.
 :::
 
 飞机配置流程：
 
-- **Remote control** for the safety pilot
-  - Taranis Plus remote control (or equivalent)
+- **RC controller** for the safety pilot
+  - [Taranis Plus](https://www.frsky-rc.com/product/taranis-x9d-plus-2/) RC control (or equivalent)
 - **Development computer**
-  - MacBook Pro （2015 年初及以后），OSX 10.13 或者更高版本
-  - Lenovo Thinkpad 450 (i5)，Ubuntu Linux 16.04 或者更高版本
+
+  ::: info
+The listed computers have acceptable performance, but a more recent and powerful computer is recommended.
+:::
+
+  - Lenovo Thinkpad with i5-core running Windows 11
+  - MacBook Pro (early 2015 and later) with macOS 10.15 or later
+  - Lenovo Thinkpad i5 with Ubuntu Linux 20.04 or later
+
 - **Ground control station** (computer or tablet):
-  - iPad （需要 Wifi 无线适配器）
+  - iPad (may require Wifi telemetry adapter)
   - 任意 MacBook 或者 Ubuntu Linux 笔记本电脑（可使用开发用计算机兼任）
-  - Samsung Note 4 or equivalent (any recent Android tablet or phone with a large enough screen to run _QGroundControl_ effectively).
+  - A recent mid-range Android tablet or phone with a large enough screen to run _QGroundControl_ effectively (6 inches).
 - **Vehicle capable of running PX4**:
   - [Get a prebuilt vehicle](../complete_vehicles_mc/index.md)
-  - [Build your own](../airframes/index.md)
+  - [Build your own](../frames_multicopter/kits.md)
 - **Safety glasses**
 - **Tether** (multicopter only - for more risky tests)
 
 ## 飞机配置
 
-Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html) for a **desktop OS**.
+Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md) for a **desktop OS**.
 
 To configure the vehicle:
 

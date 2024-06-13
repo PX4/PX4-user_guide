@@ -7,7 +7,7 @@ uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middlewar
 uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13.
 :::
 
-PX4 uses uXRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics. This provides a fast and reliable integration between PX4 and ROS 2, and makes it much easier for ROS 2 applications to get vehicle information and send commands.
+PX4 uses uXRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros2/user_guide.md) topics. This provides a fast and reliable integration between PX4 and ROS 2, and makes it much easier for ROS 2 applications to get vehicle information and send commands.
 
 PX4 uses an XRCE-DDS implementation that leverages [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html).
 
@@ -98,7 +98,7 @@ Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/sr
 
 ### Build/Run within ROS 2 Workspace
 
-The agent can be built and launched within a ROS 2 workspace (or build standalone and launched from a workspace. You must already have installed ROS 2 following the instructions in: [ROS 2 User Guide > Install ROS 2](../ros/ros2_comm.md#install-ros-2).
+The agent can be built and launched within a ROS 2 workspace (or build standalone and launched from a workspace. You must already have installed ROS 2 following the instructions in: [ROS 2 User Guide > Install ROS 2](../ros2/user_guide.md#install-ros-2).
 
 To build the agent within ROS:
 
@@ -244,7 +244,7 @@ The configuration can be done using the [UXRCE-DDS parameters](../advanced_confi
   - [UXRCE_DDS_KEY](../advanced_config/parameter_reference.md#UXRCE_DDS_KEY): The uXRCE-DDS key. If you're working in a multi-client, single agent configuration, each client should have a unique non-zero key. This is primarily important for multi-vehicle simulations, where all clients are connected in UDP to the same agent. (See the [official eprosima documentation](https://micro-xrce-dds.docs.eprosima.com/en/stable/client_api.html#session) , `uxr_init_session`.)
   - [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID): The DDS domain ID. This provides a logical separation between DDS networks, and can be used to separate clients on different networks. By default, ROS 2 operates on ID 0.
   - [UXRCE_DDS_PTCFG](../advanced_config/parameter_reference.md#UXRCE_DDS_PTCFG): uXRCE-DDS participant configuration. It allows to restrict the visibility of the DDS topics to the _localhost_ only and to use user-customized participant configuration files stored on the agent side.
-  - [UXRCE_DDS_SYNCT](../advanced_config/parameter_reference.md#UXRCE_DDS_SYNCT): Bridge time synchronization enable. The uXRCE-DDS client module can synchronize the timestamp of the messages exchanged over the bridge. This is the default configuration. In certain situations, for example during [simulations](../ros/ros2_comm.md#ros-gazebo-and-px4-time-synchronization), this feature may be disabled.
+  - [UXRCE_DDS_SYNCT](../advanced_config/parameter_reference.md#UXRCE_DDS_SYNCT): Bridge time synchronization enable. The uXRCE-DDS client module can synchronize the timestamp of the messages exchanged over the bridge. This is the default configuration. In certain situations, for example during [simulations](../ros2/user_guide.md#ros-gazebo-and-px4-time-synchronization), this feature may be disabled.
 
 :::note
 Many ports are already have a default configuration. To use these ports you must first disable the existing configuration:
@@ -265,7 +265,7 @@ Options `-p` or `-h` are used to bypass `UXRCE_DDS_PRT` and `UXRCE_DDS_AG_IP`.
 
 #### Starting the Client in Simulation
 
-The simulator [startup logic](../concept/system_startup.md) ([init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS)) uses the client startup commands for single and [multi vehicle simulations](../ros/ros2_multi_vehicle.md), enabling the setting of appropriate instance ids and DDS namespaces. By default the client is started on localhost UDP port `8888` with no additional namespace.
+The simulator [startup logic](../concept/system_startup.md) ([init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS)) uses the client startup commands for single and [multi vehicle simulations](../ros2/multi_vehicle.md), enabling the setting of appropriate instance ids and DDS namespaces. By default the client is started on localhost UDP port `8888` with no additional namespace.
 
 Environment variables are provided that override some [UXRCE-DDS parameters](../advanced_config/parameter_reference.md#uxrce-dds-client). These allow users to create custom startup files for their simulations:
 
@@ -332,7 +332,7 @@ will generate topics under the namespaces:
 
 ## PX4 ROS 2 QoS Settings
 
-PX4 QoS settings for publishers are incompatible with the default QoS settings for ROS 2 subscribers. So if ROS 2 code needs to subscribe to a uORB topic, it will need to use compatible QoS settings. One example of which is shown in [ROS 2 User Guide > ROS 2 Subscriber QoS Settings](../ros/ros2_comm.md#ros-2-subscriber-qos-settings).
+PX4 QoS settings for publishers are incompatible with the default QoS settings for ROS 2 subscribers. So if ROS 2 code needs to subscribe to a uORB topic, it will need to use compatible QoS settings. One example of which is shown in [ROS 2 User Guide > ROS 2 Subscriber QoS Settings](../ros2/user_guide.md#ros-2-subscriber-qos-settings).
 
 PX4 uses the following QoS settings for publishers:
 

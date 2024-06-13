@@ -77,7 +77,7 @@ The toolchain uses a specially configured console window (started by running the
 
 Once you have finished setting up the command-line toolchain:
 
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html)
+- Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
 - [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.
 
 ## 문제 해결

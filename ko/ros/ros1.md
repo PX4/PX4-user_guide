@@ -1,6 +1,7 @@
 # ROS 1 with MAVROS
 
-:::tip PX4 개발 팀은 사용자가 [ROS 2](../ros/ros2.md)로 마이그레이션할 것을 권장합니다(즉, 이 섹션 건너뛰기)!
+:::tip
+The PX4 development team recommend that users migrate to [ROS 2](../ros2/index.md) (i.e. skip this section)!
 :::
 
 [ROS](../ros/README.md)(로봇 운영 체제)는 PX4 자동조종장치를 위한 강력한 드론 애플리케이션을 개발하는 범용 로봇 라이브러리입니다.

@@ -1,7 +1,7 @@
 # Gazebo Classic 模拟
 
 :::warning
-_Gazebo Classic_ 支持 PX4 到 Ubuntu Linux 20.04。 It has been superseded by [Gazebo](../sim_gazebo_gz/index.md) (which was [formerly known](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) as "Gazebo Ignition") for use on Ubuntu 22.04 and later.
+_Gazebo Classic_ 支持 PX4 到 Ubuntu Linux 20.04。 In Ubuntu 22.04 and later you must use [Gazebo](../sim_gazebo_gz/index.md) (which was [formerly known](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) as "Gazebo Ignition").
 :::
 
 Gazebo Classic 是一个功能强大的三维仿真环境，专门用于测试避障和计算机视觉等自主机器人技术。 本页描述了在SITL和单一载具上的使用方式。 Gazebo Classic can also be used with [HITL](../simulation/hitl.md) and for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation.md).

@@ -8,13 +8,13 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 
 硬件在环仿真模式 (HITL 或 HIL) 下 PX4 固件代码运行在真实的飞行控制器硬件平台上。 这种方法的优点是可以在实际硬件上测试大多数的实际飞行代码。
 
-PX4 supports HITL for multicopters (using jMAVSim or Gazebo Classic) and VTOL (using Gazebo Classic).
+PX4 supports HITL for multicopters (using [jMAVSim](../sim_jmavsim/index.md) or [Gazebo Classic](../sim_gazebo_classic/index.md)) and VTOL (using Gazebo Classic).
 
 <a id="compatible_airframe"></a>
 
 ## HITL兼容机架
 
-目前兼容的机架构型和模拟器的情况如下：
+The set of compatible airframes vs simulators is:
 
 | 机架                                                                                                               | `SYS_AUTOSTART` | Gazebo Classic | jMAVSim |
 | ---------------------------------------------------------------------------------------------------------------- | --------------- | -------------- | ------- |
