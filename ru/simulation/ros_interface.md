@@ -11,12 +11,9 @@ The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram b
 
 ## Installing ROS and Gazebo Classic
 
+[ROS (1) with MAVROS Installation Guide](../ros/mavros_installation.md) explains how to set up a guide for working with ROS (1), MAVROS, and PX4.
+
 ::: info _ROS_ is only supported on Linux (not macOS or Windows).
-:::
-
-The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). The script installs everything you need: PX4, ROS "Melodic", the Gazebo Classic 9 simulator, and [MAVROS](../ros/mavros_installation.md).
-
-::: info The script follows the [standard ROS "Melodic" installation instructions](http://wiki.ros.org/melodic/Installation/Ubuntu), which includes Gazebo 9.
 :::
 
 ## Launching ROS/Simulation
