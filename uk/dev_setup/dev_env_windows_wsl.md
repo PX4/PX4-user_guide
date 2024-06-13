@@ -7,12 +7,11 @@
 - [Pixhawk та іншого апаратного забезпечення на основі NuttX](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
 - [Симуляції Gazebo](../sim_gazebo_gz/index.md)
 - [Симуляції Gazebo Classic](../sim_gazebo_classic/index.md)
-- [Симуляції jMAVSim](../sim_jmavsim/index.md)
 
 :::tip
 Ця установка підтримується командою розробників PX4.
 Середовище в теорії має бути здатне збирати будь-яку ціль збірки, яку можна зібрати на Ubuntu.
-Список вище - ті цілі, що були перевірені.
+The list above are those targets that are regularly tested.
 :::
 
 ## Загальний огляд
@@ -118,7 +117,7 @@ wsl -d <distribution_name> --shutdown
 
 ### Встановлення інструментарію PX4
 
-Далі ми завантажуємо вихідний код PX4 у середовищі WSL2 і використовуємо звичайний _скрипт встановлювання для Ubuntu_ для налаштування середовища розробника. Це встановить інструментарій для симуляції Gazebo Classic, JMAVSim та апаратного забезпечення Pixhawk/NuttX.
+Далі ми завантажуємо вихідний код PX4 у середовищі WSL2 і використовуємо звичайний _скрипт встановлювання для Ubuntu_ для налаштування середовища розробника. This will install the toolchain for Gazebo Classic simulation and Pixhawk/NuttX hardware.
 
 Щоб встановити інструментарій розробки:
 
@@ -146,8 +145,7 @@ wsl -d <distribution_name> --shutdown
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
 
-:::note
-Це встановить інструменти для збірки PX4 для Pixhawk, Gazebo Classic та JMAVSim:
+   ::: info This installs tools to build PX4 for Pixhawk and either Gazebo or Gazebo Classic targets:
 
    - Також можна використовувати опції `--no-nuttx` та `--no-sim-tools`, щоб пропустити встановлення інструментів для NuttX та/або симуляції.
    - Інші цілі збірки Linux не перевірені (ви можете спробувати їх, ввівши відповідні команди у [середовищі розробки Ubuntu](../dev_setup/dev_env_linux_ubuntu.md) в оболонці WSL).
