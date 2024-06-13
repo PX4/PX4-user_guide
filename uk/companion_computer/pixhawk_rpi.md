@@ -1,6 +1,6 @@
 # Супутник Raspberry Pi з Pixhawk
 
-У цій темі описано, як налаштувати супутника Raspberry Pi ("RPi"), що працює з [ROS 2](../ros/ros2_comm.md) на операційній системі Linux Ubuntu, підключення до автопілота [Pixhawk](../flight_controller/autopilot_pixhawk_standard.md) за допомогою послідовного з'єднання між портом `TELEM2` Pixhawk та виводами TX/RX RPi.
+This topic describes how to setup a Raspberry Pi ("RPi") companion companion running [ROS 2](../ros2/user_guide.md) on Linux Ubuntu OS, connecting to a [Pixhawk](../flight_controller/autopilot_pixhawk_standard.md) flight controller using a serial connection between the Pixhawk `TELEM2` port and the RPi's TX/RX pins.
 
 Ці інструкції мають бути легко розширювані для інших конфігурацій контролерів RPi та польотів.
 
@@ -216,7 +216,7 @@ MAVProxy на RPi тепер повинен підключатися до Pixhaw
 
 ## ROS 2 та uXRCE-DDS
 
-Сторінки [Посібника ROS 2](../ros/ros2_comm.md) та [uXRCE-DDS](../middleware/uxrce_dds.md) охоплюють варіанти налаштування uXRCE-DDS та ROS, зосереджуючись на ROS 2 "Foxy". Цей посібник використовує ROS 2 "Humble" та охоплює конкретну настройку для роботи з RPi. Варто прочитати обидва!
+The [ROS 2 Guide](../ros2/user_guide.md) and [uXRCE-DDS](../middleware/uxrce_dds.md) pages cover the options for setting up the uXRCE-DDS and ROS, focussing on ROS 2 "Foxy". Цей посібник використовує ROS 2 "Humble" та охоплює конкретну настройку для роботи з RPi. Варто прочитати обидва!
 
 ### Налаштування Pixhawk/PX4
 
@@ -297,4 +297,4 @@ source /opt/ros/humble/setup.bash
 ros2 topic list
 ```
 
-Ось і все. Після того, як ви зробите з'єднання робочим, перегляньте [Посібник ROS 2](../ros/ros2_comm.md) для отримання додаткової інформації про роботу з PX4 та ROS 2.
+Ось і все. Once you have the connection working, see the [ROS 2 Guide](../ros2/user_guide.md) for more information about working with PX4 and ROS 2.
