@@ -16,9 +16,9 @@ See [Simulation](../simulation/index.md) for general information about simulator
 
 ## Installation (Ubuntu Linux)
 
-Gazebo is installed by default on Ubuntu 22.04 as part of the development environment setup: [Ubuntu Dev Environment Setup > Simulation and NuttX (Pixhawk) Targets](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets)
+Gazebo is installed by default on Ubuntu 22.04 as part of the normal [development environment setup](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets).
 
-If you want to use Gazebo on Ubuntu 20.04 you can install it manually after following the normal setup process (installing `gz-garden` will uninstall Gazebo-Classic!):
+If you want to use Gazebo on Ubuntu 20.04 you can install it manually, after first following the normal setup process (installing `gz-garden` will uninstall Gazebo-Classic!):
 
 ```sh
 sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
