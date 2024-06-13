@@ -199,7 +199,7 @@ PX4 налаштовує серійний порт для підключення
 :::info Попередні вимоги:
 
 - У вас є підтримуване апаратне забезпечення автопілота з мікропрограмою PX4, яка включає проміжне програмне забезпечення [uXRCE-DDS](../middleware/uxrce_dds.md). Зауважте, що PX4 версії 1.14 і пізніших за замовчуванням включає необхідний модуль [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
-- [ROS 2](../ros/ros2_comm.md) було правильно налаштовано на  компаньйон(комп’ютер-супутник)
+- [ROS 2](../ros2/user_guide.md) has been set up correctly on the companion computer.
 - Ви виконали налаштування мережі Ethernet і портів, як описано вгорі цієї сторінки.
 :::
 
@@ -213,7 +213,7 @@ PX4 налаштовує серійний порт для підключення
    MicroXRCEAgent udp4 -p 8888
    ```
 
-4. Виконайте команду [listener node](../ros/ros2_comm.md#running-the-example) в новому терміналі, щоб підтвердити встановлене з'єднання.
+4. Run a [listener node](../ros2/user_guide.md#running-the-example) in a new terminal to confirm the connection is established:
 
    ```sh
    source ~/ws_sensor_combined/install/setup.bash
