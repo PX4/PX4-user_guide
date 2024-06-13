@@ -1,11 +1,11 @@
 # Visual Studio Code IDE (VSCode)
 
-[Visual Studio Code](https://code.visualstudio.com/) - це потужний редактор/IDE для багатьох платформ з відкритим вихідним кодом, який може використовуватися для розробки з PX4 на Ubuntu 18. 4 LTS і macOS (підтримка Windows скоро буде).
+[Visual Studio Code](https://code.visualstudio.com/) is a powerful cross-platform source code editor/IDE that can be used for PX4 development on Ubuntu, Windows, and macOS.
 
 Є багато причин використання VSCode для розробки PX4:
 
 - Зробити усі налаштування _дійсно_ займає калька хвилин.
-- Багата екосистема розширень, яка дозволяє забезпечити широкий спектр інструментів, необхідних для розробки PX4: C/C++ (з інтеграцією  _cmake_), _Python_, _Jinja2_, повідомлення ROS і навіть UAVCAN dsdl.
+- A rich extension ecosystem that enables a huge range of tools needed for PX4 development: C/C++ (with solid _cmake_ integration), _Python_, _Jinja2_, ROS messages, and even DroneCAN dsdl.
 - Чудова інтеграція з Github.
 
 Цей розділ пояснює, як налаштувати IDE і почати розробку.
@@ -56,8 +56,7 @@
 
    - Поточна _ціль збірки cmake_ показується на синій панелі _config_ внизу (якщо це бажана ціль, пропустіть наступний крок). ![Вибрати ціль збірки Cmake](../../assets/toolchain/vscode/cmake_build_config.jpg)
 
-:::note
-Ціль збірки cmake яку ви обрали впливає на цілі, які пропонуються при  [збірці/налагодженні](#debugging) (наприклад для апаратного налагодження потрібно обрати цільову платформу на кшталт `px4_fmu-v5`).
+     ::: info The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v6`).
 :::
 
    - Натисніть на ціль на панелі config, щоб показати інші параметри та вибрати ту, яка вам потрібна (це замінить обрану ціль).
