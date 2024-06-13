@@ -253,7 +253,7 @@ Hello Sky!
 
 ## 测试应用（SITL）
 
-如果您使用 SITL，*PX4 控制台*会自动启动（请参阅[构建代码>第一次构建（使用 jMAVSim 模拟器）](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator)）。 与*nsh 控制台*（请参阅上一节）相同，您可以键入`help`以查看内置程序列表。
+If you're using SITL the _PX4 console_ is automatically started (see [Building the Code > First Build (Using a Simulator)](../dev_setup/building_px4.md#first-build-using-a-simulator)). 与*nsh 控制台*（请参阅上一节）相同，您可以键入`help`以查看内置程序列表。
 
 输入`px4_simple_app`来运行这个最小的应用程序。
 
