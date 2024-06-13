@@ -10,9 +10,9 @@ This documentation explains how to set up communication between the PX4 Autopilo
 [MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) is a ROS 1 package that enables MAVLink extendable communication between computers running ROS 1 for any MAVLink enabled autopilot, ground station, or peripheral.
 _MAVROS_ is the "official" supported bridge between ROS 1 and the MAVLink protocol.
 
-First we install ROS and PX4, and then MAVROS.
+First we install PX4 and ROS, and then MAVROS.
 
-## Install ROS 1 and PX4
+## Install ROS and PX4
 
 This section explains how to install [ROS 1](../ros/index.md) with PX4.
 ROS 1 full desktop builds come with Gazebo Classic, so normally you will not install the simulator dependencies yourself!
