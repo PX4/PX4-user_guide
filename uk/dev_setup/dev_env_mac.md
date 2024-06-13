@@ -3,7 +3,6 @@
 Наступні інструкції для встановлення середовища розробки PX4 для macOS. Це середовище може бути використане для збірки PX4 для:
 
 - Pixhawk та іншого апаратного забезпечення на основі NuttX
-- [Симуляція jMAVSim](../sim_jmavsim/index.md)
 - [Симуляція Gazebo Classic](../sim_gazebo_classic/index.md)
 
 :::tip
@@ -104,33 +103,13 @@
    sh macos.sh
    ```
 
-## Симуляція jMAVSim
-
-Для встановлення середовища для симуляції [jMAVSim](../sim_jmavsim/README.md):
-
-1. Встановіть останню версію Java (наприклад, Java 15). Ви можете завантажити [Java 15 (або новіше) від Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) або використати [Eclipse Temurin](https://adoptium.net):
-
-   ```sh
-   brew install --cask temurin
-   ```
-
-1. Встановіть jMAVSim:
-
-   ```sh
-   brew install px4-sim-jmavsim
-   ```
-
-   :::warning PX4 v1.11 і далі вимагає щонайменше JDK 15 для симуляції jMAVSim.
-
-   Для попередніх версій, користувачі macOS можуть побачити помилку `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. Знайти виправлення можна в розділі [jMAVSim з SITL > Усунення проблем](../sim_jmavsim/README.md#troubleshooting)).
-:::
 
 ## Наступні кроки
 
 Після того, як ви закінчите налаштування інструментів командного рядка:
 
 - Встановіть [VSCode](../dev_setup/vscode.md) (якщо ви надаєте перевагу IDE ніж командному рядку).
-- Встановіть [денну збірку QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html).
+- Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
 
 :::tip
 _Денна збірка_ включає інструменти розробки яких немає в релізних збірках. Вона також може надати доступ до нових функцій PX4, які ще не підтримуються в релізних збірках.
