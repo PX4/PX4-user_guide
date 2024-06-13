@@ -77,7 +77,7 @@ The toolchain uses a specially configured console window (started by running the
 
 Once you have finished setting up the command-line toolchain:
 
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html)
+- Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
 - 编译和上传 NuttX 二进制文件（例如：px4_fmu-v2 和 px4_fmu-v4）。
 
 ## 附加信息
