@@ -1,6 +1,7 @@
 # ROS 1 和 MAVROS
 
-:::tip PX4开发团队建议用户迁移到 [ROS 2](../ros/ros2.md) (即跳过此章节)! 它使用 [MAVROS](../ros/mavros_installation.md) 节点与在硬件上运行或使用 [Gazebo 模拟器 ](../simulation/ros_interface.md) 的 PX4 进行通信。
+:::tip
+The PX4 development team recommend that users migrate to [ROS 2](../ros2/index.md) (i.e. skip this section)! 它使用 [MAVROS](../ros/mavros_installation.md) 节点与在硬件上运行或使用 [Gazebo 模拟器 ](../simulation/ros_interface.md) 的 PX4 进行通信。
 
 [ROS](../ros/README.md) (机器人操作系统) 是一个通用的机器人库，可以用于为 PX4 自动驾驶仪创建强大的无人机应用程序。
 
