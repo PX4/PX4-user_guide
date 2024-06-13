@@ -97,7 +97,7 @@ Raspberry Pi
 
 ROS
 
-- ROS 2: [ROS 2 User Guide > Installation & Setup](../ros/ros2_comm.md#installation-setup).
+- ROS 2: [ROS 2 User Guide > Installation & Setup](../ros2/user_guide.md#installation-setup).
 - ROS (1): [ROS (1) Installation Guide](../ros/mavros_installation.md)
 
 ## Next Steps

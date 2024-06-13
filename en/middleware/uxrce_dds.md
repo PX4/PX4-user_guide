@@ -7,7 +7,7 @@ uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middlewar
 If you were using the Fast-RTPS Bridge, please follow the [migration guidelines](#fast-rtps-to-uxrce-dds-migration-guidelines).
 :::
 
-PX4 uses uXRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics.
+PX4 uses uXRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros2/user_guide.md) topics.
 This provides a fast and reliable integration between PX4 and ROS 2, and makes it much easier for ROS 2 applications to get vehicle information and send commands.
 
 PX4 uses an XRCE-DDS implementation that leverages [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html).
@@ -103,7 +103,7 @@ The development version, fetched using `--edge` above, does work.
 ### Build/Run within ROS 2 Workspace
 
 The agent can be built and launched within a ROS 2 workspace (or build standalone and launched from a workspace.
-You must already have installed ROS 2 following the instructions in: [ROS 2 User Guide > Install ROS 2](../ros/ros2_comm.md#install-ros-2).
+You must already have installed ROS 2 following the instructions in: [ROS 2 User Guide > Install ROS 2](../ros2/user_guide.md#install-ros-2).
 
 To build the agent within ROS:
 
@@ -264,7 +264,7 @@ The configuration can be done using the [UXRCE-DDS parameters](../advanced_confi
     It allows to restrict the visibility of the DDS topics to the _localhost_ only and to use user-customized participant configuration files stored on the agent side.
   - [UXRCE_DDS_SYNCT](../advanced_config/parameter_reference.md#UXRCE_DDS_SYNCT): Bridge time synchronization enable.
     The uXRCE-DDS client module can synchronize the timestamp of the messages exchanged over the bridge.
-    This is the default configuration. In certain situations, for example during [simulations](../ros/ros2_comm.md#ros-gazebo-and-px4-time-synchronization), this feature may be disabled.
+    This is the default configuration. In certain situations, for example during [simulations](../ros2/user_guide.md#ros-gazebo-and-px4-time-synchronization), this feature may be disabled.
 
 ::: info
 Many ports are already have a default configuration.
@@ -373,7 +373,7 @@ will generate topics under the namespaces:
 
 PX4 QoS settings for publishers are incompatible with the default QoS settings for ROS 2 subscribers.
 So if ROS 2 code needs to subscribe to a uORB topic, it will need to use compatible QoS settings.
-One example of which is shown in [ROS 2 User Guide > ROS 2 Subscriber QoS Settings](../ros/ros2_comm.md#ros-2-subscriber-qos-settings).
+One example of which is shown in [ROS 2 User Guide > ROS 2 Subscriber QoS Settings](../ros2/user_guide.md#ros-2-subscriber-qos-settings).
 
 PX4 uses the following QoS settings for publishers:
 

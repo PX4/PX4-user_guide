@@ -79,7 +79,7 @@ For example, if the `acceleration` field is the first non-zero value, then PX4 r
 where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
 
 ::: info
-Before using offboard mode with ROS 2, please spend a few minutes understanding the different [frame conventions](../ros/ros2_comm.md#ros-2-px4-frame-conventions) that PX4 and ROS 2 use.
+Before using offboard mode with ROS 2, please spend a few minutes understanding the different [frame conventions](../ros2/user_guide.md#ros-2-px4-frame-conventions) that PX4 and ROS 2 use.
 :::
 
 ### Copter

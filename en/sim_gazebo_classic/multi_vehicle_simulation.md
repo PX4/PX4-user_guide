@@ -57,7 +57,7 @@ The `MAV_SYS_ID` is allocated in the SITL rcS: [init.d-posix/rcS](https://github
 
 ::: info
 You will need to have installed the XRCE-DDS dependencies.
-For more information see: [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS 2 nodes.
+For more information see: [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros2/user_guide.md), for interfacing with ROS 2 nodes.
 :::
 
 To build an example setup, follow the steps below:
@@ -70,7 +70,7 @@ To build an example setup, follow the steps below:
    DONT_RUN=1 make px4_sitl gazebo-classic
    ```
 
-1. Build the `micro xrce-dds agent` and the interface package following the [instructions here](../ros/ros2_comm.md).
+1. Build the `micro xrce-dds agent` and the interface package following the [instructions here](../ros2/user_guide.md).
 
 1. Run `Tools/simulation/gazebo-classic/sitl_multiple_run.sh`.
    For example, to spawn 4 vehicles, run:
