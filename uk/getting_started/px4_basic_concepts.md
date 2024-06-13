@@ -53,7 +53,7 @@
 - Підтримує багато різних рам/типів транспортних засобів, включаючи: [багтороторники](../frames_multicopter/index.md), [літаки з фіксованим крилом](../frames_plane/index.md) (літаки), [VTOL-и](../frames_vtol/index.md) (гібридні багтороторники/літаки з фіксованим крилом), [наземні транспортні засоби](../frames_rover/index.md) та [водні транспортні засоби](../frames_sub/index.md).
 - Великий вибір компонентів дрона для [контролеру польоту](#flight-controller), [датчиків](#sensors), [вантажів](#payloads) та іншої периферії.
 - Гнучкі та потужні [режими польоту](#flight-modes) та [функції безпеки](#safety-settings-failsafe).
-- Надійна та глибока інтеграція з [companion комп'ютерами](#offboard-companion-computer) та [robotics API](../robotics/index.md) такі як [ROS 2](../ros/ros2_comm.md) та [MAVSDK](http://mavsdk.mavlink.io)).
+- Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/index.md) such as [ROS 2](../ros2/user_guide.md) and [MAVSDK](http://mavsdk.mavlink.io)).
 
 PX4 є основною частиною ширшої платформи для безпілотників що включає програмне забезпечення для наземної станції керування [QGroundControl](#qgc), апаратне забезпечення [Pixhawk](https://pixhawk.org/) та [MAVSDK](http://mavsdk.mavlink.io) для інтеграції з companion комп'ютерами, камерами та іншим обладнанням за допомогою протоколу MAVLink. PX4 підтримується [Dronecode Project](https://www.dronecode.org/).
 
@@ -191,7 +191,7 @@ Historically this was included in the flight controller board. On more recent fl
 
 Супутній комп'ютер зазвичай працює на Linux, оскільки це краща платформа для розробки програмного забезпечення та дозволяє безпілотникам отримувати перевагу від наявності передвстановленого програмного забезпечення для машинного зору, мережевої взаємодії тощо.
 
-Політний контролер та супутній комп'ютер можуть бути інтегровані на одній платі, полегшуючи розробку апаратного забезпечення, чи бути окремими пристроями, під'єднаними через serial кабель, Ethernet кабель чи WiFi. Найчастіше супутній комп'ютер спілкується з PX4 використовуючи високорівневе Robotics API, таке як [MAVSDK](https://mavsdk.mavlink.io/) або [ROS 2](../ros/ros2_comm.md).
+Політний контролер та супутній комп'ютер можуть бути інтегровані на одній платі, полегшуючи розробку апаратного забезпечення, чи бути окремими пристроями, під'єднаними через serial кабель, Ethernet кабель чи WiFi. The companion computer typically communicates with PX4 using a high level Robotics API such as [MAVSDK](https://mavsdk.mavlink.io/) or [ROS 2](../ros2/user_guide.md).
 
 Відповідні теми:
 
