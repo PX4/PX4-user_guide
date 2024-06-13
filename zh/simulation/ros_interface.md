@@ -10,12 +10,10 @@ The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram b
 
 ## Installing ROS and Gazebo Classic
 
+[ROS (1) with MAVROS Installation Guide](../ros/mavros_installation.md) explains how to set up a guide for working with ROS (1), MAVROS, and PX4.
+
 ::: info _ROS_ is only supported on Linux (not macOS or Windows).
 :::
-
-The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). The script installs everything you need: PX4, ROS "Melodic", the Gazebo Classic 9 simulator, and [MAVROS](../ros/mavros_installation.md).
-
-::: info The script follows the [standard ROS "Melodic" installation instructions](http://wiki.ros.org/melodic/Installation/Ubuntu), which includes Gazebo 9. 要支持此功能，必须使用适当的 ROS wrappers 启动 Gazebo。
 
 ## 启动 ROS/Simulation
 
@@ -28,12 +26,6 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@192.168.1.36:14557"
 要运行包含在 ROS 中的 SITL，需要更新 ROS 环境，然后像往常一样启动：
 
 ```sh
-roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
-```
-
-::: info It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. For example:
-
-```sh
 cd <Firmware_clone>
 make px4_sitl_default gazebo
 source ~/catkin_ws/devel/setup.bash    // (optional)
@@ -43,7 +35,13 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
 roslaunch px4 posix_sitl.launch
 ```
 
-在您自己的启动文件中包含上述启动文件之一，以在模拟中运行 ROS 应用程序。
+::: info It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. For example:
+
+```sh
+roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
+```
+
+要支持此功能，必须使用适当的 ROS wrappers 启动 Gazebo。
 
 ## Launching Gazebo Classic with ROS Wrappers
 
