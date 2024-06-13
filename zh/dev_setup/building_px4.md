@@ -10,52 +10,71 @@ You need to build PX4 in order to use [simulators](../simulation/index.md), or i
 
 The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository.
 
-To get the _very latest_ ("main") version onto your computer, enter the following command into a terminal:
+To get the _very latest_ (`main` branch) version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-::: info This is all you need to do just to build the latest code. If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release). [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4. 这使我们能够在进入真正的硬件和 IDE 之前验证系统设置。
+Note that you may already have done this when installing the [Developer Toolchain](../dev_setup/dev_env.md)
 
-## 初次编译（使用 jMAVSim 模拟器）
+::: info This is all you need to do in order to get the latest code. If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release). [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4. 这使我们能够在进入真正的硬件和 IDE 之前验证系统设置。
+
+## First Build (Using a Simulator)
 
 首先我们要用控制台（小黑窗）来构建一个模拟模拟目标 This allows us to validate the system setup before moving on to real hardware and an IDE.
 
-Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim/index.md) using the following command:
+Navigate into the **PX4-Autopilot** directory. Depending on your operating system you will have installed either [Gazebo SITL](../sim_gazebo_gz/index.md) or [Gazebo Classic SITL](../sim_gazebo_classic/index.md) (if you don't know which you can try both).
+
+:::: tabs
+
+::: tab Gazebo Start [Gazebo SITL](../sim_gazebo_gz/index.md) using the following command:
 
 ```sh
-make px4_sitl jmavsim
+make px4_sitl gz_x500
 ```
 
-This will bring up the PX4 console below:
-
-![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
-
-::: info You may need to start _QGroundControl_ before proceeding, as the default PX4 configuration requires a ground control connection before takeoff. This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html).
 :::
 
-The drone can be flown by typing:
-
-```sh
-pxh> commander takeoff
-```
-
-![jMAVSim UI](../../assets/toolchain/jmavsim_first_takeoff.png)
-
-The drone can be landed by typing `commander land` and the whole simulation can be stopped by doing **CTRL+C** (or by entering `shutdown`).
-
-Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.
-
-![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
-
-:::tip PX4 can be used with a number of other [Simulators](../simulation/index.md), including [Gazebo](../sim_gazebo_gz/index.md), [Gazebo Classic](../sim_gazebo_classic/index.md) and [AirSim](../sim_airsim/index.md). These are also started with _make_ - e.g.
+::: tab Gazebo-Classic Start [Gazebo SITL](../sim_gazebo_gz/index.md) using the following command:
 
 ```sh
 make px4_sitl gazebo-classic
 ```
 
 :::
+
+::::
+
+This will bring up the PX4 console:
+
+![PX4 Console](../../assets/toolchain/console_gazebo.png)
+
+::: info You may need to start _QGroundControl_ before proceeding, as the default PX4 configuration requires a ground control connection before takeoff. This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html). 运行成功后将输出类似结束：
+
+The drone can be flown by typing the following command (as shown in the console above):
+
+```sh
+pxh> commander takeoff
+```
+
+The vehicle will take off and you'll see this in the simulator UI:
+
+:::: tabs
+
+::: tab Gazebo ![Gazebo UI with vehicle taking off](../../assets/toolchain/gazebo_takeoff.png)
+:::
+
+::: tab Gazebo-Classic ![Gazebo Classic UI with vehicle taking off](../../assets/toolchain/gazebo_classic_takeoff.png)
+:::
+
+::::
+
+The drone can be landed by typing `commander land` and the whole simulation can be stopped by doing **CTRL+C** (or by entering `shutdown`).
+
+Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.
+
+![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
 ## 基于NuttX / Pixhawk 的飞控板
 
@@ -79,7 +98,7 @@ A successful run will end with similar output to:
 
 The first part of the build target `px4_fmu-v4` indicates the target flight controller hardware for the firmware. The suffix, in this case `_default`, indicates a firmware _configuration_, such as supporting or omitting particular features.
 
-::: info The `_default` suffix is optional. For example, `make px4_fmu-v5` and `px4_fmu-v5_default` result in the same firmware. 运行成功后将输出类似结束：
+::: info The `_default` suffix is optional. For example, `make px4_fmu-v5` and `px4_fmu-v5_default` result in the same firmware. 若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
 
 The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
 
@@ -262,15 +281,14 @@ You can get a list of _all_ available `CONFIGURATION_TARGET` options using the c
 make list_config_targets
 ```
 
-若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
+:::
 
 **VIEWER_MODEL_DEBUGGER_WORLD:**
 
 - **VIEWER:** This is the simulator ("viewer") to launch and connect: `gz`, `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
 
 :::tip
-`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, Gazebo, Gazebo Classic, or some other simulator). For example, `make px4_sitl none_iris` launches PX4 without a simulator (but with the iris airframe).
-:::
+`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, Gazebo, Gazebo Classic, or some other simulator). For example, `make px4_sitl none_iris` launches PX4 without a simulator (but with the iris airframe). 若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
 
 - **MODEL:** The _vehicle_ model to use (e.g. `iris` (_default_), `rover`, `tailsitter`, etc), which will be loaded by the simulator. 环境变量 `PX4_SIM_MODEL` 将设置为所选模型。 然后在 [启动脚本 ](#scripts) 中使用该模型来选择适当的参数。
 - **DEBUGGER:** Debugger to use: `none` (_default_), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. 有关详细信息，请参阅 < 0>Simulation 调试 </0>。
@@ -283,11 +301,15 @@ You can get a list of _all_ available `VIEWER_MODEL_DEBUGGER_WORLD` options usin
 make px4_sitl list_vmd_make_targets
 ```
 
-::: infos:
+:::
+
+::: info
 
 - Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional. For example, `gazebo-classic` is equivalent to `gazebo-classic_iris` or `gazebo-classic_iris_none`.
 - You can use three underscores if you want to specify a default value between two other settings. For example, `gazebo-classic___gdb` is equivalent to `gazebo-classic_iris_gdb`.
 - You can use a `none` value for `VIEWER_MODEL_DEBUGGER` to start PX4 and wait for a simulator. For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/simulation/jmavsim/jmavsim_run.sh -l`.
+
+:::
 
 The `VENDOR_MODEL_VARIANT` options map to particular _px4board_ configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.px4board** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board)).
 
@@ -305,4 +327,5 @@ The _PX4 Firmware Version_ and _Custom Firmware Version_ are published using the
 These are extracted at build time from the active _git tag_ for your repo tree. The git tag should be formatted as `<PX4-version>-<vendor-version>` (e.g. the tag in the image above was set to `v1.8.1-2.22.1`).
 
 :::warning
-If you use a different git tag format, versions information may not be displayed properly. 若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
+If you use a different git tag format, versions information may not be displayed properly.
+:::
