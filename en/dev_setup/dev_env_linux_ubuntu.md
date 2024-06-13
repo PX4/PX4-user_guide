@@ -185,8 +185,9 @@ You will need to install the normal development [simulator environment](#simulat
 This section explains how to install [ROS 1](../ros/index.md) with PX4.
 ROS 1 full desktop builds come with Gazebo Classic, so normally you will not install PX4 simulator dependencies yourself!
 
-### ROS Noetic/Ubuntu 20.04
+:::: tabs
 
+::: tab ROS Noetic (Ubuntu 22.04)
 If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
 
 1. Install PX4 without the simulator toolchain:
@@ -214,9 +215,11 @@ If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
    ```
 
 1. Follow the [Noetic Installation instructions](http://wiki.ros.org/noetic/Installation/Ubuntu#Installation) (ros-noetic-desktop-full is recommended).
-1. Intall MAVROS by following the [MAVROS Installation Guide](../ros/mavros_installation.md).
+1. Install MAVROS by following the [MAVROS Installation Guide](../ros/mavros_installation.md).
 
-### ROS Melodic/Ubuntu 18.04
+:::
+
+::: tab ROS Melodic(Ubuntu 18.04)
 
 If you're working with ROS "Melodic on Ubuntu 18.04:
 
@@ -234,13 +237,15 @@ If you're working with ROS "Melodic on Ubuntu 18.04:
 
    You may need to acknowledge some prompts as the script progresses.
 
-::: info
+   ::: info
 
-- ROS Melodic is installed with Gazebo (Classic) 9 by default.
-- Your catkin (ROS build system) workspace is created at **~/catkin_ws/**.
-- The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
+   - ROS Melodic is installed with Gazebo (Classic) 9 by default.
+   - Your catkin (ROS build system) workspace is created at **~/catkin_ws/**.
+   - The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
 
-:::
+   :::
+
+::::
 
 ## Video Guide
 
@@ -254,7 +259,7 @@ Note however that it was created some years ago and has not been verified to wor
 Once you have finished setting up the command-line toolchain:
 
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html)
+- Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
 
   :::tip
   The _daily build_ includes development tools that hidden in release builds.
