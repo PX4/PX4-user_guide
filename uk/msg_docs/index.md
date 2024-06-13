@@ -3,7 +3,7 @@
 :::info Цей список [автоматично згенеровано](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/msg/generate_msg_docs.py) з вихідного коду.
 :::
 
-This topic lists the UORB messages available in PX4 (some of which may be may be shared by the [PX4-ROS 2 Bridge](../ros2/user_guide.md)). Графи, що показують, як вони використовуються [можна знайти тут](../middleware/uorb_graph.md).
+This topic lists the UORB messages available in PX4 (some of which may be may be shared by the [PX4-ROS 2 Bridge](../ros/ros2_comm.md)). Графи, що показують, як вони використовуються [можна знайти тут](../middleware/uorb_graph.md).
 
 - [ActionRequest](ActionRequest.md)
 - [ActuatorArmed](ActuatorArmed.md)
