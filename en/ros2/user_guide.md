@@ -620,7 +620,7 @@ int main(int argc, char *argv[])
 
 ### Offboard Control
 
-For a complete reference example on how to use Offboard control with PX4, see: [ROS 2 Offboard control example](../ros/ros2_offboard_control.md).
+For a complete reference example on how to use Offboard control with PX4, see: [ROS 2 Offboard control example](../ros2/offboard_control.md).
 
 ## Using Flight Controller Hardware
 

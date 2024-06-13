@@ -17,7 +17,7 @@ In the near term future we plan to provide ROS 2 APIs to abstract PX4 convention
 
 The main topics in this section are:
 - [ROS 2 User Guide](../ros2/user_guide.md): A PX4-centric overview of ROS 2, covering installation, setup, and how to build ROS 2 applications that communicate with PX4.
-- [ROS 2 Offboard Control Example](../ros/ros2_offboard_control.md)
+- [ROS 2 Offboard Control Example](../ros2/offboard_control.md)
 
 ::: info
 ROS 2 is officially supported only on Linux platforms.
