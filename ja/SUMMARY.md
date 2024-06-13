@@ -578,6 +578,7 @@
       - [RcParameterMap](msg_docs/RcParameterMap.md)
       - [RegisterExtComponentReply](msg_docs/RegisterExtComponentReply.md)
       - [RegisterExtComponentRequest](msg_docs/RegisterExtComponentRequest.md)
+      - [RoverAckermannGuidanceStatus](msg_docs/RoverAckermannGuidanceStatus.md)
       - [Rpm](msg_docs/Rpm.md)
       - [RtlStatus](msg_docs/RtlStatus.md)
       - [RtlTimeEstimate](msg_docs/RtlTimeEstimate.md)
