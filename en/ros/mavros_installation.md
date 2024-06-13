@@ -1,7 +1,7 @@
 # ROS (1) with MAVROS Installation Guide
 
 :::warning
-The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md).
+The PX4 development team recommend that all users [upgrade to ROS 2](../ros2/index.md).
 This documentation reflects the "old approach".
 :::
 

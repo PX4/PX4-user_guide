@@ -742,7 +742,7 @@
 - [Drone Apps & APIs](robotics/index.md)
   - [Offboard Control from Linux](ros/offboard_control.md)
   - [ROS](ros/index.md)
-    - [ROS 2](ros/ros2.md)
+    - [ROS 2](ros2/index.md)
       - [ROS 2 User Guide](ros/ros2_comm.md)
       - [ROS 2 Offboard Control Example](ros/ros2_offboard_control.md)
       - [ROS 2 Multi Vehicle Simulation](ros/ros2_multi_vehicle.md)
