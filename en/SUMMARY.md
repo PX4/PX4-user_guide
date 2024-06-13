@@ -745,7 +745,7 @@
     - [ROS 2](ros2/index.md)
       - [ROS 2 User Guide](ros2/user_guide.md)
       - [ROS 2 Offboard Control Example](ros/ros2_offboard_control.md)
-      - [ROS 2 Multi Vehicle Simulation](ros/ros2_multi_vehicle.md)
+      - [ROS 2 Multi Vehicle Simulation](ros2/multi_vehicle.md)
       - [PX4 ROS 2 Interface Library](ros2/px4_ros2_interface_lib.md)
         - [Control Interface](ros2/px4_ros2_control_interface.md)
         - [Navigation Interface](ros2/px4_ros2_navigation_interface.md)
