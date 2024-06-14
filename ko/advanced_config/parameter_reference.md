@@ -9426,34 +9426,6 @@ table {
  <td>norm</td>
 </tr>
 <tr>
- <td><strong id="BAT_N_CELLS">BAT_N_CELLS</strong> (INT32)</td>
- <td>This parameter is deprecated. Please use BAT1_N_CELLS instead    </td>
- <td></td>
- <td>3</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_V_CHARGED">BAT_V_CHARGED</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_CHARGED instead    </td>
- <td></td>
- <td>4.05</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_V_EMPTY">BAT_V_EMPTY</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_EMPTY instead    </td>
- <td></td>
- <td>3.6</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_V_LOAD_DROP">BAT_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_LOAD_DROP instead    </td>
- <td></td>
- <td>0.3</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="BAT_V_OFFS_CURR">BAT_V_OFFS_CURR</strong> (FLOAT)</td>
  <td>Offset in volt as seen by the ADC input of the current sensor <p><strong>Comment:</strong> This offset will be subtracted before calculating the battery current based on the voltage.</p>   </td>
  <td></td>
@@ -13298,7 +13270,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="CA_AIRFRAME">CA_AIRFRAME</strong> (INT32)</td>
- <td>Airframe selection <p><strong>Comment:</strong> Defines which mixer implementation to use. Some are generic, while others are specifically fit to a certain vehicle with a fixed set of actuators. &#x27;Custom&#x27; should only be used if noting else can be used.</p> <strong>값:</strong><ul>
+ <td>Airframe selection <p><strong>Comment:</strong> Defines which mixer implementation to use. Some are generic, while others are specifically fit to a certain vehicle with a fixed set of actuators. &#x27;Custom&#x27; should only be used if noting else can be used.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Multirotor</li>
 <li><strong>1:</strong> Fixed-wing</li>
 <li><strong>2:</strong> Standard VTOL</li>
@@ -16315,7 +16287,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -16547,7 +16519,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
