@@ -254,7 +254,7 @@ Hello Sky!
 
 ## 앱 테스트(SITL)
 
-SITL을 사용하는 경우 *PX4 콘솔*이 자동으로 시작됩니다([코드 빌드 > 첫 번째 빌드(jMAVSim 시뮬레이터 사용)](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator) 참조). *nsh 콘솔*(이전 섹션 참조)과 마찬가지로 `help`를 입력하여 내장 앱 목록을 조회합니다.
+If you're using SITL the _PX4 console_ is automatically started (see [Building the Code > First Build (Using a Simulator)](../dev_setup/building_px4.md#first-build-using-a-simulator)). *nsh 콘솔*(이전 섹션 참조)과 마찬가지로 `help`를 입력하여 내장 앱 목록을 조회합니다.
 
 `px4_simple_app`을 입력하여 앱을 실행합니다.
 

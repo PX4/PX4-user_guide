@@ -9458,34 +9458,6 @@ table {
  <td>norm</td>
 </tr>
 <tr>
- <td><strong id="BAT_N_CELLS">BAT_N_CELLS</strong> (INT32)</td>
- <td>This parameter is deprecated. Please use BAT1_N_CELLS instead    </td>
- <td></td>
- <td>3</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_V_CHARGED">BAT_V_CHARGED</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_CHARGED instead    </td>
- <td></td>
- <td>4.05</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_V_EMPTY">BAT_V_EMPTY</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_EMPTY instead    </td>
- <td></td>
- <td>3.6</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_V_LOAD_DROP">BAT_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_LOAD_DROP instead    </td>
- <td></td>
- <td>0.3</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="BAT_V_OFFS_CURR">BAT_V_OFFS_CURR</strong> (FLOAT)</td>
  <td>Offset in volt as seen by the ADC input of the current sensor <p><strong>Comment:</strong> This offset will be subtracted before calculating the battery current based on the voltage.</p>   </td>
  <td></td>
@@ -24332,14 +24304,14 @@ table {
 <tr>
  <td><strong id="SIH_MASS">SIH_MASS</strong> (FLOAT)</td>
  <td>Vehicle mass <p><strong>Comment:</strong> This value can be measured by weighting the quad on a scale.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
+ <td>(0.1) (0.01)</td>
  <td>1.0</td>
  <td>kg</td>
 </tr>
 <tr>
  <td><strong id="SIH_Q_MAX">SIH_Q_MAX</strong> (FLOAT)</td>
  <td>Max propeller torque <p><strong>Comment:</strong> This is the maximum torque delivered by one propeller when the motor is running at full speed. This value is usually about few percent of the maximum thrust force.</p>   </td>
- <td>(0.1) [0.1, ?]</td>
+ <td>[0.0, ?] [0.1, ?]</td>
  <td>0.1</td>
  <td>Nm</td>
 </tr>

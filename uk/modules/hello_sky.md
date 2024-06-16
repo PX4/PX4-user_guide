@@ -254,7 +254,7 @@ Hello Sky!
 
 ## Тестовий додаток (SITL)
 
-Якщо ви використовуєте SITL, _консоль PX4_ автоматично запускається (див. [Кодова база > Перше Компілювання (Використання Симулятора jMAVSim)](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator)). Так само, як і з _консоллю nsh_ (див. попередній розділ), ви можете ввести `help`, щоб переглянути список вбудованих додатків.
+If you're using SITL the _PX4 console_ is automatically started (see [Building the Code > First Build (Using a Simulator)](../dev_setup/building_px4.md#first-build-using-a-simulator)). Так само, як і з _консоллю nsh_ (див. попередній розділ), ви можете ввести `help`, щоб переглянути список вбудованих додатків.
 
 Введіть `px4_simple_app`, щоб запустити мінімальний додаток.
 

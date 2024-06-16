@@ -9458,34 +9458,6 @@ table {
  <td>norm</td>
 </tr>
 <tr>
- <td><strong id="BAT_N_CELLS">BAT_N_CELLS</strong> (INT32)</td>
- <td>This parameter is deprecated. Please use BAT1_N_CELLS instead    </td>
- <td></td>
- <td>3</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_V_CHARGED">BAT_V_CHARGED</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_CHARGED instead    </td>
- <td></td>
- <td>4.05</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_V_EMPTY">BAT_V_EMPTY</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_EMPTY instead    </td>
- <td></td>
- <td>3.6</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_V_LOAD_DROP">BAT_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_LOAD_DROP instead    </td>
- <td></td>
- <td>0.3</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="BAT_V_OFFS_CURR">BAT_V_OFFS_CURR</strong> (FLOAT)</td>
  <td>Offset in volt as seen by the ADC input of the current sensor <p><strong>Comment:</strong> This offset will be subtracted before calculating the battery current based on the voltage.</p>   </td>
  <td></td>
@@ -24296,14 +24268,14 @@ table {
 </tr>
 <tr>
  <td><strong id="SIH_LOC_H0">SIH_LOC_H0</strong> (FLOAT)</td>
- <td>Initial AMSL ground altitude <p><strong>Comment:</strong> This value represents the Above Mean Sea Level (AMSL) altitude where the simulation begins. If using FlightGear as a visual animation, this value can be tweaked such that the vehicle lies on the ground at takeoff. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
+ <td>Initial AMSL ground altitude <p><strong>Comment:</strong> This value represents the Above Mean Sea Level (AMSL) altitude where the simulation begins. If using FlightGear as a visual animation, this value can be tweaked such that the vehicle lies on the ground at takeoff. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td>[-420.0, 8848.0] (0.01)</td>
  <td>32.34</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="SIH_LOC_LAT0">SIH_LOC_LAT0</strong> (INT32)</td>
- <td>Initial geodetic latitude <p><strong>Comment:</strong> This value represents the North-South location on Earth where the simulation begins. A value of 45 deg should be written 450000000. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
+ <td>Initial geodetic latitude <p><strong>Comment:</strong> This value represents the North-South location on Earth where the simulation begins. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td>[-850000000, 850000000] </td>
  <td>454671160</td>
  <td>deg*1e7</td>
