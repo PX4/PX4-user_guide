@@ -1250,6 +1250,50 @@ safety_button <command> [arguments...]
 
    status        print status info
 ```
+## septentrio
+Source: [drivers/gnss/septentrio](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gnss/septentrio)
+
+
+### Опис
+GPS driver module that handles the communication with Septentrio devices and publishes the position via uORB.
+
+The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance. It can be used for logging and heading computation.
+
+### Приклади
+
+Starting 2 GPS devices (main one on /dev/ttyS3, secondary on /dev/ttyS4)
+```
+septentrio start -d /dev/ttyS3 -e /dev/ttyS4
+```
+
+Initiate warm restart of GPS device
+```
+gps reset warm
+```
+
+<a id="septentrio_usage"></a>
+
+### Використання
+```
+septentrio <command> [arguments...]
+ Commands:
+   start
+     -d <val>    Primary Septentrio receiver
+                 values: <file:dev>
+     [-b <val>]  Primary baud rate
+                 default: 0
+     [-e <val>]  Secondary Septentrio receiver
+                 values: <file:dev>
+     [-g <val>]  Secondary baud rate
+                 default: 0
+
+   stop
+
+   status        print status info
+
+   reset         Reset connected receiver
+     cold|warm|hot Specify reset type
+```
 ## sht3x
 Джерело: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/hygrometer/sht3x)
 
@@ -1433,7 +1477,7 @@ voxl2_io <command> [arguments...]
 ### Реалізація
 За замовчуванням модуль працює в черзі роботи з зворотнім викликом за темою управління актуаторами uORB.
 
-### Приклади
+### Examples
 Зазвичай починається з:
 ```
 todo
@@ -1512,13 +1556,13 @@ voxlpm [arguments...]
 Джерело: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/zenoh)
 
 
-### Опис
+### Description
 
 Zenoh demo bridge
 
 <a id="zenoh_usage"></a>
 
-### Використання
+### Usage
 ```
 zenoh <command> [arguments...]
  Commands:
