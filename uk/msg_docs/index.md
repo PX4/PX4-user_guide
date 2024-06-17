@@ -82,7 +82,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [GpioIn](GpioIn.md) — маска та стан GPIO
 - [GpioOut](GpioOut.md) — Маска та стан GPIO
 - [GpioRequest](GpioRequest.md) — Запит на зчитування маски GPIO
-- [GpsDump](GpsDump.md) — Це повідомлення використовується для виведення необробленої gps комунікації до журналу. Встановіть параметр GPS_DUMP_COMM на 1, щоб використовувати це.
+- [GpsDump](GpsDump.md) — This message is used to dump the raw gps communication to the log.
 - [GpsInjectData](GpsInjectData.md)
 - [ Gripper ](Gripper.md) — # Використовується для виклику активації в захоплювачі, яка відображена на конкретний вихід в модулі розподілу керування
 - [HealthReport](HealthReport.md)
