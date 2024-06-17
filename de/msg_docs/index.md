@@ -66,6 +66,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [FollowTarget](FollowTarget.md)
 - [FollowTargetEstimator](FollowTargetEstimator.md)
 - [FollowTargetStatus](FollowTargetStatus.md)
+- [FuelTankStatus](FuelTankStatus.md)
 - [GeneratorStatus](GeneratorStatus.md)
 - [GeofenceResult](GeofenceResult.md)
 - [GeofenceStatus](GeofenceStatus.md)
