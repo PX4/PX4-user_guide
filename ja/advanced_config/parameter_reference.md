@@ -26604,6 +26604,26 @@ table {
  <td>bit/s</td>
 </tr>
 <tr>
+ <td><strong id="UAVCAN_ECU_FUELT">UAVCAN_ECU_FUELT</strong> (INT32)</td>
+ <td>UAVCAN fuel tank fuel type <p><strong>Comment:</strong> This parameter defines the type of fuel used in the vehicle&#x27;s fuel tank. 0: Unknown 1: Liquid (e.g., gasoline, diesel) 2: Gas (e.g., hydrogen, methane, propane)</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unknown</li>
+<li><strong>1:</strong> Liquid</li>
+<li><strong>2:</strong> Gas</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 2] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_ECU_MAXF">UAVCAN_ECU_MAXF</strong> (FLOAT)</td>
+ <td>UAVCAN fuel tank maximum capacity <p><strong>Comment:</strong> This parameter defines the maximum fuel capacity of the vehicle&#x27;s fuel tank.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0.0, 100000.0] (0.1)</td>
+ <td>15.0</td>
+ <td>liters</td>
+</tr>
+<tr>
  <td><strong id="UAVCAN_ENABLE">UAVCAN_ENABLE</strong> (INT32)</td>
  <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
@@ -26761,6 +26781,14 @@ table {
 <tr>
  <td><strong id="UAVCAN_SUB_FLOW">UAVCAN_SUB_FLOW</strong> (INT32)</td>
  <td>subscription flow <p><strong>Comment:</strong> Enable UAVCAN optical flow subscription.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_SUB_FUEL">UAVCAN_SUB_FUEL</strong> (INT32)</td>
+ <td>subscription fuel tank <p><strong>Comment:</strong> Enable UAVCAN fuel tank status subscription.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
