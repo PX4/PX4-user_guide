@@ -71,6 +71,7 @@ scale errors, in-run bias and thermal drift (if thermal compensation is enabled 
 - [FollowTarget](FollowTarget.md)
 - [FollowTargetEstimator](FollowTargetEstimator.md)
 - [FollowTargetStatus](FollowTargetStatus.md)
+- [FuelTankStatus](FuelTankStatus.md)
 - [GeneratorStatus](GeneratorStatus.md)
 - [GeofenceResult](GeofenceResult.md)
 - [GeofenceStatus](GeofenceStatus.md)
