@@ -160,7 +160,7 @@ The easiest way to calibrate the dividers is by using _QGroundControl_ and follo
 부하 보상은 [기본 설정](#basic_settings)을 사용할 때 발생하는 전압/예상 용량의 측정값 변동에 대응하려고 합니다. This works by estimating what the voltage would be for the _unloaded_ battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity.
 
 :::note
-부하 보상을 사용하려면 [기본 설정](#basic_settings)을 사용하여 설정합니다. The _Empty Voltage_ ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
+부하 보상을 사용하려면 [기본 설정](#basic_settings)을 사용하여 설정합니다. The _Empty Voltage_ ([BATn_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY), where `n` is the battery number) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
 :::
 
 PX4는 아래 두개의 매개변수 중 하나를 [설정](../advanced_config/parameters.md)하여 활성화되는 두 가지 부하 보상 방법을 지원합니다.
