@@ -10,4 +10,4 @@
 
 ## 另请参阅
 
-- [Peripherals](../peripherals/index.md) - includes non-core actuators such as grippers, parachutes, etc.
+- [外设](../peripherals/index.md) - 包括非核心执行器，如夹具， 降落伞等。
