@@ -17164,9 +17164,16 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_VELD_LP">MPC_VELD_LP</strong> (FLOAT)</td>
- <td>Numerical velocity derivative low pass cutoff frequency    </td>
- <td>[0, 10] (0.5)</td>
+ <td>Velocity derivative low pass cutoff frequency <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
  <td>5.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_LP">MPC_VEL_LP</strong> (FLOAT)</td>
+ <td>Velocity low pass cutoff frequency <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
+ <td>0.0</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -17189,6 +17196,20 @@ table {
  <td>[-1, 20] (1)</td>
  <td>-1.</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_NF_BW">MPC_VEL_NF_BW</strong> (FLOAT)</td>
+ <td>Velocity notch filter bandwidth <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
+ <td>5.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_NF_FRQ">MPC_VEL_NF_FRQ</strong> (FLOAT)</td>
+ <td>Velocity notch filter frequency <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the velocity. A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
+ <td>0.0</td>
+ <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
@@ -17914,7 +17935,7 @@ table {
  <td>RC channel 10 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC11_DZ">RC11_DZ</strong> (FLOAT)</td>
@@ -17952,7 +17973,7 @@ table {
  <td>RC channel 11 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC12_DZ">RC12_DZ</strong> (FLOAT)</td>
@@ -17990,7 +18011,7 @@ table {
  <td>RC channel 12 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC13_DZ">RC13_DZ</strong> (FLOAT)</td>
@@ -18028,7 +18049,7 @@ table {
  <td>RC channel 13 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC14_DZ">RC14_DZ</strong> (FLOAT)</td>
@@ -18066,7 +18087,7 @@ table {
  <td>RC channel 14 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC15_DZ">RC15_DZ</strong> (FLOAT)</td>
@@ -18104,7 +18125,7 @@ table {
  <td>RC channel 15 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC16_DZ">RC16_DZ</strong> (FLOAT)</td>
@@ -18429,7 +18450,7 @@ table {
  <td>RC channel 6 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC6_REV">RC6_REV</strong> (FLOAT)</td>
@@ -18446,7 +18467,7 @@ table {
  <td>RC channel 6 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC7_DZ">RC7_DZ</strong> (FLOAT)</td>
@@ -18560,7 +18581,7 @@ table {
  <td>RC channel 9 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC_CHAN_CNT">RC_CHAN_CNT</strong> (INT32)</td>
