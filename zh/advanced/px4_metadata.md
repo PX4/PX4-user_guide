@@ -1,8 +1,8 @@
-# PX4 Metadata
+# PX4 元数据
 
-PX4 uses and generates data that has associated human- and machine- readable metadata:
+PX4 使用并生成人类和机器可读的元数据:
 
-- [Parameters](../advanced_config/parameters.md) configure PX4 behaviour.
+- [参数](../advanced_config/parameters.md) 配置 PX4 的行为。
   - A parameter is represented by an ID string that maps to a value stored in PX4.
   - The associated metadata includes a description of the setting, its possible values, information about how the value might be presented (say for bitmasks).
 - [Events](../concept/events_interface.md) provide notification of events, such as reasons for a failsafe, low battery warnings, end of calibration, and so on.
@@ -16,12 +16,12 @@ The metadata and metadata translations are shared with external systems, such as
 
 This topic explains how you can define metadata and help translate strings (and "just for your information", how it all works).
 
-## Metadata Translation
+## 元数据翻译
 
 Translations for PX4 metadata are done using Crowdin in the [PX4-Metadata-Translations](https://crowdin.com/project/px4-metadata-translations) project.
 For more information about working with PX4 and Crowdin see [Translation](../contribute/translation.md).
 
-## Defining Metadata
+## 元数据定义
 
 PX4 metadata is defined in PX4 source code alongside its associated data.
 This is done either in a C/C++ comment with special markup to indicate metadata fields and their values, or using YAML files.
@@ -32,7 +32,7 @@ For more information see the topics for each data type:
 - [Events Interface](../concept/events_interface.md)
 - [Actuator Metadata](#actuator-metadata) (below)
 
-## Metadata Toolchain
+## 元数据工具链
 
 The process for handling metadata is the same for all metadata types.
 
@@ -65,7 +65,7 @@ For more information see [PX4-Metadata-Translations](https://github.com/PX4/PX4-
 The parameter XML file of the main branch is copied into the QGC source tree via CI and is used as a fallback in cases where no metadata is available via the component metadata protocol (this approach predates the existence of the component metadata protocol).
 :::
 
-### Actuator Metadata
+### 元数据执行器
 
 The following diagram shows how actuator metadata is assembled from the source code and used by QGroundControl:
 
@@ -80,7 +80,7 @@ The following diagram shows how actuator metadata is assembled from the source c
   There is also [schema file](https://github.com/mavlink/mavlink/blob/master/component_metadata/actuators.schema.json) for this.
 - **Right**: At runtime, the JSON file is requested by QGroundControl via MAVLink Component Metadata API (described above).
 
-## Further Information
+## 更多信息：
 
 - [Parameters & Configurations](../advanced/parameters_and_configurations.md)
 - [Events Interface](../concept/events_interface.md)
