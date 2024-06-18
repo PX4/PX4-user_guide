@@ -24600,6 +24600,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SYS_PARAM_VER">SYS_PARAM_VER</strong> (INT32)</td>
+ <td>Parameter version <p><strong>Comment:</strong> This is used internally only: an airframe configuration might set an expected parameter version value via PARAM_DEFAULTS_VER. This is checked on bootup against SYS_PARAM_VER, and if they do not match, parameters are reset and reloaded from the airframe configuration.</p>   </td>
+ <td>[0, ?] (1) </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SYS_RGB_MAXBRT">SYS_RGB_MAXBRT</strong> (FLOAT)</td>
  <td>RGB Led brightness limit <p><strong>Comment:</strong> Set to 0 to disable, 1 for maximum brightness</p>   </td>
  <td></td>
@@ -27584,7 +27591,7 @@ table {
 <tr>
  <td><strong id="VT_PSHER_SLEW">VT_PSHER_SLEW</strong> (FLOAT)</td>
  <td>Pusher throttle ramp up slew rate <p><strong>Comment:</strong> Defines the slew rate of the puller/pusher throttle during transitions. Zero will deactivate the slew rate limiting and thus produce an instant throttle rise to the transition throttle VT_F_TRANS_THR.</p>   </td>
- <td>[0, ?] (1) (0.01)</td>
+ <td>[0, ?] (0.01)</td>
  <td>0.33</td>
  <td>1/s</td>
 </tr>
