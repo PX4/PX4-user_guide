@@ -17165,9 +17165,16 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_VELD_LP">MPC_VELD_LP</strong> (FLOAT)</td>
- <td>Numerical velocity derivative low pass cutoff frequency    </td>
- <td>[0, 10] (0.5)</td>
+ <td>Velocity derivative low pass cutoff frequency <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
  <td>5.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_LP">MPC_VEL_LP</strong> (FLOAT)</td>
+ <td>Velocity low pass cutoff frequency <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
+ <td>0.0</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -17190,6 +17197,20 @@ table {
  <td>[-1, 20] (1)</td>
  <td>-1.</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_NF_BW">MPC_VEL_NF_BW</strong> (FLOAT)</td>
+ <td>Velocity notch filter bandwidth <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
+ <td>5.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_NF_FRQ">MPC_VEL_NF_FRQ</strong> (FLOAT)</td>
+ <td>Velocity notch filter frequency <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the velocity. A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
+ <td>0.0</td>
+ <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
