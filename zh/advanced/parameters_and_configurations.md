@@ -43,7 +43,7 @@ param show -c
 
 ### 导出和加载参数
 
-You can save any parameters that have been _changed_ (that are different from airframe defaults).
+你可以保存任何已经_修改_的参数(不同于机身默认的参数)。
 
 标准的 `param save ` 命令将参数存储在当前默认文件中:
 
@@ -57,7 +57,7 @@ param save
 param save /fs/microsd/vtol_param_backup
 ```
 
-There are two different commands to _load_ parameters:
+有两个不同的命令来_加载_参数:
 
 - `param load` 首先将所有参数完全重置为默认值，然后用存储在文件中的任何值覆盖参数值。
 - `param import` 只是用文件中的值覆盖参数值，然后保存结果（即有效调用 `param save`）。
@@ -80,9 +80,9 @@ param save
 param import /fs/microsd/vtol_param_backup
 ```
 
-## 参数名称
+## 参数创建/定义
 
-参数名称不得超过 16 个 ASCII 字符。
+参数定义有两部分:
 
 - `orb_check()` 告诉我们是否有 *任何* 更新 `param_update` 的 uorb 消息 (但不是受影响的参数)，并设置 `updated` bool。
 - 如果更新了 "某些" 参数，我们会将更新复制到 `parameter_update_s` (`param_upd`)
@@ -91,15 +91,15 @@ param import /fs/microsd/vtol_param_backup
 
 该名称必须在代码和 [parameter metadatata](#parameter-metadata) 中匹配，才能正确地将参数与其元数据（包括固件中的默认值）相关联。
 
-### C++ API
+### 参数名称
 
-参数名称不得超过 16个 ASCII 字符。
+参数名称不得超过 16 个 ASCII 字符。
 
 By convention, every parameter in a group should share the same (meaningful) string prefix followed by an underscore, and `MC_` and `FW_` are used for parameters related specifically to Multicopter or Fixed-wing systems. This convention is not enforced.
 
 The name must match in both code and [parameter metadata](#parameter-metadata) to correctly associate the parameter with its metadata (including default value in Firmware).
 
-### C API
+### C / C++ API
 
 There are separate C and C++ APIs that can be used to access parameter values from within PX4 modules and drivers.
 
@@ -109,9 +109,9 @@ Synchronization is important because a parameter can be changed to another value
 
 从 `ModuleParams` 派生类，并使用 `DEFINE_PARAMETERS` 指定参数李彪及其关联的参数属性。 参数的名称必须与其参数元数据定义相同。
 
-#### 多实例（模块化）元数据
+#### C++ API
 
-The C++ API provides macros to declare parameters as _class attributes_. You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with _any_ parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
+C++ API 提供宏来将参数声明为 _class attributes_。 You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with _any_ parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
 
 First include the required needed headers in the class header for your module or driver:
 
@@ -217,7 +217,7 @@ int32_t my_param = 0;
 param_get(my_param_handle, &my_param);
 ```
 
-### c 参数元数据
+### 参数元数据
 
 PX4 uses an extensive parameter metadata system to drive the user-facing presentation of parameters, and to set the default value for each parameter in firmware.
 
@@ -233,7 +233,7 @@ The build system extracts the metadata (using `make parameters_metadata`) to bui
 After adding a _new_ parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the _cmake_ configure step, which happens for clean builds and if a cmake file is modified).
 :::
 
-#### YAML Metadata
+#### YAML 元数据
 
 ::: info At time of writing YAML parameter definitions cannot be used in _libraries_.
 :::
@@ -268,7 +268,7 @@ The following YAML definitions provide the start and end indexes.
 
 For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml)
 
-#### c Parameter Metadata
+#### c 参数元数据
 
 The legacy approach for defining parameter metadata is in a file with extension **.c** (at time of writing this is the approach most commonly used in the source tree).
 
@@ -323,14 +323,14 @@ The lines in the comment block are all optional, and are primarily used to contr
  */
 ```
 
-## C / C++ API
+## 发布参数的元数据到地面站
 
 The parameter metadata JSON file is compiled into firmware (or hosted on the Internet), and made available to ground stations via the [MAVLink Component Metadata service](https://mavlink.io/en/services/component_information.html). This ensures that metadata is always up-to-date with the code running on the vehicle.
 
 This process is the same as for [events metadata](../concept/events_interface.md#publishing-event-metadata-to-a-gcs). For more information see [PX4 Metadata (Translation & Publication)](../advanced/px4_metadata.md)
 
-## Further Information
+## 更多信息
 
-- [Finding/Updating Parameters](../advanced_config/parameters.md)
-- [Parameter Reference](../advanced_config/parameter_reference.md)
-- [Param implementation](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/param.h#L129) (information on `.get()`, `.commit()`, and other methods)
+- [查找/更新参数](../advanced_config/parameters.md)
+- [参数参照表](../advanced_config/parameter_reference.md)
+- [参数实现](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/param.h#L129) (参数消息用 `.get()`, `.commit()`, 和其他方法)
