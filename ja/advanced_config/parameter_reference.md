@@ -17164,9 +17164,16 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_VELD_LP">MPC_VELD_LP</strong> (FLOAT)</td>
- <td>Numerical velocity derivative low pass cutoff frequency    </td>
- <td>[0, 10] (0.5)</td>
+ <td>Velocity derivative low pass cutoff frequency <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
  <td>5.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_LP">MPC_VEL_LP</strong> (FLOAT)</td>
+ <td>Velocity low pass cutoff frequency <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
+ <td>0.0</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -17189,6 +17196,20 @@ table {
  <td>[-1, 20] (1)</td>
  <td>-1.</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_NF_BW">MPC_VEL_NF_BW</strong> (FLOAT)</td>
+ <td>Velocity notch filter bandwidth <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
+ <td>5.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_NF_FRQ">MPC_VEL_NF_FRQ</strong> (FLOAT)</td>
+ <td>Velocity notch filter frequency <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the velocity. A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
+ <td>0.0</td>
+ <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
@@ -21963,7 +21984,7 @@ table {
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_CUTOFF">IMU_GYRO_CUTOFF</strong> (FLOAT)</td>
- <td>Low pass filter cutoff frequency for gyro <p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary gyro. This only affects the angular velocity sent to the controllers, not the estimators. It applies also to the angular acceleration (D-Term filter), see IMU_DGYRO_CUTOFF. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Low pass filter cutoff frequency for gyro <p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary gyro. This only affects the angular velocity sent to the controllers, not the estimators. It applies also to the angular acceleration (D-Term filter), see IMU_DGYRO_CUTOFF. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 1000] </td>
  <td>40.0</td>
@@ -22070,7 +22091,7 @@ table {
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_NF1_FRQ">IMU_GYRO_NF1_FRQ</strong> (FLOAT)</td>
- <td>Notch filter 2 frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. A value of 0 disables the filter. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Notch filter 2 frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. A value of 0 disables the filter. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 1000] </td>
  <td>0.0</td>
@@ -24309,7 +24330,7 @@ table {
 <tr>
  <td><strong id="SIH_KDW">SIH_KDW</strong> (FLOAT)</td>
  <td>First order angular damper coefficient <p><strong>Comment:</strong> Physical coefficient representing the friction with air particules during rotations. The greater this value, the slower the quad will rotate. Aerodynamic moment function of body rate: Ma=-KDW*W_B. This value can be set to 0 if unknown.</p>   </td>
- <td>(0.1) [0.0, ?]</td>
+ <td>[0.0, ?] (0.005)</td>
  <td>0.025</td>
  <td>Nm/(rad/s)</td>
 </tr>
