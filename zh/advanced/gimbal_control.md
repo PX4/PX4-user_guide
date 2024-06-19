@@ -51,7 +51,7 @@ PX4 可以自动为已连接的 PWM 云台或第一个在任何接口上检测�
 
 - `Gimbal Roll`：输出控制云台滚动。
 - `Gimbal Pitch`：输出控制云台俯仰。
-- `Gimbal Yaw`：输出控制云台偏航。
+- `Gimbal Yaw`: Output controls Gimbal yaw.
 
 例如，您可能有以下设置可将云台滚动、俯仰和偏航分配给 AUX1-3 输出。
 
