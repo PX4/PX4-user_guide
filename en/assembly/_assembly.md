@@ -158,7 +158,7 @@ Pixhawk FCs require a regulated power supply that is sufficient to power the con
 
 ::: tip
 Flight controller manufacturers usually recommend suitable [power modules and power distribution boards](../power_module/index.md) for use with their FCs.
-You don't have to use manufacturer-recommended PDB or power modules, but this is often the easiest way to ensure that the power supply matches both the FC power requirements and the communication protocol expected by its power port.
+You don't have to use manufacturer-recommended power module (or PDB), but this is often the easiest way to ensure that the power supply matches both the FC power requirements and the communication protocol expected by its power port.
 :::
 
 Power modules are commonly used to provide regulated power for the FC and also measurements of the battery voltage and total current — which PX4 can use to estimate power levels.
@@ -175,8 +175,8 @@ For example, the CUAV Pixhawk 6x also has the digital power ports `POWER C1` and
 Even though power ports are part of the Pixhawk connector standard, you should check FC specific documentation for power setup.
 :::
 
-_Power distribution boards (PDB)_ can be used instead of a power module in order to simplify the wiring of motors and other components.
-In addition to a power module, they typically include ESCs for controlling a number of motors, and may also integrate a BEC (battery elimination circuit) for supplying power to servos and other peripherals.
+_Power distribution boards (PDB)_ can be used with a power module in order to simplify the wiring of motors and other components.
+PDBs may include a power module (in which case they replace a stand alone module), ESCs for controlling a number of motors, and may also integrate a BEC (battery elimination circuit) for supplying power to servos and other peripherals.
 
 <!--
 
