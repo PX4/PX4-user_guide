@@ -1,16 +1,12 @@
 # Septentrio AsteRx-m3 Pro With RIB Board
 
-::: info
-This only describes the hardware setup. For the software part, see [the Septentrio software documentation](../gps_compass/septentrio.md).
-:::
-
-<img src="../../assets/hardware/gps/septentrio_sbf/asterx_m3_and_rib_board.png" width="300" title="Septentrio Robotics Interface Board" />
-
 Septentrio is the leading worldwide supplier of OEM GPS/GNSS receivers.
 Septentrio OEM receivers deliver accurate and reliable positions to demanding industrial applications in a small, light-weight form factor.
 There are several dual-antenna receiver options that allows for GPS information to be fused into the heading (other attitude information can also be determined, but is not fused by PX4).
 
 Inertial sensor integration of the AsteRx-m3 Pro family offers a full attitude solution (heading, pitch and roll) synchronized with accurate positioning.
+
+![Septentrio Robotics Interface Board](../../assets/hardware/gps/septentrio_sbf/asterx_m3_and_rib_board.png)
 
 The Robotics Interface Board coupled with Septentrio GNSS receiver boards provides common interfaces like USB, ethernet, on-board logging and other functionalities designed for rapid prototyping, product evaluation or efficient integration.
 The features include the following:
@@ -80,6 +76,10 @@ The voltage range when powering from the `PWR_IN` pins is 4.5V to 30V.
 Power can be applied from both sources at the same time.
 On-board diodes prevent short circuits.
 The interface board provides the 3V3 supply to the AsteRx-m3 OEM receiver and a 5V DC voltage to the `VANT` pin of the AsteRx-m3 OEM.
+
+## PX4 Configuration
+
+PX4 configuration is covered in [Septentrio GNSS Receivers](../gps_compass/septentrio.md).
 
 ## Hardware setup
 

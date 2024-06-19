@@ -1,15 +1,12 @@
 # Septentrio mosaic-go
 
-::: info
-This only describes the hardware setup. For the software part, see [the Septentrio software documentation](../gps_compass/septentrio.md).
-:::
-
-<img src="../../assets/hardware/gps/septentrio_sbf/mosaic-go.png" width="300" title="Highly Accurate GNSS Receiver Module"/>
-
 The Septentrio mosaic-go receivers are evaluation kits for their mosaic-X5 and mosaic-H receiver modules.
 Because of their small size and low weight, they are ideal for autopilot applications.
 The available variants are the [mosaic-go](https://www.septentrio.com/en/products/gps/gnss-receiver-modules/mosaic-go-evaluation-kit)
 and [mosaic-go heading](https://www.septentrio.com/en/products/gps/gnss-receiver-modules/mosaic-h-evaluation-kit).
+
+![Mosaic go Highly Accurate GNSS Receiver Module](../../assets/hardware/gps/septentrio_sbf/mosaic-go.png)
+
 Their features include the following:
 
 - High update rate (>100 Hz) and low latency, both crucial for control systems of autonomous applications
@@ -73,6 +70,10 @@ _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR
 | TXD2     | Out       | 3V3_LVTTL | Serial COM2 transmit line | Directly connects to TXD2 of internal mosaic    |
 | RXD2     | In        | 3V3_LVTTL | Serial COM2 receive line  | Directly connects to RXD2 of internal mosaic    |
 | GND      |           | 0         | Ground                    |                                                 |
+
+## PX4 Configuration
+
+PX4 configuration is covered in [Septentrio GNSS Receivers](../gps_compass/septentrio.md).
 
 ## Hardware Connection Example Pixhawk 4
 
