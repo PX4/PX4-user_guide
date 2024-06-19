@@ -284,7 +284,7 @@ PWM AUX виходи вважаються бажаними для керуван
 - `RC AUXn` до `RC AUX1`: Виводи, які використовуються для [довільних навантажень, спрацьованих через RC-передавання](../payloads/generic_actuator_control.md#generic-actuator-control-with-rc).
 - `Gimbal Roll`: Вихід контролює відвід Gimbal.
 - `Gimbal Pitch`: Вихід контролює крок Gimbal.
-- `Gimbal Yaw`: вихід контролює крок підвісу.
+- `Gimbal Yaw`: Output controls Gimbal yaw.
 
 Наведені функції можуть бути застосовані тільки до виходів FMU:
 
