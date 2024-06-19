@@ -154,7 +154,7 @@ With well configured load compensation the voltage used for battery capacity est
 Load compensation attempts to counteract the fluctuation in measured voltage/estimated capacity under load that occur when using the [basic configuration](#basic_settings). This works by estimating what the voltage would be for the _unloaded_ battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity.
 
 :::note
-Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity. :::note Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity.
+Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity. The _Empty Voltage_ ([BATn_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY), where `n` is the battery number) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
 :::
 
 PX4 supports two load compensation methods, which are enabled by [setting](../advanced_config/parameters.md) either of the two parameters below:

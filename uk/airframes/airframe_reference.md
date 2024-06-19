@@ -503,7 +503,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="plane_flying_wing_generic_flying_wing">
  <td>Загальне літаюче крило</td>
- <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 3000</p></td>
+ <td>Супроводжуючий: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 3000</p></td>
 </tr>
 </tbody>
 </table>
@@ -532,7 +532,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="plane_plane_a-tail_applied_aeronautics_albatross">
  <td>Прикладна авіація Альбатрос</td>
- <td>Менеджер: Андреас Антенер &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2106</p></td>
+ <td>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2106</p></td>
 </tr>
 </tbody>
 </table>
@@ -605,7 +605,7 @@ div.frame_variant td, div.frame_variant th {
  <td>Підтримувач: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Спеціальні виводи:</b><ul><li><b>Motor1</b>: Швидкість лівих коліс</li><li><b>Servo1</b>: кермувальний сервопривід</li></ul></p></td>
 </tr>
 <tr id="rover_rover_generic_ackermann_rover">
- <td>Generic ackermann rover</td>
+ <td>Загальний акерманський ровер</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50010</p></td>
 </tr>
 </tbody>
@@ -768,7 +768,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_vtol_tiltrotor_generic_tiltrotor_vtol">
  <td>Загальний Tiltrotor VTOL</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
+ <td>Супроводжуючий: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
 </tr>
 </tbody>
 </table>

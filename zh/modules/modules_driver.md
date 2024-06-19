@@ -1215,14 +1215,58 @@ safety_button <command> [arguments...]
 
    status        打印状态信息
 ```
+## septentrio
+Source: [drivers/gnss/septentrio](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gnss/septentrio)
+
+
+### 描述
+GPS driver module that handles the communication with Septentrio devices and publishes the position via uORB.
+
+The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance. It can be used for logging and heading computation.
+
+### 示例
+
+Starting 2 GPS devices (main one on /dev/ttyS3, secondary on /dev/ttyS4)
+```
+septentrio start -d /dev/ttyS3 -e /dev/ttyS4
+```
+
+Initiate warm restart of GPS device
+```
+gps reset warm
+```
+
+<a id="septentrio_usage"></a>
+
+### Usage
+```
+septentrio <command> [arguments...]
+ Commands:
+   start
+     -d <val>    Primary Septentrio receiver
+                 values: <file:dev>
+     [-b <val>]  Primary baud rate
+                 default: 0
+     [-e <val>]  Secondary Septentrio receiver
+                 values: <file:dev>
+     [-g <val>]  Secondary baud rate
+                 default: 0
+
+   stop
+
+   status        print status info
+
+   reset         Reset connected receiver
+     cold|warm|hot Specify reset type
+```
 ## sht3x
 Source: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/hygrometer/sht3x)
 
 
-### 描述
+### Description
 SHT3x Temperature and Humidity Sensor Driver by Senserion.
 
-### 示例
+### Examples
 CLI usage example:
 ```
 sht3x start -X
@@ -1247,7 +1291,7 @@ sht3x reset
 
 <a id="sht3x_usage"></a>
 
-### Usage
+### 描述
 ```
 sht3x <command> [arguments...]
  Commands:
@@ -1274,7 +1318,7 @@ sht3x <command> [arguments...]
 Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
 
 
-### Description
+### 描述
 
 This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
@@ -1326,7 +1370,7 @@ tone_alarm <command> [arguments...]
 Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uwb/uwb_sr150)
 
 
-### 描述
+### Description
 
 Driver for NXP UWB_SR150 UWB positioning system. This driver publishes a `uwb_distance` message whenever the UWB_SR150 has a position measurement available.
 
@@ -1364,7 +1408,7 @@ This module is responsible for driving the output pins. For boards without a sep
 
 <a id="voxl2_io_usage"></a>
 
-### 描述
+### Usage
 ```
 voxl2_io <command> [arguments...]
  Commands:

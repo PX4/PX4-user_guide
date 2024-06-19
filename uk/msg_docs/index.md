@@ -66,6 +66,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [FollowTarget](FollowTarget.md)
 - [FollowTargetEstimator](FollowTargetEstimator.md)
 - [FollowTargetStatus](FollowTargetStatus.md)
+- [FuelTankStatus](FuelTankStatus.md)
 - [GeneratorStatus](GeneratorStatus.md)
 - [GeofenceResult](GeofenceResult.md)
 - [GeofenceStatus](GeofenceStatus.md)
@@ -82,7 +83,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [GpioIn](GpioIn.md) — маска та стан GPIO
 - [GpioOut](GpioOut.md) — Маска та стан GPIO
 - [GpioRequest](GpioRequest.md) — Запит на зчитування маски GPIO
-- [GpsDump](GpsDump.md) — Це повідомлення використовується для виведення необробленої gps комунікації до журналу. Встановіть параметр GPS_DUMP_COMM на 1, щоб використовувати це.
+- [GpsDump](GpsDump.md) — This message is used to dump the raw gps communication to the log.
 - [GpsInjectData](GpsInjectData.md)
 - [ Gripper ](Gripper.md) — # Використовується для виклику активації в захоплювачі, яка відображена на конкретний вихід в модулі розподілу керування
 - [HealthReport](HealthReport.md)
@@ -169,7 +170,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [SensorSelection](SensorSelection.md) — Sensor ID's for the voted sensors output on the sensor_combined topic. Буде оновлено при запуску модуля датчика та при зміні вибору датчика
 - [SensorUwb](SensorUwb.md) — Відстань UWB містить інформацію про відстань, виміряну системою позиціонування з дуже широкою смугою пропускання, такою як Pozyx або NXP Rddrone.
 - [ SensorsStatus ](SensorsStatus.md) — Метрика перевірки датчика. This will be zero for a sensor that's primary or unpopulated.
-- [ SensorsStatusImu ](SensorsStatusImu.md) — Метрика перевірки сенсорів. Це значення буде нульовим для датчика, який є первинним або незаповненим.
+- [ SensorsStatusImu ](SensorsStatusImu.md) — Метрика перевірки сенсорів. This will be zero for a sensor that's primary or unpopulated.
 - [SystemPower](SystemPower.md)
 - [TakeoffStatus](TakeoffStatus.md) — Статус злітної машини наразі доступний лише для мультикоптерів
 - [ TaskStackInfo ](TaskStackInfo.md) — інформація про стек для одного запущеного процесу

@@ -13081,7 +13081,6 @@ table {
 <li><strong>4:</strong> Emlid Reach</li>
 <li><strong>5:</strong> Femtomes</li>
 <li><strong>6:</strong> NMEA (generic)</li>
-<li><strong>7:</strong> Septentrio (SBF)</li>
 </ul>  <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 7] </td>
@@ -13150,14 +13149,6 @@ table {
  <td>[0, 2] </td>
  <td>0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="GPS_PITCH_OFFSET">GPS_PITCH_OFFSET</strong> (FLOAT)</td>
- <td>Pitch offset for dual antenna GPS <p><strong>Comment:</strong> Vertical offsets can be compensated for by adjusting the Pitch offset (Septentrio). Note that this can be interpreted as the &quot;roll&quot; angle in case the antennas are aligned along the perpendicular axis. This occurs in situations where the two antenna ARPs may not be exactly at the same height in the vehicle reference frame. Since pitch is defined as the right-handed rotation about the vehicle Y axis, a situation where the main antenna is mounted lower than the aux antenna (assuming the default antenna setup) will result in a positive pitch.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[-90, 90] </td>
- <td>0.</td>
- <td>deg</td>
 </tr>
 <tr>
  <td><strong id="GPS_SAT_INFO">GPS_SAT_INFO</strong> (INT32)</td>
@@ -16551,7 +16542,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -16569,7 +16560,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -17173,9 +17164,16 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_VELD_LP">MPC_VELD_LP</strong> (FLOAT)</td>
- <td>Numerical velocity derivative low pass cutoff frequency    </td>
- <td>[0, 10] (0.5)</td>
+ <td>Velocity derivative low pass cutoff frequency <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
  <td>5.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_LP">MPC_VEL_LP</strong> (FLOAT)</td>
+ <td>Velocity low pass cutoff frequency <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
+ <td>0.0</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -17198,6 +17196,20 @@ table {
  <td>[-1, 20] (1)</td>
  <td>-1.</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_NF_BW">MPC_VEL_NF_BW</strong> (FLOAT)</td>
+ <td>Velocity notch filter bandwidth <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
+ <td>5.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_NF_FRQ">MPC_VEL_NF_FRQ</strong> (FLOAT)</td>
+ <td>Velocity notch filter frequency <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the velocity. A value of 0 disables the filter.</p>   </td>
+ <td>[0, 50] (0.5)</td>
+ <td>0.0</td>
+ <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
@@ -17937,7 +17949,7 @@ table {
  <td>RC channel 11 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC11_MIN">RC11_MIN</strong> (FLOAT)</td>
@@ -17975,7 +17987,7 @@ table {
  <td>RC channel 12 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC12_MIN">RC12_MIN</strong> (FLOAT)</td>
@@ -18013,7 +18025,7 @@ table {
  <td>RC channel 13 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC13_MIN">RC13_MIN</strong> (FLOAT)</td>
@@ -18051,7 +18063,7 @@ table {
  <td>RC channel 14 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC14_MIN">RC14_MIN</strong> (FLOAT)</td>
@@ -18089,7 +18101,7 @@ table {
  <td>RC channel 15 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC15_MIN">RC15_MIN</strong> (FLOAT)</td>
@@ -18127,7 +18139,7 @@ table {
  <td>RC channel 16 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC16_MIN">RC16_MIN</strong> (FLOAT)</td>
@@ -18438,7 +18450,7 @@ table {
  <td>RC channel 6 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC6_REV">RC6_REV</strong> (FLOAT)</td>
@@ -18493,7 +18505,7 @@ table {
  <td>RC channel 7 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC8_DZ">RC8_DZ</strong> (FLOAT)</td>
@@ -18531,7 +18543,7 @@ table {
  <td>RC channel 8 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC9_DZ">RC9_DZ</strong> (FLOAT)</td>
@@ -18569,7 +18581,7 @@ table {
  <td>RC channel 9 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC_CHAN_CNT">RC_CHAN_CNT</strong> (INT32)</td>
@@ -19098,33 +19110,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="RC_MAP_ACRO_SW">RC_MAP_ACRO_SW</strong> (INT32)</td>
- <td>Acro switch channel (deprecated)  <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unassigned</li>
-<li><strong>1:</strong> Channel 1</li>
-<li><strong>2:</strong> Channel 2</li>
-<li><strong>3:</strong> Channel 3</li>
-<li><strong>4:</strong> Channel 4</li>
-<li><strong>5:</strong> Channel 5</li>
-<li><strong>6:</strong> Channel 6</li>
-<li><strong>7:</strong> Channel 7</li>
-<li><strong>8:</strong> Channel 8</li>
-<li><strong>9:</strong> Channel 9</li>
-<li><strong>10:</strong> Channel 10</li>
-<li><strong>11:</strong> Channel 11</li>
-<li><strong>12:</strong> Channel 12</li>
-<li><strong>13:</strong> Channel 13</li>
-<li><strong>14:</strong> Channel 14</li>
-<li><strong>15:</strong> Channel 15</li>
-<li><strong>16:</strong> Channel 16</li>
-<li><strong>17:</strong> Channel 17</li>
-<li><strong>18:</strong> Channel 18</li>
-</ul>  </td>
- <td>[0, 18] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="RC_MAP_ARM_SW">RC_MAP_ARM_SW</strong> (INT32)</td>
  <td>Arm switch channel <p><strong>Comment:</strong> Use it to arm/disarm via switch instead of default throttle stick. If this is assigned, arming and disarming via stick is disabled.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
@@ -19313,33 +19298,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="RC_MAP_MAN_SW">RC_MAP_MAN_SW</strong> (INT32)</td>
- <td>Manual switch channel mapping (deprecated)  <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unassigned</li>
-<li><strong>1:</strong> Channel 1</li>
-<li><strong>2:</strong> Channel 2</li>
-<li><strong>3:</strong> Channel 3</li>
-<li><strong>4:</strong> Channel 4</li>
-<li><strong>5:</strong> Channel 5</li>
-<li><strong>6:</strong> Channel 6</li>
-<li><strong>7:</strong> Channel 7</li>
-<li><strong>8:</strong> Channel 8</li>
-<li><strong>9:</strong> Channel 9</li>
-<li><strong>10:</strong> Channel 10</li>
-<li><strong>11:</strong> Channel 11</li>
-<li><strong>12:</strong> Channel 12</li>
-<li><strong>13:</strong> Channel 13</li>
-<li><strong>14:</strong> Channel 14</li>
-<li><strong>15:</strong> Channel 15</li>
-<li><strong>16:</strong> Channel 16</li>
-<li><strong>17:</strong> Channel 17</li>
-<li><strong>18:</strong> Channel 18</li>
-</ul>  </td>
- <td>[0, 18] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="RC_MAP_MODE_SW">RC_MAP_MODE_SW</strong> (INT32)</td>
  <td>Mode switch channel mapping (deprecated) <p><strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
@@ -19394,89 +19352,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="RC_MAP_POSCTL_SW">RC_MAP_POSCTL_SW</strong> (INT32)</td>
- <td>Position Control switch channel (deprecated)  <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unassigned</li>
-<li><strong>1:</strong> Channel 1</li>
-<li><strong>2:</strong> Channel 2</li>
-<li><strong>3:</strong> Channel 3</li>
-<li><strong>4:</strong> Channel 4</li>
-<li><strong>5:</strong> Channel 5</li>
-<li><strong>6:</strong> Channel 6</li>
-<li><strong>7:</strong> Channel 7</li>
-<li><strong>8:</strong> Channel 8</li>
-<li><strong>9:</strong> Channel 9</li>
-<li><strong>10:</strong> Channel 10</li>
-<li><strong>11:</strong> Channel 11</li>
-<li><strong>12:</strong> Channel 12</li>
-<li><strong>13:</strong> Channel 13</li>
-<li><strong>14:</strong> Channel 14</li>
-<li><strong>15:</strong> Channel 15</li>
-<li><strong>16:</strong> Channel 16</li>
-<li><strong>17:</strong> Channel 17</li>
-<li><strong>18:</strong> Channel 18</li>
-</ul>  </td>
- <td>[0, 18] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RC_MAP_RATT_SW">RC_MAP_RATT_SW</strong> (INT32)</td>
- <td>Rattitude switch channel (deprecated)  <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unassigned</li>
-<li><strong>1:</strong> Channel 1</li>
-<li><strong>2:</strong> Channel 2</li>
-<li><strong>3:</strong> Channel 3</li>
-<li><strong>4:</strong> Channel 4</li>
-<li><strong>5:</strong> Channel 5</li>
-<li><strong>6:</strong> Channel 6</li>
-<li><strong>7:</strong> Channel 7</li>
-<li><strong>8:</strong> Channel 8</li>
-<li><strong>9:</strong> Channel 9</li>
-<li><strong>10:</strong> Channel 10</li>
-<li><strong>11:</strong> Channel 11</li>
-<li><strong>12:</strong> Channel 12</li>
-<li><strong>13:</strong> Channel 13</li>
-<li><strong>14:</strong> Channel 14</li>
-<li><strong>15:</strong> Channel 15</li>
-<li><strong>16:</strong> Channel 16</li>
-<li><strong>17:</strong> Channel 17</li>
-<li><strong>18:</strong> Channel 18</li>
-</ul>  </td>
- <td>[0, 18] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="RC_MAP_RETURN_SW">RC_MAP_RETURN_SW</strong> (INT32)</td>
  <td>Return switch channel  <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unassigned</li>
-<li><strong>1:</strong> Channel 1</li>
-<li><strong>2:</strong> Channel 2</li>
-<li><strong>3:</strong> Channel 3</li>
-<li><strong>4:</strong> Channel 4</li>
-<li><strong>5:</strong> Channel 5</li>
-<li><strong>6:</strong> Channel 6</li>
-<li><strong>7:</strong> Channel 7</li>
-<li><strong>8:</strong> Channel 8</li>
-<li><strong>9:</strong> Channel 9</li>
-<li><strong>10:</strong> Channel 10</li>
-<li><strong>11:</strong> Channel 11</li>
-<li><strong>12:</strong> Channel 12</li>
-<li><strong>13:</strong> Channel 13</li>
-<li><strong>14:</strong> Channel 14</li>
-<li><strong>15:</strong> Channel 15</li>
-<li><strong>16:</strong> Channel 16</li>
-<li><strong>17:</strong> Channel 17</li>
-<li><strong>18:</strong> Channel 18</li>
-</ul>  </td>
- <td>[0, 18] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RC_MAP_STAB_SW">RC_MAP_STAB_SW</strong> (INT32)</td>
- <td>Stabilize switch channel mapping  (deprecated)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -22512,7 +22389,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_CM8JL65_R_0">SENS_CM8JL65_R_0</strong> (INT32)</td>
- <td>Distance Sensor Rotation <p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>Values:</strong><ul>
+ <td>Distance Sensor Rotation <p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> ROTATION_FORWARD_FACING</li>
 <li><strong>2:</strong> ROTATION_RIGHT_FACING</li>
 <li><strong>6:</strong> ROTATION_LEFT_FACING</li>
@@ -22725,7 +22602,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_EN_PCF8583">SENS_EN_PCF8583</strong> (INT32)</td>
- <td>PCF8583 eneable driver <p><strong>Comment:</strong> Run PCF8583 driver automatically</p> <strong>参数对照:</strong><ul>
+ <td>PCF8583 eneable driver <p><strong>Comment:</strong> Run PCF8583 driver automatically</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Eneabled</li>
 </ul>  <p><b>Reboot required:</b> true</p>
@@ -23100,7 +22977,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MAG_SIDES">SENS_MAG_SIDES</strong> (INT32)</td>
- <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>Values:</strong><ul>
+ <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>参数对照:</strong><ul>
 <li><strong>34:</strong> Two side calibration</li>
 <li><strong>38:</strong> Three side calibration</li>
 <li><strong>63:</strong> Six side calibration</li>
@@ -23111,7 +22988,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MB12_0_ROT">SENS_MB12_0_ROT</strong> (INT32)</td>
- <td>MaxBotix MB12XX Sensor 0 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
+ <td>MaxBotix MB12XX Sensor 0 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -23145,7 +23022,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MB12_11_ROT">SENS_MB12_11_ROT</strong> (INT32)</td>
- <td>MaxBotix MB12XX Sensor 12 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td>MaxBotix MB12XX Sensor 12 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -23196,7 +23073,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MB12_3_ROT">SENS_MB12_3_ROT</strong> (INT32)</td>
- <td>MaxBotix MB12XX Sensor 3 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
+ <td>MaxBotix MB12XX Sensor 3 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -23724,6 +23601,197 @@ table {
 </tr>
 </tbody></table>
 
+## Septentrio
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="SEP_AUTO_CONFIG">SEP_AUTO_CONFIG</strong> (INT32)</td>
+ <td>Toggle automatic receiver configuration <p><strong>Comment:</strong> By default, the receiver is automatically configured. Sometimes it may be used for multiple purposes. If the offered parameters aren&#x27;t sufficient, this parameter can be disabled to have full control of the receiver configuration. A good way to use this is to enable automatic configuration, let the receiver be configured, and then disable it to make manual adjustments.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_CONST_USAGE">SEP_CONST_USAGE</strong> (INT32)</td>
+ <td>Usage of different constellations <p><strong>Comment:</strong> Choice of which constellations the receiver should use for PVT computation. When this is 0, the constellation usage isn&#x27;t changed.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS</li>
+  <li><strong>1:</strong> GLONASS</li>
+  <li><strong>2:</strong> Galileo</li>
+  <li><strong>3:</strong> SBAS</li>
+  <li><strong>4:</strong> BeiDou</li>
+</ul>
+ <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 63] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_DUMP_COMM">SEP_DUMP_COMM</strong> (INT32)</td>
+ <td>Log GPS communication data <p><strong>Comment:</strong> Dump raw communication data from and to the connected receiver to the log file.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> From receiver</li>
+<li><strong>2:</strong> To receiver</li>
+<li><strong>3:</strong> Both</li>
+</ul>  </td>
+ <td>[0, 3] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_HARDW_SETUP">SEP_HARDW_SETUP</strong> (INT32)</td>
+ <td>Setup and expected use of the hardware <p><strong>Comment:</strong> Setup and expected use of the hardware. - Default: Use two receivers as completely separate instances. - Moving base: Use two receivers in a rover &amp; moving base setup for heading.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Default</li>
+<li><strong>1:</strong> Moving base</li>
+</ul>  <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_LOG_FORCE">SEP_LOG_FORCE</strong> (INT32)</td>
+ <td>Whether to overwrite or add to existing logging <p><strong>Comment:</strong> When the receiver is already set up to log data, this decides whether extra logged data should be added or overwrite existing data.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_LOG_HZ">SEP_LOG_HZ</strong> (INT32)</td>
+ <td>Logging frequency for the receiver <p><strong>Comment:</strong> Select the frequency at which the connected receiver should log data to its internal storage.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> 0.1 Hz</li>
+<li><strong>2:</strong> 0.2 Hz</li>
+<li><strong>3:</strong> 0.5 Hz</li>
+<li><strong>4:</strong> 1 Hz</li>
+<li><strong>5:</strong> 2 Hz</li>
+<li><strong>6:</strong> 5 Hz</li>
+<li><strong>7:</strong> 10 Hz</li>
+<li><strong>8:</strong> 20 Hz</li>
+<li><strong>9:</strong> 25 Hz</li>
+<li><strong>10:</strong> 50 Hz</li>
+</ul>  <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 10] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_LOG_LEVEL">SEP_LOG_LEVEL</strong> (INT32)</td>
+ <td>Logging level for the receiver <p><strong>Comment:</strong> Select the level of detail that needs to be logged by the receiver.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Lite</li>
+<li><strong>1:</strong> Basic</li>
+<li><strong>2:</strong> Default</li>
+<li><strong>3:</strong> Full</li>
+</ul>  <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 3] </td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_OUTP_HZ">SEP_OUTP_HZ</strong> (INT32)</td>
+ <td>Output frequency of main SBF blocks <p><strong>Comment:</strong> The output frequency of the main SBF blocks needed for PVT information.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> 5 Hz</li>
+<li><strong>1:</strong> 10 Hz</li>
+<li><strong>2:</strong> 20 Hz</li>
+<li><strong>3:</strong> 25 Hz</li>
+</ul>  <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 3] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_PITCH_OFFS">SEP_PITCH_OFFS</strong> (FLOAT)</td>
+ <td>Pitch offset for dual antenna GPS <p><strong>Comment:</strong> Vertical offsets can be compensated for by adjusting the Pitch offset. Note that this can be interpreted as the &quot;roll&quot; angle in case the antennas are aligned along the perpendicular axis. This occurs in situations where the two antenna ARPs may not be exactly at the same height in the vehicle reference frame. Since pitch is defined as the right-handed rotation about the vehicle Y axis, a situation where the main antenna is mounted lower than the aux antenna (assuming the default antenna setup) will result in a positive pitch.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[-90, 90] </td>
+ <td>0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="SEP_PORT1_CFG">SEP_PORT1_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for GPS Port <p><strong>Comment:</strong> Configure on which serial port to run GPS Port.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>6:</strong> UART 6</li>
+<li><strong>101:</strong> TELEM 1</li>
+<li><strong>102:</strong> TELEM 2</li>
+<li><strong>103:</strong> TELEM 3</li>
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+<li><strong>201:</strong> GPS 1</li>
+<li><strong>202:</strong> GPS 2</li>
+<li><strong>203:</strong> GPS 3</li>
+<li><strong>300:</strong> Radio Controller</li>
+<li><strong>301:</strong> Wifi Port</li>
+<li><strong>401:</strong> EXT2</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>201</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_PORT2_CFG">SEP_PORT2_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for Secondary GPS port <p><strong>Comment:</strong> Configure on which serial port to run Secondary GPS port.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>6:</strong> UART 6</li>
+<li><strong>101:</strong> TELEM 1</li>
+<li><strong>102:</strong> TELEM 2</li>
+<li><strong>103:</strong> TELEM 3</li>
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+<li><strong>201:</strong> GPS 1</li>
+<li><strong>202:</strong> GPS 2</li>
+<li><strong>203:</strong> GPS 3</li>
+<li><strong>300:</strong> Radio Controller</li>
+<li><strong>301:</strong> Wifi Port</li>
+<li><strong>401:</strong> EXT2</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_SAT_INFO">SEP_SAT_INFO</strong> (INT32)</td>
+ <td>Enable sat info <p><strong>Comment:</strong> Enable publication of satellite info (ORB_ID(satellite_info)) if possible.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_STREAM_LOG">SEP_STREAM_LOG</strong> (INT32)</td>
+ <td>Logging stream used during automatic configuration <p><strong>Comment:</strong> The stream the autopilot sets up on the receiver to output the logging data. Set this to another value if the default stream is already used for another purpose.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[1, 10] </td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_STREAM_MAIN">SEP_STREAM_MAIN</strong> (INT32)</td>
+ <td>Main stream used during automatic configuration <p><strong>Comment:</strong> The stream the autopilot sets up on the receiver to output the main data. Set this to another value if the default stream is already used for another purpose.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[1, 10] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_YAW_OFFS">SEP_YAW_OFFS</strong> (FLOAT)</td>
+ <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover antenna is placed on the right side of the vehicle and the moving base antenna is on the left side.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 360] </td>
+ <td>0</td>
+ <td>deg</td>
+</tr>
+</tbody></table>
+
 ## Serial
 
 <table>
@@ -23734,7 +23802,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="RC_CRSF_PRT_CFG">RC_CRSF_PRT_CFG</strong> (INT32)</td>
- <td>Serial Configuration for CRSF RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run CRSF RC Input Driver. Crossfire RC (CRSF) driver.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for CRSF RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run CRSF RC Input Driver. Crossfire RC (CRSF) driver.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -23776,7 +23844,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_EXT2_BAUD">SER_EXT2_BAUD</strong> (INT32)</td>
- <td>Baudrate for the EXT2 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the EXT2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>参数对照:</strong><ul>
+ <td>Baudrate for the EXT2 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the EXT2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -23971,7 +24039,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_TEL1_BAUD">SER_TEL1_BAUD</strong> (INT32)</td>
- <td>Baudrate for the TELEM 1 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the TELEM 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>参数对照:</strong><ul>
+ <td>Baudrate for the TELEM 1 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the TELEM 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -24006,7 +24074,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_TEL2_BAUD">SER_TEL2_BAUD</strong> (INT32)</td>
- <td>Baudrate for the TELEM 2 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the TELEM 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td>Baudrate for the TELEM 2 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the TELEM 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -24041,7 +24109,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_TEL3_BAUD">SER_TEL3_BAUD</strong> (INT32)</td>
- <td>Baudrate for the TELEM 3 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the TELEM 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>参数对照:</strong><ul>
+ <td>Baudrate for the TELEM 3 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the TELEM 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -24111,7 +24179,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_URT6_BAUD">SER_URT6_BAUD</strong> (INT32)</td>
- <td>Baudrate for the UART 6 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the UART 6 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td>Baudrate for the UART 6 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the UART 6 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -24405,7 +24473,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="SYS_AUTOCONFIG">SYS_AUTOCONFIG</strong> (INT32)</td>
- <td>Automatically configure default values <p><strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.</p> <strong>参数对照:</strong><ul>
+ <td>Automatically configure default values <p><strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Keep parameters</li>
 <li><strong>1:</strong> Reset parameters to airframe defaults</li>
 </ul>  </td>
@@ -24485,7 +24553,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_FAC_CAL_MODE">SYS_FAC_CAL_MODE</strong> (INT32)</td>
- <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p> <strong>Values:</strong><ul>
+ <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> All sensors</li>
 <li><strong>2:</strong> All sensors except mag</li>
@@ -24550,6 +24618,13 @@ table {
 </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SYS_PARAM_VER">SYS_PARAM_VER</strong> (INT32)</td>
+ <td>Parameter version <p><strong>Comment:</strong> This is used internally only: an airframe configuration might set an expected parameter version value via PARAM_DEFAULTS_VER. This is checked on bootup against SYS_PARAM_VER, and if they do not match, parameters are reset and reloaded from the airframe configuration.</p>   </td>
+ <td>[0, ?] </td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -26435,7 +26510,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -26448,7 +26523,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_OP_MODE">MXS_OP_MODE</strong> (INT32)</td>
- <td>Sagetech MXS mode configuration <p><strong>Comment:</strong> This parameter defines the operating mode of the MXS</p> <strong>参数对照:</strong><ul>
+ <td>Sagetech MXS mode configuration <p><strong>Comment:</strong> This parameter defines the operating mode of the MXS</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Off</li>
 <li><strong>1:</strong> On</li>
 <li><strong>2:</strong> Standby</li>
@@ -26461,7 +26536,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_SER_CFG">MXS_SER_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Sagetech MXS Serial Port <p><strong>Comment:</strong> Configure on which serial port to run Sagetech MXS Serial Port.</p> <strong>参数对照:</strong><ul>
+ <td>Serial Configuration for Sagetech MXS Serial Port <p><strong>Comment:</strong> Configure on which serial port to run Sagetech MXS Serial Port.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -26557,8 +26632,28 @@ table {
  <td>bit/s</td>
 </tr>
 <tr>
+ <td><strong id="UAVCAN_ECU_FUELT">UAVCAN_ECU_FUELT</strong> (INT32)</td>
+ <td>UAVCAN fuel tank fuel type <p><strong>Comment:</strong> This parameter defines the type of fuel used in the vehicle&#x27;s fuel tank. 0: Unknown 1: Liquid (e.g., gasoline, diesel) 2: Gas (e.g., hydrogen, methane, propane)</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unknown</li>
+<li><strong>1:</strong> Liquid</li>
+<li><strong>2:</strong> Gas</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 2] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_ECU_MAXF">UAVCAN_ECU_MAXF</strong> (FLOAT)</td>
+ <td>UAVCAN fuel tank maximum capacity <p><strong>Comment:</strong> This parameter defines the maximum fuel capacity of the vehicle&#x27;s fuel tank.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0.0, 100000.0] (0.1)</td>
+ <td>15.0</td>
+ <td>liters</td>
+</tr>
+<tr>
  <td><strong id="UAVCAN_ENABLE">UAVCAN_ENABLE</strong> (INT32)</td>
- <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>参数对照:</strong><ul>
+ <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Sensors Manual Config</li>
 <li><strong>2:</strong> Sensors Automatic Config</li>
@@ -26571,7 +26666,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_LGT_ANTCL">UAVCAN_LGT_ANTCL</strong> (INT32)</td>
- <td>UAVCAN ANTI_COLLISION light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the ANTI_COLLISION lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>参数对照:</strong><ul>
+ <td>UAVCAN ANTI_COLLISION light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the ANTI_COLLISION lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Always off</li>
 <li><strong>1:</strong> When autopilot is armed</li>
 <li><strong>2:</strong> When autopilot is prearmed</li>
@@ -26714,6 +26809,14 @@ table {
 <tr>
  <td><strong id="UAVCAN_SUB_FLOW">UAVCAN_SUB_FLOW</strong> (INT32)</td>
  <td>subscription flow <p><strong>Comment:</strong> Enable UAVCAN optical flow subscription.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_SUB_FUEL">UAVCAN_SUB_FUEL</strong> (INT32)</td>
+ <td>subscription fuel tank <p><strong>Comment:</strong> Enable UAVCAN fuel tank status subscription.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
