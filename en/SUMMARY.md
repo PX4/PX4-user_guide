@@ -498,6 +498,7 @@
       - [FollowTarget](msg_docs/FollowTarget.md)
       - [FollowTargetEstimator](msg_docs/FollowTargetEstimator.md)
       - [FollowTargetStatus](msg_docs/FollowTargetStatus.md)
+      - [FuelTankStatus](msg_docs/FuelTankStatus.md)
       - [GeneratorStatus](msg_docs/GeneratorStatus.md)
       - [GeofenceResult](msg_docs/GeofenceResult.md)
       - [GeofenceStatus](msg_docs/GeofenceStatus.md)
