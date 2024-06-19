@@ -26,7 +26,9 @@ The serial port configuration parameters allow you to assign a particular functi
 
 At time of writing the current set is:
 
-- GPS configuration: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)
+- GNSS configuration:
+  - GPS Module: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) (for most GPS/GNSS systems)
+  - [Septentrio GNSS Modules](../gps_compass/septentrio.md): [SEP_PORT1_CFG](../advanced_config/parameter_reference.md#SEP_PORT1_CFG), [SEP_PORT2_CFG](../advanced_config/parameter_reference.md#SEP_PORT2_CFG)
 - [Iridium Satellite radio](../advanced_features/satcom_roadblock.md): [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG)
 - [MAVLink Ports](../peripherals/mavlink_peripherals.md): [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG)
 - VOXL ESC: [VOXL_ESC_CONFIG](../advanced_config/parameter_reference.md#VOXL_ESC_CONFIG)
