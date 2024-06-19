@@ -3,18 +3,18 @@
 PX4 使用并生成人类和机器可读的元数据:
 
 - [参数](../advanced_config/parameters.md) 配置 PX4 的行为。
-  - A parameter is represented by an ID string that maps to a value stored in PX4.
-  - The associated metadata includes a description of the setting, its possible values, information about how the value might be presented (say for bitmasks).
-- [Events](../concept/events_interface.md) provide notification of events, such as reasons for a failsafe, low battery warnings, end of calibration, and so on.
-  - An event is represented by an id, and is sent with a log level and arguments.
-  - The associated metadata includes a message, a description and a list of arguments (including their type) of each event.
-- [Actuators](../config/actuators.md) configuration customizes the specific geometry of the vehicle, assigns actuators and motors to flight controller outputs, and tests the actuator and motor response.
-  - The metadata contains information about supported vehicle geometries, a list of output drivers, and how to configure them.
-  - _QGroundControl_ uses that information to dynamically build a configuration UI.
+  - 一个参数由一个 ID 字符串表示，并映射到 PX4 中存储的一个值。
+  - 相关的元数据包含对设置的描述，可能的取值，有关值如何呈现的信息 (比如位掩码)。
+- [Events](../concept/events_interface.md) 提供事件通知，例如失效保护的原因，电池低电量告警，校准结束等等。
+  - 事件是由一个 id 表示，并且发送带有日志级别和一些参数。
+  - 相关的元数据包括每个事件的消息、描述和参数列表 (包括它们的类型)。
+- [Actuators](../config/actuators.md) 配置自定义飞行器的特定几何形状，将执行器和电机绑定到飞控的输出，并测试执行器和电机响应。
+  - 元数据包含所支持的飞行器几何形状信息，驱动输出列表，以及如何配置它们。
+  - _QGroundControl_  地面站使用该信息动态构建配置界面。
 
-The metadata and metadata translations are shared with external systems, such as QGroundControl, allowing them to display information about parameters and events, and to configure vehicle geometry and actuator output mappings.
+元数据和元数据翻译与外部系统共享，例如 QGroundControl 地面站，使其能够显示有关参数和事件的信息，并配置飞行器几何形状和执行器输出映射。
 
-This topic explains how you can define metadata and help translate strings (and "just for your information", how it all works).
+本节解释了您如何定义元数据并翻译成字符串 (以及"仅供您参考"，它是如何工作的)。
 
 ## 元数据翻译
 
