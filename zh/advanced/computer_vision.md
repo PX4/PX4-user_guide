@@ -2,16 +2,16 @@
 
 [计算机视觉](https://en.wikipedia.org/wiki/Computer_vision) 技术使计算机能够使用视觉数据来理解他们的环境。
 
-PX4使用计算机视觉系统(主要在[机载计算机](../companion_computer/README.md)上运行)以支持下列功能：
+PX4 使用计算机视觉系统（主要在[机载计算机](../companion_computer/index.md)上运行）以支持以下功能：
 
 - [光流](#optical_flow)提供 2D 速度估计（使用向下的相机和向下的距离传感器）。
-- [运动捕捉](#motion-capture)使用载具_外部_的视觉系统进行3D姿态估计。 它主要用于室内导航。
-- [视觉惯性测距 （VIO）](#visual-inertial-odometry-vio) 使用机载视觉系统和 IMU 来提供 3D 姿态和速度估计。 用于在GNSS位置信息不存在或不可靠时的导航。
-- [避障](../computer_vision/obstacle_avoidance.md) 为飞行计划路径时，提供完整的障碍绕行导航（支持当前任务）。 这将使用运行在同伴计算机上的[PX4/PX4-avoidance](https://github.com/PX4/PX4-Avoidance) 。
+- [运动捕捉](#motion-capture)使用_外部_的视觉系统进行 3D 姿态估计。 它主要用于室内导航。
+- [视觉惯性测距 （VIO）](#visual-inertial-odometry-vio) 使用机载视觉系统和 IMU 来提供 3D 姿态和速度估计。 用于在 GNSS 位置信息不存在或不可靠时的导航。
+- [避障](../computer_vision/obstacle_avoidance.md) 为飞行计划路径时，提供完整的障碍绕行导航（支持当前任务）。 这使用机载计算机上运行的[PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance)。
 - [防碰](../computer_vision/collision_prevention.md)用于载具在撞到障碍物之前刹车（主要是在手动模式下飞行时）。
 
 :::tip
-[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro) 是一个健壮且不贵的工具包，供开发者在 PX4 上使用计算机视觉技术。 它提供了无需预先安装的软件，且包含一个为展示平台能力而实现的避障实例。
+[PX4 Vision Autonomy Development Kit](../complete_vehicles_mc/px4_vision_kit.md) (Holybro) 是一个强大和便宜的套件，供开发者在 PX4 上使用计算视觉。 它无需预先安装的软件，但是包含一个为展示平台能力而实现的避障实例。
 :::
 
 ## 运动捕捉
