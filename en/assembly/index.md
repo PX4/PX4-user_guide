@@ -50,8 +50,8 @@ Assembly of the autopilot system onto the frame depends on the selected frame, i
 There are a few guidelines for:
 
 - [Mounting the Flight Controller](../assembly/mount_and_orient_controller.md)
-- [Vibration Isolation](assembly/vibration_isolation.md)
-- [Mounting a Compass](assembly/mount_gps_compass.md)
+- [Vibration Isolation](../assembly/vibration_isolation.md)
+- [Mounting a Compass](../assembly/mount_gps_compass.md)
 
 Otherwise, check out the build logs linked below, which show end-to-end configuration and setup of a number of vehicles.
 
@@ -62,13 +62,13 @@ Multicopter:
 
 Plane
 
-- [DIY Builds](frames_plane/diy_builds.md)
+- [DIY Builds](../frames_plane/diy_builds.md)
 
 VTOL
 
-- [Standard VTOL](frames_vtol/standardvtol.md)
-- [Tailsitter VTOL](frames_vtol/tailsitter.md)
-- [Tiltrotor VTOL](frames_vtol/tiltrotor.md)
+- [Standard VTOL](../frames_vtol/standardvtol.md)
+- [Tailsitter VTOL](../frames_vtol/tailsitter.md)
+- [Tiltrotor VTOL](../frames_vtol/tiltrotor.md)
 
 Other frames:
 

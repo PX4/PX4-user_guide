@@ -154,11 +154,6 @@ The diagram below shows what this might look like.
 ::: info
 Flight controllers may also/instead use digital power ports that provide power information via the CAN bus.
 For example, the CUAV Pixhawk 6x also has the digital power ports `POWER C1` and `POWER C2`.
-
-<!--
-These are not currently part of the Pixhawk connector standard so manufacturers supply their own connectors and information about compatible power modules.
-![Power modules connected to CUAV Pixhawk 6x - digital](../../assets/assembly/power_module_cuav_digital.jpg) -->
-
 :::
 
 The power module is supplied by the battery, and has separate connectors to power the FC and another to power all other hardware such as motors, servos, payloads, and even high power radios.
@@ -193,9 +188,9 @@ These show end-to-end setup and configuration of a number of vehicles.
 </div>
 
 <div v-if="$frontmatter.frame === 'VTOL'">
-- [Standard VTOL](frames_vtol/standardvtol.md)
-- [Tailsitter VTOL](frames_vtol/tailsitter.md)
-- [Tiltrotor VTOL](frames_vtol/tiltrotor.md)
+- [Standard VTOL](../frames_vtol/standardvtol.md)
+- [Tailsitter VTOL](../frames_vtol/tailsitter.md)
+- [Tiltrotor VTOL](../frames_vtol/tiltrotor.md)
 </div>
 
 Other frames:
@@ -231,8 +226,8 @@ They recommend sensors, power systems, and other components from the same manufa
 - [Payloads](../getting_started/px4_basic_concepts.md#payloads) (Basic Concepts)
 - [Hardware Selection & Setup](../hardware/drone_parts.md) — information about connecting and configuring specific flight controllers, sensors and other peripherals (e.g. airspeed sensor for planes).
   - [Mounting the Flight Controller](../assembly/mount_and_orient_controller.md)
-  - [Vibration Isolation](assembly/vibration_isolation.md)
-  - [Mounting a Compass](assembly/mount_gps_compass.md)
+  - [Vibration Isolation](../assembly/vibration_isolation.md)
+  - [Mounting a Compass](../assembly/mount_gps_compass.md)
 
 <div v-if="$frontmatter.frame === 'Multicopter'">
 
