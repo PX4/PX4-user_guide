@@ -348,7 +348,7 @@ Functions include:
 - `RC AUXn` to `RC AUX1`: Outputs used for [arbitrary payloads triggered by RC passthrough](../payloads/generic_actuator_control.md#generic-actuator-control-with-rc).
 - `Gimbal Roll`: Output controls gimbal roll.
 - `Gimbal Pitch`: Output controls Gimbal pitch.
-- `Gimbal Yaw`: Output controls Gimbal pitch.
+- `Gimbal Yaw`: Output controls Gimbal yaw.
 
 The following functions can only be applied to FMU outputs:
 
