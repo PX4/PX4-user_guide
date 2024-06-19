@@ -67,7 +67,7 @@ The output pins that are used to control the gimbal are set in the [Acuator Conf
 
 - `Gimbal Roll`: Output controls gimbal roll.
 - `Gimbal Pitch`: Output controls Gimbal pitch.
-- `Gimbal Yaw`: Output controls Gimbal pitch.
+- `Gimbal Yaw`: Output controls Gimbal yaw.
 
 For example, you might have the following settings to assign the gimbal roll, pitch and yaw to AUX1-3 outputs.
 
