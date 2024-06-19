@@ -1,26 +1,26 @@
 This topic provides basic instructions and links showing how to connect and assemble the core components of a typical unmanned system (UAS) running PX4.
 
-The instructions are focussed on systems that use [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, and in particular those that have adopted the [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
-For these flight controllers, much of the "wiring up" is as simple as connecting the components into the appropriately labelled ports using supplied cables.
+The instructions are focussed on systems that use [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers (FCs), and in particular those that have adopted the [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+For these FCs, much of the "wiring up" is as simple as connecting the components into the appropriately labelled ports using supplied cables.
 
 Note that there are also [flight controller-specific guides](#flight-controller-specific-assembly-guides).
 
 ::: info If your FC does not use the connector standard ...
-If your flight controller has not adopted the connector standard then you should review [flight controller-specific](#flight-controller-specific-assembly-guides) and manufacturer-specific setup guides.
-
-Pixhawk series flight controllers that don't follow the connector standard will often provide cables for interconnecting with pixhawk standard components.
+Pixhawk series flight controllers that don't follow the connector standard will often provide cables for interconnecting with Pixhawk standard components.
 For other controllers you may need to manually create cables and connectors.
+
+The [flight controller-specific guides](#flight-controller-specific-assembly-guides) contain FC-specific wiring and configuration information, as do guides on the manufacturer sites.
 :::
 
 ## Flight Controller Overview
 
-The images below show Pixhawk v6x flight controllers (FC) from CUAV and Holybro.
+The images below show Pixhawk v6x flight controllers from CUAV and Holybro.
 Their available ports are very similar because they are both [Pixhawk standard autopilots](../flight_controller/autopilot_pixhawk_standard.md) that have adopted the [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 <img src="../../assets/assembly/pixhawk6x_holybro.jpg" width="300px" title="Holybro Pixhawk6x" /><img src="../../assets/assembly/pixhawk6x_cuav.jpg" width="300px" title="Cuav Pixhawk6x" />
 
 The connector standard ports are listed below, along with their labels on each of the FCs, and what they are used for.
-As both FCs have much the same ports with similar names, core peripherals are connected in the same way.
+The FCs have much the same ports with similar names, and core peripherals are connected in the same way.
 
 | Standard                    | Holybro       | CUAV                | Connect to ...                                               |
 | --------------------------- | ------------- | ------------------- | ------------------------------------------------------------ |
@@ -48,22 +48,27 @@ This is "best practice", even if it is not strictly necessary in all cases.
 
 The flight controller should ideally be [mounted on the frame](../assembly/mount_and_orient_controller.md) as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
+To reduce the impact of vibration on the flight controllers internal IMU(s) and gyroscope(s) you should mount the controller using mounting foam if provided, and otherwise follow manufacturer guidance.
+
 ::: info
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
-To reduce the impact of vibration on the flight controllers internal IMU(s) and gyroscope(s) you should mount the controller using mounting foam if provided, and otherwise follow manufacturer guidance.
-
 ## GNSS/Compass (+ Buzzer + Safety Switch + LED)
 
-A [GNSS/Compass module](../gps_compass/#supported-gnss), which usually incorporates a [buzzer](../getting_started/px4_basic_concepts.md#buzzer), [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), and [UI LED](../getting_started/led_meanings.md#ui-led), is connected to the flight controller 10-Pin JST GH connector labeled `GPS1` or `GPS&SAFETY`.
-A second GPS/compass module, if present, is attached to the 6-pin GPS port labeled `GPS2`.
+Pixhawk Autopilot systems usually include a primary [GNSS/Compass module](../gps_compass/#supported-gnss) that incorporates a [buzzer](../getting_started/px4_basic_concepts.md#buzzer), [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), and [UI LED](../getting_started/led_meanings.md#ui-led), and may also have a secondary GPS/compass module.
+[RTK GNSS](../gps_compass/rtk_gps.md) modules with centimetre accuracy are also supported.
+
+GNSS/Compass modules [should be mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle (separating the compass from other electronics will reduce electromagnetic interference).
+
+The modules connect to either serial ports or to the CAN bus.
+
+### Serial Port GNSS Modules
+
+The primary GNSS/compass module is connected to the flight controller ort labeled `GPS1` or `GPS&SAFETY`, which should be a 10-Pin JST GH connector.
+A second GPS/compass module, if present, is attached to the 6-pin port labeled `GPS2`.
 
 ![GPS Connections](../../assets/assembly/gnss_connections.png)
-
-[DroneCan](../dronecan/index.md) GNSS/Compass modules are connected CAN bus ports, which usually labeled `CAN1` and `CAN2`.
-
-All GNSS/Compass modules [should be mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
 ::: details
 The Pixhawk connector standard 10-pin _Full GPS plus Safety Switch Port_ is intended for connecting the primary GNSS.
@@ -78,27 +83,34 @@ You can use other UART ports for connecting to this kind of GPS module, but you 
 You can also use another I2C port for connecting a magnetometer that is either standalone or part of a GNSS/compass module.
 :::
 
-For more connection and configuration information see:
+### DroneCAN GNSS Modules
 
-- [GNSS/Compass module](../gps_compass/#supported-gnss) — Supported modules + UART GNSS module connection and configuration.
-- [DroneCan](../dronecan/index.md) — List of CAN GNSS + connection and configuration guide
-- [RTK GNSS](../gps_compass/rtk_gps.md) — GNSS with centimetre accuracy
+DroneCAN GNSS/Compass modules are connected to CAN bus ports, which are usually labeled `CAN1` and `CAN2` (as shown in the diagram above).
+The [DroneCAN](../dronecan/index.md) topic has connection and configuration instructions.
+
+### RTK GNSS Modules
+
+[RTK GNSS](../gps_compass/rtk_gps.md) modules are connected to the dedicated FC serial ports or CAN ports in the same way as "normal" GNSS modules.
+Note however that a separate base module is required for the ground station (see [RTK GNSS](../gps_compass/rtk_gps.md) for details).
 
 <!-- https://discord.com/channels/1022170275984457759/1022185721450213396/threads/1245295551784681512 -->
 
 ## Radio Control (Optional)
 
 A [Remote Control (RC) system](../getting_started/rc_transmitter_receiver.md) can be used to manually control a UAS.
-A system consists of a vehicle-based radio receiver connected to the flight controller, and a ground-based radio transmitter that is integrated into a handheld controller.
+RC systems have two parts: of a vehicle-based radio receiver connected to the flight controller, and a ground-based radio transmitter that is integrated into a handheld controller.
 
 ::: tip
-RC systems are essential when bringing up a new airframe, and highly recommended for other low-latency manual flight use cases.
 PX4 does not _require_ a manual controller for autonomous flight modes.
+However RC systems are essential when bringing up a new airframe, and highly recommended for other low-latency manual flight use cases.
 :::
 
+There are a number of different RC standards, such as Spektrum/DSM, S.BUS, PPM, and so on.
 [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md) explains how to select and bind a compatible transmitter/receiver.
 
+RC Ports are not part of the Pixhawk connector standard.
 The [Connecting Receivers](../getting_started/rc_transmitter_receiver.md#connecting-receivers) section explains how to identify the port to connect your particular receiver.
+
 Generally the correct port is easy to infer from the labels on the flight controller:
 
 - Spektrum/DSM receivers usually connect to an input that includes `DSM` in the label, such as: `DSM`, `DSM/SBUS RC`, `DSM RC`, `DSM/SBUS/RSSI` .
@@ -118,7 +130,7 @@ The other radio is connected to your ground station computer or mobile device (u
 Low-power telemetry radios are powered from the port, and generally no further configuration should be required.
 
 If using higher power/range radios you will need to separately power the radio from a BEC and modify the telemetry port data rates.
-You may also need to configure the radio itself — check radio-specific documentation for configuration information.
+You may also need to configure the radio itself, and for IP radios you may need to connect to it via Ethernet — check radio-specific documentation for setup and configuration information.
 
 ::: details
 
@@ -142,26 +154,36 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 
 ## Powering the Flight Controller
 
-Pixhawk flight controllers require a regulated power supply that is sufficient to power the controller itself and a few low-power peripherals, such as a GNSS module, RC transmitter, and low power telemetry radio.
+Pixhawk FCs require a regulated power supply that is sufficient to power the controller itself and a few low-power peripherals, such as a GNSS module, RC transmitter, and low power telemetry radio.
 
-Flight controller manufacturers usually recommend suitable [power modules](../power_module/index.md) for powering the FC and providing measurements of the battery voltage and total current — which PX4 can use to estimate power levels.
-The power module is connected to the FC power port, which is normally labeled `POWER` (or `POWER 1` or `POWER 2` for FCs that have redundant power supply).
+::: tip
+Flight controller manufacturers usually recommend suitable [power modules and power distribution boards](../power_module/index.md) for use with their FCs.
+You don't have to use manufacturer-recommended PDB or power modules, but this is often the easiest way to ensure that the power supply matches both the FC power requirements and the communication protocol expected by its power port.
+:::
 
+Power modules are commonly used to provide regulated power for the FC and also measurements of the battery voltage and total current — which PX4 can use to estimate power levels.
+They split the power supply from a battery to two outputs: one for powering the FC and the other for powering the motors, servos, payloads, high power radios, and other hardware.
+
+The FC connection is to the FC power port, which is normally labeled `POWER` (or `POWER 1` or `POWER 2` for FCs that have redundant power supply).
 The diagram below shows what this might look like.
 
 ![Power modules connected to CUAV Pixhawk 6x](../../assets/assembly/power_module_cuav_analog.jpg)
 
 ::: info
-Flight controllers may also/instead use digital power ports that provide power information via the CAN bus.
+FCs may also/instead use digital power ports that provide power information via the CAN bus.
 For example, the CUAV Pixhawk 6x also has the digital power ports `POWER C1` and `POWER C2`.
+Even though power ports are part of the Pixhawk connector standard, you should check FC specific documentation for power setup.
 :::
 
-The power module is supplied by the battery, and has separate connectors to power the FC and another to power all other hardware such as motors, servos, payloads, and even high power radios.
+_Power distribution boards (PDB)_ can be used instead of a power module in order to simplify the wiring of motors and other components.
+In addition to a power module, they typically include ESCs for controlling a number of motors, and may also integrate a BEC (battery elimination circuit) for supplying power to servos and other peripherals.
 
-In order to simplify wiring up the rest of the system you may choose to use a _power distribution board (PDB)_.
-This may include a power module, ESCs for controlling motors, a BEC (battery elimination circuit) for supplying servos and other peripherals.
+<!--
 
-You don't have to use manufacturer-recommended PDB or power modules, but you should check whatever solution you use matches the flight controller power requirements.
+## Motors
+
+-->
+
 
 ## Other Peripherals
 
