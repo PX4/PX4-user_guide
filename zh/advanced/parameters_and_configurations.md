@@ -111,29 +111,29 @@ API 之间的一个重要区别是，C++ 版本具有更有效的标准化机制
 
 #### C++ API
 
-C++ API 提供宏来将参数声明为 _class attributes_。 You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with _any_ parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
+C++ API 提供宏来将参数声明为 _class attributes_。 您可以添加一些 "常见模板" 代码，以定期监听与 _任何_ 参数更新相关的 [uORB Topic](../middleware/uorb.md) 。 框架代码然后 (在不可见的情况下) 处理追踪影响 uORB 消息，并保持参数属性和 uORB 消息同步。 在代码的其余部分中，您只能使用定义的参数属性，它们将始终是最新的！
 
-First include the required needed headers in the class header for your module or driver:
+首先在您的模块或驱动程序的类头文件中包含所需的头文件:
 
-- **px4_platform_common/module_params.h** to get the `DEFINE_PARAMETERS` macro:
+- **px4_platform_common/module_params.h** 获取 `DEFINE_PARAMETERS` 宏：
 
   ```cpp
   #include <px4_platform_common/module_params.h>
   ```
 
-- **parameter_update.h** to access the uORB `parameter_update` message:
+- **参数_update.h** 访问 uORB `parameter_update` 消息：
 
   ```cpp
   #include <uORB/topics/parameter_update.h>
   ```
 
-- **Subscription.hpp** for the uORB C++ subscription API:
+- **Subscription.hpp** 是 C++  版本的 uORB 订阅 API:
 
   ```cpp
   #include <uORB/Subscription.hpp>
   ```
 
-Derive your class from `ModuleParams`, and use `DEFINE_PARAMETERS` to specify a list of parameters and their associated parameter attributes. The names of the parameters must be the same as their parameter metadata definitions.
+从 `ModuleParams`派生类，并使用 `DEFINE_PARAMETERS` 指定参数列表及其相关的参数属性。 参数的名称必须与其参数元数据定义相同。
 
 ```cpp
 class MyModule : ..., public ModuleParams
@@ -144,7 +144,7 @@ public:
 private:
 
     /**
-     * Check for parameter changes and update them if needed.
+     * 如果由必要，检查参数更改并更新它们。
      */
     void parameters_update();
 
@@ -153,15 +153,15 @@ private:
         (ParamFloat<px4::params::ATT_BIAS_MAX>) _att_bias_max  /**< another parameter */
     )
 
-    // Subscriptions
+    // 订阅
     uORB::SubscriptionInterval _parameter_update_sub{ORB_ID(parameter_update), 1_s};
 
 };
 ```
 
-调用 `parameters_update(parameter_update_sub);` 在代码中定期检查是否有更新(这是模板)：
+使用模板更新 CPP 文件，以检查与参数更新相关的 uORB 消息。
 
-Call `parameters_update();` periodically in code to check if there has been an update:
+代码中调用 `parameters_update(); ` 定期检查是否有更新:
 
 ```cpp
 class MyModule : ..., public ModuleParams
