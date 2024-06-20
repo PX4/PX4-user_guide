@@ -18,27 +18,27 @@ PX4 使用并生成人类和机器可读的元数据:
 
 ## 元数据翻译
 
-Translations for PX4 metadata are done using Crowdin in the [PX4-Metadata-Translations](https://crowdin.com/project/px4-metadata-translations) project.
-For more information about working with PX4 and Crowdin see [Translation](../contribute/translation.md).
+在 Crowdin 项目 [PX4-Metadata-Translations](https://crowdin.com/project/px4-metadata-translations) 中翻译 PX4 元数据。
+更多关于 PX4 和 Crowdin 信息请参阅[Translation](../contribute/translation.md)。
 
 ## 元数据定义
 
-PX4 metadata is defined in PX4 source code alongside its associated data.
-This is done either in a C/C++ comment with special markup to indicate metadata fields and their values, or using YAML files.
+PX4 元数据是在 PX4 源代码及其相关数据中定义的。
+这可以通过在 C/C++ 注释中使用特殊标记来指示元数据字段及其值，或者使用 YAML 文件来完成。
 
-For more information see the topics for each data type:
+更多信息请参阅每种数据类型的章节：
 
-- [Parameters & Configurations > Creating/Defining Parameters](../advanced/parameters_and_configurations.md#creating-defining-parameters)
-- [Events Interface](../concept/events_interface.md)
-- [Actuator Metadata](#actuator-metadata) (below)
+- [参数与配置> 创建/定义参数](../advanced/parameters_and_configurations.md#creating-defining-parameters)
+- [事件接口](../concept/events_interface.md)
+- [执行器元数据](#actuator-metadata)（下文）
 
 ## 元数据工具链
 
-The process for handling metadata is the same for all metadata types.
+处理元数据的过程对所有元数据类型都是相同的。
 
-Metadata is collected into JSON files every time PX4 is built.
+每次构建 PX4 时，元数据都会被收集到 JSON 文件中。
 
-For most flight controllers (as most have enough FLASH available), the JSON file is xz-compressed and stored within the generated binary.
+对于大多数飞控（因为大多数都有足够的可用 FLASH 存储空间），JSON文件经过 xz 压缩并存储在生成的二进制文件中。
 The file is then shared to ground stations using the MAVLink [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html).
 Using the component metadata protocol ensures that the recipient can always fetch up-to-date metadata for the code running on the vehicle.
 Events metadata is also added to the log files, allowing log analysis tools (such as Flight Review) to use the correct metadata to display events.
