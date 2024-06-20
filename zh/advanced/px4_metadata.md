@@ -39,9 +39,9 @@ PX4 元数据是在 PX4 源代码及其相关数据中定义的。
 每次构建 PX4 时，元数据都会被收集到 JSON 文件中。
 
 对于大多数飞控（因为大多数都有足够的可用 FLASH 存储空间），JSON文件经过 xz 压缩并存储在生成的二进制文件中。
-The file is then shared to ground stations using the MAVLink [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html).
+然后使用 MAVLink [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html)共享该文件。
 Using the component metadata protocol ensures that the recipient can always fetch up-to-date metadata for the code running on the vehicle.
-Events metadata is also added to the log files, allowing log analysis tools (such as Flight Review) to use the correct metadata to display events.
+事件元数据也会被添加到日志文件中，允许日志分析工具 (如飞行回放) 使用正确的元数据来显示事件。
 
 Binaries for flight controller targets with constrained memory do not store the parameter metadata in the binary, but instead reference the same data stored on `px4-travis.s3.amazonaws.com`.
 This applies, for example, to the [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md).
