@@ -1,14 +1,14 @@
 # 参数设置
 
-PX4 uses the _param subsystem_ (a flat table of `float` and `int32_t` values) and text files (for startup scripts) to store its configuration.
+PX4 使用 _param subsystem_（`float` 和 `int32_t` 值的二维表）和文本文件（用于启动脚本）来存储其配置。
 
-This section discusses the _param_ subsystem in detail. 它涵盖如何列出、保存和加载参数，以及如何定义这些参数。
+本节详细讨论 _param_ 子系统。 它涵盖如何列出、保存和加载参数，以及如何定义这些参数并使这些参数在地面站上显示。
 
 :::tip
-[System startup](../concept/system_startup.md) and the way that [frame configuration](../dev_airframes/adding_a_new_frame.md) startup scripts work are detailed on other pages.
+[系统启动](../concept/system_startup.md) 以及 [机架配置](../dev_airframes/adding_a_new_frame.md) 的启动脚本在其他页面上有详细介绍。
 :::
 
-## 命令行用法
+## 命令行使用方法
 
 PX4 [系统控制台](../debug/system_console.md)提供了[参数](../modules/modules_command.md#param)工具，可用于设置参数，读取参数值，保存参数，以及导出和还原参数。
 
@@ -20,7 +20,7 @@ PX4 [系统控制台](../debug/system_console.md)提供了[参数](../modules/mo
 param show
 ```
 
-To be more selective, a partial parameter name with wildcard "\*" can be used:
+为了更有选择性，部分参数名称可以使用通配符 "\*" ：
 
 ```sh
 nsh> param show RC_MAP_A*
@@ -45,7 +45,7 @@ param show -c
 
 你可以保存任何已经_修改_的参数(不同于机身默认的参数)。
 
-标准的 `param save ` 命令将参数存储在当前默认文件中:
+标准的 `param save` 命令将参数存储在当前默认文件中:
 
 ```sh
 param save
@@ -84,30 +84,30 @@ param import /fs/microsd/vtol_param_backup
 
 参数定义有两部分:
 
-- `orb_check()` 告诉我们是否有 *任何* 更新 `param_update` 的 uorb 消息 (但不是受影响的参数)，并设置 `updated` bool。
-- 如果更新了 "某些" 参数，我们会将更新复制到 `parameter_update_s` (`param_upd`)
+- [参数元数据](#parameter-metadata)指定固件中每个参数的默认值，以及用于在地面控制站和文档中呈现（和编辑）参数的其他元数据。
+- [C/C++ 代码](#c-c-api) 能够从 PX4 模块和驱动器中获取或订阅参数值。
 
-按照惯例，组中的每个参数都应共享相同的 (有意义的) 字符串前缀，后跟下划线，`MC_` 和 `FW_` 用于与多旋翼或固定翼系统具体相关的参数。 此惯例不强制执行。
+以下描述了编写元数据和代码的几种方法。 在可能的情况下，代码应该使用更新的[YAML 元数据](#yaml-metadata)和[C++ API](#c-api)，而不是使用旧的 C 参数/代码定义，因为这些方法更灵活和健壮。
 
-该名称必须在代码和 [parameter metadatata](#parameter-metadata) 中匹配，才能正确地将参数与其元数据（包括固件中的默认值）相关联。
+参数元数据[被编译到固件中](#publishing-parameter-metadata-to-a-gcs)，并通过[ MAVLink 组件信息服务](https://mavlink.io/en/services/component_information.html)提供给地面站。
 
 ### 参数名称
 
 参数名称不得超过 16 个 ASCII 字符。
 
-By convention, every parameter in a group should share the same (meaningful) string prefix followed by an underscore, and `MC_` and `FW_` are used for parameters related specifically to Multicopter or Fixed-wing systems. This convention is not enforced.
+按照惯例，组中的每个参数都应共享相同的 (有意义的) 字符串前缀，后跟下划线，`MC_` 和 `FW_` 用于与多旋翼或固定翼系统具体相关的参数。 此惯例不强制执行。
 
-The name must match in both code and [parameter metadata](#parameter-metadata) to correctly associate the parameter with its metadata (including default value in Firmware).
+名称必须匹配代码和 [参数元数据](#parameter-metadata) 以正确地将参数与其元数据关联 (包括固件中的默认值)。
 
 ### C / C++ API
 
-There are separate C and C++ APIs that can be used to access parameter values from within PX4 modules and drivers.
+有单独的 C 和 C++ 的 API 可用于从 PX4 模块和驱动程序中访问参数值。
 
-One important difference between the APIs is that the C++ version has a more efficient standardized mechanism to synchronize with changes to parameter values (i.e. from a GCS).
+API 之间的一个重要区别是，C++ 版本具有更有效的标准化机制，可与参数值的更改（即来自 GCS 的更改）同步。
 
-Synchronization is important because a parameter can be changed to another value at any time. Your code should _always_ use the current value from the parameter store. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
+同步很重要，因为参数可能随时被更改为另一个值。 您的代码应该 _始终_ 使用参数存储中的当前值。 如果无法获取最新版本，则需要在更改参数后重新启动（使用 `@reboot_required` 元数据来重启）。
 
-从 `ModuleParams` 派生类，并使用 `DEFINE_PARAMETERS` 指定参数李彪及其关联的参数属性。 参数的名称必须与其参数元数据定义相同。
+此外，C++ 版本有更好的类型安全和更小的 RAM 开销。 缺点是参数名称必须在编译时知道，而 C 语言 API 可以将动态创建的名称作为字符串。
 
 #### C++ API
 
