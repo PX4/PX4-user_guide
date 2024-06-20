@@ -1,31 +1,33 @@
 # Моделювання в апаратному забезпеченні (SIH)
 
-:::warning
-Цей симулятор підтримується та обслуговується [спільнотою](../simulation/community_supported_simulators.md). Він може працювати або не працювати з поточними версіями PX4 (відомо, що він працює в PX4 v1.14).
+<Badge type="tip" text="PX4 v1.9 (MC)" /><Badge type="tip" text="PX4 v1.13 (MC, VTOL, FW)" />
 
-Перегляньте розділ [Встановлення ланцюжка інструментів](../dev_setup/dev_env.md), щоб отримати інформацію про середовища та інструменти, які підтримуються основною командою розробників.
+:::warning
+This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4 (known to work in PX4 v1.14).
+
+See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
 
-Симуляція у апаратному забезпеченні (SIH) - це альтернатива симуляції у [апаратному забезпеченні (HITL) ](../simulation/hitl.md) для квадрокоптерів, фіксованих крил (літаків) та VTOL хвостоподібних.
+Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulation (HITL)](../simulation/hitl.md) for quadrotors, fixed-wing vehicles (airplane), and VTOL tailsitters.
 
-SIH може бути використано новими користувачами PX4 для знайомства з PX4 та різними режимами та функціями, а також, звичайно, для навчання польоту транспортного засобу за допомогою пульту керування в симуляції, що неможливо з SITL.
+SIH can be used by new PX4 users to get familiar with PX4 and the different modes and features, and of course to learn to fly a vehicle using an RC controller in simulation, which is not possible using SITL.
 
 ## Загальний огляд
 
-З SIH вся симуляція працює на вбудованому обладнанні: контролер, оцінювач стану та симулятор. Комп'ютер на робочому столі використовується лише для відображення віртуального транспортного засобу.
+With SIH the whole simulation is running on embedded hardware: the controller, the state estimator, and the simulator. The Desktop computer is only used to display the virtual vehicle.
 
 ![Simulator MAVLink API](../../assets/diagrams/SIH_diagram.png)
 
 ### Сумісність
 
-- SIH сумісний з усіма платами серії Pixhawk, за винятком тих, що базуються на FMUv2.
+- SIH is compatible with all PX4 supported boards except those based on FMUv2.
 - SIH для квадрокоптера підтримується з версії PX4 v1.9.
 - SIH для фіксованих крил (літака) та VTOL-конвертоплана підтримується з версії PX4 v1.13.
 - SIH як SITL (без апаратного забезпечення) з версії PX4 v1.14.
 
 ### Переваги
 
-SIH має кілька переваг перед HITL:
+SIH provides several benefits over HITL:
 
 - Він забезпечує синхронізований час, уникаючи двостороннього з'єднання з комп'ютером. В результаті користувачеві не потрібен такий потужний настільний комп'ютер.
 - Усе моделювання залишається в середовищі PX4. Розробники, які знайомі з PX4, можуть легше включити свою власну математичну модель в симулятор. Вони, наприклад, можуть змінити аеродинамічну модель або рівень шуму датчиків, або навіть додати датчик для симуляції.
@@ -33,11 +35,12 @@ SIH має кілька переваг перед HITL:
 
 ## Вимоги
 
-Щоб запустити SIH, вам знадобиться:
+To run the SIH, you will need a:
 
 - [Контролер польоту](../flight_controller/README.md), наприклад плата серії Pixhawk
-- Розробка комп'ютера для відображення віртуального автомобіля.
 - [Ручне управління](../getting_started/px4_basic_concepts.md#manual-control): або [радіосистема управління,](../getting_started/rc_transmitter_receiver.md) або [джойстик](../config/joystick.md).
+- QGroundControl for flying the vehicle via GCS.
+- Development computer for visualizing the virtual vehicle (optional).
 
 Починаючи з PX4 v1.14, ви можете запускати SIH "як SITL", у цьому випадку контролер польоту не потрібен.
 
@@ -59,7 +62,13 @@ SIH має кілька переваг перед HITL:
 Крім того, якщо літак розбився, оцінювач стану може втратити своє виправлення.
 :::
 
-## Налаштування відображення
+## Setting up the Display (optional)
+
+The SIH can be displayed using [jMAVSim](../sim_jmavsim/index.md) as a visualiser.
+
+::: tip SIH
+does not _need_ a visualiser — you can connect with QGroundControl and fly the vehicle without one.
+:::
 
 Для відображення симульованого транспортного засобу:
 
@@ -110,11 +119,19 @@ SIH можна запустити як SITL (Software-In-The-Loop) з версі
      make px4_sitl sihsim_xvert
      ```
 
-SITL дозволяє виконувати симуляцію швидше, ніж у реальному часі. Щоб запустити симуляцію літака в 10 разів швидше, ніж у реальному часі, запустіть команду L
+SITL дозволяє виконувати симуляцію швидше, ніж у реальному часі. To run the airplane simulation 10 times faster than real time, run the command:
 
 ```sh
 PX4_SIM_SPEED_FACTOR=10 make px4_sitl sihsim_airplane
 ```
+
+To display the vehicle in jMAVSim during SITL mode, enter the following command in another terminal:
+
+```sh
+./Tools/simulation/jmavsim/jmavsim_run.sh -p 19410 -u -q -o
+```
+
+- add a flag `-a` to display an aircraft or `-t` to display a tailsitter. If this flag is not present a quadrotor will be displayed by default.
 
 ## Динамічний режим
 
@@ -132,7 +149,7 @@ PX4_SIM_SPEED_FACTOR=10 make px4_sitl sihsim_airplane
 
 SIH спочатку був розроблений компанією Coriolis g Corporation. Модель літака та моделі вертикальних засідателів були додані компанією Altitude R&D inc. Обидві ці компанії знаходяться в Канаді:
 
-- [Coriolis g](http://ww7.vogi-vtol.com) розробляє новий тип транспортних засобів вертикального зльоту та посадки (VTOL) на основі пасивних зв'язуючих систем;
-- [Altitude R&D](https://www.altitude-rd.com/) спеціалізується на динаміці, керуванні та реальному часім симуляціям.
+- Coriolis g developped a new type of Vertical Takeoff and Landing (VTOL) vehicles based on passive coupling systems;
+- [Altitude R&D](https://www.altitude-rd.com/) is specialized in dynamics, control, and real-time simulation (today relocated in Zurich).
 
 Симулятор випущений безкоштовно під ліцензією BSD.
