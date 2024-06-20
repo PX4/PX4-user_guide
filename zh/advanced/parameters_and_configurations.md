@@ -1,14 +1,14 @@
 # 参数设置
 
-PX4 uses the _param subsystem_ (a flat table of `float` and `int32_t` values) and text files (for startup scripts) to store its configuration.
+PX4 使用 _param subsystem_（`float` 和 `int32_t` 值的二维表）和文本文件（用于启动脚本）来存储其配置。
 
-This section discusses the _param_ subsystem in detail. 它涵盖如何列出、保存和加载参数，以及如何定义这些参数。
+本节详细讨论 _param_ 子系统。 它涵盖如何列出、保存和加载参数，以及如何定义这些参数并使这些参数在地面站上显示。
 
 :::tip
-[System startup](../concept/system_startup.md) and the way that [frame configuration](../dev_airframes/adding_a_new_frame.md) startup scripts work are detailed on other pages.
+[系统启动](../concept/system_startup.md) 以及 [机架配置](../dev_airframes/adding_a_new_frame.md) 的启动脚本在其他页面上有详细介绍。
 :::
 
-## 命令行用法
+## 命令行使用方法
 
 PX4 [系统控制台](../debug/system_console.md)提供了[参数](../modules/modules_command.md#param)工具，可用于设置参数，读取参数值，保存参数，以及导出和还原参数。
 
@@ -20,7 +20,7 @@ PX4 [系统控制台](../debug/system_console.md)提供了[参数](../modules/mo
 param show
 ```
 
-To be more selective, a partial parameter name with wildcard "\*" can be used:
+为了更有选择性，部分参数名称可以使用通配符 "\*" ：
 
 ```sh
 nsh> param show RC_MAP_A*
@@ -45,7 +45,7 @@ param show -c
 
 你可以保存任何已经_修改_的参数(不同于机身默认的参数)。
 
-标准的 `param save ` 命令将参数存储在当前默认文件中:
+标准的 `param save` 命令将参数存储在当前默认文件中:
 
 ```sh
 param save
@@ -84,56 +84,56 @@ param import /fs/microsd/vtol_param_backup
 
 参数定义有两部分:
 
-- `orb_check()` 告诉我们是否有 *任何* 更新 `param_update` 的 uorb 消息 (但不是受影响的参数)，并设置 `updated` bool。
-- 如果更新了 "某些" 参数，我们会将更新复制到 `parameter_update_s` (`param_upd`)
+- [参数元数据](#parameter-metadata)指定固件中每个参数的默认值，以及用于在地面控制站和文档中呈现（和编辑）参数的其他元数据。
+- [C/C++ 代码](#c-c-api) 能够从 PX4 模块和驱动器中获取或订阅参数值。
 
-按照惯例，组中的每个参数都应共享相同的 (有意义的) 字符串前缀，后跟下划线，`MC_` 和 `FW_` 用于与多旋翼或固定翼系统具体相关的参数。 此惯例不强制执行。
+以下描述了编写元数据和代码的几种方法。 在可能的情况下，代码应该使用更新的[YAML 元数据](#yaml-metadata)和[C++ API](#c-api)，而不是使用旧的 C 参数/代码定义，因为这些方法更灵活和健壮。
 
-该名称必须在代码和 [parameter metadatata](#parameter-metadata) 中匹配，才能正确地将参数与其元数据（包括固件中的默认值）相关联。
+参数元数据[被编译到固件中](#publishing-parameter-metadata-to-a-gcs)，并通过[ MAVLink 组件信息服务](https://mavlink.io/en/services/component_information.html)提供给地面站。
 
 ### 参数名称
 
 参数名称不得超过 16 个 ASCII 字符。
 
-By convention, every parameter in a group should share the same (meaningful) string prefix followed by an underscore, and `MC_` and `FW_` are used for parameters related specifically to Multicopter or Fixed-wing systems. This convention is not enforced.
+按照惯例，组中的每个参数都应共享相同的 (有意义的) 字符串前缀，后跟下划线，`MC_` 和 `FW_` 用于与多旋翼或固定翼系统具体相关的参数。 此惯例不强制执行。
 
-The name must match in both code and [parameter metadata](#parameter-metadata) to correctly associate the parameter with its metadata (including default value in Firmware).
+名称必须匹配代码和 [参数元数据](#parameter-metadata) 以正确地将参数与其元数据关联 (包括固件中的默认值)。
 
 ### C / C++ API
 
-There are separate C and C++ APIs that can be used to access parameter values from within PX4 modules and drivers.
+有单独的 C 和 C++ 的 API 可用于从 PX4 模块和驱动程序中访问参数值。
 
-One important difference between the APIs is that the C++ version has a more efficient standardized mechanism to synchronize with changes to parameter values (i.e. from a GCS).
+API 之间的一个重要区别是，C++ 版本具有更有效的标准化机制，可与参数值的更改（即来自 GCS 的更改）同步。
 
-Synchronization is important because a parameter can be changed to another value at any time. Your code should _always_ use the current value from the parameter store. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
+同步很重要，因为参数可能随时被更改为另一个值。 您的代码应该 _始终_ 使用参数存储中的当前值。 如果无法获取最新版本，则需要在更改参数后重新启动（使用 `@reboot_required` 元数据来重启）。
 
-从 `ModuleParams` 派生类，并使用 `DEFINE_PARAMETERS` 指定参数李彪及其关联的参数属性。 参数的名称必须与其参数元数据定义相同。
+此外，C++ 版本有更好的类型安全和更小的 RAM 开销。 缺点是参数名称必须在编译时知道，而 C 语言 API 可以将动态创建的名称作为字符串。
 
 #### C++ API
 
-C++ API 提供宏来将参数声明为 _class attributes_。 You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with _any_ parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
+C++ API 提供宏来将参数声明为 _class attributes_。 您可以添加一些 "常见模板" 代码，以定期监听与 _任何_ 参数更新相关的 [uORB Topic](../middleware/uorb.md) 。 框架代码然后 (在不可见的情况下) 处理追踪影响 uORB 消息，并保持参数属性和 uORB 消息同步。 在代码的其余部分中，您只能使用定义的参数属性，它们将始终是最新的！
 
-First include the required needed headers in the class header for your module or driver:
+首先在您的模块或驱动程序的类头文件中包含所需的头文件:
 
-- **px4_platform_common/module_params.h** to get the `DEFINE_PARAMETERS` macro:
+- **px4_platform_common/module_params.h** 获取 `DEFINE_PARAMETERS` 宏：
 
   ```cpp
   #include <px4_platform_common/module_params.h>
   ```
 
-- **parameter_update.h** to access the uORB `parameter_update` message:
+- **参数_update.h** 访问 uORB `parameter_update` 消息：
 
   ```cpp
   #include <uORB/topics/parameter_update.h>
   ```
 
-- **Subscription.hpp** for the uORB C++ subscription API:
+- **Subscription.hpp** 是 C++  版本的 uORB 订阅 API:
 
   ```cpp
   #include <uORB/Subscription.hpp>
   ```
 
-Derive your class from `ModuleParams`, and use `DEFINE_PARAMETERS` to specify a list of parameters and their associated parameter attributes. The names of the parameters must be the same as their parameter metadata definitions.
+从 `ModuleParams`派生类，并使用 `DEFINE_PARAMETERS` 指定参数列表及其相关的参数属性。 参数的名称必须与其参数元数据定义相同。
 
 ```cpp
 class MyModule : ..., public ModuleParams
@@ -144,7 +144,7 @@ public:
 private:
 
     /**
-     * Check for parameter changes and update them if needed.
+     * 如果由必要，检查参数更改并更新它们。
      */
     void parameters_update();
 
@@ -153,126 +153,131 @@ private:
         (ParamFloat<px4::params::ATT_BIAS_MAX>) _att_bias_max  /**< another parameter */
     )
 
-    // Subscriptions
+    // 订阅
     uORB::SubscriptionInterval _parameter_update_sub{ORB_ID(parameter_update), 1_s};
 
 };
 ```
 
-调用 `parameters_update(parameter_update_sub);` 在代码中定期检查是否有更新(这是模板)：
+使用模板更新 CPP 文件，以检查与参数更新相关的 uORB 消息。
 
-Call `parameters_update();` periodically in code to check if there has been an update:
+代码中调用 `parameters_update(); ` 定期检查是否有更新:
 
 ```cpp
-class MyModule : ..., public ModuleParams
+void Module::parameters_update()
 {
-public:
-    ...
-        private:
+    if (_parameter_update_sub.updated()) {
+        parameter_update_s param_update;
+        _parameter_update_sub.copy(&param_update);
 
-    /**
-     * Check for parameter changes and update them if needed.
+        //如果有任何参数更新, 调用 updateParams() 来检查
+        // 该类属性是否需要更新 (然后执行更新)。
+        updateParams();
+    }
+}
 ```
+
+在上述方法中：
+
+- `_parameter_update_sub.updated()` 告诉我们是否有 _任何_ 更新 `param_update` 的 uORB 消息 (但不是受影响的参数)。
+- 如果更新了 "某些" 参数，我们会将更新复制到 `parameter_update_s` (`param_update`), 以清除待处理的更新。
+- 然后我们调用 `ModuleParams::updateParams()`。 这个"底层"更新了我们`DEFINE_PARAMETERS`列表中列出的所有参数属性。
 
 然后，参数属性 (`_sys_autostart` 和`_att_bias_max` 在本例中) 可用于表示参数，并随时更新参数值的变化。
 
-- `_parameter_update_sub.updated()` tells us if there is _any_ update to the `param_update` uORB message (but not what parameter is affected).
-- If there has been "some" parameter updated, we copy the update into a `parameter_update_s` (`param_update`), to clear the pending update.
-- Then we call `ModuleParams::updateParams()`. This "under the hood" updates all parameter attributes listed in our `DEFINE_PARAMETERS` list.
-
-The parameter attributes (`_sys_autostart` and `_att_bias_max` in this case) can then be used to represent the parameters, and will be updated whenever the parameter value changes.
-
 :::tip
-The [Application/Module Template](../modules/module_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter-metadata).
+[Application/Module Template](../modules/module_template.md)使用的是新风格的 C++ API，但是不包括[parameter metadata](#parameter-metadata)。
 :::
 
 #### C API
 
-The C API can be used within both modules and drivers.
+C API 可以在模块和驱动程序中使用。
 
-First include the parameter API:
+首先包括参数 API 头文件:
 
 ```C
-#include <uORB/topics/parameter_update.h>
+#include <parameters/param.h>
 ```
 
-Then retrieve the parameter and assign it to a variable (here `my_param`), as shown below for `PARAM_NAME`. The variable `my_param` can then be used in your module code.
+然后检索参数并将其分配到一个变量 (这里 `my_param`)，如下文所示 `PARAM_NAME`。 变量 `my_param` 然后可以用于您的模块代码。
 
 ```C
 int32_t my_param = 0;
 param_get(param_find("PARAM_NAME"), &my_param);
 ```
 
+::: info 如果在参数元数据中声明了 `PARAM_NAME`，则将设置其默认值，上述查找参数的调用应始终成功。 如果要多次读取该参数，可以缓存句柄，并在需要时在 `param_get()` 中使用
+
 `param_find()` 是一个“昂贵”操作，返回一个可以被 `param_get()` 使用的句柄。 如果要多次读取该参数，可以缓存句柄，并在需要时在 `param_get()` 中使用
 
-`param_find()` is an "expensive" operation, which returns a handle that can be used by `param_get()`. If you're going to read the parameter multiple times, you may cache the handle and use it in `param_get()` when needed
-
 ```cpp
-# Get the handle to the parameter
+# 获取参数句柄
 param_t my_param_handle = PARAM_INVALID;
 my_param_handle = param_find("PARAM_NAME");
 
-# Query the value of the parameter when needed
+# 查询我们需要的参数
 int32_t my_param = 0;
 param_get(my_param_handle, &my_param);
 ```
 
 ### 参数元数据
 
-PX4 uses an extensive parameter metadata system to drive the user-facing presentation of parameters, and to set the default value for each parameter in firmware.
+PX4 使用广泛的参数元数据系统来驱动面向用户的参数表示，并在固件中设置的每个参数的默认值。
 
 :::tip
-Correct metadata is critical for good user experience in a ground station.
+正确的元数据对于地面站的良好用户体验至关重要。
 :::
 
-Parameter metadata can be stored anywhere in the source tree as either **.c** or **.yaml** parameter definitions (the YAML definition is newer, and more flexible). Typically it is stored alongside its associated module.
+参数元数据可以储存在源文件目录树的任意位置中，作为 **.c** 或 **.yaml** 参数定义(YAML 定义较新，较灵活)。 通常，它与关联的模块一起存储。
 
-The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced_config/parameter_reference.md) and the parameter information [used by ground stations](#publishing-parameter-metadata-to-a-gcs).
+构建系统提取元数据（使用命令`make parameters_metadata`）来构建[parameter reference](../advanced_config/parameter_reference.md)，并且参数信息[供地面站使用](#publishing-parameter-metadata-to-a-gcs)。
 
 :::warning
-After adding a _new_ parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the _cmake_ configure step, which happens for clean builds and if a cmake file is modified).
+添加了一个 _新的_ 参数文件后，你应该在产生新参数（被添加的参数文件作为_cmake_配置步骤中的一部分，在清理构建和 cmake 被修改后会被添加）之前调用`make clean`。
 :::
 
 #### YAML 元数据
 
-::: info At time of writing YAML parameter definitions cannot be used in _libraries_.
+::: info 在写入 YAML 参数定义时，无法在 _libraries_ 中使用。
 :::
 
-YAML meta data is intended as a full replacement for the **.c** definitions. It supports all the same metadata, along with new features like multi-instance definitions.
+YAML 元数据是为了完全替换 **.c** 文件定义。 它支持所有相同的元数据，以及多实例定义等新功能。
 
-- The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml).
-- An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml).
-- A YAML file is registered in the cmake build system by adding
+- YAML 参数元数据结构在此处： [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml)。
+- 正在使用的 YAML 定义示例可以在 MAVLink 参数定义中找到： [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml)。
+- 通过添加到 cmake 构建系统中注册一个 YAML 文件
 
   ```cmake
   MODULE_CONFIG
     module.yaml
   ```
 
-  to the `px4_add_module` section of the `CMakeLists.txt` file of that module.
+  到 `CMakeLists.txt` 该模块的 `px4_add_module` 部分。
 
-#### Multi-Instance (Templated) YAML Meta Data
+#### 多实例（模块化）YAML 元数据
 
-Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) (templated parameter code is not supported).
+[YAML 参数定义](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) 支持模块化参数定义(不支持模块化参数代码)。
 
-The YAML allows you to define instance numbers in parameter names, descriptions, etc. using `${i}`. For example, below will generate MY_PARAM_1_RATE, MY_PARAM_2_RATE etc.
+YAML 允许使用 `${i}` 在参数名，描述等中定义实例数。 例如，下面将生成 MY_PARAM_1_RATE、MY_PARAM_2_RATE 等。
 
 ```yaml
-#include <parameters/param.h>
+MY_PARAM_${i}_RATE:
+  description:
+    short: Maximum rate for instance ${i}
 ```
 
-The following YAML definitions provide the start and end indexes.
+以下 YAML 定义提供起始和结束索引。
 
-- `num_instances` (default 1): Number of instances to generate (>=1)
-- `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.
+- `num_instances` (默认是1): 要生成的实例数 (>=1)
+- `instance_start` (默认是 0): 第一个实例编号。 如果是 0， `${i}` 扩展到 [0, N-1]`.
 
-For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml)
+关于完整的示例，请参阅 MAVLink 参数定义： [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml)
 
 #### c 参数元数据
 
-The legacy approach for defining parameter metadata is in a file with extension **.c** (at time of writing this is the approach most commonly used in the source tree).
+传统方法是将定义的参数元数据写在一个扩展名为**.c**的文件中（在撰写本文时，这是源代码中最常用的方法）。
 
-以下 YAML 定义提供起始和结束索引。
+参数的元数据部分看起来像下面的例子:
 
 ```cpp
 /**
@@ -302,9 +307,9 @@ PARAM_DEFINE_FLOAT(MC_PITCH_P, 6.5f);
 PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 ```
 
-The `PARAM_DEFINE_*` macro at the end specifies the type of parameter (`PARAM_DEFINE_FLOAT` or `PARAM_DEFINE_INT32`), the name of the parameter (which must match the name used in code), and the default value in firmware.
+末尾的 `PARAM_DEFINE_*` 宏指定参数的类型 (`PARAM_DEFINE_FLOAT` 或 `PARAM_DEFINE_INT32`)、参数的名称 (必须与代码中使用的名称匹配) 以及固件中的默认值。
 
-The lines in the comment block are all optional, and are primarily used to control display and editing options within a ground station. The purpose of each line is given below (for more detail see [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml)).
+注释块中的行都是可选的，主要用于控制地面站内的显示和编辑选项。 每一行的注释建议如下(详见 [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml))。
 
 ```cpp
 /**
@@ -325,9 +330,9 @@ The lines in the comment block are all optional, and are primarily used to contr
 
 ## 发布参数的元数据到地面站
 
-The parameter metadata JSON file is compiled into firmware (or hosted on the Internet), and made available to ground stations via the [MAVLink Component Metadata service](https://mavlink.io/en/services/component_information.html). This ensures that metadata is always up-to-date with the code running on the vehicle.
+参数元数据 JSON 文件被编译到固件（或托管在互联网上），并通过[ MAVLink 组件元数据服务](https://mavlink.io/en/services/component_information.html)提供给地面站。 这确保了元数据始终与载具上运行的代码保持最新。
 
-This process is the same as for [events metadata](../concept/events_interface.md#publishing-event-metadata-to-a-gcs). For more information see [PX4 Metadata (Translation & Publication)](../advanced/px4_metadata.md)
+此过程与[事件元数据](../concept/events_interface.md#publishing-event-metadata-to-a-gcs)的发布相同。 有关更多信息，请参阅[ PX4 元数据（翻译与发布）](../advanced/px4_metadata.md)
 
 ## 更多信息
 
