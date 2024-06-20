@@ -384,6 +384,7 @@
     - [Helicopter Config/Tuning](config_heli/index.md)
   - [Rovers (experimental)](frames_rover/index.md)
     - [Flight Modes](flight_modes_rover/index.md)
+    - [Ackermann Rover](frames_rover/ackermann_rover.md)
     - [Aion Robotics R1](frames_rover/aion_r1.md)
     - [Traxxas Stampede](frames_rover/traxxas_stampede.md)
   - [Submarines (experimental)](frames_sub/index.md)
