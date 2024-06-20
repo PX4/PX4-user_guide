@@ -140,7 +140,8 @@ You may also need to configure the radio itself, and for IP radios you may need 
 - High powered radios like the [Microhard Serial radio](../telemetry/microhard_serial.md) will need to be separately powered and may need to be configured (see the PX4 and manufacturer documentation).
 - You can also attach telemetry radios to the `TELEM2` and `TELEM3` telemetry ports (if present).
   Note however that `TELEM2` is configured by default for connecting to a companion computer, and might need to be [reconfigured](../peripherals/mavlink_peripherals.md) to connect to a ground station.
-  :::
+
+:::
 
 ## SD Card
 
@@ -152,40 +153,89 @@ A SD card is factory-installed on many flight controllers, but you should check 
 For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
-## Powering the Flight Controller
+## Power & Actuators
 
-Pixhawk FCs require a regulated power supply that is sufficient to power the controller itself and a few low-power peripherals, such as a GNSS module, RC transmitter, and low power telemetry radio.
+The diagram below shows how flight controller, motors, control surface actuators, other actuators and other systems might be wired, showing both power and PWM control signal connections.
+A particular vehicle might have more/fewer motors and actuators, but the wiring _approach_ when using PWM outputs is likely to be similar!
+
+![Motor and servo wiring with PM, PDB, BEC, Servo](../../assets/assembly/power_all.png)
+
+The following sections explain each part in more detail.
 
 ::: tip
-Flight controller manufacturers usually recommend suitable [power modules and power distribution boards](../power_module/index.md) for use with their FCs.
-You don't have to use manufacturer-recommended power module (or PDB), but this is often the easiest way to ensure that the power supply matches both the FC power requirements and the communication protocol expected by its power port.
+If you're using [DroneCAN ESC](../peripherals/esc_motors.md#dronecan) the control signals will be connected to the CAN BUS instead of the PWM outputs as shown.
 :::
 
-Power modules are commonly used to provide regulated power for the FC and also measurements of the battery voltage and total current — which PX4 can use to estimate power levels.
-They split the power supply from a battery to two outputs: one for powering the FC and the other for powering the motors, servos, payloads, high power radios, and other hardware.
+### Flight Controller Power
 
-The FC connection is to the FC power port, which is normally labeled `POWER` (or `POWER 1` or `POWER 2` for FCs that have redundant power supply).
+Pixhawk FCs require a regulated power supply that can supply at around 5V/3A continuous (check your specific FC)!
+This is sufficient to power the controller itself and a few low-power peripherals, such as a GNSS module, RC transmitter, and low power telemetry radio, but not for motors, actuators, and other peripherals.
+
+[Power modules](../power_module/index.md) are commonly used to "split off" this regulated power supply for the FC and also to provide measurements of the battery voltage and total current to the whole system — which PX4 can use to estimate power levels.
+The power module is connected to the FC power port, which is normally labeled `POWER` (or `POWER 1` or `POWER 2` for FCs that have redundant power supply).
 The diagram below shows what this might look like.
 
 ![Power modules connected to CUAV Pixhawk 6x](../../assets/assembly/power_module_cuav_analog.jpg)
 
+The other output of the power module supplies battery power for other components, including motors and actuators, high power radios, and some payloads, such as cameras, and grippers.
+
+::: tip
+Flight controller manufacturers usually recommend suitable power modules for use with their FCs (and sometimes also _Power Distribution Boards_ (PDB) that contain suitable power modules).
+You don't have to use manufacturer-recommended power module (or PDB), but this is often the easiest way to ensure that the power supply matches both the FC power requirements and the communication protocol expected by its power port.
+:::
+
 ::: info
-FCs may also/instead use digital power ports that provide power information via the CAN bus.
-For example, the CUAV Pixhawk 6x also has the digital power ports `POWER C1` and `POWER C2`.
+FCs may have power ports that provide power information via the CAN bus.
+For example, the CUAV Pixhawk 6x has I2C power ports `POWER 1` and `POWER 2`, and the CAN ports `POWER C1` and `POWER C2`.
 Even though power ports are part of the Pixhawk connector standard, you should check FC specific documentation for power setup.
 :::
 
-_Power distribution boards (PDB)_ can be used with a power module in order to simplify the wiring of motors and other components.
-PDBs may include a power module (in which case they replace a stand alone module), ESCs for controlling a number of motors, and may also integrate a BEC (battery elimination circuit) for supplying power to servos and other peripherals.
+### Power Distribution Board (PDB)
 
-<!--
+In this example the power output from the battery is first connected to a power distribution board (PDB), which breaks out the power from the input into multiple parallel outputs.
+You don't have to use a PDB, but it can simplify wiring, in particular for vehicles that have several motors.
 
-## Motors
+A more capable PDB may incorporate a power module (in which case they replace a stand alone module), ESCs for controlling a number of motors, and may also integrate a BEC (battery elimination circuit) for supplying power to servos and other peripherals.
 
--->
+### Motors
 
+Brushless motors are powered and controlled via ESCs (electronic speed controllers).
+PWM ESCs are connected with two input wires from the battery for power, two input wires from the flight controller that provide control signals (via three pin connector), and three output wires that are connected to the motor.
 
-## Other Peripherals
+The power wires should be twisted in order to reduce electromagnetic interference, and kept as short and "tidy" on the frame as possible.
+
+Any outputs on either PWM output bus can be connected to any actuators, motor, or other PWM controlled hardware, and later mapped to a particular actuator that is controlled by PX4 when configuring the [Actuator Outputs](../config/actuators.md#actuator-outputs).
+Note though:
+
+- By preference you should connect ESC to FMU PWM bus outputs because they are lower-latency than IO PWM outputs.
+  Note that the PWM outputs are often labeled `AUX` or `MAIN`.
+  Use the `AUX` bus if both are present, and `MAIN` otherwise.
+- [DShot ESC](../peripherals/dshot.md) (recommended) can only be used on the FMU PWM outputs.
+- Motor outputs should be grouped together as much as possible rather than spread randomly across both output busses.
+  This is because if you assign some function to an output, such as DShot ESC, you can't then assign adjacent unused pins for anything other than a DShot ESC.
+
+### Servos
+
+Servos are used to move flight control surfaces and payload actuators.
+Typical wiring for power and control is shown below.
+
+![Servo wiring](../../assets/assembly/servos.png)
+
+Servos usually have a three wire connector that provides both power and PWM control signals (the middle pin is the power/voltage high).
+A battery elimination circuit is used to provide a regulated voltage from the battery, at the level expected by your servos.
+This is connected to the middle "Power" rail on the PWM output bus and powers all connected servos.
+
+::: warning
+The power rail cannot be powered by the FC itself!
+It can only have the one voltage provided by your BEC, so either use servos that all accept the same voltage, or you'll need to separately power any others that use a different voltage.
+:::
+
+As for motors, you can connect the servo outputs to any pins or bus you like, and configure what the output actually does in PX4.
+
+### Other Peripherals
+
+Other peripherals, such as high-power radios, cameras, and so on have their own power requirements.
+These will usually be supplied off a separate BEC.
 
 The wiring and configuration of optional/less common components is covered within the [Hardware Hardware Selection & Setup](../hardware/drone_parts.md) topics for individual peripherals.
 
