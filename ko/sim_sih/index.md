@@ -1,5 +1,7 @@
 # Simulation-In-Hardware (SIH)
 
+<Badge type="tip" text="PX4 v1.9 (MC)" /><Badge type="tip" text="PX4 v1.13 (MC, VTOL, FW)" />
+
 :::warning
 This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4 (known to work in PX4 v1.14).
 
@@ -18,7 +20,7 @@ With SIH the whole simulation is running on embedded hardware: the controller, t
 
 ### Compatibility
 
-- SIH is compatible with all Pixhawk-series boards except those based on FMUv2.
+- SIH is compatible with all PX4 supported boards except those based on FMUv2.
 - SIH for quadrotor is supported from PX4 v1.9.
 - SIH for fixed-wing (airplane) and VTOL tailsitter are supported from PX4 v1.13.
 - SIH as SITL (without hardware) from PX4 v1.14.
@@ -36,8 +38,9 @@ SIH provides several benefits over HITL:
 To run the SIH, you will need a:
 
 - [Flight controller](../flight_controller/index.md), such as a Pixhawk-series board
-- Development computer for displaying the virtual vehicle.
 - [Manual controller](../getting_started/px4_basic_concepts.md#manual-control): either a [radio control system](../getting_started/rc_transmitter_receiver.md) or a [joystick](../config/joystick.md).
+- QGroundControl for flying the vehicle via GCS.
+- Development computer for visualizing the virtual vehicle (optional).
 
 From PX4 v1.14 you can run SIH "as SITL", in which case a flight controller is not required.
 
@@ -59,7 +62,13 @@ The airplane needs to takeoff in manual mode at full throttle.
 Also, if the airplane crashes the state estimator might lose its fix.
 :::
 
-## Setting up the Display
+## Setting up the Display (optional)
+
+The SIH can be displayed using [jMAVSim](../sim_jmavsim/index.md) as a visualiser.
+
+::: tip SIH
+does not _need_ a visualiser — you can connect with QGroundControl and fly the vehicle without one.
+:::
 
 To display the simulated vehicle:
 
@@ -110,11 +119,19 @@ To run SIH as SITL:
      make px4_sitl sihsim_xvert
      ```
 
-SITL allows the simulation to be run faster than real time. To run the airplane simulation 10 times faster than real time, run the commandL
+SITL allows the simulation to be run faster than real time. To run the airplane simulation 10 times faster than real time, run the command:
 
 ```sh
 PX4_SIM_SPEED_FACTOR=10 make px4_sitl sihsim_airplane
 ```
+
+To display the vehicle in jMAVSim during SITL mode, enter the following command in another terminal:
+
+```sh
+./Tools/simulation/jmavsim/jmavsim_run.sh -p 19410 -u -q -o
+```
+
+- add a flag `-a` to display an aircraft or `-t` to display a tailsitter. If this flag is not present a quadrotor will be displayed by default.
 
 ## Dynamic Model
 
@@ -132,7 +149,7 @@ The dynamic models for the various vehicles are:
 
 SIH was originally developed by Coriolis g Corporation. The airplane model and tailsitter models were added by Altitude R&D inc. Both are Canadian companies:
 
-- [Coriolis g](http://ww7.vogi-vtol.com) develops a new type of Vertical Takeoff and Landing (VTOL) vehicles based on passive coupling systems;
-- [Altitude R&D](https://www.altitude-rd.com/) is specialized in dynamics, control, and real-time simulation.
+- Coriolis g developped a new type of Vertical Takeoff and Landing (VTOL) vehicles based on passive coupling systems;
+- [Altitude R&D](https://www.altitude-rd.com/) is specialized in dynamics, control, and real-time simulation (today relocated in Zurich).
 
 The simulator is released for free under BSD license.

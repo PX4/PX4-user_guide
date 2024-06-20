@@ -8,8 +8,6 @@ PX4 사용자 가이드에 대한 기여를 매우 환영합니다. 간단한 �
 Note You will need a (free) [Github](https://github.com/) account to contribute to the guides.
 :::
 
-<a id="github_changes" ></a>
-
 ## Github의 빠른 변경 사항
 
 Simple changes to _existing content_ can be made by clicking the **Edit on GitHub** link that appears at the bottom of every page (this opens the page on Github for editing).
@@ -24,8 +22,6 @@ Simple changes to _existing content_ can be made by clicking the **Edit on GitHu
 1. Below the Github page editor you'll be prompted to create a separate branch and then guided to submit a _pull request_.
 
 문서 팀은 요청을 검토하고, 병합하거나 업데이트하기 위하여 귀하와 협력할 것입니다.
-
-<a id="big_changes" ></a>
 
 ## Git을 사용한 변경(새 페이지 및 이미지)
 
@@ -159,10 +155,10 @@ The guide uses the [Vitepress](https://vitepress.dev/) toolchain.
   - Vuepress는 일부 [마크다운 확장](https://vuepress.vuejs.org/guide/markdown.html)도 지원합니다. 우리는 [tips, warning, 등](https://vuepress.vuejs.org/guide/markdown.html#custom-containers)을 제외하고는 사용하지 않으려고 합니다. This might be revisited - there are some interesting options provided!
 - [다국어](https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config) 책에 관련된 내용입니다.
   - 각 언어의 페이지는 관련 언어 코드의 이름이 지정된 폴더에 저장됩니다(예: 중국어의 경우 "zh", 한국어의 경우 "ko").
-  - 파일의 영어(**/en**) 버전만 편집하십시오. 번역을 관리하기 위해 [Crowdin](../contribute/translation.md)을 사용합니다.
-- 모든 페이지는 **/en**이라는 적절한 이름의 하위 폴더에 있어야 합니다(예: 이 페이지는 **en/contribute/** 폴더에 있음).
+  - Only edit the ENGLISH (`/en`) version of files. 번역을 관리하기 위해 [Crowdin](../contribute/translation.md)을 사용합니다.
+- All pages must be in an appropriately named sub-folder of `/en` (e.g. this page is in folder `en/contribute/`).
   - 이렇게 하면 다른 페이지와 이미지가 항상 동일한 상대 수준이므로 연결이 더 용이해집니다.
-- The _structure_ of the book is defined in **SUMMARY.md**
+- The _structure_ of the book is defined in `SUMMARY.md`.
 
   - If you add a new page to the guide you must also add an entry to this file!
 
@@ -170,7 +166,7 @@ The guide uses the [Vitepress](https://vitepress.dev/) toolchain.
 This is not "standard vitepress" way to define the sidebar (the summary file is imported by [.vitepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vitepress/get_sidebar.js)).
 :::
 
-- 이미지는 **/assets**의 하위 폴더에 저장하여야 합니다. 이것은 콘텐츠 폴더에서 두 개의 폴더 아래에 있으므로, 이미지를 추가하면 다음과 같이 참조하게 됩니다.
+- Images must be stored in a sub folder of `/assets`. 이것은 콘텐츠 폴더에서 두 개의 폴더 아래에 있으므로, 이미지를 추가하면 다음과 같이 참조하게 됩니다.
 
   ```plain
   ![Image Description](../../assets/path_to_file/filename.jpg)
@@ -181,47 +177,39 @@ This is not "standard vitepress" way to define the sidebar (the summary file is 
 
 ### 새 페이지 추가
 
-새 페이지를 추가시에는 **en/SUMMARY.md**에도 추가하여야 합니다.
+When you add a new page you must also add it to `en/SUMMARY.md`!
 
 ## 스타일 가이드
 
 1. 파일/파일명
 
-   - **/en/**의 적절한 하위 폴더에 새 파일을 추가합니다. 폴더를 중첩하지 마십시오.
-   - 설명이 포함된 이름을 사용합니다. 특히, 이미지 파일명은 포함된 내용을 설명하여야 합니다.
-   - 파일명은 소문자를 사용하고, 밑줄 "\_"을 사용하여 단어를 구분합니다.
+   - Put new markdown files in an appropriate sub-folder of `/en/`, such as `/en/contribute/`. 폴더를 중첩하지 마십시오.
+   - Put new image files in an appropriate nested sub-folder of `/assets/`. Deeper nesting is allowed/encouraged.
+   - Use descriptive names for folders and files. In particular, image filenames should describe what they contain (don't name as "image1.png")
+   - Use lower case filenames and separate words using underscores (`_`).
 
 2. 이미지
 
    - 이미지는 최대한 가장 작은 크기와 가장 낮은 해상도를 사용합니다(이렇게 하면 대역폭이 좋지 않은 사용자의 다운로드 비용이 줄어듭니다).
-   - New images should be created in a sub-folder of **/assets/** by default (so they can be shared between translations).
+   - New images should be created in a sub-folder of `/assets/` (so they can be shared between translations).
+   - SVG files are preferred for diagrams. PNG files are preferred over JPG for screenshots.
 
 3. 내용
 
-   - "모양새" \(bold, emphasis, etc\) 를 일관되게 활용하십시오.
+   - Use "style" (**bold**, _emphasis_, etc.) consistently and sparingly (as little as possible).
      - **Bold** 는 누르는 단추 텍스트와 메뉴 정의에 활용합니다.
-     - _Emphasis_는 도구 이름에 사용합니다. - Otherwise use as little as possible.
-   - 제목과 페이지 제목은 "첫 글자 대문자"를 사용하여야 합니다.
-   - 페이지 제목은 첫 번째 수준 제목 \(\#\)이어야 합니다. 다른 소제목은 h2 \(\#\#\) 또는 그 이하여야 합니다.
+     - _Emphasis_ for tool names such as _QGroundControl_ or _prettier_.
+     - `code` for file paths, and code, parameter names that aren't linked, using tools in a command line, such as `prettier`.
+   - Headings and page titles should use "First Letter Capitalisation".
+   - The page title should be a first level heading (`#`). All other headings should be h2 (`##`) or lower.
    - 제목에는 스타일을 추가하지 마십시오.
-   - Don't translate the _first part_ of a note, tip or warning declaration (e.g. `::: tip`) as this precise text is required to render the note properly.
+   - Don't translate the _first part_ of an `info`, `tip` or `warning` declaration (e.g. `::: tip`) as this precise text is required to render the note properly.
+   - Break lines on sentences by preference. Don't break lines based on some arbitrary line length.
+   - Format using _prettier_ (_VSCode_ is a has extensions can be used for this).
 
 ## 어디에서 변경 사항을 추가합니까?
 
-기존 구조에 맞춰 새 문서를 추가하십시오!
-
-주요 범주 중 일부는 다음과 같습니다.
-
-- 개발: 관련 콘텐츠
-  - 플랫폼의 진화(새로운 모드, 모듈, 비행 모드, 하드웨어, 소프트웨어 및 하드웨어 아키텍처 및 이식)
-  - 재현하기 위해 개발자 전문 지식이 필요한 "실험적" 작업
-- 비행: 표준 차량 비행과 관련된 콘텐츠(비행 모드, 무장, 이륙, 착륙)
-- 기본 설정: 모든 차량이 수행해야 하는 설정
-- Advanced configuration: Configuration that is specific to a vehicle type, or some segment of users.
-- 주변 장치: 사용할 수 있는 다양한 하드웨어에 관련된 문서입니다.
-  - 여기에는 기본 설정에서 다루지 않는 하드웨어에 대한 설정 및 구성 정보를 포함합니다.
-- 기본 조립: 자동 조종 장치 및 주요 주변 장치의 조립
-- 기체 빌드: 전체 시스템을 빌드하는 방법의 예입니다.
+Add new files in folders that cover similar topics. Then reference them in the sidebar (`/en/SUMMARY.md`) in line with the existing structure!
 
 ## 번역
 

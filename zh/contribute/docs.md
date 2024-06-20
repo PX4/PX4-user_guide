@@ -8,8 +8,6 @@ This topic explains how to make and test changes. Towards the end there is a bas
 Note You will need a (free) [Github](https://github.com/) account to contribute to the guides.
 :::
 
-<a id="github_changes" ></a>
-
 ## 快速更改
 
 Simple changes to _existing content_ can be made by clicking the **Edit on GitHub** link that appears at the bottom of every page (this opens the page on Github for editing).
@@ -24,8 +22,6 @@ The guide uses the [Gitbook](https://www.gitbook.com/about) toolchain. Change re
 1. Below the Github page editor you'll be prompted to create a separate branch and then guided to submit a _pull request_.
 
 The documentation team will review the request and either merge it or work with you to update it.
-
-<a id="big_changes" ></a>
 
 ## Adding New Content - Big Changes
 
@@ -159,10 +155,10 @@ In overview:
   - Vitepress also supports some [markdown extensions](https://vitepress.dev/guide/markdown#markdown-extensions). We try and avoid using these, except for [tips, warning, etc.](https://vitepress.dev/guide/markdown#default-title). This might be revisited - there are some interesting options provided!
 - This is a [multilingual](https://vitepress.dev/guide/i18n) book:
   - Pages for each language are stored in the folder named for the associated language code (e.g. "en" for English, "zh" for Chinese, "ko" for Korean).
-  - Only edit the ENGLISH (**/en**) version of files. We use [Crowdin](../contribute/translation.md) to manage the translations.
-- All pages must be in an appropriately named sub-folder of **/en** (e.g. this page is in folder **en/contribute/**).
+  - Only edit the ENGLISH (`/en`) version of files. We use [Crowdin](../contribute/translation.md) to manage the translations.
+- All pages must be in an appropriately named sub-folder of `/en` (e.g. this page is in folder `en/contribute/`).
   - This makes linking easier because other pages and images are always as the same relative levels
-- The _structure_ of the book is defined in **SUMMARY.md**
+- The _structure_ of the book is defined in `SUMMARY.md`.
 
   - If you add a new page to the guide you must also add an entry to this file!
 
@@ -170,7 +166,7 @@ In overview:
 This is not "standard vitepress" way to define the sidebar (the summary file is imported by [.vitepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vitepress/get_sidebar.js)).
 :::
 
-- Images must be stored in a sub folder of **/assets**. This is two folders down from content folders, so if you add an image you will reference it like:
+- Images must be stored in a sub folder of `/assets`. This is two folders down from content folders, so if you add an image you will reference it like:
 
   ```plain
   ![Image Description](../../assets/path_to_file/filename.jpg)
@@ -181,47 +177,39 @@ This is not "standard vitepress" way to define the sidebar (the summary file is 
 
 ### 文档规范指南
 
-All PX4/Dronecode documentation is free to use and modify under terms of the permissive [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) licence.
+When you add a new page you must also add it to `en/SUMMARY.md`!
 
 ## 翻译
 
 1. 图片
 
-   - Put new files in an appropriate sub-folder of **/en/**. Do not further nest folders.
-   - The *structure* of the book is defined in a file named **SUMMARY.md**. In particular, image filenames should describe what they contain.
-   - This is a [multilingual](https://toolchain.gitbook.com/languages.html) book, so there is a **LANGS.md** file in the root directory defining what languages are supported. Pages for each language are stored in the folder named for the associated language code \(e.g. "zh" for Chinese, "en" for English\).
+   - Put new markdown files in an appropriate sub-folder of `/en/`, such as `/en/contribute/`. Do not further nest folders.
+   - Put new image files in an appropriate nested sub-folder of `/assets/`. Deeper nesting is allowed/encouraged.
+   - Use descriptive names for folders and files. In particular, image filenames should describe what they contain (don't name as "image1.png")
+   - Use lower case filenames and separate words using underscores (`_`).
 
 2. 内容:
 
    - 将新文件放入相应的子文件夹
-   - New images should be created in a sub-folder of **/assets/** by default (so they can be shared between translations).
+   - New images should be created in a sub-folder of `/assets/` (so they can be shared between translations).
+   - SVG files are preferred for diagrams. PNG files are preferred over JPG for screenshots.
 
 3. Content:
 
-   - Use "style" \(bold, emphasis, etc\) consistently.
+   - Use "style" (**bold**, _emphasis_, etc.) consistently and sparingly (as little as possible).
      - **Bold** for button presses and menu definitions.
-     - _Emphasis_ for tool names. - Otherwise use as little as possible.
-   - New images should be created in a sub-folder of **/assets/** by default (so they can be shared between translations).
-   - The page title should be a first level heading \(\#\). All other headings should be h2 \(\#\#\) or lower.
+     - _Emphasis_ for tool names such as _QGroundControl_ or _prettier_.
+     - `code` for file paths, and code, parameter names that aren't linked, using tools in a command line, such as `prettier`.
+   - Headings and page titles should use "First Letter Capitalisation".
+   - The page title should be a first level heading (`#`). All other headings should be h2 (`##`) or lower.
    - Don't add any style to headings.
-   - Don't translate the _first part_ of a note, tip or warning declaration (e.g. `::: tip`) as this precise text is required to render the note properly.
+   - Don't translate the _first part_ of an `info`, `tip` or `warning` declaration (e.g. `::: tip`) as this precise text is required to render the note properly.
+   - Break lines on sentences by preference. Don't break lines based on some arbitrary line length.
+   - Format using _prettier_ (_VSCode_ is a has extensions can be used for this).
 
 ## 许可证
 
-Add new documentation in-line with the existing structure!
-
-Some of the main categories are:
-
-- Development: content related to:
-  - Evolving the platform (new modes, modules, flight modes, hardware, software and hardware architecture and porting).
-  - "Experimental" work that requires developer expertise to reproduce.
-- Flying: content related to flying a standard vehicle (flight modes, arming, taking off, landing)
-- Basic configuration: Configuration that every vehicle will need to do
-- Advanced configuration: Configuration that is specific to a vehicle type, or some segment of users.
-- Peripherals: Documentation on different hardware that can be used.
-  - This also includes setup and configuration information for hardware that isn't covered in Basic configuration.
-- Basic Assembly: Assembly of an autopilot and its main peripherals
-- Airframe Builds: Examples of how to build a whole system.
+Add new files in folders that cover similar topics. Then reference them in the sidebar (`/en/SUMMARY.md`) in line with the existing structure!
 
 ## Translations
 
