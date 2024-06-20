@@ -8,8 +8,6 @@
 Note Вам знадобиться обліковий запис (безкоштовно) [Github](https://github.com/) щоб зробити свій внесок до цього посібника
 :::
 
-<a id="github_changes" ></a>
-
 ## Швидкі зміни в Github
 
 Прості зміни до _існуючого вмісту_ можна внести, клацнувши по посиланню **Редагувати цю сторінку на GitHub**, яке з'являється внизу кожної сторінки (це відкриває сторінку на GitHub для редагування).
@@ -24,8 +22,6 @@ Note Вам знадобиться обліковий запис (безкошт
 1. Нижче редактора сторінок GitHub вас запросять створити окрему гілку, після чого вас насамперед попросять подати запит на злиття (_pull request_).
 
 Команда документації перегляне запит і або об'єднає його, або працює з вами, щоб оновити його.
-
-<a id="big_changes" ></a>
 
 ## Зміни за допомогою Git (Нові сторінки та зображення)
 
@@ -159,10 +155,10 @@ Note Вам знадобиться обліковий запис (безкошт
   - Vuepress також підтримує деякі [розширення markdown](https://vuepress.vuejs.org/guide/markdown.html). Ми спробуємо та уникаємо використання цього, окрім [tips, warning, etc.](https://vuepress.vuejs.org/guide/markdown.html#custom-containers). Це можна переглянути – є кілька цікавих варіантів!
 - Це [багатомовна](https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config) книга:
   - Сторінки для кожної мови зберігаються в папці з назвою для асоційованого мовного коду (наприклад, "zh" для китайської, "ko" для корейської).
-  - Редагувати лише версію файлів ENGLISH (**/en**). Ми використовуємо [Crowdin](../contribute/translation.md) для керування перекладами.
-- Всі сторінки повинні бути в відповідно названих підпапках **/en** (наприклад, ця сторінка знаходиться в папці **en/contribute/**).
+  - Only edit the ENGLISH (`/en`) version of files. Ми використовуємо [Crowdin](../contribute/translation.md) для керування перекладами.
+- All pages must be in an appropriately named sub-folder of `/en` (e.g. this page is in folder `en/contribute/`).
   - Це полегшує створення посилань, оскільки інші сторінки і зображення завжди будуть на тому ж рівні
-- _Структура_ книги визначається у файлі **SUMMARY.md**
+- The _structure_ of the book is defined in `SUMMARY.md`.
 
   - Якщо ви додаєте нову сторінку до посібника, вам також потрібно додати запис до цього файлу!
 
@@ -170,7 +166,7 @@ Note Вам знадобиться обліковий запис (безкошт
 Це не "стандартний спосіб vuepress" для визначення бічної панелі (файл Summary імпортується в [.vuepress/get_sidebar.js)](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js).
 :::
 
-- Зображення повинні зберігатися в підпапці **/assets**. Це на два рівні нижче від папок з вмістом, тому якщо ви додаєте зображення, ви посилаєтеся на нього так:
+- Images must be stored in a sub folder of `/assets`. Це на два рівні нижче від папок з вмістом, тому якщо ви додаєте зображення, ви посилаєтеся на нього так:
 
   ```plain
   ![Image Description](../../assets/path_to_file/filename.jpg)
@@ -181,47 +177,39 @@ Note Вам знадобиться обліковий запис (безкошт
 
 ### Додавання нових сторінок
 
-Коли ви додаєте нову сторінку, ви також повинні додати її до **/ SUMMARY.md**!
+When you add a new page you must also add it to `en/SUMMARY.md`!
 
 ## Інструкція зі стилістичного оформлення
 
 1. Назви файлів/файлів
 
-   - Розмістіть нові файли в відповідній підпапці **/en/**. Не створюйте додаткових вкладених папок.
-   - Використовуйте описові назви. Зокрема, назви файлів із зображеннями повинні описувати їх зміст.
-   - Використовуйте нижній регістр для назв файлів і розділяйте слова знаками підкреслення "\_"
+   - Put new markdown files in an appropriate sub-folder of `/en/`, such as `/en/contribute/`. Не створюйте додаткових вкладених папок.
+   - Put new image files in an appropriate nested sub-folder of `/assets/`. Deeper nesting is allowed/encouraged.
+   - Use descriptive names for folders and files. In particular, image filenames should describe what they contain (don't name as "image1.png")
+   - Use lower case filenames and separate words using underscores (`_`).
 
 2. Зображення
 
    - Використовуйте найменший розмір і найнижчу роздільну здатність, яка все ще робить зображення корисним (це зменшує вартість завантаження для користувачів із слабким інтернет-з'єднанням).
-   - Нові зображення повинні створюватися за замовчуванням у підпапці **/assets/** (щоб їх можна було використовувати у всіх перекладах).
+   - New images should be created in a sub-folder of `/assets/` (so they can be shared between translations).
+   - SVG files are preferred for diagrams. PNG files are preferred over JPG for screenshots.
 
 3. Контент
 
-   - Використовуйте "стиль" \(жирний, курсив і т. д.) послідовно.
+   - Use "style" (**bold**, _emphasis_, etc.) consistently and sparingly (as little as possible).
      - **Жирний** для натискання кнопок і визначень меню.
-     - _Курсив_ для назв інструментів. В інших випадках використовуйте якомога менше.
-   - Заголовки та назви сторінок повинні використовувати "Велику літеру на початку"
-   - Назва сторінки повинна бути заголовком першого рівня \(\#\). Усі інші заголовки повинні бути h2 \(\#\#\) або нижче.
+     - _Emphasis_ for tool names such as _QGroundControl_ or _prettier_.
+     - `code` for file paths, and code, parameter names that aren't linked, using tools in a command line, such as `prettier`.
+   - Headings and page titles should use "First Letter Capitalisation".
+   - The page title should be a first level heading (`#`). All other headings should be h2 (`##`) or lower.
    - Не додавати ніяких стилів до заголовків.
-   - Не перекладайте _першу частину_ примітки, підказки чи попередження (наприклад, `::: tip`) оскільки цей точний текст потрібен для належного відтворення примітки.
+   - Don't translate the _first part_ of an `info`, `tip` or `warning` declaration (e.g. `::: tip`) as this precise text is required to render the note properly.
+   - Break lines on sentences by preference. Don't break lines based on some arbitrary line length.
+   - Format using _prettier_ (_VSCode_ is a has extensions can be used for this).
 
 ## Де я можу додати зміни?
 
-Додати нову документацію в рядку з існуючою структурою!
-
-Деякі з основних категорій:
-
-- Розробка: контент, пов’язаний із:
-  - Зміни на платформі (нові режими, модулі, режими польоту, апаратне та програмне забезпечення, архітектура апаратного забезпечення та портативність).
-  - "Експериментальна" робота, яка вимагає експертності розробника для відтворення.
-- Політ: Пов'язана з польотом стандартного літального апарата (режими польоту, озброєння, зльот, посадка)
-- Основні налаштування: Конфігурація, яку повинен виконати кожний літальний апарат
-- Розширена конфігурація: Конфігурація, яка є специфічною для типу літального апарата або для певного сегмента користувачів.
-- Периферії: Документація з іншого обладнання, яке можна використовувати.
-  - Це також включає інформацію про налаштування та конфігурацію апаратури, яка не охоплена в Базовій конфігурації.
-- Базові зборки: Збирання автопілота та його основних периферійних пристроїв
-- Airframe Builds: Приклади того, як побудувати цілу систему.
+Add new files in folders that cover similar topics. Then reference them in the sidebar (`/en/SUMMARY.md`) in line with the existing structure!
 
 ## Переклади
 
