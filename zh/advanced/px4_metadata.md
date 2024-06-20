@@ -40,40 +40,40 @@ PX4 元数据是在 PX4 源代码及其相关数据中定义的。
 
 对于大多数飞控（因为大多数都有足够的可用 FLASH 存储空间），JSON文件经过 xz 压缩并存储在生成的二进制文件中。
 然后使用 MAVLink [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html)共享该文件。
-Using the component metadata protocol ensures that the recipient can always fetch up-to-date metadata for the code running on the vehicle.
+使用组件元数据协议确保接收者总是能够为运行在载具的代码获取最新元数据。
 事件元数据也会被添加到日志文件中，允许日志分析工具 (如飞行回放) 使用正确的元数据来显示事件。
 
-Binaries for flight controller targets with constrained memory do not store the parameter metadata in the binary, but instead reference the same data stored on `px4-travis.s3.amazonaws.com`.
-This applies, for example, to the [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md).
-The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into main).
+内存受限的飞控二进制文件不会在二进制文件中存储参数元数据，而是引用存储在`px4-travis.s3.amazonaws.com`上的相同数据。
+例如，这适用于[Umnibus F4 SD](../flight_controller/omnibus_f4_sd.md)。
+元数据是通过 [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) 上传的，用于所有构建目标（因此只有在参数被合并到主体后才能使用）。
 
 ::: info
 You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
 
-If doing custom development on a FLASH-constrained board you can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
+如果在 FLASH 受限板上进行自定义开发，您可以调整此处的 URL 以指向另一台服务器[here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41)。
 :::
 
-The metadata on `px4-travis.s3.amazonaws.com` is used if parameter metadata is not present on the vehicle.
-It may also be used as a fallback to avoid a very slow download over a low-rate telemetry link.
+如果载具上没有显示参数元数据，则使用 `px4-travis.s3.amazonaws.com` 上的元数据。
+它也可以用作后退，以避免对低速遥测链接进行非常缓慢的下载。
 
-The metadata JSON files for CI builds of `main` are also copied to the github repo: [PX4/PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/).
-This integrates with Crowdin to get translations, which are stored in the [translated](https://github.com/PX4/PX4-Metadata-Translations/tree/main/translated) folder as xz-compressed translation files for each language.
-These are referenced by the vehicle component metadata, and are downloaded when needed.
-For more information see [PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/) and [Component Metadata Protocol > Translation](https://mavlink.io/en/services/component_information.html#translation).
+用于 CI 构建  `main` 分支的元数据 JSON 文件也拷贝到了 github 仓库：[PX4/PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/)。
+这与Crowdin集成，用于获取翻译，这些翻译存储在 [translated](https://github.com/PX4/PX4-Metadata-Translations/tree/main/translated) 文件夹中，每种语言都有 xz 压缩的翻译文件。
+这些是由载具的组件元数据引用的，并在需要时下载。
+有关更多信息，请参阅 [PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/) 和 [Component Metadata Protocol > Translation](https://mavlink.io/en/services/component_information.html#translation)。
 
 :::info
-The parameter XML file of the main branch is copied into the QGC source tree via CI and is used as a fallback in cases where no metadata is available via the component metadata protocol (this approach predates the existence of the component metadata protocol).
+主分支的参数 XML 文件通过 CI 复制到 QGC 源代码树中，并在没有通过组件元数据协议获取到元数据的情况下用作后备方案 (该方法早于组件元数据协议)。
 :::
 
 ### 元数据执行器
 
-The following diagram shows how actuator metadata is assembled from the source code and used by QGroundControl:
+下面的图表显示了执行器元数据是如何从源代码中集成和如何被 QGroundControl 使用的：
 
-![Actuators Metadata](../../assets/diagrams/actuator_metadata_processing.svg)
+![执行器元数据](../../assets/diagrams/actuator_metadata_processing.svg)
 
 <!-- Source: https://docs.google.com/drawings/d/1hMQmIijdFjr21rREcXj50qz0C1b47JW0OEa6p5P231k/edit -->
 
-- **Left**: the metadata is defined in `module.yml` files in different modules.
+- **Left**: 元数据在不同模快的 `module.yml` 文件中定义。
   The `control_allocator` modules defines the geometries, while each output driver defines its set of channels and configuration parameters.
   [The schema file](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) documents the structure of these yaml files.
 - **Middle**: At build time, the `module.yml` files for all enabled modules for the currently built target are parsed and turned into an `actuators.json` file using the [Tools/module_config/generate_actuators_metadata.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/module_config/generate_actuators_metadata.py) script.
