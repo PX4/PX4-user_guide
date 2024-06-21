@@ -51,7 +51,7 @@
 
 - 下载并安装驱动:
 
-  - 获取 [RealSense_ROS repository](https://github.com/bestmodule/RealSense_ROS)：
+  - 克隆 [RealSense_ROS 仓库](https://github.com/bestmodule/RealSense_ROS)：
 
     ```sh
     git clone https://github.com/bestmodule/RealSense_ROS.git
@@ -63,13 +63,6 @@
 
     ```sh
     Intel Low Power Subsystem support in ACPI mode (MFD_INTEL_LPSS_ACPI) [N/m/y/?] (NEW)
-
-
-Intel Low Power Subsystem support in PCI mode (MFD_INTEL_LPSS_PCI) [N/m/y/?] (NEW)
-
-
-
-Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW) (NEW)
     ```
 
     ```sh
