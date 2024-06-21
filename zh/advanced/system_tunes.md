@@ -64,7 +64,7 @@ tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
 
 ## 正在替换已存在的乐曲
 
-Tunes are defined within [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
+提示音在 [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) 中定义。
 
 如果你只需要替换现有的乐曲，可以在自己的 fork 中替换文件， 并更新 `PX4_DEFINE_TUNE` 中定义的乐曲字符串。
 
