@@ -14,31 +14,31 @@
 - [着陆探测器配置](../advanced_config/land_detector.md)
 - [预解锁/解锁/加锁 配置](../advanced_config/prearm_arm_disarm.md)
 
-### OEM/Factory Calibration
+### OEM/工厂校准
 
-- [IMU Factory Calibration](../advanced_config/imu_factory_calibration.md)
-- [Sensor Thermal Compensation](../advanced_config/sensor_thermal_calibration.md)
-- [Compass Power Compensation](../advanced_config/compass_power_compensation.md)
-- [Advanced Controller Orientation](../advanced_config/advanced_flight_controller_orientation_leveling.md)
-- [Static Pressure Buildup](../advanced_config/static_pressure_buildup.md)
+- [IMU 工厂校准](../advanced_config/imu_factory_calibration.md)
+- [传感器热补偿](../advanced_config/sensor_thermal_calibration.md)
+- [磁罗盘功率补偿](../advanced_config/compass_power_compensation.md)
+- [高级控制器方向](../advanced_config/advanced_flight_controller_orientation_leveling.md)
+- [静态压力生成](../advanced_config/static_pressure_buildup.md)
 
-### Serial port/Ethernet configuration
+### 串口/以太网配置
 
-- [Serial Port Configuration](../peripherals/serial_configuration.md)
-- [MAVLink Telemetry (OSD/GCS)](../peripherals/mavlink_peripherals.md)
-- [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md)
+- [串口配置](../peripherals/serial_configuration.md)
+- [MAVLink 回传（OSD/GCS）](../peripherals/mavlink_peripherals.md)
+- [PX4 以太网设置](../advanced_config/ethernet_setup.md)
 
-### Miscellaneous
+### 其它设置
 
-- [Bootloader Update](../advanced_config/bootloader_update.md)
-  - [Bootloader Update FMUv6X-RT via USB](../advanced_config/bootloader_update_v6xrt.md)
+- [Bootloader 更新](../advanced_config/bootloader_update.md)
+  - [通过 USB 更新 Bootloader FMUv6X-RT](../advanced_config/bootloader_update_v6xrt.md)
 
-## See Also
+## 另见
 
-- [Standard Configuration](../config/index.md) - Setup essential sensors/features needed for most PX4 vehicles.
-- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
-- Vehicle Config/Tuning:
-  - [Multicopter Config/Tuning](../config_mc/index.md)
-  - [Helicopter Config/Tuning](../config_heli/index.md)
-  - [Fixed-wing Config/Tuning](../config_fw/index.md)
-  - [VTOL Config/Tuning](../config_vtol/index.md)
+- [标准配置](../config/index.md) - 大多数 PX4 载具所需的基本传感器/功能设置。
+- [飞控外设](../peripherals/index.md) - 设置特定传感器、可选传感器、执行器等。
+- 载具配置/调试：
+  - [多旋翼配置/调试](../config_mc/index.md)
+  - [直升机配置/调试](../config_heli/index.md)
+  - [固定翼形配置/调试](../config_fw/index.md)
+  - [垂直起降配置/调试](../config_vtol/index.md)
