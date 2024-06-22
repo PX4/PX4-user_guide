@@ -1,4 +1,4 @@
-# MAVLink Cameras (Camera Protocol v2)
+# MAVLink 相机(Camera Protocol v2)
 
 This topic explains how to use PX4 with a MAVLink [camera](../camera/index.md) that implements the [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) with PX4 and a Ground Station.
 
@@ -6,7 +6,7 @@ This topic explains how to use PX4 with a MAVLink [camera](../camera/index.md) t
 This is the recommended way to integrate a camera with PX4!
 :::
 
-## Overview
+## 概述
 
 The [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) allows querying of what features are supported by a camera, and provides commands to control image and video capture, stream video, set zoom and focus, select between infrared and visible light feeds, set where captured data is saved, and so on.
 
@@ -20,9 +20,9 @@ PX4 does not support using [MAVLink Camera Protocol v2](https://mavlink.io/en/se
 While this is technically possible, it would require PX4 to implement a camera manager interface.
 :::
 
-## Controlling the Camera
+## 控制相机
 
-### MAVLink Commands & Messages
+### MAVLink 命令和消息
 
 Cameras are discovered using the MAVLink [connection protocol](https://mavlink.io/en/services/heartbeat.html), based on their [HEARTBEAT.type](https://mavlink.io/en/messages/common.html#HEARTBEAT) being set to [MAV_TYPE_CAMERA](https://mavlink.io/en/messages/common.html#MAV_TYPE_CAMERA).
 
