@@ -45,19 +45,19 @@ MAVLink 摄像头将支持这些命令的一些子集。
 
 ### 地面站
 
-Ground stations can use any commands in the [Camera Protocol v1 (Simple Trigger Protocol)](https://mavlink.io/en/services/camera_v1.html) and should address them to the autopilot component id.
-If the commands are not supported by the camera, it will return a [COMMAND_ACK](https://mavlink.io/en/messages/common.html#COMMAND_ACK) with an error result.
+地面站可以使用 [Camera Protocol v1（简单触发协议）](https://mavlink.io/en/services/camera_v1.html) 中的任何命令，并且应该将这些命令发送给自驾仪组件 id。
+如果相机不支持命令，它将返回带有错误结果的[COMMAND_ACK](https://mavlink.io/en/messages/common.html#COMMAND_ACK)。
 
-Generally the commands are addressed to the autopilot, because this works whether the camera is connected via MAVLink or directly to the flight controller.
-If addressed to the autopilot PX4 will emit [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) each time an image is captured, and may log the camera capture event.
+通常命令是针对自驾仪的，因为这样无论相机是通过 MAVLink 连接还是直接连接飞控都能工作。
+如果发送给自驾仪 PX4，每次拍摄图像时 PX4 都会发出[CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER)，并可能记录相机拍摄事件。
 
 <!-- "May" because the camera feedback module is "supposed"  to log just camera capture from a capture pin connected to camera hotshoe, but currently logs all camera trigger events from the camera trigger driver https://github.com/PX4/PX4-Autopilot/pull/23103 -->
 
-In theory you might also address commands to the camera directly.
+理论上，您也可以直接向相机发送命令。
 
 ### 任务中的相机命令
 
-The following [Camera Protocol v1 (Simple Trigger Protocol)](https://mavlink.io/en/services/camera_v1.html) commands can be used in missions (this is the same list as above).
+以下[Camera Protocol v1 (简单触发协议)](https://mavlink.io/en/services/camera_v1.html)命令可在任务中使用(这与上面的命令列表相同)。
 
 - [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL)
 - [MAV_CMD_NAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_CMD_DO_DIGICAM_CONTROL)
@@ -66,13 +66,13 @@ The following [Camera Protocol v1 (Simple Trigger Protocol)](https://mavlink.io/
 - [MAV_CMD_OBLIQUE_SURVEY](https://mavlink.io/en/messages/common.html#MAV_CMD_OBLIQUE_SURVEY)
 - [MAV_CMD_DO_CONTROL_VIDEO](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CONTROL_VIDEO)
 
-PX4 re-emits them with the same system ID as the autopilot and component ID of [MAV_COMP_ID_ALL](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_ALL):
+PX4 重新使用与自驾仪相同的系统 ID 和组件 ID [MAV_COMP_ID_ALL](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_ALL) 重新发送它们：
 
 <!-- See camera_architecture.md topic for detail on how this is implemented -->
 
 ### 手动控制
 
-Manual triggering using these cameras is not supported (for either Joystick or RC Controllers).
+这些相机不支持手动触发（无论是摇杆还是遥控器）。
 
 ## PX4 配置
 
@@ -80,16 +80,16 @@ Manual triggering using these cameras is not supported (for either Joystick or R
 
 ### MAVLink 端口和转发配置
 
-Connect PX4 to your MAVLink camera by attaching it to an unused serial port on your flight controller, such as `TELEM2`.
-You can then configure the port as a [MAVLink Peripheral](../peripherals/mavlink_peripherals.md).
-The document explains how, but in summary:
+将 PX4 连接到您的 MAVLink 相机上，将它连接到您飞控上一个未使用的串口，如`TELEM2`。
+然后，您可以将端口配置为[MAVLink 外设](../peripherals/mavlink_peripherals.md).
+本文件解释了如何做，总的来说：
 
-1. Modify an unused `MAV_n_CONFIG` parameter, such as [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), so that it is assigned to port to which your camera is connected.
-2. Set the corresponding [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to `2` (Onboard).
-   This ensures that the right set of MAVLink messages are emitted and forwarded.
-3. You may need to set some of the other parameters, depending on your connection - such as the baud rate.
+1. 修改一个未使用的 `MAV_n_CONFIG` 参数，例如[MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG)，使其分配给相机连接的端口。
+2. 将对应的 [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) 设置为 `2` (板载)。
+   这确保正确的 MAVLink 消息集被发出和转发。
+3. 您可能需要设置一些其他参数，取决于您的连接 - 例如波特率。
 
-Then connect and configure the camera as recommended in its user guide.
+然后按照其用户指南中的建议连接和配置相机。
 
 <!-- Removed this because I am pretty sure forwarding happens automatically for this set. Keeping it simple.
 1. Set [MAV_2_FORWARD](../advanced_config/parameter_reference.md#MAV_2_FORWARD) if you want to enable forwarding of MAVLink messages to other ports, such as the one that is connected to the ground station.
@@ -97,14 +97,14 @@ Then connect and configure the camera as recommended in its user guide.
 
 ### 相机模式和触发
 
-Configure the PX4 camera driver to enable the MAVLink camera backend, and set the triggering mode to capture on command in survey missions.
+配置 PX4 相机驱动器以启用 MAVLink 相机后端，并设置触发模式为在勘测任务中按命令捕获。
 
-Using _QGroundControl_:
+使用 _QGroundControl_:
 
-- Open [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup).
-- Set the values as shown:
+- 打开 [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/zh/qgc-user-guide/setup_view/camera.html#px4-camera-setup)。
+- 按照所示设置数值:
 
-  ![Camera Setup Screen - Trigger mode and interface for MAVLink](../../assets/camera/mavlink_camera_settings.png)
+  ![相机设置界面 - 触发模式和 MAVLink 接口](../../assets/camera/mavlink_camera_settings.png)
 
 ::: info
 You can also [set the parameters directly](../advanced_config/parameters.md):
