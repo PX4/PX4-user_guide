@@ -1,15 +1,15 @@
 # 高级配置
 
-This section contains contains more advanced configuration topics, and those for features that are more rarely modified, or that are specific only to manufacturers/OEMs.
+这部分包含了更多的高级配置相关的章节，以及那些更少被修改的功能，或仅针对制造商/OEM 的特定功能。
 
-### Parameters
+### 参数
 
-- [Finding/Updating Parameters](../advanced_config/parameters.md)
-- [Full Parameter Reference](../advanced_config/parameter_reference.md)
+- [查找/更新参数](../advanced_config/parameters.md)
+- [全部参数对照表](../advanced_config/parameter_reference.md)
 
-### Feature configuration
+### 功能配置
 
-- [ECL/EKF Overview & Tuning](../advanced_config/tuning_the_ecl_ekf.md)
+- [ECL/EKF 概述 & 调试](../advanced_config/tuning_the_ecl_ekf.md)
 - [Flight Termination Configuration](../advanced_config/flight_termination.md)
 - [Land Detector Configuration](../advanced_config/land_detector.md)
 - [Prearm/Arm/Disarm Configuration](../advanced_config/prearm_arm_disarm.md)
