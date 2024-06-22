@@ -10,9 +10,9 @@
 ### 功能配置
 
 - [ECL/EKF 概述 & 调试](../advanced_config/tuning_the_ecl_ekf.md)
-- [Flight Termination Configuration](../advanced_config/flight_termination.md)
-- [Land Detector Configuration](../advanced_config/land_detector.md)
-- [Prearm/Arm/Disarm Configuration](../advanced_config/prearm_arm_disarm.md)
+- [飞行终止配置](../advanced_config/flight_termination.md)
+- [着陆探测器配置](../advanced_config/land_detector.md)
+- [预解锁/解锁/加锁 配置](../advanced_config/prearm_arm_disarm.md)
 
 ### OEM/Factory Calibration
 
