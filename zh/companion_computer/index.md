@@ -1,6 +1,6 @@
-# Companion Computers
+# 机载计算机
 
-Companion computers ("mission computers"), are separate on-vehicle computers that are connected to the flight controller, and which enable computationally expensive features like [object avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).
+机载计算机（“任务计算机”）是连接到飞控的独立机载计算机，使得诸如[避障](../computer_vision/obstacle_avoidance.md)和[防撞](../computer_vision/collision_prevention.md)等计算密集型功能成为可能。
 
 The diagram below shows a possible architecture for an unmanned vehicle architecture that includes a flight controller and companion computer.
 
@@ -12,7 +12,7 @@ The flight controller runs PX4 on NuttX, and provides core flight and safety cod
 
 Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router)).
 
-## Pixhawk Autopilot Bus Carrier Boards with Companion Computers
+## Pixhawk 自动驾驶仪总线载板与机载计算机
 
 The following carrier boards make it easy to integrate Pixhawk flight controllers with a companion computer, significantly easing boh hardware and software setup. The boards support the [Pixhawk Autopilot Bus (PAB)](../flight_controller/pixhawk_autopilot_bus.md) open standard so you can plug in any compliant controller:
 
@@ -20,14 +20,14 @@ The following carrier boards make it easy to integrate Pixhawk flight controller
 - [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
 - [ARK Jetson PAB Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier)
 
-## Managed Integrated Systems
+## 管理集成系统
 
 The following integrated companion computer/flight controller systems use managed/custom versions of flight controller and companion computer software by default. They are listed here as they can be updated with "vanilla" PX4 firmware for testing/rapid development.
 
 - [Auterion Skynode](../companion_computer/auterion_skynode.md)
 - [ModalAI VOXL 2](https://docs.modalai.com/voxl-2/)
 
-## Companion Computer Options
+## 机载计算机选项
 
 PX4 can be used with computers that can be configured to communicate via MAVLink or microROS/uXRCE-DDS over over a serial port (or Ethernet port, if present). A small subset of possible alternatives are listed below.
 
@@ -47,11 +47,11 @@ Small/lower power examples:
 The choice of computer will depend on the usual tradeoffs: cost, weight, power consumption, ease of setup, and computational resources required.
 :::
 
-## Companion Computer Software
+## 机载计算机软件
 
 The companion computer needs to run software that communicates with the flight controller, and which routes traffic to ground stations and the cloud.
 
-#### Drone Apps
+#### 无人机应用程序
 
 Drone APIs and SDKs allow you to write software that can control PX4. Popular alternatives include:
 
