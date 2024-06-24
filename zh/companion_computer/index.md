@@ -66,24 +66,24 @@ You can also write your own custom MAVLink libraries from scratch:
 - [C/C++ example code](https://github.com/mavlink/c_uart_interface_example) shows how to connect custom code
 - MAVLink also can also be used with [many other programming languages](https://mavlink.io/en/#mavlink-project-generatorslanguages)
 
-#### Routers
+#### 路由
 
 You will need a router if you need to bridge MAVLink from the vehicle to a ground station or IP network, or if you need multiple connections:
 
 - [MAVLink Router](https://github.com/intel/mavlink-router) (recommended)
 - [MAVProxy](https://ardupilot.org/mavproxy/)
 
-## Ethernet Setup
+## 以太网设置
 
 Ethernet is the recommended connection, if supported by your flight controller. See [Ethernet Setup](../advanced_config/ethernet_setup.md) for instructions.
 
-## Flight Controller Specific Setup
+## 飞控特定设置
 
 The following topics explain how to set up companion computers for specific flight controllers, in particular when you are not using an Ethernet connection.
 
 - [Using a Companion Computer with Pixhawk Controllers](../companion_computer/pixhawk_companion.md)
 
-## Additional Information
+## 更多信息
 
 - [Companion Computer Peripherals](../companion_computer/companion_computer_peripherals.md)
 - [PX4 System Architecture > FC and Companion Computer](../concept/px4_systems_architecture.md#fc-and-companion-computer)
