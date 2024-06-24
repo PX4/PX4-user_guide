@@ -1,8 +1,8 @@
 # 高级功能
 
-这部分包含了部分关于PX4自驾仪的高级功能：
+本节包含了部分关于 PX4 自驾仪的高级功能：
 
-- [Air Traffic Avoidance: ADS-B/FLARM/UTM](../peripherals/adsb_flarm.md)
+- [空中交通避障：ADS-B/FLARM/UTM](../peripherals/adsb_flarm.md)
 - [机器视觉](../computer_vision/index.md)
   - [自主避障](../computer_vision/obstacle_avoidance.md)（需要机载计算机）
   - [安全降落](../computer_vision/safe_landing.md)（需要机载计算机）
