@@ -1,4 +1,4 @@
-# Multicopters - [Assembly](assembly/assembly_mc.md)
+# Multicopters
 
 PX4 supports numerous types of single- and multi-copters, including helicopters, tricopters, quadcopters, hexarotors, dodecarotors etc, in many different geometries (+, wide, x etc.).
 

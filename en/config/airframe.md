@@ -2,7 +2,7 @@
 
 After installing firmware you need to select a [vehicle type and frame configuration](../airframes/airframe_reference.md).
 This applies appropriate initial parameter values for the selected frame, such as the vehicle type, number of motors, relative motor position, and so on.
-These can later be customised for your vehicle in [Actuator Configuration & Testing](../config/actuators.html).
+These can later be customised for your vehicle in [Actuator Configuration & Testing](../config/actuators.md).
 
 ::: tip
 Choose the frame that matches your vehicle brand and model if one exists, and otherwise select the closest "Generic" frame option matching your vehicle.

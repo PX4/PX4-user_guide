@@ -36,9 +36,9 @@ This topic provides basic instructions and links showing how to connect and asse
 ::: tip
 If you're interested in a specific vehicle, see the more targeted topics in each vehicle section:
 
-- [Multicopter](assembly/assembly_mc.md)
-- [VTOL](assembly/assembly_vtol.md)
-- [Fixed-wing](assembly/assembly_vtol.md)
+- [Multicopter](../assembly/assembly_mc.md)
+- [VTOL](../assembly/assembly_vtol.md)
+- [Fixed-wing](../assembly/assembly_vtol.md)
   :::
 
 The core components consist of a flight controller, GPS, external compass, manual controller and/or telemetry radio system, motors and/or other control actuators, payloads, and a power system.
