@@ -10795,7 +10795,7 @@ table {
 </ul>
  </td>
  <td>[0, 3] </td>
- <td>1</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -11006,7 +11006,7 @@ table {
 </ul>
  </td>
  <td>[0, 15] </td>
- <td>15</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
