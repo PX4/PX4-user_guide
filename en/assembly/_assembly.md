@@ -24,8 +24,8 @@ The FCs have much the same ports with similar names, and core peripherals are co
 
 | Standard                    | Holybro       | CUAV                | Connect to ...                                               |
 | --------------------------- | ------------- | ------------------- | ------------------------------------------------------------ |
-| Full GPS plus Safety Switch | GPS1          | GPS&SAFETY          | Primary GPS (gps, compass, safety switch, buzzer, LED)       |
-| Basic GPS                   | GPS2          | GPS2                | Secondary GPS (GPS/compass)                                  |
+| Full GPS plus Safety Switch | GPS1          | GPS&SAFETY          | Primary GNSS module  (GPS, compass, safety switch, buzzer, LED)       |
+| Basic GPS                   | GPS2          | GPS2                | Secondary GNSS module (GNSS/compass)                                  |
 | CAN                         | CAN1/CAN2     | CAN1/CAN2           | DroneCAN devices, such as GNSS modules, motors, etc          |
 | Telemetry                   | TELEM (1,2,3) | TELEM (1,2,3)       | Telemetry radios, companion computers, MAVLink cameras, etc. |
 | Analog Power                | POWER (1,2)   | POWER (1,2)         | SMbus (I2C) power modules                                    |
@@ -59,14 +59,17 @@ If the controller cannot be mounted in the recommended/default orientation (e.g.
 Pixhawk Autopilot systems usually include a primary [GNSS/Compass module](../gps_compass/#supported-gnss) that incorporates a [buzzer](../getting_started/px4_basic_concepts.md#buzzer), [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), and [UI LED](../getting_started/led_meanings.md#ui-led), and may also have a secondary GPS/compass module.
 [RTK GNSS](../gps_compass/rtk_gps.md) modules with centimetre accuracy are also supported.
 
-GNSS/Compass modules [should be mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle (separating the compass from other electronics will reduce electromagnetic interference).
+GNSS/Compass modules should be mounted on the frame as far away from other electronics as possible — separating the compass from other electronics will reduce electromagnetic interference.
+Provided the direction marker is oriented upright and facing towards the front of the vehicle, or at some 45 degrees multiple offset in any axis, the orientation will be auto-detected during calibration.
+If needed you can orient at other offsets, but then you'll need to manually set the orientation.
+For more information see [Mounting a Compass (or GNSS/Compass)](../assembly/mount_gps_compass.md).
 
 The modules connect to either serial ports or to the CAN bus.
 
 ### Serial Port GNSS Modules
 
 The primary GNSS/compass module is connected to the flight controller ort labeled `GPS1` or `GPS&SAFETY`, which should be a 10-Pin JST GH connector.
-A second GPS/compass module, if present, is attached to the 6-pin port labeled `GPS2`.
+A second GNSS/compass module, if present, is attached to the 6-pin port labeled `GPS2`.
 
 ![GPS Connections](../../assets/assembly/gnss_connections.png)
 
@@ -308,5 +311,5 @@ The and sections of [PX4 Basic Concepts](../getting_started/px4_basic_concepts.m
 [Hardware Selection & Setup](../hardware/drone_parts.md) contains details about specific hardware, including selection, assembly, and configuration.
 :::
 
-- [Multicopter Racer Setup](../config_mc/racer_setup.md) — racer-specific assembly and configuration information (racers don't have GPS module)
+- [Multicopter Racer Setup](../config_mc/racer_setup.md) — racer-specific assembly and configuration information (racers don't usually have a GNSS module)
 </div>

@@ -13,7 +13,7 @@ The core parts of a _typical_ PX4-based autopilot system consist of a flight con
 A VTOL or Fixed-wing vehicle will generally also have an airspeed sensor.
 
 The process for assembling the components together "off the frame" is similar most flight controllers, and in particular for those that follow the Pixhawk connector standard.
-The standard specifies flight controller connectors for attaching the GPS module, external compass, telemetry radio, analog power system, and so on, and many component vendors in the ecosystem provide compatible cables.
+The standard specifies flight controller connectors for attaching the GNSS module, external compass, telemetry radio, analog power system, and so on, and many component vendors in the ecosystem provide compatible cables.
 As a result, wiring up becomes as simple as plugging the components into the appropriately labelled ports.
 There are some differences because not everything is standardized — for example PWM outputs and RC Control system radio inputs.
 
@@ -76,5 +76,5 @@ Other frames:
 
 ## See Also
 
-- [Multicopter Racer Setup](../config_mc/racer_setup.md) — racer-specific assembly and configuration information (racers don't have GPS module)
+- [Multicopter Racer Setup](../config_mc/racer_setup.md) — racer-specific assembly and configuration information (racers don't usually have a GNSS module)
 - [Hardware Selection & Setup](../hardware/drone_parts.md) — information about connecting and configuring specific flight controllers, sensors and other peripherals (e.g. airspeed sensor for planes).
