@@ -1,6 +1,6 @@
 # 机载计算机
 
-机载计算机（“任务计算机”）是连接到飞控的独立机载计算机，使得诸如[避障](../computer_vision/obstacle_avoidance.md)和[防撞](../computer_vision/collision_prevention.md)等计算密集型功能成为可能。
+机载计算机 (“任务计算机”) 是连接到飞控的独立机载计算机，使得诸如[避障](../computer_vision/obstacle_avoidance.md)和[防撞](../computer_vision/collision_prevention.md)等计算密集型功能成为可能。
 
 下图显示了一个可能的无人驾驶架构，其中包括飞控和机载计算机。
 
