@@ -1,17 +1,17 @@
 # CAN
 
-[Controller Area Network (CAN)](https://en.wikipedia.org/wiki/CAN_bus) is a robust wired network that allows drone components such as flight controller, ESCs, sensors, and other peripherals, to communicate with each other. Because it is designed to be democratic and uses differential signaling, it is very robust even over longer cable lengths (on large vehicles), and avoids a single point of failure. CAN also allows status feedback from peripherals and convenient firmware upgrades over the bus.
+[局域网控制器(CAN)](https://en.wikipedia.org/wiki/CAN_bus) 是一种强大的有线网络，允许无人机组件 (如飞控，电调，传感器和其他外设) 之间相互通信。 因为它的设计有仲裁，使用差分信号，即使在较长的电缆 (大型车辆上) 上也非常强大，避免单点故障。 CAN 还允许来自外设的状态反馈，并通过总线方便的进行固件升级。
 
-PX4 supports two software protocols for communicating with CAN devices:
+PX4 支持与 CAN 设备通信的两个软件协议：
 
-- [DroneCAN](../dronecan/index.md): PX4 recommends this for most common setups. It is well supported by PX4, is a mature product with extensive peripheral support, and has had years of testing.
-- [Cyphal](https://opencyphal.org): PX4 support is a "work in progress". Cyphal is a much newer protocol which allows more flexibility and configuration, especially on larger and more complex vehicles. It has not yet seen significant adoption.
+- [DroneCAN](../dronecan/index.md): PX4 推荐大多数常见设置使用此协议。 它得到了 PX4 的很好支持，是一个成熟的产品，具有广泛的外围支持，并经过多年的测试。
+- [Cyphal](https://opencyphal.org): PX4 支持仍在"进行中"。 Cyphal 是一种更新的协议，允许更多的灵活性和配置，尤其是对于较大和较复杂的载具。 它还没有被广泛应用。
 
-::: info Both DroneCAN and Cyphal originate from an earlier project named UAVCAN. In 2022 the project split into two: the original version of UAVCAN (UAVCAN v0) was renamed to DroneCAN, and the newer UAVCAN v1 was renamed Cyphal. The differences between the two protocols are outlined in [Cyphal vs. DroneCAN](https://forum.opencyphal.org/t/cyphal-vs-dronecan/1814).
+::: info DroneCAN 和 Cyphal 都源自于较早的 UAVCAN 项目。 在2022年，该项目分为两个部分：原始版本的 UAVCAN (UAVCAN v0) 更名为 DroneCAN，较新的 UAVCAN v1 更名为 Cyphal。 这两种协议之间的区别在[Cyphal vs. DroneCAN](https://forum.opencyphal.org/t/cyphal-vs-dronecan/1814)中有描述。
 :::
 
 :::warning
-PX4 does not support other CAN software protocols for drones such as KDECAN (at time of writing).
+PX4 目前不支持其他无人机使用的 CAN 软件协议，如 KDECAN (截至撰写本文时)。
 :::
 
 ## 接线
