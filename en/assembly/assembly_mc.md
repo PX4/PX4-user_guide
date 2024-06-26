@@ -1,7 +1,6 @@
 ---
 frame: Multicopter
+newEditLink: en/assembly/_assembly.md
 ---
-
-# Assembling a Multicopter
 
 <!--@include: _assembly.md-->

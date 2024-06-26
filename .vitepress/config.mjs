@@ -43,8 +43,16 @@ export default defineConfig({
       // other locale specific properties...
       themeConfig: {
         sidebar: getSidebar.sidebar("en"),
+
         editLink: {
-          pattern: "https://github.com/PX4/PX4-user_guide/edit/main/:path",
+          pattern: ({ filePath, frontmatter }) => {
+            if (frontmatter.newEditLink) {
+              //newEditLink defines a frontmatter key you can use to append a path to main
+              return `https://github.com/PX4/PX4-user_guide/edit/main/${frontmatter.newEditLink}`;
+            } else {
+              return `https://github.com/PX4/PX4-user_guide/edit/main/${filePath}`;
+            }
+          },
           text: "Edit on GitHub",
         },
       },

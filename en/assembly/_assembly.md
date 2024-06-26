@@ -1,15 +1,59 @@
+<div v-if="$frontmatter.frame === 'Multicopter'">
+
+# Assembling a Multicopter
+
+This topic provides basic instructions and links showing how to connect and assemble the core components of a typical multicoper (UAV) running PX4.
+
+These consist of a flight controller, GPS, external compass, manual controller and/or telemetry radio system, motors and/or other control actuators, payloads, and a power system.
+
+</div>
+<div v-else-if="$frontmatter.frame === 'Plane'">
+
+# Assembling a Fixed-Wing
+
+This topic provides basic instructions and links showing how to connect and assemble the core components of a typical fixed wing vehicle (Plane) running PX4.
+
+These consist of a flight controller, GPS, external compass, airspeed sensor, manual controller and/or telemetry radio system, motors and/or other control actuators, payloads, and a power system.
+
+</div>
+<div v-else-if="$frontmatter.frame === 'VTOL'">
+
+# Assembling a VTOL
+
+This topic provides basic instructions and links showing how to connect and assemble the core components of a typical VTOL UAV running PX4.
+
+These consist of a flight controller, GPS, external compass, airspeed sensor, manual controller and/or telemetry radio system, motors and/or other control actuators, payloads, and a power system.
+
+</div>
+<div v-else>
+
+# Assembling a UAS
+
+<!-- This is the introduction for the non-specific vehicle -->
+
 This topic provides basic instructions and links showing how to connect and assemble the core components of a typical unmanned system (UAS) running PX4.
+
+::: tip
+If you're interested in a specific vehicle, see the more targeted topics in each vehicle section:
+
+- [Multicopter](assembly/assembly_mc.md)
+- [VTOL](assembly/assembly_vtol.md)
+- [Fixed-wing](assembly/assembly_vtol.md)
+  :::
+
+The core components consist of a flight controller, GPS, external compass, manual controller and/or telemetry radio system, motors and/or other control actuators, payloads, and a power system.
+A forward flying vehicle, such as a VTOL or Fixed-wing, will generally also have an airspeed sensor.
+
+</div>
 
 The instructions are focussed on systems that use [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers (FCs), and in particular those that have adopted the [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 For these FCs, much of the "wiring up" is as simple as connecting the components into the appropriately labelled ports using supplied cables.
-
-Note that there are also [flight controller-specific guides](#flight-controller-specific-assembly-guides).
 
 ::: info If your FC does not use the connector standard ...
 Pixhawk series flight controllers that don't follow the connector standard will often provide cables for interconnecting with Pixhawk standard components.
 For other controllers you may need to manually create cables and connectors.
 
-The [flight controller-specific guides](#flight-controller-specific-assembly-guides) contain FC-specific wiring and configuration information, as do guides on the manufacturer sites.
+The [flight controller-specific guides](#fc-specific-assembly-guides) contain FC-specific wiring and configuration information, as do guides on the manufacturer sites.
 :::
 
 ## Flight Controller Overview
@@ -22,17 +66,17 @@ Their available ports are very similar because they are both [Pixhawk standard a
 The connector standard ports are listed below, along with their labels on each of the FCs, and what they are used for.
 The FCs have much the same ports with similar names, and core peripherals are connected in the same way.
 
-| Standard                    | Holybro       | CUAV                | Connect to ...                                               |
-| --------------------------- | ------------- | ------------------- | ------------------------------------------------------------ |
-| Full GPS plus Safety Switch | GPS1          | GPS&SAFETY          | Primary GNSS module  (GPS, compass, safety switch, buzzer, LED)       |
-| Basic GPS                   | GPS2          | GPS2                | Secondary GNSS module (GNSS/compass)                                  |
-| CAN                         | CAN1/CAN2     | CAN1/CAN2           | DroneCAN devices, such as GNSS modules, motors, etc          |
-| Telemetry                   | TELEM (1,2,3) | TELEM (1,2,3)       | Telemetry radios, companion computers, MAVLink cameras, etc. |
-| Analog Power                | POWER (1,2)   | POWER (1,2)         | SMbus (I2C) power modules                                    |
-| I2C                         | I2C           | None                | Other I2C peripherals                                        |
-| SPI                         | SPI           | SPI6                | SPI devices (note: 11 pin, not 6 as in standard)             |
-| PX4 Debug Full              | FMU DEBUG     | FMU DEBUG, IO DEBUG | Debugging on Pixhawk "x" FCs                                 |
-| Pixhawk Debug Mini          | None          | None                | Debugging on other Pixhawk variants                          |
+| Pixhawk Connector Standard  | Holybro       | CUAV                | Connect to ...                                                 |
+| --------------------------- | ------------- | ------------------- | -------------------------------------------------------------- |
+| Full GPS plus Safety Switch | GPS1          | GPS&SAFETY          | Primary GNSS module (GPS, compass, safety switch, buzzer, LED) |
+| Basic GPS                   | GPS2          | GPS2                | Secondary GNSS module (GNSS/compass)                           |
+| CAN                         | CAN1/CAN2     | CAN1/CAN2           | DroneCAN devices, such as GNSS modules, motors, etc            |
+| Telemetry                   | TELEM (1,2,3) | TELEM (1,2,3)       | Telemetry radios, companion computers, MAVLink cameras, etc.   |
+| Analog Power                | POWER (1,2)   | POWER (1,2)         | SMbus (I2C) power modules                                      |
+| I2C                         | I2C           | None                | Other I2C peripherals                                          |
+| SPI                         | SPI           | SPI6                | SPI devices (note: 11 pin, not 6 as in standard)               |
+| PX4 Debug Full              | FMU DEBUG     | FMU DEBUG, IO DEBUG | Debugging on Pixhawk "x" FCs                                   |
+| Pixhawk Debug Mini          | None          | None                | Debugging on other Pixhawk variants                            |
 
 There are some other similarities that are not part of the standard: they both have the same ethernet port (`ETH`), `SBUS OUT`, `AD&IO`, `USB`, USB-C.
 
@@ -130,9 +174,9 @@ The other radio is connected to your ground station computer or mobile device (u
 
 ![Telemetry Connections](../../assets/assembly/telemetry_connections.png)
 
-Low-power telemetry radios are powered from the port, and generally no further configuration should be required.
+Low-power telemetry radios (<1.5 A) are powered from the port, and generally no further configuration should be required.
 
-If using higher power/range radios you will need to separately power the radio from a BEC and modify the telemetry port data rates.
+If using higher power/range radios or another port you will need to separately power the radio from a BEC and modify the telemetry port data rates.
 You may also need to configure the radio itself, and for IP radios you may need to connect to it via Ethernet — check radio-specific documentation for setup and configuration information.
 
 ::: details
@@ -256,23 +300,25 @@ These show end-to-end setup and configuration of a number of vehicles.
 - [DIY Builds](../frames_multicopter/diy_builds.md)
 
 </div>
-
-<div v-if="$frontmatter.frame === 'Plane'">
+<div v-else-if="$frontmatter.frame === 'Plane'">
 
 - [DIY Builds](../frames_plane/diy_builds.md)
-</div>
 
-<div v-if="$frontmatter.frame === 'VTOL'">
+</div>
+<div v-else-if="$frontmatter.frame === 'VTOL'">
+
 - [Standard VTOL](../frames_vtol/standardvtol.md)
 - [Tailsitter VTOL](../frames_vtol/tailsitter.md)
 - [Tiltrotor VTOL](../frames_vtol/tiltrotor.md)
+
+</div>
+<div v-else>
+
+- Check your build: [Airframe Builds](../airframes/index.md) for complete assembly examples on different vehicle frames.
+
 </div>
 
-Other frames:
-
-- [Airframe Builds](../airframes/index.md) for complete assembly examples on different vehicle frames.
-
-## Flight Controller Specific Assembly Guides
+## FC-Specific Assembly Guides
 
 ::: tip
 The manufacturer documentation for your [flight controller](../flight_controller/index.md) may include guides for controllers that are not listed below, or that are more up-to-date than the following guides.
@@ -300,16 +346,12 @@ They recommend sensors, power systems, and other components from the same manufa
 - [Drone Components & Parts](../getting_started/px4_basic_concepts.md#drone-components-parts) (Basic Concepts)
 - [Payloads](../getting_started/px4_basic_concepts.md#payloads) (Basic Concepts)
 - [Hardware Selection & Setup](../hardware/drone_parts.md) — information about connecting and configuring specific flight controllers, sensors and other peripherals (e.g. airspeed sensor for planes).
+
   - [Mounting the Flight Controller](../assembly/mount_and_orient_controller.md)
   - [Vibration Isolation](../assembly/vibration_isolation.md)
   - [Mounting a Compass](../assembly/mount_gps_compass.md)
 
 <div v-if="$frontmatter.frame === 'Multicopter'">
-
-::: info
-The and sections of [PX4 Basic Concepts](../getting_started/px4_basic_concepts.md) provide a broad overview of the main drone components.
-[Hardware Selection & Setup](../hardware/drone_parts.md) contains details about specific hardware, including selection, assembly, and configuration.
-:::
 
 - [Multicopter Racer Setup](../config_mc/racer_setup.md) — racer-specific assembly and configuration information (racers don't usually have a GNSS module)
 </div>

@@ -1,5 +1,5 @@
 ---
-frame: Plane
+frame: VTOL
 newEditLink: en/assembly/_assembly.md
 ---
 

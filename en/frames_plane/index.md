@@ -1,9 +1,23 @@
 # Planes (Fixed-Wing)
 
 PX4 supports numerous plane geometries, including normal planes, flying wings, inverted V-tail planes, and so on.
-The set of supported frame configurations can be seen in [Airframes Reference > Plane](../airframes/airframe_reference.md#plane).
 
-This section contains build logs/instructions for assembling and configuring a number of [fixed-wing DIY builds](../frames_plane/diy_builds.md).
+::: tip
+The generic configurations can be seen in [Airframes Reference > Plane](../airframes/airframe_reference.md#plane).
+These can be customized during configuration.
+:::
+
+## Overview
+
+The linked sections instructions for assembling and configuring fixed-wing frames.
+
+<!-- Features? -->
+
+- [Assembly](../assembly/assembly_fw.md)
+- [Config/Tuning](../config_fw/index.md)
+- [Flight Modes](../flight_modes_fw/index.md)
+- [Complete Vehicles](../complete_vehicles_fw/index.md)
+- [DIY Builds](../frames_plane/diy_builds.md)
 
 ## Videos
 
