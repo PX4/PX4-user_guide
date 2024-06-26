@@ -11621,7 +11621,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_CTRL">EKF2_RNG_CTRL</strong> (INT32)</td>
- <td>Range sensor height aiding <p><strong>Comment:</strong> WARNING: Range finder measurements are less reliable and can experience unexpected errors. For these reasons, if accurate control of height relative to ground is required, it is recommended to use the MPC_ALT_MODE parameter instead, unless baro errors are severe enough to cause problems with landing and takeoff. To en-/disable range finder for terrain height estimation, use EKF2_TERR_MASK instead. If this parameter is enabled then the estimator will make use of the range finder measurements to estimate its height in addition to other height sources (if activated). Range sensor aiding can be enabled (i.e.: always use) or set in &quot;conditional&quot; mode. Conditional mode: This enables the range finder to be used during low speed (&lt; EKF2_RNG_A_VMAX) and low altitude (&lt; EKF2_RNG_A_HMAX) operation, eg takeoff and landing, where baro interference from rotor wash is excessive and can corrupt EKF state estimates. It is intended to be used where a vertical takeoff and landing is performed, and horizontal flight does not occur until above EKF2_RNG_A_HMAX.</p> <strong>Values:</strong><ul>
+ <td>Range sensor height aiding <p><strong>Comment:</strong> WARNING: Range finder measurements are less reliable and can experience unexpected errors. For these reasons, if accurate control of height relative to ground is required, it is recommended to use the MPC_ALT_MODE parameter instead, unless baro errors are severe enough to cause problems with landing and takeoff. If this parameter is enabled then the estimator will make use of the range finder measurements to estimate its height in addition to other height sources (if activated). Range sensor aiding can be enabled (i.e.: always use) or set in &quot;conditional&quot; mode. Conditional mode: This enables the range finder to be used during low speed (&lt; EKF2_RNG_A_VMAX) and low altitude (&lt; EKF2_RNG_A_HMAX) operation, eg takeoff and landing, where baro interference from rotor wash is excessive and can corrupt EKF state estimates. It is intended to be used where a vertical takeoff and landing is performed, and horizontal flight does not occur until above EKF2_RNG_A_HMAX.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable range fusion</li>
 <li><strong>1:</strong> Enabled (conditional mode)</li>
 <li><strong>2:</strong> Enabled</li>
@@ -11770,16 +11770,6 @@ table {
  <td>[0.0, ?] </td>
  <td>0.5</td>
  <td>m/m</td>
-</tr>
-<tr>
- <td><strong id="EKF2_TERR_MASK">EKF2_TERR_MASK</strong> (INT32)</td>
- <td>Integer bitmask controlling fusion sources of the terrain estimator <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Set to true to use range finder data if available 1 : Set to true to use optical flow data if available</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> use range finder</li>
-  <li><strong>1:</strong> use optical flow</li>
-</ul>
- </td>
- <td>[0, 3] </td>
- <td>3</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_TERR_NOISE">EKF2_TERR_NOISE</strong> (FLOAT)</td>
@@ -12324,14 +12314,14 @@ table {
 <tr>
  <td><strong id="FW_AIRSPD_STALL">FW_AIRSPD_STALL</strong> (FLOAT)</td>
  <td>Stall Airspeed (CAS) <p><strong>Comment:</strong> The stall airspeed (calibrated airspeed) of the vehicle. It is used for airspeed sensor failure detection and for the control surface scaling airspeed limits.</p>   </td>
- <td>[0.5, ?] (0.5)</td>
+ <td>[0.5, ?] (0.5) (0.5)</td>
  <td>7.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_TRIM">FW_AIRSPD_TRIM</strong> (FLOAT)</td>
  <td>Trim (Cruise) Airspeed <p><strong>Comment:</strong> The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve. This value corresponds to the trim airspeed with the default load factor (level flight, default weight).</p>   </td>
- <td>[0.5, ?] (0.5) (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>15.0</td>
  <td>m/s</td>
 </tr>
