@@ -2,7 +2,7 @@
 
 PX4 定义了一些用于为系统状态和问题提供音频通知的 [标准音符/提示音](../getting_started/tunes.md)（比如系统启动，解锁成功，电池警告等）
 
-Tunes are specified using strings (in [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) and played by code using the [tunes](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/tunes) library. The tunes library also contains the list of default system tunes - see [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
+Tunes are specified using strings (in [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) and played by code using the [tunes](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/tunes) library. 乐曲库也包含默认系统调节列表 - 见 [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc)。
 
 PX4 还有一个模块可以用于播放（测试）默认或用户自定义音乐。
 
@@ -13,37 +13,37 @@ PX4 还有一个模块可以用于播放（测试）默认或用户自定义音�
 提示音字符串使用 [ANSI 音乐提示](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt) 定义。
 
 :::tip
-More information about the format can be found in [QBasic PLAY statement](https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY) (Wikibooks) and has been reproduced in [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc). 这允许您编辑乐曲并在您的电脑上播放， 然后导出为 PX4 可以播放的格式。
+有关格式的更多信息可以在 [QBasic PLAY statement](https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY) (Wikibooks) 中查找，并已在 [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc)复制。 这允许您编辑乐曲并在您的电脑上播放， 然后导出为 PX4 可以播放的格式。
 
 创建新调节的最简单方式是使用音乐编辑器。 这允许您编辑音乐并在您的电脑上播放， 然后导出为 PX4 可以播放的格式。
 
-ANSI 音乐在 ANSI BBS 系统中很受欢迎，因此最好的编辑工具是 DOS 实用程序。 On Windows, one option is to use _Melody Master_ within _Dosbox_.
+ANSI 音乐在 ANSI BBS 系统中很受欢迎，因此最好的编辑工具是 DOS 实用程序。 在 Windows 上，一个选项是在 _Dosbox_ 内使用 _Melody Master_。
 
 使用软件的步骤是：
 
 1. 下载 [DosBox](http://www.dosbox.com/) 并安装应用程序
 1. 下载 [Melody Master](ftp://archives.thebbs.org/ansi_utilities/melody21.zip) 并解压缩到新目录
-1. Open the _Dosbox_ console
+1. 打开 _Dosbox_ 控制台
 1. 将 Melody 主目录挂载到 DosBox，如下：
 
    ```sh
    mount c C:\<path_to_directory\Melody21
    ```
 
-1. Start _Melody Master_ with the following commands
+1. 使用以下命令启动 _Melody Master_
 
    ```sh
    c:
    start
    ```
 
-1. You will then have the option to click through a few screens, then press **1** to display _Melody Master_: ![Melody Master 2.1](../../assets/tunes/tunes_melody_master_2_1.jpg)
+1. 您可以选择点击略过几个画面，然后按 **1** 显示_Melody Master_： ![Melody Master 2.1](../../assets/tunes/tunes_melody_master_2_1.jpg)
 
    屏幕的下半部分提供了关于键盘快捷键的实用工具（箭头用于移动， 和选择笔记长度的数字等）。
 
 1. 当您准备好时保存音乐：
-   - Press **F2** to give the tune a name and save it in the _/Music_ sub folder of your Melody Master installation.
-   - 按 **F7**, 向右滚动旋钮，在输出列表选择格式，获取 ANSI。 The file will be exported to the _root_ of the Melody Master directory (with the same name and a file-type specific extension).
+   - 按 **F2** 以在您的 Melody 安装目录 _/Music_ 子文件夹中给乐曲命名并保存。
+   - 按 **F7**, 向右滚动旋钮，在输出列表选择格式，获取 ANSI。 文件将导出到 Melody 主目录的 _root_（具有相同名称和文件类型特定扩展名）。
 1. 打开文件。 输出可能看起来像这样：
 
    ![来自文件的 ANSI 输出](../../assets/tunes/tune_musicmaker_ansi_output.png)
@@ -58,13 +58,12 @@ ANSI 音乐在 ANSI BBS 系统中很受欢迎，因此最好的编辑工具是 D
 tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
 ```
 
-:::note
-开箱即用产品中，tune_control 只存在于实际硬件上（而不是模拟器）。
+::: info 开箱即用产品中，`tune_control` 只存在于实际硬件上（而不是模拟器）。
 :::
 
 ## 正在替换已存在的乐曲
 
-Tunes are defined within [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
+提示音在 [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) 中定义。
 
 如果你只需要替换现有的乐曲，可以在自己的 fork 中替换文件， 并更新 `PX4_DEFINE_TUNE` 中定义的乐曲字符串。
 

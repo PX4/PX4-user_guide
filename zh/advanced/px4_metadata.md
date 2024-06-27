@@ -74,16 +74,16 @@ You can identify memory constrained boards because they specify `CONFIG_BOARD_CO
 <!-- Source: https://docs.google.com/drawings/d/1hMQmIijdFjr21rREcXj50qz0C1b47JW0OEa6p5P231k/edit -->
 
 - **Left**: 元数据在不同模快的 `module.yml` 文件中定义。
-  The `control_allocator` modules defines the geometries, while each output driver defines its set of channels and configuration parameters.
-  [The schema file](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) documents the structure of these yaml files.
-- **Middle**: At build time, the `module.yml` files for all enabled modules for the currently built target are parsed and turned into an `actuators.json` file using the [Tools/module_config/generate_actuators_metadata.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/module_config/generate_actuators_metadata.py) script.
-  There is also [schema file](https://github.com/mavlink/mavlink/blob/master/component_metadata/actuators.schema.json) for this.
-- **Right**: At runtime, the JSON file is requested by QGroundControl via MAVLink Component Metadata API (described above).
+  `control_allocator` 模块定义几何形状，而每个输出驱动程序则定义其通道集和配置参数。
+  [schema file](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) 描写了这些 yaml 文件的结构。
+- **Middle**: 在构建时间, 当前构建目标的所有已启用模块的 `module.yml` 文件都会被解析并变成一个驱动程序。 使用 [Tools/module_config/generate_actuators_metadata.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/module_config/generate_actuators_metadata.py)脚本的文件。
+  这里还有[schema file](https://github.com/mavlink/mavlink/blob/master/component_metadata/actuators.schema.json)。
+- **Right**: 运行时，QGroundControl 通过 MAVLink 组件元数据 API 请求 JSON  文件(上文已经描述)。
 
 ## 更多信息：
 
-- [Parameters & Configurations](../advanced/parameters_and_configurations.md)
-- [Events Interface](../concept/events_interface.md)
-- [Translation](../contribute/translation.md)
-- [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html) (mavlink.io)
-- [PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/) (Github)
+- [参数和配置](../advanced/parameters_and_configurations.md)
+- [事件接口](../concept/events_interface.md)
+- [翻译](../contribute/translation.md)
+- [组件元数据协议](https://mavlink.io/en/services/component_information.html) (mavlink.io)
+- [PX4 元数据翻译](https://github.com/PX4/PX4-Metadata-Translations/) (Github)

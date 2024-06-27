@@ -1,12 +1,12 @@
-# MAVLink Cameras (Camera Protocol v2)
+# MAVLink 相机(Camera Protocol v2)
 
-This topic explains how to use PX4 with a MAVLink [camera](../camera/index.md) that implements the [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) with PX4 and a Ground Station.
+本节说明了如何使用 PX4 的 MAVLink [相机](../camera/index.md) 实现了 [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) 的 PX4 和地面站。
 
 :::tip
-This is the recommended way to integrate a camera with PX4!
+这是与 PX4 集成相机的推荐方式！
 :::
 
-## Overview
+## 概述
 
 The [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) allows querying of what features are supported by a camera, and provides commands to control image and video capture, stream video, set zoom and focus, select between infrared and visible light feeds, set where captured data is saved, and so on.
 
@@ -20,9 +20,9 @@ PX4 does not support using [MAVLink Camera Protocol v2](https://mavlink.io/en/se
 While this is technically possible, it would require PX4 to implement a camera manager interface.
 :::
 
-## Controlling the Camera
+## 控制相机
 
-### MAVLink Commands & Messages
+### MAVLink 命令和消息
 
 Cameras are discovered using the MAVLink [connection protocol](https://mavlink.io/en/services/heartbeat.html), based on their [HEARTBEAT.type](https://mavlink.io/en/messages/common.html#HEARTBEAT) being set to [MAV_TYPE_CAMERA](https://mavlink.io/en/messages/common.html#MAV_TYPE_CAMERA).
 
@@ -41,14 +41,14 @@ These parameters cannot directly be set in missions and have no specific setter 
 
 [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) describes all the interactions in more detail.
 
-### Ground Stations & MAVLink SDKS
+### 地面站和 MAVLink SDK
 
-Ground stations and MAVLink SDKs discover cameras and their capabilities as described in the previous section.
+地面站和 MAVLink SDK 会像前一节所述那样发现相机及其功能。
 
 A ground station can use any feature exposed by the camera.
 PX4 has no role in this interaction other than forwarding MAVLink traffic between the camera and ground station or SDK, if needed.
 
-### Camera Commands in Missions
+### 任务中的相机命令
 
 PX4 allows the following subset of [Camera Protocol v2](https://mavlink.io/en/services/camera.html) commands in missions:
 
@@ -91,16 +91,16 @@ void Navigator::publish_vehicle_cmd(vehicle_command_s *vcmd)  => https://github.
   All others just get published as-is
 -->
 
-### Manual Controllers
+### 手动控制器
 
 Joystick buttons can be configured to trigger image capture or toggle video capture.
 
 PX4 emits [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) commands such as `MAV_CMD_IMAGE_START_CAPTURE` when the associated Joystick button is pressed.
 This feature only works for this kind of camera and joystick - there is no support for RC Controllers.
 
-## PX4 Configuration
+## PX4 配置
 
-### MAVLink Port & Forwarding
+### MAVLink 端口和转发
 
 You will need to provide a MAVLink channel to any connected cameras so that PX4 can emit any camera commands found in missions.
 If your MAVLink network is such that PX4 is "between" your camera and your ground station, you will also need to forward communications so that they can communicate.
@@ -116,7 +116,7 @@ The linked document explains how, but in summary:
 3. Set [MAV_2_FORWARD](../advanced_config/parameter_reference.md#MAV_2_FORWARD) to enable forwarding of communications from the port to other ports, such as the one that is connected to the ground station.
 4. You may need to set some of the other parameters, depending on your connection type and any particular requirements of the camera on the expected baud rate, and so on.
 
-### Manual Control
+### 手动控制
 
 Joystick buttons can be mapped to capture images, and to toggle video capture on and off.
 
@@ -125,7 +125,7 @@ Joystick buttons can be mapped to capture images, and to toggle video capture on
 
 <!-- Cameras cannot be controlled from an RC controller as far as I can tell -->
 
-## Camera Managers
+## 相机管理器
 
 If you want to use a camera that does not natively support the MAVLink camera protocol you will need a MAVLink camera manager.
 The camera manager runs on a companion computer and bridges between the MAVLink camera protocol interface and the camera's native interface.

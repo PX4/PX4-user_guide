@@ -1,10 +1,10 @@
 # 安装固定飞控
 
-The flight controller should be placed on the frame as close as possible to the centre-of-gravity (CoG), top-side up, and oriented so that the _heading mark arrow_ points towards the front of the vehicle. [Vibration isolation](#vibration-isolation) is often needed, and you should follow the manufacturer recommendations. If mounted in this way, no further PX4 configuration is required.
+飞控应尽可能的安装在靠近载具重力中心(CoG)，顶部朝上，并且_箭头标记_的方向指向载具前方。 [振动隔离](#vibration-isolation)通常是必需的，您应遵循制造商的建议。 若以这种方式安装，则无需进行进一步的PX4配置。
 
 ## 安装方向
 
-Almost all Flight Controllers have a _heading mark arrow_ (shown below). 飞控应该顶部朝上安装在机架上，并使箭头指向与载具的前向一致（在所有的飞行器机架：固定翼、多旋翼、垂直起降、地面载具等上都是如此）。
+几乎所有的飞控都会由一个_指向箭头标记_ （如下图所示）。 飞控应该顶部朝上安装在机架上，并使箭头指向与载具的前向一致（在所有的飞行器机架：固定翼、多旋翼、垂直起降、地面载具等上都是如此）。
 
 ![飞控朝向标记](../../assets/qgc/setup/sensor/fc_heading_mark_1.png)
 
@@ -12,7 +12,7 @@ Almost all Flight Controllers have a _heading mark arrow_ (shown below). 飞控�
 
 ::: info If the controller cannot be mounted in the recommended/default orientation due to physical constraints, you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md). 一部分型号的飞控板提供了内置的减振；另一些型号则提供了*减振泡沫*，垫在载具和飞控之间以起到减振作用。
 
-## Position
+## 安装位置
 
 The flight controller should be placed on the frame as close as possible to the centre-of-gravity.
 
@@ -34,7 +34,7 @@ If the offsets are specified, a pure pitch motion would not create any change in
 
 Flight Control boards with in-built accelerometers or gyros are sensitive to vibrations. Some boards include in-built vibration-isolation, while others come with _mounting foam_ that you can use to isolate the controller from the vehicle.
 
-![Pixhawk Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png) _Vibration damping foam_
+![Pixhawk 减振泡沫](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png) _Vibration damping foam_
 
 You should use the mounting strategy recommended in your flight controller documentation.
 
