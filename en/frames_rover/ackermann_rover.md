@@ -1,6 +1,7 @@
 # Ackermann Rover
 
-An _Ackermann Rover_ controls its direction by pointing the front wheels in the direction of travel ([ackermann geometry](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) compensates for the fact that wheels on the inside and outside of the turn move at different rates).
+An _Ackermann Rover_ controls its direction by pointing the front wheels in the direction of travel
+([ackermann geometry](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) compensates for the fact that wheels on the inside and outside of the turn move at different rates).
 This kind of steering is used on most commercial vehicles, including cars, trucks etc.
 
 ![Traxxas Stampede VXL](../../assets/airframes/rover/traxxas_stampede_vxl/stampede.jpg)
@@ -13,32 +14,45 @@ The module does not require the ackermann geometry and will work with any front-
 
 This section will go through the most basic setup that is necessary to start using the rover.
 
-1. After flashing the USV build on your FMU (ADD LINK!!) select the _Generic ackermann rover_ in the [Airframe](../config/airframe.md) configuration:
+1. After flashing the USV build (ADD LINK!!) select the _Generic ackermann rover_ in the [Airframe](../config/airframe.md) configuration:
 
    ![Select Ackermann steered airframe](../../assets/config/airframe/airframe_rover_ackermann.png)
 
    Select the **Apply and Restart** button.
 
+   
+   ::: info
+   If this airframe does not show up in the UI, it can alternatively be loaded by setting the _SYS_AUTOSTART_ parameter to _50010_.
+   :::
+
+   ::: warning
+   Do not use the _Generic Ground Vehicle (Ackermann)_ airframe, this is linked to the old rover module and will not load the new module!
+   :::
+
 2. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
 
-This is already enough to drive the the rover in manual and acro mode (for more information on available flight modes see [Flight modes](#flight-modes)).
+This is sufficient to drive the the rover in [manual](#manual-mode) and [acro](#acro-mode) mode (here is more information on available [Flight modes](#flight-modes)).
 
 ::: info
 Many features of this module are disabled by default, and are only enabled by setting certain parameters.
-The [Tuning (basic)](#tuning-basic) section goes through the minimum setup required to start driving missions and the [Tuning (advanced)](#tuning-advanced) section outlines the remaining features and tuning variables of the module.
+The [Tuning (basic)](#tuning-basic) section goes through the minimum setup required to start driving missions
+and the [Tuning (advanced)](#tuning-advanced) section outlines the remaining features and tuning variables of the module.
 :::
 
 ## Tuning (Basic)
 
 To start driving missions navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters (ADD PICTURES!!):
 
-- [RA_WHEEL_BASE](../advanced_config/parameter_reference.md#RA_WHEEL_BASE): This is the wheel-base of the rover which is measured from the back to the front wheel.
-- [RA_MAX_STR_ANG](../advanced_config/parameter_reference.md#RA_MAX_STR_ANG): This is the maximum steering angle of the rover.
-- [RA_MISS_VEL_DEF](../advanced_config/parameter_reference.md#RA_MISS_VEL_DEF): This is the default velocity the rover will drive during the mission.
+| Parameter                                                                                                | Description                                                                | Unit |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---- |
+| <a id="RA_WHEEL_BASE"></a>[RA_WHEEL_BASE](../advanced_config/parameter_reference.md#RA_WHEEL_BASE)       | Wheel-base of the rover which is measured from the back to the front wheel | -    |
+| <a id="RA_MAX_STR_ANG"></a>[RA_MAX_STR_ANG](../advanced_config/parameter_reference.md#RA_MAX_STR_ANG)    | Maximum steering angle of the rover                                        | deg  |
+| <a id="RA_MISS_VEL_DEF"></a>[RA_MISS_VEL_DEF](../advanced_config/parameter_reference.md#RA_MISS_VEL_DEF) | Default velocity the rover will drive during the mission                   | m/s  |
 
-This is enough to start driving missions, but depending on the rover might not yet lead to satisfactory performance. If that is the case further tuning is required which is outlined in [Mission parameters](#mission-parameters).
+This is enough to start driving missions, but depending on the rover might not yet lead to satisfactory performance.
+If that is the case further tuning is required which is outlined in [Mission parameters](#mission-parameters).
 
-## Tuning (advanced)
+## Tuning (Advanced)
 
 To get an overview of all parameters that are related to the ackermann rover module navigate to the _Rover Ackermann_ group in the _Parameters_ section of QGroundControl.
 
@@ -46,19 +60,25 @@ To get an overview of all parameters that are related to the ackermann rover mod
 
 These parameters affect the general behaviour of the rover. This will influence both auto and manual modes.
 
-- [RA_MAX_SPEED](../advanced_config/parameter_reference.md#RA_MAX_SPEED): This is the speed the rover drives at maximum throttle. It is used for a feed-forward term on the speed controller in mission mode and necessary for the [acceleration slew rate](#slew-rates).
+| Parameter                                                                                       | Description                                | Unit |
+| ----------------------------------------------------------------------------------------------- | ------------------------------------------ | ---- |
+| <a id="RA_MAX_SPEED"></a>[RA_MAX_SPEED](../advanced_config/parameter_reference.md#RA_MAX_SPEED) | Speed the rover drives at maximum throttle | m/s  |
+
+This is used for a feed-forward term on the speed controller in mission mode and necessary for the [acceleration slew rate](#slew-rates).
 
 #### Slew Rates
 
 Slew rates limit how fast the signal that is sent to the motors is allowed to change:
 
-- [RA_MAX_ACCEL](../advanced_config/parameter_reference.md#RA_MAX_ACCEL): This is the limit of how fast the rover can accelerate (this is not based on acceleration measurements but on assumed linear relation between the throttle and the maximum rover speed).
+| Parameter                                                                                                | Description                            | Unit  |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------- | ----- |
+| <a id="RA_MAX_ACCEL"></a>[RA_MAX_ACCEL](../advanced_config/parameter_reference.md#RA_MAX_ACCEL)          | Limit on the acceleration of the rover | m/s^2 |
+| <a id="RA_MAX_STR_RATE"></a>[RA_MAX_STR_RATE](../advanced_config/parameter_reference.md#RA_MAX_STR_RATE) | Limit on the steering rate             | deg/s |
 
 :::warning
-[RA_MAX_SPEED](../advanced_config/parameter_reference.md#RA_MAX_SPEED) needs to be set for this to work!
+The slew rates are not based on measurements but on assumed linear relation between the throttle input and [RA_MAX_SPEED](#RA_MAX_SPEED) or steering input and [RA_MAX_STR_ANG](#RA_MAX_STR_ANG) respectively.
+Therefor these two parameters have to be set for the slew rates to work!
 :::
-
-- [RA_MAX_ACCEL](../advanced_config/parameter_reference.md#RA_MAX_ACCEL): This is the limit on the steering rate.
 
 ### Mission Parameters
 
@@ -71,22 +91,20 @@ The parameters in [Tuning (basic)](#tuning-basic) have to be set to drive missio
 #### Pure Pursuit Parameters
 
 The module uses a control algorithm called _Pure pursuit_ and it can be beneficial to understand how it works to properly tune (see [Pure pursuit algorithm](#pure-pursuit-algorithm)).
-The look ahead distance sets how aggressive the controller behaves and is defined as follows:
 
-$$
-l_d = v \cdot k
-$$
-
+The look ahead distance sets how aggressive the controller behaves and is defined as follows: $l_d = v \cdot k$
 It depends on the velocity $v$ of the rover and a tuning parameter $k$ that can be set with the parameter [RA_LOOKAHEAD_TUN](#RA_LOOKAHEAD_TUN).
 
 :::info
-A lower value of `RA_LOOKAHEAD_TUN` makes the controller more aggressive but can lead to oscillations!
+A lower value of [RA_LOOKAHEAD_TUN](#RA_LOOKAHEAD_TUN) makes the controller more aggressive but can lead to oscillations!
 :::
 
 To deal with the edge case that the line segment is outside the look ahead radius around the rover there are 2 steps:
 
 1. The look ahead is scaled to the crosstrack error, which creates an intersection point for the rover to drive towards.
-2. Scaling the look ahead too much can have undesirable effects such as the rover driving a huge circle to return to the path, rather then taking a straight line. For this purpose the maximum look ahead radius can be capped with the parameter [RA_LOOKAHEAD_MAX](#RA_LOOKAHEAD_MAX), after which the rover will drive directly towards the current waypoint until it gets close enough to the line segment again.
+2. Scaling the look ahead too much can have undesirable effects such as the rover driving a huge circle to return to the path, rather then taking a straight line.
+3. For this purpose the maximum look ahead radius can be capped with the parameter [RA_LOOKAHEAD_MAX](#RA_LOOKAHEAD_MAX), after which the rover will drive directly
+   towards the current waypoint until it gets close enough to the line segment again.
 
 To summarize, the following parameters can be used to tune the controller:
 
@@ -101,7 +119,7 @@ To summarize, the following parameters can be used to tune the controller:
 The module employs a special cornering logic causing the rover to "cut corners" to achieve a smooth trajectory.
 This is done by scaling the acceptance radius based on the corner the rover has to drive (for geometric explanation see [Cornering logic](#cornering-logic)).
 
-![image](https://github.com/PX4/PX4-Autopilot/assets/125505139/541935df-c10b-4ca9-a9cb-594312d1afac)
+![Cornering Logic](../../assets/airframes/rover/rover_ackermann/cornering_comparison.png)
 
 The degree to which corner cutting is allowed can be tuned, or disabled, with the following parameters:
 
@@ -109,7 +127,7 @@ The degree to which corner cutting is allowed can be tuned, or disabled, with th
 | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ---- |
 | <a id="RA_ACC_RAD_DEF"></a>[RA_ACC_RAD_DEF](../advanced_config/parameter_reference.md#RA_ACC_RAD_DEF)                 | Default acceptance radius                             | m    |
 | <a id="RA_ACC_RAD_MAX"></a>[RA_ACC_RAD_MAX](../advanced_config/parameter_reference.md#RA_ACC_RAD_MAX)                 | Maximum radius the acceptance radius can be scaled to | m    |
-| <a id="RA_ACC_RAD_TUN"></a>[RA_LOOKRA_ACC_RAD_TUNAHEAD_TUN](../advanced_config/parameter_reference.md#RA_ACC_RAD_TUN) | Tuning parameter                                      | -    |
+| <a id="RA_ACC_RAD_TUN"></a>[RA_ACC_RAD_TUN](../advanced_config/parameter_reference.md#RA_ACC_RAD_TUN) | Tuning parameter                                      | -    |
 
 The tuning parameter is a multiplicand on the calculated ideal acceptance radius to account for dynamic effects.
 
@@ -127,7 +145,7 @@ This effect can be tuned, or disabled, with the following parameters:
 | <a id="RA_MISS_VEL_TUN"></a>[RA_MISS_VEL_TUN](../advanced_config/parameter_reference.md#RA_MISS_VEL_TUN)    | Tuning parameter for the velocity reduction                               | -    |
 | <a id="RA_VEL_RED_START"></a>[RA_VEL_RED_START](../advanced_config/parameter_reference.md#RA_VEL_RED_START) | Tuning parameter for the distance to the WP at which the slow down begins | -    |
 
-## Flight modes
+## Flight Modes
 
 This section outlines all currently supported "flight" modes.
 
@@ -157,9 +175,10 @@ A mission can be configured s.t. the vehicle will enter return mode after the la
 ## Pure Pursuit Algorithm
 
 The ackermann rover module implements a path following algorithm called Pure pursuit.
-The controller takes the intersection point between a circle around the vehicle and the line segment connecting the previous and current waypoint. The radius of the circle around the vehicle is used to tune the controller and is often referred to as look-ahead distance.
+The controller takes the intersection point between a circle around the vehicle and the line segment connecting the previous and current waypoint.
+The radius of the circle around the vehicle is used to tune the controller and is often referred to as look-ahead distance.
 
-![image](https://github.com/PX4/PX4-Autopilot/assets/125505139/4cbf385e-e0e2-41bf-8a09-e53668b8899d)
+![Pure Pursuit Algorithm](../../assets/airframes/rover/rover_ackermann/pure_pursuit_algorithm.png)
 
 The required steering angle is calculated such that the vehicle reaches the aforementioned intersection point:
 
@@ -176,11 +195,13 @@ $$
 
 A great illustration for the derivation of this equation can be found at https://thomasfermi.github.io/Algorithms-for-Automated-Driving/Control/PurePursuit.html.
 
-## Cornering logic
+## Cornering Logic
 
-To enable a smooth trajectory, the acceptance radius of waypoints is scaled based on the angle between a line segment from the current-to-previous and current-to-next waypoints. The ideal trajectory would be to arrive at the next line segment with the heading pointing towards the next waypoint. For this purpose the minimum turning circle of the rover is inscribed tangentially to both line segments.
+To enable a smooth trajectory, the acceptance radius of waypoints is scaled based on the angle between a line segment from the current-to-previous and current-to-next waypoints.
+The ideal trajectory would be to arrive at the next line segment with the heading pointing towards the next waypoint.
+For this purpose the minimum turning circle of the rover is inscribed tangentially to both line segments.
 
-![image](https://github.com/PX4/PX4-Autopilot/assets/125505139/82da91ec-f479-4e90-aedd-75a32b42d979)
+![Cornering Logic](../../assets/airframes/rover/rover_ackermann/cornering_logic.png)
 
 The acceptance radius of the waypoint is set to the distance from the waypoint to the tangential points between the circle and the line segments:
 
