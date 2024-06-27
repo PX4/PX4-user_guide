@@ -15,6 +15,7 @@ The linked sections instructions for assembling and configuring fixed-wing frame
 
 - [Assembly](../assembly/assembly_fw.md)
 - [Config/Tuning](../config_fw/index.md)
+- [Flying (Basics)](../flying/basic_flying_fw.md)
 - [Flight Modes](../flight_modes_fw/index.md)
 - [Complete Vehicles](../complete_vehicles_fw/index.md)
 - [DIY Builds](../frames_plane/diy_builds.md)

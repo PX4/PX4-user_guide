@@ -1,5 +1,6 @@
 - [Introduction](index.md)
   - [Basic Concepts](getting_started/px4_basic_concepts.md)
+
 - [Multicopters](frames_multicopter/index.md)
   - [Features](features_mc/index.md)
     - [Flight Modes](flight_modes_mc/index.md)
@@ -19,8 +20,7 @@
     - [Precision Landing](advanced_features/precland.md)
     - [Terrain Following/Holding](flying/terrain_following_holding.md)
     - [Throw Launch](flight_modes_mc/throw_launch.md)
-
-  - [Assembly](assembly/assembly_mc.md)
+  - [Assembly](assembly/assembly_mc.md) 
   - [Configuration/Tuning](config_mc/index.md)
     - [Filter/Control Latency Tuning](config_mc/filter_tuning.md)
     - [PID Tuning (Manual/Basic)](config_mc/pid_tuning_guide_multicopter_basic.md)
@@ -30,6 +30,7 @@
     - [Racer Setup](config_mc/racer_setup.md)
     - [Land Detector Configuration](advanced_config/land_detector.md)
     - [Static Pressure Buildup](advanced_config/static_pressure_buildup.md)
+  - [Flying (Basics)](flying/basic_flying_mc.md)
   - [Complete Vehicles](complete_vehicles_mc/index.md)
     - [ModalAI Starling](complete_vehicles_mc/modalai_starling.md)
     - [PX4 Vision Kit](complete_vehicles_mc/px4_vision_kit.md)
@@ -57,6 +58,7 @@
     - [Altitude/Position Controller Tuning Guide](config_fw/position_tuning_guide_fixedwing.md)
     - [Weight & Altitude Tuning](config_fw/weight_and_altitude_tuning.md)
     - [Trimming Guide](config_fw/trimming_guide_fixedwing.md)
+  - [Flying (Basics)](flying/basic_flying_fw.md)
   - [Flight Modes](flight_modes_fw/index.md)
     - [Position Mode (FW)](flight_modes_fw/position.md)
     - [Altitude Mode (FW)](flight_modes_fw/altitude.md)
@@ -98,16 +100,17 @@
     - [Build: OMP Hobby ZMO FPV](frames_vtol/vtol_tiltrotor_omp_hobby_zmo_fpv.md)
   - [Complete Vehicles](complete_vehicles_vtol/index.md)
 
-
-
-- [Operations](temp/tbd.md)
-  - [Safety](config/safety.md)
-    - [First Flight Guidelines](flying/first_flight_guidelines.md) 
+- [Operations](config/operations.md)
+  - [Safety](config/safety_intro.md)
+    - [Safety Configuration (Failsafes)](config/safety.md)
     - [Failsafe Simulation](config/safety_simulation.md)
     - [Geofence](flying/geofence.md)
     - [Safe Points (Rally)](flying/plan_safety_points.md)
     - [Prearm/Arm/Disarm Configuration](advanced_config/prearm_arm_disarm.md)
     - [Flight Termination Configuration](advanced_config/flight_termination.md)
+    - [First Flight Guidelines](flying/first_flight_guidelines.md) 
+  - [Flying](flying/index.md)
+  - [Missions](flying/missions.md)
   - [Flight Reporting](getting_started/flight_reporting.md)
   - [Flight Log Analysis](log/flight_log_analysis.md)
     - [Log Analysis using Flight Review](log/flight_review.md)
@@ -116,18 +119,6 @@
     - [LED Meanings](getting_started/led_meanings.md)
     - [Tune/Sound Meanings](getting_started/tunes.md)
     - [Preflight Checks](flying/pre_flight_checks.md)
-  - [Parameters](temp/tbd.md)
-    - [Finding/Updating Parameters](advanced_config/parameters.md)
-    - [Full Parameter Reference](advanced_config/parameter_reference.md)
-
-- [Advanced Configuration](advanced_config/index.md)
-
-- [Flying](flying/index.md)
-  - [Manual Flying](flying/basic_flying.md)
-  - [Missions](flying/missions.md)
-
-  - [Advanced Configuration](advanced_config/index.md)
-  - [ECL/EKF Overview & Tuning](advanced_config/tuning_the_ecl_ekf.md)
 
 - [Hardware Selection & Setup](hardware/drone_parts.md)
   - [Flight Controllers (Autopilots)](flight_controller/index.md)
@@ -372,6 +363,12 @@
       - [Video Streaming using WFB-ng Wifi (Long range)](companion_computer/video_streaming_wfb_ng_wifi.md)
   - [Serial Port Configuration](peripherals/serial_configuration.md)
   - [PX4 Ethernet Setup](advanced_config/ethernet_setup.md)
+  - [Standard Configuration](config/index.md)
+    - [Autotune](config/autotune.md)
+  - [Advanced Configuration](advanced_config/index.md)
+    - [ECL/EKF Overview & Tuning](advanced_config/tuning_the_ecl_ekf.md)
+    - [Finding/Updating Parameters](advanced_config/parameters.md)
+    - [Full Parameter Reference](advanced_config/parameter_reference.md)
 
 - [Other Vehicles](airframes/index.md)
   - [Airships (experimental)](frames_airship/index.md)
@@ -388,12 +385,10 @@
     - [BlueROV2](frames_sub/bluerov2.md)
   - [Airframes Reference](airframes/airframe_reference.md)
   - [Assembly (Generic-Vehicle)](assembly/index.md)
-  - [Standard Configuration](config/index.md)
-    - [Autotune](config/autotune.md)
   - [Flight Modes](flight_modes/index.md)
     - [Return Mode (Generic/All)](flight_modes/return.md)
     - [Offboard Mode (Generic/All)](flight_modes/offboard.md)
-	
+
 - [Development](development/development.md)
   - [Getting Started](dev_setup/getting_started.md)
     - [Recommended Hardware/Setup](dev_setup/config_initial.md)

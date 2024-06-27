@@ -14,6 +14,7 @@ The linked sections instructions for assembling and configuring copter frames.
 - [Features](../features_mc/index.md) (including [Flight Modes](../flight_modes_mc/index.md))
 - [Assembly](../assembly/assembly_mc.md)
 - [Configuration/Tuning](../config_mc/index.md)
+- [Flying (Basics)](../flying/basic_flying_mc.md)
 - [Complete Vehicles](../complete_vehicles_mc/index.md)
 - [Kits](../frames_multicopter/kits.md)
 - [DIY Builds](../frames_multicopter/diy_builds.md)
