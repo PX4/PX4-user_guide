@@ -1,5 +1,5 @@
 ---
-frame: General
+frame: Plane
 newEditLink: en/assembly/_assembly.md
 ---
 

@@ -1,9 +1,10 @@
 # Vehicle (Frame) Selection
 
-After installing firmware you need to select the [vehicle type and specific frame configuration](../airframes/airframe_reference.md) that best matches your vehicle frame.
-This applies appropriate default parameter values for the selected frame, such as the vehicle type, number of motors, relative motor position, and so on.
+After installing firmware you need to select a [vehicle type and frame configuration](../airframes/airframe_reference.md).
+This applies appropriate initial parameter values for the selected frame, such as the vehicle type, number of motors, relative motor position, and so on.
+These can later be customised for your vehicle in [Actuator Configuration & Testing](../config/actuators.md).
 
-::: info
+::: tip
 Choose the frame that matches your vehicle brand and model if one exists, and otherwise select the closest "Generic" frame option matching your vehicle.
 :::
 

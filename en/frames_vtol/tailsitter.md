@@ -8,33 +8,32 @@ However they are aerodynamically more complex, and can be harder to tune and fly
 
 ## Tailsitter Airframes
 
-<div class="grid_wrapper two_column">
-  <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-tailsitter">VTOL Duo Tailsitter</a></big></div>
-    <div class="grid_text">
-    Two rotor VTOL that uses elevons to flip from hover into fixed-wing flight.<br><br>
-    <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL Duo Tailsitter" alt="wingtraone" /> 
-    <ul>
-      <li>Forward flight more efficient</li>
-      <li>Hover harder to fly, particularly in wind</li>
-      <li>Hover and transition harder to tune</li>
-      <li>More compact form factor</li>
-    </ul>
-    </div>
-  </div>
-<div class="grid_item">
-  <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-tailsitter">VTOL Tailsitter</a></big></div>
-  VTOL with optional elevons. Uses rotors to transition between modes (along with elevons if present).
-  <div class="grid_text">
-  <img title="Skypull SP-1 VTOL QuadTailsitter" src="../../assets/airframes/vtol/skypull/skypull_sp1.jpg" />
-  <ul>
-    <li>Hover mode easier to fly and more stable</li>
-    <li>Less compact form factor (harder to transport)</li>
-    <li>"X" and "+" rotor configurations are supported (see Airframe Reference)</li>
-  </ul>
-  </div>
-</div>
-</div>
+:::: tabs
+
+::: tab Duo Tailsitter
+Two rotor VTOL that uses elevons to flip from hover into fixed-wing flight.
+
+![Wingtra: WingtraOne VTOL Duo Tailsitter](../../assets/airframes/vtol/wingtraone/hero.jpg)
+
+- Forward flight more efficient
+- Hover harder to fly, particularly in wind
+- Hover and transition harder to tune
+- More compact form factor
+
+:::
+
+::: tab VTOL Tailsitter
+VTOL with optional elevons. Uses rotors to transition between modes (along with elevons if present).
+
+![Skypull SP-1 VTOL QuadTailsitter](../../assets/airframes/vtol/skypull/skypull_sp1.jpg)
+
+- Hover mode easier to fly and more stable
+- Less compact form factor (harder to transport)
+- "X" and "+" rotor configurations are supported (see Airframe Reference)
+
+:::
+
+::::
 
 Duo Tailsitters are generally more efficient in cruise flight (4 smaller propellers are less efficient than 2 larger ones) and physically more compact.
 However as they are aerodynamically much more complex in hover mode, they are much harder to tune for both hover and transition.
@@ -68,20 +67,22 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 
 ---
 
-[TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md) - Tailsitter takeoff (close up), hover, level flight, transitions. 
+[TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md) - Tailsitter takeoff (close up), hover, level flight, transitions.
 
 @[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
 
 ---
 
-[Woshark](http://www.laarlab.cn/#/) *PX4 Tailsitter prototype* - Tailsitter takeoff, transition, landing. 
+[Woshark](http://www.laarlab.cn/#/) _PX4 Tailsitter prototype_ - Tailsitter takeoff, transition, landing.
+
 <!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
 <!-- Update issue https://github.com/PX4/PX4-user_guide/issues/3007 -->
+
 @[youtube](https://youtu.be/gjHj6YsxcZk)
 
 ### Quad
 
-<!-- 
+<!--
 [Skypull](https://www.skypull.technology/) Tethered quad tailsitter (promotional video)
 @[youtube](https://youtu.be/6s-Izqb_GVs)
 -->
@@ -90,14 +91,13 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 
 @[youtube](https://youtu.be/pWt6uoqpPIw)
 
-
 ## Gallery
 
 <div class="grid_wrapper three_column">
   <div class="grid_item">
     <div class="grid_item_heading"><big><a href="https://wingtra.com/mapping-drone-wingtraone/">WingtraOne</a></big></div>
     <div class="grid_text">
-    <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL Duo Tailsitter" alt="wingtraone" /> 
+    <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL Duo Tailsitter" alt="wingtraone" />
     </div>
   </div>
   <div class="grid_item">
