@@ -88,10 +88,13 @@ UAV용 가장 인기있는 무선 종종기 *유형은*은 아래와 같습니�
 
 수신기는 프로토콜에 적합한 포트를 사용하여 비행 콘트롤러에 연결합니다.
 
-- Spektrum 및 DSM 수신기는 **SPKT/DSM** 포트에 연결합니다.
-- Graupner HoTT 수신기의 SUMD 출력은 **SPKT/DSM** 포트에 연결합니다.
-- PPM-Sum 및 S.BUS 수신기는 **RC** 접지, 전원 및 신호 핀(일반적으로 RC 또는 RCIN으로 표시됨)에 직접 연결합니다.
+- Spektrum/DSM receivers connect to the "DSM" input. Pixhawk flight controllers variously label this as: `SPKT/DSM`, `DSM`, `DSM/SBUS RC`, `DSM RC`, `DSM/SBUS/RSSI`.
+- Graupner HoTT receivers: SUMD output must connect to a **SPKT/DSM** input (as above).
+- PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins. This is typically labeled: `RC IN`, `RCIN` or `RC`, but has in some FCs has been labeled `PPM RC` or `PPM`.
 - *각각의 채널이 독립적으로 배선된* PPM 수신기는 반드시 RCIN 포트에 PPM 인코더로 [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) 연결합니다. PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다.
+- TBS Crossfire/Express LRS Receivers using [CRSF Telemetry](../telemetry/crsf_telemetry.md) connect via a spare UART.
+
+Flight controllers usually include appropriate cables for connecting common receiver types.
 
 Instructions for connecting to specific flight controllers are given in their [quick-start](../assembly/index.md) guides (such as [CUAV Pixhawk V6X Wiring Quick Start: Radio Control](../assembly/quick_start_cuav_pixhawk_v6x.md#radio-control) or [Holybro Pixhawk 6X Wiring Quick Start: Radio Control](../assembly/quick_start_pixhawk6x.md#radio-control)).
 
@@ -121,7 +124,7 @@ For more information see [Radio Control Setup > RC Loss Detection](../config/rad
 
 ## 관련 내용
 
-* [무선 조종기 설정](../config/radio.md) - PX4 무전 조종기 설정
-* [Manual Flying](../flying/basic_flying.md) - Learn how to fly with a remote control.
-* [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md)
-* [FrSky Telemetry](../peripherals/frsky_telemetry.md)
+- [무선 조종기 설정](../config/radio.md) - PX4 무전 조종기 설정
+- Manual Flying on [multicopter](../flying/basic_flying_mc.md) or [fixed wing](../flying/basic_flying_fw.md) - Learn how to fly with a remote control.
+- [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md)
+- [FrSky Telemetry](../peripherals/frsky_telemetry.md)
