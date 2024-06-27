@@ -1,17 +1,21 @@
 # 첫 비행 지침
 
-[비행 방법을 배우는 것](../flying/basic_flying.md)은 매우 즐거운 일입니다. 즐겁고 안전한 처녀 비행을 위한 지침들을 설명합니다.
+Learning to fly is a lot of fun! 즐겁고 안전한 처녀 비행을 위한 지침들을 설명합니다.
+
+## Know the Law
+
+Many places have strict regulations related to using flying drones, including requiring a license when flying vehicles or a particular size/weight, or for a particular purpose. Familiarise yourself with the flight regulations in your area.
 
 ## 적합한 비행 장소 선택
 
 비행에 적합한 장소를 선택하는 것은 매우 중요합니다. 좋은 비행 위치의 조건들은 아래와 같습니다.
 
-- 개방된 공간이어야 합니다. 주변에 높은 나무, 언덕 또는 건물이 없어야 합니다. GPS 수신을 방해하기 때문입니다.
-- 사람이 100m 내에 있지 않도록 하십시오.
-- 집, 구조물, 자동차, 물, 옥수수 밭 (드론을 찾기 어렵움)에서 100m내에 장애물이 없는 지 확인하여야 합니다.
+- 개방된 공간이어야 합니다. There should be no high trees, hills or buildings nearby, because those will impair the GNSS reception.
+- Make sure no people are within 100 m (300 feet).
+- Make sure there is nothing that you shouldn't crash onto within 100 m - no houses, structures, cars, water, corn fields (hard to find drones in).
 
-:::note
-100m 간격은 경험상 적절하지만, 해당 지역의 비행 규정을 준수 여부도 확인하여야 합니다.
+::: info
+100m clearance is a good "rule of thumb", but in many cases there will be an appropriate regulartory distance, and this may depend on factors such as whether you have a license.
 :::
 
 ## 전문가 초빙
@@ -30,4 +34,4 @@
 
 드론을 통제 할 수 없는 경우에는, 가능한 한 빨리 빈 공간에 착륙시키는 것이 좋습니다.
 
-::: info It can be useful to [set a safety switch on your transmitter](../config/safety.md#emergency-switches). 안전 스위치를 사용하여 경우 즉시 복귀하거나 드론을 재빨리 착륙시킬 수 있습니다. :::
+::: info It can be useful to [set an emergency switch on your transmitter](../config/safety.md#emergency-switches) to immediately return or crash the drone if necessary. :::

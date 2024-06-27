@@ -1,4 +1,4 @@
-# 안전 설정(사고 방지)
+# Safety (Failsafe) Configuration
 
 PX4에는 문제 발생시에 기체를 보호하고 복구하는 다양한 안전장치들을 제공합니다.
 
@@ -29,7 +29,7 @@ The exact behavior when different failsafes are triggered can be tested with the
 
 ## QGroundControl 안전 설정
 
-The _QGroundControl_ Safety Setup page is accessed by clicking the _QGroundControl_ icon, **Vehicle Setup**, and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the triggered actions _Return_ and _Land_.
+The _QGroundControl_ Safety Setup page is accessed by clicking the _QGroundControl_ icon, **Vehicle Setup**, and then **Safety** in the sidebar. This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the triggered actions _Return_ and _Land_.
 
 ![Safety Setup(QGC)](../../assets/qgc/setup/safety/safety_setup.png)
 

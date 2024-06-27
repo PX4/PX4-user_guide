@@ -1,11 +1,11 @@
-# 穿越机设置
+# Multicopter Racer Setup
 
-This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes_mc/acro.md)).
+This page describes how to setup and configure a multicopter racer for optimal performance (in particular for [Acro mode](../flight_modes_mc/acro.md)).
 
 请注意穿越机是经过特殊设计的动力强劲的快速飞行器。 你应该是有一定经验的使用者，或者让有经验的使用者帮助你。
 
-:::tip
-这里所述的许多知识可以用来改善其他类型多旋翼飞行器的飞行性能。
+::: tip
+Many things described here can also be applied to improve the flight performance of other types of multicopters.
 :::
 
 :::note

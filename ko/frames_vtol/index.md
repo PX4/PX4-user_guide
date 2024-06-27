@@ -66,27 +66,29 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
 ::: info
 
 - 필요한 차량 설정이 지원되지 않는 경우에는 [기체를 추가](../dev_airframes/adding_a_new_frame.md)하여야 합니다(일부 [PX4 개발](../development/development.md) 전문 지식 필요).
-- VTOL 코드베이스는 다른 모든 기체와 동일한 코드베이스이며, 특히 전환 제어 로직을 추가합니다. :::
+- The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
+
+:::
 
 ## 비행 모드
 
-VTOL은 멀티콥터와 고정익의 장점을 모두 가지고 있습니다. Multicopter mode is mainly used for take off and landing while the fixed-wing mode is used for efficient travel and/or mission execution.
+A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. Multicopter mode is mainly used for take off and landing while the fixed-wing mode is used for efficient travel and/or mission execution.
 
-VTOL 비행 모드는 멀티콥터 모드에는 [멀티 콥터](../getting_started/flight_modes.md#mc_flight_modes)와 동일하고, 고정익 모드에는 [고정익](../getting_started/flight_modes.md#fw_flight_modes)과 동일합니다.
+The flight modes for VTOL vehicles are the same as for [multicopter](../flight_modes_mc/index.md) when flying in MC mode and [fixed-wing](../flight_modes_fw/index.md) when flying in FW mode.
 
-모드 전환은 RC 스위치를 사용하거나 임무 또는 기타 자동 모드에서 필요시에 PX4에 의해 자동으로 전환됩니다.
+The transition between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in missions or other auto modes.
 
 ## 조립
 
 ::: info For information about commercial and kit VTOL vehicles see: [Complete Vehicles](../complete_vehicles/index.md) :::
 
-PX4로 제어되는 기체는 일반적으로 전원 시스템에 연결된 비행 컨트롤러, GPS, 외부 나침반(권장), 무선 제어 시스템(선택 사항), 텔레메트리(선택 사항) 및 속도 센서(VTOL용으로 강력 권장)와 같은 핵심 부품들을 공유합니다.
+PX4 controlled vehicles generally share the same core components: a flight controller connected to a power system, GPS, external compass (highly recommended), radio control system (optional) and/or telemetry radio system (optional), and airspeed sensor (highly recommended for VTOL vehicles).
 
-비행 컨트롤러 출력은 별도로 전원이 공급되는 차량 모터 ESC 또는 비행 제어 서보 및 액추에이터에 연결됩니다.
+The flight controller outputs are connected to the vehicle motor ESCs and/or flight control servos and actuators, which are separately powered.
 
-비행 컨트롤러 출력과 특정 컨트롤/모터 간의 매핑은 사용된 차량 프레임에 따라 다르며 [기체 정의서 &gt; VTOL](../airframes/airframe_reference.md#vtol)에 지정되어 있습니다.
+The mapping between flight controller outputs and specific controls/motors depends on the vehicle frame used, and is specified in the [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
 
-조립 방법은 여러 섹션에서 설명합니다.
+Assembly information is covered in several sections:
 
 - [기본 조립](../assembly/README.md)에는 인기 있는 [비행 콘트롤러](../flight_controller/README.md)들의 핵심 부품들의 설정을 설명들이 포함되어 있습니다. 가이드가 없는 비행 컨트롤러는 일반적으로 거의 같은 방법으로 설정됩니다(거의 항상 유사한 설정 가이드가 포함됨).
 - [주변 장치](../peripherals/README.md)에는 [대기 속도 센서](../sensor/airspeed.md)를 비롯하여 기타 주변 장치에 대한 정보가 포함되어 있습니다.
@@ -94,11 +96,11 @@ PX4로 제어되는 기체는 일반적으로 전원 시스템에 연결된 비�
   - 정의된 기체의 구성을 선택하십시오. 이는 비행을 위하여 사전 튜닝이 충분하기 때문입니다(미세 조정만 필요할 수 있음).
   - 그렇지 않으면, 기체와 일치하는 "일반 기체"를 선택하십시오.
 
-또한 다른 사람들이 다른 유형의 기체 설정 방법을 보여주는 빌드 로그가 하위 주제로 제공됩니다. 예제로 [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)을 참고하십시오.
+In addition, build logs showing how others have set up different types of vehicles are provided as sub topics. For example see [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md).
 
 ## 설정
 
-VTOL 설정은 여러 섹션에서 다룹니다.
+VTOL configuration is covered in a number of sections:
 
 - [기본 설정](../config/README.md) - 모든 차량 유형(센서, 안전 시스템, 배터리 등)에 공통적인 설정입니다.
 - [VTOL 특정 구성](../config_vtol/index.md)
@@ -111,36 +113,36 @@ VTOL 설정은 여러 섹션에서 다룹니다.
 
 VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
 
-@[유투브](https://youtu.be/37BIBAzD6fE)
+@[youtube](https://youtu.be/37BIBAzD6fE)
 
 <!-- 20190704 -->
 
 ### 테일시터
 
-[UAV Works VALAQ 순찰 테일 시터](https://www.valaqpatrol.com/valaq_patrol_technical_data/)
+[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/)
 
-@[유투브](https://youtu.be/pWt6uoqpPIw)
+@[youtube](https://youtu.be/pWt6uoqpPIw)
 
 [TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
 
-@[유투브](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
+@[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
 
 ### 틸트로터
 
-[컨버전스 틸트로터](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
+[Convergence Tiltrotor](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
 
-@[유투브](https://youtu.be/E61P2f2WPNU)
+@[youtube](https://youtu.be/E61P2f2WPNU)
 
 ### QuadPlane VTOL
 
 [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)
 
-@[유투브](https://www.youtube.com/watch?v=4K8yaa6A0ks&vq=hd720)
+@[youtube](https://www.youtube.com/watch?v=4K8yaa6A0ks&vq=hd720)
 
 [Falcon Vertigo QuadPlane](../frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
 
-@[유투브](https://youtu.be/h7OHTigtU0s)
+@[youtube](https://youtu.be/h7OHTigtU0s)
 
 [Ranger QuadPlane](../frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.md)
 
-@[유투브](https://www.youtube.com/watch?v=7tGXkW6d3sA&vq=hd720)
+@[youtube](https://www.youtube.com/watch?v=7tGXkW6d3sA&vq=hd720)

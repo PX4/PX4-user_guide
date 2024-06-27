@@ -66,27 +66,29 @@ PX4 підтримує три найважливіші/основні типи V
 :::info
 
 - Якщо потрібна конфігурація транспортного засобу, яку ви шукаєте, не підтримується, можливо, вам доведеться [Додати каркас](../dev_airframes/adding_a_new_frame.md) (потрібен деякий досвід [розробки PX4](../development/development.md)).
-- Кодова база VTOL є такою ж кодовою базою, як усі інші конструкції повітряних суден і лише додає додаткову логіку керування, зокрема для переходів. :::
+- The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
+
+:::
 
 ## Літання та Режими Польоту
 
-Літальний апарат VTOL може літати як мультикоптер, так і як літак з фіксованим крилом. Режим багатокоптера в основному використовується для зльоту та посадки, тоді як режим фіксованого крила використовується для ефективних поїздок та/або виконання місій.
+A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. Multicopter mode is mainly used for take off and landing while the fixed-wing mode is used for efficient travel and/or mission execution.
 
-Режими польоту для VTOL-транспортних засобів такі ж, як для [багтороторника](../flight_modes_mc/index.md), коли літають у режимі MC, та [фіксованокрилої літака](../flight_modes_fw/index.md), коли літають у режимі FW.
+The flight modes for VTOL vehicles are the same as for [multicopter](../flight_modes_mc/index.md) when flying in MC mode and [fixed-wing](../flight_modes_fw/index.md) when flying in FW mode.
 
-Перехід між режимами ініціюється або пілотом за допомогою RC перемикача, або автоматично PX4, коли це потрібно в місіях або інших автоматичних режимах.
+The transition between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in missions or other auto modes.
 
 ## Збірка
 
-:::info Для інформації про комерційні та комплектні VTOL-транспортні засоби див. : [Повні Транспортні Засоби](../complete_vehicles/index.md) :::
+::: info For information about commercial and kit VTOL vehicles see: [Complete Vehicles](../complete_vehicles/index.md) :::
 
-Транспортні засоби, керовані PX4, в цілому мають ті самі основні компоненти: польотний контролер, підключений до системи живлення, GPS, зовнішній компас (високо рекомендований), система радіоуправління (опціонально) і/або телеметрична радіосистема (опціонально), та датчик швидкості повітря (високо рекомендований для повітряних суден вертикального зльоту).
+PX4 controlled vehicles generally share the same core components: a flight controller connected to a power system, GPS, external compass (highly recommended), radio control system (optional) and/or telemetry radio system (optional), and airspeed sensor (highly recommended for VTOL vehicles).
 
-Виходи контролера польоту підключені до ESCs моторів транспортного засобу та/або серводвигунів та приводів керування польотом, які живляться окремо.
+The flight controller outputs are connected to the vehicle motor ESCs and/or flight control servos and actuators, which are separately powered.
 
-Відповідність між виходами керування польотом та конкретними керуваннями/двигунами залежить від використаної конструкції транспортного засобу та вказана у [Довідці по конструкції транспортних засобів > VTOL](../airframes/airframe_reference.md#vtol).
+The mapping between flight controller outputs and specific controls/motors depends on the vehicle frame used, and is specified in the [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
 
-Інформація про зборку охоплюється у кількох розділах:
+Assembly information is covered in several sections:
 
 - [Основна збірка](../assembly/index.md) містить теми, які показують налаштування основних компонентів для кількох популярних [контролерів польоту](../flight_controller/index.md). Контролери польоту, для яких у нас немає посібників, зазвичай налаштовуються таким же чином (і майже завжди містять схожі посібники з налаштуванням).
 - [Периферійні пристрої](../peripherals/index.md) містять інформацію про інші пристрої введення, включаючи [Датчики швидкості повітря](../sensor/airspeed.md).
@@ -94,11 +96,11 @@ PX4 підтримує три найважливіші/основні типи V
   - Виберіть конфігурацію для вашого транспортного засобу, якщо вона існує, оскільки вона буде достатньо попередньо налаштована для польоту (можливо, потребує тільки дрібного налаштування).
   - В іншому випадку виберіть "Загальну конструкцію", яка відповідає вашому транспортному засобу.
 
-Крім того, будуються журнали, які показують, як інші налаштовують різні типи транспортних засобів, надаються як підтеми. Наприклад, дивіться [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md).
+In addition, build logs showing how others have set up different types of vehicles are provided as sub topics. For example see [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md).
 
 ## Конфігурація
 
-Конфігурація VTOL охоплена в кількох розділах:
+VTOL configuration is covered in a number of sections:
 
 - [Основна конфігурація](../config/index.md) - Конфігурація, яка є загальною для всіх типів транспортних засобів (датчики, системи безпеки, батареї тощо).
 - [Конфігурація VTOL Специфічна](../config_vtol/index.md)
@@ -109,7 +111,7 @@ PX4 підтримує три найважливіші/основні типи V
 
 ### Освітній
 
-Контроль VTOL & Виявлення помилок повітряної швидкості (Саміт розробників PX4 2019)
+VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
 
 @[youtube](https://youtu.be/37BIBAzD6fE)
 
@@ -127,7 +129,7 @@ PX4 підтримує три найважливіші/основні типи V
 
 ### Тільтротор
 
-[Збіжність Тілтротора](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
+[Convergence Tiltrotor](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
 
 @[youtube](https://youtu.be/E61P2f2WPNU)
 

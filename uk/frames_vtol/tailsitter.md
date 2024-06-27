@@ -6,33 +6,30 @@
 
 ## Тейлсіттер фрейми
 
-<div class="grid_wrapper two_column">
-  <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-tailsitter">VTOL Duo Tailsitter</a></big></div>
-    <div class="grid_text">
-    Двороторний VTOL, який використовує елевони для переходу від зависання до польоту на фіксованому крилі.<br><br>
-    <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL Duo Tailsitter" alt="wingtraone" /> 
-    <ul>
-      <li>Прямолінійний політ більш ефективний</li>
-      <li>Важче зависати в повітрі, особливо під час вітру</li>
-      <li>Важче налаштувати наведення та перехід</li>
-      <li>Більш компактний форм-фактор</li>
-    </ul>
-    </div>
-  </div>
-<div class="grid_item">
-  <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-tailsitter">VTOL Tailsitter</a></big></div>
-  VTOL з можливістю встановлення опціональних елеронів. Використовує ротори для переходу між режимами (разом з елеронами, якщо вони є).
-  <div class="grid_text">
-  <img title="Skypull SP-1 VTOL QuadTailsitter" src="../../assets/airframes/vtol/skypull/skypull_sp1.jpg" />
-  <ul>
-    <li>У режимі зависання керувати літальним апаратом легше, він є більш стабільним</li>
-    <li>Менш компактний форм-фактор (важче транспортувати)</li>
-    <li>Підтримується конфігурація роторів "X" та "+" (див. Airframe Reference)</li>
-  </ul>
-  </div>
-</div>
-</div>
+:::: tabs
+
+::: tab Duo Tailsitter Two rotor VTOL that uses elevons to flip from hover into fixed-wing flight.
+
+![Wingtra: WingtraOne VTOL Duo Tailsitter](../../assets/airframes/vtol/wingtraone/hero.jpg)
+
+- Прямолінійний політ більш ефективний
+- Важче зависати в повітрі, особливо під час вітру
+- Важче налаштувати наведення та перехід
+- Більш компактний форм-фактор
+
+:::
+
+::: tab VTOL Tailsitter VTOL with optional elevons. Використовує ротори для переходу між режимами (разом з елеронами, якщо вони є).
+
+![Skypull SP-1 VTOL QuadTailsitter](../../assets/airframes/vtol/skypull/skypull_sp1.jpg)
+
+- У режимі зависання керувати літальним апаратом легше, він є більш стабільним
+- Менш компактний форм-фактор (важче транспортувати)
+- Підтримується конфігурація роторів "X" та "+" (див. Airframe Reference)
+
+:::
+
+::::
 
 Duo Tailsitters зазвичай більш ефективні в крейсерському польоті (4 менших гвинта менш ефективні, ніж 2 більших) і фізично більш компактні. Однак, оскільки аеродинамічно вони набагато складніші в режимі зависання, їх набагато важче налаштовувати як для зависання, так і для переходу. Квадрокоптерам легше літати в режимі зависання, і вони більш стабільні у вітряну погоду. Обидва варіанти підтримуються за допомогою одного типу айфреймів у PX4.
 
@@ -69,14 +66,16 @@ Duo Tailsitters зазвичай більш ефективні в крейсер
 
 ---
 
-[Woshark](http://www.laarlab.cn/#/) *PX4 Tailsitter prototype* - Tailsitter takeoff, transition, landing. 
+[Woshark](http://www.laarlab.cn/#/) _PX4 Tailsitter prototype_ - Tailsitter takeoff, transition, landing.
+
 <!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
 <!-- Update issue https://github.com/PX4/PX4-user_guide/issues/3007 -->
+
 @[youtube](https://youtu.be/gjHj6YsxcZk)
 
 ### Quad
 
-<!-- 
+<!--
 [Skypull](https://www.skypull.technology/) Tethered quad tailsitter (promotional video)
 @[youtube](https://youtu.be/6s-Izqb_GVs)
 -->
@@ -85,14 +84,13 @@ Duo Tailsitters зазвичай більш ефективні в крейсер
 
 @[youtube](https://youtu.be/pWt6uoqpPIw)
 
-
 ## Галерея
 
 <div class="grid_wrapper three_column">
   <div class="grid_item">
     <div class="grid_item_heading"><big><a href="https://wingtra.com/mapping-drone-wingtraone/">WingtraOne</a></big></div>
     <div class="grid_text">
-    <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL Duo Tailsitter" alt="wingtraone" /> 
+    <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL Duo Tailsitter" alt="wingtraone" />
     </div>
   </div>
   <div class="grid_item">

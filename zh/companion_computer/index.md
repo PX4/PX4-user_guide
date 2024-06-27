@@ -14,7 +14,7 @@
 
 ## Pixhawk 自动驾驶仪总线载板与机载计算机
 
-以下载板可以很方便的将 Pixhaw 飞控和机载计算机集成，极大地简化了硬件和软件设置。 这些板支持[Pixhawk Autopilot Bus (PAB)](../flight_controller/pixhawk_autopilot_bus.md)开放标准，因此您可以插入任何兼容的控制器：
+The following carrier boards make it easy to integrate Pixhawk flight controllers with a companion computer, significantly easing both hardware and software setup. 这些板支持[Pixhawk Autopilot Bus (PAB)](../flight_controller/pixhawk_autopilot_bus.md)开放标准，因此您可以插入任何兼容的控制器：
 
 - [Holybro Pixhawk Jetson 基板](https://holybro.com/products/pixhawk-jetson-baseboard)
 - [Holybro Pixhawk RPI CM4 基板](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)

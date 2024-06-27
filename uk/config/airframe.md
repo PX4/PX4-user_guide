@@ -1,9 +1,9 @@
 # Вибір рухомого засобу (корпусу)
 
-Після встановлення прошивки вам потрібно вибрати [тип транспортного засобу та конкретну конфігурацію рами](../airframes/airframe_reference.md), яка найкраще підходить для вашої транспортного засобу. Це застосовує відповідні значення параметрів за замовчуванням для вибраної рами, такі як тип транспортного засобу, кількість двигунів, відносне положення двигуна та інше.
+After installing firmware you need to select a [vehicle type and frame configuration](../airframes/airframe_reference.md). This applies appropriate initial parameter values for the selected frame, such as the vehicle type, number of motors, relative motor position, and so on. These can later be customised for your vehicle in [Actuator Configuration & Testing](../config/actuators.md).
 
-:::info
-Виберіть раму, яка відповідає марці та моделі вашого транспортного засобу, якщо така існує, інакше виберіть найближчу опцію рами "Загального" типу, яка відповідає вашому транспортному засобу.
+::: tip
+Choose the frame that matches your vehicle brand and model if one exists, and otherwise select the closest "Generic" frame option matching your vehicle.
 :::
 
 ## Налаштуйте раму

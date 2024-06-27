@@ -1,17 +1,21 @@
 # Посібник з Першого Польоту
 
-[Вчитися літати](../flying/basic_flying.md) приносить багато задоволення! Цей посібник розроблено для того, щоб ваш перший досвід польоту був приємним, пізнавальним і безпечним.
+Learning to fly is a lot of fun! Цей посібник розроблено для того, щоб ваш перший досвід польоту був приємним, пізнавальним і безпечним.
+
+## Know the Law
+
+Many places have strict regulations related to using flying drones, including requiring a license when flying vehicles or a particular size/weight, or for a particular purpose. Familiarise yourself with the flight regulations in your area.
 
 ## Оберіть гарну локацію
 
 Вибір правильної локації для вашого першого польоту є дуже важливим. Головне, на що варто звернути увагу:
 
-- Переконайтеся, що простір відкритий. Ніяких високих дерев, пагорбів чи будівель поруч, оскільки це погіршить приймання GPS.
-- Переконайтеся, що в радіусі 100 м / 300 футів немає людей.
-- Переконайтеся, що в радіусі 100 м / 300 футів немає нічого, у що ви можете врізатися - будинків, споруд, автомобілів, води, кукурудзяних полів (тут важко знайти дрони).
+- Переконайтеся, що простір відкритий. There should be no high trees, hills or buildings nearby, because those will impair the GNSS reception.
+- Make sure no people are within 100 m (300 feet).
+- Make sure there is nothing that you shouldn't crash onto within 100 m - no houses, structures, cars, water, corn fields (hard to find drones in).
 
-:::note
-100-метрова чистота є хорошим правилом, але ви також повинні переконатися, що ви дотримуєтеся правил польотів у вашому регіоні.
+::: info
+100m clearance is a good "rule of thumb", but in many cases there will be an appropriate regulartory distance, and this may depend on factors such as whether you have a license.
 :::
 
 ## Приведіть професіонала
@@ -30,5 +34,4 @@
 
 Якщо ви починаєте втрачати керування апаратом і не можете повернути його під контроль, якнайшвидше розбийте його на порожньому місці.
 
-:::note
-Може бути корисно [встановити захисний switch на вашому передавачі](../config/safety.md#emergency-switches). Це дозволяє вам негайно повернути або розбити дрон, якщо необхідно. :::
+::: info It can be useful to [set an emergency switch on your transmitter](../config/safety.md#emergency-switches) to immediately return or crash the drone if necessary. :::

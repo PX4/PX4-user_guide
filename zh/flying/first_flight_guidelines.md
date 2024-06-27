@@ -1,17 +1,21 @@
 # 首次飞行指南
 
-[学习飞行](../flying/basic_flying.md)是很有趣的! 这些指南旨在确保您的首次飞行体验愉快、有教育意义且安全。
+Learning to fly is a lot of fun! 这些指南旨在确保您的首次飞行体验愉快、有教育意义且安全。
+
+## Know the Law
+
+Many places have strict regulations related to using flying drones, including requiring a license when flying vehicles or a particular size/weight, or for a particular purpose. Familiarise yourself with the flight regulations in your area.
 
 ## 选择合适的地点
 
 为您的第一次飞行选择正确的位置至关重要。 要注意的主要事项是:
 
-- 确保空间是开放的。 附近没有高大的树木、山丘或建筑物，因为它会影响 GPS 接收。
-- 确保100米内没有人。
-- 确保在 100 米范围内没有您不应该撞到的东西 - 没有房屋、建筑物、汽车、水、玉米地（很难在其中找到无人机）。
+- 确保空间是开放的。 There should be no high trees, hills or buildings nearby, because those will impair the GNSS reception.
+- Make sure no people are within 100 m (300 feet).
+- Make sure there is nothing that you shouldn't crash onto within 100 m - no houses, structures, cars, water, corn fields (hard to find drones in).
 
-:::note
-虽然 100 米的间距已经是一个很好的“经验值”，但您还应该确保遵守您所在地区的飞行规定。
+::: info
+100m clearance is a good "rule of thumb", but in many cases there will be an appropriate regulartory distance, and this may depend on factors such as whether you have a license.
 :::
 
 ## 带上专业人士
@@ -30,4 +34,4 @@
 
 如果您开始失去对机体机的控制，并且无法恢复控制，请尽快在空旷的地方坠落。
 
-::: info It can be useful to [set a safety switch on your transmitter](../config/safety.md#emergency-switches). 这使您在必要时可以立即返回或坠毁您的无人机。 :::
+::: info It can be useful to [set an emergency switch on your transmitter](../config/safety.md#emergency-switches) to immediately return or crash the drone if necessary. :::

@@ -1,11 +1,11 @@
-# 레이서 설정
+# Multicopter Racer Setup
 
-This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes_mc/acro.md)).
+This page describes how to setup and configure a multicopter racer for optimal performance (in particular for [Acro mode](../flight_modes_mc/acro.md)).
 
 레이서들은 빠른 기동을 위해 설계된 기체입니다. 가능하면, 유경험자에게 도움을 받는 것이 좋습니다.
 
-:::tip
-여기에 설명된 사항은 다른 유형의 멀티콥터의 성능을 개선할 수도 있습니다.
+::: tip
+Many things described here can also be applied to improve the flight performance of other types of multicopters.
 :::
 
 :::note

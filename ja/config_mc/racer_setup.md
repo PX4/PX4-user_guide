@@ -1,10 +1,10 @@
-# Racer Setup
+# Multicopter Racer Setup
 
-This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes_mc/acro.md)).
+This page describes how to setup and configure a multicopter racer for optimal performance (in particular for [Acro mode](../flight_modes_mc/acro.md)).
 
 Keep in mind that racers are fast vehicles, specifically designed to be overpowered! You should already have some experience, or let someone with experience help you.
 
-:::tip
+::: tip
 Many things described here can also be applied to improve the flight performance of other types of multicopters.
 :::
 

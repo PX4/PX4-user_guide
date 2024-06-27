@@ -1,6 +1,6 @@
 # Інжекція помилки системи
 
-Ін'єкція відмов системи дозволяє викликати різні типи відмов датчиків та систем, або програмно за допомогою [плагіну відмови MAVSDK](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html), або "вручну" через консоль PX4, таку як [оболонка MAVLink](../debug/mavlink_shell.md#mavlink-shell). Це дозволяє легше тестування [захисної функції аварійного відключення](../config/safety.md#safety-configuration-failsafes), і загалом, як PX4 працює, коли системи та сенсори перестають працювати належним чином.
+Ін'єкція відмов системи дозволяє викликати різні типи відмов датчиків та систем, або програмно за допомогою [плагіну відмови MAVSDK](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html), або "вручну" через консоль PX4, таку як [оболонка MAVLink](../debug/mavlink_shell.md#mavlink-shell). This enables easier testing of [safety failsafe](../config/safety.md) behaviour, and more generally, of how PX4 behaves when systems and sensors stop working correctly.
 
 Впровадження відмов вимкнено за замовчуванням і може бути увімкнено за допомогою параметра [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
 

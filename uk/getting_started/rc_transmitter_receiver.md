@@ -88,10 +88,13 @@ PX4 не потребує системи дистанційного керува
 
 Як загальне правило: приймачі з'єднуються з політним контролером використовуючи порт відповідного протоколу що ним підтримується:
 
-- Приймачі Spektrum і DSM повинні підключатися до входу **SPKT/DSM**.
-- Graupner HoTT приймач: SUMD вивід повинен під'єднуватися до **SPKT/DSM** входу.
-- PPM-Sum та S.BUS приймачі повинні під'єднуватися напряму до **RC** штирків заземлення, живлення та сигналу (типово позначені як RC або RCIN)
+- Spektrum/DSM receivers connect to the "DSM" input. Pixhawk flight controllers variously label this as: `SPKT/DSM`, `DSM`, `DSM/SBUS RC`, `DSM RC`, `DSM/SBUS/RSSI`.
+- Graupner HoTT receivers: SUMD output must connect to a **SPKT/DSM** input (as above).
+- PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins. This is typically labeled: `RC IN`, `RCIN` or `RC`, but has in some FCs has been labeled `PPM RC` or `PPM`.
 - PPM приймачі, які мають окремі дроти для кожного каналу повинні підключатися до каналу RCIN *через* PPM перетворювач [на зразок цього](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum приймачі використовують єдиний дріт для всіх каналів).
+- TBS Crossfire/Express LRS Receivers using [CRSF Telemetry](../telemetry/crsf_telemetry.md) connect via a spare UART.
+
+Flight controllers usually include appropriate cables for connecting common receiver types.
 
 Інструкції щодо з'єднання із конкретним політним контролером надаються в їх посібниках [швидкого старту](../assembly/README.md) (наприклад [CUAV Pixhawk V6X Швидкий старт із підключення: радіо керування](../assembly/quick_start_cuav_pixhawk_v6x.md#radio-control) або [Holybro Pixhawk 6X Швидкий старт із підключення: радіо керування](../assembly/quick_start_pixhawk6x.md#radio-control)).
 
@@ -121,7 +124,7 @@ PX4 не потребує системи дистанційного керува
 
 ## Пов'язані теми
 
-* [Налаштування радіо керування](../config/radio.md) - налаштування вашого радіо з PX4.
-* [Ручні польоти](../flying/basic_flying.md) - дізнайтеся як літати з пультом дистанційного керування.
-* [TBS Crossfire (CRSF) телеметрія](../telemetry/crsf_telemetry.md)
-* [FrSky телеметрія](../peripherals/frsky_telemetry.md)
+- [Налаштування радіо керування](../config/radio.md) - налаштування вашого радіо з PX4.
+- Manual Flying on [multicopter](../flying/basic_flying_mc.md) or [fixed wing](../flying/basic_flying_fw.md) - Learn how to fly with a remote control.
+- [TBS Crossfire (CRSF) телеметрія](../telemetry/crsf_telemetry.md)
+- [FrSky телеметрія](../peripherals/frsky_telemetry.md)

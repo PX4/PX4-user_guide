@@ -66,7 +66,9 @@ Within each of the main "types" above, there are many possible variations—for 
 :::note
 
 - If the vehicle setup you need is not supported you may need to [Add an Airframe](../dev_airframes/adding_a_new_frame.md) (requires some [PX4 Development](../development/development.md) expertise).
-- The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions. :::
+- The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
+
+:::
 
 ## Flying and Flight Modes
 
@@ -78,8 +80,7 @@ The transition between modes is initiated either by the pilot using an RC switch
 
 ## Assembly
 
-:::note
-For information about commercial and kit VTOL vehicles see: [Complete Vehicles](../complete_vehicles/index.md) :::
+::: info For information about commercial and kit VTOL vehicles see: [Complete Vehicles](../complete_vehicles/index.md) :::
 
 PX4 controlled vehicles generally share the same core components: a flight controller connected to a power system, GPS, external compass (highly recommended), radio control system (optional) and/or telemetry radio system (optional), and airspeed sensor (highly recommended for VTOL vehicles).
 
