@@ -10415,6 +10415,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_RAM_MAX">COM_RAM_MAX</strong> (FLOAT)</td>
+ <td>Maximum allowed RAM usage to pass checks <p><strong>Comment:</strong> The check fails if the RAM usage is above this threshold. A negative value disables the check.</p>   </td>
+ <td>[-1, 100] (1)</td>
+ <td>95.0</td>
+ <td>%</td>
+</tr>
+<tr>
  <td><strong id="COM_RCL_EXCEPT">COM_RCL_EXCEPT</strong> (INT32)</td>
  <td>RC loss exceptions <p><strong>Comment:</strong> Specify modes in which RC loss is ignored and the failsafe action not triggered.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Mission</li>
   <li><strong>1:</strong> Hold</li>
@@ -11296,6 +11303,13 @@ table {
  <td></td>
  <td>0.0</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_LOG_VERBOSE">EKF2_LOG_VERBOSE</strong> (INT32)</td>
+ <td>Verbose logging    </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_ACCLIM">EKF2_MAG_ACCLIM</strong> (FLOAT)</td>
