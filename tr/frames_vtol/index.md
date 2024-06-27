@@ -66,7 +66,9 @@ Within each of the main "types" above, there are many possible variations—for 
 ::: info
 
 - If the vehicle setup you need is not supported you may need to [Add an Airframe](../dev_airframes/adding_a_new_frame.md) (requires some [PX4 Development](../development/development.md) expertise).
-- The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions. :::
+- The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
+
+:::
 
 ## Flying and Flight Modes
 
