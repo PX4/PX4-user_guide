@@ -104,8 +104,8 @@ New users should [configure their transmitter](../config/flight_mode.md) to use 
 The following three modes are highly recommended for new users:
 
 - [Stabilized Mode](../flight_modes_fw/stabilized.md) - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position)
-- [Altitude Mode)](flight_modes_fw/altitude.md) - Climb and drop are controlled to have a maximum rate.
-- [Position Mode](flight_modes_fw/position.md) - When sticks are released the vehicle will stop (and hold position against wind drift)
+- [Altitude Mode)](../flight_modes_fw/altitude.md) - Climb and drop are controlled to have a maximum rate.
+- [Position Mode](../flight_modes_fw/position.md) - When sticks are released the vehicle will stop (and hold position against wind drift)
 
 ::: info
 You can also engage automatic modes through the _QGroundControl_ main flight screen.
