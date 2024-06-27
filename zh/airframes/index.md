@@ -4,7 +4,7 @@ PX4支持多种类型的载具，包括多种型机、飞机、VTOL车辆、地�
 
 本节解释如何对每种类型进行组装、配置和调整 PX4 基础自动化系统 (这种设置的大部分是所有类型的常见的)。
 
-::: info [Basic Concepts > Drone Types](../getting_started/px4_basic_concepts.md#drone-types) provides high level information about the types of vehicles and the use cases for which they are best suited. :::
+::: 信息 [基本概念 > 无人机类型](../getting_started/px4_basic_concepts.md#drone-types) 提供了关于载具类型和最适合载具的使用情况的高层信息。 :::
 
 ## 支持载具：
 

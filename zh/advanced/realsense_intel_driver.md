@@ -4,7 +4,7 @@
 
 ![Intel Realsense Camera 前视图](../../assets/hardware/sensors/realsense/intel_realsense.png)
 
-驱动程序包的安装是在 Virtual Box 中作为虚拟机运行的 Ubuntu 操作系统 (OS) 上执行的。 The specifications of the host computer where the Virtual Box is running, the Virtual Box and the guest system are given below:
+驱动程序包的安装是在 Virtual Box 中作为虚拟机运行的 Ubuntu 操作系统 (OS) 上执行的。 运行 Virtual Box 的宿主机、虚拟机的规格如下:
 
 - 主机操作系统：Windows 8
 - 处理器：Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
@@ -12,10 +12,10 @@
 - 扩展：安装了 Virtual Box 的扩展包（用于 USB3.0 支持）
 - 客户机操作系统：Linux - Ubuntu 14.04.3 LTS
 
-本教程按以下方式排序: 在第一部分中, 演示如何在 Virtual Box 中安装 Ubuntu 14.04 作为客户机系统。 第二部分会演示如何安装 ROS Indigo 和相机驱动程序。 The ensuing frequently used expressions have the following meaning:
+本教程按以下方式排序: 在第一部分中, 演示如何在 Virtual Box 中安装 Ubuntu 14.04 作为客户机系统。 第二部分会演示如何安装 ROS Indigo 和相机驱动程序。 常用短语解释如下：
 
-- 虚拟框（VB）：运行不同虚拟机的程序。 此处使用 Oracle 虚拟机。
-- 虚拟机（VM）：作为来宾系统在虚拟框中运行的操作系统。 此处使用 Ubuntu。
+- Virtual Box（VB）：运行不同虚拟机的程序。 此处使用 Oracle 虚拟机。
+- Virtual Machine（VM）：作为访客系统在虚拟框中运行的操作系统。 此处使用 Ubuntu。
 
 ## 在 Virtual Box 中安装 Ubuntu 14.04.3 LTS
 
@@ -49,9 +49,9 @@
   sudo apt-get install git
   ```
 
-- Download and install the driver:
+- 下载并安装驱动:
 
-  - 获取 [RealSense_ROS repository](https://github.com/bestmodule/RealSense_ROS)：
+  - 克隆 [RealSense_ROS 仓库](https://github.com/bestmodule/RealSense_ROS)：
 
     ```sh
     git clone https://github.com/bestmodule/RealSense_ROS.git
@@ -63,13 +63,6 @@
 
     ```sh
     Intel Low Power Subsystem support in ACPI mode (MFD_INTEL_LPSS_ACPI) [N/m/y/?] (NEW)
-
-
-Intel Low Power Subsystem support in PCI mode (MFD_INTEL_LPSS_PCI) [N/m/y/?] (NEW)
-
-
-
-Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW) (NEW)
     ```
 
     ```sh

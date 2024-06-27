@@ -1,4 +1,4 @@
-# Complete Vehicles (Fixed-Wing)
+# 整机（固定翼）
 
 This section contains information about fully assembled ready to fly (RTF) or near-RTF vehicles that either run PX4 by default or can/may be usable with PX4.
 
@@ -7,7 +7,7 @@ This is a small subset of vehicles that can run PX4.
 You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
 :::
 
-## Custom PX4
+## 定制 PX4
 
 This section contains consumer vehicles that run a _custom_ version of PX4 (supported by their vendors).
 These may or may not be updatable to run "vanilla" PX4.
@@ -35,7 +35,7 @@ This section lists vehicles that are sold fully assembled and ready to fly (RTF)
 This section lists vehicles where you can update the software to run PX4.
 -->
 
-## See Also
+## 另见
 
 - [DIY Builds](../frames_plane/diy_builds.md)
 - [Complete Vehicles (VTOL)](../complete_vehicles_vtol/index.md)

@@ -1,30 +1,30 @@
-# IMU/Compass Factory Calibration
+# IMU/指南针工厂校准
 
-PX4 OEM manufacturers can perform an IMU and compass factory calibration in order to store values for the accelerometer, gyroscope and magnetometer calibration into persistent storage (usually EEPROM). This ensures that end users can always reset vehicle configurations and tuning to a safe state for flying.
+PX4 OEM制造商可以执行IMU和罗盘工厂校准，以便将加速度计、陀螺仪和磁力计校准的数值存储到持久存储器中（通常是EEPROM）。 这将确保最终用户总是能够重置车辆配置并调整到安全状态以供飞行。
 
-This procedure will write the following parameters to `/fs/mtd_caldata`: [CAL_ACC\*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_GYRO\*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), [CAL_MAG\*](../advanced_config/parameter_reference.md#CAL_MAG0_ID). This data will then be used when the parameters are set (or reset) to their default values.
+此程序将把以下参数写入到 `/fs/mtd_caldata`: [CAL_AC\*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_GYRO\*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), [CAL_MAG\*](../advanced_config/parameter_reference.md#CAL_MAG0_ID) 当参数被设置（或重置）为其默认值时，此数据将被使用。
 
 :::warning
-This feature relies on the FMU having a dedicated EEPROM chip or an accompanying IMU PCBA that has sufficient space for the data. PX4 will store the data to `/fs/mtd_caldata`, creating the file if necessary.
+此功能依赖于FMU具有专用的EEPROM芯片或具有足够空间存储数据的附带IMU PCBA。 PX4将数据存储到`/fs/mtd_caldata`，需要时会创建文件。
 :::
 
 ::: info
-These values cannot be stored in the [frame configuration](../dev_airframes/adding_a_new_frame.md) because they vary from device to device (the frame configuration defines the set of parameters that are applicable across all vehicles of the same type, such as the enabled sensors, [autopilot rotation](../config/flight_controller_orientation.md) and PID tuning).
+这些值不能存储在[机体配置](../dev_airframes/adding_a_new_frame.md)中，因为它们会因设备而异（机体配置定义了适用于同一类型所有机体的参数集，例如启用的传感器、[自动驾驶仪方向](../config/flight_controller_orientation.md)和PID调整）。
 :::
 
-## Performing the Factory Calibration
+## 执行工厂校准
 
-1. Set the parameter [SYS_FAC_CAL_MODE](../advanced_config/parameter_reference.md#SYS_FAC_CAL_MODE) to 1.
-1. Perform all IMU calibrations: [accelerometer](../config/accelerometer.md#performing-the-calibration), [gyroscope](../config/gyroscope.md#performing-the-calibration) and [magnetometer](../config/compass.md#performing-the-calibration).
-1. Reboot the vehicle. This will write all `CAL_ACC*`, `CAL_GYRO*` and `CAL_MAG*` parameters into `/fs/mtd_caldata`.
-1. Set the parameter `SYS_FAC_CAL_MODE` back to 0 (default).
+1. 将参数 [SYS_FAC_CAL_MODE](../advanced_config/parameter_reference.md#SYS_FAC_CAL_MODE) 设置为1。
+1. 执行所有IMU校准：[加速计](../config/accelerometer.md#performing-the-calibration)，[陀螺仪](../config/gyroscope.md#performing-the-calibration)和[磁力计](../config/compass.md#performing-the-calibration)。
+1. 重启飞行器. 这将把所有`CAL_ACC*`、`CAL_GYRO*`和`CAL_MAG*`参数写入`/fs/mtd_caldata`。
+1. 将参数 `SYS_FAC_CAL_MODE` 设置回0（默认值）。
 
 ::: info
-If you only want to factory calibrate the accelerometer and the gyroscope you can set [SYS_FAC_CAL_MODE](../advanced_config/parameter_reference.md#SYS_FAC_CAL_MODE) to 2, in which case the magnetometer is omitted.
+如果您只想对加速度计和陀螺仪进行出厂校准，您可以将[SYS_FAC_CAL_MODE](../advanced_config/parameter_reference.md#SYS_FAC_CAL_MODE)设置为2，这样磁力计会被忽略。
 :::
 
-Subsequent user calibrations will then take effect as usual (factory calibration data is only used for the parameter default values).
+随后的用户校准将像往常一样生效（工厂校准数据仅用于参数默认值）。
 
-## Further Information
+## 更多信息：
 
-- [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html)
+- [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html)
