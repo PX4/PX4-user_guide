@@ -1,6 +1,6 @@
 # 시스템 장애 주입
 
-[MAVSDK 오류 플러그인](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html)을 사용하는 프로그래밍 방식이나 [MAVLink 셸](../debug/mavlink_shell.md#mavlink-shell)과 같은 PX4 콘솔을 통하여, 수동으로 다양한 유형의 센서등과 같은 시스템 오류를 주입할 수 있습니다. 이를 통하여 [안전 안전장치](../config/safety.md#safety-configuration-failsafes) 동작 보다 일반적으로 시스템과 센서가 올바르게 작동하지 않을 때, PX4 동작 방식을 보다 쉽게 테스트할 수 있습니다.
+[MAVSDK 오류 플러그인](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html)을 사용하는 프로그래밍 방식이나 [MAVLink 셸](../debug/mavlink_shell.md#mavlink-shell)과 같은 PX4 콘솔을 통하여, 수동으로 다양한 유형의 센서등과 같은 시스템 오류를 주입할 수 있습니다. This enables easier testing of [safety failsafe](../config/safety.md) behaviour, and more generally, of how PX4 behaves when systems and sensors stop working correctly.
 
 실패 주입은 기본적으로 비활성화되어 있으며, [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN) 매개변수를 사용하여 활성화할 수 있습니다.
 
