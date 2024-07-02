@@ -9173,10 +9173,10 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT1_R_INTERNAL">BAT1_R_INTERNAL</strong> (FLOAT)</td>
- <td>Explicitly defines the per cell internal resistance for battery 1 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT1_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Explicitly defines the per cell internal resistance for battery 1 <p><strong>Comment:</strong> If non-negative, then this will be used instead of the online estimated internal resistance.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[-1.0, 0.2] (0.0005)</td>
- <td>0.005</td>
+ <td>-1.0</td>
  <td>Ohm</td>
 </tr>
 <tr>
@@ -9222,14 +9222,6 @@ table {
 </td>
  <td>(0.01)</td>
  <td>3.6</td>
- <td>V</td>
-</tr>
-<tr>
- <td><strong id="BAT1_V_LOAD_DROP">BAT1_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for the battery and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT1_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0.07, 0.5] (0.01)</td>
- <td>0.1</td>
  <td>V</td>
 </tr>
 <tr>
@@ -9284,10 +9276,10 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT2_R_INTERNAL">BAT2_R_INTERNAL</strong> (FLOAT)</td>
- <td>Explicitly defines the per cell internal resistance for battery 2 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT2_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Explicitly defines the per cell internal resistance for battery 2 <p><strong>Comment:</strong> If non-negative, then this will be used instead of the online estimated internal resistance.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[-1.0, 0.2] (0.0005)</td>
- <td>0.005</td>
+ <td>-1.0</td>
  <td>Ohm</td>
 </tr>
 <tr>
@@ -9336,14 +9328,6 @@ table {
  <td>V</td>
 </tr>
 <tr>
- <td><strong id="BAT2_V_LOAD_DROP">BAT2_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for the battery and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT2_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0.07, 0.5] (0.01)</td>
- <td>0.1</td>
- <td>V</td>
-</tr>
-<tr>
  <td><strong id="BAT3_CAPACITY">BAT3_CAPACITY</strong> (FLOAT)</td>
  <td>Battery 3 capacity <p><strong>Comment:</strong> Defines the capacity of battery 3 in mAh.</p>   <p><b>Reboot required:</b> True</p>
 </td>
@@ -9379,10 +9363,10 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT3_R_INTERNAL">BAT3_R_INTERNAL</strong> (FLOAT)</td>
- <td>Explicitly defines the per cell internal resistance for battery 3 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT3_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Explicitly defines the per cell internal resistance for battery 3 <p><strong>Comment:</strong> If non-negative, then this will be used instead of the online estimated internal resistance.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[-1.0, 0.2] (0.0005)</td>
- <td>0.005</td>
+ <td>-1.0</td>
  <td>Ohm</td>
 </tr>
 <tr>
@@ -9412,14 +9396,6 @@ table {
 </td>
  <td>(0.01)</td>
  <td>3.6</td>
- <td>V</td>
-</tr>
-<tr>
- <td><strong id="BAT3_V_LOAD_DROP">BAT3_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for the battery and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT3_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0.07, 0.5] (0.01)</td>
- <td>0.1</td>
  <td>V</td>
 </tr>
 <tr>
@@ -12314,21 +12290,21 @@ table {
 <tr>
  <td><strong id="FW_AIRSPD_MAX">FW_AIRSPD_MAX</strong> (FLOAT)</td>
  <td>Maximum Airspeed (CAS) <p><strong>Comment:</strong> The maximal airspeed (calibrated airspeed) the user is able to command.</p>   </td>
- <td>[0.5, ?] (0.5) (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>20.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
  <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively. Has to be set according to the vehicle&#x27;s stall speed (which should be set in FW_AIRSPD_STALL), with some margin between the stall speed and minimum airspeed. This value corresponds to the desired minimum speed with the default load factor (level flight, default weight), and is automatically adpated to the current load factor (calculated from roll setpoint and WEIGHT_GROSS/WEIGHT_BASE).</p>   </td>
- <td>[0.5, ?] (0.5)</td>
+ <td>[0.5, ?] (0.5) (0.5)</td>
  <td>10.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_STALL">FW_AIRSPD_STALL</strong> (FLOAT)</td>
  <td>Stall Airspeed (CAS) <p><strong>Comment:</strong> The stall airspeed (calibrated airspeed) of the vehicle. It is used for airspeed sensor failure detection and for the control surface scaling airspeed limits.</p>   </td>
- <td>[0.5, ?] (0.5) (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>7.0</td>
  <td>m/s</td>
 </tr>
