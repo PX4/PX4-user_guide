@@ -10621,6 +10621,62 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UCAN1_FB0_SUB">UCAN1_FB0_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 0 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB1_SUB">UCAN1_FB1_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 1 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB2_SUB">UCAN1_FB2_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 2 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB3_SUB">UCAN1_FB3_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 3 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB4_SUB">UCAN1_FB4_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 4 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB5_SUB">UCAN1_FB5_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 5 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB6_SUB">UCAN1_FB6_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 6 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB7_SUB">UCAN1_FB7_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 7 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UCAN1_GPS0_SUB">UCAN1_GPS0_SUB</strong> (INT32)</td>
  <td>GPS 0 subscription port ID    </td>
  <td>[-1, 6143] </td>
@@ -10644,6 +10700,13 @@ table {
 <tr>
  <td><strong id="UCAN1_LG_BMS_SUB">UCAN1_LG_BMS_SUB</strong> (INT32)</td>
  <td>Cyphal legacy battery port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_READ_PUB">UCAN1_READ_PUB</strong> (INT32)</td>
+ <td>Cyphal ESC readiness port ID    </td>
  <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
@@ -13053,7 +13116,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_1_PROTOCOL">GPS_1_PROTOCOL</strong> (INT32)</td>
- <td>Protocol for Main GPS <p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>参数对照:</strong><ul>
+ <td>Protocol for Main GPS <p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto detect</li>
 <li><strong>1:</strong> u-blox</li>
 <li><strong>2:</strong> MTK</li>
@@ -13105,7 +13168,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_2_PROTOCOL">GPS_2_PROTOCOL</strong> (INT32)</td>
- <td>Protocol for Secondary GPS <p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>参数对照:</strong><ul>
+ <td>Protocol for Secondary GPS <p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto detect</li>
 <li><strong>1:</strong> u-blox</li>
 <li><strong>2:</strong> MTK</li>
@@ -13218,7 +13281,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="GF_ACTION">GF_ACTION</strong> (INT32)</td>
- <td>Geofence violation action <p><strong>Comment:</strong> Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence.</p> <strong>参数对照:</strong><ul>
+ <td>Geofence violation action <p><strong>Comment:</strong> Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Warning</li>
 <li><strong>2:</strong> Hold mode</li>
@@ -22277,7 +22340,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_BOARD_ROT">SENS_BOARD_ROT</strong> (INT32)</td>
- <td>Board rotation <p><strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.</p> <strong>参数对照:</strong><ul>
+ <td>Board rotation <p><strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
