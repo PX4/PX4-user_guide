@@ -118,7 +118,7 @@
   - [Vehicle Status Notifications](getting_started/vehicle_status.md)
     - [LED Meanings](getting_started/led_meanings.md)
     - [Tune/Sound Meanings](getting_started/tunes.md)
-    - [Preflight Checks](flying/pre_flight_checks.md)
+    - [QGroundControl Flight-Readiness Status](flying/pre_flight_checks.md)
 
 - [Hardware Selection & Setup](hardware/drone_parts.md)
   - [Flight Controllers (Autopilots)](flight_controller/index.md)
