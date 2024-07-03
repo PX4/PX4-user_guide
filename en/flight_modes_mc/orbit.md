@@ -53,14 +53,18 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
 The mode can be stopped by switching to any other flight mode (using RC or QGC).
 
 ## Parameters/Limits
+The mode is affected by the following parameters:
 
-There are no orbit mode-specific parameters.
+| Parameter                                                                                                   | Description                                                                                                                                                                                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MC_ORBIT_RAD_MAX"></a>[MC_ORBIT_RAD_MAX](../advanced_config/parameter_reference.md#MC_ORBIT_RAD_MAX) | Maximum radius of orbit. Default: 1000m.                                                                                                                                                                                                                                                   |
+| <a id="MC_ORBIT_YAW_MOD"></a>[MC_ORBIT_YAW_MOD](../advanced_config/parameter_reference.md#MC_ORBIT_YAW_MOD) | Yaw behaviour during orbit flight. Default: Front to Circle Center.                                                                                                                                                                                                                                |
+
 
 The following limits are hard coded:
 
 - Initial/default rotation is 1 m/s in a clockwise direction.
 - The maximum acceleration is limited to 2 m/s^2, with priority on keeping the commanded circle trajectory rather than commanded ground speed (i.e. the vehicle will slow down in order to achieve the correct circle if the acceleration exceeds 2m/s^2).
-- Maximum radius is 100m.
 
 ## MAVLink Messages (Developers)
 
