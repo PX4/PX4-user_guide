@@ -157,7 +157,7 @@ This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/paramete
 This setting is not needed if you are using the basic configuration (without load compensation etc.)
 :::
 
-If you are using [Current-based Load Compensation](#current_based_load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated.
+If you are using [Load Compensation](#load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated.
 
 The easiest way to calibrate the dividers is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
 
@@ -173,51 +173,25 @@ This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/para
 With well configured load compensation the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
 :::
 
-Load compensation attempts to counteract the fluctuation in measured voltage/estimated capacity under load that occur when using the [basic configuration](#basic_settings). This works by estimating what the voltage would be for the _unloaded_ battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity.
+PX4 implements a current-based load compensation that uses an online estimation of the internal resistance of the battery.
+When a current flows through a battery, the internal resistance causes a voltage drop, reducing the output voltage (measured voltage) of the battery compared to its open-circuit voltage (no-load voltage).
+By estimating the internal resistance the fluctuation in measured voltage under load that occur when using the [basic configuration](#basic_settings) can be compensated. This leads to a much more accurate estimation of the remaining capacity.
 
 ::: info
 To use the load compensation you will still need to set the [basic configuration](#basic_settings).
 The _Empty Voltage_ ([BATn_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY), where `n` is the battery number) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
+You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
 :::
 
-PX4 supports two load compensation methods, which are enabled by [setting](../advanced_config/parameters.md) either of the two parameters below:
+Alternatively, the value for the internal resistance can be [set manually](../advanced_config/parameters.md) with the following parameter: 
+- [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) (advanced).
 
-- [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
-- [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
-
-<a id="current_based_load_compensation"></a>
-
-### Current-based Load Compensation (recommended)
-
-This load compensation method relies on current measurement to determine load.
-It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load_compensation) but requires that you have a current sensor.
-
-To enable this feature:
-
-1. Set the parameter [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) to the internal resistance of battery 1 (and repeat for other batteries).
-
-   :::tip
-   There are LiPo chargers out there which can measure the internal resistance of your battery.
-   A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
-   :::
-
-1. You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
-
-<a id="thrust_based_load_compensation"></a>
-
-### Thrust-based Load Compensation
-
-This load compensation method estimates the load based on the total thrust that gets commanded to the motors.
-
-:::warning
-This method is not particularly accurate because there's a delay between thrust command and current, and because the thrust in not linearly proportional to the current.
-Use [Current-based Load Compensation](#current_based_load_compensation) instead if your vehicle has a current sensor.
+::: info
+By default this value is set to -1 which enables the online estimation.
+A positive value will be used instead of the online estimation and by setting it to 0 the load compensation is disabled.  
+There are LiPo chargers out there which can measure the internal resistance of your battery.
+A typical value for LIPO batteries is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
 :::
-
-To enable this feature:
-
-1. Set the parameter [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
-
 <a id="current_integration"></a>
 
 ## Voltage-based Estimation Fused with Current Integration
@@ -232,13 +206,13 @@ It requires hardware that can accurately measure current.
 
 To enable this feature:
 
-1. First set up accurate voltage estimation using [current-based load compensation](#current_based_load_compensation).
+1. First set up accurate voltage estimation using [load compensation](#load_compensation).
 
    :::tip
    Including calibrating the [Amps per volt divider](#current_divider) setting.
    :::
 
-1. Set the parameter [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
+2. Set the parameter [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
 
    ::: info
    Do not set this value too high as this may result in a poor estimation or sudden drops in estimated capacity.
