@@ -1,4 +1,4 @@
-# 安全配置（故障保护）
+# Safety (Failsafe) Configuration
 
 PX4有许多安全功能，可以在发生故障时保护并恢复您的机体：
 
@@ -29,7 +29,7 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 
 ## QGroundControl 安全设置
 
-The _QGroundControl_ Safety Setup page is accessed by clicking the _QGroundControl_ icon, **Vehicle Setup**, and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the triggered actions _Return_ and _Land_.
+The _QGroundControl_ Safety Setup page is accessed by clicking the _QGroundControl_ icon, **Vehicle Setup**, and then **Safety** in the sidebar. This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the triggered actions _Return_ and _Land_.
 
 ![Safety Setup(QGC)](../../assets/qgc/setup/safety/safety_setup.png)
 

@@ -4,11 +4,7 @@ Flight controllers are the "brains" of an unmanned vehicle. PX4 can run on [many
 
 在选择飞控板时你应当考虑飞机的物理尺寸限制、想要进行的活动以及必不可少的成本。
 
-<div style="column-count: 3; column-gap: 10px;">
-<img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_hero_upright.png" width="120px" title="Holybro Pixhawk6X">
-<img src="../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x.jpg" width="180px" title="CUAV Pixhawk 6X" >
-<img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="200px" title="CubePilot Cube Orange" />
-</div>
+<img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_hero_upright.png" width="120px" title="Holybro Pixhawk6X" /><img src="../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x.jpg" width="200px" title="CUAV Pixhawk 6X"  /><img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="250px" title="CubePilot Cube Orange" />
 
 ## Pixhawk 系列
 

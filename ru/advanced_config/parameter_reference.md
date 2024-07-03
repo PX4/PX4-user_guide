@@ -9173,10 +9173,10 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT1_R_INTERNAL">BAT1_R_INTERNAL</strong> (FLOAT)</td>
- <td>Explicitly defines the per cell internal resistance for battery 1 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT1_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Explicitly defines the per cell internal resistance for battery 1 <p><strong>Comment:</strong> If non-negative, then this will be used instead of the online estimated internal resistance.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[-1.0, 0.2] (0.0005)</td>
- <td>0.005</td>
+ <td>-1.0</td>
  <td>Ohm</td>
 </tr>
 <tr>
@@ -9222,14 +9222,6 @@ table {
 </td>
  <td>(0.01)</td>
  <td>3.6</td>
- <td>V</td>
-</tr>
-<tr>
- <td><strong id="BAT1_V_LOAD_DROP">BAT1_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for the battery and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT1_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0.07, 0.5] (0.01)</td>
- <td>0.1</td>
  <td>V</td>
 </tr>
 <tr>
@@ -9284,10 +9276,10 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT2_R_INTERNAL">BAT2_R_INTERNAL</strong> (FLOAT)</td>
- <td>Explicitly defines the per cell internal resistance for battery 2 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT2_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Explicitly defines the per cell internal resistance for battery 2 <p><strong>Comment:</strong> If non-negative, then this will be used instead of the online estimated internal resistance.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[-1.0, 0.2] (0.0005)</td>
- <td>0.005</td>
+ <td>-1.0</td>
  <td>Ohm</td>
 </tr>
 <tr>
@@ -9336,14 +9328,6 @@ table {
  <td>V</td>
 </tr>
 <tr>
- <td><strong id="BAT2_V_LOAD_DROP">BAT2_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for the battery and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT2_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0.07, 0.5] (0.01)</td>
- <td>0.1</td>
- <td>V</td>
-</tr>
-<tr>
  <td><strong id="BAT3_CAPACITY">BAT3_CAPACITY</strong> (FLOAT)</td>
  <td>Battery 3 capacity <p><strong>Comment:</strong> Defines the capacity of battery 3 in mAh.</p>   <p><b>Reboot required:</b> True</p>
 </td>
@@ -9379,10 +9363,10 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT3_R_INTERNAL">BAT3_R_INTERNAL</strong> (FLOAT)</td>
- <td>Explicitly defines the per cell internal resistance for battery 3 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT3_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Explicitly defines the per cell internal resistance for battery 3 <p><strong>Comment:</strong> If non-negative, then this will be used instead of the online estimated internal resistance.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[-1.0, 0.2] (0.0005)</td>
- <td>0.005</td>
+ <td>-1.0</td>
  <td>Ohm</td>
 </tr>
 <tr>
@@ -9412,14 +9396,6 @@ table {
 </td>
  <td>(0.01)</td>
  <td>3.6</td>
- <td>V</td>
-</tr>
-<tr>
- <td><strong id="BAT3_V_LOAD_DROP">BAT3_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for the battery and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT3_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0.07, 0.5] (0.01)</td>
- <td>0.1</td>
  <td>V</td>
 </tr>
 <tr>
@@ -10414,6 +10390,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_RAM_MAX">COM_RAM_MAX</strong> (FLOAT)</td>
+ <td>Maximum allowed RAM usage to pass checks <p><strong>Comment:</strong> The check fails if the RAM usage is above this threshold. A negative value disables the check.</p>   </td>
+ <td>[-1, 100] (1)</td>
+ <td>95.0</td>
+ <td>%</td>
+</tr>
+<tr>
  <td><strong id="COM_RCL_EXCEPT">COM_RCL_EXCEPT</strong> (INT32)</td>
  <td>RC loss exceptions <p><strong>Comment:</strong> Specify modes in which RC loss is ignored and the failsafe action not triggered.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Mission</li>
   <li><strong>1:</strong> Hold</li>
@@ -11295,6 +11278,13 @@ table {
  <td></td>
  <td>0.0</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_LOG_VERBOSE">EKF2_LOG_VERBOSE</strong> (INT32)</td>
+ <td>Verbose logging    </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_ACCLIM">EKF2_MAG_ACCLIM</strong> (FLOAT)</td>
