@@ -14,62 +14,60 @@ This guide contains everything you need to assemble, configure, and safely fly a
 
 :::warning
 This guide is for the _development_ version of PX4 (`main` branch).
-Use the **Version** selector for the current _stable_ version.
+Use the **Version** selector to find the current _stable_ version.
 
 Documented changes since the stable release are captured in the evolving [release note](releases/main.md).
 :::
 
 ## How Do I Get Started?
 
-[Getting Started](getting_started/index.md) should be read by all users!
+[Basic Concepts](../getting_started/px4_basic_concepts.md) should be read by all users!
 It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+
+If you're just getting started with flying drones then we recommend [multicopters](frames_multicopter/index.md), because they are easier to fly than planes and less complicated to build than VTOLs.
+Once you're familiar with multicopters, then moving onto planes and VTOL is much easier.
 
 Depending on what you want to achieve, the following tips will help you navigate through this guide:
 
-**I already have a drone and I just want to fly:**
+### How do get a vehicle that works with PX4?
 
-If you have a Ready To Fly (RTF) vehicle that supports PX4:
+If you don't have already have Multicopter vehicle then [Complete Vehicles](complete_vehicles_mc/index.md) lists "Ready to Fly" (RTF) pre-build vehicles that you can buy, [Kits](frames_multicopter/kits.md) lists drones that you have to build yourself from a package, and [DIY Builds](frames_multicopter/diy_builds.md) shows some examples of drones that have been build using parts that have been sourced individually.
+The [VTOL](frames_vtol/index.md) and [Planes (Fixed-Wing)](frames_plane/index.md) areas have similar topics.
 
-- [Basic Configuration](config/index.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
-- [Flying](flying/index.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
+Both kits and complete vehicles usually include everything you need except for a battery and RC System.
+Kits are usually not hard to build, provide a good introduction to how drones fit together, and are relatively inexpensive.
+We provide generic instructions for assembly, such as [Assembling a Multicopter](../assembly/assembly_mc.md), and most kits come with specific instructions too.
 
-**I want to build a drone with PX4 from scratch:**
+If the kits and complete drones aren't quite right then you can build one from scratch, but this requires more knowledge.
+[Airframe Builds](airframes/index.md) lists the supported frame starting points to give you some idea of what is possible.
 
-:::tip
+### I have an RTF vehicle
 
-The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md).
-These are vehicles that have tested and tuned configurations that you can download using _QGroundControl_.
+Once you have purchased or built a Ready To Fly (RTF) vehicle that supports PX4 you will need to configure it and calibrate the sensors.
+Each vehicle type has its own configuration section that explains the main steps, such as [Multicopter Configuration/Tuning](config_mc/index.md).
 
-:::
+Before you fly you should read [Operations](config/operations.md) to understand how to set up the safety features of your vehicle and the common behaviours of all frame types.
+Once you've done that you're ready to fly.
 
-If you want to build a vehicle from scratch:
+Basic instructions for flying each vehicle type are provided in the respective sections, such as [Basic Flying (Multicopter)](flying/basic_flying_mc.md).
 
-- Choose a frame - [Airframe Builds](airframes/index.md) lists the supported frames and provides detailed instructions for how to construct a subset of vehicles.
-- Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/index.md).
-- [Assembly](assembly/index.md) explains how to wire up the important peripherals to your autopilot.
-- [Basic Configuration](config/index.md) shows how to update your firmware and configure it with settings appropriate for your airframe.
-  This section also explains how to calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+### I want to add payload or a camera
 
-Once you are ready to fly your vehicle, visit the [Flying](flying/index.md) section.
+The [Payloads](payloads/index.md) section describes how to add a camera or how to configure PX4 to enable you to deliver packages.
 
-**I want to add payload or a camera:**
+After adding a payload you should retune the vehicle, which for multicopters you can do with [Autotune](config/autotune.md).
+You should also consider the other tuning and calibration listed in your vehicle configuration guide (e.g. [Multicopter Configuration/Tuning](config_mc/index.md)).
 
-The payloads section describes how to add a camera or how to configure PX4 to enable you to deliver packages.
+### I am modifying a supported vehicle
 
-- [Payloads](payloads/index.md) describes how to integrate payloads
+The [Hardware Selection & Setup](hardware/drone_parts.md) section provides both high level and product-specific information about hardware that you might use with PX4 and its configuration.
+This is the first place you should look if you want to modify a drone and add new components.
 
-**I am modifying a supported vehicle:**
+Just as when you add a payload, you should re-tune the vehicle (see [Multicopter Configuration/Tuning](config_mc/index.md) for links to the relevant information).
 
-Modifications of the flight controller and basic sensors are covered above.
-In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
+### I want to run PX4 on a new Flight Controller and extend the platform
 
-- [Peripheral Hardware](peripherals/index.md) provides additional information about using external sensors.
-- [Basic Configuration](config/index.md) explains how to calibrate the main sensors.
-- [Advanced Configuration](advanced_config/index.md) should be used to re/fine-tune the airframe.
-
-**I want to run PX4 on new hardware and extend the platform:**
-
-- [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+The [Development](development/development.md) section explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
 ## Getting Help
 
