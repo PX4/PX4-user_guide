@@ -175,7 +175,8 @@ With well configured load compensation the voltage used for battery capacity est
 
 PX4 implements a current-based load compensation that uses an online estimation of the internal resistance of the battery.
 When a current flows through a battery, the internal resistance causes a voltage drop, reducing the output voltage (measured voltage) of the battery compared to its open-circuit voltage (no-load voltage).
-By estimating the internal resistance the fluctuation in measured voltage under load that occur when using the [basic configuration](#basic_settings) can be compensated. This leads to a much more accurate estimation of the remaining capacity.
+By estimating the internal resistance, the fluctuation in measured voltage under load that occurs when using the [basic configuration](#basic_settings) can be compensated.
+This leads to a much more accurate estimation of the remaining capacity.
 
 ::: info
 To use the load compensation you will still need to set the [basic configuration](#basic_settings).
