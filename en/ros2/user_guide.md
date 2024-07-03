@@ -464,6 +464,18 @@ At this point, every ROS2 node must be instructed to use the newly bridged `/clo
 This concludes the modifications required on the ROS2 side. On the PX4 side, you are only required to stop the uXRCE-DDS time synchronization, setting the parameter [UXRCE_DDS_SYNCT](../advanced_config/parameter_reference.md#UXRCE_DDS_SYNCT) to `false`.
 By doing so, Gazebo will act as main and only time source for both ROS2 and PX4.
 
+:::warning
+If you notice that the ros_gz_bridge node doesn't publish anything on the /clock topic, it's possible that you have the wrong version of ros_gz_bridge installed. 
+The following commands install the correct version for **Gazebo Garden** with ROS2 **Humble**:
+```bash
+# Remove the wrong version for ignition fortress
+sudo apt remove ros-humble-ros-gz-bridge* 
+
+# Install the version for gazebo garden 
+sudo apt install ros-humble-gzgarden-bridge 
+```
+:::
+
 ## ROS 2 Example Applications
 
 ### ROS 2 Listener
