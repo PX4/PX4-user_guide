@@ -118,7 +118,7 @@
   - [機体ステータス表示](getting_started/vehicle_status.md)
     - [LED表示の意味](getting_started/led_meanings.md)
     - [通知音の意味](getting_started/tunes.md)
-    - [飛行前チェック](flying/pre_flight_checks.md)
+    - [QGroundControl Flight-Readiness Status](flying/pre_flight_checks.md)
 
 - [Hardware Selection & Setup](hardware/drone_parts.md)
   - [Flight Controllers (Autopilots)](flight_controller/index.md)
