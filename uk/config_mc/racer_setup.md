@@ -1,11 +1,11 @@
-# Налаштування Racer
+# Multicopter Racer Setup
 
-Ця сторінка описує, як налаштувати та сконфігурувати гонщика для оптимальної продуктивності (особливо для [режиму Акро](../flight_modes_mc/acro.md)).
+This page describes how to setup and configure a multicopter racer for optimal performance (in particular for [Acro mode](../flight_modes_mc/acro.md)).
 
 Пам'ятайте, що гонщики - це швидкі транспортні засоби, спеціально створені для того, щоб бути переважними! Вам вже слід мати деякий досвід, або дозвольте комусь з досвідом допомогти вам.
 
-:::tip
-Багато речей, описаних тут, також можуть бути застосовані для покращення польотової продуктивності інших типів багатокрильних літаків.
+::: tip
+Many things described here can also be applied to improve the flight performance of other types of multicopters.
 :::
 
 :::info
