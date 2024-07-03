@@ -10621,6 +10621,62 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UCAN1_FB0_SUB">UCAN1_FB0_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 0 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB1_SUB">UCAN1_FB1_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 1 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB2_SUB">UCAN1_FB2_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 2 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB3_SUB">UCAN1_FB3_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 3 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB4_SUB">UCAN1_FB4_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 4 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB5_SUB">UCAN1_FB5_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 5 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB6_SUB">UCAN1_FB6_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 6 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB7_SUB">UCAN1_FB7_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 7 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UCAN1_GPS0_SUB">UCAN1_GPS0_SUB</strong> (INT32)</td>
  <td>GPS 0 subscription port ID    </td>
  <td>[-1, 6143] </td>
@@ -10644,6 +10700,13 @@ table {
 <tr>
  <td><strong id="UCAN1_LG_BMS_SUB">UCAN1_LG_BMS_SUB</strong> (INT32)</td>
  <td>Cyphal legacy battery port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_READ_PUB">UCAN1_READ_PUB</strong> (INT32)</td>
+ <td>Cyphal ESC readiness port ID    </td>
  <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
