@@ -23581,7 +23581,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SEP_DUMP_COMM">SEP_DUMP_COMM</strong> (INT32)</td>
- <td>Log GPS communication data <p><strong>Comment:</strong> Dump raw communication data from and to the connected receiver to the log file.</p> <strong>Values:</strong><ul>
+ <td>Log GPS communication data <p><strong>Comment:</strong> Log raw communication between the driver and connected receivers. For example, &quot;To receiver&quot; will log all commands and corrections sent by the driver to the receiver.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> From receiver</li>
 <li><strong>2:</strong> To receiver</li>
@@ -23734,7 +23734,7 @@ table {
  <td><strong id="SEP_YAW_OFFS">SEP_YAW_OFFS</strong> (FLOAT)</td>
  <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover antenna is placed on the right side of the vehicle and the moving base antenna is on the left side.</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>[0, 360] </td>
+ <td>[-360, 360] </td>
  <td>0</td>
  <td>deg</td>
 </tr>
