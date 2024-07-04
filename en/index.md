@@ -28,9 +28,7 @@ Depending on what you want to achieve, the following tips will help you navigate
 
 ### I want a vehicle that works with PX4
 
-Vehicle options are listed in subsections of [Multicopter](frames_multicopter/index.md), [VTOL](frames_vtol/index.md), and [Plane (Fixed-Wing)](frames_plane/index.md).
-
-In each section you'll find topics like the following (these links are for multicopter):
+In the [Multicopter](frames_multicopter/index.md), [VTOL](frames_vtol/index.md), and [Plane (Fixed-Wing)](frames_plane/index.md) sections you'll find topics like the following (these links are for multicopter):
 
 - [Complete Vehicles](complete_vehicles_mc/index.md) list "Ready to Fly" (RTF) pre-built vehicles
 - [Kits](frames_multicopter/kits.md) lists drones that you have to build yourself from a set of preselected parts
