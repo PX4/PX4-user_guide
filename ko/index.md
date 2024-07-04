@@ -12,57 +12,47 @@ PX4 is the _Professional Autopilot_. 세계적인 수준의 개발자들이 산�
 :::
 
 :::warning
-This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector for the current _stable_ version.
+This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector to find the current _stable_ version.
 
 Documented changes since the stable release are captured in the evolving [release note](releases/main.md). :::
 
 ## 시작하기
 
-[시작](getting_started/README.md)편을 먼저 읽으실 것을 추천합니다. 비행 스택(비행 모드 및 안전 기능)과 지원 하드웨어(비행 제어장치, 기체, 기체 프레임, 텔레메트리, 원격 제어 시스템)와 더불어 PX4의 전반적인 내용을 설명합니다.
+[Basic Concepts](getting_started/px4_basic_concepts.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicle types, telemetry systems, RC control systems).
 
 이 안내서를 위한 팁들은 아래과 같습니다.
 
-**가지고 있는 드론을 비행하는 경우**
+### I want a vehicle that works with PX4
 
-PX4를 지원하는 기체가 준비되어 있는 경우:
+In the [Multicopter](frames_multicopter/index.md), [VTOL](frames_vtol/index.md), and [Plane (Fixed-Wing)](frames_plane/index.md) sections you'll find topics like the following (these links are for multicopter):
 
-- [기본 설정](config/README.md)편에서는 최신 버전으로 펌웨어 업데이트 방법, 기본 센서(나침반, 자이로, IMU, 대기 속도 센서 등) 보정 방법, 원격 제어 방법과 안전 기능 설정 방법을 설명합니다.
-- [비행](flying/README.md)편은 안전 비행 방법과 장소, 시동 방법과 비행 관련 문제 해결 방법 등에 대하여 설명합니다. 또한 비행 모드에 대한 자세한 정보를 제공합니다.
+- [Complete Vehicles](complete_vehicles_mc/index.md) list "Ready to Fly" (RTF) pre-built vehicles
+- [Kits](frames_multicopter/kits.md) lists drones that you have to build yourself from a set of preselected parts
+- [DIY Builds](frames_multicopter/diy_builds.md) shows some examples of drones that have been built using parts that were sourced individually
 
-**처음부터 PX4로 무인 항공기를 제작하는 경우**
+Both kits and complete vehicles usually include everything you need except for a battery and RC System. Kits are usually not hard to build, provide a good introduction to how drones fit together, and are relatively inexpensive. We provide generic instructions for assembly, such as [Assembling a Multicopter](assembly/assembly_mc.md), and most kits come with specific instructions too.
 
-:::tip
+If the kits and complete drones aren't quite right for you then you can build a vehicle from scratch, but this requires more knowledge. [Airframe Builds](airframes/index.md) lists the supported frame starting points to give you some idea of what is possible.
 
-The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using _QGroundControl_.
+Once you have a vehicle that supports PX4 you will need to configure it and calibrate the sensors. Each vehicle type has its own configuration section that explains the main steps, such as [Multicopter Configuration/Tuning](config_mc/index.md).
 
-:::
+### I want to add a payload/camera
 
-처음부터 기체를 제작하려면
+The [Payloads](payloads/index.md) section describes how to add a camera and how to configure PX4 to enable you to deliver packages.
 
-- 기체 선택하기 - [기체 제작](airframes/README.md)에서는 지원 기체 목록이 있으며, 기체 조립법을 자세하게 설명합니다.
-- 비행 콘트롤러 선택 - [시작하기 &gt; 비행 콘트롤러](getting_started/flight_controller_selection.md)와 [자동항법장치](flight_controller/README.md)에 대하여 설명합니다.
-- [조립](assembly/README.md)은 주요 주변 장치를 오토파일럿에 연결하는 방법을 설명합니다.
-- [기초 설정](config/README.md)은 펌웨어 업데이트 방법과 설정법을 설명합니다. 주요 센서(나침반, 자이로, IMU, 대기 센서 등) 보정법, 원격 조종법과 안전 기능 설정 방법을 설명합니다.
+### I am modifying a supported vehicle
 
-기체를 날릴 준비가 되었다면 [비행](flying/README.md)편을 참고하십시오.
+The [Hardware Selection & Setup](hardware/drone_parts.md) section provides both high level and product-specific information about hardware that you might use with PX4 and its configuration. This is the first place you should look if you want to modify a drone and add new components.
 
-**페이로드나 카메라를 장착하는 경우**
+### I want to fly
 
-페이로드 섹션에서는 카메라를 장착하는 방법과 화물 운송이 가능하도록 PX4를 설정하는 방법을 설명합니다.
+Before you fly you should read [Operations](config/operations.md) to understand how to set up the safety features of your vehicle and the common behaviours of all frame types. Once you've done that you're ready to fly.
 
-- [페이로드](payloads/README.md)에서는 페이로드 통합 방법을 설명합니다.
+Basic instructions for flying each vehicle type are provided in the respective sections, such as [Basic Flying (Multicopter)](flying/basic_flying_mc.md).
 
-**기체를 변경하는 경우**
+### I want to run PX4 on a new Flight Controller and extend the platform
 
-비행 콘트롤러와 기본 센서 수정은 아래 항목에서 설명합니다. 새로운 센서를 추가하거나, 중요 비행 설정을 변경하는 경우
-
-- [주변 장치](peripherals/README.md)에서는 외부 센서 사용법을 설명합니다.
-- [기본 설정](config/README.md)에서는 주요 센서 보정법을 설명합니다.
-- [고급 설정](advanced_config/README.md)에서는 기체 재설정 방법과 튜닝 방법을 설명합니다.
-
-**새 하드웨어에서 PX4를 실행하고 플랫폼을 확장하는 경우**
-
-- [개발](development/development.md)에서는 신규 기체 사용 방법, 비행 알고리즘 수정, 신규 모드 추가, 신규 하드웨어 통합 및 비행 컨트롤러 외부에서 PX4와 통신하는 방법을 설명합니다.
+The [Development](development/development.md) section explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
 ## 도움 받기
 
