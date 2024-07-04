@@ -169,40 +169,35 @@ This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/para
 
 ## Voltage-based Estimation with Load Compensation
 
-::: info
-With well configured load compensation the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
-:::
+With well configured load compensation, the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
 
 PX4 implements a current-based load compensation that uses an online estimation of the internal resistance of the battery.
 When a current flows through a battery, the internal resistance causes a voltage drop, reducing the output voltage (measured voltage) of the battery compared to its open-circuit voltage (no-load voltage).
 By estimating the internal resistance, the fluctuation in measured voltage under load that occurs when using the [basic configuration](#basic_settings) can be compensated.
 This leads to a much more accurate estimation of the remaining capacity.
 
-::: info
 To use the load compensation you will still need to set the [basic configuration](#basic_settings).
 The _Empty Voltage_ ([BATn_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY), where `n` is the battery number) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
 You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
-:::
-
-Alternatively, the value for the internal resistance can be [set manually](../advanced_config/parameters.md) with the following parameter: 
-- [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) (advanced).
 
 ::: info
-By default this value is set to -1 which enables the online estimation.
-A positive value will be used instead of the online estimation and by setting it to 0 the load compensation is disabled.  
-There are LiPo chargers out there which can measure the internal resistance of your battery.
-A typical value for LIPO batteries is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
+Alternatively, the value for the internal resistance can be [set manually](../advanced_config/parameters.md) using [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) (advanced).
+A positive value in this parameter will be used for the internal resistance instead of the online estimation.
+There are LiPo chargers that can measure the internal resistance of your battery.
+A typical value for LiPo batteries is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
+
+By default `BAT1_R_INTERNAL` is set to `-1` which enables the online estimation.
+Setting it to `0` disables load compensation.
 :::
+
 <a id="current_integration"></a>
 
 ## Voltage-based Estimation Fused with Current Integration
 
-::: info
-This is the most accurate way to measure relative battery consumption.
+This method is the most accurate way to measure relative battery consumption.
 If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
-:::
 
-This method evaluates the remaining battery capacity by _fusing_ the voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed.
+The method evaluates the remaining battery capacity by _fusing_ the voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed.
 It requires hardware that can accurately measure current.
 
 To enable this feature:
