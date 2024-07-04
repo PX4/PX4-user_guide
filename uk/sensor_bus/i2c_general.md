@@ -83,6 +83,18 @@ i2cdetect -b 1
 - [Thunderfly TFI2CADT01](../sensor_bus/translator_tfi2cadt.md)
 
 
+## I2C Bus Splitters
+
+I2C Bus Splitters are circuit boards that split the I2C port on your flight controller into multiple ports. They are useful if you want to use multiple I2C peripherals on a flight controller that has only one I2C port (or too few), such as an airspeed sensor and a distance sensor.
+
+You can find an appropriate board using an internet search.
+
+## I2C Level Converter
+
+Some I2C devices have 5V on the data lines, while the Pixhawk connector standard port expects these lines to be 3.3 V. You can use an I2C level converter to connect 5V devices to a Pixhawk I2C port.
+
+You can find an appropriate covnerter using an internet search.
+
 ## Розробка I2C
 
 Розробка програмного забезпечення для пристроїв I2C описана в [Шині I2C (Огляд розробки)](../sensor_bus/i2c_development.md).
