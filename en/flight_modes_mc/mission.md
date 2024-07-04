@@ -180,7 +180,7 @@ Rally Points
 
 ::: info
 Please add an issue report or PR if you find a missing/incorrect message.
-::: info:
+
 
 - PX4 parses the above messages, but they are not necessary _acted_ on. For example, some messages are vehicle-type specific.
 - PX4 does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
@@ -188,6 +188,8 @@ Please add an issue report or PR if you find a missing/incorrect message.
 - The list may become out of date as messages are added.
   You can check the current set by inspecting the code.
   Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp).
+
+:::
 
 ## Rounded turns: Inter-Waypoint Trajectory
 
