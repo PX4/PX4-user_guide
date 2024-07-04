@@ -22,23 +22,23 @@ Documented changes since the stable release are captured in the evolving [releas
 ## How Do I Get Started?
 
 [Basic Concepts](../getting_started/px4_basic_concepts.md) should be read by all users!
-It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicle types, telemetry systems, RC control systems).
 
-If you're just getting started with flying drones then we recommend [multicopters](frames_multicopter/index.md), because they are easier to fly than planes and less complicated to build than VTOLs.
-Once you're familiar with multicopters, then moving onto planes and VTOL is much easier.
+
 
 Depending on what you want to achieve, the following tips will help you navigate through this guide:
 
-### How do get a vehicle that works with PX4?
+### How to get a vehicle that works with PX4?
 
-If you don't have already have Multicopter vehicle then [Complete Vehicles](complete_vehicles_mc/index.md) lists "Ready to Fly" (RTF) pre-build vehicles that you can buy, [Kits](frames_multicopter/kits.md) lists drones that you have to build yourself from a package, and [DIY Builds](frames_multicopter/diy_builds.md) shows some examples of drones that have been build using parts that have been sourced individually.
+If you don't already have a Multicopter vehicle then [Complete Vehicles](complete_vehicles_mc/index.md) lists "Ready to Fly" (RTF) pre-built vehicles that you can buy, [Kits](frames_multicopter/kits.md) lists drones that you have to build yourself from a package, and [DIY Builds](frames_multicopter/diy_builds.md) shows some examples of drones that have been built using parts that were sourced individually.
 The [VTOL](frames_vtol/index.md) and [Planes (Fixed-Wing)](frames_plane/index.md) areas have similar topics.
 
 Both kits and complete vehicles usually include everything you need except for a battery and RC System.
 Kits are usually not hard to build, provide a good introduction to how drones fit together, and are relatively inexpensive.
 We provide generic instructions for assembly, such as [Assembling a Multicopter](../assembly/assembly_mc.md), and most kits come with specific instructions too.
 
-If the kits and complete drones aren't quite right then you can build one from scratch, but this requires more knowledge.
+If the kits and complete drones aren't quite right for you then you can build a vehicle from scratch, but this requires more knowledge.
+
 [Airframe Builds](airframes/index.md) lists the supported frame starting points to give you some idea of what is possible.
 
 ### I have an RTF vehicle
@@ -51,19 +51,18 @@ Once you've done that you're ready to fly.
 
 Basic instructions for flying each vehicle type are provided in the respective sections, such as [Basic Flying (Multicopter)](flying/basic_flying_mc.md).
 
-### I want to add payload or a camera
+### I want to add a payload/camera
+
 
 The [Payloads](payloads/index.md) section describes how to add a camera or how to configure PX4 to enable you to deliver packages.
 
-After adding a payload you should retune the vehicle, which for multicopters you can do with [Autotune](config/autotune.md).
-You should also consider the other tuning and calibration listed in your vehicle configuration guide (e.g. [Multicopter Configuration/Tuning](config_mc/index.md)).
+After adding a heavy payload that's mounted far away from the center of gravity you might need to adjust the vehicle tuning.
 
 ### I am modifying a supported vehicle
 
 The [Hardware Selection & Setup](hardware/drone_parts.md) section provides both high level and product-specific information about hardware that you might use with PX4 and its configuration.
 This is the first place you should look if you want to modify a drone and add new components.
 
-Just as when you add a payload, you should re-tune the vehicle (see [Multicopter Configuration/Tuning](config_mc/index.md) for links to the relevant information).
 
 ### I want to run PX4 on a new Flight Controller and extend the platform
 
