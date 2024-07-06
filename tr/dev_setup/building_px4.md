@@ -184,7 +184,7 @@ The `region 'flash' overflowed by XXXX bytes` error indicates that the firmware 
 
 If you're building the _vanilla_ master branch, the most likely cause is using an unsupported version of GCC. In this case, install the version specified in the [Developer Toolchain](../dev_setup/dev_env.md) instructions.
 
-If building your own branch, it is possibly you have increased the firmware size over the 1MB limit. In this case you will need to remove any drivers/modules that you don't need from the build.
+If building your own branch, it is possible that you have increased the firmware size over the 1MB limit. In this case you will need to remove any drivers/modules that you don't need from the build.
 
 ### macOS: Too many open files error
 
