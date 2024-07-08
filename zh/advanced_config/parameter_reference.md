@@ -24381,22 +24381,22 @@ table {
  <td><strong id="SIH_LOC_H0">SIH_LOC_H0</strong> (FLOAT)</td>
  <td>Initial AMSL ground altitude <p><strong>Comment:</strong> This value represents the Above Mean Sea Level (AMSL) altitude where the simulation begins. If using FlightGear as a visual animation, this value can be tweaked such that the vehicle lies on the ground at takeoff. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td>[-420.0, 8848.0] (0.01)</td>
- <td>32.34</td>
+ <td>489.4</td>
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="SIH_LOC_LAT0">SIH_LOC_LAT0</strong> (INT32)</td>
- <td>Initial geodetic latitude <p><strong>Comment:</strong> This value represents the North-South location on Earth where the simulation begins. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>[-850000000, 850000000] </td>
- <td>454671160</td>
- <td>deg*1e7</td>
+ <td><strong id="SIH_LOC_LAT0">SIH_LOC_LAT0</strong> (FLOAT)</td>
+ <td>Initial geodetic latitude <p><strong>Comment:</strong> This value represents the North-South location on Earth where the simulation begins. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
+ <td>[-90, 90] </td>
+ <td>47.397742</td>
+ <td>deg</td>
 </tr>
 <tr>
- <td><strong id="SIH_LOC_LON0">SIH_LOC_LON0</strong> (INT32)</td>
- <td>Initial geodetic longitude <p><strong>Comment:</strong> This value represents the East-West location on Earth where the simulation begins. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>[-1800000000, 1800000000] </td>
- <td>-737578370</td>
- <td>deg*1e7</td>
+ <td><strong id="SIH_LOC_LON0">SIH_LOC_LON0</strong> (FLOAT)</td>
+ <td>Initial geodetic longitude <p><strong>Comment:</strong> This value represents the East-West location on Earth where the simulation begins. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
+ <td>[-180, 180] </td>
+ <td>8.545594</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="SIH_L_PITCH">SIH_L_PITCH</strong> (FLOAT)</td>
