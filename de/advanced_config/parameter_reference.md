@@ -8768,9 +8768,10 @@ table {
   <li><strong>1:</strong> Data stuck (triggers if data is exactly constant for 2s in FW mode)</li>
   <li><strong>2:</strong> Innovation check (see ASPD_FS_INNOV)</li>
   <li><strong>3:</strong> Load factor check (triggers if measurement is below stall speed)</li>
+  <li><strong>4:</strong> First principle check (airspeed change vs. throttle and pitch)</li>
 </ul>
  </td>
- <td>[0, 15] </td>
+ <td>[0, 31] </td>
  <td>7</td>
  <td></td>
 </tr>
@@ -8783,6 +8784,13 @@ table {
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="ASPD_FP_T_WINDOW">ASPD_FP_T_WINDOW</strong> (FLOAT)</td>
+ <td>First principle airspeed check time window <p><strong>Comment:</strong> Window for comparing airspeed change to throttle and pitch change. Triggers when the airspeed change within this window is negative while throttle increases and the vehicle pitches down. Is meant to catch degrading airspeed blockages as can happen when flying through icing conditions. Relies on  FW_THR_TRIM being set accurately.</p>   </td>
+ <td>[0, ?] </td>
+ <td>2.0</td>
+ <td>s</td>
 </tr>
 <tr>
  <td><strong id="ASPD_FS_INNOV">ASPD_FS_INNOV</strong> (FLOAT)</td>
@@ -12187,7 +12195,7 @@ table {
 <tr>
  <td><strong id="FW_LAUN_AC_THLD">FW_LAUN_AC_THLD</strong> (FLOAT)</td>
  <td>Trigger acceleration threshold <p><strong>Comment:</strong> Launch is detected when acceleration in body forward direction is above FW_LAUN_AC_THLD for FW_LAUN_AC_T seconds.</p>   </td>
- <td>[0, ?] (0.5)</td>
+ <td>[0, ?] (1) (0.5)</td>
  <td>30.0</td>
  <td>m/s^2</td>
 </tr>
@@ -12305,7 +12313,7 @@ table {
 <tr>
  <td><strong id="FW_PN_R_SLEW_MAX">FW_PN_R_SLEW_MAX</strong> (FLOAT)</td>
  <td>Path navigation roll slew rate limit <p><strong>Comment:</strong> The maximum change in roll angle setpoint per second. This limit is applied in all Auto modes, plus manual Position and Altitude modes.</p>   </td>
- <td>[0, ?] (1) (1)</td>
+ <td>[0, ?] (1)</td>
  <td>90.0</td>
  <td>deg/s</td>
 </tr>
@@ -12353,7 +12361,7 @@ table {
 <tr>
  <td><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
  <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively. Has to be set according to the vehicle&#x27;s stall speed (which should be set in FW_AIRSPD_STALL), with some margin between the stall speed and minimum airspeed. This value corresponds to the desired minimum speed with the default load factor (level flight, default weight), and is automatically adpated to the current load factor (calculated from roll setpoint and WEIGHT_GROSS/WEIGHT_BASE).</p>   </td>
- <td>[0.5, ?] (0.5) (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>10.0</td>
  <td>m/s</td>
 </tr>
@@ -19489,7 +19497,7 @@ table {
 <tr>
  <td><strong id="RTL_DESCEND_ALT">RTL_DESCEND_ALT</strong> (FLOAT)</td>
  <td>Return mode loiter altitude <p><strong>Comment:</strong> Descend to this altitude (above destination position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed. VTOLs do transition to hover in this altitdue above the landing point.</p>   </td>
- <td>[0, ?] (0.5)</td>
+ <td>[0, ?] (1) (0.5)</td>
  <td>30.</td>
  <td>m</td>
 </tr>
@@ -27592,7 +27600,7 @@ table {
 <tr>
  <td><strong id="VT_FW_QC_HMAX">VT_FW_QC_HMAX</strong> (INT32)</td>
  <td>Quad-chute maximum height <p><strong>Comment:</strong> Maximum height above the ground (if available, otherwise above Home if available, otherwise above the local origin) where triggering a quad-chute is possible. At high altitudes there is a big risk to deplete the battery and therefore crash if quad-chuting there.</p>   </td>
- <td>[0, ?] (1) [0, ?] (1) (1)</td>
+ <td>[0, ?] [0, ?] (1) (1)</td>
  <td>0</td>
  <td>m</td>
 </tr>
