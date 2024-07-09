@@ -42,7 +42,7 @@ To run the SIH, you will need a:
 - QGroundControl for flying the vehicle via GCS.
 - Development computer for visualizing the virtual vehicle (optional).
 
-From PX4 v1.14 you can run SIH "as SITL", in which case a flight controller is not required.
+From PX4 v1.14 you can run SIH “as SITL”, in which case a flight controller is not required.
 
 ## Setting up SIH
 
@@ -86,7 +86,7 @@ To display the simulated vehicle:
    - `-d` to start the serial device `/dev/ttyACM0` on Linux. On macOS this would be `/dev/tty.usbmodem1`.
    - `-b` to set the serial baud rate to `2000000`.
    - `-o` to start jMAVSim in _display Only_ mode (i.e. the physical engine is turned off and jMAVSim only displays the trajectory given by the SIH in real-time).
-   - add a flag `-a` to display an aircraft or '-t' to display a tailsitter. If this flag is not present a quadrotor will be displayed by default.
+   - add a flag `-a` to display an aircraft or ’-t’ to display a tailsitter. If this flag is not present a quadrotor will be displayed by default.
 
 1. After few seconds, _QGroundControl_ can be opened again.
 
@@ -94,7 +94,7 @@ At this point, the system can be armed and flown. The vehicle can be observed mo
 
 ## Running the SIH as SITL (without hardware)
 
-SIH can be run as SITL (Software-In-The-Loop) from v1.14. What this means is that the simulation code is executed on the laptop/computer, similar to Gazebo or jMAVSim. In this case you don't need the flight controller hardware.
+SIH can be run as SITL (Software-In-The-Loop) from v1.14. What this means is that the simulation code is executed on the laptop/computer, similar to Gazebo or jMAVSim. In this case you don’t need the flight controller hardware.
 
 To run SIH as SITL:
 
@@ -138,8 +138,23 @@ To display the vehicle in jMAVSim during SITL mode, enter the following command 
 The dynamic models for the various vehicles are:
 
 - Quadrotor: [pdf report](https://github.com/PX4/PX4-user_guide/raw/main/assets/simulation/SIH_dynamic_model.pdf).
-- Fixed-wing: Inspired by the PhD thesis: "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." Khan, Waqas, supervised by Nahon, Meyer, McGill University, PhD thesis, 2016.
-- Tailsitter: Inspired by the master's thesis: "Modeling and control of a flying wing tailsitter unmanned aerial vehicle." Chiappinelli, Romain, supervised by Nahon, Meyer, McGill University, Masters thesis, 2018.
+- Fixed-wing: Inspired by the PhD thesis: “Dynamics modeling of agile fixed-wing unmanned aerial vehicles.” Khan, Waqas, supervised by Nahon, Meyer, McGill University, PhD thesis, 2016.
+- Tailsitter: Inspired by the master’s thesis: “Modeling and control of a flying wing tailsitter unmanned aerial vehicle.” Chiappinelli, Romain, supervised by Nahon, Meyer, McGill University, Masters thesis, 2018.
+
+### Set Custom Takeoff Location
+
+The takeoff location in SIH can be set using environment variables. This will override both the default takeoff location.
+
+The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
+
+For example:
+
+```sh
+export PX4_HOME_LAT=28.452386
+export PX4_HOME_LON=-13.867138
+export PX4_HOME_ALT=28.5
+make px4_sitl sihsim_quadx
+```
 
 ## Video
 
