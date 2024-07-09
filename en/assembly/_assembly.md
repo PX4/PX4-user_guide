@@ -2,7 +2,7 @@
 
 # Assembling a Multicopter
 
-This topic provides basic instructions and links showing how to connect and assemble the core components of a typical multicoper (UAV) running PX4.
+This topic provides basic instructions and links showing how to connect and assemble the core components of a typical multicopter (UAV) running PX4.
 
 These consist of a flight controller, GPS, external compass, manual controller and/or telemetry radio system, motors and/or other control actuators, payloads, and a power system.
 
@@ -101,7 +101,7 @@ If the controller cannot be mounted in the recommended/default orientation (e.g.
 ## GNSS/Compass (+ Buzzer + Safety Switch + LED)
 
 Pixhawk Autopilot systems usually include a primary [GNSS/Compass module](../gps_compass/#supported-gnss) that incorporates a [buzzer](../getting_started/px4_basic_concepts.md#buzzer), [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), and [UI LED](../getting_started/led_meanings.md#ui-led), and may also have a secondary GPS/compass module.
-[RTK GNSS](../gps_compass/rtk_gps.md) modules with centimetre accuracy are also supported.
+[RTK GNSS](../gps_compass/rtk_gps.md) modules with centimeter accuracy are also supported.
 
 GNSS/Compass modules should be mounted on the frame as far away from other electronics as possible — separating the compass from other electronics will reduce electromagnetic interference.
 Provided the direction marker is oriented upright and facing towards the front of the vehicle, or at some 45 degrees multiple offset in any axis, the orientation will be auto-detected during calibration.
@@ -112,7 +112,7 @@ The modules connect to either serial ports or to the CAN bus.
 
 ### Serial Port GNSS Modules
 
-The primary GNSS/compass module is connected to the flight controller ort labeled `GPS1` or `GPS&SAFETY`, which should be a 10-Pin JST GH connector.
+The primary GNSS/compass module is connected to the flight controller port labeled `GPS1` or `GPS&SAFETY`, which should be a 10-Pin JST GH connector.
 A second GNSS/compass module, if present, is attached to the 6-pin port labeled `GPS2`.
 
 ![GPS Connections](../../assets/assembly/gnss_connections.png)

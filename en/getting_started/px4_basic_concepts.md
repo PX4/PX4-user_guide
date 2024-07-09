@@ -83,7 +83,7 @@ You can download it (for free) from [here](http://qgroundcontrol.com/downloads/)
 
 ![QGC Main Screen](../../assets/concepts/qgc_fly_view.png)
 
-QGroundControl communicates with the drone using a telmetry radio (a bidirectional data link), which allows you to get real-time flight and safety information, and to control the vehicle, camera, and other payloads using a point-and-click interface.
+QGroundControl communicates with the drone using a telemetry radio (a bidirectional data link), which allows you to get real-time flight and safety information, and to control the vehicle, camera, and other payloads using a point-and-click interface.
 On hardware that supports them, you can also manually fly the vehicle using joystick controllers.
 QGC can also be used to visually plan, execute, and monitor autonomous missions, set geofences, and much more.
 
@@ -116,7 +116,7 @@ For more information see: [Flight Controller Selection](flight_controller_select
 
 ### Sensors
 
-PX4 uses sensors to determine vehicle state, which it needs in order to stablise the vehicle and enable autonomous control.
+PX4 uses sensors to determine vehicle state, which it needs in order to stabilise the vehicle and enable autonomous control.
 The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different axes, battery level, and so on.
 
 PX4 _minimally requires_ a [gyroscope](../sensor/gyroscope.md), [accelerometer](../sensor/accelerometer.md), [magnetometer](../gps_compass/magnetometer.md) (compass) and [barometer](../sensor/barometer.md).
@@ -130,7 +130,7 @@ The following sensors are recommended:
   Typically a module that combines a GNSS and Compass is used, as an external compass can be made less susceptible to electromomagnetic interference than the internal compass in the flight controller.
 - [Airspeed sensors](../sensor/airspeed.md) are highly recommended for fixed-wing and VTOL-vehicles.
 - [Distance Sensors \(Rangefinders\)](../sensor/rangefinders.md) are highly recommended for all vehicle types, as they allow smoother and more robust landings, and enable features such as terrain following on multicopters.
-- [Optical Flow Sensors](../sensor/optical_flow.md) can be used with distance sensors on multcopters and VTOL to support navigation in GNSS-denied environments.
+- [Optical Flow Sensors](../sensor/optical_flow.md) can be used with distance sensors on multicopters and VTOL to support navigation in GNSS-denied environments.
 
 For more information about sensors see: [Sensor Hardware & Setup](../sensor/index.md).
 
@@ -283,7 +283,7 @@ A vehicle is said to be _armed_ when all motors and actuators are powered, and _
 There is also a _prearmed_ state when only actuators are powered.
 
 :::warning
-Armed vehicles can be dangerous as propellors will be spinning.
+Armed vehicles can be dangerous as propellers will be spinning.
 :::
 
 Arming is triggered by default (on Mode 2 transmitters) by holding the RC throttle/yaw stick on the _bottom right_ for one second (to disarm, hold stick on bottom left).
