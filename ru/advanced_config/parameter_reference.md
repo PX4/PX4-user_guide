@@ -8768,9 +8768,10 @@ table {
   <li><strong>1:</strong> Data stuck (triggers if data is exactly constant for 2s in FW mode)</li>
   <li><strong>2:</strong> Innovation check (see ASPD_FS_INNOV)</li>
   <li><strong>3:</strong> Load factor check (triggers if measurement is below stall speed)</li>
+  <li><strong>4:</strong> First principle check (airspeed change vs. throttle and pitch)</li>
 </ul>
  </td>
- <td>[0, 15] </td>
+ <td>[0, 31] </td>
  <td>7</td>
  <td></td>
 </tr>
@@ -8783,6 +8784,13 @@ table {
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="ASPD_FP_T_WINDOW">ASPD_FP_T_WINDOW</strong> (FLOAT)</td>
+ <td>First principle airspeed check time window <p><strong>Comment:</strong> Window for comparing airspeed change to throttle and pitch change. Triggers when the airspeed change within this window is negative while throttle increases and the vehicle pitches down. Is meant to catch degrading airspeed blockages as can happen when flying through icing conditions. Relies on  FW_THR_TRIM being set accurately.</p>   </td>
+ <td>[0, ?] </td>
+ <td>2.0</td>
+ <td>s</td>
 </tr>
 <tr>
  <td><strong id="ASPD_FS_INNOV">ASPD_FS_INNOV</strong> (FLOAT)</td>
