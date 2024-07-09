@@ -42,7 +42,7 @@ To run the SIH, you will need a:
 - QGroundControl for flying the vehicle via GCS.
 - Development computer for visualizing the virtual vehicle (optional).
 
-Починаючи з PX4 v1.14, ви можете запускати SIH "як SITL", у цьому випадку контролер польоту не потрібен.
+From PX4 v1.14 you can run SIH “as SITL”, in which case a flight controller is not required.
 
 ## Налаштування SIH
 
@@ -86,7 +86,7 @@ does not _need_ a visualiser — you can connect with QGroundControl and fly the
    - `-d`, щоб розпочати роботу з послідовним пристроєм `/dev/ttyACM0` на Linux. На macOS це буде `/dev/tty.usbmodem1`.
    - `-b`, щоб встановити швидкість передачі даних через послідовний порт на `2000000`.
    - `-o`, щоб запустити jMAVSim тільки у _режимі відображення_ (тобто фізичний двигун вимкнено, і jMAVSim лише відображає траєкторію, надану SIH в реальному часі).
-   - додайте прапорець `-a`, щоб відобразити літак, або '-t', щоб відобразити вертикальнітник. Якщо цей прапорець не вказаний, за замовчуванням відображатиметься квадрокоптер.
+   - add a flag `-a` to display an aircraft or ’-t’ to display a tailsitter. Якщо цей прапорець не вказаний, за замовчуванням відображатиметься квадрокоптер.
 
 1. Через кілька секунд можна знову відкрити _QGroundControl_.
 
@@ -94,7 +94,7 @@ does not _need_ a visualiser — you can connect with QGroundControl and fly the
 
 ## Запуск SIH як SITL (без апаратних засобів)
 
-SIH можна запустити як SITL (Software-In-The-Loop) з версії 1.14. Це означає, що код симуляції виконується на ноутбуці/комп'ютері, подібно до Gazebo або jMAVSim. У цьому випадку не потрібне апаратне забезпечення контролера польоту.
+SIH можна запустити як SITL (Software-In-The-Loop) з версії 1.14. Це означає, що код симуляції виконується на ноутбуці/комп'ютері, подібно до Gazebo або jMAVSim. In this case you don’t need the flight controller hardware.
 
 Для запуску SIH як SITL:
 
@@ -138,8 +138,23 @@ To display the vehicle in jMAVSim during SITL mode, enter the following command 
 Динамічні моделі для різних транспортних засобів:
 
 - Квадротор: [pdf звіт](https://github.com/PX4/PX4-user_guide/raw/main/assets/simulation/SIH_dynamic_model.pdf).
-- З нерухомим крилом: на основі кандидатської дисертації: «Моделювання динаміки маневрених безпілотних літальних апаратів з нерухомим крилом» Khan, Waqas, під керівництвом Nahon, Meyer, Університет Макгілла, докторська дисертація, 2016.
-- Tailsitter: Натхненний магістерською дисертацією: «Моделювання та керування безпілотним літальним апаратом з літаючим крилом» Chiappinelli, Romain, під керівництвом Nahon, Meyer, Університет Макгілла, магістерська робота, 2018.
+- Fixed-wing: Inspired by the PhD thesis: “Dynamics modeling of agile fixed-wing unmanned aerial vehicles.” Khan, Waqas, під керівництвом Nahon, Meyer, Університет Макгілла, докторська дисертація, 2016.
+- Tailsitter: Inspired by the master’s thesis: “Modeling and control of a flying wing tailsitter unmanned aerial vehicle.” Chiappinelli, Romain, під керівництвом Nahon, Meyer, Університет Макгілла, магістерська робота, 2018.
+
+### Set Custom Takeoff Location
+
+The takeoff location in SIH can be set using environment variables. This will override both the default takeoff location.
+
+The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
+
+For example:
+
+```sh
+export PX4_HOME_LAT=28.452386
+export PX4_HOME_LON=-13.867138
+export PX4_HOME_ALT=28.5
+make px4_sitl sihsim_quadx
+```
 
 ## Відео
 
