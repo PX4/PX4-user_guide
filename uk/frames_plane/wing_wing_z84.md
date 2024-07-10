@@ -79,6 +79,6 @@
 
 ### Інша Конфігурація
 
-Виконайте всі інші [Основні налаштування](../config/index.md), включаючи [Автоналаштування](../config/autotune.md).
+Perform all the the other [Basic Configuration](../config/index.md), including [Autotuning](../config/autotune_fw.md).
 
 Розширене налаштування є необов'язковим - див. [Конфігурацію повітряного судна з фіксованим крилом](../config_fw/index.md).
