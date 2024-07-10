@@ -4,17 +4,17 @@
 
 ## Архітектура системи PX4
 
-PX4 складається з двох основних рівнів: шару [підтримки плати та проміжного програмного забезпечення](../middleware/index.md) поверх операційної системи хоста (NuttX, Linux або будь-якої іншої платформи POSIX, такої як Mac OS), та додатків (Flight Stack у [src/modules](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules)\). Будь ласка, зверніться до [Огляду архітектури PX4](../concept/architecture.md) для отримання додаткової інформації.
+PX4 складається з двох основних рівнів: шару [підтримки плати та проміжного програмного забезпечення](../middleware/index.md) поверх операційної системи хоста (NuttX, Linux або будь-якої іншої платформи POSIX, такої як Mac OS), та додатків (Flight Stack у [src/modules](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules)\). Будь ласка, зверніться до [Огляду архітектури PX4](../concept/architecture.md) для отримання додаткової інформації.
 
 Цей посібник спрямований лише на операційну систему хоста та проміжне програмне забезпечення, оскільки програми/стек польоту будуть працювати на будь-якій цільовій платі.
 
 ## Налаштування режиму польоту файлової структури
 
-Файли запуску та конфігурації дошки розташовані під [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards/) в кожному каталозі постачальника дошки (тобто **boards/_VENDOR_/_MODEL_/**).
+Файли запуску та конфігурації дошки розташовані під [/boards](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/) в кожному каталозі постачальника дошки (тобто **boards/_VENDOR_/_MODEL_/**).
 
 Наприклад, для FMUv5:
 
-- (Усі) Файли, специфічні для плати: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5)<!-- NEED px4_version -->
+- (Усі) Файли, специфічні для плати: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/px4/fmu-v5)<!-- NEED px4_version -->
 - Конфігурація збирання: [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/default.px4board).<!-- NEED px4_version -->
 - Файл ініціалізації для конкретної плати: [/boards/px4/fmu-v5/init/rc.board_defaults](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/init/rc.board_defaults) <!-- NEED px4_version -->
   - Файл ініціалізації, специфічний для плати, автоматично включається в сценарії запуску, якщо він знайдений у каталозі плат під шляхом **init/rc.board**.
@@ -41,9 +41,9 @@ PX4 складається з двох основних рівнів: шару [
 
 ### QuRT / Шестикутник
 
-- Початковий скрипт знаходиться в [posix-configs/](https://github.com/PX4/PX4-Autopilot/tree/main/posix-configs). <!-- NEED px4_version -->
+- Початковий скрипт знаходиться в [posix-configs/](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/posix-configs). <!-- NEED px4_version -->
 - Конфігурація ОС є частиною стандартного образу Linux (TODO: Вказати місце розташування ОБРАЗУ LINUX та інструкції щодо прошивки).
-- Конфігурація проміжного програмного забезпечення PX4 розташована в [src/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards). <!-- NEED px4_version --> TODO: ДОДАТИ НАЛАШТУВАННЯ АВТОБУСА
+- Конфігурація проміжного програмного забезпечення PX4 розташована в [src/boards](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards). <!-- NEED px4_version --> TODO: ДОДАТИ НАЛАШТУВАННЯ АВТОБУСА
 
 ## Рекомендації з підключення RC UART
 

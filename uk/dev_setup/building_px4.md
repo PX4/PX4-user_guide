@@ -312,7 +312,7 @@ make px4_sitl list_vmd_make_targets
 
 :::
 
-Параметри `VENDOR_MODEL_VARIANT` відображаються на певні файли налаштувань _px4board_ у вихідному коду PX4 в директорії [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards). Зокрема `VENDOR_MODEL_VARIANT` відповідає файлу **boards/VENDOR/MODEL/VARIANT.px4board** (наприклад `px4_fmu-v5_default` відповідає [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/default.px4board)).
+Параметри `VENDOR_MODEL_VARIANT` відображаються на певні файли налаштувань _px4board_ у вихідному коду PX4 в директорії [/boards](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards). Зокрема `VENDOR_MODEL_VARIANT` відповідає файлу **boards/VENDOR/MODEL/VARIANT.px4board** (наприклад `px4_fmu-v5_default` відповідає [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/default.px4board)).
 
 Додаткові цілі збірки обговорюються в відповідних розділах:
 

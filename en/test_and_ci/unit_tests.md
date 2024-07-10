@@ -52,7 +52,7 @@ These tests are slower to run (1s+ for each new module), and harder to debug, so
 The steps to create new SITL unit tests are as follows:
 
 1. Examine the sample [Unittest-class](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/include/unit_test.h).
-1. Create a new .cpp file within [tests](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tests) with name **test\_[description].cpp**.
+1. Create a new .cpp file within [tests](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/tests) with name **test\_[description].cpp**.
 1. Within **test\_[description].cpp** include the base unittest-class `<unit_test.h>` and all files required to write a test for the new feature.
 1. Within **test\_[description].cpp** create a class `[Description]Test` that inherits from `UnitTest`.
 1. Within `[Description]Test` class declare the public method `virtual bool run_tests()`.

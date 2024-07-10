@@ -1,7 +1,7 @@
 # Modules Reference: Estimator
 
 ## AttitudeEstimatorQ
-Source: [modules/attitude_estimator_q](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/attitude_estimator_q)
+Source: [modules/attitude_estimator_q](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/attitude_estimator_q)
 
 
 ### Description
@@ -20,7 +20,7 @@ AttitudeEstimatorQ <command> [arguments...]
    status        print status info
 ```
 ## airspeed_estimator
-Source: [modules/airspeed_selector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airspeed_selector)
+Source: [modules/airspeed_selector](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/airspeed_selector)
 
 
 ### Description
@@ -45,7 +45,7 @@ airspeed_estimator <command> [arguments...]
    status        print status info
 ```
 ## ekf2
-Source: [modules/ekf2](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2)
+Source: [modules/ekf2](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/ekf2)
 
 
 ### Description
@@ -74,7 +74,7 @@ ekf2 <command> [arguments...]
      <instance>  Specify desired estimator instance
 ```
 ## local_position_estimator
-Source: [modules/local_position_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/local_position_estimator)
+Source: [modules/local_position_estimator](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/local_position_estimator)
 
 
 ### Description
@@ -93,7 +93,7 @@ local_position_estimator <command> [arguments...]
    status        print status info
 ```
 ## mc_hover_thrust_estimator
-Source: [modules/mc_hover_thrust_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_hover_thrust_estimator)
+Source: [modules/mc_hover_thrust_estimator](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/mc_hover_thrust_estimator)
 
 
 ### Description

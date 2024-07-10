@@ -1,6 +1,6 @@
 # Modules Reference: Airspeed Sensor (Driver)
 ## asp5033
-Джерело: [drivers/differential_pressure/asp5033](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/asp5033)
+Джерело: [drivers/differential_pressure/asp5033](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure/asp5033)
 
 
 ### Опис
@@ -27,7 +27,7 @@ asp5033 <command> [arguments...]
    status        print status info
 ```
 ## ets_airspeed
-Джерело: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ets)
+Джерело: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure/ets)
 
 <a id="ets_airspeed_usage"></a>
 
@@ -50,7 +50,7 @@ ets_airspeed <command> [arguments...]
    status        print status info
 ```
 ## ms4515
-Джерело: [drivers/differential_pressure/ms4515](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms4515)
+Джерело: [drivers/differential_pressure/ms4515](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure/ms4515)
 
 <a id="ms4515_usage"></a>
 
@@ -73,7 +73,7 @@ ms4515 <command> [arguments...]
    status        print status info
 ```
 ## ms4525do
-Джерело: [drivers/differential_pressure/ms4525do](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms4525do)
+Джерело: [drivers/differential_pressure/ms4525do](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure/ms4525do)
 
 <a id="ms4525do_usage"></a>
 
@@ -96,7 +96,7 @@ ms4525do <command> [arguments...]
    status        print status info
 ```
 ## ms5525dso
-Джерело: [drivers/differential_pressure/ms5525dso](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms5525dso)
+Джерело: [drivers/differential_pressure/ms5525dso](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure/ms5525dso)
 
 <a id="ms5525dso_usage"></a>
 
@@ -119,7 +119,7 @@ ms5525dso <command> [arguments...]
    status        print status info
 ```
 ## sdp3x
-Джерело: [drivers/differential_pressure/sdp3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/sdp3x)
+Джерело: [drivers/differential_pressure/sdp3x](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure/sdp3x)
 
 <a id="sdp3x_usage"></a>
 

@@ -14,7 +14,7 @@ You will require the following:
 - [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
 - [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
 
-The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
+The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
 
 - Rename (or delete) the **px4_simple_app** directory.
 
@@ -175,7 +175,7 @@ The application is now complete. In order to run it you first need to make sure 
 - PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/sitl/default.px4board)
 - Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v2/default.px4board)
 - Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v4/default.px4board)
-- _px4board_ files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
+- _px4board_ files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards)
 
 To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the _px4board_ file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
@@ -579,7 +579,7 @@ If you start _QGroundControl_, you can check the sensor values in the real time 
 
 ## Wrap-Up
 
-This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/main/msg/) and that the headers are well documented and serve as reference.
+This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/msg/) and that the headers are well documented and serve as reference.
 
 Further information and troubleshooting/common pitfalls can be found here: [uORB](../middleware/uorb.md).
 

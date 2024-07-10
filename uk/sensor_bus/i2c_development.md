@@ -17,7 +17,7 @@ Pixhawk/PX4 підтримує її для:
 
 Драйвери повинні `#include <drivers/device/i2c.h>` та потім надати реалізацію абстрактного базового класу `I2C`, визначеного в **I2C.hpp** для цільового обладнання (тобто для NuttX [тут](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/drivers/device/nuttx/I2C.hpp)).
 
-Невелика кількість водіїв також повинні включати заголовки для свого типу пристрою (**drv_*.h**) в [/src/drivers/](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers) - наприклад, [drv_led.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/drivers/drv_led.h).
+Невелика кількість водіїв також повинні включати заголовки для свого типу пристрою (**drv_*.h**) в [/src/drivers/](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers) - наприклад, [drv_led.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/drivers/drv_led.h).
 
 Для включення драйвера в прошивку потрібно додати драйвер до файлу cmake, специфічного для плати, який відповідає цілі, для якої ви хочете збудувати. Ви можете це зробити для одного драйвера:
 ```
@@ -35,12 +35,12 @@ CONFIG_COMMON_DISTANCE_SENSOR=y
 
 ## Приклади драйвера I2C
 
-Щоб знайти приклади драйверів I2C, шукайте **i2c.h** за посиланням [/src/drivers/](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers).
+Щоб знайти приклади драйверів I2C, шукайте **i2c.h** за посиланням [/src/drivers/](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers).
 
 Ось декілька прикладів:
-* [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_laser_i2c) - Драйвер I2C для [Lightware SF1XX LIDAR](../sensor/sfxx_lidar.md).
-* [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_laser_serial) - Серійний драйвер для [Lightware SF1XX LIDAR](../sensor/sfxx_lidar.md).
-* [drivers/ms5611](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer/ms5611) - Драйвер I2C для барометричного датчика тиску MS5611 та MS6507, підключеного через I2C (або SPI).
+* [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/distance_sensor/lightware_laser_i2c) - Драйвер I2C для [Lightware SF1XX LIDAR](../sensor/sfxx_lidar.md).
+* [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/distance_sensor/lightware_laser_serial) - Серійний драйвер для [Lightware SF1XX LIDAR](../sensor/sfxx_lidar.md).
+* [drivers/ms5611](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/barometer/ms5611) - Драйвер I2C для барометричного датчика тиску MS5611 та MS6507, підключеного через I2C (або SPI).
 
 ## Детальна інформація
 

@@ -159,7 +159,7 @@ lightware_laser_serial <command> [arguments...]
    stop          Stop driver
 ```
 ## lightware_sf45_serial
-Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_sf45_serial)
+Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/distance_sensor/lightware_sf45_serial)
 
 
 ### 설명
@@ -389,7 +389,7 @@ teraranger <command> [arguments...]
    status        print status info
 ```
 ## tf02pro
-Source: [drivers/distance_sensor/tf02pro](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/tf02pro)
+Source: [drivers/distance_sensor/tf02pro](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/distance_sensor/tf02pro)
 
 <a id="tf02pro_usage"></a>
 

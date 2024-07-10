@@ -1,7 +1,7 @@
 # Modules Reference: Command
 
 ## actuator_test
-Джерело: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/actuator_test)
+Джерело: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/actuator_test)
 
 
 Утиліта для тестування актуаторів.
@@ -29,7 +29,7 @@ actuator_test <command> [arguments...]
    iterate-servos Iterate all servos deflecting one after the other
 ```
 ## bl_update
-Джерело: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bl_update)
+Джерело: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/bl_update)
 
 Утиліта для прошивки завантажувача з файлу
 <a id="bl_update_usage"></a>
@@ -43,7 +43,7 @@ bl_update [arguments...]
    <file>        Bootloader bin file
 ```
 ## bsondump
-Джерело: [systemcmds/bsondump](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bsondump)
+Джерело: [systemcmds/bsondump](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/bsondump)
 
 Utility to read BSON from a file and print or output document size.
 <a id="bsondump_usage"></a>
@@ -54,7 +54,7 @@ bsondump [arguments...]
      <file>      The BSON file to decode and print.
 ```
 ## dumpfile
-Джерело: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dumpfile)
+Джерело: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/dumpfile)
 
 Утиліта для роботи з файлами дампу. Виводить розмір та вміст файлу у бінарному режимі (не замінюйте LF на CR LF) до stdout.
 <a id="dumpfile_usage"></a>
@@ -65,7 +65,7 @@ dumpfile [arguments...]
      <file>      File to dump
 ```
 ## dyn
-Джерело: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dyn)
+Джерело: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/dyn)
 
 
 ### Опис
@@ -86,7 +86,7 @@ dyn [arguments...]
      [arguments...] Arguments to the module
 ```
 ## failure
-Джерело: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/failure)
+Джерело: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/failure)
 
 
 ### Опис
@@ -114,7 +114,7 @@ failure [arguments...]
                  default: 0
 ```
 ## gpio
-Джерело: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/gpio)
+Джерело: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/gpio)
 
 
 ### Опис
@@ -159,7 +159,7 @@ gpio [arguments...]
      [--force]   Force (ignore board gpio list)
 ```
 ## hardfault_log
-Джерело: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log)
+Джерело: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/hardfault_log)
 
 Утиліта апаратного збою
 
@@ -189,7 +189,7 @@ hardfault_log <command> [arguments...]
    reset         Reset the reboot counter
 ```
 ## hist
-Джерело: [systemcmds/hist](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hist)
+Джерело: [systemcmds/hist](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/hist)
 
 Інструмент командного рядка для відображення історії повідомлень px4. Немає аргументів.
 <a id="hist_usage"></a>
@@ -199,7 +199,7 @@ hardfault_log <command> [arguments...]
 hist [arguments...]
 ```
 ## i2cdetect
-Джерело: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2cdetect)
+Джерело: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/i2cdetect)
 
 Утиліта для пошуку I2C пристроїв на певній шині.
 <a id="i2cdetect_usage"></a>
@@ -211,7 +211,7 @@ i2cdetect [arguments...]
                  default: 1
 ```
 ## led_control
-Джерело: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/led_control)
+Джерело: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/led_control)
 
 
 ### Опис
@@ -261,7 +261,7 @@ led_control <command> [arguments...]
                  default: 2
 ```
 ## listener
-Джерело: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/topic_listener)
+Джерело: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/topic_listener)
 
 
 Утиліта для прослуховування тем uORB та виводу даних у консоль.
@@ -283,7 +283,7 @@ listener <command> [arguments...]
                  default: 0
 ```
 ## mfd
-Джерело: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mft)
+Джерело: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/mft)
 
 Взаємодія утиліти з маніфестом
 <a id="mfd_usage"></a>
@@ -295,7 +295,7 @@ mfd <command> [arguments...]
    query         Returns true if not existed
 ```
 ## mtd
-Джерело: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mtd)
+Джерело: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/mtd)
 
 Утиліта для монтування та тестування розділів (на основі пам'яті FRAM/EEPROM, визначеної платою)
 <a id="mtd_usage"></a>
@@ -321,7 +321,7 @@ mtd <command> [arguments...]
                  /fs/mtd_params), use system default if not provided
 ```
 ## nshterm
-Джерело: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/nshterm)
+Джерело: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/nshterm)
 
 Запуск оболонки NSH на заданому порту.
 
@@ -335,7 +335,7 @@ nshterm [arguments...]
      <file:dev>  Device on which to start the shell (eg. /dev/ttyACM0)
 ```
 ## param
-Джерело: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/param)
+Джерело: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/param)
 
 
 ### Опис
@@ -427,7 +427,7 @@ param <command> [arguments...]
      <param>     param name
 ```
 ## payload_deliverer
-Джерело: [modules/payload_deliverer](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/payload_deliverer)
+Джерело: [modules/payload_deliverer](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/payload_deliverer)
 
 
 ### Опис
@@ -453,7 +453,7 @@ payload_deliverer <command> [arguments...]
    status        print status info
 ```
 ## perf
-Джерело: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/perf)
+Джерело: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/perf)
 
 Інструмент для друку показників продуктивності
 <a id="perf_usage"></a>
@@ -468,7 +468,7 @@ perf [arguments...]
  Prints all performance counters if no arguments given
 ```
 ## reboot
-Джерело: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/reboot)
+Джерело: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/reboot)
 
 Перезавантажує систему
 <a id="reboot_usage"></a>
@@ -481,7 +481,7 @@ reboot [arguments...]
      [lock|unlock] Take/release the shutdown lock (for testing)
 ```
 ## sd_bench
-Джерело: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/sd_bench)
+Джерело: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/sd_bench)
 
 Перевіряє швидкість SD-карти
 <a id="sd_bench_usage"></a>
@@ -502,7 +502,7 @@ sd_bench [arguments...]
      [-v]        Verify data and block number
 ```
 ## sd_stress
-Джерело: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/sd_stress)
+Джерело: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/sd_stress)
 
 Тестові операції з SD картою
 <a id="sd_stress_usage"></a>
@@ -516,7 +516,7 @@ sd_stress [arguments...]
                  default: 100
 ```
 ## serial_passthru
-Джерело: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/serial_passthru)
+Джерело: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/serial_passthru)
 
 Передає дані з одного пристрою на інший.
 
@@ -536,7 +536,7 @@ serial_passthru [arguments...]
      [-t]        Track the External devices baudrate on internal device
 ```
 ## system_time
-Джерело: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/system_time)
+Джерело: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/system_time)
 
 
 ### Опис
@@ -562,7 +562,7 @@ system_time <command> [arguments...]
    get           Get the system time
 ```
 ## top
-Джерело: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/top)
+Джерело: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/top)
 
 Відстежує запущені процеси та їх CPU, використання стеку, пріоритет і стан
 <a id="top_usage"></a>
@@ -573,7 +573,7 @@ top [arguments...]
    once          print load only once
 ```
 ## usb_connected
-Джерело: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/usb_connected)
+Джерело: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/usb_connected)
 
 Утиліта для перевірки підключення USB. Раніше використовувався в стартових скриптах. Значення 0 означає, що USB підключено, 1 - ні.
 <a id="usb_connected_usage"></a>
@@ -583,7 +583,7 @@ top [arguments...]
 usb_connected [arguments...]
 ```
 ## ver
-Джерело: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/ver)
+Джерело: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/ver)
 
 Інструмент для виведення різноманітної інформації про версію
 <a id="ver_usage"></a>

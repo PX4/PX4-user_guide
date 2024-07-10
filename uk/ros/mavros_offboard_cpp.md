@@ -7,7 +7,7 @@ _Offboard_ керування небезпечне. Якщо ви керуєте
 :::
 
 :::tip
-Цей приклад використовує C++. Дуже схожий приклад для Python може бути знайдений у [ROS/MAVROS Offboard Example (Python)](../ros/mavros_offboard_python.md) (також дивиться приклади в [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros)).
+Цей приклад використовує C++. Дуже схожий приклад для Python може бути знайдений у [ROS/MAVROS Offboard Example (Python)](../ros/mavros_offboard_python.md) (також дивиться приклади в [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/integrationtests/python_src/px4_it/mavros)).
 :::
 
 <video width="100%" autoplay="true" controls="true">

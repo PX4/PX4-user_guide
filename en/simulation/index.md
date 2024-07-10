@@ -233,7 +233,7 @@ To disable lockstep in jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/
 ### Startup Scripts
 
 Scripts are used to control which parameter settings to use or which modules to start.
-They are located in the [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix) directory, the `rcS` file is the main entry point.
+They are located in the [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/ROMFS/px4fmu_common/init.d-posix) directory, the `rcS` file is the main entry point.
 See [System Startup](../concept/system_startup.md) for more information.
 
 ### Simulating Failsafes and Sensor/Hardware Failure

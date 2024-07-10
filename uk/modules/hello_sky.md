@@ -13,7 +13,7 @@
 - [PX4 Development Toolchain](../dev_setup/dev_env.md) для потрібної цілі.
 - [Завантажений вихідний код PX4](../dev_setup/building_px4.md#download-the-px4-source-code) з Github
 
-У каталозі вихідного коду [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) міститься повна версія цього посібника, яку ви можете переглянути, якщо у вас виникнуть труднощі.
+У каталозі вихідного коду [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/examples/px4_simple_app) міститься повна версія цього посібника, яку ви можете переглянути, якщо у вас виникнуть труднощі.
 
 - Перейменуйте (або видаліть) каталог **px4_simple_app**.
 
@@ -165,7 +165,7 @@
 - PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/sitl/default.px4board)
 - Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v2/default.px4board)
 - Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v4/default.px4board)
-- _px4board_ files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
+- _px4board_ files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards)
 
 Для активації компіляції додатка в прошивку додайте відповідний ключ Kconfig `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` у файл _px4board_ або виконайте [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
@@ -517,7 +517,7 @@ px4_simple_app
 
 ## Підсумок
 
-Цей посібник охоплює все необхідне для розробки базової програми автопілота PX4. Пам'ятайте, що повний список повідомлень/тем uORB доступний [тут](https://github.com/PX4/PX4-Autopilot/tree/main/msg/), а заголовки добре задокументовані і служать для посилання.
+Цей посібник охоплює все необхідне для розробки базової програми автопілота PX4. Пам'ятайте, що повний список повідомлень/тем uORB доступний [тут](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/msg/), а заголовки добре задокументовані і служать для посилання.
 
 Додаткову інформацію та усунення неполадок/типові проблеми можна знайти тут: [uORB](../middleware/uorb.md).
 

@@ -33,7 +33,7 @@ PX4 повинен бути налаштований для маршрутиза
 
 Камери, підключені до виходів контролера польоту, потребують PX4 для активації виходів для запуску камери, і можуть потребувати PX4 для виявлення, коли [пін захоплення камери](../camera/fc_connected_camera.md#camera-capture-configuration) був спрацьований камерним гарячим черевиком (для покращення часу реєстрації захопленої камери).
 
-Ця робота виконується трьома компонентами PX4: [`camera_trigger` driver](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger), [`camera_capture` driver](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture), модуль `camera-feedback` (../modules/modules_system.md#camera-feedback).
+Ця робота виконується трьома компонентами PX4: [`camera_trigger` driver](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_trigger), [`camera_capture` driver](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_capture), модуль `camera-feedback` (../modules/modules_system.md#camera-feedback).
 
 `camera_trigger` підписується на тему [VehicleCommand](../msg_docs/VehicleCommand.md) та відстежує оновлення в [команди, які він підтримує](../camera/fc_connected_camera.md#mavlink-command-interface).
 Ці оновлення відбуваються, коли отримано команду через MAVLink або коли [елемент камери досягнутий у місії](#camera-commands-in-missions).
@@ -109,5 +109,5 @@ PX4 повторно видає пункти камери, знайдені в �
 
 ## Дивіться також
 
-- Драйвер Тригера камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger) <!-- no module doc -->
-- Драйвер захоплення камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture) <!-- no module doc -->
+- Драйвер Тригера камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_trigger) <!-- no module doc -->
+- Драйвер захоплення камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_capture) <!-- no module doc -->

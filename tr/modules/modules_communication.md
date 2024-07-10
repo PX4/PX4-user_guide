@@ -1,7 +1,7 @@
 # Modules Reference: Communication
 
 ## frsky_telemetry
-Source: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/frsky_telemetry)
+Source: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/telemetry/frsky_telemetry)
 
 FrSky Telemetry support. Auto-detects D or S.PORT protocol.
 <a id="frsky_telemetry_usage"></a>
@@ -24,7 +24,7 @@ frsky_telemetry <command> [arguments...]
    status
 ```
 ## mavlink
-Source: [modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink)
+Source: [modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/mavlink)
 
 
 ### Description
@@ -109,7 +109,7 @@ mavlink <command> [arguments...]
                  startup script.
 ```
 ## uorb
-Source: [systemcmds/uorb](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/uorb)
+Source: [systemcmds/uorb](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/uorb)
 
 
 ### Description

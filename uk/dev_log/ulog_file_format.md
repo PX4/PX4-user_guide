@@ -465,9 +465,9 @@ struct message_dropout_s {
 ## Відомі Реалізації Парсера
 
 - PX4-Autopilot++: C++
-  - [logger module](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
-  - [replay module](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
-  - [Модуль hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log): додайте дані про аварійне завершення.
+  - [logger module](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/logger)
+  - [replay module](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/replay)
+  - [Модуль hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/hardfault_log): додайте дані про аварійне завершення.
 - [pyulog](https://github.com/PX4/pyulog): бібліотека python, ULog для зчитування та запису з CLI скриптами.
 - [ulog_cpp](https://github.com/PX4/ulog_cpp): C++, бібліотека читання та запису ULog на C++.
 - [FlightPlot](https://github.com/PX4/FlightPlot): Java, log plotter.

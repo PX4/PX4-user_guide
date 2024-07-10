@@ -44,7 +44,7 @@ PX4 надає декілька методів для написання юні�
 Кроки для створення нових модульних тестів SITL такі:
 
 1. Перегляньте зразок [Unittest-класу](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/include/unit_test.h).
-1. Створіть новий файл .cpp у тестах [tests](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tests) із назвою **test\_[description].cpp**.
+1. Створіть новий файл .cpp у тестах [tests](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/tests) із назвою **test\_[description].cpp**.
 1. У **test\_[description].cpp** включається базовий unittest-class unit_test.h`<unit_test.h>` і всі файли, необхідні для написання тесту для нової функції.
 1. У межах **test\_[description].cpp** створіть клас `[Description]Test`, який успадковує `UnitTest`.
 1. У класі `[Description]Test `оголосите відкритий метод `virtual bool run_tests()`.

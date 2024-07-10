@@ -65,7 +65,7 @@ ModalAI активно підтримує [гілку версії PX4](https://
 
 ### основна гілка
 
-Підтримка основної лінії PX4 для VOXL 2 (документація плати [тут](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
+Підтримка основної лінії PX4 для VOXL 2 (документація плати [тут](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/modalai/voxl2)).
 
 ## Підтримка QGroundControl
 

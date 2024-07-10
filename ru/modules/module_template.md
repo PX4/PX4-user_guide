@@ -10,7 +10,7 @@ An application can be written to run as either a *task* (a module with its own s
 
 ## Work Queue Task
 
-PX4-Autopilot contains a template for writing a new application (module) that runs as a *work queue task*: [src/examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/work_item).
+PX4-Autopilot contains a template for writing a new application (module) that runs as a *work queue task*: [src/examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/examples/work_item).
 
 A work queue task application is just the same as an ordinary (task) application, except that it needs to specify that it is a work queue task, and schedule itself to run during initialisation.
 
@@ -42,7 +42,7 @@ The example shows how. In summary:
 
 ## Tasks
 
-PX4/PX4-Autopilot contains a template for writing a new application (module) that runs as a task on its own stack: [src/templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/main/src/templates/template_module).
+PX4/PX4-Autopilot contains a template for writing a new application (module) that runs as a task on its own stack: [src/templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/templates/template_module).
 
 The template demonstrates the following additional features/aspects that are required or are useful for a full application:
 

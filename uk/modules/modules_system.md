@@ -1,7 +1,7 @@
 # Modules Reference: System
 
 ## battery_simulator
-Джерело: [modules/simulation/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/battery_simulator)
+Джерело: [modules/simulation/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/battery_simulator)
 
 
 ### Опис
@@ -21,7 +21,7 @@ battery_simulator <command> [arguments...]
    status        print status info
 ```
 ## battery_status
-Джерело: [modules/battery_status](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/battery_status)
+Джерело: [modules/battery_status](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/battery_status)
 
 
 ### Опис
@@ -47,7 +47,7 @@ battery_status <command> [arguments...]
    status        print status info
 ```
 ## camera_feedback
-Джерело: [modules/camera_feedback](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/camera_feedback)
+Джерело: [modules/camera_feedback](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/camera_feedback)
 
 
 ### Опис
@@ -78,7 +78,7 @@ camera_feedback <command> [arguments...]
    status        print status info
 ```
 ## cdcacm_autostart
-Джерело: [drivers/cdcacm_autostart](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/cdcacm_autostart)
+Джерело: [drivers/cdcacm_autostart](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/cdcacm_autostart)
 
 
 ### Опис
@@ -97,7 +97,7 @@ cdcacm_autostart <command> [arguments...]
    status        print status info
 ```
 ## commander
-Джерело: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/commander)
+Джерело: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/commander)
 
 
 ### Опис
@@ -152,7 +152,7 @@ commander <command> [arguments...]
    status        print status info
 ```
 ## dataman
-Джерело: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/dataman)
+Джерело: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/dataman)
 
 
 ### Опис
@@ -185,7 +185,7 @@ dataman <command> [arguments...]
    status        print status info
 ```
 ## dmesg
-Джерело: [systemcmds/dmesg](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dmesg)
+Джерело: [systemcmds/dmesg](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/dmesg)
 
 
 ### Опис
@@ -208,7 +208,7 @@ dmesg <command> [arguments...]
      [-f]        Follow: wait for new messages
 ```
 ## esc_battery
-Джерело: [modules/esc_battery](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/esc_battery)
+Джерело: [modules/esc_battery](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/esc_battery)
 
 
 ### Опис
@@ -228,7 +228,7 @@ esc_battery <command> [arguments...]
    status        print status info
 ```
 ## gyro_calibration
-Джерело: [modules/gyro_calibration](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gyro_calibration)
+Джерело: [modules/gyro_calibration](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/gyro_calibration)
 
 
 ### Опис
@@ -248,7 +248,7 @@ gyro_calibration <command> [arguments...]
    status        print status info
 ```
 ## gyro_fft
-Джерело: [modules/gyro_fft](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gyro_fft)
+Джерело: [modules/gyro_fft](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/gyro_fft)
 
 
 ### Опис
@@ -267,7 +267,7 @@ gyro_fft <command> [arguments...]
    status        print status info
 ```
 ## heater
-Джерело: [drivers/heater](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/heater)
+Джерело: [drivers/heater](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/heater)
 
 
 ### Опис
@@ -288,7 +288,7 @@ heater <command> [arguments...]
    status        print status info
 ```
 ## i2c_launcher
-Джерело: [systemcmds/i2c_launcher](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2c_launcher)
+Джерело: [systemcmds/i2c_launcher](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/i2c_launcher)
 
 
 ### Опис
@@ -309,7 +309,7 @@ i2c_launcher <command> [arguments...]
    status        print status info
 ```
 ## land_detector
-Джерело: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/land_detector)
+Джерело: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/land_detector)
 
 
 ### Опис
@@ -341,7 +341,7 @@ land_detector <command> [arguments...]
    status        print status info
 ```
 ## load_mon
-Джерело: [modules/load_mon](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/load_mon)
+Джерело: [modules/load_mon](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/load_mon)
 
 
 ### Опис
@@ -362,7 +362,7 @@ load_mon <command> [arguments...]
    status        print status info
 ```
 ## logger
-Джерело: [modules/logger](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
+Джерело: [modules/logger](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/logger)
 
 
 ### Опис
@@ -430,7 +430,7 @@ logger <command> [arguments...]
    status        print status info
 ```
 ## mag_bias_estimator
-Джерело: [modules/mag_bias_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mag_bias_estimator)
+Джерело: [modules/mag_bias_estimator](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/mag_bias_estimator)
 
 
 ### Опис
@@ -449,7 +449,7 @@ mag_bias_estimator <command> [arguments...]
    status        print status info
 ```
 ## manual_control
-Джерело: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/manual_control)
+Джерело: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/manual_control)
 
 
 ### Опис
@@ -469,7 +469,7 @@ manual_control <command> [arguments...]
    status        print status info
 ```
 ## netman
-Джерело: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/netman)
+Джерело: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/netman)
 
 
   ### Опис Менеджер конфігурації мережі зберігає налаштування мережі в неволатильній пам'яті. При запуску `update` опція буде виконана. Якщо конфігурація мережі не існує. Значення за замовчуванням буде збережено в неплавучій пам'яті та система перезавантажена.
@@ -504,7 +504,7 @@ netman <command> [arguments...]
                  default: eth0
 ```
 ## pwm_input
-Джерело: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_input)
+Джерело: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/pwm_input)
 
 
 ### Опис
@@ -524,7 +524,7 @@ pwm_input <command> [arguments...]
    status        print status info
 ```
 ## rc_update
-Джерело: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rc_update)
+Джерело: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/rc_update)
 
 
 ### Description
@@ -547,7 +547,7 @@ rc_update <command> [arguments...]
    status        print status info
 ```
 ## replay
-Джерело: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
+Джерело: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/replay)
 
 
 ### Опис
@@ -578,7 +578,7 @@ replay <command> [arguments...]
    status        print status info
 ```
 ## send_event
-Джерело: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/events)
+Джерело: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/events)
 
 
 ### Description
@@ -599,7 +599,7 @@ send_event <command> [arguments...]
    status        print status info
 ```
 ## sensor_arispeed_sim
-Джерело: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)
+Джерело: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/sensor_airspeed_sim)
 
 
 ### Опис
@@ -619,7 +619,7 @@ sensor_arispeed_sim <command> [arguments...]
    status        print status info
 ```
 ## sensor_baro_sim
-Джерело: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_baro_sim)
+Джерело: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/sensor_baro_sim)
 
 
 ### Опис
@@ -639,7 +639,7 @@ sensor_baro_sim <command> [arguments...]
    status        print status info
 ```
 ## sensor_gps_sim
-Джерело: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_gps_sim)
+Джерело: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/sensor_gps_sim)
 
 
 ### Опис
@@ -659,7 +659,7 @@ sensor_gps_sim <command> [arguments...]
    status        print status info
 ```
 ## sensor_mag_sim
-Джерело: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_mag_sim)
+Джерело: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/sensor_mag_sim)
 
 
 ### Описання
@@ -679,7 +679,7 @@ sensor_mag_sim <command> [arguments...]
    status        print status info
 ```
 ## sensors
-Джерело: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sensors)
+Джерело: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/sensors)
 
 
 ### Опис
@@ -708,7 +708,7 @@ sensors <command> [arguments...]
    status        print status info
 ```
 ## tattu_can
-Джерело: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tattu_can)
+Джерело: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/tattu_can)
 
 
 ### Опис
@@ -728,7 +728,7 @@ tattu_can <command> [arguments...]
    status        print status info
 ```
 ## temperature_compensation
-Джерело: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/temperature_compensation)
+Джерело: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/temperature_compensation)
 
 
 ### Description
@@ -756,7 +756,7 @@ temperature_compensation <command> [arguments...]
    status        print status info
 ```
 ## tune_control
-Джерело: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tune_control)
+Джерело: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/tune_control)
 
 
 ### Опис
@@ -796,7 +796,7 @@ tune_control <command> [arguments...]
    stop          Stop playback (use for repeated tunes)
 ```
 ## uxrce_dds_client
-Джерело: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
+Джерело: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/uxrce_dds_client)
 
 
 ### Опис предмету
@@ -832,7 +832,7 @@ uxrce_dds_client <command> [arguments...]
    status        print status info
 ```
 ## work_queue
-Джерело: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue)
+Джерело: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/work_queue)
 
 
 ### Опис

@@ -1,6 +1,6 @@
 # Modules Reference: Airspeed Sensor (Driver)
 ## asp5033
-Source: [drivers/differential_pressure/asp5033](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/asp5033)
+Source: [drivers/differential_pressure/asp5033](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure/asp5033)
 
 
 ### Description
@@ -31,7 +31,7 @@ asp5033 <command> [arguments...]
    status        print status info
 ```
 ## ets_airspeed
-Source: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ets)
+Source: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure/ets)
 
 <a id="ets_airspeed_usage"></a>
 ### Usage
@@ -53,7 +53,7 @@ ets_airspeed <command> [arguments...]
    status        print status info
 ```
 ## ms4515
-Source: [drivers/differential_pressure/ms4515](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms4515)
+Source: [drivers/differential_pressure/ms4515](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure/ms4515)
 
 <a id="ms4515_usage"></a>
 ### Usage
@@ -75,7 +75,7 @@ ms4515 <command> [arguments...]
    status        print status info
 ```
 ## ms4525do
-Source: [drivers/differential_pressure/ms4525do](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms4525do)
+Source: [drivers/differential_pressure/ms4525do](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure/ms4525do)
 
 <a id="ms4525do_usage"></a>
 ### Usage
@@ -97,7 +97,7 @@ ms4525do <command> [arguments...]
    status        print status info
 ```
 ## ms5525dso
-Source: [drivers/differential_pressure/ms5525dso](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms5525dso)
+Source: [drivers/differential_pressure/ms5525dso](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure/ms5525dso)
 
 <a id="ms5525dso_usage"></a>
 ### Usage
@@ -119,7 +119,7 @@ ms5525dso <command> [arguments...]
    status        print status info
 ```
 ## sdp3x
-Source: [drivers/differential_pressure/sdp3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/sdp3x)
+Source: [drivers/differential_pressure/sdp3x](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure/sdp3x)
 
 <a id="sdp3x_usage"></a>
 ### Usage

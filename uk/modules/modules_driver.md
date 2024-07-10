@@ -12,7 +12,7 @@
 - [Магнітометр](modules_driver_magnetometer.md)
 
 ## MCP23009
-Джерело: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
+Джерело: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/gpio/mcp23009)
 
 <a id="MCP23009_usage"></a>
 
@@ -43,7 +43,7 @@ MCP23009 <command> [arguments...]
    status        print status info
 ```
 ## adc
-Джерело: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/board_adc)
+Джерело: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/adc/board_adc)
 
 
 ### Опис
@@ -66,7 +66,7 @@ adc <command> [arguments...]
    status        print status info
 ```
 ## ads1115
-Джерело: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/ads1115)
+Джерело: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/adc/ads1115)
 
 
 ### Опис
@@ -99,7 +99,7 @@ ads1115 <command> [arguments...]
    status        print status info
 ```
 ## atxxxx
-Джерело: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/atxxxx)
+Джерело: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/osd/atxxxx)
 
 
 ### Опис
@@ -128,7 +128,7 @@ atxxxx <command> [arguments...]
    status        print status info
 ```
 ## batmon
-Джерело: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/smart_battery/batmon)
+Джерело: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/smart_battery/batmon)
 
 
 ### Опис
@@ -167,7 +167,7 @@ batmon <command> [arguments...]
    status        print status info
 ```
 ## batt_smbus
-Джерело: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/batt_smbus)
+Джерело: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/batt_smbus)
 
 
 ### Опис
@@ -218,7 +218,7 @@ batt_smbus <command> [arguments...]
    status        print status info
 ```
 ## bst
-Джерело: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/bst)
+Джерело: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/telemetry/bst)
 
 <a id="bst_usage"></a>
 
@@ -241,7 +241,7 @@ bst <command> [arguments...]
    status        print status info
 ```
 ## crsf_rc
-Джерело: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/crsf_rc)
+Джерело: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/rc/crsf_rc)
 
 
 ### Опис
@@ -263,7 +263,7 @@ crsf_rc <command> [arguments...]
    status        print status info
 ```
 ## dshot
-Джерело: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/dshot)
+Джерело: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/dshot)
 
 
 ### Опис
@@ -333,7 +333,7 @@ dshot <command> [arguments...]
    status        print status info
 ```
 ## fake_gps
-Джерело: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_gps)
+Джерело: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/examples/fake_gps)
 
 
 ### Опис
@@ -352,7 +352,7 @@ fake_gps <command> [arguments...]
    status        print status info
 ```
 ## fake_imu
-Джерело: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_imu)
+Джерело: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/examples/fake_imu)
 
 
 ### Опис
@@ -371,7 +371,7 @@ fake_imu <command> [arguments...]
    status        print status info
 ```
 ## fake_magnetometer
-Джерело: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_magnetometer)
+Джерело: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/examples/fake_magnetometer)
 
 
 ### Опис
@@ -390,7 +390,7 @@ fake_magnetometer <command> [arguments...]
    status        print status info
 ```
 ## ft_technologies_serial
-Джерело: [drivers/wind_sensor/ft_technologies](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/wind_sensor/ft_technologies)
+Джерело: [drivers/wind_sensor/ft_technologies](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/wind_sensor/ft_technologies)
 
 
 ### Опис
@@ -422,7 +422,7 @@ ft_technologies_serial <command> [arguments...]
    stop          Stop driver
 ```
 ## gimbal
-Джерело: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gimbal)
+Джерело: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/gimbal)
 
 
 ### Опис
@@ -458,7 +458,7 @@ gimbal <command> [arguments...]
    status        print status info
 ```
 ## gps
-Джерело: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gps)
+Джерело: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/gps)
 
 
 ### Опис
@@ -511,7 +511,7 @@ gps <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## gz_bridge
-Джерело: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/gz_bridge)
+Джерело: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/gz_bridge)
 
 
 ### Опис
@@ -535,7 +535,7 @@ gz_bridge <command> [arguments...]
    status        print status info
 ```
 ## ina220
-Джерело: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina220)
+Джерело: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/power_monitor/ina220)
 
 
 ### Опис
@@ -574,7 +574,7 @@ ina220 <command> [arguments...]
    status        print status info
 ```
 ## ina226
-Джерело: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina226)
+Джерело: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/power_monitor/ina226)
 
 
 ### Опис
@@ -611,7 +611,7 @@ ina226 <command> [arguments...]
    status        print status info
 ```
 ## ina228
-Джерело: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina228)
+Джерело: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/power_monitor/ina228)
 
 
 ### Опис
@@ -648,7 +648,7 @@ ina228 <command> [arguments...]
    status        print status info
 ```
 ## ina238
-Джерело: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina238)
+Джерело: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/power_monitor/ina238)
 
 
 ### Опис
@@ -685,7 +685,7 @@ ina238 <command> [arguments...]
    status        print status info
 ```
 ## iridiumsbd
-Джерело: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/iridiumsbd)
+Джерело: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/telemetry/iridiumsbd)
 
 
 ### Опис
@@ -712,7 +712,7 @@ iridiumsbd <command> [arguments...]
    status        print status info
 ```
 ## irlock
-Джерело: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/irlock)
+Джерело: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/irlock)
 
 <a id="irlock_usage"></a>
 
@@ -735,7 +735,7 @@ irlock <command> [arguments...]
    status        print status info
 ```
 ## linux_pwm_out
-Джерело: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/linux_pwm_out)
+Джерело: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/linux_pwm_out)
 
 
 ### Опис
@@ -754,7 +754,7 @@ linux_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## lsm303agr
-Джерело: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/lsm303agr)
+Джерело: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/magnetometer/lsm303agr)
 
 <a id="lsm303agr_usage"></a>
 
@@ -779,7 +779,7 @@ lsm303agr <command> [arguments...]
    status        print status info
 ```
 ## msp_osd
-Джерело: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/msp_osd)
+Джерело: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/osd/msp_osd)
 
 
 ### Опис
@@ -806,7 +806,7 @@ msp_osd <command> [arguments...]
    status        print status info
 ```
 ## newpixel
-Джерело: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/neopixel)
+Джерело: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/lights/neopixel)
 
 
 ### Опис
@@ -830,7 +830,7 @@ newpixel <command> [arguments...]
    status        print status info
 ```
 ## paa3905
-Джерело: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/paa3905)
+Джерело: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/optical_flow/paa3905)
 
 <a id="paa3905_usage"></a>
 
@@ -855,7 +855,7 @@ paa3905 <command> [arguments...]
    status        print status info
 ```
 ## paw3902
-Джерело: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/paw3902)
+Джерело: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/optical_flow/paw3902)
 
 <a id="paw3902_usage"></a>
 
@@ -880,7 +880,7 @@ paw3902 <command> [arguments...]
    status        print status info
 ```
 ## pca9685_pwm_out
-Джерело: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pca9685_pwm_out)
+Джерело: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/pca9685_pwm_out)
 
 
 ### Опис
@@ -914,7 +914,7 @@ pca9685_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pm_selector_auterion
-Джерело: [drivers/power_monitor/pm_selector_auterion](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/pm_selector_auterion)
+Джерело: [drivers/power_monitor/pm_selector_auterion](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/power_monitor/pm_selector_auterion)
 
 
 ### Опис
@@ -934,7 +934,7 @@ pm_selector_auterion <command> [arguments...]
    status        print status info
 ```
 ## pmw3901
-Джерело: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/pmw3901)
+Джерело: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/optical_flow/pmw3901)
 
 <a id="pmw3901_usage"></a>
 
@@ -959,7 +959,7 @@ pmw3901 <command> [arguments...]
    status        print status info
 ```
 ## pps_capture
-Джерело: [drivers/pps_capture](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pps_capture)
+Джерело: [drivers/pps_capture](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/pps_capture)
 
 
 ### Опис
@@ -979,7 +979,7 @@ pps_capture <command> [arguments...]
    status        print status info
 ```
 ## pwm_out
-Джерело: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_out)
+Джерело: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/pwm_out)
 
 
 ### Опис
@@ -999,7 +999,7 @@ pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pwm_out_sim
-Джерело: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/pwm_out_sim)
+Джерело: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/pwm_out_sim)
 
 
 ### Опис
@@ -1025,7 +1025,7 @@ pwm_out_sim <command> [arguments...]
    status        print status info
 ```
 ## px4flow
-Джерело: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/px4flow)
+Джерело: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/optical_flow/px4flow)
 
 <a id="px4flow_usage"></a>
 
@@ -1048,7 +1048,7 @@ px4flow <command> [arguments...]
    status        print status info
 ```
 ## px4io
-Джерело: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/px4io)
+Джерело: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/px4io)
 
 
 ### Опис
@@ -1089,7 +1089,7 @@ px4io <command> [arguments...]
    status        print status info
 ```
 ## rc_input
-Джерело: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc_input)
+Джерело: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/rc_input)
 
 
 ### Опис
@@ -1119,7 +1119,7 @@ rc_input <command> [arguments...]
    status        print status info
 ```
 ## rgbled
-Джерело: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_ncp5623c)
+Джерело: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/lights/rgbled_ncp5623c)
 
 <a id="rgbled_usage"></a>
 
@@ -1144,7 +1144,7 @@ rgbled <command> [arguments...]
    status        print status info
 ```
 ## rgbled_is31fl3195
-Джерело: [drivers/lights/rgbled_is31fl3195](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_is31fl3195)
+Джерело: [drivers/lights/rgbled_is31fl3195](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/lights/rgbled_is31fl3195)
 
 <a id="rgbled_is31fl3195_usage"></a>
 
@@ -1171,7 +1171,7 @@ rgbled_is31fl3195 <command> [arguments...]
    status        print status info
 ```
 ## rgbled_lp5562
-Джерело: [drivers/lights/rgbled_lp5562](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_lp5562)
+Джерело: [drivers/lights/rgbled_lp5562](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/lights/rgbled_lp5562)
 
 
 ### Опис
@@ -1204,7 +1204,7 @@ rgbled_lp5562 <command> [arguments...]
    status        print status info
 ```
 ## roboclaw
-Джерело: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/roboclaw)
+Джерело: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/roboclaw)
 
 
 ### Опис
@@ -1231,7 +1231,7 @@ roboclaw <command> [arguments...]
    status        print status info
 ```
 ## safety_button
-Джерело: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)
+Джерело: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/safety_button)
 
 
 ### Опис
@@ -1251,7 +1251,7 @@ safety_button <command> [arguments...]
    status        print status info
 ```
 ## septentrio
-Source: [drivers/gnss/septentrio](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gnss/septentrio)
+Source: [drivers/gnss/septentrio](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/gnss/septentrio)
 
 
 ### Опис
@@ -1295,7 +1295,7 @@ septentrio <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## sht3x
-Джерело: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/hygrometer/sht3x)
+Джерело: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/hygrometer/sht3x)
 
 
 ### Опис
@@ -1350,7 +1350,7 @@ sht3x <command> [arguments...]
    reset         Reinitialize sensor
 ```
 ## tap_esc
-Джерело: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
+Джерело: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/tap_esc)
 
 
 ### Опис
@@ -1382,7 +1382,7 @@ tap_esc <command> [arguments...]
                  default: 4
 ```
 ## tone_alarm
-Джерело: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tone_alarm)
+Джерело: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/tone_alarm)
 
 
 ### Опис
@@ -1402,7 +1402,7 @@ tone_alarm <command> [arguments...]
    status        print status info
 ```
 ## uwb
-Джерело: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uwb/uwb_sr150)
+Джерело: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/uwb/uwb_sr150)
 
 
 ### Опис
@@ -1434,7 +1434,7 @@ uwb <command> [arguments...]
    status
 ```
 ## voxl2_io
-Джерело: [drivers/voxl2_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/voxl2_io)
+Джерело: [drivers/voxl2_io](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/voxl2_io)
 
 
 ### Опис
@@ -1468,7 +1468,7 @@ voxl2_io <command> [arguments...]
    status        print status info
 ```
 ## voxl_esc
-Джерело: [drivers/actuators/voxl_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/voxl_esc)
+Джерело: [drivers/actuators/voxl_esc](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/actuators/voxl_esc)
 
 
 ### Опис
@@ -1528,7 +1528,7 @@ voxl_esc <command> [arguments...]
    status        print status info
 ```
 ## voxlpm
-Джерело: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/voxlpm)
+Джерело: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/power_monitor/voxlpm)
 
 <a id="voxlpm_usage"></a>
 
@@ -1553,7 +1553,7 @@ voxlpm [arguments...]
    status        print status info
 ```
 ## zenoh
-Джерело: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/zenoh)
+Джерело: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/zenoh)
 
 
 ### Description

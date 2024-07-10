@@ -1,7 +1,7 @@
 # Посилання на модулі: Симуляція
 
 ## simulator_sih
-Джерело: [modules/simulation/simulator_sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_sih)
+Джерело: [modules/simulation/simulator_sih](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/simulator_sih)
 
 
 ### Опис

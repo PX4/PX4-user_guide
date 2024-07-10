@@ -1,6 +1,6 @@
 # Modules Reference: Ins (Driver)
 ## vectornav
-Source: [drivers/ins/vectornav](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/ins/vectornav)
+Source: [drivers/ins/vectornav](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/ins/vectornav)
 
 
 ### Description

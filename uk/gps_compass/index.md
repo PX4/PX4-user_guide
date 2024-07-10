@@ -146,7 +146,7 @@ GPS може бути використано як джерело для об'є�
   - [GPS driver](../modules/modules_driver.md#gps)
   - [Приклад DroneCAN](../dronecan/index.md)
 - Компас
-  - [Вихідний код драйверів](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer) (Компаси)
+  - [Вихідний код драйверів](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/magnetometer) (Компаси)
 
 [avionics_anon_can_gnss]: https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/
 [hk_ublox_neo_8mn]: https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html

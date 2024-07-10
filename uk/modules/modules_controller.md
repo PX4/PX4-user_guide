@@ -1,7 +1,7 @@
 # Modules Reference: Controller
 
 ## airship_att_control
-Джерело: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airship_att_control)
+Джерело: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/airship_att_control)
 
 
 ### Опис
@@ -26,7 +26,7 @@ airship_att_control <command> [arguments...]
    status        print status info
 ```
 ## control_allocator
-Джерело: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/control_allocator)
+Джерело: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/control_allocator)
 
 
 ### Опис
@@ -45,7 +45,7 @@ control_allocator <command> [arguments...]
    status        print status info
 ```
 ## differential_drive
-Джерело: [modules/differential_drive](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/differential_drive)
+Джерело: [modules/differential_drive](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/differential_drive)
 
 
 ### Опис
@@ -64,7 +64,7 @@ differential_drive <command> [arguments...]
    status        print status info
 ```
 ## flight_mode_manager
-Джерело: [modules/flight_mode_manager](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager)
+Джерело: [modules/flight_mode_manager](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/flight_mode_manager)
 
 
 ### Опис
@@ -84,7 +84,7 @@ flight_mode_manager <command> [arguments...]
    status        print status info
 ```
 ## fw_att_control
-Джерело: [modules/fw_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_att_control)
+Джерело: [modules/fw_att_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/fw_att_control)
 
 
 ### Опис
@@ -105,7 +105,7 @@ fw_att_control <command> [arguments...]
    status        print status info
 ```
 ## fw_pos_control
-Джерело: [modules/fw_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_pos_control)
+Джерело: [modules/fw_pos_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/fw_pos_control)
 
 
 ### Опис
@@ -126,7 +126,7 @@ fw_pos_control <command> [arguments...]
    status        print status info
 ```
 ## fw_rate_control
-Джерело: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_rate_control)
+Джерело: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/fw_rate_control)
 
 
 ### Опис
@@ -147,7 +147,7 @@ fw_rate_control <command> [arguments...]
    status        print status info
 ```
 ## mc_att_control
-Джерело: [modules/mc_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_att_control)
+Джерело: [modules/mc_att_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/mc_att_control)
 
 
 ### Опис
@@ -174,7 +174,7 @@ mc_att_control <command> [arguments...]
    status        print status info
 ```
 ## mc_pos_control
-Джерело: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_pos_control)
+Джерело: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/mc_pos_control)
 
 
 ### Опис
@@ -196,7 +196,7 @@ mc_pos_control <command> [arguments...]
    status        print status info
 ```
 ## mc_rate_control
-Джерело: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_rate_control)
+Джерело: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/mc_rate_control)
 
 
 ### Опис
@@ -219,7 +219,7 @@ mc_rate_control <command> [arguments...]
    status        print status info
 ```
 ## navigator
-Джерело: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/navigator)
+Джерело: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/navigator)
 
 
 ### Опис
@@ -248,7 +248,7 @@ navigator <command> [arguments...]
    status        print status info
 ```
 ## rover_ackermann
-Source: [modules/rover_ackermann](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_ackermann)
+Source: [modules/rover_ackermann](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/rover_ackermann)
 
 
 ### Опис
@@ -267,7 +267,7 @@ rover_ackermann <command> [arguments...]
    status        print status info
 ```
 ## rover_pos_control
-Джерело: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_pos_control)
+Джерело: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/rover_pos_control)
 
 
 ### Опис
@@ -304,7 +304,7 @@ rover_pos_control <command> [arguments...]
    status        print status info
 ```
 ## uuv_att_control
-Джерело: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_att_control)
+Джерело: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/uuv_att_control)
 
 
 ### Опис
@@ -340,7 +340,7 @@ uuv_att_control <command> [arguments...]
    status        print status info
 ```
 ## uuv_pos_control
-Джерело: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_pos_control)
+Джерело: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/uuv_pos_control)
 
 
 ### Опис
@@ -370,7 +370,7 @@ uuv_pos_control <command> [arguments...]
    status        print status info
 ```
 ## vtol_att_control
-Джерело: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/vtol_att_control)
+Джерело: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/vtol_att_control)
 
 
 ### Description

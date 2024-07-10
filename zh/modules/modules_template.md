@@ -1,7 +1,7 @@
 # 模块参考: 模板
 
 ## 模块
-Source: [templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/main/src/templates/template_module)
+Source: [templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/templates/template_module)
 
 
 ### 描述
@@ -36,7 +36,7 @@ module <command> [arguments...]
    status        print status info
 ```
 ## work_item_example
-Source: [examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/work_item)
+Source: [examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/examples/work_item)
 
 
 ### 参数描述

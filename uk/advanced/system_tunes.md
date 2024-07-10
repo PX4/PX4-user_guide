@@ -2,7 +2,7 @@
 
 PX4 визначає ряд [стандартних мелодій/тем](../getting_started/tunes.md), які використовуються для забезпечення аудіо-повідомлень про важливі стани системи та проблеми (наприклад, запуск системи, успішне готування до роботи, попередження про заряд батареї і т. д.).
 
-Мелодії вказуються за допомогою рядків (у форматі [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) та відтворюються за допомогою коду, використовуючи бібліотеку [tunes](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/tunes). Бібліотека мелодій також містить список стандартних мелодій системи - див. [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/tunes/tune_definition.desc).
+Мелодії вказуються за допомогою рядків (у форматі [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) та відтворюються за допомогою коду, використовуючи бібліотеку [tunes](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/lib/tunes). Бібліотека мелодій також містить список стандартних мелодій системи - див. [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/tunes/tune_definition.desc).
 
 У PX4 також є модуль, який можна використовувати для відтворення (тестування) стандартних мелодій або користувацьких мелодій.
 

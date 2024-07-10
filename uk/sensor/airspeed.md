@@ -73,5 +73,5 @@
 ## Дивіться також
 
 - [Використання ECL EKF > Швидкість повітря](../advanced_config/tuning_the_ecl_ekf.md#airspeed)
-- [Драйвери швидкості повітря](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure) (вихідний код)
+- [Драйвери швидкості повітря](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/differential_pressure) (вихідний код)
 - [VTOL з/без датчика швидкості повітря](../config_vtol/vtol_without_airspeed_sensor.md)

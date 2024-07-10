@@ -16,7 +16,7 @@
 
 На момент написання водії/частини включають: bmp280, bmp388 (та BMP380), dps310, goertek (spl06), invensense (icp10100, icp10111, icp101xx, icp201xx), lps22hb, lps25h, lps33hw, maiertek (mpc2520), mpl3115a2, ms5611, ms5837, tcbp001ta.
 
-Зверніть увагу, що підтримувані номери частин барометра можуть бути виведені зі списків драйверів, перерахованих у документації [Довідник модулів: Baro (Драйвер)](../modules/modules_driver_baro.md) (та вихідний код драйвера: [PX4-Autopilot/src/drivers/barometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer)).
+Зверніть увагу, що підтримувані номери частин барометра можуть бути виведені зі списків драйверів, перерахованих у документації [Довідник модулів: Baro (Драйвер)](../modules/modules_driver_baro.md) (та вихідний код драйвера: [PX4-Autopilot/src/drivers/barometer](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/barometer)).
 
 ## Налаштування PX4
 
@@ -39,5 +39,5 @@
 
 ## Інформація для розробників
 
-- [Вихідний код драйвера Baro](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer)
+- [Вихідний код драйвера Baro](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/barometer)
 - [Довідник модулів: Барометр (Драйвер)](../modules/modules_driver_baro.md) документація.

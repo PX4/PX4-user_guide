@@ -1,6 +1,6 @@
 # Запуск системи
 
-Запуск PX4 контрольований скриптами оболонки. На NuttX вони знаходяться у директорії [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d), деякі з них також використовуються на Posix системах (Linux/MacOS). Скрипти які використовуються тільки на Posix системах знаходяться у [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix).
+Запуск PX4 контрольований скриптами оболонки. На NuttX вони знаходяться у директорії [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/ROMFS/px4fmu_common/init.d), деякі з них також використовуються на Posix системах (Linux/MacOS). Скрипти які використовуються тільки на Posix системах знаходяться у [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/ROMFS/px4fmu_common/init.d-posix).
 
 Усі файли, які починаються з числа і підкреслення (наприклад, `10000_airaipl`) є попередньо визначеними конфігураціями планерів. Вони експортуються під час збірки в файл `airframes.xml` який потім аналізується  [QGroundControl](http://qgroundcontrol.com) для користувацького інтерфейсу вибору планера. Як додати нову конфігурацію описано [тут](../dev_airframes/adding_a_new_frame.md).
 

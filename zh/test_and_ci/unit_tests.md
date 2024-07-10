@@ -44,7 +44,7 @@
 创建一个新的SITL单元测试步骤如下：
 
 1. Examine the sample [Unittest-class](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/include/unit_test.h).
-1. Create a new .cpp file within [tests](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tests) with name **test\_[description].cpp**.
+1. Create a new .cpp file within [tests](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/tests) with name **test\_[description].cpp**.
 1. 在 **test_ [description].cpp** 中，实现各种测试。
 1. 在 **test_ [description].cpp** 中实现 `run_tests（）` 方法，其中将运行每个测试[1,2，...]。
 1. 在 `[Description]Test` 类中，声明公共方法 `virtual bool run_tests（）`。

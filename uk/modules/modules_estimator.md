@@ -1,7 +1,7 @@
 # Посилання на Модулі: Оцінка
 
 ## AttitudeEstimatorQ
-Джерело: [modules/attitude_estimator_q](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/attitude_estimator_q)
+Джерело: [modules/attitude_estimator_q](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/attitude_estimator_q)
 
 
 ### Опис
@@ -21,7 +21,7 @@ AttitudeEstimatorQ <command> [arguments...]
    status        print status info
 ```
 ## airspeed_estimator
-Джерело: [modules/airspeed_selector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airspeed_selector)
+Джерело: [modules/airspeed_selector](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/airspeed_selector)
 
 
 ### Опис
@@ -41,7 +41,7 @@ airspeed_estimator <command> [arguments...]
    status        print status info
 ```
 ## ekf2
-Джерело: [modules/ekf2](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2)
+Джерело: [modules/ekf2](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/ekf2)
 
 
 ### Опис
@@ -70,7 +70,7 @@ ekf2 <command> [arguments...]
      <instance>  Specify desired estimator instance
 ```
 ## local_position_estimator
-Джерело: [modules/local_position_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/local_position_estimator)
+Джерело: [modules/local_position_estimator](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/local_position_estimator)
 
 
 ### Опис
@@ -90,7 +90,7 @@ local_position_estimator <command> [arguments...]
    status        print status info
 ```
 ## mc_hover_thrust_estimator
-Джерело: [modules/mc_hover_thrust_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_hover_thrust_estimator)
+Джерело: [modules/mc_hover_thrust_estimator](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/mc_hover_thrust_estimator)
 
 
 ### Опис

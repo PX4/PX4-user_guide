@@ -190,7 +190,7 @@ Lockstep симуляцію можна вимкнути, якщо, наприк�
 
 ### Сценарії запуску
 
-Scripts are used to control which parameter settings to use or which modules to start. Вони знаходяться у каталозі [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix), файл `rcS` є основною точкою входу. Докладнішу інформацію наведено у розділі [Запуск системи](../concept/system_startup.md).
+Scripts are used to control which parameter settings to use or which modules to start. Вони знаходяться у каталозі [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/ROMFS/px4fmu_common/init.d-posix), файл `rcS` є основною точкою входу. Докладнішу інформацію наведено у розділі [Запуск системи](../concept/system_startup.md).
 
 ### Імітація збоїв та відмов датчиків/обладнання
 

@@ -19,8 +19,8 @@ The camera can be connected to different outputs, including PWM outputs, GPIO ou
 Cameras can also (optionally) signal PX4 at the exact moment that a photo/frame is taken using a [camera capture pin](#camera-capture-configuration) that is attached to their hot shoe.
 This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
 
-<!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger -->
-<!-- Camera capture driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture -->
+<!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_trigger -->
+<!-- Camera capture driver: https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_capture -->
 
 ## MAVLink Command Interface
 
@@ -311,5 +311,5 @@ Public reference implementations for [IDS Imaging UEye](https://github.com/Proje
 
 ## See Also
 
-- Camera trigger driver: [source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger) <!-- no module doc -->
-- Camera capture driver: [source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture) <!-- no module doc -->
+- Camera trigger driver: [source code](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_trigger) <!-- no module doc -->
+- Camera capture driver: [source code](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_capture) <!-- no module doc -->

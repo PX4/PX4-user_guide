@@ -9,7 +9,7 @@ _OFFBOARD_ control is dangerous. 如果你是在一个真正的无人机平台�
 :::
 
 :::tip
-该例程使用Python。 其他Python示例可以在这里找到： [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros)。
+该例程使用Python。 其他Python示例可以在这里找到： [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/integrationtests/python_src/px4_it/mavros)。
 :::
 
 <a id="offb_video"></a>

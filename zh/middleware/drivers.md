@@ -1,12 +1,12 @@
 # 驱动开发
 
-PX4 device drivers are based on the [Device](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/drivers/device) framework.
+PX4 device drivers are based on the [Device](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/lib/drivers/device) framework.
 
 ## 创建驱动程序
 
 PX4 几乎只消耗来自 [uORB](../middleware/uorb.md) 的数据。 常见外设类型的驱动程序必须发布正确的 uORB 消息（例如: 陀螺仪、加速度计、压力传感器等）。
 
-The best approach for creating a new driver is to start with a similar driver as a template (see [src/drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers)).
+The best approach for creating a new driver is to start with a similar driver as a template (see [src/drivers](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers)).
 
 ::: info More detailed information about working with specific I/O buses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/index.md) section. 文件句柄不是必需或用于系统的核心操作。
 

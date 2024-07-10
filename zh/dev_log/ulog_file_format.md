@@ -465,9 +465,9 @@ Since the Definitions and Data Sections use the same message header format, they
 ## Known Parser Implementations
 
 - PX4 Firmware: C++
-  - [日志模块](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
-  - [回放模块](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
-  - [hardfault_log module](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log): append hardfault crash data.
+  - [日志模块](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/logger)
+  - [回放模块](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/replay)
+  - [hardfault_log module](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/hardfault_log): append hardfault crash data.
 - [pyulog](https://github.com/PX4/pyulog): python, ULog reader and writer library with CLI scripts.
 - [ulog_cpp](https://github.com/PX4/ulog_cpp): C++, ULog reader and writer library.
 - [FlightPlot](https://github.com/PX4/FlightPlot): Java，日志绘图仪。

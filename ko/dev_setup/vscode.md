@@ -11,7 +11,7 @@ PX4 개발에 VSCode를 사용하는 데에는 많은 이유가 있습니다.
 IDE를 설정과 개발 방법에 대하여 설명합니다.
 
 :::note
-다른 강력한 IDE가 있지만, 일반적으로 PX4와 통합에는 많은 어려움이 있습니다. With _VScode_, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/main/.vscode)) so the setup process is as simple as adding the project folder.
+다른 강력한 IDE가 있지만, 일반적으로 PX4와 통합에는 많은 어려움이 있습니다. With _VScode_, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/.vscode)) so the setup process is as simple as adding the project folder.
 :::
 
 ## 선행 조건

@@ -2,14 +2,14 @@
 
 Для портування PX4 на NuttX на новий апаратний пристрій, цей апаратний пристрій повинен бути підтриманий NuttX. Проект NuttX зберігає відмінний [посібник з портативності](https://cwiki.apache.org/confluence/display/NUTTX/Porting+Guide) для портування NuttX на нову обчислювальну платформу.
 
-Наступний посібник передбачає, що ви використовуєте вже підтримувану апаратну мету або вже портували NuttX (включаючи [базовий рівень PX4](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/px4)).
+Наступний посібник передбачає, що ви використовуєте вже підтримувану апаратну мету або вже портували NuttX (включаючи [базовий рівень PX4](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/platforms/nuttx/src/px4)).
 
-Налаштувальні файли для всіх плат, включаючи лінкерні сценарії та інші необхідні налаштування, розташовані під [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards/) у каталозі, що відповідає постачальнику та платі (тобто **boards/_VENDOR_/_MODEL_/**).
+Налаштувальні файли для всіх плат, включаючи лінкерні сценарії та інші необхідні налаштування, розташовані під [/boards](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/) у каталозі, що відповідає постачальнику та платі (тобто **boards/_VENDOR_/_MODEL_/**).
 
 Наступний приклад використовує FMUv5, оскільки це остання [посилання конфігурації](../hardware/reference_design.md) для контролерів польоту на основі NuttX:
 
 - Виконайте `make px4_fmu-v5_default` з каталогу **PX4-Autopilot**, щоб збудувати конфігурацію FMUv5
-- Основні файлы конфігурації FMUv5 розташовані за адресою: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5).
+- Основні файлы конфігурації FMUv5 розташовані за адресою: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/px4/fmu-v5).
   - Шапка конкретної плати (конфігурація контактів NuttX та годинника): [/boards/px4/fmu-v5/nuttx-config/include/board.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/nuttx-config/include/board.h).
   - Специфічний заголовок дошки (конфігурація PX4): [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/src/board_config.h).
   - Конфігурація операційної системи NuttX (створена за допомогою NuttX menuconfig): [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/nuttx-config/nsh/defconfig).
@@ -48,7 +48,7 @@ sudo make install
 
 Спочатку вам знадобиться завантажувач, який залежить від цільового обладнання:
 
-- STM32H7: завантажувач базується на NuttX та включений в прошивку PX4. Дивіться [тут](https://github.com/PX4/PX4-Autopilot/tree/main/boards/holybro/durandal-v1/nuttx-config/bootloader) як приклад.
+- STM32H7: завантажувач базується на NuttX та включений в прошивку PX4. Дивіться [тут](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/holybro/durandal-v1/nuttx-config/bootloader) як приклад.
 - Для всіх інших цілей використовується https://github.com/PX4/Bootloader. Дивіться [тут](https://github.com/PX4/Bootloader/pull/155/files) для прикладу того, як додати нову ціль. Потім перейдіть за посиланням [інструкції з компіляції та прошивки](../software_update/stm32_bootloader.md).
 
 ### Кроки портування прошивки

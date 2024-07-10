@@ -12,7 +12,7 @@
 - [Magnetometer](modules_driver_magnetometer.md)
 
 ## MCP23009
-Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
+Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/gpio/mcp23009)
 
 <a id="MCP23009_usage"></a>
 
@@ -43,7 +43,7 @@ MCP23009 <command> [arguments...]
    status        print status info
 ```
 ## adc
-Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/board_adc)
+Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/adc/board_adc)
 
 
 ### 描述
@@ -66,7 +66,7 @@ adc <command> [arguments...]
    status        print status info
 ```
 ## ads1115
-Source: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/ads1115)
+Source: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/adc/ads1115)
 
 
 ### 描述
@@ -99,7 +99,7 @@ ads1115 <command> [arguments...]
    status        打印状态信息
 ```
 ## atxxxx
-Source: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/atxxxx)
+Source: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/osd/atxxxx)
 
 
 ### 描述
@@ -128,7 +128,7 @@ atxxxx <command> [arguments...]
    status        打印状态信息
 ```
 ## batmon
-Source: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/smart_battery/batmon)
+Source: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/smart_battery/batmon)
 
 
 ### 用法
@@ -165,7 +165,7 @@ batmon <command> [arguments...]
    suspend       从调度循环中挂起该设备
 ```
 ## batt_smbus
-Source: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/batt_smbus)
+Source: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/batt_smbus)
 
 
 ### 用法
@@ -216,7 +216,7 @@ batt_smbus <command> [arguments...]
    status        print status info
 ```
 ## bst
-Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/bst)
+Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/telemetry/bst)
 
 <a id="bst_usage"></a>
 
@@ -239,7 +239,7 @@ bst <command> [arguments...]
    status        print status info
 ```
 ## crsf_rc
-Source: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/crsf_rc)
+Source: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/rc/crsf_rc)
 
 
 ### 描述
@@ -261,7 +261,7 @@ crsf_rc <command> [arguments...]
    status        print status info
 ```
 ## sf1xx
-Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/dshot)
+Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/dshot)
 
 
 ### 描述
@@ -296,7 +296,7 @@ dshot <command> [arguments...]
    status        打印状态信息
 ```
 ## fmu mode_pwm
-Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_gps)
+Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/examples/fake_gps)
 
 
 ### 示例
@@ -315,7 +315,7 @@ fake_gps <command> [arguments...]
    status        print status info
 ```
 ## fake_imu
-Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_imu)
+Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/examples/fake_imu)
 
 
 ### 描述
@@ -334,7 +334,7 @@ fake_imu <command> [arguments...]
    status        print status info
 ```
 ## gps
-Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_magnetometer)
+Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/examples/fake_magnetometer)
 
 
 ### 描述
@@ -354,7 +354,7 @@ fake_magnetometer <command> [arguments...]
    status        打印状态信息
 ```
 ## ft_technologies_serial
-Source: [drivers/wind_sensor/ft_technologies](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/wind_sensor/ft_technologies)
+Source: [drivers/wind_sensor/ft_technologies](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/wind_sensor/ft_technologies)
 
 
 ### 描述
@@ -386,7 +386,7 @@ ft_technologies_serial <command> [arguments...]
    stop          Stop driver
 ```
 ## gimbal
-Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gimbal)
+Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/gimbal)
 
 
 ### Description
@@ -422,7 +422,7 @@ gimbal <command> [arguments...]
    status        print status info
 ```
 ## gps
-Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gps)
+Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/gps)
 
 
 ### Description
@@ -475,7 +475,7 @@ gps <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## gz_bridge
-Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/gz_bridge)
+Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/gz_bridge)
 
 
 ### 实现
@@ -499,7 +499,7 @@ gz_bridge <command> [arguments...]
    status        print status info
 ```
 ## ina220
-Source: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina220)
+Source: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/power_monitor/ina220)
 
 
 ### Description
@@ -538,7 +538,7 @@ ina220 <command> [arguments...]
    status        print status info
 ```
 ## ina226
-Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina226)
+Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/power_monitor/ina226)
 
 
 ### Description
@@ -575,7 +575,7 @@ ina226 <command> [arguments...]
    status        print status info
 ```
 ## ina228
-Source: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina228)
+Source: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/power_monitor/ina228)
 
 
 ### Description
@@ -612,7 +612,7 @@ ina228 <command> [arguments...]
    status        print status info
 ```
 ## ina238
-Source: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina238)
+Source: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/power_monitor/ina238)
 
 
 ### Description
@@ -649,7 +649,7 @@ ina238 <command> [arguments...]
    status        print status info
 ```
 ## iridiumsbd
-Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/iridiumsbd)
+Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/telemetry/iridiumsbd)
 
 
 ### Description
@@ -676,7 +676,7 @@ iridiumsbd <command> [arguments...]
    status        print status info
 ```
 ## irlock
-Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/irlock)
+Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/irlock)
 
 <a id="irlock_usage"></a>
 
@@ -699,7 +699,7 @@ irlock <command> [arguments...]
    status        print status info
 ```
 ## linux_pwm_out
-Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/linux_pwm_out)
+Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/linux_pwm_out)
 
 
 ### 描述
@@ -718,7 +718,7 @@ linux_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## lsm303agr
-Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/lsm303agr)
+Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/magnetometer/lsm303agr)
 
 <a id="lsm303agr_usage"></a>
 
@@ -743,7 +743,7 @@ lsm303agr <command> [arguments...]
    status        print status info
 ```
 ## msp_osd
-Source: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/msp_osd)
+Source: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/osd/msp_osd)
 
 
 ### 描述
@@ -770,7 +770,7 @@ msp_osd <command> [arguments...]
    status        print status info
 ```
 ## newpixel
-Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/neopixel)
+Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/lights/neopixel)
 
 
 ### 描述
@@ -794,7 +794,7 @@ newpixel <command> [arguments...]
    status        print status info
 ```
 ## paa3905
-Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/paa3905)
+Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/optical_flow/paa3905)
 
 <a id="paa3905_usage"></a>
 
@@ -819,7 +819,7 @@ paa3905 <command> [arguments...]
    status        print status info
 ```
 ## paw3902
-Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/paw3902)
+Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/optical_flow/paw3902)
 
 <a id="paw3902_usage"></a>
 
@@ -844,7 +844,7 @@ paw3902 <command> [arguments...]
    status        print status info
 ```
 ## pca9685_pwm_out
-Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pca9685_pwm_out)
+Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/pca9685_pwm_out)
 
 
 ### 描述
@@ -878,7 +878,7 @@ pca9685_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pm_selector_auterion
-Source: [drivers/power_monitor/pm_selector_auterion](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/pm_selector_auterion)
+Source: [drivers/power_monitor/pm_selector_auterion](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/power_monitor/pm_selector_auterion)
 
 
 ### 描述
@@ -898,7 +898,7 @@ pm_selector_auterion <command> [arguments...]
    status        print status info
 ```
 ## pmw3901
-Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/pmw3901)
+Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/optical_flow/pmw3901)
 
 <a id="pmw3901_usage"></a>
 
@@ -923,7 +923,7 @@ pmw3901 <command> [arguments...]
    status        print status info
 ```
 ## pps_capture
-Source: [drivers/pps_capture](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pps_capture)
+Source: [drivers/pps_capture](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/pps_capture)
 
 
 ### 描述
@@ -943,7 +943,7 @@ pps_capture <command> [arguments...]
    status        print status info
 ```
 ## pwm_out
-Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_out)
+Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/pwm_out)
 
 
 ### 描述
@@ -963,7 +963,7 @@ pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pwm_out_sim
-Source: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/pwm_out_sim)
+Source: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/pwm_out_sim)
 
 
 ### 描述
@@ -989,7 +989,7 @@ pwm_out_sim <command> [arguments...]
    status        print status info
 ```
 ## px4flow
-Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/px4flow)
+Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/optical_flow/px4flow)
 
 <a id="px4flow_usage"></a>
 
@@ -1012,7 +1012,7 @@ px4flow <command> [arguments...]
    status        print status info
 ```
 ## px4io
-Source: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/px4io)
+Source: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/px4io)
 
 
 ### 描述
@@ -1053,7 +1053,7 @@ px4io <command> [arguments...]
    status        print status info
 ```
 ## rc_input
-Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc_input)
+Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/rc_input)
 
 
 ### 描述
@@ -1083,7 +1083,7 @@ rc_input <command> [arguments...]
    status        print status info
 ```
 ## rgbled
-Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_ncp5623c)
+Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/lights/rgbled_ncp5623c)
 
 <a id="rgbled_usage"></a>
 
@@ -1108,7 +1108,7 @@ rgbled <command> [arguments...]
    status        print status info
 ```
 ## rgbled_is31fl3195
-Source: [drivers/lights/rgbled_is31fl3195](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_is31fl3195)
+Source: [drivers/lights/rgbled_is31fl3195](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/lights/rgbled_is31fl3195)
 
 <a id="rgbled_is31fl3195_usage"></a>
 
@@ -1135,7 +1135,7 @@ rgbled_is31fl3195 <command> [arguments...]
    status        print status info
 ```
 ## rgbled_lp5562
-Source: [drivers/lights/rgbled_lp5562](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_lp5562)
+Source: [drivers/lights/rgbled_lp5562](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/lights/rgbled_lp5562)
 
 
 ### 描述
@@ -1168,7 +1168,7 @@ rgbled_lp5562 <command> [arguments...]
    status        print status info
 ```
 ## roboclaw
-Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/roboclaw)
+Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/roboclaw)
 
 
 ### 描述
@@ -1195,7 +1195,7 @@ roboclaw <command> [arguments...]
    status        print status info
 ```
 ## safety_button
-Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)
+Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/safety_button)
 
 
 ### 描述
@@ -1216,7 +1216,7 @@ safety_button <command> [arguments...]
    status        打印状态信息
 ```
 ## septentrio
-Source: [drivers/gnss/septentrio](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gnss/septentrio)
+Source: [drivers/gnss/septentrio](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/gnss/septentrio)
 
 
 ### 描述
@@ -1260,7 +1260,7 @@ septentrio <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## sht3x
-Source: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/hygrometer/sht3x)
+Source: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/hygrometer/sht3x)
 
 
 ### Description
@@ -1315,7 +1315,7 @@ sht3x <command> [arguments...]
    reset         Reinitialize sensor
 ```
 ## tap_esc
-Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
+Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/tap_esc)
 
 
 ### 描述
@@ -1347,7 +1347,7 @@ tap_esc <command> [arguments...]
                  default: 4
 ```
 ## tone_alarm
-Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tone_alarm)
+Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/tone_alarm)
 
 
 ### 描述
@@ -1367,7 +1367,7 @@ tone_alarm <command> [arguments...]
    status        print status info
 ```
 ## uwb
-Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uwb/uwb_sr150)
+Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/uwb/uwb_sr150)
 
 
 ### Description
@@ -1399,7 +1399,7 @@ uwb <command> [arguments...]
    status
 ```
 ## voxl2_io
-Source: [drivers/voxl2_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/voxl2_io)
+Source: [drivers/voxl2_io](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/voxl2_io)
 
 
 ### Description
@@ -1433,7 +1433,7 @@ voxl2_io <command> [arguments...]
    status        print status info
 ```
 ## voxl_esc
-Source: [drivers/actuators/voxl_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/voxl_esc)
+Source: [drivers/actuators/voxl_esc](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/actuators/voxl_esc)
 
 
 ### Description
@@ -1493,7 +1493,7 @@ voxl_esc <command> [arguments...]
    status        print status info
 ```
 ## voxlpm
-Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/voxlpm)
+Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/power_monitor/voxlpm)
 
 <a id="voxlpm_usage"></a>
 
@@ -1518,7 +1518,7 @@ voxlpm [arguments...]
    status        print status info
 ```
 ## zenoh
-Source: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/zenoh)
+Source: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/zenoh)
 
 
 ### Description

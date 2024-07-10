@@ -187,7 +187,7 @@ _Примітка: відображені відображення стосую�
 Будь ласка, відвідайте [Форум ModalAI](https://forum.modalai.com/category/8/voxl-flight) для отримання додаткової інформації.
 
 [stm32f765ii]: https://www.st.com/en/microcontrollers-microprocessors/stm32f765ii.html
-[px4]: https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1
+[px4]: https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/modalai/fc-v1
 [icm-20602]: https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/
 [bmi088]: https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1
 [bmp388]: https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp388/

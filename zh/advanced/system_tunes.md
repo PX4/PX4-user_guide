@@ -2,7 +2,7 @@
 
 PX4 定义了一些用于为系统状态和问题提供音频通知的 [标准音符/提示音](../getting_started/tunes.md)（比如系统启动，解锁成功，电池警告等）
 
-Tunes are specified using strings (in [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) and played by code using the [tunes](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/tunes) library. 乐曲库也包含默认系统调节列表 - 见 [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/tunes/tune_definition.desc)。
+Tunes are specified using strings (in [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) and played by code using the [tunes](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/lib/tunes) library. 乐曲库也包含默认系统调节列表 - 见 [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/tunes/tune_definition.desc)。
 
 PX4 还有一个模块可以用于播放（测试）默认或用户自定义音乐。
 

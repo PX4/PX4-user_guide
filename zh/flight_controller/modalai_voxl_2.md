@@ -65,7 +65,7 @@ More information about the firmware can be found [here](https://docs.modalai.com
 
 ### main branch
 
-PX4 mainline supports VOXL 2 (board documentation [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
+PX4 mainline supports VOXL 2 (board documentation [here](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/modalai/voxl2)).
 
 ## QGroundControl Support
 

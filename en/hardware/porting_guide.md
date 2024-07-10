@@ -4,17 +4,17 @@ This topic is for developers who want to port PX4 to work with _new_ flight cont
 
 ## PX4 Architecture
 
-PX4 consists of two main layers: The [board support and middleware layer](../middleware/index.md) on top of the host OS (NuttX, Linux or any other POSIX platform like Mac OS), and the applications (Flight Stack in [src/modules](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules)\). Please reference the [PX4 Architectural Overview](../concept/architecture.md) for more information.
+PX4 consists of two main layers: The [board support and middleware layer](../middleware/index.md) on top of the host OS (NuttX, Linux or any other POSIX platform like Mac OS), and the applications (Flight Stack in [src/modules](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules)\). Please reference the [PX4 Architectural Overview](../concept/architecture.md) for more information.
 
 This guide is focused only on the host OS and middleware as the applications/flight stack will run on any board target.
 
 ## Flight Controller Configuration File Layout
 
-Board startup and configuration files are located under [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards/) in each board's vendor-specific directory (i.e. **boards/_VENDOR_/_MODEL_/**).
+Board startup and configuration files are located under [/boards](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/) in each board's vendor-specific directory (i.e. **boards/_VENDOR_/_MODEL_/**).
 
 For example, for FMUv5:
 
-- (All) Board-specific files: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5).<!-- NEED px4_version -->
+- (All) Board-specific files: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/px4/fmu-v5).<!-- NEED px4_version -->
 - Build configuration: [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/default.px4board).<!-- NEED px4_version -->
 - Board-specific initialisation file: [/boards/px4/fmu-v5/init/rc.board_defaults](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/init/rc.board_defaults) <!-- NEED px4_version -->
   - A board-specific initialisation file is automatically included in startup scripts if found under the boards directory at **init/rc.board**.
@@ -43,9 +43,9 @@ This section describes the various middleware components, and the configuration 
 
 ### QuRT / Hexagon
 
-- The start script is located in [posix-configs/](https://github.com/PX4/PX4-Autopilot/tree/main/posix-configs). <!-- NEED px4_version -->
+- The start script is located in [posix-configs/](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/posix-configs). <!-- NEED px4_version -->
 - The OS configuration is part of the default Linux image (TODO: Provide location of LINUX IMAGE and flash instructions).
-- The PX4 middleware configuration is located in [src/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards). <!-- NEED px4_version --> TODO: ADD BUS CONFIG
+- The PX4 middleware configuration is located in [src/boards](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards). <!-- NEED px4_version --> TODO: ADD BUS CONFIG
 
 ## RC UART Wiring Recommendations
 

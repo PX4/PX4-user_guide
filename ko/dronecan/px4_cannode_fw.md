@@ -2,7 +2,7 @@
 
 PX4 can run as the firmware on many DroneCAN peripherals. There are multiple benefits to this:
 
-- PX4 has built-in drivers for a [wide range](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers) of sensors and peripherals components.
+- PX4 has built-in drivers for a [wide range](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers) of sensors and peripherals components.
 - PX4 has a robust DroneCAN driver implementation that has undergone multiple years of field testing.
 - PX4 is continuously being developed. You routinely get access to the latest improvements.
 - PX4's estimation and control code makes it easy to create "smart" cannodes like integrated AHRS modules.
@@ -10,7 +10,7 @@ PX4 can run as the firmware on many DroneCAN peripherals. There are multiple ben
 
 ## Building the Firmware
 
-Follow the [PX4 building docs](../dev_setup/building_px4.md) just as you would to build firmware for a flight controller. Device build configurations are stored [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards). After installing the [PX4 toolchain](../dev_setup/dev_env.md), clone the sources and build. For example, to build for the [Ark Flow](ark_flow.md) target:
+Follow the [PX4 building docs](../dev_setup/building_px4.md) just as you would to build firmware for a flight controller. Device build configurations are stored [here](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards). After installing the [PX4 toolchain](../dev_setup/dev_env.md), clone the sources and build. For example, to build for the [Ark Flow](ark_flow.md) target:
 
 ```sh
 git clone --recursive https://github.com/PX4/PX4-Autopilot
@@ -54,6 +54,6 @@ The binary can then be flashed to the microcontroller using your favorite SWD/JT
 
 For the most part, peripheral firmware works the same way as flight controller firmware builds. However, most modules are disabled - only the sensor drivers, DroneCAN driver, and internal infrastructure (uORB, etc.) are enabled.
 
-DroneCAN communication is handled by the [uavcannode](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uavcannode) module. This driver handles producer-side communication - it takes sensor/actuator data from uORB, serializes it using the DroneCAN libraries, and publishes it over CAN. In the future, this will likely be merged with the [uavcan](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uavcan) module which handles flight controller side (consumer side) drivers, which receive/deserialize data from the CAN bus and publish them over uORB.
+DroneCAN communication is handled by the [uavcannode](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/uavcannode) module. This driver handles producer-side communication - it takes sensor/actuator data from uORB, serializes it using the DroneCAN libraries, and publishes it over CAN. In the future, this will likely be merged with the [uavcan](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/uavcan) module which handles flight controller side (consumer side) drivers, which receive/deserialize data from the CAN bus and publish them over uORB.
 
 The build system also produces firmware binaries designed to be flashed through a DroneCAN bootloader via [PX4's DroneCAN flashing support] or the DroneCAN GUI, in addition to the standard raw binary, ELF, and `.px4` firmware files.

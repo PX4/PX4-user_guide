@@ -32,7 +32,7 @@ PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) публі
 
 PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) генерується під час збирання і входить до складу прошивки PX4 за замовчуванням. Агент не залежить від клієнтського коду. Він може бути побудований окремо або в робочому просторі ROS 2, або встановлений як snap пакет в Ubuntu.
 
-Під час збирання PX4 генератор коду використовує визначення повідомлень uORB у дереві вихідних текстів ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) для компіляції підтримки підмножини тем uORB у [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml) у [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
+Під час збирання PX4 генератор коду використовує визначення повідомлень uORB у дереві вихідних текстів ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/msg)) для компіляції підтримки підмножини тем uORB у [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml) у [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
 
 Основні або релізні збірки PX4 автоматично експортують набір визначень повідомлень uORB у збірці до відповідної гілки у [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
 
@@ -283,7 +283,7 @@ ROS_DOMAIN_ID=3 PX4_UXRCE_DDS_PORT=9999 PX4_UXRCE_DDS_NS=drone make px4_sitl gz_
 Зауважте, що для інтерпретації повідомлень ROS 2/DDS повинен мати _такі самі_ визначення повідомлень, які були використані для створення клієнтського модуля uXRCE-DDS у прошивці PX4. Визначення повідомлень зберігаються в пакеті інтерфейсу ROS 2 [PX4/px4_msgs](https://github.com/PX4/px4_msgs), і вони автоматично синхронізуються CI у гілках `main` та release. Зверніть увагу, що всі повідомлення з вихідного коду PX4 присутні в репозиторії, але лише ті, які перелічені в `dds_topics.yaml`, будуть доступні як теми ROS 2. Тому,
 
 - Якщо ви використовуєте основну або релізну версію PX4, ви можете отримати визначення повідомлень, клонуючи пакет інтерфейсу [PX4/px4_msgs](https://github.com/PX4/px4_msgs) у вашу робочу область.
-- Якщо ви створюєте або змінюєте повідомлення uORB, вам потрібно вручну оновити повідомлення у вашому робочому просторі з вихідного дерева PX4. Загалом це означає, що вам слід оновити [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml), клонувати пакет інтерфейсу, а потім вручну синхронізувати його, скопіювавши нові/змінені визначення повідомлень з [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) до його папки `msg`. Якщо припустити, що PX4-Autopilot знаходиться у вашому домашньому каталозі `~`, а `px4_msgs` - у `~/px4_ros_com/src/`, то команда може бути такою:
+- Якщо ви створюєте або змінюєте повідомлення uORB, вам потрібно вручну оновити повідомлення у вашому робочому просторі з вихідного дерева PX4. Загалом це означає, що вам слід оновити [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml), клонувати пакет інтерфейсу, а потім вручну синхронізувати його, скопіювавши нові/змінені визначення повідомлень з [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/msg) до його папки `msg`. Якщо припустити, що PX4-Autopilot знаходиться у вашому домашньому каталозі `~`, а `px4_msgs` - у `~/px4_ros_com/src/`, то команда може бути такою:
 
   ```sh
   rm ~/px4_ros_com/src/px4_msgs/msg/*.msg
@@ -440,7 +440,7 @@ uXRCE-DDS не потребує залежностей, які були потр
 
 Цілі make з розширенням `_rtps` було використано для створення прошивки, яка містила код RTPS на стороні клієнта. Проміжне програмне забезпечення uXRCE-DDS за замовчуванням включено до збірок для більшості плат, тому вам більше не потрібна спеціальна прошивка для роботи з ROS 2.
 
-Щоб перевірити, чи має ваша плата проміжне програмне забезпечення, знайдіть `CONFIG_MODULES_UXRCE_DDS_CLIENT=y` у файлі `.px4board` вашої плати. Ці файли вкладено до каталогу [PX4-Autopilot/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards).
+Щоб перевірити, чи має ваша плата проміжне програмне забезпечення, знайдіть `CONFIG_MODULES_UXRCE_DDS_CLIENT=y` у файлі `.px4board` вашої плати. Ці файли вкладено до каталогу [PX4-Autopilot/boards](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards).
 
 Якщо його немає, або якщо він має значення `n`, то вам доведеться клонувати репозиторій PX4, змінити конфігурацію плати і вручну [скомпілювати](../dev_setup/building_px4.md) прошивку.
 

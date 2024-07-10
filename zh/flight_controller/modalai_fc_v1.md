@@ -134,5 +134,5 @@ Please visit the [ModalAI Forum](https://forum.modalai.com/category/10/flight-co
 [bmp388]: https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp388/
 [icm-20602]: https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/
 [bmi088]: https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1
-[px4]: https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1
+[px4]: https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/modalai/fc-v1
 [a71ch]: https://www.nxp.com/products/security-and-authentication/authentication/plug-and-trust-the-fast-easy-way-to-deploy-secure-iot-connections:A71CH

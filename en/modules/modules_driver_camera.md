@@ -1,6 +1,6 @@
 # Modules Reference: Camera (Driver)
 ## camera_trigger
-Source: [drivers/camera_trigger](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger)
+Source: [drivers/camera_trigger](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_trigger)
 
 
 ### Description

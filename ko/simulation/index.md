@@ -190,7 +190,7 @@ To disable lockstep in jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/
 
 ### 시작 스크립트
 
-스크립트는 매개변수 설정과 시작 모듈 제어에 사용됩니다. They are located in the [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix) directory, the `rcS` file is the main entry point. 자세한 내용은 [시스템 시작](../concept/system_startup.md)을 참고하십시오.
+스크립트는 매개변수 설정과 시작 모듈 제어에 사용됩니다. They are located in the [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/ROMFS/px4fmu_common/init.d-posix) directory, the `rcS` file is the main entry point. 자세한 내용은 [시스템 시작](../concept/system_startup.md)을 참고하십시오.
 
 ### 안정장치 및 센서/하드웨어 오류 시뮬레이션
 

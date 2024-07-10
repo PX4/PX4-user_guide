@@ -11,7 +11,7 @@
 本主题解释了如何设置IDE并开始开发。
 
 :::note
-还有其他强大的IDE，但它们通常需要更多的努力与 PX4 集成。 使用 _VScode_的配置存储在 PX4/PX4-Autopilot 树中([PX4-Autopilot/vscode](https://github.com/PX4/PX4-Autopilot/tree/main/.vscode)因此安装过程像添加项目文件夹一样简单。
+还有其他强大的IDE，但它们通常需要更多的努力与 PX4 集成。 使用 _VScode_的配置存储在 PX4/PX4-Autopilot 树中([PX4-Autopilot/vscode](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/.vscode)因此安装过程像添加项目文件夹一样简单。
 :::
 
 ## 前置条件

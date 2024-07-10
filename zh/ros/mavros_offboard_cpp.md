@@ -7,7 +7,7 @@ _Offboard_ 控制很危险 如果你是在一个真正的无人机平台上进�
 :::
 
 :::tip
-该例程使用C++。 可以在[ROS/MAVROS Offboard 示例 (Python)](../ros/mavros_offboard_python.md)中找到一个非常相似的Python案例（也可以在[integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros)中找到）
+该例程使用C++。 可以在[ROS/MAVROS Offboard 示例 (Python)](../ros/mavros_offboard_python.md)中找到一个非常相似的Python案例（也可以在[integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/integrationtests/python_src/px4_it/mavros)中找到）
 :::
 
 <video width="100%" autoplay="true" controls="true">

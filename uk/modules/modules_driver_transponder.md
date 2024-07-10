@@ -1,6 +1,6 @@
 # Modules Reference: Транспондер (Драйвер)
 ## sagetech_mxs
-Джерело: [drivers/transponder/sagetech_mxs](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/transponder/sagetech_mxs)
+Джерело: [drivers/transponder/sagetech_mxs](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/transponder/sagetech_mxs)
 
     ### Description
     

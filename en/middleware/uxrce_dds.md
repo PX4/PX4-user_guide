@@ -38,7 +38,7 @@ The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is gen
 The agent has no dependency on client code.
 It can be built standalone or in a ROS 2 workspace, or installed as a snap package on Ubuntu.
 
-When PX4 is built, a code generator uses the uORB message definitions in the source tree ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) to compile support for the subset of uORB topics in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml) into [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
+When PX4 is built, a code generator uses the uORB message definitions in the source tree ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/msg)) to compile support for the subset of uORB topics in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml) into [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
 
 PX4 main or release builds automatically export the set of uORB messages definitions in the build to an associated branch in [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
 
@@ -325,7 +325,7 @@ Therefore,
 
 - If you're using a main or release version of PX4 you can get the message definitions by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your workspace.
 - If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree.
-  Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders.
+  Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/msg) to its `msg` folders.
   Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be:
 
   ```sh
@@ -506,7 +506,7 @@ The make targets with extension `_rtps` were used to build firmware that include
 The uXRCE-DDS middleware is included by default in builds for most boards, so you no longer need a special firmware to work with ROS 2.
 
 To check if your board has the middleware, look for `CONFIG_MODULES_UXRCE_DDS_CLIENT=y` in the `.px4board` file of your board.
-Those files are nested in [PX4-Autopilot/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards).
+Those files are nested in [PX4-Autopilot/boards](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards).
 
 If it is not present, or if it is set to `n`, then you have to clone the PX4 repo, modify the board configuration and manually [compile](../dev_setup/building_px4.md) the firmware.
 

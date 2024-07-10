@@ -19,9 +19,9 @@ PX4 може викликати [camera](../camera/index.md), підключен
 Камери також можуть (за бажанням) сигналізувати PX4 у саму точну мить, коли знімається фото/кадр, використовуючи [вивід захоплення камери](#camera-capture-configuration), який приєднаний до їх гарячого черевика.
 Це дозволяє більш точну прив'язку зображень до позиції GPS для прив'язки до місцевості або потрібну вибірку IMU для синхронізації ВІО, тощо.
 
-<!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger -->
+<!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_trigger -->
 
-<!-- Camera capture driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture -->
+<!-- Camera capture driver: https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_capture -->
 
 ## Командний інтерфейс MAVLink
 
@@ -312,5 +312,5 @@ end
 
 ## Дивіться також
 
-- Тригер драйверу камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger)<!-- no module doc -->
-- Драйвер захоплення камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture) <!-- no module doc -->
+- Тригер драйверу камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_trigger)<!-- no module doc -->
+- Драйвер захоплення камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/camera_capture) <!-- no module doc -->

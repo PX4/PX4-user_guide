@@ -80,7 +80,7 @@ dps310 <command> [arguments...]
    status        print status info
 ```
 ## icp101xx
-Source: [drivers/barometer/invensense/icp101xx](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer/invensense/icp101xx)
+Source: [drivers/barometer/invensense/icp101xx](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/barometer/invensense/icp101xx)
 
 <a id="icp101xx_usage"></a>
 
@@ -103,7 +103,7 @@ icp101xx <command> [arguments...]
    status        print status info
 ```
 ## icp201xx
-Source: [drivers/barometer/invensense/icp201xx](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer/invensense/icp201xx)
+Source: [drivers/barometer/invensense/icp201xx](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/barometer/invensense/icp201xx)
 
 <a id="icp201xx_usage"></a>
 

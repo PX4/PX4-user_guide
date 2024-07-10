@@ -1,7 +1,7 @@
 # 모듈 참조: 시스템
 
 ## battery_simulator
-Source: [modules/simulation/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/battery_simulator)
+Source: [modules/simulation/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/battery_simulator)
 
 
 ### 설명
@@ -78,7 +78,7 @@ camera_feedback <command> [arguments...]
    status        print status info
 ```
 ## cdcacm_autostart
-Source: [drivers/cdcacm_autostart](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/cdcacm_autostart)
+Source: [drivers/cdcacm_autostart](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/cdcacm_autostart)
 
 
 ### 설명
@@ -286,7 +286,7 @@ heater <command> [arguments...]
    test          prints PWM capture info.
 ```
 ## i2c_launcher
-Source: [systemcmds/i2c_launcher](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2c_launcher)
+Source: [systemcmds/i2c_launcher](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/systemcmds/i2c_launcher)
 
 
 ### 설명
@@ -593,7 +593,7 @@ send_event <command> [arguments...]
    status        print status info
 ```
 ## sensor_arispeed_sim
-Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)
+Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/sensor_airspeed_sim)
 
 
 ### Description
@@ -613,7 +613,7 @@ sensor_arispeed_sim <command> [arguments...]
    status        print status info
 ```
 ## sensor_baro_sim
-Source: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_baro_sim)
+Source: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/sensor_baro_sim)
 
 
 ### Description
@@ -633,7 +633,7 @@ sensor_baro_sim <command> [arguments...]
    status        print status info
 ```
 ## sensor_gps_sim
-Source: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_gps_sim)
+Source: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/sensor_gps_sim)
 
 
 ### 설명
@@ -653,7 +653,7 @@ sensor_gps_sim <command> [arguments...]
    status        print status info
 ```
 ## sensor_mag_sim
-Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_mag_sim)
+Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/simulation/sensor_mag_sim)
 
 
 ### Description
@@ -790,7 +790,7 @@ tune_control <command> [arguments...]
    stop          Stop playback (use for repeated tunes)
 ```
 ## uxrce_dds_client
-Source: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
+Source: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules/uxrce_dds_client)
 
 
 ### Description

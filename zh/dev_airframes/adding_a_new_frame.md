@@ -2,7 +2,7 @@
 
 PX4 [frame configuration files](#configuration-file-overview) are shell scripts that set up some (or all) of the parameters, controllers and apps needed for a particular vehicle frame, such as a quadcopter, ground vehicle, or boat. These scripts are executed when the corresponding [airframe is selected and applied](../config/airframe.md) in _QGroundControl_.
 
-The configuration files that are compiled into firmware for NuttX targets are located in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) folder (configuration files for POSIX simulators are stored in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix/airframes)). The folder contains both complete and full configurations for specific vehicles, and partial "generic configurations" for different vehicle types. The generic configurations are often used as the starting point for creating new configuration files.
+The configuration files that are compiled into firmware for NuttX targets are located in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/ROMFS/px4fmu_common/init.d) folder (configuration files for POSIX simulators are stored in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/ROMFS/px4fmu_common/init.d-posix/airframes)). The folder contains both complete and full configurations for specific vehicles, and partial "generic configurations" for different vehicle types. The generic configurations are often used as the starting point for creating new configuration files.
 
 In addition, a frame configuration file can also be loaded from an SD card.
 
@@ -30,7 +30,7 @@ Alternatively you can just append the modified parameters to the startup configu
 
 To add a frame configuration to firmware:
 
-1. Create a new config file in the [init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes) folder.
+1. Create a new config file in the [init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/ROMFS/px4fmu_common/init.d/airframes) folder.
    - Give it a short descriptive filename and prepend the filename with an unused autostart ID (for example, `1033092_superfast_vtol`).
    - Update the file with configuration parameters and apps (see section above).
 1. Add the name of the new frame config file to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) in the relevant section for the type of vehicle
@@ -256,7 +256,7 @@ Airframe "groups" are used to group similar airframes for selection in [QGroundC
 
 The airframe metadata files used by _QGroundControl_ and the documentation source code are generated from the airframe description, via a script, using the build command: `make airframe_metadata`
 
-For a new frame belonging to an existing group, you don't need to do anything more than provide documentation in the airframe description located at [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d).
+For a new frame belonging to an existing group, you don't need to do anything more than provide documentation in the airframe description located at [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/ROMFS/px4fmu_common/init.d).
 
 If the airframe is for a **new group** you additionally need to:
 

@@ -106,7 +106,7 @@ _QGroundControl_ only displays the parameters for services/drivers that are pres
 ::: info PX4 firmware includes most drivers by default on [Pixhawk-series](../flight_controller/pixhawk_series.md) boards. Flash-limited boards may comment out/omit the driver (at time of writing this only affects boards based on FMUv2).
 :::
 
-You can include the missing driver in firmware by enabling the driver in the **default.px4board** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4) you want to build for. For example, to enable the SRF02 driver, you would a the following line to the px4board.
+You can include the missing driver in firmware by enabling the driver in the **default.px4board** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/px4) you want to build for. For example, to enable the SRF02 driver, you would a the following line to the px4board.
 
 ```
 CONFIG_DRIVERS_DISTANCE_SENSOR_SRF02=y

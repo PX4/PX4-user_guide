@@ -104,7 +104,7 @@ hmc5883 <command> [arguments...]
    status        print status info
 ```
 ## iis2mdc
-Source: [drivers/magnetometer/st/iis2mdc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/st/iis2mdc)
+Source: [drivers/magnetometer/st/iis2mdc](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/magnetometer/st/iis2mdc)
 
 <a id="iis2mdc_usage"></a>
 
@@ -264,7 +264,7 @@ lsm9ds1_mag <command> [arguments...]
    status        print status info
 ```
 ## mmc5983ma
-Source: [drivers/magnetometer/memsic/mmc5983ma](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/memsic/mmc5983ma)
+Source: [drivers/magnetometer/memsic/mmc5983ma](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/magnetometer/memsic/mmc5983ma)
 
 <a id="mmc5983ma_usage"></a>
 

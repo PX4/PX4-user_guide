@@ -1,7 +1,7 @@
 # Modules Reference: Template
 
 ## module
-Джерело: [templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/main/src/templates/template_module)
+Джерело: [templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/templates/template_module)
 
 
 ### Опис
@@ -35,7 +35,7 @@ module <command> [arguments...]
    status        print status info
 ```
 ## work_item_example
-Джерело: [examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/work_item)
+Джерело: [examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/examples/work_item)
 
 
 ### Опис

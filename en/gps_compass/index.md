@@ -172,4 +172,4 @@ Compass calibration for an included compass part is covered in: [Compass Configu
   - [GPS driver](../modules/modules_driver.md#gps)
   - [DroneCAN Example](../dronecan/index.md)
 - Compass
-  - [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer) (Compasses)
+  - [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/drivers/magnetometer) (Compasses)

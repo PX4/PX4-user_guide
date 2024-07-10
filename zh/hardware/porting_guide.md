@@ -4,17 +4,17 @@
 
 ## PX4 架构
 
-PX4 consists of two main layers: The [board support and middleware layer](../middleware/index.md) on top of the host OS (NuttX, Linux or any other POSIX platform like Mac OS), and the applications (Flight Stack in [src/modules](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules)\). 更多有关详细信息请参阅： [PX4 系统架构概述](../concept/architecture.md) 。
+PX4 consists of two main layers: The [board support and middleware layer](../middleware/index.md) on top of the host OS (NuttX, Linux or any other POSIX platform like Mac OS), and the applications (Flight Stack in [src/modules](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/src/modules)\). 更多有关详细信息请参阅： [PX4 系统架构概述](../concept/architecture.md) 。
 
 本指南仅关注主机操作系统和中间件，因为 应用层/飞行控制栈 可以在任何目标平台上运行。
 
 ## 飞行控制器配置文件分布位置
 
-Board startup and configuration files are located under [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards/) in each board's vendor-specific directory (i.e. **boards/_VENDOR_/_MODEL_/**).
+Board startup and configuration files are located under [/boards](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/) in each board's vendor-specific directory (i.e. **boards/_VENDOR_/_MODEL_/**).
 
 例如，对于 FMUv5 飞控硬件平台：
 
-- (All) Board-specific files: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5).<!-- NEED px4_version -->
+- (All) Board-specific files: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/px4/fmu-v5).<!-- NEED px4_version -->
 - Build configuration: [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/default.px4board).<!-- NEED px4_version -->
 - Board-specific initialisation file: [/boards/px4/fmu-v5/init/rc.board_defaults](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/init/rc.board_defaults) <!-- NEED px4_version -->
   - 如果在飞控板平台目录下可以找到 **init/rc.board** 文件，则针对该飞控板平台的初始化文件将会自动包含在启动脚本中。
@@ -41,9 +41,9 @@ See [NuttX Board Porting Guide](porting_guide_nuttx.md).
 
 ### QuRT / Hexagon
 
-- The start script is located in [posix-configs/](https://github.com/PX4/PX4-Autopilot/tree/main/posix-configs). <!-- NEED px4_version -->
+- The start script is located in [posix-configs/](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/posix-configs). <!-- NEED px4_version -->
 - 操作系统配置是默认 Linux 镜像的一部分（TODO: 需要提供 LINUX 镜像文件位置和程序烧写指南）。
-- The PX4 middleware configuration is located in [src/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards). <!-- NEED px4_version --> TODO: ADD BUS CONFIG
+- The PX4 middleware configuration is located in [src/boards](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards). <!-- NEED px4_version --> TODO: ADD BUS CONFIG
 
 ## RC UART 接线建议
 

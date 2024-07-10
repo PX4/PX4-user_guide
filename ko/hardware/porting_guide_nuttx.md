@@ -4,7 +4,7 @@ NuttX의 PX4를 포팅하려면, 하드웨어가 NuttX를 지원하여야 합니
 
 다음 가이드에서는 기존 지원 하드웨어를 사용하거나, NuttX([PX4 기본 레이어](https://github.com/PX4/PX4-Autopilot/tree/master/platforms/nuttx/src/px4) 포함)를 이미 포팅하였다고 가정합니다.
 
-모든 보드를 대상으로 한 설정 파일, 링커 스크립트와 기타 필요한 설정은 제조사별 보드별 디렉터리 [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards/) in a vendor- and board-specific directory (i.e. **boards/_VENDOR_/_MODEL_/**)).
+모든 보드를 대상으로 한 설정 파일, 링커 스크립트와 기타 필요한 설정은 제조사별 보드별 디렉터리 [/boards](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/boards/) in a vendor- and board-specific directory (i.e. **boards/_VENDOR_/_MODEL_/**)).
 
 다음 예는 NuttX 비행 콘트롤러에 대한 최근 [참조 설정](../hardware/reference_design.md)인 FMUv5를 사용합니다.
 
