@@ -52,7 +52,11 @@
 
 ### Тюнінг
 
-- [Autotune](../config/autotune.md) (Рекомендовано для апаратів та платформ, які підтримують цю функцію)
+Auto-tuning is supported, and recommended, on the following frames:
+
+- [Autotune (Multicopter)](../config/autotune_mc.md)
+- [Autotune (Fixed Wing)](../config/autotune_fw.md)
+- [Autotune (VTOL)](../config/autotune_vtol.md)
 
 ## Відеоінструкція
 
