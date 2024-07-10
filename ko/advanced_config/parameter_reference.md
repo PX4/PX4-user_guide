@@ -19627,13 +19627,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="RA_ACC_RAD_DEF">RA_ACC_RAD_DEF</strong> (FLOAT)</td>
- <td>Default acceptance radius    </td>
- <td>[0.1, 100] (0.01)</td>
- <td>0.5</td>
- <td>m</td>
-</tr>
-<tr>
  <td><strong id="RA_ACC_RAD_GAIN">RA_ACC_RAD_GAIN</strong> (FLOAT)</td>
  <td>Tuning parameter for corner cutting <p><strong>Comment:</strong> The geometric ideal acceptance radius is multiplied by this factor to account for kinematic and dynamic effects. Higher value -&gt; The rover starts to cut the corner earlier.</p>   </td>
  <td>[1, 100] (0.01)</td>
@@ -19642,8 +19635,8 @@ table {
 </tr>
 <tr>
  <td><strong id="RA_ACC_RAD_MAX">RA_ACC_RAD_MAX</strong> (FLOAT)</td>
- <td>Maximum acceptance radius <p><strong>Comment:</strong> The controller scales the acceptance radius based on the angle between the previous, current and next waypoint. Used as tuning parameter. Higher value -&gt; smoother trajectory at the cost of how close the rover gets to the waypoint (Set equal to RA_ACC_RAD_DEF to disable corner cutting).</p>   </td>
- <td>[0.1, 100] (0.01)</td>
+ <td>Maximum acceptance radius for the waypoints <p><strong>Comment:</strong> The controller scales the acceptance radius based on the angle between the previous, current and next waypoint. Higher value -&gt; smoother trajectory at the cost of how close the rover gets to the waypoint (Set to -1 to disable corner cutting).</p>   </td>
+ <td>[-1, 100] (0.01)</td>
  <td>3</td>
  <td>m</td>
 </tr>
@@ -19669,6 +19662,20 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="RA_MAX_ACCEL">RA_MAX_ACCEL</strong> (FLOAT)</td>
+ <td>Maximum acceleration for the rover <p><strong>Comment:</strong> This is used for the acceleration slew rate, the feed-forward term for the speed controller during missions and the corner slow down effect. Note: For the corner slow down effect RA_MAX_JERK, RA_MISS_VEL_GAIN and RA_MISS_VEL_MIN also have to be set.</p>   </td>
+ <td>[-1, 100] (0.01)</td>
+ <td>-1</td>
+ <td>m/s^2</td>
+</tr>
+<tr>
+ <td><strong id="RA_MAX_JERK">RA_MAX_JERK</strong> (FLOAT)</td>
+ <td>Maximum jerk <p><strong>Comment:</strong> Limit for forwards acc/deceleration change. This is used for the corner slow down effect. Note: RA_MAX_ACCEL, RA_MISS_VEL_GAIN and RA_MISS_VEL_MIN also have to be set for this to be enabled.</p>   </td>
+ <td>[-1, 100] (0.01)</td>
+ <td>-1</td>
+ <td>m/s^3</td>
+</tr>
+<tr>
  <td><strong id="RA_MAX_SPEED">RA_MAX_SPEED</strong> (FLOAT)</td>
  <td>Speed the rover drives at maximum throttle <p><strong>Comment:</strong> This is used for the feed-forward term of the speed controller. A value of -1 disables the feed-forward term in which case the Integrator (RA_SPEED_I) becomes necessary to track speed setpoints.</p>   </td>
  <td>[-1, 100] (0.01)</td>
@@ -19683,23 +19690,30 @@ table {
  <td>rad</td>
 </tr>
 <tr>
+ <td><strong id="RA_MAX_STR_RATE">RA_MAX_STR_RATE</strong> (FLOAT)</td>
+ <td>Maximum steering rate for the rover    </td>
+ <td>[-1, 1000] (0.01)</td>
+ <td>-1</td>
+ <td>deg/s</td>
+</tr>
+<tr>
  <td><strong id="RA_MISS_VEL_DEF">RA_MISS_VEL_DEF</strong> (FLOAT)</td>
  <td>Default rover velocity during a mission    </td>
- <td>[0.1, 100] (0.01)</td>
- <td>3</td>
+ <td>[0, 100] (0.01)</td>
+ <td>2</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="RA_MISS_VEL_GAIN">RA_MISS_VEL_GAIN</strong> (FLOAT)</td>
- <td>Tuning parameter for the velocity reduction during cornering <p><strong>Comment:</strong> Lower value -&gt; More velocity reduction during cornering</p>   </td>
- <td>[0.1, 100] (0.01)</td>
+ <td>Tuning parameter for the velocity reduction during cornering <p><strong>Comment:</strong> The cornering speed is equal to the inverse of the acceptance radius of the WP multiplied with this factor. Lower value -&gt; More velocity reduction during cornering.</p>   </td>
+ <td>[0.05, 100] (0.01)</td>
  <td>5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RA_MISS_VEL_MIN">RA_MISS_VEL_MIN</strong> (FLOAT)</td>
- <td>Minimum rover velocity during a mission <p><strong>Comment:</strong> The velocity off the rover is reduced based on the corner it has to take to smooth the trajectory (To disable this feature set it equal to RA_MISSION_VEL_DEF)</p>   </td>
- <td>[0.1, 100] (0.01)</td>
+ <td>Minimum rover velocity during a mission <p><strong>Comment:</strong> The velocity off the rover is reduced based on the corner it has to take to smooth the trajectory (Set to -1 to disable)</p>   </td>
+ <td>[-1, 100] (0.01)</td>
  <td>1</td>
  <td>m/s</td>
 </tr>
@@ -22127,7 +22141,7 @@ table {
 </tr>
 <tr>
  <td><strong id="IMU_INTEG_RATE">IMU_INTEG_RATE</strong> (INT32)</td>
- <td>IMU integration rate <p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities. Recommended to set this to a multiple of the estimator update period (currently 10 ms for ekf2).</p> <strong>값:</strong><ul>
+ <td>IMU integration rate <p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities. Recommended to set this to a multiple of the estimator update period (currently 10 ms for ekf2).</p> <strong>Values:</strong><ul>
 <li><strong>100:</strong> 100 Hz</li>
 <li><strong>200:</strong> 200 Hz</li>
 <li><strong>250:</strong> 250 Hz</li>
@@ -23392,7 +23406,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT9_ROT">SENS_MPDT9_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 9 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>값:</strong><ul>
+ <td>MappyDot Sensor 9 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
