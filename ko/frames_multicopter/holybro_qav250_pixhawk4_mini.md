@@ -214,7 +214,7 @@ Then perform the mandatory setup/calibration:
 
 기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. These may be good enough to fly with, but you should tune each frame build.
 
-For instructions on how, start from [Autotune](../config/autotune.md).
+For instructions on how, start from [Autotune](../config/autotune_mc.md).
 
 
 ## 감사의 글
