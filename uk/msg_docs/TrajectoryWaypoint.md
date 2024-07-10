@@ -2,7 +2,7 @@
 
 Опис траекторії точки маршруту. Див. також Повідомлення Mavlink TRAJECTORY Тема trajectory_waypoint описує кожну точку маршруту, визначену в vehicle_trajectory_waypoint
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectoryWaypoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/TrajectoryWaypoint.msg)
 
 ```c
 # Waypoint Trajectory description. See also Mavlink TRAJECTORY msg

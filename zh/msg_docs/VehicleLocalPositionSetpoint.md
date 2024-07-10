@@ -2,7 +2,7 @@
 
 Local position setpoint in NED frame Telemetry of PID position controller to monitor tracking. NaN means the state was not controlled
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPositionSetpoint.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleLocalPositionSetpoint.msg)
 
 ```c
 # Local position setpoint in NED frame

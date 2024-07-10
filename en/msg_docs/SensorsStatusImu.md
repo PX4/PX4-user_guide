@@ -2,7 +2,7 @@
 
 Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorsStatusImu.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/SensorsStatusImu.msg)
 
 ```c
 #

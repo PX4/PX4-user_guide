@@ -2,7 +2,7 @@
 
 Configurable overrides by (external) modes or mode executors
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ConfigOverrides.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ConfigOverrides.msg)
 
 ```c
 # Configurable overrides by (external) modes or mode executors

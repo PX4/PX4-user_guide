@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TelemetryStatus.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/TelemetryStatus.msg)
 
 ```c
 uint8 LINK_TYPE_GENERIC = 0

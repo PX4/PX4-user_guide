@@ -3,7 +3,7 @@
 UWB distance contains the distance information measured by an ultra-wideband positioning system,
 such as Pozyx or NXP Rddrone.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorUwb.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/SensorUwb.msg)
 
 ```c
 # UWB distance contains the distance information measured by an ultra-wideband positioning system,

@@ -213,7 +213,7 @@ Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 The _SanDisk Extreme 
 - 使用参数 [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 禁用通知蜂鸣器。
 - [推流日志](../dev_log/logging.md#log-streaming) 到另一个组件（机载计算机）。
 - Store missions in RAM/FLASH.
-  <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/main/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+  <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 ## Payloads
 

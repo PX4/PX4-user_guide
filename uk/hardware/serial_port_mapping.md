@@ -17,7 +17,7 @@
 
 Файл **default.px4board** містить список зіставлень номерів портів UART з функціями (шукайте текст "SERIAL_PORTS").
 
-З [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board):
+З [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/default.px4board):
 
 ```
 CONFIG_BOARD_SERIAL_GPS1="/dev/ttyS0"
@@ -46,7 +46,7 @@ CONFIG_BOARD_SERIAL_TEL4="/dev/ttyS3"
 
 Файл _nsh/defconfig_ дозволяє визначити, які порти визначені, чи вони є UART або USART, і відображення між USART/UART та пристроєм. Ви також можете визначити, який порт використовується для [serial/debug console](../debug/system_console.md).
 
-Відкрийте файл defconfig плати, наприклад: [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L215-L221)
+Відкрийте файл defconfig плати, наприклад: [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L215-L221)
 
 Шукайте текст "ART" до тих пір, поки ви не знайдете розділ з записами у форматі `CONFIG_STM32xx_USARTn=y` (де `xx` - це тип процесора, а `n` - номер порту). Наприклад:
 
@@ -74,7 +74,7 @@ ttyS5 CONFIG_STM32F7_UART7=y
 ttyS6 CONFIG_STM32F7_UART8=y
 ```
 
-Для отримання зв'язку DEBUG консолі шукаємо файл конфігурації за замовчуванням [defconfig](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L212) і шукаємо <0>SERIAL_CONSOLE</0>. Нижче ми бачимо, що консоль знаходиться на UART7:
+Для отримання зв'язку DEBUG консолі шукаємо файл конфігурації за замовчуванням [defconfig](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L212) і шукаємо <0>SERIAL_CONSOLE</0>. Нижче ми бачимо, що консоль знаходиться на UART7:
 
 ```
 CONFIG_UART7_SERIAL_CONSOLE=y
@@ -84,7 +84,7 @@ CONFIG_UART7_SERIAL_CONSOLE=y
 
 Для контролерів польоту, що мають IO плату, визначте з'єднання PX4IO з файлу **board_config.h**, шляхом пошуку `PX4IO_SERIAL_DEVICE`.
 
-Наприклад, [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/src/board_config.h#L59):
+Наприклад, [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/src/board_config.h#L59):
 
 ```
 #define PX4IO_SERIAL_DEVICE            "/dev/ttyS6"

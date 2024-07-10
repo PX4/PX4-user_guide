@@ -21,7 +21,7 @@ Where possible, instead use [Return mode](../flight_modes_fw/return.md) with a p
 - RC stick movement is ignored.
 - The mode can be triggered using the [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) MAVLink command, or by explicitly switching to Land mode.
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 :::
 
 ## Technical Summary

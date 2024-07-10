@@ -5,7 +5,7 @@ The possible values of nav_state are defined in the VehicleStatus msg.
 Note that this is not always published (e.g. when a user switches modes or on
 failsafe activation)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ModeCompleted.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ModeCompleted.msg)
 
 ```c
 # Mode completion result, published by an active mode.

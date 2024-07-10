@@ -33,7 +33,7 @@
   - _ExtVision_ або _ExtVisionMin_: Повідомлення для зовнішніх систем візуалізації (ExtVision необхідний для VIO).
   - _Іридій_: Повідомлення для [супутникової комунікаційної системи Iridium](../advanced_features/satcom_roadblock.md).
 
-  ::: info Якщо вам потрібно знайти конкретний набір повідомлень для кожного режиму, виконайте пошук `MAVLINK_MODE_` у [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp).
+  ::: info Якщо вам потрібно знайти конкретний набір повідомлень для кожного режиму, виконайте пошук `MAVLINK_MODE_` у [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_main.cpp).
 :::
 
 :::tip

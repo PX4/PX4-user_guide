@@ -213,7 +213,7 @@ SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어는 
 - [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 매개변수로 알림음을 껍니다.
 - [스트림 로그](../dev_log/logging.md#log-streaming)를 다른 보조 장치에 기록합니다.
 - 비행 임무를 RAM/플래시에 저장합니다.
-  <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/main/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+  <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 ## Payloads
 

@@ -4,7 +4,7 @@
 
 Прапорці повинні мати назви такі, що false == відсутність відмови (наприклад, _invalid, _unhealthy, _lost) Коментарі до прапорців використовуються як мітка для симуляції аварійного стану машини
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/FailsafeFlags.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/FailsafeFlags.msg)
 
 ```c
 # Input flags for the failsafe state machine set by the arming & health checks.

@@ -7,7 +7,7 @@ Optional heading setpoints may be specified as controlled by the respective flag
 Unset optional setpoints are not controlled
 Unset optional constraints default to vehicle specifications
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GotoSetpoint.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/GotoSetpoint.msg)
 
 ```c
 # Position and (optional) heading setpoints with corresponding speed constraints

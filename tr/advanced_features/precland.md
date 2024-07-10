@@ -113,7 +113,7 @@ PX4 does not explicitly require a [distance sensor](../sensor/rangefinders.md) o
 
 Precision landing requires the modules `irlock` and `landing_target_estimator`. These are included in PX4 firmware by default, for most flight controllers.
 
-They are not included by default on FMUv2-based controllers. On these, and other boards where they are not included, you can add them by setting the following keys to 'y' in the relevant configuration file for your flight controller (e.g. as done here for FMUv5: [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board)):
+They are not included by default on FMUv2-based controllers. On these, and other boards where they are not included, you can add them by setting the following keys to 'y' in the relevant configuration file for your flight controller (e.g. as done here for FMUv5: [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/default.px4board)):
 
 ```
 CONFIG_DRIVERS_IRLOCK=y

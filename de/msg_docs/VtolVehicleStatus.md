@@ -2,7 +2,7 @@
 
 VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VtolVehicleStatus.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VtolVehicleStatus.msg)
 
 ```c
 # VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE

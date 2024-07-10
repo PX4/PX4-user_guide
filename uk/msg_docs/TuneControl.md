@@ -2,7 +2,7 @@
 
 Це повідомлення використовується для контролю мелодій, коли tune_id встановлено на CUSTOM то частота, тривалість використовуються, в іншому випадку ці значення ігноруються.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TuneControl.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/TuneControl.msg)
 
 ```c
 # Це повідомлення використовується для контролю мелодій, коли tune_id встановлено на CUSTOM

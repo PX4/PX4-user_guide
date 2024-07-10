@@ -55,8 +55,8 @@ PX4 включає репозиторій [mavlink/mavlink](https://github.com/m
 
 Інструментарій збірки генерує заголовні файли MAVLink 2 C під час збірки. XML-файл, для якого генеруються файли заголовків, можна визначити у конфігурації плати [PX4 kconfig](../hardware/porting_guide_config.md#px4-board-configuration-kconfig) для кожної окремої плати за допомогою змінної `CONFIG_MAVLINK_DIALECT`:
 
-- Для SITL `CONFIG_MAVLINK_DIALECT` встановлено у `development` у [boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board#L36). Ви можете змінити його на будь-який інший файл визначення, але він повинен містити `common.xml`.
-- Для інших плат `CONFIG_MAVLINK_DIALECT` не встановлено за замовчуванням, і PX4 збирає визначення у `common.xml` (за замовчуванням вони вбудовані у [mavlink module](../modules/modules_communication.md#mavlink) - шукайте `menuconfig MAVLINK_DIALECT` у [src/modules/mavlink/Kconfig](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/Kconfig#L10)).
+- Для SITL `CONFIG_MAVLINK_DIALECT` встановлено у `development` у [boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/sitl/default.px4board#L36). Ви можете змінити його на будь-який інший файл визначення, але він повинен містити `common.xml`.
+- Для інших плат `CONFIG_MAVLINK_DIALECT` не встановлено за замовчуванням, і PX4 збирає визначення у `common.xml` (за замовчуванням вони вбудовані у [mavlink module](../modules/modules_communication.md#mavlink) - шукайте `menuconfig MAVLINK_DIALECT` у [src/modules/mavlink/Kconfig](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/Kconfig#L10)).
 
 Файли генеруються до каталогу збірки: `/build/<build target>/mavlink/`.
 
@@ -209,7 +209,7 @@ protected:
 
 Більшість потокових класів дуже схожі (див. приклади у [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams)):
 
-- Клас потокового передавання є похідним від [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_stream.h) і названий за паттерном `MavlinkStream<CamelCaseMessageName>`.
+- Клас потокового передавання є похідним від [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_stream.h) і названий за паттерном `MavlinkStream<CamelCaseMessageName>`.
 - `Публічні` визначення є "наближеними до шаблону", що дозволяє PX4 отримати екземпляр класу (`new_instance()`), а потім використовувати його для отримання назви, ідентифікатора та розміру повідомлення з заголовків MAVLink (`get_name()`, `get_name_static()`, `get_id_static()`, `get_id()`, `get_size()`). Для ваших власних потокових класів їх можна просто скопіювати і змінити, щоб вони відповідали значенням для вашого повідомлення MAVLink.
 - Визначення `private` підписуються на теми uORB, які потрібно опублікувати. У цьому випадку тема uORB має кілька екземплярів: по одному для кожної батареї. Ми використовуємо `uORB::SubscriptionMultiArray` для отримання масиву підписок про стан батареї.
 
@@ -257,13 +257,13 @@ protected:
 
 :::
 
-Далі ми включаємо наш новий клас у [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp#L2193). Додайте рядок нижче до частини файлу, де включені всі інші потоки:
+Далі ми включаємо наш новий клас у [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_messages.cpp#L2193). Додайте рядок нижче до частини файлу, де включені всі інші потоки:
 
 ```cpp
 #include "streams/BATTERY_STATUS_DEMO.hpp"
 ```
 
-Нарешті додайте клас потоку до `streams_list` у нижній частині [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp)
+Нарешті додайте клас потоку до `streams_list` у нижній частині [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_messages.cpp)
 
 ```C
 StreamListItem *streams_list[] = {
@@ -279,7 +279,7 @@ StreamListItem *streams_list[] = {
 
 ### Трансляція за замовчуванням
 
-Найлегший спосіб транслювати ваші повідомлення за замовчуванням (як частину збірки) - це додати їх до [mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp) у відповідну групу повідомлень.
+Найлегший спосіб транслювати ваші повідомлення за замовчуванням (як частину збірки) - це додати їх до [mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_main.cpp) у відповідну групу повідомлень.
 
 Якщо ви виконаєте пошук у файлі, то знайдете групи повідомлень, визначені в інструкції switch:
 
@@ -306,7 +306,7 @@ StreamListItem *streams_list[] = {
         ...
 ```
 
-Також можна додати потік, викликавши модуль [mavlink](../modules/modules_communication.md#mavlink) з аргументом `stream` у [скрипті запуску](../concept/system_startup.md). Наприклад, ви можете додати наступний рядок до [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink), щоб передавати `BATTERY_STATUS_DEMO` зі швидкістю 50 Гц на UDP-порт `14556` (`-r` налаштовує швидкість передачі, а `-u` ідентифікує канал MAVLink на UDP-порту 14556).
+Також можна додати потік, викликавши модуль [mavlink](../modules/modules_communication.md#mavlink) з аргументом `stream` у [скрипті запуску](../concept/system_startup.md). Наприклад, ви можете додати наступний рядок до [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink), щоб передавати `BATTERY_STATUS_DEMO` зі швидкістю 50 Гц на UDP-порт `14556` (`-r` налаштовує швидкість передачі, а `-u` ідентифікує канал MAVLink на UDP-порту 14556).
 
 ```sh
 mavlink stream -r 50 -s BATTERY_STATUS_DEMO -u 14556
@@ -324,19 +324,19 @@ mavlink stream -r 50 -s BATTERY_STATUS_DEMO -u 14556
 
 Припускається, що ми отримуємо повідомлення `BATTERY_STATUS_DEMO` і хочемо оновити (існуюче) [BatteryStatus uORB повідомлення](../msg_docs/BatteryStatus.md) зі збереженою інформацією. Це той тип реалізації, який ви надаєте для підтримки інтеграції батареї MAVLink з PX4.
 
-Додайте заголовки теми uORB для публікації у [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77):
+Додайте заголовки теми uORB для публікації у [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_receiver.h#L77):
 
 ```cpp
 #include <uORB/topics/battery_status.h>
 ```
 
-Додайте сигнатуру функції, яка обробляє вхідне повідомлення MAVLink у класі `MavlinkReceiver` у [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L126)
+Додайте сигнатуру функції, яка обробляє вхідне повідомлення MAVLink у класі `MavlinkReceiver` у [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_receiver.h#L126)
 
 ```cpp
 void handle_message_battery_status_demo(mavlink_message_t *msg);
 ```
 
-Зазвичай ви додаєте публікатор uORB для публікації теми uORB у класі `MavlinkReceiver` у файлі [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L296). У цьому випадку вже існує тема uORB [BatteryStatus](../msg_docs/BatteryStatus.md):
+Зазвичай ви додаєте публікатор uORB для публікації теми uORB у класі `MavlinkReceiver` у файлі [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_receiver.h#L296). У цьому випадку вже існує тема uORB [BatteryStatus](../msg_docs/BatteryStatus.md):
 
 ```cpp
 uORB::Publication<battery_status_s> _battery_pub{ORB_ID(battery_status)};
@@ -347,7 +347,7 @@ uORB::Publication<battery_status_s> _battery_pub{ORB_ID(battery_status)};
 :::info Ця реалізація не працюватиме в системах з кількома батареями, оскільки декілька батарей можуть публікувати дані до першого екземпляру теми, і немає можливості їх розрізнити. Для підтримки кількох батарей нам потрібно використовувати `PublicationMulti` та відображати ідентифікатори екземплярів повідомлення MAVLink на конкретні екземпляри тем uORB.
 :::
 
-Реалізація функції `handle_message_battery_status_demo` в [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp).
+Реалізація функції `handle_message_battery_status_demo` в [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_receiver.cpp).
 
 ```cpp
 void
@@ -378,7 +378,7 @@ MavlinkReceiver::handle_message_battery_status_demo(mavlink_message_t *msg)
 На практиці ви оновлювали б всі поля або з дійсними, або з недійсними значеннями: це було скорочено для стислості.
 :::
 
-і нарешті, переконайтеся, що він викликається в [MavlinkReceiver:handle_message()](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp#L228)
+і нарешті, переконайтеся, що він викликається в [MavlinkReceiver:handle_message()](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_receiver.cpp#L228)
 
 ```cpp
 MavlinkReceiver::handle_message(mavlink_message_t *msg)

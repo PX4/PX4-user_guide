@@ -16,7 +16,7 @@ _Follow Me_ mode allows a multicopter to autonomously hold position and altitude
 - The follow target must also be able to supply position information.
 - Follow-me mode is supported by _QGroundControl_ on Android devices with a GPS module, and [MAVSDK](#follow-me-with-mavsdk).
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 

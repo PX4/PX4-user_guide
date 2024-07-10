@@ -2,7 +2,7 @@
 
 Повідомлення uORB підтвердження команди автомобіля. Використовується для підтвердження отримання команди для транспортного засобу. Дотримується визначення MAVLink COMMAND_ACK повідомлення
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleCommandAck.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleCommandAck.msg)
 
 ```c
 # Повідомлення про підтвердження команди транспортного засобу uORB.

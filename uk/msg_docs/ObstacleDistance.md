@@ -2,7 +2,7 @@
 
 Відстані перешкод перед сенсором.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ObstacleDistance.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ObstacleDistance.msg)
 
 ```c
 # Відстані перешкод перед сенсором.

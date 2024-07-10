@@ -120,7 +120,7 @@ uORB надає механізм публікації декількох нез�
 
 Переконайтеся, що ви не змішуєте `orb_advertise_multi` і `orb_advertise` для однієї теми.
 
-Повний API задокументовано в [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
+Повний API задокументовано в [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 

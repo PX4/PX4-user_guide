@@ -2,7 +2,7 @@
 
 Повідомлення для потоку даних ULog з пристрою реєстрування. Відповідає повідомленню mavlink LOGGING_DATA mavlink message
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/UlogStream.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/UlogStream.msg)
 
 ```c
 # Повідомлення для потоку даних ULog з пристрою реєстрування. Corresponds to the LOGGING_DATA

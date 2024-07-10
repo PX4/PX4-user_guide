@@ -4,7 +4,7 @@ Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRES
 The topic vehicle_trajectory_waypoint_desired is used to send the user desired waypoints from the position controller to the companion computer / avoidance module.
 The topic vehicle_trajectory_waypoint is used to send the adjusted waypoints from the companion computer / avoidance module to the position controller.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTrajectoryWaypoint.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleTrajectoryWaypoint.msg)
 
 ```c
 # Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg

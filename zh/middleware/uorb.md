@@ -120,7 +120,7 @@ uORB 提供了一种通过 `orb_advertise_multi` 发布同一主题的多个独�
 
 确保不要再同一个主题上弄混 `orb_advertise_multi` 和`orb_advertise`
 
-The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
+The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 

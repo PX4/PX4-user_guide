@@ -2,7 +2,7 @@
 
 Запит на зчитування маски GPIO
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GpioRequest.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/GpioRequest.msg)
 
 ```c
 # Request GPIO mask to be read

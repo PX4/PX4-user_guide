@@ -4,14 +4,14 @@
 
 표준 사운드 세트는 다음과 같습니다.
 
-::: info **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) and can be tested using the [tune-control](../modules/modules_system.md#tune-control) module. You can search for tune use using the string `TUNE_ID_name`(e.g. `TUNE_ID_PARACHUTE_RELEASE)
+::: info **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/tunes/tune_definition.desc) and can be tested using the [tune-control](../modules/modules_system.md#tune-control) module. You can search for tune use using the string `TUNE_ID_name`(e.g. `TUNE_ID_PARACHUTE_RELEASE)
 :::
 
 
 ## 부팅 / 시작
 
 부팅중에 재생되는 톤들입니다.
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS --> 
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/rcS --> 
 
 
 #### 시작 톤

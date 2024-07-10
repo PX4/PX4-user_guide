@@ -2,7 +2,7 @@
 
 Message to stream ULog data from the logger. Corresponds to the LOGGING_DATA mavlink message
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/UlogStream.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/UlogStream.msg)
 
 ```c
 # Message to stream ULog data from the logger. Corresponds to the LOGGING_DATA

@@ -2,7 +2,7 @@
 
 Домашнє GPS положення в координатах WGS84. поле 'відмітка часу' призначене для позиції та швидкості (мікросекунди)
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGps.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/SensorGps.msg)
 
 ```c
 # Домашнє GPS положення в координатах WGS84.

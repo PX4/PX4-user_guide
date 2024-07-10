@@ -45,12 +45,12 @@ PX4 元数据是在 PX4 源代码及其相关数据中定义的。
 
 内存受限的飞控二进制文件不会在二进制文件中存储参数元数据，而是引用存储在`px4-travis.s3.amazonaws.com`上的相同数据。
 例如，这适用于[Umnibus F4 SD](../flight_controller/omnibus_f4_sd.md)。
-元数据是通过 [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) 上传的，用于所有构建目标（因此只有在参数被合并到主体后才能使用）。
+元数据是通过 [github CI](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/.github/workflows/metadata.yml) 上传的，用于所有构建目标（因此只有在参数被合并到主体后才能使用）。
 
 ::: info
-You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
+You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/omnibus/f4sd/default.px4board).
 
-如果在 FLASH 受限板上进行自定义开发，您可以调整此处的 URL 以指向另一台服务器[here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41)。
+如果在 FLASH 受限板上进行自定义开发，您可以调整此处的 URL 以指向另一台服务器[here](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/component_information/CMakeLists.txt#L41)。
 :::
 
 如果载具上没有显示参数元数据，则使用 `px4-travis.s3.amazonaws.com` 上的元数据。
@@ -75,8 +75,8 @@ You can identify memory constrained boards because they specify `CONFIG_BOARD_CO
 
 - **Left**: 元数据在不同模快的 `module.yml` 文件中定义。
   `control_allocator` 模块定义几何形状，而每个输出驱动程序则定义其通道集和配置参数。
-  [schema file](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) 描写了这些 yaml 文件的结构。
-- **Middle**: 在构建时间, 当前构建目标的所有已启用模块的 `module.yml` 文件都会被解析并变成一个驱动程序。 使用 [Tools/module_config/generate_actuators_metadata.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/module_config/generate_actuators_metadata.py)脚本的文件。
+  [schema file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml) 描写了这些 yaml 文件的结构。
+- **Middle**: 在构建时间, 当前构建目标的所有已启用模块的 `module.yml` 文件都会被解析并变成一个驱动程序。 使用 [Tools/module_config/generate_actuators_metadata.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/module_config/generate_actuators_metadata.py)脚本的文件。
   这里还有[schema file](https://github.com/mavlink/mavlink/blob/master/component_metadata/actuators.schema.json)。
 - **Right**: 运行时，QGroundControl 通过 MAVLink 组件元数据 API 请求 JSON  文件(上文已经描述)。
 

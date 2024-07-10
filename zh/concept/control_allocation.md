@@ -38,8 +38,8 @@ Notes:
   - 单独发布舵机配平，以便在 [测试驱动器](../config/actuators.md#actuator-testing) (使用测试滑块)时将它们添加为偏移。
 - 输出驱动：
   - 处理硬件初始化和更新
-  - 使用共享库 [src/libs/mixer_module](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/)。 驱动程序定义了参数前缀，例如 `PWM_MAIN` 被库用于配置。 其主要任务是从输入话题中选择，并根据用户设置的 `<param_prefix>_FUNCx` 参数值将正确的数据分配给输出。 例如， `PWM_MAIN_FUNC3` 已设置为 **Motor 2**，第三个输出设置为来自 `actuator_motors`的第二个电机。
-  - 输出函数定义于 [src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml)。
+  - 使用共享库 [src/libs/mixer_module](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/mixer_module/)。 驱动程序定义了参数前缀，例如 `PWM_MAIN` 被库用于配置。 其主要任务是从输入话题中选择，并根据用户设置的 `<param_prefix>_FUNCx` 参数值将正确的数据分配给输出。 例如， `PWM_MAIN_FUNC3` 已设置为 **Motor 2**，第三个输出设置为来自 `actuator_motors`的第二个电机。
+  - 输出函数定义于 [src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/mixer_module/output_functions.yaml)。
 - 如果想要通过MAVLink控制其输出，请将相关的输出函数设置为 **Offboard Actor Set x**，然后发送 [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink指令。
 
 ## 添加新构型或输出函数
@@ -48,13 +48,13 @@ See [this commit](https://github.com/PX4/PX4-Autopilot/commit/5cdb6fbd8e1352dcb9
 
 [This commit](https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370) shows how to add a new output function. Any uORB topic can be subscribed and assigned to a function.
 
-Note that parameters for control allocation are defined in [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml) The schema for this file is [here](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) (in particular, search for the key `mixer:`
+Note that parameters for control allocation are defined in [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/control_allocator/module.yaml) The schema for this file is [here](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml#L440=) (in particular, search for the key `mixer:`
 
 ## 设置默认机型构型
 
 When [adding a new frame configuration](../dev_airframes/adding_a_new_frame.md), set the appropriate [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) and other default mixer values for the geometry.
 
-You can see this, for example, in the airframe configuration file [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter)
+You can see this, for example, in the airframe configuration file [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter)
 
 ```sh
 ...

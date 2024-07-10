@@ -44,8 +44,8 @@ The Gazebo Classic simulation can be modified to integrate sensors publishing di
 
 There are ROS launch scripts available to run the simulation wrapped in ROS:
 
-- [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/posix_sitl.launch): plain SITL launch
-- [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch): SITL and MAVROS
+- [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/launch/posix_sitl.launch): plain SITL launch
+- [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/launch/mavros_posix_sitl.launch): SITL and MAVROS
 
 To run SITL wrapped in ROS the ROS environment needs to be updated, then launch as usual:
 

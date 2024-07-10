@@ -2,7 +2,7 @@
 
 Waypoint Trajectory description. See also Mavlink TRAJECTORY msg The topic trajectory_waypoint describe each waypoint defined in vehicle_trajectory_waypoint
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectoryWaypoint.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/TrajectoryWaypoint.msg)
 
 ```c
 # Waypoint Trajectory description. See also Mavlink TRAJECTORY msg

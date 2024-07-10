@@ -364,7 +364,7 @@ The following functions can only be applied to FMU outputs:
 
 ::: info
 This list is correct at PX4 v1.13.
-The functions are defined in source at [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
+The functions are defined in source at [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/mixer_module/output_functions.yaml).
 :::
 
 ## Actuator Testing

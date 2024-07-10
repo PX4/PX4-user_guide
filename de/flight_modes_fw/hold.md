@@ -19,7 +19,7 @@ _Hold mode_ can be used to pause a mission or to help you regain control of a ve
 - RC control switches can be used to change flight modes on any vehicle.
 - RC stick movement is ignored.
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 

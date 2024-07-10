@@ -2,7 +2,7 @@
 
 this file is only used in the position_setpoint triple as a dependency
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PositionSetpoint.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/PositionSetpoint.msg)
 
 ```c
 # this file is only used in the position_setpoint triple as a dependency

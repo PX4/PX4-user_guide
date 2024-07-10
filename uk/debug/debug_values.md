@@ -18,8 +18,8 @@
 
 Код для цього посібника доступний тут:
 
-- [Код відлагоджування](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
-- [Увімкніть додаток-посібник](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board), переконавшись, що додаток для відлагодження MAVLink (**CONFIG_EXAMPLES_PX4_MAVLINK_DEBUG**) знаходиться в конфігурації вашої плати та встановлений на 'y'.
+- [Код відлагоджування](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
+- [Увімкніть додаток-посібник](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/default.px4board), переконавшись, що додаток для відлагодження MAVLink (**CONFIG_EXAMPLES_PX4_MAVLINK_DEBUG**) знаходиться в конфігурації вашої плати та встановлений на 'y'.
 
 Все необхідне для налаштування відлагодження публікації - це цей фрагмент коду. Спочатку додайте файл заголовка:
 

@@ -2,7 +2,7 @@
 
 
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorOutputs.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ActuatorOutputs.msg)
 
 ```c
 uint64 timestamp                # time since system start (microseconds)

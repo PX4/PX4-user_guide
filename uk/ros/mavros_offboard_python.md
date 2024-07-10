@@ -285,10 +285,10 @@ touch start_offb.launch
 </launch>
 ```
 
-Як бачите, `mavros_posix_sitl.launch` включено. Цей файл відповідає за запуск MAVROS, PX4 SITL, Gazebo Classic Environment і за створення транспортного засобу в певному світі (для отримання додаткової інформації дивіться файл [тут](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
+Як бачите, `mavros_posix_sitl.launch` включено. Цей файл відповідає за запуск MAVROS, PX4 SITL, Gazebo Classic Environment і за створення транспортного засобу в певному світі (для отримання додаткової інформації дивіться файл [тут](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/launch/mavros_posix_sitl.launch)).
 
 :::tip
-The `mavros_posix_sitl.launch` приймає кілька аргументів, які можна встановити відповідно до ваших уподобань, як-от транспортний засіб для створення чи класичний світ Gazebo (повний список див. [тут](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
+The `mavros_posix_sitl.launch` приймає кілька аргументів, які можна встановити відповідно до ваших уподобань, як-от транспортний засіб для створення чи класичний світ Gazebo (повний список див. [тут](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/launch/mavros_posix_sitl.launch)).
 
 Ви можете перевизначити значення за замовчуванням цих аргументів, визначених в `mavros_posix_sitl.launch` оголосивши їх у _include_ тегах. Як приклад, якщо ви хочете створити транспортний засіб у `warehouse.world`, ви повинні написати наступне:
 

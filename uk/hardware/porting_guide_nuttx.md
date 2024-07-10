@@ -10,10 +10,10 @@
 
 - Виконайте `make px4_fmu-v5_default` з каталогу **PX4-Autopilot**, щоб збудувати конфігурацію FMUv5
 - Основні файлы конфігурації FMUv5 розташовані за адресою: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5).
-  - Шапка конкретної плати (конфігурація контактів NuttX та годинника): [/boards/px4/fmu-v5/nuttx-config/include/board.h](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/include/board.h).
-  - Специфічний заголовок дошки (конфігурація PX4): [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/src/board_config.h).
-  - Конфігурація операційної системи NuttX (створена за допомогою NuttX menuconfig): [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig).
-  - Налаштування збірки: [дошка/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board).
+  - Шапка конкретної плати (конфігурація контактів NuttX та годинника): [/boards/px4/fmu-v5/nuttx-config/include/board.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/nuttx-config/include/board.h).
+  - Специфічний заголовок дошки (конфігурація PX4): [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/src/board_config.h).
+  - Конфігурація операційної системи NuttX (створена за допомогою NuttX menuconfig): [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/nuttx-config/nsh/defconfig).
+  - Налаштування збірки: [дошка/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/default.px4board).
 
 ## Налаштування меню NuttX Menuconfig
 
@@ -24,7 +24,7 @@ make px4_fmu-v5_default menuconfig
 make px4_fmu-v5_default qconfig
 ```
 
-Для свіжих встановлень PX4 на Ubuntu з використанням [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> вам також потрібно буде встановити інструменти _kconfig_ з [інструментів NuttX](https://bitbucket.org/nuttx/tools/src/master/).
+Для свіжих встановлень PX4 на Ubuntu з використанням [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> вам також потрібно буде встановити інструменти _kconfig_ з [інструментів NuttX](https://bitbucket.org/nuttx/tools/src/master/).
 
 :::info Наступні кроки не потрібні у разі використання [контейнера docker px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) або встановлення на macOS за нашими звичайними інструкціями (оскільки вони включають`kconfig-mconf`).
 :::

@@ -73,6 +73,6 @@ failure <component> <failure_type> [-i <instance_number>]
 
 ## MAVSDK відлагоджувальний плагін
 
-[Плагін невдачі MAVSDK](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html) може бути використаний для програмного впровадження невдач. Використовується в [PX4 Інтеграційному тестуванні](../test_and_ci/integration_testing_mavsdk.md) для моделювання випадків відмов (наприклад, див. [PX4-Autopilot/test/mavsdk_tests/autopilot_tester.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.cpp)).
+[Плагін невдачі MAVSDK](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html) може бути використаний для програмного впровадження невдач. Використовується в [PX4 Інтеграційному тестуванні](../test_and_ci/integration_testing_mavsdk.md) для моделювання випадків відмов (наприклад, див. [PX4-Autopilot/test/mavsdk_tests/autopilot_tester.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/test/mavsdk_tests/autopilot_tester.cpp)).
 
 API плагіна - це пряме відображення команди збою, показаної вище, з деякими додатковими сигналами про помилки, пов'язані з підключенням.

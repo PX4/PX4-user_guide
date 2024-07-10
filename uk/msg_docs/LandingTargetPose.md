@@ -2,7 +2,7 @@
 
 Відносне положення цільової точки з високою точністю в навігаційних кадрах (тіло фіксоване, орієнтоване на північ, NED) та інерційних (фіксовані на світі, орієнтовані на північ, NED) кадрах
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LandingTargetPose.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/LandingTargetPose.msg)
 
 ```c
 # Relative position of precision land target in navigation (body fixed, north aligned, NED) and inertial (world fixed, north aligned, NED) frames

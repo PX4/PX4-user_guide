@@ -15,7 +15,7 @@ PX4 provides several methods for writing unit tests:
 The steps to create new unit tests are as follows:
 
 1. Unit tests should be arranged in three sections: setup, run, check results. Each test should test one very specific behavior or setup case, so if a test fails it is obvious what is wrong. Please try to follow these standards when possible.
-1. Copy and rename the example unit test [AttitudeControlTest](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mc_att_control/AttitudeControl/AttitudeControlTest.cpp) to the directory the code to be tested is in.
+1. Copy and rename the example unit test [AttitudeControlTest](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mc_att_control/AttitudeControl/AttitudeControlTest.cpp) to the directory the code to be tested is in.
 1. Add the new file to the directory's `CMakeLists.txt`. It should look something like `px4_add_unit_gtest(SRC MyNewUnitTest.cpp LINKLIBS <library_to_be_tested>)`
 1. Add the desired test functionality. This will mean including the header files required for your specific tests, adding new tests (each with an individual name) and putting the logic for the setup, running the code to be tested and verifying that it behaves as expected.
 1. If additional library dependencies are required, they should also be added to the CMakeLists after the `LINKLIBS` as shown above.
@@ -33,7 +33,7 @@ The steps to creating new functional tests are as follows:
 1. In general (and similar to unit tests), functional tests should be arranged in three sections: setup, run, check results.
    Each test should test one very specific behavior or setup case, so if a test fails it is obvious what is wrong.
    Please try to follow these standards when possible.
-1. Copy and rename the example functional test [ParameterTest](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/parameters/ParameterTest.cpp) to the directory the code to be tested is in.
+1. Copy and rename the example functional test [ParameterTest](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/parameters/ParameterTest.cpp) to the directory the code to be tested is in.
 1. Rename the class from ParameterTest to something better representing the code being testing
 1. Add the new file to the directory's `CMakeLists.txt`.
    It should look something like `px4_add_functional_gtest(SRC MyNewFunctionalTest.cpp LINKLIBS <library_to_be_tested>)`
@@ -51,7 +51,7 @@ These tests are slower to run (1s+ for each new module), and harder to debug, so
 
 The steps to create new SITL unit tests are as follows:
 
-1. Examine the sample [Unittest-class](https://github.com/PX4/PX4-Autopilot/blob/main/src/include/unit_test.h).
+1. Examine the sample [Unittest-class](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/include/unit_test.h).
 1. Create a new .cpp file within [tests](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tests) with name **test\_[description].cpp**.
 1. Within **test\_[description].cpp** include the base unittest-class `<unit_test.h>` and all files required to write a test for the new feature.
 1. Within **test\_[description].cpp** create a class `[Description]Test` that inherits from `UnitTest`.
@@ -114,15 +114,15 @@ The steps to create new SITL unit tests are as follows:
    ut_declare_test_c(test_[description], [Description]Test)
    ```
 
-   Note that `ut_[name of one of the unit test functions]` corresponds to one of the unittest functions defined within [unit_test.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/include/unit_test.h).
+   Note that `ut_[name of one of the unit test functions]` corresponds to one of the unittest functions defined within [unit_test.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/include/unit_test.h).
 
-1. Within [tests_main.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/tests_main.h) define the new test:
+1. Within [tests_main.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/systemcmds/tests/tests_main.h) define the new test:
 
    ```cpp
    extern int test_[description](int argc, char *argv[]);
    ```
 
-1. Within [tests_main.c](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/tests_main.c) add description name, test function and option:
+1. Within [tests_main.c](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/systemcmds/tests/tests_main.c) add description name, test function and option:
 
    ```cpp
    ...
@@ -147,7 +147,7 @@ The steps to create new SITL unit tests are as follows:
 
    If a test has option `OPT_NOALLTEST`, then that test will be excluded when calling `tests all`. The same is true for `OPT_NOJITEST` when command `test jig` is called. Option `0` means that the test is never excluded, which is what most developer want to use.
 
-1. Add the test `test_[description].cpp` to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/CMakeLists.txt).
+1. Add the test `test_[description].cpp` to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/systemcmds/tests/CMakeLists.txt).
 
 ## Testing on the local machine
 

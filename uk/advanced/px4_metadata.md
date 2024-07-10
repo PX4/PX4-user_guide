@@ -45,10 +45,10 @@ PX4 використовує та генерує дані, які мають в�
 
 Бінарні файли для контролерів польоту з обмеженим обсягом пам'яті не зберігають метадані параметрів у бінарному файлі, а натомість посилаються на ті самі дані, що зберігаються на `px4-travis.s3.amazonaws.com`.
 Це стосується, наприклад, [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md).
-Метадані завантажуються через [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) для всіх цілей збірки (таким чином, вони будуть доступні лише після того, як параметри будуть об'єднані в main).
+Метадані завантажуються через [github CI](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/.github/workflows/metadata.yml) для всіх цілей збірки (таким чином, вони будуть доступні лише після того, як параметри будуть об'єднані в main).
 
 ::: info
-You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
+You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/omnibus/f4sd/default.px4board).
 
 Якщо ви виконуєте індивідуальну розробку на платі з обмеженою FLASH-пам'яттю, ви можете змінити URL-адресу [тут](https://github. com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41), щоб вказати на інший сервер.
 :::
@@ -75,8 +75,8 @@ JSON-файли метаданих для CI-збірок `main` також ко
 
 - **Ліворуч**: метадані визначаються в файлах `module.yml` в різних модулях.
   Модулі `control_allocator` визначають геометрії, тоді як кожен вихідний драйвер визначає свій набір каналів та параметрів конфігурації.
-  [Файл схеми](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) документує структуру цих файлів yaml.
-- **Середній**: Під час компіляції файли `module.yml` для всіх активованих модулів для поточної цілі компіляції аналізується і перетворюється у файл `actuators.json` за допомогою сценарію [Tools/module_config/generate_actuators_metadata.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/module_config/generate_actuators_metadata.py).
+  [Файл схеми](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml) документує структуру цих файлів yaml.
+- **Середній**: Під час компіляції файли `module.yml` для всіх активованих модулів для поточної цілі компіляції аналізується і перетворюється у файл `actuators.json` за допомогою сценарію [Tools/module_config/generate_actuators_metadata.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/module_config/generate_actuators_metadata.py).
   Також є [файл схеми](https://github.com/mavlink/mavlink/blob/master/component_metadata/actuators.schema.json) для цього.
 - **Правильно**: Під час виконання програми файли JSON запитуються QGroundControl через API метаданих компонентів MAVLink (який описано вище).
 

@@ -84,7 +84,7 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 
 ### Copter
 
-- [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
+- [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/TrajectorySetpoint.msg)
 
   - The following input combinations are supported:
     - Position setpoint (`position` different from `NaN`). Non-`NaN` values of velocity and acceleration are used as feedforward terms for the inner loop controllers.
@@ -93,7 +93,7 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 
   - All values are interpreted in NED (Nord, East, Down) coordinate system and the units are \[m\], \[m/s\] and \[m/s^2\] for position, velocity and acceleration, respectively.
 
-- [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitudeSetpoint.msg)
+- [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleAttitudeSetpoint.msg)
 
   - The following input combination is supported:
 
@@ -102,7 +102,7 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 
   - The quaternion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The thrust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
 
-- [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRatesSetpoint.msg)
+- [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleRatesSetpoint.msg)
 
   - The following input combination is supported:
 
@@ -114,13 +114,13 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 
 The following offboard control modes bypass all internal PX4 control loops and should be used with great care.
 
-- [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
+- [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleTorqueSetpoint.msg)
 
   - The following input combination is supported:
     - `xyz` for thrust and `xyz` for torque.
   - All the values are in the drone body FRD frame and normalized in \[-1, 1\].
 
-- [px4_msgs::msg::ActuatorMotors](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorMotors.msg) + [px4_msgs::msg::ActuatorServos](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorServos.msg)
+- [px4_msgs::msg::ActuatorMotors](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ActuatorMotors.msg) + [px4_msgs::msg::ActuatorServos](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ActuatorServos.msg)
   - You directly control the motor outputs and/or servo outputs.
   - All the values normalized in \[-1, 1\]. For outputs that do not support negative values, negative entries map to `NaN`.
   - `NaN` maps to disarmed.
@@ -133,7 +133,7 @@ The following MAVLink messages and their particular fields and field values are 
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - Position setpoint (only `x`, `y`, `z`)
     - Velocity setpoint (only `vx`, `vy`, `vz`)
@@ -145,7 +145,7 @@ The following MAVLink messages and their particular fields and field values are 
 
 - [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
-  - The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - Position setpoint (only `lat_int`, `lon_int`, `alt`)
     - Velocity setpoint (only `vx`, `vy`, `vz`)
@@ -168,7 +168,7 @@ The following MAVLink messages and their particular fields and field values are 
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - Position setpoint (`x`, `y`, `z` only; velocity and acceleration setpoints are ignored).
 
@@ -191,7 +191,7 @@ The following MAVLink messages and their particular fields and field values are 
 
 - [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
-  - The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - Position setpoint (only `lat_int`, `lon_int`, `alt`)
 
@@ -219,7 +219,7 @@ The following MAVLink messages and their particular fields and field values are 
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - Position setpoint (only `x`, `y`, `z`)
 
@@ -239,7 +239,7 @@ The following MAVLink messages and their particular fields and field values are 
 
 - [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
-  - The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     - Position setpoint (only `lat_int`, `lon_int`, `alt`)
   - Specify the _type_ of the setpoint in `type_mask` (not part of the MAVLink standard).
     The values are:

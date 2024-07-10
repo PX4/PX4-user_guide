@@ -2,7 +2,7 @@
 
 Local setpoint constraints in NED frame setting something to NaN means that no limit is provided
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/CollisionConstraints.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/CollisionConstraints.msg)
 
 ```c
 # Local setpoint constraints in NED frame

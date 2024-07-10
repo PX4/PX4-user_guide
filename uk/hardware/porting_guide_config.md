@@ -47,7 +47,7 @@ make px4_fmu-v5_default boardconfig
 make px4_fmu-v5_default boardguiconfig
 ```
 
-:::info _Kconfiglib_ та _menuconfig_ поставляються з пакетом python _kconfiglib_, який встановлюється звичайним сценарієм встановлення [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh). Якщо _kconfiglib_ не встановлено, ви можете це зробити за допомогою команди: `pip3 install kconfiglib`
+:::info _Kconfiglib_ та _menuconfig_ поставляються з пакетом python _kconfiglib_, який встановлюється звичайним сценарієм встановлення [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/setup/ubuntu.sh). Якщо _kconfiglib_ не встановлено, ви можете це зробити за допомогою команди: `pip3 install kconfiglib`
 :::
 
 Інтерфейс командного рядка та графічного інтерфейсу показані нижче.

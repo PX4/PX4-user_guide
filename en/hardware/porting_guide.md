@@ -15,8 +15,8 @@ Board startup and configuration files are located under [/boards](https://github
 For example, for FMUv5:
 
 - (All) Board-specific files: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5).<!-- NEED px4_version -->
-- Build configuration: [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board).<!-- NEED px4_version -->
-- Board-specific initialisation file: [/boards/px4/fmu-v5/init/rc.board_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/init/rc.board_defaults) <!-- NEED px4_version -->
+- Build configuration: [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/default.px4board).<!-- NEED px4_version -->
+- Board-specific initialisation file: [/boards/px4/fmu-v5/init/rc.board_defaults](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/init/rc.board_defaults) <!-- NEED px4_version -->
   - A board-specific initialisation file is automatically included in startup scripts if found under the boards directory at **init/rc.board**.
   - The file is used to start sensors (and other things) that only exist on a particular board.
     It may also be used to set a board's default parameters, UART mappings, and any other special cases.
@@ -35,7 +35,7 @@ See [NuttX Board Porting Guide](porting_guide_nuttx.md).
 Linux boards do not include the OS and kernel configuration.
 These are already provided by the Linux image available for the board (which needs to support the inertial sensors out of the box).
 
-- [boards/px4/raspberrypi/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/raspberrypi/default.px4board) - RPI cross-compilation. <!-- NEED px4_version -->
+- [boards/px4/raspberrypi/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/raspberrypi/default.px4board) - RPI cross-compilation. <!-- NEED px4_version -->
 
 ## Middleware Components and Configuration
 
@@ -52,7 +52,7 @@ This section describes the various middleware components, and the configuration 
 It is generally recommended to connect RC via separate RX and TX pins to the microcontroller.
 If however RX and TX are connected together, the UART has to be put into singlewire mode to prevent any contention.
 This is done via board config and manifest files.
-One example is [px4fmu-v5](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/src/manifest.c). <!-- NEED px4_version -->
+One example is [px4fmu-v5](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/src/manifest.c). <!-- NEED px4_version -->
 
 ## Officially Supported Hardware
 
@@ -74,7 +74,7 @@ With full compatibility you benefit from the ongoing day-to-day development of P
 Manufacturers should carefully consider the cost of maintenance before deviating from the specification (the cost to the manufacturer is proportional to the level of divergence).
 :::
 
-We welcome any individual or company to submit their port for inclusion in our supported hardware, provided they are willing to follow our [Code of Conduct](https://github.com/PX4/PX4-Autopilot/blob/main/CODE_OF_CONDUCT.md) and work with the Dev Team to provide a safe and fulfilling PX4 experience to their customers.
+We welcome any individual or company to submit their port for inclusion in our supported hardware, provided they are willing to follow our [Code of Conduct](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/CODE_OF_CONDUCT.md) and work with the Dev Team to provide a safe and fulfilling PX4 experience to their customers.
 
 It's also important to note that the PX4 dev team has a responsibility to release safe software, and as such we require any board manufacturer to commit any resources necessary to keep their port up-to-date, and in a working state.
 

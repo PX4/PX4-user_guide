@@ -42,11 +42,11 @@ Notes:
   - publishes the servo trims separately so they can be added as an offset when [testing actuators](../config/actuators.md#actuator-testing) (using the test sliders).
 - the output drivers:
   - handle the hardware initialization and update
-  - use a shared library [src/libs/mixer_module](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/).
+  - use a shared library [src/libs/mixer_module](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/mixer_module/).
     The driver defines a parameter prefix, e.g. `PWM_MAIN` that the library then uses for configuration.
     Its main task is to select from the input topics and assign the right data to the outputs based on the user set `<param_prefix>_FUNCx` parameter values.
     For example if `PWM_MAIN_FUNC3` is set to **Motor 2**, the 3rd output is set to the 2nd motor from `actuator_motors`.
-  - output functions are defined under [src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
+  - output functions are defined under [src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/mixer_module/output_functions.yaml).
 - if you want to control an output from MAVLink, set the relevant output function to **Offboard Actuator Set x**, and then send the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command.
 
 ## Adding a new Geometry or Output Function
@@ -57,14 +57,14 @@ The QGC UI will then automatically show the right configuration UI when [CA_AIRF
 [This commit](https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370) shows how to add a new output function.
 Any uORB topic can be subscribed and assigned to a function.
 
-Note that parameters for control allocation are defined in [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml)
-The schema for this file is [here](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) (in particular, search for the key `mixer:`
+Note that parameters for control allocation are defined in [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/control_allocator/module.yaml)
+The schema for this file is [here](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml#L440=) (in particular, search for the key `mixer:`
 
 ## Setting the Default Frame Geometry
 
 When [adding a new frame configuration](../dev_airframes/adding_a_new_frame.md), set the appropriate [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) and other default mixer values for the geometry.
 
-You can see this, for example, in the airframe configuration file [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter)
+You can see this, for example, in the airframe configuration file [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter)
 
 ```sh
 ...

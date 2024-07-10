@@ -33,7 +33,7 @@ PX4 підтримує як симуляцію _Software In the Loop (SITL)_, д
 
 ![Симулятор MAVLink API](../../assets/simulation/px4_simulator_messages.svg)
 
-:::info SITL-збірка PX4 використовує [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/simulator_mavlink/SimulatorMavlink.cpp) для обробки цих повідомлень, тоді як апаратна збірка у режимі HIL використовує [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp). Дані датчиків з симулятора записуються в теми PX4 uORB. Всі двигуни/приводи заблоковані, але внутрішнє програмне забезпечення повністю функціонує.
+:::info SITL-збірка PX4 використовує [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/simulation/simulator_mavlink/SimulatorMavlink.cpp) для обробки цих повідомлень, тоді як апаратна збірка у режимі HIL використовує [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_receiver.cpp). Дані датчиків з симулятора записуються в теми PX4 uORB. Всі двигуни/приводи заблоковані, але внутрішнє програмне забезпечення повністю функціонує.
 :::
 
 Повідомлення описані нижче (див. посилання для більш детальної інформації).
@@ -182,7 +182,7 @@ Lockstep симуляцію можна вимкнути, якщо, наприк�
 
 Щоб вимкнути lockstep у Gazebo, відредагуйте [файл SDF моделі](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) і встановіть `<enable_lockstep>false</enable_lockstep>`.
 
-Щоб вимкнути lockstep у jMAVSim, видаліть `-l` у [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/jsbsim/sitl_run.sh#L40) або іншим чином переконайтеся, що java-двійник запускається без прапора `-lockstep`.
+Щоб вимкнути lockstep у jMAVSim, видаліть `-l` у [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/simulation/jsbsim/sitl_run.sh#L40) або іншим чином переконайтеся, що java-двійник запускається без прапора `-lockstep`.
 
 <!-- Relevant lines in sitl_run.sh are: -->
 <!-- # Start Java simulator -->
@@ -275,13 +275,13 @@ PX4 підтримує захоплення як нерухомих зображ
 :::info UDP-трансляція забезпечує простий спосіб встановлення з'єднання, коли в мережі працює лише одна симуляція. Не використовуйте цей підхід, якщо у мережі запущено декілька симуляцій (ви можете замість цього  [publish to a specific address](#enable-streaming-to-specific-address)).
 :::
 
-Це слід зробити у відповідному конфігураційному файлі, де викликається `mavlink start`. Наприклад: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
+Це слід зробити у відповідному конфігураційному файлі, де викликається `mavlink start`. Наприклад: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
 
 ### Увімкнення стрімінгу на певну адресу
 
 [Mavlink module](../modules/modules_communication.md#mavlink_usage) за замовчуванням спрямовує на _localhost_, але ви можете вказати зовнішню IP-адресу для потокового передавання за допомогою його параметра `-t`. Вказаний віддалений комп'ютер може підключитися до симулятора, прослуховуючи відповідний порт (наприклад, 14550 для _QGroundControl_).
 
-Це слід зробити у різних конфігураційних файлах, де викликається `mavlink start`. Наприклад: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
+Це слід зробити у різних конфігураційних файлах, де викликається `mavlink start`. Наприклад: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
 
 ### Тунелювання по SSH
 

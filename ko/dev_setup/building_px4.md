@@ -195,7 +195,7 @@ The build toolchain will then report `Too many open files` for many files, as sh
 
 The solution is to increase the maximum allowed number of open files (e.g. to 300). You can do this in the macOS _Terminal_ for each session:
 
-- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/mac_set_ulimit.sh), or
+- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/mac_set_ulimit.sh), or
 - 다음 명령어를 실행하십시오.
 
   ```sh

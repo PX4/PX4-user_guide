@@ -2,7 +2,7 @@
 
 цей файл використовується лише у потрійному підпорядкуванні позиції як залежність
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PositionSetpoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/PositionSetpoint.msg)
 
 ```c
 # this file is only used in the position_setpoint triple as a dependency

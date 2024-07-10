@@ -2,7 +2,7 @@
 
 ParameterSetUsedRequest : Used by a remote to update the used flag for a parameter on the primary
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ParameterSetUsedRequest.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ParameterSetUsedRequest.msg)
 
 ```c
 # ParameterSetUsedRequest : Used by a remote to update the used flag for a parameter on the primary

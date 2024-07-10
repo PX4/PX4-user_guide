@@ -13,7 +13,7 @@ The driver is assumed to already exist, and be started in the shell using the co
 where,
 
 - `-d`: serial port name.
-- `-b`: Baud rate (optional) if the driver supports multiple baud rates. If supported, the driver must allow you to specify the rate as both a bare baudrate and as a parameter name in the form `-b p:<param_name>` (which can be parsed with `px4_get_parameter_value()`). :::tip See the [gps driver](https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/gps/gps.cpp#L1023) for an example.
+- `-b`: Baud rate (optional) if the driver supports multiple baud rates. If supported, the driver must allow you to specify the rate as both a bare baudrate and as a parameter name in the form `-b p:<param_name>` (which can be parsed with `px4_get_parameter_value()`). :::tip See the [gps driver](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/drivers/gps/gps.cpp#L1023) for an example.
 :::
 
 ## Making the Driver Configurable
@@ -35,7 +35,7 @@ To make driver configurable:
      ```
 
 :::note
-The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) file. :::note The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) file.
+The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml) file. :::note The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml) file.
 :::
 
 1. Add the module configuration to the **CMakeLists.txt** file for the driver module:

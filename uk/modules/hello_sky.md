@@ -141,7 +141,7 @@
    - Блок `MAIN` містить точку входу модуля, яка реєструє команду з NuttX, щоб вона могла бути викликана з оболонки PX4 або консолі SITL.
 
 :::tip
-Формат `px4_add_module()` документований у [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
+Формат `px4_add_module()` документований у [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
 
 :::
 
@@ -162,9 +162,9 @@
 
 Додаток завершено. Для запуску його спершу потрібно переконатись, що він побудований як частина PX4. Заявки додаються до збірки / прошивки у відповідному файлі рівня дошки _px4board_ для вашої цілі:
 
-- PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board)
-- Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v2/default.px4board)
-- Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v4/default.px4board)
+- PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/sitl/default.px4board)
+- Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v2/default.px4board)
+- Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v4/default.px4board)
 - _px4board_ files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
 
 Для активації компіляції додатка в прошивку додайте відповідний ключ Kconfig `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` у файл _px4board_ або виконайте [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
@@ -274,7 +274,7 @@ INFO  [px4_simple_app] Hello Sky!
 Немає потреби взаємодіяти з драйверами сенсорів та оновлювати додаток, якщо плата або сенсори оновлені.
 :::
 
-Індивідуальні канали повідомлень між додатками називаються [темами](../middleware/uorb.md). Для цього навчального посібника нас цікавить тема [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg), яка містить узгоджені дані сенсора всієї системи.
+Індивідуальні канали повідомлень між додатками називаються [темами](../middleware/uorb.md). Для цього навчального посібника нас цікавить тема [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/SensorCombined.msg), яка містить узгоджені дані сенсора всієї системи.
 
 Підписка на тему проста:
 
@@ -371,7 +371,7 @@ orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 
 ## Наприклад: Код Повного Прикладу
 
-Повний код прикладу зараз: [посилання на код](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_simple_app/px4_simple_app.c)
+Повний код прикладу зараз: [посилання на код](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/examples/px4_simple_app/px4_simple_app.c)
 
 ```c
 /****************************************************************************

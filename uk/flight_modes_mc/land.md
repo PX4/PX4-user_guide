@@ -15,7 +15,7 @@
 - Рух палиць дистанційного керування в багатороторному літаку (або VTOL у режимі багатороторної літаку) [за замовчуванням](#COM_RC_OVERRIDE) змінить транспортний засіб на [режим позиції](../flight_modes_mc/position.md), якщо не буде обробки критичного відключення батареї.
 - Режим може бути активовано за допомогою команди MAVLink [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND), або прямо переключившись в режим посадки.
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 

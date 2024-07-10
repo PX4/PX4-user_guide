@@ -2,7 +2,7 @@
 
 Sensor readings and in-run biases in SI-unit form. Sensor readings are compensated for static offsets, scale errors, in-run bias and thermal drift (if thermal compensation is enabled and available).
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorSensorBias.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorSensorBias.msg)
 
 ```c
 #

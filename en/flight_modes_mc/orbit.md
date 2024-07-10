@@ -16,7 +16,7 @@ The _Orbit_ guided flight mode allows you to command a multicopter (or VTOL in m
 - RC stick movement can control ascent/descent and orbit speed and direction.
 - The mode can be triggered using the [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MMAV_CMD_DO_ORBIT) MAVLink command.
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 

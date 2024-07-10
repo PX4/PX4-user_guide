@@ -2,7 +2,7 @@
 
 Підлаштування сервоприводів, що додаються як зміщення до виходів сервоприводів
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorServosTrim.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ActuatorServosTrim.msg)
 
 ```c
 # Servo trims, added as offset to servo outputs

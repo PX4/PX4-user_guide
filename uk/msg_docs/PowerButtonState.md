@@ -2,7 +2,7 @@
 
 повідомлення стану кнопки вимкнення живлення
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PowerButtonState.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/PowerButtonState.msg)
 
 ```c
 # power button state notification message

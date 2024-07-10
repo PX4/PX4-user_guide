@@ -17,7 +17,7 @@ Vehicles are [hand or catapult launched](#catapult-hand-launch) by default, but 
 - RC stick movement is ignored in catapult takeoff but can can be used to nudge the vehicle in runway takeoff.
 - The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 

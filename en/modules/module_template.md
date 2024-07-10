@@ -20,15 +20,15 @@ A work queue task application is just the same as an ordinary (task) application
 
 The example shows how.
 In summary:
-1. Specify the dependency on the work queue library in the cmake definition file ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/work_item/CMakeLists.txt)):
+1. Specify the dependency on the work queue library in the cmake definition file ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/examples/work_item/CMakeLists.txt)):
    ```
    ...
    DEPENDS
       px4_work_queue
    ```
-1. In addition to `ModuleBase`, the task should also derive from `ScheduledWorkItem` (included from [ScheduledWorkItem.hpp]( https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp))
+1. In addition to `ModuleBase`, the task should also derive from `ScheduledWorkItem` (included from [ScheduledWorkItem.hpp]( https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp))
 1. Specify the queue to add the task to in the constructor initialisation.
-   The [work_item](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/work_item/WorkItemExample.cpp#L42) example adds itself to the `wq_configurations::test1` work queue as shown below:
+   The [work_item](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/examples/work_item/WorkItemExample.cpp#L42) example adds itself to the `wq_configurations::test1` work queue as shown below:
    ```cpp
    WorkItemExample::WorkItemExample() :
 	   ModuleParams(nullptr),
@@ -38,7 +38,7 @@ In summary:
    ```
    
    ::: info
-   The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
+   The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
    :::
 
 1. Implement the `ScheduledWorkItem::Run()` method to perform "work".

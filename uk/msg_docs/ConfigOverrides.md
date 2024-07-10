@@ -2,7 +2,7 @@
 
 Конфігуровані перевизначення (зовнішніми) режимами або виконавцями режимів
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ConfigOverrides.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ConfigOverrides.msg)
 
 ```c
 # Configurable overrides by (external) modes or mode executors

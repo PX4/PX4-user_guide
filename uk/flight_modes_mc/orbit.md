@@ -16,7 +16,7 @@
 - Рух палиці RC може контролювати підйом/спуск та швидкість та напрямок оберту.
 - Режим може бути викликаний за допомогою команди MAVLink [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MMAV_CMD_DO_ORBIT).
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 

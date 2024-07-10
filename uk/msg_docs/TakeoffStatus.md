@@ -2,7 +2,7 @@
 
 Статус злітної машини наразі доступний лише для мультикоптерів
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TakeoffStatus.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/TakeoffStatus.msg)
 
 ```c
 # Status of the takeoff state machine currently just available for multicopters

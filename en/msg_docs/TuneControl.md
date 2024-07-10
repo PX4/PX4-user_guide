@@ -3,7 +3,7 @@
 This message is used to control the tunes, when the tune_id is set to CUSTOM
 then the frequency, duration are used otherwise those values are ignored.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TuneControl.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/TuneControl.msg)
 
 ```c
 # This message is used to control the tunes, when the tune_id is set to CUSTOM

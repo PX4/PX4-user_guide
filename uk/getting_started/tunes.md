@@ -4,14 +4,14 @@
 
 Набір стандартних звуків наведено нижче.
 
-:::info **Розробники:** Мелодії визначені в [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) і можуть бути протестовані за допомогою модуля [tune-control](../modules/modules_system.md#tune-control). Ви можете шукати використання мелодії за допомогою рядка `TUNE_ID_name` (наприклад, `TUNE_ID_PARACHUTE_RELEASE)
+:::info **Розробники:** Мелодії визначені в [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/tunes/tune_definition.desc) і можуть бути протестовані за допомогою модуля [tune-control](../modules/modules_system.md#tune-control). Ви можете шукати використання мелодії за допомогою рядка `TUNE_ID_name` (наприклад, `TUNE_ID_PARACHUTE_RELEASE)
 :::
 
 
 ## Завантаження/запуск
 
 Ці мелодії відтворюються під час завантаження.
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS --> 
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/rcS --> 
 
 
 #### Сигнал запуску

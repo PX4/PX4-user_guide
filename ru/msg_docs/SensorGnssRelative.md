@@ -2,7 +2,7 @@
 
 GNSS relative positioning information in NED frame. The NED frame is defined as the local topological system at the reference station.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGnssRelative.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/SensorGnssRelative.msg)
 
 ```c
 # GNSS relative positioning information in NED frame. The NED frame is defined as the local topological system at the reference station.

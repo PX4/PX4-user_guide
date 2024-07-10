@@ -2,7 +2,7 @@
 
 Опис траєкторії транспортних точок. Дивіться також MAVLink MAV_TRAJECTORY_REPRESENTATION msg Тема vehicle_trajectory_waypoint_desired використовується для надсилання користувачем бажаних точок шляху від контролера положення до комп'ютера-супутника/модуля уникання перешкод. Тема vehicle_trajectory_waypoint використовується для надсилання відкоригованих точок маршруту від комп'ютера-супутника/модуля уникання перешкод до контролера положення.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTrajectoryWaypoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleTrajectoryWaypoint.msg)
 
 ```c
 # Опис траєкторії транспортних точок. Дивіться також MAVLink MAV_TRAJECTORY_REPRESENTATION msg

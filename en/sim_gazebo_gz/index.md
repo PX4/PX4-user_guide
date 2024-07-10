@@ -214,7 +214,7 @@ where `ARGS` is a list of environment variables including:
 
 - `PX4_GZ_WORLD`:
   Sets the Gazebo world file for a new simulation.
-  If it is not given, then [default](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) is used.
+  If it is not given, then [default](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/simulation/gz/worlds/default.sdf) is used.
 
   - This variable is ignored if an existing simulation is already running.
   - This value should be [specified for the selected airframe](#adding-new-worlds-and-models) but may be overridden using this argument.
@@ -285,7 +285,7 @@ Within PX4 follow the below steps to add models and worlds.
 To add a new model:
 
 1. Define an [airframe configuration file](../dev_airframes/adding_a_new_frame.md).
-1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
+1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
 
    ```ini
    PX4_SIMULATOR=${PX4_SIMULATOR:=gz}
@@ -294,7 +294,7 @@ To add a new model:
    ```
 
    - `PX4_SIMULATOR=${PX4_SIMULATOR:=gz}` sets the default simulator (Gz) for that specific airframe.
-   - `PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}` sets the [default world](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) for that specific airframe.
+   - `PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}` sets the [default world](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/simulation/gz/worlds/default.sdf) for that specific airframe.
 
    - Setting the default value of `PX4_SIM_MODEL` lets you start the simulation with just:
 
@@ -302,7 +302,7 @@ To add a new model:
      PX4_SYS_AUTOSTART=<your new airframe id> ./build/px4_sitl_default/bin/px4
      ```
 
-1. Add CMake Target for the [airframe](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/CMakeLists.txt).
+1. Add CMake Target for the [airframe](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d-posix/airframes/CMakeLists.txt).
 
    - If you plan to use "regular" mode, add your model SDF to `Tools/simulation/gz/models/`.
    - If you plan to use _standalone_ mode, add your model SDF to `~/.simulation-gazebo/models/`
@@ -313,7 +313,7 @@ To add a new model:
 
 To add a new world:
 
-1. Add your world to the list of worlds found in the [`CMakeLists.txt` here](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/CMakeLists.txt).
+1. Add your world to the list of worlds found in the [`CMakeLists.txt` here](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/simulation/gz_bridge/CMakeLists.txt).
    This is required in order to allow `CMake` to generate correct targets.
 
    - If you plan to use "normal" mode, add your world sdf to `Tools/simulation/gz/worlds/`.

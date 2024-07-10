@@ -187,7 +187,7 @@ Please add an issue report or PR if you find a missing/incorrect message.
 - Not all messages/commands are exposed via _QGroundControl_.
 - The list may become out of date as messages are added.
   You can check the current set by inspecting the code.
-  Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp).
+  Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_mission.cpp).
 
 ## Rounded turns: Inter-Waypoint Trajectory
 

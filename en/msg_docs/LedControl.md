@@ -3,7 +3,7 @@
 LED control: control a single or multiple LED's.
 These are the externally visible LED's, not the board LED's
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LedControl.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/LedControl.msg)
 
 ```c
 # LED control: control a single or multiple LED's.

@@ -29,7 +29,7 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
 Кожному екземпляру рухомого засобу виділяється унікальний системний ідентифікатор MAVLink (2, 3, 4 тощо). MAVLink system id 1 is skipped in order to have consistency among [namespaces](../ros2/multi_vehicle.md#principle-of-operation). Екземпляри засобів доступні з послідовно виділених віддалених UDP портів PX4: `14541` - `14548` (усі додаткові екземпляри доступні по тому ж самому UDP порту `14549`).
 
 :::info
-Обмеження на 254 засоби з'явилось тому що системний ідентифікатор mavlink `MAV_SYS_ID` підтримує тільки 255 засобів в одній мережі (а перша мережа пропускається). `MAV_SYS_ID` виділяється у SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS#L131)
+Обмеження на 254 засоби з'явилось тому що системний ідентифікатор mavlink `MAV_SYS_ID` підтримує тільки 255 засобів в одній мережі (а перша мережа пропускається). `MAV_SYS_ID` виділяється у SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d-posix/rcS#L131)
 :::
 
 ### Відео: кілька мультикоптерів (Iris)
@@ -246,7 +246,7 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
 
    - скопіювати свою модель в директорію, позначену вище (дотримуючись тих же правил шляху).
 
-1. Аргумент `vehicle` використовується для встановлення змінної середовища `PX4_SIM_MODEL`, яка використовується rcS (стартовим скриптом) за замовчуванням щоб знайти відповідний файл налаштувань для моделі. У PX4 ці стартові файли можна знайти у директорії **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**. Для прикладу ось [стартовий скрипт](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/1030_gazebo-classic_plane) моделі літака. Для того, щоб це працювало, вузлу PX4 у файлі запуску передаються аргументи що визначають файл _rcS_ (**etc/init.d/rcS**) та розташування etc директорії (`$(find px4)/build_px4_sitl_default/etc`) у корені файлової системи. Для спрощення пропонується, що початковий файл для моделі розміщується поруч з PX4 в **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**.
+1. Аргумент `vehicle` використовується для встановлення змінної середовища `PX4_SIM_MODEL`, яка використовується rcS (стартовим скриптом) за замовчуванням щоб знайти відповідний файл налаштувань для моделі. У PX4 ці стартові файли можна знайти у директорії **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**. Для прикладу ось [стартовий скрипт](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d-posix/airframes/1030_gazebo-classic_plane) моделі літака. Для того, щоб це працювало, вузлу PX4 у файлі запуску передаються аргументи що визначають файл _rcS_ (**etc/init.d/rcS**) та розташування etc директорії (`$(find px4)/build_px4_sitl_default/etc`) у корені файлової системи. Для спрощення пропонується, що початковий файл для моделі розміщується поруч з PX4 в **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**.
 
 ## Додаткові ресурси
 

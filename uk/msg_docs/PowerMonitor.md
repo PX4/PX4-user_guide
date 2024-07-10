@@ -2,7 +2,7 @@
 
 power monitor message
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PowerMonitor.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/PowerMonitor.msg)
 
 ```c
 # power monitor message

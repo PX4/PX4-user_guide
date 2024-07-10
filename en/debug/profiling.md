@@ -1,6 +1,6 @@
 # Poor Man's Sampling Profiler
 
-This section describes how you can use the [Poor Man's Sampling Profiler](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/nuttx/Debug/poor-mans-profiler.sh) (PMSP) shell script to assess the performance of PX4.
+This section describes how you can use the [Poor Man's Sampling Profiler](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/nuttx/Debug/poor-mans-profiler.sh) (PMSP) shell script to assess the performance of PX4.
 This is an implementation of a known method originally invented by [Mark Callaghan and Domas Mituzas](https://poormansprofiler.org/).
 
 ## Approach
@@ -86,7 +86,7 @@ Please watch out for them while using it:
 
 ## Implementation
 
-The script is located at [/platforms/nuttx/Debug/poor-mans-profiler.sh](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/nuttx/Debug/poor-mans-profiler.sh)
+The script is located at [/platforms/nuttx/Debug/poor-mans-profiler.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/nuttx/Debug/poor-mans-profiler.sh)
 Once launched, it will perform the specified number of samples with the specified time interval.
 Collected samples will be stored in a text file in the system temp directory (typically `/tmp`).
 Once sampling is finished, the script will automatically invoke the stack folder, the output of which will be stored in an adjacent file in the temp directory.

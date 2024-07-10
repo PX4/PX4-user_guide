@@ -2,7 +2,7 @@
 
 ParameterSetValueRequest : Used by a remote or primary to update the value for a parameter at the other end
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ParameterSetValueRequest.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ParameterSetValueRequest.msg)
 
 ```c
 # ParameterSetValueRequest : Used by a remote or primary to update the value for a parameter at the other end

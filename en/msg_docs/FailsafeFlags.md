@@ -5,7 +5,7 @@ Input flags for the failsafe state machine set by the arming & health checks.
 Flags must be named such that false == no failure (e.g. _invalid, _unhealthy, _lost)
 The flag comments are used as label for the failsafe state machine simulation
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/FailsafeFlags.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/FailsafeFlags.msg)
 
 ```c
 # Input flags for the failsafe state machine set by the arming & health checks.

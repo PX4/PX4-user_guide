@@ -18,8 +18,8 @@ MAVLink调试消息转换为/自 uORB 主题。 为了发送或接收 MAVLink �
 
 本教程的代码可在此处找到：
 
-- [调试教程代码](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
-- [Enable the tutorial app](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board) by ensuring the MAVLink debug app (**CONFIG_EXAMPLES_PX4_MAVLINK_DEBUG**) is in the config of your board and set set to 'y'.
+- [调试教程代码](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
+- [Enable the tutorial app](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/default.px4board) by ensuring the MAVLink debug app (**CONFIG_EXAMPLES_PX4_MAVLINK_DEBUG**) is in the config of your board and set set to 'y'.
 
 设置调试发布所需的只是此代码段。 首先添加头文件：
 

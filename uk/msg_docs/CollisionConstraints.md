@@ -2,7 +2,7 @@
 
 Локальні обмеження заданих значень у фреймі NED встановлення чогось у NaN означає, що обмеження не передбачено
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/CollisionConstraints.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/CollisionConstraints.msg)
 
 ```c
 # Local setpoint constraints in NED frame

@@ -45,7 +45,7 @@ PX4 підтримує наступні команди MAVLink для камер
 | Параметр №2       | Скидання послідовності спрацьовування. `1`: скинути, будь-яке інше значення нічого не робить.                                         |
 | Параметр №3       | Призупинення спрацьовування, але без вимкнення камери або прибирання об'єктиву. `1`: призупинити, `0`: перезапустити. |
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/camera_trigger/camera_trigger.cpp#L549 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/drivers/camera_trigger/camera_trigger.cpp#L549 -->
 
 ### MAV_CMD_DO_DIGICAM_CONTROL
 
@@ -75,7 +75,7 @@ PX4 підтримує наступні команди MAVLink для камер
 Приймає від `param1` до `param4`, як вказано у визначенні повідомлення MAVLink.
 Налаштування інтеграції затвору (`param2`) виконується тільки з бекендом GPIO.
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/camera_trigger/camera_trigger.cpp#L632 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/drivers/camera_trigger/camera_trigger.cpp#L632 -->
 
 ## Налаштування спрацьовування
 

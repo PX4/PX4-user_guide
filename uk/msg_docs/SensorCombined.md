@@ -2,7 +2,7 @@
 
 Вимірювання сенсорів у вигляді одиниць SI. Ці поля масштабуються та компенсуються зміщенням, де це можливо, і не змінюються з ревізіями плати та оновленнями сенсора.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/SensorCombined.msg)
 
 ```c
 # Вимірювання сенсорів у вигляді одиниць SI.

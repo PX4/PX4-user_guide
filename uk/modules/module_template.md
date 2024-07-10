@@ -15,14 +15,14 @@ PX4-Autopilot містить шаблон для написання нової �
 Програма-задача робочої черги - це така сама програма, як і звичайна (задача), за винятком того, що їй потрібно вказати, що вона є задачею робочої черги, і запланувати свій запуск під час ініціалізації.
 
 Приклад показує, як. У підсумку:
-1. Вкажіть залежність від бібліотеки робочих черг у файлі визначення cmake ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/work_item/CMakeLists.txt)):
+1. Вкажіть залежність від бібліотеки робочих черг у файлі визначення cmake ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/examples/work_item/CMakeLists.txt)):
    ```
    ...
    DEPENDS
       px4_work_queue
    ```
-1. На додаток до `ModuleBase`, завдання також має походити від `ScheduledWorkItem` (включається з [ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp))
-1. Вкажіть чергу, до якої додати завдання у конструкторі ініціалізації. Приклад [work_item](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/work_item/WorkItemExample.cpp#L42) додає себе до робочої черги `wq_configurations::test1`, як показано нижче:
+1. На додаток до `ModuleBase`, завдання також має походити від `ScheduledWorkItem` (включається з [ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp))
+1. Вкажіть чергу, до якої додати завдання у конструкторі ініціалізації. Приклад [work_item](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/examples/work_item/WorkItemExample.cpp#L42) додає себе до робочої черги `wq_configurations::test1`, як показано нижче:
    ```cpp
    WorkItemExample::WorkItemExample() :
        ModuleParams(nullptr),
@@ -31,7 +31,7 @@ PX4-Autopilot містить шаблон для написання нової �
    }
    ```
 
-   :::info Доступні робочі черги (`wq_configurations`) перелічено у [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
+   :::info Доступні робочі черги (`wq_configurations`) перелічено у [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
 :::
 
 1. Реалізуйте метод `ScheduledWorkItem::Run()`, щоб виконати "work".

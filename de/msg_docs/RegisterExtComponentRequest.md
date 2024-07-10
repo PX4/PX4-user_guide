@@ -2,7 +2,7 @@
 
 Request to register an external component
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/RegisterExtComponentRequest.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/RegisterExtComponentRequest.msg)
 
 ```c
 # Request to register an external component

@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/CameraCapture.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/CameraCapture.msg)
 
 ```c
 uint64 timestamp        # time since system start (microseconds)

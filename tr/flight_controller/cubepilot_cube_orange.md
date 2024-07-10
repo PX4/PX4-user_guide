@@ -209,8 +209,8 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 | UART8  | /dev/ttyS5 | GPS2                  |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/cubepilot/cubeorange/default.px4board -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/cubepilot/cubeorange/nuttx-config/nsh/defconfig#L188-L197 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/cubepilot/cubeorange/default.px4board -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/cubepilot/cubeorange/nuttx-config/nsh/defconfig#L188-L197 -->
 
 ### USB/SDCard Ports
 

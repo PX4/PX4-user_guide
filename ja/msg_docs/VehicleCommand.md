@@ -2,7 +2,7 @@
 
 Vehicle Command uORB message. Used for commanding a mission / action / etc. Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleCommand.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleCommand.msg)
 
 ```c
 # Vehicle Command uORB message. Used for commanding a mission / action / etc.

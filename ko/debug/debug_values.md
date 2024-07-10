@@ -18,7 +18,7 @@ MAVLink 디버그 메시지는 uORB 주제로/에서 번역됩니다. MAVLink �
 
 이 자습서의 코드는 다음에서 사용할 수 있습니다.
 
-- [튜토리얼 코드 디버그](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
+- [튜토리얼 코드 디버그](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
 - 보드 구성에서 MAVLink 디버그 앱(**px4_mavlink_debug**)의 주석 처리를 제거하여 [튜토리얼 앱을 활성화](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)합니다.
 
 디버그 게시를 설정에 필요한 것은 아래의 코드입니다. 먼저 헤더 파일을 추가합니다.

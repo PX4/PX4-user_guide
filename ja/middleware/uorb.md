@@ -120,7 +120,7 @@ uORB provides a mechanism to publish multiple independent instances of the same 
 
 Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic.
 
-The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
+The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 

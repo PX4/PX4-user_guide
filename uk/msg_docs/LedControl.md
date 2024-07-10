@@ -2,7 +2,7 @@
 
 Керування світлодіодами: керування одним чи кількома світлодіодами. Це зовнішні світлодіоди, а не світлодіоди плати
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LedControl.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/LedControl.msg)
 
 ```c
 # LED control: control a single or multiple LED's.

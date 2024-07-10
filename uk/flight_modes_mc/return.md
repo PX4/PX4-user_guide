@@ -22,7 +22,7 @@ Multicopter підтримує [інші типи повернення PX4](../f
 - Перемикачі керування RC можна використовувати для зміни режимів польоту на будь-якому автомобілі.
 - Рух палиць дистанційного керування [за замовчуванням](#COM_RC_OVERRIDE) змінить транспортний засіб на [режим позиції](../flight_modes_mc/position.md) якщо не буде обробки критичного відключення батареї.
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 

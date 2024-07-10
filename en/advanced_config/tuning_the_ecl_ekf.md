@@ -484,25 +484,25 @@ EKF outputs, states and status data are published to a number of uORB topics whi
 The following guide assumes that data has been logged using the _.ulog file format_.
 The **.ulog** format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
 
-Most of the EKF data is found in the [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg) and [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) uORB messages that are logged to the .ulog file.
+Most of the EKF data is found in the [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorInnovations.msg) and [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg) uORB messages that are logged to the .ulog file.
 
-A python script that automatically generates analysis plots and metadata can be found [here](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/process_logdata_ekf.py).
+A python script that automatically generates analysis plots and metadata can be found [here](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/ecl_ekf/process_logdata_ekf.py).
 To use this script file, cd to the `Tools/ecl_ekf` directory and enter `python process_logdata_ekf.py <log_file.ulg>`.
 This saves performance metadata in a csv file named **<log_file>.mdat.csv** and plots in a pdf file named `<log_file>.pdf`.
 
-Multiple log files in a directory can be analysed using the [batch_process_logdata_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/batch_process_logdata_ekf.py) script.
-When this has been done, the performance metadata files can be processed to provide a statistical assessment of the estimator performance across the population of logs using the [batch_process_metadata_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/batch_process_metadata_ekf.py) script.
+Multiple log files in a directory can be analysed using the [batch_process_logdata_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/ecl_ekf/batch_process_logdata_ekf.py) script.
+When this has been done, the performance metadata files can be processed to provide a statistical assessment of the estimator performance across the population of logs using the [batch_process_metadata_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/ecl_ekf/batch_process_metadata_ekf.py) script.
 
 ### Output Data
 
-- Attitude output data is found in the [VehicleAttitude](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitude.msg) message.
-- Local position output data is found in the [VehicleLocalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPosition.msg) message.
-- Global \(WGS-84\) output data is found in the [VehicleGlobalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleGlobalPosition.msg) message.
-- Wind velocity output data is found in the [Wind.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Wind.msg) message.
+- Attitude output data is found in the [VehicleAttitude](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleAttitude.msg) message.
+- Local position output data is found in the [VehicleLocalPosition](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleLocalPosition.msg) message.
+- Global \(WGS-84\) output data is found in the [VehicleGlobalPosition](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleGlobalPosition.msg) message.
+- Wind velocity output data is found in the [Wind.msg](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/Wind.msg) message.
 
 ### States
 
-Refer to states\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg).
+Refer to states\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStates.msg).
 The index map for states\[24\] is as follows:
 
 - \[0 ... 3\] Quaternions
@@ -516,7 +516,7 @@ The index map for states\[24\] is as follows:
 
 ### State Variances
 
-Refer to covariances\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg).
+Refer to covariances\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStates.msg).
 The index map for covariances\[24\] is as follows:
 
 - \[0 ... 3\] Quaternions
@@ -530,12 +530,12 @@ The index map for covariances\[24\] is as follows:
 
 ### Observation Innovations & Innovation Variances
 
-The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [EstimatorInnovations.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).
+The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [EstimatorInnovations.msg](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorInnovations.msg).
 The messages all have the same field names/types (but different units).
 
 ::: info
 The messages have the same fields because they are generated from the same field definition.
-The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg)) lists the names of the set of messages to be created):
+The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorInnovations.msg)) lists the names of the set of messages to be created):
 
 ```
 # TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
@@ -603,7 +603,7 @@ The index map is as follows:
 ### EKF Errors
 
 The EKF contains internal error checking for badly conditioned state and covariance updates.
-Refer to the `filter_fault_flags` in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
+Refer to the `filter_fault_flags` in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).
 
 ### Observation Errors
 
@@ -618,7 +618,7 @@ Both of these can result in observation data being rejected for long enough to c
 All observations have a statistical confidence checks applied to the innovations.
 The number of standard deviations for the check are controlled by the `EKF2_*_GATE` parameter for each observation type.
 
-Test levels are available in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) as follows:
+Test levels are available in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg) as follows:
 
 - `mag_test_ratio`: ratio of the largest magnetometer innovation component to the innovation test limit
 - `vel_test_ratio`: ratio of the largest velocity innovation component to the innovation test limit
@@ -627,15 +627,15 @@ Test levels are available in [EstimatorStatus](https://github.com/PX4/PX4-Autopi
 - `tas_test_ratio`: ratio of the true airspeed innovation to the innovation test limit
 - `hagl_test_ratio`: ratio of the height above ground innovation to the innovation test limit
 
-For a binary pass/fail summary for each sensor, refer to innovation_check_flags in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
+For a binary pass/fail summary for each sensor, refer to innovation_check_flags in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).
 
 ### GPS Quality Checks
 
 The EKF applies a number of GPS quality checks before commencing GPS aiding.
 These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters.
-The pass/fail status for these checks is logged in the [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).gps_check_fail_flags message.
+The pass/fail status for these checks is logged in the [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).gps_check_fail_flags message.
 This integer will be zero when all required GPS checks have passed.
-If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition `gps_check_fail_flags` in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
+If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition `gps_check_fail_flags` in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).
 
 ### EKF Numerical Errors
 
@@ -647,7 +647,7 @@ To prevent this, every covariance and state update step contains the following e
 - If the innovation variance is less than the observation variance (this requires a negative state variance which is impossible) or the covariance update will produce a negative variance for any of the states, then:
   - The state and covariance update is skipped
   - The corresponding rows and columns in the covariance matrix are reset
-  - The failure is recorded in the [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) `filter_fault_flags` message
+  - The failure is recorded in the [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg) `filter_fault_flags` message
 - State variances (diagonals in the covariance matrix) are constrained to be non-negative.
 - An upper limit is applied to state variances.
 - Symmetry is forced on the covariance matrix.
@@ -659,8 +659,8 @@ After re-tuning the filter, particularly re-tuning that involve reducing the noi
 The most common cause of EKF height diverging away from GPS and altimeter measurements during flight is clipping and/or aliasing of the IMU measurements caused by vibration.
 If this is occurring, then the following signs should be evident in the data
 
-- [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).vel_pos_innov\[2\] and [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).vel_pos_innov\[5\] will both have the same sign.
-- [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt_test_ratio will be greater than 1.0
+- [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorInnovations.msg).vel_pos_innov\[2\] and [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorInnovations.msg).vel_pos_innov\[5\] will both have the same sign.
+- [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).hgt_test_ratio will be greater than 1.0
 
 The recommended first step is to ensure that the autopilot is isolated from the airframe using an effective isolation mounting system.
 An isolation mount has 6 degrees of freedom, and therefore 6 resonant frequencies.
@@ -698,16 +698,16 @@ The most common causes of position divergence are:
 
 Determining which of these is the primary cause requires a methodical approach to analysis of the EKF log data:
 
-- Plot the velocity innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vel_test_ratio
-- Plot the horizontal position innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).pos_test_ratio
-- Plot the height innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt_test_ratio
-- Plot the magnetometer innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).mag_test_ratio
-- Plot the GPS receiver reported speed accuracy - [SensorGps.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGps.msg).s_variance_m_s
-- Plot the IMU delta angle state estimates - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).states\[10\], states\[11\] and states\[12\]
+- Plot the velocity innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).vel_test_ratio
+- Plot the horizontal position innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).pos_test_ratio
+- Plot the height innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).hgt_test_ratio
+- Plot the magnetometer innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).mag_test_ratio
+- Plot the GPS receiver reported speed accuracy - [SensorGps.msg](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/SensorGps.msg).s_variance_m_s
+- Plot the IMU delta angle state estimates - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).states\[10\], states\[11\] and states\[12\]
 - Plot the EKF internal high frequency vibration metrics:
-  - Delta angle coning vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[0\]
-  - High frequency delta angle vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[1\]
-  - High frequency delta velocity vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[2\]
+  - Delta angle coning vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).vibe\[0\]
+  - High frequency delta angle vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).vibe\[1\]
+  - High frequency delta velocity vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).vibe\[2\]
 
 During normal operation, all the test ratios should remain below 0.5 with only occasional spikes above this as shown in the example below from a successful flight:
 
@@ -753,7 +753,7 @@ Height is normally unaffected.
 Poor GPS accuracy is normally accompanied by a rise in the reported velocity error of the receiver in conjunction with a rise in innovations.
 Transient errors due to multipath, obscuration and interference are more common causes.
 Here is an example of a temporary loss of GPS accuracy where the multi-rotor started drifting away from its loiter location and had to be corrected using the sticks.
-The rise in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vel_test_ratio to greater than 1 indicates the GPs velocity was inconsistent with other measurements and has been rejected.
+The rise in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorStatus.msg).vel_test_ratio to greater than 1 indicates the GPs velocity was inconsistent with other measurements and has been rejected.
 
 ![GPS glitch - test ratios](../../assets/ecl/gps_glitch_-_test_ratios.png)
 

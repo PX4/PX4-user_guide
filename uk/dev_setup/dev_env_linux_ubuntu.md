@@ -13,7 +13,7 @@ The environment includes:
 
 ## Симуляція та NuttX (Pixhawk)
 
-Використовуйте скрипт [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) для встановлення інструментарію середовища розробника який дозволяє робити збірки для симуляторів або [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
+Використовуйте скрипт [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/setup/ubuntu.sh) для встановлення інструментарію середовища розробника який дозволяє робити збірки для симуляторів або [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 
 :::tip
 The script is intended to be run on _clean_ Ubuntu LTS installations, and may not work if run "on top" of an existing system, or on a different Ubuntu release.
@@ -59,7 +59,7 @@ The script is intended to be run on _clean_ Ubuntu LTS installations, and may no
   warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
   ```
 
-- Вам все одно потрібен вихідний код PX4. Однак якщо ви просто хочете встановити середовище розробки без того, щоб завантажувати весь код, замість цього ви можете просто завантажити  [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) та [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/requirements.txt) після чого виконати **ubuntu.sh**:
+- Вам все одно потрібен вихідний код PX4. Однак якщо ви просто хочете встановити середовище розробки без того, щоб завантажувати весь код, замість цього ви можете просто завантажити  [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/setup/ubuntu.sh) та [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/setup/requirements.txt) після чого виконати **ubuntu.sh**:
 
   ```sh
   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu.sh

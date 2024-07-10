@@ -15,7 +15,7 @@
 创建新的单元测试步骤如下：
 
 1. 单元测试分成三个部分：设置、运行、检查结果。 每个单元测试都应该测试一个特定行为或设置案例，如果测试失败，则很明显你的测试代码有错误。 请尽可能遵循这些标准。
-1. Copy and rename the example unit test [AttitudeControlTest](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mc_att_control/AttitudeControl/AttitudeControlTest.cpp) to the directory the code to be tested is in.
+1. Copy and rename the example unit test [AttitudeControlTest](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mc_att_control/AttitudeControl/AttitudeControlTest.cpp) to the directory the code to be tested is in.
 1. 将新文件到该目录的`CMakeLists.txt`文件中。 文件看起来像`px4_add_unit_gtest(SRC MyNewUnitTest.cpp LINKLIBS <library_to_be_tested>)`
 1. 添加你想要的测试功能。 这包括了添加所需的头文件、新测试(每个测试都应该有单独的名称)，并加入相关逻辑，运行测试代码并验证其行为是否符合预期。
 1. 如果需要添加新的依赖库，只要在如上所说的CMakeLists文件中`LINKLIBS`后面加入库的名字。
@@ -29,7 +29,7 @@
 创建一个新的功能测试步骤如下：
 
 1. 一般来说（与单元测试类似）功能测试应分为三个部分：设置，运行，检查结果。 每个单元测试都应该测试一个特定行为或设置案例，如果测试失败，则很明显你的测试代码有错误。 请尽可能遵循这些标准。
-1. Copy and rename the example functional test [ParameterTest](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/parameters/ParameterTest.cpp) to the directory the code to be tested is in.
+1. Copy and rename the example functional test [ParameterTest](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/parameters/ParameterTest.cpp) to the directory the code to be tested is in.
 1. 将ParameterTest 重命名为更符合你正在测试的代码功能。
 1. 将新文件到该目录的`CMakeLists.txt`文件中。 文件内容看起来像 `px4_add_functional_gtest(SRC MyNewFunctionalTest.cpp LINKLIBS <library_to_be_tested>)`
 1. 添加你想要的测试功能。 这包括了，添加特定的头文件、新测试（每个测试都应该使用不同的命名），并设置相关逻辑，运行测试代码并验证是否符合预期。
@@ -43,7 +43,7 @@
 
 创建一个新的SITL单元测试步骤如下：
 
-1. Examine the sample [Unittest-class](https://github.com/PX4/PX4-Autopilot/blob/main/src/include/unit_test.h).
+1. Examine the sample [Unittest-class](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/include/unit_test.h).
 1. Create a new .cpp file within [tests](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tests) with name **test\_[description].cpp**.
 1. 在 **test_ [description].cpp** 中，实现各种测试。
 1. 在 **test_ [description].cpp** 中实现 `run_tests（）` 方法，其中将运行每个测试[1,2，...]。
@@ -141,15 +141,15 @@
    ut_declare_test_c(test_[description], [Description]Test)
    ```
 
-   Note that `ut_[name of one of the unit test functions]` corresponds to one of the unittest functions defined within [unit_test.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/include/unit_test.h).
+   Note that `ut_[name of one of the unit test functions]` corresponds to one of the unittest functions defined within [unit_test.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/include/unit_test.h).
 
-1. Within [tests_main.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/tests_main.h) define the new test:
+1. Within [tests_main.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/systemcmds/tests/tests_main.h) define the new test:
 
    ```cpp
    extern int test_[description](int argc, char *argv[]);
    ```
 
-1. Within [tests_main.c](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/tests_main.c) add description name, test function and option:
+1. Within [tests_main.c](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/systemcmds/tests/tests_main.c) add description name, test function and option:
 
    ```cpp
    ...
@@ -174,7 +174,7 @@
 
    If a test has option `OPT_NOALLTEST`, then that test will be excluded when calling `tests all`. The same is true for `OPT_NOJITEST` when command `test jig` is called. 选项“0”表示从不排除测试，这是大多数开发人员想要使用的。 The same is true for `OPT_NOJITEST` when command `test jig` is called. Option `0` means that the test is never excluded, which is what most developer want to use.
 
-1. Add the test `test_[description].cpp` to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/CMakeLists.txt).
+1. Add the test `test_[description].cpp` to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/systemcmds/tests/CMakeLists.txt).
 
 ## 在本地计算机上进行测试
 

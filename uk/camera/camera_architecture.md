@@ -79,17 +79,17 @@ PX4 повторно видає пункти камери, знайдені в �
 
 Команди, підтримувані в місіях, включаючи команди камери, показані в цих методах:
 
-- [`bool FeasibilityChecker::checkMissionItemValidity(mission_item_s &mission_item, const int current_index)`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/MissionFeasibility/FeasibilityChecker.cpp#L257-L306)
-- [`format_mavlink_mission_item()`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp#L1672-L1693)
+- [`bool FeasibilityChecker::checkMissionItemValidity(mission_item_s &mission_item, const int current_index)`](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/navigator/MissionFeasibility/FeasibilityChecker.cpp#L257-L306)
+- [`format_mavlink_mission_item()`](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_mission.cpp#L1672-L1693)
 
 ### Потік для повторної відправки команд камери, знайденої у місіях
 
-- [`void Mission::setActiveMissionItems()`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/mission.cpp#L187-L281)
+- [`void Mission::setActiveMissionItems()`](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/navigator/mission.cpp#L187-L281)
   - Предмети місії виконуються, коли вони активовані.
   - `issue_command(_mission_item)` викликається в кінці цього, щоб відправити поточну непунктову команду
-    - [`MissionBlock::видача_команди(const mission_item_s &item)`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/mission_block.cpp#L543-L562)
+    - [`MissionBlock::видача_команди(const mission_item_s &item)`](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/navigator/mission_block.cpp#L543-L562)
       - Створює команду для місії транспортного засобу, а потім викликає `publish_vehicle_cmd` для публікації її (`_navigator->publish_vehicle_cmd(&vcmd);`)
-        - [`void Navigator::publish_vehicle_cmd(vehicle_command_s *vcmd)`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/navigator_main.cpp#L1358)
+        - [`void Navigator::publish_vehicle_cmd(vehicle_command_s *vcmd)`](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/navigator/navigator_main.cpp#L1358)
           - Для деяких команд камери це встановлює ідентифікатор компонента на ідентифікатор компонента камери (`vcmd->target_component = 100; // MAV_COMP_ID_CAMERA`)
           - Усі інші просто публікуються під стандартний компонент ID.
           - Тема UORB `VehicleCommand` публікується.

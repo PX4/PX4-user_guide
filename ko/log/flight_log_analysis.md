@@ -29,7 +29,7 @@ On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/
 주요 기능:
 
 - 웹 기반으로 되어 있어며, 일반 사용자에게 적합합니다.
-- Users can upload logs through the web interface, and then share report with others (bulk upload is supported using the [upload_log.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/upload_log.py) script)
+- Users can upload logs through the web interface, and then share report with others (bulk upload is supported using the [upload_log.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/upload_log.py) script)
 - 대화형 플롯.
 
 ![비행 검토 차트](../../assets/flight_log_analysis/flight_review/flight-review-example.png)

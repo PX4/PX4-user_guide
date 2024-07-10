@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PpsCapture.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/PpsCapture.msg)
 
 ```c
 uint64 timestamp              # time since system start (microseconds) at PPS capture event

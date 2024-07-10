@@ -2,7 +2,7 @@
 
 
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAirData.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleAirData.msg)
 
 ```c
 

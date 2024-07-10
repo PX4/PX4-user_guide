@@ -38,8 +38,8 @@ PX4 відокремлює цю логіку перекладу, що назив
   - публікує корекції для сервоприводів окремо щоб їх можна було додати як відхилення при  [перевірці приводів](../config/actuators.md#actuator-testing) (використовуючи тестувальні повзунки).
 - Драйвери виходу:
   - обробляють апаратну ініціалізацію та оновлення
-  - використовують поділювану бібліотеку [src/libs/mixer_module](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/). Драйвер визначає префікс параметру, наприклад `PWM_MAIN`, який бібліотека використовує для налаштування. Її головне завдання зробити вибірку з вхідних дані та призначити правильні дані на виходи засновуючись на встановлених користувачем значеннях параметрів `<param_prefix>_FUNCx`. Наприклад, якщо `PWM_MAIN_FUNC3` встановлено у **Motor 2**, це означає що на 2-й двигун з `actuator_motors` встановлено 3-й вивід.
-  - функції виводу визначаються у [src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
+  - використовують поділювану бібліотеку [src/libs/mixer_module](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/mixer_module/). Драйвер визначає префікс параметру, наприклад `PWM_MAIN`, який бібліотека використовує для налаштування. Її головне завдання зробити вибірку з вхідних дані та призначити правильні дані на виходи засновуючись на встановлених користувачем значеннях параметрів `<param_prefix>_FUNCx`. Наприклад, якщо `PWM_MAIN_FUNC3` встановлено у **Motor 2**, це означає що на 2-й двигун з `actuator_motors` встановлено 3-й вивід.
+  - функції виводу визначаються у [src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/mixer_module/output_functions.yaml).
 - Якщо ви хочете керувати виводом з MAVLink, встановіть відповідну вихідну функцію в **Offboard Actuator Set x**, а потім відправте MAVLink команду [MAV_CMD_DO_SETUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR).
 
 ## Додавання нової геометрії або функції виводу
@@ -48,13 +48,13 @@ PX4 відокремлює цю логіку перекладу, що назив
 
 [Цей коміт](https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370) показує як додати нову функцію виходу. Будь-яка тема uORB може бути підписана і закріплена за функцією.
 
-Зауважте що параметри для розподілу керування визначені у [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml) Схема для цього файлу є [тут](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) (конкретніше, шукайте термін `mixer:`
+Зауважте що параметри для розподілу керування визначені у [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/control_allocator/module.yaml) Схема для цього файлу є [тут](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml#L440=) (конкретніше, шукайте термін `mixer:`
 
 ## Встановлення геометрії планеру за замовчуванням
 
 Коли [додаєте нові налаштування планера](../dev_airframes/adding_a_new_frame.md), встановіть відповідне значення [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) змішувача та інші значення за замовчуванням для геометрії.
 
-Ви можете це побачити наприклад, у файлі конфігурації планера [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter)
+Ви можете це побачити наприклад, у файлі конфігурації планера [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter)
 
 ```sh
 ...

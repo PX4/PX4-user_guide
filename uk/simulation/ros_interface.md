@@ -44,8 +44,8 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 
 Доступні скрипти запуску ROS для запуску симуляції в обгортці ROS:
 
-- [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/posix_sitl.launch): звичайний запуск SITL
-- [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch): SITL та MAVROS
+- [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/launch/posix_sitl.launch): звичайний запуск SITL
+- [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/launch/mavros_posix_sitl.launch): SITL та MAVROS
 
 Щоб запустити SITL обгорнуту в ROS, необхідно оновити середовище ROS, а потім запустити як завжди:
 

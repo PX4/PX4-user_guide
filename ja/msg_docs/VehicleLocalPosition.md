@@ -2,7 +2,7 @@
 
 Fused local position in NED. The coordinate system origin is the vehicle position at the time when the EKF2-module was started.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPosition.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleLocalPosition.msg)
 
 ```c
 # Fused local position in NED.

@@ -2,7 +2,7 @@
 
 Опис траекторії Безьє. Див. також Повідомлення Mavlink TRAJECTORY Тема trajectory_bezier описує кожну точку маршруту, визначену в vehicle_trajectory_bezier
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectoryBezier.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/TrajectoryBezier.msg)
 
 ```c
 # Bezier Trajectory description. See also Mavlink TRAJECTORY msg

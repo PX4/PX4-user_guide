@@ -2,7 +2,7 @@
 
 Velocity and yaw rate limits for a multicopter position slow mode only
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VelocityLimits.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VelocityLimits.msg)
 
 ```c
 # Velocity and yaw rate limits for a multicopter position slow mode only

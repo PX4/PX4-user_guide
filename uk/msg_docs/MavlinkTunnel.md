@@ -2,7 +2,7 @@
 
 MAV_TUNNEL_PAYLOAD_TYPE enum
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/MavlinkTunnel.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/MavlinkTunnel.msg)
 
 ```c
 # MAV_TUNNEL_PAYLOAD_TYPE enum

@@ -31,7 +31,7 @@ An application can be written to run as either a *task* (a module with its own s
    }
    ```
 
-   ::: info The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
+   ::: info The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
 :::
 
 1. `ScheduledWorkItem::Run()` 메서드를 구현하여 "작업"을 수행합니다.

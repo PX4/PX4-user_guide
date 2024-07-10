@@ -29,7 +29,7 @@
 Основні функції:
 
 - Веб-орієнтований, відмінно підходить для кінцевих користувачів.
-- Користувачі можуть завантажувати логи через веб-інтерфейс, а потім ділитися звітами з іншими (множинне завантаження підтримується за допомогою скрипта [upload_log.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/upload_log.py))
+- Користувачі можуть завантажувати логи через веб-інтерфейс, а потім ділитися звітами з іншими (множинне завантаження підтримується за допомогою скрипта [upload_log.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/upload_log.py))
 - Інтерактивні графіки.
 
 ![Flight Review Charts](../../assets/flight_log_analysis/flight_review/flight-review-example.png)

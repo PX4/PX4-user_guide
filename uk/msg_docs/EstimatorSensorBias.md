@@ -2,7 +2,7 @@
 
 Показання датчиків та похибки в процесі роботи в одиницях СІ. Показання датчиків компенсуються для статичних зсувів, похибки шкали, зсув під час роботи та тепловий зсув (якщо термокомпенсація увімкнена та доступна).
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorSensorBias.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/EstimatorSensorBias.msg)
 
 ```c
 #

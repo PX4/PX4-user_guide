@@ -2,7 +2,7 @@
 
 Підтверджуйте попереднє повідомлення ulog_stream, в якому був встановлений прапорець NEED_ACK
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/UlogStreamAck.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/UlogStreamAck.msg)
 
 ```c
 # Ack a previously sent ulog_stream message that had

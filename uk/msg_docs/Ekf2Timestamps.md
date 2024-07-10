@@ -4,7 +4,7 @@
 
 поле мітки часу - це посилання на час ekf2 і відповідає мітці часу теми sensor_combined.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Ekf2Timestamps.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/Ekf2Timestamps.msg)
 
 ```c
 # це повідомлення містить (відносні) відмітки часу введення датчиків, які використовує EKF2.

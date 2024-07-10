@@ -2,7 +2,7 @@
 
 Дані повідомлення DISTANCE_SENSOR
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/DistanceSensor.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/DistanceSensor.msg)
 
 ```c
 # DISTANCE_SENSOR message data

@@ -15,7 +15,7 @@
 - Рух палиць дистанційного керування [за замовчуванням](#COM_RC_OVERRIDE) змінить транспортний засіб на [режим позиції](../flight_modes_mc/position.md), якщо не буде обробки критичного відключення батареї.
 - [Детектор несправностей](../config/safety.md#failure-detector) автоматично зупинить мотори, якщо на зльоті виникне проблема.
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 

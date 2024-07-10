@@ -1,6 +1,6 @@
 # MessageFormatResponse (UORB message)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/MessageFormatResponse.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/MessageFormatResponse.msg)
 
 ```c
 uint64 timestamp # time since system start (microseconds)

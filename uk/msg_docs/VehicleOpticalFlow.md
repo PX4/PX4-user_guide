@@ -2,7 +2,7 @@
 
 Оптичний потік в кадрі тіла XYZ в одиницях SI.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleOpticalFlow.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleOpticalFlow.msg)
 
 ```c
 # Оптичний потік у корпусній системі координат XYZ в одиницях СІ.

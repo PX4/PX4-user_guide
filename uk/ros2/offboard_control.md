@@ -85,7 +85,7 @@ After that we can follow a similar set of steps to those in [ROS 2 User Guide > 
 
 Вихідний код прикладу керування позашляховою платформою можна знайти за посиланням [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) у каталозі [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
 
-:::info PX4 публікує всі повідомлення, використані в цьому прикладі, як ROS теми за замовчуванням (див. [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)).
+:::info PX4 публікує всі повідомлення, використані в цьому прикладі, як ROS теми за замовчуванням (див. [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml)).
 :::
 
 PX4 вимагає, щоб транспортний засіб вже отримував повідомлення `OffboardControlMode` перед тим, як він збере в режимі автономного керування, або перед тим, як він перейде в режим автономного керування під час польоту. Крім того, PX4 вийде з offboard mode, якщо частота потоку повідомлень `OffboardControlMode` впаде нижче приблизно 2 Гц. Необхідна поведінка реалізується за допомогою головного циклу, що виконується у вузлі ROS 2, як показано нижче:

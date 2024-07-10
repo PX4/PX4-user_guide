@@ -765,7 +765,7 @@ temperature_compensation <command> [arguments...]
 
 Мелодії використовуються для надання слухових сповіщень та попереджень (наприклад, коли система озброєна, отримує позицію блокування тощо). Інструмент вимагає, щоб був запущений драйвер, який може керувати темою управління tune_control uorb.
 
-Інформацію про формат мелодії та попередньо визначені системні мелодії можна знайти тут: https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc
+Інформацію про формат мелодії та попередньо визначені системні мелодії можна знайти тут: https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/tunes/tune_definition.desc
 
 ### Приклади
 

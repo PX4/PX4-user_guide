@@ -2,7 +2,7 @@
 
 Повідомлення логування, що виводиться з PX4_WARN, PX4_ERR, PX4_INFO
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LogMessage.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/LogMessage.msg)
 
 ```c
 # A logging message, output with PX4_WARN, PX4_ERR, PX4_INFO

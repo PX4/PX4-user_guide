@@ -2,7 +2,7 @@
 
 Traекторія вказівки в рамці NED Вхід до контролера позиції PID. Потрібно мати кінематичну консистентність і бути можливим для плавного польоту. встановлення значення NaN означає, що стан не повинен контролюватися
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/TrajectorySetpoint.msg)
 
 ```c
 # Trajectory setpoint in NED frame

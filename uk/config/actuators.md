@@ -292,7 +292,7 @@ PWM AUX виходи вважаються бажаними для керуван
 - `Camera_Capture`: Вхід для отримання сповіщення про захоплення зображення. Увімкнено, коли [CAM_CAP_FBACK==0](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). Налаштовано через параметри `CAM_CAP_*`.
 - `PPS_Input`: Захоплення вводу імпульсів на секунду. Використовується для синхронізації GPS. Увімкнено, коли [`PPS_CAP_ENABLE==0`](../advanced_config/parameter_reference.md#PPS_CAP_ENABLE)
 
-:::info Цей список є правильним у PX4 v1.13. Функції визначені у джерелі за посиланням на [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
+:::info Цей список є правильним у PX4 v1.13. Функції визначені у джерелі за посиланням на [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/mixer_module/output_functions.yaml).
 :::
 
 ## Тестування актуаторів

@@ -2,7 +2,7 @@
 
 Off-board control mode
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/OffboardControlMode.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/OffboardControlMode.msg)
 
 ```c
 # Off-board control mode

@@ -127,8 +127,8 @@ S-Port receivers transmit the following messages from PX4 (from [here](https://g
 
 <!-- FYI:
 Values of FRSKY_ID_TEMP1 and FRSKY_ID_TEMP1 set:
-- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/telemetry/frsky_telemetry/frsky_telemetry.cpp#L85  (get_telemetry_flight_mode)
-- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/telemetry/frsky_telemetry/frsky_data.cpp#L234-L237
+- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/drivers/telemetry/frsky_telemetry/frsky_telemetry.cpp#L85  (get_telemetry_flight_mode)
+- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/drivers/telemetry/frsky_telemetry/frsky_data.cpp#L234-L237
 Lua map of flight modes:
 - https://github.com/ilihack/LuaPilot_Taranis_Telemetry/blob/master/SCRIPTS/TELEMETRY/LuaPil.lua#L790
 -->

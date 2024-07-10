@@ -2,7 +2,7 @@
 
 Результат завершення режиму, опублікований активним режимом. Можливі значення nav_state визначені в повідомленні VehicleStatus. Зверніть увагу, що це не завжди публікується (наприклад, коли користувач переходить у режими або при активації failsafe)
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ModeCompleted.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ModeCompleted.msg)
 
 ```c
 # Mode completion result, published by an active mode.

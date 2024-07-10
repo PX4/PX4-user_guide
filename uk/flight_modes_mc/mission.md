@@ -192,7 +192,7 @@ PX4 "приймає" наступні команди місії MAVLink у ре�
 - Не всі повідомлення/команди доступні через _QGroundControl_.
 - Список може стати застарілим, оскільки додаються повідомлення.
   Ви можете перевірити поточний набір, оглянувши код.
-  Підтримка - `MavlinkMissionManager::parse_mavlink_mission_item` у [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp).
+  Підтримка - `MavlinkMissionManager::parse_mavlink_mission_item` у [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_mission.cpp).
 
 ## Закруглені повороти: Траєкторія міжточкового маршруту
 

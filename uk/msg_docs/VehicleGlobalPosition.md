@@ -2,7 +2,7 @@
 
 Об'єднана глобальна позиція в WGS84. Ця структура містить глобальну оцінку позиції. Це не сирі GPS вимірювання (@see vehicle_gps_position). Ця тема зазвичай публікується позиціонером, який враховує більше джерел інформації, ніж просто GPS, наприклад, керування введеннями транспортного засобу в реалізації фільтра Калмана.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleGlobalPosition.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleGlobalPosition.msg)
 
 ```c
 # Об'єднана глобальна позиція в WGS84.

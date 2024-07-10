@@ -34,7 +34,7 @@ It is used in combination with the new [ULog](../dev_log/ulog_file_format.md) lo
 Key features:
 
 - Web based, great for end-users.
-- Users can upload logs through the web interface, and then share report with others (bulk upload is supported using the [upload_log.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/upload_log.py) script)
+- Users can upload logs through the web interface, and then share report with others (bulk upload is supported using the [upload_log.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/upload_log.py) script)
 - Interactive plots.
 
 ![Flight Review Charts](../../assets/flight_log_analysis/flight_review/flight-review-example.png)

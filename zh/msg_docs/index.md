@@ -1,6 +1,6 @@
 # uORB 消息参考
 
-::: info This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/msg/generate_msg_docs.py) from the source code.
+::: info This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/msg/generate_msg_docs.py) from the source code.
 :::
 
 This topic lists the UORB messages available in PX4 (some of which may be may be shared by the [PX4-ROS 2 Bridge](../ros/ros2_comm.md)). 如何使用这些图表[可以在这里找到](../middleware/uorb_graph.md)。

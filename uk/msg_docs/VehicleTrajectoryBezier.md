@@ -2,7 +2,7 @@
 
 Опис Vehicle Waypoints Trajectory. Дивіться також MAVLink MAV_TRAJECTORY_REPRESENTATION msg Тема vehicle_trajectory_bezier використовується для надсилання плавної траєкторії польоту від комп'ютера-супутника/модуля уникання перешкод до контролера положення.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTrajectoryBezier.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleTrajectoryBezier.msg)
 
 ```c
 # Опис траєкторії транспортних точок. Дивіться також MAVLink MAV_TRAJECTORY_REPRESENTATION msg

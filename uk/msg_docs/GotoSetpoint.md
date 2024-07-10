@@ -7,7 +7,7 @@
 Невстановлені опціональні значення не контролюються
 Невстановлені опціональні обмеження за замовчуванням відповідають специфікаціям транспортного засобу
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GotoSetpoint.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/GotoSetpoint.msg)
 
 ```c
 # Position and (optional) heading setpoints with corresponding speed constraints

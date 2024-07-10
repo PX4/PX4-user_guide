@@ -10,7 +10,7 @@
 region `flash' overflowed by 12456 bytes
 ```
 
-Для усунення цього, використовуйте новіше обладнання або видаліть модулі зі збірки, які не є необхідними для вашого випадку. Налаштування зберігаються в **/PX4-Autopilot/boards/px4** (наприклад, [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board)). Щоб видалити модуль, просто закоментуйте його:
+Для усунення цього, використовуйте новіше обладнання або видаліть модулі зі збірки, які не є необхідними для вашого випадку. Налаштування зберігаються в **/PX4-Autopilot/boards/px4** (наприклад, [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v5/default.px4board)). Щоб видалити модуль, просто закоментуйте його:
 
 ```cmake
 #tune_control

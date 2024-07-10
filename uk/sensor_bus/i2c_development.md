@@ -15,9 +15,9 @@ Pixhawk/PX4 підтримує її для:
 
 ## Інтеграція пристроїв I2C
 
-Драйвери повинні `#include <drivers/device/i2c.h>` та потім надати реалізацію абстрактного базового класу `I2C`, визначеного в **I2C.hpp** для цільового обладнання (тобто для NuttX [тут](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/drivers/device/nuttx/I2C.hpp)).
+Драйвери повинні `#include <drivers/device/i2c.h>` та потім надати реалізацію абстрактного базового класу `I2C`, визначеного в **I2C.hpp** для цільового обладнання (тобто для NuttX [тут](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/drivers/device/nuttx/I2C.hpp)).
 
-Невелика кількість водіїв також повинні включати заголовки для свого типу пристрою (**drv_*.h**) в [/src/drivers/](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers) - наприклад, [drv_led.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/drv_led.h).
+Невелика кількість водіїв також повинні включати заголовки для свого типу пристрою (**drv_*.h**) в [/src/drivers/](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers) - наприклад, [drv_led.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/drivers/drv_led.h).
 
 Для включення драйвера в прошивку потрібно додати драйвер до файлу cmake, специфічного для плати, який відповідає цілі, для якої ви хочете збудувати. Ви можете це зробити для одного драйвера:
 ```
@@ -30,7 +30,7 @@ CONFIG_COMMON_DISTANCE_SENSOR=y
 ```
 
 :::tip
-Наприклад, ви можете побачити / знайти `CONFIG_DRIVERS_DISTANCE_SENSOR_LIGHTWARE_LASER_I2C` в конфігурації [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v4/default.px4board).
+Наприклад, ви можете побачити / знайти `CONFIG_DRIVERS_DISTANCE_SENSOR_LIGHTWARE_LASER_I2C` в конфігурації [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v4/default.px4board).
 :::
 
 ## Приклади драйвера I2C

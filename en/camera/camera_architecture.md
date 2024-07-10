@@ -79,17 +79,17 @@ The sections below highlight interesting parts of the codebase
 
 Commands supported in missions, including camera commands, are shown in these methods:
 
-- [`bool FeasibilityChecker::checkMissionItemValidity(mission_item_s &mission_item, const int current_index)`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/MissionFeasibility/FeasibilityChecker.cpp#L257-L306)
-- [`format_mavlink_mission_item()`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp#L1672-L1693)
+- [`bool FeasibilityChecker::checkMissionItemValidity(mission_item_s &mission_item, const int current_index)`](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/navigator/MissionFeasibility/FeasibilityChecker.cpp#L257-L306)
+- [`format_mavlink_mission_item()`](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_mission.cpp#L1672-L1693)
 
 ### Flow for re-emitting camera commands found in missions
 
-- [`void Mission::setActiveMissionItems()`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/mission.cpp#L187-L281)
+- [`void Mission::setActiveMissionItems()`](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/navigator/mission.cpp#L187-L281)
   - Mission items are executed when set active.
   - `issue_command(_mission_item)` is called at the end of this to send the current non-waypoint command
-    - [`MissionBlock::issue_command(const mission_item_s &item)`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/mission_block.cpp#L543-L562)
+    - [`MissionBlock::issue_command(const mission_item_s &item)`](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/navigator/mission_block.cpp#L543-L562)
       - Creates a vehicle command for the mission item then calls `publish_vehicle_cmd` to publish it (`_navigator->publish_vehicle_cmd(&vcmd);`)
-        - [`void Navigator::publish_vehicle_cmd(vehicle_command_s *vcmd)`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/navigator_main.cpp#L1358)
+        - [`void Navigator::publish_vehicle_cmd(vehicle_command_s *vcmd)`](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/navigator/navigator_main.cpp#L1358)
           - For some camera commands it sets the component ID to the camera component id (`vcmd->target_component = 100; // MAV_COMP_ID_CAMERA`)
           - All others just get published to default component ID.
           - The `VehicleCommand` UORB topic is published.

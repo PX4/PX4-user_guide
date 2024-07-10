@@ -29,7 +29,7 @@ The instructions below might be used to create a task named _MyTask_:
    - FlightTaskMyTask.cpp
 3. Update **CMakeLists.txt** for the new task
 
-   - Copy the contents of the **CMakeLists.txt** for another task - e.g. [Orbit/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/tasks/Orbit/CMakeLists.txt)
+   - Copy the contents of the **CMakeLists.txt** for another task - e.g. [Orbit/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/flight_mode_manager/tasks/Orbit/CMakeLists.txt)
    - Update the copyright to the current year
 
      ```cmake
@@ -90,7 +90,7 @@ The instructions below might be used to create a task named _MyTask_:
    }
    ```
 
-6. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L40):
+6. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/flight_mode_manager/CMakeLists.txt#L40):
 
    ```cmake
    ...
@@ -108,7 +108,7 @@ The instructions below might be used to create a task named _MyTask_:
 
    예를 들어, 멀티콥터 위치 모드에서 새로운 `MyTask`를 활성화하려면:
 
-   - Update `MPC_POS_MODE` ([multicopter_position_mode_params.c](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mc_pos_control/multicopter_position_mode_params.c)) to add an option for selecting "MyTask" if the parameter has a previously unused value like 5:
+   - Update `MPC_POS_MODE` ([multicopter_position_mode_params.c](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mc_pos_control/multicopter_position_mode_params.c)) to add an option for selecting "MyTask" if the parameter has a previously unused value like 5:
 
      ```c
      ...

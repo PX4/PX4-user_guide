@@ -2,7 +2,7 @@
 
 PX4 визначає ряд [стандартних мелодій/тем](../getting_started/tunes.md), які використовуються для забезпечення аудіо-повідомлень про важливі стани системи та проблеми (наприклад, запуск системи, успішне готування до роботи, попередження про заряд батареї і т. д.).
 
-Мелодії вказуються за допомогою рядків (у форматі [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) та відтворюються за допомогою коду, використовуючи бібліотеку [tunes](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/tunes). Бібліотека мелодій також містить список стандартних мелодій системи - див. [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
+Мелодії вказуються за допомогою рядків (у форматі [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) та відтворюються за допомогою коду, використовуючи бібліотеку [tunes](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/tunes). Бібліотека мелодій також містить список стандартних мелодій системи - див. [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/tunes/tune_definition.desc).
 
 У PX4 також є модуль, який можна використовувати для відтворення (тестування) стандартних мелодій або користувацьких мелодій.
 
@@ -13,7 +13,7 @@ PX4 визначає ряд [стандартних мелодій/тем](../ge
 Рядки мелодій визначаються за допомогою [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt).
 
 :::tip
-Більше інформації про формат можна знайти в [QBasic PLAY statement](https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY) (Wikibooks) та було відтворено в [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
+Більше інформації про формат можна знайти в [QBasic PLAY statement](https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY) (Wikibooks) та було відтворено в [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/tunes/tune_definition.desc).
 :::
 
 Найпростіший спосіб створити нову мелодію – скористатися музичним редактором. Це дозволяє редагувати музику та відтворювати її на вашому комп'ютері, а потім експортувати в формат, який можна відтворити за допомогою PX4.
@@ -65,7 +65,7 @@ tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
 
 ## Заміна існуючих звукових повідомлень
 
-Мелодії визначаються в файлі [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
+Мелодії визначаються в файлі [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/tunes/tune_definition.desc).
 
 Якщо вам потрібно лише замінити існуючу мелодію, ви можете замінити файл у власному репозиторії (fork) та оновити рядки мелодій, визначені в `PX4_DEFINE_TUNE`.
 

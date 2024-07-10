@@ -214,7 +214,7 @@ SD карти, однак, не обов'язкові. Політні контр
 - Відключати сигнал сповіщення використовуючи параметр [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
 - [Передавати журнали](../dev_log/logging.md#log-streaming) до іншого компонента (супутнього пристрою).
 - Зберігати місії в RAM/FLASH.
-  <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/main/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+  <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 ## Корисне навантаження
 

@@ -44,12 +44,12 @@ Events metadata is also added to the log files, allowing log analysis tools (suc
 
 Binaries for flight controller targets with constrained memory do not store the parameter metadata in the binary, but instead reference the same data stored on `px4-travis.s3.amazonaws.com`.
 This applies, for example, to the [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md).
-The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into main).
+The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into main).
 
 ::: info
-You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
+You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/omnibus/f4sd/default.px4board).
 
-If doing custom development on a FLASH-constrained board you can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
+If doing custom development on a FLASH-constrained board you can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
 :::
 
 The metadata on `px4-travis.s3.amazonaws.com` is used if parameter metadata is not present on the vehicle.
@@ -73,8 +73,8 @@ The following diagram shows how actuator metadata is assembled from the source c
 
 - **Left**: the metadata is defined in `module.yml` files in different modules.
   The `control_allocator` modules defines the geometries, while each output driver defines its set of channels and configuration parameters.
-  [The schema file](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) documents the structure of these yaml files.
-- **Middle**: At build time, the `module.yml` files for all enabled modules for the currently built target are parsed and turned into an `actuators.json` file using the [Tools/module_config/generate_actuators_metadata.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/module_config/generate_actuators_metadata.py) script.
+  [The schema file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml) documents the structure of these yaml files.
+- **Middle**: At build time, the `module.yml` files for all enabled modules for the currently built target are parsed and turned into an `actuators.json` file using the [Tools/module_config/generate_actuators_metadata.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/module_config/generate_actuators_metadata.py) script.
   There is also [schema file](https://github.com/mavlink/mavlink/blob/master/component_metadata/actuators.schema.json) for this.
 - **Right**: At runtime, the JSON file is requested by QGroundControl via MAVLink Component Metadata API (described above).
 

@@ -35,7 +35,7 @@ PX4 [файли конфігурації фреймів](#configuration-file-ove
 1. Створіть новий файл конфігурації в папці [init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes).
    - Дайте йому коротке описове ім'я файлу і перед ім'ям файла додайте не використаний ID для автозапуску (наприклад, `1033092_superfast_vtol`).
    - Оновіть файл з параметрами конфігурації та програмами (див. вище).
-1. Додайте назву нового файлу конфігурації к [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) в відповідний розділ для типу транспортного засобу
+1. Додайте назву нового файлу конфігурації к [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) в відповідний розділ для типу транспортного засобу
 1. [Збудуйте та завантажте](../dev_setup/building_px4.md) програмне забезпечення.
 
 ## Як додати конфігурацію на SD-карту
@@ -61,7 +61,7 @@ PX4 [файли конфігурації фреймів](#configuration-file-ove
 
 ### Приклад - загальна конфігурація рами квадрокоптера
 
-Файл конфігурації для типового коптера Quad X показано нижче ([оригінальний файл тут](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/4001_quad_x)). Це дуже просто, оскільки воно визначає лише мінімальні налаштування, загальні для всіх квадрокоптерів.
+Файл конфігурації для типового коптера Quad X показано нижче ([оригінальний файл тут](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/airframes/4001_quad_x)). Це дуже просто, оскільки воно визначає лише мінімальні налаштування, загальні для всіх квадрокоптерів.
 
 Перший рядок — це shebang, який повідомляє операційній системі NuttX (на якій працює PX4), що файл конфігурації є виконуваним сценарієм оболонки.
 
@@ -81,7 +81,7 @@ PX4 [файли конфігурації фреймів](#configuration-file-ove
 #
 ```
 
-Наступний рядок імпортує загальні параметри, які підходять для всіх транспортних засобів зазначеного типу (див. [init.d/rc.mc_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rc.mc_defaults)).
+Наступний рядок імпортує загальні параметри, які підходять для всіх транспортних засобів зазначеного типу (див. [init.d/rc.mc_defaults](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/rc.mc_defaults)).
 
 ```plain
 . ${R}etc/init.d/rc.mc_defaults
@@ -105,7 +105,7 @@ param set-default CA_ROTOR3_KM -0.05
 
 ### Приклад – Повний транспортний засіб Babyshark VTOL
 
-Нижче наведено більш складний файл конфігурації для повного транспортного засобу. Це конфігурація для Baby Shark [Standard VTOL](../frames_vtol/standardvtol.md) ([оригінальний файл тут](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13014_vtol_babyshark)).
+Нижче наведено більш складний файл конфігурації для повного транспортного засобу. Це конфігурація для Baby Shark [Standard VTOL](../frames_vtol/standardvtol.md) ([оригінальний файл тут](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/airframes/13014_vtol_babyshark)).
 
 Розділи shebang і документація подібні до розділів загальної рами, але тут ми також документуємо, які `виходи` відображаються для кожного двигуна та приводу. Зверніть увагу, що ці результати є лише документацією; фактичне відображення виконується за допомогою параметрів.
 
@@ -264,7 +264,7 @@ param set-default PWM_MAIN_DIS4 1500
 Якщо планер призначено для **нової групи**, додатково потрібно:
 
 1. Додайте зображення svg для групи до документації посібника користувача (якщо не надано зображення, відображається зображення заповнювача): [assets/airframes/types](https://github.com/PX4/PX4-user_guide/tree/master/assets/airframes/types)
-1. Додайте зіставлення між новою назвою групи та назвою файлу зображення в методі [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/srcparser.py) `GetImageName()` (дотримуйтесь шаблону нижче):
+1. Додайте зіставлення між новою назвою групи та назвою файлу зображення в методі [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/px4airframes/srcparser.py) `GetImageName()` (дотримуйтесь шаблону нижче):
 
    ```python
    def GetImageName(self):

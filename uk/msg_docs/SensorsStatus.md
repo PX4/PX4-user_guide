@@ -2,7 +2,7 @@
 
 Метрики перевірки датчика. Це значення буде нульовим для датчика, який є первинним або незаповненим.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorsStatus.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/SensorsStatus.msg)
 
 ```c
 #

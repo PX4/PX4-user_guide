@@ -47,7 +47,7 @@
 Проведіть тест обережно і уважно моніторте вібрації.
 :::
 
-1. Отримайте ulog та скористайтеся Python-скриптом [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py), щоб ідентифікувати параметри компенсації.
+1. Отримайте ulog та скористайтеся Python-скриптом [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py), щоб ідентифікувати параметри компенсації.
 
    ```sh
    python mag_compensation.py ~/path/to/log/logfile.ulg

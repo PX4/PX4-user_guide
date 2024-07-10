@@ -17,7 +17,7 @@
 - Рух стіка радіокерування ігнорується при зліті за допомогою катапульти, але може бути використана для легкого перекочування транспортного засобу при зльоті зі злітної смуги.
 - [Детектор несправностей](../config/safety.md#failure-detector) автоматично зупинить мотори, якщо на зльоті виникне проблема.
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 

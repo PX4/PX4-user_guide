@@ -1,6 +1,6 @@
 # 에어프레임 참조
 
-::: info **This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
+::: info **This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
 :::
 
 이 페이지에서 모터 할당와 번호 지정을 포함하여 모든 지원 기체 유형을 기술합니다. **녹색** 모터는 시계 방향으로 회전화며, **청색** 모터는 반시계 방향으로 회전합니다.

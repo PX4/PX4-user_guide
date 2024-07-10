@@ -6,7 +6,7 @@ It can be used for reproducible replay.
 the timestamp field is the ekf2 reference time and matches the timestamp of
 the sensor_combined topic.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Ekf2Timestamps.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/Ekf2Timestamps.msg)
 
 ```c
 # this message contains the (relative) timestamps of the sensor inputs used by EKF2.

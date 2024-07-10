@@ -17,15 +17,15 @@ PX4-Autopilot contains a template for writing a new application (module) that ru
 A work queue task application is just the same as an ordinary (task) application, except that it needs to specify that it is a work queue task, and schedule itself to run during initialisation.
 
 The example shows how. In summary:
-1. Specify the dependency on the work queue library in the cmake definition file ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/work_item/CMakeLists.txt)):
+1. Specify the dependency on the work queue library in the cmake definition file ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/examples/work_item/CMakeLists.txt)):
    ```
    ...
-   ::: info The available work queues (<code>wq_configurations</code>) are listed in <a href="https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49">WorkQueueManager.hpp</a>.
+   ::: info The available work queues (<code>wq_configurations</code>) are listed in <a href="https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49">WorkQueueManager.hpp</a>.
    ```
-) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
+) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
    </code>
-1. In addition to `ModuleBase`, the task should also derive from `ScheduledWorkItem` (included from [ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp))
-1. Specify the queue to add the task to in the constructor initialisation. The [work_item](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/work_item/WorkItemExample.cpp#L42) example adds itself to the `wq_configurations::test1` work queue as shown below:
+1. In addition to `ModuleBase`, the task should also derive from `ScheduledWorkItem` (included from [ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp))
+1. Specify the queue to add the task to in the constructor initialisation. The [work_item](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/examples/work_item/WorkItemExample.cpp#L42) example adds itself to the `wq_configurations::test1` work queue as shown below:
    ```cpp
    WorkItemExample::WorkItemExample() :
        ModuleParams(nullptr),
@@ -35,7 +35,7 @@ The example shows how. In summary:
    ```
 
    :::note
-The available work queues (&lt;code&gt;wq_configurations&lt;/code&gt;) are listed in &lt;a href="https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49"&gt;WorkQueueManager.hpp&lt;/a&gt;.
+The available work queues (&lt;code&gt;wq_configurations&lt;/code&gt;) are listed in &lt;a href="https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49"&gt;WorkQueueManager.hpp&lt;/a&gt;.
 :::
 
 1. Implement the `ScheduledWorkItem::Run()` method to perform "work".
@@ -46,7 +46,7 @@ The available work queues (&lt;code&gt;wq_configurations&lt;/code&gt;) are liste
 
 ## Tasks
 
-) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
+) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
 
 The template demonstrates the following additional features/aspects that are required or are useful for a full application:
 

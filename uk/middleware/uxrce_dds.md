@@ -32,7 +32,7 @@ PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) публі
 
 PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) генерується під час збирання і входить до складу прошивки PX4 за замовчуванням. Агент не залежить від клієнтського коду. Він може бути побудований окремо або в робочому просторі ROS 2, або встановлений як snap пакет в Ubuntu.
 
-Під час збирання PX4 генератор коду використовує визначення повідомлень uORB у дереві вихідних текстів ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) для компіляції підтримки підмножини тем uORB у [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) у [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
+Під час збирання PX4 генератор коду використовує визначення повідомлень uORB у дереві вихідних текстів ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) для компіляції підтримки підмножини тем uORB у [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml) у [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
 
 Основні або релізні збірки PX4 автоматично експортують набір визначень повідомлень uORB у збірці до відповідної гілки у [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
 
@@ -214,7 +214,7 @@ sudo MicroXRCEAgent serial --dev /dev/AMA0 -b 921600
   - [UXRCE_DDS_PRT](../advanced_config/parameter_reference.md#UXRCE_DDS_PRT): Використовуйте цей параметр, щоб вказати порт прослуховування агента UDP. Значення за замовчуванням `8888`.
   - [UXRCE_DDS_AG_IP](../advanced_config/parameter_reference.md#UXRCE_DDS_AG_IP): Використовуйте цей параметр, щоб вказати IP адресу агента. IP-адрес повинен бути наданий у форматі `int32`, оскільки PX4 не підтримує рядкові параметри. Значенням за замовчуванням є `2130706433`, що відповідає _localhost_ `127.0.0.1`.
 
-    Ви можете скористатися [Tools/convert_ip.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/convert_ip.py) для конвертації між форматами:
+    Ви можете скористатися [Tools/convert_ip.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/convert_ip.py) для конвертації між форматами:
 
     - Для отримання версії IP у вигляді `int32` у десятковій системі числення виконується команда:
 
@@ -258,7 +258,7 @@ uxrce_dds_client start -t udp -p 8888 -h 192.168.0.100 -n drone
 
 #### Запуск клієнта в симуляції
 
-The simulator [startup logic](../concept/system_startup.md) ([init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS)) uses the client startup commands for single and [multi vehicle simulations](../ros2/multi_vehicle.md), enabling the setting of appropriate instance ids and DDS namespaces. За замовчуванням клієнт запускається на локальному хості через UDP-порт `8888` без додаткового простору імен.
+The simulator [startup logic](../concept/system_startup.md) ([init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d-posix/rcS)) uses the client startup commands for single and [multi vehicle simulations](../ros2/multi_vehicle.md), enabling the setting of appropriate instance ids and DDS namespaces. За замовчуванням клієнт запускається на локальному хості через UDP-порт `8888` без додаткового простору імен.
 
 Надаються змінні середовища, які перевизначають деякі [параметри UXRCE-DDS](../advanced_config/parameter_reference.md#uxrce-dds-client). Це дозволяє користувачам створювати власні файли запуску для своїх симуляцій:
 
@@ -274,7 +274,7 @@ ROS_DOMAIN_ID=3 PX4_UXRCE_DDS_PORT=9999 PX4_UXRCE_DDS_NS=drone make px4_sitl gz_
 
 ## Підтримувані повідомлення uORB
 
-Набір [PX4 uORB тем](../msg_docs/index.md), які використовуються через клієнт, встановлені в [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
+Набір [PX4 uORB тем](../msg_docs/index.md), які використовуються через клієнт, встановлені в [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml).
 
 Теми є специфічними для релізу (підтримка компілюється в [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) на етапі збірки). Хоча більшість випусків мають підтримувати дуже схожий набір повідомлень, щоб бути впевненими, вам слід перевірити файл yaml для вашого конкретного релізу.
 
@@ -283,25 +283,25 @@ ROS_DOMAIN_ID=3 PX4_UXRCE_DDS_PORT=9999 PX4_UXRCE_DDS_NS=drone make px4_sitl gz_
 Зауважте, що для інтерпретації повідомлень ROS 2/DDS повинен мати _такі самі_ визначення повідомлень, які були використані для створення клієнтського модуля uXRCE-DDS у прошивці PX4. Визначення повідомлень зберігаються в пакеті інтерфейсу ROS 2 [PX4/px4_msgs](https://github.com/PX4/px4_msgs), і вони автоматично синхронізуються CI у гілках `main` та release. Зверніть увагу, що всі повідомлення з вихідного коду PX4 присутні в репозиторії, але лише ті, які перелічені в `dds_topics.yaml`, будуть доступні як теми ROS 2. Тому,
 
 - Якщо ви використовуєте основну або релізну версію PX4, ви можете отримати визначення повідомлень, клонуючи пакет інтерфейсу [PX4/px4_msgs](https://github.com/PX4/px4_msgs) у вашу робочу область.
-- Якщо ви створюєте або змінюєте повідомлення uORB, вам потрібно вручну оновити повідомлення у вашому робочому просторі з вихідного дерева PX4. Загалом це означає, що вам слід оновити [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), клонувати пакет інтерфейсу, а потім вручну синхронізувати його, скопіювавши нові/змінені визначення повідомлень з [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) до його папки `msg`. Якщо припустити, що PX4-Autopilot знаходиться у вашому домашньому каталозі `~`, а `px4_msgs` - у `~/px4_ros_com/src/`, то команда може бути такою:
+- Якщо ви створюєте або змінюєте повідомлення uORB, вам потрібно вручну оновити повідомлення у вашому робочому просторі з вихідного дерева PX4. Загалом це означає, що вам слід оновити [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml), клонувати пакет інтерфейсу, а потім вручну синхронізувати його, скопіювавши нові/змінені визначення повідомлень з [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) до його папки `msg`. Якщо припустити, що PX4-Autopilot знаходиться у вашому домашньому каталозі `~`, а `px4_msgs` - у `~/px4_ros_com/src/`, то команда може бути такою:
 
   ```sh
   rm ~/px4_ros_com/src/px4_msgs/msg/*.msg
   cp ~/PX4-Autopilot/mgs/*.msg ~/px4_ros_com/src/px4_msgs/msg/
   ```
 
-  :::info Технічно, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) повністю визначає зв'язок між темами PX4 uORB і повідомленнями ROS 2. Для отримання додаткової інформації див. [DDS Topics YAML](#dds-topics-yaml) нижче.
+  :::info Технічно, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml) повністю визначає зв'язок між темами PX4 uORB і повідомленнями ROS 2. Для отримання додаткової інформації див. [DDS Topics YAML](#dds-topics-yaml) нижче.
 :::
 
 ## Налаштування простору імен теми
 
-Власні простори імен тем можна застосовувати під час збирання (змінюючи [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) або під час виконання (що є корисним для роботи з декількома транспортними засобами):
+Власні простори імен тем можна застосовувати під час збирання (змінюючи [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml)) або під час виконання (що є корисним для роботи з декількома транспортними засобами):
 
 - Однією з можливостей є використання опції `-n` при запуску [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) з командного рядка. Ця техніка може бути використана як у симуляторах, так і на реальних транспортних засобах.
 - Користувацький простір імен можна створити (лише) для симуляцій, встановивши змінну оточення `PX4_UXRCE_DDS_NS` перед початком симуляції.
 
 ::: info
-Зміна простору імен під час виконання додасть потрібний простір імен як префікс до всіх полів `topic` у [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). Отже, команди, подібні до:
+Зміна простору імен під час виконання додасть потрібний простір імен як префікс до всіх полів `topic` у [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml). Отже, команди, подібні до:
 
 ```sh
 uxrce_dds_client start -n uav_1
@@ -354,7 +354,7 @@ ROS 2 використовує наступні налаштування QoS (з
 
 ## DDS теми YAML
 
-Файл PX4 yaml [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) визначає набір тем PX4 uORB, які вбудовано у прошивку та опубліковано. Точніше, він повністю визначає взаємозв'язок/сполучення між повідомленнями PX4 uORB і ROS 2.
+Файл PX4 yaml [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml) визначає набір тем PX4 uORB, які вбудовано у прошивку та опубліковано. Точніше, він повністю визначає взаємозв'язок/сполучення між повідомленнями PX4 uORB і ROS 2.
 
 Файл структурований наступним чином:
 
@@ -450,7 +450,7 @@ uXRCE-DDS не потребує залежностей, які були потр
 
 #### Новий файл для налаштування того, які теми публікуються
 
-Перелік тем, які публікуються і на які здійснюється підписка для певної прошивки, тепер керується конфігураційним файлом [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), який замінює [urtps_bridge_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/tools/urtps_bridge_topics.yaml)
+Перелік тем, які публікуються і на які здійснюється підписка для певної прошивки, тепер керується конфігураційним файлом [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml), який замінює [urtps_bridge_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/tools/urtps_bridge_topics.yaml)
 
 Дивіться розділи [Підтримувані повідомлення uORB](#supported-uorb-messages) та [DDS Теми YAML](#dds-topics-yaml) для отримання додаткової інформації.
 
@@ -468,7 +468,7 @@ uXRCE-DDS не потребує залежностей, які були потр
 Вам слід оновити свій додаток відповідно до нової конвенції.
 
 :::info
-Ви також можете відредагувати [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), щоб повернутися до старої конвенції. Це не рекомендується, оскільки це означає, що вам доведеться завжди використовувати кастомну прошивку.
+Ви також можете відредагувати [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml), щоб повернутися до старої конвенції. Це не рекомендується, оскільки це означає, що вам доведеться завжди використовувати кастомну прошивку.
 :::
 
 #### XRCE-DDS-Agent
@@ -484,7 +484,7 @@ uXRCE-DDS не потребує залежностей, які були потр
 У ваших вузлах ROS 2 вам знадобиться:
 
 - Оновіть [QoS](#px4-ros-2-qos-settings) ваших видавців і підписників, оскільки PX4 не використовує налаштування ROS 2 за замовчуванням.
-- Змініть назви своїх тем, якщо ви не редагували [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
+- Змініть назви своїх тем, якщо ви не редагували [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/uxrce_dds_client/dds_topics.yaml).
 - Видаліть все, що стосується синхронізації часу, оскільки XRCE-DDS автоматично піклується про синхронізацію часу агента/клієнта.
 
   У додатках C++ ви можете встановити поле `timestamp` вашого повідомлення таким чином:

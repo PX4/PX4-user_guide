@@ -70,7 +70,7 @@ bool прямий привід
 
 ### Коптер
 
-- [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
+- [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/TrajectorySetpoint.msg)
 
   - Підтримуються наступні вхідні комбінації:
     - Задання точки положення (`положення` відмінне від `NaN`). Не - `NaN` значення швидкості та прискорення використовуються як вхідні дані для керування зворотним зв'язком внутрішнього контуру.
@@ -79,7 +79,7 @@ bool прямий привід
 
   - Всі значення інтерпретуються в NED (Nord, East, Down) координатну систему і одиниці вимірювання, є \[m/s\] і \[m/s^2\] для позиції, швидкості і прискорення, відповідно.
 
-- [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitudeSetpoint.msg)
+- [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleAttitudeSetpoint.msg)
 
   - Підтримується наступна комбінація введення:
 
@@ -87,7 +87,7 @@ bool прямий привід
 
   - Кватерніон представляє обертання між корпусом дрона у системі координат FRD (перед, праворуч, вниз) та системою координат NED. Тяга у корпусі дрона виражена у системі координат FRD та у нормалізованих значеннях.
 
-- [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRatesSetpoint.msg)
+- [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleRatesSetpoint.msg)
 
   - Підтримується наступна комбінація введення:
 
@@ -99,13 +99,13 @@ bool прямий привід
 
 Наступні режими керування з відбором оминуть всі внутрішні контрольні системи PX4 і повинні використовуватися з великою обережністю.
 
-- [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
+- [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleTorqueSetpoint.msg)
 
   - Підтримується наступна комбінація введення:
     - `xyz` для тяги та `xyz` для оберту.
   - Усі значення виражені у системі координат тіла дрона FRD та нормалізовані у діапазоні \[-1, 1\].
 
-- [px4_msgs::msg::ActuatorMotors](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorMotors.msg) + [px4_msgs::msg::ActuatorServos](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorServos.msg)
+- [px4_msgs::msg::ActuatorMotors](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ActuatorMotors.msg) + [px4_msgs::msg::ActuatorServos](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ActuatorServos.msg)
   - Ви безпосередньо керуєте вихідними сигналами моторів та/або сервоприводів.
   - Усі значення нормалізовані у діапазоні \[-1, 1\]. Для вихідних сигналів, які не підтримують від'ємні значення, від'ємні значення відображаються як `NaN`.
   - `NaN` карти для роззброєння.
@@ -118,7 +118,7 @@ bool прямий привід
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - Підтримуються наступні вхідні комбінації: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - Підтримуються наступні вхідні комбінації: <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - Данні про положення (тільки `x`, `y`, `z`)
     - Швидкість (лише `vx`, `vy`, `vz`)
@@ -130,7 +130,7 @@ bool прямий привід
 
 - [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
-  - Підтримуються наступні вхідні комбінації: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - Підтримуються наступні вхідні комбінації: <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - Данні про положення (тільки `x`, `y`, `z`)
     - Швидкість (only `vx`, `vy`, `vz`)
@@ -152,7 +152,7 @@ bool прямий привід
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - Підтримуються такі комбінації вводу (через `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - Підтримуються такі комбінації вводу (через `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - Задання положення (`x`, `y`, `z` тільки; показники швидкості і прискорення проігноровані).
 
@@ -171,7 +171,7 @@ bool прямий привід
 
 - [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
-  - Підтримуються такі комбінації вводу (через `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - Підтримуються такі комбінації вводу (через `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - Данні про положення (тільки `x`, `y`, `z`)
 
@@ -199,7 +199,7 @@ bool прямий привід
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - Підтримуються такі комбінації вводу (через `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - Підтримуються такі комбінації вводу (через `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - Данні про положення (тільки `x`, `y`, `z`)
 
@@ -218,7 +218,7 @@ bool прямий привід
 
 - [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
-  - Підтримуються такі комбінації вводу (учерез `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - Підтримуються такі комбінації вводу (учерез `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     - Данні про положення (тільки `x`, `y`, `z`)
   - Вкажіть _тип_ вказаної точки в `type_mask` (не частина стандарту MAVlink). Значення:
 

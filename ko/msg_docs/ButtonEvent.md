@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ButtonEvent.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ButtonEvent.msg)
 
 ```c
 uint64 timestamp            # time since system start (microseconds)

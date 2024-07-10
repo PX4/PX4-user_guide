@@ -40,7 +40,7 @@ PX4 виконує ряд передпольотних перевірок яко
 
 #### PREFLIGHT FAIL: EKF HIGH IMU ACCEL BIAS
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/Arming/PreFlightCheck/checks/ekf2Check.cpp#L267 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/commander/Arming/PreFlightCheck/checks/ekf2Check.cpp#L267 -->
 <!-- Useful primer on biases: https://www.vectornav.com/resources/inertial-navigation-primer/specifications--and--error-budgets/specs-imuspecs -->
 <!-- Mathieu Bresciani is expert -->
 

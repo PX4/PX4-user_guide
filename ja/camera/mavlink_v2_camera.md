@@ -73,20 +73,20 @@ See [PX4-Autopilot#23083](https://github.com/PX4/PX4-Autopilot/issues/23083).
 
 <!--
 List of all supported commands in missions in:
-format_mavlink_mission_item() => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp#L1672-L1693
+format_mavlink_mission_item() => https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_mission.cpp#L1672-L1693
 
 Mission items are executed when set active.
-void Mission::setActiveMissionItems() => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/mission.cpp#L187-L281
+void Mission::setActiveMissionItems() => https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/navigator/mission.cpp#L187-L281
   At end the current non-waypoint command is "issued":
   note at end => issue_command(_mission_item);
 
 Issuing command:
-MissionBlock::issue_command(const mission_item_s &item) =>  https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/mission_block.cpp#L543-L562
+MissionBlock::issue_command(const mission_item_s &item) =>  https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/navigator/mission_block.cpp#L543-L562
   At end this publishes the current vehicle command
   _navigator->publish_vehicle_cmd(&vcmd);
 
 Publishing command:
-void Navigator::publish_vehicle_cmd(vehicle_command_s *vcmd)  => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/navigator_main.cpp#L1358
+void Navigator::publish_vehicle_cmd(vehicle_command_s *vcmd)  => https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/navigator/navigator_main.cpp#L1358
   For camera commands set to vcmd->target_component = 100; // MAV_COMP_ID_CAMERA
   All others just get published as-is
 -->

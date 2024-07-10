@@ -33,7 +33,7 @@ To add a frame configuration to firmware:
 1. Create a new config file in the [init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes) folder.
    - Give it a short descriptive filename and prepend the filename with an unused autostart ID (for example, `1033092_superfast_vtol`).
    - Update the file with configuration parameters and apps (see section above).
-1. Add the name of the new frame config file to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) in the relevant section for the type of vehicle
+1. Add the name of the new frame config file to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) in the relevant section for the type of vehicle
 1. [Build and upload](../dev_setup/building_px4.md) the software.
 
 ## How to add a Configuration to an SD Card
@@ -58,7 +58,7 @@ New frame configuration files are only automatically added to the build system a
 
 ### Example - Generic Quadcopter Frame Config
 
-The configuration file for a generic Quad X copter is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/4001_quad_x)). This is very simple, because it defines only the minimal setup common to all quadcopters.
+The configuration file for a generic Quad X copter is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/airframes/4001_quad_x)). This is very simple, because it defines only the minimal setup common to all quadcopters.
 
 The first line is a shebang, which tells the NuttX operating system (on which PX4 runs) that the configuration file is an executable shell script.
 
@@ -78,7 +78,7 @@ This is followed by the frame documentation. The `@name`, `@type` and `@class` a
 #
 ```
 
-The next line imports generic parameters that are appropriate for all vehicles of the specified type (see [init.d/rc.mc_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rc.mc_defaults)).
+The next line imports generic parameters that are appropriate for all vehicles of the specified type (see [init.d/rc.mc_defaults](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/rc.mc_defaults)).
 
 ```plain
 . ${R}etc/init.d/rc.mc_defaults
@@ -102,7 +102,7 @@ param set-default CA_ROTOR3_KM -0.05
 
 ### Example - Babyshark VTOL Complete Vehicle
 
-A more complicated configuration file for a complete vehicle is provided below. This is the configuration for the Baby Shark [Standard VTOL](../frames_vtol/standardvtol.md) ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13014_vtol_babyshark)).
+A more complicated configuration file for a complete vehicle is provided below. This is the configuration for the Baby Shark [Standard VTOL](../frames_vtol/standardvtol.md) ([original file here](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/ROMFS/px4fmu_common/init.d/airframes/13014_vtol_babyshark)).
 
 The shebang and documentation sections are similar to those for the generic frame, but here we also document what `outputs` are mapped to each motor and actuator. Note that these outputs are documentation only; the actual mapping is done using parameters.
 
@@ -261,7 +261,7 @@ For a new frame belonging to an existing group, you don't need to do anything mo
 If the airframe is for a **new group** you additionally need to:
 
 1. Add the svg image for the group into user guide documentation (if no image is provided a placeholder image is displayed): [assets/airframes/types](https://github.com/PX4/PX4-user_guide/tree/master/assets/airframes/types)
-1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below):
+1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below):
 
    ```python
    def GetImageName(self):

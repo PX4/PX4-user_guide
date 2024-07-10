@@ -2,7 +2,7 @@
 
 Pre-flight sensor check metrics. The topic will not be updated when the vehicle is armed
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorPreflightMag.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/SensorPreflightMag.msg)
 
 ```c
 #

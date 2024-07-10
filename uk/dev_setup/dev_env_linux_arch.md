@@ -6,7 +6,7 @@
 Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
 :::
 
-Репозиторій PX4-Autopilot надає зручний скрипт для налаштування вашого Arch для розробки з PX4: [Tools/setup/arch.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/arch.sh). <!-- NEED px4_version -->
+Репозиторій PX4-Autopilot надає зручний скрипт для налаштування вашого Arch для розробки з PX4: [Tools/setup/arch.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/setup/arch.sh). <!-- NEED px4_version -->
 
 The script installs (by default) all tools to build PX4 for NuttX targets and run simulation with [JMAVSim](../sim_jmavsim/index.md). You can additionally install the [Gazebo Classic](../sim_gazebo_classic/index.md) simulator by specifying the command line argument: `--gazebo`.
 

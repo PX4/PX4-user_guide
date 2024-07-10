@@ -2,7 +2,7 @@
 
 UAVCAN-MAVLink parameter bridge response type
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/UavcanParameterValue.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/UavcanParameterValue.msg)
 
 ```c
 # UAVCAN-MAVLink parameter bridge response type

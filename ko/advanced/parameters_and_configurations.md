@@ -244,8 +244,8 @@ After adding a _new_ parameter file you should call `make clean` before building
 
 YAML 메타 데이터는 **.c** 정의를 대체합니다. 다중 인스턴스 정의와 같은 새로운 기능과 함께 동일한 메타데이터를 모두 지원합니다.
 
-- The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml).
-- An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml).
+- The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml).
+- An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/module.yaml).
 - YAML 파일은 다음을 추가하여 cmake 빌드 시스템에 등록됩니다.
 
   ```cmake
@@ -257,7 +257,7 @@ YAML 메타 데이터는 **.c** 정의를 대체합니다. 다중 인스턴스 �
 
 #### 다중 인스턴스(템플릿) YAML 메타 데이터
 
-Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) (templated parameter code is not supported).
+Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml) (templated parameter code is not supported).
 
 YAML을 사용하면 `${i}`를 사용하여 매개변수 이름, 설명 등에 인스턴스 번호를 정의할 수 있습니다. 예를 들어 아래는 MY_PARAM_1_RATE, MY_PARAM_2_RATE 등을 생성합니다.
 
@@ -272,7 +272,7 @@ MY_PARAM_${i}_RATE:
 - `num_instances`(기본값 1): 생성할 인스턴스 수(>=1)
 - `instance_start`(기본값 0): 첫 번째 인스턴스 번호입니다. 0이면 `${i}`가 [0, N-1]`로 확장됩니다.
 
-For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml)
+For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/module.yaml)
 
 #### c 매개변수 메타데이터
 
@@ -310,7 +310,7 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 
 끝에 있는 `PARAM_DEFINE_*` 매크로는 매개변수 유형(`PARAM_DEFINE_FLOAT` 또는 `PARAM_DEFINE_INT32`), 매개변수 이름(이름과 일치해야 함 코드에서 사용됨) 및 펌웨어의 기본값입니다.
 
-주석 블록의 행은 모두 선택 사항이며, 주로 지상국에서 표시 및 편집 옵션을 제어합니다. The purpose of each line is given below (for more detail see [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml)).
+주석 블록의 행은 모두 선택 사항이며, 주로 지상국에서 표시 및 편집 옵션을 제어합니다. The purpose of each line is given below (for more detail see [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml)).
 
 ```cpp
 /**
@@ -339,4 +339,4 @@ The parameter metadata JSON file is compiled into firmware (or hosted on the Int
 
 - [매개변수 검색 및수정](../advanced_config/parameters.md)
 - [매개변수 정의서](../advanced_config/parameter_reference.md)
-- [Param implementation](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/param.h#L129) (information on `.get()`, `.commit()`, and other methods)
+- [Param implementation](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/include/px4_platform_common/param.h#L129) (information on `.get()`, `.commit()`, and other methods)

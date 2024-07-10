@@ -2,7 +2,7 @@
 
 Повідомлення про керування сервоприводом
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorServos.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ActuatorServos.msg)
 
 ```c
 # Servo control message

@@ -2,7 +2,7 @@
 
 Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleOdometry.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleOdometry.msg)
 
 ```c
 # Vehicle odometry data. Fits ROS REP 147 for aerial vehicles

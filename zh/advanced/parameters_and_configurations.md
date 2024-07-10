@@ -243,8 +243,8 @@ PX4 使用广泛的参数元数据系统来驱动面向用户的参数表示，�
 
 YAML 元数据是为了完全替换 **.c** 文件定义。 它支持所有相同的元数据，以及多实例定义等新功能。
 
-- YAML 参数元数据结构在此处： [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml)。
-- 正在使用的 YAML 定义示例可以在 MAVLink 参数定义中找到： [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml)。
+- YAML 参数元数据结构在此处： [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml)。
+- 正在使用的 YAML 定义示例可以在 MAVLink 参数定义中找到： [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/module.yaml)。
 - 通过添加到 cmake 构建系统中注册一个 YAML 文件
 
   ```cmake
@@ -256,7 +256,7 @@ YAML 元数据是为了完全替换 **.c** 文件定义。 它支持所有相同
 
 #### 多实例（模块化）YAML 元数据
 
-[YAML 参数定义](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) 支持模块化参数定义(不支持模块化参数代码)。
+[YAML 参数定义](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml) 支持模块化参数定义(不支持模块化参数代码)。
 
 YAML 允许使用 `${i}` 在参数名，描述等中定义实例数。 例如，下面将生成 MY_PARAM_1_RATE、MY_PARAM_2_RATE 等。
 
@@ -271,7 +271,7 @@ MY_PARAM_${i}_RATE:
 - `num_instances` (默认是1): 要生成的实例数 (>=1)
 - `instance_start` (默认是 0): 第一个实例编号。 如果是 0， `${i}` 扩展到 [0, N-1]`.
 
-关于完整的示例，请参阅 MAVLink 参数定义： [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml)
+关于完整的示例，请参阅 MAVLink 参数定义： [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/module.yaml)
 
 #### c 参数元数据
 
@@ -309,7 +309,7 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 
 末尾的 `PARAM_DEFINE_*` 宏指定参数的类型 (`PARAM_DEFINE_FLOAT` 或 `PARAM_DEFINE_INT32`)、参数的名称 (必须与代码中使用的名称匹配) 以及固件中的默认值。
 
-注释块中的行都是可选的，主要用于控制地面站内的显示和编辑选项。 每一行的注释建议如下(详见 [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml))。
+注释块中的行都是可选的，主要用于控制地面站内的显示和编辑选项。 每一行的注释建议如下(详见 [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/validation/module_schema.yaml))。
 
 ```cpp
 /**
@@ -338,4 +338,4 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 
 - [查找/更新参数](../advanced_config/parameters.md)
 - [参数参照表](../advanced_config/parameter_reference.md)
-- [参数实现](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/param.h#L129) (参数消息用 `.get()`, `.commit()`, 和其他方法)
+- [参数实现](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/platforms/common/include/px4_platform_common/param.h#L129) (参数消息用 `.get()`, `.commit()`, 和其他方法)

@@ -2,7 +2,7 @@
 
 Sensor ID's for the voted sensors output on the sensor_combined topic. Will be updated on startup of the sensor module and when sensor selection changes
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorSelection.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/SensorSelection.msg)
 
 ```c
 #

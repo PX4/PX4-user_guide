@@ -83,7 +83,7 @@ PX4 слухає дійсні звіти про транспондери під 
 
 Якщо отримано дійсний звіт від транспондера, PX4 спочатку використовує інформацію про транспондер руху, щоб оцінити, чи показує напрямок та висота руху, що буде перетинатися з повітряним простором БПЛА. Повітряний простір БПЛА складається з оточуючого циліндра, визначеного радіусом [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR) та висотою [NAV_TRAFF_A_VER](#NAV_TRAFF_A_VER), з БПЛА у центрі. Датчик руху перевіряє, чи час до перетину з повітряним простором БПЛА нижче порогу [NAV_TRAFF_COLL_T](#NAV_TRAFF_COLL_T) на основі відносної швидкості. Якщо обидва перевірки виконані, запускається дія [Traffic Avoidance Failsafe](../config/safety.md#traffic-avoidance-failsafe), і транспортний засіб або попереджує, або сідає, або повертається.
 
-Код можна знайти в `Navigator::check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/navigator_main.cpp)).
+Код можна знайти в `Navigator::check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/navigator/navigator_main.cpp)).
 
 PX4 також передаватиме дані транспондера на GCS, якщо це було налаштовано для екземпляра MAVLink (це рекомендується). Останні 10 цифр GUID відображаються як ідентифіфікація дрона.
 
@@ -107,7 +107,7 @@ PX4 прослуховує повідомлення MAVLink `UTM_GLOBAL_POSITION
 
 Щоб увімкнути цю функцію:
 
-1. Розкоментуйте код у `AdsbConflict::run_fake_traffic()`([AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1)).
+1. Розкоментуйте код у `AdsbConflict::run_fake_traffic()`([AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1)).
 1. Перебудувати та запустити PX4.
 1. Виконайте команду [`navigator fake_traffic`](../modules/modules_controller.md#navigator) у [QGroundControl MAVLink Shell](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (або в іншій [консолі PX4 або MAVLink](../debug/consoles.md), наприклад, у терміналі симулятора PX4).
 
@@ -117,7 +117,7 @@ PX4 прослуховує повідомлення MAVLink `UTM_GLOBAL_POSITION
 
 ::: деталі інформації про тестові методи
 
-Відповідні методи визначені в [AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1).
+Відповідні методи визначені в [AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1).
 
 #### Метод `run_fake_traffic()`
 

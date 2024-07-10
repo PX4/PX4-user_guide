@@ -2,7 +2,7 @@
 
 Кодує стан системи транспортного засобу, опублікований командиром
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleStatus.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleStatus.msg)
 
 ```c
 # Encodes the system state of the vehicle published by commander

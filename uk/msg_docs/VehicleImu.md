@@ -2,7 +2,7 @@
 
 Вимірювання IMU у вигляді одиниць SI.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleImu.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleImu.msg)
 
 ```c
 # Вимірювання IMU в SI-одиницях.

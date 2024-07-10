@@ -2,7 +2,7 @@
 
 Домашнє GPS положення в координатах WGS84.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/HomePosition.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/HomePosition.msg)
 
 ```c
 # GPS home position in WGS84 coordinates.

@@ -113,7 +113,7 @@
    make submodulesclean
    ```
 
-<!-- FYI: Cleaning commands in https://github.com/PX4/PX4-Autopilot/blob/main/Makefile#L494 -->
+<!-- FYI: Cleaning commands in https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Makefile#L494 -->
 
 ## Отримання конкретного  релізу
 

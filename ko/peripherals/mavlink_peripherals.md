@@ -33,7 +33,7 @@ The number in the name means nothing; you can assign any instance to any port.
   - _ExtVision_ or _ExtVisionMin_: Messages for offboard vision systems (ExtVision needed for VIO).
   - _Iridium_: Messages for an [Iridium satellite communication system](../advanced_features/satcom_roadblock.md).
 
-  ::: info If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp).
+  ::: info If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/mavlink/mavlink_main.cpp).
 :::
 
 :::tip

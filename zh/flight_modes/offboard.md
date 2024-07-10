@@ -69,7 +69,7 @@ bool actuator
 
 ### 旋翼机
 
-- [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
+- [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/TrajectorySetpoint.msg)
 
   - 支持以下输入组合：
     - 位置设定值(`position` 不为 `NaN`)。 非`NaN` 的速度和加速度值被用作内环控制器的前馈项。
@@ -78,7 +78,7 @@ bool actuator
 
   - 所有值都是基于NED(北, 东, 地)坐标系，位置、速度和加速的单位分别为\[m\], \[m/s\] 和\[m/s^2\] 。
 
-- [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitudeSetpoint.msg)
+- [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleAttitudeSetpoint.msg)
 
   - 支持以下输入组合：
 
@@ -86,7 +86,7 @@ bool actuator
 
   - 姿态四元数表示无人机机体坐标系FRD(前、右、下) 与NED坐标系之间的旋转。 这个推力是在无人机体轴FRD坐标系下，并归一化为 \[-1, 1\] 。
 
-- [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRatesSetpoint.msg)
+- [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleRatesSetpoint.msg)
 
   - 支持以下输入组合：
 
@@ -98,13 +98,13 @@ bool actuator
 
 下面的offboard控制模式会绕过所有PX4内部的控制环，应当非常谨慎地使用。
 
-- [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
+- [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleTorqueSetpoint.msg)
 
   - 支持以下输入组合：
     - `xyz` 用于推力和 `xyz` 用于力矩。
   - 所有值都在无人机体轴 FRD 坐标系中表示，并且归一化为\[-1, 1\]。
 
-- [px4_msgs::msg::ActuatorMotors](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorMotors.msg) + [px4_msgs::msg::ActuatorServos](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorServos.msg)
+- [px4_msgs::msg::ActuatorMotors](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ActuatorMotors.msg) + [px4_msgs::msg::ActuatorServos](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ActuatorServos.msg)
   - 直接控制电机输出和/或伺服系统（舵机）输出。
   - 所有值归一化为\[-1, 1\]。 对于不支持负数值的输出，负数项将映射到`NaN`。
   - `NaN`映射到上锁
@@ -117,7 +117,7 @@ bool actuator
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - 位置设置值 （仅 `x`，`y`，`z`）
     - 速度设定值（仅`vx`，`yy`，`vz`）
@@ -129,7 +129,7 @@ bool actuator
 
 - [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
-  - 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - 位置设定值（仅`lat_int`，`lon_int`，`alt`）
     - 速度设定值（仅`vx`，`vy`，`vz`）
@@ -152,7 +152,7 @@ bool actuator
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - 位置设定值（仅` x `，` y `，` z `；速度和加速度设定值被忽略）。
 
@@ -171,7 +171,7 @@ bool actuator
 
 - [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
-  - 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - 位置设定值（仅`lat_int`，`lon_int`，`alt`）
 
@@ -198,7 +198,7 @@ bool actuator
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - 位置设置值 （仅 `x`，`y`，`z`）
 
@@ -216,7 +216,7 @@ bool actuator
 
 - [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
-  - 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     - 位置设定值（仅`lat_int`，`lon_int`，`alt`）
   - Specify the _type_ of the setpoint in `type_mask` (not part of the MAVLink standard). The values are:
 

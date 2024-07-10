@@ -39,7 +39,7 @@ DONT_RUN=1 make px4_sitl gazebo-classic mavsdk_tests
 
 ## Запуск усіх PX4 тестів
 
-Щоб запустити всі тести SITL, визначені в [sitl.json](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/configs/sitl.json), виконайте:
+Щоб запустити всі тести SITL, визначені в [sitl.json](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/test/mavsdk_tests/configs/sitl.json), виконайте:
 
 ```sh
 test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10
@@ -134,14 +134,14 @@ About to run 39 test cases for 3 selected models (1 iteration):
 
 ## Примітки щодо реалізацій:
 
-- Тести викликаються зі скрипта запуску [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/mavsdk_test_runner.py), який написано на мові Python.
+- Тести викликаються зі скрипта запуску [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/test/mavsdk_tests/mavsdk_test_runner.py), який написано на мові Python.
 
   Окрім MAVSDK, цей модуль запускає `px4`, а також Gazebo для SITL-тестів, і збирає логи цих процесів.
 
 - Модуль виконання тесту - це бінарний файл на мові C++, який містить:
-  - Функція [main](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/test_main.cpp) для аналізу аргументів.
-  - Абстракція навколо MAVSDK з назвою [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.h).
-  - Тести з використанням абстракції навколо MAVSDK, наприклад, [test_multicopter_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/test_multicopter_mission.cpp).
+  - Функція [main](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/test/mavsdk_tests/test_main.cpp) для аналізу аргументів.
+  - Абстракція навколо MAVSDK з назвою [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/test/mavsdk_tests/autopilot_tester.h).
+  - Тести з використанням абстракції навколо MAVSDK, наприклад, [test_multicopter_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/test/mavsdk_tests/test_multicopter_mission.cpp).
   - Тести використовують фреймворк модульного тестування [catch2](https://github.com/catchorg/Catch2). Причини використання цього фреймворку наступні:
     - Оператори (`REQUIRE`), необхідні для переривання тесту, можуть бути всередині функцій (а не лише у тесті верхнього рівня, як у [випадку з gtest](https://github.com/google/googletest/blob/main/docs/advanced.md#assertion-placement)).
     - Керування залежностями спрощується, оскільки _catch2_ можна просто включити як бібліотеку, що містить лише заголовки.

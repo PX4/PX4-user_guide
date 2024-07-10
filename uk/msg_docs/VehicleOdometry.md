@@ -2,7 +2,7 @@
 
 Дані odometry Техніки. Відповідає ROS REP 147 для повітряних суден
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleOdometry.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/VehicleOdometry.msg)
 
 ```c
 # Дані odometry Техніки. Fits ROS REP 147 for aerial vehicles

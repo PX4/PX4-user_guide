@@ -2,7 +2,7 @@
 
 This message is used to dump the raw gps communication to the log.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GpsDump.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/GpsDump.msg)
 
 ```c
 # This message is used to dump the raw gps communication to the log.

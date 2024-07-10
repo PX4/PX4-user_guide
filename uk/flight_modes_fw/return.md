@@ -21,7 +21,7 @@
 - Перемикачі керування RC можуть бути використані для зміни режимів польоту на будь-якому транспортному засобі.
 - Рух стіків керування RC ігнорується.
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.15/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 

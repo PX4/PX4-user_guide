@@ -2,7 +2,7 @@
 
 ORBIT_YAW_BEHAVIOUR
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/OrbitStatus.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/OrbitStatus.msg)
 
 ```c
 # ORBIT_YAW_BEHAVIOUR

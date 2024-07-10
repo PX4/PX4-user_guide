@@ -2,7 +2,7 @@
 
 Глобальний набір точки встановлення у форматі координат WGS84. Ось наступні три способи вказівань (або просто наступні два або один).
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PositionSetpointTriplet.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/PositionSetpointTriplet.msg)
 
 ```c
 # Глобальний набір точки встановлення у форматі координат WGS84.

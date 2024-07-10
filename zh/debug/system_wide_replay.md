@@ -10,7 +10,7 @@ The first step is to identify the module or modules that should be replayed. The
 
 All identified topics need to be logged at full rate (see [logging](../dev_log/logging.md)). For `ekf2` this is already the case with the default set of logged topics.
 
-It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`. Should there be more timestamps, they must be relative to the main timestamp. For an example, see [SensorCombined.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg). 造成这种情况的原因如下。
+It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`. Should there be more timestamps, they must be relative to the main timestamp. For an example, see [SensorCombined.msg](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/SensorCombined.msg). 造成这种情况的原因如下。
 
 ## Usage
 

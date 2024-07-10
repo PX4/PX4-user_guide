@@ -2,7 +2,7 @@
 
 ВідповідьParameterSetValueResponse : Результат відповіді на запит на встановлення значення від будь-якого первинного або вторинного
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ParameterSetValueResponse.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/msg/ParameterSetValueResponse.msg)
 
 ```c
 # ParameterSetValueResponse : Response to a set value request by either primary or secondary
