@@ -4,20 +4,21 @@
 
 [![Releases](https://img.shields.io/badge/release-main-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![Discord](https://discordapp.com/api/guilds/1022170275984457759/widget.png?style=shield)](https://discord.gg/dronecode)
 
+:::warning
+This guide is for the PX4 v1.15, which is currently the beta release.
+Use the **Version** selector for the current _stable_ version (v1.14) or development release (main).
+
+Documented changes since the stable release are captured in the evolving [release note](releases/1.15.md).
+:::
+
 PX4 is the _Professional Autopilot_.
 Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
 
 :::tip
 This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. Interested in contributing? Check out the [Development](development/development.md) section.
-
 :::
 
-:::warning
-This guide is for the _development_ version of PX4 (`main` branch).
-Use the **Version** selector for the current _stable_ version.
 
-Documented changes since the stable release are captured in the evolving [release note](releases/main.md).
-:::
 
 ## How Do I Get Started?
 
