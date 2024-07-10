@@ -47,7 +47,8 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### Simulation
 
-- TBD
+- The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7.
+  ([PX4-Autopilot#23363](https://github.com/PX4/PX4-Autopilot/pull/23363)).
 
 ### Ethernet
 
