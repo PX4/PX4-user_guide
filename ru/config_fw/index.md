@@ -9,7 +9,7 @@ This topic is the recommended entry point when performing first-time configurati
 The main steps are:
 
 - [Standard Configuration](../config/index.md)
-- [Autotune](../config/autotune.md) - PID Tuning
+- [Autotune](../config/autotune_fw.md) - PID Tuning
 
   ::: info Autotune simplifies the manual process described in: [Fixed-wing Rate/Attitude Controller Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
 :::
