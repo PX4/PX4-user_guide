@@ -141,7 +141,7 @@ The easiest way to calibrate the divider is by using _QGroundControl_ and follow
 기본 구성 (부하 보상 없음 등)을 사용하는 경우에는이 설정이 필요하지 않습니다.
 :::
 
-[전류 기반 부하 보상](#current_based_load_compensation) 또는 [전류 통합](#current_integration)을 사용하는 경우 전압 분배기 당 암페어를 보정하여야 합니다.
+If you are using [Load Compensation](#load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated.
 
 The easiest way to calibrate the dividers is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
 
@@ -153,72 +153,34 @@ The easiest way to calibrate the dividers is by using _QGroundControl_ and follo
 
 ## 부하 보상을 통한 전압 기반 추정
 
-:::note
-부하 보상값을 적절하게 설정하면 배터리 용량 추정의 전압이 훨씬 더 안정적이고 상하강 비행시 값의 변화가 줄어듭니다.
+With well configured load compensation, the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
+
+PX4 implements a current-based load compensation that uses a real-time estimate of the internal resistance of the battery. When a current flows through a battery, the internal resistance causes a voltage drop, reducing the output voltage (measured voltage) of the battery compared to its open-circuit voltage (no-load voltage). By estimating the internal resistance, the fluctuation in measured voltage under load that occurs when using the [basic configuration](#basic_settings) can be compensated. This leads to a much more accurate estimation of the remaining capacity.
+
+To use the load compensation you will still need to set the [basic configuration](#basic_settings). The _Empty Voltage_ ([BATn_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY), where `n` is the battery number) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use). 기본 설정 화면에서 [전압 분배기당 전류값](#current_divider)을 보정하여야 합니다.
+
+::: info Alternatively, the value for the internal resistance can be [set manually](../advanced_config/parameters.md) using [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) (advanced). A positive value in this parameter will be used for the internal resistance instead of the estimated value. There are LiPo chargers that can measure the internal resistance of your battery. A typical value for LiPo batteries is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
+
+By default `BAT1_R_INTERNAL` is set to `-1` which enables the estimation algorithm. Setting it to `0` disables load compensation.
 :::
-
-부하 보상은 [기본 설정](#basic_settings)을 사용할 때 발생하는 전압/예상 용량의 측정값 변동에 대응하려고 합니다. This works by estimating what the voltage would be for the _unloaded_ battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity.
-
-:::note
-부하 보상을 사용하려면 [기본 설정](#basic_settings)을 사용하여 설정합니다. The _Empty Voltage_ ([BATn_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY), where `n` is the battery number) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
-:::
-
-PX4는 아래 두개의 매개변수 중 하나를 [설정](../advanced_config/parameters.md)하여 활성화되는 두 가지 부하 보상 방법을 지원합니다.
-
-- [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [전류 기반 부하 보상](#current_based_load_compensation) (권장).
-- [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [추력 기반 부하 보상](#thrust_based_load_compensation).
-
-<a id="current_based_load_compensation"></a>
-
-### 전류 기반 부하 보상 (권장 방식)
-
-이 부하 보상 방법은 부하를 결정하기 위해 전류를 측정합니다. [추력 기반 부하 보상](#thrust_based_load_compensation)보다 훨씬 정확하지만 전류 센서가 필요합니다.
-
-이 기능을 활성화하려면:
-
-1. Set the parameter [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) to the internal resistance of battery 1 (and repeat for other batteries).
-
-   :::tip
-배터리의 내부 저항을 측정 할 수있는 LiPo 충전기가 있습니다.
-일반적인 값은 셀당 5mΩ이지만 방전 전류 등급, 수명 및 셀 상태에 따라 달라질 수 있습니다.
-:::
-
-1. 기본 설정 화면에서 [전압 분배기당 전류값](#current_divider)을 보정하여야 합니다.
-
-<a id="thrust_based_load_compensation"></a>
-
-### 추력 기반 부하 보상
-
-이 부하 보상 방법은 모터에 할당된 총 추력을 기준으로 부하를 추정합니다.
-
-:::warning
-This method is not particularly accurate because there's a delay between thrust command and current, and because the thrust in not linearly proportional to the current. 차량에 전류 센서가있는 경우에는 [전류 기반 부하 보상](#current_based_load_compensation) 방법을 사용하십시오.
-:::
-
-이 기능을 활성화하려면:
-
-1. 매개변수 [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP)를 최대 추력 부하에서 셀에 표시되는 전압 강하량으로 설정합니다.
 
 <a id="current_integration"></a>
 
 ## 전류 통합과 융합된 전압 기반 추정
 
-:::note
-이것은 상대적인 배터리 소모량을 측정하는 가장 정확한 방법입니다.
-부팅시마다 새로 충전한 배터리를 정확하게 설정하면, 추정 품질이 스마트 배터리의 품질과 비슷해질 것입니다 (이론적으로 정확한 잔여 비행 시간 추정이 가능합니다).
-:::
+This method is the most accurate way to measure relative battery consumption. 부팅시마다 새로 충전한 배터리를 정확하게 설정하면, 추정 품질이 스마트 배터리의 품질과 비슷해질 것입니다 (이론적으로 정확한 잔여 비행 시간 추정이 가능합니다).
 
-This method evaluates the remaining battery capacity by _fusing_ the voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. 전류를 정확하게 측정할 수있는 장치가 필요합니다.
+The method evaluates the remaining battery capacity by _fusing_ the voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. 전류를 정확하게 측정할 수있는 장치가 필요합니다.
 
 이 기능을 활성화하려면:
 
-1. 먼저 [전류 기반 부하 보상](#current_based_load_compensation)을 사용하여 정확한 전압 추정을 설정합니다.
+1. First set up accurate voltage estimation using [load compensation](#load_compensation).
 
 :::tip
 [전압 분배기 당 전류](#current_divider) 설정 보정 포함.
 :::
 
-1. 매개변수 [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY)를 라벨에 인쇄된 배터리 용량의 약 90 %로 설정합니다.
+2. 매개변수 [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY)를 라벨에 인쇄된 배터리 용량의 약 90 %로 설정합니다.
 
    :::note
 부하 보상값을 적절하게 설정하면 배터리 용량 추정의 전압이 훨씬 더 안정적이며 상하강 비행시 값의 변화가 적습니다.
