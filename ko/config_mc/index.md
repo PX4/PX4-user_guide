@@ -102,16 +102,19 @@ PX4 can be configured to automatically handle conditions such as low battery, lo
 Tuning is the final step, carried out only after most other setup and configuration is complete.
 
 - Rate and attitude controllers:
-- [Autotune](../config/autotune.md) — Automates tuning PX4 rate and attitude controllers (recommended).
+- [Autotune](../config/autotune_mc.md) — Automates tuning PX4 rate and attitude controllers (recommended).
 
-  ::: info
-Automatic tuning works on frames that have reasonable authority and dynamics around all the body axes.
-It has primarily been tested on racing quads and X500, and is expected to be less effective on tricopters with a tiltable rotor.
-The other two guides are only needed if there is a problem with autotune.
+  ::: info Automatic tuning works on frames that have reasonable authority and dynamics around all the body axes. It has primarily been tested on racing quads and X500, and is expected to be less effective on tricopters with a tiltable rotor.
+
+  Manual tuning using these guides are only needed if there is a problem with autotune:
+
+  - [MC PID Tuning (Manual/Basic)](../config_mc/pid_tuning_guide_multicopter_basic.md) — Manual tuning basic how to.
+  - [MC PID Tuning Guide (Manual/Detailed)](../config_mc/pid_tuning_guide_multicopter.md) — Manual tuning with detailed explanation.
+
+
 :::
 
-- [MC PID Tuning (Manual/Basic)](../config_mc/pid_tuning_guide_multicopter_basic.md) — Manual tuning basic how to.
-- [MC PID Tuning Guide (Manual/Detailed)](../config_mc/pid_tuning_guide_multicopter.md) — Manual tuning with detailed explanation.
+
 - [MC Filter/Control Latency Tuning](../config_mc/filter_tuning.md) — Trade off control latency and noise filtering.
 - [MC Setpoint Tuning (Trajectory Generator)](../config_mc/mc_trajectory_tuning.md)
   - [MC Jerk-limited Type Trajectory](../config_mc/mc_jerk_limited_type_trajectory.md)
