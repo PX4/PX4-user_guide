@@ -45,7 +45,7 @@ _Pixhawk 4 Mini_ був спроєктований та розроблений �
 - Інші характеристики:
   - Робоча температура: -40 ~ 85°c
 
-Додаткову інформацію можна знайти у [_Технічному описі_ Pixhawk 4 Mini](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
+Додаткову інформацію можна знайти у [_Технічному описі_ Pixhawk 4 Mini](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
 
 ## Де придбати
 
@@ -61,7 +61,7 @@ _Pixhawk 4 Mini_ був спроєктований та розроблений �
 
 ## Розводка
 
-Завантажте схему розводки _Pixhawk 4 Mini_ [звідси](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
+Завантажте схему розводки _Pixhawk 4 Mini_ [звідси](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
 
 ## Розміри
 
@@ -141,5 +141,5 @@ _Pixhawk 4 Mini_ не має AUX портів. Плата не може вико
 
 ## Подальша інформація
 
-- [Технічна інформація по _Pixhawk 4 Mini_](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf)
+- [Технічна інформація по _Pixhawk 4 Mini_](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf)
 - [Довідник з дизайну розводки FMUv5](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).

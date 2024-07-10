@@ -642,7 +642,7 @@ There are 2 environment variables used for configuration: `replay`, which must b
 
 The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
 
-The replay procedure is documented on the [System-wide Replay](https://docs.px4.io/main/en/debug/system_wide_replay.html) page.
+The replay procedure is documented on the [System-wide Replay](https://docs.px4.io/v1.15/en/debug/system_wide_replay.html) page.
 
 <a id="replay_usage"></a>
 

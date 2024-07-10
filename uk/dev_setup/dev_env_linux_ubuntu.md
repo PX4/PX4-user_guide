@@ -62,8 +62,8 @@ The script is intended to be run on _clean_ Ubuntu LTS installations, and may no
 - Вам все одно потрібен вихідний код PX4. Однак якщо ви просто хочете встановити середовище розробки без того, щоб завантажувати весь код, замість цього ви можете просто завантажити  [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/setup/ubuntu.sh) та [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/setup/requirements.txt) після чого виконати **ubuntu.sh**:
 
   ```sh
-  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu.sh
-  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/release/1.15/Tools/setup/ubuntu.sh
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/release/1.15/Tools/setup/requirements.txt
   bash ubuntu.sh
   ```
 

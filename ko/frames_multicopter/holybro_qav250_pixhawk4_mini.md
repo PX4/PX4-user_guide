@@ -17,7 +17,7 @@ The complete kits include a carbon-fibre QAV250 racing frame, flight controller 
 
 ## 퀵 스타트 가이드
 
-[Pixhawk 4 Mini QAV250 키트 퀵 스타트 가이드](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_qav250kit_quickstart_web.pdf)
+[Pixhawk 4 Mini QAV250 키트 퀵 스타트 가이드](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixhawk4mini/pixhawk4mini_qav250kit_quickstart_web.pdf)
 
 ## 부품 명세서
 

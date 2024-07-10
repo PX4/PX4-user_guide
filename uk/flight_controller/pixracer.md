@@ -197,8 +197,8 @@ Pixracer розроблений для використання окремого
 
 Наведені нижче файли PDF надаються лише для _зручності_:
 
-- [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
-- [pixracer-r14.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 або RC14 надруковано поруч з сокетом SDCard
+- [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
+- [pixracer-r14.pdf](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 або RC14 надруковано поруч з сокетом SDCard
 
 ## Збірка прошивки
 

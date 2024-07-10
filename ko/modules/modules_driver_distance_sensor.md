@@ -64,7 +64,7 @@ LeddarOne LiDAR 직렬 버스 드라이버입니다.
 
 대부분의 보드는 SENS_LEDDAR1_CFG 매개변수를 사용하여, 지정된 UART에서 드라이버를 활성화/시작하도록 설정합니다.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/leddar_one.html
+Setup/usage information: https://docs.px4.io/v1.15/en/sensor/leddar_one.html
 
 ### 예
 
@@ -98,7 +98,7 @@ leddar_one <command> [arguments...]
 
 Lightware SFxx 시리즈 LIDAR 거리 측정기용 I2C 버스 드라이버: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
+Setup/usage information: https://docs.px4.io/v1.15/en/sensor/sfxx_lidar.html
 
 <a id="lightware_laser_i2c_usage"></a>
 
@@ -132,7 +132,7 @@ LightWare SF02/F, SF10/a, SF10/b, SF10/c, SF11/c 레이저 거리 측정기용 �
 
 대부분의 보드는 SENS_SF0X_CFG 매개변수를 사용하여 지정된 UART에서 드라이버를 활성화/시작하도록 설정합니다.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
+Setup/usage information: https://docs.px4.io/v1.15/en/sensor/sfxx_lidar.html
 
 ### 예
 
@@ -201,7 +201,7 @@ LidarLite 거리 측정기를 위한 I2C 버스 드라이버입니다.
 
 센서/드라이버는 매개변수 SENS_EN_LL40LS를 사용하여 활성화합니다.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/lidar_lite.html
+Setup/usage information: https://docs.px4.io/v1.15/en/sensor/lidar_lite.html
 
 <a id="ll40ls_usage"></a>
 
@@ -364,7 +364,7 @@ TeraRanger 거리 측정기를 위한 I2C 버스 드라이버입니다.
 
 센서/드라이버는 SENS_EN_TRANGER 매개변수를 사용하여 활성화합니다.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/rangefinders.html#teraranger-rangefinders
+Setup/usage information: https://docs.px4.io/v1.15/en/sensor/rangefinders.html#teraranger-rangefinders
 
 <a id="teraranger_usage"></a>
 
@@ -423,7 +423,7 @@ Benewake TFmini LiDAR용 직렬 버스 드라이버입니다.
 
 대부분의 보드는 SENS_TFMINI_CFG 매개변수를 사용하여 지정된 UART에서 드라이버를 활성화/시작하도록 설정합니다.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/tfmini.html
+Setup/usage information: https://docs.px4.io/v1.15/en/sensor/tfmini.html
 
 ### 예
 

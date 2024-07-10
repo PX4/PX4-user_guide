@@ -77,7 +77,7 @@ PX4 запускається на H7 mini v1.3 та більш пізніх мо
 
 ## Оновлення завантажувача PX4
 
-Плата поставляється із заздалегідь встановленою [Betaflight](https://github.com/betaflight/betaflight/wiki). Перед встановленням прошивки PX4 необхідно прошити _завантажувач PX4_. Завантажте завантажувальний бінарний файл [holybro_kakuteh7mini_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7mini/holybro_kakuteh7mini_bootloader.hex) та прочитайте [цю сторінку](../advanced_config/bootloader_update_from_betaflight.md) для інструкцій з прошивки.
+Плата поставляється із заздалегідь встановленою [Betaflight](https://github.com/betaflight/betaflight/wiki). Перед встановленням прошивки PX4 необхідно прошити _завантажувач PX4_. Завантажте завантажувальний бінарний файл [holybro_kakuteh7mini_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/kakuteh7mini/holybro_kakuteh7mini_bootloader.hex) та прочитайте [цю сторінку](../advanced_config/bootloader_update_from_betaflight.md) для інструкцій з прошивки.
 
 ## Створення прошивки
 

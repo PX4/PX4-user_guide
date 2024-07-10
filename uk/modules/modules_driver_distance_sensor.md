@@ -66,7 +66,7 @@ Source: [drivers/distance_sensor/leddar_one](https://github.com/PX4/PX4-Autopilo
 
 Більшість плат налаштовано на ввімкнення/запуск драйвера на вказаному UART за допомогою параметра SENS_LEDDAR1_CFG.
 
-Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/leddar_one.html
+Інформація про налаштування/використання: https://docs.px4.io/v1.15/en/sensor/leddar_one.html
 
 ### Приклади
 
@@ -100,7 +100,7 @@ leddar_one <command> [arguments...]
 
 Драйвер шини I2C для LIDAR-далекомірів Lightware серії SFxx: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20.
 
-Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
+Інформація про налаштування/використання: https://docs.px4.io/v1.15/en/sensor/sfxx_lidar.html
 
 <a id="lightware_laser_i2c_usage"></a>
 
@@ -134,7 +134,7 @@ lightware_laser_i2c <command> [arguments...]
 
 Більшість плат налаштовано на увімкнення/запуск драйвера на вказаному UART за допомогою параметра SENS_SF0X_CFG.
 
-Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
+Інформація про налаштування/використання: https://docs.px4.io/v1.15/en/sensor/sfxx_lidar.html
 
 ### Приклади
 
@@ -203,7 +203,7 @@ Source: [drivers/distance_sensor/ll40ls](https://github.com/PX4/PX4-Autopilot/tr
 
 Датчик/драйвер має бути увімкнений за допомогою параметра SENS_EN_LL40LS.
 
-Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/lidar_lite.html
+Інформація про налаштування/використання: https://docs.px4.io/v1.15/en/sensor/lidar_lite.html
 
 <a id="ll40ls_usage"></a>
 
@@ -366,7 +366,7 @@ srf05 <command> [arguments...]
 
 Датчик/драйвер має бути увімкнений за допомогою параметра SENS_EN_TRANGER.
 
-Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/rangefinders.html#teraranger-rangefinders
+Інформація про налаштування/використання: https://docs.px4.io/v1.15/en/sensor/rangefinders.html#teraranger-rangefinders
 
 <a id="teraranger_usage"></a>
 
@@ -425,7 +425,7 @@ Source: [drivers/distance_sensor/tfmini](https://github.com/PX4/PX4-Autopilot/tr
 
 Більшість плат налаштовано на ввімкнення/вимкнення драйвера на вказаному UART за допомогою параметра SENS_TFMINI_CFG.
 
-Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/tfmini.html
+Інформація про налаштування/використання: https://docs.px4.io/v1.15/en/sensor/tfmini.html
 
 ### Приклади
 

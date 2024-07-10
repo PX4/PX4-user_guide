@@ -51,7 +51,7 @@ QGroundControl автоматично виявляє послідовне зв'�
 <img src="../../assets/hardware/telemetry/holybro_pico_config.png" width="400px" title="Holybro Pico Config" />
 <img src="../../assets/hardware/telemetry/holybro_pico_config1.png" width="400px" title="Holybro Pico Config" />
 
-Додаткову інформацію про конфігурацію радіо (включаючи мережеві та багатоточкові режими) містить [Посібник з експлуатації Pico Series P900 версії 1.8.7](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/telemetry/Pico-Series-P900.Operating-Manual.v1.8.7.pdf).
+Додаткову інформацію про конфігурацію радіо (включаючи мережеві та багатоточкові режими) містить [Посібник з експлуатації Pico Series P900 версії 1.8.7](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/hardware/telemetry/Pico-Series-P900.Operating-Manual.v1.8.7.pdf).
 
 ### Режими Mesh та Multipoint
 

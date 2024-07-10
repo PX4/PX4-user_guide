@@ -197,7 +197,7 @@ The reference is provided as: [Altium Design Files](https://github.com/AUAV-Open
 
 The following PDF files are provided for _convenience only_:
 
-- [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
+- [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
 - [pixracer-r14.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 또는 RC14는 SDCard 소켓 옆에 인쇄됩니다.
 
 ## Building Firmware

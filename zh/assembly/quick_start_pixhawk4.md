@@ -168,6 +168,6 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 ## 更多信息
 
 - [Pixhawk 4](../flight_controller/pixhawk4.md)（概览页面）
-- [Pixhawk 4 技术数据表](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+- [Pixhawk 4 技术数据表](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
 - [Pixhawk 4 Pinouts](https://holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 - [Pixhawk 4 快速入门指南（PDF）](https://holybro.com/manual/Pixhawk4-quickstartguide.pdf)

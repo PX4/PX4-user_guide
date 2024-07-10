@@ -61,8 +61,8 @@ Additional notes These notes are provided "for information only":
 - You're going to need the PX4 source code anyway. But if you just wanted to set up the development environment without getting all the source code you could instead just download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/setup/ubuntu.sh) and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/setup/requirements.txt) and then run **ubuntu.sh**:
 
   ```sh
-  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu.sh
-  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/release/1.15/Tools/setup/ubuntu.sh
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/release/1.15/Tools/setup/requirements.txt
   bash ubuntu.sh
   ```
 

@@ -41,7 +41,7 @@ Key Build Features:
 - [Caddx Vista FPV air unit](https://caddxfpv.com/products/caddx-vista-kit)
 - [DJI FPV Goggles](https://www.dji.com/fpv)
 - [ExpressLRS Matek Diversity RX](http://www.mateksys.com/?portfolio=elrs-r24)
-- [Custom designed 3D printed parts](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/turbo_timber_evolution/3d_printed_parts.zip)
+- [Custom designed 3D printed parts](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/fw/turbo_timber_evolution/3d_printed_parts.zip)
   - Pixhawk 4 Mini mount and top GPS mount
   - FPV pod and camera mount
   - Pitot static pod and wing hardpoint hanger
@@ -89,7 +89,7 @@ The lid of the pitot pod was initially taped in place to allow the setup to be t
 
 ## Flight Computer Installation
 
-A custom mount for the PX4 Mini was designed and 3d printed (see [3D printed parts](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/turbo_timber_evolution/3d_printed_parts.zip) for all parts). This mount was carefully designed to use internal foam mold features of the stock TTE airframe to be securely attached and well aligned. The mount consists of two parts in a double-decker configuration, bolted together with M3 threaded standoffs. The bottom mount carries the Pixhawk and attaches to the airframe while the top mount carries the GPS and ExpressLRS RX.
+A custom mount for the PX4 Mini was designed and 3d printed (see [3D printed parts](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/fw/turbo_timber_evolution/3d_printed_parts.zip) for all parts). This mount was carefully designed to use internal foam mold features of the stock TTE airframe to be securely attached and well aligned. The mount consists of two parts in a double-decker configuration, bolted together with M3 threaded standoffs. The bottom mount carries the Pixhawk and attaches to the airframe while the top mount carries the GPS and ExpressLRS RX.
 
 ![Turbo Timber Evolution Build](../../assets/airframes/fw/turbo_timber_evolution/pre_mount_install.jpg)
 
@@ -181,6 +181,6 @@ In testing I found takeoffs can be as short as only 10ft (3m) using no flaps. I 
 
 ### Parameter File
 
-[Snapshot of PX4 airframe params](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/turbo_timber_evolution/tteparams.params)
+[Snapshot of PX4 airframe params](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/fw/turbo_timber_evolution/tteparams.params)
 
 This param file contains the custom PX4 parameter config for this build, including radio setup, tuning and sensor config. The param file can be loaded via QGC using the instructions at [Parameters> Tools ](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html#tools) (QGC User Guide).

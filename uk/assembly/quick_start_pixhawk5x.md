@@ -123,7 +123,7 @@ PPM та PWM приймачі, які мають _окремий дріт для
 
 ![Схема контактів Pixhawk 5X Pinout1](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
-Ви також можете завантажити схему розташування виводів _Pixhawk 5X_ [тут](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) або [тут](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
+Ви також можете завантажити схему розташування виводів _Pixhawk 5X_ [тут](https://github.com/PX4/PX4-user_guide/blob/v1.15/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) або [тут](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
 
 ## Конфігурація
 

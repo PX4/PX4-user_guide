@@ -137,7 +137,7 @@ To display the vehicle in jMAVSim during SITL mode, enter the following command 
 
 Динамічні моделі для різних транспортних засобів:
 
-- Квадротор: [pdf звіт](https://github.com/PX4/PX4-user_guide/raw/main/assets/simulation/SIH_dynamic_model.pdf).
+- Квадротор: [pdf звіт](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/simulation/SIH_dynamic_model.pdf).
 - З нерухомим крилом: на основі кандидатської дисертації: «Моделювання динаміки маневрених безпілотних літальних апаратів з нерухомим крилом» Khan, Waqas, під керівництвом Nahon, Meyer, Університет Макгілла, докторська дисертація, 2016.
 - Tailsitter: Натхненний магістерською дисертацією: «Моделювання та керування безпілотним літальним апаратом з літаючим крилом» Chiappinelli, Romain, під керівництвом Nahon, Meyer, Університет Макгілла, магістерська робота, 2018.
 

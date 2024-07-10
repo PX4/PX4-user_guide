@@ -49,7 +49,7 @@ Source: [modules/ekf2](https://github.com/PX4/PX4-Autopilot/tree/release/1.15/sr
 ### 描述
 基于扩展卡尔曼滤波器的姿态和位置估计器。 该模块同时应用于多旋翼和固定翼飞机。
 
-The documentation can be found on the [ECL/EKF Overview & Tuning](https://docs.px4.io/main/en/advanced_config/tuning_the_ecl_ekf.html) page.
+The documentation can be found on the [ECL/EKF Overview & Tuning](https://docs.px4.io/v1.15/en/advanced_config/tuning_the_ecl_ekf.html) page.
 
 This module runs a combined wind and airspeed scale factor estimator. If provided the vehicle NED speed and attitude it can estimate the horizontal wind components based on a zero sideslip assumption. This makes the estimator only suitable for fixed wing vehicles. If provided an airspeed measurement this module also estimates an airspeed scale factor based on the following model: measured_airspeed = scale_factor * real_airspeed.
 

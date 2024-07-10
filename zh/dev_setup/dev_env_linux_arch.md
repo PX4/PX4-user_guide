@@ -28,8 +28,8 @@ source ./archlinux_install_script.sh
 - 只下载你所需的脚本并运行他们：
 
   ```sh
-  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/arch.sh
-  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/release/1.15/Tools/setup/arch.sh
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/release/1.15/Tools/setup/requirements.txt
   bash arch.sh
   ```
 

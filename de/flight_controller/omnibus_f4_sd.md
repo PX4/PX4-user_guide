@@ -215,7 +215,7 @@ The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-S
 
 ## PX4 Bootloader Update
 
-The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Download the [omnibusf4sd_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions. Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed.
+The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Download the [omnibusf4sd_bl.hex](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions. Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed.
 
 ## Building Firmware
 

@@ -45,7 +45,7 @@ _Pixhawk 4 Mini_ was designed and developed in collaboration with Holybro<sup>&r
 - 기타 특성:
   - 작동 온도: -40 ~ 85°c
 
-Additional information can be found in the [_Pixhawk 4 Mini_ Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
+Additional information can be found in the [_Pixhawk 4 Mini_ Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
 
 ## Where to Buy
 
@@ -61,7 +61,7 @@ Order from [Holybro](https://holybro.com/collections/autopilot-flight-controller
 
 ## 핀배열
 
-Download _Pixhawk 4 Mini_ pinouts from [here](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
+Download _Pixhawk 4 Mini_ pinouts from [here](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
 
 ## 크기
 
@@ -140,5 +140,5 @@ _Pixhawk 4 Mini_ does not have AUX ports. 이 보드는 8 개 이상의 포트�
 
 ## 추가 정보
 
-- [_Pixhawk 4 Mini_ Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf)
+- [_Pixhawk 4 Mini_ Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf)
 - [FMUv5 기준 설계 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).

@@ -197,5 +197,5 @@ _Durandal_ має 5 допоміжних портів, тому не може б
 - [Огляд Durandal](../flight_controller/durandal.md)
 - [Технічний опис Durandal](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf) (Holybro)
 - [Durandal розпіновка](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)
-- [Durandal_MB_H743sch.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Схеми Durandal)
-- [STM32H743IIK_pinout.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/durandal/STM32H743IIK_pinout.pdf) (Схема виводів Durandal)
+- [Durandal_MB_H743sch.pdf](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Схеми Durandal)
+- [STM32H743IIK_pinout.pdf](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/durandal/STM32H743IIK_pinout.pdf) (Схема виводів Durandal)

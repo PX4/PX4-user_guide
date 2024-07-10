@@ -31,7 +31,7 @@
 
 ![木板](../../assets/airframes/rover/traxxas_stampede_vxl/mounting_detail.jpg)
 
-对于这个特定的安装，我们选择使用由小车提供的架子来连接上覆板。 为此，使用3D打印了两个支架。 The CAD files are provided [here](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
+对于这个特定的安装，我们选择使用由小车提供的架子来连接上覆板。 为此，使用3D打印了两个支架。 The CAD files are provided [here](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
 
 :::warning
 It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampede Manual), which reduces power to 50%.

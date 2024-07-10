@@ -81,8 +81,8 @@ To get the common dependencies for Raspberry Pi:
 1. Download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/Tools/setup/requirements.txt) from the PX4 source repository (**/Tools/setup/**): <!-- NEED px4_version -->
 
    ```sh
-   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu.sh
-   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
+   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/release/1.15/Tools/setup/ubuntu.sh
+   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/release/1.15/Tools/setup/requirements.txt
    ```
 
 1. Run **ubuntu.sh** in a terminal to get just the common dependencies:

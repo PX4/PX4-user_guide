@@ -47,7 +47,7 @@ airspeed_estimator <command> [arguments...]
 ### 설명
 확장 칼만 필터를 사용한 태도 및 위치 추정기입니다. 멀티콥터와 고정익에 사용됩니다.
 
-The documentation can be found on the [ECL/EKF Overview & Tuning](https://docs.px4.io/main/en/advanced_config/tuning_the_ecl_ekf.html) page.
+The documentation can be found on the [ECL/EKF Overview & Tuning](https://docs.px4.io/v1.15/en/advanced_config/tuning_the_ecl_ekf.html) page.
 
 ekf2는 재생 모드(`-r`)에서 시작할 수 있습니다. 이 모드에서는 시스템 시간에 액세스하지 않고, 센서 주제의 타임스탬프만 사용합니다.
 

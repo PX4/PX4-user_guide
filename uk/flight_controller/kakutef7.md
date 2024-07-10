@@ -69,7 +69,7 @@ _Kakute F7_ призначений для сумісної роботи з 4-в-
 
 ## Оновлення завантажувача PX4
 
-Дошка поставляється із заздалегідь встановленою [Betaflight](https://github.com/betaflight/betaflight/wiki). Перед встановленням прошивки PX4 необхідно прошити _завантажувач PX4_. Завантажте завантажувальний бінарний файл [kakutef7_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) та прочитайте [цю сторінку](../advanced_config/bootloader_update_from_betaflight.md) для інструкцій з прошивки.
+Дошка поставляється із заздалегідь встановленою [Betaflight](https://github.com/betaflight/betaflight/wiki). Перед встановленням прошивки PX4 необхідно прошити _завантажувач PX4_. Завантажте завантажувальний бінарний файл [kakutef7_bl.hex](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) та прочитайте [цю сторінку](../advanced_config/bootloader_update_from_betaflight.md) для інструкцій з прошивки.
 
 ## Збірка прошивки
 

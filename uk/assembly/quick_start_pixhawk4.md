@@ -168,6 +168,6 @@ GPS/компас повинен бути [закріплений на рамі](
 ## Подальша інформація
 
 - [Pixhawk 4](../flight_controller/pixhawk4.md) (сторінка огляду)
-- [Технічна інформація по Pixhawk 4](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+- [Технічна інформація по Pixhawk 4](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
 - [Розводка Pixhawk 4](https://holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 - [Посібник з швидкого запуску Pixhawk 4 (Holybro)](https://holybro.com/manual/Pixhawk4-quickstartguide.pdf)

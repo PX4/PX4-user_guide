@@ -9,7 +9,7 @@
 
 Більшість плат налаштовано на ввімкнення/вимкнення драйвера на вказаному UART за допомогою параметра SENS_TFLOW_CFG.
 
-Інформація про налаштування/використання: https://docs.px4.io/main/en/sensor/pmw3901.html#thone-thoneflow-3901u
+Інформація про налаштування/використання: https://docs.px4.io/v1.15/en/sensor/pmw3901.html#thone-thoneflow-3901u
 
 ### Приклади
 

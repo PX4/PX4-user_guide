@@ -55,15 +55,15 @@ chmod 777 <Path-To-PlotJuggler-AppImage>
 ![Plot Juggler 2D in-depth analysis](../../assets/flight_log_analysis/plot_juggler/plotjuggler_2d_graph_pos_vel_analysis.gif)
 
 :::info Спробуйте самі аналізувати журнал тестування човна, завантаживши вищезазначений файл ULog та макет!
-- [Тестування човна ULog](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_log_analysis/plot_juggler/sample_log_boat_testing_2022-7-28-13-31-16.ulg)
-- [Макет аналізу тестування човна](https://raw.githubusercontent.com/PX4/PX4-user_guide/main/assets/flight_log_analysis/plot_juggler/sample_log_boat_testing_layout.xml)
+- [Тестування човна ULog](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_log_analysis/plot_juggler/sample_log_boat_testing_2022-7-28-13-31-16.ulg)
+- [Макет аналізу тестування човна](https://raw.githubusercontent.com/PX4/PX4-user_guide/v1.15/assets/flight_log_analysis/plot_juggler/sample_log_boat_testing_layout.xml)
 :::
 
 ### Шаблони макетів
 
 Існує кілька файлів розташування PlotJuggler, якими діляться розробники PX4. Кожен може бути використаний для конкретної мети (настройка багтрекера, настройка VTOL, налагодження човна і т. Д.):
 
-* [Зразок макету перегляду](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_log_analysis/plot_juggler/plotjuggler_sample_view.xml) : Шаблон, який використовується у [прикладі з декількома панелями](#splitting-horizontally-vertically-multi-panel) вище.
+* [Зразок макету перегляду](https://github.com/PX4/PX4-user_guide/blob/v1.15/assets/flight_log_analysis/plot_juggler/plotjuggler_sample_view.xml) : Шаблон, який використовується у [прикладі з декількома панелями](#splitting-horizontally-vertically-multi-panel) вище.
 
 
 ## Розширене використання

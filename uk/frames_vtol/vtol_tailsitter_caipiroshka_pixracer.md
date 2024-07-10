@@ -10,7 +10,7 @@ Caipiroshka VTOL - це трохи модифікований *TBS Caipirinha*.
 ## Список деталей
 
 * TBS Caipirinha Wing (більше не доступний - спробуйте [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp))
-* Ліве та праве кріплення двигуна з друкованої 3D-моделі (<a href="https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">файли дизайну</a>)
+* Ліве та праве кріплення двигуна з друкованої 3D-моделі (<a href="https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">файли дизайну</a>)
 * Гвинт CW 8045 ([магазин Eflight](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
 * Гвинт CCW 8045 ([магазин Eflight](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
 * 2x 1800 kV 120-180W двигуни

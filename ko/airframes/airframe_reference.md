@@ -400,7 +400,7 @@ div.frame_variant td, div.frame_variant th {
  <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4050</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_qav250">
- <td><a href="https://docs.px4.io/main/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html">HolyBro QAV250</a></td>
+ <td><a href="https://docs.px4.io/v1.15/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html">HolyBro QAV250</a></td>
  <td>유지보수: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4052</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_kopis_2">

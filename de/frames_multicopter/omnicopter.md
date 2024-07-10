@@ -95,7 +95,7 @@ Make sure the motors do not overheat with the changed settings.
 - Parameters:
   - Change the desaturation logic for better attitude tracking: set [CA_METHOD](../advanced_config/parameter_reference.md#CA_METHOD) to 0.
   - Disable failure detection: set [FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P) and [FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R) to 0.
-- [This file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/multicopter/omnicopter/omnicopter.params) contains all the relevant parameters.
+- [This file](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/multicopter/omnicopter/omnicopter.params) contains all the relevant parameters.
 
 ## Video
 

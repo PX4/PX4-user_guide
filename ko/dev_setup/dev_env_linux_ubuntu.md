@@ -61,8 +61,8 @@ Additional notes These notes are provided "for information only":
 - 어쨌든 PX4 소스 코드가 필요합니다. 그러나 모든 소스 코드를 가져오지 않고 개발 환경을 설정하려는 경우 대신 [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) 및 [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt)를 다운로드한 다음 **ubuntu.sh**를 실행할 수 있습니다.:
 
   ```sh
-  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu.sh
-  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/release/1.15/Tools/setup/ubuntu.sh
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/release/1.15/Tools/setup/requirements.txt
   bash ubuntu.sh
   ```
 

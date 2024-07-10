@@ -51,7 +51,7 @@ OMP Hobby ZMO - це невеликий [апарат вертикального
 - [Подовжувач серво кабелю чоловічий 30 см 10 шт](https://www.getfpv.com/male-to-male-servo-extension-cable-twisted-22awg-jr-style-5-pcs.html)
 - [USB-C подовжувальний кабель](https://www.digitec.ch/en/s1/product/powerguard-usb-c-usb-c-025-m-usb-cables-22529949?dbq=1&gclid=Cj0KCQjw2cWgBhDYARIsALggUhrh-z-7DSU0wKfLBVa8filkXLQaxUpi7pC0ffQyRzLng8Ph01h2R1gaAp0mEALw_wcB&gclsrc=aw.ds)
 - [Стрічка 3M VHB](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y)
-- [Кріплення, надруковані на 3D-принтері](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo_3d_prints.zip)
+- [Кріплення, надруковані на 3D-принтері](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo_3d_prints.zip)
   - 2x кріплення для роз’єму крила
   - 1x кріплення датчика швидкості
   - 1x GPS-кріплення
@@ -252,11 +252,11 @@ ZMO FPV в його початковому стані.
 
 ### Завантажте файл параметрів
 
-Далі ми завантажуємо файл [параметрів](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo.params), який містить параметри, що визначають геометрію рами, відображення виводу та значення налаштувань - тож вам не доведеться цього робити! Якщо ви дотримувалися інструкцій з підключення двигунів, вам, ймовірно, не знадобиться багато додаткових налаштувань, окрім калібрування датчиків і фіксації кріплень.
+Далі ми завантажуємо файл [параметрів](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo.params), який містить параметри, що визначають геометрію рами, відображення виводу та значення налаштувань - тож вам не доведеться цього робити! Якщо ви дотримувалися інструкцій з підключення двигунів, вам, ймовірно, не знадобиться багато додаткових налаштувань, окрім калібрування датчиків і фіксації кріплень.
 
 Щоб завантажити файл:
 
-1. Завантажте [файл параметрів](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo.params).
+1. Завантажте [файл параметрів](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo.params).
 1. Виберіть вкладку [Parameters](../advanced_config/parameters.md#finding-updating-parameters), а потім натисніть на **Tools** у верхньому правому куті.
 1. Виберіть **Load from file**, а потім виберіть файл `omp_hobby_zmo.params`, який ви щойно завантажили.
 1. Перезапустіть транспортний засіб.

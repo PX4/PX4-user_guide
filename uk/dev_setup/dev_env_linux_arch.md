@@ -28,8 +28,8 @@ The script installs (by default) all tools to build PX4 for NuttX targets and ru
 - Завантажте лише необхідні скрипти та запустіть їх:
 
   ```sh
-  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/arch.sh
-  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/release/1.15/Tools/setup/arch.sh
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/release/1.15/Tools/setup/requirements.txt
   bash arch.sh
   ```
 

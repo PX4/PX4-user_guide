@@ -97,7 +97,7 @@
 - Параметри:
   - Змініть логіку десатурації для кращого відстеження настрою: встановіть [CA_METHOD](../advanced_config/parameter_reference.md#CA_METHOD) на 0.
   - Вимкнути виявлення відмов: встановити [FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P) та [FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R) на 0.
-- [Цей файл](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/multicopter/omnicopter/omnicopter.params) містить всі відповідні параметри.
+- [Цей файл](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/multicopter/omnicopter/omnicopter.params) містить всі відповідні параметри.
 
 ## Відео
 

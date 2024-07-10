@@ -228,4 +228,4 @@ If mixing becomes saturated towards the upper bound the commanded thrust is redu
 
 Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
 
-[THR_MDL_FAC_Calculation]: https://github.com/PX4/PX4-user_guide/blob/main/assets/config/mc/ThrustCurve.ipynb
+[THR_MDL_FAC_Calculation]: https://github.com/PX4/PX4-user_guide/blob/v1.15/assets/config/mc/ThrustCurve.ipynb

@@ -169,6 +169,6 @@ QuadPlane에 대한 자세한 설정 방법은 [QuadPlane VTOL 설정](../config
 ## 추가 정보
 
 - [Pixhawk 4](../flight_controller/pixhawk4.md) (개요 페이지)
-- [Pixhawk 4 기술 데이터 시트](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+- [Pixhawk 4 기술 데이터 시트](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
 - [Pixhawk 4 Pinouts](https://holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 - [Pixhawk 4 빠른 시작 가이드 (Holybro)](https://holybro.com/manual/Pixhawk4-quickstartguide.pdf)

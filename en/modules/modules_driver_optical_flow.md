@@ -9,7 +9,7 @@ Serial bus driver for the ThoneFlow-3901U optical flow sensor.
 
 Most boards are configured to enable/start the driver on a specified UART using the SENS_TFLOW_CFG parameter.
 
-Setup/usage information: https://docs.px4.io/main/en/sensor/pmw3901.html#thone-thoneflow-3901u
+Setup/usage information: https://docs.px4.io/v1.15/en/sensor/pmw3901.html#thone-thoneflow-3901u
 
 ### Examples
 

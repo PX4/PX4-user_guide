@@ -239,7 +239,7 @@ Here, _rel_thrust_ is the normalized thrust value between 0 and 1, and _rel_sign
 
 In this example above, the curve seemed to fit best when `THR_MDL_FAC` was set to 0.7.
 
-[THR_MDL_FAC_Calculation]: https://github.com/PX4/PX4-user_guide/blob/main/assets/config/mc/ThrustCurve.ipynb
+[THR_MDL_FAC_Calculation]: https://github.com/PX4/PX4-user_guide/blob/v1.15/assets/config/mc/ThrustCurve.ipynb
 
 If you don't have access to a thrust stand, you can also tune the modeling factor empirically.
 Start off with 0.3 and increase it by 0.1 at a time.

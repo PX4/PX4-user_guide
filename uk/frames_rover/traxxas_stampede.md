@@ -31,7 +31,7 @@
 
 ![Wodden panel fixture](../../assets/airframes/rover/traxxas_stampede_vxl/mounting_detail.jpg)
 
-Для цього конкретного кріплення ми вирішили використовувати прищіпку, яка постачається з ровером, щоб прикріпити верхню пластину. Для цього було надруковано дві опори з використанням 3D-друку. Файли CAD надані [тут](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
+Для цього конкретного кріплення ми вирішили використовувати прищіпку, яка постачається з ровером, щоб прикріпити верхню пластину. Для цього було надруковано дві опори з використанням 3D-друку. Файли CAD надані [тут](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
 
 :::warning
 Рекомендується **НАДЗВИЧАЙНО РЕКОМЕНДОВАНО** встановити ESC в режим навчання (див. посібник Traxxas Stampede), що знижує потужність до 50%.

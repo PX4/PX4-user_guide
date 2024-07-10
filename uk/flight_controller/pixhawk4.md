@@ -46,7 +46,7 @@ _Pixhawk 4_<sup>&reg;</sup> це просунутий автопілот, роз
 - Інші Характеристики:
   - Температура роботи: -40 ~ 85°c
 
-Додаткову інформацію можна знайти в [Технічному довіднику Pixhawk 4](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
+Додаткову інформацію можна знайти в [Технічному довіднику Pixhawk 4](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
 
 ## Де купити
 
@@ -145,7 +145,7 @@ make px4_fmu-v5_default
 
 ## Подальша інформація
 
-- [Технічна інформація по Pixhawk 4](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+- [Технічна інформація по Pixhawk 4](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
 - [Довідник по дизайну розводки FMUv5](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
 - [Швидке підключення Pixhawk 4](../assembly/quick_start_pixhawk4.md)
 - [Розводка Pixhawk 4](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf) (Holybro)

@@ -54,12 +54,12 @@ Reptile Dragon 2 - це двомоторний літак RC, спеціальн
 - [ExpressLRS Matek Diversity RX](http://www.mateksys.com/?portfolio=elrs-r24)
 - [5V BEC](https://www.readymaderc.com/products/details/rmrc-3a-power-regulator-5-to-6-volt-ubec)
 - [6s2p 18650 Літій-іонний акумулятор для польотів](https://www.upgradeenergytech.com/product-page/6s-22-2v-5600mah-30c-dark-lithium-liion-drone-battery) (виберіть роз'єм XT60)
-- [Спеціально розроблені 3D-друковані деталі](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/rd2_3d_printed_parts.zip)
+- [Спеціально розроблені 3D-друковані деталі](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/fw/reptile_dragon_2/rd2_3d_printed_parts.zip)
   - Монтаж платформи ARK6X
   - Кріплення для каркасу Holybro Pixhawk 5x
   - FPV модуль та кріплення камери
   - Адаптер "заглушка" статичного зонда Піто
-- [Плата розподілу електроживлення з індивідуальним дизайном](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/xt30_power_distro_pcb.zip)
+- [Плата розподілу електроживлення з індивідуальним дизайном](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/fw/reptile_dragon_2/xt30_power_distro_pcb.zip)
 - Різноманітне кріплення: М3-фурнітура (розмітки, шайби, O-кільця, болти), підкладки та гвинти M2.5 з нейлону, роз'єми XT30, гарячий клей, термоусадка, роз'єми Molex Microfit
 - Силіконові проводи (14 Awg для високого струму, 16 Awg для низького струму, 22 Awg для низької потужності та сигналів)
 
@@ -322,7 +322,7 @@ make ark_fmu-v6x_default upload
 
 Цей файл параметрів містить настроювану конфігурацію параметрів PX4 для цієї збірки, включаючи налаштування радіо, налаштування і датчиків. Завантажте файл через QGC, використовуючи інструкції на [Parameters> Tools](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html#tools) (Посібник користувача QGC).
 
-- [Знімок параметрів аеродинамічної рами PX4](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/reptile_dragon_2_params.params)
+- [Знімок параметрів аеродинамічної рами PX4](https://github.com/PX4/PX4-user_guide/raw/v1.15/assets/airframes/fw/reptile_dragon_2/reptile_dragon_2_params.params)
 
 
 Можливо, вам доведеться змінити деякі параметри для вашої збірки, зокрема вам слід перевірити:

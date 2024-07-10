@@ -229,4 +229,4 @@ _rel_thrust = ( `THR_MDL_FAC` ) _ rel*signal^2 + ( 1 - `THR_MDL_FAC` ) * rel*sig
 
 기체 비행이 성공적이면 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) 매개변수를 통하여 에어 모드를 활성화 할 수 있습니다.
 
-[THR_MDL_FAC_Calculation]: https://github.com/PX4/PX4-user_guide/blob/main/assets/config/mc/ThrustCurve.ipynb
+[THR_MDL_FAC_Calculation]: https://github.com/PX4/PX4-user_guide/blob/v1.15/assets/config/mc/ThrustCurve.ipynb
