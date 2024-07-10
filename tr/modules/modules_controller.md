@@ -252,7 +252,7 @@ Source: [modules/rover_ackermann](https://github.com/PX4/PX4-Autopilot/tree/main
 
 
 ### Description
-Rover state machine.
+Rover ackermann module.
 
 <a id="rover_ackermann_usage"></a>
 
