@@ -29,7 +29,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### Common
 
-- [Battery level estimation improvements](..n/config/battery.md) ([PX4-Autopilot#23205](https://github.com/PX4/PX4-Autopilot/pull/23205)).
+- [Battery level estimation improvements](../config/battery.md) ([PX4-Autopilot#23205](https://github.com/PX4/PX4-Autopilot/pull/23205)).
   - [Voltage-based estimation with load compensation](../config/battery.md#voltage-based-estimation-with-load-compensation) now uses a real-time estimate of the internal resistance of the battery to compensative for voltage drops under load (with increased current), providing a better capacity estimate than the open-circuit voltage.
   - Thrust-based load compensation has been removed (along with the `BATn_V_LOAD_DROP` parameters, where `n` is the battery number).
 
@@ -47,7 +47,8 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### Simulation
 
-- TBD
+- The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7.
+  ([PX4-Autopilot#23363](https://github.com/PX4/PX4-Autopilot/pull/23363)).
 
 ### Ethernet
 
