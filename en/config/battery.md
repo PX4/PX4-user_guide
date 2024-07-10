@@ -171,7 +171,7 @@ This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/para
 
 With well configured load compensation, the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
 
-PX4 implements a current-based load compensation that uses a real-time estimation of the internal resistance of the battery.
+PX4 implements a current-based load compensation that uses a real-time estimate of the internal resistance of the battery.
 When a current flows through a battery, the internal resistance causes a voltage drop, reducing the output voltage (measured voltage) of the battery compared to its open-circuit voltage (no-load voltage).
 By estimating the internal resistance, the fluctuation in measured voltage under load that occurs when using the [basic configuration](#basic_settings) can be compensated.
 This leads to a much more accurate estimation of the remaining capacity.
