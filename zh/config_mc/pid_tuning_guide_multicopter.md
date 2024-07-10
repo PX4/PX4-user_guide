@@ -3,7 +3,7 @@
 本主题提供有关 PX4 控制器以及如何调参的详细信息。
 
 :::tip
-推荐用[自动调参](../config/autotune.md) ，用于 _在悬停油门附近_， 因为这个方法简单直观且快速. 这就是许多机体所需要的全部。
+[Autotune](../config/autotune_mc.md) is recommended for tuning the vehicles _around the hover thrust point_, as the approach described is intuitive, easy, and fast. 这就是许多机体所需要的全部。
 :::
 
 当调整悬停推力点不足时使用自动调参（例如，在机体上，在更高推力时存在非线性和振荡）。 它还有助于更深入地了解基本调参原理的工作方式，并了解如何使用[airmode](#airmode-mixer-saturation)设置。
