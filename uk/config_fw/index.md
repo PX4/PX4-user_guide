@@ -9,7 +9,7 @@ This topic is the recommended entry point when performing first-time configurati
 The main steps are:
 
 - [Standard Configuration](../config/index.md)
-- [Autotune](../config/autotune.md) - PID налаштування
+- [Autotune](../config/autotune_fw.md) - PID Tuning
 
 :::note
 Автоналаштування спрощує процес ручного налаштування, описаний у..: [Посібник з налаштування регулятора швидкості/висоти літального апарата](../config_fw/pid_tuning_guide_fixedwing.md).
