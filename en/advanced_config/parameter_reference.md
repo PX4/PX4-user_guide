@@ -8800,17 +8800,17 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="ASPD_FS_T_START">ASPD_FS_T_START</strong> (FLOAT)</td>
+ <td><strong id="ASPD_FS_T_START">ASPD_FS_T_START</strong> (INT32)</td>
  <td>Airspeed failsafe start delay <p><strong>Comment:</strong> Delay before switching back to using airspeed sensor if checks indicate sensor is good. Set to a negative value to disable the re-enabling in flight.</p>   </td>
- <td>[-1.0, ?] </td>
- <td>-1.</td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
  <td>s</td>
 </tr>
 <tr>
- <td><strong id="ASPD_FS_T_STOP">ASPD_FS_T_STOP</strong> (FLOAT)</td>
+ <td><strong id="ASPD_FS_T_STOP">ASPD_FS_T_STOP</strong> (INT32)</td>
  <td>Airspeed failsafe stop delay <p><strong>Comment:</strong> Delay before stopping use of airspeed sensor if checks indicate sensor is bad.</p>   </td>
- <td>[0.0, ?] </td>
- <td>1.</td>
+ <td>[1, 10] </td>
+ <td>2</td>
  <td>s</td>
 </tr>
 <tr>
@@ -9174,10 +9174,10 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT1_R_INTERNAL">BAT1_R_INTERNAL</strong> (FLOAT)</td>
- <td>Explicitly defines the per cell internal resistance for battery 1 <p><strong>Comment:</strong> If non-negative, then this will be used instead of the online estimated internal resistance.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Explicitly defines the per cell internal resistance for battery 1 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT1_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[-1.0, 0.2] (0.0005)</td>
- <td>-1.0</td>
+ <td>0.005</td>
  <td>Ohm</td>
 </tr>
 <tr>
@@ -9223,6 +9223,14 @@ table {
 </td>
  <td>(0.01)</td>
  <td>3.6</td>
+ <td>V</td>
+</tr>
+<tr>
+ <td><strong id="BAT1_V_LOAD_DROP">BAT1_V_LOAD_DROP</strong> (FLOAT)</td>
+ <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for the battery and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT1_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0.07, 0.5] (0.01)</td>
+ <td>0.1</td>
  <td>V</td>
 </tr>
 <tr>
@@ -9277,10 +9285,10 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT2_R_INTERNAL">BAT2_R_INTERNAL</strong> (FLOAT)</td>
- <td>Explicitly defines the per cell internal resistance for battery 2 <p><strong>Comment:</strong> If non-negative, then this will be used instead of the online estimated internal resistance.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Explicitly defines the per cell internal resistance for battery 2 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT2_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[-1.0, 0.2] (0.0005)</td>
- <td>-1.0</td>
+ <td>0.005</td>
  <td>Ohm</td>
 </tr>
 <tr>
@@ -9329,6 +9337,14 @@ table {
  <td>V</td>
 </tr>
 <tr>
+ <td><strong id="BAT2_V_LOAD_DROP">BAT2_V_LOAD_DROP</strong> (FLOAT)</td>
+ <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for the battery and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT2_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0.07, 0.5] (0.01)</td>
+ <td>0.1</td>
+ <td>V</td>
+</tr>
+<tr>
  <td><strong id="BAT3_CAPACITY">BAT3_CAPACITY</strong> (FLOAT)</td>
  <td>Battery 3 capacity <p><strong>Comment:</strong> Defines the capacity of battery 3 in mAh.</p>   <p><b>Reboot required:</b> True</p>
 </td>
@@ -9364,10 +9380,10 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT3_R_INTERNAL">BAT3_R_INTERNAL</strong> (FLOAT)</td>
- <td>Explicitly defines the per cell internal resistance for battery 3 <p><strong>Comment:</strong> If non-negative, then this will be used instead of the online estimated internal resistance.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Explicitly defines the per cell internal resistance for battery 3 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT3_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[-1.0, 0.2] (0.0005)</td>
- <td>-1.0</td>
+ <td>0.005</td>
  <td>Ohm</td>
 </tr>
 <tr>
@@ -9397,6 +9413,14 @@ table {
 </td>
  <td>(0.01)</td>
  <td>3.6</td>
+ <td>V</td>
+</tr>
+<tr>
+ <td><strong id="BAT3_V_LOAD_DROP">BAT3_V_LOAD_DROP</strong> (FLOAT)</td>
+ <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for the battery and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT3_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0.07, 0.5] (0.01)</td>
+ <td>0.1</td>
  <td>V</td>
 </tr>
 <tr>
@@ -9433,6 +9457,34 @@ table {
  <td>[0.12, 0.5] (0.01)</td>
  <td>0.15</td>
  <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="BAT_N_CELLS">BAT_N_CELLS</strong> (INT32)</td>
+ <td>This parameter is deprecated. Please use BAT1_N_CELLS instead    </td>
+ <td></td>
+ <td>3</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT_V_CHARGED">BAT_V_CHARGED</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_V_CHARGED instead    </td>
+ <td></td>
+ <td>4.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT_V_EMPTY">BAT_V_EMPTY</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_V_EMPTY instead    </td>
+ <td></td>
+ <td>3.6</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT_V_LOAD_DROP">BAT_V_LOAD_DROP</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_V_LOAD_DROP instead    </td>
+ <td></td>
+ <td>0.3</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="BAT_V_OFFS_CURR">BAT_V_OFFS_CURR</strong> (FLOAT)</td>
@@ -10391,13 +10443,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="COM_RAM_MAX">COM_RAM_MAX</strong> (FLOAT)</td>
- <td>Maximum allowed RAM usage to pass checks <p><strong>Comment:</strong> The check fails if the RAM usage is above this threshold. A negative value disables the check.</p>   </td>
- <td>[-1, 100] (1)</td>
- <td>95.0</td>
- <td>%</td>
-</tr>
-<tr>
  <td><strong id="COM_RCL_EXCEPT">COM_RCL_EXCEPT</strong> (INT32)</td>
  <td>RC loss exceptions <p><strong>Comment:</strong> Specify modes in which RC loss is ignored and the failsafe action not triggered.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Mission</li>
   <li><strong>1:</strong> Hold</li>
@@ -10622,62 +10667,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_FB0_SUB">UCAN1_FB0_SUB</strong> (INT32)</td>
- <td>Cyphal ESC 0 zubax feedback port ID    </td>
- <td>[-1, 6143] </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_FB1_SUB">UCAN1_FB1_SUB</strong> (INT32)</td>
- <td>Cyphal ESC 1 zubax feedback port ID    </td>
- <td>[-1, 6143] </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_FB2_SUB">UCAN1_FB2_SUB</strong> (INT32)</td>
- <td>Cyphal ESC 2 zubax feedback port ID    </td>
- <td>[-1, 6143] </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_FB3_SUB">UCAN1_FB3_SUB</strong> (INT32)</td>
- <td>Cyphal ESC 3 zubax feedback port ID    </td>
- <td>[-1, 6143] </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_FB4_SUB">UCAN1_FB4_SUB</strong> (INT32)</td>
- <td>Cyphal ESC 4 zubax feedback port ID    </td>
- <td>[-1, 6143] </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_FB5_SUB">UCAN1_FB5_SUB</strong> (INT32)</td>
- <td>Cyphal ESC 5 zubax feedback port ID    </td>
- <td>[-1, 6143] </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_FB6_SUB">UCAN1_FB6_SUB</strong> (INT32)</td>
- <td>Cyphal ESC 6 zubax feedback port ID    </td>
- <td>[-1, 6143] </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_FB7_SUB">UCAN1_FB7_SUB</strong> (INT32)</td>
- <td>Cyphal ESC 7 zubax feedback port ID    </td>
- <td>[-1, 6143] </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="UCAN1_GPS0_SUB">UCAN1_GPS0_SUB</strong> (INT32)</td>
  <td>GPS 0 subscription port ID    </td>
  <td>[-1, 6143] </td>
@@ -10701,13 +10690,6 @@ table {
 <tr>
  <td><strong id="UCAN1_LG_BMS_SUB">UCAN1_LG_BMS_SUB</strong> (INT32)</td>
  <td>Cyphal legacy battery port ID    </td>
- <td>[-1, 6143] </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_READ_PUB">UCAN1_READ_PUB</strong> (INT32)</td>
- <td>Cyphal ESC readiness port ID    </td>
  <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
@@ -10760,14 +10742,6 @@ table {
 <tr>
  <td><strong id="DSHOT_3D_ENABLE">DSHOT_3D_ENABLE</strong> (INT32)</td>
  <td>Allows for 3d mode when using DShot and suitable mixer <p><strong>Comment:</strong> WARNING: ESC must be configured for 3D mode, and DSHOT_MIN set to 0. This splits the throttle ranges in two. Direction 1) 48 is the slowest, 1047 is the fastest. Direction 2) 1049 is the slowest, 2047 is the fastest. When mixer outputs 1000 or value inside DSHOT 3D deadband, DShot 0 is sent.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="DSHOT_BIDIR_EN">DSHOT_BIDIR_EN</strong> (INT32)</td>
- <td>Enable bidirectional DShot <p><strong>Comment:</strong> This parameter enables bidirectional DShot which provides RPM feedback. Note that this requires ESCs that support bidirectional DSHot, e.g. BlHeli32. This is not the same as DShot telemetry which requires an additional serial connection.</p>   <p><b>Reboot required:</b> True</p>
-</td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -10848,7 +10822,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_TAU">EKF2_ABL_TAU</strong> (FLOAT)</td>
- <td>Accel bias learning inhibit time constant <p><strong>Comment:</strong> The vector magnitude of angular rate and acceleration used to check if learning should be inhibited has a peak hold filter applied to it with an exponential decay. This parameter controls the time constant of the decay.</p>   </td>
+ <td>Time constant used by acceleration and angular rate magnitude checks used to inhibit accel bias learning <p><strong>Comment:</strong> The vector magnitude of angular rate and acceleration used to check if learning should be inhibited has a peak hold filter applied to it with an exponential decay. This parameter controls the time constant of the decay.</p>   </td>
  <td>[0.1, 1.0] </td>
  <td>0.5</td>
  <td>s</td>
@@ -10874,7 +10848,7 @@ table {
 </ul>
  </td>
  <td>[0, 3] </td>
- <td>0</td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -10894,7 +10868,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_AGP_NOISE">EKF2_AGP_NOISE</strong> (FLOAT)</td>
- <td>Measurement noise for aux global position measurements <p><strong>Comment:</strong> Used to lower bound or replace the uncertainty included in the message</p>   </td>
+ <td>Measurement noise for aux global position observations used to lower bound or replace the uncertainty included in the message    </td>
  <td>[0.01, ?] </td>
  <td>0.9</td>
  <td>m</td>
@@ -10916,7 +10890,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_ASPD_MAX">EKF2_ASPD_MAX</strong> (FLOAT)</td>
- <td>Maximum airspeed used for baro static pressure compensation    </td>
+ <td>Upper limit on airspeed along individual axes used to correct baro for position error effects    </td>
  <td>[5.0, 50.0] </td>
  <td>20.0</td>
  <td>m/s</td>
@@ -10931,7 +10905,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_AVEL_DELAY">EKF2_AVEL_DELAY</strong> (FLOAT)</td>
- <td>Auxiliary Velocity Estimate delay relative to IMU measurements    <p><b>Reboot required:</b> True</p>
+ <td>Auxiliary Velocity Estimate (e.g from a landing target) delay relative to IMU measurements    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 300] </td>
  <td>5</td>
@@ -11022,7 +10996,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_DRAG_NOISE">EKF2_DRAG_NOISE</strong> (FLOAT)</td>
- <td>Specific drag force observation noise variance <p><strong>Comment:</strong> Used by the multi-rotor specific drag force model. Increasing this makes the multi-rotor wind estimates adjust more slowly.</p>   </td>
+ <td>Specific drag force observation noise variance used by the multi-rotor specific drag force model <p><strong>Comment:</strong> Increasing this makes the multi-rotor wind estimates adjust more slowly.</p>   </td>
  <td>[0.5, 10.0] </td>
  <td>2.5</td>
  <td>(m/s^2)^2</td>
@@ -11043,7 +11017,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
- <td>Measurement noise for vision angle measurements <p><strong>Comment:</strong> Used to lower bound or replace the uncertainty included in the message</p>   </td>
+ <td>Measurement noise for vision angle observations used to lower bound or replace the uncertainty included in the message    </td>
  <td>[0.05, ?] </td>
  <td>0.1</td>
  <td>rad</td>
@@ -11057,7 +11031,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_EVP_NOISE">EKF2_EVP_NOISE</strong> (FLOAT)</td>
- <td>Measurement noise for vision position measurements <p><strong>Comment:</strong> Used to lower bound or replace the uncertainty included in the message</p>   </td>
+ <td>Measurement noise for vision position observations used to lower bound or replace the uncertainty included in the message    </td>
  <td>[0.01, ?] </td>
  <td>0.1</td>
  <td>m</td>
@@ -11071,7 +11045,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_EVV_NOISE">EKF2_EVV_NOISE</strong> (FLOAT)</td>
- <td>Measurement noise for vision velocity measurements <p><strong>Comment:</strong> Used to lower bound or replace the uncertainty included in the message</p>   </td>
+ <td>Measurement noise for vision velocity observations used to lower bound or replace the uncertainty included in the message    </td>
  <td>[0.01, ?] </td>
  <td>0.1</td>
  <td>m/s</td>
@@ -11085,7 +11059,7 @@ table {
 </ul>
  </td>
  <td>[0, 15] </td>
- <td>0</td>
+ <td>15</td>
  <td></td>
 </tr>
 <tr>
@@ -11108,21 +11082,21 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_EV_POS_X">EKF2_EV_POS_X</strong> (FLOAT)</td>
- <td>X position of VI sensor focal point in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>X position of VI sensor focal point in body frame (forward axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_EV_POS_Y">EKF2_EV_POS_Y</strong> (FLOAT)</td>
- <td>Y position of VI sensor focal point in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>Y position of VI sensor focal point in body frame (right axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_EV_POS_Z">EKF2_EV_POS_Z</strong> (FLOAT)</td>
- <td>Z position of VI sensor focal point in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>Z position of VI sensor focal point in body frame (down axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
@@ -11202,21 +11176,21 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_POS_X">EKF2_GPS_POS_X</strong> (FLOAT)</td>
- <td>X position of GPS antenna in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>X position of GPS antenna in body frame (forward axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_POS_Y">EKF2_GPS_POS_Y</strong> (FLOAT)</td>
- <td>Y position of GPS antenna in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>Y position of GPS antenna in body frame (right axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_POS_Z">EKF2_GPS_POS_Z</strong> (FLOAT)</td>
- <td>Z position of GPS antenna in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>Z position of GPS antenna in body frame (down axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
@@ -11324,31 +11298,24 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_IMU_POS_X">EKF2_IMU_POS_X</strong> (FLOAT)</td>
- <td>X position of IMU in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>X position of IMU in body frame (forward axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_IMU_POS_Y">EKF2_IMU_POS_Y</strong> (FLOAT)</td>
- <td>Y position of IMU in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>Y position of IMU in body frame (right axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_IMU_POS_Z">EKF2_IMU_POS_Z</strong> (FLOAT)</td>
- <td>Z position of IMU in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>Z position of IMU in body frame (down axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
-</tr>
-<tr>
- <td><strong id="EKF2_LOG_VERBOSE">EKF2_LOG_VERBOSE</strong> (INT32)</td>
- <td>Verbose logging    </td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_ACCLIM">EKF2_MAG_ACCLIM</strong> (FLOAT)</td>
@@ -11427,11 +11394,10 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_TYPE">EKF2_MAG_TYPE</strong> (INT32)</td>
- <td>Type of magnetometer fusion <p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fusion of magnetometer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to &#x27;Automatic&#x27; magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight. If set to &#x27;Magnetic heading&#x27; magnetic heading fusion is used at all times. If set to &#x27;None&#x27; the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GNSS velocity measurements to align the yaw angle. If set to &#x27;Init&#x27; the magnetometer is only used to initalize the heading.</p> <strong>Values:</strong><ul>
+ <td>Type of magnetometer fusion <p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fusion of magnetometer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to &#x27;Automatic&#x27; magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to &#x27;Magnetic heading&#x27; magnetic heading fusion is used at all times. If set to &#x27;None&#x27; the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality).</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Automatic</li>
 <li><strong>1:</strong> Magnetic heading</li>
 <li><strong>5:</strong> None</li>
-<li><strong>6:</strong> Init</li>
 </ul>  <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
@@ -11440,7 +11406,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MCOEF">EKF2_MCOEF</strong> (FLOAT)</td>
- <td>Propeller momentum drag coefficient for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by the propellers when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_DRAG_CTRL parameter. The drag produced by this effect scales with speed not speed squared and is produced because some of the air velocity normal to the propeller axis of rotation is lost when passing through the rotor disc. This  changes the momentum of the flow which creates a drag reaction force. When comparing un-ducted propellers of the same diameter, the effect is roughly proportional to the area of the propeller blades when viewed side on and changes with propeller selection. Momentum drag is significantly higher for ducted rotors. To account for the drag produced by the body which scales with speed squared, see documentation for the EKF2_BCOEF_X and EKF2_BCOEF_Y parameters. Set this parameter to zero to turn off the momentum drag model for both axis.</p>   </td>
+ <td>Propeller momentum drag coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by the propellers when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_DRAG_CTRL parameter. The drag produced by this effect scales with speed not speed squared and is produced because some of the air velocity normal to the propeller axis of rotation is lost when passing through the rotor disc. This  changes the momentum of the flow which creates a drag reaction force. When comparing un-ducted propellers of the same diameter, the effect is roughly proportional to the area of the propeller blades when viewed side on and changes with propeller selection. Momentum drag is significantly higher for ducted rotors. To account for the drag produced by the body which scales with speed squared, see documentation for the EKF2_BCOEF_X and EKF2_BCOEF_Y parameters. Set this parameter to zero to turn off the momentum drag model for both axis.</p>   </td>
  <td>[0, 1.0] </td>
  <td>0.15</td>
  <td>1/s</td>
@@ -11477,7 +11443,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_NOAID_TOUT">EKF2_NOAID_TOUT</strong> (INT32)</td>
- <td>Maximum inertial dead-reckoning time <p><strong>Comment:</strong> Maximum lapsed time from last fusion of measurements that constrain velocity drift before the EKF will report the horizontal nav solution as invalid</p>   </td>
+ <td>Maximum lapsed time from last fusion of measurements that constrain velocity drift before the EKF will report the horizontal nav solution as invalid    </td>
  <td>[500000, 10000000] </td>
  <td>5000000</td>
  <td>us</td>
@@ -11506,49 +11472,49 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_OF_N_MAX">EKF2_OF_N_MAX</strong> (FLOAT)</td>
- <td>Optical flow maximum noise <p><strong>Comment:</strong> Measurement noise for the optical flow sensor when it&#x27;s reported quality metric is at the minimum</p>   </td>
+ <td>Measurement noise for the optical flow sensor <p><strong>Comment:</strong> (when it&#x27;s reported quality metric is at the minimum set by EKF2_OF_QMIN). The following condition must be met: EKF2_OF_N_MAXN &gt;= EKF2_OF_N_MIN</p>   </td>
  <td>[0.05, ?] </td>
  <td>0.5</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_N_MIN">EKF2_OF_N_MIN</strong> (FLOAT)</td>
- <td>Optical flow minimum noise <p><strong>Comment:</strong> Measurement noise for the optical flow sensor when it&#x27;s reported quality metric is at the maximum</p>   </td>
+ <td>Measurement noise for the optical flow sensor when it&#x27;s reported quality metric is at the maximum    </td>
  <td>[0.05, ?] </td>
  <td>0.15</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_POS_X">EKF2_OF_POS_X</strong> (FLOAT)</td>
- <td>X position of optical flow focal point in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>X position of optical flow focal point in body frame (forward axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_POS_Y">EKF2_OF_POS_Y</strong> (FLOAT)</td>
- <td>Y position of optical flow focal point in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>Y position of optical flow focal point in body frame (right axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_POS_Z">EKF2_OF_POS_Z</strong> (FLOAT)</td>
- <td>Z position of optical flow focal point in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>Z position of optical flow focal point in body frame (down axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_QMIN">EKF2_OF_QMIN</strong> (INT32)</td>
- <td>In air optical flow minimum quality <p><strong>Comment:</strong> Optical Flow data will only be used in air if the sensor reports a quality metric &gt;= EKF2_OF_QMIN</p>   </td>
+ <td>Optical Flow data will only be used in air if the sensor reports a quality metric &gt;= EKF2_OF_QMIN    </td>
  <td>[0, 255] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_QMIN_GND">EKF2_OF_QMIN_GND</strong> (INT32)</td>
- <td>On ground optical flow minimum quality <p><strong>Comment:</strong> Optical Flow data will only be used on the ground if the sensor reports a quality metric &gt;= EKF2_OF_QMIN_GND</p>   </td>
+ <td>Optical Flow data will only be used on the ground if the sensor reports a quality metric &gt;= EKF2_OF_QMIN_GND    </td>
  <td>[0, 255] </td>
  <td>0</td>
  <td></td>
@@ -11654,7 +11620,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_A_HMAX">EKF2_RNG_A_HMAX</strong> (FLOAT)</td>
- <td>Maximum height above ground allowed for conditional range aid mode <p><strong>Comment:</strong> If the vehicle absolute altitude exceeds this value then the estimator will not fuse range measurements to estimate its height. This only applies when conditional range aid mode is activated (EKF2_RNG_CTRL = 1).</p>   </td>
+ <td>Maximum absolute altitude (height above ground level) allowed for conditional range aid mode <p><strong>Comment:</strong> If the vehicle absolute altitude exceeds this value then the estimator will not fuse range measurements to estimate its height. This only applies when conditional range aid mode is activated (EKF2_RNG_CTRL = 1).</p>   </td>
  <td>[1.0, 10.0] </td>
  <td>5.0</td>
  <td>m</td>
@@ -11675,7 +11641,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_CTRL">EKF2_RNG_CTRL</strong> (INT32)</td>
- <td>Range sensor height aiding <p><strong>Comment:</strong> WARNING: Range finder measurements are less reliable and can experience unexpected errors. For these reasons, if accurate control of height relative to ground is required, it is recommended to use the MPC_ALT_MODE parameter instead, unless baro errors are severe enough to cause problems with landing and takeoff. If this parameter is enabled then the estimator will make use of the range finder measurements to estimate its height in addition to other height sources (if activated). Range sensor aiding can be enabled (i.e.: always use) or set in &quot;conditional&quot; mode. Conditional mode: This enables the range finder to be used during low speed (&lt; EKF2_RNG_A_VMAX) and low altitude (&lt; EKF2_RNG_A_HMAX) operation, eg takeoff and landing, where baro interference from rotor wash is excessive and can corrupt EKF state estimates. It is intended to be used where a vertical takeoff and landing is performed, and horizontal flight does not occur until above EKF2_RNG_A_HMAX.</p> <strong>Values:</strong><ul>
+ <td>Range sensor height aiding <p><strong>Comment:</strong> WARNING: Range finder measurements are less reliable and can experience unexpected errors. For these reasons, if accurate control of height relative to ground is required, it is recommended to use the MPC_ALT_MODE parameter instead, unless baro errors are severe enough to cause problems with landing and takeoff. To en-/disable range finder for terrain height estimation, use EKF2_TERR_MASK instead. If this parameter is enabled then the estimator will make use of the range finder measurements to estimate its height in addition to other height sources (if activated). Range sensor aiding can be enabled (i.e.: always use) or set in &quot;conditional&quot; mode. Conditional mode: This enables the range finder to be used during low speed (&lt; EKF2_RNG_A_VMAX) and low altitude (&lt; EKF2_RNG_A_HMAX) operation, eg takeoff and landing, where baro interference from rotor wash is excessive and can corrupt EKF state estimates. It is intended to be used where a vertical takeoff and landing is performed, and horizontal flight does not occur until above EKF2_RNG_A_HMAX.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable range fusion</li>
 <li><strong>1:</strong> Enabled (conditional mode)</li>
 <li><strong>2:</strong> Enabled</li>
@@ -11722,28 +11688,28 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_POS_X">EKF2_RNG_POS_X</strong> (FLOAT)</td>
- <td>X position of range finder origin in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>X position of range finder origin in body frame (forward axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_POS_Y">EKF2_RNG_POS_Y</strong> (FLOAT)</td>
- <td>Y position of range finder origin in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>Y position of range finder origin in body frame (right axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_POS_Z">EKF2_RNG_POS_Z</strong> (FLOAT)</td>
- <td>Z position of range finder origin in body frame <p><strong>Comment:</strong> Forward axis with origin relative to vehicle centre of gravity</p>   </td>
+ <td>Z position of range finder origin in body frame (down axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_QLTY_T">EKF2_RNG_QLTY_T</strong> (FLOAT)</td>
- <td>Minumum range validity period <p><strong>Comment:</strong> Minimum duration during which the reported range finder signal quality needs to be non-zero in order to be declared valid (s)</p>   </td>
+ <td>Minimum duration during which the reported range finder signal quality needs to be non-zero in order to be declared valid (s)    </td>
  <td>[0.1, 5] </td>
  <td>1.0</td>
  <td>s</td>
@@ -11806,7 +11772,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_TAU_POS">EKF2_TAU_POS</strong> (FLOAT)</td>
- <td>Output predictor position time constant <p><strong>Comment:</strong> Controls how tightly the output track the EKF states</p>   </td>
+ <td>Time constant of the position output prediction and smoothing filter. Controls how tightly the output track the EKF states    </td>
  <td>[0.1, 1.0] </td>
  <td>0.25</td>
  <td>s</td>
@@ -11826,8 +11792,18 @@ table {
  <td>m/m</td>
 </tr>
 <tr>
+ <td><strong id="EKF2_TERR_MASK">EKF2_TERR_MASK</strong> (INT32)</td>
+ <td>Integer bitmask controlling fusion sources of the terrain estimator <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Set to true to use range finder data if available 1 : Set to true to use optical flow data if available</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> use range finder</li>
+  <li><strong>1:</strong> use optical flow</li>
+</ul>
+ </td>
+ <td>[0, 3] </td>
+ <td>3</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="EKF2_TERR_NOISE">EKF2_TERR_NOISE</strong> (FLOAT)</td>
- <td>Terrain altitude process noise    </td>
+ <td>Terrain altitude process noise - accounts for instability in vehicle height estimate    </td>
  <td>[0.5, ?] </td>
  <td>5.0</td>
  <td>m/s</td>
@@ -12312,7 +12288,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_PN_R_SLEW_MAX">FW_PN_R_SLEW_MAX</strong> (FLOAT)</td>
- <td>Path navigation roll slew rate limit <p><strong>Comment:</strong> The maximum change in roll angle setpoint per second. This limit is applied in all Auto modes, plus manual Position and Altitude modes.</p>   </td>
+ <td>Path navigation roll slew rate limit <p><strong>Comment:</strong> The maximum change in roll angle setpoint per second.</p>   </td>
  <td>[0, ?] (1)</td>
  <td>90.0</td>
  <td>deg/s</td>
@@ -12775,13 +12751,6 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
- <td><strong id="FW_T_F_ALT_ERR">FW_T_F_ALT_ERR</strong> (FLOAT)</td>
- <td>Minimum altitude error needed to descend with max airspeed. A negative value disables fast descend    </td>
- <td>[-1.0, ?] </td>
- <td>-1.0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="FW_T_HRATE_FF">FW_T_HRATE_FF</strong> (FLOAT)</td>
  <td>Height rate feed forward    </td>
  <td>[0.0, 1.0] (0.05)</td>
@@ -13102,16 +13071,15 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_1_GNSS">GPS_1_GNSS</strong> (INT32)</td>
- <td>GNSS Systems for Primary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS 5 : Use NAVIC</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
+ <td>GNSS Systems for Primary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
   <li><strong>1:</strong> SBAS</li>
   <li><strong>2:</strong> Galileo</li>
   <li><strong>3:</strong> BeiDou</li>
   <li><strong>4:</strong> GLONASS</li>
-  <li><strong>5:</strong> NAVIC</li>
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 63] </td>
+ <td>[0, 31] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -13125,6 +13093,7 @@ table {
 <li><strong>4:</strong> Emlid Reach</li>
 <li><strong>5:</strong> Femtomes</li>
 <li><strong>6:</strong> NMEA (generic)</li>
+<li><strong>7:</strong> Septentrio (SBF)</li>
 </ul>  <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 7] </td>
@@ -13154,16 +13123,15 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_2_GNSS">GPS_2_GNSS</strong> (INT32)</td>
- <td>GNSS Systems for Secondary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS 5 : Use NAVIC</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
+ <td>GNSS Systems for Secondary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
   <li><strong>1:</strong> SBAS</li>
   <li><strong>2:</strong> Galileo</li>
   <li><strong>3:</strong> BeiDou</li>
   <li><strong>4:</strong> GLONASS</li>
-  <li><strong>5:</strong> NAVIC</li>
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 63] </td>
+ <td>[0, 31] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -13193,6 +13161,14 @@ table {
  <td>[0, 2] </td>
  <td>0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="GPS_PITCH_OFFSET">GPS_PITCH_OFFSET</strong> (FLOAT)</td>
+ <td>Pitch offset for dual antenna GPS <p><strong>Comment:</strong> Vertical offsets can be compensated for by adjusting the Pitch offset (Septentrio). Note that this can be interpreted as the &quot;roll&quot; angle in case the antennas are aligned along the perpendicular axis. This occurs in situations where the two antenna ARPs may not be exactly at the same height in the vehicle reference frame. Since pitch is defined as the right-handed rotation about the vehicle Y axis, a situation where the main antenna is mounted lower than the aux antenna (assuming the default antenna setup) will result in a positive pitch.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[-90, 90] </td>
+ <td>0.</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="GPS_SAT_INFO">GPS_SAT_INFO</strong> (INT32)</td>
@@ -13256,7 +13232,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_YAW_OFFSET">GPS_YAW_OFFSET</strong> (FLOAT)</td>
- <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover (or Unicore primary) antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover (or Unicore primary, or Septentrio Mosaic Aux) antenna is placed on the right side of the vehicle and the moving base antenna is on the left side. (Note: the Unicore primary antenna is the one connected on the right as seen from the top).</p>   <p><b>Reboot required:</b> true</p>
+ <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover (or Unicore primary) antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover (or Unicore primary) antenna is placed on the right side of the vehicle and the moving base antenna is on the left side. (Note: the Unicore primary antenna is the one connected on the right as seen from the top).</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 360] </td>
  <td>0.</td>
@@ -15942,14 +15918,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="MAV_0_HL_FREQ">MAV_0_HL_FREQ</strong> (FLOAT)</td>
- <td>Configures the frequency of HIGH_LATENCY2 stream for instance 0 <p><strong>Comment:</strong> Positive real value that configures the transmission frequency of the HIGH_LATENCY2 stream for instance 0, configured in iridium mode. This parameter has no effect if the instance mode is different from iridium.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0.0, 50.0] (0.001)</td>
- <td>0.015</td>
- <td>Hz</td>
-</tr>
-<tr>
  <td><strong id="MAV_0_MODE">MAV_0_MODE</strong> (INT32)</td>
  <td>MAVLink Mode for instance 0 <p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle&#x27;s attitude) and their sending rates.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Normal</li>
@@ -16055,14 +16023,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="MAV_1_HL_FREQ">MAV_1_HL_FREQ</strong> (FLOAT)</td>
- <td>Configures the frequency of HIGH_LATENCY2 stream for instance 1 <p><strong>Comment:</strong> Positive real value that configures the transmission frequency of the HIGH_LATENCY2 stream for instance 1, configured in iridium mode. This parameter has no effect if the instance mode is different from iridium.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0.0, 50.0] (0.001)</td>
- <td>0.015</td>
- <td>Hz</td>
-</tr>
-<tr>
  <td><strong id="MAV_1_MODE">MAV_1_MODE</strong> (INT32)</td>
  <td>MAVLink Mode for instance 1 <p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle&#x27;s attitude) and their sending rates.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Normal</li>
@@ -16166,14 +16126,6 @@ table {
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_2_HL_FREQ">MAV_2_HL_FREQ</strong> (FLOAT)</td>
- <td>Configures the frequency of HIGH_LATENCY2 stream for instance 2 <p><strong>Comment:</strong> Positive real value that configures the transmission frequency of the HIGH_LATENCY2 stream for instance 2, configured in iridium mode. This parameter has no effect if the instance mode is different from iridium.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0.0, 50.0] (0.001)</td>
- <td>0.015</td>
- <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="MAV_2_MODE">MAV_2_MODE</strong> (INT32)</td>
@@ -16399,7 +16351,7 @@ table {
  <td><strong id="MIS_DIST_1WP">MIS_DIST_1WP</strong> (FLOAT)</td>
  <td>Maximal horizontal distance from current position to first waypoint <p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIST_1WP from the current position.</p>   </td>
  <td>[-1, 10000] (100)</td>
- <td>10000</td>
+ <td>900</td>
  <td>m</td>
 </tr>
 <tr>
@@ -16469,7 +16421,6 @@ table {
 <li><strong>2:</strong> away from home</li>
 <li><strong>3:</strong> along trajectory</li>
 <li><strong>4:</strong> towards waypoint (yaw first)</li>
-<li><strong>5:</strong> yaw fixed</li>
 </ul>  </td>
  <td>[0, 4] </td>
  <td>0</td>
@@ -17208,16 +17159,9 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_VELD_LP">MPC_VELD_LP</strong> (FLOAT)</td>
- <td>Velocity derivative low pass cutoff frequency <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
- <td>[0, 50] (0.5)</td>
+ <td>Numerical velocity derivative low pass cutoff frequency    </td>
+ <td>[0, 10] (0.5)</td>
  <td>5.0</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="MPC_VEL_LP">MPC_VEL_LP</strong> (FLOAT)</td>
- <td>Velocity low pass cutoff frequency <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
- <td>[0, 50] (0.5)</td>
- <td>0.0</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -17240,20 +17184,6 @@ table {
  <td>[-1, 20] (1)</td>
  <td>-1.</td>
  <td>m/s</td>
-</tr>
-<tr>
- <td><strong id="MPC_VEL_NF_BW">MPC_VEL_NF_BW</strong> (FLOAT)</td>
- <td>Velocity notch filter bandwidth <p><strong>Comment:</strong> A value of 0 disables the filter.</p>   </td>
- <td>[0, 50] (0.5)</td>
- <td>5.0</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="MPC_VEL_NF_FRQ">MPC_VEL_NF_FRQ</strong> (FLOAT)</td>
- <td>Velocity notch filter frequency <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the velocity. A value of 0 disables the filter.</p>   </td>
- <td>[0, 50] (0.5)</td>
- <td>0.0</td>
- <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
@@ -19154,6 +19084,33 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="RC_MAP_ACRO_SW">RC_MAP_ACRO_SW</strong> (INT32)</td>
+ <td>Acro switch channel (deprecated)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unassigned</li>
+<li><strong>1:</strong> Channel 1</li>
+<li><strong>2:</strong> Channel 2</li>
+<li><strong>3:</strong> Channel 3</li>
+<li><strong>4:</strong> Channel 4</li>
+<li><strong>5:</strong> Channel 5</li>
+<li><strong>6:</strong> Channel 6</li>
+<li><strong>7:</strong> Channel 7</li>
+<li><strong>8:</strong> Channel 8</li>
+<li><strong>9:</strong> Channel 9</li>
+<li><strong>10:</strong> Channel 10</li>
+<li><strong>11:</strong> Channel 11</li>
+<li><strong>12:</strong> Channel 12</li>
+<li><strong>13:</strong> Channel 13</li>
+<li><strong>14:</strong> Channel 14</li>
+<li><strong>15:</strong> Channel 15</li>
+<li><strong>16:</strong> Channel 16</li>
+<li><strong>17:</strong> Channel 17</li>
+<li><strong>18:</strong> Channel 18</li>
+</ul>  </td>
+ <td>[0, 18] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="RC_MAP_ARM_SW">RC_MAP_ARM_SW</strong> (INT32)</td>
  <td>Arm switch channel <p><strong>Comment:</strong> Use it to arm/disarm via switch instead of default throttle stick. If this is assigned, arming and disarming via stick is disabled.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
@@ -19342,6 +19299,33 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="RC_MAP_MAN_SW">RC_MAP_MAN_SW</strong> (INT32)</td>
+ <td>Manual switch channel mapping (deprecated)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unassigned</li>
+<li><strong>1:</strong> Channel 1</li>
+<li><strong>2:</strong> Channel 2</li>
+<li><strong>3:</strong> Channel 3</li>
+<li><strong>4:</strong> Channel 4</li>
+<li><strong>5:</strong> Channel 5</li>
+<li><strong>6:</strong> Channel 6</li>
+<li><strong>7:</strong> Channel 7</li>
+<li><strong>8:</strong> Channel 8</li>
+<li><strong>9:</strong> Channel 9</li>
+<li><strong>10:</strong> Channel 10</li>
+<li><strong>11:</strong> Channel 11</li>
+<li><strong>12:</strong> Channel 12</li>
+<li><strong>13:</strong> Channel 13</li>
+<li><strong>14:</strong> Channel 14</li>
+<li><strong>15:</strong> Channel 15</li>
+<li><strong>16:</strong> Channel 16</li>
+<li><strong>17:</strong> Channel 17</li>
+<li><strong>18:</strong> Channel 18</li>
+</ul>  </td>
+ <td>[0, 18] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="RC_MAP_MODE_SW">RC_MAP_MODE_SW</strong> (INT32)</td>
  <td>Mode switch channel mapping (deprecated) <p><strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
@@ -19396,8 +19380,89 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="RC_MAP_POSCTL_SW">RC_MAP_POSCTL_SW</strong> (INT32)</td>
+ <td>Position Control switch channel (deprecated)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unassigned</li>
+<li><strong>1:</strong> Channel 1</li>
+<li><strong>2:</strong> Channel 2</li>
+<li><strong>3:</strong> Channel 3</li>
+<li><strong>4:</strong> Channel 4</li>
+<li><strong>5:</strong> Channel 5</li>
+<li><strong>6:</strong> Channel 6</li>
+<li><strong>7:</strong> Channel 7</li>
+<li><strong>8:</strong> Channel 8</li>
+<li><strong>9:</strong> Channel 9</li>
+<li><strong>10:</strong> Channel 10</li>
+<li><strong>11:</strong> Channel 11</li>
+<li><strong>12:</strong> Channel 12</li>
+<li><strong>13:</strong> Channel 13</li>
+<li><strong>14:</strong> Channel 14</li>
+<li><strong>15:</strong> Channel 15</li>
+<li><strong>16:</strong> Channel 16</li>
+<li><strong>17:</strong> Channel 17</li>
+<li><strong>18:</strong> Channel 18</li>
+</ul>  </td>
+ <td>[0, 18] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RC_MAP_RATT_SW">RC_MAP_RATT_SW</strong> (INT32)</td>
+ <td>Rattitude switch channel (deprecated)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unassigned</li>
+<li><strong>1:</strong> Channel 1</li>
+<li><strong>2:</strong> Channel 2</li>
+<li><strong>3:</strong> Channel 3</li>
+<li><strong>4:</strong> Channel 4</li>
+<li><strong>5:</strong> Channel 5</li>
+<li><strong>6:</strong> Channel 6</li>
+<li><strong>7:</strong> Channel 7</li>
+<li><strong>8:</strong> Channel 8</li>
+<li><strong>9:</strong> Channel 9</li>
+<li><strong>10:</strong> Channel 10</li>
+<li><strong>11:</strong> Channel 11</li>
+<li><strong>12:</strong> Channel 12</li>
+<li><strong>13:</strong> Channel 13</li>
+<li><strong>14:</strong> Channel 14</li>
+<li><strong>15:</strong> Channel 15</li>
+<li><strong>16:</strong> Channel 16</li>
+<li><strong>17:</strong> Channel 17</li>
+<li><strong>18:</strong> Channel 18</li>
+</ul>  </td>
+ <td>[0, 18] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="RC_MAP_RETURN_SW">RC_MAP_RETURN_SW</strong> (INT32)</td>
  <td>Return switch channel  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unassigned</li>
+<li><strong>1:</strong> Channel 1</li>
+<li><strong>2:</strong> Channel 2</li>
+<li><strong>3:</strong> Channel 3</li>
+<li><strong>4:</strong> Channel 4</li>
+<li><strong>5:</strong> Channel 5</li>
+<li><strong>6:</strong> Channel 6</li>
+<li><strong>7:</strong> Channel 7</li>
+<li><strong>8:</strong> Channel 8</li>
+<li><strong>9:</strong> Channel 9</li>
+<li><strong>10:</strong> Channel 10</li>
+<li><strong>11:</strong> Channel 11</li>
+<li><strong>12:</strong> Channel 12</li>
+<li><strong>13:</strong> Channel 13</li>
+<li><strong>14:</strong> Channel 14</li>
+<li><strong>15:</strong> Channel 15</li>
+<li><strong>16:</strong> Channel 16</li>
+<li><strong>17:</strong> Channel 17</li>
+<li><strong>18:</strong> Channel 18</li>
+</ul>  </td>
+ <td>[0, 18] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RC_MAP_STAB_SW">RC_MAP_STAB_SW</strong> (INT32)</td>
+ <td>Stabilize switch channel mapping  (deprecated)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -19646,114 +19711,6 @@ table {
  <td>[1, ?] </td>
  <td>1200</td>
  <td></td>
-</tr>
-</tbody></table>
-
-## Rover Ackermann
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="RA_ACC_RAD_DEF">RA_ACC_RAD_DEF</strong> (FLOAT)</td>
- <td>Default acceptance radius    </td>
- <td>[0.1, 100] (0.01)</td>
- <td>0.5</td>
- <td>m</td>
-</tr>
-<tr>
- <td><strong id="RA_ACC_RAD_GAIN">RA_ACC_RAD_GAIN</strong> (FLOAT)</td>
- <td>Tuning parameter for corner cutting <p><strong>Comment:</strong> The geometric ideal acceptance radius is multiplied by this factor to account for kinematic and dynamic effects. Higher value -&gt; The rover starts to cut the corner earlier.</p>   </td>
- <td>[1, 100] (0.01)</td>
- <td>2</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RA_ACC_RAD_MAX">RA_ACC_RAD_MAX</strong> (FLOAT)</td>
- <td>Maximum acceptance radius <p><strong>Comment:</strong> The controller scales the acceptance radius based on the angle between the previous, current and next waypoint. Used as tuning parameter. Higher value -&gt; smoother trajectory at the cost of how close the rover gets to the waypoint (Set equal to RA_ACC_RAD_DEF to disable corner cutting).</p>   </td>
- <td>[0.1, 100] (0.01)</td>
- <td>3</td>
- <td>m</td>
-</tr>
-<tr>
- <td><strong id="RA_LOOKAHD_GAIN">RA_LOOKAHD_GAIN</strong> (FLOAT)</td>
- <td>Tuning parameter for the pure pursuit controller <p><strong>Comment:</strong> Lower value -&gt; More aggressive controller (beware overshoot/oscillations)</p>   </td>
- <td>[0.1, 100] (0.01)</td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RA_LOOKAHD_MAX">RA_LOOKAHD_MAX</strong> (FLOAT)</td>
- <td>Maximum lookahead distance for the pure pursuit controller <p><strong>Comment:</strong> This is the maximum crosstrack error before the controller starts targeting the current waypoint rather then the path between the previous and next waypoint.</p>   </td>
- <td>[0.1, 100] (0.01)</td>
- <td>10</td>
- <td>m</td>
-</tr>
-<tr>
- <td><strong id="RA_LOOKAHD_MIN">RA_LOOKAHD_MIN</strong> (FLOAT)</td>
- <td>Minimum lookahead distance for the pure pursuit controller    </td>
- <td>[0.1, 100] (0.01)</td>
- <td>1</td>
- <td>m</td>
-</tr>
-<tr>
- <td><strong id="RA_MAX_SPEED">RA_MAX_SPEED</strong> (FLOAT)</td>
- <td>Speed the rover drives at maximum throttle <p><strong>Comment:</strong> This is used for the feed-forward term of the speed controller. A value of -1 disables the feed-forward term in which case the Integrator (RA_SPEED_I) becomes necessary to track speed setpoints.</p>   </td>
- <td>[-1, 100] (0.01)</td>
- <td>-1</td>
- <td>m/s</td>
-</tr>
-<tr>
- <td><strong id="RA_MAX_STR_ANG">RA_MAX_STR_ANG</strong> (FLOAT)</td>
- <td>Maximum steering angle <p><strong>Comment:</strong> The maximum angle that the rover can steer</p>   </td>
- <td>[0.1, 1.5708] (0.01)</td>
- <td>0.5236</td>
- <td>rad</td>
-</tr>
-<tr>
- <td><strong id="RA_MISS_VEL_DEF">RA_MISS_VEL_DEF</strong> (FLOAT)</td>
- <td>Default rover velocity during a mission    </td>
- <td>[0.1, 100] (0.01)</td>
- <td>3</td>
- <td>m/s</td>
-</tr>
-<tr>
- <td><strong id="RA_MISS_VEL_GAIN">RA_MISS_VEL_GAIN</strong> (FLOAT)</td>
- <td>Tuning parameter for the velocity reduction during cornering <p><strong>Comment:</strong> Lower value -&gt; More velocity reduction during cornering</p>   </td>
- <td>[0.1, 100] (0.01)</td>
- <td>5</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RA_MISS_VEL_MIN">RA_MISS_VEL_MIN</strong> (FLOAT)</td>
- <td>Minimum rover velocity during a mission <p><strong>Comment:</strong> The velocity off the rover is reduced based on the corner it has to take to smooth the trajectory (To disable this feature set it equal to RA_MISSION_VEL_DEF)</p>   </td>
- <td>[0.1, 100] (0.01)</td>
- <td>1</td>
- <td>m/s</td>
-</tr>
-<tr>
- <td><strong id="RA_SPEED_I">RA_SPEED_I</strong> (FLOAT)</td>
- <td>Integral gain for ground speed controller    </td>
- <td>[0, 100] (0.01)</td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RA_SPEED_P">RA_SPEED_P</strong> (FLOAT)</td>
- <td>Proportional gain for ground speed controller    </td>
- <td>[0, 100] (0.01)</td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RA_WHEEL_BASE">RA_WHEEL_BASE</strong> (FLOAT)</td>
- <td>Wheel base <p><strong>Comment:</strong> Distance from the front to the rear axle</p>   </td>
- <td>[0.001, 100] (0.001)</td>
- <td>0.5</td>
- <td>m</td>
 </tr>
 </tbody></table>
 
@@ -22680,17 +22637,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SENS_EN_SCH16T">SENS_EN_SCH16T</strong> (INT32)</td>
- <td>Murata SCH16T IMU (external SPI)  <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-<li><strong>1:</strong> Enabled</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="SENS_EN_SDP3X">SENS_EN_SDP3X</strong> (INT32)</td>
  <td>Sensirion SDP3X differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
 </td>
@@ -23645,197 +23591,6 @@ table {
 </tr>
 </tbody></table>
 
-## Septentrio
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="SEP_AUTO_CONFIG">SEP_AUTO_CONFIG</strong> (INT32)</td>
- <td>Toggle automatic receiver configuration <p><strong>Comment:</strong> By default, the receiver is automatically configured. Sometimes it may be used for multiple purposes. If the offered parameters aren&#x27;t sufficient, this parameter can be disabled to have full control of the receiver configuration. A good way to use this is to enable automatic configuration, let the receiver be configured, and then disable it to make manual adjustments.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_CONST_USAGE">SEP_CONST_USAGE</strong> (INT32)</td>
- <td>Usage of different constellations <p><strong>Comment:</strong> Choice of which constellations the receiver should use for PVT computation. When this is 0, the constellation usage isn&#x27;t changed.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS</li>
-  <li><strong>1:</strong> GLONASS</li>
-  <li><strong>2:</strong> Galileo</li>
-  <li><strong>3:</strong> SBAS</li>
-  <li><strong>4:</strong> BeiDou</li>
-</ul>
- <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0, 63] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_DUMP_COMM">SEP_DUMP_COMM</strong> (INT32)</td>
- <td>Log GPS communication data <p><strong>Comment:</strong> Log raw communication between the driver and connected receivers. For example, &quot;To receiver&quot; will log all commands and corrections sent by the driver to the receiver.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-<li><strong>1:</strong> From receiver</li>
-<li><strong>2:</strong> To receiver</li>
-<li><strong>3:</strong> Both</li>
-</ul>  </td>
- <td>[0, 3] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_HARDW_SETUP">SEP_HARDW_SETUP</strong> (INT32)</td>
- <td>Setup and expected use of the hardware <p><strong>Comment:</strong> Setup and expected use of the hardware. - Default: Use two receivers as completely separate instances. - Moving base: Use two receivers in a rover &amp; moving base setup for heading.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Default</li>
-<li><strong>1:</strong> Moving base</li>
-</ul>  <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_LOG_FORCE">SEP_LOG_FORCE</strong> (INT32)</td>
- <td>Whether to overwrite or add to existing logging <p><strong>Comment:</strong> When the receiver is already set up to log data, this decides whether extra logged data should be added or overwrite existing data.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_LOG_HZ">SEP_LOG_HZ</strong> (INT32)</td>
- <td>Logging frequency for the receiver <p><strong>Comment:</strong> Select the frequency at which the connected receiver should log data to its internal storage.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-<li><strong>1:</strong> 0.1 Hz</li>
-<li><strong>2:</strong> 0.2 Hz</li>
-<li><strong>3:</strong> 0.5 Hz</li>
-<li><strong>4:</strong> 1 Hz</li>
-<li><strong>5:</strong> 2 Hz</li>
-<li><strong>6:</strong> 5 Hz</li>
-<li><strong>7:</strong> 10 Hz</li>
-<li><strong>8:</strong> 20 Hz</li>
-<li><strong>9:</strong> 25 Hz</li>
-<li><strong>10:</strong> 50 Hz</li>
-</ul>  <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0, 10] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_LOG_LEVEL">SEP_LOG_LEVEL</strong> (INT32)</td>
- <td>Logging level for the receiver <p><strong>Comment:</strong> Select the level of detail that needs to be logged by the receiver.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Lite</li>
-<li><strong>1:</strong> Basic</li>
-<li><strong>2:</strong> Default</li>
-<li><strong>3:</strong> Full</li>
-</ul>  <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0, 3] </td>
- <td>2</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_OUTP_HZ">SEP_OUTP_HZ</strong> (INT32)</td>
- <td>Output frequency of main SBF blocks <p><strong>Comment:</strong> The output frequency of the main SBF blocks needed for PVT information.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> 5 Hz</li>
-<li><strong>1:</strong> 10 Hz</li>
-<li><strong>2:</strong> 20 Hz</li>
-<li><strong>3:</strong> 25 Hz</li>
-</ul>  <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0, 3] </td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_PITCH_OFFS">SEP_PITCH_OFFS</strong> (FLOAT)</td>
- <td>Pitch offset for dual antenna GPS <p><strong>Comment:</strong> Vertical offsets can be compensated for by adjusting the Pitch offset. Note that this can be interpreted as the &quot;roll&quot; angle in case the antennas are aligned along the perpendicular axis. This occurs in situations where the two antenna ARPs may not be exactly at the same height in the vehicle reference frame. Since pitch is defined as the right-handed rotation about the vehicle Y axis, a situation where the main antenna is mounted lower than the aux antenna (assuming the default antenna setup) will result in a positive pitch.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[-90, 90] </td>
- <td>0</td>
- <td>deg</td>
-</tr>
-<tr>
- <td><strong id="SEP_PORT1_CFG">SEP_PORT1_CFG</strong> (INT32)</td>
- <td>Serial Configuration for GPS Port <p><strong>Comment:</strong> Configure on which serial port to run GPS Port.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-<li><strong>6:</strong> UART 6</li>
-<li><strong>101:</strong> TELEM 1</li>
-<li><strong>102:</strong> TELEM 2</li>
-<li><strong>103:</strong> TELEM 3</li>
-<li><strong>104:</strong> TELEM/SERIAL 4</li>
-<li><strong>201:</strong> GPS 1</li>
-<li><strong>202:</strong> GPS 2</li>
-<li><strong>203:</strong> GPS 3</li>
-<li><strong>300:</strong> Radio Controller</li>
-<li><strong>301:</strong> Wifi Port</li>
-<li><strong>401:</strong> EXT2</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>201</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_PORT2_CFG">SEP_PORT2_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Secondary GPS port <p><strong>Comment:</strong> Configure on which serial port to run Secondary GPS port.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-<li><strong>6:</strong> UART 6</li>
-<li><strong>101:</strong> TELEM 1</li>
-<li><strong>102:</strong> TELEM 2</li>
-<li><strong>103:</strong> TELEM 3</li>
-<li><strong>104:</strong> TELEM/SERIAL 4</li>
-<li><strong>201:</strong> GPS 1</li>
-<li><strong>202:</strong> GPS 2</li>
-<li><strong>203:</strong> GPS 3</li>
-<li><strong>300:</strong> Radio Controller</li>
-<li><strong>301:</strong> Wifi Port</li>
-<li><strong>401:</strong> EXT2</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_SAT_INFO">SEP_SAT_INFO</strong> (INT32)</td>
- <td>Enable sat info <p><strong>Comment:</strong> Enable publication of satellite info (ORB_ID(satellite_info)) if possible.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_STREAM_LOG">SEP_STREAM_LOG</strong> (INT32)</td>
- <td>Logging stream used during automatic configuration <p><strong>Comment:</strong> The stream the autopilot sets up on the receiver to output the logging data. Set this to another value if the default stream is already used for another purpose.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[1, 10] </td>
- <td>2</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_STREAM_MAIN">SEP_STREAM_MAIN</strong> (INT32)</td>
- <td>Main stream used during automatic configuration <p><strong>Comment:</strong> The stream the autopilot sets up on the receiver to output the main data. Set this to another value if the default stream is already used for another purpose.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[1, 10] </td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SEP_YAW_OFFS">SEP_YAW_OFFS</strong> (FLOAT)</td>
- <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover antenna is placed on the right side of the vehicle and the moving base antenna is on the left side.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[-360, 360] </td>
- <td>0</td>
- <td>deg</td>
-</tr>
-</tbody></table>
-
 ## Serial
 
 <table>
@@ -24662,13 +24417,6 @@ table {
 </td>
  <td></td>
  <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SYS_PARAM_VER">SYS_PARAM_VER</strong> (INT32)</td>
- <td>Parameter version <p><strong>Comment:</strong> This is used internally only: an airframe configuration might set an expected parameter version value via PARAM_DEFAULTS_VER. This is checked on bootup against SYS_PARAM_VER, and if they do not match, parameters are reset and reloaded from the airframe configuration.</p>   </td>
- <td>[0, ?] </td>
- <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -26676,26 +26424,6 @@ table {
  <td>bit/s</td>
 </tr>
 <tr>
- <td><strong id="UAVCAN_ECU_FUELT">UAVCAN_ECU_FUELT</strong> (INT32)</td>
- <td>UAVCAN fuel tank fuel type <p><strong>Comment:</strong> This parameter defines the type of fuel used in the vehicle&#x27;s fuel tank. 0: Unknown 1: Liquid (e.g., gasoline, diesel) 2: Gas (e.g., hydrogen, methane, propane)</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unknown</li>
-<li><strong>1:</strong> Liquid</li>
-<li><strong>2:</strong> Gas</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 2] </td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UAVCAN_ECU_MAXF">UAVCAN_ECU_MAXF</strong> (FLOAT)</td>
- <td>UAVCAN fuel tank maximum capacity <p><strong>Comment:</strong> This parameter defines the maximum fuel capacity of the vehicle&#x27;s fuel tank.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0.0, 100000.0] (0.1)</td>
- <td>15.0</td>
- <td>liters</td>
-</tr>
-<tr>
  <td><strong id="UAVCAN_ENABLE">UAVCAN_ENABLE</strong> (INT32)</td>
  <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
@@ -26853,14 +26581,6 @@ table {
 <tr>
  <td><strong id="UAVCAN_SUB_FLOW">UAVCAN_SUB_FLOW</strong> (INT32)</td>
  <td>subscription flow <p><strong>Comment:</strong> Enable UAVCAN optical flow subscription.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UAVCAN_SUB_FUEL">UAVCAN_SUB_FUEL</strong> (INT32)</td>
- <td>subscription fuel tank <p><strong>Comment:</strong> Enable UAVCAN fuel tank status subscription.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
@@ -27787,52 +27507,6 @@ table {
    <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="SCH16T_ACC_FILT">SCH16T_ACC_FILT</strong> (INT32)</td>
- <td>Accel filter settings  <strong>Values:</strong><ul>
-<li><strong>0:</strong> 13 Hz</li>
-<li><strong>1:</strong> 30 Hz</li>
-<li><strong>2:</strong> 68 Hz</li>
-<li><strong>3:</strong> 235 Hz</li>
-<li><strong>4:</strong> 280 Hz</li>
-<li><strong>5:</strong> 370 Hz</li>
-<li><strong>6:</strong> No filter</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>6</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SCH16T_DECIM">SCH16T_DECIM</strong> (INT32)</td>
- <td>Gyro and Accel decimation settings  <strong>Values:</strong><ul>
-<li><strong>0:</strong> None</li>
-<li><strong>1:</strong> 5900 Hz</li>
-<li><strong>2:</strong> 2950 Hz</li>
-<li><strong>3:</strong> 1475 Hz</li>
-<li><strong>4:</strong> 738 Hz</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>4</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SCH16T_GYRO_FILT">SCH16T_GYRO_FILT</strong> (INT32)</td>
- <td>Gyro filter settings  <strong>Values:</strong><ul>
-<li><strong>0:</strong> 13 Hz</li>
-<li><strong>1:</strong> 30 Hz</li>
-<li><strong>2:</strong> 68 Hz</li>
-<li><strong>3:</strong> 235 Hz</li>
-<li><strong>4:</strong> 280 Hz</li>
-<li><strong>5:</strong> 370 Hz</li>
-<li><strong>6:</strong> No filter</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>2</td>
- <td></td>
-</tr>
 <tr>
  <td><strong id="SF1XX_MODE">SF1XX_MODE</strong> (INT32)</td>
  <td>Lightware SF1xx/SF20/LW20 Operation Mode  <strong>Values:</strong><ul>
