@@ -334,7 +334,7 @@ You may need to modify some parameters for your build In particular you should c
 
 You should enable Manual, Acro, and Position modes on your controller (at least for the first flight). For instructions see [Flight mode Configuration](../config/flight_mode.md)
 
-We also recommend configuring an [autotuning switch](../config/autotune.md#enable-disable-autotune-switch-fixed-wing) for the first flight, as this makes it easier to enable/disable autotuning while flying.
+We also recommend configuring an [autotuning switch](../config/autotune_fw.md#enable-disable-autotune-switch-fixed-wing) for the first flight, as this makes it easier to enable/disable autotuning while flying.
 
 The channel mappings for this build are included in the supplied [params file](#parameter-config). The channel order is throttle, roll, pitch, yaw, (blank), and flight mode
 
@@ -384,7 +384,7 @@ I recommend checking the following items:
 
 I recommend performing the first takeoff in manual mode. Because this airplane has no landing gear, you will either need to throw the airplane yourself, or ideally have a helper throw it. When throwing any airplane, throw at a slightly nose up attitude with full throttle.
 
-It's critical to be ready to give aft stick input to prevent the airplane from impacting the ground if it happens to be trimmed nosedown. Once the airplane is successfully airborne, cruise up to an altitude of a few hundred feet and switch to [Acro mode](../flight_modes_fw/acro.md). This is a good time to use [Autotuning](../config/autotune.md) to tune the airframe.
+It's critical to be ready to give aft stick input to prevent the airplane from impacting the ground if it happens to be trimmed nosedown. Once the airplane is successfully airborne, cruise up to an altitude of a few hundred feet and switch to [Acro mode](../flight_modes_fw/acro.md). This is a good time to use [Autotuning](../config/autotune_fw.md) to tune the airframe.
 
 If the airplane is well behaved in _Acro mode_, switch to [Position mode](../flight_modes_fw/position.md).
 
