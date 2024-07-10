@@ -235,7 +235,7 @@ First update the firmware, airframe, and actuator mappings:
 
 기체를 선택하면, 자율비행에 관련된 기체의 *기본*적인 매개변수들이 설정됩니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
 
-For instructions on how, start from [Autotune](../config/autotune.md).
+For instructions on how, start from [Autotune](../config/autotune_mc.md).
 
 ## 감사의 글
 

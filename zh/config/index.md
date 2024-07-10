@@ -52,7 +52,11 @@ Joystick/GamePad:
 
 ### Tuning
 
-- [Autotune](../config/autotune.md) (Recommended on vehicles and frames that support it)
+Auto-tuning is supported, and recommended, on the following frames:
+
+- [Autotune (Multicopter)](../config/autotune_mc.md)
+- [Autotune (Fixed Wing)](../config/autotune_fw.md)
+- [Autotune (VTOL)](../config/autotune_vtol.md)
 
 ## 视频教程
 

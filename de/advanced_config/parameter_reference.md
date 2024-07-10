@@ -11172,7 +11172,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_CHECK">EKF2_GPS_CHECK</strong> (INT32)</td>
- <td>Integer bitmask controlling GPS checks <p><strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Maximum allowed PDOP set by EKF2_REQ_PDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. This check will only run when the vehicle is on ground and stationary. 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Min sat count (EKF2_REQ_NSATS)</li>
+ <td>Integer bitmask controlling GPS checks <p><strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Maximum allowed PDOP set by EKF2_REQ_PDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. This check will only run when the vehicle is on ground and stationary. 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT. 9: Fails if GPS driver detects consistent spoofing</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Min sat count (EKF2_REQ_NSATS)</li>
   <li><strong>1:</strong> Max PDOP (EKF2_REQ_PDOP)</li>
   <li><strong>2:</strong> Max horizontal position error (EKF2_REQ_EPH)</li>
   <li><strong>3:</strong> Max vertical position error (EKF2_REQ_EPV)</li>
@@ -11181,9 +11181,10 @@ table {
   <li><strong>6:</strong> Max vertical position rate (EKF2_REQ_VDRIFT)</li>
   <li><strong>7:</strong> Max horizontal speed (EKF2_REQ_HDRIFT)</li>
   <li><strong>8:</strong> Max vertical velocity discrepancy (EKF2_REQ_VDRIFT)</li>
+  <li><strong>9:</strong> Spoofing check</li>
 </ul>
  </td>
- <td>[0, 511] </td>
+ <td>[0, 1023] </td>
  <td>245</td>
  <td></td>
 </tr>
@@ -19658,13 +19659,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="RA_ACC_RAD_DEF">RA_ACC_RAD_DEF</strong> (FLOAT)</td>
- <td>Default acceptance radius    </td>
- <td>[0.1, 100] (0.01)</td>
- <td>0.5</td>
- <td>m</td>
-</tr>
-<tr>
  <td><strong id="RA_ACC_RAD_GAIN">RA_ACC_RAD_GAIN</strong> (FLOAT)</td>
  <td>Tuning parameter for corner cutting <p><strong>Comment:</strong> The geometric ideal acceptance radius is multiplied by this factor to account for kinematic and dynamic effects. Higher value -&gt; The rover starts to cut the corner earlier.</p>   </td>
  <td>[1, 100] (0.01)</td>
@@ -19673,8 +19667,8 @@ table {
 </tr>
 <tr>
  <td><strong id="RA_ACC_RAD_MAX">RA_ACC_RAD_MAX</strong> (FLOAT)</td>
- <td>Maximum acceptance radius <p><strong>Comment:</strong> The controller scales the acceptance radius based on the angle between the previous, current and next waypoint. Used as tuning parameter. Higher value -&gt; smoother trajectory at the cost of how close the rover gets to the waypoint (Set equal to RA_ACC_RAD_DEF to disable corner cutting).</p>   </td>
- <td>[0.1, 100] (0.01)</td>
+ <td>Maximum acceptance radius for the waypoints <p><strong>Comment:</strong> The controller scales the acceptance radius based on the angle between the previous, current and next waypoint. Higher value -&gt; smoother trajectory at the cost of how close the rover gets to the waypoint (Set to -1 to disable corner cutting).</p>   </td>
+ <td>[-1, 100] (0.01)</td>
  <td>3</td>
  <td>m</td>
 </tr>
@@ -19700,6 +19694,20 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="RA_MAX_ACCEL">RA_MAX_ACCEL</strong> (FLOAT)</td>
+ <td>Maximum acceleration for the rover <p><strong>Comment:</strong> This is used for the acceleration slew rate, the feed-forward term for the speed controller during missions and the corner slow down effect. Note: For the corner slow down effect RA_MAX_JERK, RA_MISS_VEL_GAIN and RA_MISS_VEL_MIN also have to be set.</p>   </td>
+ <td>[-1, 100] (0.01)</td>
+ <td>-1</td>
+ <td>m/s^2</td>
+</tr>
+<tr>
+ <td><strong id="RA_MAX_JERK">RA_MAX_JERK</strong> (FLOAT)</td>
+ <td>Maximum jerk <p><strong>Comment:</strong> Limit for forwards acc/deceleration change. This is used for the corner slow down effect. Note: RA_MAX_ACCEL, RA_MISS_VEL_GAIN and RA_MISS_VEL_MIN also have to be set for this to be enabled.</p>   </td>
+ <td>[-1, 100] (0.01)</td>
+ <td>-1</td>
+ <td>m/s^3</td>
+</tr>
+<tr>
  <td><strong id="RA_MAX_SPEED">RA_MAX_SPEED</strong> (FLOAT)</td>
  <td>Speed the rover drives at maximum throttle <p><strong>Comment:</strong> This is used for the feed-forward term of the speed controller. A value of -1 disables the feed-forward term in which case the Integrator (RA_SPEED_I) becomes necessary to track speed setpoints.</p>   </td>
  <td>[-1, 100] (0.01)</td>
@@ -19714,23 +19722,30 @@ table {
  <td>rad</td>
 </tr>
 <tr>
+ <td><strong id="RA_MAX_STR_RATE">RA_MAX_STR_RATE</strong> (FLOAT)</td>
+ <td>Maximum steering rate for the rover    </td>
+ <td>[-1, 1000] (0.01)</td>
+ <td>-1</td>
+ <td>deg/s</td>
+</tr>
+<tr>
  <td><strong id="RA_MISS_VEL_DEF">RA_MISS_VEL_DEF</strong> (FLOAT)</td>
  <td>Default rover velocity during a mission    </td>
- <td>[0.1, 100] (0.01)</td>
- <td>3</td>
+ <td>[0, 100] (0.01)</td>
+ <td>2</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="RA_MISS_VEL_GAIN">RA_MISS_VEL_GAIN</strong> (FLOAT)</td>
- <td>Tuning parameter for the velocity reduction during cornering <p><strong>Comment:</strong> Lower value -&gt; More velocity reduction during cornering</p>   </td>
- <td>[0.1, 100] (0.01)</td>
+ <td>Tuning parameter for the velocity reduction during cornering <p><strong>Comment:</strong> The cornering speed is equal to the inverse of the acceptance radius of the WP multiplied with this factor. Lower value -&gt; More velocity reduction during cornering.</p>   </td>
+ <td>[0.05, 100] (0.01)</td>
  <td>5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RA_MISS_VEL_MIN">RA_MISS_VEL_MIN</strong> (FLOAT)</td>
- <td>Minimum rover velocity during a mission <p><strong>Comment:</strong> The velocity off the rover is reduced based on the corner it has to take to smooth the trajectory (To disable this feature set it equal to RA_MISSION_VEL_DEF)</p>   </td>
- <td>[0.1, 100] (0.01)</td>
+ <td>Minimum rover velocity during a mission <p><strong>Comment:</strong> The velocity off the rover is reduced based on the corner it has to take to smooth the trajectory (Set to -1 to disable)</p>   </td>
+ <td>[-1, 100] (0.01)</td>
  <td>1</td>
  <td>m/s</td>
 </tr>
@@ -24423,7 +24438,7 @@ table {
 <tr>
  <td><strong id="SIH_Q_MAX">SIH_Q_MAX</strong> (FLOAT)</td>
  <td>Max propeller torque <p><strong>Comment:</strong> This is the maximum torque delivered by one propeller when the motor is running at full speed. This value is usually about few percent of the maximum thrust force.</p>   </td>
- <td>[0.0, ?] [0.0, ?] (0.05)</td>
+ <td>[0.0, ?] (0.05)</td>
  <td>0.1</td>
  <td>Nm</td>
 </tr>

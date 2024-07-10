@@ -303,10 +303,9 @@ param set-default PWM_MAIN_DIS4 1500
 
 Наступні теми пояснюють, як налаштувати параметри, які будуть вказані у конфігураційному файлі:
 
-- [Автоналаштування](../config/autotune.md)
-- [Інструкція з налаштування мультикоптера PID](../config_mc/pid_tuning_guide_multicopter.md)
-- [Посібник з налаштування ПІД-регулятора з нерухомим крилом](../config_fw/pid_tuning_guide_fixedwing.md)
-- [Конфігурація VTOL](../config_vtol/index.md)
+- [Autotuning (Multicopter)](../config/autotune_mc.md) (or [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md))
+- [Autotuning (Fixed-wing)](../config/autotune_fw.md) (or [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md))
+- [Autotuning (VTOL)](../config/autotune_vtol.md) ([VTOL Configuration](../config_vtol/index.md))
 
 ## Додайте фрейм до QGroundControl
 

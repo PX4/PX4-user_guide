@@ -3,7 +3,7 @@
 This topic provides detailed information about PX4 controllers, and how they are tuned.
 
 :::tip
-[Autotune](../config/autotune.md) is recommended for tuning the vehicles _around the hover thrust point_, as the approach described is intuitive, easy, and fast. This is all that is required for many vehicles.
+[Autotune](../config/autotune_mc.md) is recommended for tuning the vehicles _around the hover thrust point_, as the approach described is intuitive, easy, and fast. This is all that is required for many vehicles.
 :::
 
 Use this topic when tuning around the hover thrust point is not sufficient (e.g. on vehicles where there are non-linearities and oscillations at higher thrusts). It is also useful for a deeper understanding of how the basic tuning works, and to understand how to use the [airmode](#airmode-mixer-saturation) setting.

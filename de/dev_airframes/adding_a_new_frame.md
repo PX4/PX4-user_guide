@@ -315,10 +315,9 @@ The remaining airframe metadata should be automatically included in the firmware
 
 The following topics explain how to tune the parameters that will be specified in the config file:
 
-- [Autotuning](../config/autotune.md)
-- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
-- [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
-- [VTOL Configuration](../config_vtol/index.md)
+- [Autotuning (Multicopter)](../config/autotune_mc.md) (or [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md))
+- [Autotuning (Fixed-wing)](../config/autotune_fw.md) (or [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md))
+- [Autotuning (VTOL)](../config/autotune_vtol.md) ([VTOL Configuration](../config_vtol/index.md))
 
 ## Add Frame to QGroundControl
 
