@@ -2,8 +2,7 @@
 
 This guide explains how to manually tune the fixed-wing PID loop. 它是为高级用户/专家设计的，因为错误的 PID 调节可能会使您的飞机坠毁。
 
-:::note
-[Autotune](../config/autotune.md) 是推荐给大多数用户的, 因为它更快, 更容易, 并且为大多数机型提供了很好的调校。 建议对自动调整不起作用或必须进行更加的调校的机型进行手工调整。
+::: info [Autotune](../config/autotune_fw.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. 建议对自动调整不起作用或必须进行更加的调校的机型进行手工调整。
 :::
 
 ## 前置条件
