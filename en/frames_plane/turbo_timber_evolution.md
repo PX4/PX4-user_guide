@@ -193,7 +193,7 @@ Heatshrink was used to electrically insulate the bare board and the radio was in
 Overall, this build was a success.
 
 Even with the added weight of the Pixhawk 4 Mini installation, the airplane balances well and has plenty of power to retain its original STOL characterisitics.
-PX4 is easily capable of stabilizing the airplane and fine tuning of the rate loops were accomplished using [fixed-wing autotuning](../config/autotune.md).
+PX4 is easily capable of stabilizing the airplane and fine tuning of the rate loops were accomplished using [fixed-wing autotuning](../config/autotune_fw.md).
 The results of tuning can be found in the [parameter file linked below](#parameter-file).
 
 In testing I found takeoffs can be as short as only 10ft (3m) using no flaps.
