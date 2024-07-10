@@ -3,7 +3,7 @@
 This tutorial explains how to _manually_ tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
 
 :::tip
-[Autotune](../config/autotune.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames.
+[Autotune](../config/autotune_mc.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames.
 Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
 :::
 

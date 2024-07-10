@@ -87,6 +87,6 @@ Set up the [Actuator Configuration](../config/actuators.md) to match the wiring 
 
 ### Other Configuration
 
-Perform all the the other [Basic Configuration](../config/index.md), including [Autotuning](../config/autotune.md).
+Perform all the the other [Basic Configuration](../config/index.md), including [Autotuning](../config/autotune_fw.md).
 
 Advanced tuning is optional - see [Fixed-wing Vehicle Configuration](../config_fw/index.md).
