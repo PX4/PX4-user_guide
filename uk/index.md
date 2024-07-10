@@ -12,57 +12,47 @@ PX4 це _Professional Autopilot_. Розроблений розробникам
 :::
 
 :::warning
-Цей посібник стосується версії PX4 для _розробки_ (`основна` гілка). Використовуйте селектор **Версія** для поточної _стабільної_ версії.
+Цей посібник стосується версії PX4 для _розробки_ (`основна` гілка). Use the **Version** selector to find the current _stable_ version.
 
 Задокументовані зміни з моменту випуску стабільної версії відображені в [примітці до випуску](releases/main.md), що розвивається. :::
 
 ## Як почати?
 
-[Початок роботи](getting_started/index.md) цей гайд мають прочитати всі користувачі! Він включає в себе огляд PX4, функції, які надає стек польотів (режими польоту та функції безпеки) та підтримувані апаратні платформи (контролери польотів, транспортні засоби, планери, системи телеметрії, системи контролю RC).
+[Basic Concepts](getting_started/px4_basic_concepts.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicle types, telemetry systems, RC control systems).
 
 Залежно від того, чого ви хочете досягти, наступні поради допоможуть вам мандрувати по цьому посібнику:
 
-**У мене вже є безпілотник, і я просто хочу літати:**
+### I want a vehicle that works with PX4
 
-Якщо ви  маєте готові до польоту (RTF), який підтримує PX4:
+In the [Multicopter](frames_multicopter/index.md), [VTOL](frames_vtol/index.md), and [Plane (Fixed-Wing)](frames_plane/index.md) sections you'll find topics like the following (these links are for multicopter):
 
-- [Базова конфігурація](config/index.md) пояснює, як оновити вашу прошивку до останньої версії, калібрувати основні датчики (компас, спорт/МВФ, швидкість польоту тощо, налаштування свого дистанційного контролю та безпеки функції.
-- [Розділ Політ](flying/index.md) навчає польоту, в тому числі де і як безпечно літати, і як вирішувати проблеми, пов'язані з приведенням у стан готовності та польотом. Він також надає детальну інформацію про режими польоту.
+- [Complete Vehicles](complete_vehicles_mc/index.md) list "Ready to Fly" (RTF) pre-built vehicles
+- [Kits](frames_multicopter/kits.md) lists drones that you have to build yourself from a set of preselected parts
+- [DIY Builds](frames_multicopter/diy_builds.md) shows some examples of drones that have been built using parts that were sourced individually
 
-**Я хочу побудувати дрон з PX4 з нуля:**
+Both kits and complete vehicles usually include everything you need except for a battery and RC System. Kits are usually not hard to build, provide a good introduction to how drones fit together, and are relatively inexpensive. We provide generic instructions for assembly, such as [Assembling a Multicopter](assembly/assembly_mc.md), and most kits come with specific instructions too.
 
-:::tip
+If the kits and complete drones aren't quite right for you then you can build a vehicle from scratch, but this requires more knowledge. [Airframe Builds](airframes/index.md) lists the supported frame starting points to give you some idea of what is possible.
 
-"Безпілотні засоби які підтримуються" перераховані в [Airframes](airframes/airframe_reference.md). Це транспортні засоби, які тестували і налаштовували конфігурації, які ви можете завантажити за допомогою _QGroundControl_.
+Once you have a vehicle that supports PX4 you will need to configure it and calibrate the sensors. Each vehicle type has its own configuration section that explains the main steps, such as [Multicopter Configuration/Tuning](config_mc/index.md).
 
-:::
+### I want to add a payload/camera
 
-Якщо ви хочете побудувати автомобіль з нуля:
+The [Payloads](payloads/index.md) section describes how to add a camera and how to configure PX4 to enable you to deliver packages.
 
-- Оберіть шасі — [Airframe Builds](airframes/index.md) надає перелік підтримуваних шасі та детальні інструкції щодо збірки транспортних засобів.
-- Виберіть контролер польоту - див. [Початок > Польотні контролери](getting_started/flight_controller_selection.md) and [Апаратне забезпечення автопілота](flight_controller/index.md).
-- [Збірка](assembly/index.md) пояснює, як підключити важливі периферійні пристрої до вашого автопілота.
-- [Базова конфігурація](config/index.md) показує, як оновити прошивку і налаштувати її з параметрами, які відповідають вашому шасі. Цей розділ також пояснює, як калібрувати основні датчики (компас, gyro/IMU, швидкість польоту тощо), а також налаштувати ваш дистанційний контроль та функції безпеки.
+### I am modifying a supported vehicle
 
-Коли ви будете готові керувати літаючим засобом, відвідайте розділ [Політ](flying/README.md).
+The [Hardware Selection & Setup](hardware/drone_parts.md) section provides both high level and product-specific information about hardware that you might use with PX4 and its configuration. This is the first place you should look if you want to modify a drone and add new components.
 
-**Я хочу додати вантаж або камеру:**
+### I want to fly
 
-Розділ корисних навантажень описує як додати камеру або як налаштувати PX4 для доставки вантажів.
+Before you fly you should read [Operations](config/operations.md) to understand how to set up the safety features of your vehicle and the common behaviours of all frame types. Once you've done that you're ready to fly.
 
-- [Корисне навантаження](payloads/index.md) описує як інтегрувати корисні навантаження
+Basic instructions for flying each vehicle type are provided in the respective sections, such as [Basic Flying (Multicopter)](flying/basic_flying_mc.md).
 
-**Я змінюю підтримувану версію засобу ( дрона чи іншу) :**
+### I want to run PX4 on a new Flight Controller and extend the platform
 
-Модифікації польотного контролера і основні датчики покриті вище. Для того, щоб використовувати нові сенсори, або якщо ви зробили зміни, що суттєво впливають на характеристики польоту:
-
-- [Периферійне обладнання](peripherals/index.md) надає додаткову інформацію про використання зовнішніх датчиків.
-- [Базова конфігурація](config/index.md) пояснює, як відкалібрувати основні датчики.
-- [Розширену конфігурацію](advanced_config/index.md) слід використовувати для повторного/точного налаштування планера.
-
-**Я хочу запустити PX4 на новому апаратному забезпеченні та розширити платформу:**
-
-- [Розробка](development/development.md) пояснює як підтримувати нові повітряні рамки та типи транспортних засобів, змінювати алгоритми польоту, додавайте нові режими, інтегруйте нове обладнання, спілкуйтеся з PX4 ззовні контролера польоту, і зробіть внесок до PX4.
+The [Development](development/development.md) section explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
 ## Отримання допомоги
 

@@ -118,7 +118,7 @@
   - [기체 상태 표시](getting_started/vehicle_status.md)
     - [LED 신호 정의](getting_started/led_meanings.md)
     - [알람 소리 정의](getting_started/tunes.md)
-    - [사전 비행 점검](flying/pre_flight_checks.md)
+    - [QGroundControl Flight-Readiness Status](flying/pre_flight_checks.md)
 
 - [Hardware Selection & Setup](hardware/drone_parts.md)
   - [비행 컨트롤러 (오토파일럿)](flight_controller/index.md)

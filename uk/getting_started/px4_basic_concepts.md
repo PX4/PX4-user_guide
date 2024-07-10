@@ -96,11 +96,18 @@ PX4 може працювати на багатьох різних типах а
 
 Системи на основі PX4 використовують датчики для визначення стану транспортного засобу, який їй потрібен для стабілізації транспортного засобу та увімкнення автономного керування. Стани транспортного засобу включають: позицію/висоту, курс, швидкість, швидкість польоту, орієнтацію (відносно чогось), швидкість обертання в різних вісях, рівень заряду батареї тощо.
 
-PX4 _мінімально потребує_ гіроскоп, [гіроскоп](../sensor/gyroscope.md), [акселерометр](../sensor/accelerometer.md), [магнітомер](../gps_compass/magnetometer.md) (компас) та [барометр](../sensor/barometer.md). Для активації всіх автоматичних режимів, а також деяких ручних/допоміжних режимів потрібен [GNSS/GPS](../gps_compass/index.md) або інший джерело глобального позиціонування. Дрони літакового типу, а також апарати VTOL повинні додатково включати датчик швидкості польоту (дуже рекомендується).
+PX4 _мінімально потребує_ гіроскоп, [гіроскоп](../sensor/gyroscope.md), [акселерометр](../sensor/accelerometer.md), [магнітомер](../gps_compass/magnetometer.md) (компас) та [барометр](../sensor/barometer.md). This minimal set of sensors is incorporated into [Pixhawk Series](../flight_controller/pixhawk_series.md) flight controllers (and may also be in other controller platforms).
 
-Мінімальний набір датчиків вбудований в політні контролери [Pixhawk Series](../flight_controller/pixhawk_series.md) (а також він може бути в контролерах інших платформ). До контролера можна приєднати додаткові/зовнішні датчики.
+До контролера можна приєднати додаткові/зовнішні датчики. The following sensors are recommended:
 
-Для отримання додаткової інформації дивіться: [Апаратне забезпечення та налаштування датчиків](../sensor/index.md)
+- Для активації всіх автоматичних режимів, а також деяких ручних/допоміжних режимів потрібен [GNSS/GPS](../gps_compass/index.md) або інший джерело глобального позиціонування.
+
+  Typically a module that combines a GNSS and Compass is used, as an external compass can be made less susceptible to electromomagnetic interference than the internal compass in the flight controller.
+- [Airspeed sensors](../sensor/airspeed.md) are highly recommended for fixed-wing and VTOL-vehicles.
+- [Distance Sensors \(Rangefinders\)](../sensor/rangefinders.md) are highly recommended for all vehicle types, as they allow smoother and more robust landings, and enable features such as terrain following on multicopters.
+- [Optical Flow Sensors](../sensor/optical_flow.md) can be used with distance sensors on multcopters and VTOL to support navigation in GNSS-denied environments.
+
+For more information about sensors see: [Sensor Hardware & Setup](../sensor/index.md).
 
 ### Виводи: Двигуни, Сервоприводи, Актуатори, або приводи
 

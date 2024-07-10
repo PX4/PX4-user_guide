@@ -8736,9 +8736,10 @@ table {
   <li><strong>1:</strong> Data stuck (triggers if data is exactly constant for 2s in FW mode)</li>
   <li><strong>2:</strong> Innovation check (see ASPD_FS_INNOV)</li>
   <li><strong>3:</strong> Load factor check (triggers if measurement is below stall speed)</li>
+  <li><strong>4:</strong> First principle check (airspeed change vs. throttle and pitch)</li>
 </ul>
  </td>
- <td>[0, 15] </td>
+ <td>[0, 31] </td>
  <td>7</td>
  <td></td>
 </tr>
@@ -8751,6 +8752,13 @@ table {
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="ASPD_FP_T_WINDOW">ASPD_FP_T_WINDOW</strong> (FLOAT)</td>
+ <td>First principle airspeed check time window <p><strong>Comment:</strong> Window for comparing airspeed change to throttle and pitch change. Triggers when the airspeed change within this window is negative while throttle increases and the vehicle pitches down. Is meant to catch degrading airspeed blockages as can happen when flying through icing conditions. Relies on  FW_THR_TRIM being set accurately.</p>   </td>
+ <td>[0, ?] </td>
+ <td>2.0</td>
+ <td>s</td>
 </tr>
 <tr>
  <td><strong id="ASPD_FS_INNOV">ASPD_FS_INNOV</strong> (FLOAT)</td>
@@ -10589,6 +10597,62 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UCAN1_FB0_SUB">UCAN1_FB0_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 0 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB1_SUB">UCAN1_FB1_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 1 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB2_SUB">UCAN1_FB2_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 2 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB3_SUB">UCAN1_FB3_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 3 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB4_SUB">UCAN1_FB4_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 4 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB5_SUB">UCAN1_FB5_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 5 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB6_SUB">UCAN1_FB6_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 6 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_FB7_SUB">UCAN1_FB7_SUB</strong> (INT32)</td>
+ <td>Cyphal ESC 7 zubax feedback port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UCAN1_GPS0_SUB">UCAN1_GPS0_SUB</strong> (INT32)</td>
  <td>GPS 0 subscription port ID    </td>
  <td>[-1, 6143] </td>
@@ -10612,6 +10676,13 @@ table {
 <tr>
  <td><strong id="UCAN1_LG_BMS_SUB">UCAN1_LG_BMS_SUB</strong> (INT32)</td>
  <td>Cyphal legacy battery port ID    </td>
+ <td>[-1, 6143] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_READ_PUB">UCAN1_READ_PUB</strong> (INT32)</td>
+ <td>Cyphal ESC readiness port ID    </td>
  <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
@@ -11874,13 +11945,6 @@ table {
  <td>s</td>
 </tr>
 <tr>
- <td><strong id="FW_SPOILERS_DESC">FW_SPOILERS_DESC</strong> (FLOAT)</td>
- <td>Spoiler descend setting    </td>
- <td>[0.0, 1.0] (0.01)</td>
- <td>0.</td>
- <td>norm</td>
-</tr>
-<tr>
  <td><strong id="FW_SPOILERS_LND">FW_SPOILERS_LND</strong> (FLOAT)</td>
  <td>Spoiler landing setting    </td>
  <td>[0.0, 1.0] (0.01)</td>
@@ -11958,7 +12022,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LND_AIRSPD">FW_LND_AIRSPD</strong> (FLOAT)</td>
- <td>Landing airspeed <p><strong>Comment:</strong> The calibrated airspeed setpoint during landing. If set &lt;= 0.0, landing airspeed = FW_AIRSPD_MIN by default.</p>   </td>
+ <td>Landing airspeed <p><strong>Comment:</strong> The calibrated airspeed setpoint during landing. If set &lt;= 0, landing airspeed = FW_AIRSPD_MIN by default.</p>   </td>
  <td>[-1.0, ?] (0.1)</td>
  <td>-1.</td>
  <td>m/s</td>
@@ -11972,7 +12036,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LND_EARLYCFG">FW_LND_EARLYCFG</strong> (INT32)</td>
- <td>Early landing configuration deployment <p><strong>Comment:</strong> When disabled, the landing configuration (flaps, landing airspeed, etc.) is only activated on the final approach to landing. When enabled, it is already activated when entering the final loiter-down (loiter-to-alt) waypoint before the landing approach.</p>   </td>
+ <td>Early landing configuration deployment <p><strong>Comment:</strong> Allows to deploy the landing configuration (flaps, landing airspeed, etc.) already in the loiter-down waypoint before the final approach. Otherwise is enabled only in the final approach.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -11986,14 +12050,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LND_FL_PMAX">FW_LND_FL_PMAX</strong> (FLOAT)</td>
- <td>Flare, maximum pitch <p><strong>Comment:</strong> Maximum pitch during flare, a positive sign means nose up Applied once flaring is triggered</p>   </td>
+ <td>Flare, maximum pitch <p><strong>Comment:</strong> Maximum pitch during landing flare.</p>   </td>
  <td>[0, 45.0] (0.5)</td>
  <td>15.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_LND_FL_PMIN">FW_LND_FL_PMIN</strong> (FLOAT)</td>
- <td>Flare, minimum pitch <p><strong>Comment:</strong> Minimum pitch during flare, a positive sign means nose up Applied once flaring is triggered</p>   </td>
+ <td>Flare, minimum pitch <p><strong>Comment:</strong> Minimum pitch during landing flare.</p>   </td>
  <td>[-5, 15.0] (0.5)</td>
  <td>2.5</td>
  <td>deg</td>
@@ -12014,7 +12078,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LND_NUDGE">FW_LND_NUDGE</strong> (INT32)</td>
- <td>Landing touchdown nudging option <p><strong>Comment:</strong> Approach angle nudging: shifts the touchdown point laterally while keeping the approach entrance point constant Approach path nudging: shifts the touchdown point laterally along with the entire approach path This is useful for manually adjusting the landing point in real time when map or GNSS errors cause an offset from the desired landing vector. Nuding is done with yaw stick, constrained to FW_LND_TD_OFF (in meters) and the direction is relative to the vehicle heading (stick deflection to the right = land point moves to the right as seen by the vehicle).</p> <strong>값:</strong><ul>
+ <td>Landing touchdown nudging option <p><strong>Comment:</strong> Approach angle nudging: shifts the touchdown point laterally while keeping the approach entrance point constant Approach path nudging: shifts the touchdown point laterally along with the entire approach path This is useful for manually adjusting the landing point in real time when map or GNSS errors cause an offset from the desired landing vector. Nudging is done with yaw stick, constrained to FW_LND_TD_OFF (in meters) and the direction is relative to the vehicle heading (stick deflection to the right = land point moves to the right as seen by the vehicle).</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disable nudging</li>
 <li><strong>1:</strong> Nudge approach angle</li>
 <li><strong>2:</strong> Nudge approach path</li>
@@ -12039,14 +12103,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LND_THRTC_SC">FW_LND_THRTC_SC</strong> (FLOAT)</td>
- <td>Altitude time constant factor for landing <p><strong>Comment:</strong> Set this parameter to less than 1.0 to make TECS react faster to altitude errors during landing than during normal flight. During landing, the TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.</p>   </td>
+ <td>Altitude time constant factor for landing <p><strong>Comment:</strong> During landing, the TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.</p>   </td>
  <td>[0.2, 1.0] (0.1)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_LND_USETER">FW_LND_USETER</strong> (INT32)</td>
- <td>Use terrain estimation during landing. This is critical for detecting when to flare, and should be enabled if possible <p><strong>Comment:</strong> NOTE: terrain estimate is currently solely derived from a distance sensor. If enabled and no measurement is found within a given timeout, the landing waypoint altitude will be used OR the landing will be aborted, depending on the criteria set in FW_LND_ABORT. If disabled, FW_LND_ABORT terrain based criteria are ignored.</p> <strong>Values:</strong><ul>
+ <td>Use terrain estimation during landing <p><strong>Comment:</strong> This is critical for detecting when to flare, and should be enabled if possible. NOTE: terrain estimate is currently solely derived from a distance sensor. If enabled and no measurement is found within a given timeout, the landing waypoint altitude will be used OR the landing will be aborted, depending on the criteria set in FW_LND_ABORT. If disabled, FW_LND_ABORT terrain based criteria are ignored.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable the terrain estimate</li>
 <li><strong>1:</strong> Use the terrain estimate to trigger the flare (only)</li>
 <li><strong>2:</strong> Calculate landing glide slope relative to the terrain estimate</li>
@@ -12223,7 +12287,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_POS_STK_CONF">FW_POS_STK_CONF</strong> (INT32)</td>
- <td>RC stick configuration fixed-wing <p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing manual position and altitude controlled flight.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Alternative stick configuration (height rate on throttle stick, airspeed on pitch stick)</li>
+ <td>Custom stick configuration <p><strong>Comment:</strong> Applies in manual Position and Altitude flight modes.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Alternative stick configuration (height rate on throttle stick, airspeed on pitch stick)</li>
   <li><strong>1:</strong> Enable airspeed setpoint via sticks in altitude and position flight mode</li>
 </ul>
  </td>
@@ -12233,7 +12297,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_R_LIM">FW_R_LIM</strong> (FLOAT)</td>
- <td>Maximum roll angle <p><strong>Comment:</strong> The maximum roll angle setpoint for setpoint for a height-rate or altitude controlled mode.</p>   </td>
+ <td>Maximum roll angle setpoint <p><strong>Comment:</strong> Applies in any altitude controlled flight mode.</p>   </td>
  <td>[35.0, 65.0] (0.5)</td>
  <td>50.0</td>
  <td>deg</td>
@@ -12617,35 +12681,35 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_P_LIM_MAX">FW_P_LIM_MAX</strong> (FLOAT)</td>
- <td>Maximum pitch angle <p><strong>Comment:</strong> The maximum pitch angle setpoint setpoint for a height-rate or altitude controlled mode.</p>   </td>
+ <td>Maximum pitch angle setpoint <p><strong>Comment:</strong> Applies in any altitude controlled flight mode.</p>   </td>
  <td>[0.0, 60.0] (0.5)</td>
  <td>30.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_P_LIM_MIN">FW_P_LIM_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle <p><strong>Comment:</strong> The minimum pitch angle setpoint for a height-rate or altitude controlled mode.</p>   </td>
+ <td>Minimum pitch angle setpoint <p><strong>Comment:</strong> Applies in any altitude controlled flight mode.</p>   </td>
  <td>[-60.0, 0.0] (0.5)</td>
  <td>-30.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_THR_IDLE">FW_THR_IDLE</strong> (FLOAT)</td>
- <td>Idle throttle <p><strong>Comment:</strong> This is the minimum throttle while on the ground For aircraft with internal combustion engines, this parameter should be set above the desired idle rpm. For electric motors, idle should typically be set to zero. Note that in automatic modes, &quot;landed&quot; conditions will engage idle throttle.</p>   </td>
+ <td>Idle throttle <p><strong>Comment:</strong> This is the minimum throttle while on the ground (&quot;landed&quot;) in auto modes.</p>   </td>
  <td>[0.0, 0.4] (0.01)</td>
  <td>0.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_THR_MAX">FW_THR_MAX</strong> (FLOAT)</td>
- <td>Throttle limit max <p><strong>Comment:</strong> Maximum throttle limit in altitude controlled modes. Should be set accordingly to achieve FW_T_CLMB_MAX.</p>   </td>
+ <td>Throttle limit max <p><strong>Comment:</strong> Applies in any altitude controlled flight mode. Should be set accordingly to achieve FW_T_CLMB_MAX.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_THR_MIN">FW_THR_MIN</strong> (FLOAT)</td>
- <td>Throttle limit min <p><strong>Comment:</strong> Minimum throttle limit in altitude controlled modes. Usually set to 0 but can be increased to prevent the motor from stopping when descending, which can increase achievable descent rates. For aircraft with internal combustion engine this parameter should be set for desired idle rpm.</p>   </td>
+ <td>Throttle limit min <p><strong>Comment:</strong> Applies in any altitude controlled flight mode. Usually set to 0 but can be increased to prevent the motor from stopping when descending, which can increase achievable descent rates.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td>norm</td>
@@ -12659,7 +12723,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_TKO_AIRSPD">FW_TKO_AIRSPD</strong> (FLOAT)</td>
- <td>Takeoff Airspeed <p><strong>Comment:</strong> The calibrated airspeed setpoint TECS will stabilize to during the takeoff climbout. If set &lt;= 0.0, FW_AIRSPD_MIN will be set by default.</p>   </td>
+ <td>Takeoff Airspeed <p><strong>Comment:</strong> The calibrated airspeed setpoint during the takeoff climbout. If set &lt;= 0, FW_AIRSPD_MIN will be set by default.</p>   </td>
  <td>[-1.0, ?] (0.1)</td>
  <td>-1.0</td>
  <td>m/s</td>
@@ -12673,14 +12737,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_T_CLMB_R_SP">FW_T_CLMB_R_SP</strong> (FLOAT)</td>
- <td>Default target climbrate <p><strong>Comment:</strong> The default rate at which the vehicle will climb in autonomous modes to achieve altitude setpoints. In manual modes this defines the maximum rate at which the altitude setpoint can be increased.</p>   </td>
+ <td>Default target climbrate <p><strong>Comment:</strong> In auto modes: default climb rate output by controller to achieve altitude setpoints. In manual modes: maximum climb rate setpoint.</p>   </td>
  <td>[0.5, 15] (0.01)</td>
  <td>3.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_F_ALT_ERR">FW_T_F_ALT_ERR</strong> (FLOAT)</td>
- <td>Minimum altitude error needed to descend with max airspeed. A negative value disables fast descend    </td>
+ <td>Fast descend: minimum altitude error <p><strong>Comment:</strong> Minimum altitude error needed to descend with max airspeed and minimal throttle. A negative value disables fast descend.</p>   </td>
  <td>[-1.0, ?] </td>
  <td>-1.0</td>
  <td></td>
@@ -12694,21 +12758,21 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_T_I_GAIN_PIT">FW_T_I_GAIN_PIT</strong> (FLOAT)</td>
- <td>Integrator gain pitch <p><strong>Comment:</strong> Integrator gain on the pitch part of the control loop. Increase it to trim out speed and height offsets faster, with the downside of possible overshoots and oscillations.</p>   </td>
+ <td>Integrator gain pitch <p><strong>Comment:</strong> Increase it to trim out speed and height offsets faster, with the downside of possible overshoots and oscillations.</p>   </td>
  <td>[0.0, 2.0] (0.05)</td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_PTCH_DAMP">FW_T_PTCH_DAMP</strong> (FLOAT)</td>
- <td>Pitch damping factor <p><strong>Comment:</strong> This is the damping gain for the pitch demand loop. Increase to add damping to correct for oscillations in height. The default value of 0.0 will work well provided the pitch to servo controller has been tuned properly.</p>   </td>
+ <td>Pitch damping gain    </td>
  <td>[0.0, 2.0] (0.1)</td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_RLL2THR">FW_T_RLL2THR</strong> (FLOAT)</td>
- <td>Roll -&gt; Throttle feedforward <p><strong>Comment:</strong> Increasing this gain turn increases the amount of throttle that will be used to compensate for the additional drag created by turning. Ideally this should be set to  approximately 10 x the extra sink rate in m/s created by a 45 degree bank turn. Increase this gain if the aircraft initially loses energy in turns and reduce if the aircraft initially gains energy in turns. Efficient high aspect-ratio aircraft (eg powered sailplanes) can use a lower value, whereas inefficient low aspect-ratio models (eg delta wings) can use a higher value.</p>   </td>
+ <td>Roll -&gt; Throttle feedforward <p><strong>Comment:</strong> Is used to compensate for the additional drag created by turning. Increase this gain if the aircraft initially loses energy in turns and reduce if the aircraft initially gains energy in turns.</p>   </td>
  <td>[0.0, 20.0] (0.5)</td>
  <td>15.0</td>
  <td></td>
@@ -12722,42 +12786,42 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_T_SINK_MAX">FW_T_SINK_MAX</strong> (FLOAT)</td>
- <td>Maximum descent rate <p><strong>Comment:</strong> This sets the maximum descent rate that the controller will use. If this value is too large, the aircraft can over-speed on descent. This should be set to a value that can be achieved without exceeding the lower pitch angle limit and without over-speeding the aircraft.</p>   </td>
+ <td>Maximum descent rate <p><strong>Comment:</strong> This sets the maximum descent rate that the controller will use.</p>   </td>
  <td>[1.0, 15.0] (0.5)</td>
  <td>5.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_SINK_R_SP">FW_T_SINK_R_SP</strong> (FLOAT)</td>
- <td>Default target sinkrate <p><strong>Comment:</strong> The default rate at which the vehicle will sink in autonomous modes to achieve altitude setpoints. In manual modes this defines the maximum rate at which the altitude setpoint can be decreased.</p>   </td>
+ <td>Default target sinkrate <p><strong>Comment:</strong> In auto modes: default sink rate output by controller to achieve altitude setpoints. In manual modes: maximum sink rate setpoint.</p>   </td>
  <td>[0.5, 15] (0.01)</td>
  <td>2.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_SPDWEIGHT">FW_T_SPDWEIGHT</strong> (FLOAT)</td>
- <td>Speed &lt;--&gt; Altitude priority <p><strong>Comment:</strong> This parameter adjusts the amount of weighting that the pitch control applies to speed vs height errors. Setting it to 0.0 will cause the pitch control to control height and ignore speed errors. This will normally improve height accuracy but give larger airspeed errors. Setting it to 2.0 will cause the pitch control loop to control speed and ignore height errors. This will normally reduce airspeed errors, but give larger height errors. The default value of 1.0 allows the pitch control to simultaneously control height and speed. Set to 2 for gliders.</p>   </td>
+ <td>Speed &lt;--&gt; Altitude priority <p><strong>Comment:</strong> Adjusts the amount of weighting that the pitch control applies to speed vs height errors. Setting it to 0.0 will cause the pitch control to control height and ignore speed errors. Setting it to 2.0 will cause the pitch control loop to control speed and ignore height errors. The default value of 1.0 allows the pitch control to simultaneously control height and speed. Set to 2 for gliders.</p>   </td>
  <td>[0.0, 2.0] (1.0)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_SPD_DEV_STD">FW_T_SPD_DEV_STD</strong> (FLOAT)</td>
- <td>Airspeed rate measurement standard deviation for airspeed filter <p><strong>Comment:</strong> This is the measurement standard deviation for the airspeed rate used in the airspeed filter in TECS.</p>   </td>
+ <td>Airspeed rate measurement standard deviation <p><strong>Comment:</strong> For the airspeed filter in TECS.</p>   </td>
  <td>[0.01, 10.0] (0.1)</td>
  <td>0.2</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="FW_T_SPD_PRC_STD">FW_T_SPD_PRC_STD</strong> (FLOAT)</td>
- <td>Process noise standard deviation for the airspeed rate in the airspeed filter <p><strong>Comment:</strong> This is the process noise standard deviation in the airspeed filter filter defining the noise in the airspeed rate for the constant airspeed rate model. This is used to define how much the airspeed and the airspeed rate are filtered. The smaller the value the more the measurements are smoothed with the drawback for delays.</p>   </td>
+ <td>Process noise standard deviation for the airspeed rate <p><strong>Comment:</strong> This is defining the noise in the airspeed rate for the constant airspeed rate model of the TECS airspeed filter.</p>   </td>
  <td>[0.01, 10.0] (0.1)</td>
  <td>0.2</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="FW_T_SPD_STD">FW_T_SPD_STD</strong> (FLOAT)</td>
- <td>Airspeed measurement standard deviation for airspeed filter <p><strong>Comment:</strong> This is the measurement standard deviation for the airspeed used in the airspeed filter in TECS.</p>   </td>
+ <td>Airspeed measurement standard deviation <p><strong>Comment:</strong> For the airspeed filter in TECS.</p>   </td>
  <td>[0.01, 10.0] (0.1)</td>
  <td>0.2</td>
  <td>m/s</td>
@@ -12778,28 +12842,28 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_T_THR_DAMPING">FW_T_THR_DAMPING</strong> (FLOAT)</td>
- <td>Throttle damping factor <p><strong>Comment:</strong> This is the damping gain for the throttle demand loop. Increase to add damping to correct for oscillations in speed and height.</p>   </td>
+ <td>Throttle damping factor <p><strong>Comment:</strong> This is the damping gain for the throttle demand loop.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_THR_INTEG">FW_T_THR_INTEG</strong> (FLOAT)</td>
- <td>Integrator gain throttle <p><strong>Comment:</strong> Integrator gain on the throttle part of the control loop. Increase it to trim out speed and height offsets faster, with the downside of possible overshoots and oscillations.</p>   </td>
+ <td>Integrator gain throttle <p><strong>Comment:</strong> Increase it to trim out speed and height offsets faster, with the downside of possible overshoots and oscillations.</p>   </td>
  <td>[0.0, 1.0] (0.005)</td>
  <td>0.02</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_VERT_ACC">FW_T_VERT_ACC</strong> (FLOAT)</td>
- <td>Maximum vertical acceleration <p><strong>Comment:</strong> This is the maximum vertical acceleration (in m/s/s) either up or down that the controller will use to correct speed or height errors. The default value of 7 m/s/s (equivalent to +- 0.7 g) allows for reasonably aggressive pitch changes if required to recover from under-speed conditions.</p>   </td>
+ <td>Maximum vertical acceleration <p><strong>Comment:</strong> This is the maximum vertical acceleration either up or down that the controller will use to correct speed or height errors.</p>   </td>
  <td>[1.0, 10.0] (0.5)</td>
  <td>7.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="FW_WIND_ARSP_SC">FW_WIND_ARSP_SC</strong> (FLOAT)</td>
- <td>Wind-based airspeed scaling factor <p><strong>Comment:</strong> Multiplying this factor with the current absolute wind estimate gives the airspeed offset added to the minimum airspeed setpoint limit. This helps to make the system more robust against disturbances (turbulence) in high wind. Only applies to AUTO flight mode.</p>   </td>
+ <td>Wind-based airspeed scaling factor <p><strong>Comment:</strong> Multiplying this factor with the current absolute wind estimate gives the airspeed offset added to the minimum airspeed setpoint limit. This helps to make the system more robust against disturbances (turbulence) in high wind.</p>   </td>
  <td>[0, ?] (0.01)</td>
  <td>0.</td>
  <td></td>
@@ -13021,7 +13085,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_1_PROTOCOL">GPS_1_PROTOCOL</strong> (INT32)</td>
- <td>Protocol for Main GPS <p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>값:</strong><ul>
+ <td>Protocol for Main GPS <p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto detect</li>
 <li><strong>1:</strong> u-blox</li>
 <li><strong>2:</strong> MTK</li>
@@ -13073,7 +13137,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_2_PROTOCOL">GPS_2_PROTOCOL</strong> (INT32)</td>
- <td>Protocol for Secondary GPS <p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>값:</strong><ul>
+ <td>Protocol for Secondary GPS <p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto detect</li>
 <li><strong>1:</strong> u-blox</li>
 <li><strong>2:</strong> MTK</li>
@@ -13186,7 +13250,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="GF_ACTION">GF_ACTION</strong> (INT32)</td>
- <td>Geofence violation action <p><strong>Comment:</strong> Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence.</p> <strong>값:</strong><ul>
+ <td>Geofence violation action <p><strong>Comment:</strong> Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Warning</li>
 <li><strong>2:</strong> Hold mode</li>
@@ -16287,14 +16351,14 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_GPSF_LT">FW_GPSF_LT</strong> (INT32)</td>
- <td>GPS failure loiter time <p><strong>Comment:</strong> The time in seconds the system should do open loop loiter and wait for GPS recovery before it starts descending. Set to 0 to disable. Roll angle is set to FW_GPSF_R. Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0.</p>   </td>
+ <td>GPS failure loiter time <p><strong>Comment:</strong> The time the system should do open loop loiter and wait for GPS recovery before it starts descending. Set to 0 to disable. Roll angle is set to FW_GPSF_R. Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0.</p>   </td>
  <td>[0, 3600] </td>
  <td>30</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="FW_GPSF_R">FW_GPSF_R</strong> (FLOAT)</td>
- <td>GPS failure fixed roll angle <p><strong>Comment:</strong> Roll in degrees during the loiter after the vehicle has lost GPS in an auto mode (e.g. mission or loiter).</p>   </td>
+ <td>GPS failure fixed roll angle <p><strong>Comment:</strong> Roll angle in GPS failure loiter mode.</p>   </td>
  <td>[0.0, 30.0] (0.5)</td>
  <td>15.0</td>
  <td>deg</td>
@@ -17748,7 +17812,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -22245,7 +22309,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_BOARD_ROT">SENS_BOARD_ROT</strong> (INT32)</td>
- <td>Board rotation <p><strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.</p> <strong>값:</strong><ul>
+ <td>Board rotation <p><strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -23581,7 +23645,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SEP_DUMP_COMM">SEP_DUMP_COMM</strong> (INT32)</td>
- <td>Log GPS communication data <p><strong>Comment:</strong> Dump raw communication data from and to the connected receiver to the log file.</p> <strong>Values:</strong><ul>
+ <td>Log GPS communication data <p><strong>Comment:</strong> Log raw communication between the driver and connected receivers. For example, &quot;To receiver&quot; will log all commands and corrections sent by the driver to the receiver.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> From receiver</li>
 <li><strong>2:</strong> To receiver</li>
@@ -23734,7 +23798,7 @@ table {
  <td><strong id="SEP_YAW_OFFS">SEP_YAW_OFFS</strong> (FLOAT)</td>
  <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover antenna is placed on the right side of the vehicle and the moving base antenna is on the left side.</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>[0, 360] </td>
+ <td>[-360, 360] </td>
  <td>0</td>
  <td>deg</td>
 </tr>
@@ -24286,22 +24350,22 @@ table {
  <td><strong id="SIH_LOC_H0">SIH_LOC_H0</strong> (FLOAT)</td>
  <td>Initial AMSL ground altitude <p><strong>Comment:</strong> This value represents the Above Mean Sea Level (AMSL) altitude where the simulation begins. If using FlightGear as a visual animation, this value can be tweaked such that the vehicle lies on the ground at takeoff. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td>[-420.0, 8848.0] (0.01)</td>
- <td>32.34</td>
+ <td>489.4</td>
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="SIH_LOC_LAT0">SIH_LOC_LAT0</strong> (INT32)</td>
- <td>Initial geodetic latitude <p><strong>Comment:</strong> This value represents the North-South location on Earth where the simulation begins. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>[-850000000, 850000000] </td>
- <td>454671160</td>
- <td>deg*1e7</td>
+ <td><strong id="SIH_LOC_LAT0">SIH_LOC_LAT0</strong> (FLOAT)</td>
+ <td>Initial geodetic latitude <p><strong>Comment:</strong> This value represents the North-South location on Earth where the simulation begins. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
+ <td>[-90, 90] </td>
+ <td>47.397742</td>
+ <td>deg</td>
 </tr>
 <tr>
- <td><strong id="SIH_LOC_LON0">SIH_LOC_LON0</strong> (INT32)</td>
- <td>Initial geodetic longitude <p><strong>Comment:</strong> This value represents the East-West location on Earth where the simulation begins. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>[-1800000000, 1800000000] </td>
- <td>-737578370</td>
- <td>deg*1e7</td>
+ <td><strong id="SIH_LOC_LON0">SIH_LOC_LON0</strong> (FLOAT)</td>
+ <td>Initial geodetic longitude <p><strong>Comment:</strong> This value represents the East-West location on Earth where the simulation begins. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
+ <td>[-180, 180] </td>
+ <td>8.545594</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="SIH_L_PITCH">SIH_L_PITCH</strong> (FLOAT)</td>

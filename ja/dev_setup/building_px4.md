@@ -184,7 +184,7 @@ make distclean
 
 If you're building the _vanilla_ master branch, the most likely cause is using an unsupported version of GCC. この場合、 [Developer Toolchain](../dev_setup/dev_env.md) の説明で指定されたバージョンをインストールします。
 
-独自のブランチを構築する場合は、ファームウェアのサイズが 1MB 制限を超えている可能性があります。 この場合、ビルドから不要なドライバ/モジュールを削除する必要があります。
+If building your own branch, it is possible that you have increased the firmware size over the 1MB limit. この場合、ビルドから不要なドライバ/モジュールを削除する必要があります。
 
 ### macOS: 開いているファイルが多すぎます
 

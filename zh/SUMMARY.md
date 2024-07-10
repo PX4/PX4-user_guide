@@ -118,7 +118,7 @@
   - [载具状态通知](getting_started/vehicle_status.md)
     - [LED灯含义](getting_started/led_meanings.md)
     - [声调/声音含义](getting_started/tunes.md)
-    - [飞行前检查](flying/pre_flight_checks.md)
+    - [QGroundControl Flight-Readiness Status](flying/pre_flight_checks.md)
 
 - [Hardware Selection & Setup](hardware/drone_parts.md)
   - [飞行控制器(Autopilots)](flight_controller/index.md)

@@ -181,7 +181,7 @@ The `region 'flash' overflowed by XXXX bytes` error indicates that the firmware 
 
 If you're building the _vanilla_ master branch, the most likely cause is using an unsupported version of GCC. In this case, install the version specified in the [Developer Toolchain](../dev_setup/dev_env.md) instructions.
 
-MacOS는 실행 중인 모든 프로세스에서 기본적으로 최대 256개의 열린 파일을 허용합니다. PX4 빌드 시스템은 많은 수의 파일을 오픈하므로, 이 갯수를 초과할 수 있습니다.
+If building your own branch, it is possible that you have increased the firmware size over the 1MB limit. PX4 빌드 시스템은 많은 수의 파일을 오픈하므로, 이 갯수를 초과할 수 있습니다.
 
 ### macOS: 열린 파일이 너무 많음 오류
 

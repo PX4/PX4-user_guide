@@ -2,10 +2,10 @@
 
 PX4 надає візуальні (LED) та звукові (Buzzer) сповіщення про "загальний рівень" стану апарату та його готовності до польоту. Ці сповіщення вказують, наприклад, чи правильно відкалібрований апарат, чи має він SD-карту, чи має визначення позиції, чи безпечно до нього наближатися, чи він увімкнений, чи він готовий до польоту тощо.
 
-Крім того, PX4 надає більш детальну інформацію про готовність до польоту в повідомленнях GCS, отриманих в результаті передпольотних перевірок.
+In addition, PX4 provides more fine-grained information about readiness to fly in QGroundControl.
 
-Світлодіодні, звукові та GCS сповіщення:
+The LED, tune, and GCS notifications are linked below:
 
 * [Значення LED індикаторів](../getting_started/led_meanings.md)
 * [Значення звуків та мелодій](../getting_started/tunes.md)
-* [Передпольотні перевірки (внутрішні)](../flying/pre_flight_checks.md)
+* [QGroundControl Flight-Readiness Status](../flying/pre_flight_checks.md)

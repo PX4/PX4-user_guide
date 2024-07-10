@@ -118,7 +118,7 @@
   - [Повідомлення про статус літального апарату](getting_started/vehicle_status.md)
     - [Значення світлодіодів](getting_started/led_meanings.md)
     - [Значення звуків та мелодій](getting_started/tunes.md)
-    - [Перевірки перед польотом](flying/pre_flight_checks.md)
+    - [QGroundControl Flight-Readiness Status](flying/pre_flight_checks.md)
 
 - [Вибір обладнання & Налаштування](hardware/drone_parts.md)
   - [Flight Controllers (Autopilots)](flight_controller/index.md)

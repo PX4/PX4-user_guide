@@ -11,57 +11,47 @@ PX4 is the _Professional Autopilot_. 世界中の産業界・アカデミアの�
 :::
 
 :::warning
-This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector for the current _stable_ version.
+This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector to find the current _stable_ version.
 
 Documented changes since the stable release are captured in the evolving [release note](releases/main.md). :::
 
 ## なにから始めればいいの？
 
-[はじめに](getting_started/README.md) はすべてのユーザーが読むべきです！ 本章は，様々な機能(フライトモードや安全機能) や利用可能なハードウェア(フライトコントローラ，機体，テレメトリーシステム，無線機) など，PX4の概要について説明しています。
+[Basic Concepts](getting_started/px4_basic_concepts.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicle types, telemetry systems, RC control systems).
 
 貴方の行いたいことに応じて、以下のヒントがこの解説書を探索するのに役に立ちます。
 
-**既にドローンを持っていて，すぐ飛ばしたい：**
+### I want a vehicle that works with PX4
 
-PX4をサポートしている，Ready To Fly (RTF) の機体を持っている：
+In the [Multicopter](frames_multicopter/index.md), [VTOL](frames_vtol/index.md), and [Plane (Fixed-Wing)](frames_plane/index.md) sections you'll find topics like the following (these links are for multicopter):
 
-- [基本設定](config/README.md) では，ファームウェアを最新版に更新する方法、主要センサー (コンパス, ジャイロ / IMU, 対気速度計 etc.) のキャリブレーション及びRC機器や安全機能のセットアップについて説明しています．
-- [フライト](flying/README.md) では安全に飛行させる方法や，起動・フライト中に発生した問題への対処方法など，飛行に欠かせない事項について説明しています． また，フライトモードの詳細についても解説しています．
+- [Complete Vehicles](complete_vehicles_mc/index.md) list "Ready to Fly" (RTF) pre-built vehicles
+- [Kits](frames_multicopter/kits.md) lists drones that you have to build yourself from a set of preselected parts
+- [DIY Builds](frames_multicopter/diy_builds.md) shows some examples of drones that have been built using parts that were sourced individually
 
-**PX4を使用してドローンを最初から作成したい：**
+Both kits and complete vehicles usually include everything you need except for a battery and RC System. Kits are usually not hard to build, provide a good introduction to how drones fit together, and are relatively inexpensive. We provide generic instructions for assembly, such as [Assembling a Multicopter](assembly/assembly_mc.md), and most kits come with specific instructions too.
 
-:::tip
+If the kits and complete drones aren't quite right for you then you can build a vehicle from scratch, but this requires more knowledge. [Airframe Builds](airframes/index.md) lists the supported frame starting points to give you some idea of what is possible.
 
-The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using _QGroundControl_.
+Once you have a vehicle that supports PX4 you will need to configure it and calibrate the sensors. Each vehicle type has its own configuration section that explains the main steps, such as [Multicopter Configuration/Tuning](config_mc/index.md).
 
-:::
+### I want to add a payload/camera
 
-機体を一から手作りしたい：
+The [Payloads](payloads/index.md) section describes how to add a camera and how to configure PX4 to enable you to deliver packages.
 
-- フレームの選択 - [機体の組み立て](airframes/README.md) にはサポートされている機体が列挙されています。更に機体を組み立てるための詳細な情報が提供されています．
-- フライトコントローラの選択 - [さあ、はじめよう > フライトコントローラ](getting_started/flight_controller_selection.md) と [オートパイロット用ハードウェア](flight_controller/README.md)を参照してください。
-- [組み立て](assembly/README.md) では，重要な周辺機器をオートパイロット用機器にどのように接続するか説明しています．
-- [基本設定](config/README.md) では，ファームフェアのアップデート方法と，機体に応じた設定方法について説明しています。 また，本章ではメインセンサー (コンパス, ジャイロ/IMU, 機速計等) のキャリブレーション、RC装置や安全機能のセットアップについても説明しています。
+### I am modifying a supported vehicle
 
-飛行させる準備が完了したら、 [フライト](flying/README.md) 章を参照してください。
+The [Hardware Selection & Setup](hardware/drone_parts.md) section provides both high level and product-specific information about hardware that you might use with PX4 and its configuration. This is the first place you should look if you want to modify a drone and add new components.
 
-**ペイロードまたはカメラを追加したい：**
+### I want to fly
 
-ペイロードセクションでは、カメラを追加する方法、または貨物を配送するためのPX4の設定方法について説明します。
+Before you fly you should read [Operations](config/operations.md) to understand how to set up the safety features of your vehicle and the common behaviours of all frame types. Once you've done that you're ready to fly.
 
-- [ペイロード](payloads/README.md) はペイロードを統合する方法を説明しています
+Basic instructions for flying each vehicle type are provided in the respective sections, such as [Basic Flying (Multicopter)](flying/basic_flying_mc.md).
 
-**サポートされた機体を変更したい：**
+### I want to run PX4 on a new Flight Controller and extend the platform
 
-フライトコントローラと基本的なセンサの変更については、上記のリンクで説明されています。 新しいセンサを使用したり，飛行特性に影響を与える変更をした場合，以下を参照してください:
-
-- [周辺機器](peripherals/README.md) では外部センサを使用するための追加情報を記載しています。
-- [基本構成](config/README.md) では、メインセンサーのキャリブレーション方法を説明します。
-- [高度な設定](advanced_config/README.md) はより良い調整や微調整に役立ちます．
-
-**PX4を新しいハードウェアで実行し、プラットフォームを拡張したい：**
-
-- [開発](development/development.md) では新しい機体や車両の支援方法、フライトアルゴリズムの改造や，新しいモードの追加，新しいハードウェアの追加，PX4とフライトコントローラーの外部からの通信，さらにPX4の開発への貢献などについて記載しています．
+The [Development](development/development.md) section explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
 ## ヘルプ
 

@@ -1332,18 +1332,21 @@ Source: [drivers/gnss/septentrio](https://github.com/PX4/PX4-Autopilot/tree/main
 
 
 ### Description
-GPS driver module that handles the communication with Septentrio devices and publishes the position via uORB.
-
-The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance. It can be used for logging and heading computation.
+Driver for Septentrio GNSS receivers. It can automatically configure them and make their output available for the rest of the system. A secondary receiver is supported for redundancy, logging and dual-receiver heading. Septentrio receiver baud rates from 57600 to 1500000 are supported. If others are used, the driver will use 230400 and give a warning.
 
 ### Examples
 
-Starting 2 GPS devices (main one on /dev/ttyS3, secondary on /dev/ttyS4)
+Use one receiver on port `/dev/ttyS0` and automatically configure it to use baud rate 230400:
+```
+septentrio start -d /dev/ttyS0 -b 230400
+```
+
+Use two receivers, the primary on port `/dev/ttyS3` and the secondary on `/dev/ttyS4`, detect baud rate automatically and preserve them:
 ```
 septentrio start -d /dev/ttyS3 -e /dev/ttyS4
 ```
 
-Initiate warm restart of GPS device
+Perform warm reset of the receivers:
 ```
 gps reset warm
 ```
@@ -1355,13 +1358,13 @@ gps reset warm
 septentrio <command> [arguments...]
  Commands:
    start
-     -d <val>    Primary Septentrio receiver
+     -d <val>    Primary receiver port
                  values: <file:dev>
-     [-b <val>]  Primary baud rate
+     [-b <val>]  Primary receiver baud rate
                  default: 0
-     [-e <val>]  Secondary Septentrio receiver
+     [-e <val>]  Secondary receiver port
                  values: <file:dev>
-     [-g <val>]  Secondary baud rate
+     [-g <val>]  Secondary receiver baud rate
                  default: 0
 
    stop

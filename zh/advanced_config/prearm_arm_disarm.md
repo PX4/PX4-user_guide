@@ -98,7 +98,7 @@ To reduce accidents, vehicles are only allowed to arm certain conditions are met
 - The current mode requires an adequate global position estimate but the vehicle does not have GPS lock.
 - Many more ...
 
-The current failed checks can be viewed in QGroundControl (v4.2.0 and later): [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.html#arm).
+The current failed checks can be viewed in QGroundControl (v4.2.0 and later) [Arming Check Report](../flying/pre_flight_checks.md#qgc-arming-check-report) (see also [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.md#arm)).
 
 Note that internally PX4 runs arming checks at 10Hz. A list of the failed checks is kept, and if the list changes PX4 emits the current list using the [Events interface](../concept/events_interface.md). The list is also sent out when the GCS connects. Effectively the GCS knows the status of prearm checks immediately, both when disarmed and armed.
 

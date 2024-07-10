@@ -12,57 +12,47 @@ PX4 是一款_专业的自动驾驶仪_。 它由来自业界和学术界的世�
 :::
 
 :::warning
-This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector for the current _stable_ version.
+This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector to find the current _stable_ version.
 
 Documented changes since the stable release are captured in the evolving [release note](releases/main.md). :::
 
 ## 如何开始？
 
-所有使用者都应该阅读[入门指南](getting_started/README.md)！ 它提供了对PX4的概述，包括飞行控制栈（飞行模式和安全功能）以及支持的硬件（飞控板，飞行器，机架，数传系统，遥控系统）提供的功能。
+[Basic Concepts](getting_started/px4_basic_concepts.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicle types, telemetry systems, RC control systems).
 
 根据您想要实现的目标，以下提示将帮助您浏览本指南：
 
-**我已经拥有一架无人机，我只是想让它飞起来：**
+### I want a vehicle that works with PX4
 
-如果您有支持 PX4 的到手飞（RTF）的飞行器：
+In the [Multicopter](frames_multicopter/index.md), [VTOL](frames_vtol/index.md), and [Plane (Fixed-Wing)](frames_plane/index.md) sections you'll find topics like the following (these links are for multicopter):
 
-- [基本配置](config/README.md) 解释了如何将固件更新到最新版本，校准主传感器（罗盘、陀螺仪、空速等），以及如何设置遥控器和安全功能。
-- [飞行](flying/README.md) 教授飞行要领，包括安全飞行的地点和方式，以及如何调试解锁和飞行问题。 同样提供了关于飞行模式的详细信息。
+- [Complete Vehicles](complete_vehicles_mc/index.md) list "Ready to Fly" (RTF) pre-built vehicles
+- [Kits](frames_multicopter/kits.md) lists drones that you have to build yourself from a set of preselected parts
+- [DIY Builds](frames_multicopter/diy_builds.md) shows some examples of drones that have been built using parts that were sourced individually
 
-**我想要从头开始组装一架使用PX4的无人机：**
+Both kits and complete vehicles usually include everything you need except for a battery and RC System. Kits are usually not hard to build, provide a good introduction to how drones fit together, and are relatively inexpensive. We provide generic instructions for assembly, such as [Assembling a Multicopter](assembly/assembly_mc.md), and most kits come with specific instructions too.
 
-:::tip
+If the kits and complete drones aren't quite right for you then you can build a vehicle from scratch, but this requires more knowledge. [Airframe Builds](airframes/index.md) lists the supported frame starting points to give you some idea of what is possible.
 
-The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using _QGroundControl_.
+Once you have a vehicle that supports PX4 you will need to configure it and calibrate the sensors. Each vehicle type has its own configuration section that explains the main steps, such as [Multicopter Configuration/Tuning](config_mc/index.md).
 
-:::
+### I want to add a payload/camera
 
-如果您想从头开始组装一架飞机：
+The [Payloads](payloads/index.md) section describes how to add a camera and how to configure PX4 to enable you to deliver packages.
 
-- 选择机架 - [Airframe Builds](airframes/README.md) 列举出了支持的机架，并且提供了详细的说明如何组装。
-- Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/index.md).
-- [装配](assembly/README.md) 解释了如何将重要的外围设备连接到自动驾驶仪上。
-- [基本配置](config/README.md) 演示如何更新固件，并使用适合您的机身的设置对其进行配置。 本节还介绍了如何校准主传感器（罗盘、陀螺仪、空速等），并设置遥控器和安全功能。
+### I am modifying a supported vehicle
 
-当您准备好飞您的飞机时，请访问[飞行](flying/README.md)部分。
+The [Hardware Selection & Setup](hardware/drone_parts.md) section provides both high level and product-specific information about hardware that you might use with PX4 and its configuration. This is the first place you should look if you want to modify a drone and add new components.
 
-**我想添加有效负载或相机：**
+### I want to fly
 
-有效负载部分描述了如何添加一个相机以及如何配置PX4以使您能够运送包裹。
+Before you fly you should read [Operations](config/operations.md) to understand how to set up the safety features of your vehicle and the common behaviours of all frame types. Once you've done that you're ready to fly.
 
-- [有效负载](payloads/README.md)描述了如何整合有效负载
+Basic instructions for flying each vehicle type are provided in the respective sections, such as [Basic Flying (Multicopter)](flying/basic_flying_mc.md).
 
-**我想要修改已支持的机体：**
+### I want to run PX4 on a new Flight Controller and extend the platform
 
-上文介绍了如何修改飞行控制器和基本的传感器。 为了使用新的传感器，或者您的修改对飞行特性有重大的影响：
-
-- [外设硬件](peripherals/README.md)提供了有关使用外部传感器的其他信息。
-- [基本配置](config/README.md)解释了如何校准主传感器。
-- [高级配置](advanced_config/README.md)应该用于重新/微调机架。
-
-**我想在新硬件上运行 PX4 并扩展平台：**
-
-- [开发](development/development.md)介绍了如何支持新的机架、机型，修改飞行算法，添加新的模式，集成新的硬件，从飞行控制器的外部与PX4通信，以及如何为PX4做出贡献。
+The [Development](development/development.md) section explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
 ## 获取帮助
 
