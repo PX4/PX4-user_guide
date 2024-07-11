@@ -937,5 +937,24 @@
     "type": "PageNotLinkedInternally",
     "fileRelativeToRoot": "en\\assembly\\_assembly.md",
     "hideReason": "Its a convenience file"
+  },
+  {
+    "type": "LinkedFileMissingAnchor",
+    "fileRelativeToRoot": "en\\frames_plane\\reptile_dragon_2.md",
+    "link": {
+      "url": "../config/autotune_fw.md#enable-disable-autotune-switch",
+      "text": "autotuning switch"
+    },
+    "hideReason": "The link is in an imported document. Link checker doesn't know about imports."
+  },
+  {
+    "type": "PageNotInTOC",
+    "fileRelativeToRoot": "en\\config\\_autotune.md",
+    "hideReason": "It is not intended to be built"
+  },
+  {
+    "type": "PageNotLinkedInternally",
+    "fileRelativeToRoot": "en\\config\\_autotune.md",
+    "hideReason": "Page is intended to be an orphan"
   }
 ]
