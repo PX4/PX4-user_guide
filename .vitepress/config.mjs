@@ -21,6 +21,7 @@ export default defineConfig({
     //"kr/**/*.md",
     //"zh/**/*.md",
     //"uk/**/*.md",
+    "**/_*.md", //Remove source docs that start with "_" (included/not rendered)
   ],
   ignoreDeadLinks: true,
   markdown: {
