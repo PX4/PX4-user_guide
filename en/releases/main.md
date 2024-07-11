@@ -76,7 +76,12 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### Rover
 
-- TBD
+- [New module for ackermann rovers](../frames_rover/ackermann_rover.md) ([PX4-Autopilot#23024](https://github.com/PX4/PX4-Autopilot/pull/23024), [PX4-Autopilot#23310](https://github.com/PX4/PX4-Autopilot/pull/23383) and [PX4-Autopilot#23310](https://github.com/PX4/PX4-Autopilot/pull/23383)).
+  - This introduces a new module dedicated to ackermann rovers which is part of the USV overhaul (including differential rovers, boats, ... ).
+  - The module currently supports [manual mode](../frames_rover/ackermann_rover.md#manual-mode), [mission mode](../frames_rover/ackermann_rover.md#mission-mode), [return mode](../frames_rover/ackermann_rover.md#return-mode) and adds a number of [ackermann specific features](../frames_rover/ackermann_rover.md#tuning-advanced).
+  - It also introduces 2 new airframes:
+    - Hardware: Generic Ackermann Rover ([50010](../airframes/airframe_reference.md#rover)).
+    - SITL: Ackermann Rover (4012).
 
 ### ROS 2
 
