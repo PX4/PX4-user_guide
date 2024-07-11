@@ -207,7 +207,7 @@ A particular vehicle might have more/fewer motors and actuators, but the wiring 
 
 <div v-if="$frontmatter.frame === 'Plane'">
 
-![Motor and servo wiring with PM, PDB, BEC, Servo](../../assets/assembly/power_all_fw.png)
+![FW vehicle motor and servo wiring with PM, BEC, Servo](../../assets/assembly/power_all_fw.png)
 
 </div>
 <div v-else>
