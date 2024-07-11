@@ -207,6 +207,12 @@ When you add a new page you must also add it to `en/SUMMARY.md`!
    - Break lines on sentences by preference. Don't break lines based on some arbitrary line length.
    - Format using _prettier_ (_VSCode_ is a has extensions can be used for this).
 
+4. Videos:
+
+   - Youtube videos can be added using the format `@[youtube](https://youtu.be/<youtube-video-id>)` (supported via the [markdown-it-video](https://www.npmjs.com/package/markdown-it-video) plugin).
+     - Use instructional videos sparingly as they date badly, and are hard to maintain.
+     - Cool videos of airframes in flighyt are always welcome.
+
 ## 许可证
 
 Add new files in folders that cover similar topics. Then reference them in the sidebar (`/en/SUMMARY.md`) in line with the existing structure!

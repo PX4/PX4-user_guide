@@ -334,7 +334,7 @@ make ark_fmu-v6x_default upload
 
 Вам слід активувати ручні, акро та позиційні режими на вашому контролері (принаймні для першого польоту). Інструкції дивіться у [Flight mode Configuration](../config/flight_mode.md)
 
-We also recommend configuring an [autotuning switch](../config/autotune_fw.md#enable-disable-autotune-switch-fixed-wing) for the first flight, as this makes it easier to enable/disable autotuning while flying.
+We also recommend configuring an [autotuning switch](../config/autotune_fw.md#enable-disable-autotune-switch) for the first flight, as this makes it easier to enable/disable autotuning while flying.
 
 Мапування каналів для цієї збірки включено в постачальний [файл параметрів](#parameter-config). Порядок каналів - це керування газом, крен, тангаж, рульове керування, (порожнє), і режим польоту
 
