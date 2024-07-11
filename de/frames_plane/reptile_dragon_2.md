@@ -334,7 +334,7 @@ You may need to modify some parameters for your build In particular you should c
 
 You should enable Manual, Acro, and Position modes on your controller (at least for the first flight). For instructions see [Flight mode Configuration](../config/flight_mode.md)
 
-We also recommend configuring an [autotuning switch](../config/autotune_fw.md#enable-disable-autotune-switch-fixed-wing) for the first flight, as this makes it easier to enable/disable autotuning while flying.
+We also recommend configuring an [autotuning switch](../config/autotune_fw.md#enable-disable-autotune-switch) for the first flight, as this makes it easier to enable/disable autotuning while flying.
 
 The channel mappings for this build are included in the supplied [params file](#parameter-config). The channel order is throttle, roll, pitch, yaw, (blank), and flight mode
 
