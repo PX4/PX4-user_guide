@@ -1,14 +1,28 @@
-# 자동 튜닝
+<!-- This is the single-source for autotuning docs used in the autotune_mc.md and autotune_fy.md
+At time of writing, only FW, MC, and VTOL, support autotuning.
+VTOL has its own doc that references the other two
+-->
 
-자동 튜닝은 안정적이고 반응성은 높은 비행에 탁월한 컨트롤러인 PX4의 속도와 자세를 자동으로 튜닝합니다(다른 튜닝은 "선택 사항"에 가깝습니다). It is currently enabled for multicopter, fixed-wing, and hybrid VTOL fixed-wing vehicles.
+<div v-if="$frontmatter.frame === 'Multicopter'">
+
+# Auto-tuning (Multicopter)
+
+</div>
+<div v-else-if="$frontmatter.frame === 'Plane'">
+
+# Auto-tuning (Fixed-Wing)
+
+</div>
+
+자동 튜닝은 안정적이고 반응성은 높은 비행에 탁월한 컨트롤러인 PX4의 속도와 자세를 자동으로 튜닝합니다(다른 튜닝은 "선택 사항"에 가깝습니다).
 
 Tuning only needs to be done once, and is recommended unless you're using a vehicle that has already been tuned by the manufacturer (and not modified since).
 
 :::warning
-비행 중에 자동 튜닝이 수행됩니다. The airframe must fly well enough to handle moderate disturbances, and should be closely attended:
+Auto-tuning is performed while flying. The airframe must fly well enough to handle moderate disturbances, and should be closely attended:
 
 - 기체가 [자동 튜닝을 할 만큼 충분히 안정적인지](#pre-tuning-test) 테스트합니다.
-- Be ready to abort the autotuning process. You can do this by changing flight modes or using an auto-tune enable/disable switch ([if configured](#enable-disable-autotune-switch-fixed-wing)).
+- Be ready to abort the autotuning process. You can do this by changing flight modes<div style="display: inline;" v-if="$frontmatter.frame === 'Plane'"> or using an auto-tune enable/disable switch ([if configured](#enable-disable-autotune-switch))</div>.
 - Verify that the vehicle flies well after tuning.
 
 :::
@@ -19,43 +33,47 @@ Tuning only needs to be done once, and is recommended unless you're using a vehi
 
 The vehicle must be able to fly and adequately stabilize itself before running auto-tune. This test ensures that the vehicle can fly safely in position controlled modes.
 
-::: info During [Airframe Setup](../config/airframe.md) you should have selected the frame that most closely matches your vehicle. This may fly well enough to run autotuning.
-:::
-
 To make sure the vehicle is stable enough for auto-tuning:
 
 1. 비행 구역이 깨끗하고 공간이 충분한 지 확인하기 위하여, 일반적인 비행 전 안전 점검을 실시합니다.
-1. 이륙 및 시험 준비
-   - **Multicopters:** Take off and hover at 1m above ground in [Altitude mode](../flight_modes_mc/altitude.md) or Stabilized mode.
-   - **Fixed-wing:** Take off and fly at cruise speed in [Position mode](../flight_modes_mc/position.md) or [Altitude mode](../flight_modes_mc/altitude.md).
+
+1. Take off and <div style="display: inline;" v-if="$frontmatter.frame === 'Multicopter'">hover at 1m above ground in [Altitude mode](../flight_modes_mc/altitude.md) or [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md)</div><div style="display: inline;" v-else-if="$frontmatter.frame === 'Plane'">fly at cruise speed in [Position mode](../flight_modes_fw/position.md) or [Altitude mode](../flight_modes_fw/altitude.md)</div>.
+
 1. RC 송신기 롤 스틱을 사용하여 기체를 몇 도만 기울여 다음 기동을 수행하십시오. _좌회전 > 오른쪽 롤 > 중심_ (전체 기동은 약 3초가 소요됩니다). 기체는 2번의 진동 이내에서 안정화되어야 합니다.
 1. 각각의 시도에서 더 큰 진폭으로 기울이면서 기동을 반복합니다. 기체가 ~20도에서 2번의 진동 내에서 안정화될 수 있으면 다음 단계로 이동합니다.
 1. 피치 축에서 동일한 동작을 반복합니다. As above, start with small angles and confirm that the vehicle can stabilise itself within 2 oscillations before increasing the tilt.
 
-If the drone can stabilize itself within 2 oscillations it is ready for the auto-tuning procedure.
+If the drone can stabilize itself within 2 oscillations it is ready for the [auto-tuning procedure](#auto-tuning-procedure).
 
-If not, go to the [troubleshooting](#troubleshooting) section, which explains the minimal manual tuning to prepare the vehicle for auto-tuning.
+::: warning
+If the drone cannot stabilize itself sufficiently, follow the instructions in the [troubleshooting](#troubleshooting) section. These explain the minimal manual tuning to prepare the vehicle for auto-tuning.
+:::
 
-### Auto-tuning Procedure
+## Auto-tuning Procedure
 
 The auto-tuning sequence must be performed in a **safe flight zone, with enough space**. It takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)). For best results, we recommend running the test in calm weather conditions.
 
-The recommended modes for autotuning are [Hold mode](../flight_modes_fw/hold.md) (FW) and [Altitude mode](../flight_modes_mc/altitude.md) (MC), but any other flight mode can be used. During auto tuning, the RC sticks can still be used to fly the vehicle.
-
-::: info The auto-tuning sequence can be aborted at any time by changing flight modes or using the [enable/disable Autotune switch](#enable-disable-autotune-switch-fixed-wing) (if configured).
-:::
+The recommended mode for autotuning is <div style="display: inline;" v-if="$frontmatter.frame === 'Multicopter'">[Altitude mode](../flight_modes_mc/altitude.md)</div><div  style="display: inline;" v-else-if="$frontmatter.frame === 'Plane'">[Hold mode](../flight_modes_fw/hold.md)</div>, but any other flight mode can be used. During auto tuning, the RC sticks can still be used to fly the vehicle.
 
 The test steps are:
 
 1. [사전 튜닝 테스트](#pre-tuning-test)를 수행합니다.
-1. RC를 사용하여 이륙 및 테스트 준비합니다:
-   - **Multicopters:** Takeoff using the remote controller in [Altitude mode](../flight_modes_mc/altitude.md). 안전한 거리와 지상에서 4~20m에서 기체를 호버링하십시오.
-   - **Fixed-wing:** Once flying at cruise speed, activate [Hold mode](../flight_modes_mc/hold.md). 이렇게 하면 비행기가 일정한 고도와 속도로 원을 그리며 선회 비행합니다.
+
+1. Takeoff using RC control <div style="display: inline;" v-if="$frontmatter.frame === 'Multicopter'">in [Altitude mode](../flight_modes_mc/altitude.md).
+   안전한 거리와 지상에서 4~20m에서 기체를 호버링하십시오.</div><div v-else-if="$frontmatter.frame === 'Plane'">
+   Once flying at cruise speed, activate [Hold mode](../flight_modes_fw/hold.md).
+   이렇게 하면 비행기가 일정한 고도와 속도로 원을 그리며 선회 비행합니다.</div>
+
 1. Enable autotune.
 
-:::tip
-If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch-fixed-wing) is configured you can just toggle the switch to the "enabled" position.
+   <div v-if="$frontmatter.frame === 'Plane'">
+
+   :::tip
+   If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch) is configured you can just toggle the switch to the "enabled" position.
+
 :::
+
+   </div>
 
    1. QGroundControl에서 메뉴(**차량 설정 > PID 조정**)를 클릭합니다.
 
@@ -66,60 +84,99 @@ If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch-fixed-win
    1. 경고 팝업을 읽고 **확인**을 클릭하여 튜닝을 시작합니다.
 
 1. 드론은 먼저 빠른 롤 동작을 수행한 후 피치 및 요 동작을 수행합니다. 진행률은 _자동 조정_ 버튼 옆의 진행률 표시줄에 표시됩니다.
-1. 튜닝 적용:
+1. <div style="display: inline;" v-if="$frontmatter.frame === 'Multicopter'">Manually land and disarm to apply the new tuning parameters.
+   Takeoff carefully and manually test that the vehicle is stable.</div><div v-else-if="$frontmatter.frame === 'Plane'">The tuning will be immediately/automatically be applied and tested in flight (by default).
+   그런 다음, PX4는 4초 테스트를 실행하고 문제가 감지되면 튜닝 작업의 이전 상태로 복원합니다.</div>
 
-   - **Fixed-Wing:** The tuning will be immediately/automatically be applied and tested in flight (by default). 그런 다음, PX4는 4초 테스트를 실행하고 문제가 감지되면 튜닝 작업의 이전 상태로 복원합니다.
-   - **멀티콥터:** 새로운 조정 매개변수를 적용을 위하여 수동으로 착륙하고 시동을 해제합니다. 주의하여 이륙하고 차량이 안정성을 수동으로 테스트하십시오.
-
-1. 강한 진동이 발생하면, 즉시 착륙하고 아래 [문제 해결](#troubleshooting) 섹션의 지침을 따르십시오.
+::: warning
+If any strong oscillations occur, land immediately and follow the instructions in the [Troubleshooting](#troubleshooting) section below.
+:::
 
 Additional notes:
 
-- **VTOL:** Hybrid VTOL fixed-wing vehicles must be tuned twice, following multicopter instructions in MC mode and fixed-wing instructions in FW mode.
-- **Multicopter:** The instructions above tune the vehicle in [Altitude mode](../flight_modes_mc/altitude.md). You can instead takeoff in [Takeoff mode](../flight_modes_mc/takeoff.md) and tune in [Position mode](../flight_modes_mc/position.md) if the vehicle is is _known_ to be stable in these modes.
-- **Fixed-wing:** Autotuning can also be run in [Altitude mode](../flight_modes_fw/altitude.md) or [Position mode](../flight_modes_fw/position.md). 그러나 직선으로 비행하면서 테스트를 실행하면 더 큰 튜닝 안전 영역이 필요하며, 더 좋은 튜닝 결과를 보장하지 않습니다.
-- Whether tuning is applied in-air or after landing can be [configured using parameters](#apply-parameters-when-in-air-landed).
+<div v-if="$frontmatter.frame === 'Multicopter'">
+
+- The instructions above tune the vehicle in [Altitude mode](../flight_modes_mc/altitude.md).
+  You can instead takeoff in [Takeoff mode](../flight_modes_mc/takeoff.md) and tune in [Position mode](../flight_modes_mc/position.md) if the vehicle is is _known_ to be stable in these modes.
+
+</div>
+<div v-else-if="$frontmatter.frame === 'Plane'">
+
+- Autotuning can also be run in [Altitude mode](../flight_modes_fw/altitude.md) or [Position mode](../flight_modes_fw/position.md).
+  그러나 직선으로 비행하면서 테스트를 실행하면 더 큰 튜닝 안전 영역이 필요하며, 더 좋은 튜닝 결과를 보장하지 않습니다.
+
+</div>
+
+- Whether tuning is applied while flying or after landing can be [configured using parameters](#apply-tuning-when-in-air-landed).
 
 ## 문제 해결
 
-#### 자동 튜닝 시작전에 테스트 기동시 드론이 진동합니다.
+### Drone oscillates when performing the pre-tuning test
 
-- 느린 진동(초당 1회 또는 더 느린 진동): 이는 종종 대형 플랫폼에서 발생하며 자세 루프가 속도 루프에 비해 너무 빠르기 때문입니다.
-  - **Multicopter:** decrease [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P) and [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P) by steps of 1.0.
-  - **Fixed-wing:** increase [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) and [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) by steps of 0.1.
-- 빠른 진동(초당 1회 이상): 이는 속도 루프의 이득이 너무 높기 때문입니다.
-  - **멀티콥터:** 0.02씩 `MC_[ROLL|PITCH|YAW]RATE_K` 감소
-  - **Fixed-wing:** decrease [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P), [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P), [FW_YR_P](../advanced_config/parameter_reference.md#FW_YR_P) by steps of 0.01.
+<div v-if="$frontmatter.frame === 'Multicopter'">
 
-#### 자동 튜닝 실패
+Slow oscillations (1 oscillation per second or slower): this often occurs on large platforms and means that the attitude loop is too fast compared to the rate loop:
 
-If the drone was not moving enough during auto-tuning, the system identification algorithm might have issues to find the correct coefficients. Increase the [FW_AT_SYSID_AMP](../advanced_config/parameter_reference.md#FW_AT_SYSID_AMP), [MC_AT_SYSID_AMP](../advanced_config/parameter_reference.md#MC_AT_SYSID_AMP) by steps of 1 and trigger the auto-tune again.
+- Decrease [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P) and [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P) by steps of 1.0.
 
-#### 드론이 자동 튜닝 후 진동합니다.
+Fast oscillations (more than 1 oscillation per second): this is because the gain of the rate loop is too high.
 
-Due to effects not included in the mathematical model such as delays, saturation, slew-rate, airframe flexibility, the loop gain can be too high. To fix this, follow the same steps described [when the drone oscillates in the pre-tuning test](#the-drone-oscillates-when-performing-the-testing-maneuvers-prior-to-the-auto-tuning).
+- Decrease `MC_[ROLL|PITCH|YAW]RATE_K` by steps of 0.02
 
-#### 여전히 정상 작동하지 않는 경우:
+</div>
+<div v-else-if="$frontmatter.frame === 'Plane'">
 
-Attempt manual tuning using the appropriate guides:
+Slow oscillations (1 oscillation per second or slower): this often occurs on large platforms and means that the attitude loop is too fast compared to the rate loop.
 
-- [Multicopter PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter_basic.md)(수동/간단)
-- [Multicopter PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)(고급/상세)
-- [고정익 PID 튜닝 가이드](../config_fw/pid_tuning_guide_fixedwing.md)
+- Increase [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) and [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) by steps of 0.1.
+
+Fast oscillations (more than 1 oscillation per second): this is because the gain of the rate loop is too high.
+
+- Decrease [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P), [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P), [FW_YR_P](../advanced_config/parameter_reference.md#FW_YR_P) by steps of 0.01.
+
+</div>
+
+### 자동 튜닝 실패
+
+If the drone was not moving enough during auto-tuning, the system identification algorithm might have issues to find the correct coefficients.
+
+Increase the <div style="display: inline;" v-if="$frontmatter.frame === 'Multicopter'">[MC_AT_SYSID_AMP](../advanced_config/parameter_reference.md#MC_AT_SYSID_AMP)</div><div style="display: inline;" v-else-if="$frontmatter.frame === 'Plane'">[FW_AT_SYSID_AMP](../advanced_config/parameter_reference.md#FW_AT_SYSID_AMP)</div> parameter by steps of 1 and trigger the auto-tune again.
+
+### 드론이 자동 튜닝 후 진동합니다.
+
+Due to effects not included in the mathematical model such as delays, saturation, slew-rate, airframe flexibility, the loop gain can be too high. To fix this, follow the same steps described [when the drone oscillates in the pre-tuning test](#drone-oscillates-when-performing-the-pre-tuning-test).
+
+### 여전히 정상 작동하지 않는 경우:
+
+Attempt manual tuning using the guides listed in [See also](#see-also) below.
 
 ## Optional Configuration
 
-### Apply Parameters When In-Air/Landed
+### Apply Tuning when In-Air/Landed
 
-By default MC vehicles land before parameters are applied, while FW vehicles apply the parameters in-air and then test that the controllers work properly. This behaviour can be configured using the [MC_AT_APPLY](../advanced_config/parameter_reference.md#MC_AT_APPLY) and [FW_AT_APPLY](../advanced_config/parameter_reference.md#FW_AT_APPLY) parameters respectively:
+
+<div v-if="$frontmatter.frame === 'Multicopter'">
+
+By multicopters land before parameters are applied.
+This behaviour can be configured using the [MC_AT_APPLY](../advanced_config/parameter_reference.md#MC_AT_APPLY) parameter:
+
+</div>
+<div v-else-if="$frontmatter.frame === 'Plane'">
+
+By default fixed wing tuning the parameters are applied while flying, and then PX4 runs a test to confirm that the controllers work properly.
+This behaviour can be configured using the [FW_AT_APPLY](../advanced_config/parameter_reference.md#FW_AT_APPLY) parameter:
+
+</div>
 
 - `0`: 게인이 적용되지 않습니다. 자동 튜닝의 결과를 직접적으로 사용하지 않은 체로 검사하는 경우에 사용합니다.
 - `1`: 무장 해제 후 게인을 적용합니다(멀티콥터의 경우 기본값). 이후, 조종자는 주의하여 이륙하면서 튜닝 결과를 테스트할 수 있습니다.
-- `2`: 즉시 적용됩니다(고정익의 경우 기본값). 새로운 튜닝이 적용되고, 교란이 컨트롤러로 전송된 후, 다음 4초 동안 안정성이 모니터링됩니다. 제어 루프가 불안정한 경우, 제어 게인을 즉시 이전 값으로 복원합니다. 테스트를 통과하면, 조종자는 새로운 튜닝 결과를 사용할 수 있습니다.
+- `2`: apply immediately (default for fixed-wings). 새로운 튜닝이 적용되고, 교란이 컨트롤러로 전송된 후, 다음 4초 동안 안정성이 모니터링됩니다. 제어 루프가 불안정한 경우, 제어 게인을 즉시 이전 값으로 복원합니다. 테스트를 통과하면, 조종자는 새로운 튜닝 결과를 사용할 수 있습니다.
 
-### Enable/Disable Autotune Switch (Fixed-Wing)
+<div v-if="$frontmatter.frame === 'Plane'">
 
-A remote control switch can be configured to enable/disable autotune (in any mode) using an RC AUX channel.
+### Enable/Disable Autotune Switch
+
+A remote control switch can be configured to enable/disable autotune (in any mode) using an RC AUX channel (note, this is only supported on fixed-wing vehicles).
 
 To map a switch:
 
@@ -127,17 +184,19 @@ To map a switch:
 1. Set [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to match the RC channel for your switch (you can use any of `RC_MAP_AUX1` to `RC_MAP_AUX6`).
 1. Set [FW_AT_MAN_AUX](../advanced_config/parameter_reference.md#FW_AT_MAN_AUX) to the selected channel (i.e. `1: Aux 1` if you mapped `RC_MAP_AUX1`).
 
-The auto tuner will be disabled when the switch is below `0.5` (on the manual control setpoint range of of `[-1, 1]` and enabled when the switch channel is above `0.5`.
+The auto tuner will be disabled when the switch is below `0.5` (on the manual control setpoint range of of `[-1, 1]`) and enabled when the switch channel is above `0.5`.
 
-If using an RC AUX switch to enable autotuning, make sure to [select the tuning axes](#select-tuning-axis-fixed-wing) before flight.
+If using an RC AUX switch to enable autotuning, make sure to [select the tuning axes](#select-tuning-axis) before flight.
 
-### Select Tuning Axis (Fixed-Wing)
+### Select Tuning Axis
 
 Fixed-wing vehicles (only) can select which axes are tuned using the [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) bitmask parameter:
 
-- 비트 `0`: 롤(기본값)
-- 비트 `1`: 피치(기본값)
-- 비트 `2`: 요
+- bit `0`: roll (default)
+- bit `1`: pitch (default)
+- bit `2`: yaw
+
+</div>
 
 ## 개발자 SDK
 
@@ -162,7 +221,7 @@ Automatic tuning works well for the multicopter and fixed-wing vehicle configura
 
 The vehicle must be flying in an altitude-stabilized mode (such as [Altitude mode](../flight_modes_mc/altitude.md), [Hold mode](../flight_modes_mc/hold.md), or [Position mode](../flight_modes_mc/position.md)). The flight stack will apply a small disturbance to the vehicle in each axis and then attempt to calculate the new tuning parameters. For fixed-wing vehicles the new tuning is applied in-air by default, after which the vehicle tests the new settings and reverts the tuning if the controllers are not stable. For multicopter, the vehicle lands and applies the new tuning parameters after disarming; the pilot is expected to then take off carefully and test the tuning.
 
-The tuning process takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)). The default behaviour can be configured using [parameters](#optional-configuration).
+The tuning process takes about 40 seconds ([between 19 and 70 seconds](#how-long-does-autotuning-take)). The default behaviour can be configured using [parameters](#optional-configuration).
 
 ### 자주 묻는 질문
 
@@ -200,8 +259,18 @@ If not, perhaps say "not very" but you should expect that the vehicle might defl
 
 -->
 
-## 참고 항목:
+<div v-if="$frontmatter.frame === 'Multicopter'">
 
-- [Multicopter PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter_basic.md)(수동/간단)
-- [Multicopter PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)(고급/상세)
-- [고정익 PID 튜닝 가이드](../config_fw/pid_tuning_guide_fixedwing.md)
+## See also
+
+- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter_basic.md) (Manual/Simple)
+- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) (Advanced/Detailed)
+
+</div>
+<div v-else-if="$frontmatter.frame === 'Plane'">
+
+## See also
+
+- [Fixed-Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
+
+</div>
