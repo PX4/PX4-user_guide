@@ -24,7 +24,7 @@ This table contains non-RTK GNSS units (most of which also have a compass).
 These have been tested by the PX4 dev team, or which are popular within the PX4 community.
 
 | Device                                                                    |     GPS     |          Compass          | [CAN](../dronecan/index.md) | Buzzer / SafeSw / LED | Notes                       |
-| :------------------------------------------------------------------------ | :---------: | :-----------------------: | :-------------------------: | :-------------------: | :-------------------------- |
+|:--------------------------------------------------------------------------|:-----------:| :-----------------------: |:---------------------------:| :-------------------: | :-------------------------- |
 | [ARK GPS](https://arkelectron.com/product/ark-gps/)                       |     M9N     |         ICM42688p         |           &check;           |        &check;        | + Baro, IMU                 |
 | [Avionics Anonymous UAVCAN GNSS/Mag][avionics_anon_can_gnss]              |   SAM-M8Q   |         MMC5983MA         |           &check;           |        &cross;        |
 | [CUAV NEO 3 GPS](../gps_compass/gps_cuav_neo_3.md)                        |     M9N     |          IST8310          |                             |        &check;        |
@@ -43,6 +43,8 @@ These have been tested by the PX4 dev team, or which are popular within the PX4 
 | [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                   | MC-1612-V2b |                           |                             | &cross;&cross;&check; |
 | [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                   | MC-1612-V2b |          IST8310          |                             | &cross;&cross;&check; |
 | [mRo GPS u-blox Neo-M8N Dual Compass][mro_neo8mn_dual_mag]                |     M8N     |     LIS3MDL, IST8308      |                             |        &cross;        |
+| [RaccoonLab L1 GNSS NEO-M8N](https://docs.raccoonlab.co/guide/gps_mag_baro/gnss_v250.html)                    |   NEO-M8N   |          RM3100          |           &check;           |        &cross;&cross;&check;        | + Baro                      |
+| [RaccoonLab MAGNETOMETER RM3100](https://docs.raccoonlab.co/guide/gps_mag_baro/mag_rm3100.html)                    |   &cross;   |          RM3100          |           &check;           |       &cross;&cross;&check;        | + Baro                      |
 | [Sky-Drones SmartAP GPS](../gps_compass/gps_smartap.md)                   |     M8N     | HMC5983, IST8310, LIS3MDL |                             |        &check;        | + Baro                      |
 | [Zubax GNSS 2](https://zubax.com/products/gnss_2)                         |   MAX-M8Q   |          LIS3MDL          |                             |        &cross;        | + Baro                      |
 

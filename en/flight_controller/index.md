@@ -57,6 +57,7 @@ There are other compatible flight controllers and variants, including those [doc
   - [mRobotics-X2.1 (FMUv2)](../flight_controller/mro_x2.1.md)
   - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
   - [NXP RDDRONE-FMUK66 FMU](../flight_controller/nxp_rddrone_fmuk66.md)
+  - [RaccoonLab FMUv6X Autopilot](../flight_controller/raccoonlab_fmu6x.md)
   - [SP Racing H7 EXTREME](../flight_controller/spracingh7extreme.md)
   - [ThePeach FCC-K1](../flight_controller/thepeach_k1.md)
   - [ThePeach FCC-R1](../flight_controller/thepeach_r1.md)

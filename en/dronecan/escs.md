@@ -9,3 +9,4 @@ For more information, see the following articles for specific hardware/firmware:
 - [Zubax Telega](zubax_telega.md)
 - [Vertiq](../peripherals/vertiq.md) (larger modules)
 - [VESC Project](../peripherals/vesc.md)
+- [RaccoonLab Cyphal and DroneCAN PWM nodes](raccoonlab_nodes.md)
