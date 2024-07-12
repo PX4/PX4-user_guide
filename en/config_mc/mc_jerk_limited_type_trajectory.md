@@ -4,7 +4,7 @@ The Jerk-limited trajectory type provides smooth motion in response to user stic
 It generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
 
 This trajectory type is always enabled in [Mission mode](../flight_modes_mc/mission.md).
-To enable it in [Position mode](../flight_modes_mc/position.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+To enable it in [Position mode](../flight_modes_mc/position.md) set the parameter: [MPC_POS_MODE=Smoothed velocity](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
 ::: info
 The jerk-limited type is not used _by default_ in position mode.
