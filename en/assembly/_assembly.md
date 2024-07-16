@@ -205,7 +205,16 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 The diagram below shows how flight controller, motors, control surface actuators, other actuators and other systems might be wired, showing both power and PWM control signal connections.
 A particular vehicle might have more/fewer motors and actuators, but the wiring _approach_ when using PWM outputs is likely to be similar!
 
+<div v-if="$frontmatter.frame === 'Plane'">
+
+![FW vehicle motor and servo wiring with PM, BEC, Servo](../../assets/assembly/power_all_fw.png)
+
+</div>
+<div v-else>
+
 ![Motor and servo wiring with PM, PDB, BEC, Servo](../../assets/assembly/power_all.png)
+
+</div>
 
 The following sections explain each part in more detail.
 
@@ -237,12 +246,16 @@ For example, the CUAV Pixhawk 6x has I2C power ports `POWER 1` and `POWER 2`, an
 Even though power ports are part of the Pixhawk connector standard, you should check FC specific documentation for power setup.
 :::
 
+<div v-if="$frontmatter.frame !== 'Plane'">
+
 ### Power Distribution Board (PDB)
 
 In this example the power output from the battery is first connected to a power distribution board (PDB), which breaks out the power from the input into multiple parallel outputs.
 You don't have to use a PDB, but it can simplify wiring, in particular for vehicles that have several motors.
 
 A more capable PDB may incorporate a power module (in which case they replace a stand alone module), ESCs for controlling a number of motors, and may also integrate a BEC (battery elimination circuit) for supplying power to servos and other peripherals.
+
+</div>
 
 ### Motors
 
@@ -252,13 +265,14 @@ PWM ESCs are connected with two input wires from the battery for power, two inpu
 The power wires should be twisted in order to reduce electromagnetic interference, and kept as short and "tidy" on the frame as possible.
 
 Any outputs on either PWM output bus can be connected to any actuators, motor, or other PWM controlled hardware, and later mapped to a particular actuator that is controlled by PX4 when configuring the [Actuator Outputs](../config/actuators.md#actuator-outputs).
-Note though:
+
+Note:
 
 - By preference you should connect ESC to FMU PWM bus outputs because they are lower-latency than IO PWM outputs.
   Note that the PWM outputs are often labeled `AUX` or `MAIN`.
   Use the `AUX` bus if both are present, and `MAIN` otherwise.
 - [DShot ESC](../peripherals/dshot.md) (recommended) can only be used on the FMU PWM outputs.
-- Motor outputs should be grouped together as much as possible rather than spread randomly across both output busses.
+- Motor outputs should be grouped together as much as possible rather than spread randomly across both the FMU and IO busses.
   This is because if you assign some function to an output, such as DShot ESC, you can't then assign adjacent unused pins for anything other than a DShot ESC.
 
 ### Servos
@@ -268,16 +282,16 @@ Typical wiring for power and control is shown below.
 
 ![Servo wiring](../../assets/assembly/servos.png)
 
-Servos usually have a three wire connector that provides both power and PWM control signals (the middle pin is the power/voltage high).
-A battery elimination circuit is used to provide a regulated voltage from the battery, at the level expected by your servos.
-This is connected to the middle "Power" rail on the PWM output bus and powers all connected servos.
+PWM servos have a three wire connector that provides both power and PWM control signals (the middle pin is the power/voltage high).
+You can connect the servo outputs to any pins or bus you like, and later on configure what the output actually does in PX4.
+
+The power rail cannot be powered by the FC itself!
+A battery elimination circuit may be used to provide a regulated voltage from the battery to the middle "Power" rail on the PWM output bus, which in turn powers all connected servos.
 
 ::: warning
-The power rail cannot be powered by the FC itself!
-It can only have the one voltage provided by your BEC, so either use servos that all accept the same voltage, or you'll need to separately power any others that use a different voltage.
+The power rail can only have the one voltage provided by your BEC.
+If you don't use servos that all accept the same voltage, you'll need to separately power those that use a different voltage.
 :::
-
-As for motors, you can connect the servo outputs to any pins or bus you like, and configure what the output actually does in PX4.
 
 <div v-if="(($frontmatter.frame === 'Plane') || ($frontmatter.frame === 'VTOL'))">
 
