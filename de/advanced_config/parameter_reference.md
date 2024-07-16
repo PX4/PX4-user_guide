@@ -11172,20 +11172,20 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_CHECK">EKF2_GPS_CHECK</strong> (INT32)</td>
- <td>Integer bitmask controlling GPS checks <p><strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Maximum allowed PDOP set by EKF2_REQ_PDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. This check will only run when the vehicle is on ground and stationary. 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT. 9: Fails if GPS driver detects consistent spoofing</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Min sat count (EKF2_REQ_NSATS)</li>
-  <li><strong>1:</strong> Max PDOP (EKF2_REQ_PDOP)</li>
-  <li><strong>2:</strong> Max horizontal position error (EKF2_REQ_EPH)</li>
-  <li><strong>3:</strong> Max vertical position error (EKF2_REQ_EPV)</li>
-  <li><strong>4:</strong> Max speed error (EKF2_REQ_SACC)</li>
-  <li><strong>5:</strong> Max horizontal position rate (EKF2_REQ_HDRIFT)</li>
-  <li><strong>6:</strong> Max vertical position rate (EKF2_REQ_VDRIFT)</li>
-  <li><strong>7:</strong> Max horizontal speed (EKF2_REQ_HDRIFT)</li>
-  <li><strong>8:</strong> Max vertical velocity discrepancy (EKF2_REQ_VDRIFT)</li>
-  <li><strong>9:</strong> Spoofing check</li>
+ <td>Integer bitmask controlling GPS checks <p><strong>Comment:</strong> Each threshold value is defined by the parameter indicated next to the check. Drift and offset checks only run when the vehicle is on ground and stationary.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Sat count (EKF2_REQ_NSATS)</li>
+  <li><strong>1:</strong> PDOP (EKF2_REQ_PDOP)</li>
+  <li><strong>2:</strong> EPH (EKF2_REQ_EPH)</li>
+  <li><strong>3:</strong> EPV (EKF2_REQ_EPV)</li>
+  <li><strong>4:</strong> Speed accuracy (EKF2_REQ_SACC)</li>
+  <li><strong>5:</strong> Horizontal position drift (EKF2_REQ_HDRIFT)</li>
+  <li><strong>6:</strong> Vertical position drift (EKF2_REQ_VDRIFT)</li>
+  <li><strong>7:</strong> Horizontal speed offset (EKF2_REQ_HDRIFT)</li>
+  <li><strong>8:</strong> Vertical speed offset (EKF2_REQ_VDRIFT)</li>
+  <li><strong>9:</strong> Spoofing</li>
 </ul>
  </td>
  <td>[0, 1023] </td>
- <td>245</td>
+ <td>1023</td>
  <td></td>
 </tr>
 <tr>
@@ -17444,7 +17444,7 @@ table {
 <tr>
  <td><strong id="MC_SLOW_DEF_HVEL">MC_SLOW_DEF_HVEL</strong> (FLOAT)</td>
  <td>Default horizontal velocity limit <p><strong>Comment:</strong> This value is used in slow mode if no aux channel is mapped and no limit is commanded through MAVLink.</p>   </td>
- <td>[0.1, ?] (0.1) (0.1)</td>
+ <td>[0.1, ?] (0.1)</td>
  <td>3.</td>
  <td>m/s</td>
 </tr>
@@ -17510,7 +17510,7 @@ table {
 <tr>
  <td><strong id="MC_SLOW_MIN_HVEL">MC_SLOW_MIN_HVEL</strong> (FLOAT)</td>
  <td>Horizontal velocity lower limit <p><strong>Comment:</strong> The lowest input maps and is clamped to this velocity.</p>   </td>
- <td>[0.1, ?] (0.1) (0.1)</td>
+ <td>[0.1, ?] (0.1)</td>
  <td>.3</td>
  <td>m/s</td>
 </tr>
@@ -24395,7 +24395,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SIH_LOC_H0">SIH_LOC_H0</strong> (FLOAT)</td>
- <td>Initial AMSL ground altitude <p><strong>Comment:</strong> This value represents the Above Mean Sea Level (AMSL) altitude where the simulation begins. If using FlightGear as a visual animation, this value can be tweaked such that the vehicle lies on the ground at takeoff. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
+ <td>Initial AMSL ground altitude <p><strong>Comment:</strong> This value represents the Above Mean Sea Level (AMSL) altitude where the simulation begins. If using FlightGear as a visual animation, this value can be tweaked such that the vehicle lies on the ground at takeoff. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td>[-420.0, 8848.0] (0.01)</td>
  <td>489.4</td>
  <td>m</td>

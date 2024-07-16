@@ -61,6 +61,33 @@ bmp388 <command> [arguments...]
 
    status        print status info
 ```
+## bmp581
+Source: [drivers/barometer/bmp581](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer/bmp581)
+
+<a id="bmp581_usage"></a>
+
+### Використання
+```
+bmp581 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 70
+
+   stop
+
+   status        print status info
+```
 ## dps310
 Джерело: [drivers/barometer/dps310](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer/dps310)
 
@@ -327,7 +354,7 @@ ms5837 <command> [arguments...]
 
 <a id="spl06_usage"></a>
 
-### Використання
+### Usage
 ```
 spl06 <command> [arguments...]
  Commands:
