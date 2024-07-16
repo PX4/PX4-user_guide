@@ -79,7 +79,9 @@ The test steps are:
    <div v-if="$frontmatter.frame === 'Plane'">
 
    :::tip
+
    If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch) is configured you can just toggle the switch to the "enabled" position.
+
    :::
 
    </div>
