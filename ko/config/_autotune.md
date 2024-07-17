@@ -77,7 +77,7 @@ The test steps are:
 
    </div>
 
-   1. QGroundControl에서 메뉴(**차량 설정 > PID 조정**)를 클릭합니다.
+   1. In QGroundControl, open the menu **Vehicle setup > PID Tuning**:
 
       ![튜닝 설정 > 자동 튜닝 활성화](../../assets/qgc/setup/autotune/autotune.png)
 
