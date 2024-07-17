@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 const getSidebar = require("./get_sidebar.js");
 //import { getSidebar } from "./get_sidebar";
 
-import markdownItVideo from "markdown-it-video";
+import blockEmbedPlugin from "markdown-it-block-embed";
 // Tabs: https://github.com/Red-Asuka/vitepress-plugin-tabs
 import tabsPlugin from "@red-asuka/vitepress-plugin-tabs";
 
@@ -33,8 +33,7 @@ export default defineConfig({
 
     config: (md) => {
       // use more markdown-it plugins!
-      md.use(markdownItVideo);
-
+      md.use(blockEmbedPlugin);
       tabsPlugin(md); //https://github.com/Red-Asuka/vitepress-plugin-tabs
     },
   },
