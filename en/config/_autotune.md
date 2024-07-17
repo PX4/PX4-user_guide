@@ -86,7 +86,7 @@ The test steps are:
 
    </div>
 
-   1. In QGroundControl, open the menu: **Vehicle setup > PID Tuning**
+   1. In QGroundControl, open the menu **Vehicle setup > PID Tuning**:
 
       ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
 
