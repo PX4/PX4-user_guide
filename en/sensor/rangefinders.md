@@ -41,8 +41,7 @@ The rangefinders are enabled using the parameter [SENS_EN_MB12XX](../advanced_co
 PX4 supports: SF11/c and SF/LW20.
 PX4 can also be used with the following discontinued models: SF02, SF10/a, SF10/b, SF10/c.
 
-LightWare LW20/C (I2C), TF-Luna (UART), Garmin Lite V3 (I2C), and VL53L1CB (I2C) lidars can be connected via CAN 
-using the [RaccoonLab Cyphal and DroneCAN Rangefinder Adapter](https://raccoonlab.co/tproduct/360882105-910084093051-cyphal-and-dronecan-rangefinder-adapter).
+Others may be supported via the [RaccoonLab Cyphal and DroneCAN Rangefinder Adapter](#raccoonlab-cyphal-and-dronecan-rangefinder-adapter) described below.
 
 PX4 also supports the [LightWare LiDAR SF45 Rotating Lidar](https://www.lightwarelidar.com/shop/sf45-b-50-m/) for [collision prevention](../computer_vision/collision_prevention.md#lightware-lidar-sf45-rotating-lidar) applications.
 
@@ -79,13 +78,20 @@ The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../dronecan/avanon_las
 
 ### RaccoonLab Cyphal and DroneCAN Rangefinder Adapter
 
-The [RaccoonLab Cyphal and DroneCAN Rangefinder Adapter](https://raccoonlab.co/tproduct/360882105-910084093051-cyphal-and-dronecan-rangefinder-adapter) 
-allows several common rangefinders (LightWare LW20/C, TF-Luna, Garmin Lite V3, VL53L1CB) to be connected to the CAN bus via Cyphal or DroneCAN, providing a more robust interface than I2C or UART. 
+The [RaccoonLab Cyphal and DroneCAN Rangefinder Adapter](https://raccoonlab.co/tproduct/360882105-910084093051-cyphal-and-dronecan-rangefinder-adapter) allows several common rangefinders to be connected to the CAN bus via Cyphal or DroneCAN, providing a more robust interface than I2C or UART.
 This adapter efficiently reads measurements via I2C or UART and publishes range data in meters, making it a versatile solution for UAVs, robotics, and technical documentation applications.
+
+Supported rangefinders include:
+
+- LightWare LW20/C
+- TF-Luna
+- Garmin Lite V3
+- VL53L1CB
 
 ### RaccoonLab Cyphal and DroneCAN µRANGEFINDER
 
-[RaccoonLab µRANGEFINDER](https://docs.raccoonlab.co/guide/rangefinder/uRANGEFINDER.html) is designed to measure distance and publish it via Cyphal/DroneCAN protocols. It can be used to estimate precision landing or object avoidance.
+[RaccoonLab µRANGEFINDER](https://docs.raccoonlab.co/guide/rangefinder/uRANGEFINDER.html) is designed to measure distance and publish it via Cyphal/DroneCAN protocols.
+It can be used to estimate precision landing or object avoidance.
 
 Features:
 
