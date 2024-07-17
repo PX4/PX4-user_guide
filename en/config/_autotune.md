@@ -77,13 +77,11 @@ The test steps are:
 1. Enable autotune.
 
    <div v-if="$frontmatter.frame === 'Plane'">
-
-   :::tip
+   <div class="tip custom-block"><p class="custom-block-title">TIP</p>
 
    If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch) is configured you can just toggle the switch to the "enabled" position.
 
-   :::
-
+   </div>
    </div>
 
    1. In QGroundControl, open the menu: **Vehicle setup > PID Tuning**
@@ -166,7 +164,6 @@ Attempt manual tuning using the guides listed in [See also](#see-also) below.
 ## Optional Configuration
 
 ### Apply Tuning when In-Air/Landed
-
 
 <div v-if="$frontmatter.frame === 'Multicopter'">
 
