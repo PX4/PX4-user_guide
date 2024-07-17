@@ -26,14 +26,10 @@ export default defineConfig({
   ignoreDeadLinks: true,
   markdown: {
     math: true,
-
-    //   container: {
-    //     tipLabel: "Note",
-    //   },
-
     config: (md) => {
       // use more markdown-it plugins!
       md.use(blockEmbedPlugin);
+      console.log("Screw");
       tabsPlugin(md); //https://github.com/Red-Asuka/vitepress-plugin-tabs
     },
   },
