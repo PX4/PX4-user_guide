@@ -69,13 +69,15 @@ The recommended mode for autotuning is <div style="display: inline;" v-if="$fron
    <div v-if="$frontmatter.frame === 'Plane'">
 
    :::tip
+
    If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch) is configured you can just toggle the switch to the "enabled" position.
+
 
 :::
 
    </div>
 
-   1. У QGroundControl відкрийте меню: **Налаштування Транспортного Засобу > Налаштування PID**
+   1. In QGroundControl, open the menu **Vehicle setup > PID Tuning**:
 
       ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
 
