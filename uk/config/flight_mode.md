@@ -84,7 +84,7 @@ PX4 дозволяє вам вказати канал "режиму" та виб
 
 Відео нижче показує, як це робиться з передавачем *FrSky Taranis*.<!-- \[youtube\](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available --><!-- @\[youtube\](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs -->@[youtube](https://youtu.be/TFEjEQZqdVA)
 
-Конфігурація *QGroundControl* потім виконується [як описано вище](#flight-mode-selection).
+The *QGroundControl* configuration is then [as described above](#flight-mode-selection).
 
 
 ## Детальна інформація
