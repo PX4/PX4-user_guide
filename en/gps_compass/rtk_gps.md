@@ -20,35 +20,47 @@ The RTK compatible devices below that are expected to work with PX4 (it omits di
 The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used.
 It also highlights devices that connect via the CAN bus, and those which support PPK (Post-Processing Kinematic).
 
-Device | GPS |  Compass  | [DroneCAN](../dronecan/index.md) | [GPS Yaw](#configuring-gps-as-yaw-heading-source) | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | PPK
-:--- | :---: |:---------:| :---:  | :---:  |:------------------------------------------------------------:| :---:
-[ARK RTK GPS](https://arkelectron.com/product/ark-rtk-gps/) | F9P  | ICM42688p | &check; | |                           &check;                            |
-[CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | M8P/M8N |  &check;  | | |                                                              |
-[CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk2.md) | F9P |  &check;  | | |                           &check;                            |
-[CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md) | F9P |  RM3100   | | |                           &check;                            |
-[CUAV C-RTK2 PPK/RTK GNSS](../gps_compass/rtk_gps_cuav_c-rtk.md) | F9P |  RM3100   | | |                                                              | &check;
-[CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) | M8P |  HMC5983  | | |                                                              |
-[CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3) | M8P | ICM20948  | &check; | |                                                              |
-[Drotek SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) | F9P |  RM3100   | | |                           &check;                            |
-[Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | FB672, FB6A0 |  &check;  | | |                                                              |
-[Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) | F9P |  IST8310  | | |                                                              |
-[Holybro H-RTK F9P Ultralight](https://holybro.com/products/h-rtk-f9p-ultralight) | F9P |  IST8310  | | |                           &check;                            |
-[Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | F9P |  IST8310  | | |                           &check;                            |
-[Holybro DroneCAN H-RTK F9P Helical](https://holybro.com/products/dronecan-h-rtk-f9p-helical) | F9P |  BMM150   | &check; | |                           &check;                            |
-[Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | F9P |  IST8310  | | |                                                              | |
-[Holybro DroneCAN H-RTK F9P Rover](https://holybro.com/products/dronecan-h-rtk-f9p-rover) | F9P |  BMM150   | | |                           &check;                            |
-[Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | M8P |  IST8310  | | |
-[Holybro H-RTK Unicore UM982 GPS](../gps_compass/rtk_gps_holybro_unicore_um982.md) | UM982 |  IST8310  | | |                                                              |
-[LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md) | MC-1612-V2b |           | | |                                                              |
-[LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md) | MC-1612-V2b |  IST8310  | | |                                                              |
-[mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm) | F9P |  &check;  | | |                           &check;                            |
-[RaccoonLab L1/L2 ZED-F9P](https://docs.raccoonlab.co/guide/gps_mag_baro/gps_l1_l2_zed_f9p.html) | F9P |  RM3100   | &check; | |                                                              |
-[RaccoonLab L1/L2 ZED-F9P with external antenna](https://docs.raccoonlab.co/guide/gps_mag_baro/gnss_external_antenna_f9p_v320.html) | F9P |     RM3100      | &check; | |                                                              |
-[Septentrio AsteRx-m3 Pro](../gps_compass/septentrio_asterx-rib.md) | AsteRx               |  &check;  | | &check; |               Septentrio dual antenna heading                | &check; |
-[Septentrio mosaic-go](../gps_compass/septentrio_mosaic-go.md)   | mosaic X5 / mosaic H |  &check;  | | &check; |               Septentrio dual antenna heading                | &check; |
-[SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) | F9P |  &check;  | | |                           &check;                            |
-[SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) | F9P |  &check;  | | |                           &check;                            |
-[Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md) | F9P |  &check;  | | &check; |                                                              | |
+| Device                                                                            |         GPS          |  Compass  | [DroneCAN][drCAN] | [GPS Yaw][GPSYaw] | [Dual F9P GPS Heading][DualF9P] |   PPK   |
+| :-------------------------------------------------------------------------------- | :------------------: | :-------: | :---------------: | :---------------: | :-----------------------------: | :-----: |
+| [ARK RTK GPS](https://arkelectron.com/product/ark-rtk-gps/)                       |         F9P          | ICM42688p |      &check;      |                   |             &check;             |
+| [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)                            |       M8P/M8N        |  &check;  |                   |                   |                                 |
+| [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk2.md)                              |         F9P          |  &check;  |                   |                   |             &check;             |
+| [CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md)                    |         F9P          |  RM3100   |                   |                   |             &check;             |
+| [CUAV C-RTK2 PPK/RTK GNSS](../gps_compass/rtk_gps_cuav_c-rtk.md)                  |         F9P          |  RM3100   |                   |                   |                                 | &check; |
+| [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)                 |         M8P          |  HMC5983  |                   |                   |                                 |
+| [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3)      |         M8P          | ICM20948  |      &check;      |                   |                                 |
+| [Drotek SIRIUS RTK GNSS ROVER (F9P)][Drotek SIRIUS RTK GNSS ROVER (F9P)]          |         F9P          |  RM3100   |                   |                   |             &check;             |
+| [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                    |     FB672, FB6A0     |  &check;  |                   |                   |                                 |
+| [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md)                              |         F9P          |  IST8310  |                   |                   |                                 |
+| [Holybro H-RTK F9P Ultralight](https://holybro.com/products/h-rtk-f9p-ultralight) |         F9P          |  IST8310  |                   |                   |             &check;             |
+| [Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)  |         F9P          |  IST8310  |                   |                   |             &check;             |
+| [Holybro DroneCAN H-RTK F9P Helical][Holybro DroneCAN H-RTK F9P Helical]          |         F9P          |  BMM150   |      &check;      |                   |             &check;             |
+| [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)       |         F9P          |  IST8310  |                   |                   |                                 |         |
+| [Holybro DroneCAN H-RTK F9P Rover][Holybro DroneCAN H-RTK F9P Rover]              |         F9P          |  BMM150   |                   |                   |             &check;             |
+| [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)             |         M8P          |  IST8310  |                   |                   |
+| [Holybro H-RTK Unicore UM982 GPS][Hb H-RTK Unicore UM982]                         |        UM982         |  IST8310  |                   |                   |                                 |
+| [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                           |     MC-1612-V2b      |           |                   |                   |                                 |
+| [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                           |     MC-1612-V2b      |  IST8310  |                   |                   |                                 |
+| [mRo u-blox ZED-F9 RTK L1/L2 GPS][mRoZED-F9 RTK]                                  |         F9P          |  &check;  |                   |                   |             &check;             |
+| [RaccoonLab L1/L2 ZED-F9P][RaccoonLab L1/L2 ZED-F9P]                              |         F9P          |  RM3100   |      &check;      |                   |                                 |
+| [RaccoonLab L1/L2 ZED-F9P with external antenna][RaccnLabL1L2ZED-F9P ext_ant]     |         F9P          |  RM3100   |      &check;      |                   |                                 |
+| [Septentrio AsteRx-m3 Pro](../gps_compass/septentrio_asterx-rib.md)               |        AsteRx        |  &check;  |                   |      &check;      |  Septentrio dual ant. heading   | &check; |
+| [Septentrio mosaic-go](../gps_compass/septentrio_mosaic-go.md)                    | mosaic X5 / mosaic H |  &check;  |                   |      &check;      |  Septentrio dual ant. heading   | &check; |
+| [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)      |         F9P          |  &check;  |                   |                   |             &check;             |
+| [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                        |         F9P          |  &check;  |                   |      &check;      |                                 |         |
+
+<!-- links used in table above -->
+
+[Drotek SIRIUS RTK GNSS ROVER (F9P)]: https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html
+[RaccnLabL1L2ZED-F9P ext_ant]: https://docs.raccoonlab.co/guide/gps_mag_baro/gnss_external_antenna_f9p_v320.html
+[RaccoonLab L1/L2 ZED-F9P]: https://docs.raccoonlab.co/guide/gps_mag_baro/gps_l1_l2_zed_f9p.html
+[Holybro DroneCAN H-RTK F9P Helical]: https://holybro.com/products/dronecan-h-rtk-f9p-helical
+[Holybro DroneCAN H-RTK F9P Rover]: https://holybro.com/products/dronecan-h-rtk-f9p-rover
+[Hb H-RTK Unicore UM982]: ../gps_compass/rtk_gps_holybro_unicore_um982.md
+[mRoZED-F9 RTK]: https://store.mrobotics.io/product-p/m10020d.htm
+[drCAN]: ../dronecan/index.md
+[GPSYaw]: #configuring-gps-as-yaw-heading-source
+[DualF9P]: ../gps_compass/u-blox_f9p_heading.md
 
 Notes:
 
@@ -59,7 +71,6 @@ Notes:
 - The list may omit some discontinued hardware that is still supported.
   For example [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) is discontinued and may be removed from the list in a future release.
   Check earlier versions if a discontinued module is not mentioned here.
-
 
 ## Positioning Setup/Configuration
 
@@ -143,10 +154,16 @@ GPS can be used as a source for yaw fusion when using modules where _yaw output 
 
 When using GPS for yaw fusion you will need to configure the following parameters:
 
-Parameter | Setting
---- | ---
-[GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) |  The angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
-[EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                                                                                        |
+| Parameter                        | Setting                                                                                                                                                     |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [GPS_YAW_OFFSET][GPS_YAW_OFFSET] | The angle made by the _baseline_ (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here][fc_orientation]). |
+| [EKF2_GPS_CTRL][EKF2_GPS_CTRL]   | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                                       |
+
+<!-- links used in table above -->
+
+[GPS_YAW_OFFSET]: ../advanced_config/parameter_reference.md#GPS_YAW_OFFSET
+[EKF2_GPS_CTRL]: ../advanced_config/parameter_reference.md#EKF2_GPS_CTRL
+[fc_orientation]: ../config/flight_controller_orientation.md#calculating-orientation
 
 :::tip
 If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
