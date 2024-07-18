@@ -9,7 +9,7 @@ Key information:
 - **Frame:** [Lumenier QAV-R 5"](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html)
 - **Flight controller:** [Pixracer](../flight_controller/pixracer.md)
 
-@[youtube](https://youtu.be/wMYgqvsNEwQ)
+<lite-youtube videoid="wMYgqvsNEwQ" title="QAV-R 5 PX4 FPV Racequad"/>
 
 ![QAV Racer complete](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg)
 ![QAV Racer complete 2](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
@@ -46,7 +46,7 @@ These parts cover the sending side for standard FPV 5.8GHz analog FM video. You 
 
 I assembled the basic center plate and the arms like shown in this video between 09:25 and 13:26:
 
-@[youtube](https://youtu.be/7SIpJccXZjM)
+<lite-youtube videoid="7SIpJccXZjM" title="How to Build a Lumenier QAV-R"/>
 
 I mounted the four motors to the frame with the cables coming out towards the center of the frame.
 I used two of the longer motor screws that come with the frame for each motor and put them in the two holes which are further apart.

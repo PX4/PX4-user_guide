@@ -93,7 +93,7 @@ To enumerate the ESC:
 
 The following video demonstrates the process:
 
-@[youtube](https://www.youtube.com/watch?v=4nSa8tvpbgQ)
+<lite-youtube videoid="4nSa8tvpbgQ" title="Zubax Orel 20 with PX4 Flight Stack - Auto-enumeration"/>
 
 ### Manual ESC Enumeration using Sapog
 

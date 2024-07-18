@@ -185,13 +185,13 @@ The second is an update, which covers the changes in PX4 v1.11.
 
 A description of how flight modes work in PX4 v1.9 (Dennis Mannhart, Matthias Grob).
 
-@[youtube](https://youtu.be/-dkQG8YLffc)
+<lite-youtube videoid="-dkQG8YLffc" title="PX4 Flight Task Architecture Overview"/>
 
 <!-- datestamp:video:youtube:20190704:PX4 Flight Task Architecture Overview — PX4 Developer Summit 2019 -->
 
 ### Overview of multicopter control from sensors to motors (PX4 Developer Summit Virtual 2020)
 
-@[youtube](https://youtu.be/orvng_11ngQ?t=560)
+<lite-youtube videoid="orvng_11ngQ" params="start=560" title="Overview of multicopter control from sensors to motors"/>
 
 <!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
 

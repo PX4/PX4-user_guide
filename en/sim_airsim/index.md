@@ -10,7 +10,7 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 [AirSim](https://microsoft.github.io/AirSim/) is a open-source, cross platform simulator for drones, built on _Unreal Engine_.
 It provides physically and visually realistic simulations of Pixhawk/PX4 using either Hardware-In-The-Loop (HITL) or Software-In-The-Loop (SITL).
 
-@[youtube](https://youtu.be/-WfTr1-OBGQ)
+<lite-youtube videoid="-WfTr1-OBGQ" title="AirSim Demo"/>
 
 <!-- datestamp:video:youtube:20170216:AirSim Demo -->
 
@@ -22,7 +22,7 @@ It provides physically and visually realistic simulations of Pixhawk/PX4 using e
 
 #### AirSim with PX4 on WSL 2
 
-@[youtube](https://youtu.be/DiqgsWIOoW4)
+<lite-youtube videoid="DiqgsWIOoW4" title="AirSim with PX4 on WSL 2"/>
 
 <!-- datestamp:video:youtube:20210401:AirSim with PX4 on WSL 2 -->
 
@@ -33,13 +33,13 @@ This limitation does not apply for AirSim because its UI is run natively in Wind
 
 #### Microsoft AirSim: Applications to Research and Industry (PX4 Developer Summit Virtual 2020)
 
-@[youtube](https://youtu.be/-YMiKaJYl44)
+<lite-youtube videoid="-YMiKaJYl44" title="Microsoft AirSim: Applications to Research and Industry"/>
 
 <!-- datestamp:video:youtube:20200716:Microsoft AirSim: Applications to Research and Industry — PX4 Developer Summit Virtual 2020 -->
 
 #### Autonomous Drone Inspections using AirSim and PX4 (PX4 Developer Summit Virtual 2020)
 
-@[youtube](https://youtu.be/JDx0MPTlhrg)
+<lite-youtube videoid="JDx0MPTlhrg" title="Autonomous Drone Inspections using AirSim and PX4"/>
 
 <!-- datestamp:video:youtube:20200716:Autonomous Drone Inspections using AirSim and PX4 — PX4 Developer Summit Virtual 2020 -->
 

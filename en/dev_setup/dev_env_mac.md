@@ -13,7 +13,7 @@ To build other targets you will need to use a [different OS](../dev_setup/dev_en
 
 ## Video Guide
 
-@[youtube](https://youtu.be/tMbMGiMs1cQ)
+<lite-youtube videoid="tMbMGiMs1cQ" title="Setting up your PX4 development environment on macOS"/>
 
 ## Base Setup
 

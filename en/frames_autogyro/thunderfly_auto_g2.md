@@ -144,7 +144,7 @@ It can be handled, for example, by nulling the engine’s output in the transmit
 
 ## Video
 
-@[youtube](https://youtu.be/YhXXSWz5wWs)
+<lite-youtube videoid="YhXXSWz5wWs" title="[ThunderFly] 3D printed autogyro rotor"/>
 
 ## Photo gallery of changes
 

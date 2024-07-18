@@ -75,21 +75,22 @@ See [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md) for more information.
 
 Intro to DroneCAN (UAVCANv0) and practical example with setup in QGroundControl:
 
-@[youtube](https://youtu.be/IZMTq9fTiOM)
+<lite-youtube videoid="IZMTq9fTiOM" title="Intro to DroneCAN (UAVCANv0) and practical example with setup in QGroundControl"/>
 
 ### Cyphal
 
-UAVCAN v1 for drones — PX4 Developer Summit Virtual 2020
+UAVCAN v1 for drones (Cyphal) — PX4 Developer Summit Virtual 2020
 
-@[youtube](https://youtu.be/6Bvtn_g8liU)
+<lite-youtube videoid="6Bvtn_g8liU" title="UAVCAN v1 for drones — PX4 Developer Summit Virtual 2020"/>
 
 ---
 
 Getting started using UAVCAN v1 with PX4 on the NXP UAVCAN Board — PX4 Developer Summit Virtual 2020
-@[youtube](https://youtu.be/MwdHwjaXYKs)
+
+<lite-youtube videoid="MwdHwjaXYKs" title="Getting started using UAVCAN v1 with PX4 on the NXP UAVCAN Board"/>
 
 ---
 
 UAVCAN: a highly dependable publish-subscribe protocol for hard real-time intra-vehicular networking — PX4 Developer Summit Virtual 2019
 
-@[youtube](https://youtu.be/MBtROivYPik)
+<lite-youtube videoid="MBtROivYPik" title="UAVCAN: a highly dependable publish-subscribe protocol for hard ..."/>

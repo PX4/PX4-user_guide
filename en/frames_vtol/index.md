@@ -121,7 +121,7 @@ VTOL configuration is covered in a number of sections:
 
 VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
 
-@[youtube](https://youtu.be/37BIBAzD6fE)
+<lite-youtube videoid="37BIBAzD6fE" title="VTOL control and airspeed fault detection"/>
 
 <!-- 20190704 -->
 
@@ -129,28 +129,28 @@ VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
 
 [UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/)
 
-@[youtube](https://youtu.be/pWt6uoqpPIw)
+<lite-youtube videoid="pWt6uoqpPIw" title="UAV Works VALAQ"/>
 
 [TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
 
-@[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
+<lite-youtube videoid="acG0aTuf3f8" title="PX4 VTOL - Call for Testpilots"/>
 
 ### Tiltrotor
 
 [Convergence Tiltrotor](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
 
-@[youtube](https://youtu.be/E61P2f2WPNU)
+<lite-youtube videoid="E61P2f2WPNU" title="E-flite Convergence Autonomous Mission Flight"/>
 
 ### QuadPlane VTOL
 
 [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)
 
-@[youtube](https://www.youtube.com/watch?v=4K8yaa6A0ks&vq=hd720)
+<lite-youtube videoid="4K8yaa6A0ks" title="Fun Cub PX4 VTOL Maiden"/>
 
 [Falcon Vertigo QuadPlane](../frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
 
-@[youtube](https://youtu.be/h7OHTigtU0s)
+<lite-youtube videoid="h7OHTigtU0s" title="PX4 Vtol test"/>
 
 [Ranger QuadPlane](../frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.md)
 
-@[youtube](https://www.youtube.com/watch?v=7tGXkW6d3sA&vq=hd720)
+<lite-youtube videoid="7tGXkW6d3sA" title="PX4 Autopilot - Experimental VTOL with Pixhawk and U-Blox M8N GPS"/>
