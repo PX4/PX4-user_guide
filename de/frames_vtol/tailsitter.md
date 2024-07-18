@@ -62,7 +62,7 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 
 [TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md) - Tailsitter takeoff (close up), hover, level flight, transitions.
 
-@[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
+<lite-youtube videoid="acG0aTuf3f8" title="PX4 VTOL - Call for Testpilots"/>
 
 ---
 
@@ -71,18 +71,14 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 <!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
 <!-- Update issue https://github.com/PX4/PX4-user_guide/issues/3007 -->
 
-@[youtube](https://youtu.be/gjHj6YsxcZk)
+<lite-youtube videoid="gjHj6YsxcZk" title="PX4 Autopilot Tailsitter"/>
 
 ### Quad
 
-<!--
-[Skypull](https://www.skypull.technology/) Tethered quad tailsitter (promotional video)
-@[youtube](https://youtu.be/6s-Izqb_GVs)
--->
-
 [UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - Tailsitter takeoff, transition, landing.
 
-@[youtube](https://youtu.be/pWt6uoqpPIw)
+<lite-youtube videoid="pWt6uoqpPIw" title="UAV Works VALAQ"/>
+
 
 ## Gallery
 
