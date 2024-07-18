@@ -10,7 +10,7 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 
 **Supported Vehicles:** Plane, Quadrotor, Hexarotor
 
-@[youtube](https://youtu.be/y5azVNmIVyw)
+<lite-youtube videoid="y5azVNmIVyw" title="JSBSim with APX4 Software-In-The-Loop Simulation"/>
 
 :::note
 See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
