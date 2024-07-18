@@ -6,7 +6,7 @@
 
 Наступне відео демонструє відлагодження hardfault на PX4 за допомогою Eclipse та JTAG-відлагоджувача. Це було представлено на конференції розробників PX4 2019 року.
 
-@[youtube](https://youtu.be/KZkAM_PVOi0)
+<lite-youtube videoid="KZkAM_PVOi0" title="Hardfault debugging on PX4"/>
 
 ## Відлагодження важких відмов в NuttX
 
