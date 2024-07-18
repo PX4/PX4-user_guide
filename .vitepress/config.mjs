@@ -1,8 +1,6 @@
 import { defineConfig } from "vitepress";
 const getSidebar = require("./get_sidebar.js");
-//import { getSidebar } from "./get_sidebar";
 
-import blockEmbedPlugin from "markdown-it-block-embed";
 // Tabs: https://github.com/Red-Asuka/vitepress-plugin-tabs
 import tabsPlugin from "@red-asuka/vitepress-plugin-tabs";
 
@@ -28,7 +26,6 @@ export default defineConfig({
     math: true,
     config: (md) => {
       // use more markdown-it plugins!
-      md.use(blockEmbedPlugin);
       tabsPlugin(md); //https://github.com/Red-Asuka/vitepress-plugin-tabs
     },
   },
@@ -195,4 +192,12 @@ export default defineConfig({
       gtag('config', 'G-91EWVWRQ93');`,
     ],
   ],
+
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => tag === "lite-youtube",
+      },
+    },
+  },
 });

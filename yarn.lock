@@ -842,6 +842,11 @@ linkify-it@^4.0.1:
   dependencies:
     uc.micro "^1.0.1"
 
+lite-youtube-embed@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.npmjs.org/lite-youtube-embed/-/lite-youtube-embed-0.3.2.tgz"
+  integrity sha512-b1dgKyF4PHhinonmr3PB172Nj0qQgA/7DE9EmeIXHR1ksnFEC2olWjNJyJGdsN2cleKHRjjsmrziKlwXtPlmLQ==
+
 magic-string@^0.30.10:
   version "0.30.10"
   resolved "https://registry.npmjs.org/magic-string/-/magic-string-0.30.10.tgz"
@@ -853,11 +858,6 @@ mark.js@8.11.1:
   version "8.11.1"
   resolved "https://registry.npmjs.org/mark.js/-/mark.js-8.11.1.tgz"
   integrity sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==
-
-markdown-it-block-embed@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.npmjs.org/markdown-it-block-embed/-/markdown-it-block-embed-0.0.3.tgz"
-  integrity sha512-coWuC/uZY6Z1Gp3wthhJo5yjkG3/gHErNF/emaiEvD98fKzEHNP6GCYGfJfk5o0n31xiaYjbDgef+XtabKOZzA==
 
 markdown-it-container@^3.0.0:
   version "3.0.0"
