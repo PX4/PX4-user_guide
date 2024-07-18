@@ -9779,34 +9779,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="COM_ARM_EKF_HGT">COM_ARM_EKF_HGT</strong> (FLOAT)</td>
- <td>Maximum EKF height innovation test ratio that will allow arming    </td>
- <td>[0.1, 1.0] (0.05)</td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="COM_ARM_EKF_POS">COM_ARM_EKF_POS</strong> (FLOAT)</td>
- <td>Maximum EKF position innovation test ratio that will allow arming    </td>
- <td>[0.1, 1.0] (0.05)</td>
- <td>0.5</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="COM_ARM_EKF_VEL">COM_ARM_EKF_VEL</strong> (FLOAT)</td>
- <td>Maximum EKF velocity innovation test ratio that will allow arming    </td>
- <td>[0.1, 1.0] (0.05)</td>
- <td>0.5</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="COM_ARM_EKF_YAW">COM_ARM_EKF_YAW</strong> (FLOAT)</td>
- <td>Maximum EKF yaw innovation test ratio that will allow arming    </td>
- <td>[0.1, 1.0] (0.05)</td>
- <td>0.5</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="COM_ARM_HFLT_CHK">COM_ARM_HFLT_CHK</strong> (INT32)</td>
  <td>Enable FMU SD card hardfault detection check <p><strong>Comment:</strong> This check detects if there are hardfault files present on the SD card. If so, and the parameter is enabled, arming is prevented.</p>   </td>
  <td></td>
