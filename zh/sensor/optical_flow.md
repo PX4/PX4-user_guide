@@ -2,7 +2,9 @@
 
 _光流传感器_使用下视相机和向下的距离传感器进行速度估计。
 
-@[youtube](https://youtu.be/aPQKgUof3Pc) _Video: PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md))._
+<lite-youtube videoid="aPQKgUof3Pc" title="ARK Flow with PX4 Optical Flow Position Hold"/>
+
+_Video: PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md))._
 
 <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
 
