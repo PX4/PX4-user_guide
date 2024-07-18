@@ -56,4 +56,4 @@ PX4 підтримує рухомі з використанням:
 
 Це відео показує [Traxxas Stampede Rover](../frames_rover/traxxas_stampede.md) (автомобіль Акермана).
 
-@[youtube](https://youtu.be/N3HvSKS3nCw)
+<lite-youtube videoid="N3HvSKS3nCw" title="Traxxas Stampede VXL Autonomous navigation with Pixhawk Mini"/>
