@@ -174,7 +174,7 @@ The dynamic models for the various vehicles are:
 
 ## Video
 
-@[youtube](https://youtu.be/PzIpSCRD8Jo)
+<lite-youtube videoid="PzIpSCRD8Jo" title="SIH FW demo"/>
 
 ## Credits
 

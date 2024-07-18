@@ -13,7 +13,7 @@ Rotational earth effects are also modeled into the dynamics.
 
 **Supported Vehicles:** Plane, Quadrotor, Hexarotor
 
-@[youtube](https://youtu.be/y5azVNmIVyw)
+<lite-youtube videoid="y5azVNmIVyw" title="JSBSim with APX4 Software-In-The-Loop Simulation"/>
 
 ::: info
 See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).

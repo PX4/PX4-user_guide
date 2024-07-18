@@ -1,5 +1,6 @@
 // https://vitepress.dev/guide/custom-theme
 import { h } from "vue";
+
 import DefaultTheme from "vitepress/theme";
 import "./style.css";
 
@@ -7,6 +8,14 @@ import "./style.css";
 import { onMounted, watch, nextTick } from "vue";
 import { useRoute } from "vitepress";
 import mediumZoom from "medium-zoom";
+
+// For https://www.npmjs.com/package/lite-youtube-embed
+import { inBrowser } from "vitepress";
+import "lite-youtube-embed/src/lite-yt-embed.css";
+if (inBrowser) {
+  // @ts-ignore
+  import("lite-youtube-embed");
+}
 
 // Support redirect plugin
 import Redirect from "./components/Redirect.vue";

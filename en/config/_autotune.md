@@ -29,7 +29,7 @@ The airframe must fly well enough to handle moderate disturbances, and should be
 
 :::
 
-@[youtube](https://youtu.be/5xswOhhqrIQ)
+<lite-youtube videoid="5xswOhhqrIQ" title="QGroundControl Autotune Feature Breakdown for PX4 Autopilot"/>
 
 ## Pre-tuning Test
 

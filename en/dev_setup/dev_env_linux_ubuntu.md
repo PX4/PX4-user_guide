@@ -83,7 +83,7 @@ The video suggests that you build source using JMAVSim, entering the command: `m
 As JMAVSim is now community-supported, you should instead build using Gazebo or Gazebo Classic, as shown in [Building the Code](../dev_setup/building_px4.md#first-build-using-a-simulator)
 :::
 
-@[youtube](https://youtu.be/OtValQdAdrU).
+<lite-youtube videoid="OtValQdAdrU" title=" Setting up your PX4 development environment on Linux"/>
 
 ## Other Targets
 
