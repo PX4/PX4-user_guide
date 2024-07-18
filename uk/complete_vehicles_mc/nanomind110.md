@@ -22,7 +22,7 @@ NanoMind використовує MindRacer як керування польот
 
 ### Відео польоту
 
-@[youtube](https://youtu.be/bLtKa--Buic)
+<lite-youtube videoid="bLtKa--Buic" title="NanoMind with external compass flying EKF2 estimator"/>
 
 ### Де купити
 
