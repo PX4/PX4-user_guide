@@ -88,7 +88,7 @@ make RELEASE=1
 
 Наступне відео демонструє процес:
 
-@[youtube](https://www.youtube.com/watch?v=4nSa8tvpbgQ)
+<lite-youtube videoid="4nSa8tvpbgQ" title="Zubax Orel 20 with PX4 Flight Stack - Auto-enumeration"/>
 
 ### Ручне перерахування ESC за допомогою Sapog
 
