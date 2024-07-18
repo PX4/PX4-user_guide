@@ -6,7 +6,7 @@ _Gazebo Classic_ 支持 PX4 到 Ubuntu Linux 20.04。 In Ubuntu 22.04 and later 
 
 Gazebo Classic 是一个功能强大的三维仿真环境，专门用于测试避障和计算机视觉等自主机器人技术。 本页描述了在SITL和单一载具上的使用方式。 Gazebo Classic can also be used with [HITL](../simulation/hitl.md) and for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation.md).
 
-@[youtube](https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720)
+<lite-youtube videoid="qfFF9-0k4KA" title="PX4 Flight Stack ROS 3D Software in the Loop Simulation (SITL)"/>
 
 [![Mermaid Graph: Gazebo plugin](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
@@ -303,7 +303,7 @@ make px4_sitl gazebo-classic_rover__sonoma_raceway
 
 The video below shows that the location of the environment is aligned with the world:
 
-@[youtube](https://youtu.be/-a2WWLni5do)
+<lite-youtube videoid="-a2WWLni5do" title="Driving a simulated PX4 Rover in the Sonoma Raceway"/>
 
 ## Starting Gazebo and PX4 Separately
 
