@@ -209,7 +209,7 @@ For instructions on how, start from [Autotune](../config/autotune_mc.md).
 
 ## 비디오
 
-@[유투브](https://youtu.be/b0bKNdDqVHw)
+<lite-youtube videoid="b0bKNdDqVHw" title="CUAV Nano"/>
 
 
 ## 감사의 글
