@@ -11,7 +11,7 @@
 
 ## 영상 가이드
 
-@[유투브](https://youtu.be/tMbMGiMs1cQ)
+<lite-youtube videoid="tMbMGiMs1cQ" title="Setting up your PX4 development environment on macOS"/>
 
 ## Base Setup
 
