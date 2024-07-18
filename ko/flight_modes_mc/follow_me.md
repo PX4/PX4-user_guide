@@ -42,14 +42,14 @@ Users can adjust the follow angle, height and distance using an RC controller as
 Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode. If you exit Follow-Me mode and activate it again the values will be reset to their defaults.
 :::
 
-Demo video:
+### Video
 
-@[youtube](https://youtu.be/csuMtU6seXI?t=155)
+<lite-youtube videoid="csuMtU6seXI" params="start=155" title="PX4 Follow Target follows a Rover!"/>
 
 ### Safety Precautions
 
 :::warning
-**Follow-me mode** does not implement any type of obstacle avoidance. 이 모드를 사용시에는 특별한 주의가 필요합니다.
+**Follow-me mode** does not implement any type of obstacle avoidance. Special care must be taken when this mode is used.
 :::
 
 The following flight precautions should be observed:
@@ -65,7 +65,7 @@ The following flight precautions should be observed:
 
 ![Follow-me QGC Example](../../assets/flight_modes/followme_qgc_example.jpg)
 
-_Follow Me_ mode is supported using _QGroundControl_ as a target on ground station hardware that has a GPS module. 권장 구성은 텔레메트리를 사용하는 USB OTG 지원 Android 장치입니다.
+_Follow Me_ mode is supported using _QGroundControl_ as a target on ground station hardware that has a GPS module. The recommended configuration is a USB OTG-capable Android device with two telemetry radios.
 
 To setup _Follow Me_ mode:
 
@@ -83,7 +83,7 @@ To setup _Follow Me_ mode:
 
 At this point you can start moving, and the drone will be following you.
 
-이 모드는 다음 Android 장치에서 테스트되었습니다.
+The mode has been tested on the following Android devices:
 
 - Galaxy S10
 - - 넥서스 5 - Nexus 7 태블릿
@@ -149,7 +149,10 @@ The follow-me behavior can be configured using the following parameters:
 
 3. Using the RC Adjustment for height, distance and angle, you can get some creative camera shots.
 
-   @[youtube](https://www.youtube.com/watch?v=o3DhvCL_M1E) This video demonstrates a Google-Earth view perspective, by adjusting the height to around 50 meters (high), distance to 1 meter (close). Which allows a perspective as shot from a satellite.
+   <lite-youtube videoid="o3DhvCL_M1E" title="YUN0012 almostCinematic"/>
+
+
+   This video demonstrates a Google-Earth view perspective, by adjusting the height to around 50 meters (high), distance to 1 meter (close). Which allows a perspective as shot from a satellite.
 
 ## 알려진 이슈들
 
