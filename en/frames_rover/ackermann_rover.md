@@ -108,10 +108,10 @@ It depends on the velocity $v$ of the rover and a tuning parameter $k$ that can 
 A lower value of [RA_LOOKAHEAD_TUN](#RA_LOOKAHEAD_TUN) makes the controller more aggressive but can lead to oscillations!
 :::
 
-The lookahead is constrained between [RA_LOOKAHEAD_MAX](#RA_LOOKAHEAD_MAX) and [RA_LOOKAHEAD_MIN](#RA_LOOKAHEAD_MIN).
+The lookahead is constrained between [RA_LOOKAHD_MAX](#RA_LOOKAHD_MAX) and [RA_LOOKAHD_MIN](#RA_LOOKAHD_MIN).
 
 :::info
-Increasing [RA_LOOKAHEAD_MIN](#RA_LOOKAHEAD_MIN) can help to make the steering less aggressive at slow speeds. This can be useful especially
+Increasing [RA_LOOKAHD_MIN](#RA_LOOKAHD_MIN) can help to make the steering less aggressive at slow speeds. This can be useful especially
 if the [corner slow down effect](#corner-slow-down) is enabled.
 :::
 
@@ -119,7 +119,7 @@ To deal with the edge case that the line segment is outside the look ahead radiu
 
 1. The look ahead is scaled to the crosstrack error, which creates an intersection point for the rover to drive towards.
 2. Scaling the look ahead too much can have undesirable effects such as the rover driving a huge circle to return to the path, rather then taking a straight line.
-   For this purpose the maximum look ahead radius can be capped with the parameter [RA_LOOKAHEAD_MAX](#RA_LOOKAHEAD_MAX), after which the rover will drive directly
+   For this purpose the maximum look ahead radius can be capped with the parameter [RA_LOOKAHD_MAX](#RA_LOOKAHD_MAX), after which the rover will drive directly
    towards the current waypoint until it gets close enough to the line segment again.
 
 To summarize, the following parameters can be used to tune the controller:
@@ -127,8 +127,8 @@ To summarize, the following parameters can be used to tune the controller:
 | Parameter                                                                                                   | Description                             | Unit |
 | ----------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---- |
 | <a id="RA_LOOKAHEAD_TUN"></a>[RA_LOOKAHEAD_TUN](../advanced_config/parameter_reference.md#RA_LOOKAHEAD_TUN) | Main tuning parameter                   | -    |
-| <a id="RA_LOOKAHEAD_MAX"></a>[RA_LOOKAHEAD_MAX](../advanced_config/parameter_reference.md#RA_LOOKAHEAD_MAX) | Maximum value for the look ahead radius | m    |
-| <a id="RA_LOOKAHEAD_MIN"></a>[RA_LOOKAHEAD_MIN](../advanced_config/parameter_reference.md#RA_LOOKAHEAD_MIN) | Minimum value for the look ahead radius | m    |
+| <a id="RA_LOOKAHD_MAX"></a>[RA_LOOKAHD_MAX](../advanced_config/parameter_reference.md#RA_LOOKAHD_MAX) | Maximum value for the look ahead radius | m    |
+| <a id="RA_LOOKAHD_MIN"></a>[RA_LOOKAHD_MIN](../advanced_config/parameter_reference.md#RA_LOOKAHD_MIN) | Minimum value for the look ahead radius | m    |
 
 #### Cornering Parameters
 
