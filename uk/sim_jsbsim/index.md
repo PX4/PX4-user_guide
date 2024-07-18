@@ -10,7 +10,7 @@
 
 **Підтримувані транспортні засоби:** літак, квадротор, гексаротор
 
-@[youtube](https://youtu.be/y5azVNmIVyw)
+<lite-youtube videoid="y5azVNmIVyw" title="JSBSim with APX4 Software-In-The-Loop Simulation"/>
 
 :::info Див. [Симуляція](../simulation/index.md) для загальної інформації про симулятори, середовище симуляції та конфігурацію симуляції (наприклад, підтримувані транспортні засоби).
 :::
