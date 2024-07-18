@@ -42,6 +42,7 @@ PX4 можна використовувати з багатьма деталям
 | :-------------------------------------------------------------------------------------------------------------- | :----: | :-----------------------------: |
 | [Магнітометр UAVCAN Avionics Anonymous](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?   |                                 |
 | [Компас/Магнітометр Holybro DroneCAN RM3100](https://holybro.com/products/dronecan-rm3100-compass)              | RM3100 | &amp;check; |
+| [RaccoonLab DroneCAN/Cyphal Magnetometer RM3100](https://holybro.com/products/dronecan-rm3100-compass)          | RM3100 | &amp;check; |
 
 Примітка:
 
