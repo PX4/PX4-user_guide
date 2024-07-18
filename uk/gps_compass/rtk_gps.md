@@ -39,11 +39,15 @@ PX4 підтримує GPS [u-blox M8P](https://www.u-blox.com/en/product/neo-m8
 | [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                                           |     MC-1612-V2b      |           |                                  |                                                   |                                                                |         |
 | [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                                           |     MC-1612-V2b      |  IST8310  |                                  |                                                   |                                                                |         |
 | [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm)               |         F9P          |  &check;  |                                  |                                                   |                            &check;                             |         |
+| [RaccoonLab L1/L2 ZED-F9P][RaccoonLab L1/L2 ZED-F9P]                                              |         F9P          |  RM3100   |             &check;              |                                                   |                                                                |         |
+| [RaccoonLab L1/L2 ZED-F9P with external antenna][RaccnLabL1L2ZED-F9P ext_ant]                     |         F9P          |  RM3100   |             &check;              |                                                   |                                                                |         |
 | [Septentrio AsteRx-m3 Pro](../gps_compass/septentrio_asterx-rib.md)                               |        AsteRx        |  &check;  |                                  |                      &check;                      |                Положення двох антен Septentrio                 | &check; |
 | [Septentrio mosaic-go](../gps_compass/septentrio_mosaic-go.md)                                    | mosaic X5 / mosaic H |  &check;  |                                  |                      &check;                      |               Голова Септентріо подвійної антени               | &check; |
 | [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html)        |         F9P          |  &check;  |                                  |                                                   |                            &check;                             |         |
 | [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)                      |         F9P          |  &check;  |                                  |                                                   |                            &check;                             |         |
 | [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                        |         F9P          |  &check;  |                                  |                      &check;                      |                                                                |         |
+
+<!-- links used in above table -->
 
 Примітки:
 
@@ -51,7 +55,6 @@ PX4 підтримує GPS [u-blox M8P](https://www.u-blox.com/en/product/neo-m8
 - Там, де це можливо і доречно, використовується назва деталі (наприклад, &check; у колонці GPS вказує на наявність GPS-модуля, але деталь невідома).
 - Деякі RTK-модулі можна використовувати лише в певній ролі (база або ровер), тоді як інші можна використовувати як взаємозамінні.
 - У списку може бути відсутнє деяке зняте з виробництва обладнання, яке все ще підтримується. Наприклад, [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) більше не випускається і може бути вилучений зі списку у наступному релізі. Перевірте попередні версії, якщо тут не згадано модуль, який перестали випускати.
-
 
 ## Налаштування/Конфігурація розташування
 
@@ -125,10 +128,12 @@ GPS може бути використаний як джерело для об'�
 
 Під час використання GPS для злиття по курсу вам доведеться налаштувати наступні параметри:
 
-| Параметр                                                                     | Налаштування                                                                                                                                                                                                     |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) | Кут, який утворює *базова лінія* (лінія між двома GPS антенами) відносно осі x транспортного засобу (передня/задня вісь, як показано [тут](../config/flight_controller_orientation.md#calculating-orientation)). |
-| [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)   | Встановіть бітову позицію 3 "Напрямок подвійної антени" на `1` (тобто додайте 8 до значення параметра).                                                                                                          |
+| Параметр                           | Налаштування                                                                                                                                                |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [GPS_YAW_OFFSET][GPS_YAW_OFFSET] | The angle made by the _baseline_ (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here][fc_orientation]). |
+| [EKF2_GPS_CTRL][EKF2_GPS_CTRL]   | Встановіть бітову позицію 3 "Напрямок подвійної антени" на `1` (тобто додайте 8 до значення параметра).                                                     |
+
+<!-- links used in table above -->
 
 :::tip
 Якщо ви використовуєте цю функцію, всі інші конфігурації мають бути налаштовані стандартно (наприклад, [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
@@ -167,7 +172,6 @@ GPS може бути використаний як джерело для об'�
 
 Другий приймач GPS може бути використаний як резервний (RTK або не RTK). Дивіться розділ [Конфігурація GPS EKF2](../advanced_config/tuning_the_ecl_ekf.md#gps).
 
-
 <!--
 - Video demonstration would be nice.
 - something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
@@ -177,3 +181,10 @@ GPS може бути використаний як джерело для об'�
 
 - [RTK-GPS (Інтеграція PX4)](../advanced/rtk_gps.md): Інформація розробника про інтеграцію підтримки RTK-GPS до PX4.
 - [Реально-часова кінематика](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (Wikipedia)
+
+[RaccnLabL1L2ZED-F9P ext_ant]: https://docs.raccoonlab.co/guide/gps_mag_baro/gnss_external_antenna_f9p_v320.html
+[RaccoonLab L1/L2 ZED-F9P]: https://docs.raccoonlab.co/guide/gps_mag_baro/gps_l1_l2_zed_f9p.html
+
+[GPS_YAW_OFFSET]: ../advanced_config/parameter_reference.md#GPS_YAW_OFFSET
+[EKF2_GPS_CTRL]: ../advanced_config/parameter_reference.md#EKF2_GPS_CTRL
+[fc_orientation]: ../config/flight_controller_orientation.md#calculating-orientation
