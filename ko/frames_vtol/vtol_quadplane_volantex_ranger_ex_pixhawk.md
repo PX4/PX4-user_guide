@@ -50,13 +50,9 @@ For a full parts list with links to Hobbyking EU and International warehouse see
 
 ## 날개 변환
 
-A full build log is provided in the following video.
-
 ::: info
 Please note that the conversion in this build log is performed on a wing that shows damage from a previous conversion. 
 :::
-
-@[유투브](https://youtu.be/l_ppJ_HhAUQ)
 
 Cut both 800mm square carbon tubes to a length of 570mm and 230mm.
 
