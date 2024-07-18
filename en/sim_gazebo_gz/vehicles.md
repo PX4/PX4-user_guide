@@ -41,7 +41,7 @@ make px4_sitl gz_x500_depth
 
 ### X500 Quadrotor with Monocular Camera
 
-This models has a simple monocular camera sensor attached (there is no physical camera visualization on the model itself).
+This model has a simple monocular camera sensor attached (there is no physical camera visualization on the model itself).
 
 ```sh
 make px4_sitl gz_x500_mono_cam
@@ -51,17 +51,17 @@ make px4_sitl gz_x500_mono_cam
 The camera cannot yet be used to stream video or for image capture in QGroundControl.
 [PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) can be used to track the additional work needed to fully enable these use cases.
 :::
+
 ### X500 Quadrotor with 2D LIDAR
 
 This model have a 2D LIDAR attached, modelled on the Hokuyo TM-30LX.
-
-
 
 ```sh
 make px4_sitl gz_x500_lidar
 ```
 
 ![x500 with 2D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar.png)
+
 ## Plane/Fixed-wing
 
 ### Standard Plane

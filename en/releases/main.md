@@ -47,9 +47,10 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### Simulation
 
-- The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7.
+- [SIH]: The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7.
   ([PX4-Autopilot#23363](https://github.com/PX4/PX4-Autopilot/pull/23363)).
-- Added 'x500_lidar' [Gazebo model](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)
+- [Gazebo]: New vehicle model `x500_lidar` — [x500 Quadrotor with 2D Lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar).
+  ([PX4-Autopilot#22418](https://github.com/PX4/PX4-Autopilot/pull/22418), [PX4-gazebo-models#41](https://github.com/PX4/PX4-gazebo-models/pull/41)).
 
 ### Ethernet
 
