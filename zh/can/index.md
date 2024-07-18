@@ -56,20 +56,22 @@ PX4 can be built to run as open-source DroneCAN firmware on supported CAN hardwa
 
 关于 DroneCAN (UAVCANv0) 的介绍和在 QGroundControl 中设置的实用示例：
 
-@[youtube](https://youtu.be/IZMTq9fTiOM)
+<lite-youtube videoid="IZMTq9fTiOM" title="Intro to DroneCAN (UAVCANv0) and practical example with setup in QGroundControl"/>
 
 ### Cyphal
 
-无人机 UAVCAN v1 — PX4 开发者虚拟峰会 2020
+UAVCAN v1 for drones (Cyphal) — PX4 Developer Summit Virtual 2020
 
-@[youtube](https://youtu.be/6Bvtn_g8liU)
+<lite-youtube videoid="6Bvtn_g8liU" title="无人机 UAVCAN v1 — PX4 开发者虚拟峰会 2020"/>
 
 ---
 
-在NXP UAVCAN 板上使用 PX4 开始使用 UAVCAN v1- PX4 开发者虚拟峰会 2020 @[youtube](https://youtu.be/MwdHwjaXYKs)
+Getting started using UAVCAN v1 with PX4 on the NXP UAVCAN Board — PX4 Developer Summit Virtual 2020
+
+<lite-youtube videoid="MwdHwjaXYKs" title="Getting started using UAVCAN v1 with PX4 on the NXP UAVCAN Board"/>
 
 ---
 
 UAVCAN：一个高度可靠的发布-订阅协议，用于硬实时车辆内网络 — PX4 开发者虚拟峰会 2019
 
-@[youtube](https://youtu.be/MBtROivYPik)
+<lite-youtube videoid="MBtROivYPik" title="UAVCAN: a highly dependable publish-subscribe protocol for hard ..."/>
