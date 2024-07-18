@@ -118,7 +118,7 @@ Durafly Auto-G2, у своєму оригінальному дизайні, ма
 
 ## Відео
 
-@[youtube](https://youtu.be/YhXXSWz5wWs)
+<lite-youtube videoid="YhXXSWz5wWs" title="[ThunderFly] 3D printed autogyro rotor"/>
 
 ## Фотогалерея змін
 
