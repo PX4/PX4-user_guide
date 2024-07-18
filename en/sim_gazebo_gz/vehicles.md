@@ -54,7 +54,7 @@ The camera cannot yet be used to stream video or for image capture in QGroundCon
 
 ### X500 Quadrotor with 2D LIDAR
 
-This model have a 2D LIDAR attached, modelled on the Hokuyo TM-30LX.
+This model have a 2D LIDAR attached, modelled on the Hokuyo UTM-30LX.
 
 ```sh
 make px4_sitl gz_x500_lidar
