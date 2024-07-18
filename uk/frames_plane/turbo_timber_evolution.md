@@ -171,13 +171,17 @@ FPV підставка була закріплена зверху кришки �
 
 ### Відео
 
-@[youtube](https://www.youtube.com/watch?v=vMFCi3G5s6E)
+<lite-youtube videoid="vMFCi3G5s6E" title="PX4 Turbo Timber Spot Landing"/>
 
-@[youtube](https://youtu.be/1DUV7QjcXrA)
+---
+
+<lite-youtube videoid="1DUV7QjcXrA" title="PX4 Turbo timber Evolution Short Flight"/>
 
 ### Журнали польотів
 
-[Вечірній політ (відео польоту показано нижче)](https://review.px4.io/plot_app?log=d3f2c1f9-f802-48c1-ab5d-3983fc8b8719) @[youtube](https://www.youtube.com/watch?v=6CqigySqyAQ&ab_channel=ChrisSeto)
+[Evening Flight (video of flight shown below)](https://review.px4.io/plot_app?log=d3f2c1f9-f802-48c1-ab5d-3983fc8b8719)
+
+<lite-youtube videoid="6CqigySqyAQ" params="ab_channel=ChrisSeto" title="Turbo Timber Evolution Px4 Build Log Example Flight"/>
 
 ### Огляд параметрів
 
