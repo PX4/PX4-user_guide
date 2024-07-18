@@ -27,7 +27,7 @@ Auto-tuning is performed while flying. The airframe must fly well enough to hand
 
 :::
 
-@[youtube](https://youtu.be/5xswOhhqrIQ)
+<lite-youtube videoid="5xswOhhqrIQ" title="QGroundControl Autotune Feature Breakdown for PX4 Autopilot"/>
 
 ## Попереднє налаштування тесту
 
