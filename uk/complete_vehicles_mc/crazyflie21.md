@@ -303,4 +303,4 @@ Crazyflie 2.1 може літати лише в режимі [Стабілізо
 
 ## Політ
 
-@[youtube](https://www.youtube.com/watch?v=0qy7O3fVN2c)
+<lite-youtube videoid="0qy7O3fVN2c" title="Crazyflie 2.1 - PX4 Firmware (stabilized mode)"/>
