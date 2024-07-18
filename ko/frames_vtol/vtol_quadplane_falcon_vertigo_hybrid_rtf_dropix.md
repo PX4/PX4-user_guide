@@ -286,7 +286,7 @@ GPS / 나침반 모듈은 기본 방향으로 날개에 이미 장착되어 있�
 
 ## 비디오
 
-@[유투브](https://youtu.be/h7OHTigtU0s)
+<lite-youtube videoid="h7OHTigtU0s" title="PX4 Vtol test"/>
 
 ## 지원
 
