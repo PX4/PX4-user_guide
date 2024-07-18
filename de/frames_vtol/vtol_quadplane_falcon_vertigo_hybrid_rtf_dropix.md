@@ -287,7 +287,7 @@ After you finish calibration the VTOL is ready to fly.
 
 ## Video
 
-@[youtube](https://youtu.be/h7OHTigtU0s)
+<lite-youtube videoid="h7OHTigtU0s" title="PX4 Vtol test"/>
 
 ## Support
 
