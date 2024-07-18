@@ -8,7 +8,7 @@ Gazebo раніше була відома як "Gazebo Ignition" (тоді як 
 
 **Засоби що підтримуються:** Квадрокоптер, Літак, ВЗІП
 
-@[youtube](https://youtu.be/eRzdGD2vgkU)
+<lite-youtube videoid="eRzdGD2vgkU" title="PX4 SITL Ignition Gazebo Tunnel Environment"/>
 
 :::note
 Дивіться [Симуляція](../simulation/README.md) для загальної інформації про симуляцію, середовище симуляції та налаштування симуляції (наприклад засоби, що підтримуються).
