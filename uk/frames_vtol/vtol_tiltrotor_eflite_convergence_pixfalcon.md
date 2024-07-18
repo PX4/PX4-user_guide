@@ -4,7 +4,7 @@
 
 :::info Оригінальна рама *E-Flite Convergence* від Horizon Hobby та [Pixfalcon](../flight_controller/pixfalcon.md) були припинені. Альтернативи наведено в розділі [Придбання](#where-to-buy). :::
 
-@[youtube](https://youtu.be/E61P2f2WPNU)
+<lite-youtube videoid="E61P2f2WPNU" title="E-flite Convergence Autonomous Mission Flight"/>
 
 
 ## Де купити
