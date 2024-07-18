@@ -2,7 +2,9 @@
 
 _Датчики оптичного потоку_ використовують камеру та датчик відстані направлені вниз для оцінки швидкості.
 
-@[youtube](https://youtu.be/aPQKgUof3Pc) _Відео: PX4 утримує позицію за допомогою датчика потоку ARK для оцінки швидкості (у [Режим позиції](../flight_modes_mc/position.md))._
+<lite-youtube videoid="aPQKgUof3Pc" title="ARK Flow with PX4 Optical Flow Position Hold"/>
+
+_Video: PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md))._
 
 <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
 
