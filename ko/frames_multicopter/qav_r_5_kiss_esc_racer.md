@@ -7,7 +7,7 @@ Lumenier QAV-R 5 "FPV Racing Quadcopter는 탈착식 암이 있는 견고하고 
 - **Frame:** [Lumenier QAV-R 5"](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html)
 - **비행 컨트롤러:** [Pixracer](../flight_controller/pixracer.md)
 
-@[유투브](https://youtu.be/wMYgqvsNEwQ)
+<lite-youtube videoid="wMYgqvsNEwQ" title="QAV-R 5 PX4 FPV Racequad"/>
 
 ![QAV 레이서 완료](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg) ![QAV 레이서 완료 2](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
 
@@ -43,7 +43,7 @@ These parts cover the sending side for standard FPV 5.8GHz analog FM video. 라�
 
 09:25에서 13:26 사이에이 비디오처럼 기본 센터 플레이트와 암을 조립했습니다.
 
-@[youtube](https://youtu.be/7SIpJccXZjM)
+<lite-youtube videoid="7SIpJccXZjM" title="How to Build a Lumenier QAV-R"/>
 
 네 개의 모터를 프레임 중앙을 향해 나오는 케이블과 함께 프레임에 장착했습니다. 각 모터에 프레임과 함께 제공되는 두 개의 긴 모터 나사를 사용하여 멀리 떨어져있는 두 개의 구멍에 삽입하였습니다.
 
