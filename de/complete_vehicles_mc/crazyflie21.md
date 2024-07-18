@@ -301,4 +301,4 @@ To connect to Crazyflie 2.1 via MAVROS:
 
 ## Flying
 
-@[youtube](https://www.youtube.com/watch?v=0qy7O3fVN2c)
+<lite-youtube videoid="0qy7O3fVN2c" title="Crazyflie 2.1 - PX4 Firmware (stabilized mode)"/>
