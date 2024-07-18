@@ -42,17 +42,17 @@
 Кут, висота та відстань, встановлені за допомогою пульта керування RC, відкидаються, коли ви виходите з режиму слідування за мною. Якщо ви вийдете з режиму "Follow-Me" й активуєте його знову, значення будуть скинуті до їх типових значень.
 :::
 
-Відео-демонстрація:
+### Video
 
-@[youtube](https://youtu.be/csuMtU6seXI?t=155)
+<lite-youtube videoid="csuMtU6seXI" params="start=155" title="PX4 Follow Target follows a Rover!"/>
 
-### Заходи безпеки
+### Safety Precautions
 
 :::warning
-**Режим слідування** не реалізує жодного типу уникнення перешкод. Спеціальну увагу слід звертати при використанні цього режиму.
+**Follow-me mode** does not implement any type of obstacle avoidance. Special care must be taken when this mode is used.
 :::
 
-Наступні попередження про польот слід дотримуватися:
+The following flight precautions should be observed:
 
 - Режим слідування за мною слід використовувати тільки в широких відкритих місцях, які не перешкоджають дерева, електропроводи, будинки тощо.
   - Встановіть висоту [слідуй за висотою](#FLW_TGT_HT) на значення, яке вище будь-яких оточуючих перешкод. За _замовчуванням_ це є 8 метрів вище домашньої (озброювання) позиції.
@@ -61,13 +61,13 @@
 - Будьте готові повернутися до режиму позиціонування, якщо щось піде не так, особливо коли ви використовуєте режим слідування за мною вперше.
 - Ви не можете вимкнути режим 'слідуй за мною', використовуючи рухи палицею RC (оскільки це налаштує властивості). Вам потрібно мати GroundStation, яка може відправляти сигнали перемикання режиму польоту або налаштований перемикач режиму польоту на вашому RC передавачі.
 
-### Дотримуйтесь мене з QGroundControl
+### Follow-Me with QGroundControl
 
 ![Follow-me QGC Example](../../assets/flight_modes/followme_qgc_example.jpg)
 
-Режим _Follow Me_ підтримується за допомогою _QGroundControl_ як цілі на апаратному засобі наземної станції, що має модуль GPS. Рекомендована конфігурація - це Android-пристрій з підтримкою USB OTG з двома телеметричними радіостанціями.
+_Follow Me_ mode is supported using _QGroundControl_ as a target on ground station hardware that has a GPS module. The recommended configuration is a USB OTG-capable Android device with two telemetry radios.
 
-Для налаштування режиму _Дотримуйся мене_:
+To setup _Follow Me_ mode:
 
 - Підключіть телеметричне радіо до пристрою земної станції та інше до транспортного засобу (це дозволяє передавати інформацію про позицію між двома радіостанціями).
 - Вимкніть режим сну на вашому пристрої Android:
@@ -81,30 +81,30 @@
   - Він підніметься, поки не буде на висоті 3 метри в межах [висоти слідування](#FLW_TGT_HT), щоб уникнути можливих зіткнень перед рухом у горизонтальному напрямку.
   - Коптер завжди буде коригувати свою орієнтацію, щоб бути спрямованим на ціль
 
-На цьому етапі ви можете почати рухатися, і дрон буде слідувати за вами.
+At this point you can start moving, and the drone will be following you.
 
-Режим було протестовано на наступних пристроях Android:
+The mode has been tested on the following Android devices:
 
 - Galaxy S10
 - Планшет Nexus 7
 
-### Дотримуйтесь мене з MAVSDK
+### Follow-me with MAVSDK
 
-[MAVSDK](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html) підтримує [Follow Me](https://mavsdk.mavlink.io/main/en/cpp/guide/follow_me.html), дозволяючи створювати додаток для дрона, який є ціллю Follow Me.
+[MAVSDK](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html) supports [Follow Me](https://mavsdk.mavlink.io/main/en/cpp/guide/follow_me.html), allowing you to create a drone app that is a follow-me target.
 
-Для отримання додаткової інформації див. документацію класу [Follow Me](https://mavsdk.mavlink.io/main/en/cpp/guide/follow_me.html), а також [приклад Follow Me](https://mavsdk.mavlink.io/main/en/cpp/examples/follow_me.html).
+For more information see the [Follow Me class](https://mavsdk.mavlink.io/main/en/cpp/guide/follow_me.html) documentation as well as the [Follow Me Example](https://mavsdk.mavlink.io/main/en/cpp/examples/follow_me.html).
 
-:::info
-MAVSDK наразі не рекомендується через помилку ([MAVSDK#1756](https://github.com/mavlink/MAVSDK/issues/1756), коли той самий повідомлення іноді відправляється двічі. Це може заплутати оцінювач цільового положення та швидкості.
+::: info
+MAVSDK is not currently recommended, due to a bug ([MAVSDK#1756](https://github.com/mavlink/MAVSDK/issues/1756) where the same message is occasionally sent twice. This can confuse the target position and velocity estimator.
 :::
 
 ## Налаштування
 
-### Режим контролю висоти
+### Altitude Control Mode
 
 ![Follow Me Altitude Modes](../../assets/flight_modes/followme_altitude_modes.svg)
 
-Режим керування висотою визначає, чи є висота транспортного засобу відносно домашньої позиції, висоти місцевості або висоти, звітованої ціллю слідування.
+The altitude control mode determine whether the vehicle altitude is relative to the home position, terrain height, or the altitude reported by the follow target.
 
 - `2D відстеження` (режим [висоти за замовчуванням](#FLW_TGT_ALT_M)) дозволяє дрону слідувати на висоті відносно фіксованої домашньої позиції (висота зльоту). Відносна відстань до дрона до цілі зміниться, коли ви підніметесь та опуститесь (використовуйте обережно в гірській місцевості).
 
@@ -117,16 +117,16 @@ MAVSDK наразі не рекомендується через помилку 
 - Режим відстеження `3D tracking` дозволяє дрону слідувати на висоті відносно цілі відстеження, як постачається його GPS-датчиком. Це адаптується до змін висоти цілі, наприклад, коли ви йдете вгору по пагорбу.
 
 :::warning
-Не встановлюйте режим **Висоти ([FLW_TGT_ALT_M](#FLW_TGT_ALT_M)**) на `3D відстеження` при використанні QGC для Android (або загалом, без перевірки, що [FOLLOW_TARGET.altitude](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) є значенням AMSL).
+Do not set the **Altitude mode ([FLW_TGT_ALT_M](#FLW_TGT_ALT_M)**) to `3D Tracking` when using QGC for Android (or more generally, without checking that [FOLLOW_TARGET.altitude](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) is an AMSL value).
 
-Визначення повідомлення MAVLink [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) передбачає висоту відносно середнього рівня моря (AMSL), тоді як QGC на Android надсилає висоту відносно геодезичного еліпсоїда GPS. Це може відрізнятися на 200 метрів!
+The MAVLink [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) message definition expects an altitude relative to mean sea level (AMSL) while QGC on Android is sending an altitude relative to the GPS ellipsoid. This can differ as much as 200 meters!
 
-Дрон, ймовірно, не впаде через вбудований мінімальний обмежений безпечний висотний ліміт (1 метр), але він може літати набагато вище, ніж очікувалося. Якщо висота дрона значно відрізняється від зазначеної, припускайте, що вихідна висота наземної станції неправильна, і використовуйте 2D відстеження.
+The drone probably won't crash due to the built-in minimum safety altitude limit (1 meter), but it may fly much higher than expected. If the drone's altitude is significantly different than specified, assume that the ground station's altitude output is wrong and use 2D tracking.
 :::
 
-### Параметри
+### Parameters
 
-Стандартна поведінка може бути налаштована за допомогою параметрів:
+The follow-me behavior can be configured using the following parameters:
 
 | Параметр                                                                                                | Опис                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -137,7 +137,7 @@ MAVSDK наразі не рекомендується через помилку 
 | <a id="FLW_TGT_MAX_VEL"></a>[FLW_TGT_MAX_VEL](../advanced_config/parameter_reference.md#FLW_TGT_MAX_VEL) | Максимальна відносна швидкість для орбітального руху навколо цілі, у м/с.<br>- 10 м/с виявився оптимальним показником для агресивності проти плавності.<br>- Встановлення більш високого значення означає, що траєкторія орбіти навколо цілі буде рухатися швидше, але якщо дрон фізично не здатний досягти такої швидкості, це призводить до агресивної поведінки. |
 | <a id="FLW_TGT_RS"></a>[FLW_TGT_RS](../advanced_config/parameter_reference.md#FLW_TGT_RS)           | Динамічний алгоритм фільтрації, який реагує на фільтрацію вхідної цільової локації.<br>- `0.0` = Дуже чутливий до рухів та шумних оцінок позиції, швидкості та прискорення.<br>- `1.0` = Дуже стабільний, але не реагує на фільтр                                                                                                                                   |
 
-### Поради та хитрощі
+### Tips and tricks
 
 1. Встановіть відстань [слідування](#FLW_TGT_DST) більше 12 метрів (8 метрів є "рекомендованим мінімумом").
 
@@ -149,7 +149,10 @@ MAVSDK наразі не рекомендується через помилку 
 
 3. Використовуючи коригування RC для висоти, відстані та кута, ви можете отримати деякі креативні знімки камери.
 
-   @[youtube](https://www.youtube.com/watch?v=o3DhvCL_M1E) Це відео демонструє перспективу виду Google Earth, змінюючи висоту на приблизно 50 метрів (високо), відстань на 1 метр (близько). Що дозволяє перспективу, як знято з супутника.
+   <lite-youtube videoid="o3DhvCL_M1E" title="YUN0012 almostCinematic"/>
+
+
+   This video demonstrates a Google-Earth view perspective, by adjusting the height to around 50 meters (high), distance to 1 meter (close). Що дозволяє перспективу, як знято з супутника.
 
 ## Відомі проблеми
 
