@@ -19,7 +19,7 @@ PX4 supports rovers with:
 
 - **Differential steering**: direction is controlled by moving the left- and right-side wheels at different speeds.
   This kind of steering commonly used on bulldozers, tanks, and other tracked vehicles.
-- [**Ackermann steering**](../frames_rover/ackermann_rover.md): direction is controlled by pointing wheels in the direction of travel ([ackermann geometry](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) compensates for the fact that wheels on the inside and outside of the turn move at different rates).
+- [**Ackermann steering**](../frames_rover/ackermann_rover.md): direction is controlled by pointing wheels in the direction of travel.
   This kind of steering is used on most commercial vehicles, including cars, trucks etc.
 
 The supported frames can be seen in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).

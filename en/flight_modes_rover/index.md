@@ -1,5 +1,10 @@
 # Flight Modes (Rover)
 
+::: warning
+This page contains flight mode information for differential rovers and the legacy ackermann rover implementation.
+Flight modes for the new ackermann implementation (in the version following PX4 v1.15), see: [Ackermann rover > Flight modes](../frames_rover/ackermann_rover.md#flight-modes).
+:::
+
 Flight modes (or more accurately "Drive modes" for ground vehicles) provide autopilot support to make it easier to manually drive the vehicle, to execute autonomous missions, or to defer control to an external system.
 
 PX4 ground vehicles only support [manual mode](#manual-mode), [mission mode](#mission-mode) and [offboard mode](#offboard-mode) (other modes may be offered in a ground station, but these all behave just like manual mode).
