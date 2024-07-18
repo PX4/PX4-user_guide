@@ -8,3 +8,4 @@ PX4 підтримує ESCs, які відповідають стандарту 
 - [Zubax Telega](zubax_telega.md)
 - [Vertiq](../peripherals/vertiq.md) (більші модулі)
 - [VESC Проект](../peripherals/vesc.md)
+- [RaccoonLab Cyphal and DroneCAN PWM nodes](raccoonlab_nodes.md)
