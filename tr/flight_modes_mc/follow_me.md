@@ -42,9 +42,9 @@ Users can adjust the follow angle, height and distance using an RC controller as
 Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode. If you exit Follow-Me mode and activate it again the values will be reset to their defaults.
 :::
 
-Demo video:
+### Video
 
-@[youtube](https://youtu.be/csuMtU6seXI?t=155)
+<lite-youtube videoid="csuMtU6seXI" params="start=155" title="PX4 Follow Target follows a Rover!"/>
 
 ### Safety Precautions
 
@@ -149,7 +149,10 @@ The follow-me behavior can be configured using the following parameters:
 
 3. Using the RC Adjustment for height, distance and angle, you can get some creative camera shots.
 
-   @[youtube](https://www.youtube.com/watch?v=o3DhvCL_M1E) This video demonstrates a Google-Earth view perspective, by adjusting the height to around 50 meters (high), distance to 1 meter (close). Which allows a perspective as shot from a satellite.
+   <lite-youtube videoid="o3DhvCL_M1E" title="YUN0012 almostCinematic"/>
+
+
+   This video demonstrates a Google-Earth view perspective, by adjusting the height to around 50 meters (high), distance to 1 meter (close). Which allows a perspective as shot from a satellite.
 
 ## Known Issues
 
