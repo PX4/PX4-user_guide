@@ -49,7 +49,9 @@ This topic provides full instructions for building the [Holybro X500 V2 ARF Kit]
 
    [![Assembly7](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly7.png)](https://youtu.be/Qjs6pqarRIY)
 
-1. Use Socket Cap Screws M2.5*6 and screw the bottom plate on the 4 hangers (that we inserted in the 2 bars on the 3rd step of the payload holder assembly)<!--  @\[youtube\](https://youtu.be/Qjs6pqarRIY) -->### Landing Gear
+1. Use Socket Cap Screws M2.5*6 and screw the bottom plate on the 4 hangers (that we inserted in the 2 bars on the 3rd step of the payload holder assembly)
+
+### Landing Gear
 
 1. To assemble the landing gear, loosen the pre-assembled screws of the Landing Gear-Cross Bar and insert the Landing Gear-Vertical Pole and fasten the same.
 
