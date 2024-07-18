@@ -42,11 +42,11 @@ Users can adjust the follow angle, height and distance using an RC controller as
 Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode. If you exit Follow-Me mode and activate it again the values will be reset to their defaults.
 :::
 
-Demo video:
+### Video
 
-@[youtube](https://youtu.be/csuMtU6seXI?t=155)
+<lite-youtube videoid="csuMtU6seXI" params="start=155" title="PX4 Follow Target follows a Rover!"/>
 
-### 安全须知
+### Safety Precautions
 
 :::warning
 **Follow-me mode** does not implement any type of obstacle avoidance. Special care must be taken when this mode is used.
@@ -119,9 +119,9 @@ The altitude control mode determine whether the vehicle altitude is relative to 
 :::warning
 Do not set the **Altitude mode ([FLW_TGT_ALT_M](#FLW_TGT_ALT_M)**) to `3D Tracking` when using QGC for Android (or more generally, without checking that [FOLLOW_TARGET.altitude](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) is an AMSL value).
 
-The MAVLink [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) message definition expects an altitude relative to mean sea level (AMSL) while QGC on Android is sending an altitude relative to the GPS ellipsoid. This can differ as much as 200 meters! This can differ as much as 200 meters!
+The MAVLink [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) message definition expects an altitude relative to mean sea level (AMSL) while QGC on Android is sending an altitude relative to the GPS ellipsoid. This can differ as much as 200 meters!
 
-The drone probably won't crash due to the built-in minimum safety altitude limit (1 meter), but it may fly much higher than expected. If the drone's altitude is significantly different than specified, assume that the ground station's altitude output is wrong and use 2D tracking. ::: If the drone's altitude is significantly different than specified, assume that the ground station's altitude output is wrong and use 2D tracking.
+The drone probably won't crash due to the built-in minimum safety altitude limit (1 meter), but it may fly much higher than expected. If the drone's altitude is significantly different than specified, assume that the ground station's altitude output is wrong and use 2D tracking.
 :::
 
 ### Parameters
@@ -149,7 +149,10 @@ The follow-me behavior can be configured using the following parameters:
 
 3. Using the RC Adjustment for height, distance and angle, you can get some creative camera shots.
 
-   @[youtube](https://www.youtube.com/watch?v=o3DhvCL_M1E) This video demonstrates a Google-Earth view perspective, by adjusting the height to around 50 meters (high), distance to 1 meter (close). Which allows a perspective as shot from a satellite. Which allows a perspective as shot from a satellite.
+   <lite-youtube videoid="o3DhvCL_M1E" title="YUN0012 almostCinematic"/>
+
+
+   This video demonstrates a Google-Earth view perspective, by adjusting the height to around 50 meters (high), distance to 1 meter (close). Which allows a perspective as shot from a satellite.
 
 ## 已知的问题
 
