@@ -42,6 +42,7 @@ This list contains stand-alone magnetometer modules (without GNSS).
 | :--------------------------------------------------------------------------------------------------------------- | :-----: | :-----------------------------: |
 | [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?    |                                 |
 | [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             |  RM3100 | &amp;check; |
+| [RaccoonLab DroneCAN/Cyphal Magnetometer RM3100](https://holybro.com/products/dronecan-rm3100-compass)           |  RM3100 | &amp;check; |
 
 Note:
 
