@@ -62,7 +62,7 @@ Auto-tuning is supported, and recommended, on the following frames:
 
 The video below shows most of the calibration process (it uses an older version of _QGroundControl_, but most of the process is unchanged).
 
-@[youtube](https://youtu.be/91VGmdSlbo4)
+<lite-youtube videoid="91VGmdSlbo4" title="PX4 Autopilot Setup Tutorial Preview"/>
 
 ## Support
 
