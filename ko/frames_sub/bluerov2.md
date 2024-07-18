@@ -40,6 +40,6 @@ BlueROV2 does not come with PX4 installed. You will need to:
 
 ## 비디오
 
-@[유투브](https://www.youtube.com/watch?v=1sUaURmlmT8)
+<lite-youtube videoid="1sUaURmlmT8" title="PX4 on BlueRov Demo"/>
 
 <!-- @DanielDuecker on github is good person to ask about this frame -->
