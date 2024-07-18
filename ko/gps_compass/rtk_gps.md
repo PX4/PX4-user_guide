@@ -40,11 +40,15 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 | [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                                           |     MC-1612-V2b      |           |                                  |                                                   |                                                              |         |
 | [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                                           |     MC-1612-V2b      |  IST8310  |                                  |                                                   |                                                              |         |
 | [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm)               |         F9P          |  &check;  |                                  |                                                   |                           &check;                            |         |
+| [RaccoonLab L1/L2 ZED-F9P][RaccoonLab L1/L2 ZED-F9P]                                              |         F9P          |  RM3100   |             &check;              |                                                   |                                                              |         |
+| [RaccoonLab L1/L2 ZED-F9P with external antenna][RaccnLabL1L2ZED-F9P ext_ant]                     |         F9P          |  RM3100   |             &check;              |                                                   |                                                              |         |
 | [Septentrio AsteRx-m3 Pro](../gps_compass/septentrio_asterx-rib.md)                               |        AsteRx        |  &check;  |                                  |                      &check;                      |               Septentrio dual antenna heading                | &check; |
 | [Septentrio mosaic-go](../gps_compass/septentrio_mosaic-go.md)                                    | mosaic X5 / mosaic H |  &check;  |                                  |                      &check;                      |               Septentrio dual antenna heading                | &check; |
 | [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html)        |         F9P          |  &check;  |                                  |                                                   |                           &check;                            |         |
 | [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)                      |         F9P          |  &check;  |                                  |                                                   |                           &check;                            |         |
 | [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                        |         F9P          |  &check;  |                                  |                      &check;                      |                                                              |         |
+
+<!-- links used in above table -->
 
 RTK GPS 설정은 *QGroundControl* [일반 설정](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView &gt; 일반 설정 &gt; RTK GPS **)에서 지정됩니다.
 
@@ -52,7 +56,6 @@ RTK GPS 설정은 *QGroundControl* [일반 설정](https://docs.qgroundcontrol.c
 - Where possible and relevant the part name is used (i.e. &check; in the GPS column indicates that a GPS module is present but the part is not known).
 - Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
 - The list may omit some discontinued hardware that is still supported. For example [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) is discontinued and may be removed from the list in a future release. Check earlier versions if a discontinued module is not mentioned here.
-
 
 ## 포지셔닝 설정
 
@@ -126,10 +129,12 @@ GPS can be used as a source for yaw fusion when using modules where _yaw output 
 
 When using GPS for yaw fusion you will need to configure the following parameters:
 
-| Parameter                                                                    | Setting                                                                                                                                                                                                         |
-| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) | The angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)). |
-| [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)   | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                                                                                           |
+| Parameter                          | Setting                                                                                                                                                     |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [GPS_YAW_OFFSET][GPS_YAW_OFFSET] | The angle made by the _baseline_ (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here][fc_orientation]). |
+| [EKF2_GPS_CTRL][EKF2_GPS_CTRL]   | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                                       |
+
+<!-- links used in table above -->
 
 :::tip
 If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
@@ -168,7 +173,6 @@ GPS 정확도를 센티미터가 아닌 미터 단위로 가정하여 기본 매
 
 두 번째 GPS 수신기는 백업으로 사용할 수 있습니다 (RTK 또는 비 RTK). [EKF2 GPS 설정](../advanced_config/tuning_the_ecl_ekf.md#gps) 섹션을 참고하십시오.
 
-
 <!--
 - Video demonstration would be nice.
 - something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
@@ -178,3 +182,10 @@ GPS 정확도를 센티미터가 아닌 미터 단위로 가정하여 기본 매
 
 - [RTK-GPS (PX4-Integration)](../advanced/rtk_gps.md) : RTK-GPS 지원을 PX4에 통합에 대한 개발자 정보입니다.
 - [실시간 운동학](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (Wikipedia)
+
+[RaccnLabL1L2ZED-F9P ext_ant]: https://docs.raccoonlab.co/guide/gps_mag_baro/gnss_external_antenna_f9p_v320.html
+[RaccoonLab L1/L2 ZED-F9P]: https://docs.raccoonlab.co/guide/gps_mag_baro/gps_l1_l2_zed_f9p.html
+
+[GPS_YAW_OFFSET]: ../advanced_config/parameter_reference.md#GPS_YAW_OFFSET
+[EKF2_GPS_CTRL]: ../advanced_config/parameter_reference.md#EKF2_GPS_CTRL
+[fc_orientation]: ../config/flight_controller_orientation.md#calculating-orientation
