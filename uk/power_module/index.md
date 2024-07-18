@@ -14,15 +14,16 @@ The Pixhawk connector standard requires that the VCC line must provide at least 
 
 This section provides information about a number of power modules and power distribution boards (see FC manufacturer docs for more options):
 
-* Модулі живлення аналогового напруги та струму:
-  * [CUAV HV PM](../power_module/cuav_hv_pm.md)
-  * [Holybro PM02](../power_module/holybro_pm02.md)
-  * [Holybro PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
-  * [Holybro PM06 V2](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
-  * [Sky-Drones SmartAP PDB](../power_module/sky-drones_smartap-pdb.md)
-* Цифрові (I2C) модулі напруги та поточного живлення (для контролерів, похідних від Pixhawk FMUv6X та FMUv5X):
-  * [Holybro PM02D](../power_module/holybro_pm02d.md)
-  * [Holybro PM03D](../power_module/holybro_pm03d.md)
-* [Прошивка DroneCAN](../dronecan/index.md) модулі живлення
-  * [CUAV CAN PMU](../dronecan/cuav_can_pmu.md)
-  * [Силовий модуль Pomegranate Systems](../dronecan/pomegranate_systems_pm.md)
+- Модулі живлення аналогового напруги та струму:
+  - [CUAV HV PM](../power_module/cuav_hv_pm.md)
+  - [Holybro PM02](../power_module/holybro_pm02.md)
+  - [Holybro PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
+  - [Holybro PM06 V2](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
+  - [Sky-Drones SmartAP PDB](../power_module/sky-drones_smartap-pdb.md)
+- Цифрові (I2C) модулі напруги та поточного живлення (для контролерів, похідних від Pixhawk FMUv6X та FMUv5X):
+  - [Holybro PM02D](../power_module/holybro_pm02d.md)
+  - [Holybro PM03D](../power_module/holybro_pm03d.md)
+- [Прошивка DroneCAN](../dronecan/index.md) модулі живлення
+  - [CUAV CAN PMU](../dronecan/cuav_can_pmu.md)
+  - [Силовий модуль Pomegranate Systems](../dronecan/pomegranate_systems_pm.md)
+  - [RaccoonLab Power Connectors and PMU](../dronecan/raccoonlab_power.md)

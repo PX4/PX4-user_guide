@@ -16,7 +16,7 @@ Qt Creator는 클릭 가능한 기호, 전체 코드베이스의 자동 완성, 
 
 아래 비디오는 사용 방법을 보여줍니다.
 
-@[유투브](https://www.youtube.com/watch?v=Bkk8zttWxEI&rel=0&vq=hd720)
+<lite-youtube videoid="Bkk8zttWxEI" title="(Qt Creator) PX4 Flight Stack Build Experience"/>
 
 ## IDE 설정
 
@@ -52,6 +52,6 @@ cd build/creator
 cmake ../.. -G "CodeBlocks - Unix Makefiles"
 ```
 
-설정이 종료되었습니다. Start _Qt Creator_, then complete the steps in the video below to set up the project to build.
+설정이 종료되었습니다. Start _Qt Creator_ and then set up the project to build.
 
-@[유투브](https://www.youtube.com/watch?v=0pa0gS30zNw&rel=0&vq=hd720)
+<!-- note, video here was removed/made private, and in any case out of date. Just hoping people can work it out -->

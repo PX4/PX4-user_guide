@@ -8,7 +8,7 @@ Gazebo 先前被称为“Gazebo Ignition”( _Gazebo Classic_ 先前被称为Gaz
 
 **支持的载具：** Quadrotor、Plane、VTOL
 
-@[youtube](https://youtu.be/eRzdGD2vgkU)
+<lite-youtube videoid="eRzdGD2vgkU" title="PX4 SITL Ignition Gazebo Tunnel Environment"/>
 
 ::: info
 See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).

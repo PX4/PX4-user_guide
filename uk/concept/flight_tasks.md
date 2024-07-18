@@ -173,10 +173,14 @@ pxh> commander mode posctl
 
 Опис того, як працюють режими польоту у PX4 v1.9 (Dennis Mannhart, Matthias Grob).
 
-@[youtube](https://youtu.be/-dkQG8YLffc) <!-- datestamp:video:youtube:20190704:PX4 Flight Task Architecture Overview — PX4 Developer Summit 2019 -->
+<lite-youtube videoid="-dkQG8YLffc" title="PX4 Flight Task Architecture Overview"/>
+
+<!-- datestamp:video:youtube:20190704:PX4 Flight Task Architecture Overview — PX4 Developer Summit 2019 -->
 
 ### Огляд управління мультикоптером від датчиків до двигунів (PX4 Developer Summit Virtual 2020)
 
-@[youtube](https://youtu.be/orvng_11ngQ?t=560) <!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
+<lite-youtube videoid="orvng_11ngQ" params="start=560" title="Overview of multicopter control from sensors to motors"/>
+
+<!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
 
 Відповідний розділ цього відео з оновленою інформацією про польотні завдання в PX4 v11.1 на (9 мін. 20 сек.). [Слайди знаходяться тут (PDF)](https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf), відповідні слайди - 9 та 12.

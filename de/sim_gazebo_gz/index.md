@@ -8,7 +8,7 @@ Gazebo was previously known as "Gazebo Ignition" (while _Gazebo Classic_ was pre
 
 **Supported Vehicles:** Quadrotor, Plane, VTOL
 
-@[youtube](https://youtu.be/eRzdGD2vgkU)
+<lite-youtube videoid="eRzdGD2vgkU" title="PX4 SITL Ignition Gazebo Tunnel Environment"/>
 
 ::: info
 See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).

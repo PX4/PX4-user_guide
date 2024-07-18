@@ -40,6 +40,6 @@ BlueROV2 не йде з предвстановленою версією з PX4. 
 
 ## Відео
 
-@[youtube](https://www.youtube.com/watch?v=1sUaURmlmT8)
+<lite-youtube videoid="1sUaURmlmT8" title="PX4 on BlueRov Demo"/>
 
 <!-- @DanielDuecker on github is good person to ask about this frame -->

@@ -22,7 +22,7 @@ The user guide is [here](http://mindpx.net/assets/accessories/NanoMind_110_user_
 
 ### Flight video
 
-@[youtube](https://youtu.be/bLtKa--Buic)
+<lite-youtube videoid="bLtKa--Buic" title="NanoMind with external compass flying EKF2 estimator"/>
 
 ### Where to buy
 

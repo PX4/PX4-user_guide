@@ -20,10 +20,17 @@ The linked sections instructions for assembling and configuring fixed-wing frame
 
 ## 비디오
 
-@[youtube](https://www.youtube.com/watch?v=VqNWwIPWJb0&ab_channel=ChrisSeto)
 
-@[youtube](https://www.youtube.com/watch?v=vMFCi3G5s6E)
+<lite-youtube videoid="VqNWwIPWJb0" params="ab_channel=ChrisSeto" title="Reptile Dragon 2 Demo Flight For Px4 Log Review"/>
 
-@[youtube](https://youtu.be/1DUV7QjcXrA)
+---
 
-@[유투브](https://www.youtube.com/watch?v=8m4_NpTQn0E&vq=hd720)
+<lite-youtube videoid="vMFCi3G5s6E" title="PX4 Turbo Timber Spot Landing"/>
+
+---
+
+<lite-youtube videoid="1DUV7QjcXrA" title="Px4 Turbo timber Evolution Short Flight"/>
+
+---
+
+<lite-youtube videoid="8m4_NpTQn0E" title="Solar-powered 81 hour endurance world record flight"/>

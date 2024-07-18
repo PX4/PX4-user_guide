@@ -5,7 +5,7 @@ The Caipiroshka VTOL is a slightly modified *TBS Caipirinha*.
 ::: info The *TBS Caipirinha* has been superseded and is no longer available. These instructions *should* work with the updated vehicle: [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp). A number of other components have been updated in the parts list too.
 :::
 
-@[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
+<lite-youtube videoid="acG0aTuf3f8" title="PX4 VTOL - Call for Testpilots"/>
 
 ## 配件列表
 

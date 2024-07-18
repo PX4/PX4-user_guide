@@ -16,7 +16,7 @@ Qt creator offers clickable symbols, auto-completion of the complete codebase an
 
 The video below shows how it is used.
 
-@[youtube](https://www.youtube.com/watch?v=Bkk8zttWxEI&rel=0&vq=hd720)
+<lite-youtube videoid="Bkk8zttWxEI" title="(Qt Creator) PX4 Flight Stack Build Experience"/>
 
 ## IDE Setup
 
@@ -52,6 +52,6 @@ cd build/creator
 cmake ../.. -G "CodeBlocks - Unix Makefiles"
 ```
 
-That's it! Start _Qt Creator_, then complete the steps in the video below to set up the project to build.
+That's it! Start _Qt Creator_ and then set up the project to build.
 
-@[youtube](https://www.youtube.com/watch?v=0pa0gS30zNw&rel=0&vq=hd720)
+<!-- note, video here was removed/made private, and in any case out of date. Just hoping people can work it out -->

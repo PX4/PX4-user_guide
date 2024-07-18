@@ -62,7 +62,7 @@ Auto-tuning is supported, and recommended, on the following frames:
 
 [유투브](https://youtu.be/91VGmdSlbo4)
 
-@설정에 대한 도움이 필요한 경우 [QGroundControl 지원 포럼 ](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage)에서 도움을 요청할 수 있습니다
+<lite-youtube videoid="91VGmdSlbo4" title="PX4 Autopilot Setup Tutorial Preview"/>
 
 ## 지원
 

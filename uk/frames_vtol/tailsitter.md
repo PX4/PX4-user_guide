@@ -62,7 +62,7 @@ Duo Tailsitters зазвичай більш ефективні в крейсер
 
 [TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md) - Зліт тейлсіттера (крупним планом), зависання, горизонтальний політ, переходи.
 
-@[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
+<lite-youtube videoid="acG0aTuf3f8" title="PX4 VTOL - Call for Testpilots"/>
 
 ---
 
@@ -71,18 +71,14 @@ Duo Tailsitters зазвичай більш ефективні в крейсер
 <!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
 <!-- Update issue https://github.com/PX4/PX4-user_guide/issues/3007 -->
 
-@[youtube](https://youtu.be/gjHj6YsxcZk)
+<lite-youtube videoid="gjHj6YsxcZk" title="PX4 Autopilot Tailsitter"/>
 
 ### Quad
 
-<!--
-[Skypull](https://www.skypull.technology/) Tethered quad tailsitter (promotional video)
-@[youtube](https://youtu.be/6s-Izqb_GVs)
--->
+[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - Tailsitter takeoff, transition, landing.
 
-[БПЛА Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - зліт, перехід, посадка тейлсіттера.
+<lite-youtube videoid="pWt6uoqpPIw" title="UAV Works VALAQ"/>
 
-@[youtube](https://youtu.be/pWt6uoqpPIw)
 
 ## Галерея
 

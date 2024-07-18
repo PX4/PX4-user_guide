@@ -84,7 +84,7 @@ PX4 не виробляє цей (або будь-який) автопілот.
 - 3.3 та 6.6V ADC входи
 - Внутрішній порт microUSB і розширення зовнішнього порту microUSB
 
-@[youtube](https://youtu.be/gCCC5A-Bvv4)
+<lite-youtube videoid="gCCC5A-Bvv4" title="PX4 Pixhawk (3DR) Multicolor Led in action"/>
 
 ### Система живлення та захист
 

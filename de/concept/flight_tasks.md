@@ -188,10 +188,14 @@ The following videos provide an overview of flight tasks in PX4. The first cover
 
 A description of how flight modes work in PX4 v1.9 (Dennis Mannhart, Matthias Grob).
 
-@[youtube](https://youtu.be/-dkQG8YLffc) <!-- datestamp:video:youtube:20190704:PX4 Flight Task Architecture Overview — PX4 Developer Summit 2019 -->
+<lite-youtube videoid="-dkQG8YLffc" title="PX4 Flight Task Architecture Overview"/>
+
+<!-- datestamp:video:youtube:20190704:PX4 Flight Task Architecture Overview — PX4 Developer Summit 2019 -->
 
 ### Overview of multicopter control from sensors to motors (PX4 Developer Summit Virtual 2020)
 
-@[youtube](https://youtu.be/orvng_11ngQ?t=560) <!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
+<lite-youtube videoid="orvng_11ngQ" params="start=560" title="Overview of multicopter control from sensors to motors"/>
+
+<!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
 
 The relevant section of this video is an update of flight tasks in PX4 v11.1 at (9min 20sec). The [slides can be found here (PDF)](https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf) - Slides 9 and 12 are relevant.

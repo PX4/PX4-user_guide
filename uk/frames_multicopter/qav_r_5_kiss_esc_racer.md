@@ -7,7 +7,7 @@ Lumenier QAV-R 5" FPV Гоночний квадрокоптер - це жорс�
 - **Каркас:** [Lumenier QAV-R 5"](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html)
 - **Контролер польоту:** [ Pixracer](../flight_controller/pixracer.md)
 
-@[youtube](https://youtu.be/wMYgqvsNEwQ)
+<lite-youtube videoid="wMYgqvsNEwQ" title="QAV-R 5 PX4 FPV Racequad"/>
 
 ![QAV Racer complete](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg) ![QAV Racer complete 2](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
 
@@ -43,7 +43,7 @@ Lumenier QAV-R 5" FPV Гоночний квадрокоптер - це жорс�
 
 Я зібрав основну центральну плату та руки, як показано у цьому відео між 09:25 та 13:26:
 
-@[youtube](https://youtu.be/7SIpJccXZjM)
+<lite-youtube videoid="7SIpJccXZjM" title="How to Build a Lumenier QAV-R"/>
 
 Я закріпив чотири двигуни на рамі з кабелями, що виходять у напрямку центру рами. Я використав два з довших від винтів для мотора, які йдуть разом з рамою, для кожного мотора і вставив їх у дві отвори, які знаходяться далі один від одного.
 

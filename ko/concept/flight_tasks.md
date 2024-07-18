@@ -172,10 +172,14 @@ The console will continuously display: `INFO [FlightTaskMyTask] FlightTaskMyTask
 
 PX4 v1.9의 비행 모드 작동 방식 설명(Dennis Mannhart, Matthias Grob).
 
-@[유투브](https://youtu.be/-dkQG8YLffc) <!-- datestamp:video:youtube:20190704:PX4 Flight Task Architecture Overview — PX4 Developer Summit 2019 -->
+<lite-youtube videoid="-dkQG8YLffc" title="PX4 Flight Task Architecture Overview"/>
+
+<!-- datestamp:video:youtube:20190704:PX4 Flight Task Architecture Overview — PX4 Developer Summit 2019 -->
 
 ### 센서에서 모터에 이르는 멀티콥터 제어 개요(PX4 가상 개발자 회의 2020)
 
-@[유투브](https://youtu.be/orvng_11ngQ?t=560) <!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
+<lite-youtube videoid="orvng_11ngQ" params="start=560" title="Overview of multicopter control from sensors to motors"/>
+
+<!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
 
 The relevant section of this video is an update of flight tasks in PX4 v11.1 at (9min 20sec). [슬라이드는 이 PDF을 참고하십시오.](https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf) - 슬라이드 9와 12가 관련이 있습니다.

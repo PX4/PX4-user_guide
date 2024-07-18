@@ -209,9 +209,9 @@ When you add a new page you must also add it to `en/SUMMARY.md`!
 
 4. Videos:
 
-   - Youtube videos can be added using the format `@[youtube](https://youtu.be/<youtube-video-id>)` (supported via the [markdown-it-video](https://www.npmjs.com/package/markdown-it-video) plugin).
+   - Youtube videos can be added using the format `<lite-youtube videoid="<youtube-video-id>" title="your title"/>` (supported via the [https://www.npmjs.com/package/lite-youtube-embed](https://www.npmjs.com/package/lite-youtube-embed) custom element, which has other parameters you can pass).
      - Use instructional videos sparingly as they date badly, and are hard to maintain.
-     - Cool videos of airframes in flighyt are always welcome.
+     - Cool videos of airframes in flight are always welcome.
 
 ## 어디에서 변경 사항을 추가합니까?
 

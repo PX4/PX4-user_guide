@@ -20,7 +20,7 @@ AIRLink має два комп'ютери та інтегрований LTE-мо
 
 ## Основні характеристики
 
-@[youtube](https://youtu.be/VcBx9DLPN54)
+<lite-youtube videoid="VcBx9DLPN54" title="SmartAP AIRLink - The Most Advanced AI Drone Avionics"/>
 
 ## Специфікації
 
@@ -85,7 +85,7 @@ AIRLink має два комп'ютери та інтегрований LTE-мо
 
 ## Аксесуари до AIRLink Enterprise Kit
 
-@[youtube](https://youtu.be/lex7axW8WQg)
+<lite-youtube videoid="lex7axW8WQg" title="SmartAP AIRLink - Unboxing"/>
 
 AIRLink Enterprise прибуває з усім необхідним для налаштування автопілота.
 

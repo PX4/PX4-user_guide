@@ -16,7 +16,7 @@ Qt creator пропонує роботу із символами мови Сі �
 
 Наведене нижче відео показує, як воно використовується.
 
-@[youtube](https://www.youtube.com/watch?v=Bkk8zttWxEI&rel=0&vq=hd720)
+<lite-youtube videoid="Bkk8zttWxEI" title="(Qt Creator) PX4 Flight Stack Build Experience"/>
 
 ## Налаштування IDE
 
@@ -52,6 +52,6 @@ cd build/creator
 cmake ../.. -G "CodeBlocks - Unix Makefiles"
 ```
 
-Ось і все! Запустіть _Qt Creator_ та завершіть кроки у відео нижче, щоб налаштувати проєкт для збірки.
+Ось і все! Start _Qt Creator_ and then set up the project to build.
 
-@[youtube](https://www.youtube.com/watch?v=0pa0gS30zNw&rel=0&vq=hd720)
+<!-- note, video here was removed/made private, and in any case out of date. Just hoping people can work it out -->

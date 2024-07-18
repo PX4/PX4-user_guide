@@ -84,7 +84,7 @@ Order mRo Pixhawk from:
 - 3.3 and 6.6V ADC inputs
 - Internal microUSB port and external microUSB port extension
 
-@[youtube](https://youtu.be/gCCC5A-Bvv4)
+<lite-youtube videoid="gCCC5A-Bvv4" title="PX4 Pixhawk (3DR) Multicolor Led in action"/>
 
 ### Power System and Protection
 

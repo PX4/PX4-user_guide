@@ -12,35 +12,35 @@ Up to two GPS modules can be connected using either a UART or the CAN bus:
 ::: info PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GNSS Receivers, which extend GNSS systems to centimetre-level precision.
 :::
 
-
 ## 支持的GPS模块
 
 任何运行在PX4的元件应通过u-blox、MTK Ashtech 或 Emlid 协议或UAVCAN进行通信。
 
 下表包括了一些无RTK的GPS模块（其中大部分也有指南针）。 下面的设备PX4开发团队测试过了，或者是在PX4社区中受欢迎的。
 
-| Device                                                                    |     GPS     |          Compass          | [CAN](../dronecan/index.md) | Buzzer / SafeSw / LED | 备注                          |
-|:------------------------------------------------------------------------- |:-----------:|:-------------------------:|:---------------------------:|:---------------------:|:--------------------------- |
-| [ARK GPS](https://arkelectron.com/product/ark-gps/)                       |     M9N     |         ICM42688p         |           &check;           |        &check;        | + Baro, IMU                 |
-| [Avionics Anonymous UAVCAN GNSS/Mag][avionics_anon_can_gnss]              |   SAM-M8Q   |         MMC5983MA         |           &check;           |        &cross;        |                             |
-| [CUAV NEO 3 GPS](../gps_compass/gps_cuav_neo_3.md)                        |     M9N     |          IST8310          |                             |        &check;        |                             |
-| [CUAV NEO 3 Pro GPS](../gps_compass/gps_cuav_neo_3pro.md)                 |     M9N     |          RM3100           |           &check;           |        &check;        | + Baro                      |
-| [CUAV NEO 3X GPS](../gps_compass/gps_cuav_neo_3x.md)                      |     M9N     |          RM3100           |           &check;           | &cross;&check;&check; | + Baro.                     |
-| [CubePilot Here2 GNSS GPS (M8N)](../gps_compass/gps_hex_here2.md)         |     M8N     |         ICM20948          |                             |        &check;        | Superseded by HERE3         |
-| [Emlid Reach M+](https://emlid.com/reach/)                                |   &check;   |          &cross;          |                             |        &cross;        | Supports PPK. RTK expected. |
-| [Holybro DroneCAN M8N GPS](../dronecan/holybro_m8n_gps.md)                |     M8N     |          BMM150           |           &check;           |        &cross;        | + Baro                      |
-| [Holybro Micro M8N GPS](https://holybro.com/products/micro-m8n-gps)       |     M8N     |          IST8310          |                             |        &cross;        |                             |
-| [Holybro Nano Ublox M8 5883 GPS][hb_nano_m8_5883]                         |  UBX-M8030  |          QMC5883          |                             |        &cross;        |                             |
-| [Holybro M8N GPS](../gps_compass/gps_holybro_m8n_m9n.md)                  |     M8N     |          IST8310          |                             |        &check;        |                             |
-| [Holybro M9N GPS](../gps_compass/gps_holybro_m8n_m9n.md)                  |     M9N     |          IST8310          |                             |        &check;        |                             |
-| [Holybro DroneCAN M9N GPS](https://holybro.com/products/dronecan-m9n-gps) |     M9N     |          BMM150           |           &check;           |        &check;        |                             |
-| [Hobbyking u-blox Neo-M8N GPS with Compass][hk_ublox_neo_8mn]             |     M8N     |          &check;          |                             |        &cross;        |                             |
-| [LOCOSYS Hawk A1 GNSS receiver](../gps_compass/gps_locosys_hawk_a1.md)    | MC-1612-V2b |         optional          |                             | &cross;&cross;&check; |                             |
-| [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                   | MC-1612-V2b |                           |                             | &cross;&cross;&check; |                             |
-| [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                   | MC-1612-V2b |          IST8310          |                             | &cross;&cross;&check; |                             |
-| [mRo GPS u-blox Neo-M8N Dual Compass][mro_neo8mn_dual_mag]                |     M8N     |     LIS3MDL, IST8308      |                             |        &cross;        |                             |
-| [Sky-Drones SmartAP GPS](../gps_compass/gps_smartap.md)                   |     M8N     | HMC5983, IST8310, LIS3MDL |                             |        &check;        | + Baro                      |
-| [Zubax GNSS 2](https://zubax.com/products/gnss_2)                         |   MAX-M8Q   |          LIS3MDL          |                             |        &cross;        | + Baro                      |
+| Device                                                                 |     GPS     |          Compass          | [CAN](../dronecan/index.md) | Buzzer / SafeSw / LED | 备注                          |
+|:---------------------------------------------------------------------- |:-----------:|:-------------------------:|:---------------------------:|:---------------------:|:--------------------------- |
+| [ARK GPS](https://arkelectron.com/product/ark-gps/)                    |     M9N     |         ICM42688p         |           &check;           |        &check;        | + Baro, IMU                 |
+| [Avionics Anonymous UAVCAN GNSS/Mag][avionics_anon_can_gnss]           |   SAM-M8Q   |         MMC5983MA         |           &check;           |        &cross;        |                             |
+| [CUAV NEO 3 GPS](../gps_compass/gps_cuav_neo_3.md)                     |     M9N     |          IST8310          |                             |        &check;        |                             |
+| [CUAV NEO 3 Pro GPS](../gps_compass/gps_cuav_neo_3pro.md)              |     M9N     |          RM3100           |           &check;           |        &check;        | + Baro                      |
+| [CUAV NEO 3X GPS](../gps_compass/gps_cuav_neo_3x.md)                   |     M9N     |          RM3100           |           &check;           | &cross;&check;&check; | + Baro.                     |
+| [CubePilot Here2 GNSS GPS (M8N)](../gps_compass/gps_hex_here2.md)      |     M8N     |         ICM20948          |                             |        &check;        | Superseded by HERE3         |
+| [Emlid Reach M+](https://emlid.com/reach/)                             |   &check;   |          &cross;          |                             |        &cross;        | Supports PPK. RTK expected. |
+| [Holybro DroneCAN M8N GPS](../dronecan/holybro_m8n_gps.md)             |     M8N     |          BMM150           |           &check;           |        &cross;        | + Baro                      |
+| [Holybro Micro M8N GPS](https://holybro.com/products/micro-m8n-gps)    |     M8N     |          IST8310          |                             |        &cross;        |                             |
+| [Holybro Nano Ublox M8 5883 GPS][hb_nano_m8_5883]                      |  UBX-M8030  |          QMC5883          |                             |        &cross;        |                             |
+| [Holybro M8N GPS](../gps_compass/gps_holybro_m8n_m9n.md)               |     M8N     |          IST8310          |                             |        &check;        |                             |
+| [Holybro M9N GPS](../gps_compass/gps_holybro_m8n_m9n.md)               |     M9N     |          IST8310          |                             |        &check;        |                             |
+| [Holybro DroneCAN M9N GPS][hb_can_m9n]                                 |     M9N     |          BMM150           |           &check;           |        &check;        |                             |
+| [Hobbyking u-blox Neo-M8N GPS & Compass][hk_ublox_neo_8mn]             |     M8N     |          &check;          |                             |        &cross;        |                             |
+| [LOCOSYS Hawk A1 GNSS receiver](../gps_compass/gps_locosys_hawk_a1.md) | MC-1612-V2b |         optional          |                             | &cross;&cross;&check; |                             |
+| [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                | MC-1612-V2b |                           |                             | &cross;&cross;&check; |                             |
+| [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                | MC-1612-V2b |          IST8310          |                             | &cross;&cross;&check; |                             |
+| [mRo GPS u-blox Neo-M8N Dual Compass][mro_neo8mn_dual_mag]             |     M8N     |     LIS3MDL, IST8308      |                             |        &cross;        |                             |
+| [RaccoonLab L1 GNSS NEO-M8N][RccnLabGNSS250]                           |   NEO-M8N   |          RM3100           |           &check;           | &cross;&cross;&check; | + Baro                      |
+| [Sky-Drones SmartAP GPS](../gps_compass/gps_smartap.md)                |     M8N     | HMC5983, IST8310, LIS3MDL |                             |        &check;        | + Baro                      |
+| [Zubax GNSS 2](https://zubax.com/products/gnss_2)                      |   MAX-M8Q   |          LIS3MDL          |                             |        &cross;        | + Baro                      |
 
 <!-- links to improve layout of table for editing -->
 
@@ -152,3 +152,5 @@ Compass calibration for an included compass part is covered in: [Compass Configu
 [hk_ublox_neo_8mn]: https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html
 [mro_neo8mn_dual_mag]: https://store.mrobotics.io/product-p/m10034-8308.htm
 [hb_nano_m8_5883]: https://holybro.com/products/nano-m8-5883-gps-module
+[hb_can_m9n]: https://holybro.com/products/dronecan-m9n-gps
+[RccnLabGNSS250]: https://docs.raccoonlab.co/guide/gps_mag_baro/gnss_v250.html

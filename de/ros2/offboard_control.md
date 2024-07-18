@@ -190,11 +190,3 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1, fl
 :::note
 [VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful. :::note [VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful.
 :::
-
-
-<!--
-
-## Demo with PX4 SITL and Gazebo Classic
-
-@[youtube](https://youtu.be/Nbc7fzxFlYo)
--->

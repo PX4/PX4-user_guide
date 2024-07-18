@@ -118,7 +118,7 @@ The whole part is glued, using a hot-melt adhesive, under the engine on the bott
 
 ## Video
 
-@[youtube](https://youtu.be/YhXXSWz5wWs)
+<lite-youtube videoid="YhXXSWz5wWs" title="[ThunderFly] 3D printed autogyro rotor"/>
 
 ## Photo gallery of changes
 

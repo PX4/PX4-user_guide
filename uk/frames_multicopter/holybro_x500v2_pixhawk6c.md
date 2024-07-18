@@ -49,7 +49,9 @@
 
    [![Assembly7](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly7.png)](https://youtu.be/Qjs6pqarRIY)
 
-1. Використовуйте винти гніздові з головкою M2.5*6 та закрутіть нижню пластину на 4 вісці (які ми вставили в 2 планки на 3-му кроці збірки тримача навантаження)<!--  @\[youtube\](https://youtu.be/Qjs6pqarRIY) -->### Шасі
+1. Use Socket Cap Screws M2.5*6 and screw the bottom plate on the 4 hangers (that we inserted in the 2 bars on the 3rd step of the payload holder assembly)
+
+### Шасі
 
 1. Для збирання станції шасі відкрутіть заздалегідь складені винти шасі - перекрестна стрічка та вставте шасі - вертикальний стовп і затягніть той же.
 

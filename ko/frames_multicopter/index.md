@@ -19,16 +19,16 @@ The linked sections instructions for assembling and configuring copter frames.
 
 ## 비디오
 
-@[유투브](https://www.youtube.com/watch?v=LnUmYgAINBc&vq=hd720)
+<lite-youtube videoid="LnUmYgAINBc" title="3DR Iris + PX4ESC"/>
 
 거리 센서 및 RTK GPS가 장착된 DJI Flame Wheel 450 (Pixhawk 3 Pro)
 
-@[유투브](https://www.youtube.com/watch?v=JovSwzoTepU)
+<lite-youtube videoid="JovSwzoTepU" title="PX4 terrain following"/>
 
 DJI Matrice 100 (Pixhawk 1)
 
-@[유투브](https://www.youtube.com/watch?v=3OGs0ONemGc)
+<lite-youtube videoid="3OGs0ONemGc" title="DJI Matrice 100 (Pixhawk 1)"/>
 
 QAV-R 5" KISS ESC Racer (Pixracer)
 
-@[유투브](https://youtu.be/wMYgqvsNEwQ)
+<lite-youtube videoid="wMYgqvsNEwQ" title="QAV-R 5 KISS ESC Racer (Pixracer)"/>

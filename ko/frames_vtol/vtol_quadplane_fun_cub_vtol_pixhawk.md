@@ -71,8 +71,7 @@ After you finish calibration the VTOL is ready to fly.
 
 ## 비디오
 
-@[유투브](https://youtu.be/4K8yaa6A0ks)
-
+<lite-youtube videoid="4K8yaa6A0ks" title="Fun Cub PX4 VTOL Maiden"/>
 
 ## 지원
 

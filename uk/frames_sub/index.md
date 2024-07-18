@@ -30,6 +30,8 @@ PX4 підтримує кілька безпілотних підводних а
 
 ## Відео
 
-@[youtube](https://youtu.be/1sUaURmlmT8)
+<lite-youtube videoid="1sUaURmlmT8" title="PX4 on BlueRov Demo"/>
 
-@[youtube](https://youtu.be/xSXSoUK-iBM)
+---
+
+<lite-youtube videoid="xSXSoUK-iBM" title="Hippocampus UUV in PX4 SITL Gazebo"/>

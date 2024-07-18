@@ -32,6 +32,7 @@ PX4-compatible flight controllers documented in this library are listed below. T
   - [Holybro pix32 v6 (FMUv6C)](../flight_controller/holybro_pix32_v6.md)
   - [mRo Pixracer (FMUv4)](../flight_controller/pixracer.md)
   - [mRo Pixhawk (FMUv2)](../flight_controller/mro_pixhawk.md)
+  - [RaccoonLab FMUv6X Autopilot (FMUv6X)](../flight_controller/raccoonlab_fmu6x.md)
 - [由制造商支持的自动驾驶仪](../flight_controller/autopilot_manufacturer_supported.md)
   - [AIRLink](../flight_controller/airlink.md)
   - [AirMind MindPX](../flight_controller/mindpx.md)

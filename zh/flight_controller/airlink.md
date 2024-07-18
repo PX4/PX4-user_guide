@@ -20,7 +20,7 @@ AIRLink has two computers and integrated LTE Module:
 
 ## Feature Highlights
 
-@[youtube](https://youtu.be/VcBx9DLPN54)
+<lite-youtube videoid="VcBx9DLPN54" title="SmartAP AIRLink - The Most Advanced AI Drone Avionics"/>
 
 ## Specifications
 
@@ -85,7 +85,7 @@ Purchase from the original Sky-Drones Store (worldwide shipping with 1-2 days or
 
 ## AIRLink Enterprise Kit Accessories
 
-@[youtube](https://youtu.be/lex7axW8WQg)
+<lite-youtube videoid="lex7axW8WQg" title="SmartAP AIRLink - Unboxing"/>
 
 AIRLink Enterprise arrives with everything needed to setup the autopilot system.
 

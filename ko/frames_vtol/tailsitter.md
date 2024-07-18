@@ -62,7 +62,7 @@ The main frame-specific differences are the motor wiring, and some aspects of tu
 
 [UAV Works VALAQ Patrol 테일시터](https://www.valaqpatrol.com/tech-data/) - 테일시터 이륙, 전환, 착륙.
 
-@[유투브](https://youtu.be/pWt6uoqpPIw)
+<lite-youtube videoid="acG0aTuf3f8" title="PX4 VTOL - Call for Testpilots"/>
 
 ---
 
@@ -71,18 +71,14 @@ The main frame-specific differences are the motor wiring, and some aspects of tu
 <!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
 <!-- Update issue https://github.com/PX4/PX4-user_guide/issues/3007 -->
 
-@[youtube](https://youtu.be/gjHj6YsxcZk)
+<lite-youtube videoid="gjHj6YsxcZk" title="PX4 Autopilot Tailsitter"/>
 
 ### Quad
 
-<!--
-[Skypull](https://www.skypull.technology/) Tethered quad tailsitter (promotional video)
-@[youtube](https://youtu.be/6s-Izqb_GVs)
--->
-
 [UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - Tailsitter takeoff, transition, landing.
 
-@[Skypull](https://www.skypull.technology/) Tethered 쿼드 테일시터 (홍보용 비디오) @[유투브](https://youtu.be/6s-Izqb_GVs)
+<lite-youtube videoid="pWt6uoqpPIw" title="UAV Works VALAQ"/>
+
 
 ## ### Duo
 

@@ -317,7 +317,3 @@ Crazyflie може літати в режимі _Altitude_, якщо ви вик
   ```
 
 - Перезапустіть QGroundControl, якщо він не підключається.
-
-## Політ
-
-@[youtube](https://youtu.be/2Bcy3k1h5uc)

@@ -34,15 +34,15 @@ The 254-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255
 
 ### Video: Multiple Multicopter (Iris)
 
-@[youtube](https://youtu.be/Mskx_WxzeCk)
+<lite-youtube videoid="Mskx_WxzeCk" title="Multiple vehicle simulation in SITL gazebo"/>
 
 ### Video: Multiple Plane
 
-@[youtube](https://youtu.be/aEzFKPMEfjc)
+<lite-youtube videoid="aEzFKPMEfjc" title="PX4 Multivehicle SITL gazebo for fixedwing"/>
 
 ### Video: Multiple VTOL
 
-@[youtube](https://youtu.be/lAjjTFFZebI)
+<lite-youtube videoid="lAjjTFFZebI" title="PX4 Multivehicle SITL gazebo for VTOL"/>
 
 ### Build and Test (XRCE-DDS)
 

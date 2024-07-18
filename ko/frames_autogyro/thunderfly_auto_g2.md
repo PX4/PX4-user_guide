@@ -118,7 +118,7 @@ M3x50 고강도 나사로 만들어진 로터 축은 세 번째 부분을 통과
 
 ## 비디오
 
-@[유투브](https://youtu.be/YhXXSWz5wWs)
+<lite-youtube videoid="YhXXSWz5wWs" title="[ThunderFly] 3D printed autogyro rotor"/>
 
 ## 변경 사진 갤러리
 

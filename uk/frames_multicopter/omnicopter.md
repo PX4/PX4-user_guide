@@ -101,7 +101,7 @@
 
 ## Відео
 
-@[youtube](https://www.youtube.com/watch?v=nsPkQYugfzs)
+<lite-youtube videoid="nsPkQYugfzs" title="PX4 Based Omnicopter Using the New Dynamic Control Allocation in v1.13"/>
 
 ## Моделювання
 

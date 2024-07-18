@@ -160,7 +160,7 @@ make px4_sitl sihsim_quadx
 
 ## Відео
 
-@[youtube](https://youtu.be/PzIpSCRD8Jo)
+<lite-youtube videoid="PzIpSCRD8Jo" title="SIH FW demo"/>
 
 ## Автори
 

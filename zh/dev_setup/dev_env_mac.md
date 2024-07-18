@@ -11,7 +11,7 @@ This setup is supported by the PX4 dev team. To build other targets you will nee
 
 ## Homebrew 安装
 
-@[youtube](https://youtu.be/tMbMGiMs1cQ)
+<lite-youtube videoid="tMbMGiMs1cQ" title="Setting up your PX4 development environment on macOS"/>
 
 ## Base Setup
 

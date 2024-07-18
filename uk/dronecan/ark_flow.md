@@ -119,7 +119,7 @@ Ark Flow не завантажиться, якщо SD-карти немає у �
 
 ## Відео
 
-@[youtube](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0)
+<lite-youtube videoid="SAbRe1fi7bU" params="list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0" title="ARK Flow Indoor Position Hold x64"/>
 
 <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
 

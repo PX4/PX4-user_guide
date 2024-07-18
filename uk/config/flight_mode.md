@@ -82,9 +82,9 @@ PX4 дозволяє вам вказати канал "режиму" та виб
 
 На FrSky Taranis цей процес включає в себе призначення "логічного перемикача" для кожної комбінації положень двох реальних перемикачів. Кожний логічний перемикач потім призначається для різних значень ШІМ на тому ж каналі.
 
-Відео нижче показує, як це робиться з передавачем *FrSky Taranis*.<!-- \[youtube\](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available --><!-- @\[youtube\](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs -->@[youtube](https://youtu.be/TFEjEQZqdVA)
+Відео нижче показує, як це робиться з передавачем *FrSky Taranis*.<!-- \[youtube\](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available --><!-- @\[youtube\](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs --><lite-youtube videoid="TFEjEQZqdVA" title="Taranis Mode Switches"/>
 
-Конфігурація *QGroundControl* потім виконується [як описано вище](#flight-mode-selection).
+The *QGroundControl* configuration is then [as described above](#flight-mode-selection).
 
 
 ## Детальна інформація

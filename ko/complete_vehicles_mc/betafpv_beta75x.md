@@ -56,4 +56,4 @@ To install and configure PX4:
 
 ## Video
 
-@[youtube](https://youtu.be/_-O0kv0Qsh4)
+<lite-youtube videoid="_-O0kv0Qsh4" title="PX4 running on the BetaFPV Whoop"/>

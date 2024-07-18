@@ -11,4 +11,4 @@
 
 [Convergence Tiltrotor](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md) [OMP Hobby ZMO FPV](../frames_vtol/vtol_tiltrotor_omp_hobby_zmo_fpv.md)
 
-@[youtube](https://youtu.be/E61P2f2WPNU)
+<lite-youtube videoid="E61P2f2WPNU" title="E-flite Convergence Autonomous Mission Flight"/>

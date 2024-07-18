@@ -34,15 +34,15 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
 
 ### Відео: кілька мультикоптерів (Iris)
 
-@[youtube](https://youtu.be/Mskx_WxzeCk)
+<lite-youtube videoid="Mskx_WxzeCk" title="Multiple vehicle simulation in SITL gazebo"/>
 
 ### Відео: кілька літаків
 
-@[youtube](https://youtu.be/aEzFKPMEfjc)
+<lite-youtube videoid="aEzFKPMEfjc" title="PX4 Multivehicle SITL gazebo for fixedwing"/>
 
 ### Відео: кілька ВЗІП
 
-@[youtube](https://youtu.be/lAjjTFFZebI)
+<lite-youtube videoid="lAjjTFFZebI" title="PX4 Multivehicle SITL gazebo for VTOL"/>
 
 ### Збірка та тестування (XRCE-DDS)
 

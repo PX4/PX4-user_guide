@@ -207,7 +207,7 @@ For instructions on how, start from [Autotune](../config/autotune_mc.md).
 
 ## Video
 
-@[youtube](https://youtu.be/r-IkaVpN1Ko)
+<lite-youtube videoid="r-IkaVpN1Ko" title="CUAV V5+"/>
 
 
 ## Acknowledgments

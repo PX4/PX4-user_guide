@@ -404,4 +404,4 @@ ExpressLRS потребує `AUX1` як "канал вибору режиму". 
 
 FPV video of flight log:
 
-@[youtube](https://www.youtube.com/watch?v=VqNWwIPWJb0&ab_channel=ChrisSeto)
+<lite-youtube videoid="VqNWwIPWJb0" params="ab_channel=ChrisSeto" title="Reptile Dragon 2 Demo Flight For Px4 Log Review"/>
