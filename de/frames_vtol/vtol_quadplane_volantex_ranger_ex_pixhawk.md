@@ -50,13 +50,9 @@ The tools required for the conversion are;
 
 ## Wing conversion
 
-A full build log is provided in the following video.
-
 :::note
 Please note that the conversion in this build log is performed on a wing that shows damage from a previous conversion. 
 :::
-
-@[youtube](https://youtu.be/l_ppJ_HhAUQ)
 
 Cut both 800mm square carbon tubes to a length of 570mm and 230mm.
 
