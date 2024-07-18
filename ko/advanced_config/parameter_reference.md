@@ -9385,20 +9385,20 @@ table {
  <td><strong id="BAT_AVRG_CURRENT">BAT_AVRG_CURRENT</strong> (FLOAT)</td>
  <td>Expected battery current in flight <p><strong>Comment:</strong> This value is used to initialize the in-flight average current estimation, which in turn is used for estimating remaining flight time and RTL triggering.</p>   </td>
  <td>[0, 500] (0.1)</td>
- <td>15.0</td>
+ <td>15</td>
  <td>A</td>
 </tr>
 <tr>
  <td><strong id="BAT_CRIT_THR">BAT_CRIT_THR</strong> (FLOAT)</td>
  <td>Critical threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as critically low. This has to be lower than the low threshold. This threshold commonly will trigger RTL.</p>   </td>
- <td>[0.05, 0.25] (0.01)</td>
+ <td>[0.05, 0.5] (0.01)</td>
  <td>0.07</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="BAT_EMERGEN_THR">BAT_EMERGEN_THR</strong> (FLOAT)</td>
  <td>Emergency threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as dangerously low. This has to be lower than the critical threshold. This threshold commonly will trigger landing.</p>   </td>
- <td>[0.03, 0.1] (0.01)</td>
+ <td>[0.03, 0.5] (0.01)</td>
  <td>0.05</td>
  <td>norm</td>
 </tr>
@@ -9744,34 +9744,6 @@ table {
  <td>Enable checks on ESCs that report telemetry <p><strong>Comment:</strong> If this parameter is set, the system will check ESC&#x27;s online status and failures. This param is specific for ESCs reporting status. It shall be used only if ESCs support telemetry.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="COM_ARM_EKF_HGT">COM_ARM_EKF_HGT</strong> (FLOAT)</td>
- <td>Maximum EKF height innovation test ratio that will allow arming    </td>
- <td>[0.1, 1.0] (0.05)</td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="COM_ARM_EKF_POS">COM_ARM_EKF_POS</strong> (FLOAT)</td>
- <td>Maximum EKF position innovation test ratio that will allow arming    </td>
- <td>[0.1, 1.0] (0.05)</td>
- <td>0.5</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="COM_ARM_EKF_VEL">COM_ARM_EKF_VEL</strong> (FLOAT)</td>
- <td>Maximum EKF velocity innovation test ratio that will allow arming    </td>
- <td>[0.1, 1.0] (0.05)</td>
- <td>0.5</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="COM_ARM_EKF_YAW">COM_ARM_EKF_YAW</strong> (FLOAT)</td>
- <td>Maximum EKF yaw innovation test ratio that will allow arming    </td>
- <td>[0.1, 1.0] (0.05)</td>
- <td>0.5</td>
  <td></td>
 </tr>
 <tr>
@@ -13286,7 +13258,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GF_SOURCE">GF_SOURCE</strong> (INT32)</td>
- <td>Geofence source <p><strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS</p> <strong>값:</strong><ul>
+ <td>Geofence source <p><strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> GPOS</li>
 <li><strong>1:</strong> GPS</li>
 </ul>  </td>
@@ -16298,7 +16270,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -16534,7 +16506,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
