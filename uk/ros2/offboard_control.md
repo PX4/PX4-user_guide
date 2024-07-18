@@ -186,11 +186,3 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1, fl
 
 :::info [VehicleCommand](../msg_docs/VehicleCommand.md) - один з найпростіших і найпотужніших способів керування PX4, а підписавшись на [VehicleCommandAck](../msg_docs/VehicleCommandAck.md), ви також можете підтвердити, що задавання певної команди було успішним. Поля param і command відображають команди [MAVLink](https://mavlink.io/en/messages/common.html#mav_commands) та їхні значення параметрів.
 :::
-
-
-<!--
-
-## Demo with PX4 SITL and Gazebo Classic
-
-@[youtube](https://youtu.be/Nbc7fzxFlYo)
--->
