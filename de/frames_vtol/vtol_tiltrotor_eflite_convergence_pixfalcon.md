@@ -5,7 +5,7 @@ The [E-Flite Convergence](https://youtu.be/HNedXQ_jhYo) can easily be converted 
 :::note
 The original Horizon Hobby *E-Flite Convergence* frame and [Pixfalcon](../flight_controller/pixfalcon.md) have been discontinued. Alternatives are provided in the [Purchase](#where-to-buy) section. :::
 
-@[youtube](https://youtu.be/E61P2f2WPNU)
+<lite-youtube videoid="E61P2f2WPNU" title="E-flite Convergence Autonomous Mission Flight"/>
 
 
 ## Where to Buy
