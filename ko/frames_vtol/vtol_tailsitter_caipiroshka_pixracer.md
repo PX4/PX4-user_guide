@@ -5,7 +5,7 @@ Caipiroshka VTOL은 조금 수정된 *TBS Caipirinha*입니다.
 ::: info The *TBS Caipirinha* has been superseded and is no longer available. 이 지침은 업데이트된 차량 [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp)에서 *작동하여야 합니다*. 부품 목록에서 다른 여러 구성 요소도 업데이트 되었습니다.
 :::
 
-@[유투브](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
+<lite-youtube videoid="acG0aTuf3f8" title="PX4 VTOL - Call for Testpilots"/>
 
 ## 부품 목록
 
