@@ -88,7 +88,7 @@ Make sure to turn each of the motors in the correct direction, as the ESC will a
 
 The following video demonstrates the process:
 
-@[youtube](https://www.youtube.com/watch?v=4nSa8tvpbgQ)
+<lite-youtube videoid="4nSa8tvpbgQ" title="Zubax Orel 20 with PX4 Flight Stack - Auto-enumeration"/>
 
 ### Manual ESC Enumeration using Sapog
 
