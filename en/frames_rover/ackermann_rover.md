@@ -2,13 +2,13 @@
 
 <Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="warning" text="Experimental" />
 
-An _Ackermann Rover_ controls its direction by pointing the front wheels in the direction of travel — the [ackermann steering geometry](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) compensates for the fact that wheels on the inside and outside of the turn move at different rates.
+An _Ackermann rover_ controls its direction by pointing the front wheels in the direction of travel — the [Ackermann steering geometry](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) compensates for the fact that wheels on the inside and outside of the turn move at different rates.
 This kind of steering is used on most commercial vehicles, including cars, trucks etc.
 
 ![Traxxas Stampede VXL](../../assets/airframes/rover/traxxas_stampede_vxl/stampede.jpg)
 
 ::: info
-The module does not require the ackermann geometry and will work with any front-steering rover.
+The module does not require the Ackermann geometry and will work with any front-steering rover.
 :::
 
 ## Airframe Setup
@@ -69,7 +69,7 @@ If that is the case further tuning is required which is outlined in [Mission par
 
 ## Tuning (Advanced)
 
-To get an overview of all parameters that are related to the ackermann rover module navigate to the _Rover Ackermann_ group in the _Parameters_ section of QGroundControl.
+To get an overview of all parameters that are related to the Ackermann rover module navigate to the _Rover Ackermann_ group in the _Parameters_ section of QGroundControl.
 
 ### General Parameters
 
@@ -175,7 +175,7 @@ The mission speed is constrained between a minimum allowed speed [RA_MISS_VEL_MI
 
 Flight modes (or more accurately "Drive modes" for ground vehicles) provide autopilot support to make it easier to manually drive the vehicle, to execute autonomous missions, or to defer control to an external system.
 
-This section outlines all supported "flight" modes for Ackermann rovers using the new ackermann module.
+This section outlines all supported "flight" modes for Ackermann rovers using the new Ackermann module.
 
 :::info
 Selecting any other mode than those below will simply stop the rover.
@@ -198,7 +198,7 @@ A mission can be configured s.t. the vehicle will enter return mode after the la
 
 ## Pure Pursuit Algorithm
 
-The ackermann rover module implements a path following algorithm called Pure pursuit.
+The Ackermann rover module implements a path following algorithm called Pure pursuit.
 The controller takes the intersection point between a circle around the vehicle and the line segment connecting the previous and current waypoint.
 The radius of the circle around the vehicle is used to tune the controller and is often referred to as look-ahead distance.
 
