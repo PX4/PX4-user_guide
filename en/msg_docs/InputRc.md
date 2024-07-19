@@ -45,4 +45,5 @@ uint16[18] values			# measured pulse widths for each of the supported channels
 
 int8 link_quality			# link quality. Percentage 0-100%. -1 = invalid
 float32 rssi_dbm			# Actual rssi in units of dBm. NaN = invalid
+
 ```
