@@ -108,10 +108,10 @@ The parameters in [Tuning (basic)](#tuning-basic) must also be set to drive miss
 The module uses a control algorithm called _Pure pursuit_ and it can be beneficial to understand how it works to properly tune (see [Pure pursuit algorithm](#pure-pursuit-algorithm)).
 
 The look ahead distance sets how aggressive the controller behaves and is defined as $l_d = v \cdot k$.
-It depends on the velocity $v$ of the rover and a tuning parameter $k$ that can be set with the parameter [RA_LOOKAHEAD_TUN](#RA_LOOKAHEAD_TUN).
+It depends on the velocity $v$ of the rover and a tuning parameter $k$ that can be set with the parameter [RA_LOOKAHEAD_GAIN](#RA_LOOKAHEAD_GAIN).
 
 :::info
-A lower value of [RA_LOOKAHEAD_TUN](#RA_LOOKAHEAD_TUN) makes the controller more aggressive but can lead to oscillations!
+A lower value of [RA_LOOKAHEAD_GAIN](#RA_LOOKAHEAD_GAIN) makes the controller more aggressive but can lead to oscillations!
 :::
 
 The lookahead is constrained between [RA_LOOKAHD_MAX](#RA_LOOKAHD_MAX) and [RA_LOOKAHD_MIN](#RA_LOOKAHD_MIN).
@@ -129,11 +129,11 @@ To deal with the edge case that the line segment is outside the look ahead radiu
 
 To summarize, the following parameters can be used to tune the controller:
 
-| Parameter                                                                                                   | Description                             | Unit |
-| ----------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---- |
-| <a id="RA_LOOKAHEAD_TUN"></a>[RA_LOOKAHEAD_TUN](../advanced_config/parameter_reference.md#RA_LOOKAHEAD_TUN) | Main tuning parameter                   | -    |
-| <a id="RA_LOOKAHD_MAX"></a>[RA_LOOKAHD_MAX](../advanced_config/parameter_reference.md#RA_LOOKAHD_MAX)       | Maximum value for the look ahead radius | m    |
-| <a id="RA_LOOKAHD_MIN"></a>[RA_LOOKAHD_MIN](../advanced_config/parameter_reference.md#RA_LOOKAHD_MIN)       | Minimum value for the look ahead radius | m    |
+| Parameter                                                                                                      | Description                             | Unit |
+| -------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---- |
+| <a id="RA_LOOKAHEAD_GAIN"></a>[RA_LOOKAHEAD_GAIN](../advanced_config/parameter_reference.md#RA_LOOKAHEAD_GAIN) | Main tuning parameter                   | -    |
+| <a id="RA_LOOKAHD_MAX"></a>[RA_LOOKAHD_MAX](../advanced_config/parameter_reference.md#RA_LOOKAHD_MAX)          | Maximum value for the look ahead radius | m    |
+| <a id="RA_LOOKAHD_MIN"></a>[RA_LOOKAHD_MIN](../advanced_config/parameter_reference.md#RA_LOOKAHD_MIN)          | Minimum value for the look ahead radius | m    |
 
 #### Cornering Parameters
 
@@ -146,11 +146,11 @@ This is done by scaling the acceptance radius based on the corner the rover has 
 
 The degree to which corner cutting is allowed can be tuned, or disabled, with the following parameters:
 
-| Parameter                                                                                             | Description                                           | Unit |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ---- |
-| <a id="RA_ACC_RAD_DEF"></a>[RA_ACC_RAD_DEF](../advanced_config/parameter_reference.md#RA_ACC_RAD_DEF) | Default acceptance radius                             | m    |
-| <a id="RA_ACC_RAD_MAX"></a>[RA_ACC_RAD_MAX](../advanced_config/parameter_reference.md#RA_ACC_RAD_MAX) | Maximum radius the acceptance radius can be scaled to | m    |
-| <a id="RA_ACC_RAD_TUN"></a>[RA_ACC_RAD_TUN](../advanced_config/parameter_reference.md#RA_ACC_RAD_TUN) | Tuning parameter                                      | -    |
+| Parameter                                                                                                | Description                                           | Unit |
+| -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ---- |
+| <a id="NAV_ACC_RAD"></a>[NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)             | Default acceptance radius                             | m    |
+| <a id="RA_ACC_RAD_MAX"></a>[RA_ACC_RAD_MAX](../advanced_config/parameter_reference.md#RA_ACC_RAD_MAX)    | Maximum radius the acceptance radius can be scaled to | m    |
+| <a id="RA_ACC_RAD_GAIN"></a>[RA_ACC_RAD_GAIN](../advanced_config/parameter_reference.md#RA_ACC_RAD_GAIN) | Tuning parameter                                      | -    |
 
 The tuning parameter is a multiplicand on the calculated ideal acceptance radius to account for dynamic effects.
 
@@ -158,18 +158,18 @@ The tuning parameter is a multiplicand on the calculated ideal acceptance radius
 
 To smoothen the trajectory further and reduce the risk of the rover rolling over, the mission speed is reduced as the rover gets closer to a waypoint:
 
-- During cornering the rover drives at a speed that is equal to the the inverse of the acceptance radius (calculated using the [corner cutting logic](#corner-cutting)) multiplied with a tuning parameter called [RA_MISS_VEL_TUN](#RA_MISS_VEL_TUN).
+- During cornering the rover drives at a speed that is equal to the the inverse of the acceptance radius (calculated using the [corner cutting logic](#corner-cutting)) multiplied with a tuning parameter called [RA_MISS_VEL_GAIN](#RA_MISS_VEL_GAIN).
 - In between waypoints (straight line) the rover speed is regulated such that it will arrive at the acceptance radius of the waypoint with the desired cornering speed.
   This requires [RA_MAX_ACCEL](#RA_MAX_ACCEL) and [RA_MAX_JERK](#RA_MAX_JERK) to be set.
 
 The mission speed is constrained between a minimum allowed speed [RA_MISS_VEL_MIN](#RA_MISS_VEL_MIN) and the default mission speed [RA_MISS_VEL_DEF](#RA_MISS_VEL_DEF).
 
-| Parameter                                                                                                | Description                                          | Unit    |
-| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------- |
-| <a id="RA_MISS_VEL_DEF"></a>[RA_MISS_VEL_DEF](../advanced_config/parameter_reference.md#RA_MISS_VEL_DEF) | Default mission speed                                | $m/s$   |
-| <a id="RA_MISS_VEL_MIN"></a>[RA_MISS_VEL_MIN](../advanced_config/parameter_reference.md#RA_MISS_VEL_MIN) | Minimum the speed can be reduced to during cornering | $m/s$   |
-| <a id="RA_MISS_VEL_TUN"></a>[RA_MISS_VEL_TUN](../advanced_config/parameter_reference.md#RA_MISS_VEL_TUN) | Tuning parameter for the velocity reduction          | -       |
-| <a id="RA_MAX_JERK"></a>[RA_MAX_JERK](../advanced_config/parameter_reference.md#RA_MAX_JERK)             | Limit for forwards acc/deceleration change.          | $m/s^3$ |
+| Parameter                                                                                                   | Description                                          | Unit    |
+| ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------- |
+| <a id="RA_MISS_VEL_DEF"></a>[RA_MISS_VEL_DEF](../advanced_config/parameter_reference.md#RA_MISS_VEL_DEF)    | Default mission speed                                | $m/s$   |
+| <a id="RA_MISS_VEL_MIN"></a>[RA_MISS_VEL_MIN](../advanced_config/parameter_reference.md#RA_MISS_VEL_MIN)    | Minimum the speed can be reduced to during cornering | $m/s$   |
+| <a id="RA_MISS_VEL_GAIN"></a>[RA_MISS_VEL_GAIN](../advanced_config/parameter_reference.md#RA_MISS_VEL_GAIN) | Tuning parameter for the velocity reduction          | -       |
+| <a id="RA_MAX_JERK"></a>[RA_MAX_JERK](../advanced_config/parameter_reference.md#RA_MAX_JERK)                | Limit for forwards acc/deceleration change.          | $m/s^3$ |
 
 ## Flight Modes
 
