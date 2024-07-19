@@ -108,10 +108,10 @@ The parameters in [Tuning (basic)](#tuning-basic) must also be set to drive miss
 The module uses a control algorithm called _Pure pursuit_ and it can be beneficial to understand how it works to properly tune (see [Pure pursuit algorithm](#pure-pursuit-algorithm)).
 
 The look ahead distance sets how aggressive the controller behaves and is defined as $l_d = v \cdot k$.
-It depends on the velocity $v$ of the rover and a tuning parameter $k$ that can be set with the parameter [RA_LOOKAHEAD_GAIN](#RA_LOOKAHEAD_GAIN).
+It depends on the velocity $v$ of the rover and a tuning parameter $k$ that can be set with the parameter [RA_LOOKAHD_GAIN](#RA_LOOKAHD_GAIN).
 
 :::info
-A lower value of [RA_LOOKAHEAD_GAIN](#RA_LOOKAHEAD_GAIN) makes the controller more aggressive but can lead to oscillations!
+A lower value of [RA_LOOKAHD_GAIN](#RA_LOOKAHD_GAIN) makes the controller more aggressive but can lead to oscillations!
 :::
 
 The lookahead is constrained between [RA_LOOKAHD_MAX](#RA_LOOKAHD_MAX) and [RA_LOOKAHD_MIN](#RA_LOOKAHD_MIN).
@@ -127,7 +127,7 @@ To summarize, the following parameters can be used to tune the controller:
 
 | Parameter                                                                                                      | Description                             | Unit |
 | -------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---- |
-| <a id="RA_LOOKAHEAD_GAIN"></a>[RA_LOOKAHEAD_GAIN](../advanced_config/parameter_reference.md#RA_LOOKAHEAD_GAIN) | Main tuning parameter                   | -    |
+| <a id="RA_LOOKAHD_GAIN"></a>[RA_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#RA_LOOKAHD_GAIN) | Main tuning parameter                   | -    |
 | <a id="RA_LOOKAHD_MAX"></a>[RA_LOOKAHD_MAX](../advanced_config/parameter_reference.md#RA_LOOKAHD_MAX)          | Maximum value for the look ahead radius | m    |
 | <a id="RA_LOOKAHD_MIN"></a>[RA_LOOKAHD_MIN](../advanced_config/parameter_reference.md#RA_LOOKAHD_MIN)          | Minimum value for the look ahead radius | m    |
 
