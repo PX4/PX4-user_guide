@@ -121,11 +121,7 @@ Increasing [RA_LOOKAHD_MIN](#RA_LOOKAHD_MIN) can help to make the steering less 
 This can be useful especially if the [corner slow down effect](#corner-slow-down) is enabled.
 :::
 
-To deal with the edge case that the line segment is outside the look ahead radius around the rover there are 2 steps:
-
-1. The look ahead is scaled to the crosstrack error, which creates an intersection point for the rover to drive towards.
-2. Scaling the look ahead too much can have undesirable effects such as the rover driving a huge circle to return to the path, rather then taking a straight line.
-   For this purpose the maximum look ahead radius can be capped with the parameter [RA_LOOKAHD_MAX](#RA_LOOKAHD_MAX), after which the rover will drive directly towards the current waypoint until it gets close enough to the line segment again.
+If the distance from the path to the rover is bigger than the lookahead distance, the rover will target the point on the path that is closest to the rover.
 
 To summarize, the following parameters can be used to tune the controller:
 
