@@ -11,14 +11,14 @@ This kind of steering is used on most commercial vehicles, including cars, truck
 The module does not require the Ackermann geometry and will work with any front-steering rover.
 :::
 
-## Airframe Setup
+## Basic Setup
 
 This section will go through the most basic setup that is necessary to start using the rover.
 
-1. To enable the module flash the PX4 rover build onto your flight controller.
-
+1. To enable the module flash the PX4 rover build onto your flight controller.  
+   For this follow the guide to flash custom firmware in [Loading Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware). When building for hardware with the make command, replace the `_default` suffix with `_rover`.  
    ::: info
-   You can also enable the module in normal builds by adding the following line to your [board configuration](../hardware/porting_guide_config.md) (e.g. for fmu-v6x you might add this line to [`main/boards/px4/fmu-v6x/default.px4board`](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v6x/default.px4board)):
+   You can also enable the module in default builds by adding the following line to your [board configuration](../hardware/porting_guide_config.md) (e.g. for fmu-v6x you might add this line to [`main/boards/px4/fmu-v6x/default.px4board`](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v6x/default.px4board)):
 
    ```sh
    CONFIG_MODULES_ROVER_ACKERMANN=y
@@ -58,7 +58,7 @@ To start driving missions navigate to [Parameters](../advanced_config/parameters
 
 | Parameter                                                                                                | Description                                                                | Unit |
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---- |
-| <a id="RA_WHEEL_BASE"></a>[RA_WHEEL_BASE](../advanced_config/parameter_reference.md#RA_WHEEL_BASE)       | Wheel-base of the rover which is measured from the back to the front wheel | -    |
+| <a id="RA_WHEEL_BASE"></a>[RA_WHEEL_BASE](../advanced_config/parameter_reference.md#RA_WHEEL_BASE)       | Wheel-base of the rover which is measured from the back to the front wheel | m    |
 | <a id="RA_MAX_STR_ANG"></a>[RA_MAX_STR_ANG](../advanced_config/parameter_reference.md#RA_MAX_STR_ANG)    | Maximum steering angle of the rover                                        | deg  |
 | <a id="RA_MISS_VEL_DEF"></a>[RA_MISS_VEL_DEF](../advanced_config/parameter_reference.md#RA_MISS_VEL_DEF) | Default velocity the rover will drive during the mission                   | m/s  |
 
