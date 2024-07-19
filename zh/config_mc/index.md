@@ -1,22 +1,22 @@
 # 多旋翼配置
 
-Multicopter configuration and calibration follows the same high level steps as other frames: selection of firmware, configuration of the frame including actuator/motor geometry and output mappings, sensor configuration and calibration, configuration of safety and other features, and finally tuning.
+多旋翼的配置和校准遵循与其他框架相同的高级步骤：选择固件，配置框架，包括执行器/电机几何和输出映射，传感器配置和校准，安全和其他功能的配置，最后进行调整。
 
-This topic explains how to configure a multicopter using selected topics from [Standard Configuration](../config/index.md), [Advanced Configuration](../advanced_config/index.md), and [Flight Controller Peripherals](../peripherals/index.md), along with multicopter-specific tuning topics.
+本章节介绍了如何使用[标准配置](../config/index.md)、[高级配置](../advanced_config/index.md)和[飞行控制器外设](../peripherals/index.md)以及多旋翼特定的调参章节。
 
 ::: info
-This topic is the recommended entry point when performing first-time configuration and calibration of a new multicopter frame.
+本节是首次配置和校准新的多旋翼机架时的推荐入口点。
 :::
 
-## Loading Firmware
+## 加载固件
 
-The first step is to [load PX4 firmware](../config/firmware.md) onto your [flight controller](../flight_controller/index.md). This is most easily done using QGroundControl, which will automatically select appropriate firmware for your particular controller hardware. By default QGC will install the latest stable version of PX4, but you can choose beta or custom versions instead if needed.
+第一步是 [加载 PX4 固件](../config/firmware.md) 到您的[飞控](../flight_controller/index.md)上。 这一步最容易通过使用 QGroundControl 完成，它会自动选择适合您特定控制器硬件的固件。 默认情况下，QGC 会安装最新的稳定版本的 PX4，但如果需要，您可以选择测试版或自定义版本。
 
-Relevant topics:
+相关章节：
 
-- [Loading Firmware](../config/firmware.md)
+- [加载固件](../config/firmware.md)
 
-## Frame Selection and Configuration
+## 机架选择和配置
 
 This section explains how to configure the vehicle type (multicopter), specific motor/flight control geometry, and motor outputs.
 
@@ -48,7 +48,7 @@ Relevant topics:
 - [Actuator Configuration and Testing](../config/actuators.md) — Vehicle geometry, output mapping, motor configuration, testing.
 - [ESC Calibration](../advanced_config/esc_calibration.md) — Do between output mapping and motor configuration (topic above) for PWM and OneShot ESC.
 
-## Sensor Setup and Calibration
+## 传感器设置和校准
 
 PX4 most commonly relies on a magnetometer (compass) for direction information, a barometer for altitude, a gyroscope for body rates, an accelerometer for attitude and a GPS/GNSS for global position. Pixhawk flight controllers (and many others) have inbuilt magnetometer, accelerometer, gyroscope, and barometer. The inbuilt compass usually isn't particularly reliable, and it is common to also add an external compass (usually combined with a GNSS receiver in the same device).
 
@@ -73,7 +73,7 @@ PX4 can use other peripherals, such as distance sensors, optical flow sensors, t
 
 :::
 
-## Manual Control Setup
+## 手动控制设置
 
 Pilots can control a vehicle manually using either a Radio Control (RC) System or a Joystick/Gamepad controller connected via QGroundControl.
 
@@ -90,14 +90,14 @@ Joystick/GamePad:
 
 - [Joystick Setup](../config/joystick.md) (includes button/flight mode mapping)
 
-## Safety Configuration
+## 安全配置
 
 PX4 can be configured to automatically handle conditions such as low battery, losing radio or data links, flying too far from the home location, and so on:
 
 - [Battery Estimation Tuning](../config/battery.md) — estimate remaining power (needed for low power failsafe).
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
-## Tuning
+## 调参
 
 Tuning is the final step, carried out only after most other setup and configuration is complete.
 
@@ -140,9 +140,9 @@ My assumption is that the mixing system can cope with whatever geometry you thro
 Yes but it must be physically feasible. E.g. if you make a quadrotor where all motors turn the same way it will "deal" with it but that cannot work without very specific controllers. Same for a monocopter or a tricopter without swiveling one motor.
 -->
 
-## See Also
+## 另见
 
-- [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
+- [QGroundControl > 设置](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
 - [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
 - [Advanced Configuration](../advanced_config/index.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Vehicle-Centric Config/Tuning:
