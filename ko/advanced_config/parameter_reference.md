@@ -17847,6 +17847,13 @@ table {
  <td>Disabled (0)</td>
  <td></td>
 </tr>
+<tr>
+ <td><strong id="RC_GHST_TEL_EN">RC_GHST_TEL_EN</strong> (INT32)</td>
+ <td>Ghost RC telemetry enable <p><strong>Comment:</strong> Ghost telemetry enable</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
 </tbody></table>
 
 ## RC Input
@@ -23821,8 +23828,71 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="RC_DSM_PRT_CFG">RC_DSM_PRT_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for DSM RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run DSM RC Input Driver. DSM RC (Spektrum) driver.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>6:</strong> UART 6</li>
+<li><strong>101:</strong> TELEM 1</li>
+<li><strong>102:</strong> TELEM 2</li>
+<li><strong>103:</strong> TELEM 3</li>
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+<li><strong>201:</strong> GPS 1</li>
+<li><strong>202:</strong> GPS 2</li>
+<li><strong>203:</strong> GPS 3</li>
+<li><strong>300:</strong> Radio Controller</li>
+<li><strong>301:</strong> Wifi Port</li>
+<li><strong>401:</strong> EXT2</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RC_GHST_PRT_CFG">RC_GHST_PRT_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for GHST RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run GHST RC Input Driver. Ghost (GHST) RC driver.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>6:</strong> UART 6</li>
+<li><strong>101:</strong> TELEM 1</li>
+<li><strong>102:</strong> TELEM 2</li>
+<li><strong>103:</strong> TELEM 3</li>
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+<li><strong>201:</strong> GPS 1</li>
+<li><strong>202:</strong> GPS 2</li>
+<li><strong>203:</strong> GPS 3</li>
+<li><strong>300:</strong> Radio Controller</li>
+<li><strong>301:</strong> Wifi Port</li>
+<li><strong>401:</strong> EXT2</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="RC_PORT_CONFIG">RC_PORT_CONFIG</strong> (INT32)</td>
  <td>Serial Configuration for RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run RC Input Driver. Setting this to &#x27;Disabled&#x27; will use a board-specific default port for RC input.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>6:</strong> UART 6</li>
+<li><strong>101:</strong> TELEM 1</li>
+<li><strong>102:</strong> TELEM 2</li>
+<li><strong>103:</strong> TELEM 3</li>
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+<li><strong>201:</strong> GPS 1</li>
+<li><strong>202:</strong> GPS 2</li>
+<li><strong>203:</strong> GPS 3</li>
+<li><strong>300:</strong> Radio Controller</li>
+<li><strong>301:</strong> Wifi Port</li>
+<li><strong>401:</strong> EXT2</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>300</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RC_SBUS_PRT_CFG">RC_SBUS_PRT_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for SBUS RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run SBUS RC Input Driver. SBUS RC driver.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -23913,7 +23983,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_GPS2_BAUD">SER_GPS2_BAUD</strong> (INT32)</td>
- <td>Baudrate for the GPS 2 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td>Baudrate for the GPS 2 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -24003,7 +24073,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_RC_BAUD">SER_RC_BAUD</strong> (INT32)</td>
- <td>Baudrate for the Radio Controller Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the Radio Controller Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>값:</strong><ul>
+ <td>Baudrate for the Radio Controller Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the Radio Controller Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -24108,7 +24178,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_TEL3_BAUD">SER_TEL3_BAUD</strong> (INT32)</td>
- <td>Baudrate for the TELEM 3 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the TELEM 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td>Baudrate for the TELEM 3 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the TELEM 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -24552,7 +24622,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_FAC_CAL_MODE">SYS_FAC_CAL_MODE</strong> (INT32)</td>
- <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p> <strong>값:</strong><ul>
+ <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> All sensors</li>
 <li><strong>2:</strong> All sensors except mag</li>
@@ -24608,7 +24678,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_HITL">SYS_HITL</strong> (INT32)</td>
- <td>Enable HITL/SIH mode on next boot <p><strong>Comment:</strong> While enabled the system will boot in Hardware-In-The-Loop (HITL) or Simulation-In-Hardware (SIH) mode and not enable all sensors and checks. When disabled the same vehicle can be flown normally. Set to &#x27;external HITL&#x27;, if the system should perform as if it were a real vehicle (the only difference to a real system is then only the parameter value, which can be used for log analysis).</p> <strong>값:</strong><ul>
+ <td>Enable HITL/SIH mode on next boot <p><strong>Comment:</strong> While enabled the system will boot in Hardware-In-The-Loop (HITL) or Simulation-In-Hardware (SIH) mode and not enable all sensors and checks. When disabled the same vehicle can be flown normally. Set to &#x27;external HITL&#x27;, if the system should perform as if it were a real vehicle (the only difference to a real system is then only the parameter value, which can be used for log analysis).</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> external HITL</li>
 <li><strong>0:</strong> HITL and SIH disabled</li>
 <li><strong>1:</strong> HITL enabled</li>
