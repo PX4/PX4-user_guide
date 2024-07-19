@@ -14,5 +14,4 @@ char[50] topic_name  # E.g. /fmu/in/vehicle_command
 bool success
 uint32 message_hash # hash over all message fields
 
-
 ```
