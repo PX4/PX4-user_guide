@@ -142,7 +142,7 @@ Note that this is a cut-down version of the not-yet-implemented [BATTERY_STATUS_
 Here we've put the message in `development.xml`, which is fine for testing and if the message is intended to eventually be part of the standard message set, but you might also put a [custom message](#custom-mavlink-messages) in its own dialect file.
 :::
 
-Build PX4 for SITL and confirm that the associated message is generated in `/build/px4_sitl_default/mavlink/common/mavlink_msg_battery_status_demo.h`.
+Build PX4 for SITL and confirm that the associated message is generated in `/build/px4_sitl_default/mavlink/development/mavlink_msg_battery_status_demo.h`.
 
 Because `BatteryStatus` already exists you will not need to do anything to create or build it.
 
@@ -220,7 +220,7 @@ protected:
 				mavlink_battery_status_demo_t bat_msg{};
 
 				bat_msg.id = battery_status.id - 1;
-				bat_msg.battery_remaining = (battery_status.connected) ? roundf(battery_status.remaining * 100.f) : -1;
+				bat_msg.percent_remaining = (battery_status.connected) ? roundf(battery_status.remaining * 100.f) : -1;
 
 				// check if temperature valid
 				if (battery_status.connected && PX4_ISFINITE(battery_status.temperature)) {
