@@ -46,32 +46,6 @@ Note that the [Arming Check Report](#qgc-arming-check-report) is a much easier w
 
 This sections lists errors, with associated checks and parameters, that are reported by the [EKF](../advanced_config/tuning_the_ecl_ekf.md) (and propagate to _QGroundControl_). These are provided for information only (the QGC Arming Checks UI is the best way to get error and solution information).
 
-#### PREFLIGHT FAIL: EKF HGT ERROR
-
-- 이 오류는 IMU와 높이 측정 데이터가 불일치시에 발생합니다.
-- 가속계와 자이로를 보정하고 기체를 재부팅하십시오. 오류가 계속 발생하면, 고도 센서에 문제가 있는 지 확인하십시오.
-- 검사는 [ COM_ARM_EKF_HGT ](../advanced_config/parameter_reference.md#COM_ARM_EKF_HGT) 매개변수에 의해 제어됩니다.
-
-#### PREFLIGHT FAIL: EKF VEL ERROR
-
-- 이 오류는 IMU와 GPS 속도 측정 데이터가 불일치시에 발생합니다.
-- 비현실적인 데이터 점프에 대한 GPS 속도 데이터를 확인합니다. GPS 품질이 정상이면, 가속 센서와 자이로를 보정후에 차량을 재부팅하십시오.
-- 검사는 [ COM_ARM_EKF_VEL ](../advanced_config/parameter_reference.md#COM_ARM_EKF_VEL) 매개변수에 의해 제어됩니다.
-
-#### PREFLIGHT FAIL: EKF HORIZ POS ERROR
-
-- 이 오류는 IMU와 위치 측정 데이터(GPS 또는 외부 비전)가 불일치시에 발생합니다.
-- 비현실적인 데이터 점프에 대한 위치 센서 데이터를 확인하십시오. 데이터 품질이 정상이면, 가속 센서와 자이로를 보정후에 차량을 재부팅하십시오.
-- 검사는 [ COM_ARM_EKF_POS ](../advanced_config/parameter_reference.md#COM_ARM_EKF_POS) 매개변수에 의해 제어됩니다.
-
-#### PREFLIGHT FAIL: EKF YAW ERROR
-
-- 이 오류는 자이로에서 추정된 요 각도와 자력계 또는 외부 비전 시스템의 요 각도의 불일치시에 발생합니다.
-- IMU 데이터에서 큰 요 속도 오프셋을 확인하고 자력계 정렬 및 교정을 확인하십시오.
-- 검사는 [ COM_ARM_EKF_YAW ](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW) 매개변수에 의해 제어됩니다.
-- 기본값 0.5는 내비게이션 편 요각과 자기 편 요각 (자 기계 또는 외부 비전) 간의 차이가 EKF에서 허용하는 최대치의 50 %를 넘지 않도록 허용하고, 비행 시작시 오류 증가에 대한 약간의 여유를 제공합니다.
-- 요 자이로의 오프셋이 크거나 자기 간섭 또는 자력계 보정이 불량한 상태에서 차량을 이동하거나 회전하면 실패할 수 있습니다.
-
 #### 사전 확인 실패 : EKF 높은 IMU 액셀 바이어스  :
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/Arming/PreFlightCheck/checks/ekf2Check.cpp#L267 -->
@@ -97,12 +71,12 @@ EKF IMU 가속 바이어스는 IMU 센서에서 보고한 측정된 가속도와
 추정기 성능이 향상될 수 있는 데이터가 있는 경우에만 시도합니다.
 :::
 
-| 매개변수                                                                                                      | 설명                                                                                                                                                                                                                                                        |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="EKF2_ABL_LIM"></a>[EKF2_ABL_LIM](../advanced_config/parameter_reference.md#EKF2_ABL_LIM)         | EKF가 추정할 수 있는 최대 바이어스 값(이 값을 초과하면 바이어스가 잘리고 EKF는 자체 재설정을 시도하며 다중 EKF 시스템에서 작동하는 IMU가 있는 더 건강한 EKF로 전환할 수도 있음). 자동 조종 장치는 비행 전 점검 및 이륙 방지 동안 추정된 편향이 이 매개변수의 75%를 초과하는 경우 "높은 가속 편향"을 보고합니다. 0.4m/s2의 현재 값은 이미 상당히 높으며, 이를 높이면 자동조종장치가 문제를 감지할 가능성이 줄어듭니다. |
-| <a id="EKF2_ABIAS_INIT"></a>[EKF2_ABIAS_INIT](../advanced_config/parameter_reference.md#EKF2_ABIAS_INIT)   | 초기 바이어스 불확실성(완벽하게 보정된 경우 센서의 "켜기 바이어스"와 관련됨). 일부 사용자는 센서가 잘 보정되어 있고 켜기 바이어스가 작다는 것을 알고 있으면 이 값을 줄이고 싶어할 수 있습니다.                                                                                                                                           |
-| <a id="EKF2_ACC_B_NOISE"></a>[EKF2_ACC_B_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_B_NOISE) | The expected "in-run bias" of the accelerometer or “how fast do we expect the bias to change per second”. 기본적으로 이 값은 온도 변화로 인한 드리프트를 포함할 만큼 충분히 큽니다. IMU가 온도 보정된 경우 사용자는 이 매개변수를 줄이기를 원할 수 있습니다.                                                          |
-| <a id="EKF2_ABL_ACCLIM"></a>[EKF2_ABL_ACCLIM](../advanced_config/parameter_reference.md#EKF2_ABL_ACCLIM)   | 추정자가 가속도 편향을 학습하려고 시도하는 최대 가속도입니다. 이는 추정자가 비선형성 및 스케일 팩터 오류로 인한 편향을 학습하는 것을 방지하기 위한 것입니다. (거의 어떤 사용자도 자신이 하는 일을 정말로 알고 있는 경우를 제외하고는 해당 매개변수를 변경할 필요가 없습니다.)                                                                                               |
+| 매개변수                                                                                                      | 설명                                                                                                                                                                                                                                                                                                                           |
+| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="EKF2_ABL_LIM"></a>[EKF2_ABL_LIM](../advanced_config/parameter_reference.md#EKF2_ABL_LIM)         | EKF가 추정할 수 있는 최대 바이어스 값(이 값을 초과하면 바이어스가 잘리고 EKF는 자체 재설정을 시도하며 다중 EKF 시스템에서 작동하는 IMU가 있는 더 건강한 EKF로 전환할 수도 있음). The autopilot will report a "high accel bias" if the estimated bias exceeds 75% of this parameter during a preflight check and prevent takeoff. 0.4m/s2의 현재 값은 이미 상당히 높으며, 이를 높이면 자동조종장치가 문제를 감지할 가능성이 줄어듭니다. |
+| <a id="EKF2_ABIAS_INIT"></a>[EKF2_ABIAS_INIT](../advanced_config/parameter_reference.md#EKF2_ABIAS_INIT)   | Initial bias uncertainty (if perfectly calibrated, this is related to the "turn-on bias" of the sensor). 일부 사용자는 센서가 잘 보정되어 있고 켜기 바이어스가 작다는 것을 알고 있으면 이 값을 줄이고 싶어할 수 있습니다.                                                                                                                                                   |
+| <a id="EKF2_ACC_B_NOISE"></a>[EKF2_ACC_B_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_B_NOISE) | The expected "in-run bias" of the accelerometer or "how fast do we expect the bias to change per second". 기본적으로 이 값은 온도 변화로 인한 드리프트를 포함할 만큼 충분히 큽니다. IMU가 온도 보정된 경우 사용자는 이 매개변수를 줄이기를 원할 수 있습니다.                                                                                                                             |
+| <a id="EKF2_ABL_ACCLIM"></a>[EKF2_ABL_ACCLIM](../advanced_config/parameter_reference.md#EKF2_ABL_ACCLIM)   | 추정자가 가속도 편향을 학습하려고 시도하는 최대 가속도입니다. 이는 추정자가 비선형성 및 스케일 팩터 오류로 인한 편향을 학습하는 것을 방지하기 위한 것입니다. (거의 어떤 사용자도 자신이 하는 일을 정말로 알고 있는 경우를 제외하고는 해당 매개변수를 변경할 필요가 없습니다.)                                                                                                                                                                  |
 
 #### PREFLIGHT FAIL: EKF HIGH IMU GYRO BIAS
 
