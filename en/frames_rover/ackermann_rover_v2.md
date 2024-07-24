@@ -1,4 +1,4 @@
-# Ackermann Rover
+# Ackermann Rover (v2)
 
 <Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="warning" text="Experimental" />
 
@@ -8,15 +8,29 @@ This kind of steering is used on most commercial vehicles, including cars, truck
 ![Traxxas Stampede VXL](../../assets/airframes/rover/traxxas_stampede_vxl/stampede.jpg)
 
 ::: info
-The module does not require the Ackermann geometry and will work with any front-steering rover.
+PX4 does not require that the vehicle uses the Ackermann geometry and will work with any front-steering rover.
 :::
+
+::: tip
+This page describes is a dedicated Ackermann rover implementation, that is intended to replace the "generic" rover module used in [Ackermann steering (v1)](../frames_rover/ackermann_rover_v1.md).
+The rover already performs better than the old module for the use cases that it implements.
+Note however that this is not yet in a release build, so you will have to build the firmware yourself to test it.
+:::
+
 
 ## Basic Setup
 
-This section will go through the most basic setup that is necessary to start using the rover.
+To start using the ackermann rover:
 
-1. To enable the module flash the PX4 rover build onto your flight controller.  
-   For this follow the guide to flash custom firmware in [Loading Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware). When building for hardware with the make command, replace the `_default` suffix with `_rover`.  
+1. First build the rover firmware for your flight controller from the `main` branch (there is no release build, so you can't just select this build from QGroundControl).
+
+   To build for rover with the `make` command, replace the `_default` suffix with `_rover`.
+   For example, to build rover for px4_fmu-v6x boards, you would use the command:
+   
+   ```
+   make px4_fmu-v6x_rover
+   ```
+
    ::: info
    You can also enable the module in default builds by adding the following line to your [board configuration](../hardware/porting_guide_config.md) (e.g. for fmu-v6x you might add this line to [`main/boards/px4/fmu-v6x/default.px4board`](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v6x/default.px4board)):
 
@@ -27,10 +41,17 @@ This section will go through the most basic setup that is necessary to start usi
    Note that adding the rover module may lead to flash overflow.
    You may need to disable modules that you do not plan to use, such as those related to multicopter, fixed wing, or the old rover module.
    :::
+   
+2. Load the **custom firmware** that you just built onto your flight controller (see [Loading Firmware > Installing PX4 Main, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)).
+   
 
 2. In the [Airframe](../config/airframe.md) configuration select the _Generic ackermann rover_:
 
    ![QGC screenshot showing selection of the airframe 'Generic ackermann rover'](../../assets/config/airframe/airframe_ackermann_rover.png)
+   
+   ::: warning
+   Do not use the _Generic Ground Vehicle (Ackermann)_ airframe as that will load the [Ackermann steering (v1)](../frames_rover/ackermann_rover_v1.md) configuration.
+   :::
 
    Select the **Apply and Restart** button.
 
@@ -38,9 +59,7 @@ This section will go through the most basic setup that is necessary to start usi
    If this airframe does not show up in the UI, it can alternatively be selected by setting the [SYS_AUTOSTART](../advanced_config/parameter_reference.md#SYS_AUTOSTART) parameter to `50010`.
    :::
 
-   ::: warning
-   Do not use the _Generic Ground Vehicle (Ackermann)_ airframe as that will load the deprecated Ackermann implementation.
-   :::
+
 
 3. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
 
@@ -95,7 +114,7 @@ The slew rates are not based on measurements but on assumed linear relation betw
 Therefore these two parameters have to be set for the slew rates to work!
 :::
 
-### Mission Parameters
+## Mission Parameters
 
 These parameters only affect vehicle in [mission mode](#mission-mode).
 
@@ -103,7 +122,7 @@ These parameters only affect vehicle in [mission mode](#mission-mode).
 The parameters in [Tuning (basic)](#tuning-basic) must also be set to drive missions!
 :::
 
-#### Pure Pursuit Parameters
+### Pure Pursuit Parameters
 
 The module uses a control algorithm called _Pure pursuit_ and it can be beneficial to understand how it works to properly tune (see [Pure pursuit algorithm](#pure-pursuit-algorithm)).
 
@@ -131,9 +150,9 @@ To summarize, the following parameters can be used to tune the controller:
 | <a id="RA_LOOKAHD_MAX"></a>[RA_LOOKAHD_MAX](../advanced_config/parameter_reference.md#RA_LOOKAHD_MAX)          | Maximum value for the look ahead radius | m    |
 | <a id="RA_LOOKAHD_MIN"></a>[RA_LOOKAHD_MIN](../advanced_config/parameter_reference.md#RA_LOOKAHD_MIN)          | Minimum value for the look ahead radius | m    |
 
-#### Cornering Parameters
+### Cornering Parameters
 
-##### Corner cutting
+#### Corner cutting
 
 The module employs a special cornering logic causing the rover to "cut corners" to achieve a smooth trajectory.
 This is done by scaling the acceptance radius based on the corner the rover has to drive (for geometric explanation see [Cornering logic](#cornering-logic)).
@@ -150,7 +169,7 @@ The degree to which corner cutting is allowed can be tuned, or disabled, with th
 
 The tuning parameter is a multiplicand on the calculated ideal acceptance radius to account for dynamic effects.
 
-##### Corner slow down
+#### Corner slow down
 
 To smoothen the trajectory further and reduce the risk of the rover rolling over, the mission speed is reduced as the rover gets closer to a waypoint:
 

@@ -9,7 +9,7 @@ Maintainer volunteers, [contribution](../contribute/index.md) of new features, n
 
 PX4 supports rovers (Unmanned Ground Vehicles - UGVs) with [ackermann and differential](#rover-types) steering.
 
-This section contains build logs/instructions for assembling as well as configuring a number of UGV frames.
+This section contains links to infomrmation abou thte different types of rovers, along with build logs/instructions for assembling a number of UGV frames.
 
 ![Traxxas Rover Picture](../../assets/airframes/rover/traxxas_stampede_vxl/final_side.jpg)
 
@@ -17,47 +17,22 @@ This section contains build logs/instructions for assembling as well as configur
 
 PX4 supports rovers with:
 
-- **Differential steering**: direction is controlled by moving the left- and right-side wheels at different speeds.
+- [**Differential steering**](../frames_rover/differential_rover_v1.md): direction is controlled by moving the left- and right-side wheels at different speeds.
   This kind of steering commonly used on bulldozers, tanks, and other tracked vehicles.
-- [**Ackermann steering**](../frames_rover/ackermann_rover.md): direction is controlled by pointing wheels in the direction of travel.
+- **Ackermann steering**: direction is controlled by pointing wheels in the direction of travel.
   This kind of steering is used on most commercial vehicles, including cars, trucks etc.
-
-The supported frames can be seen in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
-
-## How to Configure a Rover
-
-### Ackermann Steering Configuration
-
-:::warning
-The following information is related to the old rover module, for the new ackermann specific module see [Ackermann Rover](../frames_rover/ackermann_rover.md).
-:::
-
-Setting up a rover with Ackermann steering is straightforward:
-
-1. In the [Airframe](../config/airframe.md) configuration, select the _Generic Ground Vehicle_.
-
-   ![Select Ackermann steered airframe](../../assets/config/airframe/airframe_rover_ackermann.png)
-
-   Select the **Apply and Restart** button.
-
-2. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
-
-### Differential Steering Configuration
-
-1. In the [Airframe](../config/airframe.md) configuration, select either the _Aion Robotics R1 UGV_ or _NXP Cup car: DF Robot GPX_
-
-   ![Select Differential steered airframe](../../assets/config/airframe/airframe_rover_aion.png)
-
-Select the **Apply and Restart** button.
-
-1. Open the [Actuators Configuration & Testing](../config/actuators.md) and map the left and right motor functions to flight controller outputs.
-
-## Simulation
-
-[Gazebo Classic](../sim_gazebo_classic/index.md) provides simulations for both types of steering:
-
-- Ackermann: [ackermann rover](../sim_gazebo_classic/vehicles.md#ackermann-ugv)
-- Differential: [r1 rover](../sim_gazebo_classic/vehicles.md#differential-ugv)
+  
+  There are two Ackermann modules:
+  
+  - [**Ackermann steering (v2)**](../frames_rover/ackermann_rover_v2.md) - Dedicated ackermann module, added after PX4 v1.15.
+  - [**Ackermann steering (v1)**](../frames_rover/ackermann_rover_v1.md) - Generic UGV module ackermann implementation.
+  
+  
+  ::: info
+  This "v1" module shares the same code as the differential steering module, which was derived from the fixed wing controller.
+  The "v2" module has been written specifically for Ackermann Rovers, and performs better for many use cases.
+  However it is still in development and you will need to build the firmware yourself.
+  :::
 
 ## Videos
 
