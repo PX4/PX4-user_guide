@@ -17879,6 +17879,13 @@ table {
  <td>Disabled (0)</td>
  <td></td>
 </tr>
+<tr>
+ <td><strong id="RC_GHST_TEL_EN">RC_GHST_TEL_EN</strong> (INT32)</td>
+ <td>Ghost RC telemetry enable <p><strong>Comment:</strong> Ghost telemetry enable</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
 </tbody></table>
 
 ## RC Input
@@ -23853,8 +23860,71 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="RC_DSM_PRT_CFG">RC_DSM_PRT_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for DSM RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run DSM RC Input Driver. DSM RC (Spektrum) driver.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>6:</strong> UART 6</li>
+<li><strong>101:</strong> TELEM 1</li>
+<li><strong>102:</strong> TELEM 2</li>
+<li><strong>103:</strong> TELEM 3</li>
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+<li><strong>201:</strong> GPS 1</li>
+<li><strong>202:</strong> GPS 2</li>
+<li><strong>203:</strong> GPS 3</li>
+<li><strong>300:</strong> Radio Controller</li>
+<li><strong>301:</strong> Wifi Port</li>
+<li><strong>401:</strong> EXT2</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RC_GHST_PRT_CFG">RC_GHST_PRT_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for GHST RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run GHST RC Input Driver. Ghost (GHST) RC driver.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>6:</strong> UART 6</li>
+<li><strong>101:</strong> TELEM 1</li>
+<li><strong>102:</strong> TELEM 2</li>
+<li><strong>103:</strong> TELEM 3</li>
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+<li><strong>201:</strong> GPS 1</li>
+<li><strong>202:</strong> GPS 2</li>
+<li><strong>203:</strong> GPS 3</li>
+<li><strong>300:</strong> Radio Controller</li>
+<li><strong>301:</strong> Wifi Port</li>
+<li><strong>401:</strong> EXT2</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="RC_PORT_CONFIG">RC_PORT_CONFIG</strong> (INT32)</td>
  <td>Serial Configuration for RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run RC Input Driver. Setting this to &#x27;Disabled&#x27; will use a board-specific default port for RC input.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>6:</strong> UART 6</li>
+<li><strong>101:</strong> TELEM 1</li>
+<li><strong>102:</strong> TELEM 2</li>
+<li><strong>103:</strong> TELEM 3</li>
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+<li><strong>201:</strong> GPS 1</li>
+<li><strong>202:</strong> GPS 2</li>
+<li><strong>203:</strong> GPS 3</li>
+<li><strong>300:</strong> Radio Controller</li>
+<li><strong>301:</strong> Wifi Port</li>
+<li><strong>401:</strong> EXT2</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>300</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RC_SBUS_PRT_CFG">RC_SBUS_PRT_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for SBUS RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run SBUS RC Input Driver. SBUS RC driver.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -24389,14 +24459,14 @@ table {
 <tr>
  <td><strong id="SIH_L_PITCH">SIH_L_PITCH</strong> (FLOAT)</td>
  <td>Pitch arm length <p><strong>Comment:</strong> This is the arm length generating the pitching moment This value can be measured with a ruler. This corresponds to half the distance between the front and rear motors.</p>   </td>
- <td>[0.0, ?] (0.1) (0.05)</td>
+ <td>[0.0, ?] (0.05)</td>
  <td>0.2</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="SIH_L_ROLL">SIH_L_ROLL</strong> (FLOAT)</td>
  <td>Roll arm length <p><strong>Comment:</strong> This is the arm length generating the rolling moment This value can be measured with a ruler. This corresponds to half the distance between the left and right motors.</p>   </td>
- <td>[0.0, ?] (0.05)</td>
+ <td>[0.0, ?] (0.1) (0.05)</td>
  <td>0.2</td>
  <td>m</td>
 </tr>

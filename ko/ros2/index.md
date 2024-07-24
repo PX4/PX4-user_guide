@@ -1,6 +1,6 @@
 # ROS 2
 
-[ROS 2](https://index.ros.org/doc/ros2/)는 PX4 자동조종장치와 사용하여 강력한 드론 애플리케이션을 만들 수 있는 범용 로봇 라이브러리인 [ROS](http://www.ros.org/)(Robot Operating System)의 최신 버전입니다. It captures most of the learnings and features of [ROS 1](../ros/ros1.md), improving a number of flaws of the earlier version.
+[ROS 2](https://docs.ros.org/en/humble/#) is the newest version of [ROS](http://www.ros.org/) (Robot Operating System), a general purpose robotics library that can be used with the PX4 Autopilot to create powerful drone applications. It captures most of the learnings and features of [ROS 1](../ros/ros1.md), improving a number of flaws of the earlier version.
 
 :::warning
 Tip

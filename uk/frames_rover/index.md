@@ -8,7 +8,7 @@
 
 PX4 підтримує ровери (безпілотні наземні транспортні засоби - UGVs) з керуванням [акермана та диференційним](#rover-types).
 
-У цьому розділі містяться журнали збірки/інструкції щодо складання та налаштування ряду UGV фреймів.
+This section contains links to infomrmation abou thte different types of rovers, along with build logs/instructions for assembling a number of UGV frames.
 
 ![Traxxas Rover Picture](../../assets/airframes/rover/traxxas_stampede_vxl/final_side.jpg)
 
@@ -16,41 +16,19 @@ PX4 підтримує ровери (безпілотні наземні тра�
 
 PX4 підтримує рухомі з використанням:
 
-- **Диференційне керування**: напрямок контролюється шляхом руху лівих і правих коліс з різною швидкістю. Цей вид керування часто використовується на бульдозерах, танках та інших гусеничних транспортних засобах.
-- **Кермування Акермана**: напрямок керування контролюється спрямуванням коліс у напрямку руху ([геометрія кермування Акермана](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) компенсує той факт, що колеса на внутрішньому та зовнішньому повороті рухаються з різними швидкостями). Цей вид керування використовується на більшості комерційних транспортних засобів, включаючи автомобілі, вантажівки тощо.
+- [**Differential steering**](../frames_rover/differential_rover_v1.md): direction is controlled by moving the left- and right-side wheels at different speeds. This kind of steering commonly used on bulldozers, tanks, and other tracked vehicles.
+- **Ackermann steering**: direction is controlled by pointing wheels in the direction of travel. This kind of steering is used on most commercial vehicles, including cars, trucks etc.
 
-Підтримувані каркаси можна переглянути в [Довіднику про планери  >  Rover(Рухавець)](../airframes/airframe_reference.md#rover).
+  There are two Ackermann modules:
 
-## Як налаштувати Rover
+  - [**Ackermann steering (v2)**](../frames_rover/ackermann_rover_v2.md) - Dedicated ackermann module, added after PX4 v1.15.
+  - [**Ackermann steering (v1)**](../frames_rover/ackermann_rover_v1.md) - Generic UGV module ackermann implementation.
 
-### Конфігурація керування Акермана
-
-Налаштування ровера з керуванням Аккермана просте:
-
-1. У конфігурації [Airframe](../config/airframe.md) виберіть _Загальний наземний транспортний засіб_.
-
-   ![Select Ackermann steered airframe](../../assets/config/airframe/airframe_rover_ackermann.png)
-
-   Виберіть кнопку **Застосувати та перезапустити**.
-
-1. Відкрийте [Конфігурацію та  & тестування приводів](../config/actuators.md) для відображення функцій керування та регулювання на виходи контролера польоту.
-
-### Конфігурація диференційного керування
-
-1. У конфігурації [Airframe](../config/airframe.md) виберіть або _Aion Robotics R1 UGV_, або _NXP Cup car: DF Robot GPX_
-
-   ![Select Differential steered airframe](../../assets/config/airframe/airframe_rover_aion.png)
-
-Виберіть кнопку **Застосувати та перезапустити**.
-
-1. Відкрийте [Конфігурацію та & тестування приводів](../config/actuators.md) та відобразіть функції лівого та правого двигуна на виходи контролера польоту.
-
-## Симуляція
-
-[Класичний Газебо](../sim_gazebo_classic/index.md) надає симуляції для обох типів керування:
-
-- Ackermann: [акерманський ровер](../sim_gazebo_classic/vehicles.md#ackermann-ugv)
-- Диференціал: [роувер r1](../sim_gazebo_classic/vehicles.md#differential-ugv)
+  ::: info
+This "v1" module shares the same code as the differential steering module, which was derived from the fixed wing controller.
+The "v2" module has been written specifically for Ackermann Rovers, and performs better for many use cases.
+However it is still in development and you will need to build the firmware yourself.
+:::
 
 ## Відео
 

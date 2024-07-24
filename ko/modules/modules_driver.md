@@ -368,6 +368,30 @@ dshot <command> [arguments...]
 
    status        print status info
 ```
+## dsm_rc
+Source: [drivers/rc/dsm_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/dsm_rc)
+
+
+### 설명
+This module does Spektrum DSM RC input parsing.
+
+
+<a id="dsm_rc_usage"></a>
+
+### 사용법
+```
+dsm_rc <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
+
+   bind          Send a DSM bind command (module must be running)
+
+   stop
+
+   status        print status info
+```
 ## fake_gps
 소스: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_imu)
 
@@ -415,7 +439,7 @@ Publish the earth magnetic field as a fake magnetometer (sensor_mag). Requires v
 
 <a id="fake_magnetometer_usage"></a>
 
-### 사용법
+### Usage
 ```
 fake_magnetometer <command> [arguments...]
  Commands:
@@ -429,7 +453,7 @@ fake_magnetometer <command> [arguments...]
 Source: [drivers/wind_sensor/ft_technologies](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/wind_sensor/ft_technologies)
 
 
-### 설명
+### Description
 
 Serial bus driver for the FT Technologies Digital Wind Sensor FT742. This driver is required to operate alongside a RS485 to UART signal transfer module.
 
@@ -457,11 +481,33 @@ ft_technologies_serial <command> [arguments...]
 
    stop          Stop driver
 ```
+## ghst_rc
+Source: [drivers/rc/ghst_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/ghst_rc)
+
+
+### Description
+This module does Ghost (GHST) RC input parsing.
+
+
+<a id="ghst_rc_usage"></a>
+
+### 설명
+```
+ghst_rc <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
+
+   stop
+
+   status        print status info
+```
 ## gimbal
 Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/gimbal)
 
 
-### Description
+### 예
 Mount/gimbal Gimbal control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).
 
 Documentation how to use it is on the [gimbal_control](https://docs.px4.io/main/en/advanced/gimbal_control.html) page.
@@ -519,7 +565,7 @@ gps reset warm
 
 <a id="gps_usage"></a>
 
-### 설명
+### Usage
 ```
 gps <command> [arguments...]
  Commands:
@@ -550,7 +596,7 @@ gps <command> [arguments...]
 Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/gz_bridge)
 
 
-### 예
+### 설명
 
 
 <a id="gz_bridge_usage"></a>
@@ -625,7 +671,7 @@ If the INA226 module is not powered, then by default, initialization of the driv
 
 <a id="ina226_usage"></a>
 
-### Usage
+### 사용법
 ```
 ina226 <command> [arguments...]
  Commands:
@@ -699,7 +745,7 @@ If the INA238 module is not powered, then by default, initialization of the driv
 
 <a id="ina238_usage"></a>
 
-### 사용법
+### Usage
 ```
 ina238 <command> [arguments...]
  Commands:
@@ -724,7 +770,7 @@ ina238 <command> [arguments...]
 Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
 
 
-### Description
+### 설명
 IridiumSBD driver.
 
 Creates a virtual serial port that another module can use for communication (e.g. mavlink).
@@ -752,7 +798,7 @@ Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/dr
 
 <a id="irlock_usage"></a>
 
-### Usage
+### 사용법
 ```
 irlock <command> [arguments...]
  Commands:
@@ -794,7 +840,7 @@ Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="lsm303agr_usage"></a>
 
-### 사용법
+### Usage
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -833,7 +879,7 @@ msp_osd
 
 <a id="msp_osd_usage"></a>
 
-### Usage
+### 사용법
 ```
 msp_osd <command> [arguments...]
  Commands:
@@ -895,7 +941,7 @@ Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="paw3902_usage"></a>
 
-### Usage
+### 사용법
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -1024,7 +1070,7 @@ This module is responsible for driving the output pins. For boards without a sep
 
 <a id="pwm_out_usage"></a>
 
-### 사용법
+### Usage
 ```
 pwm_out <command> [arguments...]
  Commands:
@@ -1038,7 +1084,7 @@ pwm_out <command> [arguments...]
 Source: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/pwm_out_sim)
 
 
-### 설명
+### Description
 Driver for simulated PWM outputs.
 
 Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.
@@ -1140,7 +1186,7 @@ This module does the RC input parsing and auto-selecting the method. Supported m
 
 <a id="rc_input_usage"></a>
 
-### 사용법
+### Usage
 ```
 rc_input <command> [arguments...]
  Commands:
@@ -1159,7 +1205,7 @@ Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="rgbled_usage"></a>
 
-### 사용법
+### Usage
 ```
 rgbled <command> [arguments...]
  Commands:
@@ -1256,7 +1302,7 @@ The command to start this driver is: `$ roboclaw start <UART device> <baud rate>
 
 <a id="roboclaw_usage"></a>
 
-### 사용법
+### Usage
 ```
 roboclaw <command> [arguments...]
  Commands:
@@ -1270,7 +1316,7 @@ roboclaw <command> [arguments...]
 Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/safety_button)
 
 
-### 설명
+### Description
 This module is responsible for the safety button. Pressing the safety button 3 times quickly will trigger a GCS pairing request.
 
 
@@ -1281,6 +1327,28 @@ This module is responsible for the safety button. Pressing the safety button 3 t
 safety_button <command> [arguments...]
  Commands:
    start
+
+   stop
+
+   status        print status info
+```
+## sbus_rc
+Source: [drivers/rc/sbus_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/sbus_rc)
+
+
+### 설명
+This module does SBUS RC input parsing.
+
+
+<a id="sbus_rc_usage"></a>
+
+### 사용법
+```
+sbus_rc <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
 
    stop
 
@@ -1312,7 +1380,7 @@ gps reset warm
 
 <a id="septentrio_usage"></a>
 
-### Usage
+### 사용법
 ```
 septentrio <command> [arguments...]
  Commands:
@@ -1392,7 +1460,7 @@ sht3x <command> [arguments...]
 Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tap_esc)
 
 
-### 설명
+### Description
 
 This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
@@ -1410,7 +1478,7 @@ tap_esc start -d /dev/ttyS2 -n <1-8>
 
 <a id="tap_esc_usage"></a>
 
-### 사용법
+### Usage
 ```
 tap_esc <command> [arguments...]
  Commands:
@@ -1424,13 +1492,13 @@ tap_esc <command> [arguments...]
 Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tone_alarm)
 
 
-### 설명
+### Description
 This module is responsible for the tone alarm.
 
 
 <a id="tone_alarm_usage"></a>
 
-### 사용법
+### Usage
 ```
 tone_alarm <command> [arguments...]
  Commands:
@@ -1458,7 +1526,7 @@ uwb start -d /dev/ttyS2
 
 <a id="uwb_usage"></a>
 
-### 사용법
+### Usage
 ```
 uwb <command> [arguments...]
  Commands:

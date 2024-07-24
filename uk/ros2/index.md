@@ -1,6 +1,6 @@
 # ROS 2
 
-[ROS 2](https://index.ros.org/doc/ros2/) є найновішою версією [ROS](http://www.ros.org/) (Robot Operating System), загальна мета бібліотеки робототехніки для якої може бути використана - це для створення потужних застосунків для дронів разом з PX4 Autopilot. Він охоплює більшість навчальних функцій і опцій [ROS 1](../ros/ros1.md) та покращує ряд недоліків попередньої версії.
+[ROS 2](https://docs.ros.org/en/humble/#) is the newest version of [ROS](http://www.ros.org/) (Robot Operating System), a general purpose robotics library that can be used with the PX4 Autopilot to create powerful drone applications. Він охоплює більшість навчальних функцій і опцій [ROS 1](../ros/ros1.md) та покращує ряд недоліків попередньої версії.
 
 :::warning
 Tip

@@ -106,7 +106,7 @@ make px4_sitl
 
    :::tab foxy Щоб встановити ROS 2 "Foxy" на Ubuntu 20.04:
 
-   -  Дотримуйтесь офіційного посібника з встановлення: [Встановіть ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/).
+   -  Follow the official installation guide: [Install ROS 2 Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
 
    Ви можете встановити _або_ робочий стіл (`ros-foxy-desktop`) _або_ мінімалістичні версії (`ros-foxy-ros-base`), *і* засоби розробки (`ros-dev-tools`).
 :::

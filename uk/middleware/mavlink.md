@@ -108,7 +108,7 @@ PX4 включає репозиторій [mavlink/mavlink](https://github.com/m
 :::info Зауважте, що це урізана версія ще не реалізованого повідомлення [BATTERY_STATUS_V2](https://mavlink.io/en/messages/development.html#BATTERY_STATUS_V2) з випадково вибраним невикористаним ідентифікатором `11514`. Тут ми помістили повідомлення у `development.xml`, що добре підходить для тестування і якщо повідомлення буде згодом включено до стандартного набору повідомлень, але ви також можете помістити [кастомне повідомлення](#custom-mavlink-messages) у власний діалектний файл.
 :::
 
-Зберіть PX4 для SITL і переконайтеся, що відповідне повідомлення згенеровано в `/build/px4_sitl_default/mavlink/common/mavlink_msg_battery_status_demo.h`.
+Build PX4 for SITL and confirm that the associated message is generated in `/build/px4_sitl_default/mavlink/development/mavlink_msg_battery_status_demo.h`.
 
 Оскільки `BatteryStatus` вже існує, вам не потрібно нічого робити, щоб створити або зібрати його.
 
@@ -186,7 +186,7 @@ protected:
                 mavlink_battery_status_demo_t bat_msg{};
 
                 bat_msg.id = battery_status.id - 1;
-                bat_msg.battery_remaining = (battery_status.connected) ? roundf(battery_status.remaining * 100.f) : -1;
+                bat_msg.percent_remaining = (battery_status.connected) ? roundf(battery_status.remaining * 100.f) : -1;
 
                 // check if temperature valid
                 if (battery_status.connected && PX4_ISFINITE(battery_status.temperature)) {

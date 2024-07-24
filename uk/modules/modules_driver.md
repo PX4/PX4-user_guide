@@ -332,6 +332,30 @@ dshot <command> [arguments...]
 
    status        print status info
 ```
+## dsm_rc
+Source: [drivers/rc/dsm_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/dsm_rc)
+
+
+### Опис
+This module does Spektrum DSM RC input parsing.
+
+
+<a id="dsm_rc_usage"></a>
+
+### Використання
+```
+dsm_rc <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
+
+   bind          Send a DSM bind command (module must be running)
+
+   stop
+
+   status        print status info
+```
 ## fake_gps
 Джерело: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_gps)
 
@@ -420,6 +444,28 @@ ft_technologies_serial <command> [arguments...]
      -d <val>    Serial device
 
    stop          Stop driver
+```
+## ghst_rc
+Source: [drivers/rc/ghst_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/ghst_rc)
+
+
+### Опис
+This module does Ghost (GHST) RC input parsing.
+
+
+<a id="ghst_rc_usage"></a>
+
+### Використання
+```
+ghst_rc <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
+
+   stop
+
+   status        print status info
 ```
 ## gimbal
 Джерело: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gimbal)
@@ -541,11 +587,11 @@ gz_bridge <command> [arguments...]
 ### Опис
 Драйвер для монітора живлення INA220.
 
-Кілька екземплярів цього драйвера можуть працювати одночасно, якщо кожен екземпляр має окрему адресу шини АБО I2C.
+Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
 
-Наприклад, один екземпляр може працювати на шині 2, адреса 0x41, а інший - на шині 2, адреса 0x43.
+For example, one instance can run on Bus 2, address 0x41, and one can run on Bus 2, address 0x43.
 
-Якщо модуль INA220 не має живлення, то за замовчуванням ініціалізація драйвера не відбудеться. Щоб змінити це, використовуйте прапор -f. Якщо цей прапорець встановлено, то у разі невдалої ініціалізації драйвер буде повторювати спроби ініціалізації кожні 0.5 секунди. Якщо цей прапорець встановлено, ви можете підключити батарею після запуску драйвера, і він буде працювати. Якщо цей прапорець не встановлено, перед запуском драйвера необхідно підключити батарею.
+Якщо модуль INA220 не має живлення, то за замовчуванням ініціалізація драйвера не відбудеться. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
 
 
 <a id="ina220_usage"></a>
@@ -580,11 +626,11 @@ ina220 <command> [arguments...]
 ### Опис
 Драйвер для монітора живлення INA226.
 
-Кілька екземплярів цього драйвера можуть працювати одночасно, якщо кожен екземпляр має окрему адресу шини АБО I2C.
+Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
 
 Наприклад, один екземпляр може працювати на шині 2, адреса 0x41, а інший - на шині 2, адреса 0x43.
 
-Якщо модуль INA226 не живиться, то за замовчуванням ініціалізація драйвера не відбудеться. Щоб змінити це, використовуйте прапор -f. Якщо цей прапорець встановлено, то у разі невдалої ініціалізації драйвер буде повторювати спроби ініціалізації кожні 0.5 секунди. Якщо цей прапорець встановлено, ви можете підключити батарею після запуску драйвера, і він буде працювати. Якщо цей прапорець не встановлено, перед запуском драйвера необхідно підключити батарею.
+Якщо модуль INA226 не живиться, то за замовчуванням ініціалізація драйвера не відбудеться. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
 
 
 <a id="ina226_usage"></a>
@@ -617,16 +663,16 @@ ina226 <command> [arguments...]
 ### Опис
 Драйвер для монітора живлення INA228.
 
-Кілька екземплярів цього драйвера можуть працювати одночасно, якщо кожен екземпляр має окрему адресу шини АБО I2C.
+Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
 
-Наприклад, один екземпляр може працювати на шині 2, адреса 0x41, а інший - на шині 2, адреса 0x43.
+For example, one instance can run on Bus 2, address 0x45, and one can run on Bus 2, address 0x45.
 
-Якщо модуль INA228 не має живлення, то за замовчуванням ініціалізація драйвера не відбудеться. Щоб змінити це, використовуйте прапор -f. Якщо цей прапорець встановлено, то у разі невдалої ініціалізації драйвер буде повторювати спроби ініціалізації кожні 0.5 секунди. Якщо цей прапорець встановлено, ви можете підключити батарею після запуску драйвера, і він буде працювати. Якщо цей прапорець не встановлено, перед запуском драйвера необхідно підключити батарею.
+Якщо модуль INA228 не має живлення, то за замовчуванням ініціалізація драйвера не відбудеться. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
 
 
 <a id="ina228_usage"></a>
 
-### Використання
+### Usage
 ```
 ina228 <command> [arguments...]
  Commands:
@@ -651,14 +697,14 @@ ina228 <command> [arguments...]
 Джерело: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina238)
 
 
-### Опис
+### Description
 Драйвер для монітора потужності INA238.
 
-Декілька екземплярів цього драйвера можуть працювати одночасно, якщо кожний екземпляр має окрему шину або адресу I2C.
+Кілька екземплярів цього драйвера можуть працювати одночасно, якщо кожен екземпляр має окрему адресу шини АБО I2C.
 
-Наприклад, один екземпляр може працювати на автобусі 2, адреса 0x45, а інший - на автобусі 2, адреса 0x45.
+Наприклад, один екземпляр може працювати на шині 2, адреса 0x41, а інший - на шині 2, адреса 0x43.
 
-Якщо модуль INA238 не заснується, то за замовчуванням ініціалізація драйвера не вдасться. Щоб змінити це, використовуйте прапорець -f. Якщо цей прапорець встановлено, то якщо ініціалізація не вдасться, драйвер спробує ініціалізувати знову кожні 0,5 секунди. З цим прапорцем встановленим, ви можете підключити батарею після запуску драйвера, і вона буде працювати. Без цього прапорця ,батарея повинна бути вставлена до запуску драйвера.
+Якщо модуль INA238 не заснується, то за замовчуванням ініціалізація драйвера не вдасться. Щоб змінити це, використовуйте прапор -f. Якщо цей прапорець встановлено, то у разі невдалої ініціалізації драйвер буде повторювати спроби ініціалізації кожні 0.5 секунди. Якщо цей прапорець встановлено, ви можете підключити батарею після запуску драйвера, і він буде працювати. Якщо цей прапорець не встановлено, перед запуском драйвера необхідно підключити батарею.
 
 
 <a id="ina238_usage"></a>
@@ -821,7 +867,7 @@ neopixel -n 8
 
 <a id="newpixel_usage"></a>
 
-### Використання
+### Застосування
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -859,7 +905,7 @@ paa3905 <command> [arguments...]
 
 <a id="paw3902_usage"></a>
 
-### Застосування
+### Використання
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -988,7 +1034,7 @@ pps_capture <command> [arguments...]
 
 <a id="pwm_out_usage"></a>
 
-### Використання
+### Usage
 ```
 pwm_out <command> [arguments...]
  Commands:
@@ -1002,7 +1048,7 @@ pwm_out <command> [arguments...]
 Джерело: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/pwm_out_sim)
 
 
-### Опис
+### Description
 Драйвер для імітованих вихідних сигналів ШІМ.
 
 Його єдина функція - приймати повідомлення uORB `actuator_control`, змішувати їх з будь-яким завантаженим міксером і виводити результат на тему uORB `actuator_output`.
@@ -1104,7 +1150,7 @@ px4io <command> [arguments...]
 
 <a id="rc_input_usage"></a>
 
-### Використання
+### Usage
 ```
 rc_input <command> [arguments...]
  Commands:
@@ -1123,7 +1169,7 @@ rc_input <command> [arguments...]
 
 <a id="rgbled_usage"></a>
 
-### Використання
+### Usage
 ```
 rgbled <command> [arguments...]
  Commands:
@@ -1183,7 +1229,7 @@ rgbled_is31fl3195 <command> [arguments...]
 
 <a id="rgbled_lp5562_usage"></a>
 
-### Застосування
+### Використання
 ```
 rgbled_lp5562 <command> [arguments...]
  Commands:
@@ -1245,6 +1291,28 @@ roboclaw <command> [arguments...]
 safety_button <command> [arguments...]
  Commands:
    start
+
+   stop
+
+   status        print status info
+```
+## sbus_rc
+Source: [drivers/rc/sbus_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/sbus_rc)
+
+
+### Опис
+This module does SBUS RC input parsing.
+
+
+<a id="sbus_rc_usage"></a>
+
+### Використання
+```
+sbus_rc <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
 
    stop
 
@@ -1408,7 +1476,7 @@ tone_alarm <command> [arguments...]
 Джерело: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uwb/uwb_sr150)
 
 
-### Опис
+### Description
 
 Драйвер для системи позиціонування NXP UWB_SR150 UWB. Цей драйвер публікує повідомлення `uwb_distance` кожного разу, коли UWB_SR150 має наявне вимірювання позиції.
 
@@ -1440,13 +1508,13 @@ uwb <command> [arguments...]
 Джерело: [drivers/voxl2_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/voxl2_io)
 
 
-### Опис
+### Description
 Цей модуль відповідає за виведення вихідних контактів. Для плат без окремого IO-чіпа (наприклад, Pixracer), використовуються головні канали. На платах з IO-чіпом (наприклад, Pixhawk) використовуються AUX-канали, а для основних використовується драйвер px4io.
 
 
 <a id="voxl2_io_usage"></a>
 
-### Використання
+### Usage
 ```
 voxl2_io <command> [arguments...]
  Commands:
@@ -1474,7 +1542,7 @@ voxl2_io <command> [arguments...]
 Джерело: [drivers/actuators/voxl_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/voxl_esc)
 
 
-### Опис
+### Description
 Цей модуль відповідає за кнопку безпеки...
 
 ### Реалізація
@@ -1489,7 +1557,7 @@ todo
 
 <a id="voxl_esc_usage"></a>
 
-### Використання
+### Usage
 ```
 voxl_esc <command> [arguments...]
  Commands:
@@ -1535,7 +1603,7 @@ voxl_esc <command> [arguments...]
 
 <a id="voxlpm_usage"></a>
 
-### Використання
+### Usage
 ```
 voxlpm [arguments...]
    start

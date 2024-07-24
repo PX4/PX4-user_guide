@@ -332,6 +332,30 @@ dshot <command> [arguments...]
 
    status        print status info
 ```
+## dsm_rc
+Source: [drivers/rc/dsm_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/dsm_rc)
+
+
+### Description
+This module does Spektrum DSM RC input parsing.
+
+
+<a id="dsm_rc_usage"></a>
+
+### Usage
+```
+dsm_rc <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
+
+   bind          Send a DSM bind command (module must be running)
+
+   stop
+
+   status        print status info
+```
 ## fake_gps
 Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_gps)
 
@@ -420,6 +444,28 @@ ft_technologies_serial <command> [arguments...]
      -d <val>    Serial device
 
    stop          Stop driver
+```
+## ghst_rc
+Source: [drivers/rc/ghst_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/ghst_rc)
+
+
+### Description
+This module does Ghost (GHST) RC input parsing.
+
+
+<a id="ghst_rc_usage"></a>
+
+### Usage
+```
+ghst_rc <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
+
+   stop
+
+   status        print status info
 ```
 ## gimbal
 Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gimbal)
@@ -1245,6 +1291,28 @@ This module is responsible for the safety button. Pressing the safety button 3 t
 safety_button <command> [arguments...]
  Commands:
    start
+
+   stop
+
+   status        print status info
+```
+## sbus_rc
+Source: [drivers/rc/sbus_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/sbus_rc)
+
+
+### Description
+This module does SBUS RC input parsing.
+
+
+<a id="sbus_rc_usage"></a>
+
+### Usage
+```
+sbus_rc <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
 
    stop
 
