@@ -21,13 +21,12 @@ PX4 supports rovers with:
   This kind of steering commonly used on bulldozers, tanks, and other tracked vehicles.
 - **Ackermann steering**: direction is controlled by pointing wheels in the direction of travel.
   This kind of steering is used on most commercial vehicles, including cars, trucks etc.
-  
+
   There are two Ackermann modules:
-  
+
   - [**Ackermann steering (v2)**](../frames_rover/ackermann_rover_v2.md) - Dedicated ackermann module, added after PX4 v1.15.
   - [**Ackermann steering (v1)**](../frames_rover/ackermann_rover_v1.md) - Generic UGV module ackermann implementation.
-  
-  
+
   ::: info
   This "v1" module shares the same code as the differential steering module, which was derived from the fixed wing controller.
   The "v2" module has been written specifically for Ackermann Rovers, and performs better for many use cases.

@@ -8,7 +8,6 @@ Available rover drive modes available depend on the vehicle type:
 - [Ackermann Rover (v1)](../frames_rover/ackermann_rover_v1.md#drive-modes)
 - [Differential Steering Rover](../frames_rover/differential_rover_v1.md#drive-modes)
 
-
 ## Further Information
 
 - [Basic Configuration > Flight Modes](../config/flight_mode.md) - How to map RC control switches to specific flight modes

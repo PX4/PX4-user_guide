@@ -9,12 +9,10 @@ This is the same code that is used for [Differential steering rovers.](../frames
 For the new ackermann-specific module see [Ackermann Rover](../frames_rover/ackermann_rover.md).
 :::
 
-
 An _Ackermann rover_ controls its direction by pointing the front wheels in the direction of travel — the [Ackermann steering geometry](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) compensates for the fact that wheels on the inside and outside of the turn move at different rates.
 This kind of steering is used on most commercial vehicles, including cars, trucks etc.
 
 ![Traxxas Rover Picture](../../assets/airframes/rover/traxxas_stampede_vxl/final_side.jpg)
-
 
 ## PX4 Configuration
 
@@ -27,7 +25,6 @@ Setting up a rover with Ackermann steering (v1) is straightforward:
    Select the **Apply and Restart** button.
 
 2. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
-
 
 ## Drive Modes
 
@@ -60,13 +57,11 @@ Not all setpoint types make sense for a ground vehicle, or are supported.
 This mode is intended for vehicle control from companion computers and ground stations!
 :::
 
-
 ## Simulation
 
 [Gazebo Classic](../sim_gazebo_classic/index.md) provides simulations for Ackermann Rovers (v1):
 
 - [ackermann rover](../sim_gazebo_classic/vehicles.md#ackermann-ugv)
-
 
 ## Videos
 

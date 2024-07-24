@@ -17,7 +17,6 @@ The rover already performs better than the old module for the use cases that it 
 Note however that this is not yet in a release build, so you will have to build the firmware yourself to test it.
 :::
 
-
 ## Basic Setup
 
 To start using the ackermann rover:
@@ -26,8 +25,8 @@ To start using the ackermann rover:
 
    To build for rover with the `make` command, replace the `_default` suffix with `_rover`.
    For example, to build rover for px4_fmu-v6x boards, you would use the command:
-   
-   ```
+
+   ```sh
    make px4_fmu-v6x_rover
    ```
 
@@ -41,14 +40,13 @@ To start using the ackermann rover:
    Note that adding the rover module may lead to flash overflow.
    You may need to disable modules that you do not plan to use, such as those related to multicopter, fixed wing, or the old rover module.
    :::
-   
-2. Load the **custom firmware** that you just built onto your flight controller (see [Loading Firmware > Installing PX4 Main, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)).
-   
 
-2. In the [Airframe](../config/airframe.md) configuration select the _Generic ackermann rover_:
+2. Load the **custom firmware** that you just built onto your flight controller (see [Loading Firmware > Installing PX4 Main, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)).
+
+3. In the [Airframe](../config/airframe.md) configuration select the _Generic ackermann rover_:
 
    ![QGC screenshot showing selection of the airframe 'Generic ackermann rover'](../../assets/config/airframe/airframe_ackermann_rover.png)
-   
+
    ::: warning
    Do not use the _Generic Ground Vehicle (Ackermann)_ airframe as that will load the [Ackermann steering (v1)](../frames_rover/ackermann_rover_v1.md) configuration.
    :::
@@ -59,9 +57,7 @@ To start using the ackermann rover:
    If this airframe does not show up in the UI, it can alternatively be selected by setting the [SYS_AUTOSTART](../advanced_config/parameter_reference.md#SYS_AUTOSTART) parameter to `50010`.
    :::
 
-
-
-3. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
+4. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
 
 This is sufficient to drive the the rover in [manual mode](#manual-mode) (see [Flight modes](#flight-modes)).
 
@@ -144,11 +140,11 @@ If the distance from the path to the rover is bigger than the lookahead distance
 
 To summarize, the following parameters can be used to tune the controller:
 
-| Parameter                                                                                                      | Description                             | Unit |
-| -------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---- |
+| Parameter                                                                                                | Description                             | Unit |
+| -------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---- |
 | <a id="RA_LOOKAHD_GAIN"></a>[RA_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#RA_LOOKAHD_GAIN) | Main tuning parameter                   | -    |
-| <a id="RA_LOOKAHD_MAX"></a>[RA_LOOKAHD_MAX](../advanced_config/parameter_reference.md#RA_LOOKAHD_MAX)          | Maximum value for the look ahead radius | m    |
-| <a id="RA_LOOKAHD_MIN"></a>[RA_LOOKAHD_MIN](../advanced_config/parameter_reference.md#RA_LOOKAHD_MIN)          | Minimum value for the look ahead radius | m    |
+| <a id="RA_LOOKAHD_MAX"></a>[RA_LOOKAHD_MAX](../advanced_config/parameter_reference.md#RA_LOOKAHD_MAX)    | Maximum value for the look ahead radius | m    |
+| <a id="RA_LOOKAHD_MIN"></a>[RA_LOOKAHD_MIN](../advanced_config/parameter_reference.md#RA_LOOKAHD_MIN)    | Minimum value for the look ahead radius | m    |
 
 ### Cornering Parameters
 

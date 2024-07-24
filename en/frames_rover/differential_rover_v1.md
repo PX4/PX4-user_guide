@@ -7,7 +7,6 @@ Support for rover is [experimental](../airframes/index.md#experimental-vehicles)
 Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
 :::
 
-
 An rover with _differential steering_ controls its direction by moving the left- and right-side wheels at different speeds.
 This kind of steering commonly used on bulldozers, tanks, and other tracked vehicles.
 
@@ -56,8 +55,6 @@ Not all setpoint types make sense for a ground vehicle, or are supported.
 ::: info
 This mode is intended for vehicle control from companion computers and ground stations!
 :::
-
-
 
 ## Simulation
 
