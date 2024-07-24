@@ -1,6 +1,6 @@
 # ROS 2
 
-[ROS 2](https://index.ros.org/doc/ros2/) 是[ROS](http://www.ros.org/) (机器人操作系统)最新版本 ， 一个通用的机器人库，可以与 PX4 自驾仪一起创建强大的无人机应用。 它继承了 [ROS 1](../ros/ros1.md)的大部分经验和特征，改进了早期版本的一些缺陷。
+[ROS 2](https://docs.ros.org/en/humble/#) is the newest version of [ROS](http://www.ros.org/) (Robot Operating System), a general purpose robotics library that can be used with the PX4 Autopilot to create powerful drone applications. 它继承了 [ROS 1](../ros/ros1.md)的大部分经验和特征，改进了早期版本的一些缺陷。
 
 :::warning
 提示
