@@ -204,3 +204,4 @@ See [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) for setup instruct
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
+<!-- using rangefinder? -->

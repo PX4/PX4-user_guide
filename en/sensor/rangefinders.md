@@ -2,7 +2,7 @@
 
 Distance sensors provide distance measurement that can be used for [terrain following](../flying/terrain_following_holding.md#terrain_following), [terrain holding](../flying/terrain_following_holding.md#terrain_hold) (i.e. precision hovering for photography), improved landing behaviour ([conditional range aid](../advanced_config/tuning_the_ecl_ekf.md#conditional-range-aiding)), warning of regulatory height limits, collision prevention, etc.
 
-This section lists the distance sensors supported by PX4 (linked to more detailed documentation), the [generic configuration](#configuration) required for all rangefinders, [testing](#testing), and [Gazebo-Classic simulation](#gazebo-classic-simulation) information.
+This section lists the distance sensors supported by PX4 (linked to more detailed documentation), and provides information about the [generic configuration](#configuration) required for all rangefinders, [testing](#testing), and simulation with [Gazebo](#gazebo-simulation) or [Gazebo-Classic](#gazebo-classic-simulation).
 More detailed setup and configuration information is provided in the topics linked below (and sidebar).
 
 <img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" /><img src="../../assets/hardware/sensors/optical_flow/ark_flow_distance_sensor.jpg" alt="ARK Flow" width="200px">
@@ -160,6 +160,17 @@ On the Simulator you can run the commands directly in the terminal.
 :::
 
 For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
+
+## Gazebo Simulation
+
+Lidar rangefinders can be used in the [Gazebo](../sim_gazebo_gz/index.md) simulator.
+To do this you must start the simulator using a vehicle model that includes the rangefinder.
+
+The x500 lidar model includes a 2D Lidar rangefinder:
+
+```sh
+make px4_sitl gz_x500_lidar
+```
 
 ## Gazebo-Classic Simulation
 
