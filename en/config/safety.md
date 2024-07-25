@@ -65,6 +65,10 @@ The settings and underlying parameters are shown below.
 | <a id="BAT_CRIT_THR"></a>Battery Failsafe Level | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | Percentage capacity for Return action (or other actions if a single action selected).                                                                                     |
 | Battery Emergency Level                         | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.                                                                                                             |
 
+::: tip
+There is also a configuration parameter [COM_ARM_BAT_MIN](#COM_ARM_BAT_MIN) that allows you to prevents arming in the first place if the battery level is too low.
+:::
+
 ### Manual Control Loss failsafe
 
 The manual control loss failsafe may be triggered if the connection to the [RC transmitter](../getting_started/rc_transmitter_receiver.md) or [joystick](../config/joystick.md) is lost, and there is no fallback.
@@ -219,6 +223,14 @@ The relevant parameters are shown below:
 | [COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | Delay after loss of offboard connection before the failsafe is triggered.                                         |
 | [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Failsafe action if RC is available: Position mode, Altitude mode, Manual mode, Return mode, Land mode, Hold mode. |
 
+### Maximum Flight Time
+
+The flight time failsafe (disabled by default) sets the flight time after takeoff at which the vehicle will automatically enter return mode (and it will also "warn" at 90% of this time).
+
+| Parameter                                                                                                   | Description                                                                  |
+| ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| <a id="COM_FLT_TIME_MAX"></a>[COM_FLT_TIME_MAX](../advanced_config/parameter_reference.md#COM_FLT_TIME_MAX) | Maximum allowed flight time before RTL in seconds. `-1`: Disabled (default). |
+
 ### Mission Feasibility Checks
 
 A number of checks are run to ensure that a mission can only be started if it is _feasible_.
@@ -345,7 +357,10 @@ This includes _Position mode_ and autonomous modes (e.g. _Mission_, _Land_ etc.)
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
 
-## Other Safety Settings
+## Arming/Disarming Safety Settings
+
+The [commander module](../advanced_config/parameter_reference.html#commander) has a number of parameters prefixed with `COM_ARM` that configure whether the vehicle can arm at all, and under what conditions (note that some parameters named with the prefix `COM_ARM` are used to arm other systems).
+Parameters prefixed with `COM_DISARM_` affect disarming behaviour.
 
 ### Auto-disarming Timeouts
 
@@ -357,6 +372,22 @@ The [relevant parameters](../advanced_config/parameters.md) are shown below:
 | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | <a id="COM_DISARM_LAND"></a>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)    | Timeout for auto-disarm after landing.                     |
 | <a id="COM_DISARM_PRFLT"></a>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Timeout for auto disarm if vehicle is too slow to takeoff. |
+
+### Arming Pre-Conditions
+
+These parameters can be used to set conditions that prevent arming.
+
+| Parameter                                                                                                              | Description                                                                                                                                                                                                |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="COM_ARMABLE"></a>[COM_ARMABLE](../advanced_config/parameter_reference.md#COM_ARMABLE)                           | Enable arming (at all). `0`: Disabled, `1`: Enabled (default).                                                                                                                                             |
+| <a id="COM_ARM_BAT_MIN"></a>[COM_ARM_BAT_MIN](../advanced_config/parameter_reference.md#COM_ARM_BAT_MIN)               | Minimum battery level for arming. `0`: Disabled (default). Values: `0`-`0.9`,                                                                                                                              |
+| <a id="COM_ARM_WO_GPS"></a>[COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS)                  | Enable arming without GPS. `0`: Disabled, `1`: Enabled (default).                                                                                                                                          |
+| <a id="COM_ARM_MIS_REQ"></a>[COM_ARM_MIS_REQ](../advanced_config/parameter_reference.md#COMCOM_ARM_MIS_REQ_ARM_WO_GPS) | Require valid mission to arm. `0`: Disabled (default), `1`: Enabled .                                                                                                                                      |
+| <a id="COM_ARM_SDCARD"></a>[COM_ARM_SDCARD](../advanced_config/parameter_reference.md#COM_ARM_SDCARD)                  | Require SD card to arm. `0`: Disabled (default), `1`: Warning, `2`: Enabled.                                                                                                                               |
+| <a id="COM_ARM_AUTH_REQ"></a>[COM_ARM_AUTH_REQ](../advanced_config/parameter_reference.md#COM_ARM_AUTH_REQ)            | Requires arm authorisation from an external (MAVLink) system. Flag to allow arming (at all). `1`: Enabled, `0`: Disabled (default). Associated configuration parameters are prefixed with `COM_ARM_AUTH_`. |
+| <a id="COM_ARM_ODID"></a>[COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID)                        | Require healthy Remote ID system to arm. `0`: Disabled (default), `1`: Warning, `2`: Enabled.                                                                                                              |
+
+In addition there are a number of parameters that configure system and sensor limits that make prevent arming if exceeded: [COM_CPU_MAX](../advanced_config/parameter_reference.md#COM_CPU_MAX), [COM_ARM_IMU_ACC](../advanced_config/parameter_reference.md#COM_ARM_IMU_ACC), [COM_ARM_IMU_GYR](../advanced_config/parameter_reference.md#COM_ARM_IMU_GYR), [COM_ARM_MAG_ANG](../advanced_config/parameter_reference.md#COM_ARM_MAG_ANG), [COM_ARM_MAG_STR](../advanced_config/parameter_reference.md#COM_ARM_MAG_STR).
 
 ## Further Information
 
