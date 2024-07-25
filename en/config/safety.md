@@ -4,7 +4,7 @@ PX4 has a number of safety features to protect and recover your vehicle if somet
 
 - _Failsafes_ allow you to specify areas and conditions under which you can safely fly, and the [action](#failsafe-actions) that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
   The most important failsafe settings are configured in the _QGroundControl_ [Safety Setup](#qgroundcontrol-safety-setup) page.
-  Others must be configured via [parameters](#other-safety-settings).
+  Others must be configured via [parameters](#other-failsafe-settings).
 - [Safety switches](#emergency-switches) on the remote control can be used to immediately stop motors or return the vehicle in the event of a problem.
 
 ## Failsafe Actions
@@ -357,12 +357,12 @@ This includes _Position mode_ and autonomous modes (e.g. _Mission_, _Land_ etc.)
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
 
-## Arming/Disarming Safety Settings
+## Arming/Disarming Settings
 
-The [commander module](../advanced_config/parameter_reference.html#commander) has a number of parameters prefixed with `COM_ARM` that configure whether the vehicle can arm at all, and under what conditions (note that some parameters named with the prefix `COM_ARM` are used to arm other systems).
+The [commander module](../advanced_config/parameter_reference.md#commander) has a number of parameters prefixed with `COM_ARM` that configure whether the vehicle can arm at all, and under what conditions (note that some parameters named with the prefix `COM_ARM` are used to arm other systems).
 Parameters prefixed with `COM_DISARM_` affect disarming behaviour.
 
-### Auto-disarming Timeouts
+### Auto-Disarming Timeouts
 
 You can set timeouts to automatically disarm a vehicle if it is too slow to takeoff, and/or after landing (disarming the vehicle removes power to the motors, so the propellers won't spin).
 
@@ -382,7 +382,7 @@ These parameters can be used to set conditions that prevent arming.
 | <a id="COM_ARMABLE"></a>[COM_ARMABLE](../advanced_config/parameter_reference.md#COM_ARMABLE)                           | Enable arming (at all). `0`: Disabled, `1`: Enabled (default).                                                                                                                                             |
 | <a id="COM_ARM_BAT_MIN"></a>[COM_ARM_BAT_MIN](../advanced_config/parameter_reference.md#COM_ARM_BAT_MIN)               | Minimum battery level for arming. `0`: Disabled (default). Values: `0`-`0.9`,                                                                                                                              |
 | <a id="COM_ARM_WO_GPS"></a>[COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS)                  | Enable arming without GPS. `0`: Disabled, `1`: Enabled (default).                                                                                                                                          |
-| <a id="COM_ARM_MIS_REQ"></a>[COM_ARM_MIS_REQ](../advanced_config/parameter_reference.md#COMCOM_ARM_MIS_REQ_ARM_WO_GPS) | Require valid mission to arm. `0`: Disabled (default), `1`: Enabled .                                                                                                                                      |
+| <a id="COM_ARM_MIS_REQ"></a>[COM_ARM_MIS_REQ](../advanced_config/parameter_reference.md#COM_ARM_MIS_REQ) | Require valid mission to arm. `0`: Disabled (default), `1`: Enabled .                                                                                                                                      |
 | <a id="COM_ARM_SDCARD"></a>[COM_ARM_SDCARD](../advanced_config/parameter_reference.md#COM_ARM_SDCARD)                  | Require SD card to arm. `0`: Disabled (default), `1`: Warning, `2`: Enabled.                                                                                                                               |
 | <a id="COM_ARM_AUTH_REQ"></a>[COM_ARM_AUTH_REQ](../advanced_config/parameter_reference.md#COM_ARM_AUTH_REQ)            | Requires arm authorisation from an external (MAVLink) system. Flag to allow arming (at all). `1`: Enabled, `0`: Disabled (default). Associated configuration parameters are prefixed with `COM_ARM_AUTH_`. |
 | <a id="COM_ARM_ODID"></a>[COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID)                        | Require healthy Remote ID system to arm. `0`: Disabled (default), `1`: Warning, `2`: Enabled.                                                                                                              |

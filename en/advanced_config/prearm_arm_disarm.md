@@ -104,7 +104,7 @@ Arming is prevented if:
 - The vehicle has a [remote ID](../peripherals/remote_id.md) that is unhealthy or otherwise not ready
 - A VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 - The current mode requires an adequate global position estimate but the vehicle does not have GPS lock.
-- Many more (see [arming/disarming safety settings](../config/safety.md#arming-disarming-safety-settings) for more information).
+- Many more (see [arming/disarming safety settings](../config/safety.md#arming-disarming-settings) for more information).
 
 The current failed checks can be viewed in QGroundControl (v4.2.0 and later) [Arming Check Report](../flying/pre_flight_checks.md#qgc-arming-check-report) (see also [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.md#arm)).
 
