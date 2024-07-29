@@ -53,7 +53,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### Sensors
 
-- TBD
+- Add sbgECom INS driver ([PX4-Autopilot#24137](https://github.com/PX4/PX4-Autopilot/pull/24137))
 
 ### Simulation
 
