@@ -171,6 +171,9 @@ The x500 lidar model includes a 2D Lidar rangefinder:
 ```sh
 make px4_sitl gz_x500_lidar
 ```
+in the case of the 2D LIDAR, its most commonly used for [Collision Prevention](../computer_vision/collision_prevention.md) where the 2D laserscan gets converted into an [ObstacleDistance](../msg_docs/ObstacleDistance.md) Message. whereby it has a range between 0.1 and 30m, and scans in a 270° arc.
+
+<img src="../../assets/simulation/gazebo/vehicles/x500_lidar_viz.png" alt="x500 lidar" width="500px" />
 
 ## Gazebo-Classic Simulation
 

@@ -199,8 +199,16 @@ In order to emit `OBSTACLE_DISTANCE` messages you must use the _rqt_reconfigure_
 
 ## Gazebo Setup
 
-_Collision Prevention_ can also be tested using Gazebo.
-See [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) for setup instructions.
+_Collision Prevention_ can be tested using Gazebo with the x500_lidar model. To do this, start a simulation with the x500 lidar model by running the following command:
+
+`make px4_sitl gz_x500_lidar`
+
+Next, adjust the relevant parameters to the appropriate values and add arbitrary obstacles to your simulation world to test the collision prevention functionality.
+
+<img src="../../assets/simulation/gazebo/vehicles/x500_lidar_viz.png" alt="x500 lidar" width="500px" />
+
+
+
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
