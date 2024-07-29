@@ -98,7 +98,7 @@ The most important ones are:
   Rotation Direction: normal
   ```
 
-  To change direction again new `dshot reverse -m 1` command needs to be sent.
+  To change direction back to normal again `dshot normal -m 1` plus a save command needs to be sent.
 
 ## Telemetry
 
