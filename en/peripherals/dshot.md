@@ -79,7 +79,7 @@ The most important ones are:
   INFO  [dshot] LED 3: unsupported
   ```
 
-  - Permanently reverse the spin direction of motor connected to the first output pin:
+  - Permanently reverse the spin direction of a motor connected to FMU output pin 1:
 
   ```
   dshot reverse -m 1
