@@ -56,7 +56,7 @@ See [here](../modules/modules_driver.md#dshot) for a full reference of the suppo
 
 The most important ones are:
 
-- Make the first motor beep (helps with identifying motors):
+- Make a motor connected to to FMU output pin 1 beep (helps with identifying motors)
 
   ```
   dshot beep1 -m 1
@@ -79,7 +79,7 @@ The most important ones are:
   INFO  [dshot] LED 3: unsupported
   ```
 
-  - Permanently reverse the spin direction of the first motor:
+  - Permanently reverse the spin direction of a motor connected to FMU output pin 1:
 
   ```
   dshot reverse -m 1
