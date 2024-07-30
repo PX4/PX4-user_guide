@@ -47,7 +47,7 @@ DShot має різні варіанти швидкості: _DShot150_, _DShot3
 
 Найважливіші з них:
 
-- Зробіть перший сигнал двигуна (допомагає ідентифікувати мотори):
+- Make a motor connected to to FMU output pin 1 beep (helps with identifying motors)
 
   ```
   dshot beep1 -m 1
@@ -70,7 +70,7 @@ DShot має різні варіанти швидкості: _DShot150_, _DShot3
   INFO  [dshot] LED 3: unsupported
   ```
 
-  - Назавжди змініть напрямок обертання першого двигуна:
+  - Permanently reverse the spin direction of a motor connected to FMU output pin 1:
 
   ```
   dshot reverse -m 1
