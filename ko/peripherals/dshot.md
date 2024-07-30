@@ -47,7 +47,7 @@ DShot comes with different speed options: _DShot150_, _DShot300_, _DShot600_ and
 
 가장 중요한 것은 다음과 같습니다.
 
-- 첫 번째 모터 신호음 만들기(모터 식별에 도움이 됨) :
+- Make a motor connected to to FMU output pin 1 beep (helps with identifying motors)
 
   ```
   dshot beep1 -m 1
@@ -60,7 +60,7 @@ DShot comes with different speed options: _DShot150_, _DShot300_, _DShot600_ and
   dshot save -m 1
   ```
 
-  - Permanently reverse the spin direction of the first motor:
+  - Permanently reverse the spin direction of a motor connected to FMU output pin 1:
 
   ```
   dshot reverse -m 1
