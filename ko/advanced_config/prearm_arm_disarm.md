@@ -32,16 +32,14 @@ PX4 allows you to configure how pre-arming, arming and disarming work using para
 시동/제동 매개변수는 [매개변수 참고 > 명령](../advanced_config/parameter_reference.md#commander) 에서 찾을 수 있습니다(`COM_ARM_*` 과 `COM_DISARM_*`으로 검색).
 :::
 
-<a id="arm_disarm_gestures"></a>
-
-## 시동 제스쳐
+## Arming/Disarming Gestures {#arm_disarm_gestures}
 
 기본적으로, 기체는 무선조종장치의 추진 제어 스틱과 방위 제어 스틱을 움직인 후  잠깐 동안 또는 1초 동안 상태를 유지하면 시동을 걸거나 시동을 해제할 수 있습니다.
 
 - **시동:** 스로틀 최소, 요 최대
 - **시동 해제 :** 스로틀 최소, 요 최소
 
-RC controllers will have different gestures [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controllers) (as controller mode affects the sticks used for throttle and yaw):
+RC controllers will use different sticks for throttle and yaw [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controllers), and hence different gestures:
 
 - **모드 2**:
   - _Arm:_ Left stick to bottom right.
@@ -50,15 +48,15 @@ RC controllers will have different gestures [based on their mode](../getting_sta
   - _Arm:_ Left-stick to right, right-stick to bottom.
   - _Disarm:_ Left-stick to left, right-stick to the bottom.
 
-필요한 보류 시간은 [COM_RC_ARM_HYST](#COM_RC_ARM_HYST)에서 설정합니다.
+The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST). Note that by default ([COM_DISARM_MAN](#COM_DISARM_MAN)) you can also disarm in flight using gestures/buttons: you may choose to disable this to avoid accidental disarming.
 
-| 매개변수                                                                                                    | 설명                                                           |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| <a id="COM_RC_ARM_HYST"></a>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | 시동과 시동 해제가 발생하기 전에 RC 스틱이 시동/시동 해제 위치에 있어야하는 시간 (기본값 : 1 초). |
+| 매개변수                                                                                                    | 설명                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| <a id="MAN_ARM_GESTURE"></a>[MAN_ARM_GESTURE](../advanced_config/parameter_reference.md#MAN_ARM_GESTURE) | Enable arm/disarm stick guesture. `0`: Disabled, **`1`**: Enabled (default).                                         |
+| <a id="COM_DISARM_MAN"></a>[COM_DISARM_MAN](../advanced_config/parameter_reference.md#COM_DISARM_MAN)   | Enable disarming in flight via switch/stick/button in MC manual thrust modes. `0`: Disabled, `1`: Enabled (default). |
+| <a id="COM_RC_ARM_HYST"></a>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | 시동과 시동 해제가 발생하기 전에 RC 스틱이 시동/시동 해제 위치에 있어야하는 시간 (기본값 : 1 초).                                                         |
 
-<a id="arm_disarm_switch"></a>
-
-## 시동 스위치
+## 시동 스위치 {#arm_disarm_switch}
 
 An _arming button_ or "momentary switch" can be configured to trigger arm/disarm _instead_ of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures). 시동 해제 (시동 해제시) 또는 시동 해제 (시동시)를 위하여([명목상](#COM_RC_ARM_HYST)) 1초 동안 버튼을 누르고 있어야 합니다.
 
@@ -89,14 +87,14 @@ A two-position switch can also be used for arming/disarming, where the respectiv
 
 ## Pre-Arm Checks
 
-To reduce accidents, vehicles are only allowed to arm certain conditions are met. Arming is prevented if:
+To reduce accidents, vehicles are only allowed to arm certain conditions are met (some of which are configurable). Arming is prevented if:
 
 - The vehicle is not in a "healthy" state. For example it is not calibrated, or is reporting sensor errors.
 - The vehicle has a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) that has not been engaged.
 - The vehicle has a [remote ID](../peripherals/remote_id.md) that is unhealthy or otherwise not ready
 - A VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 - The current mode requires an adequate global position estimate but the vehicle does not have GPS lock.
-- Many more ...
+- Many more (see [arming/disarming safety settings](../config/safety.md#arming-disarming-settings) for more information).
 
 The current failed checks can be viewed in QGroundControl (v4.2.0 and later) [Arming Check Report](../flying/pre_flight_checks.md#qgc-arming-check-report) (see also [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.md#arm)).
 
