@@ -18,8 +18,9 @@ Throttle is passed directly to control allocation.
 
 ## Parameters
 
-| Parameter                                                                                          | Description                                                                                                                                              |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="FW_ACRO_X_MAX"></a>[FW_ACRO_X_MAX](../advanced_config/parameter_reference.md#FW_ACRO_X_MAX) | Acro body x max rate (the body x rate the controller is trying to achieve if the user applies full roll stick input in acro mode). Default: 90 degrees.  |
-| <a id="FW_ACRO_Y_MAX"></a>[FW_ACRO_Y_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Y_MAX) | Acro body y max rate (the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode). Default: 90 degrees. |
-| <a id="FW_ACRO_Z_MAX"></a>[FW_ACRO_Z_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Z_MAX) | Acro body z max rate (the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode). Default: 45 degrees.   |
+| Parameter                                                                                             | Description                                                                                                                                              |
+| ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="FW_ACRO_X_MAX"></a>[FW_ACRO_X_MAX](../advanced_config/parameter_reference.md#FW_ACRO_X_MAX)    | Acro body x max rate (the body x rate the controller is trying to achieve if the user applies full roll stick input in acro mode). Default: 90 degrees.  |
+| <a id="FW_ACRO_Y_MAX"></a>[FW_ACRO_Y_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Y_MAX)    | Acro body y max rate (the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode). Default: 90 degrees. |
+| <a id="FW_ACRO_Z_MAX"></a>[FW_ACRO_Z_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Z_MAX)    | Acro body z max rate (the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode). Default: 45 degrees.   |
+| <a id="FW_ACRO_YAW_EN"></a>[FW_ACRO_YAW_EN](../advanced_config/parameter_reference.md#FW_ACRO_YAW_EN) | Enable yaw rate controller (if disabled the pilot commands directly the yaw actuator). `0`: Disabled (Default), `1`: Enabled.                            |

@@ -280,7 +280,8 @@ There is also a _prearmed_ state when only actuators are powered.
 Armed vehicles can be dangerous as propellors will be spinning.
 :::
 
-Arming is triggered by default (on Mode 2 transmitters) by holding the RC throttle/yaw stick on the _bottom right_ for one second (to disarm, hold stick on bottom left).
+Arming and disarming are triggered by default using RC stick _gestures_.
+On Mode 2 transmitters you arm by holding the RC throttle/yaw stick on the _bottom right_ for one second, and to disarm you hold the stick on bottom left for one second.
 It is alternatively possible to configure PX4 to arm using an RC switch or button (and arming MAVLink commands can also be sent from a ground station).
 
 To reduce accidents, vehicles should be armed as little as possible when the vehicle is on the ground.
@@ -292,6 +293,7 @@ By default, vehicles are:
 - Arming is prevented if the vehicle is not in a "healthy" state.
 - Arming is prevented if the vehicle has a [safety switch](#safety-switch) that has not been engaged.
 - Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+- Arming may be prevented due to a number of other optional [arming pre-condition settings](../config/safety.md#arming-pre-conditions), such as low battery.
 
 When prearmed you can still use actuators, while disarming unpowers everything.
 Prearmed and disarmed should both be safe, and a particular vehicle may support either or both.
