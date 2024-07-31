@@ -40,7 +40,7 @@ make px4_sitl gz_x500_depth
 
 ### Квадрокоптер X500 з монокулярною камерою
 
-Ці моделі мають доданий простий датчик монокулярної камери (на моделі фізично немає візуалізації камери).
+This model has a simple monocular camera sensor attached (there is no physical camera visualization on the model itself).
 
 ```sh
 make px4_sitl gz_x500_mono_cam
@@ -48,6 +48,20 @@ make px4_sitl gz_x500_mono_cam
 
 :::info
 Ця камера поки що не може використовуватись для трансляції відео або захоплення зображень у QGroundControl. Використовуйте [PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) для відстеження додаткової роботи, необхідної для повної реалізації цих випадків використання.
+:::
+
+### X500 Quadrotor with 2D LIDAR
+
+This model have a 2D LIDAR attached, modelled on the Hokuyo UTM-30LX. It has a range between 0.1 and 30m, and scans in a 270° arc. The model can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation).
+
+```sh
+make px4_sitl gz_x500_lidar
+```
+
+![x500 with 2D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar.png)
+
+::: info
+The model cannot be used for testing normal [rangefinder](../sensor/rangefinders.md#gazebo-simulation) use cases, such as terrain following, as the information is not written to the [DistanceSensor](../msg_docs/DistanceSensor.md) topic (it is written to the [ObstacleDistance](../msg_docs/ObstacleDistance.md) UORB message used by collision prevention).
 :::
 
 ## Літак/Фіксоване крило
