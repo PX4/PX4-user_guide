@@ -238,7 +238,7 @@ A vehicle is said to be _armed_ when all motors and actuators are powered, and _
 Armed vehicles can be dangerous as propellors will be spinning.
 :::
 
-Arming is triggered by default (on Mode 2 transmitters) by holding the RC throttle/yaw stick on the _bottom right_ for one second (to disarm, hold stick on bottom left). PX4에서 무선 조종 스위치로 시동을 걸 수 있도록 설정할 수 있습니다. 또한, 지상통제국에서 시동 명령을 MAVLink로 전송할 수 있습니다.
+Arming and disarming are triggered by default using RC stick _gestures_. On Mode 2 transmitters you arm by holding the RC throttle/yaw stick on the _bottom right_ for one second, and to disarm you hold the stick on bottom left for one second. PX4에서 무선 조종 스위치로 시동을 걸 수 있도록 설정할 수 있습니다. 또한, 지상통제국에서 시동 명령을 MAVLink로 전송할 수 있습니다.
 
 To reduce accidents, vehicles should be armed as little as possible when the vehicle is on the ground. By default, vehicles are:
 
@@ -248,6 +248,7 @@ To reduce accidents, vehicles should be armed as little as possible when the veh
 - 기체는 정상 상태가 아니면, 시동은 걸리지 않습니다.
 - Arming is prevented if the vehicle has a [safety switch](#safety-switch) that has not been engaged.
 - 수직이착륙기는 고정익 모드에서는 시동이 걸리지 않습니다([기본 설정](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+- Arming may be prevented due to a number of other optional [arming pre-condition settings](../config/safety.md#arming-pre-conditions), such as low battery.
 
 When prearmed you can still use actuators, while disarming unpowers everything. Prearmed and disarmed should both be safe, and a particular vehicle may support either or both.
 
