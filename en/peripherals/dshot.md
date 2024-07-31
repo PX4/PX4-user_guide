@@ -11,9 +11,7 @@ DShot is an alternative ESC protocol that has several advantages over [PWM](../p
 
 This topic shows how to connect and configure DShot ESCs.
 
-<a id="wiring"></a>
-
-## Wiring/Connections
+## Wiring/Connections {#wiring}
 
 DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md).
 The only difference is that they can only be connected to the FMU, and usually only to some subset of pins.
@@ -47,9 +45,7 @@ The ESCs should initialize and the motors turn in the correct directions.
 - If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** option (this option appears after you select DShot and assign motors).
   You can also reverse motors by sending an [ESC Command](#commands).
 
-<a id="commands"></a>
-
-## ESC Commands
+## ESC Commands {#commands}
 
 Commands can be sent to the ESC via the [MAVLink shell](../debug/mavlink_shell.md).
 See [here](../modules/modules_driver.md#dshot) for a full reference of the supported commands.
@@ -58,13 +54,13 @@ The most important ones are:
 
 - Make a motor connected to to FMU output pin 1 beep (helps with identifying motors)
 
-  ```
+  ```sh
   dshot beep1 -m 1
   ```
 
 - Retrieve ESC information (requires telemetry, see below):
 
-  ```
+  ```sh
   nsh> dshot esc_info -m 2
   INFO  [dshot] ESC Type: #TEKKO32_4in1#
   INFO  [dshot] MCU Serial Number: xxxxxx-xxxxxx-xxxxxx-xxxxxx
@@ -79,26 +75,26 @@ The most important ones are:
   INFO  [dshot] LED 3: unsupported
   ```
 
-  - Permanently reverse the spin direction of a motor connected to FMU output pin 1:
+- Permanently reverse the spin direction of a motor connected to FMU output pin 1:
 
-  ```
+  ```sh
   dshot reverse -m 1
   dshot save -m 1
   ```
 
   Retrieving ESC information after the `dshot reverse -m 1` command without the `dshot save -m 1` command will show:
 
-  ```
+  ```sh
   Rotation Direction: reversed
   ```
 
-  after saving it with `dshot save -m 1` command, reversed direction will become new normal direction:
+  after saving it with `dshot save -m 1` command, the reversed direction will become the new normal direction:
 
-  ```
+  ```sh
   Rotation Direction: normal
   ```
 
-  To change direction back to normal again `dshot normal -m 1` plus a save command needs to be sent.
+  To change direction back to the "original" normal, you will need to set `dshot normal -m 1` and then the `dshot save -m 1` command.
 
 ## Telemetry
 
@@ -119,7 +115,7 @@ To enable this feature (on ESCs that support it):
 
 After a reboot you can check if telemetry is working (make sure the battery is connected) using:
 
-```
+```sh
 dshot esc_info -m 1
 ```
 
@@ -131,7 +127,7 @@ You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_referenc
 Not all DSHOT-capable ESCs support `[esc_info]`(e.g. APD 80F3x), even when telemetry is supported and enabled.
 The resulting error is:
 
-```
+```sh
 ERROR [dshot] No data received. If telemetry is setup correctly, try again.
 ```
 
