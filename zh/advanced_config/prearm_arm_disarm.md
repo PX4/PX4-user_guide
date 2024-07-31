@@ -32,16 +32,14 @@ PX4 allows you to configure how pre-arming, arming and disarming work using para
 Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_*` and `COM_DISARM_*`).
 :::
 
-<a id="arm_disarm_gestures"></a>
-
-## 解锁手法
+## Arming/Disarming Gestures {#arm_disarm_gestures}
 
 默认情况下，载具可以通过移动遥控器的油门/偏航摇杆到特定的位置，并保持 1 秒来解锁和锁定。
 
 - **Arming:** Throttle minimum, yaw maximum
 - **Disarming:** Throttle minimum, yaw minimum
 
-RC controllers will have different gestures [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controllers) (as controller mode affects the sticks used for throttle and yaw):
+RC controllers will use different sticks for throttle and yaw [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controllers), and hence different gestures:
 
 - **Mode 2**:
   - _Arm:_ Left stick to bottom right.
@@ -50,15 +48,15 @@ RC controllers will have different gestures [based on their mode](../getting_sta
   - _Arm:_ Left-stick to right, right-stick to bottom.
   - _Disarm:_ Left-stick to left, right-stick to the bottom.
 
-可以使用[COM_RC_ARM_HYST](#COM_RC_ARM_HYST)参数来配置保持时间。
+The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST). Note that by default ([COM_DISARM_MAN](#COM_DISARM_MAN)) you can also disarm in flight using gestures/buttons: you may choose to disable this to avoid accidental disarming.
 
-| 参数                                                                                                      | 描述                                      |
-| ------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| <a id="COM_RC_ARM_HYST"></a>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | 遥控器的摇杆在解锁/锁定发生之前必须保持在解锁/锁定的位置。（默认：1 秒）。 |
+| 参数                                                                                                      | 描述                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| <a id="MAN_ARM_GESTURE"></a>[MAN_ARM_GESTURE](../advanced_config/parameter_reference.md#MAN_ARM_GESTURE) | Enable arm/disarm stick guesture. `0`: Disabled, **`1`**: Enabled (default).                                         |
+| <a id="COM_DISARM_MAN"></a>[COM_DISARM_MAN](../advanced_config/parameter_reference.md#COM_DISARM_MAN)   | Enable disarming in flight via switch/stick/button in MC manual thrust modes. `0`: Disabled, `1`: Enabled (default). |
+| <a id="COM_RC_ARM_HYST"></a>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | 遥控器的摇杆在解锁/锁定发生之前必须保持在解锁/锁定的位置。（默认：1 秒）。                                                                              |
 
-<a id="arm_disarm_switch"></a>
-
-## 解锁按钮/开关
+## 解锁按钮/开关 {#arm_disarm_switch}
 
 An _arming button_ or "momentary switch" can be configured to trigger arm/disarm _instead_ of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures). 按钮应该保持按下（[名义上](#COM_RC_ARM_HYST)）1 秒来解锁（当锁定时）或者锁定（当解锁时）。
 
@@ -89,14 +87,14 @@ By default vehicles will automatically disarm on landing, or if you take too lon
 
 ## Pre-Arm Checks
 
-To reduce accidents, vehicles are only allowed to arm certain conditions are met. Arming is prevented if:
+To reduce accidents, vehicles are only allowed to arm certain conditions are met (some of which are configurable). Arming is prevented if:
 
 - The vehicle is not in a "healthy" state. For example it is not calibrated, or is reporting sensor errors.
 - The vehicle has a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) that has not been engaged.
 - The vehicle has a [remote ID](../peripherals/remote_id.md) that is unhealthy or otherwise not ready
 - A VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 - The current mode requires an adequate global position estimate but the vehicle does not have GPS lock.
-- Many more ...
+- Many more (see [arming/disarming safety settings](../config/safety.md#arming-disarming-settings) for more information).
 
 The current failed checks can be viewed in QGroundControl (v4.2.0 and later) [Arming Check Report](../flying/pre_flight_checks.md#qgc-arming-check-report) (see also [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.md#arm)).
 

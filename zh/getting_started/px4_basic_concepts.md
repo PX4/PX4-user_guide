@@ -238,7 +238,7 @@ A vehicle is said to be _armed_ when all motors and actuators are powered, and _
 Armed vehicles can be dangerous as propellors will be spinning.
 :::
 
-Arming is triggered by default (on Mode 2 transmitters) by holding the RC throttle/yaw stick on the _bottom right_ for one second (to disarm, hold stick on bottom left). 还可以使用遥控上的按钮来配置 PX4 解锁（也可以从地面站发送MAVLink解锁命令）。
+Arming and disarming are triggered by default using RC stick _gestures_. On Mode 2 transmitters you arm by holding the RC throttle/yaw stick on the _bottom right_ for one second, and to disarm you hold the stick on bottom left for one second. 还可以使用遥控上的按钮来配置 PX4 解锁（也可以从地面站发送MAVLink解锁命令）。
 
 To reduce accidents, vehicles should be armed as little as possible when the vehicle is on the ground. By default, vehicles are:
 
@@ -248,6 +248,7 @@ To reduce accidents, vehicles should be armed as little as possible when the veh
 - 载具如果不是在“健康”状态，则会解锁不通过。
 - Arming is prevented if the vehicle has a [safety switch](#safety-switch) that has not been engaged.
 - 如果VTOL飞行器处于固定翼飞机模式，则阻止解锁([默认情况下](../advanced_config/parameter_reference.md#CBRK_VTOLARMING))。
+- Arming may be prevented due to a number of other optional [arming pre-condition settings](../config/safety.md#arming-pre-conditions), such as low battery.
 
 When prearmed you can still use actuators, while disarming unpowers everything. Prearmed and disarmed should both be safe, and a particular vehicle may support either or both.
 

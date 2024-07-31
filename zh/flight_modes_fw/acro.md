@@ -16,8 +16,9 @@ RPY摇杆输入被转换为角速度命令，通过自动驾驶仪稳定。 Thro
 
 ## 参数
 
-| 参数                                                                                                  | 描述                                                                                                                                                       |
-| --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="FW_ACRO_X_MAX"></a>[FW_ACRO_X_MAX](../advanced_config/parameter_reference.md#FW_ACRO_X_MAX) | 机体轴x轴最大速率（用户在acro模式下施加滚转轴满杆操纵时，控制器试图达到的机体轴x轴速率） 默认：90度 Default: 90 degrees.                                                                              |
-| <a id="FW_ACRO_Y_MAX"></a>[FW_ACRO_Y_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Y_MAX) | Acro body y max rate (the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode). Default: 90 degrees. |
-| <a id="FW_ACRO_Z_MAX"></a>[FW_ACRO_Z_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Z_MAX) | 机体轴z轴最大速率（用户在acro模式下施加偏航轴满杆操纵时，控制器试图达到的机体轴z轴速率） 默认：45度 Default: 45 degrees.                                                                              |
+| 参数                                                                                                    | 描述                                                                                                                                                       |
+| ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="FW_ACRO_X_MAX"></a>[FW_ACRO_X_MAX](../advanced_config/parameter_reference.md#FW_ACRO_X_MAX)   | 机体轴x轴最大速率（用户在acro模式下施加滚转轴满杆操纵时，控制器试图达到的机体轴x轴速率） 默认：90度 Default: 90 degrees.                                                                              |
+| <a id="FW_ACRO_Y_MAX"></a>[FW_ACRO_Y_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Y_MAX)   | Acro body y max rate (the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode). Default: 90 degrees. |
+| <a id="FW_ACRO_Z_MAX"></a>[FW_ACRO_Z_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Z_MAX)   | 机体轴z轴最大速率（用户在acro模式下施加偏航轴满杆操纵时，控制器试图达到的机体轴z轴速率） 默认：45度 Default: 45 degrees.                                                                              |
+| <a id="FW_ACRO_YAW_EN"></a>[FW_ACRO_YAW_EN](../advanced_config/parameter_reference.md#FW_ACRO_YAW_EN) | Enable yaw rate controller (if disabled the pilot commands directly the yaw actuator). `0`: Disabled (Default), `1`: Enabled.                            |

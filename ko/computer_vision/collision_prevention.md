@@ -41,8 +41,6 @@ Configure collision prevention by [setting the following parameters](../advanced
 | <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 기체가 센서 범위 외부의 방향으로 이동할 수 있도록 하려면 1로 설정합니다 (기본값은 0/`False`).                                                                                                    |
 | <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Set to 0 or 3 to enable Collision Prevention in Position Mode (default is 4).                                                                                  |
 
-<a id="algorithm"></a>
-
 ## 알고리즘 설명
 
 모든 센서의 데이터는 기체 주변의 36 개 섹터의 내부 표현으로 통합되며, 각 섹터에는 센서 데이터와 마지막 관찰 시점에 대한 정보 또는 해당 섹터에 대한 데이터를 사용할 수 없다는 표시가 포함됩니다. 기체가 특정 방향으로 이동하도록 명령을 받으면, 해당 방향의 반구에있는 모든 섹터를 확인하여 이동으로 인하여 기체가 장애물에 더 가까워 지는지 확인합니다. 그러한 경우에는, 차량 속도가 제한됩니다.
@@ -57,8 +55,6 @@ Configure collision prevention by [setting the following parameters](../advanced
 
 명령된 섹터에 인접한 섹터가 상당한 여백 만큼 '더 나은' 경우, 요청된 입력 방향은 [CP_GUIDE_ANG](#CP_GUIDE_ANG)에 지정된 각도까지 수정할 수 있습니다. 이는 장애물에 걸리지 않고 장애물 주변으로 차량을 '안내'하기 위하여 사용자 입력을 미세 조정하는 데 도움이 됩니다.
 
-<a id="data_loss"></a>
-
 ### 범위 데이터 손실
 
 If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning _No range data received, no movement allowed_. 이렇게하면 xy의 속도 설정값이 0이 됩니다. After 5 seconds of not receiving any data, the vehicle will switch into [HOLD mode](../flight_modes_mc/hold.md). If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes_mc/position.md) (e.g. to _Altitude mode_ or _Stabilized mode_).
@@ -69,9 +65,7 @@ If the autopilot does not receive range data from any sensor for longer than 0.5
 [CP_GO_NO_DATA = 1](#CP_GO_NO_DATA)을 활성화시에는 주의하여야 합니다. 간혹, 기체가 센서 범위 외부로 벗어날 수 있습니다. 여러 센서 중 하나라도 연결이 끊어지면 결함이있는 센서의 영역이 무시되어, 제약없이 이동할 수 있습니다.
 :::
 
-<a id="delay_tuning"></a>
-
-### CP_DELAY 지연 튜닝
+### CP_DELAY Delay Tuning {#delay_tuning}
 
 There are two main sources of delay which should be accounted for: _sensor delay_, and vehicle _velocity setpoint tracking delay_. 두 지연 소스 모두 [CP_DELAY](#CP_DELAY) 매개변수를 사용하여 튜닝됩니다.
 
@@ -83,9 +77,7 @@ Vehicle _velocity setpoint tracking delay_ can be measured by flying at full spe
 장애물에 접근시 기체 속도가 진동하면 (즉, 감속, 가속, 감속), 지연이 너무 높게 설정됩니다.
 :::
 
-<a id="angle_change_tuning"></a>
-
-### CP_GUIDE_ANG 가이던스 튜닝
+### CP_GUIDE_ANG Guidance Tuning {#angle_change_tuning}
 
 차량, 환경 유형 및 조종사의 기술에 따라 각기 다른 가이던스가 필요할 수 있습니다. [CP_GUIDE_ANG](#CP_GUIDE_ANG) 매개 변수를 0으로 설정하면 안내가 비활성화되어 기체가 명령된 방향으로만 정확하게 이동합니다. 이 매개 변수를 높이면 기체가 장애물을 피할 수 있는 최적의 방향을 선택할 수 있으므로 좁은 틈새를 더 쉽게 통과하고 물체를 돌아 다니는 동안 최소 거리를 정확하게 유지할 수 있습니다.
 
@@ -96,9 +88,7 @@ Vehicle _velocity setpoint tracking delay_ can be measured by flying at full spe
 단 하나의 거리 센서만 전방을 향하고 있는 상태에서 기체가 '고착'된 느낌이 드는 경우, 이는 정보 부족으로 인하여 가이던스가 방향을 안전하게 조정할 수 없기 때문일 수 있습니다.
 :::
 
-<a id="rangefinder"></a>
-
-## PX4 거리 센서
+## PX4 Distance Sensor {#rangefinder}
 
 ### Lanbao PSK-CM8JL65-CC5
 
@@ -146,9 +136,7 @@ The obstacle overlay in QGC will look like this:
 [기능 PR](https://github.com/PX4/PX4-Autopilot/pull/12179)에서 필요한 수정 사항을 확인할 수 있습니다. 변경 사항에 기여하여 주십시오!
 :::
 
-<a id="companion"></a>
-
-## 보조 컴퓨터 설정
+## Companion Setup {#companion}
 
 보조 컴퓨터 또는 외부 센서를 사용하는 경우 장애물이 감지된 시기와 위치를 반영하는 [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 메시지 스트림을 제공하여야 합니다.
 
@@ -164,9 +152,20 @@ The tested companion software is the _local_planner_ from the [PX4/PX4-Avoidance
 
 The hardware and software should be set up as described in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the _rqt_reconfigure_ tool and set the parameter `send_obstacles_fcu` to true.
 
-## 가제보 설정
+## Gazebo Simulation
 
-_Collision Prevention_ can also be tested using Gazebo. See [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) for setup instructions.
+_Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model. To do this, start a simulation with the x500 lidar model by running the following command:
+
+```sh
+make px4_sitl gz_x500_lidar
+```
+
+Next, adjust the relevant parameters to the appropriate values and add arbitrary obstacles to your simulation world to test the collision prevention functionality.
+
+The diagram below shows how the simulation looks when viewed in RViz.
+
+![RViz image of collision detection using the x500_lidar model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_viz.png)
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
+<!-- using rangefinder? -->

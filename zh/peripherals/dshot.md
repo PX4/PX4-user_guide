@@ -47,7 +47,7 @@ DShot 具有不同的速度选项：_DShot150_，_DShot300_，_DShot600_ 和 _DS
 
 其中最重要的是：
 
-- 使第一个电机哔哔一下（有助于识别电机）：
+- Make a motor connected to to FMU output pin 1 beep (helps with identifying motors)
 
   ```
   dshot beep1 -m 1
@@ -70,7 +70,7 @@ DShot 具有不同的速度选项：_DShot150_，_DShot300_，_DShot600_ 和 _DS
   INFO  [dshot] LED 3: unsupported
   ```
 
-  - 永久性反转第一个电机的旋转方向：
+  - Permanently reverse the spin direction of a motor connected to FMU output pin 1:
 
   ```
   dshot reverse -m 1
