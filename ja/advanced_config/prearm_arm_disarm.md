@@ -32,16 +32,14 @@ PX4 allows you to configure how pre-arming, arming and disarming work using para
 Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_*` and `COM_DISARM_*`).
 :::
 
-<a id="arm_disarm_gestures"></a>
-
-## Arming Gesture
+## Arming/Disarming Gestures {#arm_disarm_gestures}
 
 By default, the vehicle is armed and disarmed by moving RC throttle/yaw sticks to particular extremes and holding them for 1 second.
 
 - **Arming:** Throttle minimum, yaw maximum
 - **Disarming:** Throttle minimum, yaw minimum
 
-RC controllers will have different gestures [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controllers) (as controller mode affects the sticks used for throttle and yaw):
+RC controllers will use different sticks for throttle and yaw [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controllers), and hence different gestures:
 
 - **Mode 2**:
   - _Arm:_ Left stick to bottom right.
@@ -50,15 +48,15 @@ RC controllers will have different gestures [based on their mode](../getting_sta
   - _Arm:_ Left-stick to right, right-stick to bottom.
   - _Disarm:_ Left-stick to left, right-stick to the bottom.
 
-The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
+The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST). Note that by default ([COM_DISARM_MAN](#COM_DISARM_MAN)) you can also disarm in flight using gestures/buttons: you may choose to disable this to avoid accidental disarming.
 
-| Parameter                                                                                               | Description                                                                                                |
-| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| <a id="COM_RC_ARM_HYST"></a>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time that RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second). |
+| Parameter                                                                                               | Description                                                                                                          |
+| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| <a id="MAN_ARM_GESTURE"></a>[MAN_ARM_GESTURE](../advanced_config/parameter_reference.md#MAN_ARM_GESTURE) | Enable arm/disarm stick guesture. `0`: Disabled, **`1`**: Enabled (default).                                         |
+| <a id="COM_DISARM_MAN"></a>[COM_DISARM_MAN](../advanced_config/parameter_reference.md#COM_DISARM_MAN)   | Enable disarming in flight via switch/stick/button in MC manual thrust modes. `0`: Disabled, `1`: Enabled (default). |
+| <a id="COM_RC_ARM_HYST"></a>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time that RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second).           |
 
-<a id="arm_disarm_switch"></a>
-
-## Arming Button/Switch
+## Arming Button/Switch {#arm_disarm_switch}
 
 An _arming button_ or "momentary switch" can be configured to trigger arm/disarm _instead_ of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures). The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed).
 
@@ -89,14 +87,14 @@ By default vehicles will automatically disarm on landing, or if you take too lon
 
 ## Pre-Arm Checks
 
-To reduce accidents, vehicles are only allowed to arm certain conditions are met. Arming is prevented if:
+To reduce accidents, vehicles are only allowed to arm certain conditions are met (some of which are configurable). Arming is prevented if:
 
 - The vehicle is not in a "healthy" state. For example it is not calibrated, or is reporting sensor errors.
 - The vehicle has a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) that has not been engaged.
 - The vehicle has a [remote ID](../peripherals/remote_id.md) that is unhealthy or otherwise not ready
 - A VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 - The current mode requires an adequate global position estimate but the vehicle does not have GPS lock.
-- Many more ...
+- Many more (see [arming/disarming safety settings](../config/safety.md#arming-disarming-settings) for more information).
 
 The current failed checks can be viewed in QGroundControl (v4.2.0 and later) [Arming Check Report](../flying/pre_flight_checks.md#qgc-arming-check-report) (see also [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.md#arm)).
 
