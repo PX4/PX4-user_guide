@@ -55,12 +55,18 @@ The camera cannot yet be used to stream video or for image capture in QGroundCon
 ### X500 Quadrotor with 2D LIDAR
 
 This model have a 2D LIDAR attached, modelled on the Hokuyo UTM-30LX.
+It has a range between 0.1 and 30m, and scans in a 270° arc.
+The model can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation).
 
 ```sh
 make px4_sitl gz_x500_lidar
 ```
 
 ![x500 with 2D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar.png)
+
+::: info
+The model cannot be used for testing normal [rangefinder](../sensor/rangefinders.md#gazebo-simulation) use cases, such as terrain following, as the information is not written to the [DistanceSensor](../msg_docs/DistanceSensor.md) topic (it is written to the [ObstacleDistance](../msg_docs/ObstacleDistance.md) UORB message used by collision prevention).
+:::
 
 ## Plane/Fixed-wing
 

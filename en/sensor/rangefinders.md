@@ -99,9 +99,7 @@ Features:
 - Input voltage sensor
 - CAN connectors: 2 [UCANPHY Micro (JST-GH 4)](https://raccoonlabdev.github.io/docs/guide/wires/).
 
-<a id="configuration"></a>
-
-## Configuration/Setup
+## Configuration/Setup {#configuration}
 
 Rangefinders are usually connected to either a serial (PWM) or I2C port (depending on the device driver), and are enabled on the port by setting a particular parameter.
 
@@ -163,17 +161,11 @@ For more information see: [Development > Debugging/Logging > Sensor/Topic Debugg
 
 ## Gazebo Simulation
 
-Lidar rangefinders can be used in the [Gazebo](../sim_gazebo_gz/index.md) simulator.
-To do this you must start the simulator using a vehicle model that includes the rangefinder.
+Rangefinders use cases such as terrain following cannot be used for testing in the [Gazebo](../sim_gazebo_gz/index.md) simulator (at time of writing), because none of the [vehicle models](../sim_gazebo_gz/vehicles.md) include sensors that write to the [DistanceSensor](../msg_docs/DistanceSensor.md) UORB topic.
 
-The x500 lidar model includes a 2D Lidar rangefinder:
-
-```sh
-make px4_sitl gz_x500_lidar
-```
-in the case of the 2D LIDAR, its most commonly used for [Collision Prevention](../computer_vision/collision_prevention.md) where the 2D laserscan gets converted into an [ObstacleDistance](../msg_docs/ObstacleDistance.md) Message. whereby it has a range between 0.1 and 30m, and scans in a 270° arc.
-
-<img src="../../assets/simulation/gazebo/vehicles/x500_lidar_viz.png" alt="x500 lidar" width="500px" />
+::: info
+The [x500 lidar model](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) includes a 2D Lidar rangefinder that can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation)
+:::
 
 ## Gazebo-Classic Simulation
 
