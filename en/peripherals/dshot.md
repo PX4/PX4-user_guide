@@ -75,26 +75,40 @@ The most important ones are:
   INFO  [dshot] LED 3: unsupported
   ```
 
-- Permanently reverse the spin direction of a motor connected to FMU output pin 1:
+- Permanently set the spin direction of a motor connected to FMU output pin 1 (while motors are _not_ spinning):
 
-  ```sh
-  dshot reverse -m 1
-  dshot save -m 1
-  ```
+  - Set spin direction to `reversed`:
 
-  Retrieving ESC information after the `dshot reverse -m 1` command without the `dshot save -m 1` command will show:
+    ```sh
+    dshot reverse -m 1
+    dshot save -m 1
+    ```
 
-  ```sh
-  Rotation Direction: reversed
-  ```
+    Retrieving ESC information will then show:
 
-  after saving it with `dshot save -m 1` command, the reversed direction will become the new normal direction:
+    ```sh
+    Rotation Direction: reversed
+    ```
 
-  ```sh
-  Rotation Direction: normal
-  ```
+  - Set spin direction to `normal`:
 
-  To change direction back to the "original" normal, you will need to set `dshot normal -m 1` and then the `dshot save -m 1` command.
+    ```sh
+    dshot normal -m 1
+    dshot save -m 1
+    ```
+
+    Retrieving ESC information will then show:
+
+    ```sh
+    Rotation Direction: normal
+    ```
+
+  ::: info
+
+  - The commands will have no effect if the motors are spinning, or if the ESC is already set to the corresponding direction.
+  - The ESC will revert to its last saved direction (normal or reversed) on reboot if `save` is not called after changing the direction.
+
+  :::
 
 ## Telemetry
 
