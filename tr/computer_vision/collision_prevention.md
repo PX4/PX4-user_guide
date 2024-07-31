@@ -41,8 +41,6 @@ Configure collision prevention by [setting the following parameters](../advanced
 | <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to 1 to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).                                                                                                                                                                                         |
 | <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Set to 0 or 3 to enable Collision Prevention in Position Mode (default is 4).                                                                                                                                                                                                                         |
 
-<a id="algorithm"></a>
-
 ## Algorithm Description
 
 The data from all sensors are fused into an internal representation of 36 sectors around the vehicle, each containing either the sensor data and information about when it was last observed, or an indication that no data for the sector was available. When the vehicle is commanded to move in a particular direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer to any obstacles. If so, the vehicle velocity is restricted.
@@ -56,8 +54,6 @@ Delay, both in the vehicle tracking velocity setpoints and in receiving sensor d
 
 If the sectors adjacent to the commanded sectors are 'better' by a significant margin, the direction of the requested input can be modified by up to the angle specified in [CP_GUIDE_ANG](#CP_GUIDE_ANG). This helps to fine-tune user input to 'guide' the vehicle around obstacles rather than getting stuck against them.
 
-<a id="data_loss"></a>
-
 ### Range Data Loss
 
 If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning _No range data received, no movement allowed_. This will force the velocity setpoints in xy to zero. After 5 seconds of not receiving any data, the vehicle will switch into [HOLD mode](../flight_modes_mc/hold.md). If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes_mc/position.md) (e.g. to _Altitude mode_ or _Stabilized mode_).
@@ -68,9 +64,7 @@ If you have multiple sensors connected and you lose connection to one of them, y
 Be careful when enabling [CP_GO_NO_DATA=1](#CP_GO_NO_DATA), which allows the vehicle to fly outside the area with sensor coverage. If you lose connection to one of multiple sensors, the area covered by the faulty sensor is also treated as uncovered and you will be able to move there without constraint.
 :::
 
-<a id="delay_tuning"></a>
-
-### CP_DELAY Delay Tuning
+### CP_DELAY Delay Tuning {#delay_tuning}
 
 There are two main sources of delay which should be accounted for: _sensor delay_, and vehicle _velocity setpoint tracking delay_. Both sources of delay are tuned using the [CP_DELAY](#CP_DELAY) parameter.
 
@@ -82,9 +76,7 @@ Vehicle _velocity setpoint tracking delay_ can be measured by flying at full spe
 If vehicle speed oscillates as it approaches the obstacle (i.e. it slows down, speeds up, slows down) the delay is set too high.
 :::
 
-<a id="angle_change_tuning"></a>
-
-### CP_GUIDE_ANG Guidance Tuning
+### CP_GUIDE_ANG Guidance Tuning {#angle_change_tuning}
 
 Depending on the vehicle, type of environment and pilot skill different amounts of guidance may be desired. Setting the [CP_GUIDE_ANG](#CP_GUIDE_ANG) parameter to 0 will disable the guidance, resulting in the vehicle only moving exactly in the directions commanded. Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
 
@@ -95,9 +87,7 @@ The guidance feature will never direct the vehicle in a direction without sensor
 If the vehicle feels 'stuck' with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
 :::
 
-<a id="rangefinder"></a>
-
-## PX4 Distance Sensor
+## PX4 Distance Sensor {#rangefinder}
 
 ### Lanbao PSK-CM8JL65-CC5
 
@@ -145,9 +135,7 @@ Other sensors may be enabled, but this requires modification of driver code to s
 You can see the required modifications from the [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179). Please contribute back your changes!
 :::
 
-<a id="companion"></a>
-
-## Companion Setup
+## Companion Setup {#companion}
 
 If using a companion computer or external sensor, it needs to supply a stream of [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messages, which should reflect when and where obstacle were detected.
 
@@ -162,9 +150,20 @@ The tested companion software is the _local_planner_ from the [PX4/PX4-Avoidance
 
 The hardware and software should be set up as described in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the _rqt_reconfigure_ tool and set the parameter `send_obstacles_fcu` to true.
 
-## Gazebo Setup
+## Gazebo Simulation
 
-_Collision Prevention_ can also be tested using Gazebo. See [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) for setup instructions.
+_Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model. To do this, start a simulation with the x500 lidar model by running the following command:
+
+```sh
+make px4_sitl gz_x500_lidar
+```
+
+Next, adjust the relevant parameters to the appropriate values and add arbitrary obstacles to your simulation world to test the collision prevention functionality.
+
+The diagram below shows how the simulation looks when viewed in RViz.
+
+![RViz image of collision detection using the x500_lidar model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_viz.png)
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
+<!-- using rangefinder? -->
