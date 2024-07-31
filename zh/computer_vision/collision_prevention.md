@@ -41,8 +41,6 @@ Configure collision prevention by [setting the following parameters](../advanced
 | <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 设置为 1 可以使无人机/无人车在没有传感器覆盖的方向移动（默认值是0/`False`）。                                                                                             |
 | <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | 设置为 0 或 3 以启用位置模式下的防撞(默认是 4)。                                                                                                             |
 
-<a id="algorithm"></a>
-
 ## 算法描述
 
 所有传感器的数据融合到机身周围的 36 个扇区中，每个扇区包含传感器数据和上次观测时间信息，或者指示该扇区没有可用数据。 当控制无人机向特定的方向移动时，就会检查该方向半球内的所有扇区，以查看此次移动是否会使机身靠近任何障碍物。 如果是这样，无人机的速度就会受到限制。
@@ -57,8 +55,6 @@ Configure collision prevention by [setting the following parameters](../advanced
 
 根据边余量的大小，邻近的扇区比命令扇区“更好”，则可以按 [CP_GUIDE_ANG](#CP_GUIDE_ANG) 指定的角度修改请求输入的方向。 这有助于微调用户输入，以“引导”机身绕过障碍物，而不是卡在障碍物上。
 
-<a id="data_loss"></a>
-
 ### 航程数据丢失
 
 If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning _No range data received, no movement allowed_. 这会导致强制将 xy 的速度设置为 0。 After 5 seconds of not receiving any data, the vehicle will switch into [HOLD mode](../flight_modes_mc/hold.md). If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes_mc/position.md) (e.g. to _Altitude mode_ or _Stabilized mode_).
@@ -69,9 +65,7 @@ If the autopilot does not receive range data from any sensor for longer than 0.5
 使能参数 [CP_GO_NO_DATA=1](#CP_GO_NO_DATA) 时要小心，这会使无人机飞出传感器覆盖的区域。 如果多个传感器中有一个失去连接，故障传感器所覆盖的区域将被视为未覆盖，可以在该区域移动不受限制。
 :::
 
-<a id="delay_tuning"></a>
-
-### CP_DELAY 延迟调整
+### CP_DELAY Delay Tuning {#delay_tuning}
 
 There are two main sources of delay which should be accounted for: _sensor delay_, and vehicle _velocity setpoint tracking delay_. 这两个延迟来源都可以通过 [CP_DELAY](#CP_DELAY) 这个参数来调整。
 
@@ -83,9 +77,7 @@ Vehicle _velocity setpoint tracking delay_ can be measured by flying at full spe
 如果车速在接近障碍物时发生振荡（即减速，加速，减速），则延迟设置太高。
 :::
 
-<a id="angle_change_tuning"></a>
-
-### CP_GUIDE_ANG 制导调试
+### CP_GUIDE_ANG Guidance Tuning {#angle_change_tuning}
 
 取决于机身，环境类型和飞行员技能，可能需要不同数量的制导。 将 [CP_GUIDE_ANG](#CP_GUIDE_ANG) 参数设置为 0 将禁用制导，从而使得无人机只能在正确的方向上移动。 增大此参数将使无人机选择最佳方向来避开障碍物，从而更容易飞过狭窄的间隙，并与物体周围保持最小间距。
 
@@ -96,9 +88,7 @@ Vehicle _velocity setpoint tracking delay_ can be measured by flying at full spe
 如果只有一个距离传感器指向前方时无人机感到“卡住”，这可能是因为由于缺乏信息，制导无法安全地调整方向。
 :::
 
-<a id="rangefinder"></a>
-
-## PX4 距离传感器
+## PX4 Distance Sensor {#rangefinder}
 
 ### Lanbao PSK-CM8JL65-CC5
 
@@ -146,9 +136,7 @@ The obstacle overlay in QGC will look like this:
 您可以从 [功能 PR](https://github.com/PX4/PX4-Autopilot/pull/12179) 中看到所需的修改。 请回馈你的更改！
 :::
 
-<a id="companion"></a>
-
-## 机载计算机设置
+## Companion Setup {#companion}
 
 如果使用机载计算机或者外部传感器，需要提供 [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 消息流，该消息流反映检测到障碍物的时间和位置。
 
@@ -164,9 +152,20 @@ The tested companion software is the _local_planner_ from the [PX4/PX4-Avoidance
 
 软硬件的配置应遵照 [PX4/avoidance](https://github.com/PX4/PX4-Avoidance) 代码仓库的说明。 In order to emit `OBSTACLE_DISTANCE` messages you must use the _rqt_reconfigure_ tool and set the parameter `send_obstacles_fcu` to true.
 
-## Gazebo设置
+## Gazebo Simulation
 
-_Collision Prevention_ can also be tested using Gazebo. 设置方法请遵照[PX4/avoidance](https://github.com/PX4/PX4-Avoidance)的说明。
+_Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model. To do this, start a simulation with the x500 lidar model by running the following command:
+
+```sh
+make px4_sitl gz_x500_lidar
+```
+
+Next, adjust the relevant parameters to the appropriate values and add arbitrary obstacles to your simulation world to test the collision prevention functionality.
+
+The diagram below shows how the simulation looks when viewed in RViz.
+
+![RViz image of collision detection using the x500_lidar model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_viz.png)
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
+<!-- using rangefinder? -->
