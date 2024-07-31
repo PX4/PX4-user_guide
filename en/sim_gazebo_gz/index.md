@@ -215,7 +215,7 @@ where `ARGS` is a list of environment variables including:
 
 - `PX4_GZ_WORLD`:
   Sets the Gazebo world file for a new simulation.
-  If it is not given, then [default](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) is used.
+  If it is not given, then [default](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/default.sdf) is used.
 
   - This variable is ignored if an existing simulation is already running.
   - This value should be [specified for the selected airframe](#adding-new-worlds-and-models) but may be overridden using this argument.
