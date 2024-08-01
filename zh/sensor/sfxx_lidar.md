@@ -54,9 +54,9 @@ Connect the Lidar the autopilot I2C port as shown below (in this case, for the [
 
 Set the [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) parameter to match the rangefinder model and then reboot.
 
-## Serial Setup
+VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_reference.md#SF1XX_MODE) to `2: Disabled during VTOL fast forward flight`.
 
-<a id="serial_hardware_setup"></a>
+## Serial Setup {#serial_hardware_setup}
 
 ### Hardware
 
@@ -74,6 +74,8 @@ The lidar can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TEL
 :::
 
 Then set the [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF0X) parameter to match the rangefinder model and reboot.
+
+VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_reference.md#SF1XX_MODE) to `2: Disabled during VTOL fast forward flight`.
 
 ## 更多信息
 
