@@ -37,6 +37,8 @@
 Змінивши [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT) в польоті, ви також можете перевірити відновлення працездатності для симуляції неточної оцінки стану батареї або технології заряджання в повітрі.
 :::
 
+It is also possible to disable the simulated battery using [SIM_BAT_ENABLE](../advanced_config/parameter_reference.md#SIM_BAT_ENABLE) in order to, for example, provide an external battery simulation via MAVLink.
+
 ## Помилка датчику/системи
 
 [Введення помилок](../debug/failure_injection.md) може бути використано для симуляції різного типу відмов у багатьох датчиках та системах. Наприклад, це може бути використано для імітації відсутнього або переривчастого сигналу GPS, сигналу РК який перервався або застиг на певному значенні, збої в системі уникнення, і багато іншого.
