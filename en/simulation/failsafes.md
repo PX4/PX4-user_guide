@@ -47,6 +47,8 @@ To control how fast the battery depletes to the minimal value use the parameter 
 By changing [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT) in flight, you can also test regaining capacity to simulate inaccurate battery state estimation or in-air charging technology.
 :::
 
+It is also possible to disable the simulated battery using [SIM_BAT_ENABLE](../advanced_config/parameter_reference.md#SIM_BAT_ENABLE) in order to, for example, provide an external battery simulation via MAVLink.
+
 ## Sensor/System Failure
 
 [Failure injection](../debug/failure_injection.md) can be used to simulate different types of failures in many sensors and systems.
