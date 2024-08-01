@@ -181,7 +181,7 @@ Your browser does not support the audio element.
 </audio>
 <!-- 7,  BATTERY_WARNING_SLOW -->
 
-- Low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
+- Low battery warning ([failsafe](../config/safety.md#battery-level-failsafe)).
 
 #### Battery Warning Fast
 
@@ -191,7 +191,7 @@ Your browser does not support the audio element.
 </audio>
 <!-- 8, BATTERY_WARNING_FAST -->
 
-- Critical low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
+- Critical low battery warning ([failsafe](../config/safety.md#battery-level-failsafe)).
 
 
 #### GPS Warning Slow
