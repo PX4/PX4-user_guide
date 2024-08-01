@@ -11,9 +11,7 @@ DShot - це альтернативний протокол ESC, який має 
 
 Ця тема показує, як підключити та налаштувати DShot ESC.
 
-<a id="wiring"></a>
-
-## Проводка/З'єднання
+## Wiring/Connections {#wiring}
 
 DShot ESC підключені так само, як [PWM ESCs](pwm_escs_and_servo.md). Єдина відмінність полягає в тому, що їх можна підключити лише до FMU, і зазвичай лише до певного підмножини контактів.
 
@@ -39,9 +37,7 @@ DShot має різні варіанти швидкості: _DShot150_, _DShot3
 
 - Якщо двигуни не обертаються в правильному напрямку (для [вибраної конструкції повітряного судна](../airframes/airframe_reference.md)), ви можете змінити їх напрямок у користувацькому інтерфейсі, використовуючи опцію **Встановити напрямок обертання** (ця опція з'являється після вибору DShot та призначення двигунів). Ви також можете реверсувати двигуни, відправивши [команду ESC](#commands).
 
-<a id="commands"></a>
-
-## Команди ESC
+## ESC Commands {#commands}
 
 Команди можна надсилати на ESC через [MAVLink shell](../debug/mavlink_shell.md). Дивіться [тут](../modules/modules_driver.md#dshot) для повного посилання на підтримувані команди.
 
@@ -49,13 +45,13 @@ DShot має різні варіанти швидкості: _DShot150_, _DShot3
 
 - Make a motor connected to to FMU output pin 1 beep (helps with identifying motors)
 
-  ```
+  ```sh
   dshot beep1 -m 1
   ```
 
-- Отримати інформацію ESC (потрібно телеметрію, див. нижче):
+- Retrieve ESC information (requires telemetry, see below):
 
-  ```
+  ```sh
   nsh> dshot esc_info -m 2
   INFO  [dshot] ESC Type: #TEKKO32_4in1#
   INFO  [dshot] MCU Serial Number: xxxxxx-xxxxxx-xxxxxx-xxxxxx
@@ -70,26 +66,41 @@ DShot має різні варіанти швидкості: _DShot150_, _DShot3
   INFO  [dshot] LED 3: unsupported
   ```
 
-  - Permanently reverse the spin direction of a motor connected to FMU output pin 1:
+- Permanently set the spin direction of a motor connected to FMU output pin 1 (while motors are _not_ spinning):
 
-  ```
-  dshot reverse -m 1
-  dshot save -m 1
-  ```
+  - Set spin direction to `reversed`:
 
-  Отримання інформації ESC після команди `dshot reverse -m 1` без команди `dshot save -m 1` покаже:
+    ```sh
+    dshot reverse -m 1
+    dshot save -m 1
+    ```
 
-  ```
-  Rotation Direction: reversed
-  ```
+    Retrieving ESC information will then show:
 
-  після збереження його за допомогою команди `dshot save -m 1`, зворотній напрямок стане новим звичайним напрямком:
+    ```sh
+    Rotation Direction: reversed
+    ```
 
-  ```
-  Rotation Direction: normal
-  ```
+  - Set spin direction to `normal`:
 
-  Щоб змінити напрямок знову, потрібно відправити нову команду `dshot reverse -m 1`.
+    ```sh
+    dshot normal -m 1
+    dshot save -m 1
+    ```
+
+    Retrieving ESC information will then show:
+
+    ```sh
+    Rotation Direction: normal
+    ```
+
+  ::: info
+
+  - The commands will have no effect if the motors are spinning, or if the ESC is already set to the corresponding direction.
+  - The ESC will revert to its last saved direction (normal or reversed) on reboot if `save` is not called after changing the direction.
+
+
+:::
 
 ## Телеметрія
 
@@ -110,7 +121,7 @@ DShot має різні варіанти швидкості: _DShot150_, _DShot3
 
 Після перезавантаження ви можете перевірити, чи працює телеметрія (переконайтеся, що акумулятор підключений), використовуючи:
 
-```
+```sh
 dshot esc_info -m 1
 ```
 
@@ -121,7 +132,7 @@ dshot esc_info -m 1
 :::tip
 Не всі ESC, які підтримують DSHOT, підтримують `[esc_info]` (наприклад, APD 80F3x), навіть коли підтримується телеметрія та ввімкнено. Отримана помилка:
 
-```
+```sh
 ERROR [dshot] No data received. Якщо телеметрія налаштована правильно, спробуйте ще раз.
 ```
 
