@@ -93,6 +93,13 @@ The following ports are commonly mapped to specific functions on all boards:
 
   The configuration uses [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) and appropriate settings for the UDP port etc. For more information see [PX4 Ethernet Setup > PX4 MAVLink Serial Port Configuration](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) and [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md).
 
+- `USB-C` (the USB-C port normally used for connecting to QGroundControl)
+
+  This is configured by default as a MAVLink port the onboard profile (for companion computers). The configuration for MAVLink is unique to this port (it doesn't use the `MAV_X_CONFIG` parameters).
+
+  - [SYS_USB_AUTO](../advanced_config/parameter_reference.md#SYS_USB_AUTO) sets whether the port is set to no partiular protocol, autodetects the protocol, or sets the comms link to MAVLink.
+  - [USB_MAV_MODE](../advanced_config/parameter_reference.md#USB_MAV_MODE) sets the MAVLink profile that is used if MAVLink is set or detected.
+
 Other ports generally have no assigned functions by default (are disabled).
 
 ## Troubleshooting
