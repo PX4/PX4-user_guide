@@ -9,4 +9,4 @@ PX4 supports (at least) following smart batteries:
 
 - [Mavlink Battery Protocol](https://mavlink.io/en/services/battery.html)
 - [batt_smbus](../modules/modules_driver.md) - PX4 SMBus Battery Driver docs
-- [Safety > Low Battery Failsafe](../config/safety.md#low-battery-failsafe).
+- [Safety > Low Battery Failsafe](../config/safety.md#battery-level-failsafe).
