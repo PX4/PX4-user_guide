@@ -55,9 +55,9 @@ LightWare розробляє широкий спектр легких, зага�
 
 Встановіть параметр [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) для відповідності моделі дальноміра, а потім перезавантажте.
 
-## Серійне налаштування
+VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_reference.md#SF1XX_MODE) to `2: Disabled during VTOL fast forward flight`.
 
-<a id="serial_hardware_setup"></a>
+## Серійне налаштування {#serial_hardware_setup}
 
 ### Апаратне забезпечення
 
@@ -75,6 +75,8 @@ LightWare розробляє широкий спектр легких, зага�
 :::
 
 Потім встановіть параметр [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF0X) для відповідності моделі дальноміра та перезавантажте.
+
+VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_reference.md#SF1XX_MODE) to `2: Disabled during VTOL fast forward flight`.
 
 ## Детальна інформація
 

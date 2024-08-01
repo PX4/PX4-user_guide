@@ -54,9 +54,9 @@ I2C 포트에 연결 가능한 모델을 위의 표를 참고하십시오.
 
 거리계 모델과 일치하도록 [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) 매개변수를 설정후 재부팅 하십시오.
 
-## 직렬 설정
+VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_reference.md#SF1XX_MODE) to `2: Disabled during VTOL fast forward flight`.
 
-<a id="serial_hardware_setup"></a>
+## 직렬 설정 {#serial_hardware_setup}
 
 ### 하드웨어
 
@@ -74,6 +74,8 @@ The lidar can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TEL
 :::
 
 그런 다음 [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF0X) 매개변수를 거리계 모델과 일치하도록 설정하고 재부팅하십시오.
+
+VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_reference.md#SF1XX_MODE) to `2: Disabled during VTOL fast forward flight`.
 
 ## 추가 정보
 

@@ -9,4 +9,4 @@ PX4 підтримує (принаймні) наступні розумні ба
 
 - [Протокол батареї Mavlink](https://mavlink.io/en/services/battery.html)
 - [batt_smbus](../modules/modules_driver.md) – Документи драйвера батареї PX4 SMBus
-- [Безпека > Захист від низького заряду батареї](../config/safety.md#low-battery-failsafe).
+- [Safety > Low Battery Failsafe](../config/safety.md#battery-level-failsafe).

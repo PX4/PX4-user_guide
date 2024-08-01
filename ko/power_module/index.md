@@ -1,6 +1,6 @@
 # Power Modules & Power Distribution Boards
 
-_Power Modules_ provide a regulated power supply for the flight controller (FC), along with information about battery voltage and current. 전압/전류 정보는 소비 전력을 확인하고 남은 배터리 용량을 추정합니다. 비행 콘트롤러의 전력 부족시 안전 경고 및 기타 조치를 제공합니다: [안전 &gt; 배터리 부족 안전장치](../config/safety.md#low-battery-failsafe).
+_Power Modules_ provide a regulated power supply for the flight controller (FC), along with information about battery voltage and current. 전압/전류 정보는 소비 전력을 확인하고 남은 배터리 용량을 추정합니다. This in turn allows the flight controller to provide failsafe warnings and other actions in the event of low power: [Safety > Low Battery Failsafe](../config/safety.md#battery-level-failsafe).
 
 _Power Distribution Boards (PDB)_ are circuit boards that may be used to simplify splitting the output of the battery to various parts of the drone, and in particular motors. PDBs will sometimes include a power module for the FC, ESCs for motors, and a battery elimination circuit (BEC) for powering servos.
 

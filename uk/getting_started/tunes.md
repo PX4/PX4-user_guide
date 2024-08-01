@@ -180,7 +180,7 @@
 </audio>
 <!-- 7,  BATTERY_WARNING_SLOW -->
 
-- Попередження про низький заряд батареї ([failsafe](../config/safety.md#low-battery-failsafe)).
+- Low battery warning ([failsafe](../config/safety.md#battery-level-failsafe)).
 
 #### Попередження про низький заряд акумулятора - швидке
 
@@ -190,7 +190,7 @@
 </audio>
 <!-- 8, BATTERY_WARNING_FAST -->
 
-- Попередження про критично низький заряд батареї ([failsafe](../config/safety.md#low-battery-failsafe)).
+- Critical low battery warning ([failsafe](../config/safety.md#battery-level-failsafe)).
 
 
 #### Попередження GPS - повільне

@@ -2,8 +2,14 @@
 
 PX4有许多安全功能，可以在发生故障时保护并恢复您的机体：
 
-- _故障保护_允许您指定可以安全飞行的区域和条件，以及在触发故障保护时将执行的[操作](#failsafe-actions)（例如着陆、定点悬停或返回指定点）。 最重要的故障保护设置在 _QGroundControl_ 的[安全设置](#qgroundcontrol-safety-setup)页面中配置。 Others must be configured via [parameters](#other-failsafe-settings).
+- _故障保护_允许您指定可以安全飞行的区域和条件，以及在触发故障保护时将执行的[操作](#failsafe-actions)（例如着陆、定点悬停或返回指定点）。 最重要的故障保护设置在 _QGroundControl_ 的[安全设置](#qgroundcontrol-safety-setup)页面中配置。 Others must be configured via [parameters](../advanced_config/parameters.md).
 - [安全开关](#emergency-switches) 在遥控器上可以用于立即停止发动机或在出现问题时返回车辆。
+
+## QGroundControl 安全设置
+
+The _QGroundControl_ Safety Setup page is accessed by clicking the _QGroundControl_ icon, **Vehicle Setup**, and then **Safety** in the sidebar. This includes many of the most important failsafe settings (battery, RC loss etc.) and the settings for the triggered actions _Return_ and _Land_.
+
+![Safety Setup(QGC)](../../assets/qgc/setup/safety/safety_setup.png)
 
 ## 故障保护动作
 
@@ -27,36 +33,67 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 当不同的故障保护被触发时精确的动作行为，可以通过[故障保护状态机仿真](safety_simulation.md)测试。
 :::
 
-## QGroundControl 安全设置
+### 返航设置
 
-The _QGroundControl_ Safety Setup page is accessed by clicking the _QGroundControl_ icon, **Vehicle Setup**, and then **Safety** in the sidebar. This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the triggered actions _Return_ and _Land_.
+<!-- Propose replace section by a summary and links - return mode is complicated -->
 
-![Safety Setup(QGC)](../../assets/qgc/setup/safety/safety_setup.png)
+_Return_ is a common [failsafe action](#failsafe-actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. The default settings for each vehicle are usually suitable, though for fixed wing vehicles you will usually need to define a mission landing.
 
-### 低电量故障保护
+::: tip
+If you want to change the configuration you should carefully read the [Return mode](../flight_modes/return.md) documentation _for your vehicle type_ to understand the options.
+:::
 
-The low battery failsafe is triggered when the battery capacity drops below one (or more warning) level values.
+QGC allows users to set some aspects of the return mode and landing behaviour, such as the altitude to fly back, and the loiter time if you need to deploy landing gear.
+
+![Safety - Return Home Settings (QGC)](../../assets/qgc/setup/safety/safety_return_home.png)
+
+### 降落模式设置
+
+_Land at the current position_ is a common [failsafe action](#failsafe-actions) (in particular for multicopters), that engages [Land Mode](../flight_modes_mc/land.md). The default settings for each vehicle are usually suitable.
+
+::: tip
+If you want to change the configuration you should carefully read the [Land mode](../flight_modes_fw/land.md) documentation _for your vehicle type_ to understand the options.
+:::
+
+QGC allows users to set some aspects of the landing behaviour, such as the time to disarm after landing and the descent rate (for multicopters only).
+
+![Safety - Land Mode Settings (QGC)](../../assets/qgc/setup/safety/safety_land_mode.png)
+
+## Battery Failsafes
+
+### Battery level failsafe
+
+The low battery failsafe is triggered when the battery capacity drops below battery failafe level values. You can configure both the levels and the failsafe actions at each level in QGroundControl.
 
 ![Safety - Battery (QGC)](../../assets/qgc/setup/safety/safety_battery.png)
 
-The most common configuration is to set the values and action as above (with `Warn > Failsafe > Emergency`). With this configuration the failsafe will trigger warning, then return, and finally landing if capacity drops below the respective levels.
-
-It is also possible to set the _Failsafe Action_ to warn, return, or land when the [Battery Failsafe Level](#BAT_CRIT_THR) failsafe level is reached.
+The most common configuration is to set the values and action as above (with `Warn > Failsafe > Emergency`), and to set the [Failsafe Action](#COM_LOW_BAT_ACT) to warn at "warn level", trigger Return mode at "Failsafe level", and land immediately at "Emergency level".
 
 The settings and underlying parameters are shown below.
 
-| 设置                                | 参数                                                                             | 描述                                               |
-| --------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------ |
-| 故障保护动作                            | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | 当电池电量过低时，根据下面的每个水平值执行警告、返航、降落三者之一，或分别设置警告、返航或降落。 |
-| 电池警告水平                            | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR)         | 需做出警告（或其他动作）的电量百分比。                              |
-| <a id="BAT_CRIT_THR"></a>电池故障保护水平 | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | 电量低于该百分比则返航（或者执行其他事前选择动作）。                       |
-| 电量紧急水平                            | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | 电量低于该百分比则（立即）触发降落动作。                             |
+| 设置                                | 参数                                                                             | 描述                                                                        |
+| --------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| <a id="COM_LOW_BAT_ACT"></a>故障保护动作   | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below the trigger levels. |
+| <a id="BAT_LOW_THR"></a>电池警告水平   | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR)         | 需做出警告（或其他动作）的电量百分比。                                                       |
+| <a id="BAT_CRIT_THR"></a>电池故障保护水平 | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | 电量低于该百分比则返航（或者执行其他事前选择动作）。                                                |
+| <a id="BAT_EMERGEN_THR"></a>电量紧急水平  | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | 电量低于该百分比则（立即）触发降落动作。                                                      |
 
-::: tip
-There is also a configuration parameter [COM_ARM_BAT_MIN](#COM_ARM_BAT_MIN) that allows you to prevents arming in the first place if the battery level is too low.
-:::
+### Flight Time Failsafes
 
-### Manual Control Loss failsafe
+There are several other "battery related" failsafe mechanisms that may be configured using parameters:
+
+- The "remaining flight time for safe return" failsafe ([COM_FLTT_LOW_ACT](#COM_FLTT_LOW_ACT)) is engaged when PX4 estimates that the vehicle has just enough battery remaining for a return mode landing. You can configure this to ignore the failsafe, warn, or engage Return mode.
+- The "maximum flight time failsafe" ([COM_FLT_TIME_MAX](#COM_FLT_TIME_MAX)) allows you to set a maximum flight time after takeoff, at which the vehicle will automatically enter return mode (it will also "warn" at 90% of this time). This is like a "hard coded" estimate of the total flight time in a battery. The feature is disabled by default.
+- The "minimum battery" for arming parameter ([COM_ARM_BAT_MIN](#COM_ARM_BAT_MIN)) prevents arming in the first place if the battery level is below the specified value.
+
+The settings and underlying parameters are shown below.
+
+| 设置                                                               | 参数                                                                               | 描述                                                                                                                              |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="COM_FLTT_LOW_ACT"></a> Low flight time for safe return action | [COM_FLTT_LOW_ACT](../advanced_config/parameter_reference.md#COM_FLTT_LOW_ACT) | Action when return mode can only just reach safety with remaining battery. `0`: None, `1`: Warning, `3`: Return mode (default). |
+| <a id="COM_FLT_TIME_MAX"></a> Maximum flight time failsafe level     | [COM_FLT_TIME_MAX](../advanced_config/parameter_reference.md#COM_FLT_TIME_MAX) | Maximum allowed flight time before Return mode will be engaged, in seconds. `-1`: Disabled (default).                           |
+
+## Manual Control Loss Failsafe
 
 The manual control loss failsafe may be triggered if the connection to the [RC transmitter](../getting_started/rc_transmitter_receiver.md) or [joystick](../config/joystick.md) is lost, and there is no fallback. If using an [RC transmitter](../getting_started/rc_transmitter_receiver.md) this is triggered if the RC [transmitter link is lost](../getting_started/rc_transmitter_receiver.md#set-signal-loss-behaviour). If using [joysticks](../config/joystick.md) connected over a MAVLink data link, this is triggered if the joysticks are disconnected or the data link is lost.
 
@@ -71,12 +108,12 @@ Additional (and underlying) parameter settings are shown below.
 
 | 参数                                                                                                     | 设置                          | 描述                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------ | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="COM_RC_LOSS_T"></a>[COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)    | Manual Control Loss Timeout | Time after last setpoint received from the selected manual control source after which manual control is considered lost. This must be kept short because the vehicle will continue to fly using the old manual control setpoint until the timeout triggers.                                                                                                                                              |
-| <a id="COM_FAIL_ACT_T"></a>[COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T)  | Failsafe Reaction Delay     | Delay in seconds between failsafe condition being triggered (`COM_RC_LOSS_T`) and failsafe action (RTL, Land, Hold). In this state the vehicle waits in hold mode for the manual control source to reconnect. This might be set longer for long-range flights so that intermittent connection loss doesn't immediately invoke the failsafe. It can be to zero so that the failsafe triggers immediately. |
+| <a id="COM_RC_LOSS_T"></a>[COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)   | Manual Control Loss Timeout | Time after last setpoint received from the selected manual control source after which manual control is considered lost. This must be kept short because the vehicle will continue to fly using the old manual control setpoint until the timeout triggers.                                                                                                                                              |
+| <a id="COM_FAIL_ACT_T"></a>[COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) | Failsafe Reaction Delay     | Delay in seconds between failsafe condition being triggered (`COM_RC_LOSS_T`) and failsafe action (RTL, Land, Hold). In this state the vehicle waits in hold mode for the manual control source to reconnect. This might be set longer for long-range flights so that intermittent connection loss doesn't immediately invoke the failsafe. It can be to zero so that the failsafe triggers immediately. |
 | <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | 故障保护动作                      | Disabled, Loiter, Return, Land, Disarm, Terminate.                                                                                                                                                                                                                                                                                                                                                       |
 | <a id="COM_RCL_EXCEPT"></a>[COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | RC Loss Exceptions          | Set the modes in which manual control loss is ignored: Mission, Hold, Offboard.                                                                                                                                                                                                                                                                                                                          |
 
-### 数据链路丢失故障保护
+## 数据链路丢失故障保护
 
 The Data Link Loss failsafe is triggered if a telemetry link (connection to ground station) is lost.
 
@@ -89,7 +126,7 @@ The settings and underlying parameters are shown below.
 | 数据链路丢失超时 | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | 数据连接断开后到故障保护触发之前的时间。                                            |
 | 故障保护动作   | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | Disabled, Hold mode, Return mode, Land mode, Disarm, Terminate. |
 
-### 地理围栏故障保护
+## 地理围栏故障保护
 
 The _Geofence Failsafe_ is triggered when the drone breaches a "virtual" perimeter. In its simplest form, the perimeter is set up as a cylinder centered around the home position. If the vehicle moves outside the radius or above the altitude the specified _Failsafe Action_ will trigger.
 
@@ -117,46 +154,9 @@ The following settings also apply, but are not displayed in the QGC UI.
 | <a id="GF_PREDICT"></a>Preemptive geofence triggering | [GF_PREDICT](../advanced_config/parameter_reference.md#GF_PREDICT)           | (Experimental) Trigger geofence if current motion of the vehicle is predicted to trigger the breach (rather than late triggering after the breach). |
 | <a id="CBRK_FLIGHTTERM"></a>飞行终止断路器                        | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 启用/禁用飞行终止操作（默认禁用）。                                                                                                                                  |
 
-### 返航设置
+## Position (GNSS) Loss Failsafe
 
-<!-- Propose replace section by a summary and links - return mode is complicated -->
-
-_Return_ is a common [failsafe action](#failsafe-actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. This section shows how to set the land/loiter behaviour after returning.
-
-![Safety - Return Home Settings (QGC)](../../assets/qgc/setup/safety/safety_return_home.png)
-
-The settings and underlying parameters are shown below:
-
-| 设置                             | 参数                                                                             | 描述                                                                                                     |
-| ------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| <a id="RTL_RETURN_ALT"></a>爬升高度 | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 返航飞行时，机体上升到该最低高度（如果低于）。                                                                                |
-| 返航行为                           |                                                                                | Choice list of _Return then_: Land, Loiter and do not land, or Loiter and land after a specified time. |
-| <a id="RTL_DESCEND_ALT"></a>悬停高度 | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 如果选择了返航并悬停，您还可以指定机体保持的高度。                                                                              |
-| <a id="RTL_LAND_DELAY"></a>悬停时间 | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 如果选择返航并悬停随后降落，您还可以指定机体将保持悬停多长时间。                                                                       |
-
-::: info The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY). If negative the vehicle will land immediately. Additional information can be found in [Return mode](../flight_modes/return.md).
-:::
-
-### 降落模式设置
-
-_Land at the current position_ is a common [failsafe action](#failsafe-actions) (in particular for multicopters), that engages [Land Mode](../flight_modes_mc/land.md). This section shows how to control when and if the vehicle automatically disarms after landing. For Multicopters (only) you can additionally set the descent rate.
-
-![Safety - Land Mode Settings (QGC)](../../assets/qgc/setup/safety/safety_land_mode.png)
-
-The settings and underlying parameters are shown below:
-
-| 设置                             | 参数                                                                             | 描述                                       |
-| ------------------------------ | ------------------------------------------------------------------------------ | ---------------------------------------- |
-| 几秒后锁定                          | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 选中复选框以指定机体在降落后上锁。  该值必须是非零的，但可以是小于一秒的小数。 |
-| Landing Descent Rate (MC only) | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | Rate of descent.                         |
-
-## 其他故障保护设置
-
-This section contains information about failsafe settings that cannot be configured through the _QGroundControl_ [Safety Setup](#qgroundcontrol-safety-setup) page.
-
-### 位置（GPS）丢失故障保护
-
-The _Position Loss Failsafe_ is triggered if the quality of the PX4 position estimate falls below acceptable levels (this might be caused by GPS loss) while in a mode that requires an acceptable position estimate.
+The _Position Loss Failsafe_ is triggered if the quality of the PX4 global position estimate falls below acceptable levels (this might be caused by GPS loss) while in a mode that requires an acceptable position estimate.
 
 The failure action is controlled by [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL), based on whether RC control is assumed to be available (and altitude information):
 
@@ -179,9 +179,9 @@ Parameters that only affect Fixed-wing vehicles:
 | <a id="FW_GPSF_LT"></a>[FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). 设置为 0 以禁用。 |
 | <a id="FW_GPSF_R"></a>[FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R)   | 以一定的横滚/侧倾角盘旋。                                                                                     |
 
-### Offboard 中断故障保护
+## Offboard 中断故障保护
 
-The _Offboard Loss Failsafe_ is triggered if the offboard link is lost while under Offboard control. Different failsafe behaviour can be specified based on whether or not there is also an RC connection available.
+The _Offboard Loss Failsafe_ is triggered if the offboard link is lost while under [Offboard control](../flight_modes/offboard.md). Different failsafe behaviour can be specified based on whether or not there is also an RC connection available.
 
 The relevant parameters are shown below:
 
@@ -190,24 +190,7 @@ The relevant parameters are shown below:
 | [COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | Offboard 连接中断后到触发故障保护前的延迟。                    |
 | [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | 如果遥控可用，则故障保护动作：定点模式、定高模式、手动模式、返航模式、降落模式、保持模式。 |
 
-### Flight Time Failsafe
-
-The maximum flight time failsafe ([COM_FLT_TIME_MAX](#COM_FLT_TIME_MAX)) allows you to set a maximum flight time after takeoff, at which the vehicle will automatically enter return mode (it will also "warn" at 90% of this time). This is disabled by default.
-
-The "remaining flight time for safe return" failsafe ([COM_FLTT_LOW_ACT](#COM_FLTT_LOW_ACT)) is engaged when PX4 estimates that the vehicle has just enough flight time for a return mode landing. You can configure this to ignore the failsafe, warn, or engage Return mode.
-
-| 参数                                                                                                         | 描述                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| <a id="COM_FLT_TIME_MAX"></a>[COM_FLT_TIME_MAX](../advanced_config/parameter_reference.md#COM_FLT_TIME_MAX) | Maximum allowed flight time before Return mode will be engaged, in seconds. `-1`: Disabled (default).     |
-| <a id="COM_FLTT_LOW_ACT"></a>[COM_FLTT_LOW_ACT](../advanced_config/parameter_reference.md#COM_FLTT_LOW_ACT) | Remaining flight time for safe return mode failsafe. `0`: None, `1`: Warning, `3`: Return mode (default). |
-
-### Mission Feasibility Checks
-
-A number of checks are run to ensure that a mission can only be started if it is _feasible_. For example, the checks ensures that the first waypoint isn't too far away, and that the mission flight path doesn't conflict with any geofences.
-
-As these are not strictly speaking "failsafes" they are documented in [Mission Mode (FW) > Mission Feasibility Checks](../flight_modes_fw/mission.md#mission-feasibility-checks) and [Mission Mode (MC) > Mission Feasibility Checks](../flight_modes_mc/mission.md#mission-feasibility-checks).
-
-### 交通规避故障保护
+## 交通规避故障保护
 
 The Traffic Avoidance Failsafe allows PX4 to respond to transponder data (e.g. from [ADSB transponders](../advanced_features/traffic_avoidance_adsb.md)) during missions.
 
@@ -217,7 +200,7 @@ The relevant parameters are shown below:
 | ------------------------------------------------------------------------------ | ------------------------- |
 | [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | 设置故障保护动作：禁用、警告、返航模式、降落模式。 |
 
-### Quad-chute Failsafe
+## Quad-chute Failsafe
 
 Failsafe for when a VTOL vehicle can no longer fly in fixed-wing mode, perhaps due to the failure of a pusher motor, airspeed sensor, or control surface. If the failsafe is triggered, the vehicle will immediately switch to multicopter mode and execute the action defined in parameter [COM_QC_ACT](#COM_QC_ACT).
 
@@ -236,7 +219,7 @@ The parameters that control when the quad-chute will trigger are listed in the t
 | <a id="VT_FW_QC_R"></a>[VT_FW_QC_R](../advanced_config/parameter_reference.md#VT_FW_QC_R)               | Absolute roll threshold for quad-chute triggering in FW mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | <a id="VT_FW_QC_P"></a>[VT_FW_QC_P](../advanced_config/parameter_reference.md#VT_FW_QC_P)               | Absolute pitch threshold for quad-chute triggering in FW mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-### High Wind Failsafe
+## High Wind Failsafe
 
 The high wind failsafe can trigger a warning and/or other mode change when the wind speed exceeds the warning and maximum wind-speed threshhold values. The relevant parameters are listed in the table below.
 
@@ -280,10 +263,16 @@ The [failure detector](#failure-detector), if [enabled](#CBRK_FLIGHTTERM), can a
 ::: info External ATS is required by [ASTM F3322-18](https://webstore.ansi.org/Standards/ASTM/ASTMF332218). One example of an ATS device is the [FruityChutes Sentinel Automatic Trigger System](https://fruitychutes.com/uav_rpv_drone_recovery_parachutes/sentinel-automatic-trigger-system.htm).
 :::
 
-| Parameter                                                                                                | Description                                                      |
+| 参数                                                                                                       | 描述                                                               |
 | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | <a id="FD_EXT_ATS_EN"></a>[FD_EXT_ATS_EN](../advanced_config/parameter_reference.md#FD_EXT_ATS_EN)     | 启用 AUX5 或 MAIN5（取决于飞控板）上的 PWM 输入，以便从外部自动触发系统（ATS）启用故障保护。 默认值：禁用。 |
 | <a id="FD_EXT_ATS_TRIG"></a>[FD_EXT_ATS_TRIG](../advanced_config/parameter_reference.md#FD_EXT_ATS_TRIG) | 来自外部自动触发系统的用于接通故障保护的 PWM 阈值。 默认值：1900m/s。                        |
+
+## Mission Feasibility Checks
+
+A number of checks are run to ensure that a mission can only be started if it is _feasible_. For example, the checks ensures that the first waypoint isn't too far away, and that the mission flight path doesn't conflict with any geofences.
+
+As these are not strictly speaking "failsafes" they are documented in [Mission Mode (FW) > Mission Feasibility Checks](../flight_modes_fw/mission.md#mission-feasibility-checks) and [Mission Mode (MC) > Mission Feasibility Checks](../flight_modes_mc/mission.md#mission-feasibility-checks).
 
 ## 应急开关
 
@@ -333,7 +322,7 @@ You can set timeouts to automatically disarm a vehicle if it is too slow to take
 
 The [relevant parameters](../advanced_config/parameters.md) are shown below:
 
-| Parameter                                                                                                  | Description       |
+| 参数                                                                                                         | 描述                |
 | ---------------------------------------------------------------------------------------------------------- | ----------------- |
 | <a id="COM_DISARM_LAND"></a>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 降落后自动上锁的超时时间。     |
 | <a id="COM_DISARM_PRFLT"></a>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 如果起飞速度太慢，将启动自动上锁。 |
