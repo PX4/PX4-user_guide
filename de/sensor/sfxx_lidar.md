@@ -54,9 +54,9 @@ Specifically they may be miss-configured to have an I2C address equal to `0x55`,
 
 Set the [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) parameter to match the rangefinder model and then reboot.
 
-## Serial Setup
+VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_reference.md#SF1XX_MODE) to `2: Disabled during VTOL fast forward flight`.
 
-<a id="serial_hardware_setup"></a>
+## Serial Setup {#serial_hardware_setup}
 
 ### Hardware
 
@@ -75,6 +75,8 @@ If the configuration parameter is not available in _QGroundControl_ then you may
 :::
 
 Then set the [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF0X) parameter to match the rangefinder model and reboot.
+
+VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_reference.md#SF1XX_MODE) to `2: Disabled during VTOL fast forward flight`.
 
 ## Further Information
 
