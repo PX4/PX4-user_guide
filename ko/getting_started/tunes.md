@@ -180,7 +180,7 @@
 </audio>
 <!-- 7,  BATTERY_WARNING_SLOW -->
 
-- 배터리 부족 경고 ([사고 방지](../config/safety.md#low-battery-failsafe)).
+- Low battery warning ([failsafe](../config/safety.md#battery-level-failsafe)).
 
 #### 배터리 심각 경고음
 
@@ -190,7 +190,7 @@
 </audio>
 <!-- 8, BATTERY_WARNING_FAST -->
 
-- 배터리가 매우 부족([사고 방지](../config/safety.md#low-battery-failsafe)).
+- Critical low battery warning ([failsafe](../config/safety.md#battery-level-failsafe)).
 
 
 #### 느린 GPS 경고
