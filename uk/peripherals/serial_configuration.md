@@ -93,6 +93,13 @@ PX4 визначає [типові функції](#default-serial-port-configur
 
   Конфігурація використовує [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) та відповідні налаштування для UDP-порту тощо. Для отримання додаткової інформації див. [Налаштування Ethernet PX4 > Конфігурація послідовного порту PX4 MAVLink](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) та [Периферійні пристрої MAVLink (OSD/GCS/Компаньйони тощо)](../peripherals/mavlink_peripherals.md).
 
+- `USB-C` (the USB-C port normally used for connecting to QGroundControl)
+
+  This is configured by default as a MAVLink port the onboard profile (for companion computers). The configuration for MAVLink is unique to this port (it doesn't use the `MAV_X_CONFIG` parameters).
+
+  - [SYS_USB_AUTO](../advanced_config/parameter_reference.md#SYS_USB_AUTO) sets whether the port is set to no partiular protocol, autodetects the protocol, or sets the comms link to MAVLink.
+  - [USB_MAV_MODE](../advanced_config/parameter_reference.md#USB_MAV_MODE) sets the MAVLink profile that is used if MAVLink is set or detected.
+
 Інші порти, як правило, за замовчуванням не мають призначених функцій (вимкнені).
 
 ## Вирішення проблем
