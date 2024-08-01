@@ -189,7 +189,7 @@ where `ARGS` is a list of environment variables including:
   - If less then 6 values are provided, the missing ones are fixed to zero.
   - This can only be used with `PX4_SIM_MODEL` (not `PX4_GZ_MODEL_NAME`).
 
-- `PX4_GZ_WORLD`: Sets the Gazebo world file for a new simulation. If it is not given, then [default](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) is used.
+- `PX4_GZ_WORLD`: Sets the Gazebo world file for a new simulation. If it is not given, then [default](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/default.sdf) is used.
 
   - This variable is ignored if an existing simulation is already running.
   - This value should be [specified for the selected airframe](#adding-new-worlds-and-models) but may be overridden using this argument.
@@ -264,7 +264,7 @@ To add a new model:
    ```
 
    - `PX4_SIMULATOR=${PX4_SIMULATOR:=gz}` sets the default simulator (Gz) for that specific airframe.
-   - `PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}` sets the [default world](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) for that specific airframe.
+   - `PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}` sets the [default world](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/default.sdf) for that specific airframe.
 
    - Setting the default value of `PX4_SIM_MODEL` lets you start the simulation with just:
 
