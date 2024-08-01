@@ -78,9 +78,9 @@ The test steps are:
 
    <div v-if="$frontmatter.frame === 'Plane'">
    <div class="tip custom-block"><p class="custom-block-title">TIP</p>
-   
+
    If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch) is configured you can just toggle the switch to the "enabled" position.
-   
+
    </div></div>
 
    1. In QGroundControl, open the menu **Vehicle setup > PID Tuning**:
@@ -298,6 +298,7 @@ If not, perhaps say "not very" but you should expect that the vehicle might defl
 
 - [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter_basic.md) (Manual/Simple)
 - [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) (Advanced/Detailed)
+- [Parameters > Autotuning](../advanced_config/parameter_reference.md#autotune) (prefixed with `MC_AT_`).
 
 </div>
 <div v-else-if="$frontmatter.frame === 'Plane'">
@@ -305,5 +306,6 @@ If not, perhaps say "not very" but you should expect that the vehicle might defl
 ## See also
 
 - [Fixed-Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
+- [Parameters > Autotuning](../advanced_config/parameter_reference.md#autotune) (prefixed with `FW_AT_`).
 
 </div>
