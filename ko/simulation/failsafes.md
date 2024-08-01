@@ -36,6 +36,8 @@ The _RC Link Loss_ failsafe (unavailability of data from a remote control) is en
 비행 중에 [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT)를 변경하여 용량 회복을 테스트하여 부정확한 배터리 상태 추정 또는 기내 충전 기술을 시뮬레이션할 수 있습니다.
 :::
 
+It is also possible to disable the simulated battery using [SIM_BAT_ENABLE](../advanced_config/parameter_reference.md#SIM_BAT_ENABLE) in order to, for example, provide an external battery simulation via MAVLink.
+
 ## 센서/시스템 장애
 
 [고장 주입](../debug/failure_injection.md)은 많은 센서와 시스템의 여러가지 오류를 시뮬레이션합니다. GPS가 없거나 간헐적으로 발생하는 경우, 특정 값에서 멈추거나 멈추는 RC 신호, 회피 시스템의 오류 등을 시뮬레이션 할 수 있습니다.
