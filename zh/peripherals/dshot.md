@@ -11,9 +11,7 @@ DShot 是一种更高级的电调协议，相比 [PWM](../peripherals/pwm_escs_a
 
 本章介绍了如何连接和配置 DShot 电调。
 
-<a id="wiring"></a>
-
-## 接线和连接
+## Wiring/Connections {#wiring}
 
 DShot 电调与[PWM 电调](pwm_escs_and_servo.md)的接线方式相同。 唯一的区别在于它们只能连接到FMU，通常只能连接到某些引脚的子集。
 
@@ -39,9 +37,7 @@ DShot 具有不同的速度选项：_DShot150_，_DShot300_，_DShot600_ 和 _DS
 
 - 如果电机未按照正确方向旋转（适用于[所选机架](../airframes/airframe_reference.md)），您可以在UI中使用**设置旋转方向**选项来反转它们（此选项在您选择DShot并分配电机后出现）。 您也可以通过发送[ESC命令](#commands)来反转电机。
 
-<a id="commands"></a>
-
-## 关于电调的指令
+## ESC Commands {#commands}
 
 可以通过 [MAVLink shell](../debug/mavlink_shell.md) 向电调发送命令。 查看[这里](../modules/modules_driver.md#dshot)以获取完整的参考命令。
 
@@ -49,13 +45,13 @@ DShot 具有不同的速度选项：_DShot150_，_DShot300_，_DShot600_ 和 _DS
 
 - Make a motor connected to to FMU output pin 1 beep (helps with identifying motors)
 
-  ```
+  ```sh
   dshot beep1 -m 1
   ```
 
-- 检索电调信息（需要TELE功能，请参见下文）：
+- Retrieve ESC information (requires telemetry, see below):
 
-  ```
+  ```sh
   nsh> dshot esc_info -m 2
   INFO  [dshot] ESC Type: #TEKKO32_4in1#
   INFO  [dshot] MCU Serial Number: xxxxxx-xxxxxx-xxxxxx-xxxxxx
@@ -70,26 +66,41 @@ DShot 具有不同的速度选项：_DShot150_，_DShot300_，_DShot600_ 和 _DS
   INFO  [dshot] LED 3: unsupported
   ```
 
-  - Permanently reverse the spin direction of a motor connected to FMU output pin 1:
+- Permanently set the spin direction of a motor connected to FMU output pin 1 (while motors are _not_ spinning):
 
-  ```
-  dshot reverse -m 1
-  dshot save -m 1
-  ```
+  - Set spin direction to `reversed`:
 
-  在执行`dshot reverse -m 1`命令后而没有执行`dshot save -m 1`命令会显示电调信息的检索结果。
+    ```sh
+    dshot reverse -m 1
+    dshot save -m 1
+    ```
 
-  ```
-  Rotation Direction: reversed
-  ```
+    Retrieving ESC information will then show:
 
-  使用 `dshot save -m 1` 命令保存后，反向方向将变为新的正常方向：
+    ```sh
+    Rotation Direction: reversed
+    ```
 
-  ```
-  Rotation Direction: normal
-  ```
+  - Set spin direction to `normal`:
 
-  如果要再次改变方向，需要发送新的 `dshot reverse -m 1` 命令。
+    ```sh
+    dshot normal -m 1
+    dshot save -m 1
+    ```
+
+    Retrieving ESC information will then show:
+
+    ```sh
+    Rotation Direction: normal
+    ```
+
+  ::: info
+
+  - The commands will have no effect if the motors are spinning, or if the ESC is already set to the corresponding direction.
+  - The ESC will revert to its last saved direction (normal or reversed) on reboot if `save` is not called after changing the direction.
+
+
+:::
 
 ## Telemetry
 
@@ -110,7 +121,7 @@ DShot 具有不同的速度选项：_DShot150_，_DShot300_，_DShot600_ 和 _DS
 
 重启后，您可以检查TELE数据传输是否正常工作（确保电池已连接），方法如下：
 
-```
+```sh
 dshot esc_info -m 1
 ```
 
@@ -121,7 +132,7 @@ dshot esc_info -m 1
 :::tip
 并非所有支持DSHOT的电调都支持`[esc_info]`（例如APD 80F3x），就算支持并且开启了TELE功能。 显示的错误是：
 
-```
+```sh
 ERROR [dshot] No data received. If telemetry is setup correctly, try again.
 ```
 

@@ -11,9 +11,7 @@ DShot은 PWM 또는 OneShot에 비해 여러 가지 장점을 가진 ESC 대체 
 
 이 항목에서는 DShot ESC 연결과 설정 방법을 설명합니다.
 
-<a id="wiring"></a>
-
-## 배선
+## Wiring/Connections {#wiring}
 
 DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md). The only difference is that they can only be connected to the FMU, and usually only to some subset of pins.
 
@@ -39,9 +37,7 @@ DShot comes with different speed options: _DShot150_, _DShot300_, _DShot600_ and
 
 - If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** option (this option appears after you select DShot and assign motors). You can also reverse motors by sending an [ESC Command](#commands).
 
-<a id="commands"></a>
-
-## ESC 명령어
+## ESC Commands {#commands}
 
 명령은 [MAVLink 쉘](../debug/mavlink_shell.md)을 통하여 ESC로 전송됩니다. 지원되는 전체 명령어는 [여기](../modules/modules_driver.md#dshot)를 참고하십시오.
 
@@ -49,37 +45,62 @@ DShot comes with different speed options: _DShot150_, _DShot300_, _DShot600_ and
 
 - Make a motor connected to to FMU output pin 1 beep (helps with identifying motors)
 
-  ```
+  ```sh
   dshot beep1 -m 1
   ```
 
-- 첫 번째 모터의 회전 방향을 영구적으로 반전:
+- Retrieve ESC information (requires telemetry, see below):
 
-  ```
-  dshot reverse -m 1
-  dshot save -m 1
-  ```
-
-  - Permanently reverse the spin direction of a motor connected to FMU output pin 1:
-
-  ```
-  dshot reverse -m 1
-  dshot save -m 1
-  ```
-
-  Retrieving ESC information after the `dshot reverse -m 1` command without the `dshot save -m 1` command will show:
-
-  ```
-  Rotation Direction: reversed
+  ```sh
+  nsh> dshot esc_info -m 2
+  INFO  [dshot] ESC Type: #TEKKO32_4in1#
+  INFO  [dshot] MCU Serial Number: xxxxxx-xxxxxx-xxxxxx-xxxxxx
+  INFO  [dshot] Firmware version: 32.60
+  INFO  [dshot] Rotation Direction: normal
+  INFO  [dshot] 3D Mode: off
+  INFO  [dshot] Low voltage Limit: off
+  INFO  [dshot] Current Limit: off
+  INFO  [dshot] LED 0: unsupported
+  INFO  [dshot] LED 1: unsupported
+  INFO  [dshot] LED 2: unsupported
+  INFO  [dshot] LED 3: unsupported
   ```
 
-  after saving it with `dshot save -m 1` command, reversed direction will become new normal direction:
+- Permanently set the spin direction of a motor connected to FMU output pin 1 (while motors are _not_ spinning):
 
-  ```
-  Rotation Direction: normal
-  ```
+  - Set spin direction to `reversed`:
 
-  To change direction again new `dshot reverse -m 1` command needs to be sent.
+    ```sh
+    dshot reverse -m 1
+    dshot save -m 1
+    ```
+
+    Retrieving ESC information will then show:
+
+    ```sh
+    Rotation Direction: reversed
+    ```
+
+  - Set spin direction to `normal`:
+
+    ```sh
+    dshot normal -m 1
+    dshot save -m 1
+    ```
+
+    Retrieving ESC information will then show:
+
+    ```sh
+    Rotation Direction: normal
+    ```
+
+  ::: info
+
+  - The commands will have no effect if the motors are spinning, or if the ESC is already set to the corresponding direction.
+  - The ESC will revert to its last saved direction (normal or reversed) on reboot if `save` is not called after changing the direction.
+
+
+:::
 
 ## 텔레메트리
 
@@ -100,7 +121,7 @@ DShot comes with different speed options: _DShot150_, _DShot300_, _DShot600_ and
 
 재부팅 후 다음을 사용하여 텔레메트리 작동 여부를 확인할 수 있습니다 (배터리가 연결되어 있는 지 확인).
 
-```
+```sh
 dshot esc_info -m 1
 ```
 
@@ -111,7 +132,7 @@ dshot esc_info -m 1
 :::tip
 원격 분석이 지원되고 활성화된 경우에도, 모든 DSHOT 가능 ESC가 `[esc_info]` (예 : APD 80F3x)를 지원하지 않을 수도 있습니다. 결과 오류는 다음과 같습니다.
 
-```
+```sh
 ERROR [dshot] No data received. 텔레메트리가 올바르게 설정되어 있으면, 다시 시도하십시오.
 ```
 
