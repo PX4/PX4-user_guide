@@ -321,9 +321,17 @@ This section lists the available emergency switches.
 
 ### Kill Switch
 
-A kill switch immediately stops all motor outputs (and if flying, the vehicle will start to fall)!
-The motors will restart if the switch is reverted within 5 seconds.
-After 5 seconds the vehicle will automatically disarm; you will need to arm it again in order to start the motors.
+A kill switch immediately stops all motor outputs — if flying, the vehicle will start to fall!
+
+[By default](#COM_KILL_DISARM) the motors will restart if the switch is reverted within 5 seconds, after which the vehicle will automatically disarm, and you will need to arm it again in order to start the motors.
+
+| Parameter                                                                                                | Description                                                                                |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| <a id="COM_KILL_DISARM"></a>[COM_KILL_DISARM](../advanced_config/parameter_reference.md#COM_KILL_DISARM) | Timeout value for disarming after kill switch is engaged. Default: `5` seconds (Disabled). |
+
+::: info
+There is also a [Kill Gesture](#kill-gesture), which cannot be reverted.
+:::
 
 ### Arm/Disarm Switch
 
@@ -356,6 +364,16 @@ This includes _Position mode_ and autonomous modes (e.g. _Mission_, _Land_ etc.)
 ### Return Switch
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
+
+## Kill Gesture
+
+A kill gesture immediately stops all motor outputs — if flying, the vehicle will start to fall!
+
+The action cannot be reverted without a reboot (this differs from a [Kill Switch](#kill-switch), where the operation can be reverted within the time period defined by [COM_KILL_DISARM](#COM_KILL_DISARM)).
+
+| Parameter                                                                                                | Description                                                                                          |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| <a id="MAN_KILL_GEST_T"></a>[MAN_KILL_GEST_T](../advanced_config/parameter_reference.md#MAN_KILL_GEST_T) | Time to hold sticks in gesture position before killing the motors. Default: `-1` seconds (Disabled). |
 
 ## Arming/Disarming Settings
 
