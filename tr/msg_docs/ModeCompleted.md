@@ -20,5 +20,4 @@ uint8 result                     # One of RESULT_*
 
 uint8 nav_state                  # Source mode (values in VehicleStatus)
 
-
 ```

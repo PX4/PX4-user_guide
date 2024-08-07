@@ -143,6 +143,27 @@ Note however that a separate base module is required for the ground station (see
 
 <!-- https://discord.com/channels/1022170275984457759/1022185721450213396/threads/1245295551784681512 -->
 
+<div v-if="(($frontmatter.frame === 'Plane') || ($frontmatter.frame === 'VTOL'))">
+
+## Airspeed Sensor
+
+[Airspeed sensors](../sensor/airspeed.md) are highly recommended for fixed-wing and VTOL frames.
+They are so important because the autopilot does not have other means to detect stall.
+
+Almost all airspeeds sensors are connected support connection via the [I2C bus](../sensor_bus/i2c_general.md) and can be plugged into the Pixhawk standard I2C port as shown below (for a Holybro Airspeed sensor and Pixhawk 6C).
+There is no need to separately power the sensor.
+
+![Airspeed sensor connected to Pixhawk 6c](../../assets/assembly/airspeed_sensor_i2c.png)
+
+Note that if there are not enough free I2C ports for your peripherals, you can use an I2C Bus splitter to split the port into multiple ports.
+
+:::warning
+Some I2C devices use 5V SCL/SDA lines, while the Pixhawk standard I2C port expects 3.3V.
+You can use an I2C level converter to connect these devices to a Pixhawk flight controller.
+:::
+
+</div>
+
 ## Radio Control (Optional)
 
 A [Remote Control (RC) system](../getting_started/rc_transmitter_receiver.md) can be used to manually control a UAS.
@@ -293,27 +314,6 @@ A battery elimination circuit may be used to provide a regulated voltage from th
 The power rail can only have the one voltage provided by your BEC.
 If you don't use servos that all accept the same voltage, you'll need to separately power those that use a different voltage.
 :::
-
-<div v-if="(($frontmatter.frame === 'Plane') || ($frontmatter.frame === 'VTOL'))">
-
-## Airspeed Sensor
-
-[Airspeed sensors](../sensor/airspeed.md) are highly recommended for fixed-wing and VTOL frames.
-They are so important because the autopilot does not have other means to detect stall.
-
-Almost all airspeeds sensors are connected support connection via the [I2C bus](../sensor_bus/i2c_general.md) and can be plugged into the Pixhawk standard I2C port as shown below (for a Holybro Airspeed sensor and Pixhawk 6C).
-There is no need to separately power the sensor.
-
-![Airspeed sensor connected to Pixhawk 6c](../../assets/assembly/airspeed_sensor_i2c.png)
-
-Note that if there are not enough free I2C ports for your peripherals, you can use an I2C Bus splitter to split the port into multiple ports.
-
-:::warning
-Some I2C devices use 5V SCL/SDA lines, while the Pixhawk standard I2C port expects 3.3V.
-You can use an I2C level converter to connect these devices to a Pixhawk flight controller.
-:::
-
-</div>
 
 ## Other Peripherals
 
