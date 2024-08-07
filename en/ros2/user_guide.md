@@ -122,8 +122,8 @@ To install ROS 2 and its dependencies:
 
    ::: tab foxy
    To install ROS 2 "Foxy" on Ubuntu 20.04:
-   
-   -  Follow the official installation guide: [Install ROS 2 Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
+
+   - Follow the official installation guide: [Install ROS 2 Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
 
    You can install _either_ the desktop (`ros-foxy-desktop`) _or_ bare-bones versions (`ros-foxy-ros-base`), _and_ the development tools (`ros-dev-tools`).
    :::
