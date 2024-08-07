@@ -15917,7 +15917,7 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
  | 0 | 1000 | 1 | 30 |  
 
-## FlightTaskOrbit
+## Flight Task Orbit
 
 ### MC_ORBIT_RAD_MAX (`FLOAT`) {#MC_ORBIT_RAD_MAX}
 
@@ -15926,6 +15926,23 @@ Maximum radius of orbit.
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
  | 1.0 | 10000.0 | 0.5 | 1000.0 | m 
+
+### MC_ORBIT_YAW_MOD (`INT32`) {#MC_ORBIT_YAW_MOD}
+
+Yaw behaviour during orbit flight.
+
+**Values:**
+
+- `0`: Front to Circle Center
+- `1`: Hold Initial Heading
+- `2`: Uncontrolled
+- `3`: Hold Front Tangent to Circle
+- `4`: RC Controlled
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+ |  |  |  | 0 |  
 
 ## Follow target
 
