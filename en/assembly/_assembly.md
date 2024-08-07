@@ -163,6 +163,31 @@ You can use an I2C level converter to connect these devices to a Pixhawk flight 
 
 </div>
 
+## Distance Sensor
+
+<div v-if="(($frontmatter.frame === 'Multicopter') || ($frontmatter.frame === 'VTOL'))">
+
+[Distance sensors](../sensor/rangefinders.md) can significantly improve vehicle robustness and performance, and are required for some use cases:
+
+- Landing can be much improved with a distance sensor
+  - Land detector more robust
+  - Smoother landing it can help detect right point to slow down vehicle before touchdown
+  - Reduce risk of very hard touchdown due to bad altitude estimate or incorrectly set touch point altitude
+- Enables terrain following
+- Required for robust state estimation when flying with gnss-denied navigation (along with optical flow)
+
+</div>
+<div v-if="$frontmatter.frame === 'VTOL'">
+
+- Allows disabling of "pusher assist" when close to the ground.
+
+</div>
+<div v-if="$frontmatter.frame === 'Plane'">
+
+[Distance sensors](../sensor/rangefinders.md) are highly recommended as they allow for proper flaring during landing, without which smooth automated fixed-wing landings are near-impossible.
+
+</div>
+
 ## Radio Control (Optional)
 
 A [Remote Control (RC) system](../getting_started/rc_transmitter_receiver.md) can be used to manually control a UAS.
