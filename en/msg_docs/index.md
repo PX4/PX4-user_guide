@@ -42,7 +42,6 @@ setting something to NaN means that no limit is provided
 - [DebugKeyValue](DebugKeyValue.md)
 - [DebugValue](DebugValue.md)
 - [DebugVect](DebugVect.md)
-- [DifferentialDriveSetpoint](DifferentialDriveSetpoint.md)
 - [DifferentialPressure](DifferentialPressure.md)
 - [DistanceSensor](DistanceSensor.md) — DISTANCE_SENSOR message data
 - [Ekf2Timestamps](Ekf2Timestamps.md) — this message contains the (relative) timestamps of the sensor inputs used by EKF2.
@@ -164,6 +163,8 @@ This are the three next waypoints (or just the next two or one).
 - [RegisterExtComponentRequest](RegisterExtComponentRequest.md) — Request to register an external component
 - [RoverAckermannGuidanceStatus](RoverAckermannGuidanceStatus.md)
 - [RoverAckermannStatus](RoverAckermannStatus.md)
+- [RoverDifferentialGuidanceStatus](RoverDifferentialGuidanceStatus.md)
+- [RoverDifferentialStatus](RoverDifferentialStatus.md)
 - [Rpm](Rpm.md)
 - [RtlStatus](RtlStatus.md)
 - [RtlTimeEstimate](RtlTimeEstimate.md)

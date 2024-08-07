@@ -24578,33 +24578,35 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
  | 0.001 | 100 | 0.001 | 0.5 | m 
 
-## Rover Differential Drive
+## Rover Differential
 
-### RDD_ANG_SCALE (`FLOAT`) {#RDD_ANG_SCALE}
+### RD_HEADING_I (`FLOAT`) {#RD_HEADING_I}
 
-Manual angular velocity scale.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
- | 0 | 1 | 0.01 | 1 |  
-
-### RDD_I_ANG_VEL (`FLOAT`) {#RDD_I_ANG_VEL}
-
-Integral gain for angular velocity controller.
+Integral gain for heading controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
- | 0 | 100 | 0.01 | 0 |  
+ | 0 | 100 | 0.01 | 0.1 |  
 
-### RDD_I_SPEED (`FLOAT`) {#RDD_I_SPEED}
+### RD_HEADING_P (`FLOAT`) {#RD_HEADING_P}
 
-Integral gain for ground speed controller.
+Proportional gain for heading controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
- | 0 | 100 | 0.01 | 0 |  
+ | 0 | 100 | 0.01 | 1 |  
 
-### RDD_MAX_ACCEL (`FLOAT`) {#RDD_MAX_ACCEL}
+### RD_MAN_YAW_SCALE (`FLOAT`) {#RD_MAN_YAW_SCALE}
+
+Manual yaw rate scale.
+
+In manual mode the setpoint for the yaw rate received from the rc remote is scaled by this value.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+ | 0.01 | 1 | 0.01 | 1 |  
+
+### RD_MAX_ACCEL (`FLOAT`) {#RD_MAX_ACCEL}
 
 Maximum acceleration.
 
@@ -24614,7 +24616,7 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
  | 0 | 100 | 0.01 | 0.5 | m/s^2 
 
-### RDD_MAX_JERK (`FLOAT`) {#RDD_MAX_JERK}
+### RD_MAX_JERK (`FLOAT`) {#RD_MAX_JERK}
 
 Maximum jerk.
 
@@ -24624,23 +24626,43 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
  | 0 | 100 | 0.01 | 0.5 | m/s^3 
 
-### RDD_P_ANG_VEL (`FLOAT`) {#RDD_P_ANG_VEL}
+### RD_MAX_SPEED (`FLOAT`) {#RD_MAX_SPEED}
 
-Proportional gain for angular velocity controller.
+Maximum speed the rover can drive.
 
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
- | 0 | 100 | 0.01 | 1 |  
-
-### RDD_P_HEADING (`FLOAT`) {#RDD_P_HEADING}
-
-Proportional gain for heading controller.
+This parameter is used to map desired speeds to normalized motor commands.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
- | 0 | 100 | 0.01 | 1 |  
+ | 0 | 100 | 0.01 | 7 | m/s 
 
-### RDD_P_SPEED (`FLOAT`) {#RDD_P_SPEED}
+### RD_MAX_YAW_RATE (`FLOAT`) {#RD_MAX_YAW_RATE}
+
+Maximum allowed yaw rate for the rover.
+
+This parameter is used to cap desired yaw rates and map controller inputs to desired yaw rates in acro mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+ | 0.01 | 1000 | 0.01 | 90 | deg/s 
+
+### RD_MISS_SPD_DEF (`FLOAT`) {#RD_MISS_SPD_DEF}
+
+Default rover speed during a mission.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+ | 0 | 100 | 0.01 | 1 | m/s 
+
+### RD_SPEED_I (`FLOAT`) {#RD_SPEED_I}
+
+Integral gain for ground speed controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+ | 0 | 100 | 0.01 | 0 |  
+
+### RD_SPEED_P (`FLOAT`) {#RD_SPEED_P}
 
 Proportional gain for speed controller.
 
@@ -24648,17 +24670,25 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
  | 0 | 100 | 0.01 | 1 |  
 
-### RDD_SPEED_SCALE (`FLOAT`) {#RDD_SPEED_SCALE}
+### RD_TRANS_DRV_TRN (`FLOAT`) {#RD_TRANS_DRV_TRN}
 
-Manual speed scale.
+Heading error threshhold to switch from driving to spot turning.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
- | 0 | 1 | 0.01 | 1 |  
+ | 0.001 | 180 | 0.01 | 0.174533 | rad 
 
-### RDD_WHEEL_BASE (`FLOAT`) {#RDD_WHEEL_BASE}
+### RD_TRANS_TRN_DRV (`FLOAT`) {#RD_TRANS_TRN_DRV}
 
-Wheel base.
+Heading error threshhold to switch from spot turning to driving.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+ | 0.001 | 180 | 0.01 | 0.0872665 | rad 
+
+### RD_WHEEL_TRACK (`FLOAT`) {#RD_WHEEL_TRACK}
+
+Wheel track.
 
 Distance from the center of the right wheel to the center of the left wheel
 
@@ -24666,23 +24696,21 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
  | 0.001 | 100 | 0.001 | 0.5 | m 
 
-### RDD_WHEEL_RADIUS (`FLOAT`) {#RDD_WHEEL_RADIUS}
+### RD_YAW_RATE_I (`FLOAT`) {#RD_YAW_RATE_I}
 
-Wheel radius.
-
-Size of the wheel, half the diameter of the wheel
+Integral gain for angular velocity controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
- | 0.001 | 100 | 0.001 | 0.1 | m 
+ | 0 | 100 | 0.01 | 0 |  
 
-### RDD_WHEEL_SPEED (`FLOAT`) {#RDD_WHEEL_SPEED}
+### RD_YAW_RATE_P (`FLOAT`) {#RD_YAW_RATE_P}
 
-Maximum wheel speed.
+Proportional gain for angular velocity controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
- | 0 | 100 | 0.01 | 0.3 | rad/s 
+ | 0 | 100 | 0.01 | 1 |  
 
 ## Rover Position Control
 

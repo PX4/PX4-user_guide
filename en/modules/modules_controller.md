@@ -45,24 +45,6 @@ control_allocator <command> [arguments...]
 
    status        print status info
 ```
-## differential_drive
-Source: [modules/differential_drive](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/differential_drive)
-
-
-### Description
-Rover Differential Drive controller.
-
-<a id="differential_drive_usage"></a>
-### Usage
-```
-differential_drive <command> [arguments...]
- Commands:
-   start
-
-   stop
-
-   status        print status info
-```
 ## flight_mode_manager
 Source: [modules/flight_mode_manager](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager)
 
@@ -263,6 +245,24 @@ Rover ackermann module.
 ### Usage
 ```
 rover_ackermann <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## rover_differential
+Source: [modules/rover_differential](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_differential)
+
+
+### Description
+Rover Differential controller.
+
+<a id="rover_differential_usage"></a>
+### Usage
+```
+rover_differential <command> [arguments...]
  Commands:
    start
 
