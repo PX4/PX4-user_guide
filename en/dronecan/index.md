@@ -145,7 +145,7 @@ The following sections provide additional detail on the PX4 and DroneCAN periphe
 
 #### Sensors
 
-The DroneCAN sensor parameters/subscriptions that you can enable are (in PX4 v1.14):
+The DroneCAN sensor parameters/subscriptions that you can enable are (from PX4 v1.14):
 
 - [UAVCAN_SUB_ASPD](../advanced_config/parameter_reference.md#UAVCAN_SUB_ASPD): Airspeed
 - [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO): Barometer
@@ -154,6 +154,7 @@ The DroneCAN sensor parameters/subscriptions that you can enable are (in PX4 v1.
 - [UAVCAN_SUB_DPRES](../advanced_config/parameter_reference.md#UAVCAN_SUB_DPRES): Differential pressure
 - [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW): Optical flow
 - [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS): GPS
+- [UAVCAN_SUB_GPS_R](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS_R)<Badge type="tip" text="PX4 v1.15" />: RTK GPS Moving Base with Heading/GPS yaw (for [RelPosHeading](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#relposheading))
 - [UAVCAN_SUB_HYGRO](../advanced_config/parameter_reference.md#UAVCAN_SUB_HYGRO): Hygrometer
 - [UAVCAN_SUB_ICE](../advanced_config/parameter_reference.md#UAVCAN_SUB_ICE): Internal combustion engine (ICE).
 - [UAVCAN_SUB_IMU](../advanced_config/parameter_reference.md#UAVCAN_SUB_IMU): IMU
@@ -199,10 +200,14 @@ You could instead use [UAVCAN_PUB_MBD](../advanced_config/parameter_reference.md
 Using the [RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream) message means that you can implement moving base (see below) at the same time.
 :::
 
-##### Rover and Moving Base
+##### Rover and Moving Base (Yaw from GPS)
 
 As discussed in [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md) a vehicle can have two RTK modules in order to calculate yaw from GPS.
 In this setup the vehicle has a _moving base_ RTK GPS and a _rover_ RTK GPS.
+
+Additional PX4 DroneCAN parameters:
+
+- Enable [UAVCAN_SUB_GPS_R](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS_R).
 
 These parameters can be [set on moving base and rover RTK CAN nodes](#qgc-cannode-parameter-configuration), respectively:
 
