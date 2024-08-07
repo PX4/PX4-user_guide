@@ -9,30 +9,31 @@ ROS 2-PX4 架构在ROS 2和PX4之间进行了深度整合。 允许 ROS 2 订阅
 The [migration guide](../middleware/uxrce_dds.md#fast-rtps-to-uxrce-dds-migration-guidelines) explains what you need to do in order to migrate ROS 2 apps from PX4 v1.13 to PX4 v1.14.
 
 If you're still working on PX4 v1.13, please follow the instructions in the [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html).
+
 <!-- remove this when there are PX4 v1.14 docs for some months -->
+
 :::
 
 ## 概述
 
-由于使用 [uXRCE-DDS](../middleware/uxrce_dds.md) 通信中间件，因此ROS 2的应用程序流程非常简单。
+The application pipeline for ROS 2 is very straightforward, thanks to the use of the [uXRCE-DDS](../middleware/uxrce_dds.md) communications middleware.
 
 ![Architecture uXRCE-DDS with ROS 2](../../assets/middleware/xrce_dds/architecture_xrce-dds_ros2.svg)
 
 <!-- doc source: https://docs.google.com/drawings/d/1WcJOU-EcVOZRPQwNzMEKJecShii2G4U3yhA3U6C4EhE/edit?usp=sharing -->
 
-uXRCE-DDS的中间件由运行在PX4上的客户端(Client)和运行在机载计算机上的代理端(Agent)组成， 通过串口、UDP、TCP或其他链路实现双向数据互联。 代理端(Agent)充当客户端(Client)的代理在DDS全局数据空间中发布和订阅话题。
+The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial, UDP, TCP or custom link. The agent acts as a proxy for the client to publish and subscribe to topics in the global DDS data space.
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is generated at build time and included in PX4 firmware by default. 它包含“通用”XRCE-DDS客户端(Client)代码和PX4 特定翻译代码以支持用来发布或获取来自uORB的话题 。 为客户端(Client)生成的 uORB 消息的子集在 [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) 中定义。 生成器使用代码树： [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) 中的 uORB 消息定义来创建 ROS 2 消息代码。
+The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is generated at build time and included in PX4 firmware by default. It includes both the "generic" micro XRCE-DDS client code, and PX4-specific translation code that it uses to publish to/from uORB topics. The subset of uORB messages that are generated into the client are listed in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). The generator uses the uORB message definitions in the source tree: [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to create the code for sending ROS 2 messages.
 
-ROS 2 应用程序应该在具有 _相同的_ 消息定义的工作区中构建，即在 PX4 Firmware 中创建 uXRCE-DDS客户端(Client)模块时使用的消息。 你可以通过克隆接口包 [PX4/px4_msgs](https://github.com/PX4/px4_msgs) 到你的 ROS 2 工作空间中(仓库中的分支对应于不同版本 PX4 消息)。
+ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware. You can include these by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace (branches in the repo correspond to the messages for different PX4 releases).
 
-请注意，micro XRCE-DDS _代理(Agent)_ 本身并不依赖客户端代码。 可以通过 [源码](https://github.com/eProsima/Micro-XRCE-DDS-Agent)单独或作为ROS的一部分通过编译生成，也可以通过snap安装。
+Note that the micro XRCE-DDS _agent_ itself has no dependency on client-side code. It can be built from [source](https://github.com/eProsima/Micro-XRCE-DDS-Agent) either standalone or as part of a ROS build, or installed as a snap.
 
-您通常需要在使用 ROS 2 时同时启动客户端(Client)和代理人(Agent)。 请注意，uXRCE-DDS客户端默认是编译进固件中的，但除模拟器构建外，不会自动启动。
+You will normally need to start both the client and agent when using ROS 2. Note that the uXRCE-DDS client is built into firmware by default but not started automatically except for simulator builds.
 
-::: info In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](https://github.com/PX4/px4_ros_com). 该仓库不再需要了，但的确包含了有用的例子。
+::: info In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](https://github.com/PX4/px4_ros_com). This repo is no longer needed, but does contain useful examples.
 :::
-
 
 ## 安装设置
 
@@ -40,7 +41,7 @@ The supported ROS 2 platforms for PX4 development are ROS 2 "Humble" on Ubuntu 2
 
 ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution. ROS 2 "Foxy" reached end-of-life in May 2023, but is still stable and works with PX4.
 
-::: info PX4 is not as well tested on Ubuntu 22.04 as it is on Ubuntu 20.04 (at time of writing), and Ubuntu 20.04 is needed if you want to use [Gazebo Classic](../sim_gazebo_classic/index.md).
+::: info Ubuntu 20.04 and Foxy are needed if you want to use [Gazebo Classic](../sim_gazebo_classic/index.md).
 :::
 
 To setup ROS 2 for use with PX4:
@@ -50,17 +51,16 @@ To setup ROS 2 for use with PX4:
 - [安装Micro XRCE-DDS 代理(Agent)& 客户端(Client)](#setup-micro-xrce-dds-agent-client)
 - [构建 & 运行 ROS 2 工作空间](#build-ros-2-workspace)
 
-框架的其他依赖关系将自动安装，如 _Fast DDS_。
-
+Other dependencies of the architecture that are installed automatically, such as _Fast DDS_, are not covered.
 
 ### 安装PX4
 
-您需要安装 PX4 开发工具链才能使用模拟器。
+You need to install the PX4 development toolchain in order to use the simulator.
 
-::: info The only dependency ROS 2 has on PX4 is the set of message definitions, which it gets from [px4_msgs](https://github.com/PX4/px4_msgs). 您只需要安装 PX4 当您需要模拟器时(如我们在本指南中所做的那样)， 或者如果您正在创建一个发布自定义uORB话题。
+::: info The only dependency ROS 2 has on PX4 is the set of message definitions, which it gets from [px4_msgs](https://github.com/PX4/px4_msgs). You only need to install PX4 if you need the simulator (as we do in this guide), or if you are creating a build that publishes custom uORB topics.
 :::
 
-通过以下方式在 Ubuntu 上配置一个 PX4 开发环境：
+Set up a PX4 development environment on Ubuntu in the normal way:
 
 ```sh
 cd
@@ -76,7 +76,7 @@ For more information and troubleshooting see: [Ubuntu Development Environment](.
 
 ### 安装 ROS 2
 
-安装 ROS 2 及其依赖：
+To install ROS 2 and its dependencies:
 
 1. Install ROS 2.
 
@@ -100,15 +100,14 @@ For more information and troubleshooting see: [Ubuntu Development Environment](.
    source /opt/ros/humble/setup.bash && echo "source /opt/ros/humble/setup.bash" >> .bashrc
    ```
 
-   The instructions above are reproduced from the official installation guide: [Install ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html). You can install _either_ the desktop (`ros-humble-desktop`) _or_ bare-bones versions (`ros-humble-ros-base`), *and* the development tools (`ros-dev-tools`).
+   The instructions above are reproduced from the official installation guide: [Install ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html). You can install _either_ the desktop (`ros-humble-desktop`) _or_ bare-bones versions (`ros-humble-ros-base`), _and_ the development tools (`ros-dev-tools`).
 :::
-
 
    ::: tab foxy To install ROS 2 "Foxy" on Ubuntu 20.04:
 
-   -  Follow the official installation guide: [Install ROS 2 Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
+   - Follow the official installation guide: [Install ROS 2 Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
 
-   You can install _either_ the desktop (`ros-foxy-desktop`) _or_ bare-bones versions (`ros-foxy-ros-base`), *and* the development tools (`ros-dev-tools`).
+   You can install _either_ the desktop (`ros-foxy-desktop`) _or_ bare-bones versions (`ros-foxy-ros-base`), _and_ the development tools (`ros-dev-tools`).
 :::
 
    ::::
@@ -119,17 +118,15 @@ For more information and troubleshooting see: [Ubuntu Development Environment](.
    pip install --user -U empy==3.3.4 pyros-genmsg setuptools
    ```
 
-
-
 ### 安装Micro XRCE-DDS 代理(Agent)& 客户端(Client)
 
 For ROS 2 to communicate with PX4, [uXRCE-DDS client](../modules/modules_system.md#uxrce-dds-client) must be running on PX4, connected to a micro XRCE-DDS agent running on the companion computer.
 
 #### 设置代理(Agent)
 
-代理(Agent)可以通过 [数种方式](../middleware/uxrce_dds.md#micro-xrce-dds-agent-installation) 安装到任务计算机上。 下面我们将演示如何从源代码构建“独立”代理(Agent)，并连接到在 PX4 模拟器上运行的客户端(Client)。
+The agent can be installed onto the companion computer in a [number of ways](../middleware/uxrce_dds.md#micro-xrce-dds-agent-installation). Below we show how to build the agent "standalone" from source and connect to a client running on the PX4 simulator.
 
-设置并启动代理：
+To setup and start the agent:
 
 1. 打开一个终端。
 1. 输入以下命令从仓库获取源代码并构建代理(Agent)：
@@ -151,48 +148,52 @@ For ROS 2 to communicate with PX4, [uXRCE-DDS client](../modules/modules_system.
    MicroXRCEAgent udp4 -p 8888
    ```
 
-代理正在运行，但在我们启动PX4 (下一步)之前，您不会看到太多。
+The agent is now running, but you won't see much until we start PX4 (in the next step).
 
 ::: info
 You can leave the agent running in this terminal!
-请注意，每个连接端口只允许一个代理(Agent)。
+Note that only one agent is allowed per connection channel.
 :::
 
 #### 启动客户端(Client)
 
-PX4 模拟器自动启动 uXRCE-DDS客户端，连接到本地主机上的 UDP 8888 端口。
+The PX4 simulator starts the uXRCE-DDS client automatically, connecting to UDP port 8888 on the local host.
 
-启动模拟器(和客户端Client)：
+To start the simulator (and client):
 
 1. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
 
    :::: tabs
 
    ::: tab humble
+
    - Start a PX4 [Gazebo](../sim_gazebo_gz/index.md) simulation using:
 
      ```sh
      make px4_sitl gz_x500
      ```
 
+
 :::
 
    ::: tab foxy
+
    - Start a PX4 [Gazebo Classic](../sim_gazebo_classic/index.md) simulation using:
 
      ```sh
      make px4_sitl gazebo-classic
      ```
 
+
 :::
 
    ::::
 
-代理(Agent)和客户端(Client)现在将运行并建立连接。
+The agent and client are now running they should connect.
 
-PX4 终端显示 [NuttShell/PX4 系统控制台](../debug/system_console.md)  PX4 启动和运行。 代理(Agent)连接后输出应该包含 `INFO` 显示创建数据写入的消息：
+The PX4 terminal displays the [NuttShell/PX4 System Console](../debug/system_console.md) output as PX4 boots and runs. As soon as the agent connects the output should include `INFO` messages showing creation of data writers:
 
-```
+```sh
 ...
 INFO  [uxrce_dds_client] synchronized with time offset 1675929429203524us
 INFO  [uxrce_dds_client] successfully created rt/fmu/out/failsafe_flags data writer, topic id: 83
@@ -201,9 +202,9 @@ INFO  [uxrce_dds_client] successfully created rt/fmu/out/timesync_status data wr
 ...
 ```
 
-Micro XRCE-DDS代理(Agent)终端也应开始显示输出，因为DDS网络中创建了相同的主题：
+The micro XRCE-DDS agent terminal should also start to show output, as equivalent topics are created in the DDS network:
 
-```
+```sh
 ...
 [1675929445.268957] info     | ProxyClient.cpp    | create_publisher         | publisher created      | client_key: 0x00000001, publisher_id: 0x0DA(3), participant_id: 0x001(1)
 [1675929445.269521] info     | ProxyClient.cpp    | create_datawriter        | datawriter created     | client_key: 0x00000001, datawriter_id: 0x0DA(5), publisher_id: 0x0DA(3)
@@ -213,13 +214,12 @@ Micro XRCE-DDS代理(Agent)终端也应开始显示输出，因为DDS网络中�
 
 ### Build ROS 2 Workspace
 
-本节将展示如何在您的主目录中创建一个 ROS 2 工作空间(将源代码放在别处需要修改相关指令)。
+This section shows how create a ROS 2 workspace hosted in your home directory (modify the commands as needed to put the source code elsewhere).
 
-[px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) 软件包克隆到一个工作区文件夹，然后使用 `colcon` 工具来构建工作区。 The example is run using `ros2 launch`.
+The [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) packages are cloned to a workspace folder, and then the `colcon` tool is used to build the workspace. The example is run using `ros2 launch`.
 
 ::: info The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com). [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics.
 :::
-
 
 #### Building the Workspace
 
@@ -249,27 +249,30 @@ A naming convention for workspace folders can make it easier to manage workspace
    :::: tabs
 
    ::: tab humble
+
    ```sh
    cd ..
    source /opt/ros/humble/setup.bash
    colcon build
    ```
 
+
 :::
 
    ::: tab foxy
+
    ```sh
    cd ..
    source /opt/ros/foxy/setup.bash
    colcon build
    ```
 
+
 :::
 
    ::::
 
    This builds all the folders under `/src` using the sourced toolchain.
-
 
 #### Running the Example
 
@@ -285,18 +288,22 @@ In a new terminal:
    :::: tabs
 
    ::: tab humble
+
    ```sh
    cd ~/ws_sensor_combined/
    source /opt/ros/humble/setup.bash
    ```
 
+
 :::
 
    ::: tab foxy
+
    ```sh
    cd ~/ws_sensor_combined/
    source /opt/ros/foxy/setup.bash
    ```
+
 
 :::
 
@@ -307,9 +314,10 @@ In a new terminal:
    ```sh
    source install/local_setup.bash
    ```
+
 1. Now launch the example. Note here that we use `ros2 launch`, which is described below.
 
-   ```
+   ```sh
    ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
 
@@ -362,7 +370,6 @@ This is needed because the ROS 2 default [Quality of Service (QoS) settings](htt
 
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
-
 ### ROS 2 & PX4 Frame Conventions
 
 The local/world and body frames used by ROS and PX4 are different.
@@ -386,9 +393,9 @@ The FRD (NED) conventions are adopted on **all** PX4 topics unless explicitly sp
 
   - first a pi/2 rotation around the `Z`-axis (up),
   - then a pi rotation around the `X`-axis (old East/new North).
+
 - To rotate a vector from NED to ENU two basic rotations must be performed:
--
-  - first a pi/2 rotation around the `Z`-axis (down),
+- - first a pi/2 rotation around the `Z`-axis (down),
   - then a pi rotation around the `X`-axis (old North/new East). Note that the two resulting operations are mathematically equivalent.
 - To rotate a vector from FLU to FRD a pi rotation around the `X`-axis (front) is sufficient.
 - To rotate a vector from FRD to FLU a pi rotation around the `X`-axis (front) is sufficient.
@@ -398,7 +405,7 @@ Examples of vectors that require rotation are:
 - all fields in [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) message; ENU to NED conversion is required before sending them.
 - all fields in [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) message; FLU to FRD conversion is required before sending them.
 
-Similarly to vectors, also quanternions representing the attitude of the vehicle (body frame) w.r.t. the world frame require conversion.
+Similarly to vectors, also quaternions representing the attitude of the vehicle (body frame) w.r.t. the world frame require conversion.
 
 [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) provides the shared library [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/include/px4_ros_com/frame_transforms.h) to easily perform such conversions.
 
@@ -416,9 +423,36 @@ This scenario, which is the one considered in this page and in the [offboard_con
 
 #### ROS2 nodes use the Gazebo clock as time source
 
-In this scenario, ROS2 also uses the Gazebo `/clock` topic as time source. This approach makes sense if the Gazebo simulation is running with real time factor different from one, or if ROS2 needs to directly interact with Gazebo. On the ROS2 side, direct interaction with Gazebo is achieved by the [ros_gz_bridge](https://github.com/gazebosim/ros_gz) package of the [ros_gz](https://github.com/gazebosim/ros_gz) repository. Read through the [repo](https://github.com/gazebosim/ros_gz#readme) and [package](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge#readme) READMEs to find out the right version that has to be installed depending on your ROS2 and Gazebo versions.
+In this scenario, ROS2 also uses the Gazebo `/clock` topic as time source. This approach makes sense if the Gazebo simulation is running with real time factor different from one, or if ROS2 needs to directly interact with Gazebo. On the ROS2 side, direct interaction with Gazebo is achieved by the [ros_gz_bridge](https://github.com/gazebosim/ros_gz) package of the [ros_gz](https://github.com/gazebosim/ros_gz) repository.
 
-Once the package is installed and sourced, the node `parameter_bridge` provides the bridging capabilities and can be used to create an unidirectional `/clock` bridge:
+Use the following commands to install the correct ROS 2/gz interface packages (not just the bridge) for the ROS2 and Gazebo version(s) supported by PX4.
+
+:::: tabs
+
+::: tab humble To install the bridge for use with ROS 2 "Humble" and Gazebo Garden (on Ubuntu 22.04):
+
+```sh
+sudo apt install ros-humble-ros-gzgarden
+```
+
+:::
+
+::: tab foxy First you will need to [install Gazebo Garden](../sim_gazebo_gz/index.md#installation-ubuntu-linux), as by default Foxy comes with Gazebo Classic 11.
+
+Then to install the interface packages for use with ROS 2 "Foxy" and Gazebo Garden (Ubuntu 20.04):
+
+```sh
+sudo apt install ros-foxy-ros-gzgarden
+```
+
+:::
+
+::::
+
+::: info The [repo](https://github.com/gazebosim/ros_gz#readme) and [package](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge#readme) READMEs show the package versions that need to be installed depending on your ROS2 and Gazebo versions.
+:::
+
+Once the packages are installed and sourced, the node `parameter_bridge` provides the bridging capabilities and can be used to create an unidirectional `/clock` bridge:
 
 ```sh
 ros2 run ros_gz_bridge parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock
@@ -489,11 +523,11 @@ public:
 
 The lines below create a publisher to the `SensorCombined` uORB topic, which can be matched with one or more compatible ROS 2 subscribers to the `fmu/sensor_combined/out` ROS 2 topic.
 
-```cpp
+````cpp
 private:
     rclcpp::Subscription<px4_msgs::msg::SensorCombined>::SharedPtr subscription_;
 };
-```
+```s
 
 The instantiation of the `SensorCombinedListener` class as a ROS node is done on the `main` function.
 
@@ -508,7 +542,7 @@ int main(int argc, char *argv[])
     rclcpp::shutdown();
     return 0;
 }
-```
+````
 
 This particular example has an associated launch file at [launch/sensor_combined_listener.launch.py](https://github.com/PX4/px4_ros_com/blob/main/launch/sensor_combined_listener.launch.py). This allows it to be launched using the [`ros2 launch`](#ros2-launch) command.
 
@@ -608,7 +642,6 @@ Custom topic namespaces can be applied at build time (changing [dds_topics.yaml]
 - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line. This technique can be used both in simulation and real vehicles.
 - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
-
 ::: info Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). Therefore, commands like:
 
 ```sh
@@ -627,6 +660,7 @@ will generate topics under the namespaces:
 /uav_1/fmu/in/  # for subscribers
 /uav_1/fmu/out/ # for publishers
 ```
+
 :::
 
 ## ros2 CLI
@@ -643,7 +677,7 @@ ros2 topic list
 
 If PX4 is connected to the agent, the result will be a list of topic types:
 
-```
+```sh
 /fmu/in/obstacle_distance
 /fmu/in/offboard_control_mode
 /fmu/in/onboard_computer_status
@@ -664,7 +698,7 @@ ros2 topic echo /fmu/out/vehicle_status
 
 The command will echo the topic details as they update.
 
-```
+```sh
 ---
 timestamp: 1675931593364359
 armed_time: 0
@@ -685,7 +719,7 @@ hil_state: 0
 
 You can get statistics about the rates of messages using `ros2 topic hz`. For example, to get the rates for `SensorCombined`:
 
-```
+```sh
 ros2 topic hz /fmu/out/sensor_combined
 ```
 
@@ -714,8 +748,6 @@ You don't need to have a launch file, but they are very useful if you have a com
 
 For information about launch files see [ROS 2 Tutorials > Creating launch files](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
 
-
-
 ## Troubleshooting
 
 ### Missing dependencies
@@ -723,30 +755,50 @@ For information about launch files see [ROS 2 Tutorials > Creating launch files]
 The standard installation should include all the tools needed by ROS 2.
 
 If any are missing, they can be added separately:
+
 - **`colcon`** build tools should be in the development tools. It can be installed using:
+
   ```sh
   sudo apt install python3-colcon-common-extensions
   ```
+
 - The Eigen3 library used by the transforms library should be in the both the desktop and base packages. It should be installed as shown:
 
-   :::: tabs
+  :::: tabs
 
-   ::: tab humble
-   ```sh
-   sudo apt install ros-humble-eigen3-cmake-module
-   ```
+  ::: tab humble
 
-:::
+  ```sh
+  sudo apt install ros-humble-eigen3-cmake-module
+  ```
 
-   ::: tab foxy
-   ```sh
-   sudo apt install ros-foxy-eigen3-cmake-module
-   ```
 
 :::
 
-   ::::
+  ::: tab foxy
 
+  ```sh
+  sudo apt install ros-foxy-eigen3-cmake-module
+  ```
+
+
+:::
+
+  ::::
+
+### ros_gz_bridge not publishing on the \clock topic
+
+If your [ROS2 nodes use the Gazebo clock as time source](../ros2/user_guide.md#ros2-nodes-use-the-gazebo-clock-as-time-source) but the `ros_gz_bridge` node doesn't publish anything on the `/clock` topic, you may have the wrong version installed. This might happen if you install ROS 2 Humble with the default "Ignition Fortress" packages, rather than using those for PX4, which uses "Gazebo Garden".
+
+The following commands uninstall the default Ignition Fortress topics and install the correct bridge and other interface topics for **Gazebo Garden** with ROS2 **Humble**:
+
+```bash
+# Remove the wrong version (for Ignition Fortress)
+sudo apt remove ros-humble-ros-gz
+
+# Install the version for Gazebo Garden
+sudo apt install ros-humble-ros-gzgarden
+```
 
 ## Additional information
 

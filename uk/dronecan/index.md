@@ -33,6 +33,7 @@ DroneCAN раніше відомий як UAVCAN v0 (або просто UAVCAN)
 
 - [Контролери ESC/двигуна](../dronecan/escs.md)
 - Датчики швидкості повітря
+  - [RaccoonLab airspeed sensor](https://docs.raccoonlab.co/guide/airspeed)
   - [Датчик швидкості Thiemar](https://github.com/thiemar/airspeed)
 - Приймачі ГНСС для ГНСС (GPS, GLONASS, BeiDou та інше)
   - [ARK GPS](../dronecan/ark_gps.md)
@@ -46,19 +47,24 @@ DroneCAN раніше відомий як UAVCAN v0 (або просто UAVCAN)
   - [Holybro DroneCAN M9N GPS](https://holybro.com/products/dronecan-m9n-gps)
   - [Holybro DroneCAN H-RTK F9P Rover](https://holybro.com/products/dronecan-h-rtk-f9p-rover)
   - [Holybro DroneCAN H-RTK F9P Helical](https://holybro.com/products/dronecan-h-rtk-f9p-helical)
+  - [RaccoonLab GNSS Modules](https://docs.raccoonlab.co/guide/gps_mag_baro/)
   - [Zubax GNSS](https://zubax.com/products/gnss_2)
 - Монітори живлення
   - [Силовий модуль Pomegranate Systems](../dronecan/pomegranate_systems_pm.md)
   - [Модуль живлення CUAV CAN PMU](../dronecan/cuav_can_pmu.md)
+  - [RaccoonLab CAN Power Connectors and Management Units](../dronecan/raccoonlab_power.md)
 - Компас
   - [Професійний компас Holybro RM3100](https://holybro.com/products/dronecan-rm3100-compass)
+  - [RaccoonLab RM3100 Magnetometer](https://docs.raccoonlab.co/guide/gps_mag_baro/mag_rm3100.html)
 - Датчики відстані
   - [ARK Flow](ark_flow.md)
   - [Авіоніка Анонімний Лазерний Альтиметр UAVCAN Інтерфейс](../dronecan/avanon_laser_interface.md)
+  - [RaccoonLab uRangefidner and Rangefinders Adapter](https://docs.raccoonlab.co/guide/rangefinder)
 - Оптичний потік
   - [Ark Flow](ark_flow.md)
 - Загальний вузол CAN (дозволяє використання датчиків I2C, SPI, UART на шині CAN).
   - [ARK CANnode](../dronecan/ark_cannode.md)
+  - [RaccoonLab Nodes](../dronecan/raccoonlab_nodes.md)
 
 ## Налаштування обладнання
 
@@ -220,7 +226,7 @@ PX4 не публікує або підписується на повідомл�
 
 #### Периферійне озброєння
 
-Параметри PX4 DroneCAN:
+PX4 DroneCAN parameters:
 
 - [UAVCAN_PUB_ARM](../advanced_config/parameter_reference.md#UAVCAN_PUB_ARM) ([Статус зброї](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#armingstatus)): Опублікуйте, коли використовуєте компоненти DroneCAN, які вимагають статусу зброї PX4 як умову для використання.
 

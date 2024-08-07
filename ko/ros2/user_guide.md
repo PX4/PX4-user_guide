@@ -9,7 +9,9 @@ This topic provides an overview of the architecture and application pipeline, an
 The [migration guide](../middleware/uxrce_dds.md#fast-rtps-to-uxrce-dds-migration-guidelines) explains what you need to do in order to migrate ROS 2 apps from PX4 v1.13 to PX4 v1.14.
 
 If you're still working on PX4 v1.13, please follow the instructions in the [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html).
+
 <!-- remove this when there are PX4 v1.14 docs for some months -->
+
 :::
 
 ## 개요
@@ -33,14 +35,13 @@ You will normally need to start both the client and agent when using ROS 2. Note
 ::: info In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](https://github.com/PX4/px4_ros_com). This repo is no longer needed, but does contain useful examples.
 :::
 
-
 ## 설치 및 설정
 
 The supported ROS 2 platforms for PX4 development are ROS 2 "Humble" on Ubuntu 22.04, and ROS 2 "Foxy" on Ubuntu 20.04.
 
 ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution. ROS 2 "Foxy" reached end-of-life in May 2023, but is still stable and works with PX4.
 
-::: info PX4 is not as well tested on Ubuntu 22.04 as it is on Ubuntu 20.04 (at time of writing), and Ubuntu 20.04 is needed if you want to use [Gazebo Classic](../sim_gazebo_classic/index.md).
+::: info Ubuntu 20.04 and Foxy are needed if you want to use [Gazebo Classic](../sim_gazebo_classic/index.md).
 :::
 
 To setup ROS 2 for use with PX4:
@@ -51,7 +52,6 @@ To setup ROS 2 for use with PX4:
 - [Build & Run ROS 2 Workspace](#build-ros-2-workspace)
 
 Other dependencies of the architecture that are installed automatically, such as _Fast DDS_, are not covered.
-
 
 ### Install PX4
 
@@ -100,15 +100,14 @@ To install ROS 2 and its dependencies:
    source /opt/ros/humble/setup.bash && echo "source /opt/ros/humble/setup.bash" >> .bashrc
    ```
 
-   The instructions above are reproduced from the official installation guide: [Install ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html). You can install _either_ the desktop (`ros-humble-desktop`) _or_ bare-bones versions (`ros-humble-ros-base`), *and* the development tools (`ros-dev-tools`).
+   The instructions above are reproduced from the official installation guide: [Install ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html). You can install _either_ the desktop (`ros-humble-desktop`) _or_ bare-bones versions (`ros-humble-ros-base`), _and_ the development tools (`ros-dev-tools`).
 :::
-
 
    ::: tab foxy To install ROS 2 "Foxy" on Ubuntu 20.04:
 
-   -  Follow the official installation guide: [Install ROS 2 Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
+   - Follow the official installation guide: [Install ROS 2 Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
 
-   You can install _either_ the desktop (`ros-foxy-desktop`) _or_ bare-bones versions (`ros-foxy-ros-base`), *and* the development tools (`ros-dev-tools`). 특히 `--verbose` 인수는 전체 *colcon* 빌드 출력을 보여줍니다.
+   You can install _either_ the desktop (`ros-foxy-desktop`) _or_ bare-bones versions (`ros-foxy-ros-base`), _and_ the development tools (`ros-dev-tools`). 특히 `--verbose` 인수는 전체 *colcon* 빌드 출력을 보여줍니다.
 
    ::::
 
@@ -117,8 +116,6 @@ To install ROS 2 and its dependencies:
    ```sh
    pip install --user -U empy==3.3.4 pyros-genmsg setuptools
    ```
-
-
 
 ### Setup Micro XRCE-DDS Agent & Client
 
@@ -168,20 +165,24 @@ To start the simulator (and client):
    :::: tabs
 
    ::: tab humble
+
    - Start a PX4 [Gazebo](../sim_gazebo_gz/index.md) simulation using:
 
      ```sh
      make px4_sitl gz_x500
      ```
 
+
 :::
 
    ::: tab foxy
+
    - Start a PX4 [Gazebo Classic](../sim_gazebo_classic/index.md) simulation using:
 
      ```sh
      make px4_sitl gazebo-classic
      ```
+
 
 :::
 
@@ -191,7 +192,7 @@ The agent and client are now running they should connect.
 
 The PX4 terminal displays the [NuttShell/PX4 System Console](../debug/system_console.md) output as PX4 boots and runs. As soon as the agent connects the output should include `INFO` messages showing creation of data writers:
 
-```
+```sh
 ...
 INFO  [uxrce_dds_client] synchronized with time offset 1675929429203524us
 INFO  [uxrce_dds_client] successfully created rt/fmu/out/failsafe_flags data writer, topic id: 83
@@ -202,7 +203,7 @@ INFO  [uxrce_dds_client] successfully created rt/fmu/out/timesync_status data wr
 
 The micro XRCE-DDS agent terminal should also start to show output, as equivalent topics are created in the DDS network:
 
-```
+```sh
 ...
 [1675929445.268957] info     | ProxyClient.cpp    | create_publisher         | publisher created      | client_key: 0x00000001, publisher_id: 0x0DA(3), participant_id: 0x001(1)
 [1675929445.269521] info     | ProxyClient.cpp    | create_datawriter        | datawriter created     | client_key: 0x00000001, datawriter_id: 0x0DA(5), publisher_id: 0x0DA(3)
@@ -218,7 +219,6 @@ The [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://git
 
 ::: info The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com). [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics.
 :::
-
 
 #### Building the Workspace
 
@@ -248,27 +248,30 @@ A naming convention for workspace folders can make it easier to manage workspace
    :::: tabs
 
    ::: tab humble
+
    ```sh
    cd ..
    source /opt/ros/humble/setup.bash
    colcon build
    ```
 
+
 :::
 
    ::: tab foxy
+
    ```sh
    cd ..
    source /opt/ros/foxy/setup.bash
    colcon build
    ```
 
+
 :::
 
    ::::
 
    This builds all the folders under `/src` using the sourced toolchain.
-
 
 #### Running the Example
 
@@ -284,18 +287,22 @@ In a new terminal:
    :::: tabs
 
    ::: tab humble
+
    ```sh
    cd ~/ws_sensor_combined/
    source /opt/ros/humble/setup.bash
    ```
 
+
 :::
 
    ::: tab foxy
+
    ```sh
    cd ~/ws_sensor_combined/
    source /opt/ros/foxy/setup.bash
    ```
+
 
 :::
 
@@ -306,9 +313,10 @@ In a new terminal:
    ```sh
    source install/local_setup.bash
    ```
+
 1. Now launch the example. Note here that we use `ros2 launch`, which is described below.
 
-   ```
+   ```sh
    ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
 
@@ -361,7 +369,6 @@ This is needed because the ROS 2 default [Quality of Service (QoS) settings](htt
 
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
-
 ### ROS 2 & PX4 Frame Conventions
 
 The local/world and body frames used by ROS and PX4 are different.
@@ -385,9 +392,9 @@ The FRD (NED) conventions are adopted on **all** PX4 topics unless explicitly sp
 
   - first a pi/2 rotation around the `Z`-axis (up),
   - then a pi rotation around the `X`-axis (old East/new North).
+
 - To rotate a vector from NED to ENU two basic rotations must be performed:
--
-  - first a pi/2 rotation around the `Z`-axis (down),
+- - first a pi/2 rotation around the `Z`-axis (down),
   - then a pi rotation around the `X`-axis (old North/new East). Note that the two resulting operations are mathematically equivalent.
 - To rotate a vector from FLU to FRD a pi rotation around the `X`-axis (front) is sufficient.
 - To rotate a vector from FRD to FLU a pi rotation around the `X`-axis (front) is sufficient.
@@ -397,7 +404,7 @@ Examples of vectors that require rotation are:
 - all fields in [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) message; ENU to NED conversion is required before sending them.
 - all fields in [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) message; FLU to FRD conversion is required before sending them.
 
-Similarly to vectors, also quanternions representing the attitude of the vehicle (body frame) w.r.t. the world frame require conversion.
+Similarly to vectors, also quaternions representing the attitude of the vehicle (body frame) w.r.t. the world frame require conversion.
 
 [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) provides the shared library [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/include/px4_ros_com/frame_transforms.h) to easily perform such conversions.
 
@@ -415,9 +422,36 @@ This scenario, which is the one considered in this page and in the [offboard_con
 
 #### ROS2 nodes use the Gazebo clock as time source
 
-In this scenario, ROS2 also uses the Gazebo `/clock` topic as time source. This approach makes sense if the Gazebo simulation is running with real time factor different from one, or if ROS2 needs to directly interact with Gazebo. On the ROS2 side, direct interaction with Gazebo is achieved by the [ros_gz_bridge](https://github.com/gazebosim/ros_gz) package of the [ros_gz](https://github.com/gazebosim/ros_gz) repository. Read through the [repo](https://github.com/gazebosim/ros_gz#readme) and [package](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge#readme) READMEs to find out the right version that has to be installed depending on your ROS2 and Gazebo versions.
+In this scenario, ROS2 also uses the Gazebo `/clock` topic as time source. This approach makes sense if the Gazebo simulation is running with real time factor different from one, or if ROS2 needs to directly interact with Gazebo. On the ROS2 side, direct interaction with Gazebo is achieved by the [ros_gz_bridge](https://github.com/gazebosim/ros_gz) package of the [ros_gz](https://github.com/gazebosim/ros_gz) repository.
 
-Once the package is installed and sourced, the node `parameter_bridge` provides the bridging capabilities and can be used to create an unidirectional `/clock` bridge:
+Use the following commands to install the correct ROS 2/gz interface packages (not just the bridge) for the ROS2 and Gazebo version(s) supported by PX4.
+
+:::: tabs
+
+::: tab humble To install the bridge for use with ROS 2 "Humble" and Gazebo Garden (on Ubuntu 22.04):
+
+```sh
+sudo apt install ros-humble-ros-gzgarden
+```
+
+:::
+
+::: tab foxy First you will need to [install Gazebo Garden](../sim_gazebo_gz/index.md#installation-ubuntu-linux), as by default Foxy comes with Gazebo Classic 11.
+
+Then to install the interface packages for use with ROS 2 "Foxy" and Gazebo Garden (Ubuntu 20.04):
+
+```sh
+sudo apt install ros-foxy-ros-gzgarden
+```
+
+:::
+
+::::
+
+::: info The [repo](https://github.com/gazebosim/ros_gz#readme) and [package](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge#readme) READMEs show the package versions that need to be installed depending on your ROS2 and Gazebo versions.
+:::
+
+Once the packages are installed and sourced, the node `parameter_bridge` provides the bridging capabilities and can be used to create an unidirectional `/clock` bridge:
 
 ```sh
 ros2 run ros_gz_bridge parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock
@@ -488,13 +522,13 @@ public:
 
 The lines below create a publisher to the `SensorCombined` uORB topic, which can be matched with one or more compatible ROS 2 subscribers to the `fmu/sensor_combined/out` ROS 2 topic.
 
-```cpp
+````cpp
 private:
     rclcpp::Subscription<px4_msgs::msg::SensorCombined>::SharedPtr subscription_;
 };
-```
+```s
 
-`px4_ros_com/src/advertisers` 아래의 `debug_vect_advertiser.cpp`를 예로 들면 먼저 `debug_vect` msg 헤더를 포함한 필수 헤더를 가져옵니다.
+The instantiation of the `SensorCombinedListener` class as a ROS node is done on the `main` function.
 
 ```cpp
 int main(int argc, char *argv[])
@@ -507,7 +541,7 @@ int main(int argc, char *argv[])
     rclcpp::shutdown();
     return 0;
 }
-```
+````
 
 This particular example has an associated launch file at [launch/sensor_combined_listener.launch.py](https://github.com/PX4/px4_ros_com/blob/main/launch/sensor_combined_listener.launch.py). This allows it to be launched using the [`ros2 launch`](#ros2-launch) command.
 
@@ -605,7 +639,6 @@ Custom topic namespaces can be applied at build time (changing [dds_topics.yaml]
 - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line. This technique can be used both in simulation and real vehicles.
 - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
-
 ::: info Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). Therefore, commands like:
 
 ```sh
@@ -624,6 +657,7 @@ will generate topics under the namespaces:
 /uav_1/fmu/in/  # for subscribers
 /uav_1/fmu/out/ # for publishers
 ```
+
 :::
 
 ## ros2 CLI
@@ -640,7 +674,7 @@ ros2 topic list
 
 If PX4 is connected to the agent, the result will be a list of topic types:
 
-```
+```sh
 /fmu/in/obstacle_distance
 /fmu/in/offboard_control_mode
 /fmu/in/onboard_computer_status
@@ -661,7 +695,7 @@ ros2 topic echo /fmu/out/vehicle_status
 
 The command will echo the topic details as they update.
 
-```
+```sh
 ---
 timestamp: 1675931593364359
 armed_time: 0
@@ -682,7 +716,7 @@ hil_state: 0
 
 You can get statistics about the rates of messages using `ros2 topic hz`. For example, to get the rates for `SensorCombined`:
 
-```
+```sh
 ros2 topic hz /fmu/out/sensor_combined
 ```
 
@@ -711,8 +745,6 @@ You don't need to have a launch file, but they are very useful if you have a com
 
 For information about launch files see [ROS 2 Tutorials > Creating launch files](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
 
-
-
 ## Troubleshooting
 
 ### Missing dependencies
@@ -720,32 +752,52 @@ For information about launch files see [ROS 2 Tutorials > Creating launch files]
 The standard installation should include all the tools needed by ROS 2.
 
 If any are missing, they can be added separately:
+
 - **`colcon`** build tools should be in the development tools. It can be installed using:
+
   ```sh
   $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com
    $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
   ```
+
 - The Eigen3 library used by the transforms library should be in the both the desktop and base packages. It should be installed as shown:
 
-   :::: tabs
+  :::: tabs
 
-   ::: tab humble
-   ```sh
-   sudo apt install ros-humble-eigen3-cmake-module
-   ```
+  ::: tab humble
+
+  ```sh
+  sudo apt install ros-humble-eigen3-cmake-module
+  ```
+
 
 :::
 
-   ::: tab foxy
-   ```sh
-   $ cd ~/px4_ros_com_ros2/src/px4_ros_com/scripts
+  ::: tab foxy
+
+  ```sh
+  $ cd ~/px4_ros_com_ros2/src/px4_ros_com/scripts
    $ source build_ros2_workspace.bash
-   ```
+  ```
+
 
 :::
 
-   ::::
+  ::::
 
+### ros_gz_bridge not publishing on the \clock topic
+
+If your [ROS2 nodes use the Gazebo clock as time source](../ros2/user_guide.md#ros2-nodes-use-the-gazebo-clock-as-time-source) but the `ros_gz_bridge` node doesn't publish anything on the `/clock` topic, you may have the wrong version installed. This might happen if you install ROS 2 Humble with the default "Ignition Fortress" packages, rather than using those for PX4, which uses "Gazebo Garden".
+
+The following commands uninstall the default Ignition Fortress topics and install the correct bridge and other interface topics for **Gazebo Garden** with ROS2 **Humble**:
+
+```bash
+# Remove the wrong version (for Ignition Fortress)
+sudo apt remove ros-humble-ros-gz
+
+# Install the version for Gazebo Garden
+sudo apt install ros-humble-ros-gzgarden
+```
 
 ## 추가 정보
 
