@@ -145,7 +145,7 @@ The following sections provide additional detail on the PX4 and DroneCAN periphe
 
 #### Sensors
 
-The DroneCAN sensor parameters/subscriptions that you can enable are (in PX4 v1.14):
+The DroneCAN sensor parameters/subscriptions that you can enable are (from PX4 v1.14):
 
 - [UAVCAN_SUB_ASPD](../advanced_config/parameter_reference.md#UAVCAN_SUB_ASPD): Airspeed
 - [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO): Barometer
@@ -154,12 +154,14 @@ The DroneCAN sensor parameters/subscriptions that you can enable are (in PX4 v1.
 - [UAVCAN_SUB_DPRES](../advanced_config/parameter_reference.md#UAVCAN_SUB_DPRES): Differential pressure
 - [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW): Optical flow
 - [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS): GPS
-- [UAVCAN_SUB_GPS_R](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS_R): RTK GPS Moving Base with Heading (GPS yaw)
+- [UAVCAN_SUB_GPS_R](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS_R)<Badge type="tip" text="PX4 v1.15" />: RTK GPS Moving Base with Heading/GPS yaw (for [RelPosHeading](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#relposheading))
 - [UAVCAN_SUB_HYGRO](../advanced_config/parameter_reference.md#UAVCAN_SUB_HYGRO): Hygrometer
 - [UAVCAN_SUB_ICE](../advanced_config/parameter_reference.md#UAVCAN_SUB_ICE): Internal combustion engine (ICE).
 - [UAVCAN_SUB_IMU](../advanced_config/parameter_reference.md#UAVCAN_SUB_IMU): IMU
 - [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG): Magnetometer (compass)
 - [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG): Range finder (distance sensor).
+
+
 
 #### GPS
 
