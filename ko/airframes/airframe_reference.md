@@ -595,21 +595,29 @@ div.frame_variant td, div.frame_variant th {
    <tr><th>이름</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="rover_rover_generic_ground_vehicle_(ackermann)">
- <td>Generic Ground Vehicle (Ackermann)</td>
- <td><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: throttle</li><li><b>Servo1</b>: steering</li></ul></p></td>
+<tr id="rover_rover_generic_rover_differential">
+ <td>Generic Rover Differential</td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50000</p></td>
 </tr>
 <tr id="rover_rover_aion_robotics_r1_ugv">
  <td><a href="https://www.aionrobotics.com/r1">Aion Robotics R1 UGV</a></td>
- <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50003</p></td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50001</p></td>
 </tr>
-<tr id="rover_rover_nxp_cup_car:_df_robot_gpx">
- <td>NXP Cup car: DF Robot GPX</td>
- <td>유지보수: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: Speed of left wheels</li><li><b>Servo1</b>: Steering servo</li></ul></p></td>
+<tr id="rover_rover_generic_rover_ackermann">
+ <td>Generic Rover Ackermann</td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 51000</p></td>
 </tr>
-<tr id="rover_rover_generic_ackermann_rover">
- <td>Generic ackermann rover</td>
- <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50010</p></td>
+<tr id="rover_rover_axial_scx10_2_trail_honcho">
+ <td><a href="https://www.axialadventure.com/product/1-10-scx10-ii-trail-honcho-4wd-rock-crawler-brushed-rtr/AXID9059.html">Axial SCX10 2 Trail Honcho</a></td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 51001</p></td>
+</tr>
+<tr id="rover_rover_generic_ground_vehicle_(deprecated)">
+ <td>Generic Ground Vehicle (Deprecated)</td>
+ <td><p><code>SYS_AUTOSTART</code> = 59000</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: throttle</li><li><b>Servo1</b>: steering</li></ul></p></td>
+</tr>
+<tr id="rover_rover_nxp_cup_car:_df_robot_gpx_(deprecated)">
+ <td>NXP Cup car: DF Robot GPX (Deprecated)</td>
+ <td>유지보수: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 59001</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: Speed of left wheels</li><li><b>Servo1</b>: Steering servo</li></ul></p></td>
 </tr>
 </tbody>
 </table>
@@ -631,7 +639,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
  <td>일반 수중 로봇</td>
- <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
  <td>HippoCampus UUV (무인 수중선)</td>
