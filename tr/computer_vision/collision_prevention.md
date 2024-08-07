@@ -160,7 +160,7 @@ make px4_sitl gz_x500_lidar
 
 Next, adjust the relevant parameters to the appropriate values and add arbitrary obstacles to your simulation world to test the collision prevention functionality.
 
-The diagram below shows how the simulation looks when viewed in RViz.
+The diagram below shows how the simulation looks when viewed in Gazebo.
 
 ![RViz image of collision detection using the x500_lidar model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_viz.png)
 
