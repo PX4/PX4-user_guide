@@ -36,6 +36,7 @@ Supported hardware includes (this is not an exhaustive list):
 
 - [ESC/Motor controllers](../dronecan/escs.md)
 - Airspeed sensors
+  - [RaccoonLab airspeed sensor](https://docs.raccoonlab.co/guide/airspeed)
   - [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
 - GNSS receivers for GNSS (GPS, GLONASS, BeiDou, and so on)
   - [ARK GPS](../dronecan/ark_gps.md)
@@ -49,19 +50,24 @@ Supported hardware includes (this is not an exhaustive list):
   - [Holybro DroneCAN M9N GPS](https://holybro.com/products/dronecan-m9n-gps)
   - [Holybro DroneCAN H-RTK F9P Rover](https://holybro.com/products/dronecan-h-rtk-f9p-rover)
   - [Holybro DroneCAN H-RTK F9P Helical](https://holybro.com/products/dronecan-h-rtk-f9p-helical)
+  - [RaccoonLab GNSS Modules](https://docs.raccoonlab.co/guide/gps_mag_baro/)
   - [Zubax GNSS](https://zubax.com/products/gnss_2)
 - Power monitors
   - [Pomegranate Systems Power Module](../dronecan/pomegranate_systems_pm.md)
   - [CUAV CAN PMU Power Module](../dronecan/cuav_can_pmu.md)
+  - [RaccoonLab CAN Power Connectors and Management Units](../dronecan/raccoonlab_power.md)
 - Compass
   - [Holybro RM3100 Professional Grade Compass](https://holybro.com/products/dronecan-rm3100-compass)
+  - [RaccoonLab RM3100 Magnetometer](https://docs.raccoonlab.co/guide/gps_mag_baro/mag_rm3100.html)
 - Distance sensors
   - [ARK Flow](ark_flow.md)
   - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../dronecan/avanon_laser_interface.md)
+  - [RaccoonLab uRangefidner and Rangefinders Adapter](https://docs.raccoonlab.co/guide/rangefinder)
 - Optical Flow
   - [Ark Flow](ark_flow.md)
 - Generic CAN Node (enables use of I2C, SPI, UART sensors on the CAN bus).
   - [ARK CANnode](../dronecan/ark_cannode.md)
+  - [RaccoonLab Nodes](../dronecan/raccoonlab_nodes.md)
 
 ## Hardware Setup
 
