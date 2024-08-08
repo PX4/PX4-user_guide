@@ -55,6 +55,8 @@ PX4 підтримує уникнення перешкод у режимі Мі�
 
 Уникнення перешкод активується в PX4 шляхом [встановлення](../advanced_config/parameters.md) значення [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) на 1.
 
+Note that PX4 also requires that the companion computer meets the requirements of the [Path Planning Interface](../computer_vision/path_planning_interface.md). For example, the vehicle will fail the prearm check `Avoidance system not ready` if the companion computer isn't broadcasting a MAVLink `HEARTBEAT` with [HEARTBEAT.system_status=MAV_STATE_ACTIVE](https://mavlink.io/en/messages/common.htmlMAV_STATE_ACTIVE).
+
 ::: info `COM_OBS_AVOID` також активує [Безпечне Посадку](../computer_vision/safe_landing.md) та будь-які інші функції, що використовують [Інтерфейс Відсутності Планування Шляху](../computer_vision/path_planning_interface.md) PX4 Offboard (Інтерфейс Траєкторії), щоб інтегрувати зовнішні служби планування шляху з PX4.
 :::
 

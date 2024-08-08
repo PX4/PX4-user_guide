@@ -1,11 +1,17 @@
 # Інтерфейс планування маршруту
 
-PX4 використовує кілька інтерфейсів MAVLink для інтеграції служб планування маршруту з компаньйонним комп'ютером (включаючи уникнення перешкод у місіях, [безпечну посадку](../computer_vision/safe_landing.md) та майбутні служби):
+PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including [obstacle avoidance in missions](../computer_vision/obstacle_avoidance.md#mission-mode-avoidance), [safe landing](../computer_vision/safe_landing.md), and future services):
 
-- Існують два інтерфейси [протоколу планування маршруту MAVLink](https://mavlink.io/en/services/trajectory.html):
+- There are two [MAVLink Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) interfaces:
+
   - [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS): Використовується PX4 для надсилання _бажаного маршруту_. Може бути використаний програмним забезпеченням планування маршруту для надсилання PX4 потоку установок для _запланованого маршруту_.
   - [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER), може (в альтернативу) використовуватися програмним забезпеченням планування маршруту для надсилання PX4 _запланованого маршруту_ у вигляді кривої Безьє. Крива вказує (рухоме) цільове значення положення транспортного засобу протягом певного періоду часу.
-- [Протокол з'єднання HEARTBEAT](https://mavlink.io/en/services/heartbeat.html) використовується для виявлення "підтвердження життєздатності".
+
+- The [HEARTBEAT/Connection Protocol](https://mavlink.io/en/services/heartbeat.html) is used for "proof of life" detection.
+
+  ::: info The companion computer must have a component id of [MAV_COMP_ID_OBSTACLE_AVOIDANCE](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_OBSTACLE_AVOIDANCE) and be streaming a [HEARTBEAT](https://mavlink.io/en/messages/common.html#HEARTBEAT) with [HEARTBEAT.system_status=MAV_STATE_ACTIVE](https://mavlink.io/en/messages/common.htmlMAV_STATE_ACTIVE) in order to arm while obstacle avoidance is enabled (otherwise the vehicle will fail the prearm check: `Avoidance system not ready`).
+:::
+
 - [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) і [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) надсилають місцеве положення транспортного засобу та висоту відповідно.
 
 Планування маршруту увімкнено на PX4 у автоматичних режимах (посадка, зльот, утримання, місія, повернення), якщо [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID). У цих режимах від планувального програмного забезпечення очікується надання установок PX4; якщо програмне забезпечення не може підтримувати певний режим польоту, воно повинно дублювати установки з транспортного засобу.
