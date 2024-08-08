@@ -111,9 +111,9 @@ The [User Guide](https://docs.holybro.com/radio/remote-id) explains how you can 
 
 ## PX4 Configuration
 
-### Port Configuration
+### MAVLink Port Configuration
 
-Remote ID hardware is configured in the same way as any other [MAVLink Peripheral](../peripherals/mavlink_peripherals.md).
+Remote ID hardware connected to a serial port is configured in the same way as any other [MAVLink Peripheral](../peripherals/mavlink_peripherals.md).
 
 Assuming you have connected the device to the `TELEM2` port, [set the parameters](../advanced_config/parameters.md) as shown:
 
