@@ -1,5 +1,7 @@
 # Remote ID (Open Drone ID)
 
+<Badge type="tip" text="PX4 v1.14" /><Badge type="warning" text="Experimental" />
+
 :::warning Experimental
 Remote ID support is experimental.
 :::
@@ -8,26 +10,28 @@ Remote ID is a government mandated technology for UAVs in Japan, the United Stat
 The specification requires that UAVs broadcast data such as: real-time location/altitude, serial number, operator ID/location, status, etc.
 
 PX4 works with Remote ID modules that target the FAA [standard Remote ID rules](https://www.faa.gov/uas/getting_started/remote_id).
-These are designed to be integrated into the vehicle, and broadcast Open Drone ID messages using id, position, and other information that is supplied by an autopilot.
+These are designed to be integrated into the vehicle, and broadcast Open Drone ID messages (Open Drone ID is an open source implementation of Remote ID) using id, position, and other information that is supplied by an autopilot.
 The "standard rules" modules enable less restrictive operation than "broadcast rules" modules, which are standalone modules with an integrated GPS that do not have any communication with the autopilot.
 
 ## Supported Hardware
 
-PX4 integrates with Remote ID hardware that supports the [Open Drone ID](https://mavlink.io/en/services/opendroneid.html) MAVLink protocol (Open Drone ID is an open source implementation of Remote ID).
+::: warning
+PX4 only works with DroneCAN Remote IDs on `main` branch builds.
+:::
+
+PX4 integrates with Remote ID hardware that supports:
+
+- [Open Drone ID](https://mavlink.io/en/services/opendroneid.html) MAVLink protocol<Badge type="tip" text="PX4 v1.14" />
+- Remote ID over CAN<Badge type="tip" text="PX4 main (v1.16)" />
 
 It has been tested with the following devices:
 
 - [Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) (CubePilot)
-- [Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark)
+- [Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - note, only tested via serial port.
 - [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - less expensive variant without CAN port.
 - [Holybro RemoteID Module](https://holybro.com/products/remote-id) (Holybro)
 
-::: info
-
-- Other devices that support the MAVLink API should work (but have not been tested).
-- PX4 does not support Remote ID over CAN in PX4 v1.14 or v1.15 (only main branch for now).
-
-:::
+Other devices that support the Open Drone ID protocol and DroneCAN should also work (but have not been tested).
 
 ## Hardware Setup
 
@@ -36,14 +40,15 @@ Most commonly they are connected directly to the `TELEM2` port (if it is not bei
 
 ### Cube ID
 
-[Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) can be connected using its serial port or CAN (only main branch for now).
-It comes with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` ports on most recent Pixhawk flight controllers.
+[Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) can be connected using a serial or CAN port.
+
+It comes with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` serial ports on most recent Pixhawk flight controllers.
+
+#### Cube ID Serial Port
 
 If using a different port, or a flight controller that has different connector, you may need to modify the cable.
 The pinout of the serial port is shown below.
 The TX and RX on the flight controller must be connected to the RX and TX on the Remote ID, respectively.
-
-#### Cube ID Serial Port
 
 ![Cube ID serial port](../../assets/hardware/remote_id/cube_id/serial_port_connector.jpg)
 
@@ -58,12 +63,12 @@ The TX and RX on the flight controller must be connected to the RX and TX on the
 
 ![Cube ID CAN port](../../assets/hardware/remote_id/cube_id/can_connector.png)
 
-| Pin     | Signal   | Volt |
-| ------- | -------- | ---- |
-| 1 (red) | VCC_5V   | 5V   |
-| 2 (red) | CAN_H    |      |
-| 3 (blk) | CAN_L    |      |
-| 4 (blk) | GND      | 0    |
+| Pin     | Signal | Volt |
+| ------- | ------ | ---- |
+| 1 (red) | VCC_5V | 5V   |
+| 2 (red) | CAN_H  |      |
+| 3 (blk) | CAN_L  |      |
+| 4 (blk) | GND    | 0    |
 
 #### Cube ID Firmware
 
@@ -73,7 +78,13 @@ For firmware update instructions see [Cube ID > Updating](https://docs.cubepilot
 
 ### BlueMark Db201/Db202mav
 
-[Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) or [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) can be connected using their serial port (DroneCAN is not tested at this point).
+[Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) or [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) can be connected using their serial port.
+
+::: info
+The `Db201` also has a CAN port that should work on PX4 `main` builds.
+However this has not yet been tested.
+:::
+
 They come with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` ports on most recent Pixhawk flight controllers.
 
 If using a different serial port (i.e. with fewer pins), or a flight controller that has different connector, you may need to modify the cable.
@@ -82,19 +93,19 @@ Information on the port pinout can be found in the [User Guide](https://download
 The beacons come preinstalled with recent [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) firmware.
 The [User Guide](https://download.bluemark.io/db200.pdf) explains how you can update firmware via the web interface, if needed.
 
-More general setup, including how to mount the beacon, is also covered in the [User Guide](https://download.bluemark.io/db200.pdf)
+More general setup, including how to mount the beacon, is also covered in the [User Guide](https://download.bluemark.io/db200.pdf).
 
 ### Holybro Remote ID Module
 
-The [Holybro Remote ID Module](https://holybro.com/products/remote-id) can be connected using the serial port or DroneCan (only main branch).
+The [Holybro Remote ID Module](https://holybro.com/products/remote-id) can be connected using a serial or CAN port.
+
 It comes with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` ports on most recent Pixhawk flight controllers such as the Pixhawk 6C/6X or Cube Orange.
 
 The module comes preinstalled with recent [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) firmware.
+
 The [User Guide](https://docs.holybro.com/radio/remote-id) explains how you can config and update firmware via the web interface, if needed.
 
 #### Holybro Pinouts
-
-Note that CAN port is only supported in PX4 main, not PX4 v1.14 or v1.15 yet.
 
 ![Holybro Remote ID Pinouts](../../assets/peripherals/remoteid_holybro/holybro_remote_id_pinout.jpg)
 
