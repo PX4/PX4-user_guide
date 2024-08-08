@@ -25,7 +25,7 @@ PX4 supports rovers with:
 - **Ackermann steering**: direction is controlled by pointing wheels in the direction of travel ([ackermann geometry](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) compensates for the fact that wheels on the inside and outside of the turn move at different rates).
   This kind of steering is used on most commercial vehicles, including cars, trucks etc.
 
-The supported frames can be seen in [Airframes Reference > Rover](<../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle_(deprecated)>): these are the frames like _Generic Ground Vehicle (Deprecated)_ that include "(Deprecated)" in their name.
+The supported frames can be seen in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover): these are the frames like _Generic Ground Vehicle (Deprecated)_ that include "(Deprecated)" in their name.
 
 ## How to Configure a Rover
 

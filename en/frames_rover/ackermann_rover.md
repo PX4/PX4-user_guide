@@ -104,7 +104,7 @@ This can be useful especially if the [corner slow down effect](#corner-slow-down
 #### Corner cutting
 
 The module employs a special cornering logic causing the rover to "cut corners" to achieve a smooth trajectory.
-This is done by scaling the acceptance radius based on the corner the rover has to drive (for geometric explanation see [Cornering logic](#extra-cornering-logic)).
+This is done by scaling the acceptance radius based on the corner the rover has to drive (for geometric explanation see [Cornering logic](#mission-cornering-logic-info-only)).
 
 ![Cornering Logic](../../assets/airframes/rover/rover_ackermann/cornering_comparison.png)
 
