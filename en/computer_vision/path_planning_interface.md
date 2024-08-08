@@ -1,13 +1,20 @@
 # Path Planning Interface
 
-PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including obstacle avoidance in missions, [safe landing](../computer_vision/safe_landing.md), and future services):
+PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including [obstacle avoidance in missions](../computer_vision/obstacle_avoidance.md#mission-mode-avoidance), [safe landing](../computer_vision/safe_landing.md), and future services):
 
 - There are two [MAVLink Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) interfaces:
+
   - [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS): Used by PX4 to send the _desired path_.
     May be used by path planning software to send PX4 a stream of setpoints for the _planned path_.
   - [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) may (alternatively) be used by path planning software to send PX4 the _planned path_ as a bezier curve.
     The curve indicates the (moving) position setpoint of the vehicle over a given time period.
+
 - The [HEARTBEAT/Connection Protocol](https://mavlink.io/en/services/heartbeat.html) is used for "proof of life" detection.
+
+  ::: info
+  The companion computer must have a component id of [MAV_COMP_ID_OBSTACLE_AVOIDANCE](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_OBSTACLE_AVOIDANCE) and be streaming a [HEARTBEAT](https://mavlink.io/en/messages/common.html#HEARTBEAT) with [HEARTBEAT.system_status=MAV_STATE_ACTIVE](https://mavlink.io/en/messages/common.htmlMAV_STATE_ACTIVE) in order to arm while obstacle avoidance is enabled (otherwise the vehicle will fail the prearm check: `Avoidance system not ready`).
+  :::
+
 - [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) and [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) send the vehicle local position and altitude, respectively.
 
 Path planning is enabled on PX4 in automatic modes (landing, takeoff, hold, mission, return) if [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID).
