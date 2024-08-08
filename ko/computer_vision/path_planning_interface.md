@@ -1,11 +1,17 @@
 # 경로 계획 인터페이스
 
-PX4는 보조 컴퓨터의 경로 계획 서비스 통합을 위하여 여러 가지 MAVLink 인터페이스를 사용합니다 (임무 수행 장애물 회피, [안전 착륙](../computer_vision/safe_landing.md) 및 향후 개발 서비스 포함).
+PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including [obstacle avoidance in missions](../computer_vision/obstacle_avoidance.md#mission-mode-avoidance), [safe landing](../computer_vision/safe_landing.md), and future services):
 
-- 두 개의 [MAVLink 경로 계획 프로토콜](https://mavlink.io/en/services/trajectory.html) 인터페이스가 있습니다.
+- There are two [MAVLink Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) interfaces:
+
   - [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) : PX4에서 *희망 경로* 전송에 사용됨. 경로계획 소프트웨어에서 *계획 경로*에 대한 설정점 스트림을 PX4에 전송할 수 있습니다.
   - [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER)는 (또는) 경로계획 소프트웨어에서 PX4에 *계획 경로*를 베지어 곡선으로 전송할 수 있습니다. 곡선은 주어진 기간 동안 기체의 (이동) 위치 설정치를 나타냅니다.
-- [HEARTBEAT/연결 프로토콜](https://mavlink.io/en/services/heartbeat.html)은 "작동중"임을 감지합니다.
+
+- The [HEARTBEAT/Connection Protocol](https://mavlink.io/en/services/heartbeat.html) is used for "proof of life" detection.
+
+  ::: info The companion computer must have a component id of [MAV_COMP_ID_OBSTACLE_AVOIDANCE](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_OBSTACLE_AVOIDANCE) and be streaming a [HEARTBEAT](https://mavlink.io/en/messages/common.html#HEARTBEAT) with [HEARTBEAT.system_status=MAV_STATE_ACTIVE](https://mavlink.io/en/messages/common.htmlMAV_STATE_ACTIVE) in order to arm while obstacle avoidance is enabled (otherwise the vehicle will fail the prearm check: `Avoidance system not ready`).
+:::
+
 - [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) 및 [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE)는 각각 기체의 로컬 위치와 고도를 전송합니다.
 
 [COM_OBS_AVOID = 1](../advanced_config/parameter_reference.md#COM_OBS_AVOID)인 경우 PX4에서 자동 모드 (착륙, 이륙, 보류, 임무, 복귀)에서 경로 계획이 활성화됩니다. 이러한 모드에서 경로 계획 소프트웨어는 PX4에 설정값을 제공할 것으로 예상됩니다. 소프트웨어가 특정 비행 모드를 지원할 수없는 경우 기체의 설정값을 미러링하여야 합니다.
