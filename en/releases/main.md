@@ -91,10 +91,10 @@ This release contains a major rework for the rover support in PX4:
   ([PX4-Autopilot#23024](https://github.com/PX4/PX4-Autopilot/pull/23024), [PX4-Autopilot#23310](https://github.com/PX4/PX4-Autopilot/pull/23383) and [PX4-Autopilot#23423](https://github.com/PX4/PX4-Autopilot/pull/23423)).
   - The module currently supports [manual mode](../flight_modes_rover/index.md#manual-mode), [mission mode](../flight_modes_rover/index.md#mission-mode), [return mode](../flight_modes_rover/index.md#return-mode) and adds a number of [Ackermann specific features](../frames_rover/ackermann_rover.md#tuning-advanced).
 - Restructure of the [rover airframe](../airframes/airframe_reference.md#rover) numbering convention ([PX4-Autopilot#23506](https://github.com/PX4/PX4-Autopilot/pull/23506)).  
-  This also introduces several new airframes:
-  - Generic Differential Rover [50000](../airframes/airframe_reference.md#rover_generic_rover_differential).
-  - Generic Ackermann Rover [51000](../airframes/airframe_reference.md#rover_generic_rover_ackermann).
-  - Axial SCX10 2 Trail Honcho [51001](../airframes/airframe_reference.md#rover_axial_scx10_2_trail_honcho) (Test vehicle for the Ackermann module).
+  This also introduces several [new rover airframes](../airframes/airframe_reference.md#rover):
+  - Generic Differential Rover `50000`.
+  - Generic Ackermann Rover `51000`.
+  - Axial SCX10 2 Trail Honcho `51001`.
 - Library for the [pure pursuit guidance algorithm](../flight_modes_rover/index.md#pure-pursuit-guidance-logic) that is shared among the rover modules ([PX4-Autopilot#23387](https://github.com/PX4/PX4-Autopilot/pull/23387) and [PX4-Autopilot#23438](https://github.com/PX4/PX4-Autopilot/pull/23438)).
 - [Simulation](../frames_rover/index.md#simulation) for differential-steering and Ackermann rovers in gazebo (for release notes see `r1_rover` and `rover_ackermann` in [simulation](#simulation)).
 - Deprecation of the [rover position control](../frames_rover/rover_position_control.md) module: Note that the legacy rover module still exists but has been superseded by the new dedicated modules.
