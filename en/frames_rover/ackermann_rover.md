@@ -161,3 +161,8 @@ $$
 | $\delta_{max}$ | Maximum steer angle                | m    |
 | $r_{acc}$      | Acceptance radius                  | m    |
 
+<!--
+## Parameters
+
+The following parameters affect the ackermann-steering rover:
+-->
