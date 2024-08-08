@@ -597,6 +597,8 @@
       - [RegisterExtComponentRequest](msg_docs/RegisterExtComponentRequest.md)
       - [RoverAckermannGuidanceStatus](msg_docs/RoverAckermannGuidanceStatus.md)
       - [RoverAckermannStatus](msg_docs/RoverAckermannStatus.md)
+      - [RoverDifferentialGuidanceStatus](msg_docs/RoverDifferentialGuidanceStatus.md)
+      - [RoverDifferentialStatus](msg_docs/RoverDifferentialStatus.md) 
       - [Rpm](msg_docs/Rpm.md)
       - [RtlStatus](msg_docs/RtlStatus.md)
       - [RtlTimeEstimate](msg_docs/RtlTimeEstimate.md)
