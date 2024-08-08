@@ -34,7 +34,7 @@ To start using the differential-steering rover:
 
 This is sufficient to drive the the rover in [manual mode](../flight_modes_rover/index.md#manual-mode) (see [Flight modes](../flight_modes_rover/index.md)).
 
-::: note
+::: info
 The parameter [RD_MAN_YAW_SCALE](../advanced_config/parameter_reference.md#RD_MAN_YAW_SCALE) can be used to scale the manual input for the yaw rate.
 :::
 
@@ -43,17 +43,25 @@ The parameter [RD_MAN_YAW_SCALE](../advanced_config/parameter_reference.md#RD_MA
 This section goes through the basic parameters that need to be set to use all other features for the differential-steering rover.
 Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
 
-1. [RD_WHEEL_TRACK](../advanced_config/parameter_reference.md#RD_WHEEL_TRACK) [m]: Measure the distance from the center of the right wheel to the center of the left wheel.  
+1. [RD_WHEEL_TRACK](../advanced_config/parameter_reference.md#RD_WHEEL_TRACK) [m]: Measure the distance from the center of the right wheel to the center of the left wheel.
+
    ![Wheel track](../../assets/airframes/rover/rover_differential/wheel_track.png)
+
 2. [RD_MAX_SPEED](../advanced_config/parameter_reference.md#RD_MAX_SPEED) [m/s]: In manual mode, drive the rover with full throttle and enter the observed speed as the parameter.
-3. [RD_MAX_YAW_RATE](../advanced_config/parameter_reference.md#RD_MAX_YAW_RATE) [deg/s]: This is the maximum yaw rate you want to allow for your rover. This will define the stick-to-yaw-rate mapping in acro mode aswell as setting an upper limit for the yaw rate in mission mode.
+3. [RD_MAX_YAW_RATE](../advanced_config/parameter_reference.md#RD_MAX_YAW_RATE) [deg/s]: This is the maximum yaw rate you want to allow for your rover.
+  This will define the stick-to-yaw-rate mapping in acro mode as well as setting an upper limit for the yaw rate in mission mode.
 4. [RD_YAW_RATE_P](../advanced_config/parameter_reference.md#RD_YAW_RATE_P) and [RD_YAW_RATE_I](../advanced_config/parameter_reference.md#RD_YAW_RATE_I) [-]: Tuning parameters for the closed-loop yaw rate controller.
 
    ::: info
-   This can be tuned by setting all previous parameters and then setting the rover to _acro mode_. Use the right stick to yaw the rover on the spot and then observe the desired and actual yaw rate in the flight log. Change parameters and iterate. Suggestion: Start the tuning process with [RD_YAW_RATE_I](../advanced_config/parameter_reference.md#RD_YAW_RATE_I) equal to zero and only set if necessary.
+   This can be tuned by setting all previous parameters and then setting the rover to _acro mode_.
+   Use the right stick to yaw the rover on the spot and then observe the desired and actual yaw rate in the flight log.
+   Change parameters and iterate.
+
+   Suggestion: Start the tuning process with [RD_YAW_RATE_I](../advanced_config/parameter_reference.md#RD_YAW_RATE_I) equal to zero and only set if necessary.
    :::
 
-This is enough to start using the rover in acro mode. To start driving mission the parameters in [Tuning (Mission)](#tuning-mission) also must be set.
+This is enough to start using the rover in acro mode.
+To start driving mission the parameters in [Tuning (Mission)](#tuning-mission) also must be set.
 
 ## Tuning (Mission)
 
@@ -66,30 +74,30 @@ The additional parameters are separated into the following sections:
 
 ### Mission Velocity
 
-| Parameter                                                     | Description                                                                                                                  | Unit                |
-| ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| [RD_MISS_SPD_DEF](#RD_MISS_SPD_DEF)                           | Sets the default velocity for the rover during the mission.                                                                  | $m/s$               |
-| [RD_MAX_ACCEL](#RD_MAX_ACCEL) and [RD_MAX_JERK](#RD_MAX_JERK) | These parameters are used to calculate a velocity trajectory s.t. the rover comes to a smooth stop as it reaches a waypoint. | $m/s^2$ and $m/s^3$ |
-| [RD_SPEED_P](#RD_SPEED_P) and [RD_SPEED_I](#RD_SPEED_I)       | Used to tune the closed-loop velocity controller during missions.                                                            | -                   |
+These parameters tune velocity control in missions:
 
-### Yaw rate
+- [RD_MISS_SPD_DEF](#RD_MISS_SPD_DEF): Sets the default velocity ($m/s$) for the rover during the mission.
+- [RD_MAX_ACCEL](#RD_MAX_ACCEL) ($m/s^2$) and [RD_MAX_JERK](#RD_MAX_JERK) ($m/s^3$) are used to calculate a velocity trajectory such that the rover comes to a smooth stop as it reaches a waypoint.
+- [RD_SPEED_P](#RD_SPEED_P) and [RD_SPEED_I](#RD_SPEED_I) are used to tune the closed-loop velocity controller during missions.
+
+### Yaw Rate
 
 The yaw rate setpoint is calculated by using the heading error calculated by the pure pursuit algorithm for a PID controller that can be tuned with [RD_HEADING_P](#RD_HEADING_P) and [RD_HEADING_I](#RD_HEADING_I).
 
-::: note
+::: info
 There is some degree of overlap between this tuning and the pure pursuit controller gain set in [Mission Mode](../flight_modes_rover/index.md#mission-mode) as they both have an influence on how aggressive the rover will steer.
 :::
 
-### State machine
+### State Machine
 
-The module employs the following state machine to make full use of a differential-steering rovers ability to turn on the spot:  
+The module employs the following state machine to make full use of a differential-steering rovers ability to turn on the spot:
 ![Differential state machine](../../assets/airframes/rover/rover_differential/differential_state_machine.png)
 
 These transition thresholds can be set with [RD_TRANS_DRV_TRN](#RD_TRANS_DRV_TRN) and [RD_TRANS_TRN_DRV](#RD_TRANS_TRN_DRV).
 
-### Summary
+### Parameters
 
-To summarize, the following parameters affect the rover in mission mode:
+The following parameters affect the differential-steering rover in mission mode (overview):
 
 | Parameter                                                                                                   | Description                                                    | Unit    |
 | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ------- |
