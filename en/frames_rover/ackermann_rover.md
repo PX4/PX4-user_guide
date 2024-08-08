@@ -28,7 +28,7 @@ To start using the ackermann rover:
    Select the **Apply and Restart** button.
 
    ::: info
-   If this airframe does not show up in the UI, it can alternatively be selected by setting the [SYS_AUTOSTART](../advanced_config/parameter_reference.md#SYS_AUTOSTART) parameter to `51000`.
+   If this airframe is not displayed and you have checked that you are using rover firmware (not the default), you can alternatively enable this frame by setting the [SYS_AUTOSTART](../advanced_config/parameter_reference.md#SYS_AUTOSTART) parameter to `51000`.
    :::
 
 3. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
@@ -135,7 +135,7 @@ The mission speed is constrained between a minimum allowed speed [RA_MISS_VEL_MI
 | <a id="RA_MISS_VEL_GAIN"></a>[RA_MISS_VEL_GAIN](../advanced_config/parameter_reference.md#RA_MISS_VEL_GAIN) | Tuning parameter for the velocity reduction          | -       |
 | <a id="RA_MAX_JERK"></a>[RA_MAX_JERK](../advanced_config/parameter_reference.md#RA_MAX_JERK)                | Limit for forwards acc/deceleration change.          | $m/s^3$ |
 
-## Extra: Cornering Logic
+### Mission Cornering Logic (Info only)
 
 To enable a smooth trajectory, the acceptance radius of waypoints is scaled based on the angle between a line segment from the current-to-previous and current-to-next waypoints.
 The ideal trajectory would be to arrive at the next line segment with the heading pointing towards the next waypoint.

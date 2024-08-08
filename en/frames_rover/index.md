@@ -20,7 +20,7 @@ The supported flight modes can be seen in [Flight modes](../flight_modes_rover/i
 
 ## Flashing the rover build
 
-Rovers use a custom build that must be flashed onto your FMU instead of the default PX4 build.
+Rovers use a custom build that must be flashed onto your flight controller instead of the default PX4 build:
 
 1. First build the rover firmware for your flight controller from the `main` branch (there is no release build, so you can't just select this build from QGroundControl).
 
@@ -39,8 +39,7 @@ Rovers use a custom build that must be flashed onto your FMU instead of the defa
    CONFIG_MODULES_ROVER_ACKERMANN=y
    ```
 
-   Note that adding the rover module may lead to flash overflow.
-   In that case you need to disable modules that you do not plan to use, such as those related to multicopter or fixed wing.
+   Note that adding the rover module may lead to flash overflow, in which case you will need to disable modules that you do not plan to use (such as those related to multicopter or fixed wing).
    :::
 
 2. Load the **custom firmware** that you just built onto your flight controller (see [Loading Firmware > Installing PX4 Main, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)).

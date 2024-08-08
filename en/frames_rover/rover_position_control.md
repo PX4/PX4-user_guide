@@ -2,15 +2,10 @@
 
 <LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
-:::warning
+::: warning
 This information applies to the original generic rover module that was derived from the fixed wing controller.
-It has been replaced with new modules for [Ackermann](../frames_rover/ackermann_rover.md) and [differential-steering](../frames_rover/differential_rover.md) rovers.
+It has been replaced with new modules for [Ackermann](../frames_rover/ackermann_rover.md) and [Differential-steering](../frames_rover/differential_rover.md) rovers.
 This module is no longer supported and will receive no updates.
-:::
-
-:::warning
-Support for rover is [experimental](../airframes/index.md#experimental-vehicles).
-Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
 :::
 
 PX4 supports rovers (Unmanned Ground Vehicles - UGVs) with [ackermann and differential](#rover-types) steering.
@@ -24,11 +19,13 @@ This section contains build logs/instructions for assembling as well as configur
 PX4 supports rovers with:
 
 - **Differential steering**: direction is controlled by moving the left- and right-side wheels at different speeds.
+
   This kind of steering commonly used on bulldozers, tanks, and other tracked vehicles.
+
 - **Ackermann steering**: direction is controlled by pointing wheels in the direction of travel ([ackermann geometry](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) compensates for the fact that wheels on the inside and outside of the turn move at different rates).
   This kind of steering is used on most commercial vehicles, including cars, trucks etc.
 
-The supported frames can be seen in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
+The supported frames can be seen in [Airframes Reference > Rover](<../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle_(deprecated)>): these are the frames like _Generic Ground Vehicle (Deprecated)_ that include "(Deprecated)" in their name.
 
 ## How to Configure a Rover
 
@@ -36,7 +33,7 @@ The supported frames can be seen in [Airframes Reference > Rover](../airframes/a
 
 Setting up a rover with Ackermann steering is straightforward:
 
-1. In the [Airframe](../config/airframe.md) configuration, select the _Generic Ground Vehicle_.
+1. In the [Airframe](../config/airframe.md) configuration, select the _Generic Ground Vehicle (Deprecated)_.
 
    ![Select Ackermann steered airframe](../../assets/config/airframe/airframe_rover_ackermann.png)
 
@@ -46,7 +43,7 @@ Setting up a rover with Ackermann steering is straightforward:
 
 ### Differential Steering Configuration
 
-1. In the [Airframe](../config/airframe.md) configuration, select either the _Aion Robotics R1 UGV_ or _NXP Cup car: DF Robot GPX_
+1. In the [Airframe](../config/airframe.md) configuration, select either the _Aion Robotics R1 UGV_ or _NXP Cup car: DF Robot GPX (Deprecated)_
 
    ![Select Differential steered airframe](../../assets/config/airframe/airframe_rover_aion.png)
 
@@ -61,17 +58,11 @@ Select the **Apply and Restart** button.
 - Ackermann: [ackermann rover](../sim_gazebo_classic/vehicles.md#ackermann-ugv)
 - Differential: [r1 rover](../sim_gazebo_classic/vehicles.md#differential-ugv)
 
-## Videos
-
-This video shows the [Traxxas Stampede Rover](#traxxas-stampede-vxl) (an Ackermann vehicle).
-
-<lite-youtube videoid="N3HvSKS3nCw" title="Traxxas Stampede VXL Autonomous navigation with Pixhawk Mini"/>
-
-# Flight Modes (Rover)
+## Drive Modes (Rover)
 
 Flight modes (or more accurately "Drive modes" for ground vehicles) provide autopilot support to make it easier to manually drive the vehicle, to execute autonomous missions, or to defer control to an external system.
 
-PX4 ground vehicles only support [manual mode](#manual-mode), [mission mode](#mission-mode) and [offboard mode](#offboard-mode) (other modes may be offered in a ground station, but these all behave just like manual mode).
+PX4 ground vehicles using the deprecated rover position control module only support [manual mode](#manual-mode), [mission mode](#mission-mode) and [offboard mode](#offboard-mode) (other modes may be offered in a ground station, but these all behave just like manual mode).
 
 ### Manual Mode
 
@@ -86,7 +77,7 @@ There is no active braking, so the vehicle may continue to move until its moment
 
 ### Mission Mode
 
-[Mission mode](../flight_modes/mission.md) is an automatic mode that causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) plan that has been uploaded to the flight controller.
+_Mission mode_ is an automatic mode that causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) plan that has been uploaded to the flight controller.
 The mission is typically created and uploaded with a Ground Control Station (GCS) application, such as [QGroundControl](https://docs.qgroundcontrol.com/master/en/).
 
 ### Offboard Mode
@@ -105,7 +96,7 @@ This mode is intended for vehicle control from companion computers and ground st
 - [Flight Modes (Fixed-wing)](../flight_modes_fw/index.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/index.md)
 
-# Traxxas Stampede VXL
+## Traxxas Stampede VXL
 
 This vehicle was chosen to understand how a Pixhawk could be used for wheeled platforms.
 We chose to use a Traxxas vehicle as they are very popular and it is a very strong brand in the RC community.
@@ -113,7 +104,7 @@ The idea was to develop a platform that allows for easy control of wheeled UGVs 
 
 ![Traxxas Stampede VXL](../../assets/airframes/rover/traxxas_stampede_vxl/stampede.jpg)
 
-## Parts List
+### Parts List
 
 - [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm) All of this is used except for the top plastic cover.
 - [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md)
@@ -123,7 +114,7 @@ The idea was to develop a platform that allows for easy control of wheeled UGVs 
 - [Spektrum Quad Race Serial Receiver w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
 - [PX4Flow](../sensor/px4flow.md) (Deprecated)
 
-## Assembly
+### Assembly
 
 The assembly consists of a wooden frame on which all the autopilot parts were attached.
 Tests showed that a better vibration insulation should be used, especially for the Pixhawk and the Flow module.
@@ -144,18 +135,18 @@ For this particular mounting we chose to use the clip supplied with the rover to
 For this, two supports were 3D printed.
 The CAD files are provided [here](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
 
-:::warning
+::: warning
 It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampede Manual), which reduces power to 50%.
 :::
 
-## Output Connections
+### Output Connections
 
 | PWM Output | Actuator             |
 | ---------- | -------------------- |
 | MAIN2      | Steering servo       |
 | MAIN4      | Throttle (ESC input) |
 
-## Configuration
+### Configuration
 
 Rovers are configured using _QGroundControl_ in the same way as any other vehicle.
 
@@ -168,7 +159,7 @@ The main rover-specific configuration is setting the correct frame:
 
 ![Select Airframe](../../assets/airframes/rover/traxxas_stampede_vxl/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
 
-## Usage
+### Usage
 
 At the current time, PX4 only supports Mission and Manual modes when a RC remote is connected.
 To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm.
