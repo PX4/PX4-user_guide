@@ -11,7 +11,7 @@ Update these notes with features that are going to be in `main` but not the PX4 
 
 ## Read Before Upgrading
 
-TBD ...
+TBD …
 
 Please continue reading for [upgrade instructions](#upgrade-guide).
 
@@ -69,7 +69,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### Multi-Rotor
 
-- TBD
+- Allow system-default [multicopter orbit mode](../flight_modes_mc/orbit.md) yaw behaviour to be configured, using the parameter [MC_ORBIT_YAW_MOD](../advanced_config/parameter_reference.md#MC_ORBIT_YAW_MOD) ([PX4-Autopilot#23358](https://github.com/PX4/PX4-Autopilot/pull/23358))
 
 ### VTOL
 
