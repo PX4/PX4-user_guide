@@ -24691,7 +24691,7 @@ Heading error threshhold to switch from driving to spot turning.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.001 | 180 | 0.01 | 0.174533 | rad 
+&nbsp; | 0.001 | 3.14159 | 0.01 | 0.174533 | rad 
 
 ### RD_TRANS_TRN_DRV (`FLOAT`) {#RD_TRANS_TRN_DRV}
 
@@ -24699,7 +24699,7 @@ Heading error threshhold to switch from spot turning to driving.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.001 | 180 | 0.01 | 0.0872665 | rad 
+&nbsp; | 0.001 | 3.14159 | 0.01 | 0.0872665 | rad 
 
 ### RD_WHEEL_TRACK (`FLOAT`) {#RD_WHEEL_TRACK}
 
