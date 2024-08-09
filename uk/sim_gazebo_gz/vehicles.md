@@ -4,7 +4,7 @@
 
 Моделі включені у PX4 як підмодуль який отримується з [Репозиторію моделей Gazebo](../sim_gazebo_gz/gazebo_models.md).
 
-Типи рухомих засобів що підтримуються: мультиротор, ВЗІП, літак.
+Supported vehicle types include: mutirotor, VTOL, Plane, Rover.
 
 :::warning
 Дивіться [Рухомі засоби Gazebo Classic](../sim_gazebo_classic/vehicles.md) для засобів, що працюють зі старішою [Симуляцією Gazebo "Classic"](../sim_gazebo_classic/index.md). Зверніть увагу, що моделі засобів не взаємозамінні між двома версіями симулятору: засоби на цій сторінці будуть працювати тільки з (новим) [Gazebo](../sim_gazebo_gz/index.md).
@@ -101,3 +101,20 @@ make px4_sitl gz_standard_vtol
 ```
 
 ![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
+
+## Rover
+
+## Differential Rover
+
+```sh
+make px4_sitl gz_r1_rover
+```
+![Differential Rover in Gazebo](../../assets/simulation/gazebo/vehicles/rover_differential.png)
+
+## Ackermann Rover
+
+```sh
+make px4_sitl gz_rover_ackermann
+```
+
+![Ackermann Rover in Gazebo](../../assets/simulation/gazebo/vehicles/rover_ackermann.png)
