@@ -33,9 +33,7 @@ _Safe Landing_ - функція комп'ютерного зору що забе
 
 Інформація про конфігурацію, включаючи й інші речі, як налаштувати safe landing для різних камер, розмірів транспортного засобу та висоти, на якій рішення про посадку буде приймається або ні.
 
-<a id="interface"></a>
-
-## Інтерфейс Safe Landing
+## Safe Landing Interface {#interface}
 
 PX4 використовує [Path Planning Interface](../computer_vision/path_planning_interface.md) для інтеграції сервісів планування шляху з комп'ютера-компаньйона(включаючи [Obstacle Avoidance у місіях](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), та майбутні сервіси).
 

@@ -45,6 +45,7 @@
 | <a id="FW_TKO_AIRSPD"></a>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD)       | Швидкість зльоту (встановлюється на [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN), якщо оператор не визначив) |
 | <a id="FW_TKO_PITCH_MIN"></a>[FW_TKO_PITCH_MIN](../advanced_config/parameter_reference.md#FW_TKO_PITCH_MIN) | Це мінімальний кут нахилу заданий під час фази зльоту                                                                                      |
 | <a id="FW_T_CLMB_MAX"></a>[FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)       | Максимальний кут підйому.                                                                                                                  |
+| <a id="FW_FLAPS_TO_SCL"></a>[FW_FLAPS_TO_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_TO_SCL)   | Налаштування закрилок під час зльоту                                                                                                       |
 
 :::info
 Транспортний засіб завжди дотримується нормальних максимальних/мінальних налаштувань дросельної заслінки FW під час зльоту ([FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN), [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX)).
@@ -110,7 +111,6 @@ _Детектор запуску_ піддається впливу наступ
 | <a id="FW_WING_SPAN"></a>[FW_WING_SPAN](../advanced_config/parameter_reference.md#FW_WING_SPAN)         | Розмах крила транспортного засобу. Використовується для запобігання ударів крилом.                                                       |
 | <a id="FW_WING_HEIGHT"></a>[FW_WING_HEIGHT](../advanced_config/parameter_reference.md#FW_WING_HEIGHT)     | Висота крил над землею (дорожній просвіт). Використовується для запобігання ударів крилом.                                               |
 | <a id="RWTO_NPFG_PERIOD"></a>[RWTO_NPFG_PERIOD](../advanced_config/parameter_reference.md#RWTO_NPFG_PERIOD) | Час L1 під час керування на злітній смузі. Збільшення для менш агресивної відповіді на помилки курсу.                                    |
-| <a id="FW_FLAPS_TO_SCL"></a>[FW_FLAPS_TO_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_TO_SCL)   | Налаштування закрилок під час зльоту                                                                                                     |
 
 ## Дивись також
 

@@ -33,9 +33,7 @@ This covers the common setup for obstacle avoidance and collision prevention, an
 
 配置信息除了其他外，还包括使用不同的相机怎样设置安全着陆，无人机大小和决定是否降落的高度。
 
-<a id="interface"></a>
-
-## 安全着陆接口
+## Safe Landing Interface {#interface}
 
 PX4 使用 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) 集成机载计算机中的路径规划服务（包括 [任务中自主避障](../computer_vision/obstacle_avoidance.md#mission_mode)，[安全着陆](../computer_vision/safe_landing.md)以及更多的服务）。
 

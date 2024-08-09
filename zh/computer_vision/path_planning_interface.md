@@ -1,17 +1,23 @@
 # 路径规划接口
 
-PX4 使用数个 MAVLink 接口来整合机载计算机的路径规划服务（包括在执行航线任务时避障，[安全着陆](../computer_vision/safe_landing.md)和未来的一些服务）：
+PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including [obstacle avoidance in missions](../computer_vision/obstacle_avoidance.md#mission-mode-avoidance), [safe landing](../computer_vision/safe_landing.md), and future services):
 
-- 有两个 [MAVLink 路径规划协议](https://mavlink.io/en/services/trajectory.html) 接口：
+- There are two [MAVLink Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) interfaces:
+
   - [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS): Used by PX4 to send the _desired path_. May be used by path planning software to send PX4 a stream of setpoints for the _planned path_.
   - [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) may (alternatively) be used by path planning software to send PX4 the _planned path_ as a bezier curve. 曲线表示给定时间段内机体（移动的）位置设定值。
-- [HEARTBEAT（心跳包）/连接协议](https://mavlink.io/en/services/heartbeat.html) 用于检测“生命证明”。
+
+- The [HEARTBEAT/Connection Protocol](https://mavlink.io/en/services/heartbeat.html) is used for "proof of life" detection.
+
+  ::: info The companion computer must have a component id of [MAV_COMP_ID_OBSTACLE_AVOIDANCE](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_OBSTACLE_AVOIDANCE) and be streaming a [HEARTBEAT](https://mavlink.io/en/messages/common.html#HEARTBEAT) with [HEARTBEAT.system_status=MAV_STATE_ACTIVE](https://mavlink.io/en/messages/common.htmlMAV_STATE_ACTIVE) in order to arm while obstacle avoidance is enabled (otherwise the vehicle will fail the prearm check: `Avoidance system not ready`). 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
+
 - [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) 和 [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) 分别用来发送机体本地位置和高度。
 
 如果 [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID)，那么 PX4 的路径规划功能会在自动化模式 （着陆Landing、起飞Takeoff、保持Hold、任务Mission、返回Return）下启用 。 在这些模式中，路径规划软件将为 PX4 提供预设航点；如果软件无法支持特定的飞行模式，则必须将设定值从机体上向下一个位置镜像。
 
 :::tip
-The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in [PX4/PX4-Avoidance > Message Flows](https://github.com/PX4/PX4-Avoidance#message-flows). 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
+The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in [PX4/PX4-Avoidance > Message Flows](https://github.com/PX4/PX4-Avoidance#message-flows).
+:::
 
 所有使用此接口的服务均发送并且接收相同类型/格式的消息。 Developers can therefore use this interface to create their own new companion-side path planning services or tweak the existing planner software.
 
@@ -30,9 +36,7 @@ Companion-side hardware setup and hardware/software configuration is provided in
 实际需要的设置/配置取决于所用的规划器。
 
 :::warning
-Only one planner can run on the companion computer at a time (at the time of writing).
-This means that offboard features that use different planners cannot be enabled on the same vehicle at the same time (e.g., a vehicle can support obstacle avoidance and collision prevention, but not also safe landing - or vice versa).
-:::
+Only one planner can run on the companion computer at a time (at the time of writing). This means that offboard features that use different planners cannot be enabled on the same vehicle at the same time (e.g., a vehicle can support obstacle avoidance and collision prevention, but not also safe landing - or vice versa). 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
 
 <a id="waypoint_interface"></a>
 
@@ -45,7 +49,8 @@ PX4 sends information about the _desired path_ to the companion computer (when `
 Path planner software sends back setpoints for the _planned path_ using either `TRAJECTORY_REPRESENTATION_WAYPOINTS` (see [Companion Waypoint Interface](#companion_waypoint_interface)) or [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) (see [Companion Bezier Trajectory Interface](#bezier_interface)). 不同之处在于，前者航点参数只是指定下一个设定的目标航点，而贝塞尔轨迹则描述精确的车辆运动（即随时间变化的设定点）。
 
 :::warning
-路由规划软件在执行任务时不应混用这些接口（PX4 将使用最近收到的任意类型的消息）。 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
+路由规划软件在执行任务时不应混用这些接口（PX4 将使用最近收到的任意类型的消息）。
+:::
 
 <a id="px4_waypoint_interface"></a>
 
@@ -102,8 +107,7 @@ PX4 中各字段定义如下：
 - When external path planning is enabled:
   - if the `HEARTBEAT` is lost PX4 will emit a status message (which is displayed in _QGroundControl_) stating either "Avoidance system lost" or "Avoidance system timeout" (depending on the vehicle state). 这项提醒与当前的飞行模式无关。
   - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes_mc/hold.md). ::: info A planner must always provide points in this timeframe.
-  - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
-:::
+  - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount). 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
   - If the execution time of the last-supplied Bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes_mc/hold.md)).
 
 <a id="companion_waypoint_interface"></a>
@@ -138,7 +142,8 @@ The path planning software (running on the companion computer) _may_ send the pl
 
 消息定义了无人机应遵循的路径（由控制点定义），从消息 `时间戳` 开始，在时间 `delta` 后到达终点。 PX4 使用消息发送时间、当前时间和贝塞尔曲线的总时间（delta）计算其新的轨迹设定点（沿曲线趋势来预测的当前位置/速度/加速度）。
 
-::: info For example, say the message was sent 0.1 seconds ago, and `delta` (curve duration) is 0.3s. PX4 可以在曲线中以 0.1 秒间隔的精度计算其轨迹设定点。 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
+::: info For example, say the message was sent 0.1 seconds ago, and `delta` (curve duration) is 0.3s. PX4 可以在曲线中以 0.1 秒间隔的精度计算其轨迹设定点。
+:::
 
 更详细地讲，`TRAJECTORY_REPRESENTATION_BEZIER` 被解析为：
 

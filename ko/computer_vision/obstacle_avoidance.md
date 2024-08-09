@@ -55,6 +55,8 @@ If PX4 stops receiving setpoint updates for more than half a second it will swit
 
 장애물 회피는 [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID)를 1로 [설정](../advanced_config/parameters.md)하여 PX4 내에서 활성화됩니다.
 
+Note that PX4 also requires that the companion computer meets the requirements of the [Path Planning Interface](../computer_vision/path_planning_interface.md). For example, the vehicle will fail the prearm check `Avoidance system not ready` if the companion computer isn't broadcasting a MAVLink `HEARTBEAT` with [HEARTBEAT.system_status=MAV_STATE_ACTIVE](https://mavlink.io/en/messages/common.htmlMAV_STATE_ACTIVE).
+
 :::note
 `COM_OBS_AVOID`는 [안전 착륙](../computer_vision/safe_landing.md) 및 PX4 [경로 계획 오프 보드 인터페이스](../computer_vision/path_planning_interface.md) (추적 인터페이스)를 사용하는 기타 기능을 활성화하여 외부 경로 계획 서비스를 PX4와 통합합니다.
 :::

@@ -1,4 +1,4 @@
-# Rovers (UGVs)
+# Rovers
 
 <LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
@@ -7,34 +7,48 @@ Support for rover is [experimental](../airframes/index.md#experimental-vehicles)
 Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
 :::
 
-PX4 supports rovers (Unmanned Ground Vehicles - UGVs) with [ackermann and differential](#rover-types) steering.
+![Rovers](../../assets/airframes/rover/rovers.png)
 
-This section contains links to infomrmation abou thte different types of rovers, along with build logs/instructions for assembling a number of UGV frames.
+PX4 supports the following rover types:
 
-![Traxxas Rover Picture](../../assets/airframes/rover/traxxas_stampede_vxl/final_side.jpg)
-
-## Rover Types
-
-PX4 supports rovers with:
-
-- [**Differential steering**](../frames_rover/differential_rover_v1.md): direction is controlled by moving the left- and right-side wheels at different speeds.
-  This kind of steering commonly used on bulldozers, tanks, and other tracked vehicles.
-- **Ackermann steering**: direction is controlled by pointing wheels in the direction of travel.
+- [**Differential steering**](../frames_rover/differential_rover.md): direction is controlled by moving the left- and right-side wheels at different speeds (also know as skid or tank steering).
+  This kind of steering is commonly used on bulldozers, tanks, and other tracked vehicles.
+- [**Ackermann steering**](../frames_rover/ackermann_rover.md): direction is controlled by pointing wheels in the direction of travel.
   This kind of steering is used on most commercial vehicles, including cars, trucks etc.
 
-  There are two Ackermann modules:
+The supported flight modes can be seen in [Flight modes](../flight_modes_rover/index.md#) and the supported frames in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
 
-  - [**Ackermann steering (v2)**](../frames_rover/ackermann_rover_v2.md) - Dedicated ackermann module, added after PX4 v1.15.
-  - [**Ackermann steering (v1)**](../frames_rover/ackermann_rover_v1.md) - Generic UGV module ackermann implementation.
+## Flashing the rover build
 
-  ::: info
-  This "v1" module shares the same code as the differential steering module, which was derived from the fixed wing controller.
-  The "v2" module has been written specifically for Ackermann Rovers, and performs better for many use cases.
-  However it is still in development and you will need to build the firmware yourself.
-  :::
+Rovers use a custom build that must be flashed onto your flight controller instead of the default PX4 build:
 
-## Videos
+1. First build the rover firmware for your flight controller from the `main` branch (there is no release build, so you can't just select this build from QGroundControl).
 
-This video shows the [Traxxas Stampede Rover](../frames_rover/traxxas_stampede.md) (an Ackermann vehicle).
+   To build for rover with the `make` command, replace the `_default` suffix with `_rover`.
+   For example, to build rover for px4_fmu-v6x boards, you would use the command:
 
-<lite-youtube videoid="N3HvSKS3nCw" title="Traxxas Stampede VXL Autonomous navigation with Pixhawk Mini"/>
+   ```sh
+   make px4_fmu-v6x_rover
+   ```
+
+   ::: info
+   You can also enable the modules in default builds by adding the respective line to your [board configuration](../hardware/porting_guide_config.md) (e.g. for fmu-v6x you might add one of these lines to [`main/boards/px4/fmu-v6x/default.px4board`](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v6x/default.px4board)):
+
+   ```sh
+   CONFIG_MODULES_ROVER_DIFFERENTIAL=y
+   CONFIG_MODULES_ROVER_ACKERMANN=y
+   ```
+
+   Note that adding the rover module may lead to flash overflow, in which case you will need to disable modules that you do not plan to use (such as those related to multicopter or fixed wing).
+   :::
+
+2. Load the **custom firmware** that you just built onto your flight controller (see [Loading Firmware > Installing PX4 Main, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)).
+
+## Simulation
+
+[Gazebo](../sim_gazebo_gz/index.md) provides simulations for both types of steering:
+
+- [Differential-steering rover](../sim_gazebo_gz/vehicles.md#differential-rover)
+- [Ackermann rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)
+
+![Rover gazebo simulation](../../assets/airframes/rover/rover_simulation.png)

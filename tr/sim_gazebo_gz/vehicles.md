@@ -4,7 +4,7 @@ This topic lists/displays the vehicles supported by the PX4 [Gazebo](../sim_gaze
 
 The models are included in PX4 as a submodule that is fetched from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md).
 
-Supported vehicle types include: mutirotor, VTOL, Plane.
+Supported vehicle types include: mutirotor, VTOL, Plane, Rover.
 
 :::warning
 See [Gazebo Classic Vehicles](../sim_gazebo_classic/vehicles.md) for vehicles that work with the older [Gazebo "Classic" simulation](../sim_gazebo_classic/index.md). Note that vehicle models are not interchangable between the two versions of the simulator: the vehicles on this page only work with (new) [Gazebo](../sim_gazebo_gz/index.md).
@@ -101,3 +101,20 @@ make px4_sitl gz_standard_vtol
 ```
 
 ![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
+
+## Rover
+
+## Differential Rover
+
+```sh
+make px4_sitl gz_r1_rover
+```
+![Differential Rover in Gazebo](../../assets/simulation/gazebo/vehicles/rover_differential.png)
+
+## Ackermann Rover
+
+```sh
+make px4_sitl gz_rover_ackermann
+```
+
+![Ackermann Rover in Gazebo](../../assets/simulation/gazebo/vehicles/rover_ackermann.png)
