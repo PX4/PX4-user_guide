@@ -424,6 +424,7 @@
     - [Gazebo Simulation](sim_gazebo_gz/index.md)
       - [Vehicles](sim_gazebo_gz/vehicles.md)
         - [Advanced Lift Drag Tool](sim_gazebo_gz/tools_avl_automation.md)
+      - [Worlds](sim_gazebo_gz/worlds.md)
       - [Gazebo Models Repository](sim_gazebo_gz/gazebo_models.md)
       - [Multi-Vehicle Sim](sim_gazebo_gz/multi_vehicle_simulation.md)
     - [Gazebo Classic Simulation](sim_gazebo_classic/index.md)
