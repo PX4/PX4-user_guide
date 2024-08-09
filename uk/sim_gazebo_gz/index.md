@@ -6,7 +6,7 @@ Gazebo раніше була відома як "Gazebo Ignition" (тоді як 
 
 [Gazebo](https://gazebosim.org/home) - це робототехнічний симулятор з відкритим кодом. Він замінює старий симулятор [Gazebo Classic](../sim_gazebo_classic/README.md) та є єдиною версією Gazebo, що підтримується для Ubuntu 22.04 і далі.
 
-**Засоби що підтримуються:** Квадрокоптер, Літак, ВЗІП
+**Supported Vehicles:** Quadrotor, Plane, VTOL, Rover
 
 <lite-youtube videoid="eRzdGD2vgkU" title="PX4 SITL Ignition Gazebo Tunnel Environment"/>
 
@@ -40,15 +40,17 @@ make px4_sitl gz_x500
 
 Рухомі засоби, що підтримуються, а також команди `make` перелічені нижче. Зверніть увагу, що усі цілі збірки make для gazebo мають префікс `gz_`.
 
-| Рухомий засіб                                                                                                   | Команда                           | `PX4_SYS_AUTOSTART` |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------- |
-| [Квадрокоптер (x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                              | `make px4_sitl gz_x500`           | 4001                |
-| [Квадрокоптер (x500) з камерою глибини](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera)          | `make px4_sitl gz_x500_depth`     | 4002                |
-| [Квадрокоптер (x500) з візуальною одометрією](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`    | 4005                |
-| [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)                      | `make px4_sitl gz_x500_lidar`     | 4013                |
-| [ВЗІП](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                              | `make px4_sitl gz_standard_vtol`  | 4004                |
-| [Літак](../sim_gazebo_gz/vehicles.md#standard-plane)                                                            | `make px4_sitl gz_rc_cessna`      | 4003                |
-| [Покращений літак](../sim_gazebo_gz/vehicles.md#advanced-plane)                                                 | `make px4_sitl gz_advanced_plane` | 4008                |
+| Рухомий засіб                                                                                                   | Команда                            | `PX4_SYS_AUTOSTART` |
+| --------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------- |
+| [Квадрокоптер (x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                              | `make px4_sitl gz_x500`            | 4001                |
+| [Квадрокоптер (x500) з камерою глибини](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera)          | `make px4_sitl gz_x500_depth`      | 4002                |
+| [Квадрокоптер (x500) з візуальною одометрією](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`     | 4005                |
+| [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)                      | `make px4_sitl gz_x500_lidar`      | 4013                |
+| [ВЗІП](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                              | `make px4_sitl gz_standard_vtol`   | 4004                |
+| [Літак](../sim_gazebo_gz/vehicles.md#standard-plane)                                                            | `make px4_sitl gz_rc_cessna`       | 4003                |
+| [Покращений літак](../sim_gazebo_gz/vehicles.md#advanced-plane)                                                 | `make px4_sitl gz_advanced_plane`  | 4008                |
+| [Differential Rover](../sim_gazebo_gz/vehicles.md#differential-rover)                                           | `make px4_sitl gz_r1_rover`        | 4009                |
+| [Ackermann Rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)                                                 | `make px4_sitl gz_rover_ackermann` | 4012                |
 
 Усі [моделі засобів](../sim_gazebo_gz/vehicles.md) (та [світів](#specify-world)) включені як підмодуль з репозиторію [Моделі Gazebo](../sim_gazebo_gz/gazebo_models.md).
 
