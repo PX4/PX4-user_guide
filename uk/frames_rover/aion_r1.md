@@ -2,7 +2,7 @@
 
 <Badge type="tip" text="PX4 v1.15" />
 
-Транспортний засіб [Aion R1](https://www.aionrobotics.com/) був обраний для тестування та покращення підтримки диференційного приводу для PX4, а також для покращення підтримки водія для контролерів двигуна Roboclaw, таких як [RoboClaw 2x15A](https://www.basicmicro.com/RoboClaw-2x15A-Motor-Controller_p_10.html).
+The [Aion R1](https://www.aionrobotics.com/) vehicle was chosen to test and improve the differential drive support for PX4, and to improve driver support for Roboclaw Motor Controllers, such as the [RoboClaw 2x15A](https://www.basicmicro.com/RoboClaw-2x15A-Motor-Controller_p_10.html).
 
 Документація та інформація про драйвери тут також повинна полегшити роботу з контролерами Roboclaw на інших транспортних засобах, а також з транспортними засобами, такими як [Aion R6](https://www.aionrobotics.com/r6).
 
