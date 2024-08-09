@@ -47,7 +47,10 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 ### Simulation
 
 - [SIH]: The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7. ([PX4-Autopilot#23363](https://github.com/PX4/PX4-Autopilot/pull/23363)).
-- [Gazebo]: New vehicle model `x500_lidar` — [x500 Quadrotor with 2D Lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar). ([PX4-Autopilot#22418](https://github.com/PX4/PX4-Autopilot/pull/22418), [PX4-gazebo-models#41](https://github.com/PX4/PX4-gazebo-models/pull/41)).
+- [Gazebo]:
+  - New vehicle model `x500_lidar` — [x500 Quadrotor with 2D Lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar). ([PX4-Autopilot#22418](https://github.com/PX4/PX4-Autopilot/pull/22418), [PX4-gazebo-models#41](https://github.com/PX4/PX4-gazebo-models/pull/41)).
+  - New vehicle model `r1_rover` — [Aion Robotics R1 Rover](../sim_gazebo_gz/vehicles.md#differential-rover) ([PX4-Autopilot#22402](https://github.com/PX4/PX4-Autopilot/pull/22402) and [PX4-gazebo-models#21](https://github.com/PX4/PX4-gazebo-models/pull/21)).
+  - New vehicle model `rover_ackermann` — [Ackermann Rover](../sim_gazebo_gz/vehicles.md#ackermann-rover) ([PX4-Autopilot#23383](https://github.com/PX4/PX4-Autopilot/pull/23383) and [PX4-gazebo-models#46](https://github.com/PX4/PX4-gazebo-models/pull/46)).
 
 ### Ethernet
 
@@ -75,13 +78,22 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### Rover
 
-- [New module for ackermann rovers](../frames_rover/ackermann_rover_v2.md) ([PX4-Autopilot#23024](https://github.com/PX4/PX4-Autopilot/pull/23024), [PX4-Autopilot#23310](https://github.com/PX4/PX4-Autopilot/pull/23383) and [PX4-Autopilot#23310](https://github.com/PX4/PX4-Autopilot/pull/23383)).
-  - This introduces a new module dedicated to ackermann rovers which is part of the USV overhaul (including differential rovers, boats, ... ).
-  - The module currently supports [manual mode](../frames_rover/ackermann_rover_v2.md#manual-mode), [mission mode](../frames_rover/ackermann_rover_v2.md#mission-mode), [return mode](../frames_rover/ackermann_rover_v2.md#return-mode) and adds a number of [ackermann specific features](../frames_rover/ackermann_rover_v2.md#tuning-advanced).
-  - Adds two new airframes:
-    - Hardware: Generic Ackermann Rover ([50010](../airframes/airframe_reference.md#rover_rover_generic_ackermann_rover)).
-    - SITL: Ackermann Rover (4012).
-  - Note that the legacy Ackermann support is still present but has been superseded by this module.
+This release contains a major rework for the rover support in PX4:
+
+- Complete restructure of the [rover related documentation](../frames_rover/index.md).
+- New firmware build specifically for [rovers](../frames_rover/index.md#flashing-the-rover-build) ([PX4-Autopilot#22675](https://github.com/PX4/PX4-Autopilot/pull/22675)).
+- New module dedicated to [differential-steering rovers](../frames_rover/differential_rover.md) ([PX4-Autopilot#22402](https://github.com/PX4/PX4-Autopilot/pull/22402) and [PX4-Autopilot#23430](https://github.com/PX4/PX4-Autopilot/pull/23430))
+  - The module currently supports [manual mode](../flight_modes_rover/index.md#manual-mode), [acro mode](../flight_modes_rover/index.md#acro-mode), [mission mode](../flight_modes_rover/index.md#mission-mode), [return mode](../flight_modes_rover/index.md#return-mode) and implements a [guidance state machine](../frames_rover/differential_rover.md#state-machine) to fully leverage the power of differential-steering.
+- New module dedicated to [Ackermann rovers](../frames_rover/ackermann_rover.md) ([PX4-Autopilot#23024](https://github.com/PX4/PX4-Autopilot/pull/23024), [PX4-Autopilot#23310](https://github.com/PX4/PX4-Autopilot/pull/23383) and [PX4-Autopilot#23423](https://github.com/PX4/PX4-Autopilot/pull/23423)).
+  - The module currently supports [manual mode](../flight_modes_rover/index.md#manual-mode), [mission mode](../flight_modes_rover/index.md#mission-mode), [return mode](../flight_modes_rover/index.md#return-mode) and adds a number of [Ackermann specific features](../frames_rover/ackermann_rover.md#tuning-advanced).
+- Restructure of the [rover airframe](../airframes/airframe_reference.md#rover) numbering convention ([PX4-Autopilot#23506](https://github.com/PX4/PX4-Autopilot/pull/23506)).  
+  This also introduces several [new rover airframes](../airframes/airframe_reference.md#rover):
+  - Generic Differential Rover `50000`.
+  - Generic Ackermann Rover `51000`.
+  - Axial SCX10 2 Trail Honcho `51001`.
+- Library for the [pure pursuit guidance algorithm](../flight_modes_rover/index.md#pure-pursuit-guidance-logic) that is shared among the rover modules ([PX4-Autopilot#23387](https://github.com/PX4/PX4-Autopilot/pull/23387) and [PX4-Autopilot#23438](https://github.com/PX4/PX4-Autopilot/pull/23438)).
+- [Simulation](../frames_rover/index.md#simulation) for differential-steering and Ackermann rovers in gazebo (for release notes see `r1_rover` and `rover_ackermann` in [simulation](#simulation)).
+- Deprecation of the [rover position control](../frames_rover/rover_position_control.md) module: Note that the legacy rover module still exists but has been superseded by the new dedicated modules.
 
 ### ROS 2
 

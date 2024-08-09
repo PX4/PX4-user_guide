@@ -6,7 +6,7 @@ Gazebo 先前被称为“Gazebo Ignition”( _Gazebo Classic_ 先前被称为Gaz
 
 [Gazebo](https://gazebosim.org/home) 是一个开源机器人模拟器。 它取代了旧的 [Gazebo Classic](../sim_gazebo_classic/README.md) 模拟器，是Ubuntu 22.04 及以后唯一支持的 Gazebo 版本。
 
-**支持的载具：** Quadrotor、Plane、VTOL
+**Supported Vehicles:** Quadrotor, Plane, VTOL, Rover
 
 <lite-youtube videoid="eRzdGD2vgkU" title="PX4 SITL Ignition Gazebo Tunnel Environment"/>
 
@@ -40,15 +40,17 @@ This runs both the PX4 SITL instance and the Gazebo client.
 
 The supported vehicles and `make` commands are listed below. Note that all gazebo make targets have the prefix `gz_`.
 
-| Vehicle                                                                                                  | Command                           | `PX4_SYS_AUTOSTART` |
-| -------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------- |
-| [Quadrotor(x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                           | `make px4_sitl gz_x500`           | 4001                |
-| [Quadrotor(x500) with Depth Camera](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera)       | `make px4_sitl gz_x500_depth`     | 4002                |
-| [Quadrotor(x500) with Vision Odometry](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`    | 4005                |
-| [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)               | `make px4_sitl gz_x500_lidar`     | 4013                |
-| [VTOL](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                       | `make px4_sitl gz_standard_vtol`  | 4004                |
-| [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`      | 4003                |
-| [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                            | `make px4_sitl gz_advanced_plane` | 4008                |
+| Vehicle                                                                                                  | Command                            | `PX4_SYS_AUTOSTART` |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------- |
+| [Quadrotor(x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                           | `make px4_sitl gz_x500`            | 4001                |
+| [Quadrotor(x500) with Depth Camera](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera)       | `make px4_sitl gz_x500_depth`      | 4002                |
+| [Quadrotor(x500) with Vision Odometry](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`     | 4005                |
+| [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)               | `make px4_sitl gz_x500_lidar`      | 4013                |
+| [VTOL](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                       | `make px4_sitl gz_standard_vtol`   | 4004                |
+| [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`       | 4003                |
+| [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                            | `make px4_sitl gz_advanced_plane`  | 4008                |
+| [Differential Rover](../sim_gazebo_gz/vehicles.md#differential-rover)                                    | `make px4_sitl gz_r1_rover`        | 4009                |
+| [Ackermann Rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)                                          | `make px4_sitl gz_rover_ackermann` | 4012                |
 
 All [vehicle models](../sim_gazebo_gz/vehicles.md) (and [worlds](#specify-world)) are included as a submodule from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md) repository.
 
