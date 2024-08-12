@@ -48,7 +48,7 @@ Rovers use a custom build that must be flashed onto your flight controller inste
 
 [Gazebo](../sim_gazebo_gz/index.md) provides simulations for both types of steering:
 
-- [Differential-steering rover](../sim_gazebo_gz/vehicles.md#differential-rover)
+- [Differential rover](../sim_gazebo_gz/vehicles.md#differential-rover)
 - [Ackermann rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)
 
 ![Rover gazebo simulation](../../assets/airframes/rover/rover_simulation.png)

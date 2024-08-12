@@ -89,10 +89,10 @@ This release contains a major rework for the rover support in PX4:
 
 - Complete restructure of the [rover related documentation](../frames_rover/index.md).
 - New firmware build specifically for [rovers](../frames_rover/index.md#flashing-the-rover-build) ([PX4-Autopilot#22675](https://github.com/PX4/PX4-Autopilot/pull/22675)).
-- New module dedicated to [differential-steering rovers](../frames_rover/differential_rover.md) ([PX4-Autopilot#22402](https://github.com/PX4/PX4-Autopilot/pull/22402) and [PX4-Autopilot#23430](https://github.com/PX4/PX4-Autopilot/pull/23430))
+- New module dedicated to [differential-steering rovers](../frames_rover/differential_rover.md) ([PX4-Autopilot#22402](https://github.com/PX4/PX4-Autopilot/pull/22402), [PX4-Autopilot#23430](https://github.com/PX4/PX4-Autopilot/pull/23430) and [PX4-Autopilot#23629](https://github.com/PX4/PX4-Autopilot/pull/23629))
   - The module currently supports [manual mode](../flight_modes_rover/index.md#manual-mode), [acro mode](../flight_modes_rover/index.md#acro-mode), [mission mode](../flight_modes_rover/index.md#mission-mode), [return mode](../flight_modes_rover/index.md#return-mode) and implements a [guidance state machine](../frames_rover/differential_rover.md#state-machine) to fully leverage the power of differential-steering.
 - New module dedicated to [Ackermann rovers](../frames_rover/ackermann_rover.md)
-  ([PX4-Autopilot#23024](https://github.com/PX4/PX4-Autopilot/pull/23024), [PX4-Autopilot#23310](https://github.com/PX4/PX4-Autopilot/pull/23383) and [PX4-Autopilot#23423](https://github.com/PX4/PX4-Autopilot/pull/23423)).
+  ([PX4-Autopilot#23024](https://github.com/PX4/PX4-Autopilot/pull/23024), [PX4-Autopilot#23310](https://github.com/PX4/PX4-Autopilot/pull/23383), [PX4-Autopilot#23423](https://github.com/PX4/PX4-Autopilot/pull/23423) and [PX4-Autopilot#23572](https://github.com/PX4/PX4-Autopilot/pull/23572)).
   - The module currently supports [manual mode](../flight_modes_rover/index.md#manual-mode), [mission mode](../flight_modes_rover/index.md#mission-mode), [return mode](../flight_modes_rover/index.md#return-mode) and adds a number of [Ackermann specific features](../frames_rover/ackermann_rover.md#tuning-advanced).
 - Restructure of the [rover airframe](../airframes/airframe_reference.md#rover) numbering convention ([PX4-Autopilot#23506](https://github.com/PX4/PX4-Autopilot/pull/23506)).  
   This also introduces several [new rover airframes](../airframes/airframe_reference.md#rover):
