@@ -142,13 +142,17 @@ You can also specify the world using the `PX4_GZ_WORLD` environment variable:
 PX4_GZ_WORLD=windy make px4_sitl gz_x500
 ```
 
-The supported worlds are listed below.
+The [supported worlds](../sim_gazebo_gz/worlds.md) are listed below.
 
-| World      | Command                    | Description                        |
-| ---------- | -------------------------- | ---------------------------------- |
-| `default`  | `make px4_sitl *`          | Empty world (a grey plane)         |
-| `windy`    | `make px4_sitl *_windy`    | Empty world with wind enabled      |
-| `baylands` | `make px4_sitl *_baylands` | Baylands world surrounded by water |
+| World      | Command                    | Description                                                 |
+| ---------- | -------------------------- | ----------------------------------------------------------- |
+| `default`  | `make px4_sitl *`          | Empty world (a grey plane)                                  |
+| `aruco`    | `make px4_sitl *_aruco`    | Empty world with aruco marker for testing precision landing |
+| `baylands` | `make px4_sitl *_baylands` | Baylands world surrounded by water                          |
+| `lawn`     | `make px4_sitl *_lawn`     | Lawn world for testing rovers                               |
+| `rover`    | `make px4_sitl *_rover`    | Rover world (optimised/preferred)                           |
+| `walls`    | `make px4_sitl *_walls`    | Wall world for testing collision prevention                 |
+| `windy`    | `make px4_sitl *_windy`    | Empty world with wind enabled                               |
 
 :::warning
 Note that if no world is specified, PX4 will use the `default` world.
@@ -159,7 +163,7 @@ In other words, use `make px4_sitl gz_x500` instead of `make px4_sitl gz_x500_de
 ::: info
 Baylands throws the following error, which can be ignored:
 
-```
+```sh
 [Err] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created
 ```
 

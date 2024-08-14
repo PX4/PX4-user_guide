@@ -52,6 +52,16 @@ The camera cannot yet be used to stream video or for image capture in QGroundCon
 [PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) can be used to track the additional work needed to fully enable these use cases.
 :::
 
+### X500 Quadrotor with Downward-facing Monocular Camera
+
+This model has a simple monocular camera sensor attached facing down (there is no physical camera visualization on the model itself).
+
+This can be used with the [Aruco world](../sim_gazebo_gz/worlds.md#aruco) to test precision landing.
+
+```sh
+make px4_sitl x500_mono_cam_down
+```
+
 ### X500 Quadrotor with 2D LIDAR
 
 This model have a 2D LIDAR attached, modelled on the Hokuyo UTM-30LX.
@@ -108,14 +118,19 @@ make px4_sitl gz_standard_vtol
 
 ## Rover
 
-## Differential Rover
+### Differential Rover
+
+[Differential-steering Rover](../frames_rover/differential_rover.md) uses the [rover world](../sim_gazebo_gz/worlds.md#rover) by default.
 
 ```sh
 make px4_sitl gz_r1_rover
 ```
+
 ![Differential Rover in Gazebo](../../assets/simulation/gazebo/vehicles/rover_differential.png)
 
-## Ackermann Rover
+### Ackermann Rover
+
+[Ackermann Rover](../frames_rover/ackermann_rover.md) uses the [rover world](../sim_gazebo_gz/worlds.md#rover) by default.
 
 ```sh
 make px4_sitl gz_rover_ackermann
