@@ -128,6 +128,8 @@ Note that this is not always published (e.g. when a user switches modes or on
 failsafe activation)
 - [MountOrientation](MountOrientation.md)
 - [NavigatorMissionItem](NavigatorMissionItem.md)
+- [NavigatorStatus](NavigatorStatus.md) — Current status of a Navigator mode
+The possible values of nav_state are defined in the VehicleStatus msg.
 - [NormalizedUnsignedSetpoint](NormalizedUnsignedSetpoint.md)
 - [NpfgStatus](NpfgStatus.md)
 - [ObstacleDistance](ObstacleDistance.md) — Obstacle distances in front of the sensor.
