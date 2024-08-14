@@ -18,7 +18,9 @@ This is used by default.
 
 ## Aruco
 
-TBD: What's it for? What vehicles should it be used with. Is it used by any vehicles by default?
+Aruco world is the default world with the addition of an [ArUco marker](https://docs.opencv.org/4.x/d5/dae/tutorial_aruco_detection.html).
+
+This is used in conjunction with the [x500_mono_cam_down](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-downward-facing-monocular-camera) airframe to test [precision landing](../advanced_features/precland.md).
 
 [PX4-gazebo-models/main/worlds/aruco.sdf](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/aruco.sdf)
 
@@ -30,11 +32,12 @@ Baylands world surrounded by water.
 
 [PX4-gazebo-models/main/worlds/bayland.sdf](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/baylands.sdf)
 
-![screenshot of Baylands world](../../assets/simulation/gazebo/worlds/baylands.png)
+![Screenshot of Baylands world](../../assets/simulation/gazebo/worlds/baylands.png)
 
 ## Lawn
 
-TBD: What's it for? What vehicles should it be used with. Is it used by any vehicles by default?
+Lawn is a flat green world that is a less-optimized alternative to [rover world](#rover).
+It is not recommended the low frame rate causes segmentation faults on some frames.
 
 [PX4-gazebo-models/main/worlds/lawn.sdf](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/lawn.sdf)
 
@@ -42,15 +45,23 @@ TBD: What's it for? What vehicles should it be used with. Is it used by any vehi
 
 ## Rover
 
-TBD: What's it for? What vehicles should it be used with. Is it used by any vehicles by default?
+Rover world is optimised for rovers (and will be further optimised for rovers) and is the default world for [Ackermann Rover (4012)](../frames_rover/ackermann_rover.md) (`make px4_sitl gz_rover_ackermann`) and [Differential-steering Rover ((r1-rover (4009))](../frames_rover/differential_rover.html) (`make px4_sitl gz_r1_rover`).
 
 [PX4-gazebo-models/main/worlds/rover.sdf](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/rover.sdf)
 
 ![screenshot of rover world](../../assets/simulation/gazebo/worlds/rover.png)
 
+::: info
+Rover world is very similar to [lawn world](#lawn), but with these tow main differences:
+
+- Grid on the ground which is useful as a reference while driving.
+- Higher update rate which solves segfault issues specifically with rovers with ackermann steering.
+
+:::
+
 ## Walls
 
-World for testing collision prevention.
+World with walls that is designed for testing [collision prevention](../computer_vision/collision_prevention.md).
 
 [PX4-gazebo-models/main/worlds/walls.sdf](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/walls.sdf)
 
@@ -62,8 +73,6 @@ World for testing collision prevention.
 
 [PX4-gazebo-models/main/worlds/walls.sdf](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/windy.sdf)
 
-![screenshot of windy world](../../assets/simulation/gazebo/worlds/windy.png)
-
 ## Model Specific Worlds {#model_specific_worlds}
 
 Some [vehicle models](../sim_gazebo_gz/vehicles.md) rely on the physics / plugins of a specific world.
@@ -71,10 +80,4 @@ The PX4 toolchain will automatically spawn a world that has the same name as the
 
 The model specific worlds are:
 
-<!--
-- [boat.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/boat.world): Includes a surface to simulate buoyancy of the [boat](../sim_gazebo_classic/vehicles.md#unmanned-surface-vehicle-usv-boat).
-- [uuv_hippocampus.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/uuv_hippocampus.world): An empty world used to simulate an underwater environment for the [HippoCampus UUV](../sim_gazebo_classic/vehicles.md#hippocampus-tuhh-uuv).
-- [typhoon_h480.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/typhoon_h480.world): Used by [Typhoon H480 (Hexrotor)](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor) vehicle model and includes a video widget to enable / disable video streaming.
-  The world includes a gazebo plugin for a simulated camera.
-- [iris_irlock.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/iris_irlock.world): Includes a IR beacon for testing [precision landing](../advanced_features/precland.md).
--->
+- [Aruco world](#aruco): Default world with an [ArUco marker](https://docs.opencv.org/4.x/d5/dae/tutorial_aruco_detection.html) that can be used with with [x500_mono_cam_down](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-downward-facing-monocular-camera) for testing [precision landing](../advanced_features/precland.md).
