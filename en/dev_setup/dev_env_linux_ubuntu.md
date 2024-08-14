@@ -12,6 +12,10 @@ The environment includes:
 The build toolchain for other flight controllers, simulators, and working with ROS are discussed in the [Other Targets](#other-targets) section below.
 :::
 
+::: tip
+You can manually install Gazebo on Ubuntu 20.04 or Gazebo Classic on Ubuntu 22.04 (say) by following the instructions in [Gazebo > Installation](../sim_gazebo_gz/index.md#installation-ubuntu-linux) and [Gazebo Classic > Installation](../sim_gazebo_classic/index.md#installation), respectively.
+:::
+
 ## Simulation and NuttX (Pixhawk) Targets
 
 Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) script to set up a development environment that allows you to build for simulators and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain.
@@ -49,9 +53,6 @@ These notes are provided "for information only":
 
 - This setup is supported by the PX4 Dev Team.
   The instructions may also work on other Debian Linux based systems.
-- The script installs [Gazebo](../sim_gazebo_gz/index.md) "Garden" on Ubuntu 22.04, [Gazebo Classic](../sim_gazebo_classic/index.md) 11 on Ubuntu 20.04, and Gazebo Classic 9 on Ubuntu 18.04.
-- If you want to use Gazebo on Ubuntu 20.04 you can add it manually.
-  See [Gazebo > Installation](../sim_gazebo_gz/index.md#installation-ubuntu-linux).
 - You can verify the NuttX installation by confirming the `gcc` version as shown:
 
   ```sh

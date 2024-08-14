@@ -28,15 +28,15 @@ See [Simulation](../simulation/index.md) for general information about simulator
 
 ## Installation
 
-Gazebo Classic 9 or 11 setup is included in our [standard build instructions](../dev_setup/dev_env.md) for Linux, macOS, and Windows.
-Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
-
 ::: info
 If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo Classic (and thereby avoid installation conflicts).
 :::
 
-::: info
-The following commands can be used to remove [Gazebo (Garden)](../sim_gazebo_gz/index.md) and reinstall Gazebo-Classic 11:
+Gazebo Classic setup is included in our [standard build instructions](../dev_setup/dev_env.md) for macOS, Ubuntu 18.04 and 20.04, and Windows on WSL2 for the same hosts.
+
+For Ubuntu 22.04 LTS and later, the installation script ([/Tools/setup/ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)) installs the [Gazebo](../sim_gazebo_gz/index.md) simulator instead.
+
+If you want to use Gazebo Classic on Ubuntu 22.04 you can use the following commands to remove [Gazebo (Garden)](../sim_gazebo_gz/index.md) and then reinstall Gazebo-Classic 11:
 
 ```sh
 sudo apt remove gz-garden
@@ -45,7 +45,12 @@ sudo aptitude install gazebo libgazebo11 libgazebo-dev
 ```
 
 Note that `aptitude` is needed because it can resolve dependency conflicts (by removing certain packages) that `apt` is unable to handle.
+
+::: tip
+You could also modify the installation script to install Gazebo Classic on later versions before it is run for the first time.
 :::
+
+Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
 
 ## Running the Simulation
 
@@ -65,13 +70,13 @@ The supported vehicles and `make` commands are listed below (click links to see 
 For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo-classic_`).
 :::
 
-| Vehicle                                                                                                                                   | Command                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Vehicle                                                                                                                            | Command                                                   |
+| ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
 | [Quadrotor](../sim_gazebo_classic/vehicles.md#quadrotor-default)                                                                   | `make px4_sitl gazebo-classic`                            |
 | [Quadrotor with Optical Flow](../sim_gazebo_classic/vehicles.md#quadrotor-with-optical-flow)                                       | `make px4_sitl gazebo-classic_iris_opt_flow`              |
 | [Quadrotor with Depth Camera](../sim_gazebo_classic/vehicles.md#quadrotor-with-depth-camera) (forward-facing)                      | `make px4_sitl gazebo-classic_iris_depth_camera`          |
 | [Quadrotor with Depth Camera](../sim_gazebo_classic/vehicles.md#quadrotor-with-depth-camera) (downward-facing)                     | `make px4_sitl gazebo-classic_iris_downward_depth_camera` |
-| [3DR Solo (Quadrotor)](../sim_gazebo_classic/vehicles.md#3dr-solo-quadrotor)                                                      | `make px4_sitl gazebo-classic_solo`                       |
+| [3DR Solo (Quadrotor)](../sim_gazebo_classic/vehicles.md#3dr-solo-quadrotor)                                                       | `make px4_sitl gazebo-classic_solo`                       |
 | <a id="typhoon_h480"></a>[Typhoon H480 (Hexrotor)](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor) (with video streaming) | `make px4_sitl gazebo-classic_typhoon_h480`               |
 | [Standard Plane](../sim_gazebo_classic/vehicles.md#standard-plane)                                                                 | `make px4_sitl gazebo-classic_plane`                      |
 | [Standard Plane (with catapult launch)](../sim_gazebo_classic/vehicles.md#standard-plane-with-catapult-launch)                     | `make px4_sitl gazebo-classic_plane_catapult`             |
@@ -79,7 +84,7 @@ For the full list of build targets run `make px4_sitl list_vmd_make_targets` (an
 | [Tailsitter VTOL](../sim_gazebo_classic/vehicles.md#tailsitter-vtol)                                                               | `make px4_sitl gazebo-classic_tailsitter`                 |
 | [Ackerman UGV (Rover)](../sim_gazebo_classic/vehicles.md#ackermann-ugv)                                                            | `make px4_sitl gazebo-classic_rover`                      |
 | [Differential UGV (Rover)](../sim_gazebo_classic/vehicles.md#differential-ugv)                                                     | `make px4_sitl gazebo-classic_r1_rover`                   |
-| [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../sim_gazebo_classic/vehicles.md#unmanned-underwater-vehicle-uuv-submarine)                                       | `make px4_sitl gazebo-classic_uuv_hippocampus`            |
+| [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../sim_gazebo_classic/vehicles.md#unmanned-underwater-vehicle-uuv-submarine) | `make px4_sitl gazebo-classic_uuv_hippocampus`            |
 | [Boat (USV: Unmanned Surface Vehicle)](../sim_gazebo_classic/vehicles.md#hippocampus-tuhh-uuv)                                     | `make px4_sitl gazebo-classic_boat`                       |
 | [Cloudship (Airship)](../sim_gazebo_classic/vehicles.md#airship)                                                                   | `make px4_sitl gazebo-classic_cloudship`                  |
 
