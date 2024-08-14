@@ -120,7 +120,7 @@ make px4_sitl gz_standard_vtol
 
 ### Differential Rover
 
-[Differential-steering Rover](../frames_rover/differential_rover.html) uses the [rover world](../sim_gazebo_gz/worlds.md#rover) by default.
+[Differential-steering Rover](../frames_rover/differential_rover.md) uses the [rover world](../sim_gazebo_gz/worlds.md#rover) by default.
 
 ```sh
 make px4_sitl gz_r1_rover

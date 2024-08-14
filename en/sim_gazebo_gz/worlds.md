@@ -45,7 +45,7 @@ It is not recommended the low frame rate causes segmentation faults on some fram
 
 ## Rover
 
-Rover world is optimised for rovers (and will be further optimised for rovers) and is the default world for [Ackermann Rover (4012)](../frames_rover/ackermann_rover.md) (`make px4_sitl gz_rover_ackermann`) and [Differential-steering Rover ((r1-rover (4009))](../frames_rover/differential_rover.html) (`make px4_sitl gz_r1_rover`).
+Rover world is optimised for rovers (and will be further optimised for rovers) and is the default world for [Ackermann Rover (4012)](../frames_rover/ackermann_rover.md) (`make px4_sitl gz_rover_ackermann`) and [Differential-steering Rover ((r1-rover (4009))](../frames_rover/differential_rover.md) (`make px4_sitl gz_r1_rover`).
 
 [PX4-gazebo-models/main/worlds/rover.sdf](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/rover.sdf)
 
