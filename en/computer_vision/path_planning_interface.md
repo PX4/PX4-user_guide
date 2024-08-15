@@ -5,13 +5,13 @@
 ::: warning
 The **Path Planning Interface**, along with the features **Obstacle avoidance in Missions** and **Safe Landing** are no longer supported or maintained, and _should not_ be used in any PX4 version.
 
-This interface has not been tested for several years as the corresponding companion side code has not been maintained.
-
-Support has been withdrawn make it clear that this feature may be inherently broken, and even if not, getting it to work will require significant effort.
+This code was abandoned due to architectural constraints of the implementation making it hard to maintain, extend, and adopt.
+Support has been withdrawn make it clear that this interface is untested.
 :::
 
 ::: tip
-If you're interested in these features, consider using the [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md) to create a pure-ROS solution.
+PX4 is now adopting more generic and scalable approaches for integrating these kinds of features.
+For example the [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md) allows complete replacement of PX4 flight modes with enhanced versions written using ROS 2.
 :::
 
 This interface allows PX4 to stream a proposed path to a companion computer, and receive back a stream of setpoints that more safely achieves the emitted path, or a mirror of the same stream if the path planning software does not support planning for the current PX4 mode.
