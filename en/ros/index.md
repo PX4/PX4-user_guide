@@ -3,7 +3,7 @@
 [ROS](http://www.ros.org/) is a general purpose robotics library that can be used with PX4 for drone application development.
 
 ROS benefits from an active ecosystem of developers solving common robotics problems, and access to other software libraries written for Linux.
-It has been used, for example, as part of the PX4 [computer vision](../computer_vision/index.md) solutions, including [obstacle avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).
+It has been used, for example, as part of the PX4 [computer vision](../computer_vision/index.md) solutions.
 
 :::warning tip
 [ROS 2](../ros2/index.md) is the "latest and greatest" version of ROS.
