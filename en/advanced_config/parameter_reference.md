@@ -20170,6 +20170,59 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | Disabled (0) |  
 
+## Magnetometer
+
+### BMM350_AVG (`INT32`) {#BMM350_AVG}
+
+BMM350 data averaging.
+
+Defines which averaging mode to use during data polling.
+
+**Values:**
+
+- `0`: No averaging
+- `1`: 2 sample averaging
+- `2`: 4 sample averaging
+- `3`: 8 sample averaging
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 1 |  
+
+### BMM350_DRIVE (`INT32`) {#BMM350_DRIVE}
+
+BMM350 pad drive strength setting.
+
+This setting helps avoid signal problems like overshoot or undershoot.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 7 |  | 7 |  
+
+### BMM350_ODR (`INT32`) {#BMM350_ODR}
+
+BMM350 ODR rate.
+
+Defines which ODR rate to use during data polling.
+
+**Values:**
+
+- `0`: 400 Hz
+- `1`: 200 Hz
+- `2`: 100 Hz
+- `3`: 50 Hz
+- `4`: 25 Hz
+- `5`: 12.5 Hz
+- `6`: 6.25 Hz
+- `7`: 3.125 Hz
+- `8`: 1.5625 Hz
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 3 |  
+
 ## Magnetometer Bias Estimator
 
 ### MBE_ENABLE (`INT32`) {#MBE_ENABLE}
