@@ -351,8 +351,6 @@
     - [Holybro Pixhawk RPI CM4 Baseboard](companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
     - [Auterion Skynode](companion_computer/auterion_skynode.md)
     - [Computer Vision](computer_vision/index.md)
-      - [Obstacle Avoidance](computer_vision/obstacle_avoidance.md)
-      - [Safe Landing](computer_vision/safe_landing.md)
       - [Collision Prevention](computer_vision/collision_prevention.md)
       - [Path Planning Interface](computer_vision/path_planning_interface.md)
       - [Motion Capture (MoCap)](computer_vision/motion_capture.md)

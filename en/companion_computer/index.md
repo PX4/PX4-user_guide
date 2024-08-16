@@ -1,6 +1,6 @@
 # Companion Computers
 
-Companion computers ("mission computers"), are separate on-vehicle computers that are connected to the flight controller, and which enable computationally expensive features like [object avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).
+Companion computers ("mission computers"), are separate on-vehicle computers that are connected to the flight controller, and which enable computationally expensive features like [collision prevention](../computer_vision/collision_prevention.md).
 
 The diagram below shows a possible architecture for an unmanned vehicle architecture that includes a flight controller and companion computer.
 
