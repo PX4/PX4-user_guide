@@ -21022,7 +21022,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Acceleration for autonomous and for manual modes.
 
-When piloting manually, this parameter is only used in MPC_POS_MODE 4.
+When piloting manually, this parameter is only used in MPC_POS_MODE Acceleration based.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -21077,7 +21077,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Maximum horizontal velocity for which position hold is enabled (use 0 to disable check).
 
-Only used with MPC_POS_MODE 0 or MPC_ALT_MODE 2
+Only used with MPC_POS_MODE Direct velocity or MPC_ALT_MODE 2
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -21107,7 +21107,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Maximum horizontal and vertical jerk in Position/Altitude mode.
 
-Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother motions but limits agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Only used with smooth MPC_POS_MODE 3 and 4.
+Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother motions but limits agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Only used with smooth MPC_POS_MODE Smoothed velocity and Acceleration based.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -21227,7 +21227,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Position/Altitude mode variant.
 
-The supported sub-modes are: 0 Sticks directly map to velocity setpoints without smoothing. Also applies to vertical direction and Altitude mode. Useful for velocity control tuning. 3 Sticks map to velocity but with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Sticks map to acceleration and there's a virtual brake drag
+The supported sub-modes are: - "Direct velocity": Sticks directly map to velocity setpoints without smoothing. Also applies to vertical direction and Altitude mode. Useful for velocity control tuning. - "Smoothed velocity": Sticks map to velocity but with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). - "Acceleration based": Sticks map to acceleration and there's a virtual brake drag
 
 **Values:**
 
