@@ -630,7 +630,7 @@ send_event <command> [arguments...]
 
    status        print status info
 ```
-## sensor_arispeed_sim
+## sensor_airspeed_sim
 Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)
 
 
@@ -638,10 +638,10 @@ Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Auto
 
 
 
-<a id="sensor_arispeed_sim_usage"></a>
+<a id="sensor_airspeed_sim_usage"></a>
 ### Usage
 ```
-sensor_arispeed_sim <command> [arguments...]
+sensor_airspeed_sim <command> [arguments...]
  Commands:
    start
 
