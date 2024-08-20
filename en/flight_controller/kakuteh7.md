@@ -128,7 +128,7 @@ In addition to the [basic configuration](../config/index.md), the following para
 
 ### UART2 to TELEM2 Workaround
 Since UART2 is used by Bluetooth telemetry (which doesn't work with PX4), there are no exposed solder pads on the board. 
-The workaround is as follows:
+The workaround is as follows, the two resistors marked with an X needs to be removed.
 
 <img src="../../assets/flight_controller/kakuteh7/kakuteh7_uart2.png" width="380px" title="Kakute h7" />
 
