@@ -74,9 +74,8 @@ This is the silkscreen for the _Kakute H7_, showing the top of the board:
 | M5 to M8 | Motor signal outputs (located in plug for use in 4-in-1 ESCs)     |                     |
 | Boot     | Bootloader button                                                 |                     |
 
-<a id="bootloader"></a>
 
-## PX4 Bootloader Update
+## PX4 Bootloader Update {#bootloader}
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki).
 Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed.
@@ -86,7 +85,7 @@ Download the [kakuteh7_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/as
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
-```
+```sh
 make holybro_kakuteh7_default
 ```
 
@@ -96,10 +95,10 @@ The firmware can be installed in any of the normal ways:
 
 - Build and upload the source
 
-  ```
+  ```sh
   make holybro_kakuteh7_default upload
   ```
-  
+
 - [Load the firmware](../config/firmware.md) using _QGroundControl_.
   You can use either pre-built firmware or your own custom firmware.
 
@@ -127,7 +126,8 @@ In addition to the [basic configuration](../config/index.md), the following para
 | UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
 
 ### UART2 to TELEM2 Workaround
-Since UART2 is used by Bluetooth telemetry (which doesn't work with PX4), there are no exposed solder pads on the board. 
+
+Since UART2 is used by Bluetooth telemetry (which doesn't work with PX4), there are no exposed solder pads on the board.
 The workaround is as follows, the two resistors marked with an X needs to be removed.
 
 <img src="../../assets/flight_controller/kakuteh7/kakuteh7_uart2.png" width="380px" title="Kakute h7" />
