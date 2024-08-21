@@ -3,7 +3,7 @@
 _Optical Flow_ uses a downward facing camera and a downward facing distance sensor for velocity estimation.
 It can be used to determine speed when navigating without GNSS — in buildings, underground, or in any other GNSS-denied environment.
 
-The video below shows PX4 holding position using the  [Ark Flow](#ark-flow) sensor for velocity estimation in [Position Mode](../flight_modes_mc/position.md):
+The video below shows PX4 holding position using the [Ark Flow](#ark-flow) sensor for velocity estimation in [Position Mode](../flight_modes_mc/position.md):
 
 <lite-youtube videoid="aPQKgUof3Pc" title="ARK Flow with PX4 Optical Flow Position Hold"/>
 
@@ -22,7 +22,7 @@ The sensor(s) can be connected via MAVLink, I2C or any other bus that supports t
 
 ::: info
 If connected to PX4 via MAVLink the Optical Flow camera sensor must publish the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) message, and the distance sensor must publish the [DISTANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) message.
-The information is written to the corresponding uORB topics: [DistanceSensor](../msg_docs/DistanceSensor.md) and [ObstacleDistance](../en/msg_docs/ObstacleDistance.md).
+The information is written to the corresponding uORB topics: [DistanceSensor](../msg_docs/DistanceSensor.md) and [ObstacleDistance](../msg_docs/ObstacleDistance.md).
 :::
 
 The output of the flow when moving in different directions must be as follows:
