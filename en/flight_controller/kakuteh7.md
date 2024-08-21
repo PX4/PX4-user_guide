@@ -125,10 +125,12 @@ In addition to the [basic configuration](../config/index.md), the following para
 | USART6 | /dev/ttyS4 | RC SBUS               |
 | UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
 
-### UART2 to TELEM2 Workaround
+### Using TELEM2 (USART2)
 
-Since UART2 is used by Bluetooth telemetry (which doesn't work with PX4), there are no exposed solder pads on the board.
-The workaround is as follows, the two resistors marked with an X needs to be removed.
+The `TELEM2` port (USART2) has no exposed solder pads as it is intended for use with Bluetooth telemetry (this does not work with PX4).
+
+You can expose the solder pads and use the port by removing the two resistors marked with an X.
+No other configuration should be required.
 
 <img src="../../assets/flight_controller/kakuteh7/kakuteh7_uart2.png" width="380px" title="Kakute h7" />
 
