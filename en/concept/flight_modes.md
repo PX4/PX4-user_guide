@@ -46,7 +46,7 @@ For example, experienced fliers can use modes that provide direct passthrough of
 
 - **Multirotors:**
 
-  - **MANUAL/STABILIZED** The pilot's inputs are passed as roll and pitch _angle_ commands and a yaw _rate_ command.
+  - **STABILIZED** (**MANUAL** also selects this mode): The pilot's inputs are passed as roll and pitch _angle_ commands and a yaw _rate_ command.
     Throttle is passed directly to control allocation.
     The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude.
     However, in this mode the position of the vehicle is not controlled by the autopilot, hence the position can drift due to wind.

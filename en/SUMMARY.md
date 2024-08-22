@@ -7,7 +7,7 @@
       - [Position Mode (MC)](flight_modes_mc/position.md)
       - [Position Slow Mode (MC)](flight_modes_mc/position_slow.md)
       - [Altitude Mode (MC)](flight_modes_mc/altitude.md)
-      - [Manual/Stabilized Mode (MC)](flight_modes_mc/manual_stabilized.md)
+      - [Stabilized Mode (MC)](flight_modes_mc/manual_stabilized.md)
       - [Acro Mode (MC)](flight_modes_mc/acro.md)
       - [Orbit Mode (MC)](flight_modes_mc/orbit.md)
       - [Takeoff Mode (MC)](flight_modes_mc/takeoff.md)

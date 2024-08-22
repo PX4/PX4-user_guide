@@ -91,14 +91,14 @@ The related parameters for the tuning of the PID rate controllers are:
 - Pitch rate control ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D), [MC_PITCHRATE_K](../advanced_config/parameter_reference.md#MC_PITCHRATE_K))
 - Yaw rate control ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D), [MC_YAWRATE_K](../advanced_config/parameter_reference.md#MC_YAWRATE_K))
 
-The rate controller can be tuned in [Acro mode](../flight_modes_mc/acro.md) or [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md):
+The rate controller can be tuned in [Acro mode](../flight_modes_mc/acro.md) or [Stabilized mode](../flight_modes_mc/manual_stabilized.md):
 
 - _Acro mode_ is preferred, but is harder to fly. If you choose this mode, disable all stick expo:
   - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0,
     `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
   - `MC_ACRO_Y_MAX` = 100
-- _Manual/Stabilized mode_ is simpler to fly, but it is also more difficult to see if the attitude or the rate controller needs more tuning.
+- _Stabilized mode_ is simpler to fly, but it is also more difficult to see if the attitude or the rate controller needs more tuning.
 
 If the vehicle does not fly at all:
 
@@ -185,7 +185,7 @@ This controls the orientation and outputs desired body rates with the following 
 The attitude controller is much easier to tune.
 In fact, most of the time the defaults do not need to be changed at all.
 
-To tune the attitude controller, fly in _Manual/Stabilized mode_ and increase the **P** gains gradually.
+To tune the attitude controller, fly in _Stabilized mode_ and increase the **P** gains gradually.
 If you start to see oscillations or overshoots, the gains are too high.
 
 The following parameters can also be adjusted. These determine the maximum rotation rates around all three axes:
