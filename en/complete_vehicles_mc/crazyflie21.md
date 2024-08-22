@@ -8,7 +8,7 @@ Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or com
 :::
 
 :::warning
-Crazyflie 2.1 is only able to fly in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md).
+Crazyflie 2.1 is only able to fly in [Stabilized mode](../flight_modes_mc/manual_stabilized.md).
 :::
 
 The Crazyflie line of micro quads was created by Bitcraze AB.

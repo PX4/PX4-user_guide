@@ -9,7 +9,7 @@ If moving in the horizontal plane the vehicle will continue until any momentum i
 If the wind blows the aircraft will drift in the direction of the wind.
 
 :::tip
-_Altitude mode_ is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) mode but additionally locks the vehicle altitude when the sticks are released.
+_Altitude mode_ is the safest non-GPS manual mode for new fliers. It is just like [Stabilized](../flight_modes_mc/manual_stabilized.md) mode but additionally locks the vehicle altitude when the sticks are released.
 :::
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
@@ -18,7 +18,7 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
 
 ## Technical Summary
 
-RC/manual mode like [Manual/Stabilized (MC)](../flight_modes_mc/manual_stabilized.md) mode but with _altitude stabilization_ (centered sticks level vehicle and hold it to fixed altitude).
+RC/manual mode like [Stabilized mode](../flight_modes_mc/manual_stabilized.md) but with _altitude stabilization_ (centred sticks level vehicle and hold it to fixed altitude).
 The horizontal position of the vehicle can move due to wind (or pre-existing momentum).
 
 - Centered sticks (inside deadband):

@@ -40,7 +40,7 @@ To make sure the vehicle is stable enough for auto-tuning:
 
 1. Perform a normal preflight safety checklist to ensure the flight zone is clear and has enough space.
 
-1. Take off and <div style="display: inline;" v-if="$frontmatter.frame === 'Multicopter'">hover at 1m above ground in [Altitude mode](../flight_modes_mc/altitude.md) or [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md)</div><div style="display: inline;" v-else-if="$frontmatter.frame === 'Plane'">fly at cruise speed in [Position mode](../flight_modes_fw/position.md) or [Altitude mode](../flight_modes_fw/altitude.md)</div>.
+1. Take off and <div style="display: inline;" v-if="$frontmatter.frame === 'Multicopter'">hover at 1m above ground in [Altitude mode](../flight_modes_mc/altitude.md) or [Stabilized mode](../flight_modes_mc/manual_stabilized.md)</div><div style="display: inline;" v-else-if="$frontmatter.frame === 'Plane'">fly at cruise speed in [Position mode](../flight_modes_fw/position.md) or [Altitude mode](../flight_modes_fw/altitude.md)</div>.
 
 1. Use the RC transmitter roll stick to perform the following maneuver, tilting the vehicle just a few degrees: _roll left > roll right > center_ (The whole maneuver should take about 3 seconds).
    The vehicle should stabilise itself within 2 oscillations.
