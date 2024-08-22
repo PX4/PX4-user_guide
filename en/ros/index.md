@@ -10,7 +10,6 @@ It has been used, for example, as part of the PX4 [computer vision](../computer_
 The PX4 development team recommend that all users [upgrade to ROS 2](../ros2/index.md)!
 :::
 
-
 ## ROS Setups
 
 PX4 supports both ROS 2 and ROS 1, with the following configurations:
@@ -18,7 +17,6 @@ PX4 supports both ROS 2 and ROS 1, with the following configurations:
 - **[ROS 2](../ros2/index.md): (Recommended)** PX4 and ROS 2 communicate over the [PX4-ROS 2 bridge](../ros2/user_guide.md), an interface that provides a direct bridge between PX4 uORB messages and ROS 2 DDS messages/types.
   This effectively allows direct access to PX4 internals from ROS 2 workflows and nodes in realtime.
 - **[ROS 1 via MAVROS](../ros/ros1.md):** PX4 and ROS 1 communicate over [MAVLink](../middleware/mavlink.md), using the [MAVROS](../ros/mavros_installation.md) package to bridge ROS topics to MAVLink.
-
 
 ROS 2 can be installed on Ubuntu Linux, macOS, Windows, while ROS 1 is only available on Linux.
 Although it might work on the other platforms, PX4 primarily tests and documents ROS on _Linux_.
@@ -30,6 +28,6 @@ This option is supported by the MAVROS project (not PX4).
 
 Unveiled at the [PX4 Developer Summit 2020](https://www.youtube.com/watch?v=lZ8crGI16qA) (and [ROS World 2020](https://www.youtube.com/watch?v=8XRkzHqQSf0)), the PX4 Development team, announced the plans to support microROS.
 
-* microRTPS: microRTPS bridge with Fast DDS (The ROS 2 interface in PX4 v1.13 and earlier)
-* micro XRCE-DDS: DDS on PX4 (The ROS 2 interface for PX4 v1.14 and later)
-* micro ROS: ROS 2 running in PX4 - "microROS" (Our Target!)
+- microRTPS: microRTPS bridge with Fast DDS (The ROS 2 interface in PX4 v1.13 and earlier)
+- micro XRCE-DDS: DDS on PX4 (The ROS 2 interface for PX4 v1.14 and later)
+- micro ROS: ROS 2 running in PX4 - "microROS" (Our Target!)
