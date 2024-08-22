@@ -340,7 +340,6 @@ Functions include:
 - `Parachute`: Output is parachute.
   The minimum value is sent in normal use and the maximum value is emitted when a failsafe is triggered.
 - `RC Roll`: Output is passthrough roll from RC ([RC_MAP_ROLL](../advanced_config/parameter_reference.md#RC_MAP_ROLL) maps an RC channel to this output).
-  An RC channel is mapped to the output using .
 - `RC Pitch`: Output is passthrough pitch from RC ([RC_MAP_PITCH](../advanced_config/parameter_reference.md#RC_MAP_PITCH) maps an RC channel to this output).
 - `RC Throttle`: Output is passthrough throttle from RC ([RC_MAP_THROTTLE](../advanced_config/parameter_reference.md#RC_MAP_THROTTLE) maps an RC channel to this output).
 - `RC Yaw`: Output is yaw from RC ([RC_MAP_YAW](../advanced_config/parameter_reference.md#RC_MAP_YAW) maps an RC channel to this output).
@@ -349,6 +348,8 @@ Functions include:
 - `Gimbal Roll`: Output controls gimbal roll.
 - `Gimbal Pitch`: Output controls Gimbal pitch.
 - `Gimbal Yaw`: Output controls Gimbal yaw.
+- `Gripper`<Badge type="tip" text="PX4 v1.14" />: Output controls gripper open/close.
+- `Landing_Gear_Wheel`<Badge type="tip" text="PX4 v1.14" />: Output controls deployment of landing gear wheel
 
 The following functions can only be applied to FMU outputs:
 
@@ -363,8 +364,8 @@ The following functions can only be applied to FMU outputs:
   Enabled when [`PPS_CAP_ENABLE==0`](../advanced_config/parameter_reference.md#PPS_CAP_ENABLE)
 
 ::: info
-This list is correct at PX4 v1.13.
 The functions are defined in source at [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
+This list is correct at PX4 v1.15.
 :::
 
 ## Actuator Testing
@@ -528,10 +529,15 @@ For each of the control surfaces:
 1. Set the `Disarmed` value so that the surfaces will stay at neutral position when disarmed.
    This is usually around `1500` for PWM servos.
 2. Move the slider for the surface upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-deflection-convention).
+
+   For example, an aileron would be expected to move up if the slider moves up, while a rudder would move right.
+
    - If the control surface moves in the opposite direction, click on the `Rev Range` checkbox to reverse the range.
+
 3. Move the slider again to the middle and check if the Control Surfaces are aligned in the neutral position of the wing
 
    - If it is not aligned, you can set the **Trim** value for the control surface.
+
      ::: info
      This is done in the `Trim` setting of the Geometry panel, usually by "trial and error".
      ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
@@ -539,10 +545,6 @@ For each of the control surfaces:
 
    - After setting the trim for a control surface, move its slider away from the center, release, and then back into disarmed (middle) position.
      Confirm that surface is in the neutral position.
-
-     ```
-
-     ```
 
 ::: info
 Another way to test without using the sliders would be to set the [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) parameter to `Always`:
