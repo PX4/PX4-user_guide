@@ -719,6 +719,7 @@
       - [Hardfault Debugging](debug/gdb_hardfault.md)
     - [Debugging with Eclipse](debug/eclipse_jlink.md)
     - [Failure Injection](debug/failure_injection.md)
+    - [Realtime Debugging](debug/realtime_debugging.md)
     - [Sensor/Topic Debugging](debug/sensor_uorb_topic_debugging.md)
     - [Simulation Debugging](debug/simulation_debugging.md)
     - [Sending Debug Values](debug/debug_values.md)
