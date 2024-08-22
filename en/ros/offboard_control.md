@@ -1,6 +1,6 @@
-# Offboard Control 
+# Offboard Control
 
-:::warning
+::: warning
 [Offboard control](../flight_modes/offboard.md) is dangerous.
 It is the responsibility of the developer to ensure adequate preparation, testing and safety precautions are taken before offboard flights.
 :::
@@ -14,7 +14,7 @@ There are two things you want to setup on the firmware side before starting offb
 
 ### Map an RC switch to offboard mode activation
 
-To do this, load up the parameters in *QGroundControl* and look for the RC_MAP_OFFB_SW parameter to which you can assign the RC channel you want to use to activate offboard mode.
+To do this, load up the parameters in _QGroundControl_ and look for the RC_MAP_OFFB_SW parameter to which you can assign the RC channel you want to use to activate offboard mode.
 It can be useful to map things in such a way that when you fall out of offboard mode you go into position control.
 
 Although this step isn't mandatory since you can activate offboard mode using a MAVLink message.
@@ -34,8 +34,9 @@ Usually, there are three ways of setting up offboard communication.
 2. One connected to a ground station computer
 
    Example radios include:
-   * [Lairdtech RM024](http://www.lairdtech.com/products/rm024)
-   * [Digi International XBee Pro](http://www.digi.com/products/xbee-rf-solutions/modules)
+
+   - [Lairdtech RM024](http://www.lairdtech.com/products/rm024)
+   - [Digi International XBee Pro](http://www.digi.com/products/xbee-rf-solutions/modules)
 
 [![Mermaid graph: mavlink channel](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGduZFtHcm91bmQgU3RhdGlvbl0gLS1NQVZMaW5rLS0-IHJhZDFbR3JvdW5kIFJhZGlvXTtcbiAgcmFkMSAtLVJhZGlvUHJvdG9jb2wtLT4gcmFkMltWZWhpY2xlIFJhZGlvXTtcbiAgcmFkMiAtLU1BVkxpbmstLT4gYVtBdXRvcGlsb3RdOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGduZFtHcm91bmQgU3RhdGlvbl0gLS1NQVZMaW5rLS0-IHJhZDFbR3JvdW5kIFJhZGlvXTtcbiAgcmFkMSAtLVJhZGlvUHJvdG9jb2wtLT4gcmFkMltWZWhpY2xlIFJhZGlvXTtcbiAgcmFkMiAtLU1BVkxpbmstLT4gYVtBdXRvcGlsb3RdOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
@@ -60,7 +61,7 @@ graph TD;
   uart --MAVLink-- > Autopilot;
 -->
 
-### On-board processor and wifi link to ROS (***Recommended***)
+### On-board processor and wifi link to ROS (**_Recommended_**)
 
 A small computer mounted onto the vehicle connected to the autopilot through a UART to USB adapter while also having a WiFi link to a ground station running ROS.
 This can be any of the computers from the above section coupled with a WiFi adapter.
