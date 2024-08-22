@@ -5,10 +5,10 @@ The following C++ example shows how to do position control in [offboard mode](..
 The example starts sending setpoints, enters offboard mode, arms, ascends to 5 metres, and waits.
 While simple, it shows the main principles of how to use offboard control and how to send vehicle commands.
 
-It has been tested on Ubuntu 20.04 with ROS 2 Foxy and PX4 `main` after PX4 v1.13.
+It has been tested on Ubuntu 20.04 with ROS 2 Foxy and PX4 v1.14.
 
 :::warning
-*Offboard* control is dangerous.
+_Offboard_ control is dangerous.
 If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
 :::
 
@@ -54,21 +54,25 @@ To build and run the example:
    :::: tabs
 
    ::: tab humble
+
    ```sh
    cd ..
    source /opt/ros/humble/setup.bash
    colcon build
    ```
+
    :::
-   
+
    ::: tab foxy
+
    ```sh
    cd ..
    source /opt/ros/foxy/setup.bash
    colcon build
    ```
+
    :::
-   
+
    ::::
 
 1. Source the `local_setup.bash`:
@@ -76,6 +80,7 @@ To build and run the example:
    ```sh
    source install/local_setup.bash
    ```
+
 1. Launch the example.
 
    ```
