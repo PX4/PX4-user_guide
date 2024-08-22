@@ -46,8 +46,7 @@ DFU не може бути перезаписано при прошивці і �
 
 ### dfu-util
 
-:::note
-Контролери польоту [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md) м та міні можуть вимагати виконання додаткової команди для стирання параметрів флеш-пам'яті (щоб виправити проблеми зі збереженням параметрів):
+::: info The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md), [Holybro Kakute H7](../flight_controller/kakuteh7.md) and [mini](../flight_controller/kakuteh7mini.md) flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
 
 ```
 dfu-util -a 0 --dfuse-address 0x08000000:force:mass-erase:leave -D build/<target>/<target>.bin
