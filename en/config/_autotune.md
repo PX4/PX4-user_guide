@@ -63,7 +63,7 @@ It takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning
 For best results, we recommend running the test in calm weather conditions.
 
 The recommended mode for autotuning is <div style="display: inline;" v-if="$frontmatter.frame === 'Multicopter'">[Altitude mode](../flight_modes_mc/altitude.md)</div><div  style="display: inline;" v-else-if="$frontmatter.frame === 'Plane'">[Hold mode](../flight_modes_fw/hold.md)</div>, but any other flight mode can be used.
-During auto tuning, the RC sticks can still be used to fly the vehicle.
+The RC sticks cannot be used during autotuning (moving the sticks will stop the autotune operation).
 
 The test steps are:
 
