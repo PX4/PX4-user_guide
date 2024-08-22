@@ -9,7 +9,7 @@ It can also be used to communicate with MAVLink components, such as cameras, gim
 MAVSDK libraries can be used onboard a drone on a companion computer, or on a ground station or mobile device, and can run on Linux, macOS, Windows, Android, and iOS.
 
 ::: info
-MAVSDK is easier to learn than [ROS 2](../ros2/index.html) and has a more stable API.
+MAVSDK is easier to learn than [ROS 2](../ros2/index.md) and has a more stable API.
 It is recommended for communicating from ground stations, for relatively low bandwidth command/control from a companion computer, and for integrating with onboard components that do not have high bandwidth requirements, such as cameras and gimbals.
 
 ROS is recommended for high-bandwidth onboard communication, to provide features such as obstacle avoidance that require higher rate messages and that can leverage existing ROS and computer vision libraries..

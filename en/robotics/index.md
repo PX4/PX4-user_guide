@@ -8,7 +8,7 @@ Under the the hood the APIs communicate with PX4 using [MAVLink](../middleware/m
 
 PX4 supports the following SDKs/Robotics tools:
 
-- [MAVSDK](robotics/mavsdk.md)
+- [MAVSDK](../robotics/mavsdk.md)
 - [ROS 2](../ros/index.md)
 - [ROS 1](../ros/index.md)
 
