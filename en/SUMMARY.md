@@ -361,6 +361,7 @@
     - [Pixhawk + Companion Setup](companion_computer/pixhawk_companion.md)
       - [RasPi Pixhawk Companion](companion_computer/pixhawk_rpi.md)
     - [Companion Computer Peripherals](companion_computer/companion_computer_peripherals.md)
+    - [Holybro Pixhawk Jetson Baseboard](companion_computer/holybro_pixhawk_jetson_baseboard.md)
     - [Holybro Pixhawk RPI CM4 Baseboard](companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
     - [Auterion Skynode](companion_computer/auterion_skynode.md)
     - [Computer Vision](computer_vision/index.md)
