@@ -26,7 +26,7 @@ Multiple sensors can be used to get information about, and prevent collisions wi
 If multiple sources supply data for the _same_ orientation, the system uses the data that reports the smallest distance to an object.
 :::
 
-The vehicle restricts the maximum velocity in order to slow down as it gets closer to obstacles, and will stop movement when it reaches the minimum allowed separation.
+The vehicle restricts the current velocity in order to slow down as it gets closer to obstacles and adapts the acceleration setpoint as to disallow collision trajectories.
 In order to move away from (or parallel to) an obstacle, the user must command the vehicle to move toward a setpoint that does not bring the vehicle closer to the obstacle.
 The algorithm will make minor adjustments to the setpoint direction if it is determined that a "better" setpoint exists within a fixed margin on either side of the requested setpoint.
 
@@ -46,7 +46,7 @@ Configure collision prevention by [setting the following parameters](../advanced
 | <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)                | Set the sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.                                                                                                                                                                                                   |
 | <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)    | Set the angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below.                                                                                                 |
 | <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to 1 to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).                                                                                                                                                                                   |
-| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | Set to `Direct velocity` or `Smoothed velocity` to enable Collision Prevention in Position Mode (default is `Acceleration based`).                                                                                                                                                                                                                   |
+| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | Set to `Acceleration based` (default), Implementation in  `Direct velocity` or `Smoothed velocity` has been removed.                                                                                                                                                                                                                   |
 
 ## Algorithm Description
 
@@ -57,13 +57,14 @@ If so, the vehicle velocity is restricted.
 This velocity restriction takes into account both the inner velocity loop tuned by [MPC_XY_P](../advanced_config/parameter_reference.md#MPC_XY_P), as well as the [jerk-optimal velocity controller](../config_mc/mc_jerk_limited_type_trajectory.md) via [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) and [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR).
 The velocity is restricted such that the vehicle will stop in time to maintain the distance specified in [CP_DIST](#CP_DIST).
 The range of the sensors for each sector is also taken into account, limiting the velocity via the same mechanism.
+the restricted velocity is then transformed into an acceleration with [MPC_XY_VEL_P_ACC](../advanced_config/parameter_reference.md#MPC_XY_VEL_P_ACC) 
 
 ::: info
 If there is no sensor data in a particular direction, velocity in that direction is restricted to 0 (preventing the vehicle from crashing into unseen objects).
 If you wish to move freely into directions without sensor coverage, this can be enabled by setting [CP_GO_NO_DATA](#CP_GO_NO_DATA) to 1.
 :::
 
-Delay, both in the vehicle tracking velocity setpoints and in receiving sensor data from external sources, is conservatively estimated via the [CP_DELAY](#CP_DELAY) parameter.
+The delay assoctiated with collision prevention, both in the vehicle tracking velocity setpoints and in receiving sensor data from external sources, is conservatively estimated via the [CP_DELAY](#CP_DELAY) parameter.
 This should be [tuned](#delay_tuning) to the specific vehicle.
 
 If the sectors adjacent to the commanded sectors are 'better' by a significant margin, the direction of the requested input can be modified by up to the angle specified in [CP_GUIDE_ANG](#CP_GUIDE_ANG).
@@ -177,7 +178,7 @@ Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DIST
 The system may work well at significantly higher speeds and lower frequency distance updates.
 :::
 
-The tested companion software is the _local_planner_ from the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo.
+The tested companion software is the _local_planner_ from the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo, which is not actively maintained anymore.
 For more information on hardware and software setup see: [PX4/PX4-Avoidance > Run on Hardware](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 <!-- hardware platform used for testing not readily available, so have removed -->
