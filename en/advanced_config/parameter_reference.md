@@ -11899,12 +11899,15 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### COM_ARM_WO_GPS (`INT32`) {#COM_ARM_WO_GPS}
 
-Allow arming without GPS.
+GPS preflight check.
+
+Measures taken when a check defined by EKF2_GPS_CHECK is failing.
 
 **Values:**
 
-- `0`: Require GPS lock to arm
-- `1`: Allow arming without GPS
+- `0`: Deny arming
+- `1`: Warning only
+- `2`: Disabled
 
 
 Reboot | minValue | maxValue | increment | default | unit
