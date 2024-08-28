@@ -14,7 +14,7 @@ There are two things you want to setup on the firmware side before starting offb
 
 ### Map an RC switch to offboard mode activation
 
-To do this, load up the parameters in _QGroundControl_ and look for the RC_MAP_OFFB_SW parameter to which you can assign the RC channel you want to use to activate offboard mode.
+In _QGroundControl_ you can set the [RC_MAP_OFFB_SW](../advanced_config/parameter_reference.md#RC_MAP_OFFB_SW) parameter to the RC channel that will be used to activate offboard mode.
 It can be useful to map things in such a way that when you fall out of offboard mode you go into position control.
 
 Although this step isn't mandatory since you can activate offboard mode using a MAVLink message.

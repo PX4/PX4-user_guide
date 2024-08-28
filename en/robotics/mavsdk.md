@@ -3,7 +3,7 @@
 [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) is a MAVLink SDK that allows you to communicate with MAVLink systems such as drones, cameras or ground systems.
 
 The SDK provides interface libraries for various programming languages, with a simple API for managing one or more vehicles.
-It provides providing programmatic access to vehicle information and telemetry, and control over missions, movement and other operations.
+It provides programmatic access to vehicle information and telemetry, and control over missions, movement and other operations.
 It can also be used to communicate with MAVLink components, such as cameras, gimbals, and other hardware.
 
 MAVSDK libraries can be used onboard a drone on a companion computer, or on a ground station or mobile device, and can run on Linux, macOS, Windows, Android, and iOS.

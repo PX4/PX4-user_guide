@@ -12,7 +12,7 @@ It significantly improves on ROS "1", and in particular allows a much deeper and
 ROS benefits from an active ecosystem of developers solving common robotics problems, and access to other software libraries written for Linux.
 It can be used, for example, for [computer vision](../computer_vision/index.md) solutions.
 
-ROS 2 enables a very deep integration with PX4, to the extent that you can create flight modes in the ROS2 that are indistinguisable from internal PX4 modes, and directly read from and write to internal uORB topics at high rate.
+ROS 2 enables a very deep integration with PX4, to the extent that you can create flight modes in ROS 2 that are indistinguisable from internal PX4 modes, and directly read from and write to internal uORB topics at high rate.
 It is recommended (in particular) for control and communication from a companion computer where low latency is important, when leveraging existing libraries from Linux, or when writing new high level flight modes.
 
 Communication between ROS 2 and PX4 uses middleware that implements the [XRCE-DDS protocol](../middleware/uxrce_dds.md).
