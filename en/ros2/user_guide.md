@@ -464,10 +464,10 @@ Use the following commands to install the correct ROS 2/gz interface packages (n
 :::: tabs
 
 ::: tab humble
-To install the bridge for use with ROS 2 "Humble" and Gazebo Garden (on Ubuntu 22.04):
+To install the bridge for use with ROS 2 "Humble" and Gazebo Harmonic (on Ubuntu 22.04):
 
 ```sh
-sudo apt install ros-humble-ros-gzgarden
+sudo apt install ros-humble-ros-gz
 ```
 
 :::
