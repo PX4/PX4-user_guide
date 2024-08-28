@@ -569,6 +569,7 @@
       - [ModeCompleted](msg_docs/ModeCompleted.md)
       - [MountOrientation](msg_docs/MountOrientation.md)
       - [NavigatorMissionItem](msg_docs/NavigatorMissionItem.md)
+      - [NavigatorStatus](msg_docs/NavigatorStatus.md)
       - [NormalizedUnsignedSetpoint](msg_docs/NormalizedUnsignedSetpoint.md)
       - [NpfgStatus](msg_docs/NpfgStatus.md)
       - [ObstacleDistance](msg_docs/ObstacleDistance.md)
