@@ -103,7 +103,7 @@ This setup demonstrates the powerful combination of a flight controller and a co
 The Jetson power connection on Holybro’s board uses XT30 plug and has independent power circuitry from the Pixhawk Autopilot for safety.
 You can see the complete power supply block diagram here:
 
-![Jetson Carrier Power Diagram](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/baseboard-jetson-diagram-1.png)
+![Jetson Carrier Power Diagram](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/peripherals_block_diagram_1.png)
 
 ### Power Requirements
 
@@ -222,13 +222,13 @@ Before setting up the board it is recommended to have the following hardware wit
 Besides it is highly recommended to have these:
 
 - External Display ()
-- [Mini HDMI to HDMI converter](https://a.co/d/6N815N9) in case your extrnal display has HDMI input
+- [Mini HDMI to HDMI converter](https://a.co/d/6N815N9) in case your external display has HDMI input
 - Ethernet Cable
 - Mouse and Keyboard (The baseboard has 4 USB ports exposed from Jetson which two of them are USB 3.0)
 
 The peripherals of the carrier board is in the following diagram:
 
-![Jetson Carrier Peripherals Diagram](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/baseboard-jetson-diagram-2.png)
+![Jetson Carrier Peripherals Diagram](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/peripherals_block_diagram_2.png)
 
 ## Flashing the Jetson board
 
@@ -236,7 +236,7 @@ Jetson hardware can be flashed from a computer when the board is in recovery mod
 There are many ways to put Jetson boards into recovery mode, but on Holybro's carrier board there is a small sliding switch provided for this purpose.
 You also need to connect the computer via a particular USB port for flashing, which is shown in the image below.
 
-![USB port and bootloader switch](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/baseboard-jetson-flashing-usb.png)
+![USB port and bootloader switch](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/flashing_usb.png)
 
 ::: info
 At the time of writing this documentation the setup is based on Nvidia Jetpack 6.0 (Ubuntu 22.04 base) and ROS 2 Humble which is currently supported by PX4-Autopilot community.
@@ -250,7 +250,7 @@ Once you have an account you can install the software using either the online or
 
 After running sdkmanager you should seethe screen similar to the one below if the board is connected to host computer in recovery mode:
 
-![SDK Manager init page](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/baseboard-jetson-sdkmanager-1.png)
+![SDK Manager init page](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/nvidia_sdkmanager_1.png)
 
 The next page is asking you to choose the components required to be installed.
 We just choose the board to be flashed at this point since after flashing,host computer will not be able to connect to the flashed Jetson.
@@ -259,13 +259,13 @@ We just choose the board to be flashed at this point since after flashing,host c
 The USB port used on Holybro Jetson carrier board is only for flashing and cannot be used as debug.
 :::
 
-![SDK Manager installation components page](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/baseboard-jetson-sdkmanager-2.png)
+![SDK Manager installation components page](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/nvidia_sdkmanager_2.png)
 
 - Choose Pre-config as OEM Configuration (this will skip Ubuntu first time setup screens after reboot).
 - Choose your preferred username and password which are your login credentials later to Jetpack.
 - The storage device is chosen as NVME since the board has SSD connected to it as the storage.
 
-![SDK Manager installation storage and OEM config page](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/baseboard-jetson-sdkmanager-3.png)
+![SDK Manager installation storage and OEM config page](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/nvidia_sdkmanager_3.png)
 
 It will take a couple minutes for the whole installation to finish.
 
@@ -287,7 +287,7 @@ This step is needed in case we prefer to connect to Jetson over SSH later.
 Pixhawk also has to be powered via either USB-C on its own side or Power1/2 connector on top of the Jetson module since the internal ethernet switch on the board is not powered by XT30 connector.
 :::
 
-![First time network setup connection diagram and power](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/jetson-baseboard-network-diagram.png)
+![First time network setup connection diagram and power](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/network_diagram.png)
 
 ::: info
 The board is coming either with Intel 8265NGW AC Dual Band or
@@ -384,7 +384,7 @@ make px4_fmu-v6x_default upload
 
 This photo shows how you can connect Pixhawk to Jetson board directly with the cable already comes in the box:
 
-![How to connect Jetson to Pixhawk directly](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/baseboard-jetson-upload-px4-connection.png)
+![How to connect Jetson to Pixhawk directly](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/upload_px4_connection.png)
 
 This means you can checkout and flash any PX4 version you want through the SSH connection to Jetson.
 :::
@@ -451,9 +451,9 @@ ping 192.168.0.3
 ```
 
 If this is successful as the output below it means you
-can run your XRCE DDS agent on Jetson and have your ros nodes talk to PX4 uxrce-dds middleware.
+can run your XRCE-DDS agent on Jetson and have your ros nodes talk to PX4 uxrce-dds middleware.
 
-![Pixhawk and Jetson successful ping](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/baseboard-jetson-pixhawk-ping.png)
+![Pixhawk and Jetson successful ping](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/pixhawk_ping.png)
 
 ## Connection Sanity Check between Pixhawk and Jetson
 
@@ -495,7 +495,7 @@ python ~/MAVSDK-Python/examples/telemetry.py
 
 The output below is expected in either cases (no battery connected and disarmed vehicle):
 
-![Sanity check Pixhawk and Jetson connection](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/jetson-baseboard-connection-check.png)
+![Sanity check Pixhawk and Jetson connection](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/connection_check.png)
 
 ## Running XRCE-DDS Agent and Tests
 
@@ -546,9 +546,7 @@ uxrce_dds_client status
 
 A healthy output should show:
 
-basedboard-jetson-uxrce-dds-serial-agent-running
-
-![uXRCE-DDS Client serial status](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/basedboard-jetson-uxrce-dds-serial-agent-running.png)
+![uXRCE-DDS Client serial status](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/uxrce_dds_serial_agent_running.png)
 
 Also another way to check if the client has started running at the boot is to get `dmesg` output from MAVLINK shell.
 The below output as a part of `dmesg` log mentions the baudrate and the instance (`/dev/tty/S4` is equal to `TELEM2` for Holybro Pixhawk 6X and 6X Pro) the client is running on.
@@ -589,7 +587,7 @@ MicroXRCEAgent udp4 -p 8888
 
 An output similar to the one below means that the connection is established and XRCE-DDs agent is running:
 
-![uXRCE-DDS Agent Health check](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/baseboard-jetson-xrce-dds-healthy-connection.png)
+![uXRCE-DDS Agent Health check](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/xrce_dds_healthy_connection.png)
 
 ::: info
 We do not need to run any client here as on all PX4 boards the client runs at the boot by default
@@ -611,7 +609,7 @@ ros2 launch px4_ros_com sensor_combined_listener.launch.py
 
 You should see high frequency sensor messages as the output:
 
-![Sensore node single output](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/baseboard-jetson-sensor-output.png)
+![Sensor node single output](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/ros_sensor_output.png)
 
 In case you want to run the agent each time booting Jetson you can make a daemon service to run the agent:
 
@@ -652,7 +650,7 @@ sudo systemctl status microxrceagent.service
 
 If the service is running, a similar output is expected:
 
-![XRCE DDS Agent Daemon service](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/baseboard-jetson-xrce-dds-agent-service.png)
+![XRCE DDS Agent Daemon service](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/xrce_dds_agent_service.png)
 
 You can just do your ROS2 nodes running and the development.
 Every boot the agent is running in the back.
