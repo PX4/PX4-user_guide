@@ -1,7 +1,9 @@
 - [Introduction](index.md)
+
   - [Basic Concepts](getting_started/px4_basic_concepts.md)
 
 - [Multicopters](frames_multicopter/index.md)
+
   - [Features](features_mc/index.md)
     - [Flight Modes](flight_modes_mc/index.md)
       - [Position Mode (MC)](flight_modes_mc/position.md)
@@ -20,7 +22,7 @@
     - [Precision Landing](advanced_features/precland.md)
     - [Terrain Following/Holding](flying/terrain_following_holding.md)
     - [Throw Launch](flight_modes_mc/throw_launch.md)
-  - [Assembly](assembly/assembly_mc.md) 
+  - [Assembly](assembly/assembly_mc.md)
   - [Configuration/Tuning](config_mc/index.md)
     - [Auto-tune](config/autotune_mc.md)
     - [Filter/Control Latency Tuning](config_mc/filter_tuning.md)
@@ -53,6 +55,7 @@
     - [DJI F450 (CUAV v5 nano)](frames_multicopter/dji_f450_cuav_5nano.md)
 
 - [Planes (Fixed-Wing)](frames_plane/index.md)
+
   - [Assembly](assembly/assembly_fw.md)
   - [Config/Tuning](config_fw/index.md)
     - [Auto-tune](config/autotune_fw.md)
@@ -80,6 +83,7 @@
     - [Wing Wing Z84 (Pixracer)](frames_plane/wing_wing_z84.md)
 
 - [VTOL](frames_vtol/index.md)
+
   - [Assembly](assembly/assembly_vtol.md)
   - [VTOL Config/Tuning](config_vtol/index.md)
     - [Auto-tune](config/autotune_vtol.md)
@@ -104,6 +108,7 @@
   - [Complete Vehicles](complete_vehicles_vtol/index.md)
 
 - [Operations](config/operations.md)
+
   - [Safety](config/safety_intro.md)
     - [Safety Configuration (Failsafes)](config/safety.md)
     - [Failsafe Simulation](config/safety_simulation.md)
@@ -111,7 +116,7 @@
     - [Safe Points (Rally)](flying/plan_safety_points.md)
     - [Prearm/Arm/Disarm Configuration](advanced_config/prearm_arm_disarm.md)
     - [Flight Termination Configuration](advanced_config/flight_termination.md)
-    - [First Flight Guidelines](flying/first_flight_guidelines.md) 
+    - [First Flight Guidelines](flying/first_flight_guidelines.md)
   - [Flying](flying/index.md)
   - [Missions](flying/missions.md)
   - [Flight Reporting](getting_started/flight_reporting.md)
@@ -124,6 +129,7 @@
     - [QGroundControl Flight-Readiness Status](flying/pre_flight_checks.md)
 
 - [Hardware Selection & Setup](hardware/drone_parts.md)
+
   - [Flight Controllers (Autopilots)](flight_controller/index.md)
     - [Flight Controller Selection](getting_started/flight_controller_selection.md)
     - [Mounting the Flight Controller](assembly/mount_and_orient_controller.md)
@@ -374,6 +380,7 @@
     - [Full Parameter Reference](advanced_config/parameter_reference.md)
 
 - [Other Vehicles](airframes/index.md)
+
   - [Airships (experimental)](frames_airship/index.md)
   - [Autogyros (experimental)](frames_autogyro/index.md)
     - [ThunderFly Auto-G2 (Holybro pix32)](frames_autogyro/thunderfly_auto_g2.md)
@@ -597,7 +604,7 @@
       - [RoverAckermannGuidanceStatus](msg_docs/RoverAckermannGuidanceStatus.md)
       - [RoverAckermannStatus](msg_docs/RoverAckermannStatus.md)
       - [RoverDifferentialGuidanceStatus](msg_docs/RoverDifferentialGuidanceStatus.md)
-      - [RoverDifferentialStatus](msg_docs/RoverDifferentialStatus.md) 
+      - [RoverDifferentialStatus](msg_docs/RoverDifferentialStatus.md)
       - [Rpm](msg_docs/Rpm.md)
       - [RtlStatus](msg_docs/RtlStatus.md)
       - [RtlTimeEstimate](msg_docs/RtlTimeEstimate.md)
