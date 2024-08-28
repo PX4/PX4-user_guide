@@ -530,11 +530,14 @@ For each of the control surfaces:
    This is usually around `1500` for PWM servos.
 2. Move the slider for the surface upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-deflection-convention).
 
-   For example, an aileron would be expected to move up if the slider moves up, while a rudder would move right.
+   ::: tip
+   It is important that the slider movement matches the control surface convention, in order to normalize control for different servo mountings (moving the slider up may actually decrease the output value sent to the servo).
+   :::
 
-   - If the control surface moves in the opposite direction, click on the `Rev Range` checkbox to reverse the range.
+   For ailerons, flaps, and other horizontal surfaces the surface should move up, while for rudders and other vertical surfaces the surface should move to the right.
+   If the control surface moves in the opposite direction, click on the `Rev Range` checkbox to reverse the range.
 
-3. Move the slider again to the middle and check if the Control Surfaces are aligned in the neutral position of the wing
+3. Move the slider again to the middle and check if the Control Surfaces are aligned in the neutral position of the wing.
 
    - If it is not aligned, you can set the **Trim** value for the control surface.
 
