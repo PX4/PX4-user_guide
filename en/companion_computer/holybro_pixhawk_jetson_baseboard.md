@@ -1,25 +1,25 @@
 # Holybro Pixhawk Jetson Baseboard
 
-![Jetson Carrier with Pixhawk](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/hero_banner.webp)
+The [Holybro Pixhawk Jetson Baseboard](https://holybro.com/products/pixhawk-jetson-baseboard) integrates a Pixhawk flight controller and a NVIDIA Orin-series computer into a single package, significantly easing both hardware and software setup for using PX4 with a companion computer.
 
-This guide aims to walk you through the process of setting up a flight controller with a companion computer on PX4.
-This setup demonstrates the powerful combination of a flight controller and a companion computer, like the Jetson Orin NX/Nano, to enhance your system's capabilities.
+![Jetson Carrier with Pixhawk](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/hero_image.png)
 
-## Purchase
+The board comes with either the [Jetson Orin NX (16GB RAM)](https://holybro.com/products/nvidia-jetson-orin-nx-16g) or [Jetson Orin Nano (4GB RAM)](https://holybro.com/products/nvidia-jetson-orin-nx-16g?variant=44391410598077).
+It can be used with any Pixhawk Autopilot Bus (PAB) specification-compliant Pixhawk flight controller, such as the Pixhawk 6 or Pixhawk 6X.
 
-- [Holybro Pixhawk Jetson Baseboard](https://holybro.com/products/pixhawk-jetson-baseboard)
-
-## What is Covered in this Guide
+This guide walks through the process of setting up the board and connecting to PX4, including:
 
 - Hardware setup
 - Flashing the Jetson board
-- Initial setups
+- Initial setup
 - PX4 Firmware build and flash on Jetson
 - ROS 2 Installation and Ethernet setup
 - Pixhawk setup for enabling uXRCE-DDS connection to Jetson
 - Testing uXRCE-DDS connection
 
-![Jetson Carrier with Pixhawk](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/baseboard-jetson-top-bottom-view.png)
+## Purchase
+
+- [Holybro Pixhawk Jetson Baseboard](https://holybro.com/products/pixhawk-jetson-baseboard)
 
 ## Jetson Connectors
 
@@ -110,7 +110,7 @@ You can see the complete power supply block diagram here:
 - 8V/3A Minimum
   - Depends on Usage and Peripherals
 
-For development on the board it isrecommended to have the power supply as well:
+For development on the board it is recommended to have the power supply as well:
 
 - [Power Adapter for Jetson Orin](https://holybro.com/products/power_adapter_for_jetson_orin)
 
@@ -150,7 +150,7 @@ For development on the board it isrecommended to have the power supply as well:
 - 3x Telemetry Ports with Flow Control
 
   - 2x 6-Pin JST-GH
-  - 1 is connected to Jetson's UART1 Port
+  - 1 is connected to Jetson's `UART1` Port
 
 - 16 PWM Outputs
 
