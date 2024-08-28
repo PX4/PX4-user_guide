@@ -371,8 +371,8 @@ packages for further development it is better to install full version, so this i
 PX4 guide on ROS 2 installation.
 
 ```sh
- sudo apt install -y ros-humble-desktop-full -y
- ```
+sudo apt install -y ros-humble-desktop-full -y
+```
 
 ## Setup Micro XRCE-DDS Agent on Jetson
 
@@ -473,7 +473,6 @@ The output below is expected in either cases (no battery connected and disarmed 
 ## Running XRCE-DDS agent and tests
 
 ::: info
-
 It is highly recommended to use [VSCode over SSH](https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines) to have faster development and applying changes.
 :::
 
@@ -481,7 +480,6 @@ With the help from [PX4 ROS 2 user guide](../ros2/user_guide.md#building-the-wor
 we could have a basebone to test communication between the agent (Jetson) and client (Pixhawk) using XRCE-DDS:
 
 ```sh
-
 mkdir -p ~/ws_sensor_combined/src/
 cd ~/ws_sensor_combined/src/
 git clone https://github.com/PX4/px4_msgs.git
@@ -499,7 +497,6 @@ param set UXRCE_DDS_DOM_ID  0 (If you would like to change this you need to chan
 param set UXRCE_DDS_PTCFG 0
 param set UXRCE_DDS_SYNCC 0 (But if you are sure about your companion UTC time being synced and updated you could consider making this equal to 1 so that PX4 time is updated with your XRCE-DDS Agent time or if there are no external sources like hardware RTC or GPS device)
 param set UXRCE_DDS_SYNCT 1
-
 ```
 
 ::: info
