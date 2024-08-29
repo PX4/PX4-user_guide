@@ -21,6 +21,9 @@ This guide walks through the process of setting up the board and connecting to P
 
 - [Holybro Pixhawk Jetson Baseboard](https://holybro.com/products/pixhawk-jetson-baseboard)
 
+There are options to select Pixhawk Autopilot and Jetson computer variants.
+All boards come with WiFi module, camera, power module, separate UBEC, power distribution board (PDB).
+
 ## Specifications
 
 This information comes from the [Holybro Pixhawk-Jetson Baseboard Documentation](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-jetson-baseboard).
@@ -605,113 +608,131 @@ Camera Serial Interface (CSI)
 
 ## Hardware Setup
 
-This board has two options of Nvidia Jetson Orin or Orin nano at the time of purchase.
-We will go through the first time hardware setup below.
-Before setting up the board it is recommended to have the following hardware with you:
+The baseboard exposes both Pixhawk and Orin ports, as shown above in the [pinouts](#pinouts).
+The Pixhawk ports comply with the Pixhawk connector standard (for ports covered by the standard), which means that the board can be connected to the usual peripherals, such as GPS, following either the generic assembly instructions for [multicopters](../assembly/assembly_mc.md), [fixed-wing](../assembly/assembly_fw.md) and [VTOL](../assembly/assembly_vtol.md) vehicles, or the corresponding Pixhawk guide for your flight controller (e.g. [Pixhawk 6X Quick Start](../en/assembly/quick_start_pixhawk6x.md)).
 
-Besides it is highly recommended to have these:
+The main difference is likely to be power setup, and the setup of additional peripherals connected to the Jetson.
 
-- External Display ()
-- [Mini HDMI to HDMI converter](https://a.co/d/6N815N9) in case your external display has HDMI input
-- Ethernet Cable
-- Mouse and Keyboard (The baseboard has 4 USB ports exposed from Jetson which two of them are USB 3.0)
-
-The peripherals of the carrier board is in the following diagram:
+The diagram below provides additional guidance as to the ports where peripherals should be connected.:
 
 ![Jetson Carrier Peripherals Diagram](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/peripherals_block_diagram_2.png)
 
-## Flashing the Jetson board
+The remaining setup guide covers installing Jetson Linux on the Jetson (a variant of Ubuntu), PX4 on the Pixhawk, and getting them to communicate via ROS 2.
+You will need the following additional hardware:
 
-Jetson hardware can be flashed from a computer when the board is in recovery mode.
-There are many ways to put Jetson boards into recovery mode, but on Holybro's carrier board there is a small sliding switch provided for this purpose.
-You also need to connect the computer via a particular USB port for flashing, which is shown in the image below.
+- External display.
+  If your display doesn't have a mini HDMI connector you will also need a [Mini HDMI to HDMI converter](https://a.co/d/6N815N9) if your external display has HDMI input
+- Ethernet cable
+- Mouse and keyboard (the baseboard has 4 USB ports exposed from Jetson, to of which are USB 3.0)
+
+## Flashing the Jetson Board
+
+::: info
+This Jetson setup is tested with Nvidia Jetpack 6.0 (Ubuntu 22.04 base) and ROS 2 Humble, which are the versions currently supported by PX4-Autopilot community.
+The host computer is also running Ubuntu 22.04.
+:::
+
+The Jetson companion computer can be flashed from a development computer using the [Nvidia SDK Manager](https://docs.nvidia.com/sdk-manager/download-run-sdkm/index.html#download-sdk-manager) when the board is in recovery mode.
+There are many ways to put Jetson boards into recovery mode, but on this board the best way is to use the small sliding switch provided for this purpose.
+You also need to connect the development computer to the baseboard using the specific USB-C port shown in the image below.
 
 ![USB port and bootloader switch](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/flashing_usb.png)
 
-::: info
-At the time of writing this documentation the setup is based on Nvidia Jetpack 6.0 (Ubuntu 22.04 base) and ROS 2 Humble which is currently supported by PX4-Autopilot community.
-
-The host computer is also running Ubuntu 22.04 .
+::: tip
+The USB port is only for flashing the Jetson, and cannot be used as debug interface.
 :::
 
-Download [Nvidia SDK Manager](https://docs.nvidia.com/sdk-manager/download-run-sdkm/index.html#download-sdk-manager).
-You need to have an Nvidia account to install and use the NVidia SDKManager.
-Once you have an account you can install the software using either the online or offline installer from the link.
+Download [Nvidia SDK Manager](https://docs.nvidia.com/sdk-manager/download-run-sdkm/index.html#download-sdk-manager) using either the online or offline installer (you need to have an Nvidia account to install and use the SDKManager).
 
-After running sdkmanager you should seethe screen similar to the one below if the board is connected to host computer in recovery mode:
+After starting SDKManager you should see a screen similar to the one below (if the board is connected to host computer in recovery mode):
 
 ![SDK Manager init page](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/nvidia_sdkmanager_1.png)
 
-The next page is asking you to choose the components required to be installed.
-We just choose the board to be flashed at this point since after flashing,host computer will not be able to connect to the flashed Jetson.
-
-:::info
-The USB port used on Holybro Jetson carrier board is only for flashing and cannot be used as debug.
-:::
+The next page allows you to choose the components to be installed.
+Select the _Jetson Linux_ target components as shown (there is no point selecting other components because after flashing the board will disconnect).
 
 ![SDK Manager installation components page](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/nvidia_sdkmanager_2.png)
 
-- Choose Pre-config as OEM Configuration (this will skip Ubuntu first time setup screens after reboot).
-- Choose your preferred username and password which are your login credentials later to Jetpack.
-- The storage device is chosen as NVME since the board has SSD connected to it as the storage.
+Next confirm your selected device:
+
+- Choose `Pre-config` for the OEM Configuration (this will skip Ubuntu first time setup screens after reboot).
+- Choose your preferred username and password (and write them down).
+  These will be used as your login credentials to Jetpack.
+- Choose `NVMe` as the storage device because the board has separate SSD for storage.
 
 ![SDK Manager installation storage and OEM config page](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/nvidia_sdkmanager_3.png)
 
-It will take a couple minutes for the whole installation to finish.
+Press **Flash** to start installing the image.
+It will take several minutes for the installation to complete.
 
 ::: warning
 The fan will be running while the installation is going on, so you may make sure it not blocked.
 Jetson will boot into initial login after flashing.
-
 :::
 
 ## Jetson Network Setup
 
-Only the first time after flashing the board it automatically reboots to the login screen and skips recovery mode.
-You could verify this by connecting your Jetson to an external display.
+After flashing the Jetson it will reboot to the login screen (skipping recovery mode).
 
-The diagram below shows how you can connect your Jetson carrier board for the first time to setup the network connections.
-This step is needed in case we prefer to connect to Jetson over SSH later.
+The diagram below shows how you can connect your Jetson carrier board for the first time to setup the network connection.
+This step is needed so that in future we can connect to the Jetson via SSH instead of using an external monitor (if we want).
 
-::: warning
-Pixhawk also has to be powered via either USB-C on its own side or Power1/2 connector on top of the Jetson module since the internal ethernet switch on the board is not powered by XT30 connector.
+Connect the external monitor to the board's (Jetson) HDMI port and the Jetson to power via the XT-30 input.
+Separately connect the Pixhawk power supply using either the USB-C (on the side of the FC) or the `Power1`/`Power2` ports next to the Jetson.
+
+::: tip
+Pixhawk also has to be powered because the internal Ethernet switch on the board is not powered by XT30 connector.
 :::
 
 ![First time network setup connection diagram and power](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/network_diagram.png)
 
-::: info
-The board is coming either with Intel 8265NGW AC Dual Band or
-Realtek RTL8B22CE if you have chosen to purchase wifi module from Holybro.
-In case of having Intel module, there are chances it does not work out of the box.
-You could establish connection through the access pointby using the diagram above and run the following command inside Jetson terminal to install the backport driver:
+Connect the keyboard and mouse via spare USB ports.
+The external monitor should display the login screen.
+Enter the username and password you set when using the SDKManager to flash the Jetson.
 
-```sh
-sudo apt-get install -y backport-iwlwifi-dkms
-```
-
-:::
-
-Either you want to leave the board connected with Ethernet to access point or over wifi you need to get the ip that you could communicate with Jetson in your local network over SSH.
-We run the below command inside Jetson terminal to get the ip:
+Next open a terminal in order to get the IP address of the Jetson.
+This can be used later to connect via SSH.
+Enter the following command.
 
 ```sh
 ip addr show
 ```
 
-## Initial Development Setup on Jetson
+The output should look similar to this, indicating (in this case) an IP address of `192.168.1.190`
 
-At this point the assumption is you can ping Jetson by the IP you have gotten previously:
+```sh
+
+```
+
+::: tip If the command doesn't work ...
+The WiFi card with the board is either the Intel 8265NGW AC Dual Band or Realtek RTL8B22CE.
+The Intel module may not work out of the box, in which case you should open a terminal and run the following command to install its driver.
+
+```sh
+sudo apt-get install -y backport-iwlwifi-dkms
+```
+
+Then repeat the process try to get the IP address again.
+
+:::
+
+Now that we have an IP address, open a terminal in your _development computer_.
+We can log into the Jetson using the IP address, as shown:
 
 ```sh
 ssh holybro@192.168.1.190 #(Your defined IP might be different)
 ```
 
+If that works, you can remove your external monitor: you shouldn't need it again!
+
+## Initial Development Setup on Jetson
+
 After logging into Jetson we can start with installing some dependencies:
 
-````sh
+```sh
 sudo apt update
-sudo apt install build-essential cmake git genromfs kconfig-frontends libncurses5-dev flex bison libssl-dev ```
-````
+sudo apt install build-essential cmake git genromfs kconfig-frontends libncurses5-dev flex bison libssl-dev
+```
 
 ::: info
 
@@ -741,9 +762,10 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
 
 If You received an error like this one midway running ubuntu.sh:
 
-`E: Unable to locate package g++-multilib`
-
-`E: Couldn't find any package by regex 'g++-multilib'`
+```sh
+E: Unable to locate package g++-multilib
+E: Couldn't find any package by regex 'g++-multilib'
+```
 
 Do:
 
@@ -751,7 +773,7 @@ Do:
 sudo apt install gcc-arm-none-eabi gdb-arm-none-eabi -y
 ```
 
-And run `ubuntu.sh` again
+And run `ubuntu.sh` again.
 
 We need to give permission to the serial ports next:
 
