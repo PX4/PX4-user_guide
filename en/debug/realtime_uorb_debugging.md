@@ -27,7 +27,14 @@ You will also need to install:
 
 ## Usage
 
-First run PlotJuggler by entering the following commands in a terminal:
+First we have to make sure that our _px4_msgs_ package is built and sourced.
+```sh
+cd ~/ros2_ws/
+colcon build
+source install/setup.bash
+```
+
+Then run PlotJuggler by entering the following commands in a terminal:
 
 ```sh
 ros2 run plotjuggler plotjuggler
