@@ -12462,7 +12462,7 @@ The offboard loss failsafe will only be entered after a timeout, set by COM_OF_L
 
 - `0`: Position mode
 - `1`: Altitude mode
-- `2`: Manual
+- `2`: Stabilized
 - `3`: Return mode
 - `4`: Land mode
 - `5`: Hold mode
@@ -12502,14 +12502,14 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### COM_POSCTL_NAVL (`INT32`) {#COM_POSCTL_NAVL}
 
-Position control navigation loss response.
+Position mode navigation loss response.
 
-This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. If Altitude/Manual is selected: assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL. If Land/Descend is selected: assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to Descend.
+This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control in manual Position mode.
 
 **Values:**
 
-- `0`: Altitude/Manual
-- `1`: Land/Descend
+- `0`: Altitude mode
+- `1`: Land mode (descend)
 
 
 Reboot | minValue | maxValue | increment | default | unit
