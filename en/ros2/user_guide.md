@@ -464,18 +464,18 @@ Use the following commands to install the correct ROS 2/gz interface packages (n
 :::: tabs
 
 ::: tab humble
-To install the bridge for use with ROS 2 "Humble" and Gazebo Garden (on Ubuntu 22.04):
+To install the bridge for use with ROS 2 "Humble" and Gazebo Harmonic (on Ubuntu 22.04):
 
 ```sh
-sudo apt install ros-humble-ros-gzgarden
+sudo apt install ros-humble-ros-gzharmonic
 ```
 
 :::
 
 ::: tab foxy
-First you will need to [install Gazebo Garden](../sim_gazebo_gz/index.md#installation-ubuntu-linux), as by default Foxy comes with Gazebo Classic 11.
+First you will need to [install Gazebo Garden](../sim_gazebo_gz/index.md#installation-ubuntu-linux), as by default Foxy comes with Gazebo Classic 11. <!-- note, garden is EOL Nov 2024 -->
 
-Then to install the interface packages for use with ROS 2 "Foxy" and Gazebo Garden (Ubuntu 20.04):
+Then to install the interface packages for use with ROS 2 "Foxy" and Gazebo (Ubuntu 20.04):
 
 ```sh
 sudo apt install ros-foxy-ros-gzgarden
@@ -849,16 +849,16 @@ If any are missing, they can be added separately:
 ### ros_gz_bridge not publishing on the \clock topic
 
 If your [ROS2 nodes use the Gazebo clock as time source](../ros2/user_guide.md#ros2-nodes-use-the-gazebo-clock-as-time-source) but the `ros_gz_bridge` node doesn't publish anything on the `/clock` topic, you may have the wrong version installed.
-This might happen if you install ROS 2 Humble with the default "Ignition Fortress" packages, rather than using those for PX4, which uses "Gazebo Garden".
+This might happen if you install ROS 2 Humble with the default "Ignition Fortress" packages, rather than using those for PX4, which uses "Gazebo Harmonic".
 
-The following commands uninstall the default Ignition Fortress topics and install the correct bridge and other interface topics for **Gazebo Garden** with ROS2 **Humble**:
+The following commands uninstall the default Ignition Fortress topics and install the correct bridge and other interface topics for **Gazebo Harmonic** with ROS2 **Humble**:
 
 ```bash
 # Remove the wrong version (for Ignition Fortress)
 sudo apt remove ros-humble-ros-gz
 
 # Install the version for Gazebo Garden
-sudo apt install ros-humble-ros-gzgarden
+sudo apt install ros-humble-ros-gzharmonic
 ```
 
 ## Additional information
