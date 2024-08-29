@@ -24651,22 +24651,6 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ## Rover Differential
 
-### RD_HEADING_I (`FLOAT`) {#RD_HEADING_I}
-
-Integral gain for heading controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0.1 |  
-
-### RD_HEADING_P (`FLOAT`) {#RD_HEADING_P}
-
-Proportional gain for heading controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 |  
-
 ### RD_MAN_YAW_SCALE (`FLOAT`) {#RD_MAN_YAW_SCALE}
 
 Manual yaw rate scale.
@@ -24675,7 +24659,7 @@ In manual mode the setpoint for the yaw rate received from the rc remote is scal
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.01 | 1 | 0.01 | 1 |  
+&nbsp; | 0.001 | 1 | 0.01 | 1 |  
 
 ### RD_MAX_ACCEL (`FLOAT`) {#RD_MAX_ACCEL}
 
@@ -24705,7 +24689,7 @@ This parameter is used to map desired speeds to normalized motor commands.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 7 | m/s 
+&nbsp; | 0 | 100 | 0.01 | 1 | m/s 
 
 ### RD_MAX_YAW_RATE (`FLOAT`) {#RD_MAX_YAW_RATE}
 
@@ -24719,7 +24703,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_MISS_SPD_DEF (`FLOAT`) {#RD_MISS_SPD_DEF}
 
-Default rover speed during a mission.
+Default forward speed for the rover during auto modes.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24727,7 +24711,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_SPEED_I (`FLOAT`) {#RD_SPEED_I}
 
-Integral gain for ground speed controller.
+Integral gain for closed loop forward speed controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24735,7 +24719,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_SPEED_P (`FLOAT`) {#RD_SPEED_P}
 
-Proportional gain for speed controller.
+Proportional gain for closed loop forward speed controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24743,7 +24727,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_TRANS_DRV_TRN (`FLOAT`) {#RD_TRANS_DRV_TRN}
 
-Heading error threshhold to switch from driving to spot turning.
+Yaw error threshhold to switch from driving to spot turning.
+
+This threshold is used for the state machine to switch from driving to turning based on the error between the desired and actual yaw. It is also used as the threshold whether the rover should come to a smooth stop at the next waypoint. This slow down effect is active if the angle between the line segments from prevWP-currWP and currWP-nextWP is smaller then 180 - RD_TRANS_DRV_TRN.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24751,7 +24737,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_TRANS_TRN_DRV (`FLOAT`) {#RD_TRANS_TRN_DRV}
 
-Heading error threshhold to switch from spot turning to driving.
+Yaw error threshhold to switch from spot turning to driving.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24767,9 +24753,25 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.001 | 100 | 0.001 | 0.5 | m 
 
+### RD_YAW_I (`FLOAT`) {#RD_YAW_I}
+
+Integral gain for closed loop yaw controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0 |  
+
+### RD_YAW_P (`FLOAT`) {#RD_YAW_P}
+
+Proportional gain for closed loop yaw controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 1 |  
+
 ### RD_YAW_RATE_I (`FLOAT`) {#RD_YAW_RATE_I}
 
-Integral gain for angular velocity controller.
+Integral gain for closed loop yaw rate controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24777,7 +24779,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_YAW_RATE_P (`FLOAT`) {#RD_YAW_RATE_P}
 
-Proportional gain for angular velocity controller.
+Proportional gain for closed loop yaw rate controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---

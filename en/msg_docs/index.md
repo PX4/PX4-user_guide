@@ -166,6 +166,7 @@ This are the three next waypoints (or just the next two or one).
 - [RoverAckermannGuidanceStatus](RoverAckermannGuidanceStatus.md)
 - [RoverAckermannStatus](RoverAckermannStatus.md)
 - [RoverDifferentialGuidanceStatus](RoverDifferentialGuidanceStatus.md)
+- [RoverDifferentialSetpoint](RoverDifferentialSetpoint.md)
 - [RoverDifferentialStatus](RoverDifferentialStatus.md)
 - [Rpm](Rpm.md)
 - [RtlStatus](RtlStatus.md)
