@@ -122,9 +122,10 @@ sensor_combined                      0    6  242   636 1
 
 The columns are: topic name, multi-instance index, number of subscribers, publishing frequency in Hz, number of lost messages per second (for all subscribers combined), and queue size.
 
-## Plotting realtime changes in topics
+## Plotting Changes in Topics
 
-Topic changes can be plotted in realtime using PlotJuggler and the PX4 ROS 2 integration.
+Topic changes can be plotted in realtime using PlotJuggler and the PX4 ROS 2 integration (note that this actually plots ROS topics that correspond to uORB topics, but the effect is the same).
+
 For more information see: [Realtime uORB Topic Debugging](../debug/realtime_uorb_debugging.md).
 
 <video src="../../assets/debug/realtime_debugging/realtime_debugging.mp4" width="720" controls></video>
