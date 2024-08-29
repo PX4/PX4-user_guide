@@ -25,18 +25,17 @@ This is used for the logger, so make sure to fill it in when publishing the mess
 
 To use the topic in the code, include the header:
 
-```
+```cpp
 #include <uORB/topics/topic_name.h>
 ```
 
 By adding a line like the following in the `.msg` file, a single message definition can be used for multiple independent topics:
 
-```
+```cpp
 # TOPICS mission offboard_mission onboard_mission
 ```
 
 Then in the code, use them as topic id: `ORB_ID(offboard_mission)`.
-
 
 ## Publishing
 
@@ -94,7 +93,7 @@ scaling: 0
 ```
 
 :::tip
-On NuttX-based systems (Pixhawk, Pixracer, etc) the `listener` command can be called from within the *QGroundControl* MAVLink Console to inspect the values of sensors and other topics.
+On NuttX-based systems (Pixhawk, Pixracer, etc) the `listener` command can be called from within the _QGroundControl_ MAVLink Console to inspect the values of sensors and other topics.
 This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying).
 For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
 :::
@@ -120,8 +119,15 @@ sensor_accel                         1    1  249    43 1
 sensor_baro                          0    1   42     0 1
 sensor_combined                      0    6  242   636 1
 ```
+
 The columns are: topic name, multi-instance index, number of subscribers, publishing frequency in Hz, number of lost messages per second (for all subscribers combined), and queue size.
 
+## Plotting realtime changes in topics
+
+Topic changes can be plotted in realtime using PlotJuggler and the PX4 ROS 2 integration.
+For more information see: [Realtime uORB Topic Debugging](debug/realtime_uorb_debugging.md).
+
+<video src="../../assets/debug/realtime_debugging/realtime_debugging.mp4" width="720" controls></video>
 
 ## Multi-instance
 
@@ -132,19 +138,19 @@ Having multiple instances is useful for example if the system has several sensor
 
 Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic.
 
-The full API is documented in
-[platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
+The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
 
-<a id="deprecation"></a>
-## Message/Field Deprecation
+
+
+## Message/Field Deprecation {#deprecation}
+
 As there are external tools using uORB messages from log files, such as [Flight Review](https://github.com/PX4/flight_review), certain aspects need to be considered when updating existing messages:
 
 - Changing existing fields or messages that external tools rely on is generally acceptable if there are good reasons for the update.
-  In particular for breaking changes to *Flight Review*, *Flight Review* must be updated before code is merged to `master`.
+  In particular for breaking changes to _Flight Review_, _Flight Review_ must be updated before code is merged to `master`.
 - In order for external tools to reliably distinguish between two message versions, the following steps must be followed:
   - Removed or renamed messages must be added to the `deprecated_msgs` list in [msg/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/c5a6a60903455c3600f47e3c45ecaa48614559c8/msg/CMakeLists.txt#L189) and the **.msg** file needs to be deleted.
   - Removed or renamed fields must be commented and marked as deprecated.
-    For example `uint8 quat_reset_counter` would become `# DEPRECATED: uint8 quat_reset_counter`. 
+    For example `uint8 quat_reset_counter` would become `# DEPRECATED: uint8 quat_reset_counter`.
     This is to ensure that removed fields (or messages) are not re-added in future.
   - In case of a semantic change (e.g. the unit changes from degrees to radians), the field must be renamed as well and the previous one marked as deprecated as above.
-
