@@ -125,7 +125,7 @@ The columns are: topic name, multi-instance index, number of subscribers, publis
 ## Plotting realtime changes in topics
 
 Topic changes can be plotted in realtime using PlotJuggler and the PX4 ROS 2 integration.
-For more information see: [Realtime uORB Topic Debugging](debug/realtime_uorb_debugging.md).
+For more information see: [Realtime uORB Topic Debugging](../debug/realtime_uorb_debugging.md).
 
 <video src="../../assets/debug/realtime_debugging/realtime_debugging.mp4" width="720" controls></video>
 
