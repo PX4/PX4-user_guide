@@ -14287,6 +14287,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; | 0 | 300 |  | 5 | ms 
 
+### EKF2_RNG_FOG (`FLOAT`) {#EKF2_RNG_FOG}
+
+Maximum distance at which the range finder could detect fog (m).
+
+Limit for fog detection. If the range finder measures a distance greater than this value, the measurement is considered to not be blocked by fog or rain. If there's a jump from larger than RNG_FOG to smaller than EKF2_RNG_FOG, the measurement may gets rejected. 0 - disabled
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 | 20.0 |  | 1.0 | m 
+
 ### EKF2_RNG_GATE (`FLOAT`) {#EKF2_RNG_GATE}
 
 Gate size for range finder fusion.
