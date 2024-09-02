@@ -135,6 +135,10 @@ The possible values of nav_state are defined in the VehicleStatus msg.
 - [ObstacleDistance](ObstacleDistance.md) — Obstacle distances in front of the sensor.
 - [OffboardControlMode](OffboardControlMode.md) — Off-board control mode
 - [OnboardComputerStatus](OnboardComputerStatus.md) — ONBOARD_COMPUTER_STATUS message data
+- [OpenDroneIdArmStatus](OpenDroneIdArmStatus.md)
+- [OpenDroneIdOperatorId](OpenDroneIdOperatorId.md)
+- [OpenDroneIdSelfId](OpenDroneIdSelfId.md)
+- [OpenDroneIdSystem](OpenDroneIdSystem.md)
 - [OrbTest](OrbTest.md)
 - [OrbTestLarge](OrbTestLarge.md)
 - [OrbTestMedium](OrbTestMedium.md)
