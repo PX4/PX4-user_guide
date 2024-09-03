@@ -49,18 +49,18 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
 
 2. [RD_MAX_SPEED](../advanced_config/parameter_reference.md#RD_MAX_SPEED) [m/s]: In manual mode, drive the rover with full throttle and enter the observed speed as the parameter.
 3. [RD_MAX_YAW_RATE](../advanced_config/parameter_reference.md#RD_MAX_YAW_RATE) [deg/s]: This is the maximum yaw rate you want to allow for your rover.
-  This will define the stick-to-yaw-rate mapping in acro mode as well as setting an upper limit for the yaw rate in mission mode.
+   This will define the stick-to-yaw-rate mapping in acro mode as well as setting an upper limit for the yaw rate in mission mode.
 4. [RD_YAW_RATE_P](../advanced_config/parameter_reference.md#RD_YAW_RATE_P) and [RD_YAW_RATE_I](../advanced_config/parameter_reference.md#RD_YAW_RATE_I) [-]: Tuning parameters for the closed-loop yaw rate controller.
 
    ::: info
-   This can be tuned by setting all previous parameters and then setting the rover to _acro mode_.
+   This can be tuned by setting all previous parameters and then setting the rover to _Acro mode_.
    Use the right stick to yaw the rover on the spot and then observe the desired and actual yaw rate in the flight log.
    Change parameters and iterate.
 
    Suggestion: Start the tuning process with [RD_YAW_RATE_I](../advanced_config/parameter_reference.md#RD_YAW_RATE_I) equal to zero and only set if necessary.
    :::
 
-This is enough to start using the rover in acro mode.
+This is enough to start using the rover in Acro mode.
 To start driving mission the parameters in [Tuning (Mission)](#tuning-mission) also must be set.
 
 ## Tuning (Mission)
@@ -82,7 +82,8 @@ These parameters tune velocity control in missions:
 
 ### Yaw Rate
 
-The yaw rate setpoint is calculated by using the heading error calculated by the pure pursuit algorithm for a PID controller that can be tuned with [RD_YAW_P](#RD_YAW_P) and [RD_YAW_I](#RD_YAW_I).
+The yaw rate setpoint is calculated using the heading error in a PID controller when the pure pursuit algorithm.
+This can be tuned with [RD_YAW_P](#RD_YAW_P) and [RD_YAW_I](#RD_YAW_I).
 
 ::: info
 There is some degree of overlap between this tuning and the pure pursuit controller gain set in [Mission Mode](../flight_modes_rover/index.md#mission-mode) as they both have an influence on how aggressive the rover will steer.
@@ -104,9 +105,9 @@ The following parameters affect the differential-steering rover in mission mode 
 | <a id="RD_MISS_SPD_DEF"></a>[RD_MISS_SPD_DEF](../advanced_config/parameter_reference.md#RD_MISS_SPD_DEF)    | Mission speed for the rover                                    | $m/s$   |
 | <a id="RD_MAX_ACCEL"></a>[RD_MAX_ACCEL](../advanced_config/parameter_reference.md#RD_MAX_ACCEL)             | Maximum acceleration for the rover                             | $m/s^2$ |
 | <a id="RD_MAX_JERK"></a>[RD_MAX_JERK](../advanced_config/parameter_reference.md#RD_MAX_JERK)                | Maximum jerk for the rover                                     | $m/s^3$ |
-| <a id="RD_SPEED_P"></a>[RD_SPEED_P](../advanced_config/parameter_reference.md#RD_SPEED_P)                   | Proportional gain for speed controller                         | -       |
-| <a id="RD_SPEED_I"></a>[RD_SPEED_I](../advanced_config/parameter_reference.md#RD_SPEED_I)                   | Integral gain for speed controller                             | -       |
-| <a id="RD_YAW_P"></a>[RD_YAW_P](../advanced_config/parameter_reference.md#RD_YAW_P)             | Proportional gain for heading controller                       | -       |
-| <a id="RD_YAW_I"></a>[RD_YAW_I](../advanced_config/parameter_reference.md#RD_YAW_I)             | Integral gain for heading controller                           | -       |
+| <a id="RD_SPEED_P"></a>[RD_SPEED_P](../advanced_config/parameter_reference.md#RD_SPEED_P)                   | Proportional gain for closed loop forward speed controller     | -       |
+| <a id="RD_SPEED_I"></a>[RD_SPEED_I](../advanced_config/parameter_reference.md#RD_SPEED_I)                   | Integral gain for closed loop forward speed controller         | -       |
+| <a id="RD_YAW_P"></a>[RD_YAW_P](../advanced_config/parameter_reference.md#RD_YAW_P)                         | Proportional gain for closed loop yaw controller               | -       |
+| <a id="RD_YAW_I"></a>[RD_YAW_I](../advanced_config/parameter_reference.md#RD_YAW_I)                         | Integral gain for closed loop yaw controller                   | -       |
 | <a id="RD_TRANS_DRV_TRN"></a>[RD_TRANS_DRV_TRN](../advanced_config/parameter_reference.md#RD_TRANS_DRV_TRN) | Heading error threshold to switch from driving to spot turning | deg     |
 | <a id="RD_TRANS_TRN_DRV"></a>[RD_TRANS_TRN_DRV](../advanced_config/parameter_reference.md#RD_TRANS_TRN_DRV) | Heading error threshold to switch from spot turning to driving | deg     |
