@@ -82,7 +82,7 @@ These parameters tune velocity control in missions:
 
 ### Yaw Rate
 
-The yaw rate setpoint is calculated by using the heading error calculated by the pure pursuit algorithm for a PID controller that can be tuned with [RD_HEADING_P](#RD_HEADING_P) and [RD_HEADING_I](#RD_HEADING_I).
+The yaw rate setpoint is calculated by using the heading error calculated by the pure pursuit algorithm for a PID controller that can be tuned with [RD_YAW_P](#RD_YAW_P) and [RD_YAW_I](#RD_YAW_I).
 
 ::: info
 There is some degree of overlap between this tuning and the pure pursuit controller gain set in [Mission Mode](../flight_modes_rover/index.md#mission-mode) as they both have an influence on how aggressive the rover will steer.
@@ -106,7 +106,7 @@ The following parameters affect the differential-steering rover in mission mode 
 | <a id="RD_MAX_JERK"></a>[RD_MAX_JERK](../advanced_config/parameter_reference.md#RD_MAX_JERK)                | Maximum jerk for the rover                                     | $m/s^3$ |
 | <a id="RD_SPEED_P"></a>[RD_SPEED_P](../advanced_config/parameter_reference.md#RD_SPEED_P)                   | Proportional gain for speed controller                         | -       |
 | <a id="RD_SPEED_I"></a>[RD_SPEED_I](../advanced_config/parameter_reference.md#RD_SPEED_I)                   | Integral gain for speed controller                             | -       |
-| <a id="RD_HEADING_P"></a>[RD_HEADING_P](../advanced_config/parameter_reference.md#RD_HEADING_P)             | Proportional gain for heading controller                       | -       |
-| <a id="RD_HEADING_I"></a>[RD_HEADING_I](../advanced_config/parameter_reference.md#RD_HEADING_I)             | Integral gain for heading controller                           | -       |
+| <a id="RD_YAW_P"></a>[RD_YAW_P](../advanced_config/parameter_reference.md#RD_YAW_P)             | Proportional gain for heading controller                       | -       |
+| <a id="RD_YAW_I"></a>[RD_YAW_I](../advanced_config/parameter_reference.md#RD_YAW_I)             | Integral gain for heading controller                           | -       |
 | <a id="RD_TRANS_DRV_TRN"></a>[RD_TRANS_DRV_TRN](../advanced_config/parameter_reference.md#RD_TRANS_DRV_TRN) | Heading error threshold to switch from driving to spot turning | deg     |
 | <a id="RD_TRANS_TRN_DRV"></a>[RD_TRANS_TRN_DRV](../advanced_config/parameter_reference.md#RD_TRANS_TRN_DRV) | Heading error threshold to switch from spot turning to driving | deg     |
