@@ -185,7 +185,7 @@ Some of GNSS terms that are useful for interpreting the data include:
 ### DOP vs EPH/EPV
 
 DOP is a measure of the potential for high accuracy based on satellite positions.
-EPH/EPV are more comprehensive, as they consider both satellite geometry and other error sources like signal noise and atmospheric effects.
+EPH/EPV are more comprehensive: they are direct estimates of the GPS position error and consider both satellite geometry and other error sources like signal noise and atmospheric effects.
 It is possible to have low DOP (good satellite geometry) but still have high EPH/EPV if there is significant signal noise or atmospheric interference.
 
 EPH/EPV values therefore provide a more immediate and practical estimate of the actual GPS accuracy you can expect under current conditions.
