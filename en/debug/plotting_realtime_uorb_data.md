@@ -1,4 +1,4 @@
-# Realtime uORB Debugging
+# Plotting uORB Topic Data in Real Time using PlotJuggler
 
 This topic shows how you can monitor [uORB messages](../msg_docs/index.md) in realtime using [PlotJuggler](../log/flight_log_analysis.md#plotjuggler) and the [uXRCE-DDS Agent](../middleware/uxrce_dds.md).
 
