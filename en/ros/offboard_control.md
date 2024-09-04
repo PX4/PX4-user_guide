@@ -12,13 +12,18 @@ This is done through the MAVLink protocol, specifically the [SET_POSITION_TARGET
 
 There are two things you want to setup on the firmware side before starting offboard development.
 
+### Enable RC Override
+
+In _QGroundControl_ you can set the [COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) parameter to automatically switch from offboard mode (or any mode) to Position mode if the RC sticks are moved.
+This is the best way to ensure that an operator can easily take control of the vehicle and switch to the safest flight mode.
+
 ### Map an RC switch to offboard mode activation
 
 In _QGroundControl_ you can set the [RC_MAP_OFFB_SW](../advanced_config/parameter_reference.md#RC_MAP_OFFB_SW) parameter to the RC channel that will be used to activate offboard mode.
-It can be useful to map things in such a way that when you fall out of offboard mode you go into position control.
+This can be used to switch between offboard mode and the mode set by the mode switch ([RC_MAP_MODE_SW](../advanced_config/parameter_reference.md#RC_MAP_MODE_SW)).
+You can also switch into offboard mode using a GCS/MAVLink so this is not "mandatory".
 
-Although this step isn't mandatory since you can activate offboard mode using a MAVLink message.
-We consider this method much safer.
+Note also that this mechanism is not as "safe" as using [RC Override](#enable-rc-override) to switch out of offboard mode, because the mode you switch to is unpredictable.
 
 ### Enable the companion computer interface
 
