@@ -39,7 +39,7 @@ If you're using unmodified PX4, the definitions from [PX4/px4_msgs](https://gith
 This is the same process as covered in [Build ROS 2 Workspace](../ros2/user_guide.md#build-ros-2-workspace) in _ROS 2 Installation & Setup_.
 :::
 
-Assuming your ROS 2 workspace is `~/ros2_ws/`, fetch and build the `px4_msgs` package in a terminal as shown:
+Assuming your ROS 2 workspace is named `~/ros2_ws/`, fetch and build the `px4_msgs` package in a terminal as shown:
 
 ```sh
 cd ~/ros2_ws/src/
@@ -55,15 +55,22 @@ Then run PlotJuggler by entering the following commands in a terminal:
 ros2 run plotjuggler plotjuggler
 ```
 
-To start sending ROS 2 topics from PX4 the uXRCE-DDS **client** has to be running on PX4, and the `MicroXRCEAgent` has to be running on the same computer as PlotJuggler.
-If you're using the Simulator then the client is started automatically.
-Assuming you are using the [Gazebo](../sim_gazebo_gz/index.md) simulator, you might start it in another terminal like this:
+To start sending ROS 2 topics from PX4, the uXRCE-DDS **client** has to be running on PX4, and the `MicroXRCEAgent` has to be running on the same computer as PlotJuggler.
+
+### PX4 Simulator
+
+Next we'll start the [Gazebo](../sim_gazebo_gz/index.md) simulator for a quadcopter.
+Because we're using a PX4 simulator the client is started automatically, but we will still need to start the agent and connect to the client.
+
+First open another terminal.
+Then navigate to the root of the PX4 source code and start the simulator using the following commands:
 
 ```sh
+cd ~/PX4-Autopilot
 make px4_sitl gz_x500
 ```
 
-Then start the `MicroXRCEAgent` in a separate terminal (connecting to the Simulator):
+Open another terminal and start the `MicroXRCEAgent` to connect to the the simulator:
 
 ```sh
 MicroXRCEAgent udp4 -p 8888; exec bash
@@ -71,7 +78,9 @@ MicroXRCEAgent udp4 -p 8888; exec bash
 
 That's all that should be needed for connecting to the simulator.
 
-If you're working with hardware you'll need to start the client on PX4 and your agent connection command will be slightly different.
+### PX4 on Hardware
+
+If you're working with real hardware you'll need to explicitly start the client on PX4 and your agent connection command will be slightly different.
 [Using flight controller hardware](../ros2/user_guide.md#using-flight-controller-hardware) in the _ROS 2 User Guide_ provides links to setup information.
 
 ## Unavailable/New Messages
