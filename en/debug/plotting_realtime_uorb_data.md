@@ -42,7 +42,7 @@ This is the same process as covered in [Build ROS 2 Workspace](../ros2/user_guid
 Assuming your ROS 2 workspace is `~/ros2_ws/`, fetch and build the `px4_msgs` package in a terminal as shown:
 
 ```sh
-cd ~/ros2_ws/
+cd ~/ros2_ws/src/
 git clone https://github.com/PX4/px4_msgs.git
 colcon build
 source install/setup.bash
