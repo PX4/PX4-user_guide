@@ -1,10 +1,10 @@
 # Plotting uORB Topic Data in Real Time using PlotJuggler
 
-This topic shows how you can monitor [uORB messages](../msg_docs/index.md) in realtime using [PlotJuggler](../log/flight_log_analysis.md#plotjuggler) and the [uXRCE-DDS Agent](../middleware/uxrce_dds.md).
+This topic shows how you can graph the "live" values of [uORB topics](../msg_docs/index.md) (in real time) using [PlotJuggler](../log/flight_log_analysis.md#plotjuggler) and the _uXRCE-DDS Agent_.
 
-This uses the PX4 uXRCE-DDS middleware to export uORB topics as ROS2 topics, which can then be read in by PlotJuggler as they change.
+This technique uses PX4 [uXRCE-DDS](../middleware/uxrce_dds.md) middleware to export uORB topics as ROS2 topics, which can then be read and plotted by PlotJuggler as they change (PlotJuggler cannot directly read uORB topics, but the values of the corresponding ROS 2 topics are the same).
 
-The video below demonstrates this for a simulated vehicle.
+The video below demonstrates this for a simulated vehicle — the approach works equally well on real hardware.
 
 <video src="../../assets/debug/realtime_debugging/realtime_debugging.mp4" width="720" controls></video>
 
@@ -14,8 +14,12 @@ Follow the [ROS 2 Installation & Setup](../ros2/user_guide.md#installation-setup
 
 - ROS 2
 - [Micro XRCE-DDS Agent](../ros2/user_guide.md#setup-micro-xrce-dds-agent-client)
-- [PX4/px4_msgs](https://github.com/PX4/px4_msgs): ROS2 Message definitions.
-- PX4. Note that PX4 source code is only needed if you're using the simulator, or if you want to monitor messages that aren't streamed by default.
+- [PX4/px4_msgs](https://github.com/PX4/px4_msgs): PX4/ROS2 shared message definitions.
+- PX4 source code and build the simulator.
+
+  ::: tip
+  If you're using real hardware instead of the simulator, you will only need PX4 source code if you need to change the set of topics that are published to ROS 2 (only a subset of uORB topics are published by default).
+  :::
 
 You will also need to install:
 
@@ -27,9 +31,19 @@ You will also need to install:
 
 ## Usage
 
-First we have to make sure that our _px4_msgs_ package is built and sourced.
+First we need to build a ROS 2 workspace that includes the `px4_msgs` that correspond to the PX4 build to be monitored, and then launch PlotJuggler from within that workspace.
+This allows ROS 2 and PlotJuggler to interpret the messages.
+If you're using unmodified PX4, the definitions from [PX4/px4_msgs](https://github.com/PX4/px4_msgs) can be used.
+
+::: info
+This is the same process as covered in [Build ROS 2 Workspace](../ros2/user_guide.md#build-ros-2-workspace) in _ROS 2 Installation & Setup_.
+:::
+
+Assuming your ROS 2 workspace is `~/ros2_ws/`, fetch and build the `px4_msgs` package in a terminal as shown:
+
 ```sh
 cd ~/ros2_ws/
+git clone https://github.com/PX4/px4_msgs.git
 colcon build
 source install/setup.bash
 ```
@@ -41,9 +55,14 @@ ros2 run plotjuggler plotjuggler
 ```
 
 To start sending ROS 2 topics from PX4 the uXRCE-DDS **client** has to be running on PX4, and the `MicroXRCEAgent` has to be running on the same computer as PlotJuggler.
-If you're using the Simulator then the client is started automatically but you will have to start the `MicroXRCEAgent`.
+If you're using the Simulator then the client is started automatically.
+Assuming you are using the [Gazebo](../sim_gazebo_gz/index.md) simulator, you might start it in another terminal like this:
 
-Start the `MicroXRCEAgent` in a separate terminal (connecting to the Simulator):
+```sh
+make px4_sitl gz_x500
+```
+
+Then start the `MicroXRCEAgent` in a separate terminal (connecting to the Simulator):
 
 ```sh
 MicroXRCEAgent udp4 -p 8888; exec bash
@@ -51,7 +70,7 @@ MicroXRCEAgent udp4 -p 8888; exec bash
 
 That's all that should be needed for connecting to the simulator.
 
-If you're working with hardware you'll need to start the client on PX4 and your connection command will be slightly different.
+If you're working with hardware you'll need to start the client on PX4 and your agent connection command will be slightly different.
 [Using flight controller hardware](../ros2/user_guide.md#using-flight-controller-hardware) in the _ROS 2 User Guide_ provides links to setup information.
 
 ## Unavailable/New Messages
@@ -60,7 +79,7 @@ All PX4 message definitions from `main` are exported to the [PX4/px4_msgs](https
 These must be imported into your ROS 2 workspace, allowing PlotJuggler to interpret messages from PX4.
 
 ::: info
-Exporting the messages allows ROS 2 and the uXRCE-DDS agent to be independent of PX4, which is why you only need the PX4 source code if you need to build the simulator.
+Exporting the messages allows ROS 2 and the uXRCE-DDS agent to be independent of PX4, which is why you only need the PX4 source code if you need to build the simulator or modify the messages.
 :::
 
 While `px4_msgs` has messages for all uORB topics in PX4, not all messages in `px4_msgs` are available to ROS 2/PlotJuggler by default.
