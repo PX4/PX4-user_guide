@@ -214,6 +214,7 @@ In this case the things you need to know are:
 
 #### Control Surface Deflection Convention
 
+Control surfaces that move in either direction from neutral include: Ailerons, Elevons, V-tails, A-tails, Rudder.
 The diagram below shows the convention for deflections:
 
 ![Control Surface Deflections](../../assets/config/actuators/plane_control_surface_convention.png)
@@ -226,6 +227,13 @@ In summary:
   Includes rudders etc.
 - **Mixed Control Surfaces:** Upwards/rightwards movement is positive (as above).
   Includes V-Tail etc.
+
+::: tip
+Control surfaces that can only deflect in one direction from the neutral point include: Airbrakes, Spoiler, and Flaps.
+
+For these a positive input is always deflection from the neutral (0: no effect, 1: full effect), irrespective of the direction that the control itself moves.
+These do not respond to negative input.
+:::
 
 <!-- Also see this comment: https://github.com/PX4/PX4-Autopilot/blob/96b03040491e727752751c0e0beed87f0966e6d4/src/modules/control_allocator/module.yaml#L492 -->
 
@@ -524,17 +532,23 @@ If you're using PWM servos, PWM50 is far more common.
 If a high rate servo is _really_ needed, DShot offers better value.
 :::
 
-For each of the control surfaces:
+#### Control surfaces that move both directions about a neutral point
+
+Control surfaces that move either direction around a neutral point include: ailerons, elevons, V-tails, A-tails, and rudders.
+
+To set these up:
 
 1. Set the `Disarmed` value so that the surfaces will stay at neutral position when disarmed.
-   This is usually around `1500` for PWM servos.
+   This is usually around `1500` for PWM servos (near the centre of the servo range)
 2. Move the slider for the surface upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-deflection-convention).
+
+   - Ailerons, elevons, V-tails, A-tails, and other horizontal surfaces should move up.
+   - Rudders and other "purely vertical" surfaces should move right.
 
    ::: tip
    It is important that the slider movement matches the control surface convention, in order to normalize control for different servo mountings (moving the slider up may actually decrease the output value sent to the servo).
    :::
 
-   For ailerons, flaps, and other horizontal surfaces the surface should move up, while for rudders and other vertical surfaces the surface should move to the right.
    If the control surface moves in the opposite direction, click on the `Rev Range` checkbox to reverse the range.
 
 3. Move the slider again to the middle and check if the Control Surfaces are aligned in the neutral position of the wing.
@@ -554,7 +568,28 @@ Another way to test without using the sliders would be to set the [`COM_PREARM_M
 
 - This will enable the control of servos even when the vehicle is disarmed, and will constantly be applying the Trim setting to the Control Surfaces
 - You can try setting different values for the Trim and check the alignment, and then settle on the value you are happy with.
-  :::
+
+:::
+
+#### Control surfaces that move from neutral to full deflection
+
+Control surfaces that move only one direction from neutral include: airbrakes, spoilers, and flaps.
+
+For these controls you should set the minimum and maximum PWM values according to the full range of the control.
+The `Disarmed` value should then match the value (of maximum or minimum) that corresponds to control being in the "neutral" position.
+For a flap, that is when the flap is fully retracted and flush with the wing.
+
+One approach for setting these up is:
+
+1. Set the `Disarmed` value so that the surfaces are at neutral position when disarmed.
+2. ...
+3. Trim?
+
+::: info Special note for flaps
+In some vehicle builds, flaps may be configured such that both flaps are controlled from a single output.
+In this case, you need to ensure that both flaps extend/deploy when raising the corresponding slider.
+If this is not the case and one servo deploys correctly and one does not, you need to change the servo direction with a third party servo programmer or move the servo (that is not deflecting in the correct orientation) to its own servo output channel and then reverse its direction via the Rev range check box.
+:::
 
 ### Tilt Servo Setup
 
