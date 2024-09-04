@@ -44,6 +44,7 @@ Assuming your ROS 2 workspace is `~/ros2_ws/`, fetch and build the `px4_msgs` pa
 ```sh
 cd ~/ros2_ws/src/
 git clone https://github.com/PX4/px4_msgs.git
+cd ..
 colcon build
 source install/setup.bash
 ```
