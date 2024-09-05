@@ -18,16 +18,21 @@ See [Simulation](../simulation/index.md) for general information about simulator
 
 ## Installation (Ubuntu Linux)
 
-Gazebo is installed by default on Ubuntu 22.04 as part of the normal [development environment setup](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets).
+Gazebo Harmonic is installed by default on Ubuntu 22.04 as part of the normal [development environment setup](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets).
 
-If you want to use Gazebo on Ubuntu 20.04 you can install it manually, after first following the normal setup process (installing `gz-harmonic` will uninstall Gazebo-Classic!):
+:::info
+The PX4 installation scripts are based on the instructions: [Binary Installation on Ubuntu](https://gazebosim.org/docs/harmonic/install_ubuntu/) (gazebosim.org).
+:::
 
-```sh
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
-sudo apt-get update
-sudo apt-get install gz-harmonic
-```
+::: warning
+Gazebo Harmonic cannot be installed on Ubuntu 20.04 and earlier.
+
+On Ubuntu 20.04 we recommend use [Gazebo Classic](../sim_gazebo_classic/index.md).
+If you really must use Gazebo then you should update to Ubuntu 22.04.
+
+Until November 2024 it is possible to [install Gazebo Garden](https://gazebosim.org/docs/garden/install_ubuntu/) on Ubuntu 20.04.
+After that date Garden will reach end-of-life and should not be used.
+:::
 
 ## Running the Simulation
 
@@ -167,6 +172,7 @@ This can be ignored:
 ```sh
 [Wrn] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created
 ```
+
 :::
 
 ## Usage/Configuration Options

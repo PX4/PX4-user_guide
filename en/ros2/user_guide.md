@@ -47,13 +47,12 @@ This repo is no longer needed, but does contain useful examples.
 
 ## Installation & Setup
 
-The supported ROS 2 platforms for PX4 development are ROS 2 "Humble" on Ubuntu 22.04, and ROS 2 "Foxy" on Ubuntu 20.04.
+The supported and recommended ROS 2 platform for working with PX4 is ROS 2 "Humble" LTS on Ubuntu 22.04.
 
-ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution.
-ROS 2 "Foxy" reached end-of-life in May 2023, but is still stable and works with PX4.
-
-::: info
-Ubuntu 20.04 and Foxy are needed if you want to use [Gazebo Classic](../sim_gazebo_classic/index.md).
+::: tip
+If you're working on Ubuntu 20.04 we recommend you update to Ubuntu 22.04.
+In the meantime you can use ROS 2 "Foxy" with [Gazebo Classic](../sim_gazebo_classic/index.md) on Ubuntu 20.04.
+Note that ROS 2 "Foxy" reached end-of-life in May 2023, but is (at time of writing) still stable and works with PX4.
 :::
 
 To setup ROS 2 for use with PX4:
