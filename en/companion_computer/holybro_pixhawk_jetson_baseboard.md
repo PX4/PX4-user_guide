@@ -671,7 +671,7 @@ You will need the following additional hardware:
 
 ::: info
 This Jetson setup is tested with Nvidia Jetpack 6.0 (Ubuntu 22.04 base) and ROS 2 Humble, which are the versions currently supported by PX4-Autopilot community.
-The host computer is also running Ubuntu 22.04.
+The development computer is also running Ubuntu 22.04.
 :::
 
 The Jetson companion computer can be flashed from a development computer using the [Nvidia SDK Manager](https://docs.nvidia.com/sdk-manager/download-run-sdkm/index.html#download-sdk-manager) when the board is in recovery mode.
@@ -688,14 +688,14 @@ Download [Nvidia SDK Manager](https://docs.nvidia.com/sdk-manager/download-run-s
 
 After starting SDKManager you should see a screen similar to the one below (if the board is connected to host computer in recovery mode):
 
-![SDK Manager init page](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/nvidia_sdkmanager_1.png)
+![SDK Manager init screen](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/nvidia_sdkmanager_1.png)
 
-The next page allows you to choose the components to be installed.
+The next screen allows you to choose the components to be installed.
 Select the _Jetson Linux_ target components as shown (there is no point selecting other components because after flashing the board will disconnect).
 
 ![SDK Manager installation components page](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/nvidia_sdkmanager_2.png)
 
-Next confirm your selected device:
+On the following screen, confirm your selected device:
 
 - Choose `Pre-config` for the OEM Configuration (this will skip Ubuntu first time setup screens after reboot).
 - Choose your preferred username and password (and write them down).
@@ -708,8 +708,8 @@ Press **Flash** to start installing the image.
 It will take several minutes for the installation to complete.
 
 ::: warning
-The fan will be running while the installation is going on, so you may make sure it not blocked.
-Jetson will boot into initial login after flashing.
+The fan will be running while the installation is going on, so make sure it not blocked.
+The Jetson will boot into initial login after flashing.
 :::
 
 ## Jetson Network Setup
@@ -730,7 +730,7 @@ Pixhawk also has to be powered because the internal Ethernet switch on the board
 
 Connect the keyboard and mouse via spare USB ports.
 The external monitor should display the login screen.
-Enter the username and password you set when using the SDKManager to flash the Jetson.
+Enter the _username_ and _password_ you set when using the SDKManager to flash the Jetson.
 
 Next open a terminal in order to get the IP address of the Jetson.
 This can be used later to connect via SSH.
@@ -747,167 +747,195 @@ The output should look similar to this, indicating (in this case) an IP address 
 ```
 
 ::: tip If the command doesn't work ...
-The WiFi card with the board is either the Intel 8265NGW AC Dual Band or Realtek RTL8B22CE.
+The WiFi card with the board is either an _Intel 8265NGW AC Dual Band_ or _Realtek RTL8B22CE_.
 The Intel module may not work out of the box, in which case you should open a terminal and run the following command to install its driver.
 
 ```sh
 sudo apt-get install -y backport-iwlwifi-dkms
 ```
 
-Then repeat the process try to get the IP address again.
-
+Then repeat the process above to try and get the IP address.
 :::
 
 Now that we have an IP address, open a terminal in your _development computer_.
-We can log into the Jetson using the IP address, as shown:
+Log into the Jetson using the IP address via SSH, as shown:
 
 ```sh
 ssh holybro@192.168.1.190 #(Your defined IP might be different)
 ```
 
-If that works, you can remove your external monitor: you shouldn't need it again!
+If that works, you can remove your external monitor, as you can log in from your development computer from now on.
 
 ## Initial Development Setup on Jetson
 
-After logging into Jetson we can start with installing some dependencies:
+After logging into Jetson install the following dependencies (you will need these for most development tasks):
 
 ```sh
 sudo apt update
 sudo apt install build-essential cmake git genromfs kconfig-frontends libncurses5-dev flex bison libssl-dev
 ```
 
-::: info
+## Building/Flashing the Pixhawk
 
-In case you would like to develop PX4 Code on Jetson instead of the host computer you could follow the steps below:
+The recommended way to update PX4 is on the Pixhawk part of the board is to use your development computer.
+You can either install install prebuilt binaries with QGroundControl, or first build and then upload custom firmware.
+
+Alternatively, you can build and deploy PX4 firmware to the Pixhawk part from the Jetson.
+
+### Building/Deploy PX4 from a Development Computer
+
+First connect your development computer to the Pixhawk FMU USB-C port as shown below:
+
+![Connect development computer to Pixhawk USB port](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/pixhawk_fmu_usb_c.png)
+
+If you want to use prebuilt binaries, then start QGroundControl and follow the instructions in [Loading Firmware](../config/firmware.md) to deploy a recent version of PX4.
+Afterwards you will want to select an airframe and do all the other usual configuration for your vehicle type.
+
+If you want to build and upload custom firmware then follow the usual steps:
+
+- [Setting up a Developer Environment (Toolchain)](../dev_setup/dev_env.md)
+- [Building PX4 Software](../dev_setup/building_px4.md)
+- Upload the firmware using the [command line](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) or QGroundControl (as above)
+
+### Building PX4 on Jetson
+
+You can also build and develop PX4 code on the Jetson (this is not particularly recommended unless you don't have a development computer).
+
+First open a terminal and SSH session into the Jetson, and enter the following command to clone the PX4 source code.
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-In case you need a small portion of commits history and a single branch with no tags since you are on a SoC you could do:
+::: tip
+If you don't need all branches and tags, you can get a smaller part of the repository like this:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive --depth 1 --single-branch --no-tags
 ```
 
-Necessary stuff (I need nuttx for building):
+:::
+
+Then install the Ubuntu build toolchain by entering the following command
 
 ```sh
 bash ./PX4-Autopilot/Tools/setup/ubuntu.sh --no-sim-tools
 ```
 
-In case of path warnings do this once:
+If there are warnings, you may need to run the following commands to add the path to your binary directory.
 
 ```sh
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
 ```
 
-If You received an error like this one midway running ubuntu.sh:
+::: tip
+If there was an error like this when running `ubuntu.sh`:
 
 ```sh
 E: Unable to locate package g++-multilib
 E: Couldn't find any package by regex 'g++-multilib'
 ```
 
-Do:
+You will need to install the appropriate gcc toolchain as shown below, and then run `ubuntu.sh` again.
 
 ```sh
 sudo apt install gcc-arm-none-eabi gdb-arm-none-eabi -y
 ```
 
-And run `ubuntu.sh` again.
+:::
 
-We need to give permission to the serial ports next:
+Then give the operating system permission to use the serial ports:
 
 ```sh
 sudo usermod -a -G dialout $USER
 sudo apt-get remove modemmanager -y
 ```
 
-Sanity check if we can build PX4 Firmware (I have Pixhawk 6x here on my carrier board):
+Sanity check if we can build PX4 Firmware by building PX4 for your Pixhawk hardware on the carrier board.
+Assuming you're using a Pixhawk 6x, the command would be:
 
 ```sh
 make px4_fmu-v6x_default
 ```
 
-If passed the build you can connect the USB-C on pixhawk side to the Jetson USB and upload the firmware:
+If this builds successfully, you can connect the Pixhawk USB-C port to the Jetson USB port as shown below (the USB cable comes with the kit).
+
+![How to connect Jetson to Pixhawk directly](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/upload_px4_connection.png)
+
+Then upload the firmware to Pixhawk by building with the `upload` argument:
 
 ```sh
 make px4_fmu-v6x_default upload
 ```
 
-This photo shows how you can connect Pixhawk to Jetson board directly with the cable already comes in the box:
-
-![How to connect Jetson to Pixhawk directly](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/upload_px4_connection.png)
-
-This means you can checkout and flash any PX4 version you want through the SSH connection to Jetson.
-:::
-
 ## ROS 2 Installation and Setup
 
-You could follow the instructions [here](../ros2/user_guide.md#install-ros-2).
-Since later we may need to use additional ROS 2 packages for further development it is better to install full version, so this is the only line different from PX4 guide on ROS 2 installation.
+Follow the instruction in the ROS2 User guide to [Install ROS 2](../ros2/user_guide.md#install-ros-2) on the Jetson.
+You don't have to install PX4 on the Jetson because we're not using the simulator, but you may wish to install the full desktop so you can use additional ROS 2 packages for further development:
 
 ```sh
 sudo apt install -y ros-humble-desktop-full -y
 ```
 
-## Setup Micro XRCE-DDS Agent on Jetson
-
-You could follow the guides [here](../ros2/user_guide.md#setup-micro-xrce-dds-agent-client)
+Then fetch and build the uXRCE-DDS _agent_ as covered in [Setup the Agent](../ros2/user_guide.md#setup-the-agent) in the ROS 2 User guide.
+We don't need to start the agent yet, because the client is not yet running.
 
 ## Ethernet Setup using Netplan
 
-1 - Modify the Netplan configuration file to set up a static IP for the Jetson.
-You can usually find the Netplan configuration file in the `/etc/netplan/` directory.
-It's typically named something like `01-netcfg.yaml`, but the name can vary.
+Next we set up an Ethernet connection between the Jetson and PX4 that will be used by our ROS 2 client and agent to communicate.
 
-Open the file in your preferred text editor:
+::: warning
+The Holybro Jetson Pixhawk carrier has an internal network switch between Pixhawk and Jetson, so you do not need to connect any external cables.
+:::
 
-```sh
-sudo nano /etc/netplan/01-netcfg.yaml
-```
+These instructions approximately mirror the [PX4 Ethernet setup](../advanced_config/ethernet_setup.md) (and [Holybro Pixhawk RPi CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)).
 
-2 - Modify the file to configure the Ethernet interface:
+1. Modify the Netplan configuration file to set up a static IP for the Jetson.
+   You can usually find the Netplan configuration file in the `/etc/netplan/` directory.
+   It's typically named something like `01-netcfg.yaml`, but the name can vary.
 
-```
+   Open the file in your preferred text editor:
+
+   ```sh
+   sudo nano /etc/netplan/01-netcfg.yaml
+   ```
+
+2. Modify the file to configure the Ethernet interface:
+
+   ```sh
    network:
    version: 2
    renderer: networkd
    ethernets:
-      eth0:
+     eth0:
          dhcp4: no
          addresses:
          - 192.168.0.2/24
-```
+   ```
 
-3- Apply the Netplan configuration:
+   This gives the Jetson a static IP address on the Ethernet of `192.168.0.2`
 
-Save the file and apply the changes using the following command:
+3. Apply the Netplan configuration:
 
-```sh
-sudo netplan apply
-```
+   Save the file and apply the changes using the following command:
 
-Pixhawk ethernet address is set to 192.168.0.3.
-See [PX4 Ethernet setup](../advanced_config/ethernet_setup.md) and
-[PX4 CM4 Blog post](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/).
+   ```sh
+   sudo netplan apply
+   ```
 
-::: warning
-There is an internal network switch between Pixhawk and Jetson integrated in Holybro Jetson carrier board so
-you do not need to connect any external cables.
-:::
+The Pixhawk Ethernet address is set to `192.168.0.3`.
 
-We ping pixhawk now inside Jetson terminal:
+We ping Pixhawk now inside Jetson terminal:
 
 ```sh
 ping 192.168.0.3
 ```
 
-If this is successful as the output below it means you
-can run your XRCE-DDS agent on Jetson and have your ros nodes talk to PX4 uxrce-dds middleware.
+If this is successful you will see the output below.
 
 ![Pixhawk and Jetson successful ping](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/pixhawk_ping.png)
+
+This means you can run your XRCE-DDS agent on Jetson and have your ROS nodes talk to the client running on PX4.
 
 ## Connection Sanity Check between Pixhawk and Jetson
 
@@ -915,7 +943,7 @@ Let us make stuff ready to communicate with Pixhawk.
 I will use [MAVSDK Python](https://github.com/mavlink/MAVSDK-Python) as it is the easiest way for now:
 
 ```sh
- pip3 install mavsdk
+pip3 install mavsdk
 ```
 
 We can run a [telemetry example](https://github.com/mavlink/MAVSDK-Python/tree/main/examples) here for a sanity check assuming you have cloned MAVSDK-Python repo in your Jetson root directory.
@@ -926,8 +954,8 @@ await drone.connect(system_address="serial:///dev/ttyTHS*:921600")
 ```
 
 :::info
-Jetson and Pixhawk are internally connected from Pixhawk `TELEM2` to Jetson THS\* (i.e. THS1 or THS0).
-Always you could see the available serial instances by:
+Jetson and Pixhawk are internally connected from Pixhawk `TELEM2` to Jetson `THS1` or `THS0`.
+You can view the available serial instances by entering the following commands on the Jetson:
 
 ```sh
 ls /dev/ttyTHS*
@@ -984,11 +1012,10 @@ param set UXRCE_DDS_SYNCT 1
 This might not be a recommended way to establish agent-client connection as it will occupy the only serial connection between pixhawk and Jetson.
 The reasons are:
 
-1 - Serial connection has higher latency
+1. Serial connection has higher latency
+1. Reboots or system changes may cause failures to ethernet switch
+1. You could use the serial connection for lower level applications
 
-2 - Reboots or system changes may cause failures to ethernet switch
-
-3 - You could use the serial connection for lower level applications
 :::
 
 A Pixhawk reboot is needed after all these so that the changes are applied.
@@ -1010,7 +1037,7 @@ Starting UXRCE-DDS Client on /dev/ttyS4
 INFO  [uxrce_dds_client] init serial /dev/ttyS4 @ 921600 baud
 ```
 
-:::info
+::: info
 In case the client was not running you could run it manually:
 
 ```sh
@@ -1047,7 +1074,7 @@ An output similar to the one below means that the connection is established and 
 We do not need to run any client here as on all PX4 boards the client runs at the boot by default
 :::
 
-## Running a node to get sensor data using XRCE-DDS agent
+## Running a Node to get Sensor Data using the XRCE-DDS agent
 
 By getting help from [ROS2 Example](../ros2/user_guide.md#running-the-example) :
 
