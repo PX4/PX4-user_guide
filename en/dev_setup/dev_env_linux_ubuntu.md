@@ -4,7 +4,7 @@ The following instructions use a bash script to set up the PX4 development envir
 
 The environment includes:
 
-- [Gazebo Simulator](../sim_gazebo_gz/index.md) on Ubuntu 22.04 and Ubuntu 20.04
+- [Gazebo Simulator](../sim_gazebo_gz/index.md) ("Harmonic") on Ubuntu 22.04
 - [Gazebo Classic Simulator](../sim_gazebo_classic/index.md) on Ubuntu 20.04 and Ubuntu 18.04
 - [Build toolchain for Pixhawk (and other NuttX-based hardware)](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 
@@ -13,7 +13,8 @@ The build toolchain for other flight controllers, simulators, and working with R
 :::
 
 ::: tip
-You can manually install Gazebo on Ubuntu 22.04 or 20.04, and Gazebo Classic on Ubuntu 20.04 or 18.04 by following the instructions in [Gazebo > Installation](../sim_gazebo_gz/index.md#installation-ubuntu-linux) and [Gazebo Classic > Installation](../sim_gazebo_classic/index.md#installation), respectively.
+if you need to use Gazebo on Ubuntu 20.04 you can [manually install Gazebo "Garden"](../sim_gazebo_gz/index.md#installation-ubuntu-linux), with the caveat that this is end-of-life in November 2024.
+If you want to use Gazebo Classic on Ubuntu 22.04 (say) then you can manually install it by following the instructions in [Gazebo Classic > Installation](../sim_gazebo_classic/index.md#installation).
 :::
 
 ## Simulation and NuttX (Pixhawk) Targets
