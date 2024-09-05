@@ -214,25 +214,29 @@ In this case the things you need to know are:
 
 #### Control Surface Deflection Convention
 
-Control surfaces that move in either direction from neutral include: Ailerons, Elevons, V-tails, A-tails, Rudder.
-The diagram below shows the convention for deflections:
+Control surfaces that move in either direction from neutral include: Ailerons, Elevons, V-Tails, A-Tails, Rudder.
+
+In order to ensure that these control surfaces always move as expected for positive or negative inputs from the controllers, there needs to be a definition of the deflection directions that is independent of the physical servo setup.
+
+Positive input causes positive deflection.
+The diagram below shows the direction of movement for positive input:
 
 ![Control Surface Deflections](../../assets/config/actuators/plane_control_surface_convention.png)
 
-In summary:
+In summary, positive inputs result in:
 
-- **Horizontal Control Surfaces:** Upwards movement equals positive deflection.
-  Includes Ailerons, etc
-- **Vertical Control Surfaces:** Rightwards movement is positive deflection.
-  Includes rudders etc.
-- **Mixed Control Surfaces:** Upwards/rightwards movement is positive (as above).
-  Includes V-Tail etc.
+- **Horizontal Control Surfaces:** Upwards movement.
+  Includes ailerons and elevons.
+- **Vertical Control Surfaces:** Rightwards movement.
+  Includes rudders.
+- **Mixed Control Surfaces:** Upwards/rightwards movement.
+  Includes V-Tail. A-Tail
 
 ::: tip
 Control surfaces that can only deflect in one direction from the neutral point include: Airbrakes, Spoiler, and Flaps.
 
-For these a positive input is always deflection from the neutral (0: no effect, 1: full effect), irrespective of the direction that the control itself moves.
-These do not respond to negative input.
+For these controls a positive input is always deflection from the neutral (0: no effect, 1: full effect), irrespective of the direction that the control itself moves.
+They do not respond to negative input.
 :::
 
 <!-- Also see this comment: https://github.com/PX4/PX4-Autopilot/blob/96b03040491e727752751c0e0beed87f0966e6d4/src/modules/control_allocator/module.yaml#L492 -->
@@ -440,7 +444,7 @@ Instructions:
 
    Select the corresponding motor in the geometry section.
 
-   ![](../../assets/config/actuators/identify_motors_in_progress.png)
+   ![Screenshot showing how to identify/assign motors](../../assets/config/actuators/identify_motors_in_progress.png)
 
 1. After assigning all motors, the tool will set the correct motor mapping for the outputs and then exit.
 
@@ -539,10 +543,13 @@ Control surfaces that move either direction around a neutral point include: aile
 To set these up:
 
 1. Set the `Disarmed` value so that the surfaces will stay at neutral position when disarmed.
-   This is usually around `1500` for PWM servos (near the centre of the servo range)
+   This is usually around `1500` for PWM servos (near the centre of the servo range).
+
+   ![Control Surface Disarmed 1500 Setting](../../assets/config/actuators/control_surface_aileron_setup.png)
+
 2. Move the slider for the surface upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-deflection-convention).
 
-   - Ailerons, elevons, V-tails, A-tails, and other horizontal surfaces should move up.
+   - Ailerons, elevons, V-Tails, A-Tails, and other horizontal surfaces should move up.
    - Rudders and other "purely vertical" surfaces should move right.
 
    ::: tip
@@ -560,7 +567,7 @@ To set these up:
      ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
      :::
 
-   - After setting the trim for a control surface, move its slider away from the center, release, and then back into disarmed (middle) position.
+   - After setting the trim for a control surface, move its slider away from the centre, release, and then back into disarmed (middle) position.
      Confirm that surface is in the neutral position.
 
 ::: info
@@ -581,14 +588,21 @@ For a flap, that is when the flap is fully retracted and flush with the wing.
 
 One approach for setting these up is:
 
-1. Set the `Disarmed` value so that the surfaces are at neutral position when disarmed.
-2. ...
-3. Trim?
+1. Set values `Disarmed` to `1500`, `Min` to `1200`, `Max` to `1700` so that the values are around the centre of the servo range.
+2. Move the corresponding slider up and check the control moves and that it is extending (moving away from the disarmed position).
+   If not, click on the `Rev Range` checkbox to reverse the range.
+3. Enable slider in the disarmed position, them change the value of the `Disarmed` signal until the control is retracted/flush with wing.
+   This may require that the `Disarmed` value is increased or decreased:
+   - If the value was decreased towards `Min`, then set `Min` to match `Disarmed`.
+   - If the value was increased towards `Max`, then set `Max` to match `Disarmed`.
+4. The value that you did _not_ set to match `Disarmed` controls the maximum amount that the control surface can extend.
+   Set the slider to the top of the control, then change the value (`Max` or `Min`) so that the control surface is fully extended when the slider is at top.
 
 ::: info Special note for flaps
 In some vehicle builds, flaps may be configured such that both flaps are controlled from a single output.
 In this case, you need to ensure that both flaps extend/deploy when raising the corresponding slider.
-If this is not the case and one servo deploys correctly and one does not, you need to change the servo direction with a third party servo programmer or move the servo (that is not deflecting in the correct orientation) to its own servo output channel and then reverse its direction via the Rev range check box.
+If this is not the case and one servo deploys correctly and one does not, you need to change the servo direction with a third party servo programmer.
+Alternatively, you might move the servo that is not deflecting in the correct orientation to its own servo output channel and then reverse its direction via the `Rev range` check box.
 :::
 
 ### Tilt Servo Setup
