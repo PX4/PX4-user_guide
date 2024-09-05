@@ -50,6 +50,10 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 - [SIH]: The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7.
   ([PX4-Autopilot#23363](https://github.com/PX4/PX4-Autopilot/pull/23363)).
 - [Gazebo]:
+  - Gazebo Harmonic LTS release replaces Gazebo Garden as the version supported by PX4.
+    The default installer scripts (used for CI) and documentation have been updated.
+    This is required because Garden end-of-life is Nov 2024.
+    ([PX4-Autopilot#23603](https://github.com/PX4/PX4-Autopilot/pull/23603))
   - New vehicle model `x500_lidar` — [x500 Quadrotor with 2D Lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar).
     ([PX4-Autopilot#22418](https://github.com/PX4/PX4-Autopilot/pull/22418), [PX4-gazebo-models#41](https://github.com/PX4/PX4-gazebo-models/pull/41)).
   - New vehicle model `r1_rover` — [Aion Robotics R1 Rover](../sim_gazebo_gz/vehicles.md#differential-rover) ([PX4-Autopilot#22402](https://github.com/PX4/PX4-Autopilot/pull/22402) and [PX4-gazebo-models#21](https://github.com/PX4/PX4-gazebo-models/pull/21)).

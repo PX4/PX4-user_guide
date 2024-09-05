@@ -36,10 +36,10 @@ Gazebo Classic setup is included in our [standard build instructions](../dev_set
 
 For Ubuntu 22.04 LTS and later, the installation script ([/Tools/setup/ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)) installs the [Gazebo](../sim_gazebo_gz/index.md) simulator instead.
 
-If you want to use Gazebo Classic on Ubuntu 22.04 you can use the following commands to remove [Gazebo (Garden)](../sim_gazebo_gz/index.md) and then reinstall Gazebo-Classic 11:
+If you want to use Gazebo Classic on Ubuntu 22.04 you can use the following commands to remove [Gazebo](../sim_gazebo_gz/index.md) (Harmonic) and then reinstall Gazebo-Classic 11:
 
 ```sh
-sudo apt remove gz-garden
+sudo apt remove gz-harmonic
 sudo apt install aptitude
 sudo aptitude install gazebo libgazebo11 libgazebo-dev
 ```
