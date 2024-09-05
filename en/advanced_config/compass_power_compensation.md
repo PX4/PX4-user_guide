@@ -51,10 +51,13 @@ Performing this power compensation is advisable only if all the following statem
 1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
 
    ```sh
-   python mag_compensation.py ~/path/to/log/logfile.ulg <type> --instance
+   python mag_compensation.py ~/path/to/log/logfile.ulg <type> [--instance <number>]
    ```
 
-   where `type` is `current` or `thrust`.
+   where: 
+   
+      - `<type>`: `current` or `thrust` (power signal used for compensation)
+      - `--instance <number>` (optional): The number is `0` (default) or `1`, the instance of the current or thrust signal to use.
 
    ::: info
    If your log does not contain battery current measurements, you will need to comment out the respective lines in the Python script, such that it does the calculation for thrust only.
