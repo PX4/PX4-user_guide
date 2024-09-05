@@ -13,7 +13,7 @@ The build toolchain for other flight controllers, simulators, and working with R
 :::
 
 ::: tip
-You can manually install Gazebo on Ubuntu 20.04 or Gazebo Classic on Ubuntu 22.04 (say) by following the instructions in [Gazebo > Installation](../sim_gazebo_gz/index.md#installation-ubuntu-linux) and [Gazebo Classic > Installation](../sim_gazebo_classic/index.md#installation), respectively.
+You can manually install Gazebo on Ubuntu 22.04 or 20.04, and Gazebo Classic on Ubuntu 20.04 or 18.04 by following the instructions in [Gazebo > Installation](../sim_gazebo_gz/index.md#installation-ubuntu-linux) and [Gazebo Classic > Installation](../sim_gazebo_classic/index.md#installation), respectively.
 :::
 
 ## Simulation and NuttX (Pixhawk) Targets
