@@ -24665,7 +24665,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Manual yaw rate scale.
 
-In manual mode the setpoint for the yaw rate received from the rc remote is scaled by this value.
+In manual mode the setpoint for the yaw rate received from the yaw stick is scaled by this value.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -25145,7 +25145,7 @@ Determines when to start and stop logging. By default, logging is started when a
 - `0`: when armed until disarm (default)
 - `1`: from boot until disarm
 - `2`: from boot until shutdown
-- `3`: depending on AUX1 RC channel
+- `3`: while manual input AUX1 >30%
 - `4`: from 1st armed until shutdown
 
 
