@@ -250,14 +250,14 @@ Dimensions
 
 (2.00mm Pitch CLIK-Mate)
 
-| Pin      | Signal              | Voltage |
-| :------- | :------------------ | :------ |
-| 1(red)   | VDD5V_BRICK1/2(in)  | \+5V    |
-| 2(black) | VDD5V_BRICK1/2 (in) | \+5V    |
-| 3(black) | SCL1/2              | \+3.3V  |
-| 4(black) | SDA1/2              | \+3.3V  |
-| 5(black) | GND                 | GND     |
-| 6(black) | GND                 | GND     |
+| Pin       | Signal              | Voltage |
+| :-------- | :------------------ | :------ |
+| 1 (red)   | VDD5V_BRICK1/2(in)  | +5V     |
+| 2 (black) | VDD5V_BRICK1/2 (in) | +5V     |
+| 3 (black) | SCL1/2              | +3.3V   |
+| 4 (black) | SDA1/2              | +3.3V   |
+| 5 (black) | GND                 | GND     |
+| 6 (black) | GND                 | GND     |
 
 :::
 
@@ -265,215 +265,215 @@ Dimensions
 
 ### Tel1, Tel3 Ports
 
-| Pin      | Signal      | Voltage |
-| :------- | :---------- | :------ |
-| 1(red)   | VCC (out)   | \+5V    |
-| 2(black) | TX7/2(out)  | \+3.3V  |
-| 3(black) | RX7/2(in)   | \+3.3V  |
-| 4(black) | CTS7/2(in)  | \+3.3V  |
-| 5(black) | RTS7/2(out) | \+3.3V  |
-| 6(black) | GND         | GND     |
+| Pin       | Signal      | Voltage |
+| :-------- | :---------- | :------ |
+| 1 (red)   | VCC (out)   | +5V     |
+| 2 (black) | TX7/2(out)  | +3.3V   |
+| 3 (black) | RX7/2(in)   | +3.3V   |
+| 4 (black) | CTS7/2(in)  | +3.3V   |
+| 5 (black) | RTS7/2(out) | +3.3V   |
+| 6 (black) | GND         | GND     |
 
 ### CAN1, CAN2 Ports
 
-| Pin      | Signal    | Voltage |
-| :------- | :-------- | :------ |
-| 1(red)   | VCC (out) | \+5V    |
-| 2(black) | CANH1/2   | \+3.3V  |
-| 3(black) | CANL1/2   | \+3.3V  |
-| 4(black) | GND       | GND     |
+| Pin       | Signal    | Voltage |
+| :-------- | :-------- | :------ |
+| 1 (red)   | VCC (out) | +5V     |
+| 2 (black) | CANH1/2   | +3.3V   |
+| 3 (black) | CANL1/2   | +3.3V   |
+| 4 (black) | GND       | GND     |
 
 ### GPS1 Port
 
-| Pin       | Signal            | Voltage |
-| :-------- | :---------------- | :------ |
-| 1(red)    | VCC (out)         | \+5V    |
-| 2 (black) | TX1(out)          | \+3.3V  |
-| 3(black)  | RX1(in)           | \+3.3V  |
-| 4(black)  | SCL1              | \+3.3V  |
-| 5(black)  | SDA1              | \+3.3V  |
-| 6(black)  | SAFETY_SWITCH     | \+3.3V  |
-| 7(black)  | SAFETY_SWITCH_LED | \+3.3V  |
-| 8(black)  | VDD_3V3           | \+3.3V  |
-| 9(black)  | BUZZER-           | 0\~5V   |
-| 10(black) | GND               | GND     |
+| Pin        | Signal            | Voltage |
+| :--------- | :---------------- | :------ |
+| 1 (red)    | VCC (out)         | +5V     |
+| 2 (black)  | TX1(out)          | +3.3V   |
+| 3 (black)  | RX1(in)           | +3.3V   |
+| 4 (black)  | SCL1              | +3.3V   |
+| 5 (black)  | SDA1              | +3.3V   |
+| 6 (black)  | SAFETY_SWITCH     | +3.3V   |
+| 7 (black)  | SAFETY_SWITCH_LED | +3.3V   |
+| 8 (black)  | VDD_3V3           | +3.3V   |
+| 9 (black)  | BUZZER-           | 0\~5V   |
+| 10 (black) | GND               | GND     |
 
 ### GPS2 Port
 
 | Pin       | Signal    | Voltage |
 | :-------- | :-------- | :------ |
-| 1(red)    | VCC (out) | \+5V    |
-| 2 (black) | TX8(out)  | \+3.3V  |
-| 3(black)  | RX8(in)   | \+3.3V  |
-| 4(black)  | SCL2      | \+3.3V  |
-| 5(black)  | SDA2      | \+3.3V  |
-| 6(black)  | GND       | GND     |
+| 1 (red)   | VCC (out) | +5V     |
+| 2 (black) | TX8(out)  | +3.3V   |
+| 3 (black) | RX8(in)   | +3.3V   |
+| 4 (black) | SCL2      | +3.3V   |
+| 5 (black) | SDA2      | +3.3V   |
+| 6 (black) | GND       | GND     |
 
 ### UART4 & I2C Port
 
 (shown as UART\&I2C on some boards)
 
-| Pin      | Signal    | Voltage |
-| :------- | :-------- | :------ |
-| 1(red)   | VCC (out) | \+5V    |
-| 2(black) | TX4(out)  | \+3.3V  |
-| 3(black) | RX4(in)   | \+3.3V  |
-| 4(black) | SCL3      | \+3.3V  |
-| 5(black) | SDA3      | \+3.3V  |
-| 6(black) | NFC_GPIO  | \+3.3V  |
-| 7(black) | GND       | GND     |
+| Pin       | Signal    | Voltage |
+| :-------- | :-------- | :------ |
+| 1 (red)   | VCC (out) | +5V     |
+| 2 (black) | TX4(out)  | +3.3V   |
+| 3 (black) | RX4(in)   | +3.3V   |
+| 4 (black) | SCL3      | +3.3V   |
+| 5 (black) | SDA3      | +3.3V   |
+| 6 (black) | NFC_GPIO  | +3.3V   |
+| 7 (black) | GND       | GND     |
 
 ### SPI Port
 
-| Pin       | Signal      | Voltage |
-| :-------- | :---------- | :------ |
-| 1(red)    | VCC (out)   | \+5V    |
-| 2 (black) | SPI6_SCK    | \+3.3V  |
-| 3(black)  | SPI6_MISO   | \+3.3V  |
-| 4(black)  | SPI6_MOSI   | \+3.3V  |
-| 5(black)  | SPI6_CS1    | \+3.3V  |
-| 6(black)  | SPI6_CS2    | \+3.3V  |
-| 7(black)  | SPIX_SYNC   | \+3.3V  |
-| 8(black)  | SPI6_DRDY1  | \+3.3V  |
-| 9(black)  | SPI6_DRDY2  | \+3.3V  |
-| 10(black) | SPI6_nRESET | \+3.3V  |
-| 11(black) | GND         | GND     |
+| Pin        | Signal      | Voltage |
+| :--------- | :---------- | :------ |
+| 1 (red)    | VCC (out)   | +5V     |
+| 2 (black)  | SPI6_SCK    | +3.3V   |
+| 3 (black)  | SPI6_MISO   | +3.3V   |
+| 4 (black)  | SPI6_MOSI   | +3.3V   |
+| 5 (black)  | SPI6_CS1    | +3.3V   |
+| 6 (black)  | SPI6_CS2    | +3.3V   |
+| 7 (black)  | SPIX_SYNC   | +3.3V   |
+| 8 (black)  | SPI6_DRDY1  | +3.3V   |
+| 9 (black)  | SPI6_DRDY2  | +3.3V   |
+| 10 (black) | SPI6_nRESET | +3.3V   |
+| 11 (black) | GND         | GND     |
 
 ### FMU USB Port
 
-| Pin      | Signal    | Voltage |
-| :------- | :-------- | :------ |
-| 1(red)   | VBUS (in) | \+5V    |
-| 2(black) | DM        | \+3.3V  |
-| 3(black) | DP        | \+3.3V  |
-| 4(black) | GND       | GND     |
+| Pin       | Signal    | Voltage |
+| :-------- | :-------- | :------ |
+| 1 (red)   | VBUS (in) | +5V     |
+| 2 (black) | DM        | +3.3V   |
+| 3 (black) | DP        | +3.3V   |
+| 4 (black) | GND       | GND     |
 
 ### I2C Port
 
-| Pin      | Signal | Voltage |
-| :------- | :----- | :------ |
-| 1(red)   | VCC    | \+5V    |
-| 2(black) | SCL3   | \+3.3V  |
-| 3(black) | SDA3   | \+3.3V  |
-| 4(black) | GND    | GND     |
+| Pin       | Signal | Voltage |
+| :-------- | :----- | :------ |
+| 1 (red)   | VCC    | +5V     |
+| 2 (black) | SCL3   | +3.3V   |
+| 3 (black) | SDA3   | +3.3V   |
+| 4 (black) | GND    | GND     |
 
 ### ETH-P1 Port
 
-| Pin      | Signal | Voltage |
-| :------- | :----- | :------ |
-| 1(red)   | TX_D1+ | \-      |
-| 2(black) | TX_D1- | \-      |
-| 3(black) | RX_D2+ | \-      |
-| 4(black) | RX_D2- | \-      |
-| 5(black) | Bi_D3+ | \-      |
-| 6(black) | Bi_D3- | \-      |
-| 7(black) | Bi_D4+ | \-      |
-| 8(black) | Bi_D4- | \-      |
+| Pin       | Signal | Voltage |
+| :-------- | :----- | :------ |
+| 1 (red)   | TX_D1+ | -       |
+| 2 (black) | TX_D1- | -       |
+| 3 (black) | RX_D2+ | -       |
+| 4 (black) | RX_D2- | -       |
+| 5 (black) | Bi_D3+ | -       |
+| 6 (black) | Bi_D3- | -       |
+| 7 (black) | Bi_D4+ | -       |
+| 8 (black) | Bi_D4- | -       |
 
 ### IO Debug Port
 
 (JST-SH 1mm Pitch)
 
-| Pin       | Signal          | Voltage |
-| :-------- | :-------------- | :------ |
-| 1(red)    | IO_VDD_3V3(out) | \+3.3V  |
-| 2 (black) | IO_USART1_TX    | \+3.3V  |
-| 3(black)  | NC              | \--     |
-| 4(black)  | IO_SWD_IO       | \+3.3V  |
-| 5(black)  | IO_SWD_CK       | \+3.3V  |
-| 6(black)  | IO_SWO          | \+3.3V  |
-| 7(black)  | IO_SPARE_GPIO1  | \+3.3V  |
-| 8(black)  | IO_SPARE_GPIO2  | \+3.3V  |
-| 9(black)  | IO_nRST         | \+3.3V  |
-| 10(black) | GND             | GND     |
+| Pin        | Signal          | Voltage |
+| :--------- | :-------------- | :------ |
+| 1 (red)    | IO_VDD_3V3(out) | +3.3V   |
+| 2 (black)  | IO_USART1_TX    | +3.3V   |
+| 3 (black)  | NC              | -       |
+| 4 (black)  | IO_SWD_IO       | +3.3V   |
+| 5 (black)  | IO_SWD_CK       | +3.3V   |
+| 6 (black)  | IO_SWO          | +3.3V   |
+| 7 (black)  | IO_SPARE_GPIO1  | +3.3V   |
+| 8 (black)  | IO_SPARE_GPIO2  | +3.3V   |
+| 9 (black)  | IO_nRST         | +3.3V   |
+| 1 0(black) | GND             | GND     |
 
 ### FMU Debug port
 
 (JST-SH 1mm Pitch)
 
-| Pin       | Signal             | Voltage |
-| :-------- | :----------------- | :------ |
-| 1(red)    | FMU_VDD_3V3(out)   | \+3.3V  |
-| 2( black) | FMU_USART3_TX      | \+3.3V  |
-| 3(black)  | FMU_USART3_RX      | \+3.3V  |
-| 4(black)  | FMU_SWD_IO         | \+3.3V  |
-| 5(black)  | FMU_SWD_CK         | \+3.3V  |
-| 6(black)  | SPI6_SCK_EXTERNAL1 | \+3.3V  |
-| 7(black)  | NFC_GPIO           | \+3.3V  |
-| 8(black)  | PH11               | \+3.3V  |
-| 9(black)  | FMU_nRST           | \+3.3V  |
-| 10(black) | GND                | GND     |
+| Pin        | Signal             | Voltage |
+| :--------- | :----------------- | :------ |
+| 1 (red)    | FMU_VDD_3V3(out)   | +3.3V   |
+| 2 (black)  | FMU_USART3_TX      | +3.3V   |
+| 3 (black)  | FMU_USART3_RX      | +3.3V   |
+| 4 (black)  | FMU_SWD_IO         | +3.3V   |
+| 5 (black)  | FMU_SWD_CK         | +3.3V   |
+| 6 (black)  | SPI6_SCK_EXTERNAL1 | +3.3V   |
+| 7 (black)  | NFC_GPIO           | +3.3V   |
+| 8 (black)  | PH11               | +3.3V   |
+| 9 (black)  | FMU_nRST           | +3.3V   |
+| 10 (black) | GND                | GND     |
 
 ### AD\&IO port
 
-| Pin      | Signal         | Voltage |
-| :------- | :------------- | :------ |
-| 1(red)   | VCC (out)      | \+5V    |
-| 2(black) | FMU_CAP1       | \+3.3V  |
-| 3(black) | FMU_BOOTLOADER | \+3.3V  |
-| 4(black) | FMU_RST_REQ    | \+3.3V  |
-| 5(black) | NARMED         | \+3.3V  |
-| 6(black) | ADC1_3V3       | \+3.3V  |
-| 7(black) | ADC1_6V6       | \+6.6V  |
-| 8(black) | GND            | GND     |
+| Pin       | Signal         | Voltage |
+| :-------- | :------------- | :------ |
+| 1 (red)   | VCC (out)      | +5V     |
+| 2 (black) | FMU_CAP1       | +3.3V   |
+| 3 (black) | FMU_BOOTLOADER | +3.3V   |
+| 4 (black) | FMU_RST_REQ    | +3.3V   |
+| 5 (black) | NARMED         | +3.3V   |
+| 6 (black) | ADC1_3V3       | +3.3V   |
+| 7 (black) | ADC1_6V6       | +6.6V   |
+| 8 (black) | GND            | GND     |
 
 ### DSM RC Port
 
 (JST-ZH 1.5mm Pitch)
 
-| Pin       | Signal           | Voltage |
-| :-------- | :--------------- | :------ |
-| 1(yellow) | VDD_3V3_SPEKTRUM | \+3.3V  |
-| 2(black)  | GND              | GND     |
-| 3(grey)   | DSM/Spektrum in  | \+3.3V  |
+| Pin        | Signal           | Voltage |
+| :--------- | :--------------- | :------ |
+| 1 (yellow) | VDD_3V3_SPEKTRUM | +3.3V   |
+| 2 (black)  | GND              | GND     |
+| 3 (grey)   | DSM/Spektrum in  | +3.3V   |
 
 ### RC IN Port
 
 | Pin       | Signal            | Voltage |
 | :-------- | :---------------- | :------ |
-| 1(red)    | VDD_5V \_RC (out) | \+5V    |
-| 2( black) | SBUS/PPM in       | \+3.3V  |
-| 3( black) | RSSI_IN           | \+3.3V  |
-| 4( black) | NC                | \--     |
-| 5( black) | GND               | GND     |
+| 1 (red)   | VDD_5V \_RC (out) | +5V     |
+| 2 (black) | SBUS/PPM in       | +3.3V   |
+| 3 (black) | RSSI_IN           | +3.3V   |
+| 4 (black) | NC                | -       |
+| 5 (black) | GND               | GND     |
 
 ### SBUS Out Port
 
 | Pin       | Signal   | Voltage |
 | :-------- | :------- | :------ |
-| 1(red)    | NC       | \--     |
-| 2( black) | SBUS_OUT | \+3.3V  |
-| 3( black) | GND      | GND     |
+| 1 (red)   | NC       | -       |
+| 2 (black) | SBUS_OUT | +3.3V   |
+| 3 (black) | GND      | GND     |
 
 ### FMU PWM OUT (AUX OUT)
 
-| Pin       | Signal    | Voltage |
-| :-------- | :-------- | :------ |
-| 1(red)    | VDD_SERVO | 0\~16V  |
-| 2(black)  | FMU_CH1   | \+3.3V  |
-| 3(black)  | FMU_CH2   | \+3.3V  |
-| 4(black)  | FMU_CH3   | \+3.3V  |
-| 5(black)  | FMU_CH4   | \+3.3V  |
-| 6(black)  | FMU_CH5   | \+3.3V  |
-| 7(black)  | FMU_CH6   | \+3.3V  |
-| 8(black)  | FMU_CH7   | \+3.3V  |
-| 9(black)  | FMU_CH8   | \+3.3V  |
-| 10(black) | GND       | GND     |
+| Pin        | Signal    | Voltage |
+| :--------- | :-------- | :------ |
+| 1 (red)    | VDD_SERVO | 0\~16V  |
+| 2 (black)  | FMU_CH1   | +3.3V   |
+| 3 (black)  | FMU_CH2   | +3.3V   |
+| 4 (black)  | FMU_CH3   | +3.3V   |
+| 5 (black)  | FMU_CH4   | +3.3V   |
+| 6 (black)  | FMU_CH5   | +3.3V   |
+| 7 (black)  | FMU_CH6   | +3.3V   |
+| 8 (black)  | FMU_CH7   | +3.3V   |
+| 9 (black)  | FMU_CH8   | +3.3V   |
+| 10 (black) | GND       | GND     |
 
 ### IO PWM OUT (MAIN OUT)
 
-| Pin       | Signal    | Voltage |
-| :-------- | :-------- | :------ |
-| 1(red)    | VDD_SERVO | 0\~16V  |
-| 2(black)  | IO_CH1    | \+3.3V  |
-| 3(black)  | IO_CH2    | \+3.3V  |
-| 4(black)  | IO_CH3    | \+3.3V  |
-| 5(black)  | IO_CH4    | \+3.3V  |
-| 6(black)  | IO_CH5    | \+3.3V  |
-| 7(black)  | IO_CH6    | \+3.3V  |
-| 8(black)  | IO_CH7    | \+3.3V  |
-| 9(black)  | IO_CH8    | \+3.3V  |
-| 10(black) | GND       | GND     |
+| Pin        | Signal    | Voltage |
+| :--------- | :-------- | :------ |
+| 1 (red)    | VDD_SERVO | 0\~16V  |
+| 2 (black)  | IO_CH1    | +3.3V   |
+| 3 (black)  | IO_CH2    | +3.3V   |
+| 4 (black)  | IO_CH3    | +3.3V   |
+| 5 (black)  | IO_CH4    | +3.3V   |
+| 6 (black)  | IO_CH5    | +3.3V   |
+| 7 (black)  | IO_CH6    | +3.3V   |
+| 8 (black)  | IO_CH7    | +3.3V   |
+| 9 (black)  | IO_CH8    | +3.3V   |
+| 10 (black) | GND       | GND     |
 
 :::
 
@@ -481,46 +481,46 @@ Dimensions
 
 ### Orin USB2.0 Port
 
-| Pin      | Signal         | Voltage |
-| :------- | :------------- | :------ |
-| 1(red)   | USB_VBUS (out) | \+5V    |
-| 2(black) | DM             | \+3.3V  |
-| 3(black) | DP             | \+3.3V  |
-| 4(black) | GND            | GND     |
-| 5(black) | Shield         | GND     |
+| Pin       | Signal         | Voltage |
+| :-------- | :------------- | :------ |
+| 1 (red)   | USB_VBUS (out) | +5V     |
+| 2 (black) | DM             | +3.3V   |
+| 3 (black) | DP             | +3.3V   |
+| 4 (black) | GND            | GND     |
+| 5 (black) | Shield         | GND     |
 
 ### Orin Debug
 
 (JST-SH 1mm Pitch)
 
-| Pin      | Signal         | Voltage |
-| :------- | :------------- | :------ |
-| 1(red)   | VCC (out)      | \+5V    |
-| 2(black) | Orin_UART2_TXD | \+3.3V  |
-| 3(black) | Orin_UART2_RXD | \+3.3V  |
-| 4(black) | NC             | \--     |
-| 5(black) | NC             | \--     |
-| 6(black) | GND            | GND     |
+| Pin       | Signal         | Voltage |
+| :-------- | :------------- | :------ |
+| 1 (red)   | VCC (out)      | +5V     |
+| 2 (black) | Orin_UART2_TXD | +3.3V   |
+| 3 (black) | Orin_UART2_RXD | +3.3V   |
+| 4 (black) | NC             | -       |
+| 5 (black) | NC             | -       |
+| 6 (black) | GND            | GND     |
 
 ### Orin I2C Port
 
-| Pin      | Signal        | Voltage |
-| :------- | :------------ | :------ |
-| 1(red)   | VCC (out)     | \+5V    |
-| 2(black) | Orin_I2C1_SCL | \+3.3V  |
-| 3(black) | Orin_I2C1_SDA | \+3.3V  |
-| 4(black) | GND           | GND     |
+| Pin       | Signal        | Voltage |
+| :-------- | :------------ | :------ |
+| 1 (red)   | VCC (out)     | +5V     |
+| 2 (black) | Orin_I2C1_SCL | +3.3V   |
+| 3 (black) | Orin_I2C1_SDA | +3.3V   |
+| 4 (black) | GND           | GND     |
 
 ### Orin GPIO Port
 
-| Pin      | Signal       | Voltage |
-| :------- | :----------- | :------ |
-| 1(red)   | VCC          | \+5V    |
-| 2(black) | Orin_GPIO_07 | \+3.3V  |
-| 3(black) | Orin_GPIO_11 | \+3.3V  |
-| 4(black) | Orin_GPIO_12 | \+3.3V  |
-| 5(black) | Orin_GPIO_13 | \+3.3V  |
-| 6(black) | GND          | GND     |
+| Pin       | Signal       | Voltage |
+| :-------- | :----------- | :------ |
+| 1 (red)   | VCC          | +5V     |
+| 2 (black) | Orin_GPIO_07 | +3.3V   |
+| 3 (black) | Orin_GPIO_11 | +3.3V   |
+| 4 (black) | Orin_GPIO_12 | +3.3V   |
+| 5 (black) | Orin_GPIO_13 | +3.3V   |
+| 6 (black) | GND          | GND     |
 
 ### Orin Camera0 Port
 
@@ -529,27 +529,27 @@ Camera Serial Interface (CSI)
 | Pin | Signal            | Voltage |
 | :-- | :---------------- | :------ |
 | 1   | GND               | GND     |
-| 2   | Orin_CSI1_D0_N    | \+3.3V  |
-| 3   | Orin_CSI1_D0_P    | \+3.3V  |
+| 2   | Orin_CSI1_D0_N    | +3.3V   |
+| 3   | Orin_CSI1_D0_P    | +3.3V   |
 | 4   | GND               | GND     |
-| 5   | Orin_CSI1_D1_N    | \+3.3V  |
-| 6   | Orin_CSI1_D1_P    | \+3.3V  |
+| 5   | Orin_CSI1_D1_N    | +3.3V   |
+| 6   | Orin_CSI1_D1_P    | +3.3V   |
 | 7   | GND               | GND     |
-| 8   | Orin_CSI1_CLK_N   | \+3.3V  |
-| 9   | Orin_CSI1_CLK_P   | \+3.3V  |
+| 8   | Orin_CSI1_CLK_N   | +3.3V   |
+| 9   | Orin_CSI1_CLK_P   | +3.3V   |
 | 10  | GND               | GND     |
-| 11  | Orin_CSI0_D0_N    | \+3.3V  |
-| 12  | Orin_CSI0_D0_P    | \+3.3V  |
+| 11  | Orin_CSI0_D0_N    | +3.3V   |
+| 12  | Orin_CSI0_D0_P    | +3.3V   |
 | 13  | GND               | GND     |
-| 14  | Orin_CSI0_D1_N    | \+3.3V  |
-| 15  | Orin_CSI0_D1_P    | \+3.3V  |
+| 14  | Orin_CSI0_D1_N    | +3.3V   |
+| 15  | Orin_CSI0_D1_P    | +3.3V   |
 | 16  | GND               | GND     |
-| 17  | Orin_CAM0_PWDN    | \+3.3V  |
-| 18  | Orin_CAM0_MCLK    | \+3.3V  |
+| 17  | Orin_CAM0_PWDN    | +3.3V   |
+| 18  | Orin_CAM0_MCLK    | +3.3V   |
 | 19  | GND               | GND     |
-| 20  | Orin_CAM0_I2C_SCL | \+3.3V  |
-| 21  | Orin_CAM0_I2C_SDA | \+3.3V  |
-| 22  | VDD               | \+3.3V  |
+| 20  | Orin_CAM0_I2C_SCL | +3.3V   |
+| 21  | Orin_CAM0_I2C_SDA | +3.3V   |
+| 22  | VDD               | +3.3V   |
 
 ### Orin Camera1 Port
 
@@ -558,66 +558,108 @@ Camera Serial Interface (CSI)
 | Pin | Signal            | Voltage |
 | :-- | :---------------- | :------ |
 | 1   | GND               | GND     |
-| 2   | Orin_CSI2_D0_N    | \+3.3V  |
-| 3   | Orin_CSI2_D0_P    | \+3.3V  |
+| 2   | Orin_CSI2_D0_N    | +3.3V   |
+| 3   | Orin_CSI2_D0_P    | +3.3V   |
 | 4   | GND               | GND     |
-| 5   | Orin_CSI2_D1_N    | \+3.3V  |
-| 6   | Orin_CSI2_D1_P    | \+3.3V  |
+| 5   | Orin_CSI2_D1_N    | +3.3V   |
+| 6   | Orin_CSI2_D1_P    | +3.3V   |
 | 7   | GND               | GND     |
-| 8   | Orin_CSI2_CLK_N   | \+3.3V  |
-| 9   | Orin_CSI2_CLK_P   | \+3.3V  |
+| 8   | Orin_CSI2_CLK_N   | +3.3V   |
+| 9   | Orin_CSI2_CLK_P   | +3.3V   |
 | 10  | GND               | GND     |
-| 11  | Orin_CSI3_D0_N    | \+3.3V  |
-| 12  | Orin_CSI3_D0_P    | \+3.3V  |
+| 11  | Orin_CSI3_D0_N    | +3.3V   |
+| 12  | Orin_CSI3_D0_P    | +3.3V   |
 | 13  | GND               | GND     |
-| 14  | Orin_CSI3_D1_N    | \+3.3V  |
-| 15  | Orin_CSI3_D1_P    | \+3.3V  |
+| 14  | Orin_CSI3_D1_N    | +3.3V   |
+| 15  | Orin_CSI3_D1_P    | +3.3V   |
 | 16  | GND               | GND     |
-| 17  | Orin_CAM1_PWDN    | \+3.3V  |
-| 18  | Orin_CAM1_MCLK    | \+3.3V  |
+| 17  | Orin_CAM1_PWDN    | +3.3V   |
+| 18  | Orin_CAM1_MCLK    | +3.3V   |
 | 19  | GND               | GND     |
-| 20  | Orin_CAM1_I2C_SCL | \+3.3V  |
-| 21  | Orin_CAM1_I2C_SDA | \+3.3V  |
-| 22  | VDD               | \+3.3V  |
+| 20  | Orin_CAM1_I2C_SCL | +3.3V   |
+| 21  | Orin_CAM1_I2C_SDA | +3.3V   |
+| 22  | VDD               | +3.3V   |
 
 ### Orin SPI Port
 
-| Pin      | Signal         | Voltage |
-| :------- | :------------- | :------ |
-| 1(red)   | VCC            | \+5V    |
-| 2(black) | Orin_SPI0_SCK  | \+3.3V  |
-| 3(black) | Orin_SPI0_MISO | \+3.3V  |
-| 4(black) | Orin_SPI0_MOSI | \+3.3V  |
-| 5(black) | Orin_SPI0_CS0  | \+3.3V  |
-| 6(black) | Orin_SPI0_CS1  | \+3.3V  |
-| 7(black) | GND            | GND     |
+| Pin       | Signal         | Voltage |
+| :-------- | :------------- | :------ |
+| 1 (red)   | VCC            | +5V     |
+| 2 (black) | Orin_SPI0_SCK  | +3.3V   |
+| 3 (black) | Orin_SPI0_MISO | +3.3V   |
+| 4 (black) | Orin_SPI0_MOSI | +3.3V   |
+| 5 (black) | Orin_SPI0_CS0  | +3.3V   |
+| 6 (black) | Orin_SPI0_CS1  | +3.3V   |
+| 7 (black) | GND            | GND     |
 
 ### Orin I2S Port
 
-| Pin      | Signal          | Voltage |
-| :------- | :-------------- | :------ |
-| 1(red)   | VCC             | \+5V    |
-| 2(black) | Orin_I2S0_SDOUT | \+3.3V  |
-| 3(black) | Orin_I2S0_SDIN  | \+3.3V  |
-| 4(black) | Orin_I2S0_LRCK  | \+3.3V  |
-| 5(black) | Orin_I2S0_SCLK  | \+3.3V  |
-| 6(black) | Orin_GPIO_09    | \+3.3V  |
-| 7(black) | GND             | GND     |
+| Pin       | Signal          | Voltage |
+| :-------- | :-------------- | :------ |
+| 1 (red)   | VCC             | +5V     |
+| 2 (black) | Orin_I2S0_SDOUT | +3.3V   |
+| 3 (black) | Orin_I2S0_SDIN  | +3.3V   |
+| 4 (black) | Orin_I2S0_LRCK  | +3.3V   |
+| 5 (black) | Orin_I2S0_SCLK  | +3.3V   |
+| 6 (black) | Orin_GPIO_09    | +3.3V   |
+| 7 (black) | GND             | GND     |
 
 :::
 
 ## Hardware Setup
 
 The baseboard exposes both Pixhawk and Orin ports, as shown above in the [pinouts](#pinouts).
-The Pixhawk ports comply with the Pixhawk connector standard (for ports covered by the standard), which means that the board can be connected to the usual peripherals, such as GPS, following either the generic assembly instructions for [multicopters](../assembly/assembly_mc.md), [fixed-wing](../assembly/assembly_fw.md) and [VTOL](../assembly/assembly_vtol.md) vehicles, or the corresponding Pixhawk guide for your flight controller (e.g. [Pixhawk 6X Quick Start](../en/assembly/quick_start_pixhawk6x.md)).
+The Pixhawk ports comply with the Pixhawk connector standard (for ports covered by the standard), which means that the board can be connected to the usual peripherals, such as GPS, following either the generic assembly instructions for [multicopters](../assembly/assembly_mc.md), [fixed-wing](../assembly/assembly_fw.md) and [VTOL](../assembly/assembly_vtol.md) vehicles, or the corresponding Pixhawk guide for your flight controller (e.g. [Pixhawk 6X Quick Start](../assembly/quick_start_pixhawk6x.md)).
 
-The main difference is likely to be power setup, and the setup of additional peripherals connected to the Jetson.
+The main differences are likely to be power setup (see below), and the setup of additional peripherals connected to the Jetson.
 
-The diagram below provides additional guidance as to the ports where peripherals should be connected.:
+### Peripherals
+
+The diagram below provides additional guidance as to the ports where peripherals should be connected.
 
 ![Jetson Carrier Peripherals Diagram](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/peripherals_block_diagram_2.png)
 
+### Power Wiring
+
+The Pixhawk and Jetson parts of the board must be powered separately though their respective power ports.
+The power module that comes with the kit supports 2S-12S battery inputs and provides a regulated supply for the Pixhawk part.
+Its other output is generally connected to the (supplied) power distribution board, and from there powers motors, servos, and so on, along with the Jetson (either _directly_ or via the UBEC).
+
+The Jetson part can be powered with a 7V-21V input, which corresponds to a 3S or 4S battery.
+If using a higher voltage battery than the Jetson allows you can either use the UBEC to provide a lower regulated supply, or power the Jetson with a separate battery.
+
+Some of the more common wiring configurations are shown below.
+
+#### 3S/4S Battery
+
+This configuration demonstrating how to power both the Pixhawk and Jetson parts using a 3S/4S battery (output below 21V).
+
+![Power wiring - using one 3s or 4s battery](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/power1_one_battery_3s_4s.png)
+
+#### 5S battery and greater (with UBEC)
+
+This configuration shows how you can use the external UBEC (supplied) to provide an appropriate voltage for the Jetson when using a high-voltage battery (>21V).
+Depending on your power needs, you might also use this (or another UBEC) for providing appropriate supply for control surfaces and other servo-driven hardware.
+
+![Power wiring - Large battery and UBEC](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/power2_one_big_battery_external_ubec.png)
+
+#### Two batteries (no Ubec)
+
+This configuration shows how you can use a separate battery to supply an appropriate voltage to the Jetson instead of regulating the supply from a large battery as shown in above.
+
+![Power wiring - two batteries no Ubec](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/power3_two_battery_no_ubec.png)
+
+#### Using the Power Adapter
+
+When developing and testing the vehicle on the bench, we recommend you power the Jetson using an external power supply, as shown.
+The Pixhawk part still needs to be powered, which is shown here with a battery.
+
+![Power wiring - Battery and power adapter](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/power4_battery_and_power_adapter.png)
+
+## Jetson Setup Overview/Preconditions
+
 The remaining setup guide covers installing Jetson Linux on the Jetson (a variant of Ubuntu), PX4 on the Pixhawk, and getting them to communicate via ROS 2.
+
 You will need the following additional hardware:
 
 - External display.
