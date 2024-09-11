@@ -18,6 +18,8 @@ There is no implicit conversion between frame types when topics are published or
 
 This example publishes positions in the NED frame, as expected by PX4.
 To subscribe to data coming from nodes that publish in a different frame (for example the ENU, which is the standard frame of reference in ROS/ROS 2), use the helper functions in the [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/src/lib/frame_transforms.cpp) library.
+
+By default, you cannot arm a vehicle without a connection to ground station (QGC) or an established RC connection. This default behaviour is to enforce safety so that there is always the option to regain manual control. For the example below, make sure that QGC is connected before running the ROS 2 node.
 :::
 
 ## Trying it out
