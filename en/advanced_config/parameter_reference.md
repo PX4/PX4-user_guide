@@ -24691,15 +24691,25 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 100 | 0.01 | 0.5 | m/s^3 
 
-### RD_MAX_SPEED (`FLOAT`) {#RD_MAX_SPEED}
+### RD_MAX_THR_SPD (`FLOAT`) {#RD_MAX_THR_SPD}
 
-Maximum speed the rover can drive.
+Speed the rover drives at maximum throttle.
 
-This parameter is used to map desired speeds to normalized motor commands.
+This parameter is used to calculate the feedforward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands [-1. 1]. A good starting point is the observed ground speed when the rover drives at maximum throttle in manual mode. Increase this parameter if the rover is faster than the setpoint, and decrease if the rover is slower.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 100 | 0.01 | 1 | m/s 
+
+### RD_MAX_THR_YAW_R (`FLOAT`) {#RD_MAX_THR_YAW_R}
+
+Yaw rate turning left/right wheels at max speed in opposite directions.
+
+This parameter is used to calculate the feedforward term of the closed loop yaw rate control. The controller first calculates the required speed difference between the left and right motor to achieve the desired yaw rate. This desired speed difference is then linearly mapped to normalized motor commands. A good starting point is twice the speed the rover drives at maximum throttle (RD_MAX_THR_SPD)). Increase this parameter if the rover turns faster than the setpoint, and decrease if the rover turns slower.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 2 | m/s 
 
 ### RD_MAX_YAW_RATE (`FLOAT`) {#RD_MAX_YAW_RATE}
 
