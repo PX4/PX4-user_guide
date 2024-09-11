@@ -26,6 +26,11 @@ Follow the instructions in [ROS 2 User Guide](../ros2/user_guide.md) to install 
 
 After that we can follow a similar set of steps to those in [ROS 2 User Guide > Build ROS 2 Workspace](../ros2/user_guide.md#build-ros-2-workspace) to run the example.
 
+::: tip
+Make sure that QGC is connected to PX4 before running the ROS 2 node.
+This is needed because, by default, you cannot arm a vehicle without a connection to ground station (QGC) or an established RC connection (this ensures there is always the option to regain manual control).
+:::
+
 To build and run the example:
 
 1. Open a new terminal.
