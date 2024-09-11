@@ -1154,7 +1154,7 @@ You can just do your ROS2 nodes running and the development.
 
 ### ROS 2 Sensor Combined Tests
 
-You can test the Client and agent by using the `sensor_combined` example in [Build ROS 2 Workspace](../ros2/user_guide.html#build-ros-2-workspace) (ROS2 User Guide).
+You can test the Client and agent by using the `sensor_combined` example in [Build ROS 2 Workspace](../ros2/user_guide.md#build-ros-2-workspace) (ROS2 User Guide).
 
 ::: tip
 [VSCode over SSH](https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines) enables faster development and application of changes to your ROS 2 code!
