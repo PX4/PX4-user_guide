@@ -652,7 +652,7 @@ This configuration shows how you can use a separate battery to supply an appropr
 #### Using the Power Adapter
 
 When developing and testing the vehicle on the bench, we recommend you power the Jetson using an external power supply, as shown.
-The Pixhawk part still needs to be powered, which is shown here with a battery.
+You can power the Pixhawk part using either a USB-C supply or a battery (as shown here).
 
 ![Power wiring - Battery and power adapter](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/power4_battery_and_power_adapter.png)
 
