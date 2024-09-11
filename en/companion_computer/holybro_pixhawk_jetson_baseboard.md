@@ -716,8 +716,11 @@ The Jetson will boot into initial login after flashing.
 
 After flashing the Jetson it will reboot to the login screen (skipping recovery mode).
 
-The diagram below shows how you can connect your Jetson carrier board for the first time to setup the network connection.
-This step is needed so that in future we can connect to the Jetson via SSH instead of using an external monitor (if we want).
+The diagram below shows how you can connect your Jetson carrier board with external keyboard, display and mouse.
+This step is needed so that we can configure the network connection.
+Once we have a network connection we can connect to the Jetson via SSH instead of using an external monitor and keyboard (if we want).
+
+![First time network setup connection diagram and power](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/network_diagram.png)
 
 Connect the external monitor to the board's (Jetson) HDMI port and the Jetson to power via the XT-30 input.
 Separately connect the Pixhawk power supply using either the USB-C (on the side of the FC) or the `Power1`/`Power2` ports next to the Jetson.
@@ -725,8 +728,6 @@ Separately connect the Pixhawk power supply using either the USB-C (on the side 
 ::: tip
 Pixhawk also has to be powered because the internal Ethernet switch on the board is not powered by XT30 connector.
 :::
-
-![First time network setup connection diagram and power](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/network_diagram.png)
 
 Connect the keyboard and mouse via spare USB ports.
 The external monitor should display the login screen.
@@ -782,24 +783,25 @@ You can either install install prebuilt binaries with QGroundControl, or first b
 
 Alternatively, you can build and deploy PX4 firmware to the Pixhawk part from the Jetson.
 
-### Building/Deploy PX4 from a Development Computer
+### Build/Deploy PX4 from a Development Computer
 
-First connect your development computer to the Pixhawk FMU USB-C port as shown below:
+First connect your development computer to the Pixhawk FMU USB-C port (highlighted below):
 
 ![Connect development computer to Pixhawk USB port](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/pixhawk_fmu_usb_c.png)
 
 If you want to use prebuilt binaries, then start QGroundControl and follow the instructions in [Loading Firmware](../config/firmware.md) to deploy a recent version of PX4.
 Afterwards you will want to select an airframe and do all the other usual configuration for your vehicle type.
 
-If you want to build and upload custom firmware then follow the usual steps:
+If you want to build and upload _custom firmware_ then follow the usual steps:
 
 - [Setting up a Developer Environment (Toolchain)](../dev_setup/dev_env.md)
 - [Building PX4 Software](../dev_setup/building_px4.md)
 - Upload the firmware using the [command line](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) or QGroundControl (as above)
 
-### Building PX4 on Jetson
+### Build PX4 on Jetson
 
-You can also build and develop PX4 code on the Jetson (this is not particularly recommended unless you don't have a development computer).
+You can also build and develop PX4 code on the Jetson.
+Note that there is no need to do this if you have a development computer, but you can do do so if you want.
 
 First open a terminal and SSH session into the Jetson, and enter the following command to clone the PX4 source code.
 
@@ -868,25 +870,13 @@ Then upload the firmware to Pixhawk by building with the `upload` argument:
 make px4_fmu-v6x_default upload
 ```
 
-## ROS 2 Installation and Setup
-
-Follow the instruction in the ROS2 User guide to [Install ROS 2](../ros2/user_guide.md#install-ros-2) on the Jetson.
-You don't have to install PX4 on the Jetson because we're not using the simulator, but you may wish to install the full desktop so you can use additional ROS 2 packages for further development:
-
-```sh
-sudo apt install -y ros-humble-desktop-full -y
-```
-
-Then fetch and build the uXRCE-DDS _agent_ as covered in [Setup the Agent](../ros2/user_guide.md#setup-the-agent) in the ROS 2 User guide.
-We don't need to start the agent yet, because the client is not yet running.
-
 ## Ethernet Setup using Netplan
 
-Next we set up an Ethernet connection between the Jetson and PX4 that will be used by our ROS 2 client and agent to communicate.
+The Holybro Jetson Pixhawk carrier has an internal network switch between Pixhawk and Jetson that can be used for MAVLink or ROS 2 communication (or any other protocol).
+While you don't need to connect any external cables, you will still need to configure the Ethernet connection such that both the Jetson and PX4 are on the same subnet.
 
-::: warning
-The Holybro Jetson Pixhawk carrier has an internal network switch between Pixhawk and Jetson, so you do not need to connect any external cables.
-:::
+PX4 has a default IP address of `10.41.10.2` (PX4 v1.15 and earlier used `192.168.0.3`), while the Jetson is configured with a default IP address of TBD.
+So you will need to TBD.
 
 These instructions approximately mirror the [PX4 Ethernet setup](../advanced_config/ethernet_setup.md) (and [Holybro Pixhawk RPi CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)).
 
@@ -937,89 +927,137 @@ If this is successful you will see the output below.
 
 This means you can run your XRCE-DDS agent on Jetson and have your ROS nodes talk to the client running on PX4.
 
-## Connection Sanity Check between Pixhawk and Jetson
+## MAVLink Setup
 
-Let us make stuff ready to communicate with Pixhawk.
-I will use [MAVSDK Python](https://github.com/mavlink/MAVSDK-Python) as it is the easiest way for now:
+MAVLink is a protocol that you can use for communicating between the Jetson and PX4 (we'll discuss ROS 2 as an alternative in the next section).
+PX4 users typically use the [MAVSDK](../robotics/mavsdk.md) to manage MAVLink communications, as it provides a simple cross-platform and cross-programming language abstraction of the MAVLink protocol.
+
+The internal serial and Ethernet links are both configured to use MAVLink by default.
+
+::: info
+See [MAVLink-Bridge](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-jetson-baseboard/mavlink-bridge) (Holybro docs) for more information.
+:::
+
+### Serial Connection
+
+The Jetson and Pixhawk are internally connected using a serial cable from Pixhawk `TELEM2` to Jetson `THS1`.
+The Pixhawk `TELEM2` interface is configured to use MAVLink by default ([MAVLink Peripherals (GCS/OSD/Companion) > TELEM2](../peripherals/mavlink_peripherals.md#telem2)), so you don't have to do anything in particular to get it working.
+
+An easy way to test the link is to run [MAVSDK-Python](https://github.com/mavlink/MAVSDK-Python) example code on the Jetson.
+
+First install MAVSDK-Python:
 
 ```sh
 pip3 install mavsdk
 ```
 
-We can run a [telemetry example](https://github.com/mavlink/MAVSDK-Python/tree/main/examples) here for a sanity check assuming you have cloned MAVSDK-Python repo in your Jetson root directory.
-Over Serial we need to change [this line](https://github.com/mavlink/MAVSDK-Python/blob/707c48c01866cfddc0082217dba9f7fe27d59b27/examples/telemetry.py#L10) to:
+Then clone the repository:
 
 ```sh
-await drone.connect(system_address="serial:///dev/ttyTHS*:921600")
+git clone https://github.com/mavlink/MAVSDK-Python --recursive
 ```
 
-:::info
-Jetson and Pixhawk are internally connected from Pixhawk `TELEM2` to Jetson `THS1` or `THS0`.
-You can view the available serial instances by entering the following commands on the Jetson:
+Modify the `MAVSDK-Python/examples/telemetry.py` [connection code](https://github.com/mavlink/MAVSDK-Python/blob/707c48c01866cfddc0082217dba9f7fe27d59b27/examples/telemetry.py#L10) from:
+
+```py
+await drone.connect(system_address="udp://:14540")
+```
+
+To connect via the serial port:
 
 ```sh
-ls /dev/ttyTHS*
+await drone.connect(system_address="serial:///dev/ttyTHS1:921600")
 ```
 
-:::
-
-or over the Ethernet with the current setup:
-
-```sh
-await drone.connect(system_address="udp://:14550")
-```
-
-then we can run this inside Jetson terminal:
+Then run the example in the Jetson terminal:
 
 ```sh
 python ~/MAVSDK-Python/examples/telemetry.py
 ```
 
-The output below is expected in either cases (no battery connected and disarmed vehicle):
+The output below is expected:
 
 ![Sanity check Pixhawk and Jetson connection](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/connection_check.png)
 
-## Running XRCE-DDS Agent and Tests
+### Ethernet Connection
 
-::: info
-It is highly recommended to use [VSCode over SSH](https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines) to have faster development and applying changes.
-:::
+The Jetson and Pixhawk are internally connected using an Ethernet switch, and if you have followed the instructions in [Ethernet Setup using Netplan](#ethernet-setup-using-netplan), will also be on the same Ethernet subnet.
 
-With the help from [PX4 ROS 2 user guide](../ros2/user_guide.md#building-the-workspace) we could have a basebone to test communication between the agent (Jetson) and client (Pixhawk) using XRCE-DDS:
+As the Pixhawk `Ethernet` interface is configured to use MAVLink by default ([MAVLink Peripherals (GCS/OSD/Companion) > Ethernet](../peripherals/mavlink_peripherals.md#ethernet)) you don't need to do anything else to use MAVLink.
+
+The instructions are the same as in the previous section, except that you should modify the `connect()` line to:
 
 ```sh
-mkdir -p ~/ws_sensor_combined/src/
-cd ~/ws_sensor_combined/src/
-git clone https://github.com/PX4/px4_msgs.git
-git clone https://github.com/PX4/px4_ros_com.git
-cd ..
-source /opt/ros/humble/setup.bash
-colcon build
+await drone.connect(system_address="udp://:14550")
 ```
 
-1- Setting the connection based on internal serial
+## ROS 2 Setup
+
+[ROS 2](../ros2/index.md) is powerful robotics API that you can run on the Jetson in order to control PX4 running on the Pixhawk.
+It is harder to learn than MAVLink and its interfaces still evolving, but it offers a much deeper integration with PX4, and much lower latency communication.
+
+In order to use ROS 2 we first need to run [XRCE-DDS middleware](../middleware/uxrce_dds.md) client on PX4 and agent on the Jetson.
+The instructions depend on the communications channel used (Ethernet or Serial).
+
+This section explains the specific setup, and is heavily based on the [ROS 2 user guide](../ros2/user_guide.md).
+
+### PX4 XRCE-DDS Client Setup
+
+The uXRCE-DDS client is built into PX4 firmware by default, and exposes a predefined set of uORB topics to the DDS network on which ROS 2 runs, via the XRCE-Agent.
+The set of exposed topics are defined in a build configuration file.
+
+The channel used by the client for communication with the agent is configured using parameters.
+You can use either the internal serial connection or the internal Ethernet switch.
+
+#### Serial Port Setup
+
+As covered in the MAVLink section, there is an internal serial link from Pixhawk `TELEM2` to Jetson `THS1`, which is configured to communicate via MAVLink by default.
+You will need to disable the MAVLink instance and enable the UXRCE_DDS configuration.
+
+You can [modify the parameters](../advanced_config/parameters.md) in QGroundControl parameter editor, or using `param set` in the [mavlink_shell](../debug/mavlink_shell.md).
+The code below assumes you're commands in the MAVLink shell.
 
 ```sh
-param set MAV_1_CONFIG = 0 (Disabling current TELEM2 MAVLINK instance)
-param set UXRCE_DDS_CFG  102 (TELEM2)
-param set UXRCE_DDS_DOM_ID  0 (If you would like to change this you need to change your host domain ID as well. Check ROS2 Humble Domain ID)
+param set MAV_1_CONFIG 0  # Disable MAVLINK on TELEM2 (so it can be used for XRCE-DDS)
+param set UXRCE_DDS_CFG 102 # Set UXRCE_DDS_CFG to TELEM2
+```
+
+::: info
+Note that you can also change the following parameters, but this requires a deeper understanding of DDS.
+
+```sh
+param set UXRCE_DDS_DOM_ID 0
 param set UXRCE_DDS_PTCFG 0
-param set UXRCE_DDS_SYNCC 0 (But if you are sure about your companion UTC time being synced and updated you could consider making this equal to 1 so that PX4 time is updated with your XRCE-DDS Agent time or if there are no external sources like hardware RTC or GPS device)
+param set UXRCE_DDS_SYNCC 0
 param set UXRCE_DDS_SYNCT 1
 ```
 
-::: info
-This might not be a recommended way to establish agent-client connection as it will occupy the only serial connection between pixhawk and Jetson.
-The reasons are:
-
-1. Serial connection has higher latency
-1. Reboots or system changes may cause failures to ethernet switch
-1. You could use the serial connection for lower level applications
-
 :::
 
-A Pixhawk reboot is needed after all these so that the changes are applied.
-After the reboot please check the client status by running the following the following inside MAVLINK shell:
+Then reboot the Pixhawk.
+
+#### Ethernet Setup
+
+As covered in the MAVLink section, there is an internal Ethernet switch linking the Jetson and Pixhawk.
+We configured both boards to use the same subnet above.
+However we need to disable MAVLink on the `Ethernet` port and enable `XRCE-DDS`.
+
+You can [modify the parameters](../advanced_config/parameters.md) in QGroundControl parameter editor, or using `param set` in the [MAVLink sheel](../debug/mavlink_shell.md).
+The code below assumes you're commands in the MAVLink shell.
+
+```sh
+param set MAV_2_CONFIG 0  # Disable MAVLINK on Ethernet (so Ethernet can be used for XRCE-DDS)
+param set UXRCE_DDS_CFG 1000 # Ethernet
+param set UXRCE_DDS_PRT 8888  # Set port to 8888
+```
+
+#### Checking the XRCE-DDS Client is Running
+
+::: tip
+The client should automatically start on boot!
+:::
+
+We can check that the client is running using the following command in the MAVLink shell:
 
 ```sh
 uxrce_dds_client status
@@ -1037,62 +1075,41 @@ Starting UXRCE-DDS Client on /dev/ttyS4
 INFO  [uxrce_dds_client] init serial /dev/ttyS4 @ 921600 baud
 ```
 
-::: info
-In case the client was not running you could run it manually:
+### XRCE-DDS Agent & ROS 2 Setup
+
+Follow the instruction in the ROS2 User guide to [Install ROS 2](../ros2/user_guide.md#install-ros-2) on the Jetson.
+You don't have to install PX4 on the Jetson because we're not using the simulator, but you may wish to install the full desktop so you can use additional ROS 2 packages for further development:
 
 ```sh
-uxrce_dds_client start -t serial -d /dev/ttyS4 -b 921600
+sudo apt install -y ros-humble-desktop-full -y
 ```
 
-:::
+#### Start the XRCE-DDS Agent
 
-After setting up the params and making sure the client is running we can start the agent on serial as below inside Jetson terminal:
+Then fetch and build the uXRCE-DDS _agent_ as covered in [Setup the Agent](../ros2/user_guide.md#setup-the-agent) in the ROS 2 User guide.
 
-```sh
-sudo MicroXRCEAgent serial --dev /dev/ttyTHS1 -b 921600
-```
+You will start the agent using different commands, depending on whether the client is configured for a serial or Ethernet connection.
+Assuming the client is set up as defined above:
 
-2 - Setting the XRCE-DDS client connection to use Ethernet.
-Besides, we are choosing UXRCE_DDS_PRT to define a default udp port PX4 runs the client on Ethernet.
+- Start the agent on `/dev/ttyTHS1` (serial connection):
 
-```sh
-param set UXRCE_DDS_CFG 1000 (Ethernet)
-param set UXRCE_DDS_PRT 8888
-```
+  ```sh
+  sudo MicroXRCEAgent serial --dev /dev/ttyTHS1 -b 921600
+  ```
 
-Then we can run MicroXRCEAgent over Ethernet by:
+- Start the agent on UDP port `8888` (Ethernet):
 
-```sh
-MicroXRCEAgent udp4 -p 8888
-```
+  ```sh
+  MicroXRCEAgent udp4 -p 8888
+  ```
 
-An output similar to the one below means that the connection is established and XRCE-DDs agent is running:
+If your agent and client are running you should see output similar to that below:
 
 ![uXRCE-DDS Agent Health check](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/xrce_dds_healthy_connection.png)
 
-::: info
-We do not need to run any client here as on all PX4 boards the client runs at the boot by default
-:::
+#### Starting the Agent on Boot
 
-## Running a Node to get Sensor Data using the XRCE-DDS agent
-
-By getting help from [ROS2 Example](../ros2/user_guide.md#running-the-example) :
-
-```sh
-source ws_sensor_combined/install/setup.bash #(ifyou have not passed this permanently to .bashrc)
-```
-
-Then we run the example node:
-
-```sh
-ros2 launch px4_ros_com sensor_combined_listener.launch.py
-```
-
-You should see high frequency sensor messages as the output:
-
-![Sensor node single output](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/ros_sensor_output.png)
-
-In case you want to run the agent each time booting Jetson you can make a daemon service to run the agent:
+To run the XRCE-DDS agent each time the Jetson reboots you can make a daemon service to run the agent.
 
 Make a new service file:
 
@@ -1129,12 +1146,29 @@ Then you can reboot your Jetson board and check if the agent is running in the b
 sudo systemctl status microxrceagent.service
 ```
 
-If the service is running, a similar output is expected:
+If the service is running, you should see output like this:
 
 ![XRCE DDS Agent Daemon service](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/xrce_dds_agent_service.png)
 
 You can just do your ROS2 nodes running and the development.
-Every boot the agent is running in the back.
+
+### ROS 2 Sensor Combined Tests
+
+You can test the Client and agent by using the `sensor_combined` example in [Build ROS 2 Workspace](../ros2/user_guide.html#build-ros-2-workspace) (ROS2 User Guide).
+
+::: tip
+[VSCode over SSH](https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines) enables faster development and application of changes to your ROS 2 code!
+:::
+
+After getting to the point of running the example note:
+
+```sh
+ros2 launch px4_ros_com sensor_combined_listener.launch.py
+```
+
+You should see high frequency sensor messages as the output:
+
+![Sensor node single output](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/ros_sensor_output.png)
 
 ## See Also
 
