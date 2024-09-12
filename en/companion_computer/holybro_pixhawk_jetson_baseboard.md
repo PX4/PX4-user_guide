@@ -13,8 +13,8 @@ This guide walks through the process of setting up the board and connecting to P
 - Flashing the Jetson board and logging in via SSH
 - Flashing (and building) PX4 Firmware on the Pixhawk
 - Configuring serial and Ethernet connections between Pixhawk and Jetson
-- MAVLink setup/test
-- ROS 2 setup/test
+- MAVLink setup/test over both serial and Ethernet interfaces
+- ROS 2/XRCE-DDS setup/test over both serial and Ethernet interfaces
 
 ::: tip
 You will temporarily need the following hardware in order to log into your Jetson and get its IP address, after which you will be able to log in via SSH:
