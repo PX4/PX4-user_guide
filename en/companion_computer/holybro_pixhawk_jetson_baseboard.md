@@ -991,6 +991,12 @@ network:
         dhcp4: no
         addresses:
           - 10.41.10.1/24
+        routes:
+          - to: 0.0.0.0/0
+            via: 10.41.10.254
+        nameservers:
+          addresses:
+            - 10.41.10.254
   ```
 
    This gives the Jetson a static IP address on the Ethernet of `10.41.10.1`
@@ -1287,7 +1293,7 @@ If the service is running, you should see output like this:
 
 ![XRCE DDS Agent Daemon service](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/xrce_dds_agent_service.png)
 
-You can now start your ROS2 nodes and continue the development. 
+You can now start your ROS2 nodes and continue the development.
 
 ### ROS 2 Sensor Combined Tests
 
