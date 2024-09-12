@@ -714,9 +714,11 @@ The Jetson will boot into initial login after flashing.
 
 ## Jetson Network Setup
 
-After flashing the Jetson it will reboot to the login screen (skipping recovery mode). You could login using the credentials defined in SDK manager.
-Only for the first time after flashing this auto booting is hapening. If you want it to happen always, you can disconnet the Jetson board power and put the
-switch back to EMMC. This will ensure the baord will boot into the firmware always.
+After flashing the Jetson it will reboot to the login screen (though this won't be obvious unless you already have an external monitor connected).
+
+Note that with the switch in recovery mode position, recovery mode is only skipped the first reboot after flashing!
+Disconnect power from the Jetson board and move the small sliding switch from recovery mode back to EMMC.
+This ensures that in future the Jetson will boot into firmware instead of recovery mode.
 
 The diagram below shows how you can connect your Jetson carrier board with external keyboard, display and mouse.
 This step is needed so that we can configure the network connection.
@@ -724,14 +726,13 @@ Once we have a network connection we can connect to the Jetson via SSH instead o
 
 ![First time network setup connection diagram and power](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/network_diagram.png)
 
-Connect the external monitor to the board's (Jetson) HDMI port and the Jetson to power via the XT-30 input.
+Connect the external monitor to the board's (Jetson) HDMI port, keyboard and mouse via spare USB ports, and the Jetson to power via the XT-30 input.
 Separately connect the Pixhawk power supply using either the USB-C (on the side of the FC) or the `Power1`/`Power2` ports next to the Jetson.
 
 ::: tip
 Pixhawk also has to be powered because the internal Ethernet switch on the board is not powered by XT30 connector.
 :::
 
-Connect the keyboard and mouse via spare USB ports.
 The external monitor should display the login screen.
 Enter the _username_ and _password_ you set when using the SDKManager to flash the Jetson.
 
@@ -743,7 +744,7 @@ Enter the following command.
 ip addr show
 ```
 
-The output should look similar to this, indicating (in this case) an IP address of `192.168.1.190` set for wifi connection.
+The output should look similar to this, indicating (in this case) an IP address of `192.168.1.190` on the `wlan0` (WiFi) connection.
 Note that _eth0_ at this step may look different than this output since we have not set it yet and will be defined in the upcoming steps:
 
 ```sh
@@ -793,14 +794,13 @@ Then repeat the process above to try and get the IP address.
 :::
 
 Now that we have an IP address, open a terminal in your _development computer_.
-Log into the Jetson using the IP address via SSH, as shown using your defined credentials:
+Log into the Jetson using the via SSH specifying the IP address for _your_ Jetson (you will need to enter the same credentials as before):
 
 ```sh
-ssh holybro@192.168.1.190 #(Your defined IP might be different)
+ssh holybro@192.168.1.190
 ```
 
-If that works , you can remove your external monitor,
-as you can log in from your development computer from now on.
+If that works, you can remove your external monitor, as you can log in from your development computer from now on.
 
 ## Initial Development Setup on Jetson
 
@@ -818,7 +818,7 @@ You can either install install prebuilt binaries with QGroundControl, or first b
 
 Alternatively, you can build and deploy PX4 firmware to the Pixhawk part from the Jetson.
 
-### Build/Deploy PX4 from a Development Computer
+### Build/Deploy PX4 from a Development Computer (Recommended)
 
 First connect your development computer to the Pixhawk FMU USB-C port (highlighted below):
 
@@ -910,108 +910,108 @@ make px4_fmu-v6x_default upload
 The Holybro Jetson Pixhawk carrier has an internal network switch between Pixhawk and Jetson that can be used for MAVLink or ROS 2 communication (or any other protocol).
 While you don't need to connect any external cables, you will still need to configure the Ethernet connection such that both the Jetson and PX4 are on the same subnet.
 
-PX4 has a default IP address of `10.41.10.2` (PX4 v1.15 and earlier used `192.168.0.3`), while the Jetson is configured with a default IP address of TBD.
-So you will need to TBD.
+PX4 has a default IP address of `10.41.10.2` (PX4 v1.15 and earlier used `192.168.0.3`), while the Jetson is usually configured with a default IP address on a different subnet.
+In order for the boards to communicate they need to be on the same subnet.
 
+::: tip
 These instructions approximately mirror the [PX4 Ethernet setup](../advanced_config/ethernet_setup.md) (and [Holybro Pixhawk RPi CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)).
+:::
 
-1. Make sure you have Netplan installed. The following output mentions if you habe it installed:
+Next we modify the Jetson IP address to be on the same network as the Pixhawk:
 
-``` sh
-libnetplan0/jammy-updates,jammy-security,now 0.106.1-7ubuntu0.22.04.4 arm64 [installed,automatic]
-netplan.io/jammy-updates,jammy-security,now 0.106.1-7ubuntu0.22.04.4 arm64 [installed]
-```
+1. Make sure `netplan` is installed.
+   You can check by running the following command:
 
-if not, Netplan can be installed with:
+   ```sh
+   netplan -h
+   ```
 
-```sh
-sudo apt update
-sudo apt install netplan.io
+   If not, installed using the commands:
 
-```
-then check _system_networkd_ is running:
+   ```sh
+   sudo apt update
+   sudo apt install netplan.io
+   ```
 
-``` sh
-sudo systemctl status systemd-networkd
-```
-Something like this output means it is active:
+2. Check `system_networkd` is running:
 
-``` sh
-● systemd-networkd.service - Network Configuration
-     Loaded: loaded (/lib/systemd/system/systemd-networkd.service; enabled; vendor preset: enabled)
-     Active: active (running) since Wed 2024-09-11 23:32:44 EDT; 23min ago
-TriggeredBy: ● systemd-networkd.socket
-       Docs: man:systemd-networkd.service(8)
-   Main PID: 2452 (systemd-network)
-     Status: "Processing requests..."
-      Tasks: 1 (limit: 18457)
-     Memory: 2.7M
-        CPU: 157ms
-     CGroup: /system.slice/systemd-networkd.service
-             └─2452 /lib/systemd/systemd-networkd
+   ```sh
+   sudo systemctl status systemd-networkd
+   ```
 
-Sep 11 23:32:44 ubuntu systemd-networkd[2452]: lo: Gained carrier
-Sep 11 23:32:44 ubuntu systemd-networkd[2452]: wlan0: Gained IPv6LL
-Sep 11 23:32:44 ubuntu systemd-networkd[2452]: eth0: Gained IPv6LL
-Sep 11 23:32:44 ubuntu systemd-networkd[2452]: Enumeration completed
-Sep 11 23:32:44 ubuntu systemd[1]: Started Network Configuration.
-Sep 11 23:32:44 ubuntu systemd-networkd[2452]: wlan0: Connected WiFi access point: Verizon_7YLWWD (78:67:0e:ea:a6:0>
-Sep 11 23:34:16 ubuntu systemd-networkd[2452]: eth0: Re-configuring with /run/systemd/network/10-netplan-eth0.netwo>
-Sep 11 23:34:16 ubuntu systemd-networkd[2452]: eth0: DHCPv6 lease lost
-Sep 11 23:34:16 ubuntu systemd-networkd[2452]: eth0: Re-configuring with /run/systemd/network/10-netplan-eth0.netwo>
-Sep 11 23:34:16 ubuntu systemd-networkd[2452]: eth0: DHCPv6 lease lost
-```
+   You should see output like below if it is active:
 
-If _system_networkd_ is not active, it can be activated using:
+   ```sh
+   ● systemd-networkd.service - Network Configuration
+        Loaded: loaded (/lib/systemd/system/systemd-networkd.service; enabled; vendor preset: enabled)
+        Active: active (running) since Wed 2024-09-11 23:32:44 EDT; 23min ago
+   TriggeredBy: ● systemd-networkd.socket
+          Docs: man:systemd-networkd.service(8)
+      Main PID: 2452 (systemd-network)
+        Status: "Processing requests..."
+         Tasks: 1 (limit: 18457)
+        Memory: 2.7M
+           CPU: 157ms
+        CGroup: /system.slice/systemd-networkd.service
+                └─2452 /lib/systemd/systemd-networkd
 
-``` sh
-sudo systemctl start systemd-networkd
-sudo systemctl enable systemd-networkd
+   Sep 11 23:32:44 ubuntu systemd-networkd[2452]: lo: Gained carrier
+   Sep 11 23:32:44 ubuntu systemd-networkd[2452]: wlan0: Gained IPv6LL
+   Sep 11 23:32:44 ubuntu systemd-networkd[2452]: eth0: Gained IPv6LL
+   Sep 11 23:32:44 ubuntu systemd-networkd[2452]: Enumeration completed
+   Sep 11 23:32:44 ubuntu systemd[1]: Started Network Configuration.
+   Sep 11 23:32:44 ubuntu systemd-networkd[2452]: wlan0: Connected WiFi access point: Verizon_7YLWWD (78:67:0e:ea:a6:0>
+   Sep 11 23:34:16 ubuntu systemd-networkd[2452]: eth0: Re-configuring with /run/systemd/network/10-netplan-eth0.netwo>
+   Sep 11 23:34:16 ubuntu systemd-networkd[2452]: eth0: DHCPv6 lease lost
+   Sep 11 23:34:16 ubuntu systemd-networkd[2452]: eth0: Re-configuring with /run/systemd/network/10-netplan-eth0.netwo>
+   Sep 11 23:34:16 ubuntu systemd-networkd[2452]: eth0: DHCPv6 lease lost
+   ```
 
-```
+   If `system_networkd` is not running, it can be enabled using:
 
-2. Modify the Netplan configuration file to set up a static IP for the Jetson.
-   You can usually find the Netplan configuration file in the `/etc/netplan/` directory.
-   It's typically named something like `01-netcfg.yaml`, but the name can vary.
+   ```sh
+   sudo systemctl start systemd-networkd
+   sudo systemctl enable systemd-networkd
+   ```
 
-   Open the file in your preferred text editor:
+3. Open the Netplan configuration file (so we can set up a static IP for the Jetson).
+
+   The Netplan configuration file is usually located in the `/etc/netplan/` directory and named something like `01-netcfg.yaml` (the name can vary).
+   Below we use `nano` to open the file, but you can use your preferred text editor:
 
    ```sh
    sudo nano /etc/netplan/01-netcfg.yaml
    ```
 
-3. Modify the file to configure the Ethernet interface:
+4. Modify the yaml configuration, by overwriting the contents with the following information and then saving:
 
-  ```sh
-network:
-    version: 2
-    renderer: networkd
-    ethernets:
-      eth0:
-        dhcp4: no
-        addresses:
-          - 10.41.10.1/24
-        routes:
-          - to: 0.0.0.0/0
-            via: 10.41.10.254
-        nameservers:
-          addresses:
-            - 10.41.10.254
-  ```
+   ```sh
+   network:
+     version: 2
+     renderer: networkd
+     ethernets:
+       eth0:
+         dhcp4: no
+         addresses:
+           - 10.41.10.1/24
+         routes:
+           - to: 0.0.0.0/0
+             via: 10.41.10.254
+         nameservers:
+           addresses:
+             - 10.41.10.254
+   ```
 
-   This gives the Jetson a static IP address on the Ethernet of `10.41.10.1`
+   This gives the Jetson a static IP address on the Ethernet interface of `10.41.10.1`:
 
-4. Apply the Netplan configuration:
-
-   Save the file and apply the changes using the following command:
+5. Apply the changes using the following command:
 
    ```sh
    sudo netplan apply
    ```
 
-The Pixhawk Ethernet address is set to `10.41.10.2`.
-
-We ping Pixhawk now inside Jetson terminal:
+The Pixhawk Ethernet address is set to `10.41.10.2` by default, which is on the same subnet.
+We can test our changes above by pinging the Pixhawk from within the Jetson terminal:
 
 ```sh
 ping 10.41.10.2
@@ -1019,14 +1019,15 @@ ping 10.41.10.2
 
 If this is successful you will see the output below.
 
-``` sh
+```sh
 PING 10.41.10.2 (10.41.10.2) 56(84) bytes of data.
 64 bytes from 10.41.10.2: icmp_seq=1 ttl=64 time=0.215 ms
 64 bytes from 10.41.10.2: icmp_seq=2 ttl=64 time=0.346 ms
 64 bytes from 10.41.10.2: icmp_seq=3 ttl=64 time=0.457 ms
 64 bytes from 10.41.10.2: icmp_seq=4 ttl=64 time=0.415 ms
 ```
-This means you can run your XRCE-DDS agent on Jetson and have your ROS nodes talk to the client running on PX4.
+
+The Jetson and Pixhawk can now communicate over Ethernet.
 
 ## MAVLink Setup
 
@@ -1110,13 +1111,19 @@ The set of exposed topics are defined in a build configuration file.
 The channel used by the client for communication with the agent is configured using parameters.
 You can use either the internal serial connection or the internal Ethernet switch.
 
-#### Serial Port Setup
+#### XRCE-Client Serial Port Setup
 
 As covered in the MAVLink section, there is an internal serial link from Pixhawk `TELEM2` to Jetson `THS1`, which is configured to communicate via MAVLink by default.
 You will need to disable the MAVLink instance and enable the UXRCE_DDS configuration.
 
-You can [modify the parameters](../advanced_config/parameters.md) in QGroundControl parameter editor, or using `param set` in the [mavlink_shell](../debug/mavlink_shell.md).
-The code below assumes you're commands in the MAVLink shell.
+You can [modify the parameters](../advanced_config/parameters.md) in QGroundControl parameter editor, or using `param set` in the [MAVLink shell](../debug/mavlink_shell.md).
+
+::: tip
+There are a number of ways to access a MAVLink shell.
+The easiest way is to connect the Pixhawk to your development computer via the Pixhawk USB-C and use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html)
+:::
+
+The code below assumes you're entering commands in the MAVLink shell:
 
 ```sh
 param set MAV_1_CONFIG 0  # Disable MAVLINK on TELEM2 (so it can be used for XRCE-DDS)
@@ -1137,22 +1144,24 @@ param set UXRCE_DDS_SYNCT 1
 
 Then reboot the Pixhawk.
 
-#### Ethernet Setup
+#### XRCE-Client Ethernet Setup
 
 As covered in the MAVLink section, there is an internal Ethernet switch linking the Jetson and Pixhawk.
 We configured both boards to use the same subnet above.
-However we need to disable MAVLink on the `Ethernet` port and enable `XRCE-DDS`.
+However we need to disable MAVLink on the PX4 `Ethernet` port and enable `XRCE-DDS`.
 
 You can [modify the parameters](../advanced_config/parameters.md) in QGroundControl parameter editor, or using `param set` in the [MAVLink shell](../debug/mavlink_shell.md).
-The code below assumes you're commands in the MAVLink shell the port is by default _8888_. You can check how to find the _int32_ version of
-IP in [Starting uXRCE-DDS client](../middleware/uxrce_dds.md#starting-the-client)
+Enter the following commands to change the values in the MAVLink shell:
 
 ```sh
 param set MAV_2_CONFIG 0  # Disable MAVLINK on Ethernet (so Ethernet can be used for XRCE-DDS)
 param set UXRCE_DDS_CFG 1000 # Ethernet
-param set UXRCE_DDS_PRT 8888  # Set port to 8888
-param set UXRCE_DDS_AG_IP 170461697 #this is int32 version of 10.41.10.1
+param set UXRCE_DDS_PRT 8888  # Set port to 8888 (default)
+param set UXRCE_DDS_AG_IP 170461697 # The int32 version of 10.41.10.1
 ```
+
+We're setting the address of the Jetson to 170461697 using the `UXRCE_DDS_AG_IP` parameter.
+Note that this is an INT32 formatted version of `10.41.10.1` (see [Starting uXRCE-DDS client](../middleware/uxrce_dds.md#starting-the-client) for information about how to convert between versions).
 
 #### Checking the XRCE-DDS Client is Running
 
@@ -1160,8 +1169,7 @@ param set UXRCE_DDS_AG_IP 170461697 #this is int32 version of 10.41.10.1
 The client should automatically start on boot if configured correctly!
 :::
 
-We can check that the client is running using the following command in the MAVLink shell. Pixhawk could be directly connected
-via USB-C to do this:
+We can check that the client is running using the following command in the MAVLink shell:
 
 ```sh
 uxrce_dds_client status
@@ -1195,22 +1203,21 @@ Then fetch and build the uXRCE-DDS _agent_ as covered in [Setup the Agent](../ro
 You will start the agent using different commands, depending on whether the client is configured for a serial or Ethernet connection.
 Assuming the client is set up as defined above:
 
-- Start the agent on `/dev/ttyTHS1` (serial connection):
+- (Serial connection) Start the agent on `/dev/ttyTHS1`:
 
   ```sh
   sudo MicroXRCEAgent serial --dev /dev/ttyTHS1 -b 921600
   ```
 
-- Start the agent on UDP port `8888` (Ethernet):
+- (Ethernet) Start the agent on UDP port `8888`:
 
   ```sh
   MicroXRCEAgent udp4 -p 8888
   ```
 
-If your agent and client are connected and no nodes are runnning, this lookslike what the agent sees:
+If your agent and client are connected and no nodes are running, you should see output similar to this in the Agent terminal:
 
-``` sh
-
+```sh
 [1726117589.065585] info     | UDPv4AgentLinux.cpp | init                     | running...             | port: 8888
 [1726117589.066415] info     | Root.cpp           | set_verbose_level        | logger setup           | verbose_level: 4
 [1726117589.568522] info     | Root.cpp           | create_client            | create                 | client_key: 0x00000001, session_id: 0x81
@@ -1229,20 +1236,7 @@ If your agent and client are connected and no nodes are runnning, this lookslike
 [1726117589.588183] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x803(4), participant_id: 0x001(1)
 [1726117589.588494] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x803(6), subscriber_id: 0x803(4)
 [1726117589.589025] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x804(2), participant_id: 0x001(1)
-[1726117589.589092] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x804(4), participant_id: 0x001(1)
-[1726117589.589402] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x804(6), subscriber_id: 0x804(4)
-[1726117589.590574] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x805(2), participant_id: 0x001(1)
-[1726117589.590670] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x805(4), participant_id: 0x001(1)
-[1726117589.591056] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x805(6), subscriber_id: 0x805(4)
-[1726117589.591606] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x806(2), participant_id: 0x001(1)
-[1726117589.591682] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x806(4), participant_id: 0x001(1)
-[1726117589.592010] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x806(6), subscriber_id: 0x806(4)
-[1726117589.594629] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x807(2), participant_id: 0x001(1)
-[1726117589.594689] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x807(4), participant_id: 0x001(1)
-[1726117589.594998] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x807(6), subscriber_id: 0x807(4)
-[1726117589.595533] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x808(2), participant_id: 0x001(1)
-[1726117589.595588] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x808(4), participant_id: 0x001(1)
-[1726117589.595889] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x808(6), subscriber_id: 0x808(4)
+...
 [1726117589.596755] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x809(2), participant_id: 0x001(1)
 [1726117589.596813] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x809(4), participant_id: 0x001(1)
 [1726117589.597112] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x809(6), subscriber_id: 0x809(4)
@@ -1250,6 +1244,7 @@ If your agent and client are connected and no nodes are runnning, this lookslike
 [1726117589.597905] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x80A(4), participant_id: 0x001(1)
 [1726117589.598197] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x80A(6), subscriber_id: 0x80A(4)
 ```
+
 #### Starting the Agent on Boot
 
 To run the XRCE-DDS agent each time the Jetson reboots you can make a daemon service to run the agent.
