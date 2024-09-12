@@ -9,13 +9,22 @@ It can be used with any Pixhawk Autopilot Bus (PAB) specification-compliant Pixh
 
 This guide walks through the process of setting up the board and connecting to PX4, including:
 
-- Hardware setup
-- Flashing the Jetson board
-- Initial setup
-- PX4 Firmware build and flash on Jetson
-- ROS 2 Installation and Ethernet setup
-- Pixhawk setup for enabling uXRCE-DDS connection to Jetson
-- Testing uXRCE-DDS connection
+- Hardware overview and setup
+- Flashing the Jetson board and logging in via SSH
+- Flashing (and building) PX4 Firmware on the Pixhawk
+- Configuring serial and Ethernet connections between Pixhawk and Jetson
+- MAVLink setup/test
+- ROS 2 setup/test
+
+::: tip
+You will temporarily need the following hardware in order to log into your Jetson and get its IP address, after which you will be able to log in via SSH:
+
+- External display.
+  If your display doesn't have a mini HDMI connector you will also need a [Mini HDMI to HDMI converter](https://a.co/d/6N815N9) if your external display has HDMI input
+- Ethernet cable
+- Mouse and keyboard (the baseboard has 4 USB ports exposed from Jetson, to of which are USB 3.0)
+
+:::
 
 ## Purchase
 
@@ -656,17 +665,6 @@ You can power the Pixhawk part using either a USB-C supply or a battery (as show
 
 ![Power wiring - Battery and power adapter](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/power4_battery_and_power_adapter.png)
 
-## Jetson Setup Overview/Preconditions
-
-The remaining setup guide covers installing Jetson Linux on the Jetson (a variant of Ubuntu), PX4 on the Pixhawk, and getting them to communicate via ROS 2.
-
-You will need the following additional hardware:
-
-- External display.
-  If your display doesn't have a mini HDMI connector you will also need a [Mini HDMI to HDMI converter](https://a.co/d/6N815N9) if your external display has HDMI input
-- Ethernet cable
-- Mouse and keyboard (the baseboard has 4 USB ports exposed from Jetson, to of which are USB 3.0)
-
 ## Flashing the Jetson Board
 
 ::: info
@@ -712,13 +710,15 @@ The fan will be running while the installation is going on, so make sure it not 
 The Jetson will boot into initial login after flashing.
 :::
 
-## Jetson Network Setup
-
 After flashing the Jetson it will reboot to the login screen (though this won't be obvious unless you already have an external monitor connected).
 
 Note that with the switch in recovery mode position, recovery mode is only skipped the first reboot after flashing!
 Disconnect power from the Jetson board and move the small sliding switch from recovery mode back to EMMC.
 This ensures that in future the Jetson will boot into firmware instead of recovery mode.
+
+## Jetson Network & SSH Login
+
+Next we confirm that the Jetson WiFi network is working, find its IP address, and use the IP address to login via SSH.
 
 The diagram below shows how you can connect your Jetson carrier board with external keyboard, display and mouse.
 This step is needed so that we can configure the network connection.
