@@ -51,7 +51,7 @@ To summarize, the following parameters can be used to tune the controller:
 | <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)    | Minimum value for the look ahead radius | m    |
 
 ::: note
-Both [Ackermann](../frames_rover/ackermann_rover.md#mission-parameters) and [differential](../frames_rover/differential_rover.md#tuning-mission) rovers have further tuning parameters that are specific to the respective modules.
+Both [Ackermann](../frames_rover/ackermann_rover.md#mission-parameters) and [differential](../frames_rover/differential_rover.md#auto-modes) rovers have further tuning parameters that are specific to the respective modules.
 :::
 
 # Return Mode
