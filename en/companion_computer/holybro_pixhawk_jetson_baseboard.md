@@ -1079,7 +1079,14 @@ python ~/MAVSDK-Python/examples/telemetry.py
 
 The output below is expected:
 
-![Sanity check Pixhawk and Jetson connection](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/connection_check.png)
+``` sh
+In air: False
+Battery: -1.0
+In air: False
+Battery: -1.0
+In air: False
+Battery: -1.0
+```
 
 ### Ethernet Connection
 
@@ -1177,7 +1184,14 @@ uxrce_dds_client status
 
 A healthy output should show:
 
-![uXRCE-DDS Client serial status](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/uxrce_dds_serial_agent_running.png)
+``` sh
+nsh> uxrce_dds_client status
+INFO [uxrce_dds_client] Running, disconnected
+INFO [uxrce_dds_client] Using transport: serial
+INFO [uxrce_dds_client] timesync converged: false
+uxrce_dds_client: cycle: 0 events, 0us elapsed, 0.00us avg, min 0us max 0us 0.000us rms
+uxrce_dds_client: cycle interval: 0 events, 0.00us avg, min 0us max 0us 0.000us rms
+```
 
 Also another way to check if the client has started running at the boot is to get `dmesg` output from MAVLINK shell.
 The below output as a part of `dmesg` log mentions the baudrate and the instance (`/dev/tty/S4` is equal to `TELEM2` for Holybro Pixhawk 6X and 6X Pro) the client is running on.
@@ -1286,7 +1300,29 @@ sudo systemctl status microxrceagent.service
 
 If the service is running, you should see output like this:
 
-![XRCE DDS Agent Daemon service](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/xrce_dds_agent_service.png)
+``` sh
+holybro@ubuntu:~$ sudo systemctl status microxrceagent.service
+● microxrceagent.service - Micro XRCE Agent Service
+   Loaded: loaded (/etc/systemd/system/microxrceagent.service; enabled; vendor preset: enabled)
+   Active: active (running) since Tue 204-07-30 01:37:45 EDT; 1min 30s ago
+ Main PID: 1616 (MicroXRCEAgent)
+    Tasks: 42 (limit: 18457)
+   Memory: 29.6M
+   CPU: 1.356s
+   CGroup: /system.slice/microxrceagent.service
+           └─1616 /usr/local/bin/MicroXRCEAgent udp4 -p 8888
+
+Jul 30 01:37:52 ubuntu MicroXRCEAgent[1616]: [1722317872.094190] info    | ProxyClient.cpp   | create_datawriter       | datawriter created   | client_key: 0x00000001, datawriter_id: 0x0F6(5), publisher_id: 0x0F6(3)
+Jul 30 01:37:52 ubuntu MicroXRCEAgent[1616]: [1722317872.095277] info    | ProxyClient.cpp   | create_topic            | topic created        | client_key: 0x00000001, topic_id: 0x100(2), participant_id: 0x001(1)
+Jul 30 01:37:52 ubuntu MicroXRCEAgent[1616]: [1722317872.095358] info    | ProxyClient.cpp   | create_publisher        | publisher created    | client_key: 0x00000001, publisher_id: 0x100(3), participant_id: 0x001(1)
+Jul 30 01:37:52 ubuntu MicroXRCEAgent[1616]: [1722317872.095537] info    | ProxyClient.cpp   | create_datawriter       | datawriter created   | client_key: 0x00000001, datawriter_id: 0x105(5), publisher_id: 0x100(3)
+Jul 30 01:37:52 ubuntu MicroXRCEAgent[1616]: [1722317872.096029] info    | ProxyClient.cpp   | create_topic            | topic created        | client_key: 0x00000001, topic_id: 0x105(2), participant_id: 0x001(1)
+Jul 30 01:37:52 ubuntu MicroXRCEAgent[1616]: [1722317872.097022] info    | ProxyClient.cpp   | create_publisher        | publisher created    | client_key: 0x00000001, publisher_id: 0x105(3), participant_id: 0x001(1)
+Jul 30 01:37:52 ubuntu MicroXRCEAgent[1616]: [1722317872.097797] info    | ProxyClient.cpp   | create_datawriter       | datawriter created   | client_key: 0x00000001, datawriter_id: 0x10A(5), publisher_id: 0x10A(3)
+Jul 30 01:37:52 ubuntu MicroXRCEAgent[1616]: [1722317872.098088] info    | ProxyClient.cpp   | create_topic            | topic created        | client_key: 0x00000001, topic_id: 0x10A(2), participant_id: 0x001(1)
+Jul 30 01:37:52 ubuntu MicroXRCEAgent[1616]: [1722317872.098168] info    | ProxyClient.cpp   | create_publisher        | publisher created    | client_key: 0x00000001, publisher_id: 0x10A(3), participant_id: 0x001(1)
+Jul 30 01:37:52 ubuntu MicroXRCEAgent[1616]: [1722317872.098486] info    | ProxyClient.cpp   | create_datawriter       | datawriter created   | client_key: 0x00000001, datawriter_id: 0x10A(5), publisher_id: 0x10A(3)
+```
 
 You can now start your ROS2 nodes and continue the development.
 
@@ -1306,7 +1342,20 @@ ros2 launch px4_ros_com sensor_combined_listener.launch.py
 
 You should see high frequency sensor messages as the output:
 
-![Sensor node single output](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/ros_sensor_output.png)
+``` sh
+[sensor_combined_listener-1] RECEIVED SENSOR COMBINED DATA
+[sensor_combined_listener-1] ====================================
+[sensor_combined_listener-1] ts: 1722316316179649
+[sensor_combined_listener-1] gyro_rad[0]: 0.0015163
+[sensor_combined_listener-1] gyro_rad[1]: 0.00191962
+[sensor_combined_listener-1] gyro_rad[2]: 0.00343043
+[sensor_combined_listener-1] gyro_integral_dt: 4999
+[sensor_combined_listener-1] accelerometer_timestamp_relative: 0
+[sensor_combined_listener-1] accelerometer_m_s2[0]: -0.368978
+[sensor_combined_listener-1] accelerometer_m_s2[1]: 1.43863
+[sensor_combined_listener-1] accelerometer_m_s2[2]: -9.68139
+[sensor_combined_listener-1] accelerometer_integral_dt: 4999
+```
 
 ## See Also
 
