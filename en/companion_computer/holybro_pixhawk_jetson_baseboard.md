@@ -22,7 +22,7 @@ You will temporarily need the following hardware in order to log into your Jetso
 - External display.
   If your display doesn't have a mini HDMI connector you will also need a [Mini HDMI to HDMI converter](https://a.co/d/6N815N9) if your external display has HDMI input
 - Ethernet cable
-- Mouse and keyboard (the baseboard has 4 USB ports exposed from Jetson, to of which are USB 3.0)
+- Mouse and keyboard (the baseboard has 4 USB ports exposed from Jetson, two of which are USB 3.0)
 
 :::
 
@@ -714,7 +714,7 @@ After flashing the Jetson it will reboot to the login screen (though this won't 
 
 Note that with the switch in recovery mode position, recovery mode is only skipped the first reboot after flashing!
 Disconnect power from the Jetson board and move the small sliding switch from recovery mode back to EMMC.
-This ensures that in future the Jetson will boot into firmware instead of recovery mode.
+This ensures that in the future the Jetson will boot into firmware instead of recovery mode.
 
 ## Jetson Network & SSH Login
 
@@ -794,7 +794,7 @@ Then repeat the process above to try and get the IP address.
 :::
 
 Now that we have an IP address, open a terminal in your _development computer_.
-Log into the Jetson using the via SSH specifying the IP address for _your_ Jetson (you will need to enter the same credentials as before):
+Log into the Jetson via SSH specifying the IP address for _your_ Jetson (you will need to enter the same credentials as before):
 
 ```sh
 ssh holybro@192.168.1.190
@@ -926,7 +926,7 @@ Next we modify the Jetson IP address to be on the same network as the Pixhawk:
    netplan -h
    ```
 
-   If not, installed using the commands:
+   If not, install it using the commands:
 
    ```sh
    sudo apt update
@@ -1002,7 +1002,7 @@ Next we modify the Jetson IP address to be on the same network as the Pixhawk:
              - 10.41.10.254
    ```
 
-   This gives the Jetson a static IP address on the Ethernet interface of `10.41.10.1`:
+   This gives the Jetson a static IP address on the Ethernet interface of `10.41.10.1` .
 
 5. Apply the changes using the following command:
 
