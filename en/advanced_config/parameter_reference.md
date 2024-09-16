@@ -34412,7 +34412,7 @@ Lightware SF1xx/SF20/LW20 Operation Mode.
 
 - `0`: Disabled
 - `1`: Enabled
-- `2`: Disabled during VTOL fast forward flight
+- `2`: Enabled in VTOL MC mode, listen to request from system in FW mode
 
 
 Reboot | minValue | maxValue | increment | default | unit
