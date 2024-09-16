@@ -24691,6 +24691,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 100 | 0.01 | 0.5 | m/s^3 
 
+### RD_MAX_SPEED (`FLOAT`) {#RD_MAX_SPEED}
+
+Maximum speed setpoint.
+
+This parameter is used to cap desired forward speed and map controller inputs to desired speeds in Position mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 1 | m/s 
+
 ### RD_MAX_THR_SPD (`FLOAT`) {#RD_MAX_THR_SPD}
 
 Speed the rover drives at maximum throttle.
@@ -24715,7 +24725,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Maximum allowed yaw rate for the rover.
 
-This parameter is used to cap desired yaw rates and map controller inputs to desired yaw rates in acro mode.
+This parameter is used to cap desired yaw rates and map controller inputs to desired yaw rates in Acro,Stabilized and Position mode.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
