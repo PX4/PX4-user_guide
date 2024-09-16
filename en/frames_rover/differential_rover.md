@@ -120,6 +120,7 @@ For this mode to work properly [acro mode](#acro-mode) and [stabilized mode](#st
 :::
 
 [Position mode](../flight_modes_rover/manual.md#position-mode) is the most advanced manual mode, utilizing closed loop yaw rate, yaw and speed control and leveraging position estimates.
+
 To configure set the following parameters:
 
 1. [RD_MAX_SPEED](#RD_MAX_SPEED) [m/s]: This is the maximum speed you want to allow for your rover.
@@ -149,7 +150,7 @@ To configure set the following parameters:
    For the closed loop speed control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint.
    :::
 
-5. [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN): When driving in a straight line (no yaw rate input) position mode leverages the same path following algorithm used in [auto modes](#auto-modes) called [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic) to achieve the best possible straight line driving behavior. This parameter determines how aggressive the controller will steer towards the path.
+5. [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN): When driving in a straight line (no yaw rate input) position mode leverages the same path following algorithm used in [auto modes](#auto-modes) called [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic) to achieve the best possible straight line driving behavior ([Illustration of control architecture](#pure_pursuit_controller)). This parameter determines how aggressive the controller will steer towards the path.
 
    ::: tip
    Decreasing the parameter makes it more aggressive but can lead to oscillations. Start with a value of 1 for [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN), put the rover in [position mode](../flight_modes_rover/manual.md#position-mode) and while driving a straight line at approximately half the maximum speed observe its behavior. If the rover does not drive in a straight line reduce the value of the parameter, if it oscillates around the path increase the value. Repeat until you are satisfied with the behavior.
@@ -175,7 +176,12 @@ The rover is now ready to drive in [position mode](../flight_modes_rover/manual.
 For this mode to work properly [acro mode](#acro-mode), [stabilized mode](#stabilized-mode) and [position mode](#position-mode) must've already been configured!
 :::
 
-To start using [auto modes](../flight_modes_rover/auto.md#auto-modes-rover) the required parameters are separated into the following section:
+<a id="pure_pursuit_controller"></a>
+In [auto modes](../flight_modes_rover/auto.md#auto-modes-rover) the autopilot takes over navigation tasks using the following control architecture:
+
+![Pure Pursuit Controller](../../assets/airframes/rover/rover_differential/pure_pursuit_controller.png)
+
+The required parameters are separated into the following sections:
 
 #### Speed
 
@@ -207,13 +213,13 @@ These transition thresholds can be set with [RD_TRANS_DRV_TRN](#RD_TRANS_DRV_TRN
 
 #### Path Following
 
-The [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic) is used to calculate a desired yaw for the vehicle that is then close loop controlled.
+The [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic) algorithm is used to calculate a desired yaw for the vehicle that is then close loop controlled.
 The close loop yaw rate was tuned in the configuration of the [stabilized mode](#stabilized-mode) and the pure pursuit was tuned when setting up the [position mode](#position-mode).
 During any auto navigation task observe the behavior of the rover. If you are unsatisfied with the path following, there are 3 steps to take:
 
-1. Plot the _yaw_rate_setpoint_ and actual*yaw_rate* from the [RoverDifferentialSetpoint](../msg_docs/RoverDifferentialStatus.md) over each other. If the tracking of these setpoints is not satisfactory adjust the values for [RD_YAW_RATE_P](#RD_YAW_RATE_P) and [RD_YAW_RATE_I](#RD_YAW_RATE_I).
+1. Plot the _yaw_rate_setpoint_ and _actual_yaw_rate_ from the [RoverDifferentialSetpoint](../msg_docs/RoverDifferentialStatus.md) over each other. If the tracking of these setpoints is not satisfactory adjust the values for [RD_YAW_RATE_P](#RD_YAW_RATE_P) and [RD_YAW_RATE_I](#RD_YAW_RATE_I).
 2. Plot the _yaw_setpoint_ from the [RoverDifferentialSetpoint](../msg_docs/RoverDifferentialSetpoint.md) message and the _actual_yaw_ from the [RoverDifferentialStatus](../msg_docs/RoverDifferentialStatus.md) message over each other. If the tracking of these setpoints is not satisfactory adjust the values for [RD_YAW_P](#RD_YAW_P) and [RD_YAW_I](#RD_YAW_P).
-3. Steps 1 and 2 ensure accurate setpoint tracking, if the path following is still unsatisfactory you need to further tune the [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic) algorithm.
+3. Steps 1 and 2 ensure accurate setpoint tracking, if the path following is still unsatisfactory you need to further tune the [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic) parameters.
 
 ## Parameter Overview
 

@@ -22,7 +22,12 @@ Following is the list of currently implemented and tested mission related comman
 | Jump to item        | [MAV_CMD_DO_JUMP](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_JUMP) (and other jump commands)                     | Jump to specified mission item.                     |
 | Loiter (all)        | [MAV_CMD_NAV_LOITER_UNLIM](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_UNLIM) (and other loiter commands) | This will simply stop the rover.                    |
 
-### Pure Pursuit Guidance Logic
+## Return Mode
+
+This mode uses the [pure pursuit guidance logic](#pure-pursuit-guidance-logic) with the launch position as goal.
+Return mode can be activated through the respective [mission command](#mission-commands) or through the ground station UI.
+
+## Pure Pursuit Guidance Logic
 
 The desired yaw setpoints are generated using a pure pursuit algorithm:
 The controller takes the intersection point between a circle around the vehicle and a line segment. In mission mode this line is usually constructed by connecting the previous and current waypoint:
@@ -53,8 +58,3 @@ To summarize, the following parameters can be used to tune the controller:
 ::: note
 Both [Ackermann](../frames_rover/ackermann_rover.md#mission-parameters) and [differential](../frames_rover/differential_rover.md#auto-modes) rovers have further tuning parameters that are specific to the respective modules.
 :::
-
-# Return Mode
-
-This mode uses the [pure pursuit guidance logic](#pure-pursuit-guidance-logic) with the launch position as goal.
-Return mode can be activated through the respective [mission command](#mission-commands) or through the ground station UI.
