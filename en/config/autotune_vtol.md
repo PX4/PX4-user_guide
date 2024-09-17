@@ -7,4 +7,4 @@ Tuning only needs to be done once, and is recommended unless you're using a vehi
 Hybrid VTOL fixed-wing vehicles ("VTOL") must be tuned following the multicopter instructions in MC mode and then the fixed-wing instructions in FW mode:
 
 - [Auto-tune (Multicopter)](../config/autotune_mc.md)
-- [Auto-tune (Fixed-wing)](../config/autotune_mc.md)
+- [Auto-tune (Fixed-wing)](../config/autotune_fw.md)
