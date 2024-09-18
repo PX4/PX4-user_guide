@@ -210,7 +210,10 @@ This information comes from the [Holybro Pixhawk-Jetson Baseboard Documentation]
 
 ::: tab Power (baseboard)
 
-The Jetson power connection on Holybro's board uses XT30 plug and has separate input power circuitry from the Pixhawk autopilot.
+The Pixhawk is powered through either/both of the `Power 1` or `Power 2` ports next to the Jetson.
+The Jetson power connection is the XT30 plug on the same side of the board.
+
+The Jetson has separate input power circuitry from the Pixhawk autopilot:
 
 - 8V/3A Minimum (Depends on Usage and Peripherals)
 - Voltage Rating: 7-21V (3S-4S)
@@ -220,6 +223,7 @@ The Jetson power connection on Holybro's board uses XT30 plug and has separate i
 During development using the following wired power supply is recommended:
 
 - [Power Adapter for Jetson Orin](https://holybro.com/products/power_adapter_for_jetson_orin)
+
 
 The complete power supply block diagram is shown below:
 
@@ -253,7 +257,7 @@ Dimensions
 
 ![Jetson Pinouts](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/jetson_pinout.png)
 
-::: details Power ports
+::: details Pixhawk ports
 
 ### Power 1 (Main), Power 2 Ports
 
@@ -267,10 +271,6 @@ Dimensions
 | 4 (black) | SDA1/2              | +3.3V   |
 | 5 (black) | GND                 | GND     |
 | 6 (black) | GND                 | GND     |
-
-:::
-
-::: details Pixhawk ports
 
 ### Tel1, Tel3 Ports
 
@@ -836,7 +836,7 @@ If you want to build and upload _custom firmware_ then follow the usual steps:
 ### Build PX4 on Jetson
 
 You can also build and develop PX4 code on the Jetson.
-Note that there is no need to do this if you have a development computer, but you can do do so if you want.
+Note that there is no need to do this if you have a development computer, but you can do so if you want.
 
 First open a terminal and SSH session into the Jetson, and enter the following command to clone the PX4 source code.
 
@@ -1127,10 +1127,10 @@ You can [modify the parameters](../advanced_config/parameters.md) in QGroundCont
 
 ::: tip
 There are a number of ways to access a MAVLink shell.
-The easiest way is to connect the Pixhawk to your development computer via the Pixhawk USB-C and use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html)
+The easiest way is to connect the Pixhawk to your development computer via the Pixhawk USB-C and use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html).
 :::
 
-The code below assumes you're entering commands in the MAVLink shell:
+The instructions below assume you're entering commands in the MAVLink shell:
 
 ```sh
 param set MAV_1_CONFIG 0  # Disable MAVLINK on TELEM2 (so it can be used for XRCE-DDS)
@@ -1334,7 +1334,7 @@ You can test the Client and agent by using the `sensor_combined` example in [Bui
 [VSCode over SSH](https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines) enables faster development and application of changes to your ROS 2 code!
 :::
 
-After getting to the point of running the example note:
+After getting to the point of running the example:
 
 ```sh
 ros2 launch px4_ros_com sensor_combined_listener.launch.py
