@@ -4,20 +4,19 @@
 
 [![Releases](https://img.shields.io/badge/release-main-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![Discord](https://discordapp.com/api/guilds/1022170275984457759/widget.png?style=shield)](https://discord.gg/dronecode)
 
-:::warning
-This guide is for the PX4 v1.15, which is currently the beta release.
-Use the **Version** selector for the current _stable_ version (v1.14) or development release (main).
-
-Documented changes since the stable release are captured in the evolving [release note](releases/1.15.md).
-:::
-
 PX4 is the _Professional Autopilot_.
 Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
 
-:::tip
-This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. Interested in contributing? Check out the [Development](development/development.md) section.
+This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. 
+
+::: info
+This is the guide for the current stable version of PX4 (v1.15).
+Documented changes since the previous release are captured in the [release note](releases/1.15.md), which also contains a [guide for upgrading](../releases/1.15.md#upgrade-guide).
 :::
 
+:::tip
+Interested in contributing? Check out the [Development](development/development.md) section.
+:::
 
 
 ## How Do I Get Started?
@@ -34,7 +33,7 @@ If you have a Ready To Fly (RTF) vehicle that supports PX4:
 - [Basic Configuration](config/index.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
 - [Flying](flying/index.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
 
-**I want to build a drone with PX4 from scratch:**
+**I want to build a drone with PX4 from scratch:** 
 
 :::tip
 
