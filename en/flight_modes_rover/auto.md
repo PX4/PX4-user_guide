@@ -1,26 +1,33 @@
 # Auto Modes (Rover)
 
-In auto modes the autopilot takes over control of the vehicle to perform autonomous navigation tasks.
+In auto modes the autopilot takes over control of the vehicle to run missions, return to launch, or perform other autonomous navigation tasks.
 
 ## Mission Mode
 
-_Mission mode_ is an automatic mode that causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) plan that has been uploaded to the flight controller.
+_Mission mode_ is an automatic mode that causes the vehicle to execute a predefined autonomous [mission plan](../flying/missions.md) that has been uploaded to the flight controller.
 The mission is typically created and uploaded with a Ground Control Station (GCS) application, such as [QGroundControl](https://docs.qgroundcontrol.com/master/en/).
 
 ### Mission commands
 
-Following is the list of currently implemented and tested mission related commands:
+The following commands can be used in missions at time of writing (`main(PX4 v1.16+)`):
 
-| QGC mission item    | Command                                                                                                                     | Description                                         |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| Mission start       | [MAV_CMD_MISSION_START](https://mavlink.io/en/messages/common.html#MAV_CMD_MISSION_START)                                   | Starts the mission.                                 |
-| Waypoint            | [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)                                     | Navigate to waypoint.                               |
-| Return to launch    | [MAV_CMD_NAV_RETURN_TO_LAUNCH](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH)                     | Return to the launch location.                      |
-| Delay until         | [MAV_CMD_NAV_DELAY](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_DELAY)                                           | The rover will stop for a specified amount of time. |
-| Change speed        | [MAV_CMD_DO_CHANGE_SPEED](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CHANGE_SPEED)                               | Change the speed setpoint                           |
-| Set launch location | [MAV_CMD_DO_SET_HOME](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_HOME)                                       | Changes launch location to specified coordinates.   |
-| Jump to item        | [MAV_CMD_DO_JUMP](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_JUMP) (and other jump commands)                     | Jump to specified mission item.                     |
-| Loiter (all)        | [MAV_CMD_NAV_LOITER_UNLIM](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_UNLIM) (and other loiter commands) | This will simply stop the rover.                    |
+| QGC mission item    | Command                                                                                   | Description                                                      |
+| ------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Mission start       | [MAV_CMD_MISSION_START](https://mavlink.io/en/messages/common.html#MAV_CMD_MISSION_START) | Starts the mission.                                              |
+| Waypoint            | [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)   | Navigate to waypoint.                                            |
+| Return to launch    | [MAV_CMD_NAV_RETURN_TO_LAUNCH][MAV_CMD_NAV_RETURN_TO_LAUNCH]                              | Return to the launch location.                                   |
+| Delay until         | [MAV_CMD_NAV_DELAY](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_DELAY)         | The rover will stop for a specified amount of time.              |
+| Change speed        | [MAV_CMD_DO_CHANGE_SPEED][MAV_CMD_DO_CHANGE_SPEED]                                        | Change the speed setpoint                                        |
+| Set launch location | [MAV_CMD_DO_SET_HOME](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_HOME)     | Changes launch location to specified coordinates.                |
+| Jump to item (all)  | [MAV_CMD_DO_JUMP][MAV_CMD_DO_JUMP] (and other jump commands)                              | Jump to specified mission item.                                  |
+| Loiter (all)        | [MAV_CMD_NAV_LOITER_TIME][MAV_CMD_NAV_LOITER_TIME] (and other loiter commands)            | Stop the rover for given time. Other commands stop indefinitely. |
+
+<!-- Add (some) links used by table - makes it a little easier to edit by shrinking width -->
+
+[MAV_CMD_NAV_RETURN_TO_LAUNCH]: https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH
+[MAV_CMD_DO_CHANGE_SPEED]: https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CHANGE_SPEED
+[MAV_CMD_NAV_LOITER_TIME]: https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TIME
+[MAV_CMD_DO_JUMP]: https://mavlink.io/en/messages/common.html#MAV_CMD_DO_JUMP
 
 ## Return Mode
 
@@ -55,6 +62,6 @@ To summarize, the following parameters can be used to tune the controller:
 | <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)    | Maximum value for the look ahead radius | m    |
 | <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)    | Minimum value for the look ahead radius | m    |
 
-::: note
-Both [Ackermann](../frames_rover/ackermann_rover.md#mission-parameters) and [differential](../frames_rover/differential_rover.md#auto-modes) rovers have further tuning parameters that are specific to the respective modules.
+::: info
+[Ackermann](../frames_rover/ackermann_rover.md#mission-parameters) and [differential](../frames_rover/differential_rover.md#auto-modes) rovers both have addition tuning parameters that are specific to their respective modules.
 :::

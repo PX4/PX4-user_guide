@@ -62,7 +62,8 @@ To get an overview of all parameters that are related to the Ackermann rover mod
 
 ### General Parameters
 
-These parameters affect the general behaviour of the rover. This will influence both auto and manual modes.
+These parameters affect the general behaviour of the rover.
+his will influence both auto and manual modes.
 
 | Parameter                                                                                       | Description                                | Unit |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------ | ---- |

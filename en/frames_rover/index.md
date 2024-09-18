@@ -16,7 +16,7 @@ PX4 supports the following rover types:
 - [**Ackermann steering**](../frames_rover/ackermann_rover.md): direction is controlled by pointing wheels in the direction of travel.
   This kind of steering is used on most commercial vehicles, including cars, trucks etc.
 
-The supported flight modes can be seen in [Flight modes](../flight_modes_rover/index.md#) and the supported frames in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
+The supported modes can be seen in [Drive Modes](../flight_modes_rover/index.md) and the supported frames in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
 
 ## Flashing the rover build
 
