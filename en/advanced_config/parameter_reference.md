@@ -14838,9 +14838,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### FW_LND_THRTC_SC (`FLOAT`) {#FW_LND_THRTC_SC}
 
-Altitude time constant factor for landing.
+Altitude time constant factor for landing and low-height flight.
 
-During landing, the TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.
+The TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -15785,6 +15785,16 @@ Increase it to trim out speed and height offsets faster, with the downside of po
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.0 | 1.0 | 0.005 | 0.02 |  
+
+### FW_T_THR_LOW_HGT (`FLOAT`) {#FW_T_THR_LOW_HGT}
+
+Low-height threshold for tighter altitude tracking.
+
+Defines the height (distance to bottom) threshold below which tighter altitude tracking gets enabled (see FW_LND_THRTC_SC). Below this height, TECS smoothly (1 sec / sec) transitions the altitude tracking time constant from FW_T_ALT_TC to FW_LND_THRTC_SC*FW_T_ALT_TC. If equal to -1, low-height traking is disabled.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 |  | 1 | -1. | m 
 
 ### FW_T_VERT_ACC (`FLOAT`) {#FW_T_VERT_ACC}
 
