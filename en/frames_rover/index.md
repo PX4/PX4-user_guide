@@ -11,12 +11,12 @@ Maintainer volunteers, [contribution](../contribute/index.md) of new features, n
 
 PX4 supports the following rover types:
 
-- [**Differential steering**](../frames_rover/differential_rover.md): direction is controlled by moving the left- and right-side wheels at different speeds (also know as skid or tank steering).
+- [**Differential steering**](../frames_rover/differential.md): direction is controlled by moving the left- and right-side wheels at different speeds (also know as skid or tank steering).
   This kind of steering is commonly used on bulldozers, tanks, and other tracked vehicles.
-- [**Ackermann steering**](../frames_rover/ackermann_rover.md): direction is controlled by pointing wheels in the direction of travel.
+- [**Ackermann steering**](../frames_rover/ackermann.md): direction is controlled by pointing wheels in the direction of travel.
   This kind of steering is used on most commercial vehicles, including cars, trucks etc.
 
-The supported modes can be seen in [Drive Modes](../flight_modes_rover/index.md) and the supported frames in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
+The supported frames can be seen in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
 
 ## Flashing the rover build
 

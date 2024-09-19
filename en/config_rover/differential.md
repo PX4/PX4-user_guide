@@ -1,20 +1,14 @@
-# Differential Rovers
+# Configuration/Tuning
 
-<Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="warning" text="Experimental" />
+The following is intended as a step-by-step guide to set up your rover, each successive step will enable a [drive mode](../flight_modes_rover/index.md) with more autopilot support and features.
 
-:::warning
-Support for rover is [experimental](../airframes/index.md#experimental-vehicles).
-Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
+::: warning
+For a mode to work properly **all** previous/lower modes must already have been configured!
 :::
 
-A differential rover's motion is controlled using a differential drive mechanism, where the left and right wheel speeds are adjusted independently to achieve the desired forward speed and yaw rate.
+For an explanation of the different modes see [Flight Modes (Differential Rover)](../flight_modes_rover/differential.md).
 
-Forward motion is achieved by driving both wheels at the same speed in the same direction.
-Rotation is achieved by driving the wheels at different speeds in opposite directions, allowing the rover to turn on the spot.
-
-![Aion R1](../../assets/airframes/rover/aion_r1/r1_rover_no_bg.png)
-
-## Basic Setup
+## Manual Mode
 
 To start using the differential rover:
 
@@ -32,24 +26,15 @@ To start using the differential rover:
 
 3. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the motor functions to flight controller outputs.
 
-This is sufficient to drive the the rover in [manual mode](../flight_modes_rover/manual.md#manual-mode) (see [Flight modes](../flight_modes_rover/index.md)).
+This is already sufficient to drive the the rover in [Manual mode](../flight_modes_rover/differential.md#manual-mode).
 
 ::: info
-The parameter [RD_MAN_YAW_SCALE](#RD_MAN_YAW_SCALE) can be used to scale the manual input for the yaw rate.
+In manual mode the stick inputs are directly mapped to motor commands. Especially moving the stick that controls the yaw rate all the way to one side will cause the wheels on the left and right to spin at full speed in opposite directions. Depending on the rover this can lead to a very aggressive rotation. The parameter [RD_MAN_YAW_SCALE](#RD_MAN_YAW_SCALE) can be used to scale the manual input for the yaw rate. By reducing the parameter from the default value of 1 this behavior can be tuned. Note that this parameter only affects this mode, not any of the following ones.
 :::
 
-## Tuning Process
+## Acro Mode
 
-To use the other supported drive modes for differential rovers, certain parameters have to be set and tuned.
-The following is intended as a step-by-step guide to set up your rover, each successive step will enable a drive mode with more autopilot support and features.
-
-::: warning
-For a mode to work properly **all** previous/lower modes must already have been configured!
-:::
-
-### Acro Mode
-
-To set up [Acro mode](../flight_modes_rover/manual.md#acro-mode) navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
+To set up [Acro mode](../flight_modes_rover/differential.md#acro-mode) navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
 
 1. [RD_WHEEL_TRACK](#RD_WHEEL_TRACK) [m]: Measure the distance from the centre of the right wheel to the centre of the left wheel.
 
@@ -67,7 +52,7 @@ To set up [Acro mode](../flight_modes_rover/manual.md#acro-mode) navigate to [Pa
    ::: tip
    To further tune this parameter, first make sure you set [RD_YAW_RATE_P](#RD_YAW_RATE_P) and [RD_YAW_RATE_I](#RD_YAW_RATE_I) to zero.
    This way the yaw rate is only controlled by the feed-forward term, which makes it easier to tune.
-   Now put the rover in [Acro mode](../flight_modes_rover/manual.md#acro-mode) and then move the right-stick of your controller to the right and/or left and hold it at a few different levels for a couple of seconds each.
+   Now put the rover in [Acro mode](../flight_modes_rover/differential.md#acro-mode) and then move the right-stick of your controller to the right and/or left and hold it at a few different levels for a couple of seconds each.
    Disarm the rover and from the flight log plot the _yaw_rate_setpoint_ and actual _yaw_rate_ from the [RoverDifferentialSetpoint](../msg_docs/RoverDifferentialStatus.md) over each other.
    If the actual yaw rate of the rover is higher than the yaw rate setpoint, increase [RD_MAX_THR_YAW_R](#RD_MAX_YAW_RATE).
    If it is the other way around decrease the parameter and repeat until you are satisfied with the setpoint tracking.
@@ -91,15 +76,15 @@ To set up [Acro mode](../flight_modes_rover/manual.md#acro-mode) navigate to [Pa
    Leave this parameter at zero unless necessary, as it can have negative side effects such as overshooting or oscillating around the setpoint.
    :::
 
-The rover is now ready to drive in [Acro mode](../flight_modes_rover/manual.md#acro-mode).
+The rover is now ready to drive in [Acro mode](../flight_modes_rover/differential.md#acro-mode).
 
-### Stabilized Mode
+## Stabilized Mode
 
 ::: warning
 For this mode to work properly [acro mode](#acro-mode) must've already been configured!
 :::
 
-For [Stabilized mode](../flight_modes_rover/manual.md#stabilized-mode) the controller utilizes a closed loop yaw controller, which creates a yaw rate setpoint to control the yaw when it is active:
+For [Stabilized mode](../flight_modes_rover/differential.md#stabilized-mode) the controller utilizes a closed loop yaw controller, which creates a yaw rate setpoint to control the yaw when it is active:
 
 ![Cascaded PID for yaw control](../../assets/airframes/rover/rover_differential/cascaded_pid_for_yaw.png)
 
@@ -123,22 +108,22 @@ Therefore you only need to tune the closed loop gains:
    In [Auto Modes](#auto-modes) there will be a further elaboration on why an integrator is necessary for the yaw controller.
    :::
 
-The rover is now ready to drive in [Stabilized mode](../flight_modes_rover/manual.md#stabilized-mode).
+The rover is now ready to drive in [Stabilized mode](../flight_modes_rover/differential.md#stabilized-mode).
 
-### Position Mode
+## Position Mode
 
 :::warning
 For this mode to work properly [Acro mode](#acro-mode) and [Stabilized mode](#stabilized-mode) must already be configured!
 :::
 
-[Position mode](../flight_modes_rover/manual.md#position-mode) is the most advanced manual mode, utilizing closed loop yaw rate, yaw and speed control and leveraging position estimates.
+[Position mode](../flight_modes_rover/differential.md#position-mode) is the most advanced manual mode, utilizing closed loop yaw rate, yaw and speed control and leveraging position estimates.
 
 To configure set the following parameters:
 
 1. [RD_MAX_SPEED](#RD_MAX_SPEED) [m/s]: This is the maximum speed you want to allow for your rover.
    This will define the stick-to-speed mapping for position mode and set an upper limit for the speed setpoint for all [auto modes](#auto-modes).
 2. [RD_MAX_THR_SPD](#RD_MAX_SPEED) [m/s]: This parameter is used to calculate the feedforward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
-   A good starting point is the observed ground speed when the rover drives at maximum throttle in [Manual mode](../flight_modes_rover/manual.md#manual-mode).
+   A good starting point is the observed ground speed when the rover drives at maximum throttle in [Manual mode](../flight_modes_rover/differential.md#manual-mode).
    Increase this parameter if the rover is faster than the setpoint, and decrease if the rover is slower.
 
    <a id="RD_SPEED_P_TUNING"></a>
@@ -146,14 +131,14 @@ To configure set the following parameters:
    ::: tip
    To further tune this parameter, first make sure you set [RD_SPEED_P](#RD_YAW_RATE_P) and [RD_SPEED_I](#RD_SPEED_I) to zero.
    This way the speed is only controlled by the feed-forward term, which makes it easier to tune.
-   Now put the rover in [Position mode](../flight_modes_rover/manual.md#position-mode) and then move the left stick of your controller up and/or down and hold it at a few different levels for a couple of seconds each.
+   Now put the rover in [Position mode](../flight_modes_rover/differential.md#position-mode) and then move the left stick of your controller up and/or down and hold it at a few different levels for a couple of seconds each.
    Disarm the rover and from the flight log plot the _forward_speed_setpoint_ from the [RoverDifferentialSetpoint](../msg_docs/RoverDifferentialSetpoint.md) message and the _actual_speed_ from the [RoverDifferentialStatus](../msg_docs/RoverDifferentialStatus.md) message over each other.
    If the actual speed of the rover is higher than the speed setpoint, increase [RD_MAX_THR_SPD](#RD_MAX_THR_SPD).
    If it is the other way around decrease the parameter and repeat until you are satisfied with the setpoint tracking.
    :::
 
    ::: info
-   If your rover oscillates when driving a straight line in [Position mode](../flight_modes_rover/manual.md#position-mode) just set this parameter to the observed ground speed at maximum throttle in [Manual mode](../flight_modes_rover/manual.md#manual-mode) and complete steps 5-7 first before continuing the tuning of the closed loop speed control (Steps 2-4).
+   If your rover oscillates when driving a straight line in [Position mode](../flight_modes_rover/differential.md#position-mode) just set this parameter to the observed ground speed at maximum throttle in [Manual mode](../flight_modes_rover/differential.md#manual-mode) and complete steps 5-7 first before continuing the tuning of the closed loop speed control (Steps 2-4).
    :::
 
 3. [RD_SPEED_P](#RD_SPEED_P) [-]: Proportional gain of the closed loop speed controller.
@@ -173,7 +158,7 @@ To configure set the following parameters:
    This parameter determines how aggressive the controller will steer towards the path.
 
    ::: tip
-   Decreasing the parameter makes it more aggressive but can lead to oscillations. Start with a value of 1 for [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN), put the rover in [Position mode](../flight_modes_rover/manual.md#position-mode) and while driving a straight line at approximately half the maximum speed observe its behaviour.
+   Decreasing the parameter makes it more aggressive but can lead to oscillations. Start with a value of 1 for [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN), put the rover in [Position mode](../flight_modes_rover/differential.md#position-mode) and while driving a straight line at approximately half the maximum speed observe its behaviour.
    If the rover does not drive in a straight line, reduce the value of the parameter, if it oscillates around the path increase the value.
    Repeat until you are satisfied with the behaviour.
    :::
@@ -181,18 +166,18 @@ To configure set the following parameters:
 6. [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN): Minimum threshold for the lookahead distance used by the [pure pursuit algorithm](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic).
 
    ::: tip
-   Put the rover in [Position mode](../flight_modes_rover/manual.md#position-mode) and drive at very low speeds, if the rover starts to oscillate even though the tuning of [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN) was good for medium speeds, then increase the value of [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN).
+   Put the rover in [Position mode](../flight_modes_rover/differential.md#position-mode) and drive at very low speeds, if the rover starts to oscillate even though the tuning of [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN) was good for medium speeds, then increase the value of [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN).
    :::
 
 7. [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX): Maximum threshold for the lookahead distance used by [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic).
 
    ::: tip
-   Put the rover in [Position mode](../flight_modes_rover/manual.md#position-mode) and drive at very high speeds, if the rover does not drive in a straight line even though the tuning of [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN) was good for medium speeds, then decrease the value of [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX).
+   Put the rover in [Position mode](../flight_modes_rover/differential.md#position-mode) and drive at very high speeds, if the rover does not drive in a straight line even though the tuning of [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN) was good for medium speeds, then decrease the value of [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX).
    :::
 
-The rover is now ready to drive in [Position mode](../flight_modes_rover/manual.md#position-mode).
+The rover is now ready to drive in [Position mode](../flight_modes_rover/differential.md#position-mode).
 
-### Auto Modes
+## Auto Modes
 
 ::: warning
 For this mode to work properly [Acro mode](#acro-mode), [Stabilized mode](#stabilized-mode) and [Position mode](#position-mode) must already be configured!
@@ -205,7 +190,7 @@ In [auto modes](../flight_modes_rover/auto.md#auto-modes-rover) the autopilot ta
 
 The required parameters are separated into the following sections:
 
-#### Speed
+### Speed
 
 These parameters are used to calculate the speed setpoint in auto modes:
 
@@ -229,7 +214,7 @@ In other words: The rover slows down only if the expected heading error towards 
 
 For more information on the [RD_TRANS_DRV_TRN](#RD_TRANS_DRV_TRN) parameter see [State Machine](#state-machine).
 
-#### State Machine
+### State Machine
 
 The module employs the following state machine to make full use of a differential rovers ability to turn on the spot:
 
@@ -237,7 +222,7 @@ The module employs the following state machine to make full use of a differentia
 
 These transition thresholds can be set with [RD_TRANS_DRV_TRN](#RD_TRANS_DRV_TRN) and [RD_TRANS_TRN_DRV](#RD_TRANS_TRN_DRV).
 
-#### Path Following
+### Path Following
 
 The [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic) algorithm is used to calculate a desired yaw for the vehicle that is then close loop controlled.
 The close loop yaw rate was tuned in the configuration of the [Stabilized mode](#stabilized-mode) and the pure pursuit was tuned when setting up the [Position mode](#position-mode).
@@ -249,6 +234,34 @@ If you are unsatisfied with the path following, there are 3 steps to take:
 2. Plot the _yaw_setpoint_ from the [RoverDifferentialSetpoint](../msg_docs/RoverDifferentialSetpoint.md) message and the _actual_yaw_ from the [RoverDifferentialStatus](../msg_docs/RoverDifferentialStatus.md) message over each other.
    If the tracking of these setpoints is not satisfactory adjust the values for [RD_YAW_P](#RD_YAW_P) and [RD_YAW_I](#RD_YAW_P).
 3. Steps 1 and 2 ensure accurate setpoint tracking, if the path following is still unsatisfactory you need to further tune the [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic) parameters.
+
+## Pure Pursuit Guidance Logic
+
+The desired yaw setpoints are generated using a pure pursuit algorithm:
+The controller takes the intersection point between a circle around the vehicle and a line segment. In mission mode this line is usually constructed by connecting the previous and current waypoint:
+
+![Pure Pursuit Algorithm](../../assets/airframes/rover/flight_modes/pure_pursuit_algorithm.png)
+
+The radius of the circle around the vehicle is used to tune the controller and is often referred to as look-ahead distance.
+
+The look ahead distance sets how aggressive the controller behaves and is defined as $l_d = v \cdot k$.
+It depends on the velocity $v$ of the rover and a tuning parameter $k$ that can be set with the parameter [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN).
+
+::: info
+A lower value of [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN) makes the controller more aggressive but can lead to oscillations!
+:::
+
+The lookahead is constrained between [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX) and [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN).
+
+If the distance from the path to the rover is bigger than the lookahead distance, the rover will target the point on the path that is closest to the rover.
+
+To summarize, the following parameters can be used to tune the controller:
+
+| Parameter                                                                                                | Description                             | Unit |
+| -------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---- |
+| <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN) | Main tuning parameter                   | -    |
+| <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)    | Maximum value for the look ahead radius | m    |
+| <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)    | Minimum value for the look ahead radius | m    |
 
 ## Parameter Overview
 
