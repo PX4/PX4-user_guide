@@ -28012,6 +28012,22 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; |  |  |  | Disabled (0) |  
 
+### SENS_EN_AUAVX (`INT32`) {#SENS_EN_AUAVX}
+
+Amphenol AUAV differential / absolute pressure sensor (external I2C).
+
+**Values:**
+
+- `0`: Sensor disabled, when explicitly started treated as AUAV L05D
+- `1`: AUAV L05D
+- `2`: AUAV L10D
+- `3`: AUAV L30D
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
+
 ### SENS_EN_BAROSIM (`INT32`) {#SENS_EN_BAROSIM}
 
 Enable simulated barometer sensor instance.
