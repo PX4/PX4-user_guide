@@ -500,8 +500,8 @@ There are several approaches you can use to view MAVLink traffic:
   cd pymavlink
   sudo python setup.py install
   ```
-  Now connect your autopilot to MAVProxy by following the [MAVProxy docs](https://ardupilot.org/mavproxy/index.html)
-  In the MAVPRoxy console use the watch command to dislay your custom message
+  Now connect your autopilot to MAVProxy by following the [MAVProxy docs](https://ardupilot.org/mavproxy/index.html).
+  In the shell, use the watch command to dislay your custom message
   ```bash
   watch custom_message_name
   ```
