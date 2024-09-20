@@ -476,7 +476,36 @@ There are several approaches you can use to view MAVLink traffic:
   :::tip
   It is much easier to generate a wireshark plugin and inspect traffic in Wireshark, than to rebuild QGroundControl with your dialect and use MAVLink Inspector.
   :::
-
+- Use [MAVProxy](https://ardupilot.org/mavproxy/) and [Pymavlink](https://mavlink.io/en/mavgen_python/).
+  This is easier than building QGroundControl and once tested with MAVProxy, you can proceed to building QGroundControl if required.
+  First install MAVproxy using
+  ```bash
+  python -m pip install mavproxy
+  ```
+  MAVProxy by default uses the messages defined in the Pymavlink package. The command above also installs Pymavlink since it is a dependency of MAVProxy. So you will need to first uninstall Pymavlink.
+  ```bash
+  python -m pip uninstall pymavlink
+  ```
+  To define your custom message in Pymavlink, first clone the MAVLink repository
+  ```bash
+  git clone https://github.com/mavlink/mavlink.git --recursive
+  cd mavlink
+  ```
+  In the [message_definitions/v1.0](https://github.com/mavlink/mavlink/tree/master/message_definitions/v1.0) add your custom message and then generate the headers
+  ```bash
+  python3 -m pymavlink.tools.mavgen --lang=C --wire-protocol=2.0 --output=generated message_definitions/v1.0/your_dialect.xml
+  ```
+  Then install Pymavlink using
+  ```bash
+  cd pymavlink
+  sudo python setup.py install
+  ```
+  Now connect your autopilot to MAVProxy using by following the [MAVProxy docs](https://ardupilot.org/mavproxy/index.html)
+  In the MAVPRoxy console use the watch command to dislay your custom message
+  ```bash
+  watch custom_message_name
+  ```
+  
 - [Log uORB topics](../dev_log/logging.md) associate with your MAVLink message.
 - View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html).
   You will need to rebuild QGroundControl with the custom message definitions, [as described below](#updating-qgroundcontrol)
