@@ -491,7 +491,7 @@ There are several approaches you can use to view MAVLink traffic:
   git clone https://github.com/mavlink/mavlink.git --recursive
   cd mavlink
   ```
-  In the [message_definitions/v1.0](https://github.com/mavlink/mavlink/tree/master/message_definitions/v1.0) add your custom message and then generate the headers
+  In the [message_definitions/v1.0](https://github.com/mavlink/mavlink/tree/master/message_definitions/v1.0) folder, add your custom message and then generate the headers
   ```bash
   python3 -m pymavlink.tools.mavgen --lang=C --wire-protocol=2.0 --output=generated message_definitions/v1.0/your_dialect.xml
   ```
@@ -500,7 +500,7 @@ There are several approaches you can use to view MAVLink traffic:
   cd pymavlink
   sudo python setup.py install
   ```
-  Now connect your autopilot to MAVProxy using by following the [MAVProxy docs](https://ardupilot.org/mavproxy/index.html)
+  Now connect your autopilot to MAVProxy by following the [MAVProxy docs](https://ardupilot.org/mavproxy/index.html)
   In the MAVPRoxy console use the watch command to dislay your custom message
   ```bash
   watch custom_message_name
