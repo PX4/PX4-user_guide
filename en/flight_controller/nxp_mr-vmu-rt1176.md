@@ -139,8 +139,11 @@ Sample Wiring Diagram
 ## Connections
 
 MR-VMU-RT1176 connectors (following [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf))
-<img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_top.jpg" width="350px" title="MR-VMU-RT1176 Top Image" /> <img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_front.jpg" width="350px" title="MR-VMU-RT1176 Front Image" />
-<img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_left.jpg" width="350px" title="MR-VMU-RT1176 Leftside Image" /> <img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_right.jpg" width="350px" title="MR-VMU-RT1176 Rightside Image" />
+
+<img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_top.jpg" width="350px" title="MR-VMU-RT1176 Top Image" /> 
+<img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_front.jpg" width="350px" title="MR-VMU-RT1176 Front Image" />
+<img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_left.jpg" width="350px" title="MR-VMU-RT1176 Leftside Image" /> 
+<img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_right.jpg" width="350px" title="MR-VMU-RT1176 Rightside Image" />
 
 ## Pinouts
 
