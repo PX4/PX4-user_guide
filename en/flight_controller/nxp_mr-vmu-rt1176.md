@@ -134,6 +134,8 @@ Order from [NXP](https://www.nxp.com).
 
 Sample Wiring Diagram
 
+Note: The wiring digram shows a Pixhawk 6X-RT baseboard as reference which has the connectors at different positions (top side only).
+
 ![Pixhawk 6X Wiring Overview](../../assets/flight_controller/pixhawk6x/pixhawk6x_wiring_diagram.png)
 
 ## Connections
