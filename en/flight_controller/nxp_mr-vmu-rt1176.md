@@ -5,30 +5,30 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://www.nxp.com) for hardware support (https://community.nxp.com/) or compliance issues.
 :::
 
-_MR-VMU-RT1176_ is a derivate of _Pixhawk 6X-RT_<sup>&reg;</sup> that is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup>, NXP's mobile robotics team and the PX4 team based on NXP's open source reference design.
+_MR-VMU-RT1176_ is a derivate of _Pixhawk 6X-RT_<sup>&reg;</sup> that is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup>, NXP's mobile robotics team and the PX4 team based on NXP's open source _reference design_.
 
 It is based on the [Pixhawk​​® Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf), [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
 
 :::tip
 MR-VMU-RT1176 uses the same FMUM module than Pixhawk 6X-RT!
-Differentiation to the Pixhawk 6X-RT is the NXP custom baseboard using T1 (two wire) automotive ethernet, a NFC antenna connection to the SE051, a third CAN bus and and it is made without the IO processor.
-As a consequence "just" 12 PWM ports are available (8 providing Dshot capability) 
+Differentiation to the Pixhawk 6X-RT is the NXP baseboard which demonstrated the use of 100Base-T1 (two wire) automotive ethernet, a NFC antenna connection to the SE051, a third CAN bus and and the elimination of the unnecessary separate IO processor.
+With the optimzation by removal of the IO processor,a total of 12 PWM ports are available (8 providing Dshot capability) 
 :::
 
 <img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_upleft.jpg" width="350px" title="MR-VMU-RT1176 Upright Image" />
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_manufacturer_supported.md) by NXP.
+This autopilot reference design is [supported](../flight_controller/autopilot_manufacturer_supported.md) by NXP.
 :::
 
 ## Introduction
 
-Inside the MR-VMU-RT1176, you can find an NXP i.mx RT1176, paired with sensor technology from Bosch®​​, InvenSense®​,​ giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
+Inside the MR-VMU-RT1176, you can find an NXP i.MX RT1176, paired with sensor technology from Bosch®​​, InvenSense®​,​ giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
-The Pixhawk® 6X-RT's i.mx RT1176 Crossover dual-core MCU contain an Arm® Cortex®-M7 core running up to 1GHz and Arm® Cortex®-M4 core running up to 400MHz, has 2MB SRAM and external XIP Flash with 64MB.
-The PX4 Autopilot takes advantage of the increased power and RAM.
-Thanks to the increased processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+The Pixhawk® 6X-RT's i.MX RT1176 Crossover dual-core MCU contain an Arm® Cortex®-M7 core running up to 1GHz and Arm® Cortex®-M4 core running up to 400MHz, has 2MB SRAM and external XIP Flash with 64MB.
+The PX4 Autopilot takes advantage of the increased procssing power and RAM.
+Thanks to this increased processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
 
 The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization.
 Triple redundant IMU & double redundant barometer on separate buses. When PX4 detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
@@ -37,7 +37,7 @@ An independent LDO powers every sensor set with independent power control. A vib
 
 External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface, and with an integrated Microchip Ethernet PHY, high-speed communication with mission computers via ethernet is now possible.
 
-The MR-VMU-RT1176 is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application that like to try out T1 (2 wire) automotive ethernet.
+The MR-VMU-RT1176 reference design is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application that like to try out T1 (2 wire) automotive ethernet.
 
 ## Key Design Points
 
@@ -47,7 +47,7 @@ The MR-VMU-RT1176 is perfect for developers at corporate research labs, startups
 - Redundancy: 3x IMU sensors & 2x Barometer sensors on separate buses
 - Triple redundancy domains: Completely isolated sensor domains with separate buses and separate power control
 - Newly designed vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
-- Ethernet interface for high-speed mission computer integration
+- 100Base-T1 2-Wire Ethernet interface for high-speed mission computer integration
 - IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
 
 ### Processors & Sensors
@@ -62,8 +62,6 @@ The MR-VMU-RT1176 is perfect for developers at corporate research labs, startups
   - 46 kB user memory with personalization options to go up to 104 kB
   - Groundbreaking CC EAL6+ certified solution for IoT deployments
   - AES and 3DES encryption and decryption
-- IO Processor: STM32F100
-  - 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
 - On-board sensors
   - Accel/Gyro: ICM-20649 or BMI088
   - Accel/Gyro: ICM-42688-P
@@ -94,7 +92,7 @@ The MR-VMU-RT1176 is perfect for developers at corporate research labs, startups
 
 ### Interfaces
 
-- 16- PWM servo outputs
+- 12 PWM servo outputs, 8 with D-SHOT
 - R/C input for Spektrum / DSM
 - Dedicated R/C input for PPM and S.Bus input
 - Dedicated analog / PWM RSSI input and S.Bus output
