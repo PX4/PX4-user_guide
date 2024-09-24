@@ -29644,7 +29644,7 @@ Configure on which serial port to run GPS Port.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; |  |  |  | 201 |  
+&check; |  |  |  | 0 |  
 
 ### SEP_PORT2_CFG (`INT32`) {#SEP_PORT2_CFG}
 
