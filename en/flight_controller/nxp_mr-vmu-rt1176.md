@@ -145,10 +145,11 @@ MR-VMU-RT1176 connectors (following [Pixhawk Connector Standard](https://github.
 <img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_left.jpg" width="350px" title="MR-VMU-RT1176 Leftside Image" /> 
 <img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_right.jpg" width="350px" title="MR-VMU-RT1176 Rightside Image" />
 
+- [NXP MR-VMU-RT1176 Baseboard Connections] (https://nxp.gitbook.io/vmu-rt1176/production-v1-carrier-board-connectors)
+
 ## Pinouts
 
-- [Holybro Pixhawk Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-baseboard-pinout)
-- [Holybro Pixhawk Mini-Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-mini-baseboard-pinout)
+- [NXP MR-VMU-RT1176 Baseboard Pinout] (https://nxp.gitbook.io/vmu-rt1176/pin-out)
 
 Notes:
 
