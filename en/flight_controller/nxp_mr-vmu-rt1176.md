@@ -9,11 +9,13 @@ _MR-VMU-RT1176_ is a derivate of _Pixhawk 6X-RT_<sup>&reg;</sup> that is the lat
 
 It is based on the [Pixhawk​​® Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf), [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
+
 :::tip
 MR-VMU-RT1176 uses the same FMUM module than Pixhawk 6X-RT!
 Differentiation to the Pixhawk 6X-RT is the NXP custom baseboard using T1 (two wire) automotive ethernet, a NFC antenna connection to the SE051, a third CAN bus and and it is made without the IO processor.
 As a consequence "just" 12 PWM ports are available (8 providing Dshot capability) 
-::: 
+:::
+
 <img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_upleft.jpg" width="350px" title="MR-VMU-RT1176 Upright Image" />
 
 :::tip
