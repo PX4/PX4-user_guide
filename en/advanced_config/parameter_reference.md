@@ -10522,6 +10522,1652 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 15 |  | 0 |  
 
+### VTQ_IO_DIS0 (`INT32`) {#VTQ_IO_DIS0}
+
+Vertiq IO CVI 0 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS1 (`INT32`) {#VTQ_IO_DIS1}
+
+Vertiq IO CVI 1 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS10 (`INT32`) {#VTQ_IO_DIS10}
+
+Vertiq IO CVI 10 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS11 (`INT32`) {#VTQ_IO_DIS11}
+
+Vertiq IO CVI 11 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS12 (`INT32`) {#VTQ_IO_DIS12}
+
+Vertiq IO CVI 12 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS13 (`INT32`) {#VTQ_IO_DIS13}
+
+Vertiq IO CVI 13 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS14 (`INT32`) {#VTQ_IO_DIS14}
+
+Vertiq IO CVI 14 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS15 (`INT32`) {#VTQ_IO_DIS15}
+
+Vertiq IO CVI 15 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS2 (`INT32`) {#VTQ_IO_DIS2}
+
+Vertiq IO CVI 2 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS3 (`INT32`) {#VTQ_IO_DIS3}
+
+Vertiq IO CVI 3 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS4 (`INT32`) {#VTQ_IO_DIS4}
+
+Vertiq IO CVI 4 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS5 (`INT32`) {#VTQ_IO_DIS5}
+
+Vertiq IO CVI 5 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS6 (`INT32`) {#VTQ_IO_DIS6}
+
+Vertiq IO CVI 6 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS7 (`INT32`) {#VTQ_IO_DIS7}
+
+Vertiq IO CVI 7 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS8 (`INT32`) {#VTQ_IO_DIS8}
+
+Vertiq IO CVI 8 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_DIS9 (`INT32`) {#VTQ_IO_DIS9}
+
+Vertiq IO CVI 9 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_FAIL0 (`INT32`) {#VTQ_IO_FAIL0}
+
+Vertiq IO CVI 0 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC0).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL1 (`INT32`) {#VTQ_IO_FAIL1}
+
+Vertiq IO CVI 1 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC1).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL10 (`INT32`) {#VTQ_IO_FAIL10}
+
+Vertiq IO CVI 10 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC10).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL11 (`INT32`) {#VTQ_IO_FAIL11}
+
+Vertiq IO CVI 11 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC11).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL12 (`INT32`) {#VTQ_IO_FAIL12}
+
+Vertiq IO CVI 12 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC12).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL13 (`INT32`) {#VTQ_IO_FAIL13}
+
+Vertiq IO CVI 13 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC13).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL14 (`INT32`) {#VTQ_IO_FAIL14}
+
+Vertiq IO CVI 14 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC14).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL15 (`INT32`) {#VTQ_IO_FAIL15}
+
+Vertiq IO CVI 15 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC15).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL2 (`INT32`) {#VTQ_IO_FAIL2}
+
+Vertiq IO CVI 2 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC2).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL3 (`INT32`) {#VTQ_IO_FAIL3}
+
+Vertiq IO CVI 3 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC3).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL4 (`INT32`) {#VTQ_IO_FAIL4}
+
+Vertiq IO CVI 4 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC4).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL5 (`INT32`) {#VTQ_IO_FAIL5}
+
+Vertiq IO CVI 5 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC5).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL6 (`INT32`) {#VTQ_IO_FAIL6}
+
+Vertiq IO CVI 6 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC6).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL7 (`INT32`) {#VTQ_IO_FAIL7}
+
+Vertiq IO CVI 7 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC7).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL8 (`INT32`) {#VTQ_IO_FAIL8}
+
+Vertiq IO CVI 8 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC8).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FAIL9 (`INT32`) {#VTQ_IO_FAIL9}
+
+Vertiq IO CVI 9 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see VTQ_IO_FUNC9).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 500 |  | -1 |  
+
+### VTQ_IO_FUNC0 (`INT32`) {#VTQ_IO_FUNC0}
+
+Vertiq IO CVI 0 Output Function.
+
+Select what should be output on Vertiq IO CVI 0. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC1 (`INT32`) {#VTQ_IO_FUNC1}
+
+Vertiq IO CVI 1 Output Function.
+
+Select what should be output on Vertiq IO CVI 1. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC10 (`INT32`) {#VTQ_IO_FUNC10}
+
+Vertiq IO CVI 10 Output Function.
+
+Select what should be output on Vertiq IO CVI 10. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC11 (`INT32`) {#VTQ_IO_FUNC11}
+
+Vertiq IO CVI 11 Output Function.
+
+Select what should be output on Vertiq IO CVI 11. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC12 (`INT32`) {#VTQ_IO_FUNC12}
+
+Vertiq IO CVI 12 Output Function.
+
+Select what should be output on Vertiq IO CVI 12. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC13 (`INT32`) {#VTQ_IO_FUNC13}
+
+Vertiq IO CVI 13 Output Function.
+
+Select what should be output on Vertiq IO CVI 13. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC14 (`INT32`) {#VTQ_IO_FUNC14}
+
+Vertiq IO CVI 14 Output Function.
+
+Select what should be output on Vertiq IO CVI 14. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC15 (`INT32`) {#VTQ_IO_FUNC15}
+
+Vertiq IO CVI 15 Output Function.
+
+Select what should be output on Vertiq IO CVI 15. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC2 (`INT32`) {#VTQ_IO_FUNC2}
+
+Vertiq IO CVI 2 Output Function.
+
+Select what should be output on Vertiq IO CVI 2. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC3 (`INT32`) {#VTQ_IO_FUNC3}
+
+Vertiq IO CVI 3 Output Function.
+
+Select what should be output on Vertiq IO CVI 3. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC4 (`INT32`) {#VTQ_IO_FUNC4}
+
+Vertiq IO CVI 4 Output Function.
+
+Select what should be output on Vertiq IO CVI 4. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC5 (`INT32`) {#VTQ_IO_FUNC5}
+
+Vertiq IO CVI 5 Output Function.
+
+Select what should be output on Vertiq IO CVI 5. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC6 (`INT32`) {#VTQ_IO_FUNC6}
+
+Vertiq IO CVI 6 Output Function.
+
+Select what should be output on Vertiq IO CVI 6. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC7 (`INT32`) {#VTQ_IO_FUNC7}
+
+Vertiq IO CVI 7 Output Function.
+
+Select what should be output on Vertiq IO CVI 7. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC8 (`INT32`) {#VTQ_IO_FUNC8}
+
+Vertiq IO CVI 8 Output Function.
+
+Select what should be output on Vertiq IO CVI 8. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_FUNC9 (`INT32`) {#VTQ_IO_FUNC9}
+
+Vertiq IO CVI 9 Output Function.
+
+Select what should be output on Vertiq IO CVI 9. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_IO_MAX0 (`INT32`) {#VTQ_IO_MAX0}
+
+Vertiq IO CVI 0 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX1 (`INT32`) {#VTQ_IO_MAX1}
+
+Vertiq IO CVI 1 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX10 (`INT32`) {#VTQ_IO_MAX10}
+
+Vertiq IO CVI 10 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX11 (`INT32`) {#VTQ_IO_MAX11}
+
+Vertiq IO CVI 11 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX12 (`INT32`) {#VTQ_IO_MAX12}
+
+Vertiq IO CVI 12 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX13 (`INT32`) {#VTQ_IO_MAX13}
+
+Vertiq IO CVI 13 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX14 (`INT32`) {#VTQ_IO_MAX14}
+
+Vertiq IO CVI 14 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX15 (`INT32`) {#VTQ_IO_MAX15}
+
+Vertiq IO CVI 15 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX2 (`INT32`) {#VTQ_IO_MAX2}
+
+Vertiq IO CVI 2 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX3 (`INT32`) {#VTQ_IO_MAX3}
+
+Vertiq IO CVI 3 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX4 (`INT32`) {#VTQ_IO_MAX4}
+
+Vertiq IO CVI 4 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX5 (`INT32`) {#VTQ_IO_MAX5}
+
+Vertiq IO CVI 5 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX6 (`INT32`) {#VTQ_IO_MAX6}
+
+Vertiq IO CVI 6 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX7 (`INT32`) {#VTQ_IO_MAX7}
+
+Vertiq IO CVI 7 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX8 (`INT32`) {#VTQ_IO_MAX8}
+
+Vertiq IO CVI 8 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MAX9 (`INT32`) {#VTQ_IO_MAX9}
+
+Vertiq IO CVI 9 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 65535 |  
+
+### VTQ_IO_MIN0 (`INT32`) {#VTQ_IO_MIN0}
+
+Vertiq IO CVI 0 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN1 (`INT32`) {#VTQ_IO_MIN1}
+
+Vertiq IO CVI 1 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN10 (`INT32`) {#VTQ_IO_MIN10}
+
+Vertiq IO CVI 10 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN11 (`INT32`) {#VTQ_IO_MIN11}
+
+Vertiq IO CVI 11 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN12 (`INT32`) {#VTQ_IO_MIN12}
+
+Vertiq IO CVI 12 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN13 (`INT32`) {#VTQ_IO_MIN13}
+
+Vertiq IO CVI 13 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN14 (`INT32`) {#VTQ_IO_MIN14}
+
+Vertiq IO CVI 14 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN15 (`INT32`) {#VTQ_IO_MIN15}
+
+Vertiq IO CVI 15 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN2 (`INT32`) {#VTQ_IO_MIN2}
+
+Vertiq IO CVI 2 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN3 (`INT32`) {#VTQ_IO_MIN3}
+
+Vertiq IO CVI 3 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN4 (`INT32`) {#VTQ_IO_MIN4}
+
+Vertiq IO CVI 4 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN5 (`INT32`) {#VTQ_IO_MIN5}
+
+Vertiq IO CVI 5 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN6 (`INT32`) {#VTQ_IO_MIN6}
+
+Vertiq IO CVI 6 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN7 (`INT32`) {#VTQ_IO_MIN7}
+
+Vertiq IO CVI 7 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN8 (`INT32`) {#VTQ_IO_MIN8}
+
+Vertiq IO CVI 8 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_MIN9 (`INT32`) {#VTQ_IO_MIN9}
+
+Vertiq IO CVI 9 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 65535 |  | 0 |  
+
+### VTQ_IO_REV (`INT32`) {#VTQ_IO_REV}
+
+Reverse Output Range for Vertiq IO.
+
+Allows to reverse the output range for each channel. Note: this is only useful for servos.
+
+**Bitmask:**
+
+- `-1`: Vertiq IO CVI 0
+- `0`: Vertiq IO CVI 1
+- `1`: Vertiq IO CVI 2
+- `2`: Vertiq IO CVI 3
+- `3`: Vertiq IO CVI 4
+- `4`: Vertiq IO CVI 5
+- `5`: Vertiq IO CVI 6
+- `6`: Vertiq IO CVI 7
+- `7`: Vertiq IO CVI 8
+- `8`: Vertiq IO CVI 9
+- `9`: Vertiq IO CVI 10
+- `10`: Vertiq IO CVI 11
+- `11`: Vertiq IO CVI 12
+- `12`: Vertiq IO CVI 13
+- `13`: Vertiq IO CVI 14
+- `14`: Vertiq IO CVI 15
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 32767 |  | 0 |  
+
 ## Airspeed Validator
 
 ### ASPD_BETA_GATE (`INT32`) {#ASPD_BETA_GATE}
@@ -11899,12 +13545,15 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### COM_ARM_WO_GPS (`INT32`) {#COM_ARM_WO_GPS}
 
-Allow arming without GPS.
+GPS preflight check.
+
+Measures taken when a check defined by EKF2_GPS_CHECK is failing.
 
 **Values:**
 
-- `0`: Require GPS lock to arm
-- `1`: Allow arming without GPS
+- `0`: Deny arming
+- `1`: Warning only
+- `2`: Disabled
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -12459,7 +14108,7 @@ The offboard loss failsafe will only be entered after a timeout, set by COM_OF_L
 
 - `0`: Position mode
 - `1`: Altitude mode
-- `2`: Manual
+- `2`: Stabilized
 - `3`: Return mode
 - `4`: Land mode
 - `5`: Hold mode
@@ -12499,14 +14148,14 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### COM_POSCTL_NAVL (`INT32`) {#COM_POSCTL_NAVL}
 
-Position control navigation loss response.
+Position mode navigation loss response.
 
-This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. If Altitude/Manual is selected: assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL. If Land/Descend is selected: assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to Descend.
+This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control in manual Position mode.
 
 **Values:**
 
-- `0`: Altitude/Manual
-- `1`: Land/Descend
+- `0`: Altitude mode
+- `1`: Land mode (descend)
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -14284,6 +15933,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; | 0 | 300 |  | 5 | ms 
 
+### EKF2_RNG_FOG (`FLOAT`) {#EKF2_RNG_FOG}
+
+Maximum distance at which the range finder could detect fog (m).
+
+Limit for fog detection. If the range finder measures a distance greater than this value, the measurement is considered to not be blocked by fog or rain. If there's a jump from larger than RNG_FOG to smaller than EKF2_RNG_FOG, the measurement may gets rejected. 0 - disabled
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 | 20.0 |  | 1.0 | m 
+
 ### EKF2_RNG_GATE (`FLOAT`) {#EKF2_RNG_GATE}
 
 Gate size for range finder fusion.
@@ -14825,9 +16484,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### FW_LND_THRTC_SC (`FLOAT`) {#FW_LND_THRTC_SC}
 
-Altitude time constant factor for landing.
+Altitude time constant factor for landing and low-height flight.
 
-During landing, the TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.
+The TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -15772,6 +17431,16 @@ Increase it to trim out speed and height offsets faster, with the downside of po
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.0 | 1.0 | 0.005 | 0.02 |  
+
+### FW_T_THR_LOW_HGT (`FLOAT`) {#FW_T_THR_LOW_HGT}
+
+Low-height threshold for tighter altitude tracking.
+
+Defines the height (distance to bottom) threshold below which tighter altitude tracking gets enabled (see FW_LND_THRTC_SC). Below this height, TECS smoothly (1 sec / sec) transitions the altitude tracking time constant from FW_T_ALT_TC to FW_LND_THRTC_SC*FW_T_ALT_TC. If equal to -1, low-height traking is disabled.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 |  | 1 | -1. | m 
 
 ### FW_T_VERT_ACC (`FLOAT`) {#FW_T_VERT_ACC}
 
@@ -24648,31 +26317,15 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ## Rover Differential
 
-### RD_HEADING_I (`FLOAT`) {#RD_HEADING_I}
-
-Integral gain for heading controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0.1 |  
-
-### RD_HEADING_P (`FLOAT`) {#RD_HEADING_P}
-
-Proportional gain for heading controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 |  
-
 ### RD_MAN_YAW_SCALE (`FLOAT`) {#RD_MAN_YAW_SCALE}
 
 Manual yaw rate scale.
 
-In manual mode the setpoint for the yaw rate received from the rc remote is scaled by this value.
+In manual mode the setpoint for the yaw rate received from the yaw stick is scaled by this value.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.01 | 1 | 0.01 | 1 |  
+&nbsp; | 0.001 | 1 | 0.01 | 1 |  
 
 ### RD_MAX_ACCEL (`FLOAT`) {#RD_MAX_ACCEL}
 
@@ -24696,19 +26349,39 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_MAX_SPEED (`FLOAT`) {#RD_MAX_SPEED}
 
-Maximum speed the rover can drive.
+Maximum speed setpoint.
 
-This parameter is used to map desired speeds to normalized motor commands.
+This parameter is used to cap desired forward speed and map controller inputs to desired speeds in Position mode.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 7 | m/s 
+&nbsp; | 0 | 100 | 0.01 | 1 | m/s 
+
+### RD_MAX_THR_SPD (`FLOAT`) {#RD_MAX_THR_SPD}
+
+Speed the rover drives at maximum throttle.
+
+This parameter is used to calculate the feedforward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands [-1. 1]. A good starting point is the observed ground speed when the rover drives at maximum throttle in manual mode. Increase this parameter if the rover is faster than the setpoint, and decrease if the rover is slower.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 1 | m/s 
+
+### RD_MAX_THR_YAW_R (`FLOAT`) {#RD_MAX_THR_YAW_R}
+
+Yaw rate turning left/right wheels at max speed in opposite directions.
+
+This parameter is used to calculate the feedforward term of the closed loop yaw rate control. The controller first calculates the required speed difference between the left and right motor to achieve the desired yaw rate. This desired speed difference is then linearly mapped to normalized motor commands. A good starting point is twice the speed the rover drives at maximum throttle (RD_MAX_THR_SPD)). Increase this parameter if the rover turns faster than the setpoint, and decrease if the rover turns slower.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 2 | m/s 
 
 ### RD_MAX_YAW_RATE (`FLOAT`) {#RD_MAX_YAW_RATE}
 
 Maximum allowed yaw rate for the rover.
 
-This parameter is used to cap desired yaw rates and map controller inputs to desired yaw rates in acro mode.
+This parameter is used to cap desired yaw rates and map controller inputs to desired yaw rates in Acro,Stabilized and Position mode.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24716,7 +26389,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_MISS_SPD_DEF (`FLOAT`) {#RD_MISS_SPD_DEF}
 
-Default rover speed during a mission.
+Default forward speed for the rover during auto modes.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24724,7 +26397,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_SPEED_I (`FLOAT`) {#RD_SPEED_I}
 
-Integral gain for ground speed controller.
+Integral gain for closed loop forward speed controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24732,7 +26405,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_SPEED_P (`FLOAT`) {#RD_SPEED_P}
 
-Proportional gain for speed controller.
+Proportional gain for closed loop forward speed controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24740,7 +26413,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_TRANS_DRV_TRN (`FLOAT`) {#RD_TRANS_DRV_TRN}
 
-Heading error threshhold to switch from driving to spot turning.
+Yaw error threshhold to switch from driving to spot turning.
+
+This threshold is used for the state machine to switch from driving to turning based on the error between the desired and actual yaw. It is also used as the threshold whether the rover should come to a smooth stop at the next waypoint. This slow down effect is active if the angle between the line segments from prevWP-currWP and currWP-nextWP is smaller then 180 - RD_TRANS_DRV_TRN.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24748,7 +26423,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_TRANS_TRN_DRV (`FLOAT`) {#RD_TRANS_TRN_DRV}
 
-Heading error threshhold to switch from spot turning to driving.
+Yaw error threshhold to switch from spot turning to driving.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24764,9 +26439,25 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.001 | 100 | 0.001 | 0.5 | m 
 
+### RD_YAW_I (`FLOAT`) {#RD_YAW_I}
+
+Integral gain for closed loop yaw controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0 |  
+
+### RD_YAW_P (`FLOAT`) {#RD_YAW_P}
+
+Proportional gain for closed loop yaw controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 1 |  
+
 ### RD_YAW_RATE_I (`FLOAT`) {#RD_YAW_RATE_I}
 
-Integral gain for angular velocity controller.
+Integral gain for closed loop yaw rate controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -24774,7 +26465,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RD_YAW_RATE_P (`FLOAT`) {#RD_YAW_RATE_P}
 
-Proportional gain for angular velocity controller.
+Proportional gain for closed loop yaw rate controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -25130,7 +26821,7 @@ Determines when to start and stop logging. By default, logging is started when a
 - `0`: when armed until disarm (default)
 - `1`: from boot until disarm
 - `2`: from boot until shutdown
-- `3`: depending on AUX1 RC channel
+- `3`: while manual input AUX1 >30%
 - `4`: from 1st armed until shutdown
 
 
@@ -27967,6 +29658,22 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; |  |  |  | Disabled (0) |  
 
+### SENS_EN_AUAVX (`INT32`) {#SENS_EN_AUAVX}
+
+Amphenol AUAV differential / absolute pressure sensor (external I2C).
+
+**Values:**
+
+- `0`: Sensor disabled, when explicitly started treated as AUAV L05D
+- `1`: AUAV L05D
+- `2`: AUAV L10D
+- `3`: AUAV L30D
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
+
 ### SENS_EN_BAROSIM (`INT32`) {#SENS_EN_BAROSIM}
 
 Enable simulated barometer sensor instance.
@@ -29583,7 +31290,7 @@ Configure on which serial port to run GPS Port.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; |  |  |  | 201 |  
+&check; |  |  |  | 0 |  
 
 ### SEP_PORT2_CFG (`INT32`) {#SEP_PORT2_CFG}
 
@@ -34310,6 +36017,366 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 20 | 300 | 1 | 80 | m 
 
+## Vertiq IO
+
+### VERTIQ_IO_CFG (`INT32`) {#VERTIQ_IO_CFG}
+
+Serial Configuration for Vertiq IO.
+
+Configure on which serial port to run Vertiq IO.
+
+**Values:**
+
+- `0`: Disabled
+- `6`: UART 6
+- `101`: TELEM 1
+- `102`: TELEM 2
+- `103`: TELEM 3
+- `104`: TELEM/SERIAL 4
+- `201`: GPS 1
+- `202`: GPS 2
+- `203`: GPS 3
+- `300`: Radio Controller
+- `301`: Wifi Port
+- `401`: EXT2
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
+
+### VTQ_ARM_BEHAVE (`INT32`) {#VTQ_ARM_BEHAVE}
+
+The triggered behavior on PX4 arm.
+
+The behavior triggered when the flight controller arms. You have the option to use your motors' arming behaviors, or to force all of your motors to arm
+
+**Values:**
+
+- `0`: Use Motor Arm Behavior
+- `1`: Send Explicit Arm Command
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_BAUD (`INT32`) {#VTQ_BAUD}
+
+The IQUART driver's baud rate.
+
+The baud rate (in bits per second) used by the serial port connected with IQUART communication
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 115200 |  
+
+### VTQ_CONTROL_MODE (`INT32`) {#VTQ_CONTROL_MODE}
+
+Module Param - The module's control mechanism.
+
+PWM Mode: Commands a fraction of battery voltage. This changes as the battery voltage changes. This is the least safe mode because the upper throttle limit is determined by the battery voltage. Voltage Mode: Commands a voltage. The motor will behave the same way throughout the life of a battery, assuming the commanded voltage is less than the battery voltage. You must set the MAX_VOLTS parameter. Velocity Mode: Closed-loop, commands a velocity. The controller will adjust the applied voltage so that the motor spins at the commanded velocity. This mode has faster reaction times. Only use this if you know the properties of your propeller. You must set the MAX_VELOCITY parameter.
+
+**Values:**
+
+- `0`: PWM
+- `1`: Voltage
+- `2`: Velocity
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_DISARM_TRIG (`INT32`) {#VTQ_DISARM_TRIG}
+
+The triggered behavior sent to the motors on PX4 disarm.
+
+The behavior triggered when the flight controller disarms. You have the option to trigger your motors' disarm behaviors, set all motors to coast, or set a predefined throttle setpoint
+
+**Values:**
+
+- `0`: Send Explicit Disarm
+- `1`: Coast Motors
+- `2`: Set Predefined Velocity Setpoint
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_DISARM_VELO (`INT32`) {#VTQ_DISARM_VELO}
+
+Velocity sent when DISARM_TRIGGER is Set Predefined Velocity Setpoint.
+
+This is the velocity that will be sent to all motors when PX4 is disarmed and DISARM_TRIGGER is Set Predefined Velocity Setpoint
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 |  | 0 |  
+
+### VTQ_FC_DIR (`INT32`) {#VTQ_FC_DIR}
+
+Module Param - If the flight controller uses 2D or 3D communication.
+
+The FC and the ESC must agree upon the meaning of the signal coming out of the ESC. When FCs are in 3D mode they re-map negative signals. This parameter keeps the FC and ESC in agreement.
+
+**Values:**
+
+- `0`: 2D
+- `1`: 3D
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_MAX_VELOCITY (`FLOAT`) {#VTQ_MAX_VELOCITY}
+
+Module Param - Maximum velocity when CONTROL_MODE is set to Velocity.
+
+Only relevant in Velocity Mode. This is the velocity the controller will command at full throttle.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_MAX_VOLTS (`FLOAT`) {#VTQ_MAX_VOLTS}
+
+Module Param - Maximum voltage when CONTROL_MODE is set to Voltage.
+
+Only relevant in Voltage Mode. This is the voltage the controller will command at full throttle.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_MOTOR_DIR (`INT32`) {#VTQ_MOTOR_DIR}
+
+Module Param - The direction that the module should spin.
+
+Set the targeted motor's spinning direction (clockwise vs. counter clockwise) and flight mode (2D non-reversible vs. 3D reversible)
+
+**Values:**
+
+- `0`: Unconfigured
+- `1`: 3D Counter Clockwise
+- `2`: 3D Clockwise
+- `3`: 2D Counter Clockwise
+- `4`: 2D Clockwise
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_NUM_CVS (`INT32`) {#VTQ_NUM_CVS}
+
+The number of Vertiq IFCI parameters to use.
+
+The total number of IFCI control variables being used across all connected modules
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; | 0 | 16 |  | 0 |  
+
+### VTQ_PULSE_V_LIM (`FLOAT`) {#VTQ_PULSE_V_LIM}
+
+Module Param - Max pulsing voltage limit when in Voltage Limit Mode.
+
+This sets the max pulsing voltage limit when in Voltage Limit Mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_PULSE_V_MODE (`INT32`) {#VTQ_PULSE_V_MODE}
+
+Module Param - 0 = Supply Voltage Mode, 1 = Voltage Limit Mode.
+
+Supply Voltage Mode means that the maximum voltage applied to pulsing is the supplied voltage. Voltage Limit Mode indicates that PULSE_VOLT_LIM is the maximum allowed voltage to apply towards pulsing.
+
+**Values:**
+
+- `0`: Supply Voltage Mode
+- `1`: Voltage Limit Mode
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_REDO_READ (`INT32`) {#VTQ_REDO_READ}
+
+Reinitialize the target module's values into the PX4 parameters.
+
+Setting this value to true will reinitialize PX4's IQUART connected parameters to the value stored on the currently targeted motor. This is especially useful if your flight controller powered on before your connected modules
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | Disabled (0) |  
+
+### VTQ_TELEM_IDS_1 (`INT32`) {#VTQ_TELEM_IDS_1}
+
+Module IDs [0, 31] that you would like to request telemetry from.
+
+The module IDs [0, 31] that should be asked for telemetry. The data received from these IDs will be published via the esc_status topic.
+
+**Bitmask:**
+
+- `0`: Module ID 0
+- `1`: Module ID 1
+- `2`: Module ID 2
+- `3`: Module ID 3
+- `4`: Module ID 4
+- `5`: Module ID 5
+- `6`: Module ID 6
+- `7`: Module ID 7
+- `8`: Module ID 8
+- `9`: Module ID 9
+- `10`: Module ID 10
+- `11`: Module ID 11
+- `12`: Module ID 12
+- `13`: Module ID 13
+- `14`: Module ID 14
+- `15`: Module ID 15
+- `16`: Module ID 16
+- `17`: Module ID 17
+- `18`: Module ID 18
+- `19`: Module ID 19
+- `20`: Module ID 20
+- `21`: Module ID 21
+- `22`: Module ID 22
+- `23`: Module ID 23
+- `24`: Module ID 24
+- `25`: Module ID 25
+- `26`: Module ID 26
+- `27`: Module ID 27
+- `28`: Module ID 28
+- `29`: Module ID 29
+- `30`: Module ID 30
+- `31`: Module ID 31
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; | 0 | 4294967295 |  | 0 |  
+
+### VTQ_TELEM_IDS_2 (`INT32`) {#VTQ_TELEM_IDS_2}
+
+Module IDs [32, 62] that you would like to request telemetry from.
+
+The module IDs [32, 62] that should be asked for telemetry. The data received from these IDs will be published via the esc_status topic.
+
+**Bitmask:**
+
+- `32`: Module ID 32
+- `33`: Module ID 33
+- `34`: Module ID 34
+- `35`: Module ID 35
+- `36`: Module ID 36
+- `37`: Module ID 37
+- `38`: Module ID 38
+- `39`: Module ID 39
+- `40`: Module ID 40
+- `41`: Module ID 41
+- `42`: Module ID 42
+- `43`: Module ID 43
+- `44`: Module ID 44
+- `45`: Module ID 45
+- `46`: Module ID 46
+- `47`: Module ID 47
+- `48`: Module ID 48
+- `49`: Module ID 49
+- `50`: Module ID 50
+- `51`: Module ID 51
+- `52`: Module ID 52
+- `53`: Module ID 53
+- `54`: Module ID 54
+- `55`: Module ID 55
+- `56`: Module ID 56
+- `57`: Module ID 57
+- `58`: Module ID 58
+- `59`: Module ID 59
+- `60`: Module ID 60
+- `61`: Module ID 61
+- `62`: Module ID 62
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; | 0 | 9223372036854775807 |  | 0 |  
+
+### VTQ_THROTTLE_CVI (`INT32`) {#VTQ_THROTTLE_CVI}
+
+Module Param - The module's Throttle Control Value Index.
+
+This represents the Control Value Index where the targeted module will look for throttle commands
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 255 |  | 0 |  
+
+### VTQ_TQUE_OFF_ANG (`FLOAT`) {#VTQ_TQUE_OFF_ANG}
+
+Module Param - Offsets pulse angle to allow for mechanical properties.
+
+This offsets where the pulse starts around the motor to allow for propeller mechanical properties.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_TRGT_MOD_ID (`INT32`) {#VTQ_TRGT_MOD_ID}
+
+The Module ID of the module you would like to communicate with.
+
+This is the value used as the target module ID of all configuration parameters (not operational parameters). The Vertiq module with the module ID matching this value will react to all get and set requests from PX4. Any Vertiq client made with dynamic object IDs should use this value to instantiate itself.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_VELO_CUTOFF (`FLOAT`) {#VTQ_VELO_CUTOFF}
+
+Module Param - The minimum velocity required to allow pulsing.
+
+This is the velocity at which pulsing is allowed. Any velocity between VELOCITY_CUTOFF and -VELOCITY_CUTOFF will not pulse.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTQ_X_CVI (`INT32`) {#VTQ_X_CVI}
+
+Module Param - CVI for the X rectangular coordinate.
+
+This represents the Control Value Index where the targeted module will look for the X rectangular coordinate.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 255 |  | 0 |  
+
+### VTQ_Y_CVI (`INT32`) {#VTQ_Y_CVI}
+
+Module Param - CVI for the Y rectangular coordinate.
+
+This represents the Control Value Index where the targeted module will look for the Y rectangular coordinate.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 255 |  | 0 |  
+
+### VTQ_ZERO_ANGLE (`FLOAT`) {#VTQ_ZERO_ANGLE}
+
+Module Param - The encoder angle at which theta is zero.
+
+The encoder angle at which theta is zero. Adjust this number to change the location of 0 phase when pulsing.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
 ## Zenoh
 
 ### ZENOH_ENABLE (`INT32`) {#ZENOH_ENABLE}
@@ -34387,7 +36454,7 @@ Lightware SF1xx/SF20/LW20 Operation Mode.
 
 - `0`: Disabled
 - `1`: Enabled
-- `2`: Disabled during VTOL fast forward flight
+- `2`: Enabled in VTOL MC mode, listen to request from system in FW mode
 
 
 Reboot | minValue | maxValue | increment | default | unit

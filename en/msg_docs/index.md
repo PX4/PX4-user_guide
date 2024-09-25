@@ -44,6 +44,7 @@ setting something to NaN means that no limit is provided
 - [DebugVect](DebugVect.md)
 - [DifferentialPressure](DifferentialPressure.md)
 - [DistanceSensor](DistanceSensor.md) — DISTANCE_SENSOR message data
+- [DistanceSensorModeChangeRequest](DistanceSensorModeChangeRequest.md)
 - [Ekf2Timestamps](Ekf2Timestamps.md) — this message contains the (relative) timestamps of the sensor inputs used by EKF2.
 It can be used for reproducible replay.
 - [EscReport](EscReport.md)
@@ -135,6 +136,10 @@ The possible values of nav_state are defined in the VehicleStatus msg.
 - [ObstacleDistance](ObstacleDistance.md) — Obstacle distances in front of the sensor.
 - [OffboardControlMode](OffboardControlMode.md) — Off-board control mode
 - [OnboardComputerStatus](OnboardComputerStatus.md) — ONBOARD_COMPUTER_STATUS message data
+- [OpenDroneIdArmStatus](OpenDroneIdArmStatus.md)
+- [OpenDroneIdOperatorId](OpenDroneIdOperatorId.md)
+- [OpenDroneIdSelfId](OpenDroneIdSelfId.md)
+- [OpenDroneIdSystem](OpenDroneIdSystem.md)
 - [OrbTest](OrbTest.md)
 - [OrbTestLarge](OrbTestLarge.md)
 - [OrbTestMedium](OrbTestMedium.md)
@@ -166,6 +171,7 @@ This are the three next waypoints (or just the next two or one).
 - [RoverAckermannGuidanceStatus](RoverAckermannGuidanceStatus.md)
 - [RoverAckermannStatus](RoverAckermannStatus.md)
 - [RoverDifferentialGuidanceStatus](RoverDifferentialGuidanceStatus.md)
+- [RoverDifferentialSetpoint](RoverDifferentialSetpoint.md)
 - [RoverDifferentialStatus](RoverDifferentialStatus.md)
 - [Rpm](Rpm.md)
 - [RtlStatus](RtlStatus.md)
