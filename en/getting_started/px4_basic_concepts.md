@@ -83,7 +83,7 @@ You can download it (for free) from [here](http://qgroundcontrol.com/downloads/)
 
 ![QGC Main Screen](../../assets/concepts/qgc_fly_view.png)
 
-QGroundControl communicates with the drone using a telmetry radio (a bidirectional data link), which allows you to get real-time flight and safety information, and to control the vehicle, camera, and other payloads using a point-and-click interface.
+QGroundControl communicates with the drone using a telemetry radio (a bidirectional data link), which allows you to get real-time flight and safety information, and to control the vehicle, camera, and other payloads using a point-and-click interface.
 On hardware that supports them, you can also manually fly the vehicle using joystick controllers.
 QGC can also be used to visually plan, execute, and monitor autonomous missions, set geofences, and much more.
 
