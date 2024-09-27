@@ -643,7 +643,7 @@ Some of the more common wiring configurations are shown below.
 
 This configuration demonstrating how to power both the Pixhawk and Jetson parts using a 3S/4S battery (output below 21V).
 
-![Power wiring - using one 3s or 4s battery](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/power1_one_battery_3s_4s.png)
+![Power wiring - using one 3s or 4s battery](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/power1_one_battery_3s_4s.jpg)
 
 #### 5S battery and greater (with UBEC)
 
@@ -656,7 +656,7 @@ Depending on your power needs, you might also use this (or another UBEC) for pro
 
 This configuration shows how you can use a separate battery to supply an appropriate voltage to the Jetson instead of regulating the supply from a large battery as shown in above.
 
-![Power wiring - two batteries no Ubec](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/power3_two_battery_no_ubec.png)
+![Power wiring - two batteries no Ubec](../../assets/companion_computer/holybro_pixhawk_jetson_baseboard/power3_two_battery_no_ubec.jpg)
 
 #### Using the Power Adapter
 
