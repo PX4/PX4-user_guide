@@ -28,7 +28,7 @@ The Pixhawk® 6X-RT's i.MX RT1176 Crossover dual-core MCU contain an Arm® Corte
 The PX4 Autopilot takes advantage of the increased procssing power and RAM.
 Thanks to this increased processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
 
-The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization.
+The FMUv6X-RT open standard includes high-performance, low-noise IMUs on board, designed for better stabilization.
 Triple redundant IMU & double redundant barometer on separate buses. When PX4 detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
 
 An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
