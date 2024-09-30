@@ -270,6 +270,24 @@ rover_differential <command> [arguments...]
 
    status        print status info
 ```
+## rover_mecanum
+Source: [modules/rover_mecanum](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_mecanum)
+
+
+### Description
+Rover Mecanum controller.
+
+<a id="rover_mecanum_usage"></a>
+### Usage
+```
+rover_mecanum <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## rover_pos_control
 Source: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_pos_control)
 
