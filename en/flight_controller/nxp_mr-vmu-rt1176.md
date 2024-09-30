@@ -13,7 +13,6 @@ Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular de
 :::tip
 MR-VMU-RT1176 uses the same FMUM module as the Pixhawk 6X-RT!
 MR-VMU-RT1176 includes the same FMUM module found on Pixhawk 6X-RT paired with an NXP-based carrier board. The carrier board offers 100Base-T1 (two-wire) automotive ethernet, an NFC antenna (Connected to SE051), and a third CAN bus. It also removes the IO processor to enable 12 PWM ports, with 8 providing Dshot capability.
-With the optimzation by removal of the IO processor,a total of 12 PWM ports are available (8 providing Dshot capability) 
 :::
 
 <img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_upleft.jpg" width="350px" title="MR-VMU-RT1176 Upright Image" />
