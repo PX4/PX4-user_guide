@@ -7,7 +7,7 @@ Contact the [manufacturer](https://www.nxp.com) for hardware support (https://co
 
 _MR-VMU-RT1176_ is based on the Pixhawk<sup>&reg;</sup> FMUv6X-RT Open Standard, the latest update to the successful family of Pixhawk<sup>&reg;</sup> flight controllers designed and made in collaboration with industry partners<sup>&reg;</sup>, NXP's mobile robotics team and the PX4 team based on NXP's open source _reference design_. NXP is a semiconductor vendor, this reference/evaluation design is intended to be replicated, modified or integrated in production volume by others. NXP does not provide this design in high volume. Several 3rd party manufacturers (such as Holybro.com) provide this or derivative commercial products.
 
-It is based on the [Pixhawk​​® Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf), [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+It takes advantage of multiple Pixhawk​​® Open Standards, such as the FMUv6X-RT Standard, [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
 
 :::tip
