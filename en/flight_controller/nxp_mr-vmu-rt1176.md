@@ -11,7 +11,6 @@ It takes advantage of multiple Pixhawk​​® Open Standards, such as the FMUv6
 Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
 
 :::tip
-MR-VMU-RT1176 uses the same FMUM module as the Pixhawk 6X-RT!
 MR-VMU-RT1176 includes the same FMUM module found on Pixhawk 6X-RT paired with an NXP-based carrier board. The carrier board offers 100Base-T1 (two-wire) automotive ethernet, an NFC antenna (Connected to SE051), and a third CAN bus. It also removes the IO processor to enable 12 PWM ports, with 8 providing Dshot capability.
 :::
 
