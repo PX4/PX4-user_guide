@@ -81,12 +81,10 @@ The MR-VMU-RT1176 reference design is perfect for developers at corporate resear
 
 - Dimensions
   - Flight Controller Module: 38.8 x 31.8 x 14.6mm
-  - Standard Baseboard: 52.4 x 103.4 x 16.7mm
-  - Mini Baseboard: 43.4 x 72.8 x 14.2 mm
+  - Standard Baseboard: 50 x 96 x 16.7mm
 - Weight
   - Flight Controller Module: 23g
   - Standard Baseboard: 51g
-  - Mini Baseboard: 26.5g
 
 ### Interfaces
 
@@ -113,11 +111,10 @@ The MR-VMU-RT1176 reference design is perfect for developers at corporate resear
 - 3 CAN Buses for CAN peripheral (2 currently supported by PX4)
   - CAN Bus has individual silent controls or ESC RX-MUX control
 - 2 Power input ports with SMBus
-
-  - 1 AD & IO port
-  - 2 additional analog input
-  - 1 PWM/Capture input
-  - 2 Dedicated debug and GPIO lines
+- 1 AD & IO port
+- 2 additional analog input
+- 1 PWM/Capture input
+- 2 Dedicated debug and GPIO lines
 
 - Other Characteristics:
   - Operating & storage temperature: -40 ~ 85°c
@@ -128,15 +125,12 @@ Order from [NXP](https://www.nxp.com).
 
 ## Assembly/Setup
 
-Sample Wiring Diagram
-
-Note: The wiring digram shows a Pixhawk 6X-RT baseboard as reference which has the connectors at different positions (top side only).
-
-![Pixhawk 6X Wiring Overview](../../assets/flight_controller/pixhawk6x/pixhawk6x_wiring_diagram.png)
+Sample Wiring Diagram tbd
+Wiring diagram of Pixhawk 6X to be used as reference until now.
 
 ## Connections
 
-MR-VMU-RT1176 connectors (following [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf))
+_MR-VMU-RT1176_ connectors (following [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf))
 
 <img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_top.jpg" width="350px" title="MR-VMU-RT1176 Top Image" /> 
 <img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_front.jpg" width="350px" title="MR-VMU-RT1176 Front Image" />
@@ -168,12 +162,12 @@ Notes:
 
 ## Dimensions
 
-
+tbd 
 
 ## Voltage Ratings
 
-_Pixhawk 6X-RT_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
-The **POWER1** & **POWER2** ports on the Pixhawk 6X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
+_MR-VMU-RT1176_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+The **POWER1** & **POWER2** ports on the MR-VMU-RT1176 uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
 **Normal Operation Maximum Ratings**
 
