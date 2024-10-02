@@ -34,7 +34,6 @@ The boards in this category are:
 - [ModalAI VOXL 2](../flight_controller/modalai_voxl_2.md)
 - [mRobotics-X2.1](../flight_controller/mro_x2.1.md) (FMUv2)
 - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
-- [NXP FMUK66](../flight_controller/nxp_rddrone_fmuk66.md) (Discontinued)
 - [NXP MR-VMU-RT1176](../flight_controller/nxp_mr_vmu_rt1176.md) (www.nxp.com)
 - [Sky-Drones AIRLink](../flight_controller/airlink.md)
 - [SPRacing SPRacingH7EXTREME](../flight_controller/spracingh7extreme.md)
