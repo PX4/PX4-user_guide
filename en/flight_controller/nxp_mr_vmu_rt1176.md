@@ -134,7 +134,7 @@ Order from [NXP](https://www.nxp.com).
 
 ## Assembly/Setup
 
-Wiring is similar to the [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.html#connections) and other boards that follow the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+Wiring is similar to the [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md#connections) and other boards that follow the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 <!-- TBD - provide sample wiring diagram. -->
 
