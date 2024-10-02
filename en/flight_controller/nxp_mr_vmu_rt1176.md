@@ -1,37 +1,44 @@
-# NXP MR-VMU-RT1176
+# NXP MR-VMU-RT1176 Flight Controller
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://www.nxp.com) for hardware support (https://community.nxp.com/) or compliance issues.
 :::
 
-_MR-VMU-RT1176_ is based on the Pixhawk<sup>&reg;</sup> FMUv6X-RT Open Standard, the latest update to the successful family of Pixhawk<sup>&reg;</sup> flight controllers designed and made in collaboration with industry partners<sup>&reg;</sup>, NXP's mobile robotics team and the PX4 team based on NXP's open source _reference design_. NXP is a semiconductor vendor, this reference/evaluation design is intended to be replicated, modified or integrated in production volume by others. NXP does not provide this design in high volume. Several 3rd party manufacturers (such as Holybro.com) provide this or derivative commercial products.
-
-It takes advantage of multiple Pixhawk​​® Open Standards, such as the FMUv6X-RT Standard, [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
-Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
-
-:::tip
-MR-VMU-RT1176 includes the same FMUM module found on Pixhawk 6X-RT paired with an NXP-based carrier board. The carrier board offers 100Base-T1 (two-wire) automotive ethernet, an NFC antenna (Connected to SE051), and a third CAN bus. It also removes the IO processor to enable 12 PWM ports, with 8 providing Dshot capability.
-:::
-
-<img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_upleft.jpg" width="350px" title="MR-VMU-RT1176 Upright Image" />
-
 :::tip
 This autopilot reference design is [supported](../flight_controller/autopilot_manufacturer_supported.md) by NXP.
 :::
 
+The _MR-VMU-RT1176_ reference design is based on the Pixhawk<sup>&reg;</sup> FMUv6X-RT open standard, the latest update to the successful family of Pixhawk<sup>&reg;</sup> flight controllers.
+
+The board includes the same FMU module found on Pixhawk 6X-RT paired with an NXP-based carrier board.
+The carrier board offers 100Base-T1 (two-wire) automotive ethernet, an NFC antenna (Connected to SE051), and a third CAN bus.
+It also removes the IO processor to enable 12 PWM ports, with 8 providing Dshot capability.
+
+![MR-VMU-RT1176 Upright Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_upleft.jpg)
+
+This is NXP's open source _reference design_ for using FMUv6X-RT, and was designed and made in collaboration with industry partners<sup>&reg;</sup>, NXP's mobile robotics team and the PX4 team.
+As a reference/evaluation design, it is intended to be replicated, modified or integrated in production volume by others.
+Several 3rd party manufacturers (such as Holybro.com) provide this or derivative commercial products.
+Note that NXP is a semiconductor vendor, and since it is a reference design, this particular board is not produced in high volume.
+
+This board takes advantage of multiple Pixhawk​​® open standards, such as the FMUv6X-RT Standard, [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
+
 ## Introduction
 
-Inside the MR-VMU-RT1176, you can find an NXP i.MX RT1176, paired with sensor technology from Bosch®​​, InvenSense®​,​ giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
+Inside the MR-VMU-RT1176, you can find an NXP i.MX RT1176, paired with sensor technology from Bosch®, InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
 The Pixhawk® 6X-RT's i.MX RT1176 Crossover dual-core MCU contain an Arm® Cortex®-M7 core running up to 1GHz and Arm® Cortex®-M4 core running up to 400MHz, has 2MB SRAM and external XIP Flash with 64MB.
-The PX4 Autopilot takes advantage of the increased procssing power and RAM.
+The PX4 Autopilot takes advantage of the increased processing power and RAM.
 Thanks to this increased processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
 
 The FMUv6X-RT open standard includes high-performance, low-noise IMUs on board, designed for better stabilization.
-Triple redundant IMU & double redundant barometer on separate buses. When PX4 detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
+Triple-redundant IMU & double-redundant barometer on separate buses.
+When PX4 detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
 
-An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
+An independent LDO powers every sensor set with independent power control.
+A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
 
 External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface, and with an integrated Microchip Ethernet PHY, high-speed communication with mission computers via ethernet is now possible.
 
@@ -40,10 +47,12 @@ The MR-VMU-RT1176 reference design is perfect for developers at corporate resear
 ## Key Design Points
 
 - High performance [NXP i.MX RT1170 1GHz Crossover MCU](https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/i-mx-rt-crossover-mcus/i-mx-rt1170-1-ghz-crossover-mcu-with-arm-cortex-cores:i.MX-RT1170) with Arm® Cortex® cores
-- Hardware secure element [NXP EdgeLock SE051](https://www.nxp.com/products/security-and-authentication/authentication/edgelock-se051-proven-easy-to-use-iot-security-solution-with-support-for-updatability-and-custom-applets:SE051) an extension to the widely trusted EdgeLock SE050 Plug & Trust secure element family, supports applet updates in the field and delivers proven security certified to CC EAL 6+, with AVA_VAN.5 up to the OS level, for strong protection against the most recent attack scenarios. E.g, to securely store operator ID or certificates.
-- Modular flight controller: separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk®​ Autopilot Bus connector.
+- Hardware secure element [NXP EdgeLock SE051](https://www.nxp.com/products/security-and-authentication/authentication/edgelock-se051-proven-easy-to-use-iot-security-solution-with-support-for-updatability-and-custom-applets:SE051).
+  This is an extension to the widely trusted EdgeLock SE050 Plug & Trust secure element family, supports applet updates in the field and delivers proven security certified to CC EAL 6+, with AVA_VAN.5 up to the OS level, for strong protection against the most recent attack scenarios.
+  This can be used, for example, to securely store operator ID or certificates.
+- Modular flight controller: separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk® Autopilot Bus connector.
 - Redundancy: 3x IMU sensors & 2x Barometer sensors on separate buses
-- Triple redundancy domains: Completely isolated sensor domains with separate buses and separate power control
+- Triple-redundancy domains: Completely isolated sensor domains with separate buses and separate power control
 - Newly designed vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
 - 100Base-T1 2-Wire Ethernet interface for high-speed mission computer integration
 - IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
@@ -92,7 +101,7 @@ The MR-VMU-RT1176 reference design is perfect for developers at corporate resear
 - R/C input for Spektrum / DSM
 - Dedicated R/C input for PPM and S.Bus input
 - Dedicated analog / PWM RSSI input and S.Bus output
-- 4 general purpose serial ports
+- 4 general purpose serial ports:
   - 3 with full flow control
   - 1 with separate 1.5A current limit (Telem1)
   - 1 with I2C and additional GPIO line for external NFC reader
@@ -125,23 +134,26 @@ Order from [NXP](https://www.nxp.com).
 
 ## Assembly/Setup
 
-Sample Wiring Diagram tbd
-Wiring diagram of Pixhawk 6X to be used as reference until now.
+Wiring is similar to the [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.html#connections) and other boards that follow the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+
+<!-- TBD - provide sample wiring diagram. -->
 
 ## Connections
 
 _MR-VMU-RT1176_ connectors (following [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf))
 
-<img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_top.jpg" width="350px" title="MR-VMU-RT1176 Top Image" /> 
-<img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_front.jpg" width="350px" title="MR-VMU-RT1176 Front Image" />
-<img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_left.jpg" width="350px" title="MR-VMU-RT1176 Leftside Image" /> 
-<img src="../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_right.jpg" width="350px" title="MR-VMU-RT1176 Rightside Image" />
+![MR-VMU-RT1176 Top Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_top.jpg)
+![MR-VMU-RT1176 Front Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_front.jpg)
+![MR-VMU-RT1176 Leftside Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_left.jpg)
+![MR-VMU-RT1176 Rightside Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_right.jpg)
 
-- [NXP MR-VMU-RT1176 Baseboard Connections] (https://nxp.gitbook.io/vmu-rt1176/production-v1-carrier-board-connectors)
+For more information see:
+
+- [NXP MR-VMU-RT1176 Baseboard Connections](https://nxp.gitbook.io/vmu-rt1176/production-v1-carrier-board-connectors) (nxp.gitbook.io)
 
 ## Pinouts
 
-- [NXP MR-VMU-RT1176 Baseboard Pinout] (https://nxp.gitbook.io/vmu-rt1176/pin-out)
+[NXP MR-VMU-RT1176 Baseboard Pinout](https://nxp.gitbook.io/vmu-rt1176/pin-out) (nxp.gitbook.io)
 
 Notes:
 
@@ -160,23 +172,26 @@ Notes:
 | UART10 | /dev/ttyS6 | TELEM3   |
 | UART11 | /dev/ttyS7 | External |
 
+<!--
 ## Dimensions
 
-tbd 
+TBD
+-->
 
 ## Voltage Ratings
 
-_MR-VMU-RT1176_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+_MR-VMU-RT1176_ can be triple-redundant on the power supply if three power sources are supplied.
+The three power rails are: **POWER1**, **POWER2** and **USB**.
 The **POWER1** & **POWER2** ports on the MR-VMU-RT1176 uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
-**Normal Operation Maximum Ratings**
+### Normal Operation Maximum Ratings
 
 Under these conditions all power sources will be used in this order to power the system:
 
 1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
 1. **USB** input (4.75V to 5.25V)
 
-**Absolute Maximum Ratings**
+### Absolute Maximum Ratings
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
@@ -184,7 +199,7 @@ Under these conditions the system will not draw any power (will not be operation
 1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
 1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
-**Voltage monitoring**
+### Voltage monitoring
 
 Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_pixhawk6x.md#power)).
 
@@ -201,13 +216,11 @@ It is pre-built and automatically installed by _QGroundControl_ when appropriate
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
-```
+```sh
 make px4_fmu-v6xrt_default
 ```
 
-<a id="debug_port"></a>
-
-## Debug Port
+## Debug Port {#debug_port}
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
