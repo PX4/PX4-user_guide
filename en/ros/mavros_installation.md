@@ -24,7 +24,7 @@ They cover the _ROS Melodic and Noetic_ releases.
 
 :::: tabs
 
-::: tab ROS Noetic (Ubuntu 22.04)
+::: tab ROS Noetic (Ubuntu 20.04)
 
 If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
 
