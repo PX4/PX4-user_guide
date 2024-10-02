@@ -125,7 +125,7 @@ To flash a RPi image onto EMMC.
 
    ```sh
    sudo apt install libusb-1.0-0-dev
-   git clone --depth=1 https://github.com/raspberrypi/usbboot,
+   git clone --depth=1 https://github.com/raspberrypi/usbboot
    cd usbboot
    make
    sudo ./rpiboot
