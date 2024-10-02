@@ -476,36 +476,13 @@ There are several approaches you can use to view MAVLink traffic:
   :::tip
   It is much easier to generate a wireshark plugin and inspect traffic in Wireshark, than to rebuild QGroundControl with your dialect and use MAVLink Inspector.
   :::
-- Use [MAVProxy](https://ardupilot.org/mavproxy/) and [Pymavlink](https://mavlink.io/en/mavgen_python/).
-  This is easier than building QGroundControl and once tested with MAVProxy, you can proceed to building QGroundControl if required.
-  First install MAVproxy using
-  ```bash
-  python -m pip install mavproxy
-  ```
-  MAVProxy by default uses the messages defined in the Pymavlink package. The command above also installs Pymavlink since it is a dependency of MAVProxy. So you will need to first uninstall Pymavlink.
-  ```bash
-  python -m pip uninstall pymavlink
-  ```
-  To define your custom message in Pymavlink, first clone the MAVLink repository
-  ```bash
-  git clone https://github.com/mavlink/mavlink.git --recursive
-  cd mavlink
-  ```
-  In the [message_definitions/v1.0](https://github.com/mavlink/mavlink/tree/master/message_definitions/v1.0) folder, add your custom message and then generate the headers
-  ```bash
-  python3 -m pymavlink.tools.mavgen --lang=C --wire-protocol=2.0 --output=generated message_definitions/v1.0/your_dialect.xml
-  ```
-  Then install Pymavlink using
-  ```bash
-  cd pymavlink
-  sudo python setup.py install
-  ```
-  Now connect your autopilot to MAVProxy by following the [MAVProxy docs](https://ardupilot.org/mavproxy/index.html).
-  In the shell, use the watch command to dislay your custom message
-  ```bash
-  watch custom_message_name
-  ```
-  
+
+- Use [MAVProxy](https://ardupilot.org/mavproxy/) with an updated [Pymavlink](https://mavlink.io/en/mavgen_python/) that contains your custom messages.
+  This is easy because updating pymavlink is just a matter of copying in your headers and rebuilding the package.
+  It easier than building QGroundControl and similar effort to using WireShark (once tested with MAVProxy, you can still proceed to building QGroundControl if required).
+
+  Instructions for the update process and how to view your custom message are given below in [Updating MAVProxy](../middleware/mavlink.md#updating-mavproxy)
+
 - [Log uORB topics](../dev_log/logging.md) associate with your MAVLink message.
 - View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html).
   You will need to rebuild QGroundControl with the custom message definitions, [as described below](#updating-qgroundcontrol)
@@ -548,3 +525,55 @@ However if you use your own dialect then it should include ArduPilotMega.xml (or
 ### Updating MAVSDK
 
 See the MAVSDK docs for information about how to work with [MAVLink headers and dialects](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html).
+
+### Updating MAVProxy
+
+[MAVProxy](https://ardupilot.org/mavproxy/) is UAV ground station software package for MAVLink based systems written in Python.
+While not optimized for PX4 or widely promoted in the PX4 community, we mention it here because it is one of the easiest ground stations to update with custom messages, and is therefore one of the easiest ways to test that your custom messages are being sent.
+
+[MAVProxy](https://ardupilot.org/mavproxy/) depends on [Pymavlink](https://mavlink.io/en/mavgen_python/).
+The approach described below is to install MAVProxy, remove the default-installed Pymavlink, and then rebuild Pymavlink with the new messages.
+
+The steps are:
+
+1. Install MAVproxy using the command:
+
+   ```sh
+   python -m pip install mavproxy
+   ```
+
+1. Remove the Pymavlink package installed with MAVProxy:
+
+   ```sh
+   python -m pip uninstall pymavlink
+   ```
+
+1. Clone the MAVLink repository (which also contains Pymavlink)
+
+   ```sh
+   git clone https://github.com/mavlink/mavlink.git --recursive
+   cd mavlink
+   ```
+
+1. Copy your custom message XML into the [message_definitions/v1.0](https://github.com/mavlink/mavlink/tree/master/message_definitions/v1.0) folder
+1. Generate the headers:
+
+   ```sh
+   python3 -m pymavlink.tools.mavgen --lang=C --wire-protocol=2.0 --output=generated message_definitions/v1.0/your_dialect.xml
+   ```
+
+1. Install Pymavlink using
+
+   ```sh
+   cd pymavlink
+   sudo python setup.py install
+   ```
+
+1. Connect your autopilot to MAVProxy by following the [MAVProxy docs](https://ardupilot.org/mavproxy/index.html).
+
+1. In the MAVProxy shell, you can use the `watch` command to display messages.
+   For example, to display/test that a custom message is being sent you could use the command below:
+
+   ```sh
+   watch custom_message_name
+   ```
