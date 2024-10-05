@@ -790,6 +790,27 @@ temperature_compensation <command> [arguments...]
 
    status        print status info
 ```
+## time_persistor
+Source: [modules/time_persistor](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/time_persistor)
+
+
+### Description
+Writes the RTC time cyclically to a file and reloads this value on startup.
+This allows monotonic time on systems that only have a software RTC (that is not battery powered).
+Explicitly setting the time backwards (e.g. via system_time) is still possible.
+
+
+<a id="time_persistor_usage"></a>
+### Usage
+```
+time_persistor <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## tune_control
 Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tune_control)
 

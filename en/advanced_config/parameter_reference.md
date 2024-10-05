@@ -6224,6 +6224,26 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 200 |  | 100 |  
 
+### SIM_GZ_WH_DIS3 (`INT32`) {#SIM_GZ_WH_DIS3}
+
+SIM_GZ Wheels 3 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 200 |  | 100 |  
+
+### SIM_GZ_WH_DIS4 (`INT32`) {#SIM_GZ_WH_DIS4}
+
+SIM_GZ Wheels 4 Disarmed Value.
+
+This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 200 |  | 100 |  
+
 ### SIM_GZ_WH_FAIL1 (`INT32`) {#SIM_GZ_WH_FAIL1}
 
 SIM_GZ Wheels 1 Failsafe Value.
@@ -6239,6 +6259,26 @@ Reboot | minValue | maxValue | increment | default | unit
 SIM_GZ Wheels 2 Failsafe Value.
 
 This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_WH_FUNC2).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 200 |  | -1 |  
+
+### SIM_GZ_WH_FAIL3 (`INT32`) {#SIM_GZ_WH_FAIL3}
+
+SIM_GZ Wheels 3 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_WH_FUNC3).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 200 |  | -1 |  
+
+### SIM_GZ_WH_FAIL4 (`INT32`) {#SIM_GZ_WH_FAIL4}
+
+SIM_GZ Wheels 4 Failsafe Value.
+
+This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_WH_FUNC4).
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -6366,6 +6406,128 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 0 |  
 
+### SIM_GZ_WH_FUNC3 (`INT32`) {#SIM_GZ_WH_FUNC3}
+
+SIM_GZ Wheels 3 Output Function.
+
+Select what should be output on SIM_GZ Wheels 3. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### SIM_GZ_WH_FUNC4 (`INT32`) {#SIM_GZ_WH_FUNC4}
+
+SIM_GZ Wheels 4 Output Function.
+
+Select what should be output on SIM_GZ Wheels 4. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Constant Min
+- `2`: Constant Max
+- `101`: Motor 1
+- `102`: Motor 2
+- `103`: Motor 3
+- `104`: Motor 4
+- `105`: Motor 5
+- `106`: Motor 6
+- `107`: Motor 7
+- `108`: Motor 8
+- `109`: Motor 9
+- `110`: Motor 10
+- `111`: Motor 11
+- `112`: Motor 12
+- `201`: Servo 1
+- `202`: Servo 2
+- `203`: Servo 3
+- `204`: Servo 4
+- `205`: Servo 5
+- `206`: Servo 6
+- `207`: Servo 7
+- `208`: Servo 8
+- `301`: Peripheral via Actuator Set 1
+- `302`: Peripheral via Actuator Set 2
+- `303`: Peripheral via Actuator Set 3
+- `304`: Peripheral via Actuator Set 4
+- `305`: Peripheral via Actuator Set 5
+- `306`: Peripheral via Actuator Set 6
+- `400`: Landing Gear
+- `401`: Parachute
+- `402`: RC Roll
+- `403`: RC Pitch
+- `404`: RC Throttle
+- `405`: RC Yaw
+- `406`: RC Flaps
+- `407`: RC AUX 1
+- `408`: RC AUX 2
+- `409`: RC AUX 3
+- `410`: RC AUX 4
+- `411`: RC AUX 5
+- `412`: RC AUX 6
+- `420`: Gimbal Roll
+- `421`: Gimbal Pitch
+- `422`: Gimbal Yaw
+- `430`: Gripper
+- `440`: Landing Gear Wheel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
 ### SIM_GZ_WH_MAX1 (`INT32`) {#SIM_GZ_WH_MAX1}
 
 SIM_GZ Wheels 1 Maximum Value.
@@ -6379,6 +6541,26 @@ Reboot | minValue | maxValue | increment | default | unit
 ### SIM_GZ_WH_MAX2 (`INT32`) {#SIM_GZ_WH_MAX2}
 
 SIM_GZ Wheels 2 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 200 |  | 200 |  
+
+### SIM_GZ_WH_MAX3 (`INT32`) {#SIM_GZ_WH_MAX3}
+
+SIM_GZ Wheels 3 Maximum Value.
+
+Maxmimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 200 |  | 200 |  
+
+### SIM_GZ_WH_MAX4 (`INT32`) {#SIM_GZ_WH_MAX4}
+
+SIM_GZ Wheels 4 Maximum Value.
 
 Maxmimum output value (when not disarmed).
 
@@ -6406,6 +6588,26 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 200 |  | 0 |  
 
+### SIM_GZ_WH_MIN3 (`INT32`) {#SIM_GZ_WH_MIN3}
+
+SIM_GZ Wheels 3 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 200 |  | 0 |  
+
+### SIM_GZ_WH_MIN4 (`INT32`) {#SIM_GZ_WH_MIN4}
+
+SIM_GZ Wheels 4 Minimum Value.
+
+Minimum output value (when not disarmed).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 200 |  | 0 |  
+
 ### SIM_GZ_WH_REV (`INT32`) {#SIM_GZ_WH_REV}
 
 Reverse Output Range for SIM_GZ.
@@ -6416,11 +6618,13 @@ Allows to reverse the output range for each channel. Note: this is only useful f
 
 - `0`: SIM_GZ Wheels 1
 - `1`: SIM_GZ Wheels 2
+- `2`: SIM_GZ Wheels 3
+- `3`: SIM_GZ Wheels 4
 
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 3 |  | 0 |  
+&nbsp; | 0 | 15 |  | 0 |  
 
 ### TAP_ESC_FUNC1 (`INT32`) {#TAP_ESC_FUNC1}
 
@@ -18021,6 +18225,7 @@ Defines which mixer implementation to use. Some are generic, while others are sp
 - `10`: Helicopter (tail ESC)
 - `11`: Helicopter (tail Servo)
 - `12`: Helicopter (Coaxial)
+- `13`: Rover (Mecanum)
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -26466,6 +26671,154 @@ Reboot | minValue | maxValue | increment | default | unit
 ### RD_YAW_RATE_P (`FLOAT`) {#RD_YAW_RATE_P}
 
 Proportional gain for closed loop yaw rate controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 1 |  
+
+## Rover Mecanum
+
+### RM_MAN_YAW_SCALE (`FLOAT`) {#RM_MAN_YAW_SCALE}
+
+Manual yaw rate scale.
+
+In Manual mode the setpoint for the yaw rate received from the control stick is scaled by this value.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.01 | 1 | 0.01 | 1 |  
+
+### RM_MAX_ACCEL (`FLOAT`) {#RM_MAX_ACCEL}
+
+Maximum acceleration.
+
+Maximum acceleration is used to limit the acceleration of the rover
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0.5 | m/s^2 
+
+### RM_MAX_JERK (`FLOAT`) {#RM_MAX_JERK}
+
+Maximum jerk.
+
+Limit for forwards acc/deceleration change.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0.5 | m/s^3 
+
+### RM_MAX_SPEED (`FLOAT`) {#RM_MAX_SPEED}
+
+Maximum speed the rover is allowed to drive.
+
+This parameter is used cap the maximum speed the rover is allowed to drive and to map stick inputs to desired speeds in position mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 7 | m/s 
+
+### RM_MAX_THR_SPD (`FLOAT`) {#RM_MAX_THR_SPD}
+
+Speed the rover drives at maximum throttle.
+
+This parameter is used to calculate the feedforward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands [-1. 1]. A good starting point is the observed ground speed when the rover drives at maximum throttle in manual mode. Increase this parameter if the rover is faster than the setpoint, and decrease if the rover is slower.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 1 | m/s 
+
+### RM_MAX_THR_YAW_R (`FLOAT`) {#RM_MAX_THR_YAW_R}
+
+Yaw rate turning left/right wheels at max speed in opposite directions.
+
+This parameter is used to calculate the feedforward term of the closed loop yaw rate control. The controller first calculates the required speed difference between the left and right motor to achieve the desired yaw rate. This desired speed difference is then linearly mapped to normalized motor commands. A good starting point is twice the speed the rover drives at maximum throttle (RM_MAX_THRTL_SPD)). Increase this parameter if the rover turns faster than the setpoint, and decrease if the rover turns slower.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 2 | m/s 
+
+### RM_MAX_YAW_RATE (`FLOAT`) {#RM_MAX_YAW_RATE}
+
+Maximum allowed yaw rate for the rover.
+
+This parameter is used to cap desired yaw rates and map controller inputs to desired yaw rates in acro mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.01 | 1000 | 0.01 | 90 | deg/s 
+
+### RM_MISS_SPD_DEF (`FLOAT`) {#RM_MISS_SPD_DEF}
+
+Default rover speed during a mission.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 1 | m/s 
+
+### RM_MISS_VEL_GAIN (`FLOAT`) {#RM_MISS_VEL_GAIN}
+
+Tuning parameter for the velocity reduction during waypoint transition.
+
+The waypoint transition speed is calculated as: Transition_speed = Maximum_speed * (1 - normalized_transition_angle * RM_MISS_VEL_GAIN) The normalized transition angle is the angle between the line segment from prev-curr WP and curr-next WP interpolated from [0, 180] -> [0, 1]. Higher value -> More velocity reduction during cornering.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.05 | 100 | 0.01 | 1 |  
+
+### RM_SPEED_I (`FLOAT`) {#RM_SPEED_I}
+
+Integral gain for ground speed controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0 |  
+
+### RM_SPEED_P (`FLOAT`) {#RM_SPEED_P}
+
+Proportional gain for speed controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 1 |  
+
+### RM_WHEEL_TRACK (`FLOAT`) {#RM_WHEEL_TRACK}
+
+Wheel track.
+
+Distance from the center of the right wheels to the center of the left wheels.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.001 | 100 | 0.001 | 0.5 | m 
+
+### RM_YAW_I (`FLOAT`) {#RM_YAW_I}
+
+Integral gain for closed loop yaw controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0.1 |  
+
+### RM_YAW_P (`FLOAT`) {#RM_YAW_P}
+
+Proportional gain for closed loop yaw controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 1 |  
+
+### RM_YAW_RATE_I (`FLOAT`) {#RM_YAW_RATE_I}
+
+Integral gain for the closed-loop yaw rate controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0 |  
+
+### RM_YAW_RATE_P (`FLOAT`) {#RM_YAW_RATE_P}
+
+Proportional gain for the closed-loop yaw rate controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
