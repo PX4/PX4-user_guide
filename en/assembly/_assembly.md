@@ -163,6 +163,50 @@ You can use an I2C level converter to connect these devices to a Pixhawk flight 
 
 </div>
 
+## Distance Sensor
+
+<div v-if="(($frontmatter.frame === 'Multicopter') || ($frontmatter.frame === 'VTOL'))">
+
+[Distance sensors](../sensor/rangefinders.md) can significantly improve vehicle robustness and performance, and are required for some use cases:
+
+- Landing can be much improved with a distance sensor:
+  - Land detection is more robust.
+  - Smoother landings because the sensor can help detect the right point to slow down vehicle before touchdown.
+  - Reduced risk of very hard touchdown due to bad altitude estimate or incorrectly set touch point altitude.
+- Enables terrain following.
+- Required for robust state estimation when flying with GNSS-denied navigation (along with an [optical flow sensor](#optical-flow-sensor)).
+
+</div>
+<div v-if="$frontmatter.frame === 'VTOL'">
+
+- Allows disabling of "pusher assist" when close to the ground.
+
+</div>
+<div v-if="$frontmatter.frame === 'Plane'">
+
+[Distance sensors](../sensor/rangefinders.md) are highly recommended as they allow for proper flaring during landing, without which smooth automated fixed-wing landings are near-impossible.
+
+</div>
+
+Unlike for some other components, there is no particular bus or port that is commonly used for distance sensors.
+Different rangefinders will connect via I2C, CAN, serial ports, and even PWM inputs!
+
+See [Distance sensors](../sensor/rangefinders.md) and manufacturer documentation for instructions on how to integrate a specific sensor with PX4.
+
+<div v-if="(($frontmatter.frame === 'Multicopter') || ($frontmatter.frame === 'VTOL'))">
+
+## Optical Flow Sensor
+
+[Optical Flow](../sensor/optical_flow.md) is a computer vision technique that uses a downward facing camera and a downward facing distance sensor to estimate velocity over ground.
+It can be used to accurately estimate speed when navigating without GNSS — in buildings, underground, or in any other GNSS-denied environment.
+
+Optical flow sensors may integrate both a camera and distance sensor, or just a camera (in which case a separate distance sensor is needed).
+There is no standardisation on flow sensor connectivity options, and sensors may connect via I2C, CAN, MAVLink over serial ports, and so on.
+
+See [Optical Flow sensors](../sensor/optical_flow.md) and manufacturer documentation for instructions on how to integrate a specific sensor with PX4.
+
+</div>
+
 ## Radio Control (Optional)
 
 A [Remote Control (RC) system](../getting_started/rc_transmitter_receiver.md) can be used to manually control a UAS.

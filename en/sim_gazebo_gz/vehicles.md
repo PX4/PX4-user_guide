@@ -59,7 +59,7 @@ This model has a simple monocular camera sensor attached facing down (there is n
 This can be used with the [Aruco world](../sim_gazebo_gz/worlds.md#aruco) to test precision landing.
 
 ```sh
-make px4_sitl x500_mono_cam_down
+make px4_sitl gz_x500_mono_cam_down
 ```
 
 ### X500 Quadrotor with 2D LIDAR

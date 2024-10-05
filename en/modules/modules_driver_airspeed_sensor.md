@@ -30,6 +30,30 @@ asp5033 <command> [arguments...]
 
    status        print status info
 ```
+## auav
+Source: [drivers/differential_pressure/auav](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/auav)
+
+<a id="auav_usage"></a>
+### Usage
+```
+auav <command> [arguments...]
+ Commands:
+   start
+     [-D]        Differential pressure sensing
+     [-A]        Absolute pressure sensing
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 38
+
+   stop
+
+   status        print status info
+```
 ## ets_airspeed
 Source: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ets)
 

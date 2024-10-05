@@ -45,7 +45,7 @@ Then adjust the sliders (as discussed below) to improve the tracking of the resp
 - If using PWM outputs their minimum values should be set correctly in the [Actuator Configuration](../config/actuators.md).
   These need to be set low, but such that the **motors never stop** when the vehicle is armed.
 
-  This can be tested in [Acro mode](../flight_modes_mc/acro.md) or in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md):
+  This can be tested in [Acro mode](../flight_modes_mc/acro.md) or in [Stabilized mode](../flight_modes_mc/manual_stabilized.md):
 
   - Remove propellers
   - Arm the vehicle and lower the throttle to the minimum

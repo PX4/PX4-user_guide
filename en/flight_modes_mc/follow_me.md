@@ -99,14 +99,9 @@ The mode has been tested on the following Android devices:
 
 ### Follow-me with MAVSDK
 
-[MAVSDK](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html) supports [Follow Me](https://mavsdk.mavlink.io/main/en/cpp/guide/follow_me.html), allowing you to create a drone app that is a follow-me target.
+[MAVSDK](https://mavsdk.mavlink.io/main/en/) supports [Follow Me](https://mavsdk.mavlink.io/main/en/), allowing you to create a drone app that is a follow-me target.
 
-For more information see the [Follow Me class](https://mavsdk.mavlink.io/main/en/cpp/guide/follow_me.html) documentation as well as the [Follow Me Example](https://mavsdk.mavlink.io/main/en/cpp/examples/follow_me.html).
-
-::: info
-MAVSDK is not currently recommended, due to a bug ([MAVSDK#1756](https://github.com/mavlink/MAVSDK/issues/1756) where the same message is occasionally sent twice.
-This can confuse the target position and velocity estimator.
-:::
+For more information see the [Follow Me class](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_follow_me.html) documentation as well as the [Follow Me Example](https://mavsdk.mavlink.io/main/en/cpp/examples/follow_me.html).
 
 ## Configuration
 

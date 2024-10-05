@@ -76,8 +76,7 @@ In particular, set the [Airframe](../config/airframe.md) that most closely match
 These parameters are important:
 
 - Enable One-Shot or DShot by selecting the protocol for a group of outputs during [Actuator Configuration](../config/actuators.md).
-- Set the maximum roll-, pitch- and yaw rates for Manual/Stabilized mode as
-  desired: [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) and [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX).
+- Set the maximum roll-, pitch- and yaw rates for Stabilized mode as desired: [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) and [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX).
   The maximum tilt angle is configured with [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX).
 - The minimum thrust [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN) should be set to 0.
 
@@ -85,7 +84,7 @@ These parameters are important:
 
 If you use a GPS you can skip this section and use the default estimator.
 Otherwise you should switch to the Q attitude estimator, which works without a magnetometer or barometer.
- 
+
 To enable it set [ATT_EN = 1](../advanced_config/parameter_reference.md#ATT_EN), [EKF2_EN =0 ](../advanced_config/parameter_reference.md#EKF2_EN) and [LPE_EN = 0](../advanced_config/parameter_reference.md#LPE_EN) (for more information see [Switching State Estimators](../advanced/switching_state_estimators.md#how-to-enable-different-estimators)).
 
 Then change the following parameters:
@@ -152,5 +151,3 @@ You can use the approach described in [Basic MC PID tuning](../config_mc/pid_tun
 
 After you have verified that the vehicle flies well at low and high throttle, you can enable [airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode) with the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
 This feature makes sure that the vehicle is still controllable and tracks the rate at low throttle.
-
-Happy flipping :)

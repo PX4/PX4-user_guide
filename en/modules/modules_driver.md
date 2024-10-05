@@ -1500,6 +1500,21 @@ uwb <command> [arguments...]
 
    status
 ```
+## vertiq_io
+Source: [drivers/actuators/vertiq_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/vertiq_io)
+
+<a id="vertiq_io_usage"></a>
+### Usage
+```
+vertiq_io <command> [arguments...]
+ Commands:
+   start
+     <device>    UART device
+
+   stop
+
+   status        print status info
+```
 ## voxl2_io
 Source: [drivers/voxl2_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/voxl2_io)
 

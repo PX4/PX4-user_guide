@@ -167,6 +167,29 @@ This is documented in [RTK GPS > Configuring GPS as Yaw/Heading Source](../gps_c
 
 Compass calibration for an included compass part is covered in: [Compass Configuration](../config/compass.md).
 
+## GNSS Data Overview
+
+PX4 uses the subset of information that can be provided by most GNSS modules.
+This is written to the [SensorGps](../msg_docs/SensorGps.md) uORB message and used by the estimator as an input to global position estimation.
+It is also streamed via MAVLink using messages such as [GPS_RAW_INT](https://mavlink.io/en/messages/common.html#GPS_RAW_INT) and [GPS2_RAW](https://mavlink.io/en/messages/common.html#GPS2_RAW).
+
+Some of GNSS terms that are useful for interpreting the data include:
+
+- `DOP`: Dilution of position (dimensionless).
+  This is a measure of the geometric quality of satellite positions and their effect on the precision of the GPS receiver's calculations.
+- `EPH`: Standard deviation of horizontal position error (metres).
+  This represents the the uncertainty in the GPS fix latitude and longitude.
+- `EPV`: Standard deviation of vertical position error (metres).
+  This represents the the uncertainty in the GPS fix altitude.
+
+### DOP vs EPH/EPV
+
+DOP is a measure of the potential for high accuracy based on satellite positions.
+EPH/EPV are more comprehensive: they are direct estimates of the GPS position error and consider both satellite geometry and other error sources like signal noise and atmospheric effects.
+It is possible to have low DOP (good satellite geometry) but still have high EPH/EPV if there is significant signal noise or atmospheric interference.
+
+EPH/EPV values therefore provide a more immediate and practical estimate of the actual GPS accuracy you can expect under current conditions.
+
 ## Developer Information
 
 - GPS/RTK-GPS

@@ -53,7 +53,7 @@ PX4 uses the [netman](../modules/modules_system.md#netman) module to apply and u
 The default configuration first requests an IP address from DHCP, and if that fails will fallback to the default static address `10.41.10.2`.
 You can explicitly set any static IP address (including the default address), to bypass the initial DHCP check and make the connection a little faster.
 
-:::note
+::: info
 If you want to use the default static IP address for PX4 you can skip forward to the next section.
 :::
 

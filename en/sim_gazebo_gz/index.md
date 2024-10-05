@@ -18,16 +18,21 @@ See [Simulation](../simulation/index.md) for general information about simulator
 
 ## Installation (Ubuntu Linux)
 
-Gazebo is installed by default on Ubuntu 22.04 as part of the normal [development environment setup](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets).
+Gazebo Harmonic is installed by default on Ubuntu 22.04 as part of the normal [development environment setup](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets).
 
-If you want to use Gazebo on Ubuntu 20.04 you can install it manually, after first following the normal setup process (installing `gz-garden` will uninstall Gazebo-Classic!):
+:::info
+The PX4 installation scripts are based on the instructions: [Binary Installation on Ubuntu](https://gazebosim.org/docs/harmonic/install_ubuntu/) (gazebosim.org).
+:::
 
-```sh
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
-sudo apt-get update
-sudo apt-get install gz-garden
-```
+::: warning
+Gazebo Harmonic cannot be installed on Ubuntu 20.04 and earlier.
+
+On Ubuntu 20.04 we recommend use [Gazebo Classic](../sim_gazebo_classic/index.md).
+If you really must use Gazebo then you should update to Ubuntu 22.04.
+
+Until November 2024 it is possible to [install Gazebo Garden](https://gazebosim.org/docs/garden/install_ubuntu/) on Ubuntu 20.04.
+After that date Garden will reach end-of-life and should not be used.
+:::
 
 ## Running the Simulation
 
@@ -161,15 +166,13 @@ In other words, use `make px4_sitl gz_x500` instead of `make px4_sitl gz_x500_de
 :::
 
 ::: info
-Baylands throws the following error, which can be ignored:
+Baylands world throws a warning in Gazebo Harmonic because there are so many meshes.
+This can be ignored:
 
 ```sh
-[Err] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created
+[Wrn] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created
 ```
 
-This occurs because Baylands has a lot of meshes.
-However it does not break Gazebo and the error has been downgraded to a warning in Gazebo Harmonic: [gz-physics/pull/531](https://github.com/gazebosim/gz-physics/pull/531).
-You can also replace the error with a warning by [installing gz-garden from source](https://gazebosim.org/docs/garden/install_ubuntu_src).
 :::
 
 ## Usage/Configuration Options

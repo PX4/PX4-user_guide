@@ -96,7 +96,7 @@ First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE]
 Filter tuning is best done by reviewing flight logs.
 You can do multiple flights right after each other with different parameters and then inspect all logs, but make sure to disarm in between so that separate log files are created.
 
-The performed flight maneuver can simply be hovering in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md) with some rolling and pitching to all directions and some increased throttle periods.
+The performed flight maneuver can simply be hovering in [Stabilized mode](../flight_modes_mc/manual_stabilized.md) with some rolling and pitching to all directions and some increased throttle periods.
 The total duration does not need to be more than 30 seconds.
 In order to better compare, the maneuver should be similar in all tests.
 
