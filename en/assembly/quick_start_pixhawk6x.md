@@ -9,13 +9,20 @@ This quick start guide shows how to power the [Pixhawk 6X<sup>&reg;</sup>](../fl
 
 ## Kit Contents
 
-### Pixhawk 6X Standard Set
+:::: tabs
+
+::: tab Pixhawk 6X Standard Set
 
 ![Pixhawk 6x standard set](../../assets/flight_controller/pixhawk6x/pixhawk6x_standard_set.jpg)
 
-### Pixhawk 6X Mini Set
+:::
+
+::: tab Pixhawk 6X Mini Set
 
 ![Pixhawk 6x mini standard set](../../assets/flight_controller/pixhawk6x/pixhawk6x_mini_set.jpg)
+
+:::
+::::
 
 ## Wiring Chart Overview
 
@@ -136,12 +143,20 @@ The mapping is not consistent across frames (e.g. you can't rely on the throttle
 
 ## Other Peripherals
 
+- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Holybro Sensors](https://holybro.com/collections/sensors)
+- [Holybro GPS & RTK Systems](https://holybro.com/collections/gps-rtk-systems)
+- [Power Modules & PDBs](https://holybro.com/collections/power-modules-pdbs)
+
 The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
 
 ## Pinouts
 
 - [Holybro Pixhawk Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-baseboard-pinout)
 - [Holybro Pixhawk Mini-Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-mini-baseboard-pinout)
+- [Holybro Pixhawk Jetson Baseboard](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-jetson-baseboard)
+- [Holybro Pixhawk RPi CM4 Baseboard](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard)
 
 ## Configuration
 
@@ -155,8 +170,7 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
 - [Pixhawk 6X](../flight_controller/pixhawk6x.md) (PX4 Doc Overview page)
-- [PM02D Power Module](../power_module/holybro_pm02d.md)
-- [PM03D Power Module](../power_module/holybro_pm03d.md)
+- [Pixhawk 6X Pro](../flight_controller/pixhawk6x_pro.md) (PX4 Doc Overview page)
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf).
 - [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
 - [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).

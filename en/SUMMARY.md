@@ -144,7 +144,6 @@
       - [Holybro Pixhawk 6X (FMUv6X)](flight_controller/pixhawk6x.md)
         - [Wiring Quickstart](assembly/quick_start_pixhawk6x.md)
       - [Holybro Pixhawk 6x Pro (FMUv6X)](flight_controller/pixhawk6x_pro.md)
-        - [Wiring Quickstart](assembly/quick_start_pixhawk6x_pro.md)
       - [RaccoonLab FMU6x](flight_controller/raccoonlab_fmu6x.md)
       - [Holybro Pixhawk 6C (FMUv6C)](flight_controller/pixhawk6c.md)
         - [Wiring Quickstart](assembly/quick_start_pixhawk6c.md)

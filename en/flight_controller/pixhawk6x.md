@@ -11,7 +11,32 @@ It is based on the [Pixhawk​​® Autopilot FMUv6X Standard](https://github.co
 
 Equipped with a high performance H7 Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
 
+### Pixhawk 6X (Rev 3)
+
 <img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_hero_upright.png" width="230px" title="Pixhawk6X Upright Image" /> <img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_exploded_diagram.png" width="400px" title="Pixhawk6X Exploded Image" />
+
+
+### Pixhawk 6X (ICM-45686)
+
+:::: tabs
+
+::: tab Standard v2A
+
+![Pixhawk 6X Standard v2A](../../assets/flight_controller/pixhawk6x/pixhawk6x_icm_v2a.webp)
+
+:::
+
+::: tab Standard v2B
+
+![Pixhawk 6X Standard v2B](../../assets/flight_controller/pixhawk6x/pixhawk6x_icm_v2b.webp)
+:::
+
+::: tab Mini
+
+![Pixhawk 6X Mini](../../assets/flight_controller/pixhawk6x/pixhawk6x_icm_mini.webp)
+:::
+
+::::
 
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
@@ -126,6 +151,8 @@ Sample Wiring Diagram
 
 - [Holybro Pixhawk Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-baseboard-pinout)
 - [Holybro Pixhawk Mini-Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-mini-baseboard-pinout)
+- [Holybro Pixhawk Jetson Baseboard](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-jetson-baseboard)
+- [Holybro Pixhawk RPi CM4 Baseboard](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard)
 
 Notes:
 
@@ -217,9 +244,11 @@ For information about using this port see:
 
 ## Peripherals
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
 - [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
 - [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Holybro Sensors](https://holybro.com/collections/sensors)
+- [Holybro GPS & RTK Systems](https://holybro.com/collections/gps-rtk-systems)
+- [Power Modules & PDBs](https://holybro.com/collections/power-modules-pdbs)
 
 ## Supported Platforms / Airframes
 
@@ -230,8 +259,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
 - [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
-- [PM02D Power Module](../power_module/holybro_pm02d.md)
-- [PM03D Power Module](../power_module/holybro_pm03d.md)
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf).
 - [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
 - [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).

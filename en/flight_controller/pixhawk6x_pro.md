@@ -14,6 +14,27 @@ Contact the [manufacturer](https://holybro.com/) for hardware support or complia
 - High performance STM32H753 Processor
 - Ethernet interface for high-speed mission computer integration
 
+:::: tabs
+
+::: tab Pixhawk 6X Pro Standard v2A
+
+![Pixhawk 6X Pro Standard v2A](../../assets/flight_controller/pixhawk6x_pro/pixhawk6x_pro_v2a.webp)
+
+:::
+
+::: tab Pixhawk 6X Pro Standard v2B
+
+![Pixhawk 6X Pro Standard v2B](../../assets/flight_controller/pixhawk6x_pro/pixhawk6x_pro_v2b.webp)
+:::
+
+::: tab Pixhawk 6X Pro Mini
+
+![Pixhawk 6X Pro Mini](../../assets/flight_controller/pixhawk6x_pro/pixhawk6x_pro_mini.webp)
+:::
+
+::::
+
+
 ## Features
 - Triple redundant IMU & double redundant barometer on separate buses
 - Modular flight controller: separated IMU, FMU, and Base system
@@ -21,7 +42,7 @@ Contact the [manufacturer](https://holybro.com/) for hardware support or complia
 - Independent LDO powers every sensor set with independent power control.
 - Temperature-controlled IMU board, allowing optimum working temperature of IMUs
 
-### Processors & Sensors
+::: details Processors & Sensors
 - FMU Processor: STM32H753
    - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM
 - IO Processor: STM32F103
@@ -34,8 +55,9 @@ Contact the [manufacturer](https://holybro.com/) for hardware support or complia
 	- Barometer: BMP388
 	- Mag: BMM150
 
+:::
 
-### Electrical data
+::: details Electrical data
 - Voltage Ratings:
 	- Max input voltage: 6V
 	- USB Power Input: 4.75~5.25V
@@ -43,8 +65,9 @@ Contact the [manufacturer](https://holybro.com/) for hardware support or complia
 - Current Ratings:
 	- Telem1 output current limiter: 1.5A
 	- All other port combined output current limiter: 1.5A
+:::
 
-### Mechanical data
+::: details Mechanical data
 - Dimensions
 	- Flight Controller Module: 38.8 x 31.8 x 30.1mm
 	- Standard Baseboard: 52.4 x 103.4 x 16.7mm
@@ -53,8 +76,9 @@ Contact the [manufacturer](https://holybro.com/) for hardware support or complia
 	- Flight Controller Module: 50g
 	- Standard Baseboard: 51g
 	- Mini Baseboard: 26.5g
+:::
 
-### Interfaces
+::: details Interfaces
 - 16- PWM servo outputs
 - R/C input for Spektrum / DSM
 - Dedicated R/C input for PPM and S.Bus input
@@ -82,21 +106,30 @@ Contact the [manufacturer](https://holybro.com/) for hardware support or complia
 	- 2 additional analog input
 	- 1 PWM/Capture input
 	- 2 Dedicated debug and GPIO lines
+::: 
 
 ## Where to Buy
 Order from [Holybro](https://holybro.com/products/pixhawk-6x-pro).
 
 ## Assembly/Setup
-The [Pixhawk 6X Pro Wiring Quick Start](../assembly/quick_start_pixhawk6x_pro.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
+::: info
+Follows Pixhawk 6X wiring guide
+:::
+The [Pixhawk 6X Wiring Quick Start](../assembly/quick_start_pixhawk6x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
+
+
 
 ## Connections
 Sample Wiring Diagram
-![Pixhawk 6X Pro Wiring Overview](../../assets/flight_controller/pixhawk6x/pixhawk6x_pro_wiring_diagram.png)
-![Pixhawk 6X Pro VTOL Fixed wing Wiring Overview](../../assets/flight_controller/pixhawk6x/pixhawk6x_pro_wiring_diagram_vtol.webp)
+![Pixhawk 6X Pro Wiring Overview](../../assets/flight_controller/pixhawk6x_pro/pixhawk6x_pro_wiring_diagram.png)
+
+![Pixhawk 6X Pro VTOL Fixed wing Wiring Overview](../../assets/flight_controller/pixhawk6x_pro/pixhawk6x_pro_wiring_diagram_vtol.webp)
 
 ## Pinouts
 - [Holybro Pixhawk Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-baseboard-pinout)
 - [Holybro Pixhawk Mini-Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-mini-baseboard-pinout)
+- [Holybro Pixhawk Jetson Baseboard](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-jetson-baseboard)
+- [Holybro Pixhawk RPi CM4 Baseboard](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard)
 
 Notes:
 
@@ -185,9 +218,11 @@ For information about using this port see:
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
 ## Peripherals
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
 - [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
 - [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Holybro Sensors](https://holybro.com/collections/sensors)
+- [Holybro GPS & RTK Systems](https://holybro.com/collections/gps-rtk-systems)
+- [Power Modules & PDBs](https://holybro.com/collections/power-modules-pdbs)
 
 ## Supported Platforms/Airframes
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
@@ -199,9 +234,7 @@ Download [here](https://docs.holybro.com/autopilot/pixhawk-6x-pro/download).
 
 ## Further info
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Pixhawk 6X Pro Wiring QuickStart](../assembly/quick_start_pixhawk6x_pro.md)
-- [PM02D Power Module](../power_module/holybro_pm02d.md)
-- [PM03D Power Module](../power_module/holybro_pm03d.md)
+- [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf).
 - [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
 - [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).

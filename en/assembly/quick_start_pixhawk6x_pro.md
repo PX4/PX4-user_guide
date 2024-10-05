@@ -8,7 +8,7 @@ This quick start guide shows how to power the [Pixhawk 6X Pro<sup>&reg;</sup>](.
 
 ## Kit contents
 
-### Pixhawk 6X Standard set
+### Pixhawk 6X Pro Standard set
 
 
 ## Wiring Chart Overview
