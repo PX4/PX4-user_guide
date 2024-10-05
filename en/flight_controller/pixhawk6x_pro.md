@@ -1,4 +1,4 @@
-# Holybro Pixhawk 6x Pro
+# Holybro Pixhawk 6X Pro
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
