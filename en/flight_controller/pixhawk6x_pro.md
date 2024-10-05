@@ -174,7 +174,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 **Voltage monitoring**
 
-Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_pixhawk6x_pro.md#power)).
+Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_pixhawk6x.md#power)).
 
 ::: info
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
