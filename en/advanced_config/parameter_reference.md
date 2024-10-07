@@ -16337,6 +16337,14 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.5 |  |  | 5.0 | m/s 
 
+### EKF2_VEL_LIM (`FLOAT`) {#EKF2_VEL_LIM}
+
+Velocity limit.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  | 299792458 |  | 100 | m/s 
+
 ### EKF2_WIND_NSD (`FLOAT`) {#EKF2_WIND_NSD}
 
 Process noise spectral density for wind velocity prediction.
