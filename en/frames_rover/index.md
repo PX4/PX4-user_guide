@@ -18,7 +18,7 @@ PX4 supports the following rover types:
 
 The supported frames can be seen in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
 
-## Flashing the rover build
+## Flashing the Rover Build
 
 Rovers use a custom build that must be flashed onto your flight controller instead of the default PX4 build:
 

@@ -1,10 +1,18 @@
 # Configuration/Tuning (Ackermann Rover)
 
+This topic provides a step-by-step guide for setting up your [Ackermann rover](../frames_rover/ackermann.md).
+
+::: info
+Many features of this module are disabled by default, and are only enabled by setting certain parameters.
+The [Tuning (basic)](#tuning-basic) section goes through the minimum setup required to start driving missions and the [Tuning (advanced)](#tuning-advanced) section outlines the remaining features and tuning variables of the module.
+:::
+
 ## Basic Setup
 
-To start using the ackermann rover:
+To configure the ackermann rover frame and outputs:
 
-1. Enable the module by flashing the [PX4 rover build](../frames_rover/index.md#flashing-the-rover-build) onto your flight controller.
+1. Enable Rover support by flashing the [PX4 rover build](../frames_rover/index.md#flashing-the-rover-build) onto your flight controller.
+   Note that this is a special build that contains rover-specific modules.
 
 2. In the [Airframe](../config/airframe.md) configuration select the _Generic Rover Ackermann_:
 
@@ -23,12 +31,6 @@ To start using the ackermann rover:
 3. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
 
 This is sufficient to drive the the rover in [manual mode](../flight_modes_rover/ackermann.md#manual-mode) (see [Drive modes](../flight_modes_rover/ackermann.md)).
-
-::: info
-Many features of this module are disabled by default, and are only enabled by setting certain parameters.
-The [Tuning (basic)](#tuning-basic) section goes through the minimum setup required to start driving missions
-and the [Tuning (advanced)](#tuning-advanced) section outlines the remaining features and tuning variables of the module.
-:::
 
 ## Tuning (Basic)
 
@@ -52,7 +54,7 @@ To get an overview of all parameters that are related to the Ackermann rover mod
 ### General Parameters
 
 These parameters affect the general behaviour of the rover.
-his will influence both auto and manual modes.
+This will influence both auto and manual modes.
 
 | Parameter                                                                                       | Description                                | Unit |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------ | ---- |
@@ -152,7 +154,6 @@ To summarize, the following parameters can be used to tune the controller:
 | <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN) | Main tuning parameter                   | -    |
 | <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)    | Maximum value for the look ahead radius | m    |
 | <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)    | Minimum value for the look ahead radius | m    |
-
 
 ### Mission Cornering Logic (Info only)
 

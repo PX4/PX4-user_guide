@@ -1,18 +1,19 @@
 # Configuration/Tuning (Differential Rover)
 
-The following is intended as a step-by-step guide to set up your rover, each successive step will enable a [drive mode](../flight_modes_rover/differential.md) with more autopilot support and features.
+This topic provides a step-by-step guide for setting up your [Differential rover](../frames_rover/differential.md).
+Successive steps enable [drive modes](../flight_modes_rover/differential.md) with more autopilot support and features.
 
 ::: warning
-For a mode to work properly **all** previous/lower modes must already have been configured!
+Each step is dependent on the previous steps having been completed.
+Modes will only work properly if the preceding modes have been configured.
 :::
 
-For an explanation of the different modes see [Flight Modes (Differential Rover)](../flight_modes_rover/differential.md).
-
-## Manual Mode
+## Basic Setup
 
 To start using the differential rover:
 
-1. Enable the module by flashing the [PX4 rover build](../frames_rover/index.md#flashing-the-rover-build) onto your flight controller.
+1. Enable Rover support by flashing the [PX4 rover build](../frames_rover/index.md#flashing-the-rover-build) onto your flight controller.
+   Note that this is a special build that contains rover-specific modules.
 
 2. In the [Airframe](../config/airframe.md) configuration select _Generic Rover Differential_ frame:
 
@@ -24,12 +25,19 @@ To start using the differential rover:
    If this airframe does not show up in the UI, it can alternatively be selected by setting the [SYS_AUTOSTART](../advanced_config/parameter_reference.md#SYS_AUTOSTART) parameter to `50000`.
    :::
 
-3. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the motor functions to flight controller outputs.
+3. Use [Actuators Configuration & Testing](../config/actuators.md) to map the motor functions to flight controller outputs.
 
-This is already sufficient to drive the the rover in [Manual mode](../flight_modes_rover/differential.md#manual-mode).
+## Manual Mode
+
+The basic setup (above) is all that is required to use the rover in [Manual mode](../flight_modes_rover/differential.md#manual-mode).
 
 ::: info
-In manual mode the stick inputs are directly mapped to motor commands. Especially moving the stick that controls the yaw rate all the way to one side will cause the wheels on the left and right to spin at full speed in opposite directions. Depending on the rover this can lead to a very aggressive rotation. The parameter [RD_MAN_YAW_SCALE](#RD_MAN_YAW_SCALE) can be used to scale the manual input for the yaw rate. By reducing the parameter from the default value of 1 this behavior can be tuned. Note that this parameter only affects this mode, not any of the following ones.
+In manual mode the stick inputs are directly mapped to motor commands.
+Especially moving the stick that controls the yaw rate all the way to one side will cause the wheels on the left and right to spin at full speed in opposite directions.
+Depending on the rover this can lead to a very aggressive rotation.
+The parameter [RD_MAN_YAW_SCALE](#RD_MAN_YAW_SCALE) can be used to scale the manual input for the yaw rate.
+By reducing the parameter from the default value of 1 this behaviour can be tuned.
+Note that this parameter only affects this mode, not any of the following ones.
 :::
 
 ## Acro Mode
@@ -42,7 +50,7 @@ To set up [Acro mode](../flight_modes_rover/differential.md#acro-mode) navigate 
 
 2. [RD_MAX_YAW_RATE](#RD_MAX_YAW_RATE) [deg/s]: This is the maximum yaw rate you want to allow for your rover.
    This will define the stick-to-yaw-rate mapping for all manual modes using closed loop yaw control and set an upper limit for the yaw rate setpoint for all [auto modes](#auto-modes).
-3. [RD_MAX_THR_YAW_R](#RD_MAX_YAW_RATE) [m/s]: This parameter is used to calculate the feedforward term of the closed loop yaw rate control.
+3. [RD_MAX_THR_YAW_R](#RD_MAX_YAW_RATE) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop yaw rate control.
    The controller calculates the required speed difference between the left and right motor to achieve the desired yaw rate.
    This desired speed difference is then linearly mapped to normalized motor commands.
    To get a good starting value for this parameter drive the rover in manual mode forwards at full throttle and note the ground speed of the vehicle.
@@ -59,7 +67,7 @@ To set up [Acro mode](../flight_modes_rover/differential.md#acro-mode) navigate 
    :::
 
 4. [RD_YAW_RATE_P](#RD_YAW_RATE_P) [-]: Proportional gain of the closed loop yaw rate controller.
-   Unlike the feed forward part of the controller, the closed loop yaw rate control will compare the yaw rate setpoint with the measured yaw rate and adapt to motor commands based on the error between them.
+   Unlike the feed-forward part of the controller, the closed loop yaw rate control will compare the yaw rate setpoint with the measured yaw rate and adapt to motor commands based on the error between them.
    The proportional gain is multiplied with this error and that value is added to the motor command.
    This way disturbances like uneven grounds or external forces can be compensated.
 
@@ -81,14 +89,14 @@ The rover is now ready to drive in [Acro mode](../flight_modes_rover/differentia
 ## Stabilized Mode
 
 ::: warning
-For this mode to work properly [acro mode](#acro-mode) must've already been configured!
+For this mode to work properly [Acro mode](#acro-mode) must've already been configured!
 :::
 
 For [Stabilized mode](../flight_modes_rover/differential.md#stabilized-mode) the controller utilizes a closed loop yaw controller, which creates a yaw rate setpoint to control the yaw when it is active:
 
 ![Cascaded PID for yaw control](../../assets/airframes/rover/rover_differential/cascaded_pid_for_yaw.png)
 
-Unlike the closed loop yaw rate, this controller has no feed forward term.
+Unlike the closed loop yaw rate, this controller has no feed-forward term.
 Therefore you only need to tune the closed loop gains:
 
 1. [RD_YAW_P](#RD_YAW_P) [-]: Proportional gain for the closed loop yaw controller.
@@ -122,7 +130,7 @@ To configure set the following parameters:
 
 1. [RD_MAX_SPEED](#RD_MAX_SPEED) [m/s]: This is the maximum speed you want to allow for your rover.
    This will define the stick-to-speed mapping for position mode and set an upper limit for the speed setpoint for all [auto modes](#auto-modes).
-2. [RD_MAX_THR_SPD](#RD_MAX_SPEED) [m/s]: This parameter is used to calculate the feedforward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
+2. [RD_MAX_THR_SPD](#RD_MAX_SPEED) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
    A good starting point is the observed ground speed when the rover drives at maximum throttle in [Manual mode](../flight_modes_rover/differential.md#manual-mode).
    Increase this parameter if the rover is faster than the setpoint, and decrease if the rover is slower.
 
@@ -158,7 +166,8 @@ To configure set the following parameters:
    This parameter determines how aggressive the controller will steer towards the path.
 
    ::: tip
-   Decreasing the parameter makes it more aggressive but can lead to oscillations. Start with a value of 1 for [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN), put the rover in [Position mode](../flight_modes_rover/differential.md#position-mode) and while driving a straight line at approximately half the maximum speed observe its behaviour.
+   Decreasing the parameter makes it more aggressive but can lead to oscillations.
+   Start with a value of 1 for [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN), put the rover in [Position mode](../flight_modes_rover/differential.md#position-mode) and while driving a straight line at approximately half the maximum speed observe its behaviour.
    If the rover does not drive in a straight line, reduce the value of the parameter, if it oscillates around the path increase the value.
    Repeat until you are satisfied with the behaviour.
    :::
@@ -238,7 +247,8 @@ If you are unsatisfied with the path following, there are 3 steps to take:
 ## Pure Pursuit Guidance Logic
 
 The desired yaw setpoints are generated using a pure pursuit algorithm:
-The controller takes the intersection point between a circle around the vehicle and a line segment. In mission mode this line is usually constructed by connecting the previous and current waypoint:
+The controller takes the intersection point between a circle around the vehicle and a line segment.
+In mission mode this line is usually constructed by connecting the previous and current waypoint:
 
 ![Pure Pursuit Algorithm](../../assets/airframes/rover/flight_modes/pure_pursuit_algorithm.png)
 
@@ -289,3 +299,7 @@ List of all parameters of the differential rover module:
 | <a id="RD_MAX_JERK"></a>[RD_MAX_JERK](../advanced_config/parameter_reference.md#RD_MAX_JERK)                | Maximum jerk for the rover                                             | $m/s^3$ |
 | <a id="RD_TRANS_DRV_TRN"></a>[RD_TRANS_DRV_TRN](../advanced_config/parameter_reference.md#RD_TRANS_DRV_TRN) | Heading error threshold to switch from driving to spot turning         | deg     |
 | <a id="RD_TRANS_TRN_DRV"></a>[RD_TRANS_TRN_DRV](../advanced_config/parameter_reference.md#RD_TRANS_TRN_DRV) | Heading error threshold to switch from spot turning to driving         | deg     |
+
+## See Also
+
+- [Drive Modes (Differential Rover)](../flight_modes_rover/differential.md).
