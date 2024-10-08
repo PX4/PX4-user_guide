@@ -37,7 +37,7 @@ The user is responsible for making the necessary adjustments to the stick inputs
 ## Auto Modes
 
 In auto modes the autopilot takes over control of the vehicle to run missions, return to launch, or perform other autonomous navigation tasks.  
-For the tuning process see the configuration for [Auto modes](../config_rover/ackermann.md#auto-modes).
+For the tuning process see the configuration for [Auto modes](../config_rover/ackermann.md#mission-parameters).
 
 ### Mission Mode
 
@@ -70,5 +70,5 @@ The following commands can be used in missions at time of writing (`main(PX4 v1.
 
 ### Return Mode
 
-This mode uses the [pure pursuit guidance logic](#pure-pursuit-guidance-logic) with the launch position as goal.
+This mode uses the [pure pursuit guidance logic](../config_rover/ackermann.md#pure-pursuit-guidance-logic) with the launch position as goal.
 Return mode can be activated through the respective [mission command](#mission-commands) or through the ground station UI.

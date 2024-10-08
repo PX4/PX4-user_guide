@@ -1,6 +1,6 @@
 # Configuration/Tuning
 
-The following is intended as a step-by-step guide to set up your rover, each successive step will enable a [drive mode](../flight_modes_rover/index.md) with more autopilot support and features.
+The following is intended as a step-by-step guide to set up your rover, each successive step will enable a [drive mode](../flight_modes_rover/differential.md) with more autopilot support and features.
 
 ::: warning
 For a mode to work properly **all** previous/lower modes must already have been configured!
@@ -154,7 +154,7 @@ To configure set the following parameters:
    For the closed loop speed control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint.
    :::
 
-5. [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN): When driving in a straight line (no yaw rate input) position mode leverages the same path following algorithm used in [auto modes](#auto-modes) called [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic) to achieve the best possible straight line driving behaviour ([Illustration of control architecture](#pure_pursuit_controller)).
+5. [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN): When driving in a straight line (no yaw rate input) position mode leverages the same path following algorithm used in [auto modes](#auto-modes) called [pure pursuit](../flight_modes_rover/differential.md#pure-pursuit-guidance-logic) to achieve the best possible straight line driving behaviour ([Illustration of control architecture](#pure_pursuit_controller)).
    This parameter determines how aggressive the controller will steer towards the path.
 
    ::: tip
@@ -163,13 +163,13 @@ To configure set the following parameters:
    Repeat until you are satisfied with the behaviour.
    :::
 
-6. [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN): Minimum threshold for the lookahead distance used by the [pure pursuit algorithm](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic).
+6. [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN): Minimum threshold for the lookahead distance used by the [pure pursuit algorithm](../flight_modes_rover/differential.md#pure-pursuit-guidance-logic).
 
    ::: tip
    Put the rover in [Position mode](../flight_modes_rover/differential.md#position-mode) and drive at very low speeds, if the rover starts to oscillate even though the tuning of [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN) was good for medium speeds, then increase the value of [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN).
    :::
 
-7. [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX): Maximum threshold for the lookahead distance used by [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic).
+7. [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX): Maximum threshold for the lookahead distance used by [pure pursuit](../flight_modes_rover/differential.md#pure-pursuit-guidance-logic).
 
    ::: tip
    Put the rover in [Position mode](../flight_modes_rover/differential.md#position-mode) and drive at very high speeds, if the rover does not drive in a straight line even though the tuning of [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN) was good for medium speeds, then decrease the value of [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX).
@@ -184,7 +184,7 @@ For this mode to work properly [Acro mode](#acro-mode), [Stabilized mode](#stabi
 :::
 
 <a id="pure_pursuit_controller"></a>
-In [auto modes](../flight_modes_rover/auto.md#auto-modes-rover) the autopilot takes over navigation tasks using the following control architecture:
+In [auto modes](../flight_modes_rover/differential.md#auto-modes-rover) the autopilot takes over navigation tasks using the following control architecture:
 
 ![Pure Pursuit Controller](../../assets/airframes/rover/rover_differential/pure_pursuit_controller.png)
 
@@ -224,7 +224,7 @@ These transition thresholds can be set with [RD_TRANS_DRV_TRN](#RD_TRANS_DRV_TRN
 
 ### Path Following
 
-The [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic) algorithm is used to calculate a desired yaw for the vehicle that is then close loop controlled.
+The [pure pursuit](../flight_modes_rover/differential.md#pure-pursuit-guidance-logic) algorithm is used to calculate a desired yaw for the vehicle that is then close loop controlled.
 The close loop yaw rate was tuned in the configuration of the [Stabilized mode](#stabilized-mode) and the pure pursuit was tuned when setting up the [Position mode](#position-mode).
 During any auto navigation task observe the behaviour of the rover.
 If you are unsatisfied with the path following, there are 3 steps to take:
@@ -233,7 +233,7 @@ If you are unsatisfied with the path following, there are 3 steps to take:
    If the tracking of these setpoints is not satisfactory adjust the values for [RD_YAW_RATE_P](#RD_YAW_RATE_P) and [RD_YAW_RATE_I](#RD_YAW_RATE_I).
 2. Plot the _yaw_setpoint_ from the [RoverDifferentialSetpoint](../msg_docs/RoverDifferentialSetpoint.md) message and the _actual_yaw_ from the [RoverDifferentialStatus](../msg_docs/RoverDifferentialStatus.md) message over each other.
    If the tracking of these setpoints is not satisfactory adjust the values for [RD_YAW_P](#RD_YAW_P) and [RD_YAW_I](#RD_YAW_P).
-3. Steps 1 and 2 ensure accurate setpoint tracking, if the path following is still unsatisfactory you need to further tune the [pure pursuit](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic) parameters.
+3. Steps 1 and 2 ensure accurate setpoint tracking, if the path following is still unsatisfactory you need to further tune the [pure pursuit](../flight_modes_rover/differential.md#pure-pursuit-guidance-logic) parameters.
 
 ## Pure Pursuit Guidance Logic
 
