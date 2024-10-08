@@ -1,4 +1,4 @@
-# Configuration/Tuning
+# Configuration/Tuning (Differential Rover)
 
 The following is intended as a step-by-step guide to set up your rover, each successive step will enable a [drive mode](../flight_modes_rover/differential.md) with more autopilot support and features.
 
