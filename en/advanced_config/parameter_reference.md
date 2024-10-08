@@ -13624,11 +13624,11 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Minimum battery level for arming.
 
-Additional battery level check that only allows arming if the state of charge of the emptiest connected battery is above this value. A value of 0 disables the check.
+Threshold for battery percentage below arming is prohibited. A negative value means BAT_CRIT_THR is the threshold.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 0.9 | 0.01 | 0. | norm 
+&nbsp; | -1 | 0.9 | 0.01 | -1. | norm 
 
 ### COM_ARM_CHK_ESCS (`INT32`) {#COM_ARM_CHK_ESCS}
 
