@@ -10,7 +10,6 @@ See below for instructions on how to do that.
 :::
 
 The default encryption algorithm used is XChaCha20, and the default wrapping algorithm used is RSA2048-OAEP.
-AES is also supported.
 The encryption algorithm used can be changed by modifying [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALGORITHM).
 
 ## How ULog Encryption Works
