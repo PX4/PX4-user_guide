@@ -120,7 +120,7 @@ make px4_sitl gz_standard_vtol
 
 ### Differential Rover
 
-[Differential-steering Rover](../frames_rover/differential_rover.md) uses the [rover world](../sim_gazebo_gz/worlds.md#rover) by default.
+[Differential Rover](../frames_rover/differential.md) uses the [rover world](../sim_gazebo_gz/worlds.md#rover) by default.
 
 ```sh
 make px4_sitl gz_r1_rover
@@ -130,7 +130,7 @@ make px4_sitl gz_r1_rover
 
 ### Ackermann Rover
 
-[Ackermann Rover](../frames_rover/ackermann_rover.md) uses the [rover world](../sim_gazebo_gz/worlds.md#rover) by default.
+[Ackermann Rover](../frames_rover/ackermann.md) uses the [rover world](../sim_gazebo_gz/worlds.md#rover) by default.
 
 ```sh
 make px4_sitl gz_rover_ackermann

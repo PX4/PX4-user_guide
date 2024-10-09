@@ -1,21 +1,18 @@
-# Ackermann Rover
+# Configuration/Tuning (Ackermann Rover)
 
-<Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="warning" text="Experimental" />
-
-An _Ackermann rover_ controls its direction by pointing the front wheels in the direction of travel — the [Ackermann steering geometry](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) compensates for the fact that wheels on the inside and outside of the turn move at different rates.
-This kind of steering is used on most commercial vehicles, including cars, trucks etc.
-
-![Axial Trail Honcho](../../assets/airframes/rover/rover_ackermann/axial_trail_honcho.png)
+This topic provides a step-by-step guide for setting up your [Ackermann rover](../frames_rover/ackermann.md).
 
 ::: info
-PX4 does not require that the vehicle uses the Ackermann geometry and will work with any front-steering rover.
+Many features of this module are disabled by default, and are only enabled by setting certain parameters.
+The [Tuning (basic)](#tuning-basic) section goes through the minimum setup required to start driving missions and the [Tuning (advanced)](#tuning-advanced) section outlines the remaining features and tuning variables of the module.
 :::
 
 ## Basic Setup
 
-To start using the ackermann rover:
+To configure the Ackermann rover frame and outputs:
 
-1. Enable the module by flashing the [PX4 rover build](../frames_rover/index.md#flashing-the-rover-build) onto your flight controller.
+1. Enable Rover support by flashing the [PX4 rover build](../frames_rover/index.md#flashing-the-rover-build) onto your flight controller.
+   Note that this is a special build that contains rover-specific modules.
 
 2. In the [Airframe](../config/airframe.md) configuration select the _Generic Rover Ackermann_:
 
@@ -33,13 +30,7 @@ To start using the ackermann rover:
 
 3. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
 
-This is sufficient to drive the the rover in [manual mode](../flight_modes_rover/index.md#manual-mode) (see [Drive modes](../flight_modes_rover/index.md)).
-
-::: info
-Many features of this module are disabled by default, and are only enabled by setting certain parameters.
-The [Tuning (basic)](#tuning-basic) section goes through the minimum setup required to start driving missions
-and the [Tuning (advanced)](#tuning-advanced) section outlines the remaining features and tuning variables of the module.
-:::
+This is sufficient to drive the the rover in [manual mode](../flight_modes_rover/ackermann.md#manual-mode) (see [Drive modes](../flight_modes_rover/ackermann.md)).
 
 ## Tuning (Basic)
 
@@ -62,7 +53,8 @@ To get an overview of all parameters that are related to the Ackermann rover mod
 
 ### General Parameters
 
-These parameters affect the general behaviour of the rover. This will influence both auto and manual modes.
+These parameters affect the general behaviour of the rover.
+This will influence both auto and manual modes.
 
 | Parameter                                                                                       | Description                                | Unit |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------ | ---- |
@@ -86,13 +78,13 @@ Therefore these two parameters have to be set for the slew rates to work!
 
 ## Mission Parameters
 
-These parameters only affect vehicle in [Mission Mode](../flight_modes_rover/index.md#mission-mode).
+These parameters only affect vehicle in [Mission Mode](../flight_modes_rover/ackermann.md#mission-mode).
 
 :::warning
 The parameters in [Tuning (basic)](#tuning-basic) must also be set to drive missions!
 :::
 
-The module uses a control algorithm called pure pursuit, see [Pure Pursuit Guidance Logic](../flight_modes_rover/index.md#pure-pursuit-guidance-logic) for the basic tuning process.
+The module uses a control algorithm called pure pursuit, see [Pure Pursuit Guidance Logic](#pure-pursuit-guidance-logic) for the basic tuning process.
 
 :::info
 Increasing [PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN) can help to make the steering less aggressive at slow speeds.
@@ -134,6 +126,34 @@ The mission speed is constrained between a minimum allowed speed [RA_MISS_VEL_MI
 | <a id="RA_MISS_VEL_MIN"></a>[RA_MISS_VEL_MIN](../advanced_config/parameter_reference.md#RA_MISS_VEL_MIN)    | Minimum the speed can be reduced to during cornering | $m/s$   |
 | <a id="RA_MISS_VEL_GAIN"></a>[RA_MISS_VEL_GAIN](../advanced_config/parameter_reference.md#RA_MISS_VEL_GAIN) | Tuning parameter for the velocity reduction          | -       |
 | <a id="RA_MAX_JERK"></a>[RA_MAX_JERK](../advanced_config/parameter_reference.md#RA_MAX_JERK)                | Limit for forwards acc/deceleration change.          | $m/s^3$ |
+
+### Pure Pursuit Guidance Logic
+
+The desired yaw setpoints are generated using a pure pursuit algorithm:
+The controller takes the intersection point between a circle around the vehicle and a line segment. In mission mode this line is usually constructed by connecting the previous and current waypoint:
+
+![Pure Pursuit Algorithm](../../assets/airframes/rover/flight_modes/pure_pursuit_algorithm.png)
+
+The radius of the circle around the vehicle is used to tune the controller and is often referred to as look-ahead distance.
+
+The look ahead distance sets how aggressive the controller behaves and is defined as $l_d = v \cdot k$.
+It depends on the velocity $v$ of the rover and a tuning parameter $k$ that can be set with the parameter [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN).
+
+::: info
+A lower value of [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN) makes the controller more aggressive but can lead to oscillations!
+:::
+
+The lookahead is constrained between [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX) and [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN).
+
+If the distance from the path to the rover is bigger than the lookahead distance, the rover will target the point on the path that is closest to the rover.
+
+To summarize, the following parameters can be used to tune the controller:
+
+| Parameter                                                                                                | Description                             | Unit |
+| -------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---- |
+| <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN) | Main tuning parameter                   | -    |
+| <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)    | Maximum value for the look ahead radius | m    |
+| <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)    | Minimum value for the look ahead radius | m    |
 
 ### Mission Cornering Logic (Info only)
 

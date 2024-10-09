@@ -11,14 +11,14 @@ Maintainer volunteers, [contribution](../contribute/index.md) of new features, n
 
 PX4 supports the following rover types:
 
-- [**Differential steering**](../frames_rover/differential_rover.md): direction is controlled by moving the left- and right-side wheels at different speeds (also know as skid or tank steering).
+- [**Differential steering**](../frames_rover/differential.md): direction is controlled by moving the left- and right-side wheels at different speeds (also know as skid or tank steering).
   This kind of steering is commonly used on bulldozers, tanks, and other tracked vehicles.
-- [**Ackermann steering**](../frames_rover/ackermann_rover.md): direction is controlled by pointing wheels in the direction of travel.
+- [**Ackermann steering**](../frames_rover/ackermann.md): direction is controlled by pointing wheels in the direction of travel.
   This kind of steering is used on most commercial vehicles, including cars, trucks etc.
 
-The supported flight modes can be seen in [Flight modes](../flight_modes_rover/index.md#) and the supported frames in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
+The supported frames can be seen in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
 
-## Flashing the rover build
+## Flashing the Rover Build
 
 Rovers use a custom build that must be flashed onto your flight controller instead of the default PX4 build:
 
@@ -48,7 +48,7 @@ Rovers use a custom build that must be flashed onto your flight controller inste
 
 [Gazebo](../sim_gazebo_gz/index.md) provides simulations for both types of steering:
 
-- [Differential-steering rover](../sim_gazebo_gz/vehicles.md#differential-rover)
+- [Differential rover](../sim_gazebo_gz/vehicles.md#differential-rover)
 - [Ackermann rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)
 
 ![Rover gazebo simulation](../../assets/airframes/rover/rover_simulation.png)
