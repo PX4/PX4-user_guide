@@ -1,16 +1,18 @@
 # Log Encryption
 
-The [system logger](../modules/modules_system.md#logger) is able to provide encrypted logs which can be decrypted manually before analysis.
-Currently, to have the logger create encrypted logs, you will need to flash firmware on your flight controller with this functionality supported.
+The [System Logger](../modules/modules_system.md#logger) can be used to create encrypted logs, which may then be decrypted manually before analysis.
 
-::: info
-Currently, the only build that has log encryption enabled by default is `px4-fmu-v5_cryptotest`.
-If you wish to add it to other flight controllers, it will require you to modify the build to enable this feature.
-See below for instructions on how to do that.
+The encryption algorithm used is XChaCha20, and the default wrapping algorithm used is RSA2048-OAEP.
+
+::: warning
+Log encryption is not enabled by default in PX4 firmware builds.
+To use it you will need to build firmware with this feature enabled and then upload it to the flight controller (see instructions below).
 :::
 
-The default encryption algorithm used is XChaCha20, and the default wrapping algorithm used is RSA2048-OAEP.
+::: info
 The encryption algorithm used can be changed by modifying [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALGORITHM).
+However at time of writing, only XChaCha20 can actually be used (AES can be selected, but there is no implementation).
+:::
 
 ## How ULog Encryption Works
 
@@ -26,17 +28,17 @@ While the ULog file is written to disk:
 After the flight, there are two files:
 
 - `.ulogc` (ulog cipher): the actual log file data, encrypted
-
 - `.ulogk` (ulog wrapped key): the symmetric key, wrapped with rsa
 
 However, these files will both have the normal `.ulg` suffix if downloading from QGroundControl.
 
 ## Creating a Flight Controller Build that contains Log Encryption
 
-The existing implementation in px4-fmu-v5 is a great example of how to add log encryption functionality into your build.
+Crypto uses large amounts of flash memory, and is therefore not included in PX4 builds by default (the exception is the make target `px4-fmu-v5_cryptotest`).
+Below we show how to add log encryption functionality to a flight controller target, using the `px4-fmu-v5` board as an example.
 
 Reference the `cryptotest.px4board` file in `boards/px4/fmu-v5` for the arguments you will need to add to the `.px4board` file associated with the flight controller you are targeting.
-You could also copy and paste `cryptotest.px4board` to the other flight controller's `boards/` location if you want this to be a separate build entirely (in that case, your make command would include \_cryptotest at the end to add log encryption).
+You could also copy and paste `cryptotest.px4board` to the other flight controller's `boards/` location if you want this to be a separate build entirely (in that case, your `make` command would include `_cryptotest` at the end to add log encryption).
 
 ### Crypto .px4board arguments
 
@@ -49,25 +51,25 @@ You could also copy and paste `cryptotest.px4board` to the other flight controll
 | CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1.<br />= `{path to key1}`                                                               |
 
 ::: warning
-Crypto uses a lot of flash memory.
-Plenty of builds are close to their maximum capacity of flash memory.
-If you run into a build error telling you that you have gone above the maximum flash memory, you will need to disable other options in the `.px4board` file you are working on, or the `default.px4board` file.
+Crypto uses a lot of flash memory, and many builds are close to their maximum capacity.
+If you run into a build error telling you that you have gone above the maximum flash memory, you will need to disable other features in the `.px4board` file you are working on, or in the `default.px4board` file.
 Be careful not to disable something you need.
 
-As an example, you could disable SIH mode by setting CONFIG_MODULES_SIMULATION_SIMULATOR_SIH=n which could free up enough flash memory to allow crypto to be added.
+As an example, you could disable SIH mode by setting `CONFIG_MODULES_SIMULATION_SIMULATOR_SIH=n` which could free up enough flash memory to allow crypto to be added.
 :::
 
-## Adding log encryption to nuttX config
+## Adding Log Encryption to NuttX Config
 
 If the flight controller you are working with does not already have certain encryption settings enabled in the nuttX config, you will need to add them.
+This is done using the `kconfig` tool, which is described in [PX4 Board Configuration (Kconfig)](../hardware/porting_guide_config.md).
 
-If you haven't used kconfig before, you will need to add these dependencies
+To use Kconfig you will need to add these dependencies
 
 ```sh
 sudo apt-get install libncurses-dev flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf
 ```
 
-Now, in PX4, run the normal make command you would use to build the board you are targeting, but add "menuconfig" at the end of it.
+Now, in PX4, run the normal `make` command you would use to build the board you are targeting, but add "menuconfig" at the end of it.
 As an example:
 
 ```sh
