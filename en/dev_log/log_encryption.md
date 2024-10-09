@@ -1,56 +1,66 @@
 # Log Encryption
 
-The [system logger](../modules/modules_system.md#logger) is able to provide encrypted logs which can be decrypted manually before analysis. Currently, to have the logger create encrypted logs, you will need to flash firmware on your flight controller with this functionality supported. 
+The [system logger](../modules/modules_system.md#logger) is able to provide encrypted logs which can be decrypted manually before analysis.
+Currently, to have the logger create encrypted logs, you will need to flash firmware on your flight controller with this functionality supported.
 
 ::: info
-Currently, the only build that has log encryption enabled by default is `px4-fmu-v5_cryptotest`. If you wish to add it to other flight controllers, it will require you to modify the build to enable this feature. See below for instructions on how to do that.
+Currently, the only build that has log encryption enabled by default is `px4-fmu-v5_cryptotest`.
+If you wish to add it to other flight controllers, it will require you to modify the build to enable this feature.
+See below for instructions on how to do that.
 :::
 
-The default encryption algorithm used is XChaCha20, and the default wrapping algorithm used is RSA2048-OAEP. AES is also supported. The encryption algorithm used can be changed by modifying [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALGORITHM).
+The default encryption algorithm used is XChaCha20, and the default wrapping algorithm used is RSA2048-OAEP.
+AES is also supported.
+The encryption algorithm used can be changed by modifying [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALGORITHM).
 
 ## How ULog Encryption Works
 
 When the ULog file is first opened:
+
 - If [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALGORITHM) is set to default, a symmetric XChaCha20 key is generated and wrapped (encrypted) with RSA2048 public key encryption
 - This wrapped key is stored on the SD Card with the ".ulgk" suffix.
 
-
-
 While the ULog file is written to disk:
+
 - The generated (plaintext) key is used to encrypt the data blocks right before writing to disk.
 
 After the flight, there are two files:
- - `.ulogc` (ulog cipher): the actual log file data, encrypted
 
- - `.ulogk` (ulog wrapped key): the symmetric key, wrapped with rsa
+- `.ulogc` (ulog cipher): the actual log file data, encrypted
+
+- `.ulogk` (ulog wrapped key): the symmetric key, wrapped with rsa
 
 However, these files will both have the normal `.ulg` suffix if downloading from QGroundControl.
 
 ## Creating a Flight Controller Build that contains Log Encryption
 
-The existing implementation in px4-fmu-v5 is a great example of how to add log encryption functionality into your build. 
+The existing implementation in px4-fmu-v5 is a great example of how to add log encryption functionality into your build.
 
-Reference the `cryptotest.px4board` file in `boards/px4/fmu-v5` for the arguments you will need to add to the `.px4board` file associated with the flight controller you are targeting. You could also copy and paste `cryptotest.px4board` to the other flight controller's `boards/` location if you want this to be a seperate build entirely (in that case, your make command would include _cryptotest at the end to add log encryption).
+Reference the `cryptotest.px4board` file in `boards/px4/fmu-v5` for the arguments you will need to add to the `.px4board` file associated with the flight controller you are targeting.
+You could also copy and paste `cryptotest.px4board` to the other flight controller's `boards/` location if you want this to be a separate build entirely (in that case, your make command would include \_cryptotest at the end to add log encryption).
 
 ### Crypto .px4board arguments
 
-| Argument                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CONFIG_BOARD_CRYPTO      | Requirement for log encryption functionality to be enabled.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption.<br /> |
-| CONFIG_DRIVERS_SW_CRYPTO     | Enables the built-in PX4 crypto backend library to handle logfile encryption.<br />= `y`: Enable<br />= `n`: Disable<br /> |
-| CONFIG_DRIVERS_STUB_KEYSTORE     | Enables the built-in PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable<br /> |
-| CONFIG_PUBLIC_KEY0     | Location of public key for keystore index 0.<br />= `{path to key0}`<br /> |
-| CONFIG_PUBLIC_KEY1     | Location of public key for keystore index 1.<br />= `{path to key1}`<br /> |
+| Argument                     | Description                                                                                                                        |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| CONFIG_BOARD_CRYPTO          | Requirement for log encryption functionality to be enabled.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption. |
+| CONFIG_DRIVERS_SW_CRYPTO     | Enables the built-in PX4 crypto backend library to handle logfile encryption.<br />= `y`: Enable<br />= `n`: Disable               |
+| CONFIG_DRIVERS_STUB_KEYSTORE | Enables the built-in PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable                                              |
+| CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0.<br />= `{path to key0}`                                                               |
+| CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1.<br />= `{path to key1}`                                                               |
 
 ::: warning
-Crypto uses a lot of flash memory. Plenty of builds are close to their maximum capacity of flash memory. If you run into a build error telling you that you have gone above the maximum flash memory, you will need to disable other options in the .px4board file you are working on, or the default.px4board file. Be careful not to disable something you need.
+Crypto uses a lot of flash memory.
+Plenty of builds are close to their maximum capacity of flash memory.
+If you run into a build error telling you that you have gone above the maximum flash memory, you will need to disable other options in the `.px4board` file you are working on, or the `default.px4board` file.
+Be careful not to disable something you need.
 
 As an example, you could disable SIH mode by setting CONFIG_MODULES_SIMULATION_SIMULATOR_SIH=n which could free up enough flash memory to allow crypto to be added.
 :::
 
 ## Adding log encryption to nuttX config
 
-If the flight controller you are working with does not already have certain encryption setttings enabled in the nuttX config, you will need to add them. 
+If the flight controller you are working with does not already have certain encryption settings enabled in the nuttX config, you will need to add them.
 
 If you haven't used kconfig before, you will need to add these dependencies
 
@@ -58,7 +68,9 @@ If you haven't used kconfig before, you will need to add these dependencies
 sudo apt-get install libncurses-dev flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf
 ```
 
-Now, in PX4, run the normal make command you would use to build the board you are targeting, but add "menuconfig" at the end of it. As an example:
+Now, in PX4, run the normal make command you would use to build the board you are targeting, but add "menuconfig" at the end of it.
+As an example:
+
 ```sh
 make px4_fmu-v5_cryptotest menuconfig
 ```
@@ -75,21 +87,23 @@ Check "Crypto API Support", "Blake2s hash algorithm", "Entropy pool and strong r
 Some of these options can be tweaked if desired.
 :::
 
-
-After enabling encryption settings in kconfig, you may now build and test. 
+After enabling encryption settings in kconfig, you may now build and test.
 
 ## Download Encrypted Log Files From QGroundControl
 
 ::: info
-When you download log files off of QGroundControl, both the encrypted log and the symmetric key will have the ".ulg" suffix. You can tell which one is the symmetric key by the file size. The symmetric key is normally pretty small (around 300 bytes).
+When you download log files off of QGroundControl, both the encrypted log and the symmetric key will have the ".ulg" suffix.
+You can tell which one is the symmetric key by the file size.
+The symmetric key is normally pretty small (around 300 bytes).
 :::
 
-The process for downloading log files is the same, except you will download two seperate files per log. Each time you fly, a log file, and a symmetric key are generated. The only way to tell them apart is by file size.
+The process for downloading log files is the same, except you will download two separate files per log.
+Each time you fly, a log file, and a symmetric key are generated.
+The only way to tell them apart is by file size.
 
+As normal, go to **Analyze Tools -> Log Download** and select the log you wish to download.
 
-As normal, go to "Analyze Tools" -> "Log Download" and select the log you wish to download. 
-
-Make sure to download both the encrypted log and symmetric key that were generated. 
+Make sure to download both the encrypted log and symmetric key that were generated.
 
 ![QGroundControl ULog Download](../../assets/qgc/analyze/encrypted_log.png)
 
@@ -97,9 +111,11 @@ This photo shows both a generated symmetric key and the associated encrypted ULo
 
 ### Decrypt ULogs
 
-Before you can analyze your encrypted logs, you will need to decrypt them. There is a Python script that can be used to decrypt logs in Tools/decrypt_ulog.py.
+Before you can analyze your encrypted logs, you will need to decrypt them.
+There is a Python script that can be used to decrypt logs in Tools/decrypt_ulog.py.
 
-decrypt_ulog.py takes 3 arguments: 
+decrypt_ulog.py takes 3 arguments:
+
 1. The encrypted `.ulogc` file.
 2. The symmetric key `.ulogk` file.
 3. The decryption key (the RSA2048 `.pem` private key which is used to unwrap the `.ulogk` file).
@@ -120,6 +136,7 @@ optional arguments:
 ```
 
 As an example:
+
 ```sh
 python3 decrypt_ulog.py \
 /home/john/Downloads/log_24_2024-10-6-23-39-50.ulg \
@@ -127,7 +144,8 @@ python3 decrypt_ulog.py \
 new_keys/private_key.pem
 ```
 
-There will be no printed output on a successful decryption, and a new file is created with the ".ul" suffix instead of ".ulg". Rename this back to a .ulg file and it is now ready for flight review!
+There will be no printed output on a successful decryption, and a new file is created with the ".ul" suffix instead of ".ulg".
+Rename this back to a .ulg file and it is now ready for flight review!
 
 ### Generate Your Own Keys
 
@@ -136,10 +154,10 @@ In a production environment, you should your own generated keys rather than usin
 - To generate the key0 public key, you can run the `Tools/cryptotools.py` python program.
 
 As an example, this generates a file called new.pub and a new.json file in Tools/test_keys:
+
 ```sh
 python3 Tools/cryptotools.py  --genkey Tools/test_keys/new
 ```
-
 
 - To generate a rsa2048 private and public key, you can use openssl
 
@@ -148,6 +166,7 @@ openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:204
 ```
 
 Then, you can create a public key from this private key,
+
 ```sh
 # Convert private_key.pem to a DER file
 openssl rsa -pubout -in private_key.pem -outform DER -out public_key.der
@@ -155,11 +174,5 @@ openssl rsa -pubout -in private_key.pem -outform DER -out public_key.der
 xxd -p public_key.der | tr -d '\n' | sed 's/\(..\)/0x\1, /g' > public_key.pub
 ```
 
-Now, you would modify your `.px4board` file to point CONFIG_PUBLIC_KEY0 to the path of `new.pub` that was generated via `cryptotools.py`, and set CONFIG_PUBLIC_KEY1 to `rsa2048.pub`. The private key generated can be used in the decryption environment. 
-
-
-
-
-
-
-
+Now, you would modify your `.px4board` file to point CONFIG_PUBLIC_KEY0 to the path of `new.pub` that was generated via `cryptotools.py`, and set CONFIG_PUBLIC_KEY1 to `rsa2048.pub`.
+The private key generated can be used in the decryption environment.
