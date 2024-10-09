@@ -9,7 +9,7 @@ The [Tuning (basic)](#tuning-basic) section goes through the minimum setup requi
 
 ## Basic Setup
 
-To configure the ackermann rover frame and outputs:
+To configure the Ackermann rover frame and outputs:
 
 1. Enable Rover support by flashing the [PX4 rover build](../frames_rover/index.md#flashing-the-rover-build) onto your flight controller.
    Note that this is a special build that contains rover-specific modules.
@@ -84,7 +84,7 @@ These parameters only affect vehicle in [Mission Mode](../flight_modes_rover/ack
 The parameters in [Tuning (basic)](#tuning-basic) must also be set to drive missions!
 :::
 
-The module uses a control algorithm called pure pursuit, see [Pure Pursuit Guidance Logic](../flight_modes_rover/ackermann.md#pure-pursuit-guidance-logic) for the basic tuning process.
+The module uses a control algorithm called pure pursuit, see [Pure Pursuit Guidance Logic](#pure-pursuit-guidance-logic) for the basic tuning process.
 
 :::info
 Increasing [PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN) can help to make the steering less aggressive at slow speeds.

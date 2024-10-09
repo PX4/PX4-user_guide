@@ -389,7 +389,7 @@
     - [Helicopter Config/Tuning](config_heli/index.md)
   - [Rovers (experimental)](frames_rover/index.md)
     - [Differential Rover](frames_rover/differential.md)
-      - [Drive Modes)](flight_modes_rover/differential.md)
+      - [Drive Modes](flight_modes_rover/differential.md)
       - [Configuration/Tuning](config_rover/differential.md)
       - [Aion Robotics R1](frames_rover/aion_r1.md)
     - [Ackermann Rover](frames_rover/ackermann.md)

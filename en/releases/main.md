@@ -99,7 +99,7 @@ This release contains a major rework for the rover support in PX4:
   - Generic Differential Rover `50000`.
   - Generic Ackermann Rover `51000`.
   - Axial SCX10 2 Trail Honcho `51001`.
-- Library for the [pure pursuit guidance algorithm](../flight_modes_rover/auto.md#pure-pursuit-guidance-logic) that is shared among the rover modules ([PX4-Autopilot#23387](https://github.com/PX4/PX4-Autopilot/pull/23387) and [PX4-Autopilot#23438](https://github.com/PX4/PX4-Autopilot/pull/23438)).
+- Library for the [pure pursuit guidance algorithm](../config_rover/differential.md#pure-pursuit-guidance-logic) that is shared by both the rover modules ([PX4-Autopilot#23387](https://github.com/PX4/PX4-Autopilot/pull/23387) and [PX4-Autopilot#23438](https://github.com/PX4/PX4-Autopilot/pull/23438)).
 - [Simulation](../frames_rover/index.md#simulation) for differential-steering and Ackermann rovers in gazebo (for release notes see `r1_rover` and `rover_ackermann` in [simulation](#simulation)).
 - Deprecation of the [rover position control](../frames_rover/rover_position_control.md) module: Note that the legacy rover module still exists but has been superseded by the new dedicated modules.
 
