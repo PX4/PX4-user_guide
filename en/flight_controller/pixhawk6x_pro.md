@@ -1,106 +1,89 @@
-# Holybro Pixhawk 6X
+# Holybro Pixhawk 6X Pro
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-_Pixhawk 6X_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
+![Pixhawk6X Pro Internal Architecture](../../assets/flight_controller/pixhawk6x_pro/pixhawk6x_pro_internal_architecture.jpeg)
 
-It is based on the [Pixhawk​​® Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf), [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+## Key Design Points
 
-Equipped with a high performance H7 Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
+- High-performance ADIS16470 Industrial IMU with high accelerometer dynamic range (±40 g), perfect for accurate motion sensing in demanding UAV applications
+- All new advanced durable vibration isolation material with resonance frequency in the higher spectrum, ideal for industrial and commercial drone applications
+- High performance STM32H753 Processor
+- Ethernet interface for high-speed mission computer integration
 
-### Pixhawk 6X (Rev 3)
+## Baseboards
 
-<img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_hero_upright.png" width="230px" title="Pixhawk6X Upright Image" /> <img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_exploded_diagram.png" width="400px" title="Pixhawk6X Exploded Image" />
-
-
-### Pixhawk 6X (ICM-45686)
+The Pixhawk 6X Pro can be purchased with a number of baseboards (or no baseboard) to suit different use cases and vehicle types, including [Standard v2A](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-baseboard-v2-ports), [Standard v2B](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-baseboard-v2-ports), and [Mini](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-mini-baseboard-ports), which are shown below.
+It can also be used with any other Pixhawk Autopilot Bus (PAB) specification-compliant baseboard, such as the [Holybro Pixhawk Jetson Baseboard](../companion_computer/holybro_pixhawk_jetson_baseboard.md) and [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md).
 
 :::: tabs
 
-::: tab Standard v2A
+::: tab Pixhawk 6X Pro Standard v2A
 
-![Pixhawk 6X Standard v2A](../../assets/flight_controller/pixhawk6x/pixhawk6x_icm_v2a.webp)
+![Pixhawk 6X Pro Standard v2A](../../assets/flight_controller/pixhawk6x_pro/pixhawk6x_pro_v2a.webp)
 
 :::
 
-::: tab Standard v2B
+::: tab Pixhawk 6X Pro Standard v2B
 
-![Pixhawk 6X Standard v2B](../../assets/flight_controller/pixhawk6x/pixhawk6x_icm_v2b.webp)
+![Pixhawk 6X Pro Standard v2B](../../assets/flight_controller/pixhawk6x_pro/pixhawk6x_pro_v2b.webp)
 :::
 
-::: tab Mini
+::: tab Pixhawk 6X Pro Mini
 
-![Pixhawk 6X Mini](../../assets/flight_controller/pixhawk6x/pixhawk6x_icm_mini.webp)
+![Pixhawk 6X Pro Mini](../../assets/flight_controller/pixhawk6x_pro/pixhawk6x_pro_mini.webp)
 :::
 
 ::::
 
-:::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
-:::
+## Features
 
-## Introduction
+- Triple redundant IMU & double redundant barometer on separate buses
+- Modular flight controller: separated IMU, FMU, and Base system
+- Safety-driven design incorporates sensors from different manufacturers and model lineups
+- Independent LDO powers every sensor set with independent power control.
+- Temperature-controlled IMU board, allowing optimum working temperature of IMUs
 
-Inside the Pixhawk®​ 6X, you can find an STMicroelectronics​® based STM32H753, paired with sensor technology from Bosch®​​, InvenSense®​,​ giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
-
-The Pixhawk® 6X's H7 microcontroller contain the Arm® Cortex®-M7 core running up to 480 MHz, has 2MB flash memory and 1MB RAM. The PX4 Autopilot takes advantage of the increased power and RAM. Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
-
-The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization. Triple redundant IMU & double redundant barometer on separate buses. When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
-
-An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
-
-External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface, and with an integrated Microchip Ethernet PHY, high-speed communication with mission computers via ethernet is now possible.
-
-The Pixhawk®​ 6X is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application.
-
-## Key Design Points
-
-- High performance STM32H753 Processor
-- Modular flight controller: separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk®​ Autopilot Bus connector.
-- Redundancy: 3x IMU sensors & 2x Barometer sensors on separate buses
-- Triple redundancy domains: Completely isolated sensor domains with separate buses and separate power control
-- Newly designed vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
-- Ethernet interface for high-speed mission computer integration
-- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
-
-### Processors & Sensors
+::: details Processors & Sensors
 
 - FMU Processor: STM32H753
   - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM
-- IO Processor: STM32F100
-  - 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
+- IO Processor: STM32F103
+  - 32 Bit Arm® Cortex®-M3, 72MHz, 64KB SRAM
 - On-board sensors
-  - Accel/Gyro: ICM-20649 or BMI088
-  - Accel/Gyro: ICM-42688-P
-  - Accel/Gyro: ICM-42670-P
+  - Accel/Gyro: ADIS16470 (±40g, Vibration Isolated, Industrial IMU)
+  - Accel/Gyro: IIM-42652 (±16g, Vibration Isolated, Industrial IMU)
+  - Accel/Gyro: ICM-45686 with BalancedGyro™ Technology (±32g, Hard Mounted)
+  - Barometer: ICP20100
+  - Barometer: BMP388
   - Mag: BMM150
-  - Barometer: 2x BMP388
 
-### Electrical data
+:::
+
+::: details Electrical data
 
 - Voltage Ratings:
   - Max input voltage: 6V
-  - USB Power Input: 4.75\~5.25V
-  - Servo Rail Input: 0\~36V
-- Current Ratings:
-  - `TELEM1` output current limiter: 1.5A
-  - All other port combined output current limiter: 1.5A
+  - USB Power Input: 4.75~5.25V
+  - Servo Rail Input: 0~36V
+- Current Ratings: - Telem1 output current limiter: 1.5A - All other port combined output current limiter: 1.5A
 
-### Mechanical data
+:::
+
+::: details Mechanical data
 
 - Dimensions
-  - Flight Controller Module: 38.8 x 31.8 x 14.6mm
+  - Flight Controller Module: 38.8 x 31.8 x 30.1mm
   - Standard Baseboard: 52.4 x 103.4 x 16.7mm
   - Mini Baseboard: 43.4 x 72.8 x 14.2 mm
-- Weight
-  - Flight Controller Module: 23g
-  - Standard Baseboard: 51g
-  - Mini Baseboard: 26.5g
+- Weight - Flight Controller Module: 50g - Standard Baseboard: 51g - Mini Baseboard: 26.5g
 
-### Interfaces
+:::
+
+::: details Interfaces
 
 - 16- PWM servo outputs
 - R/C input for Spektrum / DSM
@@ -124,19 +107,13 @@ The Pixhawk®​ 6X is perfect for developers at corporate research labs, startu
   - 1 SPI reset line
 - 2 CAN Buses for CAN peripheral
   - CAN Bus has individual silent controls or ESC RX-MUX control
-- 2 Power input ports with SMBus
+- 2 Power input ports with SMBus - 1 AD & IO port - 2 additional analog input - 1 PWM/Capture input - 2 Dedicated debug and GPIO lines
 
-  - 1 AD & IO port
-  - 2 additional analog input
-  - 1 PWM/Capture input
-  - 2 Dedicated debug and GPIO lines
-
-- Other Characteristics:
-  - Operating & storage temperature: -40 ~ 85°c
+:::
 
 ## Where to Buy
 
-Order from [Holybro](https://holybro.com/products/pixhawk-6x).
+Order from [Holybro](https://holybro.com/products/pixhawk-6x-pro).
 
 ## Assembly/Setup
 
@@ -144,8 +121,13 @@ The [Pixhawk 6X Wiring Quick Start](../assembly/quick_start_pixhawk6x.md) provid
 
 ## Connections
 
-Sample Wiring Diagram
-![Pixhawk 6X Wiring Overview](../../assets/flight_controller/pixhawk6x/pixhawk6x_wiring_diagram.png)
+### Multicopter Wiring Example
+
+![Pixhawk 6X Pro Wiring Overview](../../assets/flight_controller/pixhawk6x_pro/pixhawk6x_pro_wiring_diagram.png)
+
+### VTOL Wiring Example
+
+![Pixhawk 6X Pro VTOL Fixed wing Wiring Overview](../../assets/flight_controller/pixhawk6x_pro/pixhawk6x_pro_wiring_diagram_vtol.webp)
 
 ## Pinouts
 
@@ -173,11 +155,12 @@ Notes:
 
 ## Dimensions
 
-[Pixhawk 6X Dimensions](https://docs.holybro.com/autopilot/pixhawk-6x/dimensions)
+[Pixhawk 6X Pro Dimensions](https://docs.holybro.com/autopilot/pixhawk-6x-pro/dimensions)
 
 ## Voltage Ratings
 
-_Pixhawk 6X_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+_Pixhawk 6X Pro_ can be triple-redundant on the power supply if three power sources are supplied.
+The three power rails are: **POWER1**, **POWER2** and **USB**.
 The **POWER1** & **POWER2** ports on the Pixhawk 6X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
 **Normal Operation Maximum Ratings**
@@ -216,8 +199,6 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make px4_fmu-v6x_default
 ```
 
-<a id="debug_port"></a>
-
 ## Debug Port
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
@@ -250,14 +231,18 @@ For information about using this port see:
 - [Holybro GPS & RTK Systems](https://holybro.com/collections/gps-rtk-systems)
 - [Power Modules & PDBs](https://holybro.com/collections/power-modules-pdbs)
 
-## Supported Platforms / Airframes
+## Supported Platforms/Airframes
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## CAD File
 
-- [Holybro Docs](https://docs.holybro.com/) (Holybro)
+Download [here](https://docs.holybro.com/autopilot/pixhawk-6x-pro/download).
+
+## See Also
+
+- [Holybro Docs](https://docs.holybro.com/autopilot/pixhawk-6x-pro) (Holybro)
 - [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf).
 - [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).

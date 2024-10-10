@@ -11,6 +11,7 @@ For more information about PX4 project autopilot board support levels see: [px4.
 The boards in this category are:
 
 - [Holybro Pixhawk 6X-RT](../flight_controller/pixhawk6x-rt.md) (FMUv6X)
+- [Holybro Pixhawk 6X Pro (FMUv6X)](../flight_controller/pixhawk6x_pro.md) (FMUv6X)
 - [CUAV Pixahwk V6X](../flight_controller/cuav_pixhawk_v6x.md) (FMUv6X)
 - [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md) (FMUv6X)
 - [RaccoonLab FMUv6X Autopilot](../flight_controller/raccoonlab_fmu6x.md) (FMUv6X)
