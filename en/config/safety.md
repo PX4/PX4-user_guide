@@ -325,8 +325,8 @@ A kill switch immediately stops all motor outputs — if flying, the vehicle wil
 
 [By default](#COM_KILL_DISARM) the motors will restart if the switch is reverted within 5 seconds, after which the vehicle will automatically disarm, and you will need to arm it again in order to start the motors.
 
-| Parameter                                                                                                | Description                                                                                |
-| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Parameter                                                                                                | Description                                                                     |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | <a id="COM_KILL_DISARM"></a>[COM_KILL_DISARM](../advanced_config/parameter_reference.md#COM_KILL_DISARM) | Timeout value for disarming after kill switch is engaged. Default: `5` seconds. |
 
 ::: info
