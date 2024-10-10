@@ -13398,7 +13398,7 @@ Selects the trigger interface
 
 - `1`: GPIO
 - `2`: Seagull MAP2 (over PWM)
-- `3`: MAVLink (forward via MAV_CMD_IMAGE_START_CAPTURE)
+- `3`: MAVLink (Camera Protocol v1)
 - `4`: Generic PWM (IR trigger, servo)
 
 
