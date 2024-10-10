@@ -21,7 +21,7 @@ PX4 integrates with Remote ID hardware that supports:
 - Remote ID over CAN<Badge type="tip" text="PX4 main (v1.16)" />
 
   ::: warning
-  DroneCAN Remote IDs hardware is only supported on `main` branch builds (builds _after_ PX4 v1.15).
+  Remote ID hardware can only be connected via DroneCAN on `main` branch builds (builds _after_ PX4 v1.15).
   :::
 
 It has been tested with the following devices:
