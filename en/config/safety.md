@@ -327,7 +327,7 @@ A kill switch immediately stops all motor outputs — if flying, the vehicle wil
 
 | Parameter                                                                                                | Description                                                                                |
 | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| <a id="COM_KILL_DISARM"></a>[COM_KILL_DISARM](../advanced_config/parameter_reference.md#COM_KILL_DISARM) | Timeout value for disarming after kill switch is engaged. Default: `5` seconds (Disabled). |
+| <a id="COM_KILL_DISARM"></a>[COM_KILL_DISARM](../advanced_config/parameter_reference.md#COM_KILL_DISARM) | Timeout value for disarming after kill switch is engaged. Default: `5` seconds. |
 
 ::: info
 There is also a [Kill Gesture](#kill-gesture), which cannot be reverted.
