@@ -28,10 +28,10 @@ Certain receivers are recommended for autopilot applications because of their ph
 - RTK positioning using corrections over MAVLink from a ground control station
 - Dual-antenna heading with mosaic-H-based receivers
 - Moving base heading with two single-antenna receivers
-- SBF logging to internal storage on the receiver
+- Flexible SBF logging to internal storage on the receiver
 - Logging of all communication with the receiver to internal storage on the flight controller
 - Automatic baud rate and port detection
-- Automatic, parameterized configuration for all features
+- Automatic, parameterized configuration for all features (optional)
 - Status and health monitoring from a MAVLink console
 
 ## Quick Start
@@ -39,8 +39,12 @@ Certain receivers are recommended for autopilot applications because of their ph
 For the physical connection between Septentrio GNSS receivers and flight controllers, have a look at the hardware-specific guides for [mosaic-go receivers](septentrio_mosaic-go.md) and [AsteRx-m3 receivers with a robotics interface board](../gps_compass/septentrio_asterx-rib.md).
 
 A few things are required for PX4 to support Septentrio receivers.
-First of all, the firmware you load on your flight controller needs to contain the Septentrio driver.
-This should be the case for most flight controller boards from PX4 v1.15.
+First of all, the firmware you load on your flight controller needs to contain the Septentrio driver.  
+This is currently the case for the following flight controllers:
+* [Nora](../flight_controller/cuav_nora.md)
+* [CubeOrange](../flight_controller/cubepilot_cube_orange.md) and [CubeOrangePlus](../flight_controller/cubepilot_cube_orangeplus.md)
+* [PixRacer](../flight_controller/pixracer.md)
+* Pixhawk version 2 through 4, see [here](../flight_controller/pixhawk_series.md) for the complete list
 
 You can confirm this by opening _QGroundControl_, connecting to the flight controller running the firmware you want to use, and checking whether the `Septentrio` parameter group is available in the parameter configuration screen.
 
