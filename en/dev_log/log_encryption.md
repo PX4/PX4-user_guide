@@ -108,7 +108,7 @@ Make sure to download both the encrypted log and symmetric key that were generat
 
 ![QGroundControl ULog Download](../../assets/qgc/analyze/encrypted_log.png)
 
-This photo shows both a generated symmetric key and the associated encrypted ULog file.
+This screenshot shows both a generated symmetric key and the associated encrypted ULog file.
 
 ### Decrypt ULogs
 
