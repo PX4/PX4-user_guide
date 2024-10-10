@@ -62,7 +62,7 @@ The TX and RX on the flight controller must be connected to the RX and TX on the
 #### Cube ID CAN Port
 
 :::Tip
-You may need to adjust the setting on your GCS to edit Remote ID settings in CAN. Please see the Troubleshoot section below for more help and examples in QGC.  
+You may need to adjust the setting on your GCS to edit Remote ID settings in CAN. Please see the Troubleshoot section below for more help and examples in QGC.
 :::
 
 ![Cube ID CAN port](../../assets/hardware/remote_id/cube_id/can_connector.png)
@@ -135,7 +135,7 @@ The required baud rate depends on the remote ID used (for Cube ID it must be set
 
 ### DroneCAN Configuration
 
-Remote ID hardware connected to a CAN is configured in the same way as any other [DroneCAN Hardware](../dronecan/index.md#px4-configurationd).
+Remote ID hardware connected to a CAN is configured in the same way as any other [DroneCAN Hardware](../dronecan/index.md#px4-configuration).
 
 Specifically, you will have to [enable DroneCAN](../dronecan/index.md#enabling-dronecan) by setting the value of [`UAVCAN_ENABLE`](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to a non-zero value.
 
@@ -207,18 +207,21 @@ Some known issues are:
 ## Troubleshoot
 
 ### CAN Remote ID not working
+
 :::Note
 May apply to other Remote ID can modules but this was specifically done with the CAN Cube ID from Cubepilot.
-::: 
+:::
 
-- Check that the Remote_ID node appears on the UAVCAN list by running the command `uavcan status`. You should see that the CAN node appears if the Remote ID is the only CAN device otherwise there may be multiple online nodes.  <br> 
+- Check that the Remote_ID node appears on the UAVCAN list by running the command `uavcan status`. You should see that the CAN node appears if the Remote ID is the only CAN device otherwise there may be multiple online nodes. <br>
+
 ```
-Online nodes (Node ID, Health, Mode):  
-     125 OK         OPERAT 
+Online nodes (Node ID, Health, Mode):
+     125 OK         OPERAT
 ```
+
 - Check that the `OPON_DRONE_ID_BASIC_ID` and `OPEN_DRONE_ID_LOCATION` UOrb messages appear in the **Analyze Tools > MAVLink Inspector**.
 
-If both of the above are the case then you most like have to setup the GCS for Remote ID. To do this for QGC you will have to change the **Application Settings > General > Miscellaneous**. Then just Enable Remote ID. The Remote ID tab should appear allowing you to enter the information for Basic, Operator, and Self ID. 
+If both of the above are the case then you most like have to setup the GCS for Remote ID. To do this for QGC you will have to change the **Application Settings > General > Miscellaneous**. Then just Enable Remote ID. The Remote ID tab should appear allowing you to enter the information for Basic, Operator, and Self ID.
 
 Once configured, if you check **Analyze Tools > MAVLink Inspector** there should be two new Mavlink messages for Self ID and Operator ID.
 
