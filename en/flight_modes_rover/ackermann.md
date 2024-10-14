@@ -14,30 +14,92 @@ Selecting any other mode than those listed below will either stop the rover or c
 
 Manual modes require stick inputs from the user to drive the vehicle.
 
-![Manual Controls](../../assets/airframes/rover/flight_modes/rover_manual_controls.png)
+![Manual Controls](../../assets/airframes/rover/flight_modes/manual_controls_ackermann_rover.png)
 
-The manual modes listed below provide increasing levels of autopilot support:
+The sticks provide the same "high level" control effects over direction and rate of movement in all manual modes:
 
-| Mode                   | Features                                                             |
-| ---------------------- | -------------------------------------------------------------------- |
-| [Manual](#manual-mode) | Directly map stick inputs to motor commands, no closed loop control. |
+- `Left stick up/down`: Drive the rover forwards/backwards (controlling speed)
+- `Right stick left/right`: Make a left/right turn (controlling steering angle ([Manual mode](#manual-mode)) or lateral acceleration ([Acro](#acro-mode) and [Position](#position-mode))).
+
+The manual modes provide progressively increasing levels of autopilot support for maintaining a course, speed, and rate of turn, compensating for external factors such as slopes or uneven terrain.
+
+| Mode                       | Features                                                                                                                                                                                                         |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Manual](#manual-mode)     | No autopilot support. User is responsible for keeping the rover on the desired course and maintaining speed and rate of turn.                                                                                    |
+| [Acro](#acro-mode)         | + Maintains the lateral acceleration. This makes it feel more like driving a car than manual mode. <br>+ It also protects against roll over and is slightly better at holding a straight line in uneven terrain. |
+| [Position](#position-mode) | + Best mode for holding a straight line.<br>+ Maintains speed against disturbances, e.g. when driving up a hill<br>+ Allows maximum speed to be limited.                                                         |
+
+::: details Overview mode mapping to control effect
+
+| Mode                       | Forward speed                                                            | Steering angle/lateral acceleration                                                                                                                                                                     | Required measurements                                       |
+| -------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| [Manual](#manual-mode)     | Directly map stick input to motor command.                               | Directly map stick input to steering angle.                                                                                                                                                             | None.                                                       |
+| [Acro](#acro-mode)         | Directly map stick input to motor command.                               | Stick input creates a lateral acceleration setpoint for the control system to regulate.                                                                                                                 | Lateral acceleration.                                       |
+| [Position](#position-mode) | Stick input creates a speed setpoint for the control system to regulate. | Stick input creates a lateral acceleration setpoint for the control system to regulate. If this setpoint is zero (stick is centered) the control system will keep the rover driving in a straight line. | Lateral acceleration, yaw, speed and global position (GPS). |
+
+:::
 
 ### Manual Mode
 
-The _Manual_ mode stops the rover when the RC control sticks are centred.
-To manually move/drive the vehicle you move the sticks outside of the centre.
+In this mode the stick inputs are directly mapped to motor commands. The rover does not attempt to maintain a specific orientation or compensate for external factors like slopes or uneven terrain!  
+The user is responsible for making the necessary adjustments to the stick inputs to keep the rover on the desired course.
 
-Moving the left-stick up/down controls the _forward speed_ and moving the right-stick left/right controls the _steering angle_ of the vehicle.
+| Stick                  | Effect                                     |
+| ---------------------- | ------------------------------------------ |
+| Left stick up/down     | Drive the rover forwards/backwards.        |
+| Right stick left/right | Move the steering angle to the left/right. |
+
+For the configuration/tuning of this mode see [Manual mode](../config_rover/ackermann.md#manual-mode).
+
+### Acro Mode
 
 ::: info
-The rover does not attempt to maintain a specific orientation or compensate for external factors like slopes or uneven terrain!
-The user is responsible for making the necessary adjustments to the stick inputs to keep the rover on the desired course.
+This mode requires a lateral acceleration measurement.
 :::
+
+In this mode the vehicle regulates its lateral acceleration to a setpoint (but does not stabilize heading or regulate speed).
+
+Lateral acceleration can be directly mapped to a steering input based on the forward speed of the rover:
+
+<!-- prettier-ignore -->
+$$ \theta = \arctan(\frac{w_b \cdot a_{lat}}{ v^2}) $$
+
+with $w_b:$ Wheel base, $\theta:$ Steering angle and $v:$ Forward speed.  
+For driving this means that the same right hand stick input will cause a different steering angle based on how fast you are driving. By limiting the maximum lateral acceleration, we can restrict the steering angle based on the speed which can prevent the rover from rolling over.  
+This mode will feel more like "driving a car" than [Manual mode](#manual-mode).
+
+:::note
+The lateral acceleration is only close loop controlled when driving forwards. When driving backwards the lateral acceleration setpoint is directly mapped to a steering angle using the equation above.  
+ This is due to the fact that rear wheel steering (driving a car with front-wheel steering backwards) is non-minimum-phase w.r.t to the lateral acceleration which leads to instabilities when doing closed loop control.
+:::
+
+| Stick                  | Effect                                                                                                                                                                                                   |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Left stick up/down     | Drive the rover forwards/backwards.                                                                                                                                                                      |
+| Right stick left/right | Create a lateral acceleration setpoint for the control system to regulate. If this input is zero the control system will attempt to maintain a zero lateral acceleration (minimal disturbance rejection) |
+
+For the configuration/tuning of this mode see [Acro mode](../config_rover/ackermann.md#acro-mode).
+
+### Position Mode
+
+::: info
+This mode requires a lateral acceleration, yaw, speed and global position estimate.
+:::
+
+This is the manual mode with the most autopilot support. The vehicle regulates its lateral acceleration and speed to a setpoint. If the lateral acceleration setpoint is zero, the controller will remember the gps coordinates and yaw (heading) of the vehicle and use those to construct a line that the rover will then follow (course control).
+This offers the highest amount of disturbance rejection, which leads to the best straight line driving behavior.
+
+| Stick                  | Effect                                                                                                                                                     |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Left stick up/down     | Stick position sets a forward/back speed setpoint. The vehicle attempts to maintain this speed on slopes etc.                                              |
+| Right stick left/right | Create a lateral acceleration setpoint for the control system to regulate. If this input is zero the control system will maintain the course of the rover. |
+
+For the configuration/tuning of this mode see [Position mode](../config_rover/differential.md#position-mode).
 
 ## Auto Modes
 
-In auto modes the autopilot takes over control of the vehicle to run missions, return to launch, or perform other autonomous navigation tasks.
-For the tuning process see the configuration for [Auto modes](../config_rover/ackermann.md#mission-parameters).
+In auto modes the autopilot takes over control of the vehicle to run missions, return to launch, or perform other autonomous navigation tasks.  
+For the tuning process see the configuration for [Auto modes](../config_rover/ackermann.md#auto-modes).
 
 ### Mission Mode
 
