@@ -23972,16 +23972,6 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ## PWM Outputs
 
-### MOT_SLEW_MAX (`FLOAT`) {#MOT_SLEW_MAX}
-
-Minimum motor rise time (slew rate limit).
-
-Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in minimum x seconds. Zero means that slew rate limiting is disabled.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0.0 |  |  | 0.0 | s/(1000*PWM) 
-
 ### PWM_SBUS_MODE (`INT32`) {#PWM_SBUS_MODE}
 
 S.BUS out.
