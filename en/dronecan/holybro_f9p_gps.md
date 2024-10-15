@@ -71,8 +71,6 @@ DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enablin
 
 ## Dual ZED-F9P DroneCAN Modules For Heading
 
-![QGC Setup](../../assets/hardware/gps/holybro_f9p_gps/holybro_f9p_gps_qgc_setup.png)
-
 In order to use dual ZED-F9P GPS heading in PX4, follow these steps
   - Open the Qgroundcontrol parameters page.
   - On the left side next to the parameters list, double-click on the _System_ section (this hides the section).
@@ -82,10 +80,13 @@ In order to use dual ZED-F9P GPS heading in PX4, follow these steps
     - GPS_AUTO_CONFIG: set to 1 for both the rover and base
     - GPS_POS_X/Y/Z: This is the antenna placement, which for the F9P is internal to the module. This is the local offset (FRD) with respect to the autopilot.
 
+![QGC Setup](../../assets/hardware/gps/holybro_f9p_gps/holybro_f9p_gps_qgc_setup.png)
+
 Then in order to enable the subscription in DroneCAN, enable the following PX4 autopilot params:
   - UAVCAN_ENABLE: Set to 1 to enable uavcan in PX4
   - EKF2_GPS_CTRL: Set to 15 to enable Dual antenna heading.
   - UAVCAN_SUB_GPS_R: Set to 1 to enable subscription to gnss relative.
+  - GPS_YAW_OFFSET: Set to the clockwise angle (degrees) corresponding to base and rover orientation (e.g. 90 degrees when moving base to the left and rover to the right)
 
 Once these params are enabled and the F9P's are mounted to the airframe (assuming valid RTK fix) the LED's on both F9P's should turn green.
 
