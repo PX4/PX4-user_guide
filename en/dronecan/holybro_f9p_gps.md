@@ -1,5 +1,7 @@
 # Holybro ZED-F9P GPS (DroneCAN)
 
+![Holybro ZED-F9P](../../assets/hardware/gps/holybro_f9p_gps/holybro_f9p_gps.png)
+
 ## Where to Buy
 
 Order this module from:
@@ -68,6 +70,8 @@ DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enablin
 - F9P module arrow(s) should be pointing forward with respect to the autopilot orientation.
 
 ## Dual ZED-F9P DroneCAN Modules For Heading
+
+![QGC Setup](../../assets/hardware/gps/holybro_f9p_gps/holybro_f9p_gps_qgc_setup.png)
 
 In order to use dual ZED-F9P GPS heading in PX4, follow these steps
   - Open the Qgroundcontrol parameters page.
