@@ -216,24 +216,28 @@ It _should_ also apply to CAN Remote ID modules from other vendors.
 
 To confirm that the Remote ID is working:
 
-- Check that the Remote_ID node appears on the UAVCAN list.
+- Check that the `OPEN_DRONE_ID_BASIC_ID` and `OPEN_DRONE_ID_LOCATION` messages appear in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) (QGC **Analyze Tools > MAVLink Inspector**).
 
-  Run the following command in the [QGroundControl MAVLink Console](http://localhost:5173/px4_user_guide/en/debug/mavlink_shell.html#qgroundcontrol-mavlink-console):
+- If those messages are not present, check that the Remote_ID node appears on the UAVCAN list.
+
+  Run the following command in the [QGroundControl MAVLink Console](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console):
 
   ```sh
   uavcan status
   ```
 
-  The remote id should appears in the list as shown below (there maybe other nodes in the list too).
+  The connected CAN nodes should appear in the list.
+  If you only have one CAN component on your system (the remote ID) the list might look like this:
 
   ```plain
   Online nodes (Node ID, Health, Mode):
      125 OK         OPERAT
   ```
 
-- Check that the `OPEN_DRONE_ID_BASIC_ID` and `OPEN_DRONE_ID_LOCATION` messages appear in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) (QGC **Analyze Tools > MAVLink Inspector**).
+  The nodes aren't "named" so if you have more than one CAN node you can compare the number of nodes shown with the number expected on your system to see if they match.
+  Alternatively you can run the `uavcan status` with the Remote ID connected and disconnected and difference the result (which has the benefit that you will then known the Remote ID module's node ID).
 
-If the above are not true, then the Remote ID itself may need to be configured:
+If the Remote ID CAN node is present and the messages are not being received, then the Remote ID itself may need to be configured:
 
 1. Open QGroundControl
 2. Navigate to the [Application settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/general.html): **Application Settings > General > Miscellaneous**.
