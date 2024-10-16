@@ -1,4 +1,4 @@
-# Ackermann Rover
+# Ackermann Rovers
 
 <Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="warning" text="Experimental" />
 
@@ -11,4 +11,4 @@ PX4 does not require that the vehicle uses the Ackermann geometry and will work 
 
 ![Axial Trail Honcho](../../assets/airframes/rover/rover_ackermann/axial_trail_honcho.png)
 
-See [Configuration/Tuning](../config_rover/ackermann.md) to set up your rover and [Drive Modes (RA)](../flight_modes_rover/ackermann.md) for the supported flight (aka drive) modes.
+See [Configuration/Tuning](../config_rover/ackermann.md) to set up your rover and [Drive Modes](../flight_modes_rover/ackermann.md) for the supported flight (aka drive) modes.
