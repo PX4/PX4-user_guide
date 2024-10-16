@@ -1,5 +1,7 @@
 # Log Encryption
 
+<Badge type="tip" text="PX4 v1.13" />
+
 The [System Logger](../modules/modules_system.md#logger) can be used to create encrypted logs, which may then be decrypted manually before analysis.
 
 The encryption algorithm used is XChaCha20, and the default wrapping algorithm used is RSA2048-OAEP.
