@@ -44,9 +44,9 @@ You could also copy and paste `cryptotest.px4board` to the other flight controll
 
 | Argument                     | Description                                                                                                                        |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| CONFIG_BOARD_CRYPTO          | Requirement for log encryption functionality to be enabled.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption. |
-| CONFIG_DRIVERS_SW_CRYPTO     | Enables the built-in PX4 crypto backend library to handle logfile encryption.<br />= `y`: Enable<br />= `n`: Disable               |
-| CONFIG_DRIVERS_STUB_KEYSTORE | Enables the built-in PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable                                              |
+| CONFIG_BOARD_CRYPTO          | Include crypto module in firmware.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption. |
+| CONFIG_DRIVERS_SW_CRYPTO     | Include the built-in PX4 crypto backend library (used by above library).<br />= `y`: Enable<br />= `n`: Disable               |
+| CONFIG_DRIVERS_STUB_KEYSTORE | Includes the built-in PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable                                              |
 | CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0.<br />= `{path to key0}`                                                               |
 | CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1.<br />= `{path to key1}`                                                               |
 
