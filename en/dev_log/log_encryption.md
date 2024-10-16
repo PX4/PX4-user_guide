@@ -4,7 +4,7 @@
 
 The [System Logger](../modules/modules_system.md#logger) can be used to create encrypted logs, which may then be decrypted manually before analysis.
 
-The encryption algorithm used is XChaCha20, and the default wrapping algorithm used is RSA2048-OAEP.
+The default encryption algorithm is XChaCha20, and the default wrapping algorithm is RSA2048-OAEP.
 
 ::: warning
 Log encryption is not enabled by default in PX4 firmware builds.
@@ -12,27 +12,33 @@ To use it you will need to build firmware with this feature enabled and then upl
 :::
 
 ::: info
-The encryption algorithm used can be changed by modifying [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALGORITHM).
-However at time of writing, only XChaCha20 can actually be used (AES can be selected, but there is no implementation).
+The encryption algorithm used is set in [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALGORITHM).
+At time of writing, only `XChaCha20` is supported (AES can be selected, but there is no implementation).
 :::
 
 ## How ULog Encryption Works
 
-When the ULog file is first opened:
+::: info
+This process assumes the default XChaCha20 algorithm is used.
+If another [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALGORITHM) is used, the process is _likely_ to remain the same.
+:::
 
-- If [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALGORITHM) is set to default, a symmetric XChaCha20 key is generated and wrapped (encrypted) with RSA2048 public key encryption
-- This wrapped key is stored on the SD Card with the ".ulgk" suffix.
+The encryption process for each new ULog is:
 
-While the ULog file is written to disk:
+1. A ULog file is created and opened for writing on the SD card.
+   This is named with the file extension `.ulogc`(ulog cipher).
+2. A XChaCha20 symmetric key is generated and wrapped (encrypted) using an RSA2048 public key.
+3. This wrapped key is stored on the SD Card in a file that has the suffix `.ulgk` (ulog wrapped key).
+4. The (unencrypted) generated symmetric key is used to encrypt ULog data blocks before they are written to disk (the `.ulogc` file).
 
-- The generated (plaintext) key is used to encrypt the data blocks right before writing to disk.
+After the flight, there are two files on the SD card:
 
-After the flight, there are two files:
+- `.ulogc` (ulog cipher): the encrypted log file data.
+- `.ulogk` (ulog wrapped key): the symmetric key used to encrypt the data, encrypted with an RSA public key.
 
-- `.ulogc` (ulog cipher): the actual log file data, encrypted
-- `.ulogk` (ulog wrapped key): the symmetric key, wrapped with rsa
-
-However, these files will both have the normal `.ulg` suffix if downloading from QGroundControl.
+In order to extract the log file, a user must first decrypt the wrapped symmetric key, which can then be used to decrypt the log.
+Note that decrypting the symmetric key file is only possible if the user has the appropriate RSA private key (corresponding to the public key that was used to wrap it).
+This process is covered in [Download & Decrypt Log Files](#download-decrypt-log-files) below.
 
 ## Creating a Flight Controller Build that contains Log Encryption
 
@@ -44,13 +50,13 @@ You could also copy and paste `cryptotest.px4board` to the other flight controll
 
 ### Crypto .px4board arguments
 
-| Argument                     | Description                                                                                                                        |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| CONFIG_BOARD_CRYPTO          | Include crypto module in firmware.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption. |
-| CONFIG_DRIVERS_SW_CRYPTO     | Include the built-in PX4 crypto backend library (used by above library).<br />= `y`: Enable<br />= `n`: Disable               |
-| CONFIG_DRIVERS_STUB_KEYSTORE | Includes the built-in PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable                                              |
-| CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0.<br />= `{path to key0}`                                                               |
-| CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1.<br />= `{path to key1}`                                                               |
+| Argument                     | Description                                                                                                     |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| CONFIG_BOARD_CRYPTO          | Include crypto module in firmware.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption.       |
+| CONFIG_DRIVERS_SW_CRYPTO     | Include the built-in PX4 crypto backend library (used by above library).<br />= `y`: Enable<br />= `n`: Disable |
+| CONFIG_DRIVERS_STUB_KEYSTORE | Includes the built-in PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable                          |
+| CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0.<br />= `{path to key0}`                                            |
+| CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1.<br />= `{path to key1}`                                            |
 
 ::: warning
 Crypto uses a lot of flash memory, and many builds are close to their maximum capacity.
@@ -92,7 +98,7 @@ Some of these options can be tweaked if desired.
 
 After enabling encryption settings in kconfig, you may now build and test.
 
-## Download Encrypted Log Files From QGroundControl
+## Download & Decrypt Log Files
 
 ::: info
 When you download log files off of QGroundControl, both the encrypted log and the symmetric key will have the ".ulg" suffix.
@@ -150,7 +156,7 @@ new_keys/private_key.pem
 There will be no printed output on a successful decryption, and a new file is created with the ".ul" suffix instead of ".ulg".
 Rename this back to a .ulg file and it is now ready for flight review!
 
-### Generate Your Own Keys
+## Generate Your Own Keys
 
 In a production environment, you should your own generated keys rather than using the example keys.
 
