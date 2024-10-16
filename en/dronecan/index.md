@@ -46,6 +46,7 @@ Supported hardware includes (this is not an exhaustive list):
   - [CUAV NEO 3 Pro GPS](../gps_compass/gps_cuav_neo_3pro.md)
   - [CUAV NEO 3X GPS](../gps_compass/gps_cuav_neo_3x.md)
   - [CUAV C-RTK2 PPK/RTK GNSS](../gps_compass/rtk_gps_cuav_c-rtk2.md)
+  - [Holybro H-RTK ZED-F9P (DroneCAN variant)](../dronecan/holybro_h_rtk_zed_f9p_gps.md)
   - [Holybro DroneCAN M8N GPS](../dronecan/holybro_m8n_gps.md)
   - [Holybro DroneCAN M9N GPS](https://holybro.com/products/dronecan-m9n-gps)
   - [Holybro DroneCAN H-RTK F9P Rover](https://holybro.com/products/dronecan-h-rtk-f9p-rover)
