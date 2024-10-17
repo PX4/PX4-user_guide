@@ -242,10 +242,16 @@ If the Remote ID CAN node is present and the messages are not being received, th
 1. Open QGroundControl
 2. Navigate to the [Application settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/general.html): **Application Settings > General > Miscellaneous**.
 3. Select `Enable Remote ID`.
+   The Remote ID tab should appear.
+ 
+   ::: info
+   If this option is not present you may be in a very recent version of QGC.
+   In that case, open the view at: **Application Settings > Remote ID**.
+   :::
 
-The Remote ID tab should appear allowing you to enter the information for Basic, Operator, and Self ID.
+4. Enter the information for Basic, Operator, and Self ID.
 
-Once configured, check the MAVLink inspector again and check that the `OPEN_DRONE_ID_BASIC_ID` and `OPEN_DRONE_ID_LOCATION` messages are now present.
+Once configured, check the MAVLink Inspector again and check that the `OPEN_DRONE_ID_BASIC_ID` and `OPEN_DRONE_ID_LOCATION` messages are now present.
 
 ## See Also
 
