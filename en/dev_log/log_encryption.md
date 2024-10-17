@@ -197,7 +197,7 @@ Rename the file back to `.ulg` and it is now ready for flight review.
 
 ## Generate RSA Public & Private Keys
 
-In a production environment, you should your own generated keys rather than using the example keys.
+The `cryptotest` example implementation uses example keys which are found in `Tools/test_keys`. In a production environment, you should your own generated keys rather than using the example keys. 
 
 To generate the `CONFIG_PUBLIC_KEY0` public key, you can run the `Tools/cryptotools.py` Python program.
 For example, this command generates files called `new.pub` and `new.json` file in `Tools/test_keys`:
