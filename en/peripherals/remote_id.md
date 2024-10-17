@@ -16,7 +16,7 @@ The "standard rules" modules enable less restrictive operation than "broadcast r
 ## Supported Hardware
 
 ::: warning
-PX4 only works with DroneCAN Remote IDs on `main` branch builds.
+Remote ID hardware can only be connected via DroneCAN on `main` branch builds (builds _after_ PX4 v1.15).
 :::
 
 PX4 integrates with Remote ID hardware that supports:
@@ -27,8 +27,8 @@ PX4 integrates with Remote ID hardware that supports:
 It has been tested with the following devices:
 
 - [Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) (CubePilot)
-- [Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - note, only tested via serial port.
-- [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - less expensive variant without CAN port.
+- [Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - Tested via serial port. Not tested via CAN port.
+- [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - Less expensive variant without CAN port.
 - [Holybro RemoteID Module](https://holybro.com/products/remote-id) (Holybro)
 
 Other devices that support the Open Drone ID protocol and DroneCAN should also work (but have not been tested).
@@ -42,7 +42,7 @@ Most commonly they are connected directly to the `TELEM2` port (if it is not bei
 
 [Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) can be connected using a serial or CAN port.
 
-It comes with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` serial ports on most recent Pixhawk flight controllers.
+It comes with 6-pin and 4-pin JST-GH 1.25mm cables that can be connected directly to the `TELEM` serial port and `CAN` ports, respectively, on most recent Pixhawk flight controllers.
 
 #### Cube ID Serial Port
 
@@ -131,9 +131,13 @@ The required baud rate depends on the remote ID used (for Cube ID it must be set
 
 ### DroneCAN Configuration
 
-Remote ID hardware connected to a CAN is configured in the same way as any other [DroneCAN Hardware](../dronecan/index.md#px4-configurationd).
+Remote ID hardware connected to a CAN is configured in the same way as any other [DroneCAN Hardware](../dronecan/index.md#px4-configuration).
 
 Specifically, you will have to [enable DroneCAN](../dronecan/index.md#enabling-dronecan) by setting the value of [`UAVCAN_ENABLE`](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to a non-zero value.
+
+::: tip
+The [CAN Remote ID Not Working](../peripherals/remote_id.md#can-remote-id-not-working) explains how you can test the setup, and adjust Remote ID settings if necessary.
+:::
 
 ### Enable Remote ID
 
@@ -179,7 +183,8 @@ The following Open Drone ID MAVLink messages are not supported in PX4 v1.14 (to 
 - [OPEN_DRONE_ID_AUTHENTICATION](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_AUTHENTICATION) - Provides authentication data for the UAV.
 - [OPEN_DRONE_ID_SELF_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SELF_ID) - Operator identity (plain text).
 - [OPEN_DRONE_ID_OPERATOR_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_OPERATOR_ID) - Operator identity.
-- [OPEN_DRONE_ID_ARM_STATUS](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_ARM_STATUS) - Status of Remote ID hardware. Use as condition for vehicle arming, and for Remote ID health check.
+- [OPEN_DRONE_ID_ARM_STATUS](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_ARM_STATUS) - Status of Remote ID hardware.
+  Use as condition for vehicle arming, and for Remote ID health check.
 - [OPEN_DRONE_ID_SYSTEM_UPDATE](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SYSTEM_UPDATE) - Subset of `OPEN_DRONE_ID_SYSTEM` that can be sent with information at higher rate.
 
 ## Compliance
@@ -196,9 +201,57 @@ Some known issues are:
   - PX4 v1.14 does not yet receive `OPEN_DRONE_ID_ARM_STATUS`.
 - `OPEN_DRONE_ID_ARM_STATUS` must be forwarded to the GCS, if present for additional error reporting.
 - [OPEN_DRONE_ID_BASIC_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_BASIC_ID) specifies a serial number in an invalid format (not ANSI/CTA-2063 format).
-- The vehicle ID is expected to be tamper resistent.
+- The vehicle ID is expected to be tamper resistant.
 
 [PX4-Autopilot/21647](https://github.com/PX4/PX4-Autopilot/pull/21647) is intended to address the known issues.
+
+## Troubleshooting
+
+### CAN Remote ID Not Working
+
+::: info
+This information was tested with the CAN Cube ID from CubePilot.
+It _should_ also apply to CAN Remote ID modules from other vendors.
+:::
+
+To confirm that the Remote ID is working:
+
+- Check that the `OPEN_DRONE_ID_BASIC_ID` and `OPEN_DRONE_ID_LOCATION` messages appear in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) (QGC **Analyze Tools > MAVLink Inspector**).
+
+- If those messages are not present, check that the Remote_ID node appears on the UAVCAN list.
+
+  Run the following command in the [QGroundControl MAVLink Console](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console):
+
+  ```sh
+  uavcan status
+  ```
+
+  The connected CAN nodes should appear in the list.
+  If you only have one CAN component on your system (the remote ID) the list might look like this:
+
+  ```plain
+  Online nodes (Node ID, Health, Mode):
+     125 OK         OPERAT
+  ```
+
+  The nodes aren't "named" so if you have more than one CAN node you can compare the number of nodes shown with the number expected on your system to see if they match.
+  Alternatively you can run the `uavcan status` with the Remote ID connected and disconnected and difference the result (which has the benefit that you will then known the Remote ID module's node ID).
+
+If the Remote ID CAN node is present and the messages are not being received, then the Remote ID itself may need to be configured:
+
+1. Open QGroundControl
+2. Navigate to the [Application settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/general.html): **Application Settings > General > Miscellaneous**.
+3. Select `Enable Remote ID`.
+   The Remote ID tab should appear.
+ 
+   ::: info
+   If this option is not present you may be in a very recent version of QGC.
+   In that case, open the view at: **Application Settings > Remote ID**.
+   :::
+
+4. Enter the information for Basic, Operator, and Self ID.
+
+Once configured, check the MAVLink Inspector again and check that the `OPEN_DRONE_ID_BASIC_ID` and `OPEN_DRONE_ID_LOCATION` messages are now present.
 
 ## See Also
 
