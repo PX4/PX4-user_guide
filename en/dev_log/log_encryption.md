@@ -83,13 +83,15 @@ CONFIG_PUBLIC_KEY1="../../../Tools/test_keys/rsa2048.pub"
 
 ::: details Overview of the keys
 
-| Argument                     | Description                                                                                                     |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| CONFIG_BOARD_CRYPTO          | Include crypto module in firmware.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption.       |
-| CONFIG_DRIVERS_SW_CRYPTO     | Include the built-in PX4 crypto backend library (used by above library).<br />= `y`: Enable<br />= `n`: Disable |
-| CONFIG_DRIVERS_STUB_KEYSTORE | Includes the built-in PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable                          |
-| CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0.<br />= `{path to key0}`                                            |
-| CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1.<br />= `{path to key1}`                                            |
+| Argument                     | Description                                                                                                                                                                                     |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CONFIG_BOARD_CRYPTO          | Include crypto module in firmware.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption.                                                                                       |
+| CONFIG_DRIVERS_SW_CRYPTO     | Include the built-in PX4 crypto backend library (used by above library).<br />= `y`: Enable<br />= `n`: Disable                                                                                 |
+| CONFIG_DRIVERS_STUB_KEYSTORE | Includes the built-in PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable                                                                                                          |
+| CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0. By default, this is set as the exchange key by [SDLOG_EXCH_KEY](../advanced_config/parameter_reference.md#SDLOG_EXCH_KEY).<br />= `{path to key0}` |
+| CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1. By default, this is set as the encryption key by [SDLOG_KEY](../advanced_config/parameter_reference.md#SDLOG_KEY).<br />= `{path to key1}`         |
+| CONFIG_PUBLIC_KEY2           | Location of public key for keystore index 2.<br />= `{path to key2}`                                                                                                                            |
+| CONFIG_PUBLIC_KEY3           | Location of public key for keystore index 3.<br />= `{path to key3}`                                                                                                                            |
 
 :::
 
