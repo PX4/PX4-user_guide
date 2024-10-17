@@ -32,6 +32,8 @@ Device | GPS | Compass | [DroneCAN](../dronecan/index.md) | [GPS Yaw](#configuri
 [Drotek SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) | F9P | RM3100 | | [Dual F9P][DualF9P] |
 [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | FB672, FB6A0 | &check; | | |
 [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) | F9P | IST8310 | | |
+[Holybro H-RTK ZED-F9P RTK Rover (DroneCAN variant)](../dronecan/holybro_h_rtk_zed_f9p_gps.md) | F9P | RM3100 | &check; | [Dual F9P][DualF9P] |
+[Holybro H-RTK ZED-F9P RTK Rover](https://holybro.com/collections/h-rtk-gps/products/h-rtk-zed-f9p-rover) | F9P | RM3100 | | [Dual F9P][DualF9P] |
 [Holybro H-RTK F9P Ultralight](https://holybro.com/products/h-rtk-f9p-ultralight) | F9P | IST8310 | | [Dual F9P][DualF9P]|
 [Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | F9P | IST8310 | | [Dual F9P][DualF9P]|
 [Holybro DroneCAN H-RTK F9P Helical](https://holybro.com/products/dronecan-h-rtk-f9p-helical) | F9P | BMM150 | &check; | [Dual F9P][DualF9P] |

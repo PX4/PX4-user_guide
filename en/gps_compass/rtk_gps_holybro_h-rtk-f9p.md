@@ -1,5 +1,10 @@
 # Holybro H-RTK F9P GNSS
 
+::: tip
+[Holybro H-RTK ZED-F9P Rover](../dronecan/holybro_h_rtk_zed_f9p_gps.md) is an upgraded version of this module.
+:::
+
+
 The [Holybro H-RTK F9P GNSS](https://holybro.com/products/h-rtk-f9p-gnss-series) is an multi-band high-precision [RTK GNSS System](../gps_compass/rtk_gps.md) series launched by Holybro.
 This family is similar to the [H-RTK M8P](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) series, but uses multi-band RTK with faster convergence times and reliable performance, concurrent reception of GPS, GLONASS, Galileo and BeiDou, and faster update rate for highly dynamic and high volume applications with centimeter-accuracy.
 It uses a u-blox F9P module, a IST8310 compass, and a tri-colored LED indicator.
@@ -8,7 +13,7 @@ It also has an integrated safety switch for a simple and convenient operation.
 There are three models of Holybro H-RTK F9P to choose from, each with different antenna design to meet different needs.
 Refer to [Specification and Model Comparison section](#specification-and-model-comparison) for more details.
 
-Using RTK allows PX4 to get its position with centimeter-level accuracy, which is much more accurate than can be provided by a normal GPS.
+Using RTK allows PX4 to get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_all_label.jpg)
 

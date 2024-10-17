@@ -15,14 +15,14 @@ The "standard rules" modules enable less restrictive operation than "broadcast r
 
 ## Supported Hardware
 
+::: warning
+Remote ID hardware can only be connected via DroneCAN on `main` branch builds (builds _after_ PX4 v1.15).
+:::
+
 PX4 integrates with Remote ID hardware that supports:
 
 - [Open Drone ID](https://mavlink.io/en/services/opendroneid.html) MAVLink protocol<Badge type="tip" text="PX4 v1.14" />
 - Remote ID over CAN<Badge type="tip" text="PX4 main (v1.16)" />
-
-  ::: warning
-  Remote ID hardware can only be connected via DroneCAN on `main` branch builds (builds _after_ PX4 v1.15).
-  :::
 
 It has been tested with the following devices:
 
