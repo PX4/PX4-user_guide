@@ -7,6 +7,8 @@ All existing instances of a topic are logged.
 
 The output log format is [ULog](../dev_log/ulog_file_format.md).
 
+[Encrypted logging](../dev_log/log_encryption.md) is also supported.
+
 ## Usage
 
 By default, logging is automatically started when arming, and stopped when disarming.
@@ -182,3 +184,8 @@ There are different clients that support ulog streaming:
 
   Also make sure `txerr` stays at 0.
   If this goes up, either the NuttX sending buffer is too small, the physical link is saturated or the hardware is too slow to handle the data.
+
+
+## See Also
+
+- [Encrypted logging](../dev_log/log_encryption.md)
