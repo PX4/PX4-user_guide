@@ -15,6 +15,7 @@ PX4 supports the following rover types:
   This kind of steering is commonly used on bulldozers, tanks, and other tracked vehicles.
 - [**Ackermann steering**](../frames_rover/ackermann.md): direction is controlled by pointing wheels in the direction of travel.
   This kind of steering is used on most commercial vehicles, including cars, trucks etc.
+- [**Mecanum steering**](../frames_rover/mecanum.md): direction is controlled by moving each mecanum wheel individually at different speeds and in different directions.
 
 The supported frames can be seen in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
 
@@ -37,6 +38,7 @@ Rovers use a custom build that must be flashed onto your flight controller inste
    ```sh
    CONFIG_MODULES_ROVER_DIFFERENTIAL=y
    CONFIG_MODULES_ROVER_ACKERMANN=y
+   CONFIG_MODULES_ROVER_MECANUM=y
    ```
 
    Note that adding the rover module may lead to flash overflow, in which case you will need to disable modules that you do not plan to use (such as those related to multicopter or fixed wing).
