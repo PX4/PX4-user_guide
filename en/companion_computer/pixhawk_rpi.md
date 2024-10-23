@@ -5,7 +5,7 @@ This topic describes how to setup a Raspberry Pi ("RPi") companion companion run
 These instructions should be readily extensible to other RPi and flight controller configurations.
 
 ::: info
-Other common ways to connect RaPi and Pixhawk are:
+Other common ways to connect RPi and Pixhawk are:
 
 - Ethernet connection between RPi and Pixhawk.
   Pixhawk controllers based on FMUv5x, FMUv6x and later may have an inbuilt Ethernet port.
@@ -148,7 +148,7 @@ Enter the following commands (in sequence) a terminal to configure Ubuntu for RP
    - Select **Yes** to enable the serial interface.
    - Click **Finish** and restart the RPi.
 
-1. Open the firmware boot configuration file in the `nano` editor on RaPi:
+1. Open the firmware boot configuration file in the `nano` editor on RPi:
 
    ```sh
    sudo nano /boot/firmware/config.txt

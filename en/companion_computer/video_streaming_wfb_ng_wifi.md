@@ -47,7 +47,7 @@ The vehicle setup consists of:
   These options have been tested:
 
   - Any Linux computer with a USB port (tested on Ubuntu 18.04 x86-64)
-  - A computer with any OS running QGround control and Raspberry PI connected via Ethernet (RasPi provides the wifi connection).
+  - A computer with any OS running QGround control and Raspberry PI connected via Ethernet (RPi provides the wifi connection).
 
 - WiFi module [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) or any other **RTL8812au** card.
   See [WFB-ng wiki > WiFi hardware](https://github.com/svpcom/wfb-ng/wiki/WiFi-hardware) for more information on supported modules.
@@ -80,11 +80,11 @@ If you use a special "very" high power cards from Taobao/Aliexpress then you MUS
 4. Run actions for **air** role as displayed in motd.
 5. Setup camera pipeline. Open `/etc/systemd/system/fpv-camera.service` and uncomment pipeline according to your camera (PI camera or Logitech camera)
 6. Open `/etc/wifibroadcast.cfg` and configure WiFi channel according to your antenna setup (or use default #165 for 5.8GHz)
-7. Configure PX4 to output telemetry stream at speed 1500 Kbps (other UART speeds doesn't match well to RPI frequency dividers).
-   Connect Pixhawk UART to Raspberry PI UART.
+7. Configure PX4 to output telemetry stream at speed 1500 Kbps (other UART speeds doesn't match well to RPi frequency dividers).
+   Connect Pixhawk UART to Raspberry Pi UART.
    In `/etc/wifibroadcast.cfg` uncomment `peer = 'serial:ttyS0:1500000'` in `[drone_mavlink]` section.
 
-### Using a Linux Laptop as GCS (Harder than using a RasPi)
+### Using a Linux Laptop as GCS (Harder than using a RPi)
 
 1. On **ground** Linux development computer:
 
@@ -105,7 +105,7 @@ If you have Windows or OSX, or don't want to setup WFB-ng to your Linux laptop t
 1. Flash image to the **ground** Raspberry Pi.
 2. Reboot it and SSH in with standard credentials (pi/raspberry).
 3. Run actions for **ground** role as displayed in motd, but skip setup of `fpv-video` service and `osd` service.
-4. Connect your laptop and ground RasPi via ethernet and configure IP addresses
+4. Connect your laptop and ground RPi via ethernet and configure IP addresses
 5. Edit `/etc/wifibroadcast.cfg` and set the IP address of the laptop in `[gs_mavlink]` and `[gs_video]` sections (replacing `127.0.0.1`).
 
 ### QGroundControl Setup

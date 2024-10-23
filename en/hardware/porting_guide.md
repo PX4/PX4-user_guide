@@ -35,7 +35,7 @@ See [NuttX Board Porting Guide](porting_guide_nuttx.md).
 Linux boards do not include the OS and kernel configuration.
 These are already provided by the Linux image available for the board (which needs to support the inertial sensors out of the box).
 
-- [boards/px4/raspberrypi/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/raspberrypi/default.px4board) - RPI cross-compilation. <!-- NEED px4_version -->
+- [boards/px4/raspberrypi/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/raspberrypi/default.px4board) - RPi cross-compilation. <!-- NEED px4_version -->
 
 ## Middleware Components and Configuration
 

@@ -61,11 +61,11 @@ Flight controllers that have a different form factor will need additional wiring
 
 ## Installing the RPi CM4 Companion
 
-This section shows how to install/attach a Raspberry Pi CM4 to the baseboard.
+This section shows how to install/attach an RPi CM4 to the baseboard.
 
 ![Image showing separate baseboard, baseboard cover, RPi, Flight controller, screws](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_disassembled.jpg)
 
-To install the Raspberry Pi CM4 companion computer:
+To install the RPi CM4 companion computer:
 
 1. Disconnect the `FAN` wiring.
 
