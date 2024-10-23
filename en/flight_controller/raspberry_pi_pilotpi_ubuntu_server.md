@@ -30,7 +30,7 @@ Please refer to official [cdimage](https://cdimage.ubuntu.com/releases/) page fo
 
 ### First boot
 
-When setting up RaPi's WiFi for the first time we recommended using a wired Ethernet connection between your home router and RPi, and a monitor and keyboard.
+When setting up RPi's WiFi for the first time we recommended using a wired Ethernet connection between your home router and RPi, and a monitor and keyboard.
 
 #### Before booting
 

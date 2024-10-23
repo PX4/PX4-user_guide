@@ -8,7 +8,7 @@ Contact the [manufacturer](https://emlid.com/) for hardware support or complianc
 :::
 
 This is the developer "quickstart" for Raspberry Pi 2/3/4 Navio2 autopilots.
-It allows you to build PX4 and transfer to the RasPi, or build natively.
+It allows you to build PX4 and transfer to the RPi, or build natively.
 
 ![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
 
@@ -78,7 +78,7 @@ Validate that the file was indeed copied, and you can proceed to the next step.
 
 ## PX4 Development Environment
 
-These instructions explain how to install a PX4 development environment for building RasPi on Ubuntu 18.04.
+These instructions explain how to install a PX4 development environment for building RPi on Ubuntu 18.04.
 
 ::: warning
 PX4 binaries for Navio 2 can only be run on Ubuntu 18.04.

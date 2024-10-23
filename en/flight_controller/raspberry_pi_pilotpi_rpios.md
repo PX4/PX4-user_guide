@@ -12,7 +12,7 @@ To install you must already have a working SSH connection to RPi.
 
 #### Hostname and mDNS
 
-mDNS helps you connect to your RasPi with hostname instead of IP address.
+mDNS helps you connect to your RPi with hostname instead of IP address.
 
 ```sh
 sudo raspi-config
@@ -70,7 +70,7 @@ console=tty1 root=PARTUUID=xxxxxxxx-xx rootfstype=ext4 elevator=deadline fsck.re
 This tells the Linux kernel not to schedule any process on CPU core 2.
 We will manually run PX4 onto that core later.
 
-Reboot and SSH onto your RasPi.
+Reboot and SSH onto your RPi.
 
 Check UART interface:
 
@@ -231,7 +231,7 @@ You need to check these extra items to get your vehicle work properly.
 
 First set the [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) parameter for your vehicle.
 
-You will then be able to assign outputs using the normal [Actuator Configuration](../config/actuators.md) configuration screen (an output tab will appear for the RasPi PWM output driver).
+You will then be able to assign outputs using the normal [Actuator Configuration](../config/actuators.md) configuration screen (an output tab will appear for the RPi PWM output driver).
 
 #### External Compass
 

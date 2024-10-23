@@ -17,7 +17,7 @@ General instructions for installing _GStreamer_ and starting the stream on a com
 The setup of cameras and data links depends on many factors.
 Examples in this library are listed below (note, these are options, not "recommended"):
 
-- [Video Streaming using WFB-ng Wifi](../companion_computer/video_streaming_wfb_ng_wifi.md) (Tutorial): Using RaPi and WiFi module in unconnected (broadcast) mode to stream video and as a bidirectional telemetry link.
+- [Video Streaming using WFB-ng Wifi](../companion_computer/video_streaming_wfb_ng_wifi.md) (Tutorial): Using RPi and WiFi module in unconnected (broadcast) mode to stream video and as a bidirectional telemetry link.
 
 ## QGC Setup
 

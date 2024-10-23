@@ -198,7 +198,7 @@ MicroXRCEAgent udp4 -p 8888
 ```
 
 When working with real hardware, the setup depends on the hardware, OS, and channel.
-For example, if you're using the RasPi `UART0` serial port, you might connect using this command (based on the information in [Raspberry Pi Documentation > Configuring UARTS](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts)):
+For example, if you're using the RPi `UART0` serial port, you might connect using this command (based on the information in [Raspberry Pi Documentation > Configuring UARTS](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts)):
 
 ```sh
 sudo MicroXRCEAgent serial --dev /dev/AMA0 -b 921600
