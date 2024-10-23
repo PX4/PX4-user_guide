@@ -81,6 +81,10 @@ CONFIG_PUBLIC_KEY0="../../../Tools/test_keys/key0.pub"
 CONFIG_PUBLIC_KEY1="../../../Tools/test_keys/rsa2048.pub"
 ```
 
+::: info
+In the current PX4 implementation, `key0.pub` is unused and can be ignored.
+:::
+
 ::: details Overview of the keys
 
 | Argument                     | Description                                                                                                                                                                                     |
@@ -88,14 +92,14 @@ CONFIG_PUBLIC_KEY1="../../../Tools/test_keys/rsa2048.pub"
 | CONFIG_BOARD_CRYPTO          | Include crypto module in firmware.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption.                                                                                       |
 | CONFIG_DRIVERS_SW_CRYPTO     | Include the built-in PX4 crypto backend library (used by above library).<br />= `y`: Enable<br />= `n`: Disable                                                                                 |
 | CONFIG_DRIVERS_STUB_KEYSTORE | Includes the built-in PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable                                                                                                          |
-| CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0. By default, this is set as the exchange key by [SDLOG_EXCH_KEY](../advanced_config/parameter_reference.md#SDLOG_EXCH_KEY).<br />= `{path to key0}` |
-| CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1. By default, this is set as the encryption key by [SDLOG_KEY](../advanced_config/parameter_reference.md#SDLOG_KEY).<br />= `{path to key1}`         |
+| CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0.  |
+| CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1. By default, this is set as the exchange key by [SDLOG_EXCH_KEY](../advanced_config/parameter_reference.md#SDLOG_EXCH_KEY).<br />= `{path to key1}`        |
 | CONFIG_PUBLIC_KEY2           | Location of public key for keystore index 2.<br />= `{path to key2}`                                                                                                                            |
 | CONFIG_PUBLIC_KEY3           | Location of public key for keystore index 3.<br />= `{path to key3}`                                                                                                                            |
 
 :::
 
-You can use the above keys for testing, or replace `CONFIG_PUBLIC_KEY0` and `CONFIG_PUBLIC_KEY1` with the path to your own keys in the file (see [Generate RSA Public & Private Keys](#generate-rsa-public-private-keys)).
+You can use the above keys for testing, or replace `CONFIG_PUBLIC_KEY1` with the path to your own public key in the file (see [Generate RSA Public & Private Keys](#generate-rsa-public-private-keys)).
 
 Build the firmware like this:
 
@@ -197,15 +201,6 @@ Rename the file back to `.ulg` and it is now ready for flight review.
 
 ## Generate RSA Public & Private Keys
 
-The `cryptotest` example implementation uses example keys which are found in `Tools/test_keys`. In a production environment, you should your own generated keys rather than using the example keys. 
-
-To generate the `CONFIG_PUBLIC_KEY0` public key, you can run the `Tools/cryptotools.py` Python program.
-For example, this command generates files called `new.pub` and `new.json` file in `Tools/test_keys`:
-
-```sh
-python3 Tools/cryptotools.py  --genkey Tools/test_keys/new
-```
-
 To generate a rsa2048 private and public key, you can use OpenSSL:
 
 ```sh
@@ -221,5 +216,5 @@ openssl rsa -pubout -in private_key.pem -outform DER -out public_key.der
 xxd -p public_key.der | tr -d '\n' | sed 's/\(..\)/0x\1, /g' > public_key.pub
 ```
 
-To use these keys you would modify your `.px4board` file to point `CONFIG_PUBLIC_KEY0` to the path of `new.pub` that was generated via `cryptotools.py`, and set `CONFIG_PUBLIC_KEY1` to point to the file location of `rsa2048.pub`.
+To use this key you would modify your `.px4board` file to point `CONFIG_PUBLIC_KEY1` to the file location of `public_key.pub`.
 The private key generated should be stored safely and used when you need to decrypt log files.
