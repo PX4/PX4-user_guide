@@ -108,7 +108,8 @@ _PX4_ and _Pixhawk_ have been validated with:
 - Spektrum DSM
 - Graupner HoTT
 
-Receivers from other vendors using one of the supported protocols are likely to work but have not been tested.
+Receivers from other vendors that use a supported protocol are likely to work but have not been tested.
+
 
   ::: info
   Differences between receiver models and no detailed specification of protocols historically resulted in incompatibilities.
