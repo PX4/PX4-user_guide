@@ -27,8 +27,8 @@ The encryption process for each new ULog is:
 
 1. A ULog file is created and opened for writing on the SD card.
    This is named with the file extension `.ulogc`(ulog cipher).
-2. A XChaCha20 symmetric key is generated and wrapped (encrypted) using an RSA2048 public key.
-   This wrapped key is stored on the SD Card in a file that has the suffix `.ulgk` (ulog wrapped key).
+2. A XChaCha20 symmetric key is generated and encrypted using an RSA2048 public key.
+   This encrypted/wrapped key is stored on the SD card in a file that has the suffix `.ulgk` (ulog wrapped key).
 3. The unencrypted symmetric key is used to encrypt ULog data blocks before they are written to disk (the `.ulogc` file).
 
 After the flight, there are two files on the SD card:
@@ -77,29 +77,42 @@ The relevant keys in that file are reproduced below:
 CONFIG_BOARD_CRYPTO=y
 CONFIG_DRIVERS_STUB_KEYSTORE=y
 CONFIG_DRIVERS_SW_CRYPTO=y
-CONFIG_PUBLIC_KEY0="../../../Tools/test_keys/key0.pub"
 CONFIG_PUBLIC_KEY1="../../../Tools/test_keys/rsa2048.pub"
 ```
 
 ::: info
-In the current PX4 implementation, `key0.pub` is unused and can be ignored.
+The file also sets `CONFIG_PUBLIC_KEY0` to a key named `key0.pub`.
+This is not used in the current PX4 implementation and can be ignored.
 :::
 
-::: details Overview of the keys
+::: details Overview of crypto-relevant keys
 
-| Argument                     | Description                                                                                                                                                                                     |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CONFIG_BOARD_CRYPTO          | Include crypto module in firmware.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption.                                                                                       |
-| CONFIG_DRIVERS_SW_CRYPTO     | Include the built-in PX4 crypto backend library (used by above library).<br />= `y`: Enable<br />= `n`: Disable                                                                                 |
-| CONFIG_DRIVERS_STUB_KEYSTORE | Includes the built-in PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable                                                                                                          |
-| CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0.  |
-| CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1. By default, this is set as the exchange key by [SDLOG_EXCH_KEY](../advanced_config/parameter_reference.md#SDLOG_EXCH_KEY).<br />= `{path to key1}`        |
-| CONFIG_PUBLIC_KEY2           | Location of public key for keystore index 2.<br />= `{path to key2}`                                                                                                                            |
-| CONFIG_PUBLIC_KEY3           | Location of public key for keystore index 3.<br />= `{path to key3}`                                                                                                                            |
+| Argument                     | Description                                                                                               |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------- |
+| CONFIG_BOARD_CRYPTO          | Include crypto module in firmware.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption. |
+| CONFIG_DRIVERS_SW_CRYPTO     | Include the PX4 crypto backend library (used by above library).<br />= `y`: Enable<br />= `n`: Disable    |
+| CONFIG_DRIVERS_STUB_KEYSTORE | Includes the PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable                             |
+| CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0.                                                              |
+| CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1.<br />= `{path to key1}`                                      |
+| CONFIG_PUBLIC_KEY2           | Location of public key for keystore index 2.<br />= `{path to key2}`                                      |
+| CONFIG_PUBLIC_KEY3           | Location of public key for keystore index 3.<br />= `{path to key3}`                                      |
 
+The stub keystore is a keystore implementation that can store up to four keys.
+The initial values of these keys are set in the locations defined by `CONFIG_PUBLIC_KEY0` to `CONFIG_PUBLIC_KEY3`.
+The keys can be used for different cryptographic purposes, which are determined by parameters.
+
+The _exchange key_, which is the public key used for encrypting the symmetric key stored in the `.ulgk` file, is specified using [SDLOG_EXCH_KEY](../advanced_config/parameter_reference.md#SDLOG_EXCH_KEY) as an index value into the key store.
+The value is `1` by default, which maps to the key defined in `CONFIG_PUBLIC_KEY1`.
+
+The _logging key_ is the unencrypted symmetric key.
+This is specified using [SDLOG_KEY](../advanced_config/parameter_reference.md#SDLOG_KEY) as an index value into the key store, and default to `2`.
+Note that the value is generated fresh for each log, and any value specified in `CONFIG_PUBLIC_KEY2` would be overwritten.
+
+You can use choose different locations for your keys as long as they aren't used by anything else.
 :::
 
-You can use the above keys for testing, or replace `CONFIG_PUBLIC_KEY1` with the path to your own public key in the file (see [Generate RSA Public & Private Keys](#generate-rsa-public-private-keys)).
+The key in `CONFIG_PUBLIC_KEY1` is the public key used to wrap the symmetric key in the `.ulgk` file (by default: see [SDLOG_EXCH_KEY](../advanced_config/parameter_reference.md#SDLOG_EXCH_KEY)).
+You can use the `rsa2048.pub` key for testing, or replace it with the path to your own public key in the file (see [Generate RSA Public & Private Keys](#generate-rsa-public-private-keys)).
 
 Build the firmware like this:
 
