@@ -96,7 +96,8 @@ In addition to the transmitter/receiver pairs being compatible, the receiver mus
 _PX4_ and _Pixhawk_ have been validated with:
 
 - PPM sum receivers
-- S.BUS and S.BUS2 receivers from
+- S.BUS and S.BUS2 receivers from:
+
   - Futaba
   - FrSky S.BUS and PPM models
   - TBS Crossfire with SBUS as output protocol
@@ -111,10 +112,10 @@ _PX4_ and _Pixhawk_ have been validated with:
 Receivers from other vendors that use a supported protocol are likely to work but have not been tested.
 
 
-  ::: info
-  Differences between receiver models and no detailed specification of protocols historically resulted in incompatibilities.
-  The receivers we have tested all now appear to be compatible, but it is possible that others may not be.
-  :::
+::: info
+Historically there were differences and incompatibilities between receiver models, largely due to a lack of detailed specification of protocols.
+The receivers we have tested all now appear to be compatible, but it is possible that others may not be.
+:::
 
 
 ## Connecting Receivers
