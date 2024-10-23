@@ -95,20 +95,25 @@ In addition to the transmitter/receiver pairs being compatible, the receiver mus
 
 _PX4_ and _Pixhawk_ have been validated with:
 
-- All Spektrum DSM RC receivers
-- All Futaba S.BUS and S.BUS2 RC receivers.
-- All FrSky S.BUS and PPM models
-- S.BUS and S.BUS2 RC receivers from Futaba, FrSky, TBS Crossfire with SBUS as output protocol, Herelink, Futaba SBUS remote.
-  Receivers from other vendors are likely to work but have not been tested.
+- PPM sum receivers
+- S.BUS and S.BUS2 receivers from
+  - Futaba
+  - FrSky S.BUS and PPM models
+  - TBS Crossfire with SBUS as output protocol
+  - Herelink
+- TBS Crossfire with (CRSF protocol)
+- Express LRS with (CRSF protocol)
+- TBS Ghost with (GHST protocol)
+- Spektrum DSM
+- Graupner HoTT
+
+Receivers from other vendors using one of the supported protocols are likely to work but have not been tested.
 
   ::: info
-  There is no detailed specification of the protocol, which historically resulted in slight incompatibilities.
+  Differences between receiver models and no detailed specification of protocols historically resulted in incompatibilities.
   The receivers we have tested all now appear to be compatible, but it is possible that others may not be.
   :::
 
-- All PPM models (from any manufacturer)
-- Graupner HoTT
-- TBS Crossfire/Express LRS Receivers using [CRSF Telemetry](../telemetry/crsf_telemetry.md) (UART connection).
 
 ## Connecting Receivers
 
