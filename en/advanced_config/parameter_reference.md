@@ -12824,7 +12824,7 @@ table {
  <td><strong id="FW_T_SPD_STD">FW_T_SPD_STD</strong> (FLOAT)</td>
  <td>Airspeed measurement standard deviation for airspeed filter <p><strong>Comment:</strong> This is the measurement standard deviation for the airspeed used in the airspeed filter in TECS.</p>   </td>
  <td>[0.01, 10.0] (0.1)</td>
- <td>0.2</td>
+ <td>0.07</td>
  <td>m/s</td>
 </tr>
 <tr>
@@ -13071,15 +13071,16 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_1_GNSS">GPS_1_GNSS</strong> (INT32)</td>
- <td>GNSS Systems for Primary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
+ <td>GNSS Systems for Primary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS 5 : Use NAVIC</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
   <li><strong>1:</strong> SBAS</li>
   <li><strong>2:</strong> Galileo</li>
   <li><strong>3:</strong> BeiDou</li>
   <li><strong>4:</strong> GLONASS</li>
+  <li><strong>5:</strong> NAVIC</li>
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 31] </td>
+ <td>[0, 63] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -13093,7 +13094,6 @@ table {
 <li><strong>4:</strong> Emlid Reach</li>
 <li><strong>5:</strong> Femtomes</li>
 <li><strong>6:</strong> NMEA (generic)</li>
-<li><strong>7:</strong> Septentrio (SBF)</li>
 </ul>  <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 7] </td>
@@ -13123,15 +13123,16 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_2_GNSS">GPS_2_GNSS</strong> (INT32)</td>
- <td>GNSS Systems for Secondary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
+ <td>GNSS Systems for Secondary GPS (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver&#x27;s documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver&#x27;s default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS 5 : Use NAVIC</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li>
   <li><strong>1:</strong> SBAS</li>
   <li><strong>2:</strong> Galileo</li>
   <li><strong>3:</strong> BeiDou</li>
   <li><strong>4:</strong> GLONASS</li>
+  <li><strong>5:</strong> NAVIC</li>
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 31] </td>
+ <td>[0, 63] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -13161,14 +13162,6 @@ table {
  <td>[0, 2] </td>
  <td>0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="GPS_PITCH_OFFSET">GPS_PITCH_OFFSET</strong> (FLOAT)</td>
- <td>Pitch offset for dual antenna GPS <p><strong>Comment:</strong> Vertical offsets can be compensated for by adjusting the Pitch offset (Septentrio). Note that this can be interpreted as the &quot;roll&quot; angle in case the antennas are aligned along the perpendicular axis. This occurs in situations where the two antenna ARPs may not be exactly at the same height in the vehicle reference frame. Since pitch is defined as the right-handed rotation about the vehicle Y axis, a situation where the main antenna is mounted lower than the aux antenna (assuming the default antenna setup) will result in a positive pitch.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[-90, 90] </td>
- <td>0.</td>
- <td>deg</td>
 </tr>
 <tr>
  <td><strong id="GPS_SAT_INFO">GPS_SAT_INFO</strong> (INT32)</td>
@@ -13232,7 +13225,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_YAW_OFFSET">GPS_YAW_OFFSET</strong> (FLOAT)</td>
- <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover (or Unicore primary) antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover (or Unicore primary) antenna is placed on the right side of the vehicle and the moving base antenna is on the left side. (Note: the Unicore primary antenna is the one connected on the right as seen from the top).</p>   <p><b>Reboot required:</b> true</p>
+ <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover (or Unicore primary) antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover (or Unicore primary, or Septentrio Mosaic Aux) antenna is placed on the right side of the vehicle and the moving base antenna is on the left side. (Note: the Unicore primary antenna is the one connected on the right as seen from the top).</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 360] </td>
  <td>0.</td>
@@ -23588,6 +23581,197 @@ table {
  <td>[0.000000001, 0.1] (.000000001)</td>
  <td>0.0056</td>
  <td></td>
+</tr>
+</tbody></table>
+
+## Septentrio
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="SEP_AUTO_CONFIG">SEP_AUTO_CONFIG</strong> (INT32)</td>
+ <td>Toggle automatic receiver configuration <p><strong>Comment:</strong> By default, the receiver is automatically configured. Sometimes it may be used for multiple purposes. If the offered parameters aren&#x27;t sufficient, this parameter can be disabled to have full control of the receiver configuration. A good way to use this is to enable automatic configuration, let the receiver be configured, and then disable it to make manual adjustments.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_CONST_USAGE">SEP_CONST_USAGE</strong> (INT32)</td>
+ <td>Usage of different constellations <p><strong>Comment:</strong> Choice of which constellations the receiver should use for PVT computation. When this is 0, the constellation usage isn&#x27;t changed.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS</li>
+  <li><strong>1:</strong> GLONASS</li>
+  <li><strong>2:</strong> Galileo</li>
+  <li><strong>3:</strong> SBAS</li>
+  <li><strong>4:</strong> BeiDou</li>
+</ul>
+ <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 63] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_DUMP_COMM">SEP_DUMP_COMM</strong> (INT32)</td>
+ <td>Log GPS communication data <p><strong>Comment:</strong> Log raw communication between the driver and connected receivers. For example, &quot;To receiver&quot; will log all commands and corrections sent by the driver to the receiver.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> From receiver</li>
+<li><strong>2:</strong> To receiver</li>
+<li><strong>3:</strong> Both</li>
+</ul>  </td>
+ <td>[0, 3] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_HARDW_SETUP">SEP_HARDW_SETUP</strong> (INT32)</td>
+ <td>Setup and expected use of the hardware <p><strong>Comment:</strong> Setup and expected use of the hardware. - Default: Use two receivers as completely separate instances. - Moving base: Use two receivers in a rover &amp; moving base setup for heading.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Default</li>
+<li><strong>1:</strong> Moving base</li>
+</ul>  <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_LOG_FORCE">SEP_LOG_FORCE</strong> (INT32)</td>
+ <td>Whether to overwrite or add to existing logging <p><strong>Comment:</strong> When the receiver is already set up to log data, this decides whether extra logged data should be added or overwrite existing data.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_LOG_HZ">SEP_LOG_HZ</strong> (INT32)</td>
+ <td>Logging frequency for the receiver <p><strong>Comment:</strong> Select the frequency at which the connected receiver should log data to its internal storage.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> 0.1 Hz</li>
+<li><strong>2:</strong> 0.2 Hz</li>
+<li><strong>3:</strong> 0.5 Hz</li>
+<li><strong>4:</strong> 1 Hz</li>
+<li><strong>5:</strong> 2 Hz</li>
+<li><strong>6:</strong> 5 Hz</li>
+<li><strong>7:</strong> 10 Hz</li>
+<li><strong>8:</strong> 20 Hz</li>
+<li><strong>9:</strong> 25 Hz</li>
+<li><strong>10:</strong> 50 Hz</li>
+</ul>  <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 10] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_LOG_LEVEL">SEP_LOG_LEVEL</strong> (INT32)</td>
+ <td>Logging level for the receiver <p><strong>Comment:</strong> Select the level of detail that needs to be logged by the receiver.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Lite</li>
+<li><strong>1:</strong> Basic</li>
+<li><strong>2:</strong> Default</li>
+<li><strong>3:</strong> Full</li>
+</ul>  <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 3] </td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_OUTP_HZ">SEP_OUTP_HZ</strong> (INT32)</td>
+ <td>Output frequency of main SBF blocks <p><strong>Comment:</strong> The output frequency of the main SBF blocks needed for PVT information.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> 5 Hz</li>
+<li><strong>1:</strong> 10 Hz</li>
+<li><strong>2:</strong> 20 Hz</li>
+<li><strong>3:</strong> 25 Hz</li>
+</ul>  <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 3] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_PITCH_OFFS">SEP_PITCH_OFFS</strong> (FLOAT)</td>
+ <td>Pitch offset for dual antenna GPS <p><strong>Comment:</strong> Vertical offsets can be compensated for by adjusting the Pitch offset. Note that this can be interpreted as the &quot;roll&quot; angle in case the antennas are aligned along the perpendicular axis. This occurs in situations where the two antenna ARPs may not be exactly at the same height in the vehicle reference frame. Since pitch is defined as the right-handed rotation about the vehicle Y axis, a situation where the main antenna is mounted lower than the aux antenna (assuming the default antenna setup) will result in a positive pitch.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[-90, 90] </td>
+ <td>0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="SEP_PORT1_CFG">SEP_PORT1_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for GPS Port <p><strong>Comment:</strong> Configure on which serial port to run GPS Port.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>6:</strong> UART 6</li>
+<li><strong>101:</strong> TELEM 1</li>
+<li><strong>102:</strong> TELEM 2</li>
+<li><strong>103:</strong> TELEM 3</li>
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+<li><strong>201:</strong> GPS 1</li>
+<li><strong>202:</strong> GPS 2</li>
+<li><strong>203:</strong> GPS 3</li>
+<li><strong>300:</strong> Radio Controller</li>
+<li><strong>301:</strong> Wifi Port</li>
+<li><strong>401:</strong> EXT2</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_PORT2_CFG">SEP_PORT2_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for Secondary GPS port <p><strong>Comment:</strong> Configure on which serial port to run Secondary GPS port.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>6:</strong> UART 6</li>
+<li><strong>101:</strong> TELEM 1</li>
+<li><strong>102:</strong> TELEM 2</li>
+<li><strong>103:</strong> TELEM 3</li>
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+<li><strong>201:</strong> GPS 1</li>
+<li><strong>202:</strong> GPS 2</li>
+<li><strong>203:</strong> GPS 3</li>
+<li><strong>300:</strong> Radio Controller</li>
+<li><strong>301:</strong> Wifi Port</li>
+<li><strong>401:</strong> EXT2</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_SAT_INFO">SEP_SAT_INFO</strong> (INT32)</td>
+ <td>Enable sat info <p><strong>Comment:</strong> Enable publication of satellite info (ORB_ID(satellite_info)) if possible.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_STREAM_LOG">SEP_STREAM_LOG</strong> (INT32)</td>
+ <td>Logging stream used during automatic configuration <p><strong>Comment:</strong> The stream the autopilot sets up on the receiver to output the logging data. Set this to another value if the default stream is already used for another purpose.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[1, 10] </td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_STREAM_MAIN">SEP_STREAM_MAIN</strong> (INT32)</td>
+ <td>Main stream used during automatic configuration <p><strong>Comment:</strong> The stream the autopilot sets up on the receiver to output the main data. Set this to another value if the default stream is already used for another purpose.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[1, 10] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SEP_YAW_OFFS">SEP_YAW_OFFS</strong> (FLOAT)</td>
+ <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover antenna is placed on the right side of the vehicle and the moving base antenna is on the left side.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[-360, 360] </td>
+ <td>0</td>
+ <td>deg</td>
 </tr>
 </tbody></table>
 
