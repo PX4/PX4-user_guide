@@ -739,6 +739,7 @@
     - [Logging](dev_log/logging.md)
     - [Flight Log Analysis](dev_log/flight_log_analysis.md)
     - [ULog File Format](dev_log/ulog_file_format.md)
+    - [Log Encryption](dev_log/log_encryption.md)
   - [Advanced Topics](advanced/index.md)
     - [PX4 Metadata](advanced/px4_metadata.md)
     - [Package Delivery Architecture](advanced/package_delivery.md)
