@@ -12,7 +12,7 @@ PX4 是一款_专业的自动驾驶仪_。 它由来自业界和学术界的世�
 :::
 
 :::warning
-This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector to find the current _stable_ version.
+本指南适用于PX4的_开发版_（`main`分支）。 Use the **Version** selector to find the current _stable_ version.
 
 Documented changes since the stable release are captured in the evolving [release note](releases/main.md). :::
 
@@ -22,9 +22,9 @@ Documented changes since the stable release are captured in the evolving [releas
 
 根据您想要实现的目标，以下提示将帮助您浏览本指南：
 
-### I want a vehicle that works with PX4
+### 我想要一个能与PX4配合使用的载具
 
-In the [Multicopter](frames_multicopter/index.md), [VTOL](frames_vtol/index.md), and [Plane (Fixed-Wing)](frames_plane/index.md) sections you'll find topics like the following (these links are for multicopter):
+在[多旋翼](frames_multicopter/index.md)，[VTOL](frames_vtol/index.md)和[飞机（固定翼）](frames_plane/index.md)部分，您会找到诸如以下主题的话题（这些链接是关于多旋翼的）：
 
 - [Complete Vehicles](complete_vehicles_mc/index.md) list "Ready to Fly" (RTF) pre-built vehicles
 - [Kits](frames_multicopter/kits.md) lists drones that you have to build yourself from a set of preselected parts
