@@ -10,7 +10,7 @@ Modes will only work properly if the preceding modes have been configured.
 
 ## Basic Setup
 
-To start using the differential rover:
+To configure the differential rover frame and outputs:
 
 1. Enable Rover support by flashing the [PX4 rover build](../frames_rover/index.md#flashing-the-rover-build) onto your flight controller.
    Note that this is a special build that contains rover-specific modules.
@@ -22,7 +22,7 @@ To start using the differential rover:
    Select the **Apply and Restart** button.
 
    ::: info
-   If this airframe does not show up in the UI, it can alternatively be selected by setting the [SYS_AUTOSTART](../advanced_config/parameter_reference.md#SYS_AUTOSTART) parameter to `50000`.
+   If this airframe is not displayed and you have checked that you are using rover firmware (not the default), you can alternatively enable this frame by setting the [SYS_AUTOSTART](../advanced_config/parameter_reference.md#SYS_AUTOSTART) parameter to `50000`.
    :::
 
 3. Use [Actuators Configuration & Testing](../config/actuators.md) to map the motor functions to flight controller outputs.
@@ -41,6 +41,10 @@ Note that this parameter only affects this mode, not any of the following ones.
 :::
 
 ## Acro Mode
+
+::: warning
+For this mode to work properly the [Basic Setup](#basic-setup) must've already been completed!
+:::
 
 To set up [Acro mode](../flight_modes_rover/differential.md#acro-mode) navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
 
@@ -61,7 +65,7 @@ To set up [Acro mode](../flight_modes_rover/differential.md#acro-mode) navigate 
    To further tune this parameter, first make sure you set [RD_YAW_RATE_P](#RD_YAW_RATE_P) and [RD_YAW_RATE_I](#RD_YAW_RATE_I) to zero.
    This way the yaw rate is only controlled by the feed-forward term, which makes it easier to tune.
    Now put the rover in [Acro mode](../flight_modes_rover/differential.md#acro-mode) and then move the right-stick of your controller to the right and/or left and hold it at a few different levels for a couple of seconds each.
-   Disarm the rover and from the flight log plot the _yaw_rate_setpoint_ and actual _yaw_rate_ from the [RoverDifferentialSetpoint](../msg_docs/RoverDifferentialStatus.md) over each other.
+   Disarm the rover and from the flight log plot the _yaw_rate_setpoint_ and _actual_yaw_rate_ from the [RoverDifferentialStatus](../msg_docs/RoverDifferentialStatus.md) over each other.
    If the actual yaw rate of the rover is higher than the yaw rate setpoint, increase [RD_MAX_THR_YAW_R](#RD_MAX_YAW_RATE).
    If it is the other way around decrease the parameter and repeat until you are satisfied with the setpoint tracking.
    :::
@@ -77,7 +81,7 @@ To set up [Acro mode](../flight_modes_rover/differential.md#acro-mode) navigate 
    :::
 
 5. (Optional) [RD_YAW_RATE_I](#RD_YAW_RATE_I) [-]: Integral gain of the closed loop yaw controller.
-   The integral gain accumulates the error between the desired and actual yaw rate over time and that value is added to the motor command.
+   The integral gain accumulates the error between the desired and actual yaw rate scaled by the integral gain over time and that value is added to the motor command.
 
    ::: tip
    The integrator gain is usually not necessary for the yaw rate setpoint as this is usually a fast changing value.
@@ -132,12 +136,11 @@ To configure set the following parameters:
    This will define the stick-to-speed mapping for position mode and set an upper limit for the speed setpoint for all [auto modes](#auto-modes).
 2. [RD_MAX_THR_SPD](#RD_MAX_SPEED) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
    A good starting point is the observed ground speed when the rover drives at maximum throttle in [Manual mode](../flight_modes_rover/differential.md#manual-mode).
-   Increase this parameter if the rover is faster than the setpoint, and decrease if the rover is slower.
 
    <a id="RD_SPEED_P_TUNING"></a>
 
    ::: tip
-   To further tune this parameter, first make sure you set [RD_SPEED_P](#RD_YAW_RATE_P) and [RD_SPEED_I](#RD_SPEED_I) to zero.
+   To further tune this parameter, first make sure you set [RD_SPEED_P](#RD_SPEED_P) and [RD_SPEED_I](#RD_SPEED_I) to zero.
    This way the speed is only controlled by the feed-forward term, which makes it easier to tune.
    Now put the rover in [Position mode](../flight_modes_rover/differential.md#position-mode) and then move the left stick of your controller up and/or down and hold it at a few different levels for a couple of seconds each.
    Disarm the rover and from the flight log plot the _forward_speed_setpoint_ from the [RoverDifferentialSetpoint](../msg_docs/RoverDifferentialSetpoint.md) message and the _actual_speed_ from the [RoverDifferentialStatus](../msg_docs/RoverDifferentialStatus.md) message over each other.

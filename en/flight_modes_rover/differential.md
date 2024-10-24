@@ -80,7 +80,7 @@ For the configuration/tuning of this mode see [Stabilized mode](../config_rover/
 This mode requires a yaw rate, yaw, speed and global position estimate.
 :::
 
-This is the mode with the most autopilot support. The vehicle regulates its yaw rate and speed to a setpoint. If the yaw rate setpoint is zero, the controller will remember the gps coordinates and yaw (heading) of the vehicle and use those to construct a line that the rover will then follow (course control).
+This is the manual mode with the most autopilot support. The vehicle regulates its yaw rate and speed to a setpoint. If the yaw rate setpoint is zero, the controller will remember the gps coordinates and yaw (heading) of the vehicle and use those to construct a line that the rover will then follow (course control).
 This offers the highest amount of disturbance rejection, which leads to the best straight line driving behavior.
 
 | Stick                  | Effect                                                         |
