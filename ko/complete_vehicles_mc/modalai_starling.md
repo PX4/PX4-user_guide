@@ -12,7 +12,7 @@ This development drone is meant to help you get to market faster and accelerate 
 This guide explains the minimal additional setup required to get the UAV ready to fly. It also covers a hardware overview, first flight, setting up WiFi, and more.
 
 :::info
-For complete and regularly updated documentation, please visit https://docs.modalai.com/starling-v2.
+For complete and regularly updated documentation, please visit <https://docs.modalai.com/starling-v2>.
 :::
 
 :::info

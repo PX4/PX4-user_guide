@@ -1,14 +1,14 @@
-# Fixed-wing Rate/Attitude Controller Tuning Guide
+# 固定翼角速度/姿态控制器调节指南
 
-This guide explains how to manually tune the fixed-wing PID loop. 它是为高级用户/专家设计的，因为错误的 PID 调节可能会使您的飞机坠毁。
+本指南介绍如何手动调整固定翼PID控制器。 它是为高级用户/专家设计的，因为错误的 PID 调节可能会使您的飞机坠毁。
 
-::: info [Autotune](../config/autotune_fw.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. 建议对自动调整不起作用或必须进行更加的调校的机型进行手工调整。
+::: 注意 推荐大部分的用户使用[自动调参](../config/autotune_fw.md)，它更快，更简单同时对大部分机型都提供了很好的效果 建议对自动调整不起作用或必须进行更加的调校的机型进行手工调整。
 :::
 
 ## 前置条件
 
 - “微调”必须首先配置（在开始PID调校之前）。 见[固定翼微调指南](../config_fw/trimming_guide_fixedwing.md)。
-- 调节过程中错误的设置增益可能会使姿态控制不稳定。 A pilot tuning gains should therefore be able to fly and land the plane in [manual](../flight_modes_fw/manual.md) (override) control.
+- 调节过程中错误的设置增益可能会使姿态控制不稳定。 因此，在调整增益时需要有飞手以确保可以在 [手动](../flight_modes_fw/manual.md) (超控) 模式下控制飞机飞行和降落。
 - 过高地增益(和快速的舵面响应)可能会超过你的机体结构允许最大过载――增加增益时需谨慎。
 - 滚转和俯仰参数调整都遵循相同的顺序。 唯一的不同是俯仰对微调更敏感， 因此 [微调](../config_fw/trimming_guide_fixedwing.md)必须被谨慎的调整 ，积分增益需要更多的控制输出来密闭微调影响。
 
@@ -68,7 +68,7 @@ This guide explains how to manually tune the fixed-wing PID loop. 它是为高�
 
 #### 待调整增益
 
-- [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - 以0.4作为初始值。 Increase this value (doubling each time) until the plane pitches satisfactory and reaches the setpoint. 最后将增益降低20%。
+- [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - 以0.4作为初始值。 增加该参数值 (每次翻倍) 直到飞机俯仰响应特性良好并到达设置值。 最后将增益降低20%。
 
 ### 调整角速率增益
 

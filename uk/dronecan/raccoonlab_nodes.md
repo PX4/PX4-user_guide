@@ -51,9 +51,9 @@ For more details, please refer to the corresponding pages.
 |   | Image           | ![RaccoonLab Mini v2 Node][Mini v2 Node]  | ![RaccoonLab Micro Node][Micro Node]        |
 | 1 | Input voltage   | 5.5V – 30V                | 4.5V – 5.5V |
 | 2 | DC-DC           | Yes                                       | No                                          |
-| 3 | Groups of pins  | - PWM+5V+GND x2 </br> - PWM+FB+GND x2     | * PWM+5V+GND x2                             |
-| 4 | CAN connectors  | - UCANPHY Micro x2 </br> - 6-pin Molex x2 | * UCANPHY Micro x2                          |
-| 5 | SWD interface   | -                                         | *                                           |
+| 3 | Groups of pins  | - PWM+5V+GND x2 </br> - PWM+FB+GND x2     | - PWM+5V+GND x2                             |
+| 4 | CAN connectors  | - UCANPHY Micro x2 </br> - 6-pin Molex x2 | - UCANPHY Micro x2                          |
+| 5 | SWD interface   | +                                         | +                                           |
 | 6 | Size, LxWxH, mm | 42x35x12                                  | 20x10x5                                     |
 | 7 | Mass, g         | 5                                         | 3                                           |
 
