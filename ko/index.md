@@ -1,10 +1,10 @@
 <div style="float:right; padding:10px; margin-right:20px;"><a href="https://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 로고" width="180px" /></a></div>
 
-# PX4 Autopilot User Guide
+# PX4 Autopilot 사용자 안내서
 
-[![배포](https://img.shields.io/badge/release-main-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![토론](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![Discord](https://discordapp.com/api/guilds/1022170275984457759/widget.png?style=shield)](https://discord.gg/dronecode)
+[![배포](https://img.shields.io/badge/release-main-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![토론](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![디스코드](https://discordapp.com/api/guilds/1022170275984457759/widget.png?style=shield)](https://discord.gg/dronecode)
 
-PX4 is the _Professional Autopilot_. 세계적인 수준의 개발자들이 산업계와 학계에서 참여하여 개발하였으며, 세계 각국에서 활동중인 여러 단체들의 지원을 받을 수 있습니다. PX4는 레이싱 드론, 운송용 드론, 자동차와 선박 등의 다양한 운송체에 적용하여 사용할 수 있습니다.
+PX4는 _전문가용 자율조종 프로그램_ 입니다. 세계적인 수준의 개발자들이 산업계와 학계에서 참여하여 개발하였으며, 세계 각국에서 활동중인 여러 단체들의 지원을 받을 수 있습니다. PX4는 레이싱 드론, 운송용 드론, 자동차와 선박 등의 다양한 운송체에 적용하여 사용할 수 있습니다.
 
 :::tip
 이 안내서는 PX4를 이용한 기체조립 방법, 설정 방법 및 비행 방법에 대하여 설명합니다. 이 프로젝트에 기여하시려면,  [개발](development/development.md)편을 참고하여 주십시오.
@@ -12,17 +12,17 @@ PX4 is the _Professional Autopilot_. 세계적인 수준의 개발자들이 산�
 :::
 
 :::warning
-This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector to find the current _stable_ version.
+이 안내서는 PX4 _개발_ 버전 (`main` 브랜치) 의 안내서입니다. 현재 _안정_ 버전의 내용을 찾아보려면 **버전**을 선택하십시오.
 
-Documented changes since the stable release are captured in the evolving [release note](releases/main.md). :::
+안정 릴리스에서 바뀐 문서 내용은 [릴리즈 노트](releases/main.md)에 있습니다. :::
 
 ## 시작하기
 
-[Basic Concepts](getting_started/px4_basic_concepts.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicle types, telemetry systems, RC control systems).
+[기본 개념](getting_started/px4_basic_concepts.md)은 모든 사용자가 읽어야 합니다! 비행 스택(비행 모드 및 안전 기능)과 지원 하드웨어(비행 제어장치, 기체 형식, 텔레메트리, 원격 제어 시스템) 등 PX4의 전반적인 내용을 설명합니다.
 
 이 안내서를 위한 팁들은 아래과 같습니다.
 
-### I want a vehicle that works with PX4
+### PX4로 동작하는 기체를 만들려고 합니다
 
 In the [Multicopter](frames_multicopter/index.md), [VTOL](frames_vtol/index.md), and [Plane (Fixed-Wing)](frames_plane/index.md) sections you'll find topics like the following (these links are for multicopter):
 
@@ -87,13 +87,13 @@ PX4 사용에 문제가 있으시면, 먼저 [지원 포럼](contribute/support.
 
 <!--@include: _contributors.md-->
 
-## 라이센스
+## 라이선스
 
-PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). 이 문서는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 라이센스를 준수합니다. 자세한 정보는 [라이센스](contribute/licenses.md)를 참고하십시오.
+PX4 코드는 [BSD 3 조항 라이선스](https://opensource.org/licenses/BSD-3-Clause)에 따라 자유롭게 사용하고 수정할 수 있습니다. 이 문서는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 라이선스를 준수합니다. 자세한 정보는 [라이선스](contribute/licenses.md)를 참고하십시오.
 
 ## 중요 행사 및 일정
 
-The _Dronecode Calendar_ shows important community events for platform users and developers. 사용자의 시간대와 맞는 달력을 보려면 아래 링크를 선택하십시오. 사용자 달력에 추가할 수 있습니다.
+_드론 코드 달력_에서는 플랫폼 개발자, 사용자에게 중요한 커뮤니티 일정을 보여줍니다. 사용자의 시간대와 맞는 달력을 보려면 아래 링크를 선택하십시오. 사용자 달력에 추가할 수 있습니다.
 
 - [스위스 – 취리히](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
 - [태평양 시간대 – 티후아나](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)

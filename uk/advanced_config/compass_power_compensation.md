@@ -50,8 +50,13 @@
 1. Отримайте ulog та скористайтеся Python-скриптом [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py), щоб ідентифікувати параметри компенсації.
 
    ```sh
-   python mag_compensation.py ~/path/to/log/logfile.ulg
+   python mag_compensation.py ~/path/to/log/logfile.ulg <type> [--instance <number>]
    ```
+
+   where:
+
+      - `<type>`: `current` or `thrust` (power signal used for compensation)
+      - `--instance <number>` (optional): The number is `0` (default) or `1`, the instance of the current or thrust signal to use.
 
    :::note
 Якщо ваш журнал не містить вимірювань поточного заряду батареї, вам потрібно закоментувати відповідні рядки у Python-скрипті, щоб він робив розрахунок тільки для тяги.
