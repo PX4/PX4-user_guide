@@ -69,7 +69,8 @@ For each motor you can then set:
 - `Position Z`: [Z-position](#motor-position-coordinate-system), in metres.
 - (Advanced) `Direction CCW`: Checkbox to indicate motor spins counter-clockwise (uncheck for clockwise).
 - (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors)
-- (Advanced) `Slew Rate`: Refer to the [Control Surfaces Geometry](#control-surfaces-geometry) section for more information
+- (Advanced) `Slew Rate`: Sets minimum time that the motor output can take to reach its maximum value.
+  Refer to the [Control Surfaces Geometry](#control-surfaces-geometry) section for more information
 
 ::: info
 The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centre of gravity_](#motor-position-coordinate-system).
@@ -159,9 +160,9 @@ The fields are:
   [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
 - `Trim`: An offset added to the actuator so that it is centered without input.
   This might be determined by trial and error.
-- (Advanced) `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
+- <a id="slew_rate"></a>(Advanced) `Slew Rate`: Limits the minimum time in which the motor/servo signal is allowed to pass through its full output range, in seconds.
   - The setting limits the rate of change of an actuator (if not specified then no rate limit is applied).
-    It is intended for actuators that may be damaged if they move too fast — such as the tilting actuators on a tiltrotor VTOL vehicle.
+    It is intended for actuators that may be damaged or cause flight disturbance if they move too fast — such as the tilting actuators on a tiltrotor VTOL vehicle, or fast moving flaps, respectively.
   - For example, a setting of 2.0 means that the motor/servo will not be commanded to move from 0 to 1 at a rate that completes the operation in less than 2 seconds (in case of reversible motors, the range is -1 to 1).
 - (Advanced) `Flap Scale`: How much this actuator is deflected at the "full flaps configuration" [0, 1] (see [Flap Scale and Spoiler Scale Configuration](#flap-scale-and-spoiler-scale-configuration) below).
   Can be used to configure aerodynamic surface as flap or to compensate for generated torque through main flaps.
@@ -187,7 +188,7 @@ In the following example, the vehicle has two ailerons, one elevator, one rudder
 ![Flaps and spoiler actuator configuration example](../../assets/config/actuators/qgc_actuators_tab_flaps_spoiler_setup.png)
 
 - The flaps have both `Flap Scale` set to 1, meaning that they will be fully deflected with the flap-control at 1.
-  They also have a slew rate of 0.5/s, meaning that it will take 2s to fully deflect them (a slew rate on the flaps is generally recommended to reduce the disturbances their movement creates).
+  They also have a [slew rate](#slew_rate) of 0.5/s, meaning that it will take 2s to fully deflect them (a slew rate on the flaps is generally recommended to reduce the disturbances their movement creates).
 - The ailerons are primarily tasked to provide the commanded roll torque.
   They also have `Spoiler Scale` set to 0.5, and will additionally be deflected upwards 50% if the controller demands full spoiler configuration.
   The aileron deflection is thus the sum of the (asymmetrical) deflection for the roll torque, plus the (symmetrical) deflection for the spoiler setpoint.
