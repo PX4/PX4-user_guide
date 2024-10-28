@@ -53,6 +53,7 @@ To set up [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) navigate to [P
 3. [RM_MAX_THR_YAW_R](#RM_MAX_YAW_RATE) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop yaw rate control.
    The controller calculates the required speed difference between the left and right motor to achieve the desired yaw rate.
    This desired speed difference is then linearly mapped to normalized motor commands.
+
    To get a good starting value for this parameter drive the rover in manual mode forwards at full throttle and note the ground speed of the vehicle.
    Then enter _twice_ this value for the parameter.
    <a id="RM_YAW_RATE_P_TUNING"></a>
@@ -69,7 +70,7 @@ To set up [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) navigate to [P
 4. [RM_YAW_RATE_P](#RM_YAW_RATE_P) [-]: Proportional gain of the closed loop yaw rate controller.
    Unlike the feed-forward part of the controller, the closed loop yaw rate control will compare the yaw rate setpoint with the measured yaw rate and adapt to motor commands based on the error between them.
    The proportional gain is multiplied with this error and that value is added to the motor command.
-   This way disturbances like uneven grounds or external forces can be compensated.
+   This compensates for disturbances such as uneven ground and external forces.
 
    ::: tip
    This parameter can be tuned the same way as [RM_MAX_THR_YAW_R](#RM_YAW_RATE_P_TUNING).
@@ -92,7 +93,7 @@ The rover is now ready to drive in [Acro mode](../flight_modes_rover/mecanum.md#
 For this mode to work properly [Acro mode](#acro-mode) must've already been configured!
 :::
 
-For [Stabilized mode](../flight_modes_rover/mecanum.md#stabilized-mode) the controller utilizes a closed loop yaw controller, which creates a yaw rate setpoint to control the yaw when it is active:
+For [Stabilized mode](../flight_modes_rover/mecanum.md#stabilized-mode) the controller utilizes a closed loop yaw controller, which creates a yaw rate setpoint to control the yaw when driving in a straight line (no yaw rate input).
 
 ![Cascaded PID for yaw control](../../assets/airframes/rover/rover_differential/cascaded_pid_for_yaw.png)
 
