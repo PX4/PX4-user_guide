@@ -59,7 +59,7 @@ To set up [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) navigate to [P
    In case the rover turns to aggressive for your liking, you need to first complete Step 3. After that in [Acro Mode](../flight_modes_rover/mecanum.md#acro-mode) move the right-stick of your controller all the way to the left or right and observe the behaviour of the rover. Keep reducing the value of [RM_MAX_YAW_RATE](#RM_MAX_YAW_RATE) until you are satisfied with the maximum turn rate.
    :::
 
-3. [RM_MAX_THR_YAW_R](#RM_MAX_THR_YAW_RATE) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop yaw rate control.
+3. [RM_MAX_THR_YAW_R](#RM_MAX_THR_YAW_R) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop yaw rate control.
    The controller calculates the required speed difference between the left and right motor to achieve the desired yaw rate.
    This desired speed difference is then linearly mapped to normalized motor commands.
 
@@ -148,7 +148,7 @@ To configure set the following parameters:
    In case you want to limit the maximum speed, you need to first complete Step 2. After that in [Position Mode](../flight_modes_rover/mecanum.md#position-mode) move the left-stick of your controller all the way up or down and observe the behaviour of the rover. Keep reducing the value of [RM_MAX_SPEED](#RM_MAX_SPEED) until you are satisfied with the maximum speed.
    :::
 
-2. [RM_MAX_THR_SPD](#RM_MAX_THR_SPEED) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
+2. [RM_MAX_THR_SPD](#RM_MAX_THR_SPD) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
    A good starting point is the observed ground speed when the rover drives at maximum throttle in [Manual mode](../flight_modes_rover/mecanum.md#manual-mode).
 
    <a id="RM_SPEED_P_TUNING"></a>
