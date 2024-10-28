@@ -46,6 +46,11 @@ This mode requires a yaw rate measurement.
 
 In this mode the vehicle regulates its yaw rate to a setpoint (but does not stabilize heading or regulate speed).
 
+Compared to [Manual mode](#manual-mode) this introduces the following new features:
+- Upper limit for the yaw rate (see [Acro mode](../config_rover/mecanum.md#acro-mode)) to tune how aggressive the rover turns.
+- The yaw rate control ensures that the rover turns at the requested rate even under disturbances (i.e. different surfaces, wind etc.).
+- Slightly better at driving in a straight line, as it can reject minor disturbances.
+
 | Stick                  | Effect                                                                                                                                                                            |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Left stick up/down     | Drive the rover forwards/backwards.                                                                                                                                               |
@@ -78,7 +83,11 @@ This mode requires a yaw rate, yaw, speed and global position estimate.
 :::
 
 This is the mode with the most autopilot support. The vehicle regulates its yaw rate and speed to a setpoint. If the yaw rate setpoint is zero, the controller will remember the gps coordinates construct a line in the direction of the velocity input (forward + lateral speed) that the rover will then follow (course control).
-This offers the highest amount of disturbance rejection, which leads to the best straight line driving behavior.
+
+Compared to [Stabilized Mode](#stabilized-mode) this introduces the following features:
+- Upper limit for the speed (see [Position Mode](../config_rover/mecanum.md#position-mode)) to tune how fast the rover is allowed to drive.
+- The speed control ensures that the rover drives the requested speed even under disturbances (i.e. driving up a hill, against wind, with a heavier payload etc.).
+- The course control leads to the best straight line driving behavior, as it offers the highest amount of disturbance rejection.
 
 | Stick                  | Effect                                                                                                                                         |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
