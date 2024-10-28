@@ -1,44 +1,44 @@
 <div v-if="$frontmatter.frame === 'Multicopter'">
 
-# Assembling a Multicopter
+# 组装多旋翼飞行器
 
-This topic provides basic instructions and links showing how to connect and assemble the core components of a typical multicoper (UAV) running PX4.
+本主题提供基本说明和链接，展示如何连接并组装运行 PX4 的典型多旋翼飞行器 (UAV) 的核心组件。
 
-These consist of a flight controller, GPS, external compass, manual controller and/or telemetry radio system, motors and/or other control actuators, payloads, and a power system.
+这些组件包括飞行控制器，GPS，外置罗盘，手动控制器或数传系统，电机或其他控制执行器、有效载荷和电力系统。
 
 </div>
 <div v-else-if="$frontmatter.frame === 'Plane'">
 
-# Assembling a Fixed-Wing
+# 组装固定翼飞行器
 
-This topic provides basic instructions and links showing how to connect and assemble the core components of a typical fixed wing vehicle (Plane) running PX4.
+本主题提供基本说明和链接，展示如何连接并组装运行 PX4 的典型固定翼飞行器 (UAV) 的核心组件。
 
-These consist of a flight controller, GPS, external compass, airspeed sensor, manual controller and/or telemetry radio system, motors and/or other control actuators, payloads, and a power system.
+这些组件包括飞行控制器，GPS，外置罗盘，空速计，手动控制器或数传系统，电机或其他控制执行器、有效载荷和电力系统。
 
 </div>
 <div v-else-if="$frontmatter.frame === 'VTOL'">
 
-# Assembling a VTOL
+# 组装垂直起降飞行器
 
-This topic provides basic instructions and links showing how to connect and assemble the core components of a typical VTOL UAV running PX4.
+本主题提供基本说明和链接，展示如何连接并组装运行 PX4 的典型垂直起降飞行器 (UAV) 的核心组件。
 
-These consist of a flight controller, GPS, external compass, airspeed sensor, manual controller and/or telemetry radio system, motors and/or other control actuators, payloads, and a power system.
+这些组件包括飞行控制器，GPS，外置罗盘，空速计，手动控制器或数传系统，电机或其他控制执行器、有效载荷和电力系统。
 
 </div>
 <div v-else>
 
-# Assembling a UAS
+# 组装无人系统
 
 <!-- This is the introduction for the non-specific vehicle -->
 
-This topic provides basic instructions and links showing how to connect and assemble the core components of a typical unmanned system (UAS) running PX4.
+本主题提供基本说明和链接，展示如何连接并组装运行 PX4 的典型无人系统 (UAS) 的核心组件。
 
 ::: tip
 If you're interested in a specific vehicle, see the more targeted topics in each vehicle section:
 
-- [Multicopter](../assembly/assembly_mc.md)
-- [VTOL](../assembly/assembly_vtol.md)
-- [Fixed-wing](../assembly/assembly_vtol.md)
+- [多旋翼飞行器](../assembly/assembly_mc.md)
+- [垂直起降飞行器](../assembly/assembly_vtol.md)
+- [固定翼飞行器](../assembly/assembly_vtol.md)
 
 :::
 
