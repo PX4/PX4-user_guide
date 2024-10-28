@@ -50,7 +50,16 @@ To set up [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) navigate to [P
 
 2. [RM_MAX_YAW_RATE](#RM_MAX_YAW_RATE) [deg/s]: This is the maximum yaw rate you want to allow for your rover.
    This will define the stick-to-yaw-rate mapping for all manual modes using closed loop yaw control and set an upper limit for the yaw rate setpoint for all [auto modes](#auto-modes).
-3. [RM_MAX_THR_YAW_R](#RM_MAX_YAW_RATE) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop yaw rate control.
+
+   :::tip
+   This value is set to your preference, there is no general rule of thumb since it depends entirely on your rover and use case.
+   The most straightforward approach is the following: Your rover has a maximum possible yaw rate which is determined by the rover geometry and the maximum torque the motors can supply.
+   First make sure [RM_MAN_YAW_SCALE](#RM_MAN_YAW_SCALE) is set to 1 (you can set it back to the previous value after completing this tuning step). In [Manual Mode](../flight_modes_rover/mecanum.md#manual-mode) move the right-stick of your controller all the way to the left or right. Disarm the rover and from the flight log plot the _actual_yaw_rate_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumStatus.md). 
+   If you have no reason to limit the yaw rate of your rover, simply set this parameter equal to the highest observed yaw rate (note that in the log the yaw rate is given in rad/s but the parameter is in deg/s, so you need to transform the value first).
+   In case the rover turns to aggressive for your liking, you need to first complete Step 3. After that in [Acro Mode](../flight_modes_rover/mecanum.md#acro-mode) move the right-stick of your controller all the way to the left or right and observe the behaviour of the rover. Keep reducing the value of [RM_MAX_YAW_RATE](#RM_MAX_YAW_RATE) until you are satisfied with the maximum turn rate.
+   :::
+
+3. [RM_MAX_THR_YAW_R](#RM_MAX_THR_YAW_RATE) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop yaw rate control.
    The controller calculates the required speed difference between the left and right motor to achieve the desired yaw rate.
    This desired speed difference is then linearly mapped to normalized motor commands.
 
@@ -62,7 +71,7 @@ To set up [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) navigate to [P
    To further tune this parameter, first make sure you set [RM_YAW_RATE_P](#RM_YAW_RATE_P) and [RM_YAW_RATE_I](#RM_YAW_RATE_I) to zero.
    This way the yaw rate is only controlled by the feed-forward term, which makes it easier to tune.
    Now put the rover in [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) and then move the right-stick of your controller to the right and/or left and hold it at a few different levels for a couple of seconds each.
-   Disarm the rover and from the flight log plot the _yaw_rate_setpoint_ and actual _yaw_rate_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumStatus.md) over each other.
+   Disarm the rover and from the flight log plot the _yaw_rate_setpoint_ and _actual_yaw_rate_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumStatus.md) over each other.
    If the actual yaw rate of the rover is higher than the yaw rate setpoint, increase [RM_MAX_THR_YAW_R](#RM_MAX_YAW_RATE).
    If it is the other way around decrease the parameter and repeat until you are satisfied with the setpoint tracking.
    :::
