@@ -237,7 +237,11 @@ These parameters are used to calculate the velocity setpoint in auto modes:
    $$
     v_{transition} = v_{max} \cdot (1 - \theta_{normalized} * k)
    $$
-with $v_{transition}:$ Transition velocity, $v_{max}:$  Maximum speed ([RM_MISS_SPD_DEF](#RM_MISS_SPD_DEF)), $\theta_{normalized}:$ Angle between the linesegment of prev-curr and curr-next waypoints normalized from $[0\degree, 180\degree]$ to $[0, 1]$ and $k:$ Tuning parameter ([RM_MISS_VEL_GAIN](#RM_MISS_VEL_GAIN)).
+   with 
+   - $v_{transition}:$ Transition speed
+   - $v_{max}:$  Maximum speed ([RM_MISS_SPD_DEF](#RM_MISS_SPD_DEF))
+   - $\theta_{normalized}:$ Angle between the linesegment of prev-curr and curr-next waypoints normalized from $[0\degree, 180\degree]$ to $[0, 1]$
+   - $k:$ Tuning parameter ([RM_MISS_VEL_GAIN](#RM_MISS_VEL_GAIN)).
 
 5. Plot the _forward_speed_setpoint_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumSetpoint.md) message and the _measured_forward_speed_ from the [RoverMecanumStatus](../msg_docs/RoverMecanumStatus.md) message over each other.
    If the tracking of these setpoints is not satisfactory adjust the values for [RM_SPEED_P](#RM_SPEED_P) and [RM_SPEED_I](#RM_SPEED_I).
