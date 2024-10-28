@@ -111,7 +111,7 @@ For [Stabilized mode](../flight_modes_rover/mecanum.md#stabilized-mode) the cont
 Unlike the closed loop yaw rate, this controller has no feed-forward term.
 Therefore you only need to tune the closed loop gains:
 
-<a id="RM_YAW_RATE_TUNING"></a>
+<a id="RM_YAW_TUNING"></a>
 
 
 1. [RM_YAW_P](#RM_YAW_P) and [RM_YAW_I](#RM_YAW_I) [-]: Proportional and integral gain for the closed loop yaw controller.
@@ -139,9 +139,17 @@ To configure set the following parameters:
 
 1. [RM_MAX_SPEED](#RM_MAX_SPEED) [m/s]: This is the maximum speed you want to allow for your rover.
    This will define the stick-to-speed mapping for position mode and set an upper limit for the speed setpoint for all [auto modes](#auto-modes).
-2. [RM_MAX_THR_SPD](#RM_MAX_SPEED) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
+
+   :::tip
+   This value is set to your preference, there is no general rule of thumb since it depends entirely on your rover and use case.
+   The most straightforward approach is the following: Your rover has a maximum possible speed which is determined by the maximum torque the motors can supply.
+   In [Manual Mode](../flight_modes_rover/mecanum.md#manual-mode) move the left-stick of your controller all the way up or down. Disarm the rover and from the flight log plot the _forward_speed_setpoint_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumSetpoint.md) message and the _measured_forward_speed_ from the [RoverMecanumStatus](../msg_docs/RoverMecanumStatus.md) message over each other.
+   If you have no reason to limit the speed of your rover, simply set this parameter equal to the highest observed speed.
+   In case you want to limit the maximum speed, you need to first complete Step 2. After that in [Position Mode](../flight_modes_rover/mecanum.md#position-mode) move the left-stick of your controller all the way up or down and observe the behaviour of the rover. Keep reducing the value of [RM_MAX_SPEED](#RM_MAX_SPEED) until you are satisfied with the maximum speed.
+   :::
+
+2. [RM_MAX_THR_SPD](#RM_MAX_THR_SPEED) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
    A good starting point is the observed ground speed when the rover drives at maximum throttle in [Manual mode](../flight_modes_rover/mecanum.md#manual-mode).
-   Increase this parameter if the rover is faster than the setpoint, and decrease if the rover is slower.
 
    <a id="RM_SPEED_P_TUNING"></a>
 
@@ -158,20 +166,19 @@ To configure set the following parameters:
    If your rover oscillates when driving a straight line in [Position mode](../flight_modes_rover/mecanum.md#position-mode) just set this parameter to the observed ground speed at maximum throttle in [Manual mode](../flight_modes_rover/mecanum.md#manual-mode) and complete steps 5-7 first before continuing the tuning of the closed loop speed control (Steps 2-4).
    :::
 
-3. [RM_SPEED_P](#RM_SPEED_P) [-]: Proportional gain of the closed loop speed controller.
+3. [RM_SPEED_P](#RM_SPEED_P) and [RM_SPEED_I](#RM_SPEED_I) [-]: Proportional and integral gain of the closed loop speed controller.
 
-   ::: tip
-   This parameter can be tuned the same way as [RM_MAX_THR_SPD](#RM_SPEED_P_TUNING).
-   If you tuned [RM_MAX_THR_SPD](#RM_MAX_THR_SPD) well, you might only need a very small value.
+      ::: tip
+   When tuning this parameter we need to consider the following trade-off: Increasing the value of this parameter improves the disturbance rejection but can lead to an overshoot or oscillations around the setpoint.
+   To tune start with a value of 0.1 for [RM_SPEED_P](#RM_SPEED_P). Put the rover in [Position mode](../flight_modes_rover/mecanum.md#position-mode) and then move the left-stick of your controller up/down and hold it at a few different levels for a couple of seconds each.
+   Disarm the rover and from the flight log plot the _forward_speed_setpoint_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumSetpoint.md) message and the _measured_forward_speed_ from the [RoverMecanumStatus](../msg_docs/RoverMecanumStatus.md) message over each other.
+   If the _measured_forward_speed_ overshoots the _forward_speed_setpoint_ or oscillates around it, reduce the value of [RM_SPEED_P](#RM_SPEED_P). Otherwise you _can_ increase this value.
+   Note that if you drive on flat ground you might not observe an improvement in setpoint tracking by increasing this value, since its main purpose is disturbance rejection (which is generally more effective with a higher value for [RM_SPEED_P](#RM_SPEED_P)).
+
+   If you observe a constant offset between the _measured_forward_speed_ and _forward_speed_setpoint_ you might need the integrator term [RM_SPEED_I](#RM_SPEED_I). For the closed loop speed control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint. First set [RM_SPEED_I](#RM_SPEED_I) to 0.01 and observe the setpoint tracking again. If the _measured_forward_speed_ starts to overshoot the setpoint, reduce the value of [RM_SPEED_I](#RM_SPEED_I). Otherwise you _can_ increase the value until you are satisfied with the setpoint tracking.
    :::
 
-4. [RM_SPEED_I](#RM_SPEED_I) [-]: Integral gain for the closed loop speed controller.
-
-   ::: tip
-   For the closed loop speed control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint.
-   :::
-
-5. [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN): When driving in a straight line (no yaw rate input) position mode leverages the same path following algorithm used in [auto modes](#auto-modes) called [pure pursuit](#pure-pursuit-guidance-logic) to achieve the best possible straight line driving behaviour ([Illustration of control architecture](#pure_pursuit_controller)).
+4. [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN): When driving in a straight line (no yaw rate input) position mode leverages the same path following algorithm used in [auto modes](#auto-modes) called [pure pursuit](#pure-pursuit-guidance-logic) to achieve the best possible straight line driving behaviour ([Illustration of control architecture](#pure_pursuit_controller)).
    This parameter determines how aggressive the controller will steer towards the path.
 
    ::: tip
@@ -179,16 +186,16 @@ To configure set the following parameters:
    Start with a value of 1 for [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN), put the rover in [Position mode](../flight_modes_rover/mecanum.md#position-mode) and while driving a straight line at approximately half the maximum speed observe its behaviour.
    If the rover does not drive in a straight line, reduce the value of the parameter, if it oscillates around the path increase the value.
    Repeat until you are satisfied with the behaviour.
-   Note that by increasing/decreasing the value of this parameter you change the _yaw_setpoint_ the control system attempts to track. Make sure you check whether the system is actually able to track that setpoint, otherwise you need to further tune the closed loop yaw controller (this was initially done in the setup of [Stabilized Mode](#RM_YAW_RATE_TUNING)).
+   Note that by increasing/decreasing the value of this parameter you change the _yaw_setpoint_ the control system attempts to track. Make sure you check whether the system is actually able to track that setpoint, otherwise you need to further tune the closed loop yaw controller (this was initially done in the setup of [Stabilized Mode](#RM_YAW_TUNING)).
    :::
 
-6. [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN): Minimum threshold for the lookahead distance used by the [pure pursuit algorithm](#pure-pursuit-guidance-logic).
+5. [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN): Minimum threshold for the lookahead distance used by the [pure pursuit algorithm](#pure-pursuit-guidance-logic).
 
    ::: tip
    Put the rover in [Position mode](../flight_modes_rover/mecanum.md#position-mode) and drive at very low speeds, if the rover starts to oscillate even though the tuning of [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN) was good for medium speeds, then increase the value of [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN).
    :::
 
-7. [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX): Maximum threshold for the lookahead distance used by [pure pursuit](#pure-pursuit-guidance-logic).
+6. [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX): Maximum threshold for the lookahead distance used by [pure pursuit](#pure-pursuit-guidance-logic).
 
    ::: tip
    Put the rover in [Position mode](../flight_modes_rover/mecanum.md#position-mode) and drive at very high speeds, if the rover does not drive in a straight line even though the tuning of [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN) was good for medium speeds, then decrease the value of [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX).
