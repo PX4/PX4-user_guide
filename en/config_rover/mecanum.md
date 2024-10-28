@@ -65,7 +65,6 @@ To set up [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) navigate to [P
 
    To get a good starting value for this parameter drive the rover in manual mode forwards at full throttle and note the ground speed of the vehicle.
    Then enter _twice_ this value for the parameter.
-   <a id="RM_YAW_RATE_P_TUNING"></a>
 
    ::: tip
    To further tune this parameter, first make sure you set [RM_YAW_RATE_P](#RM_YAW_RATE_P) and [RM_YAW_RATE_I](#RM_YAW_RATE_I) to zero.
@@ -112,21 +111,18 @@ For [Stabilized mode](../flight_modes_rover/mecanum.md#stabilized-mode) the cont
 Unlike the closed loop yaw rate, this controller has no feed-forward term.
 Therefore you only need to tune the closed loop gains:
 
-1. [RM_YAW_P](#RM_YAW_P) [-]: Proportional gain for the closed loop yaw controller.
+<a id="RM_YAW_RATE_TUNING"></a>
+
+
+1. [RM_YAW_P](#RM_YAW_P) and [RM_YAW_I](#RM_YAW_I) [-]: Proportional and integral gain for the closed loop yaw controller.
 
    ::: tip
    In stabilized mode the closed loop yaw control is only active when driving a straight line (no yaw rate input).
    To tune it set [RM_YAW_I](#RM_YAW_I) to zero and start with a value of 1 for [RM_YAW_P](#RM_YAW_P).
    Put the rover into stabilized mode and move the left stick of your controller up and/or down to drive forwards/backwards.
    Disarm the rover and from the flight log plot the _yaw_setpoint_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumSetpoint.md) message and the _actual_yaw_ from the [RoverMecanumStatus](../msg_docs/RoverMecanumStatus.md) message over each other.
-   Increase/Decrease the parameter until you are satisfied with the setpoint tracking.
-   :::
-
-2. [RM_YAW_I](#RM_YAW_I) [-]: Integral gain for the closed loop yaw controller.
-
-   ::: tip
-   For the closed loop yaw control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint.
-   In [Auto Modes](#auto-modes) there will be a further elaboration on why an integrator is necessary for the yaw controller.
+   Increase/Decrease [RM_YAW_P](#RM_YAW_P) until you are satisfied with the setpoint tracking.
+   If you observe a constant offset between the _yaw_setpoint_ and _actual_yaw_ you might need the integrator term [RM_YAW_I](#RM_YAW_I). For the closed loop yaw control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint. First set [RM_YAW_I](#RM_YAW_I) to 0.01 and observe the setpoint tracking again. If the _actual_yaw_ starts to overshoot the setpoint, reduce the value of [RM_YAW_I](#RM_YAW_I). Otherwise you _can_ increase the value until you are satisfied with the setpoint tracking.
    :::
 
 The rover is now ready to drive in [Stabilized mode](../flight_modes_rover/mecanum.md#stabilized-mode).
@@ -183,6 +179,7 @@ To configure set the following parameters:
    Start with a value of 1 for [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN), put the rover in [Position mode](../flight_modes_rover/mecanum.md#position-mode) and while driving a straight line at approximately half the maximum speed observe its behaviour.
    If the rover does not drive in a straight line, reduce the value of the parameter, if it oscillates around the path increase the value.
    Repeat until you are satisfied with the behaviour.
+   Note that by increasing/decreasing the value of this parameter you change the _yaw_setpoint_ the control system attempts to track. Make sure you check whether the system is actually able to track that setpoint, otherwise you need to further tune the closed loop yaw controller (this was initially done in the setup of [Stabilized Mode](#RM_YAW_RATE_TUNING)).
    :::
 
 6. [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN): Minimum threshold for the lookahead distance used by the [pure pursuit algorithm](#pure-pursuit-guidance-logic).
