@@ -280,10 +280,12 @@ For more information see: [Payloads & Cameras](../payloads/index.md)
 ## Arming and Disarming
 
 A vehicle is said to be _armed_ when all motors and actuators are powered, and _disarmed_ when nothing is powered.
-There is also a _prearmed_ state when only actuators are powered.
+There is also a _prearmed_ state when only actuators are powered, which is primarily used for testing.
+
+A vehicle is usually disarmed on the ground, and must be armed before taking off in the current flight mode.
 
 :::warning
-Armed vehicles can be dangerous as propellors will be spinning.
+Armed vehicles are dangerous because propellers can start spinning at any time without further user input, and in many cases will start spinning immediately.
 :::
 
 Arming and disarming are triggered by default using RC stick _gestures_.
