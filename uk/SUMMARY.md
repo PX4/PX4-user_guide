@@ -739,6 +739,7 @@
     - [Логування](dev_log/logging.md)
     - [Аналіз логу польоту](dev_log/flight_log_analysis.md)
     - [Формат файлу ULog](dev_log/ulog_file_format.md)
+    - [Log Encryption](dev_log/log_encryption.md)
   - [Просунуті теми](advanced/index.md)
     - [Метадані PX4](advanced/px4_metadata.md)
     - [Архітектера доставки вантажів](advanced/package_delivery.md)
