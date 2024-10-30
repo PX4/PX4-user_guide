@@ -1,20 +1,35 @@
 # ESP32 WiFi Module
 
-ESP32 are readily available WiFi modules with dedicated UART, SPI and I2C interfaces, and full TCP/IP stack and microcontroller capability.
-They come without firmware, but _DroneBridge for ESP32_ can be installed to enable them as a transparent and bi-directional serial to WiFi bridge.
-They can then be used as a WiFi telemetry module with any Pixhawk series controller. Additionally, they offer a special ESP-NOW Mode which enables ranges of up to 1km+.
+## Overview
 
-The typical range depends on the antenna and environment
+ESP32 are readily available WiFi modules with dedicated UART, SPI and I2C interfaces, and full TCP/IP stack and microcontroller capability.
+They usually come without firmware, but _DroneBridge for ESP32_ can be installed to enable them as a transparent and bi-directional serial to WiFi bridge.
+This allows them to be used as a [WiFi telemetry](../telemetry/telemetry_wifi.md) module with any Pixhawk series controller.
+They can alternatively be used in a special ESP-NOW Mode that enables ranges of up to 1km+, albeit at lower data rates.
+
+The typical range depends on the antenna and environment:
+
 - WiFi-Modes: ~50m-200m
 - ESP-NOW Modes: 300m-1km+
 
-![DroneBridge for ESP32 connection concept using WiFi](../../assets/peripherals/telemetry/esp32/db_ESP32_setup.png)
+### WiFi Network Overview
 
 _DroneBridge for ESP32_ supports standard WiFi connections to an access point but can also operate as a standalone access point.
 
-![DroneBridge for ESP32 connection concept for ESP-NOW modes](../../assets/peripherals/telemetry/esp32/DB_ESP32_NOW_Illistration.png)
+![DroneBridge for ESP32 connection concept using WiFi](../../assets/peripherals/telemetry/esp32/db_esp32_setup.png)
 
-The ESP-NOW mode offers a connectionless and encrypted alternative to traditional WiFi. While the data rate is reduced to <250 kbit/s the range is increased up to 1 km. This mode has no limit on how many clients are connected on the autopilot side. Only channel capacity and processing capacity limit the number of clients. This mode requires ESP32 devices on the GCS side as well as on the autopilot side.
+### ESP-NOW Network
+
+The ESP-NOW mode offers a connectionless and encrypted alternative to traditional WiFi.
+While the data rate is reduced to <250 kbit/s the range is increased up to 1 km.
+This mode has no limit on how many clients are connected on the autopilot side.
+Only channel capacity and processing capacity limit the number of clients.
+
+![DroneBridge for ESP32 connection concept for ESP-NOW modes](../../assets/peripherals/telemetry/esp32/db_esp32_now_illustration.png)
+
+::: info
+ESP-NOW requires ESP32 devices on the GCS side as well as on the autopilot side.
+:::
 
 ## Features
 
@@ -39,33 +54,45 @@ The ESP-NOW mode offers a connectionless and encrypted alternative to traditiona
 
 ## Recommended Hardware
 
-_DroneBridge for ESP32_ can run on allmost all ESP32 development boards.
+_DroneBridge for ESP32_ can run on almost all ESP32 development boards.
 Boards and modules with an external antenna connector are recommended since these will offer more range.
 
 :::warning
-Some ESP32 modules support 3.3V and 5V power supply input, while some flight controllers (e.g. Pixhawk 4) output at 5V.
+Some ESP32 modules support 3.3V power supply input, while many flight controllers output at 5V (e.g. Pixhawk 4).
 You will need to check compatibility and step down the voltage if needed.
 :::
 
-## Officially Supported and Tested Boards
+::: tip
+The _DroneBridge for ESP32_ project recommends using [Officially Supported and Tested Boards](https://dronebridge.github.io/ESP32/).
+These are small, low in price, have Pixhawk-standard port for connecting to Pixhawk flight controllers, and come with _DroneBridge for ESP32_ firmware pre-installed.
+:::
 
-Do the project and yourself a favour and use one of the officially supported and tested boards. These are very low in price, have everything you need and are also very small. Perfect for use on any UAV.
+Other ESP32 Boards that have been tested with earlier versions of _DroneBridge for ESP32_:
 
-[You can find all the latest information on the official boards on the website.](https://dronebridge.github.io/ESP32/)
+- [AZ-Delivery — ESP-32 DevKit C](https://www.az-delivery.de/en/products/esp-32-dev-kit-c-v4)
+- [TinyPICO — ESP32 Development Board - V2](https://www.adafruit.com/product/4335)
+- [Adafruit HUZZAH32 — ESP32 Feather Board](https://www.adafruit.com/product/3405)
+- [Adafruit AirLift — ESP32 WiFi Co-Processor Breakout Board](https://www.adafruit.com/product/4201) (requires FTDI adapter for flashing firmware)
+- [Adafruit — HUZZAH32](https://www.adafruit.com/product/4172) (requires FTDI adapter for flashing firmware)
 
 ## Installing/Updating the Firmware
 
-An easy-to-use online flashing tool is available on the official website. Just connect your ESP32 and click flash!  
+An easy-to-use online flashing tool is available on the official website.
+Just connect your ESP32 and click flash!
+
 [For more detailed information please visit the official Wiki!](https://dronebridge.gitbook.io/docs/dronebridge-for-esp32/untitled)
 
 ## Wiring
 
-When using one of the official boards it is as simple as plugging the cable into the TELEMx port of the PX4.
-For other boards it still mostly the same for all devices connected to any serial port (ie. TELEM1 or TELEM2) of the flight controller. This guide does not go into detail here but provides an outline for wiring below.
+When using one of the official boards with a Pixhawk flight controller it is as simple as plugging the provided cable from `TELEM1` on the ESP32 to the `TELEM1` or `TELEM2` port on the FC.
+
+For ESP boards that don't have a `TELEM` port you need to manually wire to a serial port on the FC (e.g. `TELEM1` or `TELEM2`).
+The diagram below provides an outline of how you would wire up the connections.
 
 ![Example for wiring an ESP32 to the TELEM port](../../assets/peripherals/telemetry/esp32/pixhawk_wiring.png)
 
-- Connect UART of ESP32 to a UART of your autopilot (ie. TELEM 1 or TELEM 2 port). Make sure the voltage levels match!
+- Connect UART of ESP32 to a UART of your autopilot (ie. `TELEM1` or `TELEM2` port).
+  Make sure the voltage levels match!
 - RX to TX
 - GND to GND
 - Stable 3.3V or 5V power supply to the ESP32 (depending on the available inputs of your ESP32 and capabilities of the autopilot)
@@ -77,42 +104,44 @@ For other boards it still mostly the same for all devices connected to any seria
   Some boards might have issues if they are simultaneously connected to a 5V power source and have a USB cable connected to the USB/Serial bridge (USB socket of the ESP32 dev board).
 - Some ESP32 DevKits manufacturers use the wrong labels for the pins on their products.
   Make sure that the PINs on your board are labelled correctly if you encounter issues.
+
 :::
 
 ## Configuring PX4
 
-Configure the UART of the flight controller that is wired to the ESP32 to have matching baud rates and MAVLink set as the protocol for optimal performance. An example of parameters is given below.  
+Configure the Flight controller port that is wired to the ESP32 to have MAVLink set as the protocol and to have the same baud rate as the ESP32.
+The Pixhawk `TELEM1` and `TELEM2` ports are configured for [MAVLink by default](../peripherals/mavlink_peripherals.md#default-mavlink-ports) but you will still need to set the rates.
+
+For `TELEM1` you might set the values like this:
 
 - `SER_TEL1_BAUD`: 115200 8N1
 - `MAV_0_RATE`: 24000 (can be increased optionally)
 
+For more information, and using other ports, see [MAVLink Peripherals](../peripherals/mavlink_peripherals.md) and [Serial Port Configuration](../peripherals/serial_configuration.md)
+
 ## Configuring DroneBridge for ESP32
 
-![DroneBridge for ESP32 Webinterface](../../assets/peripherals/telemetry/esp32/dbesp32_webinterface.png)
-
 The _DroneBridge for ESP32_ default configuration should work for connecting to PX4 "out of the box".
+For the Official HW1.x Boards the configuration is: `UART TX Pin: 5`, `UART RX Pin: 4`, `UART RTS Pin: 6`, `UART CTS Pin: 7`
+
 The only configuration that may be required is ensuring that the baud rates of the ESP32 and flight controller match.
+
+![DroneBridge for ESP32 Webinterface](../../assets/peripherals/telemetry/esp32/dbesp32_webinterface.png)
 
 You will want to change these settings if you want to use different pins on the ESP32, a different WiFi configuration, or to tweak the packet size.
 A lower packet size means more overhead and load on the system, less latency, and faster recovery from a lost packet.
 
-### Default Configuration for the Official HW1.x Boards
 
-`UART TX Pin: 5`  
-`UART RX Pin: 4`  
-`UART RTS Pin: 6`  
-`UART CTS Pin: 7`  
 
 ### Supported Modes
 
-| **MavLink Index** | **DroneBridge for ESP32 Mode** | **Encryption** | **Description**                                                                                                                                          | **Notes**                                                                                                                                                                  |
-|-------------------|--------------------------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1                 | WiFi Access Point Mode         | WPA2 PSK       | ESP32 launches classic WiFi access point using 802.11b rates                                                                                             | Any WiFi device can connect                                                                                                                                                |
-| 2                 | WiFi Client Mode               | min. WEP       | ESP32 connects to an existing WiFi access point. LR Mode supported                                                                                       | Encryption defined by access point. Multiple drones can connect to one AP and GCS. 802.11b rates                                                                           |
-| 3                 | WiFi Access Point Mode LR      | WPA2 PSK       | ESP32 launches WiFi access point mode using espressifs LR mode                                                                                           | Only ESP32 LR Mode enabled devices can detect and connect to the access point. Data rate is reduced to 0.25Mbit. Range is greatly increased.                               |
+| **MavLink Index** | **DroneBridge for ESP32 Mode** | **Encryption** | **Description**                                                                                                                                          | **Notes**                                                                                                                                                                 |
+| ----------------- | ------------------------------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1                 | WiFi Access Point Mode         | WPA2 PSK       | ESP32 launches classic WiFi access point using 802.11b rates                                                                                             | Any WiFi device can connect                                                                                                                                               |
+| 2                 | WiFi Client Mode               | min. WEP       | ESP32 connects to an existing WiFi access point. LR Mode supported                                                                                       | Encryption defined by access point. Multiple drones can connect to one AP and GCS. 802.11b rates                                                                          |
+| 3                 | WiFi Access Point Mode LR      | WPA2 PSK       | ESP32 launches WiFi access point mode using espressifs LR mode                                                                                           | Only ESP32 LR Mode enabled devices can detect and connect to the access point. Data rate is reduced to 0.25Mbit. Range is greatly increased.                              |
 | 4                 | ESP-NOW LR Mode AIR            | AES256-GCM     | ESP32 is able to receive ESP-NOW broadcast packets from any GCS in the area and forwards them to the UART. Broadcasts to all GND stations in the area.   | Connectionless protocol. Data rate is reduced to 0.25Mbit. Range is greatly increased compared to WiFi modes. Custom encryption mode for ESP-NOW broadcasts and protocol. |
-| 5                 | ESP-NOW LR Mode GND            | AES256-GCM     | ESP32 is able to receive ESP-NOW broadcast packets from any drone in the area and forwards them to the UART. Broadcasts to all AIR stations in the area. | Connectionless protocol. Data rate is reduced to 0.25Mbit. Range greatly increased compared to WiFi modes. Custom encryption mode for ESP-NOW broadcasts and protocol.     |
-
+| 5                 | ESP-NOW LR Mode GND            | AES256-GCM     | ESP32 is able to receive ESP-NOW broadcast packets from any drone in the area and forwards them to the UART. Broadcasts to all AIR stations in the area. | Connectionless protocol. Data rate is reduced to 0.25Mbit. Range greatly increased compared to WiFi modes. Custom encryption mode for ESP-NOW broadcasts and protocol.    |
 
 ## Configuring the Ground Control Station
 
@@ -127,4 +156,4 @@ The following connection options are available:
 
 DroneBridge for ESP32 offers a REST:API that allows you to read and write configuration options.
 
-[For more detailed information please visit the official Wiki!](https://dronebridge.gitbook.io/docs/dronebridge-for-esp32/untitled)
+For more information see: [DroneBridge for ESP32 > Developer & API Documentation](https://dronebridge.gitbook.io/docs/dronebridge-for-esp32/developer-and-api-documentation).
