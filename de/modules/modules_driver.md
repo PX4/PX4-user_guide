@@ -522,8 +522,6 @@ gimbal test pitch -45 yaw 30
 ### Usage
 ```
 gimbal <command> [arguments...]
- gimbal <command> [arguments...]
- gimbal <command> [arguments...]
  Commands:
    start
 
@@ -535,6 +533,8 @@ gimbal <command> [arguments...]
    test          Test the output: set a fixed angle for one or multiple axes
                  (gimbal must be running)
      roll|pitch|yaw <angle> Specify an axis and an angle in degrees
+     rollrate|pitchrate|yawrate <angle rate> Specify an axis and an angle rate
+                 in degrees / second
 
    stop
 
@@ -1591,6 +1591,22 @@ uwb <command> [arguments...]
    stop
 
    status
+```
+## vertiq_io
+Source: [drivers/actuators/vertiq_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/vertiq_io)
+
+<a id="vertiq_io_usage"></a>
+
+### Usage
+```
+vertiq_io <command> [arguments...]
+ Commands:
+   start
+     <device>    UART device
+
+   stop
+
+   status        print status info
 ```
 ## voxl2_io
 px4io &lt;command&gt; [arguments...] Commands: start checkcrc      Check CRC for a firmware file against current code on IO
