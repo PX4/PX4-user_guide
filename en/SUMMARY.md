@@ -276,6 +276,7 @@
       - [CubePilot Here+ (Discontined)](gps_compass/rtk_gps_hex_hereplus.md)
     - [INS (Inertial Navigation/GNSS)](sensor/inertial_navigation_systems.md)
       - [VectorNav](sensor/vectornav.md)
+      - [MicroStrain](sensor/microstrain.md)
     - [Optical Flow](sensor/optical_flow.md)
       - [ARK Flow](dronecan/ark_flow.md)
       - [PMW3901](sensor/pmw3901.md)
