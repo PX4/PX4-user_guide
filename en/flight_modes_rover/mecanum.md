@@ -16,7 +16,22 @@ Manual modes require stick inputs from the user to drive the vehicle.
 
 ![Manual Controls](../../assets/airframes/rover/flight_modes/manual_controls_mecanum.png)
 
-The manual modes listed below provide increasing levels of autopilot support:
+The sticks provide the same "high level" control effects over direction and rate of movement in all manual modes:
+
+- `Left stick up/down`: Drive the rover forwards/backwards (controlling speed)
+- `Left stick left/right`: Yaw the rover to the left/right (controlling yaw rate).
+- `Right stick left/right`: Drive the rover left/right (controlling speed)
+
+The manual modes provide progressively increasing levels of autopilot support for maintaining a course, speed, and rate of turn, compensating for external factors such as slopes or uneven terrain.
+
+| Mode                           | Features                                                                                                                                                                |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Manual](#manual-mode)         | No autopilot support. User is responsible for keeping the rover on the desired course and maintaining speed and rate of turn.                                           |
+| [Acro](#acro-mode)             | + Maintains yaw rate in turns (despite external factors)<br>+ Allows maximum yaw rate to be limited.<br>+ Slightly better at holding a straight line in uneven terrain. |
+| [Stabilized](#stabilized-mode) | + Significantly better at holding a straight line.                                                                                                                      |
+| [Position](#position-mode)     | + Best mode for holding a straight line.<br>+ Maintains speed against disturbances, e.g. when driving up a hill<br>+ Allows maximum speed to be limited.                |
+
+::: details Overview mode mapping to control effect
 
 | Mode                           | Forward/Lateral speed                                                       | Yaw rate                                                                                                                                                                                          | Required measurements                              |
 | ------------------------------ | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
@@ -25,9 +40,12 @@ The manual modes listed below provide increasing levels of autopilot support:
 | [Stabilized](#stabilized-mode) | Directly map stick input to motor commands.                                 | Stick input creates a yaw rate setpoint for the control system to regulate. If this setpoint is zero (stick is centered) the control system will maintain the current yaw (heading) of the rover. | Yaw rate and yaw.                                  |
 | [Position](#position-mode)     | Stick input creates a velocity setpoint for the control system to regulate. | Stick input creates a yaw rate setpoint for the control system to regulate. If this setpoint is zero (stick is centered) the control system will keep the rover driving in a straight line.       | Yaw rate, yaw, velocity and global position (GPS). |
 
+:::
+
 ### Manual Mode
 
-In this mode the stick inputs are directly mapped to motor commands. The rover does not attempt to maintain a specific orientation or compensate for external factors like slopes or uneven terrain!  
+In this mode the stick inputs are directly mapped to motor commands.
+The rover does not attempt to maintain a specific orientation or compensate for external factors like slopes or uneven terrain!
 The user is responsible for making the necessary adjustments to the stick inputs to keep the rover on the desired course.
 
 | Stick                  | Effect                              |
@@ -47,6 +65,7 @@ This mode requires a yaw rate measurement.
 In this mode the vehicle regulates its yaw rate to a setpoint (but does not stabilize heading or regulate speed).
 
 Compared to [Manual mode](#manual-mode) this introduces the following new features:
+
 - Upper limit for the yaw rate (see [Acro mode](../config_rover/mecanum.md#acro-mode)) to tune how aggressive the rover turns.
 - The yaw rate control ensures that the rover turns at the requested rate even under disturbances (i.e. different surfaces, wind etc.).
 - Slightly better at driving in a straight line, as it can reject minor disturbances.
@@ -65,7 +84,7 @@ For the configuration/tuning of this mode see [Acro mode](../config_rover/mecanu
 This mode requires a yaw rate and yaw estimate.
 :::
 
-In this mode the vehicle regulates its yaw rate to a setpoint and will maintain its heading if this setpoint is zero (but does not regulate speed).  
+In this mode the vehicle regulates its yaw rate to a setpoint and will maintain its heading if this setpoint is zero (but does not regulate speed).
 Compared to [Acro mode](#acro-mode), this mode is much better at driving in a straight line as it can more effectively reject disturbances.
 
 | Stick                  | Effect                                                                                                                                     |
@@ -85,6 +104,7 @@ This mode requires a yaw rate, yaw, speed and global position estimate.
 This is the mode with the most autopilot support. The vehicle regulates its yaw rate and speed to a setpoint. If the yaw rate setpoint is zero, the controller will remember the gps coordinates construct a line in the direction of the velocity input (forward + lateral speed) that the rover will then follow (course control).
 
 Compared to [Stabilized Mode](#stabilized-mode) this introduces the following features:
+
 - Upper limit for the speed (see [Position Mode](../config_rover/mecanum.md#position-mode)) to tune how fast the rover is allowed to drive.
 - The speed control ensures that the rover drives the requested speed even under disturbances (i.e. driving up a hill, against wind, with a heavier payload etc.).
 - The course control leads to the best straight line driving behavior, as it offers the highest amount of disturbance rejection.
@@ -99,7 +119,7 @@ For the configuration/tuning of this mode see [Position mode](../config_rover/me
 
 ## Auto Modes
 
-In auto modes the autopilot takes over control of the vehicle to run missions, return to launch, or perform other autonomous navigation tasks.  
+In auto modes the autopilot takes over control of the vehicle to run missions, return to launch, or perform other autonomous navigation tasks.
 For the configuration/tuning of these modes see [Auto Modes](../config_rover/mecanum.md#auto-modes).
 
 ### Mission Mode
