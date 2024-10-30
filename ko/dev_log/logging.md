@@ -4,6 +4,8 @@ The [system logger](../modules/modules_system.md#logger) is able to log any ORB 
 
 출력 로그 형식은 [ULog](../dev_log/ulog_file_format.md) 입니다.
 
+[Encrypted logging](../dev_log/log_encryption.md) is also supported.
+
 ## 사용법
 
 기본적으로, 로깅은 시동을 걸었을 때 시작하며, 제동 후 중지합니다. 새 로그 파일은 시동을 걸 때마다 SD 카드에 생성됩니다. 현재 상태를 표시하려면 콘솔에서 `logger status`명령을 사용하십시오. 로깅을 바로 시작하고 싶다면 `logger on` 명령을 내리십시오. 이 명령은 시동을 걸었을 때, 시동 동작보다 우선합니다. `logger off` 명령은 그 반대입니다.
@@ -147,3 +149,8 @@ ulog 스트리밍을 지원하는 다양한 클라이언트가 있습니다.
   ```
 
   또한 `txerr` 값이 0에 머물러있는지 확인하십시오. 만약 이 값이 올라간다면, NuttX 전송 버퍼가 너무 작거나, 물리 링크 대역폭이 포화 상태이거나, 하드웨어가 데이터를 처리하기에 너무 느린 상황을 의미합니다.
+
+
+## See Also
+
+- [Encrypted logging](../dev_log/log_encryption.md)

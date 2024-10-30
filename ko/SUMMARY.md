@@ -739,6 +739,7 @@
     - [로깅](dev_log/logging.md)
     - [비행 로그 분석](dev_log/flight_log_analysis.md)
     - [ULog 파일 포맷](dev_log/ulog_file_format.md)
+    - [Log Encryption](dev_log/log_encryption.md)
   - [고급 주제](advanced/index.md)
     - [PX4 Metadata](advanced/px4_metadata.md)
     - [Package Delivery Architecture](advanced/package_delivery.md)

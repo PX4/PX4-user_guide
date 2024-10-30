@@ -4,6 +4,8 @@
 
 The output log format is [ULog](../dev_log/ulog_file_format.md).
 
+[Encrypted logging](../dev_log/log_encryption.md) is also supported.
+
 ## 用法
 
 By default, logging is automatically started when arming, and stopped when disarming. 每次解锁后的飞行对话将会在 SD 卡上生成一个新的日志文件。 To display the current state, use `logger status` on the console. If you want to start logging immediately, use `logger on`. This overrides the arming state, as if the system was armed. `log off` 取消日志记录。
@@ -149,3 +151,8 @@ There are different clients that support ulog streaming:
   ```
 
   同时确保 `txerr` 一直是 0。 Also make sure `txerr` stays at 0. If this goes up, either the NuttX sending buffer is too small, the physical link is saturated or the hardware is too slow to handle the data.
+
+
+## See Also
+
+- [Encrypted logging](../dev_log/log_encryption.md)
