@@ -94,10 +94,15 @@ To set up [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) navigate to [P
    This compensates for disturbances such as uneven ground and external forces.
 
    ::: tip
-   When tuning this parameter we need to consider the following trade-off: Increasing the value of this parameter improves the disturbance rejection but can lead to an overshoot or oscillations around the setpoint.
-   To tune start with a value of 0.1 for [RM_YAW_RATE_P](#RM_YAW_RATE_P). Put the rover in [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) and then move the right-stick of your controller to the right and/or left and hold it at a few different levels for a couple of seconds each.
-   Disarm the rover and from the flight log plot the _yaw_rate_setpoint_ and _actual_yaw_rate_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumStatus.md) over each other.
-   If the _actual_yaw_rate_ overshoots the _yaw_rate_setpoint_ or oscillates around it, reduce the value of [RM_YAW_RATE_P](#RM_YAW_RATE_P). Otherwise you _can_ increase this value.
+   When tuning this parameter consider that increasing the value improves the disturbance rejection but can lead to an overshoot or oscillations around the setpoint.
+
+   To tune the value:
+
+   1. Set [RM_YAW_RATE_P](#RM_YAW_RATE_P) to `0.1`.
+   2. Put the rover in [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) and then move the right-stick of your controller to the right and/or left and hold it at a few different levels for a couple of seconds each.
+   3. Disarm the rover and from the flight log plot the `yaw_rate_setpoint` and `actual_yaw_rate` from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumStatus.md) over each other.
+   4. If the `actual_yaw_rate` overshoots the `yaw_rate_setpoint` or oscillates around it, reduce the value of [RM_YAW_RATE_P](#RM_YAW_RATE_P). Otherwise you _can_ increase this value.
+
    Note that if you drive on flat ground you might not observe an improvement in setpoint tracking by increasing this value, since its main purpose is disturbance rejection (which is generally more effective with a higher value for [RM_YAW_RATE_P](#RM_YAW_RATE_P)).
    :::
 
