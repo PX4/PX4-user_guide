@@ -739,6 +739,7 @@
     - [日志](dev_log/logging.md)
     - [飞行日志分析](dev_log/flight_log_analysis.md)
     - [ULog 文件格式](dev_log/ulog_file_format.md)
+    - [Log Encryption](dev_log/log_encryption.md)
   - [高级主题](advanced/index.md)
     - [PX4 Metadata](advanced/px4_metadata.md)
     - [Package Delivery Architecture](advanced/package_delivery.md)
