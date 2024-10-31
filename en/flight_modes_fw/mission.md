@@ -76,17 +76,19 @@ For more information about mission planning, see:
 
 ## Mission Feasibility Checks
 
-PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded, and when the vehicle is first armed.
+PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded and before executing a mission.
 If any of the checks fail, the user is notified and it is not possible to start the mission.
 
 A subset of the most important checks are listed below:
 
-- First mission item too far away from vehicle ([MIS_DIST_1WP](#MIS_DIST_1WP))
 - Any mission item conflicts with a plan or safety geofence
 - More than one land start mission item defined ([MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START))
 - A fixed-wing landing has an infeasible slope angle ([FW_LND_ANG](#FW_LND_ANG))
 - Land start item (`MAV_CMD_DO_LAND_START`) appears in mission before an RTL item ([MAV_CMD_NAV_RETURN_TO_LAUNCH](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH))
 - Missing takeoff and/or land item when these are configured as a requirement ([MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ))
+
+Additionally there is a check if the first waypoint is too far from the Home position ([MIS_DIST_1WP](#MIS_DIST_1WP)).
+The user is notified should the check fail, but it has no effect on the validity of a mission plan (the mission can still be started even if the distance is too great).
 
 ## QGroundControl Support
 
@@ -111,11 +113,11 @@ General parameters:
 
 Parameters related to [mission feasibility checks](#mission-feasibility-checks):
 
-| Parameter                                                                                                   | Description                                                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)             | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.         |
-| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                   | Maximum landing slope angle.                                                                                                                            |
-| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW and VTOL both have it set to 2 by default, which means that the mission has to contain a landing. |
+| Parameter                                                                                                   | Description                                                                                                                                                        |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)             | There is a warning message if the distance of the first waypoint to Home is more than this value. Disabled if value is 0 or less.                                  |
+| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                   | Maximum landing slope angle.                                                                                                                                       |
+| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Sets whether mission _requires_ takeoff and/or landing items. FW and VTOL both have it set to 2 by default, which means that the mission has to contain a landing. |
 
 ## Mission Commands
 
