@@ -114,15 +114,13 @@ General parameters:
 
 Parameters related to [mission feasibility checks](#mission-feasibility-checks):
 
-| Parameter                                                                                                   | Description                                                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)             | There is a warning message if the distance of the first waypoint to Home is more than this value. Disabled if value is 0 or less.          |
-| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                   | Maximum landing slope angle.                                                                                                                            |
-| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. No requirement by default for multicopter.|
+| Parameter                                                                                                   | Description                                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)             | There is a warning message if the distance of the first waypoint to Home is more than this value. Disabled if value is 0 or less. |
+| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                   | Maximum landing slope angle.                                                                                                      |
+| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Sets whether mission _requires_ takeoff and/or landing items. No requirement by default for multicopter.                          |
 
-<a id="mission_commands"></a>
-
-## Mission Commands
+## Mission Commands {#mission_commands}
 
 PX4 "accepts" the following MAVLink mission commands in Mission mode (with some _caveats_, given after the list).
 Unless otherwise noted, the implementation is as defined in the MAVLink specification.
@@ -183,7 +181,6 @@ Rally Points
 
 ::: info
 Please add an issue report or PR if you find a missing/incorrect message.
-
 
 - PX4 parses the above messages, but they are not necessary _acted_ on. For example, some messages are vehicle-type specific.
 - PX4 does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
