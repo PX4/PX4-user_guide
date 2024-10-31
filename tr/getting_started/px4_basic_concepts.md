@@ -67,7 +67,7 @@ The Dronecode GCS software is called [QGroundControl](http://qgroundcontrol.com/
 
 ![QGC Main Screen](../../assets/concepts/qgc_fly_view.png)
 
-QGroundControl communicates with the drone using a telmetry radio (a bidirectional data link), which allows you to get real-time flight and safety information, and to control the vehicle, camera, and other payloads using a point-and-click interface. On hardware that supports them, you can also manually fly the vehicle using joystick controllers. QGC can also be used to visually plan, execute, and monitor autonomous missions, set geofences, and much more.
+QGroundControl communicates with the drone using a telemetry radio (a bidirectional data link), which allows you to get real-time flight and safety information, and to control the vehicle, camera, and other payloads using a point-and-click interface. On hardware that supports them, you can also manually fly the vehicle using joystick controllers. QGC can also be used to visually plan, execute, and monitor autonomous missions, set geofences, and much more.
 
 QGroundControl desktop versions are also used to install (flash) PX4 firmware and configure PX4 on the drone's autopilot/flight controller hardware.
 
@@ -226,16 +226,18 @@ SD cards are never-the-less optional. Flight controllers that do not include an 
 
 Payloads are equipment carried by the vehicle to meet user or mission objectives, such as cameras in surveying missions, instruments used in for inspections such as radiation detectors, and cargo that needs to be delivered. PX4 supports many cameras and a wide range of payloads.
 
-Payloads are connected to [Fight Controller outputs](#outputs-motors-servos-actuators), and can be triggered automatically in missions, or manually from an RC Controller or Joystick, or from a Ground Station (via MAVLink/MAVSDK commands).
+Payloads are connected to [Flight Controller outputs](#outputs-motors-servos-actuators), and can be triggered automatically in missions, or manually from an RC Controller or Joystick, or from a Ground Station (via MAVLink/MAVSDK commands).
 
 For more information see: [Payloads & Cameras](../payloads/index.md)
 
 ## Arming and Disarming
 
-A vehicle is said to be _armed_ when all motors and actuators are powered, and _disarmed_ when nothing is powered. There is also a _prearmed_ state when only actuators are powered.
+A vehicle is said to be _armed_ when all motors and actuators are powered, and _disarmed_ when nothing is powered. There is also a _prearmed_ state when only servo actuators are powered, which is primarily used for testing.
+
+A vehicle is usually disarmed on the ground, and must be armed before taking off in the current flight mode.
 
 :::warning
-Armed vehicles can be dangerous as propellors will be spinning.
+Armed vehicles are dangerous because propellers can start spinning at any time without further user input, and in many cases will start spinning immediately.
 :::
 
 Arming and disarming are triggered by default using RC stick _gestures_. On Mode 2 transmitters you arm by holding the RC throttle/yaw stick on the _bottom right_ for one second, and to disarm you hold the stick on bottom left for one second. It is alternatively possible to configure PX4 to arm using an RC switch or button (and arming MAVLink commands can also be sent from a ground station).
@@ -273,7 +275,8 @@ An overview of the available flight modes for each vehicle can be found below:
 - [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
 - [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/index.md)
-- [Flight Modes (Rover)](../flight_modes_rover/index.md)
+- [Drive Modes (Differential Rover)](../flight_modes_rover/differential.md)
+- [Drive Modes (Ackermann Rover)](../flight_modes_rover/ackermann.md)
 
 Instructions for how to set up your remote control switches to enable different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 
