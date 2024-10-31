@@ -280,7 +280,7 @@ For more information see: [Payloads & Cameras](../payloads/index.md)
 ## Arming and Disarming
 
 A vehicle is said to be _armed_ when all motors and actuators are powered, and _disarmed_ when nothing is powered.
-There is also a _prearmed_ state when only actuators are powered, which is primarily used for testing.
+There is also a _prearmed_ state when only servo actuators are powered, which is primarily used for testing.
 
 A vehicle is usually disarmed on the ground, and must be armed before taking off in the current flight mode.
 
