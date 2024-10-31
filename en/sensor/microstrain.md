@@ -60,8 +60,8 @@ By default, accel and gyro data will be published 500 Hz, magnetometer at 50 Hz,
 This can be changed by adjusting the following parameters
 
 - [MS_IMU_RATE_HZ](../advanced_config/parameter_reference.md#MS_IMU_RATE_HZ)
-- [MS_MAG_RATE_HZ](../advanced_config/parameter_reference.md#MS_IMU_RATE_HZ)
-- [MS_BARO_RATE_HZ](../advanced_config/parameter_reference.md#MS_IMU_RATE_HZ)
+- [MS_MAG_RATE_HZ](../advanced_config/parameter_reference.md#MS_MAG_RATE_HZ)
+- [MS_BARO_RATE_HZ](../advanced_config/parameter_reference.md#MS_BARO_RATE_HZ)
 
 The driver will automatically configure data outputs based on the specific sensor model and available data streams.
 
