@@ -79,13 +79,16 @@ For more information about mission planning, see:
 
 ## Mission Feasibility Checks
 
-PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded, and when the vehicle is first armed.
+PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded and before executing a mission.
 If any of the checks fail, the user is notified and it is not possible to start the mission.
 
 A subset of the most important checks are listed below:
 
-- First mission item too far away from vehicle ([MIS_DIST_1WP](#MIS_DIST_1WP))
 - Any mission item conflicts with a plan or safety geofence
+- Missing takeoff and/or land item when these are configured as a requirement ([MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ))
+
+Additionally there is a check if the first waypoint is too far from the Home position ([MIS_DIST_1WP](#MIS_DIST_1WP)).
+The user is notified should the check fail, but it has no effect on the validity of a mission plan, meaning that the mission can still be started even if the distance is too high.
 
 ## QGroundControl Support
 
@@ -113,9 +116,9 @@ Parameters related to [mission feasibility checks](#mission-feasibility-checks):
 
 | Parameter                                                                                                   | Description                                                                                                                                             |
 | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)             | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.         |
+| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)             | There is a warning message if the distance of the first waypoint to Home is more than this value. Disabled if value is 0 or less.          |
 | <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                   | Maximum landing slope angle.                                                                                                                            |
-| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW and VTOL both have it set to 2 by default, which means that the mission has to contain a landing. |
+| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. No requirement by default for multicopter.|
 
 <a id="mission_commands"></a>
 
