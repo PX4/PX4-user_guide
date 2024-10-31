@@ -88,7 +88,7 @@ A subset of the most important checks are listed below:
 - Missing takeoff and/or land item when these are configured as a requirement ([MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ))
 
 Additionally there is a check if the first waypoint is too far from the Home position ([MIS_DIST_1WP](#MIS_DIST_1WP)).
-The user is notified should the check fail, but it has no effect on the validity of a mission plan, meaning that the mission can still be started even if the distance is too high.
+The user is notified should the check fail, but it has no effect on the validity of a mission plan (the mission can still be started even if the distance is too great).
 
 ## QGroundControl Support
 
