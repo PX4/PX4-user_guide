@@ -169,6 +169,7 @@ This are the three next waypoints (or just the next two or one).
 - [RegisterExtComponentReply](RegisterExtComponentReply.md)
 - [RegisterExtComponentRequest](RegisterExtComponentRequest.md) — Request to register an external component
 - [RoverAckermannGuidanceStatus](RoverAckermannGuidanceStatus.md)
+- [RoverAckermannSetpoint](RoverAckermannSetpoint.md)
 - [RoverAckermannStatus](RoverAckermannStatus.md)
 - [RoverDifferentialGuidanceStatus](RoverDifferentialGuidanceStatus.md)
 - [RoverDifferentialSetpoint](RoverDifferentialSetpoint.md)

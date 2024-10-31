@@ -26457,6 +26457,22 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | -1 | 100 | 0.01 | 3 | m 
 
+### RA_LAT_ACCEL_I (`FLOAT`) {#RA_LAT_ACCEL_I}
+
+Integral gain for lateral acceleration controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.001 | 0 |  
+
+### RA_LAT_ACCEL_P (`FLOAT`) {#RA_LAT_ACCEL_P}
+
+Proportional gain for lateral acceleration controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0 |  
+
 ### RA_MAX_ACCEL (`FLOAT`) {#RA_MAX_ACCEL}
 
 Maximum acceleration for the rover.
@@ -26467,21 +26483,41 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | -1 | 100 | 0.01 | -1 | m/s^2 
 
+### RA_MAX_DECEL (`FLOAT`) {#RA_MAX_DECEL}
+
+Maximum deceleration for the rover.
+
+This is used for the deceleration slew rate, the feed-forward term for the speed controller during missions and the corner slow down effect. Note: For the corner slow down effect RA_MAX_JERK also has to be set.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 100 | 0.01 | -1 | m/s^2 
+
 ### RA_MAX_JERK (`FLOAT`) {#RA_MAX_JERK}
 
 Maximum jerk.
 
-Limit for forwards acc/deceleration change. This is used for the corner slow down effect. Note: RA_MAX_ACCEL, RA_MISS_VEL_GAIN and RA_MISS_VEL_MIN also have to be set for this to be enabled.
+Limit for forwards acc/deceleration change. This is used for the corner slow down effect. Note: RA_MAX_ACCEL also has to be set for this to be enabled.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | -1 | 100 | 0.01 | -1 | m/s^3 
 
+### RA_MAX_LAT_ACCEL (`FLOAT`) {#RA_MAX_LAT_ACCEL}
+
+Maximum allowed lateral acceleration.
+
+This parameter is used to cap the lateral acceleration and map controller inputs to desired lateral acceleration in Acro, Stabilized and Position mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.01 | 1000 | 0.01 | 0.01 | m/s^2 
+
 ### RA_MAX_SPEED (`FLOAT`) {#RA_MAX_SPEED}
 
-Speed the rover drives at maximum throttle.
+Maximum allowed speed.
 
-This is used for the feed-forward term of the speed controller. A value of -1 disables the feed-forward term in which case the Integrator (RA_SPEED_I) becomes necessary to track speed setpoints.
+This is the maximum allowed speed setpoint when driving in a mode that uses closed loop speed control.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -26505,33 +26541,23 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | -1 | 1000 | 0.01 | -1 | deg/s 
 
-### RA_MISS_VEL_DEF (`FLOAT`) {#RA_MISS_VEL_DEF}
+### RA_MAX_THR_SPEED (`FLOAT`) {#RA_MAX_THR_SPEED}
 
-Default rover velocity during a mission.
+Speed the rover drives at maximum throttle.
+
+This parameter is used to calculate the feedforward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands [-1. 1]. A good starting point is the observed ground speed when the rover drives at maximum throttle in manual mode. Increase this parameter if the rover is faster than the setpoint, and decrease if the rover is slower.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 100 | 0.01 | -1 | m/s 
+
+### RA_MISS_SPD_DEF (`FLOAT`) {#RA_MISS_SPD_DEF}
+
+Default rover speed during a mission.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 100 | 0.01 | 2 | m/s 
-
-### RA_MISS_VEL_GAIN (`FLOAT`) {#RA_MISS_VEL_GAIN}
-
-Tuning parameter for the velocity reduction during cornering.
-
-The cornering speed is equal to the inverse of the acceptance radius of the WP multiplied with this factor. Lower value -> More velocity reduction during cornering.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0.05 | 100 | 0.01 | 5 |  
-
-### RA_MISS_VEL_MIN (`FLOAT`) {#RA_MISS_VEL_MIN}
-
-Minimum rover velocity during a mission.
-
-The velocity off the rover is reduced based on the corner it has to take to smooth the trajectory (Set to -1 to disable)
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | 1 | m/s 
 
 ### RA_SPEED_I (`FLOAT`) {#RA_SPEED_I}
 
@@ -26539,7 +26565,7 @@ Integral gain for ground speed controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 |  
+&nbsp; | 0 | 100 | 0.001 | 1 |  
 
 ### RA_SPEED_P (`FLOAT`) {#RA_SPEED_P}
 
