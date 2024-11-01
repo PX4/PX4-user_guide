@@ -22173,13 +22173,13 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### MIS_DIST_1WP (`FLOAT`) {#MIS_DIST_1WP}
 
-Maximal horizontal distance from current position to first waypoint.
+Maximal horizontal distance from Home to first waypoint.
 
-Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIST_1WP from the current position.
+There will be a warning message if the current waypoint is more distant than MIS_DIST_1WP from Home. Has no effect on mission validity. Set a value of zero or less to disable.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 10000 | 100 | 10000 | m 
+&nbsp; | -1 | 100000 | 100 | 10000 | m 
 
 ### MIS_LND_ABRT_ALT (`INT32`) {#MIS_LND_ABRT_ALT}
 
