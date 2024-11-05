@@ -27163,7 +27163,6 @@ Selects the algorithm used for logfile encryption
 
 - `0`: Disabled
 - `2`: XChaCha20
-- `3`: AES
 
 
 Reboot | minValue | maxValue | increment | default | unit
