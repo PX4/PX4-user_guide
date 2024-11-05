@@ -84,13 +84,16 @@ _Режим місії_ змушує транспортний засіб вик�
 
 ## Перевірка можливості виконання місії
 
-PX4 виконує деякі базові перевірки на розумність, щоб визначити, чи є місія можливою під час завантаження, і коли транспортний засіб вперше зброєний.
+PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded and before executing a mission.
 Якщо будь-яка з перевірок не пройде успішно, користувач отримує повідомлення, і почати місію неможливо.
 
 Підмножина найважливіших перевірок перерахована нижче:
 
-- Перший пункт місії занадто далеко від транспортного засобу ([MIS_DIST_1WP](#MIS_DIST_1WP))
 - Будь-який елемент місії конфліктує з планом або безпечним геозахистом
+- Missing takeoff and/or land item when these are configured as a requirement ([MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ))
+
+Additionally there is a check if the first waypoint is too far from the Home position ([MIS_DIST_1WP](#MIS_DIST_1WP)).
+The user is notified should the check fail, but it has no effect on the validity of a mission plan, meaning that the mission can still be started even if the distance is too high.
 
 ## Налаштування підтримки QGroundControl
 
@@ -116,15 +119,13 @@ _QGroundControl_ надає додаткову підтримку обробки
 
 Параметри, пов'язані з [перевірками можливостей місії](#mission-feasibility-checks):
 
-| Параметр                                                                                                                                                                   | Опис                                                                                                                                                                                   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)                                  | Місія не буде розпочата, якщо поточна точка шляху віддаленіша від домашньої позиції, ніж це значення. Вимкнено, якщо значення дорівнює 0 або менше.    |
-| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                                        | Максимальний кут нахилу для посадки.                                                                                                                                   |
-| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Конфігурація вимоги для зльоту/посадки місії. FW та VTOL обидва мають його задано на 2 за замовчуванням, що означає, що місія повинна містити посадку. |
+| Параметр                                                                                                                                                                   | Опис                                                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)                                  | There is a warning message if the distance of the first waypoint to Home is more than this value. Вимкнено, якщо значення дорівнює 0 або менше. |
+| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                                        | Максимальний кут нахилу для посадки.                                                                                                                            |
+| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Sets whether mission _requires_ takeoff and/or landing items. No requirement by default for multicopter.                                        |
 
-<a id="mission_commands"></a>
-
-## Команди місій
+## Mission Commands {#mission_commands}
 
 PX4 "приймає" наступні команди місії MAVLink у режимі Місії (з деякими _попередженнями_, які наведені після списку).
 Якщо не вказано інше, реалізація відповідає визначенню у специфікації MAVLink.
@@ -165,8 +166,8 @@ PX4 "приймає" наступні команди місії MAVLink у ре�
 - [MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW)
 - [MAV_CMD_DO_GIMBAL_MANAGER_CONFIGURE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GIMBAL_MANAGER_CONFIGURE)
 - [MAV_CMD_OBLIQUE_SURVEY](https://mavlink.io/en/messages/common.html#MAV_CMD_OBLIQUE_SURVEY)
-- [MAV_CMD_DO_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAMERA_ZOOM)
-- [MAV_CMD_DO_SET_CAMERA_FOCUS](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAMERA_FOCUS)
+- [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM)
+- [MAV_CMD_SET_CAMERA_FOCUS](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_FOCUS)
 - [MAV_CMD_NAV_VTOL_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_TAKEOFF)
   - `MAV_CMD_NAV_VTOL_TAKEOFF.param2` (заголовок переходу) ігнорується.
     Замість цього напрямок до наступної маршрутної точки використовується для переходу. <!-- at LEAST until PX4 v1.13: https://github.com/PX4/PX4-Autopilot/issues/12660 -->

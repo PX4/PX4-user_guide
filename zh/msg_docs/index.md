@@ -39,9 +39,9 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [DebugKeyValue](DebugKeyValue.md)
 - [DebugValue](DebugValue.md)
 - [DebugVect](DebugVect.md)
-- [DifferentialDriveSetpoint](DifferentialDriveSetpoint.md)
 - [DifferentialPressure](DifferentialPressure.md)
 - [DistanceSensor](DistanceSensor.md) — DISTANCE_SENSOR message data
+- [DistanceSensorModeChangeRequest](DistanceSensorModeChangeRequest.md)
 - [Ekf2Timestamps](Ekf2Timestamps.md) — this message contains the (relative) timestamps of the sensor inputs used by EKF2. It can be used for reproducible replay.
 - [EscReport](EscReport.md)
 - [EscStatus](EscStatus.md)
@@ -115,11 +115,16 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [ModeCompleted](ModeCompleted.md) — Mode completion result, published by an active mode. The possible values of nav_state are defined in the VehicleStatus msg. Note that this is not always published (e.g. when a user switches modes or on failsafe activation)
 - [MountOrientation](MountOrientation.md)
 - [NavigatorMissionItem](NavigatorMissionItem.md)
+- [NavigatorStatus](NavigatorStatus.md) — Current status of a Navigator mode The possible values of nav_state are defined in the VehicleStatus msg.
 - [NormalizedUnsignedSetpoint](NormalizedUnsignedSetpoint.md)
 - [NpfgStatus](NpfgStatus.md)
 - [ObstacleDistance](ObstacleDistance.md) — Obstacle distances in front of the sensor.
 - [OffboardControlMode](OffboardControlMode.md) — Off-board control mode
 - [OnboardComputerStatus](OnboardComputerStatus.md) — ONBOARD_COMPUTER_STATUS message data
+- [OpenDroneIdArmStatus](OpenDroneIdArmStatus.md)
+- [OpenDroneIdOperatorId](OpenDroneIdOperatorId.md)
+- [OpenDroneIdSelfId](OpenDroneIdSelfId.md)
+- [OpenDroneIdSystem](OpenDroneIdSystem.md)
 - [OrbTest](OrbTest.md)
 - [OrbTestLarge](OrbTestLarge.md)
 - [OrbTestMedium](OrbTestMedium.md)
@@ -148,7 +153,14 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [RegisterExtComponentReply](RegisterExtComponentReply.md)
 - [RegisterExtComponentRequest](RegisterExtComponentRequest.md) — Request to register an external component
 - [RoverAckermannGuidanceStatus](RoverAckermannGuidanceStatus.md)
+- [RoverAckermannSetpoint](RoverAckermannSetpoint.md)
 - [RoverAckermannStatus](RoverAckermannStatus.md)
+- [RoverDifferentialGuidanceStatus](RoverDifferentialGuidanceStatus.md)
+- [RoverDifferentialSetpoint](RoverDifferentialSetpoint.md)
+- [RoverDifferentialStatus](RoverDifferentialStatus.md)
+- [RoverMecanumGuidanceStatus](RoverMecanumGuidanceStatus.md)
+- [RoverMecanumSetpoint](RoverMecanumSetpoint.md)
+- [RoverMecanumStatus](RoverMecanumStatus.md)
 - [Rpm](Rpm.md)
 - [RtlStatus](RtlStatus.md)
 - [RtlTimeEstimate](RtlTimeEstimate.md)

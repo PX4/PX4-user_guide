@@ -9,12 +9,13 @@ Before you fly for the first time you should read our [First Flight Guidelines](
 ## Arm the Vehicle
 
 Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming-and-disarming).
-This will power all motors and actuators, and start any propellers turning.
+This will power all motors and actuators, and may start propellers turning.
 
 To arm the drone:
 
-- First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety-switch).
-- Use the arm command for your vehicle - put the throttle stick in the bottom right corner.
+- First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) (if present).
+- Use the arm command for your vehicle
+  - Put the throttle stick in the bottom right corner (use the [arming gesture](../advanced_config/prearm_arm_disarm.md#arm_disarm_gestures)).
   - Alternatively configure an [arm/disarm switch](../config/safety.md#arm-disarm-switch).
   - You can also arm in _QGroundControl_ (PX4 does not require a radio control for flying autonomously).
 

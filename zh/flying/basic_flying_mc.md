@@ -9,12 +9,14 @@ Before you fly for the first time you should read our [First Flight Guidelines](
 ## Arm the Vehicle
 
 Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming-and-disarming).
-This will power all motors and actuators and start propellers turning.
+This will power all motors and actuators.
+Unless you're doing a [Throw Launch](../flight_modes_mc/throw_launch.md) the propellers will also start turning.
 
 To arm the drone:
 
-- First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety-switch).
-- Use the arm command for your vehicle - put the throttle stick in the bottom right corner.
+- First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) (if present).
+- Use the arm command for your vehicle:
+  - Put the throttle stick in the bottom right corner (use the [arming gesture](../advanced_config/prearm_arm_disarm.md#arm_disarm_gestures)).
   - Alternatively configure an [arm/disarm switch](../config/safety.md#arm-disarm-switch).
   - You can also arm in _QGroundControl_ (PX4 does not require a radio control for flying autonomously).
 
@@ -86,7 +88,7 @@ The following three modes are highly recommended for new users:
 
 - [Position mode](../flight_modes_mc/position.md) - When sticks are released the vehicle will stop (and hold position against wind drift)
 - [Altitude mode](../flight_modes_mc/altitude.md) - Climb and drop are controlled to have a maximum rate.
-- [Manual/Stabilized Mode](../flight_modes_mc/manual_stabilized.md) - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position)
+- [Stabilized mode](../flight_modes_mc/manual_stabilized.md) - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position)
 
 :::info
 You can also engage automatic modes on the _QGroundControl_ main flight screen.

@@ -84,13 +84,16 @@ For more information about mission planning, see:
 
 ## Mission Feasibility Checks
 
-PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded, and when the vehicle is first armed.
+PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded and before executing a mission.
 If any of the checks fail, the user is notified and it is not possible to start the mission.
 
 A subset of the most important checks are listed below:
 
-- First mission item too far away from vehicle ([MIS_DIST_1WP](#MIS_DIST_1WP))
 - Any mission item conflicts with a plan or safety geofence
+- Missing takeoff and/or land item when these are configured as a requirement ([MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ))
+
+Additionally there is a check if the first waypoint is too far from the Home position ([MIS_DIST_1WP](#MIS_DIST_1WP)).
+The user is notified should the check fail, but it has no effect on the validity of a mission plan, meaning that the mission can still be started even if the distance is too high.
 
 ## QGroundControl Support
 
@@ -116,15 +119,13 @@ General parameters:
 
 Parameters related to [mission feasibility checks](#mission-feasibility-checks):
 
-| Parameter                                                                                                                                                                  | Description                                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)                                  | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.         |
-| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                                        | Maximum landing slope angle.                                                                                                                                            |
-| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW and VTOL both have it set to 2 by default, which means that the mission has to contain a landing. |
+| Parameter                                                                                                                                                                  | Description                                                                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)                                  | There is a warning message if the distance of the first waypoint to Home is more than this value. Disabled if value is 0 or less. |
+| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                                        | Maximum landing slope angle.                                                                                                                      |
+| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Sets whether mission _requires_ takeoff and/or landing items. No requirement by default for multicopter.                          |
 
-<a id="mission_commands"></a>
-
-## Mission Commands
+## Mission Commands {#mission_commands}
 
 PX4 "accepts" the following MAVLink mission commands in Mission mode (with some _caveats_, given after the list).
 Unless otherwise noted, the implementation is as defined in the MAVLink specification.
@@ -165,8 +166,8 @@ Mission Items:
 - [MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW)
 - [MAV_CMD_DO_GIMBAL_MANAGER_CONFIGURE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GIMBAL_MANAGER_CONFIGURE)
 - [MAV_CMD_OBLIQUE_SURVEY](https://mavlink.io/en/messages/common.html#MAV_CMD_OBLIQUE_SURVEY)
-- [MAV_CMD_DO_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAMERA_ZOOM)
-- [MAV_CMD_DO_SET_CAMERA_FOCUS](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAMERA_FOCUS)
+- [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM)
+- [MAV_CMD_SET_CAMERA_FOCUS](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_FOCUS)
 - [MAV_CMD_NAV_VTOL_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_TAKEOFF)
   - `MAV_CMD_NAV_VTOL_TAKEOFF.param2` (transition heading) is ignored.
     Instead the heading to the next waypoint is used for the transition heading. <!-- at LEAST until PX4 v1.13: https://github.com/PX4/PX4-Autopilot/issues/12660 -->
