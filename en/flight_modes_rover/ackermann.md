@@ -36,7 +36,7 @@ The user is responsible for making the necessary adjustments to the stick inputs
 
 ## Auto Modes
 
-In auto modes the autopilot takes over control of the vehicle to run missions, return to launch, or perform other autonomous navigation tasks.  
+In auto modes the autopilot takes over control of the vehicle to run missions, return to launch, or perform other autonomous navigation tasks.
 For the tuning process see the configuration for [Auto modes](../config_rover/ackermann.md#mission-parameters).
 
 ### Mission Mode
