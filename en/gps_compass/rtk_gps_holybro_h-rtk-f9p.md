@@ -4,7 +4,6 @@
 [Holybro H-RTK ZED-F9P Rover](../dronecan/holybro_h_rtk_zed_f9p_gps.md) is an upgraded version of this module.
 :::
 
-
 The [Holybro H-RTK F9P GNSS](https://holybro.com/products/h-rtk-f9p-gnss-series) is an multi-band high-precision [RTK GNSS System](../gps_compass/rtk_gps.md) series launched by Holybro.
 This family is similar to the [H-RTK M8P](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) series, but uses multi-band RTK with faster convergence times and reliable performance, concurrent reception of GPS, GLONASS, Galileo and BeiDou, and faster update rate for highly dynamic and high volume applications with centimeter-accuracy.
 It uses a u-blox F9P module, a IST8310 compass, and a tri-colored LED indicator.
@@ -19,8 +18,8 @@ Using RTK allows PX4 to get its position with centimetre-level accuracy, which i
 
 ## Where to Buy
 
-* [H-RTK F9P (Holybro Website)](https://holybro.com/products/h-rtk-f9p-gnss-series)
-* [H-RTK Accessories (Holybro Website)](https://holybro.com/collections/h-rtk-gps)
+- [H-RTK F9P (Holybro Website)](https://holybro.com/products/h-rtk-f9p-gnss-series)
+- [H-RTK Accessories (Holybro Website)](https://holybro.com/collections/h-rtk-gps)
 
 ## Configuration
 
@@ -44,7 +43,6 @@ The cables/connectors may need to be modified in order to connect to other fligh
 ![h-rtk-f9p_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_helical_pinmap.jpg)
 
 ![h-rtk-f9p_helical_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_rover_lite_pinmap.jpg)
-
 
 ## Specification and Model Comparison
 

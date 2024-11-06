@@ -58,11 +58,9 @@ RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK
 
 ![Sky unit antenna: physical dimensions](../../assets/hardware/gps/cuav_9ps/c-rtk9ps_sky_unit_antenna_dimensions.jpg)
 
-
 ## Navigation update rates
 
 ![Navigation update rate information](../../assets/hardware/gps/cuav_9ps/nav-rate-en.png)
-
 
 ## More information
 
