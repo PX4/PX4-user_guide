@@ -26,18 +26,17 @@
 
 ![LOCOSYS Hawk R2](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
-
 ## Де купити
 
-* [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html)
+- [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html)
 
 ## Вміст набору
 
 Набір RTK GPS включає в себе:
+
 - 1x Модуль GPS
 - 1x Геліксова антена
 - 1x 6-пінний кабель готовий до JST
-
 
 ## Проводка та з'єднання
 
@@ -63,10 +62,9 @@ LOCOSYS схема виводів GPS наведена нижче.
 | 8   | I2C_DAT     |
 | 9   | GND         |
 
-
 ## Налаштування PX4
 
-Після підключення вашого Hawk R2 до порту `GPS2` на сумісних платах Pixhawk, налаштування та використання RTK на PX4 через *QGroundControl* в основному є "встав і грай" (plug and play). Для отримання додаткової інформації дивіться: [RTK GPS](../gps_compass/rtk_gps.md#positioning-setup-configuration).
+After connecting your Hawk R2 to the `GPS2` port on compatible Pixhawk boards, RTK setup and use on PX4 via _QGroundControl_ is largely plug and play. Для отримання додаткової інформації дивіться: [RTK GPS](../gps_compass/rtk_gps.md#positioning-setup-configuration).
 
 Ви також повинні налаштувати послідовний порт, який ви використовуєте на правильну швидкість передачі даних. Якщо ви використовуєте GPS2, встановіть параметр [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS2_BAUD) на 230400 8N1.
 
