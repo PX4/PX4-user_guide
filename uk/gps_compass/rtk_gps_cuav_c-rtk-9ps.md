@@ -53,11 +53,9 @@ CUAV [C-RTK 9Ps](https://www.cuav.net/en/c_rtk_9ps/) - це багатосупу
 
 ![Sky unit antenna: physical dimensions](../../assets/hardware/gps/cuav_9ps/c-rtk9ps_sky_unit_antenna_dimensions.jpg)
 
-
 ## Частота оновлення навігації
 
 ![Navigation update rate information](../../assets/hardware/gps/cuav_9ps/nav-rate-en.png)
-
 
 ## Докладніше
 
