@@ -14,16 +14,18 @@ PX4 drivers for Ethernet, CAN and USB are under development.
 ## Required Firmware Options
 
 The following firmware options need to be selected when buying the device:
-- 5Hz, 10Hz, 20Hz 
-- INS 
+
+- 5Hz, 10Hz, 20Hz
+- INS
 - HEADING
 - OBS
 - RTK
-- BASE 
+- BASE
 
 ## Where to Buy
 
 Contact [Femtones](http://www.femtomes.com/) directly for sales quote:
+
 - **Email:** [sales@femtomes.com](mailto:sales@femtomes.com)
 - **Telephone:** +86-10-53779838
 
@@ -39,7 +41,6 @@ The pins on the 12-pin connector are numbered as shown below.
 
 ![MINI_II_2](../../assets/hardware/gps/rtk_fem_miniII_2.jpg)
 
-
 ## Configuration
 
 For heading estimation the two antennas need to be on the same level and at least 30 cm apart from each other.
@@ -48,7 +49,6 @@ The direction that they are facing does not matter as it can be configured with 
 Configure the serial port on which the [MINI2 Receiver](http://www.femtomes.com/#/MiniII?type=0) will run using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), and set the baud rate to 115200 using [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD).
 
 Once configured the receiver is used in the same way as any other [RTK GPS](../gps_compass/rtk_gps.md) (i.e. with respect to the Survey-in process).
-
 
 ## Additional Information
 

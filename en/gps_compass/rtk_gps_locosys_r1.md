@@ -30,22 +30,21 @@ For an equivalent GPS module with a compass try: [LOCOSYS Hawk R2](../gps_compas
 
 ![LOCOSYS Hawk R1](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
-
 ## Where to Buy
 
-* [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
+- [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
 
 ## Kit Contents
 
 An RTK GPS kit includes:
+
 - 1x GPS Module
 - 1x Helix antenna
-- 1x 6-pin JST-GH 
-
+- 1x 6-pin JST-GH
 
 ## Configuration
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
+RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 Connect your Hawk R1 to the `GPS2` port on compatible Pixhawk boards (preferred, though you can use any other unused UART port).
 
 For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 230400 8N1 to ensure that PX4 configures the correct baudrate.
@@ -58,25 +57,25 @@ Hawk R1 RTK GPS comes with an 6 pin JST-GH connector that can be plugged into a 
 
 LOCOSYS GPS pinout is provided below.
 
-Pin | Hawk R1 GPS
---- | ---
-1 | VCC_5V
-2 | GPS_RX
-3 | GPS_TX
-4 | Null
-5 | Null
-6 | Null
-7 | Null
-8 | Null
-9 | GND
+| Pin | Hawk R1 GPS |
+| --- | ----------- |
+| 1   | VCC_5V      |
+| 2   | GPS_RX      |
+| 3   | GPS_TX      |
+| 4   | Null        |
+| 5   | Null        |
+| 6   | Null        |
+| 7   | Null        |
+| 8   | Null        |
+| 9   | GND         |
 
 ## Status LEDs
 
-Color | Name  | Description
---- | --- | ---
-Green | TX Indicator | GNSS Data transmission
-Red | Power Indicator | Power
-Blue | PPS | Precise Positioning Service active
+| Color | Name            | Description                        |
+| ----- | --------------- | ---------------------------------- |
+| Green | TX Indicator    | GNSS Data transmission             |
+| Red   | Power Indicator | Power                              |
+| Blue  | PPS             | Precise Positioning Service active |
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
 
@@ -95,7 +94,7 @@ Blue | PPS | Precise Positioning Service active
 - PPS with 100ms pulse width, 1.8Vdc
 - External, active Helix antenna
   - SMA connector
-- UBlox Protocol Support 
+- UBlox Protocol Support
   - U5Hz:UBX-NAV-PVT,UBX-NAV-DOP
   - 1Hz: UBX-NAV-TIMEGPS
 - Connectivity:

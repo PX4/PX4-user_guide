@@ -3,6 +3,7 @@
 The [LOCOSYS HAWK A1 GPS/GNSS receiver](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) is a dual frequency multi-constellation GNSS/GPS receiver compatible with PX4.
 
 Main features include:
+
 - Concurrent reception of L1 and L5 band signals
 - Supports GPS, GLONASS,BEIDOU, GALILEO, QZSS
 - Capable of SBAS (WAAS, EGNOS, MSAS, GAGAN)
@@ -11,13 +12,13 @@ Main features include:
 - Free hybrid ephemeris prediction to achieve faster cold start
 - Default 5Hz, up to 10 Hz update rate (SBAS at 5Hz update rate only)
 - Built-in super capacitor to reserve system data for rapid satellite acquisition
-- Three LED indicator for Power, PPS and Data transmit 
+- Three LED indicator for Power, PPS and Data transmit
 
 ![Hawk A1](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
 ## Where to Buy
 
-* [LOCOSYS](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) (Taiwan)
+- [LOCOSYS](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) (Taiwan)
 
 ## Configuration
 
@@ -25,24 +26,24 @@ You can use the Hawk A1 as either main (primary) or secondary GPS system.
 The PX4 parameters should be set as below for each case.
 
 ### Main GNSS
- 
+
 To use the Hawk A1 your main GPS device:
 
-Parameter | Value | Description
---- | --- | ---
-[GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG) | 102 (Telem 2 or another available serial port) | Configure main GPS port
-[GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) | 1 (u-blox) | Configure GPS protocol
-[SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) | 230400 | Configure the serial port baudrate (here the GPS is connected to `TELEM2` for instance)
+| Parameter                                                                  | Value                                          | Description                                                                             |
+| -------------------------------------------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------- |
+| [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)     | 102 (Telem 2 or another available serial port) | Configure main GPS port                                                                 |
+| [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) | 1 (u-blox)                                     | Configure GPS protocol                                                                  |
+| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                         | Configure the serial port baudrate (here the GPS is connected to `TELEM2` for instance) |
 
 ### Secondary GNSS
 
 To use the Hawk A1 as an auxiliary GPS device (in addition to the main GPS):
 
-Parameter | Value | Description
---- | --- | ---
-[GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) | 102 (Telem 2 or another available serial port) | Configure main GPS port
-[GPS_2_PROTOCOL](../advanced_config/parameter_reference.md#GPS_2_PROTOCOL) | 1 (u-blox) | Configure GPS protocol
-[SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) | 230400 | Configure the serial port baudrate (here the GPS is connected to TELEM2 for instance)
+| Parameter                                                                  | Value                                          | Description                                                                           |
+| -------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------- |
+| [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)     | 102 (Telem 2 or another available serial port) | Configure main GPS port                                                               |
+| [GPS_2_PROTOCOL](../advanced_config/parameter_reference.md#GPS_2_PROTOCOL) | 1 (u-blox)                                     | Configure GPS protocol                                                                |
+| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                         | Configure the serial port baudrate (here the GPS is connected to TELEM2 for instance) |
 
 ## Wiring and Connections
 
@@ -61,16 +62,16 @@ This can be used to help modify the connector for other autopilot boards.
 | 2   | GPS_RX      | 2   | GPS_TX        |
 | 3   | GPS_TX      | 3   | GPS_RX        |
 | 4   | NC          | 4   | SDA           |
-| 5   | NC          | 5   |    SCL        |
+| 5   | NC          | 5   | SCL           |
 | 6   | GND         | 6   | GND           |
 
 ## Status LEDs
 
-Color | Name  | Description
---- | --- | ---
-Green | TX Indicator | GNSS Data transmission
-Red | Power Indicator | Power
-Blue | PPS | Precise Positioning Service active
+| Color | Name            | Description                        |
+| ----- | --------------- | ---------------------------------- |
+| Green | TX Indicator    | GNSS Data transmission             |
+| Red   | Power Indicator | Power                              |
+| Blue  | PPS             | Precise Positioning Service active |
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
 
