@@ -4,11 +4,10 @@ The [CUAV C-RTK GPS receiver](https://www.cuav.net/en/c_rtk_9ps/) is an [RTK GPS
 
 <img src="../../assets/hardware/gps/rtk_c-rtk.jpg" width="500px" title="C-RTK" />
 
-
 ## Where to Buy
 
-* [cuav taobao](https://item.taobao.com/item.htm?id=565380634341&spm=2014.21600712.0.0)
-* [cuav aliexpress](https://www.aliexpress.com/store/product/CUAV-NEW-Flight-Controller-GPS-C-RTK-differential-positioning-navigation-module-GPS-for-PIX4-Pixhawk-pixhack/3257035_32853894248.html?spm=2114.12010608.0.0.75592fadQKPPEn)
+- [cuav taobao](https://item.taobao.com/item.htm?id=565380634341&spm=2014.21600712.0.0)
+- [cuav aliexpress](https://www.aliexpress.com/store/product/CUAV-NEW-Flight-Controller-GPS-C-RTK-differential-positioning-navigation-module-GPS-for-PIX4-Pixhawk-pixhack/3257035_32853894248.html?spm=2114.12010608.0.0.75592fadQKPPEn)
 
 ## 설정
 
@@ -24,8 +23,7 @@ C-RTK GPS comes with a cable that terminates in a 6-pin connector and 4-pin conn
 
 <img src="../../assets/hardware/gps/rtk_cuav_c-rtk_to_6pin_connector.jpg" width="500px" title="C-RTK_6PIN" />
 
-다른 비행 콘트롤러 보드에 연결하려면 케이블/커넥터를 수정하여야 하는 경우도 있습니다. *Pixhawk 3 Pro*와 *Pixracer*의 핀 매핑은 다음과 같습니다.
-
+다른 비행 콘트롤러 보드에 연결하려면 케이블/커넥터를 수정하여야 하는 경우도 있습니다. The pin mappings for _Pixhawk 3 Pro_ and _Pixracer_ are shown below.
 
 ### 핀배열
 
