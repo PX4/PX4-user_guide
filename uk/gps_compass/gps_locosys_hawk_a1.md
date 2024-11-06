@@ -3,6 +3,7 @@
 [LOCOSYS HAWK A1 GPS/GNSS приймач](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) - це двочастотний багатосупутниковий GNSS/GPS приймач, сумісний з PX4.
 
 Основні функції включають:
+
 - Одночасний прийом сигналів смуг L1 і L5
 - Підтримка GPS, ГЛОНАСС, BEIDOU, GALILEO, QZSS
 - Підтримка SBAS (WAAS, EGNOS, MSAS, GAGAN)
@@ -17,7 +18,7 @@
 
 ## Де купити
 
-* [LOCOSYS](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) (Тайвань)
+- [LOCOSYS](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) (Тайвань)
 
 ## Налаштування
 
