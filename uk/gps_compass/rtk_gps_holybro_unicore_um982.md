@@ -16,8 +16,7 @@
 
 ## Де придбати
 
-* [Holybro Website](https://holybro.com/products/h-rtk-um982)
-
+- [Holybro Website](https://holybro.com/products/h-rtk-um982)
 
 ## Підключення
 
