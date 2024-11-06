@@ -27,7 +27,7 @@ GPS включає в себе модуль M8N або M9N UBLOX, компас I
 
 ## Де придбати
 
-* [Holybro](https://holybro.com/collections/gps)
+- [Holybro](https://holybro.com/collections/gps)
 
 Зверніть увагу, що існують варіанти як для M8N, так і для M9N, а також три різні роз'єми.
 
@@ -40,17 +40,18 @@ GPS-модулі M8N і M9N випускаються в трьох варіан�
   Цей 10-контактний роз'єм JST GH можна використовувати з 10-контактним `GPS-модулем серії Pixhawk` або `GPS1` вхідним портом.
 
   ![Holybro M8N with Pixhawk GPS1 connector](../../assets/hardware/gps/holybro_gps_pinout.jpg)
+
 - **SKU12014 Holybro M8N 2nd GPS (JST GHR1.25m m 6pin кабель)**
 
   Цей 6-контактний роз'єм JST GH 6Pin можна використовувати на 6-контактних вхідних портах `UART`, `I2C` або `GPS2` серії Pixhawk в якості додаткового GPS.
 
   ![Holybro M8N with Pixhawk 2nd GPS connector](../../assets/hardware/gps/holybro_gps_pinout3.jpg)
+
 - **SKU12013 Holybro M8N GPS for Pix32 (Molex 1.25mm 6pin & 4pin & 3pin кабель)**
 
   Ці роз'єми Molex 1,25 мм 6pin & 4pin & 3pin призначені для вхідних портів [Holybro pix32 Flight Controller](../flight_controller/holybro_pix32.md) `Switch`, `GPS` і `I2C` (не для Pix32 v5 або v6).
 
   ![Holybro M8N with Pix32 connector](../../assets/hardware/gps/holybro_gps_pinout2.jpg)
-
 
 ## Розміри
 
