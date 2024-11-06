@@ -37,7 +37,7 @@ Baylands world surrounded by water.
 ## Lawn
 
 Lawn is a flat green world that is a less-optimized alternative to [rover world](#rover).
-It is not recommended the low frame rate causes segmentation faults on some frames.
+It is not recommended as the low frame rate causes segmentation faults on some frames.
 
 [PX4-gazebo-models/main/worlds/lawn.sdf](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/lawn.sdf)
 
