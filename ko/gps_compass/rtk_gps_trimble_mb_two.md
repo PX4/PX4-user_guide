@@ -6,10 +6,10 @@
 
 ![MB-Two 대표 이미지](../../assets/hardware/gps/rtk_trimble_two_gnss_hero.jpg)
 
-
 ## 필수 펌웨어 옵션
 
 장치 구매시 다음 펌웨어 옵션을 선택하여야 합니다.
+
 - \[X\] \[2\] \[N\] \[G\] \[W\] \[Y\] \[J\]  : 20Hz 위치 업데이트 및 RTK 지원, 수평 1cm 및 수직 2cm 위치 정확도
 - \[L\] LBAND
 - \[D\] DUO - 이중 안테나 방향각
@@ -17,9 +17,10 @@
 
 ## 안테나 케이블
 
-Trimble MB-Two에는 2개의 이중 주파수(L1/L2) 안테나가 필요합니다. 좋은 예는 [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) 입니다.  [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)에서 구매 가능합니다.
+Trimble MB-Two에는 2개의 이중 주파수(L1/L2) 안테나가 필요합니다. A good example is the [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) (which can be bought, for instance, from [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)).
 
 장치의 안테나 커넥터 유형은 MMCX입니다. 위의 안테나(SMA 커넥터)에 적합한 케이블은 아래에서 참고하십시오.
+
 - [30 cm version](https://www.digikey.com/products/en?mpart=415-0073-012&v=24)
 - [45 cm version](https://www.digikey.com/products/en?mpart=415-0073-018&v=24)
 
@@ -50,12 +51,12 @@ The module cannot be powered from a Pixhawk.
 
 방향 추정을 위해 두 안테나는 같은 높이에 있어야하고, 서로 최소 30cm 이상 떨어져야 합니다. 두 GPS가 향하는 방향은 [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) 매개변수로 설정할 수 있습니다.
 
-::: info The `GPS_YAW_OFFSET` is the angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
+::: info The `GPS_YAW_OFFSET` is the angle made by the _baseline_ (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
 :::
 
 [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)를 사용하여 Trimple이 실행될 [직렬 포트를 설정](../peripherals/serial_configuration.md)하고 [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD)에서 전송 속도를 115200로 설정합니다.
 
-To activate heading fusion for the attitude estimation, set the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter to enable *Dual antenna heading*.
+To activate heading fusion for the attitude estimation, set the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter to enable _Dual antenna heading_.
 
 ::: info See also: [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/index.md#configuring-gps-as-yaw-heading-source)
 :::
