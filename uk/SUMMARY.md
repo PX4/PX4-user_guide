@@ -615,6 +615,7 @@
       - [RegisterExtComponentRequest](msg_docs/RegisterExtComponentRequest.md)
       - [RoverAckermannGuidanceStatus](msg_docs/RoverAckermannGuidanceStatus.md)
       - [RoverAckermannStatus](msg_docs/RoverAckermannStatus.md)
+      - [RoverAckermannSetpoint](msg_docs/RoverAckermannSetpoint.md)
       - [RoverDifferentialGuidanceStatus](msg_docs/RoverDifferentialGuidanceStatus.md)
       - [RoverDifferentialSetpoint](msg_docs/RoverDifferentialSetpoint.md)
       - [RoverDifferentialStatus](msg_docs/RoverDifferentialStatus.md)
