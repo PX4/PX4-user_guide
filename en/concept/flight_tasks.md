@@ -97,19 +97,39 @@ The instructions below might be used to create a task named _MyTask_:
    }
    ```
 
-6. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L40):
+6. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L41).
+
+   ```cmake
+   ...
+    list(APPEND flight_tasks_all
+      Auto
+      Descend
+      ...
+      ManualPositionSmoothVel
+      Transition
+      MyTask
+    )
+   ...
+   ```
+
+   ::: tip
+
+   The task added above will be built on all boards, including those with constrained flash such as Pixhawk FMUv2.
+   If your task is not indended for use on boards with constrained flash it should instead be added to the conditional block shown below (as shown).
 
    ```cmake
    ...
    if(NOT px4_constrained_flash_build)
-    list(APPEND flight_tasks_all
-     AutoFollowTarget
-     Orbit
-     MyTask
-    )
-   endif()
+      list(APPEND flight_tasks_all
+        AutoFollowTarget
+        Orbit
+        MyTask
+      )
+    endif()
    ...
    ```
+
+   :::
 
 7. Update a flight mode to ensure that the task is called.
    Usually a parameter is used to select when a particular flight task should be used.
