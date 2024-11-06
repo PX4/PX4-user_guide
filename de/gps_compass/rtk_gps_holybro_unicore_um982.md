@@ -16,8 +16,7 @@ Additional technical information can be found at [Holybro Technical Documentatio
 
 ## Where to Buy
 
-* [Holybro Website](https://holybro.com/products/h-rtk-um982)
-
+- [Holybro Website](https://holybro.com/products/h-rtk-um982)
 
 ## Wiring
 

@@ -1,17 +1,21 @@
 # Holybro H-RTK F9P GNSS
 
+::: tip
+[Holybro H-RTK ZED-F9P Rover](../dronecan/holybro_h_rtk_zed_f9p_gps.md) is an upgraded version of this module.
+:::
+
 The [Holybro H-RTK F9P GNSS](https://holybro.com/products/h-rtk-f9p-gnss-series) is an multi-band high-precision [RTK GNSS System](../gps_compass/rtk_gps.md) series launched by Holybro. 이 제품군은 [H-RTK M8P](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) 시리즈와 유사하지만, 더 빠른 수렴 시간과 안정적인 성능, GPS, GLONASS, Galileo 및 BeiDou의 동시 수신, 높은 업데이트 속도를 제공하는 다중 대역 RTK를 사용합니다. 센티미터 정확도의 동적 대용량 애플리케이션에 적용 가능합니다. u-blox F9P 모듈, IST8310 나침반과 3색 LED 표시기를 사용합니다. 또한, 간단하고 편리하게 작동할 수 있는 통합 안전 스위치가 있습니다.
 
 Holybro H-RTK F9P에는 세 가지 모델이 있으며, 각 모델은 다른 요구 사항을 충족하기 위하여 각각 다른 안테나 설계를 사용합니다. 자세한 내용은 [사양 및 모델 비교 섹션](#specification-and-model-comparison)을 참고하십시오.
 
-RTK를 사용하여 PX4는 일반 GPS 보다 훨씬 더 정확한 센티미터 수준에서 위치를 파악할 수 있습니다.
+Using RTK allows PX4 to get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_all_label.jpg)
 
 ## Where to Buy
 
-* [H-RTK F9P (Holybro 웹사이트)](https://holybro.com/products/h-rtk-f9p-gnss-series)
-* [H-RTK Accessories (Holybro 웹사이트)](https://holybro.com/collections/h-rtk-gps)
+- [H-RTK F9P (Holybro 웹사이트)](https://holybro.com/products/h-rtk-f9p-gnss-series)
+- [H-RTK Accessories (Holybro 웹사이트)](https://holybro.com/collections/h-rtk-gps)
 
 ## 설정
 
@@ -31,7 +35,6 @@ The H-RTK Rover Lite comes in two version. The standard version comes with 10 pi
 ![h-rtk-f9p_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_helical_pinmap.jpg)
 
 ![h-rtk-f9p_helical_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_rover_lite_pinmap.jpg)
-
 
 ## 사양 및 모델 비교
 

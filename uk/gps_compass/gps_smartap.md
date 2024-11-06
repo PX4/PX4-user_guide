@@ -5,19 +5,20 @@
 ![SmartAP GPS](../../assets/hardware/gps/gps_smartap_gps.jpg)
 
 Основні функції включають:
+
 - Одночасний прийом до 3 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - 3х вбудовані магнітометри: HMC5983, IST8310 та LIS3MDL
 - 1x вбудований барометр: MS5611
 - Драйвер RGB-світлодіодів та індикатори стану
 
-
 ## Де купити
 
-* [Sky-Drones Store](https://sky-drones.com/navigation/smartap-gnss.html)
+- [Sky-Drones Store](https://sky-drones.com/navigation/smartap-gnss.html)
 
 ## Вміст набору
 
 Набір SmartAP GPS включає в себе:
+
 - 1x GPS модуль
 - 1x 30cm кабель
 
@@ -42,7 +43,6 @@ SmartAP GPS має 10-контактний роз'єм JST-GH, який можн
 | 9            | BUZZER       |
 | 10           | GND          |
 
-
 ## Характеристики
 
 - Приймач GPS u-blox M8N
@@ -54,7 +54,6 @@ SmartAP GPS має 10-контактний роз'єм JST-GH, який можн
   - NCP5623 I2C Driver
 - Діаметр: 75 мм
 - Вага: 34g
-
 
 ## Подальша інформація
 

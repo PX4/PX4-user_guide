@@ -3,6 +3,7 @@
 [Freefly Systems RTK GPS 모듈](https://store.freeflysystems.com/products/rtk-gps-ground-station)은 매우 안정적인 내비게이션을 제공하는 Freefly Systems의 다중 대역 [RTK GPS 모듈](../gps_compass/rtk_gps.md)입니다. 모듈은 로버(항공기에 설치된 경우) 또는 기지국(컴퓨터에 연결된 경우)으로 작동할 수 있습니다.
 
 주요 특징은 다음과 같습니다.
+
 - Multiband (L1/L2) 수신기 (u-blox ZED-F9P)
 - 최대 4 개의 GNSS(GPS, Galileo, GLONASS, BeiDou) 동시 수신
 - 내장형 자력계(IST8310), 기압계(BMP388), RGB LED, 안전 스위치 및 안전 LED
@@ -13,23 +14,22 @@ This module can be used with PX4 v1.9 or above (support for the u-blox ZED-F9P w
 
 ![FreeFly GPS 모듈](../../assets/hardware/gps/freefly_gps_module.jpg)
 
-
 ## Where to Buy
 
-* [Freefly Store](https://store.freeflysystems.com/products/rtk-gps-ground-station)
+- [Freefly Store](https://store.freeflysystems.com/products/rtk-gps-ground-station)
 
 ## 키트 내용물
 
 RTK GPS 키트에는 다음 내용물들이 포함됩니다.
+
 - 안테나가 있는 GPS 모듈 2개
 - 3m USB C to A 케이블
 - 베이스 스테이션 모듈용 마그네틱 퀵 마운트 (삼각대 마운트용 1/ 4-20 스레드)
 - Freefly AltaX에 장착하는 나사
 
-
 ## 설정
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
+RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
 기체의 경우 PX4가 전송속도 매개변수 [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD)를 115200 8N1로 설정하여야 합니다.
 
@@ -66,13 +66,13 @@ Freefly GPS 핀배열은 아래와 같습니다. [Hex Cube](../flight_controller
   - SMA 커넥터
 - 미래의 CAN 기반 통신을 위한 STM32 MCU
   - USB 커넥터를 통한 펨웨어 업데이트
-- 연결성:
+- Connectivity:
   - USB-C
   - MCU 및 F9P에 대한 양방향 USB 스위치
   - 활성 안테나용 SMA (최대 20mA)
   - 4핀 JST-GH CAN 버스(드론코드 준수)
-  - 8핀 JST-GH UART/I2C -** Power:
-  - 입력 (다이오드 OR'd) :
+  - 8-pin JST-GH UART/I2C -\*\* Power:
+  - Input from either (diode OR'd):
   - USB (5V)
   - CAN (4.7 ~ 25.2V)
   - (4.7 ~ 25.2V)
@@ -81,4 +81,3 @@ Freefly GPS 핀배열은 아래와 같습니다. [Hex Cube](../flight_controller
 ## 추가 정보
 
 자세한 정보는 [Freefly Wiki](https://freefly.gitbook.io/freefly-public/products/rtk-gps)를 참고하십시오.
-  

@@ -4,11 +4,10 @@ GPS-приймач [CUAV C-RTK](https://www.cuav.net/en/c_rtk_9ps/) - це [RTK 
 
 <img src="../../assets/hardware/gps/rtk_c-rtk.jpg" width="500px" title="C-RTK" />
 
-
 ## Де купити
 
-* [cuav taobao](https://item.taobao.com/item.htm?id=565380634341&spm=2014.21600712.0.0)
-* [cuav aliexpress](https://www.aliexpress.com/store/product/CUAV-NEW-Flight-Controller-GPS-C-RTK-differential-positioning-navigation-module-GPS-for-PIX4-Pixhawk-pixhack/3257035_32853894248.html?spm=2114.12010608.0.0.75592fadQKPPEn)
+- [cuav taobao](https://item.taobao.com/item.htm?id=565380634341&spm=2014.21600712.0.0)
+- [cuav aliexpress](https://www.aliexpress.com/store/product/CUAV-NEW-Flight-Controller-GPS-C-RTK-differential-positioning-navigation-module-GPS-for-PIX4-Pixhawk-pixhack/3257035_32853894248.html?spm=2114.12010608.0.0.75592fadQKPPEn)
 
 ## Налаштування
 
@@ -24,8 +23,7 @@ C-RTK GPS поставляється з кабелем, який закінчу�
 
 <img src="../../assets/hardware/gps/rtk_cuav_c-rtk_to_6pin_connector.jpg" width="500px" title="C-RTK_6PIN" />
 
-Може знадобитися модифікація кабелів/роз'ємів для підключення до інших плат польотних контролерів. Нижче наведено схеми підключення виводів для *Pixhawk 3 Pro* і *Pixracer*.
-
+Може знадобитися модифікація кабелів/роз'ємів для підключення до інших плат польотних контролерів. The pin mappings for _Pixhawk 3 Pro_ and _Pixracer_ are shown below.
 
 ### Розпіновка
 

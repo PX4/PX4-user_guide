@@ -6,10 +6,10 @@ GPS-приймач [Trimble MB-Two RTK](https://www.trimble.com/Precision-GNSS/M
 
 ![MB-Two Hero image](../../assets/hardware/gps/rtk_trimble_two_gnss_hero.jpg)
 
-
 ## Необхідні параметри прошивки
 
 При купівлі пристрою необхідно вибрати наступні параметри вбудованого програмного забезпечення:
+
 - \[X\] \[2\] \[N\] \[G\] \[W\] \[Y\] \[J\] для оновлень позиції 20 Гц та підтримки RTK, горизонтальна точність позиції 1 см та вертикальна 2 см
 - \[L\] LBAND
 - \[D\] DUO - Напрямок з двома антенами
@@ -17,9 +17,10 @@ GPS-приймач [Trimble MB-Two RTK](https://www.trimble.com/Precision-GNSS/M
 
 ## Антени та кабель
 
-Для Trimble MB-Two потрібні дві двохчастотні (L1/L2) антени. Хорошим прикладом є [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) (який можна купити, наприклад, від [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)).
+Для Trimble MB-Two потрібні дві двохчастотні (L1/L2) антени. A good example is the [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) (which can be bought, for instance, from [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)).
 
 Тип роз'єму антени на пристрої - MMCX. Підходящі кабелі для вищезазначених антен (коннектор SMA) можна знайти тут:
+
 - [30 см версія](https://www.digikey.com/products/en?mpart=415-0073-012&v=24)
 - [45 см версія](https://www.digikey.com/products/en?mpart=415-0073-018&v=24)
 
@@ -50,12 +51,12 @@ Trimble MB-Two підключений до UART на польотному кон
 
 Для оцінювання заголовку потрібно, щоб дві антени були на одному рівні і були відстані щонайменше 30 см одна від одної. Напрям, у якому вони обертаються, не має значення, оскільки його можна налаштувати за допомогою параметра [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET).
 
-::: info Кут `GPS_YAW_OFFSET` утворюється *базовою лінією* (лінія між двома GPS антенами) відносно осі x транспортного засобу (передня/задня вісь, як показано [тут](../config/flight_controller_orientation.md#calculating-orientation)).
+::: info The `GPS_YAW_OFFSET` is the angle made by the _baseline_ (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
 :::
 
 [Налаштуйте послідовний порт](../peripherals/serial_configuration.md), на якому працюватиме Trimple, використовуючи [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), і встановіть швидкість передачі даних на 115200 за допомогою [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD).
 
-Для активації ф’южена покриву для оцінки нахилу, встановіть параметр [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) для увімкнення *Орієнтація з подвійною антеною*.
+To activate heading fusion for the attitude estimation, set the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter to enable _Dual antenna heading_.
 
 :::info Див. також: [GPS > Configuration > GPS як Yaw/Heading Source](../gps_compass/index.md#configuring-gps-as-yaw-heading-source)
 :::

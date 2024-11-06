@@ -3,6 +3,7 @@
 The [Freefly Systems RTK GPS Module](https://store.freeflysystems.com/products/rtk-gps-ground-station) is a multiband [RTK GPS module](../gps_compass/rtk_gps.md) from Freefly Systems that provides highly reliable navigation. The modules can act as either rovers (when installed on an aircraft) or base stations (when plugged into a computer).
 
 Main features include:
+
 - Multiband (L1/L2) receiver (u-blox ZED-F9P)
 - Concurrent reception of all 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - Built-in magnetometer (IST8310), baro (BMP388), RGB LED, safety switch and safety LED
@@ -13,23 +14,22 @@ This module can be used with PX4 v1.9 or above (support for the u-blox ZED-F9P w
 
 ![FreeFly GPS Module](../../assets/hardware/gps/freefly_gps_module.jpg)
 
-
 ## Where to Buy
 
-* [Freefly Store](https://store.freeflysystems.com/products/rtk-gps-ground-station)
+- [Freefly Store](https://store.freeflysystems.com/products/rtk-gps-ground-station)
 
 ## Kit Contents
 
 An RTK GPS kit includes:
+
 - 2x GPS modules with antennas
 - 3m USB C to A cable
 - Magnetic quick-mount for base station module (1/4-20 thread for tripod mounting)
 - Screws to mount onto a Freefly AltaX
 
-
 ## Configuration
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
+RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
 For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
 
@@ -71,7 +71,7 @@ The Freefly GPS pinout is provided below. For some autopilots, like the [Hex Cub
   - 2-way USB Switch to MCU and F9P
   - SMA for active antenna (20mA max)
   - 4-pin JST-GH CAN Bus (dronecode compliant)
-  - 8-pin JST-GH UART/I2C -** Power:
+  - 8-pin JST-GH UART/I2C -\*\* Power:
   - Input from either (diode OR'd):
   - USB (5V)
   - CAN (4.7 to 25.2V)
@@ -81,4 +81,3 @@ The Freefly GPS pinout is provided below. For some autopilots, like the [Hex Cub
 ## More Information
 
 More information can be found on [Freefly's Wiki](https://freefly.gitbook.io/freefly-public/products/rtk-gps)
-  

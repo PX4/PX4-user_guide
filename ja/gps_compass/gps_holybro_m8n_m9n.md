@@ -27,7 +27,7 @@ The main difference between the modules is that the M8N allows concurrent recept
 
 ## Where to Buy
 
-* [Holybro](https://holybro.com/collections/gps)
+- [Holybro](https://holybro.com/collections/gps)
 
 Note that there are variants for both M8N and M9N and also three different connectors.
 
@@ -40,17 +40,18 @@ Both the M8N and M9N GPS modules come in three variants. These allow out-of-the 
   This JST GH 10Pin connector can be used on Pixhawk Series 10pin `GPS Module` or `GPS1` input port.
 
   ![Holybro M8N with Pixhawk GPS1 connector](../../assets/hardware/gps/holybro_gps_pinout.jpg)
+
 - **SKU12014 Holybro M8N 2nd GPS (JST GHR1.25m m 6pin cable)**
 
   This JST GH 6Pin connector can be used on Pixhawk Series 6pin `UART`, `I2C` or `GPS2` input port as secondary GPS.
 
   ![Holybro M8N with Pixhawk 2nd GPS connector](../../assets/hardware/gps/holybro_gps_pinout3.jpg)
+
 - **SKU12013 Holybro M8N GPS for Pix32 (Molex 1.25mm 6pin & 4pin & 3pin cable)**
 
   These Molex 1.25mm 6pin & 4pin & 3pin connectors are for the [Holybro pix32 Flight Controller](../flight_controller/holybro_pix32.md) `Switch`, `GPS`, and `I2C` input ports (not for the Pix32 v5 or v6).
 
   ![Holybro M8N with Pix32 connector](../../assets/hardware/gps/holybro_gps_pinout2.jpg)
-
 
 ## Dimensions
 

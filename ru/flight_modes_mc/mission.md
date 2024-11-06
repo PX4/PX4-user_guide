@@ -85,7 +85,7 @@ For more information about mission planning, see:
 ## Mission Feasibility Checks
 
 PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded and before executing a mission.
-If any of the checks fail, the user is notified and it is not possible to start the mission.
+If any of the checks fail, the user is notified and it is not possible to start the mission (the vehicle will switch to [Hold mode](../flight_modes_mc/hold.md) instead of Mission mode).
 
 A subset of the most important checks are listed below:
 

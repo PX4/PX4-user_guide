@@ -5,19 +5,20 @@
 ![SmartAP GPS](../../assets/hardware/gps/gps_smartap_gps.jpg)
 
 Key features include:
+
 - Concurrent reception of up to 3 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - 3x built-in magnetometers: HMC5983, IST8310 and LIS3MDL
 - 1x built-in barometer: MS5611
 - RGB LED Driver and status LEDs
 
-
 ## Where to Buy
 
-* [Sky-Drones Store](https://sky-drones.com/navigation/smartap-gnss.html)
+- [Sky-Drones Store](https://sky-drones.com/navigation/smartap-gnss.html)
 
 ## Kit Contents
 
 An SmartAP GPS kit includes:
+
 - 1x GPS modules
 - 1x 30cm cable
 
@@ -42,7 +43,6 @@ SmartAP GPS has 10 pin JST-GH connector that can be plugged into a Pixhawk fligh
 | 9          | BUZZER     |
 | 10         | GND        |
 
-
 ## Specification
 
 - U-blox M8N GPS Receiver
@@ -54,7 +54,6 @@ SmartAP GPS has 10 pin JST-GH connector that can be plugged into a Pixhawk fligh
   - NCP5623 I2C Driver
 - Diameter: 75mm
 - Weight: 34g
-
 
 ## Further Information
 

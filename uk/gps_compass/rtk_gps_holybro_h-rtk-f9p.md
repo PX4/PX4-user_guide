@@ -1,17 +1,21 @@
 # Holybro H-RTK-F9P GNSS
 
+::: tip
+[Holybro H-RTK ZED-F9P Rover](../dronecan/holybro_h_rtk_zed_f9p_gps.md) is an upgraded version of this module.
+:::
+
 Модель [Holybro H-RTK F9P GNSS](https://holybro.com/products/h-rtk-f9p-gnss-series) є багатосмуговою високоточною серією систем [RTK GNSS](../gps_compass/rtk_gps.md), запущеною Holybro. Ця сім'я подібна до серії [H-RTK M8P](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md), але використовує багатосмуговий RTK зі швидшими часами зближення і надійною продуктивністю, одночасний прийом GPS, GLONASS, Galileo і BeiDou та швидше оновлення для високодинамічних та великов'язаних застосувань з точністю на рівні сантиметрів. Він використовує модуль u-blox F9P, компас IST8310 та індикатор з триколірним світлодіодом. Також в ньому є інтегрований вимикач безпеки для простої та зручної роботи.
 
 Є три моделі Holybro H-RTK F9P на вибір, кожна з різним дизайном антени, щоб задовольнити різні потреби. Дивіться розділ [Характеристики та порівняння моделей](#specification-and-model-comparison) для отримання додаткової інформації.
 
-Використовуючи RTK, PX4 може отримати своє положення з точністю до сантиметра, що набагато точніше, ніж може забезпечити звичайний GPS.
+Using RTK allows PX4 to get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_all_label.jpg)
 
 ## Де придбати
 
-* [H-RTK F9P (сайт Holybro)](https://holybro.com/products/h-rtk-f9p-gnss-series)
-* [H-RTK Аксесуари (сайт Holybro)](https://holybro.com/collections/h-rtk-gps)
+- [H-RTK F9P (сайт Holybro)](https://holybro.com/products/h-rtk-f9p-gnss-series)
+- [H-RTK Аксесуари (сайт Holybro)](https://holybro.com/collections/h-rtk-gps)
 
 ## Налаштування
 
@@ -31,7 +35,6 @@ H-RTK Rover Lite доступний у двох версіях. Стандарт
 ![h-rtk-f9p_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_helical_pinmap.jpg)
 
 ![h-rtk-f9p_helical_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_rover_lite_pinmap.jpg)
-
 
 ## Специфікація та порівняння моделей
 

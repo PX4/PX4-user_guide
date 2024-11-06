@@ -4,7 +4,7 @@
 Цей GNSS був вилучений з виробництва і більше не є комерційно доступним.
 :::
 
-[Holybro H-RTK M8P GNSS](https://holybro.com/collections/standard-h-rtk-series/products/h-rtk-m8p-gnss-series) - це модульна серія [RTK GNSS](../gps_compass/rtk_gps.md) для масового ринку. Ця родина схожа на серію [H-RTK M9P](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md), але використовує менший, легший і дешевший модуль M8P u-blox RTK GNSS (який все ще забезпечує набагато кращу роздільну здатність позиції, ніж попередні покоління).
+[Holybro H-RTK M8P GNSS](https://holybro.com/collections/standard-h-rtk-series/products/h-rtk-m8p-gnss-series) - це модульна серія [RTK GNSS](../gps_compass/rtk_gps.md) для масового ринку. This family is similar to the [H-RTK M9P](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) series but uses the smaller, lighter, and less expensive M8P u-blox RTK GNSS module (which still provides far superior position resolution than previous generations\_.
 
 Є три моделі Holybro H-RTK M8P на вибір, кожна з різним дизайном антени, щоб задовольнити різні потреби. Дивіться розділ [Характеристики та порівняння моделей](#specification-and-model-comparison) для отримання додаткової інформації.
 
@@ -14,8 +14,7 @@
 
 ## Де купити
 
-* [H-RTK M8P (Монтування GPS RTK)](https://holybro.com/products/vertical-mount-for-h-rtk-helical)
-
+- [H-RTK M8P (Монтування GPS RTK)](https://holybro.com/products/vertical-mount-for-h-rtk-helical)
 
 ## Налаштування
 

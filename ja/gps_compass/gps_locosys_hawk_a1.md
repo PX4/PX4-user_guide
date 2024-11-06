@@ -3,6 +3,7 @@
 The [LOCOSYS HAWK A1 GPS/GNSS receiver](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) is a dual frequency multi-constellation GNSS/GPS receiver compatible with PX4.
 
 Main features include:
+
 - Concurrent reception of L1 and L5 band signals
 - Supports GPS, GLONASS,BEIDOU, GALILEO, QZSS
 - Capable of SBAS (WAAS, EGNOS, MSAS, GAGAN)
@@ -17,7 +18,7 @@ Main features include:
 
 ## Where to Buy
 
-* [LOCOSYS](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) (Taiwan)
+- [LOCOSYS](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) (Taiwan)
 
 ## Configuration
 
