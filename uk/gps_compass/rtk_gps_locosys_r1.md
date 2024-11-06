@@ -10,11 +10,9 @@
 
 Вбудована легка спіральна антена підвищує стабільність позиціонування RTK. Швидкий час до першої перевірки, сумісність з RTK, чудова чутливість, низьке енергоспоживання роблять його кращим вибором для платформних БПЛА на базі Pixhawk.
 
-:::info
-
-Цей модуль не має компасу. Спробуйте еквівалентний модуль GPS з компасом: [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md).
+::: info
+This module does not have a compass. Спробуйте еквівалентний модуль GPS з компасом: [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md).
 :::
-
 
 ## Основні характеристики
 
@@ -29,22 +27,21 @@
 
 ![LOCOSYS Hawk R1](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
-
 ## Де купити
 
-* [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
+- [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
 
 ## Вміст набору
 
 Набір RTK GPS включає в себе:
+
 - 1x Модуль GPS
 - 1x Спіральна антена
 - 1x 6-контактний JST-GH
 
-
 ## Налаштування
 
-Налаштування та використання RTK на PX4 за допомогою *QGroundControl* відбувається за принципом «підключи і працюй» (див. [RTK GPS](../gps_compass/rtk_gps.md) для отримання додаткової інформації). Підключіть Hawk R1 до порту `GPS2` на сумісних платах Pixhawk (бажано, але ви можете використовувати будь-який інший невикористаний порт UART).
+RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information). Підключіть Hawk R1 до порту `GPS2` на сумісних платах Pixhawk (бажано, але ви можете використовувати будь-який інший невикористаний порт UART).
 
 Для літака слід встановити параметр [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) на 230400 8N1, щоб переконатися, що PX4 налаштував правильну швидкість передачі даних.
 
