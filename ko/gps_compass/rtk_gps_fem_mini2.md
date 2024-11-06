@@ -13,6 +13,7 @@ PX4 drivers for Ethernet, CAN and USB are under development.
 ## 필수 펌웨어 옵션
 
 장치 구매시 다음 펌웨어 옵션을 선택하여야 합니다.
+
 - 5Hz, 10Hz, 20Hz
 - INS
 - HEADING
@@ -23,6 +24,7 @@ PX4 drivers for Ethernet, CAN and USB are under development.
 ## Where to Buy
 
 Contact [Femtones](http://www.femtomes.com/) directly for sales quote:
+
 - **전자메일:** [sales@femtomes.com](mailto:sales@femtomes.com)
 - **전화:** +86-10-53779838
 
@@ -36,7 +38,6 @@ Contact [Femtones](http://www.femtomes.com/) directly for sales quote:
 
 ![MINI_II_2](../../assets/hardware/gps/rtk_fem_miniII_2.jpg)
 
-
 ## 설정
 
 방향 추정을 위해 두 안테나는 같은 높이에 있어야하고, 서로 최소 30cm 떨어져 있어야합니다. 두 GPS가 향하는 방향은 [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) 매개변수로 설정할 수 있습니다.
@@ -44,7 +45,6 @@ Contact [Femtones](http://www.femtomes.com/) directly for sales quote:
 Configure the serial port on which the [MINI2 Receiver](http://www.femtomes.com/#/MiniII?type=0) will run using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), and set the baud rate to 115200 using [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD).
 
 설정후에는 수신기는 다른 [RTK GPS](../gps_compass/rtk_gps.md)와 동일한 방식으로 사용됩니다 (즉, Survey-in 프로세스와 관련하여).
-
 
 ## 추가 정보
 
