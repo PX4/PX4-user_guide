@@ -7,27 +7,27 @@ This has been superseded by the [Cube Here 3](https://www.cubepilot.com/#/here/h
 GPS-приймач [Here2](http://www.proficnc.com/all-products/152-gps-module.html) є оновленням GPS-модуля Here від компанії HEX.
 
 Основні функції включають:
+
 - Одночасний прийом до 3 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - Найкраща в галузі навігаційна чутливість -167 дБм
 - Безпека та захист цілісності
 - Підтримує всі системи супутникового доповнення
 - Просунуте виявлення перешкод і спуфінгу
 
-
 <img src="../../assets/hardware/gps/here2_gps_module.jpg" />
-
 
 ## Де придбати
 
-* [ProfiCNC](http://www.proficnc.com/all-products/152-gps-module.html) (Австралія)
-* [Інші реселлери](http://www.proficnc.com/stores)
+- [ProfiCNC](http://www.proficnc.com/all-products/152-gps-module.html) (Австралія)
+- [Інші реселлери](http://www.proficnc.com/stores)
 
 ## Налаштування
 
 Налаштування та використання PX4 відбувається за принципом «підключи і працюй».
 
 :::info
-- Якщо GPS *не виявлено*, тоді [оновить прошивку Here2](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
+
+- If the GPS is _not detected_ then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
 - Якщо GPS виявлено, але він не працює, спробуйте виконати процес, описаний у пункті [визначення вузла uavcan ID](https://docs.cubepilot.org/user-guides/here-2/here-2-can-mode-instruction).
 :::
 
