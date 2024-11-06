@@ -3,6 +3,7 @@
 [Модуль RTK GPS від Freefly Systems](https://store.freeflysystems.com/products/rtk-gps-ground-station) - це багатосмуговий [модуль RTK GPS](../gps_compass/rtk_gps.md) від Freefly Systems, який забезпечує дуже надійну навігацію. Модулі можуть діяти як роувери (коли встановлені на повітряну судну), так і базові станції (коли підключені до комп'ютера).
 
 Основні функції включають:
+
 - Отримувач з багаторозрядним (L1/L2) (u-blox ZED-F9P)
 - Одночасний прийом всіх 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - Вбудований магнітометр (IST8310), баро (BMP388), RGB LED, безпечний вимикач та світлодіод безпеки
@@ -13,23 +14,22 @@
 
 ![FreeFly GPS Module](../../assets/hardware/gps/freefly_gps_module.jpg)
 
-
 ## Де купити
 
-* [Магазин Freefly](https://store.freeflysystems.com/products/rtk-gps-ground-station)
+- [Магазин Freefly](https://store.freeflysystems.com/products/rtk-gps-ground-station)
 
 ## Вміст набору
 
 Набір RTK GPS включає в себе:
+
 - 2x GPS модулі з антенами
 - Кабель USB C на USB A довжиною 3 метри
 - Магнітний швидкозамок для базової станції модуля (1/4-20 різьблення для монтажу на штатив)
 - Гвинти для кріплення на Freefly AltaX
 
-
 ## Налаштування
 
-Налаштування та використання RTK на PX4 за допомогою *QGroundControl* відбувається за принципом "підключи і працюй" (див. [RTK GPS](../gps_compass/rtk_gps.md) для отримання додаткової інформації).
+RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
 Для літака вам слід встановити параметр [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) на 115200 8N1, щоб забезпечити, що PX4 налаштує правильну швидкість передачі.
 
@@ -66,13 +66,13 @@ RTK GPS Freefly поставляється з роз'ємом JST-GH на 8 ко
   - SMA конектор
 - STM32 МКП для майбутньої комунікації на основі CAN
   - Оновлення ПЗ через USB-роз'єм
-- Підключення:
+- Connectivity:
   - USB-C
   - 2-way USB перемикач до МКП та F9P
   - SMA для активної антени (макс. 20 мА)
   - 4-контактний JST-GH CAN шина (сумісність зі стандартами dronecode)
-  - 8-контактний JST-GH UART/I2C -** Живлення:
-  - Вхід з одного з (діод OR'd):
+  - 8-pin JST-GH UART/I2C -\*\* Power:
+  - Input from either (diode OR'd):
   - USB (5V)
   - CAN (4.7 до 25.2В)
   - (4.7 до 25.2V)
@@ -81,4 +81,3 @@ RTK GPS Freefly поставляється з роз'ємом JST-GH на 8 ко
 ## Докладніше
 
 Більше інформації можна знайти на [Вікі Freefly](https://freefly.gitbook.io/freefly-public/products/rtk-gps)
-  
