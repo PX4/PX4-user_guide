@@ -10,11 +10,9 @@ The receiver is capable of concurrently tracking all global civil navigation sys
 
 The built-in lightweight helical antenna enhances RTK positioning stability. The fast time-to-first-fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk-based platform UAVs.
 
-:::note
-
+::: info
 This module does not have a compass. For an equivalent GPS module with a compass try: [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md).
 :::
-
 
 ## Main Features
 
@@ -29,22 +27,21 @@ This module does not have a compass. For an equivalent GPS module with a compass
 
 ![LOCOSYS Hawk R1](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
-
 ## Where to Buy
 
-* [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
+- [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
 
 ## Kit Contents
 
 An RTK GPS kit includes:
+
 - 1x GPS Module
 - 1x Helix antenna
 - 1x 6-pin JST-GH
 
-
 ## Configuration
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information). Connect your Hawk R1 to the `GPS2` port on compatible Pixhawk boards (preferred, though you can use any other unused UART port).
+RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information). Connect your Hawk R1 to the `GPS2` port on compatible Pixhawk boards (preferred, though you can use any other unused UART port).
 
 For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 230400 8N1 to ensure that PX4 configures the correct baudrate.
 
