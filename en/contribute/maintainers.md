@@ -1,39 +1,25 @@
 # Maintainer Role
 
-[PX4 maintainers](#role-description) have technical leadership and responsibility for specific areas of PX4, and for other ecosystem components such as MAVSDK, and QGroundControl.
-
-The maintainer role is defined by the community with help and supervision from the [Dronecode Foundation](https://www.dronecode.org/).
-A detailed description can be found in the [role description](#role-description) section below.
+Project maintainers have technical leadership and responsibility for specific areas of PX4, and for other ecosystem components such as MAVLink, MAVSDK, QGroundControl, and others. The maintainer role is defined by the community with help and supervision from the [Dronecode Foundation](https://www.dronecode.org/).
 
 To find the most up-to-date maintainers list, visit [PX4-Autopilot README](https://github.com/PX4/PX4-Autopilot#maintenance-team).
 
-## Maintainers Call
-
-The weekly maintainer's call discusses the overall health of the ecosystem and community, and open source projects.
-You can find the relevant information below:
-
-* Time: Tuesday 17h00 CET ([subscribe to calendar](https://www.dronecode.org/calendar/)).
-* Place: [Dev-Call-Maintainers channel in Discord](https://discord.gg/RjxYXFSnj3).
-* Meeting note is published week before in [Discuss Forum - PX4 Coordination](https://discuss.px4.io/c/weekly-dev-call/px4-dev-call/39).
-  Attendees are encouraged to add to the agenda as a reply before the meeting starts.
-* To nominate Issues and PRs for the call you can use the [maintainers-call](https://github.com/PX4/PX4-Autopilot/labels/maintainers-call) label to flag them
-
 ## Recruitment Process
 
-If you would like to join the PX4 maintainers team:
+If you would like to join the PX4 maintainers team or if you want to nominate someone else follow the steps below:
 
 1. Read the [role description](#dronecode-maintainer-role-description), and make sure you understand the responsibilities of the role.
 2. To nominate yourself, reach out to one of the maintainers (see the complete list in the [PX4-Autopilot README](https://github.com/PX4/PX4-Autopilot#maintenance-team)), and seek their sponsorship.
 3. Express your interest in becoming a maintainer, and specify which area you would like to maintain.
-4. Your sponsoring maintainer needs to bring this up for discussion in one of the [weekly maintainers calls](#maintainers-call).
+4. The sponsoring maintainer needs to bring this up for discussion in one of the [weekly developer calls](dev_call.md).
    The maintainer team will vote on the call to accept you as a maintainer.
 
 ## Onboarding Process
 
-Maintainers go through the following onboarding process:
+Once accepted every maintainers will go through the following process:
 
 1. **Discord** server admin will grant you the `dev team` role, which gives you:
-   1. Permission to speak during maintainers call.
+   1. Basic admin privileges on discord.
    2. Access to the `#maintainers` channel.
 2. You will be given access to the GitHub team: "[`Dev Team`](https://github.com/orgs/PX4/teams/dev-team)"  which grants you:
    1. Permission to merge the PR of any of PX4 workspace repositories after it's approved
@@ -49,7 +35,7 @@ Maintainers go through the following onboarding process:
 
 ### Summary
 
-Maintainers lead/manage the development of a **specific category (referred to as category below)** of any Open Source Projects hosted within the Dronecode Foundation, such as the PX4 Autopilot. 
+Maintainers lead/manage the development of a **specific category (referred to as category below)** of any Open Source Projects hosted within the Dronecode Foundation, such as the PX4 Autopilot.
 
 ### Responsibilities
 
@@ -57,7 +43,7 @@ Maintainers lead/manage the development of a **specific category (referred to as
 2. Provide guidance/advice on community members in their category.
 3. Review relevant pull requests and issues from the community on GitHub.
 4. Coordinate with the maintainer group.
-5. Keep regular attendance at the [maintainers meeting](#maintainers-call).
+5. Keep regular attendance on [weekly meetings ](dev_call.md).
 6. Help create and maintain a roadmap for the project your represent.
 7. Uphold the [Code of Conduct](https://github.com/Dronecode/foundation/blob/main/CODE-OF-CONDUCT.md) of our community.
 
@@ -72,18 +58,17 @@ Maintainers lead/manage the development of a **specific category (referred to as
 
 1. **Official recognition** as the maintainer in Dronecode/PX4 website, documentation, community and social media.
 2. **Github & Discord privileges** (described in the [onboarding process](#onboarding-process)).
-3. Priority placement to the yearly **PX4 Developer Summit** scholarship which helps you cover travel.
+3. Priority placement to the yearly **PX4 Developer Summit** scholarship which helps you with travel reimbursement.
 
 ### Tools we Provide to Assist You
 
 Dronecode will provide the following tools to help you:
 
 1. **Community survey**: If you need any insight into the community's opinion, we will send out social media posts, mailing lists, announcements in Discord server to get that answer for you.
-1. **Workflow automation**: We will provide workflow for PR/Issue review & tagging process to help you.
+2. **Workflow automation**: We will provide workflow for PR/Issue review & tagging process to help you.
 
 And as always, don't hesitate to reach out if you need help with anything. We are here for you!
 
 ### Point of Contact
 
 Regarding questions about the maintainer role, please contact the maintainer team.
-The easiest way to do this is to join a weekly [maintainers meeting](#maintainers-call).
