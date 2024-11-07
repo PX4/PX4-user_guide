@@ -90,19 +90,39 @@ The instructions below might be used to create a task named _MyTask_:
    }
    ```
 
-6. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L40):
+6. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L41).
+
+   ```cmake
+   ...
+    list(APPEND flight_tasks_all
+      Auto
+      Descend
+      ...
+      ManualPositionSmoothVel
+      Transition
+      MyTask
+    )
+   ...
+   ```
+
+   ::: tip
+
+   The task added above will be built on all boards, including those with constrained flash such as Pixhawk FMUv2. If your task is not indended for use on boards with constrained flash it should instead be added to the conditional block shown below (as shown).
 
    ```cmake
    ...
    if(NOT px4_constrained_flash_build)
-    list(APPEND flight_tasks_all
-     AutoFollowTarget
-     Orbit
-     MyTask
-    )
-   endif()
+      list(APPEND flight_tasks_all
+        AutoFollowTarget
+        Orbit
+        MyTask
+      )
+    endif()
    ...
    ```
+
+
+:::
 
 7. 작업이 호출되도록 비행 모드를 업데이트합니다. 일반적으로, 매개변수는 특정 비행 작업을 사용해야 하는 시기를 선택합니다.
 
