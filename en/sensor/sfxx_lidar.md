@@ -21,7 +21,7 @@ The following models are supported by PX4, and can be connected to either the I2
 The following models are no longer available from the manufacturer.
 
 | Model                                                                                              | Range | Bus           |
-| -------------------------------------------------------------------------------------------------- | ----- | ------------- |
+| -------------------------------------------------------------------------------------------------- | ----- | ------------- | --------------------------------------------------------------- |
 | [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50    | Serial        |
 | [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25    | Serial or I2C |
 | [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50    | Serial or I2C |
@@ -32,14 +32,14 @@ The following models are no longer available from the manufacturer.
 
 Check the tables above to confirm that which models can be connected to the I2C port.
 
-### Lidar Configuration
+### Lidar Configuration (SF11/C)
 
-This hardware does not ship with Pixhawk I2C compatibility enabled by default.
+The SF11/C hardware (only) does not ship with Pixhawk I2C compatibility enabled by default.
 To enable support, you have to download [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio) and got to **Parameters > Communication** and tick mark **I2C compatibility mode (Pixhawk)**
 
 ![LightWare SF11/C Lidar-I2C Config](../../assets/hardware/sensors/lidar_lightware/lightware_studio_i2c_config.jpg)
 
-<a id="i2c_hardware_setup"></a>
+This step is not required for the other supported Lightware rangefinders.
 
 ### Hardware
 
