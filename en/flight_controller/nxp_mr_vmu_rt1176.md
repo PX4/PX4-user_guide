@@ -6,18 +6,19 @@
 PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://www.nxp.com) for hardware support (https://community.nxp.com/) or compliance issues.
 :::
+
 The _MR-VMU-RT1176_ reference design is based on the Pixhawk<sup>&reg;</sup> FMUv6X-RT open standard, the latest update to the successful family of Pixhawk<sup>&reg;</sup> flight controllers.
+
+This is NXP's open source _reference design_ for using FMUv6X-RT, and was designed and made in collaboration with industry partners<sup>&reg;</sup>, NXP's mobile robotics team and the PX4 team.
+As a reference/evaluation design, it is intended to be replicated, modified or integrated in production volume by others.
+It has already gone through all FCC/CE ROHS REACH UKCA, EMI/RFI ESD certifications and is available globally
+Several 3rd party manufacturers (such as Holybro.com) provide this or derivative commercial products.
+
+![MR-VMU-RT1176 Upright Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_upleft.jpg)
 
 The board includes the same FMU module found on Pixhawk 6X-RT paired with an NXP-based carrier board.
 The carrier board offers 100Base-T1 (two-wire) automotive ethernet, an NFC antenna (Connected to SE051), and a third CAN bus.
 It also removes the IO processor to enable 12 PWM ports, with 8 providing Dshot capability.
-
-![MR-VMU-RT1176 Upright Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_upleft.jpg)
-
-This is NXP's open source _reference design_ for using FMUv6X-RT, and was designed and made in collaboration with industry partners<sup>&reg;</sup>, NXP's mobile robotics team and the PX4 team.
-As a reference/evaluation design, it is intended to be replicated, modified or integrated in production volume by others.
-Several 3rd party manufacturers (such as Holybro.com) provide this or derivative commercial products.
-Note that NXP is a semiconductor vendor, and since it is a reference design, this particular board is not produced in high volume.
 
 This board takes advantage of multiple Pixhawk​​® open standards, such as the FMUv6X-RT Standard, [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
@@ -44,6 +45,9 @@ A vibration isolation System to filter out high-frequency vibration and reduce n
 External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface, and with an integrated Microchip Ethernet PHY, high-speed communication with mission computers via ethernet is now possible.
 
 The MR-VMU-RT1176 reference design is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application that like to try out T1 (2 wire) automotive ethernet.
+
+Note that since it is a reference design, this _particular_ board is not produced in high volume.
+Similar variants will be available from our licensees.
 
 ## Key Design Points
 
