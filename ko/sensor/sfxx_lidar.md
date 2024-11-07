@@ -31,13 +31,13 @@ LightWare는 UAV에 장착에 적합한 경량의 범용 레이저 고도계( "�
 
 I2C 포트에 연결 가능한 모델을 위의 표를 참고하십시오.
 
-### 라이다 설정
+### Lidar Configuration (SF11/C)
 
-이 하드웨어는 기본적으로 활성화된 Pixhawk I2C 호환성과 함께 제공되지 않습니다. 지원을 활성화하려면 [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio)를 다운로드하고 **매개 변수 &gt; 통신**으로 이동하여 **I2C 호환 모드(Pixhawk)**를 선택하여야합니다.
+The SF11/C hardware (only) does not ship with Pixhawk I2C compatibility enabled by default. 지원을 활성화하려면 [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio)를 다운로드하고 **매개 변수 &gt; 통신**으로 이동하여 **I2C 호환 모드(Pixhawk)**를 선택하여야합니다.
 
 ![LightWare SF11/C Lidar-I2C 설정](../../assets/hardware/sensors/lidar_lightware/lightware_studio_i2c_config.jpg)
 
-<a id="i2c_hardware_setup"></a>
+This step is not required for the other supported Lightware rangefinders.
 
 ### 하드웨어
 
