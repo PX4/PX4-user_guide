@@ -6,11 +6,6 @@
 PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://www.nxp.com) for hardware support (https://community.nxp.com/) or compliance issues.
 :::
-
-:::tip
-This autopilot reference design is [supported](../flight_controller/autopilot_manufacturer_supported.md) by NXP.
-:::
-
 The _MR-VMU-RT1176_ reference design is based on the Pixhawk<sup>&reg;</sup> FMUv6X-RT open standard, the latest update to the successful family of Pixhawk<sup>&reg;</sup> flight controllers.
 
 The board includes the same FMU module found on Pixhawk 6X-RT paired with an NXP-based carrier board.
@@ -26,6 +21,10 @@ Note that NXP is a semiconductor vendor, and since it is a reference design, thi
 
 This board takes advantage of multiple Pixhawk​​® open standards, such as the FMUv6X-RT Standard, [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
+
+:::tip
+This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::
 
 ## Introduction
 
