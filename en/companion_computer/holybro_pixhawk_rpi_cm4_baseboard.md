@@ -212,6 +212,22 @@ Ethernet connectivity provides a fast, reliable, and flexible communication alte
 
 ::: info
 For more general information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
+Except we have used the below ```netplan``` config:
+
+```sh
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    eth0:
+      addresses:
+        - 10.41.10.1/24
+      nameservers:
+        addresses: [10.41.10.1]
+      routes:
+        - to: 0.0.0.0/0
+          via: 10.41.10.1
+```
 :::
 
 ### Connect the Cable
@@ -259,13 +275,14 @@ ip address show eth0
 
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
     link/ether xx:xx:xx:xx:xx:xx brd ff:ff:ff:ff:ff:ff
-    inet 169.254.21.183/16 brd 169.254.255.255 scope global noprefixroute eth0
+    inet 10.41.10.1/24 brd 10.41.10.255 scope global noprefixroute eth0
        valid_lft forever preferred_lft forever
     inet6 fe80::yyyy:yyyy:yyyy:yyyy/64 scope link
        valid_lft forever preferred_lft forever
 ```
 
-This means the CM4's ethernet IP is 169.254.21.183.
+This means the CM4's ethernet IP is ```10.41.10.1``` .
+
 
 #### IP Setup on FC
 
@@ -301,16 +318,17 @@ However, it doesn’t have an IP yet.
 Set one that is similar to the one on the RPi CM4:
 
 ```sh
-ifconfig eth0 169.254.21.184
+ifconfig eth0 10.41.10.2
 ```
 
 Then check it:
 
-```sh
+``` sh
 ifconfig
-
+```
+```sh
 eth0    Link encap:Ethernet HWaddr xx:xx:xx:xx:xx:xx at UP
-        inet addr:169.254.21.184 DRaddr:169.254.21.1 Mask:255.255.255.0
+        inet addr:10.41.10.2 DRaddr:10.41.10.1 Mask:255.255.255.0
 ```
 
 Now the devices should be able to ping each other.
@@ -322,15 +340,14 @@ Note that this configuration is ephemeral and will be lost after a reboot, so we
 First from the CM4:
 
 ```sh
-ping 169.254.21.184
+ping 10.41.10.2
 
-PING 169.254.21.184 (169.254.21.184) 56(84) bytes of data.
-64 bytes from 169.254.21.184: icmp_seq=1 ttl=64 time=0.188 ms
-64 bytes from 169.254.21.184: icmp_seq=2 ttl=64 time=0.131 ms
-64 bytes from 169.254.21.184: icmp_seq=3 ttl=64 time=0.190 ms
-64 bytes from 169.254.21.184: icmp_seq=4 ttl=64 time=0.112 ms
-^C
---- 169.254.21.184 ping statistics ---
+PING 10.41.10.2 (10.41.10.2) 56(84) bytes of data.
+64 bytes from 10.41.10.2: icmp_seq=1 ttl=64 time=0.188 ms
+64 bytes from 10.41.10.2: icmp_seq=2 ttl=64 time=0.131 ms
+64 bytes from 10.41.10.2: icmp_seq=3 ttl=64 time=0.190 ms
+64 bytes from 10.41.10.2: icmp_seq=4 ttl=64 time=0.112 ms
+--- 10.41.10.2 ping statistics ---
 4 packets transmitted, 4 received, 0% packet loss, time 3077ms
 rtt min/avg/max/mdev = 0.112/0.155/0.190/0.034 ms
 ```
@@ -338,19 +355,19 @@ rtt min/avg/max/mdev = 0.112/0.155/0.190/0.034 ms
 Then from the flight controller in NuttShell:
 
 ```sh
-ping 169.254.21.183
+ping 10.41.10.1
 
-PING 169.254.21.183 56 bytes of data
-56 bytes from 169.254.21.183: icmp_seq=0 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=1 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=2 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=3 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=4 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=5 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=6 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=7 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=8 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=9 time=0 ms
+PING 10.41.10.1 56 bytes of data
+56 bytes from 10.41.10.1: icmp_seq=0 time=0 ms
+56 bytes from 10.41.10.1: icmp_seq=1 time=0 ms
+56 bytes from 10.41.10.1: icmp_seq=2 time=0 ms
+56 bytes from 10.41.10.1: icmp_seq=3 time=0 ms
+56 bytes from 10.41.10.1: icmp_seq=4 time=0 ms
+56 bytes from 10.41.10.1: icmp_seq=5 time=0 ms
+56 bytes from 10.41.10.1: icmp_seq=6 time=0 ms
+56 bytes from 10.41.10.1: icmp_seq=7 time=0 ms
+56 bytes from 10.41.10.1: icmp_seq=8 time=0 ms
+56 bytes from 10.41.10.1: icmp_seq=9 time=0 ms
 10 packets transmitted, 10 received, 0% packet loss, time 10010 ms
 ```
 
@@ -361,7 +378,7 @@ For this, we need to set the MAVLink instance to send traffic to the CM4's IP ad
 For an initial test we can do:
 
 ```sh
-mavlink start -o 14540 -t 169.254.21.183
+mavlink start -o 14540 -t 10.41.10.1
 ```
 
 This will send MAVLink traffic on UDP to port 14540 (the MAVSDK/MAVROS port) to that IP which means MAVSDK can just listen to any UDP arriving at that default port.
