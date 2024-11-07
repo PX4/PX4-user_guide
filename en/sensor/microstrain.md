@@ -53,7 +53,8 @@ To use the MicroStrain driver:
    - [CAL_GYROn_ID](../advanced_config/parameter_reference.md#CAL_GYRO0_ID)
    - [CAL_MAGn_ID](../advanced_config/parameter_reference.md#CAL_MAG0_ID)
    - [CAL_BAROn_ID](../advanced_config/parameter_reference.md#CAL_BARO0_ID)
-     :::
+
+   :::
 
 4. Reboot and start the driver
 
