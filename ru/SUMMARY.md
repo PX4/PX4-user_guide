@@ -237,7 +237,7 @@
       - [TFSlot Airspeed Sensor](sensor/airspeed_tfslot.md)
     - [Barometers](sensor/barometer.md)
     - [Distance Sensors \(Rangefinders\)](sensor/rangefinders.md)
-      - [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
+      - [Lightware Lidars (SF/LW)](sensor/sfxx_lidar.md)
       - [Ainstein US-D1 Standard Radar Altimeter](sensor/ulanding_radar.md)
       - [LeddarOne Lidar](sensor/leddar_one.md)
       - [Benewake TFmini Lidar](sensor/tfmini.md)
