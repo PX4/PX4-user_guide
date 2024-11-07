@@ -237,7 +237,7 @@
       - [TFSlot Airspeed Sensor](sensor/airspeed_tfslot.md)
     - [Barometers](sensor/barometer.md)
     - [距离传感器 \(测距仪\)](sensor/rangefinders.md)
-      - [Lightware SFxx 激光雷达](sensor/sfxx_lidar.md)
+      - [Lightware Lidars (SF/LW)](sensor/sfxx_lidar.md)
       - [Ainstein US-D1 标准雷达高度计](sensor/ulanding_radar.md)
       - [LeddarOne 激光雷达](sensor/leddar_one.md)
       - [北醒 TFmini 激光雷达](sensor/tfmini.md)

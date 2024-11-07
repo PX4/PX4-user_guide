@@ -237,7 +237,7 @@
       - [ВЗІП Датчик польоту](sensor/airspeed_tfslot.md)
     - [Барометри](sensor/barometer.md)
     - [Датчики відстані \(далекодобива\)](sensor/rangefinders.md)
-      - [Лідар Lightware SFxx](sensor/sfxx_lidar.md)
+      - [Lightware Lidars (SF/LW)](sensor/sfxx_lidar.md)
       - [Стандартний радарний висотомір Ainstein US-D1](sensor/ulanding_radar.md)
       - [LeddarOne Lidar](sensor/leddar_one.md)
       - [Benewake TFmini Lidar](sensor/tfmini.md)
