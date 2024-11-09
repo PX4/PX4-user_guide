@@ -15534,6 +15534,14 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.01 | 5.0 |  | 0.3 | m/s 
 
+### EKF2_GPS_YAW_OFF (`FLOAT`) {#EKF2_GPS_YAW_OFF}
+
+Heading/Yaw offset for dual antenna GPS.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 | 360.0 |  | 0.0 | deg 
+
 ### EKF2_GRAV_NOISE (`FLOAT`) {#EKF2_GRAV_NOISE}
 
 Accelerometer measurement noise for gravity based observations.
