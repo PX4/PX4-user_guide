@@ -212,7 +212,7 @@ Ethernet connectivity provides a fast, reliable, and flexible communication alte
 
 ::: info
 For more general information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
-Except we have used the below ```netplan``` config:
+Except we have used the below `netplan` config:
 
 ```sh
 network:
@@ -225,9 +225,15 @@ network:
       nameservers:
         addresses: [10.41.10.1]
       routes:
-        - to: 0.0.0.0/0
-          via: 10.41.10.1
+        - to: 10.41.10.0/24  # Local route to access devices on this subnet
+          scope: link         # Scope link to restrict it to local subnet
 ```
+
+Two things to consider here:
+
+- We considered `eth0` as our ethernet channel.
+- The route for this connection is only linked locally to prevent internet access disruption over WiFi.
+
 :::
 
 ### Connect the Cable
@@ -271,104 +277,62 @@ sudo ip link set dev eth0 up
 It then seems to automatically set a link-local address, for this example it looks like this:
 
 ```sh
-ip address show eth0
-
+$: ip address show eth0
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether xx:xx:xx:xx:xx:xx brd ff:ff:ff:ff:ff:ff
+    link/ether e4:5f:01:bf:e0:17 brd ff:ff:ff:ff:ff:ff
     inet 10.41.10.1/24 brd 10.41.10.255 scope global noprefixroute eth0
        valid_lft forever preferred_lft forever
-    inet6 fe80::yyyy:yyyy:yyyy:yyyy/64 scope link
+    inet6 fe80::e65f:1ff:febf:e017/64 scope link
        valid_lft forever preferred_lft forever
 ```
 
 This means the CM4's ethernet IP is ```10.41.10.1``` .
 
 
-#### IP Setup on FC
-
-Now connect to the NuttX shell (using a console, or the MAVLink shell), and check the status of the link:
-
-```sh
-ifconfig
-
-eth0    Link encap:Ethernet HWaddr xx:xx:xx:xx:xx:xx at DOWN
-        inet addr:0.0.0.0 DRaddr:192.168.0.254 Mask:255.255.255.0
-```
-
-For this example, it is DOWN at first.
-
-To set it to UP:
-
-```sh
-ifup eth0
-
-ifup eth0...OK
-```
-
-Now check the config again:
-
-```sh
-ifconfig
-
-eth0    Link encap:Ethernet HWaddr xx:xx:xx:xx:xx:xx at UP
-        inet addr:0.0.0.0 DRaddr:192.168.0.254 Mask:255.255.255.0
-```
-
-However, it doesn’t have an IP yet.
-Set one that is similar to the one on the RPi CM4:
-
-```sh
-ifconfig eth0 10.41.10.2
-```
-
-Then check it:
-
-``` sh
-ifconfig
-```
-```sh
-eth0    Link encap:Ethernet HWaddr xx:xx:xx:xx:xx:xx at UP
-        inet addr:10.41.10.2 DRaddr:10.41.10.1 Mask:255.255.255.0
-```
-
-Now the devices should be able to ping each other.
-
-Note that this configuration is ephemeral and will be lost after a reboot, so we’ll need to find a way to configure it statically.
-
 #### Ping Test
 
 First from the CM4:
 
 ```sh
-ping 10.41.10.2
-
-PING 10.41.10.2 (10.41.10.2) 56(84) bytes of data.
-64 bytes from 10.41.10.2: icmp_seq=1 ttl=64 time=0.188 ms
-64 bytes from 10.41.10.2: icmp_seq=2 ttl=64 time=0.131 ms
-64 bytes from 10.41.10.2: icmp_seq=3 ttl=64 time=0.190 ms
-64 bytes from 10.41.10.2: icmp_seq=4 ttl=64 time=0.112 ms
---- 10.41.10.2 ping statistics ---
-4 packets transmitted, 4 received, 0% packet loss, time 3077ms
-rtt min/avg/max/mdev = 0.112/0.155/0.190/0.034 ms
+$ ping 10.41.10.2
 ```
 
-Then from the flight controller in NuttShell:
+Should give something like:
+
+``` sh
+PING 10.41.10.2 (10.41.10.2) 56(84) bytes of data.
+64 bytes from 10.41.10.2: icmp_seq=1 ttl=64 time=0.187 ms
+64 bytes from 10.41.10.2: icmp_seq=2 ttl=64 time=0.109 ms
+64 bytes from 10.41.10.2: icmp_seq=3 ttl=64 time=0.091 ms
+^C
+--- 10.41.10.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2049ms
+rtt min/avg/max/mdev = 0.091/0.129/0.187/0.041 ms
+```
+:::info
+If this step is failing it is worth to check if the [firewall](https://wiki.ubuntu.com/UncomplicatedFirewall) is active.
+:::
+
+Then from the flight controller in Nuttx Shell:
 
 ```sh
-ping 10.41.10.1
-
+nsh> ping 10.41.10.1
+```
+Should give:
+```sh
 PING 10.41.10.1 56 bytes of data
-56 bytes from 10.41.10.1: icmp_seq=0 time=0 ms
-56 bytes from 10.41.10.1: icmp_seq=1 time=0 ms
-56 bytes from 10.41.10.1: icmp_seq=2 time=0 ms
-56 bytes from 10.41.10.1: icmp_seq=3 time=0 ms
-56 bytes from 10.41.10.1: icmp_seq=4 time=0 ms
-56 bytes from 10.41.10.1: icmp_seq=5 time=0 ms
-56 bytes from 10.41.10.1: icmp_seq=6 time=0 ms
-56 bytes from 10.41.10.1: icmp_seq=7 time=0 ms
-56 bytes from 10.41.10.1: icmp_seq=8 time=0 ms
-56 bytes from 10.41.10.1: icmp_seq=9 time=0 ms
+56 bytes from 10.41.10.1: icmp_seq=0 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=1 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=2 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=3 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=4 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=5 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=6 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=7 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=8 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=9 time=0.0 ms
 10 packets transmitted, 10 received, 0% packet loss, time 10010 ms
+rtt min/avg/max/mdev = 0.000/0.000/0.000/0.000 ms
 ```
 
 #### MAVLink/MAVSDK Test
@@ -385,16 +349,66 @@ This will send MAVLink traffic on UDP to port 14540 (the MAVSDK/MAVROS port) to 
 
 To run a MAVSDK example, install mavsdk via pip, and try out an example from [MAVSDK-Python/examples](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
 
-For instance:
+#### XRCE-Client Ethernet Setup
+
+Now it is needed to enable MAVLink on the PX4 `Ethernet` port and enable `XRCE-DDS`.
+
+You can [modify the parameters](../advanced_config/parameters.md) in QGroundControl parameter editor, or using `param set` in the [MAVLINK shell](../debug/mavlink_shell.md).
+Enter the following commands to change the values in the MAVLink shell. Based on
+[enable MAVLINK on Ethernet](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) and [starting uXRCE-DDS client](../middleware/uxrce_dds.md#starting-the-client) we come to the
+following set of params:
 
 ```sh
-python3 -m pip install mavsdk
+nsh>
+param set MAV_2_CONFIG     1000        # Configure Ethernet port
+param set MAV_2_BROADCAST  1           # Broadcast HEARTBEAT messages
+param set MAV_2_MODE       0           # Send the "normal" set of MAVLink messages (i.e. the GCS set)
+param set MAV_2_RADIO_CTL  0           # Disable software throttling of MAVLink traffic
+param set MAV_2_RATE       100000      # Maximum sending rate
+param set MAV_2_REMOTE_PRT 14550       # MAVLink Remote Port of 14550 (GCS)
+param set MAV_2_UDP_PRT    14550       # MAVLink Network Port of 14550 (GCS)
 
-wget https://raw.githubusercontent.com/mavlink/MAVSDK-Python/main/examples/tune.py
-chmod +x tune.py
-./tune.py
+param set UXRCE_DDS_AG_IP  170461697   # The int32 version of 10.41.10.1
+param set UXRCE_DDS_CFG    1000        # Set Serial Configuration for uXRCE-DDS Client to Ethernet
+param set UXRCE_DDS_DOM_ID 0           # Set uXRCE-DDS domain ID
+param set UXRCE_DDS_KEY    1           # Set uXRCE-DDS session key
+param set UXRCE_DDS_PRT    8888        # Set uXRCE-DDS UDP port
+param set UXRCE_DDS_PTCFG  0           # Set uXRCE-DDS participant configuration
+param set UXRCE_DDS_SYNCC  0           # Disable uXRCE-DDS system clock synchronization
+param set UXRCE_DDS_SYNCT  1           # Enable uXRCE-DDS timestamp synchronization
+
+```
+Next is just to run the Agent:
+
+```sh
+MicroXRCEAgent udp4 -p 8888
 ```
 
+And such output is expected if everything is set up correctly:
+
+```sh
+[1731210063.537033] info     | UDPv4AgentLinux.cpp | init                     | running...             | port: 8888
+[1731210063.538279] info     | Root.cpp           | set_verbose_level        | logger setup           | verbose_level: 4
+[1731210066.577413] info     | Root.cpp           | create_client            | create                 | client_key: 0x00000001, session_id: 0x81
+[1731210066.577515] info     | SessionManager.hpp | establish_session        | session established    | client_key: 0x00000001, address: 10.41.10.2:58900
+[1731210066.583965] info     | ProxyClient.cpp    | create_participant       | participant created    | client_key: 0x00000001, participant_id: 0x001(1)
+[1731210066.584754] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x800(2), participant_id: 0x001(1)
+[1731210066.584988] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x800(4), participant_id: 0x001(1)
+[1731210066.589864] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x800(6), subscriber_id: 0x800(4)
+[1731210066.591007] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x801(2), participant_id: 0x001(1)
+[1731210066.591164] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x801(4), participant_id: 0x001(1)
+[1731210066.591912] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x801(6), subscriber_id: 0x801(4)
+[1731210066.592701] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x802(2), participant_id: 0x001(1)
+[1731210066.592846] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x802(4), participant_id: 0x001(1)
+[1731210066.593640] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x802(6), subscriber_id: 0x802(4)
+[1731210066.594749] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x803(2), participant_id: 0x001(1)
+[1731210066.594883] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x803(4), participant_id: 0x001(1)
+[1731210066.595592] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x803(6), subscriber_id: 0x803(4)
+[1731210066.596188] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x804(2), participant_id: 0x001(1)
+[1731210066.596334] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x804(4), participant_id: 0x001(1)
+[1731210066.597046] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x804(6), subscriber_id: 0x804(4)
+
+```
 ## See Also
 
 - [Get The Pixhawk Raspberry Pi CM4 Baseboard By Holybro Talking With PX4](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/) (px4.io blog):
