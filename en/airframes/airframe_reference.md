@@ -733,14 +733,6 @@ div.frame_variant td, div.frame_variant th {
  <td>Generic Standard VTOL</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
 </tr>
-<tr id="vtol_standard_vtol_vertical_technologies_deltaquad">
- <td>Vertical Technologies DeltaQuad</td>
- <td>Maintainer: Sander Smeets &lt;sander@droneslab.com&gt;<p><code>SYS_AUTOSTART</code> = 13013</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Motor4</b>: motor 4</li><li><b>Servo1</b>: Right elevon</li><li><b>Servo2</b>: Left elevon</li><li><b>Servo3</b>: Pusher motor</li><li><b>Servo4</b>: Pusher reverse channel</li></ul></p></td>
-</tr>
-<tr id="vtol_standard_vtol_babyshark_vtol">
- <td>BabyShark VTOL</td>
- <td>Maintainer: Silvan Fuhrer &lt;silvan@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Motor4</b>: motor 4</li><li><b>Motor5</b>: Pusher motor</li><li><b>Servo1</b>: Ailerons</li><li><b>Servo2</b>: A-tail left</li><li><b>Servo3</b>: A-tail right</li></ul></p></td>
-</tr>
 </tbody>
 </table>
 </div>
