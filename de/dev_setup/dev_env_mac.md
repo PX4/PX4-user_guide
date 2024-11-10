@@ -20,7 +20,7 @@ The "base" macOS setup installs the tools needed for building firmware, and incl
 ### Environment Setup
 
 :::details
-Apple M1 Macbook users! If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
+Apple Silicon Macbook users! If you have an Apple M1, M2 etc. Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
 
 1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
 2. Select _Terminal.app_ and right-click on it, then choose **Duplicate**.
