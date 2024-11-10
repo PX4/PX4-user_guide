@@ -20,7 +20,7 @@
 ### Налаштування середовища
 
 :::details
-Користувачі Apple M1 Macbook! Якщо у вас є Apple M1 Macbook, переконайтеся, що запускаєте x86 термінал шляхом налаштування термінала:
+Apple Silicon Macbook users! If you have an Apple M1, M2 etc. Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
 
 1. Знайдіть термінальний додаток в теці Utilities (**Finder > Меню > Utilities**)
 2. Виберіть _Terminal.app_ та клацніть правою кнопкою миші, а потім оберіть **Копіювати**
