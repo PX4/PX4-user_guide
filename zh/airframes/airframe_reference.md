@@ -608,6 +608,10 @@ div.frame_variant td, div.frame_variant th {
  <td><a href="https://www.axialadventure.com/product/1-10-scx10-ii-trail-honcho-4wd-rock-crawler-brushed-rtr/AXID9059.html">Axial SCX10 2 Trail Honcho</a></td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 51001</p></td>
 </tr>
+<tr id="rover_rover_generic_rover_mecanum">
+ <td>Generic Rover Mecanum</td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 52000</p></td>
+</tr>
 <tr id="rover_rover_generic_ground_vehicle_(deprecated)">
  <td>Generic Ground Vehicle (Deprecated)</td>
  <td><p><code>SYS_AUTOSTART</code> = 59000</p><p><b>Specific Outputs:</b><ul><li><b>电机1</b>: 油门</li><li><b>舵机1</b>: 转向</li></ul></p></td>
@@ -725,14 +729,6 @@ div.frame_variant td, div.frame_variant th {
 <tr id="vtol_standard_vtol_generic_standard_vtol">
  <td>通用标准VTOL</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
-</tr>
-<tr id="vtol_standard_vtol_vertical_technologies_deltaquad">
- <td>Vertical Technologies DeltaQuad</td>
- <td>Maintainer: Sander Smeets &lt;sander@droneslab.com&gt;<p><code>SYS_AUTOSTART</code> = 13013</p><p><b>Specific Outputs:</b><ul><li><b>电机1</b>: 电机1</li><li><b>电机2</b>: 电机2</li><li><b>电机3</b>: 电机3</li><li><b>电机4</b>: 电机4</li><li><b>舵机1</b>: 右升降副翼</li><li><b>舵机2</b>: 左升降副翼</li><li><b>舵机3</b>: 推进器电机</li><li><b>电机4</b>: 推进器逆向通道</li></ul></p></td>
-</tr>
-<tr id="vtol_standard_vtol_babyshark_vtol">
- <td>BabyShark VTOL</td>
- <td>Maintainer: Silvan Fuhrer &lt;silvan@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Specific Outputs:</b><ul><li><b>电机1</b>: 电机1</li><li><b>电机2</b>: 电机2</li><li><b>电机3</b>: 电机3</li><li><b>电机4</b>: 电机4</li><li><b>电机5</b>: 推进器电机</li><li><b>舵机1</b>: 转向</li><li><b>舵机2</b>: A型尾左</li><li><b>舵机3</b>: A型尾右</li></ul></p></td>
 </tr>
 </tbody>
 </table>
