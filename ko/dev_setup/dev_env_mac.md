@@ -20,7 +20,7 @@ The "base" macOS setup installs the tools needed for building firmware, and incl
 ### Environment Setup
 
 :::details
-애플 M1 맥북 사용자 Apple M1 Macbook이 있는 경우 x86 터미널을 설정하여 터미널을 x86으로 실행해야 합니다.
+Apple Silicon Macbook users! If you have an Apple M1, M2 etc. Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
 
 1. 유틸리티 폴더(**Finder > 이동 메뉴 > 유틸리티**)에서 터미널 애플리케이션을 찾습니다.
 2. Select _Terminal.app_ and right-click on it, then choose **Duplicate**.
