@@ -23,6 +23,9 @@ Modules that accept 5.0V supply:
 
 - [AI Thinker](https://www.banggood.com/Wireless-Wifi-to-Uart-Telemetry-Module-With-Antenna-for-Mini-APM-Flight-Controller-p-1065339.html) (Banggood)
 - [AlphaUAVLink](https://www.banggood.com/MAVLink-Wifi-Bridge-2_4G-Wireless-Wifi-Telemetry-Module-with-Antenna-for-Pixhawk-APM-Flight-Controller-p-1428590.html) (Banggood)
+- [Beyond Robotix - Kahuna](https://www.beyondrobotix.com/products/kahuna?utm_source=px4-esp8266-docs) is a plug and play ESP8266 module that connects directly to an autopilot. The Kahuna is pre-flashed with the latest firmware, has a JST-GH connector to connect to Pixhawk and CubePilot autopilots with no soldering and has a u.fl connector for an external antenna.
+
+<img src="../../assets/peripherals/telemetry/esp8266/BR_Kahuna_ESP8266.png" alt="BR_Kahuna"/>
 
 <a id="px4_config"></a>
 
