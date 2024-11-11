@@ -12894,6 +12894,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; |  |  |  | -1 |  
 
+### BAT1_I_OVERWRITE (`FLOAT`) {#BAT1_I_OVERWRITE}
+
+Battery 1 idle current overwrite.
+
+This parameter allows to overwrite the current measured during idle (unarmed) state with a user-defined constant value (expressed in amperes). When the system is armed, the measured current is used. This is useful because on certain ESCs current measurements are inaccurate in case of no load. Negative values are ignored and will cause the measured current to be used. The default value of 0 disables the overwrite, in which case the measured value is always used.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
+
 ### BAT1_N_CELLS (`INT32`) {#BAT1_N_CELLS}
 
 Number of cells for battery 1.
@@ -13022,6 +13032,16 @@ This parameter specifies the ADC channel used to monitor current of main power b
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; |  |  |  | -1 |  
+
+### BAT2_I_OVERWRITE (`FLOAT`) {#BAT2_I_OVERWRITE}
+
+Battery 2 idle current overwrite.
+
+This parameter allows to overwrite the current measured during idle (unarmed) state with a user-defined constant value (expressed in amperes). When the system is armed, the measured current is used. This is useful because on certain ESCs current measurements are inaccurate in case of no load. Negative values are ignored and will cause the measured current to be used. The default value of 0 disables the overwrite, in which case the measured value is always used.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
 
 ### BAT2_N_CELLS (`INT32`) {#BAT2_N_CELLS}
 
