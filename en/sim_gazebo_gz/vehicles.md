@@ -62,6 +62,19 @@ This can be used with the [Aruco world](../sim_gazebo_gz/worlds.md#aruco) to tes
 make px4_sitl gz_x500_mono_cam_down
 ```
 
+### X500 Quadrotor with 1D LIDAR
+
+This model have a LIDAR attached to the bottom, modelled on the Lightware LW20/C.
+
+It has a range between 0.1 and 100m.
+
+The model can be used for testing [Rangefinder](../sensor/rangefinders.md) usecases like [landing](../flight_modes_mc/land.md) or [terrain following](../flying/terrain_following_holding.md).
+
+```sh
+make px4_sitl gz_x500_lidar_front
+```
+
+![x500 with frontfacing 1D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_front.png)
 ### X500 Quadrotor with 2D LIDAR
 
 This model have a 2D LIDAR attached, modelled on the Hokuyo UTM-30LX.
@@ -69,15 +82,28 @@ It has a range between 0.1 and 30m, and scans in a 270° arc.
 The model can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation).
 
 ```sh
-make px4_sitl gz_x500_lidar
+make px4_sitl gz_x500_lidar_2d
 ```
 
-![x500 with 2D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar.png)
+![x500 with 2D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d.png)
 
 ::: info
-The model cannot be used for testing normal [rangefinder](../sensor/rangefinders.md#gazebo-simulation) use cases, such as terrain following, as the information is not written to the [DistanceSensor](../msg_docs/DistanceSensor.md) topic (it is written to the [ObstacleDistance](../msg_docs/ObstacleDistance.md) UORB message used by collision prevention).
+The sensor information is written to the [ObstacleDistance](../msg_docs/ObstacleDistance.md) UORB message used by collision prevention).
 :::
+ 
+### X500 Quadrotor with front facing 1D LIDAR
 
+This model have a LIDAR attached to the front, modelled on the Lightware LW20/C.
+
+It has a range between 0.2 and 100m.
+
+The model can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation).
+
+```sh
+make px4_sitl gz_x500_lidar_front
+```
+
+![x500 with frontfacing 1D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_front.png)
 ## Plane/Fixed-wing
 
 ### Standard Plane
