@@ -74,6 +74,31 @@ bmm150 <command> [arguments...]
 
    status        print status info
 ```
+## bmm350
+Source: [drivers/magnetometer/bosch/bmm350](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/bosch/bmm350)
+
+<a id="bmm350_usage"></a>
+
+### 사용법
+```
+bmm350 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 20
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## hmc5883
 소스: [drivers/magnetometer/hmc5883](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/hmc5883)
 
@@ -275,12 +300,18 @@ mmc5983ma <command> [arguments...]
    start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
                  default: 48
+     [-R <val>]  Rotation
+                 default: 0
 
    reset
 
@@ -293,7 +324,7 @@ mmc5983ma <command> [arguments...]
 
 <a id="qmc5883l_usage"></a>
 
-### 사용법
+### Usage
 ```
 qmc5883l <command> [arguments...]
  Commands:
