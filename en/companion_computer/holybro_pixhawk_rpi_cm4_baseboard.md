@@ -213,7 +213,7 @@ Ethernet connectivity provides a fast, reliable, and flexible communication alte
 ::: info
 For general Ethernet setup information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
 
-The setup here is much the same, eccept that we have used the following `netplan` config on PX4:
+The setup here is much the same, except that we have used the following `netplan` config on PX4:
 
 ```sh
 network:
