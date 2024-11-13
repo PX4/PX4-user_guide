@@ -230,7 +230,7 @@ network:
           scope: link        # Scope link to restrict it to local subnet
 ```
 
-This sets `eth0` as our channel for the local Ethernet link.
+This sets `eth0` as our channel for the local Ethernet link (instead of `enp2s0`, which is used in [the "standard" setup](../advanced_config/ethernet_setup.md#ubuntu-ethernet-network-setup).
 Note that we only set up this locally linked route to prevent internet access disruption over WiFi.
 :::
 
