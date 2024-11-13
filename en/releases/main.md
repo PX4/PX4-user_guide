@@ -54,8 +54,9 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
     The default installer scripts (used for CI) and documentation have been updated.
     This is required because Garden end-of-life is Nov 2024.
     ([PX4-Autopilot#23603](https://github.com/PX4/PX4-Autopilot/pull/23603))
-  - New vehicle model `x500_lidar` — [x500 Quadrotor with 2D Lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar).
-    ([PX4-Autopilot#22418](https://github.com/PX4/PX4-Autopilot/pull/22418), [PX4-gazebo-models#41](https://github.com/PX4/PX4-gazebo-models/pull/41)).
+  - New vehicle model `x500_lidar_2d` — [x500 Quadrotor with 2D Lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar). ([PX4-Autopilot#22418](https://github.com/PX4/PX4-Autopilot/pull/22418), [PX4-gazebo-models#41](https://github.com/PX4/PX4-gazebo-models/pull/41)).
+  - New vehicle model `x500_lidar_front` — [X500 Quadrotor with 1D LIDAR (Front-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-front-facing). ([PX4-Autopilot#23879](https://github.com/PX4/PX4-Autopilot/pull/23879), [PX4-gazebo-models#62](https://github.com/PX4/PX4-gazebo-models/pull/62/files)).
+  - New vehicle model `x500_lidar_down` — [X500 Quadrotor with 1D LIDAR (Down-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-down-facing). ([PX4-Autopilot#23879](https://github.com/PX4/PX4-Autopilot/pull/23879), [PX4-gazebo-models#62](https://github.com/PX4/PX4-gazebo-models/pull/62/files)).
   - New vehicle model `r1_rover` — [Aion Robotics R1 Rover](../sim_gazebo_gz/vehicles.md#differential-rover) ([PX4-Autopilot#22402](https://github.com/PX4/PX4-Autopilot/pull/22402) and [PX4-gazebo-models#21](https://github.com/PX4/PX4-gazebo-models/pull/21)).
   - New vehicle model `rover_ackermann` — [Ackermann Rover](../sim_gazebo_gz/vehicles.md#ackermann-rover) ([PX4-Autopilot#23383](https://github.com/PX4/PX4-Autopilot/pull/23383) and [PX4-gazebo-models#46](https://github.com/PX4/PX4-gazebo-models/pull/46)).
 
@@ -96,7 +97,7 @@ This release contains a major rework for the rover support in PX4:
   - The module currently supports [manual mode](../flight_modes_rover/ackermann.md#manual-mode) and [auto modes](../flight_modes_rover/ackermann.md#auto-modes).
 - New module dedicated to [mecanum rovers](../frames_rover/mecanum.md) ([PX4-Autopilot#23708](https://github.com/PX4/PX4-Autopilot/pull/23708) and [PX4-Autopilot#23834](https://github.com/PX4/PX4-Autopilot/pull/23834)).
   - The module currently supports [manual mode](../flight_modes_rover/mecanum.md#manual-mode), [acro mode](../flight_modes_rover/mecanum.md#acro-mode), [stabilized mode](../flight_modes_rover/mecanum.md#stabilized-mode), [position mode](../flight_modes_rover/mecanum.md#position-mode) and [auto modes](../flight_modes_rover/mecanum.md#auto-modes).
-- Restructure of the [rover airframe](../airframes/airframe_reference.md#rover) numbering convention ([PX4-Autopilot#23506](https://github.com/PX4/PX4-Autopilot/pull/23506)).  
+- Restructure of the [rover airframe](../airframes/airframe_reference.md#rover) numbering convention ([PX4-Autopilot#23506](https://github.com/PX4/PX4-Autopilot/pull/23506)).
   This also introduces several [new rover airframes](../airframes/airframe_reference.md#rover):
   - Generic Differential Rover `50000`.
   - Generic Ackermann Rover `51000`.

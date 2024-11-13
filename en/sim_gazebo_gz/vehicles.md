@@ -27,11 +27,9 @@ make px4_sitl gz_x500_vision
 
 ![x500 in Gazebo](../../assets/simulation/gazebo/vehicles/x500.png)
 
-### X500 Quadrotor with Depth Camera
+### X500 Quadrotor with Forward Facing Depth Camera
 
-These models have a depth camera attached, modelled on the OAK-D.
-
-_Forward-facing depth camera:_
+This model has a forward-facting depth camera attached, modelled on the [OAK-D](https://shop.luxonis.com/products/oak-d).
 
 ```sh
 make px4_sitl gz_x500_depth
@@ -52,7 +50,7 @@ The camera cannot yet be used to stream video or for image capture in QGroundCon
 [PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) can be used to track the additional work needed to fully enable these use cases.
 :::
 
-### X500 Quadrotor with Downward-facing Monocular Camera
+### X500 Quadrotor with Monocular Camera (Down-facing)
 
 This model has a simple monocular camera sensor attached facing down (there is no physical camera visualization on the model itself).
 
@@ -62,38 +60,23 @@ This can be used with the [Aruco world](../sim_gazebo_gz/worlds.md#aruco) to tes
 make px4_sitl gz_x500_mono_cam_down
 ```
 
-### X500 Quadrotor with 1D LIDAR
+### X500 Quadrotor with 1D LIDAR (Down-facing)
 
-This model have a LIDAR attached to the bottom, modelled on the Lightware LW20/C.
+This model have a LIDAR attached to the bottom, modelled on the [Lightware LW20/C](../sensor/sfxx_lidar.md).
 
 It has a range between 0.1 and 100m.
 
-The model can be used for testing [Rangefinder](../sensor/rangefinders.md) usecases like [landing](../flight_modes_mc/land.md) or [terrain following](../flying/terrain_following_holding.md).
+The model can be used for testing [rangefinder](../sensor/rangefinders.md) use cases like [landing](../flight_modes_mc/land.md) or [terrain following](../flying/terrain_following_holding.md).
 
 ```sh
 make px4_sitl gz_x500_lidar_front
 ```
 
-![x500 with frontfacing 1D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_front.png)
-### X500 Quadrotor with 2D LIDAR
+![x500 with down-facing 1D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_front.png)
 
-This model have a 2D LIDAR attached, modelled on the Hokuyo UTM-30LX.
-It has a range between 0.1 and 30m, and scans in a 270° arc.
-The model can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation).
+### X500 Quadrotor with 1D LIDAR (Front-facing)
 
-```sh
-make px4_sitl gz_x500_lidar_2d
-```
-
-![x500 with 2D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d.png)
-
-::: info
-The sensor information is written to the [ObstacleDistance](../msg_docs/ObstacleDistance.md) UORB message used by collision prevention).
-:::
- 
-### X500 Quadrotor with front facing 1D LIDAR
-
-This model have a LIDAR attached to the front, modelled on the Lightware LW20/C.
+This model have a LIDAR attached to the front, modelled on the [Lightware LW20/C](../sensor/sfxx_lidar.md).
 
 It has a range between 0.2 and 100m.
 
@@ -104,6 +87,23 @@ make px4_sitl gz_x500_lidar_front
 ```
 
 ![x500 with frontfacing 1D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_front.png)
+
+### X500 Quadrotor with 2D LIDAR
+
+This model have a 2D LIDAR attached, modelled on the [Hokuyo UTM-30LX](https://www.hokuyo-aut.jp/search/single.php?serial=169).
+It has a range between 0.1 and 30m, and scans in a 270° arc.
+The model can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation).
+
+```sh
+make px4_sitl gz_x500_lidar_2d
+```
+
+![x500 with 2D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d.png)
+
+::: info
+The sensor information is written to the [ObstacleDistance](../msg_docs/ObstacleDistance.md) UORB message used by collision prevention.
+:::
+
 ## Plane/Fixed-wing
 
 ### Standard Plane
