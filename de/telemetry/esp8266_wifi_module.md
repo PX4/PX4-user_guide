@@ -20,10 +20,15 @@ Modules that accept 5.0V supply:
 
 - [AI Thinker](https://www.banggood.com/Wireless-Wifi-to-Uart-Telemetry-Module-With-Antenna-for-Mini-APM-Flight-Controller-p-1065339.html) (Banggood)
 - [AlphaUAVLink](https://www.banggood.com/MAVLink-Wifi-Bridge-2_4G-Wireless-Wifi-Telemetry-Module-with-Antenna-for-Pixhawk-APM-Flight-Controller-p-1428590.html) (Banggood)
+- [Kahuna](https://www.beyondrobotix.com/products/kahuna?utm_source=px4-esp8266-docs) (Beyond Robotix)
 
-<a id="px4_config"></a>
+  A plug and play ESP8266 module.
 
-## Pixhawk/PX4 Setup & Configuration
+  The Kahuna comes with a cable to connect directly to the Pixhawk-standard `TELEM1` or `TELEM2` ports. It is pre-flashed with the latest firmware, and has a u.fl connector for an external antenna. At most you may need to set the baud rate parameter, which for `TELEM1` is `SER_TEL1_BAUD = 57600 (57600 8N1)`. The [User Guide](https://docs.google.com/document/d/1VyOsp9_q6dIAdYdWuDFcWoqqrNy_vbFMANubZA3Uz5g/edit?pli=1&tab=t.0) include WiFi setup and other relevant information.
+
+  ![Kahuna ESP8266 WiFi Module](../../assets/peripherals/telemetry/esp8266/beyond_robotics_kahuna_esp8266.png)
+
+## Pixhawk/PX4 Setup & Configuration {#px4_config}
 
 :::tip
 You _may_ first need to update the radio with PX4-compatible ESP8266 firmware ([see below](#esp8266-flashing-firmware-advanced)). The manufacture instructions should explain if this is needed.
