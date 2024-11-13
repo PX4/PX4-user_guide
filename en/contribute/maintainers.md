@@ -1,6 +1,6 @@
 # Maintainer Role
 
-Project maintainers have technical leadership and responsibility for specific areas of PX4, and for other ecosystem components such as MAVLink, MAVSDK, QGroundControl, and others. The maintainer role is defined by the community with help and supervision from the [Dronecode Foundation](https://www.dronecode.org/).
+Dronecode maintainers have technical leadership and responsibility for specific areas of PX4, and for other ecosystem components such as MAVLink, MAVSDK, QGroundControl, and others. The maintainer role is defined by the community with help and supervision from the [Dronecode Foundation](https://www.dronecode.org/).
 
 To find the most up-to-date maintainers list, visit [PX4-Autopilot README](https://github.com/PX4/PX4-Autopilot#maintenance-team).
 
