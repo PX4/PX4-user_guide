@@ -159,15 +159,36 @@ On the Simulator you can run the commands directly in the terminal.
 
 For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
 
-## Gazebo Simulation
+## Simulation
 
-Rangefinders use cases such as terrain following cannot be used for testing in the [Gazebo](../sim_gazebo_gz/index.md) simulator (at time of writing), because none of the [vehicle models](../sim_gazebo_gz/vehicles.md) include sensors that write to the [DistanceSensor](../msg_docs/DistanceSensor.md) UORB topic.
+### Gazebo Simulation
 
-::: info
-The [x500 lidar model](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) includes a 2D Lidar rangefinder that can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation)
-:::
+Lidar and sonar rangefinders can be used in the [Gazebo](../sim_gazebo_gz/index.md) simulator.
+To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
-## Gazebo-Classic Simulation
+Downward facing sensors that write to the [DistanceSensor](../msg_docs/DistanceSensor.md) UORB topic can be used to test use cases such as [landing](../flight_modes_mc/land.md) and [terrain following](../flying/terrain_following_holding.md):
+
+- [Quadrotor(x500) with 1D LIDAR (Down-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-down-facing)
+
+  ```sh
+  make px4_sitl gz_x500_lidar_down
+  ```
+
+Front-facing sensors that write to [ObstacleDistance](../msg_docs/ObstacleDistance.md) can be used to test [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation):
+
+- [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)
+
+  ```sh
+  make px4_sitl gz_x500_lidar_2d
+  ```
+
+- [Quadrotor(x500) with 1D LIDAR (Front-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-front-facing)
+
+  ```sh
+  make px4_sitl gz_x500_lidar_front
+  ```
+
+### Gazebo-Classic Simulation
 
 Lidar and sonar rangefinders can be used in the [Gazebo Classic](../sim_gazebo_classic/index.md) simulator.
 To do this you must start the simulator using a vehicle model that includes the rangefinder.

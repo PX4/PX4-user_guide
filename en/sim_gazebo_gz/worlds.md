@@ -20,7 +20,7 @@ This is used by default.
 
 Aruco world is the default world with the addition of an [ArUco marker](https://docs.opencv.org/4.x/d5/dae/tutorial_aruco_detection.html).
 
-This is used in conjunction with the [x500_mono_cam_down](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-downward-facing-monocular-camera) airframe to test [precision landing](../advanced_features/precland.md).
+This is used in conjunction with the [x500_mono_cam_down](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-monocular-camera-down-facing) airframe to test [precision landing](../advanced_features/precland.md).
 
 [PX4-gazebo-models/main/worlds/aruco.sdf](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/aruco.sdf)
 
@@ -80,4 +80,4 @@ The PX4 toolchain will automatically spawn a world that has the same name as the
 
 The model specific worlds are:
 
-- [Aruco world](#aruco): Default world with an [ArUco marker](https://docs.opencv.org/4.x/d5/dae/tutorial_aruco_detection.html) that can be used with with [x500_mono_cam_down](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-downward-facing-monocular-camera) for testing [precision landing](../advanced_features/precland.md).
+- [Aruco world](#aruco): Default world with an [ArUco marker](https://docs.opencv.org/4.x/d5/dae/tutorial_aruco_detection.html) that can be used with with [x500_mono_cam_down](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-monocular-camera-down-facing) for testing [precision landing](../advanced_features/precland.md).

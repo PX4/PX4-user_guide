@@ -187,18 +187,18 @@ In order to emit `OBSTACLE_DISTANCE` messages you must use the _rqt_reconfigure_
 
 ## Gazebo Simulation
 
-_Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model.
+_Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar_2d](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model.
 To do this, start a simulation with the x500 lidar model by running the following command:
 
 ```sh
-make px4_sitl gz_x500_lidar
+make px4_sitl gz_x500_lidar_2d
 ```
 
 Next, adjust the relevant parameters to the appropriate values and add arbitrary obstacles to your simulation world to test the collision prevention functionality.
 
 The diagram below shows how the simulation looks when viewed in Gazebo.
 
-![RViz image of collision detection using the x500_lidar model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_viz.png)
+![RViz image of collision detection using the x500_lidar_2d model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d_viz.png)
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
