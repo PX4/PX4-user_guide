@@ -20,6 +20,7 @@ const { site } = useData();
 Цей розділ містить інформацію про те, як ви можете зустрітися зі спільнотою та зробити внесок до PX4:
 
 - [Дзвінок розробникам](../contribute/dev_call.md) – обговоріть архітектуру, pull requests, вплив на проблеми з командою розробників
+- [Maintainers](./maintainers.md) - Maintainers of PX4 Subsystems and Ecosystem
 - [Підтримка](../contribute/support.md) - Отримайте допомогу та вирішіть питання
 - [Керування вихідним кодом](../contribute/code.md) - робота з кодом PX4
 - [Документація](../contribute/docs.md) - вдосконалення документів
