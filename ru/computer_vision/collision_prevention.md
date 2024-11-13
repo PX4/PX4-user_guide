@@ -39,7 +39,7 @@ Configure collision prevention by [setting the following parameters](../advanced
 | <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | Set the sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.                                                                                                                                                                                             |
 | <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | Set the angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below.                                                                                           |
 | <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to 1 to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).                                                                                                                                                                             |
-| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Set to 0 or 3 to enable Collision Prevention in Position Mode (default is 4).                                                                                                                                                                                                             |
+| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Set to `Direct velocity` or `Smoothed velocity` to enable Collision Prevention in Position Mode (default is `Acceleration based`).                                                                                                                                                        |
 
 ## Algorithm Description
 
@@ -152,17 +152,17 @@ The hardware and software should be set up as described in the [PX4/PX4-Avoidanc
 
 ## Gazebo Simulation
 
-_Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model. To do this, start a simulation with the x500 lidar model by running the following command:
+_Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar_2d](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model. To do this, start a simulation with the x500 lidar model by running the following command:
 
 ```sh
-make px4_sitl gz_x500_lidar
+make px4_sitl gz_x500_lidar_2d
 ```
 
 Next, adjust the relevant parameters to the appropriate values and add arbitrary obstacles to your simulation world to test the collision prevention functionality.
 
 The diagram below shows how the simulation looks when viewed in Gazebo.
 
-![RViz image of collision detection using the x500_lidar model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_viz.png)
+![RViz image of collision detection using the x500_lidar_2d model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d_viz.png)
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->

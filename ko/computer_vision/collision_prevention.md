@@ -39,7 +39,7 @@ Configure collision prevention by [setting the following parameters](../advanced
 | <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | 센서 및 속도 설정점 추적 지연을 설정합니다. 아래의 [지연 조정](#delay_tuning)을 참조하십시오.                                                                                                  |
 | <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | 해당 방향에서 장애물이 적을 경우 기체가 이탈할 수있는 각도 (명령된 방향의 양쪽으로)를 설정합니다. 아래의 [가이던스 튜닝](#angle_change_tuning)을 참조하십시오.                                                          |
 | <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 기체가 센서 범위 외부의 방향으로 이동할 수 있도록 하려면 1로 설정합니다 (기본값은 0/`False`).                                                                                                    |
-| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Set to 0 or 3 to enable Collision Prevention in Position Mode (default is 4).                                                                                  |
+| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Set to `Direct velocity` or `Smoothed velocity` to enable Collision Prevention in Position Mode (default is `Acceleration based`).                             |
 
 ## 알고리즘 설명
 
@@ -154,17 +154,17 @@ The hardware and software should be set up as described in the [PX4/PX4-Avoidanc
 
 ## Gazebo Simulation
 
-_Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model. To do this, start a simulation with the x500 lidar model by running the following command:
+_Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar_2d](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model. To do this, start a simulation with the x500 lidar model by running the following command:
 
 ```sh
-make px4_sitl gz_x500_lidar
+make px4_sitl gz_x500_lidar_2d
 ```
 
 Next, adjust the relevant parameters to the appropriate values and add arbitrary obstacles to your simulation world to test the collision prevention functionality.
 
 The diagram below shows how the simulation looks when viewed in Gazebo.
 
-![RViz image of collision detection using the x500_lidar model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_viz.png)
+![RViz image of collision detection using the x500_lidar_2d model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d_viz.png)
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
