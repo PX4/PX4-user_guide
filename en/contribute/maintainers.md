@@ -1,6 +1,7 @@
 # Maintainer Role
 
-Dronecode maintainers have technical leadership and responsibility for specific areas of PX4, and for other ecosystem components such as MAVLink, MAVSDK, QGroundControl, and others. The maintainer role is defined by the community with help and supervision from the [Dronecode Foundation](https://www.dronecode.org/).
+Dronecode maintainers have technical leadership and responsibility for specific areas of PX4, and for other ecosystem components such as MAVLink, MAVSDK, QGroundControl, and others.
+The maintainer role is defined by the community with help and supervision from the [Dronecode Foundation](https://www.dronecode.org/).
 
 To find the most up-to-date maintainers list, visit [PX4-Autopilot README](https://github.com/PX4/PX4-Autopilot#maintenance-team).
 
@@ -12,7 +13,7 @@ If you would like to join the PX4 maintainers team or if you want to nominate so
 2. To nominate yourself, reach out to one of the maintainers (see the complete list in the [PX4-Autopilot README](https://github.com/PX4/PX4-Autopilot#maintenance-team)), and seek their sponsorship.
 3. Express your interest in becoming a maintainer, and specify which area you would like to maintain.
 4. The sponsoring maintainer needs to bring this up for discussion in one of the [weekly developer calls](dev_call.md).
-   The maintainer team will vote on the call to accept you as a maintainer.
+   The maintainer team will vote on the call to determine whether to accept you as a maintainer.
 
 ## Onboarding Process
 
@@ -67,7 +68,8 @@ Dronecode will provide the following tools to help you:
 1. **Community survey**: If you need any insight into the community's opinion, we will send out social media posts, mailing lists, announcements in Discord server to get that answer for you.
 2. **Workflow automation**: We will provide workflow for PR/Issue review & tagging process to help you.
 
-And as always, don't hesitate to reach out if you need help with anything. We are here for you!
+And as always, don't hesitate to reach out if you need help with anything.
+We are here for you!
 
 ### Point of Contact
 
