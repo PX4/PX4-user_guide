@@ -205,14 +205,15 @@ On the RPi side:
 
 ## Ethernet Connection (Optional)
 
-The flight controller module is [internally connected to RPi CM4](#rpi-cm4-fc-serial-connection) from `TELEM2` (Serial).
+The flight controller module is [internally connected to RPi CM4](#rpi-cm4-fc-serial-connection) from `TELEM2` (serial).
 
 You can also set up a local Ethernet connection between them using the supplied cable.
 Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.
 
 ::: info
-For more general information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
-Except we have used the below `netplan` config:
+For general Ethernet setup information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
+
+The setup here is much the same, eccept that we have used the following `netplan` config on PX4:
 
 ```sh
 network:
@@ -226,14 +227,11 @@ network:
         addresses: [10.41.10.1]
       routes:
         - to: 10.41.10.0/24  # Local route to access devices on this subnet
-          scope: link         # Scope link to restrict it to local subnet
+          scope: link        # Scope link to restrict it to local subnet
 ```
 
-Two things to consider here:
-
-- We considered `eth0` as our ethernet channel.
-- The route for this connection is only linked locally to prevent internet access disruption over WiFi.
-
+This sets `eth0` as our channel for the local Ethernet link.
+Note that we only set up this locally linked route to prevent internet access disruption over WiFi.
 :::
 
 ### Connect the Cable
@@ -259,7 +257,7 @@ The pinout of the cable is:
 
 Since there is no DHCP server active in this configuration, the IP addresses have to be set manually:
 
-First, connect to the CM4 via SSH by connecting to the CM4’s WiFi (or use a Wifi dongle).
+First, connect to the CM4 via SSH by connecting to the CM4's WiFi (or use a Wifi dongle).
 Once the ethernet cables are plugged in, the `eth0` network interface seems to switch from DOWN to UP.
 
 You can check the status using:
@@ -274,7 +272,8 @@ You can also try to enable it manually:
 sudo ip link set dev eth0 up
 ```
 
-It then seems to automatically set a link-local address, for this example it looks like this:
+This sets a link-local address.
+For this example it looks like this:
 
 ```sh
 $: ip address show eth0
@@ -286,8 +285,7 @@ $: ip address show eth0
        valid_lft forever preferred_lft forever
 ```
 
-This means the CM4's ethernet IP is ```10.41.10.1``` .
-
+This means the CM4's ethernet IP is `10.41.10.1` .
 
 #### Ping Test
 
@@ -299,7 +297,7 @@ $ ping 10.41.10.2
 
 Should give something like:
 
-``` sh
+```sh
 PING 10.41.10.2 (10.41.10.2) 56(84) bytes of data.
 64 bytes from 10.41.10.2: icmp_seq=1 ttl=64 time=0.187 ms
 64 bytes from 10.41.10.2: icmp_seq=2 ttl=64 time=0.109 ms
@@ -309,6 +307,7 @@ PING 10.41.10.2 (10.41.10.2) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2049ms
 rtt min/avg/max/mdev = 0.091/0.129/0.187/0.041 ms
 ```
+
 :::info
 If this step is failing it is worth to check if the [firewall](https://wiki.ubuntu.com/UncomplicatedFirewall) is active.
 :::
@@ -318,7 +317,9 @@ Then from the flight controller in Nuttx Shell:
 ```sh
 nsh> ping 10.41.10.1
 ```
+
 Should give:
+
 ```sh
 PING 10.41.10.1 56 bytes of data
 56 bytes from 10.41.10.1: icmp_seq=0 time=0.0 ms
@@ -354,9 +355,8 @@ To run a MAVSDK example, install mavsdk via pip, and try out an example from [MA
 Now it is needed to enable MAVLink on the PX4 `Ethernet` port and enable `XRCE-DDS`.
 
 You can [modify the parameters](../advanced_config/parameters.md) in QGroundControl parameter editor, or using `param set` in the [MAVLINK shell](../debug/mavlink_shell.md).
-Enter the following commands to change the values in the MAVLink shell. Based on
-[enable MAVLINK on Ethernet](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) and [starting uXRCE-DDS client](../middleware/uxrce_dds.md#starting-the-client) we come to the
-following set of params:
+Enter the following commands to change the values in the MAVLink shell.
+Based on [enable MAVLINK on Ethernet](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) and [starting uXRCE-DDS client](../middleware/uxrce_dds.md#starting-the-client) we come to the following set of params:
 
 ```sh
 nsh>
@@ -376,9 +376,9 @@ param set UXRCE_DDS_PRT    8888        # Set uXRCE-DDS UDP port
 param set UXRCE_DDS_PTCFG  0           # Set uXRCE-DDS participant configuration
 param set UXRCE_DDS_SYNCC  0           # Disable uXRCE-DDS system clock synchronization
 param set UXRCE_DDS_SYNCT  1           # Enable uXRCE-DDS timestamp synchronization
-
 ```
-Next is just to run the Agent:
+
+Next run the Agent:
 
 ```sh
 MicroXRCEAgent udp4 -p 8888
@@ -407,8 +407,8 @@ And such output is expected if everything is set up correctly:
 [1731210066.596188] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x804(2), participant_id: 0x001(1)
 [1731210066.596334] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x804(4), participant_id: 0x001(1)
 [1731210066.597046] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x804(6), subscriber_id: 0x804(4)
-
 ```
+
 ## See Also
 
 - [Get The Pixhawk Raspberry Pi CM4 Baseboard By Holybro Talking With PX4](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/) (px4.io blog):
