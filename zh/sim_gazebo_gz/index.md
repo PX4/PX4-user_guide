@@ -16,16 +16,19 @@ See [Simulation](../simulation/index.md) for general information about simulator
 
 ## Installation (Ubuntu Linux)
 
-Gazebo is installed by default on Ubuntu 22.04 as part of the normal [development environment setup](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets).
+Gazebo Harmonic is installed by default on Ubuntu 22.04 as part of the normal [development environment setup](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets).
 
-If you want to use Gazebo on Ubuntu 20.04 you can install it manually, after first following the normal setup process (installing `gz-garden` will uninstall Gazebo-Classic!):
+:::info
+The PX4 installation scripts are based on the instructions: [Binary Installation on Ubuntu](https://gazebosim.org/docs/harmonic/install_ubuntu/) (gazebosim.org).
+:::
 
-```sh
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
-sudo apt-get update
-sudo apt-get install gz-garden
-```
+::: warning
+Gazebo Harmonic cannot be installed on Ubuntu 20.04 and earlier.
+
+On Ubuntu 20.04 we recommend use [Gazebo Classic](../sim_gazebo_classic/index.md). If you really must use Gazebo then you should update to Ubuntu 22.04.
+
+Until November 2024 it is possible to [install Gazebo Garden](https://gazebosim.org/docs/garden/install_ubuntu/) on Ubuntu 20.04. After that date Garden will reach end-of-life and should not be used.
+:::
 
 ## Running the Simulation
 
@@ -40,17 +43,19 @@ This runs both the PX4 SITL instance and the Gazebo client.
 
 The supported vehicles and `make` commands are listed below. Note that all gazebo make targets have the prefix `gz_`.
 
-| Vehicle                                                                                                  | Command                            | `PX4_SYS_AUTOSTART` |
-| -------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------- |
-| [Quadrotor(x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                           | `make px4_sitl gz_x500`            | 4001                |
-| [Quadrotor(x500) with Depth Camera](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera)       | `make px4_sitl gz_x500_depth`      | 4002                |
-| [Quadrotor(x500) with Vision Odometry](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`     | 4005                |
-| [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)               | `make px4_sitl gz_x500_lidar`      | 4013                |
-| [VTOL](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                       | `make px4_sitl gz_standard_vtol`   | 4004                |
-| [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`       | 4003                |
-| [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                            | `make px4_sitl gz_advanced_plane`  | 4008                |
-| [Differential Rover](../sim_gazebo_gz/vehicles.md#differential-rover)                                    | `make px4_sitl gz_r1_rover`        | 4009                |
-| [Ackermann Rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)                                          | `make px4_sitl gz_rover_ackermann` | 4012                |
+| Vehicle                                                                                                                       | Command                             | `PX4_SYS_AUTOSTART` |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------------- |
+| [Quadrotor(x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                                                | `make px4_sitl gz_x500`             | 4001                |
+| [X500 Quadrotor with Depth Camera (Front-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera-front-facing) | `make px4_sitl gz_x500_depth`       | 4002                |
+| [Quadrotor(x500) with Vision Odometry](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry)                      | `make px4_sitl gz_x500_vision`      | 4005                |
+| [Quadrotor(x500) with 1D LIDAR (Down-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-down-facing)          | `make px4_sitl gz_x500_lidar_down`  | 4016                |
+| [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)                                    | `make px4_sitl gz_x500_lidar_2d`    | 4013                |
+| [Quadrotor(x500) with 1D LIDAR (Front-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-front-facing)        | `make px4_sitl gz_x500_lidar_front` | 4017                |
+| [VTOL](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                                            | `make px4_sitl gz_standard_vtol`    | 4004                |
+| [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                                          | `make px4_sitl gz_rc_cessna`        | 4003                |
+| [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                                                 | `make px4_sitl gz_advanced_plane`   | 4008                |
+| [Differential Rover](../sim_gazebo_gz/vehicles.md#differential-rover)                                                         | `make px4_sitl gz_r1_rover`         | 4009                |
+| [Ackermann Rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)                                                               | `make px4_sitl gz_rover_ackermann`  | 4012                |
 
 All [vehicle models](../sim_gazebo_gz/vehicles.md) (and [worlds](#specify-world)) are included as a submodule from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md) repository.
 
@@ -131,26 +136,29 @@ You can also specify the world using the `PX4_GZ_WORLD` environment variable:
 PX4_GZ_WORLD=windy make px4_sitl gz_x500
 ```
 
-The supported worlds are listed below.
+The [supported worlds](../sim_gazebo_gz/worlds.md) are listed below.
 
-| World      | Command                    | Description                        |
-| ---------- | -------------------------- | ---------------------------------- |
-| `default`  | `make px4_sitl *`          | Empty world (a grey plane)         |
-| `windy`    | `make px4_sitl *_windy`    | Empty world with wind enabled      |
-| `baylands` | `make px4_sitl *_baylands` | Baylands world surrounded by water |
+| World      | Command                    | Description                                                 |
+| ---------- | -------------------------- | ----------------------------------------------------------- |
+| `default`  | `make px4_sitl *`          | Empty world (a grey plane)                                  |
+| `aruco`    | `make px4_sitl *_aruco`    | Empty world with aruco marker for testing precision landing |
+| `baylands` | `make px4_sitl *_baylands` | Baylands world surrounded by water                          |
+| `lawn`     | `make px4_sitl *_lawn`     | Lawn world for testing rovers                               |
+| `rover`    | `make px4_sitl *_rover`    | Rover world (optimised/preferred)                           |
+| `walls`    | `make px4_sitl *_walls`    | Wall world for testing collision prevention                 |
+| `windy`    | `make px4_sitl *_windy`    | Empty world with wind enabled                               |
 
 :::warning
 Note that if no world is specified, PX4 will use the `default` world. However you must not _explicitly_ specify `_default` on the model as this will prevent PX4 from launching. In other words, use `make px4_sitl gz_x500` instead of `make px4_sitl gz_x500_default` for the default.
 :::
 
 ::: info
-Baylands throws the following error, which can be ignored:
+Baylands world throws a warning in Gazebo Harmonic because there are so many meshes. This can be ignored:
 
-```
-[Err] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created
+```sh
+[Wrn] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created
 ```
 
-This occurs because Baylands has a lot of meshes. However it does not break Gazebo and the error has been downgraded to a warning in Gazebo Harmonic: [gz-physics/pull/531](https://github.com/gazebosim/gz-physics/pull/531). You can also replace the error with a warning by [installing gz-garden from source](https://gazebosim.org/docs/garden/install_ubuntu_src).
 :::
 
 ## Usage/Configuration Options
