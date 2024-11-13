@@ -8,24 +8,25 @@ LightWare는 UAV에 장착에 적합한 경량의 범용 레이저 고도계( "�
 
 아래의 모델들은 PX4에서 지원되며, I2C 또는 직렬 버스에 연결할 수 있습니다 (아래 표는 각 모델에 사용할 수 있는 버스를 나타냄).
 
-### 이용 가능
-
 | 모델                                                         | 범위 (m) | 버스           | 설명                                  |
 | ---------------------------------------------------------- | ------ | ------------ | ----------------------------------- |
 | [SF11/C](https://lightwarelidar.com/products/sf11-c-100-m) | 100    | 직렬 또는 I2C 버스 |                                     |
 | [LW20/C](https://lightware.co.za/products/lw20-c-100-m)    | 100    | I2C 버스       | 감지 및 회피 애플리케이션을 위한 서보가 있는 방수 (IP67) |
 
-### 단종됨
+::: details
+Discontinued
 
-다음 모델은 제조업체에서 더 이상 판매하지 않습니다.
+The following models are supported by PX4 but are no longer available from the manufacturer.
 
-| 모델                                                                                                 | 범위   | 버스                                                                              |
-| -------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------- |
-| [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50   | 직렬                                                                              |
-| [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25   | 직렬 또는 I2C 버스                                                                    |
-| [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50   | 직렬 또는 I2C 버스                                                                    |
-| SF10/C                                                                                             | 100m | 직렬 또는 I2C 버스                                                                    |
-| LW20/B                                                                                             | 50   | I2C bus       | Waterproofed (IP67) with servo for sense-and-avoid applications |
+| 모델                                                                                                 | 범위   | 버스           |                                                                 |
+| -------------------------------------------------------------------------------------------------- | ---- | ------------ | --------------------------------------------------------------- |
+| [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50   | 직렬           |                                                                 |
+| [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25   | 직렬 또는 I2C 버스 |                                                                 |
+| [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50   | 직렬 또는 I2C 버스 |                                                                 |
+| SF10/C                                                                                             | 100m | 직렬 또는 I2C 버스 |                                                                 |
+| LW20/B                                                                                             | 50   | I2C bus      | Waterproofed (IP67) with servo for sense-and-avoid applications |
+
+:::
 
 ## I2C 설정
 
@@ -48,9 +49,7 @@ This step is not required for the other supported Lightware rangefinders.
 ::: info Some older revisions cannot be used with PX4. 특히 `0x55`와 같은 I2C 주소를 갖도록 잘못 설정되어 `rgbled` 모듈과 충돌할 수 있습니다. On Linux systems you may be able to determine the address using [i2cdetect](https://linux.die.net/man/8/i2cdetect). I2C 주소가 `0x66`과 동일하면, 센서를 PX4와 함께 사용할 수 있습니다.
 :::
 
-<a id="i2c_parameter_setup"></a>
-
-### 매개변수 설정
+### 매개변수 설정 {#i2c_parameter_setup}
 
 거리계 모델과 일치하도록 [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) 매개변수를 설정후 재부팅 하십시오.
 
