@@ -1,50 +1,143 @@
 # Collision Prevention
 
 _Collision Prevention_ may be used to automatically slow and stop a vehicle before it can crash into an obstacle.
-
-It can be enabled for multicopter vehicles in [Position mode](../flight_modes_mc/position.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
-
-Collision prevention may restrict vehicle maximum speed if the sensor range isn't large enough!
-It also prevents motion in directions where no sensor data is available (i.e. if you have no rear-sensor data, you will not be able to fly backwards).
-
-:::tip
-If high flight speeds are critical, consider disabling collision prevention when not needed.
-:::
-
-:::tip
-Ensure that you have sensors/sensor data in all directions that you want to fly (when collision prevention is enabled).
-:::
+It can be enabled for multicopter vehicles when using acceleration-based [Position mode](../flight_modes_mc/position.md).
 
 ## Overview
-
-_Collision Prevention_ is enabled on PX4 by setting the parameter for minimum allowed approach distance ([CP_DIST](#CP_DIST)).
-
-The feature requires obstacle information from an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) and/or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
-
-::: info
-Multiple sensors can be used to get information about, and prevent collisions with, objects _around_ the vehicle.
-If multiple sources supply data for the _same_ orientation, the system uses the data that reports the smallest distance to an object.
-:::
 
 The vehicle restricts the current velocity in order to slow down as it gets closer to obstacles and adapts the acceleration setpoint in order to disallow collision trajectories.
 In order to move away from (or parallel to) an obstacle, the user must command the vehicle to move toward a setpoint that does not bring the vehicle closer to the obstacle.
 The algorithm will make minor adjustments to the setpoint direction if it is determined that a "better" setpoint exists within a fixed margin on either side of the requested setpoint.
 
-PX4 software setup is covered in the next section.
-If you are using a distance sensor attached to your flight controller for collision prevention, it will need to be attached and configured as described in [PX4 Distance Sensor](#rangefinder).
-If you are using a companion computer to provide obstacle information see [companion setup](#companion).
+Collision prevention prevents motion in directions where no sensor data is available (i.e. if you have no rear-sensor data, you will not be able to fly backwards).
+It may also restrict vehicle maximum speed if the sensor range isn't large enough!
 
-## PX4 (Software) Setup
+Multiple sensors can be used to get information about, and prevent collisions with, objects _around_ the vehicle.
+If multiple sources supply data for the _same_ orientation, the system uses the data that reports the smallest distance to an object.
 
-Configure collision prevention by [setting the following parameters](../advanced_config/parameters.md) in _QGroundControl_:
+The feature requires obstacle information from a [distance sensor](../sensor/rangefinders.md).
+The sensor may be connected to the flight controller (recommended).
+It can also be used with distance information provided by an external system via MAVLink, but this is currently untested (see [companion setup](#companion) below).
 
-| Parameter                                                                                          | Description                                                                                                                                                                                                                                                                                     |
-| -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="CP_DIST"></a>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)                   | Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle). Set negative to disable _collision prevention_. <br>> **Warning** This value is the distance to the sensors, not the outside of your vehicle or propellers. Be sure to leave a safe margin! |
-| <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)                | Set the sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.                                                                                                                                                                                                   |
-| <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)    | Set the angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below.                                                                                                 |
-| <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to 1 to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).                                                                                                                                                                                   |
-| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | Make sure the default `Acceleration based` is used, Implementation in `Direct velocity` or `Smoothed velocity` has been removed.                                                                                                                                                                |
+The [rangefinders](#rangefinder) that have been tested when directly connected to PX4 are listed below, along with setup instructions.
+The [PX4 Configuration](#px4-configuration) specific to collision-prevention is the same for all sensors and independent of whether data is provided by a connected sensor or MAVLink.
+
+:::tip
+
+- If high flight speeds are critical, consider disabling collision prevention when not needed.
+- Ensure that you have sensors/sensor data in all directions that you want to fly, including backwards (when collision prevention is enabled).
+
+:::
+
+## Supported Rangefinders {#rangefinder}
+
+Collision Prevention has been tested with the following rangefinders attached to PX4 (not for providing data [supplied over MAVLink](#companion)).
+
+### Lanbao PSK-CM8JL65-CC5
+
+At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention "out of the box", with minimal additional configuration:
+
+1. [Attach and configure the sensor](../sensor/cm8jl65_ir_distance_sensor.md).
+1. Set the sensor orientation using [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0).
+1. [Configure and enable collision prevention](#px4-configuration)
+
+### LightWare LiDAR SF45 Rotating Lidar
+
+PX4 v1.14 (and later) supports the [LightWare LiDAR SF45](https://www.lightwarelidar.com/shop/sf45-b-50-m/) rotating lidar which provides 320 degree sensing.
+
+The SF45 must be connected via a UART/serial port and configured as described below:
+
+1. [LightWare Studio](https://www.lightwarelidar.com/resources-software) configuration:
+
+   - In the LightWare Studio app enable scanning, set the scan angle, and change the baud rate to `921600`.
+
+1. Add [lightware_sf45_serial](../modules/modules_driver_distance_sensor.md#lightware-sf45-serial) driver to PX4 firmware:
+
+   1. Open [menuconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup)
+   1. Under **drivers > Distance sensors** select `lightware_sf45_serial`.
+   1. Recompile and upload to the flight controller.
+
+1. [Set the following parameters](../advanced_config/parameters.md) via QGC to configure the driver:
+
+   - [SENS_EN_SF45_CFG](../advanced_config/parameter_reference.md#SENS_EN_SF45_CFG): Set to the serial port you have the sensor connected to.
+     Make sure GPS or Telemetry are not enabled on this port.
+   - [SF45_ORIENT_CFG](../advanced_config/parameter_reference.md#SF45_ORIENT_CFG): Set the orientation of the sensor (facing up or down)
+   - [SF45_UPDATE_CFG](../advanced_config/parameter_reference.md#SF45_UPDATE_CFG): Set the update rate
+   - [SF45_YAW_CFG](../advanced_config/parameter_reference.md#SF45_YAW_CFG): Set the yaw orientation
+
+1. [Configure and enable collision prevention](#px4-configuration)
+
+PX4 will emit the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message when collision prevention is enabled.
+In QGroundControl you should this in the [MAVLink console](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console) if collision prevention is configured correctly and active.
+
+The obstacle overlay in QGC will look like this:
+
+![sf45](../../assets/sf45/sf45_obstacle_map.png)
+
+### Other Rangefinders
+
+Other sensors may be enabled, but this requires modification of driver code to set the sensor orientation and field of view.
+
+- Attach and configure the distance sensor on a particular port (see [sensor-specific docs](../sensor/rangefinders.md)) and enable collision prevention using [CP_DIST](#CP_DIST).
+- Modify the driver to set the orientation.
+  This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor _module.yaml_ file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
+- Modify the driver to set the _field of view_ in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
+
+:::tip
+You can see the required modifications from the [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179).
+Please contribute back your changes!
+:::
+
+## PX4 Configuration
+
+_Collision Prevention_ is enabled on PX4 by [setting the parameter](../advanced_config/parameters.md) for minimum allowed approach distance in QGroundControl to a positive value ([CP_DIST](#CP_DIST)).
+Note that this value is the distance to the sensors, not the outside of your vehicle or propellers (set a safe margin!).
+
+In addition you will need to tune the [sendor delay](#delay_tuning) and [angle change tuning](#angle_change_tuning).
+You may choose to enable [CP_GO_NO_DATA](#CP_GO_NO_DATA) in order to allow unprotected movement in directions where there is no rangefinder data/sensor.
+
+### CP_DELAY Delay Tuning {#delay_tuning}
+
+There are two main sources of delay which should be accounted for: _sensor delay_, and vehicle _velocity setpoint tracking delay_.
+Both sources of delay are tuned using the [CP_DELAY](#CP_DELAY) parameter.
+
+The _sensor delay_ for distance sensors connected directly to the flight controller can be assumed to be 0.
+For external vision-based systems the sensor delay may be as high as 0.2s.
+
+Vehicle _velocity setpoint tracking delay_ can be measured by flying at full speed in [Position mode](../flight_modes_mc/position.md), then commanding a stop.
+The delay between the actual velocity and the velocity setpoint can then be measured from the logs.
+The tracking delay is typically between 0.1 and 0.5 seconds, depending on vehicle size and tuning.
+
+:::tip
+If vehicle speed oscillates as it approaches the obstacle (i.e. it slows down, speeds up, slows down) the delay is set too high.
+:::
+
+### CP_GUIDE_ANG Guidance Tuning {#angle_change_tuning}
+
+Depending on the vehicle, type of environment and pilot skill different amounts of guidance may be desired.
+Setting the [CP_GUIDE_ANG](#CP_GUIDE_ANG) parameter to 0 will disable the guidance, resulting in the vehicle only moving exactly in the directions commanded.
+Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
+
+If this parameter is too small the vehicle may feel 'stuck' when close to obstacles, because only movement away from obstacles at minimum distance are allowed.
+If the parameter is too large the vehicle may feel like it 'slides' away from obstacles in directions not commanded by the operator.
+From testing, 30 degrees is a good balance, although different vehicles may have different requirements.
+
+::: info
+The guidance feature will never direct the vehicle in a direction without sensor data.
+If the vehicle feels 'stuck' with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
+:::
+
+### Parameters
+
+All relevant parameters are listed below:
+
+| Parameter                                                                                          | Description                                                                                                                                                                             |
+| -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="CP_DIST"></a>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)                   | Minimum allowed distance from the sensor (the closest distance that the vehicle can approach the obstacle). Set negative to _disable_ collision prevention.                             |
+| <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)                | Sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.                                                                                                   |
+| <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)    | Angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below. |
+| <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to `1` to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).                                                                         |
+| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | Set to `Acceleration based` (default). Collision prevention is disabled for `Direct velocity` and `Smoothed velocity`.                                                                  |
 
 ## Algorithm Description
 
@@ -91,88 +184,6 @@ The data of the faulty sensor will expire and the region covered by this sensor 
 :::warning
 Be careful when enabling [CP_GO_NO_DATA=1](#CP_GO_NO_DATA), which allows the vehicle to fly outside the area with sensor coverage.
 If you lose connection to one of multiple sensors, the area covered by the faulty sensor is also treated as uncovered and you will be able to move there without constraint.
-:::
-
-### CP_DELAY Delay Tuning {#delay_tuning}
-
-There are two main sources of delay which should be accounted for: _sensor delay_, and vehicle _velocity setpoint tracking delay_.
-Both sources of delay are tuned using the [CP_DELAY](#CP_DELAY) parameter.
-
-The _sensor delay_ for distance sensors connected directly to the flight controller can be assumed to be 0.
-For external vision-based systems the sensor delay may be as high as 0.2s.
-
-Vehicle _velocity setpoint tracking delay_ can be measured by flying at full speed in [Position mode](../flight_modes_mc/position.md), then commanding a stop.
-The delay between the actual velocity and the velocity setpoint can then be measured from the logs.
-The tracking delay is typically between 0.1 and 0.5 seconds, depending on vehicle size and tuning.
-
-:::tip
-If vehicle speed oscillates as it approaches the obstacle (i.e. it slows down, speeds up, slows down) the delay is set too high.
-:::
-
-### CP_GUIDE_ANG Guidance Tuning {#angle_change_tuning}
-
-Depending on the vehicle, type of environment and pilot skill different amounts of guidance may be desired.
-Setting the [CP_GUIDE_ANG](#CP_GUIDE_ANG) parameter to 0 will disable the guidance, resulting in the vehicle only moving exactly in the directions commanded.
-Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
-
-If this parameter is too small the vehicle may feel 'stuck' when close to obstacles, because only movement away from obstacles at minimum distance are allowed.
-If the parameter is too large the vehicle may feel like it 'slides' away from obstacles in directions not commanded by the operator.
-From testing, 30 degrees is a good balance, although different vehicles may have different requirements.
-
-::: info
-The guidance feature will never direct the vehicle in a direction without sensor data.
-If the vehicle feels 'stuck' with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
-:::
-
-## PX4 Distance Sensor {#rangefinder}
-
-### Lanbao PSK-CM8JL65-CC5
-
-At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention "out of the box", with minimal additional configuration:
-
-- First [attach and configure the sensor](../sensor/cm8jl65_ir_distance_sensor.md), and enable collision prevention (as described above, using [CP_DIST](#CP_DIST)).
-- Set the sensor orientation using [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0).
-
-### LightWare LiDAR SF45 Rotating Lidar
-
-PX4 v1.14 (and later) supports the [LightWare LiDAR SF45](https://www.lightwarelidar.com/shop/sf45-b-50-m/) rotating lidar which provides 320 degree sensing.
-
-The SF45 must be connected via a UART/serial port and configured as described below (In addition to the [collision prevention setup](#px4-software-setup)).
-
-[LightWare Studio](https://www.lightwarelidar.com/resources-software) configuration:
-
-- In the LightWare Studio app enable scanning, set the scan angle, and change the baud rate to `921600`.
-
-PX4 Configuration:
-
-- Add the [lightware_sf45_serial](../modules/modules_driver_distance_sensor.md#lightware-sf45-serial) driver in [menuconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup):
-  - Under **drivers > Distance sensors** select `lightware_sf45_serial`.
-  - Recompile and upload to the flight controller.
-- [Set the following parameters](../advanced_config/parameters.md) via QGC:
-  - [SENS_EN_SF45_CFG](../advanced_config/parameter_reference.md#SENS_EN_SF45_CFG): Set to the serial port you have the sensor connected to.
-    Make sure GPS or Telemetry are not enabled on this port.
-  - [SF45_ORIENT_CFG](../advanced_config/parameter_reference.md#SF45_ORIENT_CFG): Set the orientation of the sensor (facing up or down)
-  - [SF45_UPDATE_CFG](../advanced_config/parameter_reference.md#SF45_UPDATE_CFG): Set the update rate
-  - [SF45_YAW_CFG](../advanced_config/parameter_reference.md#SF45_YAW_CFG): Set the yaw orientation
-
-In QGroundControl you should see an [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message in the [MAVLink console](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console) if collision prevention is configured correctly and active.
-
-The obstacle overlay in QGC will look like this:
-
-![sf45](../../assets/sf45/sf45_obstacle_map.png)
-
-### Rangefinder Support
-
-Other sensors may be enabled, but this requires modification of driver code to set the sensor orientation and field of view.
-
-- Attach and configure the distance sensor on a particular port (see [sensor-specific docs](../sensor/rangefinders.md)) and enable collision prevention using [CP_DIST](#CP_DIST).
-- Modify the driver to set the orientation.
-  This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor _module.yaml_ file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
-- Modify the driver to set the _field of view_ in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
-
-:::tip
-You can see the required modifications from the [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179).
-Please contribute back your changes!
 :::
 
 ## Companion Setup {#companion}
