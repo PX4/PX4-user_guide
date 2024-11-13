@@ -5,7 +5,7 @@ It can be enabled for multicopter vehicles when using acceleration-based [Positi
 
 It can be enabled for multicopter vehicles in [Position mode](../flight_modes_mc/position.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
 
-Collision prevention may restrict vehicle maximum speed if the sensor range isn’t large enough!
+Collision prevention may restrict vehicle maximum speed if the sensor range isn't large enough!
 It also prevents motion in directions where no sensor data is available (i.e. if you have no rear-sensor data, you will not be able to fly backwards).
 
 :::tip
@@ -38,7 +38,7 @@ Configure collision prevention by [setting the following parameters](../advanced
 | <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)                | Set the sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.                                                                                                                                                                                                   |
 | <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)    | Set the angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below.                                                                                                 |
 | <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to 1 to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).                                                                                                                                                                                   |
-| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | Set to `Direct velocity` or `Smoothed velocity` to enable Collision Prevention in Position Mode (default is `Acceleration based`).                                                                                                                                                                                                                   |
+| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | Set to `Direct velocity` or `Smoothed velocity` to enable Collision Prevention in Position Mode (default is `Acceleration based`).                                                                                                                                                              |
 
 ## Algorithm Description
 
@@ -58,8 +58,8 @@ If you wish to move freely into directions without sensor coverage, this can be 
 Delay, both in the vehicle tracking velocity setpoints and in receiving sensor data from external sources, is conservatively estimated via the [CP_DELAY](#CP_DELAY) parameter.
 This should be [tuned](#delay_tuning) to the specific vehicle.
 
-If the sectors adjacent to the commanded sectors are ‘better’ by a significant margin, the direction of the requested input can be modified by up to the angle specified in [CP_GUIDE_ANG](#CP_GUIDE_ANG).
-This helps to fine-tune user input to ‘guide’ the vehicle around obstacles rather than getting stuck against them.
+If the sectors adjacent to the commanded sectors are 'better' by a significant margin, the direction of the requested input can be modified by up to the angle specified in [CP_GUIDE_ANG](#CP_GUIDE_ANG).
+This helps to fine-tune user input to 'guide' the vehicle around obstacles rather than getting stuck against them.
 
 ### Range Data Loss
 
@@ -98,13 +98,13 @@ Depending on the vehicle, type of environment and pilot skill different amounts 
 Setting the [CP_GUIDE_ANG](#CP_GUIDE_ANG) parameter to 0 will disable the guidance, resulting in the vehicle only moving exactly in the directions commanded.
 Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
 
-If this parameter is too small the vehicle may feel ‘stuck’ when close to obstacles, because only movement away from obstacles at minimum distance are allowed.
-If the parameter is too large the vehicle may feel like it ‘slides’ away from obstacles in directions not commanded by the operator.
+If this parameter is too small the vehicle may feel "stuck" when close to obstacles, because only movement away from obstacles at minimum distance are allowed.
+If the parameter is too large the vehicle may feel like it slides away from obstacles in directions not commanded by the operator.
 From testing, 30 degrees is a good balance, although different vehicles may have different requirements.
 
 ::: info
 The guidance feature will never direct the vehicle in a direction without sensor data.
-If the vehicle feels ‘stuck’ with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
+If the vehicle feels stuck with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
 :::
 
 ## PX4 Distance Sensor {#rangefinder}
@@ -120,9 +120,7 @@ At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/
 
 PX4 v1.14 (and later) supports the [LightWare LiDAR SF45](../sensor/sf45_rotating_lidar.md) rotating lidar which provides 320 degree sensing.
 
-
-
-### Rangefinder Support
+### Other Rangefinders
 
 Other sensors may be enabled, but this requires modification of driver code to set the sensor orientation and field of view.
 

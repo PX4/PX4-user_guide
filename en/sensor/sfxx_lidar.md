@@ -1,18 +1,19 @@
-# LightWare SF1X/SF02/LW20 Lidar
+# LightWare Lidar (SF1X/SF02/LW20/SF45)
 
 LightWare develops a range of light-weight, general purpose, laser altimeters ("Lidar") suitable for mounting on UAVs.
 These are useful for applications including terrain following, precision hovering (e.g. for photography), warning of regulatory height limits, anti-collision sensing etc.
 
-![LightWare SF11/C Lidar](../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg)
+<img src="../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg" width="350px" alt="LightWare SF11/C Lidar"/>![LightWare SF45 rotating Lidar](../../assets/hardware/sensors/lidar_lightware/sf45.png)
 
 ## Supported Models
 
 The following models are supported by PX4, and can be connected to either the I2C or Serial bus (the tables below indicates what bus can be used for each model).
 
-| Model                                                      | Range (m) | Bus               | Description                                                     |
-| ---------------------------------------------------------- | --------- | ----------------- | --------------------------------------------------------------- |
-| [SF11/C](https://lightwarelidar.com/products/sf11-c-100-m) | 100       | Serial or I2C bus |                                                                 |
-| [LW20/C](https://lightware.co.za/products/lw20-c-100-m)    | 100       | I2C bus           | Waterproofed (IP67) with servo for sense-and-avoid applications |
+| Model                                                      | Range (m) | Bus               | Description                                                                                |
+| ---------------------------------------------------------- | --------- | ----------------- | ------------------------------------------------------------------------------------------ |
+| [SF11/C](https://lightwarelidar.com/products/sf11-c-100-m) | 100       | Serial or I2C bus |
+| [LW20/C](https://lightware.co.za/products/lw20-c-100-m)    | 100       | I2C bus           | Waterproofed (IP67) with servo for sense-and-avoid applications                            |
+| [SF45/B](../sensor/sf45_rotating_lidar.md)                 | 50        | Serial            | Rotary Lidar (Used for [Collision Prevention](../computer_vision/collision_prevention.md)) |
 
 ::: details Discontinued
 
@@ -62,15 +63,17 @@ VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_r
 
 ## Serial Setup {#serial_hardware_setup}
 
+::: tip
+[SF45/B](../sensor/sf45_rotating_lidar.md) setup is covered in the linked document.
+:::
+
 ### Hardware
 
 The lidar can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
 <!-- Would be good to show serial setup! -->
 
-<a id="serial_parameter_setup"></a>
-
-### Parameter Setup
+### Parameter Setup {#serial_parameter_setup}
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG).
 There is no need to set the baud rate for the port, as this is configured by the driver.
