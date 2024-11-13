@@ -32,7 +32,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [CellularStatus](CellularStatus.md)
 - [CollisionConstraints](CollisionConstraints.md) — Local setpoint constraints in NED frame
 setting something to NaN means that no limit is provided
-- [CollisionReport](CollisionReport.md)
 - [ConfigOverrides](ConfigOverrides.md) — Configurable overrides by (external) modes or mode executors
 - [ControlAllocatorStatus](ControlAllocatorStatus.md)
 - [Cpuload](Cpuload.md)
