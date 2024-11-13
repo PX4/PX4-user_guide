@@ -1,4 +1,10 @@
-# NXP RDDRONE-FMUK66 FMU
+# NXP RDDRONE-FMUK66 FMU (Discontinued)
+
+<Badge type="info" text="Discontinued" />
+
+:::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
 
 :::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](https://www.nxp.com/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
 :::
