@@ -30555,6 +30555,14 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 0 |  
 
+### SENS_FLOW_SCALE (`FLOAT`) {#SENS_FLOW_SCALE}
+
+Optical flow scale factor.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.5 | 1.5 |  | 1. |  
+
 ### SENS_FTX_CFG (`INT32`) {#SENS_FTX_CFG}
 
 Serial Configuration for FT Technologies Digital Wind Sensor (serial).
