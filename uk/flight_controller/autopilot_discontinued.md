@@ -4,7 +4,7 @@
 Для отримання додаткової інформації про рівні підтримки плат автопілотів проекту PX4 дивіться: [px4.io/autopilots/](https://px4.io/autopilots/).
 :::
 
-Ця категорія стосується списаних автопілотів і комплектних апаратів. Вони _не підтримуються_ головною ревізією PX4 і більше не виробляються. Вони перелічені тому, що ви можете використовувати їх в існуючому дроні.
+Ця категорія стосується списаних автопілотів і комплектних апаратів. These are no longer being manufactured, and may not be supported by their manufacturer. They are listed because you may be using them in an existing drone, and because they **may** still work with the head revision of PX4.
 
 ## Автопілоти
 
@@ -18,6 +18,7 @@
 - [Holybro Pixfalcon](../flight_controller/pixfalcon.md) (Pixhawk FMUv2)
 - [Holybro Pix32](../flight_controller/holybro_pix32.md) (FMUv2)
 - [mRo AUAV-X2](../flight_controller/auav_x2.md) (Pixhawk FMUv2)
+- [NXP FMUK66](../flight_controller/nxp_rddrone_fmuk66.md) (Discontinued)
 - [3DR Pixhawk 1](../flight_controller/pixhawk.md) (Pixhawk FMUv2)
 
 ## Комплектні апарати
