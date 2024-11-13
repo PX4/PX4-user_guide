@@ -29,7 +29,6 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [CanInterfaceStatus](CanInterfaceStatus.md)
 - [CellularStatus](CellularStatus.md)
 - [CollisionConstraints](CollisionConstraints.md) — локальні обмеження заданих значень у кадрі NED, встановлення значення NaN означає відсутність обмежень
-- [CollisionReport](CollisionReport.md)
 - [ConfigOverrides](ConfigOverrides.md) - Конфігуровані перевизначення (зовнішніми) режимами або виконавцями режимів
 - [ControlAllocatorStatus](ControlAllocatorStatus.md)
 - [Cpuload](Cpuload.md)
