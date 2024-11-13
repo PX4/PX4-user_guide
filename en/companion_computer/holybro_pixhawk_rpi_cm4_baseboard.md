@@ -289,7 +289,7 @@ This means the CM4's ethernet IP is `10.41.10.1` .
 
 #### Ping Test
 
-First from the CM4:
+First ping PX4 from the CM4 (using the PX4's default address):
 
 ```sh
 $ ping 10.41.10.2
@@ -309,16 +309,17 @@ rtt min/avg/max/mdev = 0.091/0.129/0.187/0.041 ms
 ```
 
 :::info
-If this step is failing it is worth to check if the [firewall](https://wiki.ubuntu.com/UncomplicatedFirewall) is active.
+If this step fails, check if a [firewall](https://wiki.ubuntu.com/UncomplicatedFirewall) is active.
 :::
 
-Then from the flight controller in Nuttx Shell:
+Then ping the CM4 from the flight controlle.
+Enter the following command in the Nuttx Shell:
 
 ```sh
 nsh> ping 10.41.10.1
 ```
 
-Should give:
+This should result in output like:
 
 ```sh
 PING 10.41.10.1 56 bytes of data
