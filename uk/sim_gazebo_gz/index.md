@@ -16,16 +16,19 @@ Gazebo раніше була відома як "Gazebo Ignition" (тоді як 
 
 ## Встановлення (Ubuntu Linux)
 
-Gazebo is installed by default on Ubuntu 22.04 as part of the normal [development environment setup](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets).
+Gazebo Harmonic is installed by default on Ubuntu 22.04 as part of the normal [development environment setup](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets).
 
-If you want to use Gazebo on Ubuntu 20.04 you can install it manually, after first following the normal setup process (installing `gz-garden` will uninstall Gazebo-Classic!):
+:::info
+The PX4 installation scripts are based on the instructions: [Binary Installation on Ubuntu](https://gazebosim.org/docs/harmonic/install_ubuntu/) (gazebosim.org).
+:::
 
-```sh
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
-sudo apt-get update
-sudo apt-get install gz-garden
-```
+::: warning
+Gazebo Harmonic cannot be installed on Ubuntu 20.04 and earlier.
+
+On Ubuntu 20.04 we recommend use [Gazebo Classic](../sim_gazebo_classic/index.md). If you really must use Gazebo then you should update to Ubuntu 22.04.
+
+Until November 2024 it is possible to [install Gazebo Garden](https://gazebosim.org/docs/garden/install_ubuntu/) on Ubuntu 20.04. After that date Garden will reach end-of-life and should not be used.
+:::
 
 ## Запуск симуляції
 
@@ -40,17 +43,19 @@ make px4_sitl gz_x500
 
 Рухомі засоби, що підтримуються, а також команди `make` перелічені нижче. Зверніть увагу, що усі цілі збірки make для gazebo мають префікс `gz_`.
 
-| Рухомий засіб                                                                                                   | Команда                            | `PX4_SYS_AUTOSTART` |
-| --------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------- |
-| [Квадрокоптер (x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                              | `make px4_sitl gz_x500`            | 4001                |
-| [Квадрокоптер (x500) з камерою глибини](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera)          | `make px4_sitl gz_x500_depth`      | 4002                |
-| [Квадрокоптер (x500) з візуальною одометрією](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`     | 4005                |
-| [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)                      | `make px4_sitl gz_x500_lidar`      | 4013                |
-| [ВЗІП](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                              | `make px4_sitl gz_standard_vtol`   | 4004                |
-| [Літак](../sim_gazebo_gz/vehicles.md#standard-plane)                                                            | `make px4_sitl gz_rc_cessna`       | 4003                |
-| [Покращений літак](../sim_gazebo_gz/vehicles.md#advanced-plane)                                                 | `make px4_sitl gz_advanced_plane`  | 4008                |
-| [Differential Rover](../sim_gazebo_gz/vehicles.md#differential-rover)                                           | `make px4_sitl gz_r1_rover`        | 4009                |
-| [Ackermann Rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)                                                 | `make px4_sitl gz_rover_ackermann` | 4012                |
+| Рухомий засіб                                                                                                                 | Команда                             | `PX4_SYS_AUTOSTART` |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------------- |
+| [Квадрокоптер (x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                                            | `make px4_sitl gz_x500`             | 4001                |
+| [X500 Quadrotor with Depth Camera (Front-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera-front-facing) | `make px4_sitl gz_x500_depth`       | 4002                |
+| [Квадрокоптер (x500) з візуальною одометрією](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry)               | `make px4_sitl gz_x500_vision`      | 4005                |
+| [Quadrotor(x500) with 1D LIDAR (Down-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-down-facing)          | `make px4_sitl gz_x500_lidar_down`  | 4016                |
+| [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)                                    | `make px4_sitl gz_x500_lidar_2d`    | 4013                |
+| [Quadrotor(x500) with 1D LIDAR (Front-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-front-facing)        | `make px4_sitl gz_x500_lidar_front` | 4017                |
+| [ВЗІП](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                                            | `make px4_sitl gz_standard_vtol`    | 4004                |
+| [Літак](../sim_gazebo_gz/vehicles.md#standard-plane)                                                                          | `make px4_sitl gz_rc_cessna`        | 4003                |
+| [Покращений літак](../sim_gazebo_gz/vehicles.md#advanced-plane)                                                               | `make px4_sitl gz_advanced_plane`   | 4008                |
+| [Differential Rover](../sim_gazebo_gz/vehicles.md#differential-rover)                                                         | `make px4_sitl gz_r1_rover`         | 4009                |
+| [Ackermann Rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)                                                               | `make px4_sitl gz_rover_ackermann`  | 4012                |
 
 Усі [моделі засобів](../sim_gazebo_gz/vehicles.md) (та [світів](#specify-world)) включені як підмодуль з репозиторію [Моделі Gazebo](../sim_gazebo_gz/gazebo_models.md).
 
@@ -131,26 +136,29 @@ make px4_sitl gz_x500_windy
 PX4_GZ_WORLD=windy make px4_sitl gz_x500
 ```
 
-Світи що підтримуються перераховані нижче.
+The [supported worlds](../sim_gazebo_gz/worlds.md) are listed below.
 
-| Світ       | Команда                    | Опис                              |
-| ---------- | -------------------------- | --------------------------------- |
-| `default`  | `make px4_sitl *`          | Порожній світ (сіра площина)      |
-| `windy`    | `make px4_sitl *_windy`    | Порожній світ з увімкненим вітром |
-| `baylands` | `make px4_sitl *_baylands` | Світ Baylands оточений водою      |
+| Світ       | Команда                    | Опис                                                        |
+| ---------- | -------------------------- | ----------------------------------------------------------- |
+| `default`  | `make px4_sitl *`          | Порожній світ (сіра площина)                                |
+| `aruco`    | `make px4_sitl *_aruco`    | Empty world with aruco marker for testing precision landing |
+| `baylands` | `make px4_sitl *_baylands` | Світ Baylands оточений водою                                |
+| `lawn`     | `make px4_sitl *_lawn`     | Lawn world for testing rovers                               |
+| `rover`    | `make px4_sitl *_rover`    | Rover world (optimised/preferred)                           |
+| `walls`    | `make px4_sitl *_walls`    | Wall world for testing collision prevention                 |
+| `windy`    | `make px4_sitl *_windy`    | Порожній світ з увімкненим вітром                           |
 
 :::warning
 Зверніть увагу, якщо ніякого світу не вказано, PX4 використає світ `default`. Однак ви не повинні _явно_ вказувати `_default` у назві моделі тоді як це перешкодить запуску PX4. Іншими словами, використовуйте `make px4_sitl gz_x500` замість `make px4_sitl gz_x500_default` для світу за замовчуванням.
 :::
 
-:::note
-Baylands викидає наступну помилку, що можна ігнорувати:
+::: info
+Baylands world throws a warning in Gazebo Harmonic because there are so many meshes. This can be ignored:
 
-```
-[Err] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created
+```sh
+[Wrn] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created
 ```
 
-Це трапляється тому що Baylands має багато сіток. Однак це не ламає Gazebo та ця помилка була знижена до попередження у Gazebo Harmonic: [gz-physics/pull/531](https://github.com/gazebosim/gz-physics/pull/531). Також можна замінити помилку на попередження [встановивши gz-garden з вихідного коду](https://gazebosim.org/docs/garden/install_ubuntu_src).
 :::
 
 ## Використання та варіанти налаштування
