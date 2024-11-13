@@ -20,6 +20,7 @@ We pledge to adhere to the [PX4 code of conduct](https://github.com/PX4/PX4-Auto
 This section contains information about how you can meet with the community and contribute to PX4:
 
 - [온라인 미팅](../contribute/dev_call.md)  - 아키텍쳐, pull 요청, 문제 및 이슈에 대하여 개발팀과 논의
+- [Maintainers](./maintainers.md) - Maintainers of PX4 Subsystems and Ecosystem
 - [지원](../contribute/support.md) - 도움 요청 및 문제 제기
 - [Source Code Management](../contribute/code.md) - Work with PX4 code
 - [문서](../contribute/docs.md) - 문서 작업
