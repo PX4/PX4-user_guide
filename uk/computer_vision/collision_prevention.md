@@ -40,7 +40,7 @@ _Collision Prevention_ увімкнено на PX4 шляхом встановл
 | <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | Встановіть затримку датчика та відстеження швидкості. Дивіться [Налаштування затримки](#delay_tuning) нижче.                                                                                                                                                                                                                                                       |
 | <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | Встановіть кут (в обидві сторони від заданого напрямку), в межах якого транспортний засіб може відхилитися, якщо знайде менше перешкод у цьому напрямку. Дивіться [Налаштування навігації](#angle_change_tuning) нижче.                                                                                                                                            |
 | <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Встановіть значення 1, щоб дозволити транспортному засобу рухатися в напрямках, де немає покриття датчика (за замовчуванням 0/`False`).                                                                                                                                                                                                                            |
-| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Встановіть значення 0 або 3, щоб увімкнути запобігання зіткненням у режимі позиціонування (за замовчуванням - 4).                                                                                                                                                                                                                                                  |
+| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Set to `Direct velocity` or `Smoothed velocity` to enable Collision Prevention in Position Mode (default is `Acceleration based`).                                                                                                                                                                                                                                 |
 
 ## Опис алгоритму
 
@@ -154,17 +154,17 @@ SF45 повинен бути підключений через порт UART/с�
 
 ## Gazebo Simulation
 
-_Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model. To do this, start a simulation with the x500 lidar model by running the following command:
+_Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar_2d](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model. To do this, start a simulation with the x500 lidar model by running the following command:
 
 ```sh
-make px4_sitl gz_x500_lidar
+make px4_sitl gz_x500_lidar_2d
 ```
 
 Next, adjust the relevant parameters to the appropriate values and add arbitrary obstacles to your simulation world to test the collision prevention functionality.
 
 The diagram below shows how the simulation looks when viewed in Gazebo.
 
-![RViz image of collision detection using the x500_lidar model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_viz.png)
+![RViz image of collision detection using the x500_lidar_2d model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d_viz.png)
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
