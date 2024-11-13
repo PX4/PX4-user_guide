@@ -174,7 +174,7 @@ Downward facing sensors that write to the [DistanceSensor](../msg_docs/DistanceS
   make px4_sitl gz_x500_lidar_down
   ```
 
-Front-facing sensors that write to [ObstacleAvoidance](../msg_docs/ObstacleAvoidance.md) can be used to test [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation):
+Front-facing sensors that write to [ObstacleDistance](../msg_docs/ObstacleDistance.md) can be used to test [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation):
 
 - [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)
 

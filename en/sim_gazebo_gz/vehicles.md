@@ -27,7 +27,7 @@ make px4_sitl gz_x500_vision
 
 ![x500 in Gazebo](../../assets/simulation/gazebo/vehicles/x500.png)
 
-### X500 Quadrotor with Forward Facing Depth Camera
+### X500 Quadrotor with Depth Camera (Front-facing)
 
 This model has a forward-facting depth camera attached, modelled on the [OAK-D](https://shop.luxonis.com/products/oak-d).
 
@@ -72,7 +72,7 @@ The model can be used for testing [rangefinder](../sensor/rangefinders.md) use c
 make px4_sitl gz_x500_lidar_front
 ```
 
-![x500 with down-facing 1D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_front.png)
+![x500 with down-facing 1D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_down.png)
 
 ### X500 Quadrotor with 1D LIDAR (Front-facing)
 
