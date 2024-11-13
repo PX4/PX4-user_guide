@@ -30,7 +30,6 @@ The vehicle restricts the current velocity in order to slow down as it gets clos
 In order to move away from (or parallel to) an obstacle, the user must command the vehicle to move toward a setpoint that does not bring the vehicle closer to the obstacle.
 The algorithm will make minor adjustments to the setpoint direction if it is determined that a "better" setpoint exists within a fixed margin on either side of the requested setpoint.
 
-Users are notified through _QGroundControl_ while _Collision Prevention_ is actively controlling velocity setpoints.
 
 PX4 software setup is covered in the next section.
 If you are using a distance sensor attached to your flight controller for collision prevention, it will need to be attached and configured as described in [PX4 Distance Sensor](#rangefinder).
@@ -46,23 +45,29 @@ Configure collision prevention by [setting the following parameters](../advanced
 | <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)                | Set the sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.                                                                                                                                                                                                   |
 | <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)    | Set the angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below.                                                                                                 |
 | <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to 1 to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).                                                                                                                                                                                   |
-| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | Set to `Acceleration based` (default), Implementation in  `Direct velocity` or `Smoothed velocity` has been removed.                                                                                                                                                                                                                   |
+| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | Make sure the default `Acceleration based` is used, Implementation in  `Direct velocity` or `Smoothed velocity` has been removed.                                                                                                                                                                                                                   |
 
 ## Algorithm Description
 
-The data from all sensors are fused into an internal representation of 36 sectors around the vehicle, each containing either the sensor data and information about when it was last observed, or an indication that no data for the sector was available.
-When the vehicle is commanded to move in a particular direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer to any obstacles.
-If so, the vehicle velocity is restricted.
+The data from all sensors are fused into an internal representation of 72 sectors around the vehicle, each containing either the sensor data and information about when it was last observed, or an indication that no data for the sector was available.
+When the vehicle is commanded to move in a particular direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer than allowed to any obstacles. If so, the vehicle velocity is restricted.
 
-This velocity restriction takes into account both the inner velocity loop tuned by [MPC_XY_P](../advanced_config/parameter_reference.md#MPC_XY_P), as well as the [jerk-optimal velocity controller](../config_mc/mc_jerk_limited_type_trajectory.md) via [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) and [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR).
-The velocity is restricted such that the vehicle will stop in time to maintain the distance specified in [CP_DIST](#CP_DIST).
-The range of the sensors for each sector is also taken into account, limiting the velocity via the same mechanism.
-the restricted velocity is then transformed into an acceleration with [MPC_XY_VEL_P_ACC](../advanced_config/parameter_reference.md#MPC_XY_VEL_P_ACC).
+The Algorithm then can be split intwo two parts, the constraining of the acceleration setpoint coming from the operator, and the compensation of the current velocity of the vehicle.
 
 ::: info
-If there is no sensor data in a particular direction, velocity in that direction is restricted to 0 (preventing the vehicle from crashing into unseen objects).
+If there is no sensor data in a particular direction, movement in that direction is restricted to 0 (preventing the vehicle from crashing into unseen objects).
 If you wish to move freely into directions without sensor coverage, this can be enabled by setting [CP_GO_NO_DATA](#CP_GO_NO_DATA) to 1.
 :::
+### Acceleration Constraining
+For this we split out Acceleration Setpoint into two components, one parallel to the closest distance to the obstacle and one normal to it. Then we scale each of these components according the the figure below.
+ ![Scalefactor](../../assets/computer_vision/collision_prevention/scalefactor.png)
+ <!-- the code for this figure is at the end of this file -->
+
+### Velocity compensation
+
+ This velocity restriction takes into account the [jerk-optimal velocity controller](../config_mc/mc_jerk_limited_type_trajectory.md) via [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) and [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR). Whereby <!--this is only partially valid anymore... check -->
+ The current velocity is compared with the maximum allowed velocity so that we are still able to break based on the maximal allowed jerk, acceleration and delay.  from this we are able to use the proportional gain of the acceleration controller([MPC_XY_VEL_P_ACC](../advanced_config/parameter_reference.md#MPC_XY_VEL_P_ACC)) to transform it into an acceleration.
+ ### Delay
 
 The delay associated with collision prevention, both in the vehicle tracking velocity setpoints and in receiving sensor data from external sources, is conservatively estimated via the [CP_DELAY](#CP_DELAY) parameter.
 This should be [tuned](#delay_tuning) to the specific vehicle.
@@ -202,6 +207,33 @@ The diagram below shows how the simulation looks when viewed in Gazebo.
 
 ![RViz image of collision detection using the x500_lidar_2d model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d_viz.png)
 
-<!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
-<!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
-<!-- using rangefinder? -->
+
+<!-- Code to generate the scalefactor plot
+import numpy as np
+import matplotlib.pyplot as plt
+obstacle_dist = -5
+cp_dist = 0
+scale_dist = 10
+x_values_1 = np.linspace(obstacle_dist, cp_dist, 100)  # Segment 1: obstacle to cp_dist
+x_values_2 = np.linspace(cp_dist, scale_dist, 100)  # Segment 2: cp_dist to scale_dist
+x_values_3 = np.linspace(scale_dist, 15, 100)  # Segment 3: scale_dist onwards
+def acceleration_setpoint_1(x):
+  return -1 + (x - obstacle_dist) / (cp_dist - obstacle_dist)
+def acceleration_setpoint_2(x):
+  return ((x - cp_dist) / (scale_dist - cp_dist))**2
+def acceleration_setpoint_3(x):
+  return 1
+y_values_1 = [acceleration_setpoint_1(x) for x in x_values_1]
+y_values_2 = [acceleration_setpoint_2(x) for x in x_values_2]
+y_values_3 = [acceleration_setpoint_3(x) for x in x_values_3]
+plt.figure(figsize=(15, 5))
+plt.plot(x_values_1, y_values_1, color='red', label="Below Zero", linewidth=4)
+plt.plot(x_values_2, y_values_2, color='orange', label="Above Zero", linewidth=4)
+plt.plot(x_values_3, y_values_3, color='green', label="Above Scale Distance", linewidth=4)
+plt.xlabel("Distance")
+plt.yticks([-1, 0, 1], ['-1', '0', '1'])  # Set ticks at -1, 0, and 1
+plt.ylabel("Scalefactor")  # Change y-axis label to "Scale"
+plt.title("Manual Acceleration Setpoint Scaling")
+plt.xticks([obstacle_dist, cp_dist, scale_dist], ['Obstacle', 'CP_DIST', 'scale_distance = MPC_VEL_MANUAL / MPC_XY_P'])
+plt.grid(True)
+plt.show() -->
