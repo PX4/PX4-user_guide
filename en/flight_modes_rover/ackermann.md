@@ -2,7 +2,7 @@
 
 Flight modes (or more accurately "Drive modes" for ground vehicles) provide autopilot support to make it easier to manually drive the vehicle or to execute autonomous missions.
 
-This section outlines all supported drive modes for Ackermann rovers.
+This section outlines all supported drive modes for [Ackermann rovers](../frames_rover/ackermann.md).
 
 For information on mapping RC control switches to specific modes see: [Basic Configuration > Flight Modes](../config/flight_mode.md).
 
@@ -41,7 +41,7 @@ The manual modes provide progressively increasing levels of autopilot support fo
 
 ### Manual Mode
 
-In this mode the stick inputs are directly mapped to motor commands. The rover does not attempt to maintain a specific orientation or compensate for external factors like slopes or uneven terrain!  
+In this mode the stick inputs are directly mapped to motor commands. The rover does not attempt to maintain a specific orientation or compensate for external factors like slopes or uneven terrain!
 The user is responsible for making the necessary adjustments to the stick inputs to keep the rover on the desired course.
 
 | Stick                  | Effect                                     |
@@ -64,13 +64,19 @@ Lateral acceleration can be directly mapped to a steering input based on the for
 <!-- prettier-ignore -->
 $$ \theta = \arctan(\frac{w_b \cdot a_{lat}}{ v^2}) $$
 
-with $w_b:$ Wheel base, $\theta:$ Steering angle and $v:$ Forward speed.  
-For driving this means that the same right hand stick input will cause a different steering angle based on how fast you are driving. By limiting the maximum lateral acceleration, we can restrict the steering angle based on the speed which can prevent the rover from rolling over.  
+with
+
+- $w_b:$ Wheel base,
+- $\theta:$ Steering angle, anbd
+- $v:$ Forward speed.
+
+For driving this means that the same right hand stick input will cause a different steering angle based on how fast you are driving.
+By limiting the maximum lateral acceleration, we can restrict the steering angle based on the speed, which can prevent the rover from rolling over.
 This mode will feel more like "driving a car" than [Manual mode](#manual-mode).
 
-:::note
-The lateral acceleration is only close loop controlled when driving forwards. When driving backwards the lateral acceleration setpoint is directly mapped to a steering angle using the equation above.  
- This is due to the fact that rear wheel steering (driving a car with front-wheel steering backwards) is non-minimum-phase w.r.t to the lateral acceleration which leads to instabilities when doing closed loop control.
+::: info
+The lateral acceleration is only close loop controlled when driving forwards. When driving backwards the lateral acceleration setpoint is directly mapped to a steering angle using the equation above.
+This is due to the fact that rear wheel steering (driving a car with front-wheel steering backwards) is non-minimum-phase w.r.t to the lateral acceleration which leads to instabilities when doing closed loop control.
 :::
 
 | Stick                  | Effect                                                                                                                                                                                                   |
@@ -98,7 +104,7 @@ For the configuration/tuning of this mode see [Position mode](../config_rover/di
 
 ## Auto Modes
 
-In auto modes the autopilot takes over control of the vehicle to run missions, return to launch, or perform other autonomous navigation tasks.  
+In auto modes the autopilot takes over control of the vehicle to run missions, return to launch, or perform other autonomous navigation tasks.
 For the tuning process see the configuration for [Auto modes](../config_rover/ackermann.md#auto-modes).
 
 ### Mission Mode
