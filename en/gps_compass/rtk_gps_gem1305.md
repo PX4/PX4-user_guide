@@ -86,7 +86,7 @@ The board does not include a compass and so does not require connections for a c
 
 ## Hardware Setup
 
-RTK technology requires a base RTK module attached to the ground station, and a rover RTK module on the vehicle.
+RTK requires a base RTK module attached to the ground station, and a rover RTK module on the vehicle.
 The data from the base needs to be transmitted to the drone via telemetry radio and inputed into the RTK receiver on the rover.
 
 The setup/connections for base and rover modules are shown below.
@@ -105,12 +105,22 @@ See to [How to setup Base station](https://wiki.datagnss.com/index.php/GEM1305-a
 
 ### Rover Setup (PX4)
 
-The rover connections are shown in the diagram below, along with the connection to a telemetry radio.
-You can connect the rover module to `GPS1` or `GPS2`, as shown.
+The rover setup showing connections to a GPS port and the (required) connection to a telemetry radio are shown in the diagram below.
+
+![Rover module and pixhawk big picture connections](../../assets/hardware/gps/datagnss_gem1305/rover_gnss_setup.png)
+
+The diagram below shows how you might connect to the `GPS` port on the Pixawk 2.4.8 flight controller.
+The same connection approach might be used on a more recent flight controller.
+
+::: warning
+Pixawk 2.4.8 is a clone of a very old Pixhawk series design.
+Even though it is inexpensive it is not recommended: the board has such little memory that it can be difficult to find space for all the software components you need.
+It also uses non-Pixhawk standard connectors which are far less reliable, and works with many fewer components out of the box.
+:::
+
+![Rover module setup](../../assets/hardware/gps/datagnss_gem1305/pixhawk2_4_8_connections.png)
 
 GPS and RTK configuration on PX4 via _QGroundControl_ is plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
-
-![Rover module setup](../../assets/hardware/gps/datagnss_gem1305/rover_gnss_setup.png)
 
 ## Package List
 
