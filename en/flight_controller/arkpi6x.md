@@ -71,7 +71,7 @@ Find more information:
 
 ## Flashing Guide
 
-[ARK Software](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-pi6x-flow/flashing-guide)
+[ARK Pi6X Flashing Guide](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-pi6x-flow/flashing-guide)
 
 ## Pinout
 
