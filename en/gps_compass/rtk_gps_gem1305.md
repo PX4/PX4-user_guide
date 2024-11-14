@@ -18,7 +18,7 @@ It supports RTK functionality with a maximum data update rate of 10Hz.
 
 - [GEM1305 RTK receiver with antenna](https://www.datagnss.com/collections/gnss-for-drone/products/gem1305) (www.datagnss.com)
 
-  <img src="../../assets/hardware/gps/datagnss_gem1305/datagnss-gem1305-03.png" width="500px" alt="DATAGNSS GEM1305 RTK Receiver">
+  <img src="../../assets/hardware/gps/datagnss_gem1305/gem1305_hero.png" width="500px" alt="DATAGNSS GEM1305 RTK Receiver">
 
 - [DGM10 RTK Receiver](https://www.datagnss.com/collections/gnss-for-drone/products/dgm10-rtk-receiver) (same receiver in a casing).
 
@@ -71,7 +71,7 @@ It supports RTK functionality with a maximum data update rate of 10Hz.
 
 The board is connected to the autopilot via UART interface.
 
-![GEM1305 connector](../../assets/hardware/gps/datagnss_gem1305/GEM1305-connector.png)
+![GEM1305 connector](../../assets/hardware/gps/datagnss_gem1305/gem1305_connector.png)
 
 The 1.25mm pitch 6P connector (from left: PIN1 to PIN6):
 
@@ -89,6 +89,8 @@ The board does not include a compass and so does not require connections for a c
 RTK requires a base RTK module attached to the ground station, and a rover RTK module on the vehicle.
 The data from the base needs to be transmitted to the drone via telemetry radio and inputed into the RTK receiver on the rover.
 
+![RTK setup overview](../../assets/hardware/gps/datagnss_gem1305/setup_overview.png)
+
 The setup/connections for base and rover modules are shown below.
 
 ### Base Setup (GCS)
@@ -99,7 +101,7 @@ The base station connections are shown in the diagram below, along with the conn
 
 Note that for the base we recommend the [NANO RTK Receiver](https://www.datagnss.com/collections/gnss-for-drone/products/multi-band-rtk-receiver-package) because it is easier to setup.
 
-<img src="../../assets/hardware/gps/datagnss_gem1305/NANO-RTK-with-case-ant-600x.png" width="500px" alt="DATAGNSS NANO RTK Receiver">
+<img src="../../assets/hardware/gps/datagnss_gem1305/nano_rtk_with_case.png" width="500px" alt="DATAGNSS NANO RTK Receiver">
 
 See to [How to setup Base station](https://wiki.datagnss.com/index.php/GEM1305-autopilot) for more details.
 
