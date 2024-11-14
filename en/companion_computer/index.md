@@ -19,9 +19,9 @@ Communications with the ground stations and the cloud are usually routed via the
 The following carrier boards make it easy to integrate Pixhawk flight controllers with a companion computer, significantly easing both hardware and software setup.
 The boards support the [Pixhawk Autopilot Bus (PAB)](../flight_controller/pixhawk_autopilot_bus.md) open standard so you can plug in any compliant controller:
 
+- [ARK Jetson PAB Carrier](../companion_computer/ark_jetson_pab_carrier.md)
 - [Holybro Pixhawk Jetson Baseboard](../companion_computer/holybro_pixhawk_jetson_baseboard.md)
 - [Holybro Pixhawk RPi CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
-- [ARK Jetson PAB Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier)
 
 ## Managed Integrated Systems
 
