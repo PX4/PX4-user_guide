@@ -84,29 +84,33 @@ The 1.25mm pitch 6P connector (from left: PIN1 to PIN6):
 
 The board does not include a compass and so does not require connections for a compass part.
 
-## Base Setup (GCS)
+## Hardware Setup
 
-The NANO RTK Receiver is recommended for the base station setup: we don't use the GEM1305 because we don't need such small form factor, and the NANO RTK reciever is easier to setup.
+RTK technology requires a base RTK module attached to the ground station, and a rover RTK module on the vehicle.
+The data from the base needs to be transmitted to the drone via telemetry radio and inputed into the RTK receiver on the rover.
+
+The setup/connections for base and rover modules are shown below.
+
+### Base Setup (GCS)
+
+The base station connections are shown in the diagram below, along with the connection to a telemetry radio.
+
+![Base module setup](../../assets/hardware/gps/datagnss_gem1305/base_gnss_setup.png)
+
+Note that for the base we recommend the [NANO RTK Receiver](https://www.datagnss.com/collections/gnss-for-drone/products/multi-band-rtk-receiver-package) because it is easier to setup.
 
 <img src="../../assets/hardware/gps/datagnss_gem1305/NANO-RTK-with-case-ant-600x.png" width="500px" alt="DATAGNSS NANO RTK Receiver">
 
-<!-- how? -->
+See to [How to setup Base station](https://wiki.datagnss.com/index.php/GEM1305-autopilot) for more details.
 
-## Rover Setup (PX4)
+### Rover Setup (PX4)
 
-RTK setup on PX4 via _QGroundControl_ is plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
+The rover connections are shown in the diagram below, along with the connection to a telemetry radio.
+You can connect the rover module to `GPS1` or `GPS2`, as shown.
 
-## Wiring and Connections
+GPS and RTK configuration on PX4 via _QGroundControl_ is plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
-RTK technology can greatly improve the accuracy of positioning.
-
-RTK technology requires a base and a rover, with the base placed on the ground, which is referred to as the rover on the drone.
-The data from the base needs to be transmitted to the drone via telemetry radio and inputted into the RTK receiver on the rover.
-
-The 6-pins connector provides the interface for RTK, the 2.54mm Pin Header also support for RTK data input and output.
-You could connect the 6-pins connector or Pin Header to the flight controller's GPS port.
-
-Refer to [How to setup Base station](https://wiki.datagnss.com/index.php/GEM1305-autopilot) to find more details.
+![Rover module setup](../../assets/hardware/gps/datagnss_gem1305/rover_gnss_setup.png)
 
 ## Package List
 
