@@ -137,7 +137,7 @@ To set up [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) configure th
    1. Increase [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) if the measured value does not track the setpoint fast enough or decrease it if the measurement overshoots the setpoint by too much.
    1. Repeat until you are satisfied with the behaviour.
 
-   Note that the lateral acceleration measurement is very noise and therefore needs to be heavily filtered.
+   Note that the lateral acceleration measurement is very noisy and therefore needs to be heavily filtered.
    This means that the measurement is slightly delayed, so if you observe a slight offset in time between the setpoint and measurement, that is not something that can be fixed with tuning.
    :::
 
@@ -164,21 +164,24 @@ To configure set the following parameters:
 1. [RA_MAX_SPEED](#RA_MAX_SPEED) [m/s]: This is the maximum speed you want to allow for your rover.
    This will define the stick-to-speed mapping for position mode and set an upper limit for the speed setpoint for all [auto modes](#auto-modes).
 2. [RA_MAX_THR_SPEED](#RA_MAX_THR_SPEED) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
-   As already mentioned in the configuration of [Manual mode](../flight_modes_rover/ackermann.md#manual-mode), a good starting point is the observed ground speed when the rover drives at maximum throttle in [Manual mode](../flight_modes_rover/ackermann.md#manual-mode).
+   As mentioned in the [Manual mode](../flight_modes_rover/ackermann.md#manual-mode) configuration , a good starting point is the observed ground speed when the rover drives at maximum throttle in [Manual mode](../flight_modes_rover/ackermann.md#manual-mode).
 
    <a id="RA_SPEED_TUNING"></a>
 
    ::: tip
-   To further tune this parameter, first make sure you set [RA_SPEED_P](#RA_SPEED_P) and [RA_SPEED_I](#RA_SPEED_I) to zero.
-   This way the speed is only controlled by the feed-forward term, which makes it easier to tune.
-   Now put the rover in [Position mode](../flight_modes_rover/ackermann.md#position-mode) and then move the left stick of your controller up and/or down and hold it at a few different levels for a couple of seconds each.
-   Disarm the rover and from the flight log plot the _adjusted_forward_speed_setpoint_ and the _measured_forward_speed_ from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) message over each other.
-   If the actual speed of the rover is higher than the speed setpoint, increase [RA_MAX_THR_SPEED](#RA_MAX_THR_SPEED).
-   If it is the other way around decrease the parameter and repeat until you are satisfied with the setpoint tracking.
+   To further tune this parameter:
+
+   1. Set [RA_SPEED_P](#RA_SPEED_P) and [RA_SPEED_I](#RA_SPEED_I) to zero.
+      This way the speed is only controlled by the feed-forward term, which makes it easier to tune.
+   1. Put the rover in [Position mode](../flight_modes_rover/ackermann.md#position-mode) and then move the left stick of your controller up and/or down and hold it at a few different levels for a couple of seconds each.
+   1. Disarm the rover and from the flight log plot the _adjusted_forward_speed_setpoint_ and the _measured_forward_speed_ from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) message over each other.
+   1. If the actual speed of the rover is higher than the speed setpoint, increase [RA_MAX_THR_SPEED](#RA_MAX_THR_SPEED).
+      If it is the other way around decrease the parameter and repeat until you are satisfied with the setpoint tracking.
+
    :::
 
    ::: info
-   If your rover oscillates when driving a straight line in [Position mode](../flight_modes_rover/ackermann.md#position-mode) just set this parameter to the observed ground speed at maximum throttle in [Manual mode](../flight_modes_rover/ackermann.md#manual-mode) and complete steps 5-7 first before continuing the tuning of the closed loop speed control (Steps 2-4).
+   If your rover oscillates when driving a straight line in [Position mode](../flight_modes_rover/ackermann.md#position-mode), set this parameter to the observed ground speed at maximum throttle in [Manual mode](../flight_modes_rover/ackermann.md#manual-mode) and complete steps 5-7 first before continuing the tuning of the closed loop speed control (Steps 2-4).
    :::
 
 3. [RA_SPEED_P](#RA_SPEED_P) [-]: Proportional gain of the closed loop speed controller.
@@ -199,9 +202,14 @@ To configure set the following parameters:
 
    ::: tip
    Decreasing the parameter makes it more aggressive but can lead to oscillations.
-   Start with a value of 1 for [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN), put the rover in [Position mode](../flight_modes_rover/ackermann.md#position-mode) and while driving a straight line at approximately half the maximum speed observe its behaviour.
-   If the rover does not drive in a straight line, reduce the value of the parameter, if it oscillates around the path increase the value.
-   Repeat until you are satisfied with the behaviour.
+
+   To tune this:
+
+   1. Start with a value of 1 for [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN)
+   2. Put the rover in [Position mode](../flight_modes_rover/ackermann.md#position-mode) and while driving a straight line at approximately half the maximum speed observe its behaviour.
+   3. If the rover does not drive in a straight line, reduce the value of the parameter, if it oscillates around the path increase the value.
+   4. Repeat until you are satisfied with the behaviour.
+
    :::
 
 6. [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN): Minimum threshold for the lookahead distance used by the [pure pursuit algorithm](#pure-pursuit-guidance-logic).
@@ -221,15 +229,16 @@ The rover is now ready to drive in [Position mode](../flight_modes_rover/ackerma
 ## Auto Modes
 
 ::: warning
-For this mode to work properly [Manual Mode](#manual-mode), [Acro mode](#acro-mode)and [Position mode](#position-mode) must already be configured!
+For auto modes to work properly [Manual Mode](#manual-mode), [Acro mode](#acro-mode)and [Position mode](#position-mode) must already be configured!
 :::
 
 <a id="pure_pursuit_controller"></a>
+
 In [auto modes](../flight_modes_rover/ackermann.md#auto-modes) the autopilot takes over navigation tasks using the following control architecture:
 
 ![Pure Pursuit Controller](../../assets/airframes/rover/rover_ackermann/ackermann_rover_guidance_structure.png)
 
-The required parameters are separated into the following sections:
+The required parameter configuration is discussed in the following sections.
 
 ### Speed
 
@@ -240,10 +249,12 @@ The required parameters are separated into the following sections:
    Plan a mission for the rover to drive a square and observe how it slows down when approaching a waypoint.
    If the rover decelerates too quickly decrease the [RA_MAX_DECEL](#RA_MAX_DECEL) parameter, if it starts slowing down too early increase the parameter.
    If you observe a jerking motion as the rover slows down, decrease the [RA_MAX_JERK](#RA_MAX_JERK) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RA_MAX_DECEL](#RA_MAX_DECEL).
+
    These two parameters have to be tuned as a pair, repeat until you are satisfied with the behaviour.
    :::
 
-3. Plot the _adjusted_forward_speed_setpoint_ and \_measured_forward_speed from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) message over each other. If the tracking of these setpoints is not satisfactory adjust the values for [RA_SPEED_P](#RA_SPEED_P) and [RA_SPEED_I](#RA_SPEED_I).
+3. Plot the _adjusted_forward_speed_setpoint_ and \_measured_forward_speed from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) message over each other.
+   If the tracking of these setpoints is not satisfactory adjust the values for [RA_SPEED_P](#RA_SPEED_P) and [RA_SPEED_I](#RA_SPEED_I).
 
 ### Corner Cutting
 
@@ -254,39 +265,44 @@ This is done by scaling the acceptance radius based on the corner the rover has 
 
 The degree to which corner cutting is allowed can be tuned, or disabled, with the following parameters:
 
-:::note
+::: info
 The corner cutting effect is a tradeoff between how close you get to the waypoint and the smoothness of the trajectory.
 :::
 
 1. [NAV_ACC_RAD](#NAV_ACC_RAD) [m]: Default acceptance radius. This is also used as a lower bound for the acceptance radius scaling.
 2. [RA_ACC_RAD_MAX](#RA_ACC_RAD_MAX) [m]: The maximum the acceptance radius can be scaled to. Set equal to [NAV_ACC_RAD](#NAV_ACC_RAD) to disable the corner cutting effect.
-3. [RA_ACC_RAD_GAIN](#RA_ACC_RAD_GAIN) [-]: This tuning parameter is a multiplicand on the [calculated ideal acceptance radius](#mission-cornering-logic-info-only) to account for dynamic effects.
+3. [RA_ACC_RAD_GAIN](#RA_ACC_RAD_GAIN) [-]: This tuning parameter is a multiplicand on the [calculated ideal acceptance radius](#corner-cutting-logic) to account for dynamic effects.
 
    :::tip
-   Initially set this parameter to 1. If you observe the rover overshooting the corner, increase this parameter until you are satisfied with the behaviour.
+   Initially set this parameter to `1`.
+   If you observe the rover overshooting the corner, increase this parameter until you are satisfied with the behaviour.
    Note that the scaling of the acceptance radius is limited by [RA_ACC_RAD_MAX](#RA_ACC_RAD_MAX).
    :::
 
 ### Path Following
 
 The [pure pursuit](#pure-pursuit-guidance-logic) algorithm is used to calculate a lateral acceleration setpoint for the vehicle that is then close loop controlled.
-The close loop lateral acceleration was tuned in the configuration of the [Acro mode](#acro-mode) and the pure pursuit was tuned when setting up the [Position mode](#position-mode).
+The close loop lateral acceleration was tuned in the configuration of the [Acro mode](#acro-mode), and the pure pursuit was tuned when setting up the [Position mode](#position-mode).
 During any auto navigation task observe the behaviour of the rover.
+
 If you are unsatisfied with the path following, there are 3 steps to take:
 
-1. Plot the _lateral_acceleration_setpoint_ from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the _measured_lateral_acceleration_ from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other. If the tracking of these setpoints is not satisfactory adjust the values for [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) and [RA_LAT_ACCEL_I](#RA_LAT_ACCEL_I).
+1. Plot the _lateral_acceleration_setpoint_ from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the _measured\_lateral\_acceleration_ from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other.
+   If the tracking of these setpoints is not satisfactory adjust the values for [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) and [RA_LAT_ACCEL_I](#RA_LAT_ACCEL_I).
 2. Step 1 ensures accurate setpoint tracking, if the path following is still unsatisfactory you need to further tune the [pure pursuit](#pure-pursuit-guidance-logic) parameters.
 
 ## Pure Pursuit Guidance Logic
 
-The desired yaw setpoints are generated using a pure pursuit algorithm:
-The controller takes the intersection point between a circle around the vehicle and a line segment. In mission mode this line is usually constructed by connecting the previous and current waypoint:
+The desired yaw setpoints are generated using a pure pursuit algorithm.
+
+The controller takes the intersection point between a circle around the vehicle and a line segment.
+In mission mode this line is usually constructed by connecting the previous and current waypoint.
 
 ![Pure Pursuit Algorithm](../../assets/airframes/rover/flight_modes/pure_pursuit_algorithm.png)
 
 The radius of the circle around the vehicle is used to tune the controller and is often referred to as look-ahead distance.
 
-The look ahead distance sets how aggressive the controller behaves and is defined as $l_d = v \cdot k$.
+The look-ahead distance sets how aggressive the controller behaves and is defined as $l_d = v \cdot k$.
 It depends on the velocity $v$ of the rover and a tuning parameter $k$ that can be set with the parameter [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN).
 
 ::: info
@@ -307,7 +323,7 @@ To summarize, the following parameters can be used to tune the controller:
 
 ## Mission Cornering Logic (Info only)
 
-### Corner Cutting
+### Corner Cutting Logic
 
 To enable a smooth trajectory, the acceptance radius of waypoints is scaled based on the angle between a line segment from the current-to-previous and current-to-next waypoints.
 The ideal trajectory would be to arrive at the next line segment with the heading pointing towards the next waypoint.
