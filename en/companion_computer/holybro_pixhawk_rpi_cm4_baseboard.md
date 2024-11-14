@@ -353,7 +353,7 @@ To run a MAVSDK example, install mavsdk via pip, and try out an example from [MA
 
 #### XRCE-Client Ethernet Setup
 
-Now it is needed to enable MAVLink on the PX4 `Ethernet` port and enable `XRCE-DDS`.
+Now it is needed to enable enable `XRCE-DDS` on Ethernet.
 
 You can [modify the parameters](../advanced_config/parameters.md) in QGroundControl parameter editor, or using `param set` in the [MAVLINK shell](../debug/mavlink_shell.md).
 Enter the following commands to change the values in the MAVLink shell.
@@ -361,13 +361,7 @@ Based on [enable MAVLINK on Ethernet](../advanced_config/ethernet_setup.md#px4-m
 
 ```sh
 nsh>
-param set MAV_2_CONFIG     1000        # Configure Ethernet port
-param set MAV_2_BROADCAST  1           # Broadcast HEARTBEAT messages
-param set MAV_2_MODE       0           # Send the "normal" set of MAVLink messages (i.e. the GCS set)
-param set MAV_2_RADIO_CTL  0           # Disable software throttling of MAVLink traffic
-param set MAV_2_RATE       100000      # Maximum sending rate
-param set MAV_2_REMOTE_PRT 14550       # MAVLink Remote Port of 14550 (GCS)
-param set MAV_2_UDP_PRT    14550       # MAVLink Network Port of 14550 (GCS)
+param set MAV_2_CONFIG     0           # Just to verify there is no MAVLINK Ethernet instance running
 
 param set UXRCE_DDS_AG_IP  170461697   # The int32 version of 10.41.10.1
 param set UXRCE_DDS_CFG    1000        # Set Serial Configuration for uXRCE-DDS Client to Ethernet
