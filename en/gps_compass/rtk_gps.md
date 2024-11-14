@@ -22,7 +22,7 @@ It also highlights devices that connect via the CAN bus, and those which support
 
 Device | GPS | Compass | [DroneCAN](../dronecan/index.md) | [GPS Yaw](#configuring-gps-as-yaw-heading-source) | PPK
 :--- | :---: | :---:  | :---:  | :---:  | :---:
-[ARK RTK GPS](../dronecan/ark_rtk_gps.md) | F9P  | ICM42688p | &check; | [Dual F9P][DualF9P] |
+[ARK RTK GPS](../dronecan/ark_rtk_gps.md) | F9P  | BMM150 | &check; | [Dual F9P][DualF9P] |
 [ARK MOSAIC-X5 RTK GPS](../dronecan/ark_mosaic__rtk_gps.md) | Mosaic-X5  | IIS2MDC | &check; | [Septentrio Dual Antenna][SeptDualAnt] |
 [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | M8P/M8N | &check; | | |
 [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk2.md) | F9P |  &check; | | [Dual F9P][DualF9P] |
