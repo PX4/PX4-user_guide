@@ -19,7 +19,7 @@ Find more information:
 - Sensors
   - [Septentrio Mosaic-X5 GPS](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-x5)
     - Triple Band L1/L2/L5
-    - [AIM+ jamming protection] (https://www.septentrio.com/en/learn-more/advanced-positioning-technology/aim-anti-jamming-protection)
+    - [AIM+ jamming protection](https://www.septentrio.com/en/learn-more/advanced-positioning-technology/aim-anti-jamming-protection)
     - Update rate of 100 Hz
   - ST IIS2MDC Magnetometer
   - [Bosch BMP390 Barometer] (https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/pressure-sensors-bmp390.html)
