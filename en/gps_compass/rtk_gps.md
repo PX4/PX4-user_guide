@@ -31,7 +31,7 @@ Device | GPS | Compass | [DroneCAN](../dronecan/index.md) | [GPS Yaw](#configuri
 [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) | M8P | HMC5983 | | |
 [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3) | M8P | ICM20948 | &check; | |
 [Drotek SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) | F9P | RM3100 | | [Dual F9P][DualF9P] |
-[DATAGNSS GEM1305 RTK Receiver][DATAGNSS GEM1305 RTK] | CYNOSURE IV | &cross; | | &cross; |
+[DATAGNSS GEM1305 RTK Receiver][DATAGNSS GEM1305 RTK] | TAU951M | &cross; | | &cross; |
 [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | FB672, FB6A0 | &check; | | |
 [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) | F9P | IST8310 | | |
 [Holybro H-RTK ZED-F9P RTK Rover (DroneCAN variant)](../dronecan/holybro_h_rtk_zed_f9p_gps.md) | F9P | RM3100 | &check; | [Dual F9P][DualF9P] |
