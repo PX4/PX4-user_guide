@@ -2,18 +2,27 @@
 
 GEM1305 is a RTK receiver with antenna designed and manufactured by [DATAGNSS](https://www.datagnss.com/).
 
-GEM1305 is based on the new generation CYNOSURE IV dual-core GNSS SoC. It supports RTK functionality with a maximum data update rate of 10Hz.
+GEM1305 is based on the new generation CYNOSURE IV dual-core GNSS SoC.
+It supports RTK functionality with a maximum data update rate of 10Hz.
 
 <img src="../../assets/hardware/gps/datagnss_gem1305/datagnss-gem1305-02.png" width="500px" alt="DATAGNSS GEM1305 RTK Receiver">
-<img src="../../assets/hardware/gps/datagnss_gem1305/datagnss-gem1305-03.png" width="500px" alt="DATAGNSS GEM1305 RTK Receiver">
-<img src="../../assets/hardware/gps/datagnss_gem1305/NANO-RTK-with-case-ant-600x.png" width="500px" alt="DATAGNSS NANO RTK Receiver">
 
+::: info
 
-> **Note:** GEM1305/NANO Series RTK doesn't support Moving Base mode yet.
+- GEM1305 RTK doesn't support moving base mode yet.
+- GEM1305 RTK does not include a compass.
+
+:::
 
 ## Where to Buy
 
-- [DATAGNSS website](https://www.datagnss.com/)
+- [GEM1305 RTK receiver with antenna](https://www.datagnss.com/collections/gnss-for-drone/products/gem1305) (www.datagnss.com)
+
+  <img src="../../assets/hardware/gps/datagnss_gem1305/datagnss-gem1305-03.png" width="500px" alt="DATAGNSS GEM1305 RTK Receiver">
+
+- [DGM10 RTK Receiver](https://www.datagnss.com/collections/gnss-for-drone/products/dgm10-rtk-receiver) (same receiver in a casing).
+
+  ![dgm10_rtk_receiver.png](../../assets/hardware/gps/datagnss_gem1305/dgm10_rtk_receiver.png)
 
 ## Key Features
 
@@ -39,10 +48,10 @@ GEM1305 is based on the new generation CYNOSURE IV dual-core GNSS SoC. It suppor
 
 ## Interface
 
-- UART, 230400bps default
+- UART: 230400bps default
 - SMA connector for antenna
 - Output rate 5Hz default, up to 10Hz
-- Main power supply, 4.7~5.2V
+- Main power supply: 4.7~5.2V
 
 ## Protocol
 
@@ -51,20 +60,20 @@ GEM1305 is based on the new generation CYNOSURE IV dual-core GNSS SoC. It suppor
 
 ## Environment
 
-- Operating temp. -20~85℃
+- Operating temp. -20~85°C
 
-## Dimension and weight
+## Dimension and Weight
 
 - 55x55x12mm
 - 50g (GEM1305) 26g (NANO with Helix)
 
-## Pin definition
+## Pinout
 
 The board is connected to the autopilot via UART interface.
 
 ![GEM1305 connector](../../assets/hardware/gps/datagnss_gem1305/GEM1305-connector.png)
 
-The 1.25mm pitch 6P connector (from Left PIN1 to PIN6):
+The 1.25mm pitch 6P connector (from left: PIN1 to PIN6):
 
 - 1: GND
 - 2: NC
@@ -73,9 +82,17 @@ The 1.25mm pitch 6P connector (from Left PIN1 to PIN6):
 - 5: Tx
 - 6: 5V
 
-Please note that the board only includes RTK and doesn't include compass.
+The board does not include a compass and so does not require connections for a compass part.
 
-## Setup
+## Base Setup (GCS)
+
+The NANO RTK Receiver is recommended for the base station setup: we don't use the GEM1305 because we don't need such small form factor, and the NANO RTK reciever is easier to setup.
+
+<img src="../../assets/hardware/gps/datagnss_gem1305/NANO-RTK-with-case-ant-600x.png" width="500px" alt="DATAGNSS NANO RTK Receiver">
+
+<!-- how? -->
+
+## Rover Setup (PX4)
 
 RTK setup on PX4 via _QGroundControl_ is plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
@@ -83,7 +100,8 @@ RTK setup on PX4 via _QGroundControl_ is plug and play (see [RTK GPS](../gps_com
 
 RTK technology can greatly improve the accuracy of positioning.
 
-RTK technology requires a base and a rover, with the base placed on the ground, which is referred to as the rover on the drone. The data from the base needs to be transmitted to the drone via telemetry radio and inputted into the RTK receiver on the rover.
+RTK technology requires a base and a rover, with the base placed on the ground, which is referred to as the rover on the drone.
+The data from the base needs to be transmitted to the drone via telemetry radio and inputted into the RTK receiver on the rover.
 
 The 6-pins connector provides the interface for RTK, the 2.54mm Pin Header also support for RTK data input and output.
 You could connect the 6-pins connector or Pin Header to the flight controller's GPS port.
@@ -95,11 +113,11 @@ Refer to [How to setup Base station](https://wiki.datagnss.com/index.php/GEM1305
 - GEM1305 RTK Receiver
 - DG-6P-C01, GH-1.25mm-6P cable
 
-## Resource
+## Resources
 
 - [GEM1305 2D drawing file](https://wiki.datagnss.com/index.php/GEM1305)
 - [NANO RTK Receiver 2D drawing file](https://wiki.datagnss.com/images/3/31/EVK-DG-1206_V.2.0.pdf)
-- [DATAGNSS WiKi](https://wiki.datagnss.com)
+- [GEM1305 Wiki](https://wiki.datagnss.com/index.php/GEM1305) (DATAGNSS WiKi)
 - [HED-10L Heading RTK Receiver](https://wiki.datagnss.com/index.php/HED-10L)
 
 ## More information
