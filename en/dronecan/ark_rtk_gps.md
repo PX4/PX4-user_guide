@@ -10,6 +10,10 @@ Order this module from:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-rtk-gps/) (US)
 
+Find more information:
+
+- [ARK RTK GPS Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-rtk-gps)
+
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_RTK_GPS)

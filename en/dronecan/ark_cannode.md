@@ -12,6 +12,11 @@ Order this module from:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-cannode/) (US)
 
+Find more information:
+
+- [ARK CANnode Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-cannode)
+
+
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_CANNODE)

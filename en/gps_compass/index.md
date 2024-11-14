@@ -24,7 +24,8 @@ These have been tested by the PX4 dev team, or which are popular within the PX4 
 
 | Device                                                                 |     GPS     |          Compass          | [CAN](../dronecan/index.md) | Buzzer / SafeSw / LED | Notes                       |
 | :--------------------------------------------------------------------- | :---------: | :-----------------------: | :-------------------------: | :-------------------: | :-------------------------- |
-| [ARK GPS](https://arkelectron.com/product/ark-gps/)                    |     M9N     |         ICM42688p         |           &check;           |        &check;        | + Baro, IMU                 |
+| [ARK GPS](../dronecan/ark_gps.md)                    |     M9N     |         ICM42688p         |           &check;           |        &check;        | + Baro, IMU                 |
+| [ARK TESEO GPS](../dronecan/ark_teseo_gps.md)                    |     Teseo-LIV4F     |         ST ICM42688p          |           &check;           |        &check;        | + Baro, IMU                 |
 | [Avionics Anonymous UAVCAN GNSS/Mag][avionics_anon_can_gnss]           |   SAM-M8Q   |         MMC5983MA         |           &check;           |        &cross;        |
 | [CUAV NEO 3 GPS](../gps_compass/gps_cuav_neo_3.md)                     |     M9N     |          IST8310          |                             |        &check;        |
 | [CUAV NEO 3 Pro GPS](../gps_compass/gps_cuav_neo_3pro.md)              |     M9N     |          RM3100           |           &check;           |        &check;        | + Baro                      |

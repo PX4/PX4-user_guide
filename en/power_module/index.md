@@ -25,6 +25,8 @@ This section provides information about a number of power modules and power dist
   - [Holybro PM06 V2](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
   - [Sky-Drones SmartAP PDB](../power_module/sky-drones_smartap-pdb.md)
 - Digital (I2C) voltage and current power modules (for Pixhawk FMUv6X and FMUv5X derived controllers):
+  - [ARK PAB Power Module](../power_module/ark_pab_power_module.md)
+  - [ARK 12S PAB Power Module](../power_module/ark_12s_pab_power_module.md)
   - [Holybro PM02D](../power_module/holybro_pm02d.md)
   - [Holybro PM03D](../power_module/holybro_pm03d.md)
 - [DroneCAN](../dronecan/index.md) power modules
