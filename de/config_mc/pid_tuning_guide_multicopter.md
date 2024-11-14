@@ -28,10 +28,10 @@ Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE
 
 ### Rate Controller
 
-The rate controller is the inner-most loop with three independent PID controllers to control the body rates (yaw, pitch, roll).
+The rate controller is the inner-most loop with three independent PID controllers to control the body rates (roll, pitch, yaw).
 
 :::note
-A well-tuned rate controller is very important as it affects _all_ flight modes. :::note A well-tuned rate controller is very important as it affects _all_ flight modes.
+A well-tuned rate controller is very important as it affects _all_ flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes_mc/position.md), for example, as "twitches" or oscillations (the vehicle will not hold perfectly still in the air).
 :::
 
 #### Rate Controller Architecture/Form
@@ -83,13 +83,20 @@ The related parameters for the tuning of the PID rate controllers are:
 - Pitch rate control ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D), [MC_PITCHRATE_K](../advanced_config/parameter_reference.md#MC_PITCHRATE_K))
 - Yaw rate control ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D), [MC_YAWRATE_K](../advanced_config/parameter_reference.md#MC_YAWRATE_K))
 
-The rate controller can be tuned in [Acro mode](../flight_modes_mc/acro.md) or [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md):
+The rate controller can be tuned in [Acro mode](../flight_modes_mc/acro.md) or [Stabilized mode](../flight_modes_mc/manual_stabilized.md):
 
-- _Acro mode_ is preferred, but is harder to fly. If you choose this mode, disable all stick expo:
+- _Acro mode_ is preferred because it allows for isolated rate control testing. However it is significantly harder to pilot.
+
+::: warning
+If you choose this mode, you must [disable all stick expo and have reasonable maximum rates for all axes](../flight_modes_mc/acro.md#stick-input-mapping):
   - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
   - `MC_ACRO_Y_MAX` = 100
-- _Manual/Stabilized mode_ is simpler to fly, but it is also more difficult to see if the attitude or the rate controller needs more tuning.
+
+  For PX4 v1.15 and later the defaults are set for this purpose to a maximum rate of 100°/s linear mapping for all axes.
+:::
+
+- _Stabilized mode_ is simpler to fly, but it is also much more difficult to distinguish if attitude or rate controller causes a certain behavior.
 
 If the vehicle does not fly at all:
 
@@ -158,7 +165,7 @@ This controls the orientation and outputs desired body rates with the following 
 
 The attitude controller is much easier to tune. In fact, most of the time the defaults do not need to be changed at all.
 
-To tune the attitude controller, fly in _Manual/Stabilized mode_ and increase the **P** gains gradually. If you start to see oscillations or overshoots, the gains are too high.
+To tune the attitude controller, fly in _Stabilized mode_ and increase the **P** gains gradually. If you start to see oscillations or overshoots, the gains are too high.
 
 The following parameters can also be adjusted. These determine the maximum rotation rates around all three axes:
 
