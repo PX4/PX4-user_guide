@@ -46,9 +46,11 @@ The roll, pitch, and yaw input stick mapping for Acro mode using the values abov
 :::info
 математичне відношення:
 
-$\mathrm{y} = r(f \cdot x^3 + x(1-f)) (1-g)/(1-g |x|)$, де `f = MC_ACRO_EXPO` або `MC_ACRO_EXPO_Y`, `g = MC_ACRO_SUPEXPO` або `MC_ACRO_SUPEXPOY`,і `r` - максимальна швидкість.
+$$\mathrm{y} = r(f \cdot x^3 + x(1-f)) (1-g)/(1-g |x|)$$
 
-Ви можете експериментувати з відношеннями [тут](https://www.desmos.com/calculator/yty5kgurmc).
+Where `f = MC_ACRO_EXPO` or `MC_ACRO_EXPO_Y`, `g = MC_ACRO_SUPEXPO` or `MC_ACRO_SUPEXPOY`, and `r` is the maximum rate.
+
+You can experiment with the relationships graphically using the [PX4 SuperExpo calculator](https://www.desmos.com/calculator/yty5kgurmc).
 :::
 
 ## Параметри
