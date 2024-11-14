@@ -38,7 +38,6 @@ Find more information:
   - Weight: 15.5 g
   - Dimensions: 3.7 cm x 2.2 cm x 1.3 cm
 
-  Here’s the content in the requested format:
 
 ---
 
