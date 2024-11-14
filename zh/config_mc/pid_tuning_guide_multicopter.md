@@ -27,9 +27,9 @@
 
 ### 角速度控制器
 
-角速度控制是最内环的控制器，它用三个独立的PID控制来控制机身角速度(航向，俯仰，横滚)。
+The rate controller is the inner-most loop with three independent PID controllers to control the body rates (roll, pitch, yaw).
 
-::: info 把角速度控制器调好非常重要，因为它会影响 _所有_ 飞行模式。 角速度控制器调得好不好可以在[位置模式](../flight_modes_mc/position.md)中体现出来，举个例子，你的飞机可能会「抽搐」（飞行器无法很好地悬停在空中）
+::: info 把角速度控制器调好非常重要，因为它会影响 _所有_ 飞行模式。 A badly tuned rate controller will be visible in [Position mode](../flight_modes_mc/position.md), for example, as "twitches" or oscillations (the vehicle will not hold perfectly still in the air).
 :::
 
 #### 速率控制器架构/形式
@@ -81,13 +81,20 @@ _并行模式_ 是最简单的形式，也是教科书中最常用的形式。 �
 - Pitch rate control ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D), [MC_PITCHRATE_K](../advanced_config/parameter_reference.md#MC_PITCHRATE_K))
 - Yaw rate control ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D), [MC_YAWRATE_K](../advanced_config/parameter_reference.md#MC_YAWRATE_K))
 
-速率控制器可以在 [特技 Acro 模式](../flight_modes_mc/acro.md) 或 [手动/自稳模式](../flight_modes_mc/manual_stabilized.md) 中进行调校：
+The rate controller can be tuned in [Acro mode](../flight_modes_mc/acro.md) or [Stabilized mode](../flight_modes_mc/manual_stabilized.md):
 
-- _Acro mode_ 更推荐使用，但这种模式比较难飞。 如果你选择特技模式，记得把特技模式指数因子都禁用了：
+- _Acro mode_ is preferred because it allows for isolated rate control testing. However it is significantly harder to pilot.
+
+::: warning
+If you choose this mode, you must [disable all stick expo and have reasonable maximum rates for all axes](../flight_modes_mc/acro.md#stick-input-mapping):
   - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
   - `MC_ACRO_Y_MAX` = 100
-- _手动/自稳模式_更好飞，但这种模式也比较难观察姿态和角速度控制器到底调好了没。
+
+  For PX4 v1.15 and later the defaults are set for this purpose to a maximum rate of 100°/s linear mapping for all axes.
+:::
+
+- _Stabilized mode_ is simpler to fly, but it is also much more difficult to distinguish if attitude or rate controller causes a certain behavior.
 
 万一你的飞行器完全飞不起来：
 
@@ -156,7 +163,7 @@ _手动模式_和_特技模式_的调参套路差不多：一步步地迭代调�
 
 姿态角控制环调起来就容易多了。 其实大多数时候默认值就够了，完全不用调。
 
-角度控制环可以在_手动/自稳模式_下调，逐渐增大**P**增益。 如果看到有振荡或者超调，就说明增益调得太高了。
+To tune the attitude controller, fly in _Stabilized mode_ and increase the **P** gains gradually. 如果看到有振荡或者超调，就说明增益调得太高了。
 
 下面这几个参数也可以调整 这些参数决定了绕三个轴的最大角速度：
 

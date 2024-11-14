@@ -28,9 +28,9 @@ PX4 컨트롤러의 튜닝 방법에 대한 자세한 정보를 제공합니다.
 
 ### 속도 컨트롤러
 
-속도 컨트롤러는 기체 속도(요, 피치, 롤)를 제어하는 3 개의 독립적인 PID 컨트롤러를 가지고 있는 가장 안쪽의 루프입니다.
+The rate controller is the inner-most loop with three independent PID controllers to control the body rates (roll, pitch, yaw).
 
-::: info A well-tuned rate controller is very important as it affects _all_ flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes_mc/position.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+::: info A well-tuned rate controller is very important as it affects _all_ flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes_mc/position.md), for example, as "twitches" or oscillations (the vehicle will not hold perfectly still in the air).
 :::
 
 #### 속도 컨트롤러 아키텍처/양식
@@ -83,13 +83,20 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 - Pitch 속도 제어 ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D), [MC_PITCHRATE_K](../advanced_config/parameter_reference.md#MC_PITCHRATE_K))
 - Yaw 속도 제어 ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D), [MC_YAWRATE_K](../advanced_config/parameter_reference.md#MC_YAWRATE_K))
 
-The rate controller can be tuned in [Acro mode](../flight_modes_mc/acro.md) or [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md):
+The rate controller can be tuned in [Acro mode](../flight_modes_mc/acro.md) or [Stabilized mode](../flight_modes_mc/manual_stabilized.md):
 
-- _Acro mode_ is preferred, but is harder to fly. 이 모드를 선택하는 경우 모든 스틱 엑스포를 비활성화하십시오.
+- _Acro mode_ is preferred because it allows for isolated rate control testing. However it is significantly harder to pilot.
+
+::: warning
+If you choose this mode, you must [disable all stick expo and have reasonable maximum rates for all axes](../flight_modes_mc/acro.md#stick-input-mapping):
   - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
   - `MC_ACRO_Y_MAX` = 100
-- _Manual/Stabilized mode_ is simpler to fly, but it is also more difficult to see if the attitude or the rate controller needs more tuning.
+
+  For PX4 v1.15 and later the defaults are set for this purpose to a maximum rate of 100°/s linear mapping for all axes.
+:::
+
+- _Stabilized mode_ is simpler to fly, but it is also much more difficult to distinguish if attitude or rate controller causes a certain behavior.
 
 기체 비행이 되지 않는 경우:
 
@@ -158,7 +165,7 @@ The actual tuning is roughly the same in _Manual mode_ or _Acro mode_: You itera
 
 자세 컨트롤러의 튜닝은 비교적 간단합니다. 대부분 기본값을 변경할 필요가 없습니다.
 
-To tune the attitude controller, fly in _Manual/Stabilized mode_ and increase the **P** gains gradually. 진동이나 오버슈트가 나타나는 것은 게인이 너무 높은 것입니다.
+To tune the attitude controller, fly in _Stabilized mode_ and increase the **P** gains gradually. 진동이나 오버슈트가 나타나는 것은 게인이 너무 높은 것입니다.
 
 아래의 매개변수를 조정할 수 있습니다. 세 축의 최대 회전 속도를 결정합니다.
 

@@ -28,9 +28,9 @@
 
 ### Регулятор швидкості
 
-Контролер швидкості - це внутрішній цикл з трьома незалежними ПІД-регуляторами для керування швидкостями тіла (курс, тангаж, крен).
+The rate controller is the inner-most loop with three independent PID controllers to control the body rates (roll, pitch, yaw).
 
-:::info Добре налаштований регулятор швидкості дуже важливий, оскільки він впливає на _всі_ режими польоту. Погано налаштований регулятор швидкості буде видно в режимі [Режим позиціонування](../flight_modes_mc/position.md), наприклад, як "судороги" (літальний апарат не буде тримати себе абсолютно нерухомо в повітрі).
+:::info Добре налаштований регулятор швидкості дуже важливий, оскільки він впливає на _всі_ режими польоту. A badly tuned rate controller will be visible in [Position mode](../flight_modes_mc/position.md), for example, as "twitches" or oscillations (the vehicle will not hold perfectly still in the air).
 :::
 
 #### Архітектура/Форма контролера швидкості
@@ -82,13 +82,20 @@ PX4 підтримує дві (математично еквівалентні) 
 - Контроль кута нахилу ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D), [MC_PITCHRATE_K](../advanced_config/parameter_reference.md#MC_PITCHRATE_K))
 - Контроль швидкості кочення ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D), [MC_YAWRATE_K](../advanced_config/parameter_reference.md#MC_YAWRATE_K))
 
-Контролер швидкості можна налаштувати в [режимі Acro](../flight_modes_mc/acro.md) або в [режимі Ручного/Стабілізованого керування](../flight_modes_mc/manual_stabilized.md):
+The rate controller can be tuned in [Acro mode](../flight_modes_mc/acro.md) or [Stabilized mode](../flight_modes_mc/manual_stabilized.md):
 
-- _Режим Акро_ є бажаним, але складніше керувати. Якщо ви виберете цей режим, вимкніть усі stick expo:
+- _Acro mode_ is preferred because it allows for isolated rate control testing. However it is significantly harder to pilot.
+
+::: warning
+If you choose this mode, you must [disable all stick expo and have reasonable maximum rates for all axes](../flight_modes_mc/acro.md#stick-input-mapping):
   - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
   - `MC_ACRO_Y_MAX` = 100
-- _Ручний/стабілізований режим_ простіше керувати, але також важче бачити, чи потрібні додаткові налаштування для контролера кута або швидкості.
+
+  For PX4 v1.15 and later the defaults are set for this purpose to a maximum rate of 100°/s linear mapping for all axes.
+:::
+
+- _Stabilized mode_ is simpler to fly, but it is also much more difficult to distinguish if attitude or rate controller causes a certain behavior.
 
 Якщо транспортний засіб зовсім не літає:
 
@@ -157,7 +164,7 @@ PX4 підтримує дві (математично еквівалентні) 
 
 Контролер нахилу набагато простіше налаштовувати. Фактично, більшість часу за замовчуванням не потрібно нічого змінювати.
 
-Для налаштування контролера нахилу літайте в режимі _Manual/Stabilized_ та поступово збільшуйте значення **P**-коефіцієнтів. Якщо почнуть виникати коливання або перехід, коефіцієнти занадто великі.
+To tune the attitude controller, fly in _Stabilized mode_ and increase the **P** gains gradually. Якщо почнуть виникати коливання або перехід, коефіцієнти занадто великі.
 
 Також можна налаштувати наступні параметри. Вони визначають максимальні швидкості обертання навколо всіх трьох осей:
 
