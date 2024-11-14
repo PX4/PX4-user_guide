@@ -36,7 +36,7 @@ For this mode to work properly the [Basic Setup](#basic-setup) must've already b
 
 The basic setup already covers the minimum setup required to use the rover in [Manual mode](../flight_modes_rover/ackermann.md#manual-mode).
 
-However, this mode is also affected by the steering slew rate and acceleration/deceleration limits. This configuration becomes mandatory for subsequent modes, which is why we do this setup here.  
+However, this mode is also affected by the steering slew rate and acceleration/deceleration limits. This configuration becomes mandatory for subsequent modes, which is why we do this setup here.
 Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
 
 1. [RA_WHEEL_BASE](#RA_WHEEL_BASE) [m]: Measure the distance from the back to the front wheels.
@@ -55,14 +55,22 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
    <a id="RA_MAX_ACCEL_CONSIDERATIONS"></a>
 
    :::tip
-   This value is set to your preference, there is no general rule of thumb since it depends entirely on your rover and use case.
-   The most straightforward approach is the following: Your rover has a maximum possible acceleration which is determined by the maximum torque the motor can supply.
-   From a standstill, give the rover full throttle until it reaches the maximum speed. Disarm the rover and plot the _measured_forward_speed_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md).
-   Divide the maximum speed by the time it took to reach it and set this as the value for [RA_MAX_ACCEL](#RA_MAX_ACCEL).  
-   Some RC rovers have enough torque to lift up if the maximum acceleration is not limited. If that is the case, set [RA_MAX_ACCEL](#RA_MAX_ACCEL) to a low value, give the rover full throttle
-   from a standstill and observe its behaviour. Increase [RA_MAX_ACCEL](#RA_MAX_ACCEL) until the rover starts to lift up during the acceleration. Set [RA_MAX_ACCEL](#RA_MAX_ACCEL) to the highest value
-   that does not cause the rover to lift up.
-   :::
+   Your rover has a maximum possible acceleration which is determined by the maximum torque the motor can supply.
+   This may or may not be appropriate for your vehicle and use case.
+
+   One approach to determine an appropriate value is:
+
+   1. From a standstill, give the rover full throttle until it reaches the maximum speed.
+   1. Disarm the rover and plot the _measured_forward_speed_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md).
+   1. Divide the maximum speed by the time it took to reach it and set this as the value for [RA_MAX_ACCEL](#RA_MAX_ACCEL).
+
+   Some RC rovers have enough torque to lift up if the maximum acceleration is not limited.
+   If that is the case:
+
+   1. Set [RA_MAX_ACCEL](#RA_MAX_ACCEL) to a low value, give the rover full throttle from a standstill and observe its behaviour.
+   1. Increase [RA_MAX_ACCEL](#RA_MAX_ACCEL) until the rover starts to lift up during the acceleration.
+   1. Set [RA_MAX_ACCEL](#RA_MAX_ACCEL) to the highest value that does not cause the rover to lift up.
+      :::
 
 5. [RA_MAX_DECEL](#RA_MAX_DECEL) [m/s^2]: Maximum deceleration you want to allow for your rover.
 
@@ -79,13 +87,13 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
    :::tip
    This value is set to your preference, there is no general rule of thumb since it depends entirely on your rover and use case.
    For bigger rovers there might be a mechanical limit that is easy to identify by steering the rover at a standstill and increasing
-   [RA_MAX_STR_RATE](#RA_MAX_STR_RATE) until you observe the steering rate to be limited by the parameter.  
+   [RA_MAX_STR_RATE](#RA_MAX_STR_RATE) until you observe the steering rate to be limited by the parameter.
    For smaller rovers you might observe the steering to be too aggressive. Set [RA_MAX_STR_RATE](#RA_MAX_STR_RATE) to a low value and steer the rover at a standstill.
    Increase the parameter until you reach the maximum steering rate you are comfortable with.
    :::
 
    :::warning
-   A low maximum steering rate makes the rover worse at tracking steering setpoints which can lead to a poor performance in the subsequent modes.
+   A low maximum steering rate makes the rover worse at tracking steering setpoints, which can lead to a poor performance in the subsequent modes.
    :::
 
 ## Acro Mode
@@ -94,17 +102,27 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
 For this mode to work properly [Manual mode](#acro-mode) must've already been configured!
 :::
 
-To set up [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
+To set up [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) configure the following [parameters](../advanced_config/parameters.md) in QGroundControl:
 
 1. [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL): Maximum lateral acceleration you want to allow for your rover.
 
    :::tip
-   This value is set to your preference, there is no general rule of thumb since it depends entirely on your rover and use case.
-   Limiting the lateral acceleration is necessary if the rover is prone rolling over, loosing traction at high speeds or if passenger comfort is important.  
-   Small rovers especially can be prone to rolling over when steering aggressively at high speeds. If this is the case, set [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) to a small value and drive the rover at full throttle and with the right stick all the way to the left or right in [Acro mode](../flight_modes_rover/ackermann.md#acro-mode). Increase [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) until the wheels of the rover start to lift up. Set [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) to the highest value that does not cause the rover to lift up.  
+   Limiting the lateral acceleration is necessary if the rover is prone rolling over, loosing traction at high speeds or if passenger comfort is important.
+   Small rovers especially can be prone to rolling over when steering aggressively at high speeds.
+
+   If this is the case:
+
+   1. In [Acro mode](../flight_modes_rover/ackermann.md#acro-mode), set [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) to a small value and drive the rover at full throttle and with the right stick all the way to the left or right.
+   1. Increase [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) until the wheels of the rover start to lift up.
+   1. Set [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) to the highest value that does not cause the rover to lift up.
+
    The same approach of slowly increasing [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) from a small value can be taken if you encounter any of the other aforementioned issues.
-   If none of these points is a concern, do the following: In [Manual mode](#manual-mode) drive the rover at full throttle and with the maximum steering angle
-   plot the _measured_lateral_acceleration_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) and enter the highest observed value for [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL).
+
+   If none of these points is a concern, do the following:
+
+   1. In [Manual mode](#manual-mode) drive the rover at full throttle and with the maximum steering angle.
+   1. Plot the _measured_lateral_acceleration_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) and enter the highest observed value for [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL).
+
    :::
 
 2. [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) [-]: Proportional gain of the closed loop lateral acceleration controller.
@@ -112,10 +130,15 @@ To set up [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) navigate to 
    The proportional gain is multiplied with this error and that value is added to the motor command. This way disturbances like uneven grounds or external forces can be compensated.
 
    :::tip
-   To tune this parameter put the rover in [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) and hold the throttle stick and the right stick at a few different levels for a couple of seconds each.
-   Disarm the rover and from the flight log plot the _lateral_acceleration_setpoint_ from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the _measured_lateral_acceleration_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other. Increase [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) if the measured value does not track the setpoint fast enough or decrease it if the measurement overshoots the setpoint by too much. Repeat until you are satisfied with the behaviour.  
-   Note that the lateral acceleration measurement is very noise and therefor needs to be heavily filtered. This means that the measurement is slightly delayed, so if you observe a slight offset in time between the setpoint
-   and measurement, that is not something that can be fixed with tuning.
+   To tune this parameter:
+
+   1. Put the rover in [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) and hold the throttle stick and the right stick at a few different levels for a couple of seconds each.
+   1. Disarm the rover and from the flight log plot the _lateral_acceleration_setpoint_ from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the _measured_lateral_acceleration_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other.
+   1. Increase [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) if the measured value does not track the setpoint fast enough or decrease it if the measurement overshoots the setpoint by too much.
+   1. Repeat until you are satisfied with the behaviour.
+
+   Note that the lateral acceleration measurement is very noise and therefore needs to be heavily filtered.
+   This means that the measurement is slightly delayed, so if you observe a slight offset in time between the setpoint and measurement, that is not something that can be fixed with tuning.
    :::
 
 3. (Optional) [RA_LAT_ACCEL_I](#RA_LAT_ACCEL_I) [-]: Integral gain of the closed loop lateral acceleration controller.
@@ -240,7 +263,7 @@ The corner cutting effect is a tradeoff between how close you get to the waypoin
 3. [RA_ACC_RAD_GAIN](#RA_ACC_RAD_GAIN) [-]: This tuning parameter is a multiplicand on the [calculated ideal acceptance radius](#mission-cornering-logic-info-only) to account for dynamic effects.
 
    :::tip
-   Initially set this parameter to 1. If you observe the rover overshooting the corner, increase this parameter until you are satisfied with the behaviour.  
+   Initially set this parameter to 1. If you observe the rover overshooting the corner, increase this parameter until you are satisfied with the behaviour.
    Note that the scaling of the acceptance radius is limited by [RA_ACC_RAD_MAX](#RA_ACC_RAD_MAX).
    :::
 
