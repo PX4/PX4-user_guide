@@ -75,7 +75,7 @@ Two helper scripts are available for resetting the flight controller:
 If you’ve purchased the [ARK Jetson Orin NX NDAA Bundle](https://arkelectron.com/product/ark-jetson-orin-nx-ndaa-bundle/), Jetpack 6 (Ubuntu 22.04) and ARK-OS are pre-installed.
 
 ### ARK Jetson Kernel GitHub Repository
-This [repository](https://github.com/ARK-Electronics/ark_jetson_kernel) includes helper scripts for kernel download and compilation. Please follow the README for guidance.
+This [repository](https://github.com/ARK-Electronics/ark_jetson_kernel) includes helper scripts for kernel download and compilation. Please follow the README to update to the latest Jetpack or to perform an initial flash.
 
 To flash the kernel, connect the Jetson to your Host PC via Micro USB, and boot the Jetson while holding the Force Recovery button.
 
