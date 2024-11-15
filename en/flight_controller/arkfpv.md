@@ -34,6 +34,41 @@ See the documentation [Ark Electronics GitBook](https://arkelectron.gitbook.io/a
   - 2 MB Flash
   - 1 MB RAM
 
+## Connectors
+
+- USB C
+  - VBUS In, USB
+- PWM
+  - VBAT In, Analog Current Input, Telem RX, 4x PWM
+  - JST-GH 8 Pin
+- PWM EXTRA
+  - 5x PWM
+  - JST-SH 6 Pin
+- RC INPUT
+  - 5V Out, UART
+  - JST-GH 4 Pin
+- POWER AUX
+  - 12V Out, VBAT In/Out
+  - JST-GH 3 Pin
+- TELEM
+  - 5V Out, UART with flow control
+  - JST-GH 6 Pin
+- GPS
+  - 5V Out, UART, I2C
+  - JST-GH 6 Pin
+- CAN
+  - 5V Out, CAN
+  - JST-GH 4 Pin
+- VTX
+  - 12V Out, UART TX/RX, UART RX
+  - JST-GH 6 Pin
+- SPI (OSD or External IMU)
+  - 5V Out, SPI
+  - JST-SH 8 Pin
+- DEBUG
+  - 3.3V Out, UART, SWD
+  - JST-SH 6 Pin
+
 ## Power Requirements
 
 - 5.5V - 54V
@@ -43,6 +78,10 @@ See the documentation [Ark Electronics GitBook](https://arkelectron.gitbook.io/a
 
 - Weight: 7.5 g g with MicroSD card
 - Dimensions: 3.6 x 3.6 x 0.8 cm
+- USA Built - NDAA compliant
+- Heater: 1W for warming sensors in extreme cold
+- LED Indicators
+- MicroSD Slot
 
 ## Pinout
 
