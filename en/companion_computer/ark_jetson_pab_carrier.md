@@ -57,7 +57,7 @@ For the USB port to be enabled on the ARKV6X flight controller, the VBUS_SENSE p
 
 ### UART
 
-The UART connection between the Jetson and the autopilot is on Jetson UART1, which appears as `/dev/ttyTHS0` in Jetpack 5 and `/dev/ttyTHS1` in Jetpack 6. This connects to Telem2 on the Pixhawk Autopilot Bus and has been tested up to 3 Mbps, though higher baud rates may be possible. Flow control needs to be set to "Force Off" when using Telem2 for MAVLINK (`MAV_X_FLOW_CTRL` set to "0").
+The UART connection between the Jetson and the autopilot is on Jetson UART1, which appears as `/dev/ttyTHS0` in Jetpack 5 and `/dev/ttyTHS1` in Jetpack 6. This connects to Telem2 on the Pixhawk Autopilot Bus and has been tested up to 3 Mbps, though higher baud rates may be possible.
 
 ### Flight Controller Reset
 
@@ -72,7 +72,7 @@ Two helper scripts are available for resetting the flight controller:
 
 ## Flashing Guide
 
-If you’ve purchased the [ARK Jetson Orin NX NDAA Bundle](https://arkelectron.com/product/ark-jetson-orin-nx-ndaa-bundle/), Jetpack 6 (Ubuntu 22.04) and ARK-OS are pre-installed.
+If you’ve purchased the [ARK Jetson Orin NX NDAA Bundle](https://arkelectron.com/product/ark-jetson-orin-nx-ndaa-bundle/), Jetpack 6 (Ubuntu 22.04) and [ARK-OS](https://github.com/ARK-Electronics/ARK-OS) are pre-installed.
 
 ### ARK Jetson Kernel GitHub Repository
 This [repository](https://github.com/ARK-Electronics/ark_jetson_kernel) includes helper scripts for kernel download and compilation. Please follow the README to update to the latest Jetpack or to perform an initial flash.

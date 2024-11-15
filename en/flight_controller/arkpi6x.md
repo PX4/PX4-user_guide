@@ -1,6 +1,6 @@
 # ARK Pi6X Flow
 
-The ARK Pi6X Flow integrates a Raspberry Pi Compute Module 4 (CM4) Carrier, [ARKV6X Flight Controller](../flight_controller/arkv6x.md), [ARK Flow sensors](../dronecan/ark_flow.md) , ARK PAB Power Module, and a 4-in-1 ESC, all mounted onto one compact board.
+The ARK Pi6X Flow integrates a Raspberry Pi Compute Module 4 (CM4) Carrier, [ARKV6X Flight Controller](../flight_controller/arkv6x.md), [ARK Flow sensors](../dronecan/ark_flow.md) , [ARK PAB Power Module](../power_module/ark_pab_power_module.md), and a 4-in-1 ESC, all mounted onto one compact board.
 
 ![ARK Pi6X Flow Flight Controller](../../assets/flight_controller/ark_pi6x_flow/ark_pi6xflow.jpg)
 
@@ -17,8 +17,8 @@ Find more information:
 ## Key Components
 
 ### Raspberry Pi Compute Module 4 Carrier
-- **Autopilot Firmware**: PX4
-- **Features**:
+- Autopilot Firmware: PX4
+- Features:
   - MicroSD slot (for CM4 Lite)
   - Micro HDMI
   - Ethernet
@@ -33,41 +33,41 @@ Find more information:
   - CPU Fan
 
 ### Autopilot
-- **Communication**:
+- Communication:
   - TELEM (UART)
   - RC Input (UART)
   - GPS (UART, I2C)
   - CAN
-- **Control and Monitoring**:
+- Control and Monitoring:
   - 8 PWM Outputs
   - Buzzer
   - Debug (SWD, UART Console)
   - MicroSD slot for data storage
 
 ### Sensors
-- 2x **ICM-42688-P Accelerometer/Gyroscope** (includes Heater)
-- **PAW3902** Optical Flow Sensor
-- **AFBR-S50LV85D** 30-Meter Distance Sensor
-- **ST IIS2MDC** Magnetometer
-- **BMP390** Barometer
-- **INA226** Voltage/Current Monitor
+- 2x ICM-42688-P Accelerometer/Gyroscope (includes Heater)
+- PAW3902 Optical Flow Sensor
+- AFBR-S50LV85D 30-Meter Distance Sensor
+- ST IIS2MDC Magnetometer
+- BMP390 Barometer
+- INA226 Voltage/Current Monitor
 
 ### USA-Built and NDAA Compliant
 
 ## Power Requirements
-- **Battery Input**: Up to 6s/25.2V (actual requirement depends on usage and peripherals)
+- Battery Input: Up to 6s/25.2V (actual requirement depends on usage and peripherals)
 
 ## Dimensions & Weight
-- **Dimensions**: 91.5mm x 56mm (without Pi CM4 and ESC)
-- **Weight**:
+- Dimensions: 91.5mm x 56mm (without Pi CM4 and ESC)
+- Weight:
   - 41g (without Pi CM4, Pi SD, and ESC)
   - 53g (bundle with Pi CM4 and Pi SD, without ESC)
 
 ## Additional Information
-- **Included**: Flight Controller MicroSD
-- **Bundle Option Includes**:
+- Included: Flight Controller MicroSD
+- Bundle Option Includes:
   - Raspberry Pi Compute Module 4 with WiFi, 4GB RAM Lite – CM4104000
-  - SanDisk 128GB High Endurance Video MicroSDXC with ARK UI Pre-Installed
+  - SanDisk 128GB High Endurance Video MicroSDXC with [ARK-OS](https://github.com/ARK-Electronics/ARK-OS) Pre-Installed
 
 ## Flashing Guide
 
