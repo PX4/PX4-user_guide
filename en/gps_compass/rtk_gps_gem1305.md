@@ -111,8 +111,7 @@ The rover setup showing connections to a GPS port and the (required) connection 
 
 ![Rover module and pixhawk big picture connections](../../assets/hardware/gps/datagnss_gem1305/rover_gnss_setup.png)
 
-The diagram below shows how you might connect to the `GPS` port on the Pixawk 2.4.8 flight controller.
-The same connection approach might be used on a more recent flight controller.
+The diagram below shows how you might connect to the `GPS` port on the Pixawk 6 flight controller.
 
 ::: warning
 Pixawk 2.4.8 is a clone of a very old Pixhawk series design.
