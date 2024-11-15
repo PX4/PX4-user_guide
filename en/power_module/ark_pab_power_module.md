@@ -40,3 +40,8 @@ More information:
 - **Additional Information**
   - Weight: 17.9 g
   - Dimensions: 4.75 cm x 3.43 cm x 1.15 cm
+
+## PX4 Setup
+
+- Enable the SENS_EN_INA226 parameter if it not enabled.
+- Reboot the flight controller.

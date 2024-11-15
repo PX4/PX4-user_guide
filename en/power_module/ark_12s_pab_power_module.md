@@ -39,8 +39,6 @@ Find more information:
   - Dimensions: 3.7 cm x 2.2 cm x 1.3 cm
 
 
----
-
 ## PX4 Setup
 
 - Disable the `SENS_EN_INA226` parameter if it is enabled.
