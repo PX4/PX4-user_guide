@@ -120,7 +120,7 @@ Even though it is inexpensive it is not recommended: the board has such little m
 It also uses non-Pixhawk standard connectors which are far less reliable, and works with many fewer components out of the box.
 :::
 
-![Rover module setup](../../assets/hardware/gps/datagnss_gem1305/pixhawk2_4_8_connections.png)
+![Rover module setup](../../assets/hardware/gps/datagnss_gem1305/pixhawk_connections.png)
 
 GPS and RTK configuration on PX4 via _QGroundControl_ is plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
