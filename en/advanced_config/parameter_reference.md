@@ -14406,11 +14406,31 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | -1 | 400 |  | 5. | m 
 
+### COM_POS_LOW_ACT (`INT32`) {#COM_POS_LOW_ACT}
+
+Low position accuracy action.
+
+Action the system takes when the estimated position has an accuracy below the specified threshold. See COM_POS_LOW_EPH to set the failsafe threshold. The failsafe action is only executed if the vehicle is in auto mission or auto loiter mode, otherwise it is only a warning.
+
+**Values:**
+
+- `0`: None
+- `1`: Warning
+- `2`: Hold
+- `3`: Return
+- `4`: Terminate
+- `5`: Land
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  | 1 | 3 |  
+
 ### COM_POS_LOW_EPH (`FLOAT`) {#COM_POS_LOW_EPH}
 
-EPH threshold for RTL.
+Low position accuracy failsafe threshold.
 
-Specify the threshold for triggering a warning for low local position accuracy. Additionally triggers a RTL if currently in Mission or Loiter mode. Local position has to be still declared valid, which is most of all depending on COM_POS_FS_EPH. Use this feature on systems with dead-reckoning capabilites (e.g. fixed-wing vehicles with airspeed sensor) to improve the user notification and failure mitigation when flying in GNSS-denied areas. Set to -1 to disable.
+This triggers the action specified in COM_POS_LOW_ACT if the estimated position accuracy is below this threshold. Local position has to be still declared valid, which requires some kind of velocity aiding or large dead-reckoning time (EKF2_NOAID_TOUT), and a high failsafe threshold (COM_POS_FS_EPH). Set to -1 to disable.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
