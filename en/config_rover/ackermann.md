@@ -85,9 +85,9 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
 6. (Optional) [RA_MAX_STR_RATE](#RA_MAX_STR_RATE) [deg/s]: Maximum steering rate you want to allow for your rover.
 
    :::tip
-   This value is set to your preference, there is no general rule of thumb since it depends entirely on your rover and use case.
+   This value depends on your rover and use case.
    For bigger rovers there might be a mechanical limit that is easy to identify by steering the rover at a standstill and increasing
-   [RA_MAX_STR_RATE](#RA_MAX_STR_RATE) until you observe the steering rate to be limited by the parameter.
+   [RA_MAX_STR_RATE](#RA_MAX_STR_RATE) until you observe the steering rate to no longer be limited by the parameter.
    For smaller rovers you might observe the steering to be too aggressive. Set [RA_MAX_STR_RATE](#RA_MAX_STR_RATE) to a low value and steer the rover at a standstill.
    Increase the parameter until you reach the maximum steering rate you are comfortable with.
    :::
@@ -116,12 +116,10 @@ To set up [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) configure th
    1. Increase [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) until the wheels of the rover start to lift up.
    1. Set [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) to the highest value that does not cause the rover to lift up.
 
-   The same approach of slowly increasing [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) from a small value can be taken if you encounter any of the other aforementioned issues.
-
-   If none of these points is a concern, do the following:
+   If you see no need to limit the lateral acceleration, set this parameter to the maximum lateral acceleration the rover can achieve:
 
    1. In [Manual mode](#manual-mode) drive the rover at full throttle and with the maximum steering angle.
-   1. Plot the _measured_lateral_acceleration_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) and enter the highest observed value for [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL).
+   2. Plot the _measured_lateral_acceleration_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) and enter the highest observed value for [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL).
 
    :::
 
@@ -133,9 +131,9 @@ To set up [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) configure th
    To tune this parameter:
 
    1. Put the rover in [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) and hold the throttle stick and the right stick at a few different levels for a couple of seconds each.
-   1. Disarm the rover and from the flight log plot the _lateral_acceleration_setpoint_ from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the _measured_lateral_acceleration_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other.
-   1. Increase [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) if the measured value does not track the setpoint fast enough or decrease it if the measurement overshoots the setpoint by too much.
-   1. Repeat until you are satisfied with the behaviour.
+   2. Disarm the rover and from the flight log plot the _lateral_acceleration_setpoint_ from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the _measured_lateral_acceleration_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other.
+   3. Increase [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) if the measured value does not track the setpoint fast enough or decrease it if the measurement overshoots the setpoint by too much.
+   4. Repeat until you are satisfied with the behaviour.
 
    Note that the lateral acceleration measurement is very noisy and therefore needs to be heavily filtered.
    This means that the measurement is slightly delayed, so if you observe a slight offset in time between the setpoint and measurement, that is not something that can be fixed with tuning.
@@ -284,7 +282,7 @@ The [pure pursuit](#pure-pursuit-guidance-logic) algorithm is used to calculate 
 The close loop lateral acceleration was tuned in the configuration of the [Acro mode](#acro-mode), and the pure pursuit was tuned when setting up the [Position mode](#position-mode).
 During any auto navigation task observe the behaviour of the rover.
 
-If you are unsatisfied with the path following, there are 3 steps to take:
+If you are unsatisfied with the path following, there are 2 steps to take:
 
 1. Plot the _lateral_acceleration_setpoint_ from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the _measured\_lateral\_acceleration_ from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other.
    If the tracking of these setpoints is not satisfactory adjust the values for [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) and [RA_LAT_ACCEL_I](#RA_LAT_ACCEL_I).
