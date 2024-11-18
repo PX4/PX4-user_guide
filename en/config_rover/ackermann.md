@@ -61,7 +61,7 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
    One approach to determine an appropriate value is:
 
    1. From a standstill, give the rover full throttle until it reaches the maximum speed.
-   1. Disarm the rover and plot the _measured_forward_speed_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md).
+   1. Disarm the rover and plot the `measured_forward_speed` from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md).
    1. Divide the maximum speed by the time it took to reach it and set this as the value for [RA_MAX_ACCEL](#RA_MAX_ACCEL).
 
    Some RC rovers have enough torque to lift up if the maximum acceleration is not limited.
@@ -119,7 +119,7 @@ To set up [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) configure th
    If you see no need to limit the lateral acceleration, set this parameter to the maximum lateral acceleration the rover can achieve:
 
    1. In [Manual mode](#manual-mode) drive the rover at full throttle and with the maximum steering angle.
-   2. Plot the _measured_lateral_acceleration_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) and enter the highest observed value for [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL).
+   2. Plot the `measured_lateral_acceleration` from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) and enter the highest observed value for [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL).
 
    :::
 
@@ -131,7 +131,7 @@ To set up [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) configure th
    To tune this parameter:
 
    1. Put the rover in [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) and hold the throttle stick and the right stick at a few different levels for a couple of seconds each.
-   2. Disarm the rover and from the flight log plot the _lateral_acceleration_setpoint_ from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the _measured_lateral_acceleration_ from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other.
+   2. Disarm the rover and from the flight log plot the `lateral_acceleration_setpoint` from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the `measured_lateral_acceleration` from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other.
    3. Increase [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) if the measured value does not track the setpoint fast enough or decrease it if the measurement overshoots the setpoint by too much.
    4. Repeat until you are satisfied with the behaviour.
 
@@ -172,7 +172,7 @@ To configure set the following parameters:
    1. Set [RA_SPEED_P](#RA_SPEED_P) and [RA_SPEED_I](#RA_SPEED_I) to zero.
       This way the speed is only controlled by the feed-forward term, which makes it easier to tune.
    1. Put the rover in [Position mode](../flight_modes_rover/ackermann.md#position-mode) and then move the left stick of your controller up and/or down and hold it at a few different levels for a couple of seconds each.
-   1. Disarm the rover and from the flight log plot the _adjusted_forward_speed_setpoint_ and the _measured_forward_speed_ from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) message over each other.
+   1. Disarm the rover and from the flight log plot the `adjusted_forward_speed_setpoint` and the `measured_forward_speed` from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) message over each other.
    1. If the actual speed of the rover is higher than the speed setpoint, increase [RA_MAX_THR_SPEED](#RA_MAX_THR_SPEED).
       If it is the other way around decrease the parameter and repeat until you are satisfied with the setpoint tracking.
 
@@ -250,7 +250,7 @@ The required parameter configuration is discussed in the following sections.
    These two parameters have to be tuned as a pair, repeat until you are satisfied with the behaviour.
    :::
 
-2. Plot the _adjusted_forward_speed_setpoint_ and \_measured_forward_speed from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) message over each other.
+2. Plot the `adjusted_forward_speed_setpoint` and `measured_forward_speed` from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) message over each other.
    If the tracking of these setpoints is not satisfactory adjust the values for [RA_SPEED_P](#RA_SPEED_P) and [RA_SPEED_I](#RA_SPEED_I).
 
 ### Corner Cutting
@@ -284,7 +284,7 @@ During any auto navigation task observe the behaviour of the rover.
 
 If you are unsatisfied with the path following, there are 2 steps to take:
 
-1. Plot the _lateral_acceleration_setpoint_ from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the _measured\_lateral\_acceleration_ from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other.
+1. Plot the `lateral_acceleration_setpoint` from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the `measured_lateral_acceleration` from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other.
    If the tracking of these setpoints is not satisfactory adjust the values for [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) and [RA_LAT_ACCEL_I](#RA_LAT_ACCEL_I).
 2. Step 1 ensures accurate setpoint tracking, if the path following is still unsatisfactory you need to further tune the [pure pursuit](#pure-pursuit-guidance-logic) parameters.
 
