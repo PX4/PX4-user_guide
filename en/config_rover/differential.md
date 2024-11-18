@@ -31,15 +31,6 @@ To configure the differential rover frame and outputs:
 
 The basic setup (above) is all that is required to use the rover in [Manual mode](../flight_modes_rover/differential.md#manual-mode).
 
-::: info
-In manual mode the stick inputs are directly mapped to motor commands.
-Especially moving the stick that controls the yaw rate all the way to one side will cause the wheels on the left and right to spin at full speed in opposite directions.
-Depending on the rover this can lead to a very aggressive rotation.
-The parameter [RD_MAN_YAW_SCALE](#RD_MAN_YAW_SCALE) can be used to scale the manual input for the yaw rate.
-By reducing the parameter from the default value of 1 this behaviour can be tuned.
-Note that this parameter only affects this mode, not any of the following ones.
-:::
-
 ## Acro Mode
 
 ::: warning
@@ -283,7 +274,6 @@ List of all parameters of the differential rover module:
 | Parameter                                                                                                   | Description                                                            | Unit    |
 | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------- |
 | <a id="RD_WHEEL_TRACK"></a>[RD_WHEEL_TRACK](../advanced_config/parameter_reference.md#RD_WHEEL_TRACK)       | Wheel track                                                            | m       |
-| <a id="RD_MAN_YAW_SCALE"></a>[RD_MAN_YAW_SCALE](../advanced_config/parameter_reference.md#RD_MAN_YAW_SCALE) | Manual yaw rate scale                                                  | -       |
 | <a id="RD_MAX_THR_YAW_R"></a>[RD_MAX_THR_YAW_R](../advanced_config/parameter_reference.md#RD_MAX_THR_YAW_R) | Yaw rate turning left/right wheels at max speed in opposite directions | m/s     |
 | <a id="RD_MAX_YAW_RATE"></a>[RD_MAX_YAW_RATE](../advanced_config/parameter_reference.md#RD_MAX_YAW_RATE)    | Maximum allowed yaw rate for the rover                                 | deg/s   |
 | <a id="RD_YAW_RATE_P"></a>[RD_YAW_RATE_P](../advanced_config/parameter_reference.md#RD_YAW_RATE_P)          | Proportional gain for yaw rate controller                              | -       |

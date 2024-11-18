@@ -67,7 +67,7 @@ $$ \theta = \arctan(\frac{w_b \cdot a_{lat}}{ v^2}) $$
 with
 
 - $w_b:$ Wheel base,
-- $\theta:$ Steering angle, anbd
+- $\theta:$ Steering angle,
 - $v:$ Forward speed.
 
 For driving this means that the same right hand stick input will cause a different steering angle based on how fast you are driving.

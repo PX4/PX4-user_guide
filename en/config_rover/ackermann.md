@@ -242,8 +242,7 @@ The required parameter configuration is discussed in the following sections.
 
 ### Speed
 
-1. [RA_MISS_SPD_DEF](#RA_MISS_SPD_DEF) [m/s]: Sets the default speed for the rover during the mission.
-2. [RA_MAX_DECEL](#RA_MAX_DECEL) [m/s^2] and [RA_MAX_JERK](#RA_MAX_JERK) [m/s^3] are used to calculate a speed trajectory such that the rover reaches the next waypoint with the correct [cornering speed](#cornering-speed).
+1. [RA_MAX_DECEL](#RA_MAX_DECEL) [m/s^2] and [RA_MAX_JERK](#RA_MAX_JERK) [m/s^3] are used to calculate a speed trajectory such that the rover reaches the next waypoint with the correct [cornering speed](#cornering-speed).
 
    ::: tip
    Plan a mission for the rover to drive a square and observe how it slows down when approaching a waypoint.
@@ -253,7 +252,7 @@ The required parameter configuration is discussed in the following sections.
    These two parameters have to be tuned as a pair, repeat until you are satisfied with the behaviour.
    :::
 
-3. Plot the _adjusted_forward_speed_setpoint_ and \_measured_forward_speed from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) message over each other.
+2. Plot the _adjusted_forward_speed_setpoint_ and \_measured_forward_speed from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) message over each other.
    If the tracking of these setpoints is not satisfactory adjust the values for [RA_SPEED_P](#RA_SPEED_P) and [RA_SPEED_I](#RA_SPEED_I).
 
 ### Corner Cutting
@@ -362,7 +361,7 @@ To smoothen the trajectory further and reduce the risk of the rover rolling over
 
 2. In between waypoints (straight line) the rover speed is regulated such that it will arrive at the acceptance radius of the waypoint with the desired cornering speed.
 
-The rover is constrained between the default mission speed [RA_MISS_SPD_DEF](#RA_MISS_SPD_DEF) and the speed where the maximum steering angle does not cause the rover to exceed the lateral acceleration limit:
+The rover is constrained between the maximum speed [RA_MAX_SPEED](#RA_MAX_SPEED) and the speed where the maximum steering angle does not cause the rover to exceed the lateral acceleration limit:
 
 <!-- prettier-ignore -->
 $$ v_{min} = \sqrt{\frac{w_b \cdot a_{lat, max}}{tan(\theta_{max})}} $$
@@ -391,7 +390,6 @@ List of all parameters of the ackermann rover module:
 | <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN)    | Main tuning parameter for pure pursuit                                | -       |
 | <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)       | Maximum value for the look ahead radius of the pure pursuit algorithm | m       |
 | <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)       | Minimum value for the look ahead radius of the pure pursuit algorithm | m       |
-| <a id="RA_MISS_SPD_DEF"></a>[RA_MISS_SPD_DEF](../advanced_config/parameter_reference.md#RA_MISS_SPD_DEF)    | Mission speed for the rover                                           | $m/s$   |
 | <a id="NAV_ACC_RAD"></a>[NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)                | Default acceptance radius                                             | m       |
 | <a id="RA_ACC_RAD_MAX"></a>[RA_ACC_RAD_MAX](../advanced_config/parameter_reference.md#RA_ACC_RAD_MAX)       | Maximum radius the acceptance radius can be scaled to                 | m       |
 | <a id="RA_ACC_RAD_GAIN"></a>[RA_ACC_RAD_GAIN](../advanced_config/parameter_reference.md#RA_ACC_RAD_GAIN)    | Tuning parameter                                                      | -       |
