@@ -45,7 +45,7 @@ The Pixhawk® 6C Mini is perfect for developers at corporate research labs, star
   - &#x20;Accel/Gyro: ICM-42688-P&#x20;
   - Accel/Gyro: BMI055&#x20;
   - Mag: IST8310&#x20;
-  - Barometer: MS5611
+  - 气压计：MS5611
 
 ### **Electrical data**
 
@@ -62,10 +62,10 @@ The Pixhawk® 6C Mini is perfect for developers at corporate research labs, star
 - Dimensions: 53.3 x 39 x 16.2 mm
 - Weight : 39.2g
 
-### **Interfaces**
+### **接口**
 
 - 16- PWM servo outputs (8 from IO, 6 from FMU)
-- 3 general purpose serial ports
+- 3个通用串行口
   - `TELEM1` - Full flow control, separate 1A current limit
   - `TELEM2` - Full flow control
 - 2 GPS ports
@@ -80,24 +80,24 @@ The Pixhawk® 6C Mini is perfect for developers at corporate research labs, star
 - Dedicated R/C input for Spektrum/DSM and S.BUS, CPPM, analog / PWM RSSI
 - 1 Power input ports (Analog)
 
-- Other Characteristics:
+- 其它特性:
   - Operating & storage temperature: -40 ~ 85°c
 
-## Where to Buy
+## 在哪里买
 
 Order from [Holybro](https://holybro.com/products/pixhawk-6c-mini).
 
-## Assembly/Setup
+## 组装 / 设置
 
 The Pixhawk 4 Mini's port is very similar to the Pixhawk 6C Mini's port. Please refer to the [Pixhawk 4 Mini Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.md) as it provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
 
-## Pinouts
+## 针脚定义
 
 - [Holybro Pixhawk 6C Mini Port Pinout](https://docs.holybro.com/autopilot/pixhawk-6c-mini/pixhawk-6c-mini-ports)
 
-## Serial Port Mapping
+## 串口映射
 
-| UART   | Device     | QGC Parameter Description | Port Label on FC |
+| UART   | 设备         | QGC Parameter Description | Port Label on FC |
 | ------ | ---------- | ------------------------- | ---------------- |
 | USART1 | /dev/ttyS0 | GPS1                      | GPS1             |
 | USART2 | /dev/ttyS1 | TELEM3                    | N/A              |
@@ -109,11 +109,11 @@ The Pixhawk 4 Mini's port is very similar to the Pixhawk 6C Mini's port. Please 
 
 <!-- See http://docs.px4.io/main/en/hardware/serial_port_mapping.html#serial-port-mapping -->
 
-## Dimensions
+## 尺寸
 
 ![Pixhawk6c Mini Dimensions](../../assets/flight_controller/pixhawk6c_mini/pixhawk_6c_mini_dimension.jpg)
 
-## Voltage Ratings
+## 额定电压
 
 _Pixhawk 6C Mini_ can be double-redundant on the power supply if two power sources are supplied. The two power rails are: **POWER1** and **USB**.
 
@@ -122,15 +122,15 @@ _Pixhawk 6C Mini_ can be double-redundant on the power supply if two power sourc
 Under these conditions all power sources will be used in this order to power the system:
 
 1. **POWER1** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **USB** 输入电压（4.75 v 至 5.25 v）
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
 1. **POWER1** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **USB** 输入（可运行范围 4.1V 至 5.7V，0V 至 6V 不会损坏）
+1. 舵机输入：**FMU PWM OUT** 和 **I/O PWM OUT** 的 VDD_SERVO 针脚 （0V 至 42V 不会损坏）
 
 **Voltage monitoring**
 
@@ -143,7 +143,7 @@ Holybro makes various analog [power modules](../power_module/index.md) for diffe
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
 - [PM08 Power Module](https://holybro.com/products/pm08-power-module-14s-200a)
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
@@ -157,36 +157,36 @@ make px4_fmu-v6c_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Debug调试端口
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
 The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SH connector).
 
-| Pin     | Signal           | Volt  |
-| ------- | ---------------- | ----- |
-| 1 (red) | `Vtref`          | +3.3V |
-| 2 (blk) | Console TX (OUT) | +3.3V |
-| 3 (blk) | Console RX (IN)  | +3.3V |
-| 4 (blk) | `SWDIO`          | +3.3V |
-| 5 (blk) | `SWCLK`          | +3.3V |
-| 6 (blk) | `GND`            | GND   |
+| 针脚   | Signal           | 电压    |
+| ---- | ---------------- | ----- |
+| 2    | `Vtref`          | +3.3V |
+| 2    | Console TX (OUT) | +3.3V |
+| 3    | Console RX (IN)  | +3.3V |
+| 4（黑） | `SWDIO`          | +3.3V |
+| 6    | `SWCLK`          | +3.3V |
+| 6    | `GND`            | GND   |
 
 For information about using this port see:
 
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
-## Peripherals
+## 外部设备
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
+- [数字空速传感器](https://holybro.com/products/digital-air-speed-sensor)
 - [Telemetry Radio Modules](../telemetry/index.md):
   - [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
   - [Holybro Microhard P900 Radio](../telemetry/holybro_microhard_p900_radio.md)
   - [Holybro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [距离传感器](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
