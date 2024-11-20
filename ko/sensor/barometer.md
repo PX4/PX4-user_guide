@@ -6,7 +6,7 @@ Most [flight controllers](../flight_controller/index.md) on which PX4 runs inclu
 
 Generally barometers require no user configuration (or thought)!
 
-## Hardware Options
+## 하드웨어 옵션
 
 [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) flight controllers include a barometer, as do [many others](../flight_controller/index.md).
 
@@ -19,7 +19,7 @@ At time of writing, drivers/parts include: bmp280, bmp388 (and BMP380), dps310, 
 
 Note that the supported barometer part numbers can be inferred from the driver names listed in the [Modules Reference: Baro (Driver)](../modules/modules_driver_baro.md) documentation (and the driver source: [PX4-Autopilot/src/drivers/barometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer)).
 
-## PX4 Configuration
+## PX4 설정
 
 Generally barometers require no user configuration. If needed, you can:
 
@@ -38,7 +38,7 @@ Barometers don't require calibration.
 - The baro readings can be corrected using a param SENS_BARO_QNH (https://en.wikipedia.org/wiki/Altimeter_setting) parameter, but again, it is only necessary to adjust it if the absolute barometric altitude is required by the pilot.
 -->
 
-## Developer Information
+## 개발자 정보
 
 - [Baro driver source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer)
 - [Modules Reference: Baro (Driver)](../modules/modules_driver_baro.md) documentation.
