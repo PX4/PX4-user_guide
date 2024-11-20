@@ -16,7 +16,7 @@ The *HV_PM* is included in the CUAV V5+/V5 nano kit, but is also be sold separat
 - **최대 (감지) 전류:** 60A
 - **최대 출력 전류 (ESC/MOTOR PORT):** 60A
 
-## Where to Buy
+## 구매처
 
 [CUAV aliexpress 상점](https://www.aliexpress.com/item/32841805115.html?spm=2114.12010615.8148356.1.64165998hPvTKQ)
 
