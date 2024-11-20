@@ -27,7 +27,7 @@ The high-precision PNI RM3100 compass ensures accurate orientation and stability
 
 ## Hardware Specifications
 
-- Sensors
+- センサー
   - Ublox ZED-F9P GPS
     - Centimetre-level accuracy RTK positioning
     - IP66 Dust and Water Resistant
