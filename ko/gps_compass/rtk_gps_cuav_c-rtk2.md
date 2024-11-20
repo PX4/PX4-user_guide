@@ -14,12 +14,12 @@ The [CUAV C-RTK2 receiver](https://www.cuav.net/en/c_rtk_9ps/) is a high-perform
 - Support hotshoe and shutter trigger
 - HS_USB and U disk mode
 
-## Where to Buy
+## 구매처
 
-- [CUAV Store](https://store.cuav.net/shop/c-rtk-2/)
-- [CUAV aliexpress](https://pt.aliexpress.com/item/1005003754165772.html?spm=a2g0o.store_pc_groupList.8148356.13.2f893550i0NE4o)
+- [CUAV 상점](https://store.cuav.net/shop/c-rtk-2/)
+- [CUAV 알리익스프레스](https://pt.aliexpress.com/item/1005003754165772.html?spm=a2g0o.store_pc_groupList.8148356.13.2f893550i0NE4o)
 
-# Quick Summary
+# 요약
 
 - RTK Receiver
   - ZED-F9P
@@ -27,9 +27,9 @@ The [CUAV C-RTK2 receiver](https://www.cuav.net/en/c_rtk_9ps/) is a high-perform
   - 184
 - Main FMU Processor
   - STM32H743VIH6(2M flash、1M RAM）
-- On-board sensors:
+- 내장 센서 :
   - Accelerometer/Gyroscope: ICM20689
-- Magnetometer: RM3100
+- 자력계 : RM3100
   - Barometer: ICP10111
 - TF card expansion
   - 32G(MAX)
@@ -91,14 +91,14 @@ The [CUAV C-RTK2 receiver](https://www.cuav.net/en/c_rtk_9ps/) is a high-perform
   - -20~85℃
 - Size
   - 56x33x16.5mm
-- Weight
+- 중량
   - 39g
 
-## Configuration
+## 설정
 
 [CUAV Docs](https://doc.cuav.net/gps/c-rtk2/en/quick-start-c-rtk2.html)
 
-## Pinout
+## 핀배열
 
 ![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2_pinouts1.jpg)
 
