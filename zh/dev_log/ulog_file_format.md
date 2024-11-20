@@ -89,7 +89,7 @@ The message types in this section are:
 2. [Format Definition](#f-format-message)
 3. [Information](#i-information-message)
 4. [Multi Information](#m-multi-information-message)
-5. [Parameter](#p-parameter-message)
+5. [参数](#p-parameter-message)
 6. [Default Parameter](#q-default-parameter-message)
 
 #### 'B': Flag Bits Message
@@ -296,7 +296,7 @@ The message types in the _Data_ section are:
 7. [Dropout Mark](#o-dropout-message)
 8. [Information](#i-information-message)
 9. [Multi Information](#m-multi-information-message)
-10. [Parameter](#p-parameter-message)
+10. [参数](#p-parameter-message)
 11. [Default Parameter](#q-default-parameter-message)
 
 #### `A`: Subscription Message
