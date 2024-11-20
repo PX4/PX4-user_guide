@@ -63,7 +63,7 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
 
 위의 각 주요 유형에는 모터 수, 모터 기하학 및 비행 표면 등과 같은 많은 가능한 변형이 있습니다. PX4 provides _airframe configurations_ for many of the more common vehicle setups. 지원되는 세트는 [Airframes Reference &gt; VTOL](../airframes/airframe_reference.md#vtol)에 설명되어 있습니다.
 
-::: info
+:::note
 
 - 필요한 차량 설정이 지원되지 않는 경우에는 [기체를 추가](../dev_airframes/adding_a_new_frame.md)하여야 합니다(일부 [PX4 개발](../development/development.md) 전문 지식 필요).
 - The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
@@ -119,7 +119,7 @@ VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
 
 ### 테일시터
 
-[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/)
+[UAV Works VALAQ 순찰 테일 시터](https://www.valaqpatrol.com/valaq_patrol_technical_data/)
 
 <lite-youtube videoid="pWt6uoqpPIw" title="UAV Works VALAQ"/>
 
