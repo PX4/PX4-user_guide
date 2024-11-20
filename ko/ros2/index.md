@@ -13,7 +13,7 @@ To use the [ROS 2](../ros2/user_guide.md) over XRCE-DDS effectively, you must (a
 
 이 섹션의 주요 주제는 다음과 같습니다.
 - [ROS 2 User Guide](../ros2/user_guide.md): A PX4-centric overview of ROS 2, covering installation, setup, and how to build ROS 2 applications that communicate with PX4.
-- [ROS 2 Offboard Control Example](../ros2/offboard_control.md)
+- [ROS 2 오프보드 제어 예](../ros2/offboard_control.md)
 
 ::: info
 ROS 2 is officially supported only on Linux platforms.
@@ -27,6 +27,6 @@ Ubuntu 20.04 LTS는 공식적으로 지원되는 배포판입니다.
 
 ## 추가 읽기/정보
 
-- [ROS 2 User Guide](../ros2/user_guide.md)
+- [ROS 2 사용자 가이드](../ros2/user_guide.md)
 - [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md): PX4 middleware for connecting to ROS 2.
 
