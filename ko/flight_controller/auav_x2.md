@@ -6,10 +6,10 @@
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning PX4 does not manufacture this (or any) autopilot. PX4는 [NuttX](https://nuttx.apache.org/) OS에서 실행됩니다.
+:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. PX4는 [NuttX](https://nuttx.apache.org/) OS에서 실행됩니다.
 :::
 
-The [AUAV<sup>&reg;</sup>](http://www.auav.com/) _AUAV-X2 autopilot_ is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+The [AUAV<sup>&reg;</sup>](http://www.auav.com/) _AUAV-X2 autopilot_ is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design.  PX4를 [NuttX](https://nuttx.apache.org/) OS에서 실행합니다.
 
 ![AUAVX2_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
 
@@ -72,7 +72,7 @@ The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open
 
 - [FMUv2 + IOv2 회로도](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) - 회로도 및 레이아웃
 
-::: info As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+:::note CC-BY-SA 3.0 라이센스 오픈 하드웨어 설계로 모든 회로도와 설계 파일을 [사용할 수 있습니다](https://github.com/PX4/Hardware).
 :::
 
 ## 시리얼 포트 매핑
