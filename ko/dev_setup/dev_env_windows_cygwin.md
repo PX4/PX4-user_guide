@@ -75,7 +75,7 @@ The toolchain uses a specially configured console window (started by running the
 
 ## 다음 단계
 
-Once you have finished setting up the command-line toolchain:
+명령줄 도구 모음 설정후, 다음을 수행합니다.
 
 - Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
 - [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.
