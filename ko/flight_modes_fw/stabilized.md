@@ -29,7 +29,7 @@ Manual mode where centered roll/pitch sticks levels vehicle attitude. The vehicl
 - Yaw stick adds an additional yaw rate setpoint (added to the one calculated by the autopilot to maintain coordinated flight). Can be used to manually change the side slip of the vehicle.
 - Manual control input is required (such as RC control, joystick).
 
-## Parameters
+## 매개변수
 
 The mode is affected by the following parameters:
 
