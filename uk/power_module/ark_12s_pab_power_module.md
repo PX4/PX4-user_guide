@@ -4,13 +4,13 @@ The [ARK 12S PAB Power Module](https://arkelectron.gitbook.io/ark-documentation/
 
 ![ARK 12S PAB Power Module](../../assets/hardware/power_module/ark_power_modules//ark_12s_pab_power_module.jpg)
 
-## Where to Buy
+## Де придбати
 
-Order this module from:
+Замовте цей модуль з:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-12s-pab-power-module/) (US)
 
-## Hardware Specifications
+## Характеристики обладнання
 
 - **TI INA226 Digital Power Monitor**
 
@@ -39,7 +39,7 @@ Order this module from:
   - Weight: 15.5 g
   - Dimensions: 3.7 cm x 2.2 cm x 1.3 cm
 
-## PX4 Setup
+## Налаштування PX4
 
 - Disable the `SENS_EN_INA226` parameter if it is enabled.
 - Enable the `SENS_EN_INA238` parameter.
@@ -47,6 +47,6 @@ Order this module from:
 - Set the `INA238_SHUNT` parameter to 0.0001.
 - Reboot the flight controller.
 
-## See Also
+## Дивіться також
 
 - [ARK 12S PAB Power Module Documentation](https://arkelectron.gitbook.io/ark-documentation/power/ark-12s-pab-power-module) (ARK Docs)
