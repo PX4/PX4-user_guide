@@ -1,7 +1,7 @@
 # CUAV Pixhawk V6X
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+PX4 does not manufacture this (or any) autopilot. 하드웨어 지원이나 호환 문제는 [제조사](https://store.cuav.net/)에 문의하십시오.
 :::
 
 _Pixhawk V6X_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with CUAV<sup>&reg;</sup> and the PX4 team.
@@ -34,7 +34,7 @@ The Pixhawk® V6X is ideal for corporate research labs, academic research and co
   - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM
 - IO Processor: STM32F103
   - 32 Bit Arm® Cortex®-M3, 72MHz, 20KB SRAM
-- On-board sensors
+- 내장 센서 :
   - Accel/Gyro: BMI088
   - Accel/Gyro: ICM-42688-P
   - Accel/Gyro: ICM-20649
@@ -51,7 +51,7 @@ The Pixhawk® V6X is ideal for corporate research labs, academic research and co
   - TELEM1 and GPS2 combined output current limiter: 1.5A
   - All other port combined output current limiter: 1.5A
 
-### Interfaces
+### 인터페이스
 
 - 16- PWM servo outputs
 - 1 Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
@@ -81,11 +81,11 @@ The Pixhawk® V6X is ideal for corporate research labs, academic research and co
   - 1 PWM/Capture input
 - 2 Dedicated debug
   - FMU debug
-  - IO debug
+  - IO 디버그
 
 ### Mechanical data
 
-- Weight
+- 중량
   - Flight Controller Module: 99g
   - Core module: 43g
   - Baseboard: 56g
@@ -100,52 +100,52 @@ The Pixhawk® V6X is ideal for corporate research labs, academic research and co
 
     ![Pixhawk V6X](../../assets/flight_controller/cuav_pixhawk_v6x/core.png)
 
-## Where to Buy
+## 구매처
 
 Order from [CUAV](https://store.cuav.net/).
 
-## Assembly/Setup
+## 조립 및 설정
 
 The [Pixhawk V6X Wiring Quick Start](../assembly/quick_start_cuav_pixhawk_v6x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
 
-## Pinouts
+## 핀배열
 
 ![Pixhawk V6x Pinout](../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x_pinouts.png)
 
-Notes:
+참고:
 
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port          |
-| ------ | ---------- | ------------- |
-| USART1 | /dev/ttyS0 | GPS           |
-| USART2 | /dev/ttyS1 | TELEM3        |
-| USART3 | /dev/ttyS2 | Debug Console |
-| UART4  | /dev/ttyS3 | UART4         |
-| UART5  | /dev/ttyS4 | TELEM2        |
-| USART6 | /dev/ttyS5 | PX4IO/RC      |
-| UART7  | /dev/ttyS6 | TELEM1        |
-| UART8  | /dev/ttyS7 | GPS2          |
+| UART   | 장치         | 포트       |
+| ------ | ---------- | -------- |
+| USART1 | /dev/ttyS0 | GPS      |
+| USART2 | /dev/ttyS1 | TELEM3   |
+| USART3 | /dev/ttyS2 | 디버깅 콘솔   |
+| UART4  | /dev/ttyS3 | UART4    |
+| UART5  | /dev/ttyS4 | TELEM2   |
+| USART6 | /dev/ttyS5 | PX4IO/RC |
+| UART7  | /dev/ttyS6 | TELEM1   |
+| UART8  | /dev/ttyS7 | GPS2     |
 
-## Voltage Ratings
+## 정격 전압
 
 _Pixhawk V6X_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWERC1/POWER1**, **POWERC2/POWER2** and **USB**.
 
 - **POWER C1** and **POWER C2** are DroneCAN/UAVCAN battery interfaces (recommended)；**POWER1** and **POWER2** are SMbus/I2C battery interfaces (backup).
 - **POWER C1** and **POWER1** use the same power switch, **POWER C2** and **POWER2** use the same power switch.
 
-**Normal Operation Maximum Ratings**
+**정상 작동 최대 정격 전압**
 
-Under these conditions all power sources will be used in this order to power the system:
+이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야합니다.
 
 1. **POWER C1**, **POWER C2**, **POWER1** and **POWER2** inputs (4.75V to 5.7V)
-2. **USB** input (4.75V to 5.25V)
+2. **USB** 입력(4.75V ~ 5.25V)
 
-**Absolute Maximum Ratings**
+**절대 최대 정격 전압**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+아래의 조건에서 시스템은 전원을 사용하지 않지만(작동하지 않음), 그대로 유지됩니다.
 
 1. **POWER1** and **POWER2** inputs (operational range 4.7V to 5.7V, 0V to 10V undamaged)
 1. **USB input** (operational range 4.7V to 5.7V, 0V to 6V undamaged)
@@ -159,13 +159,13 @@ Under these conditions the system will not draw any power (will not be operation
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
 :::
 
-## Building Firmware
+## 펌웨어 빌드
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
 ```
 make px4_fmu-v6x_default
@@ -173,41 +173,41 @@ make px4_fmu-v6x_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## 디버그 포트
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
+[PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 **FMU 디버그** 포트에서 실행됩니다.
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Pin      | Signal           | Volt  |
+| 핀        | 신호               | 전압    |
 | -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
+| 1 (적)    | `Vtref`          | +3.3V |
+| 2 (흑)    | Console TX (OUT) | +3.3V |
+| 3 (흑)    | Console RX (IN)  | +3.3V |
+| 4 (흑)    | `SWDIO`          | +3.3V |
+| 5 (흑)    | `SWCLK`          | +3.3V |
+| 6 (흑)    | `SWO`            | +3.3V |
+| 7 (흑)    | NFC GPIO         | +3.3V |
 | 8 (blk)  | PH11             | +3.3V |
 | 9 (blk)  | nRST             | +3.3V |
 | 10 (blk) | `GND`            | GND   |
 
-For information about wiring and using this port see:
+이 포트의 배선과 사용 정보는 다음을 참조하십시오.
 
 - [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to USART3).
 - [SWD Debug Port](../debug/swd_debug.md)
 
-## Peripherals
+## 주변 장치
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [디지털 대기속도 센서](https://holybro.com/products/digital-air-speed-sensor)
+- [텔레메트리 라디오 모듈](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [거리계/거리 센서](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 지원 플랫폼 및 기체
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## 추가 정보
 
 - [CUAV Docs](https://doc.cuav.net/) (CUAV)
 - [Pixhawk V6X 배선 퀵 스타트](../assembly/quick_start_cuav_pixhawk_v6x.md)
