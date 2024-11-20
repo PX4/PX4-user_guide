@@ -9,7 +9,7 @@ A VTOL follows the land mode behavior and parameters of [Fixed-wing](../flight_m
 
 By default a VTOL in FW mode will transition back to MC just before landing.
 
-## Parameters
+## 매개변수
 
 The VTOL-specific parameters are:
 
