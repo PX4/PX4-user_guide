@@ -33,7 +33,7 @@ This section lists vehicles where you can update the software to run PX4.
 - [Bitcraze Crazyflie 2.1](../complete_vehicles_mc/crazyflie21.md)
 - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles_mc/betafpv_beta75x.md) (discontinued)
 
-## Custom PX4
+## 定制 PX4
 
 This section contains consumer vehicles that run a _custom_ version of PX4 (supported by their vendors).
 These may or may not be updatable to run "vanilla" PX4.
