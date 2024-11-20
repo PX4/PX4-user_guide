@@ -4,7 +4,7 @@
 
 Source: [drivers/camera_trigger](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger)
 
-### Description
+### 描述
 
 Camera trigger driver.
 
@@ -36,7 +36,7 @@ In particular:
 
 <a id="camera_trigger_usage"></a>
 
-### Usage
+### 用法
 
 ```
 camera_trigger <command> [arguments...]
