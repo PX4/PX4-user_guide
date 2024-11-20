@@ -150,7 +150,7 @@ if __name__ == "__main__":
 
 ## 代码解释
 
-The `mavros_msgs` package contains all of the custom messages required to operate services and topics provided by the MAVROS package. All services and topics as well as their corresponding message types are documented in the [mavros wiki](http://wiki.ros.org/mavros).
+` mavros_msgs ` 功能包中包含了MAVROS包服务和主题所需的全部自定义消息文件。 所有服务和主题及其相应的消息类型都可以在 [ mavros wiki ](http://wiki.ros.org/mavros) 中找到。
 
 ```py
 import rospy
@@ -159,7 +159,7 @@ from mavros_msgs.msg import State
 from mavros_msgs.srv import CommandBool, CommandBoolRequest, SetMode, SetModeRequest
 ```
 
-We create a simple callback which will save the current state of the autopilot. This will allow us to check connection, arming and _OFFBOARD_ flags.:
+我们创建了一个简单的回调函数来储存飞控当前的状态。 This will allow us to check connection, arming and _OFFBOARD_ flags.:
 
 ```py
 current_state = State()
@@ -169,7 +169,7 @@ def state_cb(msg):
     current_state = msg
 ```
 
-We instantiate a publisher to publish the commanded local position and the appropriate clients to request arming and mode change. Note that for your own system, the "mavros" prefix might be different as it will depend on the name given to the node in it's launch file.
+我们构建了一个发布者来发布本地位置指令并请求客户端进行加解锁状态及控制模式的切换。 请注意，对于您自己的系统，"mavros" 前缀可能不同，取决于节点启动文件中指定的名称。
 
 ```py
 state_sub = rospy.Subscriber("mavros/state", State, callback = state_cb)
@@ -183,7 +183,7 @@ rospy.wait_for_service("/mavros/set_mode")
 set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
 ```
 
-PX4 has a timeout of 500ms between two _OFFBOARD_ commands. If this timeout is exceeded, the commander will fall back to the last mode the vehicle was in before entering _OFFBOARD_ mode. This is why the publishing rate **must** be faster than 2 Hz to also account for possible latencies. This is also the same reason why it is **recommended to enter _OFFBOARD_ mode from _Position_ mode**, this way if the vehicle drops out of _OFFBOARD_ mode it will stop in its tracks and hover.
+PX4 has a timeout of 500ms between two _OFFBOARD_ commands. If this timeout is exceeded, the commander will fall back to the last mode the vehicle was in before entering _OFFBOARD_ mode. 这也是为什么发布频率 **必须** 大于2Hz的原因。 This is also the same reason why it is **recommended to enter _OFFBOARD_ mode from _Position_ mode**, this way if the vehicle drops out of _OFFBOARD_ mode it will stop in its tracks and hover.
 
 Here we set the publishing rate appropriately:
 
@@ -192,7 +192,7 @@ Here we set the publishing rate appropriately:
 rate = rospy.Rate(20)
 ```
 
-Before publishing anything, we wait for the connection to be established between MAVROS and the autopilot. This loop should exit as soon as a heartbeat message is received.
+在发布任何消息之前，我们需要等待飞控和MAVROS建立连接。 在收到心跳包之后，代码便会跳出这个循环。
 
 ```py
 # Wait for Flight Controller connection
@@ -210,7 +210,7 @@ pose.pose.position.y = 0
 pose.pose.position.z = 2
 ```
 
-Before entering _OFFBOARD_ mode, you must have already started streaming setpoints. Otherwise the mode switch will be rejected. Below, `100` was chosen as an arbitrary amount.
+Before entering _OFFBOARD_ mode, you must have already started streaming setpoints. 否则，模式切换将被拒绝。 Below, `100` was chosen as an arbitrary amount.
 
 ```py
 # Send a few setpoints before starting
@@ -222,14 +222,14 @@ for i in range(100):
     rate.sleep()
 ```
 
-We prepare the message request used to set the custom mode to `OFFBOARD`. A list of [supported modes](http://wiki.ros.org/mavros/CustomModes#PX4_native_flight_stack) is available for reference.
+We prepare the message request used to set the custom mode to `OFFBOARD`. [支持模式](http://wiki.ros.org/mavros/CustomModes#PX4_native_flight_stack) 列表可供参考。
 
 ```py
 offb_set_mode = SetModeRequest()
 offb_set_mode.custom_mode = 'OFFBOARD'
 ```
 
-The rest of the code is largely self explanatory. We attempt to switch to _Offboard_ mode, after which we arm the quad to allow it to fly. We space out the service calls by 5 seconds so to not flood the autopilot with the requests. In the same loop, we continue sending the requested pose at the rate previously defined.
+The rest of the code is largely self explanatory. We attempt to switch to _Offboard_ mode, after which we arm the quad to allow it to fly. 我们每隔五秒去调用一次该服务，避免飞控被大量的请求阻塞。 In the same loop, we continue sending the requested pose at the rate previously defined.
 
 ```py
 arm_cmd = CommandBoolRequest()
@@ -256,8 +256,8 @@ while(not rospy.is_shutdown()):
 ```
 
 :::tip
-This code has been simplified to the bare minimum for illustration purposes.
-In larger systems, it is often useful to create a new thread which will be in charge of periodically publishing the setpoints.
+该示例代码非常简单仅为了说明使用方法。
+在一个复杂的系统中，通常需要创建新的进程来负责周期性的发送位置期望值给飞控。
 :::
 
 ## 创建ROS启动文件
