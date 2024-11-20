@@ -39,7 +39,7 @@ _Затримка керування_ - це час від фізичного п
 :::
 
 - Окремий фільтр нижніх частот для терміну D. Термін D найбільш схильний до шуму, при цьому незначне збільшення затримки не негативно впливає на продуктивність. З цієї причини термін D має окремо налаштований фільтр нижніх частот, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
-- A optional slew-rate filter on the motor outputs. This rate may be configured as part of the [Multicopter Geometry](../config/actuators.md#motor-geometry-multicopter) when configuring actuators (which in turn modifies the [CA_Rn_SLEW](../advanced_config/parameter_reference.md#CA_R0_SLEW) parameters for each motor `n`).
+- An optional slew-rate filter on the motor outputs. This rate may be configured as part of the [Multicopter Geometry](../config/actuators.md#motor-geometry-multicopter) when configuring actuators (which in turn modifies the [CA_Rn_SLEW](../advanced_config/parameter_reference.md#CA_R0_SLEW) parameters for each motor `n`).
 
 Для зменшення затримки керування ми хочемо збільшити частоту відсічки для фільтрів нижніх частот. Вплив збільшення `IMU_GYRO_CUTOFF` на затримку наближено нижче.
 
