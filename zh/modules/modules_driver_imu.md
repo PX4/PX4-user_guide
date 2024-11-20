@@ -552,7 +552,7 @@ Source: [drivers/imu/invensense/icm42670p](https://github.com/PX4/PX4-Autopilot/
 
 <a id="icm42670p_usage"></a>
 
-### Usage
+### 用法
 ```
 icm42670p <command> [arguments...]
  Commands:
@@ -577,7 +577,7 @@ Source: [drivers/imu/invensense/icm42688p](https://github.com/PX4/PX4-Autopilot/
 
 <a id="icm42688p_usage"></a>
 
-### Usage
+### 用法
 ```
 icm42688p <command> [arguments...]
  Commands:
@@ -605,7 +605,7 @@ Source: [drivers/imu/invensense/icm45686](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="icm45686_usage"></a>
 
-### Usage
+### 用法
 ```
 icm45686 <command> [arguments...]
  Commands:
@@ -632,7 +632,7 @@ Source: [drivers/imu/invensense/iim42652](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="iim42652_usage"></a>
 
-### Usage
+### 用法
 ```
 iim42652 <command> [arguments...]
  Commands:
@@ -841,7 +841,7 @@ Source: [drivers/imu/invensense/mpu6500](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="mpu9520_usage"></a>
 
-### Usage
+### 用法
 ```
 mpu9520 <command> [arguments...]
  Commands:
@@ -866,7 +866,7 @@ Source: [drivers/imu/murata/sch16t](https://github.com/PX4/PX4-Autopilot/tree/ma
 
 <a id="sch16t_usage"></a>
 
-### Usage
+### 用法
 ```
 sch16t <command> [arguments...]
  Commands:
