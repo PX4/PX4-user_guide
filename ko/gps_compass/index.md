@@ -18,7 +18,7 @@ PX4는 u-blox, MTK Ashtech 또는 Emlid 프로토콜 또는 UAVCAN 통신 장치
 
 This table contains non-RTK GNSS units (most of which also have a compass). These have been tested by the PX4 dev team, or which are popular within the PX4 community.
 
-| 장치                                                           |     GPS     |            나침반            | [CAN](../dronecan/index.md) | Buzzer / SafeSw / LED | Notes                       |
+| 장치                                                           |     GPS     |            나침반            | [CAN](../dronecan/index.md) | Buzzer / SafeSw / LED | 참고                          |
 |:------------------------------------------------------------ |:-----------:|:-------------------------:|:---------------------------:|:---------------------:|:--------------------------- |
 | [ARK GPS](../dronecan/ark_gps.md)                            |     M9N     |          BMM150           |           &check;           |        &check;        | + Baro, IMU                 |
 | [ARK TESEO GPS](../dronecan/ark_teseo_gps.md)                | Teseo-LIV4F |          BMM150           |           &check;           |        &check;        | + Baro, IMU                 |
@@ -45,7 +45,7 @@ This table contains non-RTK GNSS units (most of which also have a compass). Thes
 
 <!-- links to improve layout of table for editing -->
 
-Notes:
+참고:
 
 - &check; 또는 특정 부품 번호는 기능이 지원되는 것을 나타내며, &cross; 또는 비어 있으면 해당 기능이 지원되지 않는 것을 나타냅니다. "?"는 "알 수 없음"을 나타냅니다.
 - 가능하고 관련성이있는 경우 부품 이름이 사용됩니다 (예 : GPS 열의 &check; GPS 모듈이 있지만 부품을 알 수 없음을 나타냄).
