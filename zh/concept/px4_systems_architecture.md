@@ -1,4 +1,4 @@
-# PX4 System Architecture
+# PX4 架构
 
 The sections below provide high-level overview of the PX4 hardware and software stack for two "typical" PX4 systems; one that has just a flight controller, and another that has a flight controller and a companion computer (also known as a "mission computer").
 
