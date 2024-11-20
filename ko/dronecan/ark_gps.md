@@ -4,7 +4,7 @@ ARK GPS is an open source [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.m
 
 ![ARK GPS](../../assets/hardware/gps/ark/ark_gps.jpg)
 
-## Where to Buy
+## 구매처
 
 Order this module from:
 
@@ -13,7 +13,7 @@ Order this module from:
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_GPS)
-- Sensors
+- 센서
   - Ublox M9N GPS
     - Ultra-robust meter-level GNSS positioning
     - Maximum position availability with concurrent reception of 4 GNSS
@@ -24,7 +24,7 @@ Order this module from:
   - Invensense ICM-42688-P 6-Axis IMU
 - STM32F412CEU6 MCU
 - Safety Button
-- Buzzer
+- 부저
 - Two Pixhawk Standard CAN Connectors (4 Pin JST GH)
 - Pixhawk Standard Debug Connector (6 Pin JST SH)
 - Small Form Factor
@@ -39,13 +39,13 @@ Order this module from:
   - 110mA Average
   - 117mA Max
 
-## Hardware Setup
+## 하드웨어 설정
 
-### Wiring
+### 배선
 
 The ARK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
-### Mounting
+### 장착
 
 The recommended mounting orientation is with the connectors on the board pointing towards the **back of vehicle**.
 
@@ -60,7 +60,7 @@ ARK GPS boards ship with recent firmware pre-installed, but if you want to build
 - Firmware target: `ark_can-gps_default`
 - Bootloader target: `ark_can-gps_canbootloader`
 
-## PX4 Configuration
+## PX4 설정
 
 You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle. The required settings are outlined below.
 
@@ -72,7 +72,7 @@ The ARK GPS will not boot if there is no SD card in the flight controller when p
 
 In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
-The steps are:
+단계는 다음과 같습니다:
 
 - In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK GPS CAN to the Pixhawk CAN.
@@ -90,7 +90,7 @@ If the sensor is not centred within the vehicle you will also need to define sen
 - Set [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) to `1` if this is that last node on the CAN bus.
 - The parameters [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z) can be set to account for the offset of the ARK GPS from the vehicles centre of gravity.
 
-## LED Meanings
+## LED 신호 정의
 
 You will see green, blue and red LEDs on the ARK GPS when it is being flashed, and a blinking green LED if it is running properly.
 
