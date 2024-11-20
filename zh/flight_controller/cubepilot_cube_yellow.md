@@ -1,6 +1,6 @@
 # CubePilot Cube Yellow Flight Controller
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 :::
 
 The Cube Yellow flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
@@ -93,7 +93,7 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
