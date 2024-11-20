@@ -9,14 +9,14 @@ While Telega can be controlled using traditional PWM input, it is designed to op
 
 ![Sadulli - Top](../../assets/peripherals/esc_usavcan_zubax_sadulli/sadulli_top.jpg)
 
-## Where to Buy
+## 구매처
 
 - [Zubax Myxa](https://zubax.com/products/myxa): High-end PMSM/BLDC motor controller (FOC ESC) for light unmanned aircraft and watercraft.
 - [Zubax Mitochondrik](https://zubax.com/products/mitochondrik): Integrated sensorless PMSM/BLDC motor controller chip (used in ESCs and integrated drives)
 - [Zubax Komar](https://shop.zubax.com/products/komar-motor-controller-open-hardware-reference-design-for-mitochondrik?variant=32931555868771): Open hardware reference design for Mitochondrik
 - [Zubax Sadulli Integrated Drive](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
 
-## Hardware Setup
+## 하드웨어 설정
 
 ESCs are connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions. ESC order does not matter.
 
@@ -34,11 +34,11 @@ Telega ESCs also require other motor setup and configuration for reliable perfor
 
 Connect the ESCs to the Pixhawk CAN bus. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `3` to enable both dynamic node ID allocation and DroneCAN ESC output.
 
-### PX4 Configuration
+### PX4 설정
 
 Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
-## Troubleshooting
+## 문제 해결
 
 ### Motors not spinning when armed
 
