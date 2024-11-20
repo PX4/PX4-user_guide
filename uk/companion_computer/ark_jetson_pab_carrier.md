@@ -4,22 +4,22 @@ The [ARK Jetson Pixhawk Autopilot Bus (PAB) Carrier](https://arkelectron.gitbook
 
 ![ARK Jetson PAB Carrier](../../assets/companion_computer/ark_jetson_pab_carrier/ark_jetson_pab_carrier.jpg)
 
-## Where to Buy
+## Де придбати
 
 - [ARK Jetson PAB Carrier](https://arkelectron.com/product/ark-jetson-pab-carrier/)
 - [ARK Jetson Orin NX NDAA Bundle](https://arkelectron.com/product/ark-jetson-orin-nx-ndaa-bundle/)
 
-## Specifications
+## Специфікації
 
 - **Power Requirements**
 
-  - 5V
+  - 5В
   - 4A minimum (dependent on usage and peripherals)
 
 - **Additional Features**
 
   - Pixhawk Autopilot Bus (PAB) Form Factor ([PAB Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf))
-  - MicroSD Slot
+  - Слот MicroSD
   - USA-built, NDAA compliant
   - Integrated 1W heater for sensor stability in extreme conditions
 
@@ -40,10 +40,10 @@ The [ARK Jetson Pixhawk Autopilot Bus (PAB) Carrier](https://arkelectron.gitbook
 
 The Jetson and the flight controller communicate through serial and USB interfaces, both of which support direct board-to-board connections tested up to 3 Mbps.
 
-| Type   | Jetson Device Path | Flight Controller |
-| :----- | :----------------- | :---------------- |
-| USB    | /dev/ttyACM0       | USB               |
-| Serial | /dev/ttyTHS1       | TELEM2            |
+| Тип    | Jetson Device Path | Політний контролер |
+| :----- | :----------------- | :----------------- |
+| USB    | /dev/ttyACM0       | USB                |
+| Serial | /dev/ttyTHS1       | TELEM2             |
 
 The USB connection to the autopilot is multiplexed with the external Jetson micro USB port.
 When a micro USB cable is connected, the autopilot is disconnected from the Jetson, and the USB port on the Jetson switches from host to device mode.
@@ -89,6 +89,6 @@ To flash the kernel, connect the Jetson to your Host PC via Micro USB, and boot 
 
 ![Jetson Carrier Flashing Guide](../../assets/companion_computer/ark_jetson_pab_carrier/ark_jetson_flashing_guide.png)
 
-## See Also
+## Дивіться також
 
 - [ARK Jetson PAB Documentation](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier) (ARK Docs)
