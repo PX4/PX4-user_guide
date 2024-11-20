@@ -88,7 +88,7 @@ This is not used in the current PX4 implementation and can be ignored.
 :::details
 Overview of crypto-relevant keys
 
-| Argument                                                                                    | Description                                                                                                                                                                               |
+| Argument                                                                                    | Опис                                                                                                                                                                                      |
 | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CONFIG_BOARD_CRYPTO                               | Include crypto module in firmware.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption. |
 | CONFIG_DRIVERS_SW_CRYPTO     | Include the PX4 crypto backend library (used by above library).<br />= `y`: Enable<br />= `n`: Disable                 |
@@ -121,7 +121,7 @@ Build the firmware like this:
 make px4-fmu-v5_cryptotest
 ```
 
-#### Other Boards
+#### Інші плати
 
 For other boards you will need to first copy `cryptotest.px4board` into the root of the target board directory.
 For example, for FMUv6 you would copy the board to [/boards/px4/fmu-v6x](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v6x).
