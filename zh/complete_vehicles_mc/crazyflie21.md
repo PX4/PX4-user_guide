@@ -16,7 +16,7 @@ An overview of the Crazyflie 2.1 can be [found here](https://www.bitcraze.io/pro
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie21/crazyflie_2.1.jpg)
 
-## Quick Summary
+## 总览
 
 :::info
 The main hardware documentation is [here](https://wiki.bitcraze.io/projects:crazyflie2:index)
@@ -34,7 +34,7 @@ The main hardware documentation is [here](https://wiki.bitcraze.io/projects:craz
 - Partial USB OTG capability (USB OTG present but no 5V output)
 - 8KB EEPROM
 
-## Where to Buy
+## 在哪里买
 
 The vehicle can be purchased here: [Crazyflie 2.1](https://store.bitcraze.io/products/crazyflie-2-1) (store.bitcraze.io)
 
@@ -301,6 +301,6 @@ To connect to Crazyflie 2.1 via MAVROS:
 
 - Restart QGroundControl if it doesn't connect.
 
-## Flying
+## 飞行
 
 <lite-youtube videoid="0qy7O3fVN2c" title="Crazyflie 2.1 - PX4 Firmware (stabilized mode)"/>
