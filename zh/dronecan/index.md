@@ -25,7 +25,7 @@ Connecting peripherals over DroneCAN has many benefits:
 - Setup is easier as you configure ESC numbering by manually spinning each motor.
 - It allows users to configure and update the firmware of all CAN-connected devices centrally through PX4.
 
-## Supported Hardware
+## 支持的硬件
 
 Most common types of peripherals (sensors, ESCs, and servos) that are DroneCAN/UAVCAN v0 compliant are supported.
 
@@ -53,14 +53,14 @@ Supported hardware includes (this is not an exhaustive list):
   - [Pomegranate Systems Power Module](../dronecan/pomegranate_systems_pm.md)
   - [CUAV CAN PMU Power Module](../dronecan/cuav_can_pmu.md)
   - [RaccoonLab CAN Power Connectors and Management Units](../dronecan/raccoonlab_power.md)
-- Compass
+- 罗盘
   - [Holybro RM3100 Professional Grade Compass](https://holybro.com/products/dronecan-rm3100-compass)
   - [RaccoonLab RM3100 Magnetometer](https://docs.raccoonlab.co/guide/gps_mag_baro/mag_rm3100.html)
 - Distance sensors
-  - [ARK Flow](ark_flow.md)
+  - [ARK 光流](ark_flow.md)
   - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../dronecan/avanon_laser_interface.md)
   - [RaccoonLab uRangefidner and Rangefinders Adapter](https://docs.raccoonlab.co/guide/rangefinder)
-- Optical Flow
+- 光流
   - [Ark Flow](ark_flow.md)
 - Generic CAN Node (enables use of I2C, SPI, UART sensors on the CAN bus).
   - [ARK CANnode](../dronecan/ark_cannode.md)
@@ -85,7 +85,7 @@ Some devices don't support DNA. Additionally, in certain mission-critical scenar
 At time of writing, PX4 does not run the node allocation server on the CAN2 port. This means that if you have a device that is _only_ connected to CAN2 (not redundantly to CAN1 and CAN2), you will need to manually configure its node ID.
 :::
 
-## PX4 Configuration
+## PX4 配置
 
 DroneCAN is configured on PX4 by [setting specific PX4 parameters](../advanced_config/parameters.md) in QGroundControl. You will need to enable DroneCAN itself, along with subscriptions and publications for any features that you use.
 
@@ -120,7 +120,7 @@ DroneCAN peripherals connected to PX4 can also be [configured using parameters v
 
 The following sections provide additional detail on the PX4 and DroneCAN peripheral parameters used to enable particular features.
 
-#### Sensors
+#### 传感器
 
 The DroneCAN sensor parameters/subscriptions that you can enable are (in PX4 v1.14):
 
@@ -190,7 +190,7 @@ PX4 DroneCAN parameters:
 
 - Enable [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO).
 
-#### Compass
+#### 罗盘
 
 PX4 DroneCAN parameters:
 
@@ -246,13 +246,13 @@ CAN nodes are displayed separate sections in [Vehicle Settings > Parameters](../
 
 Most DroneCAN nodes require no further setup, unless specifically noted in their device-specific documentation.
 
-## Firmware Update
+## 固件更新
 
 PX4 can upgrade device firmware over DroneCAN. To upgrade the device, all you need to do is copy the firmware binary into the root directory of the flight controller's SD card and reboot.
 
 Upon boot the flight controller will automatically transfer the firmware onto the device and upgrade it. If successful, the firmware binary will be removed from the root directory and there will be a file named **XX.bin** in the **/ufw** directory of the SD card.
 
-## Troubleshooting
+## 故障处理
 
 **Q**: My DroneCAN devices aren't working.
 
