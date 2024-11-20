@@ -120,7 +120,7 @@ DroneCAN peripherals connected to PX4 can also be [configured using parameters v
 
 The following sections provide additional detail on the PX4 and DroneCAN peripheral parameters used to enable particular features.
 
-#### Sensors
+#### センサー
 
 The DroneCAN sensor parameters/subscriptions that you can enable are (in PX4 v1.14):
 
