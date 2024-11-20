@@ -1,4 +1,4 @@
-# ROS 2 User Guide
+# ROS 2 사용자 가이드
 
 The ROS 2-PX4 architecture provides a deep integration between ROS 2 and PX4, allowing ROS 2 subscribers or publisher nodes to interface directly with PX4 uORB topics.
 
@@ -373,18 +373,18 @@ This is needed because the ROS 2 default [Quality of Service (QoS) settings](htt
 
 The local/world and body frames used by ROS and PX4 are different.
 
-| Frame | PX4                                              | ROS                                            |
-| ----- | ------------------------------------------------ | ---------------------------------------------- |
-| Body  | FRD (X **F**orward, Y **R**ight, Z **D**own)     | FLU (X **F**orward, Y **L**eft, Z **U**p)      |
-| World | FRD or NED (X **N**orth, Y **E**ast, Z **D**own) | FLU or ENU (X **E**ast, Y **N**orth, Z **U**p) |
+| 프레임 | PX4                                              | ROS                                            |
+| --- | ------------------------------------------------ | ---------------------------------------------- |
+| 몸체  | FRD (X **F**orward, Y **R**ight, Z **D**own)     | FLU (X **F**orward, Y **L**eft, Z **U**p)      |
+| 전역  | FRD or NED (X **N**orth, Y **E**ast, Z **D**own) | FLU or ENU (X **E**ast, Y **N**orth, Z **U**p) |
 
-:::tip
-See [REP105: Coordinate Frames for Mobile Platforms](http://www.ros.org/reps/rep-0105.html) for more information about ROS frames.
+:::tip ROS
+프레임에 대한 자세한 내용은 [REP105: 모바일 플랫폼용 좌표 프레임](http://www.ros.org/reps/rep-0105.html)을 참고하십시오.
 :::
 
-Both frames are shown in the image below (FRD on the left/FLU on the right).
+두 프레임 모두 아래 이미지에 표시됩니다(왼쪽의 FRD/오른쪽의 FLU).
 
-![Reference frames](../../assets/lpe/ref_frames.png)
+![기준 프레임](../../assets/lpe/ref_frames.png)
 
 The FRD (NED) conventions are adopted on **all** PX4 topics unless explicitly specified in the associated message definition. Therefore, ROS 2 nodes that want to interface with PX4 must take care of the frames conventions.
 
@@ -645,7 +645,7 @@ Custom topic namespaces can be applied at build time (changing [dds_topics.yaml]
 uxrce_dds_client start -n uav_1
 ```
 
-or
+또는
 
 ```sh
 PX4_UXRCE_DDS_NS=uav_1 make px4_sitl gz_x500
@@ -745,7 +745,7 @@ You don't need to have a launch file, but they are very useful if you have a com
 
 For information about launch files see [ROS 2 Tutorials > Creating launch files](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
 
-## Troubleshooting
+## 문제 해결
 
 ### Missing dependencies
 
