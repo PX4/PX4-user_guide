@@ -1,9 +1,9 @@
-# FlightGear Simulation
+# FlightGear 仿真
 
 :::warning
 This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+关于核心开发团队支持的环境和工具的信息，请参阅 [工具链安装](../dev_setup/dev_env.md)。
 :::
 
 [FlightGear](https://www.flightgear.org/) is a flight simulator with powerful [FDM engines](http://wiki.flightgear.org/Flight_Dynamics_Model). This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by [ThunderFly s.r.o.](https://www.thunderfly.cz/)).
@@ -77,11 +77,11 @@ make px4_sitl_nolockstep flightgear_rascal
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-| Vehicle                                                                                   | Command                                      |
+| Vehicle                                                                                   | 通信                                           |
 | ----------------------------------------------------------------------------------------- | -------------------------------------------- |
 | [Standard Plane](../sim_flightgear/vehicles.md#standard-plane)                            | `make px4_sitl_nolockstep flightgear_rascal` |
 | [Ackermann vehicle (UGV/Rover)](../sim_flightgear/vehicles.md#ackerman-vehicle-ugv-rover) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
-| [Autogyro](../sim_flightgear/vehicles.md#autogyro)                                        | `make px4_sitl_nolockstep flightgear_tf-g1`  |
+| [飞机](../sim_flightgear/vehicles.md#autogyro)                                              | `make px4_sitl_nolockstep flightgear_tf-g1`  |
 
 The commands above launch a single vehicle with the full UI. _QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
@@ -177,7 +177,7 @@ Takeoff location in SITL FlightGear can be set using additional variables. Setti
 
 The variables which can be set are as follows: `--airport`, `--runway`, and `--offset-distance`. Other options can be found on [FlightGear wiki](http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation)
 
-For example:
+例如：
 
 ```sh
 FG_ARGS_EX="--airport=PHNL"  make px4_sitl_nolockstep flightgear_rascal
@@ -195,6 +195,6 @@ The joystick input in FlightGear should be disabled in otherwise there will be a
 
 To extend or customize the simulation interface, edit the files in the **Tools/simulation/flightgear/flightgear_bridge** folder. The code is available in the [PX4-FlightGear-Bridge repository](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) on Github.
 
-## Further Information
+## 更多信息
 
 - [PX4-FlightGear-Bridge readme](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)
