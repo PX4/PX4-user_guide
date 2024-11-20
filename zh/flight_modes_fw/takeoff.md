@@ -1,6 +1,6 @@
 # Takeoff Mode (Fixed-Wing)
 
-<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
+<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />
 
 The _Takeoff_ flight mode causes the vehicle to take off to a specified height and then enter [Hold mode](../flight_modes_fw/takeoff.md).
 
@@ -21,7 +21,7 @@ Vehicles are [hand or catapult launched](#catapult-hand-launch) by default, but 
 
 :::
 
-## Technical Summary
+## 技术总结
 
 Takeoff mode (and [fixed wing mission takeoff](../flight_modes_fw/mission.md#mission-takeoff)) has two modalities: [catapult/hand-launch](#catapult-hand-launch) or [runway takeoff](#runway-takeoff) (hardware-dependent). The mode defaults to catapult/hand launch, but can be set to runway takeoff by setting [RWTO_TKOFF](#RWTO_TKOFF) to 1.
 
@@ -35,11 +35,11 @@ Irrespective of the modality, a flight path (starting point and takeoff course) 
 
 On takeoff, the aircraft will follow line defined by the starting point and course, climbing at the maximum climb rate ([FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)) until reaching the clearance altitude. Reaching the clearance altitude causes the vehicle to enter [Hold mode](../flight_modes_fw/takeoff.md).
 
-### Parameters
+### 参数
 
 Parameters that affect both catapult/hand-launch and runway takeoffs:
 
-| Parameter                                                                                                 | Description                                                                                                                        |
+| 参数                                                                                                        | 描述                                                                                                                                 |
 | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="MIS_TAKEOFF_ALT"></a>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT)   | Minimum altitude setpoint above Home that the vehicle will climb to during takeoff.                                                |
 | <a id="FW_TKO_AIRSPD"></a>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD)       | Takeoff airspeed (is set to [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) if not defined by operator) |
@@ -69,7 +69,7 @@ To launch in this mode:
 
 The _launch detector_ is affected by the following parameters:
 
-| Parameter                                                                                                 | Description                                                                              |
+| 参数                                                                                                        | 描述                                                                                       |
 | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | <a id="FW_LAUN_DETCN_ON"></a>[FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON) | Enable automatic launch detection. If disabled motors spin up on arming already          |
 | <a id="FW_LAUN_AC_THLD"></a>[FW_LAUN_AC_THLD](../advanced_config/parameter_reference.md#FW_LAUN_AC_THLD)   | Acceleration threshold (acceleration in body-forward direction must be above this value) |
@@ -98,7 +98,7 @@ For a smooth takeoff, the runway wheel controller possibly needs to be tuned. It
 
 Runway takeoff is affected by the following parameters:
 
-| Parameter                                                                                                  | Description                                                                                                                    |
+| 参数                                                                                                         | 描述                                                                                                                             |
 | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | <a id="RWTO_TKOFF"></a>[RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF)               | Enable runway takeoff                                                                                                          |
 | <a id="FW_W_EN"></a>[FW_W_EN](../advanced_config/parameter_reference.md#FW_W_EN)                   | Enable wheel controller                                                                                                        |
