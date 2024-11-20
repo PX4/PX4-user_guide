@@ -59,7 +59,7 @@ It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
 
 BEC가 **없는** 광절연 ESC에서 +5V 라인을 연결하고 전원을 공급해야 할 수 있습니다 (ESC 마이크로 컨트롤러에 전원을 공급하기 위하여). 이 경우 와이어는 일반적으로 비행 콘트롤러 서보 레일에 연결되며, 서보 레일은 추가 BEC에서 전원을 공급하여야 합니다.
 
-## PX4 Configuration
+## PX4 설정
 
 PWM motors and servos are configured using the [Actuator Configuration](../config/actuators.md) screen in QGroundControl.
 
