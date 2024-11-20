@@ -1,4 +1,4 @@
-# Tailsitter VTOL
+# 尾座式垂起
 
 A **Tailsitter VTOL** takes off and lands on its tail, but flips into the fixed-wing orientation for normal flight. The tailsitter rotors are permanently fixed in position for forward flight.
 
@@ -52,7 +52,7 @@ Step-by-step guides of how to set up PX4 on tailsitter frames are listed below:
 We recommend that you also review build logs for other PX4 VTOL, and Copter vehicles (most of the setup is the same).
 :::
 
-## Videos
+## 视频
 
 This section contains videos that are specific to Tailsitter VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/index.md)).
 
