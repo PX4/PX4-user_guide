@@ -58,8 +58,8 @@ The core sensor setup is covered in these topics:
 
 - [Sensor Orientation](../config/flight_controller_orientation.md)
 - [Compass](../config/compass.md)
-- [Gyroscope](../config/gyroscope.md)
-- [Accelerometer](../config/accelerometer.md)
+- [ジャイロ](../config/gyroscope.md)
+- [加速度センサー](../config/accelerometer.md)
 
 PX4 can use other peripherals, such as distance sensors, optical flow sensors, traffic avoidance alarms, cameras, and so on:
 
@@ -149,4 +149,4 @@ Yes but it must be physically feasible. E.g. if you make a quadrotor where all m
   - **Multicopter Config/Tuning**
   - [Helicopter Config/Tuning](../config_heli/index.md)
   - [Fixed Wing Config/Tuning](../config_fw/index.md)
-  - [VTOL Config/Tuning](../config_vtol/index.md)
+  - [VTOL機設定/チューニング](../config_vtol/index.md)
