@@ -7,7 +7,7 @@ The Reptile Dragon 2 is a twin motor RC airplane specifically designed for effic
 ![Finished Reptile Dragon 2 airframe rear](../../assets/airframes/fw/reptile_dragon_2/airframe_rear.jpg)
 
 
-## Overview
+## 综述
 
 The goal of this build was to create an efficient, long endurance FPV platform to be used for general PX4 testing and development.
 
@@ -63,7 +63,7 @@ Key build features
 - Misc hardware: M3 hardware (standoffs, washers, O-rings, bolts), M2.5 nylon standoffs and screws, XT30 connectors, hot glue, heatshrink, Molex Microfit connectors
 - Silicone wiring (14awg for high current, 16awg for low current, 22awg for low power and signals)
 
-## Tools
+## 工具
 
 The following tools were used in this assembly.
 
@@ -222,7 +222,7 @@ Without the custom PCB, it's still easy to distribute power to all the component
 
 Because the Holybro carrier does not include an onboard servo power supply, an external ["BEC"](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) is used to provide power to the servos. The input leads of the EC were soldered to a XT30 connector which was plugged into the power distribution board. The output of the BEC can be plugged into any unused servo output (I chose IO output 8).
 
-### ESCs & Motors
+### 电调 & 电机
 
 ![Esc and motor](../../assets/airframes/fw/reptile_dragon_2/esc_motor.jpg)
 
@@ -316,7 +316,7 @@ To compile and flash the firmware, connect the FMU/Carrier to the build host PC 
 make ark_fmu-v6x_default upload
 ```
 
-## PX4 Configuration
+## PX4 配置
 
 ### Parameter Config
 
@@ -330,7 +330,7 @@ You may need to modify some parameters for your build In particular you should c
 - [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG) param must match serial port which is connected to the Caddx Vista (in this build, `/dev/ttyS7`).
 - [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG) param must match the serial port which is connected to the ELRS RX (in this build, `Telem 1`).
 
-### Radio Setup
+### 无线电系统设置
 
 You should enable Manual, Acro, and Position modes on your controller (at least for the first flight). For instructions see [Flight mode Configuration](../config/flight_mode.md)
 
@@ -380,7 +380,7 @@ I recommend checking the following items:
  - Pitch down -> Elevator goes up
 
 
-## First Flight
+## 第一次飞行
 
 I recommend performing the first takeoff in manual mode. Because this airplane has no landing gear, you will either need to throw the airplane yourself, or ideally have a helper throw it. When throwing any airplane, throw at a slightly nose up attitude with full throttle.
 
