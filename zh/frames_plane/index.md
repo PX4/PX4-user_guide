@@ -5,17 +5,17 @@ PX4 supports numerous plane geometries, including normal planes, flying wings, i
 ::: tip
 The generic configurations can be seen in [Airframes Reference > Plane](../airframes/airframe_reference.md#plane). These can be customized during configuration. :::
 
-## Overview
+## 综述
 
 The linked sections instructions for assembling and configuring fixed-wing frames.
 
 <!-- Features? -->
 
-- [Assembly](../assembly/assembly_fw.md)
+- [组装](../assembly/assembly_fw.md)
 - [Config/Tuning](../config_fw/index.md)
 - [Flying (Basics)](../flying/basic_flying_fw.md)
-- [Flight Modes](../flight_modes_fw/index.md)
-- [Complete Vehicles](../complete_vehicles_fw/index.md)
+- [飞行模式](../flight_modes_fw/index.md)
+- [整机](../complete_vehicles_fw/index.md)
 - [DIY Builds](../frames_plane/diy_builds.md)
 
 ## 视频
