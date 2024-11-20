@@ -2,7 +2,7 @@
 
 [PlotJuggler](https://github.com/facontidavide/PlotJuggler) can be used to analyze ULogs for in-depth, development purposes. It is incredibly useful as every uORB topic is exposed / can be graphed, as well as having custom functions to modify the data (e.g. from Quaternion values to Roll / Pitch / Yaw).
 
-## Installation
+## 설치
 
 You can find the latest releases of the Plot Juggler [here](https://github.com/facontidavide/PlotJuggler/releases).
 
@@ -18,7 +18,7 @@ If the downloaded AppImage does not open, you may need to change its access sett
 chmod 777 <Path-To-PlotJuggler-AppImage>
 ```
 
-## General Usage
+## 일반적인 사용법
 
 Two most common tasks are "Searching" for the logged uORB topic, and "Drag and Dropping" a field in a specific topic onto the graph view. These are demonstrated in the diagram below.
 
