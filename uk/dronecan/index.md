@@ -226,7 +226,7 @@ PX4 не публікує або підписується на повідомл�
 
 #### Периферійне озброєння
 
-PX4 DroneCAN parameters:
+Параметри PX4 DroneCAN:
 
 - [UAVCAN_PUB_ARM](../advanced_config/parameter_reference.md#UAVCAN_PUB_ARM) ([Статус зброї](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#armingstatus)): Опублікуйте, коли використовуєте компоненти DroneCAN, які вимагають статусу зброї PX4 як умову для використання.
 
