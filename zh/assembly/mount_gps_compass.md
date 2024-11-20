@@ -16,7 +16,7 @@ PX4 will automatically detect the orientation for any of these standard orientat
 
 The compass can also be mounted at any other "custom euler angles", but in this case you will need to manually configure the orientations. For more information see [Setting the Compass Orientation](../config/flight_controller_orientation.md#setting-the-compass-orientation) in _Flight Controller/Sensor Orientation_.
 
-## Position
+## 安装位置
 
 In order to compensate for the relative motion between the receiver and the CoG, you should [configure](../advanced_config/parameters.md) the following parameters to set the offsets: [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z).
 
