@@ -50,9 +50,7 @@ A forward flying vehicle, such as a VTOL or Fixed-wing, will generally also have
 The instructions are focussed on systems that use [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers (FCs), and in particular those that have adopted the [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 For these FCs, much of the "wiring up" is as simple as connecting the components into the appropriately labelled ports using supplied cables.
 
-::: info If your FC does not use the connector standard ...
-Pixhawk series flight controllers that don't follow the connector standard will often provide cables for interconnecting with Pixhawk standard components.
-For other controllers you may need to manually create cables and connectors.
+:::info
 
 The [flight controller-specific guides](#fc-specific-assembly-guides) contain FC-specific wiring and configuration information, as do guides on the manufacturer sites.
 :::
