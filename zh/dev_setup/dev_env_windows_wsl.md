@@ -2,10 +2,10 @@
 
 The following instructions explain how to set up a PX4 development environment on Windows 10 or 11, running on Ubuntu Linux within [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about).
 
-This environment can be used to build PX4 for:
+根据本文的指示构建的开发环境可以用编译：
 
-- [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
-- [Gazebo Simulation](../sim_gazebo_gz/index.md)
+- [基于 NuttX 的硬件 (Pixhawk等)](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
+- [Gazebo 仿真](../sim_gazebo_gz/index.md)
 - [Gazebo-Classic Simulation](../sim_gazebo_classic/index.md)
 
 :::tip
@@ -14,7 +14,7 @@ The environment should in theory be able to build any target that can be built o
 The list above are those targets that are regularly tested.
 :::
 
-## Overview
+## 综述
 
 The [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) ([WSL2](https://docs.microsoft.com/en-us/windows/wsl/compare-versions)) allows users to install and run the [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) on Windows, _almost_ as though we were running it on a Linux computer.
 
@@ -35,7 +35,7 @@ _QGroundControl for Windows_ is additionally required if you need to:
 ::: info The approach is similar to installing PX4 in your _own_ virtual machine, as described in [Windows VM-Hosted Toolchain](../dev_setup/dev_env_windows_vm.md). The benefit of WSL2 is that its virtual machine is deeply integrated into Windows, system-managed, and performance optimised.
 :::
 
-## Installation
+## 安装
 
 ### Install WSL2
 
@@ -91,7 +91,7 @@ To open a WSL shell using a command prompt:
    wsl -d <distribution_name>
    ```
 
-   For example:
+   例如：
 
    ```sh
    wsl -d Ubuntu
@@ -143,7 +143,7 @@ If you work from a location outside of the WSL file system you'll run into issue
 
    ::: info This installs tools to build PX4 for Pixhawk and either Gazebo or Gazebo Classic targets:
 
-   - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
+   - 你可以通过传输参数`--no-nuttx` 和 `--no-sim-tools` 来跳过 nuttx 和/或 仿真器工具的安装。
    - Other Linux build targets are untested (you can try these by entering the appropriate commands in [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) into the WSL shell).
 :::
 
@@ -285,7 +285,7 @@ You can add the folder to the favourites to access it quickly next time.
 
 1. Start the flashing.
 
-## Troubleshooting
+## 故障处理
 
 If you have any problems with your setup, check the current [Microsoft WSL installation documentation](https://learn.microsoft.com/en-us/windows/wsl/install).
 
