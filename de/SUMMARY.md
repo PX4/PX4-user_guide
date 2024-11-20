@@ -136,7 +136,7 @@
       - [Silicon Errata](flight_controller/silicon_errata.md)
     - [Pixhawk Standard Autopilots](flight_controller/autopilot_pixhawk_standard.md)
       - [NXP MR-VMU-RT1176 FMU (FMUv6X-RT)](flight_controller/nxp_mr_vmu_rt1176.md)
-      - [Holybro Pixhawk 6X-RT (FMUv6X-RT)](flight_controller/pixhawk6x-rt.md)
+      - [\[Holybro Pixhawk 5X]\[holybro pixhawk 5x\\] (FMUv5x)](flight_controller/pixhawk6x-rt.md)
       - [CUAV Pixhawk V6X (FMUv6X)](flight_controller/cuav_pixhawk_v6x.md)
         - [Wiring QuickStart](assembly/quick_start_cuav_pixhawk_v6x.md)
       - [Holybro Pixhawk 6X (FMUv6X)](flight_controller/pixhawk6x.md)
