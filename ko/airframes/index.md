@@ -14,7 +14,7 @@ The frame types that have a maintainer and are well tested and supported are:
 - [Planes (Fixed-Wing)](../frames_plane/index.md)
 - [VTOL](../frames_vtol/index.md): [Standard VTOL](../frames_vtol/standardvtol.md), [Tailsitter VTOL](../frames_vtol/tailsitter.md), [Tiltrotor VTOL](../frames_vtol/tiltrotor.md)
 
-## Experimental Vehicles
+## 실험 기체
 
 Experimental frames are those vehicle types that:
 
@@ -29,7 +29,7 @@ The following vehicle types are considered experimental:
 - [Airships](../frames_airship/index.md)
 - [Autogyros](../frames_autogyro/index.md)
 - [Balloons](../frames_balloon/index.md)
-- [Helicopter](../frames_helicopter/index.md)
+- [헬리콥터](../frames_helicopter/index.md)
 - [Rovers](../frames_rover/index.md)
 - [Submarines](../frames_sub/index.md)
 
