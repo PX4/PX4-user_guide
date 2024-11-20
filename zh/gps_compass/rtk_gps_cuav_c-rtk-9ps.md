@@ -8,15 +8,15 @@ Using the C-RTK 9Ps gives PX4 centimeter-level positioning precision. This is id
 
 ![C-RTK 9Ps](../../assets/hardware/gps/cuav_9ps/c-rtk9s.jpg)
 
-## Where to Buy
+## 在哪里买
 
 [cuav Store](https://store.cuav.net/shop/c-rtk-9ps/)
 
-## Specification
+## 技术规范
 
-![Specification](../../assets/hardware/gps/cuav_9ps/c-rtk9s-specification.jpg)
+![技术规范](../../assets/hardware/gps/cuav_9ps/c-rtk9s-specification.jpg)
 
-## Wiring and Connections
+## 接线和连接
 
 **C-RTK 9Ps (Base)**
 
@@ -37,13 +37,13 @@ Using the C-RTK 9Ps gives PX4 centimeter-level positioning precision. This is id
 ::: info C-RTK 9Ps come with 6-pin and 10-pin connectors compatible with Pixhawk-standard flight controllers. Connect to `GPS1` or `GPS2`. Select the appropriate cable for the flight controller.
 :::
 
-## Configuration
+## 配置
 
 RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
-## Pinouts
+## 针脚定义
 
-![Pinouts](../../assets/hardware/gps/cuav_9ps/pinouts-en.jpg)
+![针脚定义](../../assets/hardware/gps/cuav_9ps/pinouts-en.jpg)
 
 ## Physical Dimensions
 
