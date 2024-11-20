@@ -97,7 +97,7 @@ The image below shows the wiring in greater detail.
 
 This section explains how you install your preferred Linux distro, such as "Raspberry Pi OS 64bit" onto the RPi EMCC.
 
-Notes:
+路径规划软件（在机载计算机上运行）*可以* 以[TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
 
 - If you are using PX4, you will need to use PX4 version 1.13.1 or newer for PX4 to recognize this baseboard.
 - The fan does not indicate if the RPi CM4 is powered/running or not.
@@ -198,7 +198,7 @@ On the RPi side:
 
 The flight controller module is [internally connected to RPi CM4](#rpi-cm4-fc-serial-connection) from `TELEM2` (serial).
 
-You can also set up a local Ethernet connection between them using the supplied cable. Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.
+You can also set up a local Ethernet connection between them using the supplied cable. 以太网连接提供了一种快速、可靠和灵活的通信选择，可替代使用USB或其他串行连接。
 
 ::: info
 For general Ethernet setup information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
@@ -398,5 +398,5 @@ And such output is expected if everything is set up correctly:
 
 ## See Also
 
-- [Get The Pixhawk Raspberry Pi CM4 Baseboard By Holybro Talking With PX4](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/) (px4.io blog):
-  - Tutorial showing how to connect Pixhawk 6X + Raspberry Pi on CM4 baseboard via wired Ethernet.
+- [使Holybro发布的Pixhawk Raspberry Pi CM4基板和PX4通信](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/)（px4.io博客）：
+  - 展示如何通过有线以太网连接 Pixhawk 6X + Raspberry Pi 到 CM4 主板。
