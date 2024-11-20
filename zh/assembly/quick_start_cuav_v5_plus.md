@@ -1,6 +1,6 @@
 # CUAV V5+ 快速接线指南
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
 :::
 
 This quick start guide shows how to power the [CUAV V5+](../flight_controller/cuav_v5_plus.md) flight controller and connect its most important peripherals.
@@ -9,7 +9,7 @@ This quick start guide shows how to power the [CUAV V5+](../flight_controller/cu
 
 ## 接线图概述
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+下图展示了如何连接最重要的传感器和外围设备（电机和伺服舵机输出除外）。 我们将在下面各节中介绍它们的细节。
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
@@ -63,7 +63,7 @@ If you do not use the recommended GPS, the buzzer may not work.
 
 ## 遥控器
 
-A remote control (RC) radio system is required if you want to manually control your vehicle (PX4 does not require a radio system for autonomous flight modes). You will need to select a compatible transmitter/receiver and then bind them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+A remote control (RC) radio system is required if you want to manually control your vehicle (PX4 does not require a radio system for autonomous flight modes). 将 *HW\\u PM* 模块的6针连接器连接到飞控的`电源`接口。
 
 The figure below shows how you can access your remote receiver (please find the SBUS cable in the kit).
 
@@ -81,14 +81,14 @@ The V5+ kit includes the _HV_PM_ module, which supports 2~14S LiPo batteries. Co
 The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
 :::
 
-![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
+![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
 ::: info
 The power module is not a power source for peripherals connected to the PWM outputs.
 If you're connecting servos/actuators you will need to separately power them using a BEC.
 :::
 
-## Telemetry System (Optional)
+## 数传系统（可选）
 
 A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
