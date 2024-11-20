@@ -33,7 +33,7 @@ roslaunch -w 2 -v mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 :::info Може бути корисно викликати _roslaunch_ з `-w NUM_WORKERS` (перевизначити кількість робочих потоків) та/або `-v` (verbose, або розлогий вивід), щоб отримати попередження про відсутні залежності у вашій установці. Наприклад:
 
 ```sh
-roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
+roslaunch -w 2 -v mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
 :::
