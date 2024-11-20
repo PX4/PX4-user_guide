@@ -119,7 +119,7 @@ There are several other "battery related" failsafe mechanisms that may be config
 
 ![Safety - Data Link Loss (QGC)](../../assets/qgc/setup/safety/safety_data_link_loss.png)
 
-The settings and underlying parameters are shown below.
+Налаштування та вибрані параметри показані нижче.
 
 | Налаштування                   | Параметр                                                                   | Опис                                                                  |
 | ------------------------------ | -------------------------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -332,7 +332,7 @@ The [commander module](../advanced_config/parameter_reference.md#commander) has 
 
 These parameters can be used to set conditions that prevent arming.
 
-| Parameter                                                                                                  | Description                                                                                                                                                                                                |
+| Параметр                                                                                                   | Опис                                                                                                                                                                                                       |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="COM_ARMABLE"></a>[COM_ARMABLE](../advanced_config/parameter_reference.md#COM_ARMABLE)             | Enable arming (at all). `0`: Disabled, `1`: Enabled (default).                                                                                                                                             |
 | <a id="COM_ARM_BAT_MIN"></a>[COM_ARM_BAT_MIN](../advanced_config/parameter_reference.md#COM_ARM_BAT_MIN)   | Minimum battery level for arming. `0`: Disabled (default). Values: `0`-`0.9`,                                                                                                                              |
