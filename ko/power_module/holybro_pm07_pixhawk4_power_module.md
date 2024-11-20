@@ -27,7 +27,7 @@
 - JST GH 8P Cable
 - 2x JST GH 6P Cable
 
-## Where to Buy
+## 구매처
 
 [Pixhawk 4 전원 모듈 (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07)
 
