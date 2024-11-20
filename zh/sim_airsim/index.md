@@ -3,7 +3,7 @@
 :::warning
 This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+关于核心开发团队支持的环境和工具的信息，请参阅 [工具链安装](../dev_setup/dev_env.md)。
 :::
 
 [AirSim](https://microsoft.github.io/AirSim/) is a open-source, cross platform simulator for drones, built on _Unreal Engine_. It provides physically and visually realistic simulations of Pixhawk/PX4 using either Hardware-In-The-Loop (HITL) or Software-In-The-Loop (SITL).
@@ -16,7 +16,7 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 
 [PX4 Setup for AirSim](https://microsoft.github.io/AirSim/px4_setup/) describes how to use PX4 with AirSim using both [SITL](https://microsoft.github.io/AirSim/px4_sitl/) and [HITL](https://microsoft.github.io/AirSim/px4_setup/#setting-up-px4-hardware-in-loop).
 
-## Videos
+## 视频
 
 #### AirSim with PX4 on WSL 2
 
@@ -39,7 +39,7 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 
 <!-- datestamp:video:youtube:20200716:Autonomous Drone Inspections using AirSim and PX4 — PX4 Developer Summit Virtual 2020 -->
 
-## Further Information
+## 更多信息
 
 - [AirSim Documentation](https://microsoft.github.io/AirSim/)
 - [Using AirSim to Simulate Aircraft Inspection by Autonomous Drones](https://gaas.gitbook.io/guide/case-study/using-airsim-to-simulate-aircraft-inspection-by-autonomous-drones) (Case Study from Generalized Autonomy Aviation System (GAAS) project).
