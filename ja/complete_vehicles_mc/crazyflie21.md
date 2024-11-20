@@ -301,6 +301,6 @@ To connect to Crazyflie 2.1 via MAVROS:
 
 - Restart QGroundControl if it doesn't connect.
 
-## Flying
+## フライト
 
 <lite-youtube videoid="0qy7O3fVN2c" title="Crazyflie 2.1 - PX4 Firmware (stabilized mode)"/>
