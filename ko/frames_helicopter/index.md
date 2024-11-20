@@ -23,19 +23,19 @@ PX4 supports helicopters with a single main rotor with a swash-plate controlled 
 
 The allowed flight operations and [flight modes](../flight_modes_mc/index.md) are the same as for multicopter. Note however that (at the time of writing) 3D flying with negative thrust is not supported in autonomous/guided modes.
 
-## Assembly
+## 조립
 
 Assembly of the core autopilot components are similar for all frames. This is covered in [Basic Assembly](../assembly/index.md).
 
 Helicopter-specific assembly consists mostly of connecting and powering the motors and swash plate servos.
 
-::: info
+:::note
 
 Note that the flight controller cannot power motors and servos (only GPS module, RC receiver, and low power telemetry modules can be powered from Pixhawk flight controllers). Generally a power distribution board (PDB) is used to power motors, and a separate (or integrated) battery elimination circuit (BEC) is used to power each of the servos.
 :::
 
 
-## Configuration
+## 설정
 
 Helicopter configuration and setup is covered in:
 
