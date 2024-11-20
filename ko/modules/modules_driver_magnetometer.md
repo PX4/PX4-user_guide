@@ -324,7 +324,7 @@ mmc5983ma <command> [arguments...]
 
 <a id="qmc5883l_usage"></a>
 
-### Usage
+### 사용법
 ```
 qmc5883l <command> [arguments...]
  Commands:
@@ -349,7 +349,7 @@ qmc5883l <command> [arguments...]
 
 <a id="rm3100_usage"></a>
 
-### Usage
+### 사용법
 ```
 rm3100 <command> [arguments...]
  Commands:
@@ -376,7 +376,7 @@ rm3100 <command> [arguments...]
 
 <a id="vcm1193l_usage"></a>
 
-### Usage
+### 사용법
 ```
 vcm1193l <command> [arguments...]
  Commands:
