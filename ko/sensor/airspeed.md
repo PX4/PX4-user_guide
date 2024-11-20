@@ -21,7 +21,7 @@ Airspeed sensors are _highly recommended_ for fixed-wing and VTOL frames. They a
 
 위의 센서들은 I2C 버스/포트를 통해 연결됩니다.
 
-::: info
+:::note
 
 Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the CAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
 
@@ -74,4 +74,4 @@ Airspeed sensors should be calibrated by following the instructions: [Basic Conf
 
 - [Using the ECL EKF > Airspeed](../advanced_config/tuning_the_ecl_ekf.md#airspeed)
 - [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure) (source code)
-- [VTOL Without an Airspeed Sensor](../config_vtol/vtol_without_airspeed_sensor.md)
+- [대기속도 센서 미장착 VTOL ](../config_vtol/vtol_without_airspeed_sensor.md)
