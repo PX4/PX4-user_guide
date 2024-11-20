@@ -5,7 +5,7 @@ This topic provides full instructions for building the [Holybro X500 V2 ARF Kit]
 ![The fully built vehicle with props removed](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/kit_no_props.jpg)
 
 
-## Assembly
+## 组装
 
 ::: info
 - The images in this document can be selected to see a youtube video of the step.
@@ -70,7 +70,7 @@ Because it’s cumbersome to insert the wires once the top plate is assembled, d
 
 [![Assembly13](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly13.png)](https://youtu.be/3en4DlQF4XU)
 
-### Power
+### 电源
 
 The Pixhawk 6C gets powered by a power module PM02 (in this case). This power module is supplied by a battery (4S 16.8V 5200 mAh)
 
@@ -152,7 +152,7 @@ The X500 kit is provides space for a companion computer, such as Raspberry Pi or
 - Insert 4 Socket Cap Screw M2.5*12 and put the standoffs on the same.
 - Now place the companion computer and assemble it using Locknut M2.5
 
-### Camera
+### 相机
 
 - Cameras such as Intel Realsense depth/ tracking camera or Structure Core can be mounted using the Depth Camera Mount
 - Simply insert the mount inside the 2 bars and use the screws according to the camera you’re using.
@@ -170,35 +170,35 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 
 First update the firmware, airframe, and actuator mappings:
 
-- [Firmware](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [固件](../config/firmware.md)
+- [机架](../config/airframe.md)
 
   You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro 500 V2**)
 
   ![QGroundControl - Select HolyBro 500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
 
-- [Actuators](../config/actuators.md)
+- [执行器](../config/actuators.md)
   - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
   - Assign actuator functions to outputs to match your wiring. The airframe is preconfigured with the motors on the **FMU PWM Out**.
   - Test the configuration using the sliders.
 
 Then perform the mandatory setup/calibration:
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Radio Setup](../config/radio.md)
-- [Flight Modes](../config/flight_mode.md)
+- [传感器方向](../config/flight_controller_orientation.md)
+- [罗盘](../config/compass.md)
+- [加速度计](../config/accelerometer.md)
+- [水平平面校准](../config/level_horizon_calibration.md)
+- [无线电系统设置](../config/radio.md)
+- [飞行模式](../config/flight_mode.md)
 
 Ideally you should also do:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery Estimation Tuning](../config/battery.md)
-- [Safety](../config/safety.md)
+- [电调（ESC）校准](../advanced_config/esc_calibration.md)
+- [电池](../config/battery.md)
+- [安全性](../config/safety.md)
 
 
-## Tuning
+## 调试
 
 Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
