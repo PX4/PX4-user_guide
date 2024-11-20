@@ -14,7 +14,7 @@ PX4 supports two software protocols for communicating with CAN devices:
 PX4 does not support other CAN software protocols for drones such as KDECAN (at time of writing).
 :::
 
-## Wiring
+## 배선
 
 The wiring for CAN networks is the same for both DroneCAN and Cyphal/CAN (in fact, for all CAN networks).
 
@@ -28,7 +28,7 @@ The diagram does not show any power wiring. Refer to your manufacturer instructi
 
 For more information, see [Cyphal/CAN device interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (kb.zubax.com). While the article is written with the Cyphal protocol in mind, it applies equally to DroneCAN hardware and any other CAN setup. For more advanced scenarios, consult with [On CAN bus topology and termination](https://forum.opencyphal.org/t/on-can-bus-topology-and-termination/1685).
 
-### Connectors
+### 커넥터
 
 Pixhawk standard compatible CAN devices use 4 pin JST-GH connectors for CAN. Two connectors are used for input and output when wiring in a chain (except for flight controllers and some GNSS devices with builtin termination, which only have a single JST-GH connector).
 
@@ -38,7 +38,7 @@ Other (non-Pixhawk compatible) devices may use different connectors. However, as
 
 DroneCAN and Cyphal/CAN support using a second (redundant) CAN interface. This is completely optional but increases the robustness of the connection. All Pixhawk flight controllers come with 2 CAN interfaces; if your peripherals support 2 CAN interfaces as well, it is recommended to wire both up for increased safety.
 
-## Firmware
+## 펌웨어
 
 CAN peripherals may run proprietary or open source firmware (check manufacturer guides to confirm the required setup).
 
@@ -50,7 +50,7 @@ PX4 can be built to run as open-source DroneCAN firmware on supported CAN hardwa
 
 [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md)
 
-## Videos
+## 비디오
 
 ### DroneCAN
 
