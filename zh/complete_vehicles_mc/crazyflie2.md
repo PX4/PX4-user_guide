@@ -20,11 +20,9 @@ An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/cra
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
-## Quick Summary
+## 总览
 
-::: info
-The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
-:::
+:::info:::
 
 - Main System-on-Chip: STM32F405RG
   - CPU: 168 MHz ARM Cortex M4 with single-precision FPU
@@ -33,7 +31,7 @@ The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazy
 - MPU9250 Accel / Gyro / Mag
 - LPS25H barometer
 
-## Where to Buy
+## 在哪里买
 
 - [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0).
 - [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between _QGroundControl_ and Crazyflie 2.0.
