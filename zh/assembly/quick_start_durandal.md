@@ -2,7 +2,7 @@
 
 <Badge type="tip" text="PX4 v1.11" />
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 This quick start guide shows how to power the Holybro [Durandal](../flight_controller/durandal.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
@@ -19,7 +19,7 @@ The content of the box with the _PM02 V3_ power module is shown below (the box a
 
 ## 接线图概述
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+下图展示了如何连接最重要的传感器和外围设备（电机和伺服舵机输出除外）。 我们将在下面各节中介绍它们的细节。
 
 ![Durandal Wiring Overview](../../assets/flight_controller/durandal/durandal_wiring_overview.jpg)
 
@@ -77,7 +77,7 @@ As this power module does not include power distribution wiring, you would norma
 The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
 :::
 
-The power module has the following characteristics/limits:
+遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。
 
 - Max input voltage: 60V
 - Max current sensing: 120A Voltage
@@ -117,7 +117,7 @@ The battery/power setup must be configured in [Battery Estimation Tuning](../con
 
 You will not need to update the _voltage divider_ unless you are using some other power module (e.g. the one from the Pixracer).
 
-## Radio Control
+## 遥控器
 
 A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
