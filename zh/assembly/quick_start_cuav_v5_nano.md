@@ -32,7 +32,7 @@
 ::: info For more interface information, please read [V5 nano Manual](http://manual.cuav.net/V5-nano.pdf).
 :::
 
-![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
+![快速入门](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
 
 ::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../gps_compass/rtk_gps.md). 使用电缆连接到飞控的 GPS 接口。
 
@@ -49,7 +49,7 @@ The GPS/Compass module should be [mounted on the frame](../assembly/mount_gps_co
 If you use CAN GPS, please use the cable to connect to the flight control CAN interface.
 :::
 
-![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_04.png)
+![快速入门](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_04.png)
 
 ## 安全开关
 
@@ -67,7 +67,7 @@ A remote control (RC) radio system is required if you want to manually control y
 
 The figure below shows how you can access your remote receiver (please find the S.Bus cable in the kit)
 
-![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
+![快速入门](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
 
 ## Spektrum 卫星接收器
 
@@ -81,7 +81,7 @@ The _v5 nano_ kit includes the _HV_PM_ module, which supports 2~14S LiPo batteri
 The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
 :::
 
-![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
+![快速入门](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
 ::: info
 The power module is not a power source for peripherals connected to the PWM outputs.
@@ -94,7 +94,7 @@ A telemetry system allows you to communicate with, monitor, and control a vehicl
 
 The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to the **TELEM1** or **TELEM2** port (if connected to these ports, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
 
-![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
+![快速入门](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
 <a id="sd_card"></a>
 
