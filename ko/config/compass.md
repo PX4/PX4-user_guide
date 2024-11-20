@@ -5,7 +5,7 @@
 ::: info Compass calibration also auto-detects the compass orientation ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)). If you have [mounted the compass](../assembly/mount_gps_compass.md#compass-orientation) at a non-standard angle you will need to [manually set the compass orientation](../config/flight_controller_orientation.md#setting-the-compass-orientation) before calibrating.
 :::
 
-## Overview
+## 개요
 
 최초 사용시에는 나침반을 보정하여야하며, 차량이 매우 강한 자기장에 노출되었거나 비정상적인 자기 특성이있는 지역에서 사용되는 경우에는 나침반을 다시 보정하는 것이 좋습니다.
 
@@ -20,7 +20,7 @@ Two types of compass calibration are available:
 
 ## 보정 방법
 
-### Preconditions
+### 전제 조건
 
 Before starting the calibration:
 
@@ -61,13 +61,13 @@ This calibration is similar to the well-known figure-8 compass calibration done 
 1. Hold the vehicle in front of you and randomly perform partial rotations on all its axes. 2-3 oscillations of ~30 degrees in every direction is usually sufficient.
 1. Wait for the heading estimate to stabilize and verify that the compass rose is pointing to the correct direction (this can take a couple of seconds).
 
-Notes:
+참고:
 
 - There is no start/stop for this type of calibration (the algorithm runs continuously when the vehicle is disarmed).
 - The calibration is immediately applied to the data (no reboot is required) but is saved to the calibration parameters after disarming the vehicle only (the calibration is lost if no arming/disarming sequence is performed between calibration and shutdown).
 - The amplitude and the speed of the partial rotations done in step 1 can affect the calibration quality. Following the advice above is usually enough.
 
-## Verification
+## 검증
 
 After the calibration is complete, check that the heading indicator and the heading of the arrow on the map are stable and match the orientation of the vehicle when turning it e.g. to the cardinal directions.
 
@@ -92,7 +92,7 @@ To disable an internal compass:
 - Use [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) to determine which compasses are internal. A compass is internal if `CAL_MAGn_ROT==1`.
 - Then use [CAL_MAGx_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO) to disable the compass. This can also be used to change the relative priority of a compass.
 
-## Debugging
+## 디버깅
 
 Raw comparison data for magnetometers (in fact, for all sensors) can be logged by setting [SDLOG_MODE=1](../advanced_config/parameter_reference.md#SDLOG_MODE) and [SDLOG_PROFILE=64](../advanced_config/parameter_reference.md#SDLOG_PROFILE). See [Logging](../dev_log/logging.md) for more information.
 
