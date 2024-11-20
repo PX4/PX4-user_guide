@@ -64,7 +64,7 @@ Order mRo Pixhawk from:
 - 2 MB Flash
 - 32 bit STM32F103 failsafe co-processor
 
-### Sensors
+### センサー
 
 - ST Micro L3GD20H 16 bit gyroscope
 - ST Micro LSM303D 14 bit accelerometer / magnetometer
