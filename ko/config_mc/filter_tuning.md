@@ -40,7 +40,7 @@ Sampling and filtering is always performed at the full raw sensor rate (commonly
 :::
 
 - D-term에 대한 별도의 저역 통과 필터. D-term은 노이즈에 가장 취약하지만 대기 시간이 약간 증가해도 성능에 나쁜 영향을 주지 않습니다. 이러한 이유로 D-term에는 별도로 구성 가능한 저역 통과 필터 [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF)가 있습니다.
-- A optional slew-rate filter on the motor outputs. This rate may be configured as part of the [Multicopter Geometry](../config/actuators.md#motor-geometry-multicopter) when configuring actuators (which in turn modifies the [CA_Rn_SLEW](../advanced_config/parameter_reference.md#CA_R0_SLEW) parameters for each motor `n`).
+- An optional slew-rate filter on the motor outputs. This rate may be configured as part of the [Multicopter Geometry](../config/actuators.md#motor-geometry-multicopter) when configuring actuators (which in turn modifies the [CA_Rn_SLEW](../advanced_config/parameter_reference.md#CA_R0_SLEW) parameters for each motor `n`).
 
 제어 지연을 줄이기 위해 저역 통과 필터의 차단 주파수를 높이려고 합니다. `IMU_GYRO_CUTOFF` 증가로 인한 지연 시간에 미치는 영향은 대략 다음과 같습니다.
 
