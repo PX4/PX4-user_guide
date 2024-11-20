@@ -1,18 +1,18 @@
-# Using a Companion Computer with Pixhawk Controllers
+# 使用机载计算机与 Pixhawk 控制器
 
 PX4 running on Pixhawk-series flight controllers can connect to a companion computer using any free configurable serial port, including the Ethernet port (if supported).
 
 See [Companion Computers](../companion_computer/index.md) for information about supported hardware and general setup.
 
-## Companion Computer Software
+## 机载计算机软件
 
-The companion computer needs to run software that communicates with the flight controller, and which routes traffic to ground stations and the cloud.
+机载计算机需要运行能与飞控通信的软件，并将消息路由到地面站和云端。
 
 Common options are listed in [Companion Computers > Companion Computer Setup](../companion_computer/index.md#companion-computer-software).
 
-## Ethernet Setup
+## 以太网设置
 
-Ethernet is the recommended connection, if supported by your flight controller. See [Ethernet Setup](../advanced_config/ethernet_setup.md) for instructions.
+以太网是推荐的连接方式，如果飞行控制器支持的话。 请参阅[以太网设置](../advanced_config/ethernet_setup.md)获取说明。
 
 ## Serial Port Setup
 
