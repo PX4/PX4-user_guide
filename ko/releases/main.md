@@ -26,13 +26,13 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 - TBD
 
-### Common
+### 공통
 
 - [Battery level estimation improvements](../config/battery.md) ([PX4-Autopilot#23205](https://github.com/PX4/PX4-Autopilot/pull/23205)).
   - [Voltage-based estimation with load compensation](../config/battery.md#voltage-based-estimation-with-load-compensation) now uses a real-time estimate of the internal resistance of the battery to compensate voltage drops under load (with increased current), providing a better capacity estimate than with the raw measured voltage.
   - Thrust-based load compensation has been removed (along with the `BATn_V_LOAD_DROP` parameters, where `n` is the battery number).
 
-### Control
+### 제어
 
 - TBD
 
@@ -40,11 +40,11 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 - TBD
 
-### Sensors
+### 센서
 
 - TBD
 
-### Simulation
+### 시뮬레이션
 
 - [SIH]: The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7. ([PX4-Autopilot#23363](https://github.com/PX4/PX4-Autopilot/pull/23363)).
 - [Gazebo]:
@@ -71,7 +71,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 - Allow system-default [multicopter orbit mode](../flight_modes_mc/orbit.md) yaw behaviour to be configured, using the parameter [MC_ORBIT_YAW_MOD](../advanced_config/parameter_reference.md#MC_ORBIT_YAW_MOD) ([PX4-Autopilot#23358](https://github.com/PX4/PX4-Autopilot/pull/23358))
 
-### VTOL
+### 수직이착륙기(VTOL)
 
 - TBD
 
@@ -79,7 +79,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 - Improvement: Fixed-wing auto takeoff: enable setting takeoff flaps for hand/catapult launch. [PX4-Autopilot#23460](https://github.com/PX4/PX4-Autopilot/pull/23460)
 
-### Rover
+### 로버
 
 This release contains a major rework for the rover support in PX4:
 
