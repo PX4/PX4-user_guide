@@ -6,13 +6,13 @@ Vertiq makes high performance propulsion systems for commercial and defense UAS.
 
 All Vertiq modules support traditional [PWM input, DShot, OneShot, and Multishot communication protocols](https://iqmotion.readthedocs.io/en/latest/manual/manual_hobby.html). Vertiq's larger modules also support [DroneCAN control](https://iqmotion.readthedocs.io/en/latest/manual/manual_dronecan.html).
 
-## Where to Buy
+## 구매처
 
 Purchasing information can be found on the [Vertiq website](https://www.vertiq.co/).
 
-## Hardware Setup
+## 하드웨어 설정
 
-### Wiring
+### 배선
 
 Connecting your Vertiq module to a PWM output from your flight controller or DroneCAN bus will vary depending on your model. Please see the product data sheets for wiring information.
 
@@ -38,7 +38,7 @@ These instructions walk you through setting the correct parameters for enabling 
 
 Instructions for integrating the motor/ESC using PWM and DShot can be found in [PWM and DShot Control with a Flight Controller](https://iqmotion.readthedocs.io/en/latest/tutorials/pwm_control_flight_controller.html). DShot is recommended.
 
-## Further Information
+## 추가 정보
 
 - <https://www.vertiq.co/> — Learn more about Vertiq modules
 - [Vertiq Documentation](https://iqmotion.readthedocs.io/en/latest/index.html) — Additional information about configuring your Vertiq module
