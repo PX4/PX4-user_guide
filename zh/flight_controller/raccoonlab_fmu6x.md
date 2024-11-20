@@ -35,7 +35,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 - FMU Processor: STM32H753
   - 32 Bit Arm Cortex-M7, 480MHz, 2MB flash memory, 1MB RAM
-- IO Processor: STM32F100
+- IO 处理器：STM32F100
   - 32 Bit Arm Cortex-M3, 24MHz, 8KB SRAM
 - On-board sensors
   - Accel/Gyro: ICM-20649 or BMI088
@@ -56,7 +56,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 ## Mechanical data
 
-- Dimensions
+- 尺寸
   - Flight Controller Module: 38.8 x 31.8 x 14.6mm
   - Standard Baseboard: 52.4 x 103.4 x 16.7mm
   - Mini Baseboard: 43.4 x 72.8 x 14.2 mm
@@ -69,13 +69,13 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 ![RaccoonLab FMUv6X drawings](../../assets/flight_controller/raccoonlab/fmuv6x-drw.png)
 
-## Interfaces
+## 接口
 
 - 16- PWM servo outputs
 - R/C input for Spektrum / DSM
 - Dedicated R/C input for PPM and S.Bus input
 - Dedicated analog / PWM RSSI input and S.Bus output
-- 4 general purpose serial ports
+- 4个通用串行口
   - 3 with full flow control
   - 1 with separate 1.5A current limit (`TELEM1`)
   - 1 with I2C and additional GPIO line for external NFC reader
@@ -95,13 +95,13 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   - CAN Bus has individual silent controls or ESC RX-MUX control
 - 2 Power input ports with SMBus
   - 1 AD & IO port
-  - 2 additional analog input
+  - 2 个模拟输入接口
   - 1 PWM/Capture input
   - 2 Dedicated debug and GPIO lines
 
-## Serial Port Mapping
+## 串口映射
 
-| UART   | Device     | Port                            |
+| UART   | 设备         | Port                            |
 | ------ | ---------- | ------------------------------- |
 | USART1 | /dev/ttyS0 | GPS                             |
 | USART2 | /dev/ttyS1 | TELEM3                          |
@@ -112,7 +112,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 | UART7  | /dev/ttyS6 | TELEM1                          |
 | UART8  | /dev/ttyS7 | GPS2                            |
 
-## Voltage Ratings
+## 额定电压
 
 _RaccoonLab FMUv6X_ can be triple-redundant on the power supply if three power sources are supplied.
 The three power rails are: **POWER1**, **POWER2** and **USB**.
@@ -130,13 +130,13 @@ The manufacturer [RaccoonLab Docs](https://docs.raccoonlab.co/guide/autopilot/RC
 They should be used by preference as they contain the most complete and up to date information.
 :::
 
-## Where to Buy
+## 在哪里买
 
 [RaccoonLab Store](https://raccoonlab.co/store)
 
 [Cyphal store](https://cyphal.store)
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware!
@@ -149,12 +149,12 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make px4_fmu-v6x_default
 ```
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## 更多信息
 
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
 - [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
