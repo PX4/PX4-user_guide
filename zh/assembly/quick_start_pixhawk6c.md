@@ -1,6 +1,6 @@
 # Holybro Pixhawk 6C Wiring Quick Start
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 This quick start guide shows how to power the [Pixhawk 6C<sup>&reg;</sup>](../flight_controller/pixhawk6c.md) flight controller and connect its most important peripherals.
@@ -11,7 +11,7 @@ Pixhawk 6C + PM02 + M8N GPS.
 
 ![Pixhawk6c standard set](../../assets/flight_controller/pixhawk6c/pixhawk6c_standard_set.jpg)
 
-## Mount and Orient Controller
+## 飞控的安装和方向
 
 _Pixhawk 6C_ can be mounted on the frame using double side tape included in the kit. It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
@@ -20,7 +20,7 @@ _Pixhawk 6C_ can be mounted on the frame using double side tape included in the 
 ::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
-## GPS + Compass + Buzzer + Safety Switch + LED
+## GPS + 指南针 + 蜂鸣器 + 安全开关 + LED
 
 The _Pixhawk6C_ can be purchased with M8N or M9N GPS (10-pin connector) that should be connected to the **GPS1** port. These GNSS modules have an integrated compass, safety switch, buzzer and LED.
 
@@ -33,7 +33,7 @@ The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 ::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 :::
 
-## Power
+## 电源
 
 Connect the output of the power module of your selection that comes with the Standard Set to one of the **POWER** port of _Pixhawk 6C_ using the 6-wire cable.
 
@@ -43,7 +43,7 @@ If using a plane or rover, the **FMU PWM-OUT** will need to be separately powere
 The power rail voltage must be appropriate for the servo being used!
 :::
 
-| PIN & Connector | Function                                            |
+| PIN & Connector | 功能                                                  |
 | --------------- | --------------------------------------------------- |
 | I/O PWM Out     | Connect Motor Signal and GND wires here.            |
 | FMU PWM Out     | Connect Servo Signal, positive, and GND wires here. |
@@ -53,16 +53,16 @@ The power rail voltage must be appropriate for the servo being used!
 
 The pinout of _Pixhawk 6C_’s power ports is shown below.
 
-| Pin      | Signal  | Volt  |
-| -------- | ------- | ----- |
-| 1(red)   | VDD     | +5V   |
-| 2(black) | VDD     | +5V   |
-| 3(black) | CURRENT | +3.3V |
-| 4(black) | VOLTAGE | +3.3V |
-| 5(black) | GND     | GND   |
-| 6(black) | GND     | GND   |
+| 针脚   | Signal  | 电压    |
+| ---- | ------- | ----- |
+| 1（红） | VDD     | +5V   |
+| 2（黑） | VDD     | +5V   |
+| 3（黑） | CURRENT | +3.3V |
+| 4（黑） | VOLTAGE | +3.3V |
+| 5（黑） | GND     | GND   |
+| 6（黑） | GND     | GND   |
 
-## Radio Control
+## 遥控器
 
 A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -73,7 +73,7 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 PPM and PWM receivers that have an _individual wire for each channel_ must connect to the *PPM/SBUS\*\* port *via a PPM encoder\* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
 
 ## Telemetry Radios (Optional)
 
@@ -83,7 +83,7 @@ The vehicle-based radio should be connected to the **TELEM1** port as shown belo
 
 Radios are also available for purchase on [Holybro's website](https://holybro.com/collections/telemetry-radios) .
 
-## SD Card (Optional)
+## SD 卡
 
 SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the card (included in Pixhawk 6C) into _Pixhawk 6C_ as shown below.
 
@@ -93,7 +93,7 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
-## Motors
+## 电机
 
 Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
@@ -105,15 +105,15 @@ This reference lists the output port to motor/servo mapping for all supported ai
 The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 :::
 
-## Other Peripherals
+## 其它外设
 
 The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
 
-## Pinouts
+## 针脚定义
 
 - [Holybro Pixhawk -6C Pinout](https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-6c-pinout)
 
-## Configuration
+## 配置
 
 General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
@@ -121,7 +121,7 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 <!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
-## Further information
+## 更多信息
 
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
 - [Pixhawk 6C](../flight_controller/pixhawk6c.md) (PX4 Doc Overview page)
