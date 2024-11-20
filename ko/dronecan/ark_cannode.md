@@ -4,7 +4,7 @@
 
 ![ARK CANnode](../../assets/hardware/can_nodes/ark_cannode.jpg)
 
-## Where to Buy
+## 구매처
 
 Order this module from:
 
@@ -13,7 +13,7 @@ Order this module from:
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_CANNODE)
-- Sensors
+- 센서
   - Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
 - STM32F412CGU6 MCU
   - 1MB Flash
@@ -39,9 +39,9 @@ Order this module from:
   - 5V
   - Current dependent on connected peripherals
 
-## Hardware Setup
+## 하드웨어 설정
 
-### Wiring
+### 배선
 
 The ARK CANnode is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
@@ -60,7 +60,7 @@ ARK CANnode boards ship with recent firmware pre-installed, but if you want to b
 
 In order to use the ARK CANnode board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
-The steps are:
+단계는 다음과 같습니다:
 
 - In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK CANnode CAN to the Pixhawk CAN.
@@ -83,7 +83,7 @@ On the ARK CANnode, you may need to configure the following parameters:
 | ----------------------------------------------------------------------------------------------- | ----------------------------- |
 | <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
 
-## LED Meanings
+## LED 신호 정의
 
 You will see both red and blue LEDs on the ARK CANnode when it is being flashed, and a solid blue LED if it is running properly.
 
