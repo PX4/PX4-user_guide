@@ -5,7 +5,7 @@ PX4 support OneShot 125 ESCs (only). These are typically faster and more respons
 ::: info [DShot](../peripherals/dshot.md) should always be used instead of OneShot where possible, as it is more responsive, more robust, does not required calibration, and may support telemetry. The only reason not to use DShot would be hardware limitations (insufficient DShot pins available or using an ESC that does not support DShot).
 :::
 
-## Overview
+## 综述
 
 OneShot is essentially a version of [PWM](../peripherals/pwm_escs_and_servo.md) that can be, in theory, up to 8 times faster.
 
@@ -13,13 +13,13 @@ Both PWM and OneShot communicate using a periodic pulse, where the width of the 
 
 The theoretical maximum rate at which pulses can be sent, and hence the responsiveness, depends on the width of the largest pulse. For PWM this rate is close to 500 Hz while for OneShot it approaches 4 kHz. In practice the actual maximum rate for OneShot ESCs is typically between 1 kHz and 2 kHz, depending on the ESC used.
 
-## Setup
+## 设置
 
-### Wiring
+### 布线
 
 Wiring is exactly the same as for [PWM ESCs](../peripherals/pwm_escs_and_servo.md) (and dshot).
 
-### PX4 Configuration
+### PX4 配置
 
 To enable OneShot select the protocol for a group of outputs during [Actuator Configuration](../config/actuators.md). Note that the output range values are set to values in the normal PWM range (nominally `1000` to `2000`). These are scaled internally to output appropriate pulse-widths for Oneshot.
 
