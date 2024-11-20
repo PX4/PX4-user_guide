@@ -7,7 +7,7 @@
 <lite-youtube videoid="E61P2f2WPNU" title="E-flite Convergence Autonomous Mission Flight"/>
 
 
-## Where to Buy
+## 구매처
 
 차량 프레임 옵션:
 - **WL Tech XK X450** - [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
