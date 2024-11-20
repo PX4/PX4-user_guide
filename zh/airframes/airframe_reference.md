@@ -62,7 +62,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="airship_airship_cloudship">
@@ -93,7 +93,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
@@ -119,7 +119,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="balloon_balloon_thunderfly_balloon_tf-b1">
@@ -141,7 +141,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
@@ -161,7 +161,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_helicopter_generic_helicopter_(tail_esc)">
@@ -181,7 +181,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_hexarotor_+_generic_hexarotor_+_geometry">
@@ -210,7 +210,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
@@ -230,7 +230,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
@@ -254,7 +254,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
@@ -283,7 +283,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10__octo_coaxial_geometry">
@@ -303,7 +303,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
@@ -323,7 +323,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_quadrotor_+_generic_quad_+_geometry">
@@ -343,7 +343,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_quadrotor_h_betafpv_beta75x_2s_brushless_whoop">
@@ -363,7 +363,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_quadrotor_x_generic_quadcopter">
@@ -443,7 +443,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_simulation_hil_quadcopter_x">
@@ -476,7 +476,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_tricopter_y+_generic_multirotor_with_tilt">
@@ -498,7 +498,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_flying_wing_generic_flying_wing">
@@ -527,7 +527,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_plane_a-tail_applied_aeronautics_albatross">
@@ -547,7 +547,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_simulation_sih_plane_aert">
@@ -567,7 +567,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_standard_plane_generic_standard_plane">
@@ -589,7 +589,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="rover_rover_generic_rover_differential">
@@ -635,7 +635,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
@@ -668,7 +668,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="underwater_robot_vectored_6_dof_uuv_bluerov2_(heavy_configuration)">
@@ -679,7 +679,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## VTOL
+## 垂直起降
 
 ### 仿真
 
@@ -699,7 +699,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_simulation_sih_tailsitter_duo">
@@ -710,7 +710,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Standard VTOL
+### 标准垂起固定翼
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/VTOLPlane.svg"/>
@@ -719,7 +719,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
@@ -743,7 +743,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_vtol_tailsitter_generic_vtol_tailsitter">
@@ -763,7 +763,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>名称</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor">
