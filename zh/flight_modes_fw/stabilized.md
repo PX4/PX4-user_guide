@@ -22,15 +22,15 @@ The yaw stick can be used to increase/reduce the yaw rate of the vehicle in turn
 Manual mode where centered roll/pitch sticks levels vehicle attitude. The vehicle course and altitude are not maintained, and can drift due to wind.
 
 - Centered Roll/Pitch/Yaw sticks (inside deadband) put vehicle into straight and level flight. The vehicle course and altitude are not maintained, and can drift due to wind.
-- Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>.
+- 横滚摇杆控制横滚角度。 Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>.
 - Pitch stick controls pitch angle around the defined offset [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF)
 - Throttle stick controls throttle directly.
-- Yaw stick adds an additional yaw rate setpoint (added to the one calculated by the autopilot to maintain coordinated flight). Can be used to manually change the side slip of the vehicle.
+- 偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)）。 这和[稳定模式](../flight_modes/stabilized_fw.md)一样。
 - Manual control input is required (such as RC control, joystick).
 
 ## 参数
 
-The mode is affected by the following parameters:
+该模式受以下参数影响：
 
 | 参数                                                                                                  | 描述                                                                             |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
