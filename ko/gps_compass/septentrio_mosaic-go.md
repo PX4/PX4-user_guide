@@ -33,7 +33,7 @@ Other PX4 supported devices from Septentrio:
 
 ## Physical Interfaces
 
-| Type            | Label          | Use                                      |
+| 형식              | 라벨             | Use                                      |
 | --------------- | -------------- | ---------------------------------------- |
 | USB Micro-B     | USB            | USB communication and power              |
 | RSV USB Micro-B | RSV            | Reserved and should not be used          |
@@ -48,27 +48,27 @@ Other PX4 supported devices from Septentrio:
 
 _Connector type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GHR-06V-S._
 
-| Pin Name | Direction | Level      | Description               | Comment                                                           |
-| -------- | --------- | ---------- | ------------------------- | ----------------------------------------------------------------- |
-| VCC      | PWR       | 4.75V-5.5V | Main power supply         |                                                                   |
-| GND      |           | 0          | Ground                    |                                                                   |
-| TXD1     | Out       | 3V3_LVTTL  | Serial COM1 transmit line | Directly connects to TXD1 of internal mosaic                      |
-| RXD1     | In        | 3V3_LVTTL  | Serial COM1 receive line  | Directly connects to RXD1 of internal mosaic                      |
-| PPS      | Out       | 3V3_LVTTL  | PPSoutput                 | PPSO from mosaic converted to 3.3V                                |
-| EVENT    | In        | 3V3_LVTTL  | Event timer input         | Connects to EVENTA of mosaic through a 3V3to 1V8 level translator |
+| Pin Name | 방향  | 단계         | Description               | 설명                                                                |
+| -------- | --- | ---------- | ------------------------- | ----------------------------------------------------------------- |
+| VCC      | PWR | 4.75V-5.5V | Main power supply         |                                                                   |
+| GND      |     | 0          | 접지                        |                                                                   |
+| TXD1     | Out | 3V3_LVTTL  | Serial COM1 transmit line | Directly connects to TXD1 of internal mosaic                      |
+| RXD1     | In  | 3V3_LVTTL  | Serial COM1 receive line  | Directly connects to RXD1 of internal mosaic                      |
+| PPS      | Out | 3V3_LVTTL  | PPSoutput                 | PPSO from mosaic converted to 3.3V                                |
+| EVENT    | In  | 3V3_LVTTL  | Event timer input         | Connects to EVENTA of mosaic through a 3V3to 1V8 level translator |
 
 ### 4-pin Connector
 
 _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR-04V-S._
 
-| Pin Name | Direction | Level     | Description               | Comment                                         |
-| -------- | --------- | --------- | ------------------------- | ----------------------------------------------- |
-| NRST     | In        | 3V3_LVTTL | Reset input               | Directly connects to nRST_IN of internal mosaic |
-| TXD2     | Out       | 3V3_LVTTL | Serial COM2 transmit line | Directly connects to TXD2 of internal mosaic    |
-| RXD2     | In        | 3V3_LVTTL | Serial COM2 receive line  | Directly connects to RXD2 of internal mosaic    |
-| GND      |           | 0         | Ground                    |                                                 |
+| Pin Name | 방향  | 단계        | Description               | 설명                                              |
+| -------- | --- | --------- | ------------------------- | ----------------------------------------------- |
+| NRST     | In  | 3V3_LVTTL | Reset input               | Directly connects to nRST_IN of internal mosaic |
+| TXD2     | Out | 3V3_LVTTL | Serial COM2 transmit line | Directly connects to TXD2 of internal mosaic    |
+| RXD2     | In  | 3V3_LVTTL | Serial COM2 receive line  | Directly connects to RXD2 of internal mosaic    |
+| GND      |     | 0         | 접지                        |                                                 |
 
-## PX4 Configuration
+## PX4 설정
 
 PX4 configuration is covered in [Septentrio GNSS Receivers](../gps_compass/septentrio.md).
 
@@ -115,9 +115,9 @@ The receiver includes an intuitive web user interface for easy operation and mon
 
 | LED Color     | Powered  | SD card mounted | PVT Solution | Logging enabled |
 | ------------- |:--------:|:---------------:|:------------:|:---------------:|
-| Red           | &check;️ |                 |              |                 |
-| Green         | &check;️ |    &check;️     |              |                 |
-| Blue          | &check;️ |    &check;️     |   &check;️   |                 |
+| 빨강            | &check;️ |                 |              |                 |
+| 녹색            | &check;️ |    &check;️     |              |                 |
+| 청색            | &check;️ |    &check;️     |   &check;️   |                 |
 | Purple        | &check;️ |                 |   &check;️   |                 |
 | Purple + Blue | &check;️ |    &check;️     |   &check;️   |    &check;️     |
 | Red + Green   | &check;️ |    &check;️     |              |    &check;️     |
