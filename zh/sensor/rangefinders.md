@@ -135,9 +135,9 @@ listener distance_sensor 5
 
 For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
 
-## Simulation
+## 仿真
 
-### Gazebo Simulation
+### Gazebo 仿真
 
 Lidar and sonar rangefinders can be used in the [Gazebo](../sim_gazebo_gz/index.md) simulator. 要做到这一点，你必须在启动模拟器时使用一个拥有测距仪的机体模型。
 
@@ -165,7 +165,7 @@ Front-facing sensors that write to [ObstacleDistance](../msg_docs/ObstacleDistan
 
 ### Gazebo-Classic Simulation
 
-Lidar and sonar rangefinders can be used in the [Gazebo Classic](../sim_gazebo_classic/index.md) simulator. To do this you must start the simulator using a vehicle model that includes the rangefinder.
+Lidar and sonar rangefinders can be used in the [Gazebo Classic](../sim_gazebo_classic/index.md) simulator. 要做到这一点，你必须在启动模拟器时使用一个拥有测距仪的机体模型。
 
 iris 光流模型包括激光雷达测距仪：
 
