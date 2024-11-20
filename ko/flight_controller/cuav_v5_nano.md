@@ -58,9 +58,9 @@ V5 nano는 [CUAV V5+](../flight_controller/cuav_v5_plus.md)와 유사하지만 �
 - 기타 특성:
   - 작동 온도: -20 ~ 85°c (측정치)
 
-## Where to Buy
+## 구매처
 
-[CUAV Store](https://store.cuav.net/shop/v5-nano/)
+[CUAV 상점](https://store.cuav.net/shop/v5-nano/)
 
 [CUAV 알리익스프레스](https://www.aliexpress.com/item/33050770314.html?storeId=3257035&spm=2114.12010612.8148356.9.dbe6790bjW2hpH)(국제 사용자)
 
@@ -214,7 +214,7 @@ SBUS/DSM/RSSI 인터페이스에 다른 장비(RC 수신기 제외)를 연결하
 
 ## 추가 정보
 
-- [V5 nano manual](http://manual.cuav.net/V5-nano.pdf) (CUAV)
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
+- [CUAV V nano 수동](http://manual.cuav.net/V5-nano.pdf) (CUAV)
+- [FMUv5 기준 설계 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
 - [CUAV Github](https://github.com/cuav) (CUAV)
 - [DJI FlameWheel450에서 CUAV v5 nano를 사용하는 기체 빌드 로그](../frames_multicopter/dji_f450_cuav_5nano.md)
