@@ -1,6 +1,6 @@
 # Holybro Pix32 v5
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 [Pix32 v5](https://holybro.com/products/pix32-v5)<sup>&reg;</sup> is an advanced autopilot flight controller designed and made by Holybro<sup>&reg;</sup>. It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS. It can be regarded as a variant version of Pixhawk4.
@@ -28,7 +28,7 @@ The Pix32 v5 is designed for pilots who need a high power, flexible and customis
   - 8-16 路PWM输出（8路来自 IO，8路来自 FMU）
   - FMU 上有 3 路专用 PWM/Capture 输入
   - 用于 CPPM 的专用遥控输入
-  - Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
+  - 用于 Spektrum / DSM 与 有模拟 / PWM RSSI 的 S.Bus 的专用遥控输入
   - Dedicated S.Bus servo output
   - 5个通用串行口
     - 2 with full flow control
@@ -63,7 +63,7 @@ The Pix32 v5 is designed for pilots who need a high power, flexible and customis
 
 Additional information can be found in the [Pix32 V5 Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf).
 
-## Where to Buy
+## 在哪里买
 
 Order from [Holybro website](https://holybro.com/products/pix32-v5).
 
@@ -143,4 +143,4 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 - [Pix32 v5 Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
 - [Pix32 v5 Base Board Schematic Diagram](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
 - [Pix32 v5 Mini Base Board Schematic Diagram](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5-Base-Mini-Board_Schematic_diagram.pdf)
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+- [FMUv5参考设计](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)。
