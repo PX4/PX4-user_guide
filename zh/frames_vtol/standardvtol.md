@@ -1,4 +1,4 @@
-# Standard VTOL
+# 标准垂起固定翼
 
 A **Standard VTOL** is a [VTOL](../frames_vtol/index.md) that has _completely separate_ flight controls for multicopter and fixed-wing flight.
 
@@ -8,7 +8,7 @@ A **Standard VTOL** is a [VTOL](../frames_vtol/index.md) that has _completely se
 
 
 
-## Videos
+## 视频
 
 This section contains videos that are specific to Standard VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/index.md)).
 
