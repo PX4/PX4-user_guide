@@ -64,7 +64,7 @@ Note that PX4 also requires that the companion computer meets the requirements o
 
 ## 机载计算机设置
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
+机载计算机中的硬件设置和软/硬件配置在 Github 仓库 [PX4/avoidance](https://github.com/PX4/PX4-Avoidance) 中已经提供。
 
 Obstacle avoidance in missions can use either the _local planner_ or _global planner_ (the local planner is recommended/better performing).
 
