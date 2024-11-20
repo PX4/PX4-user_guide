@@ -35,15 +35,15 @@ Altitude mode like [Stabilized mode](../flight_modes_fw/stabilized.md) but with 
 
 该模式受以下参数影响：
 
-| 参数                                                                                                      | 描述                                       |
-| ------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)     | 最小空速/油门。 默认：10 m/s。                      |
-| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)     | 最大空速/油门。 默认：20 m/s。                      |
-| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)   | 巡航速度。 默认：15 m/s。                         |
-| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)       | 在高度稳定模式下手动控制的最大俯仰角。 默认：45 度。             |
-| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)       | 在高度稳定模式下手动控制的最大滚转角。 默认：45 度。             |
-| <a id="FW_T_CLMB_R_SP"></a>[FW NPFG Control](../advanced_config/parameter_reference.md#fw-npfg-control)   | Max climb rate setpoint. Default: 3 m/s. |
-| <a id="FW_T_SINK_R_SP"></a>[FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP) | Max sink rate setpoint. Default: 2 m/s.  |
+| 参数                                                                                                      | 描述                                      |
+| ------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)     | 最小空速/油门。 默认：10 m/s。                     |
+| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)     | 最大空速/油门。 默认：20 m/s。                     |
+| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)   | 巡航速度。 默认：15 m/s。                        |
+| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)       | 在高度稳定模式下手动控制的最大俯仰角。 默认：45 度。            |
+| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)       | 在高度稳定模式下手动控制的最大滚转角。 默认：45 度。            |
+| <a id="FW_T_CLMB_R_SP"></a>[FW NPFG Control](../advanced_config/parameter_reference.md#fw-npfg-control)   | Max climb rate setpoint. 默认：3m/s。       |
+| <a id="FW_T_SINK_R_SP"></a>[FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP) | Max sink rate setpoint. Default: 2 m/s. |
 
 
 <!--
