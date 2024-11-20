@@ -37,7 +37,7 @@ The default client configuration in simulation is summarized as follows:
 
 | `PX4_UXRCE_DDS_NS` | `px4_instance` | `UXRCE_DDS_KEY`  | client namespace      |
 | ------------------ | -------------- | ---------------- | --------------------- |
-| not provided       | 0              | `px4_instance+1` | none                  |
+| not provided       | 0              | `px4_instance+1` | 无                     |
 | provided           | 0              | `px4_instance+1` | `PX4_UXRCE_DDS_NS`    |
 | not provided       | >0             | `px4_instance+1` | `px4_${px4_instance}` |
 | provided           | >0             | `px4_instance+1` | `PX4_UXRCE_DDS_NS`    |
