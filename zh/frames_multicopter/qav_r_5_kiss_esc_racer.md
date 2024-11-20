@@ -190,9 +190,9 @@ Like you can see I mounted the transmitter from the inside to the "roof" of the 
 
 The magnificent FPV camera set in the part list comes not only with the best FPV lens I've seen so far but also includes multiple camera mounts one of which is very flexible for adjusting the camera angle and nicely fits into the QAV-R frame. I mounted it like you can see in the next picture. The two screws and nuts to lock the camera mount to the frame were taken from the spare ones remaining from the frame set.
 
-![Camera](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
+![相机](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
 
-## PX4 Configuration
+## PX4 配置
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
@@ -208,33 +208,33 @@ Better safe than sorry!
 
 First update the firmware, airframe, and actuator mappings:
 
-- [Firmware](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [固件](../config/firmware.md)
+- [机架](../config/airframe.md)
 
   You will need to select the *Generic 250 Racer* airframe (**Quadrotor x > Generic 250 Racer**).
 
   ![QGC airframe selection of generic 250 racer](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/qgc_airframe_generic_250_racer.png)
 
-- [Actuators](../config/actuators.md)
+- [执行器](../config/actuators.md)
   - You should not need to update the vehicle geometry.
   - Assign actuator functions to outputs to match your wiring.
   - Test the configuration using the sliders.
 
 Then perform the mandatory setup/calibration:
 
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+* [传感器方向](../config/flight_controller_orientation.md)
+* [罗盘](../config/compass.md)
+* [加速度计](../config/accelerometer.md)
+* [水平平面校准](../config/level_horizon_calibration.md)
+* [无线电系统设置](../config/radio.md)
+* [飞行模式](../config/flight_mode.md)
 
 Ideally you should also do:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery Estimation Tuning](../config/battery.md)
+- [电调（ESC）校准](../advanced_config/esc_calibration.md)
+- [电池](../config/battery.md)
   - 4S (4 cell LiPo) with charged cell voltage 4.15V and empty cell voltage 3.5V (or appropriate values for your battery).
-- [Safety](../config/safety.md)
+- [安全性](../config/safety.md)
 
 
 ### 调试
