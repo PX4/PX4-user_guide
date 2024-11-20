@@ -18,7 +18,7 @@ This topic shows how to set up jMAVSim to connect with a SITL version of PX4.
 jMAVSim can also be used for HITL Simulation ([as shown here](../simulation/hitl.md#jmavsim-quadrotor-only)).
 :::
 
-## Installation
+## 설치
 
 jMAVSim setup is included in our [standard build instructions](../dev_setup/dev_env.md) for Ubuntu Linux and Windows. Follow the instructions below to install jMAVSim on macOS.
 
@@ -184,7 +184,7 @@ The simulation can be [interfaced to ROS](../simulation/ros_interface.md) the sa
 - The startup scripts are discussed in [System Startup](../concept/system_startup.md).
 - The simulated root file system ("`/`" directory) is created inside the build directory here: `build/px4_sitl_default/rootfs`.
 
-## Troubleshooting
+## 문제 해결
 
 ### java.long.NoClassDefFoundError
 
