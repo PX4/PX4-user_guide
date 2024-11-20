@@ -1,7 +1,7 @@
 # RaccoonLab FMUv6X Autopilot
 
 :::warning
-PX4 does not manufacture this (or any) autopilot.
+PX4 не розробляє цей (або будь-який інший) автопілот.
 Contact the [manufacturer](https://raccoonlab.co) for hardware support or compliance issues.
 :::
 
@@ -22,86 +22,86 @@ These HATs expand the capabilities of devices, making them ideal for advanced ro
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## Key Design Points
+## Ключові пункти дизайну
 
-- High performance STM32H753 Processor
+- Високопродуктивний процесор STM32H753
 - Modular flight controller: separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk Autopilot Bus connector.
 - Redundancy: 3x IMU sensors & 2x Barometer sensors on separate buses
-- Triple redundancy domains: Completely isolated sensor domains with separate buses and separate power control
-- Newly designed vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
-- Ethernet interface for high-speed mission computer integration
+- Потрійне резервування доменів: повністю ізольовані сенсорні домени з окремими шинами та окремим керуванням живленням
+- Нова система ізоляції вібрацій для фільтрації високочастотних вібрацій та зменшення шуму для забезпечення точних вимірювань
+- Інтерфейс Ethernet для високошвидкісної інтеграції комп'ютера місії
 
 ## Processors & Sensors
 
-- FMU Processor: STM32H753
+- Процесор FMU: STM32H753
   - 32 Bit Arm Cortex-M7, 480MHz, 2MB flash memory, 1MB RAM
 - IO Processor: STM32F100
   - 32 Bit Arm Cortex-M3, 24MHz, 8KB SRAM
-- On-board sensors
-  - Accel/Gyro: ICM-20649 or BMI088
+- Сенсори на платі
+  - Accel/Gyro: ICM-20649 або BMI088
   - Accel/Gyro: ICM-42688-P
   - Accel/Gyro: ICM-42670-P
   - Mag: BMM150
   - Barometer: 2x BMP388
 
-## Electrical data
+## Електричні дані
 
-- Voltage Ratings:
+- Номінальна напруга:
   - Max input voltage: 36V
-  - USB Power Input: 4.75\~5.25V
-  - Servo Rail Input: 0\~36V
-- Current Ratings:
+  - Вхід USB Power: 4.75~5.25V
+  - Вхід Servo Rail: 0\~36V
+- Номінальний струм:
   - `TELEM1` output current limiter: 1.5A
-  - All other port combined output current limiter: 1.5A
+  - Комбінований обмежувач вихідного струму всіх інших портів: 1.5A
 
-## Mechanical data
+## Механічні характеристики
 
-- Dimensions
-  - Flight Controller Module: 38.8 x 31.8 x 14.6mm
-  - Standard Baseboard: 52.4 x 103.4 x 16.7mm
-  - Mini Baseboard: 43.4 x 72.8 x 14.2 mm
-- Weight
-  - Flight Controller Module: 23g
-  - Standard Baseboard: 51g
-  - Mini Baseboard: 26.5g
+- Розміри
+  - Модуль політного контролера: 38.8 x 31.8 x 14.6mm
+  - Стандартна базова плата: 52.4 x 103.4 x 16.7mm
+  - Міні базова плата: 43.4 x 72.8 x 14.2 mm
+- Вага
+  - Модуль політного контролера: 23g
+  - Стандартна базова плата: 51g
+  - Міні базова плата: 26.5g
 
 3D model can be downloaded on [GrabCAD](https://grabcad.com/library/raccoonlab-autopilot-1).
 
 ![RaccoonLab FMUv6X drawings](../../assets/flight_controller/raccoonlab/fmuv6x-drw.png)
 
-## Interfaces
+## Інтерфейси
 
-- 16- PWM servo outputs
-- R/C input for Spektrum / DSM
-- Dedicated R/C input for PPM and S.Bus input
-- Dedicated analog / PWM RSSI input and S.Bus output
-- 4 general purpose serial ports
-  - 3 with full flow control
+- 16 PWM виводів сервоприводів
+- R/C вхід для Spektrum / DSM
+- Виділений R/C вхід для PPM та S.Bus входу
+- Спеціалізований аналоговий / PWM вхід RSSI та вивід S.Bus
+- 4 загальних послідовних порти
+  - 3 з повним контролем потоку
   - 1 with separate 1.5A current limit (`TELEM1`)
-  - 1 with I2C and additional GPIO line for external NFC reader
-- 2 GPS ports
-  - 1 full GPS plus Safety Switch Port
-  - 1 basic GPS port
-- 1 I2C port
-- 1 Ethernet port
+  - 1 з I2C та додатковою лінією GPIO для зовнішнього NFC зчитувача
+- 2 порти GPS
+  - 1 повний GPS плюс порт запобіжного перемикача
+  - 1 базовий порт GPS
+- 1 I2C порт
+- 1 порт Ethernet
   - Transformerless Applications
   - 100Mbps
-- 1 SPI bus
-  - 2 chip select lines
-  - 2 data-ready lines
-  - 1 SPI SYNC line
-  - 1 SPI reset line
-- 2 CAN Buses for CAN peripheral
-  - CAN Bus has individual silent controls or ESC RX-MUX control
-- 2 Power input ports with SMBus
+- 1 шина SPI
+  - 2 лінії вибору чіпу
+  - 2 лінії готових даних
+  - 1 SPI SYNC лінія
+  - 1 лінія SPI reset
+- 2 CAN шини для CAN периферії
+  - CAN шина має individual silent controls або ESC RX-MUX control
+- 2 порти вводу живлення з SMBus
   - 1 AD & IO port
-  - 2 additional analog input
-  - 1 PWM/Capture input
-  - 2 Dedicated debug and GPIO lines
+  - 2 додаткових аналогових входи
+  - 1 PWM/Capture вхід
+  - 2 виділені відладочні та GPIO лінії
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                            |
+| UART   | Пристрій   | Порт                            |
 | ------ | ---------- | ------------------------------- |
 | USART1 | /dev/ttyS0 | GPS                             |
 | USART2 | /dev/ttyS1 | TELEM3                          |
@@ -112,7 +112,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 | UART7  | /dev/ttyS6 | TELEM1                          |
 | UART8  | /dev/ttyS7 | GPS2                            |
 
-## Voltage Ratings
+## Номінальна напруга
 
 _RaccoonLab FMUv6X_ can be triple-redundant on the power supply if three power sources are supplied.
 The three power rails are: **POWER1**, **POWER2** and **USB**.
@@ -120,23 +120,23 @@ The **POWER1** & **POWER2** ports on the RaccoonLab FMUv6X uses the 6 circuit [2
 
 **Normal Operation Maximum Ratings**
 
-Under these conditions all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
 1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
 2. **USB** input (4.75V to 5.25V)
 
 :::tip
 The manufacturer [RaccoonLab Docs](https://docs.raccoonlab.co/guide/autopilot/RCLv6X.html) are the canonical reference for the RaccoonLab FMUv6X Autopilot.
-They should be used by preference as they contain the most complete and up to date information.
+Вони повинні використовуватися за перевагою, оскільки вони містять найбільш повну та актуальну інформацію.
 :::
 
-## Where to Buy
+## Де придбати
 
 [RaccoonLab Store](https://raccoonlab.co/store)
 
 [Cyphal store](https://cyphal.store)
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
 Most users will not need to build this firmware!
@@ -149,12 +149,12 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make px4_fmu-v6x_default
 ```
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / Конструкції
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## Подальша інформація
 
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
 - [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
