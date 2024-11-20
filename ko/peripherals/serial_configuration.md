@@ -11,7 +11,7 @@ The functions assigned to ports are fully configurable using appropriate paramet
 - Setup dual GPS.
 - Enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
 
-::: info
+:::note
 
 - Some ports cannot be configured because they are used for a very specific purpose such as the system console.
 - The mapping of specific devices to port names on the flight controller is explained in [Serial Port Mapping](../hardware/serial_port_mapping.md).
@@ -131,4 +131,4 @@ You will then need to build the firmware for your platform, as described in [Bui
 
 - [MAVLink 주변 장치(OSD/GCS/보조 컴퓨터 등)](../peripherals/mavlink_peripherals.md)
 - [PX4 Ethernet Setup > PX4 MAVLink Serial Port Configuration](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration)
-- [Serial Port Mapping](../hardware/serial_port_mapping.md)
+- [시리얼 포트 매핑](../hardware/serial_port_mapping.md)
