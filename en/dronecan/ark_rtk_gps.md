@@ -1,8 +1,8 @@
 # ARK RTK GPS
 
-ARK RTK GPS is an open source [DroneCAN](index.md) [RTK GPS](../gps_compass/rtk_gps.md), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module), magnetometer, barometer, IMU, buzzer, and safety switch module.
+[ARK RTK GPS](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-rtk-gps) is an open source [DroneCAN](index.md) [RTK GPS](../gps_compass/rtk_gps.md), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module), magnetometer, barometer, IMU, buzzer, and safety switch module.
 
-![ARK RTK GPS](../../assets/hardware/gps/ark_rtk_gps.jpg)
+![ARK RTK GPS](../../assets/hardware/gps/ark/ark_rtk_gps.jpg)
 
 ## Where to Buy
 
@@ -15,11 +15,11 @@ Order this module from:
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_RTK_GPS)
 - Sensors
   - Ublox F9P GPS
-    - Multi-band GNSS receiver delivers centimeter level accuracy in seconds
+    - Multi-band GNSS receiver delivers centimetre level accuracy in seconds
     - Concurrent reception of GPS, GLONASS, Galileo and BeiDou
     - Multi-band RTK with fast convergence times and reliable performance
     - High update rate for highly dynamic applications
-    - Centimeter accuracy in a small and energy efficient module
+    - Centimetre accuracy in a small and energy efficient module
   - Bosch BMM150 Magnetometer
   - Bosch BMP388 Barometer
   - Invensense ICM-42688-P 6-Axis IMU
@@ -159,9 +159,9 @@ The steps are:
 - While holding down the safety switch on the ARK RTK GPS, connect it to power via one of its CAN ports and hold until all 3 LEDs blink rapidly
 - Connect the ARK RTK GPS to your PC via its debug port with a cable such as the Black Magic Probe or an FTDI
 - Open u-center, select the COM port for the ARK RTK GPS and connect
-  ![U-Center Connect](../../assets/hardware/gps/ark_rtk_gps_ucenter_connect.png)
+  ![U-Center Connect](../../assets/hardware/gps/ark/ark_rtk_gps_ucenter_connect.png)
 - Check the current firmware version by selecting View, Messages View, UBX, MON, VER
-  ![Check Version](../../assets/hardware/gps/ark_rtk_gps_ublox_version.png)
+  ![Check Version](../../assets/hardware/gps/ark/ark_rtk_gps_ublox_version.png)
 - To update the firmware:
   - Select Tools, Firmware Update
   - The Firmware image field should be the .bin file downloaded from the u-blox ZED-F9P website
@@ -169,4 +169,8 @@ The steps are:
   - Ensure the other checkboxes are as shown below
   - Push the green GO button on the bottom left
   - "Firmware Update SUCCESS" should be displayed if it updated successfully
-    ![Firmware Update](../../assets/hardware/gps/ark_rtk_gps_ublox_f9p_firmware_update.png)
+    ![Firmware Update](../../assets/hardware/gps/ark/ark_rtk_gps_ublox_f9p_firmware_update.png)
+
+## See Also
+
+- [ARK RTK GPS Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-rtk-gps) (ARK Docs)
