@@ -45,7 +45,7 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
 
 ## 키트 하드웨어
 
-This section lists all hardware for the frame and the autopilot installation.
+프레임 및 자동 조종 장치 설치를 위한 하드웨어들 입니다.
 
 | 항목             | 설명                        | 수량 |
 | -------------- | ------------------------- | -- |
@@ -90,11 +90,11 @@ Estimate time to assemble is 55 min (25 minutes for frame, 30 minutes for autopi
 
 1. Start by assembling the payload & battery holder. Push the rubbers into grippers (Do not use sharp items to push them in!). Next, pass the holders through the holder bars with the battery holder bases as Figure 3.
 
-   ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_required_stuff.png)
+   ![랜딩 그림 1: 구성 요소](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_required_stuff.png)
 
    _Figure 2_: Payload holder components
 
-   ![Landing Figure 2: Assembled](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_assembled.png)
+   ![착륙 그림 2: 조립](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_assembled.png)
 
    _Figure 3_: Payload holder assembled
 
@@ -158,9 +158,9 @@ Estimate time to assemble is 55 min (25 minutes for frame, 30 minutes for autopi
    _Figure 14_: Secure GPS mount onto companion plate
 
 
-1. Use the tape and stick the GPS to the top of the GPS mast and mount the GPS mast. Make sure the arrow on the gps is pointing forward (Figure 15).
+1. 테이프를 사용하여 GPS를 GPS 마스트 상단에 붙이고 GPS 마스트를 장착합니다. Make sure the arrow on the gps is pointing forward (Figure 15).
 
-   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gps2.jpg" width="400" title="Figure 16: GPS and mast" />
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gps2.jpg" width="400" title="그림 16: GPS 및 마스트" />
 
    _Figure 15_: GPS and mast
 
@@ -169,34 +169,33 @@ Estimate time to assemble is 55 min (25 minutes for frame, 30 minutes for autopi
 
 Please refer to [Pixhawk 5X Quick Start](../assembly/quick_start_pixhawk5x.md) for more information.
 
-That's it. The fully assembled kit is shown below (Depth camera not included in the kit):
+조립이 완료되었습니다. The fully assembled kit is shown below (Depth camera not included in the kit):
 
-![Assembled Kit](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_x500v2_kit.png)
+![키트 조립](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_x500v2_kit.png)
 
 
-## PX4 Configuration
+## PX4 설정
 
-:::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
+:::tip PX4 설치 및 성정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고, X500 프레임 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 First update the firmware, airframe, and actuator mappings:
 
 - [펌웨어](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [기체](../config/airframe.md)
 
   You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro 500 V2**)
 
   ![QGroundControl - Select HolyBro 500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
 
-- [Actuators](../config/actuators.md)
+- [액츄에이터](../config/actuators.md)
   - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
   - Assign actuator functions to outputs to match your wiring.
   - Test the configuration using the sliders.
 
-Then perform the mandatory setup/calibration:
+그리고, 설치후에 필수적인 설정 작업과 보정 작업을 진행하여야 합니다.
 
 - [센서 방향](../config/flight_controller_orientation.md)
 - [나침반](../config/compass.md)
@@ -205,7 +204,7 @@ Then perform the mandatory setup/calibration:
 - [라디오 설정](../config/radio.md)
 - [비행 모드](../config/flight_mode.md)
 
-Ideally you should also do:
+이후 다음 작업 역시 수행되어야 합니다:
 
 - [ESC 보정](../advanced_config/esc_calibration.md)
 - [배터리](../config/battery.md)
@@ -214,7 +213,7 @@ Ideally you should also do:
 
 ## 튜닝
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
 
 For instructions on how, start from [Autotune](../config/autotune_mc.md).
 
