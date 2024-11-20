@@ -457,7 +457,7 @@ logger <command> [arguments...]
 Source: [modules/mag_bias_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mag_bias_estimator)
 
 
-### Description
+### 描述
 Online magnetometer bias estimator.
 
 <a id="mag_bias_estimator_usage"></a>
@@ -477,13 +477,13 @@ mag_bias_estimator <command> [arguments...]
 Source: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/manual_control)
 
 
-### Description
+### 描述
 Module consuming manual_control_inputs publishing one manual_control_setpoint.
 
 
 <a id="manual_control_usage"></a>
 
-### Usage
+### 用法
 ```
 manual_control <command> [arguments...]
  Commands:
@@ -538,7 +538,7 @@ Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes 
 
 <a id="pwm_input_usage"></a>
 
-### Usage
+### 用法
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -552,7 +552,7 @@ pwm_input <command> [arguments...]
 Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rc_update)
 
 
-### Description
+### 描述
 The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
 
 ### Implementation
@@ -561,7 +561,7 @@ To reduce control latency, the module is scheduled on input_rc publications.
 
 <a id="rc_update_usage"></a>
 
-### Usage
+### 用法
 ```
 rc_update <command> [arguments...]
  Commands:
@@ -575,7 +575,7 @@ rc_update <command> [arguments...]
 Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
 
 
-### Description
+### 描述
 This module is used to replay ULog files.
 
 There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
@@ -588,7 +588,7 @@ The replay procedure is documented on the [System-wide Replay](https://docs.px4.
 
 <a id="replay_usage"></a>
 
-### Usage
+### 用法
 ```
 replay <command> [arguments...]
  Commands:
@@ -606,14 +606,14 @@ replay <command> [arguments...]
 Source: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/events)
 
 
-### Description
+### 描述
 Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
 
 The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
 
 <a id="send_event_usage"></a>
 
-### Usage
+### 用法
 ```
 send_event <command> [arguments...]
  Commands:
@@ -627,13 +627,13 @@ send_event <command> [arguments...]
 Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)
 
 
-### Description
+### 描述
 
 
 
 <a id="sensor_arispeed_sim_usage"></a>
 
-### Usage
+### 用法
 ```
 sensor_arispeed_sim <command> [arguments...]
  Commands:
@@ -647,7 +647,7 @@ sensor_arispeed_sim <command> [arguments...]
 Source: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_baro_sim)
 
 
-### Description
+### 描述
 
 
 
@@ -673,7 +673,7 @@ Source: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot
 
 <a id="sensor_gps_sim_usage"></a>
 
-### Usage
+### 用法
 ```
 sensor_gps_sim <command> [arguments...]
  Commands:
@@ -687,13 +687,13 @@ sensor_gps_sim <command> [arguments...]
 Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_mag_sim)
 
 
-### Description
+### 描述
 
 
 
 <a id="sensor_mag_sim_usage"></a>
 
-### Usage
+### 用法
 ```
 sensor_mag_sim <command> [arguments...]
  Commands:
@@ -707,21 +707,21 @@ sensor_mag_sim <command> [arguments...]
 Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sensors)
 
 
-### Description
+### 描述
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
-The provided functionality includes:
+模块提供的功能包括：
 - Read the output from the sensor drivers (`SensorGyro`, etc.). 如果存在多个同类型传感器，那个模块将进行投票和容错处理。 然后应用飞控板的旋转和温度校正（如果被启用）。 And finally publish the data; one of the topics is `SensorCombined`, used by many parts of the system.
 - Make sure the sensor drivers get the updated calibration parameters (scale & offset) when the parameters change or on startup. The sensor drivers use the ioctl interface for parameter updates. For this to work properly, the sensor drivers must already be running when `sensors` is started. 传感器驱动使用 ioctl 接口获取参数更新。 为了使这一功能正常运行，当 `sensors` 模块启动时传感器驱动必须已经处于运行状态。
 - Do sensor consistency checks and publish the `SensorsStatusImu` topic.
 
 ### Implementation
-It runs in its own thread and polls on the currently selected gyro topic.
+模块运行在它自己的线程中，并轮询当前选定的陀螺仪主题。
 
 
 <a id="sensors_usage"></a>
 
-### Usage
+### 用法
 ```
 sensors <command> [arguments...]
  Commands:
@@ -736,13 +736,13 @@ sensors <command> [arguments...]
 Source: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tattu_can)
 
 
-### Description
+### 描述
 Driver for reading data from the Tattu 12S 16000mAh smart battery.
 
 
 <a id="tattu_can_usage"></a>
 
-### Usage
+### 用法
 ```
 tattu_can <command> [arguments...]
  wind_estimator &lt;command&gt; [arguments...]
@@ -757,13 +757,13 @@ tattu_can <command> [arguments...]
 Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/temperature_compensation)
 
 
-### Description
+### 描述
 The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
 
 
 <a id="temperature_compensation_usage"></a>
 
-### Usage
+### 用法
 ```
 temperature_compensation <command> [arguments...]
  Commands:
@@ -785,7 +785,7 @@ temperature_compensation <command> [arguments...]
 Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tune_control)
 
 
-### Description
+### 描述
 
 Command-line tool to control & test the (external) tunes.
 
@@ -793,7 +793,7 @@ Tunes are used to provide audible notification and warnings (e.g. when the syste
 
 Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc
 
-### Examples
+### 示例
 
 Play system tune #2:
 ```
@@ -802,7 +802,7 @@ tune_control play -t 2
 
 <a id="tune_control_usage"></a>
 
-### Usage
+### 用法
 ```
 tune_control <command> [arguments...]
  Commands:
@@ -825,10 +825,10 @@ tune_control <command> [arguments...]
 Source: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
 
 
-### Description
+### 描述
 UXRCE-DDS Client used to communicate uORB topics with an Agent over serial or UDP.
 
-### Examples
+### 示例
 ```
 uxrce_dds_client start -t serial -d /dev/ttyS3 -b 921600
 uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
@@ -836,7 +836,7 @@ uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
 
 <a id="uxrce_dds_client_usage"></a>
 
-### Usage
+### 用法
 ```
 uxrce_dds_client <command> [arguments...]
  Commands:
@@ -861,14 +861,14 @@ uxrce_dds_client <command> [arguments...]
 Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue)
 
 
-### Description
+### 描述
 
 Command-line tool to show work queue status.
 
 
 <a id="work_queue_usage"></a>
 
-### Usage
+### 用法
 ```
 work_queue <command> [arguments...]
  Commands:
