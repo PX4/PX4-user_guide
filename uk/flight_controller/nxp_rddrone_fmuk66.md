@@ -3,7 +3,7 @@
 <Badge type="info" text="Discontinued" />
 
 :::warning
-This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+Цей політний контролер був [знятий з виробництва](../flight_controller/autopilot_experimental.md) і більше не продається комерційно.
 :::
 
 :::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](https://www.nxp.com/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
