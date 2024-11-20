@@ -5,18 +5,18 @@
 :::warning
 This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4 (known to work in PX4 v1.14).
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+关于核心开发团队支持的环境和工具的信息，请参阅 [工具链安装](../dev_setup/dev_env.md)。
 :::
 
 Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulation (HITL)](../simulation/hitl.md) for quadrotors, fixed-wing vehicles (airplane), and VTOL tailsitters.
 
 SIH can be used by new PX4 users to get familiar with PX4 and the different modes and features, and of course to learn to fly a vehicle using an RC controller in simulation, which is not possible using SITL.
 
-## Overview
+## 综述
 
 With SIH the whole simulation is running on embedded hardware: the controller, the state estimator, and the simulator. The Desktop computer is only used to display the virtual vehicle.
 
-![Simulator MAVLink API](../../assets/diagrams/SIH_diagram.png)
+![仿真器 MAVLink API](../../assets/diagrams/SIH_diagram.png)
 
 ### Compatibility
 
@@ -141,7 +141,7 @@ The takeoff location in SIH on SITL can be set using environment variables. This
 
 The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
 
-For example:
+例如：
 
 ```sh
 export PX4_HOME_LAT=28.452386
