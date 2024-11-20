@@ -20,7 +20,7 @@ Information about how to choose a PX4-compatible flight controller and the avail
 
 Information about how to mount the flight controller, upload firmware (replacing an incompatible bootloader if needed), and configure its internal sensors and orientation:
 
-- [Flight Controller Selection](../getting_started/flight_controller_selection.md)
+- [Вибір політного контролера](../getting_started/flight_controller_selection.md)
 - [Монтаж польотного контролера](../assembly/mount_and_orient_controller.md)
 - [Оновлення прошивки](../config/firmware.md)
 - [Орієнтація сенсорів](../config/flight_controller_orientation.md)
