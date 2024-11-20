@@ -14,7 +14,7 @@ Supported flight operations/features:
 - Same as a multicopter.
 - At the time of writing no autonomous/guided 3D flying with negative thrust is possible.
 
-## Setup
+## 설정
 
 To setup and configure a helicopter:
 
@@ -80,7 +80,7 @@ To setup and configure a helicopter:
 1. Put the rotor blades on and power the vehicle.
 1. Configure the collective pitch curve using the parameters [CA_HELI_PITCH_Cx](../advanced_config/parameter_reference.md#CA_HELI_PITCH_C0). Set the minimum and maximum according to the minimum and maximum blade angles you want. Make sure the minimum is low enough so the vehicle can still descend. Instead start off with a too low value. The default is slightly negative for that reason and should be a good starting point.
 
-## Tuning
+## 튜닝
 
 After completing the previous steps you are ready to arm with blades mounted.
 
@@ -100,7 +100,7 @@ There are two parameters to compensate yaw for the main rotor's collective and t
 
 A negative value is needed when positive thrust of the tail rotor rotates the vehicle opposite to the main rotor turn direction.
 
-### Rate Controller
+### 속도 컨트롤러
 
 The rate controller should be tuned in [Acro mode](../flight_modes_mc/acro.md), but can also be done in [Stabilized mode](../flight_modes_mc/manual_stabilized.md) if you cannot fly Acro mode.
 
@@ -119,7 +119,7 @@ The rate controller should be tuned in [Acro mode](../flight_modes_mc/acro.md), 
 
 2. Take off slowly and provide some roll and stick movements. Use the QGC tuning UI to check the response:
 
-   ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
+   ![QGC 속도 컨트롤러 튜닝 UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 
    Increase the roll and pitch feed forward gains [MC_ROLLRATE_FF](../advanced_config/parameter_reference.md#MC_ROLLRATE_FF), [MC_PITCHRATE_FF](../advanced_config/parameter_reference.md#MC_PITCHRATE_FF) until the response reaches the setpoint when giving a step input.
 
