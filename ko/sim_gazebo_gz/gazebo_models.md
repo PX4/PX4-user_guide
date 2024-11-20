@@ -17,7 +17,7 @@ If the script arguments are set correctly, it can also communicate with any PX4 
 
 The `simulation-gazebo` script does not require any additional libraries and should work out of the box.
 
-### Basic Usage
+### 기본 사용법
 
 The default `simulation-script` can be run with:
 
