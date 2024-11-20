@@ -728,7 +728,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_standard_vtol_generic_standard_vtol">
  <td>Загальний Стандартний VTOL</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
 </tr>
 </tbody>
 </table>
@@ -748,7 +748,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="vtol_vtol_tailsitter_generic_vtol_tailsitter">
  <td>Загальний VTOL Tailsitter</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13200</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13200</p></td>
 </tr>
 </tbody>
 </table>
@@ -772,7 +772,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_vtol_tiltrotor_generic_tiltrotor_vtol">
  <td>Загальний Tiltrotor VTOL</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
 </tr>
 </tbody>
 </table>
