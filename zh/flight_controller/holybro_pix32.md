@@ -2,7 +2,7 @@
 
 <Badge type="info" text="Discontinued" />
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The Holybro<sup>&reg;</sup> [pix32 autopilot](https://holybro.com/collections/autopilot-flight-controllers/products/pix32pixhawk-flight-controller) (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. This board is based on hardware version Pixhawk 2.4.6. It runs the PX4 flight stack on the [NuttX](https://nuttx.apache.org/) OS.
@@ -50,7 +50,7 @@ The Holybro pix32 is software compatible with the [3DR Pixhawk 1](../flight_cont
 - External microUSB port
 - Molex PicoBlade connectors
 
-## Where to Buy
+## 在哪里买
 
 [shop.holybro.com](https://holybro.com/collections/autopilot-flight-controllers/products/pix32pixhawk-flight-controller)
 
@@ -85,7 +85,7 @@ The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open
 ::: info As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 :::
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
