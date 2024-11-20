@@ -170,7 +170,7 @@ If you have the "basic" version of the kit, you can now jump ahead to instructio
 ::: info If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module: ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
 :::
 
-## PX4 Configuration
+## PX4 설정
 
 *QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 QAV250 프레임 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
@@ -187,14 +187,14 @@ First update the firmware, airframe, and actuator mappings:
   ![QGC - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qgc_airframe_holybro_qav250.png)
 :::
 
-- [Actuators](../config/actuators.md)
+- [액츄에이터](../config/actuators.md)
   - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
   - Assign actuator functions to outputs to match your wiring.
     - For the Pixhawk 4 Mini, and other controllers that do not have an [I/O board](../hardware/reference_design.md#main-io-function-breakdown), you will need to assign actuators to outputs on the `PWM AUX` tab in the configuration screen.
     - The Pix32 v6 has an I/O board, so you can assign to either AUX or MAIN.
   - Test the configuration using the sliders.
 
-Then perform the mandatory setup/calibration:
+그리고, 설치후에 필수적인 설정 작업과 보정 작업을 진행하여야 합니다.
 
 - [센서 방향](../config/flight_controller_orientation.md)
 - [나침반](../config/compass.md)
