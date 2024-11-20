@@ -826,7 +826,7 @@
   - [Translation](contribute/translation.md)
   - [Terminology/Notation](contribute/notation.md)
   - [Licenses](contribute/licenses.md)
-- [Releases](releases/index.md)
+- [Sürümler](releases/index.md)
   - [main (alpha)](releases/main.md)
   - [1.15 (stable)](releases/1.15.md)
   - [1.14](releases/1.14.md)
