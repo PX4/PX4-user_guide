@@ -19,7 +19,7 @@ The _Data Link Loss_ failsafe (unavailability of external data via MAVLink) is e
 
 The _RC Link Loss_ failsafe (unavailability of data from a remote control) is enabled by default. 这可以在 GCS UI 中测试电池指示，而不会触发可能中断其他测试的低电池反应。
 
-Set the parameter [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to the desired failsafe action to change the behavior. For example, set to `0` to disable it.
+Set the parameter [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to the desired failsafe action to change the behavior. 这使得模拟仿真只能使用 MAVLink 或远程控制连接。
 
 ::: info All parameters in SITL including this one get reset when you do `make clean`.
 :::
