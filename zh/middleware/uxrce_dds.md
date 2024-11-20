@@ -307,7 +307,7 @@ Changing the namespace at runtime will append the desired namespace as a prefix 
 uxrce_dds_client start -n uav_1
 ```
 
-or
+或
 
 ```sh
 PX4_UXRCE_DDS_NS=uav_1 make px4_sitl gz_x500
