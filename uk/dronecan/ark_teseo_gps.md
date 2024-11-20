@@ -4,16 +4,16 @@
 
 ![ARK TESEO GPS](../../assets/hardware/gps/ark/ark_teseo_gps.jpg)
 
-## Where to Buy
+## Де придбати
 
-Order this module from:
+Замовте цей модуль з:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-teseo-gps/) (US)
 
-## Hardware Specifications
+## Характеристики обладнання
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Teseo_GPS)
-- Sensors
+- Сенсори
   - [ST TESEO LIV4F GPS](https://www.st.com/en/positioning/teseo-liv4f.html)
     - L1/L5 bands
     - Simultaneous multi-constellation and multi-band GNSS (GPS, Galileo, GLONASS, BeiDou, QZSS)
@@ -25,25 +25,25 @@ Order this module from:
   - [Invensense ICM-42688-P 6-Axis IMU](https://invensense.tdk.com/products/motion-tracking/6-axis/icm-42688-p/)
 - STM32F412VGH6 MCU
 - Dual Band (L1/L5) Helical GPS Antenna
-- Two Pixhawk Standard CAN Connectors (4 Pin JST GH)
+- Два роз'єми стандарту CAN для Pixhawk (4 контакти JST GH)
 - I2C and Timepulse/PPS Connector (5 Pin JST GH)
-- Pixhawk Standard Debug Connector (6 Pin JST SH)
-- Power Requirements
-  - 5V
+- Роз'єм для відлагодження стандарту Pixhawk (6 контактів JST SH)
+- Вимоги до живлення
+  - 5В
   - 137mA
-- LED Indicators
+- LED індикатори
   - GPS Fix
   - RGB Status
 - USA Built
 - NDAA Compliant
 
-## Pinout
+## Розпіновка
 
 ### CAN - 4 Pin JST-GH
 
 | Pin Number | Signal Name                | Voltage              |
 | ---------- | -------------------------- | -------------------- |
-| 1          | 5V                         | 5.0V |
+| 1          | 5В                         | 5.0V |
 | 2          | CAN_P | 5.0V |
 | 3          | CAN_N | 5.0V |
 | 4          | GND                        | GND                  |
@@ -69,6 +69,6 @@ Order this module from:
 | 5          | FMU_SWCLK | 3.3V |
 | 6          | GND                            | GND                  |
 
-## See Also
+## Дивіться також
 
 - [ARK TESEO GPS Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-teseo-gps) (ARK Docs)
