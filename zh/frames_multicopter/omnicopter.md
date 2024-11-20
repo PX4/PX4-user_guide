@@ -39,11 +39,11 @@ Any other GPS may work as well, however a helix antenna is expected to perform b
   - Standoffs: 4x 40mm
 - [3D model](https://cad.onshape.com/documents/eaff30985f1298dc6ce8ce13/w/2f662e604240c4082682e5e3/e/ad2b2245b73393cf369132f7)
 
-![Parts List](../../assets/airframes/multicopter/omnicopter/parts_list.jpg)
+![配件列表](../../assets/airframes/multicopter/omnicopter/parts_list.jpg)
 
-## Assembly
+## 组装
 
-### Frame
+### 框架
 
 - Print the 3D parts ::: info
 The orientation of the corner pieces matters.
@@ -52,7 +52,7 @@ You will notice if it's wrong when the angles of the rods are not correct.
 - Cut the rods
 - Test that it all works by connecting the frame pieces together:
 
-  ![Frame](../../assets/airframes/multicopter/omnicopter/frame_only.jpg)
+  ![框架](../../assets/airframes/multicopter/omnicopter/frame_only.jpg)
 - Place the motors as far out as possible, without the propellers touching the rods.
 
 ### Electronics
@@ -70,7 +70,7 @@ Remarks:
 - We did not glue the frame. It is certainly advisible to do so after initial test flights, but it might work without.
 
 
-## Software Configuration
+## 软件配置
 
 ### ESC
 
@@ -103,7 +103,7 @@ Make sure the motors do not overheat with the changed settings.
 
 <lite-youtube videoid="nsPkQYugfzs" title="PX4 Based Omnicopter Using the New Dynamic Control Allocation in v1.13"/>
 
-## Simulation
+## 仿真
 
 There is an omnicopter simulation target in Gazebo Classic:
 
