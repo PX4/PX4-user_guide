@@ -104,7 +104,7 @@ To setup the environment for [Gazebo Classic](../sim_gazebo_classic/index.md) si
 
 ## 다음 단계
 
-Once you have finished setting up the command-line toolchain:
+명령줄 도구 모음 설정후, 다음을 수행합니다.
 
 - [VSCode](../dev_setup/vscode.md)를 설치합니다(명령줄에 IDE 사용을 선호하는 경우).
 - Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
