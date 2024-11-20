@@ -176,13 +176,13 @@ Safety switches are optional.
 Many argue that it is safer for users never to approach a powered system, even to enable/disable this interlock.
 :::
 
-### Buzzer
+### Зумер
 
 Vehicles commonly include a buzzer for providing audible notification of vehicle state and readiness to fly (see [Tune meanings](../getting_started/tunes.md)).
 
 This buzzer is almost always integrated into the [GPS](../gps_compass/index.md) module that is connected to the Pixhawk `GPS1` port — along with the [safety switch](#safety-switch) and [UI LED](#leds). You can disable the notification tunes using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
 
-### LEDs
+### Світлодіоди
 
 Vehicles should have a superbright [UI RGB LED](../getting_started/led_meanings.md#ui-led) that indicates the current readiness for flight.
 
