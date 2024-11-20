@@ -50,9 +50,7 @@ A forward flying vehicle, such as a VTOL or Fixed-wing, will generally also have
 The instructions are focussed on systems that use [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers (FCs), and in particular those that have adopted the [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 For these FCs, much of the "wiring up" is as simple as connecting the components into the appropriately labelled ports using supplied cables.
 
-::: info If your FC does not use the connector standard ...
-Pixhawk series flight controllers that don't follow the connector standard will often provide cables for interconnecting with Pixhawk standard components.
-For other controllers you may need to manually create cables and connectors.
+:::info
 
 The [flight controller-specific guides](#fc-specific-assembly-guides) contain FC-specific wiring and configuration information, as do guides on the manufacturer sites.
 :::
@@ -89,7 +87,7 @@ Remove power from the flight controller before connecting peripherals!
 This is "best practice", even if it is not strictly necessary in all cases.
 :::
 
-## Mount and Orient Controller
+## 콘트롤러 장착 및 장착 방향
 
 The flight controller should ideally be [mounted on the frame](../assembly/mount_and_orient_controller.md) as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
@@ -145,7 +143,7 @@ Note however that a separate base module is required for the ground station (see
 
 <div v-if="(($frontmatter.frame === 'Plane') || ($frontmatter.frame === 'VTOL'))">
 
-## Airspeed Sensor
+## 항속 센서
 
 [Airspeed sensors](../sensor/airspeed.md) are highly recommended for fixed-wing and VTOL frames.
 They are so important because the autopilot does not have other means to detect stall.
@@ -186,13 +184,13 @@ Generally the correct port is easy to infer from the labels on the flight contro
 - PPM or SBUS receivers connect to the RC input, which is most commonly labeled `RC IN`, but may be a port with `SBUS` or `PPM` in the label.
 - Pixhawk flight controllers usually come with cables for connecting to the common RC receiver types.
 
-## Telemetry Radios (Optional)
+## 무선 텔레메트리(선택 사항)
 
 [Telemetry radios](../telemetry/index.md) can be used by [ground control stations](../getting_started/px4_basic_concepts.md#ground-control-stations) (GCS) to communicate with vehicles in flight.
 A GCS allows you to monitor and control the UAS via a graphical interface, edit, upload, and run missions, view video from a connected camera, capture video and images, and so on.
 
 Connect the vehicle-based radio to the `TELEM1` port as shown below.
-The other radio is connected to your ground station computer or mobile device (usually by USB).
+다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 USB를 통하여 연결됩니다.
 
 ![Telemetry Connections](../../assets/assembly/telemetry_connections.png)
 
@@ -212,7 +210,7 @@ You may also need to configure the radio itself, and for IP radios you may need 
 
 :::
 
-## SD Card
+## SD 카드
 
 SD cards are highly recommended.
 Among other things they are required for [recording and analyzing flight details](../getting_started/flight_reporting.md) and using DroneCan/UAVCAN bus hardware.
@@ -279,7 +277,7 @@ A more capable PDB may incorporate a power module (in which case they replace a 
 
 </div>
 
-### Motors
+### 모터
 
 Brushless motors are powered and controlled via ESCs (electronic speed controllers).
 PWM ESCs are connected with two input wires from the battery for power, two input wires from the flight controller that provide control signals (via three pin connector), and three output wires that are connected to the motor.
@@ -288,7 +286,7 @@ The power wires should be twisted in order to reduce electromagnetic interferenc
 
 Any outputs on either PWM output bus can be connected to any actuators, motor, or other PWM controlled hardware, and later mapped to a particular actuator that is controlled by PX4 when configuring the [Actuator Outputs](../config/actuators.md#actuator-outputs).
 
-Note:
+참고:
 
 - By preference you should connect ESC to FMU PWM bus outputs because they are lower-latency than IO PWM outputs.
   Note that the PWM outputs are often labeled `AUX` or `MAIN`.
@@ -315,7 +313,7 @@ The power rail can only have the one voltage provided by your BEC.
 If you don't use servos that all accept the same voltage, you'll need to separately power those that use a different voltage.
 :::
 
-## Other Peripherals
+## 기타 주변 장치
 
 Other peripherals, such as high-power radios, cameras, and so on have their own power requirements.
 These will usually be supplied off a separate BEC.
