@@ -31,7 +31,7 @@ Detailed setup, configuration, and troubleshooting information can be found on t
   - **Without Connectors:** 9g
   - **With XT60PW Connectors:** 16g
 
-![Dimensions](../../assets/hardware/power_module/pomegranate_systems_pm/mechanical.png)
+![尺寸](../../assets/hardware/power_module/pomegranate_systems_pm/mechanical.png)
 
 ## Firmware Setup
 
