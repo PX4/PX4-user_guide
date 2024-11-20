@@ -93,7 +93,7 @@ The recommended rates are:
 Baud rates of `500000`, `576000`, `1000000`,`1500000` are also supported by the driver, but are non-standard and should be avoided.
 :::
 
-## Automatic Configuration
+## 自动配置
 
 Normally the driver automatically configures the connected receivers as long as the ports have been set correctly.
 Some users may wish to perform additional changes to their configuration, in which case you will need to change the [SEP_AUTO_CONFIG](../advanced_config/parameter_reference.md#SEP_AUTO_CONFIG) parameter to disable automatic configuration.
@@ -122,7 +122,7 @@ In a normal setup, the main antenna is behind the auxiliary one.
 If another setup is used, the [SEP_YAW_OFFS](../advanced_config/parameter_reference.md#SEP_YAW_OFFS) value needs to be changed accordingly.
 If the antennas are not at the same height, the [SEP_PITCH_OFFS](../advanced_config/parameter_reference.md#SEP_PITCH_OFFS) value needs to be changed.
 
-## Logging
+## 日志
 
 There are two ways to log data for Septentrio GNSS receivers.
 The first is to log certain SBF (Septentrio Binary Format) blocks internally on the receiver.
@@ -138,12 +138,12 @@ There are three parameters to change the logging configuration.
 - [SEP_LOG_LEVEL](../advanced_config/parameter_reference.md#SEP_LOG_LEVEL) sets the verbosity of the internal logging.
   There are four levels:
 
-  | Level   | Blocks                                                     |
-  | ------- | ---------------------------------------------------------- |
-  | Lite    | Comment+ReceiverStatus                                     |
-  | Basic   | Comment+ReceiverStatus+PostProcess+Event                   |
-  | Default | Comment+ReceiverStatus+PostProcess+Event+Support           |
-  | Full    | Comment+ReceiverStatus+PostProcess+Event+Support+BBSamples |
+  | Level | Blocks                                                     |
+  | ----- | ---------------------------------------------------------- |
+  | Lite  | Comment+ReceiverStatus                                     |
+  | Basic | Comment+ReceiverStatus+PostProcess+Event                   |
+  | 默认值   | Comment+ReceiverStatus+PostProcess+Event+Support           |
+  | Full  | Comment+ReceiverStatus+PostProcess+Event+Support+BBSamples |
 
 ### Flight Controller Logging
 
