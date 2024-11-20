@@ -5,9 +5,9 @@ This topic provides full instructions for building the [Holybro X500 V2 ARF Kit]
 ![The fully built vehicle with props removed](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/kit_no_props.jpg)
 
 
-## Assembly
+## 조립
 
-::: info
+:::note
 - The images in this document can be selected to see a youtube video of the step.
 - Each section lists any required screws at the top.
 :::
@@ -35,7 +35,7 @@ This topic provides full instructions for building the [Holybro X500 V2 ARF Kit]
 1. Now insert the battery holder and payload holders assembled in step 2 & 3
 
 
-### Power Module
+### 전원 모듈
 
 **Screw**- Socket Cap Screw M2.5*6 8pcs | Locknut M3 4pcs |Nylon Standoff M3*5 4pcs | Screw M3*14 4pcs
 
@@ -51,7 +51,7 @@ This topic provides full instructions for building the [Holybro X500 V2 ARF Kit]
 
 1. Use Socket Cap Screws M2.5*6 and screw the bottom plate on the 4 hangers (that we inserted in the 2 bars on the 3rd step of the payload holder assembly)
 
-### Landing Gear
+### 착륙 기어
 
 1. To assemble the landing gear, loosen the pre-assembled screws of the Landing Gear-Cross Bar and insert the Landing Gear-Vertical Pole and fasten the same.
 
@@ -70,7 +70,7 @@ Because it’s cumbersome to insert the wires once the top plate is assembled, d
 
 [![Assembly13](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly13.png)](https://youtu.be/3en4DlQF4XU)
 
-### Power
+### 전원
 
 The Pixhawk 6C gets powered by a power module PM02 (in this case). This power module is supplied by a battery (4S 16.8V 5200 mAh)
 
@@ -83,7 +83,7 @@ Note that the ESC connectors are color-coded and must be inserted in the PWM out
 ![esc_connector_pixhawk6c](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/esc_connector.jpg)
 
 
-### Arms
+### 암
 
 **Screw-** Socket Cap Screw M3*38 16pcs | Flange Locknut M3 16pcs
 
@@ -152,7 +152,7 @@ The X500 kit is provides space for a companion computer, such as Raspberry Pi or
 - Insert 4 Socket Cap Screw M2.5*12 and put the standoffs on the same.
 - Now place the companion computer and assemble it using Locknut M2.5
 
-### Camera
+### 카메라
 
 - Cameras such as Intel Realsense depth/ tracking camera or Structure Core can be mounted using the Depth Camera Mount
 - Simply insert the mount inside the 2 bars and use the screws according to the camera you’re using.
@@ -166,45 +166,45 @@ The X500 kit is provides space for a companion computer, such as Raspberry Pi or
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
 :::
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고, X500 프레임 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 First update the firmware, airframe, and actuator mappings:
 
-- [Firmware](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [펌웨어](../config/firmware.md)
+- [기체](../config/airframe.md)
 
   You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro 500 V2**)
 
   ![QGroundControl - Select HolyBro 500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
 
-- [Actuators](../config/actuators.md)
+- [액츄에이터](../config/actuators.md)
   - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
   - Assign actuator functions to outputs to match your wiring. The airframe is preconfigured with the motors on the **FMU PWM Out**.
   - Test the configuration using the sliders.
 
-Then perform the mandatory setup/calibration:
+그리고, 설치후에 필수적인 설정 작업과 보정 작업을 진행하여야 합니다.
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Radio Setup](../config/radio.md)
-- [Flight Modes](../config/flight_mode.md)
+- [센서 방향](../config/flight_controller_orientation.md)
+- [나침반](../config/compass.md)
+- [가속도계](../config/accelerometer.md)
+- [수평 보정](../config/level_horizon_calibration.md)
+- [무선 조종기 설정](../config/radio.md)
+- [비행 모드 ](../config/flight_mode.md)
 
-Ideally you should also do:
+이후 다음 작업 역시 수행되어야 합니다:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery Estimation Tuning](../config/battery.md)
-- [Safety](../config/safety.md)
+- [ESC 보정](../advanced_config/esc_calibration.md)
+- [배터리](../config/battery.md)
+- [안전 설정](../config/safety.md)
 
 
-## Tuning
+## 튜닝
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
 
 For instructions on how, start from [Auto-tune](../config/autotune_mc.md).
 
 
-## Acknowledgements
+## 감사의 글
 
 This build log was contributed by Akshata and Hamish Willee with many thanks to Holybro and Dronecode for Hardware and technical support.
