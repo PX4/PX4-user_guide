@@ -21,13 +21,13 @@ It delivers centimetre-level accuracy with the use of a base station or NTRIP se
 
 The high-precision PNI RM3100 compass ensures accurate orientation and stability, offering exceptional reliability, making it ideal for demanding UAV applications. It provides high resolution, low power consumption, large signal noise immunity, a large dynamic range, and high sampling rates. Its measurements are stable over temperature and inherently free from offset drift.
 
-## Where to Buy
+## Де придбати
 
 - [Holybro](https://holybro.com/collections/h-rtk-gps/products/h-rtk-zed-f9p-rover)
 
-## Hardware Specifications
+## Характеристики обладнання
 
-- Sensors
+- Сенсори
   - Ublox ZED-F9P GPS
     - Centimetre-level accuracy RTK positioning
     - IP66 Dust and Water Resistant
@@ -39,7 +39,7 @@ The high-precision PNI RM3100 compass ensures accurate orientation and stability
   - IMU: Invensense ICM-42688
   - Barometer: ICP20100
 - Two JST GH CAN connectors (via pigtail)
-- LED Indicators
+- LED індикатори
   - Tri-coloured LED indicator
 - Key Specifications
   - Working Temperature: -40C to 85C
@@ -47,16 +47,16 @@ The high-precision PNI RM3100 compass ensures accurate orientation and stability
   - Current Consumption: 250 mA
   - Weight: 117 grams
 
-## Hardware Setup
+## Налаштування обладнання
 
-### Wiring
+### Підключення
 
 The Holybro ZED-F9P GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
 For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
 For dual F9P setups leveraging GPS yaw, connect both F9P CAN connectors to the same bus via a CAN or I2C expansion splitter or [hub](https://holybro.com/products/can-hub?_pos=1&_sid=eeb6b74b2&_ss=r).
 
-## Firmware Setup
+## Налаштування прошивки
 
 Holybro ZED-F9P GPS boards ship with "AP Periph" (Ardupilot DroneCAN firmware) already installed.
 
@@ -71,11 +71,11 @@ To update the "AP Periph" firmware to the latest version:
 
 Remember to change the firmware on the flight controller back to PX4 afterwards.
 
-### Enable DroneCAN
+### Увімкнення DroneCAN
 
 In order to use the Holybro ZED-F9P GPS board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
-The steps are:
+Кроки такі:
 
 1. In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 2. Connect Holybro ZED-F9P GPS CAN to the Pixhawk CAN.
@@ -84,7 +84,7 @@ Once enabled, the module will be detected on boot and assigned a dynamic node ID
 
 DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
-### Sensor Position Configuration
+### Конфігурація позиції датчика
 
 - For the the single Rover the module should be mounted with the included mast.
 - For the Dual ZED-F9P setup (moving baseline), the DroneCAN modules should be placed at least 30cm apart on the airframe and elevated on a mast also.
