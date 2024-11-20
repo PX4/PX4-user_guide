@@ -318,6 +318,6 @@ The PAB form factor enables the ARK PAB Carrier to be used with any [PAB-compati
 
 ![ARKPAB фото знизу вверх](../../assets/flight_controller/arkpab/ark_pab_back.jpg)
 
-## See Also
+## Дивіться також
 
 - [ARK Pixhawk Autopilot Bus Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-pixhawk-autopilot-bus-carrier) (ARK Docs)
