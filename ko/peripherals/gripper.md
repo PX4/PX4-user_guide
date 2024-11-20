@@ -29,7 +29,7 @@ Manually triggering a gripper from an [RC Control](../getting_started/rc_transmi
 
 MAVLink applications, such as ground stations, can also control the gripper using the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command.
 
-## PX4 Configuration
+## PX4 설정
 
 ### Package Delivery Configuration
 
