@@ -1,4 +1,4 @@
-# PX4 DroneCAN Firmware
+# PX4 DroneCAN 固件
 
 PX4 can run as the firmware on many DroneCAN peripherals. There are multiple benefits to this:
 
@@ -20,7 +20,7 @@ make ark_can-flow_default
 
 This will create an output in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Follow the instructions at [DroneCAN firmware update](index.md#firmware-update) to flash the firmware.
 
-## Developer Information
+## 开发人员信息
 
 This section has information that is relevant to developers who want to add support for new DroneCAN hardware to the PX4 Autopilot.
 
