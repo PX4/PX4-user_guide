@@ -8,4 +8,4 @@ Rotation is achieved by driving the wheels at different speeds in opposite direc
 
 ![Aion R1](../../assets/airframes/rover/aion_r1/r1_rover_no_bg.png)
 
-See [Configuration/Tuning](../config_rover/differential.md) to set up your rover and [Drive Modes (RD)](../flight_modes_rover/differential.md) for the supported flight (aka drive) modes.
+See [Configuration/Tuning](../config_rover/differential.md) to set up your rover and [Drive Modes](../flight_modes_rover/differential.md) for the supported flight (aka drive) modes.
