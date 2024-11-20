@@ -3,7 +3,7 @@
 Source: [drivers/differential_pressure/asp5033](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/asp5033)
 
 
-### Description
+### 描述
 Driver to enable an external \[ASP5033\] (https://www.qio-tek.com/index.php/product/qiotek-asp5033-dronecan-airspeed-and-compass-module/) TE connected via I2C. This is not included by default in firmware. It can be included with terminal command: "make <your_board> boardconfig" or in default.px4board with adding the line: "CONFIG_DRIVERS_DIFFERENTIAL_PRESSURE_ASP5033=y" It can be enabled with the "SENS_EN_ASP5033" parameter set to 1.
 
 <a id="asp5033_usage"></a>
@@ -77,7 +77,7 @@ Source: [drivers/differential_pressure/ms4525do](https://github.com/PX4/PX4-Auto
 
 <a id="ms4525do_usage"></a>
 
-### Usage
+### 用法
 ```
 ms4525do <command> [arguments...]
  Commands:
