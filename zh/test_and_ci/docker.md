@@ -221,7 +221,7 @@ The following configuration is tested:
 
 - OS X with VMWare Fusion and Ubuntu 14.04 (Docker container with GUI support on Parallels make the X-Server crash).
 
-**Memory**
+**内存**
 
 Use at least 4GB memory for the virtual machine.
 
