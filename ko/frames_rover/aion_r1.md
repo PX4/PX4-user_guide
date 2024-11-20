@@ -10,7 +10,7 @@ Currently, PX4 supports MANUAL mode for this setup.
 
 ![Aion Robotics R1 UGV](../../assets/airframes/rover/aion_r1/r1_rover_no_bg.png)
 
-## Parts List
+## 부품 목록
 
 - [Aion R1 (Discontinued)](https://www.aionrobotics.com/)
   - [Documentation](https://github-docs.readthedocs.io/en/latest/r1-ugv.html)
@@ -18,7 +18,7 @@ Currently, PX4 supports MANUAL mode for this setup.
   - [R1 Roboclaw specifications](https://resources.basicmicro.com/aion-robotics-r1-autonomous-robot/)
 - [Auterion Skynode](../companion_computer/auterion_skynode.md)
 
-## Assembly
+## 조립
 
 The assembly consists of a 3D-printed frame on which all the autopilot parts were attached.
 For this build this includes an [Auterion Skynode](../companion_computer/auterion_skynode.md), connected to a Pixhawk Adapter Board that interfaces with the RoboClaw motor controllers over serial.
@@ -34,7 +34,7 @@ Other RoboClaw wiring is detailed in the [RoboClaw User Manual](https://download
 
 ![Serial Wiring Encoders](../../assets/airframes/rover/aion_r1/wiring_r1.jpg)
 
-## PX4 Configuration
+## PX4 설정
 
 ### Rover Configuration
 
