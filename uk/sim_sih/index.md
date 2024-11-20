@@ -3,9 +3,9 @@
 <Badge type="tip" text="PX4 v1.9 (MC)" /><Badge type="tip" text="PX4 v1.13 (MC, VTOL, FW)" />
 
 :::warning
-This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4 (known to work in PX4 v1.14).
+Цей симулятор [модифікується та підтримується спільнотою](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4 (known to work in PX4 v1.14).
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Див. розділ [Встановлення інструментів](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, що підтримуються основною командою розробників.
 :::
 
 Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulation (HITL)](../simulation/hitl.md) for quadrotors, fixed-wing vehicles (airplane), and VTOL tailsitters.
@@ -16,7 +16,7 @@ SIH can be used by new PX4 users to get familiar with PX4 and the different mode
 
 With SIH the whole simulation is running on embedded hardware: the controller, the state estimator, and the simulator. The Desktop computer is only used to display the virtual vehicle.
 
-![Simulator MAVLink API](../../assets/diagrams/SIH_diagram.png)
+![Симулятор MAVLink API](../../assets/diagrams/SIH_diagram.png)
 
 ### Сумісність
 
@@ -119,7 +119,7 @@ SIH можна запустити як SITL (Software-In-The-Loop) з версі
      make px4_sitl sihsim_xvert
      ```
 
-### Change Simulation Speed
+### Зміна швидкості симуляції
 
 SITL дозволяє виконувати симуляцію швидше, ніж у реальному часі. To run the airplane simulation 10 times faster than real time, run the command:
 
@@ -133,15 +133,15 @@ To display the vehicle in jMAVSim during SITL mode, enter the following command 
 ./Tools/simulation/jmavsim/jmavsim_run.sh -p 19410 -u -q -o
 ```
 
-- add a flag `-a` to display an aircraft or `-t` to display a tailsitter. If this flag is not present a quadrotor will be displayed by default.
+- add a flag `-a` to display an aircraft or `-t` to display a tailsitter. Якщо цей прапорець не вказаний, за замовчуванням відображатиметься квадрокоптер.
 
-### Set Custom Takeoff Location
+### Встановлення власного місця зльоту
 
 The takeoff location in SIH on SITL can be set using environment variables. This will override the default takeoff location.
 
-The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
+Змінні які потрібно встановити: `PX4_HOME_LAT`, `PX4_HOME_LON` та `PX4_HOME_ALT`.
 
-For example:
+Наприклад:
 
 ```sh
 export PX4_HOME_LAT=28.452386
