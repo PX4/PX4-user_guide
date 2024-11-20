@@ -163,6 +163,6 @@ ARK RTK GPS поставляється з модулем Ublox F9P з версі
   - Натисніть зелену кнопку GO внизу зліва
   - "Firmware Update SUCCESS" повинно бути відображено, якщо оновлення пройшло успішно ![Оновлення прошивки](../../assets/hardware/gps/ark/ark_rtk_gps_ublox_f9p_firmware_update.png)
 
-## See Also
+## Дивіться також
 
 - [ARK RTK GPS Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-rtk-gps) (ARK Docs)
