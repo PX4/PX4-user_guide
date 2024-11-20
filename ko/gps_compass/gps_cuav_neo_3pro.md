@@ -7,17 +7,17 @@ It integrates UBLOX M9N, STM32F4 MCU, RM3100 compass, three-color LED light and 
 
 ![Hero image of Neo3 Pro GPS](../../assets/hardware/gps/cuav_gps_neo3/neo_3pro.jpg)
 
-## Technical Specifications
+## 기술 사양
 
-| Hardware                                          | Type                                                                                                                       |
+| 하드웨어                                              | 형식                                                                                                                         |
 | :------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------- |
-| Processor                                         | STM32F412                                                                                                                  |
-| Compass                                           | RM3100                                                                                                                     |
-| Barometer                                         | MS5611                                                                                                                     |
+| 프로세서                                              | STM32F412                                                                                                                  |
+| 나침반                                               | RM3100                                                                                                                     |
+| 기압계                                               | MS5611                                                                                                                     |
 | GNSS receiver                                     | UBLOX NEO M9N                                                                                                              |
 | RGB drive                                         | NCP5623C                                                                                                                   |
-| Buzzer                                            | Passive buzzer                                                                                                             |
-| Safety switch                                     | Physical button                                                                                                            |
+| 부저                                                | Passive buzzer                                                                                                             |
+| 안전 스위치                                            | Physical button                                                                                                            |
 | GNSS                                              | Beidou, Galileo, GLONASS, GPS                                                                                              |
 | GNSS Augmentation System                          | SBAS:WAAS,EGNOS,MSAS<br>QZSS:L1s(SAIF)<br>other：RTCM3.3 |
 | Number of concurrent GNSS                         | 4                                                                                                                          |
@@ -37,19 +37,19 @@ It integrates UBLOX M9N, STM32F4 MCU, RM3100 compass, three-color LED light and 
 | Input voltage                                     | 5V                                                                                                                         |
 | Operating temperature                             | -10~70℃                                                                                                    |
 | Size                                              | 60_60_16MM                                                                                                                 |
-| Weight                                            | 33g                                                                                                                        |
+| 중량                                                | 33g                                                                                                                        |
 
-## Where to Buy
+## 구매처
 
 - [CUAV](https://cuav.en.alibaba.com/product/1600165544920-820872629/Free_shipping_CUAV_Neo_3_pro_drone_UAVCAN_GNSS_processor_STM32F412_autopilot_ublox_M9N_positioning_RM3100_compass_uav_gps_module.html?spm=a2700.shop_oth.74.2.636e28725EvVHb)
 
-## Wiring and Connections
+## 배선
 
 NEO 3 Pro connected to autopilot CAN1/CAN2 interface
 
 ![NEO 3 Pro connected to autopilot CAN1/CAN2 interface](../../assets/hardware/gps/cuav_gps_neo3/neo_3pro_connect.png)
 
-## PX4 Configuration
+## PX4 설정
 
 Open **QGroundControl > Parameters** and modify the following parameters:
 
