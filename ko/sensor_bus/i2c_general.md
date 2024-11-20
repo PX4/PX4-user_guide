@@ -5,7 +5,7 @@
 It is recommended for:
 
 * Connecting offboard components that require low bandwidth and low latency communication, e.g. [rangefinders](../sensor/rangefinders.md), [magnetometers](../gps_compass/magnetometer.md), [airspeed sensors](../sensor/airspeed.md) and [tachometers](../sensor/tachometers.md) .
-* Compatibility with peripheral devices that only support I2C.
+* I2C만 지원하는 주변기기 호환성
 * Allowing multiple devices to attach to a single bus, which is useful for conserving ports.
 
 I2C allows multiple master devices to connect to multiple slave devices using only 2 wires per connection (SDA, SCL). in theory a bus can support 128 devices, each accessed via its unique address.
@@ -15,13 +15,13 @@ UAVCAN would normally be preferred where higher data rates are required, and on 
 :::
 
 
-## Wiring
+## 배선
 
 I2C uses a pair of wires: SDA (serial data) and SCL (serial clock). The bus is of open-drain type, meaning that devices ground the data line. It uses a pullup resistor to push it to `log.1` (idle state) - every wire has it usually located on the bus terminating devices. One bus can connect to multiple I2C devices. The individual devices are connected without any crossing.
 
 For connection (according to dronecode standard) 4-wire cables equipped with JST-GH connectors are used. To ensure reliable communication and to reduce crosstalk it is advised to apply recommendations concerning [cable twisting](../assembly/cable_wiring.md#i2c-cables) and pullup resistors placement.
 
-![Cable twisting](../../assets/hardware/cables/i2c_jst-gh_cable.jpg)
+![케이블 꼬기](../../assets/hardware/cables/i2c_jst-gh_cable.jpg)
 
 
 ## Checking the Bus and Device Status
@@ -99,8 +99,8 @@ You can find an appropriate covnerter using an internet search.
 
 Software development for I2C devices is described in [I2C Bus (Development Overview)](../sensor_bus/i2c_development.md).
 
-## Further Information
+## 추가 정보
 
-* [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) (Wikipedia)
-* [I2C Comparative Overview](https://learn.sparkfun.com/tutorials/i2c) (learn.sparkfun.com)
-* [Driver Framework](../middleware/drivers.md)
+* [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) (위키피디아) - 영문
+* [I2C 비교 개요](https://learn.sparkfun.com/tutorials/i2c) (learn.sparkfun.com)
+* [드라이버 프레임워크](../middleware/drivers.md)
