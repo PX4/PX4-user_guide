@@ -16,7 +16,7 @@ This has been superseded by the [Cube Here 3](https://www.cubepilot.com/#/here/h
 
 <img src="../../assets/hardware/gps/here2_gps_module.jpg" />
 
-## Where to Buy
+## 구매처
 
 - [ProfiCNC](http://www.proficnc.com/all-products/152-gps-module.html) (오스트레일리아)
 - [기타 리셀러](http://www.proficnc.com/stores)
@@ -25,7 +25,7 @@ This has been superseded by the [Cube Here 3](https://www.cubepilot.com/#/here/h
 
 PX4의 설정과 사용법은 대부분 플러그앤플레이입니다.
 
-::: info
+:::note
 
 - If the GPS is _not detected_ then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
 - If the GPS is detected but does not work, attempt the process outlined in [allocating node uavcan ID](https://docs.cubepilot.org/user-guides/here-2/here-2-can-mode-instruction).
