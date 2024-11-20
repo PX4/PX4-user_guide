@@ -1,6 +1,6 @@
 # Holybro Pixhawk 4
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 _Pixhawk 4_<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 v1.7 and later, and is suitable for academic and commercial developers.
@@ -24,7 +24,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   - Accel/Gyro: BMI055 or ICM20602
   - 磁力计：IST8310
   - 气压计：MS5611
-- GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+- GPS：ublox Neo-M8N GPS/GLONASS 接收器；集成磁力计 IST8310
 - 接口：
   - 8-16 路PWM输出（8路来自 IO，8路来自 FMU）
   - FMU 上有 3 路专用 PWM/Capture 输入
@@ -48,7 +48,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
 
-## Where to Buy
+## 在哪里买
 
 Order from [Holybro](https://holybro.com/products/pixhawk-4).
 
@@ -67,7 +67,7 @@ Download _Pixhawk 4_ pinouts from [here](https://cdn.shopify.com/s/files/1/0604/
 ::: info Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin). The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
 :::
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
@@ -94,16 +94,16 @@ _Pixhawk 4_ can be triple-redundant on the power supply if three power sources a
 
 Under these conditions all power sources will be used in this order to power the system:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1** 和 **POWER2** 输入电压（4.9 v 至 5.5 v）
+1. **USB** 输入电压（4.75 v 至 5.25 v）
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1** 与 **POWER2** 输入（可运行范围 4.1V 至 5.7V，0V 至 10V 不会损坏）
+1. **USB** 输入（可运行范围 4.1V 至 5.7V，0V 至 6V 不会损坏）
+1. 舵机输入：**FMU PWM OUT** 和 **I/O PWM OUT** 的 VDD_SERVO 针脚 （0V 至 42V 不会损坏）
 
 ## 组装 / 设置
 
@@ -146,7 +146,7 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 ## 更多信息
 
 - [Pixhawk 4 技术数据表](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+- [FMUv5参考设计](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)。
 - [Pixhawk 4  快速接线指南](../assembly/quick_start_pixhawk4.md)
 - [Pixhawk 4 Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf) (Holybro)
 - [Pixhawk 4 Quick Start Guide](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-quickstartguide.pdf) (Holybro)
