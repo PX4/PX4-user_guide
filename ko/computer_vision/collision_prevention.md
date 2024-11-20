@@ -152,7 +152,7 @@ The tested companion software is the _local_planner_ from the [PX4/PX4-Avoidance
 
 The hardware and software should be set up as described in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the _rqt_reconfigure_ tool and set the parameter `send_obstacles_fcu` to true.
 
-## Gazebo Simulation
+## Gazebo 시뮬레이션
 
 _Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar_2d](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model. To do this, start a simulation with the x500 lidar model by running the following command:
 
