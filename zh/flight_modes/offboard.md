@@ -52,15 +52,15 @@ bool actuator
 
 消息中的字段按优先级排序， `位置` 优于 `速度` 及以后的字段。 `速度` 优于 `加速度`，等等。 第一个非零字段(从上到下) 定义了Offboard模式所需的有效估计以及可用的设定值消息。 例如，如果 `加速度` 字段是第一个非零字段，PX4 就需要一个有效的 `速度估计`, 并且设定值必须使用 `TrajectorySetpoint` 消息指定。
 
-| 期望控制对象      | 位置      | 速度      | 加速度     | 姿态      | 姿态角速率   | 执行器字段   | 直接给电机 | 所需状态估计 | 所需消息                                                                                                                          |
-| ----------- | ------- | ------- | ------- | ------- | ------- | ------- | ----- | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| 位置 (NED)    | &check; | -       | -       | -       | -       | -       | -     | 位置     | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                       |
-| 速度 (NED)    | &cross; | &check; | -       | -       | -       | -       | -     | 速度     | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                       |
-| 加速度（NED）    | &cross; | ✗       | &check; | -       | -       | -       | -     | 速度     | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                       |
-| 姿态(FRD)     | &cross; | &cross; | ✗       | &check; | -       | -       | -     | 无      | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                             |
-| 体轴角速率 (FRD) | &cross; | &cross; | &cross; | ✗       | &check; | -       | -     | 无      | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                   |
-| 推力和力矩(FRD)  | &cross; | &cross; | &cross; | &cross; | ✗       | &check; | -     | 无      | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) 和 [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
-| 直接给电机和舵机    | ✗       | ✗       | ✗       | ✗       | ✗       | ✗       | ✓     | 无      | [ActuatorMotors](../msg_docs/ActuatorMotors.md) and [ActuatorServos](../msg_docs/ActuatorServos.md)                           |
+| 期望控制对象      | 位置      | 速度      | 加速度     | 姿态      | 姿态角速率   | 执行器字段   | 直接给电机   | 所需状态估计 | 所需消息                                                                                                                          |
+| ----------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| 位置 (NED)    | &check; | -       | -       | -       | -       | -       | -       | 位置     | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                       |
+| 速度 (NED)    | &cross; | &check; | -       | -       | -       | -       | -       | 速度     | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                       |
+| 加速度（NED）    | &cross; | &cross; | &check; | -       | -       | -       | -       | 速度     | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                       |
+| 姿态(FRD)     | &cross; | &cross; | &cross; | &check; | -       | -       | -       | 无      | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                             |
+| 体轴角速率 (FRD) | &cross; | &cross; | &cross; | &cross; | &check; | -       | -       | 无      | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                   |
+| 推力和力矩(FRD)  | &cross; | &cross; | &cross; | &cross; | &cross; | &check; | -       | 无      | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) 和 [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+| 直接给电机和舵机    | &cross; | &cross; | &cross; | &cross; | &cross; | &cross; | &check; | 无      | [ActuatorMotors](../msg_docs/ActuatorMotors.md) and [ActuatorServos](../msg_docs/ActuatorServos.md)                           |
 
 &check; 代表该位设置为有效， &cross; 代表该值未设置， `-` 表示该值无关紧要。
 
@@ -180,7 +180,7 @@ bool actuator
         ::: info The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
 :::
 
-        The values are:
+        值为：
 
         - 4096：起飞设定值。
         - 8192：降落设定值。
@@ -210,7 +210,7 @@ bool actuator
 
         - 12288：悬停设定值（无人机足够接近设定值时会停止）。
 
-    - Velocity setpoint (only `vx`, `vy`, `vz`)
+    - 速度设定值（仅`vx`，`yy`，`vz`）
 
   - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
@@ -218,7 +218,7 @@ bool actuator
 
   - 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     - 位置设定值（仅`lat_int`，`lon_int`，`alt`）
-  - Specify the _type_ of the setpoint in `type_mask` (not part of the MAVLink standard). The values are:
+  - Specify the _type_ of the setpoint in `type_mask` (not part of the MAVLink standard). 值为：
 
     - 下面的比特位没有置位，是正常表现。
     - 12288：悬停设定值（无人机足够接近设定值时会停止）。
