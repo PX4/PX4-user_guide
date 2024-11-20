@@ -1,4 +1,4 @@
-# Gazebo Simulation
+# Gazebo 시뮬레이션
 
 :::warning
 Gazebo was previously known as "Gazebo Ignition" (while _Gazebo Classic_ was previously known as Gazebo). See the [official blog post](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) for more information.
@@ -43,7 +43,7 @@ This runs both the PX4 SITL instance and the Gazebo client.
 
 The supported vehicles and `make` commands are listed below. Note that all gazebo make targets have the prefix `gz_`.
 
-| Vehicle                                                                                                                       | Command                             | `PX4_SYS_AUTOSTART` |
+| Vehicle                                                                                                                       | 통신                                  | `PX4_SYS_AUTOSTART` |
 | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------------- |
 | [Quadrotor(x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                                                | `make px4_sitl gz_x500`             | 4001                |
 | [X500 Quadrotor with Depth Camera (Front-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera-front-facing) | `make px4_sitl gz_x500_depth`       | 4002                |
@@ -51,8 +51,8 @@ The supported vehicles and `make` commands are listed below. Note that all gazeb
 | [Quadrotor(x500) with 1D LIDAR (Down-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-down-facing)          | `make px4_sitl gz_x500_lidar_down`  | 4016                |
 | [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)                                    | `make px4_sitl gz_x500_lidar_2d`    | 4013                |
 | [Quadrotor(x500) with 1D LIDAR (Front-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-front-facing)        | `make px4_sitl gz_x500_lidar_front` | 4017                |
-| [VTOL](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                                            | `make px4_sitl gz_standard_vtol`    | 4004                |
-| [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                                          | `make px4_sitl gz_rc_cessna`        | 4003                |
+| [수직이착륙기(VTOL)](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                                    | `make px4_sitl gz_standard_vtol`    | 4004                |
+| [고정익](../sim_gazebo_gz/vehicles.md#standard-plane)                                                                            | `make px4_sitl gz_rc_cessna`        | 4003                |
 | [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                                                 | `make px4_sitl gz_advanced_plane`   | 4008                |
 | [Differential Rover](../sim_gazebo_gz/vehicles.md#differential-rover)                                                         | `make px4_sitl gz_r1_rover`         | 4009                |
 | [Ackermann Rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)                                                               | `make px4_sitl gz_rover_ackermann`  | 4012                |
@@ -138,7 +138,7 @@ PX4_GZ_WORLD=windy make px4_sitl gz_x500
 
 The [supported worlds](../sim_gazebo_gz/worlds.md) are listed below.
 
-| World      | Command                    | Description                                                 |
+| 전역         | 통신                         | Description                                                 |
 | ---------- | -------------------------- | ----------------------------------------------------------- |
 | `default`  | `make px4_sitl *`          | Empty world (a grey plane)                                  |
 | `aruco`    | `make px4_sitl *_aruco`    | Empty world with aruco marker for testing precision landing |
@@ -170,7 +170,7 @@ The startup pipeline allows for highly flexible configuration. In particular, it
 
 These scenarios are managed by setting the appropriate environment variables.
 
-### Syntax
+### 구문
 
 The startup syntax takes the form:
 
@@ -316,6 +316,6 @@ Multi-Vehicle simulation is supported on Linux hosts.
 
 For more information see: [Multi-Vehicle Simulation with Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md)
 
-## Further Information
+## 추가 정보
 
 - [px4-simulation-ignition](https://github.com/Auterion/px4-simulation-ignition)
