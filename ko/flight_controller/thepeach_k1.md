@@ -52,7 +52,7 @@
 
 ## 시리얼 포트 매핑
 
-| UART   | Device     | Port           |
+| UART   | 장치         | 포트             |
 | ------ | ---------- | -------------- |
 | USART1 | /dev/ttyS0 | IO 프로세서 디버그    |
 | USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
