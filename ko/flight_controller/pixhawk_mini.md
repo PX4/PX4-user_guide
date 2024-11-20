@@ -1,6 +1,9 @@
 # Holybro Pixhawk Mini (Discontinued)
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. :::
+:::warning
+PX4에서는 이 제품을 제조하지 않습니다.
+소형화를 위하여 가진 IO가 적습니다.
+:::
 
 The Holybro *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk. 원래 Pixhawk의 약 1/3 크기이며 더 강력한 프로세서와 센서를 제공합니다.
 
@@ -196,7 +199,8 @@ The _Pixhawk Mini_ should be mounted on the frame using vibration-damping foam p
 
 ![장착 폼](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md). :::
+:::note
+콘트롤러를 권장 방향으로 장착할 수 없는 경우 (예 : 공간 제약으로 인해) 실제 [장착 방향](../config/flight_controller_orientation.md)을 자동조종 소프트웨어를 설정하여야합니다. :::
 
 ### GPS와 나침반
 
@@ -224,7 +228,7 @@ The _Pixhawk Mini_ is powered through the **PM** port. 전원 모듈 시용시 �
 
 Pixhawk 미니 출력 레일 (MAIN OUT)은 연결된 장치에 전원을 공급할 수 없습니다(그림과 같이 회로에 필요하지 않음). MAIN OUT이 전력을 끌어 오는 장치(예 : 비행기에서 사용되는 서보)에 연결된 차량의 경우 BEC (배터리 제거 회로)를 사용하여 레일에 전원을 공급하여야 합니다. The included breakout board allows one channel to provide power on the other outputs.
 
-### Radio Control
+### 무선 조종
 
 Pixhawk 미니는 다양한 무선 수신기 모델을 지원합니다.
 
@@ -238,7 +242,7 @@ Pixhawk 미니는 다양한 무선 수신기 모델을 지원합니다.
 
 - PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **RCIN** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+무선 텔레메트리는 지상국 프로그램에서 비행 차량의 통신/제어에 사용합니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
 ### 안전 스위치(선택 사항)
 
@@ -246,7 +250,7 @@ For more information about selecting a radio system, receiver compatibility, and
 
 ![Pixhawk 미니 - 선택 사항 스위치](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg)
 
-### Telemetry Radios
+### 텔레메트리 무선통신
 
 ### 모터
 
