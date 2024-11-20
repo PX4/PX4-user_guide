@@ -93,14 +93,14 @@ Similar variants will be available from our licensees.
 
 ### Mechanical data
 
-- Dimensions
+- 尺寸
   - Flight Controller Module: 38.8 x 31.8 x 14.6mm
   - Standard Baseboard: 50 x 96 x 16.7mm
 - Weight
   - Flight Controller Module: 23g
   - Standard Baseboard: 51g
 
-### Interfaces
+### 接口
 
 - 12 PWM servo outputs, 8 with D-SHOT
 
@@ -138,20 +138,20 @@ Similar variants will be available from our licensees.
 
 - 1 AD & IO port
 
-- 2 additional analog input
+- 2 个模拟输入接口
 
 - 1 PWM/Capture input
 
 - 2 Dedicated debug and GPIO lines
 
-- Other Characteristics:
+- 其它特性:
   - Operating & storage temperature: -40 ~ 85°c
 
-## Where to Buy
+## 在哪里买
 
 Order from [NXP](https://www.nxp.com).
 
-## Assembly/Setup
+## 组装 / 设置
 
 Wiring is similar to the [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md#connections) and other boards that follow the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
@@ -166,21 +166,21 @@ _MR-VMU-RT1176_ connectors (following [Pixhawk Connector Standard](https://githu
 ![MR-VMU-RT1176 Leftside Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_left.jpg)
 ![MR-VMU-RT1176 Rightside Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_right.jpg)
 
-For more information see:
+更多信息请参阅：
 
 - [NXP MR-VMU-RT1176 Baseboard Connections](https://nxp.gitbook.io/vmu-rt1176/production-v1-carrier-board-connectors) (nxp.gitbook.io)
 
-## Pinouts
+## 针脚定义
 
 [NXP MR-VMU-RT1176 Baseboard Pinout](https://nxp.gitbook.io/vmu-rt1176/pin-out) (nxp.gitbook.io)
 
-Notes:
+路径规划软件（在机载计算机上运行）<em>可以</em> 以<a href="https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS">TRAJECTORY_REPRESENTATION_WAYPOINTS</a> 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
 
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
-## Serial Port Mapping
+## 串口映射
 
-| UART   | Device     | Port     |
+| UART   | 设备         | Port     |
 | ------ | ---------- | -------- |
 | UART1  | /dev/ttyS0 | Debug    |
 | UART3  | /dev/ttyS1 | GPS      |
@@ -197,7 +197,7 @@ Notes:
 TBD
 -->
 
-## Voltage Ratings
+## 额定电压
 
 _MR-VMU-RT1176_ can be triple-redundant on the power supply if three power sources are supplied.
 The three power rails are: **POWER1**, **POWER2** and **USB**.
@@ -226,7 +226,7 @@ Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](.
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
 :::
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware!
@@ -245,15 +245,15 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Pin                         | Signal                              | Volt                  |
+| 针脚                          | Signal                              | 电压                    |
 | --------------------------- | ----------------------------------- | --------------------- |
-| 1 (red)  | `Vtref`                             | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`                             | +3.3V |
-| 5 (blk)  | `SWCLK`                             | +3.3V |
-| 6 (blk)  | `SWO`                               | +3.3V |
-| 7 (blk)  | NFC GPIO                            | +3.3V |
+| 2                           | `Vtref`                             | +3.3V |
+| 2                           | Console TX (OUT) | +3.3V |
+| 3                           | Console RX (IN)  | +3.3V |
+| 4（黑）                        | `SWDIO`                             | +3.3V |
+| 6                           | `SWCLK`                             | +3.3V |
+| 6                           | `SWO`                               | +3.3V |
+| 7                           | NFC GPIO                            | +3.3V |
 | 8 (blk)  | PH11                                | +3.3V |
 | 9 (blk)  | nRST                                | +3.3V |
 | 10 (blk) | `GND`                               | GND                   |
@@ -263,18 +263,18 @@ For information about using this port see:
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
-## Peripherals
+## 外部设备
 
 - [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
 - [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
 - [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## 更多信息
 
 - [Update Pixhawk 6X-RT Bootloader](../advanced_config/bootloader_update_v6xrt.md)
 - [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
