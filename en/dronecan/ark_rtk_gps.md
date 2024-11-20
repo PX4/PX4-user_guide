@@ -1,6 +1,6 @@
 # ARK RTK GPS
 
-ARK RTK GPS is an open source [DroneCAN](index.md) [RTK GPS](../gps_compass/rtk_gps.md), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module), magnetometer, barometer, IMU, buzzer, and safety switch module.
+[ARK RTK GPS](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-rtk-gps) is an open source [DroneCAN](index.md) [RTK GPS](../gps_compass/rtk_gps.md), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module), magnetometer, barometer, IMU, buzzer, and safety switch module.
 
 ![ARK RTK GPS](../../assets/hardware/gps/ark/ark_rtk_gps.jpg)
 
@@ -10,20 +10,16 @@ Order this module from:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-rtk-gps/) (US)
 
-Find more information:
-
-- [ARK RTK GPS Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-rtk-gps)
-
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_RTK_GPS)
 - Sensors
   - Ublox F9P GPS
-    - Multi-band GNSS receiver delivers centimeter level accuracy in seconds
+    - Multi-band GNSS receiver delivers centimetre level accuracy in seconds
     - Concurrent reception of GPS, GLONASS, Galileo and BeiDou
     - Multi-band RTK with fast convergence times and reliable performance
     - High update rate for highly dynamic applications
-    - Centimeter accuracy in a small and energy efficient module
+    - Centimetre accuracy in a small and energy efficient module
   - Bosch BMM150 Magnetometer
   - Bosch BMP388 Barometer
   - Invensense ICM-42688-P 6-Axis IMU
@@ -174,3 +170,7 @@ The steps are:
   - Push the green GO button on the bottom left
   - "Firmware Update SUCCESS" should be displayed if it updated successfully
     ![Firmware Update](../../assets/hardware/gps/ark/ark_rtk_gps_ublox_f9p_firmware_update.png)
+
+## See Also
+
+- [ARK RTK GPS Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-rtk-gps) (Ark Docs)
