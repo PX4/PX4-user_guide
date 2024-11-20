@@ -1,4 +1,4 @@
-# ESP32 WiFi Module
+# ESP32 WiFi 模块
 
 ESP32 are readily available WiFi modules with dedicated UART, SPI and I2C interfaces, and full TCP/IP stack and microcontroller capability. They come without firmware, but _DroneBridge for ESP32_ can be installed to enable them as a transparent and bi-directional serial to WiFi bridge. They can then be used as a WiFi telemetry module with any Pixhawk series controller.
 
@@ -41,7 +41,7 @@ The main steps are:
 1. Power Cycle the ESP32
 1. [Connect to the "DroneBridge for ESP32" WiFi network and configure the firmware for your application](#configuring-dronebridge-for-esp32)
 
-## Wiring
+## 布线
 
 Wiring is very simple, and similar for all devices when connecting to the Pixhawk TELEM1/2 ports. You can use 2.54mm pitch header connectors or solder the PX4 telemetry cables directly to the board.
 
@@ -143,7 +143,7 @@ to
 http://dronebridge.local/api/settings/change
 ```
 
-## Troubleshooting
+## 故障处理
 
 - Always erase the flash of the ESP32 before flashing a new release/firmware
 - Check if the pins on your ESP board are labeled correctly.
