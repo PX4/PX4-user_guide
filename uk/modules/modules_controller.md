@@ -373,12 +373,12 @@ uuv_pos_control <command> [arguments...]
 Джерело: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/vtol_att_control)
 
 
-### Description
+### Опис
 fw_att_control - регулятор положення фіксованого крила.
 
 <a id="vtol_att_control_usage"></a>
 
-### Usage
+### Використання
 ```
 vtol_att_control <command> [arguments...]
  Commands:
