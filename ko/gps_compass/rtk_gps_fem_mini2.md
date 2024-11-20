@@ -21,7 +21,7 @@ PX4 drivers for Ethernet, CAN and USB are under development.
 - RTK
 - BASE
 
-## Where to Buy
+## 구매처
 
 Contact [Femtones](http://www.femtomes.com/) directly for sales quote:
 
