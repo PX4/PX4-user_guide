@@ -3,7 +3,7 @@
 GEM1305 is a RTK receiver with antenna designed and manufactured by [DATAGNSS](https://www.datagnss.com/).
 
 GEM1305 is based on the new generation CYNOSURE IV dual-core GNSS SoC.
-It supports RTK functionality with a maximum data update rate of 10Hz.
+It supports RTK functionality with a maximum data update rate of 10Hz, and comes with cables for connecting to GPS ports on most Pixhawk devices.
 
 <img src="../../assets/hardware/gps/datagnss_gem1305/datagnss-gem1305-02.png" width="500px" alt="DATAGNSS GEM1305 RTK Receiver">
 
@@ -103,7 +103,7 @@ Note that for the base we recommend the [NANO RTK Receiver](https://www.datagnss
 
 <img src="../../assets/hardware/gps/datagnss_gem1305/nano_rtk_with_case.png" width="500px" alt="DATAGNSS NANO RTK Receiver">
 
-See to [How to setup Base station](https://wiki.datagnss.com/index.php/GEM1305-autopilot) for more details.
+See to [How to setup Base station](https://wiki.datagnss.com/index.php/GEM1305-autopilot#Base_station_setup) for information on how to configure the module for use as a base station (not including step 6 and later, for which you would QGroundControl instead of Mission Planner).
 
 ### Rover Setup (PX4)
 
@@ -111,13 +111,8 @@ The rover setup showing connections to a GPS port and the (required) connection 
 
 ![Rover module and pixhawk big picture connections](../../assets/hardware/gps/datagnss_gem1305/rover_gnss_setup.png)
 
-The diagram below shows how you might connect to the `GPS` port on the Pixawk 6 flight controller.
-
-::: warning
-Pixawk 2.4.8 is a clone of a very old Pixhawk series design.
-Even though it is inexpensive it is not recommended: the board has such little memory that it can be difficult to find space for all the software components you need.
-It also uses non-Pixhawk standard connectors which are far less reliable, and works with many fewer components out of the box.
-:::
+The diagram below shows the wiring from the `GPS2` port on the Pixhawk 6c flight controller.
+Note that an appropriate cable is supplied for this purpose.
 
 ![Rover module setup](../../assets/hardware/gps/datagnss_gem1305/pixhawk_connections.png)
 
