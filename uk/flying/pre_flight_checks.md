@@ -36,7 +36,7 @@ Once each issue is resolved it will disappear from the UI. When all issues block
 The QGC Arming Checks UI is available in the QGC Daily Build (QGC v4.2.0 and later), and works with PX4 v1.14 and later.
 :::
 
-## Flight Logs
+## Журнали польотів
 
 Preflight errors are also reported in _QGroundControl_ as `PREFLIGHT FAIL` messages. The `estimator_status.gps_check_fail_flags` message [in the logs](../getting_started/flight_reporting.md) shows which GPS quality checks are failing.
 
