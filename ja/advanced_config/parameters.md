@@ -1,4 +1,4 @@
-# Finding/Updating Parameters
+# パラメータの検索/更新
 
 PX4 behaviour can be configured/tuned using [parameters](../advanced_config/parameter_reference.md) (e.g. [Multicopter PID gains](../config_mc/pid_tuning_guide_multicopter.md), calibration information, etc.).
 
