@@ -143,7 +143,7 @@ To write a new test:
    - Search the _Testing_ section
    - Add a new target name and call the test
 
-   For example:
+   例如：
 
    ```sh
    tests_<new_test_target_name>: rostest
