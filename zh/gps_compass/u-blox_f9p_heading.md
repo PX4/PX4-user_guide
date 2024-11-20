@@ -2,7 +2,7 @@
 
 Two u-blox F9P [RTK GPS](../gps_compass/rtk_gps.md) modules mounted on a vehicle can be used to accurately compute a heading angle (i.e. an alternative to compass-based heading estimation). The two GPS devices in this scenario are referred to as the _Moving Base_ and _Rover_.
 
-## Supported Devices
+## 支持的 RTK 设备
 
 This feature works on F9P devices that support CAN or expose the GPS UART2 port.
 
@@ -22,7 +22,7 @@ The following devices are supported:
 - Supported devices are also listed in [RTK GNSS (GPS) > Supported Devices](../gps_compass/rtk_gps.md#supported-devices).
 :::
 
-## Setup
+## 设置
 
 Ideally the two antennas should be identical, on the same level/horizontal plane and oriented the same way, and on an identical ground plane size and shape ([Application note](https://content.u-blox.com/sites/default/files/documents/ZED-F9P-MovingBase_AppNote_UBX-19009093.pdf), section _System Level Considerations_).
 
@@ -48,7 +48,7 @@ Refer to the CAN RTK GPS documentation for each specific device for the setup in
 If using RTK with a fixed base station the secondary GPS will show the RTK state w.r.t. the base station.
 :::
 
-## Further Information
+## 更多信息
 
 - [ZED-F9P Moving base applications (Application note)](https://content.u-blox.com/sites/default/files/documents/ZED-F9P-MovingBase_AppNote_UBX-19009093.pdf) - General setup/instructions.
 - [RTK GPS > GPS as Yaw/Heading Source](../gps_compass/rtk_gps.md#configuring-gps-as-yaw-heading-source)
