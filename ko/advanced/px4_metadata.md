@@ -80,7 +80,7 @@ The following diagram shows how actuator metadata is assembled from the source c
   There is also [schema file](https://github.com/mavlink/mavlink/blob/master/component_metadata/actuators.schema.json) for this.
 - **Right**: At runtime, the JSON file is requested by QGroundControl via MAVLink Component Metadata API (described above).
 
-## Further Information
+## 추가 정보
 
 - [Parameters & Configurations](../advanced/parameters_and_configurations.md)
 - [Events Interface](../concept/events_interface.md)
