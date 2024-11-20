@@ -21,7 +21,7 @@ The _supported platforms_ for PX4 development are:
 
 숙련된 Docker 사용자는 지속적 통합 시스템 [Docker Containers](../test_and_ci/docker.md)컨테이너로 빌드할 수 있습니다.
 
-## Next Steps
+## 다음 단계
 
 위의 명령줄 도구 모음 중 하나를 설정하고, 다음 단계를 실행합니다.
 
