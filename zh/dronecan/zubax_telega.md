@@ -9,7 +9,7 @@ While Telega can be controlled using traditional PWM input, it is designed to op
 
 ![Sadulli - Top](../../assets/peripherals/esc_usavcan_zubax_sadulli/sadulli_top.jpg)
 
-## Where to Buy
+## 在哪里买
 
 - [Zubax Myxa](https://zubax.com/products/myxa): High-end PMSM/BLDC motor controller (FOC ESC) for light unmanned aircraft and watercraft.
 - [Zubax Mitochondrik](https://zubax.com/products/mitochondrik): Integrated sensorless PMSM/BLDC motor controller chip (used in ESCs and integrated drives)
@@ -34,11 +34,11 @@ Telega ESCs also require other motor setup and configuration for reliable perfor
 
 Connect the ESCs to the Pixhawk CAN bus. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `3` to enable both dynamic node ID allocation and DroneCAN ESC output.
 
-### PX4 Configuration
+### PX4 配置
 
 Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
-## Troubleshooting
+## 故障处理
 
 ### Motors not spinning when armed
 
