@@ -35,7 +35,7 @@ There are many different vehicle frames (types), and within the types there are 
 - [Airframe setup](../config/airframe.md)
 - [Airframe Reference](../airframes/airframe_reference.md).
 
-## Autopilots
+## 자동조종장치
 
 자율비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다.
 
@@ -75,14 +75,14 @@ QGroundControl desktop versions are also used to install (flash) PX4 firmware an
 
 [Auterion Mission Control](https://auterion.com/product/mission-control/) is a powerful and fully featured ground control station application that is optimized for _pilots_ rather than vehicle configuration. While designed to work with Auterion products, it can be used with "vanilla" PX4.
 
-For more information see:
+더 자세한 정보는 다음을 참고하십시오.
 
 - [AMC docs](https://docs.auterion.com/vehicle-operation/auterion-mission-control)
 - [Download from Auterion Suite](https://suite.auterion.com/)
 
 ## Drone Components & Parts
 
-### Flight Controller
+### 비행 콘트롤러
 
 Flight controllers (FC) are the hardware onto which the PX4 flight stack firmware is loaded and run. They are connected to sensors from which PX4 determines its state, and to the actuators/motors that it uses to stabilise and move the vehicle.
 
@@ -175,13 +175,13 @@ Safety switches are optional.
 Many argue that it is safer for users never to approach a powered system, even to enable/disable this interlock.
 :::
 
-### Buzzer
+### 부저
 
 Vehicles commonly include a buzzer for providing audible notification of vehicle state and readiness to fly (see [Tune meanings](../getting_started/tunes.md)).
 
 This buzzer is almost always integrated into the [GPS](../gps_compass/index.md) module that is connected to the Pixhawk `GPS1` port — along with the [safety switch](#safety-switch) and [UI LED](#leds). You can disable the notification tunes using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
 
-### LEDs
+### LED
 
 Vehicles should have a superbright [UI RGB LED](../getting_started/led_meanings.md#ui-led) that indicates the current readiness for flight.
 
@@ -201,7 +201,7 @@ The flight controller and companion computer may be pre-integrated into a single
 
 관련 주제는 다음과 같습니다:
 
-- [Companion Computers](../companion_computer/index.md)
+- [보조 컴퓨터](../companion_computer/index.md)
 - [오프보드 모드](../flight_modes/offboard.md) - PX4 외부의 지상 통제국이나 보조 컴퓨터로 제어하는 비행 모드
 - [로보틱스 API](../robotics/index.md)
 
