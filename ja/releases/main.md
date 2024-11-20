@@ -40,7 +40,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 - TBD
 
-### Sensors
+### センサー
 
 - TBD
 
