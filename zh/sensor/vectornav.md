@@ -21,7 +21,7 @@ In particular the following systems are recommended:
 - **VN-200 GNSS/INS:** Recommended for fixed-wing systems without hovering, where static heading is not necessary.
 - **VN-300 DUAL GNSS/INS:** Recommended for multicopter systems where hovering and low dynamics requires the use of static heading.
 
-## Where to Buy
+## 在哪里买
 
 VectorNav IMU/AHRS, GNSS/INS, and Dual GNSS/INS solutions are available directly from [VectorNav Technologies](https://www.vectornav.com/store/products) (US) or through their Global Sales Representatives. For more information on their solutions or for international orders, please contact sales@vectornav.com.
 
@@ -30,7 +30,7 @@ VectorNav IMU/AHRS, GNSS/INS, and Dual GNSS/INS solutions are available directly
 
 ## Hardware Setup
 
-### Wiring
+### 布线
 
 Connect any unused flight controller serial interface, such as a spare `GPS` or `TELEM` port, to the VectorNav UART2 port (required by PX4).
 
@@ -46,7 +46,7 @@ For more mounting requirements and recommendations, see the relevant [Quick Star
 
 ## Firmware Configuration
 
-### PX4 Configuration
+### PX4 配置
 
 To use the VectorNav driver:
 
