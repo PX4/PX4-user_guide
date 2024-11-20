@@ -212,9 +212,9 @@ Connect the Pixracer FrSky TX and RX lines together (solder the wires together) 
 
 The S-port connection is shown below (using the provided I/O Connector).
 
-![Grau b Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
+![Grau b Pixracer FrSkyS接口连接](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
 
-![Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg)
+![Pixracer FrSkyS接口连接](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg)
 
 ### Pixracer to D-port 接收机
 
