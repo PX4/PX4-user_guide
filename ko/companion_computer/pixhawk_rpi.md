@@ -11,7 +11,7 @@ Other common ways to connect RaPi and Pixhawk are:
 - Serial connection to the RPi USB port. This is simple and reliable, but requires an additional FTDI Chip USB-to-serial adapter board. This option is covered in [Pixhawk Companion > Serial Port Setup](../companion_computer/pixhawk_companion.md#serial-port-setup).
 :::
 
-## Wiring
+## 배선
 
 ### Serial connection
 
@@ -38,14 +38,14 @@ Almost all recent Pixhawk boards, such as the Pixhawk-6C, use the same connector
 
 The standard `TELEM2` pin assignments are shown below.
 
-| Pins      | Signal          | Voltage |
-| --------- | --------------- | ------- |
-| 1 (Red)   | VCC             | +5V     |
-| 2 (Black) | UART5_TX (out)  | +3.3V   |
-| 3 (Black) | UART5_RX (in)   | +3.3V   |
-| 4 (Black) | UART5_CTS (in)  | +3.3V   |
-| 5 (Black) | UART5_RTS (out) | +3.3V   |
-| 6 (Black) | GND             | GND     |
+| Pins      | 신호              | 전압    |
+| --------- | --------------- | ----- |
+| 1 (Red)   | VCC             | +5V   |
+| 2 (Black) | UART5_TX (out)  | +3.3V |
+| 3 (Black) | UART5_RX (in)   | +3.3V |
+| 4 (Black) | UART5_CTS (in)  | +3.3V |
+| 5 (Black) | UART5_RTS (out) | +3.3V |
+| 6 (Black) | GND             | GND   |
 
 :::
 
@@ -59,7 +59,7 @@ You can plug an [appropriate radio](../telemetry/index.md) into the Pixhawk `TEL
 
 Pixhawk boards usually require a reliable 5V DC supply, which is commonly supplied from LiPO batteries via a [Power Module and/or Power Distribution board](../power_module/index.md) to a port labeled `POWER` (or similar).
 
-The instructions for your flight controller will normally explain the recommended setup. For example:
+The instructions for your flight controller will normally explain the recommended setup. 예를 들어:
 
 - [Holybro Pixhawk 6C > Voltage Ratings](../flight_controller/pixhawk6c.md#voltage-ratings)
 - [Holybro Pixhawk 6C Wiring Quick Start > Power](../assembly/quick_start_pixhawk6c.md#power)
@@ -297,4 +297,4 @@ source /opt/ros/humble/setup.bash
 ros2 topic list
 ```
 
-That's it. Once you have the connection working, see the [ROS 2 Guide](../ros2/user_guide.md) for more information about working with PX4 and ROS 2.
+조립이 완료되었습니다. Once you have the connection working, see the [ROS 2 Guide](../ros2/user_guide.md) for more information about working with PX4 and ROS 2.
