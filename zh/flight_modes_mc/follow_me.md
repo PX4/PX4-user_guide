@@ -20,7 +20,7 @@ _Follow Me_ mode allows a multicopter to autonomously hold position and altitude
 
 :::
 
-## Overview
+## 综述
 
 ![Follow-me Concept](../../assets/flight_modes/followme_concept.png)
 
@@ -124,7 +124,7 @@ The MAVLink [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TA
 The drone probably won't crash due to the built-in minimum safety altitude limit (1 meter), but it may fly much higher than expected. If the drone's altitude is significantly different than specified, assume that the ground station's altitude output is wrong and use 2D tracking.
 :::
 
-### Parameters
+### 参数
 
 The follow-me behavior can be configured using the following parameters:
 
