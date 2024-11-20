@@ -4,7 +4,7 @@ PX4 supports simple air traffic avoidance in [missions](../flying/missions.md) u
 
 If a potential collision is detected, PX4 can _warn_, immediately [land](../flight_modes_mc/land.md), or [return](../flight_modes_mc/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
 
-## Supported Hardware
+## 지원 하드웨어
 
 PX4 traffic avoidance works with ADS-B or FLARM products that supply transponder data using the MAVLink [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE) message, and UTM products that supply transponder data using the MAVLink [UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) message.
 
@@ -13,7 +13,7 @@ It has been tested with the following devices:
 - [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx-pro/) (uAvionix)
 - [FLARM](https://flarm.com/products/uav/atom-uav-flarm-for-drones/) <!-- I think originally https://flarm.com/products/powerflarm/uav/ -->
 
-## Hardware Setup
+## 하드웨어 설정
 
 Any of the devices can be connected to any free/unused serial port on the flight controller. Most commonly they are connected to `TELEM2` (if this is not being use for some other purpose).
 
@@ -21,12 +21,12 @@ Any of the devices can be connected to any free/unused serial port on the flight
 
 The PingRX MAVLink port uses a JST ZHR-4 mating connector with pinout as shown below.
 
-| Pin     | Signal   | Volt         |
-| ------- | -------- | ------------ |
-| 1 (red) | RX (IN)  | +5V tolerant |
-| 2 (blk) | TX (OUT) |              |
-| 3 (blk) | Power    | +4 to 6V     |
-| 4 (blk) | GND      | GND          |
+| 핀     | 신호      | 전압           |
+| ----- | ------- | ------------ |
+| 1 (적) | RX (입력) | +5V tolerant |
+| 2 (흑) | TX (출력) |              |
+| 3 (흑) | 전원      | +4 to 6V     |
+| 4 (흑) | GND     | GND          |
 
 The PingRX comes with connector cable that can be attached directly to the TELEM2 port (DF13-6P) on an [mRo Pixhawk](../flight_controller/mro_pixhawk.md). For other ports or boards, you will need to obtain your own cable.
 
@@ -34,20 +34,20 @@ The PingRX comes with connector cable that can be attached directly to the TELEM
 
 FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
 
-| Pin     | Signal   | Volt        |
-| ------- | -------- | ----------- |
-| 1 (red) | VCC      | +4V to +36V |
-| 2 (blk) | TX (OUT) | +3.3V       |
-| 3 (blk) | RX (IN)  | +3.3V       |
-| 4 (blk) | -        | +3.3V       |
-| 5 (blk) | -        | +3.3V       |
-| 6 (blk) | GND      | GND         |
+| 핀     | 신호      | 전압          |
+| ----- | ------- | ----------- |
+| 1 (적) | VCC     | +4V to +36V |
+| 2 (흑) | TX (출력) | +3.3V       |
+| 3 (흑) | RX (입력) | +3.3V       |
+| 4 (흑) | -       | +3.3V       |
+| 5 (흑) | -       | +3.3V       |
+| 6 (흑) | GND     | GND         |
 
 ::: info
 The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
 :::
 
-## Software Configuration
+## 소프트웨어 설정
 
 ### Port Configuration
 
@@ -105,7 +105,7 @@ Simulated ADS-B traffic can trigger real failsafe actions.
 Use with care in real flight!
 :::
 
-To enable this feature:
+이 기능을 활성화하려면:
 
 1. Uncomment the code in `AdsbConflict::run_fake_traffic()`([AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1)).
 1. Rebuild and run PX4.
@@ -160,7 +160,7 @@ The method creates a simulated transponder message near the vehicle, using follo
 <!-- See also implementation PR: https://github.com/PX4/PX4-Autopilot/pull/21283 -->
 <!-- See also bug to make this work without uncommenting: https://github.com/PX4/PX4-Autopilot/issues/21810 -->
 
-## Further Information
+## 추가 정보
 
 - [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
-- [Serial Port Configuration](../peripherals/serial_configuration.md)
+- [직렬 포트 설정](../peripherals/serial_configuration.md)
