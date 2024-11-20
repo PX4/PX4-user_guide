@@ -4,7 +4,7 @@ Before flying you should ensure that your vehicle is calibrated and configured, 
 
 Basic instructions for flying are covered in the vehicle-specfic topics:
 
-- [Multicopter](../flying/basic_flying_mc.md)
-- [Fixed-wing](../flying/basic_flying_fw.md)
+- [Мультикоптер](../flying/basic_flying_mc.md)
+- [Безпілотник-крило](../flying/basic_flying_fw.md)
 
 How to fly an autonomous mission is covered in [Missions](../flying/missions.md).
