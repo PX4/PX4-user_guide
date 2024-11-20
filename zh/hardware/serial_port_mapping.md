@@ -1,4 +1,4 @@
-# Serial Port Mapping
+# 串口映射
 
 This topic shows how to determine the mapping between USART/UART serial port device names (e.g. "ttyS0") and the associated ports on a flight controller, such as `TELEM1`, `TELEM2`, `GPS1`, `RC SBUS`, `Debug console`.
 
@@ -48,7 +48,7 @@ The _nsh/defconfig_ allows you to determine which ports are defined, whether the
 
 Open the board's defconfig file, for example: [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L215-L221)
 
-Search for the text "ART" until you find a section like with entries formatted like `CONFIG_STM32xx_USARTn=y` (where `xx` is a processor type and `n` is a port number). For example:
+Search for the text "ART" until you find a section like with entries formatted like `CONFIG_STM32xx_USARTn=y` (where `xx` is a processor type and `n` is a port number). 例如：
 
 ```
 CONFIG_STM32F7_UART4=y
@@ -111,7 +111,7 @@ ttyS6 CONFIG_STM32F7_UART8=y PX4IO
 
 In the [flight controller docs](../flight_controller/pixhawk4.md#serial-port-mapping) the resulting table is:
 
-| UART   | Device     | Port                  |
+| UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
 | UART1  | /dev/ttyS0 | GPS                   |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
@@ -129,5 +129,5 @@ Contributions welcome!
 
 ## See Also
 
-- [Serial Port Configuration](../peripherals/serial_configuration.md)
-- [MAVLink Telemetry (OSD/GCS)](../peripherals/mavlink_peripherals.md)
+- [串口配置](../peripherals/serial_configuration.md)
+- [MAVLink 回传（OSD/GCS）](../peripherals/mavlink_peripherals.md)
