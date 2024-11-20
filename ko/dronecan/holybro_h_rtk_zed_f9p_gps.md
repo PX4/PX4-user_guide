@@ -21,13 +21,13 @@ It delivers centimetre-level accuracy with the use of a base station or NTRIP se
 
 The high-precision PNI RM3100 compass ensures accurate orientation and stability, offering exceptional reliability, making it ideal for demanding UAV applications. It provides high resolution, low power consumption, large signal noise immunity, a large dynamic range, and high sampling rates. Its measurements are stable over temperature and inherently free from offset drift.
 
-## Where to Buy
+## 구매처
 
 - [Holybro](https://holybro.com/collections/h-rtk-gps/products/h-rtk-zed-f9p-rover)
 
 ## Hardware Specifications
 
-- Sensors
+- 센서
   - Ublox ZED-F9P GPS
     - Centimetre-level accuracy RTK positioning
     - IP66 Dust and Water Resistant
@@ -47,9 +47,9 @@ The high-precision PNI RM3100 compass ensures accurate orientation and stability
   - Current Consumption: 250 mA
   - Weight: 117 grams
 
-## Hardware Setup
+## 하드웨어 설정
 
-### Wiring
+### 배선
 
 The Holybro ZED-F9P GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
 For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
@@ -75,7 +75,7 @@ Remember to change the firmware on the flight controller back to PX4 afterwards.
 
 In order to use the Holybro ZED-F9P GPS board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
-The steps are:
+단계는 다음과 같습니다:
 
 1. In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 2. Connect Holybro ZED-F9P GPS CAN to the Pixhawk CAN.
