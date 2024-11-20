@@ -6,13 +6,13 @@ Note that at 60A and 20°C without cooling, the 5V regulator is de-rated to a 3A
 
 ![ARK PAB Power Module](../../assets/hardware/power_module/ark_power_modules//ark_pab_power_module.jpg)
 
-## Where to Buy
+## Де придбати
 
-Order this module from:
+Замовте цей модуль з:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-pab-power-module/) (US)
 
-## Hardware Specifications
+## Характеристики обладнання
 
 - **TI INA226 Digital Power Monitor**
 
@@ -43,11 +43,11 @@ Order this module from:
   - Weight: 17.9 g
   - Dimensions: 4.75 cm x 3.43 cm x 1.15 cm
 
-## PX4 Setup
+## Налаштування PX4
 
 - Enable the SENS_EN_INA226 parameter if it not enabled.
 - Reboot the flight controller.
 
-## See Also
+## Дивіться також
 
 - [ARK PAB Power Module Documentation](https://arkelectron.gitbook.io/ark-documentation/power/ark-pab-power-module) (ARK Docs)
