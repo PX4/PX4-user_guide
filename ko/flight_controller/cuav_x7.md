@@ -66,7 +66,7 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/) are 
 PX4 펌웨어를 실행하면 8 pwm 만 작동하고, 나머지 6 pwm은 여전히 조정중이므로 현재 VOLT와 호환되지 않습니다.
 :::
 
-## Where to Buy
+## 구매처
 
 [CUAV 상점](https://store.cuav.net)
 
