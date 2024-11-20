@@ -1,6 +1,6 @@
 # CUAV V5 nano Autopilot
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
 :::
 
 **V5 nano**<sup>&reg;</sup> is an autopilot for space-constrained applications, designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
@@ -56,7 +56,7 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 - 其它特性:
   - 工作温度：-20 ~ 85°C （实测值）
 
-## Where to Buy
+## 在哪里买
 
 [CUAV Store](https://store.cuav.net/shop/v5-nano/)
 
@@ -121,7 +121,7 @@ Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage 
 For more information see [Using JTAG for hardware debugging](#using-jtag-for-hardware-debugging).
 :::
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                                  |
 | ------ | ---------- | ------------------------------------- |
