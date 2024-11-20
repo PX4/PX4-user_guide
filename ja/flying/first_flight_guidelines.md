@@ -1,4 +1,4 @@
-# First Flight Guidelines
+# 初飛行のガイドライン
 
 Learning to fly is a lot of fun! These guidelines are designed to ensure that your first flight experience is enjoyable, educational, and safe.
 
