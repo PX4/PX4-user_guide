@@ -48,7 +48,7 @@ For more details, please refer to the corresponding pages.
 
 |   |                 | Mini v2                                   | Micro                                       |
 | - | --------------- | ----------------------------------------- | ------------------------------------------- |
-|   | Image           | ![RaccoonLab Mini v2 Node][Mini v2 Node]  | ![RaccoonLab Micro Node][Micro Node]        |
+|   | 이미지             | ![RaccoonLab Mini v2 Node][Mini v2 Node]  | ![RaccoonLab Micro Node][Micro Node]        |
 | 1 | Input voltage   | 5.5V – 30V                | 4.5V – 5.5V |
 | 2 | DC-DC           | Yes                                       | No                                          |
 | 3 | Groups of pins  | - PWM+5V+GND x2 </br> - PWM+FB+GND x2     | - PWM+5V+GND x2                             |
@@ -60,7 +60,7 @@ For more details, please refer to the corresponding pages.
 [Mini v2 Node]: ../../assets/hardware/can_nodes/raccoonlab_mini_node.png
 [Micro Node]: ../../assets/hardware/can_nodes/raccoonlab_micro_node.png
 
-## Where to Buy
+## 구매처
 
 [RaccoonLab Store](https://raccoonlab.co/store)
 
