@@ -359,7 +359,7 @@ uuv_pos_control stop
 
 <a id="uuv_pos_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 uuv_pos_control <command> [arguments...]
  Commands:
@@ -378,7 +378,7 @@ fw_att_control은 고정익 자세 컨트롤러입니다.
 
 <a id="vtol_att_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 vtol_att_control <command> [arguments...]
  Commands:
