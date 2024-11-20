@@ -1,4 +1,4 @@
-# Ainstein US-D1 Standard Radar Altimeter
+# Ainstein US-D1 标准雷达高度计
 
 :::tip
 This supersedes the _Aerotenna uLanding Radar_ (discontinued) but uses the same driver/setup.
