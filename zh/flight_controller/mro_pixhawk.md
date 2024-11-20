@@ -1,6 +1,6 @@
 # mRo Pixhawk Flight Controller (Pixhawk 1)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 The _mRo Pixhawk<sup>&reg;</sup>_ is a hardware compatible version of the original [Pixhawk 1](../flight_controller/pixhawk.md). It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
@@ -78,7 +78,7 @@ See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports)
 
 See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
