@@ -5,13 +5,13 @@ This development environment is [community supported and maintained](../advanced
 
 The toolchain was previously recommended, but does not work with PX4 v1.12 and later due to packaging issues. The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) should be used by preference.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+关于核心开发团队支持的环境和工具的信息，请参阅 [工具链安装](../dev_setup/dev_env.md)。
 :::
 
 该工具链非常轻便，而且容易安装和使用。 它是目前Windows环境下用于PX4开发的最新和最好的工具。
 
 - 编译/上传 PX4到Nuttx目标(Pixhawk系列飞控)
-- [jMAVSim Simulation](../sim_jmavsim/index.md)
+- [jMAVSim 模拟](../sim_jmavsim/index.md)
 
 <a id="installation"></a>
 
