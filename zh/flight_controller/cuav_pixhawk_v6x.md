@@ -1,7 +1,7 @@
 # CUAV Pixhawk V6X
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+PX4 does not manufacture this (or any) autopilot. 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
 :::
 
 _Pixhawk V6X_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with CUAV<sup>&reg;</sup> and the PX4 team.
@@ -51,7 +51,7 @@ The Pixhawk® V6X is ideal for corporate research labs, academic research and co
   - TELEM1 and GPS2 combined output current limiter: 1.5A
   - All other port combined output current limiter: 1.5A
 
-### Interfaces
+### 接口
 
 - 16- PWM servo outputs
 - 1 Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
@@ -100,25 +100,25 @@ The Pixhawk® V6X is ideal for corporate research labs, academic research and co
 
     ![Pixhawk V6X](../../assets/flight_controller/cuav_pixhawk_v6x/core.png)
 
-## Where to Buy
+## 在哪里买
 
 Order from [CUAV](https://store.cuav.net/).
 
-## Assembly/Setup
+## 组装 / 设置
 
 The [Pixhawk V6X Wiring Quick Start](../assembly/quick_start_cuav_pixhawk_v6x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
 
-## Pinouts
+## 针脚定义
 
 ![Pixhawk V6x Pinout](../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x_pinouts.png)
 
-Notes:
+路径规划软件（在机载计算机上运行）*可以* 以[TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
 
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
-## Serial Port Mapping
+## 串口映射
 
-| UART   | Device     | Port          |
+| UART   | 设备         | Port          |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | GPS           |
 | USART2 | /dev/ttyS1 | TELEM3        |
@@ -129,7 +129,7 @@ Notes:
 | UART7  | /dev/ttyS6 | TELEM1        |
 | UART8  | /dev/ttyS7 | GPS2          |
 
-## Voltage Ratings
+## 额定电压
 
 _Pixhawk V6X_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWERC1/POWER1**, **POWERC2/POWER2** and **USB**.
 
@@ -141,7 +141,7 @@ _Pixhawk V6X_ can be triple-redundant on the power supply if three power sources
 Under these conditions all power sources will be used in this order to power the system:
 
 1. **POWER C1**, **POWER C2**, **POWER1** and **POWER2** inputs (4.75V to 5.7V)
-2. **USB** input (4.75V to 5.25V)
+2. **USB** 输入电压（4.75 v 至 5.25 v）
 
 **Absolute Maximum Ratings**
 
@@ -159,7 +159,7 @@ Digital DroneCAN/UAVCAN battery monitoring is enabled by default (see [Quickstar
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
 :::
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
@@ -173,21 +173,21 @@ make px4_fmu-v6x_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Debug调试端口
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Pin      | Signal           | Volt  |
+| 针脚       | Signal           | 电压    |
 | -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
+| 2        | `Vtref`          | +3.3V |
+| 2        | Console TX (OUT) | +3.3V |
+| 3        | Console RX (IN)  | +3.3V |
+| 4（黑）     | `SWDIO`          | +3.3V |
+| 6        | `SWCLK`          | +3.3V |
+| 6        | `SWO`            | +3.3V |
+| 7        | NFC GPIO         | +3.3V |
 | 8 (blk)  | PH11             | +3.3V |
 | 9 (blk)  | nRST             | +3.3V |
 | 10 (blk) | `GND`            | GND   |
@@ -197,17 +197,17 @@ For information about wiring and using this port see:
 - [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to USART3).
 - [SWD Debug Port](../debug/swd_debug.md)
 
-## Peripherals
+## 外部设备
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [数字空速传感器](https://holybro.com/products/digital-air-speed-sensor)
+- [遥测无线电模块](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [距离传感器](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## 更多信息
 
 - [CUAV Docs](https://doc.cuav.net/) (CUAV)
 - [Pixhawk V6X Wiring QuickStart](../assembly/quick_start_cuav_pixhawk_v6x.md)
