@@ -138,7 +138,7 @@ Many PX4 drones use brushless motors that are driven by the flight controller vi
 For information about what ESC/Motors are supported by PX4 see:
 
 - [ESC & Motors](../peripherals/esc_motors.md)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [ESCキャリブレーション](../advanced_config/esc_calibration.md)
 - [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
 
 ### Battery/Power
@@ -260,7 +260,7 @@ Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (D
 
 A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
-## Flight Modes
+## フライトモード
 
 Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). _Autonomous modes_ are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
 
