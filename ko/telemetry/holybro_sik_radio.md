@@ -10,11 +10,11 @@ The radios can be either 915 MHz (US) or 433 MHz (EU, Asia, Africa Oceania). Not
 
 <img src="../../assets/hardware/telemetry/holybro_sik_radio_v3.png" width="600px" title="Sik Telemetry Radio" />
 
-## Where to Buy
+## 구매처
 
 - [Holybro SiK Telemetry Radio V3](https://holybro.com/collections/telemetry-radios/products/sik-telemetry-radio-v3)
 
-## Features
+## 특징
 
 - Open-source SiK firmware
 - Plug-n-play for Pixhawk Standard Flight Controller
@@ -23,7 +23,7 @@ The radios can be either 915 MHz (US) or 433 MHz (EU, Asia, Africa Oceania). Not
 - Micro-USB port (Type-C Adapter Cable Included)
 - 6-position JST-GH connector
 
-## Specification
+## 사양
 
 - 100 mW maximum output power (adjustable) -117 dBm receive sensitivity
 - RP-SMA connector
