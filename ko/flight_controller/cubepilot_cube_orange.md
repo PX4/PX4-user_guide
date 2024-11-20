@@ -91,111 +91,111 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 
 ![큐브 포트-상단 (GPS, TELEM 등) 및 메인/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
-## Pinouts
+## 핀배열
 
-#### TELEM1, TELEM2 ports
+#### TELEM1, TELEM2 포트
 
-| Pin     | Signal    | Volt  |
-| ------- | --------- | ----- |
-| 1 (red) | VCC       | +5V   |
-| 2 (blk) | TX (OUT)  | +3.3V |
-| 3 (blk) | RX (IN)   | +3.3V |
-| 4 (blk) | CTS (IN)  | +3.3V |
-| 5 (blk) | RTS (OUT) | +3.3V |
-| 6 (blk) | GND       | GND   |
+| 핀     | 신호       | 전압    |
+| ----- | -------- | ----- |
+| 1 (적) | VCC      | +5V   |
+| 2 (흑) | TX (출력)  | +3.3V |
+| 3 (흑) | RX (입력)  | +3.3V |
+| 4 (흑) | CTS (입력) | +3.3V |
+| 5 (흑) | RTS (출력) | +3.3V |
+| 6 (흑) | GND      | GND   |
 
 #### GPS1 port
 
-| Pin     | Signal        | Volt  |
+| 핀       | 신호            | 전압    |
 | ------- | ------------- | ----- |
-| 1 (red) | VCC           | +5V   |
-| 2 (blk) | TX (OUT)      | +3.3V |
-| 3 (blk) | RX (IN)       | +3.3V |
-| 4 (blk) | SCL I2C2      | +3.3V |
-| 5 (blk) | SDA I2C2      | +3.3V |
-| 6 (blk) | Safety Button | GND   |
-| 7 (blk) | Button LED    | GND   |
+| 1 (적)   | VCC           | +5V   |
+| 2 (흑)   | TX (출력)       | +3.3V |
+| 3 (흑)   | RX (입력)       | +3.3V |
+| 4 (흑)   | SCL I2C2      | +3.3V |
+| 5 (흑)   | SDA I2C2      | +3.3V |
+| 6 (흑)   | Safety Button | GND   |
+| 7 (흑)   | Button LED    | GND   |
 | 8 (blk) | GND           | GND   |
 
 <!-- check is i2c2 -->
 
 #### GPS2 port
 
-| Pin     | Signal   | Volt  |
-| ------- | -------- | ----- |
-| 1 (red) | VCC      | +5V   |
-| 2 (blk) | TX (OUT) | +3.3V |
-| 3 (blk) | RX (IN)  | +3.3V |
-| 4 (blk) | SCL I2C1 | +3.3V |
-| 5 (blk) | SDA I2C1 | +3.3V |
-| 6 (blk) | GND      | GND   |
+| 핀     | 신호       | 전압    |
+| ----- | -------- | ----- |
+| 1 (적) | VCC      | +5V   |
+| 2 (흑) | TX (출력)  | +3.3V |
+| 3 (흑) | RX (입력)  | +3.3V |
+| 4 (흑) | SCL I2C1 | +3.3V |
+| 5 (흑) | SDA I2C1 | +3.3V |
+| 6 (흑) | GND      | GND   |
 
 #### ADC
 
-| Pin     | Signal | Volt        |
-| ------- | ------ | ----------- |
-| 1 (red) | VCC    | +5V         |
-| 2 (blk) | ADC IN | up to +6.6V |
-| 3 (blk) | GND    | GND         |
+| 핀     | 신호     | 전압       |
+| ----- | ------ | -------- |
+| 1 (적) | VCC    | +5V      |
+| 2 (흑) | ADC 입력 | 최대 +6.6V |
+| 3 (흑) | GND    | GND      |
 
 #### I2C
 
-| Pin     | Signal | Volt           |
-| ------- | ------ | -------------- |
-| 1 (red) | VCC    | +5V            |
-| 2 (blk) | SCL    | +3.3 (pullups) |
-| 3 (blk) | SDA    | +3.3 (pullups) |
-| 4 (blk) | GND    | GND            |
+| 핀     | 신호  | 전압        |
+| ----- | --- | --------- |
+| 1 (적) | VCC | +5V       |
+| 2 (흑) | SCL | +3.3 (풀업) |
+| 3 (흑) | SDA | +3.3 (풀업) |
+| 4 (흑) | GND | GND       |
 
 #### CAN1 & CAN2
 
-| Pin     | Signal | Volt |
-| ------- | ------ | ---- |
-| 1 (red) | VCC    | +5V  |
-| 2 (blk) | CAN_H  | +12V |
-| 3 (blk) | CAN_L  | +12V |
-| 4 (blk) | GND    | GND  |
+| 핀     | 신호    | 전압   |
+| ----- | ----- | ---- |
+| 1 (적) | VCC   | +5V  |
+| 2 (흑) | CAN_H | +12V |
+| 3 (흑) | CAN_L | +12V |
+| 4 (흑) | GND   | GND  |
 
 #### POWER1 & POWER2
 
-| Pin     | Signal          | Volt  |
+| 핀       | 신호              | 전압    |
 | ------- | --------------- | ----- |
-| 1 (red) | VCC             | +5V   |
+| 1 (적)   | VCC             | +5V   |
 | 2 (red) | VCC             | +5V   |
-| 3 (blk) | CURRENT sensing | +3.3V |
-| 4 (blk) | VOLTAGE sensing | +3.3V |
-| 5 (blk) | GND             | GND   |
-| 6 (blk) | GND             | GND   |
+| 3 (흑)   | CURRENT sensing | +3.3V |
+| 4 (흑)   | VOLTAGE sensing | +3.3V |
+| 5 (흑)   | GND             | GND   |
+| 6 (흑)   | GND             | GND   |
 
 #### USB
 
-| Pin     | Signal        | Volt            |
-| ------- | ------------- | --------------- |
-| 1 (red) | VCC           | +5V             |
-| 2 (blk) | OTG_DP1       | +3.3V           |
-| 3 (blk) | OTG_DM1       | +3.3V           |
-| 4 (blk) | GND           | GND             |
-| 5 (blk) | BUZZER        | Battery voltage |
-| 6 (blk) | FMU Error LED |                 |
+| 핀     | 신호            | 전압              |
+| ----- | ------------- | --------------- |
+| 1 (적) | VCC           | +5V             |
+| 2 (흑) | OTG_DP1       | +3.3V           |
+| 3 (흑) | OTG_DM1       | +3.3V           |
+| 4 (흑) | GND           | GND             |
+| 5 (흑) | BUZZER        | Battery voltage |
+| 6 (흑) | FMU Error LED |                 |
 
 #### SPKT
 
-| Pin     | Signal | Volt  |
-| ------- | ------ | ----- |
-| 1 (blk) | IN     |       |
-| 2 (blk) | GND    | GND   |
-| 3 (red) | OUT    | +3.3V |
+| 핀       | 신호  | 전압    |
+| ------- | --- | ----- |
+| 1 (blk) | IN  |       |
+| 2 (흑)   | GND | GND   |
+| 3 (red) | OUT | +3.3V |
 
 #### TELEM1, TELEM2
 
-| Pin     | Signal    | Volt        |
-| ------- | --------- | ----------- |
-| 1 (red) | VCC       | +5V         |
-| 2 (blk) | TX (OUT)  | +3.3V to 5V |
-| 3 (blk) | RX (IN)   | +3.3V to 5V |
-| 4 (blk) | CTS (OUT) | +3.3V to 5V |
-| 5 (blk) | RTS (IN)  | +3.3V to 5V |
-| 6 (blk) | GND       | GND         |
+| 핀     | 신호        | 전압          |
+| ----- | --------- | ----------- |
+| 1 (적) | VCC       | +5V         |
+| 2 (흑) | TX (출력)   | +3.3V to 5V |
+| 3 (흑) | RX (입력)   | +3.3V to 5V |
+| 4 (흑) | CTS (OUT) | +3.3V to 5V |
+| 5 (흑) | RTS (IN)  | +3.3V to 5V |
+| 6 (흑) | GND       | GND         |
 
 ## 시리얼 포트 매핑
 
@@ -227,7 +227,7 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 make cubepilot_cubeorange
 ```
 
-## Schematics
+## 회로도
 
 보드 설계도와 문서는 [The Cube Project](https://github.com/proficnc/The-Cube)를 참고하십시오.
 
