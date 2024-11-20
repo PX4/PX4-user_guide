@@ -16,15 +16,15 @@ An overview of the Crazyflie 2.1 can be [found here](https://www.bitcraze.io/pro
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie21/crazyflie_2.1.jpg)
 
-## Quick Summary
+## 요약
 
 :::info
 The main hardware documentation is [here](https://wiki.bitcraze.io/projects:crazyflie2:index)
 :::
 
 - Main System-on-Chip: STM32F405RG
-  - CPU: 168 MHz ARM Cortex M4 with single-precision FPU
-  - RAM: 192 KB SRAM
+  - CPU : 단정밀도 FPU의 168MHz ARM Cortex M4
+  - RAM : 192KB SRAM
 - nRF51822 radio and power management MCU
 - BMI088 3 axis accelerometer / gyroscope
 - BMP388 high precision pressure sensor
@@ -34,7 +34,7 @@ The main hardware documentation is [here](https://wiki.bitcraze.io/projects:craz
 - Partial USB OTG capability (USB OTG present but no 5V output)
 - 8KB EEPROM
 
-## Where to Buy
+## 구매처
 
 The vehicle can be purchased here: [Crazyflie 2.1](https://store.bitcraze.io/products/crazyflie-2-1) (store.bitcraze.io)
 
@@ -245,7 +245,7 @@ The Joystick menu in QGC, only appears after you connect the controller to the P
 ![QGC joystick menu](../../assets/flight_controller/crazyflie21/joystick_menu_qgc.png)
 :::
 
-## Hardware Setup
+## 하드웨어 설정
 
 Crazyflie 2.1 is only able to fly in [Stabilized mode](../flight_modes_mc/manual_stabilized.md).
 
@@ -301,6 +301,6 @@ To connect to Crazyflie 2.1 via MAVROS:
 
 - Restart QGroundControl if it doesn't connect.
 
-## Flying
+## 비행
 
 <lite-youtube videoid="0qy7O3fVN2c" title="Crazyflie 2.1 - PX4 Firmware (stabilized mode)"/>
