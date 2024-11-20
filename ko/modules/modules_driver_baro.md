@@ -207,7 +207,7 @@ Source: [drivers/barometer/lps33hw](https://github.com/PX4/PX4-Autopilot/tree/ma
 
 <a id="lps33hw_usage"></a>
 
-### Usage
+### 사용법
 ```
 lps33hw <command> [arguments...]
  Commands:
@@ -235,7 +235,7 @@ Source: [drivers/barometer/maiertek/mpc2520](https://github.com/PX4/PX4-Autopilo
 
 <a id="mpc2520_usage"></a>
 
-### Usage
+### 사용법
 ```
 mpc2520 <command> [arguments...]
  Commands:
@@ -258,7 +258,7 @@ Source: [drivers/barometer/mpl3115a2](https://github.com/PX4/PX4-Autopilot/tree/
 
 <a id="mpl3115a2_usage"></a>
 
-### Usage
+### 사용법
 ```
 mpl3115a2 <command> [arguments...]
  Commands:
@@ -281,7 +281,7 @@ Source: [drivers/barometer/ms5611](https://github.com/PX4/PX4-Autopilot/tree/mas
 
 <a id="ms5611_usage"></a>
 
-### Usage
+### 사용법
 ```
 ms5611 <command> [arguments...]
  Commands:
@@ -316,7 +316,7 @@ Source: [drivers/barometer/ms5837](https://github.com/PX4/PX4-Autopilot/tree/mas
 
 <a id="ms5837_usage"></a>
 
-### Usage
+### 사용법
 ```
 ms5837 <command> [arguments...]
  Commands:
@@ -337,7 +337,7 @@ Source: [drivers/barometer/goertek/spl06](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="spl06_usage"></a>
 
-### Usage
+### 사용법
 ```
 spl06 <command> [arguments...]
  Commands:
@@ -348,22 +348,11 @@ spl06 <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
                  default: 118
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
-     [-m <val>]  SPI mode
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-
-   stop
-
-   status        print status info
 ```
