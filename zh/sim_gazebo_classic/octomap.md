@@ -4,7 +4,7 @@ The [OctoMap library](http://octomap.github.io/) is an open source library for g
 
 This guide covers how to use _OctoMap_ with the [Gazebo Classic](../sim_gazebo_classic/index.md) [Rotors Simulator](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator) and ROS.
 
-## Installation
+## 安装
 
 The installation requires ROS, [Gazebo Classic](../sim_gazebo_classic/index.md) and the Rotors Simulator plugin. Follow the [Rotors Simulator instructions](https://github.com/ethz-asl/rotors_simulator) to install.
 
