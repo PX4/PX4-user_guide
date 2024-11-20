@@ -29,7 +29,7 @@ Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](ht
 This covers the common setup for obstacle avoidance and collision prevention, and includes specific sections for using the _safe landing planner_ (which provides companion-side support for this feature):
 
 - [仿真模拟安装配置](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
-- [Hardware setup](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
+- [硬件设置](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
 
 配置信息除了其他外，还包括使用不同的相机怎样设置安全着陆，无人机大小和决定是否降落的高度。
 
