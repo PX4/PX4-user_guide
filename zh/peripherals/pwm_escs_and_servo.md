@@ -56,7 +56,7 @@ On a multicopter, the +5V line might not be present or (if present) may not be c
 
 On an opto-isolated ESC **without** BEC, the +5V line might need to be connected and powered (in order to provide power to the ESC microcontroller). In this case the wire will normally be connected to the flight controller servo rail, and the servo rail must be powered from an additional BEC.
 
-## PX4 Configuration
+## PX4 配置
 
 PWM motors and servos are configured using the [Actuator Configuration](../config/actuators.md) screen in QGroundControl.
 
