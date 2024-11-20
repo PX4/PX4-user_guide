@@ -66,7 +66,7 @@ This shows a mission plan that where the vehicle lands to deliver the package.
 
 Note how the altitude graph shows the `Land` item.
 
-### Notes
+### 참고
 
 #### RTL Waypoint for Package Delivery with Landing
 
