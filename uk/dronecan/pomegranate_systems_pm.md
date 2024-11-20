@@ -31,7 +31,7 @@
   - **без конекторів:** 9g
   - **З конекторами XT60PW:** 16г
 
-![Dimensions](../../assets/hardware/power_module/pomegranate_systems_pm/mechanical.png)
+![Розміри](../../assets/hardware/power_module/pomegranate_systems_pm/mechanical.png)
 
 ## Налаштування прошивки
 
