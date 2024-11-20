@@ -3,7 +3,7 @@
 <Badge type="tip" text="PX4 v1.15" /> <Badge type="warning" text="Experimental" />
 
 :::warning
-Experimental
+실험
 
 - The architecture and core interfaces for defining modes in ROS 2 modes are largely stable, and are tested in CI.
   The library offers significant benefits over using offboard mode in its current state.
