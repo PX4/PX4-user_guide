@@ -60,4 +60,4 @@ SmartAP PDB has integrated voltage and current sensors. The current sensor is lo
 ## Further Information
 
 - [Buy SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html)
-- [Documentation](https://docs.sky-drones.com/avionics/smartap-pdb)
+- [ドキュメント](https://docs.sky-drones.com/avionics/smartap-pdb)
