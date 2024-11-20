@@ -194,7 +194,7 @@ The Holybro [X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2)
 ![키트 조립](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
 
-## PX4 Configuration
+## PX4 설정
 
 :::tip PX4 설치 및 성정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
@@ -204,13 +204,13 @@ The Holybro [X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2)
 First update the firmware, airframe, and actuator mappings:
 
 - [펌웨어](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [기체](../config/airframe.md)
 
   You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
 
-  ![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
+  ![QGroundContro l - HolyBro X500 기체 선택](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
 
-- [Actuators](../config/actuators.md)
+- [액츄에이터](../config/actuators.md)
   - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
   - Assign actuator functions to outputs to match your wiring.
   - Test the configuration using the sliders.
