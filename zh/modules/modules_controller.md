@@ -244,7 +244,7 @@ Navigator publishes position setpoint triplets (`position_setpoint_triplet_s`), 
 
 <a id="navigator_usage"></a>
 
-### Usage
+### 用法
 ```
 navigator <command> [arguments...]
  Commands:
@@ -262,12 +262,12 @@ navigator <command> [arguments...]
 Source: [modules/rover_ackermann](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_ackermann)
 
 
-### Description
+### 描述
 Rover ackermann module.
 
 <a id="rover_ackermann_usage"></a>
 
-### Usage
+### 用法
 ```
 rover_ackermann <command> [arguments...]
  Commands:
@@ -281,7 +281,7 @@ rover_ackermann <command> [arguments...]
 Source: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_pos_control)
 
 
-### Description
+### 描述
 Controls the position of a ground rover using an L1 controller.
 
 Publishes `vehicle_thrust_setpoint (only in x) and vehicle_torque_setpoint (only yaw)` messages at IMU_GYRO_RATEMAX.
@@ -304,7 +304,7 @@ rover_pos_control stop
 
 <a id="rover_pos_control_usage"></a>
 
-### Usage
+### 用法
 ```
 rover_pos_control <command> [arguments...]
  Commands:
@@ -329,7 +329,7 @@ Currently, this implementation supports only a few modes:
  * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators
  * Auto mission: The uuv runs missions
 
-### Examples
+### 示例
 CLI usage example:
 ```
 uuv_att_control start
@@ -354,13 +354,13 @@ uuv_att_control <command> [arguments...]
 Source: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_pos_control)
 
 
-### Description
+### 描述
 Controls the attitude of an unmanned underwater vehicle (UUV). Publishes `attitude_setpoint` messages.
 ### Implementation
 Currently, this implementation supports only a few modes:
  * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators
  * Auto mission: The uuv runs missions
-### Examples
+### 示例
 CLI usage example:
 ```
 uuv_pos_control start
@@ -370,7 +370,7 @@ uuv_pos_control stop
 
 <a id="uuv_pos_control_usage"></a>
 
-### Usage
+### 用法
 ```
 uuv_pos_control <command> [arguments...]
  Commands:
@@ -384,12 +384,12 @@ uuv_pos_control <command> [arguments...]
 Source: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/vtol_att_control)
 
 
-### Description
+### 描述
 fw_att_control is the fixed wing attitude controller.
 
 <a id="vtol_att_control_usage"></a>
 
-### Usage
+### 用法
 ```
 vtol_att_control <command> [arguments...]
  Commands:
