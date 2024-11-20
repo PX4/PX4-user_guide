@@ -18,10 +18,10 @@ With RF line-of-sight ranging up to 65 miles/100km and strong interference block
 - DigiMesh networking topology for redundancy and reliability
 - Fully certified for use in unlicensed 900 MHz band
 
-## Where to Buy
+## 在哪里买
 
 Discontinued (no longer available at Holybro).
 
-## Specifications
+## 产品规格
 
 ![Holybro XBP9X Radio](../../assets/hardware/telemetry/holybro-xbp9x-spec.png)
