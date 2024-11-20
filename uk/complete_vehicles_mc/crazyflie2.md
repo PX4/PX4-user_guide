@@ -22,9 +22,7 @@ _Crazyflie 2.0_ було [припинено/замінено](../flight_control
 
 ## Короткий опис
 
-::: info
-Основна документація з апаратного забезпечення тут: https://wiki.bitcraze.io/projects:crazyflie2:index
-:::
+:::info:::
 
 - Основний System-on-Chip: STM32F405RG
   - CPU: 168 МГц ARM Cortex M4 з одноточним FPU
