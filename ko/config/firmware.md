@@ -63,7 +63,7 @@ If _QGroundControl_ installs the FMUv2 target (see console during installation) 
 
 <a id="bootloader"></a>
 
-## Bootloader Update
+## 부트로더 업데이트
 
 Pixhawk hardware usually comes with an appropriate bootloader version pre-installed.
 
