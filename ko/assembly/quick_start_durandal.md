@@ -2,7 +2,9 @@
 
 <Badge type="tip" text="PX4 v1.11" />
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4에서는 이 자동 항법 장치를 제조하지 않습니다.
+소형화를 위하여 가진 IO가 적습니다.
 :::
 
 This quick start guide shows how to power the Holybro [Durandal](../flight_controller/durandal.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
@@ -19,7 +21,7 @@ The content of the box with the _PM02 V3_ power module is shown below (the box a
 
 ## 배선 개요
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+아래의 이미지는 주요 센서와 주변 장치(모터 및 서보 출력 제외)들의 연결 방법을 설명합니다. 다음 섹션에서 각 장치에 대하여 자세히 설명합니다.
 
 ![Durandal Wiring Overview](../../assets/flight_controller/durandal/durandal_wiring_overview.jpg)
 
@@ -31,28 +33,28 @@ More information about available ports can be found here: [Durandal > Pinouts](.
 
 _Durandal_ should be mounted on the frame positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
-![Mounting/Orientation](../../assets/flight_controller/durandal/orientation.jpg)
+![장착 및 방향](../../assets/flight_controller/durandal/orientation.jpg)
 
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
 :::tip
-The board has internal vibration-isolation. 10 핀 케이블을 사용하여 [GPS 포트](../flight_controller/durandal.md#gps)에 연결합니다.
+보드에는 내부 진동 차단 기능이 있습니다. 10 핀 케이블을 사용하여 [GPS 포트](../flight_controller/durandal.md#gps)에 연결합니다.
 :::
 
 ## GPS + 나침반 + 부저 + 안전 스위치 + LED
 
 Durandal is designed to work well with the _Pixhawk 4 GPS module_, which has an integrated compass, safety switch, buzzer and LED. It connects directly to the [GPS port](../flight_controller/durandal.md#gps) using the 10 pin cable.
 
-The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치들에서 멀리 떨어진 프레임에 장착하는 것이 좋습니다. 나침반은 다른 전자 장치와 떨어지면 간섭이 줄어듦니다.
 
 ![Connect compass/GPS to Durandal](../../assets/flight_controller/durandal/connection_gps_compass.jpg)
 
-전원 모듈 또는 배전 보드를 사용하여 모터와 서보에 전원을 공급하고 소비 전력을 측정할 수 있습니다. 권장되는 전원 모듈은 아래와 같습니다. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+전원 모듈 또는 배전 보드를 사용하여 모터와 서보에 전원을 공급하고 소비 전력을 측정할 수 있습니다. 권장되는 전원 모듈은 아래와 같습니다. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
 :::
 
 ## 전원
 
-You can use a power module or power distribution board to power motors/servos and measure power consumption. 비행 콘트롤러에 배터리의 전력을 공급합니다.
+전원 모듈 또는 배전 보드를 사용하여 모터와 서보에 전원을 공급하고 소비 전력을 측정할 수 있습니다. 비행 콘트롤러에 배터리의 전력을 공급합니다.
 
 <a id="pm02_v3"></a>
 
@@ -72,10 +74,10 @@ Connect the output of the _Power Module_ as shown.
 **MAIN/AUX**의 8 핀 전원 (+) 레일은 비행 콘트롤러에 대한 전원 모듈 공급으로 전원이 공급되지 않습니다. 방향타, 엘레본 등의 서보를 구동하기 위해 별도로 전원을 공급해야하는 경우에는 파워 레일을 BEC 장착 ESC 또는 독립형 5V BEC나 2S LiPo 배터리에 연결합니다.
 
 :::tip
-The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
+The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. 방향타, 엘레본 등의 서보를 구동하기 위해 별도로 전원을 공급해야하는 경우에는 파워 레일을 BEC 장착 ESC 또는 독립형 5V BEC나 2S LiPo 배터리에 연결합니다. 사용하는 서보의 전압을 확인하십시오.
 :::
 
-The power module has the following characteristics/limits:
+전원 모듈에는 다음과 같은 특성과 제약 사항이 있습니다.
 
 - 최대 입력 전압 : 60V
 - 최대 전류 감지 : 120A 전압
@@ -111,11 +113,11 @@ It has the following characteristics/limits:
 
 ### 배터리 설정
 
-The battery/power setup must be configured in [Battery Estimation Tuning](../config/battery.md). For either Power Module you will need to configure the _Number of Cells_.
+배터리 설정은 [전원 설정](../config/battery.md)에서 설정합니다. For either Power Module you will need to configure the _Number of Cells_.
 
 You will not need to update the _voltage divider_ unless you are using some other power module (e.g. the one from the Pixracer).
 
-## Radio Control
+## 무선 조종
 
 A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -135,17 +137,17 @@ The instructions below show how to connect the different types of receivers to _
 
 무선 텔레메트리는 지상국 프로그램에서 비행 차량의 통신/제어에 사용합니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
-## Telemetry Radios (Optional)
+## 무선 텔레메트리(선택 사항)
 
-Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+무선 텔레메트리는 지상국 프로그램에서 비행 차량의 통신/제어에 사용합니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
-The vehicle-based radio should be connected to the [TELEM1](../flight_controller/durandal.md#telem1_2_3) port as shown below using one of the 6-pos connectors (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
+The vehicle-based radio should be connected to the [TELEM1](../flight_controller/durandal.md#telem1_2_3) port as shown below using one of the 6-pos connectors (if connected to this port, no further configuration is required). 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 USB를 통하여 연결됩니다.
 
 ![Durandal/Telemetry Radio](../../assets/flight_controller/durandal/holybro_telemetry_radio.jpg)
 
 ## SD 카드 (선택 사항)
 
-SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert an SD card into the _Durandal_ where indicated below.
+SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 사용하는 것이 좋습니다. Insert an SD card into the _Durandal_ where indicated below.
 
 ![Durandal SD Card](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
 
@@ -157,12 +159,12 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 
 Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN OUT**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
-![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
+![Durandal - 백 핀아웃 (개략도)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
-The motors must be separately [powered](#power).
+모터는 별도 [전원을 공급](#power)하여야 합니다.
 
-::: info
-If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
+:::note
+프레임이 기체 참조 정의서에 없으면, 적절한 유형의 "일반"기체를 사용하십시오.
 :::
 
 :::tip
@@ -171,7 +173,7 @@ _Durandal_ has 5 AUX ports, so cannot be used with airframes that map AUX6, AUX7
 
 ## 기타 주변 장치
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
+자주 사용하지 않는 부품들의 배선과 조립 방법은 개별 [주변 장치](../peripherals/README.md)를 참고하십시오.
 
 ## 핀 배열
 
@@ -188,7 +190,7 @@ First you will need to install [PX4 "Master" Firmware](../config/firmware.md#cus
 
 QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+QuadPlane에 대한 자세한 설정 방법은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
 
 ## 추가 정보
 
