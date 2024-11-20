@@ -1,6 +1,6 @@
 # Pixhack v3
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
 :::
 
 The CUAV _Pixhack V3_ flight controller board is a flexible autopilot intended primarily for manufacturers of commercial systems.
@@ -68,7 +68,7 @@ make px4_fmu-v3_default
 
 - [Documentation/wiring guides](http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html)
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
