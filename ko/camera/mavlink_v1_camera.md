@@ -7,7 +7,7 @@ This topic explains how to use PX4 with a MAVLink [camera](../camera/index.md) t
 This approach is retained for use with older MAVLink cameras.
 :::
 
-## Overview
+## 개요
 
 [Camera Protocol v1](https://mavlink.io/en/services/camera_v1.html) defines a small set of commands that allow triggering of a camera for:
 
@@ -74,7 +74,7 @@ PX4 re-emits them with the same system ID as the autopilot and component ID of [
 
 Manual triggering using these cameras is not supported (for either Joystick or RC Controllers).
 
-## PX4 Configuration
+## PX4 설정
 
 <!-- set up the mode and triggering -->
 
