@@ -12,7 +12,7 @@ RTK를 사용하면 PX4는 일반 GPS에서 제공하는 것 보다 훨씬 더 �
 
 ![h-rtk_rover](../../assets/hardware/gps/rtk_holybro_h-rtk-m8p_all_label.jpg)
 
-## Where to Buy
+## 구매처
 
 - [H-RTK M8P (GPS RTK Mounts)](https://holybro.com/products/vertical-mount-for-h-rtk-helical)
 
