@@ -331,6 +331,6 @@ This process is the same as for [events metadata](../concept/events_interface.md
 
 ## Further Information
 
-- [Finding/Updating Parameters](../advanced_config/parameters.md)
+- [パラメータの検索/更新](../advanced_config/parameters.md)
 - [Parameter Reference](../advanced_config/parameter_reference.md)
 - [Param implementation](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/param.h#L129) (information on `.get()`, `.commit()`, and other methods)
