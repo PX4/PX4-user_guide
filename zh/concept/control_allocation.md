@@ -27,7 +27,7 @@ PX4将这个转换逻辑区分开，这个逻辑被称为从姿态/角速率控�
 
 ![Pipeline Overview](../../assets/concepts/control_allocation_pipeline.png)
 
-Notes:
+路径规划软件（在机载计算机上运行）*可以* 以[TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
 
 - 角速率控制器输出力矩和推力设定值
 - `control_allocator` 模块：
