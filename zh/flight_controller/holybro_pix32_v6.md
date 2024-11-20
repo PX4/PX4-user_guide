@@ -44,7 +44,7 @@ This flight controller is perfect for people that is looking for a affordable an
   - &#x20;Accel/Gyro: ICM-42688-P&#x20;
   - Accel/Gyro: BMI055&#x20;
   - Mag: IST8310&#x20;
-  - Barometer: MS5611
+  - 气压计：MS5611
 
 ### **Electrical data**
 
@@ -61,10 +61,10 @@ This flight controller is perfect for people that is looking for a affordable an
 - FC Module Dimensions: 44.8 x 44.8 x 13.5
 - FC Module Weight: 36g
 
-### **Interfaces**
+### **接口**
 
 - 16- PWM servo outputs (8 from IO, 8 from FMU)
-- 3 general purpose serial ports
+- 3个通用串行口
   - `TELEM1` - Full flow control, separate 1.5A current limit
   - `TELEM2` - Full flow control
   - `TELEM3`
@@ -82,21 +82,21 @@ This flight controller is perfect for people that is looking for a affordable an
 - Dedicated S.BUS output
 - 2 Power input ports (Analog)
 
-- Other Characteristics:
+- 其它特性:
   - Operating & storage temperature: -40 ~ 85°c
 
-## Where to Buy
+## 在哪里买
 
 Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pix32-v6).
 
-## Pinouts
+## 针脚定义
 
 - [Holybro Pix32 v6 Baseboard Ports Pinout](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-baseboard-ports)
 - [Holybro Pix32 v6 Baseboard Ports Pinout](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-mini-base-ports)
 
-## Serial Port Mapping
+## 串口映射
 
-| UART   | Device     | Port          |
+| UART   | 设备         | Port          |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | GPS1          |
 | USART2 | /dev/ttyS1 | TELEM3        |
@@ -106,11 +106,11 @@ Order from [Holybro](https://holybro.com/collections/autopilot-flight-controller
 | UART7  | /dev/ttyS5 | TELEM1        |
 | UART8  | /dev/ttyS6 | GPS2          |
 
-## Dimensions
+## 尺寸
 
 - [Pix32v6 Dimensions](https://docs.holybro.com/autopilot/pix32-v6/dimensions)
 
-## Voltage Ratings
+## 额定电压
 
 _Pix32 v6_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **USB**, **POWER1**, **POWER2** (N/A on Pix32 v6 Mini-Baseboard) .
 
@@ -118,16 +118,16 @@ _Pix32 v6_ can be triple-redundant on the power supply if three power sources ar
 
 Under these conditions all power sources will be used in this order to power the system:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1** 和 **POWER2** 输入电压（4.9 v 至 5.5 v）
+1. **USB** 输入电压（4.75 v 至 5.25 v）
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1** 与 **POWER2** 输入（可运行范围 4.1V 至 5.7V，0V 至 10V 不会损坏）
+1. **USB** 输入（可运行范围 4.1V 至 5.7V，0V 至 6V 不会损坏）
+1. 舵机输入：**FMU PWM OUT** 和 **I/O PWM OUT** 的 VDD_SERVO 针脚 （0V 至 42V 不会损坏）
 
 **Voltage monitoring**
 
@@ -139,7 +139,7 @@ Holybro makes various analog [power modules](../power_module/index.md) for diffe
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
@@ -153,21 +153,21 @@ make px4_fmu-v6c_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Debug调试端口
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Pin      | Signal           | Volt  |
+| 针脚       | Signal           | 电压    |
 | -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
+| 2        | `Vtref`          | +3.3V |
+| 2        | Console TX (OUT) | +3.3V |
+| 3        | Console RX (IN)  | +3.3V |
+| 4（黑）     | `SWDIO`          | +3.3V |
+| 6        | `SWCLK`          | +3.3V |
+| 6        | `SWO`            | +3.3V |
+| 7        | NFC GPIO         | +3.3V |
 | 8 (blk)  | PH11             | +3.3V |
 | 9 (blk)  | nRST             | +3.3V |
 | 10 (blk) | `GND`            | GND   |
@@ -177,17 +177,17 @@ For information about using this port see:
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
-## Peripherals
+## 外部设备
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [数字空速传感器](https://holybro.com/products/digital-air-speed-sensor)
+- [遥测无线电模块](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [距离传感器](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## 更多信息
 
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
 - [Reference: Pixhawk 6C Wiring QuickStart](../assembly/quick_start_pixhawk6c.md)
