@@ -7,7 +7,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 :::
 
 :::warning
-PX4 does not manufacture this (or any) autopilot.
+PX4에서는 이 자동 항법 장치를 제조하지 않습니다.
 소형화를 위하여 가진 IO가 적습니다.
 :::
 
@@ -48,8 +48,7 @@ Optional hardware:
 
 ## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 이 보드에는 디버그 포트가 없습니다. 즉, [시스템 콘솔](../debug/system_console.md) 이나 [SWD 인터페이스](../debug/swd_debug.md) (JTAG)에 접속 포트가 존재하지 않습니다.
@@ -62,7 +61,7 @@ make px4_fmu-v2_default
 
 개발자는 SWD용 보드 테스트 패드와 STM32F4 (IC) TX와 RX에 와이어를 납땜하여 콘솔을 획득할 수 있습니다.
 
-Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.
+개발자는 SWD용 보드 테스트 패드와 STM32F4 (IC) TX와 RX에 와이어를 납땜하여 콘솔을 획득할 수 있습니다.
 
 ## 시리얼 포트 매핑
 
