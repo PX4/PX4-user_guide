@@ -1,4 +1,4 @@
-# Translation
+# 翻訳
 
 We'd love your help to translate _QGroundControl_, PX4 Metadata (in QGC), and our guides for PX4, _QGroundControl_ and MAVLink!
 
@@ -15,7 +15,7 @@ The benefit of this system is that the translation closely tracks the source doc
 Readers will not be mislead by old and out of date translations.
 :::
 
-## Getting Started
+## はじめに
 
 The steps to join our translation tream are:
 
@@ -60,7 +60,7 @@ Maintaining a translation is hard!
 Before you ask us to create a new language, please find a few other people to help you translate!
 :::
 
-## Getting Help
+## ヘルプ
 
 The _Crowdin_ interface is self explanatory, but there is plenty of additional information on the [knowledgeable](https://support.crowdin.com/).
 
