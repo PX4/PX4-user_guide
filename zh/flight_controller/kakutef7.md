@@ -2,7 +2,7 @@
 
 <Badge type="info" text="Discontinued" />
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The _Kakute F7_ from Holybro is a flight controller board designed for racers.
@@ -99,7 +99,7 @@ In addition to the [basic configuration](../config/index.md), the following para
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
