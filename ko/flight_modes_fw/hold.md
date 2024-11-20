@@ -1,6 +1,6 @@
 # Hold Mode (Fixed-Wing)
 
-<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
+<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />
 
 The _Hold_ flight mode causes the vehicle to loiter (circle) around its current GPS position and maintain its current altitude.
 
@@ -8,7 +8,7 @@ The _Hold_ flight mode causes the vehicle to loiter (circle) around its current 
 _Hold mode_ can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch.
 :::
 
-::: info
+:::note
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
@@ -16,7 +16,7 @@ _Hold mode_ can be used to pause a mission or to help you regain control of a ve
   - Flying vehicles will failsafe if they lose the position estimate.
   - Disarmed vehicles can switch to mode without valid position estimate but can't arm.
 - Mode requires wind and flight time are within allowed limits (specified via parameters).
-- RC control switches can be used to change flight modes on any vehicle.
+- RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
 - RC stick movement is ignored.
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
@@ -29,7 +29,7 @@ The aircraft circles around the GPS hold position at the current altitude. The v
 
 RC stick movement is ignored.
 
-### Parameters
+### 매개변수
 
 Hold mode behaviour can be configured using the parameters below.
 
