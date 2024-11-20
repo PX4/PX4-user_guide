@@ -26,6 +26,6 @@ This section provides information about a number of power modules and power dist
   - [Holybro PM02D](../power_module/holybro_pm02d.md)
   - [Holybro PM03D](../power_module/holybro_pm03d.md)
 - [DroneCAN](../dronecan/index.md) power modules
-  - [CUAV CAN PMU](../dronecan/cuav_can_pmu.md)
+  - [CUAV CAN 전원 모듈](../dronecan/cuav_can_pmu.md)
   - [Pomegranate Systems Power Module](../dronecan/pomegranate_systems_pm.md)
   - [RaccoonLab Power Connectors and PMU](../dronecan/raccoonlab_power.md)
