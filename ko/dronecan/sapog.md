@@ -4,7 +4,7 @@
 
 While it can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](index.md).
 
-## Where to Buy
+## 구매처
 
 Multiple vendors sell ESC hardware that runs sapog firmware:
 
@@ -33,7 +33,7 @@ Multiple vendors sell ESC hardware that runs sapog firmware:
   </div>
 </div>
 
-## Hardware Setup
+## 하드웨어 설정
 
 ESCs are connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions. ESC order does not matter.
 
@@ -104,15 +104,15 @@ You can manually configure the ESC index and direction using the [DroneCAN GUI T
 ::: info See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
 :::
 
-### PX4 Configuration
+### PX4 설정
 
 Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
-## Troubleshooting
+## 문제 해결
 
 See [DroneCAN Troubleshooting](index.md#troubleshooting)
 
-## Further Information
+## 추가 정보
 
 - [PX4/Sapog](https://github.com/PX4/sapog#px4-sapog) (Github)
 - [Sapog v2 Reference Manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf)
