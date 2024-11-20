@@ -181,8 +181,8 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [SensorPreflightMag](SensorPreflightMag.md) — Pre-flight sensor check metrics. The topic will not be updated when the vehicle is armed
 - [SensorSelection](SensorSelection.md) — Sensor ID's for the voted sensors output on the sensor_combined topic. Буде оновлено при запуску модуля датчика та при зміні вибору датчика
 - [SensorUwb](SensorUwb.md) — Відстань UWB містить інформацію про відстань, виміряну системою позиціонування з дуже широкою смугою пропускання, такою як Pozyx або NXP Rddrone.
-- [ SensorsStatus ](SensorsStatus.md) — Метрика перевірки датчика. This will be zero for a sensor that's primary or unpopulated.
-- [ SensorsStatusImu ](SensorsStatusImu.md) — Метрика перевірки сенсорів. This will be zero for a sensor that's primary or unpopulated.
+- [ SensorsStatus ](SensorsStatus.md) — Метрика перевірки датчика. Це значення буде нульовим для датчика, який є первинним або незаповненим.
+- [ SensorsStatusImu ](SensorsStatusImu.md) — Метрика перевірки сенсорів. Це значення буде нульовим для датчика, який є первинним або незаповненим.
 - [SystemPower](SystemPower.md)
 - [TakeoffStatus](TakeoffStatus.md) — Статус злітної машини наразі доступний лише для мультикоптерів
 - [ TaskStackInfo ](TaskStackInfo.md) — інформація про стек для одного запущеного процесу
