@@ -1,8 +1,8 @@
-## MindRacer 210
+## 마인드레이서 210
 
 ![MindRacer 210](../../assets/hardware/hardware-mindracer210.png)
 
-### Summary
+### 요약
 
 A ready-to-fly racing beast running full PX4/MindPX stack. Can reach maximum 10:1 thrust-to-weight ratio!
 
@@ -17,16 +17,16 @@ MR210 uses MindRacer as flight controller. MR210 is a fully modularized, stackab
 5. DroneCode<sup>&reg;</sup> standard compliant JST GH connectors.
 6. Have options for PPM/S.Bus/Specktrum DSM receiver
 
-### User Guide
+### 사용자 가이드
 
 :::info
 The user guide is [here](http://mindpx.net/assets/accessories/MR210usermanual_pdf.pdf).
 :::
 
-### Where to buy
+### 구매처
 
-MindRacer 210 is available at [AirMind Store](https://airmind.mindpx.net/node/78). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+MindRacer 210 is available at [AirMind Store](https://airmind.mindpx.net/node/78). Amazon<sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
 
-### Support
+### 지원
 
-Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.
+자세한 내용은 http://www.mindpx.org를 참고하십시오. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.
