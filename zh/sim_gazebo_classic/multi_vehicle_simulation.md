@@ -13,7 +13,7 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
 - `<model>`: The [vehicle type/model](../sim_gazebo_classic/vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
 - `<number_of_vehicles>`: The number of vehicles to spawn. Default is 3. Maximum is 254.
 - `<world>`: The [world](../sim_gazebo_classic/worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
-- `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`). For example:
+- `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`). 例如：
 
   ```sh
   -s "iris:3,plane:2,standard_vtol:3"
@@ -213,7 +213,7 @@ To add a third iris to this simulation there are two main components to consider
 
 This section shows how developers can simulate multiple vehicles using vehicle models defined in Gazebo Classic SDF files (instead of using models defined in the ROS Xacro file, as discussed in the rest of this topic).
 
-The steps are:
+步骤如下：
 
 1. Install _xmlstarlet_ from your Linux terminal:
 
