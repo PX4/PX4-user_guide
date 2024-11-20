@@ -106,8 +106,8 @@ Notes:
 - The power module plugged into Power1/2 does not power the RPi part.
   You can use the additional USB-C Cable from the PM03D power module to the CM4 Slave USB-C port.
 - The Micro-HDMI port is an output port.
-- RPi CM4 boards that do not have Wifi device will not connect automatically.
-  In this case you will need to plug it into a router or plug a compatible Wifi dongle into the CM4 Host ports.
+- RPi CM4 boards that do not have WiFi device will not connect automatically.
+  In this case you will need to plug it into a router or plug a compatible WiFi dongle into the CM4 Host ports.
 
 ### Flash EMMC
 
@@ -178,7 +178,7 @@ To enable this MAVLink instance on the FC:
 
 On the RPi side:
 
-1. Connect to the RPi (using WiFi, a router, or a Wifi Dongle).
+1. Connect to the RPi (using WiFi, a router, or a WiFi Dongle).
 1. Enable the RPi serial port by running `RPi-config`
 
    - Go to `3 Interface Options`, then `I6 Serial Port`.
@@ -187,12 +187,12 @@ On the RPi side:
      - `serial port hardware enabled` → `Yes`
 
 1. Finish, and reboot.
-   (This will add `enable_uart=1` to `/boot/config.txt`, and remove `console=serial0,115200` from `/boot/cmdline.txt`
+   This will add `enable_uart=1` to `/boot/config.txt`, and remove `console=serial0,115200` from `/boot/cmdline.txt`.
 1. Now MAVLink traffic should be available on `/dev/serial0` at a baudrate of 921600.
 
 ## Try out MAVSDK-Python
 
-1. Make sure the CM4 is connected to the internet, e.g. using a wifi, or ethernet.
+1. Make sure the CM4 is connected to the internet, e.g. using a WiFi, or Ethernet.
 1. Install MAVSDK Python:
 
    ```sh
@@ -231,12 +231,13 @@ network:
 ```
 
 This sets `eth0` as our channel for the local Ethernet link from the RPi (instead of `enp2s0`, which is assumed in [Ethernet Setup](../advanced_config/ethernet_setup.md#ubuntu-ethernet-network-setup)).
-Note that we only set up this locally linked route to prevent internet access disruption over WiFi.
+
+Note that we could have used WiFi for the link, but by setting up a dedicated route we leave our WiFi free for Internet comms.
 :::
 
 ### Connect the Cable
 
-To set up a local ethernet connection between CM4 and the flight computer, the two ethernet ports need to be connected using the provided 8 pin to 4 pin connector.
+To set up a local ethernet connection between CM4 and the flight computer, the two Ethernet ports need to be connected using the provided 8 pin to 4 pin connector.
 
 ![HB_Pixhawk_CM4_Ethernet_Cable](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_ethernet_cable.png)
 
@@ -257,8 +258,8 @@ The pinout of the cable is:
 
 Since there is no DHCP server active in this configuration, the IP addresses have to be set manually:
 
-First, connect to the CM4 via SSH by connecting to the CM4's WiFi (or use a Wifi dongle).
-Once the ethernet cables are plugged in, the `eth0` network interface seems to switch from DOWN to UP.
+First, connect to the CM4 via SSH by connecting to the CM4's WiFi (or use a WiFi dongle).
+Once the Ethernet cables are plugged in, the `eth0` network interface seems to switch from DOWN to UP.
 
 You can check the status using:
 
@@ -285,7 +286,7 @@ $: ip address show eth0
        valid_lft forever preferred_lft forever
 ```
 
-This means the CM4's ethernet IP is `10.41.10.1` .
+This means the CM4's Ethernet IP is `10.41.10.1` .
 
 #### Ping Test
 
@@ -353,16 +354,21 @@ To run a MAVSDK example, install mavsdk via pip, and try out an example from [MA
 
 #### XRCE-Client Ethernet Setup
 
-Now it is needed to enable enable `XRCE-DDS` on Ethernet.
+Next we enable `XRCE-DDS` on the new Ethernet Link.
 
-You can [modify the parameters](../advanced_config/parameters.md) in QGroundControl parameter editor, or using `param set` in the [MAVLINK shell](../debug/mavlink_shell.md).
-Enter the following commands to change the values in the MAVLink shell.
-Based on [enable MAVLINK on Ethernet](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) and [starting uXRCE-DDS client](../middleware/uxrce_dds.md#starting-the-client) we come to the following set of params:
+You can [modify the required parameters](../advanced_config/parameters.md) in QGroundControl parameter editor, or using `param set` in the [MAVLINK shell](../debug/mavlink_shell.md).
+Below we show the settings assuming you're setting the parameters using the shell.
+
+First ensure `MAV_2_CONFIG` is not set to use the Ethernet port (`1000`) as this would clash with XRCE-DDS (see [enable MAVLINK on Ethernet](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration)):
 
 ```sh
 nsh>
-param set MAV_2_CONFIG     0           # Just to verify there is no MAVLINK Ethernet instance running
+param set MAV_2_CONFIG     0           # Change to 0 IFF value is 1000
+```
 
+Then enable uXRCE-DDS on the Ethernet port (see [starting uXRCE-DDS client](../middleware/uxrce_dds.md#starting-the-client)):
+
+```sh
 param set UXRCE_DDS_AG_IP  170461697   # The int32 version of 10.41.10.1
 param set UXRCE_DDS_CFG    1000        # Set Serial Configuration for uXRCE-DDS Client to Ethernet
 param set UXRCE_DDS_DOM_ID 0           # Set uXRCE-DDS domain ID
@@ -373,7 +379,7 @@ param set UXRCE_DDS_SYNCC  0           # Disable uXRCE-DDS system clock synchron
 param set UXRCE_DDS_SYNCT  1           # Enable uXRCE-DDS timestamp synchronization
 ```
 
-Next run the Agent:
+Then run the Agent:
 
 ```sh
 MicroXRCEAgent udp4 -p 8888
