@@ -170,7 +170,7 @@ The steps to install the kit are:
 ::: info If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module: ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
 :::
 
-## PX4 Configuration
+## PX4 配置
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
@@ -188,7 +188,7 @@ First update the firmware, airframe, and actuator mappings:
   ![QGC - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qgc_airframe_holybro_qav250.png)
 :::
 
-- [Actuators](../config/actuators.md)
+- [执行器](../config/actuators.md)
   - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
   - Assign actuator functions to outputs to match your wiring.
     - For the Pixhawk 4 Mini, and other controllers that do not have an [I/O board](../hardware/reference_design.md#main-io-function-breakdown), you will need to assign actuators to outputs on the `PWM AUX` tab in the configuration screen.
@@ -197,18 +197,18 @@ First update the firmware, airframe, and actuator mappings:
 
 Then perform the mandatory setup/calibration:
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Radio Setup](../config/radio.md)
-- [Flight Modes](../config/flight_mode.md)
+- [传感器方向](../config/flight_controller_orientation.md)
+- [罗盘](../config/compass.md)
+- [加速度计](../config/accelerometer.md)
+- [水平平面校准](../config/level_horizon_calibration.md)
+- [无线电系统设置](../config/radio.md)
+- [飞行模式](../config/flight_mode.md)
 
 Ideally you should also do:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery Estimation Tuning](../config/battery.md)
-- [Safety](../config/safety.md)
+- [电调（ESC）校准](../advanced_config/esc_calibration.md)
+- [电池](../config/battery.md)
+- [安全性](../config/safety.md)
 
 
 ## 调试
