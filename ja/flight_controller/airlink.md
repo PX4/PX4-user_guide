@@ -24,7 +24,7 @@ AIRLink has two computers and integrated LTE Module:
 
 ## Specifications
 
-- **Sensors**
+- **センサー**
 
   - 3x Accelerometers, 3x Gyroscopes, 3x Magnetometers, 3x Pressure sensorss
   - GNSS, Rangefinders, Lidars, Optical Flow, Cameras
