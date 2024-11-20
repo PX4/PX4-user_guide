@@ -75,7 +75,7 @@ The following tools are used in this assembly:
 - Precision tweezers
 
 
-## Assembly
+## 组装
 
 Estimate time to assemble is 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
 
@@ -194,7 +194,7 @@ That's it. The fully assembled kit is shown below:
 ![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
 
-## PX4 Configuration
+## PX4 配置
 
 :::tip
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
@@ -204,14 +204,14 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 
 First update the firmware, airframe, and actuator mappings:
 
-- [Firmware](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [固件](../config/firmware.md)
+- [机架](../config/airframe.md)
 
   You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
 
   ![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
 
-- [Actuators](../config/actuators.md)
+- [执行器](../config/actuators.md)
   - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
   - Assign actuator functions to outputs to match your wiring.
   - Test the configuration using the sliders.
@@ -220,10 +220,10 @@ Then perform the mandatory setup/calibration:
 
 - [固件](../config/flight_controller_orientation.md)
 - [机架](../config/compass.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Radio Setup](../config/radio.md)
-- [Flight Modes](../config/flight_mode.md)
+- [加速度计](../config/accelerometer.md)
+- [水平平面校准](../config/level_horizon_calibration.md)
+- [无线电系统设置](../config/radio.md)
+- [飞行模式](../config/flight_mode.md)
 
 Ideally you should also do:
 
@@ -232,7 +232,7 @@ Ideally you should also do:
 - [加速度计 Accelerometer](../config/safety.md)
 
 
-## Tuning
+## 调试
 
 Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
