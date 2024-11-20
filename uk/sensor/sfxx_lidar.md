@@ -18,13 +18,13 @@ Discontinued
 
 The following models are supported by PX4 but are no longer available from the manufacturer.
 
-| Модель                                                                                             | Діапазон | Шина                 |                                                                 |
-| -------------------------------------------------------------------------------------------------- | -------- | -------------------- | --------------------------------------------------------------- |
-| [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50       | Серія                |                                                                 |
-| [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25       | Серійна або I2C шина |                                                                 |
-| [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50       | Серійна або I2C шина |                                                                 |
-| SF10/C                                                                                             | 100m     | Serial or I2C        |                                                                 |
-| LW20/B                                                                                             | 50       | I2C bus              | Waterproofed (IP67) with servo for sense-and-avoid applications |
+| Модель                                                                                             | Діапазон | Шина                 |                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------- | -------------------- | -------------------------------------------------------------------------------------- |
+| [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50       | Серія                |                                                                                        |
+| [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25       | Серійна або I2C шина |                                                                                        |
+| [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50       | Серійна або I2C шина |                                                                                        |
+| SF10/C                                                                                             | 100m     | Serial or I2C        |                                                                                        |
+| LW20/B                                                                                             | 50       | Шина I2C             | Водонепроникний (IP67) з сервоприводом для додатків з детекцією та уникненням перешкод |
 
 :::
 
