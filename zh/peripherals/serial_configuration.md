@@ -131,4 +131,4 @@ You will then need to build the firmware for your platform, as described in [Bui
 
 - [MAVLink 外设 (OSD/GCS/机载计算机/等等)](../peripherals/mavlink_peripherals.md)
 - [PX4 Ethernet Setup > PX4 MAVLink Serial Port Configuration](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration)
-- [Serial Port Mapping](../hardware/serial_port_mapping.md)
+- [串口映射](../hardware/serial_port_mapping.md)
