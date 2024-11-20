@@ -29,7 +29,7 @@
 
 ## Налаштування
 
-RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
+Налаштування та використання RTK на PX4 за допомогою _QGroundControl_ відбувається за принципом "підключи і працюй" (див. [RTK GPS](../gps_compass/rtk_gps.md) для отримання додаткової інформації).
 
 Для літака вам слід встановити параметр [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) на 115200 8N1, щоб забезпечити, що PX4 налаштує правильну швидкість передачі.
 
@@ -66,7 +66,7 @@ RTK GPS Freefly поставляється з роз'ємом JST-GH на 8 ко
   - SMA конектор
 - STM32 МКП для майбутньої комунікації на основі CAN
   - Оновлення ПЗ через USB-роз'єм
-- Connectivity:
+- Підключення:
   - USB-C
   - 2-way USB перемикач до МКП та F9P
   - SMA для активної антени (макс. 20 мА)
