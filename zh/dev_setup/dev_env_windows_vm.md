@@ -3,7 +3,7 @@
 :::warning
 This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team. 本指南将引导你使用 VMWare 完成虚拟机的设置。
+关于核心开发团队支持的环境和工具的信息，请参阅 [工具链安装](../dev_setup/dev_env.md)。 本指南将引导你使用 VMWare 完成虚拟机的设置。
 
 Windows developers can run the PX4 toolchain in a virtual machine (VM) with Linux as the guest operating system. After setting up the virtual machine, the installation and setup of PX4 within the VM is exactly the same as on a native Linux computer.
 
