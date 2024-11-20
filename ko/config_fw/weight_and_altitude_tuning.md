@@ -58,7 +58,7 @@ For more information see [Effect of Density on Trim Throttle](#effect-of-density
 This section contains information about the scaling operations performed by PX4.
 This is provided for interest only, and may be of interest to developers who want to modify the scaling code.
 
-### Notation
+### 표기법
 
 In the following sections we will use the notation $\hat X$ to specify that this value is a calibrated value of the variable $X$.
 By calibrated we mean the value of that variable measured at sea level in standard atmospheric conditions, and when vehicle weight was equal to [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
