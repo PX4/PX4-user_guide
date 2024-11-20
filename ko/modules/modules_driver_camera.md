@@ -36,7 +36,7 @@ In particular:
 
 <a id="camera_trigger_usage"></a>
 
-### Usage
+### 사용법
 
 ```
 camera_trigger <command> [arguments...]
