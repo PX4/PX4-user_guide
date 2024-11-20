@@ -1,7 +1,7 @@
 # ARK FPV Flight Controller
 
 :::warning
-PX4 does not manufacture this (or any) autopilot.
+PX4 не розробляє цей (або будь-який інший) автопілот.
 Contact the [manufacturer](https://arkelectron.com/contact-us/) for hardware support or compliance issues.
 :::
 
@@ -13,28 +13,28 @@ The USA-built ARK FPV flight controller is based on the [ARKV6X](https://arkelec
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Where To Buy
+## Де купити
 
 Order from [Ark Electronics](https://arkelectron.com/product/arkv6x/) (US)
 
-## Documentation
+## Документація
 
 See the documentation [Ark Electronics GitBook](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-fpv)
 
-## Sensors
+## Сенсори
 
 - [Invensense IIM-42653 Industrial IMU](https://invensense.tdk.com/products/motion-tracking/6-axis/iim-42653/)
 - [Bosch BMP390 Barometer](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/)
 - [ST IIS2MDC Magnetometer](https://www.st.com/en/magnetic-sensors/iis2mdc.html)
 
-## Microprocessor
+## Мікропроцесор
 
 - [STM32H743IIK6 MCU](https://www.st.com/en/microcontrollers-microprocessors/stm32h743ii.html)
   - 480 MHz
   - 2 MB Flash
-  - 1 MB RAM
+  - 1 МБ RAM
 
-## Connectors
+## З’єднання
 
 - USB C
   - VBUS In, USB
@@ -69,20 +69,20 @@ See the documentation [Ark Electronics GitBook](https://arkelectron.gitbook.io/a
   - 3.3V Out, UART, SWD
   - JST-SH 6 Pin
 
-## Power Requirements
+## Вимоги до живлення
 
 - 5.5V - 54V
 - 500 mA (300 mA main system, 200 mA heater)
 
-## Additional Information
+## Додаткова інформація
 
 - Weight: 7.5 g g with MicroSD card
 - Dimensions: 3.6 x 3.6 x 0.8 cm
 - USA Built - NDAA compliant
 - Heater: 1W for warming sensors in extreme cold
-- LED Indicators
-- MicroSD Slot
+- LED індикатори
+- Слот MicroSD
 
-## Pinout
+## Розпіновка
 
 See the [DS-10 Pixhawk Autopilot Bus Standard](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-fpv/pinout)
