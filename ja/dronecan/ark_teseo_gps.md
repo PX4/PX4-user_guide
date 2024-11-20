@@ -13,7 +13,7 @@ Order this module from:
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Teseo_GPS)
-- Sensors
+- センサー
   - [ST TESEO LIV4F GPS](https://www.st.com/en/positioning/teseo-liv4f.html)
     - L1/L5 bands
     - Simultaneous multi-constellation and multi-band GNSS (GPS, Galileo, GLONASS, BeiDou, QZSS)
