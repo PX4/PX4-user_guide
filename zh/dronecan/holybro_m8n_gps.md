@@ -18,8 +18,8 @@ GPS模块使用 [DroneCAN](README.md) 协议进行通信。 DroneCAN连接比串
 | ------------------------- | ------------------------------------ |
 | GNSS Receiver             | Ublox NEO M8N                        |
 | Number of Concurrent GNSS | 2 (Default GPS + GLONASS)            |
-| Processor                 | STM32G4 (170MHz, 512K FLASH)         |
-| Compass                   | BMM150                               |
+| 处理器                       | STM32G4 (170MHz, 512K FLASH)         |
+| 罗盘                        | BMM150                               |
 | Frequency Band            | <p>GPS: L1C/A<br>GLONASS: L10F<br>Beidou: B1I<br>Galileo: E1B/C</p>            |
 | GNSS Augmentation System  | SBAS: WAAS, EGNOS, MSAS, QZSS        |
 | Navigation Update         | 5Hz Default(10Hz MAX)                |
@@ -49,7 +49,7 @@ GPS模块使用 [DroneCAN](README.md) 协议进行通信。 DroneCAN连接比串
 
 The sensor can be mounted anywhere on the frame, but you will need to specify its position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
-### Wiring
+### 布线
 
 The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
@@ -57,7 +57,7 @@ The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 
 
 ![Diagram showing GPS pinouts](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_pinout.jpg)
 
-### Dimensions
+### 尺寸
 
 ![Diagram showing GPS dimensions](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_dimension.jpg)
 
@@ -73,7 +73,7 @@ The GPS will not boot if there is no SD card in the flight controller when power
 
 In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
-The steps are:
+步骤如下：
 
 - In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect GPS CAN to the Pixhawk CAN.
