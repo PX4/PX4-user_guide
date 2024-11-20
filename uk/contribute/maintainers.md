@@ -34,7 +34,7 @@ Once accepted every maintainers will go through the following process:
 
 ## Dronecode Maintainer Role Description
 
-### Summary
+### Опис
 
 Maintainers lead/manage the development of a **specific category (referred to as category below)** of any Open Source Projects hosted within the Dronecode Foundation, such as the PX4 Autopilot.
 
