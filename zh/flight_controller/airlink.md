@@ -22,9 +22,9 @@ AIRLink has two computers and integrated LTE Module:
 
 <lite-youtube videoid="VcBx9DLPN54" title="SmartAP AIRLink - The Most Advanced AI Drone Avionics"/>
 
-## Specifications
+## 产品规格
 
-- **Sensors**
+- **传感器**
 
   - 3x Accelerometers, 3x Gyroscopes, 3x Magnetometers, 3x Pressure sensorss
   - GNSS, Rangefinders, Lidars, Optical Flow, Cameras
@@ -74,7 +74,7 @@ AIRLink has two computers and integrated LTE Module:
   - Antenna, 4x4 MIMO
   - Bands: Worldwide
 
-## Where to Buy
+## 在哪里买
 
 Purchase from the original Sky-Drones Store (worldwide shipping with 1-2 days order processing time):
 
@@ -115,14 +115,14 @@ SmartAP AIRLink's Core edition is intended for medium to high volume production 
 
 ![AIRLink Core](../../assets/flight_controller/airlink/airlink-core.jpg)
 
-| Parameter           | AIRLink Enterprise                                          | AIRLink Core                                                                        |
+| 参数                  | AIRLink Enterprise                                          | AIRLink Core                                                                        |
 | ------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | Enclosure           | Aluminum, with integrated heatsink and fan mounting option. | External heatsink or reasonable power dissipation should be provided by the design. |
-| Dimensions          | L103 x W61 x H37 mm                                         | L100 x W57 x H22 mm                                                                 |
+| 尺寸                  | L103 x W61 x H37 mm                                         | L100 x W57 x H22 mm                                                                 |
 | Weight              | 198 g                                                       | 89 g                                                                                |
 | Ambient temperature | -40°C-..+50°C                                               | -40°C-..+50°C                                                                       |
 
-## Key Features
+## 主要特性
 
 - **Easy to mount**
 
@@ -132,7 +132,7 @@ SmartAP AIRLink's Core edition is intended for medium to high volume production 
 
   ![FPV camera comes as standard](../../assets/flight_controller/airlink/airlink-fpv-camera.jpg)
 
-## Interfaces
+## 接口
 
 ### Left Side
 
@@ -148,30 +148,30 @@ SmartAP AIRLink's Core edition is intended for medium to high volume production 
 
 - **POWER - JST GH SM10B-GHS-TB**
 
-  | Pin number | Pin name    | Direction | Voltage | Function                   |
-  | ---------- | ----------- | --------- | ------- | -------------------------- |
-  | 1          | 12V         | IN        | +12V    | Main power input           |
-  | 2          | 12V         | IN        | +12V    | Main power input           |
-  | 3          | 12V         | IN        | +12V    | Main power input           |
-  | 4          | BAT_CURRENT | IN        | +3.3V   | Battery current monitoring |
-  | 5          | BAT_VOLTAGE | IN        | +3.3V   | Battery voltage monitoring |
-  | 6          | 3V3         | OUT       | +3.3V   | 3.3V output                |
-  | 7          | PWR_KEY     | IN        | +3.3V   | Power key input            |
-  | 8          | GND         | Ground    |         |                            |
-  | 9          | GND         | Ground    |         |                            |
-  | 10         | GND         | Ground    |         |                            |
+  | Pin number | Pin name    | 方向     | Voltage | 功能                         |
+  | ---------- | ----------- | ------ | ------- | -------------------------- |
+  | 1          | 12V         | IN     | +12V    | Main power input           |
+  | 2          | 12V         | IN     | +12V    | Main power input           |
+  | 3          | 12V         | IN     | +12V    | Main power input           |
+  | 4          | BAT_CURRENT | IN     | +3.3V   | Battery current monitoring |
+  | 5          | BAT_VOLTAGE | IN     | +3.3V   | Battery voltage monitoring |
+  | 6          | 3V3         | OUT    | +3.3V   | 3.3V output                |
+  | 7          | PWR_KEY     | IN     | +3.3V   | Power key input            |
+  | 8          | GND         | Ground |         |                            |
+  | 9          | GND         | Ground |         |                            |
+  | 10         | GND         | Ground |         |                            |
 
 - **CPU SD card - microSD**
 - **CPU USB - USB Type C**
 - **RC Connector - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name | Direction | Voltage | Function                       |
-  | ---------- | -------- | --------- | ------- | ------------------------------ |
-  | 1          | 5V       | OUT       | +5V     | 5V output                      |
-  | 2          | PPM_IN   | IN        | +3.3V   | PPM input                      |
-  | 3          | RSSI_IN  | IN        | +3.3V   | RSSI input                     |
-  | 4          | FAN_OUT  | OUT       | +5V     | Fan output                     |
-  | 5          | SBUS_OUT | OUT       | +3.3V   | SBUS output | 6 | GND | Ground |
+  | Pin number | Pin name | 方向  | Voltage | 功能                             |
+  | ---------- | -------- | --- | ------- | ------------------------------ |
+  | 1          | 5V       | OUT | +5V     | 5V output                      |
+  | 2          | PPM_IN   | IN  | +3.3V   | PPM 输入                         |
+  | 3          | RSSI_IN  | IN  | +3.3V   | RSSI 输入                        |
+  | 4          | FAN_OUT  | OUT | +5V     | Fan output                     |
+  | 5          | SBUS_OUT | OUT | +3.3V   | SBUS output | 6 | GND | Ground |
 
 * **FMU SD card - microSD**
 
@@ -191,49 +191,49 @@ SmartAP AIRLink's Core edition is intended for medium to high volume production 
 
 - **ETHERNET - JST GH SM08B-GHS-TB**
 
-  | Pin number | Pin name | Direction | Voltage | Function                   |
-  | ---------- | -------- | --------- | ------- | -------------------------- |
-  | 1          | 5V       | OUT       | +5V     | Radio module power supply  |
-  | 2          | 5V       | OUT       | +5V     | Radio module power supply  |
-  | 3          | ETH_TXP  | OUT       | +3.3V   | Ethernet transmit positive |
-  | 4          | ETH_TXN  | OUT       | +3.3V   | Ethernet transmit negative |
-  | 5          | ETH_RXP  | IN        | +3.3V   | Ethernet receive positive  |
-  | 6          | ETH_RXN  | IN        | +3.3V   | Ethernet receive negative  |
-  | 7          | GND      | Ground    |         |                            |
-  | 8          | GND      | Ground    |         |                            |
+  | Pin number | Pin name | 方向     | Voltage | 功能                         |
+  | ---------- | -------- | ------ | ------- | -------------------------- |
+  | 1          | 5V       | OUT    | +5V     | Radio module power supply  |
+  | 2          | 5V       | OUT    | +5V     | Radio module power supply  |
+  | 3          | ETH_TXP  | OUT    | +3.3V   | Ethernet transmit positive |
+  | 4          | ETH_TXN  | OUT    | +3.3V   | Ethernet transmit negative |
+  | 5          | ETH_RXP  | IN     | +3.3V   | Ethernet receive positive  |
+  | 6          | ETH_RXN  | IN     | +3.3V   | Ethernet receive negative  |
+  | 7          | GND      | Ground |         |                            |
+  | 8          | GND      | Ground |         |                            |
 
 - **TEL3 - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name   | Direction | Voltage | Function            |
-  | ---------- | ---------- | --------- | ------- | ------------------- |
-  | 1          | 5V         | OUT       | +5V     | Power supply output |
-  | 2          | USART2_TX  | OUT       | +3.3V   | Telemetry 3 TX      |
-  | 3          | USART2_RX  | IN        | +3.3V   | Telemetry 3 RX      |
-  | 4          | USART2_CTS | IN        | +3.3V   | Telemetry 3 CTS     |
-  | 5          | USART2_RTS | OUT       | +3.3V   | Telemetry 3 RTS     |
-  | 6          | GND        | Ground    |         |                     |
+  | Pin number | Pin name   | 方向     | Voltage | 功能                  |
+  | ---------- | ---------- | ------ | ------- | ------------------- |
+  | 1          | 5V         | OUT    | +5V     | Power supply output |
+  | 2          | USART2_TX  | OUT    | +3.3V   | Telemetry 3 TX      |
+  | 3          | USART2_RX  | IN     | +3.3V   | Telemetry 3 RX      |
+  | 4          | USART2_CTS | IN     | +3.3V   | Telemetry 3 CTS     |
+  | 5          | USART2_RTS | OUT    | +3.3V   | Telemetry 3 RTS     |
+  | 6          | GND        | Ground |         |                     |
 
 - **I2C3 / UART4 - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name  | Direction | Voltage | Function            |
-  | ---------- | --------- | --------- | ------- | ------------------- |
-  | 1          | 5V        | OUT       | +5V     | Power supply output |
-  | 2          | USART4_TX | OUT       | +3.3V   | UART 4 TX           |
-  | 3          | USART4_RX | IN        | +3.3V   | UART 4 RX           |
-  | 4          | I2C3_SCL  | I/O       | +3.3V   | I2C3 Clock          |
-  | 5          | I2C3_SDA  | I/O       | +3.3V   | I2C3 Data           |
-  | 6          | GND       | Ground    |         |                     |
+  | Pin number | Pin name  | 方向     | Voltage | 功能                  |
+  | ---------- | --------- | ------ | ------- | ------------------- |
+  | 1          | 5V        | OUT    | +5V     | Power supply output |
+  | 2          | USART4_TX | OUT    | +3.3V   | UART 4 TX           |
+  | 3          | USART4_RX | IN     | +3.3V   | UART 4 RX           |
+  | 4          | I2C3_SCL  | I/O    | +3.3V   | I2C3 Clock          |
+  | 5          | I2C3_SDA  | I/O    | +3.3V   | I2C3 Data           |
+  | 6          | GND       | Ground |         |                     |
 
 - **GPS2 - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name  | Direction | Voltage | Function            |
-  | ---------- | --------- | --------- | ------- | ------------------- |
-  | 1          | 5V        | OUT       | +5V     | Power supply output |
-  | 2          | USART8_TX | OUT       | +3.3V   | UART 8 TX           |
-  | 3          | USART8_RX | IN        | +3.3V   | UART 8 RX           |
-  | 4          | I2C2_SCL  | I/O       | +3.3V   | I2C2 Clock          |
-  | 5          | I2C2_SDA  | I/O       | +3.3V   | I2C2 Data           |
-  | 6          | GND       | Ground    |         |                     |
+  | Pin number | Pin name  | 方向     | Voltage | 功能                  |
+  | ---------- | --------- | ------ | ------- | ------------------- |
+  | 1          | 5V        | OUT    | +5V     | Power supply output |
+  | 2          | USART8_TX | OUT    | +3.3V   | UART 8 TX           |
+  | 3          | USART8_RX | IN     | +3.3V   | UART 8 RX           |
+  | 4          | I2C2_SCL  | I/O    | +3.3V   | I2C2 Clock          |
+  | 5          | I2C2_SDA  | I/O    | +3.3V   | I2C2 Data           |
+  | 6          | GND       | Ground |         |                     |
 
 - **FMU USB - USB Type C**
 - **SIM Card - micro SIM**
@@ -253,47 +253,47 @@ SmartAP AIRLink's Core edition is intended for medium to high volume production 
 
 - **TEL1 - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name   | Direction | Voltage | Function            |
-  | ---------- | ---------- | --------- | ------- | ------------------- |
-  | 1          | 5V         | OUT       | +5V     | Power supply output |
-  | 2          | USART7_TX  | OUT       | +3.3V   | Telemetry 1 TX      |
-  | 3          | USART7_RX  | IN        | +3.3V   | Telemetry 1 RX      |
-  | 4          | USART7_CTS | IN        | +3.3V   | Telemetry 1 CTS     |
-  | 5          | USART7_RTS | OUT       | +3.3V   | Telemetry 1 RTS     |
-  | 6          | GND        | Ground    |         |                     |
+  | Pin number | Pin name   | 方向     | Voltage | 功能                  |
+  | ---------- | ---------- | ------ | ------- | ------------------- |
+  | 1          | 5V         | OUT    | +5V     | Power supply output |
+  | 2          | USART7_TX  | OUT    | +3.3V   | Telemetry 1 TX      |
+  | 3          | USART7_RX  | IN     | +3.3V   | Telemetry 1 RX      |
+  | 4          | USART7_CTS | IN     | +3.3V   | Telemetry 1 CTS     |
+  | 5          | USART7_RTS | OUT    | +3.3V   | Telemetry 1 RTS     |
+  | 6          | GND        | Ground |         |                     |
 
 - **GPS1 - JST GH SM10B-GHS-TB**
 
-  | Pin number | Pin name   | Direction | Voltage | Function            |
-  | ---------- | ---------- | --------- | ------- | ------------------- |
-  | 1          | 5V         | OUT       | +5V     | Power supply output |
-  | 2          | USART1_TX  | OUT       | +3.3V   | GPS 1 TX            |
-  | 3          | USART1_RX  | IN        | +3.3V   | GPS 1 RX            |
-  | 4          | I2C1_SCL   | I/O       | +3.3V   | Mag 1 Clock         |
-  | 5          | I2C1_SDA   | I/O       | +3.3V   | Mag 1 Data          |
-  | 6          | SAFETY_BTN | IN        | +3.3V   | Safety button       |
-  | 7          | SAFETY_LED | OUT       | +3.3V   | Safety LED          |
-  | 8          | +3V3       | OUT       | +3.3V   | 3.3V output         |
-  | 9          | BUZZER     | OUT       | +5V     | Buzzer output       |
-  | 10         | GND        | Ground    |         |                     |
+  | Pin number | Pin name   | 方向     | Voltage | 功能                  |
+  | ---------- | ---------- | ------ | ------- | ------------------- |
+  | 1          | 5V         | OUT    | +5V     | Power supply output |
+  | 2          | USART1_TX  | OUT    | +3.3V   | GPS 1 TX            |
+  | 3          | USART1_RX  | IN     | +3.3V   | GPS 1 RX            |
+  | 4          | I2C1_SCL   | I/O    | +3.3V   | Mag 1 Clock         |
+  | 5          | I2C1_SDA   | I/O    | +3.3V   | Mag 1 Data          |
+  | 6          | SAFETY_BTN | IN     | +3.3V   | Safety button       |
+  | 7          | SAFETY_LED | OUT    | +3.3V   | Safety LED          |
+  | 8          | +3V3       | OUT    | +3.3V   | 3.3V output         |
+  | 9          | BUZZER     | OUT    | +5V     | 蜂鸣器输出               |
+  | 10         | GND        | Ground |         |                     |
 
 - **CAN1 - JST GH SM04B-GHS-TB**
 
-  | Pin number | Pin name | Direction | Voltage | Function            |
-  | ---------- | -------- | --------- | ------- | ------------------- |
-  | 1          | 5V       | OUT       | +5V     | Power supply output |
-  | 2          | CAN1_H   | I/O       | +5V     | CAN 1 High (120Ω)   |
-  | 3          | CAN1_L   | I/O       | +5V     | CAN 1 Low (120Ω)    |
-  | 4          | GND      | Ground    |         |                     |
+  | Pin number | Pin name | 方向     | Voltage | 功能                  |
+  | ---------- | -------- | ------ | ------- | ------------------- |
+  | 1          | 5V       | OUT    | +5V     | Power supply output |
+  | 2          | CAN1_H   | I/O    | +5V     | CAN 1 High (120Ω)   |
+  | 3          | CAN1_L   | I/O    | +5V     | CAN 1 Low (120Ω)    |
+  | 4          | GND      | Ground |         |                     |
 
 - **CAN2 - JST GH SM04B-GHS-TB**
 
-  | Pin number | Pin name | Direction | Voltage | Function            |
-  | ---------- | -------- | --------- | ------- | ------------------- |
-  | 1          | 5V       | OUT       | +5V     | Power supply output |
-  | 2          | CAN2_H   | I/O       | +5V     | CAN 2 High (120Ω)   |
-  | 3          | CAN2_L   | I/O       | +5V     | CAN 2 Low (120Ω)    |
-  | 4          | GND      | Ground    |         |                     |
+  | Pin number | Pin name | 方向     | Voltage | 功能                  |
+  | ---------- | -------- | ------ | ------- | ------------------- |
+  | 1          | 5V       | OUT    | +5V     | Power supply output |
+  | 2          | CAN2_H   | I/O    | +5V     | CAN 2 High (120Ω)   |
+  | 3          | CAN2_L   | I/O    | +5V     | CAN 2 Low (120Ω)    |
+  | 4          | GND      | Ground |         |                     |
 
 - **CAMERA - FPC 30 pin, 0.5mm pitch**
 
@@ -312,7 +312,7 @@ SmartAP AIRLink's Core edition is intended for medium to high volume production 
 
 AIRLink has a large number of internal and external serial ports:
 
-| Serial   | UART    | Function                                            |
+| Serial   | UART    | 功能                                                  |
 | -------- | ------- | --------------------------------------------------- |
 | Serial 0 | USB     | Console                                             |
 | Serial 1 | UART 7  | Telemetry 1                                         |
@@ -333,20 +333,20 @@ RC input is configured on the SBUS pin and is connected to IO MCU via an inverte
 
 AIRLink has 16 PWM ouputs. Main outputs 1-8 and connected to IO MCU. AUX outputs 1-8 are connected to FMU.
 
-| Output | Timer    | Channel   |
-| ------ | -------- | --------- |
-| AUX 1  | Timer 1  | Channel 4 |
-| AUX 2  | Timer 1  | Channel 3 |
-| AUX 3  | Timer 1  | Channel 2 |
-| AUX 4  | Timer 1  | Channel 1 |
-| AUX 5  | Timer 4  | Channel 2 |
-| AUX 6  | Timer 4  | Channel 3 |
-| AUX 7  | Timer 12 | Channel 1 |
-| AUX 8  | Timer 12 | Channel 2 |
+| 输出    | Timer    | Channel   |
+| ----- | -------- | --------- |
+| AUX 1 | Timer 1  | Channel 4 |
+| AUX 2 | Timer 1  | Channel 3 |
+| AUX 3 | Timer 1  | Channel 2 |
+| AUX 4 | Timer 1  | Channel 1 |
+| AUX 5 | Timer 4  | Channel 2 |
+| AUX 6 | Timer 4  | Channel 3 |
+| AUX 7 | Timer 12 | Channel 1 |
+| AUX 8 | Timer 12 | Channel 2 |
 
 [DShot](../peripherals/dshot.md) can be used on the first four AUX pins.
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
@@ -358,7 +358,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make sky-drones_smartap-airlink
 ```
 
-## Peripherals
+## 外部设备
 
 - [SmartAP GPS](../gps_compass/gps_smartap.md) - GPS module with compass, pressure sensor and RGB LED
 - [SmartAP PDB](../power_module/sky-drones_smartap-pdb.md) - Power Distribution Board
