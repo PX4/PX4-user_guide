@@ -121,7 +121,7 @@ Build the firmware like this:
 make px4-fmu-v5_cryptotest
 ```
 
-#### Other Boards
+#### 기타 보드
 
 For other boards you will need to first copy `cryptotest.px4board` into the root of the target board directory.
 For example, for FMUv6 you would copy the board to [/boards/px4/fmu-v6x](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v6x).
