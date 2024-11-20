@@ -33,7 +33,7 @@ Instructions for the steps above are covered in
 - [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)
 - [Express LRS: QuickStart](https://www.expresslrs.org/quick-start/getting-started/)
 
-### Wiring
+### 배선
 
 The TX and RX on your selected Flight Controller UART should be connected to separate channels on the receiver. The signal is usually uninverted, and can be directly connected (no additional inverter logic is required in the cable). You should check the manual for your specific receiver though!
 
@@ -57,13 +57,13 @@ For ExpressLRS receivers wire to the flight controller UART as shown below (wiri
 | VCC     | VCC        |
 | GND     | GND        |
 
-## PX4 Configuration
+## PX4 설정
 
 ### Firmware Configuration/Build
 
 CRSF telemetry support is not included in any PX4 firmware by default. To use this feature you must build and upload custom firmware that includes [crsf-rc](../modules/modules_driver.md#crsf-rc) and removes [rc_input](../modules/modules_driver.md#rc-input).
 
-The steps are:
+단계는 다음과 같습니다:
 
 1. [Setup a development environment](../dev_setup/dev_env.md) for building PX4.
 
@@ -120,11 +120,11 @@ Alternatively you can use QGroundControl to install the firmware, as described i
 
    This [configures the serial port](../peripherals/serial_configuration.md) to use the CRSF protocol. Note that some serial ports may already have a [default serial port mapping](../peripherals/serial_configuration.md#default-serial-port-configuration) or [default MAVLink serial port mapping](../peripherals/mavlink_peripherals.md#default-mavlink-ports) that you will have to un-map before you can assign the port to CRSF. For example, if you want to use `TELEM1` or `TELEM2` you first need to modify [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) or [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to stop setting those ports.
 
-   There is no need to set the baud rate for the port, as this is configured by the driver.
+   포트 전송속도는 드라이버에 의해 설정되므로, 추가로 설정하지 않아도 됩니다.
 
 1. [RC_CRSF_TEL_EN](../advanced_config/parameter_reference.md#RC_CRSF_TEL_EN) — Enable to activate Crossfire telemetry.
 
-### Radio Setup
+### 무선 조종기 설정
 
 [Radio Control Setup](../config/radio.md) explains how to map your RC controller's attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
@@ -164,7 +164,7 @@ Receivers:
   ::: info This is used in the [Reptile Dragon 2 Build Log](../frames_plane/reptile_dragon_2.md). See sections [ELRS Rx](../frames_plane/reptile_dragon_2.md#elrs-rx) and [Radio Setup](../frames_plane/reptile_dragon_2.md#radio-setup).
 :::
 
-## Telemetry Messages
+## 텔레메트리 메시지
 
 The supported telemetry messages and their source are listed below (this table is reproduced from the [TBS Crossfire Manual: "Available sensors with OpenTX"](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)).
 
@@ -191,12 +191,12 @@ The supported telemetry messages and their source are listed below (this table i
 | Roll      | FC Roll angle                                      | FC                               |
 | Yaw       | FC Yaw angle                                       | FC                               |
 | FM        | Flight mode                                        | FC                               |
-| VSPD      | Barometer                                          | FC                               |
+| VSPD      | 기압계                                                | FC                               |
 
 ## See Also
 
 - [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)
 - [ExpressLRS Documentation](https://www.expresslrs.org/quick-start/getting-started/)
-- [FrSky Telemetry](../peripherals/frsky_telemetry.md)
+- [FrSky 텔레메트리](../peripherals/frsky_telemetry.md)
 - [Radio Control Setup](../config/radio.md)
-- [Radio Control Systems](../getting_started/rc_transmitter_receiver.md)
+- [무선 조종기(RC)](../getting_started/rc_transmitter_receiver.md)
