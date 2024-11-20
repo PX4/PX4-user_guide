@@ -6,12 +6,12 @@ PX4 supports a number of common protocols for sending the signals to ESCs: [PWM 
 
 有关详细信息，请参阅︰
 
-- [PWM ESCs and Servos](../peripherals/pwm_escs_and_servo.md)
-- [OneShot ESCs and Servos](../peripherals/oneshot.md)
+- [PWM 电调和伺服系统](../peripherals/pwm_escs_and_servo.md)
+- [OneShot 电调和伺服系统](../peripherals/oneshot.md)
 - [DShot](../peripherals/dshot.md)
 - [DroneCAN ESCs](../dronecan/escs.md)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
+- [电调（ESC）校准](../advanced_config/esc_calibration.md)
+- [电调固件和协议概述](https://oscarliang.com/esc-firmware-protocols/)（oscarliang.com）
 
 A high level overview of the main ESC/Servo protocols supported by PX4 is given below.
 
@@ -30,8 +30,8 @@ In addition to being a relatively slow protocol PWM ESCs require [calibration](.
 Setup:
 
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md)
-- [PX4 Configuration](../peripherals/pwm_escs_and_servo.md#px4-configuration)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [PX4 配置](../peripherals/pwm_escs_and_servo.md#px4-configuration)
+- [电调（ESC）校准](../advanced_config/esc_calibration.md)
 
 ### Oneshot 125
 
@@ -42,8 +42,8 @@ OneShot 125 is the same as PWM but uses pulse widths that are 8 times shorter (f
 Setup:
 
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md) (same as for PWM ESCs)
-- [PX4 Configuration](../peripherals/oneshot.md#px4-configuration)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [PX4 配置](../peripherals/oneshot.md#px4-configuration)
+- [电调（ESC）校准](../advanced_config/esc_calibration.md)
 
 ### DShot
 
