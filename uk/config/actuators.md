@@ -56,7 +56,7 @@
 - `Позиція Z`: [Z-position](#motor-position-coordinate-system), у метрах.
 - (Advanced) `Напрямок проти годинникової стрілки`: Прапорець, що вказує на те, що двигун обертається проти годинникової стрілки (зніміть прапорець для обертання за годинниковою стрілкою).
 - (Розширений) `Бідирекційний`: Прапорець, що вказує, що двигун є [бідирекційним](#bidirectional-motors)
-- (Розширено) `Коефіцієнт нахилу`: Див. розділ [Геометрія керованих поверхонь](#control-surfaces-geometry) для отримання додаткової інформації
+- (Advanced) `Slew Rate`: Sets minimum time that the motor output can take to reach its maximum value. Refer to the [Control Surfaces Geometry](#control-surfaces-geometry) section for more information
 
 :::info Позиції `X`, `Y`, `Z` в [FRD координатній системі](#motor-position-coordinate-system) відносно _центру ваги_. Зверніть увагу, що це може не збігатися з позицією контролера польоту!
 :::
@@ -129,8 +129,8 @@
 - `Крутний момент по тангажу`: Ефективність приводу навколо осі тангажу (нормалізована: -1 до 1). [Загалом ви повинні використовувати значення актуатора за замовчуванням](#actuator-roll-pitch-and-yaw-scaling).
 - `Крутний момент по курсу`: Ефективність приводу навколо осі курсу (нормалізована: -1 до 1). [Загалом ви повинні використовувати значення актуатора за замовчуванням](#actuator-roll-pitch-and-yaw-scaling).
 - `Обрізка`: Зміщення, додане до приводу, щоб він був в центрі без вводу. Це може бути визначено методом проб і помилок.
-- (Розширено) `Швидкість нахилу`: Мінімальний час, дозволений для сигналу двигуна/сервопривода для проходження повного діапазону виходу, в секундах.
-  - Параметр обмежує швидкість зміни приводу (якщо не вказано, то обмеження швидкості не застосовується). Призначено для приводів, які можуть пошкодитися, якщо вони рухаються занадто швидко — наприклад, приводи нахилу на повітряному судні VTOL з можливістю повороту.
+- <a id="slew_rate"></a>(Advanced) `Slew Rate`: Limits the minimum time in which the motor/servo signal is allowed to pass through its full output range, in seconds.
+  - Параметр обмежує швидкість зміни приводу (якщо не вказано, то обмеження швидкості не застосовується). It is intended for actuators that may be damaged or cause flight disturbance if they move too fast — such as the tilting actuators on a tiltrotor VTOL vehicle, or fast moving flaps, respectively.
   - Наприклад, значення 2.0 означає, що двигун/сервопривід не буде командуватися рухатися від 0 до 1 зі швидкістю, яка завершить операцію менш ніж за 2 секунди (у випадку реверсивних двигунів діапазон -1 до 1).
 - (Розширено) `Масштаб закривання`: На скільки цей привод відхиляється в "повній конфігурації закрил" \[0, 1\] (див. [Конфігурацію масштабу закривання та масштабу спойлера](#flap-scale-and-spoiler-scale-configuration) нижче). Може бути використаний для налаштування аеродинамічної поверхні як закрилок або для компенсації обертового моменту, що виникає через головні закрилки.
 - (Розширено) `Масштаб спойлера`: На скільки цей привод відхиляється в "повній конфігурації спойлера" \[0, 1\] (див. [Конфігурацію масштабу закривання та масштабу спойлера](#flap-scale-and-spoiler-scale-configuration) нижче). Може бути використаний для налаштування аеродинамічної поверхні як закрилок або для компенсації обертового моменту, що виникає через головні закрилки.
@@ -150,7 +150,7 @@
 
 ![Flaps and spoiler actuator configuration example](../../assets/config/actuators/qgc_actuators_tab_flaps_spoiler_setup.png)
 
-- Флапи мають обидва масштаби флапів `Flap Scale`, встановлені на 1, що означає, що вони будуть повністю відхилені при керуванні флапами на рівні 1. Також вони мають швидкість переміщення 0,5/с, що означає, що їм знадобиться 2 секунди, щоб повністю відхилити їх (швидкість переміщення флапів, як правило, рекомендується, щоб зменшити перешкоди, які створює їх рух).
+- Флапи мають обидва масштаби флапів `Flap Scale`, встановлені на 1, що означає, що вони будуть повністю відхилені при керуванні флапами на рівні 1. They also have a [slew rate](#slew_rate) of 0.5/s, meaning that it will take 2s to fully deflect them (a slew rate on the flaps is generally recommended to reduce the disturbances their movement creates).
 - Елерони в основному призначені для забезпечення керованого крутного моменту. Вони також мають масштаби спойлерів `Spoiler Scale`, встановлені на 0,5, і додатково будуть відхилені вгору на 50%, якщо контролер вимагає повну конфігурацію спойлера. Таким чином, відхилення елеронів - це сума (асиметричного) відхилення для крутного моменту, плюс (симетричне) відхилення для вказаної точки спойлера.
 - Елеватор в основному призначений для забезпечення крутного моменту по тангажу. Він також має ненульні значення в полях масштабу флапів `Flap Scale` та спойлерів `Spoiler Scale`. Це відхилення елеватора, яке додається для компенсації моментів по тангажу, створених дією поверхні флапів та спойлерів. У цьому випадку елеватор буде відхилений на 0,3 вгору при повному розгортанні флапів для компенсації моменту, спрямованого вниз, який викликано дією флапів.
 
@@ -171,15 +171,25 @@
 
 #### Конвенція про відхилення поверхні керування
 
-Діаграма нижче показує конвенцію для відхилень:
+Control surfaces that move in either direction from neutral include: Ailerons, Elevons, V-Tails, A-Tails, Rudder.
+
+In order to ensure that these control surfaces always move as expected for positive or negative inputs from the controllers, there needs to be a definition of the deflection directions that is independent of the physical servo setup.
+
+Positive input causes positive deflection. The diagram below shows the direction of movement for positive input:
 
 ![Control Surface Deflections](../../assets/config/actuators/plane_control_surface_convention.png)
 
-Підсумовуючи:
+In summary, positive inputs result in:
 
-- **Горизонтальні керуючі поверхні:** Вгору рух означає позитивне відхилення. Містить елерони, тощо
-- **Вертикальні керуючі поверхні:** Праворуч рух є позитивним відхиленням. Містить кермо тощо.
-- **Змішані керуючі поверхні:** Вгору/праворуч рух є позитивним (як вище). Включає в себе V-Tail тощо.
+- **Horizontal Control Surfaces:** Upwards movement. Includes ailerons and elevons.
+- **Vertical Control Surfaces:** Rightwards movement. Includes rudders.
+- **Mixed Control Surfaces:** Upwards/rightwards movement. Includes V-Tail. A-Tail
+
+::: tip
+Control surfaces that can only deflect in one direction from the neutral point include: Airbrakes, Spoiler, and Flaps.
+
+For these controls a positive input is always deflection from the neutral (0: no effect, 1: full effect), irrespective of the direction that the control itself moves. They do not respond to negative input.
+:::
 
 <!-- Also see this comment: https://github.com/PX4/PX4-Autopilot/blob/96b03040491e727752751c0e0beed87f0966e6d4/src/modules/control_allocator/module.yaml#L492 -->
 
@@ -276,7 +286,7 @@ PWM AUX виходи вважаються бажаними для керуван
 - `Периферійний за допомогою набору приводів 1` до `Периферійний за допомогою набору приводів 6`: [Загальний контроль виконавчого пристрою з MAVLink](../payloads/generic_actuator_control.md#generic-actuator-control-with-mavlink).
 - `Шасі`: Вивід - це шасі.
 - `Парашут`: Вихід - це парашут. Мінімальне значення надсилається у звичайному режимі, а максимальне - при спрацьовуванні захисту від збоїв.
-- `RC Roll`: Вихід - це вихідний рол з RC ([RC_MAP_ROLL](../advanced_config/parameter_reference.md#RC_MAP_ROLL) відображає канал RC на цей вихід). Потік RC вимикача зіставляється з виходом за допомогою .
+- `RC Roll`: Вихід - це вихідний рол з RC ([RC_MAP_ROLL](../advanced_config/parameter_reference.md#RC_MAP_ROLL) відображає канал RC на цей вихід).
 - `RC Pitch`: Вихід - це паспортний крок від RC ([RC_MAP_PITCH](../advanced_config/parameter_reference.md#RC_MAP_PITCH) відображає канал RC на цей вихід).
 - `RC Throttle`: Output is passthrough throttle from RC ([RC_MAP_THROTTLE](../advanced_config/parameter_reference.md#RC_MAP_THROTTLE) maps an RC channel to this output).
 - `RC Yaw`: Вихід - це розворот від RC ([RC_MAP_YAW](../advanced_config/parameter_reference.md#RC_MAP_YAW) відображає канал RC на цей вихід).
@@ -285,6 +295,8 @@ PWM AUX виходи вважаються бажаними для керуван
 - `Gimbal Roll`: Вихід контролює відвід Gimbal.
 - `Gimbal Pitch`: Вихід контролює крок Gimbal.
 - `Gimbal Yaw`: Output controls Gimbal yaw.
+- `Gripper`<Badge type="tip" text="PX4 v1.14" />: Output controls gripper open/close.
+- `Landing_Gear_Wheel`<Badge type="tip" text="PX4 v1.14" />: Output controls deployment of landing gear wheel
 
 Наведені функції можуть бути застосовані тільки до виходів FMU:
 
@@ -292,7 +304,7 @@ PWM AUX виходи вважаються бажаними для керуван
 - `Camera_Capture`: Вхід для отримання сповіщення про захоплення зображення. Увімкнено, коли [CAM_CAP_FBACK==0](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). Налаштовано через параметри `CAM_CAP_*`.
 - `PPS_Input`: Захоплення вводу імпульсів на секунду. Використовується для синхронізації GPS. Увімкнено, коли [`PPS_CAP_ENABLE==0`](../advanced_config/parameter_reference.md#PPS_CAP_ENABLE)
 
-:::info Цей список є правильним у PX4 v1.13. Функції визначені у джерелі за посиланням на [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
+::: info The functions are defined in source at [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml). This list is correct at PX4 v1.15.
 :::
 
 ## Тестування актуаторів
@@ -349,7 +361,7 @@ PWM AUX виходи вважаються бажаними для керуван
 
    Виберіть відповідний двигун в розділі геометрії.
 
-   ![](../../assets/config/actuators/identify_motors_in_progress.png)
+   ![Screenshot showing how to identify/assign motors](../../assets/config/actuators/identify_motors_in_progress.png)
 
 1. Після призначення всіх двигунів інструмент встановить правильне відображення двигунів для виходів, а потім вийде.
 
@@ -425,26 +437,59 @@ PWM AUX виходи вважаються бажаними для керуван
 :::info Вам майже точно знадобиться змінити частоту пульса зі значенням за замовчуванням 400 Гц, оскільки підтримка рідко зустрічається (якщо не підтримується, сервопривід зазвичай видаватиме "дивний" шум). Якщо ви використовуєте сервоприводи PWM, PWM50 є набагато поширенішим. Якщо _дійсно_ потрібен високовольтний сервопривід, DShot пропонує кращу вартість.
 :::
 
-Для кожної з поверхонь керування:
+#### Control surfaces that move both directions about a neutral point
 
-1. Встановіть значення `Disarmed`, щоб поверхні залишалися в нейтральному положенні під час роззброєння. Зазвичай це становить близько `1500` для PWM сервоприводів.
+Control surfaces that move either direction around a neutral point include: ailerons, elevons, V-tails, A-tails, and rudders.
+
+To set these up:
+
+1. Встановіть значення `Disarmed`, щоб поверхні залишалися в нейтральному положенні під час роззброєння. This is usually around `1500` for PWM servos (near the centre of the servo range).
+
+   ![Control Surface Disarmed 1500 Setting](../../assets/config/actuators/control_surface_aileron_setup.png)
+
 2. Перемістіть повзунок для поверхні вверх (позитивна команда) та переконайтеся, що він рухається в напрямку, визначеному в [Конвенції керуючої поверхнею](#control-surface-deflection-convention).
-   - Якщо поверхня керування рухається в протилежному напрямку, клацніть на прапорець `Rev Range`, щоб змінити діапазон.
-3. Перемістіть повзунок ще раз у середину та перевірте, чи вирівняні керуючі поверхні в нейтральному положенні крила
 
-   - Якщо воно не вирівняно, ви можете встановити значення **Trim** для поверхні керування. :::info Це робиться в налаштуванні `Trim` панелі Geometry, зазвичай методом "спроба і помилка". ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
+   - Ailerons, elevons, V-Tails, A-Tails, and other horizontal surfaces should move up.
+   - Rudders and other "purely vertical" surfaces should move right.
+
+   ::: tip
+It is important that the slider movement matches the control surface convention, in order to normalize control for different servo mountings (moving the slider up may actually decrease the output value sent to the servo).
 :::
 
-   - Після встановлення обрізки для поверхні керування перемістіть його ковзачок від центру, відпустіть, а потім поверніть у відключений (середній) положення. Підтвердіть, що поверхня знаходиться в нейтральному положенні.
+   Якщо поверхня керування рухається в протилежному напрямку, клацніть на прапорець `Rev Range`, щоб змінити діапазон.
 
-     ```
+3. Move the slider again to the middle and check if the Control Surfaces are aligned in the neutral position of the wing.
 
-     ```
+   - Якщо воно не вирівняно, ви можете встановити значення **Trim** для поверхні керування.
+
+     :::info Це робиться в налаштуванні `Trim` панелі Geometry, зазвичай методом "спроба і помилка". ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
+:::
+
+   - After setting the trim for a control surface, move its slider away from the centre, release, and then back into disarmed (middle) position. Підтвердіть, що поверхня знаходиться в нейтральному положенні.
 
 :::info Ще один спосіб протестувати без використання слайдерів - це встановити параметр [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) на `Always`:
 
 - Це дозволить керувати сервоприводами навіть коли транспортний засіб відброньований, і постійно застосовуватиме налаштування обрізки до керуючих поверхонь
 - Ви можете спробувати встановити різні значення для обрізки та перевірити вирівнювання, а потім вибрати значення, з яким ви будете задоволені.
+
+:::
+
+#### Control surfaces that move from neutral to full deflection
+
+Control surfaces that move only one direction from neutral include: airbrakes, spoilers, and flaps.
+
+For these controls you should set the minimum and maximum PWM values according to the full range of the control. The `Disarmed` value should then match the value (of maximum or minimum) that corresponds to control being in the "neutral" position. For a flap, that is when the flap is fully retracted and flush with the wing.
+
+One approach for setting these up is:
+
+1. Set values `Disarmed` to `1500`, `Min` to `1200`, `Max` to `1700` so that the values are around the centre of the servo range.
+2. Move the corresponding slider up and check the control moves and that it is extending (moving away from the disarmed position). If not, click on the `Rev Range` checkbox to reverse the range.
+3. Enable slider in the disarmed position, them change the value of the `Disarmed` signal until the control is retracted/flush with wing. This may require that the `Disarmed` value is increased or decreased:
+   - If the value was decreased towards `Min`, then set `Min` to match `Disarmed`.
+   - If the value was increased towards `Max`, then set `Max` to match `Disarmed`.
+4. The value that you did _not_ set to match `Disarmed` controls the maximum amount that the control surface can extend. Set the slider to the top of the control, then change the value (`Max` or `Min`) so that the control surface is fully extended when the slider is at top.
+
+::: info Special note for flaps In some vehicle builds, flaps may be configured such that both flaps are controlled from a single output. In this case, you need to ensure that both flaps extend/deploy when raising the corresponding slider. If this is not the case and one servo deploys correctly and one does not, you need to change the servo direction with a third party servo programmer. Alternatively, you might move the servo that is not deflecting in the correct orientation to its own servo output channel and then reverse its direction via the `Rev range` check box.
 :::
 
 ### Налаштування серводвигуна нахилу
