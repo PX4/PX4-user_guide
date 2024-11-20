@@ -2,11 +2,11 @@
 
 This topic explains explains to flash [Pixhawk FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) bootloader via USB _without needing a debug probe_.
 
-## Overview
+## 综述
 
 The _PX4 Bootloader_ is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
 
-Pixhawk controllers usually comes with an appropriate bootloader version pre-installed.
+Pixhawk控制器通常预安装了适当的引导程序。
 However in some cases it may not be present, or an older version may be present that needs to be updated.
 It is also possible that the device is bricked, so the device has to be erased and a new bootloader must be flashed.
 
@@ -23,9 +23,9 @@ make px4_fmu-v6xrt_bootloader
 ```
 
 This will build the bootloader binary as `build/px4_fmu-v6xrt_bootloader/px4_fmu-v6xrt_bootloader.bin`, which can be flashed via SWD or ISP.
-If you are building the bootloader you should be familiar with one of these options already.
+如果你正准备构建 bootloader，你应该已经熟悉这些选项之一。
 
-If you need a HEX file instead of an ELF file, use objcopy:
+如果需要 HEX 文件而不是 ELF 文件，请使用 objcopy 参数：
 
 ```sh
 arm-none-eabi-objcopy -O ihex build/px4_fmu-v6xrt_bootloader/px4_fmu-v6xrt_bootloader.elf px4_fmu-v6xrt_bootloader.hex
