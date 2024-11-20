@@ -97,7 +97,7 @@ The image below shows the wiring in greater detail.
 
 This section explains how you install your preferred Linux distro, such as "Raspberry Pi OS 64bit" onto the RPi EMCC.
 
-Notes:
+참고:
 
 - If you are using PX4, you will need to use PX4 version 1.13.1 or newer for PX4 to recognize this baseboard.
 - The fan does not indicate if the RPi CM4 is powered/running or not.
@@ -239,10 +239,10 @@ The pinout of the cable is:
 | B             | A            |
 | C             | D            |
 | D             | C            |
-| -             | N/A          |
-| -             | N/A          |
-| -             | N/A          |
-| -             | N/A          |
+| -             | 해당없음         |
+| -             | 해당없음         |
+| -             | 해당없음         |
+| -             | 해당없음         |
 
 ### IP Setup on CM4
 
