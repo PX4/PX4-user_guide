@@ -76,6 +76,6 @@ The USA-built [ARKV6X]((https://arkelectron.gitbook.io/ark-documentation/flight-
 make ark_fmu-v6x_default
 ```
 
-## See Also
+## Дивіться також
 
 - [ARK Electronics ARKV6X](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/arkv6x) (ARK Docs)
