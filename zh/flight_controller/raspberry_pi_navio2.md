@@ -2,14 +2,14 @@
 
 <LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.html"/>
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://emlid.com/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://emlid.com/) for hardware support or compliance issues.
 :::
 
 This is the developer "quickstart" for Raspberry Pi 2/3/4 Navio2 autopilots. It allows you to build PX4 and transfer to the RasPi, or build natively.
 
 ![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
 
-## OS Image
+## 操作系统映像
 
 Use the preconfigured [Emlid Raspberry Pi OS image for Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi). The default image will have most of the setup procedures shown below already done.
 
@@ -29,7 +29,7 @@ To connect to your Pi via SSH, use the default username (`pi`) and hostname (`na
 ssh pi@navio.local
 ```
 
-or
+或
 
 ```sh
 ssh pi@<IP-ADDRESS>
@@ -145,7 +145,7 @@ cmake \
 make
 ```
 
-## Building the Code
+## 构建代码
 
 Specify the IP (or hostname) of your Pi using:
 
@@ -153,7 +153,7 @@ Specify the IP (or hostname) of your Pi using:
 export AUTOPILOT_HOST=navio.local
 ```
 
-or
+或
 
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
