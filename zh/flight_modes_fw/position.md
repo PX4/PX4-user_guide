@@ -1,10 +1,10 @@
 # Position Mode (Fixed-wing)
 
-<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />
+<img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />
 
 _Position mode_ is the easiest and safest manual mode. It is supported on vehicles that have a position estimate (e.g. GPS). It makes it easier for pilots to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will hold the vehicle's course against wind. Airspeed is actively controlled if an airspeed sensor is installed.
 
-油门取决于空速（在 50％ 油门时，飞机将以预设的巡航速度保持其当前高度）。 The throttle determines airspeed — at 50% throttle the aircraft will hold its current altitude with a preset cruise speed.
+油门取决于空速（在 50％ 油门时，飞机将以预设的巡航速度保持其当前高度）。 滚动和俯仰是角度控制的（因此不可能实现飞机滚转或环绕）。
 
 When all sticks are released/centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight, and keep its current altitude and flight path irrespective of wind. This makes it easy to recover from any problems when flying. Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
 
@@ -16,27 +16,27 @@ The yaw stick can be used to increase/reduce the yaw rate of the vehicle in turn
 
 Position mode is like [Stabilized mode](../flight_modes_fw/altitude.md) but with course stabilization. Airspeed is also stabilized if an airspeed sensor is present.
 
-- Centered Roll/Pitch/Yaw inputs (inside deadband):
+- 回中的滚动/俯仰/偏航输入（在死区内）：
   - Autopilot levels vehicle and maintains altitude, airspeed and course over ground.
-- Outside center:
-  - Pitch stick controls altitude.
-  - Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the vehicle will fly level at trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)), increasing or decreasing throttle as needed to climb or descend.
-  - Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight).
-  - Yaw stick adds an additional yaw rate setpoint (added to the one calculated by the autopilot to maintain coordinated flight). Can be used to manually change the side slip of the vehicle.
+- 外部中心：
+  - 俯仰摇杆控制高度。
+  - 如果空速传感器已连接，油门杆控制飞机速度。 Without an airspeed sensor the vehicle will fly level at trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)), increasing or decreasing throttle as needed to climb or descend.
+  - 横滚摇杆控制横滚角度。 自动驾驶仪将保持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)。
+  - 偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)）。 这和[稳定模式](../flight_modes/stabilized_fw.md)一样。
 - Manual control input is required (such as RC control, joystick).
 - An altitude measurement source is required (usually barometer or GPS)
 
 ## 参数
 
-The mode is affected by the following parameters:
+该模式受以下参数影响：
 
-| 参数                                                                                                          | 描述                                                                   |
-| ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)         | Min airspeed. Default: 10 m/s.                                       |
-| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)         | Max airspeed. Default: 20 m/s.                                       |
-| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)       | Cruise speed. Default: 15 m/s.                                       |
-| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)           | Max pitch setpoint in attitude stabilized mode. Default: 45 degrees. |
-| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)           | Max roll setpoint in attitude stabilized mode. Default: 45 degrees.  |
-| <a id="FW_T_CLMB_R_SP"></a>[FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP)     | Max climb rate setpoint. Default: 3 m/s.                             |
-| <a id="FW_T_SINK_R_SP"></a>[FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP)     | Max sink rate setpoint. Default: 2 m/s.                              |
-| <a id="FW_PN_R_SLEW_MAX"></a>[FW_PN_R_SLEW_MAX](../advanced_config/parameter_reference.md#FW_PN_R_SLEW_MAX) | Roll setpoint slew rate limit. Default: 90 °/s.                      |
+| 参数                                                                                                          | 描述                                              |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)         | 最小空速/油门。 默认：10 m/s。                             |
+| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)         | 最大空速/油门。 默认：20 m/s。                             |
+| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)       | 巡航速度。 默认：15 m/s。                                |
+| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)           | 在高度稳定模式下手动控制的最大俯仰角。 Default: 45 degrees.        |
+| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)           | 在高度稳定模式下手动控制的最大滚转角。 Default: 45 degrees.        |
+| <a id="FW_T_CLMB_R_SP"></a>[FW NPFG Control](../advanced_config/parameter_reference.md#fw-npfg-control)       | Max climb rate setpoint. 默认：3m/s。               |
+| <a id="FW_T_SINK_R_SP"></a>[FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP)     | Max sink rate setpoint. Default: 2 m/s.         |
+| <a id="FW_PN_R_SLEW_MAX"></a>[FW_PN_R_SLEW_MAX](../advanced_config/parameter_reference.md#FW_PN_R_SLEW_MAX) | Roll setpoint slew rate limit. Default: 90 °/s. |
