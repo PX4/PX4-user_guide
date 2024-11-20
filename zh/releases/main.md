@@ -40,11 +40,11 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 - TBD
 
-### Sensors
+### 传感器
 
 - TBD
 
-### Simulation
+### 仿真
 
 - [SIH]: The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7. ([PX4-Autopilot#23363](https://github.com/PX4/PX4-Autopilot/pull/23363)).
 - [Gazebo]:
@@ -71,7 +71,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 - Allow system-default [multicopter orbit mode](../flight_modes_mc/orbit.md) yaw behaviour to be configured, using the parameter [MC_ORBIT_YAW_MOD](../advanced_config/parameter_reference.md#MC_ORBIT_YAW_MOD) ([PX4-Autopilot#23358](https://github.com/PX4/PX4-Autopilot/pull/23358))
 
-### VTOL
+### 垂直起降
 
 - TBD
 
