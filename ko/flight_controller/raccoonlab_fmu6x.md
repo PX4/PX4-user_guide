@@ -35,9 +35,9 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 - FMU Processor: STM32H753
   - 32 Bit Arm Cortex-M7, 480MHz, 2MB flash memory, 1MB RAM
-- IO Processor: STM32F100
+- IO 프로세서: STM32F100
   - 32 Bit Arm Cortex-M3, 24MHz, 8KB SRAM
-- On-board sensors
+- 내장 센서 :
   - Accel/Gyro: ICM-20649 or BMI088
   - Accel/Gyro: ICM-42688-P
   - Accel/Gyro: ICM-42670-P
@@ -56,11 +56,11 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 ## Mechanical data
 
-- Dimensions
+- 크기
   - Flight Controller Module: 38.8 x 31.8 x 14.6mm
   - Standard Baseboard: 52.4 x 103.4 x 16.7mm
   - Mini Baseboard: 43.4 x 72.8 x 14.2 mm
-- Weight
+- 중량
   - Flight Controller Module: 23g
   - Standard Baseboard: 51g
   - Mini Baseboard: 26.5g
@@ -69,14 +69,14 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 ![RaccoonLab FMUv6X drawings](../../assets/flight_controller/raccoonlab/fmuv6x-drw.png)
 
-## Interfaces
+## 인터페이스
 
 - 16- PWM servo outputs
 - R/C input for Spektrum / DSM
 - Dedicated R/C input for PPM and S.Bus input
 - Dedicated analog / PWM RSSI input and S.Bus output
-- 4 general purpose serial ports
-  - 3 with full flow control
+- 범용 시리얼 포트 4개
+  - 전체 흐름 제어 3개
   - 1 with separate 1.5A current limit (`TELEM1`)
   - 1 with I2C and additional GPIO line for external NFC reader
 - 2 GPS ports
@@ -95,24 +95,24 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   - CAN Bus has individual silent controls or ESC RX-MUX control
 - 2 Power input ports with SMBus
   - 1 AD & IO port
-  - 2 additional analog input
+  - 2개의 추가 아날로그 입력
   - 1 PWM/Capture input
   - 2 Dedicated debug and GPIO lines
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port                            |
+| UART   | 장치         | 포트                              |
 | ------ | ---------- | ------------------------------- |
 | USART1 | /dev/ttyS0 | GPS                             |
 | USART2 | /dev/ttyS1 | TELEM3                          |
-| USART3 | /dev/ttyS2 | Debug Console                   |
+| USART3 | /dev/ttyS2 | 디버깅 콘솔                          |
 | UART4  | /dev/ttyS3 | UART4 & I2C |
 | UART5  | /dev/ttyS4 | TELEM2                          |
 | USART6 | /dev/ttyS5 | PX4IO/RC                        |
 | UART7  | /dev/ttyS6 | TELEM1                          |
 | UART8  | /dev/ttyS7 | GPS2                            |
 
-## Voltage Ratings
+## 정격 전압
 
 _RaccoonLab FMUv6X_ can be triple-redundant on the power supply if three power sources are supplied.
 The three power rails are: **POWER1**, **POWER2** and **USB**.
@@ -120,23 +120,23 @@ The **POWER1** & **POWER2** ports on the RaccoonLab FMUv6X uses the 6 circuit [2
 
 **Normal Operation Maximum Ratings**
 
-Under these conditions all power sources will be used in this order to power the system:
+이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야합니다.
 
 1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
 2. **USB** input (4.75V to 5.25V)
 
 :::tip
 The manufacturer [RaccoonLab Docs](https://docs.raccoonlab.co/guide/autopilot/RCLv6X.html) are the canonical reference for the RaccoonLab FMUv6X Autopilot.
-They should be used by preference as they contain the most complete and up to date information.
+가장 정확한 최신 정보를 포함하고 있습니다.
 :::
 
-## Where to Buy
+## 구매처
 
 [RaccoonLab Store](https://raccoonlab.co/store)
 
 [Cyphal store](https://cyphal.store)
 
-## Building Firmware
+## 펌웨어 빌드
 
 :::tip
 Most users will not need to build this firmware!
@@ -149,12 +149,12 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make px4_fmu-v6x_default
 ```
 
-## Supported Platforms / Airframes
+## 지원 플랫폼 및 기체
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## 추가 정보
 
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
 - [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
