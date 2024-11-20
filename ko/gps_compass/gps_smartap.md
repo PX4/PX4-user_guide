@@ -6,23 +6,23 @@
 
 Key features include:
 
-- Concurrent reception of up to 3 GNSS (GPS, Galileo, GLONASS, BeiDou)
+- 최대 3 개의 GNSS(GPS, Galileo, GLONASS, BeiDou) 동시 수신
 - 3x built-in magnetometers: HMC5983, IST8310 and LIS3MDL
 - 1x built-in barometer: MS5611
 - RGB LED Driver and status LEDs
 
-## Where to Buy
+## 구매처
 
 - [Sky-Drones Store](https://sky-drones.com/navigation/smartap-gnss.html)
 
-## Kit Contents
+## 키트 내용물
 
 An SmartAP GPS kit includes:
 
 - 1x GPS modules
 - 1x 30cm cable
 
-## Configuration
+## 설정
 
 For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 uses the correct baudrate.
 
@@ -43,20 +43,20 @@ SmartAP GPS has 10 pin JST-GH connector that can be plugged into a Pixhawk fligh
 | 9          | BUZZER     |
 | 10         | GND        |
 
-## Specification
+## 사양
 
 - U-blox M8N GPS Receiver
-- IST8310 Magnetometer
+- IST8310 자력계
 - HMC5983 Magnetometer
 - LIS3MDL Magnetometer
 - MS5611 Pressure sensor
-- RGB LEDs for status indication
+- 상태표시용 RGB LED
   - NCP5623 I2C Driver
 - Diameter: 75mm
 - Weight: 34g
 
-## Further Information
+## 추가 정보
 
 - [Buy SmartAP GPS](https://sky-drones.com/navigation/smartap-gnss.html)
-- [Documentation](https://docs.sky-drones.com/avionics/smartap-gnss)
+- [문서](https://docs.sky-drones.com/avionics/smartap-gnss)
 - [CAD Models](https://docs.sky-drones.com/avionics/smartap-gnss/cad-model)
