@@ -9,7 +9,7 @@ Remote ID is a government mandated technology for UAVs in Japan, the United Stat
 
 PX4 works with Remote ID modules that target the FAA [standard Remote ID rules](https://www.faa.gov/uas/getting_started/remote_id). These are designed to be integrated into the vehicle, and broadcast Open Drone ID messages using id, position, and other information that is supplied by an autopilot. The "standard rules" modules enable less restrictive operation than "broadcast rules" modules, which are standalone modules with an integrated GPS that do not have any communication with the autopilot.
 
-## Supported Hardware
+## 支持的硬件
 
 PX4 integrates with Remote ID hardware that supports the [Open Drone ID](https://mavlink.io/en/services/opendroneid.html) MAVLink protocol (Open Drone ID is an open source implementation of Remote ID).
 
@@ -41,12 +41,12 @@ If using a different port, or a flight controller that has different connector, 
 
 ![Cube ID serial port](../../assets/hardware/remote_id/cube_id/serial_port_connector.jpg)
 
-| Pin     | Signal   | Volt |
-| ------- | -------- | ---- |
-| 1 (red) | VCC_5V   | 5V   |
-| 2 (blk) | TX (OUT) |      |
-| 3 (blk) | RX (IN)  |      |
-| 4 (blk) | GND      | 0    |
+| 针脚   | Signal   | 电压 |
+| ---- | -------- | -- |
+| 2    | VCC_5V   | 5V |
+| 2    | TX (OUT) |    |
+| 3    | RX (IN)  |    |
+| 4（黑） | GND      | 0  |
 
 #### Cube ID Firmware
 
@@ -76,7 +76,7 @@ Note that CAN port not supported in PX4 v1.14
 
 ![Holybro Remote ID Pinouts](../../assets/peripherals/remoteid_holybro/holybro_remote_id_pinout.jpg)
 
-## PX4 Configuration
+## PX4 配置
 
 ### Port Configuration
 
@@ -103,7 +103,7 @@ There is no need to explicitly enable Remote ID (supported Remote ID messages ar
 
 To only allow arming when a Remote ID is ready, [set](../advanced_config/parameters.md#conditional-parameters) the parameter [COM_ARM_ODID](#COM_ARM_ODID) to `2` (it is disabled by default).
 
-| Parameter                                                                                         | Description                                                                                                                                                                            |
+| 参数                                                                                                | 描述                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="COM_ARM_ODID"></a>[COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID) | Enable Drone ID system detection and health check. `0`: Disable (default), `1`: Warn if Remote ID not detected but still allow arming, `2`: Only allow arming if Remote ID is present. |
 
