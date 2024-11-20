@@ -1,10 +1,10 @@
 # Orbit (Multicopter)
 
-<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
+<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />
 
 The _Orbit_ guided flight mode allows you to command a multicopter (or VTOL in multicopter mode) to fly in a circle at a particular location, by [default](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) yawing so that it always faces towards the center.
 
-::: info
+:::note
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires at least a valid local position estimate (does not require a global position).
@@ -20,7 +20,7 @@ The _Orbit_ guided flight mode allows you to command a multicopter (or VTOL in m
 
 :::
 
-## Overview
+## 개요
 
 ![Orbit Mode - MC](../../assets/flying/orbit.jpg)
 
