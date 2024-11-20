@@ -373,7 +373,7 @@ rm3100 <command> [arguments...]
 
 <a id="vcm1193l_usage"></a>
 
-### Usage
+### Використання
 ```
 vcm1193l <command> [arguments...]
  Commands:
