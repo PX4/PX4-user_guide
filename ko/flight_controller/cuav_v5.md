@@ -6,7 +6,7 @@
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning PX4 does not manufacture this (or any) autopilot. 이 보드는 [Pixhawk 프로젝트](https://pixhawk.org/) **FMUv5** 개방형 하드웨어 설계에 기반합니다. [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행하며, PX4 펌웨어와 호환됩니다.
+:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. 이 보드는 [Pixhawk 프로젝트](https://pixhawk.org/) **FMUv5** 개방형 하드웨어 설계에 기반합니다. [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행하며, PX4 펌웨어와 호환됩니다.
 
 _CUAV v5_<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS, and is fully compatible with PX4 firmware. It is intended primarily for academic and commercial developers.
 
@@ -47,7 +47,7 @@ _CUAV v5_<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot des
 - 기타 특징:
   - 작동 온도: -20 ~ 80°c (측정치)
 
-## Where to Buy
+## 구매처
 
 Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
 
@@ -63,23 +63,23 @@ The RCIN interface is limited to powering the rc receiver and cannot be connecte
 :::note
 출력 전원 레일인 **FMU PWM OUT**과 **I/O PWM OUT** (0V to 36V) 은 비행제어보드에 전원을 공급하지 않습니다.(공급받지도 않습니다). **POWER1**, **POWER2** 또는 **USB**중 하나에서 전원을 공급하여야 합니다.
 
-::: info The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::note
+출력 전원 레일인 **FMU PWM OUT**과 **I/O PWM OUT** (0V to 36V) 은 비행제어보드에 전원을 공급하지 않습니다.(공급받지도 않습니다). **POWER1**, **POWER2** 또는 **USB**중 하나에서 전원을 공급하여야 합니다.
 :::
 
-**Normal Operation Maximum Ratings**
+**정상 작동 최대 정격 전압**
 
-Under these conditions all power sources will be used in this order to power the system:
+이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야합니다.
 
 1. **POWER1**과 **POWER2** 입력 (4.3V ~ 5.4V)
 1. **USB** 입력 (4.75V ~ 5.25V)
 
 ## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
 ```
 make px4_fmu-v5_default
@@ -91,7 +91,7 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The pinout is as shown.
 
-![CUAV v5 debug](../../assets/flight_controller/cuav_v5/pixhack_v5_debug.jpg)
+![CUAV v5 디버그](../../assets/flight_controller/cuav_v5/pixhack_v5_debug.jpg)
 
 | 핀 | CUAV v5 디버그 |
 | - | ----------- |
@@ -124,7 +124,7 @@ The pinout is as shown.
 
 ## 지원 플랫폼 및 기체
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## 추가 정보
 
