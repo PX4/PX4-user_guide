@@ -8,10 +8,10 @@ The SWD debug interface allows direct, low-level, hardware access to the microco
 
 Four signals are required for debugging (in bold) while the rest is recommended.
 
-| Name        | Type  | 설명                                                                                        |
+| 이름          | 형식    | 설명                                                                                        |
 |:----------- |:----- |:----------------------------------------------------------------------------------------- |
-| **GND**     | Power | Shared potential, common ground.                                                          |
-| **VREF**    | Power | The target reference voltage allows the debug probe to use level shifters on the signals. |
+| **GND**     | 전원    | Shared potential, common ground.                                                          |
+| **VREF**    | 전원    | The target reference voltage allows the debug probe to use level shifters on the signals. |
 | **SWDIO**   | 입출력   | Serial Wire Debug data pin.                                                               |
 | **SWCLK**   | Input | Serial Wire Debug clock pin.                                                              |
 | nRST        | Input | The reset pin is optional (n = active low).                                               |
