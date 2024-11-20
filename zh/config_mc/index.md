@@ -42,7 +42,7 @@ The final step is [Motor Configuration](../config/actuators.md#motor-configurati
 - [Reverse any motors](../config/actuators.md#reversing-motors) that don't match the spin direction configured in the Geometry. For DShot ESC you can do this through the Acuator Testing UI.
 - PWM, OneShot, and CAN ESC, set the motor input limits for disarmed, low and high speed (not needed for DShot ESC)
 
-Relevant topics:
+相关章节：
 
 - [Vehicle (Frame) Selection](../config/airframe.md) — Select vehicle type to match your frame.
 - [Actuator Configuration and Testing](../config/actuators.md) — Vehicle geometry, output mapping, motor configuration, testing.
@@ -56,14 +56,14 @@ We first need to set the [Sensor Orientation](../config/flight_controller_orient
 
 The core sensor setup is covered in these topics:
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Gyroscope](../config/gyroscope.md)
-- [Accelerometer](../config/accelerometer.md)
+- [传感器方向](../config/flight_controller_orientation.md)
+- [罗盘](../config/compass.md)
+- [陀螺仪](../config/gyroscope.md)
+- [加速度计](../config/accelerometer.md)
 
 PX4 can use other peripherals, such as distance sensors, optical flow sensors, traffic avoidance alarms, cameras, and so on:
 
-- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
+- [飞控外设](../peripherals/index.md) - 设置特定传感器、可选传感器、执行器等。
 
 ::: info Sensors that you don't need to calibrate/configure include:
 
@@ -84,7 +84,7 @@ A manual control is essential in order to bring up a new vehicle safely!
 Radio Control:
 
 - [Radio Controller (RC) Setup](../config/radio.md)
-- [Flight Mode Configuration](../config/flight_mode.md)
+- [飞行模式有关配置](../config/flight_mode.md)
 
 Joystick/GamePad:
 
@@ -143,10 +143,10 @@ Yes but it must be physically feasible. E.g. if you make a quadrotor where all m
 ## 另见
 
 - [QGroundControl > 设置](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
-- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
+- [飞控外设](../peripherals/index.md) - 设置特定传感器、可选传感器、执行器等。
 - [Advanced Configuration](../advanced_config/index.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Vehicle-Centric Config/Tuning:
-  - **Multicopter Config/Tuning**
+  - **多旋翼配置/调试**
   - [Helicopter Config/Tuning](../config_heli/index.md)
   - [Fixed Wing Config/Tuning](../config_fw/index.md)
-  - [VTOL Config/Tuning](../config_vtol/index.md)
+  - [垂直起降配置/调试](../config_vtol/index.md)
