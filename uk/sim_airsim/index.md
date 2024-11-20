@@ -20,7 +20,7 @@
 
 #### AirSim з PX4 на WSL 2
 
-<lite-youtube videoid="DiqgsWIOoW4" title="AirSim with PX4 on WSL 2"/>
+<lite-youtube videoid="DiqgsWIOoW4" title="AirSim з PX4 на WSL 2"/>
 
 <!-- datestamp:video:youtube:20210401:AirSim with PX4 on WSL 2 -->
 
