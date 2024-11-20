@@ -8,13 +8,13 @@ This topic explains how to configure a multicopter using selected topics from [S
 This topic is the recommended entry point when performing first-time configuration and calibration of a new multicopter frame.
 :::
 
-## Loading Firmware
+## 펌웨어 설치 및 업데이트
 
 The first step is to [load PX4 firmware](../config/firmware.md) onto your [flight controller](../flight_controller/index.md). This is most easily done using QGroundControl, which will automatically select appropriate firmware for your particular controller hardware. By default QGC will install the latest stable version of PX4, but you can choose beta or custom versions instead if needed.
 
 Relevant topics:
 
-- [Loading Firmware](../config/firmware.md)
+- [펌웨어 설치 및 업데이트](../config/firmware.md)
 
 ## Frame Selection and Configuration
 
@@ -56,10 +56,10 @@ We first need to set the [Sensor Orientation](../config/flight_controller_orient
 
 The core sensor setup is covered in these topics:
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Gyroscope](../config/gyroscope.md)
-- [Accelerometer](../config/accelerometer.md)
+- [센서 방향](../config/flight_controller_orientation.md)
+- [나침반](../config/compass.md)
+- [자이로스코프 ](../config/gyroscope.md)
+- [가속도계](../config/accelerometer.md)
 
 PX4 can use other peripherals, such as distance sensors, optical flow sensors, traffic avoidance alarms, cameras, and so on:
 
@@ -84,7 +84,7 @@ A manual control is essential in order to bring up a new vehicle safely!
 Radio Control:
 
 - [Radio Controller (RC) Setup](../config/radio.md)
-- [Flight Mode Configuration](../config/flight_mode.md)
+- [비행 모드 설정](../config/flight_mode.md)
 
 Joystick/GamePad:
 
@@ -97,7 +97,7 @@ PX4 can be configured to automatically handle conditions such as low battery, lo
 - [Battery Estimation Tuning](../config/battery.md) — estimate remaining power (needed for low power failsafe).
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
-## Tuning
+## 튜닝
 
 Tuning is the final step, carried out only after most other setup and configuration is complete.
 
@@ -142,11 +142,11 @@ Yes but it must be physically feasible. E.g. if you make a quadrotor where all m
 
 ## See Also
 
-- [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
+- [QGroundControl &gt; 설정](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
 - [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
 - [Advanced Configuration](../advanced_config/index.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Vehicle-Centric Config/Tuning:
   - **Multicopter Config/Tuning**
   - [Helicopter Config/Tuning](../config_heli/index.md)
   - [Fixed Wing Config/Tuning](../config_fw/index.md)
-  - [VTOL Config/Tuning](../config_vtol/index.md)
+  - [VTOL 설정 및 튜닝](../config_vtol/index.md)
