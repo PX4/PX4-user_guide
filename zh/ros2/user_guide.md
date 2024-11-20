@@ -374,16 +374,15 @@ This is needed because the ROS 2 default [Quality of Service (QoS) settings](htt
 
 The local/world and body frames used by ROS and PX4 are different.
 
-| Frame | PX4                                              | ROS                                            |
-| ----- | ------------------------------------------------ | ---------------------------------------------- |
-| Body  | FRD (X **F**orward, Y **R**ight, Z **D**own)     | FLU (X **F**orward, Y **L**eft, Z **U**p)      |
-| World | FRD or NED (X **N**orth, Y **E**ast, Z **D**own) | FLU or ENU (X **E**ast, Y **N**orth, Z **U**p) |
+| 框架    | PX4                                                                           | ROS                                            |
+| ----- | ----------------------------------------------------------------------------- | ---------------------------------------------- |
+| 机体    | FRD (X **F**orward, Y **R**ight, Z **D**own)                                  | FLU (X **F**orward, Y **L**eft, Z **U**p)      |
+| 世界坐标系 | ENU (X **E**ast, Y **N**orth and Z Up), with the naming being `odom` or `map` | FLU or ENU (X **E**ast, Y **N**orth, Z **U**p) |
 
-:::tip
-See [REP105: Coordinate Frames for Mobile Platforms](http://www.ros.org/reps/rep-0105.html) for more information about ROS frames.
+The following steps explain how to feed position estimates from an [OptiTrack](http://optitrack.com/systems/#robotics) system to PX4. It is assumed that the MoCap system is calibrated. See [this video](https://www.youtube.com/watch?v=cNZaFEghTBU) for a tutorial on the calibration process.
 :::
 
-Both frames are shown in the image below (FRD on the left/FLU on the right).
+如果你把机体命名为 `robot1`，你会得到一个主题，比如 `/vrpn_client_node/robot1/pose`
 
 ![Reference frames](../../assets/lpe/ref_frames.png)
 
@@ -610,7 +609,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-### Offboard Control
+### Offboard控制
 
 For a complete reference example on how to use Offboard control with PX4, see: [ROS 2 Offboard control example](../ros2/offboard_control.md).
 
@@ -648,7 +647,7 @@ Custom topic namespaces can be applied at build time (changing [dds_topics.yaml]
 uxrce_dds_client start -n uav_1
 ```
 
-or
+或
 
 ```sh
 PX4_UXRCE_DDS_NS=uav_1 make px4_sitl gz_x500
@@ -748,7 +747,7 @@ You don't need to have a launch file, but they are very useful if you have a com
 
 For information about launch files see [ROS 2 Tutorials > Creating launch files](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
 
-## Troubleshooting
+## 故障处理
 
 ### Missing dependencies
 
