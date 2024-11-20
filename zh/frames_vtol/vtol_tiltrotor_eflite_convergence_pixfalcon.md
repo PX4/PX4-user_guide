@@ -7,7 +7,7 @@ The [E-Flite Convergence](https://youtu.be/HNedXQ_jhYo) can easily be converted 
 <lite-youtube videoid="E61P2f2WPNU" title="E-flite Convergence Autonomous Mission Flight"/>
 
 
-## Where to Buy
+## 在哪里买
 
 Vehicle frame options:
 - **WL Tech XK X450** - [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
@@ -40,7 +40,7 @@ The flight controller can be mounted at the same place the original autopilot wa
 
 ![Mount Pixfalcon](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
 
-### Telemetry Radio
+### 数传电台
 
 The telemetry module fits into the bay meant to hold FPV transmission gear.
 
@@ -53,12 +53,12 @@ For the GPS we cut out a section of foam inside the "cockpit". That way the GPS 
 ![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
 
-## PX4 Configuration
+## PX4 配置
 
 Follow the [Standard Configuration](../config/index.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
 
 The particular settings that are relevant to this vehicle are:
-- [Airframe](../config/airframe.md)
+- [机架](../config/airframe.md)
   - Select the airframe configuration **E-flite Convergence** under **VTOL Tiltrotor** and restart *QGroundControl*. ![QGroundControl Vehicle Setting - Airframe selection E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
 - [Flight Modes/Switches](../config/flight_mode.md)
   - As this is a VTOL vehicle, you must [assign an RC controller switch](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) for transitioning between multicopter and fixed-wing modes.
