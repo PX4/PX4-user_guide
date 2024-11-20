@@ -134,7 +134,7 @@ Find `console=/dev/ttyAMA0,115200` and remove that part to disable the login she
 net.ifnames=0 dwc_otg.lpm_enable=0 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc isolcpus=2
 ```
 
-The above line tells the Linux kernel do not schedule any process on CPU core 2. We will manually run PX4 onto that core later.
+The above line tells the Linux kernel do not schedule any process on CPU core 2. 我们将在稍后手动在该核心运行 PX4。
 
 检查串口：
 
@@ -160,11 +160,11 @@ ls /dev/i2c*
 ls /dev/spidev*
 ```
 
-There should be `/dev/spidev0.0`.
+应该有 `/dev/spidev0.0`。
 
 #### rc.local
 
-In this section we will configure the auto-start script in **rc.local**. Note that we need to create this file, as it is not present on a fresh Ubuntu OS.
+在本节中，我们将在 **rc.local** 中配置自动启动脚本。 Note that we need to create this file, as it is not present on a fresh Ubuntu OS.
 
 ```sh
 sudo nano /etc/rc.local
@@ -186,7 +186,7 @@ echo "25" > /sys/class/gpio/unexport
 exit 0
 ```
 
-Save and exit. Then set the correct permissions:
+保存并退出。 Then set the correct permissions:
 
 ```sh
 sudo chmod +x /etc/rc.local
@@ -269,8 +269,7 @@ If you are compiling for the first time with docker, please refer to the [offici
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
 
-::: info
-mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
+所有可用的混控配置都存储在 `etc/mixers` 中。 您也可以自己创建一个。
 :::
 
 ::: info If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
@@ -310,8 +309,7 @@ If you are compiling for the first time with docker, please refer to the [offici
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_arm64 upload"
 ```
 
-::: info
-mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
+所有可用的混控配置都存储在 `etc/mixers` 中。 您也可以自己创建一个。
 :::
 
 ::: info If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too - just remove the `upload` target.
@@ -332,17 +330,17 @@ cd px4
 sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 ```
 
-Now PX4 is started with multi-rotor configuration.
+在执行下一步之前，先清除现有构建目录：
 
-If you encountered the similar problem executing `bin/px4` on your Pi as following:
+以下方法可以获得与CI相同的编译工具与环境。
 
 ```
 bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
 ```
 
-Then you should compile with docker instead.
+如果您是首次使用 Docker 进行编译，请参考[官方说明](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites)。
 
-Before proceeding to next step, clear the existing building at first:
+在 PX4-Autopilot 文件夹下执行：
 
 ```sh
 rm -rf build/scumaker_pilotpi_*
