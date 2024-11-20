@@ -67,7 +67,7 @@ PX4 펌웨어를 실행하면, 8개의 PWM 출력만 작동합니다.
 나머지 6 개의 PWM 포트는 여전히 조정중입니다(따라서 작성시 VOLT와 호환되지 않음).
 :::
 
-## Where to Buy
+## 구매처
 
 - [CUAV 상점](https://store.cuav.net)<\br>
 - [CUAV 알리익스프레스](https://www.aliexpress.com/item/4001042501927.html?gps-id=8041884&scm=1007.14677.110221.0&scm_id=1007.14677.110221.0&scm-url=1007.14677.110221.0&pvid=3dc0a3ba-fa82-43d2-b0b3-6280e4329cef&spm=a2g0o.store_home.promoteRecommendProducts_7913969.58)
