@@ -9,7 +9,7 @@ Source: [modules/fw_autotune_attitude_control](https://github.com/PX4/PX4-Autopi
 
 <a id="fw_autotune_attitude_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 fw_autotune_attitude_control <command> [arguments...]
  Commands:
@@ -29,7 +29,7 @@ Source: [modules/mc_autotune_attitude_control](https://github.com/PX4/PX4-Autopi
 
 <a id="mc_autotune_attitude_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 mc_autotune_attitude_control <command> [arguments...]
  Commands:
