@@ -224,7 +224,7 @@ Source: [drivers/barometer/lps33hw](https://github.com/PX4/PX4-Autopilot/tree/ma
 
 <a id="lps33hw_usage"></a>
 
-### Usage
+### 用法
 ```
 lps33hw <command> [arguments...]
  Commands:
@@ -252,7 +252,7 @@ Source: [drivers/barometer/maiertek/mpc2520](https://github.com/PX4/PX4-Autopilo
 
 <a id="mpc2520_usage"></a>
 
-### Usage
+### 用法
 ```
 mpc2520 <command> [arguments...]
  Commands:
@@ -275,7 +275,7 @@ Source: [drivers/barometer/mpl3115a2](https://github.com/PX4/PX4-Autopilot/tree/
 
 <a id="mpl3115a2_usage"></a>
 
-### Usage
+### 用法
 ```
 mpl3115a2 <command> [arguments...]
  Commands:
@@ -298,7 +298,7 @@ Source: [drivers/barometer/ms5611](https://github.com/PX4/PX4-Autopilot/tree/mai
 
 <a id="ms5611_usage"></a>
 
-### Usage
+### 用法
 ```
 ms5611 <command> [arguments...]
  Commands:
@@ -333,7 +333,7 @@ Source: [drivers/barometer/ms5837](https://github.com/PX4/PX4-Autopilot/tree/mai
 
 <a id="ms5837_usage"></a>
 
-### Usage
+### 用法
 ```
 ms5837 <command> [arguments...]
  Commands:
@@ -354,7 +354,7 @@ Source: [drivers/barometer/goertek/spl06](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="spl06_usage"></a>
 
-### Usage
+### 用法
 ```
 spl06 <command> [arguments...]
  Commands:
