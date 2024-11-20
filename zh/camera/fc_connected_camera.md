@@ -6,7 +6,7 @@ This topic explains how to use PX4 with a [camera](../camera/index.md) that is a
 [MAVLink cameras](../camera/mavlink_v2_camera.md) that use the [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) are recommended.
 :::
 
-## Overview
+## 综述
 
 PX4 can trigger a [camera](../camera/index.md) connected to flight controller outputs using [camera commands](#mavlink-command-interface) in missions or sent by a ground control stations.
 The supported commands are a subset of those defined in the MAVLink [Camera Protocol v1](https://mavlink.io/en/services/camera.html).
@@ -39,7 +39,7 @@ The supported behaviour is listed below (these do not precisely match the MAVLin
 
 [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - Accepted in "command controlled" mode (`TRIG_MODE` 1).
 
-| Command Parameter | Description                                                                                                                                                        |
+| Command Parameter | 描述                                                                                                                                                                 |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Param #1          | Trigger enable/disable. `1`: enable (start), `0`: disable.                      |
 | Param #2          | Reset trigger sequence. `1`: reset, any other value does nothing.                                                  |
@@ -54,7 +54,7 @@ The supported behaviour is listed below (these do not precisely match the MAVLin
 This is used by the GCS to test-shoot the camera from the user interface.
 The trigger driver does not support all camera control parameters defined by the MAVLink spec.
 
-| Command Parameter | Description                                                                                             |
+| Command Parameter | 描述                                                                                                      |
 | ----------------- | ------------------------------------------------------------------------------------------------------- |
 | Param #5          | Trigger one-shot command (set to 1 to trigger a single image frame). |
 
@@ -97,7 +97,7 @@ For more information see [Finding/Updating Parameters > Parameters Not In Firmwa
 
 Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
 
-| Mode | Description                                                                                                                                                                                                                                    |
+| Mode | 描述                                                                                                                                                                                                                                             |
 | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0    | Camera triggering is disabled.                                                                                                                                                                                                 |
 | 1    | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#mavlink-command-interface) for more details.            |
@@ -113,7 +113,7 @@ If it is your first time enabling the camera trigger app, remember to reboot aft
 
 The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter:
 
-| Number | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Number | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1      | Enables the GPIO interface. The AUX outputs are pulsed high or low (depending on the `TRIG_POLARITY` parameter) every [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL) duration. This can be used to trigger most standard machine vision cameras directly. Note that on PX4FMU series hardware (Pixhawk, Pixracer, etc.), the signal level on the AUX pins is 3.3v.                                                                |
 | 2      | Enables the Seagull MAP2 interface. This allows the use of the [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) to interface to a multitude of supported cameras. Pin/Channel 1 (camera trigger) and Pin/Channel 2 (mode selector) of the MAP2 should be connected to the lower and higher mapped [camera trigger pins](#trigger-output-pin-configuration). Using Seagull MAP2, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1. |
@@ -137,9 +137,9 @@ At time of writing triggering only works on FMU pins:
 
 :::
 
-### Other Parameters
+### 其他参数
 
-| Parameter                                                                                                          | Description                                                                                                                                                                                                                                                             |
+| 参数                                                                                                                 | 描述                                                                                                                                                                                                                                                                      |
 | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [TRIG_POLARITY](../advanced_config/parameter_reference.md#TRIG_POLARITY)                      | Relevant only while using the GPIO interface. Sets the polarity of the trigger pin. Active high means that the pin is pulled low normally and pulled high on a trigger event. Active low is vice-versa. |
 | [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL)                      | Defines the time between two consecutive trigger events in milliseconds.                                                                                                                                                                                |
