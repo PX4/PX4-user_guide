@@ -12,11 +12,6 @@ Order this module from:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-cannode/) (US)
 
-Find more information:
-
-- [ARK CANnode Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-cannode)
-
-
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_CANNODE)
@@ -101,3 +96,7 @@ If you see a solid red LED there is an error and you should check the following:
 - Make sure the flight controller has an SD card installed.
 - Make sure the ARK CANnode has `ark_cannode_canbootloader` installed prior to flashing `ark_cannode_default`.
 - Remove binaries from the root and ufw directories of the SD card and try to build and flash again.
+
+## See Also
+
+- [ARK CANnode Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-cannode) (Ark Docs)
