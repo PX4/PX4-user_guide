@@ -1,10 +1,10 @@
-# Companion Computers
+# 보조 컴퓨터
 
 Companion computers ("mission computers"), are separate on-vehicle computers that are connected to the flight controller, and which enable computationally expensive features like [collision prevention](../computer_vision/collision_prevention.md).
 
 The diagram below shows a possible architecture for an unmanned vehicle architecture that includes a flight controller and companion computer.
 
-![PX4 architecture - FC + Companion Computer](../../assets/diagrams/px4_companion_computer_simple.svg)
+![PX4 아키텍처 - FC + 보조 컴퓨터](../../assets/diagrams/px4_companion_computer_simple.svg)
 
 <!-- source for drawing: https://docs.google.com/drawings/d/1ZDSyj5djKCEbabgx8K4ESdTeEUizgEt8spUWrMGbHUE/edit?usp=sharing -->
 
@@ -53,7 +53,7 @@ The companion computer needs to run software that communicates with the flight c
 
 #### Drone Apps
 
-Drone APIs and SDKs allow you to write software that can control PX4. Popular alternatives include:
+Drone APIs and SDKs allow you to write software that can control PX4. 많이 사용되는 제품들은 다음과 같습니다.
 
 - [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) - libraries in various programming languages to interface with MAVLink systems such as drones, cameras or ground systems.
 - [ROS 2](../ros2/index.md) to communicate to ROS 2 nodes (may also be used).
@@ -85,5 +85,5 @@ The following topics explain how to set up companion computers for specific flig
 
 ## Additional Information
 
-- [Companion Computer Peripherals](../companion_computer/companion_computer_peripherals.md)
+- [보조 컴퓨터 주변 기기](../companion_computer/companion_computer_peripherals.md)
 - [PX4 System Architecture > FC and Companion Computer](../concept/px4_systems_architecture.md#fc-and-companion-computer)
