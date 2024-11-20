@@ -1,4 +1,4 @@
-# Flying with Motion Capture (VICON, NOKOV, Optitrack)
+# 움직임 감지(Motion Capture)기술을 활용한 비행 (VICON, Optitrack)
 
 :::warning
 **WORK IN PROGRESS**
@@ -25,7 +25,7 @@ This section shows how to setup the system with the proper reference frames. The
 
 Frames are shown in the image below. NED on the left, ENU on the right:
 
-![Reference frames](../../assets/lpe/ref_frames.png)
+![기준 프레임](../../assets/lpe/ref_frames.png)
 
 With the external heading estimation, however, magnetic North is ignored and faked with a vector corresponding to world _x_ axis (which can be placed freely at mocap calibration); yaw angle will be given respect to local _x_.
 
@@ -43,6 +43,6 @@ See [Switching State Estimators](../advanced/switching_state_estimators.md) for 
 
 The ROS topic for motion cap `mocap_pose_estimate` for mocap systems and `vision_pose_estimate` for vision. Check [mavros_extras](http://wiki.ros.org/mavros_extras) for further info.
 
-## Testing
+## 시험
 
-## Troubleshooting
+## 문제 해결
