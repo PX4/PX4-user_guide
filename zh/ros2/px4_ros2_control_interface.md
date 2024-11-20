@@ -22,7 +22,7 @@ They can even replace the default modes in PX4 with enhanced ROS 2 versions, fal
 The library also provides classes for sending different types of setpoints, ranging from high-level navigation tasks all the way down to direct actuator controls.
 These classes abstract the internal setpoints used by PX4, and that can therefore be used to provide a consistent ROS 2 interface for future PX4 and ROS releases.
 
-## Overview
+## 综述
 
 This diagram provides a conceptual overview of how the control interface modes and mode executors interact with PX4.
 
