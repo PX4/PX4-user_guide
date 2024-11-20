@@ -9,12 +9,12 @@ It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, an
 
 ## Technical Specification
 
-| Hardware                                          | Type                                                                                                                       |
+| 硬件                                                | 类型                                                                                                                         |
 | :------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------- |
-| Compass                                           | IST8310                                                                                                                    |
+| 罗盘                                                | IST8310                                                                                                                    |
 | GNSS receiver                                     | UBLOX NEO M9N                                                                                                              |
 | RGB drive                                         | NC5623C                                                                                                                    |
-| Buzzer                                            | Passive buzzer                                                                                                             |
+| 蜂鸣器                                               | Passive buzzer                                                                                                             |
 | Safety switch                                     | Physical button                                                                                                            |
 | GNSS                                              | Beidou, Galileo, GLONASS, GPS                                                                                              |
 | GNSS Augmentation System                          | SBAS:WAAS,EGNOS,MSAS<br>QZSS:L1s(SAIF)<br>other：RTCM3.3 |
@@ -37,19 +37,19 @@ It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, an
 | Size                                              | 60\*60\*16MM                                                                                                               |
 | Weight                                            | 33g                                                                                                                        |
 
-## Dimensions
+## 尺寸
 
 ![Neo 3 Size](../../assets/hardware/gps/cuav_gps_neo3/neo_3_size.png)
 
-## Pinouts
+## 针脚定义
 
 ![Neo 3 Pinouts](../../assets/hardware/gps/cuav_gps_neo3/neo_3_pinouts.png)
 
-## Where to Buy
+## 在哪里买
 
 - [CUAV](https://cuav.en.alibaba.com/product/1600217379204-820872629/CUAV_NEO_3_M9N_GPS_Module_for_Pixhawk_Compass_gps_tracker_navigation_gps.html?spm=a2700.shop_oth.74.1.636e28725EvVHb)
 
-## Wiring and Connections
+## 接线和连接
 
 Neo3 wiring and connection diagram
 
