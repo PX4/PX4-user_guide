@@ -6,7 +6,7 @@ Pixhawk controllers usually comes with an appropriate bootloader version pre-ins
 
 이 섹션은 픽스호크 부트로더를 업데이트 방법을 설명합니다.
 
-::: info
+:::note
 
 - Most boards will need to use the [Debug Probe](#debug-probe-bootloader-update) to update the bootloader.
 - On [FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) you can [install bootloader/unbrick boards via USB](bootloader_update_v6xrt.md). This is useful if you don't have a debug probe.
