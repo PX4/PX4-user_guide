@@ -192,12 +192,11 @@ ESC 신호의 경우 [Pixracer의 하드웨어 문서](../flight_controller/pixr
 
 ![카메라](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
 
-## PX4 Configuration
+## PX4 설정
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 프레임에 대한 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
-:::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
+:::tip PX4 설치 및 성정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
 :::warning
@@ -208,37 +207,37 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 
 First update the firmware, airframe, and actuator mappings:
 
-- [Firmware](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [펌웨어](../config/firmware.md)
+- [기체](../config/airframe.md)
 
   You will need to select the *Generic 250 Racer* airframe (**Quadrotor x > Generic 250 Racer**).
 
   ![QGC airframe selection of generic 250 racer](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/qgc_airframe_generic_250_racer.png)
 
-- [Actuators](../config/actuators.md)
+- [액츄에이터](../config/actuators.md)
   - You should not need to update the vehicle geometry.
   - Assign actuator functions to outputs to match your wiring.
   - Test the configuration using the sliders.
 
-Then perform the mandatory setup/calibration:
+그리고, 설치후에 필수적인 설정 작업과 보정 작업을 진행하여야 합니다.
 
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+* [센서 방향](../config/flight_controller_orientation.md)
+* [나침반](../config/compass.md)
+* [가속도계](../config/accelerometer.md)
+* [수평 보정](../config/level_horizon_calibration.md)
+* [무선 조종기 설정](../config/radio.md)
+* [비행 모드 ](../config/flight_mode.md)
 
-Ideally you should also do:
+이후 다음 작업 역시 수행되어야 합니다:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery Estimation Tuning](../config/battery.md)
+- [ESC 보정](../advanced_config/esc_calibration.md)
+- [배터리](../config/battery.md)
   - 4S (4 cell LiPo) with charged cell voltage 4.15V and empty cell voltage 3.5V (or appropriate values for your battery).
-- [Safety](../config/safety.md)
+- [안전 설정](../config/safety.md)
 
 
 ### 튜닝
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
 
 For instructions on how, start from [Autotune](../config/autotune_mc.md).
