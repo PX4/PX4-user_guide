@@ -79,7 +79,7 @@ Supported rangefinders include:
 
 [RaccoonLab µRANGEFINDER](https://docs.raccoonlab.co/guide/rangefinder/uRANGEFINDER.html) is designed to measure distance and publish it via Cyphal/DroneCAN protocols. It can be used to estimate precision landing or object avoidance.
 
-Features:
+Функції:
 
 - [VL53L1CBV0FY-1](https://www.st.com/resource/en/datasheet/vl53l1.pdf) sensor
 - Input voltage sensor
@@ -137,9 +137,9 @@ listener distance_sensor 5
 
 Для отримання додаткової інформації див.: [Розробка > Налагодження/Журналювання> Налагодження датчика/Теми за допомогою команди слухача](../debug/sensor_uorb_topic_debugging.md).
 
-## Simulation
+## Моделювання
 
-### Gazebo Simulation
+### Симуляції Gazebo
 
 Lidar and sonar rangefinders can be used in the [Gazebo](../sim_gazebo_gz/index.md) simulator. Для цього вам потрібно запустити симулятор, використовуючи модель автомобіля, яка включає дальномір.
 
@@ -167,7 +167,7 @@ Front-facing sensors that write to [ObstacleDistance](../msg_docs/ObstacleDistan
 
 ### Класичний симулятор Gazebo
 
-Лідар та сонарні дальномери можуть бути використані в симуляторі [Gazebo Classic](../sim_gazebo_classic/index.md). To do this you must start the simulator using a vehicle model that includes the rangefinder.
+Лідар та сонарні дальномери можуть бути використані в симуляторі [Gazebo Classic](../sim_gazebo_classic/index.md). Для цього вам потрібно запустити симулятор, використовуючи модель автомобіля, яка включає дальномір.
 
 Модель оптичного потоку ірису включає лідарний дальномер:
 
