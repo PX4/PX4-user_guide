@@ -4,7 +4,7 @@
 
 While it can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](index.md).
 
-## Where to Buy
+## 在哪里买
 
 Multiple vendors sell ESC hardware that runs sapog firmware:
 
@@ -104,15 +104,15 @@ You can manually configure the ESC index and direction using the [DroneCAN GUI T
 ::: info See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
 :::
 
-### PX4 Configuration
+### PX4 配置
 
 Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
-## Troubleshooting
+## 故障处理
 
 See [DroneCAN Troubleshooting](index.md#troubleshooting)
 
-## Further Information
+## 更多信息
 
 - [PX4/Sapog](https://github.com/PX4/sapog#px4-sapog) (Github)
 - [Sapog v2 Reference Manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf)
