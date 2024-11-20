@@ -3,7 +3,7 @@
 This tutorial explains how to _manually_ tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
 
 :::tip
-[Autotune](../config/autotune_mc.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
+[Autotune](../config/autotune_mc.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. 建议对自动调整不起作用或必须进行更加的调校的机型进行手工调整。
 :::
 
 Generally if you're using an appropriate [supported frame configuration](../airframes/airframe_reference.md#copter), the default tuning should allow you to fly the vehicle safely. Tuning is recommended for all new vehicle setups to get the _very best_ performance, because relatively small hardware and assembly changes can affect the gains required tuning gains for optimal flight. For example, different ESCs or motors change the optimal tuning gains.
@@ -28,7 +28,7 @@ The testing procedure for each controller (rate, attitude, velocity/position) an
 - Use [Position mode](../flight_modes_mc/position.md) to tune the _Velocity Controller_ and the _Position Controller_. Make sure to switch to the _Simple position control_ mode so you can generate step inputs. ![QGC PID tuning: Simple control selector](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_simple_control.png)
 :::
 
-## Preconditions
+## 前置条件
 
 - You have selected the closest matching [default frame configuration](../config/airframe.md) for your vehicle. This should give you a vehicle that already flies.
 - You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
