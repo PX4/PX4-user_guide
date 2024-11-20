@@ -127,4 +127,4 @@ For more information see [Radio Control Setup > RC Loss Detection](../config/rad
 - [遥控器设置](../config/radio.md) - 使用 PX4设置你的遥控器。
 - Manual Flying on [multicopter](../flying/basic_flying_mc.md) or [fixed wing](../flying/basic_flying_fw.md) - Learn how to fly with a remote control.
 - [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md)
-- [FrSky Telemetry](../peripherals/frsky_telemetry.md)
+- [睿思凯数传](../peripherals/frsky_telemetry.md)
