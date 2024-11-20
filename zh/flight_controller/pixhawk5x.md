@@ -1,6 +1,6 @@
 # Holybro Pixhawk 5X
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 _Pixhawk 5X_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
@@ -45,24 +45,24 @@ The Pixhawk® 5X is perfect for developers at corporate research labs, startups,
 ## Technical specification
 
 - FMU Processor: STM32F765
-  - 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-- IO Processor: STM32F100
-  - 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
+  - 32 位 Arm® Cortex®-M7，216MHz，2MB 储存，512KB RAM
+- IO 处理器：STM32F100
+  - 32 位 Arm® Cortex®-M3，24MHz，8KB SRAM
 - On-board Sensors:
 
   - Accel/Gyro: ICM-20649
   - Accel/Gyro: ICM-42688P
-  - Accel/Gyro: ICM-20602
+  - 加速度计 / 陀螺仪：ICM-20602
   - Magnetometer: BMM150
   - Barometer: 2x BMP388
 
-- Interfaces
+- 接口
 
   - 16- PWM servo outputs
   - R/C input for Spektrum / DSM
   - Dedicated R/C input for PPM and S.Bus input
   - Dedicated analog / PWM RSSI input and S.Bus output
-  - 4 general purpose serial ports
+  - 4个通用串行口
     - 3 with full flow control
     - 1 with separate 1.5A current limit
     - 1 with I2C and additional GPIO line for external NFC reader
@@ -82,17 +82,17 @@ The Pixhawk® 5X is perfect for developers at corporate research labs, startups,
     - CAN Bus has individual silent controls or ESC RX-MUX control
   - 2 Power input ports with SMBus
   - 1 AD & IO port
-    - 2 additional analog input
+    - 2 个模拟输入接口
     - 1 PWM/Capture input
     - 2 Dedicated debug and GPIO lines
 
-- Voltage Ratings
+- 额定电压
 
   - Max input voltage: 6V
-  - USB Power Input: 4.75~5.25V
-  - Servo Rail Input: 0~36V
+  - USB 电源输入：4.75~5.25V
+  - 伺服导轨输入电压：0~36V
 
-- Dimensions
+- 尺寸
 
   - Flight Controller Module: 38.8 x 31.8 x 14.6mm
   - Standard Baseboard: 52.4 x 103.4 x 16.7mm
@@ -102,14 +102,14 @@ The Pixhawk® 5X is perfect for developers at corporate research labs, startups,
   - Flight Controller Module: 23g
   - Standard Baseboard: 51g
 
-- Other Characteristics:
+- 其它特性:
   - Operating & storage temperature: -40 ~ 85°c
 
-## Where to Buy
+## 在哪里买
 
 Order from [Holybro](https://holybro.com/products/pixhawk-5x).
 
-## Assembly/Setup
+## 组装 / 设置
 
 The [Pixhawk 5X Wiring Quick Start](../assembly/quick_start_pixhawk5x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
 
@@ -117,7 +117,7 @@ The [Pixhawk 5X Wiring Quick Start](../assembly/quick_start_pixhawk5x.md) provid
 
 ![Pixhawk 5x Wiring Overview](../../assets/flight_controller/pixhawk5x/pixhawk5x_wiring_diagram.jpg)
 
-## Pinouts
+## 针脚定义
 
 ![Pixhawk 5X Pinout](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
@@ -128,9 +128,9 @@ Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 - _Pixhawk 5X_ pinouts can be downloaded in PDF from from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
 
-## Serial Port Mapping
+## 串口映射
 
-| UART   | Device     | Port          |
+| UART   | 设备         | Port          |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | GPS           |
 | USART2 | /dev/ttyS1 | TELEM3        |
@@ -141,11 +141,11 @@ Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
 | UART7  | /dev/ttyS6 | TELEM1        |
 | UART8  | /dev/ttyS7 | GPS2          |
 
-## Dimensions
+## 尺寸
 
 ![Pixhawk 5X Dimensions](../../assets/flight_controller/pixhawk5x/pixhawk5x_dimensions_all.jpg)
 
-## Voltage Ratings
+## 额定电压
 
 _Pixhawk 5X_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**. The **POWER1** & **POWER2** ports on the Pixhawk 5X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
@@ -153,16 +153,16 @@ _Pixhawk 5X_ can be triple-redundant on the power supply if three power sources 
 
 Under these conditions all power sources will be used in this order to power the system:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1** 和 **POWER2** 输入电压（4.9 v 至 5.5 v）
+1. **USB** 输入电压（4.75 v 至 5.25 v）
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1** 与 **POWER2** 输入（可运行范围 4.1V 至 5.7V，0V 至 10V 不会损坏）
+1. **USB** 输入（可运行范围 4.1V 至 5.7V，0V 至 6V 不会损坏）
+1. 舵机输入：**FMU PWM OUT** 和 **I/O PWM OUT** 的 VDD_SERVO 针脚 （0V 至 42V 不会损坏）
 
 **Voltage monitoring**
 
@@ -172,7 +172,7 @@ Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](.
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
 :::
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
@@ -186,21 +186,21 @@ make px4_fmu-v5x_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Debug调试端口
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Pin      | Signal           | Volt  |
+| 针脚       | Signal           | 电压    |
 | -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
+| 2        | `Vtref`          | +3.3V |
+| 2        | Console TX (OUT) | +3.3V |
+| 3        | Console RX (IN)  | +3.3V |
+| 4（黑）     | `SWDIO`          | +3.3V |
+| 6        | `SWCLK`          | +3.3V |
+| 6        | `SWO`            | +3.3V |
+| 7        | NFC GPIO         | +3.3V |
 | 8 (blk)  | PH11             | +3.3V |
 | 9 (blk)  | nRST             | +3.3V |
 | 10 (blk) | `GND`            | GND   |
@@ -210,17 +210,17 @@ For information about using this port see:
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
-## Peripherals
+## 外部设备
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [数字空速传感器](https://holybro.com/products/digital-air-speed-sensor)
+- [遥测无线电模块](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [距离传感器](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## 更多信息
 
 - [Pixhawk 5X Wiring QuickStart](../assembly/quick_start_pixhawk5x.md)
 - [Pixhawk 5X Overview & Specification](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Spec_Overview.pdf) (Holybro)
