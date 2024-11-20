@@ -27,7 +27,7 @@ The Power Management Board (PM Board) serves the purpose of a Power Module as we
 - JST GH 8P Cable
 - 2x JST GH 6P Cable
 
-## Where to Buy
+## 在哪里买
 
 [Pixhawk 4 Power Module (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07)
 
