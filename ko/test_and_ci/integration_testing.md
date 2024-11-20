@@ -139,7 +139,7 @@ This section explains how to write a new python test using ROS 1/MAVROS, test it
    - Search the _Testing_ section
    - Add a new target name and call the test
 
-   For example:
+   예를 들어:
 
    ```sh
    tests_<new_test_target_name>: rostest
