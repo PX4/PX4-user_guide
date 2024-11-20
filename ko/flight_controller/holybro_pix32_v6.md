@@ -1,7 +1,7 @@
 # Holybro Pix32 v6
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+PX4 does not manufacture this (or any) autopilot. 소형화를 위하여 가진 IO가 적습니다.
 :::
 
 _Pix32 v6_<sup>&reg;</sup> is the latest update to the pix32 v5 flight controllers. It is a variant of the Pixhawk 6C with a modular design and shares the same FMUv6C Target. It is comprised of a separate flight controller and carrier board which are connected by a [100 pin connector](https://docs.holybro.com/autopilot/pix32-v6/download). It is designed for those pilots who need a high power, flexible and customizable flight control system.
@@ -17,7 +17,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 :::  
 -->
 
-## Introduction
+## 소개
 
 Inside the Pix32 v6, you can find an STMicroelectronics® based STM32H743, paired with sensor technology from Bosch® & InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
@@ -44,12 +44,12 @@ This flight controller is perfect for people that is looking for a affordable an
   - &#x20;Accel/Gyro: ICM-42688-P&#x20;
   - Accel/Gyro: BMI055&#x20;
   - Mag: IST8310&#x20;
-  - Barometer: MS5611
+  - 기압계: MS5611
 
 ### **Electrical data**
 
 - Voltage Ratings:
-  - Max input voltage: 6V
+  - 최대 입력 전압: 6V
   - USB Power Input: 4.75\~5.25V
   - Servo Rail Input: 0\~36V
 - Current Ratings:
@@ -61,10 +61,10 @@ This flight controller is perfect for people that is looking for a affordable an
 - FC Module Dimensions: 44.8 x 44.8 x 13.5
 - FC Module Weight: 36g
 
-### **Interfaces**
+### **인터페이스**
 
 - 16- PWM servo outputs (8 from IO, 8 from FMU)
-- 3 general purpose serial ports
+- 범용 시리얼 포트 3개
   - `TELEM1` - Full flow control, separate 1.5A current limit
   - `TELEM2` - Full flow control
   - `TELEM3`
@@ -73,7 +73,7 @@ This flight controller is perfect for people that is looking for a affordable an
   - `GPS2` - Basic GPS port
 - 1 I2C port
   - Supports dedicated I2C calibration EEPROM located on sensor module
-- 2 CAN Buses
+- 2개의 CAN 버스
   - CAN Bus has individual silent controls or ESC RX-MUX control
 - 2 Debug ports:
   - FMU Debug
@@ -82,52 +82,52 @@ This flight controller is perfect for people that is looking for a affordable an
 - Dedicated S.BUS output
 - 2 Power input ports (Analog)
 
-- Other Characteristics:
+- 기타 특성:
   - Operating & storage temperature: -40 ~ 85°c
 
-## Where to Buy
+## 구매처
 
 Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pix32-v6).
 
-## Pinouts
+## 핀배열
 
 - [Holybro Pix32 v6 Baseboard Ports Pinout](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-baseboard-ports)
 - [Holybro Pix32 v6 Baseboard Ports Pinout](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-mini-base-ports)
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port          |
-| ------ | ---------- | ------------- |
-| USART1 | /dev/ttyS0 | GPS1          |
-| USART2 | /dev/ttyS1 | TELEM3        |
-| USART3 | /dev/ttyS2 | Debug Console |
-| UART5  | /dev/ttyS3 | TELEM2        |
-| USART6 | /dev/ttyS4 | PX4IO         |
-| UART7  | /dev/ttyS5 | TELEM1        |
-| UART8  | /dev/ttyS6 | GPS2          |
+| UART   | 장치         | 포트     |
+| ------ | ---------- | ------ |
+| USART1 | /dev/ttyS0 | GPS1   |
+| USART2 | /dev/ttyS1 | TELEM3 |
+| USART3 | /dev/ttyS2 | 디버깅 콘솔 |
+| UART5  | /dev/ttyS3 | TELEM2 |
+| USART6 | /dev/ttyS4 | PX4IO  |
+| UART7  | /dev/ttyS5 | TELEM1 |
+| UART8  | /dev/ttyS6 | GPS2   |
 
-## Dimensions
+## 크기
 
 - [Pix32v6 Dimensions](https://docs.holybro.com/autopilot/pix32-v6/dimensions)
 
-## Voltage Ratings
+## 정격 전압
 
 _Pix32 v6_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **USB**, **POWER1**, **POWER2** (N/A on Pix32 v6 Mini-Baseboard) .
 
-**Normal Operation Maximum Ratings**
+**정상 작동 최대 정격 전압**
 
-Under these conditions all power sources will be used in this order to power the system:
+이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야합니다.
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1**과 **POWER2** 입력 (4.9V ~ 5.5V)
+1. **USB** 입력(4.75V ~ 5.25V)
 
-**Absolute Maximum Ratings**
+**절대 최대 정격 전압**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+아래의 조건에서 시스템은 전원을 사용하지 않지만(작동하지 않음), 그대로 유지됩니다.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1**과 **POWER2** 입력 (작동 범위 4.1V ~ 5.7V, 0V ~ 10V 손상되지 않음)
+1. **USB** 입력(작동 범위: 4.1V ~ 5.7V, 비손상 범위: 0V ~ 6V)
+1. 서보 입력 : **FMU PWM OUT** 및 **I/O PWM OUT**의 VDD_SERVO 핀 (0V ~ 42V 손상되지 않음)
 
 **Voltage monitoring**
 
@@ -139,13 +139,13 @@ Holybro makes various analog [power modules](../power_module/index.md) for diffe
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
 
-## Building Firmware
+## 펌웨어 빌드
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
 ```
 make px4_fmu-v6c_default
@@ -153,21 +153,21 @@ make px4_fmu-v6c_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## 디버그 포트
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
+[PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 **FMU 디버그** 포트에서 실행됩니다.
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Pin      | Signal           | Volt  |
+| 핀        | 신호               | 전압    |
 | -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
+| 1 (적)    | `Vtref`          | +3.3V |
+| 2 (흑)    | Console TX (OUT) | +3.3V |
+| 3 (흑)    | Console RX (IN)  | +3.3V |
+| 4 (흑)    | `SWDIO`          | +3.3V |
+| 5 (흑)    | `SWCLK`          | +3.3V |
+| 6 (흑)    | `SWO`            | +3.3V |
+| 7 (흑)    | NFC GPIO         | +3.3V |
 | 8 (blk)  | PH11             | +3.3V |
 | 9 (blk)  | nRST             | +3.3V |
 | 10 (blk) | `GND`            | GND   |
@@ -177,17 +177,17 @@ For information about using this port see:
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
-## Peripherals
+## 주변 장치
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [디지털 대기속도 센서](https://holybro.com/products/digital-air-speed-sensor)
+- [텔레메트리 라디오 모듈](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [거리계/거리 센서](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 지원 플랫폼 및 기체
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## 추가 정보
 
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
 - [참고자료: Pixhawk 6C 배선 퀵 스타트 ](../assembly/quick_start_pixhawk6c.md)
@@ -195,4 +195,4 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
 - [FMUv6C reference design pinout](https://docs.google.com/spreadsheets/d/1FcmWRKd6zjdz3-cnjEDYEmANKZOFzNSc/edit?usp=sharing&ouid=113251442407318461574&rtpof=true&sd=true).
-- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+- [Pixhawk 커넥터 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
