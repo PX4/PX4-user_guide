@@ -4,7 +4,7 @@ Flight modes provide autopilot support to make it easier to manually fly the veh
 
 This topic provides an overview of the available flight modes for multicopters and helicopters.
 
-## Overview
+## 개요
 
 Flight Modes are either _manual_ or _autonomous_.
 Manual modes provide different levels of autopilot support when flying manually (using RC control sticks or a joystick), while _autonomous_ modes can be fully controlled by the autopilot.
@@ -47,7 +47,7 @@ PX4 will not allow transitions to those modes until the right conditions are met
 
 Select the mode-specific sidebar topics for more detailed technical information.
 
-## Further Information
+## 추가 정보
 
 - [Basic Configuration > Flight Modes](../config/flight_mode.md) - How to map RC control switches to specific flight modes
 - [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
