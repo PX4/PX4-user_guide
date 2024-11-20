@@ -1,6 +1,6 @@
 # CUAV V5+ Autopilot
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
 :::
 
 _V5+_<sup>&reg;</sup> is an advanced autopilot manufactured by CUAV<sup>&reg;</sup>. It was designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
@@ -56,7 +56,7 @@ Some of its main features include:
 
   - Operating temperature: -20 ~ 80°c（Measured value）
 
-## Where to Buy<!-- \[CUAV Store\](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->[CUAV Aliexpress](https://www.aliexpress.com/item/32890380056.html?spm=a2g0o.detail.1000060.1.7a7233e7mLTlVl&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.90158.0&scm_id=1007.13339.90158.0&scm-url=1007.13339.90158.0&pvid=d899bfab-a7ca-46e1-adf2-72ad1d649822) (International users)
+## 在哪里买<!-- \[CUAV Store\](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->[CUAV Aliexpress](https://www.aliexpress.com/item/32890380056.html?spm=a2g0o.detail.1000060.1.7a7233e7mLTlVl&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.90158.0&scm_id=1007.13339.90158.0&scm-url=1007.13339.90158.0&pvid=d899bfab-a7ca-46e1-adf2-72ad1d649822) (International users)
 
 [CUAV Taobao](https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-21303114052.37.a28f697aeYzQx9&id=594262853015) (China Mainland users)
 
@@ -137,7 +137,7 @@ Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage 
 For more information see [Using JTAG for hardware debugging](#using-jtag-for-hardware-debugging).
 :::
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                                  |
 | ------ | ---------- | ------------------------------------- |
