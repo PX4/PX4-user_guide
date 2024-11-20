@@ -51,7 +51,7 @@ The _Ainstein_ [US-D1 Standard Radar Altimeter](../sensor/ulanding_radar.md) is 
 
 ### LeddarOne
 
-[LeddarOne](../sensor/leddar_one.md) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
+[LeddarOne](../sensor/leddar_one.md) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. 감지 범위는 1cm ~ 40m이며 UART/직렬 버스로 연결합니다.
 
 ### TFmini
 
@@ -59,7 +59,7 @@ The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low po
 
 ### PSK-CM8JL65-CC5
 
-The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm8jl65_ir_distance_sensor.md) is a very small (38 mm x 18mm x 7mm, <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution. It must be connected to a UART/serial bus.
+The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm8jl65_ir_distance_sensor.md) is a very small (38 mm x 18mm x 7mm, <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution. UART/직렬 버스에 연결됩니다.
 
 ### Avionics Anonymous UAVCAN Laser Altimeter Interface
 
@@ -136,9 +136,9 @@ listener distance_sensor 5
 
 For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
 
-## Simulation
+## 시뮬레이션
 
-### Gazebo Simulation
+### Gazebo 시뮬레이션
 
 Lidar and sonar rangefinders can be used in the [Gazebo](../sim_gazebo_gz/index.md) simulator. To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
