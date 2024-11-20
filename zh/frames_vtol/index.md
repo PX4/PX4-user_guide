@@ -45,7 +45,7 @@ PX4 supports the three most important/main VTOL types.
   </div>
 </div>
 <div class="grid_item">
-  <div class="grid_item_heading"><a href="standardvtol.html" title="Standard VTOL"><big>Standard VTOL</big></a></div>
+  <div class="grid_item_heading"><a href="standardvtol.html" title="标准垂起固定翼"><big>标准垂起固定翼</big></a></div>
   <div class="grid_text">
   Separate rotors/flight controls for multicopter and forward flight. Takes off and lands on belly.
   <img src="../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png" title="Vertical Technologies: Deltaquad" />
@@ -78,7 +78,7 @@ The flight modes for VTOL vehicles are the same as for [multicopter](../flight_m
 
 The transition between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in missions or other auto modes.
 
-## Assembly
+## 组装
 
 ::: info For information about commercial and kit VTOL vehicles see: [Complete Vehicles](../complete_vehicles/index.md) :::
 
@@ -98,7 +98,7 @@ Assembly information is covered in several sections:
 
 In addition, build logs showing how others have set up different types of vehicles are provided as sub topics. For example see [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md).
 
-## Configuration
+## 配置
 
 VTOL configuration is covered in a number of sections:
 
@@ -107,7 +107,7 @@ VTOL configuration is covered in a number of sections:
 - [Peripheral Hardware](../peripherals/index.md) - Configuration for optional hardware and sensors.
 - [Advanced Configuration](../advanced_config/index.md): Additional configuration covering factory tuning and advanced and optional configuration.
 
-## Videos
+## 视频
 
 ### Educational
 
