@@ -10,7 +10,7 @@ PX4 supports a number of common protocols for sending the signals to ESCs: [PWM 
 - [OneShot ESCs and Servos](../peripherals/oneshot.md)
 - [DShot](../peripherals/dshot.md)
 - [DroneCAN ESCs](../dronecan/escs.md)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [ESCキャリブレーション](../advanced_config/esc_calibration.md)
 - [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
 
 A high level overview of the main ESC/Servo protocols supported by PX4 is given below.
@@ -31,7 +31,7 @@ Setup:
 
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md)
 - [PX4 Configuration](../peripherals/pwm_escs_and_servo.md#px4-configuration)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [ESCキャリブレーション](../advanced_config/esc_calibration.md)
 
 ### Oneshot 125
 
@@ -43,7 +43,7 @@ Setup:
 
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md) (same as for PWM ESCs)
 - [PX4 Configuration](../peripherals/oneshot.md#px4-configuration)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [ESCキャリブレーション](../advanced_config/esc_calibration.md)
 
 ### DShot
 
