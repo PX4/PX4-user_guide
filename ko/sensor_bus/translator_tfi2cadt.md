@@ -47,6 +47,6 @@ graph TD
 ::: info TFI2CADT01 does not contain any I2C buffer or accelerator. As it adds additional capacitance on the bus, we advise combining it with some bus booster, e.g. [TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01).
 :::
 
-### Other Resources
+### 기타 자료
 
 * Datasheet of [LTC4317](https://www.analog.com/media/en/technical-documentation/data-sheets/4317fa.pdf)
