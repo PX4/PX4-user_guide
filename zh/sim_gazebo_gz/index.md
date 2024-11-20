@@ -43,15 +43,15 @@ This runs both the PX4 SITL instance and the Gazebo client.
 
 The supported vehicles and `make` commands are listed below. Note that all gazebo make targets have the prefix `gz_`.
 
-| Vehicle                                                                                                                       | Command                             | `PX4_SYS_AUTOSTART` |
+| Vehicle                                                                                                                       | 通信                                  | `PX4_SYS_AUTOSTART` |
 | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------------- |
-| [Quadrotor(x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                                                | `make px4_sitl gz_x500`             | 4001                |
+| [Quadrotor(x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                                                | `make px4_sitl gz_x500`             | 4011                |
 | [X500 Quadrotor with Depth Camera (Front-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera-front-facing) | `make px4_sitl gz_x500_depth`       | 4002                |
 | [Quadrotor(x500) with Vision Odometry](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry)                      | `make px4_sitl gz_x500_vision`      | 4005                |
 | [Quadrotor(x500) with 1D LIDAR (Down-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-down-facing)          | `make px4_sitl gz_x500_lidar_down`  | 4016                |
 | [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)                                    | `make px4_sitl gz_x500_lidar_2d`    | 4013                |
 | [Quadrotor(x500) with 1D LIDAR (Front-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-front-facing)        | `make px4_sitl gz_x500_lidar_front` | 4017                |
-| [VTOL](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                                            | `make px4_sitl gz_standard_vtol`    | 4004                |
+| [垂直起降](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                                            | `make px4_sitl gz_standard_vtol`    | 4004                |
 | [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                                          | `make px4_sitl gz_rc_cessna`        | 4003                |
 | [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                                                 | `make px4_sitl gz_advanced_plane`   | 4008                |
 | [Differential Rover](../sim_gazebo_gz/vehicles.md#differential-rover)                                                         | `make px4_sitl gz_r1_rover`         | 4009                |
@@ -138,7 +138,7 @@ PX4_GZ_WORLD=windy make px4_sitl gz_x500
 
 The [supported worlds](../sim_gazebo_gz/worlds.md) are listed below.
 
-| World      | Command                    | Description                                                 |
+| 世界坐标系      | 通信                         | 描述                                                          |
 | ---------- | -------------------------- | ----------------------------------------------------------- |
 | `default`  | `make px4_sitl *`          | Empty world (a grey plane)                                  |
 | `aruco`    | `make px4_sitl *_aruco`    | Empty world with aruco marker for testing precision landing |
@@ -220,7 +220,7 @@ The PX4 Gazebo worlds and and models databases [can be found on Github here](htt
 `gz_env.sh.in` is compiled and made available in `$PX4_DIR/build/px4_sitl_default/rootfs/gz_env.sh`
 :::
 
-### Examples
+### 示例
 
 Here are some examples of the different scenarios covered above.
 
@@ -316,6 +316,6 @@ Multi-Vehicle simulation is supported on Linux hosts.
 
 For more information see: [Multi-Vehicle Simulation with Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md)
 
-## Further Information
+## 更多信息
 
 - [px4-simulation-ignition](https://github.com/Auterion/px4-simulation-ignition)
