@@ -6,7 +6,7 @@ The _Return_ flight mode is used to _fly a vehicle to safety_ on an unobstructed
 
 PX4 提供了几种机制来选择安全的返航路径，返航目的地和着陆，包括使用其实位置，集结（“安全”）点，任务路径和任务着陆顺序。
 
-- [Multicopter](../flight_modes_mc/return.md)
+- [多旋翼](../flight_modes_mc/return.md)
 - [Fixed-wing (Plane)](../flight_modes_fw/return.md)
 - [垂直起降](../flight_modes_vtol/return.md)
 
@@ -26,7 +26,7 @@ PX4 提供了几种机制来选择安全的返航路径，返航目的地和着�
 
 :::
 
-## Overview
+## 综述
 
 PX4 provides several mechanisms for choosing a safe return path, destination and landing, including using home location, rally ("safe") points, mission paths, and landing sequences defined in a mission.
 
@@ -121,7 +121,7 @@ Mission _without_ landing pattern defined:
 
 无人机在该返航类型中：
 
-- Ascends to a safe [minimum return altitude](#minimum-return-altitude) (above any expected obstacles).
+- 爬升到一个安全的[返航高度](#return_altitude)（高于任何可预期的障碍物）。
 - 飞到最近目的地的直接路径：起始位置，任务着陆模式或集结点。
 - If the destination is a [mission landing pattern](#mission-landing-pattern) the vehicle will follow the pattern to land.
 - If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [lands or waits](#loiter-landing-at-destination). By default an MC or VTOL in MC mode will land, and a fixed-wing vehicle circles at the descent altitude. A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
@@ -187,6 +187,6 @@ The RTL parameters are listed in [Parameter Reference > Return Mode](../advanced
 | <a id="RTL_MIN_DIST"></a>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)          | 能够触发无人机上升到返航高度，距离起始位置的最小水平距离由那个"锥形"指定。 如果无人机在水平方向比这个相对于起始位置的距离更近，它将在当前高度或者在`RTL_DESCEND_ALT`高度（以较高者为准）返航，而不是先上升到RTL_RETURN_ALT）。                                                                                                                                                                         |
 | <a id="RTL_CONE_ANG"></a>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)          | 圆锥半角决定无人机的 RTL 返航高度。 数值(度数)：0、25、45、65、80、90。 请注意，0 为“无圆锥”（始终返回` RTL_RETURN_ALT `或更高），而 90 则表示无人机必须在当前高度或在` RTL_DESCEND_ALT `高度（以较高者为准）返航。                                                                                                                                                                 |
 | <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE)    | Controls whether stick movement on a multicopter (or VTOL in MC mode) causes a mode change to [Position mode](../flight_modes_mc/position.md) (except when vehicle is handling a critical battery failsafe). 可以分别为自动模式和 offboard 模式启用此功能，默认情况下在自动模式下启用此功能。                                                 |
-| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV)    | The amount of stick movement that causes a transition to [Position mode](../flight_modes_mc/position.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).                                                                                                                                            |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV)    | 遥控器打杆多少会切换到 [位置模式](../flight_modes_mc/position.md) （如果 [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) 已启用）。                                                                                                                                                                                                         |
 | <a id="RTL_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)     | [Fixed-wing Only] The radius of the loiter circle (at [RTL_LAND_DELAY](#RTL_LAND_DELAY)).                                                                                                                                                                                                                |
 | <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Specify whether a mission landing or takeoff pattern is _required_. Generally fixed-wing vehicles set this to require a landing pattern but VTOL do not.                                                                                                                                                   |
