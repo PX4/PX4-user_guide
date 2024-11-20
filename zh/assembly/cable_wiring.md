@@ -172,7 +172,7 @@ A colour coding scheme designed for easy cable identification might follow the f
 
 An example of a cable colouring designed to these rules is:
 
-| Color        | Name   | Preferred usage                             |
+| Color        | 名称     | Preferred usage                             |
 | ------------ | ------ | ------------------------------------------- |
 | ![red][1]    | Red    | Power voltage                               |
 | ![green][5]  | Green  | General purpose signal                      |
