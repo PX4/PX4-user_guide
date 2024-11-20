@@ -380,10 +380,10 @@ The local/world and body frames used by ROS and PX4 are different.
 | World | FRD or NED (X **N**orth, Y **E**ast, Z **D**own) | FLU or ENU (X **E**ast, Y **N**orth, Z **U**p) |
 
 :::tip
-See [REP105: Coordinate Frames for Mobile Platforms](http://www.ros.org/reps/rep-0105.html) for more information about ROS frames.
+Дивіться [REP105: Системи координат для мобільних платформ](http://www.ros.org/reps/rep-0105.html) для отримання додаткової інформації про системи координат ROS.
 :::
 
-Both frames are shown in the image below (FRD on the left/FLU on the right).
+Обидві системи координат показані на зображенні нижче (FRD зліва / FLU справа).
 
 ![Reference frames](../../assets/lpe/ref_frames.png)
 
