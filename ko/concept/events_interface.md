@@ -29,7 +29,7 @@ events::send(events::ID("mymodule_test"), events::Log::Info, "Test Message");
 
 For older GCS versions without events interface support, PX4 currently sends out all events also as `mavlink_log_*` `STATUSTEXT` message. In addition, the message must be tagged with an appended tab (`\t`) so that newer GCS's can ignore that and only show the event.
 
-So whenever adding an event, be sure to also add a `mavlink_log_` call. For example:
+So whenever adding an event, be sure to also add a `mavlink_log_` call. 예를 들어:
 
 ```cpp
 mavlink_log_info(mavlink_log_pub, "Test Message\t");
@@ -143,7 +143,7 @@ Text format for event message description:
 
   - `NUM_DECIMAL_DIGITS` only makes sense for real number arguments.
 
-## Logging
+## 로깅
 
 Events are logged according to the internal log level, and [Flight Review](../log/flight_review.md) displays events.
 
@@ -161,4 +161,4 @@ The metadata for all events is built into a separate JSON metadata file (using a
 
 The event metadata JSON file is compiled into firmware (and/or hosted on the Internet), and made available to ground stations via the [MAVLink Component Metadata service](https://mavlink.io/en/services/component_information.html). This ensures that metadata is always up-to-date with the code running on the vehicle.
 
-This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). For more information see [PX4 Metadata (Translation & Publication)](../advanced/px4_metadata.md)
+This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). 그런 다음 파일은 [MAVLink 구성 요소 정보 프로토콜](https://mavlink.io/en/services/component_information.html)을 사용하여 지상국과 공유됩니다.
