@@ -10,7 +10,7 @@ Supported vehicle types include: mutirotor, VTOL, Plane, Rover.
 See [Gazebo Classic Vehicles](../sim_gazebo_classic/vehicles.md) for vehicles that work with the older [Gazebo "Classic" simulation](../sim_gazebo_classic/index.md). Note that vehicle models are not interchangable between the two versions of the simulator: the vehicles on this page only work with (new) [Gazebo](../sim_gazebo_gz/index.md).
 :::
 
-## Multicopter
+## 多旋翼
 
 ### X500 Quadrotor
 
@@ -128,9 +128,9 @@ The difference between the Advanced Plane and the "regular plane" lies in the Li
 
 :::
 
-## VTOL
+## 垂直起降
 
-### Standard VTOL
+### 标准垂起固定翼
 
 ```sh
 make px4_sitl gz_standard_vtol
