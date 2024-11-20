@@ -6,7 +6,7 @@ The GPS module uses the [DroneCAN](index.md) protocol for communication. DroneCA
 
 <img src="../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps.jpg" width="400px" title="Hero diagram for the GPS module" />
 
-## Where to Buy
+## 구매처
 
 Order this module from:
 
@@ -18,8 +18,8 @@ Order this module from:
 | ------------------------- | ------------------------------------ |
 | GNSS Receiver             | Ublox NEO M8N                        |
 | Number of Concurrent GNSS | 2 (Default GPS + GLONASS)            |
-| Processor                 | STM32G4 (170MHz, 512K FLASH)         |
-| Compass                   | BMM150                               |
+| 프로세서                      | STM32G4 (170MHz, 512K FLASH)         |
+| 나침반                       | BMM150                               |
 | Frequency Band            | <p>GPS: L1C/A<br>GLONASS: L10F<br>Beidou: B1I<br>Galileo: E1B/C</p>            |
 | GNSS Augmentation System  | SBAS: WAAS, EGNOS, MSAS, QZSS        |
 | Navigation Update         | 5Hz Default(10Hz MAX)                |
@@ -33,35 +33,35 @@ Order this module from:
 | Supports Autopilot FW     | PX4, Ardupilot                       |
 | Port Type                 | GHR-04V-S                            |
 | Antenna                   | 25 x 25 x 4 mm ceramic patch antenna |
-| Voltage                   | 4.7-5.2V                             |
+| 전압                        | 4.7-5.2V                             |
 | Power consumption         | Less than 200mA @ 5V                 |
 | Temperature               | -40\~80C                            |
 | Size                      | <p>Diameter: 54mm<br>Thickness: 14.5mm</p>            |
-| Weight                    | 36g                                  |
+| 중량                        | 36g                                  |
 | Cable Length              | 26cm                                 |
 | Other                     | <ul><li>LNA MAX2659ELT+ RF Amplifier</li><li>Rechargeable Farah capacitance</li><li>Low noise 3.3V regulator</li><li>26cm cable included</li></ul>            |
 
-## Hardware Setup
+## 하드웨어 설정
 
-### Mounting
+### 장착
 
 The recommended mounting orientation is with the arrow on the GPS pointing towards the **front of vehicle**.
 
 The sensor can be mounted anywhere on the frame, but you will need to specify its position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
-### Wiring
+### 배선
 
 The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
-### Pinout
+### 핀배열
 
 ![Diagram showing GPS pinouts](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_pinout.jpg)
 
-### Dimensions
+### 크기
 
 ![Diagram showing GPS dimensions](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_dimension.jpg)
 
-## PX4 Configuration
+## PX4 설정
 
 You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle. The required settings are outlined below.
 
@@ -73,7 +73,7 @@ The GPS will not boot if there is no SD card in the flight controller when power
 
 In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
-The steps are:
+단계는 다음과 같습니다:
 
 - In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect GPS CAN to the Pixhawk CAN.
