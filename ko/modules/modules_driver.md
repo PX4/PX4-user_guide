@@ -7,9 +7,9 @@
 - [기압계](modules_driver_baro.md)
 - [Transponder](modules_driver_transponder.md)
 - [Rpm Sensor](modules_driver_rpm_sensor.md)
-- [Optical Flow](modules_driver_optical_flow.md)
-- [Camera](modules_driver_camera.md)
-- [Magnetometer](modules_driver_magnetometer.md)
+- [광류 센서](modules_driver_optical_flow.md)
+- [카메라](modules_driver_camera.md)
+- [자기 센서](modules_driver_magnetometer.md)
 
 ## MCP23009
 Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
@@ -439,7 +439,7 @@ Publish the earth magnetic field as a fake magnetometer (sensor_mag). Requires v
 
 <a id="fake_magnetometer_usage"></a>
 
-### Usage
+### 사용법
 ```
 fake_magnetometer <command> [arguments...]
  Commands:
@@ -461,18 +461,18 @@ Most boards are configured to enable/start the driver on a specified UART using 
 
 ### 예
 
-Attempt to start driver on a specified serial device.
+지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
 ```
 ft_technologies_serial start -d /dev/ttyS1
 ```
-Stop driver
+드라이버를 중지합니다.
 ```
 ft_technologies_serial stop
 ```
 
 <a id="ft_technologies_serial_usage"></a>
 
-### Usage
+### 사용법
 ```
 ft_technologies_serial <command> [arguments...]
  Commands:
@@ -520,7 +520,7 @@ gimbal test pitch -45 yaw 30
 
 <a id="gimbal_usage"></a>
 
-### Usage
+### 사용법
 ```
 gimbal <command> [arguments...]
  Commands:
@@ -567,7 +567,7 @@ gps reset warm
 
 <a id="gps_usage"></a>
 
-### Usage
+### 사용법
 ```
 gps <command> [arguments...]
  Commands:
@@ -603,7 +603,7 @@ Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="gz_bridge_usage"></a>
 
-### Usage
+### 사용법
 ```
 gz_bridge <command> [arguments...]
  Commands:
@@ -634,7 +634,7 @@ If the INA220 module is not powered, then by default, initialization of the driv
 
 <a id="ina220_usage"></a>
 
-### Usage
+### 사용법
 ```
 ina220 <command> [arguments...]
  Commands:
@@ -710,7 +710,7 @@ If the INA228 module is not powered, then by default, initialization of the driv
 
 <a id="ina228_usage"></a>
 
-### Usage
+### 사용법
 ```
 ina228 <command> [arguments...]
  Commands:
@@ -747,7 +747,7 @@ If the INA238 module is not powered, then by default, initialization of the driv
 
 <a id="ina238_usage"></a>
 
-### Usage
+### 사용법
 ```
 ina238 <command> [arguments...]
  Commands:
@@ -779,7 +779,7 @@ Creates a virtual serial port that another module can use for communication (e.g
 
 <a id="iridiumsbd_usage"></a>
 
-### Usage
+### 사용법
 ```
 iridiumsbd <command> [arguments...]
  Commands:
@@ -827,7 +827,7 @@ Linux PWM output driver with board-specific backend implementation.
 
 <a id="linux_pwm_out_usage"></a>
 
-### Usage
+### 사용법
 ```
 linux_pwm_out <command> [arguments...]
  Commands:
@@ -842,7 +842,7 @@ Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="lsm303agr_usage"></a>
 
-### Usage
+### 사용법
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -873,7 +873,7 @@ MSP telemetry streamer
 Converts uORB messages to MSP telemetry packets
 
 ### 예
-CLI usage example:
+CLI 사용 예:
 ```
 msp_osd
 ```
@@ -905,7 +905,7 @@ To drive all available leds.
 
 <a id="newpixel_usage"></a>
 
-### Usage
+### 사용법
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -1072,7 +1072,7 @@ This module is responsible for driving the output pins. For boards without a sep
 
 <a id="pwm_out_usage"></a>
 
-### Usage
+### 사용법
 ```
 pwm_out <command> [arguments...]
  Commands:
@@ -1188,7 +1188,7 @@ This module does the RC input parsing and auto-selecting the method. Supported m
 
 <a id="rc_input_usage"></a>
 
-### Usage
+### 사용법
 ```
 rc_input <command> [arguments...]
  Commands:
@@ -1207,7 +1207,7 @@ Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="rgbled_usage"></a>
 
-### Usage
+### 사용법
 ```
 rgbled <command> [arguments...]
  Commands:
@@ -1304,7 +1304,7 @@ The command to start this driver is: `$ roboclaw start <UART device> <baud rate>
 
 <a id="roboclaw_usage"></a>
 
-### Usage
+### 사용법
 ```
 roboclaw <command> [arguments...]
  Commands:
@@ -1411,7 +1411,7 @@ Source: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/mas
 SHT3x Temperature and Humidity Sensor Driver by Senserion.
 
 ### Examples
-CLI usage example:
+CLI 사용 예:
 ```
 sht3x start -X
 ```
@@ -1470,7 +1470,7 @@ This module controls the TAP_ESC hardware via UART. It listens on the actuator_c
 
 Currently the module is implemented as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
 
-### Example
+### 예
 
 The module is typically started with:
 
@@ -1480,7 +1480,7 @@ tap_esc start -d /dev/ttyS2 -n <1-8>
 
 <a id="tap_esc_usage"></a>
 
-### Usage
+### 사용법
 ```
 tap_esc <command> [arguments...]
  Commands:
@@ -1500,7 +1500,7 @@ This module is responsible for the tone alarm.
 
 <a id="tone_alarm_usage"></a>
 
-### Usage
+### 사용법
 ```
 tone_alarm <command> [arguments...]
  Commands:
@@ -1518,7 +1518,7 @@ Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/master
 
 Driver for NXP UWB_SR150 UWB positioning system. This driver publishes a `uwb_distance` message whenever the UWB_SR150 has a position measurement available.
 
-### Example
+### 예
 
 Start the driver with a given device:
 
@@ -1528,7 +1528,7 @@ uwb start -d /dev/ttyS2
 
 <a id="uwb_usage"></a>
 
-### Usage
+### 사용법
 ```
 uwb <command> [arguments...]
  Commands:
@@ -1547,7 +1547,7 @@ Source: [drivers/actuators/vertiq_io](https://github.com/PX4/PX4-Autopilot/tree/
 
 <a id="vertiq_io_usage"></a>
 
-### Usage
+### 사용법
 ```
 vertiq_io <command> [arguments...]
  Commands:
@@ -1568,7 +1568,7 @@ This module is responsible for driving the output pins. For boards without a sep
 
 <a id="voxl2_io_usage"></a>
 
-### Usage
+### 사용법
 ```
 voxl2_io <command> [arguments...]
  Commands:
@@ -1611,7 +1611,7 @@ todo
 
 <a id="voxl_esc_usage"></a>
 
-### Usage
+### 사용법
 ```
 voxl_esc <command> [arguments...]
  Commands:
@@ -1657,7 +1657,7 @@ Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="voxlpm_usage"></a>
 
-### Usage
+### 사용법
 ```
 voxlpm [arguments...]
    start
@@ -1687,7 +1687,7 @@ Zenoh demo bridge
 
 <a id="zenoh_usage"></a>
 
-### Usage
+### 사용법
 ```
 zenoh <command> [arguments...]
  Commands:
