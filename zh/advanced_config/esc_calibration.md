@@ -96,7 +96,7 @@ VTOL and fixed-wing motors do not need any special PWM configuration.
 With the default PWM configuration they will automatically stop during flight when commanded by the autopilot.
 :::
 
-## Troubleshooting
+## 故障处理
 
 1. Calibration can state that it has succeeded even when it has failed.
 
