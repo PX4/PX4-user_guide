@@ -6,9 +6,9 @@ An Omnicopter is a multicopter that can provide thrust in all directions (6 degr
 
 This build follows the original design from [Brescianini, Dario, and Raffaello D'Andrea](https://www.youtube.com/watch?v=sIi80LMLJSY).
 
-## Bill of Materials
+## 부품 명세서
 
-The components needed for this build are:
+조립에 필요한 부품들입니다.
 
 - Electronics:
   - Flight controller: [Holybro KakuteH7](../flight_controller/kakuteh7.md)
@@ -39,11 +39,11 @@ Any other GPS may work as well, however a helix antenna is expected to perform b
   - Standoffs: 4x 40mm
 - [3D model](https://cad.onshape.com/documents/eaff30985f1298dc6ce8ce13/w/2f662e604240c4082682e5e3/e/ad2b2245b73393cf369132f7)
 
-![Parts List](../../assets/airframes/multicopter/omnicopter/parts_list.jpg)
+![부품 목록](../../assets/airframes/multicopter/omnicopter/parts_list.jpg)
 
-## Assembly
+## 조립
 
-### Frame
+### 프레임
 
 - Print the 3D parts ::: info
 The orientation of the corner pieces matters.
@@ -52,10 +52,10 @@ You will notice if it's wrong when the angles of the rods are not correct.
 - Cut the rods
 - Test that it all works by connecting the frame pieces together:
 
-  ![Frame](../../assets/airframes/multicopter/omnicopter/frame_only.jpg)
+  ![프레임](../../assets/airframes/multicopter/omnicopter/frame_only.jpg)
 - Place the motors as far out as possible, without the propellers touching the rods.
 
-### Electronics
+### 전자부품
 
 Solder the peripherals to the flight controller. We used the following assignments:
 - ESCs: the 2 ESCs can be connected directly to the two connectors of the KakuteH7. To avoid conflicts we removed the power pin (right-most pin) from one of the connectors.
@@ -70,7 +70,7 @@ Remarks:
 - We did not glue the frame. It is certainly advisible to do so after initial test flights, but it might work without.
 
 
-## Software Configuration
+## 소프트웨어 설정
 
 ### ESC
 
@@ -99,11 +99,11 @@ Make sure the motors do not overheat with the changed settings.
   - Disable failure detection: set [FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P) and [FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R) to 0.
 - [This file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/multicopter/omnicopter/omnicopter.params) contains all the relevant parameters.
 
-## Video
+## 비디오
 
 <lite-youtube videoid="nsPkQYugfzs" title="PX4 Based Omnicopter Using the New Dynamic Control Allocation in v1.13"/>
 
-## Simulation
+## 시뮬레이션
 
 There is an omnicopter simulation target in Gazebo Classic:
 
