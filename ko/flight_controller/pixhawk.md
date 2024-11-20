@@ -5,8 +5,8 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 :::
 
 :::warning
-PX4 does not manufacture this (or any) autopilot.
-Contact the manufacturer for support or compliance issues.
+PX4에서는 이 자동 항법 장치를 제조하지 않습니다.
+지원 또는 규정준수 문제는 제조업체에 문의하십시오.
 :::
 
 The _3DR Pixhawk<sup>&reg;</sup> 1_ autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). PX4는 [NuttX](https://nuttx.apache.org/) OS에서 실행됩니다.
@@ -119,7 +119,7 @@ Pixhawk 는 3 개의 전원이 공급되는 경우에는 전원 공급 장치의
 :::note CC-BY-SA 3.0 라이센스 오픈 하드웨어 설계로 모든 회로도와 설계 파일을 [사용할 수 있습니다](https://github.com/PX4/Hardware).
 :::
 
-## Connections
+## 연결
 
 Pixhawk ports are shown below. These use Hirose DF13 connectors (predating the JST-GH connectors defined in the Pixhawk connector standard).
 
