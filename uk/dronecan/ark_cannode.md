@@ -93,6 +93,6 @@ ARK CANnode працює з [Прошивкою PX4 DroneCAN](px4_cannode_fw.md)
 - Переконайтеся, що ARK CANnode має встановлене `ark_cannode_canbootloader` перед тим, як прошивати `ark_cannode_default`.
 - Видаліть бінарні файли з кореневих та каталогів ufw SD-карти та спробуйте зібрати та знову прошити.
 
-## See Also
+## Дивіться також
 
 - [ARK CANnode Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-cannode) (ARK Docs)
