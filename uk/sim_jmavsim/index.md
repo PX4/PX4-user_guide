@@ -1,9 +1,9 @@
 # jMAVSim з SITL
 
 :::warning
-This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4 and may be removed in future releases.
+Цей симулятор [модифікується та підтримується спільнотою](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4 and may be removed in future releases.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Див. розділ [Встановлення інструментів](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, що підтримуються основною командою розробників.
 :::
 
 jMAVSim - це простий симулятор мультироторів/квадрокоптерів, який дозволяє вам літати на _коптерах_ типу транспортних засобів, що працюють на PX4, по симульованому світі. Його легко налаштувати і можна використовувати для перевірки того, що ваш апарат може злітати, летіти, приземлятися і належним чином реагувати на різні несправності (наприклад, несправність GPS).
