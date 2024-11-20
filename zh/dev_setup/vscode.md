@@ -110,7 +110,7 @@ Once that is done you don't need to do anything else; the toolchain will automat
 
 ![IntelliSense](../../assets/toolchain/vscode/vscode_intellisense.jpg)
 
-## Troubleshooting
+## 故障处理
 
 This section includes guidance on setup and build errors.
 
