@@ -2,7 +2,7 @@
 
 This topic lists configuration topics that are not particularly vehicle specific, for features that are more rarely modified, or that are specific only to manufacturers/OEMs.
 
-## Parameters
+## Параметри
 
 - [Пошук/оновлення параметрів](../advanced_config/parameters.md)
 - [Повний довідник параметрів](../advanced_config/parameter_reference.md)
@@ -28,12 +28,12 @@ This topic lists configuration topics that are not particularly vehicle specific
 - [Телеметрія MAVLink (OSD/GCS)](../peripherals/mavlink_peripherals.md)
 - [Налаштування PX4 Ethernet](../advanced_config/ethernet_setup.md)
 
-## Miscellaneous
+## Інше
 
 - [Оновлення бутлоадера](../advanced_config/bootloader_update.md)
   - [Оновлення бутлоадера FMUv6X-RT через USB](../advanced_config/bootloader_update_v6xrt.md)
 
-## See Also
+## Дивіться також
 
 - [Стандартна конфігурація](../config/README.md) - налаштування основних датчиків/функцій, необхідних для більшості апаратів PX4.
 - [Периферія контролера польоту](../peripherals/README.md) - налаштування конкретних датчиків, опціональних датчиків, приводів тощо.
