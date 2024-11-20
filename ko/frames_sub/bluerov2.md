@@ -8,7 +8,7 @@ PX4 provides [experimental support](index.md) for an 8-thrust vectored configura
 
 ![Hero](../../assets/airframes/sub/bluerov/bluerov_hero.jpg)
 
-## Where to Buy
+## 구매처
 
 모터는 BlueRobotics의 표준 지침에 따라 비행 컨트롤러에 연결되어야 합니다.
 
