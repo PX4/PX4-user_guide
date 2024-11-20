@@ -64,9 +64,9 @@ For example, you might wire it up like this example (orientation as if "sitting 
    ![QCG - Select Generic Standard VTOL](../../assets/qgc/setup/airframe/px4_frame_generic_standard_vtol.png)
 
 1. Configure the outputs and geometry following the instructions in [Actuators Configuration](../config/actuators.md)
-1. The default parameters are often sufficient for stable flight. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md).
+1. The default parameters are often sufficient for stable flight. 자세한 튜닝 정보는 [표준 VTOL 배선 및 구성](../config_vtol/vtol_quad_configuration.md)을 참조하십시오.
 
-After you finish calibration the VTOL is ready to fly.
+보정을 마치면 VTOL이 비행할 준비가 됩니다.
 
 
 ## 비디오
