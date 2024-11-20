@@ -82,7 +82,7 @@ PX4 기능 추가 절차는 다음과 같습니다. 다음 예제를 따라 PX4�
 
 - You can verify that the push was successful by going to your forked repository in your browser: `https://github.com/<your git name>/PX4-Autopilot.git`
 
-  There you should see the message that a new branch has been pushed to your forked repository.
+  새 분기가 분기된 저장소로 푸시되었다는 메시지가 표시되어야 합니다.
 
 - 이제 풀 리퀘스트(PR)를 생성합니다. "새 분기 메시지"(앞의 한 단계 참조)의 오른쪽에 "풀 요청 비교 및 생성"이라는 녹색 버튼이 표시되어야 합니다. 그런 다음 변경 사항을 나열하여야 하며, 의미 있는 제목(하나의 커밋 PR의 경우 일반적으로 커밋 메시지)과 메시지(<span style="color:orange">어떤 이유로 작업을 하였는 지 설명</span>)를 추가할 수 있습니다. 비교를 위해 [기타 풀 리퀘스트](https://github.com/PX4/PX4-Autopilot/pulls)를 참고하십시오.
 - 완료하였습니다. PX4 담당자가 기여 내용을 검토후, 병합 여부를 결정합니다. 때때로 변경 사항에 대해 질문이 있는 지 확인하십시오.
@@ -128,7 +128,7 @@ To get the source code for a _specific older release_ (tag):
    cd PX4-Autopilot
    ```
 
-   ::: info
+   :::note
 
    You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
 
@@ -165,7 +165,7 @@ To get a release branch:
   cd PX4-Autopilot
   ```
 
-  ::: info
+  :::note
 
   You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
 
