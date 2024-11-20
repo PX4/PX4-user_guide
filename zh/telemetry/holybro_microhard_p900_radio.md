@@ -10,7 +10,7 @@ The transmit power is software selectable from 100mW to 1W, with range up to 40 
 
 ![Holybro Microhard Radio](../../assets/hardware/telemetry/holybro_microhard.jpg)
 
-## Features
+## 特性
 
 - USB Type-C port, integrated USB to UART converter
 - 6-position JST-GH connector, can be directly connected to the TELEM port on various Pixhawk-standard flight controllers such [Pixhawk 4](../flight_controller/pixhawk4.md) & [Pixhawk 5X](../flight_controller/pixhawk5x.md)
@@ -22,11 +22,11 @@ The transmit power is software selectable from 100mW to 1W, with range up to 40 
 - 32 bits of CRC, selectable retransmission and forward error correction
 - Separate diagnostics port, transparent remote diagnostics and online network control
 
-## Where to Buy
+## 在哪里买
 
 - [Holybro Microhard P900 Telemetry Radio (100mW - 1W)](https://holybro.com/products/microhard-radio)
 
-## Specification
+## 技术规范
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_spec.png" width="500px" title="Holybro Microhard P900 Diagnosis" />
 
@@ -72,7 +72,7 @@ The default radio configuration as shipped is shown in _PicoConfig_ below (you m
 
 In point-to-point operating modes, there must be a master to provide network synchronization for the system, so one radio should be configured to PP master and another should be configured to PP remote.
 
-## Status LED
+## LED 状态
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_leds.png" width="600px" title="Holybro Pico Config" />
 
@@ -92,11 +92,11 @@ The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is gre
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_rssi.png" width="600px" title="Holybro Pico Config" />
 
-### Pinout
+### 针脚定义
 
 #### Diagnosis Port
 
-| Pin       | Signal | Voltage |
+| 针脚        | Signal | Voltage |
 | --------- | ------ | ------- |
 | 1         | NC     | --      |
 | 2 (black) | RX     | +3.3V   |
@@ -105,9 +105,9 @@ The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is gre
 
 #### Data Port
 
-| Pin       | Signal | Voltage |
+| 针脚        | Signal | Voltage |
 | --------- | ------ | ------- |
-| 1 (red)   | NC     | --      |
+| 2         | NC     | --      |
 | 2 (black) | RX     | +3.3V   |
 | 3 (black) | TX     | +3.3V   |
 | 4 (black) | CTS    | +3.3V   |
@@ -116,16 +116,16 @@ The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is gre
 
 #### Power Port
 
-| Pin       | Signal | Voltage |
+| 针脚        | Signal | Voltage |
 | --------- | ------ | ------- |
-| 1(red)    | BAT+   | 7-35V   |
+| 1（红）      | BAT+   | 7-35V   |
 | 2 (red)   | BAT+   | 7-35V   |
 | 3 (black) | BAT-   | GND     |
 | 4 (black) | BAT-   | GND     |
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_pinout.jpg" width="600px" title="Holybro Pico Config" />
 
-### Dimensions
+### 尺寸
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_dimension.png" width="600px" title="Holybro Pico Config" />
 
@@ -138,7 +138,7 @@ The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is gre
 - Receive current: 100 mA
 - Weight: 42g (without antenna)
 
-## Further info
+## 更多信息
 
 - [Microhard Radio](https://docs.holybro.com/telemetry-radio/microhard-radio) (docs.holybro.com)
 - [Holybro Microhard P900 Downloads](https://docs.holybro.com/telemetry-radio/microhard-radio/download) (Manuals, and other docs) (Holybro)
