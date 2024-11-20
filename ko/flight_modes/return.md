@@ -6,7 +6,7 @@ The _Return_ flight mode is used to _fly a vehicle to safety_ on an unobstructed
 
 PX4는 홈 위치, 집결 ( "안전") 지점, 임무 경로 및 임무 착륙 시퀀스 사용을 포함하여 안전한 복귀 경로, 목적지 착륙을 위한 다양한 메커니즘을 제공합니다.
 
-- [Multicopter](../flight_modes_mc/return.md)
+- [멀티콥터](../flight_modes_mc/return.md)
 - [Fixed-wing (Plane)](../flight_modes_fw/return.md)
 - [수직이착륙기](../flight_modes_vtol/return.md)
 
@@ -26,7 +26,7 @@ PX4는 홈 위치, 집결 ( "안전") 지점, 임무 경로 및 임무 착륙 �
 
 :::
 
-## Overview
+## 개요
 
 PX4 provides several mechanisms for choosing a safe return path, destination and landing, including using home location, rally ("safe") points, mission paths, and landing sequences defined in a mission.
 
@@ -121,7 +121,7 @@ Mission _without_ landing pattern defined:
 
 이 복귀 유형에서 기체의 동작:
 
-- Ascends to a safe [minimum return altitude](#minimum-return-altitude) (above any expected obstacles).
+- 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
 - 홈 위치, 미션 착륙 패턴 또는 집결 지점의 가장 가까운 목적지로 직접 이동합니다.
 - If the destination is a [mission landing pattern](#mission-landing-pattern) the vehicle will follow the pattern to land.
 - If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [lands or waits](#loiter-landing-at-destination). By default an MC or VTOL in MC mode will land, and a fixed-wing vehicle circles at the descent altitude. A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
