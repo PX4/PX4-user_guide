@@ -8,7 +8,7 @@
 - [Transponder](modules_driver_transponder.md)
 - [Rpm датчик](modules_driver_rpm_sensor.md)
 - [Optical Flow](modules_driver_optical_flow.md)
-- [Camera](modules_driver_camera.md)
+- [Камера](modules_driver_camera.md)
 - [Магнітометр](modules_driver_magnetometer.md)
 
 ## MCP23009
@@ -589,11 +589,11 @@ gz_bridge <command> [arguments...]
 ### Опис
 Драйвер для монітора живлення INA220.
 
-Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+Кілька екземплярів цього драйвера можуть працювати одночасно, якщо кожен екземпляр має окрему адресу шини АБО I2C.
 
-For example, one instance can run on Bus 2, address 0x41, and one can run on Bus 2, address 0x43.
+Наприклад, один екземпляр може працювати на шині 2, адреса 0x41, а інший - на шині 2, адреса 0x43.
 
-Якщо модуль INA220 не має живлення, то за замовчуванням ініціалізація драйвера не відбудеться. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+Якщо модуль INA220 не має живлення, то за замовчуванням ініціалізація драйвера не відбудеться. Щоб змінити це, використовуйте прапор -f. Якщо цей прапорець встановлено, то у разі невдалої ініціалізації драйвер буде повторювати спроби ініціалізації кожні 0.5 секунди. Якщо цей прапорець встановлено, ви можете підключити батарею після запуску драйвера, і він буде працювати. Якщо цей прапорець не встановлено, перед запуском драйвера необхідно підключити батарею.
 
 
 <a id="ina220_usage"></a>
@@ -628,11 +628,11 @@ ina220 <command> [arguments...]
 ### Опис
 Драйвер для монітора живлення INA226.
 
-Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+Кілька екземплярів цього драйвера можуть працювати одночасно, якщо кожен екземпляр має окрему адресу шини АБО I2C.
 
 Наприклад, один екземпляр може працювати на шині 2, адреса 0x41, а інший - на шині 2, адреса 0x43.
 
-Якщо модуль INA226 не живиться, то за замовчуванням ініціалізація драйвера не відбудеться. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+Якщо модуль INA226 не живиться, то за замовчуванням ініціалізація драйвера не відбудеться. Щоб змінити це, використовуйте прапор -f. Якщо цей прапорець встановлено, то у разі невдалої ініціалізації драйвер буде повторювати спроби ініціалізації кожні 0.5 секунди. Якщо цей прапорець встановлено, ви можете підключити батарею після запуску драйвера, і він буде працювати. Якщо цей прапорець не встановлено, перед запуском драйвера необхідно підключити батарею.
 
 
 <a id="ina226_usage"></a>
@@ -665,16 +665,16 @@ ina226 <command> [arguments...]
 ### Опис
 Драйвер для монітора живлення INA228.
 
-Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+Кілька екземплярів цього драйвера можуть працювати одночасно, якщо кожен екземпляр має окрему адресу шини АБО I2C.
 
-For example, one instance can run on Bus 2, address 0x45, and one can run on Bus 2, address 0x45.
+Наприклад, один екземпляр може працювати на шині 2, адреса 0x41, а інший - на шині 2, адреса 0x43.
 
-Якщо модуль INA228 не має живлення, то за замовчуванням ініціалізація драйвера не відбудеться. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+Якщо модуль INA228 не має живлення, то за замовчуванням ініціалізація драйвера не відбудеться. Щоб змінити це, використовуйте прапор -f. Якщо цей прапорець встановлено, то у разі невдалої ініціалізації драйвер буде повторювати спроби ініціалізації кожні 0.5 секунди. Якщо цей прапорець встановлено, ви можете підключити батарею після запуску драйвера, і він буде працювати. Якщо цей прапорець не встановлено, перед запуском драйвера необхідно підключити батарею.
 
 
 <a id="ina228_usage"></a>
 
-### Usage
+### Використання
 ```
 ina228 <command> [arguments...]
  Commands:
@@ -699,7 +699,7 @@ ina228 <command> [arguments...]
 Джерело: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina238)
 
 
-### Description
+### Опис
 Драйвер для монітора потужності INA238.
 
 Кілька екземплярів цього драйвера можуть працювати одночасно, якщо кожен екземпляр має окрему адресу шини АБО I2C.
@@ -1036,7 +1036,7 @@ pps_capture <command> [arguments...]
 
 <a id="pwm_out_usage"></a>
 
-### Usage
+### Використання
 ```
 pwm_out <command> [arguments...]
  Commands:
@@ -1050,7 +1050,7 @@ pwm_out <command> [arguments...]
 Джерело: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/pwm_out_sim)
 
 
-### Description
+### Опис
 Драйвер для імітованих вихідних сигналів ШІМ.
 
 Його єдина функція - приймати повідомлення uORB `actuator_control`, змішувати їх з будь-яким завантаженим міксером і виводити результат на тему uORB `actuator_output`.
@@ -1152,7 +1152,7 @@ px4io <command> [arguments...]
 
 <a id="rc_input_usage"></a>
 
-### Usage
+### Використання
 ```
 rc_input <command> [arguments...]
  Commands:
@@ -1171,7 +1171,7 @@ rc_input <command> [arguments...]
 
 <a id="rgbled_usage"></a>
 
-### Usage
+### Використання
 ```
 rgbled <command> [arguments...]
  Commands:
@@ -1478,7 +1478,7 @@ tone_alarm <command> [arguments...]
 Джерело: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uwb/uwb_sr150)
 
 
-### Description
+### Опис
 
 Драйвер для системи позиціонування NXP UWB_SR150 UWB. Цей драйвер публікує повідомлення `uwb_distance` кожного разу, коли UWB_SR150 має наявне вимірювання позиції.
 
@@ -1511,7 +1511,7 @@ Source: [drivers/actuators/vertiq_io](https://github.com/PX4/PX4-Autopilot/tree/
 
 <a id="vertiq_io_usage"></a>
 
-### Usage
+### Використання
 ```
 vertiq_io <command> [arguments...]
  Commands:
@@ -1526,13 +1526,13 @@ vertiq_io <command> [arguments...]
 Джерело: [drivers/voxl2_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/voxl2_io)
 
 
-### Description
+### Опис
 Цей модуль відповідає за виведення вихідних контактів. Для плат без окремого IO-чіпа (наприклад, Pixracer), використовуються головні канали. На платах з IO-чіпом (наприклад, Pixhawk) використовуються AUX-канали, а для основних використовується драйвер px4io.
 
 
 <a id="voxl2_io_usage"></a>
 
-### Usage
+### Використання
 ```
 voxl2_io <command> [arguments...]
  Commands:
@@ -1560,13 +1560,13 @@ voxl2_io <command> [arguments...]
 Джерело: [drivers/actuators/voxl_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/voxl_esc)
 
 
-### Description
+### Опис
 Цей модуль відповідає за кнопку безпеки...
 
 ### Реалізація
 За замовчуванням модуль працює в черзі роботи з зворотнім викликом за темою управління актуаторами uORB.
 
-### Examples
+### Приклади
 Зазвичай починається з:
 ```
 todo
@@ -1575,7 +1575,7 @@ todo
 
 <a id="voxl_esc_usage"></a>
 
-### Usage
+### Використання
 ```
 voxl_esc <command> [arguments...]
  Commands:
@@ -1621,7 +1621,7 @@ voxl_esc <command> [arguments...]
 
 <a id="voxlpm_usage"></a>
 
-### Usage
+### Використання
 ```
 voxlpm [arguments...]
    start
@@ -1645,13 +1645,13 @@ voxlpm [arguments...]
 Джерело: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/zenoh)
 
 
-### Description
+### Опис
 
 Zenoh demo bridge
 
 <a id="zenoh_usage"></a>
 
-### Usage
+### Використання
 ```
 zenoh <command> [arguments...]
  Commands:
