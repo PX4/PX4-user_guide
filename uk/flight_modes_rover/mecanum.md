@@ -24,7 +24,7 @@ The sticks provide the same "high level" control effects over direction and rate
 
 The manual modes provide progressively increasing levels of autopilot support for maintaining a course, speed, and rate of turn, compensating for external factors such as slopes or uneven terrain.
 
-| Mode                           | Features                                                                                                                                                                                                                 |
+| Режим                          | Особливості                                                                                                                                                                                                              |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Manual](#manual-mode)         | No autopilot support. User is responsible for keeping the rover on the desired course and maintaining speed and rate of turn.                                                            |
 | [Acro](#acro-mode)             | + Maintains yaw rate (despite external factors)<br>+ Allows maximum yaw rate to be limited.<br>+ Slightly better at holding a straight line in uneven terrain.        |
@@ -34,7 +34,7 @@ The manual modes provide progressively increasing levels of autopilot support fo
 :::details
 Overview mode mapping to control effect
 
-| Mode                           | Forward/Lateral speed                                                                       | Yaw rate                                                                                                                                                                                                                                                                | Required measurements                                                                 |
+| Режим                          | Forward/Lateral speed                                                                       | Швидкість крену                                                                                                                                                                                                                                                         | Required measurements                                                                 |
 | ------------------------------ | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | [Manual](#manual-mode)         | Directly map stick input to motor commands.                                 | Directly map stick input to motor commands.                                                                                                                                                                                                             | None.                                                                 |
 | [Acro](#acro-mode)             | Directly map stick input to motor commands.                                 | Stick input creates a yaw rate setpoint for the control system to regulate.                                                                                                                                                                             | Yaw rate.                                                             |
@@ -43,7 +43,7 @@ Overview mode mapping to control effect
 
 :::
 
-### Manual Mode
+### Ручний режим
 
 In this mode the stick inputs are directly mapped to motor commands.
 The rover does not attempt to maintain a specific orientation or compensate for external factors like slopes or uneven terrain!
@@ -142,7 +142,7 @@ The mission is typically created and uploaded with a Ground Control Station (GCS
 
 The following commands can be used in missions at time of writing (`main(PX4 v1.16+)`):
 
-| QGC mission item                      | Command                                                                                                                        | Description                                                                                      |
+| QGC mission item                      | Команда                                                                                                                        | Опис                                                                                             |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
 | Mission start                         | [MAV_CMD_MISSION_START](MAV_CMD_MISSION_START)                  | Starts the mission.                                                              |
 | Waypoint                              | [MAV_CMD_NAV_WAYPOINT](MAV_CMD_NAV_WAYPOINT)                    | Navigate to waypoint.                                                            |
