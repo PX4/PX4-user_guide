@@ -217,7 +217,7 @@ When you add a new page you must also add it to `en/SUMMARY.md`!
 
 Add new files in folders that cover similar topics. Then reference them in the sidebar (`/en/SUMMARY.md`) in line with the existing structure!
 
-## Translations
+## 翻译
 
 For information about translation see: [Translation](../contribute/translation.md).
 
