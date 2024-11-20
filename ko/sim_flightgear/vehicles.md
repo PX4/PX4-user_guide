@@ -1,4 +1,4 @@
-# FlightGear Vehicles
+# FlightGear 차량
 
 :::warning
 This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4.
@@ -15,7 +15,7 @@ For the full list of build targets run `make px4_sitl list_vmd_make_targets` (fi
 ::: info The [FlightGear](../sim_flightgear/index.md) page shows how to install and use FlightGear in more detail (this page is a summary of vehicle-specific features).
 :::
 
-## Standard Plane
+## 표준 항공기
 
 FlightGear has models for many planes. The most suitable one for UAV development is currently the [Rascal RC plane](https://github.com/ThunderFly-aerospace/FlightGear-Rascal) (which also exists in multiple variants).
 
@@ -63,7 +63,7 @@ Rascal JSBsim variant.
 
 This variant does not have a direct `make` option but can be manually selected in the **rascal.json** configuration file (part of [PX4-FlightGear-Bridge](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)). Simply change `Rascal110-YASim` to `Rascal110-JSBSim` in [this file](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/blob/master/models/rascal.json#L2).
 
-## Autogyro
+## 오토자이로
 
 The only UAV autogyro model supported by FlightGear is [TF-G1 Autogyro](https://github.com/ThunderFly-aerospace/TF-G1).
 
