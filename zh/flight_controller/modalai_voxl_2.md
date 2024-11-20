@@ -12,11 +12,11 @@ The ModalAI [VOXL 2](https://modalai.com/voxl-2) ([Datasheet](https://docs.modal
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Specifications
+## 产品规格
 
-### System
+### 系统
 
-| Feature                                                                 | VOXL 2                                                                             |
+| 特性                                                                      | VOXL 2                                                                             |
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | CPU                                                                     | QRB5165 <br>8 cores up to 3.091GHz <br>8GB LPDDR5<br>128GB Flash |
 | OS                                                                      | Ubuntu 18.04 - Linux Kernel v4.19                                                  |
@@ -28,7 +28,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 | Video Encoding                                                          | 8K30 h.264/h.265 108MP still images                                                |
 | Computer Vision Sensors                                                 | QTY 6 4-lane CSI, QTY4 CCI (e.g. 2 stereo pair, hires, tracking)                   |
 | Tracking Sensor                                                         | Yes                                                                                |
-| Dimensions                                                              | 70mm x 36mm                                                                        |
+| 尺寸                                                                      | 70mm x 36mm                                                                        |
 | Weight                                                                  | 16g                                                                                |
 | VOXL SDK: GPS-denied nav., SLAM, obstacle avoidance, object recognition | Yes                                                                                |
 | ROS                                                                     | ROS 1 & 2                                                                          |
@@ -43,7 +43,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 More detailed hardware documentation can be found [here](https://docs.modalai.com/voxl-flight-datasheet/).
 :::
 
-## Dimensions
+## 尺寸
 
 ### 2D Dimensions
 
@@ -67,11 +67,11 @@ More information about the firmware can be found [here](https://docs.modalai.com
 
 PX4 mainline supports VOXL 2 (board documentation [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
 
-## QGroundControl Support
+## QGroundControl支持
 
 This board supported in QGroundControl 4.0 and later.
 
-## Availability
+## 访问链接
 
 - [PX4 Autonomy Developer Kit](https://www.modalai.com/products/px4-autonomy-developer-kit)
 - [Starling 2](https://www.modalai.com/products/starling-2)
@@ -94,7 +94,7 @@ VOXL SDK runs on VOXL, VOXL 2 and RB5 Flight!
 
 The source code for projects within VOXL SDK can be found at https://gitlab.com/voxl-public, alongside build instructions.
 
-### Connectors
+### 连接器
 
 Detailed information about the pinouts can be found [here](https://docs.modalai.com/voxl2-connectors/) along with a [video overview here](https://www.youtube.com/watch?v=xmqI3msjqdo)
 
@@ -102,7 +102,7 @@ Detailed information about the pinouts can be found [here](https://docs.modalai.
 
 All single ended signals on B2B connectors J3, J5, J6, J7, and J8 are 1.8V CMOS unless explicitly noted. All single ended signals on cable-to-board connectors J10, J18, & J19 are 3.3V CMOS unless explicitly noted.
 
-| Connector | Description                   | MPN (Board Side)        | Mating MPN (Board/Cable Side) | Type                         | Signal Feature Summary                                                                                                                                                                                     |
+| Connector | 描述                            | MPN (Board Side)        | Mating MPN (Board/Cable Side) | 类型                           | Signal Feature Summary                                                                                                                                                                                     |
 | --------- | ----------------------------- | ----------------------- | ----------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | J2        | Fan                           | SM02B-SRSS-TB(LF)(SN)   | SHR-02V-S                     | Cable Header, 2-pin R/A      | 5V DC for FAN + PWM Controlled FAN-Return (GND)                                                                                                                                                            |
 | J3        | Legacy B2B                    | QSH-030-01-L-D-K-TR     | QTH-030-01-L-D-A-K-TR         | B2B Receptacle, 60-pin       | 5V/3.8V/3.3V/1.8V power for plug-in boards, JTAG and Debug Signals, QUP expansion, GPIOs, USB3.1 Gen 2 (USB1)                                                                                              |
@@ -128,6 +128,6 @@ The PX4 developer guide for VOXL 2 is available [here](https://docs.modalai.com/
 
 See the [VOXL PX4 Build Guide](https://docs.modalai.com/voxl2-px4-build-guide/) on how to build.
 
-## Support
+## 技术支持
 
 Please visit the [ModalAI Forum](https://forum.modalai.com/category/26/voxl-2) for more information.
