@@ -313,7 +313,7 @@ uxrce_dds_client start -n uav_1
 PX4_UXRCE_DDS_NS=uav_1 make px4_sitl gz_x500
 ```
 
-will generate topics under the namespaces:
+згенерує теми під просторами імен:
 
 ```sh
 /uav_1/fmu/in/  # for subscribers
