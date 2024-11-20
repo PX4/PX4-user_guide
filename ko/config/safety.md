@@ -119,7 +119,7 @@ The Data Link Loss failsafe is triggered if a telemetry link (connection to grou
 
 ![안전 - 데이터 링크 손실 (QGC)](../../assets/qgc/setup/safety/safety_data_link_loss.png)
 
-The settings and underlying parameters are shown below.
+설정에 관련된 기본 매개변수는 다음과 같습니다.
 
 | 설정             | 매개변수                                                                       | 설명                                                              |
 | -------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------- |
