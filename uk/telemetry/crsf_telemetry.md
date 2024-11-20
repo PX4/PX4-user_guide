@@ -75,7 +75,7 @@ TX і RX на обраному екрані контролю польоту по
    cd PX4-Autopilot
    ```
 
-1. Запустіть інструмент конфігурації плати PX4 (`menuconfig`) для вашої цілі `make` за допомогою параметру `boardconfig` (тут ціль - контролер польоту [ARK Electronics ARKV6X](../flight_controller/arkv6x.md)):
+1. Launch the [PX4 board config tool (`menuconfig`)](../hardware/porting_guide_config.md#px4-menuconfig-setup) for your `make` target using the `boardconfig` option (here the target is the [ARK Electronics ARKV6X](../flight_controller/ark_v6x.md) flight controller):
 
    ```sh
    make ark_fmu-v6x_default boardconfig
