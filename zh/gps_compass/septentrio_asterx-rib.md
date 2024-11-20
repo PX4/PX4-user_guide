@@ -30,7 +30,7 @@ Other PX4 supported devices from Septentrio:
 
 - [mosaic-go evaluation kit](../gps_compass/septentrio_mosaic-go.md)
 
-## Interfaces
+## 接口
 
 ![Septentrio Robotics Interface Board Fritzing drawing](../../assets/hardware/gps/septentrio_sbf/rib.png)
 
@@ -64,11 +64,11 @@ The 6-pin 2mm header next to the micro USB connector exposes the first PPS signa
 
 When a USB cable is connected to the USB Micro-B connector, the interface board is powered from the computer through the USB connector. Alternatively, the power can be applied from the `PWR_IN` pins of the 44-pin connector. The voltage range when powering from the `PWR_IN` pins is 4.5V to 30V. Power can be applied from both sources at the same time. On-board diodes prevent short circuits. The interface board provides the 3V3 supply to the AsteRx-m3 OEM receiver and a 5V DC voltage to the `VANT` pin of the AsteRx-m3 OEM.
 
-## PX4 Configuration
+## PX4 配置
 
 PX4 configuration is covered in [Septentrio GNSS Receivers](../gps_compass/septentrio.md).
 
-## Hardware setup
+## 硬件设置
 
 ![Septentrio Robotics Interface Board wiring diagram](../../assets/hardware/gps/septentrio_sbf/rib_wiring.png)
 
