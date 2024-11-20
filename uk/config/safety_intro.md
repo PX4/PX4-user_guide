@@ -1,4 +1,4 @@
-# Safety
+# Безпека
 
 PX4 provides a number of manual and automated features that you can use to improve flight safety, protecting nearby people and property, and hopefully also your vehicle.
 
