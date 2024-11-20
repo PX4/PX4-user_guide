@@ -20,9 +20,9 @@ In the image above the wire colors have the following meanings:
 
 | Wire color | Purpose    |
 | ---------- | ---------- |
-| Brown      | Ground     |
-| Red        | Power      |
-| Yellow     | PWM Signal |
+| Brown      | 접지         |
+| 빨강         | 전원         |
+| 노랑         | PWM Signal |
 
 You would need to connect them into a PWM input of the Flight controller appropriately.
 
@@ -33,7 +33,7 @@ Before connecting the cable, double-check the following requirements:
 - **Signal line voltage level**: Check the data-sheet of your gripper mechanism to find the voltage level of the signal line. And make sure this is compatible with the voltage level of the pins of your Flight Controller.
 - **Power requirements of gripper**: Check the mechanism's data-sheet to find out the power line voltage level requirements. Depending on that, the gripper can be either connected directly to the [power module](../power_module/index.md) or connected to a 5V line. Alternatively a custom voltage regulator can be used to output any other voltage required.
 
-## PX4 Configuration
+## PX4 설정
 
 Configuration instructions can be found in: [Gripper > PX4 Configuration](../peripherals/gripper.md#px4-configuration) documentation.
 
