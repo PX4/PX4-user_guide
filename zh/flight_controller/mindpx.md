@@ -1,6 +1,6 @@
 # MindPX Hardware
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
 :::
 
 The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>.
@@ -98,7 +98,7 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet. You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port          |
 | ------ | ---------- | ------------- |
