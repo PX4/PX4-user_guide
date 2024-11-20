@@ -1,4 +1,4 @@
-# Rovers
+# Марсохід
 
 <LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
@@ -6,7 +6,7 @@
 Підтримка для ровера є [експериментальною](../airframes/index.md#experimental-vehicles). Волонтери та контрибютори, [внесення](../contribute/index.md) нових функцій, нових конфігурацій каркасів або інших вдосконалень дуже вітається!
 :::
 
-![Rovers](../../assets/airframes/rover/rovers.png)
+![Марсохід](../../assets/airframes/rover/rovers.png)
 
 PX4 supports the following rover types:
 
@@ -43,7 +43,7 @@ Rovers use a custom build that must be flashed onto your flight controller inste
 
 2. Load the **custom firmware** that you just built onto your flight controller (see [Loading Firmware > Installing PX4 Main, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)).
 
-## Simulation
+## Моделювання
 
 [Gazebo](../sim_gazebo_gz/index.md) provides simulations for both types of steering:
 - [Ackermann rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)
