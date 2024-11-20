@@ -4,7 +4,7 @@ The [ARK Pi6X Flow](\(https://arkelectron.gitbook.io/ark-documentation/flight-co
 
 ![ARK Pi6X Flow Flight Controller](../../assets/flight_controller/ark_pi6x_flow/ark_pi6xflow.jpg)
 
-## Where to Buy
+## 在哪里买
 
 Order this module from:
 
@@ -29,7 +29,7 @@ Order this module from:
   - Console
   - CPU Fan
 
-### Autopilot
+### 飞控
 
 - Communication:
   - TELEM (UART)
@@ -38,11 +38,11 @@ Order this module from:
   - CAN
 - Control and Monitoring:
   - 8 PWM Outputs
-  - Buzzer
+  - 蜂鸣器
   - Debug (SWD, UART Console)
   - MicroSD slot for data storage
 
-### Sensors
+### 传感器
 
 - 2x ICM-42688-P Accelerometer/Gyroscope (includes Heater)
 - PAW3902 Optical Flow Sensor
@@ -75,7 +75,7 @@ Order this module from:
 
 [ARK Pi6X Flashing Guide](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-pi6x-flow/flashing-guide)
 
-## Pinout
+## 针脚定义
 
 ![ARK Pi6X Flow Pinout](../../assets/flight_controller/ark_pi6x_flow/ark_pi6xflow_pinout.png)
 
