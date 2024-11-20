@@ -20,20 +20,18 @@ An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/cra
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
-## Quick Summary
+## 요약
 
-::: info
-The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
-:::
+:::info:::
 
 - Main System-on-Chip: STM32F405RG
-  - CPU: 168 MHz ARM Cortex M4 with single-precision FPU
-  - RAM: 192 KB SRAM
+  - CPU : 단정밀도 FPU의 168MHz ARM Cortex M4
+  - RAM : 192KB SRAM
 - nRF51822 radio and power management MCU
 - MPU9250 Accel / Gyro / Mag
 - LPS25H barometer
 
-## Where to Buy
+## 구매처
 
 - [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0).
 - [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between _QGroundControl_ and Crazyflie 2.0.
@@ -229,7 +227,7 @@ This is the rate at which Joystick commands are sent from QGroundControl to Craz
 
 ![](../../assets/hardware/joystick-message-frequency.png)
 
-## Hardware Setup
+## 하드웨어 설정
 
 Crazyflie 2.0 is able to fly with precise control in [Stabilized mode](../flight_modes_mc/manual_stabilized.md), [Altitude mode](../flight_modes_mc/altitude.md) and [Position mode](../flight_modes_mc/position.md).
 
