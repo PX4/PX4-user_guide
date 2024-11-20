@@ -1,4 +1,4 @@
-# Companion Computer Peripherals
+# 보조 컴퓨터 주변 기기
 
 This section contains information about companion computer peripherals. These include both components that might be connected to a companion computer (potentially triggered/accessed by PX4), and for connecting the computer to the flight controller.
 
@@ -16,7 +16,7 @@ The FTDI USB adapters are the most common way of communicating between companion
 
 A few "turnkey" options are listed below:
 
-| Device                                                                 | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH |
+| 장치                                                                     | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH |
 | ---------------------------------------------------------------------- | ----------------- | ------------ | ---------- | ------ |
 | [mRo USB FTDI Serial to JST-GH (Basic)][mro_usb_ftdi_serial_to_jst_gh] | Capable           | Capable      | No         | Yes    |
 | \[SparkFun FTDI Basic Breakout\]\[sparkfun_ftdi__breakout\]          | Yes               | No           | Yes        | No     |
