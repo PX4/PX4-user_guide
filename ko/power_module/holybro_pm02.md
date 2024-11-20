@@ -8,7 +8,7 @@ This analog power module provides regulated power to flight controller and power
 ![Holybro PM02](../../assets/hardware/power_module/holybro_pm02/pm02.jpg)
 
 
-## Specifications
+## 사양
 
 - **Rated current**: 60A
 - **Max current**: 120A (<60 Sec)
@@ -27,7 +27,7 @@ Voltage and current measurement configured for 3.3V ADC
 - Molex 6 Position Connector 15 cm
 - GH 6 Position Connector 15 cm
 
-## Where to Buy
+## 구매처
 
 [Order from Holybro Store](https://holybro.com/collections/power-modules-pdbs/products/pm02-v3-12s-power-module)
 
