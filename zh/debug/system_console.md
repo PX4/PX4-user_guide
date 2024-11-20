@@ -1,6 +1,6 @@
 # PX4 系统控制台
 
-The PX4 _System Console_ provides low-level access to the system, debug output and analysis of the system boot process.
+PX4_系统控制台_提供对底层访问的能力，输出调试信息和分析系统启动过程分析。
 
 :::tip
 The console should be used for debugging if the system won't boot. The [MAVLink Shell](../debug/mavlink_shell.md) may otherwise be more suitable, as it is much easier to set up and can be used for [many of the same tasks](../debug/consoles.md#console_vs_shell).
