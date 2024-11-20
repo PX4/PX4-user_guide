@@ -4,9 +4,9 @@ The [ARK Pi6X Flow](\(https://arkelectron.gitbook.io/ark-documentation/flight-co
 
 ![ARK Pi6X Flow Flight Controller](../../assets/flight_controller/ark_pi6x_flow/ark_pi6xflow.jpg)
 
-## Where to Buy
+## Де придбати
 
-Order this module from:
+Замовте цей модуль з:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-pi6x-flow/) (US)
 
@@ -15,7 +15,7 @@ Order this module from:
 ### Raspberry Pi Compute Module 4 Carrier
 
 - Autopilot Firmware: PX4
-- Features:
+- Функції:
   - MicroSD slot (for CM4 Lite)
   - Micro HDMI
   - Ethernet
@@ -26,10 +26,10 @@ Order this module from:
   - I2C, UART
   - LED Strip GPIO
   - General Purpose GPIO
-  - Console
+  - Консоль
   - CPU Fan
 
-### Autopilot
+### Автопілот
 
 - Communication:
   - TELEM (UART)
@@ -37,12 +37,12 @@ Order this module from:
   - GPS (UART, I2C)
   - CAN
 - Control and Monitoring:
-  - 8 PWM Outputs
-  - Buzzer
+  - 8 PWM виводів
+  - Зумер
   - Debug (SWD, UART Console)
   - MicroSD slot for data storage
 
-### Sensors
+### Сенсори
 
 - 2x ICM-42688-P Accelerometer/Gyroscope (includes Heater)
 - PAW3902 Optical Flow Sensor
@@ -53,7 +53,7 @@ Order this module from:
 
 ### USA-Built and NDAA Compliant
 
-## Power Requirements
+## Вимоги до живлення
 
 - Battery Input: Up to 6s/25.2V (actual requirement depends on usage and peripherals)
 
@@ -64,7 +64,7 @@ Order this module from:
   - 41g (without Pi CM4, Pi SD, and ESC)
   - 53g (bundle with Pi CM4 and Pi SD, without ESC)
 
-## Additional Information
+## Додаткова інформація
 
 - Included: Flight Controller MicroSD
 - Bundle Option Includes:
@@ -75,7 +75,7 @@ Order this module from:
 
 [ARK Pi6X Flashing Guide](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-pi6x-flow/flashing-guide)
 
-## Pinout
+## Розпіновка
 
 ![ARK Pi6X Flow Pinout](../../assets/flight_controller/ark_pi6x_flow/ark_pi6xflow_pinout.png)
 
@@ -297,6 +297,6 @@ Order this module from:
 | 21         | SDA0                                                | 3.3V |
 | 22         | 3.3V_RPI       | 3.3V |
 
-## See Also
+## Дивіться також
 
 - [ARK Pi6X Flow Documentation](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-pi6x-flow) (ARK Docs)
