@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/MagnetometerBiasEstimate.msg)
+[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/MagnetometerBiasEstimate.msg)
 
 ```c
 uint64 timestamp                # time since system start (microseconds)
