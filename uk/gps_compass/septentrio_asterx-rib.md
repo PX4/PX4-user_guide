@@ -19,7 +19,7 @@ The Robotics Interface Board coupled with Septentrio GNSS receiver boards provid
 - Розмір: 71.53 x 47.5 x 18.15 mm
 - Weight: 50g
 
-## Purchase
+## Купити
 
 Усі приймачі AsteRx та Роботизовані Інтерфейсні Плати можна придбати в інтернет-магазині Septentrio:
 
@@ -30,7 +30,7 @@ The Robotics Interface Board coupled with Septentrio GNSS receiver boards provid
 
 - [набір для оцінки mosaic-go](../gps_compass/septentrio_mosaic-go.md)
 
-## Interfaces
+## Інтерфейси
 
 ![Інтерфейсна плата Septentrio Robotics Fritzing малюнок](../../assets/hardware/gps/septentrio_sbf/rib.png)
 
@@ -64,7 +64,7 @@ _Тип роз'єму: SAMTEC TMM-103-03-G-D, крок 2 мм._
 
 When a USB cable is connected to the USB Micro-B connector, the interface board is powered from the computer through the USB connector. Alternatively, the power can be applied from the `PWR_IN` pins of the 44-pin connector. The voltage range when powering from the `PWR_IN` pins is 4.5V to 30V. Електроживлення можна подавати одночасно з обох джерел. На борту діоди запобігають коротким замиканням. The interface board provides the 3V3 supply to the AsteRx-m3 OEM receiver and a 5V DC voltage to the `VANT` pin of the AsteRx-m3 OEM.
 
-## PX4 Configuration
+## Конфігурація PX4
 
 PX4 configuration is covered in [Septentrio GNSS Receivers](../gps_compass/septentrio.md).
 
@@ -99,9 +99,9 @@ For additional configuration of the dual antenna setup, please refer to our [Kno
 
 ### Web App
 
-mosaic-H GPS/GNSS receiver module with heading comes with fully documented interfaces, commands and data messages. The included GNSS receiver control and analysis software [RxTools](https://web.septentrio.com/l/858493/2022-04-19/xgrss) allows receiver configuration, monitoring as well as data logging and analysis.
+модуль приймача GPS/GNSS з компасом mosaic-H поставляється з повністю задокументованими інтерфейсами, командами та даними повідомленнями. The included GNSS receiver control and analysis software [RxTools](https://web.septentrio.com/l/858493/2022-04-19/xgrss) allows receiver configuration, monitoring as well as data logging and analysis.
 
-The receiver includes an intuitive web user interface for easy operation and monitoring allowing you to control the receiver from any mobile device or computer. The web interface also uses easy-to-read quality indicators ideal to monitor the receiver operation during the job at hand.
+Отримувач містить інтуїтивний веб-інтерфейс користувача для легкої роботи та контролю, що дозволяє вам керувати отримувачем з будь-якого мобільного пристрою або комп'ютера. Веб-інтерфейс також використовує легко читані показники якості, ідеальні для контролю операції приймача під час виконання завдання.
 
 ![Illustrative image for Septentrio mosaic-H GNSS Receiver Module Web User Interface (WebUI)](../../assets/hardware/gps/septentrio_sbf/septentrio_mosaic_a5_h_t_clas_gnss_module_receiverwebui.png)
 
