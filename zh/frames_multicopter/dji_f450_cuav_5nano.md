@@ -158,7 +158,7 @@ Estimated time to assemble is approximately 90 minutes (about 45 minutes for the
 ![Finished Setup](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
 
-## PX4 Configuration
+## PX4 配置
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
@@ -169,14 +169,14 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 First update the firmware, airframe, geometry and outputs:
 
 - [固件](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [机架](../config/airframe.md)
 
   ::: info You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
 
   ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_airframe_generic_quadx.png)
 :::
 
-- [Actuators](../config/actuators.md)
+- [执行器](../config/actuators.md)
   - Update the vehicle geometry to match the frame.
   - Assign actuator functions to outputs to match your wiring.
   - Test the configuration using the sliders.
@@ -189,7 +189,7 @@ Then perform the mandatory setup/calibration:
 - [加速度计 Accelerometer](../config/accelerometer.md)
 - [水平平面校准](../config/level_horizon_calibration.md)
 - [无线电系统设置](../config/radio.md)
-- [Flight Modes](../config/flight_mode.md)
+- [飞行模式](../config/flight_mode.md)
 
   ::: info For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
 :::
