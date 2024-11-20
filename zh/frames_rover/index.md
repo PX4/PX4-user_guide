@@ -1,4 +1,4 @@
-# Rovers
+# 无人车
 
 <LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
@@ -6,7 +6,7 @@
 Support for rover is [experimental](../airframes/index.md#experimental-vehicles). Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
 :::
 
-![Rovers](../../assets/airframes/rover/rovers.png)
+![无人车](../../assets/airframes/rover/rovers.png)
 
 PX4 supports the following rover types:
 
@@ -43,7 +43,7 @@ Rovers use a custom build that must be flashed onto your flight controller inste
 
 2. Load the **custom firmware** that you just built onto your flight controller (see [Loading Firmware > Installing PX4 Main, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)).
 
-## Simulation
+## 仿真
 
 [Gazebo](../sim_gazebo_gz/index.md) provides simulations for both types of steering:
 - [Ackermann rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)
