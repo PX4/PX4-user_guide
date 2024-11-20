@@ -34,6 +34,6 @@ If they are swapped then the sensor will read a large negative differential pres
 
 1. _QGroundControl_ then tells you if the calibration was successful or not.
 
-## Further Information
+## 更多信息
 
 - [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#airspeed)
