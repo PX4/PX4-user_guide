@@ -6,7 +6,7 @@ This topic explains how to use PX4 with a [camera](../camera/index.md) that is a
 [MAVLink cameras](../camera/mavlink_v2_camera.md) that use the [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) are recommended.
 :::
 
-## Overview
+## 개요
 
 PX4 can trigger a [camera](../camera/index.md) connected to flight controller outputs using [camera commands](#mavlink-command-interface) in missions or sent by a ground control stations.
 The supported commands are a subset of those defined in the MAVLink [Camera Protocol v1](https://mavlink.io/en/services/camera.html).
@@ -137,7 +137,7 @@ At time of writing triggering only works on FMU pins:
 
 :::
 
-### Other Parameters
+### 기타 매개 변수:
 
 | Parameter                                                                                                          | Description                                                                                                                                                                                                                                                             |
 | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
