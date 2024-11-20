@@ -10,7 +10,7 @@ The mission is typically created and uploaded with a Ground Control Station (GCS
 - This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
 - The vehicle must be armed before this mode can be engaged.
 - This mode is automatic - no user intervention is _required_ to control the vehicle.
-- RC control switches can be used to change flight modes on any vehicle.
+- RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
 
 :::
 
@@ -95,11 +95,11 @@ A subset of the most important checks are listed below:
 Additionally there is a check if the first waypoint is too far from the Home position ([MIS_DIST_1WP](#MIS_DIST_1WP)).
 The user is notified should the check fail, but it has no effect on the validity of a mission plan (the mission can still be started even if the distance is too great).
 
-## QGroundControl Support
+## QGroundControl 지원
 
 _QGroundControl_ provides additional GCS-level mission handling support (in addition to that provided by the flight controller).
 
-For more information see:
+더 자세한 정보는 다음을 참고하십시오.
 
 - [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
 - [Resume mission after Return mode](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#resume-mission)
