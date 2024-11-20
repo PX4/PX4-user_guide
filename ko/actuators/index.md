@@ -1,4 +1,4 @@
-# Actuators
+# 액츄에이터
 
 This section contains topics about the core actuators used for flight control (ESC/motors, and servos), and how they are assigned to the flight controller outputs, configured, and calibrated.
 
