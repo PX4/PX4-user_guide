@@ -9,7 +9,7 @@ Remote ID is a government mandated technology for UAVs in Japan, the United Stat
 
 PX4 works with Remote ID modules that target the FAA [standard Remote ID rules](https://www.faa.gov/uas/getting_started/remote_id). These are designed to be integrated into the vehicle, and broadcast Open Drone ID messages using id, position, and other information that is supplied by an autopilot. The "standard rules" modules enable less restrictive operation than "broadcast rules" modules, which are standalone modules with an integrated GPS that do not have any communication with the autopilot.
 
-## Supported Hardware
+## 지원 하드웨어
 
 PX4 integrates with Remote ID hardware that supports the [Open Drone ID](https://mavlink.io/en/services/opendroneid.html) MAVLink protocol (Open Drone ID is an open source implementation of Remote ID).
 
@@ -20,14 +20,14 @@ It has been tested with the following devices:
 - [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - less expensive variant without CAN port.
 - [Holybro RemoteID Module](https://holybro.com/products/remote-id) (Holybro)
 
-::: info
+:::note
 
 - Other devices that support the MAVLink API should work (but have not been tested).
 - PX4 does not support Remote ID over CAN in PX4 v1.14.
 
 :::
 
-## Hardware Setup
+## 하드웨어 설정
 
 Remote ID devices can be connected to any free/unused serial port on the flight controller. Most commonly they are connected directly to the `TELEM2` port (if it is not being use for some other purpose) as this is already configured for MAVLink "by default".
 
@@ -41,12 +41,12 @@ If using a different port, or a flight controller that has different connector, 
 
 ![Cube ID serial port](../../assets/hardware/remote_id/cube_id/serial_port_connector.jpg)
 
-| Pin     | Signal   | Volt |
-| ------- | -------- | ---- |
-| 1 (red) | VCC_5V   | 5V   |
-| 2 (blk) | TX (OUT) |      |
-| 3 (blk) | RX (IN)  |      |
-| 4 (blk) | GND      | 0    |
+| 핀     | 신호      | 전압 |
+| ----- | ------- | -- |
+| 1 (적) | VCC_5V  | 5V |
+| 2 (흑) | TX (출력) |    |
+| 3 (흑) | RX (입력) |    |
+| 4 (흑) | GND     | 0  |
 
 #### Cube ID Firmware
 
@@ -76,7 +76,7 @@ Note that CAN port not supported in PX4 v1.14
 
 ![Holybro Remote ID Pinouts](../../assets/peripherals/remoteid_holybro/holybro_remote_id_pinout.jpg)
 
-## PX4 Configuration
+## PX4 설정
 
 ### Port Configuration
 
