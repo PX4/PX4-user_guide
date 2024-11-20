@@ -1,6 +1,6 @@
 # 接线指南
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 
 Note also that while [Cube Black](../flight_controller/pixhawk-2.md) is [fully supported by PX4](../flight_controller/autopilot_pixhawk_standard.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md) are [Manufacturer Supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
@@ -23,7 +23,7 @@ The exception is that some kits do not include a GPS, which will have to be purc
 
 ## 接线图概览
 
-The image below shows how to connect the most important sensors and peripherals. We'll go through each of these in detail in the following sections.
+The image below shows how to connect the most important sensors and peripherals. 我们将在下面各节中介绍它们的细节。
 
 ![Cube - Wiring Overview](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
 
@@ -93,7 +93,7 @@ The buzzer should be connected to the USB port as shown (no further configuratio
 
 <a id="rc_control"></a>
 
-## Radio Control
+## 遥控器
 
 A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -132,13 +132,13 @@ This can be done by connecting the power rail to a BEC equipped ESC, a standalon
 
 <a id="telemetry"></a>
 
-## Telemetry System (Optional)
+## 数传系统（可选）
 
 A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
 The communication channel is via [Telemetry Radios](../telemetry/index.md). The vehicle-based radio should be connected to the **TELEM1** port (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
 
-![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
+![数传电台](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
 ## SD 卡（可选）
 
