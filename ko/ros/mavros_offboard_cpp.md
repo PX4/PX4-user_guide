@@ -14,7 +14,7 @@ This example uses C++. A very similar example for Python can be found in [ROS/MA
   <source src="../../assets/simulation/gazebo_classic/gazebo_offboard.webm" type="video/webm">
 </video>
 
-## Code
+## 코드
 
 Create the `offb_node.cpp` file in your ROS package (by also adding it to your `CMakeList.txt` so it is compiled), and paste the following inside it:
 
