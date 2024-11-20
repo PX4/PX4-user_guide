@@ -25,7 +25,7 @@ The manual modes listed below provide increasing levels of autopilot support:
 | [Stabilized](#stabilized-mode) | Directly map stick input to motor commands.                              | Stick input creates a yaw rate setpoint for the control system to regulate. If this setpoint is zero (stick is centered) the control system will maintain the current yaw (heading) of the rover. | Yaw rate and yaw.                                                  |
 | [Position](#position-mode)     | Stick input creates a speed setpoint for the control system to regulate. | Stick input creates a yaw rate setpoint for the control system to regulate. If this setpoint is zero (stick is centered) the control system will keep the rover driving in a straight line.                          | Yaw rate, yaw, speed and global position (GPS). |
 
-### Manual Mode
+### 수동 모드
 
 In this mode the stick inputs are directly mapped to motor commands. The rover does not attempt to maintain a specific orientation or compensate for external factors like slopes or uneven terrain!
 The user is responsible for making the necessary adjustments to the stick inputs to keep the rover on the desired course.
@@ -108,7 +108,7 @@ The mission is typically created and uploaded with a Ground Control Station (GCS
 
 The following commands can be used in missions at time of writing (`main(PX4 v1.16+)`):
 
-| QGC mission item                      | Command                                                                                                                        | Description                                                                                      |
+| QGC mission item                      | 통신                                                                                                                             | Description                                                                                      |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
 | Mission start                         | [MAV_CMD_MISSION_START](MAV_CMD_MISSION_START)                  | Starts the mission.                                                              |
 | Waypoint                              | [MAV_CMD_NAV_WAYPOINT](MAV_CMD_NAV_WAYPOINT)                    | Navigate to waypoint.                                                            |
