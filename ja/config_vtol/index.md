@@ -4,7 +4,7 @@ First perform the [Standard Configuration](../config/index.md). As part of this 
 
 Then perform VTOL-specific configuration and tuning:
 
-- [QuadPlane Configuration](../config_vtol/vtol_quad_configuration.md)
-- [Back-transition Tuning](../config_vtol/vtol_back_transition_tuning.md)
-- [VTOL w/o Airspeed Sensor](../config_vtol/vtol_without_airspeed_sensor.md)
-- [VTOL Weather Vane](../config_vtol/vtol_weathervane.md)
+- [クアッド型機の設定](../config_vtol/vtol_quad_configuration.md)
+- [バックトランジションチューニング](../config_vtol/vtol_back_transition_tuning.md)
+- [VTOL機/速度センサなし](../config_vtol/vtol_without_airspeed_sensor.md)
+- [VTOL機風見機能](../config_vtol/vtol_weathervane.md)
