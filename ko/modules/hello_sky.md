@@ -148,7 +148,7 @@
    ::: info If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). 앱은 내장 명령이 되지 않지만, `examples__px4_simple_app.px4mod`라는 별도의 파일로 끝이 납니다. 그런 다음 `dyn` 명령을 사용하여 런타임에 파일을 로드하여 명령을 실행할 수 있습니다. `dyn ./examples__px4_simple_app.px4mod`
 :::
 
-1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Copy in the text below:
+1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). 아래 텍스트를 복사하십시오.
 
    ```
    menuconfig EXAMPLES_PX4_SIMPLE_APP
