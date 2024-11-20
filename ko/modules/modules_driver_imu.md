@@ -656,7 +656,7 @@ Source: [drivers/imu/invensense/iim42652](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="iim42652_usage"></a>
 
-### Usage
+### 사용법
 ```
 iim42652 <command> [arguments...]
  Commands:
@@ -836,7 +836,7 @@ mpu9250 <command> [arguments...]
    status        print status info
 ```
 ## mpu9250_i2c
-Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/mpu9250)
+Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu9250)
 
 <a id="mpu9250_i2c_usage"></a>
 
@@ -865,7 +865,7 @@ mpu9250_i2c <command> [arguments...]
 
 <a id="mpu9520_usage"></a>
 
-### Usage
+### 사용법
 ```
 mpu9520_i2c <command> [arguments...]
  Commands:
@@ -891,7 +891,7 @@ Source: [drivers/imu/murata/sch16t](https://github.com/PX4/PX4-Autopilot/tree/ma
 
 <a id="sch16t_usage"></a>
 
-### Usage
+### 사용법
 ```
 sch16t <command> [arguments...]
  Commands:
