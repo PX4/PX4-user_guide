@@ -19,21 +19,21 @@ Thanks to the printed tube, it is very easy to change the measuring profile and 
 
 ![TFSLOT integrated in TF-G2](../../assets/hardware/sensors/airspeed/tfslot_integration.jpg) _First integration of TFSLOT into [TF-G2](https://github.com/ThunderFly-aerospace/TF-G2/) autogyro_
 
-::: info
+:::note
 
 Full documentation and source files can be found on [GitHub](https://github.com/ThunderFly-aerospace/TFSLOT01).
 
 :::
 
-## Where to buy
+## 구매처
 
 TFSLOT is possible to buy at [Tindie store](https://www.tindie.com/products/thunderfly/tfslot01a-inovative-drone-airspeed-sensor/) or by sending us an inquiry via email at info@thunderfly.cz
 
-## Connection
+## 연결
 
 [TFASPDIMU02](https://github.com/ThunderFly-aerospace/TFASPDIMU02) is equipped with I2C JST-GH connector, which conforms to the pinout of the [dronecode standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). Therefore the sensor can be connected directly to an I2C port of autopilot using an I2C 4pin JST-GH cable.
 
-## Configuration
+## 설정
 
 Because there is an [IMU IC](https://invensense.tdk.com/products/motion-tracking/9-axis/icm-20948/) connected in front of the sensor, the IMU IC needs to be set into a bridge mode. Following this the airspeed sensor driver can be run. This can be done using the following command sequences. The commands assume a connection to I2C2 port.
 
