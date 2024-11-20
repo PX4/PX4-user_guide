@@ -234,7 +234,7 @@ Connect the Pixracer FrSky TX line (FS out) to the receiver's RX line. Connect t
 
 Simply attach one of the UART's TX pins to the SPort inverted or uninverted pin (PX4 will auto-detect and handle either type).
 
-### Other Boards
+### その他のボード
 
 Most other boards connect to the receiver for FrSky telemetry via the TELEM2 UART. This includes, for example: [Pixhawk 1](../flight_controller/pixhawk.md), [mRo Pixhawk](../flight_controller/mro_pixhawk.md), Pixhawk2.
 
