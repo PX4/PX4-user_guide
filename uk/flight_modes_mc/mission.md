@@ -90,7 +90,7 @@ If any of the checks fail, the user is notified and it is not possible to start 
 Підмножина найважливіших перевірок перерахована нижче:
 
 - Будь-який елемент місії конфліктує з планом або безпечним геозахистом
-- Missing takeoff and/or land item when these are configured as a requirement ([MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ))
+- Відсутній пункт зльоту та/або посадки, коли вони налаштовані як вимога ([MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ))
 
 Additionally there is a check if the first waypoint is too far from the Home position ([MIS_DIST_1WP](#MIS_DIST_1WP)).
 The user is notified should the check fail, but it has no effect on the validity of a mission plan, meaning that the mission can still be started even if the distance is too high.
