@@ -1,6 +1,6 @@
 # Holybro Pixhawk Mini (Discontinued)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. :::
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. :::
 
 The Holybro *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk. It is about 1/3rd the size of the original Pixhawk and has more powerful processors and sensors.
 
@@ -37,7 +37,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - **USB Power Input:** 4.1\`5.5V
 - **Servo Rail Input:** 0\~10V
 
-**Interfaces:**
+**接口：**
 
 - 1 x UART Serial Port (for GPS)
 - Spektrum DSM/DSM2/DSM-X® Satellite Compatible RC input
@@ -59,7 +59,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - **Weight:** 22.4g
 - **Dimensions:** 37x37x12mm
 
-## Where to Buy
+## 在哪里买
 
 Discontinued.
 
@@ -223,7 +223,7 @@ The control signals come from MAIN OUT. In this case there is only one control c
 
 The Pixhawk Mini output rail (MAIN OUT) cannot power attached devices (and does not need to in the circuit as shown). For vehicles where MAIN OUT is attached to devices that draw power (e.g. a servo used in a plane) then you will need to power the rail using a BEC (battery elimination circuit). The included breakout board allows one channel to provide power on the other outputs.
 
-### Radio Control
+### 遥控器
 
 Pixhawk Mini supports many different radio receiver models:
 
@@ -237,7 +237,7 @@ Pixhawk Mini supports many different radio receiver models:
 
 - PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **RCIN** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
 
 ### Safety switch (optional)
 
@@ -245,7 +245,7 @@ The controller has an integrated safety switch that you can use for motor activa
 
 ![Pixhawk Mini - Optional Switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg)
 
-### Telemetry Radios
+### 数传电台
 
 ### 电机
 
