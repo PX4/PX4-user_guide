@@ -53,7 +53,7 @@
    python mag_compensation.py ~/path/to/log/logfile.ulg <type> [--instance <number>]
    ```
 
-   where:
+   여기서:
 
       - `<type>`: `current` or `thrust` (power signal used for compensation)
       - `--instance <number>` (optional): The number is `0` (default) or `1`, the instance of the current or thrust signal to use.
