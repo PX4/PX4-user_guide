@@ -5,7 +5,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 :::
 
 :::warning
-PX4 does not manufacture this (or any) autopilot.
+PX4 没有制造这款（或任何一款）飞控。
 Contact the manufacturer for support or compliance issues.
 :::
 
@@ -32,7 +32,7 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 - High-power, multi-tone piezo audio indicator
 - microSD card for high-rate logging over extended periods of time
 
-Connectivity
+连接
 
 - 1x I2C
 - 1x CAN (2x optional)
@@ -114,7 +114,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 ## 原理图
 
-[FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
+[FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) - 原理图和布局
 
 ::: info As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 :::
@@ -238,7 +238,7 @@ Due to space constraints two ports are on one connector.
 | 2（黑） | !IO_LED_SAFETY | GND   |
 | 3（黑） | SAFETY           | GND   |
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
