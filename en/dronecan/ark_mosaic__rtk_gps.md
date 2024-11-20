@@ -2,7 +2,7 @@
 
 ARK MOSAIC-X5 RTK GPS is a made in the USA [DroneCAN](index.md) module featuring the Septentrio Mosaic-X5 RTK GPS, magnetometer, barometer, IMU, buzzer, and safety switch.
 
-![ARK MOSAIC-X5 RTK GPS](../../assets/hardware/gps/ark_mosaic_rtk_gps.jpg)
+![ARK MOSAIC-X5 RTK GPS](../../assets/hardware/gps/ark/ark_mosaic_rtk_gps.jpg)
 ## Where to Buy
 
 Order this module from:

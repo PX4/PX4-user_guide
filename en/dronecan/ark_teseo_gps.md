@@ -2,7 +2,7 @@
 
 ARK TESEO GPS is a made in the USA and NDAA-compliant [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.md) L1/L5 GPS, magnetometer, barometer, IMU, and buzzer module.
 
-![ARK TESEO GPS](../../assets/hardware/gps/ark_teseo_gps.jpg)
+![ARK TESEO GPS](../../assets/hardware/gps/ark/ark_teseo_gps.jpg)
 
 ## Where to Buy
 
