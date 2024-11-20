@@ -2,7 +2,7 @@
 
 ARK GPS is an open source [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.md), magnetometer, IMU, barometer, buzzer, and safety switch module.
 
-![ARK GPS](../../assets/hardware/gps/ark_gps.jpg)
+![ARK GPS](../../assets/hardware/gps/ark/ark_gps.jpg)
 
 ## Where to Buy
 
@@ -99,3 +99,7 @@ If you see a red LED there is an error and you should check the following:
 - Make sure the flight controller has an SD card installed.
 - Make sure the ARK GPS has `ark_can-gps_canbootloader` installed prior to flashing `ark_can-gps_default`.
 - Remove binaries from the root and ufw directories of the SD card and try to build and flash again.
+
+## See Also
+
+- [ARK GPS](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-gps) (ARK Docs)
