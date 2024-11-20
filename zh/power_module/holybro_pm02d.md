@@ -9,7 +9,7 @@ The power module is connected using the I2C protocol. It is designed for flight 
 
 ![PM02D](../../assets/hardware/power_module/holybro_pm02d/pm02d_hero.jpg)
 
-## Specifications
+## 产品规格
 
 - **Max input voltage**: 36V
 - **Rated current**: 60A
@@ -26,7 +26,7 @@ The power module is connected using the I2C protocol. It is designed for flight 
 - PM02D board with XT60 connectors
 - 6pin 2.00mm pitch CLIK-Mate cable to power flight controller
 
-## Where to Buy
+## 在哪里买
 
 [Order from Holybro Store](https://holybro.com/products/pm02d-power-module)
 
