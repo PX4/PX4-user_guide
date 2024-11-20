@@ -53,8 +53,8 @@ The Pixhawk®​ 6X-RT is perfect for developers at corporate research labs, sta
   - 46 kB user memory with personalization options to go up to 104 kB
   - Groundbreaking CC EAL6+ certified solution for IoT deployments
   - AES and 3DES encryption and decryption
-- IO Processor: STM32F100
-  - 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
+- IO 处理器：STM32F100
+  - 32 位 Arm® Cortex®-M3，24MHz，8KB SRAM
 - On-board sensors
   - Accel/Gyro: ICM-20649 or BMI088
   - Accel/Gyro: ICM-42688-P
@@ -74,7 +74,7 @@ The Pixhawk®​ 6X-RT is perfect for developers at corporate research labs, sta
 
 ### Mechanical data
 
-- Dimensions
+- 尺寸
   - Flight Controller Module: 38.8 x 31.8 x 14.6mm
   - Standard Baseboard: 52.4 x 103.4 x 16.7mm
   - Mini Baseboard: 43.4 x 72.8 x 14.2 mm
@@ -83,13 +83,13 @@ The Pixhawk®​ 6X-RT is perfect for developers at corporate research labs, sta
   - Standard Baseboard: 51g
   - Mini Baseboard: 26.5g
 
-### Interfaces
+### 接口
 
 - 16- PWM servo outputs
 - R/C input for Spektrum / DSM
 - Dedicated R/C input for PPM and S.Bus input
 - Dedicated analog / PWM RSSI input and S.Bus output
-- 4 general purpose serial ports
+- 4个通用串行口
   - 3 with full flow control
   - 1 with separate 1.5A current limit (Telem1)
   - 1 with I2C and additional GPIO line for external NFC reader
@@ -110,18 +110,18 @@ The Pixhawk®​ 6X-RT is perfect for developers at corporate research labs, sta
 - 2 Power input ports with SMBus
 
   - 1 AD & IO port
-  - 2 additional analog input
+  - 2 个模拟输入接口
   - 1 PWM/Capture input
   - 2 Dedicated debug and GPIO lines
 
-- Other Characteristics:
+- 其它特性:
   - Operating & storage temperature: -40 ~ 85°c
 
-## Where to Buy
+## 在哪里买
 
 Order from [Holybro](https://holybro.com/products/fmuv6x-rt-developer-edition).
 
-## Assembly/Setup
+## 组装 / 设置
 
 The [Pixhawk 6X Wiring Quick Start](../assembly/quick_start_pixhawk6x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
 
@@ -131,18 +131,18 @@ Sample Wiring Diagram
 
 ![Pixhawk 6X Wiring Overview](../../assets/flight_controller/pixhawk6x/pixhawk6x_wiring_diagram.png)
 
-## Pinouts
+## 针脚定义
 
 - [Holybro Pixhawk Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-baseboard-pinout)
 - [Holybro Pixhawk Mini-Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-mini-baseboard-pinout)
 
-Notes:
+路径规划软件（在机载计算机上运行）*可以* 以[TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
 
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
-## Serial Port Mapping
+## 串口映射
 
-| UART   | Device     | Port     |
+| UART   | 设备         | Port     |
 | ------ | ---------- | -------- |
 | UART1  | /dev/ttyS0 | Debug    |
 | UART3  | /dev/ttyS1 | GPS      |
@@ -153,11 +153,11 @@ Notes:
 | UART10 | /dev/ttyS6 | TELEM3   |
 | UART11 | /dev/ttyS7 | External |
 
-## Dimensions
+## 尺寸
 
 [Pixhawk 6X Dimensions](https://docs.holybro.com/autopilot/pixhawk-6x/dimensions)
 
-## Voltage Ratings
+## 额定电压
 
 _Pixhawk 6X-RT_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**. The **POWER1** & **POWER2** ports on the Pixhawk 6X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
@@ -165,16 +165,16 @@ _Pixhawk 6X-RT_ can be triple-redundant on the power supply if three power sourc
 
 Under these conditions all power sources will be used in this order to power the system:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1** 和 **POWER2** 输入电压（4.9 v 至 5.5 v）
+1. **USB** 输入电压（4.75 v 至 5.25 v）
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1** 与 **POWER2** 输入（可运行范围 4.1V 至 5.7V，0V 至 10V 不会损坏）
+1. **USB** 输入（可运行范围 4.1V 至 5.7V，0V 至 6V 不会损坏）
+1. 舵机输入：**FMU PWM OUT** 和 **I/O PWM OUT** 的 VDD_SERVO 针脚 （0V 至 42V 不会损坏）
 
 **Voltage monitoring**
 
@@ -184,7 +184,7 @@ Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](.
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
 :::
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
@@ -198,21 +198,21 @@ make px4_fmu-v6xrt_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Debug调试端口
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Pin      | Signal           | Volt  |
+| 针脚       | Signal           | 电压    |
 | -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
+| 2        | `Vtref`          | +3.3V |
+| 2        | Console TX (OUT) | +3.3V |
+| 3        | Console RX (IN)  | +3.3V |
+| 4（黑）     | `SWDIO`          | +3.3V |
+| 6        | `SWCLK`          | +3.3V |
+| 6        | `SWO`            | +3.3V |
+| 7        | NFC GPIO         | +3.3V |
 | 8 (blk)  | PH11             | +3.3V |
 | 9 (blk)  | nRST             | +3.3V |
 | 10 (blk) | `GND`            | GND   |
@@ -222,17 +222,17 @@ For information about using this port see:
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
-## Peripherals
+## 外部设备
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [数字空速传感器](https://holybro.com/products/digital-air-speed-sensor)
+- [遥测无线电模块](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [距离传感器](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## 更多信息
 
 - [Update Pixhawk 6X-RT Bootloader](../advanced_config/bootloader_update_v6xrt.md)
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
