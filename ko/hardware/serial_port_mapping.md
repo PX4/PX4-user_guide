@@ -45,7 +45,7 @@ The _nsh/defconfig_ allows you to determine which ports are defined, whether the
 
 Open the board's defconfig file, for example: [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L215-L221)
 
-Search for the text "ART" until you find a section like with entries formatted like `CONFIG_STM32xx_USARTn=y` (where `xx` is a processor type and `n` is a port number). For example:
+Search for the text "ART" until you find a section like with entries formatted like `CONFIG_STM32xx_USARTn=y` (where `xx` is a processor type and `n` is a port number). 예를 들어:
 
 ```
 ttyS0 CONFIG_STM32F7_USART1=y
@@ -126,5 +126,5 @@ Contributions welcome!
 
 ## See Also
 
-- [Serial Port Configuration](../peripherals/serial_configuration.md)
+- [직렬 포트 설정](../peripherals/serial_configuration.md)
 - [MAVLink Telemetry (OSD/GCS)](../peripherals/mavlink_peripherals.md)
