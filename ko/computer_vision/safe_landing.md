@@ -29,7 +29,7 @@ Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](ht
 여기에는 장애물 회피 및 충돌 방지를위한 일반적인 설정이 포함되며 *안전 착륙 플래너* (이 기능은 보조컴퓨터에서 제공)를 사용하기위한 특정 섹션이 포함됩니다.
 
 - [시뮬레이션 설정](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
-- [Hardware setup](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
+- [하드웨어 설정](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
 
 구성 정보에는 다양한 카메라, 차량 크기 및 착륙 여부를 결정하는 높이에 대한 안전 착륙을 설정 방법이 포함하고 있습니다.
 
