@@ -160,7 +160,7 @@ _Note: 1000 Series connectors accessible from the STM32/PX4_
 
 ### 빌드 방법
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
 ```
 make modalai_fc-v1
