@@ -55,7 +55,7 @@ The following list provides an _overview_ of the different implementations of ho
   - Set in position mode using `MPC_POS_MODE=3`.
 - **Simple position control**
   - Sticks map directly to velocity setpoints without smoothing.
-  - Useful for velocity control tuning.
+  - **Comment:** The supported sub-modes are: 0 Sticks directly map to velocity setpoints without smoothing.
   - Set in position mode using `MPC_POS_MODE=0`.
 
 ## Altitude Mode Implementations
