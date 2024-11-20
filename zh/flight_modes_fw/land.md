@@ -17,14 +17,14 @@ Where possible, instead use [Return mode](../flight_modes_fw/return.md) with a p
   - Flying vehicles can't switch to this mode without valid local position.
   - Flying vehicles will failsafe if they lose the position estimate.
 - Mode prevents arming (vehicle must be armed when switching to this mode).
-- RC control switches can be used to change flight modes on any vehicle.
+- 遥控开关可以在任何无人机上更改飞行模式。
 - RC stick movement is ignored.
 - The mode can be triggered using the [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) MAVLink command, or by explicitly switching to Land mode.
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 :::
 
-## Technical Summary
+## 技术总结
 
 Land mode causes the vehicle follow a descending circular path (corkscrew) until touchdown.
 
@@ -32,11 +32,11 @@ When the mode is engaged, the vehicle starts to loiter around the current vehicl
 
 [Manual nudging](../flight_modes_fw/mission.md#automatic-abort) and [automatic land abort](../flight_modes_fw/mission.md#nudging) are not available in land mode.
 
-### Parameters
+### 参数
 
 Land mode behaviour can be configured using the parameters below.
 
-| Parameter                                                                                             | Description                                                                  |
+| 参数                                                                                                    | 描述                                                                           |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | The loiter radius that the controller tracks for the whole landing sequence. |
 | <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)         | The flight path angle setpoint.                                              |
