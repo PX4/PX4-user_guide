@@ -23,7 +23,7 @@ PX4 supports helicopters with a single main rotor with a swash-plate controlled 
 
 The allowed flight operations and [flight modes](../flight_modes_mc/index.md) are the same as for multicopter. Note however that (at the time of writing) 3D flying with negative thrust is not supported in autonomous/guided modes.
 
-## Assembly
+## 组装
 
 Assembly of the core autopilot components are similar for all frames. This is covered in [Basic Assembly](../assembly/index.md).
 
@@ -35,7 +35,7 @@ Note that the flight controller cannot power motors and servos (only GPS module,
 :::
 
 
-## Configuration
+## 配置
 
 Helicopter configuration and setup is covered in:
 
