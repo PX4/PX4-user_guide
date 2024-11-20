@@ -18,7 +18,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 Order From [Ark Electronics](https://arkelectron.com/product/arkv6x/) (US)
 
-## Sensors
+## センサー
 
 - [Dual Invensense ICM-42688-P IMUs](https://invensense.tdk.com/products/motion-tracking/6-axis/icm-42688-p/)
 - [Invensense IIM-42652 Industrial IMU](https://invensense.tdk.com/products/smartindustrial/iim-42652/)
