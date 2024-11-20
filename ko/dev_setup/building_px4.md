@@ -298,7 +298,7 @@ make px4_sitl list_vmd_make_targets
 
 :::
 
-::: info
+:::note
 
 - `CONFIGURATION_TARGET`과 `VIEWER_MODEL_DEBUGGER`에 있는 대부분의 값에는 기본값이 있으므로 선택사항입니다. For example, `gazebo-classic` is equivalent to `gazebo-classic_iris` or `gazebo-classic_iris_none`.
 - 두 개의 다른 설정 사이에 기본값을 지정하려는 경우에는, 세 개의 밑줄을 사용할 수 있습니다. For example, `gazebo-classic___gdb` is equivalent to `gazebo-classic_iris_gdb`.
