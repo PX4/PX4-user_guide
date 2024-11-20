@@ -1,6 +1,8 @@
 # Holybro Pixhawk 4
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4에서는 이 제품을 제조하지 않습니다.
+소형화를 위하여 가진 IO가 적습니다.
 :::
 
 _Pixhawk 4_<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. PX4 v1.7 이상의 버전 실행에 최적화되어 있으며, 학계와 업계 개발자에게 적합합니다.
@@ -48,7 +50,7 @@ _Pixhawk 4_<sup>&reg;</sup> is an advanced autopilot designed and made in collab
 
 추가적인 정보는 [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)을 참고하십시오.
 
-## Where to Buy
+## 구매처
 
 Order from [Holybro](https://holybro.com/products/pixhawk-4).
 
