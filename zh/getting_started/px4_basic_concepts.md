@@ -31,7 +31,7 @@ There are many different vehicle frames (types), and within the types there are 
 
 更多信息请参阅：
 
-- [Vehicle Types & Setup](../airframes/index.md)
+- [载具类型 & 设置](../airframes/index.md)
 - [Airframe setup](../config/airframe.md)
 - [Airframe Reference](../airframes/airframe_reference.md).
 
@@ -75,7 +75,7 @@ QGroundControl desktop versions are also used to install (flash) PX4 firmware an
 
 [Auterion Mission Control](https://auterion.com/product/mission-control/) is a powerful and fully featured ground control station application that is optimized for _pilots_ rather than vehicle configuration. While designed to work with Auterion products, it can be used with "vanilla" PX4.
 
-For more information see:
+更多信息请参阅：
 
 - [AMC docs](https://docs.auterion.com/vehicle-operation/auterion-mission-control)
 - [Download from Auterion Suite](https://suite.auterion.com/)
@@ -175,7 +175,7 @@ Safety switches are optional.
 Many argue that it is safer for users never to approach a powered system, even to enable/disable this interlock.
 :::
 
-### Buzzer
+### 蜂鸣器
 
 Vehicles commonly include a buzzer for providing audible notification of vehicle state and readiness to fly (see [Tune meanings](../getting_started/tunes.md)).
 
@@ -201,7 +201,7 @@ The flight controller and companion computer may be pre-integrated into a single
 
 Relevant topics include:
 
-- [Companion Computers](../companion_computer/index.md)
+- [机载电脑](../companion_computer/index.md)
 - [Offboard 模式](../flight_modes/offboard.md) - 用于从地面站或机载计算机对 PX4 进行 Offboard 控制的飞行模式。
 - [机器人（Robotics) APIs](../robotics/index.md)
 
@@ -304,7 +304,7 @@ For more information see: [Safety](../config/safety.md) (Basic Configuration).
 
 All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
 
-![Frame Heading](../../assets/concepts/frame_heading.png)
+![机架航向](../../assets/concepts/frame_heading.png)
 
 ::: info
 For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during takeoff, hovering, landing).
