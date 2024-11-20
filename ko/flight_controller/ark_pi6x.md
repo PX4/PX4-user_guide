@@ -4,7 +4,7 @@ The [ARK Pi6X Flow](\(https://arkelectron.gitbook.io/ark-documentation/flight-co
 
 ![ARK Pi6X Flow Flight Controller](../../assets/flight_controller/ark_pi6x_flow/ark_pi6xflow.jpg)
 
-## Where to Buy
+## 구매처
 
 Order this module from:
 
@@ -29,7 +29,7 @@ Order this module from:
   - Console
   - CPU Fan
 
-### Autopilot
+### 오토파일럿
 
 - Communication:
   - TELEM (UART)
@@ -38,11 +38,11 @@ Order this module from:
   - CAN
 - Control and Monitoring:
   - 8 PWM Outputs
-  - Buzzer
+  - 부저
   - Debug (SWD, UART Console)
   - MicroSD slot for data storage
 
-### Sensors
+### 센서
 
 - 2x ICM-42688-P Accelerometer/Gyroscope (includes Heater)
 - PAW3902 Optical Flow Sensor
@@ -75,13 +75,13 @@ Order this module from:
 
 [ARK Pi6X Flashing Guide](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-pi6x-flow/flashing-guide)
 
-## Pinout
+## 핀배열
 
 ![ARK Pi6X Flow Pinout](../../assets/flight_controller/ark_pi6x_flow/ark_pi6xflow_pinout.png)
 
 ### PWM UART4 - 11 Pin JST-GH
 
-| Pin Number | Signal Name                                            | Voltage              |
+| Pin Number | Signal Name                                            | 전압                   |
 | :--------- | :----------------------------------------------------- | :------------------- |
 | 1          | FMU_CH1_EXT  | 3.3V |
 | 2          | FMU_CH2_EXT  | 3.3V |
@@ -97,7 +97,7 @@ Order this module from:
 
 ### RC - 4 Pin JST-GH
 
-| Pin Number | Signal Name                                                                         | Voltage              |
+| Pin Number | Signal Name                                                                         | 전압                   |
 | :--------- | :---------------------------------------------------------------------------------- | :------------------- |
 | 1          | VDD_5V_SBUS_RC       | 5.0V |
 | 2          | USART6_RX_IN_EXT     | 3.3V |
@@ -106,7 +106,7 @@ Order this module from:
 
 ### CAN - 4 Pin JST-GH
 
-| Pin Number | Signal Name                                              | Voltage              |
+| Pin Number | Signal Name                                              | 전압                   |
 | :--------- | :------------------------------------------------------- | :------------------- |
 | 1          | VDD_5V_HIPOWER | 5.0V |
 | 2          | CAN1_P                              | 5.0V |
@@ -115,7 +115,7 @@ Order this module from:
 
 ### GPS - 6 Pin JST-GH
 
-| Pin Number | Signal Name                                                                       | Voltage              |
+| Pin Number | Signal Name                                                                       | 전압                   |
 | :--------- | :-------------------------------------------------------------------------------- | :------------------- |
 | 1          | VDD_5V_HIPOWER                          | 5.0V |
 | 2          | USART1_TX_GPS1_EXT | 3.3V |
@@ -126,7 +126,7 @@ Order this module from:
 
 ### Telem1 - 6 Pin JST-GH
 
-| Pin Number | Signal Name                                                                         | Voltage              |
+| Pin Number | Signal Name                                                                         | 전압                   |
 | :--------- | :---------------------------------------------------------------------------------- | :------------------- |
 | 1          | VDD_5V_HIPOWER                            | 5.0V |
 | 2          | UART7_TX_TELEM1_EXT  | 3.3V |
@@ -137,7 +137,7 @@ Order this module from:
 
 ### Flight Controller Debug - 10 Pin JST-SH
 
-| Pin Number | Signal Name                                                  | Voltage              |
+| Pin Number | Signal Name                                                  | 전압                   |
 | :--------- | :----------------------------------------------------------- | :------------------- |
 | 1          | 3V3_FMU                                 | 3.3V |
 | 2          | USART4_TX_DEBUG    | 3.3V |
@@ -152,7 +152,7 @@ Order this module from:
 
 ### Pi I2C1 - 4 Pin JST-GH
 
-| Pin Number | Signal Name                                            | Voltage              |
+| Pin Number | Signal Name                                            | 전압                   |
 | :--------- | :----------------------------------------------------- | :------------------- |
 | 1          | 5.0V                                   | 5.0V |
 | 2          | I2C1_SCL_EXT | 3.3V |
@@ -161,7 +161,7 @@ Order this module from:
 
 ### Pi UART3 - 6 Pin JST-GH
 
-| Pin Number | Signal Name                                             | Voltage              |
+| Pin Number | Signal Name                                             | 전압                   |
 | :--------- | :------------------------------------------------------ | :------------------- |
 | 1          | 5.0V                                    | 5.0V |
 | 2          | UART3_TX_EXT  | 3.3V |
@@ -172,7 +172,7 @@ Order this module from:
 
 ### Pi ETH - 4 Pin JST-GH
 
-| Pin Number | Signal Name                                        | Voltage              |
+| Pin Number | Signal Name                                        | 전압                   |
 | :--------- | :------------------------------------------------- | :------------------- |
 | 1          | ETH_RD_N | 3.3V |
 | 2          | ETH_RD_P | 3.3V |
@@ -181,7 +181,7 @@ Order this module from:
 
 ### Pi LED Strip - 8 Pin JST-GH
 
-| Pin Number | Signal Name                     | Voltage              |
+| Pin Number | Signal Name                     | 전압                   |
 | :--------- | :------------------------------ | :------------------- |
 | 1          | 5.0V            | 5.0V |
 | 2          | 5.0V            | 5.0V |
@@ -194,7 +194,7 @@ Order this module from:
 
 ### Pi GPIO - 6 Pin JST-GH
 
-| Pin Number | Signal Name                     | Voltage              |
+| Pin Number | Signal Name                     | 전압                   |
 | :--------- | :------------------------------ | :------------------- |
 | 1          | 5.0V            | 5.0V |
 | 2          | GPIO21_EXT | 3.3V |
@@ -205,7 +205,7 @@ Order this module from:
 
 ### Pi Fan - 4 Pin JST-GH
 
-| Pin Number | Signal Name                                            | Voltage              |
+| Pin Number | Signal Name                                            | 전압                   |
 | :--------- | :----------------------------------------------------- | :------------------- |
 | 1          | GND                                                    | GND                  |
 | 2          | 5.0V                                   | 5.0V |
@@ -214,7 +214,7 @@ Order this module from:
 
 ### Pi Console - 6 Pin JST-SH
 
-| Pin Number | Signal Name                                   | Voltage              |
+| Pin Number | Signal Name                                   | 전압                   |
 | :--------- | :-------------------------------------------- | :------------------- |
 | 1          | 3.3V_RPI | 3.3V |
 | 2          | CONSOLE_TXD0             | 3.3V |
@@ -225,7 +225,7 @@ Order this module from:
 
 ### Pi USB - 4 Pin JST-GH (VBUS2_FLT)
 
-| Pin Number | Signal Name                                          | Voltage              |
+| Pin Number | Signal Name                                          | 전압                   |
 | :--------- | :--------------------------------------------------- | :------------------- |
 | 1          | VBUS2_FLT                       | 5.0V |
 | 2          | USB2_EXT_N | 3.3V |
@@ -234,7 +234,7 @@ Order this module from:
 
 ### Pi USB - 4 Pin JST-GH (VBUS4_FLT)
 
-| Pin Number | Signal Name                                          | Voltage              |
+| Pin Number | Signal Name                                          | 전압                   |
 | :--------- | :--------------------------------------------------- | :------------------- |
 | 1          | VBUS4_FLT                       | 5.0V |
 | 2          | USB4_EXT_N | 3.3V |
@@ -245,7 +245,7 @@ Order this module from:
 
 0.5mm FFC 0545482271
 
-| Pin Number | Signal Name                                         | Voltage              |
+| Pin Number | Signal Name                                         | 전압                   |
 | :--------- | :-------------------------------------------------- | :------------------- |
 | 1          | GND                                                 | GND                  |
 | 2          | CAM0_D0_N | 1.2V |
@@ -272,7 +272,7 @@ Order this module from:
 
 ### CAM1 - 22 Pin 0.5mm FFC 0545482271
 
-| Pin Number | Signal Name                                         | Voltage              |
+| Pin Number | Signal Name                                         | 전압                   |
 | :--------- | :-------------------------------------------------- | :------------------- |
 | 1          | GND                                                 | GND                  |
 | 2          | CAM1_D0_N | 1.2V |
