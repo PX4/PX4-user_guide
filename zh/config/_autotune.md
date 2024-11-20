@@ -107,7 +107,7 @@ Additional notes:
 
 - Whether tuning is applied while flying or after landing can be [configured using parameters](#apply-tuning-when-in-air-landed).
 
-## Troubleshooting
+## 故障处理
 
 ### Drone oscillates when performing the pre-tuning test
 
@@ -221,7 +221,7 @@ The vehicle must be flying in an altitude-stabilized mode (such as [Altitude mod
 
 The tuning process takes about 40 seconds ([between 19 and 70 seconds](#how-long-does-autotuning-take)). The default behaviour can be configured using [parameters](#optional-configuration).
 
-### FAQ
+### 常见问题
 
 #### What frames types are supported?
 
