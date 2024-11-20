@@ -18,7 +18,7 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 :::note
 일부 RTK 모듈은 특정 기능(베이스 또는 로버)으로만 사용할 수 있는 반면, 다른 모듈은 서로 교환하여 사용할 수 있습니다. The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used. It also highlights devices that connect via the CAN bus, and those which support PPK (Post-Processing Kinematic).
 
-| Device                                                                                                    |         GPS          | Compass  | [DroneCAN](../dronecan/index.md) | [GPS Yaw](#configuring-gps-as-yaw-heading-source) |   PPK   |
+| 장치                                                                                                        |         GPS          |   나침반    | [DroneCAN](../dronecan/index.md) | [GPS Yaw](#configuring-gps-as-yaw-heading-source) |   PPK   |
 |:--------------------------------------------------------------------------------------------------------- |:--------------------:|:--------:|:--------------------------------:|:-------------------------------------------------:|:-------:|
 | [ARK RTK GPS](../dronecan/ark_rtk_gps.md)                                                                 |         F9P          |  BMM150  |             &check;              |                [Dual F9P][DualF9P]                |         |
 | [ARK MOSAIC-X5 RTK GPS](../dronecan/ark_mosaic__rtk_gps.md)                                               |      Mosaic-X5       | IIS2MDC  |             &check;              |      [Septentrio Dual Antenna][SeptDualAnt]       |         |
@@ -56,8 +56,8 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 
 RTK GPS 설정은 *QGroundControl* [일반 설정](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView &gt; 일반 설정 &gt; RTK GPS **)에서 지정됩니다.
 
-- &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported. "?" indicates "unknown".
-- Where possible and relevant the part name is used (i.e. &check; in the GPS column indicates that a GPS module is present but the part is not known).
+- &check; 또는 특정 부품 번호는 기능이 지원되는 것을 나타내며, &cross; 또는 비어 있으면 해당 기능이 지원되지 않는 것을 나타냅니다. "?"는 "알 수 없음"을 나타냅니다.
+- 가능하고 관련성이있는 경우 부품 이름이 사용됩니다 (예 : GPS 열의 &check; GPS 모듈이 있지만 부품을 알 수 없음을 나타냄).
 - Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
 - The list may omit some discontinued hardware that is still supported. For example [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) is discontinued and may be removed from the list in a future release. Check earlier versions if a discontinued module is not mentioned here.
 
@@ -127,7 +127,7 @@ RTK GPS 연결은 기본적으로 플러그앤플레이입니다.
 
      ![RTK GPS 상태](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
 
-### Configuring GPS as Yaw/Heading Source
+### GPS를 Yaw/Heading 소스로 설정
 
 GPS can be used as a source for yaw fusion when using a single device with two antenna where _yaw output is supported by the device_, or when using some [RTK GPS Setups with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md). Using GPS as a heading source has the benefit that yaw calculations are not impacted by magnetic interference.
 
@@ -137,7 +137,7 @@ The devices that can be used are listed in this way are listed in the **GPS Yaw*
 
 Generally when using a GNSS as a source of yaw information you will need to configure the following parameters:
 
-| Parameter                          | Setting                                                                                                                                                     |
+| Parameter                          | 설정                                                                                                                                                          |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [GPS_YAW_OFFSET][GPS_YAW_OFFSET] | The angle made by the _baseline_ (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here][fc_orientation]). |
 | [EKF2_GPS_CTRL][EKF2_GPS_CTRL]   | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                                       |
