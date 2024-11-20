@@ -1,4 +1,4 @@
-# Getting Started
+# はじめに
 
 This section contains topics about getting started with PX4 development:
 
