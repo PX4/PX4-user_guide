@@ -137,7 +137,7 @@ Over the long term the height estimate follows the "reference source" of height 
 | Indoor (flat terrain)     | 0 (disabled)                                                               | 1 (enabled)                                                                  | 2 ([always enabled](#range-height-fusion))                                 | 2 (range)                                                                |
 | External vision           | As required                                                                | As required                                                                  | As required                                                                | 3 (vision)                                                               |
 
-### Barometer
+### 기압계
 
 Enable/disable using [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) as a source for [Height](#height) data.
 
