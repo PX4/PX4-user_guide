@@ -121,7 +121,7 @@ Tin the crimped cable connectors and BTB connector and solder the crimped connec
 
 ![](../../assets/debug/stlinkv3_minie_p8.jpeg)
 
-### Testing
+### 시험
 
 You should now test your debug probe to ensure you do not have any electrical shorts.
 
