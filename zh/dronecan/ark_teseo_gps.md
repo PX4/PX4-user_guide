@@ -4,7 +4,7 @@
 
 ![ARK TESEO GPS](../../assets/hardware/gps/ark/ark_teseo_gps.jpg)
 
-## Where to Buy
+## 在哪里买
 
 Order this module from:
 
@@ -13,7 +13,7 @@ Order this module from:
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Teseo_GPS)
-- Sensors
+- 传感器
   - [ST TESEO LIV4F GPS](https://www.st.com/en/positioning/teseo-liv4f.html)
     - L1/L5 bands
     - Simultaneous multi-constellation and multi-band GNSS (GPS, Galileo, GLONASS, BeiDou, QZSS)
@@ -37,7 +37,7 @@ Order this module from:
 - USA Built
 - NDAA Compliant
 
-## Pinout
+## 针脚定义
 
 ### CAN - 4 Pin JST-GH
 
