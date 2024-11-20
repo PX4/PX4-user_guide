@@ -17,11 +17,11 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 Order from [Ark Electronics](https://arkelectron.com/product/arkv6x/) (US)
 
-## Documentation
+## ドキュメント
 
 See the documentation [Ark Electronics GitBook](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-fpv)
 
-## Sensors
+## センサー
 
 - [Invensense IIM-42653 Industrial IMU](https://invensense.tdk.com/products/motion-tracking/6-axis/iim-42653/)
 - [Bosch BMP390 Barometer](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/)
