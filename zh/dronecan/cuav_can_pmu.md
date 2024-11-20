@@ -6,7 +6,7 @@ CAN PMU<sup>&reg;</sup> is a high-precision [DroneCAN](index.md) power module de
 
 It is recommended for use in large commercial vehicles, but might also be used for research vehicles.
 
-## Where to Buy
+## 在哪里买
 
 - [CUAV store](https://store.cuav.net/index.php)
 - [CUAV aliexpress ](https://www.aliexpress.com/item/4000369700535.html)
@@ -39,13 +39,13 @@ It is recommended for use in large commercial vehicles, but might also be used f
 
 ![CAN PMU list](../../assets/hardware/power_module/cuav_can/can_pmu_list.png)
 
-### Pinouts
+### 针脚定义
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_pinouts_en.png)
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_pinouts_en2.png)
 
-## Wiring
+## 布线
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_connection_en.png)
 
@@ -66,7 +66,7 @@ Set the following parameters in _QGroundControl_ [Vehicle Setup > Parameters](..
 
   ![QGC - Set UAVCAN_SUB_BAT parameter to raw data](../../assets/hardware/power_module/cuav_can/qgc_set_usavcan_sub_bat.png)
 
-## Further Information
+## 更多信息
 
 [CAN PMU Manual](http://manual.cuav.net/power-module/CAN-PMU.pdf)
 
