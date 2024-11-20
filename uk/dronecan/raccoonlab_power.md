@@ -34,7 +34,7 @@ It might be useful for applications where you need to control the power of the d
 
 Please refer to the RaccoonLab docs [Power & Connectivity](https://docs.raccoonlab.co/guide/pmu/) page.
 
-## Where to Buy
+## Де придбати
 
 [RaccoonLab Store](https://raccoonlab.co/store)
 
