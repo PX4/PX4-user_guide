@@ -43,7 +43,7 @@ It is not recommended as the low frame rate causes segmentation faults on some f
 
 ![screenshot of lawn world](../../assets/simulation/gazebo/worlds/lawn.png)
 
-## Rover
+## Ровер
 
 Rover world is optimised for rovers (and will be further optimised for rovers) and is the default world for [Ackermann Rover (4012)](../frames_rover/ackermann.md) (`make px4_sitl gz_rover_ackermann`) and [Differential Rover ((r1-rover (4009))](../frames_rover/differential.md) (`make px4_sitl gz_r1_rover`).
 
@@ -78,6 +78,6 @@ World with walls that is designed for testing [collision prevention](../computer
 Some [vehicle models](../sim_gazebo_gz/vehicles.md) rely on the physics / plugins of a specific world.
 The PX4 toolchain will automatically spawn a world that has the same name as the vehicle model if one exists (instead of the [default world](#default)):
 
-The model specific worlds are:
+Світи певних моделей:
 
 - [Aruco world](#aruco): Default world with an [ArUco marker](https://docs.opencv.org/4.x/d5/dae/tutorial_aruco_detection.html) that can be used with with [x500_mono_cam_down](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-monocular-camera-down-facing) for testing [precision landing](../advanced_features/precland.md).
