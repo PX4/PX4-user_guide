@@ -74,7 +74,7 @@ Attempt to start driver on a specified serial device.
 ```
 leddar_one start -d /dev/ttyS1
 ```
-Stop driver
+设置/使用 信息： https://docs.px4.io/master/en/sensor/leddar_one.html
 ```
 leddar_one stop
 ```
@@ -142,7 +142,7 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
 ```
 lightware_laser_serial start -d /dev/ttyS1
 ```
-Stop driver
+设置/使用 信息： https://docs.px4.io/master/en/sensor/leddar_one.html
 ```
 lightware_laser_serial stop
 ```
@@ -395,7 +395,7 @@ Source: [drivers/distance_sensor/tf02pro](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="tf02pro_usage"></a>
 
-### Usage
+### 用法
 ```
 tf02pro <command> [arguments...]
  Commands:
@@ -427,20 +427,20 @@ Most boards are configured to enable/start the driver on a specified UART using 
 
 Setup/usage information: https://docs.px4.io/main/en/sensor/tfmini.html
 
-### Examples
+### 示例
 
 Attempt to start driver on a specified serial device.
 ```
 tfmini start -d /dev/ttyS1
 ```
-Stop driver
+设置/使用 信息： https://docs.px4.io/master/en/sensor/leddar_one.html
 ```
 tfmini stop
 ```
 
 <a id="tfmini_usage"></a>
 
-### Usage
+### 用法
 ```
 tfmini <command> [arguments...]
  Commands:
@@ -480,7 +480,7 @@ ulanding_radar stop
 
 <a id="ulanding_radar_usage"></a>
 
-### Usage
+### 用法
 ```
 ulanding_radar <command> [arguments...]
  Commands:
