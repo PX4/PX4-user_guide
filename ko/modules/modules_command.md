@@ -64,7 +64,7 @@ dyn ./hello.px4mod start
 
 <a id="dyn_usage"></a>
 
-### Usage
+### 사용법
 ```
 esc_calib [arguments...]
      [-d <val>]  Select PWM output device
@@ -95,7 +95,7 @@ failure gps off
 
 <a id="failure_usage"></a>
 
-### Usage
+### 사용법
 ```
 failure [arguments...]
    help          Show this help text
@@ -281,7 +281,7 @@ Source: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/sy
 Utility interact with the manifest
 <a id="mfd_usage"></a>
 
-### Usage
+### 사용법
 ```
 mfd <command> [arguments...]
  Commands:
@@ -517,7 +517,7 @@ This can be used to use u-center connected to USB with a GPS on a serial port.
 
 <a id="serial_passthru_usage"></a>
 
-### Usage
+### 사용법
 ```
 serial_passthru [arguments...]
      -e <val>    External device path
@@ -581,7 +581,7 @@ Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/sy
 Tool to print various version information
 <a id="ver_usage"></a>
 
-### Usage
+### 사용법
 ```
 ver <command> [arguments...]
  Commands:
