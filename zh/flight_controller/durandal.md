@@ -1,6 +1,6 @@
 # Holybro Durandal
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
 
 _Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. It was designed and developed by Holybro.
 
@@ -82,7 +82,7 @@ For more information see: [Durandal Technical Data Sheet](https://cdn.shopify.co
 
 <a id="purchase"></a>
 
-## Where to Buy
+## 在哪里买
 
 Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
 
@@ -159,7 +159,7 @@ The [Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) provides 
 make holybro_durandal-v1_default
 ```
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port          |
 | ------ | ---------- | ------------- |
