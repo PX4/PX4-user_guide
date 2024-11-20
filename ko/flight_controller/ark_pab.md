@@ -14,12 +14,12 @@ The PAB form factor enables the ARK PAB Carrier to be used with any [PAB-compati
 
 Order From [Ark Electronics](https://arkelectron.com/product/ark-pixhawk-autopilot-bus-carrier/) (US)
 
-## Features
+## 특징
 
 - [Pixhawk Autopilot Bus (PAB) Form Factor](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf?_ga=2.20605755.2081055420.1671562222-391294592.1671562222)
 - USA Built
 
-## Connectors
+## 커넥터
 
 - PAB Board to Board Interface
   - 100 Pin Hirose DF40
@@ -54,16 +54,16 @@ Order From [Ark Electronics](https://arkelectron.com/product/ark-pixhawk-autopil
   - 11 Pin JST-GH
 - ADIO Port
   - 8 Pin JST-GH
-- Debug Port
+- 디버그 포트
   - 10 Pin JST-SH
 
-## Dimensions
+## 크기
 
 - Without Flight Controller Module
   - 74.0mm x 43.5mm x 12.0mm
   - 22g
 
-## Power
+## 전원
 
 - 5V input on `POWER1`, `POWER2`, `USB C`, and the `USB JST-GH` connector
   - Input is prioritized in the following order: POWER1 > POWER2 > USB
@@ -78,233 +78,233 @@ Order From [Ark Electronics](https://arkelectron.com/product/ark-pixhawk-autopil
   - `Red` is the ethernet power LED
   - `Green` is the ethernet activity LED
 
-## Pinout
+## 핀배열
 
 ![ARKPAB Pinout](../../assets/flight_controller/arkpab/arkpab_pinout.jpg)
 
 ## POWER1
 
-| Pin     | Signal    | Volt  |
-| ------- | --------- | ----- |
-| 1 (red) | `VBRICK1` | +5.0V |
-| 2 (blk) | `VBRICK1` | +5.0V |
-| 3 (blk) | I2C1_SCL  | +3.3V |
-| 4 (blk) | I2C1_SDA  | +3.3V |
-| 5 (blk) | `GND`     | GND   |
-| 6 (blk) | `GND`     | GND   |
+| 핀     | 신호        | 전압    |
+| ----- | --------- | ----- |
+| 1 (적) | `VBRICK1` | +5.0V |
+| 2 (흑) | `VBRICK1` | +5.0V |
+| 3 (흑) | I2C1_SCL  | +3.3V |
+| 4 (흑) | I2C1_SDA  | +3.3V |
+| 5 (흑) | `GND`     | GND   |
+| 6 (흑) | `GND`     | GND   |
 
 ## POWER2
 
-| Pin     | Signal    | Volt  |
-| ------- | --------- | ----- |
-| 1 (red) | `VBRICK2` | +5.0V |
-| 2 (blk) | `VBRICK2` | +5.0V |
-| 3 (blk) | I2C2_SCL  | +3.3V |
-| 4 (blk) | I2C2_SDA  | +3.3V |
-| 5 (blk) | `GND`     | GND   |
-| 6 (blk) | `GND`     | GND   |
+| 핀     | 신호        | 전압    |
+| ----- | --------- | ----- |
+| 1 (적) | `VBRICK2` | +5.0V |
+| 2 (흑) | `VBRICK2` | +5.0V |
+| 3 (흑) | I2C2_SCL  | +3.3V |
+| 4 (흑) | I2C2_SDA  | +3.3V |
+| 5 (흑) | `GND`     | GND   |
+| 6 (흑) | `GND`     | GND   |
 
 ## PWM
 
-| Pin      | Signal                    | Volt  |
+| 핀        | 신호                        | 전압    |
 | -------- | ------------------------- | ----- |
-| 1 (red)  | VDD_SERVO (Not Connected) | +5.0V |
-| 2 (blk)  | FMU_CH1                   | +3.3V |
-| 3 (blk)  | FMU_CH2                   | +3.3V |
-| 4 (blk)  | FMU_CH3                   | +3.3V |
-| 5 (blk)  | FMU_CH4                   | +3.3V |
-| 6 (blk)  | FMU_CH5                   | +3.3V |
-| 7 (blk)  | FMU_CH6                   | +3.3V |
+| 1 (적)    | VDD_SERVO (Not Connected) | +5.0V |
+| 2 (흑)    | FMU_CH1                   | +3.3V |
+| 3 (흑)    | FMU_CH2                   | +3.3V |
+| 4 (흑)    | FMU_CH3                   | +3.3V |
+| 5 (흑)    | FMU_CH4                   | +3.3V |
+| 6 (흑)    | FMU_CH5                   | +3.3V |
+| 7 (흑)    | FMU_CH6                   | +3.3V |
 | 8 (blk)  | FMU_CH7                   | +3.3V |
 | 9 (blk)  | FMU_CH8                   | +3.3V |
 | 10 (blk) | `GND`                     | GND   |
 
 ## GPS1
 
-| Pin      | Signal                   | Volt  |
+| 핀        | 신호                       | 전압    |
 | -------- | ------------------------ | ----- |
-| 1 (red)  | `VDD_5V_PERIPH`          | +5.0V |
-| 2 (blk)  | USART1_TX_GPS1         | +3.3V |
-| 3 (blk)  | USART1_RX_GPS1         | +3.3V |
-| 4 (blk)  | I2C1_SCL                 | +3.3V |
-| 5 (blk)  | I2C1_SDA                 | +3.3V |
-| 6 (blk)  | nSAFETY_SWITCH_IN      | +3.3V |
-| 7 (blk)  | nSAFETY_SWITCH_LED_OUT | +3.3V |
+| 1 (적)    | `VDD_5V_PERIPH`          | +5.0V |
+| 2 (흑)    | USART1_TX_GPS1         | +3.3V |
+| 3 (흑)    | USART1_RX_GPS1         | +3.3V |
+| 4 (흑)    | I2C1_SCL                 | +3.3V |
+| 5 (흑)    | I2C1_SDA                 | +3.3V |
+| 6 (흑)    | nSAFETY_SWITCH_IN      | +3.3V |
+| 7 (흑)    | nSAFETY_SWITCH_LED_OUT | +3.3V |
 | 8 (blk)  | `3V3_FMU`                | +3.3V |
 | 9 (blk)  | BUZZER                   | +5.0V |
 | 10 (blk) | `GND`                    | GND   |
 
 ## GPS2
 
-| Pin     | Signal           | Volt  |
-| ------- | ---------------- | ----- |
-| 1 (red) | `VDD_5V_HIPOWER` | +5.0V |
-| 2 (blk) | UART8_TX_GPS2  | +3.3V |
-| 3 (blk) | UART8_RX_GPS2  | +3.3V |
-| 4 (blk) | I2C2_SCL         | +3.3V |
-| 5 (blk) | I2C2_SDA         | +3.3V |
-| 6 (blk) | `GND`            | GND   |
+| 핀     | 신호               | 전압    |
+| ----- | ---------------- | ----- |
+| 1 (적) | `VDD_5V_HIPOWER` | +5.0V |
+| 2 (흑) | UART8_TX_GPS2  | +3.3V |
+| 3 (흑) | UART8_RX_GPS2  | +3.3V |
+| 4 (흑) | I2C2_SCL         | +3.3V |
+| 5 (흑) | I2C2_SDA         | +3.3V |
+| 6 (흑) | `GND`            | GND   |
 
 ## TELEM1
 
-| Pin     | Signal           | Volt  |
-| ------- | ---------------- | ----- |
-| 1 (red) | `VDD_5V_HIPOWER` | +5.0V |
-| 2 (blk) | UART7_TX         | +3.3V |
-| 3 (blk) | UART7_RX         | +3.3V |
-| 4 (blk) | UART7_CTS        | +3.3V |
-| 5 (blk) | UART7_RTS        | +3.3V |
-| 6 (blk) | `GND`            | GND   |
+| 핀     | 신호               | 전압    |
+| ----- | ---------------- | ----- |
+| 1 (적) | `VDD_5V_HIPOWER` | +5.0V |
+| 2 (흑) | UART7_TX         | +3.3V |
+| 3 (흑) | UART7_RX         | +3.3V |
+| 4 (흑) | UART7_CTS        | +3.3V |
+| 5 (흑) | UART7_RTS        | +3.3V |
+| 6 (흑) | `GND`            | GND   |
 
 ## TELEM2
 
-| Pin     | Signal          | Volt  |
-| ------- | --------------- | ----- |
-| 1 (red) | `VDD_5V_PERIPH` | +5.0V |
-| 2 (blk) | UART5_TX        | +3.3V |
-| 3 (blk) | UART5_RX        | +3.3V |
-| 4 (blk) | UART5_CTS       | +3.3V |
-| 5 (blk) | UART5_RTS       | +3.3V |
-| 6 (blk) | `GND`           | GND   |
+| 핀     | 신호              | 전압    |
+| ----- | --------------- | ----- |
+| 1 (적) | `VDD_5V_PERIPH` | +5.0V |
+| 2 (흑) | UART5_TX        | +3.3V |
+| 3 (흑) | UART5_RX        | +3.3V |
+| 4 (흑) | UART5_CTS       | +3.3V |
+| 5 (흑) | UART5_RTS       | +3.3V |
+| 6 (흑) | `GND`           | GND   |
 
 ## TELEM3
 
-| Pin     | Signal           | Volt  |
-| ------- | ---------------- | ----- |
-| 1 (red) | `VDD_5V_HIPOWER` | +5.0V |
-| 2 (blk) | USART2_TX        | +3.3V |
-| 3 (blk) | USART2_RX        | +3.3V |
-| 4 (blk) | USART2_CTS       | +3.3V |
-| 5 (blk) | USART2_RTS       | +3.3V |
-| 6 (blk) | `GND`            | GND   |
+| 핀     | 신호               | 전압    |
+| ----- | ---------------- | ----- |
+| 1 (적) | `VDD_5V_HIPOWER` | +5.0V |
+| 2 (흑) | USART2_TX        | +3.3V |
+| 3 (흑) | USART2_RX        | +3.3V |
+| 4 (흑) | USART2_CTS       | +3.3V |
+| 5 (흑) | USART2_RTS       | +3.3V |
+| 6 (흑) | `GND`            | GND   |
 
 ## UART4/I2C3
 
-| Pin     | Signal          | Volt  |
-| ------- | --------------- | ----- |
-| 1 (red) | `VDD_5V_PERIPH` | +5.0V |
-| 2 (blk) | UART4_TX        | +3.3V |
-| 3 (blk) | UART4_RX        | +3.3V |
-| 4 (blk) | I2C3_SCL        | +3.3V |
-| 5 (blk) | I2C3_SDA        | +3.3V |
-| 6 (blk) | `GND`           | GND   |
+| 핀     | 신호              | 전압    |
+| ----- | --------------- | ----- |
+| 1 (적) | `VDD_5V_PERIPH` | +5.0V |
+| 2 (흑) | UART4_TX        | +3.3V |
+| 3 (흑) | UART4_RX        | +3.3V |
+| 4 (흑) | I2C3_SCL        | +3.3V |
+| 5 (흑) | I2C3_SDA        | +3.3V |
+| 6 (흑) | `GND`           | GND   |
 
 ## I2C3
 
-| Pin     | Signal          | Volt  |
-| ------- | --------------- | ----- |
-| 1 (red) | `VDD_5V_PERIPH` | +5.0V |
-| 2 (blk) | I2C3_SCL        | +3.3V |
-| 3 (blk) | I2C3_SDA        | +3.3V |
-| 4 (blk) | `GND`           | GND   |
+| 핀     | 신호              | 전압    |
+| ----- | --------------- | ----- |
+| 1 (적) | `VDD_5V_PERIPH` | +5.0V |
+| 2 (흑) | I2C3_SCL        | +3.3V |
+| 3 (흑) | I2C3_SDA        | +3.3V |
+| 4 (흑) | `GND`           | GND   |
 
 ## CAN1
 
-| Pin     | Signal           | Volt  |
-| ------- | ---------------- | ----- |
-| 1 (red) | `VDD_5V_HIPOWER` | +5.0V |
-| 2 (blk) | CAN1_H           | +3.3V |
-| 3 (blk) | CAN1_L           | +3.3V |
-| 4 (blk) | `GND`            | GND   |
+| 핀     | 신호               | 전압    |
+| ----- | ---------------- | ----- |
+| 1 (적) | `VDD_5V_HIPOWER` | +5.0V |
+| 2 (흑) | CAN1_H           | +3.3V |
+| 3 (흑) | CAN1_L           | +3.3V |
+| 4 (흑) | `GND`            | GND   |
 
 ## CAN2
 
-| Pin     | Signal          | Volt  |
-| ------- | --------------- | ----- |
-| 1 (red) | `VDD_5V_PERIPH` | +5.0V |
-| 2 (blk) | CAN2_H          | +3.3V |
-| 3 (blk) | CAN2_L          | +3.3V |
-| 4 (blk) | `GND`           | GND   |
+| 핀     | 신호              | 전압    |
+| ----- | --------------- | ----- |
+| 1 (적) | `VDD_5V_PERIPH` | +5.0V |
+| 2 (흑) | CAN2_H          | +3.3V |
+| 3 (흑) | CAN2_L          | +3.3V |
+| 4 (흑) | `GND`           | GND   |
 
 ## USB
 
 All signals in parallel with USB C connector
-| Pin     | Signal    | Volt  |
-| ------- | --------- | ----- |
-| 1 (red) | `VBUS_IN` | +5.0V |
-| 2 (blk) | USB_N     | +3.3V |
-| 3 (blk) | USB_P     | +3.3V |
-| 4 (blk) | `GND`     | GND   |
+| 핀     | 신호        | 전압    |
+| ----- | --------- | ----- |
+| 1 (적) | `VBUS_IN` | +5.0V |
+| 2 (흑) | USB_N     | +3.3V |
+| 3 (흑) | USB_P     | +3.3V |
+| 4 (흑) | `GND`     | GND   |
 
 ## ETH
 
-| Pin     | Signal     | Volt            |
-| ------- | ---------- | --------------- |
-| 1 (red) | ETH_RD_N | +50.0V Tolerant |
-| 2 (blk) | ETH_RD_P | +50.0V Tolerant |
-| 3 (blk) | ETH_TD_N | +50.0V Tolerant |
-| 4 (blk) | ETH_TD_P | +50.0V Tolerant |
+| 핀     | 신호         | 전압              |
+| ----- | ---------- | --------------- |
+| 1 (적) | ETH_RD_N | +50.0V Tolerant |
+| 2 (흑) | ETH_RD_P | +50.0V Tolerant |
+| 3 (흑) | ETH_TD_N | +50.0V Tolerant |
+| 4 (흑) | ETH_TD_P | +50.0V Tolerant |
 
 ## ADIO
 
-| Pin     | Signal          | Volt  |
+| 핀       | 신호              | 전압    |
 | ------- | --------------- | ----- |
-| 1 (red) | `VDD_5V_PERIPH` | +5.0V |
-| 2 (blk) | FMU_CAP         | +3.3V |
-| 3 (blk) | BOOTLOADER      | +3.3V |
-| 4 (blk) | FMU_RST_REQ   | +3.3V |
-| 5 (blk) | nARMED          | +3.3V |
-| 6 (blk) | ADC1_3V3        | +3.3V |
-| 7 (blk) | ADC1_6V6        | +3.3V |
+| 1 (적)   | `VDD_5V_PERIPH` | +5.0V |
+| 2 (흑)   | FMU_CAP         | +3.3V |
+| 3 (흑)   | BOOTLOADER      | +3.3V |
+| 4 (흑)   | FMU_RST_REQ   | +3.3V |
+| 5 (흑)   | nARMED          | +3.3V |
+| 6 (흑)   | ADC1_3V3        | +3.3V |
+| 7 (흑)   | ADC1_6V6        | +3.3V |
 | 8 (blk) | `GND`           | GND   |
 
 ## RC/SBUS
 
-| Pin     | Signal              | Volt  |
-| ------- | ------------------- | ----- |
-| 1 (red) | `VDD_5V_SBUS_RC`    | +5.0V |
-| 2 (blk) | USART6_RX_SBUS_IN | +3.3V |
-| 3 (blk) | USART6_TX           | +3.3V |
-| 4 (blk) | `VDD_3V3_SPEKTRUM`  | +3.3V |
-| 5 (blk) | `GND`               | GND   |
+| 핀     | 신호                  | 전압    |
+| ----- | ------------------- | ----- |
+| 1 (적) | `VDD_5V_SBUS_RC`    | +5.0V |
+| 2 (흑) | USART6_RX_SBUS_IN | +3.3V |
+| 3 (흑) | USART6_TX           | +3.3V |
+| 4 (흑) | `VDD_3V3_SPEKTRUM`  | +3.3V |
+| 5 (흑) | `GND`               | GND   |
 
 ## PPM
 
-| Pin     | Signal                    | Volt  |
-| ------- | ------------------------- | ----- |
-| 1 (red) | `VDD_5V_PPM_RC`           | +5.0V |
-| 2 (blk) | DSM_INPUT/FMU_PPM_INPUT | +3.3V |
-| 3 (blk) | `GND`                     | GND   |
+| 핀     | 신호                        | 전압    |
+| ----- | ------------------------- | ----- |
+| 1 (적) | `VDD_5V_PPM_RC`           | +5.0V |
+| 2 (흑) | DSM_INPUT/FMU_PPM_INPUT | +3.3V |
+| 3 (흑) | `GND`                     | GND   |
 
 ## DSM
 
-| Pin     | Signal                    | Volt  |
-| ------- | ------------------------- | ----- |
-| 1 (red) | `VDD_3V3_SPEKTRUM`        | +3.3V |
-| 2 (blk) | `GND`                     | GND   |
-| 3 (blk) | DSM_INPUT/FMU_PPM_INPUT | +3.3V |
+| 핀     | 신호                        | 전압    |
+| ----- | ------------------------- | ----- |
+| 1 (적) | `VDD_3V3_SPEKTRUM`        | +3.3V |
+| 2 (흑) | `GND`                     | GND   |
+| 3 (흑) | DSM_INPUT/FMU_PPM_INPUT | +3.3V |
 
 ## SPI6
 
-| Pin      | Signal          | Volt  |
+| 핀        | 신호              | 전압    |
 | -------- | --------------- | ----- |
-| 1 (red)  | `VDD_5V_PERIPH` | +5.0V |
-| 2 (blk)  | SPI6_SCK        | +3.3V |
-| 3 (blk)  | SPI6_MISO       | +3.3V |
-| 4 (blk)  | SPI6_MOSI       | +3.3V |
-| 5 (blk)  | SPI6_nCS1       | +3.3V |
-| 6 (blk)  | SPI6_nCS2       | +3.3V |
-| 7 (blk)  | SPIX_nSYNC      | +3.3V |
+| 1 (적)    | `VDD_5V_PERIPH` | +5.0V |
+| 2 (흑)    | SPI6_SCK        | +3.3V |
+| 3 (흑)    | SPI6_MISO       | +3.3V |
+| 4 (흑)    | SPI6_MOSI       | +3.3V |
+| 5 (흑)    | SPI6_nCS1       | +3.3V |
+| 6 (흑)    | SPI6_nCS2       | +3.3V |
+| 7 (흑)    | SPIX_nSYNC      | +3.3V |
 | 8 (blk)  | SPI6_DRDY1      | +3.3V |
 | 9 (blk)  | SPI6_DRDY2      | +3.3V |
 | 10 (blk) | SPI6_nRESET     | +3.3V |
 | 11 (blk) | `GND`           | GND   |
 
-## Debug Port
+## 디버그 포트
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
+[PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 **FMU 디버그** 포트에서 실행됩니다.
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Pin      | Signal           | Volt  |
+| 핀        | 신호               | 전압    |
 | -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
+| 1 (적)    | `Vtref`          | +3.3V |
+| 2 (흑)    | Console TX (OUT) | +3.3V |
+| 3 (흑)    | Console RX (IN)  | +3.3V |
+| 4 (흑)    | `SWDIO`          | +3.3V |
+| 5 (흑)    | `SWCLK`          | +3.3V |
+| 6 (흑)    | `SWO`            | +3.3V |
+| 7 (흑)    | NFC GPIO         | +3.3V |
 | 8 (blk)  | PH11             | +3.3V |
 | 9 (blk)  | nRST             | +3.3V |
 | 10 (blk) | `GND`            | GND   |
