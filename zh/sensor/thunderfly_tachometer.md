@@ -34,7 +34,7 @@ An optical sensor can also be used (and may be a better fit, depending on the me
 
 ![Example of optical transmissive probe](../../assets/hardware/sensors/tfrpm/transmissive_probe.jpg)
 
-## Software Setup
+## 软件设置
 
 ### Starting driver
 
@@ -64,7 +64,7 @@ where:
 The `pcf8583 start` command outputs the corresponding autopilot bus name/label for each bus number.
 :::
 
-### Testing
+### 测试
 
 You can verify the counter is working using several methods
 
@@ -88,7 +88,7 @@ listener rpm
 
 For periodic display, you can add `-n 50` parameter after the command, which prints the next 50 messages.
 
-#### QGroundControl MAVLink Inspector
+#### QGroundControl MAVLink 检查器
 
 The QGroundControl [Mavlink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) can be used to observe MAVLink messages from PX4, including [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM) emitted by the driver:
 
