@@ -11,7 +11,7 @@ Other common ways to connect RaPi and Pixhawk are:
 - Serial connection to the RPi USB port. This is simple and reliable, but requires an additional FTDI Chip USB-to-serial adapter board. This option is covered in [Pixhawk Companion > Serial Port Setup](../companion_computer/pixhawk_companion.md#serial-port-setup).
 :::
 
-## Wiring
+## 布线
 
 ### Serial connection
 
@@ -59,7 +59,7 @@ You can plug an [appropriate radio](../telemetry/index.md) into the Pixhawk `TEL
 
 Pixhawk boards usually require a reliable 5V DC supply, which is commonly supplied from LiPO batteries via a [Power Module and/or Power Distribution board](../power_module/index.md) to a port labeled `POWER` (or similar).
 
-The instructions for your flight controller will normally explain the recommended setup. For example:
+The instructions for your flight controller will normally explain the recommended setup. 例如：
 
 - [Holybro Pixhawk 6C > Voltage Ratings](../flight_controller/pixhawk6c.md#voltage-ratings)
 - [Holybro Pixhawk 6C Wiring Quick Start > Power](../assembly/quick_start_pixhawk6c.md#power)
