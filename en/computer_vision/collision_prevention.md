@@ -209,32 +209,43 @@ make px4_sitl gz_x500_lidar_2d
 
 Next, adjust the relevant parameters to the appropriate values and add arbitrary obstacles to your simulation world to test the collision prevention functionality.
 
-The diagram below shows how the simulation looks when viewed in Gazebo.
+The diagram below shows a simulation of collision prevention as viewed in Gazebo.
 
 ![RViz image of collision detection using the x500_lidar_2d model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d_viz.png)
 
-## Technical Documentation regarding Sensor Data
+## Sensor Data Overview (Implementation Details)
 
-The Collision Prevention has an internal [`obstacle_distance`](../msg_docs/ObstacleDistance.md) map, dividing the plane around the drone into 72 Sectors.
-When adding new sensor data to the map, it will compare the existing map with the new data, and add it to the map.
-There we have to differentiate between rangefinders and `obstacle_distance` messages. 
-### Rangefinders 
-Rangefinders add their data via the [`distance_sensor`](../msg_docs/DistanceSensor.md) message.
-all sectors which have any overlap with the orientation (`orientation` and `q`)of the rangefinder, and the horizontal field of view (`h_fov`) are assigned that measurement value.
+Collision Prevention has an internal obstacle distance map that divides the plane around the drone into 72 Sectors.
+Internally this information is stored in the [`obstacle_distance`](../msg_docs/ObstacleDistance.md) UORB topic.
+New sensor data is compared to the existing map, and used to update any sections that has changed.
 
-::: info
-the quaternion `q` is only used if the `orientation` is set to `ROTATION_CUSTOM`
-:::
-
-E.g a distance sensor measuring from 9.99° to 10.01° the measurements will get added to the bin's corresponding to 5° and 10° covering the arc from 2.5° and 12.5°
-
-### Rotary Lidars or onboard Computers
-Rotary Lidars or onboard Computers add their data via the [`obstacle_distance`](../msg_docs/ObstacleDistance.md) message.
-Collision Prevention then checks if there are any overlaps between the sectors containing distance data and the internal obstacle map, and adds the data if there is overlap.
-
-The angles in the obstacle_distance message are defined as follows:
+The angles in the `obstacle_distance` topic are defined as follows:
 
 ![Obstacle_Distance Angles](../../assets/computer_vision/collision_prevention/obstacle_distance_def.svg)
+
+The data from rangefinders, rotary lidars, or companion computers, is processed differently, as described below.
+
+### Rotary Lidars
+
+Rotary Lidars add their data directly to the [`obstacle_distance`](../msg_docs/ObstacleDistance.md) uORB topic.
+
+### Rangefinders
+
+Rangefinders publish their data to the [`distance_sensor`](../msg_docs/DistanceSensor.md) uORB topic.
+
+This data is then mapped onto the `obstacle_distance` topic.
+All sectors which have any overlap with the orientation (`orientation` and `q`) of the rangefinder, and the horizontal field of view (`h_fov`) are assigned that measurement value.
+For example, a distance sensor measuring from 9.99° to 10.01° the measurements will get added to the bin's corresponding to 5° and 10° covering the arc from 2.5° and 12.5°
+
+::: info
+the quaternion `q` is only used if the `orientation` is set to `ROTATION_CUSTOM`.
+:::
+
+### Companion Computers
+
+Companion computers update the `obstacle_distance` topic using ROS2 or the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) MAVLink message.
+
+
 <!-- to edit the image, open it in inkscape -->
 <!-- Code to generate the scalefactor plot
 import numpy as np
