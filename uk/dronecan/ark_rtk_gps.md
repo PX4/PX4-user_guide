@@ -1,8 +1,8 @@
 # ARK RTK GPS
 
-ARK RTK GPS є проєктом з відкритим кодом [DroneCAN](index.md) [RTK GPS](../gps_compass/rtk_gps.md), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module), магнітометром, барометром, ІВП, сигналом звукового оповіщення та модулем безпеки.
+[ARK RTK GPS](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-rtk-gps) is an open source [DroneCAN](index.md) [RTK GPS](../gps_compass/rtk_gps.md), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module), magnetometer, barometer, IMU, buzzer, and safety switch module.
 
-![ARK RTK GPS](../../assets/hardware/gps/ark_rtk_gps.jpg)
+![ARK RTK GPS](../../assets/hardware/gps/ark/ark_rtk_gps.jpg)
 
 ## Де купити
 
@@ -15,11 +15,11 @@ ARK RTK GPS є проєктом з відкритим кодом [DroneCAN](inde
 - [Схема з відкритим кодом та BOM](https://github.com/ARK-Electronics/ARK_RTK_GPS)
 - Сенсори
   - Ublox F9P GPS
-    - Багатосмуговий приймач супутникової навігації, що забезпечує точність на рівні сантиметрів за кілька секунд
+    - Multi-band GNSS receiver delivers centimetre level accuracy in seconds
     - Одночасний прийом GPS, GLONASS, Galileo та BeiDou
     - Багатосмуговий RTK зі швидкими часами збіжності та надійною продуктивністю
     - Висока швидкість оновлення для високодинамічних додатків
-    - Сантиметрова точність у невеликому та енергоефективному модулі
+    - Centimetre accuracy in a small and energy efficient module
   - Bosch BMM150 Magnetometer
   - Bosch BMP388 Barometer
   - Invensense ICM-42688-P 6-Axis IMU
@@ -153,12 +153,16 @@ ARK RTK GPS поставляється з модулем Ublox F9P з версі
 - Прокрутіть вниз ще раз до Оновлення прошивки та завантажте потрібну прошивку (потрібна версія не нижче 1.13)
 - Підтримуючи перемикач безпеки на ARK RTK GPS, підключіть його до живлення через один з його портів CAN і утримуйте до тих пір, поки всі 3 світлодіода не почнуть швидко мигати
 - Підключіть ARK RTK GPS до комп'ютера за допомогою його порту відладки через кабель, такого як Black Magic Probe або FTDI
-- Відкрийте u-center, виберіть COM-порт для ARK RTK GPS та підключіться ![U-Center Connect](../../assets/hardware/gps/ark_rtk_gps_ucenter_connect.png)
-- Перевірте поточну версію прошивки, вибравши View, Messages View, UBX, MON, VER ![Перевірте версію](../../assets/hardware/gps/ark_rtk_gps_ublox_version.png)
+- Відкрийте u-center, виберіть COM-порт для ARK RTK GPS та підключіться ![U-Center Connect](../../assets/hardware/gps/ark/ark_rtk_gps_ucenter_connect.png)
+- Перевірте поточну версію прошивки, вибравши View, Messages View, UBX, MON, VER ![Перевірте версію](../../assets/hardware/gps/ark/ark_rtk_gps_ublox_version.png)
 - Для оновлення прошивки:
   - Виберіть Tools, Firmware Update
   - Поле зображення прошивки повинно бути файлом .bin, завантаженим зі сторінки веб-сайту u-blox ZED-F9P
   - Поставте прапорець "Використовувати цю швидкість передачі для оновлення" та виберіть 115200 зі списку
   - Переконайтеся, що інші прапорці відображаються так, як показано нижче
   - Натисніть зелену кнопку GO внизу зліва
-  - "Firmware Update SUCCESS" повинно бути відображено, якщо оновлення пройшло успішно ![Оновлення прошивки](../../assets/hardware/gps/ark_rtk_gps_ublox_f9p_firmware_update.png)
+  - "Firmware Update SUCCESS" повинно бути відображено, якщо оновлення пройшло успішно ![Оновлення прошивки](../../assets/hardware/gps/ark/ark_rtk_gps_ublox_f9p_firmware_update.png)
+
+## See Also
+
+- [ARK RTK GPS Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-rtk-gps) (ARK Docs)
