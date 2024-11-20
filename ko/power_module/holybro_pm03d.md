@@ -9,7 +9,7 @@ The power module is connected using the I2C protocol. It is designed for flight 
 
 ![Pixhawk5x Upright Image](../../assets/hardware/power_module/holybro_pm03d/pm03d_pinout.jpg)
 
-## Features
+## 특징
 
 - Plug & play, no additional setup required for QGroundcontrol & Mission Planner
 - XT-30 connectors and solder pads for easy motor ESC connection
@@ -17,7 +17,7 @@ The power module is connected using the I2C protocol. It is designed for flight 
 - 5V/A ports for powering companion computer or peripheral device
 - Selectable 8V or 12V triple row pin header for powering peripheral device
 
-## Specifications
+## 사양
 
 - **Maximum input voltage**: 6S battery
 - **Rated current**: 60A
@@ -50,7 +50,7 @@ The power module is connected using the I2C protocol. It is designed for flight 
 
 <img src="../../assets/hardware/power_module/holybro_pm03d/pm03d_contents.jpg" width="650px" title="Pixhawk5x Upright Image" />
 
-## Where to Buy
+## 구매처
 
 [Order from Holybro Store](https://holybro.com/products/pm03d-power-module)
 
