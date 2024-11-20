@@ -1,6 +1,6 @@
 # Супутні комп'ютери
 
-Супутні комп'ютери ("комп'ютери місії") - це окремі бортові комп'ютери, які під'єднані до контролера польоту, і які забезпечують такі дорогі в обчислювальному плані функції, як [обхід об'єктів](../computer_vision/obstacle_avoidance.md) і [запобігання зіткненням](../computer_vision/collision_prevention.md).
+Companion computers ("mission computers"), are separate on-vehicle computers that are connected to the flight controller, and which enable computationally expensive features like [collision prevention](../computer_vision/collision_prevention.md).
 
 На схемі нижче показана можлива архітектура безпілотного транспортного засобу, яка включає в себе контролер польоту і супутній комп'ютер.
 
@@ -16,9 +16,9 @@
 
 The following carrier boards make it easy to integrate Pixhawk flight controllers with a companion computer, significantly easing both hardware and software setup. У деяких випадках плати налаштовані так, щоб можна було легко замінити контролер польоту та/або деталі супутнього комп'ютера.
 
-- [Holybro Pixhawk Jetson Baseboard](https://holybro.com/products/pixhawk-jetson-baseboard)
-- [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
-- [ARK Jetson PAB Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier)
+- [ARK Jetson PAB Carrier](../companion_computer/ark_jetson_pab_carrier.md)
+- [Holybro Pixhawk Jetson Baseboard](../companion_computer/holybro_pixhawk_jetson_baseboard.md)
+- [Holybro Pixhawk RPi CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
 
 ## Керовані інтегровані системи
 
