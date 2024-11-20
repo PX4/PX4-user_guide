@@ -16,7 +16,7 @@ The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & S
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Key Features
+## 主要特性
 
 - MCU: STM32H743 32-bit processor running at 480 MHz
 - IMU: BMI270
@@ -35,7 +35,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 - Dimensions: 35x35mm
 - Weight: 8g
 
-## Where to Buy
+## 在哪里买
 
 The board can be bought from one of the following shops (for example):
 
@@ -47,7 +47,7 @@ The _Kakute H7v2_ is designed to work with the _Tekko32_ 4-in-1 ESC and they can
 
 ## Connectors and Pins
 
-| Pin      | Function                                                          | PX4 default         |
+| 针脚       | 功能                                                                | PX4 default         |
 | -------- | ----------------------------------------------------------------- | ------------------- |
 | B+       | Battery positive voltage (2S-8S)                                  |                     |
 | VTX+     | 9V Output                                                         |                     |
@@ -76,7 +76,7 @@ The _Kakute H7v2_ is designed to work with the _Tekko32_ 4-in-1 ESC and they can
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before the PX4 firmware can be installed, the _PX4 bootloader_ must be flashed. Download the [holybro_kakuteh7v2_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7v2/holybro_kakuteh7v2_bootloader.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
-## Building Firmware
+## 编译固件
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
@@ -104,17 +104,17 @@ Firmware can be manually installed in any of the normal ways:
 KakuteH7v2 is supported with PX4 main and v1.14 or newer.
 :::
 
-## PX4 Configuration
+## PX4 配置
 
 In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
-| Parameter                                                              | Setting                                                                                                                 |
+| 参数                                                                     | 设置                                                                                                                      |
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 
-## Serial Port Mapping
+## 串口映射
 
-| UART   | Device     | Port                  |
+| UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
 | USART1 | /dev/ttyS0 | TELEM1                |
 | USART3 | /dev/ttyS2 | Debug Console         |
@@ -122,9 +122,9 @@ In addition to the [basic configuration](../config/index.md), the following para
 | USART6 | /dev/ttyS4 | RC SBUS               |
 | UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
 
-## Debug Port
+## Debug调试端口
 
-### System Console
+### 系统控制台
 
 UART3 RX and TX are configured for use as the [System Console](../debug/system_console.md).
 
