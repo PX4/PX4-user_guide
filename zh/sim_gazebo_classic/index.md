@@ -59,7 +59,7 @@ The supported vehicles and `make` commands are listed below (click links to see 
 For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo-classic_`).
 :::
 
-| Vehicle                                                                                                                            | Command                                                   |
+| Vehicle                                                                                                                            | 通信                                                        |
 | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
 | [Quadrotor](../sim_gazebo_classic/vehicles.md#quadrotor-default)                                                                   | `make px4_sitl gazebo-classic`                            |
 | [Quadrotor with Optical Flow](../sim_gazebo_classic/vehicles.md#quadrotor-with-optical-flow)                                       | `make px4_sitl gazebo-classic_iris_opt_flow`              |
@@ -69,8 +69,8 @@ For the full list of build targets run `make px4_sitl list_vmd_make_targets` (an
 | <a id="typhoon_h480"></a>[Typhoon H480 (Hexrotor)](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor) (with video streaming) | `make px4_sitl gazebo-classic_typhoon_h480`               |
 | [Standard Plane](../sim_gazebo_classic/vehicles.md#standard-plane)                                                                 | `make px4_sitl gazebo-classic_plane`                      |
 | [Standard Plane (with catapult launch)](../sim_gazebo_classic/vehicles.md#standard-plane-with-catapult-launch)                     | `make px4_sitl gazebo-classic_plane_catapult`             |
-| [Standard VTOL](../sim_gazebo_classic/vehicles.md#standard-vtol)                                                                   | `make px4_sitl gazebo-classic_standard_vtol`              |
-| [Tailsitter VTOL](../sim_gazebo_classic/vehicles.md#tailsitter-vtol)                                                               | `make px4_sitl gazebo-classic_tailsitter`                 |
+| [标准垂起固定翼](../sim_gazebo_classic/vehicles.md#standard-vtol)                                                                         | `make px4_sitl gazebo-classic_standard_vtol`              |
+| [尾座式垂起](../sim_gazebo_classic/vehicles.md#tailsitter-vtol)                                                                         | `make px4_sitl gazebo-classic_tailsitter`                 |
 | [Ackerman UGV (Rover)](../sim_gazebo_classic/vehicles.md#ackermann-ugv)                                                            | `make px4_sitl gazebo-classic_rover`                      |
 | [Differential UGV (Rover)](../sim_gazebo_classic/vehicles.md#differential-ugv)                                                     | `make px4_sitl gazebo-classic_r1_rover`                   |
 | [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../sim_gazebo_classic/vehicles.md#unmanned-underwater-vehicle-uuv-submarine) | `make px4_sitl gazebo-classic_uuv_hippocampus`            |
@@ -155,7 +155,7 @@ The takeoff location in Gazebo Classic can be set using environment variables. T
 
 The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
 
-For example:
+例如：
 
 ```sh
 export PX4_HOME_LAT=28.452386
@@ -221,7 +221,7 @@ GPS noise is enabled if the target vehicle's SDF file contains a value for the `
 
 To enable/disable GPS noise:
 
-1. Build any gazebo target in order to generate SDF files (for all vehicles). For example:
+1. Build any gazebo target in order to generate SDF files (for all vehicles). 例如：
 
    ```sh
    make px4_sitl gazebo-classic_iris
@@ -319,7 +319,7 @@ To start Gazebo Classic and PX4 separately:
   make px4_sitl gazebo-classic___ide
   ```
 
-  or
+  或
 
   ```sh
   make px4_sitl gazebo-classic_iris_ide
@@ -382,13 +382,13 @@ make px4_sitl gazebo-classic_if750a
 
 To put the vehicle into flight termination state, you can force it to fail a [safety check](../config/safety.md) that has flight termination set as the failsafe action. For example, you could do this by forcing a [Geofence violation](../config/safety.md#geofence-failsafe).
 
-For more information see:
+更多信息请参阅：
 
 - [Flight Termination](../advanced_config/flight_termination.md)
-- [Parachute](../peripherals/parachute.md)
+- [降落伞](../peripherals/parachute.md)
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
-## Video Streaming
+## 视频流
 
 PX4 SITL for Gazebo Classic supports UDP video streaming from a camera sensor attached to a simulated vehicle model. When streaming is enabled, you can connect to this stream from _QGroundControl_ (on UDP port 5600) and view video of the Gazebo Classic environment from the simulated vehicle - just as you would from a real camera. The video is streamed using a _gstreamer_ pipeline and can be enabled/disabled using a button in the Gazebo Classic UI.
 
@@ -437,7 +437,7 @@ gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video
 ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false
 ```
 
-### Verbose Logging
+### 使用操纵杆
 
 SITL fails silently when there is something wrong with the model. You can enable more verbose logging using `VERBOSE_SIM`, as shown:
 
@@ -446,7 +446,7 @@ export VERBOSE_SIM=1
 make px4_sitl gazebo-classic
 ```
 
-or
+或
 
 ```sh
 VERBOSE_SIM=1 make px4_sitl gazebo-classic
@@ -460,7 +460,7 @@ To extend or customize the simulation interface, edit the files in the `Tools/si
 The build system enforces the correct GIT submodules, including the simulator. It will not overwrite changes in files in the directory.
 :::
 
-## Further Information
+## 更多信息
 
 - [ROS with Gazebo Classic Simulation](../simulation/ros_interface.md)
 - [Gazebo Classic Octomap](../sim_gazebo_classic/octomap.md)
