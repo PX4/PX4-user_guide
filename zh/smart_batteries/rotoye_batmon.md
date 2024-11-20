@@ -1,4 +1,4 @@
-# Rotoye Batmon
+# 补充信息
 
 [Rotoye Batmon](https://rotoye.com/batmon/) is a kit for adding smart battery functionality to off-the-shelf Lithium-Ion and LiPo batteries. It can be purchased as a standalone unit or as part of a factory-assembled smart-battery.
 
@@ -11,7 +11,7 @@
 ![Pre-assembled Rotoye smart battery](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-pack.jpg)
 
 
-## Where to Buy
+## 在哪里买
 
 [Rotoye Store](https://rotoye.com/batmon/): Batmon kits, custom smart-batteries, and accessories
 
@@ -25,7 +25,7 @@ The Rotoye Batmon system uses an XT-90 battery connector with I2C pins, and an o
 More details can be found [here](https://github.com/rotoye/batmon_reader)
 
 
-## Software Setup
+## 软件设置
 
 ### Build PX4 Firmware
 
@@ -55,6 +55,6 @@ In *QGroundControl*:
    batt_smbus start -X -b 1 -a 12 # External bus 1, address 0x0c
    ```
 
-## Further Information
+## 更多信息
 
 [Quick Start Guide](https://rotoye.com/batmon-tutorial/) (Rotoye)
