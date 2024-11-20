@@ -8,7 +8,7 @@ The approximate range with output power set to 1W is 8km (5miles) when using def
 
 ![Microhard Radio](../../assets/hardware/telemetry/ark_microhard_serial.jpg)
 
-## Where to Buy
+## 구매처
 
 - [1W 900MHz Serial Telemetry Radio](https://arkelectron.com/product/1w-900mhz-serial-telemetry-air-radio/) (vehicle)
 - [1W 900MHz USB Serial Telemetry Radio](https://arkelectron.com/product/1w-900mhz-serial-telemetry-ground-radio/) (ground station)
@@ -58,6 +58,6 @@ The default radio configuration as shipped is shown in _PicoConfig_ below.
 
 ![Pico Config](../../assets/hardware/telemetry/pico_configurator.png)
 
-## Further information
+## 추가 정보
 
 - [Pico Config 1.7](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) - Radio configuration tool
