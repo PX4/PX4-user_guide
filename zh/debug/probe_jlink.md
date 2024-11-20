@@ -49,14 +49,14 @@ The [Segger JLink EDU Mini](https://www.segger.com/products/debug-probes/j-link/
 
 The pin mapping to connect the J-Link Edu Mini to [Pixhawk Debug Mini](swd_debug.md#pixhawk-debug-mini) is shown below.
 
-| Pin | Signal     | JLink |
-| ---:|:---------- | -----:|
-|   1 | **VREF**   |     1 |
-|   2 | Console TX |       |
-|   3 | Console RX |       |
-|   4 | **SWDIO**  |     2 |
-|   5 | **SWDCLK** |     4 |
-|   6 | **GND**    |  3, 5 |
+| 针脚 | Signal     | JLink |
+| --:|:---------- | -----:|
+|  1 | **VREF**   |     1 |
+|  2 | Console TX |       |
+|  3 | Console RX |       |
+|  4 | **SWDIO**  |     2 |
+|  5 | **SWDCLK** |     4 |
+|  6 | **GND**    |  3, 5 |
 
 Note that none of the JLink debug probes have a built in serial connection, so you need to connect the console separately.
 
