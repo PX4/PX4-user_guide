@@ -7,9 +7,9 @@
 - [气压计](modules_driver_baro.md)
 - [Transponder](modules_driver_transponder.md)
 - [Rpm Sensor](modules_driver_rpm_sensor.md)
-- [Optical Flow](modules_driver_optical_flow.md)
-- [Camera](modules_driver_camera.md)
-- [Magnetometer](modules_driver_magnetometer.md)
+- [光流](modules_driver_optical_flow.md)
+- [相机](modules_driver_camera.md)
+- [磁罗盘](modules_driver_magnetometer.md)
 
 ## MCP23009
 Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
@@ -201,9 +201,9 @@ batt_smbus <command> [arguments...]
 
    seal          Seals the devices flash memory to disable write_flash commands.
 
-   suspend       Suspends the driver from rescheduling the cycle.
+   unseal        解锁设备的flash来使能 write_flash 命令
 
-   resume        Resumes the driver from suspension.
+   seal          锁住设备的flash来失能 write_flash 命令.
 
    write_flash   Writes to flash. The device must first be unsealed with the
                  unseal command.
@@ -211,9 +211,7 @@ batt_smbus <command> [arguments...]
      [number of bytes] Number of bytes to send.
      [data[0]...data[n]] One byte of data at a time separated by spaces.
 
-   stop
-
-   status        print status info
+   suspend       从调度循环中挂起该设备
 ```
 ## bst
 Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/bst)
@@ -366,7 +364,7 @@ Publish the earth magnetic field as a fake magnetometer (sensor_mag). Requires v
 
 <a id="fake_magnetometer_usage"></a>
 
-### Usage
+### 用法
 ```
 fake_magnetometer <command> [arguments...]
  mc_att_control <command> [arguments...]
@@ -381,7 +379,7 @@ fake_magnetometer <command> [arguments...]
 Source: [drivers/wind_sensor/ft_technologies](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/wind_sensor/ft_technologies)
 
 
-### Description
+### 描述
 
 Serial bus driver for the FT Technologies Digital Wind Sensor FT742. This driver is required to operate alongside a RS485 to UART signal transfer module.
 
@@ -393,14 +391,14 @@ Attempt to start driver on a specified serial device.
 ```
 ft_technologies_serial start -d /dev/ttyS1
 ```
-Stop driver
+设置/使用 信息： https://docs.px4.io/master/en/sensor/leddar_one.html
 ```
 ft_technologies_serial stop
 ```
 
 <a id="ft_technologies_serial_usage"></a>
 
-### Usage
+### 用法
 ```
 ft_technologies_serial <command> [arguments...]
  Commands:
@@ -413,7 +411,7 @@ ft_technologies_serial <command> [arguments...]
 Source: [drivers/rc/ghst_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/ghst_rc)
 
 
-### Description
+### 描述
 This module does Ghost (GHST) RC input parsing.
 
 
@@ -448,7 +446,7 @@ gimbal test pitch -45 yaw 30
 
 <a id="gimbal_usage"></a>
 
-### Usage
+### 用法
 ```
 gimbal <command> [arguments...]
  Commands:
@@ -473,7 +471,7 @@ gimbal <command> [arguments...]
 Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gps)
 
 
-### Description
+### 描述
 GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
 
 The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
@@ -495,7 +493,7 @@ gps reset warm
 
 <a id="gps_usage"></a>
 
-### Usage
+### 用法
 ```
 gps <command> [arguments...]
  Commands:
@@ -531,7 +529,7 @@ Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="gz_bridge_usage"></a>
 
-### Usage
+### 用法
 ```
 gz_bridge <command> [arguments...]
  Commands:
@@ -550,7 +548,7 @@ gz_bridge <command> [arguments...]
 Source: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina220)
 
 
-### Description
+### 描述
 Driver for the INA220 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -562,7 +560,7 @@ If the INA220 module is not powered, then by default, initialization of the driv
 
 <a id="ina220_usage"></a>
 
-### Usage
+### 用法
 ```
 ina220 <command> [arguments...]
  Commands:
@@ -589,7 +587,7 @@ ina220 <command> [arguments...]
 Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina226)
 
 
-### Description
+### 描述
 Driver for the INA226 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -626,7 +624,7 @@ ina226 <command> [arguments...]
 Source: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina228)
 
 
-### Description
+### 描述
 Driver for the INA228 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -638,7 +636,7 @@ If the INA228 module is not powered, then by default, initialization of the driv
 
 <a id="ina228_usage"></a>
 
-### Usage
+### 用法
 ```
 ina228 <command> [arguments...]
  Commands:
@@ -663,7 +661,7 @@ ina228 <command> [arguments...]
 Source: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina238)
 
 
-### Description
+### 描述
 Driver for the INA238 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -675,7 +673,7 @@ If the INA238 module is not powered, then by default, initialization of the driv
 
 <a id="ina238_usage"></a>
 
-### Usage
+### 用法
 ```
 ina238 <command> [arguments...]
  Commands:
@@ -707,7 +705,7 @@ Creates a virtual serial port that another module can use for communication (e.g
 
 <a id="iridiumsbd_usage"></a>
 
-### Usage
+### 用法
 ```
 iridiumsbd <command> [arguments...]
  Commands:
@@ -755,7 +753,7 @@ Linux PWM output driver with board-specific backend implementation.
 
 <a id="linux_pwm_out_usage"></a>
 
-### Usage
+### 用法
 ```
 linux_pwm_out <command> [arguments...]
  Commands:
@@ -770,7 +768,7 @@ Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="lsm303agr_usage"></a>
 
-### Usage
+### 用法
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -833,7 +831,7 @@ To drive all available leds.
 
 <a id="newpixel_usage"></a>
 
-### Usage
+### 用法
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -1000,7 +998,7 @@ This module is responsible for driving the output pins. For boards without a sep
 
 <a id="pwm_out_usage"></a>
 
-### Usage
+### 用法
 ```
 pwm_out <command> [arguments...]
  Commands:
@@ -1014,7 +1012,7 @@ pwm_out <command> [arguments...]
 Source: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/pwm_out_sim)
 
 
-### Description
+### 描述
 Driver for simulated PWM outputs.
 
 Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.
@@ -1116,7 +1114,7 @@ This module does the RC input parsing and auto-selecting the method. Supported m
 
 <a id="rc_input_usage"></a>
 
-### Usage
+### 用法
 ```
 rc_input <command> [arguments...]
  Commands:
@@ -1135,7 +1133,7 @@ Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="rgbled_usage"></a>
 
-### Usage
+### 用法
 ```
 rgbled <command> [arguments...]
  Commands:
@@ -1232,7 +1230,7 @@ The command to start this driver is: `$ roboclaw start <UART device> <baud rate>
 
 <a id="roboclaw_usage"></a>
 
-### Usage
+### 用法
 ```
 roboclaw <command> [arguments...]
  Commands:
@@ -1246,7 +1244,7 @@ roboclaw <command> [arguments...]
 Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)
 
 
-### Description
+### 描述
 This module is responsible for the safety button. Pressing the safety button 3 times quickly will trigger a GCS pairing request.
 
 
@@ -1336,10 +1334,10 @@ septentrio <command> [arguments...]
 Source: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/hygrometer/sht3x)
 
 
-### Description
+### 描述
 SHT3x Temperature and Humidity Sensor Driver by Senserion.
 
-### Examples
+### 示例
 CLI usage example:
 ```
 sht3x start -X
@@ -1391,7 +1389,7 @@ sht3x <command> [arguments...]
 Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
 
 
-### Description
+### 描述
 
 This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
@@ -1409,7 +1407,7 @@ tap_esc start -d /dev/ttyS2 -n <1-8>
 
 <a id="tap_esc_usage"></a>
 
-### Usage
+### 用法
 ```
 tap_esc <command> [arguments...]
  Commands:
@@ -1423,13 +1421,13 @@ tap_esc <command> [arguments...]
 Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tone_alarm)
 
 
-### Description
+### 描述
 This module is responsible for the tone alarm.
 
 
 <a id="tone_alarm_usage"></a>
 
-### Usage
+### 用法
 ```
 tone_alarm <command> [arguments...]
  Commands:
@@ -1443,7 +1441,7 @@ tone_alarm <command> [arguments...]
 Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uwb/uwb_sr150)
 
 
-### Description
+### 描述
 
 Driver for NXP UWB_SR150 UWB positioning system. This driver publishes a `uwb_distance` message whenever the UWB_SR150 has a position measurement available.
 
@@ -1457,7 +1455,7 @@ uwb start -d /dev/ttyS2
 
 <a id="uwb_usage"></a>
 
-### Usage
+### 用法
 ```
 uwb <command> [arguments...]
  Commands:
@@ -1476,7 +1474,7 @@ Source: [drivers/actuators/vertiq_io](https://github.com/PX4/PX4-Autopilot/tree/
 
 <a id="vertiq_io_usage"></a>
 
-### Usage
+### 用法
 ```
 vertiq_io <command> [arguments...]
  Commands:
@@ -1491,13 +1489,13 @@ vertiq_io <command> [arguments...]
 Source: [drivers/voxl2_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/voxl2_io)
 
 
-### Description
+### 描述
 This module is responsible for driving the output pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
 
 
 <a id="voxl2_io_usage"></a>
 
-### Usage
+### 用法
 ```
 voxl2_io <command> [arguments...]
  Commands:
@@ -1525,13 +1523,13 @@ voxl2_io <command> [arguments...]
 Source: [drivers/actuators/voxl_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/voxl_esc)
 
 
-### Description
+### 描述
 This module is responsible for...
 
 ### Implementation
 By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
 
-### Examples
+### 示例
 It is typically started with:
 ```
 todo
@@ -1540,7 +1538,7 @@ todo
 
 <a id="voxl_esc_usage"></a>
 
-### Usage
+### 用法
 ```
 voxl_esc <command> [arguments...]
  Commands:
@@ -1586,7 +1584,7 @@ Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="voxlpm_usage"></a>
 
-### Usage
+### 用法
 ```
 voxlpm [arguments...]
    start
@@ -1610,13 +1608,13 @@ voxlpm [arguments...]
 Source: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/zenoh)
 
 
-### Description
+### 描述
 
 Zenoh demo bridge
 
 <a id="zenoh_usage"></a>
 
-### Usage
+### 用法
 ```
 zenoh <command> [arguments...]
  Commands:
