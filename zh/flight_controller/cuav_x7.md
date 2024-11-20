@@ -28,7 +28,7 @@ The flight controller adopts a modular design and can be matched with different 
 The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/) are the canonical reference for the X7. They should be used by preference as they contain the most complete and up to date information.
 :::
 
-## Quick Summary
+## 总览
 
 - Main FMU Processor: STM32H743
 - 内置传感器：
@@ -65,7 +65,7 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/) are 
 When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
 :::
 
-## Where to Buy
+## 在哪里买
 
 [CUAV Store](https://store.cuav.net)
 
@@ -97,7 +97,7 @@ The _X7 AutoPilot_ can be triple-redundant on the power supply if three power so
 Under these conditions all power sources will be used in this order to power the system:
 
 1. **POWERA** and **POWERC** inputs (4.3V to 5.4V)
-2. **USB** input (4.75V to 5.25V)
+2. **USB** 输入电压（4.75 v 至 5.25 v）
 
 ## 编译固件
 
