@@ -5,7 +5,7 @@ This guide explains how to manually tune the fixed-wing PID loop. It is intended
 ::: info [Autotune](../config/autotune_fw.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
 :::
 
-## Preconditions
+## 전제 조건
 
 - Trims must be configured first (before PID turning). The [Fixed-Wing Trimming Guide](../config_fw/trimming_guide_fixedwing.md) explains how.
 - Incorrectly set gains during tuning can make attitude control unstable. A pilot tuning gains should therefore be able to fly and land the plane in [manual](../flight_modes_fw/manual.md) (override) control.
@@ -86,4 +86,4 @@ The overall softness / hardness of the control loop can be adjusted by the time 
 
 ## Other Tuning Parameters
 
-The most important parameters are covered in this guide. Additional tuning parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md).
+이 가이드에서는 중요한 매개변수들을 설명합니다. Additional tuning parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md).
