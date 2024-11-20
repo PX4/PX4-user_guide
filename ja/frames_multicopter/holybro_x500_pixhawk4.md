@@ -220,14 +220,14 @@ Then perform the mandatory setup/calibration:
 
 - [Sensor Orientation](../config/flight_controller_orientation.md)
 - [Compass](../config/compass.md)
-- [Accelerometer](../config/accelerometer.md)
+- [加速度センサー](../config/accelerometer.md)
 - [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Radio Setup](../config/radio.md)
-- [Flight Modes](../config/flight_mode.md)
+- [無線設定](../config/radio.md)
+- [フライトモード](../config/flight_mode.md)
 
 Ideally you should also do:
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [ESCキャリブレーション](../advanced_config/esc_calibration.md)
 - [Battery Estimation Tuning](../config/battery.md)
 - [Safety](../config/safety.md)
 
