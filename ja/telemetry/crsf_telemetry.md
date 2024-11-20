@@ -124,7 +124,7 @@ Alternatively you can use QGroundControl to install the firmware, as described i
 
 1. [RC_CRSF_TEL_EN](../advanced_config/parameter_reference.md#RC_CRSF_TEL_EN) — Enable to activate Crossfire telemetry.
 
-### Radio Setup
+### 無線設定
 
 [Radio Control Setup](../config/radio.md) explains how to map your RC controller's attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
@@ -199,4 +199,4 @@ The supported telemetry messages and their source are listed below (this table i
 - [ExpressLRS Documentation](https://www.expresslrs.org/quick-start/getting-started/)
 - [FrSky Telemetry](../peripherals/frsky_telemetry.md)
 - [Radio Control Setup](../config/radio.md)
-- [Radio Control Systems](../getting_started/rc_transmitter_receiver.md)
+- [無線操縦システム](../getting_started/rc_transmitter_receiver.md)
