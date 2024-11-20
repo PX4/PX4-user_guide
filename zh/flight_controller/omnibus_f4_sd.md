@@ -5,7 +5,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 :::
 
 :::warning
-PX4 does not manufacture this (or any) autopilot.
+PX4 没有制造这款（或任何一款）飞控。
 Contact the manufacturer for support or compliance issues.
 :::
 
@@ -151,7 +151,7 @@ Here is an example implementation. I used a Spektrum plug to get 3.3v from the D
 
 ![Omnibus F4 SD Pullup Implementation](../../assets/flight_controller/omnibus_f4_sd/pullup.jpg)
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port     |
 | ------ | ---------- | -------- |
