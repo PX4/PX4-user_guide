@@ -1,6 +1,8 @@
 # Pixhawk 4 배선 개요
 
-:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4에서는 이 자동 항법 장치를 제조하지 않습니다.
+소형화를 위하여 가진 IO가 적습니다.
 :::
 
 [Pixhawk 4](../flight_controller/pixhawk4.md)<sup>&reg;</sup> 비행 콘트롤러 전원 공급방법과 주변 장치 연결방법을 설명합니다.
@@ -34,7 +36,7 @@ The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 
 ![Pixhawk 4 -- 나침반/GPS 연결](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
-::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). 안전 스위치를 1초간 길게 누르면 비활성화됩니다. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
+전원 모듈 또는 배전 보드를 사용하여 모터와 서보에 전원을 공급하고 소비 전력을 측정할 수 있습니다. 안전 스위치를 1초간 길게 누르면 비활성화됩니다. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
 :::
 
 ## 전원
@@ -98,7 +100,7 @@ The pinout of _Pixhawk 4_’s power ports is shown below. 전류는 기본적으
 ::: info Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) but you won't need to calibrate the _voltage divider_. You will have to update the _voltage divider_ if you are using any other power module (e.g. the one from the Pixracer).
 :::
 
-## Radio Control
+## 무선 조종
 
 A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -116,9 +118,9 @@ The instructions below show how to connect the different types of receivers to _
 
 - PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **PPM RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+무선 텔레메트리는 지상국 프로그램에서 비행 차량의 통신/제어에 사용합니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
-## Telemetry Radios (Optional)
+## 무선 텔레메트리(선택 사항)
 
 무선 텔레메트리는 지상국 프로그램의 비행 차량 통신 제어용입니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
