@@ -7,7 +7,7 @@ _QGroundControl_ will guide you to place the vehicle on a flat surface and keep 
 보정 절차는 다음과 같습니다:
 
 1. Start _QGroundControl_ and connect the vehicle.
-1. Select **"Q" icon > Vehicle Setup > Sensors** (sidebar) to open _Sensor Setup_.
+1. 상단 도구 모음에서 **톱니 바퀴** 아이콘(기체 설정)을 선택한 다음에, 가장자리 표시줄에서 **센서**를 선택합니다.
 1. Click the **Gyroscope** sensor button.
 
    ![자이로스코프 보정 PX4 선택](../../assets/qgc/setup/sensor/gyroscope_calibrate_px4.png)
