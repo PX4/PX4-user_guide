@@ -4,7 +4,7 @@ This section covers the common software configuration and calibration needed for
 
 You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection). Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
 
-## Preconditions
+## 전제 조건
 
 Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer. Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
 
@@ -14,13 +14,13 @@ Before starting you should [Download QGroundControl](http://qgroundcontrol.com/d
 
 ### Firmware/Vehicle Selection
 
-- [Loading Firmware](../config/firmware.md)
+- [펌웨어 설치 및 업데이트](../config/firmware.md)
 - [Vehicle (Frame) Selection](../config/airframe.md)
 
 ### Motor/Actuator Setup
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Actuator Configuration and Testing](../config/actuators.md)
+- [ESC 보정](../advanced_config/esc_calibration.md)
+- [액추에이터 설정 및 테스트](../config/actuators.md)
 
 ### Sensor Calibration
 
@@ -39,7 +39,7 @@ Before starting you should [Download QGroundControl](http://qgroundcontrol.com/d
 Radio Control:
 
 - [Radio Controller (RC) Setup](../config/radio.md)
-- [Flight Mode Configuration](../config/flight_mode.md)
+- [비행 모드 설정](../config/flight_mode.md)
 
 Joystick/GamePad:
 
@@ -50,7 +50,7 @@ Joystick/GamePad:
 - [Battery Estimation Tuning](../config/battery.md) (requires [Power Module](../power_module/index.md))
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
-### Tuning
+### 튜닝
 
 Auto-tuning is supported, and recommended, on the following frames:
 
@@ -78,4 +78,4 @@ If you need help with the configuration you can ask for help on the [QGroundCont
   - [Multicopter Config/Tuning](../config_mc/index.md)
   - [Helicopter Config/Tuning](../config_heli/index.md)
   - [Fixed-wing Config/Tuning](../config_fw/index.md)
-  - [VTOL Config/Tuning](../config_vtol/index.md)
+  - [VTOL 설정 및 튜닝](../config_vtol/index.md)
