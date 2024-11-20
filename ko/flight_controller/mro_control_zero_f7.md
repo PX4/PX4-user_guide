@@ -53,7 +53,7 @@ The _mRo Control Zero F7<sup>&reg;</sup>_ is a new flight controller from mRo.
 - 전원 시스템 :
   - 초저잡음 LDO 전압 조정기 3개
 
-## Where to Buy
+## 구매처
 
 - [mRo Control Zero](https://store.mrobotics.io/mRo-Control-Zero-F7-p/mro-ctrl-zero-f7.htm)
 
