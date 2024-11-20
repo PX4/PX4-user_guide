@@ -6,7 +6,7 @@ The OMP Hobby ZMO is a small [tiltrotor VTOL](../frames_vtol/tiltrotor.md) that 
 
 ![Finished ZMO hover 2](../../assets/airframes/vtol/omp_hobby_zmo_fpv/airframe-hover2.jpg)
 
-## Overview
+## 综述
 
 Key airframe features:
 
@@ -22,7 +22,7 @@ Key airframe features:
 
 Depending on the final takeoff weight the hover time might be limited (there is not a lot of air circulation inside the fuselage when the vehicle is hovering so the ESCs might overheat).
 
-## Where to Buy
+## 在哪里买
 
 - [OMP-Hobby](https://www.omphobby.com/OMPHOBBY-ZMO-VTOL-FPV-Aircraft-With-DJI-Goggles-And-Remote-Controller-p3069854.html)
 - [GetFPV](https://www.getfpv.com/omphobby-zmo-z3-vtol-fpv-1200mm-arf-plane-kit-no-fpv-system.html)
@@ -60,7 +60,7 @@ The approximate maximum size of the FC is: 50x110x22mm
 - [USB camera (included in Skynode dev kit)](https://www.amazon.com/ELP-megapixel-surveillance-machine-monitor/dp/B015FIKTZC)
 - Screws, inserts, heat shrink, etc.
 
-## Tools
+## 工具
 
 The following tools were used for this build.
 
@@ -155,7 +155,7 @@ The connector glued into the fuselage. Make sure to properly align the connector
    - 2 - Front right
    - 3 - Rear
 
-### Sensors
+### 传感器
 
 #### Pitot Tube
 
@@ -241,9 +241,9 @@ If a Skynode is installed the LTE can be used as telemetry and video link. If a 
 
    ![LTE antenna 2 and RC receiver](../../assets/airframes/vtol/omp_hobby_zmo_fpv/lte-antenna-02.jpg)
 
-## Software Setup
+## 软件设置
 
-### Select Airframe
+### 选择机架
 
 1. Open QGC, select the **Q** icon, and then select **Vehicle Setup**.
 1. Select the [Airframe](../config/airframe.md) tab
@@ -274,10 +274,10 @@ First make sure to set the [correct orientation of the flight controller](../con
 
 Then calibrate the main sensors:
 
-- [Compass](../config/compass.md)
-- [Gyroscope](../config/gyroscope.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Airspeed](../config/airspeed.md)
+- [罗盘](../config/compass.md)
+- [陀螺仪](../config/gyroscope.md)
+- [加速度计](../config/accelerometer.md)
+- [空速：](../config/airspeed.md)
 
 ### RC-Setup
 
@@ -329,7 +329,7 @@ Make sure the props are removed!!
 
 If the motor spins in the wrong directions two of the three motor wires need to be swapped. The direction can't be changed in software because the vehicle does not use [DShot ESC](../peripherals/dshot.md).
 
-## First Flight
+## 第一次飞行
 
 - Check tilt rotor reactions in [Stabilized mode](../flight_modes_fw/stabilized.md). Keep the throttle stick at the minimum and place the vehicle at the ground. To enable the tilt servos you need to arm the vehicle.
   - Yaw the vehicle to the right (nose to the right) -> left motor should tilt down
