@@ -20,12 +20,12 @@ RC mode where centered sticks level vehicle (only - position is not stabilized).
 
 飞手的输入通过横滚和俯仰角度以及偏航角速率指令传递给自驾仪。 油门被重新定位(见[下面的 ](#params))，并直接传递到控制分配。 自动驾驶仪控制着飞机的姿态角，这意味着当 RC 摇杆居中时自驾仪调整飞机的滚转和俯仰角为零（从而实现飞机姿态的改平）。 自动驾驶仪不能补偿由于风（或其他来源）引起的漂移。
 
-- Centered sticks (inside deadband):
+- 回正摇杆（内带死区）：
   - Roll/Pitch sticks level vehicle.
-- Outside center:
+- 外部中心：
   - Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.
   - Throttle stick controls up/down speed (and movement speed in other axes).
-  - Yaw stick controls rate of angular rotation above the horizontal plane.
+  - 偏航摇杆控制水平面上方的角度旋转速率。
 - Manual control input is required (such as RC control, joystick).
   - Roll, Pitch: Assistance from autopilot to stabilize the attitude. Position of RC stick maps to the orientation of vehicle.
   - Throttle: Manual control via RC sticks. RC input is sent directly to control allocation.
