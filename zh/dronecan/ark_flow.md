@@ -1,10 +1,10 @@
-# ARK Flow
+# ARK 光流
 
 ARK Flow is an open source [DroneCAN](index.md) [optical flow](../sensor/optical_flow.md), [distance sensor](../sensor/rangefinders.md), and IMU module.
 
-![ARK Flow](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
+![ARK 光流](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
-## Where to Buy
+## 在哪里买
 
 Order this module from:
 
@@ -13,7 +13,7 @@ Order this module from:
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Flow)
-- Sensors
+- 传感器
   - PixArt PAW3902 Optical Flow Sensor
     - Tracks under super low light condition of >9 lux
     - Wide working range from 80mm up to 30m
@@ -38,7 +38,7 @@ Order this module from:
 
 ## Hardware Setup
 
-### Wiring
+### 布线
 
 The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
@@ -71,7 +71,7 @@ The Ark Flow will not boot if there is no SD card in the flight controller when 
 
 In order to use the ARK Flow board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
-The steps are:
+步骤如下：
 
 - In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK Flow CAN to the Pixhawk CAN.
@@ -80,7 +80,7 @@ Once enabled, the module will be detected on boot. Flow data should arrive at 10
 
 DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
-### PX4 Configuration
+### PX4 配置
 
 You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [DroneCAN](index.md) parameters, and define offsets if the sensor is not centred within the vehicle.
 
@@ -103,11 +103,11 @@ Set the following parameters in _QGroundControl_:
 
 On the ARK Flow, you may need to configure the following parameters:
 
-| Parameter                                                                                       | Description                   |
+| 参数                                                                                              | 描述                            |
 | ----------------------------------------------------------------------------------------------- | ----------------------------- |
 | <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
 
-## LED Meanings
+## LED灯含义
 
 You will see both red and blue LEDs on the ARK Flow when it is being flashed, and a solid blue LED if it is running properly.
 
