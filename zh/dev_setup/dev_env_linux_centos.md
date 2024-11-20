@@ -3,7 +3,7 @@
 :::warning
 This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team. （如使用更早版本的 CentOS 则需要额外安装 python v2.7.5）。
+关于核心开发团队支持的环境和工具的信息，请参阅 [工具链安装](../dev_setup/dev_env.md)。 （如使用更早版本的 CentOS 则需要额外安装 python v2.7.5）。
 
 The build requires Python 2.7.5. Therefore as of this writing Centos 7 should be used. (For earlier Centos releases a side-by-side install of python v2.7.5 may be done. But it is not recommended because it can break yum.)
 
@@ -50,7 +50,7 @@ popd
 
 Now restart your machine.
 
-**Troubleshooting**
+**故障处理**
 
 Check the version by entering the following command:
 
