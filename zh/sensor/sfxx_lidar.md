@@ -40,7 +40,7 @@ The SF11/C hardware (only) does not ship with Pixhawk I2C compatibility enabled 
 
 This step is not required for the other supported Lightware rangefinders.
 
-### Hardware
+### 硬件
 
 Connect the Lidar the autopilot I2C port as shown below (in this case, for the [Pixhawk 1](../flight_controller/mro_pixhawk.md)).
 
@@ -57,7 +57,7 @@ VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_r
 
 ## Serial Setup {#serial_hardware_setup}
 
-### Hardware
+### 硬件
 
 The lidar can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
