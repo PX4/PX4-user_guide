@@ -4,7 +4,7 @@ The Turbo Timber Evolution is a model sold by Horizon Hobby originally intended 
 
 ![Turbo Timber Evolution Closup in a field](../../assets/airframes/fw/turbo_timber_evolution/field_overview1.jpg)
 
-## Overview
+## 개요
 
 The goal of this build was to create a platform which could be used for general PX4 testing/development. That design goal meant that naturally balanced controls representative of a "vanilla" airplane were desirable. Because classic RC planes are usually designed to be hand flown with no computer augmented flight controls, they tend to be specifically designed to be well trimmed and balanced out of the box. These airplanes also have more attention devoted to making sure they handle well in the air. While it's possible to fly even the most simple foamboard airplane, a lot of nuance in airborne handling can be finessed with a bit more engineering effort. This airplane is a premium example of that, with features like frise ailerons to minimize adverse yaw.
 
@@ -29,7 +29,7 @@ Key Build Features:
 * Air data provided by wing slung pitot static pod
 * Long flight times (with Liion battery option > 24 minutes)
 
-## Parts List
+## 부품 목록
 
 - [Turbo Timber Evolution PNP (includes motor, servos, esc, etc, all fully installed)](https://www.horizonhobby.com/product/turbo-timber-evolution-1.5m-pnp-includes-floats/EFL105275.html#)
 - [80A Plush-32 ESC](https://hobbyking.com/en_us/turnigy-plush-32-80a-2-6s-brushless-speed-controller-w-bec-rev1-1-0.html)
@@ -53,7 +53,7 @@ Key Build Features:
 
 The vehicle comes out of the box near complete. Servos and linkages have already been installed, and the only real remaining work is installing the landing gear and horizontal stabilizer. For this portion of the assembly, simply follow the manual.
 
-::: info
+:::note
 
 [Some reports](https://www.rcgroups.com/forums/showthread.php?3904021-NEW-E-flite-Turbo-Timber-Evolution-1-5m-%C2%96-Smartest-Most-Capable-Durable-Timber-Yet/page50) have indicated that the stock ESC bundled with the airplane has an issue with overheating.
 
@@ -105,7 +105,7 @@ First, the Pixhawk 4 Mini was placed in the lower mount. Hot glue was added to r
 
 ## Electrical
 
-### Power
+### 전원
 
 The Holybro power module was wired inline with the ESC. A spare 16awg power lead was also broken out, terminated to an XT30. This spare lead will be used to provide power to the Caddx Vista FPV unit, but could also be connected to a splitter to power more peripherals. Power for the servo and lighting will be provided by the "BEC" power supply in the ESC.
 
@@ -129,9 +129,9 @@ Servo endpoints were obtained by using a servo tester to determine the servo PWM
 
 Access to the Pixhawk 4 Mini requires removal of the upper mount. While this isn't too difficult, it was a consideration for wanting to streamline debugging in the field. A short right angle USB micro extension was used to allow easy access to the Pixhawk 4 Mini's USB interface. The USB-A end of this cable was left dangling in the battery bay. Similarly, a JST PH to std spaced headers adapter was made, and it was also left easily accessible in the battery bay.
 
-### Peripherals
+### 주변 장치
 
-#### RC Receiver
+#### 무선 수신기
 
 A custom cable was made to connect the ExpressLRS RX ([RC Reciever](../getting_started/rc_transmitter_receiver.md)) to the Pixhawk 4 Mini.
 
@@ -169,7 +169,7 @@ In testing I found takeoffs can be as short as only 10ft (3m) using no flaps. I 
 - Takeoff roll (with full flaps): < 10ft
 - Endurance: ~24 minutes on 5.2Ah 4s2p LiIon, ~12 minutes on 3.6Ah 4S LiPo
 
-### Videos
+### 비디오
 
 <lite-youtube videoid="vMFCi3G5s6E" title="PX4 Turbo Timber Spot Landing"/>
 
