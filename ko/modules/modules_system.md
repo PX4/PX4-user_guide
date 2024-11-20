@@ -452,7 +452,7 @@ Module consuming manual_control_inputs publishing one manual_control_setpoint.
 
 <a id="manual_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -507,7 +507,7 @@ Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes 
 
 <a id="pwm_input_usage"></a>
 
-### Usage
+### 사용법
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -530,7 +530,7 @@ To reduce control latency, the module is scheduled on input_rc publications.
 
 <a id="rc_update_usage"></a>
 
-### Usage
+### 사용법
 ```
 rc_update <command> [arguments...]
  Commands:
@@ -557,7 +557,7 @@ The replay procedure is documented on the [System-wide Replay](https://docs.px4.
 
 <a id="replay_usage"></a>
 
-### Usage
+### 사용법
 ```
 replay <command> [arguments...]
  Commands:
@@ -582,7 +582,7 @@ The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, e
 
 <a id="send_event_usage"></a>
 
-### Usage
+### 사용법
 ```
 send_event <command> [arguments...]
  Commands:
@@ -602,7 +602,7 @@ Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Auto
 
 <a id="sensor_arispeed_sim_usage"></a>
 
-### Usage
+### 사용법
 ```
 sensor_arispeed_sim <command> [arguments...]
  Commands:
@@ -642,7 +642,7 @@ Source: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot
 
 <a id="sensor_gps_sim_usage"></a>
 
-### Usage
+### 사용법
 ```
 sensor_gps_sim <command> [arguments...]
  Commands:
@@ -662,7 +662,7 @@ Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot
 
 <a id="sensor_mag_sim_usage"></a>
 
-### Usage
+### 사용법
 ```
 sensor_mag_sim <command> [arguments...]
  Commands:
@@ -679,18 +679,18 @@ Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/master/src/m
 ### Description
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
-The provided functionality includes:
+제공 기능은 다음과 같습니다:
 - Read the output from the sensor drivers (`SensorGyro`, etc.). 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). And finally publish the data; one of the topics is `SensorCombined`, used by many parts of the system.
 - 매개변수가 변경되거나 시작될 때 센서 드라이버가 업데이트된 보정 매개변수(스케일 및 오프셋)를 가져오는 지 확인하십시오. 센서 드라이버는 매개변수 업데이트를 위하여 ioctl 인터페이스를 사용합니다. 이것이 제대로 작동하려면, `센서`가 시작될 때 센서 드라이버가 이미 실행되고 있어야 합니다.
 - Do sensor consistency checks and publish the `SensorsStatusImu` topic.
 
 ### Implementation
-It runs in its own thread and polls on the currently selected gyro topic.
+자체 스레드에서 실행되고, 현재 선택된 자이로 주제를 폴링합니다.
 
 
 <a id="sensors_usage"></a>
 
-### Usage
+### 사용법
 ```
 sensors <command> [arguments...]
  Commands:
@@ -711,7 +711,7 @@ Driver for reading data from the Tattu 12S 16000mAh smart battery.
 
 <a id="tattu_can_usage"></a>
 
-### Usage
+### 사용법
 ```
 tattu_can <command> [arguments...]
  Commands:
@@ -731,7 +731,7 @@ The temperature compensation module allows all of the gyro(s), accel(s), and bar
 
 <a id="temperature_compensation_usage"></a>
 
-### Usage
+### 사용법
 ```
 temperature_compensation <command> [arguments...]
  Commands:
@@ -770,7 +770,7 @@ tune_control play -t 2
 
 <a id="tune_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 tune_control <command> [arguments...]
  Commands:
@@ -804,7 +804,7 @@ uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
 
 <a id="uxrce_dds_client_usage"></a>
 
-### Usage
+### 사용법
 ```
 uxrce_dds_client <command> [arguments...]
  Commands:
@@ -836,7 +836,7 @@ Command-line tool to show work queue status.
 
 <a id="work_queue_usage"></a>
 
-### Usage
+### 사용법
 ```
 work_queue <command> [arguments...]
  Commands:
