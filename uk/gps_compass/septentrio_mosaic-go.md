@@ -33,7 +33,7 @@ The mosaic-go kit is available on Septentrio's [official store](https://web.sept
 
 ## Physical Interfaces
 
-| Type            | Label          | Use                                      |
+| Тип             | Позначка       | Use                                      |
 | --------------- | -------------- | ---------------------------------------- |
 | USB Micro-B     | USB-C          | USB communication and power              |
 | RSV USB Micro-B | RSV            | Reserved and should not be used          |
@@ -68,7 +68,7 @@ _Тип роз'єму: роз'єм GH, шаг 1,25 мм, 4 шляхи. Корп�
 | RXD2         | In       | 3V3_LVTTL | Serial COM2 receive line  | Підключається безпосередньо до RXD2 внутрішньої mosaic    |
 | GND          |          | 0         | Ground                    |                                                           |
 
-## PX4 Configuration
+## Конфігурація PX4
 
 PX4 configuration is covered in [Septentrio GNSS Receivers](../gps_compass/septentrio.md).
 
