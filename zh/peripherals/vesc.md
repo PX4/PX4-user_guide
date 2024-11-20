@@ -2,13 +2,13 @@
 
 The [VESC project](https://vesc-project.com/) is a fully open source hardware and software design for advanced FOC motor controllers. While it can be controlled using traditional PWM input, it also supports being connected over CAN bus using [DroneCAN](../dronecan/index.md).
 
-## Where to Buy
+## 在哪里买
 
 [Vesc Project > Hardware](https://vesc-project.com/Hardware)
 
 ## Hardware Setup
 
-### Wiring
+### 布线
 
 ESCs are connected to the CAN bus using the VESC CAN connector. Note that this is _not_ the Pixhawk standard 4 pin JST GH connector. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions. ESC order does not matter.
 
@@ -16,7 +16,7 @@ ESCs are connected to the CAN bus using the VESC CAN connector. Note that this i
 
 The preferred tool for motor enumeration is the [VESC tool](https://vesc-project.com/vesc_tool). In addition to the normal motor configuration that you will have to setup in the VESC tool, you will also need to properly setup the app configuration. The recommended app setup is as follows:
 
-| Parameter               | Option                 |
+| 参数                      | Option                 |
 | ----------------------- | ---------------------- |
 | App to use              | `No App`               |
 | VESC ID                 | `1,2,...`              |
@@ -35,7 +35,7 @@ Finally the `CAN Baud Rate` must match the value set in [UAVCAN_BITRATE](../adva
 
 Connect the ESCs to the Pixhawk CAN bus. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `3` to enable both dynamic node ID allocation and DroneCAN ESC output.
 
-### PX4 Configuration
+### PX4 配置
 
 Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
@@ -46,7 +46,7 @@ Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-te
 See DroneCAN Troubleshooting - (index.md#troubleshooting).
 -->
 
-## Further Information
+## 更多信息
 
 - [VESC Project ESCs](https://vesc-project.com/)
 - [Benjamin Vedder's blog](http://vedder.se) (project owner)
