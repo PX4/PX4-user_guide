@@ -13,18 +13,18 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/pmw3901.html#thone-t
 
 ### Examples
 
-Attempt to start driver on a specified serial device.
+지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
 ```
 thoneflow start -d /dev/ttyS1
 ```
-Stop driver
+드라이버를 중지합니다.
 ```
 thoneflow stop
 ```
 
 <a id="thoneflow_usage"></a>
 
-### Usage
+### 사용법
 ```
 thoneflow <command> [arguments...]
  Commands:
