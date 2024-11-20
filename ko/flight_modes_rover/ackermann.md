@@ -23,7 +23,7 @@ The sticks provide the same "high level" control effects over direction and rate
 
 The manual modes provide progressively increasing levels of autopilot support for maintaining a course, speed, and rate of turn, compensating for external factors such as slopes or uneven terrain.
 
-| Mode                       | Features                                                                                                                                                                                                                                                         |
+| Mode                       | 특징                                                                                                                                                                                                                                                               |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Manual](#manual-mode)     | No autopilot support. User is responsible for keeping the rover on the desired course and maintaining speed and rate of turn.                                                                                                    |
 | [Acro](#acro-mode)         | + Maintains the lateral acceleration. This makes it feel more like driving a car than manual mode. <br>+ It also protects against roll over and is slightly better at holding a straight line in uneven terrain. |
@@ -40,7 +40,7 @@ Overview mode mapping to control effect
 
 :::
 
-### Manual Mode
+### 수동 모드
 
 In this mode the stick inputs are directly mapped to motor commands. The rover does not attempt to maintain a specific orientation or compensate for external factors like slopes or uneven terrain!
 The user is responsible for making the necessary adjustments to the stick inputs to keep the rover on the desired course.
@@ -118,7 +118,7 @@ The mission is typically created and uploaded with a Ground Control Station (GCS
 
 The following commands can be used in missions at time of writing (`main(PX4 v1.16+)`):
 
-| QGC mission item                      | Command                                                                                                                        | Description                                                                                      |
+| QGC mission item                      | 통신                                                                                                                             | Description                                                                                      |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
 | Mission start                         | [MAV_CMD_MISSION_START](MAV_CMD_MISSION_START)                  | Starts the mission.                                                              |
 | Waypoint                              | [MAV_CMD_NAV_WAYPOINT](MAV_CMD_NAV_WAYPOINT)                    | Navigate to waypoint.                                                            |
