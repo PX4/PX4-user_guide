@@ -22,7 +22,7 @@ Source: [drivers/transponder/sagetech_mxs](https://github.com/PX4/PX4-Autopilot/
 
 <a id="sagetech_mxs_usage"></a>
 
-### Usage
+### 사용법
 ```
 sagetech_mxs <command> [arguments...]
  Commands:
