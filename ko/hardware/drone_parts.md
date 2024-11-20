@@ -13,7 +13,7 @@ PX4 완제품 기체와 자체 제작 드론의 부품들에 대하여 설명합
 - [I2C Peripherals](../sensor_bus/i2c_general.md)
 - [CAN Peripherals](../can/index.md)
 - [DroneCAN Peripherals](../dronecan/index.md)
-- [Cable Wiring](../assembly/cable_wiring.md)
+- [배선 개요](../assembly/cable_wiring.md)
 - [Companion Computers](../companion_computer/index.md) — Setup, peripherals, computer vision, obstacle avoidance etc.
-- [Serial Port Configuration](../peripherals/serial_configuration.md)
+- [직렬 포트 설정](../peripherals/serial_configuration.md)
 - [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md)
