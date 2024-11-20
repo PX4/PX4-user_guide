@@ -46,7 +46,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 Additional information can be found in the [_Pixhawk 4 Mini_ Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
 
-## Where to Buy
+## 在哪里买
 
 Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pixhawk4-mini).
 
@@ -78,7 +78,7 @@ _Pixhawk 4 Mini_ can have power supply redundancy — if two power sources are s
 为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
 1. **POWER** (4.75V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **USB** 输入电压（4.75 v 至 5.25 v）
 
 **Absolute Maximum Ratings**
 
@@ -111,7 +111,7 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard [Pixhawk debug connector](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) pinout. Please refer to the [wiring](../debug/system_console.md) page for details of how to wire up this port.
 
-## Serial Port Mapping
+## 串口映射
 
 |  UART  |     设备     | QGC Parameter Description |     Port Label on FC     |
 |:------:|:----------:|:-------------------------:|:------------------------:|
