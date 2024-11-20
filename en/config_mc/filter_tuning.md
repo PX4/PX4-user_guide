@@ -51,7 +51,7 @@ This is the filtering pipeline for the controllers in PX4:
 - A separate low-pass filter on the D-term.
   The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance.
   For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
-- A optional slew-rate filter on the motor outputs.
+- An optional slew-rate filter on the motor outputs.
   This rate may be configured as part of the [Multicopter Geometry](../config/actuators.md#motor-geometry-multicopter) when configuring actuators (which in turn modifies the [CA_Rn_SLEW](../advanced_config/parameter_reference.md#CA_R0_SLEW) parameters for each motor `n`).
 
 To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters.
