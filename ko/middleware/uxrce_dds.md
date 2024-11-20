@@ -12,7 +12,7 @@ PX4 uses an XRCE-DDS implementation that leverages [eProsima Micro XRCE-DDS](htt
 
 The following guide describes the architecture and various options for setting up the client and agent. In particular it covers the options that are most important to PX4 users.
 
-## Architecture
+## 아키텍쳐
 
 The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial or UDP link. The agent acts as a proxy for the client, enabling it to publish and subscribe to topics in the global DDS data space.
 
@@ -307,7 +307,7 @@ Changing the namespace at runtime will append the desired namespace as a prefix 
 uxrce_dds_client start -n uav_1
 ```
 
-or
+또는
 
 ```sh
 PX4_UXRCE_DDS_NS=uav_1 make px4_sitl gz_x500
