@@ -18,7 +18,7 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
 :::
 
-## Key Features
+## 主要特性
 
 - 32bit STM32H757ZI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 1MB).
 - 32 bit STM32F103 failsafe co-processor
@@ -34,17 +34,17 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 
 <a id="stores"></a>
 
-## Where to Buy
+## 在哪里买
 
 - [Reseller list](https://www.cubepilot.com/#/reseller/list)
 
-## Assembly
+## 组装
 
 [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
 
-## Specifications
+## 产品规格
 
-- **Processor:**
+- **处理器:**
   - STM32H757 (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
   - 400 MHz
   - 1 MB RAM
@@ -69,10 +69,10 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
     - Input voltage: 4.1V - 5.7V
     - Rated input current: 2.5A
     - Rated input/output power: 14W
-- **Dimensions:**
+- **尺寸:**
   - **Cube:** 38.25mm x 38.25mm x 22.3mm
   - **Carrier:** 94.5mm x 44.3mm x 17.3mm
-- **Interfaces**
+- **接口**
   - IO Ports: 14 PWM servo outputs (8 from IO, 6 from FMU)
   - 5x UART (serial ports), one high-power capable, 2x with HW flow control
   - 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
@@ -92,115 +92,115 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 
 ![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
-## Pinouts
+## 针脚定义
 
-#### TELEM1, TELEM2 ports
+#### TELEM1，TELEM2 接口
 
-| Pin     | Signal    | Volt  |
-| ------- | --------- | ----- |
-| 1 (red) | VCC       | +5V   |
-| 2 (blk) | TX (OUT)  | +3.3V |
-| 3 (blk) | RX (IN)   | +3.3V |
-| 4 (blk) | CTS (IN)  | +3.3V |
-| 5 (blk) | RTS (OUT) | +3.3V |
-| 6 (blk) | GND       | GND   |
+| 针脚   | Signal    | 电压    |
+| ---- | --------- | ----- |
+| 2    | VCC       | +5V   |
+| 2    | TX (OUT)  | +3.3V |
+| 3    | RX (IN)   | +3.3V |
+| 4（黑） | CTS (IN)  | +3.3V |
+| 6    | RTS (OUT) | +3.3V |
+| 6    | GND       | GND   |
 
 #### GPS1 port
 
-| Pin     | Signal        | Volt  |
+| 针脚      | Signal        | 电压    |
 | ------- | ------------- | ----- |
-| 1 (red) | VCC           | +5V   |
-| 2 (blk) | TX (OUT)      | +3.3V |
-| 3 (blk) | RX (IN)       | +3.3V |
-| 4 (blk) | SCL I2C2      | +3.3V |
-| 5 (blk) | SDA I2C2      | +3.3V |
-| 6 (blk) | Safety Button | GND   |
-| 7 (blk) | Button LED    | GND   |
+| 2       | VCC           | +5V   |
+| 2       | TX (OUT)      | +3.3V |
+| 3       | RX (IN)       | +3.3V |
+| 4（黑）    | SCL I2C2      | +3.3V |
+| 6       | SDA I2C2      | +3.3V |
+| 6       | Safety Button | GND   |
+| 7       | Button LED    | GND   |
 | 8 (blk) | GND           | GND   |
 
 <!-- check is i2c2 -->
 
 #### GPS2 port
 
-| Pin     | Signal   | Volt  |
-| ------- | -------- | ----- |
-| 1 (red) | VCC      | +5V   |
-| 2 (blk) | TX (OUT) | +3.3V |
-| 3 (blk) | RX (IN)  | +3.3V |
-| 4 (blk) | SCL I2C1 | +3.3V |
-| 5 (blk) | SDA I2C1 | +3.3V |
-| 6 (blk) | GND      | GND   |
+| 针脚   | Signal   | 电压    |
+| ---- | -------- | ----- |
+| 2    | VCC      | +5V   |
+| 2    | TX (OUT) | +3.3V |
+| 3    | RX (IN)  | +3.3V |
+| 4（黑） | SCL I2C1 | +3.3V |
+| 6    | SDA I2C1 | +3.3V |
+| 6    | GND      | GND   |
 
 #### ADC
 
-| Pin     | Signal | Volt        |
-| ------- | ------ | ----------- |
-| 1 (red) | VCC    | +5V         |
-| 2 (blk) | ADC IN | up to +6.6V |
-| 3 (blk) | GND    | GND         |
+| 针脚 | Signal | 电压          |
+| -- | ------ | ----------- |
+| 2  | VCC    | +5V         |
+| 2  | ADC IN | up to +6.6V |
+| 3  | GND    | GND         |
 
 #### I2C
 
-| Pin     | Signal | Volt           |
-| ------- | ------ | -------------- |
-| 1 (red) | VCC    | +5V            |
-| 2 (blk) | SCL    | +3.3 (pullups) |
-| 3 (blk) | SDA    | +3.3 (pullups) |
-| 4 (blk) | GND    | GND            |
+| 针脚   | Signal | 电压             |
+| ---- | ------ | -------------- |
+| 2    | VCC    | +5V            |
+| 2    | SCL    | +3.3 (pullups) |
+| 3    | SDA    | +3.3 (pullups) |
+| 4（黑） | GND    | GND            |
 
 #### CAN1 & CAN2
 
-| Pin     | Signal | Volt |
-| ------- | ------ | ---- |
-| 1 (red) | VCC    | +5V  |
-| 2 (blk) | CAN_H  | +12V |
-| 3 (blk) | CAN_L  | +12V |
-| 4 (blk) | GND    | GND  |
+| 针脚   | Signal | 电压   |
+| ---- | ------ | ---- |
+| 2    | VCC    | +5V  |
+| 2    | CAN_H  | +12V |
+| 3    | CAN_L  | +12V |
+| 4（黑） | GND    | GND  |
 
 #### POWER1 & POWER2
 
-| Pin     | Signal          | Volt  |
+| 针脚      | Signal          | 电压    |
 | ------- | --------------- | ----- |
-| 1 (red) | VCC             | +5V   |
+| 2       | VCC             | +5V   |
 | 2 (red) | VCC             | +5V   |
-| 3 (blk) | CURRENT sensing | +3.3V |
-| 4 (blk) | VOLTAGE sensing | +3.3V |
-| 5 (blk) | GND             | GND   |
-| 6 (blk) | GND             | GND   |
+| 3       | CURRENT sensing | +3.3V |
+| 4（黑）    | VOLTAGE sensing | +3.3V |
+| 6       | GND             | GND   |
+| 6       | GND             | GND   |
 
 #### USB
 
-| Pin     | Signal        | Volt            |
-| ------- | ------------- | --------------- |
-| 1 (red) | VCC           | +5V             |
-| 2 (blk) | OTG_DP1       | +3.3V           |
-| 3 (blk) | OTG_DM1       | +3.3V           |
-| 4 (blk) | GND           | GND             |
-| 5 (blk) | BUZZER        | Battery voltage |
-| 6 (blk) | FMU Error LED |                 |
+| 针脚   | Signal        | 电压              |
+| ---- | ------------- | --------------- |
+| 2    | VCC           | +5V             |
+| 2    | OTG_DP1       | +3.3V           |
+| 3    | OTG_DM1       | +3.3V           |
+| 4（黑） | GND           | GND             |
+| 6    | BUZZER        | Battery voltage |
+| 6    | FMU Error LED |                 |
 
 #### SPKT
 
-| Pin     | Signal | Volt  |
+| 针脚      | Signal | 电压    |
 | ------- | ------ | ----- |
 | 1 (blk) | IN     |       |
-| 2 (blk) | GND    | GND   |
+| 2       | GND    | GND   |
 | 3 (red) | OUT    | +3.3V |
 
 #### TELEM1, TELEM2
 
-| Pin     | Signal    | Volt        |
-| ------- | --------- | ----------- |
-| 1 (red) | VCC       | +5V         |
-| 2 (blk) | TX (OUT)  | +3.3V to 5V |
-| 3 (blk) | RX (IN)   | +3.3V to 5V |
-| 4 (blk) | CTS (OUT) | +3.3V to 5V |
-| 5 (blk) | RTS (IN)  | +3.3V to 5V |
-| 6 (blk) | GND       | GND         |
+| 针脚   | Signal    | 电压          |
+| ---- | --------- | ----------- |
+| 2    | VCC       | +5V         |
+| 2    | TX (OUT)  | +3.3V to 5V |
+| 3    | RX (IN)   | +3.3V to 5V |
+| 4（黑） | CTS (OUT) | +3.3V to 5V |
+| 6    | RTS (IN)  | +3.3V to 5V |
+| 6    | GND       | GND         |
 
-## Serial Port Mapping
+## 串口映射
 
-| UART   | Device     | Port                  |
+| UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
 | USART2 | /dev/ttyS0 | TELEM1 (flow control) |
 | USART3 | /dev/ttyS1 | TELEM2 (flow control) |
@@ -217,7 +217,7 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
-## Building Firmware
+## 编译固件
 
 :::warning
 The firmware for Orange+ will be present in releases from PX4 v1.14.
@@ -233,7 +233,7 @@ make cubepilot_cubeorangeplus
 The firmware for Cube Orange+ and Cube Orange are not compatible. Due to a power feature of the STM32H757 it required [updates in NuttX](https://github.com/PX4/NuttX/pull/214) and therefore a new board config, bootloader, build target, etc.
 :::
 
-## Schematics
+## 原理图
 
 Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
 
