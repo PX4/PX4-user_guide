@@ -51,7 +51,7 @@ Select the **Apply and Restart** button.
 
 1. Open the [Actuators Configuration & Testing](../config/actuators.md) and map the left and right motor functions to flight controller outputs.
 
-## Simulation
+## 仿真
 
 [Gazebo Classic](../sim_gazebo_classic/index.md) provides simulations for both types of steering:
 
@@ -64,14 +64,14 @@ Flight modes (or more accurately "Drive modes" for ground vehicles) provide auto
 
 PX4 ground vehicles using the deprecated rover position control module only support [manual mode](#manual-mode), [mission mode](#mission-mode) and [offboard mode](#offboard-mode) (other modes may be offered in a ground station, but these all behave just like manual mode).
 
-### Manual Mode
+### 手动模式
 
 _Manual mode_ is the only manual mode for ground vehicles on PX4, and requires a manual controller (RC controller, gamepad, joystick etc.).
 
 In this mode, motors are stopped when RC control sticks are centered.
 To move the vehicle you move the sticks outside of the center.
 
-As soon as you release the control sticks they will return to the center deadzone.
+一旦释放摇杆，它们将会返回中心停顿区。
 This will turn off the motors and center the wheels.
 There is no active braking, so the vehicle may continue to move until its momentum dissipates.
 
@@ -89,7 +89,7 @@ Not all setpoint types make sense for a ground vehicle, or are supported.
 This mode is intended for vehicle control from companion computers and ground stations!
 :::
 
-## Further Information
+## 更多信息
 
 - [Basic Configuration > Flight Modes](../config/flight_mode.md) - How to map RC control switches to specific flight modes
 - [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
@@ -104,7 +104,7 @@ The idea was to develop a platform that allows for easy control of wheeled UGVs 
 
 ![Traxxas Stampede VXL](../../assets/airframes/rover/traxxas_stampede_vxl/stampede.jpg)
 
-### Parts List
+### 配件列表
 
 - [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm) All of this is used except for the top plastic cover.
 - [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md)
@@ -114,7 +114,7 @@ The idea was to develop a platform that allows for easy control of wheeled UGVs 
 - [Spektrum Quad Race Serial Receiver w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
 - [PX4Flow](../sensor/px4flow.md) (Deprecated)
 
-### Assembly
+### 组装
 
 The assembly consists of a wooden frame on which all the autopilot parts were attached.
 Tests showed that a better vibration insulation should be used, especially for the Pixhawk and the Flow module.
@@ -141,12 +141,12 @@ It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampe
 
 ### Output Connections
 
-| PWM Output | Actuator                                |
+| PWM Output | 执行器                                     |
 | ---------- | --------------------------------------- |
 | MAIN2      | Steering servo                          |
 | MAIN4      | Throttle (ESC input) |
 
-### Configuration
+### 配置
 
 Rovers are configured using _QGroundControl_ in the same way as any other vehicle.
 
@@ -159,7 +159,7 @@ The main rover-specific configuration is setting the correct frame:
 
 ![Select Airframe](../../assets/airframes/rover/traxxas_stampede_vxl/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
 
-### Usage
+### 用法
 
 At the current time, PX4 only supports Mission and Manual modes when a RC remote is connected.
 To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm.
