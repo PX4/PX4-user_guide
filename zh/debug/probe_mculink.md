@@ -2,7 +2,7 @@
 
 The [MCU-Link Debug Probe](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcu-link-debug-probe:MCU-LINK) is a cheap, fast and highly capable debug probe that can serve as a stand-alone debug and console communicator whn working with Pixhawk boards.
 
-Key features:
+主要特性：
 
 - Just one single USB-C connection for Reset, SWD, SWO, and serial in a very small package!
 - Up to 9.6MBit/s SWO connection.
