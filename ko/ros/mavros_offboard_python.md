@@ -55,7 +55,7 @@ This example uses Python. Other examples in Python can be found here: [integrati
    cd scripts
    ```
 
-## Code
+## 코드
 
 After creating the ROS package and scripts folder you are ready to start your Python script. Inside the scripts folder create the `offb_node.py` file and give it executable permissions:
 
