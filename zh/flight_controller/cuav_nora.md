@@ -1,6 +1,6 @@
 # CUAV Nora Flight Controller
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
 :::
 
 The [Nora](https://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
@@ -28,7 +28,7 @@ Nora is a variant of the CUAV X7. It adopts an integrated motherboard (soft and 
 The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/nora.html) are the canonical reference for Nora. They should be used by preference as they contain the most complete and up to date information.
 :::
 
-## Quick Summary
+## 总览
 
 - Main FMU Processor: STM32H743
 - 内置传感器：
@@ -66,7 +66,7 @@ When it runs PX4 firmware, only 8 PWM outputs work.
 The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
 :::
 
-## Where to Buy
+## 在哪里买
 
 - [CUAV Store](https://store.cuav.net)<\br>
 - [CUAV Aliexpress](https://www.aliexpress.com/item/4001042501927.html?gps-id=8041884&scm=1007.14677.110221.0&scm_id=1007.14677.110221.0&scm-url=1007.14677.110221.0&pvid=3dc0a3ba-fa82-43d2-b0b3-6280e4329cef&spm=a2g0o.store_home.promoteRecommendProducts_7913969.58)
