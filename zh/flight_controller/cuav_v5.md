@@ -6,7 +6,7 @@
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
 :::
 
 _CUAV v5_<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS, and is fully compatible with PX4 firmware. It is intended primarily for academic and commercial developers.
@@ -48,7 +48,7 @@ _CUAV v5_<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot des
 - 其它特性:
   - 工作温度：-20 ~ 80°C （实测值）
 
-## Where to Buy
+## 在哪里买
 
 Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
 
@@ -72,7 +72,7 @@ _CUAV v5_ can be triple-redundant on the power supply if three power sources are
 Under these conditions all power sources will be used in this order to power the system:
 
 1. **POWER1** and **POWER2** inputs (4.3V to 5.4V)
-1. **USB** input (4.75V to 5.25V)
+1. **USB** 输入电压（4.75 v 至 5.25 v）
 
 ## 编译固件
 
@@ -103,7 +103,7 @@ The pinout is as shown.
 | 5  | UART7_TX      |
 | 6  | VCC           |
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                                  |
 | ------ | ---------- | ------------------------------------- |
@@ -129,6 +129,6 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## 更多信息
 
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+- [FMUv5参考设计](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)。
 - [CUAV v5 docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html)
 - [CUAV Github库](https://github.com/cuav)
