@@ -28,7 +28,7 @@ This section lists fully assembled vehicles where you can update the software to
 
 - HippoCampus UUV: [Airframe Reference](../airframes/airframe_reference.md#underwater_robot_underwater_robot_hippocampus_uuv_%28unmanned_underwater_vehicle%29), [Gazebo Classic Simulation](../sim_gazebo_classic/vehicles.md#hippocampus-tuhh-uuv)
 
-## Videos
+## 视频
 
 <lite-youtube videoid="1sUaURmlmT8" title="PX4 on BlueRov Demo"/>
 
