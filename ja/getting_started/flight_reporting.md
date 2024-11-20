@@ -40,5 +40,5 @@ Logging may further be configured using the [SD Logging](../advanced_config/para
 ## Key Links
 
 - [Flight Review](http://logs.px4.io)
-- [Log Analysis using Flight Review](../log/flight_review.md)
-- [Flight Log Analysis](../dev_log/flight_log_analysis.md)
+- [Flight Reviewによるフライトログ分析](../log/flight_review.md)
+- [フライトログ分析](../dev_log/flight_log_analysis.md)
