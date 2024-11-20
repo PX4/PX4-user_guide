@@ -26,7 +26,7 @@ If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
 
 1. Install PX4 without the simulator toolchain:
 
-   1. [Download PX4 Source Code](../dev_setup/building_px4.md):
+   1. [Завантажте вихідний код PX4](../dev_setup/building_px4.md):
 
       ```sh
       git clone https://github.com/PX4/PX4-Autopilot.git --recursive
@@ -38,9 +38,9 @@ If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
       bash ./PX4-Autopilot/Tools/setup/ubuntu.sh --no-sim-tools --no-nuttx
       ```
 
-      - Acknowledge any prompts as the script progress.
+      - При появі підказки по ходу виконання скрипту підтвердить вибір.
 
-   1. Restart the computer on completion.
+   1. Перезавантажте комп'ютер при завершенні.
 
 1. You _may_ need to install the following additional dependencies:
 
