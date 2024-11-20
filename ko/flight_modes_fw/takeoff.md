@@ -1,12 +1,12 @@
 # Takeoff Mode (Fixed-Wing)
 
-<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
+<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />
 
 The _Takeoff_ flight mode causes the vehicle to take off to a specified height and then enter [Hold mode](../flight_modes_fw/takeoff.md).
 
 Vehicles are [hand or catapult launched](#catapult-hand-launch) by default, but can also be [configured](#RWTO_TKOFF) to use a [runway takeoff](#runway-takeoff) when supported by the hardware.
 
-::: info
+:::note
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires at least a valid local position estimate (does not require a global position).
@@ -35,7 +35,7 @@ Irrespective of the modality, a flight path (starting point and takeoff course) 
 
 On takeoff, the aircraft will follow line defined by the starting point and course, climbing at the maximum climb rate ([FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)) until reaching the clearance altitude. Reaching the clearance altitude causes the vehicle to enter [Hold mode](../flight_modes_fw/takeoff.md).
 
-### Parameters
+### 매개변수
 
 Parameters that affect both catapult/hand-launch and runway takeoffs:
 
