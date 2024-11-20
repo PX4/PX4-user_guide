@@ -1,6 +1,8 @@
 # Holybro Pixhawk 4 Mini (Discontinued)
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4에서는 이 제품을 제조하지 않습니다.
+소형화를 위하여 가진 IO가 적습니다.
 :::
 
 The _Pixhawk<sup>&reg;</sup> 4 Mini_ autopilot is designed for engineers and hobbyists who are looking to tap into the power of _Pixhawk 4_ but are working with smaller drones. _Pixhawk 4 Mini_ takes the FMU processor and memory resources from the _Pixhawk 4_ while eliminating interfaces that are normally unused. This allows the _Pixhawk 4 Mini_ to be small enough to fit in a 250mm racer drone.
@@ -47,7 +49,7 @@ _Pixhawk 4 Mini_ was designed and developed in collaboration with Holybro<sup>&r
 
 Additional information can be found in the [_Pixhawk 4 Mini_ Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
 
-## Where to Buy
+## 구매처
 
 Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pixhawk4-mini).
 
@@ -118,11 +120,11 @@ make px4_fmu-v5_default
 |:------:|:----------:|:-------------------------:|:------------------:|
 | UART1  | /dev/ttyS0 |           GPS1            |     GPS Module     |
 | USART2 | /dev/ttyS1 |          TELEM1           |       TELEM1       |
-| USART3 | /dev/ttyS2 |          TELEM2           |        N/A         |
+| USART3 | /dev/ttyS2 |          TELEM2           |        해당없음        |
 | UART4  | /dev/ttyS3 |       TELEM/SERIAL4       |     UART/l2C B     |
-| USART6 | /dev/ttyS4 |            N/A            |       RC IN        |
-| UART7  | /dev/ttyS5 |            N/A            |       Debug        |
-| UART8  | /dev/ttyS6 |            N/A            | 연결되지 않음 (PX4IO 없음) |
+| USART6 | /dev/ttyS4 |           해당없음            |       RC 입력        |
+| UART7  | /dev/ttyS5 |           해당없음            |       Debug        |
+| UART8  | /dev/ttyS6 |           해당없음            | 연결되지 않음 (PX4IO 없음) |
 
 ## 주변 장치
 
