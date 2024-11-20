@@ -15,5 +15,5 @@ This section contains information the components that might be used in a drone, 
 - [DroneCAN Peripherals](../dronecan/index.md)
 - [Cable Wiring](../assembly/cable_wiring.md)
 - [Companion Computers](../companion_computer/index.md) — Setup, peripherals, computer vision, obstacle avoidance etc.
-- [Serial Port Configuration](../peripherals/serial_configuration.md)
-- [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md)
+- [串口配置](../peripherals/serial_configuration.md)
+- [PX4以太网配置](../advanced_config/ethernet_setup.md)
