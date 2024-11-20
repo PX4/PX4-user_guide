@@ -13,6 +13,7 @@ Attitude estimator q.
 ### Usage
 ```
 AttitudeEstimatorQ <command> [arguments...]
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -45,6 +46,7 @@ airspeed_estimator <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -101,6 +103,7 @@ local_position_estimator <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
