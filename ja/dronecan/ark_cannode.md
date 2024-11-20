@@ -13,7 +13,7 @@ Order this module from:
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_CANNODE)
-- Sensors
+- センサー
   - Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
 - STM32F412CGU6 MCU
   - 1MB Flash
@@ -83,7 +83,7 @@ On the ARK CANnode, you may need to configure the following parameters:
 | ----------------------------------------------------------------------------------------------- | ----------------------------- |
 | <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
 
-## LED Meanings
+## LED表示の意味
 
 You will see both red and blue LEDs on the ARK CANnode when it is being flashed, and a solid blue LED if it is running properly.
 
