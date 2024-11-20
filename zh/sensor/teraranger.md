@@ -1,6 +1,6 @@
-# TeraRanger Rangefinders
+# TeraRanger 测距仪
 
-TeraRanger provide a number of lightweight distance measurement sensor based on infrared Time-of-Flight (ToF) technology. They are typically faster and have greater range than sonar, and smaller and lighter than laser-based systems.
+TeraRanger provide a number of lightweight distance measurement sensor based on infrared Time-of-Flight (ToF) technology. 他们通常比声纳更快、范围更大、比基于激光的系统更小、更轻。
 
 PX4 supports:
 
