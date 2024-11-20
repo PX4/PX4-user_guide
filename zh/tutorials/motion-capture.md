@@ -1,4 +1,4 @@
-# Flying with Motion Capture (VICON, NOKOV, Optitrack)
+# 使用 Motion Capture 飞行（VICON，Optitrack）
 
 :::warning
 **WORK IN PROGRESS**
@@ -43,6 +43,6 @@ See [Switching State Estimators](../advanced/switching_state_estimators.md) for 
 
 The ROS topic for motion cap `mocap_pose_estimate` for mocap systems and `vision_pose_estimate` for vision. Check [mavros_extras](http://wiki.ros.org/mavros_extras) for further info.
 
-## Testing
+## 测试
 
-## Troubleshooting
+## 故障处理
