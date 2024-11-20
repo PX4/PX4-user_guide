@@ -59,7 +59,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - 2 MB Flash (fully accessible)
 - 32 bit STM32F103 failsafe co-processor
 
-### Sensors
+### センサー
 
 - TBA
 
