@@ -21,7 +21,7 @@ This category is for discontinued autopilots and complete vehicles. These are no
 - [NXP FMUK66](../flight_controller/nxp_rddrone_fmuk66.md) (Discontinued)
 - [3DR Pixhawk 1](../flight_controller/pixhawk.md) (Pixhawk FMUv2)
 
-## Complete Vehicles
+## 整机
 
 - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles_mc/betafpv_beta75x.md)
 - [Intel® Aero RTF Drone](../complete_vehicles_mc/intel_aero.md) ([Complete Vehicle](../complete_vehicles_mc/index.md))
