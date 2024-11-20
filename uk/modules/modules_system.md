@@ -513,7 +513,7 @@ netman <command> [arguments...]
 
 <a id="pwm_input_usage"></a>
 
-### Usage
+### Використання
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -527,7 +527,7 @@ pwm_input <command> [arguments...]
 Джерело: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rc_update)
 
 
-### Description
+### Опис
 Модуль rc_update обробляє відображення каналів RC: зчитує сирі вхідні канали (`input_rc`), потім застосовує калібрування, відображає канали RC на налаштовані канали та перемикачі режиму а потім публікує як `rc_channels` та `manual_control_input`.
 
 ### Імплементація
@@ -563,7 +563,7 @@ rc_update <command> [arguments...]
 
 <a id="replay_usage"></a>
 
-### Usage
+### Використання
 ```
 replay <command> [arguments...]
  Commands:
@@ -581,7 +581,7 @@ replay <command> [arguments...]
 Джерело: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/events)
 
 
-### Description
+### Опис
 Фоновий процес, що періодично виконується в черзі завдань LP для виконання рутинних завдань. Зараз він відповідає лише за сигнал тривоги на втрату RC.
 
 Завдання можна почати через CLI або теми uORB (vehicle_command з MAVLink тощо).
@@ -690,7 +690,7 @@ sensor_mag_sim <command> [arguments...]
 - Переконайтеся, що драйвери сенсора отримують оновлені калібрувальні параметри (масштаб & зміщення), коли параметри змінюються або на запуску. Драйвери сенсора використовують інтерфейс ioctl для оновлення параметрів. Для того, щоб це працювало належним чином, драйвери сенсора повинні вже працювати, коли `sensors` запускається.
 - Виконайте перевірку узгодженості датчиків та опублікуйте тему `SensorsStatusImu`.
 
-### Implementation
+### Реалізація
 Він запускається у власній темі і проводить опитування на поточну обрану тему гіроскопа.
 
 
@@ -717,7 +717,7 @@ sensors <command> [arguments...]
 
 <a id="tattu_can_usage"></a>
 
-### Usage
+### Використання
 ```
 tattu_can <command> [arguments...]
  Commands:
@@ -731,7 +731,7 @@ tattu_can <command> [arguments...]
 Джерело: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/temperature_compensation)
 
 
-### Description
+### Опис
 Модуль компенсації температури дозволяє всім гіроскопам, акселерометрам та барометрам у системі бути температурно компенсованими. Модуль відстежує дані, які надходять від датчиків та оновлює пов'язану тему sensor_correction кожного разу, коли виявляється зміна температури. Модуль також може бути налаштований для виконання обчислення коефіцієнта наступного завантаження, що дозволяє обчислити калібрувальні коефіцієнти теплової калібрації під час циклу температури автомобіля.
 
 
@@ -810,7 +810,7 @@ uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
 
 <a id="uxrce_dds_client_usage"></a>
 
-### Usage
+### Використання
 ```
 uxrce_dds_client <command> [arguments...]
  Commands:
