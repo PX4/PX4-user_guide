@@ -41,7 +41,7 @@ The main steps are:
 1. Power Cycle the ESP32
 1. [Connect to the "DroneBridge for ESP32" WiFi network and configure the firmware for your application](#configuring-dronebridge-for-esp32)
 
-## Wiring
+## 배선
 
 Wiring is very simple, and similar for all devices when connecting to the Pixhawk TELEM1/2 ports. You can use 2.54mm pitch header connectors or solder the PX4 telemetry cables directly to the board.
 
@@ -55,7 +55,7 @@ Wiring is very simple, and similar for all devices when connecting to the Pixhaw
 1. Set the flight controller port to the desired protocol.
 1. Boards with an IPEX port for an external antenna often also offer an onboard antenna that is activated by default. You may need to resolder a resistor to activate the external antenna port.
 
-::: info
+:::note
 
 - Follow the ESP32 board manufacturers recommendations on power supply. Some boards might have issues if they are simultaneously connected to a 5V power source and have a USB cable connected to the USB/Serial bridge (USB socket of the ESP32 dev board).
 - Some ESP32 DevKits manufacturers use the wrong labels for the pins on their products. Make sure that the PINs on your board are labeled correctly if you encounter issues.
@@ -143,7 +143,7 @@ to
 http://dronebridge.local/api/settings/change
 ```
 
-## Troubleshooting
+## 문제 해결
 
 - Always erase the flash of the ESP32 before flashing a new release/firmware
 - Check if the pins on your ESP board are labeled correctly.
