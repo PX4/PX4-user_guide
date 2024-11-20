@@ -22,7 +22,7 @@ Choose the frame that matches your vehicle brand and model if one exists, and ot
 
    <img src="../../assets/qgc/setup/airframe/airframe_px4_apply_prompt.jpg" width="300px" title="기체 프레임 선택 명령 적용" />
 
-## Next Steps
+## 다음 단계
 
 [Actuator Configuration & Testing](../config/actuators.md) shows how to set the precise geometry of the vehicle motors and actuators, and their mapping to flight controller outputs. After mapping actuators to outputs you should perform [ESC Calibration](../advanced_config/esc_calibration.md) if using PWM or OneShot ESCs.
 
