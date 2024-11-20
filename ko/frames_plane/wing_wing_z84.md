@@ -63,7 +63,7 @@ Wire the servos and motors as shown. Use the `MAIN` outputs (not the ones labele
 
 ![wing wing build01](../../assets/airframes/fw/wing_wing/wing_wing_build01.jpg) ![wing wing build02](../../assets/airframes/fw/wing_wing/wing_wing_build02.jpg) ![wing wing build03](../../assets/airframes/fw/wing_wing/wing_wing_build03.jpg) ![wing wing build04](../../assets/airframes/fw/wing_wing/wing_wing_build04.jpg) ![wing wing build09](../../assets/airframes/fw/wing_wing/wing_wing_build09.jpg) ![Wing Wing Z-84 조립](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
-## PX4 Configuration
+## PX4 설정
 
 ### 기체 설정
 
