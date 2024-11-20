@@ -2,7 +2,7 @@
 
 <Badge type="tip" text="PX4 v1.11" />
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://forum.modalai.com/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://forum.modalai.com/) for hardware support or compliance issues.
 :::
 
 The ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Datasheet](https://docs.modalai.com/voxl-flight-datasheet)) is one of the first computing platforms to combine the power and sophistication of Snapdragon with the flexibility and ease of use of PX4 on an STM32F7. Made in the USA, VOXL Flight supports obstacle avoidance and GPS-denied (indoor) navigation fused with a PX4 flight controller on a single PCB.
@@ -12,17 +12,17 @@ The ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Datasheet](https://
 ::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Specifications
+## 产品规格
 
-### System
+### 系统
 
-| Feature | Details |
-|:------- |:------- |
-| Weight  | 26 g    |
+| 特性     | Details |
+|:------ |:------- |
+| Weight | 26 g    |
 
 ### Companion Computer
 
-| Feature               | Details                                                                                                                                                                                                                                                            |
+| 特性                    | Details                                                                                                                                                                                                                                                            |
 |:--------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Base Operation System | Linux Yocto Jethro with 3.18 kernel. Additional Linux Operating Systems can be used by running Docker on VOXL, details [here](https://docs.modalai.com/docker-on-voxl/)                                                                                            |
 | Compute               | Qualcomm Snapdragon 821 w/ 4GB LPDDR4 1866MHz, Snapdragon 821 [Datasheet](https://developer.qualcomm.com/download/sd820e/qualcomm-snapdragon-820e-processor-apq8096sge-device-specification.pdf), [Docs](https://developer.qualcomm.com/hardware/apq-8096sg/tools) |
@@ -44,20 +44,20 @@ The ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Datasheet](https://
 
 ### Flight Controller
 
-| Feature          | Details                                                          |
+| 特性               | Details                                                          |
 |:---------------- |:---------------------------------------------------------------- |
 | MCU              | 216MHz, 32-bit ARM M7 [STM32F765II][stm32f765ii]                 |
-| Memory           | 256Kb FRAM                                                       |
+| 内存               | 256Kb FRAM                                                       |
 |                  | 2Mbit Flash                                                      |
 |                  | 512Kbit SRAM                                                     |
-| Firmware         | [PX4][px4]                                                       |
+| 固件               | [PX4][px4]                                                       |
 | IMUs             | [ICM-20602][icm-20602] (SPI1)                                    |
 |                  | ICM-42688 (SPI2)                                                 |
 |                  | [BMI088][bmi088] (SPI6)                                          |
 | Barometer        | [BMP388][bmp388] (I2C4)                                          |
 | Secure Element   | [A71CH][a71ch] (I2C4)                                            |
 | microSD Card     | [Information on supported cards](../dev_log/logging.md#sd-cards) |
-| Inputs           | GPS/Mag                                                          |
+| 输入               | GPS/Mag                                                          |
 |                  | Spektrum                                                         |
 |                  | Telemetry                                                        |
 |                  | CAN bus                                                          |
@@ -73,7 +73,7 @@ The ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Datasheet](https://
 ::: info More detailed hardware documentation can be found [here](https://docs.modalai.com/voxl-flight-datasheet/).
 :::
 
-## Dimensions
+## 尺寸
 
 ![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dimensions.jpg)
 
@@ -87,11 +87,11 @@ ModalAI maintains a [branched PX4 version](https://github.com/modalai/px4-firmwa
 
 More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
 
-## QGroundControl Support
+## QGroundControl支持
 
 This board supported in QGroundControl 4.0 and later.
 
-## Availability
+## 访问链接
 
 - [VOXL Flight Complete Kit](https://modalai.com/voxl-flight)
 - [VOXL Flight Board](https://www.modalai.com/products/voxl-flight?variant=31707275362355) (only)
@@ -106,7 +106,7 @@ A quickstart from the vendor is located [here](https://docs.modalai.com/voxl-fli
 
 The VOXL Flight runs [voxl-vision-px4](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4) on the companion computer portion of the hardware serving as a sort of MAVLink proxy. For details, the source code is available [here](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4)
 
-### Connectors
+### 连接器
 
 Detailed information about the pinouts can be found [here](https://docs.modalai.com/voxl-flight-datasheet-connectors/).
 
@@ -116,7 +116,7 @@ Detailed information about the pinouts can be found [here](https://docs.modalai.
 
 _Note: 1000 Series connectors accessible from the STM32/PX4_
 
-| Connector | Summary                                | Used By                           |
+| Connector | 概要                                     | Used By                           |
 | --------- | -------------------------------------- | --------------------------------- |
 | J2        | Hires 4k Image Sensor (CSI0)           | Snapdragon - Linux                |
 | J3        | Stereo Image Sensor (CSI1)             | Snapdragon - Linux                |
@@ -143,7 +143,7 @@ _Note: 1000 Series connectors accessible from the STM32/PX4_
 
 _Note: 1000 Series connectors accessible from the STM32/PX4_
 
-| Connector      | Summary                                 | Used By                     |
+| Connector      | 概要                                      | Used By                     |
 | -------------- | --------------------------------------- | --------------------------- |
 | J4             | Tracking/Optic Flow Image Sensor (CSI2) | Snapdragon - Linux          |
 | J8             | USB 3.0 OTG                             | Snapdragon - Linux, **adb** |
@@ -165,11 +165,11 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make modalai_fc-v1
 ```
 
-## Serial Port Mapping
+## 串口映射
 
 _Note: mappings shown are for the PX4 controlled interfaces only_
 
-| UART   | Device     | Port                                    |
+| UART   | 设备         | Port                                    |
 | ------ | ---------- | --------------------------------------- |
 | USART1 | /dev/ttyS0 | GPS1 (J1012)                            |
 | USART2 | /dev/ttyS1 | TELEM3 (J1002)                          |
@@ -182,7 +182,7 @@ _Note: mappings shown are for the PX4 controlled interfaces only_
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-## Support
+## 技术支持
 
 Please visit the [ModalAI Forum](https://forum.modalai.com/category/8/voxl-flight) for more information.
 
