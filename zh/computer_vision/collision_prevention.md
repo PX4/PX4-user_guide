@@ -90,7 +90,7 @@ Vehicle _velocity setpoint tracking delay_ can be measured by flying at full spe
 
 ## PX4 Distance Sensor {#rangefinder}
 
-### Lanbao PSK-CM8JL65-CC5
+### 兰宝 PSK-CM8JL65-CC5
 
 使用 [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) 红外距离传感器对PX4的防撞功能来说“开箱即用”，最少的额外配置就可以使用。
 
@@ -152,7 +152,7 @@ The tested companion software is the _local_planner_ from the [PX4/PX4-Avoidance
 
 软硬件的配置应遵照 [PX4/avoidance](https://github.com/PX4/PX4-Avoidance) 代码仓库的说明。 In order to emit `OBSTACLE_DISTANCE` messages you must use the _rqt_reconfigure_ tool and set the parameter `send_obstacles_fcu` to true.
 
-## Gazebo Simulation
+## Gazebo 仿真
 
 _Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar_2d](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model. To do this, start a simulation with the x500 lidar model by running the following command:
 
