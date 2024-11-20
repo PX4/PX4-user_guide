@@ -10,14 +10,14 @@ Fixed-wing _land mode_ should only be used in an **emergency**! The vehicle will
 Where possible, instead use [Return mode](../flight_modes_fw/return.md) with a predefined [Fixed-wing mission landing](../flight_modes_fw/mission.md#mission-landing).
 :::
 
-::: info
+:::note
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires at least a valid local position estimate (does not require a global position).
   - Flying vehicles can't switch to this mode without valid local position.
   - Flying vehicles will failsafe if they lose the position estimate.
 - Mode prevents arming (vehicle must be armed when switching to this mode).
-- RC control switches can be used to change flight modes on any vehicle.
+- RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
 - RC stick movement is ignored.
 - The mode can be triggered using the [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) MAVLink command, or by explicitly switching to Land mode.
 
@@ -32,7 +32,7 @@ When the mode is engaged, the vehicle starts to loiter around the current vehicl
 
 [Manual nudging](../flight_modes_fw/mission.md#automatic-abort) and [automatic land abort](../flight_modes_fw/mission.md#nudging) are not available in land mode.
 
-### Parameters
+### 매개변수
 
 Land mode behaviour can be configured using the parameters below.
 
