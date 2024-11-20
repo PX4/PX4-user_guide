@@ -1,15 +1,15 @@
-# ARK Jetson PAB Carrier
+# ARK Jetson PAB 载板
 
 The [ARK Jetson Pixhawk Autopilot Bus (PAB) Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier) serves as a carrier board for NVIDIA Jetson Orin NX/Nano and any [Pixhawk Autopilot Bus (PAB)](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)-compliant flight controller, such as the [ARKV6X](../flight_controller/ark_v6x.md).
 
 ![ARK Jetson PAB Carrier](../../assets/companion_computer/ark_jetson_pab_carrier/ark_jetson_pab_carrier.jpg)
 
-## Where to Buy
+## 在哪里买
 
 - [ARK Jetson PAB Carrier](https://arkelectron.com/product/ark-jetson-pab-carrier/)
 - [ARK Jetson Orin NX NDAA Bundle](https://arkelectron.com/product/ark-jetson-orin-nx-ndaa-bundle/)
 
-## Specifications
+## 产品规格
 
 - **Power Requirements**
 
@@ -40,7 +40,7 @@ The [ARK Jetson Pixhawk Autopilot Bus (PAB) Carrier](https://arkelectron.gitbook
 
 The Jetson and the flight controller communicate through serial and USB interfaces, both of which support direct board-to-board connections tested up to 3 Mbps.
 
-| Type   | Jetson Device Path | Flight Controller |
+| 类型     | Jetson Device Path | Flight Controller |
 | :----- | :----------------- | :---------------- |
 | USB    | /dev/ttyACM0       | USB               |
 | Serial | /dev/ttyTHS1       | TELEM2            |
