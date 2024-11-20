@@ -2,7 +2,7 @@
 
 <Badge type="tip" text="PX4 v1.13" />
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The [Holybro Kakute H7](https://holybro.com/products/kakute-h7) is full of features including dual plug-and-play 4in1 ESC ports, HD camera plug, barometer, OSD, 6x UARTs, full Blackbox MicroSD card slot, 5V and 9V BEC, easy soldering layout, and much more.
@@ -16,7 +16,7 @@ The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & S
 ::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Key Features
+## 主要特性
 
 - MCU: STM32H743 32-bit processor running at 480 MHz
 - IMU: MPU6000
@@ -32,7 +32,7 @@ The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & S
 - Dimensions: 35x35mm
 - Weight: 8g
 
-## Where to Buy
+## 在哪里买
 
 The board can be bought from one of the following shops (for example):
 
@@ -48,7 +48,7 @@ This is the silkscreen for the _Kakute H7_, showing the top of the board:
 
 <img src="../../assets/flight_controller/kakuteh7/kakuteh7_silk.png" width="380px" title="Kakute h7" />
 
-| Pin      | Function                                                          | PX4 default         |
+| 针脚       | 功能                                                                | PX4 default         |
 | -------- | ----------------------------------------------------------------- | ------------------- |
 | B+       | Battery positive voltage (2S-8S)                                  |                     |
 | SDA, SCL | I2C connection (for peripherals)                                  |                     |
@@ -76,7 +76,7 @@ This is the silkscreen for the _Kakute H7_, showing the top of the board:
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed. Download the [kakuteh7_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7/holybro_kakuteh7_bootloader.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
-## Building Firmware
+## 编译固件
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
@@ -100,17 +100,17 @@ The firmware can be installed in any of the normal ways:
 If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7.
 :::
 
-## PX4 Configuration
+## PX4 配置
 
 In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
-| Parameter                                                              | Setting                                                                                                                 |
+| 参数                                                                     | 设置                                                                                                                      |
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 
-## Serial Port Mapping
+## 串口映射
 
-| UART   | Device     | Port                  |
+| UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
 | USART1 | /dev/ttyS0 | TELEM1                |
 | USART3 | /dev/ttyS2 | Debug Console         |
@@ -118,9 +118,9 @@ In addition to the [basic configuration](../config/index.md), the following para
 | USART6 | /dev/ttyS4 | RC SBUS               |
 | UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
 
-## Debug Port
+## Debug调试端口
 
-### System Console
+### 系统控制台
 
 UART3 RX and TX are configured for use as the [System Console](../debug/system_console.md).
 
