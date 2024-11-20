@@ -26,7 +26,7 @@ The calibration steps are:
 :::
 
 1. Click **OK** to start the calibration.
-1. Position the vehicle as guided by the _images_ on the screen. Once prompted (the orientation-image turns yellow) hold the vehicle still. Once the calibration is complete for the current orientation the associated image on the screen will turn green.
+1. Position the vehicle as guided by the _images_ on the screen. Once prompted (the orientation-image turns yellow) hold the vehicle still. 该位置标定完成后，屏幕上的相应图示将变成绿色。
 
    ::: info
 The calibration uses a least squares 'fit' algorithm that doesn't require you to have "perfect" 90 degree orientations.
@@ -35,7 +35,7 @@ Provided each axis is pointed mostly up and down at some time in the calibration
 
    ![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer_positions_px4.png)
 
-1. Repeat the calibration process for all vehicle orientations.
+1. 在机体的所有方向上重复校准步骤。
 
 Once you've calibrated the vehicle in all the positions _QGroundControl_ will display _Calibration complete_ (all orientation images will be displayed in green and the progress bar will fill completely). You can then proceed to the next sensor.
 
