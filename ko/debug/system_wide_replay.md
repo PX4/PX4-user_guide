@@ -67,13 +67,13 @@ By default, all parameters from the original log file are applied during a repla
 
 Parameters can be overridden during a replay in two ways: _fixed_ and _dynamic_. When parameters are overridden, corresponding parameter changes in the log are not applied during replay.
 
-- **Fixed parameter overrides** will override parameters from the start of the replay. They are defined in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`, where each line should have the format `<param_name> <value>`. For example:
+- **Fixed parameter overrides** will override parameters from the start of the replay. They are defined in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`, where each line should have the format `<param_name> <value>`. 예를 들어:
 
   ```sh
   EKF2_RNG_NOISE 0.1
   ```
 
-- **Dynamic parameter overrides** will update parameter values at specified times. These parameters will still be initialised to the values in the log or in the fixed overrides. Parameter update events should be defined in `build/px4_sitl_default_replay/rootfs/replay_params_dynamic.txt`, where each line has the format `<param_name> <value> <timestamp>`. The timestamp is the time in seconds from the start of the log. For example:
+- **Dynamic parameter overrides** will update parameter values at specified times. These parameters will still be initialised to the values in the log or in the fixed overrides. Parameter update events should be defined in `build/px4_sitl_default_replay/rootfs/replay_params_dynamic.txt`, where each line has the format `<param_name> <value> <timestamp>`. The timestamp is the time in seconds from the start of the log. 예를 들어:
 
   ```sh
   EKF2_RNG_NOISE 0.15 23.4
