@@ -1,6 +1,6 @@
 # 机载计算机
 
-机载计算机 (“任务计算机”) 是连接到飞控的独立机载计算机，使得诸如[避障](../computer_vision/obstacle_avoidance.md)和[防撞](../computer_vision/collision_prevention.md)等计算密集型功能成为可能。
+Companion computers ("mission computers"), are separate on-vehicle computers that are connected to the flight controller, and which enable computationally expensive features like [collision prevention](../computer_vision/collision_prevention.md).
 
 下图显示了一个可能的无人驾驶架构，其中包括飞控和机载计算机。
 
@@ -16,9 +16,9 @@
 
 The following carrier boards make it easy to integrate Pixhawk flight controllers with a companion computer, significantly easing both hardware and software setup. 这些板支持[Pixhawk Autopilot Bus (PAB)](../flight_controller/pixhawk_autopilot_bus.md)开放标准，因此您可以插入任何兼容的控制器：
 
-- [Holybro Pixhawk Jetson 基板](https://holybro.com/products/pixhawk-jetson-baseboard)
-- [Holybro Pixhawk RPI CM4 基板](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
-- [ARK Jetson PAB 载板](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier)
+- [ARK Jetson PAB 载板](../companion_computer/ark_jetson_pab_carrier.md)
+- [Holybro Pixhawk Jetson 基板](../companion_computer/holybro_pixhawk_jetson_baseboard.md)
+- [Holybro Pixhawk RPi CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
 
 ## 管理集成系统
 
