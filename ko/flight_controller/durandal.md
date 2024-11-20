@@ -1,6 +1,8 @@
 # Holybro Durandal
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4에서는 이 제품을 제조하지 않습니다.
+소형화를 위하여 가진 IO가 적습니다.
 :::
 
 _Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. Holybro가 설계하고 개발하였습니다.
@@ -48,7 +50,7 @@ _Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holy
   - 1.5A 전류 제한이 있는 1 개
 - I2C 포트 3개
 - SPI 버스 4개
-  - 1 internal high speed SPI sensor bus with 4 chip selects and 6 DRDYs
+  - 4 개의 칩 선택 및 6 개의 DRDY가 있는 내부 고속 SPI 센서 버스 1 개
   - XXX 전용 내부 저잡음 SPI 버스 1 개
   - 2 개의 칩 선택이 있는 기압계, DRDY 없음
   - FRAM 전용 내부 SPI 버스 1 개
@@ -84,7 +86,7 @@ For more information see: [Durandal Technical Data Sheet](https://cdn.shopify.co
 
 <a id="purchase"></a>
 
-## Where to Buy
+## 구매처
 
 Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
 
