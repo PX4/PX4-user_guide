@@ -1,4 +1,4 @@
-# Missions
+# 自動操縦
 
 A mission is a predefined flight plan, which can be planned in QGroundControl and uploaded to the flight controller, and then executed autonomously in [Mission mode](../flight_modes_mc/mission.md).
 
