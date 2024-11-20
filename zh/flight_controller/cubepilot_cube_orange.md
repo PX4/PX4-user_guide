@@ -1,6 +1,6 @@
 # CubePilot Cube Orange Flight Controller
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 :::
 
 The [Cube Orange](https://www.cubepilot.com/#/cube/features) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
@@ -91,113 +91,113 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 
 ![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
-## Pinouts
+## 针脚定义
 
-#### TELEM1, TELEM2 ports
+#### TELEM1，TELEM2 接口
 
-| Pin     | Signal    | Volt  |
-| ------- | --------- | ----- |
-| 1 (red) | VCC       | +5V   |
-| 2 (blk) | TX (OUT)  | +3.3V |
-| 3 (blk) | RX (IN)   | +3.3V |
-| 4 (blk) | CTS (IN)  | +3.3V |
-| 5 (blk) | RTS (OUT) | +3.3V |
-| 6 (blk) | GND       | GND   |
+| 针脚   | Signal    | 电压    |
+| ---- | --------- | ----- |
+| 2    | VCC       | +5V   |
+| 2    | TX (OUT)  | +3.3V |
+| 3    | RX (IN)   | +3.3V |
+| 4（黑） | CTS (IN)  | +3.3V |
+| 6    | RTS (OUT) | +3.3V |
+| 6    | GND       | GND   |
 
 #### GPS1 port
 
-| Pin     | Signal        | Volt  |
+| 针脚      | Signal        | 电压    |
 | ------- | ------------- | ----- |
-| 1 (red) | VCC           | +5V   |
-| 2 (blk) | TX (OUT)      | +3.3V |
-| 3 (blk) | RX (IN)       | +3.3V |
-| 4 (blk) | SCL I2C2      | +3.3V |
-| 5 (blk) | SDA I2C2      | +3.3V |
-| 6 (blk) | Safety Button | GND   |
-| 7 (blk) | Button LED    | GND   |
+| 2       | VCC           | +5V   |
+| 2       | TX (OUT)      | +3.3V |
+| 3       | RX (IN)       | +3.3V |
+| 4（黑）    | SCL I2C2      | +3.3V |
+| 6       | SDA I2C2      | +3.3V |
+| 6       | Safety Button | GND   |
+| 7       | Button LED    | GND   |
 | 8 (blk) | GND           | GND   |
 
 <!-- check is i2c2 -->
 
 #### GPS2 port
 
-| Pin     | Signal   | Volt  |
-| ------- | -------- | ----- |
-| 1 (red) | VCC      | +5V   |
-| 2 (blk) | TX (OUT) | +3.3V |
-| 3 (blk) | RX (IN)  | +3.3V |
-| 4 (blk) | SCL I2C1 | +3.3V |
-| 5 (blk) | SDA I2C1 | +3.3V |
-| 6 (blk) | GND      | GND   |
+| 针脚   | Signal   | 电压    |
+| ---- | -------- | ----- |
+| 2    | VCC      | +5V   |
+| 2    | TX (OUT) | +3.3V |
+| 3    | RX (IN)  | +3.3V |
+| 4（黑） | SCL I2C1 | +3.3V |
+| 6    | SDA I2C1 | +3.3V |
+| 6    | GND      | GND   |
 
 #### ADC
 
-| Pin     | Signal | Volt        |
-| ------- | ------ | ----------- |
-| 1 (red) | VCC    | +5V         |
-| 2 (blk) | ADC IN | up to +6.6V |
-| 3 (blk) | GND    | GND         |
+| 针脚 | Signal | 电压          |
+| -- | ------ | ----------- |
+| 2  | VCC    | +5V         |
+| 2  | ADC IN | up to +6.6V |
+| 3  | GND    | GND         |
 
 #### I2C
 
-| Pin     | Signal | Volt           |
-| ------- | ------ | -------------- |
-| 1 (red) | VCC    | +5V            |
-| 2 (blk) | SCL    | +3.3 (pullups) |
-| 3 (blk) | SDA    | +3.3 (pullups) |
-| 4 (blk) | GND    | GND            |
+| 针脚   | Signal | 电压             |
+| ---- | ------ | -------------- |
+| 2    | VCC    | +5V            |
+| 2    | SCL    | +3.3 (pullups) |
+| 3    | SDA    | +3.3 (pullups) |
+| 4（黑） | GND    | GND            |
 
 #### CAN1 & CAN2
 
-| Pin     | Signal | Volt |
-| ------- | ------ | ---- |
-| 1 (red) | VCC    | +5V  |
-| 2 (blk) | CAN_H  | +12V |
-| 3 (blk) | CAN_L  | +12V |
-| 4 (blk) | GND    | GND  |
+| 针脚   | Signal | 电压   |
+| ---- | ------ | ---- |
+| 2    | VCC    | +5V  |
+| 2    | CAN_H  | +12V |
+| 3    | CAN_L  | +12V |
+| 4（黑） | GND    | GND  |
 
 #### POWER1 & POWER2
 
-| Pin     | Signal          | Volt  |
+| 针脚      | Signal          | 电压    |
 | ------- | --------------- | ----- |
-| 1 (red) | VCC             | +5V   |
+| 2       | VCC             | +5V   |
 | 2 (red) | VCC             | +5V   |
-| 3 (blk) | CURRENT sensing | +3.3V |
-| 4 (blk) | VOLTAGE sensing | +3.3V |
-| 5 (blk) | GND             | GND   |
-| 6 (blk) | GND             | GND   |
+| 3       | CURRENT sensing | +3.3V |
+| 4（黑）    | VOLTAGE sensing | +3.3V |
+| 6       | GND             | GND   |
+| 6       | GND             | GND   |
 
 #### USB
 
-| Pin     | Signal        | Volt            |
-| ------- | ------------- | --------------- |
-| 1 (red) | VCC           | +5V             |
-| 2 (blk) | OTG_DP1       | +3.3V           |
-| 3 (blk) | OTG_DM1       | +3.3V           |
-| 4 (blk) | GND           | GND             |
-| 5 (blk) | BUZZER        | Battery voltage |
-| 6 (blk) | FMU Error LED |                 |
+| 针脚   | Signal        | 电压              |
+| ---- | ------------- | --------------- |
+| 2    | VCC           | +5V             |
+| 2    | OTG_DP1       | +3.3V           |
+| 3    | OTG_DM1       | +3.3V           |
+| 4（黑） | GND           | GND             |
+| 6    | BUZZER        | Battery voltage |
+| 6    | FMU Error LED |                 |
 
 #### SPKT
 
-| Pin     | Signal | Volt  |
+| 针脚      | Signal | 电压    |
 | ------- | ------ | ----- |
 | 1 (blk) | IN     |       |
-| 2 (blk) | GND    | GND   |
+| 2       | GND    | GND   |
 | 3 (red) | OUT    | +3.3V |
 
 #### TELEM1, TELEM2
 
-| Pin     | Signal    | Volt        |
-| ------- | --------- | ----------- |
-| 1 (red) | VCC       | +5V         |
-| 2 (blk) | TX (OUT)  | +3.3V to 5V |
-| 3 (blk) | RX (IN)   | +3.3V to 5V |
-| 4 (blk) | CTS (OUT) | +3.3V to 5V |
-| 5 (blk) | RTS (IN)  | +3.3V to 5V |
-| 6 (blk) | GND       | GND         |
+| 针脚   | Signal    | 电压          |
+| ---- | --------- | ----------- |
+| 2    | VCC       | +5V         |
+| 2    | TX (OUT)  | +3.3V to 5V |
+| 3    | RX (IN)   | +3.3V to 5V |
+| 4（黑） | CTS (OUT) | +3.3V to 5V |
+| 6    | RTS (IN)  | +3.3V to 5V |
+| 6    | GND       | GND         |
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
@@ -228,7 +228,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target, open up the termin
 make cubepilot_cubeorange
 ```
 
-## Schematics
+## 原理图
 
 Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
 
