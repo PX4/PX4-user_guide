@@ -58,5 +58,5 @@ SmartAP GPS has 10 pin JST-GH connector that can be plugged into a Pixhawk fligh
 ## Further Information
 
 - [Buy SmartAP GPS](https://sky-drones.com/navigation/smartap-gnss.html)
-- [Documentation](https://docs.sky-drones.com/avionics/smartap-gnss)
+- [ドキュメント](https://docs.sky-drones.com/avionics/smartap-gnss)
 - [CAD Models](https://docs.sky-drones.com/avionics/smartap-gnss/cad-model)
