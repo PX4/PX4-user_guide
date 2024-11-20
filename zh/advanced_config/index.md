@@ -2,7 +2,7 @@
 
 This topic lists configuration topics that are not particularly vehicle specific, for features that are more rarely modified, or that are specific only to manufacturers/OEMs.
 
-## Parameters
+## 参数
 
 - [查找/更新参数](../advanced_config/parameters.md)
 - [全部参数对照表](../advanced_config/parameter_reference.md)
