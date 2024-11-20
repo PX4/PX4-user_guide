@@ -224,7 +224,7 @@ It can happen that one of the motor commands becomes negative, for example for a
 
 Both modes are shown below with a 2D illustration for two motors and a torque command for roll <span style="color:#9673A6">r</span>. On the left motor <span style="color:#9673A6">r</span> is added to the commanded thrust, while on the right motor it is subtracted from it. The motor thrusts are in <span style="color:#6A9153">green</span>. With Airmode enabled, the commanded thrust is increased by <span style="color:#B85450">b</span>. When it is disabled, <span style="color:#9673A6">r</span> is reduced.
 
-![Airmode](../../assets/mc_pid_tuning/MC_PID_tuning-Airmode.svg)
+![飞行模式](../../assets/mc_pid_tuning/MC_PID_tuning-Airmode.svg)
 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
      On the first Tab
