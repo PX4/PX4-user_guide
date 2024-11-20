@@ -14,7 +14,7 @@ It supports RTK functionality with a maximum data update rate of 10Hz, and comes
 
 :::
 
-## Where to Buy
+## 在哪里买
 
 - [GEM1305 RTK receiver with antenna](https://www.datagnss.com/collections/gnss-for-drone/products/gem1305) (www.datagnss.com)
 
@@ -24,7 +24,7 @@ It supports RTK functionality with a maximum data update rate of 10Hz, and comes
 
   ![dgm10\_rtk\_receiver.png](../../assets/hardware/gps/datagnss_gem1305/dgm10_rtk_receiver.png)
 
-## Key Features
+## 主要特性
 
 - Full constellation, multi-frequency GNSS satellite receiver
 - Support RTK with up to 10hz output rate
@@ -67,7 +67,7 @@ It supports RTK functionality with a maximum data update rate of 10Hz, and comes
 - 55x55x12mm
 - 50g (GEM1305) 26g (NANO with Helix)
 
-## Pinout
+## 针脚定义
 
 The board is connected to the autopilot via UART interface.
 
