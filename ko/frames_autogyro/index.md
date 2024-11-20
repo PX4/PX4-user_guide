@@ -21,7 +21,7 @@ PX4에서 여러 오토자이로 기체를 지원합니다. The set of supported
 
 이 절에서는 다양한 오토자이로 기체 프레임을 조립 구성하는 조립 절차와 지침에 대하여 설명합니다.
 
-- [ThunderFly Auto-G2 (Holybro pix32)](../frames_autogyro/thunderfly_auto_g2.md)
+- [선더플라이 Auto-G2 (Holybro pix32)](../frames_autogyro/thunderfly_auto_g2.md)
 
 ### Complete Frames with PX4 Preinstalled
 
