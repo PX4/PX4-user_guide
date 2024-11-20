@@ -158,7 +158,7 @@ FrSky Taranis 조종기를 사용할 수 있습니다. 부수적으로 케이블
 ![성절 완료](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
 
-## PX4 Configuration
+## PX4 설정
 
 *QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 프레임에 대한 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
@@ -168,14 +168,14 @@ FrSky Taranis 조종기를 사용할 수 있습니다. 부수적으로 케이블
 First update the firmware, airframe, geometry and outputs:
 
 - [펌웨어](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [기체](../config/airframe.md)
 
   ::: info You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
 
   ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_airframe_generic_quadx.png)
 :::
 
-- [Actuators](../config/actuators.md)
+- [액츄에이터](../config/actuators.md)
   - Update the vehicle geometry to match the frame.
   - Assign actuator functions to outputs to match your wiring.
   - Test the configuration using the sliders.
@@ -202,7 +202,7 @@ First update the firmware, airframe, geometry and outputs:
 
 ## 튜닝
 
-Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
+기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. These may be good enough to fly with, but you should tune each frame build.
 
 For instructions on how, start from [Autotune](../config/autotune_mc.md).
 
