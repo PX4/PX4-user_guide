@@ -354,7 +354,7 @@ ms5837 <command> [arguments...]
 
 <a id="spl06_usage"></a>
 
-### Usage
+### Використання
 ```
 spl06 <command> [arguments...]
  Commands:
