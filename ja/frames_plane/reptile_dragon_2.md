@@ -330,7 +330,7 @@ You may need to modify some parameters for your build In particular you should c
 - [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG) param must match serial port which is connected to the Caddx Vista (in this build, `/dev/ttyS7`).
 - [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG) param must match the serial port which is connected to the ELRS RX (in this build, `Telem 1`).
 
-### Radio Setup
+### 無線設定
 
 You should enable Manual, Acro, and Position modes on your controller (at least for the first flight). For instructions see [Flight mode Configuration](../config/flight_mode.md)
 
