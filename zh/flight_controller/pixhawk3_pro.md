@@ -1,6 +1,6 @@
 # Pixhawk 3 Pro (Discontinued)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store-drotek.com/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://store-drotek.com/) for hardware support or compliance issues.
 :::
 
 The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades and additional features. The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
@@ -76,7 +76,7 @@ For information about wiring and using this port see:
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to UART7).
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
