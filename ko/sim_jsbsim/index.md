@@ -43,11 +43,11 @@ This will run both the PX4 SITL instance and the FlightGear UI (for visualizatio
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-| Vehicle        | Command                            |
-| -------------- | ---------------------------------- |
-| Standard Plane | `make px4_sitl jsbsim_rascal`      |
-| Quadrotor      | `make px4_sitl jsbsim_quadrotor_x` |
-| Hexarotor      | `make px4_sitl jsbsim_hexarotor_x` |
+| Vehicle   | 통신                                 |
+| --------- | ---------------------------------- |
+| 표준 항공기    | `make px4_sitl jsbsim_rascal`      |
+| Quadrotor | `make px4_sitl jsbsim_quadrotor_x` |
+| Hexarotor | `make px4_sitl jsbsim_hexarotor_x` |
 
 The commands above launch a single vehicle with the full UI. _QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
@@ -77,6 +77,6 @@ To run JSBSim with ROS:
    roslaunch jsbsim_bridge px4_jsbsim_bridge.launch
    ```
 
-## Further Information
+## 추가 정보
 
 - [px4-jsbsim-bridge readme](https://github.com/Auterion/px4-jsbsim-bridge)
