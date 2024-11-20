@@ -1,4 +1,4 @@
-# Releases
+# 版本发布
 
 A list of PX4 release notes, they contain a list of the changes that went into each release, explaining the included features, bug fixes, deprecations and updates in detail.
 
