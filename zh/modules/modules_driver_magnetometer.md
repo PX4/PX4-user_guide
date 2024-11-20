@@ -290,7 +290,7 @@ Source: [drivers/magnetometer/memsic/mmc5983ma](https://github.com/PX4/PX4-Autop
 
 <a id="mmc5983ma_usage"></a>
 
-### Usage
+### 用法
 ```
 mmc5983ma <command> [arguments...]
  Commands:
@@ -321,7 +321,7 @@ Source: [drivers/magnetometer/qmc5883l](https://github.com/PX4/PX4-Autopilot/tre
 
 <a id="qmc5883l_usage"></a>
 
-### Usage
+### 用法
 ```
 qmc5883l <command> [arguments...]
  Commands:
@@ -346,7 +346,7 @@ Source: [drivers/magnetometer/rm3100](https://github.com/PX4/PX4-Autopilot/tree/
 
 <a id="rm3100_usage"></a>
 
-### Usage
+### 用法
 ```
 rm3100 <command> [arguments...]
  Commands:
@@ -373,7 +373,7 @@ Source: [drivers/magnetometer/vtrantech/vcm1193l](https://github.com/PX4/PX4-Aut
 
 <a id="vcm1193l_usage"></a>
 
-### Usage
+### 用法
 ```
 vcm1193l <command> [arguments...]
  Commands:
