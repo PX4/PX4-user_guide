@@ -10,7 +10,7 @@ The [BetaFPV Beta75X](https://betafpv.com/products/beta75x-2s-whoop-quadcopter) 
 
 ![BetaFPV Beta75X](../../assets/hardware/betafpv_beta75x.jpg)
 
-## Where to Buy
+## 在哪里买
 
 The _Beta75X_ can be bought from a number of vendors, including:
 
