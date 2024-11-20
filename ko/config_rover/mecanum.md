@@ -28,7 +28,7 @@ To start using the mecanum rover:
 
 3. Use [Actuators Configuration & Testing](../config/actuators.md) to map the motor functions to flight controller outputs.
 
-## Manual Mode
+## 수동 모드
 
 The basic setup (above) is all that is required to use the rover in [Manual mode](../flight_modes_rover/mecanum.md#manual-mode).
 
