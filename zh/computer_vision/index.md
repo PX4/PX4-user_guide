@@ -6,7 +6,7 @@ PX4使用计算机视觉系统(主要在[机载计算机](../companion_computer/
 
 - Pose/Velocity Estimation:
   - [光流](../sensor/optical_flow.md)提供2D速度估计（使用向下的相机和向下的距离传感器）。
-  - [Motion Capture](../computer_vision/motion_capture.md) provides 3D pose estimation using a vision system that is _external_ to the vehicle. It is primarily used for indoor navigation.
+  - [Motion Capture](../computer_vision/motion_capture.md) provides 3D pose estimation using a vision system that is _external_ to the vehicle. 它主要用于室内导航。
   - [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md) provides 3D pose and velocity estimation using an onboard vision system and IMU. It is used for navigation when global position information is absent or unreliable.
 - Avoidance/Path Planning:
   - [自主避障](../computer_vision/obstacle_avoidance.md) 在飞行规划好的路径时提供完全的避障导航（支持当前任务）。 这依赖机载电脑上运行的 [PX4/avoidance](https://github.com/PX4/PX4-Avoidance)。
