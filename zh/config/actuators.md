@@ -117,7 +117,7 @@ The control surfaces section of the geometry panel lets you set the number and t
 
 ![Control Surface Setup Example](../../assets/config/actuators/control_surfaces_geometry.png)
 
-::: info Only the most common settings are displayed by default. Select the **Advanced** checkbox in the top right corner of the view to display all settings.
+几何设置区段用于为所选的 [机架](../config/airframe.md) 设置几何相关的可配置参数。 Select the **Advanced** checkbox in the top right corner of the view to display all settings.
 :::
 
 The fields are:
