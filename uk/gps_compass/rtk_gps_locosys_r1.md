@@ -41,7 +41,7 @@ This module does not have a compass. Спробуйте еквівалентни
 
 ## Налаштування
 
-RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information). Підключіть Hawk R1 до порту `GPS2` на сумісних платах Pixhawk (бажано, але ви можете використовувати будь-який інший невикористаний порт UART).
+Налаштування та використання RTK на PX4 за допомогою _QGroundControl_ відбувається за принципом "підключи і працюй" (див. [RTK GPS](../gps_compass/rtk_gps.md) для отримання додаткової інформації). Підключіть Hawk R1 до порту `GPS2` на сумісних платах Pixhawk (бажано, але ви можете використовувати будь-який інший невикористаний порт UART).
 
 Для літака слід встановити параметр [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) на 230400 8N1, щоб переконатися, що PX4 налаштував правильну швидкість передачі даних.
 
