@@ -112,7 +112,7 @@ Simple changes to _existing content_ can be made by clicking the **Edit on GitHu
 1. 로컬 저장소로 이동합니다.
 
    ```sh
-   cd ~/wherever/PX4-user_guide
+   cd ~/wherever/px4_user_guide
    ```
 
 1. 종속성(Vuepress 포함)들을 설치합니다.
