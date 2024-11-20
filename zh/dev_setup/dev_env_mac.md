@@ -3,7 +3,7 @@
 MacOS 是受支持的 PX4 开发平台。 根据本文的指示构建的开发环境可以用编译：
 
 - 基于 NuttX 的硬件 (Pixhawk等)
-- [Gazebo Classic Simulation](../sim_gazebo_classic/index.md)
+- [Gazebo Classic 模拟](../sim_gazebo_classic/index.md)
 
 :::tip
 This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/community_supported_dev_env.md)).
@@ -69,7 +69,7 @@ To setup the environment to be able to build for Pixhawk/NuttX hardware (and ins
    sudo -H python3 -m pip install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
    ```
 
-## Gazebo Classic Simulation
+## Gazebo Classic 模拟
 
 To setup the environment for [Gazebo Classic](../sim_gazebo_classic/index.md) simulation:
 
