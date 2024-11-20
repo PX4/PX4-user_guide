@@ -117,7 +117,7 @@ The control surfaces section of the geometry panel lets you set the number and t
 
 ![Control Surface Setup Example](../../assets/config/actuators/control_surfaces_geometry.png)
 
-::: info Only the most common settings are displayed by default. Select the **Advanced** checkbox in the top right corner of the view to display all settings.
+지오메트리 섹션은 선택한 [기체](../config/airframe.md)에 대해 구성 가능한 지오메트리 관련 매개변수를 설정하는 데 사용됩니다. Select the **Advanced** checkbox in the top right corner of the view to display all settings.
 :::
 
 The fields are:
@@ -494,7 +494,7 @@ One approach for setting these up is:
 
 First set the _frame rate_ for the servos used in each group of outputs. This would normally be set to the maximum value supported by your servo. Below it is set to PWM50 (the most common value). Note, this part of the setup is the same as for control surfaces above.
 
-![Tilt Servo Setup](../../assets/config/actuators/tilt_servo_setup.png)
+![틸트 서보 설정](../../assets/config/actuators/tilt_servo_setup.png)
 
 For each of the tilt servos:
 
