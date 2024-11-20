@@ -1,4 +1,4 @@
-# Flight Modes
+# フライトモード
 
 Flight modes provide autopilot support to make it easier to manually fly the vehicle, to automate common tasks such as takeoff and landing, to execute autonomous missions, or to defer flight control to an external system.
 
