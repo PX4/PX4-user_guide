@@ -1,4 +1,4 @@
-# Log Analysis using Flight Review
+# Flight Reviewによるフライトログ分析
 
 The [Flight Review](http://logs.px4.io) plots for a flight can be used to analyze general vehicle condition.
 
@@ -8,7 +8,7 @@ The plots are meant to be self-explanatory, but it takes some experience to know
 
 Features that are common to many plots:
 
-- Plot background color is used to indicate flight mode during recording (where graphs depend on mode):![Flight Modes](../../assets/flight_log_analysis/flight_review/flight_modes.png)
+- Plot background color is used to indicate flight mode during recording (where graphs depend on mode):![フライトモード](../../assets/flight_log_analysis/flight_review/flight_modes.png)
   - **Flight mode:** Background colour on the body of the plot indicates flight mode. Hovering with the mouse over a plot shows the flight mode labels.
   - **VTOL flight mode:** VTOL vehicles additionally show the VTOL mode as background colour in the bottom part of the plot (blue for multicopter, yellow for fixed-wing, and red for transition).
 - Mouse scrolling on a particular plot axis zooms that axis (horizontally or vertically).
