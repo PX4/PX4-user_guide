@@ -91,13 +91,13 @@ The table below shows the **mean sequential write speed [KB/s]** / **maximum wri
 | ------------------------------------------------------------- | --------- | ----------------------- | --------- |
 | SanDisk Extreme U3 32GB                                       | 461       | 1800/10                 | 2900/8    |
 | Samsung EVO Plus 32GB                                         | 348       | 40                      | 1900/9-60 |
-| Sandisk Ultra Class 10 8GB                                    | 212       | 60                      | ?/?       |
-| Sandisk Class 4 8GB                                           | 331       | 220                     | ?/?       |
-| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 209       | 150                     | ?/?       |
-| Lexar U1 (Class 10), 16GB High-Performance                    | 196       | 500                     | ?/?       |
-| Sandisk Ultra PLUS Class 10 16GB                              | 334       | 250                     | ?/?       |
-| Sandisk Pixtor Class 10 16GB                                  | 332       | 150                     | ?/?       |
-| Sandisk Extreme PLUS Class 10 32GB                            | 332 / 150 | ?/?                     | ?/?       |
+| Sandisk Ultra Class 10 8GB                                    | 212       | 60                      | 60        |
+| Sandisk Class 4 8GB                                           | 331       | 220                     | 60        |
+| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 209       | 150                     | 60        |
+| Lexar U1 (Class 10), 16GB High-Performance                    | 196       | 500                     | 60        |
+| Sandisk Ultra PLUS Class 10 16GB                              | 334       | 250                     | 60        |
+| Sandisk Pixtor Class 10 16GB                                  | 332       | 150                     | 60        |
+| Sandisk Extreme PLUS Class 10 32GB                            | 332 / 150 | 60                      | 60        |
 
 Logging bandwidth with the default topics is around 50 KB/s, which almost all SD cards satisfy in terms of their mean sequential write speed.
 
