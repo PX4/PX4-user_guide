@@ -68,7 +68,7 @@ where &check; means that the bit is set, &cross; means that the bit is not set a
 ::: info Before using offboard mode with ROS 2, please spend a few minutes understanding the different [frame conventions](../ros2/user_guide.md#ros-2-px4-frame-conventions) that PX4 and ROS 2 use.
 :::
 
-### Copter
+### 콥터
 
 - [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
 
@@ -118,7 +118,7 @@ The following MAVLink messages and their particular fields and field values are 
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - 다음 입력 조합이 지원됩니다. <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - 위치 설정점(`x`, `y`, `z` 만 해당.)
     - Velocity setpoint (only `vx`, `vy`, `vz`)
@@ -181,7 +181,7 @@ The following MAVLink messages and their particular fields and field values are 
         ::: info The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
 :::
 
-        The values are:
+        값들은 다음과 같습니다:
 
         - 4096 : 이륙 설정점.
         - 8192: 착륙 설정점.
@@ -219,7 +219,7 @@ The following MAVLink messages and their particular fields and field values are 
 
   - 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     - 위치 설정점(`lat_int`, `lon_int`, `alt` 만 해당.)
-  - Specify the _type_ of the setpoint in `type_mask` (not part of the MAVLink standard). The values are:
+  - Specify the _type_ of the setpoint in `type_mask` (not part of the MAVLink standard). 값들은 다음과 같습니다:
 
     - 다음 비트가 설정되지 않으면 정상적인 동작입니다.
     - -12288 : Loiter 설정점 (설정점에 매우 가까워지면 기체는 멈춤).
@@ -250,6 +250,6 @@ Typically developers do not directly work at the MAVLink layer, but instead use 
 
 The following resources may be useful for a developer audience:
 
-- [Offboard Control from Linux](../ros/offboard_control.md)
+- [리눅스 오프보드 제어](../ros/offboard_control.md)
 - [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md)
 - [ROS/MAVROS Offboard Example (Python)](../ros/mavros_offboard_python.md)
