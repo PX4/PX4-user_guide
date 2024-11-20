@@ -12,13 +12,13 @@ Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulati
 
 SIH can be used by new PX4 users to get familiar with PX4 and the different modes and features, and of course to learn to fly a vehicle using an RC controller in simulation, which is not possible using SITL.
 
-## Overview
+## 개요
 
 With SIH the whole simulation is running on embedded hardware: the controller, the state estimator, and the simulator. The Desktop computer is only used to display the virtual vehicle.
 
 ![Simulator MAVLink API](../../assets/diagrams/SIH_diagram.png)
 
-### Compatibility
+### 호환성
 
 - SIH is compatible with all PX4 supported boards except those based on FMUv2.
 - SIH for quadrotor is supported from PX4 v1.9.
@@ -141,7 +141,7 @@ The takeoff location in SIH on SITL can be set using environment variables. This
 
 The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
 
-For example:
+예를 들어:
 
 ```sh
 export PX4_HOME_LAT=28.452386
@@ -158,7 +158,7 @@ The dynamic models for the various vehicles are:
 - Fixed-wing: Inspired by the PhD thesis: "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." Khan, Waqas, supervised by Nahon, Meyer, McGill University, PhD thesis, 2016.
 - Tailsitter: Inspired by the master's thesis: "Modeling and control of a flying wing tailsitter unmanned aerial vehicle." Chiappinelli, Romain, supervised by Nahon, Meyer, McGill University, Masters thesis, 2018.
 
-## Video
+## 비디오
 
 <lite-youtube videoid="PzIpSCRD8Jo" title="SIH FW demo"/>
 
