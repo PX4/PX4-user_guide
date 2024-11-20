@@ -1,4 +1,4 @@
-# Airframes Reference
+# 機体構造一覧
 
 ::: info **This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
 :::
