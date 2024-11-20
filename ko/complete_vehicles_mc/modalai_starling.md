@@ -19,7 +19,7 @@ For complete and regularly updated documentation, please visit <https://docs.mod
 If you are new to VOXL, be sure to familiarize yourself with the core features of VOXL hardware and software by reviewing the [VOXL Bootcamp](https://docs.modalai.com/voxl-developer-bootcamp/).
 :::
 
-## Where to Buy
+## 구매처
 
 [modalai.com/starling](https://modalai.com/starling)
 
@@ -46,23 +46,23 @@ If you are new to VOXL, be sure to familiarize yourself with the core features o
 
 ## Datasheet
 
-### Specifications
+### 사양
 
-| Component       | Specification                                                     |
+| 부품              | 사양                                                                |
 | --------------- | ----------------------------------------------------------------- |
-| Autopilot       | VOXL2                                                             |
+| 오토파일럿           | VOXL2                                                             |
 | Take-off Weight | 275g (172g without battery)                    |
 | Diagonal Size   | 211mm                                                             |
 | Flight Time     | > 30 minutes                                                      |
-| Motors          | 1504                                                              |
+| 모터              | 1504                                                              |
 | Propellers      | 120mm                                                             |
-| Frame           | 3mm Carbon Fiber                                                  |
+| 프레임             | 3mm Carbon Fiber                                                  |
 | ESC             | ModalAI VOXL 4-in-1 ESC V2                                        |
 | GPS             | UBlox M10                                                         |
-| RC Receiver     | 915mhz ELRS                                                       |
-| Power Module    | ModalAI Power Module v3 - 5V/6A                                   |
+| 무선 수신기          | 915mhz ELRS                                                       |
+| 전원 모듈           | ModalAI Power Module v3 - 5V/6A                                   |
 | Battery         | Sony VTC6 3000mah 2S, or any 2S 18650 battery with XT30 connector |
-| Height          | 83mm                                                              |
+| 고도              | 83mm                                                              |
 | Width           | 187mm (Props folded)                           |
 | Length          | 142mm (Props folded)                           |
 
@@ -116,7 +116,7 @@ Once the transmitter is set to bind mode, the ELRS receiver on the drone will ch
 You should now have a successfully bound ELRS receiver to your transmitter, ready for use with the PX4 Autonomy Kit by ModalAI.
 A secure connection is vital for the reliable operation of your drone, so always confirm the binding status before flight.
 
-### Videos
+### 비디오
 
 - [VOXL 2 Starling Hardware Overview](https://youtu.be/M9OiMpbEYOg)
 - [VOXL 2 Starling First Flight Tutorial](https://youtu.be/Cpbbye3Z6co)
