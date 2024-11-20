@@ -1,13 +1,14 @@
 # Pixhawk  배선 개요
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. 하드웨어 지원이나 호환 문제는 [제조사](https://store.mrobotics.io/)에 문의하십시오.
 :::
 
 This quick start guide shows how to power the _3DR Pixhawk_ flight controller and connect its most important peripherals.
 
 ![Pixhawk4 이미지](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
 
-::: info The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
+:::note
+The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
 :::
 
 ## 배선 개요
@@ -16,7 +17,8 @@ This quick start guide shows how to power the _3DR Pixhawk_ flight controller an
 
 ![Pixhawk  배선 개요](../../assets/flight_controller/pixhawk1/pixhawk_wiring_overview.jpg)
 
-::: info More detailed wiring information is [shown below](#detailed-wiring-infographic-copter).
+:::note
+More detailed wiring information is [shown below](#detailed-wiring-infographic-copter).
 :::
 
 ## 콘트롤러 장착 및 장착 방향
@@ -25,7 +27,8 @@ The _Pixhawk_ should be mounted on the frame using vibration-damping foam pads (
 
 ![Pixhawk 장착 및 방향](../../assets/flight_controller/pixhawk1/pixhawk_3dr_mounting_and_foam.jpg)
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::note
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
 ## 부저와 안전 스위치
@@ -38,9 +41,9 @@ The _Pixhawk_ should be mounted on the frame using vibration-damping foam pads (
 
 키트에 제공된 6선 케이블을 사용하여 GPS (필수)를 GPS 포트에 연결합니다. 다른 방법으로는, 4선 케이블을 사용하여 I2C 포트에 나침반을 연결합니다 (Pixhawk에는 필요한 경우 사용할 수있는 내부 나침반이 있음).
 
-::: info
+:::note
 The diagram shows a combined GPS and Compass.
-The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치들에서 멀리 떨어진 프레임에 장착하는 것이 좋습니다. 나침반은 다른 전자 장치와 떨어지면 간섭이 줄어듦니다.
 :::
 
 ![나침반/GPS를 Pixhawk에 연결](../../assets/flight_controller/pixhawk1/pixhawk_3dr_compass_gps.jpg)
@@ -61,7 +64,7 @@ The power module supplies the flight controller itself, but cannot power servos 
 
 <!-- It would be good to have real example of this powering -->
 
-## Radio Control
+## 무선 조종
 
 A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -75,9 +78,9 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 - PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+무선 텔레메트리는 지상국 프로그램에서 비행 차량의 통신/제어에 사용합니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
-## Telemetry Radios (Optional)
+## 무선 텔레메트리(선택 사항)
 
 무선 텔레메트리는 지상국 프로그램의 비행 차량 통신 제어용입니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음). 아래 그림과 같이 하나의 RC 수신기를 차량에 연결하여야 합니다. 다른 RC 송신기는 지상국 컴퓨터 또는 모바일 장치에 USB를 통하여 연결합니다.
 
@@ -91,14 +94,15 @@ For more information about selecting a radio system, receiver compatibility, and
 
 :::warning
 The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
-Make sure to use the correct mapping for your vehicle.
+해당 기체의 프레임의  정확한 모터 연결 여부를 확인하십시오.
 :::
 
 :::tip
 If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 :::
 
-::: info The output rail must be separately powered, as discussed in the [Power](#power) section above.
+:::note
+출력 레일은 위의 [전원](#power) 섹션에 설명과 같이 별도의 전원이 공급되어야 합니다.
 :::
 
 <!-- INSERT image of the motor AUX/MAIN ports? -->
