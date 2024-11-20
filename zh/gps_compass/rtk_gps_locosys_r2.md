@@ -26,7 +26,7 @@ The built-in lightweight helical antenna enhances RTK positioning stability. Add
 
 ![LOCOSYS Hawk R2](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
-## Where to Buy
+## 在哪里买
 
 - [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html)
 
@@ -38,7 +38,7 @@ An RTK GPS kit includes:
 - 1x Helix antenna
 - 1x 6-pin JST-ready cable
 
-## Wiring and Connections
+## 接线和连接
 
 Hawk R2 RTK GPS comes with an 6 pin JST connector that can be plugged into the GPS2 port on Pixhawk-standard autopilots.
 
@@ -46,23 +46,23 @@ Hawk R2 RTK GPS comes with an 6 pin JST connector that can be plugged into the G
 
 It can also be used on other UART ports, but you would need to connect and configure the port used. The pinout below is provided in case you need to create a custom cable.
 
-### Pinout
+### 针脚定义
 
 LOCOSYS GPS pinout is provided below.
 
-| Pin | Hawk R2 GPS |
-| --- | ----------- |
-| 1   | VCC_5V      |
-| 2   | GPS_RX      |
-| 3   | GPS_TX      |
-| 4   | GNSS_PPS    |
-| 5   | Null        |
-| 6   | Null        |
-| 7   | I2C_CLK     |
-| 8   | I2C_DAT     |
-| 9   | GND         |
+| 针脚 | Hawk R2 GPS |
+| -- | ----------- |
+| 1  | VCC_5V      |
+| 2  | GPS_RX      |
+| 3  | GPS_TX      |
+| 4  | GNSS_PPS    |
+| 5  | Null        |
+| 6  | Null        |
+| 7  | I2C_CLK     |
+| 8  | I2C_DAT     |
+| 9  | GND         |
 
-## PX4 Configuration
+## PX4 配置
 
 After connecting your Hawk R2 to the `GPS2` port on compatible Pixhawk boards, RTK setup and use on PX4 via _QGroundControl_ is largely plug and play. For more information see: [RTK GPS](../gps_compass/rtk_gps.md#positioning-setup-configuration).
 
@@ -72,15 +72,15 @@ The compass only requires the usual [Compass Calibration](../config/compass.md).
 
 ## Status LEDs
 
-| Color | Name            | Description                        |
+| Color | 名称              | 描述                                 |
 | ----- | --------------- | ---------------------------------- |
 | Green | TX Indicator    | GNSS Data transmission             |
-| Red   | Power Indicator | Power                              |
+| Red   | Power Indicator | 电源                                 |
 | Blue  | PPS             | Precise Positioning Service active |
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
 
-## Specification
+## 技术规范
 
 - Frequency
   - GPS/QZSS: L1 C/A, L5C
@@ -100,7 +100,7 @@ The compass only requires the usual [Compass Calibration](../config/compass.md).
   - 1Hz: UBX-NAV-TIMEGPS
 - Connectivity:
   - 6-pin JST-GH UART/I2C (Pixhawk compatible)
-- Power:
+- 电源：
   - DC supply voltage 3.3V ~ 5.0V input
   - Power consumption <1W
 
