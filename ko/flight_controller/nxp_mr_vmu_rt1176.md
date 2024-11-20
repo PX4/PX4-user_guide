@@ -27,7 +27,7 @@ Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular de
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## Introduction
+## 소개
 
 Inside the MR-VMU-RT1176, you can find an NXP i.MX RT1176, paired with sensor technology from Bosch®, InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
@@ -74,7 +74,7 @@ Similar variants will be available from our licensees.
   - 46 kB user memory with personalization options to go up to 104 kB
   - Groundbreaking CC EAL6+ certified solution for IoT deployments
   - AES and 3DES encryption and decryption
-- On-board sensors
+- 내장 센서 :
   - Accel/Gyro: ICM-20649 or BMI088
   - Accel/Gyro: ICM-42688-P
   - Accel/Gyro: ICM-42670-P
@@ -84,7 +84,7 @@ Similar variants will be available from our licensees.
 ### Electrical data
 
 - Voltage Ratings:
-  - Max input voltage: 6V
+  - 최대 입력 전압: 6V
   - USB Power Input: 4.75\~5.25V
   - Servo Rail Input: 0\~36V
 - Current Ratings:
@@ -93,14 +93,14 @@ Similar variants will be available from our licensees.
 
 ### Mechanical data
 
-- Dimensions
+- 크기
   - Flight Controller Module: 38.8 x 31.8 x 14.6mm
   - Standard Baseboard: 50 x 96 x 16.7mm
-- Weight
+- 중량
   - Flight Controller Module: 23g
   - Standard Baseboard: 51g
 
-### Interfaces
+### 인터페이스
 
 - 12 PWM servo outputs, 8 with D-SHOT
 
@@ -111,7 +111,7 @@ Similar variants will be available from our licensees.
 - Dedicated analog / PWM RSSI input and S.Bus output
 
 - 4 general purpose serial ports:
-  - 3 with full flow control
+  - 전체 흐름 제어 3개
   - 1 with separate 1.5A current limit (Telem1)
   - 1 with I2C and additional GPIO line for external NFC reader
 
@@ -138,26 +138,26 @@ Similar variants will be available from our licensees.
 
 - 1 AD & IO port
 
-- 2 additional analog input
+- 2개의 추가 아날로그 입력
 
 - 1 PWM/Capture input
 
 - 2 Dedicated debug and GPIO lines
 
-- Other Characteristics:
+- 기타 특성:
   - Operating & storage temperature: -40 ~ 85°c
 
-## Where to Buy
+## 구매처
 
 Order from [NXP](https://www.nxp.com).
 
-## Assembly/Setup
+## 조립 및 설정
 
 Wiring is similar to the [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md#connections) and other boards that follow the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 <!-- TBD - provide sample wiring diagram. -->
 
-## Connections
+## 연결
 
 _MR-VMU-RT1176_ connectors (following [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf))
 
@@ -166,21 +166,21 @@ _MR-VMU-RT1176_ connectors (following [Pixhawk Connector Standard](https://githu
 ![MR-VMU-RT1176 Leftside Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_left.jpg)
 ![MR-VMU-RT1176 Rightside Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_right.jpg)
 
-For more information see:
+더 자세한 정보는 다음을 참고하십시오.
 
 - [NXP MR-VMU-RT1176 Baseboard Connections](https://nxp.gitbook.io/vmu-rt1176/production-v1-carrier-board-connectors) (nxp.gitbook.io)
 
-## Pinouts
+## 핀배열
 
 [NXP MR-VMU-RT1176 Baseboard Pinout](https://nxp.gitbook.io/vmu-rt1176/pin-out) (nxp.gitbook.io)
 
-Notes:
+참고:
 
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port     |
+| UART   | 장치         | 포트       |
 | ------ | ---------- | -------- |
 | UART1  | /dev/ttyS0 | Debug    |
 | UART3  | /dev/ttyS1 | GPS      |
@@ -197,22 +197,22 @@ Notes:
 TBD
 -->
 
-## Voltage Ratings
+## 정격 전압
 
 _MR-VMU-RT1176_ can be triple-redundant on the power supply if three power sources are supplied.
 The three power rails are: **POWER1**, **POWER2** and **USB**.
 The **POWER1** & **POWER2** ports on the MR-VMU-RT1176 uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
-### Normal Operation Maximum Ratings
+### 정상 작동 최대 정격 전압
 
-Under these conditions all power sources will be used in this order to power the system:
+이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야합니다.
 
 1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
 2. **USB** input (4.75V to 5.25V)
 
-### Absolute Maximum Ratings
+### 절대 최대 정격 전압
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+아래의 조건에서 시스템은 전원을 사용하지 않지만(작동하지 않음), 그대로 유지됩니다.
 
 1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
 2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
@@ -226,7 +226,7 @@ Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](.
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
 :::
 
-## Building Firmware
+## 펌웨어 빌드
 
 :::tip
 Most users will not need to build this firmware!
@@ -245,15 +245,15 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Pin                         | Signal                              | Volt                  |
+| 핀                           | 신호                                  | 전압                    |
 | --------------------------- | ----------------------------------- | --------------------- |
-| 1 (red)  | `Vtref`                             | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`                             | +3.3V |
-| 5 (blk)  | `SWCLK`                             | +3.3V |
-| 6 (blk)  | `SWO`                               | +3.3V |
-| 7 (blk)  | NFC GPIO                            | +3.3V |
+| 1 (적)    | `Vtref`                             | +3.3V |
+| 2 (흑)    | Console TX (OUT) | +3.3V |
+| 3 (흑)    | Console RX (IN)  | +3.3V |
+| 4 (흑)    | `SWDIO`                             | +3.3V |
+| 5 (흑)    | `SWCLK`                             | +3.3V |
+| 6 (흑)    | `SWO`                               | +3.3V |
+| 7 (흑)    | NFC GPIO                            | +3.3V |
 | 8 (blk)  | PH11                                | +3.3V |
 | 9 (blk)  | nRST                                | +3.3V |
 | 10 (blk) | `GND`                               | GND                   |
@@ -263,18 +263,18 @@ For information about using this port see:
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
-## Peripherals
+## 주변 장치
 
 - [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
 - [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
 - [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 지원 플랫폼 및 기체
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## 추가 정보
 
 - [Update Pixhawk 6X-RT Bootloader](../advanced_config/bootloader_update_v6xrt.md)
 - [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
