@@ -1,6 +1,6 @@
 # mRo Control Zero F7 Flight Controller
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 The _mRo Control Zero F7<sup>&reg;</sup>_ is a new flight controller from mRo.
@@ -52,7 +52,7 @@ It is a no-compromise triple IMU commercial grade flight controller. It includes
 - 电源系统
   - 3x Ultra low noise LDO voltage regulator
 
-## Where to Buy
+## 在哪里买
 
 - [mRo Control Zero](https://store.mrobotics.io/mRo-Control-Zero-F7-p/mro-ctrl-zero-f7.htm)
 
@@ -96,7 +96,7 @@ There is also an [ARM20-CTX 20-Pin to TC2030-IDC adapter](https://www.tag-connec
 
 ![mRo Control Zero F7](../../assets/flight_controller/mro_control_zero_f7/mro_control_pinouts.jpg)
 
-## Serial Port Mapping
+## 串口映射
 
 | UART   | 设备         | Port                                                            |
 | ------ | ---------- | --------------------------------------------------------------- |
