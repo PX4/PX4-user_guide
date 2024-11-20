@@ -8,7 +8,7 @@ Precision landing can be [started/initiated](#initiating-a-precision-landing) as
 Precision landing is only possible with a valid global position (due to a limitation in the current implementation of the position controller).
 :::
 
-## Overview
+## 综述
 
 ### Land Modes
 
@@ -128,7 +128,7 @@ The IR-Lock sensor is disabled by default. Enable it by setting [SENS_EN_IRLOCK]
 
 Other relevant parameters are listed in the parameter reference under [Landing_target estimator](../advanced_config/parameter_reference.md#landing-target-estimator) and [Precision land](../advanced_config/parameter_reference.md#precision-land) parameters. Some of the most useful ones are listed below.
 
-| Parameter                                                                                             | Description                                                                                                         |
+| 参数                                                                                                    | 描述                                                                                                                  |
 | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | <a id="SENS_EN_IRLOCK"></a>[SENS_EN_IRLOCK](../advanced_config/parameter_reference.md#SENS_EN_IRLOCK) | IR-LOCK Sensor (external I2C). Disable: `0` (default): Enable: `1`).                                                |
 | <a id="LTEST_MODE"></a>[LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE)           | Landing target is moving (`0`) or stationary (`1`). Default is moving.                                              |
@@ -148,7 +148,7 @@ To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multic
 
 If you observe slow sideways oscillations of the vehicle while doing a precision landing with `LTEST_MODE` set to stationary, the beacon measurements are likely scaled too high and you should reduce the scale parameter in the relevant direction.
 
-## Simulation
+## 仿真
 
 Precision landing with the IR-LOCK sensor and beacon can be simulated in [Gazebo Classic](../sim_gazebo_classic/index.md).
 
