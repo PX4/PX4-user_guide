@@ -16,7 +16,7 @@ The FTDI USB adapters are the most common way of communicating between companion
 
 A few "turnkey" options are listed below:
 
-| Device                                                                 | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH |
+| 设备                                                                     | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH |
 | ---------------------------------------------------------------------- | ----------------- | ------------ | ---------- | ------ |
 | [mRo USB FTDI Serial to JST-GH (Basic)][mro_usb_ftdi_serial_to_jst_gh] | Capable           | Capable      | No         | Yes    |
 | \[SparkFun FTDI Basic Breakout\]\[sparkfun_ftdi__breakout\]          | Yes               | No           | Yes        | No     |
