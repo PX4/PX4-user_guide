@@ -4,7 +4,7 @@ PX4 supports simple air traffic avoidance in [missions](../flying/missions.md) u
 
 If a potential collision is detected, PX4 can _warn_, immediately [land](../flight_modes_mc/land.md), or [return](../flight_modes_mc/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
 
-## Supported Hardware
+## 支持的硬件
 
 PX4 traffic avoidance works with ADS-B or FLARM products that supply transponder data using the MAVLink [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE) message, and UTM products that supply transponder data using the MAVLink [UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) message.
 
@@ -21,12 +21,12 @@ Any of the devices can be connected to any free/unused serial port on the flight
 
 The PingRX MAVLink port uses a JST ZHR-4 mating connector with pinout as shown below.
 
-| Pin     | Signal   | Volt         |
-| ------- | -------- | ------------ |
-| 1 (red) | RX (IN)  | +5V tolerant |
-| 2 (blk) | TX (OUT) |              |
-| 3 (blk) | Power    | +4 to 6V     |
-| 4 (blk) | GND      | GND          |
+| 针脚   | Signal   | 电压           |
+| ---- | -------- | ------------ |
+| 2    | RX (IN)  | +5V tolerant |
+| 2    | TX (OUT) |              |
+| 3    | 电源       | +4 to 6V     |
+| 4（黑） | GND      | GND          |
 
 The PingRX comes with connector cable that can be attached directly to the TELEM2 port (DF13-6P) on an [mRo Pixhawk](../flight_controller/mro_pixhawk.md). For other ports or boards, you will need to obtain your own cable.
 
@@ -34,20 +34,20 @@ The PingRX comes with connector cable that can be attached directly to the TELEM
 
 FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
 
-| Pin     | Signal   | Volt        |
-| ------- | -------- | ----------- |
-| 1 (red) | VCC      | +4V to +36V |
-| 2 (blk) | TX (OUT) | +3.3V       |
-| 3 (blk) | RX (IN)  | +3.3V       |
-| 4 (blk) | -        | +3.3V       |
-| 5 (blk) | -        | +3.3V       |
-| 6 (blk) | GND      | GND         |
+| 针脚   | Signal   | 电压          |
+| ---- | -------- | ----------- |
+| 2    | VCC      | +4V to +36V |
+| 2    | TX (OUT) | +3.3V       |
+| 3    | RX (IN)  | +3.3V       |
+| 4（黑） | -        | +3.3V       |
+| 6    | -        | +3.3V       |
+| 6    | GND      | GND         |
 
 ::: info
 The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
 :::
 
-## Software Configuration
+## 软件配置
 
 ### Port Configuration
 
@@ -68,7 +68,7 @@ You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/para
 
 Configure the action when there is a potential collision using the parameter below:
 
-| Parameter                                                                                                 | Description                                                                                                                                                                       |
+| 参数                                                                                                        | 描述                                                                                                                                                                                |
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="NAV_TRAFF_AVOID"></a>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode.                                                                 |
 | <a id="NAV_TRAFF_A_HOR"></a>[NAV_TRAFF_A_HOR](../advanced_config/parameter_reference.md#NAV_TRAFF_A_HOR)   | Horizonal radius of cylinder around the vehicle that defines its airspace (i.e. the airspace in the ground plane).                                                                |
@@ -160,7 +160,7 @@ The method creates a simulated transponder message near the vehicle, using follo
 <!-- See also implementation PR: https://github.com/PX4/PX4-Autopilot/pull/21283 -->
 <!-- See also bug to make this work without uncommenting: https://github.com/PX4/PX4-Autopilot/issues/21810 -->
 
-## Further Information
+## 更多信息
 
 - [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
-- [Serial Port Configuration](../peripherals/serial_configuration.md)
+- [串口配置](../peripherals/serial_configuration.md)
