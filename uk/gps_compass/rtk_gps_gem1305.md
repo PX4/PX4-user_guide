@@ -14,7 +14,7 @@ It supports RTK functionality with a maximum data update rate of 10Hz, and comes
 
 :::
 
-## Where to Buy
+## Де придбати
 
 - [GEM1305 RTK receiver with antenna](https://www.datagnss.com/collections/gnss-for-drone/products/gem1305) (www.datagnss.com)
 
@@ -24,7 +24,7 @@ It supports RTK functionality with a maximum data update rate of 10Hz, and comes
 
   ![dgm10\_rtk\_receiver.png](../../assets/hardware/gps/datagnss_gem1305/dgm10_rtk_receiver.png)
 
-## Key Features
+## Ключові особливості
 
 - Full constellation, multi-frequency GNSS satellite receiver
 - Support RTK with up to 10hz output rate
@@ -46,14 +46,14 @@ It supports RTK functionality with a maximum data update rate of 10Hz, and comes
 - 3D accuracy: **1.5m** CEP
 - RTK accuracy: **2cm** +1PPM(H), 3cm+1PPM(V)
 
-## Interface
+## Інтерфейс
 
 - UART: 230400bps default
 - SMA connector for antenna
 - Output rate 5Hz default, up to 10Hz
 - Main power supply: 4.7~5.2V
 
-## Protocol
+## Протокол
 
 - NMEA-0183 output
 - RTCMv3 input/output
@@ -67,7 +67,7 @@ It supports RTK functionality with a maximum data update rate of 10Hz, and comes
 - 55x55x12mm
 - 50g (GEM1305) 26g (NANO with Helix)
 
-## Pinout
+## Розпіновка
 
 The board is connected to the autopilot via UART interface.
 
@@ -84,7 +84,7 @@ The 1.25mm pitch 6P connector (from left: PIN1 to PIN6):
 
 The board does not include a compass and so does not require connections for a compass part.
 
-## Hardware Setup
+## Налаштування обладнання
 
 RTK requires a base RTK module attached to the ground station, and a rover RTK module on the vehicle.
 The data from the base needs to be transmitted to the drone via telemetry radio and inputed into the RTK receiver on the rover.
@@ -130,7 +130,7 @@ GPS and RTK configuration on PX4 via _QGroundControl_ is plug and play (see [RTK
 - [GEM1305 Wiki](https://wiki.datagnss.com/index.php/GEM1305) (DATAGNSS WiKi)
 - [HED-10L Heading RTK Receiver](https://wiki.datagnss.com/index.php/HED-10L)
 
-## More information
+## Докладніше
 
 - [NANO RTK Receiver](https://www.datagnss.com/collections/evk/products/tau951m-1312-tiny-evk)
 - [HELIX Antenna for RTK](https://www.datagnss.com/collections/rtk-antenna/products/smart-helix-antenna)
