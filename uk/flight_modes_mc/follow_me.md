@@ -42,7 +42,7 @@
 Кут, висота та відстань, встановлені за допомогою пульта керування RC, відкидаються, коли ви виходите з режиму слідування за мною. Якщо ви вийдете з режиму "Follow-Me" й активуєте його знову, значення будуть скинуті до їх типових значень.
 :::
 
-### Video
+### Відео
 
 <lite-youtube videoid="csuMtU6seXI" params="start=155" title="PX4 Follow Target follows a Rover!"/>
 
@@ -124,7 +124,7 @@ The MAVLink [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TA
 The drone probably won't crash due to the built-in minimum safety altitude limit (1 meter), but it may fly much higher than expected. If the drone's altitude is significantly different than specified, assume that the ground station's altitude output is wrong and use 2D tracking.
 :::
 
-### Parameters
+### Параметри
 
 The follow-me behavior can be configured using the following parameters:
 
