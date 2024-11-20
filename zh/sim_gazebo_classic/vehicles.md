@@ -8,7 +8,7 @@ Supported vehicle types include: mutirotors, VTOL, VTOL Tailsitter, Plane, Rover
 The [Gazebo Classic](../sim_gazebo_classic/index.md) page shows how to install Gazebo Classic, how to enable video and load custom maps, and many other configuration options.
 :::
 
-## Multicopter
+## 多旋翼
 
 ### Quadrotor (Default)
 
@@ -80,9 +80,9 @@ This model simulates hand/catapult launch, which can be used for [fixed-wing tak
 
 The plane will automatically be launched as soon as the vehicle is armed.
 
-## VTOL
+## 垂直起降
 
-### Standard VTOL
+### 标准垂起固定翼
 
 ```sh
 make px4_sitl gazebo-classic_standard_vtol
@@ -90,7 +90,7 @@ make px4_sitl gazebo-classic_standard_vtol
 
 ![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/standard_vtol.png)
 
-### Tailsitter VTOL
+### 尾座式垂起
 
 ```sh
 make px4_sitl gazebo-classic_tailsitter
@@ -142,7 +142,7 @@ make px4_sitl gazebo-classic_boat
 
 <a id="airship"></a>
 
-## Airship
+## 旋翼机
 
 ### Cloudship
 
@@ -150,4 +150,4 @@ make px4_sitl gazebo-classic_boat
 make px4_sitl gazebo-classic_cloudship
 ```
 
-![Airship](../../assets/simulation/gazebo_classic/vehicles/airship.png)
+![旋翼机](../../assets/simulation/gazebo_classic/vehicles/airship.png)
