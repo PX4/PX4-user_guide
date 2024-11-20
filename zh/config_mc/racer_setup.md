@@ -99,7 +99,7 @@ Assuming the vehicle is able to fly using the default settings, we then do a fir
 
 ### 控制延迟
 
-The _control latency_ is the delay from a physical disturbance of the vehicle until the motors react to the change.
+_控制延迟_ 是从飞机受到物理干扰出到电机做出相应反应的延迟。
 
 :::tip
 It is _crucial_ to reduce the control latency as much as possible! A lower latency allows you to increase the rate **P** gains, which means better flight performance. Even one millisecond added to the latency makes a difference.
