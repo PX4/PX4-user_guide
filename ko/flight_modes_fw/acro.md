@@ -14,7 +14,7 @@ Manual mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acr
 
 Roll-pitch-yaw stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to control allocation.
 
-## Parameters
+## 매개변수
 
 | Parameter                                                                                             | Description                                                                                                                                              |
 | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
