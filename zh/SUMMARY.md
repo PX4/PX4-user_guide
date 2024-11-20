@@ -266,6 +266,7 @@
       - [CUAV C-RTK](gps_compass/rtk_gps_cuav_c-rtk.md)
       - [CUAV C-RTK2 PPK/RTK GNSS](gps_compass/rtk_gps_cuav_c-rtk2.md)
       - [CUAV C-RTK 9Ps](gps_compass/rtk_gps_cuav_c-rtk-9ps.md)
+      - [DATAGNSS GEM1305 RTK GNSS](gps_compass/rtk_gps_gem1305.md)
       - [Femtones MINI2 Receiver](gps_compass/rtk_gps_fem_mini2.md)
       - [Freefly RTK GPS](gps_compass/rtk_gps_freefly.md)
       - [Holybro H-RTK ZED-F9P (DroneCAN)](dronecan/holybro_h_rtk_zed_f9p_gps.md)

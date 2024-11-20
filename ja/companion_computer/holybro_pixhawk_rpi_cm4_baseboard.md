@@ -60,11 +60,11 @@ Flight controllers that have a different form factor will need additional wiring
 
 ## Installing the RPi CM4 Companion
 
-This section shows how to install/attach a Raspberry Pi CM4 to the baseboard.
+This section shows how to install/attach an RPi CM4 to the baseboard.
 
 ![Image showing separate baseboard, baseboard cover, RPi, Flight controller, screws](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_disassembled.jpg)
 
-To install the Raspberry Pi CM4 companion computer:
+To install the RPi CM4 companion computer:
 
 1. Disconnect the `FAN` wiring.
 
@@ -103,7 +103,7 @@ Notes:
 - The fan does not indicate if the RPi CM4 is powered/running or not.
 - The power module plugged into Power1/2 does not power the RPi part. You can use the additional USB-C Cable from the PM03D power module to the CM4 Slave USB-C port.
 - The Micro-HDMI port is an output port.
-- RPi CM4 boards that do not have Wifi device will not connect automatically. In this case you will need to plug it into a router or plug a compatible Wifi dongle into the CM4 Host ports.
+- RPi CM4 boards that do not have WiFi device will not connect automatically. In this case you will need to plug it into a router or plug a compatible WiFi dongle into the CM4 Host ports.
 
 ### Flash EMMC
 
@@ -121,7 +121,7 @@ To flash a RPi image onto EMMC.
 
    ```sh
    sudo apt install libusb-1.0-0-dev
-   git clone --depth=1 https://github.com/raspberrypi/usbboot,
+   git clone --depth=1 https://github.com/raspberrypi/usbboot
    cd usbboot
    make
    sudo ./rpiboot
@@ -171,19 +171,19 @@ To enable this MAVLink instance on the FC:
 
 On the RPi side:
 
-1. Connect to the RPi (using WiFi, a router, or a Wifi Dongle).
+1. Connect to the RPi (using WiFi, a router, or a WiFi Dongle).
 1. Enable the RPi serial port by running `RPi-config`
 
    - Go to `3 Interface Options`, then `I6 Serial Port`. Then choose:
      - `login shell accessible over serial → No`
      - `serial port hardware enabled` → `Yes`
 
-1. Finish, and reboot. (This will add `enable_uart=1` to `/boot/config.txt`, and remove `console=serial0,115200` from `/boot/cmdline.txt`
+1. Finish, and reboot. This will add `enable_uart=1` to `/boot/config.txt`, and remove `console=serial0,115200` from `/boot/cmdline.txt`.
 1. Now MAVLink traffic should be available on `/dev/serial0` at a baudrate of 921600.
 
 ## Try out MAVSDK-Python
 
-1. Make sure the CM4 is connected to the internet, e.g. using a wifi, or ethernet.
+1. Make sure the CM4 is connected to the internet, e.g. using a WiFi, or Ethernet.
 1. Install MAVSDK Python:
 
    ```sh
@@ -196,17 +196,38 @@ On the RPi side:
 
 ## Ethernet Connection (Optional)
 
-The flight controller module is [internally connected to RPi CM4](#rpi-cm4-fc-serial-connection) from `TELEM2` (Serial).
+The flight controller module is [internally connected to RPi CM4](#rpi-cm4-fc-serial-connection) from `TELEM2` (serial).
 
 You can also set up a local Ethernet connection between them using the supplied cable. Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.
 
 ::: info
-For more general information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
+For general Ethernet setup information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
+
+The setup here is much the same, except that we have used the following `netplan` config on PX4:
+
+```sh
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    eth0:
+      addresses:
+        - 10.41.10.1/24
+      nameservers:
+        addresses: [10.41.10.1]
+      routes:
+        - to: 10.41.10.0/24  # Local route to access devices on this subnet
+          scope: link        # Scope link to restrict it to local subnet
+```
+
+This sets `eth0` as our channel for the local Ethernet link from the RPi (instead of `enp2s0`, which is assumed in [Ethernet Setup](../advanced_config/ethernet_setup.md#ubuntu-ethernet-network-setup)).
+
+Note that we could have used WiFi for the link, but by setting up a dedicated route we leave our WiFi free for Internet comms.
 :::
 
 ### Connect the Cable
 
-To set up a local ethernet connection between CM4 and the flight computer, the two ethernet ports need to be connected using the provided 8 pin to 4 pin connector.
+To set up a local ethernet connection between CM4 and the flight computer, the two Ethernet ports need to be connected using the provided 8 pin to 4 pin connector.
 
 ![HB_Pixhawk_CM4_Ethernet_Cable](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_ethernet_cable.png)
 
@@ -227,7 +248,7 @@ The pinout of the cable is:
 
 Since there is no DHCP server active in this configuration, the IP addresses have to be set manually:
 
-First, connect to the CM4 via SSH by connecting to the CM4’s WiFi (or use a Wifi dongle). Once the ethernet cables are plugged in, the `eth0` network interface seems to switch from DOWN to UP.
+First, connect to the CM4 via SSH by connecting to the CM4's WiFi (or use a WiFi dongle). Once the Ethernet cables are plugged in, the `eth0` network interface seems to switch from DOWN to UP.
 
 You can check the status using:
 
@@ -241,105 +262,67 @@ You can also try to enable it manually:
 sudo ip link set dev eth0 up
 ```
 
-It then seems to automatically set a link-local address, for this example it looks like this:
+This sets a link-local address. For this example it looks like this:
 
 ```sh
-ip address show eth0
-
+$: ip address show eth0
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether xx:xx:xx:xx:xx:xx brd ff:ff:ff:ff:ff:ff
-    inet 169.254.21.183/16 brd 169.254.255.255 scope global noprefixroute eth0
+    link/ether e4:5f:01:bf:e0:17 brd ff:ff:ff:ff:ff:ff
+    inet 10.41.10.1/24 brd 10.41.10.255 scope global noprefixroute eth0
        valid_lft forever preferred_lft forever
-    inet6 fe80::yyyy:yyyy:yyyy:yyyy/64 scope link
+    inet6 fe80::e65f:1ff:febf:e017/64 scope link
        valid_lft forever preferred_lft forever
 ```
 
-This means the CM4's ethernet IP is 169.254.21.183.
-
-#### IP Setup on FC
-
-Now connect to the NuttX shell (using a console, or the MAVLink shell), and check the status of the link:
-
-```sh
-ifconfig
-
-eth0    Link encap:Ethernet HWaddr xx:xx:xx:xx:xx:xx at DOWN
-        inet addr:0.0.0.0 DRaddr:192.168.0.254 Mask:255.255.255.0
-```
-
-For this example, it is DOWN at first.
-
-To set it to UP:
-
-```sh
-ifup eth0
-
-ifup eth0...OK
-```
-
-Now check the config again:
-
-```sh
-ifconfig
-
-eth0    Link encap:Ethernet HWaddr xx:xx:xx:xx:xx:xx at UP
-        inet addr:0.0.0.0 DRaddr:192.168.0.254 Mask:255.255.255.0
-```
-
-However, it doesn’t have an IP yet. Set one that is similar to the one on the RPi CM4:
-
-```sh
-ifconfig eth0 169.254.21.184
-```
-
-Then check it:
-
-```sh
-ifconfig
-
-eth0    Link encap:Ethernet HWaddr xx:xx:xx:xx:xx:xx at UP
-        inet addr:169.254.21.184 DRaddr:169.254.21.1 Mask:255.255.255.0
-```
-
-Now the devices should be able to ping each other.
-
-Note that this configuration is ephemeral and will be lost after a reboot, so we’ll need to find a way to configure it statically.
+This means the CM4's Ethernet IP is `10.41.10.1` .
 
 #### Ping Test
 
-First from the CM4:
+First ping PX4 from the CM4 (using the PX4's default address):
 
 ```sh
-ping 169.254.21.184
-
-PING 169.254.21.184 (169.254.21.184) 56(84) bytes of data.
-64 bytes from 169.254.21.184: icmp_seq=1 ttl=64 time=0.188 ms
-64 bytes from 169.254.21.184: icmp_seq=2 ttl=64 time=0.131 ms
-64 bytes from 169.254.21.184: icmp_seq=3 ttl=64 time=0.190 ms
-64 bytes from 169.254.21.184: icmp_seq=4 ttl=64 time=0.112 ms
-^C
---- 169.254.21.184 ping statistics ---
-4 packets transmitted, 4 received, 0% packet loss, time 3077ms
-rtt min/avg/max/mdev = 0.112/0.155/0.190/0.034 ms
+$ ping 10.41.10.2
 ```
 
-Then from the flight controller in NuttShell:
+Should give something like:
 
 ```sh
-ping 169.254.21.183
+PING 10.41.10.2 (10.41.10.2) 56(84) bytes of data.
+64 bytes from 10.41.10.2: icmp_seq=1 ttl=64 time=0.187 ms
+64 bytes from 10.41.10.2: icmp_seq=2 ttl=64 time=0.109 ms
+64 bytes from 10.41.10.2: icmp_seq=3 ttl=64 time=0.091 ms
+^C
+--- 10.41.10.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2049ms
+rtt min/avg/max/mdev = 0.091/0.129/0.187/0.041 ms
+```
 
-PING 169.254.21.183 56 bytes of data
-56 bytes from 169.254.21.183: icmp_seq=0 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=1 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=2 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=3 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=4 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=5 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=6 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=7 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=8 time=0 ms
-56 bytes from 169.254.21.183: icmp_seq=9 time=0 ms
+:::info
+If this step fails, check if a [firewall](https://wiki.ubuntu.com/UncomplicatedFirewall) is active.
+:::
+
+Then ping the CM4 from the flight controlle. Enter the following command in the Nuttx Shell:
+
+```sh
+nsh> ping 10.41.10.1
+```
+
+This should result in output like:
+
+```sh
+PING 10.41.10.1 56 bytes of data
+56 bytes from 10.41.10.1: icmp_seq=0 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=1 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=2 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=3 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=4 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=5 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=6 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=7 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=8 time=0.0 ms
+56 bytes from 10.41.10.1: icmp_seq=9 time=0.0 ms
 10 packets transmitted, 10 received, 0% packet loss, time 10010 ms
+rtt min/avg/max/mdev = 0.000/0.000/0.000/0.000 ms
 ```
 
 #### MAVLink/MAVSDK Test
@@ -349,21 +332,68 @@ For this, we need to set the MAVLink instance to send traffic to the CM4's IP ad
 For an initial test we can do:
 
 ```sh
-mavlink start -o 14540 -t 169.254.21.183
+mavlink start -o 14540 -t 10.41.10.1
 ```
 
 This will send MAVLink traffic on UDP to port 14540 (the MAVSDK/MAVROS port) to that IP which means MAVSDK can just listen to any UDP arriving at that default port.
 
 To run a MAVSDK example, install mavsdk via pip, and try out an example from [MAVSDK-Python/examples](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
 
-For instance:
+#### XRCE-Client Ethernet Setup
+
+Next we enable `XRCE-DDS` on the new Ethernet Link.
+
+You can [modify the required parameters](../advanced_config/parameters.md) in QGroundControl parameter editor, or using `param set` in the [MAVLINK shell](../debug/mavlink_shell.md). Below we show the settings assuming you're setting the parameters using the shell.
+
+First ensure `MAV_2_CONFIG` is not set to use the Ethernet port (`1000`) as this would clash with XRCE-DDS (see [enable MAVLINK on Ethernet](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration)):
 
 ```sh
-python3 -m pip install mavsdk
+nsh>
+param set MAV_2_CONFIG     0           # Change to 0 IFF value is 1000
+```
 
-wget https://raw.githubusercontent.com/mavlink/MAVSDK-Python/main/examples/tune.py
-chmod +x tune.py
-./tune.py
+Then enable uXRCE-DDS on the Ethernet port (see [starting uXRCE-DDS client](../middleware/uxrce_dds.md#starting-the-client)):
+
+```sh
+param set UXRCE_DDS_AG_IP  170461697   # The int32 version of 10.41.10.1
+param set UXRCE_DDS_CFG    1000        # Set Serial Configuration for uXRCE-DDS Client to Ethernet
+param set UXRCE_DDS_DOM_ID 0           # Set uXRCE-DDS domain ID
+param set UXRCE_DDS_KEY    1           # Set uXRCE-DDS session key
+param set UXRCE_DDS_PRT    8888        # Set uXRCE-DDS UDP port
+param set UXRCE_DDS_PTCFG  0           # Set uXRCE-DDS participant configuration
+param set UXRCE_DDS_SYNCC  0           # Disable uXRCE-DDS system clock synchronization
+param set UXRCE_DDS_SYNCT  1           # Enable uXRCE-DDS timestamp synchronization
+```
+
+Then run the Agent:
+
+```sh
+MicroXRCEAgent udp4 -p 8888
+```
+
+And such output is expected if everything is set up correctly:
+
+```sh
+[1731210063.537033] info     | UDPv4AgentLinux.cpp | init                     | running...             | port: 8888
+[1731210063.538279] info     | Root.cpp           | set_verbose_level        | logger setup           | verbose_level: 4
+[1731210066.577413] info     | Root.cpp           | create_client            | create                 | client_key: 0x00000001, session_id: 0x81
+[1731210066.577515] info     | SessionManager.hpp | establish_session        | session established    | client_key: 0x00000001, address: 10.41.10.2:58900
+[1731210066.583965] info     | ProxyClient.cpp    | create_participant       | participant created    | client_key: 0x00000001, participant_id: 0x001(1)
+[1731210066.584754] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x800(2), participant_id: 0x001(1)
+[1731210066.584988] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x800(4), participant_id: 0x001(1)
+[1731210066.589864] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x800(6), subscriber_id: 0x800(4)
+[1731210066.591007] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x801(2), participant_id: 0x001(1)
+[1731210066.591164] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x801(4), participant_id: 0x001(1)
+[1731210066.591912] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x801(6), subscriber_id: 0x801(4)
+[1731210066.592701] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x802(2), participant_id: 0x001(1)
+[1731210066.592846] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x802(4), participant_id: 0x001(1)
+[1731210066.593640] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x802(6), subscriber_id: 0x802(4)
+[1731210066.594749] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x803(2), participant_id: 0x001(1)
+[1731210066.594883] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x803(4), participant_id: 0x001(1)
+[1731210066.595592] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x803(6), subscriber_id: 0x803(4)
+[1731210066.596188] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x804(2), participant_id: 0x001(1)
+[1731210066.596334] info     | ProxyClient.cpp    | create_subscriber        | subscriber created     | client_key: 0x00000001, subscriber_id: 0x804(4), participant_id: 0x001(1)
+[1731210066.597046] info     | ProxyClient.cpp    | create_datareader        | datareader created     | client_key: 0x00000001, datareader_id: 0x804(6), subscriber_id: 0x804(4)
 ```
 
 ## See Also
