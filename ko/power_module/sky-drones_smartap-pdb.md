@@ -4,7 +4,7 @@
 
 ![SmartAP PDB](../../assets/hardware/power_module/sky-drones_smartap-pdb/smartap-pdb-top-side.jpg)
 
-## Specifications
+## 사양
 
 - Size: 65x65 mm, 4x M3 mounting holes
 - Input voltage up to 60 Volts (14S)
@@ -27,7 +27,7 @@
 - Height: 14mm
 - Weight: 16g
 
-## PX4 Configuration
+## PX4 설정
 
 [Battery Estimation Tuning](../config/battery.md) describes how to configure the battery setting for a power module.
 
@@ -37,7 +37,7 @@ The key configuration settings are:
 - Amps per volt: 36.00
 
 
-## Where to buy
+## 구매처
 
 [SmartAP PDB](https://sky-drones.com/parts/smartap-pdb.html)
 
@@ -57,7 +57,7 @@ SmartAP PDB has integrated voltage and current sensors. The current sensor is lo
 ![SmartAP PDB](../../assets/hardware/power_module/sky-drones_smartap-pdb/smartap-pdb-current-sensor.png)
 
 
-## Further Information
+## 추가 정보
 
 - [Buy SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html)
-- [Documentation](https://docs.sky-drones.com/avionics/smartap-pdb)
+- [문서](https://docs.sky-drones.com/avionics/smartap-pdb)
