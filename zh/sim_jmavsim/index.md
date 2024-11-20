@@ -3,7 +3,7 @@
 :::warning
 This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4 and may be removed in future releases.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+关于核心开发团队支持的环境和工具的信息，请参阅 [工具链安装](../dev_setup/dev_env.md)。
 :::
 
 jMAVSim is a simple multirotor/Quad simulator that allows you to fly _copter_ type vehicles running PX4 around a simulated world. It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure).
@@ -18,7 +18,7 @@ This topic shows how to set up jMAVSim to connect with a SITL version of PX4.
 jMAVSim can also be used for HITL Simulation ([as shown here](../simulation/hitl.md#jmavsim-quadrotor-only)).
 :::
 
-## Installation
+## 安装
 
 jMAVSim setup is included in our [standard build instructions](../dev_setup/dev_env.md) for Ubuntu Linux and Windows. Follow the instructions below to install jMAVSim on macOS.
 
@@ -184,7 +184,7 @@ The simulation can be [interfaced to ROS](../simulation/ros_interface.md) the sa
 - The startup scripts are discussed in [System Startup](../concept/system_startup.md).
 - The simulated root file system ("`/`" directory) is created inside the build directory here: `build/px4_sitl_default/rootfs`.
 
-## Troubleshooting
+## 故障处理
 
 ### java.long.NoClassDefFoundError
 
