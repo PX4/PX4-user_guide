@@ -6,7 +6,7 @@ The OMP Hobby ZMO is a small [tiltrotor VTOL](../frames_vtol/tiltrotor.md) that 
 
 ![Finished ZMO hover 2](../../assets/airframes/vtol/omp_hobby_zmo_fpv/airframe-hover2.jpg)
 
-## Overview
+## 개요
 
 Key airframe features:
 
@@ -22,13 +22,13 @@ Key airframe features:
 
 Depending on the final takeoff weight the hover time might be limited (there is not a lot of air circulation inside the fuselage when the vehicle is hovering so the ESCs might overheat).
 
-## Where to Buy
+## 구매처
 
 - [OMP-Hobby](https://www.omphobby.com/OMPHOBBY-ZMO-VTOL-FPV-Aircraft-With-DJI-Goggles-And-Remote-Controller-p3069854.html)
 - [GetFPV](https://www.getfpv.com/omphobby-zmo-z3-vtol-fpv-1200mm-arf-plane-kit-no-fpv-system.html)
 - [FoxtechFPV](https://www.foxtechfpv.com/zmo-pro-fpv-vtol.html)
 
-## Flight Controller
+## 비행 콘트롤러
 
 The following options have been tested:
 
@@ -60,7 +60,7 @@ The approximate maximum size of the FC is: 50x110x22mm
 - [USB camera (included in Skynode dev kit)](https://www.amazon.com/ELP-megapixel-surveillance-machine-monitor/dp/B015FIKTZC)
 - Screws, inserts, heat shrink, etc.
 
-## Tools
+## 도구
 
 The following tools were used for this build.
 
@@ -68,12 +68,12 @@ The following tools were used for this build.
 - Wrench set
 - Soldering station
 - Glue: Hot glue, 5 min Epoxy
-- Tape
+- 테이프
 - 3M Double sided tape ([3M VHB tape](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y))
 - Sandpaper
 - 3D-Printer
 
-## Hardware Integration
+## 하드웨어 통합
 
 ### Preparations
 
@@ -87,7 +87,7 @@ Flight controller and wing connectors removed from the vehicle.
 
 ![ZMO FPV with FC and wing connectors removed](../../assets/airframes/vtol/omp_hobby_zmo_fpv/zmo-02.jpg)
 
-### ESCs
+### ESC
 
 1. Unsolder the ESC PWM-signal and ground pins and solder some servo extension wire to the pins. The cable should be long enough to connect the wire to the FMU pins of the flight controller.
 1. Unsolder the 3 female banana plug connectors of the rear motor (might not be necessary for the Pixhawk 6 integration).
@@ -155,7 +155,7 @@ The connector glued into the fuselage. Make sure to properly align the connector
    - 2 - Front right
    - 3 - Rear
 
-### Sensors
+### 센서
 
 #### Pitot Tube
 
@@ -182,7 +182,7 @@ To install the Lidar:
 
 ![Lidar 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/lidar-01.jpg)
 
-#### GPS/Compass
+#### GPS/나침반
 
 To mount the GPS:
 
@@ -202,7 +202,7 @@ To mount the GPS:
 
    Then you can mount the camera with double sided tape to the wall.
 
-### Flight Controller
+### 비행 콘트롤러
 
 The Flight Controller can be installed above the ESC.
 
@@ -227,7 +227,7 @@ Another option is to add some threaded inserts into the holes. Since the injecti
 
 ### Antennas and RC Receiver
 
-::: info
+:::note
 
 If a Skynode is installed the LTE can be used as telemetry and video link. If a Pixhawk is used a different [telemetry link](../telemetry/index.md) will be needed. An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.md).
 :::
@@ -241,9 +241,9 @@ If a Skynode is installed the LTE can be used as telemetry and video link. If a 
 
    ![LTE antenna 2 and RC receiver](../../assets/airframes/vtol/omp_hobby_zmo_fpv/lte-antenna-02.jpg)
 
-## Software Setup
+## 소프트웨어 설정
 
-### Select Airframe
+### 기체를 선택합니다.
 
 1. Open QGC, select the **Q** icon, and then select **Vehicle Setup**.
 1. Select the [Airframe](../config/airframe.md) tab
@@ -259,7 +259,7 @@ To load the file:
 1. Download the [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo.params).
 1. Select the [Parameters](../advanced_config/parameters.md#finding-updating-parameters) tab and then click on **Tools** in the top right corner.
 1. Select **Load from file** and then choose the `omp_hobby_zmo.params` file you just downloaded.
-1. Reboot the vehicle.
+1. 기체를 재부팅합니다.
 
 ### Sensor Selection
 
@@ -274,10 +274,10 @@ First make sure to set the [correct orientation of the flight controller](../con
 
 Then calibrate the main sensors:
 
-- [Compass](../config/compass.md)
-- [Gyroscope](../config/gyroscope.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Airspeed](../config/airspeed.md)
+- [나침반](../config/compass.md)
+- [자이로스코프 ](../config/gyroscope.md)
+- [가속도계](../config/accelerometer.md)
+- [항속센서 보정](../config/airspeed.md)
 
 ### RC-Setup
 
@@ -329,7 +329,7 @@ Make sure the props are removed!!
 
 If the motor spins in the wrong directions two of the three motor wires need to be swapped. The direction can't be changed in software because the vehicle does not use [DShot ESC](../peripherals/dshot.md).
 
-## First Flight
+## 첫 번째 비행
 
 - Check tilt rotor reactions in [Stabilized mode](../flight_modes_fw/stabilized.md). Keep the throttle stick at the minimum and place the vehicle at the ground. To enable the tilt servos you need to arm the vehicle.
   - Yaw the vehicle to the right (nose to the right) -> left motor should tilt down
