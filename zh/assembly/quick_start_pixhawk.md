@@ -61,7 +61,7 @@ For planes and VTOL the output rail will need to be separately powered in order 
 
 <!-- It would be good to have real example of this powering -->
 
-## Radio Control
+## 遥控器
 
 A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -75,7 +75,7 @@ The instructions below show how to connect the different types of receivers to P
 
 - PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
 
 ## Telemetry Radios (Optional)
 
