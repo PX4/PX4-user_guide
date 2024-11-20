@@ -100,6 +100,6 @@ For more information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup
 
 ## See Also
 
-- [Serial Port Configuration](../peripherals/serial_configuration.md)
+- [串口配置](../peripherals/serial_configuration.md)
 - [PX4 Ethernet Setup > PX4 MAVLink Serial Port Configuration](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration)
-- [Serial Port Mapping](../hardware/serial_port_mapping.md)
+- [串口映射](../hardware/serial_port_mapping.md)
