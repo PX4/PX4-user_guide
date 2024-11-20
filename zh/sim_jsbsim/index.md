@@ -3,7 +3,7 @@
 :::warning
 This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+关于核心开发团队支持的环境和工具的信息，请参阅 [工具链安装](../dev_setup/dev_env.md)。
 :::
 
 [JSBSim](http://jsbsim.sourceforge.net/index.html) is a open source flight simulator ("flight dynamics model (FDM)") that runs on Microsoft Windows, Apple Macintosh, Linux, IRIX, Cygwin (Unix on Windows), etc. Its features include: fully configurable aerodynamics and a propulsion system that can model complex flight dynamics of an aircraft. Rotational earth effects are also modeled into the dynamics.
@@ -43,7 +43,7 @@ This will run both the PX4 SITL instance and the FlightGear UI (for visualizatio
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-| Vehicle        | Command                            |
+| Vehicle        | 通信                                 |
 | -------------- | ---------------------------------- |
 | Standard Plane | `make px4_sitl jsbsim_rascal`      |
 | Quadrotor      | `make px4_sitl jsbsim_quadrotor_x` |
@@ -77,6 +77,6 @@ To run JSBSim with ROS:
    roslaunch jsbsim_bridge px4_jsbsim_bridge.launch
    ```
 
-## Further Information
+## 更多信息
 
 - [px4-jsbsim-bridge readme](https://github.com/Auterion/px4-jsbsim-bridge)
