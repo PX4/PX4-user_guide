@@ -56,32 +56,32 @@ Firmware upgrade is not yet enabled over WiFi (it is supported by the default bo
 Setup and telemetry are supported.
 :::
 
-## Assembly
+## 조립
 
 [Pixracer 배선 퀵 스타트](../assembly/quick_start_pixracer.md)를 참고하십시오
 
 ## Wiring Diagrams
 
-![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
+![Grau setup pixracer 상단](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
 
 ::: info If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port. 더 자세한 정보는 이곳을 참고하십시오: [Pixracer 배선 퀵 스타트 > 외부 텔레메트리](../assembly/quick_start_pixracer.md#external-telemetry)
 :::
 
-![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
+![Grau setup pixracer 하단](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
 
 ![setup pixracer GPS](../../assets/flight_controller/pixracer/grau_setup_pixracer_gps.jpg)
 
-![Grau b Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
+![Grau b Pixracer FrSkyS.Port 연결](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
 
 ![Grau ACSP4 2 roh](../../assets/flight_controller/pixracer/grau_acsp4_2_roh.jpg)
 
 ![Grau ACSP5 roh](../../assets/flight_controller/pixracer/grau_acsp5_roh.jpg)
 
-## Connectors
+## 커넥터
 
 All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixhawk-connector-standard/). Unless noted otherwise all connectors are JST GH.
 
-## Pinouts
+## 핀배열
 
 ![Pixracer top pinouts](../../assets/flight_controller/pixracer/pixracer_r09_top_pinouts.jpg)
 
@@ -178,7 +178,7 @@ For information about using this port see:
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to UART7).
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
 | UART   | 장치         | 포트             |
 | ------ | ---------- | -------------- |
@@ -191,7 +191,7 @@ For information about using this port see:
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-## Schematics
+## 회로도
 
 The reference is provided as: [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)
 
@@ -200,19 +200,18 @@ The following PDF files are provided for _convenience only_:
 - [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
 - [pixracer-r14.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 또는 RC14는 SDCard 소켓 옆에 인쇄됩니다.
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
 ```
 make px4_fmu-v4_default
 ```
 
-## Configuration
+## 설정
 
 [Compass calibration](../config/compass.md) should be done with USB disconnected. This is always recommended, but is necessary on Pixracer because the USB connection produces particularly large levels of magnetic interference.
 
