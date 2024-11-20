@@ -1,6 +1,6 @@
 # ARK TESEO GPS
 
-ARK TESEO GPS is a made in the USA and NDAA-compliant [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.md) L1/L5 GPS, magnetometer, barometer, IMU, and buzzer module.
+[ARK TESEO GPS](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-teseo-gps) is a made in the USA and NDAA-compliant [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.md) L1/L5 GPS, magnetometer, barometer, IMU, and buzzer module.
 
 ![ARK TESEO GPS](../../assets/hardware/gps/ark/ark_teseo_gps.jpg)
 
@@ -9,10 +9,6 @@ ARK TESEO GPS is a made in the USA and NDAA-compliant [DroneCAN](index.md) [GNSS
 Order this module from:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-teseo-gps/) (US)
-
-Find more information:
-
-- [ARK TESEO GPS Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-teseo-gps)
 
 ## Hardware Specifications
 
@@ -46,7 +42,7 @@ Find more information:
 ### CAN - 4 Pin JST-GH
 
 | Pin Number | Signal Name | Voltage |
-|------------|-------------|---------|
+| ---------- | ----------- | ------- |
 | 1          | 5V          | 5.0V    |
 | 2          | CAN_P       | 5.0V    |
 | 3          | CAN_N       | 5.0V    |
@@ -55,7 +51,7 @@ Find more information:
 ### I2C + Timepulse - 5 Pin JST-GH
 
 | Pin Number | Signal Name      | Voltage |
-|------------|------------------|---------|
+| ---------- | ---------------- | ------- |
 | 1          | 5.0V Out (500mA) | 5.0V    |
 | 2          | I2C2_SCL         | 3.3V    |
 | 3          | I2C2_SDA         | 3.3V    |
@@ -65,10 +61,14 @@ Find more information:
 ### Debug - 6 Pin JST-SH
 
 | Pin Number | Signal Name | Voltage |
-|------------|-------------|---------|
+| ---------- | ----------- | ------- |
 | 1          | 3.3V        | 3.3V    |
 | 2          | USART2_TX   | 3.3V    |
 | 3          | USART2_RX   | 3.3V    |
 | 4          | FMU_SWDIO   | 3.3V    |
 | 5          | FMU_SWCLK   | 3.3V    |
 | 6          | GND         | GND     |
+
+## See Also
+
+- [ARK TESEO GPS Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-teseo-gps) (ARK Docs)

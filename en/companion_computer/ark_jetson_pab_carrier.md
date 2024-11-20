@@ -91,4 +91,4 @@ To flash the kernel, connect the Jetson to your Host PC via Micro USB, and boot 
 
 ## See Also
 
-- [ARK Jetson PAB Documentation](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier) (Ark Docs)
+- [ARK Jetson PAB Documentation](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier) (ARK Docs)

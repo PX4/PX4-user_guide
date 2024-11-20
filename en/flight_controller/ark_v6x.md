@@ -80,4 +80,4 @@ make ark_fmu-v6x_default
 
 ## See Also
 
-- [ARK Electronics ARKV6X](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/arkv6x) (Ark Docs)
+- [ARK Electronics ARKV6X](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/arkv6x) (ARK Docs)

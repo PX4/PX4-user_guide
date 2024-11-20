@@ -99,4 +99,4 @@ If you see a solid red LED there is an error and you should check the following:
 
 ## See Also
 
-- [ARK CANnode Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-cannode) (Ark Docs)
+- [ARK CANnode Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-cannode) (ARK Docs)

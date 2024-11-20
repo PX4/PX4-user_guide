@@ -1,17 +1,14 @@
 # ARK MOSAIC-X5 RTK GPS
 
-ARK MOSAIC-X5 RTK GPS is a made in the USA [DroneCAN](index.md) module featuring the Septentrio Mosaic-X5 RTK GPS, magnetometer, barometer, IMU, buzzer, and safety switch.
+[ARK MOSAIC-X5 RTK GPS](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-mosaic-x5-rtk-gps) is a made in the USA [DroneCAN](index.md) module featuring the Septentrio Mosaic-X5 RTK GPS, magnetometer, barometer, IMU, buzzer, and safety switch.
 
 ![ARK MOSAIC-X5 RTK GPS](../../assets/hardware/gps/ark/ark_mosaic_rtk_gps.jpg)
+
 ## Where to Buy
 
 Order this module from:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-mosaic-x5-gps/) (US)
-
-Find more information:
-
-- [ARK MOSAIC-X5 RTK GPS Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-mosaic-x5-rtk-gps)
 
 ## Hardware Specifications
 
@@ -27,11 +24,11 @@ Find more information:
 - STM32F412VGH6 MCU
 - Connections
   - Two Pixhawk Standard CAN Connectors (4 Pin JST-GH, 5V Input)
-  - Pixhawk Standard “Basic GPS Port” (6 pin JST-GH, supports USART3 and I2C2 for external sensors like airspeed or distance)
+  - Pixhawk Standard "Basic GPS Port" (6 pin JST-GH, supports `USART3` and I2C2 for external sensors like airspeed or distance)
   - Pixhawk Standard Debug Connector (6 Pin JST-SH)
   - USB-C Port (5V Input, USB 2.0 to Mosaic-X5)
   - Micro-SD Slot for Mosaic-X5 Logging
-  - Mosaic “UART 2” Connector (5 Pin JST-GH with TX, RX, TIMEPULSE, GP1, GND)
+  - Mosaic "UART 2" Connector (5 Pin JST-GH with TX, RX, TIMEPULSE, GP1, GND)
 - Power Requirements
   - 5V
   - 260mA Average
@@ -46,3 +43,7 @@ Find more information:
   - Triple Band (L1/L2/L5) Helical GPS Antenna
   - USA Built
   - Supports DroneCAN Firmware Updating
+
+## See Also
+
+- [ARK MOSAIC-X5 RTK GPS Documentation](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-mosaic-x5-rtk-gps) (ARK Docs)

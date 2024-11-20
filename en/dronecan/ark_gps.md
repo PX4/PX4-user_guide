@@ -106,4 +106,4 @@ If you see a red LED there is an error and you should check the following:
 
 ## See Also
 
-- [ARK GPS](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-gps) (Ark Docs)
+- [ARK GPS](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-gps) (ARK Docs)

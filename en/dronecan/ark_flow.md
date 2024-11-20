@@ -131,4 +131,4 @@ _PX4 holding position using the ARK Flow sensor for velocity estimation (in [Pos
 
 ## See Also
 
-- [ARK Flow](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-flow) (Ark Docs)
+- [ARK Flow](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-flow) (ARK Docs)
