@@ -25,13 +25,13 @@ The main difference between the modules is that the M8N allows concurrent recept
 - **M8N:** Concurrent reception of up to 3 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - **M9N:** Concurrent reception of up to 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
 
-## Where to Buy
+## 在哪里买
 
 - [Holybro](https://holybro.com/collections/gps)
 
 Note that there are variants for both M8N and M9N and also three different connectors.
 
-## Wiring and Connections
+## 接线和连接
 
 Both the M8N and M9N GPS modules come in three variants. These allow out-of-the box connection to flight controllers that follow the Pixhawk connector standard as either a primary or secondary GPS.
 
@@ -53,6 +53,6 @@ Both the M8N and M9N GPS modules come in three variants. These allow out-of-the 
 
   ![Holybro M8N with Pix32 connector](../../assets/hardware/gps/holybro_gps_pinout2.jpg)
 
-## Dimensions
+## 尺寸
 
 ![Image showing dimensions of both modules](../../assets/hardware/gps/holybro_gps_dimensions.jpg)
