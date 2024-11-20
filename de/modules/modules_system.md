@@ -25,6 +25,7 @@ battery_simulator <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -63,6 +64,7 @@ battery_status <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -106,6 +108,7 @@ camera_feedback <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -125,6 +128,7 @@ This module listens on USB and auto-configures the protocol depending on the byt
 ### Usage
 ```
 cdcacm_autostart <command> [arguments...]
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -276,6 +280,7 @@ esc_battery <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -296,6 +301,7 @@ Simple online gyroscope calibration.
 ### Usage
 ```
 gyro_calibration <command> [arguments...]
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -315,6 +321,7 @@ Source: [modules/gyro_fft](https://github.com/PX4/PX4-Autopilot/tree/main/src/mo
 ### Usage
 ```
 gyro_fft <command> [arguments...]
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -336,6 +343,7 @@ This task can be started at boot from the startup scripts by setting SENS_EN_THE
 ### Usage
 ```
 heater <command> [arguments...]
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -530,6 +538,7 @@ Module consuming manual_control_inputs publishing one manual_control_setpoint.
 ### Usage
 ```
 manual_control <command> [arguments...]
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -587,6 +596,7 @@ Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes 
 ### Usage
 ```
 pwm_input <command> [arguments...]
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -622,6 +632,7 @@ rc_update <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -676,6 +687,7 @@ The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, e
 ### Usage
 ```
 send_event <command> [arguments...]
+ send_event <command> [arguments...]
  Commands:
    start         Start the background task
 
@@ -708,6 +720,7 @@ sensor_arispeed_sim <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -740,6 +753,7 @@ sensor_baro_sim <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -772,6 +786,7 @@ sensor_gps_sim <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -804,6 +819,7 @@ sensor_mag_sim <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -867,6 +883,7 @@ tattu_can <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -1006,6 +1023,7 @@ work_queue <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
