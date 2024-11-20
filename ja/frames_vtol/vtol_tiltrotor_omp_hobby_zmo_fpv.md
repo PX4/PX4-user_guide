@@ -155,7 +155,7 @@ The connector glued into the fuselage. Make sure to properly align the connector
    - 2 - Front right
    - 3 - Rear
 
-### Sensors
+### センサー
 
 #### Pitot Tube
 
@@ -275,9 +275,9 @@ First make sure to set the [correct orientation of the flight controller](../con
 Then calibrate the main sensors:
 
 - [Compass](../config/compass.md)
-- [Gyroscope](../config/gyroscope.md)
-- [Accelerometer](../config/accelerometer.md)
-- [Airspeed](../config/airspeed.md)
+- [ジャイロ](../config/gyroscope.md)
+- [加速度センサー](../config/accelerometer.md)
+- [フライトモード](../config/airspeed.md)
 
 ### RC-Setup
 
