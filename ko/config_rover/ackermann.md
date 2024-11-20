@@ -29,7 +29,7 @@ To configure the Ackermann rover frame and outputs:
 
 3. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
 
-## Manual Mode
+## 수동 모드
 
 :::warning
 For this mode to work properly the [Basic Setup](#basic-setup) must've already been completed!
