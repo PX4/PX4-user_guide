@@ -33,7 +33,7 @@ Instructions for the steps above are covered in
 - [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)
 - [Express LRS: QuickStart](https://www.expresslrs.org/quick-start/getting-started/)
 
-### Wiring
+### 布线
 
 The TX and RX on your selected Flight Controller UART should be connected to separate channels on the receiver. The signal is usually uninverted, and can be directly connected (no additional inverter logic is required in the cable). You should check the manual for your specific receiver though!
 
@@ -57,13 +57,13 @@ For ExpressLRS receivers wire to the flight controller UART as shown below (wiri
 | VCC     | VCC        |
 | GND     | GND        |
 
-## PX4 Configuration
+## PX4 配置
 
 ### Firmware Configuration/Build
 
 CRSF telemetry support is not included in any PX4 firmware by default. To use this feature you must build and upload custom firmware that includes [crsf-rc](../modules/modules_driver.md#crsf-rc) and removes [rc_input](../modules/modules_driver.md#rc-input).
 
-The steps are:
+步骤如下：
 
 1. [Setup a development environment](../dev_setup/dev_env.md) for building PX4.
 
@@ -124,7 +124,7 @@ Alternatively you can use QGroundControl to install the firmware, as described i
 
 1. [RC_CRSF_TEL_EN](../advanced_config/parameter_reference.md#RC_CRSF_TEL_EN) — Enable to activate Crossfire telemetry.
 
-### Radio Setup
+### 无线电系统设置
 
 [Radio Control Setup](../config/radio.md) explains how to map your RC controller's attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
@@ -164,11 +164,11 @@ Receivers:
   ::: info This is used in the [Reptile Dragon 2 Build Log](../frames_plane/reptile_dragon_2.md). See sections [ELRS Rx](../frames_plane/reptile_dragon_2.md#elrs-rx) and [Radio Setup](../frames_plane/reptile_dragon_2.md#radio-setup).
 :::
 
-## Telemetry Messages
+## 遥测信息
 
 The supported telemetry messages and their source are listed below (this table is reproduced from the [TBS Crossfire Manual: "Available sensors with OpenTX"](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)).
 
-| Datapoint | Description                                        | Data source                      |
+| Datapoint | 描述                                                 | Data source                      |
 | --------- | -------------------------------------------------- | -------------------------------- |
 | 1RSS      | Uplink - received signal strength antenna 1 (RSSI) | TBS CROSSFIRE RX                 |
 | 2RSS      | Uplink - received signal strength antenna 2 (RSSI) | TBS CROSSFIRE RX                 |
@@ -197,6 +197,6 @@ The supported telemetry messages and their source are listed below (this table i
 
 - [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)
 - [ExpressLRS Documentation](https://www.expresslrs.org/quick-start/getting-started/)
-- [FrSky Telemetry](../peripherals/frsky_telemetry.md)
+- [睿思凯数传](../peripherals/frsky_telemetry.md)
 - [Radio Control Setup](../config/radio.md)
-- [Radio Control Systems](../getting_started/rc_transmitter_receiver.md)
+- [遥控系统](../getting_started/rc_transmitter_receiver.md)
