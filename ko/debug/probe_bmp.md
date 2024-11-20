@@ -19,28 +19,28 @@ The _6-pos DF13_ connector that comes with the probe cannot be used for SWD debu
 ## Using the Probe
 
 ::: info
-To debug STM32F7 or later (FMUv5 and newer) the Dronecode probe / Blackmagic probe likely requires a firmware update. You can find how to update the [blackmagic probe here](https://github.com/blacksphere/blackmagic/wiki/Upgrading-Firmware).
+To debug STM32F7 or later (FMUv5 and newer) the Dronecode probe / Blackmagic probe likely requires a firmware update. [blackmagic probe를 업데이트하는 방법은 여기](https://github.com/blacksphere/blackmagic/wiki/Upgrading-Firmware)를 참고하십시오.
 :::
 
-To use a Dronecode probe with GDB, start GDB with the exact ELF file that is currently flashed on the autopilot:
+GDB와 함께 Dronecode 프로브를 사용하려면, 현재 자동조종장치에서 플래싱된 정확한 ELF 파일로 GDB를 시작하십시오.
 
 ```sh
 arm-none-eabi-gdb build/px4_fmu-v5_default/px4_fmu-v5_default.elf
 ```
 
-Then, you have to select the Dronecode probe interface, on Linux this is e.g.:
+그런 다음, Dronecode 프로브 인터페이스를 선택하여야 합니다. Linux에서는 다음과 같습니다.
 
 ```sh
 target ext /dev/serial/by-id/usb-Black_Sphere_Technologies_Black_Magic_Probe_f9414d5_7DB85DAC-if00
 ```
 
-Then you scan for the target:
+그런 다음 대상을 스캔합니다.
 
 ```sh
 monitor swdp_scan
 ```
 
-And you should see something like:
+다음과 같은 내용이 표시되어야 합니다.
 
 ```sh
 Target voltage: 3.3V
@@ -49,12 +49,12 @@ No. Att Driver
  1      STM32F76x M7
 ```
 
-Note that for some autopilots it shows 0.0V but the subsequent steps work nevertheless.
+일부 자동조종장치는 0.0V를 표시하지만, 후속 단계는 그럼에도 불구하고 작동합니다.
 
-You can now attach to that target:
+이제 해당 대상에 연결할 수 있습니다.
 
 ```sh
 attach 1
 ```
 
-And now you should be connected.
+이제 연결되어야 합니다.
