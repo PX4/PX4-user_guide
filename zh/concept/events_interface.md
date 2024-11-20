@@ -1,4 +1,4 @@
-# Events Interface
+# 事件接口
 
 <Badge type="tip" text="PX4 v1.13" />
 
@@ -9,7 +9,7 @@ The interface can be used for publishing events for state changes or any other t
 ::: info The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in PX4 v1.13 and later. There will be an intermediate period where [both approaches are supported](#backward-compatibility).
 :::
 
-## Usage
+## 用法
 
 ### Basic
 
@@ -29,7 +29,7 @@ events::send(events::ID("mymodule_test"), events::Log::Info, "Test Message");
 
 For older GCS versions without events interface support, PX4 currently sends out all events also as `mavlink_log_*` `STATUSTEXT` message. In addition, the message must be tagged with an appended tab (`\t`) so that newer GCS's can ignore that and only show the event.
 
-So whenever adding an event, be sure to also add a `mavlink_log_` call. For example:
+So whenever adding an event, be sure to also add a `mavlink_log_` call. 例如：
 
 ```cpp
 mavlink_log_info(mavlink_log_pub, "Test Message\t");
@@ -143,7 +143,7 @@ Text format for event message description:
 
   - `NUM_DECIMAL_DIGITS` only makes sense for real number arguments.
 
-## Logging
+## 日志
 
 Events are logged according to the internal log level, and [Flight Review](../log/flight_review.md) displays events.
 
@@ -159,6 +159,6 @@ The metadata for all events is built into a separate JSON metadata file (using a
 
 ### Publishing Event Metadata to a GCS
 
-The event metadata JSON file is compiled into firmware (and/or hosted on the Internet), and made available to ground stations via the [MAVLink Component Metadata service](https://mavlink.io/en/services/component_information.html). This ensures that metadata is always up-to-date with the code running on the vehicle.
+The event metadata JSON file is compiled into firmware (and/or hosted on the Internet), and made available to ground stations via the [MAVLink Component Metadata service](https://mavlink.io/en/services/component_information.html). 这确保了元数据始终与载具上运行的代码保持最新。
 
-This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). For more information see [PX4 Metadata (Translation & Publication)](../advanced/px4_metadata.md)
+This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). 有关更多信息，请参阅[ PX4 元数据（翻译与发布）](../advanced/px4_metadata.md)
