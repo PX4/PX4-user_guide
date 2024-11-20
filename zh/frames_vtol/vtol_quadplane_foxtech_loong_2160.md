@@ -5,7 +5,7 @@ This build guide shows how to add a flight controller system using [Auterion Sky
 
 ![Photo of Loong VTOL in flight](../../assets/airframes/vtol/foxtech_loong_2160/01-foxtech-loong.jpg)
 
-## Overview
+## 综述
 
 Specifications:
 
@@ -25,7 +25,7 @@ Key Features:
 - Extended Flight Time: Up to 1 hour and 30 minutes, depending on weather conditions and takeoff weight
 - Versatile Payload Capacity: Spacious fuselage accommodates diverse payloads, including options like the Sony A7R for mapping applications.
 
-## Where to Buy
+## 在哪里买
 
 - [Foxtech FPV (ARF Combo)](https://www.foxtechfpv.com/foxtech-loong-2160-vtol.html) - recommended
 - [Alibaba](https://www.alibaba.com/product-detail/Loong-2160-Long-Endurance-VTOL-Mapping_1600280686653.html)
@@ -67,7 +67,7 @@ The following options have been tested:
 - [Antenna extension cable - matching your radio system](https://www.digikey.ch/de/products/detail/amphenol-rf/095-902-536-012/13246174)
 - [Recommended Battery (12S 22Ah)](https://genstattu.com/tattu-22-2v-30c-6s-22000mah-lipo-battery-with-xt90-s-plug-for-uav.html)
 
-## Tools
+## 工具
 
 The following tools were used for this build.
 
@@ -148,7 +148,7 @@ The 40A power module provides power for the avionics when using Skynode (and com
 
 If necessary, the 10V output of the radio port on the PM can also be exposed via an XT30 that can be mounted next to the 6S battery input XT60.
 
-### Sensors
+### 传感器
 
 #### Pitot Tube
 
@@ -249,7 +249,7 @@ The power module can be used as a 5V backup for Skynode.
 
 ![12S-Power-Module](../../assets/airframes/vtol/foxtech_loong_2160/18-12s-power-module.jpg)
 
-### Assembly
+### 组装
 
 The assembly steps are:
 
@@ -281,9 +281,9 @@ AUX:
 
 If you wish connect the actuators to different outputs you will need to modify the Actuator Output mappings (see [Actuator Configuration](../config/actuators.md)).
 
-## Software Setup
+## 软件设置
 
-### Select Airframe
+### 选择机架
 
 1. Open QGC, select the **Q** icon, and then select **Vehicle Setup**.
 2. Select the [Airframe](../config/airframe.md) tab
@@ -376,7 +376,7 @@ Check the following reactions:
 increase the throttle a bit if you can't see a reaction since [Airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode-mixer-saturation) is not enabled for the yaw axis.
 :::
 
-## First Flight
+## 第一次飞行
 
 - Mount the propellers (use blue Loctite for the screws).
 - Check center of gravity (GG).
