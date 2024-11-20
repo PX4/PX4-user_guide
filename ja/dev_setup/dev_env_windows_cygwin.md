@@ -42,7 +42,7 @@ To add these yourself:
 
 :::
 
-## Getting Started
+## はじめに
 
 The toolchain uses a specially configured console window (started by running the **run-console.bat** script) from which you can call the normal PX4 build commands:
 
