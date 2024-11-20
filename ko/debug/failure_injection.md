@@ -25,7 +25,7 @@ The full syntax of the [failure](../modules/modules_command.md#failure) command 
 failure <component> <failure_type> [-i <instance_number>]
 ```
 
-where:
+여기서:
 
 - _구성요소_:
   - 센서:
