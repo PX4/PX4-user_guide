@@ -17,16 +17,17 @@ _QGroundControl_ will guide you to place and hold your vehicle in a number of or
 보정 절차는 다음과 같습니다:
 
 1. Start _QGroundControl_ and connect the vehicle.
-1. Select **"Q" icon > Vehicle Setup > Sensors** (sidebar) to open _Sensor Setup_.
+1. 상단 도구 모음에서 **톱니 바퀴** 아이콘(기체 설정)을 선택한 다음에, 가장자리 표시줄에서 **센서**를 선택합니다.
 1. Click the **Accelerometer** sensor button.
 
    ![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer.png)
 
-   ::: info You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+:::note
+이 작업 이전에 [비행콘트롤러 방향](../config/flight_controller_orientation.md)을 미리 설정하여야 합니다. 미리 설정하지 않았다면, 여기에서 설정할 수 있습니다.
 :::
 
-1. Click **OK** to start the calibration.
-1. Position the vehicle as guided by the _images_ on the screen. Once prompted (the orientation-image turns yellow) hold the vehicle still. Once the calibration is complete for the current orientation the associated image on the screen will turn green.
+1. 보정을 시작하려면 **확인**을 클릭합니다.
+1. Position the vehicle as guided by the _images_ on the screen. Once prompted (the orientation-image turns yellow) hold the vehicle still. 현재 방향에 대해 보정이 완료되면 화면의 그림이 녹색으로 바뀝니다.
 
    ::: info
 The calibration uses a least squares 'fit' algorithm that doesn't require you to have "perfect" 90 degree orientations.
@@ -35,9 +36,9 @@ The calibration uses a least squares 'fit' algorithm that doesn't require you to
 
    ![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer_positions_px4.png)
 
-1. Repeat the calibration process for all vehicle orientations.
+1. 드론의 모든 방향에 대해 보정 과정을 반복합니다.
 
-Once you've calibrated the vehicle in all the positions _QGroundControl_ will display _Calibration complete_ (all orientation images will be displayed in green and the progress bar will fill completely). You can then proceed to the next sensor.
+Once you've calibrated the vehicle in all the positions _QGroundControl_ will display _Calibration complete_ (all orientation images will be displayed in green and the progress bar will fill completely). 그런 다음 다음 센서의 보정 작업을 진행합니다.
 
 ## 추가 정보
 
