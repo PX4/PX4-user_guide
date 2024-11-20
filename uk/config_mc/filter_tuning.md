@@ -39,7 +39,7 @@ _Затримка керування_ - це час від фізичного п
 :::
 
 - Окремий фільтр нижніх частот для терміну D. Термін D найбільш схильний до шуму, при цьому незначне збільшення затримки не негативно впливає на продуктивність. З цієї причини термін D має окремо налаштований фільтр нижніх частот, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
-- Фільтр обмеження швидкості на виходах двигуна ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). Зазвичай не використовується.
+- A optional slew-rate filter on the motor outputs. This rate may be configured as part of the [Multicopter Geometry](../config/actuators.md#motor-geometry-multicopter) when configuring actuators (which in turn modifies the [CA_Rn_SLEW](../advanced_config/parameter_reference.md#CA_R0_SLEW) parameters for each motor `n`).
 
 Для зменшення затримки керування ми хочемо збільшити частоту відсічки для фільтрів нижніх частот. Вплив збільшення `IMU_GYRO_CUTOFF` на затримку наближено нижче.
 
@@ -76,7 +76,7 @@ _Затримка керування_ - це час від фізичного п
 
 Налаштування фільтрування найкраще виконувати, переглядаючи журнали польотів. Ви можете зробити кілька польотів один за одним з різними параметрами, а потім перевірити всі журнали, але переконайтеся, що роззброїлись між ними, щоб створювалися окремі файли журналів.
 
-Виконане повітряне маневрування може просто полягати в зависанні в режимі [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) з деякими кочуваннями і тангажами в усіх напрямках і деякими збільшеними періодами газу. Загальна тривалість не повинна перевищувати 30 секунд. Щоб краще порівняти, маневр має бути схожим у всіх тестах.
+The performed flight maneuver can simply be hovering in [Stabilized mode](../flight_modes_mc/manual_stabilized.md) with some rolling and pitching to all directions and some increased throttle periods. Загальна тривалість не повинна перевищувати 30 секунд. Щоб краще порівняти, маневр має бути схожим у всіх тестах.
 
 Спочатку налаштуйте фільтр гіроскопа [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF), збільшуючи його кроками по 10 Гц, використовуючи низьке значення фільтра D-term ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30). Завантажте журнали до [Flight Review](https://logs.px4.io) та порівняйте графік Фур'є керованих акторів _Actuator Controls FFT_. Встановіть частоту відсічки на значення, перше, ніж шум стане помітно зростати (для частот приблизно 60 Гц і вище).
 
