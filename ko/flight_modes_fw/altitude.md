@@ -32,7 +32,7 @@ Altitude mode like [Stabilized mode](../flight_modes_fw/stabilized.md) but with 
 - Manual control input is required (such as RC control, joystick).
 - An altitude measurement source is required (usually barometer or GPS)
 
-## Parameters
+## 매개변수
 
 The mode is affected by the following parameters:
 
@@ -43,7 +43,7 @@ The mode is affected by the following parameters:
 | <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)   | Cruise speed. Default: 15 m/s.                                       |
 | <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)       | Max pitch setpoint in attitude stabilized mode. Default: 45 degrees. |
 | <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)       | Max roll setpoint in attitude stabilized mode. Default: 45 degrees.  |
-| <a id="FW_T_CLMB_R_SP"></a>[FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) | Max climb rate setpoint. Default: 3 m/s.                             |
+| <a id="FW_T_CLMB_R_SP"></a>[FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) | Max climb rate setpoint. 기본값: 3 m/s.                                 |
 | <a id="FW_T_SINK_R_SP"></a>[FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP) | Max sink rate setpoint. Default: 2 m/s.                              |
 
 
