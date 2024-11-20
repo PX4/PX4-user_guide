@@ -2,7 +2,7 @@
 
 This page explains how to configure and control a gimbal that has an attached camera (or any other payload).
 
-## Overview
+## 개요
 
 PX4 contains a generic mount/gimbal control driver that supports different input and output methods:
 
