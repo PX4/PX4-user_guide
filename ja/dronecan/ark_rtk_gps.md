@@ -13,7 +13,7 @@ Order this module from:
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_RTK_GPS)
-- Sensors
+- センサー
   - Ublox F9P GPS
     - Multi-band GNSS receiver delivers centimetre level accuracy in seconds
     - Concurrent reception of GPS, GLONASS, Galileo and BeiDou
@@ -122,7 +122,7 @@ Setup via UART:
 - On the _Moving Base_, set the following:
   - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `2`.
 
-## LED Meanings
+## LED表示の意味
 
 - The GPS status lights are located to the right of the connectors
 
