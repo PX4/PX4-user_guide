@@ -1,6 +1,8 @@
 # _Pixhawk 4 Mini_ Wiring Quick Start
 
-:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4에서는 이 자동 항법 장치를 제조하지 않습니다.
+소형화를 위하여 가진 IO가 적습니다.
 :::
 
 This quick start guide shows how to power the [_Pixhawk<sup>&reg;</sup> 4 Mini_](../flight_controller/pixhawk4_mini.md) flight controller and connect its most important peripherals.
@@ -23,7 +25,8 @@ _Pixhawk 4 Mini_ should be mounted on your frame using vibration-damping foam pa
 
 ![*Pixhawk 4 Mini* 방향](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_orientation.png)
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::note
+콘트롤러를 권장 방향으로 장착할 수 없는 경우 (예 : 공간 제약으로 인해) 실제 [장착 방향](../config/flight_controller_orientation.md)을 자동조종 소프트웨어를 설정하여야합니다.
 :::
 
 ## GPS + 나침반 + 부저 + 안전 스위치 + LED
@@ -32,7 +35,7 @@ _Pixhawk 4 Mini_ should be mounted on your frame using vibration-damping foam pa
 
 ![Pixhawk 4에 나침반/GPS 연결](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_gps.png)
 
-::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). 안전 스위치를 1초간 길게 누르면 비활성화됩니다. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
+전원 모듈 또는 배전 보드를 사용하여 모터와 서보에 전원을 공급하고 소비 전력을 측정할 수 있습니다. 안전 스위치를 1초간 길게 누르면 비활성화됩니다. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
 :::
 
 ## 전원
@@ -75,7 +78,7 @@ The pinout of the _Pixhawk 4 Mini_ **POWER** port is shown below. 전류 신호�
 ::: info Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) but you won't need to calibrate the _voltage divider_. You will have to update the _voltage divider_ if you are using any other power module (e.g. the one from the Pixracer).
 :::
 
-## Radio Control
+## 무선 조종
 
 A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -93,7 +96,7 @@ The instructions below show how to connect the different types of receivers to _
 
 - PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **PPM RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+무선 텔레메트리는 지상국 프로그램에서 비행 차량의 통신/제어에 사용합니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
 ## Telemetry Radio (Optional)
 
