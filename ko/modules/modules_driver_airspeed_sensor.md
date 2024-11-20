@@ -77,7 +77,7 @@ Source: [drivers/differential_pressure/ms4525do](https://github.com/PX4/PX4-Auto
 
 <a id="ms4525do_usage"></a>
 
-### Usage
+### 사용법
 ```
 ms4525do <command> [arguments...]
  Commands:
