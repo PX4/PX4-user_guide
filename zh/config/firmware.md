@@ -66,7 +66,7 @@ Firmware update then continues as before.
 
 硬件通常预先安装匹配版本的引导程序。
 
-您可能需要更新的是安装较新的 Pixhawk 板FMUv2 固件 。 If _QGroundControl_ installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
+您可能需要更新的是安装较新的 Pixhawk 板FMUv2 固件 。 如果 _QGroundControl_ 安装了 FMUv2 目标(见安装过程中的控制台) 而且你有一个新的板，你可能需要更新引导程序，以便访问你飞行控制器上的所有内存。
 
 ![FMUv2 更新](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
