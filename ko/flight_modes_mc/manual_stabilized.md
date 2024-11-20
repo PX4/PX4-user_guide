@@ -20,12 +20,12 @@ RC mode where centered sticks level vehicle (only - position is not stabilized).
 
 조종사의 입력은 롤 및 피치 각 명령과 요 율 명령으로 전달됩니다. Throttle is rescaled (see [below](#params)) and passed directly to control allocation. 자동 조종 장치는 자세를 제어합니다. 즉, RC 스틱이 컨트롤러 데드 존 내부에 집중 될 때 롤과 피치 각을 제로로 조절합니다 (결과적으로 태도가 수평이 됨). 자동 조종 장치는 바람 (또는 다른 원인)으로 인한 드리프트를 보상하지 않습니다.
 
-- Centered sticks (inside deadband):
+- 중앙 스틱 (데드밴드 내부) :
   - Roll/Pitch sticks level vehicle.
 - Outside center:
   - Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.
   - Throttle stick controls up/down speed (and movement speed in other axes).
-  - Yaw stick controls rate of angular rotation above the horizontal plane.
+  - 요 스틱은 수평면 위의  회전 각속도를 제어합니다.
 - Manual control input is required (such as RC control, joystick).
   - Roll, Pitch: Assistance from autopilot to stabilize the attitude. Position of RC stick maps to the orientation of vehicle.
   - Throttle: Manual control via RC sticks. RC input is sent directly to control allocation.
