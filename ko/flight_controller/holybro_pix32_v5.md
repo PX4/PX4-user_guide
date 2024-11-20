@@ -1,6 +1,8 @@
 # Holybro Pix32 v5
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4에서는 이 제품을 제조하지 않습니다.
+소형화를 위하여 가진 IO가 적습니다.
 :::
 
 [Pix32 v5](https://holybro.com/products/pix32-v5)<sup>&reg;</sup> is an advanced autopilot flight controller designed and made by Holybro<sup>&reg;</sup>. PX4 펌웨어 실행에 최적화 되어 있으며, 연구와 상업용 개발자들에게 적합합니다. [Pixhawk-project](https://pixhawk.org/) **FMUv5** 개방형 하드웨어 설계를 기반으로 [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다. Pixhawk4의 변형 버전으로 간주할 수 있습니다.
@@ -64,7 +66,7 @@ Pix32 v5는 고출력, 유연하고 사용자 정의 가능한 비행제어 시�
 
 Additional information can be found in the [Pix32 V5 Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf).
 
-## Where to Buy
+## 구매처
 
 Order from [Holybro website](https://holybro.com/products/pix32-v5).
 
