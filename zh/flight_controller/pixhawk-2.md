@@ -1,6 +1,6 @@
 # Hex Cube Black Flight Controller
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 :::
 
 :::tip
@@ -114,7 +114,7 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 <a id="serial_ports"></a>
 
-### Serial Port Mapping
+### 串口映射
 
 | UART   | 设备         | Port                         |
 | ------ | ---------- | ---------------------------- |
