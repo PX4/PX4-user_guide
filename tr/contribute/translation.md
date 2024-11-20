@@ -60,7 +60,7 @@ Maintaining a translation is hard!
 Before you ask us to create a new language, please find a few other people to help you translate!
 :::
 
-## Getting Help
+## Yardım Alma
 
 The _Crowdin_ interface is self explanatory, but there is plenty of additional information on the [knowledgeable](https://support.crowdin.com/).
 
