@@ -1,6 +1,8 @@
 # 홀리브로 픽스호크 5X 배선 개요
 
-:::warning PX4에서는 이 자동항법장치를 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4에서는 이 자동항법장치를 제조하지 않습니다.
+소형화를 위하여 가진 IO가 적습니다.
 :::
 
 [Pixhawk<sup>&reg;</sup> 5X](../flight_controller/pixhawk5x.md) 비행 콘트롤러의 전원 공급 방법과 주요 주변 장치 연결 방법에 대하여 설명합니다.
@@ -25,7 +27,8 @@ _Pixhawk 5X_ can be mounted on the frame using double side tape included in the 
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_vehicle_front1.jpg" width="400px" title="Pixhawk 5X 표준 세트" />
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::note
+콘트롤러를 권장 방향으로 장착할 수 없는 경우 (예 : 공간 제약으로 인해) 실제 [장착 방향](../config/flight_controller_orientation.md)을 자동조종 소프트웨어를 설정하여야합니다.
 :::
 
 ## GPS + 나침반 + 부저 + 안전 스위치 + LED
@@ -38,7 +41,7 @@ The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_gps_front.jpg" width="200px" title="Pixhawk 5X 표준 세트" />
 
-::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
+전원 모듈 또는 배전 보드를 사용하여 모터와 서보에 전원을 공급하고 소비 전력을 측정할 수 있습니다. 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
 :::
 
 ## 전원
@@ -72,7 +75,7 @@ The pinout of _Pixhawk 5X_’s power ports is shown below. 전원 포트는 전�
 | 5 (흑) | GND | GND   |
 | 6 (흑) | GND | GND   |
 
-## Radio Control
+## 무선 조종
 
 A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -83,9 +86,9 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **RC IN** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+무선 텔레메트리는 지상국 프로그램에서 비행 차량의 통신/제어에 사용합니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
-## Telemetry Radios (Optional)
+## 무선 텔레메트리(선택 사항)
 
 [무선 텔레메트리](../telemetry/README.md)는 지상국 프로그램에서 비행 차량의 통신/제어에 사용합니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
@@ -97,7 +100,7 @@ Radios are also available for purchase on [Holybro's website](https://holybro.co
 
 SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 사용하는 것이 좋습니다. Insert the card (included in Pixhawk 5X kit) into _Pixhawk 5X_ as shown below.
 
-<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_sd_slot.jpg" width="420px" title="Pixhawk5x standard set" />
+<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_sd_slot.jpg" width="420px" title="Pixhawk 5X 표준 세트" />
 
 :::tip
 For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory). 아래 그림과 같이 SD 카드(Pixhawk  5X 키트에 포함됨)를 *Pixhawk 5X*에 삽입합니다.
