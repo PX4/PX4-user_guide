@@ -7,8 +7,8 @@
 
 PX4 інтегрується з трьома типами камер:
 
-- [Камери MAVLink](../camera/mavlink_v2_camera.md), які підтримують [Протокол камери v2](https://mavlink.io/en/services/camera.html) (**РЕКОМЕНДОВАНО**).
-- [Прості камери MAVLink](../camera/mavlink_v1_camera.md), які підтримують старі протоколи [Протокол Камери v1](https://mavlink.io/en/services/camera.html).
+- [Камери MAVLink](../camera/mavlink_v2_camera.md), які підтримують [Протокол Камери v2](https://mavlink.io/en/services/camera.html) (**РЕКОМЕНДОВАНО**).
+- [Прості камери MAVLink](../camera/mavlink_v1_camera.md), які підтримують старший [Протокол камери v1](https://mavlink.io/en/services/camera.html).
 - [Камери, підключені до виходів контролера польоту](../camera/fc_connected_camera.md), які керуються з використанням [протоколу камери v1](https://mavlink.io/en/services/camera.html).
 
 [Камери MAVLink](../camera/mavlink_v2_camera.md) рекомендовані, оскільки вони забезпечують широкий доступ до функцій камери, використовуючи простий та послідовний набір команд/повідомлень.
