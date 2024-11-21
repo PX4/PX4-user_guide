@@ -2,11 +2,13 @@
 
 This section covers the common software configuration and calibration needed for most PX4 vehicles.
 
-You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection). Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
+You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection).
+Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
 
-## 前置条件
+## 操作前提
 
-Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer. Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
+Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer.
+Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
 
 ![QGC Main Menu Popup: highlighting Vehicle Setup](../../assets/qgc/setup/menu_setup.png)
 
@@ -14,38 +16,39 @@ Before starting you should [Download QGroundControl](http://qgroundcontrol.com/d
 
 ### Firmware/Vehicle Selection
 
-- [加载固件](../config/firmware.md)
+- [Loading Firmware](../config/firmware.md)
 - [Vehicle (Frame) Selection](../config/airframe.md)
 
 ### Motor/Actuator Setup
 
-- [电调（ESC）校准](../advanced_config/esc_calibration.md)
-- [作动器配置和测试](../config/actuators.md)
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Actuator Configuration and Testing](../config/actuators.md)
 
 ### Sensor Calibration
 
-- [传感器方向](../config/flight_controller_orientation.md)
-- [罗盘](../config/compass.md)
-- [陀螺仪](../config/gyroscope.md)
-- [加速度计 Accelerometer](../config/accelerometer.md)
+- [Sensor Orientation](../config/flight_controller_orientation.md)
+- [Magnetometer (Compass)](../config/compass.md)
+- [Gyroscope](../config/gyroscope.md)
+- [Accelerometer](../config/accelerometer.md)
 - [Level Horizon](../config/level_horizon_calibration.md)
 - [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
 
-::: info Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
+:::info
+Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
 :::
 
-### Manual Control Setup
+### 手动控制设置
 
 Radio Control:
 
 - [Radio Controller (RC) Setup](../config/radio.md)
-- [飞行模式有关配置](../config/flight_mode.md)
+- [Flight Mode Configuration](../config/flight_mode.md)
 
 Joystick/GamePad:
 
-- [操纵杆设置](../config/joystick.md)
+- [Joystick Setup](../config/joystick.md)
 
-### Safety Configuration
+### 安全配置
 
 - [Battery Estimation Tuning](../config/battery.md) (requires [Power Module](../power_module/index.md))
 - [Safety Configuration (Failsafes)](../config/safety.md)
@@ -58,7 +61,7 @@ Auto-tuning is supported, and recommended, on the following frames:
 - [Autotune (Fixed Wing)](../config/autotune_fw.md)
 - [Autotune (VTOL)](../config/autotune_vtol.md)
 
-## 视频教程
+## 一键安装脚本
 
 The video below shows most of the calibration process (it uses an older version of _QGroundControl_, but most of the process is unchanged).
 
@@ -71,11 +74,11 @@ If you need help with the configuration you can ask for help on the [QGroundCont
 ## See Also
 
 - [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
-- [飞控外设](../peripherals/index.md) - 设置特定传感器、可选传感器、执行器等。
+- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
 - [Advanced Configuration](../advanced_config/index.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Vehicle-Centric Config/Tuning:
 
-  - [多旋翼配置/调试](../config_mc/index.md)
+  - [Multicopter Config/Tuning](../config_mc/index.md)
   - [Helicopter Config/Tuning](../config_heli/index.md)
-  - [固定翼形配置/调试](../config_fw/index.md)
-  - [垂直起降配置/调试](../config_vtol/index.md)
+  - [Fixed-wing Config/Tuning](../config_fw/index.md)
+  - [VTOL Config/Tuning](../config_vtol/index.md)
