@@ -1,29 +1,34 @@
 # Калібрування гіроскопа
 
-_QGroundControl_ настановить вас розмістити транспортний засіб на рівній поверхні та утримувати його нерухомим.
+_QGroundControl_ will guide you to place the vehicle on a flat surface and keep it still.
 
 ## Виконання калібрування
 
 Калібрування включає наступні кроки:
 
-1. Запустіть _QGroundControl_ та підключіть транспортний засіб.
-1. Виберіть **іконку "Q" > Налаштування транспортного засобу > Датчики** (бічна панель), щоб відкрити _Налаштування датчиків_.
-1. Натисніть кнопку датчика  **Gyroscope** .
+1. Start _QGroundControl_ and connect the vehicle.
+
+2. Select **"Q" icon > Vehicle Setup > Sensors** (sidebar) to open _Sensor Setup_.
+
+3. Click the **Gyroscope** sensor button.
 
    ![Select Gyroscope calibration PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_px4.png)
 
-1. Розмістіть транспортний засіб на поверхні та залиште його нерухомим.
-1. Клацніть **Ok**, щоб розпочати калібрування.
+4. Розмістіть транспортний засіб на поверхні та залиште його нерухомим.
+
+5. Click **Ok** to start the calibration.
 
    Смуга у верхній частині показує прогрес:
 
    ![Gyro calibration in progress on PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_progress_px4.png)
 
-1. Коли завершиться, _QGroundControl_ відображатиме смугу прогресу _Калібрування завершено_ ![Gyro calibration complete on PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_complete_px4.png)
+6. When finished, _QGroundControl_ will display a progress bar _Calibration complete_
+   ![Gyro calibration complete on PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_complete_px4.png)
 
-:::info Якщо ви перемістите транспортний засіб, _QGroundControl_ автоматично перезапустить калібрування гіроскопа.
+:::info
+If you move the vehicle _QGroundControl_ will automatically restart the gyroscope calibration.
 :::
 
-## Подальша інформація
+## Додаткова інформація
 
-- [Посібник користувача з QGroundControl > Гіроскоп](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#gyroscope)
+- [QGroundControl User Guide > Gyroscope](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#gyroscope)
