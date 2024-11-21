@@ -41,12 +41,12 @@ If using a different port, or a flight controller that has different connector, 
 
 ![Cube ID serial port](../../assets/hardware/remote_id/cube_id/serial_port_connector.jpg)
 
-| 핀     | 신호      | 전압 |
-| ----- | ------- | -- |
-| 1 (적) | VCC_5V  | 5V |
-| 2 (흑) | TX (출력) |    |
-| 3 (흑) | RX (입력) |    |
-| 4 (흑) | GND     | 0  |
+| 핀      | 신호      | 전압 |
+| ------ | ------- | -- |
+| 1(red) | VCC_5V  | 5V |
+| 2 (흑)  | TX (출력) |    |
+| 3 (흑)  | RX (입력) |    |
+| 4 (흑)  | GND     | 0  |
 
 #### Cube ID Firmware
 
@@ -114,7 +114,7 @@ Integrators should test than the remote ID module is broadcasting the correct in
 - [Drone Scanner](https://github.com/dronetag/drone-scanner) (Google Play or Apple App store)
 - [OpenDroneID OSM](https://play.google.com/store/apps/details?id=org.opendroneid.android_osm&hl=en&gl=US) (Google Play)
 
-## Implementation
+## 구현
 
 PX4 v1.14 streams these messages by default (in streaming modes: normal, onboard, usb, onboard low bandwidth):
 
