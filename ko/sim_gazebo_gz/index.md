@@ -138,7 +138,7 @@ PX4_GZ_WORLD=windy make px4_sitl gz_x500
 
 The [supported worlds](../sim_gazebo_gz/worlds.md) are listed below.
 
-| 전역         | 통신                         | Description                                                 |
+| 전역         | 통신                         | 설명                                                          |
 | ---------- | -------------------------- | ----------------------------------------------------------- |
 | `default`  | `make px4_sitl *`          | Empty world (a grey plane)                                  |
 | `aruco`    | `make px4_sitl *_aruco`    | Empty world with aruco marker for testing precision landing |
