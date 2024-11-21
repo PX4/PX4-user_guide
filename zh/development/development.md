@@ -9,20 +9,20 @@ This section is for software developers and (new) hardware integrators.
 
 它解释了如何：
 
-- 了解到 [配置最小开发环境](../dev_setup/config_initial.md)，[用源码编译PX4](../dev_setup/building_px4.md) 以及部署到 [众多支持的自动驾驶仪](../flight_controller/README.md)。
-- 理解 [PX4 系统架构](../concept/architecture.md) 以及核心概念。
+- Get a [minimum developer setup](../dev_setup/config_initial.md), [build PX4 from source](../dev_setup/building_px4.md) and deploy on [numerous supported autopilots](../flight_controller/index.md).
+- Understand the [PX4 System Architecture](../concept/architecture.md) and other core concepts.
 - 学习如何更改飞行栈及中间层：
-  - 更改飞行算法和添加新的 [飞行模式](../concept/flight_modes.md)。
-  - 支持新的 [机型](../dev_airframes/README.md)。
+  - Modify flight algorithms and add new [flight modes](../concept/flight_modes.md).
+  - Support new [airframes](../dev_airframes/index.md).
 - 学习如何将PX4集成到新的硬件上：
   - 支持新的传感器和执行器, 包括摄像头、测距仪等。
   - 修改PX4使之能够在新的自驾仪硬件上运行。
-- 对 PX4 进行 [仿真](../simulation/README.md)、[测试](../test_and_ci/README.md) 和 [调试/查看日志](../debug/README.md)。
+- [Simulate](../simulation/index.md), [test](../test_and_ci/index.md) and [debug/log](../debug/index.md) PX4.
 - 与外部机器人的 API 进行联调通信/集成。
 
 ## 开发者可用的关键链接
 
-- [支持](../contribute/support.md): 使用 [讨论板](https://discuss.px4.io//) 和其他支持渠道获得帮助。
-- [每周Dev 呼叫](../contribute/dev_call.md): 一个很好的机会来与PX4 dev 团队讨论平台技术细节(包括拉取请求)。 主要、问题、通用 Q&A。
-- [许可证](../contribute/licenses.md): 你可以做什么代码(自由使用和修改允许的条件 [BSD 3条款许可证](https://opensource.org/licenses/BSD-3-Clause)!)
-- [贡献](../contribute/README.md): 如何使用我们的 [源代码](../contribute/code.md)。
+- [Support](../contribute/support.md): Get help using the [discussion boards](https://discuss.px4.io//) and other support channels.
+- [Weekly Dev Call](../contribute/dev_call.md): A great opportunity to meet the PX4 dev team and discuss platform technical details (including pull requests, major issues, general Q&A).
+- [Licences](../contribute/licenses.md): What you can do with the code (free to use and modify under terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause)!)
+- [Contributing](../contribute/index.md): How to work with our [source code](../contribute/code.md).
