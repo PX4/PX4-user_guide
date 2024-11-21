@@ -1,6 +1,8 @@
 # Debugging with GDB
 
-The [GNU DeBugger (GDB)](https://sourceware.org/gdb/documentation/) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary. The debugger reads the debug symbols inside an ELF file to understand the static and dynamic memory layout of the PX4 firmware. To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
+The [GNU DeBugger (GDB)](https://sourceware.org/gdb/documentation/) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary.
+The debugger reads the debug symbols inside an ELF file to understand the static and dynamic memory layout of the PX4 firmware.
+To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
 
 The flow of information looks like this:
 
@@ -13,7 +15,8 @@ Developer <=> GDB <=> GDB Server <=> Debug Probe <=> SWD <=> PX4 Autopilot.
 To start a debugging session you typically:
 
 1. Need a specialized [SWD debug probe](../debug/swd_debug.md#debug-probes).
-2. Find and connect to the [SWD debug port](../debug/swd_debug.md#autopilot-debug-ports). You may need a [debug adapter](swd_debug.md#debug-adapters).
+2. Find and connect to the [SWD debug port](../debug/swd_debug.md#autopilot-debug-ports).
+   You may need a [debug adapter](swd_debug.md#debug-adapters).
 3. Configure and start the debug probe to create a GDB server.
 4. Launch GDB and connect to the GDB server as a remote target.
 5. Debug your firmware interactively.
@@ -28,18 +31,18 @@ We recommend using the J-Link with the Pixhawk Debug Adapter or the STLinkv3-MIN
 
 연결되면, 다음과 같은 일반적인 GDB 명령을 사용할 수 있습니다.
 
-- `continue` : 프로그램 실행을 계속 실행
-- `run` : 처음부터 시작
-- `backtrace` : 역추적을 조회
-- `break somewhere.cpp:123` : 중단점 설정
-- `delete somewhere.cpp:123` 중단점 삭제
-- `info locals` : 지역 변수 조회
-- `info registers` : 리지스터 출력
+- `continue` to continue program execution
+- `run` to start from the beginning
+- `backtrace` to see the backtrace
+- `break somewhere.cpp:123` to set a breakpoint
+- `delete somewhere.cpp:123` to remove it again
+- `info locals` to print local variables
+- `info registers` to print the registers
 
 Consult the [GDB documentation](https://sourceware.org/gdb/documentation/) for more details.
 
 :::tip
-매번 GDB에 연결하기 위하여, 모든 명령을 입력해야 하는 것을 피하기 위하여 `~/.gdbinit`에 작성할 수 있습니다.
+To avoid having to type all commands to connect in GDB each time, you can write them into `~/.gdbinit`.
 :::
 
 ## 다음 단계
@@ -57,4 +60,5 @@ The [Embedded Debug Tools](https://pypi.org/project/emdbg/) connect several soft
 
 The library orchestrates the launch and configuration of hardware debug and trace probes, debuggers, logic analyzers, and waveform generators and provides analysis tools, converters, and plugins to provide significant insight into the software and hardware state during or after execution.
 
-The `emdbg` library contains [many useful GDB plugins](https://github.com/Auterion/embedded-debug-tools/blob/main/src/emdbg/debug/gdb.md#user-commands) that make debugging PX4 easier. It also provides tools for [profiling PX4 in real-time](https://github.com/Auterion/embedded-debug-tools/tree/main/ext/orbetto).
+The `emdbg` library contains [many useful GDB plugins](https://github.com/Auterion/embedded-debug-tools/blob/main/src/emdbg/debug/gdb.md#user-commands) that make debugging PX4 easier.
+It also provides tools for [profiling PX4 in real-time](https://github.com/Auterion/embedded-debug-tools/tree/main/ext/orbetto).
