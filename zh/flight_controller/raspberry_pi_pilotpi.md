@@ -2,14 +2,19 @@
 
 <LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.html"/>
 
-:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
 :::
 
-The _PilotPi_ shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community. PCB and schematic are open source as well.
+The _PilotPi_ shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi.
+It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides.
+No proprietary driver is required, as all components have upstream support from RPi and PX4 community.
+PCB and schematic are open source as well.
 
 ![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
 
-## 概览
+## 总览
 
 - 支持的树莓派：
   - 树莓派 2B/3B/3B+/4B
@@ -31,14 +36,14 @@ The _PilotPi_ shield is a fully functional solution to run PX4 autopilot directl
   - 通过USB线启动树莓派
 - Availability: _preparing for shipping_
 
-## 连接性
+## 连接
 
 Shield provides:
 
 - 16 x PWM 输出通道
 - GPS 连接器
 - 数传连接器
-- 外部I2C总线连接器（**Note:** 与CSI摄像头冲突）
+- External I2C bus connector (**Note:** conflicts with CSI camera)
 - 遥控输入口（SBUS 协议）
 - 3 x 0~5V ADC 通道
 - 2\*8 2.54mm 排插，引出未使用的 GPIO
@@ -46,7 +51,7 @@ Shield provides:
 Direct accessible from RPi:
 
 - 4x USB 连接器
-- CSI 连接器(**Note:** 与外部 I2C 总线冲突
+- CSI connector(**Note:** conflict with external I2C bus)
 - 其它
 
 ## 推荐接线
@@ -66,7 +71,7 @@ Wiring is compatible with Pixhawk 2.4.8
 
 #### GPS 连接器
 
-遥控输入映射到 `/dev/ttyAMA0` ，且在RX 线上有硬件反向开关。
+Mapped to `/dev/ttySC0`
 
 | 针脚 | 信号  | 电压   |
 | -- | --- | ---- |
@@ -79,50 +84,50 @@ Wiring is compatible with Pixhawk 2.4.8
 
 #### 数传连接器
 
-此开关将决定 RX 线的信号反相： `UART_RX = SW xor RC_INPUT`
+Mapped to `/dev/ttySC1`
 
-| 针脚 | 信号   | 电压   |
-| -- | ---- | ---- |
-| 1  | VCC  | +5V  |
-| 2  | TX   | +3v3 |
-| 3  | RX   | +3v3 |
-| 4  | CTS  | +3v3 |
+| 针脚 | 信号                   | 电压   |
+| -- | -------------------- | ---- |
+| 1  | VCC                  | +5V  |
+| 2  | TX                   | +3v3 |
+| 3  | RX                   | +3v3 |
+| 4  | CTS                  | +3v3 |
 | 5  | RTS: | +3v3 |
-| 6  | GND  | GND  |
+| 6  | GND                  | GND  |
 
 #### 外部 I2C 总线连接器
 
-ADC3 和 ADC4 的 VCC 被以下设备驱动：
+Mapped to `/dev/i2c-0`
 
-| 针脚 | 信号  | 电压       |
-| -- | --- | -------- |
-| 1  | VCC | +5V      |
+| 针脚 | 信号  | 电压                          |
+| -- | --- | --------------------------- |
+| 1  | VCC | +5V                         |
 | 2  | SCL | +3v3(上拉) |
 | 3  | SDA | +3v3(上拉) |
-| 4  | GND | GND      |
+| 4  | GND | GND                         |
 
-#### 遥控 & ADC 2/3/4
+#### RC & ADC2/3/4
 
 RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 
-| 针脚 | 信号  | 电压       |
-| -- | --- | -------- |
+| 针脚 | 信号  | 电压                       |
+| -- | --- | ------------------------ |
 | 1  | RC  | +3V3~+5V |
-| 2  | VCC | +5V      |
-| 3  | GND | GND      |
+| 2  | VCC | +5V                      |
+| 3  | GND | GND                      |
 
 - ADC1 内部连接到分压电路以监测电池电压。
 - ADC2 空闲。
 - ADC3 可以连接模拟量空速计。
 - ADC4 在 ADC 和 VCC 之间有一个跳线帽，监测系统电压。
 
-| 针脚 | 信号   | 电压     |
-| -- | ---- | ------ |
+| 针脚 | 信号   | 电压                     |
+| -- | ---- | ---------------------- |
 | 1  | ADCx | 0V~+5V |
-| 2  | VCC  | +5V    |
-| 3  | GND  | GND    |
+| 2  | VCC  | +5V                    |
+| 3  | GND  | GND                    |
 
-::: info
+:::info
 ADC3 & 4 have an alternative VCC source
 When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
 :::
@@ -166,7 +171,8 @@ ADC 3 & 4 will have VCC driven by:
 
 #### 启动模式
 
-This switch is connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
+This switch is connected to Pin22(BCM25).
+System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
 
 - 开启：开机自启 PX4
 - 关闭：不启动 PX4
@@ -176,4 +182,4 @@ This switch is connected to Pin22(BCM25). System rc script will check its value 
 Refer to specific instructions for the OS running on your RPi:
 
 - [Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
-- [Ubuntu 服务器(arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
+- [Ubuntu Server (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
