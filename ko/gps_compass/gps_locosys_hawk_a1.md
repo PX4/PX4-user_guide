@@ -28,7 +28,7 @@ You can use the Hawk A1 as either main (primary) or secondary GPS system. The PX
 
 To use the Hawk A1 your main GPS device:
 
-| Parameter                                                                    | Value                                          | Description                                                                             |
+| 매개변수                                                                         | Value                                          | 설명                                                                                      |
 | ---------------------------------------------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------- |
 | [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)     | 102 (Telem 2 or another available serial port) | Configure main GPS port                                                                 |
 | [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) | 1 (u-blox)                                     | Configure GPS protocol                                                                  |
@@ -38,7 +38,7 @@ To use the Hawk A1 your main GPS device:
 
 To use the Hawk A1 as an auxiliary GPS device (in addition to the main GPS):
 
-| Parameter                                                                    | Value                                          | Description                                                                           |
+| 매개변수                                                                         | Value                                          | 설명                                                                                    |
 | ---------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------- |
 | [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)     | 102 (Telem 2 or another available serial port) | Configure main GPS port                                                               |
 | [GPS_2_PROTOCOL](../advanced_config/parameter_reference.md#GPS_2_PROTOCOL) | 1 (u-blox)                                     | Configure GPS protocol                                                                |
@@ -65,7 +65,7 @@ The LOCOSYS GPS pinout is provided below. 이것은 다른 자동조종보드용
 
 ## Status LEDs
 
-| 색상 | 이름              | Description                        |
+| 색상 | 이름              | 설명                                 |
 | -- | --------------- | ---------------------------------- |
 | 녹색 | TX Indicator    | GNSS Data transmission             |
 | 빨강 | Power Indicator | 전원                                 |
