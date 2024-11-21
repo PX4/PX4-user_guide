@@ -14,7 +14,7 @@ It supports RTK functionality with a maximum data update rate of 10Hz, and comes
 
 :::
 
-## Де придбати
+## Де купити
 
 - [GEM1305 RTK receiver with antenna](https://www.datagnss.com/collections/gnss-for-drone/products/gem1305) (www.datagnss.com)
 
@@ -24,7 +24,7 @@ It supports RTK functionality with a maximum data update rate of 10Hz, and comes
 
   ![dgm10\_rtk\_receiver.png](../../assets/hardware/gps/datagnss_gem1305/dgm10_rtk_receiver.png)
 
-## Ключові особливості
+## Основні характеристики
 
 - Full constellation, multi-frequency GNSS satellite receiver
 - Support RTK with up to 10hz output rate
@@ -84,7 +84,7 @@ The 1.25mm pitch 6P connector (from left: PIN1 to PIN6):
 
 The board does not include a compass and so does not require connections for a compass part.
 
-## Налаштування обладнання
+## Встановлення обладнання
 
 RTK requires a base RTK module attached to the ground station, and a rover RTK module on the vehicle.
 The data from the base needs to be transmitted to the drone via telemetry radio and inputed into the RTK receiver on the rover.
