@@ -52,7 +52,7 @@ Some functions/features may define additional configuration parameters, which wi
 1. 서비스와 주변기기에 대한 매개변수를 사용할 포트로 설정하십시오.
 1. 추가 설정 매개변수를 표시하기 위하여 기체를 재부팅합니다.
 1. Set the baud rate parameter for the selected port to the desired value (e.g. [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD))
-1. Configure module-specific parameters (i.e. 모듈별 매개변수를 설정합니다(예 : MAVLink 스트림 및 데이터 속도 설정).
+1. Configure module-specific parameters (i.e. MAVLink streams and data rate configuration).
 
 The [GPS/Compass > Secondary GPS](../gps_compass/index.md#dual_gps) section provides a practical example of how to configure a port in _QGroundControl_ (it shows how to use `GPS_2_CONFIG` to run a secondary GPS on the `TELEM 2` port).
 
@@ -113,7 +113,7 @@ _QGroundControl_ only displays the parameters for services/drivers that are pres
 ::: info PX4 firmware includes most drivers by default on [Pixhawk-series](../flight_controller/pixhawk_series.md) boards. 플래시 제한 보드는 드라이버를 주석 처리하거나 생략할 수 있습니다(작성 시점에는 FMUv2 기반 보드에만 영향을 미침).
 :::
 
-You can include the missing driver in firmware by enabling the driver in the **default.px4board** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4) you want to build for. For example, to enable the SRF02 driver, you would a the following line to the px4board.
+You can include the missing driver in firmware by enabling the driver in the **default.px4board** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4) you want to build for. For example, to enable the SRF02 driver, you would a the following line to the px4board.
 
 ```
 CONFIG_DRIVERS_DISTANCE_SENSOR_SRF02=y
