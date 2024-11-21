@@ -1,20 +1,22 @@
-# Типи транспортних засобів та налаштування
+# Vehicle Types & Setup
 
 PX4 підтримує численні типи транспортних засобів, включаючи різні конфігурації мультикоптерів, літаків, засобів вертикального злету та посадки(VTOL), наземних засобів, тощо.
 
 Цей розділ пояснює, як збирати, конфігурувати та налаштовувати системи автопілотів на основі PX4 для кожного типу (багато з цих налаштувань є спільними для всіх типів).
 
-:::info [Основні поняття > Типи дронів](../getting_started/px4_basic_concepts.md#drone-types) надають високорівневу інформацію про типи транспортних засобів і випадки використання, для яких вони найкраще підходять. :::
+:::info
+[Basic Concepts > Drone Types](../getting_started/px4_basic_concepts.md#drone-types) provides high level information about the types of vehicles and the use cases for which they are best suited.
+:::
 
 ## Підтримувані транспортні засоби
 
 Типи рам, які мають розробників, добре тестовані та підтримуються:
 
-- [Багатокоптери](../frames_multicopter/index.md) (три-, чотири-, шести-, восьми- та навіть [омнікоптерні](../frames_multicopter/omnicopter.md) транспортні засоби)
-- [Літаки (Фіксоване крило)](../frames_plane/index.md)
-- [VTOL](../frames_vtol/index.md): [Стандартний VTOL](../frames_vtol/standardvtol.md), [VTOL з вертикальним зльотом](../frames_vtol/tailsitter.md), [VTOL з поворотними гвинтами](../frames_vtol/tiltrotor.md)
+- [Multicopters](../frames_multicopter/index.md) (tri-, quad-, hexa-, octa-, and even [omnicopter](../frames_multicopter/omnicopter.md) vehicles)
+- [Planes (Fixed-Wing)](../frames_plane/index.md)
+- [VTOL](../frames_vtol/index.md): [Standard VTOL](../frames_vtol/standardvtol.md), [Tailsitter VTOL](../frames_vtol/tailsitter.md), [Tiltrotor VTOL](../frames_vtol/tiltrotor.md)
 
-## Експериментальні транспортні засоби
+## Експериментальні апарати
 
 Експериментальні рами - це ті типи транспортних засобів, які:
 
@@ -26,15 +28,17 @@ PX4 підтримує численні типи транспортних зас
 
 Наступні типи транспортних засобів вважаються експериментальними:
 
-- [Дирижаблі](../frames_airship/index.md)
-- [Автожири](../frames_autogyro/index.md)
-- [Повітряні кулі](../frames_balloon/index.md)
-- [Вертоліт](../frames_helicopter/index.md)
-- [Марсохід](../frames_rover/index.md)
-- [Субмарини](../frames_sub/index.md)
+- [Airships](../frames_airship/index.md)
+- [Autogyros](../frames_autogyro/index.md)
+- [Balloons](../frames_balloon/index.md)
+- [Helicopter](../frames_helicopter/index.md)
+- [Rovers](../frames_rover/index.md)
+- [Submarines](../frames_sub/index.md)
 
-::: info Волонтери та контрибютори, [внесення](../contribute/index.md) нових функцій, нових конфігурацій каркасів або інших вдосконалень дуже вітається! :::
+:::info
+Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
+:::
 
 ## Інші транспортні засоби
 
-Повний набір підтримуваних типів транспортних засобів і їх конфігурації можна знайти в [Airframes](../airframes/airframe_reference.md).
+The complete set of supported vehicle types and their configurations can be found in the [Airframes Reference](../airframes/airframe_reference.md).
