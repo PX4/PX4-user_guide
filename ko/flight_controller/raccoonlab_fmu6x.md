@@ -105,7 +105,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 | ------ | ---------- | ------------------------------- |
 | USART1 | /dev/ttyS0 | GPS                             |
 | USART2 | /dev/ttyS1 | TELEM3                          |
-| USART3 | /dev/ttyS2 | 디버깅 콘솔                          |
+| USART3 | /dev/ttyS2 | 디버그 콘솔                          |
 | UART4  | /dev/ttyS3 | UART4 & I2C |
 | UART5  | /dev/ttyS4 | TELEM2                          |
 | USART6 | /dev/ttyS5 | PX4IO/RC                        |
