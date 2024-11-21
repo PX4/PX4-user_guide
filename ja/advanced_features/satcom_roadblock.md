@@ -250,7 +250,7 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 
      ![Prioritylink Selection](../../assets/satcom/linkselection.png)
 
-## Troubleshooting
+## トラブルシューティング
 
 - Satellite communication messages from the airplane are received but no commands can be transmitted (the vehicle does not react)
   - Check the settings of the relay server and make sure that they are correct, especially the IMEI.
