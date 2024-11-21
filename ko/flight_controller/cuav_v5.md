@@ -128,7 +128,7 @@ The pinout is as shown.
 | USART3 | /dev/ttyS2 | TELEM2 (흐름 제어)                               |
 | UART4  | /dev/ttyS3 | TELEM4                                                          |
 | USART6 | /dev/ttyS4 | TX는 SBUS_RC 커넥터의 RC 입력입니다. |
-| UART7  | /dev/ttyS5 | 디버깅 콘솔                                                          |
+| UART7  | /dev/ttyS5 | 디버그 콘솔                                                          |
 | UART8  | /dev/ttyS6 | PX4IO                                                           |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
