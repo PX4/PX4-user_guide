@@ -3,7 +3,8 @@
 <Badge type="tip" text="PX4 v1.13" />
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The [Holybro Kakute H7 mini](https://holybro.com/collections/autopilot-flight-controllers/products/kakute-h7-mini) flight controller is intended for lightweight frame builds (such as racers, etc.).
@@ -14,11 +15,11 @@ The Kakute H7 mini builds upon the best features of its predecessor, the [Kakute
 
 <img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_top.jpg" width="300px" title="KakuteH7Mini Top Image" /> <img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_bottom.jpg" width="300px" title="KakuteH7Mini Bottom Image" />
 
-::: info
+:::info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-::: info
+:::info
 PX4 runs on the H7 mini v1.3 and later.
 :::
 
@@ -39,7 +40,7 @@ PX4 runs on the H7 mini v1.3 and later.
 - Dimensions: 30x31x6mm
 - Weight: 5.5g
 
-## 在哪里买
+## 购买渠道
 
 The board can be bought from one of the following shops (for example):
 
@@ -49,35 +50,37 @@ The board can be bought from one of the following shops (for example):
 
 <img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_pinout.jpg" width="300px" title="KakuteH7Mini Pinout Image" />
 
-| 针脚       | 功能                                                                | PX4 default         |
-| -------- | ----------------------------------------------------------------- | ------------------- |
+| 针脚       | 功能                                                                                   | PX4 default         |
+| -------- | ------------------------------------------------------------------------------------ | ------------------- |
 | B+       | Battery positive voltage (2S-6S)                                  |                     |
 | VTX+     | Battery positive voltage (2S-6S)                                  |                     |
 | SDA, SCL | I2C connection (for peripherals)                                  |                     |
 | 5V       | 5V output (2A max)                                                |                     |
-| 3V3      | 3.3V output (0.25A max)                                           |                     |
-| VI       | Video input from FPV camera                                       |                     |
-| VO       | Video output to video transmitter                                 |                     |
-| CAM      | To camera OSD control                                             |                     |
-| G or GND | Ground                                                            |                     |
-| RSI      | Analog RSSI (0-3.3V) input from receiver                          |                     |
-| R1, T1   | UART1 RX and TX                                                   | TELEM1              |
-| R2, T2   | UART2 RX and TX                                                   | TELEM2              |
-| R3, T3   | UART3 RX and TX                                                   | NuttX debug console |
-| R4, T4   | UART4 RX and TX                                                   | GPS1                |
+| 3V3      | 3.3V output (0.25A max)           |                     |
+| VI       | Video input from FPV camera                                                          |                     |
+| VO       | Video output to video transmitter                                                    |                     |
+| CAM      | To camera OSD control                                                                |                     |
+| G or GND | Ground                                                                               |                     |
+| RSI      | Analog RSSI (0-3.3V) input from receiver          |                     |
+| R1, T1   | UART1 RX and TX                                                                      | TELEM1              |
+| R2, T2   | UART2 RX and TX                                                                      | TELEM2              |
+| R3, T3   | UART3 RX and TX                                                                      | NuttX debug console |
+| R4, T4   | UART4 RX and TX                                                                      | GPS1                |
 | R6, T6   | UART6 RX and TX (R6 also located in the GH plug)                  | RC port             |
 | R7       | UART7 RX (RX is located in the plugs for use with 4-in-1 ESCs)    | DShot telemetry     |
 | LED      | WS2182 addressable LED signal wire (not tested)                   |                     |
 | Z-       | Piezo buzzer negative leg (Connect buzzer positive leg to 5V pad) |                     |
 | M1 to M4 | Motor signal outputs (located in plug for use in 4-in-1 ESCs)     |                     |
 | M5 to M8 | Motor signal outputs (located in plug for use in 4-in-1 ESCs)     |                     |
-| Boot     | Bootloader button                                                 |                     |
+| Boot     | Bootloader button                                                                    |                     |
 
 <a id="bootloader"></a>
 
 ## PX4 Bootloader Update
 
-The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before the PX4 firmware can be installed, the _PX4 bootloader_ must be flashed. Download the [holybro_kakuteh7mini_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7mini/holybro_kakuteh7mini_bootloader.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
+The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki).
+Before the PX4 firmware can be installed, the _PX4 bootloader_ must be flashed.
+Download the [holybro_kakuteh7mini_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7mini/holybro_kakuteh7mini_bootloader.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
 ## 编译固件
 
@@ -89,8 +92,9 @@ make holybro_kakuteh7mini_default
 
 ## Installing PX4 Firmware
 
-::: info
-If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7. Prior to that release you will need to manually build and install the firmware.
+:::info
+If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7.
+Prior to that release you will need to manually build and install the firmware.
 :::
 
 Firmware can be manually installed in any of the normal ways:
@@ -101,9 +105,10 @@ Firmware can be manually installed in any of the normal ways:
   make holybro_kakuteh7mini_default upload
   ```
 
-- [Load the firmware](../config/firmware.md) using _QGroundControl_. You can use either pre-built firmware or your own custom firmware.
+- [Load the firmware](../config/firmware.md) using _QGroundControl_.
+  You can use either pre-built firmware or your own custom firmware.
 
-::: info
+:::info
 KakuteH7mini is supported with PX4 main and v1.14 or newer.
 :::
 
@@ -111,22 +116,22 @@ KakuteH7mini is supported with PX4 main and v1.14 or newer.
 
 In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
-| 参数                                                                     | 设置                                                                                                                      |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| 参数                                                                                                             | 设置                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 
 ## 串口映射
 
-| UART   | 设备         | Port                  |
-| ------ | ---------- | --------------------- |
-| USART1 | /dev/ttyS0 | TELEM1                |
-| UART2  | /dev/ttyS1 | TELEM2                |
-| USART3 | /dev/ttyS2 | Debug Console         |
-| UART4  | /dev/ttyS3 | GPS1                  |
-| USART6 | /dev/ttyS4 | RC SBUS               |
+| UART   | 设备         | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
+| USART1 | /dev/ttyS0 | TELEM1                                   |
+| UART2  | /dev/ttyS1 | TELEM2                                   |
+| USART3 | /dev/ttyS2 | Debug Console                            |
+| UART4  | /dev/ttyS3 | GPS1                                     |
+| USART6 | /dev/ttyS4 | RC SBUS                                  |
 | UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
 
-## Debug调试端口
+## 调试接口
 
 ### 系统控制台
 
