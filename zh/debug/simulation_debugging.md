@@ -40,14 +40,16 @@ make px4_sitl_default gazebo-classic
 make px4_sitl_default jmavsim
 ```
 
-For Gazebo Classic (only) you can also start the simulator with a debugger attached. Note however, that you must provide the vehicle type in the simulator target, as shown below:
+For Gazebo Classic (only) you can also start the simulator with a debugger attached.
+Note however, that you must provide the vehicle type in the simulator target, as shown below:
 
 ```sh
 make px4_sitl_default gazebo-classic_iris_gdb
 make px4_sitl_default gazebo-classic_iris_lldb
 ```
 
-This will start the debugger and launch the SITL application with Gazebo and the Iris simulator. In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
+This will start the debugger and launch the SITL application with Gazebo and the Iris simulator.
+In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
 
 ```sh
 Process 16529 stopped
@@ -84,7 +86,7 @@ make px4_sitl_default gazebo-classic_iris_gdb
 等价于
 
 ```sh
-make px4_sitl_default   # Configure with cmake
+make px4_sitl_default	# Configure with cmake
 make -C build/px4_sitl_default classic_iris_gdb
 ```
 
@@ -104,7 +106,8 @@ You can also start your simulation, and _then_ attach `gdb`:
    make px4_sitl_default gazebo-classic
    ```
 
-   As the script runs, note the **SITL COMMAND:** output text located right above the large "PX4" text. It will list the location of your px4 bin file for later use.
+   As the script runs, note the **SITL COMMAND:** output text located right above the large "PX4" text.
+   It will list the location of your px4 bin file for later use.
 
    ```sh
    SITL COMMAND: "<px4 bin file>" "<build dir>"/etc
@@ -154,7 +157,7 @@ You can also start your simulation, and _then_ attach `gdb`:
    sudo gdb [px4 bin file path (from step 1) here]
    ```
 
-   would suppress optimization of the targets: platforms*\_posix**px4\_layer, modules**systemlib, modules**uORB, examples**px4\_simple\_app, modules**uORB*\_uORB\_tests and px4.
+   would suppress optimization of the targets: platforms\*\_posix<strong x-id="1">px4\_layer, modules</strong>systemlib, modules<strong x-id="1">uORB, examples</strong>px4\_simple\_app, modules\*\*uORB\*\_uORB\_tests and px4.
 
    ```sh
    sudo gdb /home/atlas/px4/base/PX4-Autopilot/build/px4_sitl_default/bin/px4
@@ -170,11 +173,14 @@ You can also start your simulation, and _then_ attach `gdb`:
 
 ## 编译器优化
 
-It is possible to suppress compiler optimization for given executables and/or modules (as added by cmake with `add_executable` or `add_library`) when configuring for `posix_sitl_*`. This can be handy when it is necessary to step through code with a debugger or print variables that would otherwise be optimized out.
+It is possible to suppress compiler optimization for given executables and/or modules (as added by cmake with `add_executable` or `add_library`) when configuring
+for `posix_sitl_*`.
+This can be handy when it is necessary to step through code with a debugger or print variables that would otherwise be optimized out.
 
-To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization. This environment variable is ignored when the configuration isn't `posix_sitl_*`.
+To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization.
+This environment variable is ignored when the configuration isn't `posix_sitl_*`.
 
-would suppress optimization of the targets: platforms*\_posix**px4\_layer, modules**systemlib, modules**uORB, examples**px4\_simple\_app, modules**uORB*\_uORB\_tests and px4.
+would suppress optimization of the targets: platforms\*\_posix<strong x-id="1">px4\_layer, modules</strong>systemlib, modules<strong x-id="1">uORB, examples</strong>px4\_simple\_app, modules\*\*uORB\*\_uORB\_tests and px4.
 
 ```sh
 export PX4_NO_OPTIMIZATION='px4;^modules__uORB;^modules__systemlib$'
