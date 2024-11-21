@@ -2,73 +2,91 @@
 
 Конфігурація та калібрування багтороторного вертольота виконується за тими ж високорівневими кроками, що і інші рами: вибір прошивки, конфігурація рами, включаючи геометрію приводника/двигуна та відображення виводів, конфігурація та калібрування сенсорів, налаштування безпеки та інших функцій, а також налаштування.
 
-Ця тема пояснює, як налаштувати багатокоптер, використовуючи вибрані теми з [Стандартна конфігурація](../config/index.md), [Розширена конфігурація](../advanced_config/index.md) та [Периферійні пристрої контролера польоту](../peripherals/index.md), разом з темами настройки, специфічними для багатокоптерів.
+This topic explains how to configure a multicopter using selected topics from [Standard Configuration](../config/index.md), [Advanced Configuration](../advanced_config/index.md), and [Flight Controller Peripherals](../peripherals/index.md), along with multicopter-specific tuning topics.
 
-::: info
-Ця тема є рекомендованою точкою запису при першому виконанні конфігурації і калібрування нового кадру мультиоптика.
+:::info
+This topic is the recommended entry point when performing first-time configuration and calibration of a new multicopter frame.
 :::
 
 ## Завантаження прошивки
 
-Перший крок - [завантажити прошивку PX4](../config/firmware.md) на ваш [контролер польоту](../flight_controller/index.md). Це найлегше зробити за допомогою QGroundControl, який автоматично вибере відповідне прошивку для вашого конкретного обладнання контролера. За замовчуванням QGC встановить останню стабільну версію PX4, але ви можете вибрати бета-версію або власні версії, якщо потрібно.
+The first step is to [load PX4 firmware](../config/firmware.md) onto your [flight controller](../flight_controller/index.md).
+Це найлегше зробити за допомогою QGroundControl, який автоматично вибере відповідне прошивку для вашого конкретного обладнання контролера.
+За замовчуванням QGC встановить останню стабільну версію PX4, але ви можете вибрати бета-версію або власні версії, якщо потрібно.
 
 Відповідні теми:
 
-- [Завантаження прошивки](../config/firmware.md)
+- [Loading Firmware](../config/firmware.md)
 
 ## Вибір та налаштування каркасу
 
 Цей розділ пояснює, як налаштувати тип транспортного засобу (багатокоптер), конкретну геометрію двигуна/керування польотом та виходи двигуна.
 
-Спочатку [виберіть каркас багтроторного вертольота](../config/airframe.md) (варіанти перераховані в [Довідник з каркасів >  Вертольот](../airframes/airframe_reference.md#copter)). Ви повинні вибрати рамку, яка відповідає марці та моделі вашого транспортного засобу, якщо така існує, а в іншому випадку виберіть тип рамки "Загальний", який найбільш точно відповідає вашій геометрії за кількістю двигунів та їх відносними положеннями. Наприклад, для рами [Quadrotor X](../airframes/airframe_reference.md#quadrotor-x) ви шукаєте назву вашої рами у списку, і якщо вона відсутня, виберіть раму [Загальний Quadrotor X](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter).
+First [select a multicopter airframe](../config/airframe.md) (options are listed in [Airframe Reference > Copter](../airframes/airframe_reference.md#copter)).
+Ви повинні вибрати рамку, яка відповідає марці та моделі вашого транспортного засобу, якщо така існує, а в іншому випадку виберіть тип рамки "Загальний", який найбільш точно відповідає вашій геометрії за кількістю двигунів та їх відносними положеннями.
+For example, for a [Quadrotor X](../airframes/airframe_reference.md#quadrotor-x) frame you would look for the name of your frame in the list, and if it was not present select the [Generic Quadrotor X](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) frame.
 
-:::info Будь-яка обрана рама багтороторного коптера може бути змінена на наступному кроці (конфігурація приводу), щоб додати / видалити двигуни та змінити геометрію, і вказати, які виходи польотного контролера підключені до певних двигунів та властивості виходу. Вибір рамки, яка відповідає вашому транспортному засобу, зменшує роботу з налаштуванням, необхідну для виконання.
+:::info
+Any selected multicopter frame can be modified in the next step (actuator configuration) to add/remove motors and otherwise change the geometry, and to specify what flight controller outputs are connected to particular motors and the output properties.
+Вибір рамки, яка відповідає вашому транспортному засобу, зменшує роботу з налаштуванням, необхідну для виконання.
 
 :::details
-Як це працює (деталі) Вибір підфрейму застосовує [файл конфігурації фрейму](../dev_airframes/adding_a_new_frame.md#adding-a-frame-configuration), який містить попередньо визначений набір [параметрів](../advanced_config/parameters.md), таких як [CA_AIRFRAME=0](../advanced_config/parameter_reference.md#CA_AIRFRAME) для типу транспортного засобу та [CA_ROTOR_COUNT](../advanced_config/parameter_reference.md#CA_ROTOR_COUNT) для кількості роторів.
+How does this work (details)
+Selecting an airframe applies a [frame configuration file](../dev_airframes/adding_a_new_frame.md#adding-a-frame-configuration) that contains a predefined set of [parameters](../advanced_config/parameters.md), such as [CA_AIRFRAME=0](../advanced_config/parameter_reference.md#CA_AIRFRAME) for the vehicle type and [CA_ROTOR_COUNT](../advanced_config/parameter_reference.md#CA_ROTOR_COUNT) for the number of rotors.
 
-Конфігурація рами може визначити все про транспортний засіб, від його геометрії та відображень виходу до налаштувань та калібрування значень. Коли ви виводите новий транспортний засіб, рама зазвичай містить досить мінімальну конфігурацію:
+Конфігурація рами може визначити все про транспортний засіб, від його геометрії та відображень виходу до налаштувань та калібрування значень.
+Коли ви виводите новий транспортний засіб, рама зазвичай містить досить мінімальну конфігурацію:
 
-- Кадри з назвою "Загальний" визначають тип транспортного засобу, кількість роторів та позиції роторів-заповнювачі. Після вибору конструкції фюзеляжу ви визначаєте фактичну геометрію, а потім налаштовуєте виходи.
-- Кадри з назвою моделі/бренду визначать тип транспортного засобу, кількість роторів, фактичні позиції роторів та напрямки руху двигуна. Після вибору конструкції фюзеляжу вам зазвичай все ще потрібно налаштувати виводи.
+- Кадри з назвою "Загальний" визначають тип транспортного засобу, кількість роторів та позиції роторів-заповнювачі.
+  Після вибору конструкції фюзеляжу ви визначаєте фактичну геометрію, а потім налаштовуєте виходи.
+- Кадри з назвою моделі/бренду визначать тип транспортного засобу, кількість роторів, фактичні позиції роторів та напрямки руху двигуна.
+  Після вибору конструкції фюзеляжу вам зазвичай все ще потрібно налаштувати виводи.
+
 :::
 
-Наступним кроком є визначення геометрії вашого транспортного засобу [(кількість двигунів та їх відносні позиції)](../config/actuators.md#motor-geometry-multicopter) та [призначення цих двигунів](../config/actuators.md#actuator-outputs) фізичним виходам, до яких вони підключені на вашому польотному контролері (обидва ці аспекти розглянуті в [Конфігурації та Тестуванні Актуаторів](../config/actuators.md)).
+The next step is to define your vehicle [geometry](../config/actuators.md#motor-geometry-multicopter) (the number of motors and their relative positions) and [assign those motors](../config/actuators.md#actuator-outputs) to the physical outputs that they are wired to on your flight controller (both of these are covered in [Actuator Configuration and Testing](../config/actuators.md)).
 
-Якщо використовуєте PWM ESC та OneShot ESC (але не DShot та DroneCAN/Cyphal ESC), то потім слід виконати [Калібрування ESC](../advanced_config/esc_calibration.md) перед переходом до [Конфігурації двигуна](../config/actuators.md#motor-configuration). Це забезпечує, що всі ESC надають точно такий самий вихід для заданого входу (ідеально, ми спочатку калібруємо ESC, але ви не можете калібрувати свої ESC, поки ви не відобразите виходи).
+If using PWM ESCs and OneShot ESCs (but not DShot and DroneCAN/Cyphal ESC) you should then perform [ESC Calibration](../advanced_config/esc_calibration.md) before proceeding to [Motor Configuration](../config/actuators.md#motor-configuration).
+Це забезпечує, що всі ESC надають точно такий самий вихід для заданого входу (ідеально, ми спочатку калібруємо ESC, але ви не можете калібрувати свої ESC, поки ви не відобразите виходи).
 
-Останнім кроком є [Конфігурація двигуна](../config/actuators.md#motor-configuration):
+The final step is [Motor Configuration](../config/actuators.md#motor-configuration):
 
-- [Реверс будь-яких моторів](../config/actuators.md#reversing-motors), які не відповідають напрямку обертання, налаштованому в геометрії. Для DShot ESC ви можете це зробити через інтерфейс тестування приводу.
+- [Reverse any motors](../config/actuators.md#reversing-motors) that don't match the spin direction configured in the Geometry.
+  Для DShot ESC ви можете це зробити через інтерфейс тестування приводу.
 - PWM, OneShot та CAN ESC встановлюють ліміти введення мотора для режимів роззброєння, низької та високої швидкості (не потрібно для DShot ESC)
 
 Відповідні теми:
 
-- [Вибір транспортного засобу (рами)](../config/airframe.md) — Виберіть тип транспортного засобу, щоб відповідати вашій рамі.
-- [Налаштування та тестування приводів](../config/actuators.md) — Геометрія транспортного засобу, виведення відображення, конфігурація двигуна, тестування.
-- [Калібрування ESC](../advanced_config/esc_calibration.md) — Виконайте між картировкой виводів та конфігурацією двигуна (тема вище) для ESC з PWM та OneShot.
+- [Vehicle (Frame) Selection](../config/airframe.md) — Select vehicle type to match your frame.
+- [Actuator Configuration and Testing](../config/actuators.md) — Vehicle geometry, output mapping, motor configuration, testing.
+- [ESC Calibration](../advanced_config/esc_calibration.md) — Do between output mapping and motor configuration (topic above) for PWM and OneShot ESC.
 
 ## Налаштування та калібрування датчика
 
-PX4 найчастіше покладається на магнітометр (компас) для отримання інформації про напрямок, барометр для висоти, гіроскоп для швидкостей тіла, акселерометр для ставлення та GPS/GNSS для глобального положення. Польотні контролери Pixhawk (і багато інших) мають вбудований магнітометр, акселерометр, гіроскоп та барометр. Вбудований компас зазвичай не є особливо надійним, і часто додається зовнішній компас (зазвичай поєднаний з приймачем ГНСС в одному пристрої).
+PX4 найчастіше покладається на магнітометр (компас) для отримання інформації про напрямок, барометр для висоти, гіроскоп для швидкостей тіла, акселерометр для ставлення та GPS/GNSS для глобального положення.
+Польотні контролери Pixhawk (і багато інших) мають вбудований магнітометр, акселерометр, гіроскоп та барометр.
+Вбудований компас зазвичай не є особливо надійним, і часто додається зовнішній компас (зазвичай поєднаний з приймачем ГНСС в одному пристрої).
 
-Спочатку нам потрібно встановити [Орієнтацію сенсора](../config/flight_controller_orientation.md), повідомляючи PX4, як автопілот (і його вбудовані сенсори) та зовнішні компаси орієнтовані відносно транспортного засобу. Загалом ви будете орієнтуватися на передню частину транспортного засобу і не матимете встановлювати нічого. Після того, як це зроблено, нам потрібно калібрувати компас(и), гіроскоп та акселерометр.
+We first need to set the [Sensor Orientation](../config/flight_controller_orientation.md), informing PX4 how the autopilot (and its inbuilt sensors) and external compasses are oriented relative to the vehicle.
+Загалом ви будете орієнтуватися на передню частину транспортного засобу і не матимете встановлювати нічого.
+Після того, як це зроблено, нам потрібно калібрувати компас(и), гіроскоп та акселерометр.
 
 Основний датчик налаштування вкритий у цих темах:
 
-- [Орієнтація сенсорів](../config/flight_controller_orientation.md)
+- [Sensor Orientation](../config/flight_controller_orientation.md)
 - [Компас](../config/compass.md)
 - [Гіроскоп](../config/gyroscope.md)
 - [Акселерометр](../config/accelerometer.md)
 
 PX4 може використовувати інші периферійні пристрої, такі як датчики відстані, оптичні датчики руху, сигнали уникання трафіку, камери тощо:
 
-- [Периферія контролера польоту](../peripherals/index.md) - налаштування конкретних датчиків, опціональних датчиків, актуаторів тощо.
+- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
 
-:::info Датчики, які вам не потрібно калібрувати/налаштовувати, включають:
+:::info
+Sensors that you don't need to calibrate/configure include:
 
-- Калібрування [рівня горизонту](../config/level_horizon_calibration.md) зазвичай не потрібне, якщо ви встановили рівень керування польотом.
-- Датчики, яких немає або які не використовуються PX4 багтороторником для керування польотом, такі як [Датчики швидкості повітря](../config/airspeed.md).
+- [Level Horizon](../config/level_horizon_calibration.md) calibration isn't usually needed if you have mounted the flight controller level.
+- Sensors that are not present, or that are not used by PX4 multicopter for flight control, such as [Airspeed sensors](../config/airspeed.md).
 - Датчики, які не потребують калібрування, включаючи: Барометри та GNSS.
 
 :::
@@ -78,48 +96,51 @@ PX4 може використовувати інші периферійні пр
 Пілоти можуть керувати транспортним засобом вручну за допомогою системи радіоуправління (RC) або контролера джойстика/геймпада, підключеного через QGroundControl.
 
 :::info
-Ручне керування є важливим для безпечного запуску нового транспортного засобу!
+A manual control is essential in order to bring up a new vehicle safely!
 :::
 
 Радіоуправління:
 
-- [Налаштування керування радіо (RC)](../config/radio.md)
-- [Конфігурація режиму польоту](../config/flight_mode.md)
+- [Radio Controller (RC) Setup](../config/radio.md)
+- [Flight Mode Configuration](../config/flight_mode.md)
 
 Джойстик/Ґеймпад:
 
-- [Налаштування джойстика](../config/joystick.md) (включає відображення кнопок/режиму польоту)
+- [Joystick Setup](../config/joystick.md) (includes button/flight mode mapping)
 
 ## Конфігурація безпеки
 
 PX4 може бути налаштований для автоматичної обробки умов, таких як низький заряд акумулятора, втрата радіо- або даних, польот занадто далеко від дому та інше:
 
-- [Налаштування оцінки батареї](../config/battery.md) — оцінка залишкової потужності (необхідна для аварійного режиму з низькою потужністю).
-- [Конфігурація безпеки (запобіжники)](../config/safety.md)
+- [Battery Estimation Tuning](../config/battery.md) — estimate remaining power (needed for low power failsafe).
+- [Safety Configuration (Failsafes)](../config/safety.md)
 
-## Тюнінг
+## Вдосконалення
 
 Налаштування - це останній крок, який виконується лише після завершення більшості інших налаштувань та конфігурації.
 
 - Контролери швидкості та нахилу:
+
 - [Autotune](../config/autotune_mc.md) — Automates tuning PX4 rate and attitude controllers (recommended).
 
-  :::info Автоматична настройка працює на кадрах, які мають розумну авторитетність та динаміку навколо всіх трьох осей тіла. Це було перевірено в основному на гоночних квадрокоптерах та X500, і очікується, що воно буде менш ефективним на трикоптерах з нахилом ротора.
+  ::: info
+  Automatic tuning works on frames that have reasonable authority and dynamics around all the body axes.
+  Це було перевірено в основному на гоночних квадрокоптерах та X500, і очікується, що воно буде менш ефективним на трикоптерах з нахилом ротора.
 
   Manual tuning using these guides are only needed if there is a problem with autotune:
 
-  - [Налаштування PID для МК (Посібник/Основи)](../config_mc/pid_tuning_guide_multicopter_basic.md) — Основи ручного налаштування.
-  - [Посібник з налаштування PID для МК (Посібник/Детальний)](../config_mc/pid_tuning_guide_multicopter.md) — Ручне налаштування з докладним поясненням.
+  - [MC PID Tuning (Manual/Basic)](../config_mc/pid_tuning_guide_multicopter_basic.md) — Manual tuning basic how to.
+  - [MC PID Tuning Guide (Manual/Detailed)](../config_mc/pid_tuning_guide_multicopter.md) — Manual tuning with detailed explanation.
 
 
 :::
 
-
 - [MC Filter/Control Latency Tuning](../config_mc/filter_tuning.md) — Trade off control latency and noise filtering.
+
 - [MC Setpoint Tuning (Trajectory Generator)](../config_mc/mc_trajectory_tuning.md)
   - [MC Jerk-limited Type Trajectory](../config_mc/mc_jerk_limited_type_trajectory.md)
-- [Multicopter Racer Setup](../config_mc/racer_setup.md)
 
+- [Multicopter Racer Setup](../config_mc/racer_setup.md)
 
 <!--
 - Explain what you have to tune on PX4, what you can tune, and what each topic covers
@@ -142,11 +163,11 @@ Yes but it must be physically feasible. E.g. if you make a quadrotor where all m
 
 ## Дивіться також
 
-- [QGroundControl > Налаштування](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
-- [Периферія контролера польоту](../peripherals/index.md) - налаштування конкретних датчиків, опціональних датчиків, приводів тощо.
-- [Розширена конфігурація](../advanced_config/index.md) - заводське калібрування/OEM, налаштування додаткових функцій, менш поширені конфігурації.
+- [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
+- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
+- [Advanced Configuration](../advanced_config/index.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Конфігурація/налаштування, що залежать від апарату:
-  - **Конфігурація/налаштування мультикоптера**
-  - [Конфігурація/налаштування гелікоптера](../config_heli/index.md)
-  - [Конфігурація/налаштування літака (з нерухомим крилом)](../config_fw/index.md)
-  - [Конфігурація/налаштування VTOL](../config_vtol/index.md)
+  - **Multicopter Config/Tuning**
+  - [Helicopter Config/Tuning](../config_heli/index.md)
+  - [Fixed Wing Config/Tuning](../config_fw/index.md)
+  - [VTOL Config/Tuning](../config_vtol/index.md)
