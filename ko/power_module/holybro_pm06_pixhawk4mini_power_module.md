@@ -27,6 +27,6 @@ This power module has integrated power distribution board and provides regulated
 
 ## 배선
 
-배선 예제는 [Pixhawk 4 Mini &gt; 전원](../assembly/quick_start_pixhawk4_mini.md#power)을 참고하십시오.
+Wiring and connection examples can be found in: [Pixhawk 4 Mini > Power](../assembly/quick_start_pixhawk4_mini.md#power).
 
 <img src="../../assets/hardware/power_module/holybro_pm06/pm06_pin_map.jpg" width="450px" title="pm06" />
