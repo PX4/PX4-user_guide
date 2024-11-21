@@ -137,7 +137,7 @@ The devices that can be used are listed in this way are listed in the **GPS Yaw*
 
 Generally when using a GNSS as a source of yaw information you will need to configure the following parameters:
 
-| Parameter                          | 설정                                                                                                                                                          |
+| 매개변수                               | 설정                                                                                                                                                          |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [GPS_YAW_OFFSET][GPS_YAW_OFFSET] | The angle made by the _baseline_ (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here][fc_orientation]). |
 | [EKF2_GPS_CTRL][EKF2_GPS_CTRL]   | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                                       |
