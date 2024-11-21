@@ -4,7 +4,9 @@ PX4 supports numerous types of vehicles, including different configurations of m
 
 This section explains how to assemble, configure, and tune PX4-based autopilot systems for each type (much of this setup is common to all types).
 
-::: info [Basic Concepts > Drone Types](../getting_started/px4_basic_concepts.md#drone-types) provides high level information about the types of vehicles and the use cases for which they are best suited. :::
+:::info
+[Basic Concepts > Drone Types](../getting_started/px4_basic_concepts.md#drone-types) provides high level information about the types of vehicles and the use cases for which they are best suited.
+:::
 
 ## Supported Vehicles
 
@@ -29,11 +31,13 @@ The following vehicle types are considered experimental:
 - [Airships](../frames_airship/index.md)
 - [Autogyros](../frames_autogyro/index.md)
 - [Balloons](../frames_balloon/index.md)
-- [헬리콥터](../frames_helicopter/index.md)
+- [Helicopter](../frames_helicopter/index.md)
 - [Rovers](../frames_rover/index.md)
 - [Submarines](../frames_sub/index.md)
 
-::: info Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome! :::
+:::info
+Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
+:::
 
 ## Other Vehicles
 
