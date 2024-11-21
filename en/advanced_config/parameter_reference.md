@@ -22962,7 +22962,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Maximum horizontal acceleration.
 
-MPC_POS_MODE 1 just deceleration 3 acceleration and deceleration 4 not used, use MPC_ACC_HOR instead
+MPC_POS_MODE 1 just deceleration 4 not used, use MPC_ACC_HOR instead
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -23037,7 +23037,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Maximum horizontal and vertical jerk in Position/Altitude mode.
 
-Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother motions but limits agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Only used with smooth MPC_POS_MODE Smoothed velocity and Acceleration based.
+Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother motions but limits agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Only used with MPC_POS_MODE Acceleration based.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -23157,12 +23157,11 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Position/Altitude mode variant.
 
-The supported sub-modes are: - "Direct velocity": Sticks directly map to velocity setpoints without smoothing. Also applies to vertical direction and Altitude mode. Useful for velocity control tuning. - "Smoothed velocity": Sticks map to velocity but with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). - "Acceleration based": Sticks map to acceleration and there's a virtual brake drag
+The supported sub-modes are: - "Direct velocity": Sticks directly map to velocity setpoints without smoothing. Also applies to vertical direction and Altitude mode. Useful for velocity control tuning. - "Acceleration based": Sticks map to acceleration and there's a virtual brake drag
 
 **Values:**
 
 - `0`: Direct velocity
-- `3`: Smoothed velocity
 - `4`: Acceleration based
 
 
