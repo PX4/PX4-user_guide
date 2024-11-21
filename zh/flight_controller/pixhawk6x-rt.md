@@ -1,7 +1,8 @@
 # Holybro Pixhawk 6X-RT
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 _Pixhawk 6X-RT_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup>, NXP's mobile robotics team and the PX4 team based on NXP's open source reference design.
@@ -16,13 +17,16 @@ Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular de
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## Introduction
+## 简介
 
 Inside the Pixhawk®​ 6X-RT, you can find an NXP i.mx RT1176, paired with sensor technology from Bosch®​​, InvenSense®​,​ giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
-The Pixhawk® 6X-RT's i.mx RT1176 Crossover dual-core MCU contain an Arm® Cortex®-M7 core running up to 1GHz and Arm® Cortex®-M4 core running up to 400MHz, has 2MB SRAM and external XIP Flash with 64MB. The PX4 Autopilot takes advantage of the increased power and RAM. Thanks to the increased processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+The Pixhawk® 6X-RT's i.mx RT1176 Crossover dual-core MCU contain an Arm® Cortex®-M7 core running up to 1GHz and Arm® Cortex®-M4 core running up to 400MHz, has 2MB SRAM and external XIP Flash with 64MB.
+The PX4 Autopilot takes advantage of the increased power and RAM.
+Thanks to the increased processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
 
-The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization. Triple redundant IMU & double redundant barometer on separate buses. When PX4 detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
+The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization.
+Triple redundant IMU & double redundant barometer on separate buses. When PX4 detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
 
 An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
 
@@ -39,7 +43,7 @@ The Pixhawk®​ 6X-RT is perfect for developers at corporate research labs, sta
 - Triple redundancy domains: Completely isolated sensor domains with separate buses and separate power control
 - Newly designed vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
 - Ethernet interface for high-speed mission computer integration
-- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
+- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20
 
 ### Processors & Sensors
 
@@ -86,27 +90,37 @@ The Pixhawk®​ 6X-RT is perfect for developers at corporate research labs, sta
 ### 接口
 
 - 16- PWM servo outputs
+
 - R/C input for Spektrum / DSM
+
 - Dedicated R/C input for PPM and S.Bus input
+
 - Dedicated analog / PWM RSSI input and S.Bus output
+
 - 4个通用串行口
   - 3 with full flow control
   - 1 with separate 1.5A current limit (Telem1)
   - 1 with I2C and additional GPIO line for external NFC reader
+
 - 2 GPS ports
   - 1 full GPS plus Safety Switch Port
   - 1 basic GPS port
+
 - 1 I2C port
+
 - 1 Ethernet port
   - Transformerless Applications
   - 100Mbps
+
 - 1 SPI bus
   - 2 chip select lines
   - 2 data-ready lines
   - 1 SPI SYNC line
   - 1 SPI reset line
+
 - 2 CAN Buses for CAN peripheral
   - CAN Bus has individual silent controls or ESC RX-MUX control
+
 - 2 Power input ports with SMBus
 
   - 1 AD & IO port
@@ -117,7 +131,7 @@ The Pixhawk®​ 6X-RT is perfect for developers at corporate research labs, sta
 - 其它特性:
   - Operating & storage temperature: -40 ~ 85°c
 
-## 在哪里买
+## 购买渠道
 
 Order from [Holybro](https://holybro.com/products/fmuv6x-rt-developer-edition).
 
@@ -136,7 +150,7 @@ Sample Wiring Diagram
 - [Holybro Pixhawk Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-baseboard-pinout)
 - [Holybro Pixhawk Mini-Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6x/pixhawk-mini-baseboard-pinout)
 
-路径规划软件（在机载计算机上运行）*可以* 以[TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
+路径规划软件（在机载计算机上运行）<em>可以</em> 以<a href="https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS">TRAJECTORY_REPRESENTATION_WAYPOINTS</a> 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
 
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
@@ -159,35 +173,37 @@ Sample Wiring Diagram
 
 ## 额定电压
 
-_Pixhawk 6X-RT_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**. The **POWER1** & **POWER2** ports on the Pixhawk 6X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
+_Pixhawk 6X-RT_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+The **POWER1** & **POWER2** ports on the Pixhawk 6X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
 
-1. **POWER1** 和 **POWER2** 输入电压（4.9 v 至 5.5 v）
-1. **USB** 输入电压（4.75 v 至 5.25 v）
+1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
+2. **USB** input (4.75V to 5.25V)
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
-1. **POWER1** 与 **POWER2** 输入（可运行范围 4.1V 至 5.7V，0V 至 10V 不会损坏）
-1. **USB** 输入（可运行范围 4.1V 至 5.7V，0V 至 6V 不会损坏）
-1. 舵机输入：**FMU PWM OUT** 和 **I/O PWM OUT** 的 VDD_SERVO 针脚 （0V 至 42V 不会损坏）
+1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
+2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
+3. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
 **Voltage monitoring**
 
 Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_pixhawk6x.md#power)).
 
-::: info
+:::info
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
 :::
 
 ## 编译固件
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -198,24 +214,24 @@ make px4_fmu-v6xrt_default
 
 <a id="debug_port"></a>
 
-## Debug调试端口
+## 调试接口
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| 针脚       | Signal           | 电压    |
-| -------- | ---------------- | ----- |
-| 2        | `Vtref`          | +3.3V |
-| 2        | Console TX (OUT) | +3.3V |
-| 3        | Console RX (IN)  | +3.3V |
-| 4（黑）     | `SWDIO`          | +3.3V |
-| 6        | `SWCLK`          | +3.3V |
-| 6        | `SWO`            | +3.3V |
-| 7        | NFC GPIO         | +3.3V |
-| 8 (blk)  | PH11             | +3.3V |
-| 9 (blk)  | nRST             | +3.3V |
-| 10 (blk) | `GND`            | GND   |
+| 针脚                          | 信号                                  | 电压                    |
+| --------------------------- | ----------------------------------- | --------------------- |
+| 1（红）                        | `Vtref`                             | +3.3V |
+| 2                           | Console TX (OUT) | +3.3V |
+| 3                           | Console RX (IN)  | +3.3V |
+| 4（黑）                        | `SWDIO`                             | +3.3V |
+| 6                           | `SWCLK`                             | +3.3V |
+| 6                           | `SWO`                               | +3.3V |
+| 7                           | NFC GPIO                            | +3.3V |
+| 8 (blk)  | PH11                                | +3.3V |
+| 9 (blk)  | nRST                                | +3.3V |
+| 10 (blk) | `GND`                               | GND                   |
 
 For information about using this port see:
 
@@ -224,13 +240,14 @@ For information about using this port see:
 
 ## 外部设备
 
-- [数字空速传感器](https://holybro.com/products/digital-air-speed-sensor)
-- [遥测无线电模块](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [距离传感器](../sensor/rangefinders.md)
+- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
+- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 ## 支持的平台/机身
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## 更多信息
 
