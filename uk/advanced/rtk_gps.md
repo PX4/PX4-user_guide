@@ -1,70 +1,80 @@
 # RTK GPS (PX4 інтеграція)
 
-[Реальний кінематичний час ](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (RTK) забезпечує точність GPS на рівні сантиметрів. Ця сторінка пояснює, як RTK інтегрується в PX4.
+[Real Time Kinematic](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (RTK) provides centimeter-level GPS accuracy.
+Ця сторінка пояснює, як RTK інтегрується в PX4.
 
 :::tip
-Інструкції щодо _використання_ RTK GPS наведені в розділі [Периферійне обладнання > RTK GPS](../gps_compass/rtk_gps.md).
+Instructions for _using_ RTK GNSS are provided in [Hardware > RTK GPS](../gps_compass/rtk_gps.md).
 :::
 
 ## Загальний огляд
 
-RTK використовує виміри фази несучої хвилі сигналу, а не інформаційний вміст сигналу. Він покладається на одну вихідну станцію для надання корекцій у реальному часі, які можуть працювати з кількома мобільними станціями.
+RTK використовує виміри фази несучої хвилі сигналу, а не інформаційний вміст сигналу.
+Він покладається на одну вихідну станцію для надання корекцій у реальному часі, які можуть працювати з кількома мобільними станціями.
 
-Для налаштування RTK з PX4 потрібні два модулі RTK GPS та даталінк. Закріплена на землі GPS-одиниця називається _Базою_, а повітряна одиниця - _Ровером_. Базова одиниця підключається до _QGroundControl_ (через USB) та використовує даталінк для передачі поправок RTCM до транспортного засобу (за допомогою повідомлення MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA)). На автопілоті пакети MAVLink розпаковуються та надсилаються до пристрою Rover, де вони обробляються для отримання рішення RTK.
+Для налаштування RTK з PX4 потрібні два модулі RTK GPS та даталінк.
+The fixed-position ground-based GPS unit is called the _Base_ and the in-air unit is called the _Rover_.
+The Base unit connects to _QGroundControl_ (via USB) and uses the datalink to stream RTCM corrections to the vehicle (using the MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) message).
+На автопілоті пакети MAVLink розпаковуються та надсилаються до пристрою Rover, де вони обробляються для отримання рішення RTK.
 
-Канал передачі даних зазвичай має підтримувати швидкість висхідної лінії зв’язку 300 байт на секунду (додаткову інформацію див. у розділі [Швидкість передачі даних у висхідній лінії зв’язку](#uplink-datarate)).
+The datalink should typically be able to handle an uplink rate of 300 bytes per second (see the [Uplink Datarate](#uplink-datarate) section below for more information).
 
 ## Підтримувані GPS-модулі RTK
 
-Список пристроїв, які ми тестували, можна знайти [в посібнику користувача](../gps_compass/rtk_gps.md#supported-rtk-devices).
+The list of devices that we have tested can be found [in the user guide](../gps_compass/rtk_gps.md#supported-devices).
 
-:::note
-Більшість пристроїв поставляється з двома варіантами: базою та ровером.
+:::info
+Most devices come with two variants, a base and a rover.
 Переконайтеся, що ви обрали правильний варіант.
 :::
 
 ## Автоматична конфігурація
 
-Стек GPS PX4 автоматично налаштовує модулі GPS для надсилання та отримання правильних повідомлень через UART або USB в залежності від того, куди підключений модуль (до _QGroundControl_ або автопілота).
+The PX4 GPS stack automatically sets up the GPS modules to send and receive the correct messages over the UART or USB, depending on where the module is connected (to _QGroundControl_ or the autopilot).
 
-Як тільки автопілот отримує повідомлення MAVLink `GPS_RTCM_DATA`, він автоматично пересилає дані RTCM до приєднаного модуля GPS через існуючі канали передачі даних (для даних корекції не потрібен окремий канал).
+As soon as the autopilot receives `GPS_RTCM_DATA` MAVLink messages, it automatically forwards the RTCM data to the attached GPS module over existing data channels (a dedicated channel for correction data is not required).
 
-:::note
-Інструмент конфігурації модуля RTK U-Center від u-blox не потрібний/не використовується!
-
+:::info
+The u-blox U-Center RTK module configuration tool is not needed/used!
 :::
 
-:::note
-Як _QGroundControl_, так і прошивка автопілота використовують один і той же стек драйверів GPS PX4 [(PX4 GPS driver stack)](https://github.com/PX4/GpsDrivers). На практиці це означає, що підтримку нових протоколів і/або повідомлень потрібно додавати лише в одному місці.
+:::info
+Both _QGroundControl_ and the autopilot firmware share the same [PX4 GPS driver stack](https://github.com/PX4/GpsDrivers).
+На практиці це означає, що підтримку нових протоколів і/або повідомлень потрібно додавати лише в одному місці.
 :::
 
 ### RTCM повідомлення
 
 QGroundControl налаштовує базову станцію RTK на вивід наступних рамок RTCM3.2, кожну з частотою 1 Гц, якщо не вказано інше:
 
-- **1005** - Координати станції XYZ для точки антени (Базова позиція), 0.2 Гц.
-- **1077** - Повні псевдодальності GPS, фази несучої, Доплер та сила сигналу (висока роздільна здатність).
-- **1087** - Повні псевдодальності ГЛОНАСС, фази несущої, Доплер і сила сигналу (висока роздільна здатність).
-- **1230** - Зміщення фаз коду ГЛОНАСС.
-- **1097** - Повні псевдодальності Галілео, фази несущої, Доплер і сила сигналу (висока роздільна здатність).
-- **1127** - Повні псевдодальності BeiDou, фази несущої, Доплер і сила сигналу (висока роздільна здатність).
+- **1005** - Station coordinates XYZ for antenna reference point (Base position), 0.2 Hz.
+- **1077** - Full GPS pseudo-ranges, carrier phases, Doppler and signal strength (high resolution).
+- **1087** - Full GLONASS pseudo-ranges, carrier phases, Doppler and signal strength (high resolution).
+- **1230** - GLONASS code-phase biases.
+- **1097** - Full Galileo pseudo-ranges, carrier phases, Doppler and signal strength (high resolution)
+- **1127** - Full BeiDou pseudo-ranges, carrier phases, Doppler and signal strength (high resolution)
 
 ## Uplink datarate(Швидкість передачі даних вгору)
 
-Швидкість передачі даних у напрямку від транспортного засобу (наприклад, дрона) до базової станції або контролера називається "uplink datarate" або просто "дата-швидкістю вгору". Необроблені повідомлення RTCM від бази упаковуються в повідомлення MAVLink `GPS_RTCM_DATA` та надсилаються через канал передачі даних. Максимальна довжина кожного повідомлення MAVLink становить 182 байти. Залежно від RTCM-повідомлення, повідомлення MAVLink майже ніколи не заповнюється повністю.
+The raw RTCM messages from the base are packed into a MAVLink `GPS_RTCM_DATA` message and sent over the datalink.
+Максимальна довжина кожного повідомлення MAVLink становить 182 байти. Залежно від RTCM-повідомлення, повідомлення MAVLink майже ніколи не заповнюється повністю.
 
-Повідомлення про базову позицію RTCM (1005) має довжину 22 байти, тоді як інші всі мають змінну довжину, залежно від кількості видимих супутників та кількості сигналів від супутника (лише 1 для однодіапазонних пристроїв, наприклад, M8P). Оскільки в будь-який момент часу _максимальна_ кількість видимих супутників з будь-якої констеляції становить 12, то за реальних умов теоретично достатньо максимальної швидкості передачі даних в 300 байт/с.
+Повідомлення про базову позицію RTCM (1005) має довжину 22 байти, тоді як інші всі мають змінну довжину, залежно від кількості видимих супутників та кількості сигналів від супутника (лише 1 для однодіапазонних пристроїв, наприклад, M8P).
+Since at a given time, the _maximum_ number of satellites visible from any single constellation is 12, under real-world conditions, theoretically an uplink rate of 300 B/s is sufficient.
 
-Якщо використовується _MAVLink 1_, для кожного повідомлення RTCM, незалежно від його довжини, надсилається повідомлення `GPS_RTCM_DATA` розміром 182 байти. Внаслідок цього приблизна вимога до пропускної здатності каналу зв'язку складає близько 700 байт на секунду. Це може призвести до насичення каналу зв'язку на модулях телеметрії з низькою пропускною здатністю напівдуплексного режиму (наприклад, телеметричні радіозв'язки 3DR).
+If _MAVLink 1_ is used, a 182-byte `GPS_RTCM_DATA` message is sent for every RTCM message, irrespective of its length.
+Внаслідок цього приблизна вимога до пропускної здатності каналу зв'язку складає близько 700 байт на секунду.
+Це може призвести до насичення каналу зв'язку на модулях телеметрії з низькою пропускною здатністю напівдуплексного режиму (наприклад, телеметричні радіозв'язки 3DR).
 
-Якщо використовується _MAVLink 2_, будь-який порожній простір у повідомленні `GPS_RTCM_DATA` видаляється. Отримана вимога до пропускної здатності для передачі вгору становить приблизно ту ж величину, що і теоретичне значення (близько 300 байт на секунду).
+If _MAVLink 2_ is used then any empty space in the `GPS_RTCM_DATA message` is removed.
+Отримана вимога до пропускної здатності для передачі вгору становить приблизно ту ж величину, що і теоретичне значення (близько 300 байт на секунду).
 
 :::tip
-PX4 автоматично переключається на MAVLink 2, якщо контрольна станція та модулі телеметрії підтримують це.
-
+PX4 automatically switches to MAVLink 2 if the GCS and telemetry modules support it.
 :::
 
-MAVLink 2 слід використовувати на каналах з низькою пропускною здатністю для хорошої продуктивності RTK. Необхідно вдбати про те, щоб впевнитися, що ланцюжок телеметрії використовує MAVLink 2 на всіх етапах передачі даних. Ви можете перевірити версію протоколу, використовуючи команду `mavlink status` у системній консолі:
+MAVLink 2 слід використовувати на каналах з низькою пропускною здатністю для хорошої продуктивності RTK. Необхідно вдбати про те, щоб впевнитися, що ланцюжок телеметрії використовує MAVLink 2 на всіх етапах передачі даних.
+You can verify the protocol version by using the `mavlink status` command on the system console:
 
 ```sh
 nsh> mavlink status
