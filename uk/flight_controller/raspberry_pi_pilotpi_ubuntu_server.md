@@ -1,7 +1,7 @@
-# PilotPi with Ubuntu Server
+# PilotPi з Ubuntu Server
 
-::::warning
-Ubuntu Server на RPi 4B споживає багато струму і генерує багато тепла.
+:::warning
+Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat.
 Розробляйте дизайн для кращого відведення тепла та високого енергоспоживання при використанні цього обладнання.
 :::
 
@@ -13,30 +13,32 @@ Ubuntu Server на RPi 4B споживає багато струму і гене
 
 #### armhf
 
-- [Ubuntu Server 18.04.5 для RPi2](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi2.img.xz)
-- [Ubuntu Server 18.04.5 для RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi3.img.xz)
-- [Ubuntu Server 18.04.5 для RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi4.img.xz)
-- [Ubuntu Server 20.04.1 для RPi 2/3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz)
+- [Ubuntu Server 18.04.5 for RPi2](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi2.img.xz)
+- [Ubuntu Server 18.04.5 for RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi3.img.xz)
+- [Ubuntu Server 18.04.5 for RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi4.img.xz)
+- [Ubuntu Server 20.04.1 for RPi 2/3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz)
 
 #### arm64
 
-- [Ubuntu Server 18.04.5 для RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi3.img.xz)
-- [Ubuntu Server 18.04.5 для RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz)
-- [Ubuntu Server 20.04.1 для RPi 3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz)
+- [Ubuntu Server 18.04.5 for RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi3.img.xz)
+- [Ubuntu Server 18.04.5 for RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz)
+- [Ubuntu Server 20.04.1 for RPi 3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz)
 
 #### Найновіша ОС
 
-Будь ласка, звертайтеся до офіційної сторінки [cdimage](https://cdimage.ubuntu.com/releases/) для отримання будь-яких нових оновлень.
+Please refer to official [cdimage](https://cdimage.ubuntu.com/releases/) page for any new updates.
 
 ### Перший запуск
 
-Під час налаштування Wi-Fi для RaPi вперше ми рекомендуємо використовувати провідне підключення Ethernet між домашнім маршрутизатором та RPi, а також монітор та клавіатуру.
+When setting up RPi's WiFi for the first time we recommended using a wired Ethernet connection between your home router and RPi, and a monitor and keyboard.
 
 #### Перед завантаженням
 
-Встановіть SD-карту на ваш комп'ютер та змініть налаштування мережі. Будь ласка, дотримуйтесь офіційної інструкції [тут](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet).
+Встановіть SD-карту на ваш комп'ютер та змініть налаштування мережі.
+Please follow the official instruction [here](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet).
 
-Тепер під'єднайте SD-карту до вашого Pi та завантажтеся вперше. Переконайтеся, що у вас є доступ до RPi через командний рядок - або через з'єднання SSH по кабелю Ethernet, або безпосередній доступ за допомогою клавіатури та монітора.
+Тепер під'єднайте SD-карту до вашого Pi та завантажтеся вперше.
+Переконайтеся, що у вас є доступ до RPi через командний рядок - або через з'єднання SSH по кабелю Ethernet, або безпосередній доступ за допомогою клавіатури та монітора.
 
 #### WiFi регіон
 
@@ -46,7 +48,7 @@ Ubuntu Server на RPi 4B споживає багато струму і гене
 sudo apt-get install crda
 ```
 
-Відредагуйте файл `/etc/default/crda`, щоб встановити правильний WiFi регіон. [Reference List](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
+Edit the file `/etc/default/crda` to change the correct WiFi region. [Reference List](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
 
 ```sh
 sudo nano /etc/default/crda
@@ -62,7 +64,8 @@ sudo nano /etc/default/crda
 sudo nano /etc/hostname
 ```
 
-Змініть значення hostname на те, що вам подобається. Потім встановіть пакет, необхідний для mDNS:
+Змініть значення hostname на те, що вам подобається.
+Потім встановіть пакет, необхідний для mDNS:
 
 ```sh
 sudo apt-get update
@@ -83,19 +86,19 @@ ssh ubuntu@pi_hostname.local
 
 #### Автентифікація без пароля (необов'язково)
 
-Ви також можете налаштувати [безпарольну автентифікацію](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md).
+You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well.
 
-### Налаштування ОС
+### Налаштування OS
 
 #### config.txt
 
-Відповідний файл в Ubuntu - `/boot/firmware/usercfg.txt`.
+The corresponding file in Ubuntu is `/boot/firmware/usercfg.txt`.
 
 ```sh
 sudo nano /boot/firmware/usercfg.txt
 ```
 
-Замініть контент файлу на:
+Замініть на:
 
 ```sh
 # enable sc16is752 overlay
@@ -120,21 +123,23 @@ dtoverlay=miniuart-bt
 sudo nano /boot/firmware/cmdline.txt
 ```
 
-Для Ubuntu Server 18.04 або ранішої версії, слід змінити `nobtcmd.txt` та `btcmd.txt`.
+On Ubuntu Server 18.04 or earlier, `nobtcmd.txt` and `btcmd.txt` should both be modified.
 
 ```sh
 sudo nano /boot/firmware/nobtcmd.txt
 ```
 
-Знайдіть `console=/dev/ttyAMA0,115200` та видаліть цю частину, щоб вимкнути командний рядок логіну на послідовному інтерфейсі.
+Find `console=/dev/ttyAMA0,115200` and remove that part to disable the login shell on serial interface.
 
-Додайте `isolcpus=2` після останнього слова. Весь файл буде виглядати так:
+Append `isolcpus=2` after the last word.
+Весь файл буде виглядати так:
 
 ```sh
 net.ifnames=0 dwc_otg.lpm_enable=0 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc isolcpus=2
 ```
 
-Вищезазначений рядок вказує ядру Linux не планувати жодного процесу на ядрі CPU 2. Ми пізніше вручну запустимо PX4 на цьому ядрі.
+Вищезазначений рядок вказує ядру Linux не планувати жодного процесу на ядрі CPU 2.
+Ми пізніше вручну запустимо PX4 на цьому ядрі.
 
 Перезавантажте та увійдіть за допомогою SSH на ваш Pi.
 
@@ -144,7 +149,7 @@ net.ifnames=0 dwc_otg.lpm_enable=0 console=tty1 root=LABEL=writable rootfstype=e
 ls /dev/tty*
 ```
 
-Має бути `/dev/ttyAMA0`, `/dev/ttySC0` та `/dev/ttySC1`.
+There should be `/dev/ttyAMA0`, `/dev/ttySC0` and `/dev/ttySC1`.
 
 Перевірте інтерфейс I2C:
 
@@ -152,7 +157,7 @@ ls /dev/tty*
 ls /dev/i2c*
 ```
 
-Повинно бути `/dev/i2c-0` та `/dev/i2c-1`
+There should be `/dev/i2c-0` and `/dev/i2c-1`
 
 Перевірте інтерфейс SPI:
 
@@ -160,11 +165,12 @@ ls /dev/i2c*
 ls /dev/spidev*
 ```
 
-Має бути `/dev/spidev0.0`.
+There should be `/dev/spidev0.0`.
 
 #### rc.local
 
-У цьому розділі ми налаштуємо скрипт автозапуску в **rc.local**. Зверніть увагу, що нам потрібно створити цей файл, оскільки він відсутній у свіжій операційній системі Ubuntu.
+In this section we will configure the auto-start script in **rc.local**.
+Зверніть увагу, що нам потрібно створити цей файл, оскільки він відсутній у свіжій операційній системі Ubuntu.
 
 ```sh
 sudo nano /etc/rc.local
@@ -186,20 +192,21 @@ echo "25" > /sys/class/gpio/unexport
 exit 0
 ```
 
-Збережіть та вийдіть. Потім встановіть правильні права:
+Збережіть та вийдіть.
+Потім встановіть правильні права:
 
 ```sh
 sudo chmod +x /etc/rc.local
 ```
 
-::: info
-Не забудьте вимкнути перемикач, коли він не потрібен!
+:::info
+Don't forget to turn off the switch when it is not needed!
 :::
 
 #### CSI камера
 
 :::warning
-Увімкнення камери CSI призведе до зупинки роботи будь-чого на I2C-0.
+Enable CSI camera will stop anything works on I2C-0.
 :::
 
 ```sh
@@ -214,14 +221,14 @@ start_x=1
 
 ### Збірка коду
 
-Для завантаження _найостаннішої_ версії на свій комп'ютер, введіть у терміналі наступну команду:
+To get the _very latest_ version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-::: info
-Це все, що вам необхідно для збірки найновішого коду.
+:::info
+This is all you need to do just to build the latest code.
 :::
 
 #### Встановити точку призначення завантаження RPi
@@ -261,7 +268,7 @@ make scumaker_pilotpi_default upload
 
 #### Альтернативний метод збірки для armhf (з використанням Docker)
 
-Якщо ви вперше компілюєте з докером, будь ласка, зверніться до [офіційної документації](../test_and_ci/docker.md#prerequisites).
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 Виконайте команду в директорії firmware:
 
@@ -269,11 +276,13 @@ make scumaker_pilotpi_default upload
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
 
-::: info
-mDNS не підтримується з Docker. Ви повинні вказати правильну IP-адресу кожного разу при завантаженні.
+:::info
+mDNS is not supported within docker. Вам потрібно вказувати правильну IP-адресу кожного разу під час завантаження.
 :::
 
-::: info Якщо ваша IDE не підтримує збірку ninja, опція `NO_NINJA_BUILD=1` допоможе. Ви можете компілювати без завантаження також. Просто видаліть `upload`.
+:::info
+If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
+Ви можете компілювати без завантаження також. Just remove `upload` target.
 :::
 
 Також можливо просто скомпілювати код за допомогою команди:
@@ -284,7 +293,8 @@ mDNS не підтримується з Docker. Ви повинні вказат
 
 #### Збірка для архітектури arm64
 
-::: info Цей крок потребує встановлення утиліти `aarch64-linux-gnu`.
+:::info
+This step requires `aarch64-linux-gnu` tool-chain to be installed.
 :::
 
 Зберіть виконуваний файл:
@@ -302,19 +312,21 @@ make scumaker_pilotpi_arm64 upload
 
 #### Альтернативний метод збірки для arm64 (з використанням Docker)
 
-Якщо ви вперше компілюєте з докером, будь ласка, зверніться до [офіційної документації](../test_and_ci/docker.md#prerequisites).
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
-Виконайте команду в директорії `PX4-Autopilot`:
+Execute the command in `PX4-Autopilot` folder:
 
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_arm64 upload"
 ```
 
-::: info
-mDNS не підтримується з Docker. Ви повинні вказати правильну IP-адресу кожного разу при завантаженні.
+:::info
+mDNS is not supported within docker. Вам потрібно вказувати правильну IP-адресу кожного разу під час завантаження.
 :::
 
-::: info Якщо ваша IDE не підтримує збірку ninja, опція `NO_NINJA_BUILD=1` допоможе. Ви можете компілювати без завантаження - просто видаліть `upload`.
+:::info
+If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
+You can compile without uploading too - just remove the `upload` target.
 :::
 
 Також можливо просто скомпілювати код за допомогою команди:
@@ -334,13 +346,13 @@ sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 
 Тепер PX4 запустився з конфігурацією мультиротора.
 
-Якщо ви стикалися з аналогічною проблемою під час виконання `bin/px4` на вашому Pi, як показано нижче:
+If you encountered the similar problem executing `bin/px4` on your Pi as following:
 
 ```
 bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
 ```
 
-Тоді ви повинні скомпілювати з Docker.
+Тоді ви повинні скомпілювати за допомогою Docker замість цього.
 
 Перш ніж перейти до наступного кроку, спочатку видаліть наявну збірку:
 
@@ -350,6 +362,6 @@ rm -rf build/scumaker_pilotpi_*
 
 Потім поверніться до відповідного розділу вище.
 
-### Post налаштування
+### Післяконфігурація
 
-Будь ласка, зверніться до інструкцій [тут](raspberry_pi_pilotpi_rpios.md)
+Please refer to the instructions [here](raspberry_pi_pilotpi_rpios.md)
