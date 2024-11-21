@@ -13,7 +13,7 @@ The folded stacks are then fed into the visualization script, for which purpose 
 
 ## 기본 사용법
 
-### 전제 조건
+### 준비 사항
 
 프로파일러는 GDB에서 임베디드 대상에서 PX4를 실행합니다.
 따라서, 대상을 프로파일링하기 전에 프로파일링할 하드웨어가 있어야 하고, 해당 하드웨어에 펌웨어를 컴파일하고 업로드하여야 합니다.
@@ -84,7 +84,7 @@ For more control over the build process, including setting the number of samples
   단일 코어 임베디드 대상은 항상 하나의 스레드에서 실행되기 때문에 영향을 미치지 않지만, 이 제한으로 인하여 프로파일러는 다른 많은 응용 프로그램과 호환되지 않습니다.
   향후에는 샘플당 여러 스택 추적을 지원하도록 스택 폴더를 수정하여야 합니다.
 
-## Implementation
+## 구현
 
 The script is located at [/platforms/nuttx/Debug/poor-mans-profiler.sh](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/nuttx/Debug/poor-mans-profiler.sh)
 Once launched, it will perform the specified number of samples with the specified time interval.
