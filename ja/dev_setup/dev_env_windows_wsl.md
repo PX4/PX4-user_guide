@@ -329,7 +329,7 @@ Do the following steps to flash your custom binary built in WSL:
 
 8. Start the flashing.
 
-## Troubleshooting
+## トラブルシューティング
 
 If you have any problems with your setup, check the current [Microsoft WSL installation documentation](https://learn.microsoft.com/en-us/windows/wsl/install).
 
