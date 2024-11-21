@@ -1,34 +1,36 @@
 # Black Magic / Dronecode адаптери
 
-[Black Magic Probe](https://black-magic.org) - це простий у використанні, в основному готовий до роботи, відладчик JTAG/SWD для вбудованих мікроконтролерів. Оскільки Black Magic Probe є загальним зондом для налагодження, вам знадобиться адаптер для підключення до керуючих пристроїв польоту Pixhawk, який можна придбати тут:
+The [Black Magic Probe](https://black-magic.org) is an easy to use, mostly plug-and-play, JTAG/SWD debugger for embedded microcontrollers.
+Оскільки Black Magic Probe є загальним зондом для налагодження, вам знадобиться адаптер для підключення до керуючих пристроїв польоту Pixhawk, який можна придбати тут:
 
 - [Drone Code Debug Adapter](https://1bitsquared.com/products/drone-code-debug-adapter) (1 BIT SQUARED).
 
 ## Dronecode Probe
 
-[Пробник Dronecode Probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) - це спеціалізація Black Magic Probe для налагодження автопілотів PX4.
+The [Dronecode Probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) is a specialization of the Black Magic Probe for debugging PX4 autopilots.
 
-Інтерфейс USB-зонда викриває два окремі віртуальні інтерфейси послідовного порту: один для підключення до [System Console](system_console.md) (UART), а інший - для вбудованого GDB-сервера (SWD-інтерфейс).
+The probe's USB interface exposes two separate virtual serial port interfaces: one for connecting to the [System Console](system_console.md) (UART) and the other for an embedded GDB server (SWD interface).
 
-Датчик надає кабель з'єднувача DCD-M для підключення до [Pixhawk Debug Mini](swd_debug.md#pixhawk-debug-mini).
+The probe provides a DCD-M connector cable for attaching to the [Pixhawk Debug Mini](swd_debug.md#pixhawk-debug-mini).
 
 :::info
-Роз'єм _6-pos DF13_, який поставляється з зондом, не може бути використаний для налагодження SWD (він призначений для використання System Console).
+The _6-pos DF13_ connector that comes with the probe cannot be used for SWD debugging (it is for using the System Console).
 :::
 
 ## Використання зонда
 
 :::info
-Для відлагодження STM32F7 або пізніших (FMUv5 та новіших) ймовірно потрібне оновлення прошивки пристрою Dronecode probe / Blackmagic probe. Ви можете знайти, як оновити [blackmagic probe](https://github.com/blacksphere/blackmagic/wiki/Upgrading-Firmware) тут.
+To debug STM32F7 or later (FMUv5 and newer) the Dronecode probe / Blackmagic probe likely requires a firmware update.
+You can find how to update the [blackmagic probe here](https://github.com/blacksphere/blackmagic/wiki/Upgrading-Firmware).
 :::
 
 Щоб використовувати зонд Dronecode з GDB, запустіть GDB з точним ELF-файлом, який в даний момент прошивається на автопілоті:
 
 ```sh
-arm-none-eabi-gdb build/px4_fmu-v2_default/px4_fmu-v2_default.elf
+arm-none-eabi-gdb build/px4_fmu-v5_default/px4_fmu-v5_default.elf
 ```
 
-Потім вам потрібно вибрати інтерфейс зонду Dronecode, на Linux це, наприклад:
+Потім вам потрібно вибрати інтерфейс зонду Dronecode, на Linux це, наприклад.:
 
 ```sh
 target ext /dev/serial/by-id/usb-Black_Sphere_Technologies_Black_Magic_Probe_f9414d5_7DB85DAC-if00
@@ -40,7 +42,7 @@ target ext /dev/serial/by-id/usb-Black_Sphere_Technologies_Black_Magic_Probe_f94
 monitor swdp_scan
 ```
 
-Перед вами відобразиться приблизно такий вивід:
+І ви маєте побачити щось на зразок:
 
 ```sh
 Target voltage: 3.3V
@@ -57,4 +59,4 @@ No. Att Driver
 attach 1
 ```
 
-Тепер ви відключилися.
+Тепер ви повинні бути підключені.
