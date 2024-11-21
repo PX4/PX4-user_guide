@@ -1,24 +1,32 @@
 # Holybro Pix32 v5
 
-:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-[Pix32 v5](https://holybro.com/products/pix32-v5)<sup>&reg;</sup> is an advanced autopilot flight controller designed and made by Holybro<sup>&reg;</sup>. It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS. It can be regarded as a variant version of Pixhawk4.
+[Pix32 v5](https://holybro.com/products/pix32-v5)<sup>&reg;</sup> is an advanced autopilot flight controller designed and made by Holybro<sup>&reg;</sup>.
+It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers.
+It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+It can be regarded as a variant version of Pixhawk4.
 
-The Pix32 v5 is designed for pilots who need a high power, flexible and customisable flight control system. It is comprised of a separate flight controller and carrier (base) board, which are connected by a 100pin connector. This design allows users to either select a base board made by Holybro, or customize their own.
+The Pix32 v5 is designed for pilots who need a high power, flexible and customisable flight control system.
+It is comprised of a separate flight controller and carrier (base) board, which are connected by a 100pin connector.
+This design allows users to either select a base board made by Holybro, or customize their own.
 
 ![Pix32 v5 Family](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_family.jpg)
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## 概览
+## 总览
 
-- 主 FMU 处理器：STM32F765
+- 主处理器：STM32F765
   - 32 位 Arm® Cortex®-M7，216MHz，2MB 储存，512KB RAM
 - IO 处理器：STM32F100
   - 32 位 Arm® Cortex®-M3，24MHz，8KB SRAM
-- 板载传感器：
+- 内置传感器：
   - 加速度计 / 陀螺仪：ICM-20689
   - Accel/Gyro: BMI055 or ICM20602
   - 磁力计：IST8310
@@ -26,8 +34,8 @@ The Pix32 v5 is designed for pilots who need a high power, flexible and customis
 - GPS：ublox Neo-M8N GPS/GLONASS 接收器；集成磁力计 IST8310
 - 接口：
   - 8-16 路PWM输出（8路来自 IO，8路来自 FMU）
-  - FMU 上有 3 路专用 PWM/Capture 输入
-  - 用于 CPPM 的专用遥控输入
+  - FMU上有3个专用PWM/Capture输入
+  - CPPM专用的RC输入
   - 用于 Spektrum / DSM 与 有模拟 / PWM RSSI 的 S.Bus 的专用遥控输入
   - Dedicated S.Bus servo output
   - 5个通用串行口
@@ -51,7 +59,7 @@ The Pix32 v5 is designed for pilots who need a high power, flexible and customis
   - 最大电流感应：120A
   - USB 电源输入：4.75~5.25V
   - 伺服导轨输入电压：0~36V
-- 重量和尺寸：
+- 重量和尺寸:
   - Dimensions: 45x45x13.5mm
   - Weight: 33.0g
 - Environmental Data, Quality & Reliability:
@@ -63,7 +71,7 @@ The Pix32 v5 is designed for pilots who need a high power, flexible and customis
 
 Additional information can be found in the [Pix32 V5 Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf).
 
-## 在哪里买
+## 购买渠道
 
 Order from [Holybro website](https://holybro.com/products/pix32-v5).
 
@@ -85,30 +93,34 @@ The [Pix32 v5 Wiring Quick Start](../assembly/quick_start_holybro_pix32_v5.md) p
 
 ## 额定电压
 
-_Pix32 v5_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+_Pix32 v5_ can be triple-redundant on the power supply if three power sources are supplied.
+The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-::: info The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::info
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
+You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 :::
 
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
 
-1. **POWER1** 和 **POWER2** 输入电压（4.9 v 至 5.5 v）
-1. **USB** 输入电压（4.75 v 至 5.25 v）
+1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
+2. **USB** input (4.75V to 5.25V)
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
-1. **POWER1** 与 **POWER2** 输入（可运行范围 4.1V 至 5.7V，0V 至 10V 不会损坏）
-1. **USB** 输入（可运行范围 4.1V 至 5.7V，0V 至 6V 不会损坏）
-1. 舵机输入：**FMU PWM OUT** 和 **I/O PWM OUT** 的 VDD_SERVO 针脚 （0V 至 42V 不会损坏）
+1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
+2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
+3. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
 ## 编译固件
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -129,13 +141,14 @@ The pinout uses the standard [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-
 
 ## 外部设备
 
-- [数字空速传感器](../sensor/airspeed.md)
-- [数传电台模块](../telemetry/index.md)
-- [测距仪/距离传感器](../sensor/rangefinders.md)
+- [Digital Airspeed Sensor](../sensor/airspeed.md)
+- [Telemetry Radio Modules](../telemetry/index.md)
+- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
-## 支持的平台 / 机身
+## 支持的平台/机身
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## 附加信息
 
@@ -143,4 +156,4 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 - [Pix32 v5 Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
 - [Pix32 v5 Base Board Schematic Diagram](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
 - [Pix32 v5 Mini Base Board Schematic Diagram](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5-Base-Mini-Board_Schematic_diagram.pdf)
-- [FMUv5参考设计](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)。
+- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
