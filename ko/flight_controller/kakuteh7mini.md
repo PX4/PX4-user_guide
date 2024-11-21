@@ -126,7 +126,7 @@ In addition to the [basic configuration](../config/index.md), the following para
 | ------ | ---------- | ----------------------------------- |
 | USART1 | /dev/ttyS0 | TELEM1                              |
 | UART2  | /dev/ttyS1 | TELEM2                              |
-| USART3 | /dev/ttyS2 | 디버깅 콘솔                              |
+| USART3 | /dev/ttyS2 | 디버그 콘솔                              |
 | UART4  | /dev/ttyS3 | GPS1                                |
 | USART6 | /dev/ttyS4 | RC SBUS                             |
 | UART7  | /dev/ttyS5 | ESC 텔레메트리(DShot) |
