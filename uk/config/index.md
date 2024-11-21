@@ -1,56 +1,59 @@
-# Стандартні налаштування
+# Стандартна конфігурація
 
 У цьому розділі описано загальну конфігурацію програмного забезпечення та калібрування, необхідні для більшості пристроїв PX4.
 
-Спочатку потрібно [ завантажити прошивку і вибрати каркас/тип вашого апарату](#firmware-vehicle-selection). Більшість інших кроків можна виконувати у довільному порядку, за винятком [налаштування](#tuning), яке має бути виконано в кінці.
+You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection).
+Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
 
 ## Попередні вимоги
 
-Перед початком роботи вам слід [завантажити QGroundControl](http://qgroundcontrol.com/downloads/) і встановити його на ваш **робочий** комп'ютер. Потім відкрийте меню програми QGC (піктограма "Q" у верхньому лівому куті) і виберіть **Vehicle Setup** у спливаючому вікні _Select Tool_:
+Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer.
+Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
 
-![Спливаюче вікно головного меню QGC: виділення пункту Налаштування апарату](../../assets/qgc/setup/menu_setup.png)
+![QGC Main Menu Popup: highlighting Vehicle Setup](../../assets/qgc/setup/menu_setup.png)
 
 ## Етапи конфігурації
 
 ### Вибір прошивки/апарату
 
-- [Завантаження прошивки](../config/firmware.md)
-- [Вибір апарату (каркасу)](../config/airframe.md)
+- [Loading Firmware](../config/firmware.md)
+- [Vehicle (Frame) Selection](../config/airframe.md)
 
 ### Налаштування двигуна/приводу
 
-- [Калібрування ESC (плати контролю двигунів)](../advanced_config/esc_calibration.md)
-- [Конфігурація та тестування приводу](../config/actuators.md)
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Actuator Configuration and Testing](../config/actuators.md)
 
-### Калібрування датчика
+### Калібрування сенсорів
 
-- [Орієнтація сенсорів](../config/flight_controller_orientation.md)
-- [Компас](../config/compass.md)
+- [Sensor Orientation](../config/flight_controller_orientation.md)
+- [Magnetometer (Compass)](../config/compass.md)
 - [Гіроскоп](../config/gyroscope.md)
 - [Акселерометр](../config/accelerometer.md)
-- [Рівень горизонту](../config/level_horizon_calibration.md)
-- Швидкість польоту (тільки для літаків / VTOL)
+- [Level Horizon](../config/level_horizon_calibration.md)
+- [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
 
-::: info Налаштування для цих та інших сенсорів знаходиться в [Апаратне забезпечення та налаштування сенсорів](../sensor/index.md).
+:::info
+Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
 :::
 
-### Налаштування ручного керування
+### Налаштування керування вручному режимі
 
 Радіоуправління:
 
-- [Налаштування радіоконтролера (РК)](../config/radio.md)
-- [Налаштування режиму польоту](../config/flight_mode.md)
+- [Radio Controller (RC) Setup](../config/radio.md)
+- [Flight Mode Configuration](../config/flight_mode.md)
 
-Джойстик/Ґеймпад
+Джойстик/Ґеймпад:
 
-- [Налаштування джойстика](../config/joystick.md)
+- [Joystick Setup](../config/joystick.md)
 
-### Налаштування безпеки
+### Конфігурація безпеки
 
 - [Battery Estimation Tuning](../config/battery.md) (requires [Power Module](../power_module/index.md))
-- [Конфігурація безпеки (запобіжники)](../config/safety.md)
+- [Safety Configuration (Failsafes)](../config/safety.md)
 
-### Тюнінг
+### Вдосконалення
 
 Auto-tuning is supported, and recommended, on the following frames:
 
@@ -60,22 +63,22 @@ Auto-tuning is supported, and recommended, on the following frames:
 
 ## Відеоінструкція
 
-[youtube](https://youtu.be/91VGmdSlbo4)
+The video below shows most of the calibration process (it uses an older version of _QGroundControl_, but most of the process is unchanged).
 
 <lite-youtube videoid="91VGmdSlbo4" title="PX4 Autopilot Setup Tutorial Preview"/>
 
 ## Підтримка
 
-Якщо вам потрібна допомога з конфігурацією, ви можете звернутися за допомогою на форумі підтримки [QGroundControl](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
+If you need help with the configuration you can ask for help on the [QGroundControl Support forum](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
 
 ## Дивіться також
 
-- [QGroundControl > Налаштування](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
-- [Периферія контролера польоту](../peripherals/README.md) - налаштування конкретних датчиків, опціональних датчиків, актуаторів тощо.
-- [Розширена конфігурація](../advanced_config/README.md) - заводське калібрування/OEM, налаштування додаткових функцій, менш поширені конфігурації.
+- [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
+- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
+- [Advanced Configuration](../advanced_config/index.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Конфігурація/налаштування, що залежать від апарату:
 
-  - [Конфігурація/налаштування мультикоптера](../config_mc/index.md)
-  - [Конфігурація/налаштування гелікоптера](../config_heli/index.md)
-  - [Конфігурація/налаштування літака (з нерухомим крилом)](../config_fw/index.md)
-  - [Конфігурація/налаштування VTOL](../config_vtol/index.md)
+  - [Multicopter Config/Tuning](../config_mc/index.md)
+  - [Helicopter Config/Tuning](../config_heli/index.md)
+  - [Fixed-wing Config/Tuning](../config_fw/index.md)
+  - [VTOL Config/Tuning](../config_vtol/index.md)
