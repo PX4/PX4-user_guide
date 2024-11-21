@@ -16,7 +16,7 @@ This topic provides an overview of how to plan and fly missions.
 - Select the **Add Waypoint** ("plus") icon in the top left.
 - 지도를 클릭하여 경유지를 추가합니다.
 - 경유지 매개 변수와 유형을 수정하려면 오른쪽의 경유지 목록을 사용하십시오. 하단의 고도 표시기는 각 경유지의 상대 고도를 표시합니다.
-- **업로드** 버튼 (오른쪽 상단)을 클릭하여 차량에 임무를 전송합니다.
+- Once finished, click on the **Upload** button (top right) to send the mission to the vehicle.
 
 You can also use the _Pattern_ tool to automate creation of survey grids.
 
@@ -35,9 +35,9 @@ For more detail on the checks and possible actions, see: [Mission Mode (FW) > Mi
 
 ### 기체 요 각도 설정
 
-요 각도가 설정된 경우 다중 로터는 목표 경유지에 지정된 **방향각** ([ MAV_CMD_NAV_WAYPOINT.param4 ](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)에 해당)을 향하도록 요잉합니다.
+If set, a multi-rotor vehicle will yaw to face the **Heading** value specified in the target waypoint (corresponding to [MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)).
 
-경유지 (`param4 = NaN`)의 **방향각**이 명시적으로 설정되지 않은 경우 기체는 매개 변수 [MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE)에 지정된 위치를 향해 요잉합니다. 기본적으로 이것은 다음 경유지입니다.
+If **Heading** has not been explicitly set for the target waypoint (`param4=NaN`) then the vehicle will yaw towards a location specified in the parameter [MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE). 기본적으로 이것은 다음 경유지입니다.
 
 Vehicle types that cannot independently control yaw and direction of travel will ignore yaw settings (e.g. Fixed-wing).
 
@@ -54,7 +54,7 @@ The _acceptance radius_ defines the circle around a waypoint within which a vehi
 회전 속도는 수용 반경 (= 회전 반경)과 최대 허용 가속도 및 저크 ([멀티콥터에 대한 저크 제한 유형 궤적](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) 참조)에 따라 자동으로 계산됩니다.
 
 :::tip
-웨이포인트 허용 반경에 대한 자세한 내용은 [미션 모드 > 웨이포인트간 궤적](../flight_modes/mission.md#rounded-turns-inter-waypoint-trajectory)을 참고하십시오. :::
+For more information about the impact of the acceptance radius around the waypoint see: [Mission Mode > Inter-waypoint Trajectory](../flight_modes_fw/mission.md#rounded-turns-inter-waypoint-trajectory). :::
 
 ### Package Delivery (Cargo) Missions
 
