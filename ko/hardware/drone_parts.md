@@ -16,4 +16,4 @@ PX4 완제품 기체와 자체 제작 드론의 부품들에 대하여 설명합
 - [배선 개요](../assembly/cable_wiring.md)
 - [Companion Computers](../companion_computer/index.md) — Setup, peripherals, computer vision, obstacle avoidance etc.
 - [직렬 포트 설정](../peripherals/serial_configuration.md)
-- [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md)
+- [PX4 이더넷 설정](../advanced_config/ethernet_setup.md)
