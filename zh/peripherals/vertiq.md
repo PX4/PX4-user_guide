@@ -6,11 +6,11 @@ Vertiq makes high performance propulsion systems for commercial and defense UAS.
 
 All Vertiq modules support traditional [PWM input, DShot, OneShot, and Multishot communication protocols](https://iqmotion.readthedocs.io/en/latest/manual/manual_hobby.html). Vertiq's larger modules also support [DroneCAN control](https://iqmotion.readthedocs.io/en/latest/manual/manual_dronecan.html).
 
-## 在哪里买
+## 购买渠道
 
 Purchasing information can be found on the [Vertiq website](https://www.vertiq.co/).
 
-## Hardware Setup
+## 硬件安装
 
 ### 布线
 
