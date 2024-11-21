@@ -7,7 +7,7 @@ Up to two GPS modules can be connected using either a UART or the CAN bus:
 - A primary [GNSS module](../gps_compass/#supported-gnss) that usually also includes a [compass/magnetometer](../gps_compass/magnetometer.md), [buzzer](../getting_started/px4_basic_concepts.md#buzzer), [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), and [UI LED](../getting_started/led_meanings.md#ui-led).
 - An optional secondary GNSS/compass module that is used as a fallback. This may include a buzzer, safety switch, LEDs, but these are not used by PX4.
 
-![GPS + 罗盘](../../assets/hardware/gps/gps_compass.jpg)
+![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
 ::: info PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GNSS Receivers, which extend GNSS systems to centimetre-level precision.
 :::
@@ -59,7 +59,7 @@ Up to two GPS modules can be connected using either a UART or the CAN bus:
 
 [Mounting the Compass](../assembly/mount_gps_compass.md) explains how to mount a GNSS module that has a compass.
 
-## Hardware Setup
+## 硬件安装
 
 The hardware setup depends on the flight controller, the GNSS module, and the connection bus it supports - UART/I2C or CAN.
 
