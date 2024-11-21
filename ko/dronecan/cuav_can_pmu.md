@@ -1,6 +1,7 @@
 # CAUV CAN PMU
 
-CAN PMU<sup>&reg;</sup> is a high-precision [DroneCAN](index.md) power module developed by CUAV<sup>&reg;</sup>. It runs the CUAV ITT compensation algorithm, which enables drones to get the battery data more accurately.
+CAN PMU<sup>&reg;</sup> is a high-precision [DroneCAN](index.md) power module developed by CUAV<sup>&reg;</sup>.
+It runs the CUAV ITT compensation algorithm, which enables drones to get the battery data more accurately.
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu.jpg)
 
@@ -9,7 +10,7 @@ It is recommended for use in large commercial vehicles, but might also be used f
 ## 구매처
 
 - [CUAV store](https://store.cuav.net/index.php)
-- [CUAV 알리익스프레스 ](https://www.aliexpress.com/item/4000369700535.html)
+- [CUAV aliexpress ](https://www.aliexpress.com/item/4000369700535.html)
 
 ## Hardware Specifications
 
@@ -64,7 +65,7 @@ Set the following parameters in _QGroundControl_ [Vehicle Setup > Parameters](..
 
 - [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT): set to: _Raw data_
 
-  ![QGC - Set UAVCAN_SUB_BAT parameter to raw data](../../assets/hardware/power_module/cuav_can/qgc_set_usavcan_sub_bat.png)
+  ![QGC - Set UAVCAN\_SUB\_BAT parameter to raw data](../../assets/hardware/power_module/cuav_can/qgc_set_usavcan_sub_bat.png)
 
 ## 추가 정보
 
