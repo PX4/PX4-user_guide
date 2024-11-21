@@ -222,7 +222,7 @@ The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debu
 
 | 핀                           | 신호                                  | 전압                    |
 | --------------------------- | ----------------------------------- | --------------------- |
-| 1 (적)    | `Vtref`                             | +3.3V |
+| 1(red)   | `Vtref`                             | +3.3V |
 | 2 (흑)    | Console TX (OUT) | +3.3V |
 | 3 (흑)    | Console RX (IN)  | +3.3V |
 | 4 (흑)    | `SWDIO`                             | +3.3V |
