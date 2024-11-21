@@ -4,8 +4,8 @@ The Wing Wing Z-84 is a flying wing frame. It is small, rugged and just large en
 
 주요 정보:
 
-- **기체:** Wing Wing Z-84
-- **비행 컨트롤러:** Pixracer
+- **Frame:** Wing Wing Z-84
+- **Flight controller:** Pixracer
 
 ![Wing Wing Z-84 조립](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
@@ -25,7 +25,7 @@ PNF (또는 "PNP") 버전에는 모터, 프로펠러와 ESC가 포함됩니다.
 
 ### 전기 속도 컨트롤러 (ESC)
 
-다음 중 하나 (작은 (> = 12A) ESC가 수행함) :
+One of these (any small (>=12A) ESC will do):
 
 - [Turnigy 20A Brushed ESC ESC](https://hobbyking.com/en_us/turnigy-20a-brushed-esc.html) (Hobbyking)
 - [Lumenier Regler 30A BLHeli_S ESC OPTO](https://www.getfpv.com/lumenier-30a-blheli-s-esc-opto-2-4s.html) (GetFPV)
