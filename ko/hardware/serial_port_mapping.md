@@ -17,7 +17,7 @@ The instructions are used to generate serial port mapping tables in flight contr
 
 **default.cmake**는 여러 직렬 포트 매핑을 나열합니다(텍스트 "SERIAL_PORTS" 검색).
 
-[/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake#L13-L17)에서:
+From [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board):
 
 ```
 SERIAL_PORTS
@@ -65,7 +65,7 @@ DEBUG 콘솔 매핑을 가져오기 위해 `SERIAL_CONSOLE`에 대한 [defconfig
 CONFIG_UART7_SERIAL_CONSOLE=y
 ```
 
-To get the DEBUG console mapping we search the [defconfig file](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L212) for `SERIAL_CONSOLE`. Below we see that the console is on UART7:
+To get the DEBUG console mapping we search the [defconfig file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L212) for `SERIAL_CONSOLE`. Below we see that the console is on UART7:
 
 ```
 #define PX4IO_SERIAL_DEVICE            "/dev/ttyS6"
@@ -78,7 +78,7 @@ To get the DEBUG console mapping we search the [defconfig file](https://github.c
 
 예: [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/src/board_config.h#L59)
 
-따라서 PX4IO는 `ttyS6`에 있습니다(이전 섹션에서 이미 알고 있는 UART8에 매핑되는 것도 볼 수 있습니다).
+For example, [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/src/board_config.h#L59):
 
 ```
 ttyS0 CONFIG_STM32F7_USART1=y GPS1
