@@ -6,7 +6,7 @@ PX4 supports all three variants in the series: TFmini-s, TFmini-i, TFmini Plus. 
 
 ![TFmini LiDAR](../../assets/hardware/sensors/tfmini/tfmini_hero.jpg)
 
-## 在哪里买
+## 购买渠道
 
 - [TFmini-s](https://en.benewake.com/TFminiS/index_proid_325.html)
 - [TFmini-i](https://en.benewake.com/TFminii/index_proid_324.html) (industrial)
