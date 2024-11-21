@@ -4,7 +4,7 @@
 
 ![ARK TESEO GPS](../../assets/hardware/gps/ark/ark_teseo_gps.jpg)
 
-## Де придбати
+## Де купити
 
 Замовте цей модуль з:
 
@@ -29,7 +29,7 @@
 - I2C and Timepulse/PPS Connector (5 Pin JST GH)
 - Роз'єм для відлагодження стандарту Pixhawk (6 контактів JST SH)
 - Вимоги до живлення
-  - 5В
+  - 5V
   - 137mA
 - LED індикатори
   - GPS Fix
@@ -41,16 +41,16 @@
 
 ### CAN - 4 Pin JST-GH
 
-| Pin Number | Signal Name                | Voltage              |
+| Pin Number | Signal Name                | Напруга              |
 | ---------- | -------------------------- | -------------------- |
-| 1          | 5В                         | 5.0V |
+| 1          | 5V                         | 5.0V |
 | 2          | CAN_P | 5.0V |
 | 3          | CAN_N | 5.0V |
 | 4          | GND                        | GND                  |
 
 ### I2C + Timepulse - 5 Pin JST-GH
 
-| Pin Number | Signal Name                                         | Voltage              |
+| Pin Number | Signal Name                                         | Напруга              |
 | ---------- | --------------------------------------------------- | -------------------- |
 | 1          | 5.0V Out (500mA) | 5.0V |
 | 2          | I2C2_SCL                       | 3.3V |
@@ -60,7 +60,7 @@
 
 ### Debug - 6 Pin JST-SH
 
-| Pin Number | Signal Name                    | Voltage              |
+| Pin Number | Signal Name                    | Напруга              |
 | ---------- | ------------------------------ | -------------------- |
 | 1          | 3.3V           | 3.3V |
 | 2          | USART2_TX | 3.3V |
