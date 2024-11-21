@@ -1,30 +1,54 @@
 # Запуск системи
 
-Запуск PX4 контрольований скриптами оболонки. На NuttX вони знаходяться у директорії [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d), деякі з них також використовуються на Posix системах (Linux/MacOS). Скрипти які використовуються тільки на Posix системах знаходяться у [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix).
+Запуск PX4 контрольований скриптами оболонки.
+On NuttX they reside in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) folder - some of these are also used on Posix (Linux/MacOS).
+The scripts that are only used on Posix are located in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix).
 
-Усі файли, які починаються з числа і підкреслення (наприклад, `10000_airaipl`) є попередньо визначеними конфігураціями планерів. Вони експортуються під час збірки в файл `airframes.xml` який потім аналізується  [QGroundControl](http://qgroundcontrol.com) для користувацького інтерфейсу вибору планера. Як додати нову конфігурацію описано [тут](../dev_airframes/adding_a_new_frame.md).
+All files starting with a number and underscore (e.g. `10000_airplane`) are predefined airframe configurations.
+They are exported at build-time into an `airframes.xml` file which is parsed by [QGroundControl](http://qgroundcontrol.com) for the airframe selection UI.
+Adding a new configuration is covered [here](../dev_airframes/adding_a_new_frame.md).
 
-Файли що залишилися є частиною загальної логіки запуску. Перший файл що виконується є скрипт [init.d/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS) (або [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) на Posix), який викликає інші скрипти.
+Файли що залишилися є частиною загальної логіки запуску.
+The first executed file is the [init.d/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS) script (or [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) on Posix), which calls all other scripts.
 
 Наступні секції розділені відповідно до операційної системи, на яких виконується PX4.
 
 ## Posix (Linux/MacOS)
 
-На Posix системна оболонка використовується як інтерпретатор скриптів (наприклад, /bin/sh що є символьним посиланням на dash в Ubuntu). Щоб це працювало потрібно кілька речей:
+На Posix системна оболонка використовується як інтерпретатор скриптів (наприклад, /bin/sh що є символьним посиланням на dash в Ubuntu).
+Щоб це працювало потрібно кілька речей:
 
-- Модулі PX4 повинні виглядати для системи як окремі виконувані файли. Це робиться за допомогою символьних посилань. Для кожного модуля створюється символьне посилання `px4-<module> -> px4` в каталозі збірки `bin`. При виконанні двійкового файлу перевіряється його шлях (`argv[0]`) і якщо це модуль (починається з `px4-`) він відправляє команду на основний екземпляр px4 (див. нижче).
+- Модулі PX4 повинні виглядати для системи як окремі виконувані файли.
+  Це робиться за допомогою символьних посилань.
+  For each module a symbolic link `px4-<module> -> px4` is created in the `bin` directory of the build folder.
+  When executed, the binary path is checked (`argv[0]`), and if it is a module (starts with `px4-`), it sends the command to the main px4 instance (see below).
 
-:::tip
-Префікс `px4-` використовується для уникнення конфліктів з системними командами (наприклад `shutdown`), також це дозволяє просте автодоповнення за допомогою клавіші `Tab` при вводі <0>px4-&lt;TAB&gt;</0>.
+  :::tip
+  The `px4-` prefix is used to avoid conflicts with system commands (e.g. `shutdown`), and it also allows for simple tab completion by typing `px4-<TAB>`.
+
 :::
 
-- Оболонка повинна знати, де шукати символьні посилання. Для цього директорія `bin` із символьними посиланнями додається до змінної `PATH` одразу перед виконанням скриптів запуску.
-- Оболонка запускає кожен модуль як новий (клієнтський) процес. Кожен клієнтський процес повинен спілкуватися з головним екземпляром px4 (сервером), де справжні модулі працюють як потоки. Це зроблено через [сокет UNIX](http://man7.org/linux/man-pages/man7/unix.7.html). Сервер прослуховує сокет, до якого клієнти можуть під'єднатися та надіслати команду. Сервер відправляє вихідні дані та код повернення назад до клієнта.
-- Стартові скрипти викликають модулі безпосередньо, наприклад `commander start`, замість використання префікса `px4-`. Це працює через псевдоніми: для кожного модуля створюється псевдонім у формі `alias <module>=px4-<module>` файлом `bin/px4-alias.sh`.
-- Скрипт `rcS` виконується з основного екземпляра px4. Він не запускає жодних модулів, але спочатку оновлює змінну `PATH`, а потім просто запускає оболонку з файлом `rcS` як аргумент.
-- Крім того, декілька екземплярів серверу можуть бути запущені для симуляції кількох засобів. Клієнт обирає екземпляр через параметр `--instance`. В скрипті екземпляр доступний за допомогою змінної `$px4_instance`.
+- Оболонка повинна знати, де шукати символьні посилання.
+  For that the `bin` directory with the symbolic links is added to the `PATH` variable right before executing the startup scripts.
 
-Модулі можна виконувати з будь-якого терміналу, коли PX4 вже запущено в системі. Наприклад:
+- Оболонка запускає кожен модуль як новий (клієнтський) процес.
+  Кожен клієнтський процес повинен спілкуватися з головним екземпляром px4 (сервером), де справжні модулі працюють як потоки.
+  This is done through a [UNIX socket](http://man7.org/linux/man-pages/man7/unix.7.html).
+  Сервер прослуховує сокет, до якого клієнти можуть під'єднатися та надіслати команду.
+  Сервер відправляє вихідні дані та код повернення назад до клієнта.
+
+- The startup scripts call the module directly, e.g. `commander start`, rather than using the `px4-` prefix.
+  This works via aliases: for each module an alias in the form of `alias <module>=px4-<module>` is created in the file `bin/px4-alias.sh`.
+
+- The `rcS` script is executed from the main px4 instance.
+  It does not start any modules, but first updates the `PATH` variable and then simply runs a shell with the `rcS` file as argument.
+
+- Крім того, декілька екземплярів серверу можуть бути запущені для симуляції кількох засобів.
+  A client selects the instance via `--instance`.
+  The instance is available in the script via `$px4_instance` variable.
+
+Модулі можна виконувати з будь-якого терміналу, коли PX4 вже запущено в системі.
+Наприклад:
 
 ```sh
 cd <PX4-Autopilot>/build/px4_sitl_default/bin
@@ -34,7 +58,8 @@ cd <PX4-Autopilot>/build/px4_sitl_default/bin
 
 ### Динамічні модулі
 
-Зазвичай всі модулі компілюються в єдиний виконуваний файл PX4. Однак, на Posix системах, є можливість компіляції модуля в окремий файл, який можна завантажити в PX4 використовуючи команду `dyn`.
+Зазвичай всі модулі компілюються в єдиний виконуваний файл PX4.
+However, on Posix, there's the option of compiling a module into a separate file, which can be loaded into PX4 using the `dyn` command.
 
 ```sh
 dyn ./test.px4mod
@@ -42,50 +67,56 @@ dyn ./test.px4mod
 
 ## NuttX
 
-NuttX має інтегрований інтерпретатор оболонки ([NuttShell (NSH)](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410)), тому скрипти можуть бути виконані безпосередньо.
+NuttX has an integrated shell interpreter ([NuttShell (NSH)](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410)), and thus scripts can be executed directly.
 
 ### Налагодження завантаження системи
 
-Відмова драйверу програмного компонента не призведе до перерваного завантаження. Це контролюється директивою `set +e` в скрипті запуску.
+Відмова драйверу програмного компонента не призведе до перерваного завантаження.
+This is controlled via `set +e` in the startup script.
 
-Послідовність завантаження можна налагодити під'єднавши [системну консоль](../debug/system_console.md) та перезавантажити плату за живленням. Отриманий журнал завантаження містить детальну інформацію про послідовність завантажування і має містити підказки, чому завантаження переривалось.
+The boot sequence can be debugged by connecting the [system console](../debug/system_console.md) and power-cycling the board.
+Отриманий журнал завантаження містить детальну інформацію про послідовність завантажування і має містити підказки, чому завантаження переривалось.
 
 #### Основні причини невдалого завантаження
 
-- Для користувацьких додатків: у системі закінчилася оперативна пам'ять. Виконайте команду `free` , щоб побачити кількість вільної оперативної пам'яті.
+- Для користувацьких додатків: у системі закінчилася оперативна пам'ять.
+  Run the `free` command to see the amount of free RAM.
 - Відмова програмного забезпечення або припущення яке призвело до трасування стеку.
 
 ### Заміна запуску системи
 
-Весь процес завантаження може бути замінений шляхом створення файлу з новою конфігурацією `/etc/rc.txt` на картці microSD (ніщо в старій конфігурації не буде автоматично запущено, і якщо файл порожній, зовсім нічого не буде запущено).
+The whole boot can be replaced by creating a file `/etc/rc.txt` on the microSD card with a new configuration (nothing in the old configuration will be auto-started, and if the file is empty, nothing at all will be started).
 
-Налаштування стандартного завантаження майже завжди є кращим підходом. Це описано нижче.
+Налаштування стандартного завантаження майже завжди є кращим підходом.
+Це описано нижче.
 
 ### Налаштування запуску системи
 
-Найкращий спосіб змінити запуск системи - це ввести [нову конфігурацію планера](../dev_airframes/adding_a_new_frame.md). Файл конфігурації планеру може бути включений у прошивку або на SD карту.
+The best way to customize the system startup is to introduce a [new frame configuration](../dev_airframes/adding_a_new_frame.md).
+Файл конфігурації планеру може бути включений у прошивку або на SD карту.
 
-Якщо вам потрібно "підлаштувати" конфігурацію що існує, наприклад запустити один або більше застосунків або встановити значення кількох параметрів, можна вказати це створивши два файли у директорії `/etc/` на SD картці:
+If you only need to "tweak" the existing configuration, such as starting one more application or setting the value of a few parameters, you can specify these by creating two files in the `/etc/` directory of the SD Card:
 
-- [/etc/config.txt](#customizing-the-configuration-config-txt): для зміни значення параметрів
-- [/etc/extras.txt](#starting-additional-applications-extras-txt): для запуску застосунків
+- [/etc/config.txt](#customizing-the-configuration-config-txt): modify parameter values
+- [/etc/extras.txt](#starting-additional-applications-extras-txt): start applications
 
 Ці файли описані нижче.
 
 :::warning
-Системні файли завантаження - це UNIX файли, які потребують закінчення рядків UNIX.
+The system boot files are UNIX FILES which require UNIX LINE ENDINGS.
 Якщо редагуєте їх на Windows - використовуйте відповідний редактор.
 :::
 
-:::note
-Ці файли згадуються в коді PX4 як `/fs/microsd/etc/config.txt` та `/fs/microsd/etc/extras.txt`, де коренева директорія microSD карти визначається шляхом `/fs/microsd`.
+:::info
+These files are referenced in PX4 code as `/fs/microsd/etc/config.txt` and `/fs/microsd/etc/extras.txt`, where the root folder of the microsd card is identified by the path `/fs/microsd`.
 :::
 
 #### Налаштування конфігурації (config.txt)
 
-Файл `config.txt` можна використовувати для зміни параметрів. Він завантажується після того, як головна система була налаштована та _перед тим_ як завантажена.
+The `config.txt` file can be used to modify parameters.
+It is loaded after the main system has been configured and _before_ it is booted.
 
-Наприклад, ви можете створити файл на SD картці, `etc/config.txt` з такими значеннями параметрів як показано:
+For example, you could create a file on the SD card, `etc/config.txt` with that sets parameter values as shown:
 
 ```sh
 param set-default PWM_MAIN_DIS3 1000
@@ -94,27 +125,28 @@ param set-default PWM_MAIN_MIN3 1120
 
 #### Запуск додаткових застосунків (extras.txt)
 
-`extras.txt` можна використовувати для запуску додаткових застосунків після завантаження основної системи. Зазвичай це будуть контролери корисного навантаження або подібні необов'язкові користувацькі компоненти.
+The `extras.txt` can be used to start additional applications after the main system boot.
+Зазвичай це будуть контролери корисного навантаження або подібні необов'язкові користувацькі компоненти.
 
 :::warning
-Виклик невідомої команди в файлах завантаження системи може призвести до збою завантаження.
+Calling an unknown command in system boot files may result in boot failure.
 Зазвичай система не транслює повідомлення mavlink після збою при завантаженні, в такій ситуації перевірте повідомлення про помилки, які виведено в системній консолі.
 :::
 
 Наступний приклад показує, як запускати користувацькі застосунки:
 
-- Створіть файл на SD картці `etc/extras.txt` із цим вмістом:
+- Create a file on the SD card `etc/extras.txt` with this content:
 
   ```sh
   custom_app start
   ```
 
-- Команду можна зробити необов'язковою шляхом оздоблення команди директивами `set +e` та `set -e`:
+- A command can be made optional by gating it with the `set +e` and `set -e` commands:
 
   ```sh
   set +e
-  optional_app start      # Не призведе до помилки при завантаженні якщо optional_app не знайдено або відмовить
+  optional_app start      # Will not result in boot failure if optional_app is unknown or fails
   set -e
 
-  mandatory_app start     # Перерве завантаження якщо mandatory_app не знайдено або відмовить
+  mandatory_app start     # Will abort boot if mandatory_app is unknown or fails
   ```
