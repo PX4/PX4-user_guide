@@ -72,7 +72,7 @@ In addition you will need:
 ::: info _QGroundControl_ with a base module can theoretically enable RTK GPS for multiple vehicles/rover modules. At time of writing this use case has not been tested.
 :::
 
-### Hardware Setup
+### 硬件安装
 
 #### Rover RTK Module (Vehicle)
 
