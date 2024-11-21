@@ -63,7 +63,7 @@ In general, as mechanical complexity increases the vehicles are easier to fly, b
 
 Within each of the main "types" above, there are many possible variations—for example, the number of motors, motor geometry, flight surfaces, etc. PX4 provides _airframe configurations_ for many of the more common vehicle setups. The supported set is listed in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
 
-::: info
+:::note
 
 - If the vehicle setup you need is not supported you may need to [Add an Airframe](../dev_airframes/adding_a_new_frame.md) (requires some [PX4 Development](../development/development.md) expertise).
 - The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
