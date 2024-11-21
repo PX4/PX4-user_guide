@@ -1,4 +1,4 @@
-- [Introduction](index.md)
+- [简介](index.md)
 
   - [基本概念](getting_started/px4_basic_concepts.md)
 
