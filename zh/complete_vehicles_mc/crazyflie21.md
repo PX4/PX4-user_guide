@@ -8,7 +8,7 @@ Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or com
 :::
 
 :::warning
-Crazyflie 2.1 is only able to fly in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md).
+Crazyflie 2.1 is only able to fly in [Stabilized mode](../flight_modes_mc/manual_stabilized.md).
 :::
 
 The Crazyflie line of micro quads was created by Bitcraze AB.
@@ -34,7 +34,7 @@ The main hardware documentation is [here](https://wiki.bitcraze.io/projects:craz
 - Partial USB OTG capability (USB OTG present but no 5V output)
 - 8KB EEPROM
 
-## 在哪里买
+## 购买渠道
 
 The vehicle can be purchased here: [Crazyflie 2.1](https://store.bitcraze.io/products/crazyflie-2-1) (store.bitcraze.io)
 
@@ -239,13 +239,13 @@ make venv
 
 :::
 
-::: info
+:::info
 The Joystick menu in QGC, only appears after you connect the controller to the PC (for example a Playstation 3 controller).
 
 ![QGC joystick menu](../../assets/flight_controller/crazyflie21/joystick_menu_qgc.png)
 :::
 
-## Hardware Setup
+## 硬件安装
 
 Crazyflie 2.1 is only able to fly in [Stabilized mode](../flight_modes_mc/manual_stabilized.md).
 
