@@ -1,8 +1,11 @@
 # 搭建你的第一个应用（Hello Shy）
 
-本文主要说明如何创建并运行你的第一个板载应用程序。 它涵盖了 PX4 应用程序开发所需的所有基本概念和 API。
+本文主要说明如何创建并运行你的第一个板载应用程序。
+它涵盖了 PX4 应用程序开发所需的所有基本概念和 API。
 
-::: info For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. 这些在[Application/Module Template](../modules/module_template.md) 中有介绍。
+:::info
+For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted.
+These are covered in [Application/Module Template](../modules/module_template.md).
 :::
 
 ## 系统必备组件
@@ -15,16 +18,19 @@
 
 The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
 
-- 重命名 (或删除) **px4_simple_app** 目录。
+- Rename (or delete) the **px4_simple_app** directory.
 
 ## 最小的应用程序
 
-在本节中，我们创建一个*很小的应用程序*，只是打印出来`Hello Sky!`。 This consists of a single _C_ file and a _cmake_ definition (which tells the toolchain how to build the application).
+In this section we create a _minimal application_ that just prints out `Hello Sky!`.
+This consists of a single _C_ file and a _cmake_ definition (which tells the toolchain how to build the application).
 
 1. Create a new directory **PX4-Autopilot/src/examples/px4_simple_app**.
-1. Create a new C file in that directory named **px4_simple_app.c**:
 
-   - Copy in the default header to the top of the page. 该注释应出现在所有贡献的文件中！
+2. Create a new C file in that directory named **px4_simple_app.c**:
+
+   - Copy in the default header to the top of the page.
+     该注释应出现在所有贡献的文件中！
 
      ```c
      /****************************************************************************
@@ -61,7 +67,8 @@ The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/P
       ****************************************************************************/
      ```
 
-   - 将下面的代码复制到头部注释的下方， 该注释应出现在所有贡献的文件中！
+   - 将下面的代码复制到头部注释的下方，
+     该注释应出现在所有贡献的文件中！
 
      ```c
      /**
@@ -77,20 +84,25 @@ The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/P
 
      int px4_simple_app_main(int argc, char *argv[])
      {
-        PX4_INFO("Hello Sky!");
-        return OK;
+     	PX4_INFO("Hello Sky!");
+     	return OK;
      }
      ```
 
-:::tip
-函数必须以`<module_name>_main`格式命名并从模块中导出，如上图所示。
+     :::tip
+     The main function must be named `<module_name>_main` and exported from the module as shown.
+
 :::
 
-:::tip
-`PX4_INFO`相当于输出到PX4 shell的`printf`（包含在**px4_platform_common/log.h**中）。 这里有不同的日志级别：`PX4_INFO`、`PX4_WARN`、`PX4_ERR`、`PX4_DEBUG`。 警告和错误会额外添加到[ULog](../dev_log/ulog_file_format.md)并显示在[Flight Review](https://logs.px4.io/) 中。
+     :::tip
+     `PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**).
+     There are different log levels: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`.
+     Warnings and errors are additionally added to the [ULog](../dev_log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
+
 :::
 
-1. 创建并打开一个名为**CMakeLists.txt**的新*cmake*定义文件。 复制下面的文本：
+3. Create and open a new _cmake_ definition file named **CMakeLists.txt**.
+   复制下面的文本：
 
    ```cmake
    ############################################################################
@@ -126,40 +138,48 @@ The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/P
    #
    ############################################################################
    px4_add_module(
-    MODULE examples__px4_simple_app
-    MAIN px4_simple_app
-    STACK_MAIN 2000
-    SRCS
-        px4_simple_app.c
-    DEPENDS
-    )
+   	MODULE examples__px4_simple_app
+   	MAIN px4_simple_app
+   	STACK_MAIN 2000
+   	SRCS
+   		px4_simple_app.c
+   	DEPENDS
+   	)
    ```
 
-   `px4_add_module()` 方法根据模块描述生成静态库。
+   The `px4_add_module()` method builds a static library from a module description.
 
-   - `MODULE`块是模块的唯一固件名称（按照惯例，模块名称的前缀是`src`之后的父路径）
-   - `MAIN`块列出了模块的入口点，它将命令注册到 NuttX，以便可以从 PX4 shell 或 SITL 控制台调用它。
+   - The `MODULE` block is the Firmware-unique name of the module (by convention the module name is prefixed by parent directories back to `src`).
+   - The `MAIN` block lists the entry point of the module, which registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
 
-:::tip
-The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
-   为了实现这一功能，我们使用了 POSIX 系统调用函数 [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) 。
+   :::tip
+   The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
 
-   ::: info If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). 您的应用程序不会成为内置命令，而是生成一个名为`examples__px4_simple_app.px4mod`的文件。 您可以通过在运行时使用以下`dyn`命令加载文件来运行您的命令：`dyn ./examples__px4_simple_app.px4mod`
 :::
 
-1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). 复制下面的文本：
+   ::: info
+   If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code).
+   Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`.
+   You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
+
+:::
+
+4. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)).
+   复制下面的文本：
 
    ```
    menuconfig EXAMPLES_PX4_SIMPLE_APP
-    bool "px4_simple_app"
-    default n
-    ---help---
-        Enable support for px4_simple_app
+   	bool "px4_simple_app"
+   	default n
+   	---help---
+   		Enable support for px4_simple_app
    ```
 
 ## 编译应用程序/固件
 
-应用程序的编写至此完成。 为了运行它，您首先需要确保它是作为 PX4 的一部分构建的。 应用程序被将依据目标的适当板级*cmake*文件添加到编译/固件中：
+应用程序的编写至此完成。
+为了运行它，您首先需要确保它是作为 PX4 的一部分构建的。
+Applications are added to the build/firmware in the appropriate board-level _px4board_ file for your target:
 
 - PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board)
 - Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v2/default.px4board)
@@ -173,16 +193,16 @@ examples  --->
     [x] PX4 Simple app  ----
 ```
 
-::: info
+:::info
 The line will already be present for most files, because the examples are included in firmware by default.
 :::
 
 使用特定板的命令构建示例：
 
-- jMAVSim 模拟器： `make px4_sitl_default jmavsim`
-- Pixhawk v1/2：`make px4_fmu-v2_default`（或者仅使用`make px4_fmu-v2`）
-- Pixhawk v3： `make px4_fmu-v4_default`
-- 其它板: [构建代码](../dev_setup/building_px4.md#building-for-nuttx)
+- jMAVSim Simulator: `make px4_sitl_default jmavsim`
+- Pixhawk v1/2: `make px4_fmu-v2_default` (or just `make px4_fmu-v2`)
+- Pixhawk v3: `make px4_fmu-v4_default`
+- Other boards: [Building the Code](../dev_setup/building_px4.md#building-for-nuttx)
 
 ## 测试应用（硬件）
 
@@ -212,7 +232,8 @@ Rebooting.
 
 ### 连接至控制台
 
-现在通过串口或USB连接到[系统控制台](../debug/system_console.md)。 按**ENTER**将调出 shell 提示：
+Now connect to the [system console](../debug/system_console.md) either via serial or USB.
+Hitting **ENTER** will bring up the shell prompt:
 
 ```sh
 nsh>
@@ -224,12 +245,12 @@ nsh>
 nsh> help
   help usage:  help [-v] [<cmd>]
 
-  [           df          kill        mkfifo      ps          sleep       
-  ?           echo        losetup     mkrd        pwd         test        
-  cat         exec        ls          mh          rm          umount      
-  cd          exit        mb          mount       rmdir       unset       
-  cp          free        mkdir       mv          set         usleep      
-  dd          help        mkfatfs     mw          sh          xd          
+  [           df          kill        mkfifo      ps          sleep
+  ?           echo        losetup     mkrd        pwd         test
+  cat         exec        ls          mh          rm          umount
+  cd          exit        mb          mount       rmdir       unset
+  cp          free        mkdir       mv          set         usleep
+  dd          help        mkfatfs     mw          sh          xd
 
 Builtin Apps:
   reboot
@@ -242,7 +263,8 @@ Builtin Apps:
   serdis
 ```
 
-请注意，`px4_simple_app`现在是可用命令的一部分。 通过键入`px4_simple_app`并输入回车启动它：
+Note that `px4_simple_app` is now part of the available commands.
+Start it by typing `px4_simple_app` and ENTER:
 
 ```sh
 nsh> px4_simple_app
@@ -253,9 +275,10 @@ Hello Sky!
 
 ## 测试应用（SITL）
 
-If you're using SITL the _PX4 console_ is automatically started (see [Building the Code > First Build (Using a Simulator)](../dev_setup/building_px4.md#first-build-using-a-simulator)). 与*nsh 控制台*（请参阅上一节）相同，您可以键入`help`以查看内置程序列表。
+If you're using SITL the _PX4 console_ is automatically started (see [Building the Code > First Build (Using a Simulator)](../dev_setup/building_px4.md#first-build-using-a-simulator)).
+As with the _nsh console_ (see previous section) you can type `help` to see the list of built-in apps.
 
-输入`px4_simple_app`来运行这个最小的应用程序。
+Enter `px4_simple_app` to run the minimal app.
 
 ```sh
 pxh> px4_simple_app
@@ -269,11 +292,11 @@ INFO  [px4_simple_app] Hello Sky!
 为了做一些实用的事情，应用程序需要订阅输入和发布输出（例如电机或伺服命令）。
 
 :::tip
-PX4 硬件抽象的好处在这里发挥作用！
+The benefits of the PX4 hardware abstraction comes into play here!
 无需以任何方式与传感器驱动程序交互，如果板或传感器更新，也无需更新您的应用程序。
 :::
 
-应用程序之间的每个消息通道称为[主题](../middleware/uorb.md)。 For this tutorial, we are interested in the [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg) topic, which holds the synchronized sensor data of the complete system.
+Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg) topic, which holds the synchronized sensor data of the complete system.
 
 订阅主题很简单：
 
@@ -283,9 +306,11 @@ PX4 硬件抽象的好处在这里发挥作用！
 int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 ```
 
-`sensor_sub_fd`是一个主题句柄，它可以用于非常有效地执行阻塞等待新数据。 当前线程进入休眠状态，一旦有新数据可用就会被调度器自动唤醒，等待时不消耗任何 CPU 周期。 为此，我们使用[poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX 系统调用。
+The `sensor_sub_fd` is a topic handle and can be used to very efficiently perform a blocking wait for new data.
+当前线程进入休眠状态，一旦有新数据可用就会被调度器自动唤醒，等待时不消耗任何 CPU 周期。
+To do this, we use the [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX system call.
 
-添加`poll()`到订阅看起来像（*伪代码，在下面可查找完整的实现*）：
+Adding `poll()` to the subscription looks like (_pseudocode, look for the full implementation below_):
 
 ```cpp
 #include <poll.h>
@@ -299,19 +324,19 @@ px4_pollfd_struct_t fds[] = {
 };
 
 while (true) {
-    /* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
-    int poll_ret = px4_poll(fds, 1, 1000);
-    ..
-    if (fds[0].revents & POLLIN) {
-        /* obtained data for the first file descriptor */
-        struct sensor_combined_s raw;
-        /* copy sensors raw data into local buffer */
-        orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
-        PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
-                    (double)raw.accelerometer_m_s2[0],
-                    (double)raw.accelerometer_m_s2[1],
-                    (double)raw.accelerometer_m_s2[2]);
-    }
+	/* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
+	int poll_ret = px4_poll(fds, 1, 1000);
+	..
+	if (fds[0].revents & POLLIN) {
+		/* obtained data for the first file descriptor */
+		struct sensor_combined_s raw;
+		/* copy sensors raw data into local buffer */
+		orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
+		PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
+					(double)raw.accelerometer_m_s2[0],
+					(double)raw.accelerometer_m_s2[1],
+					(double)raw.accelerometer_m_s2[2]);
+	}
 }
 ```
 
@@ -341,17 +366,19 @@ px4_simple_app &
 ```
 
 :::tip
-[完整应用程序的模块模板](../modules/module_template.md)可用于编写可从命令行控制的后台进程。
+The [Module Template for Full Applications](../modules/module_template.md) can be used to write background process that can be controlled from the command line.
 :::
 
 ## 发布数据
 
-要使用计算出的输出，下一步是*发布*结果。 下面我们将展示如何发布姿态主题。
+To use the calculated outputs, the next step is to _publish_ the results.
+下面我们将展示如何发布姿态主题。
 
-::: info We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results.
+:::info
+We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results.
 :::
 
-接口非常简单：初始化要发布的主题`struct`并发布主题：
+The interface is pretty simple: initialize the `struct` of the topic to be published and advertise the topic:
 
 ```c
 #include <uORB/topics/vehicle_attitude.h>
@@ -430,77 +457,77 @@ __EXPORT int px4_simple_app_main(int argc, char *argv[]);
 
 int px4_simple_app_main(int argc, char *argv[])
 {
-    PX4_INFO("Hello Sky!");
+	PX4_INFO("Hello Sky!");
 
-    /* subscribe to sensor_combined topic */
-    int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
-    /* limit the update rate to 5 Hz */
-    orb_set_interval(sensor_sub_fd, 200);
+	/* subscribe to sensor_combined topic */
+	int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
+	/* limit the update rate to 5 Hz */
+	orb_set_interval(sensor_sub_fd, 200);
 
-    /* advertise attitude topic */
-    struct vehicle_attitude_s att;
-    memset(&att, 0, sizeof(att));
-    orb_advert_t att_pub = orb_advertise(ORB_ID(vehicle_attitude), &att);
+	/* advertise attitude topic */
+	struct vehicle_attitude_s att;
+	memset(&att, 0, sizeof(att));
+	orb_advert_t att_pub = orb_advertise(ORB_ID(vehicle_attitude), &att);
 
-    /* one could wait for multiple topics with this technique, just using one here */
-    px4_pollfd_struct_t fds[] = {
-        { .fd = sensor_sub_fd,   .events = POLLIN },
-        /* there could be more file descriptors here, in the form like:
-         * { .fd = other_sub_fd,   .events = POLLIN },
-         */
-    };
+	/* one could wait for multiple topics with this technique, just using one here */
+	px4_pollfd_struct_t fds[] = {
+		{ .fd = sensor_sub_fd,   .events = POLLIN },
+		/* there could be more file descriptors here, in the form like:
+		 * { .fd = other_sub_fd,   .events = POLLIN },
+		 */
+	};
 
-    int error_counter = 0;
+	int error_counter = 0;
 
-    for (int i = 0; i < 5; i++) {
-        /* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
-        int poll_ret = px4_poll(fds, 1, 1000);
+	for (int i = 0; i < 5; i++) {
+		/* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
+		int poll_ret = px4_poll(fds, 1, 1000);
 
-        /* handle the poll result */
-        if (poll_ret == 0) {
-            /* this means none of our providers is giving us data */
-            PX4_ERR("Got no data within a second");
+		/* handle the poll result */
+		if (poll_ret == 0) {
+			/* this means none of our providers is giving us data */
+			PX4_ERR("Got no data within a second");
 
-        } else if (poll_ret < 0) {
-            /* this is seriously bad - should be an emergency */
-            if (error_counter < 10 || error_counter % 50 == 0) {
-                /* use a counter to prevent flooding (and slowing us down) */
-                PX4_ERR("ERROR return value from poll(): %d", poll_ret);
-            }
+		} else if (poll_ret < 0) {
+			/* this is seriously bad - should be an emergency */
+			if (error_counter < 10 || error_counter % 50 == 0) {
+				/* use a counter to prevent flooding (and slowing us down) */
+				PX4_ERR("ERROR return value from poll(): %d", poll_ret);
+			}
 
-            error_counter++;
+			error_counter++;
 
-        } else {
+		} else {
 
-            if (fds[0].revents & POLLIN) {
-                /* obtained data for the first file descriptor */
-                struct sensor_combined_s raw;
-                /* copy sensors raw data into local buffer */
-                orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
-                PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
-                     (double)raw.accelerometer_m_s2[0],
-                     (double)raw.accelerometer_m_s2[1],
-                     (double)raw.accelerometer_m_s2[2]);
+			if (fds[0].revents & POLLIN) {
+				/* obtained data for the first file descriptor */
+				struct sensor_combined_s raw;
+				/* copy sensors raw data into local buffer */
+				orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
+				PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
+					 (double)raw.accelerometer_m_s2[0],
+					 (double)raw.accelerometer_m_s2[1],
+					 (double)raw.accelerometer_m_s2[2]);
 
-                /* set att and publish this information for other apps
-                 the following does not have any meaning, it's just an example
-                */
-                att.q[0] = raw.accelerometer_m_s2[0];
-                att.q[1] = raw.accelerometer_m_s2[1];
-                att.q[2] = raw.accelerometer_m_s2[2];
+				/* set att and publish this information for other apps
+				 the following does not have any meaning, it's just an example
+				*/
+				att.q[0] = raw.accelerometer_m_s2[0];
+				att.q[1] = raw.accelerometer_m_s2[1];
+				att.q[2] = raw.accelerometer_m_s2[2];
 
-                orb_publish(ORB_ID(vehicle_attitude), att_pub, &att);
-            }
+				orb_publish(ORB_ID(vehicle_attitude), att_pub, &att);
+			}
 
-            /* there could be more file descriptors here, in the form like:
-             * if (fds[1..n].revents & POLLIN) {}
-             */
-        }
-    }
+			/* there could be more file descriptors here, in the form like:
+			 * if (fds[1..n].revents & POLLIN) {}
+			 */
+		}
+	}
 
-    PX4_INFO("exiting");
+	PX4_INFO("exiting");
 
-    return 0;
+	return 0;
 }
 ```
 
@@ -516,8 +543,9 @@ If you start _QGroundControl_, you can check the sensor values in the real time 
 
 ## 总结
 
-本教程涵盖了所有开发基本 PX4 自动驾驶仪应用程序的内容。 Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/main/msg/) and that the headers are well documented and serve as reference.
+本教程涵盖了所有开发基本 PX4 自动驾驶仪应用程序的内容。
+Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/main/msg/) and that the headers are well documented and serve as reference.
 
-此处可找到更多信息和故障排除/常见陷阱：[uORB](../middleware/uorb.md)。
+Further information and troubleshooting/common pitfalls can be found here: [uORB](../middleware/uorb.md).
 
 下一页提供了一个模板，用于编写具有启动和停止功能的完整应用程序。
