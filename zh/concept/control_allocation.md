@@ -1,23 +1,27 @@
 # 控制分配 (混控)
 
-:::note
-控制分配取代了在 PX4 v1.13 中使用的旧的混控方法。 PX4 v1.13 文档见： [混控& 驱动器](https://docs.px4.io/v1.13/en/concept/mixing.html), [构型文件](https://docs.px4.io/v1.13/en/concept/geometry_files.html) 和 [添加一个新的机型配置](https://docs.px4.io/v1.13/en/dev_airframes/adding_a_new_frame.html)。
+:::info
+Control allocation replaces the legacy mixing approach used in PX4 v1.13 and earlier.
+For PX4 v1.13 documentation see: [Mixing & Actuators](https://docs.px4.io/v1.13/en/concept/mixing.html), [Geometry Files](https://docs.px4.io/v1.13/en/concept/geometry_files.html) and [Adding a New Airframe Configuration](https://docs.px4.io/v1.13/en/dev_airframes/adding_a_new_frame.html).
 :::
 
 PX4从核心控制器获取所需的扭矩和推力指令，并将它们转换为控制电机或作动器的驱动指令。
 
-指令间的转换取决于飞行器的物理构型。 例如，给“向右转”需要给出一个扭矩指令：
+指令间的转换取决于飞行器的物理构型。
+例如，给“向右转”需要给出一个扭矩指令：
 
 - 对于每个副翼都有一个舵机的飞机来说，该指令将会控制一个舵机向高处偏转，另一个向低处偏转。
 - 多旋翼将会通过改变所有电机的转速来向右偏航。
 
-PX4将这个转换逻辑区分开，这个逻辑被称为从姿态/角速率控制器输出的“混控”。 这样可以确保核心控制器不需要对每个机型构型进行特殊处理，可以大大提高复用性。
+PX4将这个转换逻辑区分开，这个逻辑被称为从姿态/角速率控制器输出的“混控”。
+这样可以确保核心控制器不需要对每个机型构型进行特殊处理，可以大大提高复用性。
 
-此外，PX4还将输出函数映射至指定的硬件输出。 这也意味着任何电机或舵机可以分配给几乎任何物理输出。
+此外，PX4还将输出函数映射至指定的硬件输出。
+这也意味着任何电机或舵机可以分配给几乎任何物理输出。
 
 <!-- https://docs.google.com/drawings/d/1Li9YhTLc3yX6mGX0iSOfItHXvaUhevO2DRZwuxPQ1PI/edit -->
 
-![混控概览](../../assets/diagrams/mixing_overview.png)
+![Mixing Overview](../../assets/diagrams/mixing_overview.png)
 
 ## 作动器控制流程
 
@@ -27,28 +31,34 @@ PX4将这个转换逻辑区分开，这个逻辑被称为从姿态/角速率控�
 
 ![Pipeline Overview](../../assets/concepts/control_allocation_pipeline.png)
 
-路径规划软件（在机载计算机上运行）*可以* 以[TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
+路径规划软件（在机载计算机上运行）<em>可以</em> 以<a href="https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS">TRAJECTORY_REPRESENTATION_WAYPOINTS</a> 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
 
 - 角速率控制器输出力矩和推力设定值
-- `control_allocator` 模块：
+- the `control_allocator` module:
   - 根据配置参数处理不同飞行器构型
   - 进行混控计算
   - 处理电机失效
   - 发布电机和作动器控制信号
-  - 单独发布舵机配平，以便在 [测试驱动器](../config/actuators.md#actuator-testing) (使用测试滑块)时将它们添加为偏移。
+  - publishes the servo trims separately so they can be added as an offset when [testing actuators](../config/actuators.md#actuator-testing) (using the test sliders).
 - 输出驱动：
   - 处理硬件初始化和更新
-  - 使用共享库 [src/libs/mixer_module](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/)。 驱动程序定义了参数前缀，例如 `PWM_MAIN` 被库用于配置。 其主要任务是从输入话题中选择，并根据用户设置的 `<param_prefix>_FUNCx` 参数值将正确的数据分配给输出。 例如， `PWM_MAIN_FUNC3` 已设置为 **Motor 2**，第三个输出设置为来自 `actuator_motors`的第二个电机。
-  - 输出函数定义于 [src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml)。
-- 如果想要通过MAVLink控制其输出，请将相关的输出函数设置为 **Offboard Actor Set x**，然后发送 [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink指令。
+  - use a shared library [src/libs/mixer_module](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/).
+    The driver defines a parameter prefix, e.g. `PWM_MAIN` that the library then uses for configuration.
+    Its main task is to select from the input topics and assign the right data to the outputs based on the user set `<param_prefix>_FUNCx` parameter values.
+    For example if `PWM_MAIN_FUNC3` is set to **Motor 2**, the 3rd output is set to the 2nd motor from `actuator_motors`.
+  - output functions are defined under [src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
+- if you want to control an output from MAVLink, set the relevant output function to **Offboard Actuator Set x**, and then send the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command.
 
 ## 添加新构型或输出函数
 
-See [this commit](https://github.com/PX4/PX4-Autopilot/commit/5cdb6fbd8e1352dcb94bd58918da405f8ff930d7) for how to add a new geometry. The QGC UI will then automatically show the right configuration UI when [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) is set to the new geometry.
+See [this commit](https://github.com/PX4/PX4-Autopilot/commit/5cdb6fbd8e1352dcb94bd58918da405f8ff930d7) for how to add a new geometry.
+The QGC UI will then automatically show the right configuration UI when [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) is set to the new geometry.
 
-[This commit](https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370) shows how to add a new output function. Any uORB topic can be subscribed and assigned to a function.
+[This commit](https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370) shows how to add a new output function.
+Any uORB topic can be subscribed and assigned to a function.
 
-Note that parameters for control allocation are defined in [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml) The schema for this file is [here](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) (in particular, search for the key `mixer:`
+Note that parameters for control allocation are defined in [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml)
+The schema for this file is [here](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) (in particular, search for the key `mixer:`
 
 ## 设置默认机型构型
 
