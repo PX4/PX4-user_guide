@@ -121,7 +121,7 @@ Manufacturers can create (compatible) _fully independent products_ by first gene
 _Pixhawk_ is a trademark, and cannot be used in product names without permission.
 :::
 
-## Additional Information
+## 추가 정보
 
 ### LED
 
