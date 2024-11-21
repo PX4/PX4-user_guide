@@ -23,7 +23,7 @@ Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/): **[An
 :::
 
 :::tip
-차량에 고속의 MAVLink 연결이 있는 경우에는(원격 분석 링크뿐만 아니라) *QGroundControl*을 사용하여 로그를 *Flight Review*에 자동으로 업로드할 수 있습니다. For more information see [Settings > MAVLink Settings > MAVLink 2 Logging (PX4 only)](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/mavlink.html#logging).
+If you have a constant high-rate MAVLink connection to the vehicle (not just a telemetry link) then you can use *QGroundControl* to automatically upload logs directly to *Flight Review*. For more information see [Settings > MAVLink Settings > MAVLink 2 Logging (PX4 only)](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/mavlink.html#logging).
 :::
 
 ## PX4 개발자가 검토할 로그 파일 공유
