@@ -1,12 +1,14 @@
 # Qt Creator IDE
 
 :::warning
-This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md).
+It may or may not work with current versions of PX4.
 
-Qt Creator has been replaced by [VSCode](../dev_setup/vscode.md) as the officially supported (and recommended) IDE for PX4 development. See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Qt Creator has been replaced by [VSCode](../dev_setup/vscode.md) as the officially supported (and recommended) IDE for PX4 development.
+See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
 
-[Qt Creator](https://www.qt.io/download-open-source)는 PX4를 컴파일하고 디버그하는 데 사용할 수 있는 널리 사용되는 크로스 플랫폼 오픈 소스 IDE입니다.
+[Qt Creator](https://www.qt.io/download-open-source) is a popular cross-platform open-source IDE that can be used to compile and debug PX4.
 
 ## Qt Creator 기능
 
@@ -31,14 +33,14 @@ cd ../Firmware-build
 cmake ../PX4-Autopilot -G "CodeBlocks - Unix Makefiles"
 ```
 
-그런 다음 루트 PX4-Autopilot 폴더에 CMakeLists.txt를 로드합니다. **파일 > 파일 또는 프로젝트 열기**(CMakeLists.txt 파일 선택).
+Then load the CMakeLists.txt in the root PX4-Autopilot folder via **File > Open File or Project** (Select the CMakeLists.txt file).
 
-로드 후 **재생** 버튼은 실행 대상 구성에서 '사용자 정의 실행 파일'을 선택하고, 실행 파일로 'make'를, 인수로 '업로드'를 입력하여 프로젝트를 실행하도록 설정할 수 있습니다.
+After loading, the **play** button can be configured to run the project by selecting 'custom executable' in the run target configuration and entering 'make' as executable and 'upload' as argument.
 
 ### Windows용 Qt Creator
 
-:::note
-Windows는 Qt Creator를 사용한 PX4 개발에 대해 테스트되지 않았습니다.
+:::info
+Windows has not been tested for PX4 development with Qt Creator.
 :::
 
 ### Mac OS용 Qt Creator
