@@ -1,13 +1,17 @@
 # mRo-X2.1 Autopilot
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
-The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design.
+It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
 ![mRo X2.1](../../assets/flight_controller/mro/mro_x2.1.jpg)
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Quick Summary
@@ -20,11 +24,13 @@ The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>
   - Invensense ICM-20602 6DOF
   - MEAS MS5611 barometer
 - Dimensions/Weight
-  - Size: 36mm x 50mm (Can be ordered with vertical, horizontal or no headers installed)
+  - Size: 36mm x 50mm
+    (Can be ordered with vertical, horizontal or no headers installed)
   - Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
   - Weight: 10.9g
 
-The diagram below provides a side-by-side comparison with a Pixhawk 1. The mRo features almost identical hardware and connectivity but has a much smaller footprint. Major differences are updated sensors and Rev 3 FMU.
+The diagram below provides a side-by-side comparison with a Pixhawk 1. The mRo features almost identical hardware and connectivity but
+has a much smaller footprint. Major differences are updated sensors and Rev 3 FMU.
 
 ![Mro Pixhawk 1 vs X2.1 comparison](../../assets/flight_controller/mro/px1_x21.jpg)
 
@@ -54,9 +60,12 @@ The diagram below provides a side-by-side comparison with a Pixhawk 1. The mRo f
 
 ## PX4 BootLoader Issue
 
-By default a mRo X2.1 might come preconfigured for ArduPilot<sup>&reg;</sup> rather than PX4. This can be seen during firmware update when the board is recognized as FMUv2 instead of X2.1.
+By default a mRo X2.1 might come preconfigured for ArduPilot<sup>&reg;</sup> rather than PX4. This
+can be seen during firmware update when the board is recognized as FMUv2 instead of X2.1.
 
-In this case you must update the BootLoader using [BL_Update_X21.zip](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/BL_Update_X21.zip). If this correction is not carried out your compass direction will be wrong and the secondary IMU will not be detected.
+In this case you must update the BootLoader using [BL_Update_X21.zip](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/BL_Update_X21.zip).
+If this correction is not carried out your compass direction will be wrong and the
+secondary IMU will not be detected.
 
 The update steps are:
 
@@ -71,12 +80,13 @@ This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://sto
 
 ## Wiring Guide
 
-![mRo_X2.1_Wiring](../../assets/flight_controller/mro/mro_x21_wiring.png)
+![mRo\_X2.1\_Wiring](../../assets/flight_controller/mro/mro_x21_wiring.png)
 
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
