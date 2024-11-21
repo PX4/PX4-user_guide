@@ -2,7 +2,7 @@
 
 The ESP8266 and its clones are low-cost and readily available Wi-Fi modules with full TCP/IP stack and microcontroller capability. They can be used with any Pixhawk series controller.
 
-:::tip ESP8266 is the *defacto* default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
+:::tip ESP8266 is the _defacto_ default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
 :::
 
 ## Where to Buy
@@ -75,7 +75,7 @@ On your wifi-enabled _QGroundControl_ ground station computer/tablet, find and c
 
 ![Windows Network Setup: Connection](../../assets/peripherals/pixracer_network_setup_connection_windows.png) ![Windows Network Setup: Security](../../assets/peripherals/pixracer_network_setup_security_windows.png)
 
-*QGroundControl* will automatically connect to the vehicle when the ground station computer is attached to a WiFi access point named "Pixracer".
+_QGroundControl_ will automatically connect to the vehicle when the ground station computer is attached to a WiFi access point named "Pixracer".
 
 If you're using a module with any other WiFi name you will need to manually set up the QGroundControl WiFi connection, as shown in the following section.
 
