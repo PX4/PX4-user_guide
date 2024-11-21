@@ -12,14 +12,14 @@ LIDAR-Lite는 드론, 로봇 또는 무인 차량용 소형 고성능 광학 원
 
 Lidar-Lite (v2, v3) 핀배열은 아래와 같습니다.
 
-| 핀 | 명칭       | 설명                                                                                                   |
-| - | -------- | ---------------------------------------------------------------------------------------------------- |
-| 1 | POWER_IN | 전원 공급. 4.75-5.5V DC 공칭, 최대 6V DC.                                                                    |
-| 2 | POWER_EN | 액티브 하이는 3.3V 마이크로 컨트롤러 레귤레이터의 작동을 가능하게 합니다. Low puts board to sleep, draws <40 μA. (내장 100K pull-up) |
-| 3 | 모드 선택 제어 | 트리거 (하이-로우 에지) PWM 출력 (하이) 제공                                                                        |
-| 4 | SCL      | I2C Clock                                                                                            |
-| 5 | SDA      | I2C 데이터                                                                                              |
-| 6 | GND      | 신호/전원 접지.                                                                                            |
+| 핀 | 명칭       | 설명                                                                                                         |
+| - | -------- | ---------------------------------------------------------------------------------------------------------- |
+| 1 | POWER_IN | 전원 공급. 4.75-5.5V DC 공칭, 최대 6V DC.                                                                          |
+| 2 | POWER_EN | 액티브 하이는 3.3V 마이크로 컨트롤러 레귤레이터의 작동을 가능하게 합니다. Low puts board to sleep, draws <40 μA. (Internal 100K pull-up) |
+| 3 | 모드 선택 제어 | 트리거 (하이-로우 에지) PWM 출력 (하이) 제공                                                                              |
+| 4 | SCL      | I2C Clock                                                                                                  |
+| 5 | SDA      | I2C 데이터                                                                                                    |
+| 6 | GND      | 신호/전원 접지.                                                                                                  |
 
 ## 배선
 
@@ -41,14 +41,14 @@ Lidar-Lite 3([작동 설명서](http://static.garmin.com/pumac/LIDAR_Lite_v3_Ope
 
 The pin connections for wiring LidarLite to the _Pixhawk 1_ AUX ports (PWM interface) are shown below.
 
-| 핀 | Lidar-Lite (v2, v3) | Pixhawk AUX Servo | 설명                                                                      |
-| - | ------------------- | ----------------- | ----------------------------------------------------------------------- |
-| 1 | VCC                 | AUX 6 (중앙)        | 전원 공급. 4.75-5.5V DC 공칭, 최대 6V DC.                                       |
-| 2 | RESET               | AUX 6 (하단)        | 센서의 재설정 라인                                                              |
-| 3 | PWM                 | AUX 5 (하단)        | Lidar Lite의 PWM 출력. **470 Ohm 풀다운 (GND로)이 필요합니다. 1K0hm 저항을 사용하지 마십시오.** |
-| 4 | SCL                 | -                 | 연결되지 않음                                                                 |
-| 5 | SDA                 | -                 | 연결되지 않음                                                                 |
-| 6 | GND                 | AUX 6 (상단)        | 접지                                                                      |
+| 핀 | Lidar-Lite (v2, v3) | Pixhawk AUX Servo | 설명                                                                                        |
+| - | ------------------- | ----------------- | ----------------------------------------------------------------------------------------- |
+| 1 | VCC                 | AUX 6 (중앙)        | 전원 공급. 4.75-5.5V DC 공칭, 최대 6V DC.                                                         |
+| 2 | RESET               | AUX 6 (하단)        | 센서의 재설정 라인                                                                                |
+| 3 | PWM                 | AUX 5 (하단)        | Lidar Lite의 PWM 출력. **Needs a 470 Ohm pull-down (to GND), Do not use a 1 K0hm resistor.** |
+| 4 | SCL                 | -                 | 연결되지 않음                                                                                   |
+| 5 | SDA                 | -                 | 연결되지 않음                                                                                   |
+| 6 | GND                 | AUX 6 (상단)        | 접지                                                                                        |
 
 ::: info
 On a flight controller that has no AUX port the equivalent MAIN pins are used (e.g. the PWM output on the lidar instead maps to MAIN 5).
