@@ -82,13 +82,13 @@ To perform an offboard calibration:
 1. Cold soak the board to the minimum temperature it will be required to operate in.
 1. Apply power and keeping the board still [^2], warm it slowly to the maximum required operating temperature. [^3]
 1. Remove power and extract the .ulog file.
-1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script: sh python process_sensor_caldata.py
+1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script:
 
    ```sh
    python process_sensor_caldata.py <full path name to .ulog file>
    ```
 
-   **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
+   This will generate a **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
 
 1. Power the board, connect _QGroundControl_ and load the parameter from the generated **.params** file onto the board using _QGroundControl_. Due to the number of parameters, loading them may take some time.
 1. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
