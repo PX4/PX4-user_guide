@@ -124,7 +124,7 @@ To calibrate the ESCs:
 
 :::
 
-## Troubleshooting
+## トラブルシューティング
 
 1. Calibration can state that it has succeeded even when it has failed.
 
