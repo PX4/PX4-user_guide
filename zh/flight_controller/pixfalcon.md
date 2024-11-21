@@ -6,7 +6,9 @@
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](https://holybro.com/)) is binary-compatible (FMUv2) derivative of the [Pixhawk 1](../flight_controller/pixhawk.md) design that has been optimized for space-constrained applications such as FPV racers. It has less IO to allow for the reduction in size.
@@ -15,7 +17,7 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](https://holybro.c
 
 ## 总览
 
-- 主片上系统：[STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+- Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   - CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
   - RAM: 256 KB SRAM (L1)
 - Failsafe System-on-Chip: STM32F100
@@ -23,7 +25,7 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](https://holybro.c
   - RAM: 8 KB SRAM
 - GPS: u-blox<sup>&reg;</sup> M8 (bundled)
 
-### 连接性
+### 连接
 
 - 1x I2C
 - 2x UART (one for Telemetry / OSD, no flow control)
@@ -47,7 +49,8 @@ Optional hardware:
 ## 编译固件
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -56,7 +59,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make px4_fmu-v2_default
 ```
 
-## Debug调试端口
+## 调试接口
 
 This board does not have a debug port (i.e it does not have a port for accessing the [System Console](../debug/system_console.md) or the [SWD interface](../debug/swd_debug.md) (JTAG).
 
@@ -64,10 +67,10 @@ Developers will need to solder wires to the board test pads for SWD, and to the 
 
 ## 串口映射
 
-| UART   | 设备         | Port                     |
-| ------ | ---------- | ------------------------ |
-| UART1  | /dev/ttyS0 | IO Debug                 |
+| UART   | 设备         | Port                                        |
+| ------ | ---------- | ------------------------------------------- |
+| UART1  | /dev/ttyS0 | IO Debug                                    |
 | USART2 | /dev/ttyS1 | TELEM1 (No flow control) |
-| UART4  | /dev/ttyS2 | GPS                      |
+| UART4  | /dev/ttyS2 | GPS                                         |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
