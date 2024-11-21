@@ -143,14 +143,14 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
 
-| 핀                        | 신호                              | 전압                    |
-| ------------------------ | ------------------------------- | --------------------- |
-| 1 (적) | 5V+                             | +5V                   |
-| 2 (흑) | DEBUG TX(출력) | +3.3V |
-| 3 (흑) | DEBUG TX(입력) | +3.3V |
-| 4 (흑) | FMU_SWDIO  | +3.3V |
-| 5 (흑) | FMU_SWCLK  | +3.3V |
-| 6 (흑) | GND                             | GND                   |
+| 핀                         | 신호                              | 전압                    |
+| ------------------------- | ------------------------------- | --------------------- |
+| 1(red) | 5V+                             | +5V                   |
+| 2 (흑)  | DEBUG TX(출력) | +3.3V |
+| 3 (흑)  | DEBUG TX(입력) | +3.3V |
+| 4 (흑)  | FMU_SWDIO  | +3.3V |
+| 5 (흑)  | FMU_SWCLK  | +3.3V |
+| 6 (흑)  | GND                             | GND                   |
 
 CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` port.
 This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging.
