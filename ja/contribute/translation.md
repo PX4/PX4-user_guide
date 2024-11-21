@@ -15,7 +15,7 @@ The benefit of this system is that the translation closely tracks the source doc
 Readers will not be mislead by old and out of date translations.
 :::
 
-## はじめに
+## さあ、はじめよう
 
 The steps to join our translation tream are:
 
