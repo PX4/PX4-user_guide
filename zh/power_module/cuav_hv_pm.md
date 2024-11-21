@@ -16,7 +16,7 @@ The *HV_PM* is included in the CUAV V5+/V5 nano kit, but is also be sold separat
 - **Max (detection) current:** 60A
 - **Max output current (ESC/MOTOR PORT):** 60A
 
-## 在哪里买
+## 购买渠道
 
 [CUAV aliexpress store](https://www.aliexpress.com/item/32841805115.html?spm=2114.12010615.8148356.1.64165998hPvTKQ)
 
