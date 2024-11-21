@@ -24,7 +24,7 @@ You can also access the shell in a terminal using the **mavlink_shell.py** scrip
 
 1. Shut down _QGroundControl_.
 
-2. 패키지를 설치합니다.
+2. 종속성 설치:
 
    ```sh
    pip3 install --user pymavlink pyserial
