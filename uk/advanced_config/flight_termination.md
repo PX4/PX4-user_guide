@@ -1,64 +1,74 @@
-# Конфігурація завершення польоту
+# Flight Termination Configuration
 
-Дія _аварійного зупинення польоту_ може бути викликана [автономною захисною дією](../config/safety.md#failsafe-actions) (наприклад, втрата зв'язку з радіокеруванням, порушення геозони тощо на будь-якому типі транспортного засобу або у будь-якому режимі польоту), або [виявником відмов](../config/safety.md#failure-detector).
+The _Flight termination_ [failsafe action](../config/safety.md#failsafe-actions) may be triggered by a [safety check](../config/safety.md) (e.g. RC Loss, geofence violation, etc. on any vehicle type or in any flight mode), or by the [Failure Detector](../config/safety.md#failure-detector).
 
-:::info Аварійне припинення польоту також може бути викликане з наземної станції або компаньйонного комп'ютера за допомогою команди MAVLink [MAV_CMD_DO_FLIGHTTERMINATION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_FLIGHTTERMINATION). Це відправляється, наприклад, коли ви викликаєте методи [MAVSDK Action plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a47536c4a4bc8367ccd30a92eb09781c5) `terminate()` або `terminate_async()`.
+:::info
+Flight termination may also be triggered from a ground station or companion computer using the MAVLink [MAV_CMD_DO_FLIGHTTERMINATION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_FLIGHTTERMINATION) command.
+This is sent, for example, when you call the [MAVSDK Action plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a47536c4a4bc8367ccd30a92eb09781c5) `terminate()` or `terminate_async()` methods.
 :::
 
-Коли активується _аварійне припинення польоту_, PX4 одночасно вимикає всі контролери та встановлює всі виходи PWM у значення аварійного режиму.
+When _Flight termination_ is activated, PX4 simultaneously turns off all controllers and sets all PWM outputs to their failsafe values.
 
 Залежно від підключених пристроїв, вихідні значення аварійного режиму PWM можуть бути використані для:
 
-- Розгорніть [парашут](../peripherals/parachute.md).
+- Deploy a [parachute](../peripherals/parachute.md).
 - Витягнути втягуючі стійки шасі.
 - Перемістіть гімбал, підключений до PWM, в безпечне положення (або втягніть його), щоб захистити камеру.
 - Запустіть надувний пристрій, наприклад подушку безпеки.
 - Запустити тривогу.
 
-Немає можливості відновлення після аварійного припинення польоту. Після виклику аварійного припинення польоту вам слід якнайшвидше відключити батарею. Перед тим, як знову використовувати транспортний засіб, вам доведеться перезавантажити/вимкнути живлення.
+Немає можливості відновлення після аварійного припинення польоту.
+Після виклику аварійного припинення польоту вам слід якнайшвидше відключити батарею.
+Перед тим, як знову використовувати транспортний засіб, вам доведеться перезавантажити/вимкнути живлення.
 
 :::tip
-PX4 не знає, які пристрої безпеки приєднані - він просто застосовує заздалегідь визначений набір значень ШІМ до своїх виходів.
+PX4 does not know what safety devices are attached - it just applies a predefined set of PWM values to its outputs.
 :::
 
 :::tip
-Значення аварійної безпеки застосовуються до всіх виходів під час завершення.
+Failsafe values are applied to all outputs on termination.
 Немає способу налаштувати незалежне тригерування моторів або конкретних пристроїв безпеки на основі часу (або іншого критерію).
 :::
 
-:::info Це _не_ незалежна _Система аварійного припинення польоту_. Якщо втрачається живлення або автопілот повністю відмовляє, аварійні пристрої не будуть активовані.
+:::info
+This is _not_ an independent _Flight Termination System_.
+Якщо втрачається живлення або автопілот повністю відмовляє, аварійні пристрої не будуть активовані.
 :::
 
 ## Конфігурація апаратного забезпечення
 
-Будь-який _пристрій безпеки_ (наприклад, [парашут](../peripherals/parachute.md)), який може бути активований зміною значення PWM, може бути використаний та підключений до будь-якого вільного порту PWM (як MAIN, так і AUX).
+Any _safety device(s)_ (e.g. a [parachute](../peripherals/parachute.md)) that can be triggered by changing a PWM value can be used, and may be connected to any free PWM port (both MAIN and AUX).
 
 :::info
-Якщо ви використовуєте плату серії Pixhawk, вам доведеться окремо живити рейку сервопривода (наприклад, з 5V BEC, який часто також доступний з вашого регулятора обертів).
+If you're using Pixhawk-series board you will have to separately power the servo rail (i.e. from a 5V BEC, which is often also available from your ESC).
 :::
 
 ## Конфігурація програмного забезпечення
 
-Тема [Безпека](../config/safety.md) пояснює, як встановити _аварійне припинення польоту_ як [дію в разі аварії](../config/safety.md#failsafe-actions), що має бути виконана для певної перевірки аварійного стану.
+The [Safety](../config/safety.md) topic explains how to set the _flight termination_ as the [failsafe action](../config/safety.md#failsafe-actions) to be performed for particular failsafe check.
 
-[Виявник відмов](../config/safety.md#failure-detector) також (опційно) може бути налаштований на активацію аварійного припинення польоту, якщо транспортний засіб перекидається (перевищує певний кут нахилу) або якщо виявлена відмова зовнішньою автоматичною системою спрацьовування (ATS):
+The [Failure Detector](../config/safety.md#failure-detector) can also (optionally) be configured to trigger flight termination if the vehicle flips (exceeds a certain attitude) or if failure is detected by an external automatic trigger system (ATS):
 
-- Увімкніть виявник відмов під час польоту, встановивши [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM).
-- [Безпека > Виявник відмов > Спрацювання нахилу](../config/safety.md#attitude-trigger) пояснює, як налаштувати межі нахилу, які спрацьовують _Аварійне припинення польоту_. :::note Під час _зльоту_, занадто великі кути крену або тангажу спричинять _блокування_ (вимкнення двигунів, але без активації парашута), а не аварійне припинення польоту. Це завжди активовано, незалежно від значення `CBRK_FLIGHTTERM`.
+- Enable the failure detector during flight by setting [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM).
+- [Safety > Failure Detector > Attitude Trigger](../config/safety.md#attitude-trigger) explains how to configure the attitude limits that trigger _Flight termination_.
+  ::: info
+  During _takeoff_ excessive attitutes will trigger _lockdown_ (kill motors, but not launch parachute) rather than flight termination.
+  This is always enabled, irrespective of the value of `CBRK_FLIGHTTERM`.
+
 :::
-- [Безпека > Зовнішня автоматична система спрацьовування (ATS)](../config/safety.md#external-automatic-trigger-system-ats) пояснює, як налаштувати зовнішню систему спрацьовування.
+- [Safety > External Automatic Trigger System (ATS)](../config/safety.md#external-automatic-trigger-system-ats) explains how to configure an external trigger system.
 
 Для кожного основного виходу, до якого підключений пристрій безпеки, де "n" - номер порту PWM, встановіть:
 
-- [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) до значення "OFF" PWM пристрою.
-- [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1) до значення PWM пристрою "ON".
+- [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) to the device's "OFF" PWM value.
+- [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1) to the device's "ON" PWM value.
 
 Для кожного AUX виходу, до якого підключений пристрій безпеки, де "n" - номер порту PWM, встановіть:
 
-- [PWM_AUX_DIS1](../advanced_config/parameter_reference.md#PWM_AUX_DIS1) до значення PWM пристрою "OFF".
-- [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1) до значення PWM пристрою "ON".
+- [PWM_AUX_DIS1](../advanced_config/parameter_reference.md#PWM_AUX_DIS1) to the device's "OFF" PWM value.
+- [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1) to the device's "ON" PWM value.
 
-Нарешті, встановіть значення PWM для портів `PWM_AUX_FAILn` та `PWM_MAIN_FAILn` для будь-яких двигунів.
+Finally, set the `PWM_AUX_FAILn` and `PWM_MAIN_FAILn` PWM values for any motors.
 
 ## Схема логіки
 
