@@ -1,4 +1,4 @@
-# PX4 元数据
+# PX4 Metadata
 
 PX4 使用并生成人类和机器可读的元数据:
 
@@ -47,7 +47,7 @@ PX4 元数据是在 PX4 源代码及其相关数据中定义的。
 例如，这适用于[Umnibus F4 SD](../flight_controller/omnibus_f4_sd.md)。
 元数据是通过 [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) 上传的，用于所有构建目标（因此只有在参数被合并到主体后才能使用）。
 
-::: info
+:::info
 You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
 
 如果在 FLASH 受限板上进行自定义开发，您可以调整此处的 URL 以指向另一台服务器[here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41)。
@@ -80,7 +80,7 @@ You can identify memory constrained boards because they specify `CONFIG_BOARD_CO
   这里还有[schema file](https://github.com/mavlink/mavlink/blob/master/component_metadata/actuators.schema.json)。
 - **Right**: 运行时，QGroundControl 通过 MAVLink 组件元数据 API 请求 JSON  文件(上文已经描述)。
 
-## 更多信息：
+## 更多信息
 
 - [参数和配置](../advanced/parameters_and_configurations.md)
 - [事件接口](../concept/events_interface.md)
