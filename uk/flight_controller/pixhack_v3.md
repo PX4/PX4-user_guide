@@ -1,17 +1,21 @@
 # Pixhack V3
 
-:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Звертайтесь до [виробника](https://store.cuav.net/) щодо питань апаратного забезпечення або питань відповідності.
+:::warning
+PX4 не розробляє цей (або будь-який інший) автопілот.
+Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 :::
 
-Контролер польоту CUAV _Pixhack V3_ є гнучким автопілотом, призначеним в основному для виробників комерційних систем.
+The CUAV _Pixhack V3_ flight controller board is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
-Плата є варіантом контролера польоту SOLO Pixhawk<sup>&reg;</sup> 2 (PH2), який, в свою чергу, базується на [Pixhawk-project](https://pixhawk.org/) відкритому апаратному дизайні **FMUv3**. Він працює з PX4 на ОС [NuttX](https://nuttx.apache.org/), і повністю сумісний з прошивкою PX4 або ArduPilot<sup>&reg;</sup> (APM).
+The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight controller, which is in turn based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
+It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS, and is fully compatible with both PX4 or ArduPilot<sup>&reg;</sup> (APM) firmware.
 
-_Pixhack V3_ має значні поліпшення щодо оригінального дизайну, включаючи краще розташування інтерфейсу та додавання системи поглинання вібрації та термостата.
+_Pixhack V3_ has significant improvements with respect to the original design, including better interface layout and the addition of vibration damping and a thermostat system.
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
-::: info Цей контролер польоту [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Короткий опис
@@ -49,16 +53,17 @@ _Pixhack V3_ має значні поліпшення щодо оригінал�
 
 Плату можна придбати з:
 
-- [store.cuav.net](http://store.cuav.net/index.php?id_product=8&id_product_attribute=0&rewrite=pixhack-v3-autopilot&controller=product&id_lang=3)
+- [store.cuav.net](http://store.cuav.net/index.php?id_product=8\&id_product_attribute=0\&rewrite=pixhack-v3-autopilot\&controller=product\&id_lang=3)
 - [leixun.aliexpress.com/store](https://leixun.aliexpress.com/store)
 
-## Створення прошивки
+## Збірка прошивки
 
 :::tip
-Більшості користувачів не потрібно створювати цю прошивку! Вона попередньо зібрана і автоматично встановлюється за допомогою _QGroundControl_ при підключенні відповідного обладнання.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make px4_fmu-v3_default
@@ -66,15 +71,15 @@ make px4_fmu-v3_default
 
 ## Розпіновки та схеми
 
-- [Документація/посібники з написання](http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html)
+- [Documentation/wiring guides](http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html)
 
-## Зіставлення послідовних портів
+## Serial Port Mapping
 
-| UART   | Девайс     | Порт                     |
-| ------ | ---------- | ------------------------ |
-| UART1  | /dev/ttyS0 | IO debug                 |
-| USART2 | /dev/ttyS1 | TELEM1 (контроль потоку) |
-| USART3 | /dev/ttyS2 | TELEM2 (контроль потоку) |
-| UART4  |            |                          |
-| UART7  | CONSOLE    |                          |
-| UART8  | SERIAL4    |                          |
+| UART   | Пристрій   | Порт                                          |
+| ------ | ---------- | --------------------------------------------- |
+| UART1  | /dev/ttyS0 | IO debug                                      |
+| USART2 | /dev/ttyS1 | TELEM1 (керування потоком) |
+| USART3 | /dev/ttyS2 | TELEM2 (керування потоком) |
+| UART4  |            |                                               |
+| UART7  | CONSOLE    |                                               |
+| UART8  | SERIAL4    |                                               |
