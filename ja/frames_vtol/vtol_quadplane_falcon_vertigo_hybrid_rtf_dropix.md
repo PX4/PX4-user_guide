@@ -261,7 +261,7 @@ The final assembly step is to check the vehicle is stable and that the motors ha
 
    * Hold the vehicle with your fingers at the center of gravity and check that the vehicle remains stable.
 
-      ![![Level Centre of Gravity](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_57_level_centre_of_gravity.jpg)](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_57_level_centre_of_gravity.jpg)
+      ![Level Centre of Gravity](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_57_level_centre_of_gravity.jpg)
 
    * If the vehicle leans forward or backwards, move the motors to balance it.
 
