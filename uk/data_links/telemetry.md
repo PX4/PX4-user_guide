@@ -1,13 +1,18 @@
 # Інтеграція радіо/модему телеметрії
 
-Телеметричні радіостанції можна (необов’язково) використовувати для забезпечення бездротового з’єднання MAVLink між наземною станцією керування, як-от _QGroundControl_, і транспортним засобом, на якому працює PX4. Цей розділ містить теми про розширене використання підтримуваних радіомодулів і інтеграцію нових телеметрічних систем в PX4.
+Telemetry Radios can (optionally) be used to provide a wireless MAVLink connection between a ground control station like _QGroundControl_ and a vehicle running PX4.
+Цей розділ містить теми про розширене використання підтримуваних радіомодулів і інтеграцію нових телеметрічних систем в PX4.
 
 :::tip
-[Периферійне обладнання > Telemetry Radios](../telemetry/README.md) містить інформацію про телеметричні радіосистеми, які вже підтримуються PX4. Сюди входять радіостанції, які використовують мікропрограму _SiK Radio_ та _3DR Wi-Fi Telemetry Radios_.
+[Peripheral Hardware > Telemetry Radios](../telemetry/index.md) contains information about telemetry radio systems already supported by PX4.
+This includes radios that use the _SiK Radio_ firmware and _3DR WiFi Telemetry Radios_.
 :::
 
 ## Інтеграція телеметричних систем
 
-PX4 дозволяє використовувати телеметрію на основі протоколу MAVLink через телеметрійний порт контролера польоту на основі Pixhawk. При умові, що телеметрійне радіо підтримує MAVLink та надає інтерфейс UART з сумісними рівнями напруги/роз'ємом, подальша інтеграція не потрібна.
+PX4 дозволяє використовувати телеметрію на основі протоколу MAVLink через телеметрійний порт контролера польоту на основі Pixhawk.
+При умові, що телеметрійне радіо підтримує MAVLink та надає інтерфейс UART з сумісними рівнями напруги/роз'ємом, подальша інтеграція не потрібна.
 
-Телеметрійні системи, що використовують інший протокол, потребують більш глибокої інтеграції, можливо, як програмного (наприклад, драйвери пристрою), так і апаратного (роз'єми тощо). Хоча це було зроблено для конкретних випадків (наприклад, телеметрія FrSky дозволяє надсилати статус транспортного засобу до радіокерувальника через приймач FrSky), надання загальних порад є складним завданням. Ми рекомендуємо спочатку [обговорити це з командою розробників](../contribute/support.md).
+Телеметрійні системи, що використовують інший протокол, потребують більш глибокої інтеграції, можливо, як програмного (наприклад, драйвери пристрою), так і апаратного (роз'єми тощо).
+While this has been done for specific cases (e.g. [FrSky Telemetry](../peripherals/frsky_telemetry.md) enables sending vehicle status to an RC controller via an FrSky receiver) providing general advice is difficult.
+We recommend you start by [discussing with the development team](../contribute/support.md).
