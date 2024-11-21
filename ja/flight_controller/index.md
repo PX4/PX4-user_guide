@@ -1,6 +1,7 @@
 # Flight Controller (Autopilot) Hardware
 
-Flight Controllers (FCs) are the autopilot hardware onto which PX4 firmware is uploaded. This section contains topics about compatible flight controller and baseboard hardware, and how it is mounted and configured.
+Flight Controllers (FCs) are the autopilot hardware onto which PX4 firmware is uploaded.
+This section contains topics about compatible flight controller and baseboard hardware, and how it is mounted and configured.
 
 ## Selecting a Flight Controller
 
@@ -13,7 +14,8 @@ Information about how to choose a PX4-compatible flight controller and the avail
 - [Discontinued Autopilots & Complete Vehicles](../flight_controller/autopilot_discontinued.md)
 - [Pixhawk Autopilot Bus & Carriers](../flight_controller/pixhawk_autopilot_bus.md)
 
-::: info There may be other [Pixhawk Series](../flight_controller/pixhawk_series.md) compatible flight controllers and variants, including those [documented here on Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware).
+:::info
+There may be other [Pixhawk Series](../flight_controller/pixhawk_series.md) compatible flight controllers and variants, including those [documented here on Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware).
 :::
 
 ## Flight Controller Mounting and Setup
