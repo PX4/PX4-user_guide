@@ -56,8 +56,8 @@ EKF IMU 가속 바이어스는 IMU 센서에서 보고한 측정된 가속도와
 
 경고는 바이어스가 임의의 임계값보다 높다는 것을 나타냅니다(기체 이륙 불가). 가속도계 또는 열 보정이 필요하다는 신호일 가능성이 높습니다.
 
-- *가끔* 경고가 표시되는 경우: [가속도계를 다시 보정](../config/accelerometer.md)하세요.
-- *정기적으로* 경고가 표시되는 경우: [열 보정](../advanced_config/sensor_thermal_calibration.md)을 수행하십시오.
+- If you _sometimes_ get the warning: [re-calibrate the accelerometer](../config/accelerometer.md).
+- If you get _regularly_ get the warning: Perform a [thermal calibration](../advanced_config/sensor_thermal_calibration.md).
 - 열 보정 후에도 경고가 계속 표시되는 경우(또는 열 보정을 수행할 수 없는 경우):
   - 센서 또는 자동 조종 장치 하드웨어에서 문제가 발생하지 않는 지 확인합니다.
     - 이를 수행하는 가장 쉬운 방법은 다른 자동 조종 장치로 동일한 프레임/센서를 테스트하는 것입니다.
