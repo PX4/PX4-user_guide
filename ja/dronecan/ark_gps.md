@@ -43,7 +43,8 @@ Order this module from:
 
 ### Wiring
 
-The ARK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
+The ARK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
+For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
 ### Mounting
 
@@ -53,7 +54,8 @@ The sensor can be mounted anywhere on the frame, but you will need to specify it
 
 ## Firmware Setup
 
-ARK GPS runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](../dronecan/index.md#node-id-allocation).
+ARK GPS runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md).
+As such, it supports firmware update over the CAN bus and [dynamic node allocation](../dronecan/index.md#node-id-allocation).
 
 ARK GPS boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
@@ -62,9 +64,10 @@ ARK GPS boards ship with recent firmware pre-installed, but if you want to build
 
 ## PX4 Configuration
 
-You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle. The required settings are outlined below.
+You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle.
+The required settings are outlined below.
 
-::: info
+:::info
 The ARK GPS will not boot if there is no SD card in the flight controller when powered on.
 :::
 
@@ -77,7 +80,8 @@ The steps are:
 - In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK GPS CAN to the Pixhawk CAN.
 
-Once enabled, the module will be detected on boot. GPS data should arrive at 10Hz.
+Once enabled, the module will be detected on boot.
+GPS data should arrive at 10Hz.
 
 DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
