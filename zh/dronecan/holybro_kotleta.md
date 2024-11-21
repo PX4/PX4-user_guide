@@ -4,7 +4,7 @@ The Holybro Kotleta 20 is an CAN ESC designed to run the open source [PX4 Sapog 
 
 While it can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](index.md).
 
-## 在哪里买
+## 购买渠道
 
 [Holybro Kotleta20](https://holybro.com/products/kotleta20)
 
