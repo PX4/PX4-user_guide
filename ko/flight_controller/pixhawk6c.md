@@ -114,7 +114,7 @@ The [Pixhawk 6C Wiring Quick Start](../assembly/quick_start_pixhawk6c.md) provid
 | ------ | ---------- | ------ |
 | USART1 | /dev/ttyS0 | GPS1   |
 | USART2 | /dev/ttyS1 | TELEM3 |
-| USART3 | /dev/ttyS2 | 디버깅 콘솔 |
+| USART3 | /dev/ttyS2 | 디버그 콘솔 |
 | UART5  | /dev/ttyS3 | TELEM2 |
 | USART6 | /dev/ttyS4 | PX4IO  |
 | UART7  | /dev/ttyS5 | TELEM1 |
@@ -176,7 +176,7 @@ The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debu
 
 | 핀                           | 신호                                  | 전압                    |
 | --------------------------- | ----------------------------------- | --------------------- |
-| 1 (적)    | `Vtref`                             | +3.3V |
+| 1(red)   | `Vtref`                             | +3.3V |
 | 2 (흑)    | Console TX (OUT) | +3.3V |
 | 3 (흑)    | Console RX (IN)  | +3.3V |
 | 4 (흑)    | `SWDIO`                             | +3.3V |
