@@ -188,7 +188,7 @@ $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}
 Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
 :::
 
-### Troubleshooting
+### トラブルシューティング
 
 #### Permission Errors
 
