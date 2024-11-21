@@ -2,7 +2,7 @@
 
 [SiK 라디오](https://github.com/LorenzMeier/SiK)는 텔레메트리 라디오를 위한 펌웨어와 도구들입니다.
 
-PX4는 *SiK *를 활용하는 무선통신 프로토콜과 호환됩니다. SiK 무선 통신 모듈은 보통 적절한 커넥터/케이블을 갖추고 있어 [픽스호크 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에 직접 연결할 수 있습니다(어떤 경우 적절한 케이블/커넥터를 구해야 할 수도 있습니다). 보통 기체와 지상통제장치 간에 한 쌍의 장비가 필요합니다.
+PX4 is protocol-compatible with radios that use _SiK_. SiK 무선 통신 모듈은 보통 적절한 커넥터/케이블을 갖추고 있어 [픽스호크 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에 직접 연결할 수 있습니다(어떤 경우 적절한 케이블/커넥터를 구해야 할 수도 있습니다). 보통 기체와 지상통제장치 간에 한 쌍의 장비가 필요합니다.
 
 SiK 라디오는 다양한 범위와 폼 팩터를 지원하는 다양한 제조업체/가게에서 구매가능 합니다.
 
@@ -12,8 +12,8 @@ SiK 라디오는 다양한 범위와 폼 팩터를 지원하는 다양한 제조
 
 - [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
 - [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
-- <del><em>HKPilot Telemetry Radio</em></del> (Discontinued)
-- <del><em>3DR 텔레메트리 라디오</em></del> (단종)
+- <del>_HKPilot Telemetry Radio_</del> (Discontinued)
+- <del>_3DR Telemetry Radio_</del> (Discontinued)
 
 ## 설정
 
