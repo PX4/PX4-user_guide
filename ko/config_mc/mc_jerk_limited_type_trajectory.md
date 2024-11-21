@@ -1,28 +1,32 @@
 # 멀티콥터 저크 제한 유형 궤적
 
-저크 제한 궤적 유형은 사용자 스틱 입력 또는 미션 변경 (예 : 촬영, 매핑,화물)에 응답하여 부드러운 동작을 제공합니다. 저크와 가속 제한이 항상 보장되는 부드러운 대칭 S-커브를 생성합니다.
+저크 제한 궤적 유형은 사용자 스틱 입력 또는 미션 변경 (예 : 촬영, 매핑,화물)에 응답하여 부드러운 동작을 제공합니다.
+저크와 가속 제한이 항상 보장되는 부드러운 대칭 S-커브를 생성합니다.
 
-이 궤적 유형은 항상 [임무 모드](../flight_modes/mission.md)에서 활성화됩니다. To enable it in [Position mode](../flight_modes_mc/position.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+This trajectory type is always enabled in [Mission mode](../flight_modes_mc/mission.md).
+To enable it in [Position mode](../flight_modes_mc/position.md) set the parameter [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) to `Smoothed velocity`.
 
-::: info The jerk-limited type is not used _by default_ in position mode. 더 빠른 응답이 필요한 기체(예 : 레이서 쿼드)에는 적합하지 않을 수 있습니다.
+:::info
+The jerk-limited type is not used _by default_ in position mode.
+더 빠른 응답이 필요한 기체(예 : 레이서 쿼드)에는 적합하지 않을 수 있습니다.
 :::
 
 ## 궤적 생성기
 
 아래의 그래프는 다음과 같은 제약 조건을 가진 일반적인 저크 제한 프로필을 나타냅니다.
 
-- `jMax`: 최대 저크
-- `a0`: 초기 가속도
-- `aMax`: 최대 가속도
-- `a3`: 마지막 가속도 (항상 0)
-- `v0`: 초기 속도
-- `vRef`: 목표 속도
+- `jMax`: maximum jerk
+- `a0`: initial acceleration
+- `aMax`: maximum acceleration
+- `a3`: final acceleration (always 0)
+- `v0`: initial velocity
+- `vRef`: desired velocity
 
-제약 조건 `jMax`, `aMax`는 매개변수를 통하여 사용자가 설정할 수 있으며, 수동 위치 제어와 자동 모드에서 사용 가능합니다.
+The constraints `jMax`, `aMax` are configurable by the user via parameters and can be different in manual position control and auto mode.
 
 결과 속도 프로파일을 "S-Curve"라고 합니다.
 
-![저크 제약 궤도](../../assets/config/mc/jerk_limited_trajectory_1d.png)
+![Jerk-limited trajectory](../../assets/config/mc/jerk_limited_trajectory_1d.png)
 
 ## 수동 모드
 
@@ -38,12 +42,13 @@ XY 평면
 Z축
 
 - `jMax`: [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
-- `aMax` (상향 운동): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
-- `aMax` (하향 운동): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
+- `aMax` (upward motion): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
+- `aMax` (downward motion): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
 
 ## 자동 모드
 
-In auto mode, the desired velocity is [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE) but this value is automatically adjusted depending on the distance to the next waypoint, the maximum possible velocity in the waypoint and the maximum desired acceleration and jerk. The vertical speed is defined by [MPC_Z_V_AUTO_UP](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_UP) (upward motion) and [MPC_Z_V_AUTO_DN](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_DN) (downward motion).
+In auto mode, the desired velocity is [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE) but this value is automatically adjusted depending on the distance to the next waypoint, the maximum possible velocity in the waypoint and the maximum desired acceleration and jerk.
+The vertical speed is defined by [MPC_Z_V_AUTO_UP](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_UP) (upward motion) and [MPC_Z_V_AUTO_DN](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_DN) (downward motion).
 
 ### 제약 조건
 
@@ -55,8 +60,8 @@ XY 평면
 Z축
 
 - `jMax`: [MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
-- `aMax` (상향 운동): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
-- `aMax` (하향 운동): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
+- `aMax` (upward motion): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
+- `aMax` (downward motion): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
 
 웨이 포인트에 근접시 속도 증가 거리 :
 
