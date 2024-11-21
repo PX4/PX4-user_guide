@@ -9,7 +9,7 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 
 This topic explains how to construct and extend the development environment used for the no-longer-supported [Cygwin-based Windows Development Environment](../dev_setup/dev_env_windows_cygwin.md).
 
-## Additional Information
+## 추가 정보
 
 ### Features / Issues
 
