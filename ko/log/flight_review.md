@@ -8,8 +8,8 @@
 
 그래프에 공통적인 기능 :
 
-- 그래프의 배경색은 기록 중 비행 모드를 나타내는 데 사용됩니다 (그래프는 모드에 따라 다름).![비행 모드](../../assets/flight_log_analysis/flight_review/flight_modes.png)
-  - **비행 모드 :** 그래프 본문의 배경색은 비행 모드를 나타냅니다. 그래프 위로 마우스를 가져 가면 비행 모드 레이블이 표시됩니다.
+- Plot background color is used to indicate flight mode during recording (where graphs depend on mode): ![비행 모드](../../assets/flight_log_analysis/flight_review/flight_modes.png)
+  - **Flight mode:** Background colour on the body of the plot indicates flight mode. 그래프 위로 마우스를 가져 가면 비행 모드 레이블이 표시됩니다.
   - **VTOL flight mode:** VTOL vehicles additionally show the VTOL mode as background colour in the bottom part of the plot (blue for multicopter, yellow for fixed-wing, and red for transition).
 - 특정 그래프 축을 마우스로 스크롤 하면 해당 축이 확대됩니다 (수평 또는 수직).
 - 그래프 내에서 마우스를 스크롤 하면 두 축이 모두 확대됩니다.
@@ -20,7 +20,7 @@
 
 비행 모드에 따라 비행 컨트롤러는 위치, 속도, 고도 또는 속도 설정 값을 추적할 수 있습니다 (추적된 설정 값은 모드에 따라 다릅니다. 예 : 안정화 모드에서는 속도 설정 값이 없음).
 
-**예상** 라인 (빨간색)은 **설정 값** (녹색)과 거의 일치하여야 합니다. 그렇지 않은 경우 대부분의 경우 해당 컨트롤러의 PID 게인을 조정해야합니다.
+The **Estimated** line (red) should closely match with the **Setpoint** (green). 그렇지 않은 경우 대부분의 경우 해당 컨트롤러의 PID 게인을 조정해야합니다.
 
 [멀티콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)에는 추적 성능 분석에 대한 예제 플롯과 정보가 포함되어 있습니다.
 
@@ -193,7 +193,7 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 - IMU 데이터에는 높은 로깅 대역폭이 필요하므로, 좋은 SD 카드를 사용하여야 합니다(로깅 속도가 너무 높으면 Flight Review에서 드롭 아웃이 표시됨).
 
 :::tip
-많이 사용하는 SD 카드를 비교하려면 [로깅> SD 카드](../dev_log/logging.md#sd-cards)를 참조하세요.
+See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of popular SD card.
 :::
 
 - [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)에서 자이로 또는 가속 고속 FIFO 프로필을 활성화하고 나머지 항목은 비활성화 합니다. 정말 좋은 SD 카드를 사용하면 (드롭 아웃이 적거나 없음) 다음 작업을 수행 할 수 있습니다.
@@ -206,8 +206,7 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 
 ::: info
 Data of the first IMU is logged, which is not necessarily the same as the one used for flying.
-:::note
-첫 번째 IMU의 데이터가 기록되며, 비행에 사용되는 데이터와 반드시 동일하지는 않습니다.
+This is mostly only important in cases where IMU's are mounted differently (e.g. hard-mounted vs. soft-mounted).
 :::
 
 ::: info
@@ -226,23 +225,23 @@ Do not forget to restore the parameters after testing.
 
 ## 액추에이터 출력
 
-*액추에이터 출력* 그래프는 개별 액추에이터 (모터/서보)로 전송되는 신호를 나타냅니다. 일반적으로 최소 및 최대 구성된 PWM 값 사이의 범위입니다 (예 : 1000 ~ 2000).
+The *Actuator Outputs* graph shows the signals that are sent to the individual actuators (motors/servos). 일반적으로 최소 및 최대 구성된 PWM 값 사이의 범위입니다 (예 : 1000 ~ 2000).
 
 다음은 정상적인 쿼드로터의 예입니다 (모든 신호가 범위 내에 있고, 서로 거의 겹치며, 너무 시끄럽지 않음).![우수한 액추에이터 출력](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
 
 그래프 여러가지 문제점을 식별에 매우 유용합니다.
-- 하나 이상의 신호가 오랜 시간에 걸쳐 최대 값에 도달하면 컨트롤러가 **포화**에 도달 함을 의미합니다. 예를 들어, 최대 출력 비행시 예상되는 문제점은 아닙니다. 그러나, 예를 들어 임무중에 발생하는 것은 기체가 제공할 수있는 추력의 양에 비해 과체중임을 나타냅니다.
-- 멀티콥터의 경우 그래프는 기체는 **불균형**인 경우 좋은 표시가 될 수 있습니다. 그래프에서 하나 이상의 인접 모터(쿼드 로터의 경우 2 개)가 평균적으로 더 높은 추력으로 작동해야 함을 보여줍니다. 일부 모터가 다른 모터보다 더 많은 추력을 제공하거나 ESC가 보정되지 않은 경우에도 마찬가지입니다. 불균형 차량은 일반적으로 자동 조종 장치가 자동으로 설명하므로 큰 문제는 아닙니다. 그러나, 최대 달성 가능한 추력을 줄이고 일부 모터에 더 많은 부담을 주므로 기체의 균형을 맞추는 것이 좋습니다.
+- If one or more of the signals is at the maximum over a longer time, it means the controller runs into **saturation**. 예를 들어, 최대 출력 비행시 예상되는 문제점은 아닙니다. 그러나, 예를 들어 임무중에 발생하는 것은 기체가 제공할 수있는 추력의 양에 비해 과체중임을 나타냅니다.
+- For a multicopter the plot can be a good indication if the vehicle is **imbalanced**. 그래프에서 하나 이상의 인접 모터(쿼드 로터의 경우 2 개)가 평균적으로 더 높은 추력으로 작동해야 함을 보여줍니다. 일부 모터가 다른 모터보다 더 많은 추력을 제공하거나 ESC가 보정되지 않은 경우에도 마찬가지입니다. 불균형 차량은 일반적으로 자동 조종 장치가 자동으로 설명하므로 큰 문제는 아닙니다. 그러나, 최대 달성 가능한 추력을 줄이고 일부 모터에 더 많은 부담을 주므로 기체의 균형을 맞추는 것이 좋습니다.
 - 요 축에서도 불균형이 발생할 수 있습니다. 그래프는 이전 사례와 비슷하게 보이지만 반대 모터는 각각 더 높거나 낮게 작동합니다. 원인은 하나 이상의 모터가 기울어 졌기 때문일 수 있습니다.
 
   다음은 헥사 로터의 예입니다. 모터 1, 3, 6은 더 높은 추력으로 작동합니다.![Hexrotor imbalanced actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png)
   <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
-- 신호가 **잡음**이 심한 (진폭이 높음) 경우에는 두 가지 원인이 있을 수 있습니다. 컨트롤러를 통과하는 센서 노이즈 또는 진동 (다른 플롯에도 표시됨, 이전 섹션 참조) 또는 PID 이득이 너무 높은 경우 입니다. 이것은 극단적인 경우의 예입니다. ![시끄러운 액추에이터 출력 - 극단적 인 경우](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
+- If the signals look very **noisy** (with high amplitudes), it can have two causes: sensor noise or vibrations passing through the controller (this shows up in other plots as well, see previous section) or too high PID gains. 이것은 극단적인 경우의 예입니다. ![시끄러운 액추에이터 출력 - 극단적 인 경우](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
 
 
 ## GPS 불확실성
 
-그래프 여러가지 문제점을 식별에 매우 유용합니다.
+The *GPS Uncertainty* plot shows information from the GPS device:
 - 사용된 위성 수 (약 12 개 이상이어야 함)
 - 수평 위치 정확도 (1 미터 미만이어야 함)
 - 수직 위치 정확도 (2 미터 미만이어야 함)
@@ -257,7 +256,7 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 3 is [known to be](https://www.usb.org/sites/default/files/327216.pdf) an effective GPS jamming source.
 :::
 
-**방해 표시기**는 약 40 이하이어야 합니다. 약 80 이상의 값은 너무 높으므로 설정을 검사하여야 합니다. 신호 간섭은 정확도가 떨어지고 GPS 수정이 불가능한 지점까지 위성 수가 적기 때문에 현저하게 나타납니다.
+The **jamming indicator** should be around or below 40. 약 80 이상의 값은 너무 높으므로 설정을 검사하여야 합니다. 신호 간섭은 정확도가 떨어지고 GPS 수정이 불가능한 지점까지 위성 수가 적기 때문에 현저하게 나타납니다.
 
 이것은 간섭이없는 예입니다.
 
@@ -266,11 +265,11 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 
 ## 추력 및 자기장
 
-*추력 및 자기장* 그래프는 자기 센서 측정 벡터의 추력과 표준을 나타냅니다.
+The *Thrust and Magnetic Field* plot shows the thrust and the norm of the magnetic sensor measurement vector.
 
 표준은 전체 비행에 걸쳐 일정해야하며 추력과 관련이 없어야합니다. 이것은 표준이 상수에 매우 가까운 좋은 예입니다. ![상수에 가까운 추력과 자기장](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
 
-*상관 관계가 있는 경우* 모터 (또는 다른 소비자)에서 끌어온 전류가 자기장에 영향을 미치고 있음을 의미합니다. 이것은 부정확한 요 추정으로 이어지므로 피해야 합니다. 다음 플롯은 자력계의 추력과 표준 사이의 강한 상관 관계를 나타냅니다. ![추력 및 자기장의 상관성](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
+*If it is correlated*, it means that the current drawn by the motors (or other consumers) is influencing the magnetic field. 이것은 부정확한 요 추정으로 이어지므로 피해야 합니다. 다음 플롯은 자력계의 추력과 표준 사이의 강한 상관 관계를 나타냅니다. ![추력 및 자기장의 상관성](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
 
 이에 대한 해결책은 다음과 같습니다:
 - 외부 자력계를 사용하십시오 (내부 자력계는 사용하지 마십시오).
@@ -283,7 +282,7 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 
 ## Estimator Watchdog
 
-*Estimator Watchdog* 플롯은 추정기의 상태 보고서를 보여줍니다. 상수 0 이어야합니다.
+The *Estimator Watchdog* plot shows the health report of the estimator. 상수 0 이어야합니다.
 
 문제가 없는 경우 다음과 같이 표시됩니다.![Estimator Watchdog - 양호](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
 
@@ -297,15 +296,15 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 
 샘플링 규칙 그래프는 로깅 시스템 및 스케줄링 문제에 대한 통찰력을 제공합니다.
 
-샘플링 규칙 그래프는 로깅 시스템 및 스케줄링 문제에 대한 통찰력을 제공합니다.
+The amount of **logging dropouts** start to increase if the log buffer is too small, the logging rate is too high or a low-quality SD card is used.
 
 ::: info
 Occasional dropouts can be expected on medium quality cards.
 :::
 
-**델타 t**는 로깅된 두 IMU 샘플 간의 시간 차이를 보여줍니다. 데이터 게시 속도가 250Hz이므로 4ms에 가까워야 합니다. 그 배수의 스파이크가 있는 경우 (추정기 타임 슬립이 증가하지 않음) 이는 로거가 일부 샘플을 건너 뛴 것을 의미합니다. 로거가 낮은 우선 순위로 실행되기 때문에 가끔 이런 현상이 발생할 수 있습니다. 배수가 아닌 스파이크가 있는 경우 조사해야하는 불규칙한 센서 드라이버 스케줄링을 나타냅니다.
+The **delta t** shows the time difference between two logged IMU samples. 데이터 게시 속도가 250Hz이므로 4ms에 가까워야 합니다. 그 배수의 스파이크가 있는 경우 (추정기 타임 슬립이 증가하지 않음) 이는 로거가 일부 샘플을 건너 뛴 것을 의미합니다. 로거가 낮은 우선 순위로 실행되기 때문에 가끔 이런 현상이 발생할 수 있습니다. 배수가 아닌 스파이크가 있는 경우 조사해야하는 불규칙한 센서 드라이버 스케줄링을 나타냅니다.
 
-**추정기 타임 슬립**은 현재 시간과 해당 시간까지의 통합 센서 간격 시간 간의 차이를 나타냅니다. 변경되면 추정기가 센서 데이터를 놓쳤거나 드라이버가 잘못된 통합 간격을 게시함을 의미합니다. 0으로 유지되어야하지만, 비행중 매개 변수 변경에 대해 약간 증가할 수 있으며 일반적으로 문제가 되지는 않습니다.
+The **estimator timeslip** shows the difference between the current time and the time of the integrated sensor intervals up to that time. 변경되면 추정기가 센서 데이터를 놓쳤거나 드라이버가 잘못된 통합 간격을 게시함을 의미합니다. 0으로 유지되어야하지만, 비행중 매개 변수 변경에 대해 약간 증가할 수 있으며 일반적으로 문제가 되지는 않습니다.
 
 이것은 좋은 예입니다.![샘플링 규칙성 양호](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
 
