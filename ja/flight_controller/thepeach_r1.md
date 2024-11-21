@@ -1,14 +1,15 @@
 # ThePeach FCC-R1
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://thepeach.kr/) for hardware support or compliance issues.
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://thepeach.kr/) for hardware support or compliance issues.
 :::
 
 **ThePeach FCC-R1** is an advanced autopilot designed and made in **ThePeach**.
 
 It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4** on **Nuttx OS**.
 
-![ThePeach_R1](../../assets/flight_controller/thepeach_r1/main.png)
+![ThePeach\_R1](../../assets/flight_controller/thepeach_r1/main.png)
 
 ## Specifications
 
@@ -54,19 +55,19 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
 
 ## Connectors
 
-![pinmap_top](../../assets/flight_controller/thepeach_r1/pinmap.png)
+![pinmap\_top](../../assets/flight_controller/thepeach_r1/pinmap.png)
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                       |
-| ------ | ---------- | -------------------------- |
-| USART1 | /dev/ttyS0 | IO Processor Debug         |
+| UART   | Device     | Port                                          |
+| ------ | ---------- | --------------------------------------------- |
+| USART1 | /dev/ttyS0 | IO Processor Debug                            |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control)      |
 | USART3 | /dev/ttyS2 | TELEM2 (Raspberry pi cm3+) |
-| UART4  | /dev/ttyS3 | GPS1                       |
-| USART6 | /dev/ttyS4 | PX4IO                      |
-| UART7  | /dev/ttys5 | Debug console              |
-| UART8  | /dev/ttyS6 | TELEM4                     |
+| UART4  | /dev/ttyS3 | GPS1                                          |
+| USART6 | /dev/ttyS4 | PX4IO                                         |
+| UART7  | /dev/ttys5 | Debug console                                 |
+| UART8  | /dev/ttyS6 | TELEM4                                        |
 
 ## Voltage Ratings
 
