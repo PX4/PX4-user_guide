@@ -6,9 +6,9 @@ PX4는 고정익의 전진 비행과 멀티콥터의 수직 이착륙 기능을 
 
 VTOL은 고정익과 멀티콥터의 장점을 모두 가지고 있습니다.
 
-- **수직 이착륙:** 능숙한 조종사 아니어도 웬만한 장소에서 이착륙이 어렵지 않습니다.
+- **Vertical takeoff and landing:** Even inexperienced pilots can take off and land virtually anywhere.
 - **Fast and efficient fixed-wing flight:** Faster, further, and longer missions, carrying heavier payloads.
-- **호버링:** 사진, 구조 스캔 등을 위한 안정적인 플랫폼
+- **Hovering:** Steady platform for photography, structure scans etc.
 
 PX4가 지원하는 VTOL 유형, 조립, 구성 및 비행 방법에 대하여 설명합니다.
 
@@ -61,7 +61,7 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
 
 일반적으로, 기계적 복잡성이 증가함에 따라 기체의 비행이 용이할 수 있지만, 비용과 중량이가 증가합니다. 각 유형에는 장단점이 있으며, 이를 기반으로 성공적인 상업적인 벤처 회사들이 있습니다.
 
-위의 각 주요 유형에는 모터 수, 모터 기하학 및 비행 표면 등과 같은 많은 가능한 변형이 있습니다. PX4 provides _airframe configurations_ for many of the more common vehicle setups. 지원되는 세트는 [Airframes Reference &gt; VTOL](../airframes/airframe_reference.md#vtol)에 설명되어 있습니다.
+위의 각 주요 유형에는 모터 수, 모터 기하학 및 비행 표면 등과 같은 많은 가능한 변형이 있습니다. PX4 provides _airframe configurations_ for many of the more common vehicle setups. The supported set is listed in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
 
 :::note
 
@@ -92,7 +92,7 @@ Assembly information is covered in several sections:
 
 - [기본 조립](../assembly/README.md)에는 인기 있는 [비행 콘트롤러](../flight_controller/README.md)들의 핵심 부품들의 설정을 설명들이 포함되어 있습니다. 가이드가 없는 비행 컨트롤러는 일반적으로 거의 같은 방법으로 설정됩니다(거의 항상 유사한 설정 가이드가 포함됨).
 - [주변 장치](../peripherals/README.md)에는 [대기 속도 센서](../sensor/airspeed.md)를 비롯하여 기타 주변 장치에 대한 정보가 포함되어 있습니다.
-- [기체 정의서 &gt; VTOL](../airframes/airframe_reference.md#vtol) 각 기체 구성에 대해 다른 비행 콘트롤러에 연결하여야 하는 비행 컨트롤러 출력을 설명합니다.
+- [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol) explains which flight controller outputs must be connected to different flight controls for each airframe configuration:
   - 정의된 기체의 구성을 선택하십시오. 이는 비행을 위하여 사전 튜닝이 충분하기 때문입니다(미세 조정만 필요할 수 있음).
   - 그렇지 않으면, 기체와 일치하는 "일반 기체"를 선택하십시오.
 
