@@ -2,28 +2,36 @@
 
 <LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.html"/>
 
-:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](https://emlid.com/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
+:::warning
+PX4 не розробляє цей (або будь-який інший) автопілот.
+Contact the [manufacturer](https://emlid.com/) for hardware support or compliance issues.
 :::
 
-Це "швидкий старт" розробника для автопілотів Raspberry Pi 2/3/4 Navio2. Він дозволяє збирати PX4 і переносити на RasPi, або збирати нативно.
+Це "швидкий старт" розробника для автопілотів Raspberry Pi 2/3/4 Navio2.
+It allows you to build PX4 and transfer to the RPi, or build natively.
 
 ![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
 
-## Образ OS
+## OS Image
 
-Використовуйте попередньо налаштований образ [Emlid Raspberry Pi OS для Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi). Образ за замовчуванням вже містить більшість процедур налаштування, показаних нижче.
+Use the preconfigured [Emlid Raspberry Pi OS image for Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi).
+Образ за замовчуванням вже містить більшість процедур налаштування, показаних нижче.
 
 :::warning
-Переконайтеся, що ви не оновлюєте систему (точніше, ядро). Під час оновлення може бути встановлено нове ядро, у якому відсутня необхідна підтримка HW (ви можете перевірити за допомогою `ls /sys/class/pwm`, каталог не повинен бути порожнім).
+Make sure not to upgrade the system (more specifically the kernel).
+By upgrading, a new kernel can get installed which lacks the necessary HW support (you can check with `ls /sys/class/pwm`, the directory should not be empty).
 :::
 
 ## Встановлення доступу
 
-Образ OS Raspberry Pi вже має налаштований SSH. Ім'я користувача "pi" та пароль "raspberry". Для цілей цього посібника ми припускаємо, що ім'я користувача та пароль залишаються цими за замовчуванням.
+Образ OS Raspberry Pi вже має налаштований SSH.
+Ім'я користувача "pi" та пароль "raspberry".
+Для цілей цього посібника ми припускаємо, що ім'я користувача та пароль залишаються цими за замовчуванням.
 
-Щоб налаштувати підключення Pi до локальної мережі Wi-Fi, дотримуйтесь [цього посібника](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) або підключіть його за допомогою кабелю Ethernet.
+To setup the Pi to join your local wifi, follow [this guide](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md), or connect it via an ethernet cable.
 
-Для підключення до вашого Pi через SSH використовуйте стандартне ім'я користувача (`pi`) та ім'я хоста (`navio`). Крім того (якщо це не спрацювало), ви можете знайти IP-адресу вашого RPi та вказати її.
+To connect to your Pi via SSH, use the default username (`pi`) and hostname (`navio`).
+Крім того (якщо це не спрацювало), ви можете знайти IP-адресу вашого RPi та вказати її.
 
 ```sh
 ssh pi@navio.local
@@ -45,7 +53,8 @@ sudo raspi-config --expand-rootfs
 
 ## Вимикання оверлея Navio RGB
 
-Існуючий оверлей Navio RGB використовує GPIO, що використовуються PX4 для RGB Led. Відредагуйте `/boot/config.txt`, закоментувавши рядок, що вмикає оверлей `navio-rgb`.
+Існуючий оверлей Navio RGB використовує GPIO, що використовуються PX4 для RGB Led.
+Edit `/boot/config.txt` by commenting the line enabling the `navio-rgb` overlay.
 
 ```
 #dtoverlay=navio-rgb
@@ -55,7 +64,8 @@ sudo raspi-config --expand-rootfs
 
 Ми використовуємо SCP для передачі файлів з комп'ютера для розробки на цільову плату через мережу (WiFi або Ethernet).
 
-Щоб перевірити налаштування, спробуйте передати файл з ПК для розробки на Pi через мережу зараз. Переконайтеся, що у Pi є доступ до мережі, і ви можете використовувати SSH для входу.
+Щоб перевірити налаштування, спробуйте передати файл з ПК для розробки на Pi через мережу зараз.
+Переконайтеся, що у Pi є доступ до мережі, і ви можете використовувати SSH для входу.
 
 ```sh
 echo "Hello" > hello.txt
@@ -63,15 +73,18 @@ scp hello.txt pi@navio.local:/home/pi/
 rm hello.txt
 ```
 
-Це повинно скопіювати файл "hello.txt" у домашню директорію вашого Pi. Перевірте, що файл дійсно було скопійовано, і ви можете перейти до наступного кроку.
+Це повинно скопіювати файл "hello.txt" у домашню директорію вашого Pi.
+Перевірте, що файл дійсно було скопійовано, і ви можете перейти до наступного кроку.
 
 ## PX4 Development Environment
 
-These instructions explain how to install a PX4 development environment for building RasPi on Ubuntu 18.04.
+These instructions explain how to install a PX4 development environment for building RPi on Ubuntu 18.04.
 
-::: warning PX4 binaries for Navio 2 can only be run on Ubuntu 18.04.
+:::warning
+PX4 binaries for Navio 2 can only be run on Ubuntu 18.04.
 
-You can build PX4 using the GCC toolchain on Ubuntu 20.04, but the generated binary files are too new to run on actual Pi (as of September 2023). For more information see [PilotPi with Raspberry Pi OS Developer Quick Start > Alternative build method using docker](../flight_controller/raspberry_pi_pilotpi_rpios.md#alternative-build-method-using-docker).
+You can build PX4 using the GCC toolchain on Ubuntu 20.04, but the generated binary files are too new to run on actual Pi (as of September 2023).
+For more information see [PilotPi with Raspberry Pi OS Developer Quick Start > Alternative build method using docker](../flight_controller/raspberry_pi_pilotpi_rpios.md#alternative-build-method-using-docker).
 :::
 
 ### Install the Common Dependencies
@@ -85,17 +98,19 @@ To get the common dependencies for Raspberry Pi:
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
    ```
 
-1. Run **ubuntu.sh** in a terminal to get just the common dependencies:
+2. Run **ubuntu.sh** in a terminal to get just the common dependencies:
 
    ```sh
    bash ubuntu.sh --no-nuttx --no-sim-tools
    ```
 
-1. Then setup a cross-compiler (either GCC or clang) as described in the following sections.
+3. Then setup a cross-compiler (either GCC or clang) as described in the following sections.
 
 ### GCC (armhf)
 
-Ubuntu software repository provides a set of pre-compiled toolchains. Note that Ubuntu Focal comes up with `gcc-9-arm-linux-gnueabihf` as its default installation which is not fully supported, so we must manually install `gcc-8-arm-linux-gnueabihf` and set it as the default toolchain. This guide also applies to earlier Ubuntu releases (Bionic). The following instruction assumes you haven't installed any version of arm-linux-gnueabihf, and will set up the default executable with `update-alternatives`. Install them with the terminal command:
+Ubuntu software repository provides a set of pre-compiled toolchains. Note that Ubuntu Focal comes up with `gcc-9-arm-linux-gnueabihf` as its default installation which is not fully supported, so we must manually install `gcc-8-arm-linux-gnueabihf` and set it as the default toolchain. This guide also applies to earlier Ubuntu releases (Bionic).
+The following instruction assumes you haven't installed any version of arm-linux-gnueabihf, and will set up the default executable with `update-alternatives`.
+Install them with the terminal command:
 
 ```sh
 sudo apt-get install -y gcc-8-arm-linux-gnueabihf g++-8-arm-linux-gnueabihf
@@ -159,7 +174,8 @@ export AUTOPILOT_HOST=navio.local
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
-:::info Значення змінної оточення слід встановити перед збіркою, інакше `make upload` не зможе знайти ваш Pi.
+:::info
+The value of the environment variable should be set before the build, or `make upload` will fail to find your Pi.
 :::
 
 Скомпілюйте виконувальний файл на вашому комп'ютері для розробки:
@@ -169,7 +185,8 @@ cd PX4-Autopilot
 make emlid_navio2
 ```
 
-Виконувальний файл "px4" знаходиться у каталозі **build/emlid_navio2_default/**. Переконайтеся, що ви можете підключитися до вашого Pi по SSH, див. [інструкції як отримати доступ до вашого Pi](#setting-up-access), слідуючи інструкціям для armhf під Raspberry Pi.
+The "px4" executable file is in the directory **build/emlid_navio2_default/**.
+Make sure you can connect to your Pi over SSH, see [instructions how to access your Pi](#setting-up-access) following the instructions for armhf under Raspberry Pi.
 
 Потім завантажте його за допомогою:
 
@@ -204,7 +221,7 @@ pxh>
 
 ## Автозавантаження
 
-Для автозапуску px4 додайте наступне до файлу **/etc/rc.local** (відкоригуйте його відповідним чином, якщо ви використовуєте власну збірку), безпосередньо перед рядком `вихід 0`:
+To autostart px4, add the following to the file **/etc/rc.local** (adjust it accordingly if you use native build), right before the `exit 0` line:
 
 ```sh
 cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
