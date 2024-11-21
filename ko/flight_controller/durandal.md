@@ -1,26 +1,28 @@
 # Holybro Durandal
 
 :::warning
-PX4에서는 이 제품을 제조하지 않습니다.
-소형화를 위하여 가진 IO가 적습니다.
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-_Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. Holybro가 설계하고 개발하였습니다.
+_Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers.
+Holybro가 설계하고 개발하였습니다.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
 
 주요 기능은 다음과 같습니다.
 
 - 센서 통합 온도 제어.
-- 480MHz에서 실행되는 강력한 STM32H7 마이크로 컨트롤러. 2MB의 플래시 메모리 및 1MB의 RAM.
+- 480MHz에서 실행되는 강력한 STM32H7 마이크로 컨트롤러.
+  2MB의 플래시 메모리 및 1MB의 RAM.
 - 온도 안정성이 높은 신규 센서.
 - 내부 진동 차단 시스템.
 - 듀얼 고성능, 저잡음 IMU 온보드는 까다로운 안정화 애플리케이션을 위해 설계되었습니다.
 
-주요 기능, [조립](../assembly/quick_start_durandal.md) 및 [구매](#purchase) 링크에 대한 요약은 아래에서 확인할 수 있습니다.
+A summary of the key features, [assembly](../assembly/quick_start_durandal.md), and [purchase](#purchase) links can be found below.
 
-:::note
-이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## 요약
@@ -59,7 +61,7 @@ _Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holy
 - 듀얼 CAN을 위한 최대 2 개의 CAN 버스
   - 각 CANBus에는 개별 무음 제어 또는 ESC RX-MUX 제어가 있습니다.
 - 배터리 2 개의 전압 및 전류에 대한 아날로그 입력
-- 추가 아날로그 입력 2개
+- 2개의 추가 아날로그 입력
 
 #### 전기 데이터
 
@@ -94,33 +96,33 @@ Order from [Holybro](https://holybro.com/collections/autopilot-flight-controller
 
 ## 연결
 
-포트 연결의 위치는 여기에 표시됩니다(아래에는 [핀배열 섹션](#pinouts)).
+The locations of ports/connections are shown here (and below in the [pinouts section](#pinouts)).
 
 ### 상단
 
-![Durandal - 핀배열 평면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
+![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
 
 ### 전면
 
-![Durandal - 핀배열 전면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
+![Durandal - Front Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
 
 ### 후면
 
-![Durandal - 핀배열 후면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
+![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
 ### 우측
 
-![Durandal - 핀배열 우면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
+![Durandal - Right-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
 
 ### 좌측
 
-![Durandal - 핀배열 좌면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
+![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
 ## 크기
 
 모든 치수는 밀리미터 단위입니다.
 
-![Durandal 크기](../../assets/flight_controller/durandal/durandal_dimensions.jpg)
+![Durandal Dimensions](../../assets/flight_controller/durandal/durandal_dimensions.jpg)
 
 <!--
 ## Voltage Ratings
@@ -151,14 +153,16 @@ Under these conditions the system will not draw any power (will not be operation
 
 ## 조립 및 설정
 
-[Durandal 배선 개요](../assembly/quick_start_durandal.md)는 GPS, 전원 관리 보드 등을 포함한 필수 주변 장치 조립방법을 설명합니다.
+The [Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
 
 ## 펌웨어 빌드
 
-::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make holybro_durandal-v1_default
@@ -188,132 +192,133 @@ The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debu
 
 For wiring and debugging information see the above links.
 
-:::note
-I/O 보드에 대해 노출된 디버그 포트가 없습니다.
+:::info
+No Debug port is exposed for the I/O board.
 :::
 
 ## 주변 장치
 
-- [디지털 대기속도 센서](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-- [텔레메트리 라디오 모듈](../telemetry/index.md)
-- [거리계/거리 센서](../sensor/rangefinders.md)
+- [Digital Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
+- [Telemetry Radio Modules](../telemetry/index.md)
+- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 ## 지원 플랫폼 및 기체
 
 일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트.
 
-지원되는 운송체의 설정은 [기체 정의서](../airframes/airframe_reference.md)를 참고하십시오.
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## 핀배열
 
-_Durandal_ pinouts are listed below. These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
+_Durandal_ pinouts are listed below.
+These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
 
 ### 상단 핀배열
 
-![Durandal - 핀배열 평면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
+![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
 
 ### 전면 핀배열
 
-![Durandal - 핀배열 전면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
+![Durandal - Front Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
 
 #### SUBS 출력 포트
 
-| 핀     | 신호                 | 전압    |
-| ----- | ------------------ | ----- |
-| 1 (적) | -                  | -     |
+| 핀                        | 신호                                                         | 전압                    |
+| ------------------------ | ---------------------------------------------------------- | --------------------- |
+| 1 (적) | -                                                          | -                     |
 | 2 (황) | SBUS_OUT/RSSI_IN | +3.3V |
-| 3 (흑) | GND                | GND   |
+| 3 (흑) | GND                                                        | GND                   |
 
 #### DSM RC 포트
 
-| 핀     | 신호      | 전압    |
-| ----- | ------- | ----- |
+| 핀                        | 신호                           | 전압                    |
+| ------------------------ | ---------------------------- | --------------------- |
 | 1 (적) | VDD_3V3 | +3.3V |
 | 2 (황) | DSM_IN  | +3.3V |
-| 3 (흑) | GND     | GND   |
+| 3 (흑) | GND                          | GND                   |
 
 #### I2C A 포트
 
-| 핀     | 신호   | 전압    |
-| ----- | ---- | ----- |
-| 1 (적) | VCC  | +5V   |
+| 핀                        | 신호   | 전압                    |
+| ------------------------ | ---- | --------------------- |
+| 1 (적) | VCC  | +5V                   |
 | 2 (흑) | SCL4 | +3.3V |
 | 3 (흑) | SDA4 | +3.3V |
-| 4 (흑) | GND  | GND   |
+| 4 (흑) | GND  | GND                   |
 
 #### CAN1 포트
 
-| 핀     | 신호    | 전압    |
-| ----- | ----- | ----- |
-| 1 (적) | VCC   | +5V   |
+| 핀                        | 신호    | 전압                    |
+| ------------------------ | ----- | --------------------- |
+| 1 (적) | VCC   | +5V                   |
 | 2 (흑) | CAN H | +3.3V |
 | 3 (흑) | CAN L | +3.3V |
-| 4 (흑) | GND   | GND   |
+| 4 (흑) | GND   | GND                   |
 
 <a id="gps"></a>
 
 #### GPS 포트
 
-| 핀      | 신호                  | 전압    |
-| ------ | ------------------- | ----- |
-| 1 (적)  | VCC                 | +5V   |
-| 2 (흑)  | TX  (출력)            | +3.3V |
-| 3 (흑)  | RX  (입력)            | +3.3V |
-| 4 (흑)  | SCL1                | +3.3V |
-| 5 (흑)  | SDA1                | +3.3V |
-| 6 (흑)  | SAFETY_SWITCH       | +3.3V |
+| 핀                         | 신호                                                          | 전압                    |
+| ------------------------- | ----------------------------------------------------------- | --------------------- |
+| 1 (적)  | VCC                                                         | +5V                   |
+| 2 (흑)  | TX  (출력)                                 | +3.3V |
+| 3 (흑)  | RX  (입력)                                 | +3.3V |
+| 4 (흑)  | SCL1                                                        | +3.3V |
+| 5 (흑)  | SDA1                                                        | +3.3V |
+| 6 (흑)  | SAFETY_SWITCH                          | +3.3V |
 | 7 (흑)  | SAFETY_SWITCH_LED | +3.3V |
-| 8 (흑)  | VDD_3V3             | +3.3V |
-| 9 (흑)  | BUZZER              | +5V   |
-| 10 (흑) | GND                 | GND   |
+| 8 (흑)  | VDD_3V3                                | +3.3V |
+| 9 (흑)  | BUZZER                                                      | +5V                   |
+| 10 (흑) | GND                                                         | GND                   |
 
 <a id="telem4_i2cb"></a>
 
 #### TELEM4 I2CB 포트
 
-| 핀     | 신호       | 전압    |
-| ----- | -------- | ----- |
-| 1 (적) | VCC      | +5V   |
+| 핀                        | 신호                          | 전압                    |
+| ------------------------ | --------------------------- | --------------------- |
+| 1 (적) | VCC                         | +5V                   |
 | 2 (흑) | TX  (출력) | +3.3V |
-| 3 (흑) | RX  (입력) | -     |
-| 4 (흑) | SCL2     | -     |
-| 5 (흑) | SDA2     | +3.3V |
-| 6 (흑) | GND      | GND   |
+| 3 (흑) | RX  (입력) | -                     |
+| 4 (흑) | SCL2                        | -                     |
+| 5 (흑) | SDA2                        | +3.3V |
+| 6 (흑) | GND                         | GND                   |
 
 <a id="telem1_2_3"></a>
 
 #### TELEM3, TELEM2, TELEM1 포트
 
-| 핀     | 신호       | 전압    |
-| ----- | -------- | ----- |
-| 1 (적) | VCC      | +5V   |
+| 핀                        | 신호                          | 전압                    |
+| ------------------------ | --------------------------- | --------------------- |
+| 1 (적) | VCC                         | +5V                   |
 | 2 (흑) | TX  (출력) | +3.3V |
 | 3 (흑) | RX  (입력) | +3.3V |
 | 4 (흑) | CTS (입력) | +3.3V |
 | 5 (흑) | RTS (출력) | +3.3V |
-| 6 (흑) | GND      | GND   |
+| 6 (흑) | GND                         | GND                   |
 
 <a id="power"></a>
 
 #### POWER 포트
 
-| 핀     | 신호      | 전압    |
-| ----- | ------- | ----- |
-| 1 (적) | VCC     | +5V   |
-| 2 (흑) | VCC     | +5V   |
+| 핀                        | 신호      | 전압                    |
+| ------------------------ | ------- | --------------------- |
+| 1 (적) | VCC     | +5V                   |
+| 2 (흑) | VCC     | +5V                   |
 | 3 (흑) | CURRENT | +3.3V |
 | 4 (흑) | VOLTAGE | +3.3V |
-| 5 (흑) | GND     | GND   |
-| 6 (흑) | GND     | GND   |
+| 5 (흑) | GND     | GND                   |
+| 6 (흑) | GND     | GND                   |
 
 ### 후면 핀배열
 
-![Durandal - 핀배열 후면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
+![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
 #### MAIN 출력
 
-| 핀 | 신호     | 전압    | +         | -   |
-| - | ------ | ----- | --------- | --- |
+| 핀 | 신호                          | 전압                    | +                              | -   |
+| - | --------------------------- | --------------------- | ------------------------------ | --- |
 | 1 | IO_CH1 | +3.3V | VDD_SERVO | GND |
 | 2 | IO_CH2 | +3.3V | VDD_SERVO | GND |
 | 3 | IO_CH3 | +3.3V | VDD_SERVO | GND |
@@ -325,8 +330,8 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### AUX 출력
 
-| 핀 | 신호      | 전압    | +         | -   |
-| - | ------- | ----- | --------- | --- |
+| 핀 | 신호                           | 전압                    | +                              | -   |
+| - | ---------------------------- | --------------------- | ------------------------------ | --- |
 | 1 | FMU_CH1 | +3.3V | VDD_SERVO | GND |
 | 2 | FMU_CH2 | +3.3V | VDD_SERVO | GND |
 | 3 | FMU_CH3 | +3.3V | VDD_SERVO | GND |
@@ -335,86 +340,86 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### RC 입력
 
-| 핀 | 신호               | 전압    |
-| - | ---------------- | ----- |
+| 핀 | 신호                                                       | 전압                    |
+| - | -------------------------------------------------------- | --------------------- |
 | S | SBUS_IN/PPM_IN | +3.3V |
-| + | VCC              | +5V   |
-| - | GND              | GND   |
+| + | VCC                                                      | +5V                   |
+| - | GND                                                      | GND                   |
 
 ### 우면 핀배열
 
-![Durandal - 핀배열 우면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
+![Durandal - Right-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
 
 #### CAN2 포트
 
-| 핀     | 신호    | 전압    |
-| ----- | ----- | ----- |
-| 1 (적) | VCC   | +5V   |
+| 핀                        | 신호    | 전압                    |
+| ------------------------ | ----- | --------------------- |
+| 1 (적) | VCC   | +5V                   |
 | 2 (흑) | CAN H | +3.3V |
 | 3 (흑) | CAN L | +3.3V |
-| 4 (흑) | GND   | GND   |
+| 4 (흑) | GND   | GND                   |
 
-#### CAP & ADC IN 포트
+#### CAP & ADC IN port
 
-| 핀      | 신호             | 전압                       |
-| ------ | -------------- | ------------------------ |
-| 1 (적)  | VCC            | +5V                      |
-| 2 (흑)  | FMU_CAP6       | +3.3V                    |
-| 3 (흑)  | FMU_CAP5       | +3.3V                    |
-| 4 (흑)  | FMU_CAP4       | +3.3V                    |
-| 5 (흑)  | FMU_CAP3       | +3.3V                    |
-| 6 (흑)  | FMU_CAP2       | +3.3V                    |
-| 7 (흑)  | FMU_CAP1       | +3.3V                    |
+| 핀                         | 신호                                                     | 전압                                       |
+| ------------------------- | ------------------------------------------------------ | ---------------------------------------- |
+| 1 (적)  | VCC                                                    | +5V                                      |
+| 2 (흑)  | FMU_CAP6                          | +3.3V                    |
+| 3 (흑)  | FMU_CAP5                          | +3.3V                    |
+| 4 (흑)  | FMU_CAP4                          | +3.3V                    |
+| 5 (흑)  | FMU_CAP3                          | +3.3V                    |
+| 6 (흑)  | FMU_CAP2                          | +3.3V                    |
+| 7 (흑)  | FMU_CAP1                          | +3.3V                    |
 | 8 (흑)  | ADC1_SPARE_1 | +3.3V [++](#warn_sensor) |
-| 9 (흑)  | ADC1_SPARE_2 | +6.6V[++](#warn_sensor)  |
-| 10 (흑) | GND            | GND                      |
+| 9 (흑)  | ADC1_SPARE_2 | +6.6V [++](#warn_sensor) |
+| 10 (흑) | GND                                                    | GND                                      |
 
 <a id="warn_sensor"></a>
 
 :::warning
-\ ++ 핀 8, 9에 연결된 센서는 표시된 전압을 초과하는 신호를 전송하지 않아야 합니다.
+\++ Sensors connected to pins 8, 9 must not send a signal exceeding the indicated voltage.
 :::
 
 ### 좌면 핀배열
 
-![Durandal - 핀배열 좌면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
+![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
 <a id="debug_port"></a>
 
 #### 디버그 포트
 
-| 핀     | 신호    | 전압    |
-| ----- | ----- | ----- |
+| 핀                        | 신호    | 전압                    |
+| ------------------------ | ----- | --------------------- |
 | 1 (적) | VT    | +3.3V |
 | 2 (흑) | TX    | +3.3V |
 | 3 (흑) | RX    | +3.3V |
 | 4 (흑) | SWDIO | +3.3V |
 | 5 (흑) | SWCLK | +3.3V |
-| 6 (흑) | GND   | GND   |
+| 6 (흑) | GND   | GND                   |
 
 #### SPI 포트
 
-| 핀     | 신호   | 전압    |
-| ----- | ---- | ----- |
-| 1 (적) | VCC  | +5V   |
+| 핀                        | 신호   | 전압                    |
+| ------------------------ | ---- | --------------------- |
+| 1 (적) | VCC  | +5V                   |
 | 2 (흑) | SCK  | +3.3V |
 | 3 (흑) | MISO | +3.3V |
 | 4 (흑) | MOSI | +3.3V |
 | 5 (흑) | CS1  | +3.3V |
 | 6 (흑) | CS2  | +3.3V |
-| 7 (흑) | GND  | GND   |
+| 7 (흑) | GND  | GND                   |
 
 #### USB 포트
 
-| 핀     | 신호   | 전압    |
-| ----- | ---- | ----- |
-| 1 (적) | VBUS | +5V   |
+| 핀                        | 신호   | 전압                    |
+| ------------------------ | ---- | --------------------- |
+| 1 (적) | VBUS | +5V                   |
 | 2 (흑) | DM   | +3.3V |
 | 3 (흑) | DP   | +3.3V |
-| 4 (흑) | GND  | GND   |
+| 4 (흑) | GND  | GND                   |
 
 ## 추가 정보
 
-- [Durandal 배선 퀵 스타트](../assembly/quick_start_durandal.md)
-- [Durandal 기술 데이터 시트](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf)
+- [Durandal Wiring QuickStart](../assembly/quick_start_durandal.md)
+- [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf)
 - [Durandal Pinouts](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)
