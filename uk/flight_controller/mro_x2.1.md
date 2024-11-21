@@ -1,18 +1,22 @@
 # mRo-X2.1 Autopilot
 
-:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](https://store.mrobotics.io/) щодо підтримки обладнання або питань сумісності.
+:::warning
+PX4 не розробляє цей (або будь-який інший) автопілот.
+Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
-Автопілот [mRo-X2.1](http://www.mRobotics.io/) базується на [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** відкритому апаратному забезпеченні. Він виконує PX4 на ОС [NuttX](https://nuttx.apache.org/).
+The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design.
+It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
 ![mRo X2.1](../../assets/flight_controller/mro/mro_x2.1.jpg)
 
-::: info Цей контролер польоту [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Короткий опис
 
-- Основна System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+- Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   - CPU: STM32F427VIT6 ARM<sup>&reg;</sup> мікроконтроллер - Revision 3
   - ІО: мікроконтролер STM32F100C8T6 ARM<sup>&reg;</sup>
 - Датчики:
@@ -20,9 +24,10 @@
   - Invensense ICM-20602 6DOF
   - MEAS MS5611 барометр
 - Розміри/Вага
-  - Розміри: 36мм x 50мм (Можна замовити з вертикальним, горизонтальним або без голівок)
+  - Size: 36mm x 50mm
+    (Can be ordered with vertical, horizontal or no headers installed)
   - Точки кріплення: 30,5 мм х 30,5 мм діаметр 3,2 мм
-  - Вага: 10.9г
+  - Вага: 10.9g
 
 Діаграма нижче надає порівняльний аналіз з Pixhawk 1. mRo має практично ідентичне апаратне забезпечення й підключення, але має значно менший слід. Основні відмінності - це оновлені датчики та Rev 3 FMU.
 
@@ -30,22 +35,22 @@
 
 ## Підключення
 
-- 2.54 мм головки:
+- 2.54 мм заголовки:
 - GPS (UART4) з I2C
 - CAN шина
 - Вхід RC
 - PPM вхід
-- Spektrum input
+- Вхідний спектр
 - RSSI вхід
-- sBus вхід
+- вхід SBUS
 - sBus вихід
 - Вхід живлення
-- Buzzer output
+- Вихід зумера
 - Вихід світлодіода
 - 8 x Виводи сервоприводів
-- 6 x Aux виходів
+- 6 x Aux outputs
 - Позабортовий конектор microUSB
-- Вимкнути вивід Pin _(Зараз не підтримується програмним забезпеченням)_
+- Kill Pin output _(Currently not supported by firmware)_
 - AirSpeed Sensor
 - USART2 (Telem 1)
 - USART3 (Telem 2)
@@ -56,42 +61,44 @@
 
 За замовчуванням mRo X2.1 може бути попередньо налаштований на ArduPilot<sup>&reg;</sup>, а не на PX4. Це можна побачити під час оновлення прошивки, коли плата визнається як FMUv2 замість X2.1.
 
-У цьому випадку вам потрібно оновити BootLoader, використовуючи [BL_Update_X21.zip](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/BL_Update_X21.zip). Якщо це виправлення не буде зроблено, ваша пеленга буде відображена неправильно і надмірний інерціальний модуль не буде виявлено.
+In this case you must update the BootLoader using [BL_Update_X21.zip](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/BL_Update_X21.zip).
+Якщо це виправлення не буде зроблено, ваша пеленга буде відображена неправильно і надмірний інерціальний модуль не буде виявлено.
 
 Основні кроки:
 
-1. Завантажте та розпакуйте [BL_Update_X21.zip](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/BL_Update_X21.zip).
-2. Знайдіть папку _BL_Update_X21_. Ця папка містить файл **bin** та підпапку з назвою **/etc**, що містить файл **rc.txt**
+1. Download and extract [BL_Update_X21.zip](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/BL_Update_X21.zip).
+2. Find the folder _BL_Update_X21_. This contains a **bin** file and a subfolder named **/etc** containing an **rc.txt** file
 3. Скопіюйте ці файли на кореневий каталог вашої micro SD-карти та вставте її в mRO x2.1
 4. Увімкніть mRO x2.1. Зачекайте, доки він завантажиться, а потім перезавантажте 1 раз.
 
 ## Доступність
 
-Цей продукт можна замовити в [магазині mRobotics<sup>&reg;</sup>](https://store.mrobotics.io/mRo-X2-1-Rev-2-p/m10021a.htm).
+This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://store.mrobotics.io/mRo-X2-1-Rev-2-p/m10021a.htm).
 
-## Посібник з написання
+## Посібник з підключення
 
-![mRo_X2.1_Wiring](../../assets/flight_controller/mro/mro_x21_wiring.png)
+![mRo\_X2.1\_Wiring](../../assets/flight_controller/mro/mro_x21_wiring.png)
 
-## Створення прошивки
+## Збірка прошивки
 
 :::tip
-Більшості користувачів не потрібно створювати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make mro_x21_default
 ```
 
-## Схема
+## Креслення
 
-Плата задокументована на апаратному репозиторії mRo: [x21_V2_schematic.pdf](https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Docs/x21_V2_schematic.pdf).
+The board is documented on the mRo hardware repo: [x21_V2_schematic.pdf](https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Docs/x21_V2_schematic.pdf).
 
-## Зіставлення послідовних портів
+## Serial Port Mapping
 
-| UART   | Девайс     | Порт            |
+| UART   | Пристрій   | Порт            |
 | ------ | ---------- | --------------- |
 | USART1 | /dev/ttyS0 | IO debug        |
 | USART2 | /dev/ttyS1 | SERIAL1         |
