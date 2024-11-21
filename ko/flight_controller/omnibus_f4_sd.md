@@ -130,7 +130,7 @@ Some Omnibus F4 boards have a jumper connecting either or both the MCU SBUS and 
 
   - TX: MCU 핀 PA0
   - RX: MCU 핀 PA1
-  - 57600 baud
+  - 초당 전송속도: 57600
   - This can be configured as the `TELEM 2` port.
   - 에어 봇 옴니버스 F4 SD 핀배열:
     - TX: RSSI 핀
