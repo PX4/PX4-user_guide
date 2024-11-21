@@ -5,11 +5,12 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 :::
 
 :::warning
-PX4 没有制造这款（或任何一款）飞控。
+PX4 does not manufacture this (or any) autopilot.
 Contact the manufacturer for support or compliance issues.
 :::
 
-The _Omnibus F4 SD_ is a controller board designed for racers. In contrast to a typical racer board it has some additional features, such as an SD card and a faster CPU.
+The _Omnibus F4 SD_ is a controller board designed for racers.
+In contrast to a typical racer board it has some additional features, such as an SD card and a faster CPU.
 
 <img src="../../assets/flight_controller/omnibus_f4_sd/board.jpg" width="400px" title="Omnibus F4 SD" />
 
@@ -26,7 +27,8 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 All the usual PX4 features can still be used for your racer!
 :::
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## 主要特性
@@ -44,11 +46,12 @@ All the usual PX4 features can still be used for your racer!
 - Built-in current sensor
 - Built-in OSD chip (AB7456 via SPI)
 
-## 在哪里买
+## 购买渠道
 
 The board is produced by different vendors, with some variations (e.g. with or without a barometer).
 
-:::tip PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if _OMNIBUSF4SD_ is present on the product page the board should work with PX4).
+:::tip
+PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if _OMNIBUSF4SD_ is present on the product page the board should work with PX4).
 :::
 
 :::tip
@@ -59,7 +62,9 @@ These are the boards tested and known to work:
 
 - [Hobbywing XRotor Flight Controller F4](https://www.hobbywing.com/en/products/info.html?id=164)
 
-  ::: info This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. This ESC board also provides power for the Omnibus board.
+  ::: info
+  This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. This ESC board also provides power for the Omnibus board.
+
 :::
 
   Purchase from:
@@ -75,17 +80,20 @@ These are the boards tested and known to work:
 
 Accessories include:
 
-- [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md) for MAVLink telemetry. You need to connect these pins: GND, RX, TX, VCC and CH-PD (CH-PD to 3.3V). The baud rate is 921600.
+- [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md) for MAVLink telemetry.
+  You need to connect these pins: GND, RX, TX, VCC and CH-PD (CH-PD to 3.3V). The baud rate is 921600.
 
 ## 连接器
 
-Boards from different vendors (based on this design) can have significantly different layout. Layouts/Silkscreens for various versions are shown below.
+Boards from different vendors (based on this design) can have significantly different layout.
+Layouts/Silkscreens for various versions are shown below.
 
 ### Airbot Omnibus F4 SD
 
 Below are silkscreens for the Airbot Omnibus F4 SD (V1), showing both top and bottom.
 
-![Omnibus F4 SD v1 Silkscreen Top](../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg) ![Omnibus F4 SD v1 Silkscreen Bottom](../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg)
+![Omnibus F4 SD v1 Silkscreen Top](../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg)
+![Omnibus F4 SD v1 Silkscreen Bottom](../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg)
 
 ### Hobbywing XRotor Flight Controller F4
 
@@ -102,7 +110,7 @@ RC is connected to one of the following ports:
 - UART1
 - SBUS/PPM port (via inverter, internally goes to UART1)
 
-::: info
+:::info
 Some Omnibus F4 boards have a jumper connecting either or both the MCU SBUS and PPM to a single pin header. Set your jumper or solder bridge to the appropriate MCU pin before use.
 :::
 
@@ -111,6 +119,7 @@ Some Omnibus F4 boards have a jumper connecting either or both the MCU SBUS and 
 - UART6: GPS port
 
   - TX: MCU pin PC6
+
   - RX: MCU pin PC7
 
   - Airbot Omnibus F4 SD Pinout is on Port J10 (TX6/RX6):
@@ -138,7 +147,7 @@ There is one I2C port available via:
 - SCL: MCU pin PB10 (might be labeled as TX3)
 - SDA: MCU pin PB11 (might be labeled as RX3)
 
-::: info
+:::info
 You will need external pullups on both signals (clock and data).
 You can use 2.2k pullups for example to attach an external mag.
 :::
@@ -178,16 +187,17 @@ Benefits over [FrSky telemetry](../peripherals/frsky_telemetry.md) include:
 - 150 Hz RC update rate.
 - The signals are uninverted and thus no (external) inverter logic is required.
 
-::: info
+:::info
 If you use CRSF Telemetry you will need to build custom PX4 firmware.
 By contrast, FrSky telemetry can use prebuilt firmware.
 :::
 
 For Omnibus we recommend the [TBS Crossfire Nano RX](http://team-blacksheep.com/products/prod:crossfire_nano_rx), since it is specifically designed for small Quads.
 
-On the handheld controller (e.g. Taranis) you will also need a [Transmitter Module](http://team-blacksheep.com/shop/cat:rc_transmitters#product_listing). This can be plugged into the back of the RC controller.
+On the handheld controller (e.g. Taranis) you will also need a [Transmitter Module](http://team-blacksheep.com/shop/cat:rc_transmitters#product_listing).
+This can be plugged into the back of the RC controller.
 
-::: info
+:::info
 The referenced links above contains the documentation for the TX/RX modules.
 :::
 
@@ -200,11 +210,13 @@ Connect the Nano RX and Omnibus pins as shown:
 | TX            | Ch2     |
 | RX            | Ch1     |
 
-Next update the TX/RX modules to use the CRSF protocol and set up telemetry. Instructions for this are provided in the [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (search for 'Setting up radio for CRSF').
+Next update the TX/RX modules to use the CRSF protocol and set up telemetry.
+Instructions for this are provided in the [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (search for 'Setting up radio for CRSF').
 
 #### PX4 CRSF Configuration
 
-You will need to build custom firmware to use CRSF. For more information see [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration).
+You will need to build custom firmware to use CRSF.
+For more information see [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration).
 
 ## 原理图
 
@@ -214,7 +226,9 @@ The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-S
 
 ## PX4 Bootloader Update
 
-The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed. Download the [omnibusf4sd_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
+The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki).
+Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed.
+Download the [omnibusf4sd_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
 ## 编译固件
 
@@ -229,7 +243,6 @@ make omnibus_f4sd_default
 You can use either pre-built firmware or your own custom firmware.
 
 :::warning
-
 If you use [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration) in your radio system, as describe above, then you must use custom firmware.
 :::
 
@@ -247,10 +260,10 @@ The firmware can be installed in any of the normal ways:
 
 In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
-| 参数                                                                       | 设置                                                                                                                      |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| 参数                                                                                                               | 设置                                                                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)   | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
-| [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Disable this if your board does not have a barometer.                                                                   |
+| [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Disable this if your board does not have a barometer.                                                                                   |
 
 ## Further Info
 
