@@ -4,8 +4,8 @@ QuadRanger VTOL은 QuadCopter 시스템으로 설계된 Volantex Ranger-Ex를 �
 
 주요 정보:
 
-- **기체: ** Volantex Ranger-Ex 또는 *Quanum Observer*
-- **비행 컨트롤러:** Pixhawk
+- **Frame:** Volantex Ranger-Ex or *Quanum Observer*
+- **Flight controller:** Pixhawk
 
 ![쿼드레인저](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_complete_build.jpg)
 
@@ -37,7 +37,7 @@ For a full parts list with links to Hobbyking EU and International warehouse see
 ![쿼드레인저 부품](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_parts_for_one_wing.jpg)
 
 
-변환에 필요한 도구는 다음과 같습니다.
+The tools required for the conversion are;
 
 -   Dremel 또는 유사한 회전 도구
 -   취미용 칼
@@ -96,7 +96,7 @@ The servo direction can be reversed using the PWM\_REV parameters in the PWM\_OU
 
 ## 설정
 
-아래 QGroundControl에 표시된대로 기체를 설정합니다 (맨 위의 **적용 및 다시 시작**을 클릭하는 것을 잊지 마십시오).
+Configure the frame as shown in QGroundControl below (do not forget to click **Apply and Restart** in the top).
 
 ![QGC - 표준 VTOL용 펌웨어 선택](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
 
