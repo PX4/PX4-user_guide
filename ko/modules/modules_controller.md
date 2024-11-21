@@ -12,7 +12,7 @@ via `manual_control_setpoint` topic) as inputs and outputs actuator control mess
 
 Currently it is feeding the `manual_control_setpoint` topic directly to the actuators.
 
-### Implementation
+### 구현
 
 제어 대기 시간을 줄이기 위하여, 모듈은 IMU 드라이버에서 게시한 자이로 주제를 직접 폴링합니다.
 
@@ -237,7 +237,7 @@ Source: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/main/src/m
 자율 비행 모드를 담당하는 모듈입니다. 여기에는 임무(데이터맨에서 읽기), 이륙 및 RTL이 포함됩니다.
 또한, 지오펜스 위반 검사를 담당합니다.
 
-### Implementation
+### 구현
 
 The different internal modes are implemented as separate classes that inherit from a common base class `NavigatorMode`.
 The member `_navigation_mode` contains the current active mode.
@@ -339,7 +339,7 @@ L1 컨트롤러를 사용하여 그라운드 로버의 위치를 제어합니다
 
 Publishes `vehicle_thrust_setpoint (only in x) and vehicle_torque_setpoint (only yaw)` messages at IMU_GYRO_RATEMAX.
 
-### Implementation
+### 구현
 
 현재 이 구현은 일부 모드만 지원합니다.
 
@@ -381,7 +381,7 @@ Source: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/main
 
 Publishes `vehicle_thrust_setpont` and `vehicle_torque_setpoint` messages at a constant 250Hz.
 
-### Implementation
+### 구현
 
 현재 이 구현은 일부 모드만 지원합니다.
 
@@ -421,7 +421,7 @@ Source: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main
 무인수중선(UUV)의 자세를 제어합니다.
 Publishes `attitude_setpoint` messages.
 
-### Implementation
+### 구현
 
 현재 이 구현은 일부 모드만 지원합니다.
 
