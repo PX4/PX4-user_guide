@@ -25,7 +25,7 @@ Key Features:
 - Extended Flight Time: Up to 1 hour and 30 minutes, depending on weather conditions and takeoff weight
 - Versatile Payload Capacity: Spacious fuselage accommodates diverse payloads, including options like the Sony A7R for mapping applications.
 
-## 在哪里买
+## 购买渠道
 
 - [Foxtech FPV (ARF Combo)](https://www.foxtechfpv.com/foxtech-loong-2160-vtol.html) - recommended
 - [Alibaba](https://www.alibaba.com/product-detail/Loong-2160-Long-Endurance-VTOL-Mapping_1600280686653.html)
