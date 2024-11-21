@@ -748,7 +748,7 @@ You don't need to have a launch file, but they are very useful if you have a com
 
 For information about launch files see [ROS 2 Tutorials > Creating launch files](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
 
-## Troubleshooting
+## トラブルシューティング
 
 ### Missing dependencies
 
