@@ -40,7 +40,7 @@ For a running instance, streams can be configured via `mavlink stream` command.
 
 하나의 직렬 장치 또는 네트워크 포트에 각각 연결된 모듈의 여러 독립 인스턴스가 있을 수 있습니다.
 
-### Implementation
+### 구현
 
 구현은 송신 및 수신 스레드의 2개 스레드를 사용합니다. The sender runs at a fixed rate and dynamically
 reduces the rates of the streams if the combined bandwidth is higher than the configured rate (`-r`) or the
@@ -131,7 +131,7 @@ Source: [systemcmds/uorb](https://github.com/PX4/PX4-Autopilot/tree/main/src/sys
 
 uORB는 모듈 간의 통신에 사용되는 내부 pub-sub 메시징 시스템입니다.
 
-### Implementation
+### 구현
 
 구현은 비동기식이며 잠금이 없습니다. 게시자는 구독자를 기다리지 않으며, 그 반대도 마찬가지입니다.
 이것은 발행자와 구독자 사이에 별도의 버퍼를 가짐으로써 달성됩니다.
