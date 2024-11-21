@@ -29,7 +29,7 @@ RC stick movement will change the vehicle to [Position mode](../flight_modes_mc/
 
 Takeoff is affected by the following parameters:
 
-| Parameter                                                                                               | Description                                                                                                                                                                                             |
+| 매개변수                                                                                                    | 설명                                                                                                                                                                                                      |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="MIS_TAKEOFF_ALT"></a>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | Target altitude during takeoff (default: 2.5m)                                                                                                                                                          |
 | <a id="MPC_TKO_SPEED"></a>[MPC_TKO_SPEED](../advanced_config/parameter_reference.md#MPC_TKO_SPEED)     | Speed of ascent (default: 1.5m/s)                                                                                                                                                                       |
