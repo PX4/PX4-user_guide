@@ -21,7 +21,7 @@ The following firmware options need to be selected when buying the device:
 - RTK
 - BASE
 
-## 在哪里买
+## 购买渠道
 
 Contact [Femtones](http://www.femtomes.com/) directly for sales quote:
 
