@@ -121,7 +121,7 @@ See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog
 
 Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
-## Troubleshooting
+## トラブルシューティング
 
 See [DroneCAN Troubleshooting](index.md#troubleshooting)
 
