@@ -131,8 +131,7 @@ They have rectangular instead of square pins, and cannot be assumed to be compat
 ![Pixhawk Connectors](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
 
 :::tip
-The `RC IN` port is for RC receivers only and provides sufficient power for that purpose. :::tip
-The RC IN port is for RC receivers only and provides power.
+The `RC IN` port is for RC receivers only and provides sufficient power for that purpose. **NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
 :::
 
 ## Pinouts
