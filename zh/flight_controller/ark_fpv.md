@@ -74,7 +74,7 @@ See the documentation [Ark Electronics GitBook](https://arkelectron.gitbook.io/a
 - 5.5V - 54V
 - 500 mA (300 mA main system, 200 mA heater)
 
-## Additional Information
+## 附加信息
 
 - Weight: 7.5 g g with MicroSD card
 - Dimensions: 3.6 x 3.6 x 0.8 cm
