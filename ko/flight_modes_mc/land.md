@@ -29,7 +29,7 @@ RC stick movement will change the vehicle to [Position mode](../flight_modes_mc/
 
 Land mode behaviour can be configured using the parameters below.
 
-| Parameter                                                                                               | Description                                                                                                                                                                                             |
+| 매개변수                                                                                                    | 설명                                                                                                                                                                                                      |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="MPC_LAND_SPEED"></a>[MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | The rate of descent during landing. This should be kept fairly low as the ground conditions are not known.                                                                                              |
 | <a id="COM_DISARM_LAND"></a>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Time-out for auto disarm after landing, in seconds. If set to -1 the vehicle will not disarm on landing.                                                                                                |
