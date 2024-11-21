@@ -1,12 +1,14 @@
 # Holybro Pixhawk 6C Mini
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 _Pixhawk 6C Mini_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
 
-It is equipped with a high performance H7 Processor, and comes with IMU redundancy, temperature-controlled IMU board, and cost effective design, delivering incredible performance and reliability. It complies with the Pixhawk [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+It is equipped with a high performance H7 Processor, and comes with IMU redundancy, temperature-controlled IMU board, and cost effective design, delivering incredible performance and reliability.
+It complies with the Pixhawk [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 ![Pixhawk6c mini Upright Image](../../assets/flight_controller/pixhawk6c_mini/pixhawk6c_mini_hero.jpg)
 
@@ -14,15 +16,17 @@ It is equipped with a high performance H7 Processor, and comes with IMU redundan
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## Introduction
+## 简介
 
 The Pixhawk® 6C Mini is the latest update to the successful family of Pixhawk® flight controllers.
 
 Inside the Pixhawk® 6C Mini, you can find an STMicroelectronics® based STM32H743, paired with sensor technology from Bosch® & InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
-The Pixhawk® 6C Mini's H7 microcontroller contain the Arm® Cortex®-M7 core running up to 480 MHz, has 2MB flash memory and 1MB RAM. Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+The Pixhawk® 6C Mini's H7 microcontroller contain the Arm® Cortex®-M7 core running up to 480 MHz, has 2MB flash memory and 1MB RAM.
+Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
 
-The Pixhawk 6C Mini includes high-performance, low-noise IMUs on board, designed to be cost effective while having IMU redundancy. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
+The Pixhawk 6C Mini includes high-performance, low-noise IMUs on board, designed to be cost effective while having IMU redundancy.
+A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
 
 The Pixhawk® 6C Mini is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application.
 
@@ -31,20 +35,20 @@ The Pixhawk® 6C Mini is perfect for developers at corporate research labs, star
 - High performance STM32H743 Processor with more computing power & RAM
 - New cost-effective design with low-profile form factor
 - Newly designed integrated vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
-- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
+- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20
 
 ## Technical Specification
 
 ### **Processors & Sensors**
 
-- FMU Processor: STM32H743&#x20;
-  - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB memory, 1MB SRAM&#x20;
+- FMU Processor: STM32H743&#x20
+  - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB memory, 1MB SRAM&#x20
 - IO Processor: STM32F103
-  - &#x20;32 Bit Arm® Cortex®-M3, 72MHz, 64KB SRAM&#x20;
-- On-board sensors&#x20;
-  - &#x20;Accel/Gyro: ICM-42688-P&#x20;
-  - Accel/Gyro: BMI055&#x20;
-  - Mag: IST8310&#x20;
+  - &#x20;32 Bit Arm® Cortex®-M3, 72MHz, 64KB SRAM&#x20
+- On-board sensors&#x20
+  - &#x20;Accel/Gyro: ICM-42688-P&#x20
+  - Accel/Gyro: BMI055&#x20
+  - Mag: IST8310&#x20
   - 气压计：MS5611
 
 ### **Electrical data**
@@ -54,7 +58,7 @@ The Pixhawk® 6C Mini is perfect for developers at corporate research labs, star
   - USB Power Input: 4.75\~5.25V
   - Servo Rail Input: 0\~36V
 - Current Ratings:
-  - `TELEM1`` Max output current limiter: 1A
+  - \`TELEM1\`\` Max output current limiter: 1A
   - All other port combined output current limiter: 1A
 
 ### **Mechanical data**
@@ -62,34 +66,42 @@ The Pixhawk® 6C Mini is perfect for developers at corporate research labs, star
 - Dimensions: 53.3 x 39 x 16.2 mm
 - Weight : 39.2g
 
-### **接口**
+### **Interfaces**
 
 - 16- PWM servo outputs (8 from IO, 6 from FMU)
+
 - 3个通用串行口
   - `TELEM1` - Full flow control, separate 1A current limit
   - `TELEM2` - Full flow control
+
 - 2 GPS ports
   - GPS1 - Full GPS port (GPS plus safety switch)
   - GPS2 - Basic GPS port
+
 - 1 I2C port
   - Supports dedicated I2C calibration EEPROM located on sensor module
+
 - 2 CAN Buses
   - CAN Bus has individual silent controls or ESC RX-MUX control
+
 - 1 Debug ports:
   - FMU Debug Mini
+
 - Dedicated R/C input for Spektrum/DSM and S.BUS, CPPM, analog / PWM RSSI
+
 - 1 Power input ports (Analog)
 
 - 其它特性:
   - Operating & storage temperature: -40 ~ 85°c
 
-## 在哪里买
+## 购买渠道
 
 Order from [Holybro](https://holybro.com/products/pixhawk-6c-mini).
 
 ## 组装 / 设置
 
-The Pixhawk 4 Mini's port is very similar to the Pixhawk 6C Mini's port. Please refer to the [Pixhawk 4 Mini Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.md) as it provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
+The Pixhawk 4 Mini's port is very similar to the Pixhawk 6C Mini's port.
+Please refer to the [Pixhawk 4 Mini Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.md) as it provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
 
 ## 针脚定义
 
@@ -122,15 +134,15 @@ _Pixhawk 6C Mini_ can be double-redundant on the power supply if two power sourc
 Under these conditions all power sources will be used in this order to power the system:
 
 1. **POWER1** inputs (4.9V to 5.5V)
-1. **USB** 输入电压（4.75 v 至 5.25 v）
+2. **USB** input (4.75V to 5.25V)
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
 1. **POWER1** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** 输入（可运行范围 4.1V 至 5.7V，0V 至 6V 不会损坏）
-1. 舵机输入：**FMU PWM OUT** 和 **I/O PWM OUT** 的 VDD_SERVO 针脚 （0V 至 42V 不会损坏）
+2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
+3. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
 **Voltage monitoring**
 
@@ -146,7 +158,8 @@ Holybro makes various analog [power modules](../power_module/index.md) for diffe
 ## 编译固件
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -157,20 +170,20 @@ make px4_fmu-v6c_default
 
 <a id="debug_port"></a>
 
-## Debug调试端口
+## 调试接口
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
 The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SH connector).
 
-| 针脚   | Signal           | 电压    |
-| ---- | ---------------- | ----- |
-| 2    | `Vtref`          | +3.3V |
+| 针脚   | 信号                                  | 电压                    |
+| ---- | ----------------------------------- | --------------------- |
+| 1（红） | `Vtref`                             | +3.3V |
 | 2    | Console TX (OUT) | +3.3V |
 | 3    | Console RX (IN)  | +3.3V |
-| 4（黑） | `SWDIO`          | +3.3V |
-| 6    | `SWCLK`          | +3.3V |
-| 6    | `GND`            | GND   |
+| 4（黑） | `SWDIO`                             | +3.3V |
+| 6    | `SWCLK`                             | +3.3V |
+| 6    | `GND`                               | GND                   |
 
 For information about using this port see:
 
@@ -179,16 +192,17 @@ For information about using this port see:
 
 ## 外部设备
 
-- [数字空速传感器](https://holybro.com/products/digital-air-speed-sensor)
+- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
 - [Telemetry Radio Modules](../telemetry/index.md):
   - [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
   - [Holybro Microhard P900 Radio](../telemetry/holybro_microhard_p900_radio.md)
   - [Holybro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
-- [距离传感器](../sensor/rangefinders.md)
+- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 ## 支持的平台/机身
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## See Also
 
@@ -198,5 +212,5 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
 - [PM08 Power Module](https://holybro.com/products/pm08-power-module-14s-200a)
-- [FMUv6C reference design pinout](https://docs.google.com/spreadsheets/d/1FcmWRKd6zjdz3-cnjEDYEmANKZOFzNSc/edit?usp=sharing&ouid=113251442407318461574&rtpof=true&sd=true).
+- [FMUv6C reference design pinout](https://docs.google.com/spreadsheets/d/1FcmWRKd6zjdz3-cnjEDYEmANKZOFzNSc/edit?usp=sharing\&ouid=113251442407318461574\&rtpof=true\&sd=true).
 - [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
