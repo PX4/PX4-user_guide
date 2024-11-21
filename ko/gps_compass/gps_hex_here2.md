@@ -58,31 +58,31 @@ Here2 GPS 핀배열은 아래에서 제공합니다. 이것은 다른 자동조�
 
 ## 사양
 
-- **프로세서:** STM32F302
+- **Processor:** STM32F302
 - **센서**
-  - **나침반, 자이로, 가속도계:** ICM20948
-  - **기압계:** MS5611
-- **수신기 유형:** 72-채널 u-blox M8N 엔진, GPS/QZSS L2 C/A, GLONASS L10F, BeiDou B11, Galileo E1B/C, SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
-- **내비게이션 업데이트 속도:** 최대 : 10Hz
-- **위치 정확도:** 3D 수정
+  - **Compass, Gyro, Accelerometer:** ICM20948
+  - **Barometer:** MS5611
+- **Receiver Type:** 72-channel u-blox M8N engine, GPS/QZSS L2 C/A, GLONASS L10F, BeiDou B11, Galileo E1B/C, SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
+- **Navigation Update Rate:** Max: 10 Hz
+- **Positionaing Accuracy:** 3D Fix
 - **최초 수정 시간 :**
-  - **콜드 스타트:** 26 초
-  - **지원 시작:** 2 초
-  - **재 획득:** 1 초
+  - **Cold start:** 26s
+  - **Aided start:** 2s
+  - **Reacquisition:** 1s
 - **감도:**
-  - **추적 및 탐색:** -167dBm
-  - **핫 스타트:** -148dBm
-  - **콜드 스타트:** - 157 dBm
+  - **Tracking & Navigation:** -167 dBm
+  - **Hot start:** -148 dBm
+  - **Cold start:** -157 dBm
 - **보조 GNSS**
   - AssistNow GNSS 온라인
   - AssistNow GNSS 오프라인 (최대 35 일)
   - AssistNow Autonomous (최대 6 일)
   - OMA 공급 및 GPP 준수
-- **발진기:** TCXO (NEO-8MN/Q)
-- **RTC 크리스탈:** 빌드 인
+- **Oscillator:** TCXO (NEO-8MN/Q)
+- **RTC crystal:** Build in
 - **ROM:** Flash (NEO-8MN)
-- **사용 가능한 안테나:** Active Antenna 및 패시브 안테나
-- **신호 무결성:** SHA 256을 사용한 서명 기능
+- **Available Antennas:** Active Antenna & Passive Antenna
+- **Signal Integrity:** Signature feature with SHA 256
 - **프로토콜 및 인터페이스:**
-  - **UART/I2C/CAN:** JST_GH 메인 인터페이스, 내부 스위치.
-  - **STM32 기본 프로그래밍 인터페이스:** JST_SUR
+  - **UART/I2C/CAN:** JST_GH Main interface, Switch internally.
+  - **STM32 Main Programming Interface:** JST_SUR
