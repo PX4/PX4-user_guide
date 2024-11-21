@@ -578,7 +578,7 @@ The module supports a secondary GPS device, specified via `-e` parameter. The po
 on the second uORB topic instance, but it's currently not used by the rest of the system (however the
 data will be logged, so that it can be used for comparisons).
 
-### Implementation
+### 구현
 
 There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks
 so that they can be used in other projects as well (eg. QGroundControl uses them too).
@@ -937,7 +937,7 @@ Source: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/main/src
 
 MSP telemetry streamer
 
-### Implementation
+### 구현
 
 Converts uORB messages to MSP telemetry packets
 
@@ -1620,7 +1620,7 @@ Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/dri
 This module controls the TAP_ESC hardware via UART. It listens on the
 actuator_controls topics, does the mixing and writes the PWM outputs.
 
-### Implementation
+### 구현
 
 Currently the module is implemented as a threaded version only, meaning that it
 runs in its own thread instead of on the work queue.
@@ -1769,7 +1769,7 @@ Source: [drivers/actuators/voxl_esc](https://github.com/PX4/PX4-Autopilot/tree/m
 
 This module is responsible for...
 
-### Implementation
+### 구현
 
 By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
 
