@@ -22,7 +22,9 @@ _Crazyflie 2.0_ було [припинено/замінено](../flight_control
 
 ## Короткий опис
 
-:::info:::
+:::info
+The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
+:::
 
 - Основний System-on-Chip: STM32F405RG
   - CPU: 168 МГц ARM Cortex M4 з одноточним FPU
@@ -31,7 +33,7 @@ _Crazyflie 2.0_ було [припинено/замінено](../flight_control
 - MPU9250 Акселератор / Гіроскоп / Магнит
 - Барометр LPS25H
 
-## Де придбати
+## Де купити
 
 - [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0).
 - [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): використовується для бездротового зв'язку між _QGroundControl_ та Crazyflie 2.0.
@@ -102,7 +104,7 @@ _Crazyflie 2.0_ було [припинено/замінено](../flight_control
 
 10. Готово! Калібруйте сенсори за допомогою [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors.html).
 
-::: info
+:::info
 If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/main/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`.
 This should be done using _menuconfig_:
 
@@ -227,7 +229,7 @@ make venv
 
 ![](../../assets/hardware/joystick-message-frequency.png)
 
-## Налаштування програмного забезпечення
+## Встановлення обладнання
 
 Crazyflie 2.0 може літати з точним керуванням у режимі [Стабілізований режим](../flight_modes_mc/manual_stabilized.md), режимі [Висотний режим](../flight_modes_mc/altitude.md) та режимі [Позиційний режим](../flight_modes_mc/position.md).
 
