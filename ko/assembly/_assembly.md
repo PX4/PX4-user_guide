@@ -33,7 +33,7 @@ These consist of a flight controller, GPS, external compass, airspeed sensor, ma
 
 This topic provides basic instructions and links showing how to connect and assemble the core components of a typical unmanned system (UAS) running PX4.
 
-::: tip
+:::tip
 If you're interested in a specific vehicle, see the more targeted topics in each vehicle section:
 
 - [Multicopter](../assembly/assembly_mc.md)
@@ -50,7 +50,9 @@ A forward flying vehicle, such as a VTOL or Fixed-wing, will generally also have
 The instructions are focussed on systems that use [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers (FCs), and in particular those that have adopted the [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 For these FCs, much of the "wiring up" is as simple as connecting the components into the appropriately labelled ports using supplied cables.
 
-:::info
+:::info If your FC does not use the connector standard ...
+Pixhawk series flight controllers that don't follow the connector standard will often provide cables for interconnecting with Pixhawk standard components.
+For other controllers you may need to manually create cables and connectors.
 
 The [flight controller-specific guides](#fc-specific-assembly-guides) contain FC-specific wiring and configuration information, as do guides on the manufacturer sites.
 :::
@@ -70,7 +72,7 @@ The FCs have much the same ports with similar names, and core peripherals are co
 | Full GPS plus Safety Switch | GPS1                             | GPS&SAFETY   | Primary GNSS module (GPS, compass, safety switch, buzzer, LED)   |
 | Basic GPS                   | GPS2                             | GPS2                             | Secondary GNSS module (GNSS/compass)                             |
 | CAN                         | CAN1/CAN2                        | CAN1/CAN2                        | DroneCAN devices, such as GNSS modules, motors, etc                                 |
-| Telemetry                   | TELEM (1,2,3) | TELEM (1,2,3) | Telemetry radios, companion computers, MAVLink cameras, etc.        |
+| 텔레메트리                       | TELEM (1,2,3) | TELEM (1,2,3) | Telemetry radios, companion computers, MAVLink cameras, etc.        |
 | Analog Power                | POWER (1,2)   | POWER (1,2)   | SMbus (I2C) power modules                                        |
 | I2C                         | I2C                              | None                             | Other I2C peripherals                                                               |
 | SPI                         | SPI                              | SPI6                             | SPI devices (note: 11 pin, not 6 as in standard) |
@@ -116,7 +118,7 @@ A second GNSS/compass module, if present, is attached to the 6-pin port labeled 
 
 ![GPS Connections](../../assets/assembly/gnss_connections.png)
 
-::: details
+:::details
 The Pixhawk connector standard 10-pin _Full GPS plus Safety Switch Port_ is intended for connecting the primary GNSS.
 It includes a UART port for the GNSS, and I2C port for the Compass, and pins for the [buzzer](../getting_started/px4_basic_concepts.md#buzzer), [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), and [UI LED](../getting_started/led_meanings.md#ui-led).
 PX4 configures this UART for use as the primary GPS by default.
@@ -159,6 +161,50 @@ Note that if there are not enough free I2C ports for your peripherals, you can u
 Some I2C devices use 5V SCL/SDA lines, while the Pixhawk standard I2C port expects 3.3V.
 You can use an I2C level converter to connect these devices to a Pixhawk flight controller.
 :::
+
+</div>
+
+## 거리 센서
+
+<div v-if="(($frontmatter.frame === 'Multicopter') || ($frontmatter.frame === 'VTOL'))">
+
+[Distance sensors](../sensor/rangefinders.md) can significantly improve vehicle robustness and performance, and are required for some use cases:
+
+- Landing can be much improved with a distance sensor:
+  - Land detection is more robust.
+  - Smoother landings because the sensor can help detect the right point to slow down vehicle before touchdown.
+  - Reduced risk of very hard touchdown due to bad altitude estimate or incorrectly set touch point altitude.
+- Enables terrain following.
+- Required for robust state estimation when flying with GNSS-denied navigation (along with an [optical flow sensor](#optical-flow-sensor)).
+
+</div>
+<div v-if="$frontmatter.frame === 'VTOL'">
+
+- Allows disabling of "pusher assist" when close to the ground.
+
+</div>
+<div v-if="$frontmatter.frame === 'Plane'">
+
+[Distance sensors](../sensor/rangefinders.md) are highly recommended as they allow for proper flaring during landing, without which smooth automated fixed-wing landings are near-impossible.
+
+</div>
+
+Unlike for some other components, there is no particular bus or port that is commonly used for distance sensors.
+Different rangefinders will connect via I2C, CAN, serial ports, and even PWM inputs!
+
+See [Distance sensors](../sensor/rangefinders.md) and manufacturer documentation for instructions on how to integrate a specific sensor with PX4.
+
+<div v-if="(($frontmatter.frame === 'Multicopter') || ($frontmatter.frame === 'VTOL'))">
+
+## Optical Flow Sensor
+
+[Optical Flow](../sensor/optical_flow.md) is a computer vision technique that uses a downward facing camera and a downward facing distance sensor to estimate velocity over ground.
+It can be used to accurately estimate speed when navigating without GNSS — in buildings, underground, or in any other GNSS-denied environment.
+
+Optical flow sensors may integrate both a camera and distance sensor, or just a camera (in which case a separate distance sensor is needed).
+There is no standardisation on flow sensor connectivity options, and sensors may connect via I2C, CAN, MAVLink over serial ports, and so on.
+
+See [Optical Flow sensors](../sensor/optical_flow.md) and manufacturer documentation for instructions on how to integrate a specific sensor with PX4.
 
 </div>
 
