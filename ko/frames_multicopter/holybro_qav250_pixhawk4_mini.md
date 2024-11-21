@@ -5,12 +5,12 @@
 The instructions have been left here because very similar kits based on the Pix32 v6 are [available here](https://holybro.com/products/qav250-kit). These instructions can therefore still be followed (and might be updated to Pix32 v6).
 :::
 
-The complete kits include a carbon-fibre QAV250 racing frame, flight controller and almost all other components needed (except battery and receiver). FPV 지원 유무에 따라 키트가 조금씩 달라집니다. 키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
+The complete kits include a carbon-fibre QAV250 racing frame, flight controller and almost all other components needed (except battery and receiver). FPV 지원 유무에 따라 키트가 조금씩 달라집니다. This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
 
 주요 정보
 
-- **프레임:** Holybro QAV250
-- **비행 컨트롤러:** [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
+- **Frame:** Holybro QAV250
+- **Flight controller:** [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
 - **Assembly time (approx.):** 3.5 hours (2 for frame, 1.5 autopilot installation/configuration)
 
 ![Pixhawk4 Mini와 조립된 Holybro QAV250](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qav250_hero.jpg)
@@ -82,7 +82,7 @@ The Holybro [QAV250 Kit](https://holybro.com/products/qav250-kit) kits includes 
 
 ## 조립
 
-프레임 조립 예상 시간은 2시간이며, *QGroundControl*에서 자동 조종 장치를 설치및 기체 설정 예상 시간은 1.5시간입니다.
+Estimated time to assemble frame is 2 hours and 1.5 hours installing the autopilot and configuring the airframe in *QGroundControl*.
 
 ### 필요한 공구
 
@@ -110,7 +110,7 @@ The Holybro [QAV250 Kit](https://holybro.com/products/qav250-kit) kits includes 
 1. 전원 모듈을 플라스틱 나사 위로 내린 다음 플라스틱 격리 애자를 추가합니다.![QAV250 전원 모듈 및 스탠드 오프 추가](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/5_power_module_on_screws.jpg)
 1. 비행 컨트롤러 플레이트를 스탠드 오프에 놓습니다 (전원 모듈 위).![QAV250 비행 컨트롤러 플레이트 추가](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/6_flight_controller_plate.jpg)
 1. 모터를 부착합니다. 모터에는 회전 방향을 나타내는 화살표가 있습니다. ![QAV250 모터 추가](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/7_motors.jpg)
-1. 키트의 양면 테이프를 사용하여 *Pixhawk 4 Mini*를 비행 컨트롤러 플레이트에 부착합니다. ![QAV250 양면 테이프 추가](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/8_double_sided_tape_controller.jpg)
+1. Use double sided tape from kit to attach the *Pixhawk 4 Mini* to the flight controller plate. ![QAV250 양면 테이프 추가](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/8_double_sided_tape_controller.jpg)
 1. 전원 모듈의 "전원"케이블을 *Pixhawk 4 mini*에 연결합니다. ![QAV250 파워 Pixhawk](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/9_power_module_power_pixhawk.jpg)
 1. 알루미늄 스탠드오프를 버튼 플레이트에 부착합니다.![QAV250 알루미늄 지지대](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/10_aluminium_standoffs.jpg)
 1. Esc를 모터에 연결합니다. 이 이미지는 모터의 순서와 회전 방향을 나타냅니다. ![QAV250  ESC 연결](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/11_escs.jpg)
@@ -162,7 +162,7 @@ If you have the "basic" version of the kit, you can now jump ahead to instructio
 
 1. 프레임에 카메라 브라켓 설치![카메라 연결](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_bracket.jpg)
 1. 브라켓에 카메라 설치![브라켓에 부착된 카메라](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_on_bracket.jpg)
-1. 전체 키트의 전원 모듈은 비디오 송신기와 카메라를 연결 배선과 함께 제공합니다.![FPV 연결중](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection_board.jpg)
+1. The power module on the complete kit comes with wiring ready to connect the Video Transmitter and Camera: ![FPV 연결중](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection_board.jpg)
    - 카메라 커넥터 연결 ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_connection.jpg) 전선은 파란색 = 전압 센서, 노란색 = 비디오 출력, 검은 색 = 접지, 빨간색 = + 전압입니다.
    - 비디오 송신기 (VTX) 커넥터 연결 ![Video Transmitter Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_video_transmitter_connection.jpg) 전선은 노란색 = 비디오 출력, 검은 색 = 접지, 빨간색 = + 전압입니다.
 1. 테이프를 사용하여 비디오 송신기와 OSD 보드를 프레임에 고정합니다.
@@ -172,7 +172,7 @@ If you have the "basic" version of the kit, you can now jump ahead to instructio
 
 ## PX4 설정
 
-*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 QAV250 프레임 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 :::tip PX4 설치 및 설정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
@@ -212,7 +212,7 @@ First update the firmware, airframe, and actuator mappings:
 
 ## 튜닝
 
-기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. These may be good enough to fly with, but you should tune each frame build.
+Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
 
 For instructions on how, start from [Autotune](../config/autotune_mc.md).
 
