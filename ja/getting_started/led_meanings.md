@@ -17,7 +17,7 @@ It is possible to have a GPS lock (Green LED) and still not be able to arm the v
 :::
 
 :::tip
-In the event of an error (blinking red), or if the vehicle can't achieve GPS lock (change from blue to green), check for more detailed status information in *QGroundControl* including calibration status, and errors messages reported by the [Preflight Checks (Internal)](../flying/pre_flight_checks.md). Also check that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.
+In the event of an error (blinking red), or if the vehicle can't achieve GPS lock (change from blue to green),   check for more detailed status information in *QGroundControl* including calibration status, and errors messages reported by the [Preflight Checks (Internal)](../flying/pre_flight_checks.md). Also check that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.
 :::
 
 ![LED meanings](../../assets/flight_controller/pixhawk_led_meanings.gif)
@@ -60,11 +60,11 @@ The LED labels shown above are commonly used, but might differ on some boards.
 
 More detailed information for how to interpret the LEDs is given below (where "x" means "any state")
 
-| Red/Amber | Blue | Green | Meaning                                                     |
-| --------- | ---- | ----- | ----------------------------------------------------------- |
-| 10Hz      | x    | x     | Overload CPU load > 80%, or RAM usage > 98%                 |
-| OFF       | x    | x     | Overload CPU load <= 80%, or RAM usage <= 98%               |
-| NA        | OFF  | 4 Hz  | actuator_armed->armed && failsafe                           |
-| NA        | ON   | 4 Hz  | actuator_armed->armed && !failsafe                          |
-| NA        | OFF  | 1 Hz  | !actuator_armed-> armed && actuator_armed->ready_to_arm |
-| NA        | OFF  | 10 Hz | !actuator_armed->armed && !actuator_armed->ready_to_arm | 
+| Red/Amber | Blue | Green | Meaning                                                      |
+| --------- | ---- | ----- | ------------------------------------------------------------ |
+| 10Hz      | x    | x     | Overload CPU load > 80%, or RAM usage > 98%                  |
+| OFF       | x    | x     | Overload CPU load <= 80%, or RAM usage <= 98%                |
+| NA        | OFF  | 4 Hz  | actuator_armed->armed && failsafe                            |
+| NA        | ON   | 4 Hz  | actuator_armed->armed && !failsafe                           |
+| NA        | OFF  | 1 Hz  | !actuator_armed-> armed && actuator_armed->ready_to_arm  |
+| NA        | OFF  | 10 Hz | !actuator_armed->armed  && !actuator_armed->ready_to_arm | 
