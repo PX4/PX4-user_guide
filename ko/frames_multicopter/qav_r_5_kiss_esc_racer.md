@@ -1,11 +1,11 @@
 # Lumenier QAV-R 5" Racer (Pixracer)
 
-Lumenier QAV-R 5 "FPV Racing Quadcopter는 탈착식 암이 있는 견고하고 가벼우면서도 빠른 FPV 레이서입니다. *Pixracer* 비행 컨트롤러, *KISS 24A Race Edition* ESC와 기체를 이용한 조립 방법 및 설정 방법을 설명합니다. 또한 선택항목인 FPV 설정에 대한 정보를 제공합니다.
+Lumenier QAV-R 5 "FPV Racing Quadcopter는 탈착식 암이 있는 견고하고 가벼우면서도 빠른 FPV 레이서입니다. This topic provides full build and configuration instructions for using the frame with the *Pixracer* flight controller and *KISS 24A Race Edition* ESCs. 또한 선택항목인 FPV 설정에 대한 정보를 제공합니다.
 
 주요 정보:
 
 - **Frame:** [Lumenier QAV-R 5"](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html)
-- **비행 컨트롤러:** [Pixracer](../flight_controller/pixracer.md)
+- **Flight controller:** [Pixracer](../flight_controller/pixracer.md)
 
 <lite-youtube videoid="wMYgqvsNEwQ" title="QAV-R 5 PX4 FPV Racequad"/>
 
@@ -79,7 +79,7 @@ KISS ESC는 성능이 우수하지만, 두 가지의 단점도 있습니다.
 
 ### 전원 모듈
 
-먼저 프레임과 함께 제공되는 XT60 커넥터를 Pixracer와 함께 배송 된 *ACSP5 전원 모듈*의 레이블이있는 배터리쪽에 납땜하였습니다. 전원 모듈과 함께 제공되는 elco 커패시터를 동일한쪽에 올바른 극성으로 추가하였습니다.
+First I soldered the XT60 connector which comes with the frame to the labeled battery side of the *ACSP5 power module* that was shipped with the Pixracer and added the elco capacitor delivered with the power module with the correct polarity to the same side.
 
 ![ACSP5 전원 모듈](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/acsp5_power_module.jpg)
 
@@ -112,7 +112,7 @@ KISS ESC는 성능이 우수하지만, 두 가지의 단점도 있습니다.
 
 이 단계에서 필요한 모든 커넥터를 찾으려면 [Pixracer의 하드웨어 문서](../flight_controller/pixracer.md)가 필요합니다. 나는 Pixracer 보드 아래의 모든 케이블을 깔끔하게 정리하여, 향후 FPV 카메라와 송신기를위한 공간을 확보하고자 하였습니다.
 
-QAV-R 프레임과 함께 제공되는 나일론 스페이서와 나사를 사용하여 Pixracer를 장착했지만 약간의 진동 방지를 목적으로 보드와 스페이서 사이에 **작은 O-링 **을 넣었습니다. **나사를 너무 많이 또는 조금 조이지 않도록**, 보드가 양쪽면에 명확하게 닿지만 팽팽하게 조이지 않도록 하십시오. 보드는 어떤 식으로든 매달리지 있지 않아야 하며, 손가락으로 힘을 가하면 약간 움직일 수 있어야합니다.
+I mounted the Pixracer using the nylon spacers and screws that get shipped with the QAV-R frame but **put some small O-rings** between the board and the spacers to add a bit of vibration dampening. Make sure to **not tighten the screws too much or little**, do it such that the board clearly touches both sides but is not clamped with any tension. 보드는 어떤 식으로든 매달리지 있지 않아야 하며, 손가락으로 힘을 가하면 약간 움직일 수 있어야합니다.
 
 :::warning
 이는 비행 중에 자이로스코프 및 가속도계 센서가 진동에 큰 영향을 미칠 수 있습니다.
@@ -194,7 +194,7 @@ ESC 신호의 경우 [Pixracer의 하드웨어 문서](../flight_controller/pixr
 
 ## PX4 설정
 
-*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 프레임에 대한 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 :::tip PX4 설치 및 성정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
@@ -238,6 +238,6 @@ First update the firmware, airframe, and actuator mappings:
 
 ### 튜닝
 
-기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
+Airframe selection sets *default* autopilot parameters for the frame. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
 
 For instructions on how, start from [Autotune](../config/autotune_mc.md).
