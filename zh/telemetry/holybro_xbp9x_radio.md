@@ -18,7 +18,7 @@ With RF line-of-sight ranging up to 65 miles/100km and strong interference block
 - DigiMesh networking topology for redundancy and reliability
 - Fully certified for use in unlicensed 900 MHz band
 
-## 在哪里买
+## 购买渠道
 
 Discontinued (no longer available at Holybro).
 
