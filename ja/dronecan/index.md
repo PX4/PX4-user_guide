@@ -287,7 +287,7 @@ To upgrade the device, all you need to do is copy the firmware binary into the r
 Upon boot the flight controller will automatically transfer the firmware onto the device and upgrade it.
 If successful, the firmware binary will be removed from the root directory and there will be a file named **XX.bin** in the **/ufw** directory of the SD card.
 
-## Troubleshooting
+## トラブルシューティング
 
 **Q**: My DroneCAN devices aren't working.
 
