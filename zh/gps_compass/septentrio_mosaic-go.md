@@ -116,8 +116,8 @@ The receiver includes an intuitive web user interface for easy operation and mon
 | LED Color     | Powered  | SD card mounted | PVT Solution | Logging enabled |
 | ------------- |:--------:|:---------------:|:------------:|:---------------:|
 | Red           | &check;️ |                 |              |                 |
-| Green         | &check;️ |    &check;️     |              |                 |
-| Blue          | &check;️ |    &check;️     |   &check;️   |                 |
+| 绿色            | &check;️ |    &check;️     |              |                 |
+| 蓝色            | &check;️ |    &check;️     |   &check;️   |                 |
 | Purple        | &check;️ |                 |   &check;️   |                 |
 | Purple + Blue | &check;️ |    &check;️     |   &check;️   |    &check;️     |
 | Red + Green   | &check;️ |    &check;️     |              |    &check;️     |
