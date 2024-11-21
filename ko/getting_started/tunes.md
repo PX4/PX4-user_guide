@@ -10,7 +10,7 @@
 
 ## 부팅 / 시작
 
-부팅중에 재생되는 톤들입니다.
+These tunes are played during the boot sequence.
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS --> 
 
 
@@ -35,7 +35,7 @@
 - 중대 결함으로 인하여 시스템이 재부팅되었습니다.
 - PX4IO를 사용하도록 시스템이 설정되었지만 IO가 없습니다.
 - UAVCAN이 활성화되었지만 드라이버를 시작할 수 없습니다.
-- SITL/HITL이 활성화되었지만 *pwm_out_sim* 드라이버를 시작할 수 없습니다.
+- SITL/HITL enabled but *pwm_out_sim* driver can't start.
 - FMU 시작에 실패했습니다.
 
 
