@@ -104,7 +104,7 @@ Source: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/main/src/
 
 Inject failures into system.
 
-### Implementation
+### 구현
 
 This system command sends a vehicle command over uORB to trigger failure.
 
