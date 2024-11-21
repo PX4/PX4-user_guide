@@ -76,14 +76,14 @@ You can select additional options from the **Tools** menu on the top right hand 
 
 ![Tools menu](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
 
-**Refresh** <br />Refresh the parameter values by re-requesting all of them from the vehicle.
+**Refresh** <br>Refresh the parameter values by re-requesting all of them from the vehicle.
 
 **Reset all to firmware defaults** <br>Reset all parameters to their original default values in the firmware.
 
 **Reset to vehicle's configuration defaults** <br>Reset all parameters to their original default values for the particular selected airfame configuration.
 
-**Load from file / Save to file** <br />Load parameters from an existing file or save your current parameter settings to a file.
+**Load from file / Save to file** <br>Load parameters from an existing file or save your current parameter settings to a file.
 
 **Clear all RC to Param** <br>This clears all associations between RC transmitter controls and parameters. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
 
-**Reboot Vehicle** <br />Reboot the vehicle (required after changing some parameters).
+**Reboot Vehicle** <br>Reboot the vehicle (required after changing some parameters).
