@@ -21,7 +21,7 @@ This power module has integrated power distribution board and provides regulated
 - **Mounting hole:** 30.5mm*30.5mm
 - **Weight:** 24g
 
-## 在哪里买
+## 购买渠道
 
 [PM06 V2 Power Module](https://holybro.com/collections/power-modules-pdbs/products/micro-power-module-pm06-v2)
 
