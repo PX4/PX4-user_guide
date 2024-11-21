@@ -1,12 +1,15 @@
 # mRo Pixhawk Flight Controller (Pixhawk 1)
 
-:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 The _mRo Pixhawk<sup>&reg;</sup>_ is a hardware compatible version of the original [Pixhawk 1](../flight_controller/pixhawk.md). It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
 :::tip
-The controller can be used as a drop-in replacement for the 3DR<sup>&reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md). The main difference is that it is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design, which corrects a bug that limited the original Pixhawk 1 to 1MB of flash.
+The controller can be used as a drop-in replacement for the 3DR<sup>&amp;reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md).
+The main difference is that it is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design, which corrects a bug that limited the original Pixhawk 1 to 1MB of flash.
 :::
 
 ![mRo Pixhawk Image](../../assets/flight_controller/mro/mro_pixhawk.jpg)
@@ -24,11 +27,13 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   - 168 MHz/256 KB RAM/2 MB Flash
   - 32 bit STM32F100 failsafe co-processor
   - 24 MHz/8 KB RAM/64 KB Flash
+
 - 传感器：
   - ST Micro L3GD20 3-axis 16-bit gyroscope
   - ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
   - Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
   - MEAS MS5611 气压计
+
 - 接口：
   - 5x UART (serial ports), one high-power capable, 2x with HW flow control
   - 2x CAN
@@ -40,6 +45,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   - SPI
   - 3.3 and 6.6V ADC inputs
   - External microUSB port
+
 - 电源系统
 
   - Ideal diode controller with automatic failover
@@ -61,7 +67,8 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 ## 编译固件
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -80,14 +87,14 @@ See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
 
 ## 串口映射
 
-| UART   | 设备         | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO debug              |
+| UART   | 设备         | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
+| UART1  | /dev/ttyS0 | IO debug                                 |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
 | USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART4  |            |                                          |
+| UART7  | CONSOLE    |                                          |
+| UART8  | SERIAL4    |                                          |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
@@ -97,5 +104,6 @@ The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open
 
 - [FMUv3 schematic](https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF) -- Schematic and layout
 
-::: info As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+:::info
+As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 :::
