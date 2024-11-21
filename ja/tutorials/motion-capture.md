@@ -45,4 +45,4 @@ The ROS topic for motion cap `mocap_pose_estimate` for mocap systems and `vision
 
 ## Testing
 
-## Troubleshooting
+## トラブルシューティング
