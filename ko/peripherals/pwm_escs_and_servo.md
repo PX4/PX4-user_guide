@@ -28,7 +28,7 @@ This allows you to easily undo the wire later if needed
 항상 Power VBAT 및 GND를 배터리에 연결하고, PWM 신호 및 GND를 서보 플러그에서 모터로 연결하십시오.
 
 :::tip
-신호 접지를 연결할 필요가 없는 **설정은 없습니다**.
+There is **no setup** that does not require signal ground to be connected!
 :::
 
 +5V 와이어 (있는 경우)에 대한 연결은 ESC/기체에 따라 달라집니다.
@@ -39,10 +39,7 @@ On a fixed-wing (or VTOL) ESC, the +5V line usually provides the output of a Bat
 
 - 이것은 Pixhawk 서보 레일에 연결되어 플랩, 에일러론 등의 서보에 전원을 공급에 사용할 수 있습니다.
 
-  ::: info
-It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
-:::note
-자동조종장치의 전원공급장치에서 서보 또는 ESC에 전원을 공급하는 것은 안전하지 않습니다.
+  ::: info It is unsafe to power servos or ESCs from the autopilot's avionics power supply. This is why **Pixhawk series** flight controllers do not provide power for the servo rail (the AUX servo rail is unpowered and is limited to 1A).
 :::
 
 - As a rule of thumb you should only connect the _output of only one BEC_ to the Pixhawk servo rail. 여러 +5V 출력을 레일에 연결할 수 있지만, ESC 모델에 따라 다릅니다.
@@ -57,7 +54,7 @@ It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
 
 ### 광절연 ESC
 
-BEC가 **없는** 광절연 ESC에서 +5V 라인을 연결하고 전원을 공급해야 할 수 있습니다 (ESC 마이크로 컨트롤러에 전원을 공급하기 위하여). 이 경우 와이어는 일반적으로 비행 콘트롤러 서보 레일에 연결되며, 서보 레일은 추가 BEC에서 전원을 공급하여야 합니다.
+On an opto-isolated ESC **without** BEC, the +5V line might need to be connected and powered (in order to provide power to the ESC microcontroller). 이 경우 와이어는 일반적으로 비행 콘트롤러 서보 레일에 연결되며, 서보 레일은 추가 BEC에서 전원을 공급하여야 합니다.
 
 ## PX4 설정
 
