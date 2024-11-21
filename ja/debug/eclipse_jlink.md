@@ -133,7 +133,7 @@ To enable this feature for use in Eclipse:
 
    ![Eclipse: GDB Segger Debug config RTOS aware: debug session](../../assets/debug/eclipse_settings_debug_config_gdb_segger_task_aware_tasks.png)
 
-## Troubleshooting
+## トラブルシューティング
 
 ### Target CPU not in Package Manager
 
