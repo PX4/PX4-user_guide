@@ -52,7 +52,7 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 - USB Power Input: 4.75~5.25V
 
 - Weight and Dimensions:
-  - Dimensions: 60*40*14mm
+  - Dimensions: 60\*40\*14mm
 - Other Characteristics:
   - Operating temperature: -20 ~ 85°C （Measured value）
 
@@ -142,10 +142,7 @@ _V5 nano_ must be powered from the `Power` connector during flight, and may also
 ::: info The `PM2` connector cannot not be used for powering the _V5 nano_ (see [this issue](#compatibility_pm2)).
 :::
 
-::: info
-The Servo Power Rail is neither powered by, nor provides power to the FMU.
-:::note
-The Servo Power Rail is neither powered by, nor provides power to the FMU.
+::: info The Servo Power Rail is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
 :::
 
 ## Over Current Protection
