@@ -1,12 +1,14 @@
 # MacOS 개발 환경
 
-아래에서 macOS용 PX4 개발 환경 설정 방법을 설명합니다. PX4 빌드에 사용되어 집니다.
+아래에서 macOS용 PX4 개발 환경 설정 방법을 설명합니다.
+PX4 빌드에 사용되어 집니다.
 
 - Pixhawk와 기타 NuttX 기반 하드웨어
 - [Gazebo Classic Simulation](../sim_gazebo_classic/index.md)
 
 :::tip
-이 설정은 PX4 개발 팀에서 지원합니다. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/community_supported_dev_env.md)).
+This setup is supported by the PX4 dev team.
+To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/community_supported_dev_env.md)).
 :::
 
 ## 영상 가이드
@@ -20,14 +22,16 @@ The "base" macOS setup installs the tools needed for building firmware, and incl
 ### Environment Setup
 
 :::details
-Apple Silicon Macbook users! If you have an Apple M1, M2 etc. Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
+Apple Silicon Macbook users!
+If you have an Apple M1, M2 etc. Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
 
-1. 유틸리티 폴더(**Finder > 이동 메뉴 > 유틸리티**)에서 터미널 애플리케이션을 찾습니다.
+1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
 2. Select _Terminal.app_ and right-click on it, then choose **Duplicate**.
 3. Rename the duplicated Terminal app, e.g. to _x86 Terminal_
 4. Now select the renamed _x86 Terminal_ app and right-click and choose \*_Get Info_
-5. **Rosetta를 사용하여 열기** 확인란을 선택하고, 창을 닫습니다.
+5. Check the box for **Open using Rosetta**, then close the window
 6. Run the _x86 Terminal_ as usual, which will fully support the current PX4 toolchain
+
 :::
 
 First set up the environment
@@ -38,10 +42,12 @@ First set up the environment
    echo ulimit -S -n 2048 >> ~/.zshenv
    ```
 
-   ::: info If you don't do this, the build toolchain may report the error: `"LD: too many open files"`
+   ::: info
+   If you don't do this, the build toolchain may report the error: `"LD: too many open files"`
+
 :::
 
-1. Enforce Python 3 by appending the following lines to `~/.zshenv`
+2. Enforce Python 3 by appending the following lines to `~/.zshenv`
 
    ```sh
    # Point pip3 to MacOS system python 3 pip
@@ -53,14 +59,15 @@ First set up the environment
 To setup the environment to be able to build for Pixhawk/NuttX hardware (and install the common tools for using simulators):
 
 1. Install Homebrew by following these [installation instructions](https://brew.sh).
-1. Run these commands in your shell to install the common tools:
+
+2. Run these commands in your shell to install the common tools:
 
    ```sh
    brew tap PX4/px4
    brew install px4-dev
    ```
 
-1. Install the required Python packages:
+3. Install the required Python packages:
 
    ```sh
    # install required packages using pip3
@@ -82,10 +89,13 @@ To setup the environment for [Gazebo Classic](../sim_gazebo_classic/index.md) si
    brew link tbb@2020
    ```
 
-   jMAVSim과 함께 SITL 시뮬레이션을 사용하려면, 최신 버전의 Java(예: Java 15)를 설치합니다. They can be removed once it is fixed (along with this note).
+   ::: info
+   September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#17644](https://github.com/PX4/PX4-Autopilot/issues/17644).
+   They can be removed once it is fixed (along with this note).
+
 :::
 
-1. To install SITL simulation with Gazebo Classic:
+2. To install SITL simulation with Gazebo Classic:
 
    ```sh
    brew install --cask temurin
@@ -93,7 +103,8 @@ To setup the environment for [Gazebo Classic](../sim_gazebo_classic/index.md) si
    brew install px4-sim-gazebo
    ```
 
-1. Run the macOS setup script: `PX4-Autopilot/Tools/setup/macos.sh` The easiest way to do this is to clone the PX4 source, and then run the script from the directory, as shown:
+3. Run the macOS setup script: `PX4-Autopilot/Tools/setup/macos.sh`
+   The easiest way to do this is to clone the PX4 source, and then run the script from the directory, as shown:
 
    ```sh
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
@@ -101,16 +112,18 @@ To setup the environment for [Gazebo Classic](../sim_gazebo_classic/index.md) si
    sh macos.sh
    ```
 
-
 ## 다음 단계
 
 명령줄 도구 모음 설정후, 다음을 수행합니다.
 
-- [VSCode](../dev_setup/vscode.md)를 설치합니다(명령줄에 IDE 사용을 선호하는 경우).
+- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
+
 - Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
 
-:::tip
-The _daily build_ includes development tools that are hidden in release builds. 또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
+  :::tip
+  The _daily build_ includes development tools that are hidden in release builds.
+  또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
+
 :::
 
-- [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.
+- Continue to the [build instructions](../dev_setup/building_px4.md).
