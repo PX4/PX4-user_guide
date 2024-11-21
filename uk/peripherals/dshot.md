@@ -94,7 +94,7 @@ DShot має різні варіанти швидкості: _DShot150_, _DShot3
     Rotation Direction: normal
     ```
 
-  :::note
+  Примітка
 
   - The commands will have no effect if the motors are spinning, or if the ESC is already set to the corresponding direction.
   - The ESC will revert to its last saved direction (normal or reversed) on reboot if `save` is not called after changing the direction.
