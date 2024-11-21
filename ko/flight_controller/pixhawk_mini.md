@@ -129,7 +129,7 @@ The _Pixhawk Mini_ is shipped with the following contents:
 
 - 3DR 10S 전원 모듈
 
-- WiFi 텔레메트리
+- WiFi 텔레메트리 라디오
 
 - 디지털 대기속도 센서
 
