@@ -1,6 +1,8 @@
 # Pixracer接线指南
 
-:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 :::warning
@@ -31,13 +33,13 @@ The instructions below show how to connect the different types of receivers:
 
 - Frsky 的接收机通过所示的端口连接, 并可以使用提供的 I/o 连接器。
 
-  ![Grau b Pixracer FrSkyS接口连接](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
+  ![Grau b Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
 
-  ![Pixracer FrSkyS接口连接](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg)
+  ![Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg)
 
 - PPM-SUM and S.BUS receivers connect to the **RCIN** port.
 
-  ![电台连接](../../assets/flight_controller/pixracer/grau_setup_pixracer_radio.jpg)
+  ![Radio Connection](../../assets/flight_controller/pixracer/grau_setup_pixracer_radio.jpg)
 
 - PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **RCIN** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
@@ -47,9 +49,12 @@ The instructions below show how to connect the different types of receivers:
 
 ### External Telemetry
 
-Pixracer has inbuilt WiFi, but also supports telemetry via external Wi-Fi or radio telemetry modules connected to the `TELEM1` or `TELEM2` ports. This is shown in the wiring diagram below.
+Pixracer has inbuilt WiFi, but also supports telemetry via external Wi-Fi or radio telemetry modules connected to the `TELEM1` or `TELEM2` ports.
+This is shown in the wiring diagram below.
 
 ![Pixracer external telemtry options](../../assets/flight_controller/pixracer/pixracer_top_telemetry.jpg)
 
-::: info The `TELEM2` port must be configured as a second MAVLink instance using the [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) parameter. For more information see [MAVLink Peripherals > MAVLink Instances](../peripherals/mavlink_peripherals.md#mavlink-instances) (and [Serial Port Configuration](../peripherals/serial_configuration.md)).
+:::info
+The `TELEM2` port must be configured as a second MAVLink instance using the [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) parameter.
+For more information see [MAVLink Peripherals > MAVLink Instances](../peripherals/mavlink_peripherals.md#mavlink-instances) (and [Serial Port Configuration](../peripherals/serial_configuration.md)).
 :::
