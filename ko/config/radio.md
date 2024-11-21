@@ -26,7 +26,7 @@ PX4 needs to be able to detect when the signal from the RC controller has been l
 
 RC 수신기에는 신호 손실을 나타내는 여러가지 방법이 있습니다.
 
-- 아무것도 출력하지 않음 (PX4에서 자동으로 감지 됨)
+- 아무것도 출력하지 않음 (PX4에서 자동으로 감지됨)
 - 낮은 스로틀 값을 출력합니다 (이를 감지하도록 PX4를 구성 할 수 있음).
 - Output the last received signal (_cannot be detected by PX4_ as it looks like valid input).
 
