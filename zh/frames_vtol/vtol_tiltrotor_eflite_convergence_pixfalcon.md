@@ -7,7 +7,7 @@ The [E-Flite Convergence](https://youtu.be/HNedXQ_jhYo) can easily be converted 
 <lite-youtube videoid="E61P2f2WPNU" title="E-flite Convergence Autonomous Mission Flight"/>
 
 
-## 在哪里买
+## 购买渠道
 
 Vehicle frame options:
 - **WL Tech XK X450** - [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
@@ -18,7 +18,7 @@ Flight controller options ():
 - [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md).
 - Any other compatible flight controller with small enough form-factor.
 
-## Hardware Setup
+## 硬件安装
 
 The vehicle needs 7 PWM signals for the motors and control surfaces:
 - Motor (left/right/back)
