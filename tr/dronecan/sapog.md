@@ -26,16 +26,20 @@ Multiple vendors sell ESC hardware that runs sapog firmware:
 
 <div id="image_container">
   <div class="image_column">
-  <img src="../../assets/peripherals/esc_uavcan_zubax_orel20/orel20_top.jpg" alt="Orel20 - Top"/><br><a href="https://zubax.com/products/orel_20">Zubax Orel 20</a>
+  <img src="../../assets/peripherals/esc_uavcan_zubax_orel20/orel20_top.jpg" alt="Orel20 - Top"/>
+  <br><a href="https://zubax.com/products/orel_20">Zubax Orel 20</a>
   </div>
   <div class="image_column">
-    <img src="../../assets/peripherals/esc_uavcan_holybro_kotleta20/kotleta20_top.jpg" alt="Holybro Kotleta20 top" /><br><a href="https://holybro.com/products/kotleta20">Holybro Kotleta20</a>
+    <img src="../../assets/peripherals/esc_uavcan_holybro_kotleta20/kotleta20_top.jpg" alt="Holybro Kotleta20 top" />
+    <br><a href="https://holybro.com/products/kotleta20">Holybro Kotleta20</a>
   </div>
 </div>
 
 ## Hardware Setup
 
-ESCs are connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions. ESC order does not matter.
+ESCs are connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
+For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
+ESC order does not matter.
 
 ## Firmware Setup
 
@@ -49,7 +53,9 @@ cd sapog/firmware
 make RELEASE=1
 ```
 
-This will create a file `*.application.bin`. in `build/`. This binary can be flashed through the autopilot over DroneCAN via the sapog bootloader. See [DroneCAN Firmware Update](index.md#firmware-update).
+This will create a file `*.application.bin`. in `build/`.
+This binary can be flashed through the autopilot over DroneCAN via the sapog bootloader.
+See [DroneCAN Firmware Update](index.md#firmware-update).
 
 Refer to the [project page](https://github.com/PX4/sapog) to learn more, including how to flash without using the DroneCAN bootloader (i.e. on a not-yet-programmed device) or for development.
 
@@ -70,20 +76,25 @@ You can skip this section if there is only one ESC in your setup, because the ES
 To enumerate the ESC:
 
 1. Power the vehicle with a battery and connect to _QGroundControl_
+
 2. Navigate to **Vehicle Setup > Power** in QGC.
+
 3. Start the process of ESC auto-enumeration by pressing the **Start Assignment** button, as shown on the screenshot below.
 
    ![QGC - DroneCAN ESC auto-enumeration](../../assets/peripherals/esc_qgc/qgc_uavcan_settings.jpg)
 
    You will hear a sound indicating that the flight controller has entered the ESC enumeration mode.
 
-4. Manually turn each motor in the correct direction of its rotation (as specified in the [Airframe Reference](../airframes/airframe_reference.md)), starting from the first motor and finishing with the last motor. Each time you turn a motor, you should hear a confirmation beep.
+4. Manually turn each motor in the correct direction of its rotation (as specified in the [Airframe Reference](../airframes/airframe_reference.md)), starting from the first motor and finishing with the last motor.
+   Each time you turn a motor, you should hear a confirmation beep.
 
    ::: info
-Make sure to turn each of the motors in the correct direction, as the ESC will automatically learn and remember the direction (i.e. motors that spin clockwise during normal operation must also be turned clockwise during enumeration).
+   Make sure to turn each of the motors in the correct direction, as the ESC will automatically learn and remember the direction (i.e. motors that spin clockwise during normal operation must also be turned clockwise during enumeration).
+
 :::
 
 5. After the last motor is enumerated, the confirmation sound should change to indicate that the enumeration procedure is complete.
+
 6. Reboot PX4 and the Sapog ESCs to apply the new enumeration IDs.
 
 The following video demonstrates the process:
@@ -96,12 +107,14 @@ The following video demonstrates the process:
 We recommend automated [Sapog ESC Enumeration using QGroundControl](#automatic-esc-enumeration-using-qgroundcontrol) shown above rather than manual enumeration (as it is easier and safer).
 :::
 
-You can manually configure the ESC index and direction using the [DroneCAN GUI Tool](https://dronecan.github.io/GUI_Tool/Overview/). This assigns the following Sapog configuration parameters for each enumerated ESC:
+You can manually configure the ESC index and direction using the [DroneCAN GUI Tool](https://dronecan.github.io/GUI_Tool/Overview/).
+This assigns the following Sapog configuration parameters for each enumerated ESC:
 
 - `esc_index`
 - `ctl_dir`
 
-::: info See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
+:::info
+See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
 :::
 
 ### PX4 Configuration
