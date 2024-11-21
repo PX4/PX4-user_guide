@@ -1,139 +1,147 @@
 # Holybro Pix32 v5
 
 :::warning
-PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи відповідності вимогам.
+PX4 не розробляє цей (або будь-який інший) автопілот.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-_Pix32 v6_<sup>&reg;</sup> є останньою оновленою версією контролерів польоту pix32 v5. Це варіант Pixhawk 6C з модульним дизайном та спільною ціллю з FMUv6C. Він складається з окремого контролера польоту та базової плати, які з'єднані [100-контактним роз'ємом](https://docs.holybro.com/autopilot/pix32-v6/download). Це призначено для тих пілотів, які потребують потужної, гнучкої та настроюваної системи керування польотами.
+_Pix32 v6_<sup>&reg;</sup> is the latest update to the pix32 v5 flight controllers. Це варіант Pixhawk 6C з модульним дизайном та спільною ціллю з FMUv6C. It is comprised of a separate flight controller and carrier board which are connected by a [100 pin connector](https://docs.holybro.com/autopilot/pix32-v6/download). Це призначено для тих пілотів, які потребують потужної, гнучкої та настроюваної системи керування польотами.
 
-Він оснащений високопродуктивним процесором H7, і має резервування IMU, з контролем температури, і економічно вигідний дизайн, що забезпечує неймовірну продуктивність та надійність. Він відповідає [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+Він оснащений високопродуктивним процесором H7, резервуванням IMU, платою IMU з контролем температури та економічно вигідним дизайном, що забезпечує неймовірну продуктивність і надійність. It complies with the [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 <img src="../../assets/flight_controller/pix32v6/pix32v6_fc_only.png" width="550px" title="pix32v6 Upright Image" />
-
 
 <!--
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
-:::  
+:::
 -->
 
-## Вступ
+## Введення
 
-Всередині Pix32 v6 ви можете знайти STM32H743 на базі STMicroelectronics®, у поєднанні з технологією сенсорів від Bosch® & InvenSense®, що надає гнучкість і надійність для керування будь-яким автономним апаратом, придатним як для академічних, так і для комерційних застосувань.
+Inside the Pix32 v6, you can find an STMicroelectronics® based STM32H743, paired with sensor technology from Bosch® & InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
-Pix32 v6’s H7 MCU містить ядро Arm® Cortex®-M7 до 480 MHz, має 2MB flash пам’яті та 1MB RAM. Завдяки оновленій потужності обробки розробники можуть бути більш продуктивними та ефективними у своїй роботі з розробкою, що дозволяє використовувати складні алгоритми та моделі. Це включає високопродуктивні, низькошумні IMU на платі, розроблені, щоб бути ефективними з точки зору вартості, при цьому мати резерв IMU. Система ізоляції вібрації для фільтрації високочастотної вібрації та зменшення шуму для забезпечення точних вимірювань, що дозволяє транспортним засобам досягти кращих загальних польотних характеристик.
+Pix32 v6’s H7 MCU містить ядро Arm® Cortex®-M7 до 480 MHz, має 2MB flash пам’яті та 1MB RAM. Завдяки оновленій потужності обробки розробники можуть бути більш продуктивними та ефективними у своїй роботі з розробкою, що дозволяє використовувати складні алгоритми та моделі. Це включає високопродуктивні, низькошумні IMU на платі, розроблені, щоб бути ефективними з точки зору вартості, при цьому мати резерв IMU. Система віброізоляції для фільтрації високочастотної вібрації та зменшення шуму для забезпечення точних показань, що дозволяє транспортним засобам досягати кращих загальних характеристик польоту.
 
-Цей контролер польоту ідеально підходить для людей, які шукають доступний та модульний контролер польоту, який може використовувати настроювану базову плату. Ми зробили [схеми базової плати pix32 v6 загальнодоступними](https://docs.holybro.com/autopilot/pix32-v6/download), ви можете або зробити власну несучу плату, або просто дозвольте нам допомогти вам з цим. За допомогою налаштованої базової плати ви можете впевнитися, що фізичний розмір, виводи і вимоги до розподілу живлення відповідають вашому безпілотнику належним чином, забезпечуючи, що у вас є всі необхідні з'єднання і ніяких витрат і масштабу з'єднувачів, яких вам не потрібно.
+Цей контролер польоту ідеально підходить для людей, які шукають доступний та модульний контролер польоту, який може використовувати настроювану базову плату. We have made the [pix32 v6 base board schematics public](https://docs.holybro.com/autopilot/pix32-v6/download), you can either make a custom carrier board yourself or just let us help you with it. За допомогою налаштованої базової плати ви можете впевнитися, що фізичний розмір, виводи і вимоги до розподілу живлення відповідають вашому безпілотнику належним чином, забезпечуючи, що у вас є всі необхідні з'єднання і ніяких витрат і масштабу з'єднувачів, яких вам не потрібно.
 
-**Ключові пункти дизайну**
+**Key Design Points**
 
-- Високопродуктивний процесор STM32H743 з більшою обчислювальною потужністю & оперативною пам'яттю
-- Новий економічно ефективний дизайн із низькопрофільним форм-фактором
+- High performance STM32H743 Processor with more computing power & RAM
+- Новий економічний дизайн із низькопрофільним форм-фактором
 - Інтегрована система ізоляції вібрацій для фільтрації високочастотних вібрацій та зменшення шуму для забезпечення точних вимірювань
 - IMU температурно контролюються за допомогою вбудованих нагрівальних резисторів, що дозволяє досягти оптимальної робочої температури IMU
 
-# Технічна специфікація
+# Технічні характеристики
 
-### **Процесори & датчики**
+### **Processors & Sensors**
 
-- Процесор FMU: STM32H743&#x20;
-  - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB memory, 1MB SRAM&#x20;
-- IO процесор: STM32F103
-  - &#x20;32 Bit Arm® Cortex®-M3, 72MHz, 64KB SRAM&#x20;
-- Бортові сенсори&#x20;
-  - &#x20;Accel/Gyro: ICM-42688-P &#x20;
-  - Accel/Gyro: BMI055&#x20;
-  - Mag: IST8310&#x20;
+- FMU Processor: STM32H743&#x20
+  - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB memory, 1MB SRAM&#x20
+- IO Processor: STM32F103
+  - &#x20;32 Bit Arm® Cortex®-M3, 72MHz, 64KB SRAM&#x20
+- On-board sensors&#x20
+  - &#x20;Accel/Gyro: ICM-42688-P&#x20
+  - Accel/Gyro: BMI055&#x20
+  - Mag: IST8310&#x20
   - Барометр: MS5611
 
-### **Електричні дані**
+### **Electrical data**
 
 - Номінальна напруга:
   - Максимальна вхідна напруга: 6 В
-  - Вхід USB Power: 4.75\~5.25В
-  - Вхід сервоприводу: 0\~36В
-- Поточні рейтинги:
-  - TELEM1 Максимальний обмежувач вихідного струму: 1.5A
+  - Вхід USB Power: 4.75~5.25V
+  - Вхід Servo Rail: 0\~36V
+- Номінальний струм:
+  - TELEM1 Обмежувач максимального вихідного струму: 1.5A
   - Комбінований обмежувач вихідного струму всіх інших портів: 1.5A
 
-### **Механічні характеристики**
+### **Mechanical data**
 
 - Розміри модуля FC: 44.8 x 44.8 x 13.5
 - Вага модуля FC: 36г
 
-### **Інтерфейси**
+### **Interfaces**
 
 - 16- PWM серво виводів (8 з IO, 8 з FMU)
+
 - 3 загальних послідовних портів
-  - `TELEM1` - Повний контроль потоку, повністю розділений поточним лімітом 1.5A
-  - `TELEM2` - Повний контроль потоку
+  - `TELEM1` - Full flow control, separate 1.5A current limit
+  - `TELEM2` - Full flow control
   - `TELEM3`
-- 2 Порти GPS
-  - `GPS1` - Повний порт GPS (GPS плюс захисний перемикач)
-  - `GPS2` - Базовий порт GPS
+
+- 2 порти GPS
+  - `GPS1` - Full GPS port (GPS plus safety switch)
+  - `GPS2` - Basic GPS port
+
 - 1 I2C порт
-  - Підтримує спеціалізовану I2C калібрування EEPROM, розташовану на модулі сенсорів
+  - Підтримує виділене I2C калібрування EEPROM, розташоване на модулі сенсорів
+
 - 2 CAN шини
-  - Кожна CAN шина має індивідуальне керування шумом або ESC RX-MUX контроль
+  - CAN шина має individual silent controls або ESC RX-MUX control
+
 - 2 порти відладки:
   - FMU Debug
   - I/O Debug
-- Спеціалізований R/C вхід для Spektrum / DSM та S.BUS, CPPM, аналоговий / PWM RSSI
-- Спеціалізований S.BUS вивід
-- 2 вхідні порти живлення (аналогові)
 
-- Інші Характеристики:
-  - Робоча & температура зберігання: -40 ~ 85°c
+- Виділений R/C вхід для Spektrum / DSM та S.BUS, CPPM, аналоговий / PWM RSSI
+
+- Виділений S.BUS вивід
+
+- 2 порти Power input (аналогові)
+
+- Інші характеристики:
+  - Operating & storage temperature: -40 ~ 85°c
 
 ## Де купити
 
-Замовляйте з [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pix32-v6).
+Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pix32-v6).
 
 ## Схема розташування виводів
 
-- [Порти Holybro Pix32 v6 Baseboard](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-baseboard-ports)
-- [Порти Holybro Pix32 v6 Baseboard](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-mini-base-ports)
+- [Holybro Pix32 v6 Baseboard Ports Pinout](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-baseboard-ports)
+- [Holybro Pix32 v6 Baseboard Ports Pinout](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-mini-base-ports)
 
-## Зіставлення послідовних портів
+## Serial Port Mapping
 
-| UART   | Пристрій   | Порт                  |
-| ------ | ---------- | --------------------- |
-| USART1 | /dev/ttyS0 | GPS1                  |
-| USART2 | /dev/ttyS1 | TELEM3                |
-| USART3 | /dev/ttyS2 | Консоль відлагодження |
-| UART5  | /dev/ttyS3 | TELEM2                |
-| USART6 | /dev/ttyS4 | PX4IO                 |
-| UART7  | /dev/ttyS5 | TELEM1                |
-| UART8  | /dev/ttyS6 | GPS2                  |
+| UART   | Пристрій   | Порт          |
+| ------ | ---------- | ------------- |
+| USART1 | /dev/ttyS0 | GPS1          |
+| USART2 | /dev/ttyS1 | TELEM3        |
+| USART3 | /dev/ttyS2 | Debug Console |
+| UART5  | /dev/ttyS3 | TELEM2        |
+| USART6 | /dev/ttyS4 | PX4IO         |
+| UART7  | /dev/ttyS5 | TELEM1        |
+| UART8  | /dev/ttyS6 | GPS2          |
 
 ## Розміри
 
-- [Розміри Pix32v6](https://docs.holybro.com/autopilot/pix32-v6/dimensions)
+- [Pix32v6 Dimensions](https://docs.holybro.com/autopilot/pix32-v6/dimensions)
 
 ## Номінальна напруга
 
-_Pix32 v6_ може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шляхи живлення: **USB**, **POWER1**, **POWER2** (N/A на Pix32 v6 Mini-Baseboard) .
+_Pix32 v6_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **USB**, **POWER1**, **POWER2** (N/A on Pix32 v6 Mini-Baseboard) .
 
-**Максимальна напруга нормальної роботи**
+**Normal Operation Maximum Ratings**
 
 За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. **POWER1** та **POWER2** входи (від 4,9 В до 5,5 В)
-1. **USB** вхід (4.75V до 5.25V)
+1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
+2. **USB** input (4.75V to 5.25V)
 
-**Абсолютна максимальна напруга**
+**Absolute Maximum Ratings**
 
-За таких умов система не буде витрачати жодної енергії (не буде працювати), але залишиться неушкодженою.
+За таких умов система не буде витрачати жодної потужності (не буде працювати), але залишиться неушкодженою.
 
-1. **POWER1** і **POWER2** входи (робочий діапазон від 4,1 В до 5,7 В, від 0 В до 10 В без пошкоджень)
-1. **USB** вхід (операційний діапазон 4.1В до 5.7В, 0В до 6В без пошкоджень)
-1. Серво-вхід: пін VDD_SERVO виводу **FMU PWM OUT** та **I/O PWM OUT** (від 0В до 42В без пошкоджень)
+1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
+2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
+3. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
-**Моніторинг напруги**
+**Voltage monitoring**
 
 Pix32 v6 використовує аналогові модулі живлення.
 
-Holybro виготовляє різноманітні аналогові [модулі живлення](../power_module/index.md) для різних потреб.
+Holybro makes various analog [power modules](../power_module/index.md) for different need.
 
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
@@ -142,10 +150,11 @@ Holybro виготовляє різноманітні аналогові [мод
 ## Збірка прошивки
 
 :::tip
-Більшості користувачів не потрібно створювати цю прошивку! Вона попередньо зібрана і автоматично встановлюється за допомогою _QGroundControl_ при підключенні відповідного обладнання.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make px4_fmu-v6c_default
@@ -155,44 +164,45 @@ make px4_fmu-v6c_default
 
 ## Відладочний порт
 
-[Системна консоль PX4](../debug/system_console.md) та [SWD interface](../debug/swd_debug.md) працюють на порту **FMU Debug**.
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
-Розпіновка та роз’єм відповідають інтерфейсу [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full), визначеному в [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (роз’єм JST SM10B).
+The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Пін          | Сигнал           | Вольтаж |
-| ------------ | ---------------- | ------- |
-| 1 (червоний) | `Vtref`          | +3.3В   |
-| 2 (чорний)   | Консоль TX (OUT) | +3.3В   |
-| 3 (чорний)   | Консоль RX (IN)  | +3.3В   |
-| 4 (чорний)   | `SWDIO`          | +3.3В   |
-| 5 (чорний)   | `SWCLK`          | +3.3В   |
-| 6 (чорний)   | `SWO`            | +3.3В   |
-| 7 (чорний)   | NFC GPIO         | +3.3В   |
-| 8 (чорний)   | PH11             | +3.3В   |
-| 9 (чорний)   | nRST             | +3.3В   |
-| 10 (чорний)  | `GND`            | GND     |
+| Pin                            | Сигнал                              | Вольтаж               |
+| ------------------------------ | ----------------------------------- | --------------------- |
+| 1 (red)     | `Vtref`                             | +3.3V |
+| 2 (blk)     | Console TX (OUT) | +3.3V |
+| 3 (blk)     | Console RX (IN)  | +3.3V |
+| 4 (blk)     | `SWDIO`                             | +3.3V |
+| 5 (blk)     | `SWCLK`                             | +3.3V |
+| 6 (blk)     | `SWO`                               | +3.3V |
+| 7 (blk)     | NFC GPIO                            | +3.3V |
+| 8 (чорний)  | PH11                                | +3.3V |
+| 9 (чорний)  | nRST                                | +3.3V |
+| 10 (чорний) | `GND`                               | GND                   |
 
-Інформацію про використання цього порту дивіться:
+Інформацію про використання цього порту див:
 
-- [Порт відладки SWD](../debug/swd_debug.md)
-- [Системна консоль PX4](../debug/system_console.md) (Зауважте, консоль FMU відображається на USART3).
+- [SWD Debug Port](../debug/swd_debug.md)
+- [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
-## Периферія
+## Периферійні пристрої
 
-- [Цифровий датчик швидкості польоту](https://holybro.com/products/digital-air-speed-sensor)
-- [Радіо модулі телеметрії](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Далекоміри / Датчики відстані](../sensor/rangefinders.md)
+- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
+- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
-## Підтримувані платформи / Airframes
+## Підтримувані платформи / Конструкції
 
-Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus. Повний перелік підтримуваних конфігурацій можна переглянути в розділі [Довідник планерів](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Подальша інформація
+## Додаткова інформація
 
-- [Документи Holybro](https://docs.holybro.com/) (Holybro)
-- [Reference: Швидке підключення Pixhawk 6C](../assembly/quick_start_pixhawk6c.md)
-- [Модуль потужності PM02 ](../power_module/holybro_pm02.md)
-- [Модуль потужності PM06](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
-- [Модуль потужності PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
-- [FMUv6C reference design pinout](https://docs.google.com/spreadsheets/d/1FcmWRKd6zjdz3-cnjEDYEmANKZOFzNSc/edit?usp=sharing&ouid=113251442407318461574&rtpof=true&sd=true).
-- [Стандарт роз'ємів Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+- [Holybro Docs](https://docs.holybro.com/) (Holybro)
+- [Reference: Pixhawk 6C Wiring QuickStart](../assembly/quick_start_pixhawk6c.md)
+- [PM02 Power Module](../power_module/holybro_pm02.md)
+- [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
+- [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
+- [FMUv6C reference design pinout](https://docs.google.com/spreadsheets/d/1FcmWRKd6zjdz3-cnjEDYEmANKZOFzNSc/edit?usp=sharing\&ouid=113251442407318461574\&rtpof=true\&sd=true).
+- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
