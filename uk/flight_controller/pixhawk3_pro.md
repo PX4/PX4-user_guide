@@ -1,26 +1,29 @@
 # Pixhawk 3 Pro (Знято з виробництва)
 
-:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://store-drotek.com/) щодо питань технічної підтримки або відповідності вимогам.
+:::warning
+PX4 не розробляє цей (або будь-який інший) автопілот.
+Contact the [manufacturer](https://store-drotek.com/) for hardware support or compliance issues.
 :::
 
-Pixhawk<sup>&reg;</sup> 3 Pro базується на апаратному дизайні FMUv4 (Pixracer) з деякими оновленнями та додатковими функціями. Плата була спроєктована [Drotek<sup>&reg;</sup>](https://drotek.com) і PX4.
+Pixhawk<sup>&reg;</sup> 3 Pro базується на апаратному дизайні FMUv4 (Pixracer) з деякими оновленнями та додатковими функціями.
+The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
 
 ![Pixhawk 3 Pro hero image](../../assets/hardware/hardware-pixhawk3_pro.jpg)
 
-::: info
-Основна документація з апаратного забезпечення тут: https://drotek.gitbook.io/pixhawk-3-pro/hardware
+:::info
+The main hardware documentation is here: https://drotek.gitbook.io/pixhawk-3-pro/hardware
 :::
 
 :::tip
-Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
+This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
 ## Короткий опис
 
-- Мікроконтролер: **STM32F469**; Flash size **2MiB**, RAM size **384KiB**
-- **ICM-20608-G** гіроскоп / акселерометр
-- **MPU-9250** гіроскоп / акселерометр / магнітометр
-- **LIS3MDL** компас
+- Microcontroller: **STM32F469**; Flash size is **2MiB**, RAM size is **384KiB**
+- **ICM-20608-G** gyro / accelerometer
+- **MPU-9250** gyro / accelerometer / magnetometer
+- **LIS3MDL** compass
 - Датчики, підключені через дві шини SPI (одна високочастотна й одна малошумна шина)
 - Два шини I2C
 - Два CAN шини
@@ -33,22 +36,23 @@ Pixhawk<sup>&reg;</sup> 3 Pro базується на апаратному ди�
 
 ## Де купити
 
-В [Drotek](https://store.drotek.com/) (ЄС) :
+From [Drotek store](https://store.drotek.com/) (EU) :
 
 - [Pixhawk 3 Pro (Pack)](https://store.drotek.com/autopilots/844-pixhawk-3-pro-pack.html)
 - [Pixhawk 3 Pro](https://store.drotek.com/autopilots/821-pixhawk-pro-autopilot-8944595120557.html)
 
-В [readymaderc](https://www.readymaderc.com) (США) :
+From [readymaderc](https://www.readymaderc.com) (USA) :
 
 - [Pixhawk 3 Pro](https://www.readymaderc.com/products/details/pixhawk-3-pro-flight-controller)
 
 ## Збірка прошивки
 
 :::tip
-Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-Щоб [ зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make px4_fmu-v4pro_default
@@ -58,33 +62,33 @@ make px4_fmu-v4pro_default
 
 Плата має порти FMU та IO для відладки, як показано нижче.
 
-![Відладочні порти](../../assets/flight_controller/pixhawk3pro/pixhawk3_pro_debug_ports.jpg)
+![Debug Ports](../../assets/flight_controller/pixhawk3pro/pixhawk3_pro_debug_ports.jpg)
 
-Розводка та роз’єм відповідають інтерфейсу [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini), визначеному в [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (роз’єм JST SM06B).
+The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
 
-| Pin          | Signal           | Volt  |
-| ------------ | ---------------- | ----- |
-| 1 (червоний) | VCC TARGET SHIFT | +3.3V |
-| 2 (чорний)   | CONSOLE TX (OUT) | +3.3V |
-| 3 (чорний)   | CONSOLE RX (IN)  | +3.3V |
-| 4 (чорний)   | SWDIO            | +3.3V |
-| 5 (чорний)   | SWCLK            | +3.3V |
-| 6 (чорний)   | GND              | GND   |
+| Pin                        | Сигнал                              | Вольтаж               |
+| -------------------------- | ----------------------------------- | --------------------- |
+| 1 (red) | VCC TARGET SHIFT                    | +3.3V |
+| 2 (blk) | CONSOLE TX (OUT) | +3.3V |
+| 3 (blk) | CONSOLE RX (IN)  | +3.3V |
+| 4 (blk) | SWDIO                               | +3.3V |
+| 5 (blk) | SWCLK                               | +3.3V |
+| 6 (blk) | GND                                 | GND                   |
 
 Інформацію про підключення та використання цього порту див:
 
-- [Порт відладки SWD](../debug/swd_debug.md)
-- [Системна консоль PX4](../debug/system_console.md#pixhawk_debug_port) (Зауважте, що консоль FMU зіставляється з UART7).
+- [SWD Debug Port](../debug/swd_debug.md)
+- [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to UART7).
 
-## Налаштування послідовного порту
+## Serial Port Mapping
 
-| UART   | Device     | Port                       |
-| ------ | ---------- | -------------------------- |
-| UART1  | /dev/ttyS0 | WiFi                       |
+| UART   | Пристрій   | Порт                                          |
+| ------ | ---------- | --------------------------------------------- |
+| UART1  | /dev/ttyS0 | WiFi                                          |
 | USART2 | /dev/ttyS1 | TELEM1 (керування потоком) |
 | USART3 | /dev/ttyS2 | TELEM2 (керування потоком) |
-| UART4  |            |                            |
-| UART7  | CONSOLE    |                            |
-| UART8  | SERIAL4    |                            |
+| UART4  |            |                                               |
+| UART7  | CONSOLE    |                                               |
+| UART8  | SERIAL4    |                                               |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
