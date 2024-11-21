@@ -2,14 +2,17 @@
 
 <Badge type="info" text="Discontinued" />
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The _Kakute F7_ from Holybro is a flight controller board designed for racers.
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Key Features
@@ -43,33 +46,35 @@ This is the silkscreen for the _Kakute F7_, showing the top of the board:
 
 ![Kakute F7 Silkscreen](../../assets/flight_controller/kakutef7/silk.png)
 
-| Pin      | Function                                                             | PX4 default         |
-| -------- | -------------------------------------------------------------------- | ------------------- |
+| Pin      | Function                                                                                | PX4 default         |
+| -------- | --------------------------------------------------------------------------------------- | ------------------- |
 | B+       | Battery positive voltage (2S-6S)                                     |                     |
 | 5V       | 5V output (2A max)                                                   |                     |
-| VO       | Video output to video transmitter                                    |                     |
-| VI       | Video input from FPV camera                                          |                     |
-| G or GND | Ground                                                               |                     |
+| VO       | Video output to video transmitter                                                       |                     |
+| VI       | Video input from FPV camera                                                             |                     |
+| G or GND | Ground                                                                                  |                     |
 | SDA, SCL | I2C connection (for peripherals)                                     |                     |
-| R1, T1   | UART1 RX and TX                                                      | TELEM1              |
-| R2, T2   | UART2 RX and TX                                                      | TELEM2              |
-| R3, T3   | UART3 RX and TX                                                      | NuttX debug console |
-| R4, T4   | UART4 RX and TX                                                      | GPS1                |
-| R6, T6   | UART6 RX and TX                                                      | RC port             |
+| R1, T1   | UART1 RX and TX                                                                         | TELEM1              |
+| R2, T2   | UART2 RX and TX                                                                         | TELEM2              |
+| R3, T3   | UART3 RX and TX                                                                         | NuttX debug console |
+| R4, T4   | UART4 RX and TX                                                                         | GPS1                |
+| R6, T6   | UART6 RX and TX                                                                         | RC port             |
 | R7, T7   | UART7 RX and TX (RX is located in the plug for use with 4-in-1 ESCs) | DShot telemetry     |
 | LED      | WS2182 addressable LED signal wire (not tested)                      |                     |
 | Buz-     | Piezo buzzer negative leg (Connect buzzer positive leg to 5V pad)    |                     |
-| 3V3      | 3.3V output (200 mA max)                                             |                     |
+| 3V3      | 3.3V output (200 mA max)                             |                     |
 | M1 to M4 | Motor signal outputs (located in plug for use in 4-in-1 ESCs)        |                     |
 | M5, M6   | Additional motor signal outputs (located on side of board)           |                     |
-| RSI      | Analog RSSI (0-3.3V) input from receiver                             |                     |
-| Boot     | Bootloader button                                                    |                     |
+| RSI      | Analog RSSI (0-3.3V) input from receiver             |                     |
+| Boot     | Bootloader button                                                                       |                     |
 
 <a id="bootloader"></a>
 
 ## PX4 Bootloader Update
 
-The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed. Download the [kakutef7_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
+The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki).
+Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed.
+Download the [kakutef7_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
 ## Building Firmware
 
@@ -87,7 +92,8 @@ The firmware can be installed in any of the normal ways:
   ```
   make holybro_kakutef7_default upload
   ```
-- [Load the firmware](../config/firmware.md) using _QGroundControl_. You can use either pre-built firmware or your own custom firmware.
+- [Load the firmware](../config/firmware.md) using _QGroundControl_.
+  You can use either pre-built firmware or your own custom firmware.
 
 ## Configuration
 
@@ -95,19 +101,19 @@ If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment you can use
 
 In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
-| Parameter                                                              | Setting                                                                                                                 |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Parameter                                                                                                      | Setting                                                                                                                                                 |
+| -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| USART1 | /dev/ttyS0 | TELEM1                |
-| USART2 | /dev/ttyS1 | TELEM2                |
-| USART3 | /dev/ttyS2 | Debug Console         |
-| UART4  | /dev/ttyS3 | GPS1                  |
-| USART6 | /dev/ttyS4 | RC SBUS               |
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
+| USART1 | /dev/ttyS0 | TELEM1                                   |
+| USART2 | /dev/ttyS1 | TELEM2                                   |
+| USART3 | /dev/ttyS2 | Debug Console                            |
+| UART4  | /dev/ttyS3 | GPS1                                     |
+| USART6 | /dev/ttyS4 | RC SBUS                                  |
 | UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
@@ -129,4 +135,4 @@ The [SWD interface](../debug/swd_debug.md) (JTAG) pins are:
 
 These are shown below.
 
-![SWD Pins on Kakute F7 - CLK SWO](../../assets/flight_controller/kakutef7/debug_swd_port.jpg) ![SWD Pins on Kakute F7:  GND and VDD_3V3](../../assets/flight_controller/kakutef7/debug_swd_port_gnd_vcc3_3.jpg)
+![SWD Pins on Kakute F7 - CLK SWO](../../assets/flight_controller/kakutef7/debug_swd_port.jpg) ![SWD Pins on Kakute F7:  GND and VDD\_3V3](../../assets/flight_controller/kakutef7/debug_swd_port_gnd_vcc3_3.jpg)
