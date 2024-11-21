@@ -130,7 +130,7 @@ The manufacturer [RaccoonLab Docs](https://docs.raccoonlab.co/guide/autopilot/RC
 Вони повинні використовуватися за перевагою, оскільки вони містять найбільш повну та актуальну інформацію.
 :::
 
-## Де придбати
+## Де купити
 
 [RaccoonLab Store](https://raccoonlab.co/store)
 
@@ -154,7 +154,7 @@ make px4_fmu-v6x_default
 Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Подальша інформація
+## Додаткова інформація
 
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
 - [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
