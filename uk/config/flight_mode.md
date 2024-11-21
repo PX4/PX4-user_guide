@@ -1,95 +1,117 @@
-# Налаштування режиму польоту
+# Конфігурація режиму польоту
 
-Ця тема пояснює, як зробити карту [режимів польоту](../getting_started/px4_basic_concepts.md#flight-modes) та інших функцій на вашому радіопульті передачі.
+This topic explains how to map [flight modes](../getting_started/px4_basic_concepts.md#flight-modes) and other functions to the switches on your radio control transmitter.
 
 :::tip
-Для налаштування режимів польоту вам вже потрібно мати:
-- [Налаштоване радіо](../config/radio.md)
-- [Налаштуйте ваш передавач](#rc-transmitter-setup) для кодування фізичних позицій ваших перемикачів режиму в один канал. Ми надаємо приклади для популярного *Taranis* передавача [нижче](#taranis-setup-3-way-switch-configuration-for-single-channel-mode) (перевірте вашу документацію, якщо ви використовуєте інший передавач). :::
+In order to set up flight modes you must already have:
 
+- [Configured your radio](../config/radio.md)
+- [Setup your transmitter](#rc-transmitter-setup) to encode the physical positions of your mode switch(es) into a single channel.
+  We provide examples for the popular _Taranis_ transmitter [below](#taranis-setup-3-way-switch-configuration-for-single-channel-mode) (check your documentation if you use a different transmitter).
+
+:::
 
 ## Які режими польоту та перемикачі я повинен встановити?
 
-Режими польоту надають різні типи *польоту з пілотом-автопілотом* та *повністю автономний польот*. Ви можете встановити будь-який (або жоден) з режимів польоту [доступних для вашого транспортного засобу](../flight_modes/index.md#flight-modes).
+Flight Modes provide different types of _autopilot-assisted flight_, and _fully autonomous flight_.
+You can set any (or none) of the flight modes [available to your vehicle](../flight_modes/index.md#flight-modes).
 
 Більшість користувачів повинні встановити наступні режими та функції, оскільки вони роблять літак більш легким та безпечним у польоті:
 
-- **Режим позиції** — Найлегший і найбезпечніший режим для ручного польоту.
-- **Режим повернення** — Повернення до позиції вильоту безпечним шляхом та посадка.
-- (тільки VTOL) **Перемикач переходу VTOL** — Перемикання між фіксованим крилом та багатокоптерною конфігурацією польоту на повітряних транспортних засобах VTOL.
+- **Position mode** — Easiest and safest mode for manual flight.
+- **Return mode** — Return to launch position by safe path and land.
+- (VTOL only) **VTOL Transition Switch** — Toggle between fixed-wing and multicopter flight configuration on VTOL vehicles.
 
 Також звичайно відображати перемикачі на:
 
-- **Режим місії** — Цей режим виконує попередньо запрограмовану місію, відправлену наземною станцією керування.
-- <a id="kill_switch"></a> [Вимикач аварійного вимкнення](../config/safety.md#kill-switch) - Негайно зупиняє всі вихідні сигнали двигуна (літак розбиватиметься, що в деяких випадках може бути більш бажаним, ніж дозволити йому продовжувати польот).
+- **Mission mode** — This mode runs a pre-programmed mission sent by the ground control station.
+- <a id="kill_switch"></a> [Kill Switch](../config/safety.md#kill-switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
 
 ## Вибір режиму польоту
 
-PX4 дозволяє вам вказати канал "режиму" та вибрати до 6 режимів польоту, які будуть активовані на основі значення ШШІ каналу. Ви також можете окремо вказати канали для відображення режиму аварійного вимкнення, режиму повернення до старту та режиму польоту за межами.
+PX4 дозволяє вам вказати канал "режиму" та вибрати до 6 режимів польоту, які будуть активовані на основі значення ШШІ каналу.
+Ви також можете окремо вказати канали для відображення режиму аварійного вимкнення, режиму повернення до старту та режиму польоту за межами.
 
 Для налаштування вибору режиму польоту з одним каналом:
 
-1. Запустіть *QGroundControl* та підключіть транспортний засіб.
-1. Увімкніть ваш передавач RC.
-1. Виберіть **іконку "Q" >   Налаштування транспортного засобу >   Режими польоту** (бічна панель), щоб відкрити _Налаштування режимів польоту_.
+1. Start _QGroundControl_ and connect the vehicle.
+
+2. Увімкніть ваш передавач RC.
+
+3. Select **"Q" icon > Vehicle Setup > Flight Modes** (sidebar) to open _Flight Modes Setup_.
 
    ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
 
-1. Вкажіть Налаштування *Режиму польоту*:
-   * Виберіть канал режиму (**Режим каналу**) (вище показано як Канал 5, але це залежить від конфігурації вашого передавача).
-   * Перемістіть перемикач передавача (або перемикачі), які ви налаштували для вибору режиму, через доступні позиції. Режим слоту, який відповідає поточному положенню перемикача, буде підсвічений (вище цього - *Режим польоту 1*). :::info
-Поки ви можете встановити режими польоту в будь-якому з 6 слотів, тільки канали, які відображені на позиціях перемикачів, будуть підсвічені/використовуватися.
-:::
-   * Виберіть режим польоту, який ви хочете активувати для кожного положення перемикача.
-1. Вкажіть *налаштування перемикача*:
-   * Виберіть канали, які ви хочете відобразити на конкретні дії - наприклад: *Режим повернення*, *Вимикач вимкнення*, *Оффбордний* режим і т.д. (якщо у вас є запасні перемикачі та канали на вашому передавачі).
+4. Specify _Flight Mode Settings_:
+   - Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration).
+   - Перемістіть перемикач передавача (або перемикачі), які ви налаштували для вибору режиму, через доступні позиції.
+     The mode slot matching your current switch position will be highlighted (above this is _Flight Mode 1_).
+     ::: info
+     While you can set flight modes in any of the 6 slots, only the channels that are mapped to switch positions will be highlighted/used.
 
-1. Перевірте, що режими відображаються на правильні перемикачі передавача:
-   * Перевірте *Монітор каналу*, щоб підтвердити, що очікуваний канал змінюється кожним перемикачем.
-   * У свою чергу виберіть кожен режим перемикання на передавача, і перевірте, чи активований бажаний режим польоту (текст стає жовтим на *QGroundControl* для активного режиму).
+:::
+   - Виберіть режим польоту, який ви хочете активувати для кожного положення перемикача.
+
+5. Specify _Switch Settings_:
+   - Select the channels that you want to map to specific actions - e.g.: _Return_ mode, _Kill switch_, _offboard_ mode, etc. (if you have spare switches and channels on your transmitter).
+
+6. Перевірте, що режими відображаються на правильні перемикачі передавача:
+   - Check the _Channel Monitor_ to confirm that the expected channel is changed by each switch.
+   - Select each mode switch on your transmitter in turn, and check that the desired flight mode is activated (the text turns yellow on _QGroundControl_ for the active mode).
 
 Усі значення автоматично зберігаються після зміни.
 
 ## Налаштування радіопередавача
 
-Цей розділ містить невелику кількість можливих налаштувань для таранісу. QGroundControl _може_ мати [інформацію щодо налаштування для інших передавачів тут](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#transmitter-setup).
-
+Цей розділ містить невелику кількість можливих налаштувань для таранісу.
+QGroundControl _may_ have [setup information for other transmitters here](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#transmitter-setup).
 
 <a id="taranis_setup"></a>
 
 ### Налаштування Taranis: Конфігурація перемикача 3-х позицій для одноканального режиму
 
-Якщо вам потрібно підтримувати вибір лише між двома або трьома режимами, то ви можете відобразити режими на позиції одного 3-позиційного перемикача. Нижче ми показуємо, як зіставити перемикач "SD" Taranis 3-way з каналом 5.
+Якщо вам потрібно підтримувати вибір лише між двома або трьома режимами, то ви можете відобразити режими на позиції одного 3-позиційного перемикача.
+Нижче ми показуємо, як зіставити перемикач "SD" Taranis 3-way з каналом 5.
 
-:::info У цьому прикладі показано, як налаштувати популярний передавач *FrSky Taranis*. Налаштування передавача буде відрізнятися на інших передавачах. :::
+:::info
+This example shows how to set up the popular _FrSky Taranis_ transmitter.
+Налаштування передавача буде відрізнятися на інших передавачах.
+:::
 
-Відкрийте інтерфейс Taranis UI **MIXER** і прокрутіть вниз до **CH5**, як показано нижче:
+Open the Taranis UI **MIXER** page and scroll down to **CH5**, as shown below:
 
 ![Taranis - Map channel to switch](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_1.png)
 
-Натисніть **ENT(ER)**, щоб відредагувати конфігурацію **CH5**, а потім змініть **Джерело** на кнопку *SD*.
+Press **ENT(ER)** to edit the **CH5** configuration then change the **Source** to be the _SD_ button.
 
 ![Taranis - Configure channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_2.png)
 
-Ось і все! Канал 5 тепер виведе 3 різні значення ШІМ для трьох різних позицій перемикача **SD**.
+Ось і все!
+Channel 5 will now output 3 different PWM values for the three different **SD** switch positions.
 
-Конфігурація *QGroundControl* потім виконується як описано в попередньому розділі.
-
+The _QGroundControl_ configuration is then as described in the previous section.
 
 ### Налаштування Taranis: Конфігурація багато перемикачів для одноканального режиму
 
-Більшість передавачів не мають перемикачів на 6 позицій, тому якщо вам потрібно мати можливість підтримувати більше режимів, ніж кількість доступних позицій перемикачів (до 6), то вам доведеться представляти їх за допомогою кількох перемикачів. Зазвичай це робиться шляхом кодування позицій перемикача 2- та 3-позицій в один канал, так що кожна позиція перемикача призводить до різного значення ШІМ.
+Більшість передавачів не мають перемикачів на 6 позицій, тому якщо вам потрібно мати можливість підтримувати більше режимів, ніж кількість доступних позицій перемикачів (до 6), то вам доведеться представляти їх за допомогою кількох перемикачів.
+Зазвичай це робиться шляхом кодування позицій перемикача 2- та 3-позицій в один канал, так що кожна позиція перемикача призводить до різного значення ШІМ.
 
-На FrSky Taranis цей процес включає в себе призначення "логічного перемикача" для кожної комбінації положень двох реальних перемикачів. Кожний логічний перемикач потім призначається для різних значень ШІМ на тому ж каналі.
+На FrSky Taranis цей процес включає в себе призначення "логічного перемикача" для кожної комбінації положень двох реальних перемикачів.
+Кожний логічний перемикач потім призначається для різних значень ШІМ на тому ж каналі.
 
-Відео нижче показує, як це робиться з передавачем *FrSky Taranis*.<!-- \[youtube\](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available --><!-- @\[youtube\](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs --><lite-youtube videoid="TFEjEQZqdVA" title="Taranis Mode Switches"/>
+The video below shows how this is done with the _FrSky Taranis_ transmitter.
 
-The *QGroundControl* configuration is then [as described above](#flight-mode-selection).
+<!-- [youtube](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available -->
 
+<!-- @[youtube](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs -->
 
-## Детальна інформація
+<lite-youtube videoid="TFEjEQZqdVA" title="Taranis Mode Switches"/>
 
-* [Огляд режимів польоту](../flight_modes/index.md)
-* [QGroundControl > Режими польотів](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#px4-pro-flight-mode-setup)
-* [Відео налаштування PX4 - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (Youtube)
-* [Параметри радіоперемикача](../advanced_config/parameter_reference.md#radio-switches) - Можна використовувати для встановлення відображень через параметри
+The _QGroundControl_ configuration is then [as described above](#flight-mode-selection).
+
+## Додаткова інформація
+
+- [Flight Modes Overview](../flight_modes/index.md)
+- [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#px4-pro-flight-mode-setup)
+- [PX4 Setup Video - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (Youtube)
+- [Radio switch parameters](../advanced_config/parameter_reference.md#radio-switches) - Can be used to set mappings via parameters
