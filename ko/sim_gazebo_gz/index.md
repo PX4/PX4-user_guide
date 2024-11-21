@@ -220,7 +220,7 @@ The PX4 Gazebo worlds and and models databases [can be found on Github here](htt
 `gz_env.sh.in` is compiled and made available in `$PX4_DIR/build/px4_sitl_default/rootfs/gz_env.sh`
 :::
 
-### Examples
+### 예
 
 Here are some examples of the different scenarios covered above.
 
