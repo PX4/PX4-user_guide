@@ -1,4 +1,4 @@
-# MAVLink 相机(Camera Protocol v2)
+# MAVLink Cameras (Camera Protocol v2)
 
 本节说明了如何使用 PX4 的 MAVLink [相机](../camera/index.md) 实现了 [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) 的 PX4 和地面站。
 
@@ -6,7 +6,7 @@
 这是与 PX4 集成相机的推荐方式！
 :::
 
-## 概述
+## 综述
 
 The [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) allows querying of what features are supported by a camera, and provides commands to control image and video capture, stream video, set zoom and focus, select between infrared and visible light feeds, set where captured data is saved, and so on.
 
@@ -48,7 +48,7 @@ These parameters cannot directly be set in missions and have no specific setter 
 A ground station can use any feature exposed by the camera.
 PX4 has no role in this interaction other than forwarding MAVLink traffic between the camera and ground station or SDK, if needed.
 
-### 任务中的相机命令
+### Camera Commands in Missions
 
 PX4 allows the following subset of [Camera Protocol v2](https://mavlink.io/en/services/camera.html) commands in missions:
 
@@ -116,7 +116,7 @@ The linked document explains how, but in summary:
 3. Set [MAV_2_FORWARD](../advanced_config/parameter_reference.md#MAV_2_FORWARD) to enable forwarding of communications from the port to other ports, such as the one that is connected to the ground station.
 4. You may need to set some of the other parameters, depending on your connection type and any particular requirements of the camera on the expected baud rate, and so on.
 
-### 手动控制
+### Manual Control
 
 Joystick buttons can be mapped to capture images, and to toggle video capture on and off.
 
