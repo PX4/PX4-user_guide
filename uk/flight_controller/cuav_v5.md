@@ -3,13 +3,18 @@
 <Badge type="info" text="Discontinued" />
 
 :::warning
-Цей політний контролер був [знятий з виробництва](../flight_controller/autopilot_experimental.md) і більше не продається комерційно.
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning PX4 не виробляє цей (або будь-який) автопілот. Звертайтесь до [виробника](https://store.cuav.net/) щодо питань апаратного забезпечення або питань відповідності.
+:::warning
+PX4 не розробляє цей (або будь-який інший) автопілот.
+Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 :::
 
-_CUAV v5_<sup>&reg;</sup> (раніше "Pixhack v5") - це вдосконалений автопілот, розроблений і виготовлений компанією CUAV<sup>&reg;</sup>. Плата базується на [Pixhawk проекті](https://pixhawk.org/) відкритого апаратного забезпечення **FMUv5**. Він працює з PX4 на ОС [NuttX](https://nuttx.apache.org/), і повністю сумісний з прошивкою PX4. Він призначений насамперед для академічних і комерційних розробників.
+_CUAV v5_<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>.
+The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design.
+It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS, and is fully compatible with PX4 firmware.
+Він призначений насамперед для академічних і комерційних розробників.
 
 ![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5.jpg)
 
@@ -17,8 +22,10 @@ _CUAV v5_<sup>&reg;</sup> (раніше "Pixhack v5") - це вдосконал�
 
 - Головний FMU процесор: STM32F765
   - 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
+
 - IO Processor: STM32F100
   - 32 Bit Arm®️ Cortex®️-M3, 24MHz, 8KB SRAM
+
 - Бортові сенсори:
 
   - Акселерометр/Гіроскоп: ICM-20689
@@ -38,49 +45,55 @@ _CUAV v5_<sup>&reg;</sup> (раніше "Pixhack v5") - це вдосконал�
   - 4 шини SPI
   - 2 CANBuses з послідовними ESC
   - Аналогові входи для напруги / струму з 2 батарей
+
 - Система живлення:
   - Живлення: 4.3~5.4В
   - Вхід USB: 4.75~5.25В
-  - Вхід сервоприводу: 0~36 В
+  - Вхід сервоприводу: 0~36V
+
 - Вага та розміри:
   - Вага: 90г
   - Розміри: 44x84x12мм
+
 - Інші характеристики:
   - Робоча температура: -20 ~ 80°С (виміряне значення)
 
-## Де придбати
+## Де купити
 
-Замовлення від [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
+Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
 
 ## Підключення
 
 ![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5_connector.jpg)
 
 :::warning
-Інтерфейс RCIN призначений лише для живлення радіоприймача і не може бути підключений до будь-якого джерела живлення/навантаження.
+The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
 :::
 
 ## Номінальна напруга
 
-_CUAV v5_ може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шини живлення: **POWER1**, **POWER2** і **USB**.
+_CUAV v5_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-::: info Вихідні шини живлення **FMU PWM OUT** та **I/O PWM OUT** (від 0В до 36В) не живлять плату контролера польоту (і не живляться від неї). Ви повинні подавати живлення на один з **POWER1**, **POWER2** або **USB**, інакше плата буде знеструмлена.
+:::info
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
+You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 :::
 
-**Максимальна напруга нормальної роботи**
+**Normal Operation Maximum Ratings**
 
 За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. Входи **POWER1** та **POWER2** (4,3 - 5,4 В)
-1. **USB** вхід (4.75В до 5.25В)
+1. **POWER1** and **POWER2** inputs (4.3V to 5.4V)
+2. **USB** input (4.75V to 5.25V)
 
 ## Збірка прошивки
 
 :::tip
-Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана і автоматично встановлюється за допомогою _QGroundControl_ при підключенні відповідного обладнання.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-Щоб [ зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make px4_fmu-v5_default
@@ -88,47 +101,51 @@ make px4_fmu-v5_default
 
 ## Відладочний порт
 
-[Системна консоль PX4](../debug/system_console.md) та [SWD interface](../debug/swd_debug.md) працюють на порту **FMU Debug**. Просто підключіть кабель FTDI до роз'єму Debug & F7 SWD. Щоб отримати доступ до порту відладки вводу/виводу, користувач повинен видалити оболонку CUAV v5. Обидва порти мають стандартні послідовні контакти і можуть бути підключені до стандартного кабелю FTDI (3,3 В, але допускається 5 В).
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port.
+Simply connect the FTDI cable to the Debug & F7 SWD connector.
+Щоб отримати доступ до порту відладки вводу/виводу, користувач повинен видалити оболонку CUAV v5.
+Обидва порти мають стандартні послідовні контакти і можуть бути підключені до стандартного кабелю FTDI (3,3 В, але допускається 5 В).
 
 Схема підключення показана.
 
 ![CUAV v5 debug](../../assets/flight_controller/cuav_v5/pixhack_v5_debug.jpg)
 
-| пін | CUAV v5 debug |
-| --- | ------------- |
-| 1   | GND           |
-| 2   | FMU-SWCLK     |
-| 3   | FMU-SWDIO     |
-| 4   | UART7_RX      |
-| 5   | UART7_TX      |
-| 6   | VCC           |
+| пін | CUAV v5 debug                 |
+| --- | ----------------------------- |
+| 1   | GND                           |
+| 2   | FMU-SWCLK                     |
+| 3   | FMU-SWDIO                     |
+| 4   | UART7_RX |
+| 5   | UART7_TX |
+| 6   | VCC                           |
 
-## Зіставлення послідовних портів
+## Serial Port Mapping
 
-| UART   | Пристрій   | Порт                           |
-| ------ | ---------- | ------------------------------ |
-| UART1  | /dev/ttyS0 | GPS                            |
-| USART2 | /dev/ttyS1 | TELEM1 (керування потоком)     |
-| USART3 | /dev/ttyS2 | TELEM2 (керування потоком)     |
-| UART4  | /dev/ttyS3 | TELEM4                         |
+| UART   | Пристрій   | Порт                                                |
+| ------ | ---------- | --------------------------------------------------- |
+| UART1  | /dev/ttyS0 | GPS                                                 |
+| USART2 | /dev/ttyS1 | TELEM1 (керування потоком)       |
+| USART3 | /dev/ttyS2 | TELEM2 (керування потоком)       |
+| UART4  | /dev/ttyS3 | TELEM4                                              |
 | USART6 | /dev/ttyS4 | TX - RC-вхід з роз'єму SBUS_RC |
-| UART7  | /dev/ttyS5 | Debug Console                  |
-| UART8  | /dev/ttyS6 | PX4IO                          |
+| UART7  | /dev/ttyS5 | Debug Console                                       |
+| UART8  | /dev/ttyS6 | PX4IO                                               |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-## Периферія
+## Периферійні пристрої
 
-- [Цифровий датчик швидкості польоту](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
-- [Телеметричні радіо модулі](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
-- [Далекомір/Датчики відстані](../sensor/rangefinders.md)
+- [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI\&id=9512463037)
+- [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq\&search=y\&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
+- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / Конструкції
 
-Будь-який мультикоптер / літак / наземна платформа чи човен, який може керуватися звичайними РК сервоприводами або сервоприводами Futaba S-Bus. Повний набір підтримуваних конфігурацій можна переглянути в [Довіднику авіаційних платформ](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Подальша інформація
+## Додаткова інформація
 
-- [FMUv5 еталонна розводка](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
-- [Документація CUAV V5](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html)
+- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+- [CUAV v5 docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html)
 - [CUAV Github](https://github.com/cuav)
