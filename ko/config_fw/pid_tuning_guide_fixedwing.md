@@ -5,7 +5,7 @@ It is intended for advanced users / experts, as incorrect PID tuning may crash y
 
 :::info
 [Autotune](../config/autotune_fw.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames.
-Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
+예를 들어, 새로운 ESC 또는 모터에는 다른 튜닝 게인이 필요합니다.
 :::
 
 ## 전제 조건
