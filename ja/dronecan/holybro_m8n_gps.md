@@ -2,7 +2,9 @@
 
 The Holybro DroneCAN GPS has an UBLOX M8N module, BMM150 compass, tri-colored LED indicator.
 
-The GPS module uses the [DroneCAN](index.md) protocol for communication. DroneCAN connections are more resistant to electromagnetic interference compared to serial connection, making it more reliable. In addition, using DroneCAN means that the GPS and compass do not occupy any flight controller serial ports (different/additional CAN devices can be connected to the same CAN bus via a CAN splitter board).
+The GPS module uses the [DroneCAN](index.md) protocol for communication.
+DroneCAN connections are more resistant to electromagnetic interference compared to serial connection, making it more reliable.
+In addition, using DroneCAN means that the GPS and compass do not occupy any flight controller serial ports (different/additional CAN devices can be connected to the same CAN bus via a CAN splitter board).
 
 <img src="../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps.jpg" width="400px" title="Hero diagram for the GPS module" />
 
@@ -14,32 +16,32 @@ Order this module from:
 
 ## Hardware Specifications
 
-|                           | DroneCAN M8N                         |
-| ------------------------- | ------------------------------------ |
-| GNSS Receiver             | Ublox NEO M8N                        |
-| Number of Concurrent GNSS | 2 (Default GPS + GLONASS)            |
-| Processor                 | STM32G4 (170MHz, 512K FLASH)         |
-| Compass                   | BMM150                               |
-| Frequency Band            | <p>GPS: L1C/A<br>GLONASS: L10F<br>Beidou: B1I<br>Galileo: E1B/C</p>            |
-| GNSS Augmentation System  | SBAS: WAAS, EGNOS, MSAS, QZSS        |
-| Navigation Update         | 5Hz Default(10Hz MAX)                |
-| Navigation sensitivity    | –167 dBm                             |
-| Cold starts               | \~ 26s                              |
-| Accuracy                  | 2.5m                                 |
-| Speed Accuracy            | 0.05 m/s                             |
-| Max # of Satellites       | 22+                                  |
-| Default CAN BUS data rate | 1MHz                                 |
-| Communication Protocol    | DroneCAN @ 1 Mbit/s                  |
-| Supports Autopilot FW     | PX4, Ardupilot                       |
-| Port Type                 | GHR-04V-S                            |
-| Antenna                   | 25 x 25 x 4 mm ceramic patch antenna |
-| Voltage                   | 4.7-5.2V                             |
-| Power consumption         | Less than 200mA @ 5V                 |
-| Temperature               | -40\~80C                            |
-| Size                      | <p>Diameter: 54mm<br>Thickness: 14.5mm</p>            |
-| Weight                    | 36g                                  |
-| Cable Length              | 26cm                                 |
-| Other                     | <ul><li>LNA MAX2659ELT+ RF Amplifier</li><li>Rechargeable Farah capacitance</li><li>Low noise 3.3V regulator</li><li>26cm cable included</li></ul>            |
+|                           | DroneCAN M8N                                                                                                                                       |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GNSS Receiver             | Ublox NEO M8N                                                                                                                                      |
+| Number of Concurrent GNSS | 2 (Default GPS + GLONASS)                                                                                                       |
+| Processor                 | STM32G4 (170MHz, 512K FLASH)                                                                                                    |
+| Compass                   | BMM150                                                                                                                                             |
+| Frequency Band            | <p>GPS: L1C/A<br>GLONASS: L10F<br>Beidou: B1I<br>Galileo: E1B/C</p>                                                                                |
+| GNSS Augmentation System  | SBAS: WAAS, EGNOS, MSAS, QZSS                                                                                                      |
+| Navigation Update         | 5Hz Default(10Hz MAX)                                                                                                           |
+| Navigation sensitivity    | –167 dBm                                                                                                                                           |
+| Cold starts               | \~ 26s                                                                                                                            |
+| Accuracy                  | 2.5m                                                                                                                               |
+| Speed Accuracy            | 0.05 m/s                                                                                                                           |
+| Max # of Satellites       | 22+                                                                                                                                                |
+| Default CAN BUS data rate | 1MHz                                                                                                                                               |
+| Communication Protocol    | DroneCAN @ 1 Mbit/s                                                                                                                   |
+| Supports Autopilot FW     | PX4, Ardupilot                                                                                                                                     |
+| Port Type                 | GHR-04V-S                                                                                                                                          |
+| Antenna                   | 25 x 25 x 4 mm ceramic patch antenna                                                                                                               |
+| Voltage                   | 4.7-5.2V                                                                                                           |
+| Power consumption         | Less than 200mA @ 5V                                                                                                                  |
+| Temperature               | -40\~80C                                                                                                                          |
+| Size                      | <p>Diameter: 54mm<br>Thickness: 14.5mm</p>                                                                                                         |
+| Weight                    | 36g                                                                                                                                                |
+| Cable Length              | 26cm                                                                                                                                               |
+| Other                     | <ul><li>LNA MAX2659ELT+ RF Amplifier</li><li>Rechargeable Farah capacitance</li><li>Low noise 3.3V regulator</li><li>26cm cable included</li></ul> |
 
 ## Hardware Setup
 
@@ -51,7 +53,8 @@ The sensor can be mounted anywhere on the frame, but you will need to specify it
 
 ### Wiring
 
-The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
+The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
+For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
 ### Pinout
 
@@ -63,9 +66,10 @@ The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 
 
 ## PX4 Configuration
 
-You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle. The required settings are outlined below.
+You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle.
+The required settings are outlined below.
 
-::: info
+:::info
 The GPS will not boot if there is no SD card in the flight controller when powered on.
 :::
 
@@ -78,7 +82,8 @@ The steps are:
 - In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect GPS CAN to the Pixhawk CAN.
 
-Once enabled, the module will be detected on boot. GPS data should arrive at 5Hz.
+Once enabled, the module will be detected on boot.
+GPS data should arrive at 5Hz.
 
 DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
