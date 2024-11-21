@@ -22,7 +22,9 @@ An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/cra
 
 ## 요약
 
-:::info:::
+:::info
+The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
+:::
 
 - Main System-on-Chip: STM32F405RG
   - CPU : 단정밀도 FPU의 168MHz ARM Cortex M4
@@ -102,7 +104,7 @@ After setting up the PX4 development environment, follow these steps to install 
 
 10. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors.html).
 
-::: info
+:::info
 If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/main/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`.
 This should be done using _menuconfig_:
 
