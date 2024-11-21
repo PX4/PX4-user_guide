@@ -176,14 +176,14 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SH connector).
 
-| 핀                        | 신호                                  | 전압                    |
-| ------------------------ | ----------------------------------- | --------------------- |
-| 1 (적) | `Vtref`                             | +3.3V |
-| 2 (흑) | Console TX (OUT) | +3.3V |
-| 3 (흑) | Console RX (IN)  | +3.3V |
-| 4 (흑) | `SWDIO`                             | +3.3V |
-| 5 (흑) | `SWCLK`                             | +3.3V |
-| 6 (흑) | `GND`                               | GND                   |
+| 핀                         | 신호                                  | 전압                    |
+| ------------------------- | ----------------------------------- | --------------------- |
+| 1(red) | `Vtref`                             | +3.3V |
+| 2 (흑)  | Console TX (OUT) | +3.3V |
+| 3 (흑)  | Console RX (IN)  | +3.3V |
+| 4 (흑)  | `SWDIO`                             | +3.3V |
+| 5 (흑)  | `SWCLK`                             | +3.3V |
+| 6 (흑)  | `GND`                               | GND                   |
 
 For information about using this port see:
 
