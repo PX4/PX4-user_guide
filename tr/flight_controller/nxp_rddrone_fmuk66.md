@@ -6,10 +6,13 @@
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.nxp.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://www.nxp.com/) for hardware support or compliance issues.
 :::
 
-RDDRONE-FMUK66 FMU is a reference design using NXP Semiconductor components that closely follows Pixhawk FMUv4 specifications while adding two wire automotive Ethernet 100BASET1 and secure element A71CH (RevC) or SE050 (RevD). NXP provides the schematics, gerbers, BOM and source files so that anyone can duplicate, change or repurpose this design.
+RDDRONE-FMUK66 FMU is a reference design using NXP Semiconductor components that closely follows Pixhawk FMUv4 specifications while adding two wire automotive Ethernet 100BASET1 and secure element A71CH (RevC) or SE050 (RevD).
+NXP provides the schematics, gerbers, BOM and source files so that anyone can duplicate, change or repurpose this design.
 
 This is the official FMU for use with [HoverGames](https://www.hovergames.com/).
 
@@ -19,7 +22,8 @@ This is the official FMU for use with [HoverGames](https://www.hovergames.com/).
 
 The NXP FMU and included peripherals have been tested to comply with FCC/CE/RoHs/REACH directives.
 
-::: info These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Quick Summary
@@ -36,7 +40,8 @@ The NXP FMU and included peripherals have been tested to comply with FCC/CE/RoHs
 - **GPS:**
   - u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 
-This FMU is provided only as a kit, and includes [Segger Jlink EDU mini debugger](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/), DCD-LZ debugger adapter, USB-TTL-3V3 console cable, HolyBro GPS module, battery power module, SDCard and case, screws and stickers. Telemetry radios ([HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433) and [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915)) must be purchased separately to match ISM band frequencies used in your country.
+This FMU is provided only as a kit, and includes [Segger Jlink EDU mini debugger](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/), DCD-LZ debugger adapter, USB-TTL-3V3 console cable, HolyBro GPS module, battery power module, SDCard and case, screws and stickers.
+Telemetry radios ([HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433) and [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915)) must be purchased separately to match ISM band frequencies used in your country.
 
 ![RDDRONE-FMUK66 FMU Kit](../../assets/flight_controller/nxp_rddrone_fmuk66/rddrone_fmu66_kit_img_contents.jpg)
 
@@ -53,7 +58,8 @@ Additional information can be found in the [Technical Data Sheet](https://www.nx
   - [HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433)
   - [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915)
 
-::: info _RDDRONE-FMUK66_ FMU is also included in the complete HoverGames drone kit: [KIT-HGDRONEK66](https://www.nxp.com/applications/solutions/industrial/aerospace-and-mobile-robotics/uavs-drones-and-rovers/nxp-hovergames-drone-kit-including-rddrone-fmuk66-and-peripherals:KIT-HGDRONEK66#buy)
+:::info
+_RDDRONE-FMUK66_ FMU is also included in the complete HoverGames drone kit: [KIT-HGDRONEK66](https://www.nxp.com/applications/solutions/industrial/aerospace-and-mobile-robotics/uavs-drones-and-rovers/nxp-hovergames-drone-kit-including-rddrone-fmuk66-and-peripherals:KIT-HGDRONEK66#buy)
 :::
 
 <!--
@@ -78,7 +84,8 @@ https://nxp.gitbook.io/hovergames
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -105,18 +112,20 @@ The DCD-LZ breakout adapter permits the use of a standard 10 pin JTAG/SWD interf
 
 ## Supported Platforms / Airframes
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ![HoverGames Drone Kit](../../assets/flight_controller/nxp_rddrone_fmuk66/hovergames_drone_14042019_xl001.jpg)
 
 :::tip
-The NXP [HoverGames Drone Kit](https://www.nxp.com/kit-hgdronek66) (shown above) is a complete drone development kit that includes everything needed to build a quadcopter. You only need to supply the 3S/4S LiPo battery.
+The NXP [HoverGames Drone Kit](https://www.nxp.com/kit-hgdronek66) (shown above) is a complete drone development kit that includes everything needed to build a quadcopter.
+You only need to supply the 3S/4S LiPo battery.
 :::
 
 ## Further info
 
 - [HoverGames online documentation](https://nxp.gitbook.io/hovergames) PX4 user and programming guide, specific assembly, construction, debugging, programming instructions.
 
-- 3DModels supporting HoverGames and RDDRONE-FMUK66 can be found on _Thingiverse_ at these search links: [fmuk66](https://www.thingiverse.com/search?q=fmuk66&type=things&sort=relevant), [hovergames](https://www.thingiverse.com/search?q=hovergames&type=things&sort=relevant).
+- 3DModels supporting HoverGames and RDDRONE-FMUK66 can be found on _Thingiverse_ at these search links: [fmuk66](https://www.thingiverse.com/search?q=fmuk66\&type=things\&sort=relevant), [hovergames](https://www.thingiverse.com/search?q=hovergames\&type=things\&sort=relevant).
 
 ![HoverGamesDronelogo](../../assets/flight_controller/nxp_rddrone_fmuk66/hovergames_colored_small.png)
