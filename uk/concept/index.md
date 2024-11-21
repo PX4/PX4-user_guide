@@ -1,3 +1,3 @@
 # Поняття
 
-Цей розділ містить теми про [Системну архітектуру PX4](../concept/architecture.md) та інші основні поняття.
+This section contains topics about the [PX4 System Architecture](../concept/architecture.md) and other core concepts.
