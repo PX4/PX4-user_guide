@@ -20,7 +20,7 @@ _QGroundControl_ uses the cross-platform [SDL2](http://www.libsdl.org/index.php)
 
 Information about how to set up a joystick is covered in: [QGroundControl > Joystick Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/joystick.html).
 
-요약:
+요약
 
 - Open _QGroundControl_
 - Set the parameter [COM_RC_IN_MODE=1](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) - `Joystick`
