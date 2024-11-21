@@ -86,7 +86,7 @@ Press **ENT(ER)** to edit the **CH5** configuration then change the **Source** t
 
 ![Taranis - Configure channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_2.png)
 
-설정이 종료되었습니다.
+끝났습니다!
 Channel 5 will now output 3 different PWM values for the three different **SD** switch positions.
 
 The _QGroundControl_ configuration is then as described in the previous section.
