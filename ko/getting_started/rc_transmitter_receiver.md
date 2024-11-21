@@ -10,7 +10,7 @@ PX4 does not require a remote control system for autonomous flight modes.
 
 ## 무선 조종기 작동 방법
 
-*무선 조종기*에는 조종사가 지상에서 차량을 조종하는 *원격 제어 장치*가 있습니다. 리모콘에는 차량 이동 (예 : 속도, 방향, 스로틀, 요, 피치, 롤 등)을 지정하거나, 자동 [비행 모드 ](../flight_modes/README.md)(예 : 이륙, 착륙, 임무, 복귀)를 활성화하는 물리적 장치들이 있습니다. On *telemetry-enabled* RC systems, the remote control unit can also receive and display information from the vehicle, such as battery level, flight mode, and warnings.
+An *RC system* has a ground-based *remote control unit* that is used by the operator to command the vehicle. 리모콘에는 차량 이동 (예 : 속도, 방향, 스로틀, 요, 피치, 롤 등)을 지정하거나, 자동 [비행 모드 ](../flight_modes/README.md)(예 : 이륙, 착륙, 임무, 복귀)를 활성화하는 물리적 장치들이 있습니다. On *telemetry-enabled* RC systems, the remote control unit can also receive and display information from the vehicle, such as battery level, flight mode, and warnings.
 
 ![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
@@ -30,11 +30,11 @@ The ground based RC controller contains a radio module that is bound to, and com
 
 ### 항공기 전용 무선 조종기
 
-UAV용 가장 인기있는 무선 종종기 *유형은*은 아래와 같습니다. 롤/피치/스로틀/요를 제어하는 별도의 조종 스틱이 있습니다. 수신기에는 최소 4 개의 채널이 필요합니다.
+The most popular *form* of remote control unit for UAVs is shown below. 롤/피치/스로틀/요를 제어하는 별도의 조종 스틱이 있습니다. 수신기에는 최소 4 개의 채널이 필요합니다.
 
 ![RC 기본 명령어](../../assets/flying/rc_basic_commands.png)
 
-조종 스틱, 스위치의 배치 방식은 다양합니다. 모드 번호로 많이 사용되는 송신기의 레이아웃을 지칭합니다. *모드 1*과 *모드2 *(아래 참조)는 스로틀의 배치만 차이가 납니다.
+조종 스틱, 스위치의 배치 방식은 다양합니다. 모드 번호로 많이 사용되는 송신기의 레이아웃을 지칭합니다. *Mode 1* and *Mode 2* (shown below) differ only in the placement of the throttle.
 
 ![모델1 - 모델2](../../assets/concepts/mode1_mode2.png)
 
@@ -56,7 +56,7 @@ UAV용 가장 인기있는 무선 종종기 *유형은*은 아래와 같습니�
 
 ### 송수신기 조합
 
-인기있는 무선 조종기중 하나는 * FrSky Taranis X9D *입니다. 권장되는 *FrSky X4R-SB*(S-BUS, 낮은 지연) 또는 *X4R* (PPM-Sum, 레거시) 수신기와 함께 사용할 수있는 내부 송신기들이 있습니다. 그리고, 맞춤형 라디오 송신기 모듈 슬롯과 맞춤형 오픈 소스 OpenTX 펌웨어가 있습니다.
+One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box. 그리고, 맞춤형 라디오 송신기 모듈 슬롯과 맞춤형 오픈 소스 OpenTX 펌웨어가 있습니다.
 
 ::: info This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules. :::
 
@@ -74,7 +74,7 @@ UAV용 가장 인기있는 무선 종종기 *유형은*은 아래와 같습니�
 
 수신기는 송신기 뿐만 아니라 PX4와 비행 콘트롤러에도 호환되어야 합니다.
 
-아래의 수신기들의 *PX4*와 *Pixhawk* 호환성은 검증되었습니다.
+*PX4* and *Pixhawk* have been validated with:
 
 - 모든 Spektrum DSM RC 수신기
 - 모든 Futaba S.BUS 및 S.BUS2 RC 수신기
@@ -91,7 +91,7 @@ UAV용 가장 인기있는 무선 종종기 *유형은*은 아래와 같습니�
 - Spektrum/DSM receivers connect to the "DSM" input. Pixhawk flight controllers variously label this as: `SPKT/DSM`, `DSM`, `DSM/SBUS RC`, `DSM RC`, `DSM/SBUS/RSSI`.
 - Graupner HoTT receivers: SUMD output must connect to a **SPKT/DSM** input (as above).
 - PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins. This is typically labeled: `RC IN`, `RCIN` or `RC`, but has in some FCs has been labeled `PPM RC` or `PPM`.
-- *각각의 채널이 독립적으로 배선된* PPM 수신기는 반드시 RCIN 포트에 PPM 인코더로 [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) 연결합니다. PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다.
+- PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 - TBS Crossfire/Express LRS Receivers using [CRSF Telemetry](../telemetry/crsf_telemetry.md) connect via a spare UART.
 
 Flight controllers usually include appropriate cables for connecting common receiver types.
@@ -106,7 +106,7 @@ Instructions for connecting to specific flight controllers are given in their [q
 
 ## 송수신기 바인딩
 
-무선 조종기를 보정하여 사용하기전에 송신기와 수신기를 *바인딩*하여 두 장치간에 통신이 가능하도록 설정하여야 합니다. 송신기와 수신기를 바인딩하는 방법은 하드웨어에 따라 조금씩 차이가 납니다. 자세한 방법은은 제품 설명서를 참조하십시오.
+Before you can calibrate/use a radio system you must *bind* the receiver and transmitter so that they communicate only with each other. 송신기와 수신기를 바인딩하는 방법은 하드웨어에 따라 조금씩 차이가 납니다. 자세한 방법은은 제품 설명서를 참조하십시오.
 
 If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*: [Radio Setup > Spectrum Bind](../config/radio.md#spectrum-bind).
 
