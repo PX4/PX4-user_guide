@@ -2,10 +2,12 @@
 
 The MAVLink Shell is an _NSH console_ that can be accessed via MAVLink over serial (USB/Telemetry) or WiFi (UDP/TCP) links (in particular, on NuttX-based systems like: Pixhawk, Pixracer, etc.).
 
-쉘은 명령 및 모듈을 실행하고 출력을 표시합니다. While the shell cannot _directly_ display the output of modules that it does not start, it can do so indirectly using the `dmesg` command (`dmesg -f &` can be used to display the output of other modules and tasks running on the work queue).
+쉘은 명령 및 모듈을 실행하고 출력을 표시합니다.
+While the shell cannot _directly_ display the output of modules that it does not start, it can do so indirectly using the `dmesg` command (`dmesg -f &` can be used to display the output of other modules and tasks running on the work queue).
 
 :::tip
-[QGroundControl MAVLink 콘솔](#qgroundcontrol)은 콘솔에 접근하기 가장 편리합니다. 시스템이 제대로 시작되지 않으면, [시스템 콘솔](../debug/system_console.md)을 사용하여야 합니다.
+The [QGroundControl MAVLink Console](#qgroundcontrol) is the easiest way to access the console.
+If the system does not start properly you should instead use the [System Console](../debug/system_console.md).
 :::
 
 ## 쉘 열기
@@ -18,16 +20,17 @@ The easiest way to access shell is to use the [QGroundControl MAVLink Console](h
 
 ### mavlink_shell.py
 
-**mavlink_shell.py** 스크립트를 사용하여 터미널에서 쉘에 접근할 수 있습니다.
+You can also access the shell in a terminal using the **mavlink_shell.py** script:
 
 1. Shut down _QGroundControl_.
-1. 패키지를 설치합니다.
+
+2. 패키지를 설치합니다.
 
    ```sh
    pip3 install --user pymavlink pyserial
    ```
 
-1. 터미널(PX4-Autopilot 디렉토리)을 열고, 쉘을 시작합니다.
+3. 터미널(PX4-Autopilot 디렉토리)을 열고, 쉘을 시작합니다.
 
    ```sh
    # For serial port
@@ -35,12 +38,12 @@ The easiest way to access shell is to use the [QGroundControl MAVLink Console](h
    ```
 
    ```sh
-   # For Wi-Fi connection
+   # For Wifi connection
    ./Tools/mavlink_shell.py 0.0.0.0:14550
    ```
 
-사용 가능한 모든 인수에 대한 설명을 보려면, `mavlink_shell.py -h`를 사용하십시오.
+Use `mavlink_shell.py -h` to get a description of all available arguments.
 
 ## MAVLink 쉘 사용
 
-자세한 내용은 [PX4 콘솔/쉘 > 콘솔/쉘 사용](../debug/consoles.md#using_the_console)을 참고하십시오.
+For information see: [PX4 Consoles/Shells > Using Consoles/Shells](../debug/consoles.md#using_the_console).
