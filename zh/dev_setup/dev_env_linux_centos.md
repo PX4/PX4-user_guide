@@ -1,11 +1,14 @@
 # CentOS 上的开发环境
 
 :::warning
-This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md).
+It may or may not work with current versions of PX4.
 
-关于核心开发团队支持的环境和工具的信息，请参阅 [工具链安装](../dev_setup/dev_env.md)。 （如使用更早版本的 CentOS 则需要额外安装 python v2.7.5）。
+See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+:::
 
-The build requires Python 2.7.5. Therefore as of this writing Centos 7 should be used. (For earlier Centos releases a side-by-side install of python v2.7.5 may be done. But it is not recommended because it can break yum.)
+The build requires Python 2.7.5. Therefore as of this writing Centos 7 should be used.
+(For earlier Centos releases a side-by-side install of python v2.7.5 may be done. But it is not recommended because it can break yum.)
 
 ## 通用依赖项
 
@@ -25,7 +28,8 @@ easy_install cerberus
 yum install openocd libftdi-devel libftdi-python python-argparse flex bison-devel ncurses-devel ncurses-libs autoconf texinfo libtool zlib-devel cmake vim-common
 ```
 
-::: info You may want to also install `python-pip` and `screen`.
+:::info
+You may want to also install `python-pip` and `screen`.
 :::
 
 ## GCC 工具链安装
@@ -35,7 +39,8 @@ yum install openocd libftdi-devel libftdi-python python-argparse flex bison-deve
 Execute the script below to install GCC 7-2017-q4:
 
 :::warning
-This version of GCC is out of date. At time of writing the current version on Ubuntu is `9-2020-q2-update` (see [focal nuttx docker file](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
+This version of GCC is out of date.
+At time of writing the current version on Ubuntu is `9-2020-q2-update` (see [focal nuttx docker file](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
 :::
 
 ```sh
@@ -50,7 +55,7 @@ popd
 
 Now restart your machine.
 
-**故障处理**
+**Troubleshooting**
 
 Check the version by entering the following command:
 
@@ -79,7 +84,8 @@ On Ubuntu Linux you can install this automatically from normal repos.
 sudo apt-get install ninja-build -y
 ```
 
-Other systems may not include Ninja in the package manager. In this case an alternative is to download the binary and add it to your path:
+Other systems may not include Ninja in the package manager.
+In this case an alternative is to download the binary and add it to your path:
 
 ```sh
 mkdir -p $HOME/ninja
