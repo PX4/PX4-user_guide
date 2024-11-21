@@ -11,7 +11,7 @@ Key features include:
 - 1x built-in barometer: MS5611
 - RGB LED Driver and status LEDs
 
-## 在哪里买
+## 购买渠道
 
 - [Sky-Drones Store](https://sky-drones.com/navigation/smartap-gnss.html)
 
