@@ -4,7 +4,7 @@
 
 ![ARK TESEO GPS](../../assets/hardware/gps/ark/ark_teseo_gps.jpg)
 
-## 在哪里买
+## 购买渠道
 
 Order this module from:
 
