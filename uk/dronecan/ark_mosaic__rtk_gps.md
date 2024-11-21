@@ -4,7 +4,7 @@
 
 ![ARK MOSAIC-X5 RTK GPS](../../assets/hardware/gps/ark/ark_mosaic_rtk_gps.jpg)
 
-## Де придбати
+## Де купити
 
 Замовте цей модуль з:
 
@@ -30,7 +30,7 @@
   - Micro-SD Slot for Mosaic-X5 Logging
   - Mosaic "UART 2" Connector (5 Pin JST-GH with TX, RX, TIMEPULSE, GP1, GND)
 - Вимоги до живлення
-  - 5В
+  - 5V
   - 260mA Average
   - 340mA Peak
 - LED індикатори
