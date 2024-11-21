@@ -1,21 +1,22 @@
 # Listener 명령을 사용한 센서/토픽 디버깅
 
-uORB는 스레드간/프로세스간 통신에 사용되는 비동기식 `publish()` / `subscribe()` 메시징 API입니다. The `listener` command can be used from the _QGroundControl MAVLink Console_ to inspect topic (message) values, including the current values published by sensors.
+The uORB is an asynchronous `publish()` / `subscribe()` messaging API used for
+inter-thread/inter-process communication. The `listener` command can be used from the _QGroundControl MAVLink Console_ to inspect topic (message) values, including the current values published by sensors.
 
 :::tip
- QGC가 무선으로 연결(예: 차량이 비행 중일 때)시에도 사용할 수 있기 때문에 강력한 디버깅 도구입니다.
+이것은 QGC가 무선 틍신으로 연결된 경우에도(예: 차량이 비행 중일 때) 사용할 수 있는 강력한 디버깅 도구입니다.
 :::
 
-:::note
-`listener` 명령은 [시스템 콘솔](../debug/system_console.md) 및 [MAVLink Shell](../debug/mavlink_shell.md)을 통해서도 사용할 수 있습니다.
+:::info
+The `listener` command is also available through the [System Console](../debug/system_console.md) and the [MAVLink Shell](../debug/mavlink_shell.md).
 :::
 
 :::tip
-어떤 주제가 어떤 비율로 제공되는지 확인하려면 `uorb top` 명령을 사용합니다.
+To check what topics are available at what rate, just use the `uorb top` command.
 :::
 
 The image below demonstrates _QGroundControl_ being used to get the value of the acceleration sensor.
 
-![QGC MAVLink 콘솔](../../assets/gcs/qgc_mavlink_console_listener_command.png)
+![QGC MAVLink Console](../../assets/gcs/qgc_mavlink_console_listener_command.png)
 
-사용 가능한 주제를 결정하는 방법과 `listener`를 호출하는 방법에 대한 자세한 내용은 [uORB Messaging > 주제 나열 및 듣기](../middleware/uorb.md#listing-topics-and-listening-in)를 참고하십시오.
+For more information about how to determine what topics are available and how to call `listener` see: [uORB Messaging > Listing Topics and Listening in](../middleware/uorb.md#listing-topics-and-listening-in).
