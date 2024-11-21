@@ -13,7 +13,7 @@ It has been tested with the following devices:
 - [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx-pro/) (uAvionix)
 - [FLARM](https://flarm.com/products/uav/atom-uav-flarm-for-drones/) <!-- I think originally https://flarm.com/products/powerflarm/uav/ -->
 
-## Hardware Setup
+## 硬件安装
 
 Any of the devices can be connected to any free/unused serial port on the flight controller. Most commonly they are connected to `TELEM2` (if this is not being use for some other purpose).
 
@@ -21,9 +21,9 @@ Any of the devices can be connected to any free/unused serial port on the flight
 
 The PingRX MAVLink port uses a JST ZHR-4 mating connector with pinout as shown below.
 
-| 针脚   | Signal   | 电压           |
+| 针脚   | 信号       | 电压           |
 | ---- | -------- | ------------ |
-| 2    | RX (IN)  | +5V tolerant |
+| 1（红） | RX (IN)  | +5V tolerant |
 | 2    | TX (OUT) |              |
 | 3    | 电源       | +4 to 6V     |
 | 4（黑） | GND      | GND          |
@@ -34,9 +34,9 @@ The PingRX comes with connector cable that can be attached directly to the TELEM
 
 FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
 
-| 针脚   | Signal   | 电压          |
+| 针脚   | 信号       | 电压          |
 | ---- | -------- | ----------- |
-| 2    | VCC      | +4V to +36V |
+| 1（红） | VCC      | +4V to +36V |
 | 2    | TX (OUT) | +3.3V       |
 | 3    | RX (IN)  | +3.3V       |
 | 4（黑） | -        | +3.3V       |
@@ -75,7 +75,7 @@ Configure the action when there is a potential collision using the parameter bel
 | <a id="NAV_TRAFF_A_VER"></a>[NAV_TRAFF_A_VER](../advanced_config/parameter_reference.md#NAV_TRAFF_A_VER)   | Vertical height above and below vehicle of the cylinder that defines its airspace (also see [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR)).                                               |
 | <a id="NAV_TRAFF_COLL_T"></a>[NAV_TRAFF_COLL_T](../advanced_config/parameter_reference.md#NAV_TRAFF_COLL_T) | Collision time threshold. Avoidance will trigger if the estimated time until collision drops below this value (the estimated time is based on relative speed of traffic and UAV). |
 
-## Implementation
+## 实现
 
 ### ADSB/FLARM
 
