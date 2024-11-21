@@ -11,7 +11,7 @@ The functions assigned to ports are fully configurable using appropriate paramet
 - Setup dual GPS.
 - Enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
 
-::: info
+:::note
 
 - Some ports cannot be configured because they are used for a very specific purpose such as the system console.
 - The mapping of specific devices to port names on the flight controller is explained in [Serial Port Mapping](../hardware/serial_port_mapping.md).
