@@ -1,6 +1,8 @@
-# ULog 파일 형식
+# ULog 파일 포맷
 
-ULog is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged. This document is meant to be the ULog File Format Spec Documentation. It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
+ULog is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged.
+This document is meant to be the ULog File Format Spec Documentation.
+It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
 
 PX4 uses ULog to log uORB topics as messages related to (but not limited to) the following sources:
 
@@ -14,21 +16,22 @@ The format uses [little endian](https://en.wikipedia.org/wiki/Endianness) memory
 
 The following binary types are used for logging. They all correspond to the types in C.
 
-| 형식                  | 바이트 크기 |
-| ------------------- | ------ |
+| 형식                                                          | 바이트 크기 |
+| ----------------------------------------------------------- | ------ |
 | int8_t, uint8_t   | 1      |
 | int16_t, uint16_t | 2      |
 | int32_t, uint32_t | 4      |
 | int64_t, uint64_t | 8      |
-| float               | 4      |
-| double              | 8      |
-| bool, char          | 1      |
+| float                                                       | 4      |
+| double                                                      | 8      |
+| bool, char                                                  | 1      |
 
 Additionally the types can be used as a fixed-size array: e.g. `float[5]`.
 
 Strings (`char[length]`) do not contain the termination NULL character `'\0'` at the end.
 
-::: info String comparisons are case sensitive, which should be taken into account when comparing message names when [adding subscriptions](#a-subscription-message).
+:::info
+String comparisons are case sensitive, which should be taken into account when comparing message names when [adding subscriptions](#a-subscription-message).
 :::
 
 ## ULog File Structure
@@ -76,7 +79,8 @@ struct message_header_s {
 - `msg_size` is the size of the message in bytes without the header.
 - `msg_type` defines the content, and is a single byte.
 
-::: info Message sections below are prefixed with the character that corresponds to it's `msg_type`.
+:::info
+Message sections below are prefixed with the character that corresponds to it's `msg_type`.
 :::
 
 ### 정의 섹션
@@ -94,7 +98,8 @@ The message types in this section are:
 
 #### 'B': Flag Bits Message
 
-::: info This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
+:::info
+This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
 :::
 
 This message provides information to the log parser whether the log is parsable or not.
@@ -113,15 +118,23 @@ struct ulog_message_flag_bits_s {
   - These flags indicate the presence of features in the log file that are compatible with any ULog parser.
   - `compat_flags[0]`: _DEFAULT_PARAMETERS_ (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
 
-  The rest of the bits are currently not defined and must be set to 0. 이 비트는 향후 기존 파서와 호환되는 ULog 변경에 사용할 수 있습니다. For example, adding a new message type can be indicated by defining a new bit in the standard, and existing parsers will ignore the new message type. 이는 알 수 없는 비트 중 하나가 설정되어 있으면, 파서가 해당 비트를 무시할 수 있음을 의미합니다.
+  The rest of the bits are currently not defined and must be set to 0.
+  이 비트는 향후 기존 파서와 호환되는 ULog 변경에 사용할 수 있습니다.
+  For example, adding a new message type can be indicated by defining a new bit in the standard, and existing parsers will ignore the new message type.
+  이는 알 수 없는 비트 중 하나가 설정되어 있으면, 파서가 해당 비트를 무시할 수 있음을 의미합니다.
 
-- `incompat_flags`: 비호환성 플래그 비트값.
+- `incompat_flags`: incompatible flag bits.
 
   - `incompat_flags[0]`: _DATA_APPENDED_ (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
 
-  The rest of the bits are currently not defined and must be set to 0. 이것은 기존 파서가 처리할 수 없는 주요 변경 사항을 도입하는 데 사용할 수 있습니다. For example, when an old ULog parser that didn't have the concept of _DATA_APPENDED_ reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts. If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
+  The rest of the bits are currently not defined and must be set to 0.
+  이것은 기존 파서가 처리할 수 없는 주요 변경 사항을 도입하는 데 사용할 수 있습니다. For example, when an old ULog parser that didn't have the concept of _DATA_APPENDED_ reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts.
+  If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
 
-- `appended_offsets`: File offset (0-based) for appended data. 데이터가 추가되지 않은 경우에는 모든 오프셋은 0이어야 합니다. 이것은 메시지 중간에 멈출 수 있는 로그에 대한 데이터를 안정적으로 추가할 수 있습니다. For example, crash dumps.
+- `appended_offsets`: File offset (0-based) for appended data.
+  데이터가 추가되지 않은 경우에는 모든 오프셋은 0이어야 합니다.
+  이것은 메시지 중간에 멈출 수 있는 로그에 대한 데이터를 안정적으로 추가할 수 있습니다.
+  For example, crash dumps.
 
   데이터를 추가하는 프로세스는 다음과 같습니다.
 
@@ -129,7 +142,9 @@ struct ulog_message_flag_bits_s {
   - set the first `appended_offsets` that is currently 0 to the length of the log file without the appended data, as that is where the new data will start
   - append any type of messages that are valid for the Data section.
 
-향후 ULog 사양에서 이 메시지 끝에 추가 필드가 존재할 수 있습니다. 이것은 파서가 이 메시지의 고정된 길이를 가정해서는 안 된다는 것을 의미합니다. If the `msg_size` is bigger than expected (currently 40), any additional bytes must be ignored/discarded.
+향후 ULog 사양에서 이 메시지 끝에 추가 필드가 존재할 수 있습니다.
+이것은 파서가 이 메시지의 고정된 길이를 가정해서는 안 된다는 것을 의미합니다.
+If the `msg_size` is bigger than expected (currently 40), any additional bytes must be ignored/discarded.
 
 #### 'F': Format Message
 
@@ -146,7 +161,8 @@ struct message_format_s {
   - There can be an arbitrary amount of fields (minimum 1), separated by `;`.
   - `message_name`: an arbitrary non-empty string with these allowed characters: `a-zA-Z0-9_-/` (and different from any of the [basic types](#data-types)).
 
-A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported). `field_name` must consist of the characters in the set `a-zA-Z0-9_`.
+A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported).
+`field_name` must consist of the characters in the set `a-zA-Z0-9_`.
 
 A `type` is one of the [basic binary types](#data-types) or a `message_name` of another format definition (nested usage).
 
@@ -158,13 +174,13 @@ A `type` is one of the [basic binary types](#data-types) or a `message_name` of 
 일부 필드 이름은 특별합니다.
 
 - `timestamp`: every message format with a [Subscription Message](#a-subscription-message) must include a timestamp field (for example a message format only used as part of a nested definition by another format may not include a timestamp field)
-  - 유형은 `uint64_t`(현재 유일하게 사용됨), `uint32_t`, `uint16_t` 또는 `uint8_t`일 수 있습니다.
+  - Its type must be `uint64_t`.
   - The unit is microseconds.
-  - 타임스탬프는 `msg_id`가 동일한 메시지 시리즈에 대해 항상 단조 증가해야 합니다.
+  - The timestamp must always be monotonic increasing for a message series with the same `msg_id` (same subscription).
 - `_padding{}`: field names that start with `_padding` (e.g. `_padding[3]`) should not be displayed and their data must be ignored by a reader.
   - 이 필드는 올바른 정렬을 보장하기 위하여 작성자가 삽입할 수 있습니다.
   - If the padding field is the last field, then this field may not be logged, to avoid writing unnecessary data.
-  - 즉, `message_data_s.data`가 패딩 크기만큼 짧아집니다.
+  - This means the `message_data_s.data` will be shorter by the size of the padding.
   - 그러나 메시지가 중첩 정의에서 사용될 때 패딩은 여전히 필요합니다.
 - In general, message fields are not necessarily aligned (i.e. the field offset within the message is not necessarily a multiple of its data size), so a reader must always use appropriate memory copy methods to access individual fields.
 
@@ -185,7 +201,7 @@ struct ulog_message_info_header_s {
 - `key`: Contains the key string in the form`type name`, e.g. `char[value_len] sys_toolchain_ver`. Valid characters for the name: `a-zA-Z0-9_-/`. The type may be one of the [basic types including arrays](#data-types).
 - `value`: Contains the data (with the length `value_len`) corresponding to the `key` e.g. `9.4.0`.
 
-::: info
+:::info
 A key defined in the Information message must be unique. Meaning there must not be more than one definition with the same key value.
 :::
 
@@ -193,26 +209,27 @@ A key defined in the Information message must be unique. Meaning there must not 
 
 사전 정의된 정보 메시지는 다음과 같습니다.
 
-| 키                                   | 설명                      | 예제 값               |
-| ----------------------------------- | ----------------------- | ------------------ |
-| `char[value_len] sys_name`          | 시스템 이름                  | "PX4"              |
-| `char[value_len] ver_hw`            | 하드웨어 버전 (보드)            | "PX4FMU_V4"        |
-| `char[value_len] ver_hw_subtype`    | 보드 하위 버전(변형판)           | "V2"               |
-| `char[value_len] ver_sw`            | 소프트웨어 버전(git tag)       | "7f65e01"          |
-| `char[value_len] ver_sw_branch`     | git branch              | "master"           |
-| `uint32_t ver_sw_release`           | 소프트웨어 버전 (아래 참고)        | 0x010401ff         |
-| `char[value_len] sys_os_name`       | 운영체제 이름                 | "Linux"            |
-| `char[value_len] sys_os_ve`r        | 운영체제 버전 (git tag)       | "9f82919"          |
-| `uint32_t ver_os_release`           | 운영체제 버전 (아래 참고)         | 0x010401ff         |
-| `char[value_len] sys_toolchain`     | 툴체인 이름                  | "GNU GCC"          |
-| `char[value_len] sys_toolchain_ver` | 툴체인 버전                  | "6.2.1"            |
-| `char[value_len] sys_mcu`           | 칩 이름과 버전                | "STM32F42x, rev A" |
-| `char[value_len] sys_uuid`          | 차량 고유 식별자(예: MCU ID)    | "392a93e32fa3"...  |
-| `char[value_len] log_type`          | 로그 형식(지정하지 않으면 전체 기록)   | "mission"          |
-| `char[value_len] replay`            | 재생 모드인 경우 재생된 로그의 파일 이름 | "log001.ulg"       |
-| `int32_t time_ref_utc`              | UTC 시간 오프셋(초)           | -3600              |
+| 키                                   | 설명                                                      | 예제 값                                                              |
+| ----------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------- |
+| `char[value_len] sys_name`          | 시스템 이름                                                  | "PX4"                                                             |
+| `char[value_len] ver_hw`            | 하드웨어 버전 (보드)                         | "PX4FMU_V4"                                  |
+| `char[value_len] ver_hw_subtype`    | 보드 하위 버전(변형판)                        | "V2"                                                              |
+| `char[value_len] ver_sw`            | 소프트웨어 버전(git tag)                    | "7f65e01"                                                         |
+| `char[value_len] ver_sw_branch`     | git branch                                              | "master"                                                          |
+| `uint32_t ver_sw_release`           | 소프트웨어 버전 (아래 참고)                     | 0x010401ff                                                        |
+| `char[value_len] sys_os_name`       | 운영체제 이름                                                 | "Linux"                                                           |
+| `char[value_len] sys_os_ve`r        | 운영체제 버전 (git tag)                    | "9f82919"                                                         |
+| `uint32_t ver_os_release`           | 운영체제 버전 (아래 참고)                      | 0x010401ff                                                        |
+| `char[value_len] sys_toolchain`     | 툴체인 이름                                                  | "GNU GCC"                                                         |
+| `char[value_len] sys_toolchain_ver` | 툴체인 버전                                                  | "6.2.1"                           |
+| `char[value_len] sys_mcu`           | 칩 이름과 버전                                                | "STM32F42x, rev A"                                                |
+| `char[value_len] sys_uuid`          | 차량 고유 식별자(예: MCU ID) | "392a93e32fa3"... |
+| `char[value_len] log_type`          | 로그 형식(지정하지 않으면 전체 기록)                | "mission"                                                         |
+| `char[value_len] replay`            | 재생 모드인 경우 재생된 로그의 파일 이름                                 | "log001.ulg"                                      |
+| `int32_t time_ref_utc`              | UTC 시간 오프셋(초)                        | -3600                                                             |
 
-::: info `value_len` represents the data size of the `value`. This is described in the `key`.
+:::info
+`value_len` represents the data size of the `value`. This is described in the `key`.
 :::
 
 - The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is **major**, BB is **minor**, CC is patch and TT is the **type**.
@@ -272,12 +289,13 @@ struct ulog_message_parameter_default_header_s {
 };
 ```
 
-- `default_types`는 비트 필드이며 값이 속한 그룹을 정의합니다.
+- `default_types` is a bitfield and defines to which group(s) the value belongs to.
   - 최소한 하나의 비트가 설정되어야 합니다.
-    - `1<<0`:: 시스템 전체 기본값
-    - `1<<1`: 현재 설정(예: 기체)의 기본값
+    - `1<<0`: system wide default
+    - `1<<1`: default for the current configuration (e.g. an airframe)
 
-로그에는 모든 매개변수에 대한 기본값이 포함되어 있지 않을 수 있습니다. 이러한 경우 기본값은 매개변수 값과 같고, 다른 기본 유형은 독립적으로 처리됩니다.
+로그에는 모든 매개변수에 대한 기본값이 포함되어 있지 않을 수 있습니다.
+이러한 경우 기본값은 매개변수 값과 같고, 다른 기본 유형은 독립적으로 처리됩니다.
 
 This message can also be used in the Data section, and the same data type and naming applies as for the Parameter message.
 
@@ -301,7 +319,8 @@ The message types in the _Data_ section are:
 
 #### `A`: Subscription Message
 
-Subscribe a message by name and give it an id that is used in [Logged data Message](#d-logged-data-message). This must come before the first corresponding [Logged data Message](#d-logged-data-message).
+Subscribe a message by name and give it an id that is used in [Logged data Message](#d-logged-data-message).
+This must come before the first corresponding [Logged data Message](#d-logged-data-message).
 
 ```c
 struct message_add_logged_s {
@@ -312,10 +331,11 @@ struct message_add_logged_s {
 };
 ```
 
-- `multi_id`: 동일한 메시지 형식에 여러 인스턴스가 있을 수 있습니다(예: 시스템에 동일한 유형의 센서가 두 개 있는 경우). 기본 및 첫 번째 인스턴스는 0이어야 합니다.
+- `multi_id`: the same message format can have multiple instances, for example if the system has two sensors of the same type. 기본 및 첫 번째 인스턴스는 0이어야 합니다.
 - `msg_id`: unique id to match [Logged data Message](#d-logged-data-message) data. 처음 사용할 때는 이것을 0으로 설정한 다음 증가시켜야 합니다.
   - The same `msg_id` must not be used twice for different subscriptions.
-- `message_name`: 구독할 메시지 이름입니다. Must match one of the [Format Message](#f-format-message) definitions.
+- `message_name`: message name to subscribe to.
+  Must match one of the [Format Message](#f-format-message) definitions.
 
 #### `R`: Unsubscription Message
 
@@ -382,7 +402,7 @@ struct message_logging_tagged_s {
 };
 ```
 
-- `tag`: 기록된 메시지 문자열의 소스를 나타내는 ID입니다. 시스템 아키텍처에 따라 프로세스, 스레드 또는 클래스를 나타낼 수 있습니다.
+- `tag`: id representing source of logged message string. 시스템 아키텍처에 따라 프로세스, 스레드 또는 클래스를 나타낼 수 있습니다.
 
   - For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the `tag` attribute of struct as follows:
 
@@ -402,6 +422,7 @@ struct message_logging_tagged_s {
   ```
 
 - `timestamp`: in microseconds
+
 - `log_level`: same as in the Linux kernel:
 
 | 이름      | 레벨  | 설명            |
@@ -458,26 +479,28 @@ Since the Definitions and Data Sections use the same message header format, they
 - Must ignore unknown messages (but it can print a warning)
 - 미래의/알 수 없는 파일 형식 버전도 구문 분석합니다(하지만 경고를 인쇄할 수 있음).
 - Must refuse to parse a log which contains unknown incompatibility bits set (`incompat_flags` of [Flag Bits Message](#b-flag-bits-message)), meaning the log contains breaking changes that the parser cannot handle.
-- 파서는 메시지 중간에 갑자기 끝나는 로그를 올바르게 처리할 수 있어야 합니다. 완료되지 않은 메시지는 무시하여야 합니다.
+- 파서는 메시지 중간에 갑자기 끝나는 로그를 올바르게 처리할 수 있어야 합니다.
+  완료되지 않은 메시지는 무시하여야 합니다.
 - 추가된 데이터의 경우: 파서는 데이터 섹션이 존재한다고 가정할 수 있습니다. 즉 오프셋은 정의 섹션 뒤의 위치를 가리킵니다.
   - 추가된 데이터는 일반 데이터 섹션의 일부인 것처럼 처리하여야 합니다.
 
 ## Known Parser Implementations
 
 - PX4-오토파일럿: C++
-  - [로거 모듈](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
-  - [재생 모듈](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
-  - [hardfault_log 모듈](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log): hardfault 충돌 데이터를 추가합니다.
+  - [logger module](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
+  - [replay module](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
+  - [hardfault_log module](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log): append hardfault crash data.
 - [pyulog](https://github.com/PX4/pyulog): python, ULog reader and writer library with CLI scripts.
 - [ulog_cpp](https://github.com/PX4/ulog_cpp): C++, ULog reader and writer library.
-- [FlightPlot](https://github.com/PX4/FlightPlot): 자바, 로그 플로터
-- [MAVLink](https://github.com/mavlink/mavlink): MAVLink를 통한 ULog 스트리밍용 메시지(적어도 잘린 메시지의 경우 데이터 추가는 지원되지 않습니다.)
-- [QGroundControl](https://github.com/mavlink/qgroundcontrol): C++, MAVLink를 통한 ULog 스트리밍 및 GeoTagging에 대한 최소한의 구문 분석
-- [mavlink-router](https://github.com/01org/mavlink-router): C++, MAVLink를 통한 ULog 스트리밍
-- [MAVGAnalysis](https://github.com/ecmnet/MAVGCL): Java, MAVLink를 통한 ULog 스트리밍 및 플로팅 및 분석용 파서
-- [PlotJuggler](https://github.com/facontidavide/PlotJuggler): 로그 및 시계열을 플롯하는 C++/Qt 응용 프로그램입니다. 버전 2.1.3부터 ULog를 지원합니다.
-- [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog 리더 및 파서는 JSON 개체 형식의 로그를 출력합니다.
-- [Foxglove Studio](https://github.com/foxglove/studio): an integrated visualization and diagnosis tool for robotics (Typescript ULog parser: https://github.com/foxglove/ulog).
+- [FlightPlot](https://github.com/PX4/FlightPlot): Java, log plotter.
+- [MAVLink](https://github.com/mavlink/mavlink): Messages for ULog streaming via MAVLink (note that appending data is not supported, at least not for cut off messages).
+- [QGroundControl](https://github.com/mavlink/qgroundcontrol): C++, ULog streaming via MAVLink and minimal parsing for GeoTagging.
+- [mavlink-router](https://github.com/01org/mavlink-router): C++, ULog streaming via MAVLink.
+- [MAVGAnalysis](https://github.com/ecmnet/MAVGCL): Java, ULog streaming via MAVLink and parser for plotting and analysis.
+- [PlotJuggler](https://github.com/facontidavide/PlotJuggler): C++/Qt application to plot logs and time series. 버전 2.1.3부터 ULog를 지원합니다.
+- [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog reader and parser outputs log in JSON object format.
+- [Foxglove Studio](https://github.com/foxglove/studio): an integrated visualization and diagnosis tool for robotics
+  (Typescript ULog parser: https://github.com/foxglove/ulog).
 
 ## 파일 형식 버전 이력
 
