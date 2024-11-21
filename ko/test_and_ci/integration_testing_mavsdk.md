@@ -39,7 +39,7 @@ DONT_RUN=1 make px4_sitl gazebo-classic mavsdk_tests
 
 ## 모든 PX4 테스트 실행
 
-[sitl.json](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/configs/sitl.json)에 정의된 대로 모든 SITL 테스트를 실행하려면 다음을 실행하십시오.
+To run all SITL tests as defined in [sitl.json](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/configs/sitl.json), do:
 
 ```sh
 test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10
@@ -134,14 +134,14 @@ About to run 39 test cases for 3 selected models (1 iteration):
 
 ## 구현 참고 사항
 
-- 테스트는 Python으로 작성된 테스트 스크립트 [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/mavsdk_test_runner.py)와 호출됩니다.
+- The tests are invoked from the test runner script [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/mavsdk_test_runner.py), which is written in Python.
 
   MAVSDK 외에도 `px4`와 Gazebo for SITL 테스트를 시작하고 이러한 프로세스의 로그를 수집합니다.
 
 - 테스트 실행기는 다음을 포함하는 C++ 바이너리입니다.
-  - 인수를 구문 분석하는 [main](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/test_main.cpp) 함수입니다.
-  - [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/autopilot_tester.h)라는 MAVSDK에 대한 추상화입니다.
-  - MAVSDK에 대한 추상화를 사용한 실제 테스트. 예:  [test_multicopter_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/test_multicopter_mission.cpp).
+  - The [main](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/test_main.cpp) function to parse the arguments.
+  - An abstraction around MAVSDK called [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.h).
+  - The actual tests using the abstraction around MAVSDK as e.g. [test_multicopter_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/test_multicopter_mission.cpp).
   - 테스트는 [catch2](https://github.com/catchorg/Catch2) 단위 테스트 프레임워크를 사용합니다. 이 프레임워크를 사용하는 이유는 다음과 같습니다.
     - Asserts (`REQUIRE`) which are needed to abort a test can be inside of functions (and not just in the top level test as is [the case with gtest](https://github.com/google/googletest/blob/main/docs/advanced.md#assertion-placement)).
     - *catch2*를 헤더 전용 라이브러리로 포함할 수 있기 때문에, 종속성 관리가 용이합니다.
