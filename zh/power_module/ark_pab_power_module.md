@@ -6,7 +6,7 @@ Note that at 60A and 20°C without cooling, the 5V regulator is de-rated to a 3A
 
 ![ARK PAB Power Module](../../assets/hardware/power_module/ark_power_modules//ark_pab_power_module.jpg)
 
-## 在哪里买
+## 购买渠道
 
 Order this module from:
 
