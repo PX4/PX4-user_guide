@@ -136,8 +136,8 @@ The following MAVLink messages and their particular fields and field values are 
     - Velocity setpoint (only `vx`, `vy`, `vz`)
     - _Thrust_ setpoint (only `afx`, `afy`, `afz`)
 
-:::note
-The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+      ::: info
+Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
 :::
 
     - Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
