@@ -1,6 +1,6 @@
 # PX4 콘솔/쉘
 
-PX4에서는 [MAVLink 쉘](../debug/mavlink_shell.md)과 [시스템 콘솔](../debug/system_console.md)을 사용하여 시스템에 접근할 수 있습니다.
+PX4 enables terminal access to the system through the [MAVLink Shell](../debug/mavlink_shell.md) and the [System Console](../debug/system_console.md).
 
 이 페이지에서는 콘솔과 쉘 사용 방법과 주요 차이점을 설명합니다.
 
@@ -22,21 +22,24 @@ There is just one _System Console_, which runs on one specific UART (the debug p
 - Cannot _directly_ display the output of tasks running on the work queue.
 - 시스템이 시작되지 않으면(아직 실행되지 않기 때문에) 문제를 디버그할 수 없습니다.
 
-:::note
-`dmesg` 명령은 이제 일부 보드의 셸을 통해 사용할 수 있으므로, 이전보다 훨씬 낮은 수준의 디버깅이 가능합니다. 예를 들어, `dmesg -f &`를 사용하면 백그라운드 작업의 출력도 조회할 수 있습니다.
+:::info
+The `dmesg` command is now available through the shell on some boards, enabling much lower level debugging than previously possible.
+For example, with `dmesg -f &` you also see the output of background tasks.
 :::
 
-전용 UART에서 실행되거나, MAVLink로 실행되는 여러 셸이 있을 수 있습니다. MAVLink가 더 많은 유연성을 제공하므로, 현재 [MAVLink Shell](../debug/mavlink_shell.md)만 사용됩니다.
+전용 UART에서 실행되거나, MAVLink로 실행되는 여러 셸이 있을 수 있습니다.
+Since MAVLink provides more flexibility, currently only the [MAVLink Shell](../debug/mavlink_shell.md) is used.
 
-[시스템 콘솔](../debug/system_console.md)은 시스템이 부팅되지 않을 때 사용됩니다(보드의 전원을 껐다 켤 때 시스템 부팅 로그를 표시함). [MAVLink Shell](../debug/mavlink_shell.md)은 설정이 훨씬 용이하므로, 대부분의 디버깅에 사용됩니다.
+The [System Console](../debug/system_console.md) is essential when the system does not boot (it displays the system boot log when power-cycling the board).
+The [MAVLink Shell](../debug/mavlink_shell.md) is much easier to setup, and so is more generally recommended for most debugging.
 
 <a id="using_the_console"></a>
 
 ## 콘솔/쉘 사용
 
-MAVLink 셸/콘솔과 [시스템 콘솔](../debug/system_console.md)은 같은 방식으로 사용됩니다.
+The MAVLink shell/console and the [System Console](../debug/system_console.md) are used in much the same way.
 
-예를 들어, 로컬 파일 시스템을 보려면 `ls`를 입력하고, 남은 여유 RAM을 보려면 `free`를 입력하고, 부팅 출력을 보려면 `dmesg`를 입력합니다.
+For example, type `ls` to view the local file system, `free` to see the remaining free RAM, `dmesg` to look at boot output.
 
 ```sh
 nsh> ls
@@ -78,8 +81,9 @@ To inspect a specific uORB topic:
 listener <topic_name>
 ```
 
-다른 많은 시스템 명령과 모듈은 [모듈 및 명령 참조](../modules/modules_main.md)에 나열되어 있습니다(예: `top`, `listener` 등).
+Many other system commands and modules are listed in the [Modules and Command Reference](../modules/modules_main.md) (e.g. `top`, `listener`, etc.).
 
 :::tip
-일부 명령은 일부 보드에서 비활성화될 수 있습니다(예: RAM 또는 FLASH 제약 조건이 있는 보드의 경우 일부 모듈은 펌웨어에 포함되지 않음). 이 경우에는 응답이 표시됩니다. `명령어를 찾을 수 없음`
+Some commands may be disabled on some boards (i.e. the some modules are not included in firmware for boards with RAM or FLASH constraints).
+In this case you will see the response: `command not found`
 :::
