@@ -19,7 +19,7 @@ The Robotics Interface Board coupled with Septentrio GNSS receiver boards provid
 - Розмір: 71.53 x 47.5 x 18.15 mm
 - Weight: 50g
 
-## Купити
+## Купівля
 
 Усі приймачі AsteRx та Роботизовані Інтерфейсні Плати можна придбати в інтернет-магазині Septentrio:
 
@@ -64,7 +64,7 @@ _Тип роз'єму: SAMTEC TMM-103-03-G-D, крок 2 мм._
 
 When a USB cable is connected to the USB Micro-B connector, the interface board is powered from the computer through the USB connector. Alternatively, the power can be applied from the `PWR_IN` pins of the 44-pin connector. The voltage range when powering from the `PWR_IN` pins is 4.5V to 30V. Електроживлення можна подавати одночасно з обох джерел. На борту діоди запобігають коротким замиканням. The interface board provides the 3V3 supply to the AsteRx-m3 OEM receiver and a 5V DC voltage to the `VANT` pin of the AsteRx-m3 OEM.
 
-## Конфігурація PX4
+## Налаштування PX4
 
 PX4 configuration is covered in [Septentrio GNSS Receivers](../gps_compass/septentrio.md).
 
