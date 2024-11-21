@@ -26,7 +26,7 @@ The power module is connected using the I2C protocol. It is designed for flight 
 - PM02D board with XT60 connectors
 - 6pin 2.00mm pitch CLIK-Mate cable to power flight controller
 
-## 在哪里买
+## 购买渠道
 
 [Order from Holybro Store](https://holybro.com/products/pm02d-power-module)
 
