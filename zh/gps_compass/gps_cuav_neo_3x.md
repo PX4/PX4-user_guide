@@ -35,7 +35,7 @@ Main features :
 | Size                                         | 67_67_21.2mm                                                                                                      |
 | Weight                                       | 46g (without cable）                                                                                            |
 
-## 在哪里买
+## 购买渠道
 
 - [CUAV](https://www.alibaba.com/product-detail/Free-shipping-CUAV-NEO-3X-GPS_1601004167114.html?spm=a2747.manage.0.0.6aa271d2urCPnP)
 
