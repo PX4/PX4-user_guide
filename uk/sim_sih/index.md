@@ -5,7 +5,7 @@
 :::warning
 Цей симулятор [модифікується та підтримується спільнотою](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4 (known to work in PX4 v1.14).
 
-Див. розділ [Встановлення інструментів](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, що підтримуються основною командою розробників.
+Див. [інструкцію з встановлення засобів розробки](../dev_setup/dev_env.md) для інформації про середовища та інструменти, підтримувані основним розробницьким колективом.
 :::
 
 Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulation (HITL)](../simulation/hitl.md) for quadrotors, fixed-wing vehicles (airplane), and VTOL tailsitters.
