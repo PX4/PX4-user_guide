@@ -8,7 +8,7 @@ PX4 provides [experimental support](index.md) for an 8-thrust vectored configura
 
 ![Hero](../../assets/airframes/sub/bluerov/bluerov_hero.jpg)
 
-## 在哪里买
+## 购买渠道
 
 [BlueROV2](https://bluerobotics.com/store/rov/bluerov2/) + [BlueROV2 Heavy Configuration Retrofit Kit](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/)
 
@@ -38,7 +38,7 @@ BlueROV2 does not come with PX4 installed. You will need to:
 
 <!-- what other tuning/testing/ etc? -->
 
-## Video
+## 视频:
 
 <lite-youtube videoid="1sUaURmlmT8" title="PX4 on BlueRov Demo"/>
 
