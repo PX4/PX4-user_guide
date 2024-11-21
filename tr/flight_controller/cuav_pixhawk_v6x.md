@@ -1,7 +1,8 @@
 # CUAV Pixhawk V6X
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 :::
 
 _Pixhawk V6X_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with CUAV<sup>&reg;</sup> and the PX4 team.
@@ -16,14 +17,18 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 Pixhawk<sup>&reg;</sup> V6X brings you the ultimate in performance, stability and reliability in all aspects.
 
-- Arm® Cortex®-M7 processor (STM32H753) with Floating Point Unit (FPU), 480MHz high-speed operations and 2MB flash. Developers can be more productive and efficient, allowing for more complex algorithms and models.
-- High-performance on-board, low-noise IMU and automotive-grade magnetic compass based on FMUv6X open standard. It aims to achieve better stability and anti-interference ability.
-- Triple redundant IMU & double redundant barometer on separate buses. When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
-- An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
+- Arm® Cortex®-M7 processor (STM32H753) with Floating Point Unit (FPU), 480MHz high-speed operations and 2MB flash.
+  Developers can be more productive and efficient, allowing for more complex algorithms and models.
+- High-performance on-board, low-noise IMU and automotive-grade magnetic compass based on FMUv6X open standard.
+  It aims to achieve better stability and anti-interference ability.
+- Triple redundant IMU & double redundant barometer on separate buses.
+  When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
+- An independent LDO powers every sensor set with independent power control.
+  A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
 - External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface.
 - Integrated Microchip Ethernet PHY for high-speed communication over Ethernet with onboard devices such as mission computers.
 - Newly designed vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings.
-- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
+- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20
 - Modular flight controller: separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk®​ Autopilot Bus connector.
 
 The Pixhawk® V6X is ideal for corporate research labs, academic research and commercial applications.
@@ -131,7 +136,8 @@ Notes:
 
 ## Voltage Ratings
 
-_Pixhawk V6X_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWERC1/POWER1**, **POWERC2/POWER2** and **USB**.
+_Pixhawk V6X_ can be triple-redundant on the power supply if three power sources are supplied.
+The three power rails are: **POWERC1/POWER1**, **POWERC2/POWER2** and **USB**.
 
 - **POWER C1** and **POWER C2** are DroneCAN/UAVCAN battery interfaces (recommended)；**POWER1** and **POWER2** are SMbus/I2C battery interfaces (backup).
 - **POWER C1** and **POWER1** use the same power switch, **POWER C2** and **POWER2** use the same power switch.
@@ -148,21 +154,22 @@ Under these conditions all power sources will be used in this order to power the
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
 1. **POWER1** and **POWER2** inputs (operational range 4.7V to 5.7V, 0V to 10V undamaged)
-1. **USB input** (operational range 4.7V to 5.7V, 0V to 6V undamaged)
-1. **Servo input:** `VDD_SERVO` pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+2. **USB input** (operational range 4.7V to 5.7V, 0V to 6V undamaged)
+3. **Servo input:** `VDD_SERVO` pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
 **Voltage monitoring**
 
 Digital DroneCAN/UAVCAN battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_cuav_pixhawk_v6x.md#power)).
 
-::: info
+:::info
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
 :::
 
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -179,18 +186,18 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Pin      | Signal           | Volt  |
-| -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
+| Pin                         | Signal                              | Volt                  |
+| --------------------------- | ----------------------------------- | --------------------- |
+| 1 (red)  | `Vtref`                             | +3.3V |
 | 2 (blk)  | Console TX (OUT) | +3.3V |
 | 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `SWO`            | +3.3V |
-| 7 (blk)  | NFC GPIO         | +3.3V |
-| 8 (blk)  | PH11             | +3.3V |
-| 9 (blk)  | nRST             | +3.3V |
-| 10 (blk) | `GND`            | GND   |
+| 4 (blk)  | `SWDIO`                             | +3.3V |
+| 5 (blk)  | `SWCLK`                             | +3.3V |
+| 6 (blk)  | `SWO`                               | +3.3V |
+| 7 (blk)  | NFC GPIO                            | +3.3V |
+| 8 (blk)  | PH11                                | +3.3V |
+| 9 (blk)  | nRST                                | +3.3V |
+| 10 (blk) | `GND`                               | GND                   |
 
 For information about wiring and using this port see:
 
@@ -205,7 +212,8 @@ For information about wiring and using this port see:
 
 ## Supported Platforms / Airframes
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## Further info
 
