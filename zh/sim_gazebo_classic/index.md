@@ -396,7 +396,7 @@ The simulated camera sensor is supported/enabled on the following frames:
 
 - [Typhoon H480](#typhoon_h480)
 
-### Prerequisites
+### 系统必备组件
 
 _Gstreamer 1.0_ is required for video streaming. The required dependencies should already have been [installed when you set up Gazebo Classic](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
 
