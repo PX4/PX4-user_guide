@@ -102,8 +102,8 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
 
          ```sh
          mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
-            chmod -R 777 /opt/bbblue_toolchain
-            cd /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
+         chmod -R 777 /opt/bbblue_toolchain
+         cd /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
          ```
 
          The ARM Cross Compiler for _BeagleBone Blue_ can be found at [Linaro Toolchain Binaries site](https://www.linaro.org/downloads/#gnu_and_llvm).
@@ -193,10 +193,8 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
 1. Install dependencies:
 
    ```sh
-   Install dependencies: 
-     sh
-     sudo apt-get update
-     sudo apt-get install cmake python-empy
+   sudo apt-get update
+   sudo apt-get install cmake python3-empy=3.3.4-2
    ```
 1. Clone the PX4 Firmware directly onto the BeagleBone Blue.
 1. Continue with the [standard build system installation](../dev_setup/dev_env_linux.md).
