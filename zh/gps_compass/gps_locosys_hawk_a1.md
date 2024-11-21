@@ -16,7 +16,7 @@ Main features include:
 
 ![Hawk A1](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
-## 在哪里买
+## 购买渠道
 
 - [LOCOSYS](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) (Taiwan)
 
@@ -54,7 +54,7 @@ The Locosys GPS comes with an 6-pin JST-GH Pixhawk-standard connector that can b
 
 The LOCOSYS GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
 
-| 针脚 | Locosys GPS | 针脚 | Pixhawk GPS 2 |
+| 引脚 | Locosys GPS | 引脚 | Pixhawk GPS 2 |
 | -- | ----------- | -- | ------------- |
 | 1  | VCC_5V      | 1  | VCC           |
 | 2  | GPS_RX      | 2  | GPS_TX        |
@@ -65,11 +65,11 @@ The LOCOSYS GPS pinout is provided below. This can be used to help modify the co
 
 ## Status LEDs
 
-| Color | 名称              | 描述                                 |
-| ----- | --------------- | ---------------------------------- |
-| Green | TX Indicator    | GNSS Data transmission             |
-| Red   | Power Indicator | 电源                                 |
-| Blue  | PPS             | Precise Positioning Service active |
+| 颜色  | 名称              | 描述                                 |
+| --- | --------------- | ---------------------------------- |
+| 绿色  | TX Indicator    | GNSS Data transmission             |
+| Red | Power Indicator | 电源                                 |
+| 蓝色  | PPS             | Precise Positioning Service active |
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
 
