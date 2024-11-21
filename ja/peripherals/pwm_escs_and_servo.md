@@ -64,7 +64,7 @@ After assigning outputs and basic calibration, you may then wish to peform an [E
 
 Additional PX4 PWM configuration parameters can be found here: [PWM Outputs](../advanced_config/parameter_reference.md#pwm-outputs).
 
-## Troubleshooting
+## トラブルシューティング
 
 Pixhawk is compatible with all _PWM ESCs_ on the market. If a particular ESC is not operational, it is incorrectly wired up or configured.
 
