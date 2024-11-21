@@ -136,7 +136,7 @@ This can be done by connecting the power rail to a BEC equipped ESC, a standalon
 
 A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
-The communication channel is via [Telemetry Radios](../telemetry/index.md). The communication channel is via [Telemetry Radios](../telemetry/README.md). The other radio is connected to your ground station computer or mobile device (usually via USB).
+The communication channel is via [Telemetry Radios](../telemetry/index.md). The vehicle-based radio should be connected to the **TELEM1** port (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
 
 ![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
