@@ -88,7 +88,7 @@ MAVLink messages are streamed using a streaming class, derived from `MavlinkStre
 
 This tutorial demonstrates how to stream a uORB message as a MAVLink message, and applies to both standard and custom messages.
 
-### 前置条件
+### 操作前提
 
 Generally you will already have a [uORB](../middleware/uorb.md) message that contains information you'd like to stream and a definition of a MAVLink message that you'd like to stream it with.
 
