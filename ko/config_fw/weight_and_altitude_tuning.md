@@ -63,7 +63,7 @@ This is provided for interest only, and may be of interest to developers who wan
 In the following sections we will use the notation $\hat X$ to specify that this value is a calibrated value of the variable $X$.
 By calibrated we mean the value of that variable measured at sea level in standard atmospheric conditions, and when vehicle weight was equal to [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
 
-E.g. by $\hat{\dot{h}}_{max}$ we specify the maximum climb rate the vehicle can achieve at [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) at sea level in standard atmospheric conditions.
+예: by $\hat{\dot{h}}_{max}$ we specify the maximum climb rate the vehicle can achieve at [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) at sea level in standard atmospheric conditions.
 
 ### Effect of Weight on Maximum Climb Rate
 
