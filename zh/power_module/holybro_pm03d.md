@@ -50,7 +50,7 @@ The power module is connected using the I2C protocol. It is designed for flight 
 
 <img src="../../assets/hardware/power_module/holybro_pm03d/pm03d_contents.jpg" width="650px" title="Pixhawk5x Upright Image" />
 
-## 在哪里买
+## 购买渠道
 
 [Order from Holybro Store](https://holybro.com/products/pm03d-power-module)
 
