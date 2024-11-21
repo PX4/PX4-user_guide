@@ -1,4 +1,4 @@
-- [Вступ](index.md)
+- [Введення](index.md)
 
   - [Основні поняття](getting_started/px4_basic_concepts.md)
 
