@@ -206,7 +206,7 @@ After acquiring the pre-built library,
 
 Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
-1. 패키지를 설치합니다.
+1. 종속성 설치:
 
    ```sh
    sudo apt-get update
