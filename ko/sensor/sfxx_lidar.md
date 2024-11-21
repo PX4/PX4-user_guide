@@ -34,7 +34,7 @@ I2C 포트에 연결 가능한 모델을 위의 표를 참고하십시오.
 
 ### Lidar Configuration (SF11/C)
 
-The SF11/C hardware (only) does not ship with Pixhawk I2C compatibility enabled by default. 지원을 활성화하려면 [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio)를 다운로드하고 **매개 변수 &gt; 통신**으로 이동하여 **I2C 호환 모드(Pixhawk)**를 선택하여야합니다.
+The SF11/C hardware (only) does not ship with Pixhawk I2C compatibility enabled by default. To enable support, you have to download [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio) and got to **Parameters > Communication** and tick mark **I2C compatibility mode (Pixhawk)**
 
 ![LightWare SF11/C Lidar-I2C 설정](../../assets/hardware/sensors/lidar_lightware/lightware_studio_i2c_config.jpg)
 
