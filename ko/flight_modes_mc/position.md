@@ -67,7 +67,7 @@ All the parameters in the [Multicopter Position Control](../advanced_config/para
 | <a id="MPC_VEL_MANUAL"></a>[MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL)       | Maximum horizontal velocity.                                                                                                                                                                                                                                                                                         |
 | <a id="MPC_LAND_SPEED"></a>[MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)      | Landing descend rate. Default 0.7 m/s.                                                                                                                                                                                                                                                                               |
 
-## Additional Information
+## 추가 정보
 
 ### Position Loss/Safety
 
