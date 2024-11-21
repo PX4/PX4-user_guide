@@ -34,7 +34,7 @@
 
 ## 배선
 
-배선 정보는 [Pixhawk 4 &gt; 전원](../assembly/quick_start_pixhawk4.md#power)을 참고하십시오.
+Wiring and connection information can be found in: [Pixhawk 4 > Power](../assembly/quick_start_pixhawk4.md#power).
 
 ![Pixhawk 4 - 전원 관리 보드](../../assets/hardware/power_module/holybro_pm07/pixhawk4_power_management_board.png)
 
