@@ -89,7 +89,7 @@ Not all setpoint types make sense for a ground vehicle, or are supported.
 This mode is intended for vehicle control from companion computers and ground stations!
 :::
 
-## Подальша інформація
+## Додаткова інформація
 
 - [Базова конфігурація > Режими польоту](../config/flight_mode.md) - Як відповідати перемикачі керування RC конкретним режимам польоту
 - [Режими польоту (Мультикоптер)](../flight_modes_mc/index.md)
