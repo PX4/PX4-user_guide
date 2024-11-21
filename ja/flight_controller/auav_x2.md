@@ -6,12 +6,14 @@
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 The [AUAV<sup>&reg;</sup>](http://www.auav.com/) _AUAV-X2 autopilot_ is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
-![AUAVX2_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
+![AUAVX2\_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
 
 ## Quick Summary
 
@@ -49,7 +51,9 @@ The [AUAV<sup>&reg;</sup>](http://www.auav.com/) _AUAV-X2 autopilot_ is based on
 
 ## Availability
 
-No longer in production. This has been superseded by the [mRo X2.1](mro_x2.1.md). mRobotics is the distributor for the AUAV Products from August 2017.
+No longer in production.
+This has been superseded by the [mRo X2.1](mro_x2.1.md).
+mRobotics is the distributor for the AUAV Products from August 2017.
 
 ## Key Links
 
@@ -72,16 +76,17 @@ The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open
 
 - [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
 
-::: info As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+:::info
+As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 :::
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO debug              |
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
+| UART1  | /dev/ttyS0 | IO debug                                 |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
 | USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART4  |            |                                          |
+| UART7  | CONSOLE    |                                          |
+| UART8  | SERIAL4    |                                          |
