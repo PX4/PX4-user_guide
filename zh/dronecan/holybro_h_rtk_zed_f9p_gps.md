@@ -2,7 +2,7 @@
 
 The [H-RTK ZED-F9P Rover](https://holybro.com/collections/h-rtk-gps/products/h-rtk-zed-f9p-rover) RTK GNSS is an upgraded version of the original [H-RTK F9P Rover](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md).
 
-::: tip
+:::tip
 This topic covers the [DroneCAN](../dronecan/#enabling-dronecan) variant of the module.
 
 Variants of this module also exist with connectors for the `GPS1` and `GPS2 UART` ports.
@@ -21,7 +21,7 @@ It delivers centimetre-level accuracy with the use of a base station or NTRIP se
 
 The high-precision PNI RM3100 compass ensures accurate orientation and stability, offering exceptional reliability, making it ideal for demanding UAV applications. It provides high resolution, low power consumption, large signal noise immunity, a large dynamic range, and high sampling rates. Its measurements are stable over temperature and inherently free from offset drift.
 
-## 在哪里买
+## 购买渠道
 
 - [Holybro](https://holybro.com/collections/h-rtk-gps/products/h-rtk-zed-f9p-rover)
 
@@ -47,7 +47,7 @@ The high-precision PNI RM3100 compass ensures accurate orientation and stability
   - Current Consumption: 250 mA
   - Weight: 117 grams
 
-## Hardware Setup
+## 硬件安装
 
 ### 布线
 
