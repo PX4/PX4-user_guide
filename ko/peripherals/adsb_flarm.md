@@ -21,12 +21,12 @@ Any of the devices can be connected to any free/unused serial port on the flight
 
 The PingRX MAVLink port uses a JST ZHR-4 mating connector with pinout as shown below.
 
-| 핀     | 신호      | 전압           |
-| ----- | ------- | ------------ |
-| 1 (적) | RX (입력) | +5V tolerant |
-| 2 (흑) | TX (출력) |              |
-| 3 (흑) | 전원      | +4 to 6V     |
-| 4 (흑) | GND     | GND          |
+| 핀      | 신호      | 전압           |
+| ------ | ------- | ------------ |
+| 1(red) | RX (입력) | +5V tolerant |
+| 2 (흑)  | TX (출력) |              |
+| 3 (흑)  | 전원      | +4 to 6V     |
+| 4 (흑)  | GND     | GND          |
 
 The PingRX comes with connector cable that can be attached directly to the TELEM2 port (DF13-6P) on an [mRo Pixhawk](../flight_controller/mro_pixhawk.md). For other ports or boards, you will need to obtain your own cable.
 
@@ -34,14 +34,14 @@ The PingRX comes with connector cable that can be attached directly to the TELEM
 
 FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
 
-| 핀     | 신호      | 전압          |
-| ----- | ------- | ----------- |
-| 1 (적) | VCC     | +4V to +36V |
-| 2 (흑) | TX (출력) | +3.3V       |
-| 3 (흑) | RX (입력) | +3.3V       |
-| 4 (흑) | -       | +3.3V       |
-| 5 (흑) | -       | +3.3V       |
-| 6 (흑) | GND     | GND         |
+| 핀      | 신호      | 전압          |
+| ------ | ------- | ----------- |
+| 1(red) | VCC     | +4V to +36V |
+| 2 (흑)  | TX (출력) | +3.3V       |
+| 3 (흑)  | RX (입력) | +3.3V       |
+| 4 (흑)  | -       | +3.3V       |
+| 5 (흑)  | -       | +3.3V       |
+| 6 (흑)  | GND     | GND         |
 
 ::: info
 The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
@@ -68,14 +68,14 @@ You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/para
 
 Configure the action when there is a potential collision using the parameter below:
 
-| Parameter                                                                                                 | Description                                                                                                                                                                       |
+| 매개변수                                                                                                      | 설명                                                                                                                                                                                |
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="NAV_TRAFF_AVOID"></a>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode.                                                                 |
 | <a id="NAV_TRAFF_A_HOR"></a>[NAV_TRAFF_A_HOR](../advanced_config/parameter_reference.md#NAV_TRAFF_A_HOR)   | Horizonal radius of cylinder around the vehicle that defines its airspace (i.e. the airspace in the ground plane).                                                                |
 | <a id="NAV_TRAFF_A_VER"></a>[NAV_TRAFF_A_VER](../advanced_config/parameter_reference.md#NAV_TRAFF_A_VER)   | Vertical height above and below vehicle of the cylinder that defines its airspace (also see [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR)).                                               |
 | <a id="NAV_TRAFF_COLL_T"></a>[NAV_TRAFF_COLL_T](../advanced_config/parameter_reference.md#NAV_TRAFF_COLL_T) | Collision time threshold. Avoidance will trigger if the estimated time until collision drops below this value (the estimated time is based on relative speed of traffic and UAV). |
 
-## Implementation
+## 구현
 
 ### ADSB/FLARM
 
