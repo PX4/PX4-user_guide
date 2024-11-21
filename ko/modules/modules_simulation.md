@@ -14,7 +14,7 @@ signals given by the control allocation module.
 
 이 시뮬레이터는 루프에 상태 추정기를 통합하기 위하여 실제 노이즈로 손상된 센서 신호를 게시합니다.
 
-### Implementation
+### 구현
 
 시뮬레이터는 선형대수를 사용하여 운동 방정식을 구현합니다.
 쿼터니언 표현은 태도에 사용됩니다.
