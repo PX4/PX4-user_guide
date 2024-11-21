@@ -4,7 +4,7 @@ It is possible to record and replay arbitrary parts of the system based on ORB m
 
 Replay is useful to test the effect of different parameter values based on real data, compare different estimators, etc.
 
-## 전제 조건
+## 준비 사항
 
 The first step is to identify the module or modules that should be replayed.
 그런 다음 이 모듈에 대한 모든 입력, 즉 구독된 ORB 주제를 식별합니다.
