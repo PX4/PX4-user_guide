@@ -79,7 +79,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 - Improvement: Fixed-wing auto takeoff: enable setting takeoff flaps for hand/catapult launch. [PX4-Autopilot#23460](https://github.com/PX4/PX4-Autopilot/pull/23460)
 
-### 로버
+### 탐사선
 
 This release contains a major rework for the rover support in PX4:
 
