@@ -2,11 +2,13 @@
 
 This section covers the common software configuration and calibration needed for most PX4 vehicles.
 
-You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection). Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
+You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection).
+Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
 
 ## Preconditions
 
-Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer. Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
+Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer.
+Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
 
 ![QGC Main Menu Popup: highlighting Vehicle Setup](../../assets/qgc/setup/menu_setup.png)
 
@@ -19,19 +21,20 @@ Before starting you should [Download QGroundControl](http://qgroundcontrol.com/d
 
 ### Motor/Actuator Setup
 
-- [ESCキャリブレーション](../advanced_config/esc_calibration.md)
+- [ESC Calibration](../advanced_config/esc_calibration.md)
 - [Actuator Configuration and Testing](../config/actuators.md)
 
 ### Sensor Calibration
 
 - [Sensor Orientation](../config/flight_controller_orientation.md)
 - [Magnetometer (Compass)](../config/compass.md)
-- [ジャイロ](../config/gyroscope.md)
-- [加速度センサー](../config/accelerometer.md)
+- [Gyroscope](../config/gyroscope.md)
+- [Accelerometer](../config/accelerometer.md)
 - [Level Horizon](../config/level_horizon_calibration.md)
 - [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
 
-::: info Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
+:::info
+Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
 :::
 
 ### Manual Control Setup
@@ -78,4 +81,4 @@ If you need help with the configuration you can ask for help on the [QGroundCont
   - [Multicopter Config/Tuning](../config_mc/index.md)
   - [Helicopter Config/Tuning](../config_heli/index.md)
   - [Fixed-wing Config/Tuning](../config_fw/index.md)
-  - [VTOL機設定/チューニング](../config_vtol/index.md)
+  - [VTOL Config/Tuning](../config_vtol/index.md)
