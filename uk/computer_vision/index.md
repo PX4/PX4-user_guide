@@ -11,7 +11,7 @@ PX4 uses computer vision systems (primarily running on [Companion Computers](../
   - [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md) provides 3D pose and velocity estimation using an onboard vision system and IMU.
     Використовується для навігації, коли інформація про глобальне місцезнаходження відсутня або ненадійна.
 - Уникнення/планування шляху:
-  - [Collision Prevention](../computer_vision/collision_prevention.md) is used to stop vehicles before they can crash into an obstacle (primarily when flying in manual modes).
+  - [Collision Prevention](../computer_vision/collision_prevention.md) is used to stop MC vehicles before they can crash into an obstacle (primarily when flying in manual modes).
 
 :::tip
 The [PX4 Vision Autonomy Development Kit](../complete_vehicles_mc/px4_vision_kit.md) (Holybro) is a robust and inexpensive kit for developers working with computer vision on PX4.
