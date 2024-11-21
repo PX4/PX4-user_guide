@@ -143,7 +143,7 @@ to
 http://dronebridge.local/api/settings/change
 ```
 
-## Troubleshooting
+## トラブルシューティング
 
 - Always erase the flash of the ESP32 before flashing a new release/firmware
 - Check if the pins on your ESP board are labeled correctly.
