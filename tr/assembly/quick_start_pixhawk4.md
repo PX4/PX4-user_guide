@@ -1,6 +1,8 @@
 # Pixhawk 4 Wiring Quick Start
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 This quick start guide shows how to power the [Pixhawk 4](../flight_controller/pixhawk4.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
@@ -21,9 +23,11 @@ More information about available ports can be found here: [Pixhawk 4 > Connectio
 
 _Pixhawk 4_ should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
-<img src="../../assets/flight_controller/pixhawk4/pixhawk4_mounting_and_foam.png" align="center" />
+<img src="../../assets/flight_controller/pixhawk4/pixhawk4_mounting_and_foam.png" align="center"/>
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::info
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will
+need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
 ## GPS + Compass + Buzzer + Safety Switch + LED
@@ -34,67 +38,85 @@ The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
-::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::info
+The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle).
+To disable the safety press and hold the safety switch for 1 second.
+You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 :::
 
 ## Power
 
-Connect the output of the _Power Management Board_ (PM board) that comes with the kit to one of the **POWER** bricks of _Pixhawk 4_ using a 6-wire cable. The PM input **2~12S** will be connected to your LiPo battery. The connections of Power Management Board, including power supply and signal connections to the ESCs and servos, are explained in the table below. Note that the PM board does not supply power to the servos via + and - pins of **FMU PWM-OUT**.
+Connect the output of the _Power Management Board_ (PM board) that comes with the kit to one of the **POWER** bricks of _Pixhawk 4_ using a 6-wire cable.
+The PM input **2~12S** will be connected to your LiPo battery.
+The connections of Power Management Board, including power supply and signal connections to the ESCs and servos, are explained in the table below.
+Note that the PM board does not supply power to the servos via + and - pins of **FMU PWM-OUT**.
 
 The image below shows the power management board provided with _Pixhawk 4_.
 
 ![Pixhawk 4 - Power Management Board](../../assets/hardware/power_module/holybro_pm07/pixhawk4_power_management_board.png)
 
-::: info If using a plane or rover, the 8 pin power (+) rail of **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc. To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Be careful with the voltage of servo you are going to use here.
+:::info
+If using a plane or rover, the 8 pin power (+) rail of **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc.
+To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery.
+Be careful with the voltage of servo you are going to use here.
 :::
 
 | PIN&Connector | Function                                                                                                    |
-| ------------- | ----------------------------------------------------------------------------------------------------------- |
-| I/O PWM-IN    | See note below for connection to _Pixhawk 4_                                                                |
-| M1            | I/O PWM OUT 1: connect signal wire to ESC of motor 1 here                                                   |
-| M2            | I/O PWM OUT 2: connect signal wire to ESC of motor 2 here                                                   |
-| M3            | I/O PWM OUT 3: connect signal wire to ESC of motor 3 here                                                   |
-| M4            | I/O PWM OUT 4: connect signal wire to ESC of motor 4 here                                                   |
-| M5            | I/O PWM OUT 5: connect signal wire to ESC of motor 5 here                                                   |
-| M6            | I/O PWM OUT 6: connect signal wire to ESC of motor 6 here                                                   |
-| M7            | I/O PWM OUT 7: connect signal wire to ESC of motor 7 here                                                   |
-| M8            | I/O PWM OUT 8: connect signal wire to ESC of motor 8 here                                                   |
-| FMU PWM-IN    | See note below for connection to _Pixhawk 4_                                                                |
-| FMU PWM-OUT   | If FMU PWM-IN is connected to _Pixhawk 4_, connect signal wires to ESC or signal, +, - wires to servos here |
-| CAP&ADC-OUT   | connect to CAP & ADC IN port of _Pixhawk 4_                                                                 |
-| CAP&ADC-IN    | CAP&ADC input: Pinouts are printed on the back side of the board                                            |
-| B+            | connect to ESC B+ to power the ESC                                                                          |
-| GND           | connect to ESC Ground                                                                                       |
-| PWR1          | 5v output 3A, connect to _Pixhawk 4_ POWER 1                                                                |
-| PWR2          | 5v output 3A, connect to _Pixhawk 4_ POWER 2                                                                |
-| 2~12S         | Power Input, connect to 12S LiPo Battery                                                                    |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| I/O PWM-IN                        | See note below for connection to _Pixhawk 4_                                                                |
+| M1                                | I/O PWM OUT 1: connect signal wire to ESC of motor 1 here                                   |
+| M2                                | I/O PWM OUT 2: connect signal wire to ESC of motor 2 here                                   |
+| M3                                | I/O PWM OUT 3: connect signal wire to ESC of motor 3 here                                   |
+| M4                                | I/O PWM OUT 4: connect signal wire to ESC of motor 4 here                                   |
+| M5                                | I/O PWM OUT 5: connect signal wire to ESC of motor 5 here                                   |
+| M6                                | I/O PWM OUT 6: connect signal wire to ESC of motor 6 here                                   |
+| M7                                | I/O PWM OUT 7: connect signal wire to ESC of motor 7 here                                   |
+| M8                                | I/O PWM OUT 8: connect signal wire to ESC of motor 8 here                                   |
+| FMU PWM-IN                        | See note below for connection to _Pixhawk 4_                                                                |
+| FMU PWM-OUT                       | If FMU PWM-IN is connected to _Pixhawk 4_, connect signal wires to ESC or signal, +, - wires to servos here |
+| CAP&ADC-OUT   | connect to CAP & ADC IN port of _Pixhawk 4_                                             |
+| CAP&ADC-IN    | CAP&ADC input: Pinouts are printed on the back side of the board        |
+| B+                                | connect to ESC B+ to power the ESC                                                                          |
+| GND                               | connect to ESC Ground                                                                                       |
+| PWR1                              | 5v output 3A, connect to _Pixhawk 4_ POWER 1                                                                |
+| PWR2                              | 5v output 3A, connect to _Pixhawk 4_ POWER 2                                                                |
+| 2~12S             | Power Input, connect to 12S LiPo Battery                                                                    |
 
-::: info Depending on your airframe type, refer to [Airframe Reference](../airframes/airframe_reference.md) to connect **I/O PWM OUT** and **FMU PWM OUT** ports of _Pixhawk 4_ to PM board. **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 4_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 4_. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**. **FMU PWM-IN** of PM board is internally connected to **FMU PWM-OUT**. **I/O PWM-IN** of PM board is internally connected to **M1-8**.
+:::info
+Depending on your airframe type, refer to [Airframe Reference](../airframes/airframe_reference.md) to connect **I/O PWM OUT** and **FMU PWM OUT** ports of _Pixhawk 4_ to PM board.
+**MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 4_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 4_.
+For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**. **FMU PWM-IN** of PM board is internally connected to **FMU PWM-OUT**. **I/O PWM-IN** of PM board is internally connected to **M1-8**.
 :::
 
 The following table summarizes how to connect _Pixhawk 4_'s PWM OUT ports to PM board's PWM-IN ports, depending on the Airframe Reference.
 
-| Airframe Reference | Connection between _Pixhawk 4_ --> PM board |
-| ------------------ | ------------------------------------------- |
-| **MAIN**: motor    | I/O PWM OUT --> I/O PWM IN                  |
-| **MAIN**: servo    | I/O PWM OUT --> FMU PWM IN                  |
-| **AUX**: motor     | FMU PWM OUT --> I/O PWM IN                  |
-| **AUX**: servo     | FMU PWM OUT --> FMU PWM IN                  |
+| Airframe Reference              | Connection between _Pixhawk 4_ --> PM board |
+| ------------------------------- | ------------------------------------------- |
+| **MAIN**: motor | I/O PWM OUT --> I/O PWM IN                  |
+| **MAIN**: servo | I/O PWM OUT --> FMU PWM IN                  |
+| **AUX**: motor  | FMU PWM OUT --> I/O PWM IN                  |
+| **AUX**: servo  | FMU PWM OUT --> FMU PWM IN                  |
 
 <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 
-The pinout of _Pixhawk 4_’s power ports is shown below. The CURRENT signal should carry an analog voltage from 0-3.3V for 0-120A as default. The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60V as default. The VCC lines have to offer at least 3A continuous and should default to 5.1V. A lower voltage of 5V is still acceptable, but discouraged.
+The pinout of _Pixhawk 4_’s power ports is shown below.
+The CURRENT signal should carry an analog voltage from 0-3.3V for 0-120A as default.
+The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60V as default.
+The VCC lines have to offer at least 3A continuous and should default to 5.1V.
+A lower voltage of 5V is still acceptable, but discouraged.
 
-| Pin      | Signal  | Volt  |
-| -------- | ------- | ----- |
-| 1(red)   | VCC     | +5V   |
-| 2(black) | VCC     | +5V   |
+| Pin                         | Signal  | Volt                  |
+| --------------------------- | ------- | --------------------- |
+| 1(red)   | VCC     | +5V                   |
+| 2(black) | VCC     | +5V                   |
 | 3(black) | CURRENT | +3.3V |
 | 4(black) | VOLTAGE | +3.3V |
-| 5(black) | GND     | GND   |
-| 6(black) | GND     | GND   |
+| 5(black) | GND     | GND                   |
+| 6(black) | GND     | GND                   |
 
-::: info Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) but you won't need to calibrate the _voltage divider_. You will have to update the _voltage divider_ if you are using any other power module (e.g. the one from the Pixracer).
+:::info
+Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) but you won't need to calibrate the _voltage divider_.
+You will have to update the _voltage divider_ if you are using any other power module (e.g. the one from the Pixracer).
 :::
 
 ## Radio Control
@@ -129,7 +151,8 @@ The vehicle-based radio should be connected to the **TELEM1** port as shown belo
 
 ## SD Card (Optional)
 
-SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the card (included in Pixhawk 4 kit) into _Pixhawk 4_ as shown below.
+SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware.
+Insert the card (included in Pixhawk 4 kit) into _Pixhawk 4_ as shown below.
 
 ![Pixhawk 4/SD Card](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
 
@@ -141,7 +164,7 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 
 Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
-::: info
+:::info
 This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 :::
 
