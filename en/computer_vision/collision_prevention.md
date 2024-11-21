@@ -1,7 +1,7 @@
 # Collision Prevention
 
 _Collision Prevention_ may be used to automatically slow and stop a vehicle before it can crash into an obstacle.
-It can be enabled for multicopter vehicles when using acceleration-based [Position mode](../flight_modes_mc/position.md).
+It can be enabled for multicopter vehicles when using acceleration-based [Position mode](../flight_modes_mc/position.md) (or VTOL vehicles in MC mode).
 
 ## Overview
 
