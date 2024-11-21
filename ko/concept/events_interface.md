@@ -165,7 +165,7 @@ Events are logged according to the internal log level, and [Flight Review](../lo
 Flight review downloads metadata based on PX4 master, so if a definition is not yet on master, it will only be able to display the event ID.
 :::
 
-## Implementation
+## 구현
 
 During PX4 build, only the code is added directly to the binary by the compiler (i.e. the event ID, log level(s) and any arguments).
 
