@@ -1,8 +1,8 @@
 # TBS Caipiroshka
 
-Caipiroshka VTOL은 조금 수정된 *TBS Caipirinha*입니다.
+The Caipiroshka VTOL is a slightly modified *TBS Caipirinha*.
 
-::: info The *TBS Caipirinha* has been superseded and is no longer available. 이 지침은 업데이트된 차량 [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp)에서 *작동하여야 합니다*. 부품 목록에서 다른 여러 구성 요소도 업데이트 되었습니다.
+::: info The *TBS Caipirinha* has been superseded and is no longer available. These instructions *should* work with the updated vehicle: [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp). 부품 목록에서 다른 여러 구성 요소도 업데이트 되었습니다.
 :::
 
 <lite-youtube videoid="acG0aTuf3f8" title="PX4 VTOL - Call for Testpilots"/>
@@ -10,7 +10,7 @@ Caipiroshka VTOL은 조금 수정된 *TBS Caipirinha*입니다.
 ## 부품 목록
 
 * TBS Caipirinha Wing (더 이상 사용할 수 없음 - [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp)을 사용하세요.)
-* 좌우 3D 프린팅 모터 마운트 (<a href="https://github.com/PX4/px4_user_guide/raw/master/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">디자인 파일</a>)
+* Left and right 3D-printed motor mount (<a href="https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">design files</a>)
 * 시계방향 8045 프로펠러 ([Eflight Store](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
 * 반시계방향 8045 프로펠러 ([Eflight Store](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
 * 2x 1800 kV 120-180W 모터
@@ -68,7 +68,7 @@ Elevon은 투명 테이프를 사용하여 날개의 뒷면에 부착할 수 있
 
 ## 기체 설정
 
-[QGroundControl](../config/airframe.md)의 구성 섹션으로 전환하고 기체 탭을 선택합니다. 목록을 아래로 스크롤하여 *VTOL Duo Tailsitter* 아이콘을 찾습니다. 드롭 다운 목록에서 *Caipiroshka Duo Tailsitter*를 선택합니다.
+[QGroundControl](../config/airframe.md)의 구성 섹션으로 전환하고 기체 탭을 선택합니다. Scroll down the list to find the *VTOL Duo Tailsitter* icon. Select the *Caipiroshka Duo Tailsitter* from the drop-down list.
 
 ![caipiroshka](../../assets/airframes/vtol/caipiroshka/airframe_px4_vtol_caipiroshka_duo_tailsitter.jpg)
 
