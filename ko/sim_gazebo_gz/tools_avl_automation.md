@@ -109,7 +109,7 @@ The Advanced Lift Drag Plugin contains more detail about what each of these para
 
 From the stability derivatives log file, the following advanced lift drag plugin parameters are taken:
 
-| Name in AVL | Name in Advanced Lift Drag Plugin | Description                                                                |
+| Name in AVL | Name in Advanced Lift Drag Plugin | 설명                                                                         |
 | ----------- | --------------------------------- | -------------------------------------------------------------------------- |
 | Alpha       | alpha                             | The angle of attack                                                        |
 | Cmtot       | Cem0                              | Pitching moment coefficient at zero angle of attack                        |
@@ -128,7 +128,7 @@ From the stability derivatives log file, the following advanced lift drag plugin
 
 From the body axis derivatives log file, the following advanced lift drag plugin parameters are taken:
 
-| Name in AVL | Name in Advanced Lift Drag Plugin | Description                                                                 |
+| Name in AVL | Name in Advanced Lift Drag Plugin | 설명                                                                          |
 | ----------- | --------------------------------- | --------------------------------------------------------------------------- |
 | e           | eff                               | Wing efficiency (Oswald efficiency factor for a 3D wing) |
 | CXp         | CDp                               | dCD/dp (drag coefficient slope wrt roll rate)            |
@@ -153,7 +153,7 @@ From the body axis derivatives log file, the following advanced lift drag plugin
 Furthermore, every control surface also has six own parameters, which are also derived from this log file.
 `{i}` below ranges from 1 to the number of unique control surface types in the model.
 
-| Name in AVL | Name in Advanced Lift Drag Plugin | Description                                                   |
+| Name in AVL | Name in Advanced Lift Drag Plugin | 설명                                                            |
 | ----------- | --------------------------------- | ------------------------------------------------------------- |
 | CXd{i}      | CD_ctrl      | Effect of the control surface's deflection on drag            |
 | CYd{i}      | CY_ctrl      | Effect of the control surface's deflection on side force      |
