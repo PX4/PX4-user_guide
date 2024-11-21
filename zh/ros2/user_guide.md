@@ -374,7 +374,7 @@ This is needed because the ROS 2 default [Quality of Service (QoS) settings](htt
 
 The local/world and body frames used by ROS and PX4 are different.
 
-| 框架    | PX4                                                                           | ROS                                            |
+| 框架    | ROS                                                                           | ROS                                            |
 | ----- | ----------------------------------------------------------------------------- | ---------------------------------------------- |
 | 机体    | FRD (X **F**orward, Y **R**ight, Z **D**own)                                  | FLU (X **F**orward, Y **L**eft, Z **U**p)      |
 | 世界坐标系 | ENU (X **E**ast, Y **N**orth and Z Up), with the naming being `odom` or `map` | FLU or ENU (X **E**ast, Y **N**orth, Z **U**p) |
