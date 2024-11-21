@@ -88,7 +88,7 @@ arm-none-eabi-gdb
   (gdb) load aerofcv1_bl.elf
 ```
 
-### Troubleshooting
+### トラブルシューティング
 
 If any of the commands above are not found, you are either not using a Blackmagic probe or its software is outdated. Upgrade the on-probe software first.
 
