@@ -14,7 +14,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [ActuatorServosTrim](ActuatorServosTrim.md) — Servo trims, added as offset to servo outputs
 - [ActuatorTest](ActuatorTest.md)
 - [AdcReport](AdcReport.md)
-- [フライトモード](Airspeed.md)
+- [対気速度センサー](Airspeed.md)
 - [AirspeedValidated](AirspeedValidated.md)
 - [AirspeedWind](AirspeedWind.md)
 - [ArmingCheckReply](ArmingCheckReply.md)
