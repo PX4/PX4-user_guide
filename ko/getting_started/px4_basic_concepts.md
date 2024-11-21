@@ -145,7 +145,7 @@ PX4가 지원하는 전기변속기와 모터 정보는 여기를 참고하십�
 
 PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다. The battery is typically connected to the system using a [Power Module](../power_module/index.md) or _Power Management Board_, which provide separate power for the flight controller and to the ESCs (for the motors).
 
-배터리와 배터리 설정 정보는 [배터리 설정](../config/battery.md)과 [ 기본 조립](../assembly/README.md)(예: [픽스호크 4 배선 빠른 시작 &gt; 전원](../assembly/quick_start_pixhawk4.md#power))를 참고하십시오.
+Information about batteries and battery configuration can be found in [Battery Estimation Tuning](../config/battery.md) and the guides in [Basic Assembly](../assembly/index.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
 ### Manual Control
 
@@ -219,7 +219,7 @@ SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어는 
 
 - [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 매개변수로 알림음을 껍니다.
 - [스트림 로그](../dev_log/logging.md#log-streaming)를 다른 보조 장치에 기록합니다.
-- 비행 임무를 RAM/플래시에 저장합니다.
+- Store missions in RAM/FLASH.
   <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/main/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 ## Payloads
