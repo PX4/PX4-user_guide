@@ -2,10 +2,12 @@
 
 Contributions to the PX4 User Guide are very welcome; from simple fixes to spelling and grammar, through to the creation of whole new sections.
 
-This topic explains how to make and test changes. Towards the end there is a basic style guide.
+This topic explains how to make and test changes.
+Towards the end there is a basic style guide.
 
 :::tip
-Note You will need a (free) [Github](https://github.com/) account to contribute to the guides.
+Note
+You will need a (free) [Github](https://github.com/) account to contribute to the guides.
 :::
 
 ## 快速更改
@@ -14,34 +16,39 @@ Simple changes to _existing content_ can be made by clicking the **Edit on GitHu
 
 ![Vitepress: Edit Page button](../../assets/vuepress/vuepress_edit_page_on_github_link.png)
 
-The guide uses the [Gitbook](https://www.gitbook.com/about) toolchain. Change requests can be either done on the Gitbook website using the [Gitbook editor](https://gitbookio.gitbooks.io/documentation/content/editor/index.html) or locally (more flexible, but less user-friendly).
+The guide uses the <a href="https://www.gitbook.com/about">Gitbook</a> toolchain. Change requests can be either done on the Gitbook website using the <a href="https://gitbookio.gitbooks.io/documentation/content/editor/index.html">Gitbook editor</a> or locally (more flexible, but less user-friendly).
 
 1. Open the page.
-1. Click the **Edit on GitHub** link below the page content.
-1. At the bottom of the page you'll be prompted to create a separate branch and then guided to submit a *pull request*.
-1. Below the Github page editor you'll be prompted to create a separate branch and then guided to submit a _pull request_.
+2. Click the **Edit on GitHub** link below the page content.
+3. At the bottom of the page you'll be prompted to create a separate branch and then guided to submit a <em x-id="3">pull request</em>.
+4. Below the Github page editor you'll be prompted to create a separate branch and then guided to submit a _pull request_.
 
 The documentation team will review the request and either merge it or work with you to update it.
 
 ## Adding New Content - Big Changes
 
-More substantial changes, including adding new pages or adding/modifying images, aren't as easy to make (or properly test) on Github. For these kinds of changes we suggest using the same approach as for _code_:
+More substantial changes, including adding new pages or adding/modifying images, aren't as easy to make (or properly test) on Github.
+For these kinds of changes we suggest using the same approach as for _code_:
 
 1. Use the _git_ toolchain to get the documentation source code onto your local computer.
-1. Modify the documentation as needed (add, change, delete).
-1. _Test_ that it builds properly using Vitepress.
-1. In order to contribute many changes to the documentation, it is recommended that you follow these steps to add the changes locally and then create a pull request:
+2. Modify the documentation as needed (add, change, delete).
+3. _Test_ that it builds properly using Vitepress.
+4. In order to contribute many changes to the documentation, it is recommended that you follow these steps to add the changes locally and then create a pull request:
 
 The following explain how to get the source code, build locally (to test), and modify the code.
 
 ### What Goes Where?
 
-指南使用 [旧版Gitbook 工具链](https://legacy.gitbook.com/) The instructions below explain how to get git and use it on your local computer.
+指南使用 <a href="https://legacy.gitbook.com/">旧版Gitbook 工具链</a>
+The instructions below explain how to get git and use it on your local computer.
 
-1. git add &lt;file name&gt; git commit -m "&lt;your commit message&gt;"
-1. 如果您还没有注册Github，请先[注册](https://github.com/join) Github 账户
-1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
-1. Clone (copy) your forked repository to your local computer:
+1. Download git for your computer from [https://git-scm.com/downloads](https://git-scm.com/downloads)
+
+2. [Sign up](https://github.com/join) for Github if you haven't already
+
+3. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
+
+4. Clone (copy) your forked repository to your local computer:
 
    ```sh
    cd ~/wherever/
@@ -54,23 +61,26 @@ The following explain how to get the source code, build locally (to test), and m
    git clone https://github.com/john_citizen/PX4-user_guide.git
    ```
 
-1. Navigate to your local repository:
+5. Navigate to your local repository:
 
    ```sh
    cd ~/wherever/PX4-user_guide
    ```
 
-1. Add a _remote_ called "upstream" to point to the PX4 version of the library:
+6. Add a _remote_ called "upstream" to point to the PX4 version of the library:
 
    ```sh
    git remote add upstream https://github.com/PX4/PX4-user_guide.git
    ```
 
-:::tip
-A "remote" is a handle to a particular repository. The remote named _origin_ is created by default when you clone the repository, and points to _your fork_ of the guide. Above you create a new remote _upstream_ that points to the PX4 project version of the documents.
+   :::tip
+   A "remote" is a handle to a particular repository.
+   The remote named _origin_ is created by default when you clone the repository, and points to _your fork_ of the guide.
+   Above you create a new remote _upstream_ that points to the PX4 project version of the documents.
+
 :::
 
-1. Create a branch for your changes:
+7. Create a branch for your changes:
 
    ```sh
    git checkout -b <your_feature_branch_name>
@@ -78,8 +88,9 @@ A "remote" is a handle to a particular repository. The remote named _origin_ is 
 
    This creates a local branch on your computer named `your_feature_branch_name`.
 
-1. Make changes to the documentation as needed (general guidance on this in following sections)
-1. Once you are satisfied with your changes, you can add them to your local branch using a "commit":
+8. Make changes to the documentation as needed (general guidance on this in following sections)
+
+9. Once you are satisfied with your changes, you can add them to your local branch using a "commit":
 
    ```sh
    git add <file name>
@@ -88,17 +99,25 @@ A "remote" is a handle to a particular repository. The remote named _origin_ is 
 
    For a good commit message, please refer to the [Source Code Management](../contribute/code.md#commits-and-commit-messages) section.
 
-1. Push your local branch (including commits added to it) to your forked repository on Github.
+10. Push your local branch (including commits added to it) to your forked repository on Github.
 
-   ```sh
-   git push origin your_feature_branch_name
-   ```
+    ```sh
+    git push origin your_feature_branch_name
+    ```
 
-1. Go to your forked repository on Github in a web browser, e.g.: `https://github.com/<your git name>/PX4-user_guide.git`. There you should see the message that a new branch has been pushed to your forked repository.
-1. Create a pull request (PR):
-   - On the right hand side of the "new branch message" (see one step before), you should see a green button saying "Compare & Create Pull Request". Press it.
-   - A pull request template will be created. It will list your commits and you can (must) add a meaningful title (in case of a one commit PR, it's usually the commit message) and message (<span style="color:orange">explain what you did for what reason</span>. Check [other pull requests](https://github.com/PX4/PX4-user_guide/pulls) for comparison)
-1. You're done! Maintainers for the PX4 User Guide will now have a look at your contribution and decide if they want to integrate it. Check if they have questions on your changes every once in a while.
+11. Go to your forked repository on Github in a web browser, e.g.: `https://github.com/<your git name>/PX4-user_guide.git`.
+    There you should see the message that a new branch has been pushed to your forked repository.
+
+12. Create a pull request (PR):
+    - On the right hand side of the "new branch message" (see one step before), you should see a green button saying "Compare & Create Pull Request".
+      Press it.
+    - A pull request template will be created.
+      It will list your commits and you can (must) add a meaningful title (in case of a one commit PR, it's usually the commit message) and message (<span style="color:orange">explain what you did for what reason</span>.
+      Check [other pull requests](https://github.com/PX4/PX4-user_guide/pulls) for comparison)
+
+13. You're done!
+    Maintainers for the PX4 User Guide will now have a look at your contribution and decide if they want to integrate it.
+    Check if they have questions on your changes every once in a while.
 
 ### Gitbook Documentation Toolchain
 
@@ -109,28 +128,29 @@ A "remote" is a handle to a particular repository. The remote named _origin_ is 
    - [Nodejs 18+](https://nodejs.org/en)
    - [Yarn classic](https://classic.yarnpkg.com/en/docs/install)
 
-1. Navigate to your local repository:
+2. Navigate to your local repository:
 
    ```sh
    cd ~/wherever/PX4-user_guide
    ```
 
-1. Install dependencies (including Vitepress):
+3. Install dependencies (including Vitepress):
 
    ```sh
    yarn install
    ```
 
-1. Preview and serve the library:
+4. Preview and serve the library:
 
    ```sh
    yarn start
    ```
 
-   - Once the development/preview server has built the library (less than a minute for the first time) it will show you the URL you can preview the site on. This will be something like: `http://localhost:5173/px4_user_guide/`.
+   - Once the development/preview server has built the library (less than a minute for the first time) it will show you the URL you can preview the site on.
+     This will be something like: `http://localhost:5173/px4_user_guide/`.
    - Stop serving using **CTRL+C** in the terminal prompt.
 
-1. You can build the library as it would be done for deployment:
+5. You can build the library as it would be done for deployment:
 
    ```sh
    # Ubuntu
@@ -141,7 +161,8 @@ A "remote" is a handle to a particular repository. The remote named _origin_ is 
    ```
 
 :::tip
-Use `yarn start` to preview changes _as you make them_ (documents are updated and served very quickly). Before submitting a PR you should also build it using `yarn docs:build`, as this can highlight issues that are not visible when using `yarn start`.
+Use `yarn start` to preview changes _as you make them_ (documents are updated and served very quickly).
+Before submitting a PR you should also build it using `yarn docs:build`, as this can highlight issues that are not visible when using `yarn start`.
 :::
 
 ### Source Code Structure
@@ -152,27 +173,36 @@ In overview:
 
 - Pages are written in separate files using markdown.
   - The syntax is almost the same as that used by the Github wiki.
-  - Vitepress also supports some [markdown extensions](https://vitepress.dev/guide/markdown#markdown-extensions). We try and avoid using these, except for [tips, warning, etc.](https://vitepress.dev/guide/markdown#default-title). This might be revisited - there are some interesting options provided!
+  - Vitepress also supports some [markdown extensions](https://vitepress.dev/guide/markdown#markdown-extensions).
+    We try and avoid using these, except for [tips, warning, etc.](https://vitepress.dev/guide/markdown#default-title).
+    This might be revisited - there are some interesting options provided!
+
 - This is a [multilingual](https://vitepress.dev/guide/i18n) book:
   - Pages for each language are stored in the folder named for the associated language code (e.g. "en" for English, "zh" for Chinese, "ko" for Korean).
-  - Only edit the ENGLISH (`/en`) version of files. We use [Crowdin](../contribute/translation.md) to manage the translations.
+  - Only edit the ENGLISH (`/en`) version of files.
+    We use [Crowdin](../contribute/translation.md) to manage the translations.
+
 - All pages must be in an appropriately named sub-folder of `/en` (e.g. this page is in folder `en/contribute/`).
   - This makes linking easier because other pages and images are always as the same relative levels
+
 - The _structure_ of the book is defined in `SUMMARY.md`.
 
   - If you add a new page to the guide you must also add an entry to this file!
 
-:::tip
-This is not "standard vitepress" way to define the sidebar (the summary file is imported by [.vitepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vitepress/get_sidebar.js)).
+    :::tip
+    This is not "standard vitepress" way to define the sidebar (the summary file is imported by [.vitepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vitepress/get_sidebar.js)).
+
 :::
 
-- Images must be stored in a sub folder of `/assets`. This is two folders down from content folders, so if you add an image you will reference it like:
+- Images must be stored in a sub folder of `/assets`.
+  This is two folders down from content folders, so if you add an image you will reference it like:
 
   ```plain
   ![Image Description](../../assets/path_to_file/filename.jpg)
   ```
 
 - A file named **package.json** defines any dependencies of the build.
+
 - A web hook is used to track whenever files are merged into the master branch on this repository, causing the book to rebuild.
 
 ### 文档规范指南
@@ -183,16 +213,20 @@ When you add a new page you must also add it to `en/SUMMARY.md`!
 
 1. 图片
 
-   - Put new markdown files in an appropriate sub-folder of `/en/`, such as `/en/contribute/`. Do not further nest folders.
-   - Put new image files in an appropriate nested sub-folder of `/assets/`. Deeper nesting is allowed/encouraged.
-   - Use descriptive names for folders and files. In particular, image filenames should describe what they contain (don't name as "image1.png")
+   - Put new markdown files in an appropriate sub-folder of `/en/`, such as `/en/contribute/`.
+     Do not further nest folders.
+   - Put new image files in an appropriate nested sub-folder of `/assets/`.
+     Deeper nesting is allowed/encouraged.
+   - Use descriptive names for folders and files.
+     In particular, image filenames should describe what they contain (don't name as "image1.png")
    - Use lower case filenames and separate words using underscores (`_`).
 
 2. 内容:
 
    - 将新文件放入相应的子文件夹
    - New images should be created in a sub-folder of `/assets/` (so they can be shared between translations).
-   - SVG files are preferred for diagrams. PNG files are preferred over JPG for screenshots.
+   - SVG files are preferred for diagrams.
+     PNG files are preferred over JPG for screenshots.
 
 3. Content:
 
@@ -201,10 +235,12 @@ When you add a new page you must also add it to `en/SUMMARY.md`!
      - _Emphasis_ for tool names such as _QGroundControl_ or _prettier_.
      - `code` for file paths, and code, parameter names that aren't linked, using tools in a command line, such as `prettier`.
    - Headings and page titles should use "First Letter Capitalisation".
-   - The page title should be a first level heading (`#`). All other headings should be h2 (`##`) or lower.
+   - The page title should be a first level heading (`#`).
+     All other headings should be h2 (`##`) or lower.
    - Don't add any style to headings.
    - Don't translate the _first part_ of an `info`, `tip` or `warning` declaration (e.g. `::: tip`) as this precise text is required to render the note properly.
-   - Break lines on sentences by preference. Don't break lines based on some arbitrary line length.
+   - Break lines on sentences by preference.
+     Don't break lines based on some arbitrary line length.
    - Format using _prettier_ (_VSCode_ is a has extensions can be used for this).
 
 4. Videos:
@@ -215,7 +251,8 @@ When you add a new page you must also add it to `en/SUMMARY.md`!
 
 ## 许可证
 
-Add new files in folders that cover similar topics. Then reference them in the sidebar (`/en/SUMMARY.md`) in line with the existing structure!
+Add new files in folders that cover similar topics.
+Then reference them in the sidebar (`/en/SUMMARY.md`) in line with the existing structure!
 
 ## 翻译
 
