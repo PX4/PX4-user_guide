@@ -23,7 +23,7 @@ The sticks provide the same "high level" control effects over direction and rate
 
 The manual modes provide progressively increasing levels of autopilot support for maintaining a course, speed, and rate of turn, compensating for external factors such as slopes or uneven terrain.
 
-| Режим                      | Особливості                                                                                                                                                                                                                                                      |
+| Режим                      | Функції                                                                                                                                                                                                                                                          |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Manual](#manual-mode)     | No autopilot support. User is responsible for keeping the rover on the desired course and maintaining speed and rate of turn.                                                                                                    |
 | [Acro](#acro-mode)         | + Maintains the lateral acceleration. This makes it feel more like driving a car than manual mode. <br>+ It also protects against roll over and is slightly better at holding a straight line in uneven terrain. |
