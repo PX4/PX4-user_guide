@@ -1,14 +1,14 @@
 # RFD900 장거리 텔레메트리
 
-[jDrones](http://store.jDrones.com)과 [RFDesign](http://rfdesign.com.au/)에서는 * 장거리* [SiK](../telemetry/sik_radio.md) 호환 텔레메트리 라디오를 제공합니다. 라디오는 안테나와 5km 이상에서도 원활한 연결성을 제공합니다. 더 장거리에서도 통신 성공한 사례도 보고되었습니다.
+[jDrones](http://store.jDrones.com) and [RFDesign](http://rfdesign.com.au/) offer _long-range_ [SiK](../telemetry/sik_radio.md)-compatible telemetry radios. 라디오는 안테나와 5km 이상에서도 원활한 연결성을 제공합니다. 더 장거리에서도 통신 성공한 사례도 보고되었습니다.
 
 ![jDrones 장거리 텔레메트리](../../assets/hardware/telemetry/jdrones_long_range_uav_telemetry_rf900set02_2.jpg)
 
 :::tip
-*jDrones*는 *RFDesign* 모뎀을 생산합니다(전원 관리, 필터링, 전자 부품을 내장하는 케이스, 주요 비행 제어 장치에 연결할 케이블, 개별 변종 안테나 포함). 최초의 모뎀은 *RFD900* 이었지만, *RFDesign*과 *jDrones* 새로운 버전으로 업데이트되었습니다.
+_jDrones_ have productized _RFDesign_ modems (added a casing with power management, filtering and other electronics inside, along with cables to connect to popular flight controllers, and individually validated antennas). The first such modem was the _RFD900_, but both _RFDesign_ and _jDrones_ have since iterated to new versions.
 :::
 
-*jDrones* 라디오에는 *JST-GH-JST-GH* 및 *JST-GH-DF-13 *를 위한 JST-GH 커넥터와 케이블이 제공됩니다. 대부분의 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 콘트롤러에서 "플러그 앤 플레이" 방식으로 사용할 수 있습니다. 일부 "비표준"보드에서는 커넥터를 변경해야 할 수도 있습니다.
+The _jDrones_ radios have a JST-GH connector, and come with cables for: _JST-GH to JST-GH_ and _JST-GH to DF-13_. 대부분의 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 콘트롤러에서 "플러그 앤 플레이" 방식으로 사용할 수 있습니다. 일부 "비표준"보드에서는 커넥터를 변경해야 할 수도 있습니다.
 
 사용할 수 있는 버전은 다음과 같습니다.
 
