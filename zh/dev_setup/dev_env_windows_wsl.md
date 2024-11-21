@@ -4,8 +4,8 @@ The following instructions explain how to set up a PX4 development environment o
 
 根据本文的指示构建的开发环境可以用编译：
 
-- [基于 NuttX 的硬件 (Pixhawk等)](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
-- [Gazebo 仿真](../sim_gazebo_gz/index.md)
+- [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
+- [Gazebo Simulation](../sim_gazebo_gz/index.md)
 - [Gazebo-Classic Simulation](../sim_gazebo_classic/index.md)
 
 :::tip
@@ -20,19 +20,25 @@ The [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/a
 
 With this environment developers can:
 
-- Build any simulator or hardware target supported by [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) in the WSL Shell. (Ubuntu is the best supported and tested PX4 development platform).
+- Build any simulator or hardware target supported by [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) in the WSL Shell.
+  (Ubuntu is the best supported and tested PX4 development platform).
 - Debug code in [Visual Studio Code](dev_env_windows_wsl.md#visual-studio-code-integration) running on Windows.
-- Monitor a _simulation_ using _QGroundControl for Linux_ running in WSL. QGC for Linux connects automatically to the simulation.
+- Monitor a _simulation_ using _QGroundControl for Linux_ running in WSL.
+  QGC for Linux connects automatically to the simulation.
 
 _QGroundControl for Windows_ is additionally required if you need to:
 
 - [Update firmware](#flash-a-flight-control-board) on a real vehicle.
-- Monitor a real vehicle. Note that you can also use it to monitor a simulation, but you must manually [connect to the simulation running in WSL](#qgroundcontrol-on-windows).
+- Monitor a real vehicle.
+  Note that you can also use it to monitor a simulation, but you must manually [connect to the simulation running in WSL](#qgroundcontrol-on-windows).
 
-::: info Connecting to a USB device from within WSL is not supported, so you can't update firmware using the [`upload`](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) option when building on the command line, or from _QGroundControl for Linux_.
+:::info
+Connecting to a USB device from within WSL is not supported, so you can't update firmware using the [`upload`](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) option when building on the command line, or from _QGroundControl for Linux_.
 :::
 
-::: info The approach is similar to installing PX4 in your _own_ virtual machine, as described in [Windows VM-Hosted Toolchain](../dev_setup/dev_env_windows_vm.md). The benefit of WSL2 is that its virtual machine is deeply integrated into Windows, system-managed, and performance optimised.
+:::info
+The approach is similar to installing PX4 in your _own_ virtual machine, as described in [Windows VM-Hosted Toolchain](../dev_setup/dev_env_windows_vm.md).
+The benefit of WSL2 is that its virtual machine is deeply integrated into Windows, system-managed, and performance optimised.
 :::
 
 ## 安装
@@ -41,9 +47,13 @@ _QGroundControl for Windows_ is additionally required if you need to:
 
 To install WSL2 with Ubuntu on a new installation of Windows 10 or 11:
 
-1. Make sure your computer your computer's virtualization feature is enabled in the BIOS. It's usually referred as "Virtualization Technology", "Intel VT-x" or "AMD-V" respectively
-1. Open _cmd.exe_ as administrator. This can be done by pressing the start key, typing `cmd`, right-clicking on the _Command prompt_ entry and selecting **Run as administrator**.
-1. Execute the following commands to install WSL2 and a particular Ubuntu version:
+1. Make sure your computer your computer's virtualization feature is enabled in the BIOS.
+   It's usually referred as "Virtualization Technology", "Intel VT-x" or "AMD-V" respectively
+
+2. Open _cmd.exe_ as administrator.
+   This can be done by pressing the start key, typing `cmd`, right-clicking on the _Command prompt_ entry and selecting **Run as administrator**.
+
+3. Execute the following commands to install WSL2 and a particular Ubuntu version:
 
    - Default version (Ubuntu 22.04):
 
@@ -63,10 +73,13 @@ To install WSL2 with Ubuntu on a new installation of Windows 10 or 11:
      wsl --install -d Ubuntu-22.04
      ```
 
-   ::: info You can also install[Ubuntu 20.04](https://www.microsoft.com/store/productId/9MTTCL66CPXJ) and [Ubuntu 22.04](https://www.microsoft.com/store/productId/9PN20MSR04DW) from the store, which allows you to delete the application using the normal Windows Add/Remove settings:
+   ::: info
+   You can also install[Ubuntu 20.04](https://www.microsoft.com/store/productId/9MTTCL66CPXJ) and [Ubuntu 22.04](https://www.microsoft.com/store/productId/9PN20MSR04DW) from the store, which allows you to delete the application using the normal Windows Add/Remove settings:
+
 :::
 
-1. WSL will prompt you for a user name and password for the Ubuntu installation. Record these credentials as you will need them later on!
+4. WSL will prompt you for a user name and password for the Ubuntu installation.
+   Record these credentials as you will need them later on!
 
 The command prompt is now a terminal within the newly installed Ubuntu environment.
 
@@ -85,7 +98,7 @@ To open a WSL shell using a command prompt:
    - Press the Windows **Start** key.
    - Type `cmd` and press **Enter** to open the prompt.
 
-1. To start WSL and access the WSL shell, execute the command:
+2. To start WSL and access the WSL shell, execute the command:
 
    ```sh
    wsl -d <distribution_name>
@@ -114,40 +127,48 @@ Alternatively, after entering `exit` you can just close the prompt.
 
 ### Install PX4 Toolchain
 
-Next we download the PX4 source code within the WSL2 environment, and use the normal _Ubuntu installer script_ to set up the developer environment. This will install the toolchain for Gazebo Classic simulation and Pixhawk/NuttX hardware.
+Next we download the PX4 source code within the WSL2 environment, and use the normal _Ubuntu installer script_ to set up the developer environment.
+This will install the toolchain for Gazebo Classic simulation and Pixhawk/NuttX hardware.
 
 To install the development toolchain:
 
 1. [Open a WSL2 Shell](#opening-a-wsl-shell) (if it is still open you can use the same one that was used to install WSL2).
-1. Execute the command `cd ~` to switch to the home folder of WSL for the next steps.
+
+2. Execute the command `cd ~` to switch to the home folder of WSL for the next steps.
 
    :::warning
-This is important!
-If you work from a location outside of the WSL file system you'll run into issues such as very slow execution and access right/permission errors.
+   This is important!
+   If you work from a location outside of the WSL file system you'll run into issues such as very slow execution and access right/permission errors.
+
 :::
 
-1. Download the PX4 source code using `git` (which is already installed in WSL2):
+3. Download the PX4 source code using `git` (which is already installed in WSL2):
 
    ```sh
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
 
-   ::: info The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
+   ::: info
+   The environment setup scripts in the source usually work for recent PX4 releases.
+   If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
+
 :::
 
-1. Run the **ubuntu.sh** installer script and acknowledge any prompts as the script progresses:
+4. Run the **ubuntu.sh** installer script and acknowledge any prompts as the script progresses:
 
    ```sh
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
 
-   ::: info This installs tools to build PX4 for Pixhawk and either Gazebo or Gazebo Classic targets:
+   ::: info
+   This installs tools to build PX4 for Pixhawk and either Gazebo or Gazebo Classic targets:
 
-   - 你可以通过传输参数`--no-nuttx` 和 `--no-sim-tools` 来跳过 nuttx 和/或 仿真器工具的安装。
+   - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
    - Other Linux build targets are untested (you can try these by entering the appropriate commands in [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) into the WSL shell).
+
 :::
 
-1. Restart the "WSL computer" after the script completes (exit the shell, shutdown WSL, and restart WSL):
+5. Restart the "WSL computer" after the script completes (exit the shell, shutdown WSL, and restart WSL):
 
    ```sh
    exit
@@ -155,13 +176,13 @@ If you work from a location outside of the WSL file system you'll run into issue
    wsl
    ```
 
-1. Switch to the PX4 repository in the WSL home folder:
+6. Switch to the PX4 repository in the WSL home folder:
 
    ```sh
    cd ~/PX4-Autopilot
    ```
 
-1. Build the PX4 SITL target and test your environment:
+7. Build the PX4 SITL target and test your environment:
 
    ```sh
    make px4_sitl
@@ -176,9 +197,13 @@ VS Code running on Windows is well integrated with WSL.
 To set up the integration:
 
 1. [Download](https://code.visualstudio.com/) and install Visual Studio Code (VS Code) on Windows,
+
 2. Open _VS Code_.
+
 3. Install the extension called [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) (marketplace)
+
 4. [Open a WSL shell](#opening-a-wsl-shell)
+
 5. In the WSL shell, switch to the PX4 folder:
 
    ```sh
@@ -195,7 +220,8 @@ To set up the integration:
 
    Make sure you always open the PX4 repository in the Remote WSL mode.
 
-7. Next time you want to develop WSL2 you can very easily open it again in Remote WSL mode by selecting **Open Recent** (as shown below). This will start WSL for you.
+7. Next time you want to develop WSL2 you can very easily open it again in Remote WSL mode by selecting **Open Recent** (as shown below).
+   This will start WSL for you.
 
    ![](../../assets/toolchain/vscode/vscode_wsl.png)
 
@@ -203,7 +229,8 @@ To set up the integration:
 
 ## QGroundControl
 
-You can run QGroundControl in either WSL or Windows to connect to the running simulation. If you need to [flash a flight control board](#flash-a-flight-control-board) with new firmware you can only do this from the QGroundControl for Windows.
+You can run QGroundControl in either WSL or Windows to connect to the running simulation.
+If you need to [flash a flight control board](#flash-a-flight-control-board) with new firmware you can only do this from the QGroundControl for Windows.
 
 ### QGroundControl in WSL
 
@@ -212,8 +239,11 @@ The easiest way to set up and use QGroundControl is to download the Linux versio
 You can do this from within the WSL shell.
 
 1. In a web browser, navigate to the QGC [Ubuntu download section](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu)
-1. Right-click on the **QGroundControl.AppImage** link, and select "Copy link address". This will be something like _https://d176td9ibe4jno.cloudfront.net/builds/master/QGroundControl.AppImage_
-1. [Open a WSL shell](#opening-a-wsl-shell) and enter the following commands to download the appimage and make it executable (replace the AppImage URL where indicated):
+
+2. Right-click on the **QGroundControl.AppImage** link, and select "Copy link address".
+   This will be something like _https://d176td9ibe4jno.cloudfront.net/builds/master/QGroundControl.AppImage_
+
+3. [Open a WSL shell](#opening-a-wsl-shell) and enter the following commands to download the appimage and make it executable (replace the AppImage URL where indicated):
 
    ```sh
    cd ~
@@ -221,7 +251,7 @@ You can do this from within the WSL shell.
    chmod +x QGroundControl.AppImage
    ```
 
-1. Run QGroundControl:
+4. Run QGroundControl:
 
    ```sh
    ./QGroundControl.AppImage
@@ -238,6 +268,7 @@ Install [QGroundControl on Windows](https://docs.qgroundcontrol.com/master/en/qg
 These steps describe how you can connect to the simulation running in the WSL:
 
 1. [Open a WSL shell](#opening-a-wsl-shell)
+
 2. Check the IP address of the WSL virtual machine by running the command `ip addr | grep eth0`:
 
    ```sh
@@ -247,13 +278,16 @@ These steps describe how you can connect to the simulation running in the WSL:
        inet 172.18.46.131/20 brd 172.18.47.255 scope global eth0
    ```
 
-   Copy the first part of the `eth0` interface `inet` address to the clipboard. In this case: `172.18.46.131`.
+   Copy the first part of the `eth0` interface `inet` address to the clipboard.
+   In this case: `172.18.46.131`.
 
 3. In QGC go to **Q > Application Settings > Comm Links**
+
 4. Add a UDP Link called "WSL" to port `18570` of the IP address copied above.
+
 5. Save it and connect to it.
 
-::: info
+:::info
 You will have to update the WSL comm link in QGC every time WSL restarts (because it gets a dynamic IP address).
 :::
 
@@ -270,20 +304,30 @@ Do the following steps to flash your custom binary built in WSL:
    make px4_fmu-v5
    ```
 
-   Note: Use the correct target for your board. "px4_fmu-v5" can be used for a Pixhawk 4 board.
+   Note: Use the correct target for your board.
+   "px4_fmu-v5" can be used for a Pixhawk 4 board.
 
-1. Detach the USB cable of your Pixhawk board from the computer if it was plugged.
-1. Open QGC.
-1. In QGC go to **Q > Vehicle Setup > Firmware**
-1. Plug your pixhawk board via USB
-1. Once connected select "PX4 Flight Stack", check "Advanced settings" and choose "Custom firmware file ..." from the drop down below.
-1. Continue and select the firmware binary you just built before. In the open dialog look for the "Linux" location with the penguin icon in the left pane. It's usually all the way at the bottom. Choose the file in the path: `Ubuntu\home\{your WSL user name}\PX4-Autopilot\build\{your build target}\{your build target}.px4`
+2. Detach the USB cable of your Pixhawk board from the computer if it was plugged.
+
+3. Open QGC.
+
+4. In QGC go to **Q > Vehicle Setup > Firmware**
+
+5. Plug your pixhawk board via USB
+
+6. Once connected select "PX4 Flight Stack", check "Advanced settings" and choose "Custom firmware file ..." from the drop down below.
+
+7. Continue and select the firmware binary you just built before.
+   In the open dialog look for the "Linux" location with the penguin icon in the left pane.
+   It's usually all the way at the bottom.
+   Choose the file in the path: `Ubuntu\home\{your WSL user name}\PX4-Autopilot\build\{your build target}\{your build target}.px4`
 
    ::: info
-You can add the folder to the favourites to access it quickly next time.
+   You can add the folder to the favourites to access it quickly next time.
+
 :::
 
-1. Start the flashing.
+8. Start the flashing.
 
 ## 故障处理
 
