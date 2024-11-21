@@ -39,7 +39,7 @@ On takeoff, the aircraft will follow line defined by the starting point and cour
 
 Parameters that affect both catapult/hand-launch and runway takeoffs:
 
-| Parameter                                                                                                 | Description                                                                                                                        |
+| 매개변수                                                                                                      | 설명                                                                                                                                 |
 | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="MIS_TAKEOFF_ALT"></a>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT)   | Minimum altitude setpoint above Home that the vehicle will climb to during takeoff.                                                |
 | <a id="FW_TKO_AIRSPD"></a>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD)       | Takeoff airspeed (is set to [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) if not defined by operator) |
@@ -69,7 +69,7 @@ To launch in this mode:
 
 The _launch detector_ is affected by the following parameters:
 
-| Parameter                                                                                                 | Description                                                                              |
+| 매개변수                                                                                                      | 설명                                                                                       |
 | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | <a id="FW_LAUN_DETCN_ON"></a>[FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON) | Enable automatic launch detection. If disabled motors spin up on arming already          |
 | <a id="FW_LAUN_AC_THLD"></a>[FW_LAUN_AC_THLD](../advanced_config/parameter_reference.md#FW_LAUN_AC_THLD)   | Acceleration threshold (acceleration in body-forward direction must be above this value) |
@@ -98,7 +98,7 @@ For a smooth takeoff, the runway wheel controller possibly needs to be tuned. It
 
 Runway takeoff is affected by the following parameters:
 
-| Parameter                                                                                                  | Description                                                                                                                    |
+| 매개변수                                                                                                       | 설명                                                                                                                             |
 | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | <a id="RWTO_TKOFF"></a>[RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF)               | Enable runway takeoff                                                                                                          |
 | <a id="FW_W_EN"></a>[FW_W_EN](../advanced_config/parameter_reference.md#FW_W_EN)                   | Enable wheel controller                                                                                                        |
