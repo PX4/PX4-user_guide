@@ -4,16 +4,16 @@ The [ARK Jetson Pixhawk Autopilot Bus (PAB) Carrier](https://arkelectron.gitbook
 
 ![ARK Jetson PAB Carrier](../../assets/companion_computer/ark_jetson_pab_carrier/ark_jetson_pab_carrier.jpg)
 
-## Де придбати
+## Де купити
 
 - [ARK Jetson PAB Carrier](https://arkelectron.com/product/ark-jetson-pab-carrier/)
 - [ARK Jetson Orin NX NDAA Bundle](https://arkelectron.com/product/ark-jetson-orin-nx-ndaa-bundle/)
 
-## Специфікації
+## Характеристики
 
 - **Power Requirements**
 
-  - 5В
+  - 5V
   - 4A minimum (dependent on usage and peripherals)
 
 - **Additional Features**
@@ -40,10 +40,10 @@ The [ARK Jetson Pixhawk Autopilot Bus (PAB) Carrier](https://arkelectron.gitbook
 
 The Jetson and the flight controller communicate through serial and USB interfaces, both of which support direct board-to-board connections tested up to 3 Mbps.
 
-| Тип    | Jetson Device Path | Політний контролер |
-| :----- | :----------------- | :----------------- |
-| USB    | /dev/ttyACM0       | USB                |
-| Serial | /dev/ttyTHS1       | TELEM2             |
+| Тип   | Jetson Device Path | Політний контролер |
+| :---- | :----------------- | :----------------- |
+| USB   | /dev/ttyACM0       | USB                |
+| Серія | /dev/ttyTHS1       | TELEM2             |
 
 The USB connection to the autopilot is multiplexed with the external Jetson micro USB port.
 When a micro USB cable is connected, the autopilot is disconnected from the Jetson, and the USB port on the Jetson switches from host to device mode.
