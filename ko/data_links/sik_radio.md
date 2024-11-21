@@ -33,7 +33,7 @@ The SiK repository does not currently firmware for RFD900x or RFD900ux telemetry
 
 You will need to install the required 8051 compiler, as this is not included in the default PX4 Build toolchain.
 
-### 맥 OS
+### Mac OS
 
 Install the toolchain:
 
