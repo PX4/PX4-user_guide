@@ -298,7 +298,7 @@ Li-Ion
   - 와트시는 공칭(완전 충전 된 전압이 아님)에 용량을 곱한 값으로 간단히 계산됩니다. 3.7v X 5 Ah = 18.5Wh.
     3 셀 배터리 팩이있는 경우 팩은 18.5Wh X 3 = 55Wh의 저장 에너지가 됩니다.
 - 배터리 무게를 고려하면 와트시를 무게로 나누어 에너지 밀도를 계산합니다.
-  - E.g. 55 Wh divided by (battery weight in grams divided by 1000).
+  - 예: 55 Wh divided by (battery weight in grams divided by 1000).
     이 배터리의 무게가 300g이고 55/(300/1000)=185 Wh/Kg라고 가정합니다.
 - 이 숫자 185 Wh/Kg는 최고급 LiPo 배터리의 수치입니다.
   반면에 리튬 이온 배터리는 260Wh/Kg에 달할 수 있습니다. 즉, 온보드 배터리 1kg 당 75 와트시를 더 사용할 수 있습니다.
