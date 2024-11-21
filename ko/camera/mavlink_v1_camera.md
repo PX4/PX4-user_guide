@@ -106,7 +106,7 @@ Using _QGroundControl_:
 
   ![Camera Setup Screen - Trigger mode and interface for MAVLink](../../assets/camera/mavlink_camera_settings.png)
 
-::: info
+:::info
 You can also [set the parameters directly](../advanced_config/parameters.md):
 
 - [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) — `4`: Distance based, on command (Survey mode)
