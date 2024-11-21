@@ -136,14 +136,14 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
 
-| 핀                        | 신호                              | 전압                    |
-| ------------------------ | ------------------------------- | --------------------- |
-| 1 (적) | 5V+                             | +5V                   |
-| 2 (흑) | DEBUG TX(출력) | +3.3V |
-| 3 (흑) | DEBUG TX(입력) | +3.3V |
-| 4 (흑) | FMU_SWDIO  | +3.3V |
-| 5 (흑) | FMU_SWCLK  | +3.3V |
-| 6 (흑) | GND                             | GND                   |
+| 핀                         | 신호                              | 전압                    |
+| ------------------------- | ------------------------------- | --------------------- |
+| 1(red) | 5V+                             | +5V                   |
+| 2 (흑)  | DEBUG TX(출력) | +3.3V |
+| 3 (흑)  | DEBUG TX(입력) | +3.3V |
+| 4 (흑)  | FMU_SWDIO  | +3.3V |
+| 5 (흑)  | FMU_SWCLK  | +3.3V |
+| 6 (흑)  | GND                             | GND                   |
 
 The product package includes a convenient debug cable that can be connected to the `DSU7` port.
 This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging.
@@ -169,7 +169,7 @@ For more information see [Using JTAG for hardware debugging](#using-jtag-for-har
 | USART3 | /dev/ttyS2 | TELEM2 (흐름 제어)                               |
 | UART4  | /dev/ttyS3 | TELEM4                                                          |
 | USART6 | /dev/ttyS4 | TX는 SBUS_RC 커넥터의 RC 입력입니다. |
-| UART7  | /dev/ttyS5 | 디버깅 콘솔                                                          |
+| UART7  | /dev/ttyS5 | 디버그 콘솔                                                          |
 | UART8  | /dev/ttyS6 | PX4IO                                                           |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
@@ -218,7 +218,7 @@ The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-series-gnss/en
 
 For direct connection to _Segger Jlink_ we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
-## 알려진 문제
+## 알려진 이슈들
 
 The issues below refer to the _batch number_ in which they first appear.
 배치번호는 V01 뒤의 4 자리 생산날짜이며 비행 컨트롤러 측면의 스티커에 표시되어 있습니다.
