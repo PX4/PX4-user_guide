@@ -1,19 +1,23 @@
 # Hard Fault Debugging
 
-A hard fault is a state when a CPU executes an invalid instruction or accesses an invalid memory address. This might occur when key areas in RAM have been corrupted.
+A hard fault is a state when a CPU executes an invalid instruction or accesses an invalid memory address.
+This might occur when key areas in RAM have been corrupted.
 
-## Video
+## 视频:
 
-The following video demonstrates hardfault debugging on PX4 using Eclipse and a JTAG debugger. It was presented at the PX4 Developer Conference 2019.
+The following video demonstrates hardfault debugging on PX4 using Eclipse and a JTAG debugger.
+It was presented at the PX4 Developer Conference 2019.
 
 <lite-youtube videoid="KZkAM_PVOi0" title="Hardfault debugging on PX4"/>
 
 ## Debugging Hard Faults in NuttX
 
-A typical scenario that can cause a hard fault is when the processor overwrites the stack and then the processor returns to an invalid address from the stack. This may be caused by a bug in code were a wild pointer corrupts the stack, or another task overwrites this task's stack.
+A typical scenario that can cause a hard fault is when the processor overwrites the stack and then the processor returns to an invalid address from the stack.
+This may be caused by a bug in code were a wild pointer corrupts the stack, or another task overwrites this task's stack.
 
 - NuttX maintains two stacks: The IRQ stack for interrupt processing and the user stack
-- The stack grows downward. So the highest address in the example below is 0x20021060, the size is 0x11f4 (4596 bytes) and consequently the lowest address is 0x2001fe6c.
+- The stack grows downward.
+  So the highest address in the example below is 0x20021060, the size is 0x11f4 (4596 bytes) and consequently the lowest address is 0x2001fe6c.
 
 ```sh
 Assertion failed at file:armv7-m/up_hardfault.c line: 184 task: ekf_att_pos_estimator
@@ -68,7 +72,8 @@ To decode the hard fault, load the _exact_ binary into the debugger:
 arm-none-eabi-gdb build/px4_fmu-v2_default/px4_fmu-v2_default.elf
 ```
 
-Then in the GDB prompt, start with the last instructions in R8, with the first address in flash (recognizable because it starts with `0x080`, the first is `0x0808439f`). The execution is left to right. So one of the last steps before the hard fault was when `mavlink_log.c` tried to publish something,
+Then in the GDB prompt, start with the last instructions in R8, with the first address in flash (recognizable because it starts with `0x080`, the first is `0x0808439f`).
+The execution is left to right. So one of the last steps before the hard fault was when `mavlink_log.c` tried to publish something,
 
 ```sh
 (gdb) info line *0x0808439f
