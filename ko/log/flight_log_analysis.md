@@ -164,6 +164,6 @@ Name (multi id, message size in bytes)    number of data points, total bytes
 
 [Data Comets](https://github.com/dsaffo/DataComets)는 비행 데이터를 비행 경로에 인코딩하고 시간별로 데이터 필터링과 브러싱 할 수있는 대화형 PX4 비행로그 분석도구입니다.
 
-작은 로그 파일(32Mb 이하)에 대한 도구의 온라인 버전을 사용하거나, 장시간 비행 분석은 로컬에서 실행할 수 있습니다.
+You can use the online version of the tool for small log files (< 32Mb), or run it locally in order to analyze longer flights.
 
 ![Data Comets](../../assets/flight_log_analysis/data_comets/data_comets_overview.gif)
