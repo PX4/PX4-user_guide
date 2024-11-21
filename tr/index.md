@@ -1,24 +1,28 @@
-<div style="float:right; padding:10px; margin-right:20px;"><a href="https://px4.io/"><img src="../assets/site/logo_pro_small.png" title="Px4 Logo" width="180px" /></a></div>
+<div style="float:right; padding:10px; margin-right:20px;"><a href="https://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 Logo" width="180px" /></a></div>
 
 # PX4 Autopilot User Guide
 
-[![Sürümler](https://img.shields.io/badge/release-main-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![Tartışma](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![Discord](https://discordapp.com/api/guilds/1022170275984457759/widget.png?style=shield)](https://discord.gg/dronecode)
+[![Releases](https://img.shields.io/badge/release-main-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![Discord](https://discordapp.com/api/guilds/1022170275984457759/widget.png?style=shield)](https://discord.gg/dronecode)
 
-PX4 is the _Professional Autopilot_. Akademi ve endüstriden birinci sınıf yazılım geliştiriciler tarafından geliştirilen ve dünyanın dört bir yanına uzanan aktif bir topluluk tarafından desteklenen PX4, yarış ve kargo dronlarından kara ve denizaltı araçlarına kadar birçok çeşit araca hayat vermektedir.
+PX4 is the _Professional Autopilot_.
+Akademi ve endüstriden birinci sınıf yazılım geliştiriciler tarafından geliştirilen ve dünyanın dört bir yanına uzanan aktif bir topluluk tarafından desteklenen PX4, yarış ve kargo dronlarından kara ve denizaltı araçlarına kadar birçok çeşit araca hayat vermektedir.
 
 :::tip
-Bu rehber, PX4 tabanlı bir aracı kurmak, yapılandırmak ve güvenli bir şekilde uçurmak için ihtiyacınız olan her şeyi içermektedir. Katkıda bulunmak ister misiniz?  [Development](development/development.md) bölümünü kontrol edin
+This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. Katkıda bulunmak ister misiniz? Check out the [Development](development/development.md) section.
 
 :::
 
 :::warning
-This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector to find the current _stable_ version.
+This guide is for the _development_ version of PX4 (`main` branch).
+Use the **Version** selector to find the current _stable_ version.
 
-Documented changes since the stable release are captured in the evolving [release note](releases/main.md). :::
+Documented changes since the stable release are captured in the evolving [release note](releases/main.md).
+:::
 
 ## Nasıl Başlayabilirim?
 
-[Basic Concepts](getting_started/px4_basic_concepts.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicle types, telemetry systems, RC control systems).
+[Basic Concepts](getting_started/px4_basic_concepts.md) should be read by all users!
+It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicle types, telemetry systems, RC control systems).
 
 Depending on what you want to achieve, the following tips will help you navigate through this guide:
 
@@ -30,11 +34,15 @@ In the [Multicopter](frames_multicopter/index.md), [VTOL](frames_vtol/index.md),
 - [Kits](frames_multicopter/kits.md) lists drones that you have to build yourself from a set of preselected parts
 - [DIY Builds](frames_multicopter/diy_builds.md) shows some examples of drones that have been built using parts that were sourced individually
 
-Both kits and complete vehicles usually include everything you need except for a battery and RC System. Kits are usually not hard to build, provide a good introduction to how drones fit together, and are relatively inexpensive. We provide generic instructions for assembly, such as [Assembling a Multicopter](assembly/assembly_mc.md), and most kits come with specific instructions too.
+Both kits and complete vehicles usually include everything you need except for a battery and RC System.
+Kits are usually not hard to build, provide a good introduction to how drones fit together, and are relatively inexpensive.
+We provide generic instructions for assembly, such as [Assembling a Multicopter](assembly/assembly_mc.md), and most kits come with specific instructions too.
 
-If the kits and complete drones aren't quite right for you then you can build a vehicle from scratch, but this requires more knowledge. [Airframe Builds](airframes/index.md) lists the supported frame starting points to give you some idea of what is possible.
+If the kits and complete drones aren't quite right for you then you can build a vehicle from scratch, but this requires more knowledge.
+[Airframe Builds](airframes/index.md) lists the supported frame starting points to give you some idea of what is possible.
 
-Once you have a vehicle that supports PX4 you will need to configure it and calibrate the sensors. Each vehicle type has its own configuration section that explains the main steps, such as [Multicopter Configuration/Tuning](config_mc/index.md).
+Once you have a vehicle that supports PX4 you will need to configure it and calibrate the sensors.
+Each vehicle type has its own configuration section that explains the main steps, such as [Multicopter Configuration/Tuning](config_mc/index.md).
 
 ### I want to add a payload/camera
 
@@ -42,11 +50,13 @@ The [Payloads](payloads/index.md) section describes how to add a camera and how 
 
 ### I am modifying a supported vehicle
 
-The [Hardware Selection & Setup](hardware/drone_parts.md) section provides both high level and product-specific information about hardware that you might use with PX4 and its configuration. This is the first place you should look if you want to modify a drone and add new components.
+The [Hardware Selection & Setup](hardware/drone_parts.md) section provides both high level and product-specific information about hardware that you might use with PX4 and its configuration.
+This is the first place you should look if you want to modify a drone and add new components.
 
 ### I want to fly
 
-Before you fly you should read [Operations](config/operations.md) to understand how to set up the safety features of your vehicle and the common behaviours of all frame types. Once you've done that you're ready to fly.
+Before you fly you should read [Operations](config/operations.md) to understand how to set up the safety features of your vehicle and the common behaviours of all frame types.
+Once you've done that you're ready to fly.
 
 Basic instructions for flying each vehicle type are provided in the respective sections, such as [Basic Flying (Multicopter)](flying/basic_flying_mc.md).
 
@@ -65,11 +75,12 @@ Among other things it covers:
 - [How to report bugs](contribute/support.md#issue-bug-reporting)
 - [Weekly dev call](contribute/support.md#weekly-dev-call)
 
-## Bug Bildirme & Sorunlar
+## Reporting Bugs & Issues
 
 If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
 
-If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues).
+Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
 ## Katkıda Bulunma
 
@@ -81,7 +92,8 @@ Information on how to contribute to code and documentation can be found in the [
 
 ## Çeviri
 
-There are several [translations](contribute/translation.md) of this guide. You can access these from the Languages menu (top right):
+There are several [translations](contribute/translation.md) of this guide.
+You can access these from the Languages menu (top right):
 
 ![Language Selector](../assets/vuepress/language_selector.png)
 
@@ -89,15 +101,18 @@ There are several [translations](contribute/translation.md) of this guide. You c
 
 ## Lisans
 
-PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [Licences](contribute/licenses.md).
+PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause).
+This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+For more information see: [Licences](contribute/licenses.md).
 
-## Takvim & Etkinlikler
+## Calendar & Events
 
-The _Dronecode Calendar_ shows important community events for platform users and developers. Select the links below to display the calendar in your timezone (and to add it to your own calendar):
+The _Dronecode Calendar_ shows important community events for platform users and developers.
+Select the links below to display the calendar in your timezone (and to add it to your own calendar):
 
-- [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
-- [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
-- [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
+- [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com\&ctz=Europe%2FZurich)
+- [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com\&ctz=America%2FTijuana)
+- [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com\&ctz=Australia%2FSydney)
 
 :::tip
 The calendar default timezone is Central European Time (CET).
@@ -118,7 +133,6 @@ The following icons used in this library are licensed separately (as shown below
 
 The PX4 flight stack is hosted under the governance of the [Dronecode Project](https://www.dronecode.org/).
 
-<a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a>
-<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux Foundation Logo" width="80px" /></a>
+<a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a> <a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux Foundation Logo" width="80px" /></a>
 
 <div style="padding:10px">&nbsp;</div>
