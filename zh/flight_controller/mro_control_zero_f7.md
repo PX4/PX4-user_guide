@@ -1,15 +1,22 @@
 # mRo Control Zero F7 Flight Controller
 
-:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 The _mRo Control Zero F7<sup>&reg;</sup>_ is a new flight controller from mRo.
 
 ![mRo Control Zero F7](../../assets/flight_controller/mro_control_zero_f7/mro_control_zero_f7.jpg)
 
-It is a no-compromise triple IMU commercial grade flight controller. It includes 8x PWM outputs (DShot capable), 3x IMUs, 1x Magnetometer, 1x Barometric Pressure Sensor (Altimeter), 6x UART, and SD Card, all packed into a 32mm x 20mm PCB. The PWMs are bidirectional, EMI protected, and level shifted to 5V logic levels. All accessed using front and rear 30pin Molex PicoClasp connectors. A durable plastic case, conformal board coating, and optional temperature calibration included.
+It is a no-compromise triple IMU commercial grade flight controller.
+It includes 8x PWM outputs (DShot capable), 3x IMUs, 1x Magnetometer, 1x Barometric Pressure Sensor (Altimeter), 6x UART, and SD Card, all packed into a 32mm x 20mm PCB.
+The PWMs are bidirectional, EMI protected, and level shifted to 5V logic levels.
+All accessed using front and rear 30pin Molex PicoClasp connectors.
+A durable plastic case, conformal board coating, and optional temperature calibration included.
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## 主要特性
@@ -19,6 +26,7 @@ It is a no-compromise triple IMU commercial grade flight controller. It includes
   - 32-bit STM32F777 Cortex<sup>&reg;</sup> M4 core with FPU rev. 3
   - 216 MHz/512 KB RAM/2 MB Flash
   - F-RAM Cypress MF25V02-G 256-Kbit nonvolatile memory (Flash memory that performs as fast as RAM)
+
 - 传感器：
 
   - [Bosch BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) 3-axis accelerometer/gyroscope (internally vibration dampened)
@@ -52,14 +60,15 @@ It is a no-compromise triple IMU commercial grade flight controller. It includes
 - 电源系统
   - 3x Ultra low noise LDO voltage regulator
 
-## 在哪里买
+## 购买渠道
 
 - [mRo Control Zero](https://store.mrobotics.io/mRo-Control-Zero-F7-p/mro-ctrl-zero-f7.htm)
 
 ## 编译固件
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -72,13 +81,14 @@ make mro_ctrl-zero-f7
 
 ### Console Port
 
-The [PX4 System Console](../debug/system_console.md) runs on `USART7` using the pins listed below. This is a standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/en/products/detail/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
+The [PX4 System Console](../debug/system_console.md) runs on `USART7` using the pins listed below.
+This is a standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/en/products/detail/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
 
-| mRo control zero f7 |             | FTDI                    |
-| ------------------- | ----------- | ----------------------- |
-| 17                  | USART7 Tx   | 5    | FTDI RX (yellow) |
-| 19                  | USART7 Rx   | 4    | FTDI TX (orange) |
-| 6                   | USART21 GND | 1    | FTDI GND (black) |
+| mRo control zero f7 |             | FTDI |                                  |
+| ------------------- | ----------- | ---- | -------------------------------- |
+| 17                  | USART7 Tx   | 5    | FTDI RX （黄色）                     |
+| 19                  | USART7 Rx   | 4    | FTDI TX （橙色）                     |
+| 6                   | USART21 GND | 1    | FTDI GND (黑色) |
 
 ### SWD Port
 
@@ -98,16 +108,17 @@ There is also an [ARM20-CTX 20-Pin to TC2030-IDC adapter](https://www.tag-connec
 
 ## 串口映射
 
-| UART   | 设备         | Port                                                            |
-| ------ | ---------- | --------------------------------------------------------------- |
-| USART2 | /dev/ttyS0 | TELEM1 (flow control)                                           |
-| USART3 | /dev/ttyS1 | TELEM2 (flow control)                                           |
-| UART4  | /dev/ttyS2 | GPS1                                                            |
+| UART   | 设备         | Port                                                                                               |
+| ------ | ---------- | -------------------------------------------------------------------------------------------------- |
+| USART2 | /dev/ttyS0 | TELEM1 (flow control)                                                           |
+| USART3 | /dev/ttyS1 | TELEM2 (flow control)                                                           |
+| UART4  | /dev/ttyS2 | GPS1                                                                                               |
 | USART6 | /dev/ttyS3 | Flex port (can be configured as SPI or UART with Flow Control). |
-| UART7  | /dev/ttyS4 | CONSOLE                                                         |
-| UART8  | /dev/ttyS5 | Free serial port (typically for FrSky telemetry)                |
+| UART7  | /dev/ttyS4 | CONSOLE                                                                                            |
+| UART8  | /dev/ttyS5 | Free serial port (typically for FrSky telemetry)                                |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
 
 ## 更多信息
