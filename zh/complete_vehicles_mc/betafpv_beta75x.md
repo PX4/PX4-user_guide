@@ -10,7 +10,7 @@ The [BetaFPV Beta75X](https://betafpv.com/products/beta75x-2s-whoop-quadcopter) 
 
 ![BetaFPV Beta75X](../../assets/hardware/betafpv_beta75x.jpg)
 
-## 在哪里买
+## 购买渠道
 
 The _Beta75X_ can be bought from a number of vendors, including:
 
@@ -54,6 +54,6 @@ To install and configure PX4:
 - [Set the Airframe](../config/airframe.md) to _BetaFPV Beta75X 2S Brushless Whoop_.
 - Continue with [basic configuration](../config/index.md), including sensor calibration and radio setup.
 
-## Video
+## 视频:
 
 <lite-youtube videoid="_-O0kv0Qsh4" title="PX4 running on the BetaFPV Whoop"/>
