@@ -4,7 +4,7 @@ The [ARK Pi6X Flow](\(https://arkelectron.gitbook.io/ark-documentation/flight-co
 
 ![ARK Pi6X Flow Flight Controller](../../assets/flight_controller/ark_pi6x_flow/ark_pi6xflow.jpg)
 
-## 在哪里买
+## 购买渠道
 
 Order this module from:
 
@@ -64,7 +64,7 @@ Order this module from:
   - 41g (without Pi CM4, Pi SD, and ESC)
   - 53g (bundle with Pi CM4 and Pi SD, without ESC)
 
-## Additional Information
+## 附加信息
 
 - Included: Flight Controller MicroSD
 - Bundle Option Includes:
