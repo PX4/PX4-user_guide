@@ -1,37 +1,38 @@
 # CAUV CAN PMU
 
-CAN PMU<sup>&reg;</sup> - це високоточний модуль живлення [DroneCAN](index.md), розроблений компанією CUAV<sup>&reg;</sup>. Він використовує алгоритм компенсації CUAV ITT, який дозволяє дронам отримувати більш точні дані про заряд батареї.
+CAN PMU<sup>&reg;</sup> is a high-precision [DroneCAN](index.md) power module developed by CUAV<sup>&reg;</sup>.
+Він використовує алгоритм компенсації CUAV ITT, який дозволяє дронам отримувати більш точні дані про заряд батареї.
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu.jpg)
 
 Рекомендується для використання у великих комерційних транспортних засобах, але також може застосовуватися для дослідницьких транспортних засобів.
 
-## Де придбати
+## Де купити
 
 - [CUAV store](https://store.cuav.net/index.php)
 - [CUAV aliexpress ](https://www.aliexpress.com/item/4000369700535.html)
 
 ## Характеристики обладнання
 
-- **Процесор:** STM32F412
-- **Вхідна напруга**: 6~62V\(2-15S\)
-- **Максимальний струм:** 110A
-- **Точність напруги:** ±0.05V
-- **Точність струму:** ±0.1A
-- **Роздільна здатність:** 0.01A/V
-- **Максимальна вихідна потужність:** 6000W/90S
-- **Максимальна стабільна потужність:** 5000W
-- **Вихід порту живлення:** 5.4V/5A
-- **Робоча температура:** -20~+100
-- **Оновлення прошивки:** Підтримується.
-- **Калібрування:** не потрібно.
-- **Тип інтерфейсу:**
-  - **IN/OUT:** XT90\(Кабель）/Amass 8.0\(Модуль）
-  - **Порт живлення:** 5025850670
+- **Processor:** STM32F412
+- **Voltage input**: 6~62V\(2-15S\)
+- **Max current:** 110A
+- **Voltage accuracy:** ±0.05V
+- **Current accuracy:** ±0.1A
+- **Resolution:** 0.01A/V
+- **Max output power:** 6000W/90S
+- **Max stable power:** 5000W
+- **Power port output:** 5.4V/5A
+- **Operating temp:** -20~+100
+- **Firmware upgrade:** Supported.
+- **Calibration:** Not needed.
+- **Interface Type:**
+  - **IN/OUT:** XT90\(Cable）/Amass 8.0\(Module）
+  - **Power port:** 5025850670
   - **CAN:** GHR-04V-S
-- **Зовнішній вигляд:**
-  - **Розмір:** 46.5мм \* 38.5мм \* 22.5мм
-  - **Вага:** 76g
+- **Appearance:**
+  - **Size:** 46.5mm \* 38.5mm \* 22.5mm
+  - **Weight:** 76g
 
 ## Встановлення обладнання
 
@@ -39,7 +40,7 @@ CAN PMU<sup>&reg;</sup> - це високоточний модуль живле�
 
 ![CAN PMU list](../../assets/hardware/power_module/cuav_can/can_pmu_list.png)
 
-### Розпіновка
+### Схема розташування виводів
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_pinouts_en.png)
 
@@ -56,18 +57,18 @@ CAN PMU<sup>&reg;</sup> - це високоточний модуль живле�
 
 ## Налаштування польотного контролера
 
-Встановіть такі параметри у _QGroundControl_ [Vehicle Setup > Parameters](../advanced_config/parameters.md), а потім перезапустіть:
+Set the following parameters in _QGroundControl_ [Vehicle Setup > Parameters](../advanced_config/parameters.md) and then restart:
 
-- [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE): встановить на: _Sensors Automatic Config_
+- [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE): set to: _Sensors Automatic Config_
 
   ![qgc set](../../assets/hardware/power_module/cuav_can/qgc_set_en.png)
 
-- [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT): встановить на: _Raw data_
+- [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT): set to: _Raw data_
 
-  ![QGC - Set UAVCAN_SUB_BAT parameter to raw data](../../assets/hardware/power_module/cuav_can/qgc_set_usavcan_sub_bat.png)
+  ![QGC - Set UAVCAN\_SUB\_BAT parameter to raw data](../../assets/hardware/power_module/cuav_can/qgc_set_usavcan_sub_bat.png)
 
 ## Додаткова інформація
 
-[Керівництво користувача CAN PMU](http://manual.cuav.net/power-module/CAN-PMU.pdf)
+[CAN PMU Manual](http://manual.cuav.net/power-module/CAN-PMU.pdf)
 
-[Модуль виявлення живлення CAN PMU > Увімкніть CAN PMU > Прошивка PX4](http://doc.cuav.net/power-module/can-pmu/en/) (документи CUAV)
+[CAN PMU Power detection module > Enable CAN PMU > PX4 firmware](http://doc.cuav.net/power-module/can-pmu/en/) (CUAV docs)
