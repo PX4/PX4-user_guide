@@ -8,7 +8,7 @@ For simplicity, more advanced features like start/stop functionality and command
 These are covered in [Application/Module Template](../modules/module_template.md).
 :::
 
-## 전제 조건
+## 준비 사항
 
 다음과 같은 것이 필요합니다.
 
