@@ -1,11 +1,14 @@
-# Довідник планерів
+# Airframes Reference
 
-:::info **Цей список є [автозгенерованим](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) з вихідного коду** за допомогою команди збірки: `make airframe_metadata`.
+:::info
+**This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
 :::
 
-Сторінка перелічує всі підтримувані планери й типи, включаючи призначення та нумерацію двигуна. Мотори у **зеленому** обертаються за годинниковою стрілкою, у **синьому** - проти.
+Сторінка перелічує всі підтримувані планери й типи, включаючи призначення та нумерацію двигуна.
+The motors in **green** rotate clockwise, the ones in **blue** counterclockwise.
 
-**Канали AUX** можуть бути відсутніми на деяких польотних контролерах. У разі присутності ШІМ(PWM) канали AUX зазвичай позначаються як **AUX OUT**.
+**AUX** channels may not be present on some flight controllers.
+If present, PWM AUX channels are commonly labelled **AUX OUT**.
 
 <style>
 div.frame_common table, div.frame_common table {
@@ -73,9 +76,9 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## Autogyro
+## Автогиро
 
-### Autogyro
+### Автогиро
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/Autogyro.svg"/>
@@ -98,11 +101,11 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td>Підтримувач: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>Спеціальні виводи:</b><ul><li><b>Servo3</b>: ліфт</li><li><b>Servo4</b>: кермо</li><li><b>Servo5</b>: кермо (друге, опційно)</li><li><b>Servo6</b>: колесо</li></ul></p></td>
+ <td>Підтримувач: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>Specific Outputs:</b><ul><li><b>Servo3</b>: ліфт</li><li><b>Servo4</b>: кермо</li><li><b>Servo5</b>: кермо (друге, опційно)</li><li><b>Servo6</b>: колесо</li></ul><p></p></td>
 </tr>
 <tr id="autogyro_autogyro_thunderfly_tf-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/TF-G2/">ThunderFly TF-G2</a></td>
- <td>Підтримувач: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><p><b>Спеціальні виводи:</b><ul><li><b>Servo3</b>: кермо</li></ul></p></td>
+ <td>Підтримувач: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><p><b>Specific Outputs:</b><ul><li><b>Servo3</b>: кермо</li></ul><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -400,7 +403,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_holybro_qav250">
  <td><a href="https://docs.px4.io/main/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html">HolyBro QAV250</a></td>
- <td>Підтримувач: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4050</p></td>
+ <td>Супроводжувач: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4050</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_kopis_2">
  <td>Holybro Kopis 2</td>
@@ -416,7 +419,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td>UVify IFO</td>
- <td>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4073</p></td>
+ <td>Підтримувач: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4073</p></td>
 </tr>
 <tr id="copter_quadrotor_x_coex_clover_4">
  <td>COEX Clover 4</td>
@@ -434,7 +437,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Симуляція
+### Моделювання
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
@@ -447,11 +450,11 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_simulation_hil_quadcopter_x">
- <td>HIL Quadcopter X</td>
+ <td>HIL квадрокоптер у конфігурації X</td>
  <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 1001</p></td>
 </tr>
 <tr id="copter_simulation_sih_quadcopter_x">
- <td>SIH Quadcopter X</td>
+ <td>Квадрокоптер SIH X</td>
  <td>Підтримувач: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1100</p></td>
 </tr>
 </tbody>
@@ -503,7 +506,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="plane_flying_wing_generic_flying_wing">
  <td>Загальне літаюче крило</td>
- <td>Супроводжуючий: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 3000</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 3000</p></td>
 </tr>
 </tbody>
 </table>
@@ -538,7 +541,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Симуляція
+### Моделювання
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
@@ -552,7 +555,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="plane_simulation_sih_plane_aert">
  <td>SIH літак AERT</td>
- <td>Супроводжуючий: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1101</p></td>
+ <td>Підтримувач: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1101</p></td>
 </tr>
 </tbody>
 </table>
@@ -578,7 +581,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## Ровер
+## Землехід
 
 ### Землехід
 
@@ -598,7 +601,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="rover_rover_aion_robotics_r1_ugv">
  <td><a href="https://www.aionrobotics.com/r1">Aion Robotics R1 UGV</a></td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50001</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50001</p></td>
 </tr>
 <tr id="rover_rover_generic_rover_ackermann">
  <td>Generic Rover Ackermann</td>
@@ -606,19 +609,19 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="rover_rover_axial_scx10_2_trail_honcho">
  <td><a href="https://www.axialadventure.com/product/1-10-scx10-ii-trail-honcho-4wd-rock-crawler-brushed-rtr/AXID9059.html">Axial SCX10 2 Trail Honcho</a></td>
- <td>Супроводжуючий: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 51001</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 51001</p></td>
 </tr>
 <tr id="rover_rover_generic_rover_mecanum">
  <td>Generic Rover Mecanum</td>
- <td>Супроводжуючий: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 52000</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 52000</p></td>
 </tr>
 <tr id="rover_rover_generic_ground_vehicle_(deprecated)">
  <td>Generic Ground Vehicle (Deprecated)</td>
- <td><p><code>SYS_AUTOSTART</code> = 59000</p><p><b>Спеціальні виводи:</b><ul><li><b>Motor1</b>: газ</li><li><b>Servo1</b>: кермування</li></ul></p></td>
+ <td><p><code>SYS_AUTOSTART</code> = 59000</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: газ</li><li><b>Servo1</b>: кермування</li></ul><p></p></td>
 </tr>
 <tr id="rover_rover_nxp_cup_car:_df_robot_gpx_(deprecated)">
  <td>NXP Cup car: DF Robot GPX (Deprecated)</td>
- <td>Підтримувач: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 59001</p><p><b>Спеціальні виводи:</b><ul><li><b>Motor1</b>: Швидкість лівих коліс</li><li><b>Servo1</b>: кермувальний сервопривід</li></ul></p></td>
+ <td>Підтримувач: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 59001</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: Швидкість лівих коліс</li><li><b>Servo1</b>: кермувальний сервопривід</li></ul><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -640,7 +643,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
  <td>Загальний підводний робот</td>
- <td>Супроводжуючий: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
  <td>HippoCampus TUHH (безпілотний підводний апарат)</td>
@@ -679,15 +682,15 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## VTOL
+## VTOL (Вертикальний зліт та посадка)
 
-### Симуляція
+### Моделювання
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
 <table>
  <thead>
-   <tr><th>Загальні виходи</th></tr>
+   <tr><th>Загальні виводи</th></tr>
  </thead>
  <tbody>
 <tr>
@@ -710,7 +713,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Стандартний VTOL
+### Standard VTOL
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/VTOLPlane.svg"/>
@@ -723,7 +726,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
- <td>HIL Standard VTOL QuadPlane</td>
+ <td>HIL ВЗІП квадроплан стандартний</td>
  <td>Підтримувач: Roman Bapst &lt;roman@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 1002</p></td>
 </tr>
 <tr id="vtol_standard_vtol_generic_standard_vtol">
@@ -777,4 +780,3 @@ div.frame_variant td, div.frame_variant th {
 </tbody>
 </table>
 </div>
-
