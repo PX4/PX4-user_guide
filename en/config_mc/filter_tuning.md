@@ -41,16 +41,17 @@ The filtering pipeline for the controllers in PX4 is described below.
 Sampling and filtering is always performed at the full raw sensor rate (commonly 8kHz, depending on the IMU).
 :::
 
-### On-chip DLPF for the gyro sensor.
+### On-chip DLPF for the Gyro Sensor
 
-This is disabled on all chips where it can be disabled (if not, the cutoff frequency is set to the highest level of the chip).
+This is disabled on all chips where it can be disabled (if not, cutoff frequency is set to the highest level of the chip).
 
-### Notch filters
+### Notch Filters
 
 Setups that have a significant lower-frequency noise spike (e.g. due to harmonics at the rotor blade pass frequency) can benefit from using the notch filter to clean the signal before it is passed to the low pass filter (these harmonics have a similar detrimental impact on motors as other sources of noise).
-Without the notch filter you'd have to set the low pass filter cuttoff much lower (increasing the latency) in order to avoid passing this noise to the motors.
 
-#### Static notch filters
+Without the notch filter you'd have to set the low pass filter cutoff much lower (increasing the latency) in order to avoid passing this noise to the motors.
+
+#### Static Notch Filters
 
 One or two static notch filters on the gyro sensor data that are used to filter out narrow band noise, for example harmonics at the rotor blade pass frequency.
 
@@ -59,28 +60,30 @@ The static notch filters can be configured using:
 - First notch filter: [IMU_GYRO_NF0_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) and [IMU_GYRO_NF0_FRQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ).
 - Second notch filter: [IMU_GYRO_NF1_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF1_BW) and [IMU_GYRO_NF1_FRQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF1_FRQ).
 
-
 ::: info
 Only two notch filters are provided.
 Airframes with more than two frequency noise spikes typically clean the first two spikes with the notch filters, and subsequent spikes using the low pass filter.
 :::
 
-#### Dynamic notch filters
+#### Dynamic Notch Filters
 
-Dynamic notch filter are based on ESC RPM feedback and/or the onboard FFT analysis to track the rotor blade pass frequency and its harmonics.
+Dynamic notch filters use ESC RPM feedback and/or the onboard FFT analysis to track the rotor blade pass frequency and its harmonics.
 
-ESC feedback requires ESCs capable of RPM feedback such as [DShot](../peripherals/esc_motors.md#dshot) with telemetry connected, or bidirectional DShot set up (currently [work in progress](https://github.com/PX4/PX4-Autopilot/pull/23863)), or [UAVCAN/DroneCAN ESCs](../dronecan/escs.md).
+ESC RPM feedback requires ESCs capable of providing RPM feedback such as [DShot](../peripherals/esc_motors.md#dshot) with telemetry connected, a bidirectional DShot set up ([work in progress](https://github.com/PX4/PX4-Autopilot/pull/23863)), or [UAVCAN/DroneCAN ESCs](../dronecan/escs.md).
+Before enabling, make sure that the ESC RPM is correct.
+You might have to adjust the [pole count of the motors](../advanced_config/parameter_reference.md#MOT_POLE_COUNT).
 
-Before enabling, make sure that the ESC RPM is correct. You might have to adjust the [pole count of the motors](../advanced_config/parameter_reference.md#MOT_POLE_COUNT).
+The following parameters should be set to enable and configure dynamic notch filters:
 
-To enable dynamic notch filters set:
-- [IMU_GYRO_DNF_EN](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_EN) to enable it.
-- [IMU_GYRO_DNF_MIN](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_MIN) to set the minimum.
-- [IMU_GYRO_DNF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_MIN) to set the bandwith.
-- [IMU_GYRO_DNF_HMC](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) to set the number of harmonics.
+| Parameter                                                                                                     | Description                                                              |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| <a href="IMU_GYRO_DNF_EN"></a>[IMU_GYRO_DNF_EN](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_EN)    | Enable IMU gyro dynamic notch filtering. `0`: ESK RPM, `1`: Onboard FFT. |
+| <a href="IMU_GYRO_FFT_EN"></a>[IMU_GYRO_FFT_EN](../advanced_config/parameter_reference.md#IMU_GYRO_FFT_EN)    | Enable onboard FFT (required if `IMU_GYRO_DNF_EN` is set to `1`).        |
+| <a href="IMU_GYRO_DNF_MIN"></a>[IMU_GYRO_DNF_MIN](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_MIN) | Minimum dynamic notch frequency in Hz.                                   |
+| <a href="IMU_GYRO_DNF_BW"></a>[IMU_GYRO_DNF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_BW)    | Bandwidth for each notch filter in Hz.                                   |
+| <a href="IMU_GYRO_DNF_HMC"></a>[IMU_GYRO_DNF_HMC](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW)  | Number of harmonics to filter.                                           |
 
-
-### Low-pass filter
+### Low-pass Filter
 
 A low pass filter on the gyro data can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
 
@@ -100,12 +103,12 @@ Noise on the motors has the following consequences:
 - Reduced flight time because the motors continuously change their speed.
 - Visible random small twitches.
 
-### Low-pass filter on D-term
+### Low-pass Filter on D-term
 
 The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance.
 For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
 
-### Slew-rate filter on motor outputs
+### Slew-rate Filter on Motor Outputs
 
 An optional slew-rate filter on the motor outputs.
 This rate may be configured as part of the [Multicopter Geometry](../config/actuators.md#motor-geometry-multicopter) when configuring actuators (which in turn modifies the [CA_Rn_SLEW](../advanced_config/parameter_reference.md#CA_R0_SLEW) parameters for each motor `n`).
@@ -125,14 +128,15 @@ First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE]
 - Do not try to fix a vehicle that suffers from high vibrations with filter tuning!
   Instead fix the vehicle hardware setup.
 - Confirm that PID gains, in particular D, are not set too high as this can show up as vibrations.
-  :::
+
+:::
 
 Filter tuning is best done by reviewing flight logs.
 You can do multiple flights right after each other with different parameters and then inspect all logs, but make sure to disarm in between so that separate log files are created.
 
-The performed flight maneuver can simply be hovering in [Stabilized mode](../flight_modes_mc/manual_stabilized.md) with some rolling and pitching to all directions and some increased throttle periods.
+The performed flight manoeuvre can simply be hovering in [Stabilized mode](../flight_modes_mc/manual_stabilized.md) with some rolling and pitching to all directions and some increased throttle periods.
 The total duration does not need to be more than 30 seconds.
-In order to better compare, the maneuver should be similar in all tests.
+In order to better compare, the manoeuvre should be similar in all tests.
 
 First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30).
 Upload the logs to [Flight Review](https://logs.px4.io) and compare the _Actuator Controls FFT_ plot.
