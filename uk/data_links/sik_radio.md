@@ -1,8 +1,8 @@
 # Радіоінтеграція SiK
 
-[SiK radio](https://github.com/LorenzMeier/SiK) – це набір програмного забезпечення та інструментів для телеметричних радіостанцій.
+[SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
 
-Інформацію про _використання_ SiK Radio можна знайти в розділі [Периферійне обладнання > Телеметрія > Радіо SiK](../telemetry/sik_radio.md)
+Information about _using_ SiK Radio can be found in [Peripheral Hardware > Telemetry > SiK Radio](../telemetry/sik_radio.md)
 
 Наведена нижче інформація ("розробник") пояснює, як створити мікропрограму SiK із джерела та налаштувати її за допомогою AT-команд.
 
@@ -19,12 +19,13 @@
 - RFD900u
 - RFD900ue
 
-:::note
-Репозиторій SiK наразі не містить вбудованого програмного забезпечення для телеметричних радіостанцій RFD900x або RFD900ux. Щоб оновити мікропрограму на цих радіостанціях (наприклад, щоб підтримувати MAVLink v2.0), пропонується такий процес:
+:::info
+The SiK repository does not currently firmware for RFD900x or RFD900ux telemetry radios.
+Щоб оновити мікропрограму на цих радіостанціях (наприклад, щоб підтримувати MAVLink v2.0), пропонується такий процес:
 
-1. Завантажте відповідне мікропрограмне забезпечення з [веб-сайту RFDesign](https://files.rfdesign.com.au/firmware/).
-1. На ПК з Windows завантажте та інсталюйте [RFD Modem Tools](https://files.rfdesign.com.au/tools/).
-1. Використовуйте графічний інтерфейс RFD Modem Tools, щоб завантажити мікропрограму на телеметричну радіостанцію RFD900x або RFD900ux.
+1. Download the appropriate firmware from the [RFDesign website](https://files.rfdesign.com.au/firmware/).
+2. On a Windows PC, download and install [RFD Modem Tools](https://files.rfdesign.com.au/tools/).
+3. Використовуйте графічний інтерфейс RFD Modem Tools, щоб завантажити мікропрограму на телеметричну радіостанцію RFD900x або RFD900ux.
 
 :::
 
@@ -48,7 +49,7 @@ cd SiK/Firmware
 make install
 ```
 
-Завантажте його на радіо \(**змініть назву послідовного порту**\):
+Upload it to the radio \(**change the serial port name**\):
 
 ```
 tools/uploader.py --port /dev/tty.usbserial-CHANGETHIS dst/radio~hm_trp.ihx
@@ -64,8 +65,8 @@ screen /dev/tty.usbserial-CHANGETHIS 57600 8N1
 
 Після цього почніть командний режим:
 
-:::note
-НЕ ВВЕДІТЬ НІЧОГО ЗА СЕКУНДУ ДО І ПІСЛЯ
+:::info
+DO NOT TYPE ANYTHING ONE SECOND BEFORE AND AFTER
 :::
 
 ```sh
@@ -86,6 +87,6 @@ AT&W
 ATZ
 ```
 
-:::note
-Можливо, вам доведеться вимкнути радіо, щоб підключити його до другого радіо.
+:::info
+You might have to power-cycle the radio to connect it to the 2nd radio.
 :::
