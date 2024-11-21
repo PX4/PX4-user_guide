@@ -39,7 +39,7 @@ The supported behaviour is listed below (these do not precisely match the MAVLin
 
 [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - Accepted in "command controlled" mode (`TRIG_MODE` 1).
 
-| Command Parameter | Description                                                                                                                                                        |
+| Command Parameter | 설명                                                                                                                                                                 |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Param #1          | Trigger enable/disable. `1`: enable (start), `0`: disable.                      |
 | Param #2          | Reset trigger sequence. `1`: reset, any other value does nothing.                                                  |
@@ -54,7 +54,7 @@ The supported behaviour is listed below (these do not precisely match the MAVLin
 This is used by the GCS to test-shoot the camera from the user interface.
 The trigger driver does not support all camera control parameters defined by the MAVLink spec.
 
-| Command Parameter | Description                                                                                             |
+| Command Parameter | 설명                                                                                                      |
 | ----------------- | ------------------------------------------------------------------------------------------------------- |
 | Param #5          | Trigger one-shot command (set to 1 to trigger a single image frame). |
 
@@ -97,7 +97,7 @@ For more information see [Finding/Updating Parameters > Parameters Not In Firmwa
 
 Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
 
-| Mode | Description                                                                                                                                                                                                                                    |
+| Mode | 설명                                                                                                                                                                                                                                             |
 | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0    | Camera triggering is disabled.                                                                                                                                                                                                 |
 | 1    | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#mavlink-command-interface) for more details.            |
@@ -113,7 +113,7 @@ If it is your first time enabling the camera trigger app, remember to reboot aft
 
 The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter:
 
-| Number | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Number | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1      | Enables the GPIO interface. The AUX outputs are pulsed high or low (depending on the `TRIG_POLARITY` parameter) every [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL) duration. This can be used to trigger most standard machine vision cameras directly. Note that on PX4FMU series hardware (Pixhawk, Pixracer, etc.), the signal level on the AUX pins is 3.3v.                                                                |
 | 2      | Enables the Seagull MAP2 interface. This allows the use of the [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) to interface to a multitude of supported cameras. Pin/Channel 1 (camera trigger) and Pin/Channel 2 (mode selector) of the MAP2 should be connected to the lower and higher mapped [camera trigger pins](#trigger-output-pin-configuration). Using Seagull MAP2, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1. |
@@ -129,7 +129,7 @@ If using trigger setup that requires two pins (e.g. Seagull MAP2) you can assign
 
 Note however that if a _PWM_ output has been used for camera triggering (such as Seagull MAP2), the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera capture, because the timer has already been used).
 
-::: info
+:::info
 At time of writing triggering only works on FMU pins:
 
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+) .
@@ -139,7 +139,7 @@ At time of writing triggering only works on FMU pins:
 
 ### 기타 매개 변수:
 
-| Parameter                                                                                                          | Description                                                                                                                                                                                                                                                             |
+| 매개변수                                                                                                               | 설명                                                                                                                                                                                                                                                                      |
 | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [TRIG_POLARITY](../advanced_config/parameter_reference.md#TRIG_POLARITY)                      | Relevant only while using the GPIO interface. Sets the polarity of the trigger pin. Active high means that the pin is pulled low normally and pulled high on a trigger event. Active low is vice-versa. |
 | [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL)                      | Defines the time between two consecutive trigger events in milliseconds.                                                                                                                                                                                |
@@ -157,7 +157,7 @@ The pin used for camera capture is then set in the _QGroundControl_ [Actuators](
 
 Note that if a _PWM output_ is used as a camera capture input, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera trigger, because the timer has already been used).
 
-::: info
+:::info
 At time of writing camera capture only works on FMU pins:
 
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+).
