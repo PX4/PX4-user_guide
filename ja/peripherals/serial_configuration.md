@@ -102,7 +102,7 @@ The following ports are commonly mapped to specific functions on all boards:
 
 Other ports generally have no assigned functions by default (are disabled).
 
-## Troubleshooting
+## トラブルシューティング
 
 <a id="parameter_not_in_firmware"></a>
 
