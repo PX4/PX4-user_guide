@@ -22,7 +22,7 @@ Key airframe features:
 
 Depending on the final takeoff weight the hover time might be limited (there is not a lot of air circulation inside the fuselage when the vehicle is hovering so the ESCs might overheat).
 
-## 在哪里买
+## 购买渠道
 
 - [OMP-Hobby](https://www.omphobby.com/OMPHOBBY-ZMO-VTOL-FPV-Aircraft-With-DJI-Goggles-And-Remote-Controller-p3069854.html)
 - [GetFPV](https://www.getfpv.com/omphobby-zmo-z3-vtol-fpv-1200mm-arf-plane-kit-no-fpv-system.html)
@@ -227,7 +227,7 @@ Another option is to add some threaded inserts into the holes. Since the injecti
 
 ### Antennas and RC Receiver
 
-::: info
+:::note
 
 If a Skynode is installed the LTE can be used as telemetry and video link. If a Pixhawk is used a different [telemetry link](../telemetry/index.md) will be needed. An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.md).
 :::
