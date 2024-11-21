@@ -19,7 +19,7 @@ For complete and regularly updated documentation, please visit <https://docs.mod
 If you are new to VOXL, be sure to familiarize yourself with the core features of VOXL hardware and software by reviewing the [VOXL Bootcamp](https://docs.modalai.com/voxl-developer-bootcamp/).
 :::
 
-## 在哪里买
+## 购买渠道
 
 [modalai.com/starling](https://modalai.com/starling)
 
