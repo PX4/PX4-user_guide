@@ -25,7 +25,7 @@ The main difference between the modules is that the M8N allows concurrent recept
 - **M8N:** Concurrent reception of up to 3 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - **M9N:** Concurrent reception of up to 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
 
-## 在哪里买
+## 购买渠道
 
 - [Holybro](https://holybro.com/collections/gps)
 
