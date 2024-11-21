@@ -130,7 +130,7 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 | USART2 | /dev/ttyS1 |           TELEM1          |                 TELEM1                |
 | USART3 | /dev/ttyS2 |           TELEM2          |                  해당없음                 |
 |  UART4 | /dev/ttyS3 |       TELEM/SERIAL4       |               UART/l2C B              |
-| USART6 | /dev/ttyS4 |            해당없음           |                 RC 입력                 |
+| USART6 | /dev/ttyS4 |            해당없음           |                 RC IN                 |
 |  UART7 | /dev/ttyS5 |            해당없음           |                 Debug                 |
 |  UART8 | /dev/ttyS6 |            해당없음           | 연결되지 않음 (PX4IO 없음) |
 
