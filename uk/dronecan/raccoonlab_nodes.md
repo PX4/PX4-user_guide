@@ -60,7 +60,7 @@ For more details, please refer to the corresponding pages.
 [Mini v2 Node]: ../../assets/hardware/can_nodes/raccoonlab_mini_node.png
 [Micro Node]: ../../assets/hardware/can_nodes/raccoonlab_micro_node.png
 
-## Де придбати
+## Де купити
 
 [RaccoonLab Store](https://raccoonlab.co/store)
 
