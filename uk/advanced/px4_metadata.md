@@ -47,7 +47,7 @@ PX4 використовує та генерує дані, які мають в�
 Це стосується, наприклад, [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md).
 Метадані завантажуються через [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) для всіх цілей збірки (таким чином, вони будуть доступні лише після того, як параметри будуть об'єднані в main).
 
-::: info
+:::info
 You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
 
 Якщо ви виконуєте індивідуальну розробку на платі з обмеженою FLASH-пам'яттю, ви можете змінити URL-адресу [тут](https://github. com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41), щоб вказати на інший сервер.
