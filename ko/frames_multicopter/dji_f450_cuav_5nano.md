@@ -1,12 +1,12 @@
 # DJI FlameWheel 450 + CUAV V5 nano 조립
 
-키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
+This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
 
 주요 정보
 
-- **프레임:** DJI F450
-- **비행 컨트롤러:** [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
-- **조립 시간 (예상):** 90분 (프레임 조립에 45분, 오토파일럿 설치와 설정에 45분)
+- **Frame:** DJI F450
+- **Flight controller:** [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
+- **Assembly time (approx.):** 90 minutes (45 minutes for frame, 45 minutes autopilot installation/configuration)
 
 ![성절 완료하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
@@ -132,7 +132,7 @@ FrSky Taranis 조종기를 사용할 수 있습니다. 부수적으로 케이블
 
    ![상판 장착](../../assets/airframes/multicopter/dji_f450_cuav_5nano/6_add_top_board.jpg)
 
-1. 진동 방지 폼테이프를 *CUAV V5 nano* 비행 컨트롤러에 부착합니다.
+1. Add damping foam to the *CUAV V5 nano* flight controller.
 
    ![진동방지 폼테이프](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7a_attach_cuav5nano.jpg) ![진동방지 폼테이프](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7b_attach_cuav5nano.jpg)
 
@@ -160,7 +160,7 @@ FrSky Taranis 조종기를 사용할 수 있습니다. 부수적으로 케이블
 
 ## PX4 설정
 
-*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 프레임에 대한 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 :::tip PX4 설치 및 성정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
@@ -202,7 +202,7 @@ First update the firmware, airframe, geometry and outputs:
 
 ## 튜닝
 
-기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. These may be good enough to fly with, but you should tune each frame build.
+Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
 
 For instructions on how, start from [Autotune](../config/autotune_mc.md).
 
