@@ -1,49 +1,57 @@
 # Zubax Telega ESCs
 
-Zubax Telega - це високотехнологічна, власна технологія бездатчикового керування двигуном FOC. Використовується в декількох продуктах, включаючи [Zubax Myxa](https://zubax.com/products/myxa) ESC, [Zubax Mitochondrik](https://zubax.com/products/mitochondrik) модуль керування двигуном та інтегрований привід Zubax Sadulli.
+Zubax Telega - це високотехнологічна, власна технологія бездатчикового керування двигуном FOC.
+It is used in multiple products, including the [Zubax Myxa](https://zubax.com/products/myxa) ESC, [Zubax Mitochondrik](https://zubax.com/products/mitochondrik) motor controller module, and Zubax Sadulli integrated drive.
 
-Хоча Telega можна контролювати за допомогою традиційного введення ШІМ, вона розроблена для роботи через шину CAN за допомогою [DroneCAN](index.md).
+While Telega can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](index.md).
 
-:::інформація ESC на основі Zubax Telega вимагають нетривіальної настройки пропульсивної системи для забезпечення відповідної продуктивності та надійної роботи. Користувачам, які не мають необхідного досвіду налаштування, рекомендується або [купувати готові комплекти пропульсії для БПЛА](https://zubax.com/products/uav_propulsion_kits), або скористатися професійним сервісом налаштування від Zubax Robotic. Питання з цього питання повинні бути адресовані за адресою: [support@zubax.com](mailto:support@zubax.com).
+:::info
+ESCs based on Zubax Telega require non-trivial tuning of the propulsion system in order to deliver adequate performance and ensure robust operation.
+Users who lack the necessary tuning expertise are advised to either [purchase pre-tuned UAV propulsion kits](https://zubax.com/products/uav_propulsion_kits) or to use Zubax Robotic's professional tuning service.
+Questions on this matter should be addressed to: [support@zubax.com](mailto:support@zubax.com).
 :::
 
-![Садуллі - Топ](../../assets/peripherals/esc_usavcan_zubax_sadulli/sadulli_top.jpg)
+![Sadulli - Top](../../assets/peripherals/esc_usavcan_zubax_sadulli/sadulli_top.jpg)
 
 ## Де купити
 
-- [Zubax Myxa](https://zubax.com/products/myxa): Висококласний контролер двигуна PMSM/BLDC (FOC ESC) для легких безпілотних літальних апаратів та суден.
-- [Zubax Мітохондрик](https://zubax.com/products/mitochondrik): Інтегрований чіп контролера бездатчикового PMSM/BLDC двигуна (використовується в ESC та інтегрованих приводах)
-- [Zubax Комар](https://shop.zubax.com/products/komar-motor-controller-open-hardware-reference-design-for-mitochondrik?variant=32931555868771): Відкритий дизайн апаратного забезпечення для Мітохондрік
-- [Інтегрований привід Zubax Sadulli](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
+- [Zubax Myxa](https://zubax.com/products/myxa): High-end PMSM/BLDC motor controller (FOC ESC) for light unmanned aircraft and watercraft.
+- [Zubax Mitochondrik](https://zubax.com/products/mitochondrik): Integrated sensorless PMSM/BLDC motor controller chip (used in ESCs and integrated drives)
+- [Zubax Komar](https://shop.zubax.com/products/komar-motor-controller-open-hardware-reference-design-for-mitochondrik?variant=32931555868771): Open hardware reference design for Mitochondrik
+- [Zubax Sadulli Integrated Drive](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
 
-## Налаштування обладнання
+## Встановлення обладнання
 
-ESCs підключені до шини CAN за допомогою стандартного кабелю JST GH з чотирма контактами Pixhawk. Для отримання додаткової інформації, зверніться до інструкцій з [проводки CAN](../can/index.md#wiring). Порядок ESC не має значення.
+ESCs підключені до шини CAN за допомогою стандартного кабелю Pixhawk 4 pin JST GH.
+For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions. Порядок ESC не має значення.
 
-## Встановлення прошивки
+## Налаштування прошивки
 
-Перелік двигунів для ESC на основі [Telega](https://zubax.com/products/telega) зазвичай виконується за допомогою інструменту [Kucher](https://files.zubax.com/products/com.zubax.kucher/) (або менш "GUI-friendly" [DroneCAN GUI Tool](https://dronecan.github.io/GUI_Tool/Overview/)). Telega НЕ підтримує автоматичне перелічення, приводячи в рух двигун.
+Motor enumeration for [Telega-based ESCs](https://zubax.com/products/telega) is usually performed using the [Kucher tool](https://files.zubax.com/products/com.zubax.kucher/) (or less "GUI-friendly" [DroneCAN GUI Tool](https://dronecan.github.io/GUI_Tool/Overview/)).
+Telega НЕ підтримує автоматичне перелічення, приводячи в рух двигун.
 
-Тут є деякі вказівки: [Швидкий стартовий посібник для Myxa v0.1](https://forum.zubax.com/t/quick-start-guide-for-myxa-v0-1/911) (блог Zubax).
+There is some guidance here: [Quick start guide for Myxa v0.1](https://forum.zubax.com/t/quick-start-guide-for-myxa-v0-1/911) (Zubax blog).
 
 Також для надійної продуктивності регулятори швидкості Telega потребують іншої налаштування та конфігурації двигуна. Дивіться вищезазначений посібник та іншу документацію Zubax для отримання додаткової інформації.
 
 ## Налаштування польотного контролера
 
-### Увімкнення DroneCAN
+### Увімкнути DroneCAN
 
-Підключіть ESC до шини CAN Pixhawk. Увімкніть весь транспортний засіб за допомогою акумулятора або джерела живлення (не лише контролер польоту через USB) та увімкніть драйвер DroneCAN, встановивши параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) на `3` для активації як динамічного призначення ідентифікатора вузла, так і виводу DroneCAN ESC.
+Підключіть ESC до шини CAN Pixhawk. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `3` to enable both dynamic node ID allocation and DroneCAN ESC output.
 
-### Конфігурація PX4
+### Налаштування PX4
 
-Назначте двигуни на виходи, використовуючи екран конфігурації [Acutator](../config/actuators.md#actuator-testing).
+Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
-## Вирішення проблем
+## Усунення проблем
 
 ### Двигуни не крутяться під час увімкнення
 
-Якщо прошивка PX4 взбирається, але мотори не починають обертатися, перевірте, що параметр `UAVCAN_ENABLE=3` встановлено для використання DroneCAN ESCs. Якщо двигуни не починають обертатися перед збільшенням тяги, використовуйте [Acutator > Тестування приводу](../config/actuators.md#actuator-testing), щоб підтвердити, що вихідні дані двигуна встановлені на правильні мінімальні значення.
+If the PX4 Firmware arms but the motors do not start to rotate, check that parameter `UAVCAN_ENABLE=3` to use DroneCAN ESCs.
+If the motors do not start spinning before thrust is increased, use [Acutator > Actuator Testing](../config/actuators.md#actuator-testing) to confirm that the motor outputs are set to the correct minimum values.
 
 ### Пристрої DroneCAN не отримують ідентифікатор вузла/Оновлення прошивки не вдається
 
-PX4 вимагає SD-карту для виділення вузла DroneCAN та під час оновлення вбудованого програмного забезпечення (яке відбувається під час завантаження). Перевірте, що вставлена (працююча) SD-карта присутня і перезавантажте пристрій.
+PX4 вимагає SD-карту для виділення вузла DroneCAN та під час оновлення вбудованого програмного забезпечення (яке відбувається під час завантаження).
+Перевірте, що вставлена (працююча) SD-карта присутня і перезавантажте пристрій.
