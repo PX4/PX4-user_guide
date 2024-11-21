@@ -1,6 +1,6 @@
 # SiK 라디오 통합
 
-[SiK 라디오](https://github.com/LorenzMeier/SiK)는 텔레메트리 펌웨어와 도구들입니다.
+[SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
 
 Information about _using_ SiK Radio can be found in [Peripheral Hardware > Telemetry > SiK Radio](../telemetry/sik_radio.md)
 
@@ -19,12 +19,13 @@ SiK 저장소에는 다음 텔레메트리(2020-02-25)들의 부트로더와 펌
 - RFD900u
 - RFD900ue
 
-:::note
-SiK 저장소는 RFD900x 와 RFD900ux의 텔레메트리 펌웨어를 현재는 제공하지 않습니다. 이러한 라디오의 펌웨어를 업데이트하려면(예: MAVLink v2.0을 지원하기 위해) 다음 프로세스를 참고하십시오.
+:::info
+The SiK repository does not currently firmware for RFD900x or RFD900ux telemetry radios.
+이러한 라디오의 펌웨어를 업데이트하려면(예: MAVLink v2.0을 지원하기 위해) 다음 프로세스를 참고하십시오.
 
-1. [RFDesign 웹사이트](https://files.rfdesign.com.au/firmware/)에서 적절한 펌웨어를 다운로드합니다.
-1. Windows PC에서 [RFD 모뎀 도구](https://files.rfdesign.com.au/tools/)를 다운로드하여 설치합니다.
-1. Use the RFD Modem Tools GUI to upload the firmware to your RFD900x or RFD900ux telemetry radio.
+1. Download the appropriate firmware from the [RFDesign website](https://files.rfdesign.com.au/firmware/).
+2. On a Windows PC, download and install [RFD Modem Tools](https://files.rfdesign.com.au/tools/).
+3. Use the RFD Modem Tools GUI to upload the firmware to your RFD900x or RFD900ux telemetry radio.
 
 :::
 
@@ -64,7 +65,7 @@ screen /dev/tty.usbserial-CHANGETHIS 57600 8N1
 
 Then start command mode:
 
-::: info
+:::info
 DO NOT TYPE ANYTHING ONE SECOND BEFORE AND AFTER
 :::
 
@@ -86,6 +87,6 @@ AT&W
 ATZ
 ```
 
-::: info
+:::info
 You might have to power-cycle the radio to connect it to the 2nd radio.
 :::
