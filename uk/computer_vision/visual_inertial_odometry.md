@@ -1,4 +1,4 @@
-# Візуальна інерційна одометрія (VIO)
+# Visual Inertial Odometry (VIO)
 
 _Visual Inertial Odometry_ (VIO) is a [computer vision](../computer_vision/index.md) technique used for estimating the 3D _pose_ (local position and orientation) and _velocity_ of a moving vehicle relative to a _local_ starting position.
 Він зазвичай використовується для навігації транспортного засобу в ситуаціях, коли GPS відсутній або ненадійний (наприклад, у приміщенні або під час прольоту під мостом).
