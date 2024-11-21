@@ -4,7 +4,9 @@
 For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
 :::
 
-This category is for discontinued autopilots and complete vehicles. These are no longer being manufactured, and may not be supported by their manufacturer. They are listed because you may be using them in an existing drone, and because they **may** still work with the head revision of PX4.
+This category is for discontinued autopilots and complete vehicles.
+These are no longer being manufactured, and may not be supported by their manufacturer.
+They are listed because you may be using them in an existing drone, and because they **may** still work with the head revision of PX4.
 
 ## Autopilots
 
