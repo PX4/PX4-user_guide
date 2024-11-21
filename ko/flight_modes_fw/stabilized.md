@@ -33,7 +33,7 @@ Manual mode where centered roll/pitch sticks levels vehicle attitude. The vehicl
 
 The mode is affected by the following parameters:
 
-| Parameter                                                                                           | Description                                                                    |
+| 매개변수                                                                                                | 설명                                                                             |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)   | Max pitch for manual control in attitude stabilized mode. Default: 45 degrees. |
 | <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)   | Max roll for manual control in attitude stabilized mode. Default: 45 degrees.  |
