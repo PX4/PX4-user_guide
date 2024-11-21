@@ -22,7 +22,7 @@ The transmit power is software selectable from 100mW to 1W, with range up to 40 
 - 32 bits of CRC, selectable retransmission and forward error correction
 - Separate diagnostics port, transparent remote diagnostics and online network control
 
-## 在哪里买
+## 购买渠道
 
 - [Holybro Microhard P900 Telemetry Radio (100mW - 1W)](https://holybro.com/products/microhard-radio)
 
@@ -96,32 +96,32 @@ The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is gre
 
 #### Diagnosis Port
 
-| 针脚        | Signal | Voltage |
-| --------- | ------ | ------- |
-| 1         | NC     | --      |
-| 2 (black) | RX     | +3.3V   |
-| 3 (black) | TX     | +3.3V   |
-| 4 (black) | GND    | GND     |
+| 针脚        | 信号  | Voltage |
+| --------- | --- | ------- |
+| 1         | NC  | --      |
+| 2 (black) | RX  | +3.3V   |
+| 3 (black) | TX  | +3.3V   |
+| 4 (black) | GND | GND     |
 
 #### Data Port
 
-| 针脚        | Signal | Voltage |
-| --------- | ------ | ------- |
-| 2         | NC     | --      |
-| 2 (black) | RX     | +3.3V   |
-| 3 (black) | TX     | +3.3V   |
-| 4 (black) | CTS    | +3.3V   |
-| 5 (black) | RTS    | +3.3V   |
-| 6 (black) | GND    | GND     |
+| 针脚        | 信号   | Voltage |
+| --------- | ---- | ------- |
+| 1（红）      | NC   | --      |
+| 2 (black) | RX   | +3.3V   |
+| 3 (black) | TX   | +3.3V   |
+| 4 (black) | CTS  | +3.3V   |
+| 5 (black) | RTS: | +3.3V   |
+| 6 (black) | GND  | GND     |
 
 #### Power Port
 
-| 针脚        | Signal | Voltage |
-| --------- | ------ | ------- |
-| 1（红）      | BAT+   | 7-35V   |
-| 2 (red)   | BAT+   | 7-35V   |
-| 3 (black) | BAT-   | GND     |
-| 4 (black) | BAT-   | GND     |
+| 针脚        | 信号   | Voltage |
+| --------- | ---- | ------- |
+| 1（红）      | BAT+ | 7-35V   |
+| 2 (red)   | BAT+ | 7-35V   |
+| 3 (black) | BAT- | GND     |
+| 4 (black) | BAT- | GND     |
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_pinout.jpg" width="600px" title="Holybro Pico Config" />
 
