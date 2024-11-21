@@ -8,7 +8,7 @@ The video below demonstrates this for a simulated vehicle — the approach works
 
 <video src="../../assets/debug/realtime_debugging/realtime_debugging.mp4" width="720" controls></video>
 
-## 전제 조건
+## 준비 사항
 
 Follow the [ROS 2 Installation & Setup](../ros2/user_guide.md#installation-setup) instructions in the _ROS2 user guide_ to install:
 
