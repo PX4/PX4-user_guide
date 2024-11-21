@@ -277,7 +277,7 @@ Then calibrate the main sensors:
 - [Compass](../config/compass.md)
 - [ジャイロ](../config/gyroscope.md)
 - [加速度センサー](../config/accelerometer.md)
-- [フライトモード](../config/airspeed.md)
+- [対気速度センサー](../config/airspeed.md)
 
 ### RC-Setup
 
