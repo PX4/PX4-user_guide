@@ -123,7 +123,7 @@ Additional notes:
 
 - Whether tuning is applied while flying or after landing can be [configured using parameters](#apply-tuning-when-in-air-landed).
 
-## Troubleshooting
+## トラブルシューティング
 
 ### Drone oscillates when performing the pre-tuning test
 
