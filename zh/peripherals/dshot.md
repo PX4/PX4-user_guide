@@ -94,7 +94,7 @@ DShot 具有不同的速度选项：_DShot150_，_DShot300_，_DShot600_ 和 _DS
     Rotation Direction: normal
     ```
 
-  ::: info
+  :::note
 
   - The commands will have no effect if the motors are spinning, or if the ESC is already set to the corresponding direction.
   - The ESC will revert to its last saved direction (normal or reversed) on reboot if `save` is not called after changing the direction.
