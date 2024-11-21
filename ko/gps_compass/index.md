@@ -92,7 +92,7 @@ The pinouts for the connector standard are documented in the standard. Pinouts f
 
 ## GNSS 설정
 
-The default configuration for GPS module connected via the GPS serial port is provided below. 추가 장치 설정은 PX4 또는 제조업체 장치설명서에서 제공될 수 있습니다 (예 : [Trimble MB-Two &gt; 설정](../gps_compass/rtk_gps_trimble_mb_two.md#configuration)).
+The default configuration for GPS module connected via the GPS serial port is provided below. Additional device-specific configuration may be provided in PX4 or manufacturer device documentation (e.g. [Trimble MB-Two > Configuration](../gps_compass/rtk_gps_trimble_mb_two.md#configuration)).
 
 ### Primary GPS Configuration (UART)
 
@@ -114,7 +114,7 @@ The following steps show how to configure a secondary GPS on the `GPS 2` port in
 
 1. [Find and set](../advanced_config/parameters.md) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **GPS 2**.
 
-   - *QGroundControl*에서 **기체 설정 &gt; 매개변수** 섹션으로 이동합니다.
+   - Open _QGroundControl_ and navigate to the **Vehicle Setup > Parameters** section.
    - Select the **GPS** tab, then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter and select `GPS 2` from the dropdown list.
 
      ![QGC Serial 예시](../../assets/peripherals/qgc_serial_config_example.png)
@@ -126,7 +126,7 @@ The following steps show how to configure a secondary GPS on the `GPS 2` port in
 
 보조 GPS 포트를 설정 후 :
 
-1. 두 GPS 시스템의 데이터를 혼합하도록 ECL/EKF2 추정기를 설정합니다. 자세한 지침은 [ECL EKF 사용 &gt; 이중 수신기](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers)를 참고하십시오.
+1. 두 GPS 시스템의 데이터를 혼합하도록 ECL/EKF2 추정기를 설정합니다. For detailed instructions see: [Using the ECL EKF > Dual Receivers](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers).
 
 ### DroneCAN GNSS Configuration
 
@@ -163,7 +163,7 @@ EPH/EPV values therefore provide a more immediate and practical estimate of the 
   - [GPS 드라이버](../modules/modules_driver.md#gps)
   - [DroneCAN Example](../dronecan/index.md)
 - 나침반
-  - [드라이버 소스 코드](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) (나침반)
+  - [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer) (Compasses)
 
 [avionics_anon_can_gnss]: https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/
 [hk_ublox_neo_8mn]: https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html
