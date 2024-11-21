@@ -1,19 +1,21 @@
-# Аерофрейми
+# Airframes
 
-PX4 має гнучку [систему розподілу елементів керування](../concept/control_allocation.md), яка дозволяє підтримувати майже будь-який тип/раму транспортного засобу, який можна уявити, за допомогою єдиної кодової бази:
+PX4 has a flexible [control allocation system](../concept/control_allocation.md) that allows it to support almost any imaginable vehicle type/frame through a single codebase:
 
-- **Літаки:** звичайні літаки, літаючі крила, літаки з перевернутим V-подібним хвостом тощо.
-- **Мультикоптери:** гелікоптери, трикоптери, квадрокоптери, гексаротори, додекаротори в різних геометріях.
-- **Airframes VTOL:** конфігурації VTOL, включаючи: Tailsitters, Tiltrotors і QuadPlanes (літак + квадроцикл).
-- **UGV/Rovers:** базову підтримку додано для безпілотних наземних транспортних засобів, що забезпечує як ручне керування, так і керування на основі завдання.
+- **Planes:** Normal planes, flying wings, inverted V-tail planes, etc.
+- **Multicopters:** Helicopters, tricopters, quadcopters, hexarotors, dodecarotors in many different geometries.
+- **VTOL Airframes:** VTOL configurations including: Tailsitters, Tiltrotors, and QuadPlanes (plane + quad).
+- **UGVs/Rovers:** Basic support has been added for Unmanned Ground Vehicles, enabling both manual and mission-based control.
 
-Ви можете знайти список усіх підтримуваних типів рам і потужностей двигунів у [Довіднику по планеру](../airframes/airframe_reference.md).
+You can find a list of all supported frame types and motor outputs in the [Airframes Reference](../airframes/airframe_reference.md).
 
 У цьому розділі розміщено інформацію, яка має відношення до розробників, які хочуть додати підтримку для нових транспортних засобів або транспортних засобів до PX4, включаючи журнали збірки для транспортних засобів, які все ще розробляються.
 
-:::note PX4 також добре підходить для використання в інших типах транспортних засобів і звичайних роботів, починаючи від підводних човнів, човнів і транспортних засобів-амфібій до експериментальних літаків і ракет. _Повідомте нас_, якщо у вас є новий транспортний засіб або тип  які ви хочете допомогти підтримати в PX4.
+:::info
+PX4 is also well-suited for use in other vehicle types and general robots, ranging from submarine, boats, or amphibious vehicles, through to experimental aircraft and rockets.
+_Let us know_ if you have a new vehicle or frame-type you want to help support in PX4.
 :::
 
-:::note
-Журнали збірки для деяких підтримуваних планерів можна знайти в розділі [Конструкції планера/транспортного засобу](../airframes/README.md).
+:::info
+Build logs for some of the supported airframes can be found in [Airframe/Vehicle Builds](../airframes/index.md).
 :::
