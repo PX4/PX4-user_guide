@@ -1,3 +1,3 @@
 # 概念
 
-本节包含有关[PX4系统体系结构](../concept/architecture.md)和其他核心概念的主题。
+This section contains topics about the [PX4 System Architecture](../concept/architecture.md) and other core concepts.
