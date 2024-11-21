@@ -1,13 +1,15 @@
 # Pixhawk Autopilot Bus & Carriers
 
-[Pixhawk Autopilot Bus (PAB) Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) надає стандартний дизайн інтерфейсу, який дозволяє використовувати будь-який сумісний політний контролер Pixhawk як "plug-and-play" з будь-якою сумісною базовою платою.
+The [Pixhawk Autopilot Bus (PAB) Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) provides a standard interface design that allows any compliant Pixhawk flight controller to be used "plug-and-play" with any compliant base board.
 
-Ця модульність полегшує інтеграцію політних контролерів в різні конструкції system-on-module. Наприклад, PAB означає, що ви можете використовувати той самий апаратний політний контролер на більш компактній платі з меншою кількістю виводів або на платі, яка інтегрується з супутнім комп'ютером, тощо.
+Ця модульність полегшує інтеграцію політних контролерів в різні конструкції system-on-module.
+Наприклад, PAB означає, що ви можете використовувати той самий апаратний політний контролер на більш компактній платі з меншою кількістю виводів або на платі, яка інтегрується з супутнім комп'ютером, тощо.
 
 Наступні носії та політні контролери відповідають вимогам PAB і, отже, можуть використовуватися взаємозамінно.
 
-::: info
-Розділ "Механічний дизайн" стандарту містить конкретні рекомендації щодо механічної сумісності між вендорами. Політні контролери та базові порти, перераховані тут, очікуються бути сумісними з усіма рекомендаціями.
+:::info
+The "Mechanical Design" section of the standard provides specific recommendations for mechanical compatibility between vendors.
+Політні контролери та базові порти, перераховані тут, очікуються бути сумісними з усіма рекомендаціями.
 :::
 
 ## PAB сумісні носії
@@ -15,7 +17,7 @@
 - [ARK Electronics Pixhawk Autopilot Bus Carrier](../flight_controller/ark_pab.md)
 - [Holybro Pixhawk Standard Baseboard](https://holybro.com/products/pixhawk-baseboards)
 - [Holybro Pixhawk Mini Baseboard](https://holybro.com/products/pixhawk-baseboards)
-- [Holybro Pixhawk RPi CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md) (інтегрована плата супутнього / політного контролера)
+- [Holybro Pixhawk RPi CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md) (Integrated Companion/Flight Controller Board)
 
 ## PAB сумісні політні контролери
 
