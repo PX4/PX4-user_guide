@@ -76,7 +76,7 @@ EKF2에서 외부 위치 정보를 사용하려면 다음 매개 변수를 설�
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL)                                                                                                                                                                                                                                                                                                          | Set _horizontal position fusion_, _vertical vision fusion_, _velocity fusion_, and _yaw fusion_ according to your desired fusion model. |
 | [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                                                                                                                                                                                          | Set to _Vision_ to use the vision as the reference sensor for altitude estimation.                                                      |
-| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                                                                                                                                                                        | 측정 타임 스탬프와 "실제" 캡처 시간의 차이로 설정합니다. For more information see [below](#tuning-EKF2_EV_DELAY).                              |
+| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                                                                                                                                                                        | 측정 타임스탬프와 "실제" 캡처 시간 간의 차이로 설정합니다. For more information see [below](#tuning-EKF2_EV_DELAY).                             |
 | [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor with respect to the vehicle's body frame.                                                         |
 
 These can be set in _QGroundControl_ > **Vehicle Setup > Parameters > EKF2** (remember to reboot the flight controller in order for parameter changes to take effect).
@@ -85,7 +85,7 @@ For more detailed/additional information, see: [ECL/EKF Overview & Tuning > Exte
 
 <a id="tuning-EKF2_EV_DELAY"></a>
 
-#### Tuning EKF2_EV_DELAY
+#### EKF2_EV_DELAY 튜닝
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the _Vision Position Estimator delay relative to IMU measurements_.
 즉, 비전 시스템 타임스탬프와 IMU 클록 (EKF2의 "기본 클록")에 의해 기록된 "실제" 캡처 시간 간의 차이입니다.
@@ -102,7 +102,7 @@ IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략�
 A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
 :::
 
-이 값은 동적 기동 중에 가장 낮은 EKF 혁신을 산출하는 값을 찾기 위하여 매개변수를 변경하여 추가로 조정할 수 있습니다.
+이 값은 동적 기동 중에 가장 낮은 EKF 혁신을 산출하는 값을 찾기 위하여, 매개변수를 변경하여 추가 튜닝할 수 있습니다.
 
 <a id="verify_estimate"></a>
 
@@ -121,7 +121,7 @@ Perform the following checks to verify that VIO is working properly _before_ you
 - Yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion (w=1, x=y=z=0).
   - At this point, the body frame is aligned with the reference frame of the external pose system.
   - 기체를 구르거나 피칭하지 않고 단위 쿼터니언에 가까운 쿼터니언을 얻을 수 없다면, 여전히 프레임에 피치 또는 롤 오프셋이 있을 수 있습니다.
-    이 경우에는 더 이상 진행하지 말고 좌표 프레임을 다시 확인하십시오.
+    이 경우에는 더 이상 진행하지 말고, 좌표 프레임을 다시 확인하십시오.
 - Once aligned, you can pick the vehicle up from the ground and you should see the position's z coordinate decrease.
   Moving the vehicle in the forward direction should increase the position's x coordinate.
   Moving the vehicle to the right should increase the y coordinate.
@@ -134,9 +134,9 @@ Perform the following checks to verify that VIO is working properly _before_ you
 1. Put the vehicle on the ground and start streaming `ODOMETRY` feedback (as above).
    스로틀 스틱을 내리고 모터를 작동시키십시오.
 
-   이 시점에서 왼쪽 스틱을 가장 낮은 위치에두고 위치 제어로 전환합니다.
+   이때 왼쪽 스틱을 가장 낮은 위치에 놓고, 위치 제어로 전환합니다.
    초록불이 켜져야 합니다.
-   녹색 표시등은 위치 피드백을 사용할 수 있으며 위치 제어가 활성화되었음을 알려줍니다.
+   녹색 표시등은 위치 피드백을 사용할 수 있고, 위치 제어가 활성화되었음을 알려줍니다.
 
 2. 기체가 고도를 유지하도록 스로틀 스틱을 중간(데드 존)에 놓습니다.
    스틱을 올리면 기준 고도가 증가하고 값을 낮추면 감소합니다.
