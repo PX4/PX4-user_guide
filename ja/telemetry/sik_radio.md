@@ -12,8 +12,8 @@ Hardware for the SiK radio can be obtained from various manufacturers/stores in 
 
 - [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
 - [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
-- <del><em>HKPilot Telemetry Radio</em></del> (Discontinued)
-- <del><em>3DR Telemetry Radio</em></del> (Discontinued)
+- <del>_HKPilot Telemetry Radio_</del> (Discontinued)
+- <del>_3DR Telemetry Radio_</del> (Discontinued)
 
 ## Setup/Configuration
 
