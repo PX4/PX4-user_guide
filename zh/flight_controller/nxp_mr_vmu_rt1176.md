@@ -27,7 +27,7 @@ Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular de
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## Introduction
+## 简介
 
 Inside the MR-VMU-RT1176, you can find an NXP i.MX RT1176, paired with sensor technology from Bosch®, InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
@@ -147,7 +147,7 @@ Similar variants will be available from our licensees.
 - 其它特性:
   - Operating & storage temperature: -40 ~ 85°c
 
-## 在哪里买
+## 购买渠道
 
 Order from [NXP](https://www.nxp.com).
 
@@ -245,9 +245,9 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| 针脚                          | Signal                              | 电压                    |
+| 针脚                          | 信号                                  | 电压                    |
 | --------------------------- | ----------------------------------- | --------------------- |
-| 2                           | `Vtref`                             | +3.3V |
+| 1（红）                        | `Vtref`                             | +3.3V |
 | 2                           | Console TX (OUT) | +3.3V |
 | 3                           | Console RX (IN)  | +3.3V |
 | 4（黑）                        | `SWDIO`                             | +3.3V |
