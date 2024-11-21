@@ -1,55 +1,58 @@
-# Порт відладки SWD
+# Порт для налагодження SWD
 
-PX4 працює на мікроконтролерах ARM Cortex-M, які містять спеціалізований апаратний засіб для інтерактивного налагодження через інтерфейс [_Serial Wire Debug (SWD)_][swd] та неінвазивного профілювання та трасування високої пропускної здатності через інтерфейси [_Serial Wire Ouput (SWO)_][itm] та [_TRACE_ pins][etm].
+PX4 runs on ARM Cortex-M microcontrollers, which contain dedicated hardware for interactive debugging via the [_Serial Wire Debug (SWD)_][swd] interface and non-invasive profiling and high-bandwidth tracing via the [_Serial Wire Ouput (SWO)_][itm] and [_TRACE_ pins][etm].
 
-Інтерфейс відладки SWD дозволяє прямий, низькорівневий, апаратний доступ до процесора мікроконтролера та периферійних пристроїв, тому він не залежить від будь-якого програмного забезпечення на пристрої. Отже, його можна використовувати для налагодження завантажувальних програм та операційних систем, таких як NuttX.
+Інтерфейс відладки SWD дозволяє прямий, низькорівневий, апаратний доступ до процесора мікроконтролера та периферійних пристроїв, тому він не залежить від будь-якого програмного забезпечення на пристрої.
+Отже, його можна використовувати для налагодження завантажувальних програм та операційних систем, таких як NuttX.
 
 ## Налагодження сигналів
 
 Чотири сигнали необхідні для відлагодження (в жирному шрифті), а решту лише рекомендується.
 
-| Назва       | Тип        | Опис                                                                                         |
-|:----------- |:---------- |:-------------------------------------------------------------------------------------------- |
-| **GND**     | Живлення   | Спільний потенціал, спільна основа.                                                          |
-| **VREF**    | Живлення   | Цільове довідкове напруга дозволяє засоби налагодження використовувати рівнеміри на сигнали. |
-| **SWDIO**   | Вхід/вихід | Пін даних для послідовного знавантаження через мережу.                                       |
-| **SWCLK**   | Вхід       | Пін годинника для послідовного знавантаження через мережу.                                   |
-| nRST        | Вхід       | PIN скидання є необов’язковим (n = активним низьким).                                        |
-| SWO         | Вивід      | Однопровідний шлейф асинхронних даних з можливістю виведення даних ITM та DWT.               |
-| TRACECK     | Вивід      | Трасування годинника для паралельної шини.                                                   |
-| TRACED[0-3] | Вивід      | Трасування синхронної шини даних з 1, 2 чи 4 бітами.                                         |
+| Назва                                                           | Тип        | Опис                                                                                                         |
+| :-------------------------------------------------------------- | :--------- | :----------------------------------------------------------------------------------------------------------- |
+| **GND**                                                         | Потужність | Спільний потенціал, спільна основа.                                                          |
+| **VREF**                                                        | Потужність | Цільове довідкове напруга дозволяє засоби налагодження використовувати рівнеміри на сигнали. |
+| **SWDIO**                                                       | I/O        | Пін даних для послідовного знавантаження через мережу.                                       |
+| **SWCLK**                                                       | Вхід       | Пін годинника для послідовного знавантаження через мережу.                                   |
+| nRST                                                            | Вхід       | PIN скидання є необов’язковим (n = активним низьким).                     |
+| SWO                                                             | Output     | Однопровідний шлейф асинхронних даних з можливістю виведення даних ITM та DWT.               |
+| TRACECK                                                         | Output     | Трасування годинника для паралельної шини.                                                   |
+| TRACED[0-3] | Output     | Трасування синхронної шини даних з 1, 2 чи 4 бітами.                                         |
 
 Пін скидання апаратного забезпечення є необов'язковим, оскільки більшість пристроїв також можуть бути скинуті через лінії SWD. Однак швидке скидання пристрою за допомогою кнопки може бути великим плюсом для розробки.
 
 SWO-пін може випромінювати дані профілювання в реальному часі з наносекундним відмітками часу, тому настійно рекомендується мати доступ до нього для відлагодження.
 
-Піни TRACE потребують спеціалізованих засобів відлагодження для роботи з високою пропускною здатністю та наступним декодуванням потоку даних. Зазвичай вони недоступні і зазвичай використовуються лише для відлагодження дуже конкретних питань з часом.
+Піни TRACE потребують спеціалізованих засобів відлагодження для роботи з високою пропускною здатністю та наступним декодуванням потоку даних.
+Зазвичай вони недоступні і зазвичай використовуються лише для відлагодження дуже конкретних питань з часом.
 
 <a id="debug-ports"></a>
 
 ## Порти налагодження автопілота
 
-Контролери польоту зазвичай надають один засіб налагодження, який використовує як інтерфейс [SWD](#debug-signals), так і [Системну консоль](system_console).
+Flight controllers commonly provide a single debug port that exposes both the [SWD Interface](#debug-signals) and [System Console](system_console).
 
-[Стандарти роз'ємів Pixhawk](#pixhawk-standard-debug-ports) визначають порт, який повинен бути використаний в кожній версії FMU. Однак є ще багато плат, які використовують різні роз'єми або конектори, тому ми рекомендуємо вам перевірити [документацію для вашого автопілота](../flight_controller/index.md), щоб підтвердити розташування порту та роз'єму.
+The [Pixhawk Connector Standards](#pixhawk-standard-debug-ports) formalize the port that must be used in each FMU version.
+However there are still many boards that use different pinouts or connectors, so we recommend you check the [documentation for your autopilot](../flight_controller/index.md) to confirm port location and pinout.
 
 Місцезнаходження порту налагодження та роз'єми для підмножини автопілотів зв'язані нижче:
 
 <a id="port-information"></a>
 
-| Автопілот                                                                           | Відладочний порт                                                                                                                                                                |
-|:----------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Holybro Pixhawk 6X-RT (FMUv6X-RT)                                                   | [Порти відладки Pixhawk Full](#pixhawk-debug-full)                                                                                                                              |
-| Holybro Pixhawk 6X (FMUv6x)                                                         | [Порти відладки Pixhawk Full](#pixhawk-debug-full)                                                                                                                              |
-| Holybro Pixhawk 5X (FMUv5x)                                                         | [Порти відладки Pixhawk Full](#pixhawk-debug-full)                                                                                                                              |
-| [Holybro Durandal](../flight_controller/durandal.md#debug-port)                     | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                                       |
-| [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)                    | Паяльні майданчики                                                                                                                                                              |
-| [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) (FMUv5)  | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                                       |
-| [Holybro Pixhawk 4](../flight_controller/pixhawk4.md#debug_port) (FMUv5)            | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                                       |
-| [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md#debug-port) (FMU-v4pro) | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                                       |
-| [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                         | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (вертикальний монтаж), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (бічний монтаж) |
-| [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)                      | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (вертикальний монтаж), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (бічний монтаж) |
-| [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                             | Роз'єм JTAG ARM на 10 контактів (також використовується для плат FMUv2, включаючи: _mRo Pixhawk_, _HobbyKing HKPilot32_).                                                       |
+| Автопілот                                                                                              | Відладочний порт                                                                                                                                                  |
+| :----------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Holybro Pixhawk 6X-RT (FMUv6X-RT)                                                   | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                         |
+| Holybro Pixhawk 6X (FMUv6x)                                                         | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                         |
+| Holybro Pixhawk 5X (FMUv5x)                                                         | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                         |
+| [Holybro Durandal](../flight_controller/durandal.md#debug-port)                                        | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
+| [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)                                       | Паяльні майданчики                                                                                                                                                |
+| [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) (FMUv5)  | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
+| [Holybro Pixhawk 4](../flight_controller/pixhawk4.md#debug_port) (FMUv5)            | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
+| [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md#debug-port) (FMU-v4pro) | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
+| [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                                            | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (side mount) |
+| [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)                                         | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (side mount) |
+| [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                                                | ARM 10-pin JTAG Connector (also used for FMUv2 boards including: _mRo Pixhawk_, _HobbyKing HKPilot32_).        |
 
 <a id="pixhawk-standard-debug-ports"></a>
 
@@ -58,11 +61,11 @@ SWO-пін може випромінювати дані профілювання
 Проект Pixhawk визначив стандартну схему виводів та тип роз'єму для різних випусків Pixhawk FMU:
 
 :::tip
-Перевірте свою [конкретну дошку](#port-information), щоб підтвердити використаний порт.
+Check your [specific board](#port-information) to confirm the port used.
 :::
 
 | Версія FMU | Версія Pixhawk                                                  | Відладочний порт                          |
-|:---------- |:--------------------------------------------------------------- |:----------------------------------------- |
+| :--------- | :-------------------------------------------------------------- | :---------------------------------------- |
 | FMUv2      | [Pixhawk / Pixhawk 1](../flight_controller/pixhawk.md#swd-port) | 10 pin ARM Debug                          |
 | FMUv3      | Pixhawk 2                                                       | 6 pin SUR Debug                           |
 | FMUv4      | Pixhawk 3                                                       | [Pixhawk Debug Mini](#pixhawk-debug-mini) |
@@ -73,19 +76,19 @@ SWO-пін може випромінювати дані профілювання
 | FMUv6X-RT  | Pixhawk 6X-RT                                                   | [Pixhawk Debug Full](#pixhawk-debug-full) |
 
 :::info
-Єдині FMU та версії Pixhawk (тільки) сумісні після FMUv5X.
+There FMU and Pixhawk versions are (only) consistent after FMUv5X.
 :::
 
 ### Pixhawk Debug Mini
 
-[Стандарт роз'ємів Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) визначає _Pixhawk Debug Mini_, _6-контактний роз'єм SH Debug Port_, який надає доступ до обох контактів SWD та [System Console](system_console).
+The [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) defines the _Pixhawk Debug Mini_, a _6-Pin SH Debug Port_ that provides access to both SWD pins and the [System Console](system_console).
 
 Це використовується в FMUv4 та FMUv5.
 
 Схема виводів показана нижче (виводи, необхідні для налагодження, виділені жирним шрифтом):
 
-| Пін | Сигнал     |
-| ---:|:---------- |
+| Pin | Сигнал     |
+| --: | :--------- |
 |   1 | **VREF**   |
 |   2 | Console TX |
 |   3 | Console RX |
@@ -95,28 +98,29 @@ SWO-пін може випромінювати дані профілювання
 
 Визначення порту налагодження містить наступні припояні пластины (на платі поряд із роз'ємом):
 
-| Pad | Signal | Voltage |
-| ---:|:------ |:------- |
-|   1 | nRST   | +3.3V   |
-|   2 | GPIO1  | +3.3V   |
-|   3 | GPIO2  | +3.3V   |
+| Pad | Сигнал | Напруга               |
+| --: | :----- | :-------------------- |
+|   1 | nRST   | +3.3V |
+|   2 | GPIO1  | +3.3V |
+|   3 | GPIO2  | +3.3V |
 
-Роз'єм - _6-pin JST SH_ - номер Digikey: [BM06B-SRSS-TBT(LF)(SN)](https://www.digikey.com/products/en?keywords=455-2875-1-ND) (вертикальний монтаж), [SM06B-SRSS-TBT(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1806-1-ND) (бічний монтаж).
+The socket is a _6-pin JST SH_ - Digikey number: [BM06B-SRSS-TBT(LF)(SN)](https://www.digikey.com/products/en?keywords=455-2875-1-ND) (vertical mount), [SM06B-SRSS-TBT(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1806-1-ND)(side mount).
 
-Ви можете підключитися до порту налагодження за допомогою [кабелю, подібного до цього](https://www.digikey.com/products/en?keywords=A06SR06SR30K152A).
+You can connect to the debug port using a [cable like this one](https://www.digikey.com/products/en?keywords=A06SR06SR30K152A).
 
 ![6-pin JST SH Cable](../../assets/debug/cable_6pin_jst_sh.jpg)
 
 ### Порти відладки Pixhawk Full
 
-[Стандарт роз'ємів Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) визначає _Pixhawk Debug Full_, _10-контактний роз'єм SH Debug Port_, який надає доступ до обох контактів SWD та [System Console](system_console). Це в основному переміщує паяльні подушки з боку [Pixhawk Debug Mini](#pixhawk-debug-mini) в роз'єм, а також додає контакт SWO.
+The [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) defines _Pixhawk Debug Full_, a _10-Pin SH Debug Port_ that provides access to both SWD pins and the [System Console](system_console).
+This essentially moves the solder pads from beside the [Pixhawk Debug Mini](#pixhawk-debug-mini) into the connector, and also adds an SWO pin.
 
 Цей порт вказаний для використання в FMUv5x, FMUv6, FMUv6x.
 
 Схема виводів показана нижче (виводи, необхідні для налагодження, виділені жирним шрифтом):
 
-| Пін | Сигнал     |
-| ---:|:---------- |
+| Pin | Сигнал     |
+| --: | :--------- |
 |   1 | **VREF**   |
 |   2 | Console TX |
 |   3 | Console RX |
@@ -130,9 +134,9 @@ SWO-пін може випромінювати дані профілювання
 
 Піни GPIO1/2 є вільними пінами, які можуть бути використані для генерації сигналів у програмному забезпеченні для аналізу часу з логічним аналізатором.
 
-Роз'єм - _10-pin JST SH_ - номер Digikey: [BM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1796-2-ND) (вертикальний монтаж) або [SM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1810-2-ND) (бічний монтаж).
+The socket is a _10-pin JST SH_ - Digikey number: [BM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1796-2-ND) (vertical mount) or [SM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1810-2-ND) (side mount).
 
-Ви можете підключитися до порту налагодження за допомогою [кабелю, подібного до цього](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A).
+You can connect to the debug port using a [cable like this one](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A).
 
 <!-- FIXME: better to have image showing proper connections for SWD+SWO -->
 
@@ -142,51 +146,54 @@ SWO-пін може випромінювати дані профілювання
 
 ## Зонди налагодження для апаратного забезпечення PX4
 
-Контролери польоту зазвичай надають [один засіб налагодження](#autopilot-debug-ports), який використовує як інтерфейс [SWD](#debug-signals), так і [Системну консоль](system_console).
+Flight controllers commonly provide a [single debug port](#autopilot-debug-ports) that exposes both the [SWD Interface](#debug-signals) and [System Console](system_console).
 
 Є кілька зондів відлагодження, які були перевірені та підтримуються для підключення до одного або обох цих інтерфейсів:
 
-- [SEGGER J-Link](../debug/probe_jlink.md): комерційний зонд, без вбудованої послідовної консолі, потребує адаптера.
-- [Чорна магія зондування](../debug/probe_bmp.md): інтегрований сервер GDB та послідовна консоль, потребує адаптер.
-- [STLink](../debug/probe_stlink): найкраща вартість, інтегрована послідовна консоль, адаптер повинен бути паяним.
-- [MCU-Link](../debug/probe_mculink): найкраща вартість, інтегрована послідовна консоль, потребує адаптер.
+- [SEGGER J-Link](../debug/probe_jlink.md): commercial probe, no built-in serial console, requires adapter.
+- [Black Magic Probe](../debug/probe_bmp.md): integrated GDB server and serial console, requires adapter.
+- [STLink](../debug/probe_stlink): best value, integrated serial console, adapter must be soldered.
+- [MCU-Link](../debug/probe_mculink): best value, integrated serial console, requires adapter.
 
-Адаптер для підключення до роз'єму відладки може поставлятися разом із вашим контролером польоту або відлагоджувальним зондом. Інші варіанти наведено нижче.
+Адаптер для підключення до роз'єму відладки може поставлятися разом із вашим контролером польоту або відлагоджувальним зондом.
+Інші варіанти наведено нижче.
 
 ## Адаптери для відлагоджування
 
 ### Адаптер відлагодження Holybro Pixhawk
 
-[Адаптер для відлагодження Holybro Pixhawk](https://holybro.com/products/pixhawk-debug-adapter) _високо рекомендований_ при відлагодженні контролерів, які використовують один із стандартних роз'ємів для відлагодження Pixhawk.
+The [Holybro Pixhawk Debug Adapter](https://holybro.com/products/pixhawk-debug-adapter) is _highly recommended_ when debugging controllers that use one of the Pixhawk-standard debug connectors.
 
 Це найлегший спосіб підключення:
 
-- Контролери польоту, які використовують або [Повний відлагоджувальний порт Pixhawk](#pixhawk-debug-full) (10-контактний SH), або [Міні відлагоджувальний порт Pixhawk](#pixhawk-debug-mini) (6-контактний SH).
-- SWD відлагоджувальні зонди, які підтримують стандартний інтерфейс ARM з 10-контактною підтримкою, що використовується [Segger JLink EDU mini](../debug/probe_jlink.md) або 20-контактний, сумісний з Segger JLink або STLink.
+- Flight controllers that use either the [Pixhawk Debug Full](#pixhawk-debug-full) (10-pin SH) or [Pixhawk Debug Mini](#pixhawk-debug-mini) (6-pin SH) debug port.
+- SWD debug probes that support the 10-pin ARM compatible interface standard used by the [Segger JLink EDU mini](../debug/probe_jlink.md) or 20-pin compatible with the Segger JLink or STLink.
 
 ![Holybro Pixhawk Debug Adapter](../../assets/debug/holybro_pixhawk_debug_adapter.png)
 
 ### Адаптер відлагодження CUAV C-ADB Pixhawk
 
-[CUAV C-ADB Додатковий Адаптер Відлагодження Політного Контролера Pixhawk](https://store.cuav.net/shop/cuav-c-adb/) поставляється з [STLinkv3-MINIE Відлагоджувальною Сондою](../debug/probe_stlink.md).
+The [CUAV C-ADB Secondary Development Pixhawk Flight Controller Debug Adapter](https://store.cuav.net/shop/cuav-c-adb/) comes with an [STLinkv3-MINIE Debug Probe](../debug/probe_stlink.md).
 
-Це має порти для підключення до [Pixhawk Debug Full](#pixhawk-debug-full) (10-контактний SH) та стандартного інтерфейсу CUAV DSU (але не для [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) (6-контактний SH)).
+This has a ports for connecting to the [Pixhawk Debug Full](#pixhawk-debug-full) (10-pin SH) and CUAV-standard DSU interface (but not the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) (6-pin SH)).
 
-Роз'єм M2 на перехіднику має 14 контактів CN4 STDC14 (див. [Посібник користувача STLinkv3-MINIE](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) для отримання додаткової інформації). Кабель, який використовується для підключення M2 та STLinkv3-MINIE, постачається з адаптером.
+The M2 connector on the adaptor is 14-pin CN4 STDC14 (see the [STLinkv3-MINIE User Manual](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) for more information).
+Кабель, який використовується для підключення M2 та STLinkv3-MINIE, постачається з адаптером.
 
 ![CUAV C-ADB adaptor connected to the STLinkv3-MINIE](../../assets/debug/cuav_c-adb_debug_adapter/hero.jpg)
 
 ### Адаптери для відлагоджування
 
-Деякі SWD [програмні зонди](#debug-probes) поставляються з адаптерами / кабелями для підключення до загальних портів відладки Pixhawk [портів відладки](#debug-ports). Зонди, про які відомо, що поставляються з роз'ємами, перераховані нижче:
+Some SWD [debug probes](#debug-probes) come with adapters/cables for connecting to common Pixhawk [debug ports](#debug-ports).
+Зонди, про які відомо, що поставляються з роз'ємами, перераховані нижче:
 
-- [Датчик DroneCode](../debug/probe_bmp.md#dronecode-probe): поставляється з кабелем з'єднувача для підключення до [Pixhawk Debug Mini](#pixhawk-debug-mini)
+- [DroneCode Probe](../debug/probe_bmp.md#dronecode-probe): comes with a connector for attaching to the [Pixhawk Debug Mini](#pixhawk-debug-mini)
 
 ### Адаптери, специфічні для плати
 
-Деякі виробники надають кабелі для зручного підключення інтерфейсу SWD та [Консолі системи](../debug/system_console).
+Some manufacturers provide cables to make it easy to connect the SWD interface and [System Console](../debug/system_console).
 
-- [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port) та [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port) включають у себе цей кабель для налагодження:
+- [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port) and [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port) include this debug cable:
 
 ![6-pin JST SH Cable](../../assets/debug/cuav_v5_debug_cable.jpg)
 
@@ -194,14 +201,14 @@ SWO-пін може випромінювати дані профілювання
 
 Ви також можете створити власні кабелі для підключення до різних плат або зондів:
 
-- Підключіть піни `SWDIO`, `SWCLK` та `GND` на зонді для налагодження до відповідних пінів на порту для налагодження.
+- Connect `SWDIO`, `SWCLK` and `GND` pins on the debug probe to the corresponding pins on the debug port.
 - Підключіть контакт VREF, якщо його підтримує засіб відлагодження.
 - Підключіть залишкові контакти, якщо вони є.
 
-Дивіться [STLinkv3-MINIE](probe_stlink) для керівництва з тим, як припаяти власний кабель.
+See the [STLinkv3-MINIE](probe_stlink) for a guide on how to solder a custom cable.
 
 :::tip
-Де це можливо, ми настійно рекомендуємо створювати або отримувати адаптерну плату, аніж користуватися власноруч виготовленими кабелями для підключення до SWD/JTAG відлагоджувачів та комп'ютерів.
+Where possible, we highly recommend that you create or obtain an adapter board rather than custom cables for connecting to SWD/JTAG debuggers and computers.
 Це зменшує ризик неправильного підключення проводів, що призводить до проблем з налагодженням, і має перевагу в тому, що адаптери зазвичай надають спільний інтерфейс для підключення до кількох популярних плат керування польотом.
 :::
 
