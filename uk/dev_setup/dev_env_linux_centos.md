@@ -1,12 +1,14 @@
 # Середовище розробки CentOS
 
 :::warning
-Це середовище розробки [підтримується та утримується спільнотою](../advanced/community_supported_dev_env.md). Воно може працювати або не працювати з поточними версіями PX4.
+This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md).
+Це може працювати або не працювати з поточними версіями PX4.
 
-Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для інформації про середовища та інструменти, що підтримуються основною командою розробників.
 :::
 
-Збірка потребує Python 2.7.5. Тому потрібно використовувати CentOS 7 на момент написання. (Для попередніх релізів CentOS можна встановити python v2.7.5 поряд із версією із дистрибутиву. Але це не рекомендується тому що можна зламати yum.)
+Збірка потребує Python 2.7.5. Тому потрібно використовувати CentOS 7 на момент написання.
+(Для попередніх релізів CentOS можна встановити python v2.7.5 поряд із версією із дистрибутиву. Але це не рекомендується тому що можна зламати yum.)
 
 ## Загальні залежності
 
@@ -26,8 +28,8 @@ easy_install cerberus
 yum install openocd libftdi-devel libftdi-python python-argparse flex bison-devel ncurses-devel ncurses-libs autoconf texinfo libtool zlib-devel cmake vim-common
 ```
 
-:::note
-Можливо вам може знадобитися встановити `python-pip` та `screen`.
+:::info
+You may want to also install `python-pip` and `screen`.
 :::
 
 ## Встановлення інструментарію GCC.
@@ -37,7 +39,8 @@ yum install openocd libftdi-devel libftdi-python python-argparse flex bison-deve
 Виконайте скрипт нижче для встановлення GCC 7-2017-q4:
 
 :::warning
-Ця версія GCC застаріла. На момент написання поточна версія на Ubuntu `9-2020-q2-update` (дивіться [focal nuttx docker файл](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
+This version of GCC is out of date.
+At time of writing the current version on Ubuntu is `9-2020-q2-update` (see [focal nuttx docker file](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
 :::
 
 ```sh
@@ -52,7 +55,7 @@ popd
 
 Тепер перезавантажте комп'ютер.
 
-**Усунення проблем**
+**Troubleshooting**
 
 Перевірте версію, ввівши наступну команду:
 
@@ -73,7 +76,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 ## Система збірки Ninja
 
-[Ninja](https://ninja-build.org/) є швидшою системою збірки ніж _Make_ й генератори коду PX4 _CMake_ підтримують її.
+[Ninja](https://ninja-build.org/) is a faster build system than _Make_ and the PX4 _CMake_ generators support it.
 
 На Ubuntu Linux ви можете встановити її автоматично зі звичайних репозиторіїв.
 
@@ -81,7 +84,8 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 sudo apt-get install ninja-build -y
 ```
 
-Інші системи можуть не включати Ninja в менеджер пакетів. В цьому випадку альтернатива - завантажити бінарний файл і додати його до вашого шляху:
+Інші системи можуть не включати Ninja в менеджер пакетів.
+В цьому випадку альтернатива - завантажити бінарний файл і додати його до вашого шляху:
 
 ```sh
 mkdir -p $HOME/ninja
