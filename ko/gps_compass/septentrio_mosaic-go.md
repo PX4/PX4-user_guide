@@ -38,8 +38,8 @@ Other PX4 supported devices from Septentrio:
 | USB Micro-B     | USB            | USB communication and power              |
 | RSV USB Micro-B | RSV            | Reserved and should not be used          |
 | SMA             | RF-IN\{1,2\} | Main (and auxiliary) antenna connections |
-| 6-pin JST       | Serial         | Serial communication and power           |
-| 4-pin JST       | Serial         | Serial communication                     |
+| 6-pin JST       | 직렬             | Serial communication and power           |
+| 4-pin JST       | 직렬             | Serial communication                     |
 | microSD         | TF CARD        | Serial communication                     |
 
 > Dual-antenna is only available on mosaic-H-based receivers.
@@ -48,7 +48,7 @@ Other PX4 supported devices from Septentrio:
 
 _Connector type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GHR-06V-S._
 
-| Pin Name | 방향  | 단계         | Description               | 설명                                                                |
+| Pin Name | 방향  | 단계         | 설명                        | 설명                                                                |
 | -------- | --- | ---------- | ------------------------- | ----------------------------------------------------------------- |
 | VCC      | PWR | 4.75V-5.5V | Main power supply         |                                                                   |
 | GND      |     | 0          | 접지                        |                                                                   |
@@ -61,7 +61,7 @@ _Connector type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GH
 
 _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR-04V-S._
 
-| Pin Name | 방향  | 단계        | Description               | 설명                                              |
+| Pin Name | 방향  | 단계        | 설명                        | 설명                                              |
 | -------- | --- | --------- | ------------------------- | ----------------------------------------------- |
 | NRST     | In  | 3V3_LVTTL | Reset input               | Directly connects to nRST_IN of internal mosaic |
 | TXD2     | Out | 3V3_LVTTL | Serial COM2 transmit line | Directly connects to TXD2 of internal mosaic    |
