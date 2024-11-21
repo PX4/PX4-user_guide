@@ -4,7 +4,7 @@
 
 ![ARK RTK GPS](../../assets/hardware/gps/ark/ark_rtk_gps.jpg)
 
-## 在哪里买
+## 购买渠道
 
 Order this module from:
 
@@ -42,7 +42,7 @@ Order this module from:
   - 170mA Average
   - 180mA Max
 
-## Hardware Setup
+## 硬件安装
 
 ### 布线
 
@@ -60,7 +60,8 @@ ARK RTK GPS runs the [PX4 cannode firmware](px4_cannode_fw.md). As such, it supp
 
 ARK RTK GPS boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself, refer to the [cannode firmware build instructions](px4_cannode_fw.md#building-the-firmware).
 
-Firmware target: `ark_can-rtk-gps_default` Bootloader target: `ark_can-rtk-gps_canbootloader`
+Firmware target: `ark_can-rtk-gps_default`
+Bootloader target: `ark_can-rtk-gps_canbootloader`
 
 ## Flight Controller Setup
 
@@ -73,7 +74,8 @@ In order to use the ARK RTK GPS, connect it to the Pixhawk CAN bus and enable th
 - In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK RTK GPS CAN to the Pixhawk CAN.
 
-Once enabled, the module will be detected on boot. GPS data should arrive at 10Hz.
+Once enabled, the module will be detected on boot.
+GPS data should arrive at 10Hz.
 
 ### PX4 配置
 
@@ -95,7 +97,10 @@ Setup via CAN:
 
 - Ensure the ARK RTK GPS modules are connected to the Pixhawk via CAN (one can connect to another's secondary CAN port). The two ARK RTK GPS must be connected to the same CAN bus for corrections to be sent.
 - Choose one ARK RTK GPS to be the _Rover_ and one to be the _Moving Base_.
-- Reopen QGroundControl, go to parameters, and select `Standard` to hide that dropdown and select `Component ##` to view each of your ARK RTK GPS's CAN node parameters ::: info `Component ##` won't be visible unless the ARK RTK GPS is connected to the Pixhawk prior to opening QGroundControl.
+- Reopen QGroundControl, go to parameters, and select `Standard` to hide that dropdown and select `Component ##` to view each of your ARK RTK GPS's CAN node parameters
+  ::: info
+  `Component ##` won't be visible unless the ARK RTK GPS is connected to the Pixhawk prior to opening QGroundControl.
+
 :::
 - On the _Rover_, set the following:
   - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `3`
@@ -108,7 +113,8 @@ Setup via CAN:
 Setup via UART:
 
 - Ensure the ARK RTK GPS modules are connected to the Pixhawk via CAN.
-- Ensure the ARK RTK GPS modules are connected to each other via their UART2 port (UART2 pinout shown below). Note that TX of one module needs to connect with RX of the other.
+- Ensure the ARK RTK GPS modules are connected to each other via their UART2 port (UART2 pinout shown below).
+  Note that TX of one module needs to connect with RX of the other.
 
 | 针脚 | 名称  |
 | -- | --- |
@@ -153,15 +159,18 @@ ARK RTK GPS comes with the Ublox F9P module up to date with version 1.13 or newe
 - Scroll down again to Firmware Update and download your desired firmware (at least version 1.13 is needed)
 - While holding down the safety switch on the ARK RTK GPS, connect it to power via one of its CAN ports and hold until all 3 LEDs blink rapidly
 - Connect the ARK RTK GPS to your PC via its debug port with a cable such as the Black Magic Probe or an FTDI
-- Open u-center, select the COM port for the ARK RTK GPS and connect ![U-Center Connect](../../assets/hardware/gps/ark/ark_rtk_gps_ucenter_connect.png)
-- Check the current firmware version by selecting View, Messages View, UBX, MON, VER ![Check Version](../../assets/hardware/gps/ark/ark_rtk_gps_ublox_version.png)
+- Open u-center, select the COM port for the ARK RTK GPS and connect
+  ![U-Center Connect](../../assets/hardware/gps/ark/ark_rtk_gps_ucenter_connect.png)
+- Check the current firmware version by selecting View, Messages View, UBX, MON, VER
+  ![Check Version](../../assets/hardware/gps/ark/ark_rtk_gps_ublox_version.png)
 - To update the firmware:
   - Select Tools, Firmware Update
   - The Firmware image field should be the .bin file downloaded from the u-blox ZED-F9P website
   - Check the "Use this baudrate for update" checkbox and select 115200 from the drop-down
   - Ensure the other checkboxes are as shown below
   - Push the green GO button on the bottom left
-  - "Firmware Update SUCCESS" should be displayed if it updated successfully ![固件更新](../../assets/hardware/gps/ark/ark_rtk_gps_ublox_f9p_firmware_update.png)
+  - "Firmware Update SUCCESS" should be displayed if it updated successfully
+    ![Firmware Update](../../assets/hardware/gps/ark/ark_rtk_gps_ublox_f9p_firmware_update.png)
 
 ## See Also
 
