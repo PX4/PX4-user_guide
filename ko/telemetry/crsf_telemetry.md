@@ -168,7 +168,7 @@ Receivers:
 
 The supported telemetry messages and their source are listed below (this table is reproduced from the [TBS Crossfire Manual: "Available sensors with OpenTX"](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)).
 
-| Datapoint | Description                                        | Data source                      |
+| Datapoint | 설명                                                 | Data source                      |
 | --------- | -------------------------------------------------- | -------------------------------- |
 | 1RSS      | Uplink - received signal strength antenna 1 (RSSI) | TBS CROSSFIRE RX                 |
 | 2RSS      | Uplink - received signal strength antenna 2 (RSSI) | TBS CROSSFIRE RX                 |
