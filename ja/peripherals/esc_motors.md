@@ -21,7 +21,7 @@ A high level overview of the main ESC/Servo protocols supported by PX4 is given 
 
 [PWM ESCs](../peripherals/pwm_escs_and_servo.md) are commonly used for fixed-wing vehicles and ground vehicles (vehicles that require a lower latency like multicopters typically use oneshot or dshot ESCs).
 
-PWM ESCs communicate using a periodic pulse, where the *width* of the pulse indicates the desired power level. The pulse wdith typically ranges between 1000uS for zero power and 2000uS for full power. The periodic frame rate of the signal depends on the capability of the ESC, and commonly ranges between 50Hz and 490 Hz (the theoretical maximum being 500Hz for a very small "off" cycle). A higher rate is better for ESCs, in particular where a rapid response to setpoint changes is needed. For PWM servos 50Hz is usually sufficient, and many don't support higher rates.
+PWM ESCs communicate using a periodic pulse, where the _width_ of the pulse indicates the desired power level. The pulse wdith typically ranges between 1000uS for zero power and 2000uS for full power. The periodic frame rate of the signal depends on the capability of the ESC, and commonly ranges between 50Hz and 490 Hz (the theoretical maximum being 500Hz for a very small "off" cycle). A higher rate is better for ESCs, in particular where a rapid response to setpoint changes is needed. For PWM servos 50Hz is usually sufficient, and many don't support higher rates.
 
 ![duty cycle for PWM](../../assets/peripherals/esc_pwm_duty_cycle.png)
 
