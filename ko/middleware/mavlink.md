@@ -263,7 +263,7 @@ Next we include our new class in [mavlink_messages.cpp](https://github.com/PX4/P
 #include "streams/BATTERY_STATUS_DEMO.hpp"
 ```
 
-Finally append the stream class to the `streams_list` at the bottom of [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_messages.cpp)
+Finally append the stream class to the `streams_list` at the bottom of [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp)
 
 ```C
 StreamListItem *streams_list[] = {
@@ -378,7 +378,7 @@ Above we only write to the battery fields that are defined in the topic.
 In practice you'd update all fields with either valid or invalid values: this has been cut back for brevity.
 :::
 
-and finally make sure it is called in [MavlinkReceiver::handle_message()](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp#L228)
+and finally make sure it is called in [MavlinkReceiver::handle_message()](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp#L228)
 
 ```cpp
 MavlinkReceiver::handle_message(mavlink_message_t *msg)
