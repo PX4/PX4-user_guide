@@ -9,7 +9,7 @@ PX4 supports [Terrain Following](#terrain_following) and [Terrain Hold](#terrain
 
 ## Terrain Following
 
-*Terrain hold* uses a distance sensor to help a vehicle to better maintain a constant height above ground in altitude control modes, when horizontally stationary at low altitude. This is useful for avoiding obstacles and for maintaining constant height when flying over varied terrain (e.g. for aerial photography).
+*Terrain following* enables a vehicle to automatically maintain a relatively constant height above ground level when traveling at low altitudes. This is useful for avoiding obstacles and for maintaining constant height when flying over varied terrain (e.g. for aerial photography).
 
 :::tip
 This feature can be enabled in [Position](../flight_modes_mc/position.md) and [Altitude modes](../flight_modes_mc/altitude.md), on *multicopters* and *VTOL vehicles in MC mode* that have a [distance sensor](../sensor/rangefinders.md).
@@ -29,7 +29,7 @@ Terrain following is enabled by setting [MPC_ALT_MODE](../advanced_config/parame
 
 ## Terrain Hold
 
-*Range Aid* uses a distance sensor as the primary source of height estimation during low speed/low altitude operation, but will otherwise use the primary source of altitude data defined in [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) (typically a barometer). This allows a vehicle to avoid altitude changes due to barometer drift or excessive barometer interference from rotor wash.
+*Terrain hold* uses a distance sensor to help a vehicle to better maintain a constant height above ground in altitude control modes, when horizontally stationary at low altitude. This allows a vehicle to avoid altitude changes due to barometer drift or excessive barometer interference from rotor wash.
 
 ::: info This feature can be enabled in [Position](../flight_modes_mc/position.md) and [Altitude modes](../flight_modes_mc/altitude.md), on *multicopters* and *VTOL vehicles in MC mode* that have a [distance sensor](../sensor/rangefinders.md).
 :::
