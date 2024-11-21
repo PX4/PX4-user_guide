@@ -6,7 +6,9 @@ The _Events Interface_ provides a system-wide API for notification of events, wh
 
 The interface can be used for publishing events for state changes or any other type of occurrence, including things like arming readiness, calibration completion, and reaching the target takeoff height.
 
-::: info The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in PX4 v1.13 and later. There will be an intermediate period where [both approaches are supported](#backward-compatibility).
+:::info
+The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in PX4 v1.13 and later.
+There will be an intermediate period where [both approaches are supported](#backward-compatibility).
 :::
 
 ## 사용법
@@ -27,7 +29,8 @@ events::send(events::ID("mymodule_test"), events::Log::Info, "Test Message");
 
 #### Backward compatibility
 
-For older GCS versions without events interface support, PX4 currently sends out all events also as `mavlink_log_*` `STATUSTEXT` message. In addition, the message must be tagged with an appended tab (`\t`) so that newer GCS's can ignore that and only show the event.
+For older GCS versions without events interface support, PX4 currently sends out all events also as `mavlink_log_*` `STATUSTEXT` message.
+In addition, the message must be tagged with an appended tab (`\t`) so that newer GCS's can ignore that and only show the event.
 
 So whenever adding an event, be sure to also add a `mavlink_log_` call. 예를 들어:
 
@@ -60,19 +63,24 @@ float arg2 = -1.f;
  * Link to documentation: <a>https://docs.px4.io</a>
  */
 events::send<uint8_t, float>(events::ID("event_name"),
-    {events::Log::Error, events::LogInternal::Info}, "Event Message", arg1, arg2);
+	{events::Log::Error, events::LogInternal::Info}, "Event Message", arg1, arg2);
 ```
 
 Explanations and requirements:
 
 - `/* EVENT`: This tag indicates that a comment defines metadata for the following event.
+
 - **event_name**: the event name (`events::ID(event_name)`).
-  - must be unique within the whole source code of PX4. As a general convention, prefix it with the module name, or the source file for larger modules.
+  - must be unique within the whole source code of PX4.
+    As a general convention, prefix it with the module name, or the source file for larger modules.
   - must be a valid variable name, i.e. must not contain spaces, colons, etc.
-  - from that name, a 24 bit event ID is derived using a hash function. This means as long as the event name stays the same, so will the ID.
+  - from that name, a 24 bit event ID is derived using a hash function.
+    This means as long as the event name stays the same, so will the ID.
+
 - **Log Level**:
 
-  - valid log levels are the same as used in the MAVLink [MAV_SEVERITY](https://mavlink.io/en/messages/common.html#MAV_SEVERITY) enum. In order of descending importance these are:
+  - valid log levels are the same as used in the MAVLink [MAV_SEVERITY](https://mavlink.io/en/messages/common.html#MAV_SEVERITY) enum.
+    In order of descending importance these are:
 
     ```plain
     Emergency,
@@ -94,7 +102,9 @@ Explanations and requirements:
   ```
 
 - **Event Message**:
-  - Single-line, short message of the event. It may contain template placeholders for arguments (e.g. `{1}`). For more information see below.
+  - Single-line, short message of the event.
+    It may contain template placeholders for arguments (e.g. `{1}`). For more information see below.
+
 - **Event Description**:
   - Detailed, optional event description.
   - Can be multiple lines/paragraphs.
@@ -123,10 +133,14 @@ Text format for event message description:
 
   - Profiles: `<profile name="[!]NAME">CONTENT</profile>`
 
-    `CONTENT` will only be shown if the name matches the configured profile. This can be used for example to hide developer information from end-users.
+    `CONTENT` will only be shown if the name matches the configured profile.
+    This can be used for example to hide developer information from end-users.
 
-  - URLs: `<a [href="URL"]>CONTENT</a>`. If `href` is not set, use `CONTENT` as `URL` (i.e.`<a>https://docs.px4.io</a>` is interpreted as `<a href="https://docs.px4.io">https://docs.px4.io</a>`)
+  - URLs: `<a [href="URL"]>CONTENT</a>`.
+    If `href` is not set, use `CONTENT` as `URL` (i.e.`<a>https://docs.px4.io</a>` is interpreted as `<a href="https://docs.px4.io">https://docs.px4.io</a>`)
+
   - Parameters: `<param>PARAM_NAME</param>`
+
   - no nested tags of the same type are allowed
 
 - arguments: template placeholders that follow python syntax, with 1-based indexing (instead of 0)
@@ -147,7 +161,7 @@ Text format for event message description:
 
 Events are logged according to the internal log level, and [Flight Review](../log/flight_review.md) displays events.
 
-::: info
+:::info
 Flight review downloads metadata based on PX4 master, so if a definition is not yet on master, it will only be able to display the event ID.
 :::
 
@@ -159,6 +173,8 @@ The metadata for all events is built into a separate JSON metadata file (using a
 
 ### Publishing Event Metadata to a GCS
 
-The event metadata JSON file is compiled into firmware (and/or hosted on the Internet), and made available to ground stations via the [MAVLink Component Metadata service](https://mavlink.io/en/services/component_information.html). This ensures that metadata is always up-to-date with the code running on the vehicle.
+The event metadata JSON file is compiled into firmware (and/or hosted on the Internet), and made available to ground stations via the [MAVLink Component Metadata service](https://mavlink.io/en/services/component_information.html).
+This ensures that metadata is always up-to-date with the code running on the vehicle.
 
-This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). 그런 다음 파일은 [MAVLink 구성 요소 정보 프로토콜](https://mavlink.io/en/services/component_information.html)을 사용하여 지상국과 공유됩니다.
+This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs).
+For more information see [PX4 Metadata (Translation & Publication)](../advanced/px4_metadata.md)
