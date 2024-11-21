@@ -4,7 +4,7 @@ The [Holybro Kopis 2](https://holybro.com/products/kopis2-hdv-free-shipping) is 
 
 ![Kopis 2](../../assets/hardware/holybro_kopis2.jpg)
 
-## 在哪里买
+## 购买渠道
 
 The _Kopis 2_ can be bought from a number of vendors, including:
 
