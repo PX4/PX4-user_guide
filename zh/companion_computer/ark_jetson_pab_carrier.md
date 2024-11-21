@@ -4,7 +4,7 @@ The [ARK Jetson Pixhawk Autopilot Bus (PAB) Carrier](https://arkelectron.gitbook
 
 ![ARK Jetson PAB Carrier](../../assets/companion_computer/ark_jetson_pab_carrier/ark_jetson_pab_carrier.jpg)
 
-## 在哪里买
+## 购买渠道
 
 - [ARK Jetson PAB Carrier](https://arkelectron.com/product/ark-jetson-pab-carrier/)
 - [ARK Jetson Orin NX NDAA Bundle](https://arkelectron.com/product/ark-jetson-orin-nx-ndaa-bundle/)
