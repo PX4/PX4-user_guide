@@ -1,8 +1,8 @@
 # Zubax Orel 20/21
 
-Zubax Orel 20 - це CAN ESC, розроблений для запуску відкритого джерела [PX4 Sapog ESC Firmware](../dronecan/sapog.md).
+The Zubax Orel 20 is an CAN ESC designed to run the open source [PX4 Sapog ESC Firmware](../dronecan/sapog.md).
 
-Хоча його можна контролювати за допомогою традиційного введення ШІМ, він призначений для роботи через шину CAN за допомогою [DroneCAN](index.md).
+While it can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](index.md).
 
 ## Де купити
 
@@ -10,4 +10,4 @@ Zubax Orel 20 - це CAN ESC, розроблений для запуску ві�
 
 ## Установка
 
-Дотримуйтесь інструкцій [Налаштування Sapog ESC](../dronecan/sapog.md).
+Follow the [Sapog ESC Setup](../dronecan/sapog.md) instructions.
