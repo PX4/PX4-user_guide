@@ -5,15 +5,15 @@
 단종되어서 Falcon Venturi FPV Wing 프레임은 더 이상 사용할 수 없습니다.
 :::
 
-*Falcon Vertigo Hybrid VTOL*은 PX4와 Dropix (Pixhawk 호환) 비행 컨트롤러와 함께 작동하도록 설계된 쿼드 플레인 VTOL 항공기입니다. 소형 GoPro 카메라를 장착할 수 있습니다.
+The *Falcon Vertigo Hybrid VTOL* is a quadplane VTOL aircraft that has been designed to work with PX4 and the Dropix (Pixhawk compatible) flight controller. 소형 GoPro 카메라를 장착할 수 있습니다.
 
 RTF 키트에는 RC 수신기와 텔레메트리를 제외하고, 시스템에 필요한 부품들이 포함되어 있습니다. 부품들을 별도로 구매할 수 있습니다.
 
 주요 정보:
 
-- **기체:** Falcon Vertigo Hybrid VTOL
-- **비행 컨트롤러:** Dropix
-- **윙 스팬:** 1.3m
+- **Frame:** Falcon Vertigo Hybrid VTOL
+- **Flight controller:** Dropix
+- **Wing span:** 1.3m
 
 ![Falcon Vertigo Hybrid VTOL RTF](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_complete.jpg)
 
@@ -220,9 +220,9 @@ It is important that nothing obstructs airflow to the Pitot tube. 이것은 고�
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_49_receiver_mounting.jpg" width="500px" title="수신기 장착" />
 
-1. 아래 그림과 같이 원격 측정 모듈을 비행 컨트롤러의 *전면*에 연결합니다 (핀에 대한 자세한 내용은 [비행 컨트롤러 지침 ](#dropix_front) 참조).
+1. Connect the receiver to the RC IN port on the *back* of the dropix, as shown above (also see the [flight controller instructions](#dropix_back)).
 
-1. 튜브를 대기 속도 센서에 연결합니다.
+1. Connect the telemetry module to the *front* of the flight controller as shown below (see the [flight controller instructions](#dropix_front) for more detail on the pins).
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_51_telemetry_module_mounting.jpg" width="500px" title="원격 측정 모듈 장착" />
 
@@ -261,11 +261,11 @@ GPS / 나침반 모듈은 기본 방향으로 날개에 이미 장착되어 있�
 
    * 손가락으로 기체의 무게 중심을 잡고 차량이 안정적인지 확인하십시오.
 
-      ![![Level Centre of Gravity](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_57_level_centre_of_gravity.jpg)](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_57_level_centre_of_gravity.jpg)
+      ![Level Centre of Gravity](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_57_level_centre_of_gravity.jpg)
 
    * 차량이 앞이나 뒤로 기울면 모터를 움직여 균형을 잡으십시오.
 
-      ![스로틀 모터 연결](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_55_level_motors.jpg)
+      ![Level Motors](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_55_level_motors.jpg)
 
 
 ## 설정
