@@ -33,7 +33,7 @@ RC stick movement is ignored.
 
 Hold mode behaviour can be configured using the parameters below.
 
-| Parameter                                                                                               | Description                                                                                                   |
+| 매개변수                                                                                                    | 설명                                                                                                            |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)                            | The radius of the loiter circle.                                                                              |
 | <a id="NAV_MIN_LTR_ALT"></a>[NAV_MIN_LTR_ALT](../advanced_config/parameter_reference.md#NAV_MIN_LTR_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude). |
