@@ -1,12 +1,13 @@
-# 제조사 지원 자동조종장치
+# 제조사지원 자동항법장치
 
 제조업체가 지원하는 자동조종장치는 제조업체에서 유지관리하고 지원합니다. 제조업체는 공식 발표후 4 개월 이내에 현재의 안정적인 PX4 릴리스와의 호환성을 제공을 약속합니다.
 
-:::tip PX4 프로젝트 자동조종장치의 지원 수준에 대한 자세한 내용은 [px4.io/autopilots](https://px4.io/autopilots/)를 참고하십시오.
+:::tip
+For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
 :::
 
-:::note
-이 범주에는 pixhawk 표준을 완전히 준수하지 않는 보드가 포함됩니다. 제조업체는 모든 비호환 보드를 지원하고 유지합니다.
+:::info
+This category includes boards that are not fully compliant with the pixhawk standard; manufacturers support and maintain the board for any areas of incompatibility.
 :::
 
 이 카테고리의 보드는 다음과 같습니다.
@@ -17,7 +18,7 @@
 - [ARK FPV Flight Controller](../flight_controller/ark_fpv.md)
 - [ARK Pi6X Flow Flight Controller](../flight_controller/ark_pi6x.md)
 - [CUAV X7](../flight_controller/cuav_x7.md)
-- [CUAV Nora](../flight_controller/cuav_nora.md)（CUAV X7 변종)
+- [CUAV Nora](../flight_controller/cuav_nora.md)（CUAV X7 variant)
 - [CUAV V5+](../flight_controller/cuav_v5_plus.md) (FMUv5)
 - [CUAV V5 nano](../flight_controller/cuav_v5_nano.md) (FMUv5)
 - [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
