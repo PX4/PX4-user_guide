@@ -10,7 +10,7 @@ Source: [templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/ma
 
 시작/중지/상태 기능이 있는 백그라운드에서 작업으로 실행되는 모듈의 템플릿입니다.
 
-### Implementation
+### 구현
 
 이 모듈의 상위 수준 구현을 설명하는 섹션입니다.
 
