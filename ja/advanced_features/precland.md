@@ -79,8 +79,7 @@ commander mode auto:precland
 When switching to the mode in this way, the precision landing is always "required"; there is no way to specify the type of landing.
 :::
 
-:::note
-At time of writing is no *convenient* way to directly invoke precision landing (other than commanding return mode):
+::: info At time of writing is no _convenient_ way to directly invoke precision landing (other than commanding return mode):
 
 - _QGroundControl_ does not provide it as a UI option.
 - [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) only works in missions.
@@ -106,7 +105,7 @@ Refer to the IR-LOCK guide for other compatible sensors.
 
 The offboard solution requires a positioning system that implements the MAVLink [Landing Target Protocol](https://mavlink.io/en/services/landing_target.html). This can use any positioning mechanism to determine the landing target, for example computer vision and a visual marker.
 
-The system must publish the coordinates of the target in the [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) message. The system must publish the coordinates of the target in the [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) message. The origin of the local NED frame [0,0] is the home position (you can map this home position to global coordinates using [GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#GPS_GLOBAL_ORIGIN)).
+The system must publish the coordinates of the target in the [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) message. Note that PX4 _requires_ `LANDING_TARGET.frame` to be [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and only populates the fields `x`, `y`, and `z`. The origin of the local NED frame [0,0] is the home position (you can map this home position to global coordinates using [GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#GPS_GLOBAL_ORIGIN)).
 
 PX4 does not explicitly require a [distance sensor](../sensor/rangefinders.md) or other sensors, but will perform better if it can more precisely determine its own position.
 
