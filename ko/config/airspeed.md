@@ -1,15 +1,18 @@
 # 항속센서 보정
 
-::: info [Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed-wing and VTOL vehicles.
+:::info
+[Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed-wing and VTOL vehicles.
 :::
 
 :::warning
-대부분의 다른 센서 드라이버와 달리 항속 센서 드라이버는 자동으로 시작되지 않습니다. 보정하기전에 [해당 매개변수를 활성화](../advanced_config/parameters.md)하여야 합니다.
+Unlike most other sensor drivers, the airspeed sensor drivers are not automatically started.
+Before calibration they must be [enabled via the corresponding parameter](../advanced_config/parameters.md):
 
 - Sensirion SDP3X ([SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X))
 - TE MS4525 ([SENS_EN_MS4525DO](../advanced_config/parameter_reference.md#SENS_EN_MS4525DO))
 - TE MS5525 ([SENS_EN_MS5525DS](../advanced_config/parameter_reference.md#SENS_EN_MS5525DS))
-- 이글 트리 항속 센서 ([SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD))
+- Eagle Tree airspeed sensor ([SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD))
+
 :::
 
 ## 보정 절차
@@ -17,23 +20,30 @@
 항속 센서 보정 절차
 
 1. Start _QGroundControl_ and connect the vehicle.
-1. Enable the airspeed sensors if not already done (as in _warning_ above).
-1. 상단 도구 모음에서 **톱니 바퀴** 아이콘(기체 설정)을 선택한 다음에, 가장자리 표시줄에서 **센서**를 선택합니다.
-1. **대기속도** 센서 버튼을 클릭합니다.
 
-   ![대기속도 보정](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
+2. Enable the airspeed sensors if not already done (as in _warning_ above).
 
-1. 센서로 부는 바람을 막으십시오 (예: 손을 컵 모양으로 감쌀 수 있습니다). 피톳 튜브의 구멍을 막지 않도록 주의하십시오.
-1. 보정을 시작하려면 **확인**을 클릭합니다.
-1. 피톳 튜브의 끝에 입으로 바람을 불어 보정 완료 신호를 보냅니다.
+3. Select **"Q" icon > Vehicle Setup > Sensors** (sidebar) to open _Sensor Setup_.
+
+4. Click the **Airspeed** sensor button.
+
+   ![Airspeed calibration](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
+
+5. 센서로 부는 바람을 막으십시오 (예: 손을 컵 모양으로 감쌀 수 있습니다).
+   피톳 튜브의 구멍을 막지 않도록 주의하십시오.
+
+6. Click **OK** to start the calibration.
+
+7. 피톳 튜브의 끝에 입으로 바람을 불어 보정 완료 신호를 보냅니다.
 
    :::tip
-튜브에 분사하는 것은 동적 및 정적 포트가 올바르게 설치되었는지 확인하는 기본 검사이기도합니다.
-교체한  센서는 튜브에 바람을 불어 넣을 때 큰 음의 차압을 판독하고 보정이 오류와 함께 중단됩니다.
+   Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly.
+   교체한  센서는 튜브에 바람을 불어 넣을 때 큰 음의 차압을 판독하고 보정이 오류와 함께 중단됩니다.
+
 :::
 
-1. _QGroundControl_ then tells you if the calibration was successful or not.
+8. _QGroundControl_ then tells you if the calibration was successful or not.
 
 ## 추가 정보
 
-- [QGroundControl 사용 설명서 &gt; 센서](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#airspeed)
+- [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#airspeed)
