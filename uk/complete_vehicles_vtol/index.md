@@ -30,7 +30,7 @@ They may come either fully assembled or in parts.
 - [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
 - [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
 
-## Дивись також
+## Дивіться також
 
 - [Повні Транспортні Засоби (Фіксовані Крила)](../complete_vehicles_fw/README.md)
 - [Повні Транспортні Засоби (MC)](../complete_vehicles_mc/README.md)
