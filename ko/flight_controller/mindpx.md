@@ -118,7 +118,7 @@ Amazon<sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매�
 | USART3 | /dev/ttyS2 | TELEM2 |
 | UART4  | /dev/ttyS3 | GPS1   |
 | USART6 | /dev/ttyS4 | ?      |
-| UART7  | /dev/ttyS5 | 디버깅 콘솔 |
+| UART7  | /dev/ttyS5 | 디버그 콘솔 |
 | UART8  | /dev/ttyS6 | ?      |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
