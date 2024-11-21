@@ -39,7 +39,7 @@ The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 
 ## Power
 
-Connect the output of the _Power Management Board_ (PM board) that comes with the kit to one of the **POWER** bricks of _Pixhawk 4_ using a 6-wire cable. The PM input **2~12S** will be connected to your LiPo battery. The connections of Power Management Board, including power supply and signal connections to the ESCs and servos, are explained in the table below. The connections of Power Management Board, including power supply and signal connections to the ESCs and servos, are explained in the table below.
+Connect the output of the _Power Management Board_ (PM board) that comes with the kit to one of the **POWER** bricks of _Pixhawk 4_ using a 6-wire cable. The PM input **2~12S** will be connected to your LiPo battery. The connections of Power Management Board, including power supply and signal connections to the ESCs and servos, are explained in the table below. Note that the PM board does not supply power to the servos via + and - pins of **FMU PWM-OUT**.
 
 The image below shows the power management board provided with _Pixhawk 4_.
 
