@@ -40,10 +40,10 @@ The [ARK Jetson Pixhawk Autopilot Bus (PAB) Carrier](https://arkelectron.gitbook
 
 The Jetson and the flight controller communicate through serial and USB interfaces, both of which support direct board-to-board connections tested up to 3 Mbps.
 
-| 형식     | Jetson Device Path | 비행 콘트롤러 |
-| :----- | :----------------- | :------ |
-| USB    | /dev/ttyACM0       | USB     |
-| Serial | /dev/ttyTHS1       | TELEM2  |
+| 형식  | Jetson Device Path | 비행 콘트롤러 |
+| :-- | :----------------- | :------ |
+| USB | /dev/ttyACM0       | USB     |
+| 직렬  | /dev/ttyTHS1       | TELEM2  |
 
 The USB connection to the autopilot is multiplexed with the external Jetson micro USB port.
 When a micro USB cable is connected, the autopilot is disconnected from the Jetson, and the USB port on the Jetson switches from host to device mode.
