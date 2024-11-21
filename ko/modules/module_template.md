@@ -19,7 +19,7 @@ PX4-Autopilot contains a template for writing a new application (module) that ru
 작업 대기열 작업 응용 프로그램은 작업 대기열 작업임을 지정하고 초기화중에 실행되도록 예약해야 한다는 점을 제외하고 일반(작업) 응용 프로그램과 동일합니다.
 
 예제는 방법을 설명합니다.
-요약:
+요약
 
 1. Specify the dependency on the work queue library in the cmake definition file ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/work_item/CMakeLists.txt)):
    ```
