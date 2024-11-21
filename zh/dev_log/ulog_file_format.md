@@ -1,6 +1,8 @@
 # ULog 文件格式
 
-ULog is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged. This document is meant to be the ULog File Format Spec Documentation. It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
+ULog is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged.
+This document is meant to be the ULog File Format Spec Documentation.
+It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
 
 PX4 uses ULog to log uORB topics as messages related to (but not limited to) the following sources:
 
@@ -14,21 +16,22 @@ The format uses [little endian](https://en.wikipedia.org/wiki/Endianness) memory
 
 The following binary types are used for logging. They all correspond to the types in C.
 
-| 类型                  | 大小（以字节为单位） |
-| ------------------- | ---------- |
+| 类型                                                          | 大小（以字节为单位） |
+| ----------------------------------------------------------- | ---------- |
 | int8_t, uint8_t   | 1          |
 | int16_t, uint16_t | 2          |
 | int32_t, uint32_t | 4          |
 | int64_t, uint64_t | 8          |
-| float               | 4          |
-| double              | 8          |
-| bool, char          | 1          |
+| float                                                       | 4          |
+| double                                                      | 8          |
+| bool, char                                                  | 1          |
 
 Additionally the types can be used as a fixed-size array: e.g. `float[5]`.
 
 Strings (`char[length]`) do not contain the termination NULL character `'\0'` at the end.
 
-::: info String comparisons are case sensitive, which should be taken into account when comparing message names when [adding subscriptions](#a-subscription-message).
+:::info
+String comparisons are case sensitive, which should be taken into account when comparing message names when [adding subscriptions](#a-subscription-message).
 :::
 
 ## ULog File Structure
@@ -76,7 +79,8 @@ struct message_header_s {
 - `msg_size` is the size of the message in bytes without the header.
 - `msg_type` defines the content, and is a single byte.
 
-::: info Message sections below are prefixed with the character that corresponds to it's `msg_type`.
+:::info
+Message sections below are prefixed with the character that corresponds to it's `msg_type`.
 :::
 
 ### 定义部分
@@ -89,12 +93,13 @@ The message types in this section are:
 2. [Format Definition](#f-format-message)
 3. [Information](#i-information-message)
 4. [Multi Information](#m-multi-information-message)
-5. [参数](#p-parameter-message)
+5. [Parameter](#p-parameter-message)
 6. [Default Parameter](#q-default-parameter-message)
 
 #### 'B': Flag Bits Message
 
-::: info This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
+:::info
+This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
 :::
 
 This message provides information to the log parser whether the log is parsable or not.
@@ -113,15 +118,23 @@ struct ulog_message_flag_bits_s {
   - These flags indicate the presence of features in the log file that are compatible with any ULog parser.
   - `compat_flags[0]`: _DEFAULT_PARAMETERS_ (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
 
-  The rest of the bits are currently not defined and must be set to 0. These bits can be used for future ULog changes that are compatible with existing parsers. For example, adding a new message type can be indicated by defining a new bit in the standard, and existing parsers will ignore the new message type. It means parsers can just ignore the bits if one of the unknown bits is set.
+  The rest of the bits are currently not defined and must be set to 0.
+  These bits can be used for future ULog changes that are compatible with existing parsers.
+  For example, adding a new message type can be indicated by defining a new bit in the standard, and existing parsers will ignore the new message type.
+  It means parsers can just ignore the bits if one of the unknown bits is set.
 
-- `incompat_flags`: 不兼容的标志位。
+- `incompat_flags`: incompatible flag bits.
 
   - `incompat_flags[0]`: _DATA_APPENDED_ (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
 
-  The rest of the bits are currently not defined and must be set to 0. 这可用于引入现有解析器无法处理的重大更改。 For example, when an old ULog parser that didn't have the concept of _DATA_APPENDED_ reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts. If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
+  The rest of the bits are currently not defined and must be set to 0.
+  这可用于引入现有解析器无法处理的重大更改。 For example, when an old ULog parser that didn't have the concept of _DATA_APPENDED_ reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts.
+  If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
 
-- `appended_offsets`: File offset (0-based) for appended data. 如果没有附加数据，则所有偏移量必须为零。 这可以用于消息中途暂停的情况下可靠的添加数据。 For example, crash dumps.
+- `appended_offsets`: File offset (0-based) for appended data.
+  如果没有附加数据，则所有偏移量必须为零。
+  这可以用于消息中途暂停的情况下可靠的添加数据。
+  For example, crash dumps.
 
   附加数据的过程应该做到：
 
@@ -129,7 +142,9 @@ struct ulog_message_flag_bits_s {
   - set the first `appended_offsets` that is currently 0 to the length of the log file without the appended data, as that is where the new data will start
   - append any type of messages that are valid for the Data section.
 
-It is possible that there are more fields appended at the end of this message in future ULog specifications. This means a parser must not assume a fixed length of this message. If the message is longer than expected (currently 40 bytes), the exceeding bytes must just be ignored. 这意味着解析器必须不能假定此消息的长度是固定的。 If the `msg_size` is bigger than expected (currently 40), any additional bytes must be ignored/discarded.
+It is possible that there are more fields appended at the end of this message in future ULog specifications. This means a parser must not assume a fixed length of this message. If the message is longer than expected (currently 40 bytes), the exceeding bytes must just be ignored.
+这意味着解析器必须不能假定此消息的长度是固定的。
+If the `msg_size` is bigger than expected (currently 40), any additional bytes must be ignored/discarded.
 
 #### 'F': Format Message
 
@@ -146,7 +161,8 @@ struct message_format_s {
   - There can be an arbitrary amount of fields (minimum 1), separated by `;`.
   - `message_name`: an arbitrary non-empty string with these allowed characters: `a-zA-Z0-9_-/` (and different from any of the [basic types](#data-types)).
 
-A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported). `field_name` must consist of the characters in the set `a-zA-Z0-9_`.
+A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported).
+`field_name` must consist of the characters in the set `a-zA-Z0-9_`.
 
 A `type` is one of the [basic binary types](#data-types) or a `message_name` of another format definition (nested usage).
 
@@ -158,13 +174,13 @@ A `type` is one of the [basic binary types](#data-types) or a `message_name` of 
 有些字段名是特殊的：
 
 - `timestamp`: every message format with a [Subscription Message](#a-subscription-message) must include a timestamp field (for example a message format only used as part of a nested definition by another format may not include a timestamp field)
-  - 它的类型可以是：`uint64_t` (目前唯一使用的)，`uint32_t`, `uint16_t` 或者是 `uint8_t` 。
+  - Its type must be `uint64_t`.
   - The unit is microseconds.
-  - 对于具有相同 `msg_id` 报文的时间戳必须是单调递增的。
+  - The timestamp must always be monotonic increasing for a message series with the same `msg_id` (same subscription).
 - `_padding{}`: field names that start with `_padding` (e.g. `_padding[3]`) should not be displayed and their data must be ignored by a reader.
   - 写入器可以通过插入这个字段确保正确对齐。
   - If the padding field is the last field, then this field may not be logged, to avoid writing unnecessary data.
-  - 这意味着 `message_data_s.data` 会因为填充大小而更短。
+  - This means the `message_data_s.data` will be shorter by the size of the padding.
   - 但是当报文在嵌套定义中使用时任然需要填充。
 - In general, message fields are not necessarily aligned (i.e. the field offset within the message is not necessarily a multiple of its data size), so a reader must always use appropriate memory copy methods to access individual fields.
 
@@ -185,7 +201,7 @@ struct ulog_message_info_header_s {
 - `key`: Contains the key string in the form`type name`, e.g. `char[value_len] sys_toolchain_ver`. Valid characters for the name: `a-zA-Z0-9_-/`. The type may be one of the [basic types including arrays](#data-types).
 - `value`: Contains the data (with the length `value_len`) corresponding to the `key` e.g. `9.4.0`.
 
-::: info
+:::info
 A key defined in the Information message must be unique. Meaning there must not be more than one definition with the same key value.
 :::
 
@@ -193,26 +209,27 @@ A key defined in the Information message must be unique. Meaning there must not 
 
 预定义的信息报文有：
 
-| 键                                   | 描述                                          | 示例值                |
-| ----------------------------------- | ------------------------------------------- | ------------------ |
-| `char[value_len] sys_name`          | 系统名称                                        | "PX4"              |
-| `char[value_len] ver_hw`            | 硬件版本 (主板)                                   | "PX4FMU_V4"        |
-| `char[value_len] ver_hw_subtype`    | 主办子版本 (变化的)                                 | "V2"               |
-| `char[value_len] ver_sw`            | 软件版本 (git 标签)                               | "7f65e01"          |
-| `char[value_len] ver_sw_branch`     | git branch                                  | "master"           |
-| `uint32_t ver_sw_release`           | 软件版本 (见下文)                                  | 0x010401ff         |
-| `char[value_len] sys_os_name`       | 操作系统名称                                      | "Linux"            |
-| `char[value_len] sys_os_ve`r        | 操作系统版本 (git 标签)                             | "9f82919"          |
-| `uint32_t ver_os_release`           | 操作系统版本 (见下文)                                | 0x010401ff         |
-| `char[value_len] sys_toolchain`     | 工具链名称                                       | "GNU GCC"          |
-| `char[value_len] sys_toolchain_ver` | 工具链版本                                       | "6.2.1"            |
-| `char[value_len] sys_mcu`           | 芯片名称和修订                                     | "STM32F42x, rev A" |
-| `char[value_len] sys_uuid`          | Unique identifier for vehicle (eg. MCU ID)  | "392a93e32fa3"...  |
-| `char[value_len] log_type`          | Type of the log (full log if not specified) | "mission"          |
-| `char[value_len] replay`            | 重播日志的文件名如果处于重播模式                            | "log001.ulg"       |
-| `int32_t time_ref_utc`              | UTC 时间的秒偏移量                                 | -3600              |
+| 键                                   | 描述                                                                            | 示例值                                                               |
+| ----------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `char[value_len] sys_name`          | 系统名称                                                                          | "PX4"                                                             |
+| `char[value_len] ver_hw`            | 硬件版本 (主板)                                                  | "PX4FMU_V4"                                  |
+| `char[value_len] ver_hw_subtype`    | 主办子版本 (变化的)                                                | "V2"                                                              |
+| `char[value_len] ver_sw`            | 软件版本 (git 标签)                                              | "7f65e01"                                                         |
+| `char[value_len] ver_sw_branch`     | git branch                                                                    | "master"                                                          |
+| `uint32_t ver_sw_release`           | 软件版本 (见下文)                                                 | 0x010401ff                                                        |
+| `char[value_len] sys_os_name`       | 操作系统名称                                                                        | "Linux"                                                           |
+| `char[value_len] sys_os_ve`r        | 操作系统版本 (git 标签)                                            | "9f82919"                                                         |
+| `uint32_t ver_os_release`           | 操作系统版本 (见下文)                                               | 0x010401ff                                                        |
+| `char[value_len] sys_toolchain`     | 工具链名称                                                                         | "GNU GCC"                                                         |
+| `char[value_len] sys_toolchain_ver` | 工具链版本                                                                         | "6.2.1"                           |
+| `char[value_len] sys_mcu`           | 芯片名称和修订                                                                       | "STM32F42x, rev A"                                                |
+| `char[value_len] sys_uuid`          | Unique identifier for vehicle (eg. MCU ID) | "392a93e32fa3"... |
+| `char[value_len] log_type`          | Type of the log (full log if not specified)                | "mission"                                                         |
+| `char[value_len] replay`            | 重播日志的文件名如果处于重播模式                                                              | "log001.ulg"                                      |
+| `int32_t time_ref_utc`              | UTC 时间的秒偏移量                                                                   | -3600                                                             |
 
-::: info `value_len` represents the data size of the `value`. This is described in the `key`.
+:::info
+`value_len` represents the data size of the `value`. This is described in the `key`.
 :::
 
 - The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is **major**, BB is **minor**, CC is patch and TT is the **type**.
@@ -277,7 +294,8 @@ struct ulog_message_parameter_default_header_s {
     - `1<<0`: system wide default
     - `1<<1`: default for the current configuration (e.g. an airframe)
 
-A log may not contain default values for all parameters. In those cases the default is equal to the parameter value, and different default types are treated independently.
+A log may not contain default values for all parameters.
+In those cases the default is equal to the parameter value, and different default types are treated independently.
 
 This message can also be used in the Data section, and the same data type and naming applies as for the Parameter message.
 
@@ -296,12 +314,13 @@ The message types in the _Data_ section are:
 7. [Dropout Mark](#o-dropout-message)
 8. [Information](#i-information-message)
 9. [Multi Information](#m-multi-information-message)
-10. [参数](#p-parameter-message)
+10. [Parameter](#p-parameter-message)
 11. [Default Parameter](#q-default-parameter-message)
 
 #### `A`: Subscription Message
 
-Subscribe a message by name and give it an id that is used in [Logged data Message](#d-logged-data-message). This must come before the first corresponding [Logged data Message](#d-logged-data-message).
+Subscribe a message by name and give it an id that is used in [Logged data Message](#d-logged-data-message).
+This must come before the first corresponding [Logged data Message](#d-logged-data-message).
 
 ```c
 struct message_add_logged_s {
@@ -312,10 +331,11 @@ struct message_add_logged_s {
 };
 ```
 
-- `multi_id`: the same message format can have multiple instances, for example if the system has two sensors of the same type. The default and first instance must be 0. `msg_id`: unique id to match `message_data_s` data. The first use must set this to 0, then increase it. The same `msg_id` must not be used twice for different subscriptions, not even after unsubscribing. `message_name`: message name to subscribe to. Must match one of the `message_format_s` definitions. 默认值以及第一个实例一定是0.
+- `multi_id`: the same message format can have multiple instances, for example if the system has two sensors of the same type. 默认值以及第一个实例一定是0.
 - `msg_id`: unique id to match [Logged data Message](#d-logged-data-message) data. 第一次使用一定要设置为 0，然后递增。
   - The same `msg_id` must not be used twice for different subscriptions.
-- `msg_name`：订阅的消息名称。 Must match one of the [Format Message](#f-format-message) definitions.
+- `message_name`: message name to subscribe to.
+  Must match one of the [Format Message](#f-format-message) definitions.
 
 #### `R`: Unsubscription Message
 
@@ -402,6 +422,7 @@ struct message_logging_tagged_s {
   ```
 
 - `timestamp`: in microseconds
+
 - `log_level`: same as in the Linux kernel:
 
 | 名称      | 对应值 | 含义       |
@@ -426,7 +447,7 @@ struct message_sync_s {
 };
 ```
 
-- `sync_magic`: to be defined.
+- `sync_magic`: [0x2F, 0x73, 0x13, 0x20, 0x25, 0x0C, 0xBB, 0x12]
 
 #### 'O': Dropout message
 
@@ -458,26 +479,28 @@ Since the Definitions and Data Sections use the same message header format, they
 - Must ignore unknown messages (but it can print a warning)
 - 解析未来/未知的文件格式版本 (但可以打印警告) 。
 - Must refuse to parse a log which contains unknown incompatibility bits set (`incompat_flags` of [Flag Bits Message](#b-flag-bits-message)), meaning the log contains breaking changes that the parser cannot handle.
-- A parser must be able to correctly handle logs that end abruptly, in the middle of a message. The unfinished message should just be discarged. 未完成的报文应该丢弃。
+- A parser must be able to correctly handle logs that end abruptly, in the middle of a message. The unfinished message should just be discarged.
+  未完成的报文应该丢弃。
 - 对于附加数据:解析器可以假设数据部分存在，即在定义部分之后的位置有一个偏移点。
   - 必须将附加数据视为常规数据部分的一部分。
 
 ## Known Parser Implementations
 
 - PX4 Firmware: C++
-  - [日志模块](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
-  - [回放模块](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
+  - [logger module](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
+  - [replay module](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
   - [hardfault_log module](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log): append hardfault crash data.
 - [pyulog](https://github.com/PX4/pyulog): python, ULog reader and writer library with CLI scripts.
 - [ulog_cpp](https://github.com/PX4/ulog_cpp): C++, ULog reader and writer library.
-- [FlightPlot](https://github.com/PX4/FlightPlot): Java，日志绘图仪。
-- [MAVLink](https://github.com/mavlink/mavlink)：通过 MAVLink 进行 ULog 流的消息 (注意，不支持追加数据，至少不支持截断消息)。
-- [QGroundControl](https://github.com/mavlink/qgroundcontrol)：C++，通过 MAVLink 的 Ulog 流和最小的 GeoTagging。
-- [mavlink-router](https://github.com/01org/mavlink-router)：C++，通过 MAVLink 的 ULog 流。
-- [MAVGAnalysis](https://github.com/ecmnet/MAVGCL)：Java，通过 MAVLink 的数据流和日志的绘制、分析。
-- [PlotJuggler](https://github.com/facontidavide/PlotJuggler): 绘制日志和时间序列的 C++/Qt 应用。 自版本2.1.3支持 ULog。
+- [FlightPlot](https://github.com/PX4/FlightPlot): Java, log plotter.
+- [MAVLink](https://github.com/mavlink/mavlink): Messages for ULog streaming via MAVLink (note that appending data is not supported, at least not for cut off messages).
+- [QGroundControl](https://github.com/mavlink/qgroundcontrol): C++, ULog streaming via MAVLink and minimal parsing for GeoTagging.
+- [mavlink-router](https://github.com/01org/mavlink-router): C++, ULog streaming via MAVLink.
+- [MAVGAnalysis](https://github.com/ecmnet/MAVGCL): Java, ULog streaming via MAVLink and parser for plotting and analysis.
+- [PlotJuggler](https://github.com/facontidavide/PlotJuggler): C++/Qt application to plot logs and time series. 自版本2.1.3支持 ULog。
 - [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog reader and parser outputs log in JSON object format.
-- [Foxglove Studio](https://github.com/foxglove/studio): an integrated visualization and diagnosis tool for robotics (Typescript ULog parser: https://github.com/foxglove/ulog).
+- [Foxglove Studio](https://github.com/foxglove/studio): an integrated visualization and diagnosis tool for robotics
+  (Typescript ULog parser: https://github.com/foxglove/ulog).
 
 ## 文件格式版本历史
 
