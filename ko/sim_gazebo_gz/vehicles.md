@@ -138,7 +138,7 @@ make px4_sitl gz_standard_vtol
 
 ![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
 
-## 로버
+## 탐사선
 
 ### Differential Rover
 
