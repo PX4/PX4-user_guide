@@ -39,14 +39,14 @@ Pixhawk flight controllers usually come with a [Pixhawk Connector Standard Debug
 These ports have pins for console TX and RX which can connect to an FTDI cable.
 The mapping for the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) to FTDI is shown below.
 
-| Pixhawk 디버그 포트           | -                                  | FTDI | -                                          |
-| ------------------------ | ---------------------------------- | ---- | ------------------------------------------ |
-| 1 (적) | TARGET PROCESSOR VOLTAGE           |      | N/C (SWD/JTAG 디버깅에 사용됨) |
-| 2 (흑) | CONSOLE TX (출력) | 5    | FTDI RX (황)             |
-| 3 (흑) | CONSOLE RX (입력) | 4    | FTDI TX (적황)            |
-| 4 (흑) | SWDIO                              |      | N/C (SWD/JTAG 디버깅에 사용됨) |
-| 5 (흑) | SWCLK                              |      | N/C (SWD/JTAG 디버깅에 사용됨) |
-| 6 (흑) | GND                                | 1    | FTDI GND (흑)            |
+| Pixhawk 디버그 포트            | -                                  | FTDI | -                                          |
+| ------------------------- | ---------------------------------- | ---- | ------------------------------------------ |
+| 1(red) | TARGET PROCESSOR VOLTAGE           |      | N/C (SWD/JTAG 디버깅에 사용됨) |
+| 2 (흑)  | CONSOLE TX (출력) | 5    | FTDI RX (황)             |
+| 3 (흑)  | CONSOLE RX (입력) | 4    | FTDI TX (적황)            |
+| 4 (흑)  | SWDIO                              |      | N/C (SWD/JTAG 디버깅에 사용됨) |
+| 5 (흑)  | SWCLK                              |      | N/C (SWD/JTAG 디버깅에 사용됨) |
+| 6 (흑)  | GND                                | 1    | FTDI GND (흑)            |
 
 The [SWD Debug Port](../debug/swd_debug.md) page and individual flight controller pages have more information about debug port pinouts.
 
@@ -76,6 +76,6 @@ Download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
 '직렬 연결'을 선택하고, 포트 매개변수를 다음과 같이 설정합니다.
 
-- 57600 baud
+- 초당 전송속도: 57600
 - 8 data bits
 - 1 stop bit
