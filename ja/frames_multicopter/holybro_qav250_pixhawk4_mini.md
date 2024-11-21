@@ -162,7 +162,7 @@ The steps to install the kit are:
 
 1. Install the camera bracket on the frame ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_bracket.jpg)
 1. Install the camera on the bracket ![Camera on Bracket](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_on_bracket.jpg)
-1. The power module on the complete kit comes with wiring ready to connect the Video Transmitter and Camera:![Connecting FPV](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection_board.jpg)
+1. The power module on the complete kit comes with wiring ready to connect the Video Transmitter and Camera: ![Connecting FPV](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection_board.jpg)
    - Attach the camera connector ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_connection.jpg) The wires are: blue=voltage sensor, yellow=video out, black=ground, red=+voltage.
    - Connect the Video Transmitter (VTX) connector ![Video Transmitter Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_video_transmitter_connection.jpg) The wires are: yellow=video out, black=ground, red=+voltage.
 1. Secure the Video Transmitter and OSD board to the frame using tape.
