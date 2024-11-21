@@ -4,7 +4,7 @@
 
 ![ARK MOSAIC-X5 RTK GPS](../../assets/hardware/gps/ark/ark_mosaic_rtk_gps.jpg)
 
-## 在哪里买
+## 购买渠道
 
 Order this module from:
 
@@ -38,7 +38,7 @@ Order this module from:
   - GPS Fix
   - RTK Status
   - RGB System Status LED
-- Additional Information
+- 附加信息
   - Includes 4 Pin Pixhawk Standard CAN Cable
   - Triple Band (L1/L2/L5) Helical GPS Antenna
   - USA Built
