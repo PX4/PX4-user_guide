@@ -92,7 +92,7 @@ The following topics explain how to set up companion computers for specific flig
 
 - [Using a Companion Computer with Pixhawk Controllers](../companion_computer/pixhawk_companion.md)
 
-## Additional Information
+## 추가 정보
 
 - [Companion Computer Peripherals](../companion_computer/companion_computer_peripherals.md)
 - [PX4 System Architecture > FC and Companion Computer](../concept/px4_systems_architecture.md#fc-and-companion-computer)
