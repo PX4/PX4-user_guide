@@ -17,7 +17,7 @@ GeoFence는 미션 모드와 수동 비행 모드에 모두 적용됩니다.
 
 또한 펜스가 위반되는 경우 "사고 방지 액션" 설정이 포함됩니다. 단순히 알람 경고로 설정할 수도 있지만, 일반적으로 기체를 즉시 안전한 위치로 [복귀 ](../flight_modes/return.md) 시킵니다.
 
-자세한 내용은 [안전 > GeoFence 사고 방지](../config/safety.md#geofence-failsafe)를 참조하십시오.
+For more information see: [Safety > Geofence Failsafe](../config/safety.md#geofence-failsafe).
 
 ## GeoFence 계획
 
@@ -31,7 +31,7 @@ Geofence planning is fully documented in [Plan View > GeoFence](https://docs.qgr
 
 요약
 
-1. *QGroundControl > 평면도 *를 오픈합니다.
+1. Open _QGroundControl > Plan View_.
 1. *계획 유형* 라디오 버튼 : **울타리**를 선택합니다. 그러면 *GeoFence 편집기*가 표시됩니다. ![GeoFence 계획](../../assets/qgc/plan_geofence/geofence_editor.jpg)
 1. **다각형 울타리** 또는 **원형 울타리** 버튼을 선택하여 원하는 유형의 *기본 * 울타리를 지도에 추가합니다. 편집기에서 울타리 유형을 추가합니다.
 1. 지도를 사용하여 울타리의 모양과 위치를 구성하십시오.
