@@ -61,7 +61,7 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
 | USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
 | UART4  | /dev/ttyS3 | GPS1                              |
 | USART6 | /dev/ttyS4 | PX4IO                             |
-| UART7  | /dev/ttyS5 | 디버깅 콘솔                            |
+| UART7  | /dev/ttyS5 | 디버그 콘솔                            |
 | UART8  | /dev/ttyS6 | TELEM4                            |
 
 ## 정격 전압
