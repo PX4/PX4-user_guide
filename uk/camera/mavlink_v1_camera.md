@@ -59,7 +59,7 @@ PX4 також буде випускати [CAMERA_TRIGGER](https://mavlink.io/e
 
 Можна використовувати наступні команди [Протокол камери v1 (простий тригер протокол)](https://mavlink.io/en/services/camera_v1.html) в місіях (це той самий список, що і вище).
 
-- [MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL)
+- [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL)
 - [MAV_CMD_NAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_CMD_DO_DIGICAM_CONTROL)
 - [MAV_CMD_DO_SET_CAM_TRIGG_DIST](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST)
 - [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL)
@@ -74,7 +74,7 @@ PX4 переістовує їх з тим самим ідентифікатор�
 
 Ручне спрацьовування за допомогою цих камер не підтримується (ні для джойстика, ні для дистанційного керування).
 
-## Конфігурація PX4
+## Налаштування PX4
 
 <!-- set up the mode and triggering -->
 
@@ -106,7 +106,7 @@ PX4 переістовує їх з тим самим ідентифікатор�
 
   ![Екран налаштування камери - Режим тригера та інтерфейс для MAVLink](../../assets/camera/mavlink_camera_settings.png)
 
-::: info
+:::info
 You can also [set the parameters directly](../advanced_config/parameters.md):
 
 - [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) — `4`: Основано на відстані, за командою (режим опитування)
