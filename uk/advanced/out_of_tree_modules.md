@@ -1,24 +1,28 @@
 # Зовнішні модулі (Out-of-Tree)
 
-Зовнішні модулі забезпечують зручний механізм для розробників для керування/групування власних модулів, які вони хочуть додати до (або оновити в) прошивки PX4. Зовнішні модулі можуть використовувати ті ж самі включення, що й внутрішні модулі, і можуть взаємодіяти з внутрішніми модулями через uORB.
+Зовнішні модулі забезпечують зручний механізм для розробників для керування/групування власних модулів, які вони хочуть додати до (або оновити в) прошивки PX4.Зовнішні модулі можуть використовувати ті ж самі включення, що й внутрішні модулі, і можуть взаємодіяти з внутрішніми модулями через uORB.
 
 У цій темі пояснюється, як додати зовнішній модуль ("out of tree") до збірки PX4.
 
 :::tip
-Ми закликаємо вас внести ваші зміни до PX4, де це можливо!
+We encourage you to contribute your changes into PX4, where possible!
 :::
 
 ## Використання
 
 Щоб створити зовнішній модуль:
 
-- Створіть папку _зовнішнього каталогу_, щоб згрупувати зовнішні модулі:
-  - Його можна знайти будь-де за межами дерева **PX4-Autopilot**.
-  - Він повинен мати таку ж структуру, як **PX4-Autopilot** (тобто він повинен містити каталог з назвою **src**).
-  - Пізніше ми звернемося до цього каталогу за допомогою `EXTERNAL_MODULES_LOCATION`.
-- Скопіюйте існуючий модуль (наприклад, **examples/px4_simple_app**) до зовнішнього каталогу або безпосередньо створіть новий модуль.
-- Перейменуйте модуль (включаючи `MODULE` у **CMakeLists.txt**) або видаліть його з існуючої конфігурації збірки _cmake_ PX4-Autopilot. Це щоб уникнути конфліктів з внутрішніми модулями.
-- Додайте файл **CMakeLists.txt** у зовнішній каталозі з вмістом:
+- Create an _external directory_ folder for grouping the external modules:
+  - This can be located anywhere outside of the **PX4-Autopilot** tree.
+  - It must have the same structure as **PX4-Autopilot** (i.e. it must contain a directory called **src**).
+  - Later we refer to this directory using `EXTERNAL_MODULES_LOCATION`.
+
+- Copy an existing module (e.g. **examples/px4_simple_app**) to the external directory, or directly create a new module.
+
+- Rename the module (including `MODULE` in **CMakeLists.txt**) or remove it from the existing PX4-Autopilot _cmake_ build config.
+  Це щоб уникнути конфліктів з внутрішніми модулями.
+
+- Add a file **CMakeLists.txt** in the external directory with content:
 
   ```cmake
   set(config_module_list_external
@@ -27,27 +31,29 @@
       )
   ```
 
-- Додайте рядок `EXTERNAL` до `modules/<new_module>/CMakeLists.txt` у `px4_add_module()`, наприклад так:
+- Add a line `EXTERNAL` to the `modules/<new_module>/CMakeLists.txt` within
+  `px4_add_module()`, for example like this:
 
   ```cmake
   px4_add_module(
-    MODULE modules__test_app
-    MAIN test_app
-    STACK_MAIN 2000
-    SRCS
-        px4_simple_app.c
-    DEPENDS
-        platforms__common
-    EXTERNAL
-    )
+  	MODULE modules__test_app
+  	MAIN test_app
+  	STACK_MAIN 2000
+  	SRCS
+  		px4_simple_app.c
+  	DEPENDS
+  		platforms__common
+  	EXTERNAL
+  	)
   ```
 
 ## Визначення повідомлень поза деревами uORB
 
-Повідомлення uORB також можна визначати поза деревом. Для цього має існувати папка `$EXTERNAL_MODULES_LOCATION/msg`.
+Повідомлення uORB також можна визначати поза деревом. For this, the `$EXTERNAL_MODULES_LOCATION/msg` folder must exist.
 
-- Розмістіть усі нові визначення повідомлень у каталозі `$EXTERNAL_MODULES_LOCATION/msg`. Формат цих нових визначень повідомлень поза деревом такий самий, як і для будь-якого іншого [визначення повідомлень uORB](../middleware/uorb.md#adding-a-new-topic).
-- Додати файл `$EXTERNAL_MODULES_LOCATION/msg/CMakeLists.txt` з змістом:
+- Place all new message definitions within the `$EXTERNAL_MODULES_LOCATION/msg` directory.
+  The format of these new out-of-tree message definitions are the same as for any other [uORB message definition](../middleware/uorb.md#adding-a-new-topic).
+- Add a file `$EXTERNAL_MODULES_LOCATION/msg/CMakeLists.txt` with content:
 
   ```cmake
   set(config_msg_list_external
@@ -58,21 +64,23 @@
       )
   ```
 
-  Нове повідомлення uORB можна використовувати як будь-яке інше повідомлення uORB, як описано `тут`.
+  where `<message#>.msg` is the name of the uORB message definition file to be processed and used for uORB message generation.
 
-Поза деревом повідомлень uORB будуть створені в тих же місцях, що й звичайні повідомлення uORB. Заголовки тем uORB генеруються в `<build_dir>/uORB/topics/`, а вихідні файли повідомлень – створено в `<build_dir>/msg/topics_sources/`.
+Поза деревом повідомлень uORB будуть створені в тих же місцях, що й звичайні повідомлення uORB.
+The uORB topic headers are generated in `<build_dir>/uORB/topics/`, and the message source files are
+generated in `<build_dir>/msg/topics_sources/`.
 
-Нові повідомлення uORB можна використовувати як будь-які інші повідомлення uORB, як описано [тут](../middleware/uorb.md#adding-a-new-topic).
+The new uORB messages can be used like any other uORB message as described [here](../middleware/uorb.md#adding-a-new-topic).
 
 :::warning
-Визначення повідомлень поза деревом uORB не можуть мати ті ж самі назви, що й будь-які звичайні повідомлення uORB.
-
+The out-of-tree uORB message definitions cannot have the same name as any of the normal uORB messages.
 :::
 
 ## Побудова зовнішніх модулів та повідомлень uORB
 
-Виконайте `make px4_sitl EXTERNAL_MODULES_LOCATION=<path>`.
+Execute `make px4_sitl EXTERNAL_MODULES_LOCATION=<path>`.
 
-Будь-яку іншу ціль збірки можна використовувати, але каталог для збирання не повинен існувати. Якщо вона вже існує, ви також можете просто встановити змінну _cmake_ у папці збірки.
+Будь-яку іншу ціль збірки можна використовувати, але каталог для збирання не повинен існувати.
+If it already exists, you can also just set the _cmake_ variable in the build folder.
 
-Для наступних поступових збірок `EXTERNAL_MODULES_LOCATION` не потрібно вказувати.
+For subsequent incremental builds `EXTERNAL_MODULES_LOCATION` does not need to be specified.
