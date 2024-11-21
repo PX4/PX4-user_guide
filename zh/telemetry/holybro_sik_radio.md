@@ -10,7 +10,7 @@ The radios can be either 915 MHz (US) or 433 MHz (EU, Asia, Africa Oceania). Not
 
 <img src="../../assets/hardware/telemetry/holybro_sik_radio_v3.png" width="600px" title="Sik Telemetry Radio" />
 
-## 在哪里买
+## 购买渠道
 
 - [Holybro SiK Telemetry Radio V3](https://holybro.com/collections/telemetry-radios/products/sik-telemetry-radio-v3)
 
