@@ -17,32 +17,33 @@ const { site } = useData();
 
 Основна команда розробників і спільнота активні на наступних каналах:
 
-- [Форум для обговорення PX4](https://discuss.px4.io/) - спочатку опублікуйте тут!
-- [PX4 Discord](https://discord.gg/dronecode) – опублікуйте тут, якщо ви не отримаєте відповіді в обговоренні протягом кількох днів (додайте посилання на тему форуму).
+- [PX4 Discuss Forum](https://discuss.px4.io/) - Post here first!
+- [PX4 Discord](https://discord.gg/dronecode) - Post here if you don't get a response in discuss within a few days (include a link to your forum topic).
 
 :::tip
-Форум Обговорення є набагато кращим через те, що його індексують пошукові системи і служать загальною базою знань.
+The Discuss Forum is much preferred because it is indexed by search engines and serves as a common knowledge base.
 :::
 
 ## Діагностування проблем
 
 Якщо ви не впевнені в тому, що є ця проблема, і вам потрібна допомога для діагностики
 
-- Завантажте журнали до [Flight Log Review](https://logs.px4.io/)
-- Відкрийте обговорення на [PX4 Discuss](https://discuss.px4.io/c/flight-testing/) зі звітом про політ і посиланнями на журнали.
-- Команда розробників може запропонувати вам [задокументувати проблему](#issue-bug-reporting), якщо проблема спричинена помилкою в системі.
+- Upload logs to [Flight Log Review](https://logs.px4.io/)
+- Open a discussion on [PX4 Discuss](https://discuss.px4.io/c/flight-testing/) with a flight report and links to logs.
+- The dev team may prompt you to [raise an issue](#issue-bug-reporting) if the problem is caused by a bug.
 
-## Звіти по задачам & помилкам
+## Issue & Bug Reporting
 
-- Завантажте журнали до [Flight Log Review](https://logs.px4.io/)
-- [Відкрити проблему на Github](https://github.com/PX4/PX4-Autopilot/issues). Включити звіт про польоти з якомога більшою кількістю деталей (достатньо для того, щоб проблема була відтворена) і посилання на ваші журнали на Flight review.
+- Upload logs to [Flight Log Review](https://logs.px4.io/)
+- [Open a Github Issue](https://github.com/PX4/PX4-Autopilot/issues).
+  Включити звіт про польоти з якомога більшою кількістю деталей (достатньо для того, щоб проблема була відтворена) і посилання на ваші журнали на Flight review.
 
 ## Щотижневий дзвінок розробників
 
 :::tip
-Розробники можуть відвідувати [щотижневу  зустріч розробників](../contribute/dev_call.md) (та інші [події для розробників](../README.md#calendar-events)) для докладного знайомства з проектом.
+Developers are most welcome to attend the [weekly dev call](../contribute/dev_call.md) (and other [developer events](../index.md#calendar-events)) to engage more deeply with the project.
 :::
 
-[Зустріч розробників](../contribute/dev_call.md) - це щотижнева зустріч, організована командою розробників PX4, щоб обговорити технічні деталі, скоординувати  активність на проєкті та здійснювати детальний аналіз.
+The [Dev Call](../contribute/dev_call.md) is a weekly meeting attended by the PX4 dev team to discuss platform technical details, coordinate activities and perform in-depth analysis.
 
-У порядку денному також є місце для обговорення  pull requests, основних проблем, що впливають, та запитань - відповідей.
+There is also space in the agenda to discuss pull requests, major impacting issues and Q&A.
