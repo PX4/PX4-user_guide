@@ -28,7 +28,7 @@ The set of compatible airframes vs simulators is:
 
 HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어가 실제 하드웨어에서 실행됩니다. JMAVSim or Gazebo Classic (running on a development computer) are connected to the flight controller hardware via USB/UART. The simulator acts as gateway to share MAVLink data between PX4 and _QGroundControl_.
 
-::: info The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). 예를 들어, 이 설정은 이더넷으로 컴퓨터에 연결된 라즈베리파이에서 실행되는 PX4로 테스트되었습니다(jMAVSim 실행 명령이 포함된 시작 설정은 [여기](https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/rpi/px4_hil.config)를 참고).
+::: info The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). For example, this configuration has been tested with PX4 running on a Raspberry Pi connected via Ethernet to the computer (a startup configuration that includes the command for running jMAVSim can be found [here](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
 :::
 
 아래 다이어그램은 시뮬레이션 환경을 나타냅니다.
