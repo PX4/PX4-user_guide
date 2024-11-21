@@ -1,30 +1,36 @@
 # 첫 번째 애플리케이션 튜토리얼(Hello Sky)
 
-첫 번째 온보드 애플리케이션을 만들고 실행하는 방법을 설명합니다. PX4에서 앱 개발에 필요한 기본 개념과 API를 설명합니다.
+첫 번째 온보드 애플리케이션을 만들고 실행하는 방법을 설명합니다.
+PX4에서 앱 개발에 필요한 기본 개념과 API를 설명합니다.
 
-::: info For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. 이것에 대해서는 [애플리케이션 모듈 템플릿](../modules/module_template.md)에서 설명합니다.
+:::info
+For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted.
+These are covered in [Application/Module Template](../modules/module_template.md).
 :::
 
-## 준비 사항
+## 전제 조건
 
 다음과 같은 것이 필요합니다.
 
-- [PX4 SITL 시뮬레이터](../simulation/README.md) *또는* [PX4 호환 비행 콘트롤러](../flight_controller/README.md)
-- 목표 타켓에 대한 [PX4 개발 툴체인](../dev_setup/dev_env.md)
-- Github에서 [PX4 소스 코드 다운로드](../dev_setup/building_px4.md#download-the-px4-source-code)
+- [PX4 SITL Simulator](../simulation/index.md) _or_ a [PX4-compatible flight controller](../flight_controller/index.md).
+- [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
+- [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
 
-소스 코드 [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/px4_simple_app) 디렉토리에는 막혔을 때 검토할 수 있는 이 튜토리얼의 완성된 버전이 포함되어 있습니다.
+The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
 
-- **px4_simple_app** 디렉토리의 이름을 변경하거나 삭제합니다.
+- Rename (or delete) the **px4_simple_app** directory.
 
 ## 간단한 어플리케이션
 
-이 섹션에서는 `Hello Sky!`를 출력하는 *최소한의 애플리케이션*을 제작합니다. 이것은 단일 *C* 파일과 *cmake* 정의(도구 체인에 애플리케이션 빌드 방법을 설명함)로 구성됩니다.
+In this section we create a _minimal application_ that just prints out `Hello Sky!`.
+This consists of a single _C_ file and a _cmake_ definition (which tells the toolchain how to build the application).
 
-1. 새 디렉토리 **PX4-Autopilot/src/examples/px4_simple_app**을 생성합니다.
-1. **px4_simple_app.c**라는 디렉터리에 신규 C 파일을 생성합니다.
+1. Create a new directory **PX4-Autopilot/src/examples/px4_simple_app**.
 
-   - 기본 헤더를 페이지 상단에 복사합니다. 이것은 기여한 모든 파일에 첨부하여야 합니다.
+2. Create a new C file in that directory named **px4_simple_app.c**:
+
+   - 기본 헤더를 페이지 상단에 복사합니다.
+     이것은 기여한 모든 파일에 첨부하여야 합니다.
 
      ```c
      /****************************************************************************
@@ -61,7 +67,8 @@
       ****************************************************************************/
      ```
 
-   - 기본 헤더 아래에 다음 코드를 복사합니다. 이것은 기여한 모든 파일에 첨부하여야 합니다.
+   - 기본 헤더 아래에 다음 코드를 복사합니다.
+     이것은 기여한 모든 파일에 첨부하여야 합니다.
 
      ```c
      /**
@@ -77,20 +84,25 @@
 
      int px4_simple_app_main(int argc, char *argv[])
      {
-        PX4_INFO("Hello Sky!");
-        return OK;
+     	PX4_INFO("Hello Sky!");
+     	return OK;
      }
      ```
 
-:::tip
-기본 함수의 이름은 `<module_name>_main`이어야 하며 표시된 대로 모듈에서 출력하여야 합니다.
+     :::tip
+     The main function must be named `<module_name>_main` and exported from the module as shown.
+
 :::
 
-:::tip
-`PX4_INFO`는 PX4 셸의 `printf`와 동일합니다(**px4_platform_common/log.h**에 포함됨). 다양한 로그 수준이 있습니다: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`. 경고 및 오류는 [ULog](../dev_log/ulog_file_format.md)에 추가로 추가되고 [비행 검토](https://logs.px4.io/)에 표시됩니다.
+     :::tip
+     `PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**).
+     There are different log levels: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`.
+     Warnings and errors are additionally added to the [ULog](../dev_log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
+
 :::
 
-1. **CMakeLists.txt**라는 새 *cmake* 정의 파일을 만들고 오픈합니다. 아래 텍스트를 복사하십시오.
+3. Create and open a new _cmake_ definition file named **CMakeLists.txt**.
+   아래 텍스트를 복사하십시오.
 
    ```cmake
    ############################################################################
@@ -126,46 +138,53 @@
    #
    ############################################################################
    px4_add_module(
-    MODULE examples__px4_simple_app
-    MAIN px4_simple_app
-    STACK_MAIN 2000
-    SRCS
-        px4_simple_app.c
-    DEPENDS
-    )
+   	MODULE examples__px4_simple_app
+   	MAIN px4_simple_app
+   	STACK_MAIN 2000
+   	SRCS
+   		px4_simple_app.c
+   	DEPENDS
+   	)
    ```
 
-   `px4_add_module()` 메서드는 모듈 설명에서 정적 라이브러리를 빌드합니다.
+   The `px4_add_module()` method builds a static library from a module description.
 
-   - `MODULE` 블록은 모듈의 펌웨어 고유 이름입니다(관례에 따라 모듈 이름은 `src`에 대한 상위 디렉토리 접두어를 사용함).
-   - `MAIN` 블록은 PX4 셸 또는 SITL 콘솔에서 호출할 수 있도록 NuttX에 명령을 등록하는 모듈의 진입점을 나열합니다.
+   - The `MODULE` block is the Firmware-unique name of the module (by convention the module name is prefixed by parent directories back to `src`).
+   - The `MAIN` block lists the entry point of the module, which registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
 
-:::tip
-기본 함수의 이름은 `<module_name>_main`이어야 하며 표시된 대로 모듈에서 출력하여야 합니다. <!-- NEED px4_version -->
+   :::tip
+   The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
 
 :::
 
-   ::: info If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). 앱은 내장 명령이 되지 않지만, `examples__px4_simple_app.px4mod`라는 별도의 파일로 끝이 납니다. 그런 다음 `dyn` 명령을 사용하여 런타임에 파일을 로드하여 명령을 실행할 수 있습니다. `dyn ./examples__px4_simple_app.px4mod`
+   ::: info
+   If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code).
+   Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`.
+   You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
+
 :::
 
-1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). 아래 텍스트를 복사하십시오.
+4. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)).
+   아래 텍스트를 복사하십시오.
 
    ```
    menuconfig EXAMPLES_PX4_SIMPLE_APP
-    bool "px4_simple_app"
-    default n
-    ---help---
-        Enable support for px4_simple_app
+   	bool "px4_simple_app"
+   	default n
+   	---help---
+   		Enable support for px4_simple_app
    ```
 
 ## 애플리케이션/펌웨어 빌드
 
-이제 어플리케이션 제작이 완료되었습니다. 실행하려면 먼저 PX4의 일부로 빌드되었는지 확인합니다. 애플리케이션은 대상에 대한 적절한 보드 수준 *cmake* 파일의 빌드/펌웨어에 추가됩니다.
+이제 어플리케이션 제작이 완료되었습니다.
+실행하려면 먼저 PX4의 일부로 빌드되었는지 확인합니다.
+Applications are added to the build/firmware in the appropriate board-level _px4board_ file for your target:
 
-- PX4 SITL(시뮬레이터): [PX4-Autopilot/boards/px4/sitl/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/sitl/default.cmake)
-- Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)
-- Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake)
-- 다른 보드의 *cmake* 파일은 [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards)에서 찾을 수 있습니다.
+- PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board)
+- Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v2/default.px4board)
+- Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v4/default.px4board)
+- _px4board_ files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
 
 To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the _px4board_ file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
@@ -174,16 +193,16 @@ examples  --->
     [x] PX4 Simple app  ----
 ```
 
-::: info
+:::info
 The line will already be present for most files, because the examples are included in firmware by default.
 :::
 
 보드별 명령어를 사용하여, 예제를 빌드합니다.
 
-- jMAVSim 시뮬레이터: `make px4_sitl_default jmavsim`
-- Pixhawk v1/2: `make px4_fmu-v2_default` (혹은 `make px4_fmu-v2`)
+- jMAVSim Simulator: `make px4_sitl_default jmavsim`
+- Pixhawk v1/2: `make px4_fmu-v2_default` (or just `make px4_fmu-v2`)
 - Pixhawk v3: `make px4_fmu-v4_default`
-- 기타 보드: [코드 빌드](../dev_setup/building_px4.md#building-for-nuttx)
+- Other boards: [Building the Code](../dev_setup/building_px4.md#building-for-nuttx)
 
 ## 앱 테스트(하드웨어)
 
@@ -213,7 +232,8 @@ Rebooting.
 
 ### 콘솔을 연결합니다.
 
-이제 직렬 또는 USB로 [시스템 콘솔](../debug/system_console.md)을 연결합니다. **ENTER** 키를 입력하면, 쉘 프롬프트가 나타납니다.
+Now connect to the [system console](../debug/system_console.md) either via serial or USB.
+Hitting **ENTER** will bring up the shell prompt:
 
 ```sh
 nsh>
@@ -225,12 +245,12 @@ nsh>
 nsh> help
   help usage:  help [-v] [<cmd>]
 
-  [           df          kill        mkfifo      ps          sleep       
-  ?           echo        losetup     mkrd        pwd         test        
-  cat         exec        ls          mh          rm          umount      
-  cd          exit        mb          mount       rmdir       unset       
-  cp          free        mkdir       mv          set         usleep      
-  dd          help        mkfatfs     mw          sh          xd          
+  [           df          kill        mkfifo      ps          sleep
+  ?           echo        losetup     mkrd        pwd         test
+  cat         exec        ls          mh          rm          umount
+  cd          exit        mb          mount       rmdir       unset
+  cp          free        mkdir       mv          set         usleep
+  dd          help        mkfatfs     mw          sh          xd
 
 Builtin Apps:
   reboot
@@ -243,7 +263,8 @@ Builtin Apps:
   serdis
 ```
 
-이제, `px4_simple_app`은 사용 가능한 명령의 일부입니다. `px4_simple_app`을 입력하고 Enter 키를 입력합니다.
+Note that `px4_simple_app` is now part of the available commands.
+Start it by typing `px4_simple_app` and ENTER:
 
 ```sh
 nsh> px4_simple_app
@@ -254,9 +275,10 @@ Hello Sky!
 
 ## 앱 테스트(SITL)
 
-If you're using SITL the _PX4 console_ is automatically started (see [Building the Code > First Build (Using a Simulator)](../dev_setup/building_px4.md#first-build-using-a-simulator)). *nsh 콘솔*(이전 섹션 참조)과 마찬가지로 `help`를 입력하여 내장 앱 목록을 조회합니다.
+If you're using SITL the _PX4 console_ is automatically started (see [Building the Code > First Build (Using a Simulator)](../dev_setup/building_px4.md#first-build-using-a-simulator)).
+As with the _nsh console_ (see previous section) you can type `help` to see the list of built-in apps.
 
-`px4_simple_app`을 입력하여 앱을 실행합니다.
+Enter `px4_simple_app` to run the minimal app.
 
 ```sh
 pxh> px4_simple_app
@@ -270,11 +292,11 @@ INFO  [px4_simple_app] Hello Sky!
 유용한 작업을 수행하려면, 애플리케이션이 입력을 구독하고 출력(예: 모터 또는 서보 명령)을 게시해야 합니다.
 
 :::tip
-PX4 하드웨어 추상화의 이점이 여기에 있습니다!
+The benefits of the PX4 hardware abstraction comes into play here!
 센서 드라이버와 어떤 식으로든 상호 작용할 필요가 없으며, 보드 또는 센서가 업데이트된 경우 앱을 업데이트할 필요도 없습니다.
 :::
 
-애플리케이션 간의 개별 메시지 채널을 [주제](../middleware/uorb.md)라고 합니다. For this tutorial, we are interested in the [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg) topic, which holds the synchronized sensor data of the complete system.
+Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg) topic, which holds the synchronized sensor data of the complete system.
 
 주제 구독은 간단합니다.
 
@@ -284,9 +306,11 @@ PX4 하드웨어 추상화의 이점이 여기에 있습니다!
 int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 ```
 
-`sensor_sub_fd`는 주제 핸들이며 새 데이터에 대한 차단 대기를 매우 효율적으로 수행하는 데 사용할 수 있습니다. 현재 스레드는 절전 모드로 전환되고, 새 데이터를 사용할 수 있게 되면 스케줄러에 의해 자동으로 깨어나며 기다리는 동안 CPU 주기를 소비하지 않습니다. 이를 위하여, [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX 시스템 호출을 사용합니다.
+The `sensor_sub_fd` is a topic handle and can be used to very efficiently perform a blocking wait for new data.
+현재 스레드는 절전 모드로 전환되고, 새 데이터를 사용할 수 있게 되면 스케줄러에 의해 자동으로 깨어나며 기다리는 동안 CPU 주기를 소비하지 않습니다.
+To do this, we use the [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX system call.
 
-구독에 `poll()`을 추가하면 다음과 같습니다(*의사 코드, 아래에서 전체 구현 참조*).
+Adding `poll()` to the subscription looks like (_pseudocode, look for the full implementation below_):
 
 ```cpp
 #include <poll.h>
@@ -300,19 +324,19 @@ px4_pollfd_struct_t fds[] = {
 };
 
 while (true) {
-    /* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
-    int poll_ret = px4_poll(fds, 1, 1000);
-    ..
-    if (fds[0].revents & POLLIN) {
-        /* obtained data for the first file descriptor */
-        struct sensor_combined_s raw;
-        /* copy sensors raw data into local buffer */
-        orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
-        PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
-                    (double)raw.accelerometer_m_s2[0],
-                    (double)raw.accelerometer_m_s2[1],
-                    (double)raw.accelerometer_m_s2[2]);
-    }
+	/* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
+	int poll_ret = px4_poll(fds, 1, 1000);
+	..
+	if (fds[0].revents & POLLIN) {
+		/* obtained data for the first file descriptor */
+		struct sensor_combined_s raw;
+		/* copy sensors raw data into local buffer */
+		orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
+		PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
+					(double)raw.accelerometer_m_s2[0],
+					(double)raw.accelerometer_m_s2[1],
+					(double)raw.accelerometer_m_s2[2]);
+	}
 }
 ```
 
@@ -342,17 +366,19 @@ px4_simple_app &
 ```
 
 :::tip
-[전체 애플리케이션용 모듈 템플릿](../modules/module_template.md)은 명령줄에서 제어할 수 있는 백그라운드 프로세스를 작성합니다.
+The [Module Template for Full Applications](../modules/module_template.md) can be used to write background process that can be controlled from the command line.
 :::
 
 ## 데이터 게시
 
-계산된 출력을 위한 다음 단계는 결과를 *게시*하는 것입니다. 아래에서는 태도 주제를 게시하는 방법을 설명합니다.
+To use the calculated outputs, the next step is to _publish_ the results.
+아래에서는 태도 주제를 게시하는 방법을 설명합니다.
 
-::: info We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results.
+:::info
+We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results.
 :::
 
-인터페이스는 매우 간단합니다. 게시할 주제의 `구조체`를 초기화하고 주제를 광고합니다.
+The interface is pretty simple: initialize the `struct` of the topic to be published and advertise the topic:
 
 ```c
 #include <uORB/topics/vehicle_attitude.h>
@@ -371,8 +397,7 @@ orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 
 ## 전체 예제 코드
 
-:::tip
-`px4_add_module()` 형식은 [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake)에 설명되어 있습니다.
+The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_simple_app/px4_simple_app.c) is now:
 
 ```c
 /****************************************************************************
@@ -432,77 +457,77 @@ __EXPORT int px4_simple_app_main(int argc, char *argv[]);
 
 int px4_simple_app_main(int argc, char *argv[])
 {
-    PX4_INFO("Hello Sky!");
+	PX4_INFO("Hello Sky!");
 
-    /* subscribe to sensor_combined topic */
-    int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
-    /* limit the update rate to 5 Hz */
-    orb_set_interval(sensor_sub_fd, 200);
+	/* subscribe to sensor_combined topic */
+	int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
+	/* limit the update rate to 5 Hz */
+	orb_set_interval(sensor_sub_fd, 200);
 
-    /* advertise attitude topic */
-    struct vehicle_attitude_s att;
-    memset(&att, 0, sizeof(att));
-    orb_advert_t att_pub = orb_advertise(ORB_ID(vehicle_attitude), &att);
+	/* advertise attitude topic */
+	struct vehicle_attitude_s att;
+	memset(&att, 0, sizeof(att));
+	orb_advert_t att_pub = orb_advertise(ORB_ID(vehicle_attitude), &att);
 
-    /* one could wait for multiple topics with this technique, just using one here */
-    px4_pollfd_struct_t fds[] = {
-        { .fd = sensor_sub_fd,   .events = POLLIN },
-        /* there could be more file descriptors here, in the form like:
-         * { .fd = other_sub_fd,   .events = POLLIN },
-         */
-    };
+	/* one could wait for multiple topics with this technique, just using one here */
+	px4_pollfd_struct_t fds[] = {
+		{ .fd = sensor_sub_fd,   .events = POLLIN },
+		/* there could be more file descriptors here, in the form like:
+		 * { .fd = other_sub_fd,   .events = POLLIN },
+		 */
+	};
 
-    int error_counter = 0;
+	int error_counter = 0;
 
-    for (int i = 0; i < 5; i++) {
-        /* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
-        int poll_ret = px4_poll(fds, 1, 1000);
+	for (int i = 0; i < 5; i++) {
+		/* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
+		int poll_ret = px4_poll(fds, 1, 1000);
 
-        /* handle the poll result */
-        if (poll_ret == 0) {
-            /* this means none of our providers is giving us data */
-            PX4_ERR("Got no data within a second");
+		/* handle the poll result */
+		if (poll_ret == 0) {
+			/* this means none of our providers is giving us data */
+			PX4_ERR("Got no data within a second");
 
-        } else if (poll_ret < 0) {
-            /* this is seriously bad - should be an emergency */
-            if (error_counter < 10 || error_counter % 50 == 0) {
-                /* use a counter to prevent flooding (and slowing us down) */
-                PX4_ERR("ERROR return value from poll(): %d", poll_ret);
-            }
+		} else if (poll_ret < 0) {
+			/* this is seriously bad - should be an emergency */
+			if (error_counter < 10 || error_counter % 50 == 0) {
+				/* use a counter to prevent flooding (and slowing us down) */
+				PX4_ERR("ERROR return value from poll(): %d", poll_ret);
+			}
 
-            error_counter++;
+			error_counter++;
 
-        } else {
+		} else {
 
-            if (fds[0].revents & POLLIN) {
-                /* obtained data for the first file descriptor */
-                struct sensor_combined_s raw;
-                /* copy sensors raw data into local buffer */
-                orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
-                PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
-                     (double)raw.accelerometer_m_s2[0],
-                     (double)raw.accelerometer_m_s2[1],
-                     (double)raw.accelerometer_m_s2[2]);
+			if (fds[0].revents & POLLIN) {
+				/* obtained data for the first file descriptor */
+				struct sensor_combined_s raw;
+				/* copy sensors raw data into local buffer */
+				orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
+				PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
+					 (double)raw.accelerometer_m_s2[0],
+					 (double)raw.accelerometer_m_s2[1],
+					 (double)raw.accelerometer_m_s2[2]);
 
-                /* set att and publish this information for other apps
-                 the following does not have any meaning, it's just an example
-                */
-                att.q[0] = raw.accelerometer_m_s2[0];
-                att.q[1] = raw.accelerometer_m_s2[1];
-                att.q[2] = raw.accelerometer_m_s2[2];
+				/* set att and publish this information for other apps
+				 the following does not have any meaning, it's just an example
+				*/
+				att.q[0] = raw.accelerometer_m_s2[0];
+				att.q[1] = raw.accelerometer_m_s2[1];
+				att.q[2] = raw.accelerometer_m_s2[2];
 
-                orb_publish(ORB_ID(vehicle_attitude), att_pub, &att);
-            }
+				orb_publish(ORB_ID(vehicle_attitude), att_pub, &att);
+			}
 
-            /* there could be more file descriptors here, in the form like:
-             * if (fds[1..n].revents & POLLIN) {}
-             */
-        }
-    }
+			/* there could be more file descriptors here, in the form like:
+			 * if (fds[1..n].revents & POLLIN) {}
+			 */
+		}
+	}
 
-    PX4_INFO("exiting");
+	PX4_INFO("exiting");
 
-    return 0;
+	return 0;
 }
 ```
 
@@ -518,8 +543,9 @@ If you start _QGroundControl_, you can check the sensor values in the real time 
 
 ## 마무리
 
-이 튜토리얼에서는 PX4 자동조종장치를 앱 개발에 필요한 내용들을 설명하였습니다. uORB 메시지/주제의 전체 목록은 [여기](https://github.com/PX4/PX4-Autopilot/tree/master/msg/)에서 볼 수 있으며, 헤더는 잘 문서화되어 있으며 참조용으로 사용됩니다.
+이 튜토리얼에서는 PX4 자동조종장치를 앱 개발에 필요한 내용들을 설명하였습니다.
+Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/main/msg/) and that the headers are well documented and serve as reference.
 
-추가 정보 및 문제 해결/일반적인 함정은 [uORB](../middleware/uorb.md)을 참고하십시오.
+Further information and troubleshooting/common pitfalls can be found here: [uORB](../middleware/uorb.md).
 
 다음 페이지에서는 시작 및 중지 기능이 있는 전체 애플리케이션을 작성하기 위한 템플릿을 제공합니다.
