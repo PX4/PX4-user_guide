@@ -16,7 +16,7 @@ The following devices are supported:
 - [Holybro DroneCAN H-RTK F9P Rover or Helical](https://holybro.com/collections/dronecan-h-rtk) (Holybro Store)
 - [CUAV C-RTK 9Ps](https://store.cuav.net/shop/c-rtk-9ps/) (CUAV Store)
 
-::: info
+:::note
 
 - [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) and [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) cannot be used because they do not expose the CAN or UART2 port.
 - Supported devices are also listed in [RTK GNSS (GPS) > Supported Devices](../gps_compass/rtk_gps.md#supported-devices).
