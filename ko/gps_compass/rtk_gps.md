@@ -54,7 +54,7 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 
 <!-- links used in above table -->
 
-RTK GPS 설정은 *QGroundControl* [일반 설정](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView &gt; 일반 설정 &gt; RTK GPS **)에서 지정됩니다.
+참고:
 
 - &check; 또는 특정 부품 번호는 기능이 지원되는 것을 나타내며, &cross; 또는 비어 있으면 해당 기능이 지원되지 않는 것을 나타냅니다. "?"는 "알 수 없음"을 나타냅니다.
 - 가능하고 관련성이있는 경우 부품 이름이 사용됩니다 (예 : GPS 열의 &check; GPS 모듈이 있지만 부품을 알 수 없음을 나타냄).
@@ -102,14 +102,14 @@ The link _must_ use the MAVLink 2 protocol as it makes more efficient use of the
 
 RTK GPS 연결은 기본적으로 플러그앤플레이입니다.
 
-1. *QGroundControl*을 실행하고 USB를 통하여 기본 RTK GPS를 지상국에 연결합니다. 장치가 자동으로 인식됩니다.
-1. 차량의 시동을 걸고 *QGroundControl*에 연결되어 있는지 확인하십시오.
+1. Start _QGroundControl_ and attach the base RTK GPS via USB to the ground station. 장치가 자동으로 인식됩니다.
+1. Start the vehicle and make sure it is connected to _QGroundControl_.
 
 :::tip
-*QGroundControl*은 RTK GPS 장치가 연결되어 있는 동안 상단 아이콘 표시줄에 RTK GPS 상태 아이콘을 표시합니다 (일반 GPS 상태 아이콘 추가). RTK가 설정되는 동안 아이콘은 빨간색으로 표시되고, RTK GPS가 활성화되면 흰색으로 바뀝니다. 아이콘을 클릭하여 현재 상태와 RTK 정확도를 확인할 수 있습니다.
+_QGroundControl_ displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon). RTK가 설정되는 동안 아이콘은 빨간색으로 표시되고, RTK GPS가 활성화되면 흰색으로 바뀝니다. 아이콘을 클릭하여 현재 상태와 RTK 정확도를 확인할 수 있습니다.
 :::
 
-1. 그런 다음 *QGroundControl*은 RTK 설정 프로세스( "Survey-In"이라고 함)를 시작합니다.
+1. _QGroundControl_ then starts the RTK setup process (known as "Survey-In").
 
    Survey-In은 기지국의 정확한 위치 추정치를 획득을 위한 시작 절차입니다. 이 프로세스는 일반적으로 몇 분 정도 걸립니다 ([RTK 설정](#rtk-gps-settings)에 지정된 최소 시간 및 정확도에 도달하면 종료됨).
 
