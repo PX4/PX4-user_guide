@@ -1,15 +1,20 @@
 # CubePilot Cube Orange Flight Controller
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 :::
 
 The [Cube Orange](https://www.cubepilot.com/#/cube/features) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
 ![Cube Orange](../../assets/flight_controller/cube/orange/cube_orange_hero.jpg)
 
-The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly. For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, while a carrier board for a racer could includes ESCs for the frame of the vehicle.
+The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly.
+For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, while a carrier board for a racer could includes ESCs for the frame of the vehicle.
 
-The ADS-B carrier board includes a customized 1090MHz ADSB-In receiver from uAvionix. This provides attitude and location of commercial manned aircraft within the range of Cube. This is automatically configured and enabled in the default PX4 firmware.
+The ADS-B carrier board includes a customized 1090MHz ADSB-In receiver from uAvionix.
+This provides attitude and location of commercial manned aircraft within the range of Cube.
+This is automatically configured and enabled in the default PX4 firmware.
 
 Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as a reference / backup.
 
@@ -95,121 +100,123 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 
 #### TELEM1, TELEM2 ports
 
-| Pin     | Signal    | Volt  |
-| ------- | --------- | ----- |
-| 1 (red) | VCC       | +5V   |
+| Pin                        | Signal                       | Volt                  |
+| -------------------------- | ---------------------------- | --------------------- |
+| 1 (red) | VCC                          | +5V                   |
 | 2 (blk) | TX (OUT)  | +3.3V |
 | 3 (blk) | RX (IN)   | +3.3V |
 | 4 (blk) | CTS (IN)  | +3.3V |
 | 5 (blk) | RTS (OUT) | +3.3V |
-| 6 (blk) | GND       | GND   |
+| 6 (blk) | GND                          | GND                   |
 
 #### GPS1 port
 
-| Pin     | Signal        | Volt  |
-| ------- | ------------- | ----- |
-| 1 (red) | VCC           | +5V   |
-| 2 (blk) | TX (OUT)      | +3.3V |
-| 3 (blk) | RX (IN)       | +3.3V |
-| 4 (blk) | SCL I2C2      | +3.3V |
-| 5 (blk) | SDA I2C2      | +3.3V |
-| 6 (blk) | Safety Button | GND   |
-| 7 (blk) | Button LED    | GND   |
-| 8 (blk) | GND           | GND   |
+| Pin                        | Signal                      | Volt                  |
+| -------------------------- | --------------------------- | --------------------- |
+| 1 (red) | VCC                         | +5V                   |
+| 2 (blk) | TX (OUT) | +3.3V |
+| 3 (blk) | RX (IN)  | +3.3V |
+| 4 (blk) | SCL I2C2                    | +3.3V |
+| 5 (blk) | SDA I2C2                    | +3.3V |
+| 6 (blk) | Safety Button               | GND                   |
+| 7 (blk) | Button LED                  | GND                   |
+| 8 (blk) | GND                         | GND                   |
 
 <!-- check is i2c2 -->
 
 #### GPS2 port
 
-| Pin     | Signal   | Volt  |
-| ------- | -------- | ----- |
-| 1 (red) | VCC      | +5V   |
+| Pin                        | Signal                      | Volt                  |
+| -------------------------- | --------------------------- | --------------------- |
+| 1 (red) | VCC                         | +5V                   |
 | 2 (blk) | TX (OUT) | +3.3V |
 | 3 (blk) | RX (IN)  | +3.3V |
-| 4 (blk) | SCL I2C1 | +3.3V |
-| 5 (blk) | SDA I2C1 | +3.3V |
-| 6 (blk) | GND      | GND   |
+| 4 (blk) | SCL I2C1                    | +3.3V |
+| 5 (blk) | SDA I2C1                    | +3.3V |
+| 6 (blk) | GND                         | GND                   |
 
 #### ADC
 
-| Pin     | Signal | Volt        |
-| ------- | ------ | ----------- |
-| 1 (red) | VCC    | +5V         |
+| Pin                        | Signal | Volt                        |
+| -------------------------- | ------ | --------------------------- |
+| 1 (red) | VCC    | +5V                         |
 | 2 (blk) | ADC IN | up to +6.6V |
-| 3 (blk) | GND    | GND         |
+| 3 (blk) | GND    | GND                         |
 
 #### I2C
 
-| Pin     | Signal | Volt           |
-| ------- | ------ | -------------- |
-| 1 (red) | VCC    | +5V            |
+| Pin                        | Signal | Volt                                              |
+| -------------------------- | ------ | ------------------------------------------------- |
+| 1 (red) | VCC    | +5V                                               |
 | 2 (blk) | SCL    | +3.3 (pullups) |
 | 3 (blk) | SDA    | +3.3 (pullups) |
-| 4 (blk) | GND    | GND            |
+| 4 (blk) | GND    | GND                                               |
 
 #### CAN1 & CAN2
 
-| Pin     | Signal | Volt |
-| ------- | ------ | ---- |
-| 1 (red) | VCC    | +5V  |
-| 2 (blk) | CAN_H  | +12V |
-| 3 (blk) | CAN_L  | +12V |
-| 4 (blk) | GND    | GND  |
+| Pin                        | Signal                     | Volt |
+| -------------------------- | -------------------------- | ---- |
+| 1 (red) | VCC                        | +5V  |
+| 2 (blk) | CAN_H | +12V |
+| 3 (blk) | CAN_L | +12V |
+| 4 (blk) | GND                        | GND  |
 
 #### POWER1 & POWER2
 
-| Pin     | Signal          | Volt  |
-| ------- | --------------- | ----- |
-| 1 (red) | VCC             | +5V   |
-| 2 (red) | VCC             | +5V   |
+| Pin                        | Signal          | Volt                  |
+| -------------------------- | --------------- | --------------------- |
+| 1 (red) | VCC             | +5V                   |
+| 2 (red) | VCC             | +5V                   |
 | 3 (blk) | CURRENT sensing | +3.3V |
 | 4 (blk) | VOLTAGE sensing | +3.3V |
-| 5 (blk) | GND             | GND   |
-| 6 (blk) | GND             | GND   |
+| 5 (blk) | GND             | GND                   |
+| 6 (blk) | GND             | GND                   |
 
 #### USB
 
-| Pin     | Signal        | Volt            |
-| ------- | ------------- | --------------- |
-| 1 (red) | VCC           | +5V             |
-| 2 (blk) | OTG_DP1       | +3.3V           |
-| 3 (blk) | OTG_DM1       | +3.3V           |
-| 4 (blk) | GND           | GND             |
-| 5 (blk) | BUZZER        | Battery voltage |
-| 6 (blk) | FMU Error LED |                 |
+| Pin                        | Signal                       | Volt                  |
+| -------------------------- | ---------------------------- | --------------------- |
+| 1 (red) | VCC                          | +5V                   |
+| 2 (blk) | OTG_DP1 | +3.3V |
+| 3 (blk) | OTG_DM1 | +3.3V |
+| 4 (blk) | GND                          | GND                   |
+| 5 (blk) | BUZZER                       | Battery voltage       |
+| 6 (blk) | FMU Error LED                |                       |
 
 #### SPKT
 
-| Pin     | Signal | Volt  |
-| ------- | ------ | ----- |
-| 1 (blk) | IN     |       |
-| 2 (blk) | GND    | GND   |
+| Pin                        | Signal | Volt                  |
+| -------------------------- | ------ | --------------------- |
+| 1 (blk) | IN     |                       |
+| 2 (blk) | GND    | GND                   |
 | 3 (red) | OUT    | +3.3V |
 
 #### TELEM1, TELEM2
 
-| Pin     | Signal    | Volt        |
-| ------- | --------- | ----------- |
-| 1 (red) | VCC       | +5V         |
+| Pin                        | Signal                       | Volt                        |
+| -------------------------- | ---------------------------- | --------------------------- |
+| 1 (red) | VCC                          | +5V                         |
 | 2 (blk) | TX (OUT)  | +3.3V to 5V |
 | 3 (blk) | RX (IN)   | +3.3V to 5V |
 | 4 (blk) | CTS (OUT) | +3.3V to 5V |
 | 5 (blk) | RTS (IN)  | +3.3V to 5V |
-| 6 (blk) | GND       | GND         |
+| 6 (blk) | GND                          | GND                         |
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
 | USART2 | /dev/ttyS0 | TELEM1 (flow control) |
 | USART3 | /dev/ttyS1 | TELEM2 (flow control) |
-| UART4  | /dev/ttyS2 | GPS1                  |
-| USART6 | /dev/ttyS3 | PX4IO                 |
-| UART7  | /dev/ttyS4 | CONSOLE/ADSB-IN       |
-| UART8  | /dev/ttyS5 | GPS2                  |
+| UART4  | /dev/ttyS2 | GPS1                                     |
+| USART6 | /dev/ttyS3 | PX4IO                                    |
+| UART7  | /dev/ttyS4 | CONSOLE/ADSB-IN                          |
+| UART8  | /dev/ttyS5 | GPS2                                     |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/cubepilot/cubeorange/default.px4board -->
+
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/cubepilot/cubeorange/nuttx-config/nsh/defconfig#L188-L197 -->
 
 ### USB/SDCard Ports
@@ -219,7 +226,8 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target, open up the terminal and enter:
