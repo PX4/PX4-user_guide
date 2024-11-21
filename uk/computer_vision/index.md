@@ -1,22 +1,23 @@
 # Комп'ютерний зір (оптичний потік, MoCap, VIO, уникання)
 
-Техніки [комп'ютерного зору](https://en.wikipedia.org/wiki/Computer_vision) дозволяють комп'ютерам використовувати візуальні дані для розуміння їх оточення.
+[Computer vision](https://en.wikipedia.org/wiki/Computer_vision) techniques enable computers to use visual data to make sense of their environment.
 
-PX4 використовує системи комп'ютерного зору (переважно запущені на [супутніх комп'ютерах](../companion_computer/README.md)) для підтримки наступних функцій:
+PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/index.md)) in order to support the following features:
 
 - Оцінка положення/швидкості:
-  - [Optical Flow](../sensor/optical_flow.md) забезпечує 2D оцінку швидкості (за допомогою камери, спрямованої вниз, та датчика відстані, спрямованого вниз).
-  - [Motion Capture](../computer_vision/motion_capture.md) забезпечує 3D-оцінку положення за допомогою системи комп'ютерного зору, яка є _зовнішньою_ відносно апарату. Це переважно використовується для внутрішньої навігації.
-  - [ Візуальна інерційна одометрія (VIO)](../computer_vision/visual_inertial_odometry.md) забезпечує оцінку 3D-позиції та швидкості за допомогою бортової системи зору та IMU. Використовується для навігації, коли інформація про глобальне місцезнаходження відсутня або ненадійна.
+  - [Optical Flow](../sensor/optical_flow.md) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
+  - [Motion Capture](../computer_vision/motion_capture.md) provides 3D pose estimation using a vision system that is _external_ to the vehicle.
+    Це переважно використовується для внутрішньої навігації.
+  - [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md) provides 3D pose and velocity estimation using an onboard vision system and IMU.
+    Використовується для навігації, коли інформація про глобальне місцезнаходження відсутня або ненадійна.
 - Уникнення/планування шляху:
-  - [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) забезпечує повну навігацію навколо перешкод під час польоту за запланованим маршрутом (наразі підтримуються місії). Для цього використовується [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance), запущений на супутньому комп'ютері.
-  - [Collision Prevention](../computer_vision/collision_prevention.md) використовується для зупинки транспортних засобів до того, як вони можуть зіткнутися з перешкодою (переважно під час польоту в ручному режимі).
-  - [Safe Landing](../computer_vision/safe_landing.md) допомагає транспортним засобам знаходити (і приземлятися на) рівну місцевість, вільну від стаціонарних перешкод.
+  - [Collision Prevention](../computer_vision/collision_prevention.md) is used to stop vehicles before they can crash into an obstacle (primarily when flying in manual modes).
 
 :::tip
-[PX4 Vision Autonomy Development Kit](../complete_vehicles_mc/px4_vision_kit.md) (Holybro) - це надійний і недорогий набір для розробників, які працюють з комп'ютерним зором на PX4. Він поставляється без попередньо встановленого програмного забезпечення, але включає приклад реалізації уникання перешкод для демонстрації можливостей платформи.
+The [PX4 Vision Autonomy Development Kit](../complete_vehicles_mc/px4_vision_kit.md) (Holybro) is a robust and inexpensive kit for developers working with computer vision on PX4.
 :::
 
 ## Додаткові ресурси
 
-- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - середовище моделювання ROS + PX4 v1.9 для комп'ютерного зору. У посібнику [XTDrone](https://www.yuque.com/xtdrone/manual_en) є все необхідне для початку роботи!
+- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 v1.9 simulation environment for computer vision.
+  The [XTDrone Manual](https://www.yuque.com/xtdrone/manual_en) has everything you need to get started!
