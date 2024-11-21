@@ -91,7 +91,7 @@ This return type uses the mission (if defined) to provide a safe return _path_, 
 
 Mission _with_ landing pattern:
 
-- **임무 모드 :** 임무는 "빨리 감기 모드"(점프, 지연 및 기타 비위치 명령 무시, 선회 및 기타 위치 웨이포인트가 간단한 웨이포인트로 변환 됨)에서 수행한 다음 착륙합니다.
+- **Mission mode:** Mission is continued in "fast-forward mode" (jumps, delay and any other non-position commands ignored, loiter and other position waypoints converted to simple waypoints) and then lands.
 - **임무 모드 이외의 자동 모드 :**
   - Ascend to a safe [minimum return altitude](#minimum-return-altitude) above any expected obstacles.
   - 가장 가까운 웨이포인트 (착륙 WP가 아닌 FW의 경우)로 직접 비행하고 웨이포인트 고도로 하강합니다.
@@ -111,7 +111,7 @@ Mission _without_ landing pattern defined:
 - **임무 모드 이외의 자동 모드 :**
   - 가장 가까운 웨이포인트 (착륙 WP가 아닌 FW의 경우)로 직접 비행하고 웨이포인트 고도로 하강합니다.
   - 미션 모드 (위)에서 복귀 모드가 시작된 것처럼 임무를 반대로 계속 수행합니다.
-- **수동 모드:** 홈으로 직접 비행하여 착륙합니다.
+- **Manual modes:** Fly directly to home location and land.
 
 미션이 정의되지 않은 경우 PX4는 홈 위치에 착륙합니다(랠리 포인트는 무시됨).
 
@@ -176,7 +176,7 @@ Landing patterns defined in missions are the safest way to automatically land a 
 
 ## 매개변수
 
-RTL 매개 변수는 [매개변수 정의 > 복귀 모드](../advanced_config/parameter_reference.md#return-mode)에 기술되어 있습니다 (아래에 요약되어 있음).
+The RTL parameters are listed in [Parameter Reference > Return Mode](../advanced_config/parameter_reference.md#return-mode) (and summarised below).
 
 | 매개변수                                                                                                       | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
