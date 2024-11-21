@@ -4,8 +4,8 @@ Fun Cub QuadPlane VTOL은 쿼드콥터로 개조된 표준 테일 플레인 항�
 
 주요 정보:
 
-- **기체:** Multiplex FunCub
-- **비행 컨트롤러:** Pixhawk
+- **Frame:** Multiplex FunCub
+- **Flight controller:** Pixhawk
 
 ![Fun Cub VTOL](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_vtol_complete.jpg)
 
