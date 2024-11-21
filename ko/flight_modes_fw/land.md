@@ -36,7 +36,7 @@ When the mode is engaged, the vehicle starts to loiter around the current vehicl
 
 Land mode behaviour can be configured using the parameters below.
 
-| Parameter                                                                                             | Description                                                                  |
+| 매개변수                                                                                                  | 설명                                                                           |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | The loiter radius that the controller tracks for the whole landing sequence. |
 | <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)         | The flight path angle setpoint.                                              |
