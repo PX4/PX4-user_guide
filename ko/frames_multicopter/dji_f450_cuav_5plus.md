@@ -1,12 +1,12 @@
 # DJI FlameWheel 450 + CUAV V5 nano 조립
 
-키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
+This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
 
 주요 내용
 
-- **프레임:** DJI F450
+- **Frame:** DJI F450
 - **Flight controller:** [CUAV V5+](../flight_controller/cuav_v5_plus.md)
-- **조립 시간 (예상):** 90 분 (프레임 조립에 45분, 오토파일럿 설치와 설정에 45분)
+- **Assembly time (approx.):** 90 minutes (45 minutes for frame, 45 minutes autopilot installation/configuration)
 
 ![성절 완료 1](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_cuav5_plus_complete.png)
 
@@ -162,7 +162,7 @@ FrSky Taranis 조종기를 사용할 수 있습니다. 케이블 타이와, 양�
 
 ## PX4 설정
 
-*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 프레임에 대한 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드하고 설치](http://qgroundcontrol.com/downloads/) 하십시오.
+*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 :::tip PX4 설치 및 성정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
@@ -200,7 +200,7 @@ First update the firmware, airframe, geometry, and outputs:
 
 ## 튜닝
 
-기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. These may be good enough to fly with, but you should tune each frame build.
+Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
 
 For instructions on how, start from [Autotune](../config/autotune_mc.md).
 
