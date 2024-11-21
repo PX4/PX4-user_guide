@@ -20,14 +20,14 @@ It has been tested with the following devices:
 - [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - less expensive variant without CAN port.
 - [Holybro RemoteID Module](https://holybro.com/products/remote-id) (Holybro)
 
-::: info
+:::note
 
 - Other devices that support the MAVLink API should work (but have not been tested).
 - PX4 does not support Remote ID over CAN in PX4 v1.14.
 
 :::
 
-## Hardware Setup
+## 硬件安装
 
 Remote ID devices can be connected to any free/unused serial port on the flight controller. Most commonly they are connected directly to the `TELEM2` port (if it is not being use for some other purpose) as this is already configured for MAVLink "by default".
 
@@ -41,9 +41,9 @@ If using a different port, or a flight controller that has different connector, 
 
 ![Cube ID serial port](../../assets/hardware/remote_id/cube_id/serial_port_connector.jpg)
 
-| 针脚   | Signal   | 电压 |
+| 针脚   | 信号       | 电压 |
 | ---- | -------- | -- |
-| 2    | VCC_5V   | 5V |
+| 1（红） | VCC_5V   | 5V |
 | 2    | TX (OUT) |    |
 | 3    | RX (IN)  |    |
 | 4（黑） | GND      | 0  |
@@ -114,7 +114,7 @@ Integrators should test than the remote ID module is broadcasting the correct in
 - [Drone Scanner](https://github.com/dronetag/drone-scanner) (Google Play or Apple App store)
 - [OpenDroneID OSM](https://play.google.com/store/apps/details?id=org.opendroneid.android_osm&hl=en&gl=US) (Google Play)
 
-## Implementation
+## 实现
 
 PX4 v1.14 streams these messages by default (in streaming modes: normal, onboard, usb, onboard low bandwidth):
 
