@@ -4,45 +4,51 @@
 
 Є багато причин використання VSCode для розробки PX4:
 
-- Зробити усі налаштування _дійсно_ займає калька хвилин.
+- Getting setup _really_ only takes a few minutes.
 - A rich extension ecosystem that enables a huge range of tools needed for PX4 development: C/C++ (with solid _cmake_ integration), _Python_, _Jinja2_, ROS messages, and even DroneCAN dsdl.
 - Чудова інтеграція з Github.
 
 Цей розділ пояснює, як налаштувати IDE і почати розробку.
 
-:::note
-Існують інші потужні IDE, але вони, як правило, потребують більше зусиль для інтеграції з PX4. Налаштування для _VScode_ зберігаються у дереві коду PX4/PX4-Autopilot ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/main/.vscode)) тому процес налаштування простий і складається тільки з додавання директорії проєкту.
+:::info
+There are other powerful IDEs, but they typically take more effort to integrate with PX4.
+With _VScode_, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/main/.vscode)) so the setup process is as simple as adding the project folder.
 :::
 
 ## Попередні вимоги
 
-Потрібно, щоб командний рядок [середовища розробки PX4](../dev_setup/dev_env.md) для вашої платформи було встановлено і завантажено репозиторій вихідного коду _Firmware_.
+You must already have installed the command line [PX4 developer environment](../dev_setup/dev_env.md) for your platform and downloaded the _Firmware_ source code repo.
 
-## Встановлення та налаштування
+## Installation & Setup
 
-1. [Завантажте та встановіть VSCode](https://code.visualstudio.com/) (вам буде запропоновано правильну версію для вашої ОС).
-1. Відкрийте VSCode і додайте вихідний код PX4:
+1. [Download and install VSCode](https://code.visualstudio.com/) (you will be offered the correct version for your OS).
 
-   - Оберіть _Open folder ..._ варіант на вітальній сторінці (або використовуючи меню:  **File > Open Folder**): ![Відкрити каталог](../../assets/toolchain/vscode/welcome_open_folder.jpg)
-   - З'явиться діалогове вікно вибору файлу. Оберіть директорію **PX4-Autopilot** та натисніть **OK**.
+2. Відкрийте VSCode і додайте вихідний код PX4:
 
-   Файли та налаштування проєкту будуть завантажені в _VSCode_.
+   - Select _Open folder ..._ option on the welcome page (or using the menu: **File > Open Folder**):
+     ![Open Folder](../../assets/toolchain/vscode/welcome_open_folder.jpg)
+   - З'явиться діалогове вікно вибору файлу.
+     Select the **PX4-Autopilot** directory and then press **OK**.
 
-1. Натисніть **Install All** на підказці _This workspace has extension recommendations_ (вона з'явиться в нижній правій частині IDE). ![Встановити розширення](../../assets/toolchain/vscode/prompt_install_extensions.jpg)
+   The project files and configuration will then load into _VSCode_.
 
-   VSCode відкриє панель _Extensions_ в лівій частині тому ви зможете спостерігати за прогресом установки.
+3. Press **Install All** on the _This workspace has extension recommendations_ prompt (this will appear on the bottom right of the IDE).
+   ![Install extensions](../../assets/toolchain/vscode/prompt_install_extensions.jpg)
 
-   ![PX4 завантажено в VSCode Explorer](../../assets/toolchain/vscode/installing_extensions.jpg)
+   VSCode will open the _Extensions_ panel on the left hand side so you can watch the progress of installation.
 
-1. Багато повідомлень/підказок може з'явитися в правому нижньому куті
+   ![PX4 loaded into VSCode Explorer](../../assets/toolchain/vscode/installing_extensions.jpg)
+
+4. Багато повідомлень/підказок може з'явитися в правому нижньому куті
 
    :::tip
-Якщо підказки зникнуть, натисніть на значок «тривоги» праворуч від нижньої синьої панелі.
+   If the prompts disappear, click the little "alarm" icon on the right of the bottom blue bar.
+
 :::
 
-   - Якщо буде запропоновано встановити нову версію _cmake_:
-     - Оберіть **No** (правильна версія вже встановлена з [середовищем розробки PX4](../dev_setup/dev_env.md)).
-   - Якщо буде запропоновану увійти у _github.com_ та додати облікові дані:
+   - If prompted to install a new version of _cmake_:
+     - Say **No** (the right version is installed with the [PX4 developer environment](../dev_setup/dev_env.md)).
+   - If prompted to sign into _github.com_ and add your credentials:
      - Це ваш розсуд! Це забезпечує глибоку інтеграцію між Github та IDE, що може спростити ваш робочий процес.
    - Інші підказки необов'язкові та можуть бути встановлені, якщо вважаються корисними. <!-- perhaps add screenshot of these prompts -->
 
@@ -54,20 +60,29 @@
 
 1. Оберіть свою ціль збірки ("cmake build config"):
 
-   - Поточна _ціль збірки cmake_ показується на синій панелі _config_ внизу (якщо це бажана ціль, пропустіть наступний крок). ![Вибрати ціль збірки Cmake](../../assets/toolchain/vscode/cmake_build_config.jpg)
+   - The current _cmake build target_ is shown on the blue _config_ bar at the bottom (if this is already your desired target, skip to next step).
+     ![Select Cmake build target](../../assets/toolchain/vscode/cmake_build_config.jpg)
 
-     ::: info The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v6`).
+     ::: info
+     The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v6`).
+
 :::
 
    - Натисніть на ціль на панелі config, щоб показати інші параметри та вибрати ту, яка вам потрібна (це замінить обрану ціль).
-   - _Cmake_ згодом налаштує ваш проєкт (див. сповіщення внизу праворуч). ![Cmake config project](../../assets/toolchain/vscode/cmake_configuring_project.jpg)
-   - Зачекайте, поки налаштування завершиться. Коли це буде зроблено, сповіщення зникнуть і буде показано розташування збірки: ![Cmake config project](../../assets/toolchain/vscode/cmake_configuring_project_done.jpg).
 
-1. Тоді ви зможете почати збірку з панелі config (оберіть або **Build** або **Debug**). ![Запустити налагодження або зібрати](../../assets/toolchain/vscode/run_debug_build.jpg)
+   - _Cmake_ will then configure your project (see notification in bottom right).
+     ![Cmake config project](../../assets/toolchain/vscode/cmake_configuring_project.jpg)
 
-Після збірки принаймні раз ви зможете використовувати автодоповнення коду та інші функції _VSCode_.
+   - Зачекайте, поки налаштування завершиться.
+     When this is done the notification will disappear and you'll be shown the build location:
+     ![Cmake config project](../../assets/toolchain/vscode/cmake_configuring_project_done.jpg).
 
-## Налагодження
+2. You can then kick off a build from the config bar (select either **Build** or **Debug**).
+   ![Run debug or build](../../assets/toolchain/vscode/run_debug_build.jpg)
+
+After building at least once you can now use [code completion](#code completion) and other _VSCode_ features.
+
+## Відлагодження
 
 <a id="debugging_sitl"></a>
 
@@ -75,36 +90,38 @@
 
 Для налагодження PX4 в SITL:
 
-1. Виберіть іконку debug на бічній панелі (позначена червоним) щоб показати панель налагодження.![Запустити налагодження](../../assets/toolchain/vscode/vscode_debug.jpg)
+1. Select the debug icon on the sidebar (marked in red) to display the debug panel.
+   ![Run debug](../../assets/toolchain/vscode/vscode_debug.jpg)
 
-1. Потім виберіть ціль для налагодження (наприклад, _Debug SITL (Gazebo Iris)_ з верхньої панелі налагодження (позначено пурпуровою рамкою).
+2. Then choose your debug target (e.g. _Debug SITL (Gazebo Iris)_) from the top bar debug dropdown (purple box).
 
-   :::note
-Цілі налагодження які пропонуються (позначено пурпуровим) збігаються з вашою ціллю збірки (позначено жовтою рамкою у нижній панелі).
-Наприклад, для налагодження цілей збірки SITL, ваша ціль повинна містити SITL.
+   ::: info
+   The debug targets that are offered (purple box) match your build target (yellow box on the bottom bar).
+   Наприклад, для налагодження цілей збірки SITL, ваша ціль повинна містити SITL.
+
 :::
 
-1. Почніть налагодження, натиснувши стрілку "play" налагодження (поруч із ціллю налагодження у верхній панелі - позначено рожевою рамкою).
+3. Почніть налагодження, натиснувши стрілку "play" налагодження (поруч із ціллю налагодження у верхній панелі - позначено рожевою рамкою).
 
 Під час налагодження ви можете встановити точки зупинки, переходити до коду, на відміну від нормального процесу розробки.
 
 ### Апаратне налагодження
 
-Інструкції в розділі [Порт налагодження SWD](../debug/swd_debug.md) пояснюють як під'єднатися для інтерфейсу SWD на розповсюджених політних контролерах (наприклад, використовуючи зонди Dronecode або Blackmagic).
+The instructions in [SWD Debug Port](../debug/swd_debug.md) explain how to connect to the SWD interface on common flight controllers (for example, using the Dronecode or Blackmagic probes).
 
-Після під'єднання до інтерфейсу SWD, апаратне налагодження в VSCode таке ж саме як і для [Налагодження SITL](#debugging_sitl), за винятком того, що обирається ціль налагодження відповідна до типу налагоджувача (та прошивки), наприклад `jlink (px4_fmu-v5)`.
+After connecting to the SWD interface, hardware debugging in VSCode is then the same as for [SITL Debugging](#debugging_sitl) except that you select a debug target appropriate for your debugger type (and firmware) - e.g. `jlink (px4_fmu-v5)`.
 
 :::tip
-Щоб побачити варіант `jlink` ви повинні обрати [cmake ціль для збірки прошивки](#building-px4).
+To see the `jlink` option you must have selected a [cmake target for building firmware](#building-px4).
 :::
 
-![Зображення, яке показує апаратні цілі з вибором для різних зондів](../../assets/toolchain/vscode/vscode_hardware_debugging_options.png)
+![Image showing hardware targets with options for the different probes](../../assets/toolchain/vscode/vscode_hardware_debugging_options.png)
 
 <a id="code completion"></a>
 
 ## Автодоповнення коду
 
-Для того щоб автодоповнення коду працювало (та інша магія IntelliSense) вам потрібна активна конфігурація та код повинен бути [зібраний](#building).
+In order for the code completion to work (and other IntelliSense magic) you need an active configuration and to have [built the code](#building).
 
 Після того, як це зроблено, вам не потрібно нічого робити; інструментарій автоматично запропонує вам символи мови поки ви друкуєте.
 
@@ -116,6 +133,9 @@
 
 ### Ubuntu 18.04: "Visual Studio Code не може спостерігати за змінами в коді у великому робочому середовищі"
 
-Ця помилка з'являється при старті. На деяких системах існує обмеження зверху накладене на застосунки оперувати лише 8192 файлами, що означає VSCode можливо не матиме можливості  виявити зміни у файлах у `/PX4-Autopilot`.
+Ця помилка з'являється при старті.
+On some systems, there is an upper-limit of 8192 file handles imposed on applications, which means that VSCode might not be able to detect file modifications in `/PX4-Autopilot`.
 
-Ви можете збільшити цей ліміт, щоб уникнути помилки, коштом споживання пам'яті. Слідуйте [інструкціям тут](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc). Значення 65536 має бути більш ніж достатнім.
+Ви можете збільшити цей ліміт, щоб уникнути помилки, коштом споживання пам'яті.
+Follow the [instructions here](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc).
+Значення 65536 має бути більш ніж достатнім.
