@@ -22,7 +22,7 @@ PX4 개발 및 테스트 팀은 [Pixhawk 표준](https://pixhawk.org/standards/)
    - 전화번호
 
 1. PX4 관리자를 위한 PoC(Point of Contact)(직접 이메일 또는 Slack/Forum/Github에서 사용 가능)
-1. 보드는 [PX4 부트로더 프로토콜](https://github.com/PX4/PX4-Autopilot/tree/master/platforms/nuttx/src/bootloader)을 사용하여야 합니다. 부트로더에 대한 자세한 내용은 [PX4 Nuttx 포팅 가이드 > 부트로더](../hardware/porting_guide_nuttx.md#bootloader)를 참고하십시오.
+1. The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader). 부트로더에 대한 자세한 내용은 [PX4 Nuttx 포팅 가이드 > 부트로더](../hardware/porting_guide_nuttx.md#bootloader)를 참고하십시오.
 1. 다음 내용을 포함하는 적절한 문서:
 
    - PX4 핀 정의를 아래에 매핑하는 완전한 핀배열 공개:
