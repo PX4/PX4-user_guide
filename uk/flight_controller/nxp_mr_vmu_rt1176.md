@@ -27,7 +27,7 @@ This board takes advantage of multiple Pixhawk​​® open standards, such as t
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## Вступ
+## Введення
 
 Inside the MR-VMU-RT1176, you can find an NXP i.MX RT1176, paired with sensor technology from Bosch®, InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
@@ -147,7 +147,7 @@ Similar variants will be available from our licensees.
 - Інші характеристики:
   - Operating & storage temperature: -40 ~ 85°c
 
-## Де придбати
+## Де купити
 
 Order from [NXP](https://www.nxp.com).
 
@@ -245,7 +245,7 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Pin                            | Сигнал                              | Volt                  |
+| Pin                            | Сигнал                              | Вольтаж               |
 | ------------------------------ | ----------------------------------- | --------------------- |
 | 1 (red)     | `Vtref`                             | +3.3V |
 | 2 (blk)     | Console TX (OUT) | +3.3V |
@@ -263,7 +263,7 @@ The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debu
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
-## Периферія
+## Периферійні пристрої
 
 - [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
 - [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
@@ -274,7 +274,7 @@ The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debu
 Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Подальша інформація
+## Додаткова інформація
 
 - [Update Pixhawk 6X-RT Bootloader](../advanced_config/bootloader_update_v6xrt.md)
 - [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
