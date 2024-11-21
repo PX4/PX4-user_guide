@@ -129,7 +129,7 @@ If using trigger setup that requires two pins (e.g. Seagull MAP2) you can assign
 
 Note however that if a _PWM_ output has been used for camera triggering (such as Seagull MAP2), the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera capture, because the timer has already been used).
 
-::: info
+:::info
 At time of writing triggering only works on FMU pins:
 
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+) .
@@ -157,7 +157,7 @@ The pin used for camera capture is then set in the _QGroundControl_ [Actuators](
 
 Note that if a _PWM output_ is used as a camera capture input, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera trigger, because the timer has already been used).
 
-::: info
+:::info
 At time of writing camera capture only works on FMU pins:
 
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+).
