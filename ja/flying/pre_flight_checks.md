@@ -56,8 +56,8 @@ The EKF IMU acceleration bias is the difference between the measured acceleratio
 
 The warning indicates that the bias is higher than some arbitrary threshold (the vehicle will not be allowed to take off). It is most likely a sign that accelerometer or thermal calibration are required:
 
-- If you *sometimes* get the warning: [re-calibrate the accelerometer](../config/accelerometer.md).
-- If you get *regularly* get the warning: Perform a [thermal calibration](../advanced_config/sensor_thermal_calibration.md).
+- If you _sometimes_ get the warning: [re-calibrate the accelerometer](../config/accelerometer.md).
+- If you get _regularly_ get the warning: Perform a [thermal calibration](../advanced_config/sensor_thermal_calibration.md).
 - If you still get the warning after thermal calibration (or you can't perform thermal calibration):
   - Verify that the issues do not come from the sensor or autopilot hardware:
     - The easiest way to do this is to test the same frame/sensors with another autopilot.
