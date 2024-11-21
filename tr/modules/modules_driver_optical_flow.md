@@ -1,7 +1,8 @@
 # Modules Reference: Optical Flow (Driver)
-## thoneflow
-Source: [drivers/optical_flow/thoneflow](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/thoneflow)
 
+## thoneflow
+
+Source: [drivers/optical_flow/thoneflow](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/thoneflow)
 
 ### Description
 
@@ -14,10 +15,13 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/pmw3901.html#thone-t
 ### Examples
 
 Attempt to start driver on a specified serial device.
+
 ```
 thoneflow start -d /dev/ttyS1
 ```
+
 Stop driver
+
 ```
 thoneflow stop
 ```
@@ -25,6 +29,7 @@ thoneflow stop
 <a id="thoneflow_usage"></a>
 
 ### Usage
+
 ```
 thoneflow <command> [arguments...]
  Commands:
