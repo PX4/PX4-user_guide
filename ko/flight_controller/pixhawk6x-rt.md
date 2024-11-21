@@ -1,7 +1,8 @@
 # Holybro Pixhawk 6X-RT
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. 소형화를 위하여 가진 IO가 적습니다.
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 _Pixhawk 6X-RT_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup>, NXP's mobile robotics team and the PX4 team based on NXP's open source reference design.
@@ -20,9 +21,12 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 Inside the Pixhawk®​ 6X-RT, you can find an NXP i.mx RT1176, paired with sensor technology from Bosch®​​, InvenSense®​,​ giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
-The Pixhawk® 6X-RT's i.mx RT1176 Crossover dual-core MCU contain an Arm® Cortex®-M7 core running up to 1GHz and Arm® Cortex®-M4 core running up to 400MHz, has 2MB SRAM and external XIP Flash with 64MB. The PX4 Autopilot takes advantage of the increased power and RAM. Thanks to the increased processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+The Pixhawk® 6X-RT's i.mx RT1176 Crossover dual-core MCU contain an Arm® Cortex®-M7 core running up to 1GHz and Arm® Cortex®-M4 core running up to 400MHz, has 2MB SRAM and external XIP Flash with 64MB.
+The PX4 Autopilot takes advantage of the increased power and RAM.
+Thanks to the increased processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
 
-The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization. Triple redundant IMU & double redundant barometer on separate buses. When PX4 detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
+The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization.
+Triple redundant IMU & double redundant barometer on separate buses. When PX4 detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
 
 An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
 
@@ -39,7 +43,7 @@ The Pixhawk®​ 6X-RT is perfect for developers at corporate research labs, sta
 - Triple redundancy domains: Completely isolated sensor domains with separate buses and separate power control
 - Newly designed vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
 - Ethernet interface for high-speed mission computer integration
-- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
+- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20
 
 ### Processors & Sensors
 
@@ -86,27 +90,37 @@ The Pixhawk®​ 6X-RT is perfect for developers at corporate research labs, sta
 ### 인터페이스
 
 - 16- PWM servo outputs
+
 - R/C input for Spektrum / DSM
+
 - Dedicated R/C input for PPM and S.Bus input
+
 - Dedicated analog / PWM RSSI input and S.Bus output
+
 - 범용 시리얼 포트 4개
   - 전체 흐름 제어 3개
   - 1 with separate 1.5A current limit (Telem1)
   - 1 with I2C and additional GPIO line for external NFC reader
+
 - 2 GPS ports
   - 1 full GPS plus Safety Switch Port
   - 1 basic GPS port
+
 - 1 I2C port
+
 - 1 Ethernet port
   - Transformerless Applications
   - 100Mbps
+
 - 1 SPI bus
   - 2 chip select lines
   - 2 data-ready lines
   - 1 SPI SYNC line
   - 1 SPI reset line
+
 - 2 CAN Buses for CAN peripheral
   - CAN Bus has individual silent controls or ESC RX-MUX control
+
 - 2 Power input ports with SMBus
 
   - 1 AD & IO port
@@ -159,38 +173,40 @@ Sample Wiring Diagram
 
 ## 정격 전압
 
-_Pixhawk 6X-RT_ can be triple-redundant on the power supply if three power sources are supplied. **POWER1**, **POWER2** 또는 **USB**중 하나에서 전원을 공급하여야 합니다. The **POWER1** & **POWER2** ports on the Pixhawk 6X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
+_Pixhawk 6X-RT_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+The **POWER1** & **POWER2** ports on the Pixhawk 6X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
-**정상 작동 최대 정격 전압**
+**Normal Operation Maximum Ratings**
 
 이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야합니다.
 
-1. **POWER1**과 **POWER2** 입력 (4.9V ~ 5.5V)
-1. **USB** 입력(4.75V ~ 5.25V)
+1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
+2. **USB** input (4.75V to 5.25V)
 
-**절대 최대 정격 전압**
+**Absolute Maximum Ratings**
 
 아래의 조건에서 시스템은 전원을 사용하지 않지만(작동하지 않음), 그대로 유지됩니다.
 
-1. **POWER1**과 **POWER2** 입력 (작동 범위 4.1V ~ 5.7V, 0V ~ 10V 손상되지 않음)
-1. **USB** 입력(작동 범위: 4.1V ~ 5.7V, 비손상 범위: 0V ~ 6V)
-1. 서보 입력 : **FMU PWM OUT** 및 **I/O PWM OUT**의 VDD_SERVO 핀 (0V ~ 42V 손상되지 않음)
+1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
+2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
+3. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
 **Voltage monitoring**
 
 Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_pixhawk6x.md#power)).
 
-::: info
+:::info
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
 :::
 
 ## 펌웨어 빌드
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make px4_fmu-v6xrt_default
@@ -200,22 +216,22 @@ make px4_fmu-v6xrt_default
 
 ## 디버그 포트
 
-[PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 **FMU 디버그** 포트에서 실행됩니다.
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| 핀        | 신호               | 전압    |
-| -------- | ---------------- | ----- |
-| 1 (적)    | `Vtref`          | +3.3V |
+| 핀                           | 신호                                  | 전압                    |
+| --------------------------- | ----------------------------------- | --------------------- |
+| 1 (적)    | `Vtref`                             | +3.3V |
 | 2 (흑)    | Console TX (OUT) | +3.3V |
 | 3 (흑)    | Console RX (IN)  | +3.3V |
-| 4 (흑)    | `SWDIO`          | +3.3V |
-| 5 (흑)    | `SWCLK`          | +3.3V |
-| 6 (흑)    | `SWO`            | +3.3V |
-| 7 (흑)    | NFC GPIO         | +3.3V |
-| 8 (blk)  | PH11             | +3.3V |
-| 9 (blk)  | nRST             | +3.3V |
-| 10 (blk) | `GND`            | GND   |
+| 4 (흑)    | `SWDIO`                             | +3.3V |
+| 5 (흑)    | `SWCLK`                             | +3.3V |
+| 6 (흑)    | `SWO`                               | +3.3V |
+| 7 (흑)    | NFC GPIO                            | +3.3V |
+| 8 (blk)  | PH11                                | +3.3V |
+| 9 (blk)  | nRST                                | +3.3V |
+| 10 (blk) | `GND`                               | GND                   |
 
 For information about using this port see:
 
@@ -224,21 +240,22 @@ For information about using this port see:
 
 ## 주변 장치
 
-- [디지털 대기속도 센서](https://holybro.com/products/digital-air-speed-sensor)
-- [텔레메트리 라디오 모듈](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [거리계/거리 센서](../sensor/rangefinders.md)
+- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
+- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 ## 지원 플랫폼 및 기체
 
-일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트.
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## 추가 정보
 
 - [Update Pixhawk 6X-RT Bootloader](../advanced_config/bootloader_update_v6xrt.md)
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Pixhawk 6X 배선 퀵 스타트](../assembly/quick_start_pixhawk6x.md)
+- [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
 - [PM02D Power Module](../power_module/holybro_pm02d.md)
 - [PM03D Power Module](../power_module/holybro_pm03d.md)
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf).
-- [Pixhawk Autopilot FMUv5X 버스 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
-- [Pixhawk 커넥터 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+- [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
+- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
