@@ -213,7 +213,7 @@ First update the firmware, airframe, and actuator mappings:
 
 ## 튜닝
 
-기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
+Airframe selection sets *default* autopilot parameters for the frame. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
 
 For instructions on how, start from [Autotune](../config/autotune_mc.md).
 
