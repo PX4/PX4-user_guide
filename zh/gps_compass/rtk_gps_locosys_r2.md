@@ -26,7 +26,7 @@ The built-in lightweight helical antenna enhances RTK positioning stability. Add
 
 ![LOCOSYS Hawk R2](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
-## 在哪里买
+## 购买渠道
 
 - [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html)
 
@@ -72,11 +72,11 @@ The compass only requires the usual [Compass Calibration](../config/compass.md).
 
 ## Status LEDs
 
-| Color | 名称              | 描述                                 |
-| ----- | --------------- | ---------------------------------- |
-| Green | TX Indicator    | GNSS Data transmission             |
-| Red   | Power Indicator | 电源                                 |
-| Blue  | PPS             | Precise Positioning Service active |
+| 颜色  | 名称              | 描述                                 |
+| --- | --------------- | ---------------------------------- |
+| 绿色  | TX Indicator    | GNSS Data transmission             |
+| Red | Power Indicator | 电源                                 |
+| 蓝色  | PPS             | Precise Positioning Service active |
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
 
