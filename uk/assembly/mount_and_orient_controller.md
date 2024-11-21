@@ -1,29 +1,34 @@
-# Монтаж Політного Контролера
+# Кріплення польотного контролера
 
-Політний контролер слід розташувати на рамі якомога ближче до центру маси (CoG), верхньою стороною вгору, та орієнтувати так, щоб _стрілка позначки курсу_ вказувала на передню частину апарату. Часто необхідна [віброізоляція](#vibration-isolation), тому слід дотримуватися рекомендацій виробника. Якщо змонтовано таким чином, подальша конфігурація PX4 не потрібна.
+The flight controller should be placed on the frame as close as possible to the centre-of-gravity (CoG), top-side up, and oriented so that the _heading mark arrow_ points towards the front of the vehicle.
+[Vibration isolation](#vibration-isolation) is often needed, and you should follow the manufacturer recommendations.
+Якщо змонтовано таким чином, подальша конфігурація PX4 не потрібна.
 
 ## Орієнтація
 
-Майже у всіх контролерів польоту є _стрілка маркування напрямку_ (показана нижче). Контролер повинен бути розміщений на верхній стороні рами, орієнтований таким чином, щоб стрілка вказувала вперед транспортного засобу (на всіх рамах повітряних суден - літак, багатокоптер, VTOL, наземні транспортні засоби тощо).
+Almost all Flight Controllers have a _heading mark arrow_ (shown below).
+Контролер повинен бути розміщений на верхній стороні рами, орієнтований таким чином, щоб стрілка вказувала вперед транспортного засобу (на всіх рамах повітряних суден - літак, багатокоптер, VTOL, наземні транспортні засоби тощо).
 
-![Позначка заголовка FC](../../assets/qgc/setup/sensor/fc_heading_mark_1.png)
+![FC Heading Mark](../../assets/qgc/setup/sensor/fc_heading_mark_1.png)
 
-![Орієнтація FC](../../assets/qgc/setup/sensor/fc_orientation_1.png)
+![FC Orientation](../../assets/qgc/setup/sensor/fc_orientation_1.png)
 
-:::info Якщо контролер не може бути встановлений у рекомендованому/стандартному положенні через фізичні обмеження, вам потрібно налаштувати програмне забезпечення автопілота з орієнтацією, яку ви дійсно використали: [Орієнтація Польотного Контролера](../config/flight_controller_orientation.md).
+:::info
+If the controller cannot be mounted in the recommended/default orientation due to physical constraints, you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
 ## Положення
 
 Контролер польоту повинен бути розміщений на рамці якнайближче до центру ваги.
 
-Якщо ви не можете встановити контролер у цьому положенні, то вам слід [налаштувати](../advanced_config/parameters.md) наступні параметри для встановлення зміщення відносно ЦТТ: [EKF2_IMU_POS_X](../advanced_config/parameter_reference.md#EKF2_IMU_POS_X), [EKF2_IMU_POS_Y](../advanced_config/parameter_reference.md#EKF2_IMU_POS_Y), [EKF2_IMU_POS_Z](../advanced_config/parameter_reference.md#EKF2_IMU_POS_Z) (для типового оцінювача EKF2).
+If you can't mount the controller in this position, then you should [configure](../advanced_config/parameters.md) the following parameters to set offset relative to the CoG: [EKF2_IMU_POS_X](../advanced_config/parameter_reference.md#EKF2_IMU_POS_X), [EKF2_IMU_POS_Y](../advanced_config/parameter_reference.md#EKF2_IMU_POS_Y), [EKF2_IMU_POS_Z](../advanced_config/parameter_reference.md#EKF2_IMU_POS_Z) (for the default EKF2 estimator).
 
-Зверніть увагу, що якщо ви не встановите ці зміщення, то оцінки положення / швидкості EKF2 будуть відображатися на місці його розташування, а не в ЦМ. Це може призвести до небажаних коливань, залежно від того, наскільки далеко знаходиться IMU від CoG.
+Зверніть увагу, що якщо ви не встановите ці зміщення, то оцінки положення / швидкості EKF2 будуть відображатися на місці його розташування, а не в ЦМ.
+Це може призвести до небажаних коливань, залежно від того, наскільки далеко знаходиться IMU від CoG.
 
 :::details
-Пояснення
-Щоб зрозуміти вплив відсутності встановлення цих зміщень, розгляньте випадок, коли контролер польоту (IMU) знаходиться спереду CoG, ви летите в режимі позиції, і відбувається впередній кидковий рух навколо CoG.
+Explanation
+To understand the impact of not setting these offsets, consider the case when the flight controller (IMU) is in front of the CoG, you're flying in position mode, and there is a forward pitching motion around the CoG.
 Оцінка висоти зменшиться, оскільки IMU фактично рухалася вниз.
 Як реакцію, контролер висоти надасть більше тяги для компенсації.
 Амплітуда залежить від того, наскільки далеко знаходиться IMU від CoG.
@@ -31,14 +36,16 @@
 Якщо вказані зміщення, чистий рух висоти не створить жодних змін у приблизній оцінці, тому буде менше паразитних коригувань.
 :::
 
-## Віброізоляція
+## Ізоляція Вібрацій
 
-Плати управління польотом з вбудованими акселерометрами або гіроскопами чутливі до вібрацій. Деякі плати включають вбудовану віброізоляцію, тоді як інші постачаються з _монтажною піною_, яку ви можете використовувати для ізоляції контролера від транспортного засобу.
+Плати управління польотом з вбудованими акселерометрами або гіроскопами чутливі до вібрацій.
+Some boards include in-built vibration-isolation, while others come with _mounting foam_ that you can use to isolate the controller from the vehicle.
 
-![Монтажна піна для Pixhawk](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png) _Піна для поглинання вібрації_
+![Pixhawk Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
+_Vibration damping foam_
 
 Ви повинні використовувати стратегію монтажу, рекомендовану у документації вашого контролера польоту.
 
 :::tip
-[Аналіз Логів за допомогою Flight Review > Вібрація](../log/flight_review.md#vibration) пояснює, як використовувати логи для підтвердження того, чи є вібрація ймовірною причиною проблем з польотом.
+[Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) explains how to test whether vibration levels are acceptable, and [Vibration Isolation](../assembly/vibration_isolation.md) suggests a number of possible solutions if there is a problem.
 :::
