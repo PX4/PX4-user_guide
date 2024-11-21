@@ -146,7 +146,7 @@ If those steps are consistent, you can try your first flight:
 
 4. Confirm that the vehicle can hold its position.
 
-## Troubleshooting
+## トラブルシューティング
 
 First, make sure MAVROS is able to connect successfully to the flight controller.
 
