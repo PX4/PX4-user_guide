@@ -207,7 +207,7 @@ make list_config_targets
 [VSCode](../dev_setup/vscode.md) is the officially supported (and recommended) IDE for PX4 development.
 セットアップは簡単で、シミュレーション環境とハードウェア環境の両方でPX4をコンパイルできます。
 
-## Troubleshooting
+## トラブルシューティング
 
 ### 一般的なビルドエラー
 
