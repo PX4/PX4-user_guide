@@ -10,14 +10,14 @@ The _supported platforms_ for PX4 development are:
 
 The table below shows what PX4 targets you can build on each OS.
 
-| Target                                                                                                                                 | Linux (Ubuntu) |   Mac   | Windows |
-| -------------------------------------------------------------------------------------------------------------------------------------- |:--------------:|:-------:|:-------:|
-| **NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles_mc/crazyflie2.md) |    &check;     | &check; | &check; |
-| **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                              |    &check;     |         |         |
-| **Simulation:** [Gazebo SITL](../sim_gazebo_gz/index.md)                                                                               |    &check;     | &check; | &check; |
-| **Simulation:** [Gazebo Classic SITL](../sim_gazebo_classic/index.md)                                                                  |    &check;     | &check; | &check; |
-| **Simulation:** [ROS with Gazebo Classic](../simulation/ros_interface.md)                                                              |    &check;     |         | &check; |
-| **Simulation:** ROS 2 with Gazebo                                                                                                      |    &check;     |         | &check; |
+| Target                                                                                                                                                 | Linux (Ubuntu) |               Mac               |             Windows             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------: | :-----------------------------: | :-----------------------------: |
+| **NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles_mc/crazyflie2.md) |  &amp;check;  | &amp;check; | &amp;check; |
+| **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                              |  &amp;check;  |                                 |                                 |
+| **Simulation:** [Gazebo SITL](../sim_gazebo_gz/index.md)                                                                               |  &amp;check;  | &amp;check; | &amp;check; |
+| **Simulation:** [Gazebo Classic SITL](../sim_gazebo_classic/index.md)                                                                  |  &amp;check;  | &amp;check; | &amp;check; |
+| **Simulation:** [ROS with Gazebo Classic](../simulation/ros_interface.md)                                                              |  &amp;check;  |                                 | &amp;check; |
+| **Simulation:** ROS 2 with Gazebo                                                                                                      |  &amp;check;  |                                 | &amp;check; |
 
 Experienced Docker users can also build with the containers used by our continuous integration system: [Docker Containers](../test_and_ci/docker.md)
 
