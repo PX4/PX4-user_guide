@@ -30,7 +30,7 @@ Source: [modules/battery_status](https://github.com/PX4/PX4-Autopilot/tree/main/
 
 - Read the output from the ADC driver (via ioctl interface) and publish `battery_status`.
 
-### Implementation
+### 구현
 
 자체 스레드에서 실행되고, 현재 선택된 자이로 주제를 폴링합니다.
 
@@ -63,7 +63,7 @@ otherwise trigger information at the point the camera was commanded to trigger i
 The `CAMERA_IMAGE_CAPTURED` message is then emitted (by streaming code) following `CameraCapture` updates.
 `CameraCapture` topics are also logged and can be used for geotagging.
 
-### Implementation
+### 구현
 
 `CameraTrigger` topics are published by the `camera_trigger` module (`feedback` field set `false`)
 when image capture is triggered, and may also be published by the  `camera_capture` driver
@@ -186,7 +186,7 @@ C API를 통해 간단한 데이터베이스 형태로 시스템에 영구 저�
 임무 웨이포인트, 임무 상태 및 지오펜스 다각형과 같은 다양한 유형의 구조화된 데이터를 저장합니다.
 각 유형은 특정 유형과 고정된 최대 저장 항목 수를 가지고 있어, 빠른 랜덤 액세스가 가능합니다.
 
-### Implementation
+### 구현
 
 단일 항목을 읽고 쓰는 것은 항상 원자적입니다.
 
@@ -358,7 +358,7 @@ Module to detect the freefall and landed state of the vehicle, and publishing th
 Each vehicle type (multirotor, fixedwing, vtol, ...) provides its own algorithm, taking into account various
 states, such as commanded thrust, arming state and vehicle motion.
 
-### Implementation
+### 구현
 
 모든 유형은 공통 기본 클래스를 사용하여 자체 클래스에서 구현됩니다. 기본 클래스는 상태를 유지합니다(착륙, 아마도_착륙, 지상_접촉). 가능한 각 상태는 파생 클래스에서 구현됩니다. 각 내부 상태의 히스테리시스 및 고정된 우선 순위에 따라 실제 land_detector 상태가 결정됩니다.
 
@@ -433,7 +433,7 @@ System logger which logs a configurable set of uORB topics and system printf mes
 파일 백엔드는 전체(일반 로그)와 미션 로그의 두 가지 유형의 로그 파일을 지원합니다. 임무 로그는 축소된 ulog 파일이며, 지오태깅 또는 차량 관리 등에 사용할 수 있습니다. SDLOG_MISSION 매개변수를 통하여 활성화 및 설정할 수 있습니다.
 일반 로그는 항상 미션 로그의 상위 집합입니다.
 
-### Implementation
+### 구현
 
 구현은 두 개의 스레드를 사용합니다.
 
@@ -623,7 +623,7 @@ The rc_update module handles RC channel mapping: read the raw input channels (`i
 then apply the calibration, map the RC channels to the configured channels & mode switches
 and then publish as `rc_channels` and `manual_control_input`.
 
-### Implementation
+### 구현
 
 To reduce control latency, the module is scheduled on input_rc publications.
 
@@ -807,7 +807,7 @@ it into a more usable form, and publishes it for the rest of the system.
   sensor drivers must already be running when `sensors` is started.
 - Do sensor consistency checks and publish the `SensorsStatusImu` topic.
 
-### Implementation
+### 구현
 
 자체 스레드에서 실행되고, 현재 선택된 자이로 주제를 폴링합니다.
 
