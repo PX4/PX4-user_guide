@@ -1,6 +1,7 @@
 # Black Magic Probe (and Dronecode Probe)
 
-The [Black Magic Probe](https://black-magic.org) is an easy to use, mostly plug-and-play, JTAG/SWD debugger for embedded microcontrollers. Since the Black Magic Probe is a generic debug probe, you will need an adapter to connect to Pixhawk flight controllers, which can be purchased here:
+The [Black Magic Probe](https://black-magic.org) is an easy to use, mostly plug-and-play, JTAG/SWD debugger for embedded microcontrollers.
+Since the Black Magic Probe is a generic debug probe, you will need an adapter to connect to Pixhawk flight controllers, which can be purchased here:
 
 - [Drone Code Debug Adapter](https://1bitsquared.com/products/drone-code-debug-adapter) (1 BIT SQUARED).
 
@@ -12,14 +13,15 @@ The probe's USB interface exposes two separate virtual serial port interfaces: o
 
 The probe provides a DCD-M connector cable for attaching to the [Pixhawk Debug Mini](swd_debug.md#pixhawk-debug-mini).
 
-::: info
+:::info
 The _6-pos DF13_ connector that comes with the probe cannot be used for SWD debugging (it is for using the System Console).
 :::
 
 ## Using the Probe
 
-::: info
-To debug STM32F7 or later (FMUv5 and newer) the Dronecode probe / Blackmagic probe likely requires a firmware update. [blackmagic probe를 업데이트하는 방법은 여기](https://github.com/blacksphere/blackmagic/wiki/Upgrading-Firmware)를 참고하십시오.
+:::info
+To debug STM32F7 or later (FMUv5 and newer) the Dronecode probe / Blackmagic probe likely requires a firmware update.
+You can find how to update the [blackmagic probe here](https://github.com/blacksphere/blackmagic/wiki/Upgrading-Firmware).
 :::
 
 GDB와 함께 Dronecode 프로브를 사용하려면, 현재 자동조종장치에서 플래싱된 정확한 ELF 파일로 GDB를 시작하십시오.
