@@ -1,4 +1,4 @@
-# 경로 계획 인터페이스
+# Path Planning Interface
 
 <Badge type="warning" text="Removed" />
 
