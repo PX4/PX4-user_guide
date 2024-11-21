@@ -2,28 +2,30 @@
 
 PX4 runs on ARM Cortex-M microcontrollers, which contain dedicated hardware for interactive debugging via the [_Serial Wire Debug (SWD)_][swd] interface and non-invasive profiling and high-bandwidth tracing via the [_Serial Wire Ouput (SWO)_][itm] and [_TRACE_ pins][etm].
 
-The SWD debug interface allows direct, low-level, hardware access to the microcontroller's processor and peripherals, so it does not depend on any software on the device. Therefore it can be used to debug bootloaders and operating systems such as NuttX.
+The SWD debug interface allows direct, low-level, hardware access to the microcontroller's processor and peripherals, so it does not depend on any software on the device.
+Therefore it can be used to debug bootloaders and operating systems such as NuttX.
 
 ## Debug Signals
 
 Four signals are required for debugging (in bold) while the rest is recommended.
 
-| 名称          | 类型    | 参数描述                                                                                      |
-|:----------- |:----- |:----------------------------------------------------------------------------------------- |
-| **GND**     | 电源    | Shared potential, common ground.                                                          |
-| **VREF**    | 电源    | The target reference voltage allows the debug probe to use level shifters on the signals. |
-| **SWDIO**   | I/O   | Serial Wire Debug data pin.                                                               |
-| **SWCLK**   | Input | Serial Wire Debug clock pin.                                                              |
-| nRST        | Input | The reset pin is optional (n = active low).                                               |
-| SWO         | 输出    | Single wire trace asynchronous data out can output ITM and DWT data.                      |
-| TRACECK     | 输出    | Trace clock for parallel bus.                                                             |
+| 名称                                                              | 类型    | 描述                                                                                                        |
+| :-------------------------------------------------------------- | :---- | :-------------------------------------------------------------------------------------------------------- |
+| **GND**                                                         | 电源    | Shared potential, common ground.                                                          |
+| **VREF**                                                        | 电源    | The target reference voltage allows the debug probe to use level shifters on the signals. |
+| **SWDIO**                                                       | I/O   | Serial Wire Debug data pin.                                                               |
+| **SWCLK**                                                       | Input | Serial Wire Debug clock pin.                                                              |
+| nRST                                                            | Input | The reset pin is optional (n = active low).                            |
+| SWO                                                             | 输出    | Single wire trace asynchronous data out can output ITM and DWT data.                      |
+| TRACECK                                                         | 输出    | Trace clock for parallel bus.                                                             |
 | TRACED[0-3] | 输出    | Trace synchronous data bus with 1, 2, or 4 bits.                                          |
 
 The hardware reset pin is optional, as most devices can also be reset via the SWD lines. However, quickly resetting the device via a button can be great for development.
 
 The SWO pin can emit low-overhead, real-time profiling data with nanosecond timestamping and is therefore strongly recommended to have accessible for debugging.
 
-The TRACE pins require specialized debug probes to deal with the high bandwidth and subsequent datastream decoding. They are usually not accessible and are typically only used to debug very specific timing issues.
+The TRACE pins require specialized debug probes to deal with the high bandwidth and subsequent datastream decoding.
+They are usually not accessible and are typically only used to debug very specific timing issues.
 
 <a id="debug-ports"></a>
 
@@ -31,25 +33,26 @@ The TRACE pins require specialized debug probes to deal with the high bandwidth 
 
 Flight controllers commonly provide a single debug port that exposes both the [SWD Interface](#debug-signals) and [System Console](system_console).
 
-The [Pixhawk Connector Standards](#pixhawk-standard-debug-ports) formalize the port that must be used in each FMU version. However there are still many boards that use different pinouts or connectors, so we recommend you check the [documentation for your autopilot](../flight_controller/index.md) to confirm port location and pinout.
+The [Pixhawk Connector Standards](#pixhawk-standard-debug-ports) formalize the port that must be used in each FMU version.
+However there are still many boards that use different pinouts or connectors, so we recommend you check the [documentation for your autopilot](../flight_controller/index.md) to confirm port location and pinout.
 
 The debug port location and pinouts for a subset of autopilots are linked below:
 
 <a id="port-information"></a>
 
-| 飞控                                                                                  | Debug调试端口                                                                                                                                                               |
-|:----------------------------------------------------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Holybro Pixhawk 6X-RT (FMUv6X-RT)                                                   | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                               |
-| Holybro Pixhawk 6X (FMUv6x)                                                         | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                               |
-| Holybro Pixhawk 5X (FMUv5x)                                                         | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                               |
-| [Holybro Durandal](../flight_controller/durandal.md#debug-port)                     | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
-| [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)                    | Solder pads                                                                                                                                                             |
-| [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) (FMUv5)  | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
-| [Holybro Pixhawk 4](../flight_controller/pixhawk4.md#debug_port) (FMUv5)            | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
-| [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md#debug-port) (FMU-v4pro) | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
-| [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                         | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (side mount) |
-| [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)                      | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (side mount) |
-| [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                             | ARM 10-pin JTAG Connector (also used for FMUv2 boards including: _mRo Pixhawk_, _HobbyKing HKPilot32_).                                                                 |
+| 飞控                                                                                                     | 调试接口                                                                                                                                                              |
+| :----------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Holybro Pixhawk 6X-RT (FMUv6X-RT)                                                   | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                         |
+| Holybro Pixhawk 6X (FMUv6x)                                                         | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                         |
+| Holybro Pixhawk 5X (FMUv5x)                                                         | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                         |
+| [Holybro Durandal](../flight_controller/durandal.md#debug-port)                                        | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
+| [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)                                       | Solder pads                                                                                                                                                       |
+| [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) (FMUv5)  | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
+| [Holybro Pixhawk 4](../flight_controller/pixhawk4.md#debug_port) (FMUv5)            | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
+| [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md#debug-port) (FMU-v4pro) | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
+| [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                                            | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (side mount) |
+| [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)                                         | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (side mount) |
+| [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                                                | ARM 10-pin JTAG Connector (also used for FMUv2 boards including: _mRo Pixhawk_, _HobbyKing HKPilot32_).        |
 
 <a id="pixhawk-standard-debug-ports"></a>
 
@@ -61,8 +64,8 @@ The Pixhawk project has defines a standard pinout and connector type for differe
 Check your [specific board](#port-information) to confirm the port used.
 :::
 
-| FMU Version | Pixhawk Version                                                 | Debug调试端口                                 |
-|:----------- |:--------------------------------------------------------------- |:----------------------------------------- |
+| FMU Version | Pixhawk Version                                                 | 调试接口                                      |
+| :---------- | :-------------------------------------------------------------- | :---------------------------------------- |
 | FMUv2       | [Pixhawk / Pixhawk 1](../flight_controller/pixhawk.md#swd-port) | 10 pin ARM Debug                          |
 | FMUv3       | Pixhawk 2                                                       | 6 pin SUR Debug                           |
 | FMUv4       | Pixhawk 1/2                                                     | [Pixhawk Debug Mini](#pixhawk-debug-mini) |
@@ -72,7 +75,7 @@ Check your [specific board](#port-information) to confirm the port used.
 | FMUv6X      | Pixhawk 6X                                                      | [Pixhawk Debug Full](#pixhawk-debug-full) |
 | FMUv6X-RT   | Pixhawk 6X-RT                                                   | [Pixhawk Debug Full](#pixhawk-debug-full) |
 
-::: info
+:::info
 There FMU and Pixhawk versions are (only) consistent after FMUv5X.
 :::
 
@@ -85,7 +88,7 @@ This is used in FMUv4 and FMUv5.
 The pinout is as shown below (pins required for debugging are bold):
 
 | 针脚 | 信号         |
-| --:|:---------- |
+| -: | :--------- |
 |  1 | **VREF**   |
 |  2 | Console TX |
 |  3 | Console RX |
@@ -95,11 +98,11 @@ The pinout is as shown below (pins required for debugging are bold):
 
 The debug port definition includes the following solder pads (on board next to connector):
 
-| Pad | 信号    | Voltage |
-| ---:|:----- |:------- |
-|   1 | nRST  | +3.3V   |
-|   2 | GPIO1 | +3.3V   |
-|   3 | GPIO2 | +3.3V   |
+| Pad | 信号    | Voltage               |
+| --: | :---- | :-------------------- |
+|   1 | nRST  | +3.3V |
+|   2 | GPIO1 | +3.3V |
+|   3 | GPIO2 | +3.3V |
 
 The socket is a _6-pin JST SH_ - Digikey number: [BM06B-SRSS-TBT(LF)(SN)](https://www.digikey.com/products/en?keywords=455-2875-1-ND) (vertical mount), [SM06B-SRSS-TBT(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1806-1-ND)(side mount).
 
@@ -109,14 +112,15 @@ You can connect to the debug port using a [cable like this one](https://www.digi
 
 ### Pixhawk Debug Full
 
-The [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) defines _Pixhawk Debug Full_, a _10-Pin SH Debug Port_ that provides access to both SWD pins and the [System Console](system_console). This essentially moves the solder pads from beside the [Pixhawk Debug Mini](#pixhawk-debug-mini) into the connector, and also adds an SWO pin.
+The [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) defines _Pixhawk Debug Full_, a _10-Pin SH Debug Port_ that provides access to both SWD pins and the [System Console](system_console).
+This essentially moves the solder pads from beside the [Pixhawk Debug Mini](#pixhawk-debug-mini) into the connector, and also adds an SWO pin.
 
 该端口指定用于FMUv5x, FMUv6, FMUv6x。
 
 The pinout is as shown below (pins required for debugging are bold):
 
 | 针脚 | 信号         |
-| --:|:---------- |
+| -: | :--------- |
 |  1 | **VREF**   |
 |  2 | Console TX |
 |  3 | Console RX |
@@ -132,7 +136,7 @@ The GPIO1/2 pins are free pins that can be used to generate signals in software 
 
 The socket is a _10-pin JST SH_ - Digikey number: [BM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1796-2-ND) (vertical mount) or [SM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1810-2-ND) (side mount).
 
-您可以连接到调试端口使用[像这样](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A)的电缆。
+You can connect to the debug port using a [cable like this one](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A).
 
 <!-- FIXME: better to have image showing proper connections for SWD+SWO -->
 
@@ -151,7 +155,8 @@ There are several debug probes that are tested and supported for connecting to o
 - [STLink](../debug/probe_stlink): best value, integrated serial console, adapter must be soldered.
 - [MCU-Link](../debug/probe_mculink): best value, integrated serial console, requires adapter.
 
-An adapter to connect to the debug port may come with your flight controller or debug probe. Other options are given below.
+An adapter to connect to the debug port may come with your flight controller or debug probe.
+Other options are given below.
 
 ## Debug Adapters
 
@@ -172,13 +177,15 @@ The [CUAV C-ADB Secondary Development Pixhawk Flight Controller Debug Adapter](h
 
 This has a ports for connecting to the [Pixhawk Debug Full](#pixhawk-debug-full) (10-pin SH) and CUAV-standard DSU interface (but not the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) (6-pin SH)).
 
-The M2 connector on the adaptor is 14-pin CN4 STDC14 (see the [STLinkv3-MINIE User Manual](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) for more information). The cable used to connect the M2 and the STLinkv3-MINIE comes with the adaptor.
+The M2 connector on the adaptor is 14-pin CN4 STDC14 (see the [STLinkv3-MINIE User Manual](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) for more information).
+The cable used to connect the M2 and the STLinkv3-MINIE comes with the adaptor.
 
 ![CUAV C-ADB adaptor connected to the STLinkv3-MINIE](../../assets/debug/cuav_c-adb_debug_adapter/hero.jpg)
 
 ### Debug Probe Adapters
 
-Some SWD [debug probes](#debug-probes) come with adapters/cables for connecting to common Pixhawk [debug ports](#debug-ports). Probes that are known to come with connectors are listed below:
+Some SWD [debug probes](#debug-probes) come with adapters/cables for connecting to common Pixhawk [debug ports](#debug-ports).
+Probes that are known to come with connectors are listed below:
 
 - [DroneCode Probe](../debug/probe_bmp.md#dronecode-probe): comes with a connector for attaching to the [Pixhawk Debug Mini](#pixhawk-debug-mini)
 
