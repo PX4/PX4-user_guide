@@ -1,11 +1,14 @@
 # 机架参考
 
-::: info **This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
+:::info
+**This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
 :::
 
-This page lists all supported airframes and types including the motor assignment and numbering. **绿色的**为顺时针转动的电机，**蓝色的**为逆时针转动的电机。
+This page lists all supported airframes and types including the motor assignment and numbering.
+The motors in **green** rotate clockwise, the ones in **blue** counterclockwise.
 
-**AUX** 通道可能在一些飞行控制器上不存在。 如果存在，PWM AUX 通道通常被标记为 **AUX OUT**。
+**AUX** channels may not be present on some flight controllers.
+If present, PWM AUX channels are commonly labelled **AUX OUT**.
 
 <style>
 div.frame_common table, div.frame_common table {
@@ -98,11 +101,11 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td>Maintainer: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>Specific Outputs:</b><ul><li><b>Servo3</b>: elevator</li><li><b>Servo4</b>: rudder</li><li><b>Servo5</b>: rudder (second, optional)</li><li><b>Servo6</b>: wheel</li></ul></p></td>
+ <td>Maintainer: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>Specific Outputs:</b><ul><li><b>Servo3</b>: elevator</li><li><b>Servo4</b>: rudder</li><li><b>Servo5</b>: rudder (second, optional)</li><li><b>Servo6</b>: wheel</li></ul><p></p></td>
 </tr>
 <tr id="autogyro_autogyro_thunderfly_tf-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/TF-G2/">ThunderFly TF-G2</a></td>
- <td>Maintainer: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><p><b>Specific Outputs:</b><ul><li><b>Servo3</b>: rudder</li></ul></p></td>
+ <td>Maintainer: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><p><b>Specific Outputs:</b><ul><li><b>Servo3</b>: rudder</li></ul><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -130,7 +133,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## Copter
+## 旋翼机
 
 ### Dodecarotor cox
 
@@ -447,7 +450,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_simulation_hil_quadcopter_x">
- <td>HIL Quadcopter X</td>
+ <td>HIL Standard VTOL QuadPlane</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 1001</p></td>
 </tr>
 <tr id="copter_simulation_sih_quadcopter_x">
@@ -578,9 +581,9 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## Rover
+## 无人车
 
-### Rover
+### 无人车
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/Rover.svg"/>
@@ -614,11 +617,11 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="rover_rover_generic_ground_vehicle_(deprecated)">
  <td>Generic Ground Vehicle (Deprecated)</td>
- <td><p><code>SYS_AUTOSTART</code> = 59000</p><p><b>Specific Outputs:</b><ul><li><b>电机1</b>: 油门</li><li><b>舵机1</b>: 转向</li></ul></p></td>
+ <td><p><code>SYS_AUTOSTART</code> = 59000</p><p><b>Specific Outputs:</b><ul><li><b>电机1</b>: 油门</li><li><b>舵机1</b>: 转向</li></ul><p></p></td>
 </tr>
 <tr id="rover_rover_nxp_cup_car:_df_robot_gpx_(deprecated)">
  <td>NXP Cup car: DF Robot GPX (Deprecated)</td>
- <td>Maintainer: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 59001</p><p><b>Specific Outputs:</b><ul><li><b>电机1</b>: 剩余轮子速度</li><li><b>舵机1</b>: 转向</li></ul></p></td>
+ <td>Maintainer: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 59001</p><p><b>Specific Outputs:</b><ul><li><b>电机1</b>: 剩余轮子速度</li><li><b>舵机1</b>: 转向</li></ul><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -777,4 +780,3 @@ div.frame_variant td, div.frame_variant th {
 </tbody>
 </table>
 </div>
-
