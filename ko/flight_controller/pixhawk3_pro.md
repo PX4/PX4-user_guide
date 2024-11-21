@@ -66,14 +66,14 @@ make px4_fmu-v4pro_default
 
 The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
 
-| 핀                        | 신호                                 | 전압                    |
-| ------------------------ | ---------------------------------- | --------------------- |
-| 1 (적) | VCC TARGET SHIFT                   | +3.3V |
-| 2 (흑) | CONSOLE TX (출력) | +3.3V |
-| 3 (흑) | CONSOLE RX (입력) | +3.3V |
-| 4 (흑) | SWDIO                              | +3.3V |
-| 5 (흑) | SWCLK                              | +3.3V |
-| 6 (흑) | GND                                | GND                   |
+| 핀                         | 신호                                 | 전압                    |
+| ------------------------- | ---------------------------------- | --------------------- |
+| 1(red) | VCC TARGET SHIFT                   | +3.3V |
+| 2 (흑)  | CONSOLE TX (출력) | +3.3V |
+| 3 (흑)  | CONSOLE RX (입력) | +3.3V |
+| 4 (흑)  | SWDIO                              | +3.3V |
+| 5 (흑)  | SWCLK                              | +3.3V |
+| 6 (흑)  | GND                                | GND                   |
 
 이 포트의 배선과 사용 정보는 다음을 참조하십시오.
 
