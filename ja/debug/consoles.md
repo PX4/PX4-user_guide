@@ -22,12 +22,16 @@ Shells provide higher-level access to the system:
 - Cannot _directly_ display the output of tasks running on the work queue.
 - Can't debug problems when the system doesn't start (as it isn't running yet).
 
-::: info The `dmesg` command is now available through the shell on some boards, enabling much lower level debugging than previously possible. For example, with `dmesg -f &` you also see the output of background tasks.
+:::info
+The `dmesg` command is now available through the shell on some boards, enabling much lower level debugging than previously possible.
+For example, with `dmesg -f &` you also see the output of background tasks.
 :::
 
-There can be several shells, either running on a dedicated UART, or via MAVLink. Since MAVLink provides more flexibility, currently only the [MAVLink Shell](../debug/mavlink_shell.md) is used.
+There can be several shells, either running on a dedicated UART, or via MAVLink.
+Since MAVLink provides more flexibility, currently only the [MAVLink Shell](../debug/mavlink_shell.md) is used.
 
-The [System Console](../debug/system_console.md) is essential when the system does not boot (it displays the system boot log when power-cycling the board). The [MAVLink Shell](../debug/mavlink_shell.md) is much easier to setup, and so is more generally recommended for most debugging.
+The [System Console](../debug/system_console.md) is essential when the system does not boot (it displays the system boot log when power-cycling the board).
+The [MAVLink Shell](../debug/mavlink_shell.md) is much easier to setup, and so is more generally recommended for most debugging.
 
 <a id="using_the_console"></a>
 
@@ -80,5 +84,6 @@ listener <topic_name>
 Many other system commands and modules are listed in the [Modules and Command Reference](../modules/modules_main.md) (e.g. `top`, `listener`, etc.).
 
 :::tip
-Some commands may be disabled on some boards (i.e. the some modules are not included in firmware for boards with RAM or FLASH constraints). In this case you will see the response: `command not found`
+Some commands may be disabled on some boards (i.e. the some modules are not included in firmware for boards with RAM or FLASH constraints).
+In this case you will see the response: `command not found`
 :::
