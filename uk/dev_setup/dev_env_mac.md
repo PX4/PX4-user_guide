@@ -1,12 +1,14 @@
 # Середовище розробки MacOS
 
-Наступні інструкції для встановлення середовища розробки PX4 для macOS. Це середовище може бути використане для збірки PX4 для:
+Наступні інструкції для встановлення середовища розробки PX4 для macOS.
+Це середовище може бути використане для збірки PX4 для:
 
 - Pixhawk та іншого апаратного забезпечення на основі NuttX
-- [Симуляція Gazebo Classic](../sim_gazebo_classic/index.md)
+- [Gazebo Classic Simulation](../sim_gazebo_classic/index.md)
 
 :::tip
-Ця установка підтримується командою розробників PX4. Для збірки для інших цільових платформ потрібно використати [інші ОС](../dev_setup/dev_env.md#supported-targets) (або [середовище розробки що не підтримується](../advanced/community_supported_dev_env.md)).
+This setup is supported by the PX4 dev team.
+To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/community_supported_dev_env.md)).
 :::
 
 ## Відеоінструкція
@@ -20,32 +22,35 @@
 ### Налаштування середовища
 
 :::details
-Apple Silicon Macbook users! If you have an Apple M1, M2 etc. Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
+Apple Silicon Macbook users!
+If you have an Apple M1, M2 etc. Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
 
-1. Знайдіть термінальний додаток в теці Utilities (**Finder > Меню > Utilities**)
-2. Виберіть _Terminal.app_ та клацніть правою кнопкою миші, а потім оберіть **Копіювати**
-3. Перейменуйте скопійований додаток терміналу, наприклад _x86 Terminal_
-4. Тепер оберіть перейменований додаток _x86 Terminal_ і клацніть правою кнопкою миші та оберіть _Отримати Інформацію_
-5. Поставте відмітку **Відкрити з Rosetta** та закрийте вікно
-6. Запустіть _x86 Terminal_ як зазвичай, який тепер повинен підтримувати інструментарій PX4
+1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
+2. Select _Terminal.app_ and right-click on it, then choose **Duplicate**.
+3. Rename the duplicated Terminal app, e.g. to _x86 Terminal_
+4. Now select the renamed _x86 Terminal_ app and right-click and choose \*_Get Info_
+5. Check the box for **Open using Rosetta**, then close the window
+6. Run the _x86 Terminal_ as usual, which will fully support the current PX4 toolchain
+
 :::
 
 Спочатку налаштуйте середовище
 
-1. Збільште кількість одночасно відкритих файлів додавши наступний рядок у файл `~/.zshenv` (створивши його якщо необхідно):
+1. Enable more open files by appending the following line to the `~/.zshenv` file (creating it if necessary):
 
    ```sh
    echo ulimit -S -n 2048 >> ~/.zshenv
    ```
 
-:::note
-Якщо ви цього не зробите, інструментарій збірки може повідомити про помилку: `"LD: too many open files"`
+   ::: info
+   If you don't do this, the build toolchain may report the error: `"LD: too many open files"`
+
 :::
 
-1. Забезпечте виконання Python 3 додаванням наступних рядків до `~/.zshenv`
+2. Enforce Python 3 by appending the following lines to `~/.zshenv`
 
    ```sh
-   # Направляємо pip3 на системний pip MacOS 
+   # Point pip3 to MacOS system python 3 pip
    alias pip3=/usr/bin/pip3
    ```
 
@@ -53,15 +58,16 @@ Apple Silicon Macbook users! If you have an Apple M1, M2 etc. Macbook, make sure
 
 Для налаштування середовища з можливістю збірки для обладнання Pixhawk/NuttX (і встановлення загальних інструментів для використання симуляторів):
 
-1. Встановіть Homebrew дотримуючись наступних [інструкцій установки](https://brew.sh).
-1. Виконайте ці команди в командній оболонці для встановлення загальних інструментів:
+1. Install Homebrew by following these [installation instructions](https://brew.sh).
+
+2. Виконайте ці команди в командній оболонці для встановлення загальних інструментів:
 
    ```sh
    brew tap PX4/px4
    brew install px4-dev
    ```
 
-1. Встановіть необхідні пакети Python:
+3. Встановіть необхідні пакети Python:
 
    ```sh
    # install required packages using pip3
@@ -72,7 +78,7 @@ Apple Silicon Macbook users! If you have an Apple M1, M2 etc. Macbook, make sure
 
 ## Симуляція Gazebo Classic
 
-Для встановлення середовища [Gazebo Classic](../sim_gazebo_classic/README.md):
+To setup the environment for [Gazebo Classic](../sim_gazebo_classic/index.md) simulation:
 
 1. Виконайте наступні команди в командній оболонці:
 
@@ -83,11 +89,13 @@ Apple Silicon Macbook users! If you have an Apple M1, M2 etc. Macbook, make sure
    brew link tbb@2020
    ```
 
-:::note
-Станом на вересень 2021: Команди вище - це обхідний шлях для помилки: [PX4-Autopilot#17644](https://github.com/PX4/PX4-Autopilot/issues/17644). Вони можуть бути видалені після того, як вона буде виправлена (разом з цією нотаткою).
+   ::: info
+   September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#17644](https://github.com/PX4/PX4-Autopilot/issues/17644).
+   Вони можуть бути видалені після того, як вона буде виправлена (разом з цією нотаткою).
+
 :::
 
-1. Для встановлення симуляції SITL з Gazebo Classic:
+2. Для встановлення симуляції SITL з Gazebo Classic:
 
    ```sh
    brew install --cask temurin
@@ -95,7 +103,8 @@ Apple Silicon Macbook users! If you have an Apple M1, M2 etc. Macbook, make sure
    brew install px4-sim-gazebo
    ```
 
-1. Запустіть скрипт налаштування macOS: `PX4-Autopilot/Tools/setup/macos.sh` Найпростіший спосіб зробити це - клонувати вихідний код PX4 і потім виконати скрипт з директорії, як показано:
+3. Run the macOS setup script: `PX4-Autopilot/Tools/setup/macos.sh`
+   The easiest way to do this is to clone the PX4 source, and then run the script from the directory, as shown:
 
    ```sh
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
@@ -103,16 +112,18 @@ Apple Silicon Macbook users! If you have an Apple M1, M2 etc. Macbook, make sure
    sh macos.sh
    ```
 
-
 ## Наступні кроки
 
 Після того, як ви закінчите налаштування інструментів командного рядка:
 
-- Встановіть [VSCode](../dev_setup/vscode.md) (якщо ви надаєте перевагу IDE ніж командному рядку).
+- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
+
 - Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
 
-:::tip
-_Денна збірка_ включає інструменти розробки яких немає в релізних збірках. Вона також може надати доступ до нових функцій PX4, які ще не підтримуються в релізних збірках.
+  :::tip
+  The _daily build_ includes development tools that are hidden in release builds.
+  Вона також може надати доступ до нових функцій PX4, які ще не підтримуються в релізних збірках.
+
 :::
 
-- Переходьте до [інструкцій збірки](../dev_setup/building_px4.md).
+- Continue to the [build instructions](../dev_setup/building_px4.md).
