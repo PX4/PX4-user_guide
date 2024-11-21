@@ -64,7 +64,7 @@ Order this module from:
   - 41g (without Pi CM4, Pi SD, and ESC)
   - 53g (bundle with Pi CM4 and Pi SD, without ESC)
 
-## Additional Information
+## 추가 정보
 
 - Included: Flight Controller MicroSD
 - Bundle Option Includes:
