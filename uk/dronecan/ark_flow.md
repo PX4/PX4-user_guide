@@ -1,6 +1,6 @@
 # ARK Flow
 
-ARK Flow - це відкритий код [DroneCAN](index.md) [optical flow](../sensor/optical_flow.md), [сенсор відстані](../sensor/rangefinders.md) та IMU модуль.
+ARK Flow is an open source [DroneCAN](index.md) [optical flow](../sensor/optical_flow.md), [distance sensor](../sensor/rangefinders.md), and IMU module.
 
 ![ARK Flow](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
@@ -12,10 +12,10 @@ ARK Flow - це відкритий код [DroneCAN](index.md) [optical flow](..
 
 ## Характеристики обладнання
 
-- [Схема з відкритим кодом та BOM](https://github.com/ARK-Electronics/ARK_Flow)
+- [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Flow)
 - Сенсори
   - PixArt PAW3902 датчик оптичного потоку
-    - Відстеження в умовах надзвичайно слабкого світла > 9 лк
+    - Tracks under super low light condition of >9 lux
     - Широкий робочий діапазон від 80 мм до 30 м
     - До 7.4 рад/с
   - 40mW ІЧ-світлодіод, вбудований на плату для покращення роботи в умовах слабкого освітлення
@@ -28,7 +28,7 @@ ARK Flow - це відкритий код [DroneCAN](index.md) [optical flow](..
     - Трансмітер пучка 2° x 2° для підсвічування між 1 та 3 пікселями
   - Bosch BMI088 6-Axis IMU або Invensense ICM-42688-P 6-Axis IMU
 - STM32F412CEU6 MCU
-- Два роз'єми стандарту CAN для Pixhawk (4 Pin JST GH)
+- Два роз'єми стандарту CAN для Pixhawk (4 контакти JST GH)
 - Роз'єм для відлагодження стандарту Pixhawk (6 контактів JST SH)
 - Вбудований резистор CAN з можливістю програмованого переключання
 - Малий форм-фактор
@@ -36,85 +36,89 @@ ARK Flow - це відкритий код [DroneCAN](index.md) [optical flow](..
 - LED індикатори
 - USA Built
 
-## Налаштування обладнання
+## Встановлення обладнання
 
 ### Підключення
 
-ARK Flow підключений до шини CAN за допомогою стандартного кабелю JST GH з чотирма контактами Pixhawk. Для отримання додаткової інформації, зверніться до інструкцій з [проводки CAN](../can/index.md#wiring).
+ARK Flow підключений до шини CAN за допомогою стандартного кабелю JST GH з чотирма контактами Pixhawk.
+For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
-### Встановлення
+### Монтаж
 
-Рекомендоване положення монтажу полягає в тому, щоб роз'єми на платі вказували у напрямку **задньої частини дрону**, як показано на наступній картинці.
+The recommended mounting orientation is with the connectors on the board pointing towards **back of vehicle**, as shown in the following picture.
 
 ![ARK Flow align with Pixhawk](../../assets/hardware/sensors/optical_flow/ark_flow_orientation.png)
 
-Це відповідає значенню за замовчуванням (`0`) параметра [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT). Змініть параметр належним чином, якщо використовується інша орієнтація.
+This corresponds to the default value (`0`) of the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT).
+Змініть параметр належним чином, якщо використовується інша орієнтація.
 
-Датчик може бути встановлений де завгодно на рамці, але ви повинні вказати позицію фокусної точки відносно центру мас транспортного засобу під час [налаштування PX4](#px4-configuration).
+The sensor can be mounted anywhere on the frame, but you will need to specify the focal point position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
 ## Налаштування прошивки
 
-ARK Flow працює з [PX4 DroneCAN Firmware](px4_cannode_fw.md). Таким чином, він підтримує оновлення прошивки через шину CAN та [dynamic node allocation](index.md#node-id-allocation).
+ARK Flow runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md).
+As such, it supports firmware update over the CAN bus and [dynamic node allocation](index.md#node-id-allocation).
 
-Плати ARK Flow поставляються з останнім вбудованим програмним забезпеченням, але якщо ви хочете побудувати й прошити останнє програмне забезпечення самостійно, див. [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
+ARK Flow boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
-- Ціль прошивки: `ark_can-flow_default`
-- Ціль завантажувача: `ark_can-flow_canbootloader`
+- Firmware target: `ark_can-flow_default`
+- Bootloader target: `ark_can-flow_canbootloader`
 
 ## Налаштування польотного контролера
 
-::: інформація
-Ark Flow не завантажиться, якщо SD-карти немає у контролері польоту під час ввімкнення.
+:::info
+The Ark Flow will not boot if there is no SD card in the flight controller when powered on.
 :::
 
-### Увімкнення DroneCAN
+### Увімкнути DroneCAN
 
-Для використання плати ARK Flow підключіть її до шини CAN Pixhawk та увімкніть драйвер UAVCAN, встановивши параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) на `2` для динамічного призначення вузла (або `3`, якщо використовуєте [DroneCAN ESCs](../dronecan/escs.md)).
+In order to use the ARK Flow board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
 Кроки наступні:
 
-- У _QGroundControl_ встановіть параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) на `2` або `3` та перезавантажте (див. [Finding/Updating Parameters](../advanced_config/parameters.md)).
+- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Підключіть ARK Flow CAN до шини CAN Pixhawk.
 
-Після активації модуль буде виявлено при завантаженні. Дані потоку повинні надходити з частотою 10 Гц.
+Після активації модуль буде виявлено при завантаженні.
+Дані потоку повинні надходити з частотою 10 Гц.
 
-Конфігурацію DroneCAN в PX4 пояснено більш детально в [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
+DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
-### Конфігурація PX4
+### Налаштування PX4
 
-Потрібно встановити параметри оптичного потоку EKF для активації вимірювань оптичного потоку для розрахунку швидкості, встановити необхідні параметри [DroneCAN](index.md) та визначити зміщення, якщо датчик не знаходиться в центрі літального апарата.
+You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [DroneCAN](index.md) parameters, and define offsets if the sensor is not centred within the vehicle.
 
-Встановіть наступні параметри в _QGroundControl_:
+Set the following parameters in _QGroundControl_:
 
-- Увімкніть синтез оптичного потоку, встановивши [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL).
-- Щоб опціонально вимкнути підтримку GPS, встановіть [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) на `0`.
-- Увімкніть [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW).
-- Увімкніть [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG).
-- Встановіть [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX) на `10`.
-- Встановіть [EKF2_RNG_QLTY_T](../advanced_config/parameter_reference.md#EKF2_RNG_QLTY_T) на `0.2`.
-- Встановіть [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN) на `0.08`.
-- Встановіть [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) на `30`.
-- Встановіть [SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) на `0.08`.
-- Встановіть [SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) на `25`.
-- Встановіть [SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR) на `7.4`, щоб відповідав максимальній кутовій швидкості потоку PAW3902.
-- Параметри [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) та [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) можуть бути встановлені для врахування зміщення Ark Flow від центру мас транспортного засобу.
+- Enable optical flow fusion by setting [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL).
+- To optionally disable GPS aiding, set [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to `0`.
+- Enable [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW).
+- Enable [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG).
+- Set [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX) to `10`.
+- Set [EKF2_RNG_QLTY_T](../advanced_config/parameter_reference.md#EKF2_RNG_QLTY_T) to `0.2`.
+- Set [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN) to `0.08`.
+- Set [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) to `30`.
+- Set [SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) to `0.08`.
+- Set [SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) to `25`.
+- Set [SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR) to `7.4` to match the PAW3902 maximum angular flow rate.
+- The parameters [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) and [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) can be set to account for the offset of the Ark Flow from the vehicle centre of gravity.
 
 ## Конфігурування потоку Ark
 
 На ARK Flow можливо вам доведеться налаштувати наступні параметри:
 
-| Параметр                                                                                        | Опис                           |
-| ----------------------------------------------------------------------------------------------- | ------------------------------ |
+| Параметр                                                                                                             | Опис                                           |
+| -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | Вбудована завершення шини CAN. |
 
-## Значення LED індикаторів
+## Значення світлодіодів
 
 Ви побачите як червоні, так і сині світлодіоди на ARK Flow коли він прошивається, і постійний синій світлодіод, якщо він працює належним чином.
 
 Якщо ви бачите червоний світлодіод, це означає, що виникла помилка, і вам слід перевірити наступне:
 
 - Переконайтеся, що у польотному контролері встановлено SD-картку.
-- Переконайтеся, що Ark Flow має встановлене `ark_can-flow_canbootloader` перед тим, як прошивати `ark_can-flow_default`.
+- Make sure the Ark Flow has `ark_can-flow_canbootloader` installed prior to flashing `ark_can-flow_default`.
 - Видаліть бінарні файли з кореневих та ufw директорій SD-карти та спробуйте зібрати та знову прошити.
 
 ## Відео
@@ -123,7 +127,7 @@ Ark Flow не завантажиться, якщо SD-карти немає у �
 
 <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
 
-_PX4 утримує позицію за допомогою датчика потоку ARK для оцінки швидкості (у [Режим позиції](../flight_modes_mc/position.md))._
+_PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md))._
 
 ## Дивіться також
 
