@@ -30,7 +30,7 @@ MoCap is commonly used to navigate a vehicle in situations where GPS is absent (
 - [Flying with Motion Capture (VICON, NOKOV, Optitrack)](../tutorials/motion-capture.md)
 - [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 
-## 비쥬얼 관성 오도메트리
+## Visual Inertial Odometry (VIO)
 
 Visual Inertial Odometry (VIO) is used for estimating the 3D _pose_ (position and orientation) and _velocity_ of a moving vehicle relative to a _local_ starting position.
 보통 GPS가 빠졌거나 (예: 실내) 신뢰할 수 없을 때(예: 다리 아래로 비행할 경우) 기체 운행에 활용합니다.
