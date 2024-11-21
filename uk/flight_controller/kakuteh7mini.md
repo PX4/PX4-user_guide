@@ -3,23 +3,24 @@
 <Badge type="tip" text="PX4 v1.13" />
 
 :::warning
-PX4 не займається виготовленням цього (чи якогось іншого) автопілоту. Звертайтесь до [виробника](https://holybro.com/) щодо питань апаратного забезпечення або питань відповідності.
+PX4 не розробляє цей (або будь-який інший) автопілот.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-Польотний контролер [Holybro Kakute H7 mini](https://holybro.com/collections/autopilot-flight-controllers/products/kakute-h7-mini) призначений для легких корпусів (таких як гонщики тощо).
+The [Holybro Kakute H7 mini](https://holybro.com/collections/autopilot-flight-controllers/products/kakute-h7-mini) flight controller is intended for lightweight frame builds (such as racers, etc.).
 
 Цей контролер польоту повний функцій, включаючи роз'єм для HD-камери, подвійні роз'єми ESC 4in1 plug-and-play, перемикач VTX ON/OFF Pit (напруга батареї), барометр, OSD, 6x UART, 128 МБ Flash для журналювання (ще не підтримується з PX4), BEC на 5В, та більші пластини для паяння з простим розташуванням та багато іншого.
 
-Kakute H7 mini базується на кращих рисах свого попередника, [Kakute F7](../flight_controller/kakutef7.md), та [Kakute H7](../flight_controller/kakuteh7.md). Плата також має вбудований барометр, світлодіод & п'єзоімпульс, а також контакт I2C (SDA & SCL) для зовнішніх GPS/магнітомерів.
+The Kakute H7 mini builds upon the best features of its predecessor, the [Kakute F7](../flight_controller/kakutef7.md), and the [Kakute H7](../flight_controller/kakuteh7.md). The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & SCL) for external GPS/magnetometers.
 
 <img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_top.jpg" width="300px" title="KakuteH7Mini Top Image" /> <img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_bottom.jpg" width="300px" title="KakuteH7Mini Bottom Image" />
 
-::: info
-Цей польотний контролер [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-::: info
-PX4 запускається на H7 mini v1.3 та більш пізніх моделях.
+:::info
+PX4 runs on the H7 mini v1.3 and later.
 :::
 
 ## Основні характеристики
@@ -31,15 +32,15 @@ PX4 запускається на H7 mini v1.3 та більш пізніх мо
 - 6x UARTs (1,2,3,4,6,7)
 - VTX On/Off Pit Switch: Не використовується з PX4
 - 9x Вихід PWM (8 Вихід Двигуна, 1 Світлодіод)
-- 2x порт JST-SH1.0_8pin (для одиночних або 4-в-1 ESCs, сумісне з x8/Octocopter plug & play)
-- 1x порт JST-GH1.5_6pin (для HD-системи, такої як Caddx Vista & Air Unit)
+- 2x JST-SH1.0_8pin port (For Single or 4in1 ESCs, x8/Octocopter plug & play compatible)
+- 1x JST-GH1.5_6pin port (For HD System like Caddx Vista & Air Unit)
 - Напруга введення батареї: 2S-6S
-- BEC 5V 2A Cont.
-- Монтаж: 20 х 20 мм / отвір Φ3,6 мм з прокладками M3 & M2
+- BEC 5В 2A &Cont.
+- Mounting: 20 x 20mm/Φ3.6mm hole with M3 & M2 Grommets
 - Розміри: 30x31x6мм
 - Вага: 5.5г
 
-## Де придбати
+## Де купити
 
 Плату можна придбати в одному з наступних магазинів (наприклад):
 
@@ -49,39 +50,41 @@ PX4 запускається на H7 mini v1.3 та більш пізніх мо
 
 <img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_pinout.jpg" width="300px" title="KakuteH7Mini Pinout Image" />
 
-| Пін      | Функція                                                                       | PX4 default                 |
-| -------- | ----------------------------------------------------------------------------- | --------------------------- |
-| B+       | Позитивна напруга батареї (2S-6S)                                             |                             |
-| VTX+     | Позитивна напруга батареї (2S-6S)                                             |                             |
-| SDA, SCL | Підключення I2C (для периферійних пристроїв)                                  |                             |
-| 5V       | 5В вихід (максимум 2A)                                                        |                             |
-| 3V3      | 3.3В вивід (максимум 0.25A)                                                   |                             |
-| VI       | Відеовхід з камери FPV                                                        |                             |
-| VO       | Відеовихід на відеопередавач                                                  |                             |
-| CAM      | На контроль OSD камери                                                        |                             |
-| G or GND | Заземлення                                                                    |                             |
-| RSI      | Аналоговий вхід RSSI (0-3,3 В) від приймача                                   |                             |
-| R1, T1   | UART1 RX і TX                                                                 | TELEM1                      |
-| R2, T2   | UART2 RX і TX                                                                 | TELEM2                      |
-| R3, T3   | UART3 RX і TX                                                                 | Консоль відлагодження NuttX |
-| R4, T4   | UART4 RX і TX                                                                 | GPS1                        |
-| R6, T6   | UART6 RX і TX (R6 також розташований в GH plug)                               | RC port                     |
-| R7       | UART7 RX (RX знаходиться у роз'ємі для використання з 4-в-1 ESC)              | Телеметрія DShot            |
-| LED      | Дріт сигнальний для адресованих світлодіодів WS2182 (не тестувався)           |                             |
-| Z-       | Негативна нога п'єзожучка (Підключіть позитивну ногу динаміку до контакту 5В) |                             |
-| M1 to M4 | Вихід сигналу двигуна (розташований у роз'ємі для використання в 4-в-1 ESC)   |                             |
-| M5 to M8 | Вихід сигналу двигуна (розташований у роз'ємі для використання в 4-в-1 ESC)   |                             |
-| Boot     | Кнопка завантажувача                                                          |                             |
+| Pin          | Функція                                                                                          | PX4 default                 |
+| ------------ | ------------------------------------------------------------------------------------------------ | --------------------------- |
+| B+           | Позитивна напруга батареї (2S-6S)                                             |                             |
+| VTX+         | Позитивна напруга батареї (2S-6S)                                             |                             |
+| SDA, SCL     | Підключення I2C (для периферійних пристроїв)                                  |                             |
+| 5V           | Вихід 5В (максимум 2A)                                                        |                             |
+| 3V3          | Вихід 3.3В (максимум 0.25A)                   |                             |
+| VI           | Відеовхід з камери FPV                                                                           |                             |
+| VO           | Відеовихід на відеопередавач                                                                     |                             |
+| CAM          | Контроль OSD камери                                                                              |                             |
+| G або GND    | Заземлення                                                                                       |                             |
+| RSI          | Аналоговий вхід RSSI (0-3,3 В) від приймача                                   |                             |
+| R1, T1       | UART1 RX та TX                                                                                   | TELEM1                      |
+| R2, T2       | UART2 RX та TX                                                                                   | TELEM2                      |
+| R3, T3       | UART2 RX та TX                                                                                   | Консоль відлагодження NuttX |
+| R4, T4       | UART4 RX та TX                                                                                   | GPS1                        |
+| R6, T6       | UART6 RX та TX (R6 також розташований в GH plug)                              | RC порт                     |
+| R7           | UART7 RX (RX знаходиться у роз'ємах для використання з 4-в-1 ESC)             | Телеметрія DShot            |
+| LED          | Дріт сигнальний для адресованих світлодіодів WS2182 (не тестувався)           |                             |
+| Z-           | Негативна нога п'єзожучка (Підключіть позитивну ногу динаміку до контакту 5В) |                             |
+| M1 до M4     | Вихід сигналу двигуна (розташований у роз'ємі для використання в 4-в-1 ESC)   |                             |
+| M5 to M8     | Вихід сигналу двигуна (розташований у роз'ємі для використання в 4-в-1 ESC)   |                             |
+| Завантаження | Кнопка завантажувача                                                                             |                             |
 
 <a id="bootloader"></a>
 
 ## Оновлення завантажувача PX4
 
-Плата поставляється із заздалегідь встановленою [Betaflight](https://github.com/betaflight/betaflight/wiki). Перед встановленням прошивки PX4 необхідно прошити _завантажувач PX4_. Завантажте завантажувальний бінарний файл [holybro_kakuteh7mini_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7mini/holybro_kakuteh7mini_bootloader.hex) та прочитайте [цю сторінку](../advanced_config/bootloader_update_from_betaflight.md) для інструкцій з прошивки.
+The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki).
+Before the PX4 firmware can be installed, the _PX4 bootloader_ must be flashed.
+Download the [holybro_kakuteh7mini_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7mini/holybro_kakuteh7mini_bootloader.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
-## Створення прошивки
+## Збірка прошивки
 
-Щоб [зібрати PX4](../dev_setup/building_px4.md) для цього контролера:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make holybro_kakuteh7mini_default
@@ -89,8 +92,9 @@ make holybro_kakuteh7mini_default
 
 ## Встановлення прошивки PX4
 
-::: info
-Якщо ви завантажуєте попередню прошивку через QGroundcontrol, ви повинні використовувати QGC Daily або QGC версію новішу від 4.1.7. До випуску вам потрібно буде вручну зібрати та встановити прошивку.
+:::info
+Якщо ви завантажуєте готове програмне забезпечення через QGroundcontrol, вам необхідно використовувати щоденну версію QGC або версію QGC новішу за 4.1.7.
+До випуску вам потрібно буде вручну зібрати та встановити прошивку.
 :::
 
 Прошивку можна встановити вручну будь-якими звичайними способами:
@@ -101,42 +105,43 @@ make holybro_kakuteh7mini_default
   make holybro_kakuteh7mini_default upload
   ```
 
-- [Завантажте прошивку](../config/firmware.md) за допомогою _QGroundControl_. Ви можете використовувати або готове вбудоване програмне забезпечення, або власне користувацьке програмне забезпечення.
+- [Load the firmware](../config/firmware.md) using _QGroundControl_.
+  Ви можете використовувати або готове вбудоване програмне забезпечення, або власне користувацьке програмне забезпечення.
 
-::: info
-KakuteH7mini підтримується з PX4 головною та v1.14 або новішою.
+:::info
+KakuteH7mini is supported with PX4 main and v1.14 or newer.
 :::
 
 ## Налаштування PX4
 
-Крім [основних налаштувань](../config/index.md), важливі наступні параметри:
+In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
-| Параметр                                                               | Налаштування                                                                                                                  |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Параметр                                                                                                       | Налаштування                                                                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | Це має бути вимкнено, оскільки у платі немає внутрішнього магніту. Ви можете активувати це, якщо приєднаєте зовнішній магніт. |
 
-## Зіставлення послідовних портів
+## Serial Port Mapping
 
-| UART   | Пристрій   | Порт                  |
-| ------ | ---------- | --------------------- |
-| USART1 | /dev/ttyS0 | TELEM1                |
-| UART2  | /dev/ttyS1 | TELEM2                |
-| USART3 | /dev/ttyS2 | Debug Console         |
-| UART4  | /dev/ttyS3 | GPS1                  |
-| USART6 | /dev/ttyS4 | RC SBUS               |
-| UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
+| UART   | Пристрій   | Порт                                      |
+| ------ | ---------- | ----------------------------------------- |
+| USART1 | /dev/ttyS0 | TELEM1                                    |
+| UART2  | /dev/ttyS1 | TELEM2                                    |
+| USART3 | /dev/ttyS2 | Debug Console                             |
+| UART4  | /dev/ttyS3 | GPS1                                      |
+| USART6 | /dev/ttyS4 | RC SBUS                                   |
+| UART7  | /dev/ttyS5 | Телеметрія ESC (DShot) |
 
 ## Відладочний порт
 
 ### Системна консоль
 
-UART3 RX та TX налаштовані для використання як [Системна Консоль](../debug/system_console.md).
+UART3 RX and TX are configured for use as the [System Console](../debug/system_console.md).
 
 ### SWD
 
-Інтерфейс [SWD](../debug/swd_debug.md) (JTAG) має такі контакти:
+The [SWD interface](../debug/swd_debug.md) (JTAG) pins are:
 
-- `SWCLK`: Тестова точка 2 (Pin 72 на процесорі)
-- `SWDIO`: Тестова точка 3 (Pin 76 на процесорі)
-- `GND`: Як позначено на платі
-- `VDD_3V3`: Як позначено на платі
+- `SWCLK`: Test Point 2 (Pin 72 on the CPU)
+- `SWDIO`: Test Point 3 (Pin 76 on CPU)
+- `GND`: As marked on board
+- `VDD_3V3`: As marked on board
