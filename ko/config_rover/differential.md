@@ -277,7 +277,7 @@ If the distance from the path to the rover is bigger than the lookahead distance
 
 To summarize, the following parameters can be used to tune the controller:
 
-| Parameter                                                                                                                                          | Description                             | Unit |
+| 매개변수                                                                                                                                               | 설명                                      | Unit |
 | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---- |
 | <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN) | Main tuning parameter                   | -    |
 | <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)    | Maximum value for the look ahead radius | m    |
@@ -287,7 +287,7 @@ To summarize, the following parameters can be used to tune the controller:
 
 List of all parameters of the differential rover module:
 
-| Parameter                                                                                                                                                                                       | Description                                                            | Unit    |
+| 매개변수                                                                                                                                                                                            | 설명                                                                     | Unit    |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------- |
 | <a id="RD_WHEEL_TRACK"></a>[RD_WHEEL_TRACK](../advanced_config/parameter_reference.md#RD_WHEEL_TRACK)                                                 | Wheel track                                                            | m       |
 | <a id="RD_MAX_THR_YAW_R"></a>[RD_MAX_THR_YAW_R](../advanced_config/parameter_reference.md#RD_MAX_THR_YAW_R) | Yaw rate turning left/right wheels at max speed in opposite directions | m/s     |
