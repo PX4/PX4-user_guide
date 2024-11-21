@@ -6,7 +6,7 @@ The _Takeoff_ flight mode causes the vehicle to take off to a specified height a
 
 Vehicles are [hand or catapult launched](#catapult-hand-launch) by default, but can also be [configured](#RWTO_TKOFF) to use a [runway takeoff](#runway-takeoff) when supported by the hardware.
 
-::: info
+:::note
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires at least a valid local position estimate (does not require a global position).
