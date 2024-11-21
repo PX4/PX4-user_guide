@@ -105,14 +105,14 @@ The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is gre
 
 #### Data Port
 
-| 핀     | 신호  | 전압    |
-| ----- | --- | ----- |
-| 1 (적) | NC  | --    |
-| 2 (흑) | RX  | +3.3V |
-| 3 (흑) | TX  | +3.3V |
-| 4 (흑) | CTS | +3.3V |
-| 5 (흑) | RTS | +3.3V |
-| 6 (흑) | GND | GND   |
+| 핀      | 신호  | 전압    |
+| ------ | --- | ----- |
+| 1(red) | NC  | --    |
+| 2 (흑)  | RX  | +3.3V |
+| 3 (흑)  | TX  | +3.3V |
+| 4 (흑)  | CTS | +3.3V |
+| 5 (흑)  | RTS | +3.3V |
+| 6 (흑)  | GND | GND   |
 
 #### Power Port
 
