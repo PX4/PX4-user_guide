@@ -54,6 +54,6 @@ cd build/creator
 cmake ../.. -G "CodeBlocks - Unix Makefiles"
 ```
 
-설정이 종료되었습니다. Start _Qt Creator_ and then set up the project to build.
+끝났습니다! Start _Qt Creator_ and then set up the project to build.
 
 <!-- note, video here was removed/made private, and in any case out of date. Just hoping people can work it out -->
