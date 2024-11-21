@@ -132,7 +132,7 @@
 
   - [비행 컨트롤러 (오토파일럿)](flight_controller/index.md)
     - [비행 콘트롤러 선정](getting_started/flight_controller_selection.md)
-    - [Pixhawk 시리즈](flight_controller/pixhawk_series.md)
+    - [Pixhawk 시리즈 ](flight_controller/pixhawk_series.md)
       - [실리콘 정오표](flight_controller/silicon_errata.md)
     - [표준 픽스호크 자동항법장치](flight_controller/autopilot_pixhawk_standard.md)
       - [NXP MR-VMU-RT1176 FMU (FMUv6X-RT)](flight_controller/nxp_mr_vmu_rt1176.md)
