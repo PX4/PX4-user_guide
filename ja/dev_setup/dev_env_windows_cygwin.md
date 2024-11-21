@@ -91,7 +91,7 @@ Once you have finished setting up the command-line toolchain:
 - Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
 - Continue to the [build instructions](../dev_setup/building_px4.md).
 
-## Troubleshooting
+## トラブルシューティング
 
 ### File Monitoring Tools vs Toolchain Speed
 
