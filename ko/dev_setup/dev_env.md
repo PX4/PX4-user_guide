@@ -10,21 +10,21 @@ The _supported platforms_ for PX4 development are:
 
 아래 표는 각 OS에서 구축 가능한 PX 대상을 보여줍니다.
 
-| 대상                                                                                                                                     | Linux (Ubuntu) |   Mac   |   윈도우   |
-| -------------------------------------------------------------------------------------------------------------------------------------- |:--------------:|:-------:|:-------:|
-| **NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles_mc/crazyflie2.md) |    &check;     | &check; | &check; |
-| **Linux 기반 하드웨어:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                                     |    &check;     |         |         |
-| **Simulation:** [Gazebo SITL](../sim_gazebo_gz/index.md)                                                                               |    &check;     | &check; | &check; |
-| **Simulation:** [Gazebo Classic SITL](../sim_gazebo_classic/index.md)                                                                  |    &check;     | &check; | &check; |
-| **Simulation:** [ROS with Gazebo Classic](../simulation/ros_interface.md)                                                              |    &check;     |         | &check; |
-| **Simulation:** ROS 2 with Gazebo                                                                                                      |    &check;     |         | &check; |
+| 대상                                                                                                                                                     | Linux (Ubuntu) |               Mac               |               윈도우               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------: | :-----------------------------: | :-----------------------------: |
+| **NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles_mc/crazyflie2.md) |  &amp;check;  | &amp;check; | &amp;check; |
+| **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                              |  &amp;check;  |                                 |                                 |
+| **Simulation:** [Gazebo SITL](../sim_gazebo_gz/index.md)                                                                               |  &amp;check;  | &amp;check; | &amp;check; |
+| **Simulation:** [Gazebo Classic SITL](../sim_gazebo_classic/index.md)                                                                  |  &amp;check;  | &amp;check; | &amp;check; |
+| **Simulation:** [ROS with Gazebo Classic](../simulation/ros_interface.md)                                                              |  &amp;check;  |                                 | &amp;check; |
+| **Simulation:** ROS 2 with Gazebo                                                                                                      |  &amp;check;  |                                 | &amp;check; |
 
-숙련된 Docker 사용자는 지속적 통합 시스템 [Docker Containers](../test_and_ci/docker.md)컨테이너로 빌드할 수 있습니다.
+Experienced Docker users can also build with the containers used by our continuous integration system: [Docker Containers](../test_and_ci/docker.md)
 
 ## 다음 단계
 
 위의 명령줄 도구 모음 중 하나를 설정하고, 다음 단계를 실행합니다.
 
-- [VSCode](../dev_setup/vscode.md)를 설치합니다(명령줄에 IDE 사용을 선호하는 경우).
+- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
 - Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
-- [PX4 소프트웨어를 구축](../dev_setup/building_px4.md)합니다.
+- Continue to [Building PX4 Software](../dev_setup/building_px4.md).
