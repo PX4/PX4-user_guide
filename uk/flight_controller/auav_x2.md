@@ -3,19 +3,21 @@
 <Badge type="info" text="Discontinued" />
 
 :::warning
-Цей політний контролер був [знятий з виробництва](../flight_controller/autopilot_experimental.md) і більше не продається комерційно.
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning PX4 не виробляє цей (або будь-який) автопілот. Зверніться до [виробника](https://store.mrobotics.io/) щодо питань технічної підтримки або відповідності вимогам.
+:::warning
+PX4 не розробляє цей (або будь-який інший) автопілот.
+Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
-Автопілот [AUAV<sup>®</sup>](http://www.auav.com/) _AUAV-X2_ базується на відкритому апаратному дизайні [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2**. Він виконує PX4 на ОС [NuttX](https://nuttx.apache.org/).
+The [AUAV<sup>&reg;</sup>](http://www.auav.com/) _AUAV-X2 autopilot_ is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
-![AUAVX2_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
+![AUAVX2\_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
 
 ## Короткий опис
 
-- Основна System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+- Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   - Процесор: мікроконтролер ARM STM32F427VIT6 - Ревізія 3
   - ІО: мікроконтролер ARM STM32F100C8T6
 - Датчики:
@@ -49,12 +51,14 @@
 
 ## Доступність
 
-Більше не у виробництві. Це було замінено [mRo X2.1](mro_x2.1.md). mRobotics є дистриб'ютором продукції AUAV з серпня 2017 року.
+Більше не у виробництві.
+This has been superseded by the [mRo X2.1](mro_x2.1.md).
+mRobotics є дистриб'ютором продукції AUAV з серпня 2017 року.
 
 ## Ключові посилання
 
-- [Посібник користувача](http://arsovtech.com/wp-content/uploads/2015/08/AUAV-X2-user-manual-EN.pdf)
-- [Пост про DIY дрони](http://diydrones.com/profiles/blogs/introducing-the-auav-x2-1-flight-controller)
+- [User Manual](http://arsovtech.com/wp-content/uploads/2015/08/AUAV-X2-user-manual-EN.pdf)
+- [DIY Drones Post](http://diydrones.com/profiles/blogs/introducing-the-auav-x2-1-flight-controller)
 
 ## Посібник з підключення
 
@@ -68,20 +72,21 @@
 
 ## Креслення
 
-Плата базується на проекті [Pixhawk](https://pixhawk.org/) відкритого апаратного забезпечення **FMUv2**.
+The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
 
-- [Схема FMUv2 + IOv2](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Схема та макет
+- [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
 
-:::info Як дизайн Open Hardware з ліцензією CC-BY-SA 3.0, всі схеми та файли дизайну доступні [тут](https://github.com/PX4/Hardware).
+:::info
+As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 :::
 
-## Зіставлення послідовних портів
+## Serial Port Mapping
 
-| UART   | Пристрій   | Порт                       |
-| ------ | ---------- | -------------------------- |
-| UART1  | /dev/ttyS0 | IO debug                   |
+| UART   | Пристрій   | Порт                                          |
+| ------ | ---------- | --------------------------------------------- |
+| UART1  | /dev/ttyS0 | IO debug                                      |
 | USART2 | /dev/ttyS1 | TELEM1 (керування потоком) |
 | USART3 | /dev/ttyS2 | TELEM2 (керування потоком) |
-| UART4  |            |                            |
-| UART7  | CONSOLE    |                            |
-| UART8  | SERIAL4    |                            |
+| UART4  |            |                                               |
+| UART7  | CONSOLE    |                                               |
+| UART8  | SERIAL4    |                                               |
