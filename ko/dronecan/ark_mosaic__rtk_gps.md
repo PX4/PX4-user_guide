@@ -38,7 +38,7 @@ Order this module from:
   - GPS Fix
   - RTK Status
   - RGB System Status LED
-- Additional Information
+- 추가 정보
   - Includes 4 Pin Pixhawk Standard CAN Cable
   - Triple Band (L1/L2/L5) Helical GPS Antenna
   - USA Built
