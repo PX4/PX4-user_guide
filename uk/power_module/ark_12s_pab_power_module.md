@@ -4,7 +4,7 @@ The [ARK 12S PAB Power Module](https://arkelectron.gitbook.io/ark-documentation/
 
 ![ARK 12S PAB Power Module](../../assets/hardware/power_module/ark_power_modules//ark_12s_pab_power_module.jpg)
 
-## Де придбати
+## Де купити
 
 Замовте цей модуль з:
 
