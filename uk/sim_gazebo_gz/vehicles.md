@@ -138,7 +138,7 @@ make px4_sitl gz_standard_vtol
 
 ![Стандартний ВЗІП в Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
 
-## Ровер
+## Землехід
 
 ### Differential Rover
 
