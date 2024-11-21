@@ -4,17 +4,17 @@
 
 Користувачам Linux потрібно явно дозволити доступ до USB шини для адаптерів програмування JTAG.
 
-:::note
-Для Archlinux: замінить групу користувачів plugdev на групу uucp в нижченаведених командах
+:::info
+For Archlinux: replace the group plugdev with uucp in the following commands
 :::
 
-Просто запустіть `ls` в режимі `sudo` для того, щоб переконатися, що команди нижче виконаються:
+Run a simple `ls` in `sudo` mode to ensure the commands below succeed:
 
 ```sh
 sudo ls
 ```
 
-Тоді з тимчасово отриманими правами `sudo` запустіть наступну команду:
+Then with `sudo` rights temporarily granted, run this command:
 
 ```sh
 cat > $HOME/rule.tmp <<_EOF
@@ -29,7 +29,7 @@ sudo mv $HOME/rule.tmp /etc/udev/rules.d/10-px4.rules
 sudo /etc/init.d/udev restart
 ```
 
-Вашого користувача потрібно додати до групи **plugdev**:
+The user needs to be added to the group **plugdev**:
 
 ```sh
 sudo usermod -a -G plugdev $USER
