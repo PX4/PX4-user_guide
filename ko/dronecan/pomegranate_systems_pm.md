@@ -1,6 +1,8 @@
 # Pomegranate Systems Power Module
 
-::: info In 2022, UAVCAN (v0) was forked and is maintained as `DroneCAN`. While this product still mentions "UAVCAN", it is fully compatible with PX4's DroneCAN support.
+:::info
+In 2022, UAVCAN (v0) was forked and is maintained as `DroneCAN`.
+While this product still mentions "UAVCAN", it is fully compatible with PX4's DroneCAN support.
 :::
 
 ![Module Image](../../assets/hardware/power_module/pomegranate_systems_pm/main_image.jpg)
@@ -31,17 +33,18 @@ Detailed setup, configuration, and troubleshooting information can be found on t
   - **Without Connectors:** 9g
   - **With XT60PW Connectors:** 16g
 
-![크기](../../assets/hardware/power_module/pomegranate_systems_pm/mechanical.png)
+![Dimensions](../../assets/hardware/power_module/pomegranate_systems_pm/mechanical.png)
 
 ## Firmware Setup
 
-The power module runs pomegranate systems' own custom (open source) firmware. Source code and build instructions can be found on [the bitbucket](https://bitbucket.org/p-systems/firmware/src/master).
+The power module runs pomegranate systems' own custom (open source) firmware.
+Source code and build instructions can be found on [the bitbucket](https://bitbucket.org/p-systems/firmware/src/master).
 
 ## Flight Controller Setup
 
 1. Enable DroneCAN by setting the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter to `2` (Sensors Automatic Config) or `3`.
-1. Enable DroneCAN battery monitoring by setting [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT) to `1` or `2` ( depending on your battery).
-1. Set the following module parameters using the [MAVLink console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html):
+2. Enable DroneCAN battery monitoring by setting [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT) to `1` or `2` ( depending on your battery).
+3. Set the following module parameters using the [MAVLink console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html):
    - Battery capacity in mAh: `battery_capacity_mAh`
    - Battery voltage when _full_: `battery_full_V`,
    - Battery voltage when _empty_: `battery_empty_V`
