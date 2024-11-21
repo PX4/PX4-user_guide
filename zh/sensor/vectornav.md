@@ -21,14 +21,14 @@ In particular the following systems are recommended:
 - **VN-200 GNSS/INS:** Recommended for fixed-wing systems without hovering, where static heading is not necessary.
 - **VN-300 DUAL GNSS/INS:** Recommended for multicopter systems where hovering and low dynamics requires the use of static heading.
 
-## 在哪里买
+## 购买渠道
 
 VectorNav IMU/AHRS, GNSS/INS, and Dual GNSS/INS solutions are available directly from [VectorNav Technologies](https://www.vectornav.com/store/products) (US) or through their Global Sales Representatives. For more information on their solutions or for international orders, please contact sales@vectornav.com.
 
 [Purchase VN-200 Development Kit](https://www.vectornav.com/store/products/gnss-ins/p/vn-200-rugged-development-kit) (GNSS/INS)
 [Purchase VN-300 Development Kit](https://www.vectornav.com/store/products/dual-gnss-ins/p/vn-300-rugged-development-kit) (Dual GNSS/INS)
 
-## Hardware Setup
+## 硬件安装
 
 ### 布线
 
