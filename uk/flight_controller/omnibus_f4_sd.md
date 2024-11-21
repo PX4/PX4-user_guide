@@ -1,41 +1,43 @@
 # Omnibus F4 SD
 
 :::warning
-Цей політний контролер був [знятий з виробництва](../flight_controller/autopilot_experimental.md) і більше не продається комерційно.
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
 :::warning
-PX4 не виробляє цей (чи будь-який інший) автопілот.
+PX4 не розробляє цей (або будь-який інший) автопілот.
 Звертайтесь до виробника з питань щодо підтримки або відповідності.
 :::
 
-_Omnibus F4 SD_ - це плата контролера, розроблена для гонщиків. На відміну від звичайної гоночної дошки, вона має деякі додаткові функції, такі як SD-карта та швидший процесор.
+The _Omnibus F4 SD_ is a controller board designed for racers.
+На відміну від звичайної гоночної дошки, вона має деякі додаткові функції, такі як SD-карта та швидший процесор.
 
 <img src="../../assets/flight_controller/omnibus_f4_sd/board.jpg" width="400px" title="Omnibus F4 SD" />
 
-Ось основні відмінності в порівнянні з [Pixracer](../flight_controller/pixracer.md):
+These are the main differences compared to a [Pixracer](../flight_controller/pixracer.md):
 
 - Нижча ціна
 - Менше портів вводу/виводу (хоча все ще можна підключити GPS або датчик потоку, наприклад)
-- Для зовнішнього GPS потрібен зовнішній підтягувальний резистор на шині I2C, див. [I2C](#i2c) нижче.
+- Requires external pull up resistor on the I2C bus for external GPS, see [I2C](#i2c) below.
 - Менше ОЗП (192 КБ проти 256 КБ) та FLASH (1 МБ проти 2 МБ)
-- Ті ж розміри плати, що й у _Pixracer_, але трохи менший форм-фактор (тому що в неї менше роз'ємів)
+- Same board dimensions as a _Pixracer_, but slightly smaller form factor (because it has less connectors)
 - Інтегрований OSD (ще не реалізований у програмному забезпеченні)
 
 :::tip
-Усі звичайні функції PX4 все ще можна використовувати для вашого гонщика!
+All the usual PX4 features can still be used for your racer!
 :::
 
-::: info Цей польотний контролер [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Основні характеристики
 
-- Основний System-on-Chip: [STM32F405RGT6](https://www.st.com/en/microcontrollers/stm32f405rg.html)
+- Main System-on-Chip: [STM32F405RGT6](https://www.st.com/en/microcontrollers/stm32f405rg.html)
   - CPU: 168 МГц ARM Cortex M4 з одноточним FPU
   - RAM: 192 KB SRAM
   - FLASH: 1 МБ
-- Стандартний гоночний форм-фактор: 36x36 мм зі стандартним розміром отворів 30,5 мм
+- Стандартна форма гонщика: 36x36 мм зі стандартним отвором 30,5 мм
 - MPU6000 Акселератор / Гіроскоп
 - BMP280 Baro (встановлений не на всі плати)
 - microSD (логування)
@@ -44,22 +46,25 @@ _Omnibus F4 SD_ - це плата контролера, розроблена д�
 - Вбудований датчик струму
 - Вбудований чіп OSD (AB7456 через SPI)
 
-## Де придбати
+## Де купити
 
 Дошка виробляється різними вендорами, з деякими варіаціями (наприклад, з барометром або без нього).
 
-:::tip PX4 сумісний з платами, які підтримують таргет Betaflight OMNIBUSF4SD (якщо на сторінці продукту вказано _OMNIBUSF4SD_, то плата повинна працювати з PX4).
+:::tip
+PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if _OMNIBUSF4SD_ is present on the product page the board should work with PX4).
 :::
 
 :::tip
-Будь-яка похідна з міткою Omnibus F4 (наприклад, клон) також повинна працювати. Однак розподіл живлення на цих платах має різну якість.
+Any Omnibus F4 labeled derivative (e.g. clone) should work as well. Однак розподіл живлення на цих платах має різну якість.
 :::
 
 Ось дошки, які були протестовані і відомо, що працюють:
 
 - [Hobbywing XRotor Flight Controller F4](https://www.hobbywing.com/en/products/info.html?id=164)
 
-  ::: info Ця плата встановлюється на [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) без пайки. Ця плата ESC також забезпечує живлення для плати Omnibus.
+  ::: info
+  This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. Ця плата ESC також забезпечує живлення для плати Omnibus.
+
 :::
 
   Купуйте у:
@@ -70,22 +75,25 @@ _Omnibus F4 SD_ - це плата контролера, розроблена д�
 
   Купуйте у:
 
-  - [Airbot (китайський виробник)](https://store.myairbot.com/omnibusf4prov3.html)
-  - [Ready To Fly Quads (США реселлер)](https://quadsrtf.com/product/flip-32-f4-omnibus-rev-2/)
+  - [Airbot (CN manufacturer)](https://store.myairbot.com/omnibusf4prov3.html)
+  - [Ready To Fly Quads (US reseller)](https://quadsrtf.com/product/flip-32-f4-omnibus-rev-2/)
 
 Аксесуари в комплекті:
 
-- [ESP8266 WiFi модуль](../telemetry/esp8266_wifi_module.md) для телеметрії MAVLink. Потрібно підключити ці контакти: GND, RX, TX, VCC та CH-PD (CH-PD до 3,3В). Швидкість передачі даних становить 921600.
+- [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md) for MAVLink telemetry.
+  Потрібно підключити ці контакти: GND, RX, TX, VCC та CH-PD (CH-PD до 3,3В). Швидкість передачі даних становить 921600.
 
-## Конектори
+## З’єднання
 
-Плати від різних виробників (на основі цього дизайну) можуть мати дуже різні макети. Макети / Silkscreen-и для різних версій показані нижче.
+Плати від різних виробників (на основі цього дизайну) можуть мати дуже різні макети.
+Макети / Silkscreen-и для різних версій показані нижче.
 
 ### Airbot Omnibus F4 SD
 
 Нижче подані silkscreen-и для Airbot Omnibus F4 SD (V1), що показують як верхню, так і нижню частину.
 
-![Omnibus F4 SD v1 Silkscreen Top](../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg) ![Omnibus F4 SD v1 Silkscreen Bottom](../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg)
+![Omnibus F4 SD v1 Silkscreen Top](../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg)
+![Omnibus F4 SD v1 Silkscreen Bottom](../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg)
 
 ### Hobbywing XRotor Flight Controller F4
 
@@ -93,7 +101,7 @@ _Omnibus F4 SD_ - це плата контролера, розроблена д�
 
 ![Hobbywing XRotor Flight Controller F4 Silkscreen](../../assets/flight_controller/omnibus_f4_sd/hobbywing_xrotor_silk.png)
 
-## Розпіновка
+## Схема розташування виводів
 
 ### Радіоуправління
 
@@ -102,8 +110,8 @@ RC підключений до одного з наступних портів:
 - UART1
 - Порт SBUS/PPM (через інвертор, йде до UART1)
 
-::: info
-Деякі плати Omnibus F4 мають перемикач, який з'єднує MCU SBUS та PPM з одним роз'ємом для контактів. Встановіть ваш перемикач або припойте перемичку до відповідного контакту MCU перед використанням.
+:::info
+Some Omnibus F4 boards have a jumper connecting either or both the MCU SBUS and PPM to a single pin header. Встановіть ваш перемикач або припойте перемичку до відповідного контакту MCU перед використанням.
 :::
 
 ### UARTs
@@ -111,6 +119,7 @@ RC підключений до одного з наступних портів:
 - UART6: Порт GPS
 
   - TX: MCU pin PC6
+
   - RX: MCU pin PC7
 
   - Airbot Omnibus F4 SD знаходиться на порту J10 (TX6/RX6):
@@ -122,7 +131,7 @@ RC підключений до одного з наступних портів:
   - TX: MCU pin PA0
   - RX: MCU pin PA1
   - 57600 baud
-  - Це може бути налаштовано як порт `TELEM 2`.
+  - This can be configured as the `TELEM 2` port.
   - Airbot Omnibus F4 SD Pinout:
     - TX: RSSI pin
     - RX: PWM out 5
@@ -138,12 +147,12 @@ RC підключений до одного з наступних портів:
 - SCL: Пін MCU PB10 (може мати мітку TX3)
 - SDA: пін MCU PB11 (може мати напис RX3)
 
-::: info
-Вам знадобляться зовнішні підтяжки на обох сигналах (годинник та дані).
+:::info
+You will need external pullups on both signals (clock and data).
 Ви можете використовувати 2,2 тис. підтяжок, наприклад, щоб прикріпити зовнішню магнітолу.
 :::
 
-- Airbot Omnibus F4 SD знаходиться на порту J10 (SCL [clock] / SCA [data]): <img src="../../assets/flight_controller/omnibus_f4_sd/uart6.jpg" title="Omnibus F4 SD UART6" />
+- Airbot Omnibus F4 SD Pinout is on Port J10 (SCL [clock] / SCA [data]): <img src="../../assets/flight_controller/omnibus_f4_sd/uart6.jpg" title="Omnibus F4 SD UART6" />
 
 Ось приклад імплементації. Я використовував штекер Spektrum, щоб отримати 3,3 В від порту DSM, підключаючи лише 3,3 В + до кожної лінії через резистор 2,2к.
 
@@ -151,7 +160,7 @@ RC підключений до одного з наступних портів:
 
 ![Omnibus F4 SD Pullup Implementation](../../assets/flight_controller/omnibus_f4_sd/pullup.jpg)
 
-## Зіставлення послідовних портів
+## Serial Port Mapping
 
 | UART   | Пристрій   | Порт     |
 | ------ | ---------- | -------- |
@@ -163,35 +172,36 @@ RC підключений до одного з наступних портів:
 
 ## RC Телеметрія
 
-Omnibus підтримує телеметрію до передавача RC за допомогою [FrSky Telemetry](../peripherals/frsky_telemetry.md) або [CRSF Crossfire Telemetry](#crsf_telemetry).
+The Omnibus supports telemetry to the RC Transmitter using [FrSky Telemetry](../peripherals/frsky_telemetry.md) or [CRSF Crossfire Telemetry](#crsf_telemetry).
 
 <a id="crsf_telemetry"></a>
 
 ### Телеметрія CRSF (TBS Crossfire Telemetry)
 
-[TBS CRSF Telemetry](../telemetry/crsf_telemetry.md) може бути використана для передачі телеметричних даних з контролера польоту (положення літака, батареї, режим польоту та GPS-дані) на дистанційну радіостанцію, таку як Taranis.
+[TBS CRSF Telemetry](../telemetry/crsf_telemetry.md) may be used to send telemetry data from the flight controller (the vehicle's attitude, battery, flight mode and GPS data) to an RC transmitter such as a Taranis.
 
-Переваги порівняно з телеметрією [FrSky](../peripherals/frsky_telemetry.md), включають:
+Benefits over [FrSky telemetry](../peripherals/frsky_telemetry.md) include:
 
 - Лише один UART потрібен для RC та телеметрії.
 - Протокол CRSF оптимізований для низької затримки.
 - 150 Гц частота оновлення RC.
 - Сигнали неінвертовані, тому не потрібна (зовнішня) логіка інвертора.
 
-::: info
-Якщо ви використовуєте CRSF Telemetry, вам знадобиться створити власну прошивку PX4.
+:::info
+If you use CRSF Telemetry you will need to build custom PX4 firmware.
 На відміну від цього, телеметрія FrSky може використовувати завчасно побудоване програмне забезпечення.
 :::
 
-Для Omnibus ми рекомендуємо [TBS Crossfire Nano RX](http://team-blacksheep.com/products/prod:crossfire_nano_rx), оскільки він спеціально розроблений для малих квадрокоптерів.
+For Omnibus we recommend the [TBS Crossfire Nano RX](http://team-blacksheep.com/products/prod:crossfire_nano_rx), since it is specifically designed for small Quads.
 
-На ручному пульті керування (наприклад, Taranis) вам також знадобиться [модуль передавача](http://team-blacksheep.com/shop/cat:rc_transmitters#product_listing). Це можна підключити ззаду до пульта радіо керування.
+On the handheld controller (e.g. Taranis) you will also need a [Transmitter Module](http://team-blacksheep.com/shop/cat:rc_transmitters#product_listing).
+Це можна підключити ззаду до пульта радіо керування.
 
-::: info
-Зазначені посилання вище містять документацію для модулів TX/RX.
+:::info
+The referenced links above contains the documentation for the TX/RX modules.
 :::
 
-#### Встановлення
+#### Установка
 
 Підключіть контакти Nano RX та Omnibus, як показано:
 
@@ -200,25 +210,29 @@ Omnibus підтримує телеметрію до передавача RC з�
 | TX            | Ch2     |
 | RX            | Ch1     |
 
-Наступне оновіть модулі TX/RX для використання протоколу CRSF та налаштуйте телеметрію. Інструкції з цього наведені в [Посібнику TBS Crossfire](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (шукайте 'Налаштування радіо для CRSF').
+Наступне оновіть модулі TX/RX для використання протоколу CRSF та налаштуйте телеметрію.
+Instructions for this are provided in the [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (search for 'Setting up radio for CRSF').
 
 #### Налаштування CRSF PX4
 
-Вам потрібно буде створити власну прошивку, щоб використовувати CRSF. Для отримання додаткової інформації див. [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration).
+Вам потрібно буде створити власну прошивку, щоб використовувати CRSF.
+For more information see [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration).
 
-## Схема
+## Креслення
 
-Схеми надає [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
+The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
 
 <a id="bootloader"></a>
 
 ## Оновлення завантажувача PX4
 
-Плата поставляється із заздалегідь встановленою [Betaflight](https://github.com/betaflight/betaflight/wiki). Перед встановленням прошивки PX4 необхідно прошити _заванажувач PX4_. Завантажте завантажувальний бінарний файл [omnibusf4sd_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) та прочитайте [цю сторінку](../advanced_config/bootloader_update_from_betaflight.md) для інструкцій з прошивки.
+The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki).
+Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed.
+Download the [omnibusf4sd_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
-## Створення прошивки
+## Збірка прошивки
 
-Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make omnibus_f4sd_default
@@ -229,29 +243,28 @@ make omnibus_f4sd_default
 Ви можете використовувати або готове вбудоване програмне забезпечення, або власне користувацьке програмне забезпечення.
 
 :::warning
-
-Якщо ви використовуєте [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration) у вашій радіосистемі, як описано вище, то вам потрібно використовувати власну прошивку.
+If you use [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration) in your radio system, as describe above, then you must use custom firmware.
 :::
 
 Прошивку можна встановити будь-якими звичайними способами:
 
-- Джерело для збірки та завантаження
+- Збудуйте та завантажте джерело
 
   ```
   make omnibus_f4sd_default upload
   ```
 
-- [Завантажте прошивку](../config/firmware.md) за допомогою _QGroundControl_.
+- [Load the firmware](../config/firmware.md) using _QGroundControl_.
 
-## Налаштування
+## Конфігурація
 
-Крім [основних налаштувань](../config/index.md), важливі наступні параметри:
+In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
-| Параметр                                                                 | Налаштування                                                                                                                  |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| Параметр                                                                                                         | Налаштування                                                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)   | Це має бути вимкнено, оскільки у платі немає внутрішнього магніту. Ви можете активувати це, якщо приєднаєте зовнішній магніт. |
-| [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Вимкніть це, якщо ваша плата не має барометра.                                                                                |
+| [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Вимкніть це, якщо ваша плата не має барометра.                                                                                                |
 
 ## Додаткова інформація
 
-[Ця сторінка](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/) надає хороший огляд з контактами та інструкціями щодо налаштування.
+[This page](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/) provides a good overview with pinouts and setup instructions.
