@@ -1,20 +1,23 @@
 # mRo Pixhawk Flight Controller (Pixhawk 1)
 
-:::warning PX4 не виробляє цей (чи будь-який інший) автопілот. Зверніться до [виробника](https://store.mrobotics.io/) щодо підтримки обладнання або питань сумісності.
+:::warning
+PX4 не розробляє цей (або будь-який інший) автопілот.
+Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
-_mRo Pixhawk<sup>&reg;</sup>_ є апаратно сумісною версією оригінальної [Pixhawk 1](../flight_controller/pixhawk.md). Він виконує PX4 на ОС [NuttX](https://nuttx.apache.org/).
+The _mRo Pixhawk<sup>&reg;</sup>_ is a hardware compatible version of the original [Pixhawk 1](../flight_controller/pixhawk.md). It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
 :::tip
-Контролер може бути використаний як заміна для 3DR<sup>&reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md). Основна різниця полягає в тому, що вона базується на відкритому апаратному проекті [Pixhawk-project](https://pixhawk.org/) **FMUv3**, який виправляє помилку, що обмежувала оригінальний Pixhawk 1 до 1 МБ флеш-пам'яті.
+The controller can be used as a drop-in replacement for the 3DR<sup>&amp;reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md).
+The main difference is that it is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design, which corrects a bug that limited the original Pixhawk 1 to 1MB of flash.
 :::
 
 ![mRo Pixhawk Image](../../assets/flight_controller/mro/mro_pixhawk.jpg)
 
-Інструкції зі збирання/налаштування для використання з PX4 наведено тут: [Швидкий старт з підключення Pixhawk](../assembly/quick_start_pixhawk.md)
+Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
 
 :::tip
-Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
+This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
 ## Основні характеристики
@@ -24,22 +27,25 @@ _mRo Pixhawk<sup>&reg;</sup>_ є апаратно сумісною версіє�
   - 168 MHz/256 KB RAM/2 MB Flash
   - 32 bit STM32F103 відмовостійкий копроцесор
   - 24 MHz/8 KB RAM/64 KB Flash
+
 - Датчики:
   - ST Micro L3GD20 3-axis 16-бітний гіроскоп
   - ST Micro LSM303D 3-вісний 14-бітний акселерометр / магнітометр
   - Invensense<sup>&reg;</sup> MPU 6000 3-вісний акселерометр/гіроскоп
   - MEAS MS5611 барометр
+
 - Інтерфейси:
-  - 5x UART (послідовні порти), один високої потужності, 2x з контролем потоку HW
+  - 5x UART (послідовні порти), один високої потужності, 2x з контролем потоку ГВП
   - 2x CAN
   - Вхід, сумісний з приймачами Spektrum DSM / DSM2 / DSM-X® Satellite до DX8 (DX9 та вище не підтримуються)
   - Futaba<sup>&reg;</sup> S.BUS сумісний вхід та вихід
   - Сигнал суми PPM
-  - Вхід RSSI (PWM або напруга)
+  - Вхід RSSI (ШІМ або напруга)
   - I2C
   - SPI
   - 3.3 та 6.6V ADC входи
   - Зовнішній порт microUSB
+
 - Система живлення:
 
   - Ідеальний діодний контролер з автоматичним перемиканням на резервне живлення
@@ -54,17 +60,18 @@ _mRo Pixhawk<sup>&reg;</sup>_ є апаратно сумісною версіє�
 
 ## Доступність
 
-- [Bare Bones](https://store.mrobotics.io/Genuine-PixHawk-1-Barebones-p/mro-pixhawk1-bb-mr.htm) - просто плата (корисна як заміна 3DR Pixhawk)
-- [Набір mRo Pixhawk 2.4.6 Essential!](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - Все, крім телеметричних радіомодулів
-- [mRo Pixhawk 2.4.6 Cool Kit! (Limited edition)](https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm) - включає все необхідне, включаючи телеметричне радіо
+- [Bare Bones](https://store.mrobotics.io/Genuine-PixHawk-1-Barebones-p/mro-pixhawk1-bb-mr.htm) - Just the board (useful as a 3DR Pixhawk replacement)
+- [mRo Pixhawk 2.4.6 Essential Kit!](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - Everything except for telemetry radios
+- [mRo Pixhawk 2.4.6 Cool Kit! (Limited edition)](https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm) - Everything you need including telemetry radios
 
-## Створення прошивки
+## Збірка прошивки
 
 :::tip
-Більшості користувачів не потрібно створювати цю прошивку! Вона попередньо зібрана й автоматично встановлюється за допомогою _QGroundControl_ при підключенні відповідного апаратного забезпечення.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make px4_fmu-v3_default
@@ -72,30 +79,31 @@ make px4_fmu-v3_default
 
 ## Відладочні порти
 
-Дивіться [3DR Pixhawk 1 > Порти налагодження](../flight_controller/pixhawk.md#debug-ports)
+See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports)
 
-## Розпіновка
+## Схема розташування виводів
 
-Дивіться [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
+See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
 
-## Налаштування послідовного порту
+## Serial Port Mapping
 
-| UART   | Девайс     | Порт                     |
-| ------ | ---------- | ------------------------ |
-| UART1  | /dev/ttyS0 | IO debug                 |
-| USART2 | /dev/ttyS1 | TELEM1 (контроль потоку) |
-| USART3 | /dev/ttyS2 | TELEM2 (контроль потоку) |
-| UART4  |            |                          |
-| UART7  | CONSOLE    |                          |
-| UART8  | SERIAL4    |                          |
+| UART   | Пристрій   | Порт                                          |
+| ------ | ---------- | --------------------------------------------- |
+| UART1  | /dev/ttyS0 | IO debug                                      |
+| USART2 | /dev/ttyS1 | TELEM1 (керування потоком) |
+| USART3 | /dev/ttyS2 | TELEM2 (керування потоком) |
+| UART4  |            |                                               |
+| UART7  | CONSOLE    |                                               |
+| UART8  | SERIAL4    |                                               |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-## Схема
+## Креслення
 
-Плата базується на [Pixhawk-project](https://pixhawk.org/) **FMUv3** відкритому апаратному забезпеченні.
+The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
 
-- [Схема FMUv3](https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF) -- Схема та макет
+- [FMUv3 schematic](https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF) -- Schematic and layout
 
-::: info Як ліцензований Open Hardware дизайн CC-BY-SA 3.0, всі схеми та файли дизайну доступні [тут](https://github.com/PX4/Hardware).
+:::info
+As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 :::
