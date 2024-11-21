@@ -1,25 +1,31 @@
 # Holybro Durandal
 
-:::warning PX4 没有制造这款（或任何一款）飞控。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::
 
-_Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. It was designed and developed by Holybro.
+_Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers.
+It was designed and developed by Holybro.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
 
 At high level, some of the key features are:
 
 - Integrated temperature control for sensors.
-- Powerful STM32H7 microcontroller running at 480MHz. 2 MB of Flash memory and 1 MB of RAM.
+- Powerful STM32H7 microcontroller running at 480MHz.
+  2 MB of Flash memory and 1 MB of RAM.
 - New sensors with higher temperature stability.
 - Internal vibration isolation system.
 - Dual high-performance, low-noise IMUs on board are designed for demanding stabilization applications.
 
 A summary of the key features, [assembly](../assembly/quick_start_durandal.md), and [purchase](#purchase) links can be found below.
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## 概览
+## 总览
 
 #### Technical Specifications
 
@@ -82,7 +88,7 @@ For more information see: [Durandal Technical Data Sheet](https://cdn.shopify.co
 
 <a id="purchase"></a>
 
-## 在哪里买
+## 购买渠道
 
 Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
 
@@ -151,9 +157,12 @@ The [Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) provides 
 
 ## 编译固件
 
-端口使用标准的串口针脚，可以连接到标准的 FTDI 连接线上（3.3V，但它有5V 耐受性），或连接到 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) 上。 It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected. 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+:::
 
-任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make holybro_durandal-v1_default
@@ -175,7 +184,7 @@ make holybro_durandal-v1_default
 
 <a id="debug_port"></a>
 
-## Debug调试端口
+## 调试接口
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the _Debug Port_.
 
@@ -183,15 +192,15 @@ The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debu
 
 For wiring and debugging information see the above links.
 
-::: info
+:::info
 No Debug port is exposed for the I/O board.
 :::
 
 ## 外部设备
 
-- [数字空速传感器](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-- [数传电台模块](../telemetry/index.md)
-- [测距仪/距离传感器](../sensor/rangefinders.md)
+- [Digital Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
+- [Telemetry Radio Modules](../telemetry/index.md)
+- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 ## 支持的平台/机身
 
@@ -201,7 +210,8 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ## 针脚定义
 
-_Durandal_ pinouts are listed below. These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
+_Durandal_ pinouts are listed below.
+These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
 
 ### Top Pinouts
 
@@ -213,93 +223,93 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### SUBS Out port
 
-| 针脚         | 信号                 | 电压    |
-| ---------- | ------------------ | ----- |
-| 1（红）       | -                  | -     |
+| 针脚                            | 信号                                                         | 电压                    |
+| ----------------------------- | ---------------------------------------------------------- | --------------------- |
+| 1（红）                          | -                                                          | -                     |
 | 2 (yellow) | SBUS_OUT/RSSI_IN | +3.3V |
-| 3 (black)  | GND                | GND   |
+| 3 (black)  | GND                                                        | GND                   |
 
 #### DSM RC port
 
-| 针脚         | 信号      | 电压    |
-| ---------- | ------- | ----- |
-| 1（红）       | VDD_3V3 | +3.3V |
+| 针脚                            | 信号                           | 电压                    |
+| ----------------------------- | ---------------------------- | --------------------- |
+| 1（红）                          | VDD_3V3 | +3.3V |
 | 2 (yellow) | DSM_IN  | +3.3V |
-| 3 (black)  | GND     | GND   |
+| 3 (black)  | GND                          | GND                   |
 
 #### I2C A port
 
-| 针脚        | 信号   | 电压    |
-| --------- | ---- | ----- |
-| 1（红）      | VCC  | +5V   |
+| 针脚                           | 信号   | 电压                    |
+| ---------------------------- | ---- | --------------------- |
+| 1（红）                         | VCC  | +5V                   |
 | 2 (black) | SCL4 | +3.3V |
 | 3 (black) | SDA4 | +3.3V |
-| 4 (black) | GND  | GND   |
+| 4 (black) | GND  | GND                   |
 
 #### CAN1 port
 
-| 针脚        | 信号    | 电压    |
-| --------- | ----- | ----- |
-| 1（红）      | VCC   | +5V   |
+| 针脚                           | 信号    | 电压                    |
+| ---------------------------- | ----- | --------------------- |
+| 1（红）                         | VCC   | +5V                   |
 | 2 (black) | CAN H | +3.3V |
 | 3 (black) | CAN L | +3.3V |
-| 4 (black) | GND   | GND   |
+| 4 (black) | GND   | GND                   |
 
 <a id="gps"></a>
 
 #### GPS 接口
 
-| 针脚         | 信号                  | 电压    |
-| ---------- | ------------------- | ----- |
-| 1（红）       | VCC                 | +5V   |
-| 2 (black)  | TX (out)            | +3.3V |
-| 3 (black)  | RX (in)             | +3.3V |
-| 4 (black)  | SCL1                | +3.3V |
-| 5 (black)  | SDA1                | +3.3V |
-| 6 (black)  | SAFETY_SWITCH       | +3.3V |
+| 针脚                            | 信号                                                          | 电压                    |
+| ----------------------------- | ----------------------------------------------------------- | --------------------- |
+| 1（红）                          | VCC                                                         | +5V                   |
+| 2 (black)  | TX (out)                                 | +3.3V |
+| 3 (black)  | RX (in)                                  | +3.3V |
+| 4 (black)  | SCL1                                                        | +3.3V |
+| 5 (black)  | SDA1                                                        | +3.3V |
+| 6 (black)  | SAFETY_SWITCH                          | +3.3V |
 | 7 (black)  | SAFETY_SWITCH_LED | +3.3V |
-| 8 (black)  | VDD_3V3             | +3.3V |
-| 9 (black)  | BUZZER              | +5V   |
-| 10 (black) | GND                 | GND   |
+| 8 (black)  | VDD_3V3                                | +3.3V |
+| 9 (black)  | BUZZER                                                      | +5V                   |
+| 10 (black) | GND                                                         | GND                   |
 
 <a id="telem4_i2cb"></a>
 
 #### TELEM4 I2CB ports
 
-| 针脚        | 信号       | 电压    |
-| --------- | -------- | ----- |
-| 1（红）      | VCC      | +5V   |
+| 针脚                           | 信号                          | 电压                    |
+| ---------------------------- | --------------------------- | --------------------- |
+| 1（红）                         | VCC                         | +5V                   |
 | 2 (black) | TX (out) | +3.3V |
-| 3 (black) | RX (in)  | -     |
-| 4 (black) | SCL2     | -     |
-| 5 (black) | SDA2     | +3.3V |
-| 6 (black) | GND      | GND   |
+| 3 (black) | RX (in)  | -                     |
+| 4 (black) | SCL2                        | -                     |
+| 5 (black) | SDA2                        | +3.3V |
+| 6 (black) | GND                         | GND                   |
 
 <a id="telem1_2_3"></a>
 
 #### TELEM3, TELEM2, TELEM1 port
 
-| 针脚        | 信号       | 电压    |
-| --------- | -------- | ----- |
-| 1（红）      | VCC      | +5V   |
+| 针脚                           | 信号                          | 电压                    |
+| ---------------------------- | --------------------------- | --------------------- |
+| 1（红）                         | VCC                         | +5V                   |
 | 2 (black) | TX (out) | +3.3V |
 | 3 (black) | RX (in)  | +3.3V |
-| 4 (black) | CTS（输入）  | +3.3V |
-| 5 (black) | RTS（输出）  | +3.3V |
-| 6 (black) | GND      | GND   |
+| 4 (black) | CTS（输入）                     | +3.3V |
+| 5 (black) | RTS（输出）                     | +3.3V |
+| 6 (black) | GND                         | GND                   |
 
 <a id="power"></a>
 
 #### POWER port
 
-| 针脚        | 信号  | 电压    |
-| --------- | --- | ----- |
-| 1（红）      | VCC | +5V   |
-| 2 (black) | VCC | +5V   |
+| 针脚                           | 信号  | 电压                    |
+| ---------------------------- | --- | --------------------- |
+| 1（红）                         | VCC | +5V                   |
+| 2 (black) | VCC | +5V                   |
 | 3 (black) | 电流  | +3.3V |
 | 4 (black) | 电压  | +3.3V |
-| 5 (black) | GND | GND   |
-| 6 (black) | GND | GND   |
+| 5 (black) | GND | GND                   |
+| 6 (black) | GND | GND                   |
 
 ### Back Pinouts
 
@@ -307,8 +317,8 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### MAIN Out
 
-| 针脚 | 信号     | 电压    | +         | -   |
-| -- | ------ | ----- | --------- | --- |
+| 针脚 | 信号                          | 电压                    | +                              | -   |
+| -- | --------------------------- | --------------------- | ------------------------------ | --- |
 | 1  | IO_CH1 | +3.3V | VDD_SERVO | GND |
 | 2  | IO_CH2 | +3.3V | VDD_SERVO | GND |
 | 3  | IO_CH3 | +3.3V | VDD_SERVO | GND |
@@ -320,8 +330,8 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### AUX Out
 
-| 针脚 | 信号      | 电压    | +         | -   |
-| -- | ------- | ----- | --------- | --- |
+| 针脚 | 信号                           | 电压                    | +                              | -   |
+| -- | ---------------------------- | --------------------- | ------------------------------ | --- |
 | 1  | FMU_CH1 | +3.3V | VDD_SERVO | GND |
 | 2  | FMU_CH2 | +3.3V | VDD_SERVO | GND |
 | 3  | FMU_CH3 | +3.3V | VDD_SERVO | GND |
@@ -330,11 +340,11 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### RC IN
 
-| 针脚 | 信号               | 电压    |
-| -- | ---------------- | ----- |
+| 针脚 | 信号                                                       | 电压                    |
+| -- | -------------------------------------------------------- | --------------------- |
 | S  | SBUS_IN/PPM_IN | +3.3V |
-| +  | VCC              | +5V   |
-| -  | GND              | GND   |
+| +  | VCC                                                      | +5V                   |
+| -  | GND                                                      | GND                   |
 
 ### Right-side Pinouts
 
@@ -342,27 +352,27 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### CAN2 port
 
-| 针脚        | 信号    | 电压    |
-| --------- | ----- | ----- |
-| 1（红）      | VCC   | +5V   |
+| 针脚                           | 信号    | 电压                    |
+| ---------------------------- | ----- | --------------------- |
+| 1（红）                         | VCC   | +5V                   |
 | 2 (black) | CAN H | +3.3V |
 | 3 (black) | CAN L | +3.3V |
-| 4 (black) | GND   | GND   |
+| 4 (black) | GND   | GND                   |
 
 #### CAP & ADC IN port
 
-| 针脚         | 信号             | 电压                       |
-| ---------- | -------------- | ------------------------ |
-| 1（红）       | VCC            | +5V                      |
-| 2 (black)  | FMU_CAP6       | +3.3V                    |
-| 3 (black)  | FMU_CAP5       | +3.3V                    |
-| 4 (black)  | FMU_CAP4       | +3.3V                    |
-| 5 (black)  | FMU_CAP3       | +3.3V                    |
-| 6 (black)  | FMU_CAP2       | +3.3V                    |
-| 7 (black)  | FMU_CAP1       | +3.3V                    |
+| 针脚                            | 信号                                                     | 电压                                       |
+| ----------------------------- | ------------------------------------------------------ | ---------------------------------------- |
+| 1（红）                          | VCC                                                    | +5V                                      |
+| 2 (black)  | FMU_CAP6                          | +3.3V                    |
+| 3 (black)  | FMU_CAP5                          | +3.3V                    |
+| 4 (black)  | FMU_CAP4                          | +3.3V                    |
+| 5 (black)  | FMU_CAP3                          | +3.3V                    |
+| 6 (black)  | FMU_CAP2                          | +3.3V                    |
+| 7 (black)  | FMU_CAP1                          | +3.3V                    |
 | 8 (black)  | ADC1_SPARE_1 | +3.3V [++](#warn_sensor) |
 | 9 (black)  | ADC1_SPARE_2 | +6.6V [++](#warn_sensor) |
-| 10 (black) | GND            | GND                      |
+| 10 (black) | GND                                                    | GND                                      |
 
 <a id="warn_sensor"></a>
 
@@ -378,35 +388,35 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### DEBUG port
 
-| 针脚        | 信号    | 电压    |
-| --------- | ----- | ----- |
-| 1（红）      | VT    | +3.3V |
+| 针脚                           | 信号    | 电压                    |
+| ---------------------------- | ----- | --------------------- |
+| 1（红）                         | VT    | +3.3V |
 | 2 (black) | TX    | +3.3V |
 | 3 (black) | RX    | +3.3V |
 | 4 (black) | SWDIO | +3.3V |
 | 5 (black) | SWCLK | +3.3V |
-| 6 (black) | GND   | GND   |
+| 6 (black) | GND   | GND                   |
 
 #### SPI port
 
-| 针脚        | 信号   | 电压    |
-| --------- | ---- | ----- |
-| 1（红）      | VCC  | +5V   |
+| 针脚                           | 信号   | 电压                    |
+| ---------------------------- | ---- | --------------------- |
+| 1（红）                         | VCC  | +5V                   |
 | 2 (black) | SCK  | +3.3V |
 | 3 (black) | MISO | +3.3V |
 | 4 (black) | MOSI | +3.3V |
 | 5 (black) | CS1  | +3.3V |
 | 6 (black) | CS2  | +3.3V |
-| 7 (black) | GND  | GND   |
+| 7 (black) | GND  | GND                   |
 
 #### USB port
 
-| 针脚        | 信号   | 电压    |
-| --------- | ---- | ----- |
-| 1（红）      | VBUS | +5V   |
+| 针脚                           | 信号   | 电压                    |
+| ---------------------------- | ---- | --------------------- |
+| 1（红）                         | VBUS | +5V                   |
 | 2 (black) | DM   | +3.3V |
 | 3 (black) | DP   | +3.3V |
-| 4 (black) | GND  | GND   |
+| 4 (black) | GND  | GND                   |
 
 ## 更多信息
 
