@@ -1,22 +1,26 @@
 # 모듈 참조: 드라이버
+
 하위 카테고리:
-- [관성 센서](modules_driver_imu.md)
-- [거리 센서](modules_driver_distance_sensor.md)
+
+- [Imu](modules_driver_imu.md)
+- [Distance Sensor](modules_driver_distance_sensor.md)
 - [Ins](modules_driver_ins.md)
-- [항속 센서](modules_driver_airspeed_sensor.md)
-- [기압계](modules_driver_baro.md)
+- [Airspeed Sensor](modules_driver_airspeed_sensor.md)
+- [Baro](modules_driver_baro.md)
 - [Transponder](modules_driver_transponder.md)
 - [Rpm Sensor](modules_driver_rpm_sensor.md)
-- [광류 센서](modules_driver_optical_flow.md)
-- [카메라](modules_driver_camera.md)
-- [자기 센서](modules_driver_magnetometer.md)
+- [Optical Flow](modules_driver_optical_flow.md)
+- [Camera](modules_driver_camera.md)
+- [Magnetometer](modules_driver_magnetometer.md)
 
 ## MCP23009
+
 Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
 
 <a id="MCP23009_usage"></a>
 
 ### 사용법
+
 ```
 MCP23009 <command> [arguments...]
  Commands:
@@ -42,17 +46,19 @@ MCP23009 <command> [arguments...]
 
    status        print status info
 ```
-## adc
-소스: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
 
+## adc
+
+Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/board_adc)
 
 ### 설명
-ADC 드라이버
 
+ADC 드라이버
 
 <a id="adc_usage"></a>
 
 ### 사용법
+
 ```
 adc <command> [arguments...]
  Commands:
@@ -65,22 +71,28 @@ adc <command> [arguments...]
 
    status        print status info
 ```
-## ads1115
-소스: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/ads1115)
 
+## ads1115
+
+Source: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/ads1115)
 
 ### 설명
 
 Driver to enable an external [ADS1115](https://www.adafruit.com/product/1085) ADC connected via I2C.
 
-The driver is included by default in firmware for boards that do not have an internal analog to digital converter, such as [PilotPi](../flight_controller/raspberry_pi_pilotpi.md) or [CUAV Nora](../flight_controller/cuav_nora.md) (search for `CONFIG_DRIVERS_ADC_ADS1115` in board configuration files).
+The driver is included by default in firmware for boards that do not have an internal analog to digital converter,
+such as [PilotPi](../flight_controller/raspberry_pi_pilotpi.md) or [CUAV Nora](../flight_controller/cuav_nora.md)
+(search for `CONFIG_DRIVERS_ADC_ADS1115` in board configuration files).
 
-It is enabled/disabled using the [ADC_ADS1115_EN](../advanced_config/parameter_reference.md#ADC_ADS1115_EN) parameter, and is disabled by default. If enabled, internal ADCs are not used.
-
+It is enabled/disabled using the
+[ADC_ADS1115_EN](../advanced_config/parameter_reference.md#ADC_ADS1115_EN)
+parameter, and is disabled by default.
+If enabled, internal ADCs are not used.
 
 <a id="ads1115_usage"></a>
 
 ### 사용법
+
 ```
 ads1115 <command> [arguments...]
  Commands:
@@ -98,11 +110,13 @@ ads1115 <command> [arguments...]
 
    status        print status info
 ```
-## atxxxx
-소스: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/osd/atxxxx)
 
+## atxxxx
+
+Source: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/atxxxx)
 
 ### 설명
+
 예를 들어 OmnibusF4SD 보드에 장착된 ATXXXX 칩용 OSD 드라이버.
 
 OSD_ATXXXX_CFG 매개변수로 활성화합니다.
@@ -110,6 +124,7 @@ OSD_ATXXXX_CFG 매개변수로 활성화합니다.
 <a id="atxxxx_usage"></a>
 
 ### 사용법
+
 ```
 atxxxx <command> [arguments...]
  Commands:
@@ -118,8 +133,7 @@ atxxxx <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
@@ -128,22 +142,27 @@ atxxxx <command> [arguments...]
 
    status        print status info
 ```
-## batmon
-소스: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/smart_battery/batmon)
 
+## batmon
+
+Source: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/smart_battery/batmon)
 
 ### 설명
+
 BatMon 지원 스마트 배터리와 SMBUS 통신용 드라이버 설정/사용 정보: https://rotoye.com/batmon-tutorial/
+
 ### 예
+
 주소 0x0B에서 시작하려면 버스 4에서
+
 ```
 batmon start -X -a 11 -b 4
 ```
 
-
 <a id="batmon_usage"></a>
 
 ### 사용법
+
 ```
 batmon <command> [arguments...]
  Commands:
@@ -167,23 +186,27 @@ batmon <command> [arguments...]
 
    status        print status info
 ```
-## batt_smbus
-소스: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/batt_smbus)
 
+## batt_smbus
+
+Source: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/batt_smbus)
 
 ### 설명
+
 BQ40Z50 연료 게이지 IC용 스마트 배터리 드라이버.
 
 ### 예
-매개변수를 설정하기 위해 플래시에 쓰기. 주소, number_of_bytes, byte0, ..., byteN
+
+매개변수를 설정하기 위해 플래시에 쓰기. address, number_of_bytes, byte0, ... , byteN
+
 ```
 batt_smbus -X write_flash 19069 2 27 0
 ```
 
-
 <a id="batt_smbus_usage"></a>
 
 ### 사용법
+
 ```
 batt_smbus <command> [arguments...]
  Commands:
@@ -218,12 +241,15 @@ batt_smbus <command> [arguments...]
 
    status        print status info
 ```
+
 ## bst
-소스: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/bst)
+
+Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/bst)
 
 <a id="bst_usage"></a>
 
 ### 사용법
+
 ```
 bst <command> [arguments...]
  Commands:
@@ -241,17 +267,19 @@ bst <command> [arguments...]
 
    status        print status info
 ```
+
 ## crsf_rc
+
 Source: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/crsf_rc)
 
-
 ### 설명
-This module parses the CRSF RC uplink protocol and generates CRSF downlink telemetry data
 
+This module parses the CRSF RC uplink protocol and generates CRSF downlink telemetry data
 
 <a id="crsf_rc_usage"></a>
 
 ### 사용법
+
 ```
 crsf_rc <command> [arguments...]
  Commands:
@@ -263,70 +291,43 @@ crsf_rc <command> [arguments...]
 
    status        print status info
 ```
-## dshot
-소스: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/dshot)
 
+## dshot
+
+Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/dshot)
 
 ### 설명
+
 이것은 DShot 출력 드라이버입니다. fmu 드라이버와 유사하며, PWM 대신 ESC 통신 프로토콜로 DShot을 사용하기 위하여 사용할 수 있습니다.
 
-On startup, the module tries to occupy all available pins for DShot output. It skips all pins already in use (e.g. by a camera trigger module).
+On startup, the module tries to occupy all available pins for DShot output.
+It skips all pins already in use (e.g. by a camera trigger module).
 
 모터 1 영구 역회전 :
+
 - DShot150, DShot300, DShot600, DShot1200
 - 별도의 UART를 통한 텔레메트리와 esc_status 메시지로 게시
 - CLI를 통해 DShot 명령 보내기
 
 ### 예
+
 Permanently reverse motor 1:
+
 ```
 dshot reverse -m 1
 dshot save -m 1
 ```
+
 After saving, the reversed direction will be regarded as the normal one. So to reverse again repeat the same commands.
 
 <a id="dshot_usage"></a>
 
 ### 사용법
+
 ```
 dshot <command> [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-
- All of the mode_* commands will start the module if not running already
-
-   mode_gpio
-
-   mode_pwm      Select all available pins as PWM
-
-   mode_pwm14
-
-   mode_pwm12
-
-   mode_pwm8
-
-   mode_pwm6
-
-   mode_pwm5
-
-   mode_pwm5cap1
-
-   mode_pwm4
-
-   mode_pwm4cap1
-
-   mode_pwm4cap2
-
-   mode_pwm3
-
-   mode_pwm3cap1
-
-   mode_pwm2
-
-   mode_pwm2cap2
-
-   mode_pwm1
+   start
 
    telemetry     Enable Telemetry on a UART
      <device>    UART device
@@ -368,17 +369,19 @@ dshot <command> [arguments...]
 
    status        print status info
 ```
+
 ## dsm_rc
+
 Source: [drivers/rc/dsm_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/dsm_rc)
 
-
 ### 설명
-This module does Spektrum DSM RC input parsing.
 
+This module does Spektrum DSM RC input parsing.
 
 <a id="dsm_rc_usage"></a>
 
 ### 사용법
+
 ```
 dsm_rc <command> [arguments...]
  Commands:
@@ -392,16 +395,17 @@ dsm_rc <command> [arguments...]
 
    status        print status info
 ```
-## fake_gps
-소스: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_imu)
 
+## fake_gps
+
+Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_gps)
 
 ### 설명
-
 
 <a id="fake_gps_usage"></a>
 
 ### 사용법
+
 ```
 fake_gps <command> [arguments...]
  Commands:
@@ -411,16 +415,17 @@ fake_gps <command> [arguments...]
 
    status        print status info
 ```
-## fake_imu
-소스: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_magnetometer)
 
+## fake_imu
+
+Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_imu)
 
 ### 설명
-
 
 <a id="fake_imu_usage"></a>
 
 ### 사용법
+
 ```
 fake_imu <command> [arguments...]
  Commands:
@@ -430,16 +435,20 @@ fake_imu <command> [arguments...]
 
    status        print status info
 ```
-## fake_magnetometer
-Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_magnetometer)
 
+## fake_magnetometer
+
+Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_magnetometer)
 
 ### 설명
-Publish the earth magnetic field as a fake magnetometer (sensor_mag). Requires vehicle_attitude and vehicle_gps_position.
+
+Publish the earth magnetic field as a fake magnetometer (sensor_mag).
+Requires vehicle_attitude and vehicle_gps_position.
 
 <a id="fake_magnetometer_usage"></a>
 
 ### 사용법
+
 ```
 fake_magnetometer <command> [arguments...]
  Commands:
@@ -449,23 +458,28 @@ fake_magnetometer <command> [arguments...]
 
    status        print status info
 ```
+
 ## ft_technologies_serial
+
 Source: [drivers/wind_sensor/ft_technologies](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/wind_sensor/ft_technologies)
 
+### 설명
 
-### Description
-
-Serial bus driver for the FT Technologies Digital Wind Sensor FT742. This driver is required to operate alongside a RS485 to UART signal transfer module.
+Serial bus driver for the FT Technologies Digital Wind Sensor FT742. This driver is required to operate alongside
+a RS485 to UART signal transfer module.
 
 Most boards are configured to enable/start the driver on a specified UART using the SENS_FTX_CFG parameter.
 
 ### 예
 
 지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
+
 ```
 ft_technologies_serial start -d /dev/ttyS1
 ```
+
 드라이버를 중지합니다.
+
 ```
 ft_technologies_serial stop
 ```
@@ -473,6 +487,7 @@ ft_technologies_serial stop
 <a id="ft_technologies_serial_usage"></a>
 
 ### 사용법
+
 ```
 ft_technologies_serial <command> [arguments...]
  Commands:
@@ -481,17 +496,19 @@ ft_technologies_serial <command> [arguments...]
 
    stop          Stop driver
 ```
+
 ## ghst_rc
+
 Source: [drivers/rc/ghst_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/ghst_rc)
 
+### 설명
 
-### Description
 This module does Ghost (GHST) RC input parsing.
-
 
 <a id="ghst_rc_usage"></a>
 
-### 설명
+### 사용법
+
 ```
 ghst_rc <command> [arguments...]
  Commands:
@@ -503,17 +520,22 @@ ghst_rc <command> [arguments...]
 
    status        print status info
 ```
+
 ## gimbal
-Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/gimbal)
 
+Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gimbal)
 
-### 예
-Mount/gimbal Gimbal control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).
+### 설명
+
+Mount/gimbal Gimbal control driver. It maps several different input methods (eg. RC or MAVLink) to a configured
+output (eg. AUX channels or MAVLink).
 
 Documentation how to use it is on the [gimbal_control](https://docs.px4.io/main/en/advanced/gimbal_control.html) page.
 
 ### 예
+
 Test the output by setting a angles (all omitted axes are set to 0):
+
 ```
 gimbal test pitch -45 yaw 30
 ```
@@ -521,6 +543,7 @@ gimbal test pitch -45 yaw 30
 <a id="gimbal_usage"></a>
 
 ### 사용법
+
 ```
 gimbal <command> [arguments...]
  Commands:
@@ -541,26 +564,35 @@ gimbal <command> [arguments...]
 
    status        print status info
 ```
+
 ## gps
-Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/gps)
 
+Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gps)
 
-### Description
-GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
+### 설명
 
-The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
+GPS driver module that handles the communication with the device and publishes the position via uORB.
+It supports multiple protocols (device vendors) and by default automatically selects the correct one.
+
+The module supports a secondary GPS device, specified via `-e` parameter. The position will be published
+on the second uORB topic instance, but it's currently not used by the rest of the system (however the
+data will be logged, so that it can be used for comparisons).
 
 ### Implementation
-There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
+
+There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks
+so that they can be used in other projects as well (eg. QGroundControl uses them too).
 
 ### 예
 
 Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4):
+
 ```
 gps start -d /dev/ttyS3 -e /dev/ttyS4
 ```
 
 Initiate warm restart of GPS device
+
 ```
 gps reset warm
 ```
@@ -568,6 +600,7 @@ gps reset warm
 <a id="gps_usage"></a>
 
 ### 사용법
+
 ```
 gps <command> [arguments...]
  Commands:
@@ -594,16 +627,17 @@ gps <command> [arguments...]
    reset         Reset GPS device
      cold|warm|hot Specify reset type
 ```
+
 ## gz_bridge
+
 Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/gz_bridge)
 
-
 ### 설명
-
 
 <a id="gz_bridge_usage"></a>
 
 ### 사용법
+
 ```
 gz_bridge <command> [arguments...]
  Commands:
@@ -618,23 +652,28 @@ gz_bridge <command> [arguments...]
 
    status        print status info
 ```
+
 ## ina220
+
 Source: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina220)
 
+### 설명
 
-### Description
 Driver for the INA220 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
 
 For example, one instance can run on Bus 2, address 0x41, and one can run on Bus 2, address 0x43.
 
-If the INA220 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
-
+If the INA220 module is not powered, then by default, initialization of the driver will fail. To change this, use
+the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again
+every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without
+this flag set, the battery must be plugged in before starting the driver.
 
 <a id="ina220_usage"></a>
 
 ### 사용법
+
 ```
 ina220 <command> [arguments...]
  Commands:
@@ -657,23 +696,28 @@ ina220 <command> [arguments...]
 
    status        print status info
 ```
+
 ## ina226
-Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina226)
 
+Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina226)
 
-### Description
+### 설명
+
 Driver for the INA226 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
 
 For example, one instance can run on Bus 2, address 0x41, and one can run on Bus 2, address 0x43.
 
-If the INA226 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
-
+If the INA226 module is not powered, then by default, initialization of the driver will fail. To change this, use
+the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again
+every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without
+this flag set, the battery must be plugged in before starting the driver.
 
 <a id="ina226_usage"></a>
 
 ### 사용법
+
 ```
 ina226 <command> [arguments...]
  Commands:
@@ -694,23 +738,28 @@ ina226 <command> [arguments...]
 
    status        print status info
 ```
+
 ## ina228
-Source: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina228)
 
+Source: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina228)
 
-### Description
+### 설명
+
 Driver for the INA228 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
 
 For example, one instance can run on Bus 2, address 0x45, and one can run on Bus 2, address 0x45.
 
-If the INA228 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
-
+If the INA228 module is not powered, then by default, initialization of the driver will fail. To change this, use
+the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again
+every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without
+this flag set, the battery must be plugged in before starting the driver.
 
 <a id="ina228_usage"></a>
 
 ### 사용법
+
 ```
 ina228 <command> [arguments...]
  Commands:
@@ -731,23 +780,28 @@ ina228 <command> [arguments...]
 
    status        print status info
 ```
+
 ## ina238
-Source: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina238)
 
+Source: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina238)
 
-### Description
+### 설명
+
 Driver for the INA238 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
 
 For example, one instance can run on Bus 2, address 0x45, and one can run on Bus 2, address 0x45.
 
-If the INA238 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
-
+If the INA238 module is not powered, then by default, initialization of the driver will fail. To change this, use
+the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again
+every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without
+this flag set, the battery must be plugged in before starting the driver.
 
 <a id="ina238_usage"></a>
 
 ### 사용법
+
 ```
 ina238 <command> [arguments...]
  Commands:
@@ -768,11 +822,13 @@ ina238 <command> [arguments...]
 
    status        print status info
 ```
-## iridiumsbd
-Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
 
+## iridiumsbd
+
+Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/iridiumsbd)
 
 ### 설명
+
 IridiumSBD driver.
 
 Creates a virtual serial port that another module can use for communication (e.g. mavlink).
@@ -780,6 +836,7 @@ Creates a virtual serial port that another module can use for communication (e.g
 <a id="iridiumsbd_usage"></a>
 
 ### 사용법
+
 ```
 iridiumsbd <command> [arguments...]
  Commands:
@@ -795,12 +852,15 @@ iridiumsbd <command> [arguments...]
 
    status        print status info
 ```
+
 ## irlock
-Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/irlock)
+
+Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/irlock)
 
 <a id="irlock_usage"></a>
 
 ### 사용법
+
 ```
 irlock <command> [arguments...]
  Commands:
@@ -818,16 +878,19 @@ irlock <command> [arguments...]
 
    status        print status info
 ```
-## linux_pwm_out
-Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/linux_pwm_out)
 
+## linux_pwm_out
+
+Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/linux_pwm_out)
 
 ### 설명
+
 Linux PWM output driver with board-specific backend implementation.
 
 <a id="linux_pwm_out_usage"></a>
 
 ### 사용법
+
 ```
 linux_pwm_out <command> [arguments...]
  Commands:
@@ -837,12 +900,15 @@ linux_pwm_out <command> [arguments...]
 
    status        print status info
 ```
+
 ## lsm303agr
-Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/lsm303agr)
+
+Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/lsm303agr)
 
 <a id="lsm303agr_usage"></a>
 
 ### 사용법
+
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -862,26 +928,31 @@ lsm303agr <command> [arguments...]
 
    status        print status info
 ```
+
 ## msp_osd
+
 Source: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/msp_osd)
 
-
 ### 설명
+
 MSP telemetry streamer
 
 ### Implementation
+
 Converts uORB messages to MSP telemetry packets
 
 ### 예
+
 CLI 사용 예:
+
 ```
 msp_osd
 ```
 
-
 <a id="msp_osd_usage"></a>
 
 ### 사용법
+
 ```
 msp_osd <command> [arguments...]
  Commands:
@@ -889,23 +960,29 @@ msp_osd <command> [arguments...]
 
    status        print status info
 ```
-## newpixel
-Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/neopixel)
 
+## newpixel
+
+Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/neopixel)
 
 ### 설명
+
 This module is responsible for driving interfasing to the Neopixel Serial LED
 
 ### 예
+
 It is typically started with:
+
 ```
 neopixel -n 8
 ```
+
 To drive all available leds.
 
 <a id="newpixel_usage"></a>
 
 ### 사용법
+
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -913,12 +990,15 @@ newpixel <command> [arguments...]
 
    status        print status info
 ```
+
 ## paa3905
-Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paa3905)
+
+Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/paa3905)
 
 <a id="paa3905_usage"></a>
 
 ### 사용법
+
 ```
 paa3905 <command> [arguments...]
  Commands:
@@ -938,12 +1018,15 @@ paa3905 <command> [arguments...]
 
    status        print status info
 ```
+
 ## paw3902
-Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paw3902)
+
+Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/paw3902)
 
 <a id="paw3902_usage"></a>
 
 ### 사용법
+
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -963,27 +1046,33 @@ paw3902 <command> [arguments...]
 
    status        print status info
 ```
-## pca9685_pwm_out
-Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
 
+## pca9685_pwm_out
+
+Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pca9685_pwm_out)
 
 ### 설명
+
 This is a PCA9685 PWM output driver.
 
-It runs on I2C workqueue which is asynchronous with FC control loop, fetching the latest mixing result and write them to PCA9685 at its scheduling ticks.
+It runs on I2C workqueue which is asynchronous with FC control loop,
+fetching the latest mixing result and write them to PCA9685 at its scheduling ticks.
 
-It can do full 12bits output as duty-cycle mode, while also able to output precious pulse width that can be accepted by most ESCs and servos.
+It can do full 12bits output as duty-cycle mode, while also able to output precious pulse width
+that can be accepted by most ESCs and servos.
 
 ### 예
+
 It is typically started with:
+
 ```
 pca9685_pwm_out start -a 0x40 -b 1
 ```
 
-
 <a id="pca9685_pwm_out_usage"></a>
 
 ### 사용법
+
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:
@@ -997,17 +1086,19 @@ pca9685_pwm_out <command> [arguments...]
 
    status        print status info
 ```
+
 ## pm_selector_auterion
+
 Source: [drivers/power_monitor/pm_selector_auterion](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/pm_selector_auterion)
 
-
 ### 설명
-Driver for starting and auto-detecting different power monitors.
 
+Driver for starting and auto-detecting different power monitors.
 
 <a id="pm_selector_auterion_usage"></a>
 
 ### 사용법
+
 ```
 pm_selector_auterion <command> [arguments...]
  Commands:
@@ -1017,12 +1108,15 @@ pm_selector_auterion <command> [arguments...]
 
    status        print status info
 ```
+
 ## pmw3901
-Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/pmw3901)
+
+Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/pmw3901)
 
 <a id="pmw3901_usage"></a>
 
 ### 사용법
+
 ```
 pmw3901 <command> [arguments...]
  Commands:
@@ -1042,17 +1136,19 @@ pmw3901 <command> [arguments...]
 
    status        print status info
 ```
-## pps_capture
-Source: [drivers/pps_capture](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pps_capture)
 
+## pps_capture
+
+Source: [drivers/pps_capture](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pps_capture)
 
 ### 설명
-This implements capturing PPS information from the GNSS module and calculates the drift between PPS and Real-time clock.
 
+This implements capturing PPS information from the GNSS module and calculates the drift between PPS and Real-time clock.
 
 <a id="pps_capture_usage"></a>
 
 ### 사용법
+
 ```
 pps_capture <command> [arguments...]
  Commands:
@@ -1062,17 +1158,21 @@ pps_capture <command> [arguments...]
 
    status        print status info
 ```
-## pwm_out
-Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out)
 
+## pwm_out
+
+Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_out)
 
 ### 설명
-This module is responsible for driving the output pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
 
+This module is responsible for driving the output pins. For boards without a separate IO chip
+(eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the
+px4io driver is used for main ones.
 
 <a id="pwm_out_usage"></a>
 
 ### 사용법
+
 ```
 pwm_out <command> [arguments...]
  Commands:
@@ -1082,21 +1182,25 @@ pwm_out <command> [arguments...]
 
    status        print status info
 ```
+
 ## pwm_out_sim
+
 Source: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/pwm_out_sim)
 
+### 설명
 
-### Description
 Driver for simulated PWM outputs.
 
-Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.
+Its only function is to take `actuator_control` uORB messages,
+mix them with any loaded mixer and output the result to the
+`actuator_output` uORB topic.
 
 It is used in SITL and HITL.
-
 
 <a id="pwm_out_sim_usage"></a>
 
 ### 사용법
+
 ```
 pwm_out_sim <command> [arguments...]
  Commands:
@@ -1108,12 +1212,15 @@ pwm_out_sim <command> [arguments...]
 
    status        print status info
 ```
+
 ## px4flow
-Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
+
+Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/px4flow)
 
 <a id="px4flow_usage"></a>
 
 ### 사용법
+
 ```
 px4flow <command> [arguments...]
  Commands:
@@ -1131,16 +1238,19 @@ px4flow <command> [arguments...]
 
    status        print status info
 ```
-## px4io
-Source: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/px4io)
 
+## px4io
+
+Source: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/px4io)
 
 ### 설명
+
 Output driver communicating with the IO co-processor.
 
 <a id="px4io_usage"></a>
 
 ### 사용법
+
 ```
 px4io <command> [arguments...]
  Commands:
@@ -1172,12 +1282,15 @@ px4io <command> [arguments...]
 
    status        print status info
 ```
-## rc_input
-Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
 
+## rc_input
+
+Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc_input)
 
 ### 설명
+
 This module does the RC input parsing and auto-selecting the method. Supported methods are:
+
 - PPM
 - SBUS
 - DSM
@@ -1185,10 +1298,10 @@ This module does the RC input parsing and auto-selecting the method. Supported m
 - ST24
 - TBS Crossfire (CRSF)
 
-
 <a id="rc_input_usage"></a>
 
 ### 사용법
+
 ```
 rc_input <command> [arguments...]
  Commands:
@@ -1202,12 +1315,15 @@ rc_input <command> [arguments...]
 
    status        print status info
 ```
+
 ## rgbled
-Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/rgbled_ncp5623c)
+
+Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_ncp5623c)
 
 <a id="rgbled_usage"></a>
 
 ### 사용법
+
 ```
 rgbled <command> [arguments...]
  Commands:
@@ -1227,12 +1343,15 @@ rgbled <command> [arguments...]
 
    status        print status info
 ```
+
 ## rgbled_is31fl3195
+
 Source: [drivers/lights/rgbled_is31fl3195](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_is31fl3195)
 
 <a id="rgbled_is31fl3195_usage"></a>
 
 ### 사용법
+
 ```
 rgbled_is31fl3195 <command> [arguments...]
  Commands:
@@ -1254,11 +1373,13 @@ rgbled_is31fl3195 <command> [arguments...]
 
    status        print status info
 ```
+
 ## rgbled_lp5562
+
 Source: [drivers/lights/rgbled_lp5562](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_lp5562)
 
-
 ### 설명
+
 Driver for [LP5562](https://www.ti.com/product/LP5562) LED driver connected via I2C.
 
 This used in some GPS modules by Holybro for [PX4 status notification](../getting_started/led_meanings.md)
@@ -1268,6 +1389,7 @@ The driver is included by default in firmware (KConfig key DRIVERS_LIGHTS_RGBLED
 <a id="rgbled_lp5562_usage"></a>
 
 ### 사용법
+
 ```
 rgbled_lp5562 <command> [arguments...]
  Commands:
@@ -1287,24 +1409,30 @@ rgbled_lp5562 <command> [arguments...]
 
    status        print status info
 ```
-## roboclaw
-Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/roboclaw)
 
+## roboclaw
+
+Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/roboclaw)
 
 ### 설명
 
-This driver communicates over UART with the [Roboclaw motor driver](https://www.basicmicro.com/motor-controller). It performs two tasks:
+This driver communicates over UART with the [Roboclaw motor driver](https://www.basicmicro.com/motor-controller).
+It performs two tasks:
 
- - Control the motors based on the OutputModuleInterface.
- - Read the wheel encoders and publish the raw data in the `wheel_encoders` uORB topic
+- Control the motors based on the OutputModuleInterface.
+- Read the wheel encoders and publish the raw data in the `wheel_encoders` uORB topic
 
-In order to use this driver, the Roboclaw should be put into Packet Serial mode (see the linked documentation), and your flight controller's UART port should be connected to the Roboclaw as shown in the documentation. The driver needs to be enabled using the parameter `RBCLW_SER_CFG`, the baudrate needs to be set correctly and the address `RBCLW_ADDRESS` needs to match the ESC configuration.
+In order to use this driver, the Roboclaw should be put into Packet Serial mode (see the linked documentation), and
+your flight controller's UART port should be connected to the Roboclaw as shown in the documentation.
+The driver needs to be enabled using the parameter `RBCLW_SER_CFG`, the baudrate needs to be set correctly and
+the address `RBCLW_ADDRESS` needs to match the ESC configuration.
 
 The command to start this driver is: `$ roboclaw start <UART device> <baud rate>`
 
 <a id="roboclaw_usage"></a>
 
 ### 사용법
+
 ```
 roboclaw <command> [arguments...]
  Commands:
@@ -1314,17 +1442,20 @@ roboclaw <command> [arguments...]
 
    status        print status info
 ```
+
 ## safety_button
-Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/safety_button)
 
+Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)
 
-### Description
-This module is responsible for the safety button. Pressing the safety button 3 times quickly will trigger a GCS pairing request.
+### 설명
 
+This module is responsible for the safety button.
+Pressing the safety button 3 times quickly will trigger a GCS pairing request.
 
 <a id="safety_button_usage"></a>
 
 ### 사용법
+
 ```
 safety_button <command> [arguments...]
  Commands:
@@ -1334,17 +1465,19 @@ safety_button <command> [arguments...]
 
    status        print status info
 ```
+
 ## sbus_rc
+
 Source: [drivers/rc/sbus_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/sbus_rc)
 
-
 ### 설명
-This module does SBUS RC input parsing.
 
+This module does SBUS RC input parsing.
 
 <a id="sbus_rc_usage"></a>
 
 ### 사용법
+
 ```
 sbus_rc <command> [arguments...]
  Commands:
@@ -1356,26 +1489,36 @@ sbus_rc <command> [arguments...]
 
    status        print status info
 ```
+
 ## septentrio
+
 Source: [drivers/gnss/septentrio](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gnss/septentrio)
 
-
 ### 설명
-Driver for Septentrio GNSS receivers. It can automatically configure them and make their output available for the rest of the system. A secondary receiver is supported for redundancy, logging and dual-receiver heading. Septentrio receiver baud rates from 57600 to 1500000 are supported. If others are used, the driver will use 230400 and give a warning.
+
+Driver for Septentrio GNSS receivers.
+It can automatically configure them and make their output available for the rest of the system.
+A secondary receiver is supported for redundancy, logging and dual-receiver heading.
+Septentrio receiver baud rates from 57600 to 1500000 are supported.
+If others are used, the driver will use 230400 and give a warning.
 
 ### 예
 
 Use one receiver on port `/dev/ttyS0` and automatically configure it to use baud rate 230400:
+
 ```
 septentrio start -d /dev/ttyS0 -b 230400
 ```
 
-Use two receivers, the primary on port `/dev/ttyS3` and the secondary on `/dev/ttyS4`, detect baud rate automatically and preserve them:
+Use two receivers, the primary on port `/dev/ttyS3` and the secondary on `/dev/ttyS4`,
+detect baud rate automatically and preserve them:
+
 ```
 septentrio start -d /dev/ttyS3 -e /dev/ttyS4
 ```
 
 Perform warm reset of the receivers:
+
 ```
 gps reset warm
 ```
@@ -1383,6 +1526,7 @@ gps reset warm
 <a id="septentrio_usage"></a>
 
 ### 사용법
+
 ```
 septentrio <command> [arguments...]
  Commands:
@@ -1403,39 +1547,47 @@ septentrio <command> [arguments...]
    reset         Reset connected receiver
      cold|warm|hot Specify reset type
 ```
+
 ## sht3x
-Source: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/hygrometer/sht3x)
 
+Source: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/hygrometer/sht3x)
 
-### Description
+### 설명
+
 SHT3x Temperature and Humidity Sensor Driver by Senserion.
 
-### Examples
+### 예
+
 CLI 사용 예:
+
 ```
 sht3x start -X
 ```
-  Start the sensor driver on the external bus
+
+Start the sensor driver on the external bus
 
 ```
 sht3x status
 ```
-  Print driver status
+
+Print driver status
 
 ```
 sht3x values
 ```
-  Print last measured values
+
+Print last measured values
 
 ```
 sht3x reset
 ```
-  Reinitialize senzor, reset flags
 
+Reinitialize senzor, reset flags
 
 <a id="sht3x_usage"></a>
 
 ### 사용법
+
 ```
 sht3x <command> [arguments...]
  Commands:
@@ -1458,17 +1610,20 @@ sht3x <command> [arguments...]
 
    reset         Reinitialize sensor
 ```
+
 ## tap_esc
-Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tap_esc)
 
+Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
 
-### Description
+### 설명
 
-This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
+This module controls the TAP_ESC hardware via UART. It listens on the
+actuator_controls topics, does the mixing and writes the PWM outputs.
 
 ### Implementation
 
-Currently the module is implemented as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+Currently the module is implemented as a threaded version only, meaning that it
+runs in its own thread instead of on the work queue.
 
 ### 예
 
@@ -1481,6 +1636,7 @@ tap_esc start -d /dev/ttyS2 -n <1-8>
 <a id="tap_esc_usage"></a>
 
 ### 사용법
+
 ```
 tap_esc <command> [arguments...]
  Commands:
@@ -1490,17 +1646,19 @@ tap_esc <command> [arguments...]
      [-n <val>]  Number of ESCs
                  default: 4
 ```
+
 ## tone_alarm
-Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tone_alarm)
 
+Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tone_alarm)
 
-### Description
+### 설명
+
 This module is responsible for the tone alarm.
-
 
 <a id="tone_alarm_usage"></a>
 
 ### 사용법
+
 ```
 tone_alarm <command> [arguments...]
  Commands:
@@ -1510,13 +1668,15 @@ tone_alarm <command> [arguments...]
 
    status        print status info
 ```
+
 ## uwb
-Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/uwb/uwb_sr150)
 
+Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uwb/uwb_sr150)
 
-### Description
+### 설명
 
-Driver for NXP UWB_SR150 UWB positioning system. This driver publishes a `uwb_distance` message whenever the UWB_SR150 has a position measurement available.
+Driver for NXP UWB_SR150 UWB positioning system. This driver publishes a `uwb_distance` message
+whenever the UWB_SR150 has a position measurement available.
 
 ### 예
 
@@ -1529,6 +1689,7 @@ uwb start -d /dev/ttyS2
 <a id="uwb_usage"></a>
 
 ### 사용법
+
 ```
 uwb <command> [arguments...]
  Commands:
@@ -1542,12 +1703,15 @@ uwb <command> [arguments...]
 
    status
 ```
+
 ## vertiq_io
+
 Source: [drivers/actuators/vertiq_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/vertiq_io)
 
 <a id="vertiq_io_usage"></a>
 
 ### 사용법
+
 ```
 vertiq_io <command> [arguments...]
  Commands:
@@ -1558,17 +1722,21 @@ vertiq_io <command> [arguments...]
 
    status        print status info
 ```
+
 ## voxl2_io
+
 Source: [drivers/voxl2_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/voxl2_io)
 
+### 설명
 
-### Description
-This module is responsible for driving the output pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
-
+This module is responsible for driving the output pins. For boards without a separate IO chip
+(eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the
+px4io driver is used for main ones.
 
 <a id="voxl2_io_usage"></a>
 
 ### 사용법
+
 ```
 voxl2_io <command> [arguments...]
  Commands:
@@ -1592,26 +1760,31 @@ voxl2_io <command> [arguments...]
 
    status        print status info
 ```
+
 ## voxl_esc
+
 Source: [drivers/actuators/voxl_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/voxl_esc)
 
+### 설명
 
-### Description
 This module is responsible for...
 
 ### Implementation
+
 By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
 
-### Examples
+### 예
+
 It is typically started with:
+
 ```
 todo
 ```
 
-
 <a id="voxl_esc_usage"></a>
 
 ### 사용법
+
 ```
 voxl_esc <command> [arguments...]
  Commands:
@@ -1652,12 +1825,15 @@ voxl_esc <command> [arguments...]
 
    status        print status info
 ```
+
 ## voxlpm
-Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/voxlpm)
+
+Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/voxlpm)
 
 <a id="voxlpm_usage"></a>
 
 ### 사용법
+
 ```
 voxlpm [arguments...]
    start
@@ -1677,17 +1853,19 @@ voxlpm [arguments...]
 
    status        print status info
 ```
+
 ## zenoh
+
 Source: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/zenoh)
 
-
-### Description
+### 설명
 
 Zenoh demo bridge
 
 <a id="zenoh_usage"></a>
 
 ### 사용법
+
 ```
 zenoh <command> [arguments...]
  Commands:
