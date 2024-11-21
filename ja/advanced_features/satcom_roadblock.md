@@ -105,10 +105,8 @@ The relay server should be run on either Ubuntu 16.04 or 14.04 OS.
 1. Configure the broker's credentials (change PWD to your preferred password):
 
    ```sh
-   Configure the broker's credentials (change PWD to your preferred password): 
-   bash
-    sudo rabbitmqctl add_user iridiumsbd PWD
-    sudo rabbitmqctl set_permissions iridiumsbd ".<em x-id="3">" ".</em>" ".*"
+   sudo rabbitmqctl add_user iridiumsbd PWD
+   sudo rabbitmqctl set_permissions iridiumsbd ".*" ".*" ".*"
    ```
 
 1. Clone the [SatComInfrastructure](https://github.com/acfloria/SatComInfrastructure.git) repository:
@@ -186,7 +184,7 @@ To setup the ground station:
 
 ### Verification
 
-1. Open a terminal on the ground station computer and change to the location of the _SatComInfrastructure_ repository. Then start the **udp2rabbit.py** script: `./udp2rabbit.py`
+1. Open a terminal on the ground station computer and change to the location of the _SatComInfrastructure_ repository. Then start the **udp2rabbit.py** script:
 
    ```sh
    ./udp2rabbit.py
@@ -204,7 +202,7 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 
    ![Connect the High Latency link](../../assets/satcom/linkconnect.png)
 
-1. Open a terminal on the ground station computer and change to the location of the _SatComInfrastructure_ repository. Then start the **udp2rabbit.py** script: `./udp2rabbit.py`
+1. Open a terminal on the ground station computer and change to the location of the _SatComInfrastructure_ repository. Then start the **udp2rabbit.py** script:
 
    ```sh
    ./udp2rabbit.py
