@@ -1,58 +1,69 @@
 # Завантаження завантажувача PX4 на системи Betaflight
 
-Ця сторінка документує, як прошивати завантажувач PX4 на плати, які вже мають прошивку Betaflight (наприклад, \<0\>OmnibusF4 SD\</0\> або \<1\>Kakute F7\</1\>).
+This page documents how to flash the PX4 bootloader onto boards that are already flashed with Betaflight (e.g. [OmnibusF4 SD](../flight_controller/omnibus_f4_sd.md) or [Kakute F7](../flight_controller/kakutef7.md)).
 
-Є три інструменти, які можна використовувати для прошивки завантажувача PX4: _Конфігуратор Betaflight_, [командний рядок dfu-util](http://dfu-util.sourceforge.net/) або графічний інструмент [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) (тільки для Windows).
+There are three tools that can be used to flash the PX4 bootloader: _Betaflight Configurator_, [dfu-util](http://dfu-util.sourceforge.net/) command line tool, or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) (Windows only).
 
-:::note
-_Конфігуратор Betaflight_  є найпростішим використанням, але більш нові версії можуть не підтримувати оновлення завантажувача, який не є частиною Betaflight. Ви можете спробувати це спочатку, але скористайтеся іншими методами, якщо оновлення мікропрограми не працює.
+:::info
+The _Betaflight Configurator_ is easiest, but newer versions may not support non-betaflight bootloader update.
+Ви можете спробувати це спочатку, але скористайтеся іншими методами, якщо оновлення мікропрограми не працює.
 :::
 
 ## Оновлення завантажувача в конфігураторі Betaflight
 
-:::note
-_Betaflight Configurator_ може не підтримувати оновлення PX4 Bootloader, на травень 2023 року. Давні версії повинні працювати, хоча точні версії не відомі.
+:::info
+_Betaflight Configurator_ may not support PX4 Bootloader update, as of May 2023.
+Давні версії повинні працювати, хоча точні версії не відомі.
 :::
 
-Для встановлення завантажувача PX4 за допомогою _Конфігуратора Betaflight_:
+To install the PX4 bootloader using the _Betaflight Configurator_:
 
-1. Завантажте або зіберіть [прошивку завантажувача](#bootloader-firmware) для плати, яку ви хочете прошивати.
-1. Завантажте [Конфігуратор Betaflight](https://github.com/betaflight/betaflight-configurator/releases) для вашої платформи.
+1. Download or build [bootloader firmware](#bootloader-firmware) for the board you want to flash.
 
-:::tip
-Якщо ви користуєтеся веб-браузером _Chrome_, простий крос-платформений альтернативний варіант - встановити конфігуратор як [розширення звідси](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao).
+2. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform.
+
+   :::tip
+   If using the _Chrome_ web browser, a simple cross-platform alternative is to install the configurator as an [extension from here](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao).
+
 :::
 
-1. Підключіть плату до комп'ютера і запустіть конфігуратор.
-1. Натисніть кнопку **Завантажити прошивку [Локально]**. ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
-1. Виберіть бінарний файл завантажувача з файлової системи, а потім прошейте плату.
+3. Підключіть плату до комп'ютера і запустіть конфігуратор.
+
+4. Press the **Load Firmware [Local]** button
+   ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
+
+5. Виберіть бінарний файл завантажувача з файлової системи, а потім прошейте плату.
 
 Тепер ви повинні змогти встановити прошивку PX4 на плату.
 
 ## Оновлення завантажувача через DFU
 
-Цей розділ пояснює, як перепрошити завантажувач PX4 за допомогою інструменту [dfu-util](http://dfu-util.sourceforge.net/) або графічного інструменту [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) (тільки для Windows).
+This section explains how to flash the PX4 bootloader using the [dfu-util](http://dfu-util.sourceforge.net/) or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) tool (Windows only).
 
-Спершу вам потрібно завантажити або зібрати [прошивку завантажувача](#bootloader-firmware) для плати, яку ви хочете прошивати (нижче це зазначено як `<target.bin>`).
+You will first need to download or build [bootloader firmware](#bootloader-firmware) for the board you want to flash (below, this is referred to as `<target.bin>`).
 
-:::note
-Усі наведені нижче методи є безпечними, оскільки мікроконтролер STM32 не може бути "заблокованим"!
+:::info
+All of the methods below are safe as the STM32 MCU cannot be bricked!
 DFU не може бути перезаписано при прошивці і завжди дозволяє встановити нову прошивку, навіть якщо процес прошивки завершиться невдало.
 :::
 
 ### Режим DFU
 
-Обидва інструменти вимагають, щоб плата перебувала в режимі DFU. Щоб увійти в режим DFU, утримуйте кнопку завантаження (boot button) натиснутою під час підключення USB-кабеля до вашого комп'ютера. Кнопку можна відпустити після того, як плата буде ввімкнена.
+Обидва інструменти вимагають, щоб плата перебувала в режимі DFU.
+Щоб увійти в режим DFU, утримуйте кнопку завантаження (boot button) натиснутою під час підключення USB-кабеля до вашого комп'ютера.
+Кнопку можна відпустити після того, як плата буде ввімкнена.
 
 ### dfu-util
 
-::: info The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md), [Holybro Kakute H7](../flight_controller/kakuteh7.md) and [mini](../flight_controller/kakuteh7mini.md) flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
+:::info
+The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md), [Holybro Kakute H7](../flight_controller/kakuteh7.md) and [mini](../flight_controller/kakuteh7mini.md) flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
 
 ```
 dfu-util -a 0 --dfuse-address 0x08000000:force:mass-erase:leave -D build/<target>/<target>.bin
 ```
 
-Ця команда може викликати помилку, яку можна ігнорувати. Після завершення введіть режим DFU ще раз, щоб завершити звичайне оновлення.
+Ця команда може викликати помилку, яку можна ігнорувати.
+Після завершення введіть режим DFU ще раз, щоб завершити звичайне оновлення.
 :::
 
 Для прошивки загрузчика на контролер польоту:
@@ -67,13 +78,15 @@ dfu-util -a 0 --dfuse-address 0x08000000 -D  build/<target>/<target>.bin
 
 Керівництво dfuse можна знайти тут: https://www.st.com/resource/en/user_manual/cd00155676.pdf
 
-Використовуйте інструмент для прошивки `<target>.bin` файлу.
+Use the tool to flash the `<target>.bin` file.
 
 ## Прошивка завантажувача
 
-Інструменти вище прошивають вбудоване програмне забезпечення завантажувача. Прошивка завантажувача може бути побудована для більшості цілей за допомогою звичайного вихідного коду PX4, тоді як для інших цілей можна використовувати вихідний код з репозиторію завантажувача.
+Інструменти вище прошивають вбудоване програмне забезпечення завантажувача.
+Прошивка завантажувача може бути побудована для більшості цілей за допомогою звичайного вихідного коду PX4, тоді як для інших цілей можна використовувати вихідний код з репозиторію завантажувача.
 
-Плати управління політами, які мають цільові PX4-Autopilot `make` для завантажувача, можуть збудувати завантажувач із вихідного коду PX4-Autopilot. Список контролерів, яких це стосується, можна отримати, виконавши наступну команду `make` і зазначивши цілі `make`, які закінчуються на `_bootloader`
+Flight controllers that have bootloader PX4-Autopilot `make` targets, can build the bootloader from the PX4-Autopilot source.
+The list of controllers for which this applies can be obtained by running the following `make` command, and noting the `make` targets that end in `_bootloader`
 
 ```
 $make list_config_targets
@@ -97,7 +110,7 @@ px4_fmu-v6u_bootloader
 px4_fmu-v6x_bootloader
 ```
 
-Щоб створити для цих контролерів польоту, завантажте та створіть [джерело PX4-Autopilot](https://github.com/PX4/PX4-Autopilot), а потім створіть ціль за допомогою таких команд:
+To build for these flight controllers, download and build the [PX4-Autopilot source](https://github.com/PX4/PX4-Autopilot), and then make the target using the following commands:
 
 ```sh
 git clone --recursive https://github.com/PX4/PX4-Autopilot.git
@@ -105,7 +118,7 @@ cd PX4-Autopilot
 make <target> # For example: holybro_kakuteh7mini_bootloader
 ```
 
-Для інших контролерів польоту завантажте репозиторій [PX4/Bootloader](https://github.com/PX4/Bootloader) і створіть вихідний код, використовуючи відповідні цілі:
+For other flight controllers download the [PX4/Bootloader](https://github.com/PX4/Bootloader) repository and build the source code using the appropriate targets:
 
 ```
 git clone --recursive  https://github.com/PX4/Bootloader.git
@@ -115,8 +128,9 @@ make <target> # For example: omnibusf4sd_bl or kakutef7_bl
 
 ## Перевстановіть Betaflight
 
-Для переключення назад на Betaflight:
+In order to switch back to _Betaflight_:
 
-1. Резервне копіювання параметрів PX4. Ви можете зробити це, [експортуючи](../advanced/parameters_and_configurations.md#exporting-and-loading-parameters) їх на SD-карту.
-1. Натисніть і утримуйте кнопку **завантажувача**, підключивши USB-кабель.
-1. Flash _Betaflight_ як зазвичай за допомогою _Betaflight-configurator_.
+1. Резервне копіювання параметрів PX4.
+   You can do this by [exporting](../advanced/parameters_and_configurations.md#exporting-and-loading-parameters) them to an SD card.
+2. Keep the **bootloader** button pressed while attaching the USB cable
+3. Flash _Betaflight_ as usual with the _Betaflight-configurator_
