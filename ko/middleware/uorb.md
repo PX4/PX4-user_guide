@@ -120,7 +120,7 @@ uORB는 `orb_advertise_multi`로 동일한 주제의 여러 독립 인스턴스�
 
 동일한 주제에 대하여 `orb_advertise_multi`와 `orb_advertise`를 혼용하지 마십시오.
 
-전체 API는 [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/uORB/uORBManager.hpp)를 참고하십시오.
+The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 
