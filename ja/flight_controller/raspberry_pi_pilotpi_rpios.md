@@ -12,13 +12,15 @@ To install you must already have a working SSH connection to RPi.
 
 #### Hostname and mDNS
 
-mDNS helps you connect to your RasPi with hostname instead of IP address.
+mDNS helps you connect to your RPi with hostname instead of IP address.
 
 ```sh
 sudo raspi-config
 ```
 
-Navigate to **Network Options > Hostname**. Set and exit. You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well.
+Navigate to **Network Options > Hostname**.
+Set and exit.
+You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well.
 
 ### Setting up OS
 
@@ -51,21 +53,24 @@ dtoverlay=miniuart-bt
 sudo raspi-config
 ```
 
-**Interfacing Options > Serial > login shell = No > hardware = Yes**. Enable UART but without a login shell on it.
+**Interfacing Options > Serial > login shell = No > hardware = Yes**.
+Enable UART but without a login shell on it.
 
 ```sh
 sudo nano /boot/cmdline.txt
 ```
 
-Append `isolcpus=2` after the last word. The whole file would be:
+Append `isolcpus=2` after the last word.
+The whole file would be:
 
 ```sh
 console=tty1 root=PARTUUID=xxxxxxxx-xx rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait isolcpus=2
 ```
 
-This tells the Linux kernel not to schedule any process on CPU core 2. We will manually run PX4 onto that core later.
+This tells the Linux kernel not to schedule any process on CPU core 2.
+We will manually run PX4 onto that core later.
 
-Reboot and SSH onto your RasPi.
+Reboot and SSH onto your RPi.
 
 Check UART interface:
 
@@ -113,13 +118,13 @@ echo "25" > /sys/class/gpio/unexport
 
 Save and exit.
 
-::: info
+:::info
 Don't forget to turn off the switch when it is not needed.
 :::
 
 #### CSI camera
 
-::: info
+:::info
 Enable CSI camera will stop anything works on I2C-0.
 :::
 
@@ -137,7 +142,7 @@ To get the _very latest_ version onto your computer, enter the following command
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-::: info
+:::info
 This is all you need to do just to build the latest code.
 :::
 
@@ -203,11 +208,13 @@ Execute the command in PX4-Autopilot folder:
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
 
-::: info
+:::info
 mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 :::
 
-::: info If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
+:::info
+If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
+You can compile without uploading too. Just remove `upload` target.
 :::
 
 It is also possible to just compile the code with command:
@@ -224,7 +231,7 @@ You need to check these extra items to get your vehicle work properly.
 
 First set the [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) parameter for your vehicle.
 
-You will then be able to assign outputs using the normal [Actuator Configuration](../config/actuators.md) configuration screen (an output tab will appear for the RasPi PWM output driver).
+You will then be able to assign outputs using the normal [Actuator Configuration](../config/actuators.md) configuration screen (an output tab will appear for the RPi PWM output driver).
 
 #### External Compass
 
@@ -237,7 +244,8 @@ gps start -d /dev/ttySC0 -i uart -p ubx -s
 #ist8310 start -X
 ```
 
-Uncomment the correct one for your case. Not sure which compass comes up with your GPS module? Execute the following commands and see the output:
+Uncomment the correct one for your case.
+Not sure which compass comes up with your GPS module? Execute the following commands and see the output:
 
 ```sh
 sudo apt-get update
@@ -261,5 +269,7 @@ Sample output:
 
 `1e` indicates a HMC5883 based compass is mounted on external I2C bus. Similarly, IST8310 has a value of `0e`.
 
-::: info Generally you only have one of them. Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
+:::info
+Generally you only have one of them.
+Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
 :::
