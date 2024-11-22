@@ -163,3 +163,19 @@ make px4_sitl gz_rover_ackermann
 ```
 
 ![Ackermann Rover in Gazebo](../../assets/simulation/gazebo/vehicles/rover_ackermann.png)
+
+### Quadtailsitter
+
+![Quadtailsitter in Gazebo](../../assets/simulation/gazebo/vehicles/quadtailsitter.png)
+Add picture
+
+```sh
+make px4_sitl gz_quadtailsitter
+```
+### Tiltrotor
+
+![Tiltrotor in Gazebo](../../assets/simulation/gazebo/vehicles/tiltrotor.png)
+
+```sh
+make px4_sitl gz_tiltrotor
+```
