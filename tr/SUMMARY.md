@@ -19,7 +19,6 @@
       - [Mission Mode (MC)](flight_modes_mc/mission.md)
       - [Return Mode (MC)](flight_modes_mc/return.md)
       - [Offboard Mode (MC)](flight_modes_mc/offboard.md)
-    - [Collision Prevention](computer_vision/collision_prevention.md)
     - [Precision Landing](advanced_features/precland.md)
     - [Terrain Following/Holding](flying/terrain_following_holding.md)
     - [Throw Launch](flight_modes_mc/throw_launch.md)
@@ -377,6 +376,7 @@
     - [Holybro Pixhawk RPi CM4 Baseboard](companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
     - [Auterion Skynode](companion_computer/auterion_skynode.md)
     - [Computer Vision](computer_vision/index.md)
+      - [Collision Prevention](computer_vision/collision_prevention.md)
       - [Path Planning Interface](computer_vision/path_planning_interface.md)
       - [Motion Capture (MoCap)](computer_vision/motion_capture.md)
       - [Visual Inertial Odometry (VIO)](computer_vision/visual_inertial_odometry.md)
@@ -797,6 +797,7 @@
     - [ROS Integration Testing](test_and_ci/integration_testing.md)
     - [Docker Containers](test_and_ci/docker.md)
     - [Maintenance](test_and_ci/maintenance.md)
+
 - [Drone Apps & APIs](robotics/index.md)
   - [Offboard Control from Linux](ros/offboard_control.md)
   - [MAVSDK](robotics/mavsdk.md)
@@ -816,6 +817,7 @@
     - [Gazebo Classic OctoMap Models with ROS 1](sim_gazebo_classic/octomap.md)
     - [ROS/MAVROS Installation on RPi](ros/raspberrypi_installation.md)
     - [External Position Estimation (Vision/Motion based)](ros/external_position_estimation.md)
+
 - [Community](contribute/index.md)
   - [Dev Call](contribute/dev_call.md)
   - [Maintainers](contribute/maintainers.md)
@@ -826,7 +828,8 @@
   - [Translation](contribute/translation.md)
   - [Terminology/Notation](contribute/notation.md)
   - [Licenses](contribute/licenses.md)
-- [Sürümler](releases/index.md)
+
+- [Releases](releases/index.md)
   - [main (alpha)](releases/main.md)
   - [1.15 (stable)](releases/1.15.md)
   - [1.14](releases/1.14.md)
