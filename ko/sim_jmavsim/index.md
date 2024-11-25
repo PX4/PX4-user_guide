@@ -1,12 +1,14 @@
 # jMAVSim with SITL
 
 :::warning
-This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4 and may be removed in future releases.
+This simulator is [community supported and maintained](../simulation/community_supported_simulators.md).
+It may or may not work with current versions of PX4 and may be removed in future releases.
 
 See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
 
-jMAVSim is a simple multirotor/Quad simulator that allows you to fly _copter_ type vehicles running PX4 around a simulated world. It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure).
+jMAVSim is a simple multirotor/Quad simulator that allows you to fly _copter_ type vehicles running PX4 around a simulated world.
+It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure).
 
 <strong>Supported Vehicles:</strong>
 
@@ -20,27 +22,32 @@ jMAVSim can also be used for HITL Simulation ([as shown here](../simulation/hitl
 
 ## 설치
 
-jMAVSim setup is included in our [standard build instructions](../dev_setup/dev_env.md) for Ubuntu Linux and Windows. Follow the instructions below to install jMAVSim on macOS.
+jMAVSim setup is included in our [standard build instructions](../dev_setup/dev_env.md) for Ubuntu Linux and Windows.
+Follow the instructions below to install jMAVSim on macOS.
 
 ### macOS
 
 To setup the environment for [jMAVSim](../sim_jmavsim/index.md) simulation:
 
-1. Install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
+1. Install a recent version of Java (e.g. Java 15).
+   You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
 
    ```sh
    brew install --cask temurin
    ```
 
-1. Install jMAVSim:
+2. Install jMAVSim:
 
    ```sh
    brew install px4-sim-jmavsim
    ```
 
-   :::warning PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
+   :::warning
+   PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
 
-   For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../sim_jmavsim/index.md#troubleshooting)).
+   For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`.
+   You can find the fix in the [jMAVSim with SITL > Troubleshooting](../sim_jmavsim/index.md#troubleshooting)).
+
 :::
 
 ## Simulation Environment
@@ -48,7 +55,6 @@ To setup the environment for [jMAVSim](../sim_jmavsim/index.md) simulation:
 Software in the Loop Simulation runs the complete system on the host machine and simulates the autopilot. It connects via local network to the simulator. The setup looks like this:
 
 [![Mermaid graph: SITL Simulator](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
-
 
 <!-- original graph
 graph LR;
@@ -172,7 +178,10 @@ JMAVSim can be used for multi-vehicle simulation: [Multi-Vehicle Sim with JMAVSi
 
 To extend or customize the simulation interface, edit the files in the **Tools/jMAVSim** folder. The code can be accessed through the[jMAVSim repository](https://github.com/px4/jMAVSim) on Github.
 
-::: info The build system enforces the correct submodule to be checked out for all dependencies, including the simulator. It will not overwrite changes in files in the directory, however, when these changes are committed the submodule needs to be registered in the Firmware repo with the new commit hash. To do so, `git add Tools/jMAVSim` and commit the change. This will update the GIT hash of the simulator.
+:::info
+The build system enforces the correct submodule to be checked out for all dependencies, including the simulator.
+It will not overwrite changes in files in the directory, however, when these changes are committed the submodule needs to be registered in the Firmware repo with the new commit hash. To do so, `git add Tools/jMAVSim` and commit the change.
+This will update the GIT hash of the simulator.
 :::
 
 ## Interfacing to ROS
@@ -260,7 +269,8 @@ and comment out the line indicated below:
 #assistive_technologies=org.GNOME.Acessibility.AtkWrapper
 ```
 
-For more info, check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557). A contributor found the fix in [askubuntu.com](https://askubuntu.com/questions/695560).
+For more info, check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557).
+A contributor found the fix in [askubuntu.com](https://askubuntu.com/questions/695560).
 
 ### Exception in thread "main" java.lang.UnsupportedClassVersionError
 
@@ -270,7 +280,8 @@ When compiling jMAVsim, you might encounter the following error:
 Exception in thread "main" java.lang.UnsupportedClassVersionError: me/drton/jmavsim/Simulator has been compiled by a more recent version of the Java Runtime (class file version 59.0), this version of the Java Runtime only recognizes class file versions up to 58.0
 ```
 
-This error is telling you, you need a more recent version of Java in your environment. Class file version 58 corresponds to jdk14, version 59 to jdk15, version 60 to jdk 16 etc.
+This error is telling you, you need a more recent version of Java in your environment.
+Class file version 58 corresponds to jdk14, version 59 to jdk15, version 60 to jdk 16 etc.
 
 To fix it under macOS, we recommend installing OpenJDK through homebrew
 
