@@ -1,6 +1,7 @@
 # Holybro XBP9X Telemetry Radio (Discontinued)
 
-Holybro XBP9X radio can be configured easily using Digi's free XCTU software or via Digi's simplified AT or API command sets. The radio provides secure, reliable delivery of critical data between devices with 256-bit AES encryption.
+Holybro XBP9X radio can be configured easily using Digi's free XCTU software or via Digi's simplified AT or API command sets.
+The radio provides secure, reliable delivery of critical data between devices with 256-bit AES encryption.
 
 ![Holybro XBP9X Radio](../../assets/hardware/telemetry/holybro-xbp9x.jpg)
 
