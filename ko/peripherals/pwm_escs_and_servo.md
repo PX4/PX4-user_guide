@@ -14,10 +14,11 @@ PWM 기반 브러시리스 모터 컨트롤러, 서보를 연결 방법과 전�
 - PWM 신호 (일반적으로 흰색 또는 노란색)
 - GND (일반적으로 검정색 또는 갈색)
 
-The servo plug _may_ also have a +5V wire (usually red or orange). 이 와이어의 목적과 연결 방법은 ESC와 기체 유형에 따라 달라집니다.
+The servo plug _may_ also have a +5V wire (usually red or orange).
+이 와이어의 목적과 연결 방법은 ESC와 기체 유형에 따라 달라집니다.
 
 :::tip
-일부 경우 (아래 참조) +5V 라인이 필요하지 않습니다.
+In some cases (see below)the +5V line is not needed.
 +5V 라인을 절단하는 대신 해당 핀용 서보 커넥터 플라스틱 하우징의 잠금 탭을 부드럽게 들어 올린 다음 (예 : 커터 블레이드 또는 소형 스크루 드라이버 사용) 핀을 빼낼 수 있습니다.
 전기 절연 테이프로 분리하고 서보 케이블에 테이프로 붙입니다.
 This allows you to easily undo the wire later if needed
@@ -39,10 +40,14 @@ On a fixed-wing (or VTOL) ESC, the +5V line usually provides the output of a Bat
 
 - 이것은 Pixhawk 서보 레일에 연결되어 플랩, 에일러론 등의 서보에 전원을 공급에 사용할 수 있습니다.
 
-  ::: info It is unsafe to power servos or ESCs from the autopilot's avionics power supply. This is why **Pixhawk series** flight controllers do not provide power for the servo rail (the AUX servo rail is unpowered and is limited to 1A).
+  ::: info
+  It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
+  This is why **Pixhawk series** flight controllers do not provide power for the servo rail (the AUX servo rail is unpowered and is limited to 1A).
+
 :::
 
-- As a rule of thumb you should only connect the _output of only one BEC_ to the Pixhawk servo rail. 여러 +5V 출력을 레일에 연결할 수 있지만, ESC 모델에 따라 다릅니다.
+- As a rule of thumb you should only connect the _output of only one BEC_ to the Pixhawk servo rail.
+  여러 +5V 출력을 레일에 연결할 수 있지만, ESC 모델에 따라 다릅니다.
 
 ### 멀티콥터
 
@@ -54,7 +59,8 @@ On a fixed-wing (or VTOL) ESC, the +5V line usually provides the output of a Bat
 
 ### 광절연 ESC
 
-On an opto-isolated ESC **without** BEC, the +5V line might need to be connected and powered (in order to provide power to the ESC microcontroller). 이 경우 와이어는 일반적으로 비행 콘트롤러 서보 레일에 연결되며, 서보 레일은 추가 BEC에서 전원을 공급하여야 합니다.
+On an opto-isolated ESC **without** BEC, the +5V line might need to be connected and powered (in order to provide power to the ESC microcontroller).
+이 경우 와이어는 일반적으로 비행 콘트롤러 서보 레일에 연결되며, 서보 레일은 추가 BEC에서 전원을 공급하여야 합니다.
 
 ## PX4 설정
 
@@ -66,14 +72,16 @@ Additional PX4 PWM configuration parameters can be found here: [PWM Outputs](../
 
 ## 문제 해결
 
-Pixhawk is compatible with all _PWM ESCs_ on the market. If a particular ESC is not operational, it is incorrectly wired up or configured.
+Pixhawk is compatible with all _PWM ESCs_ on the market.
+If a particular ESC is not operational, it is incorrectly wired up or configured.
 
 ### 접지 연결
 
 Check that the ground (black wire) of the ESC servo connector is connected to Pixhawk (there is no valid wiring setup that does not have a ground reference).
 
 :::warning
-It is unsafe to fly without ground connected. This is because for every positive pulse (the ESC signal) there needs to be an adjacent ground return path for a clean signal shape.
+It is unsafe to fly without ground connected.
+This is because for every positive pulse (the ESC signal) there needs to be an adjacent ground return path for a clean signal shape.
 
 The image below shows how noisy the signal becomes if GND is not connected.
 
@@ -90,23 +98,28 @@ See the first section of this page explains for other power connection considera
 
 Some ESCs need to see a special low value pulse before switching on (to protect users who have the throttle stick in the middle position on power-up).
 
-PX4 sends a pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly. Appropriate values are determined and set as part of the [actuator configuration/testing](../config/actuators.md#actuator-testing) process (internally these set the per-output parameters [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) and [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
+PX4 sends a pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly.
+Appropriate values are determined and set as part of the [actuator configuration/testing](../config/actuators.md#actuator-testing) process (internally these set the per-output parameters [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) and [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
 
 ### 시간 초과
 
 Some ESCs may time out (preventing motor activation) if they have not received a valid low pulse within a few seconds of power on.
 
-PX4 sends an idle/disarmed pulse right after power on to stop ESCs timing out. Appropriate values are determined and set as part of the [actuator configuration/testing](../config/actuators.md#actuator-testing) process (internally these set the per-output parameters [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) and [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
+PX4 sends an idle/disarmed pulse right after power on to stop ESCs timing out.
+Appropriate values are determined and set as part of the [actuator configuration/testing](../config/actuators.md#actuator-testing) process (internally these set the per-output parameters [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) and [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
 
 ### 유효한 펄스 모양, 전압 및 업데이트 속도
 
-::: info
+:::info
 This should not be a problem, but is included for completeness
 :::
 
 Pixhawk uses active high pulses, as used by all the major brands (Futaba, Spektrum, FrSky).
 
-PWM interfaces are not formally standardised, however, the normal micro controllers all use TTL or CMOS voltage levels. TTL is defined as low < 0.8V and high > 2.0V with some manufacturers using > 2.4V for additional noise margin. CMOS logic is defined with similar voltage levels. 5V levels are **never** required to successfully switch to an _on_ state.
+PWM interfaces are not formally standardised, however, the normal micro controllers all use TTL or CMOS voltage levels.
+TTL is defined as low < 0.8V and high > 2.0V with some manufacturers using > 2.4V for additional noise margin.
+CMOS logic is defined with similar voltage levels.
+5V levels are **never** required to successfully switch to an _on_ state.
 
 :::tip
 Futaba, FrSky and Spektrum receivers output 3.3V or 3.0V voltage levels, as they are well above 2.4V.
