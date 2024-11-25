@@ -1,38 +1,42 @@
 # ROS (1) with MAVROS Installation Guide
 
 :::warning
-The PX4 development team recommend that all users [upgrade to ROS 2](../ros2/index.md). Ця документація відображає "старий підхід".
+The PX4 development team recommend that all users [upgrade to ROS 2](../ros2/index.md).
+Ця документація відображає "старий підхід".
 :::
 
 This documentation explains how to set up communication between the PX4 Autopilot and a ROS 1 enabled companion computer using MAVROS.
 
-[MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) – це пакет ROS 1, який забезпечує розширений зв’язок MAVLink між комп’ютерами, на яких працює ROS 1, для будь-якого автопілота, наземної станції чи периферійного пристрою з підтримкою MAVLink. _MAVROS_ is the "official" supported bridge between ROS 1 and the MAVLink protocol.
+[MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) is a ROS 1 package that enables MAVLink extendable communication between computers running ROS 1 for any MAVLink enabled autopilot, ground station, or peripheral.
+_MAVROS_ is the "official" supported bridge between ROS 1 and the MAVLink protocol.
 
 First we install PX4 and ROS, and then MAVROS.
 
 ## Install ROS and PX4
 
-This section explains how to install [ROS 1](../ros/index.md) with PX4. ROS 1 full desktop builds come with Gazebo Classic, so normally you will not install the simulator dependencies yourself!
+This section explains how to install [ROS 1](../ros/index.md) with PX4.
+ROS 1 full desktop builds come with Gazebo Classic, so normally you will not install the simulator dependencies yourself!
 
 :::tip
-Ці інструкції спрощена версія [офіційного посібника з встановлення](https://github.com/mavlink/mavros/tree/master/mavros#installation). They cover the _ROS Melodic and Noetic_ releases.
+These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation).
+They cover the _ROS Melodic and Noetic_ releases.
 :::
 
 :::: tabs
 
-::: tab ROS Noetic (Ubuntu 22.04)
+:::tab ROS Noetic (Ubuntu 20.04)
 
 If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
 
 1. Install PX4 without the simulator toolchain:
 
-   1. [Завантажте вихідний код PX4](../dev_setup/building_px4.md):
+   1. [Download PX4 Source Code](../dev_setup/building_px4.md):
 
       ```sh
       git clone https://github.com/PX4/PX4-Autopilot.git --recursive
       ```
 
-   1. Run the **ubuntu.sh** the `--no-sim-tools` (and optionally `--no-nuttx`):
+   2. Run the **ubuntu.sh** the `--no-sim-tools` (and optionally `--no-nuttx`):
 
       ```sh
       bash ./PX4-Autopilot/Tools/setup/ubuntu.sh --no-sim-tools --no-nuttx
@@ -40,19 +44,19 @@ If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
 
       - При появі підказки по ходу виконання скрипту підтвердить вибір.
 
-   1. Перезавантажте комп'ютер при завершенні.
+   3. Перезавантажте комп'ютер при завершенні.
 
-1. You _may_ need to install the following additional dependencies:
+2. You _may_ need to install the following additional dependencies:
 
    ```sh
    sudo apt-get install protobuf-compiler libeigen3-dev libopencv-dev -y
    ```
 
-1. Follow the [Noetic Installation instructions](http://wiki.ros.org/noetic/Installation/Ubuntu#Installation) (ros-noetic-desktop-full is recommended).
+3. Follow the [Noetic Installation instructions](http://wiki.ros.org/noetic/Installation/Ubuntu#Installation) (ros-noetic-desktop-full is recommended).
 
 :::
 
-::: tab ROS Melodic (Ubuntu 18.04)
+:::tab ROS Melodic (Ubuntu 18.04)
 
 If you're working with ROS "Melodic on Ubuntu 18.04:
 
@@ -62,7 +66,7 @@ If you're working with ROS "Melodic on Ubuntu 18.04:
    wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
    ```
 
-1. Run the script:
+2. Run the script:
 
    ```sh
    bash ubuntu_sim_ros_melodic.sh
@@ -70,32 +74,36 @@ If you're working with ROS "Melodic on Ubuntu 18.04:
 
    You may need to acknowledge some prompts as the script progresses.
 
-::: tip
-You don't need to install MAVROS (as shown below), as this is included by the script
+   ::: tip
+   You don't need to install MAVROS (as shown below), as this is included by the script
 
    Also note:
+
    - ROS Melodic is installed with Gazebo (Classic) 9 by default.
    - Your catkin (ROS build system) workspace is created at **~/catkin_ws/**.
    - The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
+
 :::
 
 ::::
 
 ## Install MAVROS
 
-Then MAVROS can be installed either from source or binary. Ми рекомендуємо розробникам використовувати початкове встановлення.
+Then MAVROS can be installed either from source or binary.
+Ми рекомендуємо розробникам використовувати початкове встановлення.
 
 #### Бінарне встановлення (Debian / Ubuntu)
 
-The ROS repository has binary packages for Ubuntu x86, amd64 (x86_64) and armhf (ARMv7). Kinetic також підтримує Debian Jessie amd64 і arm64 (ARMv8).
+The ROS repository has binary packages for Ubuntu x86, amd64 (x86_64) and armhf (ARMv7).
+Kinetic також підтримує Debian Jessie amd64 і arm64 (ARMv8).
 
-Для встановлення використовуйте `apt-get`, де `${ROS_DISTRO}` нижче має перетворитися на `kinetic` або `noetic`, залежно від вашої версії ROS:
+Use `apt-get` for installation, where `${ROS_DISTRO}` below should resolve to `kinetic` or `noetic`, depending on your version of ROS:
 
 ```sh
 sudo apt-get install ros-${ROS_DISTRO}-mavros ros-${ROS_DISTRO}-mavros-extras ros-${ROS_DISTRO}-mavros-msgs
 ```
 
-Потім встановіть [GeographicLib](https://geographiclib.sourceforge.io/) датасет, виконавши цей `install_geographiclib_datasets.sh` скрипт:
+Then install [GeographicLib](https://geographiclib.sourceforge.io/) datasets by running the `install_geographiclib_datasets.sh` script:
 
 ```sh
 wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh
@@ -104,7 +112,7 @@ sudo bash ./install_geographiclib_datasets.sh
 
 #### Встановлення початкового коду
 
-Ця інсталяція передбачає, що у вас є робочий простір catkin, розташований у `~/catkin_ws` Якщо ви не створили його:
+This installation assumes you have a catkin workspace located at `~/catkin_ws` If you don't create one with:
 
 ```sh
 mkdir -p ~/catkin_ws/src
@@ -120,7 +128,7 @@ sudo apt-get install python-catkin-tools python-rosinstall-generator -y
 ```
 
 :::tip
-Хоча пакунок можна створити за допомогою **catkin_make**, кращим методом є використання **catkin_tools**, оскільки це більш універсальний і «дружній» інструмент збирання.
+While the package can be built using **catkin_make** the preferred method is using **catkin_tools** as it is a more versatile and "friendly" build tool.
 :::
 
 Якщо це ваш перший раз за допомогою wstool вам потрібно буде ініціалізувати свій вихідний простір з:
@@ -138,7 +146,7 @@ $ wstool init ~/catkin_ws/src
    rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
    ```
 
-1. Встановити MAVROS з джерела, використовуючи як випущену, так і останню версію:
+2. Встановити MAVROS з джерела, використовуючи як випущену, так і останню версію:
 
    - Випущений реліз/стабільний
 
@@ -158,7 +166,7 @@ $ wstool init ~/catkin_ws/src
      #   rosinstall_generator --upstream mavros --deps | tee -a /tmp/mavros.rosinstall
      ```
 
-1. Створити робоче середовище & deps
+3. Create workspace & deps
 
    ```sh
    wstool merge -t src /tmp/mavros.rosinstall
@@ -166,37 +174,37 @@ $ wstool init ~/catkin_ws/src
    rosdep install --from-paths src --ignore-src -y
    ```
 
-1. Встановіть [GeographicLib](https://geographiclib.sourceforge.io/) датасети:
+4. Install [GeographicLib](https://geographiclib.sourceforge.io/) datasets:
 
    ```sh
    ./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
    ```
 
-1. Джерело збірки
+5. Джерело збірки
 
    ```sh
    catkin build
    ```
 
-1. Переконайтеся, що ви використовуєте setup.bash або setup.zsh з робочого простору.
+6. Переконайтеся, що ви використовуєте setup.bash або setup.zsh з робочого простору.
 
    ```sh
    #Needed or rosrun can't find nodes from this workspace.
    source devel/setup.bash
    ```
 
-На випадок помилки є додаткові примітки щодо встановлення та усунення несправностей у [mavros repo](https://github.com/mavlink/mavros/tree/master/mavros#installation).
+In the case of error, there are addition installation and troubleshooting notes in the [mavros repo](https://github.com/mavlink/mavros/tree/master/mavros#installation).
 
 ## MAVROS Приклади
 
-[MAVROS Offboard Приклад (C++)](../ros/mavros_offboard_cpp.md), показує базові можливості MAVROS, читання телеметрії, перевірка стану дрона, зміна режимів польоту і керування дроном.
+The [MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md), will show you the basics of MAVROS, from reading telemetry, checking the drone state, changing flight modes and controlling the drone.
 
 :::info
-Якщо у вас є приклад додатку, що використовує PX4 Autopilot і MAVROS, ми можемо допомогти додати його у нашу документацію.
+If you have an example app using the PX4 Autopilot and MAVROS, we can help you get it on our docs.
 :::
 
 ## Дивіться також
 
-- [Огляд mavros ROS Package](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)
+- [mavros ROS Package Summary](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)
 - [mavros source](https://github.com/mavlink/mavros/)
-- [ROS Melodic інструкція встановлення](http://wiki.ros.org/melodic/Installation)
+- [ROS Melodic installation instructions](http://wiki.ros.org/melodic/Installation)
