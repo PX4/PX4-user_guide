@@ -1,47 +1,55 @@
 # Holybro H-RTK-F9P GNSS
 
-::: tip
+:::tip
 [Holybro H-RTK ZED-F9P Rover](../dronecan/holybro_h_rtk_zed_f9p_gps.md) is an upgraded version of this module.
 :::
 
-Модель [Holybro H-RTK F9P GNSS](https://holybro.com/products/h-rtk-f9p-gnss-series) є багатосмуговою високоточною серією систем [RTK GNSS](../gps_compass/rtk_gps.md), запущеною Holybro. Ця сім'я подібна до серії [H-RTK M8P](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md), але використовує багатосмуговий RTK зі швидшими часами зближення і надійною продуктивністю, одночасний прийом GPS, GLONASS, Galileo і BeiDou та швидше оновлення для високодинамічних та великов'язаних застосувань з точністю на рівні сантиметрів. Він використовує модуль u-blox F9P, компас IST8310 та індикатор з триколірним світлодіодом. Також в ньому є інтегрований вимикач безпеки для простої та зручної роботи.
+The [Holybro H-RTK F9P GNSS](https://holybro.com/products/h-rtk-f9p-gnss-series) is an multi-band high-precision [RTK GNSS System](../gps_compass/rtk_gps.md) series launched by Holybro.
+This family is similar to the [H-RTK M8P](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) series, but uses multi-band RTK with faster convergence times and reliable performance, concurrent reception of GPS, GLONASS, Galileo and BeiDou, and faster update rate for highly dynamic and high volume applications with centimeter-accuracy.
+Він використовує модуль u-blox F9P, компас IST8310 та індикатор з триколірним світлодіодом.
+Також в ньому є інтегрований вимикач безпеки для простої та зручної роботи.
 
-Є три моделі Holybro H-RTK F9P на вибір, кожна з різним дизайном антени, щоб задовольнити різні потреби. Дивіться розділ [Характеристики та порівняння моделей](#specification-and-model-comparison) для отримання додаткової інформації.
+Є три моделі Holybro H-RTK F9P на вибір, кожна з різним дизайном антени, щоб задовольнити різні потреби.
+Refer to [Specification and Model Comparison section](#specification-and-model-comparison) for more details.
 
 Using RTK allows PX4 to get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_all_label.jpg)
 
-## Де придбати
+## Де купити
 
-- [H-RTK F9P (сайт Holybro)](https://holybro.com/products/h-rtk-f9p-gnss-series)
-- [H-RTK Аксесуари (сайт Holybro)](https://holybro.com/collections/h-rtk-gps)
+- [H-RTK F9P (Holybro Website)](https://holybro.com/products/h-rtk-f9p-gnss-series)
+- [H-RTK Accessories (Holybro Website)](https://holybro.com/collections/h-rtk-gps)
 
-## Налаштування
+## Конфігурація
 
-Налаштування та використання RTK на PX4 за допомогою _QGroundControl_ відбувається за принципом "підключи і працюй" (див. [RTK GPS](../gps_compass/rtk_gps.md) для отримання додаткової інформації).
+RTK setup and use on PX4 via _QGroundControl_ is largely plug and play \(see [RTK GPS](../gps_compass/rtk_gps.md) for more information\).
 
-## Проводка та з'єднання
+## Підключення та з'єднання
 
-Моделі ГП-ШТК Вертолітного типу поставляються як з кабелями GH 10-pin, так і з 6-pin, які сумісні з портами GPS1 та GPS2 на контролерах польоту, що використовують Стандартний роз'єм Pixhawk, такі як [Pixhawk 4](../flight_controller/pixhawk4.md) та [Pixhawk 5x](../flight_controller/pixhawk5x.md).
+H-RTK Helical models come with both GH 10-pin & 6-pin cables that are compatible with the GPS1 & GPS2 ports on flight controllers that use the Pixhawk Connector Standard, such as [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 5x](../flight_controller/pixhawk5x.md).
 
-H-RTK Rover Lite доступний у двох версіях. Стандартна версія поставляється з 10-контактним роз'ємом для порту `GPS1`. Версія "2nd GPS" поставляється з роз'ємом на 6 контактів для порту `GPS2`. Це використовується як додатковий GPS для [Подвійних GPS-систем](../gps_compass/index.md#dual_gps).
+H-RTK Rover Lite доступний у двох версіях.
+The standard version comes with 10 pin connector for the `GPS1` port.
+The "2nd GPS" version comes with 6 pin connector for the `GPS2` port.
+This is used as a secondary GPS for [Dual GPS Systems](../gps_compass/index.md#dual_gps).
 
-:::info Кабелі/конектори можуть потребувати модифікації для підключення до інших плат керування польотом (див. [карту штифтів](#pin-map) нижче).
+:::info
+The cables/connectors may need to be modified in order to connect to other flight controller boards (see [Pin Map](#pin-map) below).
 :::
 
 ## Карта виводів
 
-![h-rtk-f9p_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_helical_pinmap.jpg)
+![h-rtk-f9p\_rover\_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_helical_pinmap.jpg)
 
-![h-rtk-f9p_helical_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_rover_lite_pinmap.jpg)
+![h-rtk-f9p\_helical\_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_rover_lite_pinmap.jpg)
 
 ## Специфікація та порівняння моделей
 
-![h-rtk-f9p_spec](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_spec.png)
+![h-rtk-f9p\_spec](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_spec.png)
 
 ## Аксесуари до GPS
 
-[H-RTK кріплення (сайт Holybro)](https://holybro.com/products/vertical-mount-for-h-rtk-helical)
+[H-RTK Mount (Holybro Website)](https://holybro.com/products/vertical-mount-for-h-rtk-helical)
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk_mount_3.png)
