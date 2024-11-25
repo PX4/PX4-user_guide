@@ -26,23 +26,29 @@ graph LR;
 
 ## Встановлення
 
-Налаштування Gazebo Classic 9 або 11 включено в наші [стандартні інструкції зі збірки](../dev_setup/dev_env.md) для Linux, macOS та Windows. Додаткові інструкції для встановлення можна знайти на [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
-
 :::info
 Якщо ви плануєте використовувати PX4 з ROS вам **потрібно дотримуватись** [інструкцій ROS](../simulation/ros_interface.md) для встановлення ROS та Gazebo Classic (а також уникнення конфліктів установки).
 :::
 
-::: info
-Наступні команди можна використати для видалення [Gazebo (Garden)](../sim_gazebo_gz/index.md) та перевстановлення Gazebo Classic 11:
+Gazebo Classic setup is included in our [standard build instructions](../dev_setup/dev_env.md) for macOS, Ubuntu 18.04 and 20.04, and Windows on WSL2 for the same hosts.
+
+For Ubuntu 22.04 LTS and later, the installation script ([/Tools/setup/ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)) installs the [Gazebo](../sim_gazebo_gz/index.md) simulator instead.
+
+If you want to use Gazebo Classic on Ubuntu 22.04 you can use the following commands to remove [Gazebo](../sim_gazebo_gz/index.md) (Harmonic) and then reinstall Gazebo-Classic 11:
 
 ```sh
-sudo apt remove gz-garden
+sudo apt remove gz-harmonic
 sudo apt install aptitude
 sudo aptitude install gazebo libgazebo11 libgazebo-dev
 ```
 
-Зверніть увагу, що менеджер пакетів `aptitude` потрібен, оскільки він може вирішити конфлікти залежностей (шляхом видалення певних пакетів), які `apt` не в змозі обробити.
+Note that `aptitude` is needed because it can resolve dependency conflicts (by removing certain packages) that `apt` is unable to handle.
+
+::: tip
+You could also modify the installation script to install Gazebo Classic on later versions before it is run for the first time.
 :::
+
+Додаткові інструкції для встановлення можна знайти на [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
 
 ## Запуск симуляції
 
@@ -336,7 +342,7 @@ make px4_sitl gazebo-classic_rover__sonoma_raceway
 
 Камера спостереження _Gazebo Classic_ моделює [камеру MAVLink](https://mavlink.io/en/services/camera.html) яка захоплює JPEG зображення з геотегами та передає інформацію захоплення з камери на під'єднану наземну станцію. Камера також підтримує відеотрансляцію. Вона може бути використана для перевірки захоплення камери, зокрема в політних завданнях спостереження.
 
-Камера генерує повідомлення [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) щоразу, коли захоплюється зображення. Захоплені зображення зберігаються у **PX4-Autopilot/build/px4*sitle_default/tmp/frames/DSC_n*.jpg** (де _n_ починається з 00000 та збільшується на один кожне захоплення).
+Камера генерує повідомлення [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) щоразу, коли захоплюється зображення. The captured images are saved to: `PX4-Autopilot/build/px4_sitl_default/tmp/frames/DSC_n.jpg` (where _n_ starts as 00000 and is iterated by one on each capture).
 
 Для симуляції літака з цією камерою:
 
