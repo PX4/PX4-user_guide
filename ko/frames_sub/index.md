@@ -2,26 +2,30 @@
 
 <LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
-이 문서 작성 시점에는 오프 보드 모드에서 ROS를 사용하여 테스트되었습니다. Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
+:::warning
+Support for UUVs is [experimental](../airframes/index.md#experimental-vehicles).
+Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
 
-At time of writing it has only been tested using ROS in offboard mode. The following features have not been implemented:
+At time of writing it has only been tested using ROS in offboard mode.
+The following features have not been implemented:
 
 - 임무, 뎁스 홀드, 안정화 수동 제어 등과 같은 모드
 - BlueRobotics gripper support.
 
 :::
 
-[유투브](https://youtu.be/1sUaURmlmT8)
+<a href="https://youtu.be/1sUaURmlmT8">유투브</a>
 
 ## Supported Frames
 
-PX4 supports several unmanned underwater vehicle (UUV) frames. The set of supported configurations can be seen in [Airframe Reference > Underwater Robots](../airframes/airframe_reference.md#underwater-robot).
+PX4 supports several unmanned underwater vehicle (UUV) frames.
+The set of supported configurations can be seen in [Airframe Reference > Underwater Robots](../airframes/airframe_reference.md#underwater-robot).
 
 ### PX4 Compatible (Fully Assembled)
 
 This section lists fully assembled vehicles where you can update the software to run PX4.
 
-- [BlueROV2](../frames_sub/bluerov2.md) : 벡터화된 6 DOF UUV
+- [BlueROV2](../frames_sub/bluerov2.md): Vectored 6 DOF UUV
 
 ### Other Frames
 
