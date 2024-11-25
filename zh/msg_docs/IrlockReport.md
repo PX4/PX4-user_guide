@@ -7,7 +7,7 @@ IRLOCK_REPORT message data
 ```c
 # IRLOCK_REPORT message data
 
-uint64 timestamp        # time since system start (microseconds)
+uint64 timestamp		# time since system start (microseconds)
 
 uint16 signature
 
