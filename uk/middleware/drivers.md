@@ -1,36 +1,37 @@
 # Розробка драйверів
 
-Драйвери пристроїв PX4 базуються на [Device](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/drivers/device) фреймворку.
+PX4 device drivers are based on the [Device](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/drivers/device) framework.
 
 ## Створення драйвера
 
-PX4 майже виключно використовує дані з [uORB](../middleware/uorb.md). Драйвери для поширених типів периферійних пристроїв повинні публікувати правильні повідомлення uORB (наприклад: гіроскоп, акселерометр, датчики тиску тощо).
+PX4 almost exclusively consumes data from [uORB](../middleware/uorb.md). Драйвери для поширених типів периферійних пристроїв повинні публікувати правильні повідомлення uORB (наприклад: гіроскоп, акселерометр, датчики тиску тощо).
 
-Найкращий підхід до створення нового драйвера - почати з аналогічного драйвера як шаблону (див. [src/drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers)).
+The best approach for creating a new driver is to start with a similar driver as a template (see [src/drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers)).
 
-:::info Більш детальну інформацію про роботу з конкретними шинами вводу/виводу та датчиками можна знайти у розділі [Шини датчиків та приводів](../sensor_bus/index.md).
+:::info
+More detailed information about working with specific I/O buses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/index.md) section.
 :::
 
-::: info Публікація правильних тем uORB є єдиним патерном, якого повинні *повинні* дотримуватися драйвери.
+:::info
+Publishing the correct uORB topics is the only pattern that drivers _must_ follow.
 :::
 
 ## Архітектура ядра
 
-PX4 є [реактивною системою](../concept/architecture.md) і використовує [uORB](../middleware/uorb.md) для публікації/підписки на комунікаційні повідомлення. Файлові дескриптори не потрібні або не використовуються для основної роботи системи. Використовуються дві основні API:
+PX4 is a [reactive system](../concept/architecture.md) and uses [uORB](../middleware/uorb.md) publish/subscribe to transport messages. Файлові дескриптори не потрібні або не використовуються для основної роботи системи. Використовуються дві основні API:
 
-* Система публікації/підписки, яка має файлову, мережеву або загальну пам'ять, залежно від системи, на якій працює PX4.
-* Глобальний реєстр пристроїв, який можна використовувати для переліку пристроїв та отримання/налаштування їх конфігурації. Це може бути простий зв'язаний список або схема файлової системи.
+- Система публікації/підписки, яка має файлову, мережеву або загальну пам'ять, залежно від системи, на якій працює PX4.
+- Глобальний реєстр пристроїв, який можна використовувати для переліку пристроїв та отримання/налаштування їх конфігурації. Це може бути простий зв'язаний список або схема файлової системи.
 
 ## Ідентифікатори пристрою(ID)
 
 PX4 використовує ідентифікатори пристроїв для постійної ідентифікації окремих сенсорів у всій системі. Ці ідентифікатори зберігаються в параметрах конфігурації та використовуються для відповідності значень калібрування сенсора, а також для визначення того, який сенсор зареєстрований в якому записі журналу.
 
-Порядок датчиків (наприклад, якщо є `/dev/mag0` і альтернативний `/dev/mag1`) не визначає пріоритет - пріоритет зберігається як частина опублікованої теми uORB.
+The order of sensors (e.g. if there is a `/dev/mag0` and an alternate `/dev/mag1`) does not determine priority - the priority is instead stored as part of the published uORB topic.
 
 ### Приклад декодування
 
-Для прикладу трьох магнітометрів у системі використовуйте журнал польотів (.px4log) для вивантаження параметрів. Три параметри кодують ідентифікатори датчиків, а `MAG_PRIME` визначає, який магнітометр вибрано основним датчиком. Кожен MAGx_ID є 24-бітним числом і повинен бути доповнений зліва нулями для ручного декодування.
-
+Для прикладу трьох магнітометрів у системі використовуйте журнал польотів (.px4log) для вивантаження параметрів. The three parameters encode the sensor IDs and `MAG_PRIME` identifies which magnetometer is selected as the primary sensor. Кожен MAGx_ID є 24-бітним числом і повинен бути доповнений зліва нулями для ручного декодування.
 
 ```
 CAL_MAG0_ID = 73225.0
@@ -39,7 +40,7 @@ CAL_MAG2_ID = 263178.0
 CAL_MAG_PRIME = 73225.0
 ```
 
-Це зовнішній HMC5983, підключений через I2C, шину 1 за адресою `0x1E`: він буде показаний у файлі журналу як `IMU.MagX`.
+This is the external HMC5983 connected via I2C, bus 1 at address `0x1E`: It will show up in the log file as `IMU.MagX`.
 
 ```
 # device ID 73225 in 24-bit binary:
@@ -49,7 +50,7 @@ CAL_MAG_PRIME = 73225.0
 HMC5883   0x1E    bus 1 I2C
 ```
 
-Це внутрішній HMC5983, підключений через SPI, шина 1, слот вибору slave 5. У файлі журналу це буде показано як `IMU1.MagX`.
+Це внутрішній HMC5983, підключений через SPI, шина 1, слот вибору slave 5. It will show up in the log file as `IMU1.MagX`.
 
 ```
 # device ID 66826 in 24-bit binary:
@@ -59,7 +60,7 @@ HMC5883   0x1E    bus 1 I2C
 HMC5883   dev 5   bus 1 SPI
 ```
 
-І це внутрішній магнітометр MPU9250, підключений через SPI, шина 1, слот вибору slave 4. У файлі журналу це буде показано як `IMU2.MagX`.
+І це внутрішній магнітометр MPU9250, підключений через SPI, шина 1, слот вибору slave 4. It will show up in the log file as `IMU2.MagX`.
 
 ```
 # device ID 263178 in 24-bit binary:
@@ -81,7 +82,8 @@ struct DeviceStructure {
   uint8_t devtype;   // device class specific device type
 };
 ```
-`bus_type` декодується відповідно до:
+
+The `bus_type` is decoded according to:
 
 ```C
 enum DeviceBusType {
@@ -92,7 +94,7 @@ enum DeviceBusType {
 };
 ```
 
-і `devtype` декодується відповідно до:
+and `devtype` is decoded according to:
 
 ```C
 #define DRV_MAG_DEVTYPE_HMC5883  0x01
@@ -115,33 +117,36 @@ enum DeviceBusType {
 
 ## Відлагодження
 
-Для загальних тем відладки див. : [Debugging/Logging](../debug/index.md).
+For general debugging topics see: [Debugging/Logging](../debug/index.md).
 
 ### Докладне ведення журналу
 
-Драйвери (та інші модулі) за замовчуванням виводять мінімально докладні рядки логів (наприклад, для `PX4_DEBUG`, `PX4_WARN`, `PX4_ERR` і т.д.).
+Drivers (and other modules) output minimally verbose logs strings by default (e.g. for `PX4_DEBUG`, `PX4_WARN`, `PX4_ERR`, etc.).
 
-Докладність логів визначається під час збирання за допомогою макросів `RELEASE_BUILD` (за замовчуванням), `DEBUG_BUILD` (докладно) або `TRACE_BUILD` (дуже докладно).
+Log verbosity is defined at build time using the `RELEASE_BUILD` (default), `DEBUG_BUILD` (verbose) or `TRACE_BUILD` (extremely verbose) macros.
 
-Змініть рівень протоколювання за допомогою `COMPILE_FLAGS` у функції драйвера `px4_add_module` (**CMakeLists.txt**). У наведеному нижче фрагменті коду показано необхідну зміну, щоб увімкнути налагодження на рівні DEBUG_BUILD для окремого модуля або драйвера.
+Change the logging level using `COMPILE_FLAGS` in the driver `px4_add_module` function (**CMakeLists.txt**).
+У наведеному нижче фрагменті коду показано необхідну зміну, щоб увімкнути налагодження на рівні DEBUG_BUILD для окремого модуля або драйвера.
 
 ```
 px4_add_module(
-    MODULE templates__module
-    MAIN module
+	MODULE templates__module
+	MAIN module
 ```
+
 ```
-    COMPILE_FLAGS
-        -DDEBUG_BUILD
+	COMPILE_FLAGS
+		-DDEBUG_BUILD
 ```
+
 ```
-    SRCS
-        module.cpp
-    DEPENDS
-        modules__uORB
-    )
+	SRCS
+		module.cpp
+	DEPENDS
+		modules__uORB
+	)
 ```
 
 :::tip
-Докладний лог також можна увімкнути для кожного файлу, додавши `#define DEBUG_BUILD` у самому верху .cpp-файлу (перед будь-якими модулями).
+Verbose logging can also be enabled on a per-file basis, by adding `#define DEBUG_BUILD` at the very top of a .cpp file (before any includes).
 :::
