@@ -13,15 +13,20 @@ This topic shows how to connect and configure DShot ESCs.
 
 ## Wiring/Connections {#wiring}
 
-DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md). The only difference is that they can only be connected to the FMU, and usually only to some subset of pins.
+DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md).
+The only difference is that they can only be connected to the FMU, and usually only to some subset of pins.
 
-::: info
+:::info
 You may want to check the actuator configuration screen to see what pins are available for DShot on your controller before wiring up!
 :::
 
-Pixhawk controllers with both an FMU and an IO board usually label them as `AUX` (FMU) and `MAIN` (IO), respectively. These match the `PWM AUX` and `PWM MAIN` output tabs on the actuator configuration screen. For these controllers connect the DShot ESC to the `AUX` port.
+Pixhawk controllers with both an FMU and an IO board usually label them as `AUX` (FMU) and `MAIN` (IO), respectively.
+These match the `PWM AUX` and `PWM MAIN` output tabs on the actuator configuration screen.
+For these controllers connect the DShot ESC to the `AUX` port.
 
-Controllers that don't have an IO board usually label the (single) output port as `MAIN`, and this is where you will connect your DShot ESC. If the controller without IO has its own firmware, the actuator assignment will be to the matching `PWM MAIN` outputs. However if the same firmware is used for hardware with/without the IO board, such as for the Pixhawk 4 and Pixhawk 4 Mini, then actuator assignment tab used is the same in both cases: `PWM AUX` (i.e. not matching the port label `MAIN` in the "mini" case).
+Controllers that don't have an IO board usually label the (single) output port as `MAIN`, and this is where you will connect your DShot ESC.
+If the controller without IO has its own firmware, the actuator assignment will be to the matching `PWM MAIN` outputs.
+However if the same firmware is used for hardware with/without the IO board, such as for the Pixhawk 4 and Pixhawk 4 Mini, then actuator assignment tab used is the same in both cases: `PWM AUX` (i.e. not matching the port label `MAIN` in the "mini" case).
 
 ## Configuration
 
@@ -31,15 +36,19 @@ Remove propellers before changing ESC configuration parameters!
 
 Enable DShot for your required outputs in the [Actuator Configuration](../config/actuators.md).
 
-DShot comes with different speed options: _DShot150_, _DShot300_, _DShot600_ and _DShot1200_, where the number indicates the speed in kilo-bits/second. You should set the parameter to the highest speed supported by your ESC (according to its datasheet).
+DShot comes with different speed options: _DShot150_, _DShot300_, _DShot600_ and _DShot1200_, where the number indicates the speed in kilo-bits/second.
+You should set the parameter to the highest speed supported by your ESC (according to its datasheet).
 
-Then connect the battery and arm the vehicle. The ESCs should initialize and the motors turn in the correct directions.
+Then connect the battery and arm the vehicle.
+The ESCs should initialize and the motors turn in the correct directions.
 
-- If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** option (this option appears after you select DShot and assign motors). You can also reverse motors by sending an [ESC Command](#commands).
+- If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** option (this option appears after you select DShot and assign motors).
+  You can also reverse motors by sending an [ESC Command](#commands).
 
 ## ESC Commands {#commands}
 
-Commands can be sent to the ESC via the [MAVLink shell](../debug/mavlink_shell.md). See [here](../modules/modules_driver.md#dshot) for a full reference of the supported commands.
+Commands can be sent to the ESC via the [MAVLink shell](../debug/mavlink_shell.md).
+See [here](../modules/modules_driver.md#dshot) for a full reference of the supported commands.
 
 The most important ones are:
 
@@ -117,7 +126,7 @@ These DShot ESCs will have an additional telemetry wire.
 To enable this feature (on ESCs that support it):
 
 1. Join all the telemetry wires from all the ESCs together, and then connect them to one of the RX pins on an unused flight controller serial port.
-1. Enable telemetry on that serial port using [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG).
+2. Enable telemetry on that serial port using [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG).
 
 After a reboot you can check if telemetry is working (make sure the battery is connected) using:
 
@@ -130,7 +139,8 @@ You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_referenc
 :::
 
 :::tip
-Not all DSHOT-capable ESCs support `[esc_info]`(e.g. APD 80F3x), even when telemetry is supported and enabled. The resulting error is:
+Not all DSHOT-capable ESCs support `[esc_info]`(e.g. APD 80F3x), even when telemetry is supported and enabled.
+The resulting error is:
 
 ```sh
 ERROR [dshot] No data received. If telemetry is setup correctly, try again.
