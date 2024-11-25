@@ -17,17 +17,17 @@
 
 ❏ 自稳
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 俯仰/滚转/偏航响应 1：1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 节气门响应 1：1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response 1:1
 
 ❏ 高度
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 垂直位置应以棒为中心保持当前值
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 俯仰/滚转/偏航响应 1：1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 将节气门响应设置为爬升/下降速率
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
 
 ## 着陆
 
@@ -35,7 +35,7 @@
 
 ❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
-## 期待的结果
+## 预期成果
 
 - 当油门升高时，起飞应该是平稳的
 - 在上述任何飞行模式中都不应出现振荡
