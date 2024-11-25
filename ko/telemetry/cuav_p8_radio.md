@@ -24,7 +24,8 @@ It supports multiple modes such as point-to-point, point-to-multipoint, and rela
 
 ## PX4 설정
 
-The CUAV P8 Radio comes pre-configured (baud rate 57600, broadcast mode) for use with PX4. It should require no additional setup if connected to `TELEM1` OR `TELEM2`.
+The CUAV P8 Radio comes pre-configured (baud rate 57600, broadcast mode) for use with PX4.
+It should require no additional setup if connected to `TELEM1` OR `TELEM2`.
 
 On some flight controllers, or if used with a different serial port, you may need to [configure the port for MAVLink communication](../peripherals/mavlink_peripherals.md).
 
@@ -38,20 +39,21 @@ On some flight controllers, or if used with a different serial port, you may nee
 
 ### Data Port
 
-| 핀 | C-RTK GPS 6P | 핀 | Pixhawk standard pins |
-| - | ------------ | - | --------------------- |
-| 1 | 5V+(NC)      | 1 | VCC                   |
-| 2 | RX           | 2 | TX                    |
-| 3 | TX           | 3 | RX                    |
-| 4 | RTS          | 4 | RTS                   |
-| 5 | CTS          | 5 | CTS                   |
-| 6 | GND          | 6 | GND                   |
+| 핀 | C-RTK GPS 6P               | 핀 | Pixhawk standard pins |
+| - | -------------------------- | - | --------------------- |
+| 1 | 5V+(NC) | 1 | VCC                   |
+| 2 | RX                         | 2 | TX                    |
+| 3 | TX                         | 3 | RX                    |
+| 4 | RTS                        | 4 | RTS                   |
+| 5 | CTS                        | 5 | CTS                   |
+| 6 | GND                        | 6 | GND                   |
 
 ## 배선
 
 ![P8 wiring](../../assets/hardware/telemetry/cuav_p8_connect.png)
 
-Connect the CUAV P8 Radio to the `TELEM1`/`TELEM2` interface of the flight controller and use a battery or BEC to power the module. The required cables are included in the package.
+Connect the CUAV P8 Radio to the `TELEM1`/`TELEM2` interface of the flight controller and use a battery or BEC to power the module.
+The required cables are included in the package.
 
 :::tip
 CUAV P8 Radio does not support power supply from the flight controller, it needs to be connected to a 12~60v battery or BEC.
