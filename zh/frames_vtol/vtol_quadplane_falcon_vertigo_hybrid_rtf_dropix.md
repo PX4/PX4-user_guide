@@ -5,9 +5,10 @@ Discontinued
 The Falcon Venturi FPV Wing frame on which this vehicle is based is no longer available.
 :::
 
-The *Falcon Vertigo Hybrid VTOL* is a quadplane VTOL aircraft that has been designed to work with PX4 and the Dropix (Pixhawk compatible) flight controller. It can carry a small GoPro camera.
+The _Falcon Vertigo Hybrid VTOL_ is a quadplane VTOL aircraft that has been designed to work with PX4 and the Dropix (Pixhawk compatible) flight controller. It can carry a small GoPro camera.
 
-The RTF kit contains everything needed for a full system except an RC receiver and telemetry module. The components can also be purchased separately.
+The RTF kit contains everything needed for a full system except an RC receiver and telemetry module.
+The components can also be purchased separately.
 
 Key information:
 
@@ -17,48 +18,46 @@ Key information:
 
 ![Falcon Vertigo Hybrid VTOL RTF](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_complete.jpg)
 
-
 ## Bill of Materials
 
 Almost everything you need is provided in the RTF kit (the links next to components below are provided in case you wished to purchase any component separately):
 
-* Pre laminated EPP wings
-* Wingtips and full hardware
-* Dropix flight controller (discontinued) with
-  * GPS u-blox M8N
-  * Power Sensor
-  * [空速传感器](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-* Quad power set  [Tiger Motor MT-2216-11 900kv V2](https://www.getfpv.com/tiger-motor-mt-2216-11-900kv-v2.html) (discontinued)
-* 4 x propeller 10”x 5” (quad motors)
-* 4 x [ESC 25A](http://www.getfpv.com/tiger-motor-flame-25a-esc.html)
-* 1 x propeller 10” x 5” (pusher motor)
-* 1 x ESC 30A
-* Pusher motor power system
-* Carbon fiber tubes and mounts
-* G10 motor mounts
-* 1 x [3700mah 4S 30C Lipo battery](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
-* Dropix power distribution board and cable
+- Pre laminated EPP wings
+- Wingtips and full hardware
+- Dropix flight controller (discontinued) with
+  - GPS u-blox M8N
+  - Power Sensor
+  - [Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
+- Quad power set  [Tiger Motor MT-2216-11 900kv V2](https://www.getfpv.com/tiger-motor-mt-2216-11-900kv-v2.html) (discontinued)
+- 4 x propeller 10”x 5” (quad motors)
+- 4 x [ESC 25A](http://www.getfpv.com/tiger-motor-flame-25a-esc.html)
+- 1 x propeller 10” x 5” (pusher motor)
+- 1 x ESC 30A
+- Pusher motor power system
+- Carbon fiber tubes and mounts
+- G10 motor mounts
+- 1 x [3700mah 4S 30C Lipo battery](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
+- Dropix power distribution board and cable
 
-The kit does not come with a radio receiver or (optional) telemetry modules. For this build we used the following components:
+The kit does not come with a radio receiver or (optional) telemetry modules.
+For this build we used the following components:
 
 - Receiver: [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
 - Telemetry: [Holybro 100mW 915MHz modules](https://www.getfpv.com/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html) (Discontinued)
-
 
 ## Tools needed
 
 The following tools were used to assemble the airframe:
 
-* Philips screwdriver
-* 5.5 mm Hex Socket Screwdriver
-* Wire cutters
-* Soldering iron and solder
-* Hobby stainless steel tweezer
-* Gorilla glue
-* Fiberglass reinforced tape
+- Philips screwdriver
+- 5.5 mm Hex Socket Screwdriver
+- Wire cutters
+- Soldering iron and solder
+- Hobby stainless steel tweezer
+- Gorilla glue
+- Fiberglass reinforced tape
 
 ![Build tools](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_build_tools.jpg)
-
 
 ## Assembly steps
 
@@ -70,19 +69,19 @@ The RTF kit requires the following assembly.
 
    ![Add glue on wing brackets](../../assets/airframes/vtol/falcon_vertigo/wing_brackets_glue.jpg)
 
-1. Attach the carbon tube in the brackets. The bracket and tube must be aligned using the white mark (as shown in the picture).
+2. Attach the carbon tube in the brackets. The bracket and tube must be aligned using the white mark (as shown in the picture).
 
    ::: info
-This is very important because the white mark indicates the center of gravity.
+   This is very important because the white mark indicates the center of gravity.
+
 :::
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/carbon_tube_in_brackets.jpg" title="Carbon tube in brackets" width="300px" />
 
-1. The following images show the alignment of rods from other viewpoints:
+3. The following images show the alignment of rods from other viewpoints:
 
-   ![quad motor frame rod alignment from bottom](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_9_bottom_view_rod_alignment.jpg) ![quad motor frame rod alignment schematic](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_11_rod_alignment_schamatic.jpg)
-
-
+   ![quad motor frame rod alignment from bottom](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_9_bottom_view_rod_alignment.jpg)
+   ![quad motor frame rod alignment schematic](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_11_rod_alignment_schamatic.jpg)
 
 ### Step 2: Attach the wings
 
@@ -90,25 +89,25 @@ This is very important because the white mark indicates the center of gravity.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_15_fuselage_tubes.jpg" width="500px" title="Fuselage carbon tubes" />
 
-1. Spread gorilla glue between the two white marks on each tube (indicated by the red arrows). The white mark in the center (blue arrow) will be placed in the center of the fuselage and the other marks on the sides.
+2. Spread gorilla glue between the two white marks on each tube (indicated by the red arrows). The white mark in the center (blue arrow) will be placed in the center of the fuselage and the other marks on the sides.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_13_rod_apply_glue.jpg" width="500px" title="Apply glue to rod" />
 
-1. Once the carbon tubes are inside the fuselage, spread gorilla glue on the rest of the tube and attach the wings.
+3. Once the carbon tubes are inside the fuselage, spread gorilla glue on the rest of the tube and attach the wings.
 
-1. The fuselage has two holes for the motor and servo cables. Pass the cables through the holes and then join the wings to the fuselage.
+4. The fuselage has two holes for the motor and servo cables. Pass the cables through the holes and then join the wings to the fuselage.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_17_fuselage_holes_cables.jpg" width="500px" title="Fuselage holes for cables" />
 
-1. Within the fuselage connect the signal cables you just passed through from the wings to the ESC using the provided connectors. The ESC are already connected to the motors and set up to turn in the correct order (you will need to connect the ESC PDB to a power module in a later step).
+5. Within the fuselage connect the signal cables you just passed through from the wings to the ESC using the provided connectors. The ESC are already connected to the motors and set up to turn in the correct order (you will need to connect the ESC PDB to a power module in a later step).
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_19_connect_esc_power_and_signal_cables.jpg" width="500px" title="Connect ESC power and signal cables" />
 
-1. As with the ESCs, the servos are already installed. Connect the signal cable from the wing (passed through the fuselage) to the flight controller.
+6. As with the ESCs, the servos are already installed. Connect the signal cable from the wing (passed through the fuselage) to the flight controller.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_21_connect_servo_cables.jpg" width="500px" title="Connect servo cables" />
 
-1. Repeat these steps for the other wing.
+7. Repeat these steps for the other wing.
 
 ### Step 3: Connect the electronics
 
@@ -116,7 +115,9 @@ This kit includes Dropix flight controller with most of the required electronics
 
 <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_23_dropix_and_other_electronics.jpg" width="500px" title="Falcon Vertigo Electronics" />
 
-::: info General information about connecting Dropix can be found in [Dropix Flight Controller](../flight_controller/dropix.md). :::
+:::info
+General information about connecting Dropix can be found in [Dropix Flight Controller](../flight_controller/dropix.md).
+:::
 
 #### Connect the ESC power connector and pass the signals cables to the flight controller
 
@@ -124,14 +125,14 @@ This kit includes Dropix flight controller with most of the required electronics
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_25_aileron_esc_connections.jpg" width="500px" title="" />
 
-1. Pass the signals cables through to the flight controller
+2. Pass the signals cables through to the flight controller
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_27_gps_esc_servo_connections.jpg" width="500px" title="GPS, ESC, Servo connections" />
 
-
 #### Motor Wiring
 
-Motor and servo wiring is nearly entirely up to you, but should match the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) configuration, as shown in the airframe reference. The geometry and output assignment can be configured in the [Actuators Configuration](../config/actuators.md#actuator-outputs)
+Motor and servo wiring is nearly entirely up to you, but should match the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) configuration, as shown in the airframe reference.
+The geometry and output assignment can be configured in the [Actuators Configuration](../config/actuators.md#actuator-outputs)
 
 For example, you might wire it up like this example (orientation as if "sitting in the plane"):
 
@@ -147,7 +148,6 @@ For example, you might wire it up like this example (orientation as if "sitting 
 | AUX  4 | Rudder                 |
 | AUX  5 | 油门                     |
 
-
 <a id="dropix_back"></a>
 
 #### Flight Controller Connections: Motors, Servos, RC receiver, current sensor
@@ -158,14 +158,13 @@ The image below shows back of the dropix flight controller, highlighting the out
 
 1. Connect quad motors signal cables.
 
-1. Connect the aileron cables and throttle motor in the auxiliary outputs.
+2. Connect the aileron cables and throttle motor in the auxiliary outputs.
 
-1. Connect the throttle motor signal cable from the ESC to the appropriate flight controller auxiliary port. Connect the ESC to the throttle motor.
+3. Connect the throttle motor signal cable from the ESC to the appropriate flight controller auxiliary port. Connect the ESC to the throttle motor.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_37_connect_throttle_motor.jpg" width="500px" title="Connect throttle motor" />
 
-1. Connect the receiver (RC IN).
-
+4. Connect the receiver (RC IN).
 
 <a id="dropix_front"></a>
 
@@ -178,7 +177,6 @@ The sensor inputs, telemetry, buzzer and safety switch are located in the front 
 1. Connect the telemetry, airspeed sensor, GPS, buzzer and safety switch as shown.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_39_connect_sensors.jpg" width="500px" title="Connect sensors" />
-
 
 #### Flight Controller: Connect power module and external USB
 
@@ -205,14 +203,13 @@ It is important that nothing obstructs airflow to the Pitot tube. This is critic
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_43_airspeed_sensor_mounting.jpg" width="500px" title="Airspeed sensor mounting" />
 
-1. Secure the connecting tubing and ensure that it is not bent/kinked.
+2. Secure the connecting tubing and ensure that it is not bent/kinked.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_45_airspeed_sensor_tubing.jpg" width="500px" title="Airspeed sensor mounting" />
 
-1. Connect the tubes to the airspeed sensor.
+3. Connect the tubes to the airspeed sensor.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_47_connect_airspeed_sensor_tubing.jpg" width="500px" title="Connect airspeed sensor and tubing" />
-
 
 #### Install/connect receiver and telemetry module
 
@@ -220,12 +217,11 @@ It is important that nothing obstructs airflow to the Pitot tube. This is critic
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_49_receiver_mounting.jpg" width="500px" title="Paste receiver" />
 
-1. Connect the receiver to the RC IN port on the *back* of the dropix, as shown above (also see the [flight controller instructions](#dropix_back)).
+2. Connect the receiver to the RC IN port on the _back_ of the dropix, as shown above (also see the [flight controller instructions](#dropix_back)).
 
-1. Connect the telemetry module to the *front* of the flight controller as shown below (see the [flight controller instructions](#dropix_front) for more detail on the pins).
+3. Connect the telemetry module to the _front_ of the flight controller as shown below (see the [flight controller instructions](#dropix_front) for more detail on the pins).
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_51_telemetry_module_mounting.jpg" width="500px" title="Paste telemetry module" />
-
 
 <a id="compass_gps"></a>
 
@@ -235,7 +231,6 @@ The GPS/Compass module is already mounted on the wing, in the default orientatio
 
 <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_gps_compass.jpg" width="500px" title="GPS/Compass" />
 
-
 <a id="flight_controller_orientation"></a>
 
 #### Mount and orient the flight controller
@@ -244,8 +239,7 @@ The GPS/Compass module is already mounted on the wing, in the default orientatio
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_53_flight_controller_orientation.jpg" width="500px" title="Flight controller orientation" />
 
-1. Secure the controller in place using vibration damping foam.
-
+2. Secure the controller in place using vibration damping foam.
 
 ### Step 4: Final Assembly Checks
 
@@ -255,36 +249,40 @@ The final assembly step is to check the vehicle is stable and that the motors ha
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_35_quad_motor_directions.png" width="200px" title="Quad motor order/directions" />
 
-   ::: info If necessary the servo direction can be reversed using the `Rev Range (for servos)` checkbox associated with each servo output in the QGroundControl [Actuator Output](../config/actuators.md#actuator-outputs) configuration (for servos only) (this sets the [PWM_AUX_REV](../advanced_config/parameter_reference.md#PWM_AUX_REV) or [PWM_AUX_MAIN](../advanced_config/parameter_reference.md#PWM_MAIN_REV) parameter). :::
+   ::: info
+   If necessary the servo direction can be reversed using the `Rev Range (for servos)` checkbox associated with each servo output in the QGroundControl [Actuator Output](../config/actuators.md#actuator-outputs) configuration (for servos only) (this sets the [PWM_AUX_REV](../advanced_config/parameter_reference.md#PWM_AUX_REV) or [PWM_AUX_MAIN](../advanced_config/parameter_reference.md#PWM_MAIN_REV) parameter).
 
-1. Check the vehicle is balanced around the expected centre of gravity
+:::
 
-   * Hold the vehicle with your fingers at the center of gravity and check that the vehicle remains stable.
+2. Check the vehicle is balanced around the expected centre of gravity
 
-      ![Level Centre of Gravity](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_57_level_centre_of_gravity.jpg)
+   - Hold the vehicle with your fingers at the center of gravity and check that the vehicle remains stable.
 
-   * If the vehicle leans forward or backwards, move the motors to balance it.
+     ![Level Centre of Gravity](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_57_level_centre_of_gravity.jpg)
 
-      ![Level Motors](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_55_level_motors.jpg)
+   - If the vehicle leans forward or backwards, move the motors to balance it.
 
+     ![Level Motors](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_55_level_motors.jpg)
 
 ## 配置
 
 Perform the normal [Basic Configuration](../config/index.md).
 
-路径规划软件（在机载计算机上运行）*可以* 以[TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
+路径规划软件（在机载计算机上运行）<em>可以</em> 以<a href="https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS">TRAJECTORY_REPRESENTATION_WAYPOINTS</a> 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
 
-1. For [Airframe](../config/airframe.md) select the vehicle group/type as *Standard VTOL* and the specific vehicle as [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) as shown below.
+1. For [Airframe](../config/airframe.md) select the vehicle group/type as _Standard VTOL_ and the specific vehicle as [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) as shown below.
 
    ![QCG - Select Generic Standard VTOL](../../assets/qgc/setup/airframe/px4_frame_generic_standard_vtol.png)
 
-1. Set the [Autopilot Orientation](../config/flight_controller_orientation.md) to `ROTATION_YAW_270` as the autopilot is mounted [sideways](#flight_controller_orientation) with respect to the front of the vehicle. The compass is oriented forward, so you can leave that at the default (`ROTATION_NONE`).
-1. Configure the outputs and geometry following the instructions in [Actuators Configuration](../config/actuators.md)
-1. The default parameters are often sufficient for stable flight. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md).
+2. Set the [Autopilot Orientation](../config/flight_controller_orientation.md) to `ROTATION_YAW_270` as the autopilot is mounted [sideways](#flight_controller_orientation) with respect to the front of the vehicle. The compass is oriented forward, so you can leave that at the default (`ROTATION_NONE`).
+
+3. Configure the outputs and geometry following the instructions in [Actuators Configuration](../config/actuators.md)
+
+4. The default parameters are often sufficient for stable flight. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md).
 
 After you finish calibration the VTOL is ready to fly.
 
-## 视频
+## 视频:
 
 <lite-youtube videoid="h7OHTigtU0s" title="PX4 Vtol test"/>
 
