@@ -1,14 +1,17 @@
 # 尾座式垂起
 
-A **Tailsitter VTOL** takes off and lands on its tail, but flips into the fixed-wing orientation for normal flight. The tailsitter rotors are permanently fixed in position for forward flight.
+A **Tailsitter VTOL** takes off and lands on its tail, but flips into the fixed-wing orientation for normal flight.
+The tailsitter rotors are permanently fixed in position for forward flight.
 
-Tailsitters are typically mechanically less complex than [other types of VTOL](../frames_vtol/index.md), and hence may be less expensive to build and maintain. However they are aerodynamically more complex, and can be harder to tune and fly for hover and transition, particularly in windy conditions.
+Tailsitters are typically mechanically less complex than [other types of VTOL](../frames_vtol/index.md), and hence may be less expensive to build and maintain.
+However they are aerodynamically more complex, and can be harder to tune and fly for hover and transition, particularly in windy conditions.
 
 ## Tailsitter Airframes
 
 :::: tabs
 
-::: tab Duo Tailsitter Two rotor VTOL that uses elevons to flip from hover into fixed-wing flight.
+:::tab Duo Tailsitter
+Two rotor VTOL that uses elevons to flip from hover into fixed-wing flight.
 
 ![Wingtra: WingtraOne VTOL Duo Tailsitter](../../assets/airframes/vtol/wingtraone/hero.jpg)
 
@@ -19,7 +22,8 @@ Tailsitters are typically mechanically less complex than [other types of VTOL](.
 
 :::
 
-::: tab VTOL Tailsitter VTOL with optional elevons. Uses rotors to transition between modes (along with elevons if present).
+:::tab 立式垂直起落飞机
+VTOL with optional elevons. Uses rotors to transition between modes (along with elevons if present).
 
 ![Skypull SP-1 VTOL QuadTailsitter](../../assets/airframes/vtol/skypull/skypull_sp1.jpg)
 
@@ -31,13 +35,16 @@ Tailsitters are typically mechanically less complex than [other types of VTOL](.
 
 ::::
 
-Duo Tailsitters are generally more efficient in cruise flight (4 smaller propellers are less efficient than 2 larger ones) and physically more compact. However as they are aerodynamically much more complex in hover mode, they are much harder to tune for both hover and transition. Quad tailsitters are easier to fly in hover mode, and more stable in windy conditions. Both are supported using the same aiframe type in PX4.
+Duo Tailsitters are generally more efficient in cruise flight (4 smaller propellers are less efficient than 2 larger ones) and physically more compact.
+However as they are aerodynamically much more complex in hover mode, they are much harder to tune for both hover and transition.
+Quad tailsitters are easier to fly in hover mode, and more stable in windy conditions.
+Both are supported using the same aiframe type in PX4.
 
 ## Setup/Flying
 
 VTOL setup and flying are covered in the [VTOL](../frames_vtol/index.md) parent topic.
 
-::: info
+:::info
 The instructions are essentially the same for all VTOL.
 The main frame-specific differences are the motor wiring, and some aspects of tuning the configuration.
 :::
@@ -69,6 +76,7 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 [Woshark](http://www.laarlab.cn/#/) _PX4 Tailsitter prototype_ - Tailsitter takeoff, transition, landing.
 
 <!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
+
 <!-- Update issue https://github.com/PX4/PX4-user_guide/issues/3007 -->
 
 <lite-youtube videoid="gjHj6YsxcZk" title="PX4 Autopilot Tailsitter"/>
@@ -78,7 +86,6 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 [UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - Tailsitter takeoff, transition, landing.
 
 <lite-youtube videoid="pWt6uoqpPIw" title="UAV Works VALAQ"/>
-
 
 ## Gallery
 
