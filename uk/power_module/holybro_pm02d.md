@@ -2,24 +2,26 @@
 
 Плата живлення Holybro PM02D забезпечує регульоване живлення для керуючого пристрою польоту та розподільної плати живлення, а також надсилає інформацію автопілоту про напругу батареї та поточний струм, що подається на керуючий пристрій польоту та двигуни.
 
-Плата живлення підключається за допомогою протоколу I2C. Вона призначена для керуючих пристроїв польоту на основі відкритого стандарту Pixhawk FMUv5X та FMUv6X, включаючи [Pixhawk 5X](../flight_controller/pixhawk5x.md).
+Плата живлення підключається за допомогою протоколу I2C.
+It is designed for flight controllers based on the Pixhawk FMUv5X and FMUv6X open standard, including the [Pixhawk 5X](../flight_controller/pixhawk5x.md).
 
-:::info PM **НЕ Є** сумісний з керуючими пристроями польоту, які потребують аналогового модуля живлення, включаючи: [Pixhawk 4](../flight_controller/pixhawk4.md), [Durandal](../flight_controller/durandal.md), [Pix32 v5](../flight_controller/holybro_pix32_v5.md), тощо.
+:::info
+The PM is **NOT** compatible with flight controllers that require an analog power module, including: [Pixhawk 4](../flight_controller/pixhawk4.md), [Durandal](../flight_controller/durandal.md), [Pix32 v5](../flight_controller/holybro_pix32_v5.md), etc.
 :::
 
 ![PM02D](../../assets/hardware/power_module/holybro_pm02d/pm02d_hero.jpg)
 
-## Специфікації
+## Характеристики
 
-- **Максимальна вхідна напруга**: 36V
-- **Оцінений струм**: 60A
-- **Макс поточний**: 120A (<60S)
-- **Максимальне вимірювання поточного струму**: 164A
-- **Підтримується заряд батареї**: до 6S акумулятора
-- **Протокол зв'язку**: I2C
-- **Вихід регулятора перемикача**: 5.2V та 3A макс
-- **Вага**: 59g
-- **Використано ІС**: TI INA226
+- **Max input voltage**: 36V
+- **Rated current**: 60A
+- **Max current**: 120A (<60S)
+- **Max current sensing**: 164A
+- **Battery supported**: up to 6S battery
+- **Communication protocol**: I2C
+- **Switching regulator outputs**: 5.2V and 3A max
+- **Weight**: 20g
+- **IC Used**: TI INA226
 
 ## Вміст набору
 
@@ -28,10 +30,10 @@
 
 ## Де купити
 
-[Замовляйте на Holybro](https://holybro.com/products/pm02d-power-module)
+[Order from Holybro Store](https://holybro.com/products/pm02d-power-module)
 
 ## Проведення/Підключення
 
-![pm02d_pinout](../../assets/hardware/power_module/holybro_pm02d/pm02d_pinout.png)
+![pm02d\_pinout](../../assets/hardware/power_module/holybro_pm02d/pm02d_pinout.png)
 
-Додаткову інформацію про проводку та підключення можна знайти в: [Holybro Pixhawk 5x Wiring Quick Start](../assembly/quick_start_pixhawk5x.md).
+Additional wiring and connection information can be found in: [Holybro Pixhawk 5x Wiring Quick Start](../assembly/quick_start_pixhawk5x.md).
