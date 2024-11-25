@@ -1,47 +1,51 @@
 # Польоти з використанням систем захоплення руху (VICON, NOKOV, Optitrack)
 
-::: попередження **РОБОТА В ПРОЦЕСІ**
+:::warning
+**WORK IN PROGRESS**
 
-Ця тема значно збігається з [Оцінкою зовнішньої позиції (ROS)](../ros/external_position_estimation.md).
+This topic shares significant overlap with [External Position Estimation (ROS)](../ros/external_position_estimation.md).
 :::
 
-Системи захоплення руху у приміщенні, такі як VICON, NOKOV та Optitrack, можуть бути використані для надання даних про положення та орієнтацію для оцінки стану транспортного засобу або можуть бути використані як основа для аналізу. Дані з систем захоплення руху можуть бути використані для оновлення локальної оцінки положення PX4 відносно локального початку координат Курс (поворот) з системи захоплення руху також може бути опціонально інтегрований оцінювачем положення.
+Системи захоплення руху у приміщенні, такі як VICON, NOKOV та Optitrack, можуть бути використані для надання даних про положення та орієнтацію для оцінки стану транспортного засобу або можуть бути використані як основа для аналізу.
+Дані з систем захоплення руху можуть бути використані для оновлення локальної оцінки положення PX4 відносно локального початку координат Курс (поворот) з системи захоплення руху також може бути опціонально інтегрований оцінювачем положення.
 
-Дані про положення (позицію та орієнтацію) з системи захоплення руху надсилаються автопілоту через MAVLink, використовуючи повідомлення [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP). Дивіться розділ нижче про системи координат для норм представлення даних. ROS-Mavlink інтерфейс [mavros](../ros/mavros_installation.md) має стандартний плагін для надсилання цього повідомлення. Їх також можна надсилати, використовуючи чистий код на мовах програмування C/C++ та бібліотеки MAVLink.
+Pose (position and orientation) data from the motion capture system is sent to the autopilot over MAVLink, using the [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP) message. Дивіться розділ нижче про системи координат для норм представлення даних. The [mavros](../ros/mavros_installation.md) ROS-Mavlink interface has a default plugin to send this message. Їх також можна надсилати, використовуючи чистий код на мовах програмування C/C++ та бібліотеки MAVLink.
 
 ## Архітектура обчислювальних систем
 
-**Дуже рекомендується** надсилати дані захоплення руху через **бортовий** комп'ютер (наприклад, Raspberry Pi, ODroid і т. д.) для надійного зв'язку. Вбудований комп'ютер може бути підключений до комп'ютера руху за допомогою WiFi, що забезпечує надійне, високопропускне з'єднання.
+It is **highly recommended** that you send motion capture data via an **onboard** computer (e.g Raspberry Pi, ODroid, etc.) for reliable communications. Вбудований комп'ютер може бути підключений до комп'ютера руху за допомогою WiFi, що забезпечує надійне, високопропускне з'єднання.
 
-Більшість стандартних телеметричних зв'язків, таких як радіоприймачі 3DR/SiK, **не підходять** для застосувань з високою пропускною здатністю, пов'язаних з захопленням руху.
+Most standard telemetry links like 3DR/SiK radios are **not** suitable for high-bandwidth motion capture applications.
 
 ## Системи координат
 
 У цьому розділі показано, як налаштувати систему з відповідними опорними системами. Існує різноманітні представлення, але ми використовуватимемо два з них: ENU і NED.
 
-- ENU - це земельно-фіксована система, де вісь **X** вказує на схід, **Y** - на північ, а **Z** - вгору. Корпус робота/транспортного засобу відповідно до цього має вісь **X** наперед, **Z** вгору і **Y** ліворуч.
-- NED має вісь **X **направлену на північ, **Y** - на схід і **Z** - вниз. Корпус робота/транспортного засобу має вісь **X** наперед, **Z** вниз і **Y** відповідно.
+- ENU is a ground-fixed frame where **X** axis points East, **Y** points North and **Z** up. The robot/vehicle body frame is **X** towards the front, **Z** up and **Y** towards the left.
+- NED has **X** towards North, **Y** East and **Z** down. The robot/vehicle body frame has **X** towards the front, **Z** down and **Y** accordingly.
 
 На зображенні нижче показані системи координат. NED ліворуч, ENU праворуч:
 
 ![Reference frames](../../assets/lpe/ref_frames.png)
 
-Зовнішній оціночний заголовок, однак, ігнорує магнітний північ і підробляється вектором, що відповідає світовій вісі _X_ (який може бути розміщений вільно під час калібрування mocap); кут розвороту буде визначено щодо місцевої вісі _X_.
+With the external heading estimation, however, magnetic North is ignored and faked with a vector corresponding to world _x_ axis (which can be placed freely at mocap calibration); yaw angle will be given respect to local _x_.
 
 :::warning
-При створенні жорсткого тіла в програмному забезпеченні захоплення руху спочатку вирівнюйте робота зі світовою віссю **X**, інакше оцінка розвороту матиме початкове зміщення.
+When creating the rigid body in the motion capture software, remember to first align the robot with the world **X** axis otherwise yaw estimation will have an initial offset.
 :::
 
 ## Оціночники стану
 
-EKF2 рекомендується для систем з GPS (LPE застаріла, тому її більше не підтримується або не підтримується). Q-Estimator рекомендується, якщо у вас немає GPS, оскільки він працює без магнітометра або барометра.
+EKF2 рекомендується для систем з GPS (LPE застаріла, тому її більше не підтримується або не підтримується).
+Q-Estimator рекомендується, якщо у вас немає GPS, оскільки він працює без магнітометра або барометра.
 
-Див. [Перемикання оціночників стану](../advanced/switching_state_estimators.md) для отримання додаткової інформації.
+See [Switching State Estimators](../advanced/switching_state_estimators.md) for more information.
 
 ### EKF2
 
-ROS-тема для motion cap `mocap_pose_estimate` для систем mocap та `vision_pose_estimate` для бачення. Перевірте [mavros_extras](http://wiki.ros.org/mavros_extras) для отримання додаткової інформації.
+The ROS topic for motion cap `mocap_pose_estimate` for mocap systems and `vision_pose_estimate` for vision.
+Check [mavros_extras](http://wiki.ros.org/mavros_extras) for further info.
 
 ## Тестування
 
-## Вирішення проблем
+## Усунення проблем
