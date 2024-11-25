@@ -6,9 +6,11 @@ The [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) is a 
 
 The module can act as an RTK GPS rover when installed on the aircraft.
 
-The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS. It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
+The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS.
+It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
 
-The built-in lightweight helical antenna enhances RTK positioning stability. Additionally, it is equipped with a compass. The fast time-to-first-fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk-based platform UAVs.
+The built-in lightweight helical antenna enhances RTK positioning stability. Additionally, it is equipped with a compass.
+The fast time-to-first-fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk-based platform UAVs.
 
 ## Main Features
 
@@ -44,29 +46,34 @@ Hawk R2 RTK GPS comes with an 6 pin JST connector that can be plugged into the G
 
 ![LOCOSYS Hawk R2 cable for connecting to flight controller](../../assets/hardware/gps/locosys_hawk_r2/locosys_hawk_r2_jst6_cable.jpg)
 
-It can also be used on other UART ports, but you would need to connect and configure the port used. The pinout below is provided in case you need to create a custom cable.
+It can also be used on other UART ports, but you would need to connect and configure the port used.
+The pinout below is provided in case you need to create a custom cable.
 
 ### 针脚定义
 
 LOCOSYS GPS pinout is provided below.
 
-| 针脚 | Hawk R2 GPS |
-| -- | ----------- |
-| 1  | VCC_5V      |
-| 2  | GPS_RX      |
-| 3  | GPS_TX      |
-| 4  | GNSS_PPS    |
-| 5  | Null        |
-| 6  | Null        |
-| 7  | I2C_CLK     |
-| 8  | I2C_DAT     |
-| 9  | GND         |
+| 针脚 | Hawk R2 GPS                   |
+| -- | ----------------------------- |
+| 1  | ```
+VCC_5V
+```                |
+| 2  | GPS_RX   |
+| 3  | GPS_TX   |
+| 4  | GNSS_PPS |
+| 5  | Null                          |
+| 6  | Null                          |
+| 7  | I2C_CLK  |
+| 8  | I2C_DAT  |
+| 9  | GND                           |
 
 ## PX4 配置
 
-After connecting your Hawk R2 to the `GPS2` port on compatible Pixhawk boards, RTK setup and use on PX4 via _QGroundControl_ is largely plug and play. For more information see: [RTK GPS](../gps_compass/rtk_gps.md#positioning-setup-configuration).
+After connecting your Hawk R2 to the `GPS2` port on compatible Pixhawk boards, RTK setup and use on PX4 via _QGroundControl_ is largely plug and play.
+For more information see: [RTK GPS](../gps_compass/rtk_gps.md#positioning-setup-configuration).
 
-You should also configure the serial port you are using to the correct baud rate. If you're using GPS2, set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS2_BAUD) to 230400 8N1.
+You should also configure the serial port you are using to the correct baud rate.
+If you're using GPS2, set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS2_BAUD) to 230400 8N1.
 
 The compass only requires the usual [Compass Calibration](../config/compass.md).
 
