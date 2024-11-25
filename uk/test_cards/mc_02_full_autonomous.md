@@ -4,17 +4,17 @@
 
 ❏ Критерії Місії
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Включити автозняття
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Auto take-off
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Зміни висоти протягом місії
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Changes in Altitude throughout the mission
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Перша маршрутна точка встановлена на зліт
+&nbsp;&nbsp;&nbsp;&nbsp;❏ First waypoint set to Takeoff
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Увімкніть Mission End RTL
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Enable Mission End RTL
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Тривалість від 5 до 6 хвилин
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 5 to 6 minutes
 
-❏ Завантажте місію в транспортний засіб за допомогою _QGroundControl_
+❏ Upload mission to vehicle using _QGroundControl_
 
 ## Озброєння та зліт
 
@@ -24,7 +24,7 @@
 
 ❏ Спостереження відстеження, поворот і належна продуктивність RTL
 
-❏ Після торкання землі коптер повинен автоматично роззброїтись протягом 2 секунд (час роззброєння встановлюється параметром: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
 ## Очікувані результати
 
@@ -33,14 +33,13 @@
 - Дрон повинен автоматично злетіти після ввімкнення автоматичного режиму
 - Після посадки, коптер не повинен підскакувати на землі
 
-
 <!--
 MC_002 - Full autonomous
 
--   Make sure the auto-disarm is enabled
--   QGC open test1_mission.plan and sync to the vehicle
--   Takeoff from QGC start mission slider
--   Check the vehicle completes the mission
--   Let the vehicle to auto land, take manual control if needed and explain the reason in log description.
--   Check the vehicle disarms by itself.
+-	Make sure the auto-disarm is enabled
+-	QGC open test1_mission.plan and sync to the vehicle
+-	Takeoff from QGC start mission slider
+-	Check the vehicle completes the mission
+-	Let the vehicle to auto land, take manual control if needed and explain the reason in log description.
+-	Check the vehicle disarms by itself.
 -->
