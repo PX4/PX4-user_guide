@@ -1,52 +1,58 @@
 # VESC ESCs (DroneCAN)
 
-Проект [VESC](https://vesc-project.com/) є повністю відкритим апаратним та програмним забезпеченням для передових контролерів двигуна FOC. Хоча його можна контролювати за допомогою традиційного введення ШІМ, він також підтримує підключення через шину CAN за допомогою [DroneCAN](../dronecan/index.md).
+The [VESC project](https://vesc-project.com/) is a fully open source hardware and software design for advanced FOC motor controllers.
+While it can be controlled using traditional PWM input, it also supports being connected over CAN bus using [DroneCAN](../dronecan/index.md).
 
 ## Де купити
 
-[Проект Vesc >  Апаратне забезпечення](https://vesc-project.com/Hardware)
+[Vesc Project > Hardware](https://vesc-project.com/Hardware)
 
-## Налаштування програмного забезпечення
+## Встановлення обладнання
 
 ### Підключення
 
-ЕСС підключені до шини CAN за допомогою роз'єму CAN VESC. Зверніть увагу, що це _не_ стандартний роз'єм JST GH з 4 контактами Pixhawk. Для отримання додаткової інформації, зверніться до інструкцій з [проводки CAN](../can/index.md#wiring). Порядок ESC не має значення.
+ЕСС підключені до шини CAN за допомогою роз'єму CAN VESC. Note that this is _not_ the Pixhawk standard 4 pin JST GH connector. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions. Порядок ESC не має значення.
 
 ## Налаштування прошивки
 
-Перевагою інструменту для переліку двигунів є [інструмент VESC](https://vesc-project.com/vesc_tool). Крім звичайної конфігурації двигуна, яку вам потрібно буде налаштувати в інструменті VESC, вам також потрібно належним чином налаштувати конфігурацію додатка. Рекомендоване налаштування додатку виглядає наступним чином:
+The preferred tool for motor enumeration is the [VESC tool](https://vesc-project.com/vesc_tool).
+Крім звичайної конфігурації двигуна, яку вам потрібно буде налаштувати в інструменті VESC, вам також потрібно належним чином налаштувати конфігурацію додатка.
+Рекомендоване налаштування додатку виглядає наступним чином:
 
 | Параметр                             | Опції                  |
 | ------------------------------------ | ---------------------- |
-| Додаток для використання             | `Немає додатку`        |
+| Додаток для використання             | `No App`               |
 | VESC ID                              | `1,2,...`              |
 | Режим повідомлення статусу Can       | `CAN_STATUS_1_2_3_4_5` |
 | Швидкість передачі даних по шині CAN | `CAN_BAUD_500K`        |
 | CAN режим                            | `UAVCAN`               |
 | Індекс UAVCAN ESC                    | `0,1,...`              |
 
-Ідентифікатор VESC повинен мати таке ж нумерування двигуна, як і в конвенції PX4, починаючи з `1` для верхнього правого двигуна, `2` для нижнього лівого двигуна тощо. Однак `UAVCAN ESC Index` починається з `0`, і тому завжди на один індекс нижче, ніж `VESC ID`. Наприклад, у квадрокоптері лівий нижній двигун матиме `VESC ID = 2` та `UAVCAN ESC Index = 1`.
+VESC ID should have the same motor numbering as in PX4 convention, starting at `1` for top-right motor, `2` for bottom-left motor etc.
+However the `UAVCAN ESC Index` starts from `0`, and as such it is always one index lower than the `VESC ID`.
+For example, in a quadcopter the bottom left motor will have `VESC ID = 2` and `UAVCAN ESC Index = 1`.
 
-Наостанок, швидкість передачі даних `CAN Baud Rate` повинна відповідати значенню, встановленому в [UAVCAN_BITRATE](../advanced_config/parameter_reference.md#UAVCAN_BITRATE).
+Finally the `CAN Baud Rate` must match the value set in [UAVCAN_BITRATE](../advanced_config/parameter_reference.md#UAVCAN_BITRATE).
 
 ## Налаштування польотного контролера
 
 ### Увімкнути DroneCAN
 
-Підключіть ESC до шини CAN Pixhawk. Увімкніть весь транспортний засіб за допомогою акумулятора або джерела живлення (не лише контролера польоту через USB) та увімкніть драйвер DroneCAN, встановивши параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) на `3`, щоб увімкнути як динамічне призначення ідентифікатора вузла, так і вивід ESC DroneCAN.
+Підключіть ESC до шини CAN Pixhawk. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `3` to enable both dynamic node ID allocation and DroneCAN ESC output.
 
 ### Налаштування PX4
 
-Назначте двигуни на виходи, використовуючи екран конфігурації [Acutator](../config/actuators.md#actuator-testing).
+Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
 <!-- removed as there is no info for it in linked doc -->
+
 <!--
 ## Troubleshooting
 
 See DroneCAN Troubleshooting - (index.md#troubleshooting).
 -->
 
-## Подальша інформація
+## Додаткова інформація
 
-- [VESC Проект ESCs](https://vesc-project.com/)
-- [Блог Бенджамина Веддера](http://vedder.se) (власник проекту)
+- [VESC Project ESCs](https://vesc-project.com/)
+- [Benjamin Vedder's blog](http://vedder.se) (project owner)
