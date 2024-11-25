@@ -4,12 +4,16 @@ Docker containers are provided for the complete [PX4 development toolchain](../d
 
 This topic shows how to use the [available docker containers](#px4_containers) to access the build environment in a local Linux computer.
 
-::: info Dockerfiles and README can be found on [Github here](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy). They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/).
+:::info
+Dockerfiles and README can be found on [Github here](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy).
+They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/).
 :::
 
 ## Prerequisites
 
-::: info PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)). Do not use `boot2docker` with the default Linux image because it contains no X-Server.
+:::info
+PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)).
+Do not use `boot2docker` with the default Linux image because it contains no X-Server.
 :::
 
 [Install Docker](https://docs.docker.com/installation/) for your Linux computer, preferably using one of the Docker-maintained package repositories to get the latest stable version. You can use either the _Enterprise Edition_ or (free) _Community Edition_.
@@ -37,7 +41,9 @@ sudo usermod -aG docker $USER
 
 The available containers are on [Github here](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy).
 
-These allow testing of various build targets and configurations (the included tools can be inferred from their names). The containers are hierarchical, such that containers have the functionality of their parents. For example, the partial hierarchy below shows that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
+These allow testing of various build targets and configurations (the included tools can be inferred from their names).
+The containers are hierarchical, such that containers have the functionality of their parents.
+For example, the partial hierarchy below shows that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 
 ```plain
 - px4io/px4-dev-base-focal
@@ -50,7 +56,9 @@ These allow testing of various build targets and configurations (the included to
   - px4io/px4-dev-nuttx-jammy
 ```
 
-The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-focal:latest` (available tags are listed for each container on _hub.docker.com_. For example, the `px4io/px4-dev-nuttx-focal` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-focal/tags?page=1&ordering=last_updated)).
+The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-focal:latest`
+(available tags are listed for each container on _hub.docker.com_.
+For example, the `px4io/px4-dev-nuttx-focal` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-focal/tags?page=1\&ordering=last_updated)).
 
 :::tip
 Typically you should use a recent container, but not necessarily the `latest` (as this changes too often).
@@ -58,7 +66,8 @@ Typically you should use a recent container, but not necessarily the `latest` (a
 
 ## Use the Docker Container
 
-The following instructions show how to build PX4 source code on the host computer using a toolchain running in a docker container. The information assumes that you have already downloaded the PX4 source code to **src/PX4-Autopilot**, as shown:
+The following instructions show how to build PX4 source code on the host computer using a toolchain running in a docker container.
+The information assumes that you have already downloaded the PX4 source code to **src/PX4-Autopilot**, as shown:
 
 ```sh
 mkdir src
@@ -69,7 +78,8 @@ cd PX4-Autopilot
 
 ### Helper Script (docker_run.sh)
 
-The easiest way to use the containers is via the [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/docker_run.sh) helper script. This script takes a PX4 build command as an argument (e.g. `make tests`). It starts up docker with a recent version (hard coded) of the appropriate container and sensible environment settings.
+The easiest way to use the containers is via the [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/docker_run.sh) helper script.
+This script takes a PX4 build command as an argument (e.g. `make tests`). It starts up docker with a recent version (hard coded) of the appropriate container and sensible environment settings.
 
 For example, to build SITL you would call (from within the **/PX4-Autopilot** directory):
 
@@ -91,7 +101,10 @@ The script is easy because you don't need to know anything much about _Docker_ o
 
 ### Calling Docker Manually
 
-The syntax of a typical command is shown below. This runs a Docker container that has support for X forwarding (makes the simulation GUI available from inside the container). It maps the directory `<host_src>` from your computer to `<container_src>` inside the container and forwards the UDP port needed to connect _QGroundControl_. With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
+The syntax of a typical command is shown below.
+This runs a Docker container that has support for X forwarding (makes the simulation GUI available from inside the container).
+It maps the directory `<host_src>` from your computer to `<container_src>` inside the container and forwards the UDP port needed to connect _QGroundControl_.
+With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
 
 ```sh
 # enable access to xhost from the container
@@ -131,14 +144,18 @@ docker run -it --privileged \
 --name=px4-ros px4io/px4-dev-ros2-foxy:2022-07-31 bash
 ```
 
-::: info
+:::info
 We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
 :::
 
-::: info If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
+:::info
+If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value.
+On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`.
+On other hosts you might iterate the value of `0` in `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
 :::
 
-If everything went well you should be in a new bash shell now. Verify if everything works by running, for example, SITL:
+If everything went well you should be in a new bash shell now.
+Verify if everything works by running, for example, SITL:
 
 ```sh
 cd src/PX4-Autopilot    #This is <container_src>
@@ -184,7 +201,7 @@ In _QGroundControl_, navigate to [Settings](https://docs.qgroundcontrol.com/mast
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
 
-::: info
+:::info
 Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
 :::
 
