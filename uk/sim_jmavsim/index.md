@@ -1,46 +1,53 @@
 # jMAVSim з SITL
 
 :::warning
-Цей симулятор [модифікується та підтримується спільнотою](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4 and may be removed in future releases.
+This simulator is [community supported and maintained](../simulation/community_supported_simulators.md).
+It may or may not work with current versions of PX4 and may be removed in future releases.
 
-Див. [інструкцію з встановлення засобів розробки](../dev_setup/dev_env.md) для інформації про середовища та інструменти, підтримувані основним розробницьким колективом.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для інформації про середовища та інструменти, що підтримуються основною командою розробників.
 :::
 
-jMAVSim - це простий симулятор мультироторів/квадрокоптерів, який дозволяє вам літати на _коптерах_ типу транспортних засобів, що працюють на PX4, по симульованому світі. Його легко налаштувати і можна використовувати для перевірки того, що ваш апарат може злітати, летіти, приземлятися і належним чином реагувати на різні несправності (наприклад, несправність GPS).
+jMAVSim is a simple multirotor/Quad simulator that allows you to fly _copter_ type vehicles running PX4 around a simulated world.
+Його легко налаштувати і можна використовувати для перевірки того, що ваш апарат може злітати, летіти, приземлятися і належним чином реагувати на різні несправності (наприклад, несправність GPS).
 
-<strong>Підтримувані транспортні засоби:</strong>
+<strong>Supported Vehicles:</strong>
 
 - Quad
 
 Ця тема показує, як налаштувати jMAVSim для підключення до SITL версії PX4.
 
 :::tip
-jMAVSim також може бути використаний для симуляції HITL ([як показано тут](../simulation/hitl.md#jmavsim-quadrotor-only)).
+jMAVSim can also be used for HITL Simulation ([as shown here](../simulation/hitl.md#jmavsim-quadrotor-only)).
 :::
 
 ## Встановлення
 
-jMAVSim setup is included in our [standard build instructions](../dev_setup/dev_env.md) for Ubuntu Linux and Windows. Follow the instructions below to install jMAVSim on macOS.
+jMAVSim setup is included in our [standard build instructions](../dev_setup/dev_env.md) for Ubuntu Linux and Windows.
+Follow the instructions below to install jMAVSim on macOS.
 
 ### macOS
 
 To setup the environment for [jMAVSim](../sim_jmavsim/index.md) simulation:
 
-1. Install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
+1. Install a recent version of Java (e.g. Java 15).
+   You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
 
    ```sh
    brew install --cask temurin
    ```
 
-1. Install jMAVSim:
+2. Install jMAVSim:
 
    ```sh
    brew install px4-sim-jmavsim
    ```
 
-   :::warning PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
+   :::warning
+   PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
 
-   For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../sim_jmavsim/index.md#troubleshooting)).
+   For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`.
+   You can find the fix in the [jMAVSim with SITL > Troubleshooting](../sim_jmavsim/index.md#troubleshooting)).
+
 :::
 
 ## Середовище симуляції
@@ -48,7 +55,6 @@ To setup the environment for [jMAVSim](../sim_jmavsim/index.md) simulation:
 Симуляція програмного забезпечення в петлі виконує повну систему на комп'ютері та моделює автопілот. Він підключається через локальну мережу до симулятора. Вигляд налаштування виглядає наступним чином:
 
 [![Mermaid graph: SITL Simulator](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
-
 
 <!-- original graph
 graph LR;
@@ -58,7 +64,7 @@ graph LR;
 
 ## Запуск SITL
 
-Після переконання, що [вимоги для симуляції](../dev_setup/dev_env.md) встановлені в системі, просто запустіть: Ціль make для зручності скомпілює збірку POSIX хоста та запустить симуляцію.
+After ensuring that the [simulation prerequisites](../dev_setup/dev_env.md) are installed on the system, just launch: The convenience make target will compile the POSIX host build and run the simulation.
 
 ```sh
 make px4_sitl_default jmavsim
@@ -83,13 +89,13 @@ Ready to fly.
 pxh>
 ```
 
-Це також викличе вікно, яке показує тривимірний вигляд симулятора [jMAVSim](https://github.com/PX4/jMAVSim):
+It will also bring up a window showing a 3D view of the [jMAVSim](https://github.com/PX4/jMAVSim) simulator:
 
 ![jMAVSim 3d View](../../assets/simulation/jmavsim/jmavsim.jpg)
 
 ## Підйом у небо
 
-Система почне друкувати інформацію про статус. Ви зможете почати літати, як тільки у вас буде фіксація позиції (незабаром після того, як консоль відобразить повідомлення: _EKF починає об'єднання GPS_).
+Система почне друкувати інформацію про статус. You will be able to start flying once you have a position lock (shortly after the console displays the message: _EKF commencing GPS fusion_).
 
 Щоб злітіти, введіть наступне у консоль:
 
@@ -97,19 +103,19 @@ pxh>
 pxh> commander takeoff
 ```
 
-Ви можете використовувати _QGroundControl_ для виконання місії або для підключення до [джойстика](#using-a-joystick).
+You can use _QGroundControl_ to fly a mission or to connect to a [joystick](#using-a-joystick).
 
-## Використання та варіанти налаштування
+## Використання/Налаштування
 
-Параметри, які застосовуються до всіх симуляторів охоплені у темі [Симуляція](../simulation/index.md#sitl-simulation-environment) рівнем вище (деякі з них можуть бути продубльовані нижче).
+Options that apply to all simulators are covered in the top level [Simulation](../simulation/index.md#sitl-simulation-environment) topic (some of these may be duplicated below).
 
 ### Імітація відмови датчика/обладнання
 
-[Імітація збоїв](../simulation/failsafes.md) пояснює, як викликати збої безпеки, такі як відмова GPS і розряд акумулятора.
+[Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes like GPS failure and battery drain.
 
 ### Встановлення власного місця зльоту
 
-Місце вильоту за замовчуванням в can be overridden використовуючи змінні середовища: `PX4_HOME_LAT`, `PX4_HOME_LON` та `PX4_HOME_ALT`.
+The default takeoff location in can be overridden using the environment variables: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
 
 Наприклад, щоб встановити широту, довготу та висоту:
 
@@ -122,18 +128,18 @@ make px4_sitl_default jmavsim
 
 ### Зміна швидкості симуляції
 
-Швидкість симуляції може бути збільшена або зменшена відносно реального часу за допомогою змінної середовища `PX4_SIM_SPEED_FACTOR`.
+The simulation speed can be increased or decreased with respect to realtime using the environment variable `PX4_SIM_SPEED_FACTOR`.
 
 ```sh
 export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl_default jmavsim
 ```
 
-Для додаткової інформації дивіться: [Симуляція > Запуск симуляції швидше реального часу](../simulation/index.md#simulation_speed).
+For more information see: [Simulation > Run Simulation Faster than Realtime](../simulation/index.md#simulation_speed).
 
 ### Використання джойстика
 
-Джойстики та підтримка пальцевого джойстику підтримуються через _QGroundControl_ ([інструкції з налаштування тут](../simulation/index.md#joystick-gamepad-integration)).
+Joystick and thumb-joystick support are supported through _QGroundControl_ ([setup instructions here](../simulation/index.md#joystick-gamepad-integration)).
 
 ### Моделювання Wifi Дрона
 
@@ -158,7 +164,7 @@ make px4_sitl none
 
 ### Режим без інтерфейсу
 
-Щоб запустити jMAVSim без GUI, встановіть змінну середовища `HEADLESS=1` як показано:
+To start jMAVSim without the GUI, set the env variable `HEADLESS=1` as shown:
 
 ```sh
 HEADLESS=1 make px4_sitl jmavsim
@@ -166,25 +172,28 @@ HEADLESS=1 make px4_sitl jmavsim
 
 ## Багатотранспортне моделювання
 
-JMAVSim може бути використаний для симуляції багатьох транспортних засобів: [Багато-транспортний Симулятор з JMAVSim](../sim_jmavsim/multi_vehicle.md).
+JMAVSim can be used for multi-vehicle simulation: [Multi-Vehicle Sim with JMAVSim](../sim_jmavsim/multi_vehicle.md).
 
 ## Розширення та персоналізація
 
-Для розширення та налаштування інтерфейсу симуляції, відредагуйте файли у директорії **Tools/jMAVSim**. Код можна отримати через [репозиторій jMAVSim](https://github.com/px4/jMAVSim) на Github.
+To extend or customize the simulation interface, edit the files in the **Tools/jMAVSim** folder. The code can be accessed through the[jMAVSim repository](https://github.com/px4/jMAVSim) on Github.
 
-:::info Система збірки забезпечує правильний підмодуль, який повинен бути перевірений для всіх залежностей, включаючи симулятор. Це не перезапише зміни в файлах у каталозі, проте, коли ці зміни будуть зафіксовані, підмодуль повинен бути зареєстрований у репозиторії Firmware з новим хешем коміту. Щоб це зробити, `git add Tools/jMAVSim` та здійсніть зміну. Це оновить хеш GIT симулятора.
+:::info
+The build system enforces the correct submodule to be checked out for all dependencies, including the simulator.
+Це не перезапише зміни в файлах у каталозі, проте, коли ці зміни будуть зафіксовані, підмодуль повинен бути зареєстрований у репозиторії Firmware з новим хешем коміту. To do so, `git add Tools/jMAVSim` and commit the change.
+Це оновить хеш GIT симулятора.
 :::
 
 ## Взаємодія з ROS
 
-Симуляцію можна [інтерфейсувати з ROS](../simulation/ros_interface.md) так само, як і на борту реального транспортного засобу.
+The simulation can be [interfaced to ROS](../simulation/ros_interface.md) the same way as onboard a real vehicle.
 
 ## Важливі файли
 
-- Сценарії запуску обговорюються в [Запуск системи](../concept/system_startup.md).
-- Симульована файлова система кореня (каталог "/") створюється всередині каталогу збірки тут: `build/px4_sitl_default/rootfs`.
+- The startup scripts are discussed in [System Startup](../concept/system_startup.md).
+- The simulated root file system ("`/`" directory) is created inside the build directory here: `build/px4_sitl_default/rootfs`.
 
-## Відстеження проблем
+## Усунення проблем
 
 ### java.long.NoClassDefFoundError
 
@@ -208,7 +217,7 @@ at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:566)
 at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 ```
 
-Ця помилка більше не повинна виникати, якщо підмодуль jMAVSim буде [оновлено до новіших бібліотек jar](https://github.com/PX4/jMAVSim/pull/119), і Java 11 або Java 14 повинні працювати належним чином.
+This error should no longer occur once the jMAVSim submodule is [updated to newer jar libs](https://github.com/PX4/jMAVSim/pull/119) and Java 11 or Java 14 should work fine.
 
 ### Відбулася незаконна відображувальна операція доступу
 
@@ -248,7 +257,7 @@ Inconsistency detected by ld.so: dl-lookup.c: 112: check_match: Assertion versio
 
 Якщо ви бачите цю помилку, спробуйте цей обхідний шлях:
 
-Редагуйте файл **accessibility.properties**:
+Edit the **accessibility.properties** file:
 
 ```sh
 sudo gedit /etc/java-8-openjdk/accessibility.properties
@@ -260,7 +269,8 @@ sudo gedit /etc/java-8-openjdk/accessibility.properties
 #assistive_technologies=org.GNOME.Acessibility.AtkWrapper
 ```
 
-Для отримання додаткової інформації перевірте [це питання на GitHub](https://github.com/PX4/PX4-Autopilot/issues/9557). Учасник знайшов виправлення на [askubuntu.com](https://askubuntu.com/questions/695560).
+For more info, check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557).
+A contributor found the fix in [askubuntu.com](https://askubuntu.com/questions/695560).
 
 ### Виняток у потоці "main" java.lang.UnsupportedClassVersionError
 
@@ -270,7 +280,8 @@ sudo gedit /etc/java-8-openjdk/accessibility.properties
 Exception in thread "main" java.lang.UnsupportedClassVersionError: me/drton/jmavsim/Simulator has been compiled by a more recent version of the Java Runtime (class file version 59.0), this version of the Java Runtime only recognizes class file versions up to 58.0
 ```
 
-Ця помилка говорить вам, вам потрібна більш свіжа версія Java у вашому середовищі. Версія файлу класу 58 відповідає jdk14, версія 59 - jdk15, версія 60 - jdk 16 тощо.
+Ця помилка говорить вам, вам потрібна більш свіжа версія Java у вашому середовищі.
+Версія файлу класу 58 відповідає jdk14, версія 59 - jdk15, версія 60 - jdk 16 тощо.
 
 Щоб виправити це під macOS, ми рекомендуємо встановити OpenJDK через homebrew
 
