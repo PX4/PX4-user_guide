@@ -1,6 +1,8 @@
 # CUAV C-RTK2 GNSS Module (RTK/PPK)
 
-Приймач [CUAV C-RTK2](https://www.cuav.net/en/c_rtk_9ps/) - це високопродуктивний модуль позиціонування PPK/RTK, створений компанією CUAV для професійних застосувань, таких як аерофотозйомка та картографування з дронів. Він має високоточний IMU і модуль позиціонування, і може зменшити кількість необхідних [ контрольних точок](https://www.youtube.com/watch?v=3k7v5aXyuKQ) більш ніж на 80%. На додаток до зйомки/картографування, він підходить для багатьох інших випадків використання, включаючи: захист сільськогосподарських рослин та рої дронів.
+The [CUAV C-RTK2 receiver](https://www.cuav.net/en/c_rtk_9ps/) is a high-performance PPK/RTK positioning module created by CUAV for professional applications such as drone aerial surveying and mapping.
+It has a high-precision IMU and positioning module, and can reduce the number of required [control points](https://www.youtube.com/watch?v=3k7v5aXyuKQ) by more than to 80%.
+На додаток до зйомки/картографування, він підходить для багатьох інших випадків використання, включаючи: захист сільськогосподарських рослин та рої дронів.
 
 ![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2.png)
 
@@ -61,7 +63,7 @@
   - Допоміжний запуск 2с
   - Повторне отримання 2с
 - Чутливість
-  - Відстеження та навігація -167 дБм
+  - Tracking & Nav –167 dBm
   - Холодний старт –148 dBm
   - Гарячий старт –157 dBm
   - Повторне отримання –160с
@@ -94,7 +96,7 @@
 - Вага
   - 39g
 
-## Налаштування
+## Конфігурація
 
 [CUAV Docs](https://doc.cuav.net/gps/c-rtk2/en/quick-start-c-rtk2.html)
 
@@ -106,6 +108,6 @@
 
 ![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2_pinouts2.jpg)
 
-## Більше інформації
+## Докладніше
 
 [CUAV Docs](https://doc.cuav.net/gps/c-rtk-series/en/c-rtk-9ps/)
