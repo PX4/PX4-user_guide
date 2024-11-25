@@ -4,21 +4,23 @@
 
 Набір стандартних звуків наведено нижче.
 
-:::info **Розробники:** Мелодії визначені в [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) і можуть бути протестовані за допомогою модуля [tune-control](../modules/modules_system.md#tune-control). Ви можете шукати використання мелодії за допомогою рядка `TUNE_ID_name` (наприклад, `TUNE_ID_PARACHUTE_RELEASE)
+:::info
+**Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) and can be tested using the [tune-control](../modules/modules_system.md#tune-control) module.
+You can search for tune use using the string `TUNE_ID_name`(e.g. \`TUNE_ID_PARACHUTE_RELEASE)
 :::
-
 
 ## Завантаження/запуск
 
 Ці мелодії відтворюються під час завантаження.
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS --> 
 
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS --> 
 
 #### Сигнал запуску
 
 <audio controls>
   <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- tune: 1, STARTUP -->
 
@@ -28,22 +30,23 @@
 
 <audio controls>
   <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- tune 2, ERROR_TUNE -->
 
 - Серйозна несправність призвела до перезавантаження системи.
 - Система налаштована на використання PX4IO, але немає IO.
 - UAVCAN увімкнено, але драйвер не може запуститися.
-- SITL/HITL увімкнено, але драйвер *pwm_out_sim* не може запуститися.
+- SITL/HITL enabled but _pwm_out_sim_ driver can't start.
 - Помилка запуску FMU.
-
 
 #### Створення файлової системи
 
 <audio controls>
   <source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 14, SD_INIT (previously tune 16) -->
 
@@ -51,23 +54,23 @@
 - Невдалий монтаж (якщо форматування буде успішним, завантажувальна послідовність спробує змонтувати ще раз).
 - Немає карти microSD.
 
-
 #### Помилка форматування
 
 <audio controls>
   <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 15, SD_ERROR (previously 17) -->
 
 - Не вдалося відформатувати карту microSD (після попередньої спроби змонтувати карту).
 
-
 #### Програма PX4IO
 
 <audio controls>
   <source src="../../assets/tunes/18_program_px4io.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 16, PROG_PX4IO (previously id 18) -->
 
@@ -77,7 +80,8 @@
 
 <audio controls>
   <source src="../../assets/tunes/19_program_px4io_success.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 17, PROG_PX4IO_OK (previously tune 19) -->
 
@@ -87,14 +91,14 @@
 
 <audio controls>
   <source src="../../assets/tunes/20_program_px4io_fail.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 18, PROG_PX4IO_ERR (previously tune 20) -->
 
 - Програмування PX4IO завершилося невдачею.
 - PX4IO не зміг запуститися.
 - AUX Mixer не знайдено.
-
 
 ## Операційні
 
@@ -106,7 +110,8 @@
 
 <audio controls>
   <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 2, ERROR_TUNE -->
 
@@ -116,7 +121,8 @@
 
 <audio controls>
   <source src="../../assets/tunes/3_notify_positive_tone.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 3, NOTIFY_POSITIVE -->
 
@@ -129,7 +135,8 @@
 
 <audio controls>
   <source src="../../assets/tunes/4_notify_neutral_tone.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 4, NOTIFY_NEUTRAL -->
 
@@ -141,7 +148,8 @@
 
 <audio controls>
   <source src="../../assets/tunes/5_notify_negative_tone.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 5, NOTIFY_NEGATIVE -->
 
@@ -156,7 +164,8 @@
 
 <audio controls>
   <source src="../../assets/tunes/6_arming_warning.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 6, ARMING_WARNING -->
 
@@ -166,7 +175,8 @@
 
 <audio controls>
   <source src="../../assets/tunes/10_arming_failure_tune.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 10, ARMING_FAILURE -->
 
@@ -176,7 +186,8 @@
 
 <audio controls>
   <source src="../../assets/tunes/7_battery_warning_slow.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 7,  BATTERY_WARNING_SLOW -->
 
@@ -186,18 +197,19 @@
 
 <audio controls>
   <source src="../../assets/tunes/8_battery_warning_fast.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 8, BATTERY_WARNING_FAST -->
 
 - Critical low battery warning ([failsafe](../config/safety.md#battery-level-failsafe)).
 
-
 #### Попередження GPS - повільне
 
 <audio controls>
   <source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 9,  GPS_WARNING -->
 
@@ -205,18 +217,19 @@
 
 <audio controls>
   <source src="../../assets/tunes/11_parachute_release.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 11, PARACHUTE_RELEASE -->
 
 - Спрацював випуск парашута.
 
-
 #### Один сигнал
 
 <audio controls>
   <source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 12, SINGLE_BEEP (previously was id 14 -->
 
@@ -226,7 +239,8 @@
 
 <audio controls>
   <source src="../../assets/tunes/15_home_set_tune.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 13, HOME_SET (previously id 15) -->
 
@@ -236,7 +250,8 @@
 
 <audio controls>
   <source src="../../assets/tunes/power_off_tune.mp3" type="audio/mpeg">
-Ваш браузер не підтримує аудіо елемент.
+  
+Your browser does not support the audio element.
 </audio>
 
 - Апарат вимикається.
