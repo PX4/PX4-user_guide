@@ -1,8 +1,11 @@
 # SiK Radio
 
-[SiK radio](https://github.com/LorenzMeier/SiK) – це набір програмного забезпечення та інструментів для телеметричних радіостанцій.
+[SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
 
-PX4 сумісний за протоколом із радіостанціями, які використовують _SiK_. Радіостанції SiK часто постачаються з відповідними роз’ємами/кабелями, які дозволяють безпосередньо підключати їх до контролерів [Pixhawk](../flight_controller/pixhawk_series.md) (у деяких випадках може знадобитися придбати відповідний кабель/роз’єм). Зазвичай вам знадобиться пара пристроїв: один для транспортного засобу та один для наземної станції.
+PX4 is protocol-compatible with radios that use _SiK_.
+SiK Radios often come with appropriate connectors/cables allowing them to be directly connected to [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers
+(in some cases you may need to obtain an appropriate cable/connector).
+Зазвичай вам знадобиться пара пристроїв: один для транспортного засобу та один для наземної станції.
 
 Апаратне забезпечення для радіо SiK можна придбати у різних виробників/магазинів у варіантах, які підтримують різні діапазони та форм-фактори.
 
@@ -10,23 +13,25 @@ PX4 сумісний за протоколом із радіостанціями
 
 ## Постачальники
 
-- [RFD900 Телеметричне радіо](../telemetry/rfd900_telemetry.md)
-- [Holybro Телеметричне радіо](../telemetry/holybro_sik_radio.md)
-- <del>_HKPilot Телеметричне радіо_</del> (Припинено)
-- <del>_3DR Телеметричне радіо_</del> (припинено)
+- [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
+- [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
+- <del>_HKPilot Телеметрійне радіо_</del> (Припинено)
+- <del>_3DR телеметрія радіо_</del> (припинено)
 
-## Налаштування/конфігурація
+## Налаштування/Конфігурація
 
 Підземне радіо, орієнтоване на станції підключено через USB (по суті plug-n-play).
 
-Автомобільний радіоприймач під’єднується до порту `TELEM1` контролера польоту, і зазвичай не потребує подальшого налаштування.
+The vehicle-based radio is connected to the flight-controller's `TELEM1` port, and typically requires no further configuration.
 
 ## Оновлення прошивки
 
-Апаратне забезпечення більшості [постачальників](#vendors) має попередньо налаштовано з останньою прошивкою. Можливо, вам знадобиться оновити старе обладнання новим мікропрограмним забезпеченням, наприклад, щоб отримати підтримку MAVLink 2.
+Hardware sourced from most [vendors](#vendors) should come pre-configured with the latest firmware.
+Можливо, вам знадобиться оновити старе обладнання новим мікропрограмним забезпеченням, наприклад, щоб отримати підтримку MAVLink 2.
 
-Ви можете оновити мікропрограму радіо за допомогою _QGroundControl_: [Посібник користувача QGroundControl > Завантаження мікропрограми](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html).
+You can update the radio firmware using _QGroundControl_: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html).
 
 ## Розширене налаштування/конфігурація
 
-Розділ «Розробка» містить [додаткову інформацію](../data_links/sik_radio.md) про створення мікропрограми та конфігурації на основі AT-команд. Це не повинно вимагатися особам, які не є розробниками.
+The Development section has [additional information](../data_links/sik_radio.md) about building firmware and AT-command based configuration.
+Це не повинно вимагатися особам, які не є розробниками.
