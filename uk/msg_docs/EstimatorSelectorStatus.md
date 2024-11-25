@@ -1,11 +1,9 @@
 # EstimatorSelectorStatus (повідомлення UORB)
 
-
-
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorSelectorStatus.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorSelectorStatus.msg)
 
 ```c
-uint64 timestamp        # time since system start (microseconds)
+uint64 timestamp		# time since system start (microseconds)
 
 uint8 primary_instance
 
