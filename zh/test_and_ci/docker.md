@@ -2,33 +2,37 @@
 
 Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Classic](../sim_gazebo_classic/index.md) simulation, and [ROS](../simulation/ros_interface.md).
 
-本主题说明如何使用 [available docker containers](#px4_containers) 访问本地 Linux 计算机中的构建环境。
+This topic shows how to use the [available docker containers](#px4_containers) to access the build environment in a local Linux computer.
 
-::: info Dockerfiles and README can be found on [Github here](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy). 您可以使用 *Enterprise Edition* 或（free）*Community Edition*。
+:::info
+Dockerfiles and README can be found on [Github here](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy).
+They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/).
 :::
 
 ## 系统必备组件
 
-::: info PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)). Do not use `boot2docker` with the default Linux image because it contains no X-Server.
+:::info
+PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)).
+Do not use `boot2docker` with the default Linux image because it contains no X-Server.
 :::
 
-默认安装要求您以 root 用户身份调用 * Docker*（即使用`sudo`）。 如果您希望 [use Docker as a non-root user](https://docs.docker.com/engine/installation/linux/linux-postinstall/#manage-docker-as-a-non-root-user)，您可以选择将用户添加到“docker”组，然后注销或者登陆：
+[Install Docker](https://docs.docker.com/installation/) for your Linux computer, preferably using one of the Docker-maintained package repositories to get the latest stable version. You can use either the _Enterprise Edition_ or (free) _Community Edition_.
 
-下面列出了可用的本地编辑（来自 [Github](https://github.com/PX4/containers/blob/master/docker/px4-dev/README.md#container-hierarchy)）：
+For local installation of non-production setups on _Ubuntu_, the quickest and easiest way to install Docker is to use the [convenience script](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script) as shown below (alternative installation methods are found on the same page):
 
 ```sh
 curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-可以使用 `latest` 标记访问最新版本：`px4io/px4-dev-ros:latest`（为 *hub.docker.com* 上的每个容器列出可用标记。 However, for building the PX4 firmware we suggest to [use docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user). That way, your build folder won't be owned by root after using docker.
+The default installation requires that you invoke _Docker_ as the root user (i.e. using `sudo`). However, for building the PX4 firmware we suggest to [use docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user). That way, your build folder won't be owned by root after using docker.
 
 ```sh
-＃创建 docker 组（可能不是必需的）
+# Create docker group (may not be required)
 sudo groupadd docker
-＃将您的用户添加到 docker 组。
-sudo usermod -aG docker $ USER
-＃在使用 docker 之前再次登录/注销！
+# Add your user to the docker group.
+sudo usermod -aG docker $USER
+# Log in/out again before using docker!
 ```
 
 <a id="px4_containers"></a>
@@ -37,7 +41,9 @@ sudo usermod -aG docker $ USER
 
 The available containers are on [Github here](https://github.com/PX4/PX4-containers/tree/master?tab=readme-ov-file#container-hierarchy).
 
-使用容器的最简单方法是通过 [docker_run.sh](https://github.com/PX4/Firmware/blob/master/Tools/docker_run.sh) 帮助程序脚本。 The containers are hierarchical, such that containers have the functionality of their parents. For example, the partial hierarchy below shows that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
+使用容器的最简单方法是通过 <a href="https://github.com/PX4/Firmware/blob/master/Tools/docker_run.sh">docker_run.sh</a> 帮助程序脚本。
+The containers are hierarchical, such that containers have the functionality of their parents.
+For example, the partial hierarchy below shows that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 
 ```plain
 - px4io/px4-dev-base-focal
@@ -50,7 +56,9 @@ The available containers are on [Github here](https://github.com/PX4/PX4-contain
   - px4io/px4-dev-nuttx-jammy
 ```
 
-The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-focal:latest` (available tags are listed for each container on _hub.docker.com_. For example, the `px4io/px4-dev-nuttx-focal` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-focal/tags?page=1&ordering=last_updated)).
+The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-focal:latest`
+(available tags are listed for each container on _hub.docker.com_.
+For example, the `px4io/px4-dev-nuttx-focal` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-focal/tags?page=1\&ordering=last_updated)).
 
 :::tip
 Typically you should use a recent container, but not necessarily the `latest` (as this changes too often).
@@ -58,7 +66,8 @@ Typically you should use a recent container, but not necessarily the `latest` (a
 
 ## 使用 Docker 容器
 
-典型命令的语法如下所示。 这将运行一个支持 X 指令的 Docker 容器（使容器内部的模拟 GUI 可用）。
+典型命令的语法如下所示。
+The information assumes that you have already downloaded the PX4 source code to **src/PX4-Autopilot**, as shown:
 
 ```sh
 mkdir src
@@ -69,9 +78,10 @@ cd Firmware
 
 ### 助手脚本（docker_run.sh）
 
-The easiest way to use the containers is via the [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/docker_run.sh) helper script. This script takes a PX4 build command as an argument (e.g. `make tests`). It starts up docker with a recent version (hard coded) of the appropriate container and sensible environment settings.
+The easiest way to use the containers is via the [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/docker_run.sh) helper script.
+This script takes a PX4 build command as an argument (e.g. `make tests`). It starts up docker with a recent version (hard coded) of the appropriate container and sensible environment settings.
 
-下面的具体示例显示了如何打开 bash shell 并在主机上共享目录 **〜/src/Firmware**。
+For example, to build SITL you would call (from within the **/PX4-Autopilot** directory):
 
 ```sh
 sudo ./Tools/docker_run.sh 'make px4_sitl_default'
@@ -83,14 +93,18 @@ Or to start a bash session using the NuttX toolchain:
 sudo ./Tools/docker_run.sh 'bash'
 ```
 
-`docker run` 命令只能用于创建新容器。 要重新进入此容器（将保留您的更改），只需执行以下操作： The manual approach discussed in the [section below](#manual_start) is more flexible and should be used if you have any problems with the script.
+:::tip
+The script is easy because you don't need to know anything much about _Docker_ or think about what container to use. 要重新进入此容器（将保留您的更改），只需执行以下操作： The manual approach discussed in the [section below](#manual_start) is more flexible and should be used if you have any problems with the script.
 :::
 
 <a id="manual_start"></a>
 
 ### 手动调用 Docker
 
-The syntax of a typical command is shown below. This runs a Docker container that has support for X forwarding (makes the simulation GUI available from inside the container). It maps the directory `<host_src>` from your computer to `<container_src>` inside the container and forwards the UDP port needed to connect _QGroundControl_. With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
+The syntax of a typical command is shown below.
+This runs a Docker container that has support for X forwarding (makes the simulation GUI available from inside the container).
+It maps the directory `<host_src>` from your computer to `<container_src>` inside the container and forwards the UDP port needed to connect _QGroundControl_.
+With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
 
 ```sh
 # enable access to xhost from the container
@@ -99,11 +113,11 @@ xhost +
 # Run docker
 docker run -it --privileged \
     --env=LOCAL_USER_ID="$(id -u)" \
-    -v &lt;host_src&gt;:&lt;container_src&gt;:rw \
+    -v <host_src>:<container_src>:rw \
     -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
     -e DISPLAY=:0 \
-    -p 14556:14556/udp \
-    --name=&lt;local_container_name&gt; &lt;container&gt;:&lt;tag&gt; &lt;build_command&gt;
+    -p 14570:14570/udp \
+    --name=<local_container_name> <container>:<tag> <build_command>
 ```
 
 Where,
@@ -130,14 +144,17 @@ docker run -it --privileged \
 --name=px4-ros px4io/px4-dev-ros2-foxy:2022-07-31 bash
 ```
 
-::: info
+:::info
 We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
 :::
 
-::: info If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
+:::info
+If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value.
+On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`.
+On other hosts you might iterate the value of `0` in `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
 :::
 
-运行模拟实例时，例如在 docker 容器内的 SITL 并通过 *QGroundControl* 从主机控制它，必须手动设置通信链接。 *QGroundControl* 的自动连接功能在此处不起作用。
+运行模拟实例时，例如在 docker 容器内的 SITL 并通过 <em x-id="3">QGroundControl</em> 从主机控制它，必须手动设置通信链接。 <em x-id="3">QGroundControl</em> 的自动连接功能在此处不起作用。
 
 ```sh
 cd src/PX4-Autopilot    #This is <container_src>
@@ -183,7 +200,7 @@ In _QGroundControl_, navigate to [Settings](https://docs.qgroundcontrol.com/mast
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
 
-::: info
+:::info
 Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
 :::
 
@@ -209,7 +226,7 @@ In that case the native graphics driver for your host system must be installed. 
 ./NVIDIA-DRIVER.run -a -N --ui=none --no-kernel-module
 ```
 
-如果编译失败，则出现以下错误：
+More information on this can be found [here](http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/).
 
 <a id="virtual_machine"></a>
 
@@ -221,7 +238,7 @@ The following configuration is tested:
 
 - OS X with VMWare Fusion and Ubuntu 14.04 (Docker container with GUI support on Parallels make the X-Server crash).
 
-**内存**
+**Memory**
 
 Use at least 4GB memory for the virtual machine.
 
@@ -230,7 +247,6 @@ Use at least 4GB memory for the virtual machine.
 If compilation fails with errors like this:
 
 ```sh
-这个错误是不可复现的，可能是硬件或操作系统问题。
 The bug is not reproducible, so it is likely a hardware or OS problem.
 c++: internal compiler error: Killed (program cc1plus)
 ```
@@ -248,7 +264,7 @@ DOCKER_OPTS="${DOCKER_OPTS} -H unix:///var/run/docker.sock -H 0.0.0.0:2375"
 You can then control docker from your host OS:
 
 ```sh
-export DOCKER_HOST=tcp://&lt;ip of your VM&gt;:2375
+export DOCKER_HOST=tcp://<ip of your VM>:2375
 # run some docker command to see if it works, e.g. ps
 docker ps
 ```
