@@ -1,64 +1,71 @@
-# Телеметрія FrSky
+# FrSky телеметрія
 
-Телеметрія FrSky дозволяє отримувати доступ до інформації про телеметрію/статус транспортного засобу на сумісному радіокерувальнику RC через [телеметрія/статус](#messages).
+FrSky telemetry allows you to access vehicle [telemetry/status](#messages) information on a compatible RC transmitter.
 
-Доступна [телеметрія перерахована тут](#messages), і включає: режим польоту, рівень заряду батареї, сила сигналу RC, швидкість, висота тощо. Деякі передавачі можуть додатково надавати аудіо- та вібраційний зворотний зв'язок, що особливо корисно для попереджень про низький рівень заряду акумулятора та інших аварійних сигналів.
+Available [telemetry is listed here](#messages), and includes: flight mode, battery level, RC signal strength, speed, altitude etc.
+Деякі передавачі можуть додатково надавати аудіо- та вібраційний зворотний зв'язок, що особливо корисно для попереджень про низький рівень заряду акумулятора та інших аварійних сигналів.
 
-PX4 підтримує як [S.Port](#s_port) (новий), так і D (старий) порти телеметрії FrSky.
+PX4 supports both [S.Port](#s_port) (new) and D (old) FrSky telemetry ports.
 
-## Налаштування програмного забезпечення
+## Встановлення обладнання
 
 FrSky телеметрія вимагає:
 
-- [FrSky-сумісний з RC трансмітером](#transmitters) , подібний до FrSky Taranis X9D Plus.
-- Приймач, сумісний з телеметрією FrSky, такий як XSR та X8R.
+- An [FrSky-compatible RC transmitter](#transmitters) like the FrSky Taranis X9D Plus.
+- An [FrSky telemetry-capable receiver](#receivers) like the XSR and X8R.
 - Кабель для підключення приймача FrSky Smart Port (SPort) до UART контролера польоту.
 
-Спочатку [підключіть отримувач для RC каналів](../getting_started/rc_transmitter_receiver.md#connecting-receivers), наприклад, підключити порти S.Bus при ресивері і контролері польоту.
+First [connect the receiver for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers), e.g. connect the S.Bus ports on the receiver and the flight controller.
 
-Потім налаштуйте телеметрію FrSky, підключивши SPort на приймач до будь-якого вільного UART на контролері польоту, а потім [налаштуйте PX4 для роботи з телеметрією FrSky на цьому UART](#configure).
+Then set up FrSky telemetry by separately connecting the SPort on the receiver to any free UART on the flight controller, and then [configure PX4 to run FrSky telemetry on that UART](#configure).
 
 Це робиться трохи по-іншому, залежно від того, чи є у приймача SPort контакт для невертованого виходу, і/або версія Pixhawk.
 
 ### Pixhawk FMUv4 (і попередні)
 
-Для Pixhawk FMUv4 та раніше, порти UART та порти телеметрії приймача зазвичай несумісні (з винятком [Pixracer](../flight_controller/pixracer.md)).
+For Pixhawk FMUv4 and earlier, UART ports and receiver telemetry ports are typically incompatible (with the exception of [Pixracer](../flight_controller/pixracer.md)).
 
-Зазвичай приймачі SPort мають _інвертований_ сигнал S.Port, і вам потрібно використовувати кабель-конвертер, щоб розділити S.Port на невинвертовані TX і RX для підключення до UART Pixhawk. Приклад показано нижче.
+Generally SPort receivers have an _inverted_ S.Port signal and you have to use a converter cable to split the S.Port into uninverted TX and RX for connecting to the Pixhawk UART.
+Приклад показано нижче.
 
 ![FrSky-Taranis-Telemetry](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
 
 :::tip
-При підключенні до оберненого порту S зазвичай дешевше і простіше купити [готовий кабель](#ready_made_cable), який містить цей адаптер і має відповідні роз'єми для автопілота та приймача. Створення [DIY кабелю](#diy_cables) вимагає експертизи в зборці електроніки.
+When connecting to an inverted S.Port it is usually cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver.
+Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
 :::
 
-Якщо використовується приймач S.Port з контактом для _невертикального виводу_, ви можете просто підключити один з TX-контактів UART.
+If using an S.Port receiver with a pin for _uninverted output_ you can simply attach one of the UART's TX pins.
 
 <!-- FYI only: The uninverted output can be used in single-wire mode so you don't need both RX and TX wires.
 Discussion of that here: https://github.com/PX4/PX4-user_guide/pull/755#pullrequestreview-464046128 -->
 
-Потім [налаштуйте PX4](#configure).
+Then [configure PX4](#configure).
 
 ### Pixhawk FMUv5/STM32F7 та пізніше
 
 Для Pixhawk FMUv5 та пізніших версій PX4 може читати сигнали S.Port безпосередньо у зворотньому (або незворотньому) вигляді - не потрібен жоден спеціальний кабель.
 
-:::info Загалом це вірно для автопілотів з STM32F7 або пізніше (наприклад, [Durandal](../flight_controller/durandal.md) має STM32H7 і може читати інвертовані або неінвертовані сигнали S.Port безпосередньо).
+:::info
+More generally this is true on autopilots with STM32F7 or later (e.g. [Durandal](../flight_controller/durandal.md) has a STM32H7 and can read inverted or uninverted S.Port signals directly).
 :::
 
-Просто підключіть один з TX-пінів UART до інвертованого або неінвертованого піна SPort (PX4 автоматично виявить і обробить будь-який тип). Потім [налаштуйте PX4](#configure).
+Просто підключіть один з TX-пінів UART до інвертованого або неінвертованого піна SPort (PX4 автоматично виявить і обробить будь-який тип).
+Then [configure PX4](#configure).
 
 <a id="configure"></a>
 
 ## Налаштування PX4
 
-[Налаштуйте послідовний порт](../peripherals/serial_configuration.md) на якому буде працювати FrSky, використовуючи [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG). Немає потреби встановлювати швидкість передачі для порту, оскільки це налаштовано драйвером.
+[Configure the serial port](../peripherals/serial_configuration.md) on which FrSky will run using [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG).
+Немає потреби встановлювати швидкість передачі для порту, оскільки це налаштовано драйвером.
 
-:::info Можна використовувати будь-який вільний UART, але зазвичай `TELEM 2` використовується для телеметрії FrSky (крім [Pixracer](../flight_controller/pixracer.md), який попередньо налаштований на використання порту _FrSky_ за замовчуванням).
+:::info
+You can use any free UART, but typically `TELEM 2` is used for FrSky telemetry (except for [Pixracer](../flight_controller/pixracer.md), which is pre-configured to use the _FrSky_ port by default).
 :::
 
 :::tip
-Якщо параметр конфігурації недоступний у _QGroundControl_, можливо, вам доведеться [додати драйвер до мікропрограми](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
 ```
 drivers/telemetry/frsky_telemetry
@@ -90,39 +97,41 @@ drivers/telemetry/frsky_telemetry
 
 ![Telemetry Screen on the Taranis](../../assets/hardware/telemetry/taranis_telemetry.jpg)
 
-Інструкції з встановлення скрипту можна знайти тут: [LuaPilot Taranis Telemetry script > Taranis Setup OpenTX 2.1.6 або новіше](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)
+Instructions for installing the script can be found here: [LuaPilot Taranis Telemetry script > Taranis Setup OpenTX 2.1.6 or newer](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)
 
-Якщо ви відкриєте скрипт `LuaPil.lua` за допомогою текстового редактора, ви можете редагувати конфігурацію. Запропоновані модифікації включають:
+If you open the `LuaPil.lua` script with a text editor, you can edit the configuration. Запропоновані модифікації включають:
 
-- `local BattLevelmAh = -1` - Використовуйте обчислення рівня заряду батареї з транспортного засобу
-- `local SayFlightMode = 0` - Немає WAV-файлів для режимів польоту PX4
+- `local BattLevelmAh = -1` - Use the battery level calculation from the vehicle
+- `local SayFlightMode = 0` - There are no WAV files for the PX4 flight modes
 
 <a id="messages"></a>
 
 ## Телеметричні повідомлення
 
-Телеметрія FrySky може передавати більшість корисної інформації про стан з PX4. Отримувачі S-Port та D-Port передають різні набори повідомлень, як перелічено в наступних розділах.
+Телеметрія FrySky може передавати більшість корисної інформації про стан з PX4.
+Отримувачі S-Port та D-Port передають різні набори повідомлень, як перелічено в наступних розділах.
 
 <a id="s_port"></a>
 
 ### S-Port
 
-Приймачі S-Port передають наступні повідомлення від PX4 (з [тут](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
+S-Port receivers transmit the following messages from PX4 (from [here](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
 
-- **AccX, AccY, AccZ:** Значення акселерометра.
-- **Альт:** Барометр на основі висоти, відносно місця розташування дому.
-- **Поточний:** Фактичне поточне споживання (ампери).
-- **Паливо:** Залишилася відсоткова частка батареї, якщо встановлено змінну `battery_capacity` та змінну `smartport_fuel_percent = ON`, в іншому випадку мАг витрачено.
-- **GAlt:** Висота GPS, рівень моря дорівнює нулю.
-- **GPS:** GPS координати.
-- **GSpd:** Поточна горизонтальна швидкість руху, розрахована за допомогою GPS.
-- **Заголовок:** Напрямок (градуси - Північ - 0°).
-- **VFAS:** Фактичне значення напруги акумулятора (Voltage FrSky Ampere Sensor).
-- **VSpd:** Швидкість по вертикалі (см/с).
-- **Tmp1:** [Режим польоту](../flight_modes/index.md#flight-modes), відправлений у вигляді цілого числа: 18 - Ручний, 23 - Висота, 22 - Позиція, 27 - Місія, 26 - Утримувати, 28 - Повернення, 19 - Акро, 24 0 Offboard, 20 - Стабілізований, 25 - Взліт, 29 - Посадка, 30 - Підслідувати мене.
-- **Tmp2:** Інформація GPS. Найправіший розрядок - це тип виправлення GPS (0 = жоден, 2 = 2D, 3 = 3D). Інші цифри - це кількість супутників.
+- **AccX, AccY, AccZ:** Accelerometer values.
+- **Alt:** Barometer based altitude, relative to home location.
+- **Curr:** Actual current consumption (Amps).
+- **Fuel:** Remaining battery percentage if `battery_capacity` variable set and variable `smartport_fuel_percent = ON`, mAh drawn otherwise.
+- **GAlt:** GPS altitude, sea level is zero.
+- **GPS:** GPS coordinates.
+- **GSpd:** Current horizontal ground speed, calculated by GPS.
+- **Hdg:** Heading (degrees - North is 0°).
+- **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
+- **VSpd:** Vertical speed (cm/s).
+- **Tmp1:** [Flight mode](../flight_modes/index.md#flight-modes), sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 25 - Takeoff, 29 - Land, 30 - Follow Me.
+- **Tmp2:** GPS information. Найправіший розрядок - це тип виправлення GPS (0 = жоден, 2 = 2D, 3 = 3D). Інші цифри - це кількість супутників.
 
-:::info Наступні "стандартні" повідомлення S-Port не підтримуються PX4: **ASpd**, **A4**.
+:::info
+The following "standard" S-Port messages are not supported by PX4: **ASpd**, **A4**.
 :::
 
 <!-- FYI:
@@ -135,23 +144,23 @@ Lua map of flight modes:
 
 ### D-порт
 
-Приймачі D-Port передають наступні повідомлення (з [тут](https://github.com/cleanflight/cleanflight/blob/master/docs/Telemetry.md)):
+D-Port receivers transmit the following messages (from [here](https://github.com/cleanflight/cleanflight/blob/master/docs/Telemetry.md)):
 
-- **AccX, AccY, AccZ:** Значення акселерометра.
-- **Alt:** Висота на основі барометра, початковий рівень - нуль.
-- **Cels:** Середнє значення напруги акумулятора (напруга батареї, поділена на кількість елементів).
-- **Поточний:** Фактичне поточне споживання (ампери).
-- **Паливо:** Нагадує відсоток батареї, якщо потужність встановлена, помилка в іншому.
-- **Дата:** Час з моменту увімкнення.
-- **GAlt:** Висота GPS, рівень моря - нуль.
-- **GPS:** GPS координати.
-- **GSpd:** Поточна швидкість, розрахована за допомогою GPS.
-- **Заголовок:** Напрямок (градуси - Північ - 0°).
-- **RPM:** Значення дросельної заслонки у разі озброєння, інакше ємність батареї. Зверніть увагу, що номер леза повинен бути встановлений на 12 в Тараніс.
-- **Тимчасово 1:** Режим польоту (щодо S-Port).
-- **Tmp2:** Інформація GPS (щодо S-Port).
-- **VFAS:** Фактичне значення напруги акумулятора (Voltage FrSky Ampere Sensor).
-- **Vspd:** Швидкість по вертикалі (см/с).
+- **AccX, AccY, AccZ:** Accelerometer values.
+- **Alt:** Barometer based altitude, init level is zero.
+- **Cels:** Average cell voltage value (battery voltage divided by cell number).
+- **Curr:** Actual current consumption (Amps).
+- **Fuel:** Remaining battery percentage if capacity is set, mAh drawn otherwise.
+- **Date:** Time since powered.
+- **GAlt:** GPS altitude, sea level is zero.
+- **GPS:** GPS coordinates.
+- **GSpd:** Current speed, calculated by GPS.
+- **Hdg:** Heading (degrees - North is 0°).
+- **RPM:** Throttle value if armed, otherwise battery capacity. Зверніть увагу, що номер леза повинен бути встановлений на 12 в Тараніс.
+- **Tmp1:** Flight mode (as for S-Port).
+- **Tmp2:** GPS information (as for S-Port).
+- **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
+- **Vspd:** Vertical speed (cm/s).
 
 <a id="receivers"></a>
 
@@ -160,27 +169,28 @@ Lua map of flight modes:
 Pixhawk/PX4 підтримує D (старий) та S (новий) телеметрію FrSky. Таблиця нижче всі FrSky приймачі, які підтримують телеметрію через D/S.PORT (теоретично всі вони повинні працювати).
 
 :::tip
-Зверніть увагу, що перераховані нижче приймачі серії X рекомендовані (наприклад, XSR, X8R). Серії R та G не були протестовані / перевірені тестовою командою, але повинні працювати.
+Note that the X series receivers listed below are recommended (e.g. XSR, X8R). Серії R та G не були протестовані / перевірені тестовою командою, але повинні працювати.
 :::
 
-| Приймач     | Діапазон | Комбінований вихід    | Цифровий вхід телеметрії      | Розміри               | Вага  |
-| ----------- | -------- | --------------------- | ----------------------------- | --------------------- | ----- |
-| D4R-II      | 1.5km    | CPPM (8)              | D.Port                        | 40х22.5х6мм           | 5.8г  |
-| D8R-XP      | 1.5km    | CPPM (8)              | D.Port                        | 55х25х14мм            | 12,4г |
-| D8R-II Plus | 1.5km    | no                    | D.Port                        | 55х25х14мм            | 12,4г |
-| X4R         | 1.5км    | CPPM (8)              | Smart Port                    | 40х22.5х6мм           | 5.8г  |
-| X4R-SB      | 1.5км    | S.Bus (16)            | Smart Port                    | 40х22.5х6мм           | 5.8г  |
-| X6R / S6R   | 1.5км    | S.Bus (16)            | Smart Port                    | 47.42×23.84×14.7мм    | 15.4г |
-| X8R / S8R   | 1.5км    | S.Bus (16)            | Smart Port                    | 46.25 x 26.6 x 14.2мм | 16,6г |
-| XSR / XSR-M | 1.5км    | S.Bus (16) / CPPM (8) | Smart Port                    | 26x19.2x5мм           | 3,8 г |
-| RX8R        | 1.5км    | S.Bus (16)            | Smart Port                    | 46.25x26.6x14.2мм     | 12.1г |
-| RX8R PRO    | 1.5км    | S.Bus (16)            | Smart Port                    | 46.25x26.6x14.2мм     | 12.1г |
-| R-XSR       | 1.5км    | S.Bus (16) / CPPM (8) | Smart Port                    | 16x11x5.4мм           | 1.5г  |
-| G-RX8       | 1.5км    | S.Bus (16)            | Smart Port + integrated vario | 55.26*17*8мм          | 5.8г  |
-| R9          | 10км     | S.Bus (16)            | Smart Port                    | 43.3x26.8x13.9мм      | 15,8г |
-| R9 slim     | 10км     | S.Bus (16)            | Smart Port                    | 43.3x26.8x13.9мм      | 15,8г |
+| Приймач     | Діапазон              | Комбінований вихід                                                          | Цифровий вхід телеметрії      | Розміри                                                               | Вага                  |
+| ----------- | --------------------- | --------------------------------------------------------------------------- | ----------------------------- | --------------------------------------------------------------------- | --------------------- |
+| D4R-II      | 1.5km | CPPM (8)                                                 | D.Port        | 40х22.5х6мм                                           | 5.8г  |
+| D8R-XP      | 1.5km | CPPM (8)                                                 | D.Port        | 55х25х14мм                                                            | 12,4г                 |
+| D8R-II Plus | 1.5km | no                                                                          | D.Port        | 55х25х14мм                                                            | 12,4г                 |
+| X4R         | 1.5km | CPPM (8)                                                 | Smart Port                    | 40х22.5х6мм                                           | 5.8г  |
+| X4R-SB      | 1.5km | S.Bus (16)                               | Smart Port                    | 40х22.5х6мм                                           | 5.8г  |
+| X6R / S6R   | 1.5km | S.Bus (16)                               | Smart Port                    | 47.42×23.84×14.7мм    | 15.4г |
+| X8R / S8R   | 1.5km | S.Bus (16)                               | Smart Port                    | 46.25 x 26.6 x 14.2мм | 16,6г                 |
+| XSR / XSR-M | 1.5km | S.Bus (16) / CPPM (8) | Smart Port                    | 26x19.2x5мм                                           | 3,8 г                 |
+| RX8R        | 1.5km | S.Bus (16)                               | Smart Port                    | 46.25x26.6x14.2мм     | 12.1г |
+| RX8R PRO    | 1.5km | S.Bus (16)                               | Smart Port                    | 46.25x26.6x14.2мм     | 12.1г |
+| R-XSR       | 1.5km | S.Bus (16) / CPPM (8) | Smart Port                    | 16x11x5.4мм                                           | 1.5г  |
+| G-RX8       | 1.5km | S.Bus (16)                               | Smart Port + integrated vario | 55.26_17_8mm                                          | 5.8г  |
+| R9          | 10км                  | S.Bus (16)                               | Smart Port                    | 43.3x26.8x13.9мм      | 15,8г                 |
+| R9 slim     | 10км                  | S.Bus (16)                               | Smart Port                    | 43.3x26.8x13.9мм      | 15,8г                 |
 
-:::info Вищезазначена таблиця походить з http://www.redsilico.com/frsky-receiver-chart та [документації продукту FrSky](https://www.frsky-rc.com/product-category/receivers/).
+:::info
+The above table originates from http://www.redsilico.com/frsky-receiver-chart and FrSky [product documentation](https://www.frsky-rc.com/product-category/receivers/).
 :::
 
 <a id="ready_made_cable"></a>
@@ -189,7 +199,7 @@ Pixhawk/PX4 підтримує D (старий) та S (новий) телеме
 
 Готові кабелі для використання з Pixhawk FMUv4 та раніше (крім Pixracer) доступні за адресою:
 
-- [Craft та Theory](http://www.craftandtheoryllc.com/telemetry-cable). Існують версії з сумісними роз'ємами _PicoBlade_ (для FMUv2/3DR Pixhawk, FMUv2/HKPilot32) та _JST-GH_ (для FMUv3/Pixhawk 2 "The Cube" та FMUv4/PixRacer v1).
+- [Craft and Theory](http://www.craftandtheoryllc.com/telemetry-cable). Versions are available with DF-13 compatible _PicoBlade connectors_ (for FMUv2/3DR Pixhawk, FMUv2/HKPilot32) and _JST-GH connectors_ (for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1).
 
   <a href="http://www.craftandtheoryllc.com/telemetry-cable"><img src="../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg" alt="Purchase cable here from Craft and Theory"></a>
 
@@ -197,9 +207,11 @@ Pixhawk/PX4 підтримує D (старий) та S (новий) телеме
 
 ## DIY Кабелі
 
-Можливо створити власні адаптерні кабелі. Вам знадобляться роз'єми, які підходять для вашого автопілота (наприклад, роз'єми _JST-GH_ для FMUv3/Pixhawk 2 "The Cube" та FMUv4/PixRacer v1, та сумісні з DF-13 роз'єми _PicoBlade_ для старіших автопілотів).
+Можливо створити власні адаптерні кабелі.
+You will need connectors that are appropriate for your autopilot (e.g. _JST-GH connectors_ for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1, and DF-13 compatible _PicoBlade connectors_ for older autopilots).
 
-Pixracer включає електроніку для перетворення сигналів S.PORT і UART, але для інших плат вам знадобиться адаптер UART на S.PORT. Ці можна отримати з:
+Pixracer включає електроніку для перетворення сигналів S.PORT і UART, але для інших плат вам знадобиться адаптер UART на S.PORT.
+Ці можна отримати з:
 
 - [FrSky FUL-1](https://www.frsky-rc.com/product/ful-1/): [unmannedtech.co.uk](https://www.unmannedtechshop.co.uk/frsky-transmitter-receiver-upgrade-adapter-ful-1/)
 - SPC: [getfpv.com](http://www.getfpv.com/frsky-smart-port-converter-cable.html), [unmannedtechshop.co.uk](https://www.unmannedtechshop.co.uk/frsky-smart-port-converter-spc/)
@@ -208,7 +220,8 @@ Pixracer включає електроніку для перетворення �
 
 ### Pixracer до приймачів S-порту
 
-Підключіть лінії TX та RX Pixracer FrSky разом (припаяйте проводи разом) до контакту S.port приймача серії X. GND не потрібно прикріплювати, оскільки це буде зроблено під час прикріплення до S.Bus (звичайне з'єднання RC).
+Підключіть лінії TX та RX Pixracer FrSky разом (припаяйте проводи разом) до контакту S.port приймача серії X.
+GND не потрібно прикріплювати, оскільки це буде зроблено під час прикріплення до S.Bus (звичайне з'єднання RC).
 
 З'єднання S-порту показано нижче (використовуючи наданий роз'єм введення/виведення).
 
@@ -219,16 +232,19 @@ Pixracer включає електроніку для перетворення �
 ### Pixracer до приймачів D-порту
 
 :::tip
-Більшість користувачів зараз віддають перевагу використанню S.PORT.
+The vast majority of users now prefer to use S.PORT.
 :::
 
-Підключіть лінію Pixracer FrSky TX (FS out) до лінії RX приймача. Підключіть лінію Pixracer FrSky RX (FS in) до лінії TX приймача. GND не потрібно підключати, оскільки це буде зроблено під час приєднання до RC/SBus (для звичайного RC).
+Підключіть лінію Pixracer FrSky TX (FS out) до лінії RX приймача.
+Підключіть лінію Pixracer FrSky RX (FS in) до лінії TX приймача.
+GND не потрібно підключати, оскільки це буде зроблено під час приєднання до RC/SBus (для звичайного RC).
 
 <!-- Image would be nice -->
 
 ### Pixhawk 4
 
-[Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) може бути підключений до TELEM4 (додаткова конфігурація програмного забезпечення не потрібна). Вам потрібно буде підключитися через UART до плати адаптера S.PORT або [готового кабелю](#ready_made_cable).
+[Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) can be connected to TELEM4 (no additional software configuration is needed).
+You will need to connect via a UART to S.PORT adapter board, or a [ready-made cable](#ready_made_cable).
 
 ### Pixhawk FMUv5 та попередній
 
@@ -236,9 +252,10 @@ Pixracer включає електроніку для перетворення �
 
 ### Інші плати
 
-Більшість інших плат з'єднуються з приймачем для телеметрії FrSky через UART TELEM2. Це включає, наприклад: [Pixhawk 1](../flight_controller/pixhawk.md), [mRo Pixhawk](../flight_controller/mro_pixhawk.md), Pixhawk2.
+Більшість інших плат з'єднуються з приймачем для телеметрії FrSky через UART TELEM2.
+This includes, for example: [Pixhawk 1](../flight_controller/pixhawk.md), [mRo Pixhawk](../flight_controller/mro_pixhawk.md), Pixhawk2.
 
-Вам потрібно буде підключитися через UART до плати адаптера S.PORT або [готового кабелю](#ready_made_cable).
+You will need to connect via a UART to S.PORT adapter board, or a [ready-made cable](#ready_made_cable).
 
 <!-- ideally add diagram here -->
 
@@ -246,6 +263,6 @@ Pixracer включає електроніку для перетворення �
 
 Для отримання додаткової інформації дивіться наступні посилання:
 
-- [FrSky телеметрія Taranis](https://github.com/Clooney82/MavLink_FrSkySPort/wiki/1.2.-FrSky-Taranis-Telemetry)
-- [Taranis X9D: Налаштування телеметрії](https://www.youtube.com/watch?v=x14DyvOU0Vc) (Відео-інструкція)
-- [Налаштування телеметрії Px4 FrSky з Pixhawk2 та приймачем X8R](https://discuss.px4.io//t/px4-frsky-telemetry-setup-with-pixhawk2-and-x8r-receiver/6362) (Кабелі DIY)
+- [FrSky Taranis Telemetry](https://github.com/Clooney82/MavLink_FrSkySPort/wiki/1.2.-FrSky-Taranis-Telemetry)
+- [Taranis X9D: Setting Up Telemetry](https://www.youtube.com/watch?v=x14DyvOU0Vc) (Video Tutorial)
+- [Px4 FrSky Telemetry Setup with Pixhawk2 and X8R Receiver](https://discuss.px4.io//t/px4-frsky-telemetry-setup-with-pixhawk2-and-x8r-receiver/6362) (DIY Cables)
