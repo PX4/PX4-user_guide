@@ -33,6 +33,7 @@ PX4 supports the three most important/main VTOL types.
   </div>
 <div class="grid_item">
   <div class="grid_item_heading"><a href="tiltrotor.html" title="Tiltrotor"><big>Tiltrotor</big></a></div>
+  
   Rotors swivel 90 degrees to transition from multicopter to forward flight orientation.
   Takes off and lands on belly.
   <div class="grid_text">
@@ -59,9 +60,12 @@ PX4 supports the three most important/main VTOL types.
  </div>
 </div>
 
-In general, as mechanical complexity increases the vehicles are easier to fly, but the cost and weight increase. Each type has advantages and disadvantages, and there are successful commercial ventures based on all of them.
+In general, as mechanical complexity increases the vehicles are easier to fly, but the cost and weight increase.
+Each type has advantages and disadvantages, and there are successful commercial ventures based on all of them.
 
-Within each of the main "types" above, there are many possible variations—for example, the number of motors, motor geometry, flight surfaces, etc. PX4 provides _airframe configurations_ for many of the more common vehicle setups. The supported set is listed in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
+Within each of the main "types" above, there are many possible variations—for example, the number of motors, motor geometry, flight surfaces, etc.
+PX4 provides _airframe configurations_ for many of the more common vehicle setups.
+The supported set is listed in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
 
 ::: info
 
@@ -72,7 +76,8 @@ Within each of the main "types" above, there are many possible variations—for 
 
 ## Flying and Flight Modes
 
-A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. Multicopter mode is mainly used for take off and landing while the fixed-wing mode is used for efficient travel and/or mission execution.
+A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle.
+Multicopter mode is mainly used for take off and landing while the fixed-wing mode is used for efficient travel and/or mission execution.
 
 The flight modes for VTOL vehicles are the same as for [multicopter](../flight_modes_mc/index.md) when flying in MC mode and [fixed-wing](../flight_modes_fw/index.md) when flying in FW mode.
 
@@ -80,7 +85,9 @@ The transition between modes is initiated either by the pilot using an RC switch
 
 ## Assembly
 
-::: info For information about commercial and kit VTOL vehicles see: [Complete Vehicles](../complete_vehicles/index.md) :::
+:::info
+For information about commercial and kit VTOL vehicles see: [Complete Vehicles](../complete_vehicles/index.md)
+:::
 
 PX4 controlled vehicles generally share the same core components: a flight controller connected to a power system, GPS, external compass (highly recommended), radio control system (optional) and/or telemetry radio system (optional), and airspeed sensor (highly recommended for VTOL vehicles).
 
@@ -90,13 +97,15 @@ The mapping between flight controller outputs and specific controls/motors depen
 
 Assembly information is covered in several sections:
 
-- [Basic Assembly](../assembly/index.md) contains topics shows the setup of core components for a number of popular [flight controllers](../flight_controller/index.md). Flight controllers for which we do not have guides are usually set up in much the same way (and almost always include similar setup guides).
+- [Basic Assembly](../assembly/index.md) contains topics shows the setup of core components for a number of popular [flight controllers](../flight_controller/index.md).
+  Flight controllers for which we do not have guides are usually set up in much the same way (and almost always include similar setup guides).
 - [Peripherals](../peripherals/index.md) contains information about other peripherals, including [Airspeed Sensors](../sensor/airspeed.md).
 - [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol) explains which flight controller outputs must be connected to different flight controls for each airframe configuration:
   - Select the configuration for your vehicle if one exists, as this will have been pre-tuned well enough to fly (may only require fine tuning).
   - Otherwise select a "Generic Airframe" that matches your vehicle.
 
-In addition, build logs showing how others have set up different types of vehicles are provided as sub topics. For example see [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md).
+In addition, build logs showing how others have set up different types of vehicles are provided as sub topics.
+For example see [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md).
 
 ## Configuration
 
