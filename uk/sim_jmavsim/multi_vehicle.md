@@ -1,12 +1,15 @@
 # Симуляція кількох рухомих засобів з JMAVSim
 
-Ця тема пояснює, як моделювати кілька БПЛА (багатовертольотних) транспортних засобів, використовуючи [JMAVSim](../sim_jmavsim/index.md) та SITL. Усі екземпляри транспортних засобів починають рух з однакової позиції в симуляції.
+This topic explains how to simulate multiple UAV (multicopter) vehicles using [JMAVSim](../sim_jmavsim/index.md) and SITL.
+Усі екземпляри транспортних засобів починають рух з однакової позиції в симуляції.
 
 :::tip
-Це найлегший спосіб симулювати одночасний рух кількох транспортних засобів PX4. Це підходить для тестування підтримки кількох транспортних засобів у _QGroundControl_ (або у [MAVSDK](https://mavsdk.mavlink.io/), тощо). [Багатофункціональне моделювання транспортних засобів з Gazebo](../simulation/multi-vehicle-simulation.md) слід використовувати для імітації рою з багатьма транспортними засобами або для тестування функцій, таких як комп'ютерне зорове спостереження, які підтримуються лише Gazebo.
+This is the easiest way to simulate multiple vehicles running PX4.
+It is suitable for testing multi-vehicle support in _QGroundControl_ (or the [MAVSDK](https://mavsdk.mavlink.io/), etc.).
+[Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used for swarm simulations with many vehicles, or for testing features like computer vision that are only supported by Gazebo.
 :::
 
-## Як розпочати кілька екземплярів
+## Як запустити кілька екземплярів
 
 Для запуску кількох екземплярів (на окремих портах):
 
@@ -16,32 +19,35 @@
    make px4_sitl_default
    ```
 
-1. Виконайте **sitl_multiple_run.sh**, вказавши кількість екземплярів для запуску (наприклад, 2):
+2. Run **sitl_multiple_run.sh**, specifying the number of instances to start (e.g. 2):
 
    ```sh
    ./Tools/sitl_multiple_run.sh 2
    ```
 
-1. Запустіть перший екземпляр в тому ж терміналі (це буде працювати на передньому плані):
+3. Запустіть перший екземпляр в тому ж терміналі (це буде працювати на передньому плані):
 
    ```sh
    ./Tools/simulation/jmavsim/jmavsim_run.sh -l
    ```
 
-1. Відкрийте новий термінал для кожного наступного екземпляру, вказавши _симуляційний_ TCP-порт для екземпляру:
+4. Open a new terminal for each subsequent instance, specifying the _simulation_ TCP port for the instance:
 
    ```sh
    ./Tools/simulation/jmavsim/jmavsim_run.sh -p 4560 -l
    ```
 
-   Порт повинен бути встановлений на `4560+i`, де `i` ітерується для кожного екземпляра (від `0` до `N-1`)
+   The port should be set to `4560+i` where `i` iterates for each instance (from `0` to `N-1`)
 
-_QGroundControl_ повинен автоматично підключатися до всіх нових екземплярів транспортних засобів (весь трафік GCS надсилається на віддалений UDP-порт PX4: `14550` з усіх екземплярів). Транспортний засіб, яким у даний момент керується, відображається в програмі на панелі; ви можете вибрати цей текст транспортного засобу, щоб відобразити список вибору всіх (симульованих) підключених екземплярів транспортних засобів (`Транспортний засіб 1`, `Транспортний засіб 2` тощо) та вибрати новий транспортний засіб для керування.
+_QGroundControl_ should automatically connect to all the new vehicle instances (all GCS traffic is sent to PX4's remote UDP port: `14550` from all instances).
+The vehicle that is currently being controlled is displayed in the application to bar; you can select this vehicle text to display a selection list of all of the (simulated) connected vehicle instances (`Vehicle 1`, `Vehicle 2`, etc.) and choose a new vehicle to control.
 
-API розробника, такі як _MAVSDK_ або _MAVROS_, можуть підключатися до окремих екземплярів, прослуховуючи послідовно виділені віддалені UDP-порти PX4 від `14540` (перший екземпляр) до `14549`. Додаткові екземпляри _всі_ підключаються до порту `14549`.
+Developer APIs such as _MAVSDK_ or _MAVROS_ can connect to individual instances by listening on sequentially allocated PX4 remote UDP ports from `14540` (first instance) to `14549`.
+Additional instances _all_ connect to port `14549`.
 
-> **Порада** Сценарій **sitl_multiple_run.sh** запускає окремий процес для кожного транспортного засобу. Щоб перезапустити симуляції після вбивства одного з них, вам потрібно знову викликати **sitl_multiple_run.sh**, а також перезапустити кожний з індивідуальних екземплярів у їх власних терміналах.
+> **Tip** The **sitl_multiple_run.sh** script starts a separate process for each vehicle.
+> To restart the simulations after killing one of them, you must call **sitl_multiple_run.sh** again, and also restart each of the individual instances in their own terminals.
 
 ## Додаткові ресурси
 
-- Дивіться [Симуляція](../simulation/index.md) для отримання додаткової інформації щодо налаштування порту.
+- See [Simulation](../simulation/index.md) for more information about the port configuration.
