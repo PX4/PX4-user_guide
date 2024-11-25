@@ -1,11 +1,9 @@
 # GimbalManagerInformation (UORB message)
 
-
-
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GimbalManagerInformation.msg)
 
 ```c
-uint64 timestamp                        # time since system start (microseconds)
+uint64 timestamp						# time since system start (microseconds)
 
 uint32 cap_flags
 
