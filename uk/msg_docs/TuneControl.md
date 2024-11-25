@@ -1,12 +1,13 @@
 # TuneControl (UORB message)
 
-Це повідомлення використовується для контролю мелодій, коли tune_id встановлено на CUSTOM то частота, тривалість використовуються, в іншому випадку ці значення ігноруються.
+Це повідомлення використовується для контролю мелодій, коли tune_id встановлено на CUSTOM
+то частота, тривалість використовуються, в іншому випадку ці значення ігноруються.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TuneControl.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TuneControl.msg)
 
 ```c
-# Це повідомлення використовується для контролю мелодій, коли tune_id встановлено на CUSTOM
-# то частота, тривалість використовуються, в іншому випадку ці значення ігноруються.
+# This message is used to control the tunes, when the tune_id is set to CUSTOM
+# then the frequency, duration are used otherwise those values are ignored.
 
 uint64 timestamp     # time since system start (microseconds)
 
