@@ -1,11 +1,9 @@
 # RcChannels (UORB message)
 
-
-
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/RcChannels.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/RcChannels.msg)
 
 ```c
-uint64 timestamp                        # time since system start (microseconds)
+uint64 timestamp						# time since system start (microseconds)
 
 uint8 FUNCTION_THROTTLE      = 0
 uint8 FUNCTION_ROLL          = 1
@@ -39,12 +37,12 @@ uint8 FUNCTION_PAYLOAD_POWER = 28
 
 uint8 FUNCTION_FLTBTN_SLOT_COUNT = 6
 
-uint64 timestamp_last_valid                 # Timestamp of last valid RC signal
-float32[18] channels                        # Scaled to -1..1 (throttle: 0..1)
-uint8 channel_count                     # Number of valid channels
-int8[29] function                       # Functions mapping
-uint8 rssi                          # Receive signal strength index
-bool signal_lost                        # Control signal lost, should be checked together with topic timeout
-uint32 frame_drop_count                     # Number of dropped frames
+uint64 timestamp_last_valid					# Timestamp of last valid RC signal
+float32[18] channels						# Scaled to -1..1 (throttle: 0..1)
+uint8 channel_count						# Number of valid channels
+int8[29] function						# Functions mapping
+uint8 rssi							# Receive signal strength index
+bool signal_lost						# Control signal lost, should be checked together with topic timeout
+uint32 frame_drop_count						# Number of dropped frames
 
 ```
