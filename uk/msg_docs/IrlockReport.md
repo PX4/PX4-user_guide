@@ -2,12 +2,12 @@
 
 Дані повідомлення IRLOCK_REPORT
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/IrlockReport.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/IrlockReport.msg)
 
 ```c
 # IRLOCK_REPORT message data
 
-uint64 timestamp        # time since system start (microseconds)
+uint64 timestamp		# time since system start (microseconds)
 
 uint16 signature
 
