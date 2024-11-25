@@ -35,28 +35,58 @@ Lowering latency allows you to increase the rate **P** gains, which results in b
 
 ## 필터
 
-다음은 PX4 컨트롤러의 필터링 파이프 라인입니다.
+The filtering pipeline for the controllers in PX4 is described below.
 
-- 자이로 센서용 온칩 DLPF.
-  비활성화가 가능한 모든 칩에서 비활성화됩니다 (그렇지 않은 경우, 차단 주파수가 칩의 최고 수준으로 설정됨).
-
-- 로터 블레이드 통과 주파수의 고조파와 같은 협대역 노이즈를 필터링을 위한 자이로 센서 데이터의 노치 필터입니다.
-  This filter can be configured using [IMU_GYRO_NF0_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) and [IMU_GYRO_NF0_FRQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ).
-
-- Low-pass filter on the gyro sensor data.
-  It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
-
-  ::: info
-  Sampling and filtering is always performed at the full raw sensor rate (commonly 8kHz, depending on the IMU).
-
+:::info
+Sampling and filtering is always performed at the full raw sensor rate (commonly 8kHz, depending on the IMU).
 :::
 
-- D-term에 대한 별도의 저역 통과 필터.
-  D-term은 노이즈에 가장 취약하지만 대기 시간이 약간 증가해도 성능에 나쁜 영향을 주지 않습니다.
-  For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
+### On-chip DLPF for the Gyro Sensor
 
-- A optional slew-rate filter on the motor outputs.
-  This rate may be configured as part of the [Multicopter Geometry](../config/actuators.md#motor-geometry-multicopter) when configuring actuators (which in turn modifies the [CA_Rn_SLEW](../advanced_config/parameter_reference.md#CA_R0_SLEW) parameters for each motor `n`).
+This is disabled on all chips where it can be disabled (if not, cutoff frequency is set to the highest level of the chip).
+
+### Notch Filters
+
+상당한 저주파 노이즈 스파이크가있는 설정 (예 : 로터 블레이드 통과 주파수의 고조파로 인한)은 노치 필터를 사용하여 신호가 저역 통과 필터로 전달되기 전에 신호를 제거하는 것이 좋습니다 (이러한 고조파는 다른 소음원으로 모터에서 비슷한 해로운 영향을 미칩니다).
+
+Without the notch filter you'd have to set the low pass filter cutoff much lower (increasing the phase lag) in order to avoid passing this noise to the motors.
+
+#### Static Notch Filters
+
+One or two static notch filters on the gyro sensor data that are used to filter out narrow band noise, for example a bending mode of the airframe.
+
+The static notch filters can be configured using:
+
+- First notch filter: [IMU_GYRO_NF0_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) and [IMU_GYRO_NF0_FRQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ).
+- Second notch filter: [IMU_GYRO_NF1_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF1_BW) and [IMU_GYRO_NF1_FRQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF1_FRQ).
+
+:::info
+Only two notch filters are provided.
+Airframes with more than two frequency noise spikes typically clean the first two spikes with the notch filters, and subsequent spikes using the low pass filter.
+:::
+
+#### Dynamic Notch Filters
+
+Dynamic notch filters use ESC RPM feedback and/or the onboard FFT analysis.
+The ESC RPM feedback is used to track the rotor blade pass frequency and its harmonics, while the FFT analysis can be used to track a frequency of another vibration source, such a fuel engine.
+
+ESC RPM feedback requires ESCs capable of providing RPM feedback such as [DShot](../peripherals/esc_motors.md#dshot) with telemetry connected, a bidirectional DShot set up ([work in progress](https://github.com/PX4/PX4-Autopilot/pull/23863)), or [UAVCAN/DroneCAN ESCs](../dronecan/escs.md).
+Before enabling, make sure that the ESC RPM is correct.
+You might have to adjust the [pole count of the motors](../advanced_config/parameter_reference.md#MOT_POLE_COUNT).
+
+The following parameters should be set to enable and configure dynamic notch filters:
+
+| 매개변수                                                                                                                                                                         | 설명                                                                                                                                       |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| <a href="IMU_GYRO_DNF_EN"></a>[IMU_GYRO_DNF_EN](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_EN)    | Enable IMU gyro dynamic notch filtering. `0`: ESK RPM, `1`: Onboard FFT. |
+| <a href="IMU_GYRO_FFT_EN"></a>[IMU_GYRO_FFT_EN](../advanced_config/parameter_reference.md#IMU_GYRO_FFT_EN)    | Enable onboard FFT (required if `IMU_GYRO_DNF_EN` is set to `1`).                                     |
+| <a href="IMU_GYRO_DNF_MIN"></a>[IMU_GYRO_DNF_MIN](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_MIN) | Minimum dynamic notch frequency in Hz.                                                                                   |
+| <a href="IMU_GYRO_DNF_BW"></a>[IMU_GYRO_DNF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_BW)    | Bandwidth for each notch filter in Hz.                                                                                   |
+| <a href="IMU_GYRO_DNF_HMC"></a>[IMU_GYRO_DNF_HMC](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW)  | Number of harmonics to filter.                                                                                           |
+
+### Low-pass Filter
+
+A low pass filter on the gyro data can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
 
 제어 지연을 줄이기 위해 저역 통과 필터의 차단 주파수를 높이려고 합니다.
 The effect on latency of increasing `IMU_GYRO_CUTOFF` is approximated below.
@@ -74,18 +104,22 @@ However this is a trade-off as increasing `IMU_GYRO_CUTOFF` will also increase t
 - 모터가 계속 속도를 변경하므로 비행 시간이 단축됩니다.
 - 가시적인 임의의 작은 트위치.
 
-상당한 저주파 노이즈 스파이크가있는 설정 (예 : 로터 블레이드 통과 주파수의 고조파로 인한)은 노치 필터를 사용하여 신호가 저역 통과 필터로 전달되기 전에 신호를 제거하는 것이 좋습니다 (이러한 고조파는 다른 소음원으로 모터에서 비슷한 해로운 영향을 미칩니다).
-노치 필터가 없으면이 노이즈가 모터로 전달되는 것을 방지하기 위하여 저역 통과 필터 컷오프를 매우 낮게 설정해야합니다 (대기 시간 증가).
+### Low-pass Filter on D-term
 
-:::info
-Only one notch filter is provided.
-하나 이상의 저주파 노이즈 스파이크가 있는 기체는 일반적으로 노치 필터로 첫 번째 스파이크를 청소하며 저역 통과 필터를 사용하여 후속 스파이크를 청소합니다.
-:::
+D-term은 노이즈에 가장 취약하지만 대기 시간이 약간 증가해도 성능에 나쁜 영향을 주지 않습니다.
+For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
 
-최적의 필터 설정은 기체에 따라 달라집니다.
-기본값은 낮은 품질 설정에서도 작동하도록 보수적으로 설정됩니다.
+### Slew-rate Filter on Motor Outputs
+
+An optional slew-rate filter on the motor outputs.
+This rate may be configured as part of the [Multicopter Geometry](../config/actuators.md#motor-geometry-multicopter) when configuring actuators (which in turn modifies the [CA_Rn_SLEW](../advanced_config/parameter_reference.md#CA_R0_SLEW) parameters for each motor `n`).
 
 ## 필터 튜닝
+
+:::info
+최적의 필터 설정은 기체에 따라 달라집니다.
+기본값은 낮은 품질 설정에서도 작동하도록 보수적으로 설정됩니다.
+:::
 
 First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter).
 [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
@@ -101,9 +135,9 @@ First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE]
 필터 튜닝은 비행 로그를 검토하는 것이 제일 좋은 방법입니다.
 서로 다른 매개 변수를 사용하여 여러 차례 비행후 로그를 분석할 수 있지만, 별도의 로그 파일이 생성되도록 중간에 시동을 꺼야합니다.
 
-The performed flight maneuver can simply be hovering in [Stabilized mode](../flight_modes_mc/manual_stabilized.md) with some rolling and pitching to all directions and some increased throttle periods.
+The performed flight manoeuvre can simply be hovering in [Stabilized mode](../flight_modes_mc/manual_stabilized.md) with some rolling and pitching to all directions and some increased throttle periods.
 전체 시간은 30초를 넘지 않아도 됩니다.
-정확한 비교를 위해서 모든 테스트에서 기동이 유사하여야 합니다.
+In order to better compare, the manoeuvre should be similar in all tests.
 
 First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30).
 Upload the logs to [Flight Review](https://logs.px4.io) and compare the _Actuator Controls FFT_ plot.
