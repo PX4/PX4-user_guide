@@ -1,6 +1,7 @@
 # Platform Testing and Continuous Integration
 
-PX4 is extensively tested using unit and integration tests run via continuous integration. Live flight testing is also performed by the development team and the broader community.
+PX4 is extensively tested using unit and integration tests run via continuous integration.
+Live flight testing is also performed by the development team and the broader community.
 
 Test topics include:
 
