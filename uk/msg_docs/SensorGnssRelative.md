@@ -2,7 +2,7 @@
 
 Інформація про відносне позиціонування GNSS в рамці NED. NED кадр визначається як локальна топологічна система на задній станції.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGnssRelative.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGnssRelative.msg)
 
 ```c
 # GNSS relative positioning information in NED frame. The NED frame is defined as the local topological system at the reference station.
