@@ -19,10 +19,11 @@ For significant changes to the system you should also run general flight tests u
 
 ## 测试卡
 
-These test cards define "standard" flight tests. These are run by the test team as part of release testing, and for more significant system changes.
+These test cards define "standard" flight tests.
+These are run by the test team as part of release testing, and for more significant system changes.
 
-- [测试 MC_01 - 手动模式](../test_cards/mc_01_manual_modes.md)
-- [MC_02 - 完全自主](../test_cards/mc_02_full_autonomous.md)
-- [测试 MC_03 - 自动手动混合](../test_cards/mc_03_auto_manual_mix.md)
-- [MC_04 - 故障安全测试](../test_cards/mc_04_failsafe_testing.md)
-- [MC_05 - 室内飞行（手动模式）](../test_cards/mc_05_indoor_flight_manual_modes.md)
+- [MC_01 - Manual modes](../test_cards/mc_01_manual_modes.md)
+- [MC_02 - Full Autonomous](../test_cards/mc_02_full_autonomous.md)
+- [MC_03 - Auto Manual Mix](../test_cards/mc_03_auto_manual_mix.md)
+- [MC_04 - Failsafe Testing](../test_cards/mc_04_failsafe_testing.md)
+- [MC_05 - Indoor Flight (Manual Modes)](../test_cards/mc_05_indoor_flight_manual_modes.md)
