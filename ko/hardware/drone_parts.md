@@ -1,8 +1,8 @@
-# 하드웨어(드론 및 부품)
+# Hardware Hardware Selection & Setup
 
 PX4 완제품 기체와 자체 제작 드론의 부품들에 대하여 설명합니다.
 
-- [완제품](../complete_vehicles/README.md) - 바로 비행 가능하거나(Ready to Fly, RTF) 준 RTF 기체입니다. 배터리와 RC 컨트롤러가 필요할 수 있습니다.
+- [Flight Controllers (Autopilots)](../flight_controller/index.md) - Pixhawk and other FCs, firmware updates, other bootloaders
 - [Sensors](../sensor/index.md) — accelerometer, gyroscope, compass, airspeed, barometer, rangefinders, GNSS, RTK GNSS, Optical Flow, Tachometers, Factory calibration, thermal calibration.
 - [Actuators](../actuators/index.md) — Allocation, ESC, motors, servos
 - [Radio Control (RC)](../getting_started/rc_transmitter_receiver.md) — Manual control using an RC system
@@ -13,7 +13,7 @@ PX4 완제품 기체와 자체 제작 드론의 부품들에 대하여 설명합
 - [I2C Peripherals](../sensor_bus/i2c_general.md)
 - [CAN Peripherals](../can/index.md)
 - [DroneCAN Peripherals](../dronecan/index.md)
-- [배선 개요](../assembly/cable_wiring.md)
-- [Companion Computers](../companion_computer/index.md) — Setup, peripherals, computer vision, obstacle avoidance etc.
-- [직렬 포트 설정](../peripherals/serial_configuration.md)
-- [PX4 이더넷 설정](../advanced_config/ethernet_setup.md)
+- [Cable Wiring](../assembly/cable_wiring.md)
+- [Companion Computers](../companion_computer/index.md) — Setup, peripherals, computer vision, etc.
+- [Serial Port Configuration](../peripherals/serial_configuration.md)
+- [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md)
