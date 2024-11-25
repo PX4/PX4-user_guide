@@ -2,12 +2,12 @@
 
 Повідомлення про керування двигуном
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorMotors.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorMotors.msg)
 
 ```c
 # Motor control message
-uint64 timestamp            # time since system start (microseconds)
-uint64 timestamp_sample     # the timestamp the data this control response is based on was sampled
+uint64 timestamp			# time since system start (microseconds)
+uint64 timestamp_sample	    # the timestamp the data this control response is based on was sampled
 
 uint16 reversible_flags     # bitset which motors are configured to be reversible
 
