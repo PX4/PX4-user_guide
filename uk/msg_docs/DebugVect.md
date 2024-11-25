@@ -1,11 +1,9 @@
 # DebugVect (повідомлення UORB)
 
-
-
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/DebugVect.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/DebugVect.msg)
 
 ```c
-uint64 timestamp    # time since system start (microseconds)
+uint64 timestamp	# time since system start (microseconds)
 char[10] name           # max. 10 characters as key / name
 float32 x               # x value
 float32 y               # y value
