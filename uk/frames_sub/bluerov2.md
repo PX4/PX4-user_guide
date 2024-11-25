@@ -2,39 +2,42 @@
 
 <Badge type="tip" text="PX4 v1.12" />
 
-[BlueROV2](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/BlueROV2) - це доступний високопродуктивний підводний апарат, який ідеально підходить для інспекцій, досліджень та пригод.
+The [BlueROV2](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/BlueROV2) is an affordable high-performance underwater vehicle that is perfect for inspections, research, and adventuring.
 
-PX4 забезпечує [експериментальну підтримку](README.md) восьмипропелерної конфігурації з векторним керуванням, відомої як _BlueROV2 Heavy Configuration_.
+PX4 provides [experimental support](index.md) for an 8-thrust vectored configuration, known as the _BlueROV2 Heavy Configuration_.
 
 ![Hero](../../assets/airframes/sub/bluerov/bluerov_hero.jpg)
 
 ## Де купити
 
-[BlueROV2](https://bluerobotics.com/store/rov/bluerov2/) + [Комплект модернізації для важкої конфігурації BlueROV2](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/)
+[BlueROV2](https://bluerobotics.com/store/rov/bluerov2/) + [BlueROV2 Heavy Configuration Retrofit Kit](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/)
 
 ### Відповідність двигунів/підключення
 
 Мотори повинні бути підключені до контролера польоту відповідно до стандартних інструкцій, наданих BlueRobotics для цього транспортного засобу.
 
-Транспортний засіб буде відповідати конфігурації, описаній в [Довіднику з конструкції літальних апаратів](../airframes/airframe_reference.md#vectored-6-dof-uuv):
+The vehicle will then match the configuration documented in the [Airframe Reference](../airframes/airframe_reference.md#vectored-6-dof-uuv):
 
-<img src="../../assets/airframes/types/Vectored6DofUUV.svg" width="29%" style="max-height: 180px;" />
+<img src="../../assets/airframes/types/Vectored6DofUUV.svg" width="29%" style="max-height: 180px;"/>
 
-- **MAIN1:** двигун 1 проти годинникової стрілки, носова праворуч горизонтальна, пропелер проти годинникової стрілки
-- **MAIN2:** двигун 2 проти годинникової стрілки, носова ліворуч горизонтальна, пропелер проти годинникової стрілки
-- **MAIN3:** двигун 3 проти годинникової стрілки, корма праворуч горизонтальна, пропелер за годинниковою стрілкою
-- **MAIN4:** двигун 4 проти годинникової стрілки, корма ліворуч горизонтальна, пропелер за годинниковою стрілкою
-- **MAIN5:** двигун 5 проти годинникової стрілки, носова праворуч вертикальна, пропелер проти годинникової стрілки
-- **MAIN6:** двигун 6 проти годинникової стрілки, носова ліворуч вертикальна, пропелер за годинниковою стрілкою
-- **MAIN7:** двигун 7 проти годинникової стрілки, корма праворуч вертикальна, пропелер за годинниковою стрілкою
-- **MAIN8:** двигун 8 проти годинникової стрілки, корма ліворуч вертикальна, пропелер проти годинникової стрілки
+- **MAIN1:** motor 1 CCW, bow starboard horizontal, , propeller CCW
+- **MAIN2:** motor 2 CCW, bow port horizontal, propeller CCW
+- **MAIN3:** motor 3 CCW, stern starboard horizontal, propeller CW
+- **MAIN4:** motor 4 CCW, stern port horizontal, propeller CW
+- **MAIN5:** motor 5 CCW, bow starboard vertical, propeller CCW
+- **MAIN6:** motor 6 CCW, bow port vertical, propeller CW
+- **MAIN7:** motor 7 CCW, stern starboard vertical, propeller CW
+- **MAIN8:** motor 8 CCW, stern port vertical, propeller CCW
 
 ## Конфігурація планера
 
-BlueROV2 не йде з предвстановленою версією з PX4. Вам потрібно:
+BlueROV2 не йде з предвстановленою версією з PX4.
+Вам потрібно:
 
-1. [Встановіть прошивку PX4](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)
-1. [Налаштуйте планер](../config/airframe.md). Вам потрібно буде вибрати "BlueROV2 Важка конфігурація" як показано: ![QGC - select airframe for BlueROV2 Heay configuration](../../assets/airframes/sub/bluerov/qgc_airframe.jpg)
+1. [Install PX4 Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)
+2. [Set the Airframe](../config/airframe.md).
+   You will need to select the "BlueROV2 Heavy Configuration" as shown:
+   ![QGC - select airframe for BlueROV2 Heay configuration](../../assets/airframes/sub/bluerov/qgc_airframe.jpg)
 
 <!-- what other tuning/testing/ etc? -->
 
