@@ -1,16 +1,14 @@
 # Px4ioStatus (UORB message)
 
-
-
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Px4ioStatus.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Px4ioStatus.msg)
 
 ```c
-uint64 timestamp        # time since system start (microseconds)
+uint64 timestamp		# time since system start (microseconds)
 
 uint16 free_memory_bytes
 
-float32 voltage_v       # Servo rail voltage in volts
-float32 rssi_v          # RSSI pin voltage in volts
+float32 voltage_v		# Servo rail voltage in volts
+float32 rssi_v			# RSSI pin voltage in volts
 
 # PX4IO status flags (PX4IO_P_STATUS_FLAGS)
 bool status_arm_sync
