@@ -1,20 +1,23 @@
 # HolyBro Телеметричне радіо
 
-Цей Holybro [SiK](../telemetry/sik_radio.md) Телеметрійний радіо зв'язок є невеликим, легким і недорогим відкритим джерелом платформа "plug-and-play" для підключення вашого автопілотного контролера польоту та земної станції.
+This Holybro [SiK](../telemetry/sik_radio.md) Telemetry Radio is a small, light and inexpensive open source "plug-and-play" radio platform to connect your Autopilot Flight Controller and Ground Station.
 
-Це радіо - "plug-and-play" з усіма контролерами, що працюють у PX4 і мають JST-GH 6 Pin Connector TELEM порт ([Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards)). Це надає найлегший спосіб налаштування телеметрійного з'єднання між вашим контролером польоту та наземною станцією. Він використовує open source прошивку, яка була спеціально розроблена для успішної роботи з пакетами MAVLink та інтеграції з QGroundControl & PX4 Autopilot.
+This radio is "plug-and-play" with all flight controllers running PX4 that have a JST-GH 6 Pin Connector TELEM port ([Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards)).
+Це надає найлегший спосіб налаштування телеметрійного з'єднання між вашим контролером польоту та наземною станцією.
+It uses open source firmware that has been specially designed to work well with MAVLink packets and to be integrated with the QGroundControl & PX4 Autopilot.
 
 Вони, як правило, дозволяють межі краще, ніж 300 "поза коробкою" (діапазон можна поширити на кілька кілометрів із використанням патч-антени на землі).
 
-Радіоприймач може бути 915 МГц (США), або 433 МГц з кроком (ЄС, Азія, Африка Океанія). Зверніть увагу, що регіони, зазначені вище, є орієнтовними, і вам слід перевірити правила для вашої країни.
+Радіоприймач може бути 915 МГц (США), або 433 МГц з кроком (ЄС, Азія, Африка Океанія).
+Зверніть увагу, що регіони, зазначені вище, є орієнтовними, і вам слід перевірити правила для вашої країни.
 
 <img src="../../assets/hardware/telemetry/holybro_sik_radio_v3.png" width="600px" title="Sik Telemetry Radio" />
 
 ## Де купити
 
-- [HolyBro (Sik) Телеметричне радіо V3](https://holybro.com/collections/telemetry-radios/products/sik-telemetry-radio-v3)
+- [Holybro SiK Telemetry Radio V3](https://holybro.com/collections/telemetry-radios/products/sik-telemetry-radio-v3)
 
-## Особливості
+## Функції
 
 - Відкрите програмне забезпечення SiK
 - Plug-n-play для стандартного контролера польоту Pixhawk
@@ -23,7 +26,7 @@
 - Порт Micro-USB (кабель адаптера Type-C включено)
 - 6-позиційний роз'єм JST-GH
 
-## Специфікація
+## Характеристики
 
 - Максимальна вихідна потужність 100 мВт (налаштовувана) -117 дБм чутливість прийому
 - РП-SMA роз'єм
@@ -32,12 +35,13 @@
 - Формування протоколу MAVLink
 - Частотно-перестроювана розподілена спектральна модуляція (FHSS) Налаштований цикл роботи
 - Корекція помилок виправляє до 25% помилок бітів Відкрите програмне забезпечення SIK
-- Налаштовується через Mission Planner & APM Planner
+- Configurable through Mission Planner & APM Planner
 - FT230X USB на BASIC UART IC
 
 ## Стан індикатора світлодіодів
 
-Радіоприймачі мають 2 індикатори стану, один червоний і один зелений. Інтерпретація різних станів світлодіодів:
+Радіоприймачі мають 2 індикатори стану, один червоний і один зелений.
+Інтерпретація різних станів світлодіодів:
 
 - Зелений світлодіод мигає - пошук іншого радіо
 - Зелений світлодіод постійно горить - з'єднання встановлено з іншим радіо
@@ -48,13 +52,14 @@
 
 ## Підключення до Політного Контролера
 
-Використовуйте 6-контактний роз'єм JST-GH, який поставляється з радіо, щоб підключити радіо до порту `TELEM1` вашого контролера польоту (можна також використовувати `TELEM2`, але рекомендація за замовчуванням - `TELEM1`).
+Use the 6 pin JST-GH connector that come with the radio to connect the radio to your flight controller's `TELEM1` port (`TELEM2` can also be used but the default recommendation is `TELEM1`).
 
 ## Підключення до ПК або Наземної станції
 
 Підключення радіо до вашого ПК з Windows або станції землі є настільки простим, як підключення кабелю USB мікро/типу-C (адаптер Type-C включений до радіо) до вашого ПК/станції землі.
 
-Необхідні драйвери повинні бути встановлені автоматично, і радіо з'явиться як новий «USB-серійний порт» в диспетчері пристроїв Windows у розділі Порти (COM &  LPT). Випадаючий список вибору порту COM планувальника місій також повинен містити той самий новий порт COM.
+The necessary drivers should be installed automatically and the radio will appear as a new “USB Serial Port” in the Windows Device Manager under Ports (COM & LPT).
+Випадаючий список вибору порту COM планувальника місій також повинен містити той самий новий порт COM.
 
 ## Пакет включає
 
