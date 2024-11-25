@@ -1,6 +1,7 @@
 # LeddarOne 激光雷达
 
-[LeddarOne](https://leddartech.com/solutions/leddarone/) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
+[LeddarOne](https://leddartech.com/solutions/leddarone/) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package.
+It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
 
 <img src="../../assets/hardware/sensors/leddar_one.jpg" alt="LeddarOne Lidar rangefinder" width="200px" />
 
@@ -21,9 +22,11 @@ Build a cable following your board and pinout and LeddarOne pinout (shown below)
 
 ## Parameter Setup
 
-[Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG). 无需设置端口的波特率, 因为这是由驱动程序配置的。
+[Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG).
+There is no need to set the baud rate for the port, as this is configured by the driver.
 
-::: info If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+:::info
+If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
 ```plain
 CONFIG_DRIVERS_DISTANCE_SENSOR_LEDDAR_ONE=y
