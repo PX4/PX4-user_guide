@@ -1,6 +1,7 @@
 # NuttX Board Porting Guide
 
-In order to port PX4 on NuttX to a new hardware target, that hardware target must be supported by NuttX. The NuttX project maintains an excellent [porting guide](https://cwiki.apache.org/confluence/display/NUTTX/Porting+Guide) for porting NuttX to a new computing platform.
+In order to port PX4 on NuttX to a new hardware target, that hardware target must be supported by NuttX.
+The NuttX project maintains an excellent [porting guide](https://cwiki.apache.org/confluence/display/NUTTX/Porting+Guide) for porting NuttX to a new computing platform.
 
 The following guide assumes you are using an already supported hardware target or have ported NuttX (including the [PX4 base layer](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/px4)) already.
 
@@ -26,7 +27,8 @@ make px4_fmu-v5_default qconfig
 
 For fresh installs of PX4 onto Ubuntu using [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> you will also need to install _kconfig_ tools from [NuttX tools](https://bitbucket.org/nuttx/tools/src/master/).
 
-::: info The following steps are not required if using the [px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) docker container or have installed to macOS using our normal instructions (as these include`kconfig-mconf`).
+:::info
+The following steps are not required if using the [px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) docker container or have installed to macOS using our normal instructions (as these include`kconfig-mconf`).
 :::
 
 Run the following commands from any directory:
@@ -40,7 +42,8 @@ make
 sudo make install
 ```
 
-The `--prefix=/usr` determines the specific installation location (which must be in the `PATH` environment variable). The `--enable-mconf` and `--enable-qconf` options will enable the `menuconfig` and `qconfig` options respectively.
+The `--prefix=/usr` determines the specific installation location (which must be in the `PATH` environment variable).
+The `--enable-mconf` and `--enable-qconf` options will enable the `menuconfig` and `qconfig` options respectively.
 
 To run `qconfig` you may need to install additional Qt dependencies.
 
@@ -48,13 +51,16 @@ To run `qconfig` you may need to install additional Qt dependencies.
 
 First you will need a bootloader, which depends on the hardware target:
 
-- STM32H7: the bootloader is based on NuttX, and is included in the PX4 Firmware. See [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/holybro/durandal-v1/nuttx-config/bootloader) for an example.
-- For all other targets, https://github.com/PX4/Bootloader is used. See [here](https://github.com/PX4/Bootloader/pull/155/files) for an example how to add a new target. Then checkout the [building and flashing instructions](../software_update/stm32_bootloader.md).
+- STM32H7: the bootloader is based on NuttX, and is included in the PX4 Firmware.
+  See [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/holybro/durandal-v1/nuttx-config/bootloader) for an example.
+- For all other targets, https://github.com/PX4/Bootloader is used. See [here](https://github.com/PX4/Bootloader/pull/155/files) for an example how to add a new target.
+  Then checkout the [building and flashing instructions](../software_update/stm32_bootloader.md).
 
 ### Firmware Porting Steps
 
-1. Make sure you have a working [development setup](../dev_setup/dev_env.md) and installed the NuttX `menuconfig`` tool (see above).
-1. Download the source code and make sure you can build an existing target:
+1. Make sure you have a working [development setup](../dev_setup/dev_env.md) and installed the NuttX \`menuconfig\`\` tool (see above).
+
+2. Download the source code and make sure you can build an existing target:
 
    ```sh
    git clone --recursive https://github.com/PX4/PX4-Autopilot.git
@@ -62,7 +68,8 @@ First you will need a bootloader, which depends on the hardware target:
    make px4_fmu-v5
    ```
 
-1. Find an existing target that uses the same (or a closely related) CPU type and copy it. For example for STM32F7:
+3. Find an existing target that uses the same (or a closely related) CPU type and copy it.
+   For example for STM32F7:
 
    ```sh
    mkdir boards/manufacturer
@@ -74,8 +81,11 @@ First you will need a bootloader, which depends on the hardware target:
 Next you need to go through all files under **boards/manufacturer/my-target-v1** and update them according to your board.
 
 1. **firmware.prototype**: update the board ID and name
-1. **default.px4board**: update the **VENDOR** and **MODEL** to match the directory names (**my-target-v1**). Configure the serial ports.
-1. Configure NuttX (**defconfig**) via `make manufacturer_my-target-v1 menuconfig`: Adjust the CPU and chip, configure the peripherals (UART's, SPI, I2C, ADC).
-1. **nuttx-config/include/board.h**: Configure the NuttX pins. For all peripherals with multiple pin options, NuttX needs to know the pin. They are defined in the chip-specific pinmap header file, for example [stm32f74xx75xx_pinmap.h](https://github.com/PX4/NuttX/blob/px4_firmware_nuttx-8.2/arch/arm/src/stm32f7/hardware/stm32f74xx75xx_pinmap.h).
-1. **src**: go through all files under **src** and update them as needed, in particular **board_config.h**.
-1. **init/rc.board_sensors**: start the sensors that are attached to the board.
+2. **default.px4board**: update the **VENDOR** and **MODEL** to match the directory names (**my-target-v1**).
+   Configure the serial ports.
+3. Configure NuttX (**defconfig**) via `make manufacturer_my-target-v1 menuconfig`: Adjust the CPU and chip, configure the peripherals (UART's, SPI, I2C, ADC).
+4. **nuttx-config/include/board.h**: Configure the NuttX pins.
+   For all peripherals with multiple pin options, NuttX needs to know the pin.
+   They are defined in the chip-specific pinmap header file, for example [stm32f74xx75xx_pinmap.h](https://github.com/PX4/NuttX/blob/px4_firmware_nuttx-8.2/arch/arm/src/stm32f7/hardware/stm32f74xx75xx_pinmap.h).
+5. **src**: go through all files under **src** and update them as needed, in particular **board_config.h**.
+6. **init/rc.board_sensors**: start the sensors that are attached to the board.
