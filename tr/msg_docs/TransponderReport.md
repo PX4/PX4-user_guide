@@ -1,25 +1,23 @@
 # TransponderReport (UORB message)
 
-
-
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TransponderReport.msg)
 
 ```c
-uint64 timestamp    # time since system start (microseconds)
-uint32 icao_address     # ICAO address
-float64 lat         # Latitude, expressed as degrees
-float64 lon         # Longitude, expressed as degrees
-uint8 altitude_type # Type from ADSB_ALTITUDE_TYPE enum
-float32 altitude    # Altitude(ASL) in meters
-float32 heading     # Course over ground in radians, -pi to +pi, 0 is north
-float32 hor_velocity    # The horizontal velocity in m/s
-float32 ver_velocity    # The vertical velocity in m/s, positive is up
-char[9] callsign    # The callsign, 8+null
-uint8 emitter_type  # Type from ADSB_EMITTER_TYPE enum
-uint8 tslc      # Time since last communication in seconds
-uint16 flags        # Flags to indicate various statuses including valid data fields
-uint16 squawk       # Squawk code
-uint8[18] uas_id    # Unique UAS ID
+uint64 timestamp	# time since system start (microseconds)
+uint32 icao_address 	# ICAO address
+float64 lat 		# Latitude, expressed as degrees
+float64 lon 		# Longitude, expressed as degrees
+uint8 altitude_type	# Type from ADSB_ALTITUDE_TYPE enum
+float32 altitude 	# Altitude(ASL) in meters
+float32 heading 	# Course over ground in radians, -pi to +pi, 0 is north
+float32 hor_velocity	# The horizontal velocity in m/s
+float32 ver_velocity 	# The vertical velocity in m/s, positive is up
+char[9] callsign	# The callsign, 8+null
+uint8 emitter_type 	# Type from ADSB_EMITTER_TYPE enum
+uint8 tslc 		# Time since last communication in seconds
+uint16 flags 		# Flags to indicate various statuses including valid data fields
+uint16 squawk 		# Squawk code
+uint8[18] uas_id	# Unique UAS ID
 
 # ADSB flags
 uint16 PX4_ADSB_FLAGS_VALID_COORDS = 1
