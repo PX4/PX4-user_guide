@@ -4,21 +4,23 @@
 
 표준 사운드 세트는 다음과 같습니다.
 
-::: info **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) and can be tested using the [tune-control](../modules/modules_system.md#tune-control) module. You can search for tune use using the string `TUNE_ID_name`(e.g. `TUNE_ID_PARACHUTE_RELEASE)
+:::info
+**Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) and can be tested using the [tune-control](../modules/modules_system.md#tune-control) module.
+You can search for tune use using the string `TUNE_ID_name`(e.g. \`TUNE_ID_PARACHUTE_RELEASE)
 :::
-
 
 ## 부팅 / 시작
 
 These tunes are played during the boot sequence.
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS --> 
 
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS --> 
 
 #### 시작 톤
 
 <audio controls>
   <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- tune: 1, STARTUP -->
 
@@ -28,22 +30,23 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- tune 2, ERROR_TUNE -->
 
 - 중대 결함으로 인하여 시스템이 재부팅되었습니다.
 - PX4IO를 사용하도록 시스템이 설정되었지만 IO가 없습니다.
 - UAVCAN이 활성화되었지만 드라이버를 시작할 수 없습니다.
-- SITL/HITL enabled but *pwm_out_sim* driver can't start.
+- SITL/HITL enabled but _pwm_out_sim_ driver can't start.
 - FMU 시작에 실패했습니다.
-
 
 #### 파일 시스템 만들기
 
 <audio controls>
   <source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 14, SD_INIT (previously tune 16) -->
 
@@ -51,23 +54,23 @@ These tunes are played during the boot sequence.
 - 마운트 실패 (포맷이 성공하면 부팅 시퀀스가 다시 마운트를 시도합니다).
 - MicroSD 카드가 없습니다.
 
-
 #### 포맷 실패
 
 <audio controls>
   <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 15, SD_ERROR (previously 17) -->
 
 - MicroSD 카드 포맷에 실패했습니다(이전 카드 마운트 시도 후).
 
-
 #### 프로그램 PX4IO
 
 <audio controls>
   <source src="../../assets/tunes/18_program_px4io.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 16, PROG_PX4IO (previously id 18) -->
 
@@ -77,7 +80,8 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/19_program_px4io_success.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 17, PROG_PX4IO_OK (previously tune 19) -->
 
@@ -87,14 +91,14 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/20_program_px4io_fail.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 18, PROG_PX4IO_ERR (previously tune 20) -->
 
 - PX4IO 프로그래밍에 실패했습니다.
 - PX4IO를 시작할 수 없습니다.
 - AUX 믹서를 찾을 수 없습니다.
-
 
 ## 운영
 
@@ -106,7 +110,8 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 2, ERROR_TUNE -->
 
@@ -116,7 +121,8 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/3_notify_positive_tone.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 3, NOTIFY_POSITIVE -->
 
@@ -129,7 +135,8 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/4_notify_neutral_tone.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 4, NOTIFY_NEUTRAL -->
 
@@ -141,7 +148,8 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/5_notify_negative_tone.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 5, NOTIFY_NEGATIVE -->
 
@@ -156,7 +164,8 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/6_arming_warning.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 6, ARMING_WARNING -->
 
@@ -166,7 +175,8 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/10_arming_failure_tune.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 10, ARMING_FAILURE -->
 
@@ -176,7 +186,8 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/7_battery_warning_slow.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 7,  BATTERY_WARNING_SLOW -->
 
@@ -186,18 +197,19 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/8_battery_warning_fast.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 8, BATTERY_WARNING_FAST -->
 
 - Critical low battery warning ([failsafe](../config/safety.md#battery-level-failsafe)).
 
-
 #### 느린 GPS 경고
 
 <audio controls>
   <source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 9,  GPS_WARNING -->
 
@@ -205,18 +217,19 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/11_parachute_release.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 11, PARACHUTE_RELEASE -->
 
 - 낙하산이 펼쳤졌음.
 
-
 #### 단일 경고음
 
 <audio controls>
   <source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 12, SINGLE_BEEP (previously was id 14 -->
 
@@ -226,7 +239,8 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/15_home_set_tune.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 <!-- 13, HOME_SET (previously id 15) -->
 
@@ -236,7 +250,8 @@ These tunes are played during the boot sequence.
 
 <audio controls>
   <source src="../../assets/tunes/power_off_tune.mp3" type="audio/mpeg">
-브라우저가 오디오 기능을 지원하지 않습니다. 
+  
+Your browser does not support the audio element.
 </audio>
 
 - 차량 전원 꺼짐.
