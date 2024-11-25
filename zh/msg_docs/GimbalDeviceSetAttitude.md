@@ -1,11 +1,9 @@
 # GimbalDeviceSetAttitude (UORB message)
 
-
-
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/GimbalDeviceSetAttitude.msg)
 
 ```c
-uint64 timestamp                        # time since system start (microseconds)
+uint64 timestamp						# time since system start (microseconds)
 
 uint8 target_system
 uint8 target_component
