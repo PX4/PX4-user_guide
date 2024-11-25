@@ -1,15 +1,15 @@
 # STM32 Bootloader
 
-PX4 引导加载程序的代码可从 Github [ Bootloader ](https://github.com/px4/bootloader)存储库获得。
+The code for the PX4 bootloader is available from the Github [Bootloader](https://github.com/px4/bootloader) repository.
 
 ## 支持的飞控板
 
-* FMUv2 (Pixhawk 1, STM32F4)
-* FMUv3 (Pixhawk 2, STM32F4)
-* FMUv4 (Pixracer 3 and Pixhawk 3 Pro, STM32F4)
-* FMUv5 (Pixhawk 4, STM32F7)
-* TAPv1 (TBA, STM32F4)
-* ASCv1 (TBA, STM32F4)
+- FMUv2 (Pixhawk 1, STM32F4)
+- FMUv3 (Pixhawk 2, STM32F4)
+- FMUv4 (Pixracer 3 and Pixhawk 3 Pro, STM32F4)
+- FMUv5 (Pixhawk 4, STM32F7)
+- TAPv1 (TBA, STM32F4)
+- ASCv1 (TBA, STM32F4)
 
 ## 构建 Bootloader
 
@@ -25,21 +25,27 @@ make
 
 ## 刷写 Bootloader
 
-以下说明适用于 Blackmagic/Dronecode probe。 其他 JTAG 仿真器需要不同但相似的步骤。 试图刷新引导加载程序的开发人员应具备所需的知识。
+:::warning
+The right power sequence is critical for some boards to allow JTAG / SWD access. 其他 JTAG 仿真器需要不同但相似的步骤。
+:::
 
-The instructions below are valid for a Blackmagic / Dronecode probe. Other JTAG probes will need different but similar steps. Developers attempting to flash the bootloader should have the required knowledge. If you do not know how to do this you probably should reconsider if you really need to change anything about the bootloader.
+The instructions below are valid for a Blackmagic / Dronecode probe.
+Other JTAG probes will need different but similar steps.
+Developers attempting to flash the bootloader should have the required knowledge.
+If you do not know how to do this you probably should reconsider if you really need to change anything about the bootloader.
 
-这些指令适用于[ J-Link GDB server](https://www.segger.com/jlink-gdb-server.html)。
+这些指令适用于<a href="https://www.segger.com/jlink-gdb-server.html"> J-Link GDB server</a>。
+
 1. 断开 JTAG 电缆的连接
-1. 连接 USB 电源线
-1. 连接 JTAG 电缆
+2. 连接 USB 电源线
+3. 连接 JTAG 电缆
 
 ### 黑魔法/无人机探测器
 
 #### 使用正确的串行端口
 
-* 在 Linux 上： `/dev/serial/by-id/usb-Black_Sphere_XXX-if00`
-* 在 MAC OS 上：确保使用 cu.xxx 端口，而不是 tty.xxx 端口： `tar ext /dev/tty.usbmodemDDEasdf`
+- On LINUX: `/dev/serial/by-id/usb-Black_Sphere_XXX-if00`
+- On MAC OS: Make sure to use the cu.xxx port, not the tty.xxx port: `tar ext /dev/tty.usbmodemDDEasdf`
 
 ```sh
 arm-none-eabi-gdb
@@ -52,21 +58,19 @@ arm-none-eabi-gdb
         ...
         Transfer rate: 17 KB/sec, 828 bytes/write.
   (gdb) kill
-        Transfer rate: 17 KB/sec, 828 bytes/write.
-  (gdb) kill
 ```
 
 ### J-Link
 
-[ Download the J-Link software ](https://www.segger.com/downloads/jlink)并按照 Segger 网站的说明进行安装。
+These instructions are for the [J-Link GDB server](https://www.segger.com/jlink-gdb-server.html).
 
 #### 系统必备组件
 
-以下命令用于为使用 STM32F427VI SoC 的飞行控制器运行服务器：
+[Download the J-Link software](https://www.segger.com/downloads/jlink) from the Segger website and install it according to their instructions.
 
 #### 运行 JLink GDB 服务器
 
-常见目标的 `--device`/SoC是：
+常见目标的 <code>--device</code>/SoC是：
 
 ```sh
 JLinkGDBServer -select USB=0 -device STM32F427VI -if SWD-DP -speed 20000
@@ -74,11 +78,10 @@ JLinkGDBServer -select USB=0 -device STM32F427VI -if SWD-DP -speed 20000
 
 The `--device`/SoC for common targets is:
 
-* **FMUv2、FMUv3、FMUv4、aerofc-v1、mindpx-v2：**STM32F427VI
-* **px4_fmu-v4pro：**STM32F469II
-* **px4_fmu-v5：** STM32F765II
-* **crazyflie：**STM32F405RG
-
+- **FMUv2, FMUv3, FMUv4, aerofc-v1, mindpx-v2:** STM32F427VI
+- **px4_fmu-v4pro:** STM32F469II
+- **px4_fmu-v5:** STM32F765II
+- **crazyflie:** STM32F405RG
 
 #### 连接 GDB
 
@@ -90,9 +93,11 @@ arm-none-eabi-gdb
 
 ### 故障处理
 
-If any of the commands above are not found, you are either not using a Blackmagic probe or its software is outdated. Upgrade the on-probe software first.
+If any of the commands above are not found, you are either not using a Blackmagic probe or its software is outdated.
+Upgrade the on-probe software first.
 
 断开目标连接（同时保持 JTAG 连接）并运行
+
 ```
 Error erasing flash with vFlashErase packet
 ```
@@ -105,4 +110,5 @@ swdp_scan
 attach 1
 load tapv1_bl.elf
 ```
+
 This will disable target powering and attempt another flash cycle.
