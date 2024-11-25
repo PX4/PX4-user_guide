@@ -1,6 +1,6 @@
 # LOCOSYS Hawk A1 GPS/GNSS
 
-[LOCOSYS HAWK A1 GPS/GNSS приймач](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) - це двочастотний багатосупутниковий GNSS/GPS приймач, сумісний з PX4.
+The [LOCOSYS HAWK A1 GPS/GNSS receiver](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) is a dual frequency multi-constellation GNSS/GPS receiver compatible with PX4.
 
 Основні функції включають:
 
@@ -18,31 +18,32 @@
 
 ## Де купити
 
-- [LOCOSYS](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) (Тайвань)
+- [LOCOSYS](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) (Taiwan)
 
-## Налаштування
+## Конфігурація
 
-Ви можете використовувати Hawk A1 як основну або додаткову GPS-систему. Параметри PX4 повинні бути встановлені, як показано нижче, для кожного випадку.
+Ви можете використовувати Hawk A1 як основну або додаткову GPS-систему.
+Параметри PX4 повинні бути встановлені, як показано нижче, для кожного випадку.
 
 ### Головний GNSS
 
 Використовуйте Hawk A1 як основний GPS-пристрій:
 
-| Параметр                                                                     | Значення                                           | Опис                                                                                  |
-| ---------------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)     | 102 (Telem 2 або інший доступний послідовний порт) | Налаштування основного порту GPS                                                      |
-| [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) | 1 (u-blox)                                         | Налаштування протоколу GPS                                                            |
-| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                             | Налаштування швидкості послідовного порту (тут GPS підключено до `TELEM2`, наприклад) |
+| Параметр                                                                                                             | Значення                                                              | Опис                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)     | 102 (Telem 2 або інший доступний послідовний порт) | Налаштування основного порту GPS                                                                           |
+| [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) | 1 (u-blox)                                         | Налаштування протоколу GPS                                                                                 |
+| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                                                | Configure the serial port baudrate (here the GPS is connected to `TELEM2` for instance) |
 
 ### Другорядний GNSS
 
 Використовувати Hawk A1 як допоміжний GPS-пристрій (на додаток до основного GPS):
 
-| Параметр                                                                     | Значення                                           | Опис                                                                                |
-| ---------------------------------------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)     | 102 (Telem 2 або інший доступний послідовний порт) | Налаштування основного порту GPS                                                    |
-| [GPS_2_PROTOCOL](../advanced_config/parameter_reference.md#GPS_2_PROTOCOL) | 1 (u-blox)                                         | Налаштування протоколу GPS                                                          |
-| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                             | Налаштування швидкості послідовного порту (тут GPS підключено до TELEM2, наприклад) |
+| Параметр                                                                                                             | Значення                                                              | Опис                                                                                                   |
+| -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)     | 102 (Telem 2 або інший доступний послідовний порт) | Налаштування основного порту GPS                                                                       |
+| [GPS_2_PROTOCOL](../advanced_config/parameter_reference.md#GPS_2_PROTOCOL) | 1 (u-blox)                                         | Налаштування протоколу GPS                                                                             |
+| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                                                | Налаштування швидкості послідовного порту (тут GPS підключено до TELEM2, наприклад) |
 
 ## Підключення та з'єднання
 
@@ -52,16 +53,17 @@ Locosys GPS поставляється з 6-контактним роз'ємом
 
 ### Розпіновка
 
-LOCOSYS схема виводів GPS наведена нижче. Це може бути використано для модифікації роз'єму для інших плат автопілота.
+LOCOSYS схема виводів GPS наведена нижче.
+Це може бути використано для модифікації роз'єму для інших плат автопілота.
 
-| пін | Locosys GPS | пін | Pixhawk GPS 2 |
-| --- | ----------- | --- | ------------- |
-| 1   | VCC_5V      | 1   | VCC           |
-| 2   | GPS_RX      | 2   | GPS_TX        |
-| 3   | GPS_TX      | 3   | GPS_RX        |
-| 4   | NC          | 4   | SDA           |
-| 5   | NC          | 5   | SCL           |
-| 6   | GND         | 6   | GND           |
+| пін | Locosys GPS                 | пін | Pixhawk GPS 2               |
+| --- | --------------------------- | --- | --------------------------- |
+| 1   | VCC_5V | 1   | VCC                         |
+| 2   | GPS_RX | 2   | GPS_TX |
+| 3   | GPS_TX | 3   | GPS_RX |
+| 4   | NC                          | 4   | SDA                         |
+| 5   | NC                          | 5   | SCL                         |
+| 6   | GND                         | 6   | GND                         |
 
 ## Індикатори статусу LEDs
 
@@ -75,22 +77,22 @@ LOCOSYS схема виводів GPS наведена нижче. Це може
 
 ## Характеристики
 
-- **Тип приймача:** 135-канальний двигун LOCOSYS MC-1612-V2b, GPS/QZSS L1 C/A, L5C, ГЛОНАСС L1OF, BeiDou B1I, B2a Galileo:E1, E5a SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
-- **Частота оновлення навігації:** Макс: 5 Гц за замовчуванням Макс: 10 Гц
-- **Точність позиціювання:** 3D Fix
-- **Час до першого виправлення:**
-  - **Холодний запуск:** 28с
-  - **Допоміжний запуск:** EASY
-- **Чутливість:**
-  - **Відстеження & навігація:** -165 дБм
-- **Підтримка GNSS:** EASY DGPS
-- **Осцилятор:** 26Mhz TCXO
-- **RTC кристал:** 32.768KHz
-- ** Доступні антени:** Багаточастотна антена L1+L5
-- ** Цілісність сигналу:** L1+L5 GPS GLONASS GALILEO BEIDOU QZSS SBAS
-- **Протоколи & Інтерфейси:**
-  - **UART/I2C:** JST_GH Головний інтерфейс, внутрішній перемикач.
+- **Receiver Type:** 135-channel LOCOSYS MC-1612-V2b engine, GPS/QZSS L1 C/A, L5C, GLONASS L1OF, BeiDou B1I, B2a Galileo:E1, E5a SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
+- **Navigation Update Rate:** Max: 5Hz default Max: 10 Hz
+- **Positioning Accuracy:** 3D Fix
+- **Time to first fix:**
+  - **Cold start:** 28s
+  - **Aided start:** EASY
+- **Sensitivity:**
+  - **Tracking & Navigation:** -165 dBm
+- **Assisted GNSS:** EASY DGPS
+- **Oscillator:** 26Mhz TCXO
+- **RTC crystal:** 32.768KHz
+- **Available Antennas:** L1+L5 multi frequency antenna
+- **Signal Integrity:** L1+L5 GPS GLONASS GALILEO BEIDOU QZSS SBAS
+- **Protocols & Interfaces:**
+  - **UART/I2C:** JST_GH Main interface, Switch internally.
 
 ## Додаткова інформація
 
-- [Посібник користувача GPS від LOCOSYS](https://www.locosystech.com/Templates/att/LU23031-V2%20datasheet_v0.2.pdf?lng=en)
+- [LOCOSYS GPS User Manual](https://www.locosystech.com/Templates/att/LU23031-V2%20datasheet_v0.2.pdf?lng=en)
