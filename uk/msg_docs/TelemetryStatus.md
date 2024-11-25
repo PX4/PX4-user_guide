@@ -1,19 +1,17 @@
 # TelemetryStatus (UORB message)
 
-
-
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TelemetryStatus.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TelemetryStatus.msg)
 
 ```c
 uint8 LINK_TYPE_GENERIC = 0
 uint8 LINK_TYPE_UBIQUITY_BULLET = 1
 uint8 LINK_TYPE_WIRE = 2
 uint8 LINK_TYPE_USB = 3
-uint8 LINK_TYPE_IRIDIUM = 4
+uint8 LINK_TYPE_IRIDIUM	= 4
 
-uint64 timestamp            # time since system start (microseconds)
+uint64 timestamp			# time since system start (microseconds)
 
-uint8 type              #  type of the radio hardware (LINK_TYPE_*)
+uint8 type				#  type of the radio hardware (LINK_TYPE_*)
 
 uint8 mode
 
