@@ -1,6 +1,7 @@
 # Payloads and Cameras
 
-Payloads are equipment carried by the vehicle to meet user or mission objectives. PX4 supports a wide range of vehicle payloads, including cameras of various types, cargo, instrumentation, and so on.
+Payloads are equipment carried by the vehicle to meet user or mission objectives.
+PX4 supports a wide range of vehicle payloads, including cameras of various types, cargo, instrumentation, and so on.
 
 Payloads are connected to [Flight Controller outputs](../getting_started/px4_basic_concepts.md#outputs-motors-servos-actuators), and can be triggered automatically in missions, manually from an RC Controller or Joystick, or from a Ground Station (via MAVLink/MAVSDK commands).
 
