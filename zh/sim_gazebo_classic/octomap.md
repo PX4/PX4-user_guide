@@ -1,12 +1,14 @@
 # OctoMap 3D Models with ROS/Gazebo Classic
 
-The [OctoMap library](http://octomap.github.io/) is an open source library for generating volumetric 3D environment models from sensor data. This model data can then be used by a drone for navigation and obstacle avoidance.
+The [OctoMap library](http://octomap.github.io/) is an open source library for generating volumetric 3D environment models from sensor data.
+This model data can then be used by a drone for navigation and obstacle avoidance.
 
 This guide covers how to use _OctoMap_ with the [Gazebo Classic](../sim_gazebo_classic/index.md) [Rotors Simulator](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator) and ROS.
 
 ## 安装
 
-The installation requires ROS, [Gazebo Classic](../sim_gazebo_classic/index.md) and the Rotors Simulator plugin. Follow the [Rotors Simulator instructions](https://github.com/ethz-asl/rotors_simulator) to install.
+The installation requires ROS, [Gazebo Classic](../sim_gazebo_classic/index.md) and the Rotors Simulator plugin.
+Follow the [Rotors Simulator instructions](https://github.com/ethz-asl/rotors_simulator) to install.
 
 Next, install the _OctoMap_ library:
 
@@ -33,7 +35,7 @@ Open `~/catkin_ws/src/rotors_simulator/rotors_gazebo/package.xml` and add the fo
 
 Run the following two lines:
 
-::: info
+:::info
 The first line changes your default shell editor to _gedit_. This is recommended for users who have little experience with _vim_ (the default editor), but can otherwise be omitted.
 :::
 
@@ -60,7 +62,8 @@ to:
 
 ## Running the Simulation
 
-Run the following three lines in _separate_ terminal windows. This opens up [Gazebo Classic](../sim_gazebo_classic/index.md), _Rviz_ and an octomap server.
+Run the following three lines in _separate_ terminal windows.
+This opens up [Gazebo Classic](../sim_gazebo_classic/index.md), _Rviz_ and an octomap server.
 
 ```sh
 roslaunch rotors_gazebo mav_hovering_example_with_vi_sensor.launch  mav_name:=firefly
@@ -68,7 +71,8 @@ rviz
 roslaunch octomap_server octomap_tracking_server.launch
 ```
 
-In _Rviz_, change the field 'Fixed Frame' from 'map' to 'world' in the top left of the window. Now click the add button in the bottom left and select MarkerArray. Then double click the MarkerArray and change 'Marker Topic' from `/free_cells_vis_array` to `/occupied_cells_vis_array`.
+In _Rviz_, change the field 'Fixed Frame' from 'map' to 'world' in the top left of the window.
+Now click the add button in the bottom left and select MarkerArray. Then double click the MarkerArray and change 'Marker Topic' from `/free_cells_vis_array` to `/occupied_cells_vis_array`.
 
 Now you should see a part of the floor.
 
