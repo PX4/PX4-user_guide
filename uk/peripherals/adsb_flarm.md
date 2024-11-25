@@ -1,78 +1,81 @@
 # Приймачі ADS-B/FLARM/UTM: Уникнення повітряного трафіку
 
-PX4 підтримує просте уникнення повітряного трафіку in [ missions ](../flying/missions.md) за допомогою [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast), [FLARM](https://en.wikipedia.org/wiki/FLARM) або [UTM](https://www.faa.gov/uas/research_development/traffic_management) транспондерів, які використовують стандартні інтерфейси MAVLink.
+PX4 supports simple air traffic avoidance in [missions](../flying/missions.md) using [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast), [FLARM](https://en.wikipedia.org/wiki/FLARM), or [UTM](https://www.faa.gov/uas/research_development/traffic_management) transponders that use the standard MAVLink interfaces.
 
-Якщо виявлено потенційне зіткнення, PX4 може _попередити_, негайно [посадити](../flight_modes_mc/land.md), або [повернутися](../flight_modes_mc/return.md) (залежно від значення [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
+If a potential collision is detected, PX4 can _warn_, immediately [land](../flight_modes_mc/land.md), or [return](../flight_modes_mc/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
 
 ## Підтримуване обладнання
 
-Система уникнення PX4 працює з продуктами ADS-B або FLARM, які постачають дані транспондера за допомогою повідомлення MAVLink [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE), та продуктами UTM, які постачають дані транспондера за допомогою повідомлення MAVLink [UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION).
+PX4 traffic avoidance works with ADS-B or FLARM products that supply transponder data using the MAVLink [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE) message, and UTM products that supply transponder data using the MAVLink [UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) message.
 
 Було протестовано з наступними пристроями:
 
 - [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx-pro/) (uAvionix)
 - [FLARM](https://flarm.com/products/uav/atom-uav-flarm-for-drones/) <!-- I think originally https://flarm.com/products/powerflarm/uav/ -->
 
-## Налаштування програмного забезпечення
+## Встановлення обладнання
 
-Будь-який з пристроїв може бути підключений до будь-якого вільного/не використаного послідовного порту на контролері польоту. Зазвичай вони пов'язані з `TELEM2` (якщо це не використовується для іншої мети).
+Будь-який з пристроїв може бути підключений до будь-якого вільного/не використаного послідовного порту на контролері польоту.
+Most commonly they are connected to `TELEM2` (if this is not being use for some other purpose).
 
 ### PingRX
 
 Порт PingRX MAVLink використовує роз'єм-матинг JST ZHR-4 з роз'ємом, як показано нижче.
 
-| Pin     | Сигнал   | Вольтаж      |
-| ------- | -------- | ------------ |
+| Pin                        | Сигнал                      | Вольтаж      |
+| -------------------------- | --------------------------- | ------------ |
 | 1 (red) | RX (IN)  | +5V tolerant |
 | 2 (blk) | TX (OUT) |              |
-| 3 (blk) | Живлення | +4 to 6V     |
-| 4 (blk) | GND      | GND          |
+| 3 (blk) | Потужність                  | +4 to 6V     |
+| 4 (blk) | GND                         | GND          |
 
-PingRX поставляється з кабелем-перехідником, який можна підключити безпосередньо до порту TELEM2 (DF13-6P) на [mRo Pixhawk](../flight_controller/mro_pixhawk.md). Для інших портів або плат, вам доведеться отримати свій власний кабель.
+The PingRX comes with connector cable that can be attached directly to the TELEM2 port (DF13-6P) on an [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
+Для інших портів або плат, вам доведеться отримати свій власний кабель.
 
 ## FLARM
 
-FLARM має вбудований роз'єм DF-13 6 Pin, який має ідентичну розпіновку з [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
+FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
 
-| Pin     | Сигнал   | Вольтаж     |
-| ------- | -------- | ----------- |
-| 1 (red) | VCC      | +4В до +36В |
-| 2 (blk) | TX (OUT) | +3.3V       |
-| 3 (blk) | RX (IN)  | +3.3V       |
-| 4 (blk) | -        | +3.3V       |
-| 5 (blk) | -        | +3.3V       |
-| 6 (blk) | GND      | GND         |
+| Pin                        | Сигнал                      | Вольтаж               |
+| -------------------------- | --------------------------- | --------------------- |
+| 1 (red) | VCC                         | +4В до +36В           |
+| 2 (blk) | TX (OUT) | +3.3V |
+| 3 (blk) | RX (IN)  | +3.3V |
+| 4 (blk) | -                           | +3.3V |
+| 5 (blk) | -                           | +3.3V |
+| 6 (blk) | GND                         | GND                   |
 
-::: інформація
-TX та RX на контролері польоту повинні бути підключені до RX та TX на FLARM, відповідно.
+:::info
+The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
 :::
 
 ## Конфігурація програмного забезпечення
 
 ### Конфігурація порту
 
-Отримувачі налаштовані так само, як будь-який інший [Пристрій MAVLink](../peripherals/mavlink_peripherals.md). Єдине _специфічне_ налаштування полягає в тому, що швидкість передачі даних порту повинна бути встановлена на 57600, а профіль з низькою пропускною здатністю (`MAV_X_MODE`).
+The recievers are configured in the same way as any other [MAVLink Peripheral](../peripherals/mavlink_peripherals.md).
+The only _specific_ setup is that the port baud rate must be set to 57600 and the a low-bandwidth profile (`MAV_X_MODE`).
 
-Припускаючи, що ви підключили пристрій до порту TELEM2, [встановіть параметри](../advanced_config/parameters.md) так, як показано:
+Assuming you have connected the device to the TELEM2 port, [set the parameters](../advanced_config/parameters.md) as shown:
 
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) = TELEM 2
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) = Normal
-- [MAV_1_RATE](../advanced_config/parameter_reference.md#MAV_1_RATE) = 0 (швидкість відправлення за замовчуванням для порту).
+- [MAV_1_RATE](../advanced_config/parameter_reference.md#MAV_1_RATE) = 0 (default sending rate for port).
 - [MAV_1_FORWARD](../advanced_config/parameter_reference.md#MAV_1_FORWARD) = Enabled
 
 Перезавантажте пристрій.
 
-Тепер ви знайдете новий параметр, який називається [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), який повинен бути встановлений на 57600.
+You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), which must be set to 57600.
 
 ### Налаштування передачі трафіку
 
 Налаштуйте дію у випадку потенційної зіткнення за допомогою параметри нижче:
 
-| Параметр                                                                                                  | Опис                                                                                                                                                                                      |
-| --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="NAV_TRAFF_AVOID"></a>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | Увімкніть режим уникнення трафіку, вказавши відповідь уникнення. 0: Вимкнути, 1: Лише попередження, 2: Режим повернення, 3: Режим посадки.                                                |
-| <a id="NAV_TRAFF_A_HOR"></a>[NAV_TRAFF_A_HOR](../advanced_config/parameter_reference.md#NAV_TRAFF_A_HOR)   | Горизонтальний радіус циліндра навколо транспортного засобу, який визначає його повітряний простір (тобто повітряний простір на земельній площині).                                       |
-| <a id="NAV_TRAFF_A_VER"></a>[NAV_TRAFF_A_VER](../advanced_config/parameter_reference.md#NAV_TRAFF_A_VER)   | Вертикальна висота вище і нижче транспортного засобу циліндра, яка визначає його повітряний простір (див. також [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR)).                                   |
+| Параметр                                                                                                                                                                   | Опис                                                                                                                                                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="NAV_TRAFF_AVOID"></a>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)                         | Увімкніть режим уникнення трафіку, вказавши відповідь уникнення. 0: Вимкнути, 1: Лише попередження, 2: Режим повернення, 3: Режим посадки.   |
+| <a id="NAV_TRAFF_A_HOR"></a>[NAV_TRAFF_A_HOR](../advanced_config/parameter_reference.md#NAV_TRAFF_A_HOR)    | Горизонтальний радіус циліндра навколо транспортного засобу, який визначає його повітряний простір (тобто повітряний простір на земельній площині).                                                       |
+| <a id="NAV_TRAFF_A_VER"></a>[NAV_TRAFF_A_VER](../advanced_config/parameter_reference.md#NAV_TRAFF_A_VER)    | Vertical height above and below vehicle of the cylinder that defines its airspace (also see [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR)).          |
 | <a id="NAV_TRAFF_COLL_T"></a>[NAV_TRAFF_COLL_T](../advanced_config/parameter_reference.md#NAV_TRAFF_COLL_T) | Поріг часу зіткнення. Уникнення буде викликати якщо передбачуваний час, поки зіткнення не знизиться нижче цієї вартості (орієнтовний час ґрунтується на відносній швидкості руху та UAV). |
 
 ## Імплементація
@@ -81,85 +84,99 @@ TX та RX на контролері польоту повинні бути пі
 
 PX4 слухає дійсні звіти про транспондери під час місій.
 
-Якщо отримано дійсний звіт від транспондера, PX4 спочатку використовує інформацію про транспондер руху, щоб оцінити, чи показує напрямок та висота руху, що буде перетинатися з повітряним простором БПЛА. Повітряний простір БПЛА складається з оточуючого циліндра, визначеного радіусом [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR) та висотою [NAV_TRAFF_A_VER](#NAV_TRAFF_A_VER), з БПЛА у центрі. Датчик руху перевіряє, чи час до перетину з повітряним простором БПЛА нижче порогу [NAV_TRAFF_COLL_T](#NAV_TRAFF_COLL_T) на основі відносної швидкості. Якщо обидва перевірки виконані, запускається дія [Traffic Avoidance Failsafe](../config/safety.md#traffic-avoidance-failsafe), і транспортний засіб або попереджує, або сідає, або повертається.
+Якщо отримано дійсний звіт від транспондера, PX4 спочатку використовує інформацію про транспондер руху, щоб оцінити, чи показує напрямок та висота руху, що буде перетинатися з повітряним простором БПЛА.
+The UAV airspace consists of a surrounding cylinder defined by the radius [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR) and height [NAV_TRAFF_A_VER](#NAV_TRAFF_A_VER), with the UAV at it's center.
+The traffic detector then checks if the time until intersection with the UAV airspace is below the [NAV_TRAFF_COLL_T](#NAV_TRAFF_COLL_T) threshold based on the relative speed.
+If the both checks are true, the [Traffic Avoidance Failsafe](../config/safety.md#traffic-avoidance-failsafe) action is started, and the vehicle will either warn, land, or return.
 
-Код можна знайти в `Navigator::check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/navigator_main.cpp)).
+The code can be found in `Navigator::check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/navigator_main.cpp)).
 
-PX4 також передаватиме дані транспондера на GCS, якщо це було налаштовано для екземпляра MAVLink (це рекомендується). Останні 10 цифр GUID відображаються як ідентифіфікація дрона.
+PX4 також передаватиме дані транспондера на GCS, якщо це було налаштовано для екземпляра MAVLink (це рекомендується).
+Останні 10 цифр GUID відображаються як ідентифіфікація дрона.
 
 ### UTM
 
-PX4 прослуховує повідомлення MAVLink `UTM_GLOBAL_POSITION` під час місій. Коли отримано дійсне повідомлення, його прапорці дійсності, позиція та напрямок відображаються в тій же темі UORB `transponder_report`, що використовується для уникнення трафіку _ADS-B_.
+PX4 listens for `UTM_GLOBAL_POSITION` MAVLink messages during missions.
+When a valid message is received, its validity flags, position and heading are mapped into the same `transponder_report` UORB topic used for _ADS-B traffic avoidance_.
 
-Виконання інакше _точно_ таке, як описано у вищезазначеному розділі.
+The implementation is otherwise _exactly_ as described in the section above.
 
-::: інформація [UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) містить додаткові поля, які не надаються транспондером ADSB (див. [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE)). Поточна реалізація просто відкидає додаткові поля (включаючи інформацію про заплановану наступну точку шляху транспортного засобу).
+:::info
+[UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) contains additional fields that are not provided by an ADSB transponder (see [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE)).
+Поточна реалізація просто відкидає додаткові поля (включаючи інформацію про заплановану наступну точку шляху транспортного засобу).
 :::
 
 ## Тестування/Симульований трафік ADSB
 
-Ви можете симулювати трафік ADS-B для тестування. Зверніть увагу, що для цього потрібно, щоб ви [збудували PX4](../dev_setup/building_px4.md).
+Ви можете симулювати трафік ADS-B для тестування.
+Note that this requires that you [Build PX4](../dev_setup/building_px4.md).
 
-::: інформація
-Симульований трафік ADS-B може спричинити реальні аварійні дії.
+:::info
+Simulated ADS-B traffic can trigger real failsafe actions.
 Використовуйте обережно в реальному польоті!
 :::
 
 Щоб увімкнути цю функцію:
 
-1. Розкоментуйте код у `AdsbConflict::run_fake_traffic()`([AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1)).
-1. Перебудувати та запустити PX4.
-1. Виконайте команду [`navigator fake_traffic`](../modules/modules_controller.md#navigator) у [QGroundControl MAVLink Shell](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (або в іншій [консолі PX4 або MAVLink](../debug/consoles.md), наприклад, у терміналі симулятора PX4).
+1. Uncomment the code in `AdsbConflict::run_fake_traffic()`([AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1)).
+2. Перебудувати та запустити PX4.
+3. Execute the [`navigator fake_traffic` command](../modules/modules_controller.md#navigator) in the [QGroundControl MAVLink Shell](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (or some other [PX4 Console or MAVLink shell](../debug/consoles.md), such as the PX4 simulator terminal).
 
-Код у функції `run_fake_traffic()` потім виконується. Ви повинні бачити попередження ADS-B в консолі/оболонці MAVLink, і QGC також повинен показувати спливаюче вікно з даними про рух літаків ADS-B.
+The code in `run_fake_traffic()` is then executed.
+Ви повинні бачити попередження ADS-B в консолі/оболонці MAVLink, і QGC також повинен показувати спливаюче вікно з даними про рух літаків ADS-B.
 
-За замовчуванням `run_fake_traffic()` публікує ряд повідомлень про трафік (він викликає [`AdsbConflict::fake_traffic()`](#fake-traffic-method) для видачі кожного звіту). Ці симулюють трафік ADS-B там, де може виникнути конфлікт, де конфлікту не буде, а також спамять буфер трафіку.
+By default `run_fake_traffic()` publishes a number of traffic messages (it calls [`AdsbConflict::fake_traffic()`](#fake-traffic-method) to emit each report).
+Ці симулюють трафік ADS-B там, де може виникнути конфлікт, де конфлікту не буде, а також спамять буфер трафіку.
 
-::: деталі інформації про тестові методи
+:::details
+Information about the test methods
 
-Відповідні методи визначені в [AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1).
+The relevent methods are defined in [AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1).
 
-#### Метод `run_fake_traffic()`
+#### `run_fake_traffic()` method
 
-Метод `run_fake_traffic()` виконується, коли викликається команда `navigator fake_traffic`.
+The `run_fake_traffic()` method is run when the `navigator fake_traffic` command is called.
 
-Метод викликає метод `fake_traffic()` для генерації симульованих повідомлень транспондера навколо поточного положення транспортного засобу. Воно проходить в поточному положенні транспортного засобу, інформація про симульований трафік, такий як виклик, відстані, напрямки, різниці в висоті, швидкості та типи емітерів.
+The method calls the `fake_traffic()` method to generate simulated transponder messages around the current vehicle position.
+Воно проходить в поточному положенні транспортного засобу, інформація про симульований трафік, такий як виклик, відстані, напрямки, різниці в висоті, швидкості та типи емітерів.
 
-(Закоментований) код у функції `run_fake_traffic()` симулює різні сценарії, включаючи конфлікти та відсутність конфліктів, а також спамінг буфера трафіку.
+The (commented out) code in `run_fake_traffic()` simulates a number of different scenarios, including conflicts and non-conflicts, as well as spamming the traffic buffer.
 
-#### Метод `fake_traffic()`
+#### `fake_traffic()` method
 
-`AdsbConflict::fake_traffic()` викликається методом [`run_fake_traffic()`](#run-fake-traffic-method) для створення окремих звітів транспондерів ADS-B.
+`AdsbConflict::fake_traffic()` is called by the [`run_fake_traffic()`](#run-fake-traffic-method) to create individual ADS-B transponder reports.
 
 Це приймає кілька параметрів, які вказують на характеристики фальшивого трафіку:
 
-- `викликний знак`: Викликний знак фальшивого транспондера.
-- `відстань`: Горизонтальна відстань до фейкового транспортного засобу від поточного транспортного засобу.
-- `direction`: Напрямок в NED від цього транспортного засобу до шахрайського в радіанах.
-- `traffic_heading`: Напрямок руху трафіку в NED в радіанах.
-- `altitude_diff`: Висотна різниця фальшивого трафіку. Позитив вгору.
-- `hor_velocity`: Горизонтальна швидкість фальшивого трафіку, у м/с.
-- `ver_velocity`: Вертикальна швидкість фальшивого трафіку, у м/с.
-- `тип_емітера`: Тип штучного транспортного засобу, як перераховане значення.
-- `icao_address`: ICAO адреса.
-- `lat_uav`: Широта цього літального апарату (використовується для розміщення фальшивого трафіку навколо літального апарату)
-- `on_uav`: Lon цього літального апарату (використовується для розміщення фальшивого трафіку навколо літального апарату)
-- `alt_uav`: Висота літального апарату (як посилання - використовується для розміщення фальшивого трафіку навколо літального апарату)
+- `callsign`: Callsign of the fake transponder.
+- `distance`: Horizontal distance to the fake vehicle from the current vehicle.
+- `direction`: Direction in NED from this vehicle to the fake in radians.
+- `traffic_heading`: Travel direction of the traffic in NED in radians.
+- `altitude_diff`: Altitude difference of the fake traffic. Позитив вгору.
+- `hor_velocity`: Horizontal velocity of fake traffic, in m/s.
+- `ver_velocity`: Vertical velocity of fake traffic, in m/s.
+- `emitter_type`: Type of fake vehicle, as an enumerated value.
+- `icao_address`: ICAO address.
+- `lat_uav`: Lat of this vehicle (used to position fake traffic around vehicle)
+- `on_uav`: Lon of this vehicle (used to position fake traffic around vehicle)
+- `alt_uav`: Altitude of the vehicle (as reference - used to position fake traffic around vehicle)
 
 Метод створює симульоване повідомлення транспондера біля транспортного засобу, використовуючи наступні кроки:
 
 - Обчислює широту та довготу трафіку на основі позиції БПЛА, відстані та напрямку.
 - Обчислює нову висоту, додавши різницю висоти до висоти БПЛА.
-- Заповнює тему [TransponderReport](../msg_docs/TransponderReport.md) симульованими даними про трафік.
-- Якщо дошка підтримує унікальний універсальний ідентифікатор (UUID), метод отримує UUID за допомогою `board_get_px4_guid` та копіює його до поля `uas_id` структури. В іншому випадку воно генерує симульований GUID.
-- Публікує симульоване повідомлення про трафік за допомогою `orb_publish`.
+- Populates a [TransponderReport](../msg_docs/TransponderReport.md) topic with the simulated traffic data.
+- If the board supports a Universally Unique Identifier (UUID), the method retrieves the UUID using `board_get_px4_guid` and copies it to the `uas_id` field of the structure.
+  В іншому випадку воно генерує симульований GUID.
+- Publishes the simulated traffic message using `orb_publish`.
 
 :::
 
 <!-- See also implementation PR: https://github.com/PX4/PX4-Autopilot/pull/21283 -->
+
 <!-- See also bug to make this work without uncommenting: https://github.com/PX4/PX4-Autopilot/issues/21810 -->
 
-## Подальша інформація
+## Додаткова інформація
 
-- [Периферійні пристрої MAVLink](../peripherals/mavlink_peripherals.md)
-- [Конфігурація послідовного порту](../peripherals/serial_configuration.md)
+- [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
+- [Serial Port Configuration](../peripherals/serial_configuration.md)
