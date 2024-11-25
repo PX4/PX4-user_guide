@@ -1,21 +1,23 @@
 # FlightGear  시뮬레이션
 
 :::warning
-This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4.
+This simulator is [community supported and maintained](../simulation/community_supported_simulators.md).
+It may or may not work with current versions of PX4.
 
 See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
 
-[FlightGear](https://www.flightgear.org/) is a flight simulator with powerful [FDM engines](http://wiki.flightgear.org/Flight_Dynamics_Model). This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by [ThunderFly s.r.o.](https://www.thunderfly.cz/)).
+[FlightGear](https://www.flightgear.org/) is a flight simulator with powerful [FDM engines](http://wiki.flightgear.org/Flight_Dynamics_Model).
+This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by [ThunderFly s.r.o.](https://www.thunderfly.cz/)).
 
-This page describes FlightGear's single-vehicle use in SITL. For information about multi-vehicle use see: [Multi-Vehicle Simulation with FlightGear](../sim_flightgear/multi_vehicle.md).
+This page describes FlightGear's single-vehicle use in SITL.
+For information about multi-vehicle use see: [Multi-Vehicle Simulation with FlightGear](../sim_flightgear/multi_vehicle.md).
 
 **Supported Vehicles:** Autogyro, Plane, Rover.
 
 <lite-youtube videoid="iqdcN5Gj4wI" title="[ThunderFly] PX4 SITL with Flightgear, Rascal110 - electric version"/>
 
 [![Mermaid Graph ](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
-
 
 <!-- Original mermaid graph
 graph LR;
@@ -24,17 +26,19 @@ graph LR;
   MAVLink-- >PX4_SITL;
 -->
 
-::: info See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+:::info
+See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
 ## Installation (Ubuntu Linux)
 
-::: info
+:::info
 These instructions were tested on Ubuntu 18.04
 :::
 
 1. Install the usual [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
-1. Install FlightGear:
+
+2. Install FlightGear:
 
    ```sh
    sudo add-apt-repository ppa:saiarcot895/flightgear
@@ -44,17 +48,19 @@ These instructions were tested on Ubuntu 18.04
 
    This installs the latest stable FlightGear version from the PAA repository along with the FGdata package.
 
-:::tip
-For some models (e.g. those with electric engines) the daily build with the newest features may be necessary. Install this using the [daily build PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
+   :::tip
+   For some models (e.g. those with electric engines) the daily build with the newest features may be necessary.
+   Install this using the [daily build PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
+
 :::
 
-1. Check that you are able to run FlightGear:
+3. Check that you are able to run FlightGear:
 
    ```sh
    fgfs --launcher
    ```
 
-1. Set write permissions to the **Protocols** folder in the FlightGear installation directory:
+4. Set write permissions to the **Protocols** folder in the FlightGear installation directory:
 
    ```sh
    sudo chmod a+w /usr/share/games/flightgear/Protocol
@@ -68,7 +74,8 @@ Additional installation instructions can be found on [FlightGear wiki](http://wi
 
 Run a simulation by starting PX4 SITL, specifying the airframe configuration of your choice.
 
-The easiest way to do this is to open a terminal in the root directory of the PX4 _PX4-Autopilot_ repository and call `make` for the desired target. For example, to start a plane simulation :
+The easiest way to do this is to open a terminal in the root directory of the PX4 _PX4-Autopilot_ repository and call `make` for the desired target.
+For example, to start a plane simulation :
 
 ```sh
 cd /path/to/PX4-Autopilot
@@ -77,15 +84,17 @@ make px4_sitl_nolockstep flightgear_rascal
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-| Vehicle                                                                                   | 통신                                           |
-| ----------------------------------------------------------------------------------------- | -------------------------------------------- |
-| [표준 항공기](../sim_flightgear/vehicles.md#standard-plane)                                    | `make px4_sitl_nolockstep flightgear_rascal` |
+| Vehicle                                                                                                      | 통신                                           |
+| ------------------------------------------------------------------------------------------------------------ | -------------------------------------------- |
+| [Standard Plane](../sim_flightgear/vehicles.md#standard-plane)                                               | `make px4_sitl_nolockstep flightgear_rascal` |
 | [Ackermann vehicle (UGV/Rover)](../sim_flightgear/vehicles.md#ackerman-vehicle-ugv-rover) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
-| [오토자이로 ](../sim_flightgear/vehicles.md#autogyro)                                          | `make px4_sitl_nolockstep flightgear_tf-g1`  |
+| [Autogyro](../sim_flightgear/vehicles.md#autogyro)                                                           | `make px4_sitl_nolockstep flightgear_tf-g1`  |
 
-The commands above launch a single vehicle with the full UI. _QGroundControl_ should be able to automatically connect to the simulated vehicle.
+The commands above launch a single vehicle with the full UI.
+_QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
-::: info For the full list of FlightGear build targets (highlighted) run:
+:::info
+For the full list of FlightGear build targets (highlighted) run:
 
 ```sh
 make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
@@ -94,14 +103,16 @@ make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
 For additional information see: [FlightGear Vehicles](../sim_flightgear/vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
 :::
 
-::: info The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
+:::info
+The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
 :::
 
 ## Taking it to the Sky
 
 The `make` commands mentioned above first build PX4 and then run it along with the FlightGear simulator.
 
-Once the PX4 has started it will launch the PX4 shell as shown below. You must select enter to get the command prompt.
+Once the PX4 has started it will launch the PX4 shell as shown below.
+You must select enter to get the command prompt.
 
 ```sh
 ______  __   __    ___
@@ -144,9 +155,12 @@ PX4 Communicator: PX4 Connected.
 pxh>
 ```
 
-The console will print out status as PX4 loads the airframe-specific initialization and parameter files, wait for (and connect to) the simulator. Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm. At this point, you should see a FlightGear window with some view of aircraft.
+The console will print out status as PX4 loads the airframe-specific initialization and parameter files, wait for (and connect to) the simulator.
+Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm.
+At this point, you should see a FlightGear window with some view of aircraft.
 
-::: info You can change the view by pressing **Ctrl+V**.
+:::info
+You can change the view by pressing **Ctrl+V**.
 :::
 
 ![FlightGear UI](../../assets/simulation/flightgear/flightgearUI.jpg)
@@ -173,9 +187,11 @@ In FlightGear you can display the frame rate by enabling it in: **View > View Op
 
 ### Set Custom Takeoff Location
 
-Takeoff location in SITL FlightGear can be set using additional variables. Setting the variable will override the default takeoff location.
+Takeoff location in SITL FlightGear can be set using additional variables.
+Setting the variable will override the default takeoff location.
 
-The variables which can be set are as follows: `--airport`, `--runway`, and `--offset-distance`. Other options can be found on [FlightGear wiki](http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation)
+The variables which can be set are as follows: `--airport`, `--runway`, and `--offset-distance`.
+Other options can be found on [FlightGear wiki](http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation)
 
 예를 들어:
 
@@ -193,7 +209,8 @@ The joystick input in FlightGear should be disabled in otherwise there will be a
 
 ## Extending and Customizing
 
-To extend or customize the simulation interface, edit the files in the **Tools/simulation/flightgear/flightgear_bridge** folder. The code is available in the [PX4-FlightGear-Bridge repository](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) on Github.
+To extend or customize the simulation interface, edit the files in the **Tools/simulation/flightgear/flightgear_bridge** folder.
+The code is available in the [PX4-FlightGear-Bridge repository](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) on Github.
 
 ## 추가 정보
 
