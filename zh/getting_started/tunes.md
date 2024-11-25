@@ -4,20 +4,22 @@
 
 下面列出一组标准蜂鸣器声音。
 
-::: info **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) and can be tested using the [tune-control](../modules/modules_system.md#tune-control) module. You can search for tune use using the string `TUNE_ID_name`(e.g. `TUNE_ID_PARACHUTE_RELEASE)
+:::info
+**Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) and can be tested using the [tune-control](../modules/modules_system.md#tune-control) module.
+You can search for tune use using the string `TUNE_ID_name`(e.g. \`TUNE_ID_PARACHUTE_RELEASE)
 :::
-
 
 ## 启动
 
 These tunes are played during the boot sequence.
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS --> 
 
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS --> 
 
 #### 启动声音
 
 <audio controls>
   <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- tune: 1, STARTUP -->
@@ -28,6 +30,7 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- tune 2, ERROR_TUNE -->
@@ -35,14 +38,14 @@ Your browser does not support the audio element.
 - 硬件错误导致系统重启。
 - 系统设置使用PX4IO但IO不存在。
 - UAVCAN已启用，但驱动无法启动。
-- SITL/HITL enabled but *pwm_out_sim* driver can't start.
+- SITL/HITL enabled but _pwm_out_sim_ driver can't start.
 - FMU启动失败。
-
 
 #### 创建文件系统
 
 <audio controls>
   <source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 14, SD_INIT (previously tune 16) -->
@@ -51,22 +54,22 @@ Your browser does not support the audio element.
 - 挂载失败（如果格式化成功，启动程序将尝试再次挂载）。
 - 未安装SD卡。
 
-
 #### 格式化失败
 
 <audio controls>
   <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 15, SD_ERROR (previously 17) -->
 
 - 格式化SD卡失败（曾经试图挂载SD卡）。
 
-
 #### 执行PX4IO
 
 <audio controls>
   <source src="../../assets/tunes/18_program_px4io.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 16, PROG_PX4IO (previously id 18) -->
@@ -77,6 +80,7 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/19_program_px4io_success.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 17, PROG_PX4IO_OK (previously tune 19) -->
@@ -87,6 +91,7 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/20_program_px4io_fail.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 18, PROG_PX4IO_ERR (previously tune 20) -->
@@ -94,7 +99,6 @@ Your browser does not support the audio element.
 - PX4IO程序执行失败。
 - PX4IO无法执行。
 - 未找到AUX混控器。
-
 
 ## 操作过程中
 
@@ -106,6 +110,7 @@ These tones/tunes are emitted during normal operation.
 
 <audio controls>
   <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 2, ERROR_TUNE -->
@@ -116,6 +121,7 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/3_notify_positive_tone.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 3, NOTIFY_POSITIVE -->
@@ -129,6 +135,7 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/4_notify_neutral_tone.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 4, NOTIFY_NEUTRAL -->
@@ -141,6 +148,7 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/5_notify_negative_tone.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 5, NOTIFY_NEGATIVE -->
@@ -156,6 +164,7 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/6_arming_warning.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 6, ARMING_WARNING -->
@@ -166,6 +175,7 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/10_arming_failure_tune.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 10, ARMING_FAILURE -->
@@ -176,6 +186,7 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/7_battery_warning_slow.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 7,  BATTERY_WARNING_SLOW -->
@@ -186,17 +197,18 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/8_battery_warning_fast.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 8, BATTERY_WARNING_FAST -->
 
 - Critical low battery warning ([failsafe](../config/safety.md#battery-level-failsafe)).
 
-
 #### GPS信号弱警告
 
 <audio controls>
   <source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 9,  GPS_WARNING -->
@@ -205,17 +217,18 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/11_parachute_release.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 11, PARACHUTE_RELEASE -->
 
 - Parachute release triggered.
 
-
 #### Single Beep
 
 <audio controls>
   <source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 12, SINGLE_BEEP (previously was id 14 -->
@@ -226,6 +239,7 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/15_home_set_tune.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 <!-- 13, HOME_SET (previously id 15) -->
@@ -236,6 +250,7 @@ Your browser does not support the audio element.
 
 <audio controls>
   <source src="../../assets/tunes/power_off_tune.mp3" type="audio/mpeg">
+  
 Your browser does not support the audio element.
 </audio>
 
