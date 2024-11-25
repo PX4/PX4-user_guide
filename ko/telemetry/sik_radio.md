@@ -1,12 +1,15 @@
-# SiK 라디오
+# SiK 무선통신
 
-[SiK 라디오](https://github.com/LorenzMeier/SiK)는 텔레메트리 라디오를 위한 펌웨어와 도구들입니다.
+[SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
 
-PX4 is protocol-compatible with radios that use _SiK_. SiK 무선 통신 모듈은 보통 적절한 커넥터/케이블을 갖추고 있어 [픽스호크 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에 직접 연결할 수 있습니다(어떤 경우 적절한 케이블/커넥터를 구해야 할 수도 있습니다). 보통 기체와 지상통제장치 간에 한 쌍의 장비가 필요합니다.
+PX4 is protocol-compatible with radios that use _SiK_.
+SiK Radios often come with appropriate connectors/cables allowing them to be directly connected to [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers
+(in some cases you may need to obtain an appropriate cable/connector).
+보통 기체와 지상통제장치 간에 한 쌍의 장비가 필요합니다.
 
 SiK 라디오는 다양한 범위와 폼 팩터를 지원하는 다양한 제조업체/가게에서 구매가능 합니다.
 
-![SiK 라디오](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
+![SiK Radio](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
 
 ## 공급 업체
 
@@ -15,18 +18,20 @@ SiK 라디오는 다양한 범위와 폼 팩터를 지원하는 다양한 제조
 - <del>_HKPilot Telemetry Radio_</del> (Discontinued)
 - <del>_3DR Telemetry Radio_</del> (Discontinued)
 
-## 설정
+## Setup/Configuration
 
 지상통제장치에서는 무선통신장치는 플러그앤플레이 방식의 USB로 연결합니다.
 
-기체의 장치는 비행 제어장치의 `TELEM1` 포트에 연결하며, 보통 추가 설정은 하지 않습니다.
+The vehicle-based radio is connected to the flight-controller's `TELEM1` port, and typically requires no further configuration.
 
 ## 펌웨어 업데이트
 
-대부분의 [공급업체](#vendors)에서 제공하는 하드웨어는 최신 펌웨어에 설정되어 있습니다. 구형 하드웨어에서 MAVLink 2 추가하기 위하여, 새 펌웨어로 업데이트하여야 합니다.
+Hardware sourced from most [vendors](#vendors) should come pre-configured with the latest firmware.
+구형 하드웨어에서 MAVLink 2 추가하기 위하여, 새 펌웨어로 업데이트하여야 합니다.
 
 You can update the radio firmware using _QGroundControl_: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html).
 
 ## 고급 설정
 
-개발 섹션에는 펌웨어 빌드와 AT 명령 기반 설정에 대한 [정보](../data_links/sik_radio.md)를 참고하십시오. 개발자가 아닌 경우에는 이 작업을 수행하지 않아도 됩니다.
+The Development section has [additional information](../data_links/sik_radio.md) about building firmware and AT-command based configuration.
+개발자가 아닌 경우에는 이 작업을 수행하지 않아도 됩니다.
