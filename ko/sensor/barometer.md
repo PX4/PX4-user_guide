@@ -2,7 +2,9 @@
 
 Barometers measure atmospheric pressure, and are used in drones as altitude sensors.
 
-Most [flight controllers](../flight_controller/index.md) on which PX4 runs include a barometer. By default PX4 will select the barometer with the highest priority (if any are present), and configure it as a data source for [Height estimation](../advanced_config/tuning_the_ecl_ekf.md#height). If a sensor fault is detected, PX4 will fall back to the next highest priority sensor.
+Most [flight controllers](../flight_controller/index.md) on which PX4 runs include a barometer.
+By default PX4 will select the barometer with the highest priority (if any are present), and configure it as a data source for [Height estimation](../advanced_config/tuning_the_ecl_ekf.md#height).
+If a sensor fault is detected, PX4 will fall back to the next highest priority sensor.
 
 Generally barometers require no user configuration (or thought)!
 
@@ -21,7 +23,8 @@ Note that the supported barometer part numbers can be inferred from the driver n
 
 ## PX4 설정
 
-Generally barometers require no user configuration. If needed, you can:
+Generally barometers require no user configuration.
+If needed, you can:
 
 - Enable/Disable barometers as data source for [Height estimation](../advanced_config/tuning_the_ecl_ekf.md#height) using the [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) parameter.
 - Change the selection order of barometers using the [CAL_BAROx_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO) parameters for each barometer.
@@ -30,7 +33,6 @@ Generally barometers require no user configuration. If needed, you can:
 ## Calibration
 
 Barometers don't require calibration.
-
 
 <!-- Notes:
 - Absolute value isn't important since we just use the difference in altitude between "now" and the value when initializing EKF2
