@@ -1,12 +1,13 @@
 # Femtones MINI2 Receiver
 
-[MINI2 Receiver](http://www.femtomes.com/#/MiniII?type=0) is an RTK GPS receiver that delivers high-rate and reliable RTK initialization for centimeter level positioning. It is intended for applications that require high-precision positioning (e.g. navigation and mapping, etc.).
+[MINI2 Receiver](http://www.femtomes.com/#/MiniII?type=0) is an RTK GPS receiver that delivers high-rate and reliable RTK initialization for centimeter level positioning.
+It is intended for applications that require high-precision positioning (e.g. navigation and mapping, etc.).
 
 The receiver is connected to PX4 via a serial port (UART) and may be configured over Ethernet using a standard web browser.
 
 ![MINI II Receiver](../../assets/hardware/gps/rtk_fem_miniII_receiver.jpg)
 
-::: info
+:::info
 PX4 drivers for Ethernet, CAN and USB are under development.
 :::
 
@@ -34,13 +35,16 @@ Contact [Femtones](http://www.femtomes.com/) directly for sales quote:
 
 ## 接线和连接
 
-The [MINI2 Receiver](http://www.femtomes.com) is connected to a UART on the flight controller (GPS port) for data. To power the module you will need a separate 12V power supply. The pins on the 12-pin connector are numbered as shown below.
+The [MINI2 Receiver](http://www.femtomes.com) is connected to a UART on the flight controller (GPS port) for data.
+To power the module you will need a separate 12V power supply.
+The pins on the 12-pin connector are numbered as shown below.
 
-![MINI_II_2](../../assets/hardware/gps/rtk_fem_miniII_2.jpg)
+![MINI\_II\_2](../../assets/hardware/gps/rtk_fem_miniII_2.jpg)
 
 ## 配置
 
-For heading estimation the two antennas need to be on the same level and at least 30 cm apart from each other. The direction that they are facing does not matter as it can be configured with the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) parameter.
+For heading estimation the two antennas need to be on the same level and at least 30 cm apart from each other.
+The direction that they are facing does not matter as it can be configured with the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) parameter.
 
 Configure the serial port on which the [MINI2 Receiver](http://www.femtomes.com/#/MiniII?type=0) will run using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), and set the baud rate to 115200 using [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD).
 
