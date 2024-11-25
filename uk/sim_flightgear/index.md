@@ -1,21 +1,23 @@
 # Симуляція Flightgear
 
 :::warning
-Цей симулятор [підтримується та підтримується спільнотою](../simulation/community_supported_simulators.md). Це може працювати або не працювати з поточними версіями PX4.
+This simulator is [community supported and maintained](../simulation/community_supported_simulators.md).
+Це може працювати або не працювати з поточними версіями PX4.
 
-Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для інформації про середовища та інструменти, які підтримуються основною розробницькою командою.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для інформації про середовища та інструменти, що підтримуються основною командою розробників.
 :::
 
-[FlightGear](https://www.flightgear.org/) - це симулятор польоту з потужними [моторами FDM](http://wiki.flightgear.org/Flight_Dynamics_Model). Це дозволяє FlightGear моделювати вертольоти в різних метеорологічних умовах (тому спочатку міст між ними був розроблений компанією [ThunderFly s.r.o.](https://www.thunderfly.cz/)).
+[FlightGear](https://www.flightgear.org/) is a flight simulator with powerful [FDM engines](http://wiki.flightgear.org/Flight_Dynamics_Model).
+This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by [ThunderFly s.r.o.](https://www.thunderfly.cz/)).
 
-Ця сторінка описує використання FlightGear з одним транспортним засобом у реальному часі на віртуальному полігоні (SITL). Для отримання інформації про багатокористувацьке використання дивіться: [Багатокористувацька симуляція з FlightGear](../sim_flightgear/multi_vehicle.md).
+Ця сторінка описує використання FlightGear з одним транспортним засобом у реальному часі на віртуальному полігоні (SITL).
+For information about multi-vehicle use see: [Multi-Vehicle Simulation with FlightGear](../sim_flightgear/multi_vehicle.md).
 
-**Підтримувані Транспортні Засоби:** Автожир, Літак, Рухомий об'єкт.
+**Supported Vehicles:** Autogyro, Plane, Rover.
 
 <lite-youtube videoid="iqdcN5Gj4wI" title="[ThunderFly] PX4 SITL with Flightgear, Rascal110 - electric version"/>
 
 [![Mermaid Graph ](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
-
 
 <!-- Original mermaid graph
 graph LR;
@@ -24,17 +26,19 @@ graph LR;
   MAVLink-- >PX4_SITL;
 -->
 
-:::info Дивіться [Симуляція](../simulation/index.md) для загальної інформації про симулятори, середовище симуляції та конфігурацію симуляції (наприклад, підтримувані транспортні засоби).
+:::info
+See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
 ## Встановлення (Ubuntu Linux)
 
 :::info
-Ці інструкції були перевірені на Ubuntu 18.04
+These instructions were tested on Ubuntu 18.04
 :::
 
-1. Установіть звичайне [Середовище розробки на Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
-1. Встановити FlightGear:
+1. Install the usual [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
+
+2. Встановити FlightGear:
 
    ```sh
    sudo add-apt-repository ppa:saiarcot895/flightgear
@@ -44,17 +48,19 @@ graph LR;
 
    Це встановить останню стабільну версію FlightGear зі сховища PAA разом із пакетом FGdata.
 
-:::tip
-Для деяких моделей (наприклад, електричні двигуни) щоденна збірка з найновішими функціями може бути необхідною. Встановіть це за допомогою [щоденної збірки PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
+   :::tip
+   For some models (e.g. those with electric engines) the daily build with the newest features may be necessary.
+   Install this using the [daily build PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
+
 :::
 
-1. Перевірте, що ви можете запустити FlightGear:
+3. Перевірте, що ви можете запустити FlightGear:
 
    ```sh
    fgfs --launcher
    ```
 
-1. Установіть дозволи на запис до папки **Protocols** у каталозі встановлення FlightGear:
+4. Set write permissions to the **Protocols** folder in the FlightGear installation directory:
 
    ```sh
    sudo chmod a+w /usr/share/games/flightgear/Protocol
@@ -62,46 +68,50 @@ graph LR;
 
    Налаштування дозволів потрібне, оскільки PX4-FlightGear-Bridge розміщує тут файл визначення зв’язку.
 
-Додаткові інструкції для встановлення можна знайти на [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA).
+Additional installation instructions can be found on [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA).
 
 ## Запуск симуляції
 
 Запустіть симуляцію, запустивши PX4 SITL та вказавши конфігурацію повітряного каркасу на ваш вибір.
 
-Найпростіший спосіб зробити це - відкрити термінал у кореневій директорії репозиторію PX4 _PX4-Autopilot_ і викликати `make` для потрібної цілі. Наприклад, для запуску симуляції літака:
+The easiest way to do this is to open a terminal in the root directory of the PX4 _PX4-Autopilot_ repository and call `make` for the desired target.Наприклад, для запуску симуляції літака:
 
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl_nolockstep flightgear_rascal
 ```
 
-Нижче перелічено підтримувані транспортні засоби та команди `make` (клацніть по посиланнях, щоб побачити зображення транспортного засобу).
+The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-| Транспортний засіб                                                                          | Команда                                      |
-| ------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| [Стандартний літак](../sim_flightgear/vehicles.md#standard-plane)                           | `make px4_sitl_nolockstep flightgear_rascal` |
-| [Автомобіль Акермана (UGV/Rover)](../sim_flightgear/vehicles.md#ackerman-vehicle-ugv-rover) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
-| [Автогиро](../sim_flightgear/vehicles.md#autogyro)                                          | `make px4_sitl_nolockstep flightgear_tf-g1`  |
+| Транспортний засіб                                                                                           | Команда                                      |
+| ------------------------------------------------------------------------------------------------------------ | -------------------------------------------- |
+| [Standard Plane](../sim_flightgear/vehicles.md#standard-plane)                                               | `make px4_sitl_nolockstep flightgear_rascal` |
+| [Ackermann vehicle (UGV/Rover)](../sim_flightgear/vehicles.md#ackerman-vehicle-ugv-rover) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
+| [Autogyro](../sim_flightgear/vehicles.md#autogyro)                                                           | `make px4_sitl_nolockstep flightgear_tf-g1`  |
 
-Вищенаведені команди запускають єдиний засіб з повним користувацьким інтерфейсом. _QGroundControl_ повинна автоматично підключатися до симульованого транспортного засобу.
+Вищенаведені команди запускають єдиний засіб з повним користувацьким інтерфейсом.
+_QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
-:::info Для повного списку цілей побудови FlightGear (виділені) виконайте:
+:::info
+For the full list of FlightGear build targets (highlighted) run:
 
 ```sh
 make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
 ```
 
-Для отримання додаткової інформації див. : [Літальні апарати FlightGear](../sim_flightgear/vehicles.md) (це включає інформацію про "непідтримувані" літальні апарати та додавання нових літальних апаратів).
+For additional information see: [FlightGear Vehicles](../sim_flightgear/vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
 :::
 
-:::info Посібник [Встановлення файлів і коду](../dev_setup/dev_env.md) є корисним довідником якщо виникнуть помилки збірки.
+:::info
+The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
 :::
 
 ## Підйом у небо
 
-Згадані вище команди `make` спочатку створюють PX4, а потім запускають його разом із симулятором FlightGear.
+The `make` commands mentioned above first build PX4 and then run it along with the FlightGear simulator.
 
-Після запуску PX4 запуститься оболонка PX4, як показано нижче. Ви повинні вибрати enter, щоб відкрити командний рядок.
+Після запуску PX4 запуститься оболонка PX4, як показано нижче.
+Ви повинні вибрати enter, щоб відкрити командний рядок.
 
 ```sh
 ______  __   __    ___
@@ -129,7 +139,7 @@ INFO  [simulator] Simulator connected on TCP port 4560.
 INFO  [commander] LED: open /dev/led0 failed (22)
 INFO  [commander] Mission #3 loaded, 9 WPs, curr: 8
 INFO  [mavlink] mode: Normal, data rate: 4000000 B/s on udp port 18570 remote port 14550
-INFO  [airspeed_selector] No airspeed sensor detected. Переключитися в режим, що не використовує швидкість повітря.
+INFO  [airspeed_selector] No airspeed sensor detected. Switch to non-airspeed mode.
 INFO  [mavlink] mode: Onboard, data rate: 4000000 B/s on udp port 14580 remote port 14540
 INFO  [mavlink] mode: Onboard, data rate: 4000 B/s on udp port 14280 remote port 14030
 INFO  [logger] logger started (mode=all)
@@ -144,9 +154,12 @@ PX4 Communicator: PX4 Connected.
 pxh>
 ```
 
-Консоль буде виводити статус поки PX4 завантажує файли ініціалізації та параметрів для певного планера, чекати та (підключатися) до симулятора. Як тільки з'явиться вивід INFO що [ecl/EKF] `commencing GPS fusion` рухомий засіб готовий до роботи. На цьому етапі ви повинні побачити вікно FlightGear з якоюсь видимою частиною літака.
+Консоль буде виводити статус поки PX4 завантажує файли ініціалізації та параметрів для певного планера, чекати та (підключатися) до симулятора.
+Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm.
+На цьому етапі ви повинні побачити вікно FlightGear з якоюсь видимою частиною літака.
 
-:::info Ви можете змінити вид, натиснувши **Ctrl+V**.
+:::info
+You can change the view by pressing **Ctrl+V**.
 :::
 
 ![FlightGear UI](../../assets/simulation/flightgear/flightgearUI.jpg)
@@ -161,21 +174,23 @@ pxh> commander takeoff
 
 Ви можете налаштувати вашу FG установку/налаштування за допомогою наступних змінних середовища:
 
-- `FG\_BINARY` - абсолютний шлях до виконавчого файлу FG. (Це може бути AppImage)
-- `FG\_MODELS\_DIR` - абсолютний шлях до теки, що містить вручну завантажені моделі літаків, які слід використовувати для симуляції.
-- `FG\_ARGS\_EX` - будь-які додаткові параметри FG.
+- `FG\_BINARY` - absolute path to FG binary to run. (Це може бути AppImage)
+- `FG\_MODELS\_DIR` - absolute path to the folder containing the manually-downloaded aircraft models which should be used for simulation.
+- `FG\_ARGS\_EX` - any additional FG parameters.
 
 <a id="frame_rate"></a>
 
 ### Відображення частоти кадрів
 
-У FlightGear ви можете відобразити частоту кадрів, увімкнувши її в: **Перегляд > Параметри перегляду > Показати частоту кадрів**.
+In FlightGear you can display the frame rate by enabling it in: **View > View Options > Show frame rate**.
 
 ### Встановлення власного місця зльоту
 
-Місце зльоту в SITL FlightGear можна встановити за допомогою додаткових змінних. Встановлення змінної перевищить місце вильоту за замовчуванням.
+Місце зльоту в SITL FlightGear можна встановити за допомогою додаткових змінних.
+Встановлення змінної перевищить місце вильоту за замовчуванням.
 
-Змінні, які можна встановити, наведено нижче: `--airport`, `--runway` та `--offset-distance`. Інші варіанти можна знайти на [FlightGear wiki](http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation)
+The variables which can be set are as follows: `--airport`, `--runway`, and `--offset-distance`.
+Other options can be found on [FlightGear wiki](http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation)
 
 Наприклад:
 
@@ -183,18 +198,19 @@ pxh> commander takeoff
 FG_ARGS_EX="--airport=PHNL"  make px4_sitl_nolockstep flightgear_rascal
 ```
 
-Як приклад вище запускає моделювання на [Міжнародний аеропорт Honolulu](http://wiki.flightgear.org/Suggested_airports)
+The example above starts the simulation on the [Honolulu international airport](http://wiki.flightgear.org/Suggested_airports)
 
 ### Використання джойстика
 
-Джойстики та пальцевий джойстик підтримуються через _QGroundControl_ ([інструкції з налаштування тут](../simulation/README.md#joystick-gamepad-integration)).
+Joystick and thumb-joystick are supported through _QGroundControl_ ([setup instructions here](../simulation/index.md#joystick-gamepad-integration)).
 
 Вхід джойстика в FlightGear слід вимкнути, в іншому випадку виникне "конфлікт умов" між введенням джойстика FG та командами PX4.
 
 ## Розширення та персоналізація
 
-Для розширення та налаштування інтерфейсу симуляції, відредагуйте файли у директорії **Tools/simulation/flightgear/flightgear_bridge** . Код доступний у репозиторії [PX4-FlightGear-Bridge](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) на Github.
+To extend or customize the simulation interface, edit the files in the **Tools/simulation/flightgear/flightgear_bridge** folder.
+The code is available in the [PX4-FlightGear-Bridge repository](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) on Github.
 
-## Подальша інформація
+## Додаткова інформація
 
-- [Довідка з PX4-FlightGear-Bridge](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)
+- [PX4-FlightGear-Bridge readme](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)
