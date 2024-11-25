@@ -1,82 +1,92 @@
 # Симуляція JSBSim
 
 :::warning
-Цей симулятор [підтримується та обслуговується спільнотою](../simulation/community_supported_simulators.md). Це може або не може працювати з поточними версіями PX4.
+This simulator is [community supported and maintained](../simulation/community_supported_simulators.md).
+Це може працювати або не працювати з поточними версіями PX4.
 
-Дивіться [Інсталяція інструментів](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основним розробницьким командою.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для інформації про середовища та інструменти, що підтримуються основною командою розробників.
 :::
 
-[JSBSim](http://jsbsim.sourceforge.net/index.html) - це відкрите програмне забезпечення симулятора польоту ("модель динаміки польоту (FDM)"), який працює на операційних системах Microsoft Windows, Apple Macintosh, Linux, IRIX, Cygwin (Unix на Windows) та ін. Серед його можливостей: повністю налаштована аеродинаміка та система приводу, яка може моделювати складну динаміку польоту літака. В обчислення також враховуються обертальні ефекти Землі.
+[JSBSim](http://jsbsim.sourceforge.net/index.html) is a open source flight simulator ("flight dynamics model (FDM)") that runs on Microsoft Windows, Apple Macintosh, Linux, IRIX, Cygwin (Unix on Windows), etc.
+Серед його можливостей: повністю налаштована аеродинаміка та система приводу, яка може моделювати складну динаміку польоту літака.
+В обчислення також враховуються обертальні ефекти Землі.
 
-**Підтримувані транспортні засоби:** літак, квадротор, гексаротор
+**Supported Vehicles:** Plane, Quadrotor, Hexarotor
 
 <lite-youtube videoid="y5azVNmIVyw" title="JSBSim with APX4 Software-In-The-Loop Simulation"/>
 
-:::info Див. [Симуляція](../simulation/index.md) для загальної інформації про симулятори, середовище симуляції та конфігурацію симуляції (наприклад, підтримувані транспортні засоби).
+:::info
+See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
 ## Встановлення (Ubuntu Linux)
 
 :::info
-Ці інструкції були перевірені на Ubuntu 18.04
+These instructions were tested on Ubuntu 18.04
 :::
 
-1. Установіть звичайне [Середовище розробки на Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
-1. Встановіть випуск JSBSim зі [сторінки релізів](https://github.com/JSBSim-Team/jsbsim/releases/tag/Linux):
+1. Install the usual [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
+
+2. Install a JSBSim release from the [release page](https://github.com/JSBSim-Team/jsbsim/releases/tag/Linux):
 
    ```sh
    dpkg -i JSBSim-devel_1.1.0.dev1-<release-number>.bionic.amd64.deb
    ```
 
-1. (Необов’язково) FlightGear можна (необов’язково) використовувати для візуалізації. Щоб установити FlightGear, перегляньте [інструкції зі встановлення FlightGear](../sim_flightgear/README.md)).
+3. (Необов’язково) FlightGear можна (необов’язково) використовувати для візуалізації.
+   To install FlightGear, refer to the [FlightGear installation instructions](../sim_flightgear/index.md)).
 
 ## Запуск симуляції
 
-JSBSim SITL симуляцію можна зручно запустити за допомогою команди `make`, як показано нижче:
+JSBSim SITL simulation can be conveniently run through a `make` command as shown below:
 
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl jsbsim
 ```
 
-Це запустить інстанцію PX4 SITL та інтерфейс FlightGear (для візуалізації). Якщо ви хочете запустити без інтерфейсу FlightGear, ви можете додати `HEADLESS=1` перед командою `make`.
+Це запустить інстанцію PX4 SITL та інтерфейс FlightGear (для візуалізації).
+If you want to run without the FlightGear UI, you can add `HEADLESS=1` to the front of the `make` command.
 
-Підтримувані транспортні засоби та команди `make` перелічені нижче (натисніть на посилання, щоб побачити зображення транспортних засобів).
+The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-| Рухомий засіб     | Команда                            |
-| ----------------- | ---------------------------------- |
-| Стандартний літак | `make px4_sitl jsbsim_rascal`      |
-| Квадротор         | `make px4_sitl jsbsim_quadrotor_x` |
-| Гексаротор        | `make px4_sitl jsbsim_hexarotor_x` |
+| Транспортний засіб | Команда                            |
+| ------------------ | ---------------------------------- |
+| Стандартний літак  | `make px4_sitl jsbsim_rascal`      |
+| Квадротор          | `make px4_sitl jsbsim_quadrotor_x` |
+| Гексаротор         | `make px4_sitl jsbsim_hexarotor_x` |
 
-Вищезазначені команди запускають один літальний апарат із повним інтерфейсом користувача. _QGroundControl_ повинна автоматично підключатися до симульованого транспортного засобу.
+Вищенаведені команди запускають єдиний засіб з повним користувацьким інтерфейсом.
+_QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
 ## Виконання JSBSim з ROS
 
 Щоб запустити JSBSim з прошивками:
 
-1. Клонуйте пакет `px4-jsbsim-bridge` у ваше робоче середовище catkin:
+1. Clone the `px4-jsbsim-bridge` package into your catkin workspace:
 
    ```sh
    cd <path_to_catkin_ws>/src
    git clone https://github.com/Auterion/px4-jsbsim-bridge.git
    ```
 
-1. Побудуйте пакет catkin `jsbsim_bridge`:
+2. Build the `jsbsim_bridge` catkin package:
 
    ```sh
    catkin build jsbsim_bridge
    ```
 
-   :::info Ви повинні вже мати встановлену MAVROS у своєму робочому просторі (якщо ні, дотримуйтеся інструкцій у [Посібнику з встановлення MAVROS](../ros/mavros_installation.md)).
+   ::: info
+   You must have already set MAVROS in your workspace (if not, follow the instructions in the [MAVROS installation guide](../ros/mavros_installation.md)).
+
 :::
 
-1. Так почніть JSBSim через ROS, використовуючи файл запуску, як показано:
+3. Так почніть JSBSim через ROS, використовуючи файл запуску, як показано:
 
    ```sh
    roslaunch jsbsim_bridge px4_jsbsim_bridge.launch
    ```
 
-## Подальша інформація
+## Додаткова інформація
 
 - [px4-jsbsim-bridge readme](https://github.com/Auterion/px4-jsbsim-bridge)
