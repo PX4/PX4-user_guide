@@ -10,27 +10,27 @@
 
 ❏ 自稳
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 俯仰/滚转/偏航响应 1：1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 节气门响应 1：1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response 1:1
 
 ❏ 高度
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 垂直位置应以棒为中心保持当前值
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 俯仰/滚转/偏航响应 1：1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 将节气门响应设置为爬升/下降速率
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
 
 ❏ 定点
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 水平位置应以棒为中心保持当前值
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Horizontal position should hold current value with stick centered
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 垂直位置应以棒为中心保持当前值
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 将节气门响应设置为爬升/下降速率
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 俯仰/翻转/偏航响应设置为俯仰/翻滚/偏航率
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response set to Pitch/Roll/Yaw rates
 
 ## 着陆
 
