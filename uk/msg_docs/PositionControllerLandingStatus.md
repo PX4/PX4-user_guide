@@ -1,8 +1,6 @@
 # PositionControllerLandingStatus (UORB message)
 
-
-
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PositionControllerLandingStatus.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PositionControllerLandingStatus.msg)
 
 ```c
 uint64 timestamp # [us] time since system start
