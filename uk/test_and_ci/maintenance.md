@@ -6,13 +6,13 @@
 
 Кількість змін, зроблених у файлі, може бути індикатором того, які файли/частини можуть потребувати рефакторингу.
 
-Для знаходження метрик змін можна використовувати такий інструмент, як [Churn](https://github.com/danmayer/churn):
+To find churn metrics a tool such as [Churn](https://github.com/danmayer/churn) can be used:
 
 ```sh
 gem install churn
 ```
 
-Приклад виводу з `v1.6.0-rc2` буде таким:
+An example output as of `v1.6.0-rc2` would be:
 
 ```sh
 cd src/PX4-Autopilot
