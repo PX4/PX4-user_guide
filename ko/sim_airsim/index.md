@@ -1,12 +1,14 @@
 # AirSim Simulation
 
 :::warning
-This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4.
+This simulator is [community supported and maintained](../simulation/community_supported_simulators.md).
+It may or may not work with current versions of PX4.
 
 See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
 
-[AirSim](https://microsoft.github.io/AirSim/) is a open-source, cross platform simulator for drones, built on _Unreal Engine_. It provides physically and visually realistic simulations of Pixhawk/PX4 using either Hardware-In-The-Loop (HITL) or Software-In-The-Loop (SITL).
+[AirSim](https://microsoft.github.io/AirSim/) is a open-source, cross platform simulator for drones, built on _Unreal Engine_.
+It provides physically and visually realistic simulations of Pixhawk/PX4 using either Hardware-In-The-Loop (HITL) or Software-In-The-Loop (SITL).
 
 <lite-youtube videoid="-WfTr1-OBGQ" title="AirSim Demo"/>
 
@@ -24,7 +26,9 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 
 <!-- datestamp:video:youtube:20210401:AirSim with PX4 on WSL 2 -->
 
-::: info WSL 2 is not a supported [PX4 Windows development environment](../dev_setup/dev_env_windows_cygwin.md), mainly because it is non-trivial to display simulator UIs running within WSL 2 in the normal Windows environment. This limitation does not apply for AirSim because its UI is run natively in Windows.
+:::info
+WSL 2 is not a supported [PX4 Windows development environment](../dev_setup/dev_env_windows_cygwin.md), mainly because it is non-trivial to display simulator UIs running within WSL 2 in the normal Windows environment.
+This limitation does not apply for AirSim because its UI is run natively in Windows.
 :::
 
 #### Microsoft AirSim: Applications to Research and Industry (PX4 Developer Summit Virtual 2020)
