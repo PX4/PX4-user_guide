@@ -2,4 +2,4 @@
 
 本节包含关于串行总线和串行驱动程序的主题:
 
-- [使串口驱动为用户可配置。](../uart/user_configurable_serial_driver.md)
+- [Making Serial Port Drivers User-Configurable](../uart/user_configurable_serial_driver.md)
