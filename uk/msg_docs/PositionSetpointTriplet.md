@@ -1,14 +1,15 @@
 # PositionSetpointTriplet (Повідомлення UORB)
 
-Глобальний набір точки встановлення у форматі координат WGS84. Ось наступні три способи вказівань (або просто наступні два або один).
+Глобальний набір точки встановлення у форматі координат WGS84.
+Ось наступні три способи вказівань (або просто наступні два або один).
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PositionSetpointTriplet.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/PositionSetpointTriplet.msg)
 
 ```c
-# Глобальний набір точки встановлення у форматі координат WGS84.
-# Ось наступні три способи вказівань (або просто наступні два або один).
+# Global position setpoint triplet in WGS84 coordinates.
+# This are the three next waypoints (or just the next two or one).
 
-uint64 timestamp        # time since system start (microseconds)
+uint64 timestamp		# time since system start (microseconds)
 
 PositionSetpoint previous
 PositionSetpoint current
