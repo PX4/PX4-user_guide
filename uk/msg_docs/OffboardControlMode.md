@@ -2,12 +2,12 @@
 
 Off-board control mode
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/OffboardControlMode.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/OffboardControlMode.msg)
 
 ```c
 # Off-board control mode
 
-uint64 timestamp        # time since system start (microseconds)
+uint64 timestamp		# time since system start (microseconds)
 
 bool position
 bool velocity
