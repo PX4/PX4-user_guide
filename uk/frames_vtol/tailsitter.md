@@ -1,14 +1,17 @@
-# Тейлсіттер
+# Tailsitter VTOL
 
-** Тейлсіттер** злітає і приземляється на хвіст, але під час звичайного польоту переходить в режим фіксованого крила. Ротори тейлсіттера постійно зафіксовані в положенні для польоту вперед.
+A **Tailsitter VTOL** takes off and lands on its tail, but flips into the fixed-wing orientation for normal flight.
+Ротори тейлсіттера постійно зафіксовані в положенні для польоту вперед.
 
-Тейлсіттери, як правило, механічно менш складні, ніж [інші типи літальні апарат із вертикальним зльотом і посадкою (VTOL)](../frames_vtol/index.md), а отже, можуть бути дешевшими у виробництві та обслуговуванні. Однак вони мають складнішу аеродинаміку, їх важче налаштовувати і керувати ними в режимі вертикального зльоту і переходу, особливо у вітряну погоду.
+Tailsitters are typically mechanically less complex than [other types of VTOL](../frames_vtol/index.md), and hence may be less expensive to build and maintain.
+Однак вони мають складнішу аеродинаміку, їх важче налаштовувати і керувати ними в режимі вертикального зльоту і переходу, особливо у вітряну погоду.
 
 ## Тейлсіттер фрейми
 
 :::: tabs
 
-::: tab Duo Tailsitter Two rotor VTOL that uses elevons to flip from hover into fixed-wing flight.
+:::tab Duo Tailsitter
+Two rotor VTOL that uses elevons to flip from hover into fixed-wing flight.
 
 ![Wingtra: WingtraOne VTOL Duo Tailsitter](../../assets/airframes/vtol/wingtraone/hero.jpg)
 
@@ -19,7 +22,8 @@
 
 :::
 
-::: tab VTOL Tailsitter VTOL with optional elevons. Використовує ротори для переходу між режимами (разом з елеронами, якщо вони є).
+:::tab VTOL Tailsitter
+VTOL with optional elevons. Використовує ротори для переходу між режимами (разом з елеронами, якщо вони є).
 
 ![Skypull SP-1 VTOL QuadTailsitter](../../assets/airframes/vtol/skypull/skypull_sp1.jpg)
 
@@ -31,14 +35,17 @@
 
 ::::
 
-Duo Tailsitters зазвичай більш ефективні в крейсерському польоті (4 менших гвинта менш ефективні, ніж 2 більших) і фізично більш компактні. Однак, оскільки аеродинамічно вони набагато складніші в режимі зависання, їх набагато важче налаштовувати як для зависання, так і для переходу. Квадрокоптерам легше літати в режимі зависання, і вони більш стабільні у вітряну погоду. Обидва варіанти підтримуються за допомогою одного типу айфреймів у PX4.
+Duo Tailsitters зазвичай більш ефективні в крейсерському польоті (4 менших гвинта менш ефективні, ніж 2 більших) і фізично більш компактні.
+Однак, оскільки аеродинамічно вони набагато складніші в режимі зависання, їх набагато важче налаштовувати як для зависання, так і для переходу.
+Квадрокоптерам легше літати в режимі зависання, і вони більш стабільні у вітряну погоду.
+Обидва варіанти підтримуються за допомогою одного типу айфреймів у PX4.
 
 ## Налаштування/політ
 
-Налаштування та польоти VTOL описано у головній темі [VTOL](../frames_vtol/index.md).
+VTOL setup and flying are covered in the [VTOL](../frames_vtol/index.md) parent topic.
 
 :::info
-Інструкції в принципі однакові для всіх VTOL.
+The instructions are essentially the same for all VTOL.
 Основні специфічні для рами відмінності - це електропроводка двигуна та деякі аспекти тюнінгу конфігурації.
 :::
 
@@ -49,18 +56,18 @@ Duo Tailsitters зазвичай більш ефективні в крейсер
 - [TBS Caipiroshka Tailsitter Build (Pixracer)](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
 
 :::tip
-Рекомендуємо вам також ознайомитися з логами збірки інших апаратів PX4 VTOL та коптерів (більшість налаштувань є однаковими).
+We recommend that you also review build logs for other PX4 VTOL, and Copter vehicles (most of the setup is the same).
 :::
 
 ## Відео
 
-Цей розділ містить відео, які стосуються саме тейлсіттера (відео, які стосуються всіх типів VTOL, можна знайти в розділі [VTOL](../frames_vtol/index.md)).
+This section contains videos that are specific to Tailsitter VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/index.md)).
 
 ### Duo
 
 ---
 
-[TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md) - Зліт тейлсіттера (крупним планом), зависання, горизонтальний політ, переходи.
+[TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md) - Tailsitter takeoff (close up), hover, level flight, transitions.
 
 <lite-youtube videoid="acG0aTuf3f8" title="PX4 VTOL - Call for Testpilots"/>
 
@@ -69,6 +76,7 @@ Duo Tailsitters зазвичай більш ефективні в крейсер
 [Woshark](http://www.laarlab.cn/#/) _PX4 Tailsitter prototype_ - Tailsitter takeoff, transition, landing.
 
 <!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
+
 <!-- Update issue https://github.com/PX4/PX4-user_guide/issues/3007 -->
 
 <lite-youtube videoid="gjHj6YsxcZk" title="PX4 Autopilot Tailsitter"/>
@@ -78,7 +86,6 @@ Duo Tailsitters зазвичай більш ефективні в крейсер
 [UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - Tailsitter takeoff, transition, landing.
 
 <lite-youtube videoid="pWt6uoqpPIw" title="UAV Works VALAQ"/>
-
 
 ## Галерея
 
