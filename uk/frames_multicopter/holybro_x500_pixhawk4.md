@@ -1,66 +1,68 @@
 # Holybro X500 + Pixhawk4 Build
 
-:::info Holybro спочатку постачав цей комплект з [Holybro Pixhawk 4](../flight_controller/pixhawk4.md)), але на момент написання це було оновлено до [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md). Цей журнал збірки все ще актуальний, оскільки збірка комплекту практично однакова і, ймовірно, залишиться такою ж, оскільки контролер польоту оновлюється.
+:::info
+Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md)), but at time of writing this has been upgraded to a [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md).
+Цей журнал збірки все ще актуальний, оскільки збірка комплекту практично однакова і, ймовірно, залишиться такою ж, оскільки контролер польоту оновлюється.
 :::
 
-Ця тема надає повні інструкції для збирання комплекту та налаштування PX4 з використанням *QGroundControl*.
+This topic provides full instructions for building the kit and configuring PX4 using _QGroundControl_.
 
 ## Основна Інформація
 
-- **Повний комплект:** [Комплект Holybro X500](https://holybro.com/products/px4-development-kit-x500-v2)
-- **Контролер польоту:** [Pixhawk 4](../flight_controller/pixhawk4.md)
-- **Час зборки (приблизно):** 3.75 години (180 хвилин на раму, 45 хвилин на встановлення/налаштування автопілота)
+- **Full Kit:** [Holybro X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2)
+- **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.md)
+- **Assembly time (approx.):** 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
 
 ![Full X500 Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hero.png)
 
 ## Специфікація матеріалів
 
-Набір Holybro [X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2) включає майже всі необхідні компоненти:
+The Holybro [X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2) includes almost all the required components:
 
-* [Pixhawk 4 автопілот](../flight_controller/pixhawk4.md)
-* [Holybro M9N GPS](https://holybro.com/collections/gps/products/m8n-gps)
-* [Керування живленням - PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
-* Двигуни Holybro - 2216 KV880 x4 (скасовано - перевірте [список запасних частин](https://holybro.com/products/spare-parts-x500-v2-kit) для поточної версії).
-* ESC Holybro BLHeli S 20A x4 (скасовано - перевірте [список запасних частин](https://holybro.com/products/spare-parts-x500-v2-kit) для поточної версії).
-* Пропелери - 1045 x4 (скасовано - перевірте [список запчастин](https://holybro.com/products/spare-parts-x500-v2-kit) для поточної версії).
-* Ремінь для акумулятора
-* Живлення та радіокабелі
-* Колісна база - 500 мм
-* Розміри - 410x410x300 мм
-* 433 МГц / 915 МГц [Телеметричне радіо Holybro](../telemetry/holybro_sik_radio.md)
+- [Pixhawk 4 autopilot](../flight_controller/pixhawk4.md)
+- [Holybro M8N GPS](https://holybro.com/collections/gps/products/m8n-gps)
+- [Power Management - PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
+- Holybro Motors - 2216 KV880 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+- Holybro BLHeli S ESC 20A x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+- Propellers - 1045 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+- Ремінь для акумулятора
+- Живлення та радіокабелі
+- Колісна база - 500 мм
+- Розміри - 410x410x300 мм
+- 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
 
-Додатково вам знадобиться акумулятор і приймач ([сумісна радіосистема](../getting_started/rc_transmitter_receiver.md)), якщо ви хочете керувати дроном вручну.
+Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
 
 ## Головне апаратне забезпечення
 
 У цьому розділі перераховано все обладнання для встановлення рами та автопілота.
 
-| Елемент                                 | Опис                                                     | Кількість |
-| --------------------------------------- | -------------------------------------------------------- | --------- |
-| Нижня пластина                          | Вуглецеве волокно (товщиною 2 мм)                        | 1         |
-| Верхня пластина                         | Вуглецеве волокно (товщиною 1.5мм)                       | 1         |
-| Кронштейн                               | Вуглепластикова трубка (діаметр: 16 мм, довжина: 200 мм) | 4         |
-| Шасі - Вертикальна стійка               | Вуглепластикова трубка + інженерний пластик              | 2         |
-| Шасі - Поперечна балка                  | Вуглепластикова трубка + інженерний пластик + пінопласт  | 2         |
-| Моторна база                            | Складається з 6 частин і 4 гвинтів 4 гайок               | 4         |
-| Бокова панель                           | Діаметр: 10мм довжина: 250мм                             | 2         |
-| Плата кріплення акумулятора             | Товщина: 2мм                                             | 1         |
-| Підставка для батареї                   | Чорний лист силікону товщиною 3 мм                       | 1         |
-| Дошка платформи                         | Товщина: 2мм                                             | 1         |
-| Кріплення та гумове кільцеве ущільнення | Діаметр внутрішнього отвору: 10 мм чорний                | 8         |
+| Елемент                                         | Опис                                                                                                        | Кількість |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------- |
+| Нижня пластина                                  | Вуглецеве волокно (товщиною 2 мм)                                                        | 1         |
+| Верхня пластина                                 | Вуглецеве волокно (товщиною 1.5мм)                                       | 1         |
+| Кронштейн                                       | Вуглепластикова трубка (діаметр: 16 мм, довжина: 200 мм) | 4         |
+| Шасі - Вертикальна стійка                       | Вуглепластикова трубка + інженерний пластик                                                                 | 2         |
+| Шасі - Поперечна балка                          | Вуглепластикова трубка + інженерний пластик + пінопласт                                                     | 2         |
+| Моторна база                                    | Складається з 6 частин і 4 гвинтів 4 гайок                                                                  | 4         |
+| Бокова панель                                   | Діаметр: 10мм довжина: 250мм                                                | 2         |
+| Плата кріплення акумулятора                     | Товщина: 2мм                                                                                | 1         |
+| Підставка для батареї                           | Чорний лист силікону товщиною 3 мм                                                                          | 1         |
+| Плата платформи                                 | Товщина: 2мм                                                                                | 1         |
+| Hanger & rubber ring gasket | Діаметр внутрішнього отвору: 10 мм чорний                                                   | 8         |
 
 ![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/whats_inside_x500_labeled.jpg)
 
 ### Електроніка
 
-| Опис предмету                                                                     | Кількість |
-| --------------------------------------------------------------------------------- | --------- |
-| Pixhawk4 & Assorted Cables                                                        | 1         |
-| Pixhawk4 GPS Module                                                               | 1         |
-| Управління живленням PM07 (з попередньо припаяними кабелями живлення ESC)         | 1         |
-| Двигуни 2216 KV880 (оновлення V2)                                                 | 4         |
-| Holybro BLHeli S ESC 20A x4                                                       | 1         |
-| 433 МГц / 915 МГц [Телеметричне радіо Holybro](../telemetry/holybro_sik_radio.md) | 1         |
+| Опис предмету                                                                                | Кількість |
+| -------------------------------------------------------------------------------------------- | --------- |
+| Pixhawk4 & Assorted Cables                                               | 1         |
+| Pixhawk4 GPS Module                                                                          | 1         |
+| Управління живленням PM07 (з попередньо припаяними кабелями живлення ESC) | 1         |
+| Двигуни 2216 KV880 (оновлення V2)                                         | 4         |
+| Holybro BLHeli S ESC 20A x4                                                                  | 1         |
+| 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)               | 1         |
 
 ### Необхідні інструменти
 
@@ -69,172 +71,186 @@
 - Викрутка з шестигранником 1,5 мм
 - Викрутка з шестигранником 2,0 мм
 - Викрутка з шестигранником 2,5 мм
-- Хрестоподібна викрутка 3 мм
+- Шуруповерт Phillips 3 мм
 - Торцевий ключ 5,5 мм або невелика викрутка
 - Кусачки
 - Прецизійний пінцет
-
 
 ## Збірка
 
 Час збірки (приблизно): 3.75 години (180 хвилин на раму, 45 хвилин на встановлення/налаштування автопілота)
 
-1. Почніть зі збирання шасі. Відкрутіть гвинти шасі і вставте вертикальну стійку (зобр. 1 і 2).
+1. Почніть зі збирання шасі.
+   Відкрутіть гвинти шасі і вставте вертикальну стійку (зобр. 1 і 2).
 
    ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig1.jpg)
 
-   _Зображення 1_: Компоненти шасі
+   _Figure 2_: Landing gear components
 
    ![Landing Figure 2: Assembled](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig2.jpg)
 
-   _Зображення 2_: Шасі в зібраному вигляді
+   _Figure 2_: Landing gear assembled
 
-1. Потім просуньте 4 кронштейни через 4 основи двигуна, як показано на малюнку 3. Переконайтеся, що штанги злегка виступають з основи і є однаковими на всіх 4-х плечах, а також переконайтеся, що дроти електродвигуна спрямовані назовні.
+2. Потім просуньте 4 кронштейни через 4 основи двигуна, як показано на малюнку 3.
+   Переконайтеся, що штанги злегка виступають з основи і є однаковими на всіх 4-х плечах, а також переконайтеся, що дроти електродвигуна спрямовані назовні.
 
    ![Attach arms to motor bases](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_2_fig3.png)
 
-   _Зображення 3_: Приєднання кронштейнів до основи двигуна
+   _Figure 3_: Attach arms to motor bases
 
-1. Вставте 4 нейлонові гвинти та нейлонові стійки і прикріпіть модуль живлення PM07 до нижньої панелі за допомогою 4 нейлонових гайок, як показано на зображенні 4.
+3. Вставте 4 нейлонові гвинти та нейлонові стійки і прикріпіть модуль живлення PM07 до нижньої панелі за допомогою 4 нейлонових гайок, як показано на зображенні 4.
 
    ![Attach power module](../../assets/airframes/multicopter/x500_holybro_pixhawk4/power_module.jpg)
 
-   _Зображення 4_: Приєднання модуля живлення
+   _Figure 4_: Attach power module
 
-1. Протягніть 4 двигуни ESC через кожне з кронштейнів і підключіть трижильні дроти до двигунів, як показано на зображенні 5.
+4. Протягніть 4 двигуни ESC через кожне з кронштейнів і підключіть трижильні дроти до двигунів, як показано на зображенні 5.
 
-   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig17.jpg" width="250" title="Connect motors" />
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig17.jpg" width="250" title="Connect motors">
 
-   _Зображення 5_: Підключення двигунів
+   _Figure 5_: Connect motors
 
-1. Підключіть дроти живлення ESC до модуля живлення PM07, чорний - до чорного, червоний - до червоного, дроти сигналу ШІМ ESC йдуть на "FMU-PWM-Out". Переконайтеся, що ви підключили дроти ШІМ ESC двигуна в правильному порядку. Номер двигуна повітряного корпусу дивіться на зображенні 7 і підключіть його до відповідного номера на платі PM07.
+5. Connect the ESCs power wires onto the power module PM07, black->black and red->red, ESC PWM signal wires goes to "FMU-PWM-Out".
+   Переконайтеся, що ви підключили дроти ШІМ ESC двигуна в правильному порядку.
+   Номер двигуна повітряного корпусу дивіться на зображенні 7 і підключіть його до відповідного номера на платі PM07.
 
-   ![ESC power module and signal wiring](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_pwm.jpg) _Зображення 7_: Модуль живлення ESC та сигнальна проводка
+   ![ESC power module and signal wiring](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_pwm.jpg)
+   _Figure 7_: ESC power module and signal wiring
 
-   Колір на верхній частині двигуна вказує на напрямок обертання (зображення 7-1), чорний кінчик - за годинниковою стрілкою, а білий - проти годинникової стрілки. Переконайтеся, що при виборі напрямку двигуна ви дотримуєтесь орієнтира px4 quadrotor x airframe (зображення 7-2).
+   Колір на верхній частині двигуна вказує на напрямок обертання (зображення 7-1), чорний кінчик - за годинниковою стрілкою, а білий - проти годинникової стрілки.
+   Переконайтеся, що при виборі напрямку двигуна ви дотримуєтесь орієнтира px4 quadrotor x airframe (зображення 7-2).
 
-   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/quadx.png" width="240" />
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/quadx.png" width="240">
 
-   _Зображення 7_: Діаграма порядку/напряму руху двигуна
+   _Figure 7_: Motor order/direction diagram
 
-   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/motor_direction1.jpg" width="400" />
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/motor_direction1.jpg" width="400">
 
-   _Зображення 7-1_: Напрямок руху двигуна
+   _Figure 7-1_: Motor direction
 
-1. Підключіть 10-контактні кабелі до FMU-PWM-in, а 6-контактні - до PWR1 на модулі живлення PM07.
+6. Підключіть 10-контактні кабелі до FMU-PWM-in, а 6-контактні - до PWR1 на модулі живлення PM07.
 
    ![Flight controller/Power module PWM and Power connections](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_cable.jpg)
 
-   _Зображення 8_: Модуль живлення ШІМ і силова проводка
+   _Figure 8_: Power module PWM and power wiring
 
-1. Якщо ви хочете встановити GPS на верхній панелі, то тепер ви можете закріпити кріплення GPS на верхній панелі за допомогою 4 гвинтів і гайок.
+7. Якщо ви хочете встановити GPS на верхній панелі, то тепер ви можете закріпити кріплення GPS на верхній панелі за допомогою 4 гвинтів і гайок.
 
-   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gpsmount.jpg" width="400" title="Secure GPS mount onto top plate" />
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gpsmount.jpg" width="400" title="Secure GPS mount onto top plate">
 
-   _Зображення 9_: Кріплення GPS на верхній панелі
+   _Figure 9_: Secure GPS mount onto top plate
 
-1. Протягніть кабелі PM07 через верхню пластину. З'єднайте верхню і нижню пластини за допомогою 4 U-подібних нейлонових ременів, гвинтів і гайок з кожного боку, переконайтеся, що кабелі ESC двигуна знаходяться всередині U-подібних нейлонових ременів, як показано на зображенні 10, гайки не затягуйте.
+8. Протягніть кабелі PM07 через верхню пластину.
+   З'єднайте верхню і нижню пластини за допомогою 4 U-подібних нейлонових ременів, гвинтів і гайок з кожного боку, переконайтеся, що кабелі ESC двигуна знаходяться всередині U-подібних нейлонових ременів, як показано на зображенні 10, гайки не затягуйте.
 
-   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/top_plate.jpg" width="300" />
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/top_plate.jpg" width="300">
 
-   _Зображення 10-1_: Кабелі силового модуля прокладені через верхню панель
+   _Figure 10-1_: Feed power module cables through top plate
 
-   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/ushape.jpg" width="355" title="Connecting top and bottom plate" />
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/ushape.jpg" width="355" title="Connecting top and bottom plate">
 
-   _Зображення 10-2_: З'єднання верхньої та нижньої пластин
+   _Figure 10-2_: Connecting top and bottom plate
 
-1. Трохи всуньте трубки кронштейнів у раму і переконайтеся, що величина виступу (червоний квадрат на зображенні 11) є однаковою на всіх 4-х кронштейнах. Переконайтеся, що всі двигуни спрямовані прямо вгору, а потім затягніть усі гайки та гвинти.
+9. Трохи всуньте трубки кронштейнів у раму і переконайтеся, що величина виступу (червоний квадрат на зображенні 11) є однаковою на всіх 4-х кронштейнах.
+   Переконайтеся, що всі двигуни спрямовані прямо вгору, а потім затягніть усі гайки та гвинти.
 
    ![Arms 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig16.jpg)
 
-1. Вставте прокладки для підвісів у 4 підвіси та закріпіть їх на нижній пластині за допомогою 8 шестигранних гвинтів (Зображення 11). Отвори для гвинтів позначені білою стрілкою на зображенні 12. Ми рекомендуємо нахилити дрон убік, щоб полегшити встановлення.
+10. Вставте прокладки для підвісів у 4 підвіси та закріпіть їх на нижній пластині за допомогою 8 шестигранних гвинтів (Зображення 11).
+    Отвори для гвинтів позначені білою стрілкою на зображенні 12.
+    Ми рекомендуємо нахилити дрон убік, щоб полегшити встановлення.
 
-   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig9.png" width="400" title="Hanger gaskets" />
+    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig9.png" width="400" title="Hanger gaskets">
 
-   _Зображення 11_: Ущільнювачі для кріпленнь
+    _Figure 11_: Hanger gaskets
 
-   ![Battery Mount 4](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig10.jpg)
+    ![Battery Mount 4](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig10.jpg)
 
-   _Зображення 12_: Отвори для гвинтів
+    _Figure 12_: Screw holes
 
-1. Вставте направляючі планки на кільця кріплення (зображення 13). Зберіть кріплення для батареї та плату платформи і встановіть їх на направляючі, як показано на зображенні 14.
+11. Вставте направляючі планки на кільця кріплення (зображення 13).
+    Зберіть кріплення для батареї та плату платформи і встановіть їх на направляючі, як показано на зображенні 14.
 
-   ![Battery Mount 2: Slide bars](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig8.png)
+    ![Battery Mount 2: Slide bars](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig8.png)
 
-   _Зображення 13_: Повзунки
+    _Figure 13_: Slide bars
 
-   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/battery_mount1.jpg" width="400" title="Battery mount on slide bars" />
+    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/battery_mount1.jpg" width="400" title="Battery mount on slide bars">
 
-   _Зображення 14_: Кріплення акумулятора на висувних планках
+    _Figure 14_: Battery mount on slide bars
 
-1. Встановіть шасі на нижню пластину. Ми рекомендуємо нахилити дрон убік, щоб полегшити встановлення.
+12. Встановіть шасі на нижню пластину.
+    Ми рекомендуємо нахилити дрон убік, щоб полегшити встановлення.
 
-   ![Landing Gear](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig5.jpg)
+    ![Landing Gear](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig5.jpg)
 
-   _Зображення 15_: Компоненти шасі
+    _Figure 15_: Landing Gear
 
+13. За допомогою скотча приклейте GPS до верхньої частини GPS-щогли і встановіть її на щоглу.
+    Переконайтеся, що стрілка на gps вказує вперед (зображення 16).
 
-1. За допомогою скотча приклейте GPS до верхньої частини GPS-щогли і встановіть її на щоглу. Переконайтеся, що стрілка на gps вказує вперед (зображення 16).
+    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gps2.jpg" width="400" title="Figure 16: GPS and mast">
 
-   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gps2.jpg" width="400" title="Figure 16: GPS and mast" />
+    _Figure 16_: GPS and mast
 
-   _Зображення 16_: GPS і щогла
+14. Встановіть телеметричну радіостанцію на верхню пластину.
+    Plug the telemetry cable into `TELEM1` port and GPS module to `GPS MODULE` port on the flight controller.
+    Plug the cable from PM07 `FMU-PWM-in` to `I/O-PWM-out`on the FC and PM07 `PWR1` to `POWER1` on the FC, as shown in Figure 17.
 
+    ![Pixhawk 4 wiring 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/fc_connections.jpg)
 
-1. Встановіть телеметричну радіостанцію на верхню пластину. Підключіть телеметричний кабель до порту `TELEM1`, а модуль GPS до порту `GPS MODULE` на польотному контролері. Підключіть кабель від PM07 `FMU-PWM-in` до `I/O-PWM-out` на FC і PM07 `PWR1` до `POWER1` на FC, як показано на зображенні 17.
+    _Figure 17_: Mount telemetry radio/plug in PWM and Power cables to Flight controller.
 
-   ![Pixhawk 4 wiring 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/fc_connections.jpg)
+Please refer to [Pixhawk 4 Quick Start](../assembly/quick_start_pixhawk4.md) for more information.
 
-   _Зображення 17_: Встановлення телеметричного радіоприймача/підключення ШІМ та кабелів живлення до контролера польоту.
-
-Будь ласка, зверніться до [Pixhawk 4 Посібник зі швидкого запуску](../assembly/quick_start_pixhawk4.md) для отримання додаткової інформації.
-
-Ось і все. Повністю зібраний комплект показаний нижче:
+Ось і все.
+Повністю зібраний комплект показаний нижче:
 
 ![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
-
-## Конфігурація PX4
+## Налаштування PX4
 
 :::tip
-Повні інструкції щодо встановлення та налаштування PX4 можна знайти в [Основна конфігурація](../config/index.md).
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
 :::
 
-*QGroundControl* використовується для встановлення автопілота PX4 та його налаштування / налаштування для рами X500. [Завантажте та встановіть](http://qgroundcontrol.com/downloads/) *QGroundControl* для вашої платформи.
+_QGroundControl_ is used to install the PX4 autopilot and configure/tune it for the X500 frame.
+[Download and install](http://qgroundcontrol.com/downloads/) _QGroundControl_ for your platform.
 
-Спочатку оновіть прошивку, конструкцію та відображення приводів:
+Спочатку оновіть прошивку, конструкцію та відображення актуаторів:
 
-- [Прошивка](../config/firmware.md)
-- [Рама або планер](../config/airframe.md)
+- [Firmware](../config/firmware.md)
 
-  Вам потрібно буде вибрати шасі *Holybro S500* (**Квадрокоптер x >  Holybro S500**).
+- [Airframe](../config/airframe.md)
+
+  You will need to select the _Holybro S500_ airframe (**Quadrotor x > Holybro S500**).
 
   ![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
 
-- [Приводи](../config/actuators.md)
+- [Actuators](../config/actuators.md)
   - Вам не потрібно оновлювати геометрію транспортного засобу (оскільки це попередньо налаштована конструкція повітряного каркасу).
-  - Призначте функції приводу до виходів, щоб відповідати вашому підключенню.
+  - Призначте функції приводу до актуаторів, щоб відповідати вашому підключенню.
   - Перевірте конфігурацію, використовуючи слайдери.
 
 Потім виконайте обов'язкове налаштування / калібрування:
 
-- [Орієнтація сенсора](../config/flight_controller_orientation.md)
+- [Sensor Orientation](../config/flight_controller_orientation.md)
 - [Компас](../config/compass.md)
 - [Акселерометр](../config/accelerometer.md)
-- [Калібрування рівня горизонту](../config/level_horizon_calibration.md)
-- [Налаштування радіо](../config/radio.md)
-- [Режими польоту](../config/flight_mode.md)
+- [Level Horizon Calibration](../config/level_horizon_calibration.md)
+- [Radio Setup](../config/radio.md)
+- [Flight Modes](../config/flight_mode.md)
 
 В ідеалі ви також повинні зробити:
 
-- [Калібрування ESC](../advanced_config/esc_calibration.md)
-- [Налаштування оцінки заряду батареї](../config/battery.md)
-- [Загальна безпека](../config/safety.md)
-
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Battery Estimation Tuning](../config/battery.md)
+- [Safety](../config/safety.md)
 
 ## Вдосконалення
 
-Набори вибору конструкції встановлюють параметри автопілота *за замовчуванням* для рами. Ці вистачають для польоту, але це добра ідея налаштувати параметри для конкретної конструкції рами.
+Airframe selection sets _default_ autopilot parameters for the frame.
+Ці вистачають для польоту, але це добра ідея налаштувати параметри для конкретної конструкції рами.
 
 For instructions on how, start from [Autotune](../config/autotune_mc.md).
 
