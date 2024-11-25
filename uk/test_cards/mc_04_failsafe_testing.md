@@ -1,4 +1,4 @@
-# Тест MC_04 - Тестування безаварійності
+# Тест MC_04 - Тестування відмовостійкості
 
 ❏ Переконайтеся, що дія RC Loss – це повернення на землю
 
@@ -6,13 +6,13 @@
 
 ❏ Перевірте безвідмовність батареї
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Дія повернутися до землі
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Action is Return to Land
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Рівень попередження про заряд батареї є 25%
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Warn Level is 25%
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Надійний рівень заряду акумулятора становить 20%
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Failsafe Level is 20%
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Критичний рівень батареї 15%
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Emergency Level is 15%
 
 ❏ Зупинка в режимі висоти
 
@@ -20,7 +20,7 @@
 
 ❏ Втрата RC
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏Вимкніть пульт дистанційного керування та перевірте, чи транспортний засіб повертається у вихідне положення, дочекайтеся спуску, увімкніть пульт дистанційного керування та переймайте.
+&nbsp;&nbsp;&nbsp;&nbsp;❏Turn off RC and check the vehicle returns to home position, wait for the descent and turn on the RC and take over.
 
 ## Втрата каналу передачі даних
 
