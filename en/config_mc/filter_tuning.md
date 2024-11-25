@@ -49,11 +49,11 @@ This is disabled on all chips where it can be disabled (if not, cutoff frequency
 
 Setups that have a significant lower-frequency noise spike (e.g. due to harmonics at the rotor blade pass frequency) can benefit from using the notch filter to clean the signal before it is passed to the low pass filter (these harmonics have a similar detrimental impact on motors as other sources of noise).
 
-Without the notch filter you'd have to set the low pass filter cutoff much lower (increasing the latency) in order to avoid passing this noise to the motors.
+Without the notch filter you'd have to set the low pass filter cutoff much lower (increasing the phase lag) in order to avoid passing this noise to the motors.
 
 #### Static Notch Filters
 
-One or two static notch filters on the gyro sensor data that are used to filter out narrow band noise, for example harmonics at the rotor blade pass frequency.
+One or two static notch filters on the gyro sensor data that are used to filter out narrow band noise, for example a bending mode of the airframe.
 
 The static notch filters can be configured using:
 
