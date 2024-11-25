@@ -2,13 +2,15 @@
 
 Барометри вимірюють атмосферний тиск і використовуються в дронах як датчики висоти.
 
-Більшість [контролерів польоту](../flight_controller/index.md), на яких працює PX4, включають барометр. За замовчуванням PX4 вибере барометр з найвищим пріоритетом (якщо він є), і налаштує його як джерело даних для [Оцінки висоти](../advanced_config/tuning_the_ecl_ekf.md#height). Якщо виявлено несправність датчика, PX4 перейде на наступний за пріоритетом датчик.
+Most [flight controllers](../flight_controller/index.md) on which PX4 runs include a barometer.
+By default PX4 will select the barometer with the highest priority (if any are present), and configure it as a data source for [Height estimation](../advanced_config/tuning_the_ecl_ekf.md#height).
+Якщо виявлено несправність датчика, PX4 перейде на наступний за пріоритетом датчик.
 
 Зазвичай барометри не потребують налаштування користувачем (або думки)!
 
-## Налаштування обладнання
+## Варіанти устаткування
 
-[Стандартні контролери польоту Pixhawk](../flight_controller/autopilot_pixhawk_standard.md) включають барометр, як і [багато інших](../flight_controller/index.md).
+[Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) flight controllers include a barometer, as do [many others](../flight_controller/index.md).
 
 Вони також присутні в іншому обладнанні:
 
@@ -17,20 +19,20 @@
 
 На момент написання водії/частини включають: bmp280, bmp388 (та BMP380), dps310, goertek (spl06), invensense (icp10100, icp10111, icp101xx, icp201xx), lps22hb, lps25h, lps33hw, maiertek (mpc2520), mpl3115a2, ms5611, ms5837, tcbp001ta.
 
-Зверніть увагу, що підтримувані номери частин барометра можуть бути виведені зі списків драйверів, перерахованих у документації [Довідник модулів: Baro (Драйвер)](../modules/modules_driver_baro.md) (та вихідний код драйвера: [PX4-Autopilot/src/drivers/barometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer)).
+Note that the supported barometer part numbers can be inferred from the driver names listed in the [Modules Reference: Baro (Driver)](../modules/modules_driver_baro.md) documentation (and the driver source: [PX4-Autopilot/src/drivers/barometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer)).
 
 ## Налаштування PX4
 
-Зазвичай барометри не потребують налаштування користувачем. Якщо потрібно, ви можете:
+Зазвичай барометри не потребують налаштування користувачем.
+Якщо потрібно, ви можете:
 
-- Увімкнення/вимкнення барометрів як джерела даних для [Оцінки висоти](../advanced_config/tuning_the_ecl_ekf.md#height) за допомогою параметра [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL).
-- Змініть порядок вибору барометрів, використовуючи параметри [CAL_BAROx_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO) для кожного барометра.
-- Вимкніть барометр, встановивши його значення [CAL_BAROx_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO) на `0`.
+- Enable/Disable barometers as data source for [Height estimation](../advanced_config/tuning_the_ecl_ekf.md#height) using the [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) parameter.
+- Change the selection order of barometers using the [CAL_BAROx_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO) parameters for each barometer.
+- Disable a barometer by setting its [CAL_BAROx_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO) value to `0`.
 
 ## Калібрування
 
 Барометри не потребують калібрування.
-
 
 <!-- Notes:
 - Absolute value isn't important since we just use the difference in altitude between "now" and the value when initializing EKF2
@@ -38,7 +40,7 @@
 - The baro readings can be corrected using a param SENS_BARO_QNH (https://en.wikipedia.org/wiki/Altimeter_setting) parameter, but again, it is only necessary to adjust it if the absolute barometric altitude is required by the pilot.
 -->
 
-## Інформація для розробників
+## Інформація про розробника
 
-- [Вихідний код драйвера Baro](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer)
-- [Довідник модулів: Барометр (Драйвер)](../modules/modules_driver_baro.md) документація.
+- [Baro driver source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer)
+- [Modules Reference: Baro (Driver)](../modules/modules_driver_baro.md) documentation.
