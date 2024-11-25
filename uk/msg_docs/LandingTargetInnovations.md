@@ -1,11 +1,9 @@
 # LandingTargetInnovations (повідомлення UORB)
 
-
-
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LandingTargetInnovations.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/LandingTargetInnovations.msg)
 
 ```c
-uint64 timestamp        # time since system start (microseconds)
+uint64 timestamp		# time since system start (microseconds)
 # Innovation of landing target position estimator
 float32 innov_x
 float32 innov_y
