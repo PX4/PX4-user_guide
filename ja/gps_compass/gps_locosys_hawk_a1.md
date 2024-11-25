@@ -22,27 +22,28 @@ Main features include:
 
 ## Configuration
 
-You can use the Hawk A1 as either main (primary) or secondary GPS system. The PX4 parameters should be set as below for each case.
+You can use the Hawk A1 as either main (primary) or secondary GPS system.
+The PX4 parameters should be set as below for each case.
 
 ### Main GNSS
 
 To use the Hawk A1 your main GPS device:
 
-| Parameter                                                                    | Value                                          | Description                                                                             |
-| ---------------------------------------------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------- |
-| [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)     | 102 (Telem 2 or another available serial port) | Configure main GPS port                                                                 |
-| [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) | 1 (u-blox)                                     | Configure GPS protocol                                                                  |
-| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                         | Configure the serial port baudrate (here the GPS is connected to `TELEM2` for instance) |
+| Parameter                                                                                                            | Value                                                             | Description                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)     | 102 (Telem 2 or another available serial port) | Configure main GPS port                                                                                    |
+| [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) | 1 (u-blox)                                     | Configure GPS protocol                                                                                     |
+| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                                            | Configure the serial port baudrate (here the GPS is connected to `TELEM2` for instance) |
 
 ### Secondary GNSS
 
 To use the Hawk A1 as an auxiliary GPS device (in addition to the main GPS):
 
-| Parameter                                                                    | Value                                          | Description                                                                           |
-| ---------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------- |
-| [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)     | 102 (Telem 2 or another available serial port) | Configure main GPS port                                                               |
-| [GPS_2_PROTOCOL](../advanced_config/parameter_reference.md#GPS_2_PROTOCOL) | 1 (u-blox)                                     | Configure GPS protocol                                                                |
-| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                         | Configure the serial port baudrate (here the GPS is connected to TELEM2 for instance) |
+| Parameter                                                                                                            | Value                                                             | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)     | 102 (Telem 2 or another available serial port) | Configure main GPS port                                                                                  |
+| [GPS_2_PROTOCOL](../advanced_config/parameter_reference.md#GPS_2_PROTOCOL) | 1 (u-blox)                                     | Configure GPS protocol                                                                                   |
+| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                                            | Configure the serial port baudrate (here the GPS is connected to TELEM2 for instance) |
 
 ## Wiring and Connections
 
@@ -52,16 +53,17 @@ The Locosys GPS comes with an 6-pin JST-GH Pixhawk-standard connector that can b
 
 ### Pinout
 
-The LOCOSYS GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
+The LOCOSYS GPS pinout is provided below.
+This can be used to help modify the connector for other autopilot boards.
 
-| pin | Locosys GPS | pin | Pixhawk GPS 2 |
-| --- | ----------- | --- | ------------- |
-| 1   | VCC_5V      | 1   | VCC           |
-| 2   | GPS_RX      | 2   | GPS_TX        |
-| 3   | GPS_TX      | 3   | GPS_RX        |
-| 4   | NC          | 4   | SDA           |
-| 5   | NC          | 5   | SCL           |
-| 6   | GND         | 6   | GND           |
+| pin | Locosys GPS                 | pin | Pixhawk GPS 2               |
+| --- | --------------------------- | --- | --------------------------- |
+| 1   | VCC_5V | 1   | VCC                         |
+| 2   | GPS_RX | 2   | GPS_TX |
+| 3   | GPS_TX | 3   | GPS_RX |
+| 4   | NC                          | 4   | SDA                         |
+| 5   | NC                          | 5   | SCL                         |
+| 6   | GND                         | 6   | GND                         |
 
 ## Status LEDs
 
