@@ -1,44 +1,48 @@
-# Політні звіти
+# Звіт про польоти
 
-PX4 реєструє детальний стан апарату і дані датчиків, які можна використовувати для аналізу проблем з продуктивністю. У цій темі пояснюється, як ви можете завантажувати та аналізувати бортові журнали, а також ділитися ними з командою розробників.
+PX4 реєструє детальний стан апарату і дані датчиків, які можна використовувати для аналізу проблем з продуктивністю.
+У цій темі пояснюється, як ви можете завантажувати та аналізувати бортові журнали, а також ділитися ними з командою розробників.
 
 :::tip
-У деяких юрисдикціях ведення бортових журналів є законодавчою вимогою.
+Keeping flight logs is a legal requirement in some jurisdictions.
 :::
 
 ## Завантаження журналів з політного контролера
 
-Журнали можна завантажити за допомогою [QGroundControl](http://qgroundcontrol.com/): **[Analyze View > Log Download](https://docs.qgroundcontrol.com/master/en/analyze_view/log_download.html)**.
+Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/): **[Analyze View > Log Download](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/log_download.html)**.
 
-![Завантаження журналу польоту](../../assets/qgc/analyze/log_download.jpg)
-
+![Flight Log Download](../../assets/qgc/analyze/log_download.jpg)
 
 ## Аналіз журналів
 
-Завантажте файл журналу в онлайн-інструмент [Flight Review](http://logs.px4.io). Після завантаження вам буде надіслано посилання на сторінку аналізу журналу.
+Upload the log file to the online [Flight Review](http://logs.px4.io) tool.
+Після завантаження вам буде надіслано посилання на сторінку аналізу журналу.
 
-[Аналіз журналів за допомогою Flight Review](../log/flight_review.md) пояснює, як інтерпретувати графіки, і може допомогти вам перевірити/відхилити причини поширених проблем: надмірна вібрація, погане налаштування PID, перенасичені контролери, незбалансовані рухомі засоби, шуми GPS тощо.
+[Log Analysis using Flight Review](../log/flight_review.md) explains how to interpret the plots, and can help you to verify/reject the causes of common problems: excessive vibration, poor PID tuning, saturated controllers, imbalanced vehicles, GPS noise, etc.
 
-:::info Є багато інших чудових інструментів для візуалізації та аналізу журналів PX4. Для отримання додаткової інформації: [Аналіз польоту](../dev_log/flight_log_analysis.md).
+:::info
+There are many other great tools for visualising and analysing PX4 Logs.
+For more information see: [Flight Analysis](../dev_log/flight_log_analysis.md).
 :::
 
 :::tip
-Якщо у вас є постійне високошвидкісне з'єднання MAVLink з апаратом (а не тільки телеметричне з'єднання), ви можете використовувати *QGroundControl* для автоматичного завантаження журналів безпосередньо в *Flight Review*. Для отримання додаткової інформації див. [Налаштування > Налаштування MAVLink > Ведення журналу MAVLink 2 (тільки PX4)](https://docs.qgroundcontrol.com/master/en/SettingsView/MAVLink.html#logging).
+If you have a constant high-rate MAVLink connection to the vehicle (not just a telemetry link) then you can use _QGroundControl_ to automatically upload logs directly to _Flight Review_.
+For more information see [Settings > MAVLink Settings > MAVLink 2 Logging (PX4 only)](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/mavlink.html#logging).
 :::
 
 ## Надання доступу до файлів журналів розробникам PX4
 
-Посилання на файл журналу у [Flight Review](http://logs.px4.io) можна надати для обговорення на [форумах підтримки](../contribute/support.md#forums-and-chat) або в [Github issue](../README.md#reporting-bugs-issues).
-
+The [Flight Review](http://logs.px4.io) log file link can be shared for discussion in the [support forums](../contribute/support.md#forums-and-chat) or a [Github issue](../index.md#reporting-bugs-issues).
 
 ## Конфігурація журналу
 
-За замовчуванням систему логування налаштовано на збір значущих записів для використання у [Flight Review](http://logs.px4.io).
+The logging system is configured by default to collect sensible logs for use with [Flight Review](http://logs.px4.io).
 
-Логування можна додатково налаштувати за допомогою параметрів [SD Logging](../advanced_config/parameter_reference.md#sd-logging) або за допомогою файлу на SD-карті. Докладні відомості про конфігурацію можна знайти у [документації з конфігурування логування](../dev_log/logging.md#configuration).
+Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters or with a file on the SD card.
+Details on configuration can be found in the [logging configuration documentation](../dev_log/logging.md#configuration).
 
 ## Ключові посилання
 
-- [Огляд польоту](http://logs.px4.io)
-- [Аналіз журналів за допомогою Flight Review](../log/flight_review.md)
-- [Аналіз журналу польотів](../dev_log/flight_log_analysis.md)
+- [Flight Review](http://logs.px4.io)
+- [Log Analysis using Flight Review](../log/flight_review.md)
+- [Flight Log Analysis](../dev_log/flight_log_analysis.md)
