@@ -1,14 +1,14 @@
 # Рухомі засоби Gazebo Classic
 
-Цей розділ перераховує/показує рухомі засоби, що підтримуються PX4 симуляцією [Gazebo Classic](../sim_gazebo_classic/README.md) та команди `make` необхідні для того щоб їх запустити (команди запускаються з термінала в директорії **PX4-Autopilot**).
+This topic lists/displays the vehicles supported by the PX4 [Gazebo Classic](../sim_gazebo_classic/index.md) simulation and the `make` commands required to run them (the commands are run from a terminal in the **PX4-Autopilot** directory).
 
 Типи рухомих засобів що підтримуються включають: мультиротори, ВЗІП, ВЗІП з хвоста, літак, ровер, підводний човен/підводний дрон.
 
 :::info
-Сторінка [Gazebo Classic](../sim_gazebo_classic/index.md) показує як встановити Gazebo Classic, як увімкнути відео та завантажити користувацькі мапи, а також багато інших варіантів налаштування.
+The [Gazebo Classic](../sim_gazebo_classic/index.md) page shows how to install Gazebo Classic, how to enable video and load custom maps, and many other configuration options.
 :::
 
-## Мультикоптери
+## Мультикоптер
 
 ### Квадрокоптер (за замовчуванням)
 
@@ -26,13 +26,13 @@ make px4_sitl gazebo-classic_iris_opt_flow
 
 Ці моделі мають додану камеру глибини, змодельовану за зразком Intel® RealSense™ D455.
 
-_Камера глибини орієнтована вперед:_
+_Forward-facing depth camera:_
 
 ```sh
 make px4_sitl gazebo-classic_iris_depth_camera
 ```
 
-_Камера глибини орієнтована вниз:_
+_Downward-facing depth camera:_
 
 ```sh
 make px4_sitl gazebo-classic_iris_downward_depth_camera
@@ -44,7 +44,7 @@ make px4_sitl gazebo-classic_iris_downward_depth_camera
 make px4_sitl gazebo-classic_solo
 ```
 
-![3DR Solo в Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/solo.png)
+![3DR Solo in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/solo.png)
 
 ### Typhoon H480 (Гексакоптер)
 
@@ -52,10 +52,10 @@ make px4_sitl gazebo-classic_solo
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-![Typhoon H480 в Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/typhoon.jpg)
+![Typhoon H480 in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/typhoon.jpg)
 
 :::info
-Ця ціль збірки також підтримує [симуляцію відеотрансляції](../sim_gazebo_classic/index.md#video-streaming).
+This target also supports [video streaming simulation](../sim_gazebo_classic/index.md#video-streaming).
 :::
 
 <a id="fixed_wing"></a>
@@ -68,7 +68,7 @@ make px4_sitl gazebo-classic_typhoon_h480
 make px4_sitl gazebo-classic_plane
 ```
 
-![Літак в Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/plane.png)
+![Plane in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/plane.png)
 
 #### Стандартний літак із запуском з катапульти
 
@@ -76,27 +76,27 @@ make px4_sitl gazebo-classic_plane
 make px4_sitl gazebo-classic_plane_catapult
 ```
 
-Ця модель симулює запуск з рук/катапульти, що може бути використано для [зльоту літака](../flight_modes_fw/takeoff.md) в режимі сталої позиції, режимі автоматичного зльоту або політних завдань.
+This model simulates hand/catapult launch, which can be used for [fixed-wing takeoff](../flight_modes_fw/takeoff.md) in position mode, takeoff mode, or missions.
 
 Літак буде автоматично запущено як тільки засіб буде в стані готовності.
 
-## ВЗІП
+## VTOL (Вертикальний зліт та посадка)
 
-### Стандартний ВЗІП
+### Standard VTOL
 
 ```sh
 make px4_sitl gazebo-classic_standard_vtol
 ```
 
-![Стандартний ВЗІП в Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/standard_vtol.png)
+![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/standard_vtol.png)
 
-### ВЗІП з хвоста
+### Tailsitter VTOL
 
 ```sh
 make px4_sitl gazebo-classic_tailsitter
 ```
 
-![ВЗІП з хвоста в Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/tailsitter.png)
+![Tailsitter VTOL in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/tailsitter.png)
 
 <a id="ugv"></a>
 
@@ -108,7 +108,7 @@ make px4_sitl gazebo-classic_tailsitter
 make px4_sitl gazebo-classic_rover
 ```
 
-![Ровер в Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/rover.png)
+![Rover in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/rover.png)
 
 ### Наземний засіб з диференціалом
 
@@ -116,7 +116,7 @@ make px4_sitl gazebo-classic_rover
 make px4_sitl gazebo-classic_r1_rover
 ```
 
-![Ровер в Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/r1_rover.png)
+![Rover in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/r1_rover.png)
 
 ## Безпілотний підводний засіб(Підводний човен)
 
@@ -126,7 +126,7 @@ make px4_sitl gazebo-classic_r1_rover
 make px4_sitl gazebo-classic_uuv_hippocampus
 ```
 
-![Підводний човен](../../assets/simulation/gazebo_classic/vehicles/hippocampus.png)
+![Submarine/UUV](../../assets/simulation/gazebo_classic/vehicles/hippocampus.png)
 
 ## Безпілотний надводний засіб (Човен)
 
@@ -138,7 +138,7 @@ make px4_sitl gazebo-classic_uuv_hippocampus
 make px4_sitl gazebo-classic_boat
 ```
 
-![Човен](../../assets/simulation/gazebo_classic/vehicles/boat.png)
+![Boat/USV](../../assets/simulation/gazebo_classic/vehicles/boat.png)
 
 <a id="airship"></a>
 
@@ -150,4 +150,4 @@ make px4_sitl gazebo-classic_boat
 make px4_sitl gazebo-classic_cloudship
 ```
 
-![Дирижабль](../../assets/simulation/gazebo_classic/vehicles/airship.png)
+![Airship](../../assets/simulation/gazebo_classic/vehicles/airship.png)
