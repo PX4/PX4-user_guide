@@ -1,6 +1,6 @@
 # DShot 电调
 
-DShot 是一种更高级的电调协议，相比 [PWM](../peripherals/pwm_escs_and_servo.md) 或 [OneShot](../peripherals/oneshot.md) 具有几个优势：
+DShot is an alternative ESC protocol that has several advantages over [PWM](../peripherals/pwm_escs_and_servo.md) or [OneShot](../peripherals/oneshot.md):
 
 - 低延迟
 - 通过校验提高鲁棒性
@@ -13,33 +13,42 @@ DShot 是一种更高级的电调协议，相比 [PWM](../peripherals/pwm_escs_a
 
 ## Wiring/Connections {#wiring}
 
-DShot 电调与[PWM 电调](pwm_escs_and_servo.md)的接线方式相同。 唯一的区别在于它们只能连接到FMU，通常只能连接到某些引脚的子集。
+DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md).
+唯一的区别在于它们只能连接到FMU，通常只能连接到某些引脚的子集。
 
-::: info
-在接线之前，您可能需要检查执行器配置屏幕来查看飞控上可用于 DShot 的引脚！
+:::info
+You may want to check the actuator configuration screen to see what pins are available for DShot on your controller before wiring up!
 :::
 
-通常带有FMU和IO板的Pixhawk飞控将它们分别标记为`AUX`（连接到FMU）和`MAIN`（连接到IO控制器）。 `PWM AUX` 和 `PWM MAIN` 的输出选项卡在执行器配置屏幕上。 对于这些飞控来说，DShot 电调连接到 `AUX` 端口。
+Pixhawk controllers with both an FMU and an IO board usually label them as `AUX` (FMU) and `MAIN` (IO), respectively.
+These match the `PWM AUX` and `PWM MAIN` output tabs on the actuator configuration screen.
+For these controllers connect the DShot ESC to the `AUX` port.
 
-没有IO板的飞控通常将输出端口标记为 `MAIN`， 并且这是您连接 DShot 电调的地方。 如果那些没有IO控制器的飞控有自己的固件，执行器分配将匹配到相应的`PWM MAIN`输出。 然而，如果无论有没有IO板都用的是同一个固件，如Pixhawk 4和 Pixhawk 4Mini, 那么在这种情况下使用的执行器选项是相同的： `PWM AUX` （比如：不匹配端口标签 `MAIN` 在“mini”案例中）。
+Controllers that don't have an IO board usually label the (single) output port as `MAIN`, and this is where you will connect your DShot ESC.
+If the controller without IO has its own firmware, the actuator assignment will be to the matching `PWM MAIN` outputs.
+However if the same firmware is used for hardware with/without the IO board, such as for the Pixhawk 4 and Pixhawk 4 Mini, then actuator assignment tab used is the same in both cases: `PWM AUX` (i.e. not matching the port label `MAIN` in the "mini" case).
 
 ## 配置
 
 :::warning
-更改电调配置参数之前，请先拆下螺旋桨！
+Remove propellers before changing ESC configuration parameters!
 :::
 
-在[执行器配置](../config/actuators.md)中为所需要的输出启用 DShot。
+Enable DShot for your required outputs in the [Actuator Configuration](../config/actuators.md).
 
-DShot 具有不同的速度选项：_DShot150_，_DShot300_，_DShot600_ 和 _DShot1200_，其中的数字表示千比特每秒。 您应该将参数设置为您的电调支持的最高速度（根据其说明书）。
+DShot comes with different speed options: _DShot150_, _DShot300_, _DShot600_ and _DShot1200_, where the number indicates the speed in kilo-bits/second.
+您应该将参数设置为您的电调支持的最高速度（根据其说明书）。
 
-然后连接电池并解锁无人机。 电调应该初始化，电机应该按照正确的方向转动。
+然后连接电池并解锁无人机。
+电调应该初始化，电机应该按照正确的方向转动。
 
-- 如果电机未按照正确方向旋转（适用于[所选机架](../airframes/airframe_reference.md)），您可以在UI中使用**设置旋转方向**选项来反转它们（此选项在您选择DShot并分配电机后出现）。 您也可以通过发送[ESC命令](#commands)来反转电机。
+- If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** option (this option appears after you select DShot and assign motors).
+  You can also reverse motors by sending an [ESC Command](#commands).
 
 ## ESC Commands {#commands}
 
-可以通过 [MAVLink shell](../debug/mavlink_shell.md) 向电调发送命令。 查看[这里](../modules/modules_driver.md#dshot)以获取完整的参考命令。
+Commands can be sent to the ESC via the [MAVLink shell](../debug/mavlink_shell.md).
+See [here](../modules/modules_driver.md#dshot) for a full reference of the supported commands.
 
 其中最重要的是：
 
@@ -117,7 +126,7 @@ DShot 具有不同的速度选项：_DShot150_，_DShot300_，_DShot600_ 和 _DS
 开启遥测数据功能（仅对于能支持遥测数据的电调）:
 
 1. 把电调上的TELE端口连接到飞控上空的串口的 RX 端。
-1. 使用 [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG) 命令在该串行端口启用遥测。
+2. Enable telemetry on that serial port using [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG).
 
 重启后，您可以检查TELE数据传输是否正常工作（确保电池已连接），方法如下：
 
@@ -126,11 +135,12 @@ dshot esc_info -m 1
 ```
 
 :::tip
-您可能需要配置[MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT)以获取正确的转速（RPM值）。
+You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT) to get the correct RPM values.
 :::
 
 :::tip
-并非所有支持DSHOT的电调都支持`[esc_info]`（例如APD 80F3x），就算支持并且开启了TELE功能。 显示的错误是：
+Not all DSHOT-capable ESCs support `[esc_info]`(e.g. APD 80F3x), even when telemetry is supported and enabled.
+显示的错误是：
 
 ```sh
 ERROR [dshot] No data received. If telemetry is setup correctly, try again.
