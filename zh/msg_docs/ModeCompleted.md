@@ -1,6 +1,9 @@
 # ModeCompleted (UORB message)
 
-Mode completion result, published by an active mode. The possible values of nav_state are defined in the VehicleStatus msg. Note that this is not always published (e.g. when a user switches modes or on failsafe activation)
+Mode completion result, published by an active mode.
+The possible values of nav_state are defined in the VehicleStatus msg.
+Note that this is not always published (e.g. when a user switches modes or on
+failsafe activation)
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ModeCompleted.msg)
 
@@ -9,7 +12,7 @@ Mode completion result, published by an active mode. The possible values of nav_
 # The possible values of nav_state are defined in the VehicleStatus msg.
 # Note that this is not always published (e.g. when a user switches modes or on
 # failsafe activation)
-uint64 timestamp                 # time since system start (microseconds)
+uint64 timestamp				 # time since system start (microseconds)
 
 
 uint8 RESULT_SUCCESS = 0
