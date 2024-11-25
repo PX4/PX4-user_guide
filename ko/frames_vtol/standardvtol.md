@@ -2,15 +2,13 @@
 
 A **Standard VTOL** is a [VTOL](../frames_vtol/index.md) that has _completely separate_ flight controls for multicopter and fixed-wing flight.
 
-![수직 기술: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png)
+![Vertical Technologies: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png)
 
-*수직 기술: Deltaquad QuadPlane VTOL*
-
-
+_Vertical Technologies: Deltaquad QuadPlane VTOL_
 
 ## 비디오
 
-이 섹션에는 표준 VTOL과 관련된 동영상이 포함되어 있습니다. 모든 VTOL 유형에 적용되는 동영상은 [VTOL](../frames_vtol/README.md)을 참고하십시오.
+This section contains videos that are specific to Standard VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/index.md)).
 
 ---
 
