@@ -1,9 +1,9 @@
 # Симуляція кількох рухомих засобів з Gazebo
 
-Цей розділ пояснює як моделювати кілька безпілотних рухомих засобів використовуючи [Gazebo (Gz)](../sim_gazebo_gz/index.md) та SITL.
+This topic explains how to simulate multiple UAV vehicles using [Gazebo (Gz)](../sim_gazebo_gz/index.md) and SITL.
 
-:::note
-Симуляція кількох засобів з Gazebo підтримується тільки на Linux.
+:::info
+Multi-Vehicle Simulation with Gazebo is only supported on Linux.
 :::
 
 У Gazebo дуже легко налаштувати сценарії з кількома рухомими засобами (у порівнянні з іншими симуляторами).
@@ -14,16 +14,19 @@
 make px4_sitl
 ```
 
-Кожен екземпляр PX4 можна запустити у своєму власному терміналі вказавши унікальний номер екземпляра та бажану комбінацію [змінних середовища](../sim_gazebo_gz/index.md#usage-configuration-options):
+Each instance of PX4 can then be launched in its own terminal, specifying a unique instance number and its desired combination of [environment variables](../sim_gazebo_gz/index.md#usage-configuration-options):
 
 ```sh
 ARGS ./build/px4_sitl_default/bin/px4 [-i <instance>]
 ```
 
-- `<instance>`: Номер екземпляра рухомого засобу.
-  - Кожен рухомий засіб повинен мати унікальний номер екземпляру. Якщо він не вказаний, номер екземпляру за замовчуванням - нуль.
-  - При використанні з `PX4_SIM_MODEL`, Gazebo автоматично обере унікальне ім'я моделі у формі `${PX4_SIM_MODEL}_instance`.
-- `ARGS`: Перелік змінних середовища, як описано у [Симуляція Gazebo > Варіанти використання/налаштування](../sim_gazebo_gz/index.md#usage-configuration-options).
+- `<instance>`:
+  The instance number of the vehicle.
+  - Кожен рухомий засіб повинен мати унікальний номер екземпляру.
+    Якщо він не вказаний, номер екземпляру за замовчуванням - нуль.
+  - When used with `PX4_SIM_MODEL`, Gazebo will automatically pick a unique model name in the form `${PX4_SIM_MODEL}_instance`.
+- `ARGS`:
+  A list of environmental variables, as described in [Gazebo Simulation > Usage/Configuration Options](../sim_gazebo_gz/index.md#usage-configuration-options).
 
 Це дозволяє підвищити гнучкість та адаптивність.
 
@@ -31,9 +34,12 @@ ARGS ./build/px4_sitl_default/bin/px4 [-i <instance>]
 
 [Multiple vehicles with ROS 2](../ros2/multi_vehicle.md) are possible.
 
-- Спочатку дотримуйтесь інструкцій по встановленню [Gazebo](../sim_gazebo_gz/index.md).
+- First follow the installation instructions for [Gazebo](../sim_gazebo_gz/index.md).
+
 - Then configure your system for [ROS 2 / PX4 operations](../ros2/user_guide.md#installation-setup).
-- В різних терміналах вручну запустіть симуляцію декількох рухомих засобів. Цей приклад відтворює 2 квадрокоптери X500 та літак з фіксованим крилом aFPX:
+
+- В різних терміналах вручну запустіть симуляцію декількох рухомих засобів.
+  Цей приклад відтворює 2 квадрокоптери X500 та літак з фіксованим крилом aFPX:
 
   ```sh
   PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4 -i 1
@@ -55,7 +61,7 @@ ARGS ./build/px4_sitl_default/bin/px4 [-i <instance>]
 
   Агент автоматично з'єднається з усіма клієнтами.
 
-- Виконайте `ros2 topic list`, щоб побачити список усіх рубрик, який буде виглядати приблизно так:
+- Run `ros2 topic list` to see the topic list, which should look like this:
 
 ```sh
 /parameter_events
