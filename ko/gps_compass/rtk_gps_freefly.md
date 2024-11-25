@@ -1,6 +1,7 @@
 # Freefly Systems RTK GPS
 
-[Freefly Systems RTK GPS 모듈](https://store.freeflysystems.com/products/rtk-gps-ground-station)은 매우 안정적인 내비게이션을 제공하는 Freefly Systems의 다중 대역 [RTK GPS 모듈](../gps_compass/rtk_gps.md)입니다. 모듈은 로버(항공기에 설치된 경우) 또는 기지국(컴퓨터에 연결된 경우)으로 작동할 수 있습니다.
+The [Freefly Systems RTK GPS Module](https://store.freeflysystems.com/products/rtk-gps-ground-station) is a multiband [RTK GPS module](../gps_compass/rtk_gps.md) from Freefly Systems that provides highly reliable navigation.
+모듈은 로버(항공기에 설치된 경우) 또는 기지국(컴퓨터에 연결된 경우)으로 작동할 수 있습니다.
 
 주요 특징은 다음과 같습니다.
 
@@ -8,11 +9,11 @@
 - 최대 4 개의 GNSS(GPS, Galileo, GLONASS, BeiDou) 동시 수신
 - 내장형 자력계(IST8310), 기압계(BMP388), RGB LED, 안전 스위치 및 안전 LED
 
-::: info
+:::info
 This module can be used with PX4 v1.9 or above (support for the u-blox ZED-F9P was added in PX4 v1.9).
 :::
 
-![FreeFly GPS 모듈](../../assets/hardware/gps/freefly_gps_module.jpg)
+![FreeFly GPS Module](../../assets/hardware/gps/freefly_gps_module.jpg)
 
 ## 구매처
 
@@ -31,26 +32,28 @@ RTK GPS 키트에는 다음 내용물들이 포함됩니다.
 
 RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
-기체의 경우 PX4가 전송속도 매개변수 [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD)를 115200 8N1로 설정하여야 합니다.
+For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
 
 ## 배선
 
-Freefly RTK GPS는 PixHawk 자동조종장치에 연결할 수있는 8핀 JST-GH 커넥터와 함께 제공됩니다. 모듈에는 베이스 스테이션용  USB-C 커넥터가 있습니다.
+Freefly RTK GPS는 PixHawk 자동조종장치에 연결할 수있는 8핀 JST-GH 커넥터와 함께 제공됩니다.
+모듈에는 베이스 스테이션용  USB-C 커넥터가 있습니다.
 
 ### 핀배열
 
-Freefly GPS 핀배열은 아래와 같습니다. [Hex Cube](../flight_controller/pixhawk-2.md) 및 [PixRacer](../flight_controller/pixracer.md)와 같은 자동조종장치의 경우에는 1-1 8핀 JST-GH 케이블만 있으면됩니다.
+Freefly GPS 핀배열은 아래와 같습니다.
+For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and [PixRacer](../flight_controller/pixracer.md), all that is needed is a 1-1 8-pin JST-GH cable.
 
-| 핀 | Freefly GPS |
-| - | ----------- |
-| 1 | VCC_5V      |
-| 2 | GPS_RX      |
-| 3 | GPS_TX      |
-| 4 | I2C_SCL     |
-| 5 | I2C_SDA     |
-| 6 | BUTTON      |
-| 7 | BUTTON_LED  |
-| 8 | GND         |
+| 핀 | Freefly GPS                     |
+| - | ------------------------------- |
+| 1 | VCC_5V     |
+| 2 | GPS_RX     |
+| 3 | GPS_TX     |
+| 4 | I2C_SCL    |
+| 5 | I2C_SDA    |
+| 6 | BUTTON                          |
+| 7 | BUTTON_LED |
+| 8 | GND                             |
 
 ## 사양
 
@@ -71,13 +74,14 @@ Freefly GPS 핀배열은 아래와 같습니다. [Hex Cube](../flight_controller
   - MCU 및 F9P에 대한 양방향 USB 스위치
   - 활성 안테나용 SMA (최대 20mA)
   - 4핀 JST-GH CAN 버스(드론코드 준수)
-  - 8-pin JST-GH UART/I2C -\*\* Power:
+  - 8-pin JST-GH UART/I2C
+    -\*\* Power:
   - Input from either (diode OR'd):
   - USB (5V)
   - CAN (4.7 ~ 25.2V)
   - (4.7 ~ 25.2V)
-  - 전력 소모 1W 이하
+  - Power consumption <1W
 
 ## 추가 정보
 
-자세한 정보는 [Freefly Wiki](https://freefly.gitbook.io/freefly-public/products/rtk-gps)를 참고하십시오.
+More information can be found on [Freefly's Wiki](https://freefly.gitbook.io/freefly-public/products/rtk-gps)
