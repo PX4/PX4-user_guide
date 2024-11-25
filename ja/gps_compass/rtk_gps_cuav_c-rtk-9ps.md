@@ -2,9 +2,11 @@
 
 The CUAV [C-RTK 9Ps](https://www.cuav.net/en/c_rtk_9ps/) is a multi-satellite, multi-band, centimeter-level, RTK GNSS system.
 
-The module simultaneously receives GPS, GLONASS, Galileo and Beidou satellite signals, enabling faster positioning and higher accuracy. It also supports [RTK GPS Heading](../gps_compass/u-blox_f9p_heading.md) using dual modules.
+The module simultaneously receives GPS, GLONASS, Galileo and Beidou satellite signals, enabling faster positioning and higher accuracy.
+It also supports [RTK GPS Heading](../gps_compass/u-blox_f9p_heading.md) using dual modules.
 
-Using the C-RTK 9Ps gives PX4 centimeter-level positioning precision. This is ideal for survey drones, agricultural drones and other application scenarios.
+Using the C-RTK 9Ps gives PX4 centimeter-level positioning precision.
+This is ideal for survey drones, agricultural drones and other application scenarios.
 
 ![C-RTK 9Ps](../../assets/hardware/gps/cuav_9ps/c-rtk9s.jpg)
 
@@ -34,7 +36,10 @@ Using the C-RTK 9Ps gives PX4 centimeter-level positioning precision. This is id
 - Connect the C-RTK 9Ps (Rover) to the flight controller.
 - Connect telemetry to the flight controller `TELEM1`/`TELEM2` interface
 
-::: info C-RTK 9Ps come with 6-pin and 10-pin connectors compatible with Pixhawk-standard flight controllers. Connect to `GPS1` or `GPS2`. Select the appropriate cable for the flight controller.
+:::info
+C-RTK 9Ps come with 6-pin and 10-pin connectors compatible with Pixhawk-standard flight controllers.
+Connect to `GPS1` or `GPS2`.
+Select the appropriate cable for the flight controller.
 :::
 
 ## Configuration
