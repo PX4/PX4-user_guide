@@ -4,13 +4,13 @@
 
 ❏ Критерії Місії
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Зміни висоти протягом місії
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Changes in Altitude throughout the mission
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Місія має завершуватися в повітрі, а НЕ на землі/RTL
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Mission should end in the air and NOT Land/RTL
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Тривалість від 3 до 4 хвилин
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 3 to 4 minutes
 
-Завантаження місії на машину за допомогою QGroundControl
+❏ Upload mission to vehicle using _QGroundControl_
 
 ## Політ
 
@@ -22,17 +22,17 @@
 
 ❏ Після завершення місії поверніться в режим розташування
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Горизонтальне положення має містити поточне значення з стрижнем у центрі
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Horizontal position should hold current value with stick centered
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Вертикальна позиція має містити поточне значення з джойстиком у центрі
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Реакцію дросельної заслінки встановлено на швидкість підйому/спуску
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw відповідь встановлена на відмітку Pitch/Roll/Yaw
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response set to Pitch/Roll/Yaw rates
 
 ❏ Використовуйте RTL
 
-❏ Після торкання землі коптер повинен автоматично знятися з охорони протягом 2 секунд (час зняття з охорони встановлюється параметром: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
 ## Очікувані результати
 
