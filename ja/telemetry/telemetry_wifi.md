@@ -1,7 +1,8 @@
 # WiFi Telemetry Radio
 
-WiFi telemetry enables MAVLink communication between a WiFi radio on a vehicle and a GCS.  
-WiFi typically offers shorter range than a normal telemetry radio, but supports higher data rates, and makes it easier to support FPV/video feeds. Usually only a single radio unit for the vehicle is needed (assuming the ground station already has WiFi).
+WiFi telemetry enables MAVLink communication between a WiFi radio on a vehicle and a GCS.\
+WiFi typically offers shorter range than a normal telemetry radio, but supports higher data rates, and makes it easier to support FPV/video feeds.
+Usually only a single radio unit for the vehicle is needed (assuming the ground station already has WiFi).
 
 PX4 supports telemetry via UDP and Wifi. It broadcasts a heartbeat to port 14550 on 255.255.255.255 until it receives the first heartbeat from a ground control station, at which point it will only send data to this ground control station.
 
