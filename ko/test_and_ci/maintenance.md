@@ -6,13 +6,13 @@
 
 변동량(파일에 수행된 변경 수)은 리팩토링이 필요한 파일을 나타내는 지표가 될 수 있습니다.
 
-변경 횟수의 척도를 찾는 도구 [Churn](https://github.com/danmayer/churn)을 이 용도로 사용할 수 있습니다.
+To find churn metrics a tool such as [Churn](https://github.com/danmayer/churn) can be used:
 
 ```sh
 gem install churn
 ```
 
-`v1.6.0-rc2` 출력 예제는 다음과 같습니다:
+An example output as of `v1.6.0-rc2` would be:
 
 ```sh
 cd src/PX4-Autopilot
