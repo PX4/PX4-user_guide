@@ -368,7 +368,7 @@ The camera also supports video streaming.
 It can be used to test camera capture, in particular within survey missions.
 
 The camera emits the [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) message every time an image is captured.
-The captured images are saved to: **PX4-Autopilot/build/px4*sitle_default/tmp/frames/DSC_n*.jpg** (where _n_ starts as 00000 and is iterated by one on each capture).
+The captured images are saved to: `PX4-Autopilot/build/px4_sitl_default/tmp/frames/DSC_n.jpg` (where _n_ starts as 00000 and is iterated by one on each capture).
 
 To simulate a plane with this camera:
 
