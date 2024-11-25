@@ -13,16 +13,17 @@ const { site } = useData();
 
 Тестові польоти є важливим етапом для забезпечення якості.
 
-Під час надсилання запитів на включення [Pull Requests](../contribute/code.md#pull-requests) нових функцій або виправлення помилок ви повинні надати інформацію про виконані тести, пов'язані з функціональністю, разом з супровідними логами польотів.
+When submitting [Pull Requests](../contribute/code.md#pull-requests) for new functionality or bug fixes you should provide information about the feature-relative tests performed, along with accompanying flight logs.
 
 Для значних змін у системі ви також повинні виконати загальні польотні тести за допомогою тестових карток, перерахованих нижче.
 
 ## Тестові картки
 
-Ці тестові картки визначають "стандартні" польотні тести. Їх виконує тестова команда в рамках тестування випуску та для більш значних змін у системі.
+Ці тестові картки визначають "стандартні" польотні тести.
+Їх виконує тестова команда в рамках тестування випуску та для більш значних змін у системі.
 
-- [MC_01 - Ручні режими](../test_cards/mc_01_manual_modes.md)
-- [MC_02 - Повна автономія](../test_cards/mc_02_full_autonomous.md)
-- [MC_03 - Автоматичне керування з ручним керуванням](../test_cards/mc_03_auto_manual_mix.md)
-- [MC_04 - Тестування аварійного випадку](../test_cards/mc_04_failsafe_testing.md)
-- [MC_05 - Польот у приміщенні (Ручні режими)](../test_cards/mc_05_indoor_flight_manual_modes.md)
+- [MC_01 - Manual modes](../test_cards/mc_01_manual_modes.md)
+- [MC_02 - Full Autonomous](../test_cards/mc_02_full_autonomous.md)
+- [MC_03 - Auto Manual Mix](../test_cards/mc_03_auto_manual_mix.md)
+- [MC_04 - Failsafe Testing](../test_cards/mc_04_failsafe_testing.md)
+- [MC_05 - Indoor Flight (Manual Modes)](../test_cards/mc_05_indoor_flight_manual_modes.md)
