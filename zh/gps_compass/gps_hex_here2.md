@@ -1,6 +1,6 @@
 # HEX/ProfiCNC Here2 GPS (Discontinued)
 
-::: warning
+:::warning
 This has been superseded by the [Cube Here 3](https://www.cubepilot.com/#/here/here3)
 :::
 
@@ -25,17 +25,19 @@ Main features include:
 
 Setup and use on PX4 is largely plug and play.
 
-:::note
+::: info
 
 - If the GPS is _not detected_ then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
 - If the GPS is detected but does not work, attempt the process outlined in [allocating node uavcan ID](https://docs.cubepilot.org/user-guides/here-2/here-2-can-mode-instruction).
+
 :::
 
 ## 接线和连接
 
 The Here2 GPS comes with an 8 pin connector that can be inserted directly into the [Pixhawk 2](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf) GPS UART port.
 
-The Pixhawk 3 Pro and Pixracer have a 6 pin GPS port connector. For these controllers you can modify the GPS cable (as shown below) to remove pin 6 and 7.
+The Pixhawk 3 Pro and Pixracer have a 6 pin GPS port connector.
+For these controllers you can modify the GPS cable (as shown below) to remove pin 6 and 7.
 
 <img src="../../assets/hardware/gps/rtk_here_plug_gps_to_6pin_connector.jpg" width="500px" />
 
@@ -45,16 +47,18 @@ Pin 6 and 7 are for the safety button - these can be attached as well if needed.
 
 The Here2 GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
 
-| 引脚 | Here2 GPS  | 引脚 | Pixhawk 3 Pro GPS |
-| -- | ---------- | -- | ----------------- |
-| 1  | VCC_5V     | 1  | VCC               |
-| 2  | GPS_RX     | 2  | GPS_TX            |
-| 0  | GPS_TX     | 3  | GPS_RX            |
-| 4  | SCL        | 4  | SCL               |
-| 5  | SDA        | 5  | SDA               |
-| 6  | BUTTON     | -  | -                 |
-| 7  | BUTTON_LED | -  | -                 |
-| 8  | GND        | 6  | GND               |
+| 引脚 | Here2 GPS                       | 引脚 | Pixhawk 3 Pro GPS           |
+| -- | ------------------------------- | -- | --------------------------- |
+| 1  | ```
+VCC_5V
+```                  | 1  | VCC                         |
+| 2  | GPS_RX     | 2  | GPS_TX |
+| 3  | GPS_TX     | 3  | GPS_RX |
+| 4  | SCL                             | 4  | SCL                         |
+| 5  | SDA                             | 5  | SDA                         |
+| 6  | BUTTON                          | -  | -                           |
+| 7  | BUTTON_LED | -  | -                           |
+| 8  | GND                             | 6  | GND                         |
 
 ## 技术规范
 
