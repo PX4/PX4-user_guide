@@ -1,7 +1,1 @@
-# DroneKit
-
-DroneKit більше не рекомендується.
-
-Натомість вам слід використовувати [MAVSDK](https://mavsdk.mavlink.io/) з PX4, оскільки це набагато краще майже в усіх аспектах: функції, швидкість, підтримка мови програмування, обслуговування тощо.
-
-Документація про використання DroneKit з PX4 можна знайти тут: [PX4 v1.12 > DroneKit](https://docs.px4.io/v1.12/en/robotics/dronekit.html).
+<Redirect to="../robotics/#dronekit" />
