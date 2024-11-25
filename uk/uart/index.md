@@ -2,4 +2,4 @@
 
 У цьому розділі містяться теми про послідовну шину і драйвери послідовної шини:
 
-- [Готуємо драйвер Послідовного Порту до користувацьких налаштувань](../uart/user_configurable_serial_driver.md)
+- [Making Serial Port Drivers User-Configurable](../uart/user_configurable_serial_driver.md)
