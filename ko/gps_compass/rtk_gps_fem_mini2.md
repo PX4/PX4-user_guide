@@ -1,12 +1,13 @@
-# Femtones MINI2 수신기
+# Femtones MINI2 Receiver
 
-[MINI2 Receiver](http://www.femtomes.com/#/MiniII?type=0) is an RTK GPS receiver that delivers high-rate and reliable RTK initialization for centimeter level positioning. It is intended for applications that require high-precision positioning (e.g. navigation and mapping, etc.).
+[MINI2 Receiver](http://www.femtomes.com/#/MiniII?type=0) is an RTK GPS receiver that delivers high-rate and reliable RTK initialization for centimeter level positioning.
+It is intended for applications that require high-precision positioning (e.g. navigation and mapping, etc.).
 
 수신기는 직렬 포트 (UART)를 통하여 PX4에 연결되며, 표준 웹 브라우저를 사용하여 설정할 수 있습니다.
 
-![MINI II 수신기](../../assets/hardware/gps/rtk_fem_miniII_receiver.jpg)
+![MINI II Receiver](../../assets/hardware/gps/rtk_fem_miniII_receiver.jpg)
 
-::: info
+:::info
 PX4 drivers for Ethernet, CAN and USB are under development.
 :::
 
@@ -25,8 +26,8 @@ PX4 drivers for Ethernet, CAN and USB are under development.
 
 Contact [Femtones](http://www.femtomes.com/) directly for sales quote:
 
-- **전자메일:** [sales@femtomes.com](mailto:sales@femtomes.com)
-- **전화:** +86-10-53779838
+- **Email:** [sales@femtomes.com](mailto:sales@femtomes.com)
+- **Telephone:** +86-10-53779838
 
 ## 기능성 포트
 
@@ -34,17 +35,20 @@ Contact [Femtones](http://www.femtomes.com/) directly for sales quote:
 
 ## 배선
 
-[MINI2 수신기](http://www.femtomes.com)는 데이터용 비행 콘트롤러(GPS 포트)의 UART에 연결됩니다. 모듈에 전원을 공급하기 위하여, 별도의 12V 전원공급장치가 필요합니다. 12핀 커넥터 핀은 아래와 같이 번호가 지정됩니다.
+The [MINI2 Receiver](http://www.femtomes.com) is connected to a UART on the flight controller (GPS port) for data.
+모듈에 전원을 공급하기 위하여, 별도의 12V 전원공급장치가 필요합니다.
+12핀 커넥터 핀은 아래와 같이 번호가 지정됩니다.
 
-![MINI_II_2](../../assets/hardware/gps/rtk_fem_miniII_2.jpg)
+![MINI\_II\_2](../../assets/hardware/gps/rtk_fem_miniII_2.jpg)
 
 ## 설정
 
-방향 추정을 위해 두 안테나는 같은 높이에 있어야하고, 서로 최소 30cm 떨어져 있어야합니다. 두 GPS가 향하는 방향은 [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) 매개변수로 설정할 수 있습니다.
+방향 추정을 위해 두 안테나는 같은 높이에 있어야하고, 서로 최소 30cm 떨어져 있어야합니다.
+The direction that they are facing does not matter as it can be configured with the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) parameter.
 
 Configure the serial port on which the [MINI2 Receiver](http://www.femtomes.com/#/MiniII?type=0) will run using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), and set the baud rate to 115200 using [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD).
 
-설정후에는 수신기는 다른 [RTK GPS](../gps_compass/rtk_gps.md)와 동일한 방식으로 사용됩니다 (즉, Survey-in 프로세스와 관련하여).
+Once configured the receiver is used in the same way as any other [RTK GPS](../gps_compass/rtk_gps.md) (i.e. with respect to the Survey-in process).
 
 ## 추가 정보
 
