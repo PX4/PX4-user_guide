@@ -3,25 +3,25 @@
 Ця сторінка показує вам доступні оцінювачі стану та як ви можете перемикатися між ними.
 
 :::tip
-EKF2 is the default and should be used unless you have a reason not to (in particular on vehicles with a GNSS/GPS).
-The Q-Estimator can be used if you don't have GPS, and is commonly used in [multicopter racers](../config_mc/racer_setup.md).
+EKF2 є типовим і повинен використовуватися, якщо немає причин не робити цього (особливо на транспортних засобах з GNSS/GPS).
+Q-оцінювач може бути використаний, якщо у вас немає GPS, і це часто використовується у [multicopter racers](../config_mc/racer_setup.md).
 :::
 
 ## Доступні оцінювачі
 
 Доступні оцінювачі:
 
-- **EKF2 attitude, position and wind states estimator** (_recommended_) - An extended Kalman filter estimating attitude, 3D position / velocity and wind states.
+- **EKF2 оцінювач стану орієнтації, положення та вітру** (_рекомендовано_) - Розширений фільтр Кальмана, який оцінює орієнтацію, тривимірну позицію/швидкість та стан вітру.
 
-- **LPE position estimator** (_deprecated_) - An extended Kalman filter for 3D position and velocity states.
+- **LPE оцінювач положення** (_не рекомендовано_) - Розширений фільтр Кальмана для тривимірної позиції та швидкості.
 
   :::warning
-  LPE is deprecated.
+  LPE є застарілим.
   Він працює (на момент написання, у версії PX4 v1.14), але більше не підтримується або не обслуговується.
 
 :::
 
-- **Q attitude estimator** - A very simple, quaternion based complementary filter for attitude.
+- **Q оцінювач положення** - Дуже простий додатковий фільтр на основі кватерніонів для орієнтації.
   Він не вимагає наявності GPS, магнітомера або барометра.
   <!-- Q estimator is supported (at time of writing in PX4 v1.14). Test added in PX4-Autopilot/pull/21922 -->
 
@@ -31,18 +31,18 @@ The Q-Estimator can be used if you don't have GPS, and is commonly used in [mult
 
 Щоб увімкнути певний оцінювач, увімкніть його параметр та вимкніть інші:
 
-- [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) - EKF2 (default/recommended)
-- [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN) - Q Estimator (quaternion based attitude estimator)
-- [LPE_EN](../advanced_config/parameter_reference.md#LPE_EN) - LPE (not supported for Fixed-wing)
+- [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN) - EKF2 (за замовчуванням/рекомендовано)
+- [ATT_EN](../advanced_config/parameter_reference.md#ATT_EN) - Q Estimator (оцінювач орієнтації на основі кватерніонів)
+- [LPE_EN](../advanced_config/parameter_reference.md#LPE_EN) - LPE (не підтримується для фіксованого крила)
 
 :::warning
-It is important to enable one, and only one, estimator.
-If more than one is enabled, the first to publish the UOrb topics [vehicle_attitude](../msg_docs/VehicleAttitude.md) or [vehicle_local_position](../msg_docs/VehicleLocalPosition.md) is used.
+Важливо увімкнути один, і тільки один оцінювач.
+Якщо увімкнено більше одного, використовується перший, хто публікує теми UOrb [vehicle_attitude](../msg_docs/VehicleAttitude.md) або [vehicle_local_position](../msg_docs/VehicleLocalPosition.md).
 Якщо жоден з них не увімкнено, то теми не публікуються.
 :::
 
 :::info
-For FMU-v2 (only) you will also need to build PX4 to specifically include required estimator (e.g. EKF2: `make px4_fmu-v2`, LPE: `make px4_fmu-v2_lpe`).
+Для FMU-v2 (тільки) вам також потрібно збудувати PX4 з включенням необхідного оцінювача (наприклад, EKF2: `make px4_fmu-v2`, LPE: `make px4_fmu-v2_lpe`).
 Це потрібно, оскільки FMU-v2 має недостатньо ресурсів для включення обох оцінювачів.
 Інші версії FMU для Pixhawk включають обидва оцінювачі.
 :::
