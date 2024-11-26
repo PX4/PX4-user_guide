@@ -143,7 +143,7 @@ To get the source code for a _specific older release_ (tag):
    cd PX4-Autopilot
    ```
 
-   Примітка
+   :::info
 
    Ви можете повторно використовувати існуючий репозиторій, а не клонувати новий.
    In this case clean the build environment (see [changing source trees](#changing-source-trees)):
@@ -183,7 +183,7 @@ The are [listed here](https://github.com/PX4/PX4-Autopilot/branches/all?query=re
   cd PX4-Autopilot
   ```
 
-  Примітка
+  :::info
 
   Ви можете повторно використовувати існуючий репозиторій, а не клонувати новий.
   In this case clean the build environment (see [changing source trees](#changing-source-trees)):
