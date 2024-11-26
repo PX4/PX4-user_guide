@@ -28,7 +28,7 @@ Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/
 
 :::
 
-## Конфігурація
+## Налаштування
 
 ### Увімкнення датчиків швидкості у повітрі
 
