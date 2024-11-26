@@ -179,7 +179,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make modalai_fc-v1
 ```
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 _Note: mappings shown are for the PX4 controlled interfaces only_
 
