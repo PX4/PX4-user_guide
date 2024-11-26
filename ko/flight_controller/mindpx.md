@@ -2,26 +2,27 @@
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+하드웨어 지원과 호환 문제는 [제조사](http://mindpx.net)에 문의하십시오.
 :::
 
-The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>.
+AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) 시리즈는 Pixhawk<sup>&reg;</sup>에서 파생된 차세대 자동조종장치입니다.
 
-![MindPX Controller](../../assets/hardware/hardware-mindpx.png)
+![MindPX 콘트롤러](../../assets/hardware/hardware-mindpx.png)
 
 :::info
-These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체에서 지원](../flight_controller/autopilot_manufacturer_supported.md)합니다.
 :::
 
 ## 요약
 
 :::info
-The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
+주요 하드웨어 문서는 [여기](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf)를 참고하십시오.
 :::
 
 MindPX는 Pixhawk<sup>&reg;</sup>에서 분기된 차세대 자동조종장치로, 회로도와 구조가 수정되었으며, 무인기체를 보다 스마트하고 사용하기 용이하도록 새로운 기능으로 더욱 강화되었습니다.
 
 MindPX는 총 PWM 출력 채널을 16 (8개의 주출력 + 8 aux 출력)으로 증가시킵니다.
+MindPX는보다 복잡한 VTOL 구성과보다 정밀한 제어를 지원할 수 있습니다.
 MindPX는보다 복잡한 VTOL 구성과보다 정밀한 제어를 지원할 수 있습니다.MindPX는 하나의 단일 FMU에서 메인과 AUX 출력을 구현하여,  FMU-V4 기반 비행 컨트롤러에 특히 유용합니다.
 
 ![](../../assets/hardware/hardware-mindpx-specs.png)
@@ -47,17 +48,17 @@ MindPX는보다 복잡한 VTOL 구성과보다 정밀한 제어를 지원할 수
 
 ### 장착
 
-![MindPX Mounting](../../assets/hardware/hardware-mindpx-mounting.png)
+![MindPX 장착](../../assets/hardware/hardware-mindpx-mounting.png)
 
 ### 배선
 
-![MindPX Wiring 1](../../assets/hardware/hardware-mindpx-wiring1.png)
+![MindPX 배선 1](../../assets/hardware/hardware-mindpx-wiring1.png)
 
-![MindPX Wiring 2](../../assets/hardware/hardware-mindpx-wiring2.png)
+![MindPX 배선 2](../../assets/hardware/hardware-mindpx-wiring2.png)
 
 ### 핀
 
-![MindPX Pinout](../../assets/hardware/hardware-mindpx-pin.png)
+![MindPX 핀배열](../../assets/hardware/hardware-mindpx-pin.png)
 
 |  번호 |                  설명                 |  번호 |                             설명                             |
 | :-: | :---------------------------------: | :-: | :--------------------------------------------------------: |
@@ -75,7 +76,7 @@ MindPX는보다 복잡한 VTOL 구성과보다 정밀한 제어를 지원할 수
 MindPX는 PPM/SBUS/DSM/DSM2/DSMX를 포함한 다양한 무선 수신기를 V2.6부터 지원합니다.
 MindPX는 FrSky<sup>&reg;</sup> 양방향 텔레메트리 D와 S.Port도 지원합니다.
 
-For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
+자세한 핀 다이어그램은 [사용 설명서](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf)를 참조하십시오
 
 ### 펌웨어 빌드
 
@@ -101,12 +102,12 @@ MindPX에는 보드에는 USB-TO-UART 브리지 IC가 있습니다.
 ## 사용자 가이드
 
 :::info
-The user guide is [here](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
+사용자 가이드는 [여기](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf)를 참고하십시오.
 :::
 
 ## 구매처
 
-MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet.
+MindRacer는 인터넷 [AirMind Store](http://drupal.xitronet.com/?q=catalog)에 구매할 수 있습니다.
 Amazon<sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
 
 ## 시리얼 포트 매핑
