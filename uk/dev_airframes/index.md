@@ -1,4 +1,4 @@
-# Airframes
+# Планери
 
 PX4 has a flexible [control allocation system](../concept/control_allocation.md) that allows it to support almost any imaginable vehicle type/frame through a single codebase:
 
