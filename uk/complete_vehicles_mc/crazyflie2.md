@@ -229,7 +229,7 @@ make venv
 
 ![](../../assets/hardware/joystick-message-frequency.png)
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 Crazyflie 2.0 може літати з точним керуванням у режимі [Стабілізований режим](../flight_modes_mc/manual_stabilized.md), режимі [Висотний режим](../flight_modes_mc/altitude.md) та режимі [Позиційний режим](../flight_modes_mc/position.md).
 
