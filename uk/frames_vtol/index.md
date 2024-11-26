@@ -107,7 +107,7 @@ Assembly information is covered in several sections:
 In addition, build logs showing how others have set up different types of vehicles are provided as sub topics.
 For example see [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md).
 
-## Конфігурація
+## Налаштування
 
 VTOL configuration is covered in a number of sections:
 
