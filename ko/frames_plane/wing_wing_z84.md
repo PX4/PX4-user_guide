@@ -55,7 +55,7 @@ Use the `MAIN` outputs (not the ones labeled with AUX).
 | RC IN  | PPM or S.BUS / S.BUS2 input |
 | MAIN 1 | 좌측 보조익                                                      |
 | MAIN 2 | 우측 보조익                                                      |
-| MAIN 3 | 비어있음                                                        |
+| MAIN 3 | 비어 있음                                                       |
 | MAIN 4 | Motor 1                                                     |
 
 ## 조립 방법
