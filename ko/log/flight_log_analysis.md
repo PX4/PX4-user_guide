@@ -77,7 +77,7 @@ See [Log Analysis using Plot Juggler](../log/plotjuggler_log_analysis.md) for an
   - _ulog2csv_: convert ULog to (several) CSV files.
   - _ulog2kml_: convert ULog to (several) KML files.
 
-All scripts are installed as system-wide applications (i.e. they be called on the command line - provided Python is installed), and support the `-h` flag for getting usage instructions. 예를 들어:
+All scripts are installed as system-wide applications (i.e. they be called on the command line - provided Python is installed), and support the `-h` flag for getting usage instructions. 예:
 
 ```sh
 $ ulog_info -h
