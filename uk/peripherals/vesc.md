@@ -52,7 +52,7 @@ Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-te
 See DroneCAN Troubleshooting - (index.md#troubleshooting).
 -->
 
-## Додаткова інформація
+## Подальша інформація
 
 - [VESC Project ESCs](https://vesc-project.com/)
 - [Benjamin Vedder's blog](http://vedder.se) (project owner)
