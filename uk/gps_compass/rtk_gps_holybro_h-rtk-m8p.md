@@ -18,7 +18,7 @@ Refer to the [Specification and Model Comparison section](#specification-and-mod
 
 - [H-RTK M8P (GPS RTK Mounts)](https://holybro.com/products/vertical-mount-for-h-rtk-helical)
 
-## Конфігурація
+## Налаштування
 
 RTK setup and use on PX4 via _QGroundControl_ is largely plug and play \(see [RTK GPS](../gps_compass/rtk_gps.md) for more information\).
 
