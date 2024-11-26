@@ -1,8 +1,8 @@
 # Комп'ютерний зір (оптичний потік, MoCap, VIO, уникання)
 
-[Computer vision](https://en.wikipedia.org/wiki/Computer_vision) techniques enable computers to use visual data to make sense of their environment.
+Техніки [комп'ютерного зору](https://en.wikipedia.org/wiki/Computer_vision) дозволяють комп'ютерам використовувати візуальні дані для розуміння їх оточення.
 
-PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/index.md)) in order to support the following features:
+PX4 використовує системи комп'ютерного зору (переважно запущені на [супутніх комп'ютерах](../companion_computer/README.md)) для підтримки наступних функцій:
 
 - Оцінка положення/швидкості:
   - [Optical Flow](../sensor/optical_flow.md) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
@@ -14,7 +14,7 @@ PX4 uses computer vision systems (primarily running on [Companion Computers](../
   - [Collision Prevention](../computer_vision/collision_prevention.md) is used to stop MC vehicles before they can crash into an obstacle (primarily when flying in manual modes).
 
 :::tip
-The [PX4 Vision Autonomy Development Kit](../complete_vehicles_mc/px4_vision_kit.md) (Holybro) is a robust and inexpensive kit for developers working with computer vision on PX4.
+[Набір для розвитку автономності візійної системи PX4](../complete_vehicles_mc/px4_vision_kit.md) (від Holybro) - це надійний та доступний набір для розробників, які працюють з комп'ютерним зором на PX4.
 :::
 
 ## Додаткові ресурси
