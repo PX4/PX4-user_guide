@@ -1,4 +1,4 @@
-# Посібник користувача ROS 2
+# ROS 2 Посібник користувача
 
 Архітектура ROS 2-PX4 забезпечує глибоку інтеграцію між ROS 2 і PX4, дозволяючи підписникам ROS 2 або вузлам видавців безпосередньо взаємодіяти з темами uORB PX4.
 
@@ -409,7 +409,7 @@ Note that ROS code does not have to set QoS settings when publishing (the PX4 se
 
 The local/world and body frames used by ROS and PX4 are different.
 
-| Рама  | PX4                                                                 | ROS                                                               |
+| Frame | PX4                                                                 | ROS                                                               |
 | ----- | ------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | Body  | FRD (X **F**orward, Y **R**ight, Z **D**own)     | FLU (X **F**orward, Y **L**eft, Z **U**p)      |
 | World | FRD or NED (X **N**orth, Y **E**ast, Z **D**own) | FLU or ENU (X **E**ast, Y **N**orth, Z **U**p) |
