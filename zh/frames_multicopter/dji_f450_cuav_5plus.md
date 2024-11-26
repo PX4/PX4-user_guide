@@ -218,7 +218,7 @@ These may be good enough to fly with, but you should tune each frame build.
 
 For instructions on how, start from [Autotune](../config/autotune_mc.md).
 
-## 视频:
+## 视频
 
 <lite-youtube videoid="r-IkaVpN1Ko" title="CUAV V5+"/>
 
