@@ -163,7 +163,7 @@ This topic provides full instructions for building the kit and configuring PX4 u
 
 ![Finished Setup](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_cuav5_plus_complete_2.jpg)
 
-## Налаштування PX4
+## Конфігурація PX4
 
 _QGroundControl_ is used to install the PX4 autopilot and configure/tune it for the frame.
 [Download and install](http://qgroundcontrol.com/downloads/)
