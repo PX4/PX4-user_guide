@@ -1,4 +1,4 @@
-# Калібрування ESC (плати контролю двигунів)
+# Калібрування ESC
 
 :::info
 These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md) and [OneShot ESCs](../peripherals/oneshot.md).
@@ -29,7 +29,7 @@ Jump to the [actuator configuration step (7)](#actuatorconfig_step) (which is st
 
 OneShot ESCs should be [configured to use OneShot](../peripherals/oneshot.md#px4-configuration) before calibration. Ви повинні провести калібрування ESC після переключення, навіть якщо ви вже раніше калібрували їх.
 
-## Попередні вимоги
+## Передумови
 
 Послідовність калібрування передбачає, що ви зможете тримати під напругою контролер польоту під час ручного вимикання та увімкнення ESC.
 
