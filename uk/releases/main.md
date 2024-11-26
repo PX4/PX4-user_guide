@@ -17,7 +17,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ## Основні зміни
 
-- TBD
+- Уточнюється
 
 ## Інструкції для оновлення
 
@@ -25,7 +25,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### Підтримка обладнання
 
-- TBD
+- Уточнюється
 
 ### Загальні
 
@@ -35,17 +35,17 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### Управління
 
-- TBD
+- Уточнюється
 
 ### Оцінки
 
-- TBD
+- Уточнюється
 
-### Сенсори
+### Датчики
 
-- TBD
+- Уточнюється
 
-### Моделювання
+### Симуляція
 
 - [SIH]: The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7.
   ([PX4-Autopilot#23363](https://github.com/PX4/PX4-Autopilot/pull/23363)).
@@ -62,30 +62,30 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### Ethernet
 
-- TBD
+- Уточнюється
 
 ### uXRCE-DDS / ROS2
 
-- TBD
+- Уточнюється
 
 ### MAVLink
 
-- TBD
+- Уточнюється
 
 ### Мульти-Ротор
 
 - Allow system-default [multicopter orbit mode](../flight_modes_mc/orbit.md) yaw behaviour to be configured, using the parameter [MC_ORBIT_YAW_MOD](../advanced_config/parameter_reference.md#MC_ORBIT_YAW_MOD) ([PX4-Autopilot#23358](https://github.com/PX4/PX4-Autopilot/pull/23358))
 - Adapted the [Collision Prevention](../computer_vision/collision_prevention.md) implementation to work in the default manual flight mode (Acceleration Based) [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE). ([PX4-Autopilot#23507](https://github.com/PX4/PX4-Autopilot/pull/23507)
 
-### VTOL (Вертикальний зліт та посадка)
+### VTOL
 
-- TBD
+- Уточнюється
 
-### Безпілотник-крило
+### Літак з фіксованим крилом
 
 - Improvement: Fixed-wing auto takeoff: enable setting takeoff flaps for hand/catapult launch. [PX4-Autopilot#23460](https://github.com/PX4/PX4-Autopilot/pull/23460)
 
-### Землехід
+### Ровер
 
 This release contains a major rework for the rover support in PX4:
 
@@ -109,4 +109,4 @@ This release contains a major rework for the rover support in PX4:
 
 ### ROS 2
 
-- TBD
+- Уточнюється
