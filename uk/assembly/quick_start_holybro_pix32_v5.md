@@ -59,7 +59,7 @@ The GPS module's integrated safety switch is enabled _by default_ (when enabled,
 Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
 
-## Потужність
+## Power
 
 Ви можете використовувати модуль живлення або розподільник живлення для живлення двигунів/сервоприводів та виміру споживаної потужності.
 Рекомендовані модулі живлення показані нижче.
@@ -167,7 +167,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 [Pix32 v5 Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf) (Holybro)
 
-## Конфігурація
+## Налаштування
 
 General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
