@@ -56,6 +56,6 @@ In _QGroundControl_:
    batt_smbus start -X -b 1 -a 12 # External bus 1, address 0x0c
    ```
 
-## Додаткова інформація
+## Подальша інформація
 
 [Quick Start Guide](https://rotoye.com/batmon-tutorial/) (Rotoye)
