@@ -22,7 +22,7 @@ This section explains how to connect and configure a [gripper](../peripherals/gr
 | Колір проводу | Ціль       |
 | ------------- | ---------- |
 | Brown         | Ground     |
-| Red           | Живлення   |
+| Red           | Power      |
 | Yellow        | Сигнал PWM |
 
 Вам потрібно буде підключити їх до відповідного входу PWM контролера польоту.
@@ -35,7 +35,7 @@ This section explains how to connect and configure a [gripper](../peripherals/gr
 - **Power requirements of gripper**: Check the mechanism's data-sheet to find out the power line voltage level requirements. Depending on that, the gripper can be either connected directly to the [power module](../power_module/index.md) or connected to a 5V line.
   Також можна використовувати спеціалізований регулятор напруги для виведення будь-якої іншої необхідної напруги.
 
-## Налаштування PX4
+## Конфігурація PX4
 
 Configuration instructions can be found in: [Gripper > PX4 Configuration](../peripherals/gripper.md#px4-configuration) documentation.
 
