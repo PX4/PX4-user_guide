@@ -67,7 +67,7 @@ It supports RTK functionality with a maximum data update rate of 10Hz, and comes
 - 55x55x12mm
 - 50g (GEM1305) 26g (NANO with Helix)
 
-## Розпіновка
+## Схема розташування виводів
 
 The board is connected to the autopilot via UART interface.
 
@@ -84,7 +84,7 @@ The 1.25mm pitch 6P connector (from left: PIN1 to PIN6):
 
 The board does not include a compass and so does not require connections for a compass part.
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 RTK requires a base RTK module attached to the ground station, and a rover RTK module on the vehicle.
 The data from the base needs to be transmitted to the drone via telemetry radio and inputed into the RTK receiver on the rover.
