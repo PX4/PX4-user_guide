@@ -115,7 +115,7 @@ You can find an appropriate covnerter using an internet search.
 
 Software development for I2C devices is described in [I2C Bus (Development Overview)](../sensor_bus/i2c_development.md).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) (Wikipedia)
 - [I2C Comparative Overview](https://learn.sparkfun.com/tutorials/i2c) (learn.sparkfun.com)
