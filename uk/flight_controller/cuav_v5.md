@@ -60,14 +60,14 @@ It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS, and is fully compatibl
 
 ## Де купити
 
-Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
+Замовлення від [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
 
 ## Підключення
 
 ![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5_connector.jpg)
 
 :::warning
-The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
+Інтерфейс RCIN призначений лише для живлення радіоприймача і не може бути підключений до будь-якого джерела живлення/навантаження.
 :::
 
 ## Номінальна напруга
@@ -83,7 +83,7 @@ You must supply power to one of **POWER1**, **POWER2** or **USB** or the board w
 
 За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. **POWER1** and **POWER2** inputs (4.3V to 5.4V)
+1. Входи **POWER1** та **POWER2** (4,3 - 5,4 В)
 2. **USB** input (4.75V to 5.25V)
 
 ## Збірка прошивки
@@ -135,8 +135,8 @@ Simply connect the FTDI cable to the Debug & F7 SWD connector.
 
 ## Периферійні пристрої
 
-- [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI\&id=9512463037)
-- [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq\&search=y\&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
+- [Цифровий датчик швидкості польоту](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI\\&id=9512463037)
+- [Телеметричні радіо модулі](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq\\&search=y\\&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
 - [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 ## Підтримувані платформи / Конструкції
@@ -147,5 +147,5 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 ## Подальша інформація
 
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
-- [CUAV v5 docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html)
+- [Документація CUAV V5](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html)
 - [CUAV Github](https://github.com/cuav)
