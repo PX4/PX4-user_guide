@@ -35,7 +35,7 @@ It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, an
 | Input voltage                                     | 5V                                                                                                                         |
 | Operating temperature                             | -10~70℃                                                                                                    |
 | Size                                              | 60\*60\*16MM                                                                                                               |
-| Weight                                            | 33g                                                                                                                        |
+| 重量                                                | 33g                                                                                                                        |
 
 ## 尺寸
 
