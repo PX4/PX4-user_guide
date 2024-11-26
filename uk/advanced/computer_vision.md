@@ -1,18 +1,18 @@
 # Комп'ютерний зір (оптичний потік, MoCap, VIO, уникання)
 
-[Computer vision](https://en.wikipedia.org/wiki/Computer_vision) techniques enable computers to use visual data to make sense of their environment.
+Техніки [комп'ютерного зору](https://en.wikipedia.org/wiki/Computer_vision) дозволяють комп'ютерам використовувати візуальні дані для розуміння їх оточення.
 
-PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/index.md)) in order to support the following features:
+PX4 використовує системи комп'ютерного зору (переважно запущені на [супутніх комп'ютерах](../companion_computer/README.md)) для підтримки наступних функцій:
 
-- [Optical Flow](#optical-flow) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
+- [Оптичний потік](#optical-flow) забезпечує оцінку швидкості у двох вимірах (з використанням камери, спрямованої вниз, та датчика відстані, спрямованого вниз).
 - [Motion Capture](#motion-capture) provides 3D pose estimation using a vision system that is _external_ to the vehicle.
   Це переважно використовується для внутрішньої навігації.
 - [Visual Inertial Odometry](#visual-inertial-odometry-vio) provides 3D pose and velocity estimation using an onboard vision system and IMU.
   Це використовується для навігації в тих випадках, коли інформація про позицію GNSS відсутня або ненадійна.
-- [Collision Prevention](../computer_vision/collision_prevention.md) is used to stop vehicles before they can crash into an obstacle (primarily when flying in manual modes).
+- [Уникнення зіткнення](../computer_vision/collision_prevention.md) використовується для зупинки транспортних засобів перед тим, як вони зіткнуться з перешкодою (переважно при польоті у ручних режимах).
 
 :::tip
-The [PX4 Vision Autonomy Development Kit](../complete_vehicles_mc/px4_vision_kit.md) (Holybro) is a robust and inexpensive kit for developers working with computer vision on PX4.
+[Набір для розвитку автономності візійної системи PX4](../complete_vehicles_mc/px4_vision_kit.md) (від Holybro) - це надійний та доступний набір для розробників, які працюють з комп'ютерним зором на PX4.
 :::
 
 ## Захоплення руху
@@ -26,16 +26,16 @@ MoCap is commonly used to navigate a vehicle in situations where GPS is absent (
 
 Для отримання інформації про MoCap, перегляньте:
 
-- [External Position Estimation](../ros/external_position_estimation.md)
-- [Flying with Motion Capture (VICON, NOKOV, Optitrack)](../tutorials/motion-capture.md)
-- [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [Оцінка зовнішньої позиції ](../ros/external_position_estimation.md)
+- [Літання з використанням захоплення руху (VICON, NOKOV, Optitrack) ](../tutorials/motion-capture.md)
+- [EKF > Зовнішня візійна система ](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 
-## Visual Inertial Odometry (VIO)
+## Візуальна інерціальна оцінка положення (VIO)
 
 Visual Inertial Odometry (VIO) is used for estimating the 3D _pose_ (position and orientation) and _velocity_ of a moving vehicle relative to a _local_ starting position.
 Часто використовується для навігації транспортного засобу в ситуаціях, де GPS відсутній (наприклад, всередині приміщень) або ненадійний (наприклад, при польоті під мостом).
 
-VIO uses [Visual Odometry](https://en.wikipedia.org/wiki/Visual_odometry) to estimate vehicle _pose_ from visual information, combined with inertial measurements from an IMU (to correct for errors associated with rapid vehicle movement resulting in poor image capture).
+Часто використовується для навігації транспортного засобу в ситуаціях, де GPS відсутній (наприклад, всередині приміщень) або ненадійний (наприклад, при польоті під мостом).
 
 :::info
 One difference between VIO and [MoCap](#motion-capture) is that VIO cameras/IMU are vehicle-based, and additionally provide velocity information.
@@ -43,27 +43,27 @@ One difference between VIO and [MoCap](#motion-capture) is that VIO cameras/IMU 
 
 Для отримання інформації щодо налаштування VIO на PX4 дивіться:
 
-- [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [EKF > Зовнішня візійна система ](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 - [T265 Setup guide](../peripherals/camera_t265_vio.md)
 
-## Optical Flow
+## Оптичний потік(Optical Flow)
 
 [Optical Flow](../sensor/optical_flow.md) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
 
-Для отримання інформації про оптичний потік, перегляньте:
+[Оптичний потік](../sensor/optical_flow.md) забезпечує оцінку швидкості у двох вимірах (з використанням камери, спрямованої вниз, та датчика відстані, спрямованого вниз).
 
 - [Optical Flow](../sensor/optical_flow.md)
 - [EKF > Optical Flow](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
 ## Порівняння
 
-### Оптичний потік та VIO для оцінки локального положення
+### Порівняння
 
 Обидва методи використовують камери і вимірюють різницю між кадрами.Оптичний потік використовує камеру, спрямовану вниз, тоді як VIO використовує стереокамеру або камеру з відстеженням під кутом 45 градусів.Припускаючи, що обидва методи добре калібруються, який з них краще для оцінки локального положення?
 
-The consensus [appears to be](https://discuss.px4.io/t/vio-vs-optical-flow/34680):
+Обидва методи використовують камери і вимірюють різницю між кадрами.Оптичний потік використовує камеру, спрямовану вниз, тоді як VIO використовує стереокамеру або камеру з відстеженням під кутом 45 градусів.Припускаючи, що обидва методи добре калібруються, який з них краще для оцінки локального положення?
 
-Оптичний потік:
+Консенсусом [здається](https://discuss.px4.io/t/vio-vs-optical-flow/34680):
 
 - Оптичний потік, спрямований вниз, надає вам планарну швидкість, яка коригується на кутову швидкість за допомогою гіроскопа.
 - Вимагає точної відстані до землі і передбачає планарну поверхню.Враховуючи ці умови, це може бути настільки ж точним / надійним, як VIO (для польотів у приміщенні)
