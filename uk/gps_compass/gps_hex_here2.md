@@ -43,11 +43,11 @@ The Here2 GPS comes with an 8 pin connector that can be inserted directly into t
 
 Виводи 6 і 7 призначені для кнопки безпеки - їх також можна прикріпити за потреби.
 
-### Розпіновка
+### Схема розташування виводів
 
 Схема виводів Here2 GPS наведена нижче. Це може бути використано для модифікації роз'єму для інших плат автопілота.
 
-| пін | Here2 GPS                       | пін | Pixhawk 3 Pro GPS           |
+| pin | Here2 GPS                       | pin | Pixhawk 3 Pro GPS           |
 | --- | ------------------------------- | --- | --------------------------- |
 | 1   | VCC_5V     | 1   | VCC                         |
 | 2   | GPS_RX     | 2   | GPS_TX |
@@ -58,7 +58,7 @@ The Here2 GPS comes with an 8 pin connector that can be inserted directly into t
 | 7   | BUTTON_LED | -   | -                           |
 | 8   | GND                             | 6   | GND                         |
 
-## Характеристики
+## Специфікація
 
 - **Processor:** STM32F302
 - **Sensor**
