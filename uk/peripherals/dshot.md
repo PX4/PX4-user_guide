@@ -28,7 +28,7 @@ Controllers that don't have an IO board usually label the (single) output port a
 If the controller without IO has its own firmware, the actuator assignment will be to the matching `PWM MAIN` outputs.
 However if the same firmware is used for hardware with/without the IO board, such as for the Pixhawk 4 and Pixhawk 4 Mini, then actuator assignment tab used is the same in both cases: `PWM AUX` (i.e. not matching the port label `MAIN` in the "mini" case).
 
-## Конфігурація
+## Налаштування
 
 :::warning
 Remove propellers before changing ESC configuration parameters!
@@ -103,7 +103,7 @@ See [here](../modules/modules_driver.md#dshot) for a full reference of the suppo
     Rotation Direction: normal
     ```
 
-  Примітка
+  :::info
 
   - The commands will have no effect if the motors are spinning, or if the ESC is already set to the corresponding direction.
   - The ESC will revert to its last saved direction (normal or reversed) on reboot if `save` is not called after changing the direction.
