@@ -49,7 +49,7 @@ This build follows the original design from [Brescianini, Dario, and Raffaello D
 
 ## Збірка
 
-### Рама
+### Frame
 
 - Print the 3D parts
   ::: info
@@ -123,7 +123,7 @@ Make sure the motors do not overheat with the changed settings.
 
 <lite-youtube videoid="nsPkQYugfzs" title="PX4 Based Omnicopter Using the New Dynamic Control Allocation in v1.13"/>
 
-## Моделювання
+## Симуляція
 
 Є мішень імітації омнікоптера в Gazebo Classic:
 
