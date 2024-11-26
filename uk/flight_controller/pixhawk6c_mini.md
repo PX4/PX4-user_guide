@@ -107,7 +107,7 @@ Please refer to the [Pixhawk 4 Mini Wiring Quick Start](../assembly/quick_start_
 
 - [Holybro Pixhawk 6C Mini Port Pinout](https://docs.holybro.com/autopilot/pixhawk-6c-mini/pixhawk-6c-mini-ports)
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Опис параметра QGC | Мітка порту на FC |
 | ------ | ---------- | ------------------ | ----------------- |
