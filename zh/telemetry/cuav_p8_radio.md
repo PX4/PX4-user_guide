@@ -33,7 +33,7 @@ On some flight controllers, or if used with a different serial port, you may nee
 [P8 Configuration](https://doc.cuav.net/data-transmission/p8-radio/en/config.html) provides full information about radio configuration, if required.
 :::
 
-## 针脚定义
+## Pinouts
 
 ![P8 pinouts](../../assets/hardware/telemetry/cuav_p8_pinouts.png)
 
