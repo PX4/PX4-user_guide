@@ -160,7 +160,7 @@ You will need external pullups on both signals (clock and data).
 
 ![Omnibus F4 SD Pullup Implementation](../../assets/flight_controller/omnibus_f4_sd/pullup.jpg)
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт     |
 | ------ | ---------- | -------- |
@@ -256,7 +256,7 @@ If you use [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration) in
 
 - [Load the firmware](../config/firmware.md) using _QGroundControl_.
 
-## Конфігурація
+## Налаштування
 
 In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
