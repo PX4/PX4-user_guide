@@ -4,6 +4,7 @@
 
 :::warning
 Експериментальні налаштування
+This feature was introduced in PX4 v1.15.
 
 - Його ще не широко тестували на різних конфігураціях транспортних засобів або сценаріях.
 - Більшість тестувань проведено в режимі позиціонування.
@@ -12,9 +13,9 @@
 :::
 
 Ця функція дозволяє запускати багторот з фіксованої позиції, після чого кидати його в повітря.
-Транспортний засіб потім увімкнує двигуни та працює відповідно до свого поточного режиму.
+The vehicle turns on the motors only after the launch is detected, and then operates according to its current mode.
 
-Коли увімкнено запуск з кидка, увімкнення транспортного засобу не спричиняє обертання пропелерів.
+When throw launch is enabled, the vehicle is initially armed in a "lockdown" state, in which the propellers do not spin.
 Гвинтики не будуть активуватися, поки транспортний засіб не буде кинутий або роззброєний, а сигнал готовності буде продовжувати грати протягом цього часу.
 Транспортний засіб не буде автоматично роззброєний після увімкнення, і його потрібно роззброїти вручну, якщо ви вирішите не кидати його.
 
@@ -97,3 +98,9 @@
 ## Дивіться також
 
 - [Режим відльоту (фіксований крило) > Катапульт/ручний запуск](../flight_modes_fw/takeoff.md#catapult-hand-launch).
+
+<!--
+Notes:
+https://github.com/PX4/PX4-Autopilot/pull/23822
+https://github.com/PX4/PX4-Autopilot/blob/371a99c3221dd09dce0b218c45df405188d96cfd/src/modules/commander/Commander.cpp#L1894-L1896 - lockdown setting
+-->
