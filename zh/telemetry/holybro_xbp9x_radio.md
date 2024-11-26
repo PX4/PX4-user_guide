@@ -23,6 +23,6 @@ With RF line-of-sight ranging up to 65 miles/100km and strong interference block
 
 Discontinued (no longer available at Holybro).
 
-## 产品规格
+## Specifications
 
 ![Holybro XBP9X Radio](../../assets/hardware/telemetry/holybro-xbp9x-spec.png)
