@@ -190,7 +190,7 @@ If you have to wire the system yourself, the diagram below shows all the connect
 ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
 :::
 
-## Налаштування PX4
+## Конфігурація PX4
 
 _QGroundControl_ is used to install the PX4 autopilot and configure/tune it for the QAV250 frame.
 [Download and install](http://qgroundcontrol.com/downloads/) _QGroundControl_ for your platform.
