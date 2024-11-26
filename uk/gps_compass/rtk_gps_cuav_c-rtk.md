@@ -28,11 +28,11 @@ At time of writing PX4 does not yet fully support a second GPS. 4-контакт
 
 Може знадобитися модифікація кабелів/роз'ємів для підключення до інших плат польотних контролерів. The pin mappings for _Pixhawk 3 Pro_ and _Pixracer_ are shown below.
 
-### Розпіновка
+### Схема розташування виводів
 
 Нижче наведено розводку GPS-приймача C-RTK. Це може бути використано для модифікації роз'єму для інших плат автопілота.
 
-| пін | C-RTK GPS 6P                | пін | Pixhawk 3 Pro GPS           | C-RTK GPS 4P                |
+| pin | C-RTK GPS 6P                | pin | Pixhawk 3 Pro GPS           | C-RTK GPS 4P                |
 | --- | --------------------------- | --- | --------------------------- | --------------------------- |
 | 1   | SDA                         | 1   | VCC                         |                             |
 | 2   | SCL                         | 2   | GPS_TX |                             |
