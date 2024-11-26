@@ -157,7 +157,7 @@ This will override the default takeoff location.
 
 The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
 
-예를 들어:
+예:
 
 ```sh
 export PX4_HOME_LAT=28.452386
