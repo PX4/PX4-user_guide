@@ -1,4 +1,4 @@
-# Симуляції Gazebo
+# Симуляція Gazebo
 
 :::warning
 Gazebo was previously known as "Gazebo Ignition" (while _Gazebo Classic_ was previously known as Gazebo).
@@ -349,12 +349,12 @@ During Gazebo simulations PX4 subscribes to the Gazebo `\clock` topic and uses i
 Зауважте, однак, оскільки синхронізація відсутня, Gazebo ніколи не чекатиме завершення обчислень PX4.
 У найгіршому випадку, PX4 може повністю відключитися, а Gazebo продовжить виконання з очевидними аваріями дронів, що симулюються.
 
-## Багатотранспортне моделювання
+## Симуляція кількох рухомих засобів
 
 Симуляція кількох засобів підтримується на комп'ютерах з Linux.
 
 For more information see: [Multi-Vehicle Simulation with Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md)
 
-## Додаткова інформація
+## Подальша інформація
 
 - [px4-simulation-ignition](https://github.com/Auterion/px4-simulation-ignition)
