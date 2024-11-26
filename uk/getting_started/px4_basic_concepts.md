@@ -37,7 +37,7 @@ The term Unmanned Aerial System (UAS) typically refers to a UAV and all of the o
 - **Boats** — Water-surface vehicles.
 - [Submersibles](../frames_sub/index.md) — Underwater vehicles.
 
-Для отримання додаткової інформації:
+Для додаткової інформації дивіться:
 
 - [Vehicle Types & Setup](../airframes/index.md)
 - [Airframe setup](../config/airframe.md)
@@ -91,7 +91,7 @@ QGC також може бути використаний для візуаль�
 [Auterion Mission Control](https://auterion.com/product/mission-control/) is a powerful and fully featured ground control station application that is optimized for _pilots_ rather than vehicle configuration.
 Хоча призначений для роботи з продуктами Auterion, його можна використовувати з "ванільним" PX4.
 
-Для отримання додаткової інформації:
+Для додаткової інформації дивіться:
 
 - [AMC docs](https://docs.auterion.com/vehicle-operation/auterion-mission-control)
 - [Download from Auterion Suite](https://suite.auterion.com/)
@@ -328,7 +328,7 @@ Not all flight modes are available on all vehicle types, and some modes can only
 Огляд доступних режимів польоту для кожного засобу можна знайти тут:
 
 - [Режими польоту (Мультикоптер)](../flight_modes_mc/index.md)
-- [Режими польоту (Фіксований крило)](../flight_modes_fw/README.md)
+- [Режими польоту (Фіксовані крила)](../flight_modes_fw/index.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/index.md)
 - [Drive Modes (Differential Rover)](../flight_modes_rover/differential.md)
 - [Drive Modes (Ackermann Rover)](../flight_modes_rover/ackermann.md)
