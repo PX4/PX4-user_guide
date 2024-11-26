@@ -12,7 +12,7 @@ The [TFRPM01](https://github.com/ThunderFly-aerospace/TFRPM01) tachometer is a s
 The TFRPM01 sensor is open-source hardware commercially available from [ThunderFly s.r.o.](https://www.thunderfly.cz/) (manufacturing data is [available on GitHub](https://github.com/ThunderFly-aerospace/TFRPM01)).
 :::
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 Плата обладнана (двома крізь прохідними) роз'ємами I²C для підключення до PX4 та має 3-контактний роз'єм, який можна використовувати для підключення до різних датчиків:
 
