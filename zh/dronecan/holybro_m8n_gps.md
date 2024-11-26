@@ -39,7 +39,7 @@ Order this module from:
 | Power consumption         | Less than 200mA @ 5V                                                                                                                  |
 | Temperature               | -40\~80C                                                                                                                          |
 | Size                      | <p>Diameter: 54mm<br>Thickness: 14.5mm</p>                                                                                                         |
-| Weight                    | 36g                                                                                                                                                |
+| 重量                        | 36g                                                                                                                                                |
 | Cable Length              | 26cm                                                                                                                                               |
 | Other                     | <ul><li>LNA MAX2659ELT+ RF Amplifier</li><li>Rechargeable Farah capacitance</li><li>Low noise 3.3V regulator</li><li>26cm cable included</li></ul> |
 
