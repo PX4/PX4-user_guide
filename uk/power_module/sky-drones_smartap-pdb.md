@@ -28,7 +28,7 @@ SmartAP PDB спрощує підключення високовольтних �
 - Висота: 14мм
 - Вага: 8g
 
-## Налаштування PX4
+## Конфігурація PX4
 
 [Battery Estimation Tuning](../config/battery.md) describes how to configure the battery setting for a power module.
 
