@@ -174,7 +174,7 @@ For direct connection to _Segger Jlink_ we recommended you use the 3.3 Volts fro
 Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Quick start](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
 - [CUAV docs](http://doc.cuav.net)
