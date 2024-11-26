@@ -79,7 +79,7 @@ _Режим місії_ змушує транспортний засіб вик�
 - [Планування місій](../flying/missions.md)
 - [План Перегляду](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html) (_Посібник користувача QGroundControl_)
 
-## Перевірки можливостей місії
+## Перевірка можливості виконання місії
 
 PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded and before executing a mission.
 If any of the checks fail, the user is notified and it is not possible to start the mission (the vehicle will switch to [Hold mode](../flight_modes_mc/hold.md) instead of Mission mode).
@@ -99,7 +99,7 @@ The user is notified should the check fail, but it has no effect on the validity
 
 _QGroundControl_ надає додаткову підтримку обробки місій на рівні GCS (на додачу до того, що надає контролер польоту).
 
-Для додаткової інформації дивіться:
+Для отримання додаткової інформації:
 
 - [Видалити місію після посадки транспортного засобу](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
 - [Відновити місію після режиму Повернення](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#resume-mission)
@@ -180,7 +180,7 @@ PX4 "приймає" наступні команди місії MAVLink у ре�
 
 - [MAV_CMD_NAV_RALLY_POINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RALLY_POINT)
 
-::: info
+:::info
 Please add an issue report or PR if you find a missing/incorrect message.
 ::: info:
 
