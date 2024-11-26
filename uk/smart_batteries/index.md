@@ -8,7 +8,7 @@ PX4 підтримує (принаймні) наступні розумні ба
 
 - [Rotoye Batmon](../smart_batteries/rotoye_batmon.md)
 
-### Додаткова інформація
+### Подальша інформація
 
 - [Mavlink Battery Protocol](https://mavlink.io/en/services/battery.html)
 - [batt_smbus](../modules/modules_driver.md) - PX4 SMBus Battery Driver docs
