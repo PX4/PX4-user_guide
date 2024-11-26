@@ -26,7 +26,7 @@ Most commonly they are connected to `TELEM2` (if this is not being use for some 
 | -------------------------- | --------------------------- | ------------ |
 | 1 (red) | RX (IN)  | +5V tolerant |
 | 2 (blk) | TX (OUT) |              |
-| 3 (blk) | Потужність                  | +4 to 6V     |
+| 3 (blk) | Живлення                    | +4 to 6V     |
 | 4 (blk) | GND                         | GND          |
 
 The PingRX comes with connector cable that can be attached directly to the TELEM2 port (DF13-6P) on an [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
@@ -176,7 +176,7 @@ The (commented out) code in `run_fake_traffic()` simulates a number of different
 
 <!-- See also bug to make this work without uncommenting: https://github.com/PX4/PX4-Autopilot/issues/21810 -->
 
-## Додаткова інформація
+## Подальша інформація
 
 - [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
 - [Serial Port Configuration](../peripherals/serial_configuration.md)
