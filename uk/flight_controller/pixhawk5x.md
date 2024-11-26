@@ -5,7 +5,7 @@ PX4 не розробляє цей (або будь-який інший) авт�
 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-_Pixhawk 5X_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
+_Pixhawk 5X_<sup>&reg;</sup> є останнім оновленням успішної серії політних контролерів Pixhawk®, розроблених та виготовлених у співпраці між Holybro<sup>&reg;</sup> та командою PX4.
 
 It is based on the [Pixhawk​​® Autopilot FMUv5X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf), [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 Він поставляється з попередньо встановленою найновішою версією PX4 Autopilot​®, потрійним резервуванням, температурним контролем, ізольованими датчиками, що забезпечує неймовірну продуктивність і надійність.
@@ -37,9 +37,9 @@ Pixhawk® 5X ідеально підходить для розробників �
 ## Ключові пункти дизайну
 
 - Модульний політний контролер
-  - separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk® Autopilot Bus connector, designed for flexible and customizable systems
+  - відокремлений IMU, FMU та Base system, з'єднані за допомогою роз'ємів Pixhawk® Autopilot Bus на 100 & 50 контактів, призначені для гнучких та налаштовуваних систем
 - Резервування
-  - 3x IMU sensors & 2x Barometer sensors on separate buses, allowing parallel and continuous operation even in the event of a hardware failure
+  - 3x датчики IMU & 2x датчики барометра на окремих шинах, що дозволяє паралельну та безперервну роботу навіть в разі відмови обладнання
 - Потрійне резервування доменів
   - Повністю ізольовані сенсорні домени з окремими шинами та окремим керуванням живленням
 - IMU з контролем температури
@@ -80,7 +80,7 @@ Pixhawk® 5X ідеально підходить для розробників �
     - 1 з відокремленням 1.5A поточної межі
     - 1 з I2C та додатковою лінією GPIO для зовнішнього NFC зчитувача
   - 2 порти GPS
-    - 1 full GPS & Safety Switch Port
+    - 1 повний GPS порт & порт запобіжного перемикача
     - 1 базовий порт GPS
   - 1 I2C порт
   - 1 порт Ethernet
@@ -120,11 +120,11 @@ Pixhawk® 5X ідеально підходить для розробників �
 
 ## Де купити
 
-Order from [Holybro](https://holybro.com/products/pixhawk-5x).
+Замовляйте на [Holybro](https://holybro.com/products/pixhawk-5x).
 
 ## Зборка/інсталяція
 
-The [Pixhawk 5X Wiring Quick Start](../assembly/quick_start_pixhawk5x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
+[Швидкий старт з підключення Pixhawk 5X](../assembly/quick_start_pixhawk5x.md) надає інструкції щодо збірки необхідних/важливих периферійних пристроїв, включаючи GPS, модуль живлення тощо.
 
 ## З'єднання
 
@@ -132,14 +132,14 @@ The [Pixhawk 5X Wiring Quick Start](../assembly/quick_start_pixhawk5x.md) provid
 
 ## Схема розташування виводів
 
-![Pixhawk 5X Pinout](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
+![Схема контактів Pixhawk 5X](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
 :::info
 Connector pin assignments are left to right (i.e. Pin 1 - це найлівіший контакт).
 :::info
 
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
-- _Pixhawk 5X_ pinouts can be downloaded in PDF from from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
+- Схему контактів _Pixhawk 5X_ можна завантажити у форматі PDF [тут](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) або [тут](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
 
 ## Налаштування послідовного порту
 
@@ -156,7 +156,7 @@ Connector pin assignments are left to right (i.e. Pin 1 - це найлівіш�
 
 ## Розміри
 
-![Pixhawk 5X Dimensions](../../assets/flight_controller/pixhawk5x/pixhawk5x_dimensions_all.jpg)
+![Розміри Pixhawk 5X](../../assets/flight_controller/pixhawk5x/pixhawk5x_dimensions_all.jpg)
 
 ## Номінальна напруга
 
@@ -180,7 +180,7 @@ The **POWER1** & **POWER2** ports on the Pixhawk 5X uses the 6 circuit [2.00mm P
 
 **Voltage monitoring**
 
-Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_pixhawk5x.md#power)).
+Цифровий моніторинг батареї I2C увімкнено за замовчуванням (див. [Швидкий старт >  Живлення](../assembly/quick_start_pixhawk5x.md#power)).
 
 ::: info
 Аналоговий моніторинг батареї через ADC не підтримується на цій конкретній платі, але може підтримуватися в варіантах цього політного контролера з іншою базовою платою.
@@ -238,7 +238,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ## Подальша інформація
 
-- [Pixhawk 5X Wiring QuickStart](../assembly/quick_start_pixhawk5x.md)
+- [Гайд з підключення Pixhawk 5X](../assembly/quick_start_pixhawk5x.md)
 - [Pixhawk 5X Overview & Specification](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Spec_Overview.pdf) (Holybro)
 - [Pixhawk 5X Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf) (Holybro)
 - [FMUv5X reference design pinout](https://docs.google.com/spreadsheets/d/1Su7u8PHp-Y1AlLGVuH_I8ewkEEXt_bHHYBHglRuVH7E/edit#gid=562580340).
