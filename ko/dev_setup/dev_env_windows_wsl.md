@@ -104,7 +104,7 @@ To open a WSL shell using a command prompt:
    wsl -d <distribution_name>
    ```
 
-   예를 들어:
+   예:
 
    ```sh
    wsl -d Ubuntu
