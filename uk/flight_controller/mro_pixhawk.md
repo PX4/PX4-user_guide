@@ -85,7 +85,7 @@ See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports)
 
 See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                          |
 | ------ | ---------- | --------------------------------------------- |
