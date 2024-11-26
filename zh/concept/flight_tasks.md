@@ -198,7 +198,7 @@ pxh> commander mode posctl
 The console will continuously display: `INFO [FlightTaskMyTask] FlightTaskMyTask update was called!`.
 If you want to change to another flight mode, you can type a command to change the mode, such as `commander mode altctl`.
 
-## 视频:
+## 视频
 
 The following videos provide an overview of flight tasks in PX4.
 The first covers the state of the flight task framework in PX4 v1.9.
