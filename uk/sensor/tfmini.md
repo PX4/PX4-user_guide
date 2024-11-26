@@ -13,7 +13,7 @@ PX4 підтримує всі три варіанти серії: TFmini-s, TFmi
 - [TFmini-i](https://en.benewake.com/TFminii/index_proid_324.html) (industrial)
 - [TFmini Plus](https://en.benewake.com/TFminiPlus/index_proid_323.html)
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 TFmini can be connected to any unused _serial port_ (UART), such as: `TELEM2`, `TELEM3`, `GPS2` etc.
 
