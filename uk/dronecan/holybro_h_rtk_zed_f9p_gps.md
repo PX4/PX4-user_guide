@@ -27,7 +27,7 @@ The high-precision PNI RM3100 compass ensures accurate orientation and stability
 
 ## Характеристики обладнання
 
-- Сенсори
+- Датчики
   - Ublox ZED-F9P GPS
     - Centimetre-level accuracy RTK positioning
     - IP66 Dust and Water Resistant
@@ -47,7 +47,7 @@ The high-precision PNI RM3100 compass ensures accurate orientation and stability
   - Current Consumption: 250 mA
   - Weight: 117 grams
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 ### Підключення
 
