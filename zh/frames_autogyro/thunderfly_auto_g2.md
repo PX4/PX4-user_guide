@@ -144,7 +144,7 @@ It can be handled, for example, by nulling the engine’s output in the transmit
 - Rotor centre plate with deformation zones (3D printed)
 - Rotor blades ([HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html) or 3D printed)
 
-## 视频:
+## 视频
 
 <lite-youtube videoid="YhXXSWz5wWs" title="[ThunderFly] 3D printed autogyro rotor"/>
 
