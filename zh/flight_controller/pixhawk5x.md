@@ -110,7 +110,7 @@ The Pixhawk® 5X is perfect for developers at corporate research labs, startups,
   - Flight Controller Module: 38.8 x 31.8 x 14.6mm
   - Standard Baseboard: 52.4 x 103.4 x 16.7mm
 
-- Weight
+- 重量
 
   - Flight Controller Module: 23g
   - Standard Baseboard: 51g
