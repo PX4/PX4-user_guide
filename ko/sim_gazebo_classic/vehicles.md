@@ -80,7 +80,7 @@ This model simulates hand/catapult launch, which can be used for [fixed-wing tak
 
 The plane will automatically be launched as soon as the vehicle is armed.
 
-## 수직이착륙기
+## 수직이착륙기(VTOL)
 
 ### 표준 VTOL
 
