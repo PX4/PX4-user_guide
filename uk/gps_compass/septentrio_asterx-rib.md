@@ -77,7 +77,7 @@ The voltage range when powering from the `PWR_IN` pins is 4.5V to 30V.
 На борту діоди запобігають коротким замиканням.
 The interface board provides the 3V3 supply to the AsteRx-m3 OEM receiver and a 5V DC voltage to the `VANT` pin of the AsteRx-m3 OEM.
 
-## Налаштування PX4
+## Конфігурація PX4
 
 PX4 configuration is covered in [Septentrio GNSS Receivers](../gps_compass/septentrio.md).
 
