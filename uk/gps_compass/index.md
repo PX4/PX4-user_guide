@@ -76,7 +76,7 @@ Most GNSS modules also contain a [compass/magnetometer](../gps_compass/magnetome
 
 [Mounting the Compass](../assembly/mount_gps_compass.md) explains how to mount a GNSS module that has a compass.
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 The hardware setup depends on the flight controller, the GNSS module, and the connection bus it supports - UART/I2C or CAN.
 
