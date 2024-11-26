@@ -5,7 +5,7 @@
 PX4 використовує системи комп'ютерного зору (переважно запущені на [супутніх комп'ютерах](../companion_computer/README.md)) для підтримки наступних функцій:
 
 - [Оптичний потік](#optical-flow) забезпечує оцінку швидкості у двох вимірах (з використанням камери, спрямованої вниз, та датчика відстані, спрямованого вниз).
-- [Motion Capture](#motion-capture) provides 3D pose estimation using a vision system that is _external_ to the vehicle.
+- [Захоплення руху](#motion-capture) забезпечує оцінку позиції у трьох вимірах за допомогою візійної системи, яка знаходиться _поза_ транспортним засобом. Це переважно використовується для внутрішньої навігації.
   Це переважно використовується для внутрішньої навігації.
 - [Visual Inertial Odometry](#visual-inertial-odometry-vio) provides 3D pose and velocity estimation using an onboard vision system and IMU.
   Це використовується для навігації в тих випадках, коли інформація про позицію GNSS відсутня або ненадійна.
