@@ -21,7 +21,7 @@ The [Here2 GPS receiver](http://www.proficnc.com/all-products/152-gps-module.htm
 - [ProfiCNC](http://www.proficnc.com/all-products/152-gps-module.html) (Australia)
 - [Other resellers](http://www.proficnc.com/stores)
 
-## Конфігурація
+## Налаштування
 
 Налаштування та використання PX4 відбувається за принципом «підключи і працюй».
 
