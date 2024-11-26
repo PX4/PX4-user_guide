@@ -60,7 +60,7 @@ Shield надає:
 
 ![PilotPi SensorPart wiring](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
 
-## Розпіновка
+## Схема розташування виводів
 
 :::warning
 It still uses old GH1.25 connectors.
