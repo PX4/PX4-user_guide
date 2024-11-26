@@ -65,7 +65,7 @@ Hawk R2 RTK GPS поставляється з роз'ємом JST на 6 кон�
 | 8   | I2C_DAT  |
 | 9   | GND                           |
 
-## Налаштування PX4
+## Конфігурація PX4
 
 After connecting your Hawk R2 to the `GPS2` port on compatible Pixhawk boards, RTK setup and use on PX4 via _QGroundControl_ is largely plug and play.
 For more information see: [RTK GPS](../gps_compass/rtk_gps.md#positioning-setup-configuration).
@@ -80,7 +80,7 @@ The compass only requires the usual [Compass Calibration](../config/compass.md).
 | Колір   | Назва              | Опис                                  |
 | ------- | ------------------ | ------------------------------------- |
 | Зелений | Індикатор TX       | Передача даних GNSS                   |
-| Red     | Індикатор живлення | Живлення                              |
+| Red     | Індикатор живлення | Power                                 |
 | Синій   | PPS                | Активна служба точного позиціонування |
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
