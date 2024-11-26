@@ -95,7 +95,7 @@ FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 예시로 
 
 ![S500 Electronics](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_electronics.jpg)
 
-### 필요한 공구
+### 필요한 공구들
 
 조립시에 필요한 공구들입니다.
 
@@ -103,7 +103,7 @@ FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 예시로 
 - 2.0 mm 육각 스크류 드라이버
 - 2.5 mm 육각 스크류 드라이버
 - 3mm Phillips 스크류드라이버
-- Wire 커터
+- 전선 커터
 - 정밀 트위저
 
 ![S500 Tools](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_tools2.png)
