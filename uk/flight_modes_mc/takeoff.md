@@ -2,18 +2,18 @@
 
 <img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
-У режимі польоту _Зліт_ транспортний засіб піднімається на задану висоту і чекає на подальші вказівки.
+The _Takeoff_ flight mode causes the vehicle to take off to a specified height and wait for further input.
 
-:::info
+::: info
 
-- Режим є автоматичним - для керування транспортним засобом не потрібне _втручання_ користувача.
+- Режим автоматичний - для керування апаратом не потрібно втручання користувача.
 - Режим потребує принаймні дійсної локальної оцінки позиції (не потребує глобальної позиції).
-  - Літаючі апарати не можуть перемикатися в цей режим без дійсної локальної позиції.
-  - Літаючі транспортні засоби перейдуть в режим аварійної безпеки, якщо втратять оцінку положення.
+  - Літаючі транспортні засоби не можуть переключатися на цей режим без глобального положення.
+  - Літаючі транспортні засоби будуть аварійно переходити в безпечний режим, якщо втрачають оцінку позиції.
   - Роззброєні транспортні засоби можуть переключатися в режим без дійсної оцінки позиції, але не можуть озброюватися.
-- Перемикачі керування RC можна використовувати для зміни режимів польоту.
-- Рух палиць дистанційного керування [за замовчуванням](#COM_RC_OVERRIDE) змінить транспортний засіб на [режим позиції](../flight_modes_mc/position.md), якщо не буде обробки критичного відключення батареї.
-- [Детектор несправностей](../config/safety.md#failure-detector) автоматично зупинить мотори, якщо на зльоті виникне проблема.
+- Перемикачі радіокерування можна використовувати для зміни режимів польоту.
+- Рух палиць дистанційного керування буде [за замовчуванням](#COM_RC_OVERRIDE) змінювати транспортний засіб на [режим позиції](../flight_modes_mc/position.md), якщо не виникне критична аварія батареї.
+- The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
@@ -21,24 +21,24 @@
 
 ## Технічний підсумок
 
-Багатовертольот вибуває вертикально на висоту, визначену в [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) і утримує позицію.
+A multi rotor ascends vertically to the altitude defined in [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) and holds position.
 
-Рух палиці RC змінить транспортний засіб на [Режим положення](../flight_modes_mc/position.md) (за [за замовчуванням](#COM_RC_OVERRIDE)).
+RC stick movement will change the vehicle to [Position mode](../flight_modes_mc/position.md) (by [default](#COM_RC_OVERRIDE)).
 
 ### Параметри
 
 Взліт впливається наступними параметрами:
 
-| Параметр                                                                                                | Опис                                                                                                                                                                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <a id="MIS_TAKEOFF_ALT"></a>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | Цільова висота під час злітання (типово: 2.5м)                                                                                                                                                                                                                                             |
-| <a id="MPC_TKO_SPEED"></a>[MPC_TKO_SPEED](../advanced_config/parameter_reference.md#MPC_TKO_SPEED)     | Швидкість підйому (за замовчуванням: 1.5м/с)                                                                                                                                                                                                                                               |
-| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Контролює переміщення джойстика на мультикоптері (або конвертоплані у режимі MC) зміну режиму на [Режим положення](../flight_modes_mc/position.md). Це можна окремо увімкнути для автоматичних режимів та для режиму поза бортом, і в автоматичних режимах воно включено за замовчуванням. |
-| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | Кількість рухів стиків, яка викликає перехід у режим [Положення](../flight_modes_mc/position.md) (якщо [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) увімкнено)                                                                                                                                    |
+| Параметр                                                                                                                                                                | Опис                                                                                                                                                                                                                                                                                                                                     |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MIS_TAKEOFF_ALT"></a>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT)                      | Цільова висота під час злітання (типово: 2.5м)                                                                                                                                                                                                                                        |
+| <a id="MPC_TKO_SPEED"></a>[MPC_TKO_SPEED](../advanced_config/parameter_reference.md#MPC_TKO_SPEED)                            | Швидкість підйому (за замовчуванням: 1.5м/с)                                                                                                                                                                                                                                          |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE)                      | Controls whether stick movement on a multicopter (or VTOL in MC mode) causes a mode change to [Position mode](../flight_modes_mc/position.md). Це можна окремо увімкнути для автоматичних режимів та для режиму поза бортом, і в автоматичних режимах воно включено за замовчуванням. |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes_mc/position.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled)                                                                                                                |
 
-## Дивись також
+## Дивіться також
 
-- [Запуск з катапульти чи підкиданням (MC)](../flight_modes_mc/throw_launch.md)
-- [Злітній режим (FW)](../flight_modes_fw/takeoff.md)
+- [Throw Launch (MC)](../flight_modes_mc/throw_launch.md)
+- [Takeoff Mode (FW)](../flight_modes_fw/takeoff.md)
 
 <!-- this maps to AUTO_TAKEOFF in dev -->
