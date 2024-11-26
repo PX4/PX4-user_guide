@@ -34,7 +34,7 @@ Performing this calibration step is only recommended if the autopilot's orientat
 
 Перевірте, що штучний горизонт, відображений у виді польоту, має показник посередині, коли транспортний засіб розміщений на рівній поверхні.
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
 - [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#level-horizon)
