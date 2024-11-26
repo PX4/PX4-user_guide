@@ -1,6 +1,6 @@
 # 社区支持的开发者工具
 
-This section contains information about _community-supported_ development setups, IDEs, simulators, and other tools.
+本节包含 _社区支持的_ 开发搭建、集成开发环境、模拟器和其他工具的信息。
 
 :::warning
 These setups are not maintained, tested, or supported, by the core development team.
