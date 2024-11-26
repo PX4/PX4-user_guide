@@ -60,7 +60,7 @@ PX4 runs on the H7 mini v1.3 and later.
 | VI           | Відеовхід з камери FPV                                                                           |                             |
 | VO           | Відеовихід на відеопередавач                                                                     |                             |
 | CAM          | Контроль OSD камери                                                                              |                             |
-| G або GND    | Заземлення                                                                                       |                             |
+| G або GND    | Ground                                                                                           |                             |
 | RSI          | Аналоговий вхід RSSI (0-3,3 В) від приймача                                   |                             |
 | R1, T1       | UART1 RX та TX                                                                                   | TELEM1                      |
 | R2, T2       | UART2 RX та TX                                                                                   | TELEM2                      |
@@ -112,7 +112,7 @@ make holybro_kakuteh7mini_default
 KakuteH7mini is supported with PX4 main and v1.14 or newer.
 :::
 
-## Налаштування PX4
+## Конфігурація PX4
 
 In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
@@ -120,7 +120,7 @@ In addition to the [basic configuration](../config/index.md), the following para
 | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | Це має бути вимкнено, оскільки у платі немає внутрішнього магніту. Ви можете активувати це, якщо приєднаєте зовнішній магніт. |
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                      |
 | ------ | ---------- | ----------------------------------------- |
