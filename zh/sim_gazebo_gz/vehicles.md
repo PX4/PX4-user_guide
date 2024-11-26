@@ -7,7 +7,8 @@ The models are included in PX4 as a submodule that is fetched from the [Gazebo M
 Supported vehicle types include: mutirotor, VTOL, Plane, Rover.
 
 :::warning
-See [Gazebo Classic Vehicles](../sim_gazebo_classic/vehicles.md) for vehicles that work with the older [Gazebo "Classic" simulation](../sim_gazebo_classic/index.md). Note that vehicle models are not interchangable between the two versions of the simulator: the vehicles on this page only work with (new) [Gazebo](../sim_gazebo_gz/index.md).
+See [Gazebo Classic Vehicles](../sim_gazebo_classic/vehicles.md) for vehicles that work with the older [Gazebo "Classic" simulation](../sim_gazebo_classic/index.md).
+Note that vehicle models are not interchangable between the two versions of the simulator: the vehicles on this page only work with (new) [Gazebo](../sim_gazebo_gz/index.md).
 :::
 
 ## 多旋翼
@@ -44,8 +45,9 @@ This model has a simple monocular camera sensor attached (there is no physical c
 make px4_sitl gz_x500_mono_cam
 ```
 
-::: info
-The camera cannot yet be used to stream video or for image capture in QGroundControl. [PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) can be used to track the additional work needed to fully enable these use cases.
+:::info
+The camera cannot yet be used to stream video or for image capture in QGroundControl.
+[PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) can be used to track the additional work needed to fully enable these use cases.
 :::
 
 ### X500 Quadrotor with Monocular Camera (Down-facing)
@@ -88,7 +90,9 @@ make px4_sitl gz_x500_lidar_front
 
 ### X500 Quadrotor with 2D LIDAR
 
-This model have a 2D LIDAR attached, modelled on the [Hokuyo UTM-30LX](https://www.hokuyo-aut.jp/search/single.php?serial=169). It has a range between 0.1 and 30m, and scans in a 270° arc. The model can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation).
+This model have a 2D LIDAR attached, modelled on the [Hokuyo UTM-30LX](https://www.hokuyo-aut.jp/search/single.php?serial=169).
+It has a range between 0.1 and 30m, and scans in a 270° arc.
+The model can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation).
 
 ```sh
 make px4_sitl gz_x500_lidar_2d
@@ -96,7 +100,7 @@ make px4_sitl gz_x500_lidar_2d
 
 ![x500 with 2D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d.png)
 
-::: info
+:::info
 The sensor information is written to the [ObstacleDistance](../msg_docs/ObstacleDistance.md) UORB message used by collision prevention.
 :::
 
@@ -120,7 +124,7 @@ make px4_sitl gz_advanced_plane
 
 ![Advanced Plane in Gazebo](../../assets/simulation/gazebo/vehicles/advanced_plane.png)
 
-::: info
+:::info
 The difference between the Advanced Plane and the "regular plane" lies in the Lift Physics that the two models use:
 
 - You can configure the _Advanced Lift Drag_ plugin used by the model to more closely match a particular vehicle using the [Advanced Lift Drag Tool](../sim_gazebo_gz/tools_avl_automation.md).
