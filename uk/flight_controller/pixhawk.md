@@ -66,7 +66,7 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 - 2 MB Flash
 - 32 bit STM32F103 відмовостійкий копроцесор
 
-### Сенсори
+### Датчики
 
 - ST Micro L3GD20H 16 bit гіроскоп
 - ST Micro LSM303D 14 bit акселерометр / магнітометр
@@ -243,7 +243,7 @@ The `RC IN` port is for RC receivers only and provides sufficient power for that
 | 2 (blk) | !IO_LED_SAFETY | GND                   |
 | 3 (blk) | SAFETY                                                   | GND                   |
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                          |
 | ------ | ---------- | --------------------------------------------- |
