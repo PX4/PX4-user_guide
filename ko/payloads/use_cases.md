@@ -21,7 +21,7 @@ For setup and usage information see:
 - [Gripper](../peripherals/gripper.md)
 - [Flying > Package Delivery Mission Planning](../flying/package_delivery_mission.md)
 
-::: info
+:::info
 Support for winches and other release mechanisms is also intended.
 
 If you need to perform cargo delivery using hardware that is not yet integrated, you can use [Generic Actuator Control](../payloads/generic_actuator_control.md).
