@@ -40,7 +40,7 @@ TFSLOT is possible to buy at [Tindie store](https://www.tindie.com/products/thun
 [TFASPDIMU02](https://github.com/ThunderFly-aerospace/TFASPDIMU02) is equipped with I2C JST-GH connector, which conforms to the pinout of the [dronecode standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 Отже, датчик може бути підключений безпосередньо до порту I2C автопілота за допомогою кабелю I2C 4pin JST-GH.
 
-## Конфігурація
+## Налаштування
 
 Because there is an [IMU IC](https://invensense.tdk.com/products/motion-tracking/9-axis/icm-20948/) connected in front of the sensor, the IMU IC needs to be set into a bridge mode.
 Після цього можна запустити драйвер датчика швидкості повітря. Це може бути зроблено за допомогою наступних послідовностей команд. Команди передбачають підключення до порту I2C2.
