@@ -116,7 +116,7 @@ Setup via UART:
 - Ensure the ARK RTK GPS modules are connected to each other via their UART2 port (UART2 pinout shown below).
   Note that TX of one module needs to connect with RX of the other.
 
-| 핀 | 이름  |
+| 핀 | 명칭  |
 | - | --- |
 | 1 | TX  |
 | 2 | RX  |
@@ -128,7 +128,7 @@ Setup via UART:
 - On the _Moving Base_, set the following:
   - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `2`.
 
-## LED 신호 정의
+## LED 신호의 의미
 
 - The GPS status lights are located to the right of the connectors
 
