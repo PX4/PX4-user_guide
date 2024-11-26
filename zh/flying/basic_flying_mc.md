@@ -52,7 +52,7 @@ The vehicle may disarm if you take too long to take off after arming (tune the t
 The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
 :::
 
-## 着陆
+## 降落
 
 Multicopters can be landed in any manual mode.
 Make sure to keep the throttle stick pulled down after touching down until the motors have switched off.
