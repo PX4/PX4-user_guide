@@ -35,7 +35,7 @@ While it can be controlled using traditional PWM input, it is designed to operat
   </div>
 </div>
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 ESCs підключені до шини CAN за допомогою стандартного кабелю Pixhawk 4 pin JST GH.
 For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
@@ -117,7 +117,7 @@ You can manually configure the ESC index and direction using the [DroneCAN GUI T
 See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
 :::
 
-### Налаштування PX4
+### Конфігурація PX4
 
 Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
@@ -125,7 +125,7 @@ Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-te
 
 See [DroneCAN Troubleshooting](index.md#troubleshooting)
 
-## Додаткова інформація
+## Подальша інформація
 
 - [PX4/Sapog](https://github.com/PX4/sapog#px4-sapog) (Github)
 - [Sapog v2 Reference Manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf)
