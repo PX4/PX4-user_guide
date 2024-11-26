@@ -54,6 +54,6 @@ To install and configure PX4:
 - [Set the Airframe](../config/airframe.md) to _BetaFPV Beta75X 2S Brushless Whoop_.
 - Continue with [basic configuration](../config/index.md), including sensor calibration and radio setup.
 
-## 视频:
+## 视频
 
 <lite-youtube videoid="_-O0kv0Qsh4" title="PX4 running on the BetaFPV Whoop"/>
