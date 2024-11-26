@@ -185,7 +185,7 @@ The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debu
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to UART7).
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                          |
 | ------ | ---------- | --------------------------------------------- |
@@ -220,7 +220,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make px4_fmu-v4_default
 ```
 
-## Конфігурація
+## Налаштування
 
 [Compass calibration](../config/compass.md) should be done with USB disconnected.
 Це завжди рекомендується, але необхідно на Pixracer, оскільки підключення USB виробляє особливо великі рівні магнітного перешкодження.
