@@ -51,7 +51,7 @@ The pin connections for wiring LidarLite to the _Pixhawk 1_ AUX ports (PWM inter
 | 3   | PWM                                    | AUX 5 (знизу) | PWM вихід Lidar Lite. **Needs a 470 Ohm pull-down (to GND), Do not use a 1 K0hm resistor.** |
 | 4   | SCL                                    | -                                | Не підключено                                                                                                                                  |
 | 5   | SDA                                    | -                                | Не підключено                                                                                                                                  |
-| 6   | GND                                    | AUX 6 (top)   | Заземлення                                                                                                                                     |
+| 6   | GND                                    | AUX 6 (top)   | Ground                                                                                                                                         |
 
 :::info
 On a flight controller that has no AUX port the equivalent MAIN pins are used (e.g. the PWM output on the lidar instead maps to MAIN 5).
