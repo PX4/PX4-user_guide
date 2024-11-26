@@ -13,7 +13,7 @@
 ## Характеристики обладнання
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_RTK_GPS)
-- Сенсори
+- Датчики
   - Ublox F9P GPS
     - Multi-band GNSS receiver delivers centimetre level accuracy in seconds
     - Одночасний прийом GPS, GLONASS, Galileo та BeiDou
@@ -42,13 +42,13 @@
   - Середній струм 170мA
   - 180мА Макс
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 ### Підключення
 
 ARK RTK GPS підключений до шини CAN за допомогою стандартного кабелю Pixhawk 4 pin JST GH. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
-### Монтаж
+### Встановлення
 
 The recommended mounting orientation is with the connectors on the board pointing towards the **back of vehicle**.
 
@@ -77,7 +77,7 @@ In order to use the ARK RTK GPS, connect it to the Pixhawk CAN bus and enable th
 Після активації модуль буде виявлено при завантаженні.
 Дані GPS повинні надходити з частотою 10 Гц.
 
-### Налаштування PX4
+### Конфігурація PX4
 
 You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle:
 
@@ -128,7 +128,7 @@ You need to set necessary [DroneCAN](index.md) parameters and define offsets if 
 - On the _Moving Base_, set the following:
   - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `2`.
 
-## Значення світлодіодів
+## Значення LED індикаторів
 
 - Світлодіоди статусу GPS розташовані праворуч від роз'ємів
 
