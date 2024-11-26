@@ -120,7 +120,7 @@ It also has a `send()` method that is called each time the message needs to be s
 
 Цей посібник демонструє, як транслювати повідомлення uORB як повідомлення MAVLink, і застосовується як до стандартних, так і до користувацьких повідомлень.
 
-### Попередні вимоги
+### Передумови
 
 Generally you will already have a [uORB](../middleware/uorb.md) message that contains information you'd like to stream and a definition of a MAVLink message that you'd like to stream it with.
 
