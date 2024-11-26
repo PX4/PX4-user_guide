@@ -173,6 +173,6 @@ A correct mission setup looks as follows:
 
 ![mission](../../assets/airframes/rover/traxxas_stampede_vxl/correct_mission.jpg)
 
-## 视频:
+## 视频
 
 <iframe width="740" height="416" src="https://www.youtube.com/embed/N3HvSKS3nCw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
