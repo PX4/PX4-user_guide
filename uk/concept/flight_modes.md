@@ -14,7 +14,7 @@ The sections below provide an overview of the modes, followed by a [flight mode 
 User-facing flight mode documentation can be found in:
 
 - [Режими польоту (Мультикоптер)](../flight_modes_mc/index.md)
-- [Режими польоту (Фіксований крило)](../flight_modes_fw/README.md)
+- [Режими польоту (Фіксовані крила)](../flight_modes_fw/index.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/index.md)
 - [Drive Modes (Differential Rover)](../flight_modes_rover/differential.md)
 - [Drive Modes (Ackermann Rover)](../flight_modes_rover/ackermann.md)
