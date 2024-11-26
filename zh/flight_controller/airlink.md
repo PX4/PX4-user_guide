@@ -122,7 +122,7 @@ SmartAP AIRLink's Core edition is intended for medium to high volume production 
 | ------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | Enclosure           | Aluminum, with integrated heatsink and fan mounting option. | External heatsink or reasonable power dissipation should be provided by the design. |
 | 尺寸                  | L103 x W61 x H37 mm                                                         | L100 x W57 x H22 mm                                                                                 |
-| Weight              | 198 g                                                                       | 89 g                                                                                                |
+| 重量                  | 198 g                                                                       | 89 g                                                                                                |
 | Ambient temperature | -40°C-..+50°C                               | -40°C-..+50°C                                                       |
 
 ## 主要特性
