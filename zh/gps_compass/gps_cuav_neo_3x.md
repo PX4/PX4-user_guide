@@ -33,7 +33,7 @@ Main features :
 | Input voltage                                | 4.7~5.2V                                                                          |
 | Operating temperature                        | -10~70℃                                                                                                           |
 | Size                                         | 67_67_21.2mm                                                                                                      |
-| Weight                                       | 46g (without cable）                                                                                            |
+| 重量                                           | 46g (without cable）                                                                                            |
 
 ## 购买渠道
 
