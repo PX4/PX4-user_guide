@@ -25,7 +25,7 @@ OneShot is essentially a version of [PWM](../peripherals/pwm_escs_and_servo.md) 
 
 Wiring is exactly the same as for [PWM ESCs](../peripherals/pwm_escs_and_servo.md) (and dshot).
 
-### Налаштування PX4
+### Конфігурація PX4
 
 To enable OneShot select the protocol for a group of outputs during [Actuator Configuration](../config/actuators.md).
 Note that the output range values are set to values in the normal PWM range (nominally `1000` to `2000`).
