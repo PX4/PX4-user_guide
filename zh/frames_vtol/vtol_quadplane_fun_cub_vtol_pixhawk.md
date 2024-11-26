@@ -72,7 +72,7 @@ For further instructions on wiring and configurations please see:
 
 After you finish calibration the VTOL is ready to fly.
 
-## 视频:
+## 视频
 
 <lite-youtube videoid="4K8yaa6A0ks" title="Fun Cub PX4 VTOL Maiden"/>
 
