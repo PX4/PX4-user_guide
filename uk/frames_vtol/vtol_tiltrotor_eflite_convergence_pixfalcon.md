@@ -46,7 +46,7 @@ Note that you will need to start from the [Generic Tiltrotor VTOL](../airframes/
 
 ![Mount Pixfalcon](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
 
-### Telemetry Radio
+### Телеметрійне радіо
 
 Модуль телеметрії вставляється у відсік, призначений для розміщення механізму передачі FPV.
 
