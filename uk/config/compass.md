@@ -26,7 +26,7 @@ _QGroundControl_ should also notify the error `mag sensors inconsistent`.
 
 ## Виконання калібрування
 
-### Попередні вимоги
+### Передумови
 
 Перед початком калібрування:
 
@@ -115,7 +115,7 @@ These are prefixed with [CAL_MAGx_](../advanced_config/parameter_reference.md#CA
 Raw comparison data for magnetometers (in fact, for all sensors) can be logged by setting [SDLOG_MODE=1](../advanced_config/parameter_reference.md#SDLOG_MODE) and [SDLOG_PROFILE=64](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
 See [Logging](../dev_log/logging.md) for more information.
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Peripherals > GPS & Compass](../gps_compass/index.md)
 - [Basic Assembly](../assembly/index.md) (setup guides for each flight controller)
