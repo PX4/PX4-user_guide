@@ -26,7 +26,7 @@ If logging stops due to a write error, or reaching the [maximum file size](#file
 logger help
 ```
 
-## Конфігурація
+## Налаштування
 
 The logging system is configured by default to collect sensible logs for [flight reporting](../getting_started/flight_reporting.md) with [Flight Review](http://logs.px4.io).
 
