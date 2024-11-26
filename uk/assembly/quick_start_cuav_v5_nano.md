@@ -18,7 +18,7 @@ This quick start guide shows how to power the [CUAV V5 nano](../flight_controlle
 
 | Основний інтерфейс                 | Функція                                                                                                                                                                                                                                               |
 | :--------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Потужність                         | Під'єднати модуль живлення; Надає живлення та виміри напруги та струму ANALOG.                                                                                                                                                        |
+| Power                              | Під'єднати модуль живлення; Надає живлення та виміри напруги та струму ANALOG.                                                                                                                                                        |
 | PM2                                | [Do not use with PX4](../flight_controller/cuav_v5_nano.md#compatibility_pm2)                                                                                                                                                                         |
 | TF CARD                            | Карта SD для зберігання logs (постачається з картою)                                                                                                                                                                               |
 | M1~M8              | PWM виходи. Може бути використаний для управління двигунами або сервоприводами.                                                                                                                                       |
@@ -83,7 +83,7 @@ If you do not use the recommended _Neo v2 GPS_ the buzzer may not work.
 V5 nano має присвячений кабель DSM.
 If using a Spektrum satellite receiver, this should be connected to the flight controller `DSM/SBUS/RSSI` interface.
 
-## Потужність
+## Power
 
 The _v5 nano_ kit includes the _HV_PM_ module, which supports 2~14S LiPo batteries.
 Connect the 6pin connector of the _HW_PM_ module to the flight control `Power` interface.
@@ -126,7 +126,7 @@ Motors/servos are connected to the MAIN ports in the order specified for your ve
 
 ![V5 nano pinouts](../../assets/flight_controller/cuav_v5_nano/v5_nano_pinouts.png)
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Airframe buildlog using CUAV v5 nano on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5nano.md)
 - [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
