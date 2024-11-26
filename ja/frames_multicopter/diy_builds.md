@@ -2,7 +2,7 @@
 
 Do-it-yourself (DIY) builds describe how to assemble a vehicle from parts that are sourced separately.
 
-::: info
+:::info
 [Kits](../frames_multicopter/kits.md) provide a gentler introduction to building a drone, and should be considered if you are just starting out!
 
 Note that some parts used in the builds linked below may no longer be available.
