@@ -1,4 +1,4 @@
-# SiK 무선통신
+# SiK 라디오
 
 [SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
 
