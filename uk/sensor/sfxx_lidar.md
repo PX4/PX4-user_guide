@@ -42,7 +42,7 @@ To enable support, you have to download [LightWare Studio](https://lightwarelida
 
 This step is not required for the other supported Lightware rangefinders.
 
-### Апаратне забезпечення
+### Апаратне забезпечення(Hardware)
 
 Connect the Lidar the autopilot I2C port as shown below (in this case, for the [Pixhawk 1](../flight_controller/mro_pixhawk.md)).
 
@@ -63,7 +63,7 @@ VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_r
 
 ## Serial Setup {#serial_hardware_setup}
 
-### Апаратне забезпечення
+### Апаратне забезпечення(Hardware)
 
 The lidar can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
@@ -84,7 +84,7 @@ Then set the [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF
 
 VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_reference.md#SF1XX_MODE) to `2: Disabled during VTOL fast forward flight`.
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Modules Reference: Distance Sensor (Driver) : lightware_laser_i2c](../modules/modules_driver_distance_sensor.md#lightware-laser-i2c)
 - [Modules Reference: Distance Sensor (Driver) : lightware_laser_serial](../modules/modules_driver_distance_sensor.md#lightware-laser-serial)
