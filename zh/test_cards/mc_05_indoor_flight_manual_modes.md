@@ -29,7 +29,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
 
-## 着陆
+## 降落
 
 ❏ 以稳定或高度模式着陆，油门低于 40％
 
