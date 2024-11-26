@@ -32,9 +32,9 @@ This topic provides full instructions for building the kit and configuring PX4 u
 
 ![All components used in this build](../../assets/airframes/multicopter/dji_f450_cuav_5nano/all_components.jpg)
 
-## Апаратне забезпечення
+## Апаратне забезпечення(Hardware)
 
-### Рама
+### Frame
 
 Цей розділ містить усе обладнання для каркасів.
 
