@@ -73,7 +73,7 @@ Connector pin assignments are left to right (i.e. Pin 1 - це найлівіш�
 The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
 :::
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                          |
 | ------ | ---------- | --------------------------------------------- |
@@ -155,7 +155,7 @@ The pinout uses the standard [Pixhawk debug connector pinout](https://github.com
 Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
