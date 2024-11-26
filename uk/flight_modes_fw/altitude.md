@@ -54,7 +54,7 @@ Altitude mode like [Stabilized mode](../flight_modes_fw/stabilized.md) but with 
 | <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)                                           | Крейсерська швидкість. За замовчуванням: 15 м/с.                                                   |
 | <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)                            | Установлення максимального кроку в режимі стабілізації кута нахилу. За замовчуванням: 45 градусів. |
 | <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)                            | Максимальне значення крена в режимі стабілізації кута нахилу. За замовчуванням: 45 градусів.       |
-| <a id="FW_T_CLMB_R_SP"></a>[FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) | Максимальна задана швидкість підйому. За замовчуванням: 3 m/s.                                     |
+| <a id="FW_T_CLMB_R_SP"></a>[FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) | Максимальна задана швидкість підйому. За замовчуванням: 3 м/с.                                     |
 | <a id="FW_T_SINK_R_SP"></a>[FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP) | Максимальне значення зниження швидкості. За замовчуванням: 2 м/с.                                  |
 
 <!--
