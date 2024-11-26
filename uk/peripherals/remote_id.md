@@ -34,7 +34,7 @@ PX4 integrates with Remote ID hardware that supports:
 
 Other devices that support the Open Drone ID protocol and DroneCAN should also work (but have not been tested).
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 Remote ID devices can be connected to any free/unused serial port on the flight controller, or CAN.
 Most commonly they are connected directly to the `TELEM2` port (if it is not being use for some other purpose) as this is already configured for MAVLink "by default".
@@ -110,7 +110,7 @@ The [User Guide](https://docs.holybro.com/radio/remote-id) explains how you can 
 
 ![Holybro Remote ID Pinouts](../../assets/peripherals/remoteid_holybro/holybro_remote_id_pinout.jpg)
 
-## Налаштування PX4
+## Конфігурація PX4
 
 ### MAVLink Port Configuration
 
