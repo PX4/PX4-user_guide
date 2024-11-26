@@ -195,7 +195,7 @@ It is possible to have low DOP (good satellite geometry) but still have high EPH
 
 EPH/EPV values therefore provide a more immediate and practical estimate of the actual GPS accuracy you can expect under current conditions.
 
-## Інформація про розробника
+## Інформація для розробників
 
 - GPS/RTK-GPS
   - [RTK-GPS](../advanced/rtk_gps.md)
