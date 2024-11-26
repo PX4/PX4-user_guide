@@ -73,7 +73,7 @@ VCC_5V
 
 ## Status LEDs
 
-| 颜色  | 名称              | 描述                                 |
+| 颜色  | 参数名             | 描述                                 |
 | --- | --------------- | ---------------------------------- |
 | 绿色  | TX Indicator    | GNSS Data transmission             |
 | Red | Power Indicator | 电源                                 |
