@@ -206,7 +206,7 @@ A colour coding scheme designed for easy cable identification might follow the f
 
 An example of a cable colouring designed to these rules is:
 
-| 颜色                  | 名称     | Preferred usage                             |
+| 颜色                  | 参数名    | Preferred usage                             |
 | ------------------- | ------ | ------------------------------------------- |
 | ![red][rcircle]     | Red    | Power voltage                               |
 | ![green][gcircle]   | 绿色     | General purpose signal                      |
