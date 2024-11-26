@@ -68,7 +68,7 @@ For more information about selecting a radio system, receiver compatibility, and
 
 ![RC control](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_04.jpg)
 
-## Потужність
+## Power
 
 Pixhawk V6X<sup>&reg;</sup> обладнаний модулем CAN PMU lite, який підтримує літійну батарею від 3 до 14s.
 Connect the 6pin connector of the module to the flight control **Power C1** or **Power C2** interface.
@@ -134,7 +134,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 ![Pixhawk V6x Pinout](../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x_pinouts.png)
 
-## Конфігурація
+## Налаштування
 
 General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
