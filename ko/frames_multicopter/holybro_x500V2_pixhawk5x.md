@@ -81,11 +81,11 @@ _Figure 1_: X500 V2 ARF Kit what's inside
 | Holybro BLHeli S ESC 20A x4                                                    | 1  |
 | 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md) | 1  |
 
-### 필요한 공구
+### 필요한 공구들
 
 Tools are included to do the assembly, however you may need:
 
-- Wire 커터
+- 전선 커터
 - 정밀 트위저
 
 ## 조립
