@@ -36,7 +36,7 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
 :::info
-It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. 예를 들어:
+It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. 예:
 
 ```sh
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
