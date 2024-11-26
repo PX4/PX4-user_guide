@@ -18,7 +18,7 @@ Flight Core is identical to the PX4 Flight Controller portion of [VOXL Flight](h
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Характеристики
+## Специфікація
 
 | Характеристика       | Подробиці                                                        |
 | :------------------- | :--------------------------------------------------------------- |
@@ -125,7 +125,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make modalai_fc-v1
 ```
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                                 |
 | ------ | ---------- | ---------------------------------------------------- |
