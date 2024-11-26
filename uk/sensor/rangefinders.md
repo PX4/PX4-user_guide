@@ -159,9 +159,9 @@ The _QGroundControl MAVLink Console_ works when connected to Pixhawk or other Nu
 
 For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
 
-## Моделювання
+## Симулятор
 
-### Симуляції Gazebo
+### Симуляція Gazebo
 
 Lidar and sonar rangefinders can be used in the [Gazebo](../sim_gazebo_gz/index.md) simulator.
 Для цього вам потрібно запустити симулятор, використовуючи модель автомобіля, яка включає дальномір.
