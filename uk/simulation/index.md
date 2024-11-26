@@ -1,4 +1,4 @@
-# Симулятор
+# Симуляція
 
 Симулятори дозволяють польотному коду PX4 керувати комп'ютерно змодельованим апаратом у змодельованому "світі".
 You can interact with this vehicle just as you might with a real vehicle, using _QGroundControl_, an offboard API, or a radio controller/gamepad.
