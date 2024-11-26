@@ -37,7 +37,7 @@ make px4_sitl_default sitl_gazebo
 ./test/<test_bash_script> <test_launch_file>
 ```
 
-예를 들어:
+예:
 
 ```sh
 ./test/rostest_px4_run.sh mavros_posix_tests_offboard_posctl.test
@@ -142,7 +142,7 @@ The official ROS documentation also contains information on how to use [unittest
    - Search the _Testing_ section
    - Add a new target name and call the test
 
-   예를 들어:
+   예:
 
    ```sh
    tests_<new_test_target_name>: rostest
