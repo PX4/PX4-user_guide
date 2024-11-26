@@ -166,7 +166,7 @@ _MR-VMU-RT1176_ connectors (following [Pixhawk Connector Standard](https://githu
 ![MR-VMU-RT1176 Leftside Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_left.jpg)
 ![MR-VMU-RT1176 Rightside Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_right.jpg)
 
-Для отримання додаткової інформації:
+Для додаткової інформації дивіться:
 
 - [NXP MR-VMU-RT1176 Baseboard Connections](https://nxp.gitbook.io/vmu-rt1176/production-v1-carrier-board-connectors) (nxp.gitbook.io)
 
@@ -178,7 +178,7 @@ _MR-VMU-RT1176_ connectors (following [Pixhawk Connector Standard](https://githu
 
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт     |
 | ------ | ---------- | -------- |
@@ -274,7 +274,7 @@ The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debu
 Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Update Pixhawk 6X-RT Bootloader](../advanced_config/bootloader_update_v6xrt.md)
 - [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
