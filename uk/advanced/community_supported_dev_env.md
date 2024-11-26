@@ -1,6 +1,6 @@
 # Інструменти розробника, що підтримуються спільнотою
 
-This section contains information about _community-supported_ development setups, IDEs, simulators, and other tools.
+Ця секція містить інформацію про _підтримувані спільнотою_  середовища розробки, IDE, симулятори та інші інструменти.
 
 :::warning
 These setups are not maintained, tested, or supported, by the core development team.
@@ -15,9 +15,9 @@ These setups are not maintained, tested, or supported, by the core development t
 - Платформи/налаштування розробки
   - [CentOS Linux](../dev_setup/dev_env_linux_centos.md)
   - [Arch Linux](../dev_setup/dev_env_linux_arch.md)
-  - [Windows VM Toolchain](../dev_setup/dev_env_windows_vm.md) — Ubuntu setup running in VM on Windows.
-  - [Windows Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) — Windows setup only works to PX4 v1.12
-    - [Windows Cygwin Toolchain Maintenance](../dev_setup/dev_env_windows_cygwin_packager_setup.md)
+  - [Windows VM Toolchain](../dev_setup/dev_env_windows_vm.md) — встановлення Ubuntu на віртуальній машині Windows.
+  - [Windows Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) — налаштування Windows працює тільки для PX4 v1.12
+    - [Технічне обслуговування Windows Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin_packager_setup.md)
 - IDEs
   - [Qt Creator IDE](../dev_setup/qtcreator.md)
-- [Simulators](../simulation/community_supported_simulators.md) — [Simulation-In-Hardware](../sim_sih/index.md), [FlightGear](../sim_flightgear/index.md), [JSBSim](../sim_jsbsim/index.md), [AirSim](../sim_airsim/index.md), [HITL](../simulation/hitl.md)
+- [Симулятори](../simulation/community_supported_simulators.md) — [Simulation-In-Hardware](../sim_sih/index.md), [FlightGear](../sim_flightgear/index.md), [JSBSim](../sim_jsbsim/index.md), [AirSim](../sim_airsim/index.md), [HITL](../simulation/hitl.md)
