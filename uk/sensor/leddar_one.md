@@ -5,7 +5,7 @@
 
 <img src="../../assets/hardware/sensors/leddar_one.jpg" alt="LeddarOne Lidar rangefinder" width="200px" />
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 LeddarOne can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
