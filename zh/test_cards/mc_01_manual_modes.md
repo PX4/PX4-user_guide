@@ -32,7 +32,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response set to Pitch/Roll/Yaw rates
 
-## 着陆
+## 降落
 
 ❏ 降落位置模式，油门低于 40％
 
