@@ -22,7 +22,7 @@ The vehicle will not automatically disarm after arming, and must be manually dis
 The vehicle detects that it has been thrown based on reaching a certain speed (5m/s), and then starts the motors at the apex of the throw (once it determines that it has started to fall).
 You need to throw the vehicle high enough so that it can stabilize its height well before falling anywhere near people or obstacles.
 
-路径规划软件（在机载计算机上运行）<em>可以</em> 以<a href="https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS">TRAJECTORY_REPRESENTATION_WAYPOINTS</a> 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
+备注：
 
 - The mode is disabled by default, and must be enabled using a [parameter](#parameters) before arming.
 - When enabled you cannot take off from the ground using the normal modes.
@@ -31,7 +31,7 @@ You need to throw the vehicle high enough so that it can stabilize its height we
   The reason for this is that the condition to start the motors depends on absolute speed of the multicopter and does not account for any additional movement.
   Trying to throw the drone from a moving platform might result in the motors being started prematurely.
 
-## 安全性
+## 安全
 
 :::warning
 Throw launch is dangerous as it requires the operator to hold an armed multicopter and be in proximity when it is flying.
