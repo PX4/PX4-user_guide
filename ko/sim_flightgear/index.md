@@ -193,7 +193,7 @@ Setting the variable will override the default takeoff location.
 The variables which can be set are as follows: `--airport`, `--runway`, and `--offset-distance`.
 Other options can be found on [FlightGear wiki](http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation)
 
-예를 들어:
+예:
 
 ```sh
 FG_ARGS_EX="--airport=PHNL"  make px4_sitl_nolockstep flightgear_rascal
