@@ -137,7 +137,7 @@ This can heavily influence the vibration noise level your gyroscope and accelero
 ![Center connections](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-connections.jpg)
 ![Center overview](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-overview.jpg)
 
-### Приймач RC
+### Приймач радіокерування
 
 Я підключив приймач FrSky S-BUS за допомогою кабелю, відправленого з Pixracer, але відгалуження з непотрібним кабелем відрізав.
 
