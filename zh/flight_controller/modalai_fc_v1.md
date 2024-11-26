@@ -22,7 +22,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 | 特性               | Details                                                          |
 | :--------------- | :--------------------------------------------------------------- |
-| Weight           | 6 g                                                              |
+| 重量               | 6 g                                                              |
 | MCU              | 216MHz, 32-bit ARM M7 [STM32F765II][stm32f765ii]                 |
 | 内存               | 256Kb FRAM                                                       |
 |                  | 2Mbit Flash                                                      |
