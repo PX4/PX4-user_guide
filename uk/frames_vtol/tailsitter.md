@@ -1,4 +1,4 @@
-# Tailsitter VTOL
+# Тейлсіттер
 
 A **Tailsitter VTOL** takes off and lands on its tail, but flips into the fixed-wing orientation for normal flight.
 Ротори тейлсіттера постійно зафіксовані в положенні для польоту вперед.
