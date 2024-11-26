@@ -139,7 +139,7 @@ A custom mount for the PX4 Mini was designed and 3d printed (see [3D printed par
 
 ## Електрика
 
-### Потужність
+### Живлення
 
 Поміщену модуль живлення Holybro було підключено в лінію з ESC.
 Також було виділено запасний провід живлення 16AWG, закінчений XT30.
@@ -175,7 +175,7 @@ USB-A кінець цього кабелю залишено висіти в ба
 
 ### Периферійні пристрої
 
-#### Приймач RC
+#### Приймач радіокерування
 
 A custom cable was made to connect the ExpressLRS RX ([RC Reciever](../getting_started/rc_transmitter_receiver.md)) to the Pixhawk 4 Mini.
 
