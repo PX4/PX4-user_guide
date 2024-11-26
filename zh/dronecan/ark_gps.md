@@ -94,7 +94,7 @@ If the sensor is not centred within the vehicle you will also need to define sen
 - Set [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) to `1` if this is that last node on the CAN bus.
 - The parameters [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z) can be set to account for the offset of the ARK GPS from the vehicles centre of gravity.
 
-## LED灯含义
+## LED含义
 
 You will see green, blue and red LEDs on the ARK GPS when it is being flashed, and a blinking green LED if it is running properly.
 
