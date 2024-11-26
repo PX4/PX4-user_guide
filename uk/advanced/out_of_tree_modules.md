@@ -5,24 +5,24 @@
 У цій темі пояснюється, як додати зовнішній модуль ("out of tree") до збірки PX4.
 
 :::tip
-We encourage you to contribute your changes into PX4, where possible!
+Ми закликаємо вас внести ваші зміни до PX4, де це можливо!
 :::
 
 ## Використання
 
 Щоб створити зовнішній модуль:
 
-- Create an _external directory_ folder for grouping the external modules:
-  - This can be located anywhere outside of the **PX4-Autopilot** tree.
-  - It must have the same structure as **PX4-Autopilot** (i.e. it must contain a directory called **src**).
-  - Later we refer to this directory using `EXTERNAL_MODULES_LOCATION`.
+- Створіть папку _зовнішнього каталогу_, щоб згрупувати зовнішні модулі:
+  - Його можна знайти будь-де за межами дерева **PX4-Autopilot**.
+  - Він повинен мати таку ж структуру, як **PX4-Autopilot** (тобто він повинен містити каталог з назвою **src**).
+  - Пізніше ми звернемося до цього каталогу за допомогою `EXTERNAL_MODULES_LOCATION`.
 
-- Copy an existing module (e.g. **examples/px4_simple_app**) to the external directory, or directly create a new module.
+- Скопіюйте існуючий модуль (наприклад, **examples/px4_simple_app**) до зовнішнього каталогу або безпосередньо створіть новий модуль.
 
 - Rename the module (including `MODULE` in **CMakeLists.txt**) or remove it from the existing PX4-Autopilot _cmake_ build config.
   Це щоб уникнути конфліктів з внутрішніми модулями.
 
-- Add a file **CMakeLists.txt** in the external directory with content:
+- Додайте файл **CMakeLists.txt** у зовнішній каталозі з вмістом:
 
   ```cmake
   set(config_module_list_external
@@ -31,8 +31,7 @@ We encourage you to contribute your changes into PX4, where possible!
       )
   ```
 
-- Add a line `EXTERNAL` to the `modules/<new_module>/CMakeLists.txt` within
-  `px4_add_module()`, for example like this:
+- Додайте рядок `EXTERNAL` до `modules/<new_module>/CMakeLists.txt` у `px4_add_module()`, наприклад так:
 
   ```cmake
   px4_add_module(
@@ -53,7 +52,7 @@ We encourage you to contribute your changes into PX4, where possible!
 
 - Place all new message definitions within the `$EXTERNAL_MODULES_LOCATION/msg` directory.
   The format of these new out-of-tree message definitions are the same as for any other [uORB message definition](../middleware/uorb.md#adding-a-new-topic).
-- Add a file `$EXTERNAL_MODULES_LOCATION/msg/CMakeLists.txt` with content:
+- Додати файл `$EXTERNAL_MODULES_LOCATION/msg/CMakeLists.txt` з змістом:
 
   ```cmake
   set(config_msg_list_external
@@ -64,23 +63,23 @@ We encourage you to contribute your changes into PX4, where possible!
       )
   ```
 
-  where `<message#>.msg` is the name of the uORB message definition file to be processed and used for uORB message generation.
+  Нове повідомлення uORB можна використовувати як будь-яке інше повідомлення uORB, як описано `тут`.
 
 Поза деревом повідомлень uORB будуть створені в тих же місцях, що й звичайні повідомлення uORB.
 The uORB topic headers are generated in `<build_dir>/uORB/topics/`, and the message source files are
 generated in `<build_dir>/msg/topics_sources/`.
 
-The new uORB messages can be used like any other uORB message as described [here](../middleware/uorb.md#adding-a-new-topic).
+Нові повідомлення uORB можна використовувати як будь-які інші повідомлення uORB, як описано [тут](../middleware/uorb.md#adding-a-new-topic).
 
 :::warning
-The out-of-tree uORB message definitions cannot have the same name as any of the normal uORB messages.
+Визначення повідомлень поза деревом uORB не можуть мати ті ж самі назви, що й будь-які звичайні повідомлення uORB.
 :::
 
 ## Побудова зовнішніх модулів та повідомлень uORB
 
-Execute `make px4_sitl EXTERNAL_MODULES_LOCATION=<path>`.
+Виконайте `make px4_sitl EXTERNAL_MODULES_LOCATION=<path>`.
 
 Будь-яку іншу ціль збірки можна використовувати, але каталог для збирання не повинен існувати.
 If it already exists, you can also just set the _cmake_ variable in the build folder.
 
-For subsequent incremental builds `EXTERNAL_MODULES_LOCATION` does not need to be specified.
+Для наступних поступових збірок `EXTERNAL_MODULES_LOCATION` не потрібно вказувати.
