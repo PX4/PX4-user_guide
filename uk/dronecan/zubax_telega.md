@@ -20,7 +20,7 @@ Questions on this matter should be addressed to: [support@zubax.com](mailto:supp
 - [Zubax Komar](https://shop.zubax.com/products/komar-motor-controller-open-hardware-reference-design-for-mitochondrik?variant=32931555868771): Open hardware reference design for Mitochondrik
 - [Zubax Sadulli Integrated Drive](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 ESCs підключені до шини CAN за допомогою стандартного кабелю Pixhawk 4 pin JST GH.
 For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions. Порядок ESC не має значення.
@@ -40,7 +40,7 @@ There is some guidance here: [Quick start guide for Myxa v0.1](https://forum.zub
 
 Підключіть ESC до шини CAN Pixhawk. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `3` to enable both dynamic node ID allocation and DroneCAN ESC output.
 
-### Налаштування PX4
+### Конфігурація PX4
 
 Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
