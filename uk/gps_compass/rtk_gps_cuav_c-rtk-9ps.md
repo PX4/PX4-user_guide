@@ -42,7 +42,7 @@ Connect to `GPS1` or `GPS2`.
 Виберіть відповідний кабель для контролера польоту.
 :::
 
-## Конфігурація
+## Налаштування
 
 RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
