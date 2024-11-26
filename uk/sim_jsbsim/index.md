@@ -2,9 +2,9 @@
 
 :::warning
 This simulator is [community supported and maintained](../simulation/community_supported_simulators.md).
-Це може працювати або не працювати з поточними версіями PX4.
+It may or may not work with current versions of PX4.
 
-Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для інформації про середовища та інструменти, що підтримуються основною командою розробників.
+See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
 
 [JSBSim](http://jsbsim.sourceforge.net/index.html) is a open source flight simulator ("flight dynamics model (FDM)") that runs on Microsoft Windows, Apple Macintosh, Linux, IRIX, Cygwin (Unix on Windows), etc.
@@ -87,6 +87,6 @@ _QGroundControl_ should be able to automatically connect to the simulated vehicl
    roslaunch jsbsim_bridge px4_jsbsim_bridge.launch
    ```
 
-## Додаткова інформація
+## Подальша інформація
 
 - [px4-jsbsim-bridge readme](https://github.com/Auterion/px4-jsbsim-bridge)
