@@ -66,7 +66,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - 2 MB Flash (повністю доступна)
 - 32 bit STM32F103 відмовостійкий копроцесор
 
-### Сенсори
+### Датчики
 
 - TBA
 
@@ -121,7 +121,7 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 <a id="serial_ports"></a>
 
-### Serial Port Mapping
+### Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                          |
 | ------ | ---------- | --------------------------------------------- |
