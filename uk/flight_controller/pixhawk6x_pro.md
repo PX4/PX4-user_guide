@@ -144,7 +144,7 @@ The [Pixhawk 6X Wiring Quick Start](../assembly/quick_start_pixhawk6x.md) provid
 
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                            |
 | ------ | ---------- | ------------------------------- |
