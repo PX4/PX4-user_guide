@@ -15,7 +15,7 @@ Vehicles must have different MAVLINK IDs.
 
 ![Holybro Microhard Radio](../../assets/hardware/telemetry/holybro_microhard.jpg)
 
-## 特性
+## Features
 
 - USB Type-C port, integrated USB to UART converter
 - 6-position JST-GH connector, can be directly connected to the TELEM port on various Pixhawk-standard flight controllers such [Pixhawk 4](../flight_controller/pixhawk4.md) & [Pixhawk 5X](../flight_controller/pixhawk5x.md)
