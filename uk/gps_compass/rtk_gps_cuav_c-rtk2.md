@@ -96,7 +96,7 @@ It has a high-precision IMU and positioning module, and can reduce the number of
 - Вага
   - 39g
 
-## Конфігурація
+## Налаштування
 
 [CUAV Docs](https://doc.cuav.net/gps/c-rtk2/en/quick-start-c-rtk2.html)
 
