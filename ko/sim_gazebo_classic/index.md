@@ -170,7 +170,7 @@ This will override both the default takeoff location, and any value [set for the
 
 The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
 
-예를 들어:
+예:
 
 ```sh
 export PX4_HOME_LAT=28.452386
@@ -243,7 +243,7 @@ It is enabled by default in many vehicle SDF files: **solo.sdf**, **iris.sdf**, 
 To enable/disable GPS noise:
 
 1. Build any gazebo target in order to generate SDF files (for all vehicles).
-   예를 들어:
+   예:
 
    ```sh
    make px4_sitl gazebo-classic_iris
