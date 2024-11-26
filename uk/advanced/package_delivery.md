@@ -21,13 +21,13 @@ Setup for the `payload_deliverer` module is covered in the documentation for the
 
 ![Package delivery architecture overview](../../assets/advanced_config/payload_delivery_mission_architecture.png)
 
-Package Delivery feature is centered around the [VehicleCommand](../msg_docs/VehicleCommand.md) & [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) messages.
+Функціонал доставки пакетів зосереджений навколо повідомлень [VehicleCommand](../msg_docs/VehicleCommand.md) та [VehicleCommandAck](../msg_docs/VehicleCommandAck.md).
 
-The central idea lies in having an entity that handles the `DO_GRIPPER` or `DO_WINCH` vehicle command, executes it and sends back an acknowledgement when the successful delivery is confirmed.
+Основна ідея полягає в наявності сутності, яка обробляє команду транспортного засобу `DO_GRIPPER` або `DO_WINCH`, виконує її і надсилає підтвердження, коли успішна доставка підтверджена.
 
-Because PX4 automatically broadcasts the `VehicleCommand` uORB message to a UART port configured to communicate in MAVLink as a [`COMMAND_LONG`](https://mavlink.io/en/messages/common.html#COMMAND_LONG) message, an external payload can receive the command and execute it.
+Оскільки PX4 автоматично транслює повідомлення uORB `VehicleCommand` до UART-порту, налаштованого на комунікацію у форматі MAVLink як повідомлення [`COMMAND_LONG`](https://mavlink.io/en/messages/common.html#COMMAND_LONG), зовнішній навантаження може отримати команду і виконати її.
 
-Likewise, since PX4 automatically translates the [`COMMAND_ACK`](https://mavlink.io/en/messages/common.html#COMMAND_ACK) message coming in from an external source through a UART port configured for MAVLink into a `vehicle_command_ack` uORB message, an external payload's acknowledgement for a successful package deployment can be received by PX4's `navigator` module.
+Аналогічно, оскільки PX4 автоматично перекладає повідомлення [`COMMAND_ACK`](https://mavlink.io/en/messages/common.html#COMMAND_ACK), що надходить зовнішнім джерелом через порт UART, налаштований на MAVLink, в uORB-повідомлення `vehicle_command_ack`, підтвердження зовнішнього навантаження про успішне розгортання пакета може бути отримано модулем `navigator` PX4.
 
 Нижче є пояснено кожен об'єкт, що бере участь в архітектурі доставки пакету.
 
@@ -40,28 +40,28 @@ Likewise, since PX4 automatically translates the [`COMMAND_ACK`](https://mavlink
 
 ## Транспортний Командний ACK
 
-We are waiting for the ACK coming from either internally (via `payload_deliverer` module), or externally (external entity sending the MAVLink message `COMMAND_ACK`) to determine if the package delivery action has been successful (either `DO_GRIPPER` or `DO_WINCH`).
+Ми чекаємо на підтвердження (ACK), яке може прийти як внутрішнє (через модуль `payload_deliverer`), так і зовнішнє (зовнішня сутність відправляє повідомлення MAVLink `COMMAND_ACK`), щоб визначити, чи була успішною дія доставки пакету (або `DO_GRIPPER`, або `DO_WINCH`).
 
-## Mission
+## Місія
 
 The Gripper / Winch command is placed as a `Mission Item`.
 This is possible since all the Mission item has the `MAV_CMD` to execute (e.g. Land, Takeoff, Waypoint, etc) which can get set to either `DO_GRIPPER` or `DO_WINCH`.
 
-In the Mission logic (green box above) if either Gripper/Winch mission item is reached, it implements brake_for_hold functionality (which sets the `valid` flag of the next mission item waypoint to `false`) for rotary wings (e.g. Multicopter) so that the vehicle would hold it's position while the deployment is getting executed.
+У логіці місії (зелена рамка вище), якщо досягнуто будь-який пункт місії Gripper/Winch, вона використовує функціональність brake_for_hold (яка встановлює прапорець `valid` наступного пункту місії зупинки на значення `false`) для вертольотів (наприклад, багтротика), щоб транспортний засіб утримував своє положення, поки виконується розгортання.
 
 Для фіксованих крил та інших транспортних засобів не розглядається жодна особлива умова зупинки.
 Для літаків з фіксованими крилами та інших типів транспортних засобів не передбачено жодних спеціальних умов щодо зупинки.
 
 ## Блок Місії
 
-`MissionBlock` is the parent class of `Mission` that handles the part "Is Mission completed?".
+`MissionBlock` є батьківським класом `Mission`, який відповідає за частину "Чи завершена місія?".
 
-This all performed in the `is_mission_item_reached_or_completed` function, to handle the time delay / mission item advancement.
+Все це виконується у функції `is_mission_item_reached_or_completed`, щоб обробляти затримку часу / перехід до наступного пункту місії.
 
-Also it implements the actual issue_command function, which will issue a vehicle command corresponding to the mission item's `MAV_CMD`, which will then be received by an external payload or the `payload_deliverer` module internally.
+Також вона реалізує функцію issue_command, яка видасть команду транспортному засобу, відповідну команді `MAV_CMD` пункту місії, яку потім отримає зовнішній вантаж або модуль `payload_deliverer` внутрішньо.
 
-## Payload Deliverer
+## Доставщик Вантажу
 
-This is a dedicated module that handles gripper / winch support, which is used for the standard [package delivery mission plan](../flying/package_delivery_mission.md).
+Це спеціалізований модуль, який відповідає за підтримку захопника / лебідки, який використовується для стандартного [плану місії доставки пакетів](../flying/package_delivery_mission.md).
 
-Setup for the `payload_deliverer` module is covered within setting up an actual package release mechanism setup documentation like [Gripper](../peripherals/gripper.md#px4-configuration).
+Налаштування для модуля `payload_deliverer` описано у документації щодо налаштування реального механізму випуску пакету, такого як [Gripper](../peripherals/gripper.md#px4-configuration).
