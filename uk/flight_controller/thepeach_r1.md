@@ -57,7 +57,7 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
 
 ![pinmap\_top](../../assets/flight_controller/thepeach_r1/pinmap.png)
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                          |
 | ------ | ---------- | --------------------------------------------- |
