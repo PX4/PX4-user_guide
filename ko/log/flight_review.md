@@ -1,4 +1,4 @@
-# 비행 검토 및 로그 분석
+# 비행 검토 프로그램을 이용한 로그 분석
 
 The [Flight Review](http://logs.px4.io) plots for a flight can be used to analyze general vehicle condition.
 
