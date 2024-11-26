@@ -48,7 +48,7 @@ This information comes from the [Holybro Pixhawk-Jetson Baseboard Documentation]
   - 126 x 80 x 45mm (with Jetson Orin NX + Heatsink/Fan & FC Module)
   - 126 x 80 x 22.9mm (without Jetson and FC Module)
 
-- Weight
+- 重量
   - 190g (with Jetson, Heatsink, Flight Controller, M.2 SSD, M.2 Wi-Fi Module)
 
 :::
