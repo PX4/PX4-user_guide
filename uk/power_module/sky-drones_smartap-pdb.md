@@ -58,7 +58,7 @@ SmartAP PDB спрощує підключення високовольтних �
 
 ![SmartAP PDB](../../assets/hardware/power_module/sky-drones_smartap-pdb/smartap-pdb-current-sensor.png)
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Buy SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html)
 - [Documentation](https://docs.sky-drones.com/avionics/smartap-pdb)
