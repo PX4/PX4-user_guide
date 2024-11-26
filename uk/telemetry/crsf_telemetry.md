@@ -66,7 +66,7 @@ For ExpressLRS receivers wire to the flight controller UART as shown below (wiri
 | VCC     | VCC        |
 | GND     | GND        |
 
-## Налаштування PX4
+## Конфігурація PX4
 
 ### Конфігурація прошивки/збірка
 
@@ -172,7 +172,7 @@ Express LRS provide Radio System guidance in the [Hardware Selection](https://ww
 
 Модулі передавача:
 
-- TBD
+- Уточнюється
 
 Приймачі:
 
