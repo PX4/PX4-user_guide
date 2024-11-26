@@ -105,7 +105,9 @@ In the current .yml file, only a left and right edge are defined for each surfac
 Below is a comprehensive list on how the parameters are assigned at output and what files in AVL they are taken from.
 The Advanced Lift Drag Plugin contains more detail about what each of these parameters do.
 
-:::info:::
+:::info
+The parameters have not been verified by an expert, so you should check them in the plugin.
+:::
 
 From the stability derivatives log file, the following advanced lift drag plugin parameters are taken:
 
