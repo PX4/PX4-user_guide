@@ -379,7 +379,7 @@ struct message_logging_s {
 - `timestamp`: in microseconds
 - `log_level`: same as in the Linux kernel:
 
-| 名称      | 对应值 | 含义       |
+| 参数名     | 对应值 | 含义       |
 | ------- | --- | -------- |
 | EMERG   | '0' | 系统无法使用   |
 | ALERT   | '1' | 操作必须立即执行 |
@@ -425,7 +425,7 @@ struct message_logging_tagged_s {
 
 - `log_level`: same as in the Linux kernel:
 
-| 名称      | 对应值 | 含义       |
+| 参数名     | 对应值 | 含义       |
 | ------- | --- | -------- |
 | EMERG   | '0' | 系统无法使用   |
 | ALERT   | '1' | 操作必须立即执行 |
