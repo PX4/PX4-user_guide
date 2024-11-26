@@ -1,4 +1,4 @@
-# Visual Inertial Odometry (VIO)
+# Візуальна інерціальна оцінка положення (VIO)
 
 _Visual Inertial Odometry_ (VIO) is a [computer vision](../computer_vision/index.md) technique used for estimating the 3D _pose_ (local position and orientation) and _velocity_ of a moving vehicle relative to a _local_ starting position.
 Він зазвичай використовується для навігації транспортного засобу в ситуаціях, коли GPS відсутній або ненадійний (наприклад, у приміщенні або під час прольоту під мостом).
@@ -165,12 +165,12 @@ Perform the following checks to verify that VIO is working properly _before_ you
   - Це дійсно складно, оскільки коли вони не збігаються, це збентежить EKF.
     За результатами тестування, надійніше використовувати візійну швидкість (якщо ви знайдете спосіб зробити цю конфігурацію надійною, дайте нам знати).
 
-## Інформація про розробника
+## Інформація для розробників
 
 Developers who are interested in extending this implementation (or writing a different one, which might not depend on ROS) should see [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md).
 
 Ця тема також пояснює, як налаштувати VIO для використання з оцінювачем LPE (застарілим).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
