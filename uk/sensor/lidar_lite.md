@@ -81,6 +81,6 @@ The driver for this rangefinder is usually present in firmware.
 If missing, you would also need to add the driver (`drivers/ll40ls`) to the board configuration.
 :::
 
-## Додаткова інформація
+## Подальша інформація
 
 - [LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf](http://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) (Garmin)
