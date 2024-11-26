@@ -46,7 +46,7 @@ Note that left and right in the configuration screen and frame reference are def
 
 ![Mount Pixfalcon](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
 
-### 텔레메트리 라디오
+### 텔레메트리
 
 텔레메트리 모듈은 FPV 전송 기어를 고정하기 위한 베이에 장착합니다.
 
