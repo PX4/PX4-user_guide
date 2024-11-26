@@ -208,7 +208,7 @@ Please refer to [Pixhawk 4 Quick Start](../assembly/quick_start_pixhawk4.md) for
 
 ![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
-## Налаштування PX4
+## Конфігурація PX4
 
 :::tip
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
