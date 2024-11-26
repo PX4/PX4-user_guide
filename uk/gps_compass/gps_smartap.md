@@ -44,7 +44,7 @@ SmartAP GPS має 10-контактний роз'єм JST-GH, який можн
 | 9            | BUZZER                          |
 | 10           | GND                             |
 
-## Характеристики
+## Специфікація
 
 - Приймач GPS u-blox M8N
 - Магнітометр IST8310
@@ -56,7 +56,7 @@ SmartAP GPS має 10-контактний роз'єм JST-GH, який можн
 - Діаметр: 75 мм
 - Вага: 34g
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Buy SmartAP GPS](https://sky-drones.com/navigation/smartap-gnss.html)
 - [Documentation](https://docs.sky-drones.com/avionics/smartap-gnss)
