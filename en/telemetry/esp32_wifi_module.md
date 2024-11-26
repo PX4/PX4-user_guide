@@ -67,20 +67,18 @@ The _DroneBridge for ESP32_ project recommends using [Officially Supported and T
 These are small, low in price, have Pixhawk-standard port for connecting to Pixhawk flight controllers, and come with _DroneBridge for ESP32_ firmware pre-installed.
 :::
 
-Other ESP32 Boards that have been tested with earlier versions of _DroneBridge for ESP32_:
+Other ESP32 Boards that have been tested with versions of _DroneBridge for ESP32_ but receive no official support:
 
-- [AZ-Delivery — ESP-32 DevKit C](https://www.az-delivery.de/en/products/esp-32-dev-kit-c-v4)
-- [TinyPICO — ESP32 Development Board - V2](https://www.adafruit.com/product/4335)
-- [Adafruit HUZZAH32 — ESP32 Feather Board](https://www.adafruit.com/product/3405)
-- [Adafruit AirLift — ESP32 WiFi Co-Processor Breakout Board](https://www.adafruit.com/product/4201) (requires FTDI adapter for flashing firmware)
-- [Adafruit — HUZZAH32](https://www.adafruit.com/product/4172) (requires FTDI adapter for flashing firmware)
+- [ESP32-C3-DevKitM-1](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c3/esp32-c3-devkitm-1/index.html)
+- [ESP32-S3-DevKitC-1](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp32-s3-devkitc-1/index.html)
+- [NodeMCU ESP32S](https://www.waveshare.com/nodemcu-32s.htm)
 
 ## Installing/Updating the Firmware
 
-An easy-to-use online flashing tool is available on the official website.
-Just connect your ESP32 and click flash!
+An [easy-to-use online flashing tool](https://dronebridge.github.io/ESP32/install.html) is available on the official website.
+Use a Chrome-based browser, connect your ESP32 via USB to your computer and click flash!
 
-[For more detailed information please visit the official Wiki!](https://dronebridge.gitbook.io/docs/dronebridge-for-esp32/untitled)
+[For more detailed information on how to flash the firmware please visit the official Wiki!](https://dronebridge.gitbook.io/docs/dronebridge-for-esp32/installation)
 
 ## Wiring
 
@@ -121,16 +119,17 @@ For more information, and using other ports, see [MAVLink Peripherals](../periph
 
 ## Configuring DroneBridge for ESP32
 
+Once _DroneBridge for ESP32_ is flashed it initially will provide a Wifi access point that you can connect to. Once connected you can access the configuration page using your browser. The address of the configuration page is `http://dronebridge.local` or `192.168.2.1`.
+
+![DroneBridge for ESP32 Webinterface](../../assets/peripherals/telemetry/esp32/dbesp32_webinterface.png)
+
 The _DroneBridge for ESP32_ default configuration should work for connecting to PX4 "out of the box".
 For the Official HW1.x Boards the configuration is: `UART TX Pin: 5`, `UART RX Pin: 4`, `UART RTS Pin: 6`, `UART CTS Pin: 7`
 
 The only configuration that may be required is ensuring that the baud rates of the ESP32 and flight controller match.
 
-![DroneBridge for ESP32 Webinterface](../../assets/peripherals/telemetry/esp32/dbesp32_webinterface.png)
-
 You will want to change these settings if you want to use different pins on the ESP32, a different WiFi configuration, or to tweak the packet size.
 A lower packet size means more overhead and load on the system, less latency, and faster recovery from a lost packet.
-
 
 
 ### Supported Modes
@@ -142,6 +141,8 @@ A lower packet size means more overhead and load on the system, less latency, an
 | 3                 | WiFi Access Point Mode LR      | WPA2 PSK       | ESP32 launches WiFi access point mode using espressifs LR mode                                                                                           | Only ESP32 LR Mode enabled devices can detect and connect to the access point. Data rate is reduced to 0.25Mbit. Range is greatly increased.                              |
 | 4                 | ESP-NOW LR Mode AIR            | AES256-GCM     | ESP32 is able to receive ESP-NOW broadcast packets from any GCS in the area and forwards them to the UART. Broadcasts to all GND stations in the area.   | Connectionless protocol. Data rate is reduced to 0.25Mbit. Range is greatly increased compared to WiFi modes. Custom encryption mode for ESP-NOW broadcasts and protocol. |
 | 5                 | ESP-NOW LR Mode GND            | AES256-GCM     | ESP32 is able to receive ESP-NOW broadcast packets from any drone in the area and forwards them to the UART. Broadcasts to all AIR stations in the area. | Connectionless protocol. Data rate is reduced to 0.25Mbit. Range greatly increased compared to WiFi modes. Custom encryption mode for ESP-NOW broadcasts and protocol.    |
+
+When changing the mode using a GCS and the MavLink parameter protocol instead of the web interface, the `MavLink Index` is the number associated with the parameter `SYS_ESP32_MODE`.
 
 ## Configuring the Ground Control Station
 
@@ -157,3 +158,5 @@ The following connection options are available:
 DroneBridge for ESP32 offers a REST:API that allows you to read and write configuration options.
 
 For more information see: [DroneBridge for ESP32 > Developer & API Documentation](https://dronebridge.gitbook.io/docs/dronebridge-for-esp32/developer-and-api-documentation).
+
+[Some typical issues are also covered by the troubleshooting section of the Wiki](https://dronebridge.gitbook.io/docs/dronebridge-for-esp32/troubleshooting-help)
