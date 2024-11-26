@@ -58,7 +58,7 @@ The _Kakute H7v2_ is designed to work with the _Tekko32_ 4-in-1 ESC and they can
 | VI           | Відеовхід з камери FPV                                                                           |                             |
 | VO           | Відеовихід на відеопередавач                                                                     |                             |
 | CAM          | Контроль OSD камери                                                                              |                             |
-| G або GND    | Заземлення                                                                                       |                             |
+| G або GND    | Ground                                                                                           |                             |
 | RSI          | Аналоговий вхід RSSI (0-3,3 В) від приймача                                   |                             |
 | R1, T1       | UART1 RX та TX                                                                                   | TELEM1                      |
 | R3, T3       | UART2 RX та TX                                                                                   | Консоль відлагодження NuttX |
@@ -109,7 +109,7 @@ KakuteH7v2 is supported with PX4 master & PX4 v1.14 or newer. Якщо ви за
 KakuteH7v2 is supported with PX4 main and v1.14 or newer.
 :::
 
-## Налаштування PX4
+## Конфігурація PX4
 
 In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
@@ -117,7 +117,7 @@ In addition to the [basic configuration](../config/index.md), the following para
 | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | Це має бути вимкнено, оскільки у платі немає внутрішнього магніту. Ви можете активувати це, якщо приєднаєте зовнішній магніт. |
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                      |
 | ------ | ---------- | ----------------------------------------- |
