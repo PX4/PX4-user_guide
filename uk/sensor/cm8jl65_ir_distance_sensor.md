@@ -8,7 +8,7 @@ The [Lanbao PSK-CM8JL65-CC5](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrare
 
 ![PSK-CM8JL65-CC5 ToF IR Distance Sensor - Hero image](../../assets/hardware/sensors/cm8jl65/psk_cm8jl65_hero.jpg)
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 PSK-CM8JL65-CC5 can be connected to any unused _serial port_, e.g.: TELEM2, TELEM3, GPS2 etc.
 
