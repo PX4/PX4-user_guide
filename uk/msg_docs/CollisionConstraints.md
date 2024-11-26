@@ -1,7 +1,7 @@
 # CollisionConstraints (повідомлення UORB)
 
-Локальні обмеження заданих значень у фреймі NED
-встановлення чогось у NaN означає, що обмеження не передбачено
+Обмеження локальної заданої точки в рамці NED
+встановлення чого-небудь на NaN означає, що обмеження не надано
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/CollisionConstraints.msg)
 
