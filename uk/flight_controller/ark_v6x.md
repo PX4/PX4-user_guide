@@ -20,7 +20,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 Order From [Ark Electronics](https://arkelectron.com/product/arkv6x/) (US)
 
-## Сенсори
+## Датчики
 
 - [Dual Invensense ICM-42688-P IMUs](https://invensense.tdk.com/products/motion-tracking/6-axis/icm-42688-p/)
 - [Invensense IIM-42652 Industrial IMU](https://invensense.tdk.com/products/smartindustrial/iim-42652/)
@@ -55,11 +55,11 @@ Order From [Ark Electronics](https://arkelectron.com/product/arkv6x/) (US)
 - Вага: 5.0 g
 - Розміри: 3,6 x 2,9 x 0,5 см
 
-## Розпіновка
+## Схема розташування виводів
 
 For pinout of the ARKV6X see the [DS-10 Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                            |
 | ------ | ---------- | ------------------------------- |
