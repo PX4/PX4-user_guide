@@ -1,4 +1,4 @@
-# 항속 센서
+# 풍속 센서
 
 Airspeed sensors are _highly recommended_ for fixed-wing and VTOL frames.
 They are so important because the autopilot does not have other means to detect stall.
