@@ -87,7 +87,7 @@ On the ARK CANnode, you may need to configure the following parameters:
 | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
 
-## LED 신호 정의
+## LED 신호의 의미
 
 You will see both red and blue LEDs on the ARK CANnode when it is being flashed, and a solid blue LED if it is running properly.
 
