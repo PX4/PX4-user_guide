@@ -90,7 +90,7 @@ The Pixhawk® V6X is ideal for corporate research labs, academic research and co
 
 ### Mechanical data
 
-- Weight
+- 重量
   - Flight Controller Module: 99g
   - Core module: 43g
   - Baseboard: 56g
@@ -117,7 +117,7 @@ The [Pixhawk V6X Wiring Quick Start](../assembly/quick_start_cuav_pixhawk_v6x.md
 
 ![Pixhawk V6x Pinout](../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x_pinouts.png)
 
-路径规划软件（在机载计算机上运行）<em>可以</em> 以<a href="https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS">TRAJECTORY_REPRESENTATION_WAYPOINTS</a> 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
+备注：
 
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
