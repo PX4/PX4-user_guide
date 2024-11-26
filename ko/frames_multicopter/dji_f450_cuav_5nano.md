@@ -88,13 +88,13 @@ FrSky Taranis 조종기를 사용할 수 있습니다.
 | 전원모듈(CUAV V5 nano 패키지에 포함)                  | 1  |
 | Turnigy 고용량 5200mAh 3S 12C Lipo Pack w/XT60                    | 1  |
 
-### 필요한 공구
+### 필요한 공구들
 
 조립시에 필요한 공구들입니다.
 
 - 2.0mm 육각 스크류드라이버
 - 3mm Phillips 스크류드라이버
-- Wire 커터
+- 전선 커터
 - 정밀 트위저
 - 납땜기
 
