@@ -109,7 +109,7 @@ The video below shows how this is done with the _FrSky Taranis_ transmitter.
 
 The _QGroundControl_ configuration is then [as described above](#flight-mode-selection).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Flight Modes Overview](../flight_modes/index.md)
 - [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#px4-pro-flight-mode-setup)
