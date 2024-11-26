@@ -2,9 +2,9 @@
 
 :::warning
 This simulator is [community supported and maintained](../simulation/community_supported_simulators.md).
-It may or may not work with current versions of PX4.
+Це може працювати або не працювати з поточними версіями PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для інформації про середовища та інструменти, що підтримуються основною командою розробників.
 :::
 
 [JSBSim](http://jsbsim.sourceforge.net/index.html) is a open source flight simulator ("flight dynamics model (FDM)") that runs on Microsoft Windows, Apple Macintosh, Linux, IRIX, Cygwin (Unix on Windows), etc.
