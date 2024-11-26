@@ -105,7 +105,9 @@
 Нижче наведено вичерпний перелік того, як параметри визначаються на виході та з яких файлів у AVL вони беруться.
 Плагін Advanced Lift Drag містить більше деталей про те, що роблять кожен з цих параметрів.
 
-:::info:::
+:::info
+The parameters have not been verified by an expert, so you should check them in the plugin.
+:::
 
 З файлу журналу похідних стійкості беруться наступні параметри плагіну advanced lift drag:
 
