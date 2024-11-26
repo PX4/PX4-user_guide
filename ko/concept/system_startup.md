@@ -48,7 +48,7 @@ Posix에서 시스템 셸은 스크립트 인터프리터로 사용됩니다(예
   The instance is available in the script via `$px4_instance` variable.
 
 모듈은 PX4가 시스템에서 실행 중이면, 터미널에서 실행할 수 있습니다.
-예를 들어:
+예:
 
 ```sh
 cd <PX4-Autopilot>/build/px4_sitl_default/bin
