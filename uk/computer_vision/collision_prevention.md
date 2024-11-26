@@ -88,7 +88,7 @@ You can see the required modifications from the [feature PR](https://github.com/
 Будь ласка, внесіть свої зміни!
 :::
 
-## Налаштування PX4
+## Конфігурація PX4
 
 _Collision Prevention_ is enabled on PX4 by [setting the parameter](../advanced_config/parameters.md) for minimum allowed approach distance in QGroundControl to a positive value ([CP_DIST](#CP_DIST)).
 Note that this value is the distance to the sensors, not the outside of your vehicle or propellers (set a safe margin!).
@@ -198,7 +198,7 @@ The minimum rate at which messages _must_ be sent depends on vehicle speed - at 
 Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 10Hz (the maximum rate supported by the vision system).
 Система може добре працювати при значно вищих швидкостях і менших частотах оновлення відстані.
 
-## Симуляції Gazebo
+## Симуляція Gazebo
 
 _Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar_2d](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model.
 To do this, start a simulation with the x500 lidar model by running the following command:
@@ -241,7 +241,7 @@ For example, a distance sensor measuring from 9.99° to 10.01° the measurements
 the quaternion `q` is only used if the `orientation` is set to `ROTATION_CUSTOM`.
 :::
 
-### Комп’ютери-супутники
+### Супутні комп'ютери
 
 Companion computers update the `obstacle_distance` topic using ROS2 or the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) MAVLink message.
 
