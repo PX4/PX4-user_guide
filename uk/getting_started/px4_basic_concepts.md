@@ -111,7 +111,7 @@ These include [Pixhawk Standard](../flight_controller/autopilot_pixhawk_standard
 
 For more information see: [Flight Controller Selection](flight_controller_selection.md)
 
-### Сенсори
+### Датчики
 
 Системи на основі PX4 використовують датчики для визначення стану транспортного засобу, який їй потрібен для стабілізації транспортного засобу та увімкнення автономного керування.
 Стани транспортного засобу включають: позицію/висоту, курс, швидкість, швидкість польоту, орієнтацію (відносно чогось), швидкість обертання в різних вісях, рівень заряду батареї тощо.
@@ -310,7 +310,7 @@ QGC v4.2.0 (Daily build at time of writing) and later provide an arming check re
 
 A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
-## Режим польоту
+## Режими польоту
 
 Режими польоту забезпечують різні типи/рівні автоматизації рухомого засобу та підтримки користувача (пілота) з боку автопілоту.
 _Autonomous modes_ are fully controlled by the autopilot, and require no pilot/remote control input.
