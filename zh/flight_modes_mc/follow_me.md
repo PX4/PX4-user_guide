@@ -47,7 +47,7 @@ Angle, height, and distance values set using the RC controller are discarded whe
 If you exit Follow-Me mode and activate it again the values will be reset to their defaults.
 :::
 
-### 视频:
+### 视频
 
 <lite-youtube videoid="csuMtU6seXI" params="start=155" title="PX4 Follow Target follows a Rover!"/>
 
