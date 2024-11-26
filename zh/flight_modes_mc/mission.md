@@ -99,7 +99,7 @@ The user is notified should the check fail, but it has no effect on the validity
 
 _QGroundControl_ provides additional GCS-level mission handling support (in addition to that provided by the flight controller).
 
-更多信息请参阅：
+有关详细信息，请参阅︰
 
 - [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
 - [Resume mission after Return mode](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#resume-mission)
