@@ -41,7 +41,7 @@ The [MINI2 Receiver](http://www.femtomes.com) is connected to a UART on the flig
 
 ![MINI\_II\_2](../../assets/hardware/gps/rtk_fem_miniII_2.jpg)
 
-## Конфігурація
+## Налаштування
 
 Для оцінювання заголовку потрібно, щоб дві антени були на одному рівні і були відстані щонайменше 30 см одна від одної.
 The direction that they are facing does not matter as it can be configured with the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) parameter.
