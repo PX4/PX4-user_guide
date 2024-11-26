@@ -264,7 +264,7 @@ It is important that nothing obstructs airflow to the Pitot tube. Це крит�
 
      ![Level Motors](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_55_level_motors.jpg)
 
-## Конфігурація
+## Налаштування
 
 Perform the normal [Basic Configuration](../config/index.md).
 
