@@ -71,7 +71,7 @@ If you have any issues, check the radio documentation.
 Pixhawk boards usually require a reliable 5V DC supply, which is commonly supplied from LiPO batteries via a [Power Module and/or Power Distribution board](../power_module/index.md) to a port labeled `POWER` (or similar).
 
 The instructions for your flight controller will normally explain the recommended setup.
-예를 들어:
+예:
 
 - [Holybro Pixhawk 6C > Voltage Ratings](../flight_controller/pixhawk6c.md#voltage-ratings)
 - [Holybro Pixhawk 6C Wiring Quick Start > Power](../assembly/quick_start_pixhawk6c.md#power)
