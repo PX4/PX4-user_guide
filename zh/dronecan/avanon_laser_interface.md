@@ -44,7 +44,7 @@ Therefore the laser must be compatible with whatever voltage is supplied to the 
 
 ### CAN Connector
 
-| 针脚 | 名称                            | 描述                                                                                                                                                  |
+| 针脚 | 参数名                           | 描述                                                                                                                                                  |
 | -- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1  | POWER_IN | Power Supply. 4.0-5.5V supported, but must also be compatible with connected laser. |
 | 2  | TX/SCL                        | TX for serial mode, Clock for I2C mode.                                                                                             |
@@ -53,7 +53,7 @@ Therefore the laser must be compatible with whatever voltage is supplied to the 
 
 ### Laser Connector
 
-| 针脚 | 名称                             | 描述                                                      |
+| 针脚 | 参数名                            | 描述                                                      |
 | -- | ------------------------------ | ------------------------------------------------------- |
 | 1  | POWER_OUT | Filtered power at the supply voltage.   |
 | 2  | CAN+                           | TX for serial mode, Clock for I2C mode. |
