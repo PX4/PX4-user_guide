@@ -28,14 +28,14 @@ This allows plug and play telemetry when the radios are connected to the usual t
 Максимальна заявлена дальність в специфікаціях становить приблизно 60 км.
 ARK Electron пропонує приблизно 8 км дальності з вихідною потужністю, встановленою на рівні 1 Вт та використанням налаштувань за замовчуванням.
 
-## Конфігурація
+## Налаштування
 
 For convenience, radios are usually default-configured so that they can be used with PX4 and _QGroundControl_ out of the box.
 
 Розробники можуть змінювати конфігурацію.
 The only "requirement" is that the: ground radio, air radio, PX4, and _QGroundControl_ must all be set to use the **same** baud rate (and of course each MAVLink system must have a unique System ID).
 
-### Налаштування PX4
+### Конфігурація PX4
 
 PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate of 57600.
 You can configure PX4 to use any other free serial port a different baud rate, by following the instructions in [MAVLink Peripherals](../peripherals/mavlink_peripherals.md).
