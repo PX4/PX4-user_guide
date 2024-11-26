@@ -40,7 +40,7 @@ Note that the supported barometer part numbers can be inferred from the driver n
 - The baro readings can be corrected using a param SENS_BARO_QNH (https://en.wikipedia.org/wiki/Altimeter_setting) parameter, but again, it is only necessary to adjust it if the absolute barometric altitude is required by the pilot.
 -->
 
-## Інформація про розробника
+## Інформація для розробників
 
 - [Baro driver source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer)
 - [Modules Reference: Baro (Driver)](../modules/modules_driver_baro.md) documentation.
