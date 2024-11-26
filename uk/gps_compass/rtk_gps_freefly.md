@@ -28,7 +28,7 @@ This module can be used with PX4 v1.9 or above (support for the u-blox ZED-F9P w
 - Магнітний швидкозамок для базової станції модуля (1/4-20 різьблення для монтажу на штатив)
 - Гвинти для кріплення на Freefly AltaX
 
-## Конфігурація
+## Налаштування
 
 RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
