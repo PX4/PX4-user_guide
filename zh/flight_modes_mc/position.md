@@ -15,7 +15,7 @@ The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
 ![MC Position Mode](../../assets/flight_modes/position_mc.png)
 
-### 着陆
+### 降落
 
 该模式中降落是很容易的：
 
