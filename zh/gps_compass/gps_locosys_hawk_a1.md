@@ -72,7 +72,7 @@ VCC_5V
 | 颜色  | 参数名             | 描述                                 |
 | --- | --------------- | ---------------------------------- |
 | 绿色  | TX Indicator    | GNSS Data transmission             |
-| Red | Power Indicator | Power                              |
+| Red | Power Indicator | 电源                                 |
 | 蓝色  | PPS             | Precise Positioning Service active |
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
