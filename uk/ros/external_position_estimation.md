@@ -199,7 +199,7 @@ To use MoCap data with EKF2 you will have to [remap](http://wiki.ros.org/roslaun
 
 Локальна/світова та світова системи координат, що використовуються в ROS та PX4, відрізняються.
 
-| Рама  | PX4                                                                 | ROS                                                                                                      |
+| Frame | PX4                                                                 | ROS                                                                                                      |
 | ----- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | Body  | FRD (X **F**orward, Y **R**ight, Z **D**own)     | FLU (X **F**orward, Y **L**eft, Z **U**p), usually named `base_link`                  |
 | World | FRD or NED (X **N**orth, Y **E**ast, Z **D**own) | FLU or ENU (X **E**ast, Y **N**orth, Z **U**p), with the naming being `odom` or `map` |
