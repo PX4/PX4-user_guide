@@ -67,7 +67,7 @@ The LOCOSYS GPS pinout is provided below.
 
 ## Status LEDs
 
-| 색상 | 이름              | 설명                                 |
+| 색상 | 명칭              | 설명                                 |
 | -- | --------------- | ---------------------------------- |
 | 녹색 | TX Indicator    | GNSS Data transmission             |
 | 빨강 | Power Indicator | 전원                                 |
