@@ -4,6 +4,7 @@
 
 :::warning
 실험
+At the time of writing, parts of the PX4 ROS 2 Control Interface are experimental, and hence subject to change:
 
 - The architecture and core interfaces for defining modes in ROS 2 modes are largely stable, and are tested in CI.
   The library offers significant benefits over using offboard mode in its current state.
@@ -22,7 +23,7 @@ They can even replace the default modes in PX4 with enhanced ROS 2 versions, fal
 The library also provides classes for sending different types of setpoints, ranging from high-level navigation tasks all the way down to direct actuator controls.
 These classes abstract the internal setpoints used by PX4, and that can therefore be used to provide a consistent ROS 2 interface for future PX4 and ROS releases.
 
-## Overview
+## 개요
 
 This diagram provides a conceptual overview of how the control interface modes and mode executors interact with PX4.
 
@@ -344,7 +345,7 @@ The following sections provide a list of supported setpoint types:
 - [DirectActuatorsSetpointType](#direct-actuator-control-setpoint-directactuatorssetpointtype): Direct control of motors and flight surface servo setpoints
 
 :::tip
-The other setpoint types are currently experimental, and can be found in: [px4\_ros2/control/setpoint\_types/experimental](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/experimental).
+The other setpoint types are currently experimental, and can be found in: [px4_ros2/control/setpoint_types/experimental](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/experimental).
 
 You can add your own setpoint types by adding a class that inherits from `px4_ros2::SetpointBase`, sets the configuration flags according to what the setpoint requires, and then publishes any topic containing a setpoint.
 :::
@@ -420,7 +421,7 @@ If you want to control an independent actuator (a servo), follow these steps:
 3. Call the `set()` method to control the actuator(s).
    This can be done independently of any active setpoints.
 
-### Telemetry
+### 텔레메트리
 
 You can access PX4 telemetry topics directly via the following classes:
 
@@ -492,7 +493,7 @@ External modes can be assigned to [RC switches](../config/flight_mode.md) or joy
 When assigning a mode to an RC switch, you need to know the index (because the parameter metadata does not contain the dynamic mode name).
 Use `commander status` while the mode is running to get that information.
 
-For example:
+예를 들어:
 
 ```plain
    INFO  [commander] External Mode 1: nav_state: 23, name: My Manual Mode
