@@ -106,7 +106,7 @@ There is also an [ARM20-CTX 20-Pin to TC2030-IDC adapter](https://www.tag-connec
 
 ![mRo Control Zero F7](../../assets/flight_controller/mro_control_zero_f7/mro_control_pinouts.jpg)
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                                                                              |
 | ------ | ---------- | ------------------------------------------------------------------------------------------------- |
@@ -121,7 +121,7 @@ There is also an [ARM20-CTX 20-Pin to TC2030-IDC adapter](https://www.tag-connec
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Introducing the new mRo Control Zero Autopilot](https://mrobotics.io/introducing-the-new-mro-control-zero-autopilot/) (blog)
 - [Quick Start Guide](https://mrobotics.io/mrocontrolzero/)
