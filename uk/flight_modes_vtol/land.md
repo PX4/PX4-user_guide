@@ -1,4 +1,4 @@
-# Режим «Посадка» (VTOL)
+# Land Mode (VTOL)
 
 <img src="../../assets/site/position_fixed.svg" title="Position estimate required (e.g. GPS)" width="30px" />
 
