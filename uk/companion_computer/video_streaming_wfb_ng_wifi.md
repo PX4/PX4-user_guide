@@ -26,7 +26,7 @@ The high level benefits of _WFB-ng_ include:
 
 Additional information is provided in the [FAQ](#faq) below.
 
-## Апаратне забезпечення
+## Апаратне забезпечення(Hardware)
 
 ### Налаштування транспорту
 
