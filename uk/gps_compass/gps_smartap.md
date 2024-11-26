@@ -23,7 +23,7 @@ SmartAP GPS підтримує одночасний прийом до 3 GNSS (GP
 - 1x GPS модуль
 - 1x 30cm кабель
 
-## Конфігурація
+## Налаштування
 
 For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 uses the correct baudrate.
 
