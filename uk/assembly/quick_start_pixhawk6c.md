@@ -41,7 +41,7 @@ The GPS module's integrated safety switch is enabled _by default_ (when enabled,
 Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
 
-## Потужність
+## Power
 
 Connect the output of the power module of your selection that comes with the Standard Set to one of the **POWER** port of _Pixhawk 6C_ using the 6-wire cable.
 
@@ -125,7 +125,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 - [Holybro Pixhawk -6C Pinout](https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-6c-pinout)
 
-## Конфігурація
+## Налаштування
 
 General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
