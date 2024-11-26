@@ -13,7 +13,7 @@ ARK GPS is an open source [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.m
 ## Характеристики обладнання
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_GPS)
-- Сенсори
+- Датчики
   - Ublox M9N GPS
     - Надзвичайно надійна геоприв'язка на рівні метра за допомогою супутникової навігації
     - Максимальна доступність позиції з одночасним прийомом 4 супутників
@@ -39,14 +39,14 @@ ARK GPS is an open source [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.m
   - Середній струм 110мA
   - 117мА Макс.
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 ### Підключення
 
 ARK GPS підключений до шини CAN за допомогою стандартного кабелю Pixhawk 4 pin JST GH.
 For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
-### Монтаж
+### Встановлення
 
 The recommended mounting orientation is with the connectors on the board pointing towards the **back of vehicle**.
 
@@ -62,7 +62,7 @@ ARK GPS boards ship with recent firmware pre-installed, but if you want to build
 - Firmware target: `ark_can-gps_default`
 - Bootloader target: `ark_can-gps_canbootloader`
 
-## Налаштування PX4
+## Конфігурація PX4
 
 You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle.
 Необхідні налаштування наведено нижче.
@@ -94,7 +94,7 @@ DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enablin
 - Set [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) to `1` if this is that last node on the CAN bus.
 - The parameters [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z) can be set to account for the offset of the ARK GPS from the vehicles centre of gravity.
 
-## Значення світлодіодів
+## Значення LED індикаторів
 
 Ви побачите зелені, сині та червоні світлодіоди на ARK GPS під час прошивки, а також мигаючий зелений світлодіод, якщо все працює належним чином.
 
