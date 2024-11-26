@@ -111,7 +111,7 @@ On the ARK Flow, you may need to configure the following parameters:
 | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
 
-## LED灯含义
+## LED含义
 
 You will see both red and blue LEDs on the ARK Flow when it is being flashed, and a solid blue LED if it is running properly.
 
@@ -121,7 +121,7 @@ If you see a solid red LED there is an error and you should check the following:
 - Make sure the Ark Flow has `ark_can-flow_canbootloader` installed prior to flashing `ark_can-flow_default`.
 - Remove binaries from the root and ufw directories of the SD card and try to build and flash again.
 
-## 视频:
+## 视频
 
 <lite-youtube videoid="SAbRe1fi7bU" params="list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0" title="ARK Flow Indoor Position Hold x64"/>
 
