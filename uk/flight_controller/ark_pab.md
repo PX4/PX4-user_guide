@@ -64,7 +64,7 @@ Order From [Ark Electronics](https://arkelectron.com/product/ark-pixhawk-autopil
   - 74.0мм х 43.5мм х 12,0мм
   - 22г
 
-## Потужність
+## Power
 
 - 5V input on `POWER1`, `POWER2`, `USB C`, and the `USB JST-GH` connector
   - Input is prioritized in the following order: POWER1 > POWER2 > USB
@@ -79,7 +79,7 @@ Order From [Ark Electronics](https://arkelectron.com/product/ark-pixhawk-autopil
   - `Red` is the ethernet power LED
   - `Green` is the ethernet activity LED
 
-## Розпіновка
+## Схема розташування виводів
 
 ![ARKPAB Pinout](../../assets/flight_controller/arkpab/arkpab_pinout.jpg)
 
