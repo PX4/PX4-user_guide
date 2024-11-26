@@ -52,7 +52,7 @@ This is the silkscreen for the _Kakute F7_, showing the top of the board:
 | 5V           | Вихід 5В (максимум 2A)                                                        |                             |
 | VO           | Відеовихід на відеопередавач                                                                     |                             |
 | VI           | Відеовхід з камери FPV                                                                           |                             |
-| G або GND    | Заземлення                                                                                       |                             |
+| G або GND    | Ground                                                                                           |                             |
 | SDA, SCL     | Підключення I2C (для периферійних пристроїв)                                  |                             |
 | R1, T1       | UART1 RX та TX                                                                                   | TELEM1                      |
 | R2, T2       | UART2 RX та TX                                                                                   | TELEM2                      |
@@ -95,7 +95,7 @@ make holybro_kakutef7_default
 - [Load the firmware](../config/firmware.md) using _QGroundControl_.
   Ви можете використовувати або готове вбудоване програмне забезпечення, або власне користувацьке програмне забезпечення.
 
-## Конфігурація
+## Налаштування
 
 If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment you can use the [Actuator](../config/actuators.md) configuration UI to set the motor ordering appropriately.
 
@@ -105,7 +105,7 @@ In addition to the [basic configuration](../config/index.md), the following para
 | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | Це має бути вимкнено, оскільки у платі немає внутрішнього магніту. Ви можете активувати це, якщо приєднаєте зовнішній магніт. |
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                      |
 | ------ | ---------- | ----------------------------------------- |
