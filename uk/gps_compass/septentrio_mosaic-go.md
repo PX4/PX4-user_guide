@@ -54,7 +54,7 @@ _Connector type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GH
 | Назва виводу | Напрямок | Рівень                                     | Опис                      | Коментар                                                         |
 | ------------ | -------- | ------------------------------------------ | ------------------------- | ---------------------------------------------------------------- |
 | VCC          | PWR      | 4.75V-5.5V | Головне джерело живлення  |                                                                  |
-| GND          |          | 0                                          | Заземлення                |                                                                  |
+| GND          |          | 0                                          | Ground                    |                                                                  |
 | TXD1         | Out      | 3V3_LVTTL             | Serial COM1 transmit line | Підключається безпосередньо до TXD1 внутрішньої mosaic           |
 | RXD1         | In       | 3V3_LVTTL             | Serial COM1 receive line  | Підключається безпосередньо до RXD1 внутрішньої mosaic           |
 | PPS          | Out      | 3V3_LVTTL             | PPSoutput                 | PPSO з mosaic перетворений на 3,3 В                              |
@@ -69,9 +69,9 @@ _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR
 | NRST         | In       | 3V3_LVTTL | Reset input               | Підключається безпосередньо до nRST_IN внутрішньої mosaic |
 | TXD2         | Out      | 3V3_LVTTL | Serial COM2 transmit line | Підключається безпосередньо до TXD2 внутрішньої mosaic                         |
 | RXD2         | In       | 3V3_LVTTL | Serial COM2 receive line  | Підключається безпосередньо до RXD2 внутрішньої mosaic                         |
-| GND          |          | 0                              | Заземлення                |                                                                                |
+| GND          |          | 0                              | Ground                    |                                                                                |
 
-## Налаштування PX4
+## Конфігурація PX4
 
 PX4 configuration is covered in [Septentrio GNSS Receivers](../gps_compass/septentrio.md).
 
@@ -127,7 +127,7 @@ The included GNSS receiver control and analysis software [RxTools](https://web.s
 
 | Колір світлодіоду |             Живлення             |        SD карта змонтована       |           PVT Solution           |          Logging enabled         |
 | ----------------- | :------------------------------: | :------------------------------: | :------------------------------: | :------------------------------: |
-| Червоний          | &amp;check;️ |                                  |                                  |                                  |
+| Red               | &amp;check;️ |                                  |                                  |                                  |
 | Зелений           | &amp;check;️ | &amp;check;️ |                                  |                                  |
 | Синій             | &amp;check;️ | &amp;check;️ | &amp;check;️ |                                  |
 | Purple            | &amp;check;️ |                                  | &amp;check;️ |                                  |
