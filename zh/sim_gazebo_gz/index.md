@@ -349,7 +349,7 @@ This guarantees that PX4 will always wait for Gazebo before moving forward in ti
 Note, however, that as the lockstep is missing, Gazebo will never wait for PX4 to finish its computations.
 In the worst case scenario, PX4 can completely go offline and Gazebo will keep running, with obvious crashes of the simulated drone.
 
-## Multi-Vehicle Simulation
+## 基于gazebo的多飞行器仿真
 
 Multi-Vehicle simulation is supported on Linux hosts.
 
