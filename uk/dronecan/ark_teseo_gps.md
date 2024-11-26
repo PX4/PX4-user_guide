@@ -13,7 +13,7 @@
 ## Характеристики обладнання
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Teseo_GPS)
-- Сенсори
+- Датчики
   - [ST TESEO LIV4F GPS](https://www.st.com/en/positioning/teseo-liv4f.html)
     - L1/L5 bands
     - Simultaneous multi-constellation and multi-band GNSS (GPS, Galileo, GLONASS, BeiDou, QZSS)
@@ -37,7 +37,7 @@
 - USA Built
 - NDAA Compliant
 
-## Розпіновка
+## Схема розташування виводів
 
 ### CAN - 4 Pin JST-GH
 
