@@ -12,7 +12,7 @@ All Vertiq modules support traditional [PWM input, DShot, OneShot, and Multishot
 
 Purchasing information can be found on the [Vertiq website](https://www.vertiq.co/).
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 ### Підключення
 
@@ -43,7 +43,7 @@ Instructions for integrating the motor/ESC using with DroneCAN can be found in [
 Instructions for integrating the motor/ESC using PWM and DShot can be found in [PWM and DShot Control with a Flight Controller](https://iqmotion.readthedocs.io/en/latest/tutorials/pwm_control_flight_controller.html).
 DShot рекомендовано.
 
-## Додаткова інформація
+## Подальша інформація
 
 - <https://www.vertiq.co/> — Learn more about Vertiq modules
 - [Vertiq Documentation](https://iqmotion.readthedocs.io/en/latest/index.html) — Additional information about configuring your Vertiq module
