@@ -132,7 +132,7 @@ The difference between the Advanced Plane and the "regular plane" lies in the Li
 
 :::
 
-## VTOL (Вертикальний зліт та посадка)
+## VTOL
 
 ### Standard VTOL
 
@@ -142,7 +142,7 @@ make px4_sitl gz_standard_vtol
 
 ![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
 
-## Землехід
+## Ровер
 
 ### Differential Rover
 
