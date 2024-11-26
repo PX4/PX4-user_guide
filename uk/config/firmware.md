@@ -81,7 +81,7 @@ If _QGroundControl_ installs the FMUv2 target (see console during installation),
 
 You can update it by following the instructions in [Bootloader update > FMUv2 Bootloader Update](../advanced_config/bootloader_update.md#fmuv2-bootloader-update).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html).
 - [PX4 Setup Video](https://youtu.be/91VGmdSlbo4) (Youtube)
