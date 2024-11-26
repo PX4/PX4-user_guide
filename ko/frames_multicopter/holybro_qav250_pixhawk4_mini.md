@@ -88,13 +88,13 @@ The Holybro [QAV250 Kit](https://holybro.com/products/qav250-kit) kits includes 
 
 Estimated time to assemble frame is 2 hours and 1.5 hours installing the autopilot and configuring the airframe in _QGroundControl_.
 
-### 필요한 공구
+### 필요한 공구들
 
 조립시에 필요한 공구들입니다.
 
 - 2.0mm 육각 스크류드라이버
 - 3mm Phillips 스크류드라이버
-- Wire 커터
+- 전선 커터
 - 정밀 트위저
 
 ![Tools required for assembling QAV250](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/assembly_tools.jpg)
