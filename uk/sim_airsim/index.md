@@ -43,7 +43,7 @@ WSL 2 is not a supported [PX4 Windows development environment](../dev_setup/dev_
 
 <!-- datestamp:video:youtube:20200716:Autonomous Drone Inspections using AirSim and PX4 — PX4 Developer Summit Virtual 2020 -->
 
-## Додаткова інформація
+## Подальша інформація
 
 - [AirSim Documentation](https://microsoft.github.io/AirSim/)
 - [Using AirSim to Simulate Aircraft Inspection by Autonomous Drones](https://gaas.gitbook.io/guide/case-study/using-airsim-to-simulate-aircraft-inspection-by-autonomous-drones) (Case Study from Generalized Autonomy Aviation System (GAAS) project).
