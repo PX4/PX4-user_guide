@@ -38,7 +38,7 @@ The main hardware documentation is [here](http://mindpx.net/assets/accessories/m
 |                    Item                    |                                                       描述                                                      |
 | :----------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
 |         Flight controller/Processor        |                                                    F427VIT6                                                   |
-|                   Weight                   |                                              ~6g                                              |
+|                     重量                     |                                              ~6g                                              |
 |                  Dimension                 |                                                    35x35mm                                                    |
 |                 PWM Outputs                |                                                   maximum 6                                                   |
 |                     IMU                    |                                                     10DOF                                                     |
