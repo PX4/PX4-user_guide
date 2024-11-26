@@ -14,7 +14,7 @@ It also supports [RTK GPS Heading](../gps_compass/u-blox_f9p_heading.md) using d
 
 [cuav Store](https://store.cuav.net/shop/c-rtk-9ps/)
 
-## Характеристики
+## Специфікація
 
 ![Specification](../../assets/hardware/gps/cuav_9ps/c-rtk9s-specification.jpg)
 
