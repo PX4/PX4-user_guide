@@ -64,7 +64,7 @@ Additionally you will need a battery and receiver ([compatible radio system](../
 | Holybro BLHeli S ESC 20A x4                                                    | 1  |
 | 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md) | 1  |
 
-### 필요한 공구
+### 필요한 공구들
 
 조립시에 필요한 공구들입니다.
 
@@ -73,7 +73,7 @@ Additionally you will need a battery and receiver ([compatible radio system](../
 - 2.5 mm 육각 스크류 드라이버
 - 3mm Phillips 스크류드라이버
 - 5.5mm 소켓 렌치 또는 작은 파일러
-- Wire 커터
+- 전선 커터
 - 정밀 트위저
 
 ## 조립
