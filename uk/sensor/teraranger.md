@@ -36,6 +36,6 @@ If using auto-detect for Evo sensors the minimum and maximum values for the rang
 The driver for this rangefinder is usually present in firmware. If missing, you would also need to add the driver (`distance_sensor/teraranger`) to the board configuration.
 :::
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Modules Reference: Distance Sensor (Driver) : teraranger](../modules/modules_driver_distance_sensor.md#teraranger)
