@@ -42,7 +42,7 @@ The GPS module's integrated safety switch is enabled _by default_ (when enabled,
 Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
 
-## Потужність
+## Power
 
 Плата управління живленням (PMB) виконує функції блоку живлення та розподільчої плати живлення.
 In addition to providing regulated power to _Pixhawk 4 Mini_ and the ESCs, it sends information to the autopilot about the battery’s voltage and current draw.
@@ -148,7 +148,7 @@ Motors/servos are connected to the **MAIN OUT** ports in the order specified for
 
 The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
 
-## Конфігурація
+## Налаштування
 
 General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
