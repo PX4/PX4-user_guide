@@ -265,7 +265,7 @@ No LiPo battery is included.
 
 ![Fully Assembled](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_assembled.jpg)
 
-## Налаштування PX4
+## Конфігурація PX4
 
 _QGroundControl_ is used to install the PX4 autopilot and configure/tune it for the QAV250 frame.
 [Download and install](http://qgroundcontrol.com/downloads/) _QGroundControl_ for your platform.
