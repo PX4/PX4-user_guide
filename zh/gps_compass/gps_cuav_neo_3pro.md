@@ -37,7 +37,7 @@ It integrates UBLOX M9N, STM32F4 MCU, RM3100 compass, three-color LED light and 
 | Input voltage                                     | 5V                                                                                                                         |
 | Operating temperature                             | -10~70℃                                                                                                    |
 | Size                                              | 60_60_16MM                                                                                                                 |
-| Weight                                            | 33g                                                                                                                        |
+| 重量                                                | 33g                                                                                                                        |
 
 ## 购买渠道
 
