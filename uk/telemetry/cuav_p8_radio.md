@@ -39,7 +39,7 @@ On some flight controllers, or if used with a different serial port, you may nee
 
 ### Порт даних
 
-| пін | C-RTK GPS 6P               | пін | Pixhawk стандартні контакти |
+| pin | C-RTK GPS 6P               | pin | Pixhawk стандартні контакти |
 | --- | -------------------------- | --- | --------------------------- |
 | 1   | 5V+(NC) | 1   | VCC                         |
 | 2   | RX                         | 2   | TX                          |
