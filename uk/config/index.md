@@ -5,7 +5,7 @@
 You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection).
 Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
 
-## Попередні вимоги
+## Передумови
 
 Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer.
 Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
