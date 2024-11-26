@@ -13,7 +13,7 @@
 ## Характеристики обладнання
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_MosaicX5_GPS)
-- Сенсори
+- Датчики
   - [Septentrio Mosaic-X5 GPS](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-x5)
     - Triple Band L1/L2/L5
     - [AIM+ jamming protection](https://www.septentrio.com/en/learn-more/advanced-positioning-technology/aim-anti-jamming-protection)
