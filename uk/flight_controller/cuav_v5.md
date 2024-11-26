@@ -110,7 +110,7 @@ Simply connect the FTDI cable to the Debug & F7 SWD connector.
 
 ![CUAV v5 debug](../../assets/flight_controller/cuav_v5/pixhack_v5_debug.jpg)
 
-| пін | CUAV v5 debug                 |
+| pin | CUAV v5 debug                 |
 | --- | ----------------------------- |
 | 1   | GND                           |
 | 2   | FMU-SWCLK                     |
@@ -119,7 +119,7 @@ Simply connect the FTDI cable to the Debug & F7 SWD connector.
 | 5   | UART7_TX |
 | 6   | VCC                           |
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                                |
 | ------ | ---------- | --------------------------------------------------- |
@@ -144,7 +144,7 @@ Simply connect the FTDI cable to the Debug & F7 SWD connector.
 Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
 - [CUAV v5 docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html)
