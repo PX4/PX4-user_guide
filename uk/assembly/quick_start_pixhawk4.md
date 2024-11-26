@@ -44,7 +44,7 @@ The GPS module's integrated safety switch is enabled _by default_ (when enabled,
 Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
 
-## Потужність
+## Power
 
 Connect the output of the _Power Management Board_ (PM board) that comes with the kit to one of the **POWER** bricks of _Pixhawk 4_ using a 6-wire cable.
 The PM input **2~12S** will be connected to your LiPo battery.
@@ -180,7 +180,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 [Pixhawk 4 Pinouts](https://holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 
-## Конфігурація
+## Налаштування
 
 General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
