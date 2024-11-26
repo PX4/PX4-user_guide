@@ -122,7 +122,7 @@ The NXP [HoverGames Drone Kit](https://www.nxp.com/kit-hgdronek66) (shown above)
 Вам потрібно лише поставити акумулятор LiPo 3S/4S.
 :::
 
-## Додаткова інформація
+## Подальша інформація
 
 - [HoverGames online documentation](https://nxp.gitbook.io/hovergames) PX4 user and programming guide, specific assembly, construction, debugging, programming instructions.
 
