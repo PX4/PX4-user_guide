@@ -44,6 +44,6 @@ Before calibration they must be [enabled via the corresponding parameter](../adv
 
 8. _QGroundControl_ then tells you if the calibration was successful or not.
 
-## Додаткова інформація
+## Подальша інформація
 
 - [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#airspeed)
