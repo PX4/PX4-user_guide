@@ -21,7 +21,7 @@ By default PX4 will select the barometer with the highest priority (if any are p
 
 Note that the supported barometer part numbers can be inferred from the driver names listed in the [Modules Reference: Baro (Driver)](../modules/modules_driver_baro.md) documentation (and the driver source: [PX4-Autopilot/src/drivers/barometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer)).
 
-## Налаштування PX4
+## Конфігурація PX4
 
 Зазвичай барометри не потребують налаштування користувачем.
 Якщо потрібно, ви можете:
