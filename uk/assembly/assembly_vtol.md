@@ -1,8 +1,6 @@
 ---
 title: Assembling a VTOL
-frame: |-
-  
-  VTOL (Вертикальний зліт та посадка)
+frame: VTOL
 newEditLink: en/assembly/_assembly.md
 ---
 
