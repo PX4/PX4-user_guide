@@ -1,14 +1,15 @@
 # 保持模式 (Fixed-wing)
 
-<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />
+<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
 The _Hold_ flight mode causes the vehicle to loiter (circle) around its current GPS position and maintain its current altitude.
 
 :::tip
-_Hold mode_ can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch.
+_Hold mode_ can be used to pause a mission or to help you regain control of a vehicle in an emergency.
+It is usually activated with a pre-programmed switch.
 :::
 
-:::note
+::: info
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
@@ -25,7 +26,8 @@ _Hold mode_ can be used to pause a mission or to help you regain control of a ve
 
 ## 技术总结
 
-The aircraft circles around the GPS hold position at the current altitude. The vehicle will first ascend to [NAV_MIN_LTR_ALT](#NAV_MIN_LTR_ALT) if the mode is engaged below this altitude.
+The aircraft circles around the GPS hold position at the current altitude.
+The vehicle will first ascend to [NAV_MIN_LTR_ALT](#NAV_MIN_LTR_ALT) if the mode is engaged below this altitude.
 
 RC stick movement is ignored.
 
@@ -33,9 +35,9 @@ RC stick movement is ignored.
 
 Hold mode behaviour can be configured using the parameters below.
 
-| 参数                                                                                                      | 描述                                                                                                            |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)                            | The radius of the loiter circle.                                                                              |
+| 参数                                                                                                                                                                      | 描述                                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)                                                    | The radius of the loiter circle.                                                                                                 |
 | <a id="NAV_MIN_LTR_ALT"></a>[NAV_MIN_LTR_ALT](../advanced_config/parameter_reference.md#NAV_MIN_LTR_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude). |
 
 ## See Also
