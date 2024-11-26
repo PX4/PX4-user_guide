@@ -120,7 +120,7 @@ EKF має різні режими роботи, які дозволяють в�
 Цей режим потребує даних від IMU, джерела кута розвороту (магнітометра або зовнішнього бачення) та джерела даних про висоту.
 Цей мінімальний набір даних потрібний для всіх режимів роботи EKF. Інші дані датчика можуть бути використані для оцінки додаткових станів.
 
-### Інерційний вимірювальний пристрій
+### IMU
 
 - Дані з трьох вісей Imu (дельта кута та дельта швидкості), закріплені на тілі, мінімум з частотою 100 Гц.
   Примітка: Корекції конінга мають бути застосовані до даних дельта кута IMU перед їх використанням EKF.
@@ -399,7 +399,7 @@ To enable the range finder fusion only when the drone is stationary (in order to
 - [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE)
 - [EKF2_RNG_K_GATE](../advanced_config/parameter_reference.md#EKF2_RNG_K_GATE)
 
-### Швидкість польоту
+### Швидкість повітря
 
 Equivalent Airspeed (EAS) data can be used to estimate wind velocity and reduce drift when GPS is lost by setting [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) to a positive value.
 Airspeed data will be used when it exceeds the threshold set by a positive value for [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) and the vehicle type is not rotary wing.
@@ -429,7 +429,7 @@ The amount of specific force observation noise is set by the [EKF2_DRAG_NOISE](.
 :::
 3. Use the log with the [mc_wind_estimator_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/mc_wind_estimator) Python script to obtain the optimal set of parameters.
 
-### Optical Flow
+### Оптичний потік(Optical Flow)
 
 [Optical flow](../sensor/optical_flow.md) data will be used if the following conditions are met:
 
@@ -802,6 +802,6 @@ You can enable _ground effect compensation_ to fix this problem:
 If a terrain estimate is available (e.g. the vehicle is equipped with a range finder) then you can additionally specify [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT), the above ground-level altitude below which ground effect compensation should be activated.
 Якщо оцінка рельєфу недоступна, цей параметр не буде мати впливу, і система використовуватиме евристику для визначення того, чи слід активувати компенсацію ефекту землі.
 
-## Додаткова інформація
+## Подальша інформація
 
 - [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ), _PX4 Developer Summit 2019_, Dr. Paul Riseborough): Overview of the estimator, and major changes from 2018/19, and the expected improvements through 2019/20.
