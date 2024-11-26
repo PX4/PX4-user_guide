@@ -62,7 +62,7 @@ There is **no setup** that does not require signal ground to be connected!
 On an opto-isolated ESC **without** BEC, the +5V line might need to be connected and powered (in order to provide power to the ESC microcontroller).
 У цьому випадку дріт зазвичай буде підключений до рейки серводвигуна контролера польоту, а рейку серводвигуна слід живити від додаткового BEC.
 
-## Налаштування PX4
+## Конфігурація PX4
 
 PWM motors and servos are configured using the [Actuator Configuration](../config/actuators.md) screen in QGroundControl.
 
