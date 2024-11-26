@@ -37,7 +37,7 @@ Some of the types, along with the use cases for which they are most suited are l
 - **Boats** — Water-surface vehicles.
 - [Submersibles](../frames_sub/index.md) — Underwater vehicles.
 
-更多信息请参阅：
+有关详细信息，请参阅︰
 
 - [Vehicle Types & Setup](../airframes/index.md)
 - [Airframe setup](../config/airframe.md)
@@ -91,7 +91,7 @@ QGroundControl desktop versions are also used to install (flash) PX4 firmware an
 [Auterion Mission Control](https://auterion.com/product/mission-control/) is a powerful and fully featured ground control station application that is optimized for _pilots_ rather than vehicle configuration.
 While designed to work with Auterion products, it can be used with "vanilla" PX4.
 
-更多信息请参阅：
+有关详细信息，请参阅︰
 
 - [AMC docs](https://docs.auterion.com/vehicle-operation/auterion-mission-control)
 - [Download from Auterion Suite](https://suite.auterion.com/)
