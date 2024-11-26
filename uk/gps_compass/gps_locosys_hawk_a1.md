@@ -20,7 +20,7 @@ The [LOCOSYS HAWK A1 GPS/GNSS receiver](https://www.locosystech.com/en/product/h
 
 - [LOCOSYS](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) (Taiwan)
 
-## Конфігурація
+## Налаштування
 
 Ви можете використовувати Hawk A1 як основну або додаткову GPS-систему.
 Параметри PX4 повинні бути встановлені, як показано нижче, для кожного випадку.
@@ -70,7 +70,7 @@ LOCOSYS схема виводів GPS наведена нижче.
 | Колір   | Назва              | Опис                                  |
 | ------- | ------------------ | ------------------------------------- |
 | Зелений | Індикатор TX       | Передача даних GNSS                   |
-| Red     | Індикатор живлення | Живлення                              |
+| Red     | Індикатор живлення | Power                                 |
 | Синій   | PPS                | Активна служба точного позиціонування |
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
