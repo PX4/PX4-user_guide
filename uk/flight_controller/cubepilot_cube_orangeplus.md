@@ -203,7 +203,7 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 | 5 (blk) | RTS (IN)  | +3.3В до 5В |
 | 6 (blk) | GND                          | GND                         |
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                          |
 | ------ | ---------- | --------------------------------------------- |
