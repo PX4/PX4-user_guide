@@ -428,7 +428,7 @@ For example, you could do this by forcing a [Geofence violation](../config/safet
 - [Parachute](../peripherals/parachute.md)
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
-## Потокове відео
+## Трансляція відео
 
 PX4 SITL для Gazebo Classic підтримує трансляцію відео по UDP з датчика камери, приєднаної до симуляції моделі рухомого засобу.
 When streaming is enabled, you can connect to this stream from _QGroundControl_ (on UDP port 5600) and view video of the Gazebo Classic environment from the simulated vehicle - just as you would from a real camera.
@@ -509,7 +509,7 @@ The build system enforces the correct GIT submodules, including the simulator.
 Вона перезапише зміни в файлах та директоріях.
 :::
 
-## Додаткова інформація
+## Подальша інформація
 
 - [ROS with Gazebo Classic Simulation](../simulation/ros_interface.md)
 - [Gazebo Classic Octomap](../sim_gazebo_classic/octomap.md)
