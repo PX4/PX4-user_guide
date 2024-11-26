@@ -83,7 +83,7 @@ If you are flying without the GPS you must attach the switch directly to the `GP
 V5+ має присвячений кабель DSM.
 Якщо використовується супутниковий приймач Spektrum, його слід підключити до інтерфейсу DSM/SBUS/RSSI контролера польоту.
 
-## Потужність
+## Power
 
 The V5+ kit includes the _HV_PM_ module, which supports 2~14S LiPo batteries.
 Connect the 6pin connector of the _HW_PM_ module to the flight control `Power1` interface.
@@ -126,7 +126,7 @@ Motors/servos are connected to the MAIN and AUX ports in the order specified for
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Airframe build-log using CUAV v5+ on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)
 - [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf) (CUAV)
