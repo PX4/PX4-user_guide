@@ -26,7 +26,7 @@ It uses open source firmware that has been specially designed to work well with 
 - Порт Micro-USB (кабель адаптера Type-C включено)
 - 6-позиційний роз'єм JST-GH
 
-## Характеристики
+## Специфікація
 
 - Максимальна вихідна потужність 100 мВт (налаштовувана) -117 дБм чутливість прийому
 - РП-SMA роз'єм
