@@ -616,7 +616,7 @@ Camera Serial Interface (CSI)
 
 :::
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 The baseboard exposes both Pixhawk and Orin ports, as shown above in the [pinouts](#pinouts).
 The Pixhawk ports comply with the Pixhawk connector standard (for ports covered by the standard), which means that the board can be connected to the usual peripherals, such as GPS, following either the generic assembly instructions for [multicopters](../assembly/assembly_mc.md), [fixed-wing](../assembly/assembly_fw.md) and [VTOL](../assembly/assembly_vtol.md) vehicles, or the corresponding Pixhawk guide for your flight controller (e.g. [Pixhawk 6X Quick Start](../assembly/quick_start_pixhawk6x.md)).
