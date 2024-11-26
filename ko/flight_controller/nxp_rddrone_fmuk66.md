@@ -23,7 +23,7 @@ This is the official FMU for use with [HoverGames](https://www.hovergames.com/).
 NXP FMU와 포함된 주변 장치는 FCC/CE/RoHs/REACH 지침을 준수합니다.
 
 :::info
-These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체에서 지원](../flight_controller/autopilot_manufacturer_supported.md)합니다.
 :::
 
 ## 요약
