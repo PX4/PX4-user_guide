@@ -43,9 +43,9 @@ The GPS module uses the [DroneCAN](index.md) protocol for communication.
 | Довжина кабелю                                       | 26cm                                                                                                                                               |
 | Інше                                                 | <ul><li>LNA MAX2659ELT+ RF Amplifier</li><li>Rechargeable Farah capacitance</li><li>Low noise 3.3V regulator</li><li>26cm cable included</li></ul> |
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
-### Монтаж
+### Встановлення
 
 The recommended mounting orientation is with the arrow on the GPS pointing towards the **front of vehicle**.
 
@@ -56,7 +56,7 @@ The sensor can be mounted anywhere on the frame, but you will need to specify it
 The Holybro DroneCAN GPS підключений до шини CAN за допомогою стандартного кабелю Pixhawk 4 pin JST GH.
 For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
-### Розпіновка
+### Схема розташування виводів
 
 ![Diagram showing GPS pinouts](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_pinout.jpg)
 
@@ -64,7 +64,7 @@ For more information, refer to the [CAN Wiring](../can/index.md#wiring) instruct
 
 ![Diagram showing GPS dimensions](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_dimension.jpg)
 
-## Налаштування PX4
+## Конфігурація PX4
 
 You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle.
 Необхідні налаштування наведено нижче.
