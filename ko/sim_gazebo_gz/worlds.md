@@ -51,7 +51,7 @@ Rover world is optimised for rovers (and will be further optimised for rovers) a
 
 ![screenshot of rover world](../../assets/simulation/gazebo/worlds/rover.png)
 
-::: info
+:::info
 Rover world is very similar to [lawn world](#lawn), but with these tow main differences:
 
 - Grid on the ground which is useful as a reference while driving.
