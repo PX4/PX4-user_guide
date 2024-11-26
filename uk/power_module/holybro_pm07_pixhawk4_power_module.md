@@ -39,6 +39,6 @@ Wiring and connection information can be found in: [Pixhawk 4 > Power](../assemb
 
 ![Pixhawk 4 - Power Management Board](../../assets/hardware/power_module/holybro_pm07/pixhawk4_power_management_board.png)
 
-## Додаткова інформація
+## Подальша інформація
 
 [Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro)
