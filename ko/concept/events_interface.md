@@ -32,7 +32,7 @@ events::send(events::ID("mymodule_test"), events::Log::Info, "Test Message");
 For older GCS versions without events interface support, PX4 currently sends out all events also as `mavlink_log_*` `STATUSTEXT` message.
 In addition, the message must be tagged with an appended tab (`\t`) so that newer GCS's can ignore that and only show the event.
 
-So whenever adding an event, be sure to also add a `mavlink_log_` call. 예를 들어:
+So whenever adding an event, be sure to also add a `mavlink_log_` call. 예:
 
 ```cpp
 mavlink_log_info(mavlink_log_pub, "Test Message\t");
