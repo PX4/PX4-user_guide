@@ -2,10 +2,10 @@
 
 Вимірювання IMU у вигляді одиниць SI.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleImu.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleImu.msg)
 
 ```c
-# Вимірювання IMU в SI-одиницях.
+# IMU readings in SI-unit form.
 
 uint64 timestamp          # time since system start (microseconds)
 uint64 timestamp_sample
@@ -26,7 +26,7 @@ uint8 CLIPPING_Z = 4
 uint8 delta_angle_clipping     # bitfield indicating if there was any gyro clipping (per axis) during the integration time frame
 uint8 delta_velocity_clipping   # bitfield indicating if there was any accelerometer clipping (per axis) during the integration time frame
 
-uint8 accel_calibration_count   # Calibration changed counter. Монотонічно збільшується, коли змінюється калібрування прискорювача.
-uint8 gyro_calibration_count    # Calibration changed counter. Монотонічно збільшується, коли змінюється калібрування гіроскопа швидкості.
+uint8 accel_calibration_count  	# Calibration changed counter. Monotonically increases whenever accelermeter calibration changes.
+uint8 gyro_calibration_count   	# Calibration changed counter. Monotonically increases whenever rate gyro calibration changes.
 
 ```
