@@ -39,6 +39,6 @@ To use the [ROS 2](../ros2/user_guide.md) over XRCE-DDS effectively, you must (a
 - [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md): A C++ library that simplies interacting with PX4 from ROS 2.
   Can be used to create and register flight modes wrtten using ROS2 and send position estimates from ROS2 applications such as a VIO system.
 
-## Додаткова інформація
+## Подальша інформація
 
 - [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md): PX4 middleware for connecting to ROS 2.
