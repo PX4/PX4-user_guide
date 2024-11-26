@@ -1,4 +1,4 @@
-# Optical Flow
+# Оптичний потік(Optical Flow)
 
 _Optical Flow_ uses a downward facing camera and a downward facing distance sensor for velocity estimation.
 It can be used to determine speed when navigating without GNSS — in buildings, underground, or in any other GNSS-denied environment.
@@ -61,7 +61,7 @@ For this the [Optical Flow repo](https://github.com/PX4/OpticalFlow) can be used
 You can use any supported [distance sensor](../sensor/rangefinders.md).
 Проте ми рекомендуємо використовувати LIDAR замість зондів сонар, через їхню надійність та точність.
 
-## Естіматори
+## Оцінювач
 
 Оцінювачі об'єднують дані з датчика оптичного потоку та інших джерел.
 Налаштування для виконання злиття, а також відносні зсуви до центру транспортного засобу повинні бути вказані для використаного оцінювача.
