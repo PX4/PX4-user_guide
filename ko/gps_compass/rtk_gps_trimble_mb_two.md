@@ -41,7 +41,7 @@ The module cannot be powered from a Pixhawk.
 
 ![MB-Two Pinout](../../assets/hardware/gps/rtk_trimble_two_gnss_pinouts.jpg)
 
-| 핀  | 이름                       | 설명                                             |
+| 핀  | 명칭                       | 설명                                             |
 | -- | ------------------------ | ---------------------------------------------- |
 | 6  | Vcc 3.3V | 전원 공급                                          |
 | 14 | GND                      | Autopilot의 전원과 GND에 전원을 연결합니다. |
