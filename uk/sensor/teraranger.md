@@ -15,7 +15,7 @@ PX4 also supports _TeraRanger One_ (I2C adapter required).
 
 ## Де купити
 
-- TBD
+- Уточнюється
 
 ## Схема розташування виводів
 
