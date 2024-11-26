@@ -211,6 +211,6 @@ Joystick and thumb-joystick are supported through _QGroundControl_ ([setup instr
 To extend or customize the simulation interface, edit the files in the **Tools/simulation/flightgear/flightgear_bridge** folder.
 The code is available in the [PX4-FlightGear-Bridge repository](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) on Github.
 
-## Додаткова інформація
+## Подальша інформація
 
 - [PX4-FlightGear-Bridge readme](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)
