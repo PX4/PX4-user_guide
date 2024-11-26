@@ -437,7 +437,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Моделювання
+### Симуляція
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
@@ -541,7 +541,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Моделювання
+### Симуляція
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
@@ -581,9 +581,9 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## Землехід
+## Ровер
 
-### Землехід
+### Ровер
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/Rover.svg"/>
@@ -682,9 +682,9 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## VTOL (Вертикальний зліт та посадка)
+## VTOL
 
-### Моделювання
+### Симуляція
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
