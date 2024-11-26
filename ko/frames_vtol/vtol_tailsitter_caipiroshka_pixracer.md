@@ -103,7 +103,7 @@ Scroll down the list to find the _VTOL Duo Tailsitter_ icon. Select the _Caipiro
 | ----- | ------ | ----------------------------------- |
 | MAIN1 | 400 Hz | 오른쪽 (우현) 모터 컨트롤러 |
 | MAIN2 | 400 Hz | 왼쪽 (좌현) 모터 컨트롤러  |
-| MAIN3 | 400 Hz | 비어있음                                |
-| MAIN4 | 400 Hz | 비어있음                                |
+| MAIN3 | 400 Hz | 비어 있음                               |
+| MAIN4 | 400 Hz | 비어 있음                               |
 | MAIN5 | 50 Hz  | 오른쪽 (우현) 에일러론 서보 |
 | MAIN6 | 50 Hz  | 왼쪽 (포트) 에일러론 서보  |
