@@ -173,7 +173,7 @@ The individual GTest test binaries are in the `build/px4_sitl_test/` directory, 
 make tests TESTFILTER=<regex filter expression>
 ```
 
-예를 들어:
+예:
 
 - `make tests TESTFILTER=unit` only run GTest unit tests
 - `make tests TESTFILTER=sitl` only run simulation tests
