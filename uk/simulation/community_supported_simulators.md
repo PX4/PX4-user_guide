@@ -4,7 +4,7 @@
 
 :::warning
 These simulators are not maintained, tested, or supported, by the core development team.
-They may or may not work with current versions of PX4.
+Вони можуть працювати або не працювати з поточними версіями PX4.
 
 Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для інформації про середовища та інструменти, що підтримуються основною командою розробників.
 :::
