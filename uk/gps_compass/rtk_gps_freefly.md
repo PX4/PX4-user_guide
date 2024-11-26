@@ -39,7 +39,7 @@ For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_confi
 RTK GPS Freefly поставляється з роз'ємом JST-GH на 8 контактів, який можна підключити до автопілота PixHawk.
 Для використання як базова станція, модуль має роз'єм USB-C
 
-### Розпіновка
+### Схема розташування виводів
 
 Схема виводів Freefly GPS наведена нижче.
 For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and [PixRacer](../flight_controller/pixracer.md), all that is needed is a 1-1 8-pin JST-GH cable.
@@ -55,7 +55,7 @@ For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and 
 | 7   | BUTTON_LED |
 | 8   | GND                             |
 
-## Характеристики
+## Специфікація
 
 - Приймач GPS u-blox ZED-F9P
   - Резервне живлення Ultracap для швидкого (гарячого запуску)
