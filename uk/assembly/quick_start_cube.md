@@ -131,7 +131,7 @@ The Cube cannot directly connect to PPM or PWM receivers that have an _individua
 PWM receivers must therefore connect to the **RCIN** port _via_ a PPM encoder module,
 which may be purchased from hex.aero or proficnc.com.
 
-## Потужність
+## Power
 
 Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port.
 The power module provides reliable supply and voltage/current indication to the board, and may _separately_ supply power to ESCs that are used to drive motors on a multicopter vehicle.
@@ -191,7 +191,7 @@ The wiring and configuration of optional/less common components is covered withi
 If connecting peripherals to the port labeled `GPS2`, assign the PX4 [serial port configuration parameter](../peripherals/serial_configuration.md) for the hardware to `TEL4` (not GPS2).
 :::
 
-## Конфігурація
+## Налаштування
 
 Configuration is performed using [QGroundContro](http://qgroundcontrol.com/).
 
