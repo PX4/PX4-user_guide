@@ -12,7 +12,7 @@ LIDAR-Lite is a compact, high-performance optical distant measurement sensor sol
 
 The Lidar-Lite (v2, v3) pinout is shown below.
 
-| 针脚 | 名称                            | 描述                                                                                                                                                                                                                                |
+| 针脚 | 参数名                           | 描述                                                                                                                                                                                                                                |
 | -- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1  | POWER_IN | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.                                                                                                                |
 | 2  | POWER_EN | Active high, enables operation of the 3.3V micro-controller regulator. Low puts board to sleep, draws <40 μA. (Internal 100K pull-up) |
