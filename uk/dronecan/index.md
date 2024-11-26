@@ -64,13 +64,13 @@ DroneCAN was previously known as UAVCAN v0 (or just UAVCAN).
   - [ARK Flow](ark_flow.md)
   - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../dronecan/avanon_laser_interface.md)
   - [RaccoonLab uRangefidner and Rangefinders Adapter](https://docs.raccoonlab.co/guide/rangefinder)
-- Optical Flow
+- Оптичний потік(Optical Flow)
   - [Ark Flow](ark_flow.md)
 - Загальний вузол CAN (дозволяє використання датчиків I2C, SPI, UART на шині CAN).
   - [ARK CANnode](../dronecan/ark_cannode.md)
   - [RaccoonLab Nodes](../dronecan/raccoonlab_nodes.md)
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 DroneCAN працює через мережу CAN.
 DroneCAN hardware should be connected as described in [CAN > Wiring](../can/index.md#wiring).
@@ -99,7 +99,7 @@ At time of writing, PX4 does not run the node allocation server on the CAN2 port
 This means that if you have a device that is _only_ connected to CAN2 (not redundantly to CAN1 and CAN2), you will need to manually configure its node ID.
 :::
 
-## Налаштування PX4
+## Конфігурація PX4
 
 DroneCAN is configured on PX4 by [setting specific PX4 parameters](../advanced_config/parameters.md) in QGroundControl.
 Вам потрібно буде увімкнути сам DroneCAN, разом із підписками та публікаціями для будь-яких функцій, які ви використовуєте.
@@ -144,7 +144,7 @@ Note that a peripheral might might not use `CANNODE_` parameters, in which case 
 
 Наступні розділи надають додаткові відомості про параметри периферійних пристроїв PX4 та DroneCAN, які використовуються для увімкнення певних функцій.
 
-#### Сенсори
+#### Датчики
 
 Параметри/підписки сенсора DroneCAN, які можна активувати (у PX4 v1.14):
 
