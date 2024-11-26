@@ -1,4 +1,4 @@
-# Датчики швидкості повітря
+# Датчики швидкості польоту
 
 Airspeed sensors are _highly recommended_ for fixed-wing and VTOL frames.
 Це важливо, туму що автопілот не має інших засобів для виявлення звалювання.
