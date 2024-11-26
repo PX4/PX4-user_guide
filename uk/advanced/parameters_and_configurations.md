@@ -358,7 +358,7 @@ The parameter metadata JSON file is compiled into firmware (or hosted on the Int
 This process is the same as for [events metadata](../concept/events_interface.md#publishing-event-metadata-to-a-gcs).
 For more information see [PX4 Metadata (Translation & Publication)](../advanced/px4_metadata.md)
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Finding/Updating Parameters](../advanced_config/parameters.md)
 - [Parameter Reference](../advanced_config/parameter_reference.md)
