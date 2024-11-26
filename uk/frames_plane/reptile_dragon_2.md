@@ -370,7 +370,7 @@ Once the `msp_osd` and `crsf_rc` modules are enabled and the `rc_input` module i
 make ark_fmu-v6x_default upload
 ```
 
-## Налаштування PX4
+## Конфігурація PX4
 
 ### Конфігурація параметрів
 
