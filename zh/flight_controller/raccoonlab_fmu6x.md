@@ -60,7 +60,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   - Flight Controller Module: 38.8 x 31.8 x 14.6mm
   - Standard Baseboard: 52.4 x 103.4 x 16.7mm
   - Mini Baseboard: 43.4 x 72.8 x 14.2 mm
-- Weight
+- 重量
   - Flight Controller Module: 23g
   - Standard Baseboard: 51g
   - Mini Baseboard: 26.5g
