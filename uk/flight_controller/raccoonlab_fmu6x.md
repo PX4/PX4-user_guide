@@ -99,7 +99,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   - 1 PWM/Capture вхід
   - 2 виділені відладочні та GPIO лінії
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                            |
 | ------ | ---------- | ------------------------------- |
@@ -154,7 +154,7 @@ make px4_fmu-v6x_default
 Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
 - [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
