@@ -231,7 +231,7 @@ NOTE - INSERT IMAGE SHOWING BOTH PORTS? OR FRONT-FACING image of GPS&I2C
 
 The compass must be calibrated before it is first used: [Compass Calibration](../config/compass.md)
 
-### Потужність
+### Power
 
 The image below shows typical power-supply wiring when using _Pixhawk Mini_ in a Quadcopter.
 This uses the _Quad Power Distribution Board_ that comes in the kit to supply both the Pixhawk Mini and the ESC/Motor from the battery (and can also power other accessories).
@@ -301,7 +301,7 @@ The mappings between MAIN/AUX output ports and motor/servos for all supported ai
 
 The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/index.md).
 
-### Конфігурація
+### Налаштування
 
 General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
