@@ -360,8 +360,8 @@ Output functions are used to map the "logical functions" of an airframe, such as
 - `RC Yaw`: Output is yaw from RC ([RC_MAP_YAW](../advanced_config/parameter_reference.md#RC_MAP_YAW) maps an RC channel to this output).
 - `RC Flaps`: Output is flaps from RC ([RC_MAP_FLAPS](../advanced_config/parameter_reference.md#RC_MAP_FLAPS) maps an RC channel to this output).
 - `RC AUXn` to `RC AUX1`: Outputs used for [arbitrary payloads triggered by RC passthrough](../payloads/generic_actuator_control.md#generic-actuator-control-with-rc).
-- `Gimbal Roll`: Output controls gimbal roll.
-- `Gimbal Pitch`: Output controls Gimbal pitch.
+- `Gimbal Roll`: вихід керує поворотом gimbal.
+- `Gimbal pitch`: вихід контролює крок підвісу.
 - `Gimbal Yaw`: Output controls Gimbal yaw.
 - `Gripper`<Badge type="tip" text="PX4 v1.14" />: Output controls gripper open/close.
 - `Landing_Gear_Wheel`<Badge type="tip" text="PX4 v1.14" />: Output controls deployment of landing gear wheel
