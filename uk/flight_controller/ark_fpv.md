@@ -21,7 +21,7 @@ Order from [Ark Electronics](https://arkelectron.com/product/arkv6x/) (US)
 
 See the documentation [Ark Electronics GitBook](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-fpv)
 
-## Сенсори
+## Датчики
 
 - [Invensense IIM-42653 Industrial IMU](https://invensense.tdk.com/products/motion-tracking/6-axis/iim-42653/)
 - [Bosch BMP390 Barometer](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/)
@@ -83,6 +83,6 @@ See the documentation [Ark Electronics GitBook](https://arkelectron.gitbook.io/a
 - LED індикатори
 - Слот MicroSD
 
-## Розпіновка
+## Схема розташування виводів
 
 See the [DS-10 Pixhawk Autopilot Bus Standard](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-fpv/pinout)
