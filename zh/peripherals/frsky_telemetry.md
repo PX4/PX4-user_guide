@@ -1,4 +1,4 @@
-# 睿思凯数传
+# 睿思凯（FrSky）数传功能
 
 FrSky telemetry allows you to access vehicle [telemetry/status](#messages) information on a compatible RC transmitter.
 
@@ -172,7 +172,7 @@ Pixhawk/PX4 supports D (old) and S (new) FrSky telemetry. The table belows all F
 Note that the X series receivers listed below are recommended (e.g. XSR, X8R). The R and G series have not been tested/validated by the test team, but should work.
 :::
 
-| 接收机         | 范围                    | 集成输出                                                                        | 数字遥测输入                        | 尺寸                                                                    | Weight                |
+| 接收机         | 范围                    | 集成输出                                                                        | 数字遥测输入                        | 尺寸                                                                    | 重量                    |
 | ----------- | --------------------- | --------------------------------------------------------------------------- | ----------------------------- | --------------------------------------------------------------------- | --------------------- |
 | D4R-II      | 1.5km | CPPM (8)                                                 | D.Port        | 40x22.5x6mm                                           | 5.8g  |
 | D8R-XP      | 1.5km | CPPM (8)                                                 | D.Port        | 55x25x14mm                                                            | 12.4g |
