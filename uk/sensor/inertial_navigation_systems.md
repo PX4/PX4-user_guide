@@ -25,7 +25,7 @@ The gyroscope and accelerometer provide raw sensor data that allow measurement o
 INS є навігаційним пристроєм, який використовує акселерометри, гіроскопи, можливо, магнітометри та комп'ютер для розрахунку положення, швидкості та швидкості руху об'єкта без необхідності зовнішніх посилань.
 Фактично це AHRS, який також включає оцінку положення/швидкості.
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Що таке інерційна навігаційна система?](https://www.vectornav.com/resources/inertial-navigation-articles/what-is-an-ins) (VectorNav)
 - [Посібник з інерціальної навігації](https://www.vectornav.com/resources/inertial-navigation-primer) (VectorNav)
