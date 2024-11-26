@@ -108,7 +108,7 @@ The [Pixhawk 6C Wiring Quick Start](../assembly/quick_start_pixhawk6c.md) provid
 
 - [Holybro Pixhawk 6C Pinout](https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-6c-pinout)
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт          |
 | ------ | ---------- | ------------- |
@@ -203,7 +203,7 @@ The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debu
 Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
 - [Pixhawk 6C Wiring QuickStart](../assembly/quick_start_pixhawk6c.md)
