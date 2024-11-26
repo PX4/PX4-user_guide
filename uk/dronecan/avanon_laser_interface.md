@@ -29,7 +29,7 @@ The [Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/produc
 - Lightware SF/LW20/b
 - Lightware SF/LW20/c
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 ### Підключення
 
@@ -60,7 +60,7 @@ These are available at the links [here](https://www.tindie.com/products/avionics
 | 3   | RX/SDA                         | RX для послідовного режиму, Data для режиму I2C.  |
 | 4   | GND                            | Сигнальна / заземлювальна земля.                  |
 
-## Налаштування PX4
+## Конфігурація PX4
 
 To enable the laser altimeter you will need to [set the following parameters](../advanced_config/parameters.md) (in QGroundControl):
 
