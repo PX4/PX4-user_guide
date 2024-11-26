@@ -55,7 +55,7 @@ The motor controller needs to have an in-built BEC, as the autopilot is not powe
 | RC IN  | PPM or S.BUS / S.BUS2 input |
 | MAIN 1 | Left Aileron                                                |
 | MAIN 2 | Right Aileron                                               |
-| MAIN 3 | 空白                                                          |
+| MAIN 3 | 空                                                           |
 | MAIN 4 | Motor 1                                                     |
 
 ## Build Log
