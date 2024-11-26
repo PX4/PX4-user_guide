@@ -53,7 +53,7 @@ GPS/Компас слід монтувати на раму якомога под
 
 ![Connect compass/GPS to Pixhawk](../../assets/flight_controller/pixhawk1/pixhawk_3dr_compass_gps.jpg)
 
-## Потужність
+## Power
 
 Connect the output of a _Power module_ (PM) to the **POWER** port using a 6-wire cable as shown. Вхід PM буде підключений до вашого акумулятора LiPo, а основний вихід буде постачати живлення для ESC/motor вашого транспортного засобу (можливо, через плату розподілу потужності).
 
@@ -118,7 +118,7 @@ The output rail must be separately powered, as discussed in the [Power](#power) 
 
 The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/index.md).
 
-## Конфігурація
+## Налаштування
 
 General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
