@@ -41,7 +41,7 @@ During aggressive acrobatic maneuvers the GPS can lose its position fix for a sh
 If you switch into [position mode](../flight_modes_mc/position.md) during that time, [altitude mode](../flight_modes_mc/altitude.md) will be used instead until the position becomes valid again.
 :::
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 Наступні абзаци описують кілька важливих моментів під час будівництва транспортного засобу.
 If you need complete build instructions, you can follow the [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) build log.
