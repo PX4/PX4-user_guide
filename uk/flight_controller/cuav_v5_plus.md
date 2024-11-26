@@ -160,7 +160,7 @@ For direct connection to _Segger Jlink_ we recommended you use the 3.3 Volts fro
 For more information see [Using JTAG for hardware debugging](#using-jtag-for-hardware-debugging).
 :::
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                                |
 | ------ | ---------- | --------------------------------------------------- |
@@ -237,7 +237,7 @@ This is a safety issue.
 - _Found:_ Batches V01190904xxxx
 - _Fixed:_ Batches later than V01190904xxxx
 
-## Додаткова інформація
+## Подальша інформація
 
 - [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf)
 - [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html)
