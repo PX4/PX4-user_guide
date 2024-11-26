@@ -7,7 +7,7 @@ PX4 використовує системи комп'ютерного зору (
 - [Оптичний потік](#optical-flow) забезпечує оцінку швидкості у двох вимірах (з використанням камери, спрямованої вниз, та датчика відстані, спрямованого вниз).
 - [Захоплення руху](#motion-capture) забезпечує оцінку позиції у трьох вимірах за допомогою візійної системи, яка знаходиться _поза_ транспортним засобом. Це переважно використовується для внутрішньої навігації.
   Це переважно використовується для внутрішньої навігації.
-- [Visual Inertial Odometry](#visual-inertial-odometry-vio) provides 3D pose and velocity estimation using an onboard vision system and IMU.
+- [Візуальна інерціальна оцінка положення](#visual-inertial-odometry-vio) забезпечує оцінку позиції та швидкості у трьох вимірах за допомогою вбудованої візійної системи та ІВП.
   Це використовується для навігації в тих випадках, коли інформація про позицію GNSS відсутня або ненадійна.
 - [Уникнення зіткнення](../computer_vision/collision_prevention.md) використовується для зупинки транспортних засобів перед тим, як вони зіткнуться з перешкодою (переважно при польоті у ручних режимах).
 
@@ -32,28 +32,28 @@ MoCap is commonly used to navigate a vehicle in situations where GPS is absent (
 
 ## Візуальна інерціальна оцінка положення (VIO)
 
-Visual Inertial Odometry (VIO) is used for estimating the 3D _pose_ (position and orientation) and _velocity_ of a moving vehicle relative to a _local_ starting position.
+Візуальна інерціальна оцінка положення (VIO) використовується для оцінки тривимірного _положення_ (позиції та орієнтації) та _швидкості_ руху транспортного засобу відносно _місцевої_ початкової позиції.
 Часто використовується для навігації транспортного засобу в ситуаціях, де GPS відсутній (наприклад, всередині приміщень) або ненадійний (наприклад, при польоті під мостом).
 
 Часто використовується для навігації транспортного засобу в ситуаціях, де GPS відсутній (наприклад, всередині приміщень) або ненадійний (наприклад, при польоті під мостом).
 
 :::info
-One difference between VIO and [MoCap](#motion-capture) is that VIO cameras/IMU are vehicle-based, and additionally provide velocity information.
+Однією з відмінностей між VIO і [MoCap](#motion-capture) є те, що камери/ІНС VIO базуються на транспортному засобі, і додатково надають інформацію про швидкість.
 :::
 
 Для отримання інформації щодо налаштування VIO на PX4 дивіться:
 
 - [EKF > Зовнішня візійна система ](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
-- [T265 Setup guide](../peripherals/camera_t265_vio.md)
+- [Керівництво з налаштування T265](../peripherals/camera_t265_vio.md)
 
 ## Оптичний потік(Optical Flow)
 
-[Optical Flow](../sensor/optical_flow.md) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
+[Оптичний потік](../sensor/optical_flow.md) забезпечує оцінку швидкості у двох вимірах (з використанням камери, спрямованої вниз, та датчика відстані, спрямованого вниз).
 
 [Оптичний потік](../sensor/optical_flow.md) забезпечує оцінку швидкості у двох вимірах (з використанням камери, спрямованої вниз, та датчика відстані, спрямованого вниз).
 
-- [Optical Flow](../sensor/optical_flow.md)
-- [EKF > Optical Flow](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
+- [Оптичний потік](../sensor/optical_flow.md)
+- [EKF > Оптичний потік](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
 ## Порівняння
 
@@ -83,5 +83,5 @@ VIO:
 
 ## Додаткові ресурси
 
-- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 simulation environment for computer vision.
+- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 середовище симуляцій для комп'ютерного бачення.
   The [XTDrone Manual](https://www.yuque.com/xtdrone/manual_en) has everything you need to get started!
