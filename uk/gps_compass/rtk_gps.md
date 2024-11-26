@@ -221,7 +221,7 @@ See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) s
 - something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
 -->
 
-## Додаткова інформація
+## Подальша інформація
 
 - [RTK-GPS (PX4-Integration)](../advanced/rtk_gps.md): Developer information about integrating RTK-GPS support into PX4.
 - [Real Time Kinematic](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (Wikipedia)
