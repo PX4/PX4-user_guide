@@ -168,7 +168,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make holybro_durandal-v1_default
 ```
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт          |
 | ------ | ---------- | ------------- |
@@ -418,7 +418,7 @@ These can also be downloaded from [here](https://holybro.com/collections/autopil
 | 3 (black) | DP     | +3.3V |
 | 4 (black) | GND    | GND                   |
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Durandal Wiring QuickStart](../assembly/quick_start_durandal.md)
 - [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf)
