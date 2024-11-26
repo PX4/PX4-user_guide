@@ -100,7 +100,7 @@ It has a high-precision IMU and positioning module, and can reduce the number of
 
 [CUAV Docs](https://doc.cuav.net/gps/c-rtk2/en/quick-start-c-rtk2.html)
 
-## Розпіновка
+## Схема розташування виводів
 
 ![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2_pinouts1.jpg)
 
