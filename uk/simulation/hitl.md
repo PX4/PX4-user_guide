@@ -60,7 +60,7 @@ SITL працює на комп'ютері розробки в модельов�
 
 ## Налаштування HITL
 
-### Налаштування PX4
+### Конфігурація PX4
 
 1. Connect the autopilot directly to _QGroundControl_ via USB.
 
@@ -71,7 +71,7 @@ SITL працює на комп'ютері розробки в модельов�
 
       ![QGroundControl HITL configuration](../../assets/gcs/qgc_hitl_config.png)
 
-3. Оберіть планер
+3. Вибір планера
 
    1. Open **Setup > Airframes**
    2. Select a [compatible airframe](#compatible_airframe) you want to test.
