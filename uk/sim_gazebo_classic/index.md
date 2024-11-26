@@ -422,7 +422,7 @@ make px4_sitl gazebo-classic_if750a
 To put the vehicle into flight termination state, you can force it to fail a [safety check](../config/safety.md) that has flight termination set as the failsafe action.
 For example, you could do this by forcing a [Geofence violation](../config/safety.md#geofence-failsafe).
 
-Для отримання додаткової інформації:
+Для додаткової інформації дивіться:
 
 - [Flight Termination](../advanced_config/flight_termination.md)
 - [Parachute](../peripherals/parachute.md)
