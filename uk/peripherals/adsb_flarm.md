@@ -13,7 +13,7 @@ PX4 traffic avoidance works with ADS-B or FLARM products that supply transponder
 - [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx-pro/) (uAvionix)
 - [FLARM](https://flarm.com/products/uav/atom-uav-flarm-for-drones/) <!-- I think originally https://flarm.com/products/powerflarm/uav/ -->
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 Будь-який з пристроїв може бути підключений до будь-якого вільного/не використаного послідовного порту на контролері польоту.
 Most commonly they are connected to `TELEM2` (if this is not being use for some other purpose).
@@ -26,7 +26,7 @@ Most commonly they are connected to `TELEM2` (if this is not being use for some 
 | -------------------------- | --------------------------- | ------------ |
 | 1 (red) | RX (IN)  | +5V tolerant |
 | 2 (blk) | TX (OUT) |              |
-| 3 (blk) | Живлення                    | +4 to 6V     |
+| 3 (blk) | Power                       | +4 to 6V     |
 | 4 (blk) | GND                         | GND          |
 
 The PingRX comes with connector cable that can be attached directly to the TELEM2 port (DF13-6P) on an [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
