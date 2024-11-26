@@ -304,7 +304,7 @@ One example of an ATS device is the [FruityChutes Sentinel Automatic Trigger Sys
 | <a id="FD_EXT_ATS_EN"></a>[FD_EXT_ATS_EN](../advanced_config/parameter_reference.md#FD_EXT_ATS_EN)       | Увімкніть введення ШІМ на AUX5 або MAIN5 (в залежності від плати) для активації аварійного режиму зовнішньою автоматичною системою спрацювання (ATS). За замовчуванням: Вимкнено. |
 | <a id="FD_EXT_ATS_TRIG"></a>[FD_EXT_ATS_TRIG](../advanced_config/parameter_reference.md#FD_EXT_ATS_TRIG) | Поріг ШІМ для зовнішньої системи автоматичного спрацювання аварійного режиму. Значення за замовчуванням: 1900 мс.                                                                                                       |
 
-## Перевірка можливості виконання місії
+## Перевірки можливостей місії
 
 A number of checks are run to ensure that a mission can only be started if it is _feasible_.
 Наприклад, перевірки забезпечують, що перший пункт маршруту не занадто віддалений, і що маршрут місії не конфліктує з жодними геозахистами.
@@ -405,6 +405,6 @@ These parameters can be used to set conditions that prevent arming.
 
 In addition there are a number of parameters that configure system and sensor limits that make prevent arming if exceeded: [COM_CPU_MAX](../advanced_config/parameter_reference.md#COM_CPU_MAX), [COM_ARM_IMU_ACC](../advanced_config/parameter_reference.md#COM_ARM_IMU_ACC), [COM_ARM_IMU_GYR](../advanced_config/parameter_reference.md#COM_ARM_IMU_GYR), [COM_ARM_MAG_ANG](../advanced_config/parameter_reference.md#COM_ARM_MAG_ANG), [COM_ARM_MAG_STR](../advanced_config/parameter_reference.md#COM_ARM_MAG_STR).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/safety.html)
