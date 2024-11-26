@@ -51,7 +51,7 @@ Select the **Apply and Restart** button.
 
 1. Open the [Actuators Configuration & Testing](../config/actuators.md) and map the left and right motor functions to flight controller outputs.
 
-## Моделювання
+## Симуляція
 
 [Gazebo Classic](../sim_gazebo_classic/index.md) provides simulations for both types of steering:
 
@@ -89,7 +89,7 @@ Not all setpoint types make sense for a ground vehicle, or are supported.
 This mode is intended for vehicle control from companion computers and ground stations!
 :::
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Базова конфігурація > Режими польоту](../config/flight_mode.md) - Як відповідати перемикачі керування RC конкретним режимам польоту
 - [Режими польоту (Мультикоптер)](../flight_modes_mc/index.md)
@@ -146,7 +146,7 @@ It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampe
 | MAIN2      | Steering servo                          |
 | MAIN4      | Throttle (ESC input) |
 
-### Конфігурація
+### Налаштування
 
 Rovers are configured using _QGroundControl_ in the same way as any other vehicle.
 
