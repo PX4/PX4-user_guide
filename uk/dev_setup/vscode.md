@@ -15,7 +15,7 @@ There are other powerful IDEs, but they typically take more effort to integrate 
 With _VScode_, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/main/.vscode)) so the setup process is as simple as adding the project folder.
 :::
 
-## Попередні вимоги
+## Передумови
 
 You must already have installed the command line [PX4 developer environment](../dev_setup/dev_env.md) for your platform and downloaded the _Firmware_ source code repo.
 
