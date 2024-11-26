@@ -282,7 +282,7 @@ Perform the normal [Basic Configuration](../config/index.md).
 
 After you finish calibration the VTOL is ready to fly.
 
-## 视频:
+## 视频
 
 <lite-youtube videoid="h7OHTigtU0s" title="PX4 Vtol test"/>
 
