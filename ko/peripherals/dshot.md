@@ -1,4 +1,4 @@
-# DShot ESCs
+# DShot ESC
 
 DShot is an alternative ESC protocol that has several advantages over [PWM](../peripherals/pwm_escs_and_servo.md) or [OneShot](../peripherals/oneshot.md):
 
