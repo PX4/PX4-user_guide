@@ -42,7 +42,7 @@ The [ARK Pi6X Flow](\(https://arkelectron.gitbook.io/ark-documentation/flight-co
   - Debug (SWD, UART Console)
   - MicroSD slot for data storage
 
-### Сенсори
+### Датчики
 
 - 2x ICM-42688-P Accelerometer/Gyroscope (includes Heater)
 - PAW3902 Optical Flow Sensor
@@ -75,7 +75,7 @@ The [ARK Pi6X Flow](\(https://arkelectron.gitbook.io/ark-documentation/flight-co
 
 [ARK Pi6X Flashing Guide](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-pi6x-flow/flashing-guide)
 
-## Розпіновка
+## Схема розташування виводів
 
 ![ARK Pi6X Flow Pinout](../../assets/flight_controller/ark_pi6x_flow/ark_pi6xflow_pinout.png)
 
