@@ -13,7 +13,7 @@ ARK Flow is an open source [DroneCAN](index.md) [optical flow](../sensor/optical
 ## Характеристики обладнання
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Flow)
-- Сенсори
+- Датчики
   - PixArt PAW3902 датчик оптичного потоку
     - Tracks under super low light condition of >9 lux
     - Широкий робочий діапазон від 80 мм до 30 м
@@ -36,14 +36,14 @@ ARK Flow is an open source [DroneCAN](index.md) [optical flow](../sensor/optical
 - LED індикатори
 - USA Built
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 ### Підключення
 
 ARK Flow підключений до шини CAN за допомогою стандартного кабелю JST GH з чотирма контактами Pixhawk.
 For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
-### Монтаж
+### Встановлення
 
 The recommended mounting orientation is with the connectors on the board pointing towards **back of vehicle**, as shown in the following picture.
 
@@ -84,7 +84,7 @@ In order to use the ARK Flow board, connect it to the Pixhawk CAN bus and enable
 
 DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
-### Налаштування PX4
+### Конфігурація PX4
 
 You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [DroneCAN](index.md) parameters, and define offsets if the sensor is not centred within the vehicle.
 
@@ -111,7 +111,7 @@ Set the following parameters in _QGroundControl_:
 | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | Вбудована завершення шини CAN. |
 
-## Значення світлодіодів
+## Значення LED індикаторів
 
 Ви побачите як червоні, так і сині світлодіоди на ARK Flow коли він прошивається, і постійний синій світлодіод, якщо він працює належним чином.
 
