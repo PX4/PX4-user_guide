@@ -145,7 +145,7 @@ Note however that a separate base module is required for the ground station (see
 
 <div v-if="(($frontmatter.frame === 'Plane') || ($frontmatter.frame === 'VTOL'))">
 
-## 항속 센서
+## 풍속 센서
 
 [Airspeed sensors](../sensor/airspeed.md) are highly recommended for fixed-wing and VTOL frames.
 They are so important because the autopilot does not have other means to detect stall.
