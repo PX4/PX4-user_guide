@@ -2,7 +2,7 @@
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+하드웨어 지원과 호환 문제는 [제조사](http://mindpx.net)에 문의하십시오.
 :::
 
 The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight _platform_ for miniature UAVs.
