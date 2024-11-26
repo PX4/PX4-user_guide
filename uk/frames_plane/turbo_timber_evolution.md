@@ -139,7 +139,7 @@ A custom mount for the PX4 Mini was designed and 3d printed (see [3D printed par
 
 ## Електрика
 
-### Живлення
+### Power
 
 Поміщену модуль живлення Holybro було підключено в лінію з ESC.
 Також було виділено запасний провід живлення 16AWG, закінчений XT30.
