@@ -31,7 +31,7 @@ This radio is configured using AT commands through the data port or using _PicoC
 
 - [Holybro Microhard P900 Telemetry Radio (100mW - 1W)](https://holybro.com/products/microhard-radio)
 
-## Характеристики
+## Специфікація
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_spec.png" width="500px" title="Holybro Microhard P900 Diagnosis" />
 
@@ -106,7 +106,7 @@ The default radio configuration as shipped is shown in _PicoConfig_ below (you m
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_rssi.png" width="600px" title="Holybro Pico Config" />
 
-### Розпіновка
+### Схема розташування виводів
 
 #### Порт діагностики
 
@@ -152,7 +152,7 @@ The default radio configuration as shipped is shown in _PicoConfig_ below (you m
 - Отримуваний струм: 100 мА
 - Вага: 42 г (без антени)
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Microhard Radio](https://docs.holybro.com/telemetry-radio/microhard-radio) (docs.holybro.com)
 - [Holybro Microhard P900 Downloads](https://docs.holybro.com/telemetry-radio/microhard-radio/download) (Manuals, and other docs) (Holybro)
