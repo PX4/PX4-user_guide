@@ -4,6 +4,7 @@
 
 :::warning
 Експериментальні налаштування
+At the time of writing, parts of the PX4 ROS 2 Control Interface are experimental, and hence subject to change:
 
 - Архітектура та основні інтерфейси для визначення режимів ROS 2 є значною мірою стабільними і перевіряються в ІК.
   Бібліотека надає значні переваги в режимі офборду в поточному стані.
@@ -111,7 +112,10 @@
    ```
 
    :::info
-   Для забезпечення сумісності, використовуйте останні _main_ гілки для PX4, _px4_msgs_ та бібліотеки.:::
+   Для забезпечення сумісності, використовуйте останні _main_ гілки для PX4, _px4_msgs_ та бібліотеки.
+   Дивіться також [here](https://github.com/Auterion/px4-ros2-interface-lib#compatibility-with-px4).
+
+:::
 
 3. Побудуйте робочий простір:
 
@@ -342,7 +346,7 @@ private:
 - DirectActuatorsSetpointType: Пряме керування моторами та установками сервоприводів польотних поверхонь
 
 :::tip
-The other setpoint types are currently experimental, and can be found in: [px4\_ros2/control/setpoint\_types/experimental](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/experimental).
+The other setpoint types are currently experimental, and can be found in: [px4_ros2/control/setpoint_types/experimental](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/experimental).
 
 Ви можете додати свої власні типи установок, додавши клас, який успадковується від px4_ros2::SetpointBase, встановлює прапорці конфігурації відповідно до того, що вимагає установка, а потім публікує будь-яку тему, що містить установку
 :::
@@ -488,7 +492,7 @@ modeRequirements().home_position = true;
 При призначенні режиму для RC-перемикача вам потрібно знати індекс (тому що параметри метаданих не містять динамічне ім'я режиму).
 Використовуйте статус `commander `, коли режим запущено, щоб отримати цю інформацію.
 
-
+Наприклад:
 
 ```plain
    INFO  [commander] External Mode 1: nav_state: 23, name: My Manual Mode
