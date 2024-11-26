@@ -245,7 +245,7 @@ The Joystick menu in QGC, only appears after you connect the controller to the P
 ![QGC joystick menu](../../assets/flight_controller/crazyflie21/joystick_menu_qgc.png)
 :::
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 Crazyflie 2.1 може літати лише в режимі [Стабілізований режим](../flight_modes_mc/manual_stabilized.md).
 
