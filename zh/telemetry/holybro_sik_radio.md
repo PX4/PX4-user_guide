@@ -17,7 +17,7 @@ Note that the regions indicated above are indicative, and you should check the r
 
 - [Holybro SiK Telemetry Radio V3](https://holybro.com/collections/telemetry-radios/products/sik-telemetry-radio-v3)
 
-## 特性
+## Features
 
 - Open-source SiK firmware
 - Plug-n-play for Pixhawk Standard Flight Controller
