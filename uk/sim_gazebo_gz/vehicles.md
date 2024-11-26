@@ -1,13 +1,14 @@
 # Рухомі засоби Gazebo
 
-Цей розділ перераховує/показує рухомі засоби, що підтримуються PX4 симуляцією [Gazebo](../sim_gazebo_gz/index.md), та команди `make` необхідні для того щоб їх запустити (команди запускаються з термінала в директорії **PX4-Autopilot**).
+This topic lists/displays the vehicles supported by the PX4 [Gazebo](../sim_gazebo_gz/index.md) simulation, and the `make` commands required to run them (the commands are run from a terminal in the **PX4-Autopilot** directory).
 
-Моделі включені у PX4 як підмодуль який отримується з [Репозиторію моделей Gazebo](../sim_gazebo_gz/gazebo_models.md).
+The models are included in PX4 as a submodule that is fetched from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md).
 
 Supported vehicle types include: mutirotor, VTOL, Plane, Rover.
 
 :::warning
-Дивіться [Рухомі засоби Gazebo Classic](../sim_gazebo_classic/vehicles.md) для засобів, що працюють зі старішою [Симуляцією Gazebo "Classic"](../sim_gazebo_classic/index.md). Зверніть увагу, що моделі засобів не взаємозамінні між двома версіями симулятору: засоби на цій сторінці будуть працювати тільки з (новим) [Gazebo](../sim_gazebo_gz/index.md).
+See [Gazebo Classic Vehicles](../sim_gazebo_classic/vehicles.md) for vehicles that work with the older [Gazebo "Classic" simulation](../sim_gazebo_classic/index.md).
+Note that vehicle models are not interchangable between the two versions of the simulator: the vehicles on this page only work with (new) [Gazebo](../sim_gazebo_gz/index.md).
 :::
 
 ## Мультикоптер
@@ -24,7 +25,7 @@ make px4_sitl gz_x500
 make px4_sitl gz_x500_vision
 ```
 
-![x500 у Gazebo](../../assets/simulation/gazebo/vehicles/x500.png)
+![x500 in Gazebo](../../assets/simulation/gazebo/vehicles/x500.png)
 
 ### X500 Quadrotor with Depth Camera (Front-facing)
 
@@ -34,7 +35,7 @@ This model has a forward-facting depth camera attached, modelled on the [OAK-D](
 make px4_sitl gz_x500_depth
 ```
 
-![x500 з камерою глибини у Gazebo](../../assets/simulation/gazebo/vehicles/x500_depth.png)
+![x500 with depth camera in Gazebo](../../assets/simulation/gazebo/vehicles/x500_depth.png)
 
 ### Квадрокоптер X500 з монокулярною камерою
 
@@ -45,7 +46,8 @@ make px4_sitl gz_x500_mono_cam
 ```
 
 :::info
-Ця камера поки що не може використовуватись для трансляції відео або захоплення зображень у QGroundControl. Використовуйте [PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) для відстеження додаткової роботи, необхідної для повної реалізації цих випадків використання.
+The camera cannot yet be used to stream video or for image capture in QGroundControl.
+[PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) can be used to track the additional work needed to fully enable these use cases.
 :::
 
 ### X500 Quadrotor with Monocular Camera (Down-facing)
@@ -88,7 +90,9 @@ make px4_sitl gz_x500_lidar_front
 
 ### X500 Quadrotor with 2D LIDAR
 
-This model have a 2D LIDAR attached, modelled on the [Hokuyo UTM-30LX](https://www.hokuyo-aut.jp/search/single.php?serial=169). It has a range between 0.1 and 30m, and scans in a 270° arc. The model can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation).
+This model have a 2D LIDAR attached, modelled on the [Hokuyo UTM-30LX](https://www.hokuyo-aut.jp/search/single.php?serial=169).
+It has a range between 0.1 and 30m, and scans in a 270° arc.
+The model can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation).
 
 ```sh
 make px4_sitl gz_x500_lidar_2d
@@ -96,7 +100,7 @@ make px4_sitl gz_x500_lidar_2d
 
 ![x500 with 2D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d.png)
 
-::: info
+:::info
 The sensor information is written to the [ObstacleDistance](../msg_docs/ObstacleDistance.md) UORB message used by collision prevention.
 :::
 
@@ -108,7 +112,7 @@ The sensor information is written to the [ObstacleDistance](../msg_docs/Obstacle
 make px4_sitl gz_rc_cessna
 ```
 
-![Літак у Gazebo](../../assets/simulation/gazebo/vehicles/rc_cessna.png)
+![Plane in Gazebo](../../assets/simulation/gazebo/vehicles/rc_cessna.png)
 
 ### Покращений літак
 
@@ -120,23 +124,23 @@ make px4_sitl gz_advanced_plane
 
 ![Advanced Plane in Gazebo](../../assets/simulation/gazebo/vehicles/advanced_plane.png)
 
-::: info
+:::info
 The difference between the Advanced Plane and the "regular plane" lies in the Lift Physics that the two models use:
 
-- Можна налаштувати плагін _покращеної піднімної сили_ що використовуються моделлю для точнішої відповідності певному засобу використовуючи [Інструмент "Покращена піднімна сила"](../sim_gazebo_gz/tools_avl_automation.md).
-- Для отримання додаткової інформації про розрахунки піднімної сили для покращеного літака, дивіться [PX4-SITL_gazebo-classic/src/liftdrag_plugin/index.md](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/20ded0757b4f2cb362833538716caf1e938b162a/src/liftdrag_plugin/index.md)
+- You can configure the _Advanced Lift Drag_ plugin used by the model to more closely match a particular vehicle using the [Advanced Lift Drag Tool](../sim_gazebo_gz/tools_avl_automation.md).
+- For more detail on the lift calculations for the Advanced Plane, see [PX4-SITL_gazebo-classic/src/liftdrag_plugin/index.md](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/20ded0757b4f2cb362833538716caf1e938b162a/src/liftdrag_plugin/index.md)
 
 :::
 
-## ВЗІП
+## VTOL (Вертикальний зліт та посадка)
 
-### Стандартний ВЗІП
+### Standard VTOL
 
 ```sh
 make px4_sitl gz_standard_vtol
 ```
 
-![Стандартний ВЗІП в Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
+![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
 
 ## Землехід
 
