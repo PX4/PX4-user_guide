@@ -93,7 +93,7 @@ In addition to surveying/mapping, it is suitable for many other use-cases, inclu
   - -20~85℃
 - Size
   - 56x33x16.5mm
-- Weight
+- 重量
   - 39g
 
 ## 配置
