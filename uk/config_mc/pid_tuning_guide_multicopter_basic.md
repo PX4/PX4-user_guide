@@ -38,7 +38,7 @@ The testing procedure for each controller (rate, attitude, velocity/position) an
 
 :::
 
-## Попередні вимоги
+## Передумови
 
 - You have selected the closest matching [default frame configuration](../config/airframe.md) for your vehicle.
   Це повинно дати вам транспортний засіб, який вже літає.
