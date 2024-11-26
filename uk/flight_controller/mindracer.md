@@ -41,7 +41,7 @@ The main hardware documentation is [here](http://mindpx.net/assets/accessories/m
 |                    Вага                    |                                              ~6г                                              |
 |                   Розмір                   |                                                    35х35мм                                                    |
 |                 PWM Виходи                 |                                                   максимум 6                                                  |
-|      Інерційний вимірювальний пристрій     |                                                     10DOF                                                     |
+|                     IMU                    |                                                     10DOF                                                     |
 |                Ізоляція IMU                |                                                ТАК/Опціонально                                                |
 |                Приймач радіо               |                                  S.BUS/PPM/DSM/DSM2/DSMX/SUMD                                 |
 |                 Телеметрія                 | FrSky<sup>&amp;reg;</sup> D.Port, S.Port, Wifi, 3DR radio |
