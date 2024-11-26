@@ -23,7 +23,7 @@ Alternatives are provided in the [Purchase](#where-to-buy) section.
 - [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md).
 - Будь-який інший сумісний контролер польоту з достатньо малим форм-фактором.
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 Транспортний засіб потребує 7 сигналів ШШД для моторів та поверхонь управління:
 
@@ -59,7 +59,7 @@ Note that you will need to start from the [Generic Tiltrotor VTOL](../airframes/
 
 ![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
-## Налаштування PX4
+## Конфігурація PX4
 
 Follow the [Standard Configuration](../config/index.md) in _QGroundControl_ (radio, sensors, flight modes, etc.).
 
