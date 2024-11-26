@@ -15,7 +15,7 @@ The rangefinder is not automatically included in most firmware, and hence cannot
 Для використання його вам потрібно додати драйвер до вбудованого програмного забезпечення та оновити файл конфігурації, щоб запустити драйвер при завантаженні.
 Нижче пояснюється, як.
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 Дальномер підтримується будь-яким обладнанням, яке працює під управлінням операційної системи NuttX або Posix і яке може пропонувати послідовний порт для інтерфейсу.
 Minimally this will include most, if not all, [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers.
