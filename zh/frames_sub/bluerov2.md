@@ -41,7 +41,7 @@ You will need to:
 
 <!-- what other tuning/testing/ etc? -->
 
-## 视频:
+## 视频
 
 <lite-youtube videoid="1sUaURmlmT8" title="PX4 on BlueRov Demo"/>
 
