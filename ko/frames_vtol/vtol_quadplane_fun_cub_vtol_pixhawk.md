@@ -1,4 +1,4 @@
-# FunCub QuadPlane (픽스호크)
+# FunCub QuadPlane (Pixhawk)
 
 Fun Cub QuadPlane VTOL은 쿼드콥터로 개조된 표준 테일 플레인 항공기(Multiplex FunCub)입니다.
 
