@@ -121,7 +121,7 @@ The [Pixhawk V6X Wiring Quick Start](../assembly/quick_start_cuav_pixhawk_v6x.md
 
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт          |
 | ------ | ---------- | ------------- |
@@ -215,7 +215,7 @@ The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debu
 Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [CUAV Docs](https://doc.cuav.net/) (CUAV)
 - [Pixhawk V6X Wiring QuickStart](../assembly/quick_start_cuav_pixhawk_v6x.md)
