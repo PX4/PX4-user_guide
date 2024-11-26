@@ -20,7 +20,7 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
 - `<world>`: The [world](../sim_gazebo_classic/worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
 
 - `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`).
-  예를 들어:
+  예:
 
   ```sh
   -s "iris:3,plane:2,standard_vtol:3"
