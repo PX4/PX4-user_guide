@@ -21,8 +21,8 @@ This section explains how to connect and configure a [gripper](../peripherals/gr
 
 | Колір проводу | Ціль       |
 | ------------- | ---------- |
-| Brown         | Заземлення |
-| Червоний      | Потужність |
+| Brown         | Ground     |
+| Red           | Живлення   |
 | Yellow        | Сигнал PWM |
 
 Вам потрібно буде підключити їх до відповідного входу PWM контролера польоту.
