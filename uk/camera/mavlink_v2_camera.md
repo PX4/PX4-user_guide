@@ -98,7 +98,7 @@ void Navigator::publish_vehicle_cmd(vehicle_command_s *vcmd)  => https://github.
 PX4 видає команди [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html), такі як `MAV_CMD_IMAGE_START_CAPTURE`, коли натиснута відповідна кнопка джойстика.
 Ця функція працює лише для цього типу камери та джойстика - підтримки для радіокерованних-контролерів немає.
 
-## Налаштування PX4
+## Конфігурація PX4
 
 ### Налаштування порту & перенаправлення MAVLink
 
