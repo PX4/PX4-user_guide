@@ -1,4 +1,4 @@
-# STM32 початковий завантажувач
+# Початковий завантажувач STM32
 
 The code for the PX4 bootloader is available from the Github [Bootloader](https://github.com/px4/bootloader) repository.
 
