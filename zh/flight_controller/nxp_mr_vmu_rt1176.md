@@ -96,7 +96,7 @@ Similar variants will be available from our licensees.
 - 尺寸
   - Flight Controller Module: 38.8 x 31.8 x 14.6mm
   - Standard Baseboard: 50 x 96 x 16.7mm
-- Weight
+- 重量
   - Flight Controller Module: 23g
   - Standard Baseboard: 51g
 
@@ -166,7 +166,7 @@ _MR-VMU-RT1176_ connectors (following [Pixhawk Connector Standard](https://githu
 ![MR-VMU-RT1176 Leftside Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_left.jpg)
 ![MR-VMU-RT1176 Rightside Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_right.jpg)
 
-更多信息请参阅：
+有关详细信息，请参阅︰
 
 - [NXP MR-VMU-RT1176 Baseboard Connections](https://nxp.gitbook.io/vmu-rt1176/production-v1-carrier-board-connectors) (nxp.gitbook.io)
 
@@ -174,7 +174,7 @@ _MR-VMU-RT1176_ connectors (following [Pixhawk Connector Standard](https://githu
 
 [NXP MR-VMU-RT1176 Baseboard Pinout](https://nxp.gitbook.io/vmu-rt1176/pin-out) (nxp.gitbook.io)
 
-路径规划软件（在机载计算机上运行）<em>可以</em> 以<a href="https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS">TRAJECTORY_REPRESENTATION_WAYPOINTS</a> 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
+备注：
 
 - The [camera capture pin](../camera/fc_connected_camera.md#camera-capture-configuration) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
