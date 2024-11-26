@@ -22,7 +22,7 @@ CUAV P8 Radio is a long range (>60km) and high data rate (375 Kbps) remote data 
 - [CUAV store](https://www.cuav.net/en/p8-2/)
 - [CUAV alibaba](https://www.alibaba.com/product-detail/Free-shipping-CUAV-UAV-P8-Radio_1600324379418.html?spm=a2747.manage.0.0.2dca71d2bY4B0M)
 
-## Налаштування PX4
+## Конфігурація PX4
 
 CUAV P8 радіо є попередньо налаштованим (швидкість 57600, режим трансляції) для використання з PX4.
 It should require no additional setup if connected to `TELEM1` OR `TELEM2`.
