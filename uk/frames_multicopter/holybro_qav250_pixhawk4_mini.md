@@ -42,7 +42,7 @@ The Holybro [QAV250 Kit](https://holybro.com/products/qav250-kit) kits includes 
 - Receiver: [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
 - Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
 
-## Апаратне забезпечення
+## Апаратне забезпечення(Hardware)
 
 У цьому розділі перераховано все обладнання для встановлення рами та автопілота.
 
