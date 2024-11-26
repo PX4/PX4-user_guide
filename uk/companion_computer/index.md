@@ -1,4 +1,4 @@
-# Комп’ютери-супутники
+# Супутні комп'ютери
 
 Companion computers ("mission computers"), are separate on-vehicle computers that are connected to the flight controller, and which enable computationally expensive features like [collision prevention](../computer_vision/collision_prevention.md).
 
