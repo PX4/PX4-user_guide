@@ -34,7 +34,7 @@ CAN PMU<sup>&reg;</sup> is a high-precision [DroneCAN](index.md) power module de
   - **Size:** 46.5mm \* 38.5mm \* 22.5mm
   - **Weight:** 76g
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 ### Вміст набору
 
@@ -67,7 +67,7 @@ Set the following parameters in _QGroundControl_ [Vehicle Setup > Parameters](..
 
   ![QGC - Set UAVCAN\_SUB\_BAT parameter to raw data](../../assets/hardware/power_module/cuav_can/qgc_set_usavcan_sub_bat.png)
 
-## Додаткова інформація
+## Подальша інформація
 
 [CAN PMU Manual](http://manual.cuav.net/power-module/CAN-PMU.pdf)
 
