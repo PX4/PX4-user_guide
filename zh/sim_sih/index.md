@@ -174,7 +174,7 @@ The dynamic models for the various vehicles are:
 - Fixed-wing: Inspired by the PhD thesis: "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." Khan, Waqas, supervised by Nahon, Meyer, McGill University, PhD thesis, 2016.
 - Tailsitter: Inspired by the master's thesis: "Modeling and control of a flying wing tailsitter unmanned aerial vehicle." Chiappinelli, Romain, supervised by Nahon, Meyer, McGill University, Masters thesis, 2018.
 
-## 视频:
+## 视频
 
 <lite-youtube videoid="PzIpSCRD8Jo" title="SIH FW demo"/>
 
