@@ -4,7 +4,7 @@ This section contains information about _community-supported_ simulations
 
 :::warning
 These simulators are not maintained, tested, or supported, by the core development team.
-They may or may not work with current versions of PX4.
+他们可能与当前版本的 PX4 工作, 也可能不工作。
 
 See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
