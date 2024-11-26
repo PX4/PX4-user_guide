@@ -9,7 +9,7 @@ Therefore it can be used to debug bootloaders and operating systems such as Nutt
 
 Four signals are required for debugging (in bold) while the rest is recommended.
 
-| 이름                                                              | 형식    | 설명                                                                                                        |
+| 명칭                                                              | 형식    | 설명                                                                                                        |
 | :-------------------------------------------------------------- | :---- | :-------------------------------------------------------------------------------------------------------- |
 | **GND**                                                         | 전원    | Shared potential, common ground.                                                          |
 | **VREF**                                                        | 전원    | The target reference voltage allows the debug probe to use level shifters on the signals. |
