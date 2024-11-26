@@ -206,7 +206,7 @@ The [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/bl
 
 이러한 규칙에 따라 설계된 케이블 색상의 예는 다음과 같습니다.
 
-| 색상                  | 이름 | 선호하는 사용법            |
+| 색상                  | 명칭 | 선호하는 사용법            |
 | ------------------- | -- | ------------------- |
 | ![red][rcircle]     | 빨강 | 전원 전압               |
 | ![green][gcircle]   | 녹색 | 범용 신호               |
