@@ -166,7 +166,7 @@ The channels used for parameter tuning are assigned in the _Radio_ setup (here!)
 You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the _Parameters_ screen.
 :::
 
-## Додаткова інформація
+## Подальша інформація
 
 - [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/radio.html)
 - [PX4 Setup Video - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
