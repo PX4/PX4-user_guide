@@ -7,7 +7,7 @@ While it can be controlled using traditional PWM input, it also supports being c
 
 [Vesc Project > Hardware](https://vesc-project.com/Hardware)
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 ### Підключення
 
@@ -40,7 +40,7 @@ Finally the `CAN Baud Rate` must match the value set in [UAVCAN_BITRATE](../adva
 
 Підключіть ESC до шини CAN Pixhawk. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `3` to enable both dynamic node ID allocation and DroneCAN ESC output.
 
-### Налаштування PX4
+### Конфігурація PX4
 
 Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
