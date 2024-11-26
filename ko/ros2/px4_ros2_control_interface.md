@@ -493,7 +493,7 @@ External modes can be assigned to [RC switches](../config/flight_mode.md) or joy
 When assigning a mode to an RC switch, you need to know the index (because the parameter metadata does not contain the dynamic mode name).
 Use `commander status` while the mode is running to get that information.
 
-예를 들어:
+예:
 
 ```plain
    INFO  [commander] External Mode 1: nav_state: 23, name: My Manual Mode
