@@ -45,13 +45,13 @@ RTF 키트에는 RC 수신기와 텔레메트리를 제외하고, 시스템에 �
 - Receiver: [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
 - Telemetry: [Holybro 100mW 915MHz modules](https://www.getfpv.com/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html) (Discontinued)
 
-## 필요한 공구
+## 필요한 공구들
 
 아래의 도구들을 사용하여 기체를 조립하였습니다.
 
 - 필립스 스크류드라이버
 - 5.5 mm 육각 스크류드라이버
-- Wire 커터
+- 전선 커터
 - 납땜 인두 및 땜납
 - 취미 스테인리스 핀셋
 - 고릴라 접착제
