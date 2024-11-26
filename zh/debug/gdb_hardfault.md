@@ -3,7 +3,7 @@
 A hard fault is a state when a CPU executes an invalid instruction or accesses an invalid memory address.
 This might occur when key areas in RAM have been corrupted.
 
-## 视频:
+## 视频
 
 The following video demonstrates hardfault debugging on PX4 using Eclipse and a JTAG debugger.
 It was presented at the PX4 Developer Conference 2019.
