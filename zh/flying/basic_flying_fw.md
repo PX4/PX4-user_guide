@@ -58,7 +58,7 @@ Manual takeoffs with runway-launched planes:
 Automatic takeoffs are possible in the [Mission mode](../flight_modes_fw/mission.md#mission-takeoff) or [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
 The pilot can take over manual control over the vehicle at any moment during the takeoff process or after it by changing into a manual flight mode.
 
-## 着陆
+## 降落
 
 [Stabilized mode](../flight_modes_fw/stabilized.md), [Acro mode](../flight_modes_fw/acro.md) or [Manual mode](../flight_modes_fw/manual.md) are recommended for landing (just as they are for takeoff).
 In these modes the pilot has full control over the motor thrust, which is required to perform a manual flaring maneuver when close to the ground (raising the vehicle nose without increasing throttle).
