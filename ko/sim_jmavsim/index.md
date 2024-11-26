@@ -170,7 +170,7 @@ To start jMAVSim without the GUI, set the env variable `HEADLESS=1` as shown:
 HEADLESS=1 make px4_sitl jmavsim
 ```
 
-## Multi-Vehicle Simulation
+## 다중 차량 시뮬레이션
 
 JMAVSim can be used for multi-vehicle simulation: [Multi-Vehicle Sim with JMAVSim](../sim_jmavsim/multi_vehicle.md).
 
