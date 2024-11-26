@@ -80,7 +80,7 @@ The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debu
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to UART7).
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                          |
 | ------ | ---------- | --------------------------------------------- |
