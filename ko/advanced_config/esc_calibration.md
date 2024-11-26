@@ -1,4 +1,4 @@
-# ESC 보정
+# 전기변속기 보정
 
 :::info
 These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md) and [OneShot ESCs](../peripherals/oneshot.md).
