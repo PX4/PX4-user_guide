@@ -20,7 +20,7 @@ make ark_can-flow_default
 
 This will create an output in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Follow the instructions at [DroneCAN firmware update](index.md#firmware-update) to flash the firmware.
 
-## Інформація про розробника
+## Інформація для розробників
 
 Цей розділ містить інформацію, яка є актуальною для розробників, які хочуть додати підтримку нового апаратного забезпечення DroneCAN до автопілота PX4.
 
