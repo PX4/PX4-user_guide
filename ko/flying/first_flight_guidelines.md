@@ -1,4 +1,4 @@
-# 처녀 비행 지침
+# 첫 비행 지침
 
 Learning to fly is a lot of fun!
 즐겁고 안전한 처녀 비행을 위한 지침들을 설명합니다.
