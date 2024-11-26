@@ -80,7 +80,7 @@ JSON-файли метаданих для CI-збірок `main` також ко
   Також є [файл схеми](https://github.com/mavlink/mavlink/blob/master/component_metadata/actuators.schema.json) для цього.
 - **Правильно**: Під час виконання програми файли JSON запитуються QGroundControl через API метаданих компонентів MAVLink (який описано вище).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [Параметри та конфігурації](../advanced/parameters_and_configurations.md)
 - [Інтерфейс подій](. ./concept/events_interface.md)
