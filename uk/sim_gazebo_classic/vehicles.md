@@ -80,7 +80,7 @@ This model simulates hand/catapult launch, which can be used for [fixed-wing tak
 
 Літак буде автоматично запущено як тільки засіб буде в стані готовності.
 
-## VTOL (Вертикальний зліт та посадка)
+## VTOL
 
 ### Standard VTOL
 
@@ -90,7 +90,7 @@ make px4_sitl gazebo-classic_standard_vtol
 
 ![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/standard_vtol.png)
 
-### Tailsitter VTOL
+### Тейлсіттер
 
 ```sh
 make px4_sitl gazebo-classic_tailsitter
