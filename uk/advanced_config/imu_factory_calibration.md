@@ -29,6 +29,6 @@ If you only want to factory calibrate the accelerometer and the gyroscope you ca
 
 Подальші корекції користувача будуть враховані як зазвичай (дані заводського калібрування використовуються лише для значень за замовчуванням параметрів).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html)
