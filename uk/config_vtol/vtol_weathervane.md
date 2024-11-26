@@ -23,7 +23,7 @@ In [Mission mode](../flight_modes_vtol/mission.md) the weather vane feature will
 
 <a id="configuration"></a>
 
-## Конфігурація
+## Налаштування
 
 This functionality is configured using the [WV\_\* parameters](../advanced_config/parameter_reference.md#WV_EN).
 
