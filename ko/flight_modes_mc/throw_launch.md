@@ -4,6 +4,7 @@
 
 :::warning
 실험
+This feature was introduced in PX4 v1.15.
 
 - It has not yet been broadly tested on different vehicle configurations or scenarios.
 - The majority of testing has been done in position mode.
@@ -12,9 +13,9 @@
 :::
 
 This feature allows a multicopter to be started by arming it from a fixed position and then throwing it into the air.
-The vehicle then turns on the motors and operates according to its current mode.
+The vehicle turns on the motors only after the launch is detected, and then operates according to its current mode.
 
-When throw launch is enabled, arming the vehicle does not cause the propellers to spin.
+When throw launch is enabled, the vehicle is initially armed in a "lockdown" state, in which the propellers do not spin.
 The propellors will not activate until the vehicle is thrown or is disarmed, and the arming tone will continue playing during this time.
 The vehicle will not automatically disarm after arming, and must be manually disarmed if you choose not to throw it.
 
@@ -97,3 +98,9 @@ The following parameters can be used to enable and configure throw launch:
 ## See Also
 
 - [Takeoff Mode (Fixed-Wing) > Catapult/Hand Launch](../flight_modes_fw/takeoff.md#catapult-hand-launch).
+
+<!--
+Notes:
+https://github.com/PX4/PX4-Autopilot/pull/23822
+https://github.com/PX4/PX4-Autopilot/blob/371a99c3221dd09dce0b218c45df405188d96cfd/src/modules/commander/Commander.cpp#L1894-L1896 - lockdown setting
+-->
