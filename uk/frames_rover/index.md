@@ -47,7 +47,7 @@ Rovers use a custom build that must be flashed onto your flight controller inste
 
 2. Load the **custom firmware** that you just built onto your flight controller (see [Loading Firmware > Installing PX4 Main, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)).
 
-## Моделювання
+## Симулятор
 
 [Gazebo](../sim_gazebo_gz/index.md) provides simulations for both types of steering:
 
