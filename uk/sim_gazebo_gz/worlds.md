@@ -43,7 +43,7 @@ It is not recommended as the low frame rate causes segmentation faults on some f
 
 ![screenshot of lawn world](../../assets/simulation/gazebo/worlds/lawn.png)
 
-## Землехід
+## Ровер
 
 Rover world is optimised for rovers (and will be further optimised for rovers) and is the default world for [Ackermann Rover (4012)](../frames_rover/ackermann.md) (`make px4_sitl gz_rover_ackermann`) and [Differential Rover ((r1-rover (4009))](../frames_rover/differential.md) (`make px4_sitl gz_r1_rover`).
 
