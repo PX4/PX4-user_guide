@@ -42,7 +42,7 @@ Both transmissive and reflective sensor types may be used for pulse generation.
 
 ![Example of optical transmissive probe](../../assets/hardware/sensors/tfrpm/transmissive_probe.jpg)
 
-## Software Setup
+## 软件设置
 
 ### Starting driver
 
