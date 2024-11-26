@@ -2,10 +2,10 @@
 
 Оптичний потік в кадрі тіла XYZ в одиницях SI.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleOpticalFlow.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleOpticalFlow.msg)
 
 ```c
-# Оптичний потік у корпусній системі координат XYZ в одиницях СІ.
+# Optical flow in XYZ body frame in SI units.
 
 uint64 timestamp               # time since system start (microseconds)
 uint64 timestamp_sample
