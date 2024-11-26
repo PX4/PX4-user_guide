@@ -29,6 +29,6 @@ _QGroundControl_ will guide you to place the vehicle on a flat surface and keep 
 If you move the vehicle _QGroundControl_ will automatically restart the gyroscope calibration.
 :::
 
-## Додаткова інформація
+## Подальша інформація
 
 - [QGroundControl User Guide > Gyroscope](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#gyroscope)
