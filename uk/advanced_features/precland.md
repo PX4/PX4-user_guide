@@ -99,7 +99,7 @@ At time of writing is no _convenient_ way to directly invoke precision landing (
 
 :::
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 ### Налаштування IR Сенсора/Бікона
 
@@ -175,7 +175,7 @@ Then, compare `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel` to `
 
 If you observe slow sideways oscillations of the vehicle while doing a precision landing with `LTEST_MODE` set to stationary, the beacon measurements are likely scaled too high and you should reduce the scale parameter in the relevant direction.
 
-## Моделювання
+## Симуляція
 
 Precision landing with the IR-LOCK sensor and beacon can be simulated in [Gazebo Classic](../sim_gazebo_classic/index.md).
 
