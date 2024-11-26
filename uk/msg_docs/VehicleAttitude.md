@@ -1,8 +1,9 @@
 # VehicleAttitude (повідомлення UORB)
 
-Це повідомлення подібне до повідомлення mavlink ATTITUDE_QUATERNION, але для використання на борту Для кватерніону використовується конвенція Гамільтона, а порядок має вигляд q(w, x, y, z)
+Це повідомлення подібне до повідомлення mavlink ATTITUDE_QUATERNION, але для використання на борту
+Для кватерніону використовується конвенція Гамільтона, а порядок має вигляд q(w, x, y, z)
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitude.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitude.msg)
 
 ```c
 # This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use
