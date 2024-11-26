@@ -5,7 +5,7 @@ ESC бере сигнал від контролера польоту і вико
 
 PX4 supports a number of common protocols for sending the signals to ESCs: [PWM ESCs](../peripherals/pwm_escs_and_servo.md), [OneShot ESCs](../peripherals/oneshot.md), [DShot ESCs](../peripherals/dshot.md), [DroneCAN ESCs](../dronecan/escs.md), PCA9685 ESC (via I2C), and some UART ESCs (from Yuneec).
 
-Для отримання додаткової інформації:
+Для додаткової інформації дивіться:
 
 - [PWM ESCs and Servos](../peripherals/pwm_escs_and_servo.md)
 - [OneShot ESCs and Servos](../peripherals/oneshot.md)
