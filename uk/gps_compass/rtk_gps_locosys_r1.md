@@ -42,7 +42,7 @@ For an equivalent GPS module with a compass try: [LOCOSYS Hawk R2](../gps_compas
 - 1x Спіральна антена
 - 1x 6-контактний JST-GH
 
-## Конфігурація
+## Налаштування
 
 RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 Connect your Hawk R1 to the `GPS2` port on compatible Pixhawk boards (preferred, though you can use any other unused UART port).
@@ -74,7 +74,7 @@ Hawk R1 RTK GPS поставляється з 6-контактним роз'єм
 | Колір   | Назва              | Опис                                  |
 | ------- | ------------------ | ------------------------------------- |
 | Зелений | Індикатор TX       | Передача даних GNSS                   |
-| Red     | Індикатор живлення | Живлення                              |
+| Red     | Індикатор живлення | Power                                 |
 | Синій   | PPS                | Активна служба точного позиціонування |
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
