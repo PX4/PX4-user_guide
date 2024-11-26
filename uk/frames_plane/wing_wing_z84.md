@@ -69,7 +69,7 @@ Use the `MAIN` outputs (not the ones labeled with AUX).
 ![wing wing build09](../../assets/airframes/fw/wing_wing/wing_wing_build09.jpg)
 ![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
-## Налаштування PX4
+## Конфігурація PX4
 
 ### Конфігурація планера
 
