@@ -75,7 +75,7 @@ This calibration is similar to the well-known figure-8 compass calibration done 
    2-3 oscillations of ~30 degrees in every direction is usually sufficient.
 2. Wait for the heading estimate to stabilize and verify that the compass rose is pointing to the correct direction (this can take a couple of seconds).
 
-路径规划软件（在机载计算机上运行）<em>可以</em> 以<a href="https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS">TRAJECTORY_REPRESENTATION_WAYPOINTS</a> 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
+备注：
 
 - There is no start/stop for this type of calibration (the algorithm runs continuously when the vehicle is disarmed).
 - The calibration is immediately applied to the data (no reboot is required) but is saved to the calibration parameters after disarming the vehicle only (the calibration is lost if no arming/disarming sequence is performed between calibration and shutdown).
