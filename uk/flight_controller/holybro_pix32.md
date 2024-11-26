@@ -93,7 +93,7 @@ The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open
 As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 :::
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
 | UART   | Пристрій   | Порт                                          |
 | ------ | ---------- | --------------------------------------------- |
