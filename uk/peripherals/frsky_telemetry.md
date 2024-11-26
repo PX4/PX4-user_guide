@@ -7,7 +7,7 @@ Available [telemetry is listed here](#messages), and includes: flight mode, batt
 
 PX4 supports both [S.Port](#s_port) (new) and D (old) FrSky telemetry ports.
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 FrSky телеметрія вимагає:
 
@@ -55,7 +55,7 @@ Then [configure PX4](#configure).
 
 <a id="configure"></a>
 
-## Налаштування PX4
+## Конфігурація PX4
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which FrSky will run using [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG).
 Немає потреби встановлювати швидкість передачі для порту, оскільки це налаштовано драйвером.
