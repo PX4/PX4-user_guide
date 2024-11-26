@@ -6,7 +6,7 @@ Events interface
 
 ```c
 # Events interface
-uint64 timestamp            # time since system start (microseconds)
+uint64 timestamp			# time since system start (microseconds)
 
 uint32 id                   # Event ID
 uint16 event_sequence       # Event sequence number
