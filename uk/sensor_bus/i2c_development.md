@@ -52,7 +52,7 @@ To find I2C driver examples, search for **i2c.h** in [/src/drivers/](https://git
 - [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_laser_serial) - Serial driver for [Lightware SF1XX LIDAR](../sensor/sfxx_lidar.md).
 - [drivers/ms5611](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer/ms5611) - I2C Driver for the MS5611 and MS6507 barometric pressure sensor connected via I2C (or SPI).
 
-## Додаткова інформація
+## Подальша інформація
 
 - [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) (Wikipedia)
 - [I2C Comparative Overview](https://learn.sparkfun.com/tutorials/i2c) (learn.sparkfun.com)
