@@ -20,9 +20,9 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 ### 系统
 
-| 特性     | Details |
-| :----- | :------ |
-| Weight | 26 g    |
+| 特性 | Details |
+| :- | :------ |
+| 重量 | 26 g    |
 
 ### Companion Computer
 
@@ -34,7 +34,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 | GPU                   | Adreno 530 GPU at 624MHz                                                                                                                                                                                                                                           |
 | Compute DSP           | Hexagon compute DSP (cDSP) 825MHz                                                                                                                                                                                                               |
 | Sensor DSP            | Hexagon sensor DSP (sDSP) 700MHz                                                                                                                                                                                                                |
-| 视频:   | 4k30 Video Capture h.264/5 w/ 720p FPV                                                                                                                                                                                                             |
+| 视频                    | 4k30 Video Capture h.264/5 w/ 720p FPV                                                                                                                                                                                                             |
 | Camera Interfaces     | Support for MIPI-CSI2, USB UVC, HDMI                                                                                                                                                                                                                               |
 | Wi-Fi                 | Pre-certified Wi-Fi module [QCNFA324 FCC ID:PPD-QCNFA324](https://fccid.io/PPD-QCNFA324), QCA6174A modem, 802.11ac 2x2 Dual-band, Bluetooth 4.2 (dual-mode)                                     |
 | 4G LTE                | [Optional add-on module](https://www.modalai.com/collections/voxl-add-ons/products/voxl-lte)                                                                                                                                                                       |
