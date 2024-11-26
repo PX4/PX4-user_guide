@@ -108,7 +108,7 @@ The servo direction can be reversed using the PWM\_REV parameters in the PWM\_OU
 
 For further instructions on wiring and configurations please see: [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md)
 
-## Конфігурація
+## Налаштування
 
 Configure the frame as shown in QGroundControl below (do not forget to click **Apply and Restart** in the top).
 
