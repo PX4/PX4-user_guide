@@ -71,7 +71,7 @@ This topic provides full instructions for building the [Holybro X500 V2 ARF Kit]
 
 [![Assembly13](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly13.png)](https://youtu.be/3en4DlQF4XU)
 
-### Живлення
+### Power
 
 Pixhawk 6C запитується за допомогою плати живлення PM02 (у цьому випадку).
 Цей модуль живлення постачається від батареї (4S 16.8V 5200 мАг)
