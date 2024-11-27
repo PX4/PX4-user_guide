@@ -30459,6 +30459,14 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; |  |  |  | Disabled (0) |  
 
+### SENS_EN_SPA06 (`INT32`) {#SENS_EN_SPA06}
+
+Goertek SPA06 Barometer (external I2C).
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | Disabled (0) |  
+
 ### SENS_EN_SPL06 (`INT32`) {#SENS_EN_SPL06}
 
 Goertek SPL06 Barometer (external I2C).
