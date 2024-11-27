@@ -22,14 +22,14 @@
 ## Встановлення Ubuntu 14.04.3 LTS в Virtual Box
 
 - Створіть нову віртуальну машину (VM): Linux 64-Bit.
-- Download the iso file of Ubuntu 14.04.3 LTS: ([ubuntu-14.04.3-desktop-amd64.iso](https://ubuntu.com/download/desktop)).
+- Завантажте файл iso з Ubuntu 14.04.3 LTS: ([ubuntu-14.04.3-desktop-amd64.iso](https://ubuntu.com/download/desktop)).
 - Установка Ubuntu:
   - Під час процедури встановлення залиште непозначеними наступні дві опції:
     - Завантажувати оновлення під час встановлення
     - Встановити це програмне забезпечення третьої сторони
 - Після встановлення можливо знадобиться увімкнути VirtualBox для відображення Ubuntu на всьому робочому столі:
-  - Start VM Ubuntu and login, Click on **Devices->Insert Guest Additions CD image** in the menu bar of the Virtual Box.
-  - Click on **Run** and enter password on the windows that pop up in Ubuntu.
+  - Запустіть віртуальну машину Ubuntu та увійдіть у систему. Натисніть на меню **Devices->Insert Guest Additions CD image** на панелі інструментів VirtualBox.
+  - Натисніть **Run** і введіть пароль у вікнах, які з'являться в Ubuntu.
   - Зачекайте, поки завершиться встановлення, а потім перезапустіть систему.
     Тепер систему можна відображати на всьому робочому столі.
   - Якщо в Ubuntu з'явиться вікно, яке запитує про оновлення, відхиліть оновлення на цьому етапі.
@@ -41,7 +41,7 @@
 
 ## Встановлення ROS Indigo
 
-- Follow instructions given at [ROS indigo installation guide](http://wiki.ros.org/indigo/Installation/Ubuntu):
+- Слідуйте інструкціям, наведеним у [посібнику з встановлення ROS Indigo](http://wiki.ros.org/indigo/Installation/Ubuntu):
   - Встановити версію Desktop-Full.
   - Виконайте кроки, описані в розділах "Ініціалізація rosdep" та "Налаштування середовища".
 
@@ -55,13 +55,13 @@
 
 - Завантажте та встановіть драйвер:
 
-  - Clone [RealSense_ROS repository](https://github.com/bestmodule/RealSense_ROS):
+  - Клонувати [репозиторій RealSense_ROS](https://github.com/bestmodule/RealSense_ROS):
 
     ```sh
     git clone https://github.com/bestmodule/RealSense_ROS.git
     ```
 
-- Follow instructions given in [here](https://github.com/bestmodule/RealSense_ROS/tree/master/r200_install).
+- Дотримуйтеся інструкцій, наведених [тут](https://github.com/bestmodule/RealSense_ROS/tree/master/r200_install).
 
   - Натисніть кнопку "Enter", коли з'явиться питання про встановлення наступних пакетів:
 
@@ -88,10 +88,10 @@
 - Тест драйвера камери:
 
   - Підключіть камеру Intel RealSense до комп'ютера за допомогою кабелю USB3, який вставлено в роз'єм USB3 на комп'ютері.
-  - Click on Devices->USB-> Intel Corp Intel RealSense 3D Camera R200 in the menu bar of the Virtual Box, in order to forward the camera USB connection to the Virtual Machine.
+  - Натисніть на Пристрої->USB-> Intel Corp Intel RealSense 3D Camera R200 у меню панелі Virtual Box, щоб переслати підключення USB камери в віртуальну машину.
   - Виконайте файл [розпакованої теки]/Bin/DSReadCameraInfo:
 
-    - Якщо з'явиться наступне повідомлення про помилку, відключіть камеру (фізично від'єднайте USB-кабель від комп'ютера). Plug it in again + Click on Devices->USB-> Intel Corp Intel RealSense 3D Camera R200 in the menu bar of the Virtual Box again and execute again the file [unpacked folder]/Bin/DSReadCameraInfo.
+    - Якщо з'явиться наступне повідомлення про помилку, відключіть камеру (фізично від'єднайте USB-кабель від комп'ютера). Підключіть його знову + Натисніть на Пристрої->USB-> Intel Corp Intel RealSense 3D Camera R200 у меню панелі Virtual Box знову і виконайте знову файл [розпакованої теки]/Bin/DSReadCameraInfo.
 
       ```sh
       DSAPI call failed at ReadCameraInfo.cpp:134!
@@ -100,6 +100,6 @@
     - Якщо драйвер камери працює і розпізнає камеру Intel RealSense R200, ви повинні побачити конкретну інформацію про камеру Intel RealSense R200.
 
 - Інсталяція та тестування ROS nodelet:
-  - Follow the installation instructions in the "Installation" section given [here](https://github.com/bestmodule/RealSense_ROS/blob/master/realsense_dist/2.3/doc/RealSense-ROS-R200-nodelet.md), to install the ROS nodlet.
+  - Дотримуйтеся інструкцій з розділу "Установка", наведеного [тут](https://github.com/bestmodule/RealSense_ROS/blob/master/realsense_dist/2.3/doc/RealSense-ROS-R200-nodelet.md), щоб встановити ROS nodelet.
   - Follow the instructions in the "Running the R200 nodelet" section given [here](https://github.com/bestmodule/RealSense_ROS/blob/master/realsense_dist/2.3/doc/RealSense-ROS-R200-nodelet.md), to test the ROS nodlet together with the Intel RealSense R200 camera head.
     - Якщо все працює правильно, різні потоки даних з камери Intel RealSense R200 публікуються як ROS-теми.
