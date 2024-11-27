@@ -8,13 +8,13 @@
 Він призначений для розробників, які працюють над розширенням архітектури, наприклад, для підтримки нових механізмів доставки вантажу.
 
 :::info
-Currently only [Grippers](../peripherals/gripper.md) can be used for package delivery.
+Зараз лише [Grippers](../peripherals/gripper.md) може бути використано для доставки пакету.
 Лебідки поки що не підтримуються.
 :::
 
 :::info
-The detailed documentation on how to setup a package delivery mission plan can be found [here](../flying/package_delivery_mission.md).
-Setup for the `payload_deliverer` module is covered in the documentation for the delivery mechanism, such as [Gripper](../peripherals/gripper.md#px4-configuration).
+Детальну документацію з налаштування плану місії доставки пакетів можна знайти [тут](../flying/package_delivery_mission.md).
+Підготовка для модуля `payload_deliverer` описана у документації для механізму доставки, наприклад, [Gripper](../peripherals/gripper.md#px4-configuration).
 :::
 
 ## Діаграма Архітектури доставки пакетів
@@ -44,8 +44,8 @@ Setup for the `payload_deliverer` module is covered in the documentation for the
 
 ## Місія
 
-The Gripper / Winch command is placed as a `Mission Item`.
-This is possible since all the Mission item has the `MAV_CMD` to execute (e.g. Land, Takeoff, Waypoint, etc) which can get set to either `DO_GRIPPER` or `DO_WINCH`.
+Команда «Захват/лебідка» розміщується як `предмет місії`.
+Це можливо, оскільки всі пункти місії мають команду `MAV_CMD` для виконання (наприклад, Land, Takeoff, Waypoint і т. д.), яку можна встановити на `DO_GRIPPER` або `DO_WINCH`.
 
 У логіці місії (зелена рамка вище), якщо досягнуто будь-який пункт місії Gripper/Winch, вона використовує функціональність brake_for_hold (яка встановлює прапорець `valid` наступного пункту місії зупинки на значення `false`) для вертольотів (наприклад, багтротика), щоб транспортний засіб утримував своє положення, поки виконується розгортання.
 
