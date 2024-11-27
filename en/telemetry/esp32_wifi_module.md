@@ -5,6 +5,7 @@
 ESP32 are readily available WiFi modules with dedicated UART, SPI and I2C interfaces, and full TCP/IP stack and microcontroller capability.
 They usually come without firmware, but _DroneBridge for ESP32_ can be installed to enable them as a transparent and bi-directional serial to WiFi bridge.
 This allows them to be used as a [WiFi telemetry](../telemetry/telemetry_wifi.md) module with any Pixhawk series controller.
+
 They can alternatively be used in a special ESP-NOW Mode that enables ranges of up to 1km+, albeit at lower data rates.
 
 The typical range depends on the antenna and environment:
@@ -12,7 +13,7 @@ The typical range depends on the antenna and environment:
 - WiFi-Modes: ~50m-200m
 - ESP-NOW Modes: 300m-1km+
 
-### WiFi Network Overview
+### WiFi Network
 
 _DroneBridge for ESP32_ supports standard WiFi connections to an access point but can also operate as a standalone access point.
 
@@ -21,8 +22,8 @@ _DroneBridge for ESP32_ supports standard WiFi connections to an access point bu
 ### ESP-NOW Network
 
 The ESP-NOW mode offers a connectionless and encrypted alternative to traditional WiFi.
-While the data rate is reduced to <250 kbit/s the range is increased up to 1 km.
-This mode has no limit on how many clients are connected on the autopilot side.
+While the data rate is reduced to < 250 kbit/s the range is increased up to 1 km.
+This mode has no limit on how many autopilot clients are connected.
 Only channel capacity and processing capacity limit the number of clients.
 
 ![DroneBridge for ESP32 connection concept for ESP-NOW modes](../../assets/peripherals/telemetry/esp32/db_esp32_now_illustration.png)
@@ -36,7 +37,7 @@ ESP-NOW requires ESP32 devices on the GCS side as well as on the autopilot side.
 - Bidirectional: serial-to-WiFi, serial-to-WiFi Long-Range (LR), serial-to-ESP-NOW link
 - Support for MAVLink, MSP, LTM or any other payload using transparent option
 - Affordable, Reliable & low latency
-- Weight: <8 g
+- Weight: < 8g
 - Up to 150m range using standard WiFi
 - Up to 1km of range using ESP-NOW or Wi-Fi LR Mode - sender & receiver must be ESP32 with LR-Mode enabled
 - Fully encrypted in all modes including ESP-NOW broadcasts secured using AES-GCM 256 bit!
@@ -45,7 +46,7 @@ ESP-NOW requires ESP32 devices on the GCS side as well as on the autopilot side.
 - Easy to set up: Power connection + UART connection to flight controller
 - Fully configurable through an easy-to-use web interface
 - Parsing of LTM & MSPv2 for more reliable connection and less packet loss
-- Parsing of MAVLink with the injection of Radio Status packets for the display of RSSI in the GCS
+- Parsing of MAVLink with the injection of radio status packets for the display of RSSI in the GCS
 - Fully transparent telemetry down-link option
 
 ::: info
@@ -67,7 +68,7 @@ The _DroneBridge for ESP32_ project recommends using [Officially Supported and T
 These are small, low in price, have Pixhawk-standard port for connecting to Pixhawk flight controllers, and come with _DroneBridge for ESP32_ firmware pre-installed.
 :::
 
-Other ESP32 Boards that have been tested with versions of _DroneBridge for ESP32_ but receive no official support:
+Other ESP32 Boards that have been tested with versions of _DroneBridge for ESP32_ (but receive no official support):
 
 - [ESP32-C3-DevKitM-1](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c3/esp32-c3-devkitm-1/index.html)
 - [ESP32-S3-DevKitC-1](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp32-s3-devkitc-1/index.html)
@@ -76,9 +77,9 @@ Other ESP32 Boards that have been tested with versions of _DroneBridge for ESP32
 ## Installing/Updating the Firmware
 
 An [easy-to-use online flashing tool](https://dronebridge.github.io/ESP32/install.html) is available on the official website.
-Use a Chrome-based browser, connect your ESP32 via USB to your computer and click flash!
+Use a Chrome-based browser, connect your ESP32 via USB to your computer, and click flash!
 
-[For more detailed information on how to flash the firmware please visit the official Wiki!](https://dronebridge.gitbook.io/docs/dronebridge-for-esp32/installation)
+For more detailed flashing instructions see [DroneBridge for ESP32 > Installation](https://dronebridge.gitbook.io/docs/dronebridge-for-esp32/installation) (DroneBridge Docs).
 
 ## Wiring
 
@@ -119,7 +120,8 @@ For more information, and using other ports, see [MAVLink Peripherals](../periph
 
 ## Configuring DroneBridge for ESP32
 
-Once _DroneBridge for ESP32_ is flashed it initially will provide a Wifi access point that you can connect to. Once connected you can access the configuration page using your browser. The address of the configuration page is `http://dronebridge.local` or `192.168.2.1`.
+Once _DroneBridge for ESP32_ is flashed it initially will provide a Wifi access point that you can connect to.
+Once connected you can access the configuration page using your browser. The address of the configuration page is `http://dronebridge.local` or `192.168.2.1`.
 
 ![DroneBridge for ESP32 Webinterface](../../assets/peripherals/telemetry/esp32/dbesp32_webinterface.png)
 
@@ -130,7 +132,6 @@ The only configuration that may be required is ensuring that the baud rates of t
 
 You will want to change these settings if you want to use different pins on the ESP32, a different WiFi configuration, or to tweak the packet size.
 A lower packet size means more overhead and load on the system, less latency, and faster recovery from a lost packet.
-
 
 ### Supported Modes
 
@@ -153,10 +154,12 @@ The following connection options are available:
 - UDP unicast on port `14550` to all connected devices.
 - TCP on port `5760`
 
-### API & Troubleshooting
+### REST API
 
-DroneBridge for ESP32 offers a REST:API that allows you to read and write configuration options.
+DroneBridge for ESP32 offers a REST API that allows you to read and write configuration options.
 
 For more information see: [DroneBridge for ESP32 > Developer & API Documentation](https://dronebridge.gitbook.io/docs/dronebridge-for-esp32/developer-and-api-documentation).
 
-[Some typical issues are also covered by the troubleshooting section of the Wiki](https://dronebridge.gitbook.io/docs/dronebridge-for-esp32/troubleshooting-help)
+## Troubleshooting
+
+See [Troubleshooting & Help](https://dronebridge.gitbook.io/docs/dronebridge-for-esp32/troubleshooting-help) (DroneBridge Docs).
