@@ -2,8 +2,8 @@
 
 PX4 визначає ряд [стандартних мелодій/тем](../getting_started/tunes.md), які використовуються для забезпечення аудіо-повідомлень про важливі стани системи та проблеми (наприклад, запуск системи, успішне готування до роботи, попередження про заряд батареї і т. д.).
 
-Tunes are specified using strings (in [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) and played by code using the [tunes](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/tunes) library.
-The tunes library also contains the list of default system tunes - see [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
+Мелодії вказуються за допомогою рядків (у форматі [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) та відтворюються за допомогою коду, використовуючи бібліотеку [tunes](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/tunes).
+Бібліотека мелодій також містить список стандартних мелодій системи - див. [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
 
 У PX4 також є модуль, який можна використовувати для відтворення (тестування) стандартних мелодій або користувацьких мелодій.
 
@@ -21,7 +21,7 @@ The tunes library also contains the list of default system tunes - see [lib/tune
 Це дозволяє редагувати музику та відтворювати її на вашому комп'ютері, а потім експортувати в формат, який можна відтворити за допомогою PX4.
 
 Музика ANSI була популярною за часів систем ANSI BBS, тому найкращими інструментами редагування є утиліти DOS.
-On Windows, one option is to use _Melody Master_ within _Dosbox_.
+У Windows одним із варіантів є використання _Melody Master_ у _Dosbox_.
 
 Кроки використання програмного забезпечення:
 
@@ -51,8 +51,8 @@ On Windows, one option is to use _Melody Master_ within _Dosbox_.
 
 7. Коли ви будете готові зберегти музику:
    - Натисніть **F2**, щоб дати мелодії назву та зберегти її у підпапці _/Music_ вашої інсталяції Melody Master.
-   - Press **F7**, the scroll down the list of output formats on the right to get to ANSI.
-     The file will be exported to the _root_ of the Melody Master directory (with the same name and a file-type specific extension).
+   - Натисніть **F7**, прокрутіть список вихідних форматів праворуч, щоб перейти до ANSI.
+     Файл буде експортовано в _кореневий каталог_ каталогу Melody Master (з такою самою назвою та розширенням типу файлу).
 
 8. Відкрийте файл.
    Результат може виглядати так:
@@ -63,8 +63,8 @@ On Windows, one option is to use _Melody Master_ within _Dosbox_.
 
 ## Тестування тунелів
 
-When you're ready to try it out a new tune on PX4, use the [tune_control](../modules/modules_system.md#tune-control) library.
-For example, to test the tune we "created" above you would enter the following command on a console or shell (e.g. the [MAVLink Shell](../debug/mavlink_shell.md)):
+Коли ви будете готові спробувати нову мелодію на PX4, скористайтеся бібліотекою [tune_control](../modules/modules_system.md#tune-control).
+Наприклад, щоб перевірити мелодію, яку ми «створили» вище, ви повинні ввести таку команду на консолі чи оболонці (наприклад, [MAVLink Shell](../debug/mavlink_shell.md)):
 
 ```sh
 tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
