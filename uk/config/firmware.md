@@ -75,7 +75,7 @@ Next you will need to specify the [vehicle airframe](../config/airframe.md) (and
 Апаратне забезпечення Pixhawk зазвичай має відповідну версію завантажувача.
 
 Якщо оновлення може знадобитися - це новіші дошки Pixhawk, які встановлюють прошивку FMUv2.
-If _QGroundControl_ installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
+Якщо _QGroundControl_ встановлює ціль FMUv2 (див. консоль під час встановлення), і у вас є новіша плата, вам може знадобитися оновити завантажувальник, щоб мати доступ до всієї пам'яті на вашому контролері польоту.
 
 ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
