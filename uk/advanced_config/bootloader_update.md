@@ -9,10 +9,10 @@ _PX4 Bootloader_ використовується для завантаженн�
 
 ::: info
 
-- Most boards will need to use the [Debug Probe](#debug-probe-bootloader-update) to update the bootloader.
-- On [FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) you can [install bootloader/unbrick boards via USB](bootloader_update_v6xrt.md).
+- Більшість плат потребують використання [Debug Probe](#debug-probe-bootloader-update) для оновлення завантажувача.
+- На [FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) ви можете [встановлювати завантажувач/відновлювати плати через USB](bootloader_update_v6xrt.md).
   Це корисно, якщо у вас немає тесту налагодження.
-- On FMUv2 and some custom firmware (only) you can use [QGC Bootloader Update](#qgc-bootloader-update).
+- У FMUv2 та деяких нестандартних прошивках (тільки) ви можете використовувати [Оновлення завантажувача QGC](#qgc-bootloader-update).
 
 :::
 
@@ -22,7 +22,7 @@ _PX4 Bootloader_ використовується для завантаженн�
 
 Плати, що починаються з FMUv6X (STM32H7), використовують вбудований завантажувач PX4.
 
-This can be built from within the [PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) directory using the `make` command and the board-specific target with a `_bootloader` suffix.
+Це можна побудувати з каталогу [PX4-Autopilot](https://github.com/PX4/PX4-Autopilot), використовуючи команду `make` та конкретну для плати ціль з суфіксом `_bootloader`.
 
 Для FMUv6X команда наступна:
 
@@ -30,7 +30,7 @@ This can be built from within the [PX4-Autopilot](https://github.com/PX4/PX4-Aut
 make px4_fmu-v6x_bootloader
 ```
 
-This will build the bootloader binary as `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf`, which can be flashed via SWD or DFU.
+Це збудує бінарний файл завантажувача як `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf`, який можна прошити через SWD або DFU.
 Якщо ви збираєте завантажувач, вам вже повинні бути знайомі з одним із цих варіантів.
 
 Якщо вам потрібний файл у форматі HEX замість ELF файлу, використовуйте objcopy:
@@ -41,18 +41,18 @@ arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloade
 
 ### PX4 Bootloader FMUv5X та раніші версії
 
-PX4 boards up to FMUv5X (before STM32H7) used the [PX4 bootloader](https://github.com/PX4/Bootloader) repository.
+Плата PX4 до FMUv5X (до STM32H7) використовувала репозиторій [завантажувача PX4](https://github.com/PX4/Bootloader).
 
 Інструкції в README репозиторію пояснюють, як його використовувати.
 
 ## Оновлення завантажувача Debug Probe
 
-The following steps explain how you can "manually" update the bootloader using a [compatible Debug Probe](../debug/swd_debug.md#debug-probes-for-px4-hardware):
+Наступні кроки пояснюють, як ви можете "вручну" оновити завантажувач за допомогою сумісного [Відладного пристрою](../debug/swd_debug.md#debug-probes-for-px4-hardware):
 
-1. Get a binary containing the bootloader (either from dev team or [build it yourself](#building-the-px4-bootloader)).
+1. Отримайте бінарний файл, який містить завантажувальник (або від команди розробників, або [зіберіть його самостійно](#building-the-px4-bootloader)).
 
 2. Get a [Debug Probe](../debug/swd_debug.md#debug-probes-for-px4-hardware).
-   Connect the probe your PC via USB and setup the `gdbserver`.
+   Get a [Debug Probe](../debug/swd_debug. md#debug-probes-for-px4-hardware). Підключіть зонд до комп'ютера за допомогою USB та налаштуйте `gdbserver`.
 
 3. Перейдіть до каталогу, що містить бінарний файл, і запустіть команду для обраного вами завантажувача в терміналі:
 
