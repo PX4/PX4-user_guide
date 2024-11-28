@@ -22219,6 +22219,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.0 | 30.0 | 0.5 | 15.0 | deg 
 
+### MIS_COMMAND_TOUT (`FLOAT`) {#MIS_COMMAND_TOUT}
+
+Timeout to allow the payload to execute the mission command.
+
+Ensure: gripper: NAV_CMD_DO_GRIPPER has released before continuing mission. winch: CMD_DO_WINCH has delivered before continuing mission. gimbal: CMD_DO_GIMBAL_MANAGER_PITCHYAW has reached the commanded orientation before beginning to take pictures.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 |  |  | 0. | s 
+
 ### MIS_DIST_1WP (`FLOAT`) {#MIS_DIST_1WP}
 
 Maximal horizontal distance from Home to first waypoint.
@@ -22254,14 +22264,6 @@ If enabled, yaw commands will be sent to the mount and the vehicle will follow i
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 1 |  | 0 |  
-
-### MIS_PD_TO (`FLOAT`) {#MIS_PD_TO}
-
-Timeout for a successful payload deployment acknowledgement.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 |  | 1 | 5.0 | s 
 
 ### MIS_TAKEOFF_ALT (`FLOAT`) {#MIS_TAKEOFF_ALT}
 
