@@ -101,11 +101,11 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td>Підтримувач: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>Specific Outputs:</b><ul><li><b>Servo3</b>: ліфт</li><li><b>Servo4</b>: кермо</li><li><b>Servo5</b>: кермо (друге, опційно)</li><li><b>Servo6</b>: колесо</li></ul><p></p></td>
+ <td>Підтримувач: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><br><b>Specific Outputs:</b><ul><li><b>Servo3</b>: ліфт</li><li><b>Servo4</b>: кермо</li><li><b>Servo5</b>: кермо (друге, опційно)</li><li><b>Servo6</b>: колесо</li></ul></td>
 </tr>
 <tr id="autogyro_autogyro_thunderfly_tf-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/TF-G2/">ThunderFly TF-G2</a></td>
- <td>Підтримувач: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><p><b>Specific Outputs:</b><ul><li><b>Servo3</b>: кермо</li></ul><p></p></td>
+ <td>Підтримувач: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><br><b>Specific Outputs:</b><ul><li><b>Servo3</b>: кермо</li></ul></td>
 </tr>
 </tbody>
 </table>
@@ -617,11 +617,11 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="rover_rover_generic_ground_vehicle_(deprecated)">
  <td>Generic Ground Vehicle (Deprecated)</td>
- <td><p><code>SYS_AUTOSTART</code> = 59000</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: газ</li><li><b>Servo1</b>: кермування</li></ul><p></p></td>
+ <td><p><code>SYS_AUTOSTART</code> = 59000</p><br><b>Specific Outputs:</b><ul><li><b>Motor1</b>: газ</li><li><b>Servo1</b>: кермування</li></ul></td>
 </tr>
 <tr id="rover_rover_nxp_cup_car:_df_robot_gpx_(deprecated)">
  <td>NXP Cup car: DF Robot GPX (Deprecated)</td>
- <td>Підтримувач: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 59001</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: Швидкість лівих коліс</li><li><b>Servo1</b>: кермувальний сервопривід</li></ul><p></p></td>
+ <td>Підтримувач: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 59001</p><br><b>Specific Outputs:</b><ul><li><b>Motor1</b>: Швидкість лівих коліс</li><li><b>Servo1</b>: кермувальний сервопривід</li></ul></td>
 </tr>
 </tbody>
 </table>
