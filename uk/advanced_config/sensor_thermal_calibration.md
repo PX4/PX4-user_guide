@@ -2,27 +2,27 @@
 
 PX4 містить функцію калібрування та компенсації акселерометра, гіроскопа, магнітометра та датчиків барометричного тиску для впливу зміни температури датчика на зміщення датчика.
 
-This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures).
-At the end there is a description of the [implementation](#implementation).
+Ця тема розглядає [середовище тестування](#test_setup) та [процедури калібрування](#calibration_procedures).
+В кінці надається опис [впровадження](#implementation).
 
 :::info
-After thermal calibration, the thermal calibration parameters (`TC_*`) are used for _all_ calibration/compensation of the respective sensors.
-Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal" `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
+Після термокалібрування параметри термокалібрування (`TC_*`) використовуються для _всієї_ калібрування/компенсації відповідних датчиків.
+Отже, будь-яке наступне стандартне калібрування оновить параметри `TC_*`, а не "звичайні" параметри калібрування `SYS_CAL_*` (і в деяких випадках ці параметри можуть бути скинуті).
 :::
 
 :::info
-Releases up to PX4 v1.14, do not support thermal calibration of the magnetometer.
+Випуски до PX4 v1.14 не підтримують термокалібрування магнітометра.
 :::
 
 <a id="test_setup"></a>
 
 ## Тестування налаштувань та найкращі практики
 
-The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an _environmental chamber_ (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature.
-Before starting the calibration, the board is first _cold soaked_ (cooled to the minimum temperature and allowed to reach equilibrium).
+[Процедури калібрування](#calibration_procedures), описані в наступних розділах, ідеально виконувати в _камері для навколишнього середовища_ (середовищі з контрольованою температурою та вологістю), оскільки плата нагрівається від найнижчої до найвищої робочої/ температура калібрування.
+Перед початком калібрування плату спочатку _замочують_ (охолоджують до мінімальної температури та дають їй досягти рівноваги).
 
 :::info
-Active electric heating elements will affect the magnetometer calibration values.
+Активні електронагрівальні елементи впливатимуть на значення калібрування магнітометра.
 Переконайтеся, що нагрівальні елементи або неактивні, або достатньо далеко від датчика, щоб уникнути введення шуму в калібрування магнітометра.
 :::
 
@@ -31,7 +31,7 @@ Active electric heating elements will affect the magnetometer calibration values
 Після заморожування пакет можна перемістити до тестового середовища, і тест можна продовжити в тому ж пакеті.
 
 :::info
-The bag/silica is to prevent condensation from forming on the board.
+Мішок / силіка слугує для запобігання конденсації на платі.
 :::
 
 Так, можливо провести калібрування без камери комерційного класу.
@@ -43,7 +43,7 @@ The bag/silica is to prevent condensation from forming on the board.
 Якщо у вас є сумніви, перевірте безпечний діапазон роботи у виробника.
 
 :::tip
-To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor.
+Щоб перевірити статус калібрування вбудованої термічної системи, скористайтеся консоллю MAVlink (або консоллю NuttX), щоб перевірити звітовану внутрішню температуру від датчика.
 :::
 
 <a id="calibration_procedures"></a>
@@ -52,8 +52,8 @@ To check the status of the onboard thermal calibration use the MAVlink console (
 
 PX4 підтримує два процедури калібрування:
 
-- [onboard](#onboard_calibration) - calibration is run on the board itself. Цей метод вимагає знань про те, наскільки можливе підвищення температури з використанням тестового устаткування.
-- [offboard](#offboard_calibration) - compensation parameters are calculated on a development computer based on log information collected during the calibration procedure. Цей метод дозволяє користувачам візуально перевіряти якість даних та підгонку кривої.
+- [onboard](#onboard_calibration) - калібрування запускається на самій платі. Цей метод вимагає знань про те, наскільки можливе підвищення температури з використанням тестового устаткування. Цей метод вимагає знань про те, наскільки можливе підвищення температури з використанням тестового устаткування.
+- [offboard](#offboard_calibration) - компенсаційні параметри обчислюються на розробницькому комп'ютері на основі інформації журналу, зібраної під час процедури калібрування. Цей метод дозволяє користувачам візуально перевіряти якість даних та підгонку кривої.
 
 Підхід offboard є складнішим і повільнішим, але вимагає менше знань про тестове обладнання і є легше перевірити.
 
@@ -66,14 +66,14 @@ PX4 підтримує два процедури калібрування:
 Для проведення калібрування на борту виконайте такі кроки:
 
 1. Переконайтеся, що тип рами встановлено перед калібруванням, інакше параметри калібрування будуть втрачені, коли плата буде налаштована.
-2. Power the board and set the `SYS_CAL_*` parameters to 1 to enable calibration of the required sensors at the next startup. [^1]
-3. Set the [SYS_CAL_TDEL](../advanced_config/parameter_reference.md#SYS_CAL_TDEL) parameter to the number of degrees of temperature rise required for the onboard calibrator to complete. Якщо цей параметр встановлено занадто великим, вбудований калібратор ніколи не завершиться. При встановленні цього параметра слід враховувати підвищення температури через самонагрівання плати. Якщо кількість підвищення температури на датчиках невідома, то слід використовувати метод калібрування поза межами плати. Якщо цей параметр встановлено занадто великим, вбудований калібратор ніколи не завершиться. при встановленні цього параметра слід враховувати підвищення температури через самонагрівання плати. Якщо кількість підвищення температури на датчиках невідома, то слід використовувати метод калібрування поза межами плати.
-4. Set the [SYS_CAL_TMIN](../advanced_config/parameter_reference.md#SYS_CAL_TMIN) parameter to the lowest temperature data that you want the calibrator to use. Це дозволяє використовувати більш низьку початкову амбієнтну температуру для зменшення часу охолодження, зберігаючи при цьому контроль над мінімальною температурою калібрування. Дані для датчика не будуть використані калібратором, якщо вони будуть нижчими, ніж значення, встановлене цим параметром.
-5. Set the [SYS_CAL_TMAX](../advanced_config/parameter_reference.md#SYS_CAL_TMAX) parameter to the highest starting sensor temperature that should be accepted by the calibrator. Якщо початкова температура вища, ніж значення, встановлене цим параметром, калібрування завершиться з помилкою. Note that if the variation in measured temperature between different sensors exceeds the gap between `SYS_CAL_TMAX` and `SYS_CAL_TMIN`, then it will be impossible for the calibration to start.
-6. Remove power and cold soak the board to below the starting temperature specified by the `SYS_CAL_TMIN` parameter. Зауважте, що перед початком калібрування існує 10-секундна затримка під час запуску, щоб дозволити будь-яким датчикам стабілізуватися, і датчики будуть нагріватися всередині протягом цього періоду.
+2. Power the board and set the `SYS_CAL_*` parameters to 1 to enable calibration of the required sensors at the next startup. Увімкніть плату та встановіть параметри `SYS_CAL_*` на значення 1, щоб увімкнути калібрування потрібних датчиків при наступному запуску. [^1]
+3. Встановіть параметр [SYS_CAL_TDEL](../advanced_config/parameter_reference.md#SYS_CAL_TDEL) на кількість градусів підвищення температури, необхідну для завершення вбудованого калібратора. Якщо цей параметр встановлено занадто великим, вбудований калібратор ніколи не завершиться. При встановленні цього параметра слід враховувати підвищення температури через самонагрівання плати. Якщо кількість підвищення температури на датчиках невідома, то слід використовувати метод калібрування поза межами плати. Якщо цей параметр встановлено занадто великим, вбудований калібратор ніколи не завершиться. при встановленні цього параметра слід враховувати підвищення температури через самонагрівання плати. Якщо кількість підвищення температури на датчиках невідома, то слід використовувати метод калібрування поза межами плати.
+4. Встановіть параметр [SYS_CAL_TMIN](../advanced_config/parameter_reference.md#SYS_CAL_TMIN) на найнижчу температуру даних, яку ви хочете, щоб калібратор використовував. Це дозволяє використовувати більш низьку початкову амбієнтну температуру для зменшення часу охолодження, зберігаючи при цьому контроль над мінімальною температурою калібрування. Дані для датчика не будуть використані калібратором, якщо вони будуть нижчими, ніж значення, встановлене цим параметром.
+5. [SYS_CAL_TMAX](../advanced_config/parameter_reference.md#SYS_CAL_TMAX) на найвищу початкову температуру датчика, яка повинна бути прийнята калібратором. Якщо початкова температура вища, ніж значення, встановлене цим параметром, калібрування завершиться з помилкою. Зверніть увагу, що якщо відхилення виміряної температури між різними датчиками перевищує різницю між `SYS_CAL_TMAX` і `SYS_CAL_TMIN`, то буде неможливо розпочати калібрування.
+6. Вимкніть живлення та охолодіть плату до температури нижче початкової, визначеної параметром `SYS_CAL_TMIN`. Зауважте, що перед початком калібрування існує 10-секундна затримка під час запуску, щоб дозволити будь-яким датчикам стабілізуватися, і датчики будуть нагріватися всередині протягом цього періоду.
 7. Keeping the board stationary[^2], apply power and warm to a temperature high enough to achieve the temperature rise specified by the `SYS_CAL_TDEL` parameter. Відсоток виконання друкується на системній консолі під час калібрування. [^3]
 8. Вимкніть живлення та залиште плату для охолодження до температури, яка знаходиться в межах діапазону калібрування, перш ніж виконати наступний крок.
-9. Perform a 6-point accel calibration via the system console using `commander calibrate accel` or via _QGroundControl_. Якщо плата встановлюється вперше, також потрібно виконати калібрування гіроскопа та магнітомера.
+9. Виконайте калібрування акселерометра за допомогою консолі системи за допомогою команди `commander calibrate accel` або через _QGroundControl_. Якщо плата встановлюється вперше, також потрібно виконати калібрування гіроскопа та магнітомера.
 10. Після калібрування датчиків до політів завжди потрібно перезавантажити плату, оскільки раптові зміни зміщень від калібрування можуть спотворити навігаційний оцінювач, і деякі параметри не завантажуються алгоритмами, які використовують їх, до наступного запуску.
 
 <a id="offboard_calibration"></a>
@@ -86,13 +86,13 @@ PX4 підтримує два процедури калібрування:
 
 1. Переконайтеся, що тип рами встановлено перед калібруванням, інакше параметри калібрування будуть втрачені, коли плата буде налаштована.
 
-2. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE), and [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) parameters to `1`.
+2. Увімкніть плату та встановіть параметри [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) і [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) на `1`.
 
-3. Set all [CAL_ACC\*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_GYRO\*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), [CAL_MAG\*](../advanced_config/parameter_reference.md#CAL_MAG0_ID), and [CAL_BARO\*](../advanced_config/parameter_reference.md#CAL_BARO0_ID) parameters to defaults.
+3. Встановіть всі параметри [CAL_ACC\*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_GYRO\*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), [CAL_MAG\*](../advanced_config/parameter_reference.md#CAL_MAG0_ID), and [CAL_BARO\*](../advanced_config/parameter_reference.md#CAL_BARO0_ID) на значення за замовчуванням.
 
-4. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot.
+4. Установіть для параметра [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) значення 2, щоб увімкнути реєстрацію даних під час завантаження.
 
-5. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for _thermal calibration_ (bit 2) to log the raw sensor data required for calibration.
+5. Установіть прапорець [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) для _термічного калібрування_ (біт 2), щоб зареєструвати необроблені дані датчика, необхідні для калібрування.
 
 6. Охолодіть дошку до мінімальної температури, при якій вона буде потрібна для роботи.
 
@@ -100,19 +100,19 @@ PX4 підтримує два процедури калібрування:
 
 8. Вимкніть живлення та розпакуйте файл .ulog.
 
-9. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script:
+9. Відкрийте вікно терміналу в каталозі **Firmware/Tools** і запустіть сценарій калібрування python:
 
    ```sh
    python process_sensor_caldata.py <full path name to .ulog file>
    ```
 
-   This will generate a **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
+   Буде створено файл **.pdf**, у якому відображатимуться вимірювані дані та підгонка кривої для кожного датчика, а також файл **.params**, що містить параметри калібрування.
 
-10. Power the board, connect _QGroundControl_ and load the parameter from the generated **.params** file onto the board using _QGroundControl_. Відсоток виконання друкується на системній консолі під час калібрування.
+10. Увімкніть плату, підключіть _QGroundControl_ та завантажте параметри зі створеного файлу **.params** на плату за допомогою _QGroundControl_. Відсоток виконання друкується на системній консолі під час калібрування.
 
-11. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
+11. Після завершення завантаження параметрів встановіть для параметра `SDLOG_MODE` значення 1, щоб знову ввімкнути звичайне журналювання та вимкнути живлення.
 
-12. Power the board and perform a normal accelerometer sensor calibration using _QGroundControl_. Важливо, щоб цей крок було виконано, коли плата знаходиться в межах діапазону температури калібрування. Після цього кроку плата повинна бути знову увімкнена перед польотом, оскільки раптові зміни зміщення можуть налякати оцінювач навігації, і деякі параметри не завантажуються алгоритмами, що використовують їх, до наступного запуску.
+12. Увімкніть плату та виконайте звичайне калібрування датчика акселерометра за допомогою _QGroundControl_. Важливо, щоб цей крок було виконано, коли плата знаходиться в межах діапазону температури калібрування. Після цього кроку плата повинна бути знову увімкнена перед польотом, оскільки раптові зміни зміщення можуть налякати оцінювач навігації, і деякі параметри не завантажуються алгоритмами, що використовують їх, до наступного запуску.
 
 <a id="implementation"></a>
 
@@ -132,7 +132,7 @@ PX4 підтримує два процедури калібрування:
 
 ### Зберігання параметрів калібрування
 
-З існуючою реалізацією системи параметрів ми обмежені збереженням кожного значення в структурі як окремого запису. To work around this limitation the following logical naming convention is used for the [thermal compensation parameters](../advanced_config/parameter_reference.md#thermal-compensation):
+З існуючою реалізацією системи параметрів ми обмежені збереженням кожного значення в структурі як окремого запису. Щоб обійти це обмеження, для [параметрів теплової компенсації](../advanced_config/parameter_reference.md#thermal-compensation) використовується така логічна домовленість про найменування:
 
 ```sh
 TC_[type][instance]_[cal_name]_[axis]
@@ -140,7 +140,7 @@ TC_[type][instance]_[cal_name]_[axis]
 
 Де:
 
-- `type`: is a single character indicating the type of sensor where `A` = accelerometer, `G` = rate gyroscope, `M` = magnetometer, and `B` = barometer.
+- `тип`: один символ, що вказує на тип датчика, де `A` = акселерометр, `G` = швидкість гіроскопа, `M` = магнітометр і `B` = барометр.
 
 - `instance`: is an integer 0,1 or 2 allowing for calibration of up to three sensors of the same `type`.
 
