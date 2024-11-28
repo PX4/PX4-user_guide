@@ -12,7 +12,7 @@ These are covered in the following topics:
 - [Geofence](../flying/geofence.md)
 - [Safe Points (Rally)](../flying/plan_safety_points.md)
 - [Prearm/Arm/Disarm Configuration](../advanced_config/prearm_arm_disarm.md)
-- [Flight Termination Configuration](../advanced_config/flight_termination.md)
+- [Конфігурація завершення польоту](../advanced_config/flight_termination.md)
 - [First Flight Guidelines](../flying/first_flight_guidelines.md)
 
 :::tip
