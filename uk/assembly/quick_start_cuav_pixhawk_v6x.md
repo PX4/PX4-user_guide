@@ -32,19 +32,19 @@ This quick start guide shows how to power the [Pixhawk V6X<sup>&reg;</sup>](../f
 ## Передній бампер
 
 :::info
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+Якщо контролер не може бути змонтований у рекомендованому/стандартному положенні (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 :::
 
 ![front](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_02.jpg)
 
-## GPS + Compass + Buzzer + Safety Switch + LED
+## GPS + компас + зумер + захисний вимикач + світлодіод
 
 The Pixhawk<sup>&reg;</sup> V6X can be purchased with a [NEO3 GPS](https://store.cuav.net/shop/neo-3/) (10-pin connector) and should be connected to the **GPS1** port.
 Ці модулі GNSS мають вбудований компас, безпечний перемикач, дзвіночок та світлодіод.
 
-If you need to use assisted GPS, connect to the **GPS2** port.
+Якщо вам потрібно використовувати допоміжний GPS, підключіться до порту **GPS2**.
 
-The GPS/compass should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction markings towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+GPS/компас слід [монтувати на раму](../assembly/mount_gps_compass.md) якомога подалі від інших електронних пристроїв, з напрямком вперед транспортного засобу (відокремлення компаса від інших електронних пристроїв зменшить втручання).
 
 ![GPS](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_03.jpg)
 
@@ -57,12 +57,12 @@ The GPS module's integrated safety switch is enabled _by default_ (when enabled,
 
 ## Радіоуправління
 
-A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+Для того щоб керувати транспортним засобом _вручну_, потрібна система радіоуправління (RC) (PX4 не потребує системи радіоуправління для автономних режимів польоту).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Вам потрібно [вибрати сумісний передавач/приймач](../getting_started/rc_transmitter_receiver.md) і _зв'язати_ їх таким чином, щоб вони взаємодіяли (ознайомтеся з інструкціями, що додаються до вашого конкретного передавача/приймача).
 
-- Spektrum/DSM receivers connect to the **DSM/SBUS** input.
-- PPM receivers connect to the **PPM** input port.
+- Приймачі Spektrum/DSM підключаються до входу **DSM/SBUS**.
+- Приймачі PPM підключаються до вхідного порту **PPM**.
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
@@ -80,12 +80,12 @@ _Pixhawk V6X_ power port receives Dronecan digital signal from CAN PMU lite powe
 
 ## Телеметрійна (радіо) система
 
-[Telemetry radios](../telemetry/index.md) may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+[Телеметричні радіостанції](../telemetry/index.md) можуть використовуватися для зв'язку та управління транспортним засобом у польоті з наземної станції (наприклад, ви можете направляти БПЛА до певної позиції або завантажувати нове завдання).
 
 The vehicle-based radio should be connected to the **TELEM1**/**TELEM2**/**TELEM3** port as shown below (if connected to **TELEM1**, no further configuration is required).
 Інша радіостанція підключається до вашого комп'ютера або мобільного пристрою наземної станції (зазвичай за допомогою USB).
 
-You can also purchase telemetry radios from the [CUAV store](https://store.cuav.net/uav-telemetry-module/).
+Ви також можете придбати телеметричні радіо з [магазину CUAV](https://store.cuav.net/uav-telemetry-module/).
 
 ![Telemetry radios](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_06.jpg)
 
@@ -100,7 +100,7 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 
 ## Мотори/Сервоприводи
 
-Motors/servos are connected to the **M1~M8** (**MAIN**) and **A1~A8** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
+Двигуни/сервоприводи підключаються до портів **M1~M8** (**MAIN**) та **A1~A8** (**AUX**) в порядку, вказаному для вашого транспортного засобу в [Airframe Reference](../airframes/airframe_reference.md).
 
 ![Motors](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_07.jpg)
 
@@ -123,12 +123,12 @@ Pixhawk V6X<sup>&reg;</sup> не подає живлення на сервопр
 ![servo power supply](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_08.jpg)
 
 :::info
-The power rail voltage must be appropriate for the servo being used!
+Напруга шини живлення повинна бути відповідною для використаного сервоприводу!
 :::
 
 ## Інші периферійні пристрої
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Підключення та конфігурація додаткових/менш поширених компонентів описано в темах для окремих [периферійних пристроїв](../peripherals/index.md).
 
 ## Схема розташування виводів
 
@@ -136,14 +136,14 @@ The wiring and configuration of optional/less common components is covered withi
 
 ## Налаштування
 
-General configuration information is covered in: [Autopilot Configuration](../config/index.md).
+Загальну інформацію про конфігурацію описано в: [Конфігурація автопілота](../config/index.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
 ## Подальша інформація
 
-- [CUAV Docs](https://doc.cuav.net/) (CUAV)
-- [Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md) (PX4 Doc Overview page)
+- [Документація CUAV](https://doc.cuav.net/) (CUAV)
+- [Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md) (Сторінка огляду документа PX4)
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
-- [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
-- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)
+- [Стандарт шини автопілота Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
+- [Стандарт Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)
