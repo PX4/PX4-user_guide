@@ -3,7 +3,7 @@
 Цей підручник відповідає на поширені запитання щодо використання алгоритму ECL EKF.
 
 :::tip
-The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the _PX4 Developer Summit 2019_ (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
+Відео [Огляд оцінки стану PX4](https://youtu.be/HkYRJJoyBwQ) з _Саміту розробників PX4 2019_ (доктор Пол Райсборо) надає огляд оцінювача, а також описує як основні зміни з 2018/2019 року, так і очікувані поліпшення до 2020 року.
 :::
 
 ## Що таке ECL EKF?
@@ -21,26 +21,26 @@ The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the
 
 EKF працює зі затримкою 'горизонту злиття часу', щоб дозволити різним затримкам часу для кожного вимірювання відносно ІМП.
 Дані для кожного датчика зберігаються у буфері FIFO та забираються з буфера ЕКФ для використання в потрібний час.
-The delay compensation for each sensor is controlled by the [EKF2\_\*\_DELAY](../advanced_config/parameter_reference.md#ekf2) parameters.
+Компенсація затримки для кожного датчика керується параметрами [EKF2\_\*\_DELAY](../advanced_config/parameter_reference.md#ekf2).
 
 Для передачі станів від "горизонту злиття" до поточного часу використовується доповнювальний фільтр за допомогою буферизованих даних ІМУ.
-The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameters.
+Часова константа цього фільтру контролюється параметрами [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) та [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS).
 
 :::info
-The 'fusion time horizon' delay and length of the buffers is determined by the largest of the `EKF2_*_DELAY` parameters.
+Затримка "горизонту злиття" та довжина буферів визначається найбільшим з параметрів `EKF2_*_DELAY`.
 Якщо датчик не використовується, рекомендується встановити для нього затримку часу на рівні нуля.
 Зменшення затримки "горизонту злиття" зменшує помилки в доповнювальному фільтрі, що використовується для передачі станів до поточного часу.
 :::
 
 Стани положення та швидкості налаштовуються з урахуванням зсуву між IMU та каркасом тіла перед тим, як вони виводяться на контури керування.
-The position of the IMU relative to the body frame is set by the `EKF2_IMU_POS_X,Y,Z` parameters.
+Положення ІМУ відносно тіла задається параметрами `EKF2_IMU_POS_X,Y,Z`.
 
 ЕКФ використовує дані ІМУ лише для передбачення стану. Дані ІМУ не використовуються як спостереження при похідництві ЕКФ.
-The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m).
+Алгебраїчні рівняння для передбачення коваріації, оновлення стану та оновлення коваріації були отримані за допомогою пакету символьних обчислень Matlab і можуть бути знайдені тут: [Matlab Symbolic Derivation](https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m).
 
 ## Запуск одного EKF екземпляра
 
-The _default behaviour_ is to run a single instance of the EKF.
+_Стандартна поведінка_ полягає в тому, щоб запускати один екземпляр ЕКФ.
 У цьому випадку вибір датчиків та аварійне переключення виконуються до того, як дані надходять до EKF.
 Це забезпечує захист від обмеженої кількості несправностей датчиків, таких як втрата даних, але не захищає від ситуацій, коли датчик надає неточні дані, які перевищують можливості ЕКФ та контрольних циклів компенсувати.
 
@@ -58,7 +58,7 @@ The _default behaviour_ is to run a single instance of the EKF.
 Порівнюючи внутрішню узгодженість кожного екземпляра EKF, селектор EKF може визначити комбінацію EKF та датчиків з найкращою узгодженістю даних.
 Це дозволяє виявляти та ізолювати несправності, такі як раптові зміни в зміщенні ІМП, насичення або застрягання даних.
 
-The total number of EKF instances is the product of the number of IMU's and number of magnetometers selected by [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) and [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) and is given by the following formula:
+Загальна кількість екземплярів EKF є добутком кількості ймовірних утиліт та кількості магнітометрів, вибраних за допомогою [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) та [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG), і визначається наступною формулою:
 
 > N_instances = MAX([EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) , 1) x MAX([EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) , 1)
 
@@ -74,42 +74,37 @@ The total number of EKF instances is the product of the number of IMU's and numb
 Під час розробки цієї функції тестування з центральним процесором STM32F7 показало, що 4 екземпляри EKF мають прийнятне навантаження обробки та використання пам'яті.
 
 :::warning
-Ground based testing to check CPU and memory utilisation should be performed before flying.
+Перед польотом необхідно виконати тестування на землі, щоб перевірити використання процесора та пам'яті.
 :::
 
-If [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) >= 3, then the failover time for large rate gyro errors is further reduced because the EKF selector is able to apply a median select strategy for faster isolation of the faulty IMU.
+Якщо [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) >= 3, тоді час аварійного вимкнення для великих помилок гіроскопа подальше знижується, оскільки селектор EKF може застосовувати стратегію медіанного вибору для швидшої ізоляції несправного IMUу.
 
 Налаштування для декількох екземплярів EKF контролюються наступними параметрами:
 
-- [SENS_IMU_MODE](../advanced_config/parameter_reference.md#SENS_IMU_MODE):
-  Set to 0 if running multiple EKF instances with IMU sensor diversity, ie [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) > 1.
+- [SENS_IMU_MODE](../advanced_config/parameter_reference.md#SENS_IMU_MODE): Встановлено на 0, якщо запускаються декілька екземплярів EKF з диверсифікацією датчика ймовірності, тобто [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) > 1.
 
   Коли встановлено на 1 (за замовчуванням для роботи з одним EKF), модуль датчика вибирає дані IMU, що використовуються EKF.
   Це забезпечує захист від втрати даних від датчика, але не захищає від поганих даних датчика.
   Коли встановлено на 0, модуль датчика не робить вибір.
 
-- [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE):
-  Set to 0 if running multiple EKF instances with magnetometer sensor diversity, ie [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) > 1.
+- [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE): Встановіть на 0, якщо використовуєте декілька екземплярів EKF з диверсифікацією магнітного датчика, тобто [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) > 1.
 
   Коли встановлено на 1 (за замовчуванням для роботи з одним EKF), модуль датчика вибирає дані магнітометра, що використовуються EKF.
   Це забезпечує захист від втрати даних від датчика, але не захищає від поганих даних датчика.
   Коли встановлено на 0, модуль датчика не робить вибір.
 
-- [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU):
-  This parameter specifies the number of IMU sensors used by the multiple EKF's.
-  If `EKF2_MULTI_IMU` <= 1, then only the first IMU sensor will be used.
-  When [SENS_IMU_MODE](../advanced_config/parameter_reference.md#SENS_IMU_MODE) = 1, this will be the sensor selected by the sensor module.
-  If `EKF2_MULTI_IMU` >= 2, then a separate EKF instance will run for the specified number of IMU sensors up to the lesser of 4 or the number of IMU's present.
+- [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU): Цей параметр вказує кількість датчиків IMU, що використовуються декількома EKF.
+  Якщо `EKF2_MULTI_IMU` <= 1, то використовуватиметься лише перший датчик IMU.
+  Коли [SENS_IMU_MODE](../advanced_config/parameter_reference.md#SENS_IMU_MODE) = 1, це буде датчик, вибраний модулем датчика.
+  Якщо `EKF2_MULTI_IMU` >= 2, то окремий екземпляр EKF буде працювати для вказаної кількості датчиків IMU до меншої з 4 або кількості присутніх датчиків IMU.
 
-- [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG):
-  This parameter specifies the number of magnetometer sensors used by the multiple EKF's
-  If `EKF2_MULTI_MAG` <= 1, then only the first magnetometer sensor will be used.
+- [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG): Цей параметр вказує кількість датчиків магнітометра, що використовуються декількома EKF. Якщо `EKF2_MULTI_MAG` <= 1, то використовуватиметься лише перший датчик магнітометра.
   When [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE) = 1, this will be the sensor selected by the sensor module.
-  If `EKF2_MULTI_MAG` >= 2, then a separate EKF instance will run for the specified number of magnetometer sensors up to the lesser of 4 or the number of magnetometers present.
+  Коли [SENS_MAG_MODE](../advanced_config/parameter_reference. md#SENS_MAG_MODE) = 1, це буде датчик, вибраний модулем датчика.
 
 :::info
-The recording and [EKF2 replay](../debug/system_wide_replay.md#ekf2-replay) of flight logs with multiple EKF instances is not supported.
-To enable recording for EKF replay you must set the parameters to enable a [single EKF instance](#running-a-single-ekf-instance).
+Запис і відтворення журналів польоту [EKF2 replay](../debug/system_wide_replay.md#ekf2-replay) з декількома екземплярами EKF не підтримується.
+Щоб увімкнути запис для відтворення EKF, ви повинні встановити параметри для увімкнення [одного екземпляра EKF](#running-a-single-ekf-instance).
 :::
 
 ## Які датчики вимірювань він використовує?
@@ -142,11 +137,11 @@ EKF має різні режими роботи, які дозволяють в�
   - Вона передбачає, що навколишнє магнітне поле Землі змінюється повільно і працює менш ефективно, коли є значні зовнішні магнітні аномалії.
   - Це метод, який використовується за замовчуванням, коли транспортний засіб рухається.
 
-The logic used to select these modes is set by the [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) parameter.
+Логіка вибору цих режимів встановлюється параметром [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE).
 The default 'Automatic' mode (`EKF2_MAG_TYPE=0`) is recommended as it uses the more robust magnetometer yaw on the ground, and more accurate 3-axis magnetometer when moving.
 Setting '3-axis' mode all the time (`EKF2_MAG_TYPE=2`) is more error-prone, and requires that all the IMUs are well calibrated.
 
-The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#yaw-measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#yaw-from-gps-velocity).
+Існує можливість працювати без магнітного компасу, або заміни його за допомогою [кута розвороту від подвійного антенного GPS](#yaw-measurements), або використовувати виміри IMU та дані швидкості GPS для [оцінки кута розвороту від руху транспортного засобу](#yaw-from-gps-velocity).
 
 ### Висота
 
@@ -159,12 +154,12 @@ The option is available to operate without a magnetometer, either by replacing i
 Кожне джерело висоти можна ввімкнути/вимкнути за допомогою його окремого параметра керування:
 
 - [GNSS/GPS](#gnss-gps): [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)
-- [Barometer](#barometer): [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL)
-- [Range finder](#range-finder): [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)
-- [External vision](#external-vision-system): Enabled when [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) is set to "Vision"
+- [Барометр](#barometer): [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL)
+- [Далекомір](#range-finder): [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)
+- [Зовнішнє бачення](#external-vision-system): Enabled when [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) is set to "Vision"
 
 Надовгий період часу оцінка висоти слідує «джерелу посилання» даних про висоту.
-This reference is defined by the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter.
+Це посилання визначається параметром [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF).
 
 #### Типові конфігурації
 
@@ -177,39 +172,38 @@ This reference is defined by the [EKF2_HGT_REF](../advanced_config/parameter_ref
 
 ### Барометр
 
-Enable/disable using [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) as a source for [Height](#height) data.
+Увімкнення/вимкнення за допомогою [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) як джерела даних про висоту [Height](#height).
 
 Зверніть увагу, що об'єднуються дані лише з одного барометра, навіть якщо доступно кілька барометрів.
-The barometer with the highest [CAL_BAROx_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO) priority value is selected first, falling back to the next highest priority barometer if a sensor fault is detected.
+Обирається барометр з найвищим пріоритетом [CAL_BAROx_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO), перехід на наступний барометр з найвищим пріоритетом відбувається в разі виявлення несправності датчика.
 Якщо барометри мають рівні найвищі пріоритети, використовується перший виявлений.
-A barometer can be completely disabled as a possible source by setting its `CAL_BAROx_PRIO` value to `0` (disabled).
+Барометр можна повністю вимкнути як можливе джерело, встановивши його значення `CAL_BAROx_PRIO` на `0` (вимкнено).
 
-See [Height](#height) more details about the configuration of height sources.
+[Висоту](#height) для отримання додаткової інформації про конфігурацію джерел висоти. Корекція помилки позиції статичного тиску.
 
 #### Виправлення помилки позиції статичного тиску
 
 Висота за барометром піддається помилкам, що виникають від аеродинамічних перешкод, спричинених вітровою швидкістю та орієнтацією транспортного засобу.
-This is known in aeronautics as _static pressure position error_.
+Це відомо в авіації як _помилка позиції за статичним тиском_.
 Модуль EKF2, який використовує бібліотеку оцінювача ECL/EKF2, надає метод компенсації цих помилок, за умови, що оцінка стану швидкості вітру активна.
 
-For vehicles operating in a fixed-wing mode, wind speed state estimation requires either [Airspeed](#airspeed) and/or [Synthetic Sideslip](#synthetic-sideslip) fusion to be enabled.
+Для транспортних засобів, що працюють у режимі фіксованого крила, оцінка стану швидкості вітру потребує активації злиття [швидкості повітря](#airspeed) та/або [синтетичного бокового ковзання](#synthetic-sideslip).
 
-For multi-rotors, fusion of [Drag Specific Forces](#mc_wind_estimation_using_drag) can be enabled and tuned to provide the required wind velocity state estimates.
+Для багатовертольотів злиття [специфічних сил тяги](#mc_wind_estimation_using_drag) може бути активоване та налаштоване для надання потрібних оцінок стану швидкості вітру.
 
 Модуль EKF2 моделює помилку у вигляді еліпсоїда, що фіксується в тілі, який визначає частку динамічного тиску, що додається до/віднімається від барометричного тиску - перш ніж він перетворюється у висотну оцінку.
 
 Добре налаштування можна отримати таким чином:
 
-1. Fly once in [Position mode](../flight_modes_mc/position.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
+1. Проведіть польоти один раз у режимі позиції [Position mode](../flight_modes_mc/position.md) повторно вперед/назад/ліворуч/праворуч/вгору/вниз між спокоєм і максимальною швидкістю (найкращі результати отримуються, коли цей тест проводиться в спокійних умовах).
 
-2. Extract the `.ulg` log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/log_download.html)
+2. Витягніть `.ulg` файл журналу за допомогою, наприклад, [QGroundControl: Аналізувати > Завантажити журнал](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/log_download.html)
 
-   ::: info
-   The same log file can be used to tune the [multirotor wind estimator](#mc_wind_estimation_using_drag).
+   Той самий файл журналу можна використовувати для налаштування оцінювача вітру багатовертольотника [multirotor wind estimator](#mc_wind_estimation_using_drag).
 
 :::
 
-3. Use the log with the [baro_static_pressure_compensation_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/baro_static_pressure_compensation) Python script to obtain the optimal set of parameters.
+3. Використовуйте журнал зі скриптом Python [baro_static_pressure_compensation_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/baro_static_pressure_compensation), щоб отримати оптимальний набір параметрів.
 
 Параметри налаштування:
 
@@ -231,17 +225,17 @@ For multi-rotors, fusion of [Drag Specific Forces](#mc_wind_estimation_using_dra
 
 Вимірювання GPS використовуватимуться для позиції та швидкості, якщо виконуються такі умови:
 
-- GPS use is enabled via setting of the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter.
+- Використання GPS увімкнено через налаштування параметра [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL).
 - Перевірка якості GPS пройдена.
-  These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters.
+  Ці перевірки контролюються параметрами [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) і `EKF2_REQ_*`.
 
-For more details about the configuration of height sources, [click here](#height).
+Для отримання додаткової інформації про налаштування джерел висоти [натисніть тут](#height).
 
 #### Вимірювання повороту
 
-Some GPS receivers such as the [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) can be used to provide a heading measurement that replaces the use of magnetometer data.
+Деякі приймачі GPS, такі як приймач GPS з системою [Trimble MB-Two RTK](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx), можуть використовуватися для надання вимірювання кута курсу, що замінює використання даних магнітометра.
 Це може бути значним перевагою при роботі в середовищі, де присутні великі магнітні аномалії, або на широтах, де магнітне поле Землі має високий нахил.
-Use of GPS yaw measurements is enabled by setting bit position 3 to 1 (adding 8) in the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter.
+Використання вимірювань курсу від GPS увімкнено, встановивши біт на позиції 3 на 1 (додаючи 8) у параметрі [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL).
 
 #### Кут курсу від швидкості GPS
 
@@ -249,7 +243,7 @@ EKF запускає додатковий фільтр багатьох гіпо
 Ці індивідуальні оцінки кута курсу потім об'єднуються за допомогою фільтра гаусової суми (GSF).
 Індивідуальні 3-станові EKF використовують дані IMU та горизонтальної швидкості GPS (плюс необов'язкові дані про швидкість повітря), і не покладаються на жодні попередні знання про кут курсу або вимірювання магнітометра.
 Це надає резервний кут курсу для основного фільтра і використовується для скидання кута курсу для основного EKF 24-станцій, коли після зльоту втрачається навігація, що призводить до того, що оцінка кута курсу від магнітометра є поганою.
-This will result in an `Emergency yaw reset - magnetometer use stopped` message information message at the GCS.
+Це призведе до повідомлення про `аварійне скидання кута курсу - зупинка використання магнітометра` на інформаційному повідомленні в GCS.
 
 Data from this estimator is logged when ekf2 replay logging is enabled and can be viewed in the `yaw_estimator_status` message.
 The individual yaw estimates from the individual 3-state EKF yaw estimators are in the `yaw` fields.
@@ -259,41 +253,41 @@ The variance for the GSF yaw estimate is in the `yaw_variance` field.
 Weightings applied by the GSF to the individual 3-state EKF outputs are in the`weight` fields.
 
 Це також робить можливим роботу без даних магнітометра або приймача GPS з подвійною антеною для кута курсу, наданий достатній горизонтальний рух після зльоту, щоб зробити кут курсу спостережним.
-To use this feature, set [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) to `none` (5) to disable magnetometer use.
+Для використання цієї функції встановіть [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) на `none` (5), щоб вимкнути використання магнітометра.
 Як тільки транспортний засіб виконає достатньо горизонтального руху, щоб зробити кут спостережним, головний EKF з 24 станами вирівняє свій курс на оцінку GSF та розпочне використання GPS.
 
 #### Подвійні приймачі
 
 Дані з приймачів GPS можуть бути змішані за допомогою алгоритму, який вагує дані на основі звітної точності (це працює найкраще, якщо обидва приймачі виводять дані з однаковою частотою та використовують однакову точність).
 Механізм також забезпечує автоматичний перехід на резервний варіант, якщо дані від приймача втрачаються (це дозволяє, наприклад, використовувати стандартний GPS як резервний варіант для більш точного приймача RTK).
-This is controlled by the [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) parameter.
+Це контролюється параметром [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK).
 
-The [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) parameter is set by default to disable blending and always use the first receiver, so it will have to be set to select which receiver accuracy metrics are used to decide how much each receiver output contributes to the blended solution.
-Where different receiver models are used, it is important that the [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) parameter is set to a value that uses accuracy metrics that are supported by both receivers.
-For example do not set bit position 0 to `true` unless the drivers for both receivers publish values in the `s_variance_m_s` field of the `vehicle_gps_position` message that are comparable.
+Параметр [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) за замовчуванням встановлений для вимкнення змішування і завжди використовує перший приймач, тому його потрібно встановити, щоб вибрати, які метрики точності приймача використовуються для визначення внеску кожного виходу приймача в змішане рішення.
+У випадку використання різних моделей приймачів важливо, щоб параметр [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) був встановлений на значення, яке використовує метрики точності, які підтримуються обома приймачами.
+Наприклад, не встановлюйте позицію біта 0 в значення `true`, якщо драйвери для обох приймачів не публікують значення у полі `s_variance_m_s` повідомлення `vehicle_gps_position`, які можна порівняти.
 Це може бути складним з приймачами від різних виробників через різний спосіб визначення точності, наприклад, CEP проти 1-сигма і т.д.
 
 Наступні елементи слід перевірити під час налаштування:
 
 - Перевірте, що дані для другого приймача присутні.
-  This will be logged as `vehicle_gps_position_1` and can also be checked when connected via the _nsh console_ using the command `listener vehicle_gps_position -i 1`.
-  The [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter will need to be set correctly.
-- Check the `s_variance_m_s`, `eph` and `epv` data from each receiver and decide which accuracy metrics can be used.
-  If both receivers output sensible `s_variance_m_s` and `eph` data, and GPS vertical position is not being used directly for navigation, then setting [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 3 is recommended.
-  Where only `eph` data is available and both receivers do not output `s_variance_m_s` data, set [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 2.
-  Bit position 2 would only be set if the GPS had been selected as the reference height source with the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter and both receivers output sensible `epv` data.
-- The output from the blended receiver data is logged as `ekf_gps_position`, and can be checked whilst connect via the nsh terminal using the command `listener ekf_gps_position`.
+  Буде зареєстровано як `vehicle_gps_position_1` і також може бути перевірено під час підключення через _консоль nsh_ за допомогою команди `listener vehicle_gps_position -i 1`.
+  Параметр [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) повинен бути встановлений правильно.
+- Перевірте дані `s_variance_m_s`, `eph` і `epv` від кожного приймача та вирішіть, які показники точності можна використовувати.
+  Якщо обидва приймачі видають зрозумілі дані `s_variance_m_s` та `eph`, і вертикальна позиція GPS не використовується безпосередньо для навігації, то рекомендується встановити [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) на 3.
+  Якщо доступні лише дані `eph` і обидва приймачі не виводять дані `s_variance_m_s`, встановіть [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) на.
+  Позиція біта 2 буде встановлена, лише якщо GPS було вибрано як джерело опорної висоти за допомогою параметра [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) і обидва приймачі видають чутливі дані `epv`.
+- Дані з змішаного приймача реєструються як `ekf_gps_position` і можуть бути перевірені під час підключення через термінал nsh за допомогою команди слухача `ekf_gps_position`.
 - У випадку, якщо приймачі видають дані на різних швидкостях, вихідне змішане значення буде відповідати швидкості повільнішого приймача.
   Де це можливо, приймачі повинні бути налаштовані на видачу даних з однаковою швидкістю.
 
 #### Вимоги до продуктивності GNSS
 
-For the ECL to accept GNSS data for navigation, certain minimum requirements need to be satisfied over a period of time, defined by [EKF2_REQ_GPS_H](../advanced_config/parameter_reference.md#EKF2_REQ_GPS_H) (10 seconds by default).
+Для того щоб ECL приймав дані GNSS для навігації, необхідно, щоб певні мінімальні вимоги були виконані протягом певного часу, визначеного параметром [EKF2_REQ_GPS_H](../advanced_config/parameter_reference.md#EKF2_REQ_GPS_H) (за замовчуванням 10 секунд).
 
-Minima are defined in the [EKF2_REQ_\*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) parameters and each check can be enabled/disabled using the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) parameter.
+Мінімуми визначаються у параметрах [EKF2_REQ_\*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH), і кожна перевірка може бути увімкнена/вимкнена за допомогою параметра [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK).
 
 Нижче наведена таблиця, яка показує різні метри, які безпосередньо повідомляються або обчислюються на основі даних GNSS, а також мінімальні значення, необхідні для того, щоб ці дані використовувалися ECL.
-In addition, the _Average Value_ column shows typical values that might reasonably be obtained from a standard GNSS module (e.g. u-blox M8 series) - i.e. values that are considered good/acceptable.
+Крім того, стовпчик _Середнє значення_ показує типові значення, які можуть бути розумними для отримання зі стандартного модуля GNSS (наприклад, серія u-blox M8) - тобто значення, які вважаються хорошими/прийнятними.
 
 | Метрика               | Мінімальна вимога                                                                                                                                                                                                       | Середнє значення     | Units | Примітки                                                                                                                                                                                                                                                                                        |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -309,64 +303,62 @@ In addition, the _Average Value_ column shows typical values that might reasonab
 | vspd                  | <&amp;nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s   | Фільтрована величина звітної вертикальної швидкості GNSS.                                                                                                                                                                                                                       |
 
 :::info
-The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic.
-Note that `ekf2_gps_drift` is not logged!
+Параметри `hpos_drift_rate`, `vpos_drift_rate` та `hspd` обчислюються протягом 10 секунд і публікуються у темі `ekf2_gps_drift`.
+Зверніть увагу, що `ekf2_gps_drift` не зафіксовано!
 :::
 
 ### Далекомір
 
 [Range finder](../sensor/rangefinders.md) distance to ground is used by a single state filter to estimate the vertical position of the terrain relative to the height datum.
 
-The fusion modes of operation are controlled by [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL):
+Режими злиття керуються [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL):
 
-1. [Conditional range aiding](#conditional-range-aiding)
-2. [Range height fusion](#range-height-fusion)
+1. [Умовна допомога зондування](#conditional-range-aiding)
+2. [Об'єднання висоти дальності](#range-height-fusion)
 
-For more details about the configuration of height sources, [click here](#height).
+Для отримання додаткової інформації про налаштування джерел висоти [натисніть тут](#height).
 
 #### Умовна допомога зондування
 
-Умовне об'єднання датчика дальності (також відоме як. _Conditional range aid_) activates the range finder fusion for height estimation during low speed/low altitude operation (in addition to the other active height sources).
-If the range finder is set as the reference height source (using [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)), the other active height sources such as baro and GNSS altitude will adjust their measurement to match the readings of the range finder over time.
+Умовне об'єднання датчика дальності (також відоме як. _Умовна допомога зони діапазону_) активує злиття відомостей дальномера для оцінки висоти під час операцій з низькою швидкістю/низькою висотою (додатково до інших активних джерел висоти).
+Якщо дальномер встановлено як джерело висоти за замовчуванням (використовуючи [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)), інші активні джерела висоти, такі як барометр та висота ГНСС, з часом коригуватимуть свої вимірювання, щоб відповідати показам дальномера.
 Коли умови не виконані для початку допомоги діапазону, автоматично обирається вторинне джерело.
 
 :::info
-Switching between height references causes the absolute altitude estimate to drift over time.
+Перемикання між джерелами висоти призводить до поступового відхилення оцінки абсолютної висоти з плином часу.
 Це не проблема при польоті в режимі позиції, але може стати проблемою, якщо дрон має летіти місію на конкретній висоті за ГНСС.
 Якщо небажане відхилення абсолютної висоти, рекомендується встановити висоту за ГНСС як джерело висоти, навіть при використанні умовної допомоги діапазону.
 :::
 
-It is primarily intended for _takeoff and landing_, in cases where the barometer setup is such that interference from rotor wash is excessive and can corrupt EKF state estimates.
+Це передбачено переважно для _зльоту та посадки_, у випадках, коли налаштування барометра таке, що втручання від струменя повітря від лопастей відбувається в надмірній мірі та може спотворити оцінки стану EKF.
 
 Допомога діапазону також може використовуватися для поліпшення утримання висоти, коли транспортний засіб зупинений.
 
 :::tip
-[Terrain Hold](../flying/terrain_following_holding.md#terrain_hold) is recommended over _Range Aid_ for terrain holding.
+[Утримання за допомогою рельєфу](../flying/terrain_following_holding.md#terrain_hold) рекомендується перед _Допомогою діапазону_ для утримання на рельєфі.
 Це через те, що утримання за допомогою рельєфу використовує звичайний оцінювач ECL/EKF для визначення висоти, і це загалом надійніше, ніж датчик відстані в більшості умов.
 :::
 
-_Conditional range aid_ is enabled by setting [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) = "Enabled (conditional mode)" (1).
+_Умовна допомога діапазону_ включається шляхом встановлення [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) = "Увімкнено (умовний режим)" (1).
 
-It is further configured using the `EKF2_RNG_A_` parameters:
+Вона додатково налаштовується за допомогою параметрів `EKF2_RNG_A_`:
 
-- [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX): Maximum horizontal speed, above which range aid is disabled.
-- [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX): Maximum height, above which range aid is disabled.
-- [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Range aid consistency checks "gate" (a measure of the error before range aid is disabled).
+- [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX): Максимальна горизонтальна швидкість, при перевищенні якої відключається допомога датчика дальності.
+- [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX): Максимальна висота, при перевищенні якої відключається допомога датчика дальності.
+- [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Ворота перевірки узгодженості допомоги датчика дальності (вимірювання помилки до відключення допомоги датчика дальності).
 
 #### Об'єднання висоти дальності
 
 PX4 дозволяє постійно об'єднувати дальномер як джерело висоти (у будь-якому режимі польоту/типі транспортного засобу).
-This may be useful for applications when the vehicle is _guaranteed_ to only fly over a near-flat surface (e.g. indoors).
+Це може бути корисно для застосунків, коли транспортний засіб гарантовано летить лише над майже плоскою поверхнею (наприклад, у приміщенні).
 
 При використанні датчика відстані як джерела висоти, літакам слід бути уважними:
 
 - Перельот над перешкодами може призвести до відкидання даних дальномера оцінювачем (через внутрішні перевірки консистентності даних), що може призвести до поганого утримання висоти в той час, коли оцінювач базується виключно на оцінках акселерометра.
 
-  ::: info
-  This scenario might occur when a vehicle ascends a slope at a near-constant height above ground, because the rangefinder altitude does not change while that estimated from the accelerometer does.
+  Цей сценарій може статися, коли транспортний засіб піднімається на схилі майже на постійній висоті над землею, оскільки висота, виміряна дальномером, не змінюється, тоді як та, яка визначається за допомогою акселерометра, змінюється.
   ЕКФ виконує перевірки консистентності інновацій, які враховують помилку між виміром і поточним станом, а також оцінену дисперсію стану і дисперсію самого вимірювання.
-  If the checks fail the rangefinder data will be rejected, and the altitude will be estimated from the accelerometer and the other selected height sources (GNSS, baro, vision), if enabled and available
-  After 5 seconds of inconsistent data if the distance sensor is the active source oh height data, the estimator resets the height state to match the current distance sensor data.
+  Якщо перевірки не вдаються, дані дальномера будуть відхилені, і висота буде оцінена за допомогою акселерометра та інших обраних джерел висоти (ГНСС, баро, візія), якщо вони включені та доступні Після 5 секунд неузгоджених даних, якщо датчик відстані є активним джерелом висотних даних, оцінювач скидає стан висоти для відповідності поточним даним дальномера.
   Якщо одне або кілька інших джерел висоти активні, дальномер визнається несправним, і оцінювач продовжує оцінювати висоту за допомогою інших датчиків.
   Вимірювання також можуть стати знову узгодженими, наприклад, якщо транспортний засіб спускається, або якщо оцінена висота дрейфує для відповідності виміряній висоті дальномера.
 
@@ -377,11 +369,11 @@ This may be useful for applications when the vehicle is _guaranteed_ to only fly
 - Продуктивність дальномера над нерівними поверхнями (наприклад, деревами) може бути дуже низькою, що призводить до шумних і неузгоджених даних.
   Це знову призводить до поганого утримання висоти.
 
-The feature is enabled by setting [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) to "Enabled" (2).
-To make the range finder the height reference when active, set: [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) to "Range sensor".
+Функцію можна ввімкнути, установивши для [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) значення «Увімкнено» (2).
+Щоб зробити далекомір орієнтиром висоти, коли він активний, установіть для параметра [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) значення «Датчик дальності».
 
 :::tip
-To enable the range finder fusion only when the drone is stationary (in order to benefit from a better altitude estimate during takeoff and landing) but not fuse the range finder the rest of the time, use the [conditional mode](#conditional-range-aiding) (1) of [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL).
+Для того щоб увімкнути злиття дальномера тільки тоді, коли дрон знаходиться у спокої (для отримання кращої оцінки висоти під час зльоту та посадки), але не злити дальномер решту часу, скористайтеся [умовним режимом](#conditional-range-aiding) (1) параметру [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL).
 :::
 
 #### Виявлення перешкод далекоміром
@@ -401,59 +393,59 @@ To enable the range finder fusion only when the drone is stationary (in order to
 
 ### Швидкість повітря
 
-Equivalent Airspeed (EAS) data can be used to estimate wind velocity and reduce drift when GPS is lost by setting [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) to a positive value.
-Airspeed data will be used when it exceeds the threshold set by a positive value for [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) and the vehicle type is not rotary wing.
+Дані про еквівалентну повітряну швидкість (EAS) можуть бути використані для оцінки швидкості вітру та зменшення дрейфу, коли втрачений сигнал GPS, встановивши значення [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) на позитивне значення.
+Дані про повітряну швидкість будуть використані, коли вони перевищать поріг, встановлений позитивним значенням для [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR), і тип транспортного засобу не є вертольотом.
 
 ### Синтетичний боковий кут нахилу
 
 Фіксованокрилі платформи можуть скористатися припущеною спостереженням дрейфу нульовим, щоб поліпшити оцінку швидкості вітру і також включити оцінку швидкості вітру без датчика повітряної швидкості.
-This is enabled by setting the [EKF2_FUSE_BETA](../advanced_config/parameter_reference.md#EKF2_FUSE_BETA) parameter to 1.
+Це вмикається, встановивши параметр [EKF2_FUSE_BETA](../advanced_config/parameter_reference.md#EKF2_FUSE_BETA) на значення 1.
 
 <a id="mc_wind_estimation_using_drag"></a>
 
 ### Оцінка вітру багатовертольотників за допомогою специфічних сил опору
 
 Багатороторні платформи можуть скористатися взаємозв'язком між повітряною швидкістю та силою опору вздовж осей тіла X та Y для оцінки північної / східної складових швидкості вітру.
-This can be enabled using [EKF2_DRAG_CTRL](../advanced_config/parameter_reference.md#EKF2_DRAG_CTRL).
+Це можна ввімкнути, використовуючи параметр [EKF2_DRAG_CTRL](../advanced_config/parameter_reference.md#EKF2_DRAG_CTRL).
 
-The relationship between airspeed and specific force (IMU accelerometer measurements) along the X and Y body axes is controlled by the [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X), [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) and [EKF2_MCOEF](../advanced_config/parameter_reference.md#EKF2_MCOEF) parameters which set the ballistic coefficients for flight in the X and Y directions, and the momentum drag produced by the propellers, respectively.
-The amount of specific force observation noise is set by the [EKF2_DRAG_NOISE](../advanced_config/parameter_reference.md#EKF2_DRAG_NOISE) parameter.
+Взаємозв'язок між повітряною швидкістю та конкретною силою (виміри прискорення ІМП) вздовж осей тіла X та Y контролюється параметрами [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X), [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) та [EKF2_MCOEF](../advanced_config/parameter_reference.md#EKF2_MCOEF), які встановлюють коефіцієнти балістики для польоту в напрямку X та Y та коефіцієнт ковзання, що виникає від пропелерів, відповідно.
+Кількість шуму спостереження конкретної сили встановлюється параметром [EKF2_DRAG_NOISE](../advanced_config/parameter_reference.md#EKF2_DRAG_NOISE).
 
 Добре налаштування можна отримати таким чином:
 
-1. Fly once in [Position mode](../flight_modes_mc/position.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
+1. Проведіть польоти один раз у режимі позиції [Position mode](../flight_modes_mc/position.md) повторно вперед/назад/ліворуч/праворуч/вгору/вниз між спокоєм і максимальною швидкістю (найкращі результати отримуються, коли цей тест проводиться в спокійних умовах).
 2. Extract the **.ulg** log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/log_download.html)
    ::: info
    The same **.ulg** log file can also be used to tune the [static pressure position error coefficients](#correction-for-static-pressure-position-error).
 
 :::
-3. Use the log with the [mc_wind_estimator_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/mc_wind_estimator) Python script to obtain the optimal set of parameters.
+3. Використовуйте журнал зі сценарієм Python [mc_wind_estimator_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/mc_wind_estimator), щоб отримати оптимальний набір параметрів.
 
 ### Оптичний потік(Optical Flow)
 
-[Optical flow](../sensor/optical_flow.md) data will be used if the following conditions are met:
+Дані [оптичного потоку](../sensor/optical_flow.md) використовуватимуться, якщо виконуються такі умови:
 
 - Доступні дані дальномера відповідно до умов.
-- [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL) is set.
-- The quality metric returned by the flow sensor is greater than the minimum requirement set by the [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) parameter.
+- [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL) встановлено.
+- Якість метрики, поверненої датчиком потоку, більше мінімальних вимог, встановлених параметром [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN).
 
 ### Зовнішня система бачення
 
 Дані про положення, швидкість або орієнтацію від зовнішньої системи бачення, наприклад, Vicon, можуть бути використані.
 
-The measurements that are fused are configured by setting the appropriate bits of [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) to `true`:
+Змірювання, які об'єднуються, налаштовані, встановивши відповідні біти [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) на `true`:
 
 - 0: Дані горизонтальної позиції
-- `1`: Vertical position data.
-  Height sources may additionally be configured using [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) (see section [Height](#height)).
+- `1`: Дані про вертикальне положення.
+  Джерела висоти можуть бути додатково налаштовані за допомогою [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) (див. розділ [Висота](#height)).
 - 2: Дані швидкості
 - 3: Дані кута yaw
 
 Зверніть увагу, що якщо використовуються дані про курс (біт 3), напрямок відносно зовнішнього візуального кадру; в іншому випадку напрямок відносно північного.
 
 EKF враховує невизначеність в оцінці візуального положення.
-This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE).
-You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
+Цю інформацію про невизначеність можна відправити через поля коваріації в повідомленні MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) або встановити через параметри [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) та [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE).
+Ви можете вибрати джерело невизначеності з [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
 
 ## Як використовувати бібліотеку EKF "ecl"?
 
@@ -464,7 +456,7 @@ EKF2 is enabled by default (for more information see [Switching State Estimators
 Як і всі оцінювачі, більша частина продуктивності забезпечується налаштуванням відповідно до характеристик датчика.
 Настройка - це компроміс між точністю і надійністю, і хоча ми намагалися надати настройку, яка задовольняє потреби більшості користувачів, будуть випадки, коли потрібні зміни налаштувань.
 
-For this reason, no claims for accuracy relative to the legacy combination of `attitude_estimator_q` + `local_position_estimator` have been made and the best choice of estimator will depend on the application and tuning.
+З цієї причини не висуваються претензії на точність в порівнянні з традиційною комбінацією `attitude_estimator_q` + `local_position_estimator`, і найкращий вибір оцінювача буде залежати від застосування і налаштування.
 
 ### Недоліки
 
@@ -489,25 +481,25 @@ For this reason, no claims for accuracy relative to the legacy combination of `a
 The following guide assumes that data has been logged using the _.ulog file format_.
 The **.ulog** format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
 
-Most of the EKF data is found in the [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg) and [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) uORB messages that are logged to the .ulog file.
+Більшість даних ЕКІ знаходиться у повідомленнях uORB [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg) та [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg), які реєструються в файлі .ulog.
 
-A python script that automatically generates analysis plots and metadata can be found [here](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/process_logdata_ekf.py).
-To use this script file, cd to the `Tools/ecl_ekf` directory and enter `python process_logdata_ekf.py <log_file.ulg>`.
-This saves performance metadata in a csv file named **<log_file>.mdat.csv** and plots in a pdf file named `<log_file>.pdf`.
+Сценарій Python, який автоматично генерує аналітичні графіки та метадані, можна знайти [тут](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/process_logdata_ekf.py).
+Щоб використати цей файл сценарію, перейдіть до каталогу `Tools/ecl_ekf` і введіть `python process_logdata_ekf.py <log_file.ulg>`.
+Це зберігає метадані продуктивності у файлі Csv під назвою **<log_file>.mdat.csv** і малюнки у файлі Pdf під назвою `<log_file>.pdf`.
 
-Multiple log files in a directory can be analysed using the [batch_process_logdata_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/batch_process_logdata_ekf.py) script.
-When this has been done, the performance metadata files can be processed to provide a statistical assessment of the estimator performance across the population of logs using the [batch_process_metadata_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/batch_process_metadata_ekf.py) script.
+Кілька файлів журналу в каталозі можна проаналізувати за допомогою сценарію [batch_process_logdata_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/batch_process_logdata_ekf.py).
+Коли це вже зроблено, файли метаданих про продуктивність можна обробити, щоб надати статистичну оцінку продуктивності оцінювача по всій популяції журналів, використовуючи сценарій [batch_process_metadata_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/batch_process_metadata_ekf.py).
 
 ### Вихідні дані
 
-- Attitude output data is found in the [VehicleAttitude](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitude.msg) message.
-- Local position output data is found in the [VehicleLocalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPosition.msg) message.
-- Global \(WGS-84\) output data is found in the [VehicleGlobalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleGlobalPosition.msg) message.
-- Wind velocity output data is found in the [Wind.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Wind.msg) message.
+- Вихідні дані Attitude містяться в повідомленні [VehicleAttitude](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitude.msg).
+- Вихідні дані про локальне положення знаходяться в повідомленні [VehicleLocalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPosition.msg).
+- Глобальні вихідні дані \(WGS-84\) містяться в повідомленні [VehicleGlobalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleGlobalPosition.msg).
+- Вихідні дані про швидкість вітру містяться в повідомленні [Wind.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Wind.msg).
 
 ### Стани
 
-Refer to states\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg).
+Зверніться до станів\[24\] у [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg).
 Індексна карта для станів\[24\] така:
 
 - \[0 ... 3\] Quaternions
@@ -637,7 +629,7 @@ For a binary pass/fail summary for each sensor, refer to innovation_check_flags 
 ### Перевірка якості GPS
 
 EKF проводить кілька перевірок якості GPS перед початком допомоги GPS.
-These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters.
+Ці перевірки контролюються параметрами [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) і `EKF2_REQ_*`.
 The pass/fail status for these checks is logged in the [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).gps_check_fail_flags message.
 Це ціле число буде рівне нулю, коли всі необхідні перевірки GPS будуть пройдені.
 If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition `gps_check_fail_flags` in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
