@@ -36,14 +36,14 @@ _Durandal_ should be mounted on the frame positioned as close to your vehicle’
 
 ![Mounting/Orientation](../../assets/flight_controller/durandal/orientation.jpg)
 
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+Якщо контролер не може бути змонтований у рекомендованому/стандартному положенні (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 
 :::tip
 The board has internal vibration-isolation.
 Не використовуйте віброізоляційну пінку для монтажу контролера (подвійна стрічка на клейовій основі зазвичай достатня).
 :::
 
-## GPS + Compass + Buzzer + Safety Switch + LED
+## GPS + компас + зумер + захисний вимикач + світлодіод
 
 Durandal is designed to work well with the _Pixhawk 4 GPS module_, which has an integrated compass, safety switch, buzzer and LED.
 It connects directly to the [GPS port](../flight_controller/durandal.md#gps) using the 10 pin cable.
@@ -133,9 +133,9 @@ You will not need to update the _voltage divider_ unless you are using some othe
 
 ## Радіоуправління
 
-A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+Для того щоб керувати транспортним засобом _вручну_, потрібна система радіоуправління (RC) (PX4 не потребує системи радіоуправління для автономних режимів польоту).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Вам потрібно [вибрати сумісний передавач/приймач](../getting_started/rc_transmitter_receiver.md) і _зв'язати_ їх таким чином, щоб вони взаємодіяли (ознайомтеся з інструкціями, що додаються до вашого конкретного передавача/приймача).
 
 The instructions below show how to connect the different types of receivers to _Durandal_:
 
@@ -189,7 +189,7 @@ _Durandal_ has 5 AUX ports, so cannot be used with airframes that map AUX6, AUX7
 
 ## Інші периферійні пристрої
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Підключення та конфігурація додаткових/менш поширених компонентів описано в темах для окремих [периферійних пристроїв](../peripherals/index.md).
 
 ## Схема розташування виводів
 
