@@ -5,11 +5,11 @@
 Ця тема пояснює, як компенсувати виниклі магнітні поля у випадках, коли переміщення компасу нереалістичне.
 
 :::tip
-Moving the compass away from power-carrying cables is the easiest and most effective way to fix this issue, because the strength of the magnetic fields decreases quadratically with the distance from the cable.
+Переміщення компасу подалі від кабелів, що переносять потужність, є найпростішим і найефективнішим способом вирішення цієї проблеми, оскільки сила магнітних полів зменшується квадратично з відстані від кабелю.
 :::
 
 :::info
-The process is demonstrated for a multicopter, but is equally valid for other vehicle types.
+Процес продемонстрований для багатороторного вертольота, але є так само ефективним для інших типів транспортних засобів.
 :::
 
 <a id="when"></a>
@@ -32,29 +32,28 @@ The process is demonstrated for a multicopter, but is equally valid for other ve
 
 1. Переконайтеся, що ваш дрон працює на версії прошивки, що підтримує компенсацію потужності (поточний майстер або версії від v.1.11.0).
 
-2. Perform the [standard compass calibration](../config/compass.md#compass-calibration).
+2. Виконайте [стандартну калібрування компасу](../config/compass.md#compass-calibration).
 
-3. Set the parameter [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) to 2 to enable logging of data from boot.
+3. Встановіть параметр [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) на 2, щоб увімкнути журналювання даних після завантаження.
 
-4. Set the parameter [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for _Sensor comparison_ (bit 6) to get more data points.
+4. Встановіть прапорець параметра [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) для _Порівняння датчиків_ (біт 6), щоб отримати більше точок даних.
 
 5. Закріпіть дрон таким чином, щоб він не міг рухатися, та прикріпіть пропелери (щоб двигуни могли витягувати такий самий струм, як у повітрі).
    У цьому прикладі транспортний засіб закріплюється за допомогою ременів.
 
    ![strap](../../assets/advanced_config/strap.png)
 
-6. Power the vehicle and switch into [ACRO flight mode](../flight_modes_mc/acro.md) (using this mode ensures the vehicle won't attempt to compensate for movement resulting from the straps).
+6. Увімкніть живлення транспортного засобу та переключіться у режим польоту [ACRO](../flight_modes_mc/acro.md) (використання цього режиму забезпечує, що транспортний засіб не намагатиметься компенсувати рух, що виникає від ременів).
 
    - Збройте транспортний засіб і повільно підніміть оберти двигунів до максимуму.
    - Повільно знизьте швидкість обертання двигунів до нуля.
    - Звільнити автомобіль
 
-   ::: info
-   Perform the test carefully and closely monitor the vibrations.
+   Проведіть тест обережно і уважно моніторте вібрації.
 
 :::
 
-7. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
+7. Отримайте ulog та скористайтеся Python-скриптом [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py), щоб ідентифікувати параметри компенсації.
 
    ```sh
    python mag_compensation.py ~/path/to/log/logfile.ulg <type> [--instance <number>]
@@ -65,8 +64,7 @@ The process is demonstrated for a multicopter, but is equally valid for other ve
    - `<type>`: `current` or `thrust` (power signal used for compensation)
    - `--instance <number>` (optional): The number is `0` (default) or `1`, the instance of the current or thrust signal to use.
 
-   ::: info
-   If your log does not contain battery current measurements, you will need to comment out the respective lines in the Python script, such that it does the calculation for thrust only.
+   Якщо ваш журнал не містить вимірювань поточного заряду батареї, вам потрібно закоментувати відповідні рядки у Python-скрипті, щоб він робив розрахунок тільки для тяги.
 
 :::
 
@@ -77,7 +75,7 @@ The process is demonstrated for a multicopter, but is equally valid for other ve
 
    ![line fit](../../assets/advanced_config/line_fit.png)
 
-9. Once the parameters are identified, the power compensation must be enabled by setting [CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP) to 1 (when using thrust parameters) or 2 (when using current parameters).
+9. Після ідентифікації параметрів, компенсацію потужності потрібно ввімкнути, встановивши [CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP) на значення 1 (при використанні параметрів тяги) або 2 (при використанні параметрів струму).
    Додатково, параметри компенсації для кожної вісі кожного компасу повинні бути встановлені.
 
    ![comp params](../../assets/advanced_config/comp_params.png)
