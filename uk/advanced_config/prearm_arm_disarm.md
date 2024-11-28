@@ -4,56 +4,55 @@
 
 Для зменшення ймовірності аварій, PX4 має явні стани для включення компонентів транспортного засобу:
 
-- **Disarmed:** There is no power to motors or actuators.
-- **Pre-armed:** Motors/propellers are locked but actuators for non-dangerous electronics are powered (e.g. ailerons, flaps etc.).
-- **Armed:** Vehicle is fully powered. Двигуни/пропелери можуть обертатися (небезпечно!)
+- **Вимкнено:** Немає живлення для моторів або приводів.
+- **Передпускний стан:** Мотори/пропелери заблоковані, але приводи для не небезпечної електроніки живлені (наприклад, елерони, закрилки і т. д.).
+- **Озброєно:** Транспортний засіб повністю увімкнено. Двигуни/пропелери можуть обертатися (небезпечно!)
 
 :::info
-Ground stations may display _disarmed_ for pre-armed vehicles.
+Наземні станції можуть відображати _вимкнено_ для транспортних засобів у режимі передпуску.
 Хоча це не є технічно правильним для транспортних засобів у режимі передпуску, це "безпечно".
 :::
 
-Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) on the vehicle (optional) _and_ an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures), or _MAVLink command_ on the ground controller:
+Користувачі можуть керувати переходом між цими станами, використовуючи [захисний перемикач](../getting_started/px4_basic_concepts.md#safety-switch) на транспортному засобі (за бажанням) _та_ перемикач/кнопку [озброєння](#arm_disarm_switch), [жест озброєння](#arm_disarm_gestures) або _команду MAVLink_ на наземному контролері:
 
-- A _safety switch_ is a control _on the vehicle_ that must be engaged before the vehicle can be armed, and which may also prevent prearming (depending on the configuration).
+- _Захисний перемикач_ - це керування _на транспортному засобі_, яке повинно бути увімкнене перед озброєнням транспортного засобу, і яке може також запобігати передпуску (в залежності від конфігурації).
   Зазвичай захисний перемикач інтегровано у блок GPS, але він також може бути окремим фізичним компонентом.
 
-  :::warning
-  A vehicle that is armed is potentially dangerous.
+  Транспортний засіб, який озброєний, потенційно небезпечний.
   Захисний перемикач - це додатковий механізм, який запобігає випадковому озброєнню.
 
 :::
 
-- An _arming switch_ is a switch or button _on an RC controller_ that can be used to arm the vehicle and start motors (provided arming is not prevented by a safety switch).
+- Перемикач _озброєння_ - це перемикач або кнопка _на пульті керування RC_, який може бути використаний для озброєння транспортного засобу та запуску моторів (якщо озброєння не заборонене захисним перемикачем).
 
-- An _arming gesture_ is a stick movement _on an RC controller_ that can be used as an alternative to an arming switch.
+- Жест озброєння - це рух педалей _на пульті керування RC_, який може бути використаний як альтернатива перемикачу озброєння.
 
 - Команди MAVLink також можуть бути відправлені наземною станцією управління для озброєння/вимкнення транспортного засобу.
 
 PX4 також автоматично вимикає транспортний засіб, якщо він не злітає протягом певного часу після озброєння, і якщо він не вимикається вручну після посадки.
 Це зменшує час, коли на землі знаходиться озброєний (і, отже, небезпечний) транспортний засіб.
 
-PX4 allows you to configure how pre-arming, arming and disarming work using parameters (which can be edited in _QGroundControl_ via the [parameter editor](../advanced_config/parameters.md)), as described in the following sections.
+PX4 дозволяє налаштовувати роботу передпуску, озброєння та вимикання за допомогою параметрів (які можна редагувати в _QGroundControl_ за допомогою [редактора параметрів](../advanced_config/parameters.md)), як описано у наступних розділах.
 
 :::tip
-Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_*` and `COM_DISARM_*`).
+Параметри озброєння/вимикання можна знайти у [Посилання на параметри > Командир](../advanced_config/parameter_reference.md#commander) (шукайте `COM_ARM_*` та `COM_DISARM_*`).
 :::
 
 ## Arming/Disarming Gestures {#arm_disarm_gestures}
 
 За замовчуванням, транспортний засіб озброюється та вимикається шляхом виконання певних рухів педалями газу/рулем в маневрів та утримання їх протягом 1 секунди.
 
-- **Arming:** Throttle minimum, yaw maximum
-- **Disarming:** Throttle minimum, yaw minimum
+- **Озброєння:** Мінімальна педаль газу, максимальний рульовий вектор
+- **Вимикання:** Мінімальна педаль газу, мінімальний рульовий вектор
 
 RC controllers will use different sticks for throttle and yaw [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controllers), and hence different gestures:
 
-- **Mode 2**:
-  - _Arm:_ Left stick to bottom right.
-  - _Disarm:_ Left stick to the bottom left.
-- **Mode 1**:
-  - _Arm:_ Left-stick to right, right-stick to bottom.
-  - _Disarm:_ Left-stick to left, right-stick to the bottom.
+- **Режим 2**:
+  - _Озброєння:_ Ліва педаль вниз і вправо.
+  - _Вимкнення:_ Ліва педаль вниз і вліво.
+- **Режим 1**:
+  - _Озброєння:_ Ліва педаль вправо, права педаль вниз.
+  - _Вимкнення:_ Ліва педаль вліво, права педаль вниз.
 
 The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
 Note that by default ([COM_DISARM_MAN](#COM_DISARM_MAN)) you can also disarm in flight using gestures/buttons: you may choose to disable this to avoid accidental disarming.
@@ -62,20 +61,20 @@ Note that by default ([COM_DISARM_MAN](#COM_DISARM_MAN)) you can also disarm in 
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="MAN_ARM_GESTURE"></a>[MAN_ARM_GESTURE](../advanced_config/parameter_reference.md#MAN_ARM_GESTURE)                      | Enable arm/disarm stick guesture. `0`: Disabled, `1`: Enabled (default).                                             |
 | <a id="COM_DISARM_MAN"></a>[COM_DISARM_MAN](../advanced_config/parameter_reference.md#COM_DISARM_MAN)                         | Enable disarming in flight via switch/stick/button in MC manual thrust modes. `0`: Disabled, `1`: Enabled (default). |
-| <a id="COM_RC_ARM_HYST"></a>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time that RC stick must be held in arm/disarm position before arming/disarming occurs (default: `1` second).                                         |
+| <a id="COM_RC_ARM_HYST"></a>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Час, протягом якого педаль RC повинна бути утримана в позиції озброєння/вимкнення перед озброєнням/вимкненням (за замовчуванням: 1 секунда).         |
 
 ## Arming Button/Switch {#arm_disarm_switch}
 
-An _arming button_ or "momentary switch" can be configured to trigger arm/disarm _instead_ of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures).
-The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed).
+Кнопку _озброєння_ або "моментальний перемикач" можна налаштувати для спрацьовування озброєння/вимикання _замість_ [озброєння за допомогою жестів](#arm_disarm_gestures) (встановлення перемикача озброєння вимикає озброєння за допомогою жестів).
+Кнопку слід утримувати натиснутою протягом ([зазвичай](#COM_RC_ARM_HYST)) однієї секунди, щоб озброїти (якщо вимкнено) або вимкнути (якщо озброєно).
 
-A two-position switch can also be used for arming/disarming, where the respective arm/disarm commands are sent on switch _transitions_.
+Двопозиційний перемикач також може використовуватися для озброєння/вимикання, при цьому відповідні команди на озброєння/вимкнення надсилаються при _перемиканні_ перемикача.
 
 :::tip
-Two-position arming switches are primarily used in/recommended for racing drones.
+Двопозиційні перемикачі для озброєння переважно використовуються в/рекомендовані для гоночних дронів.
 :::
 
-The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW), and the switch "type" is configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
+Перемикач або кнопка призначається (та активується) за допомогою [RC_MAP_ARM_SW](#RC_MAP_ARM_SW), а тип перемикача налаштовується за допомогою [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
 
 | Параметр                                                                                                                                                          | Опис                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -83,7 +82,7 @@ The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM
 | <a id="COM_ARM_SWISBTN"></a>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN)                | Перемикач озброєння є моментальною кнопкою. <br>- `0`: Arm switch is a 2-position switch where arm/disarm commands are sent on switch transitions.<br>-`1`: Arm switch is a button or momentary button where the arm/disarm command ae sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).                                               |
 
 :::info
-The switch can also be set as part of _QGroundControl_ [Flight Mode](../config/flight_mode.md) configuration.
+Перемикач також можна налаштувати як частину конфігурації _QGroundControl_ для [Режиму польоту](../config/flight_mode.md).
 :::
 
 ## Автоматичне вимкнення
@@ -91,10 +90,10 @@ The switch can also be set as part of _QGroundControl_ [Flight Mode](../config/f
 За замовчуванням транспортні засоби автоматично вимикаються при посадці або якщо ви заберете занадто багато часу, щоб злітати після озброєння.
 Ця функція налаштовується за допомогою наступних таймаутів.
 
-| Параметр                                                                                                                                              | Опис                                                                                                                                                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="COM_DISARM_LAND"></a>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)    | Час очікування для автоматичного відбрасування після приземлення. За замовчуванням: 2с (значення -1, щоб вимкнути).                   |
-| <a id="COM_DISARM_PRFLT"></a>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Час очікування для автоматичного відбрасування, якщо занадто повільно підйом. Default: 10s (<=0 to disable). |
+| Параметр                                                                                                                                              | Опис                                                                                                                                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="COM_DISARM_LAND"></a>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)    | Час очікування для автоматичного відбрасування після приземлення. За замовчуванням: 2с (значення -1, щоб вимкнути).                               |
+| <a id="COM_DISARM_PRFLT"></a>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Час очікування для автоматичного відбрасування, якщо занадто повільно підйом. За замовчуванням: 10с (<=0, щоб вимкнути). |
 
 ## Pre-Arm Checks
 
@@ -103,44 +102,44 @@ To reduce accidents, vehicles are only allowed to arm certain conditions are met
 
 - Повітряне судно не перебуває у "здоровому" стані.
   Наприклад, воно не калібрується або має помилки датчиків.
-- The vehicle has a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) that has not been engaged.
+- Транспортний засіб має [захисний перемикач](../getting_started/px4_basic_concepts.md#safety-switch), який не був увімкнений.
 - The vehicle has a [remote ID](../peripherals/remote_id.md) that is unhealthy or otherwise not ready
-- A VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+- VTOL-повітряне судно перебуває в режимі фіксованого крила ([by default(за замовчуванням)](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 - Поточний режим потребує належної глобальної позиційної оцінки, але повітряне судно не має блокування GPS.
 - Many more (see [arming/disarming safety settings](../config/safety.md#arming-disarming-settings) for more information).
 
 The current failed checks can be viewed in QGroundControl (v4.2.0 and later) [Arming Check Report](../flying/pre_flight_checks.md#qgc-arming-check-report) (see also [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.md#arm)).
 
 Зауважте, що внутрішньо PX4 перевіряє активацію на 10 Гц.
-A list of the failed checks is kept, and if the list changes PX4 emits the current list using the [Events interface](../concept/events_interface.md).
+Список невдалих перевірок зберігається, і якщо цей список змінюється, PX4 видає поточний список за допомогою [інтерфейсу подій](../concept/events_interface.md).
 Список також надсилається, коли GCS підключається.
 Пристрій керування (GCS) негайно знає статус передпускових перевірок як при вимкненні, так і при озброєнні.
 
 :::details
 Implementation notes for developers
-The client implementation is in [libevents](https://github.com/mavlink/libevents):
+Примітки для розробників Реалізація клієнта знаходиться у [libevents](https://github.com/mavlink/libevents):
 
-- [libevents > Event groups](https://github.com/mavlink/libevents#event-groups)
+- [libevents > Групи подій](https://github.com/mavlink/libevents#event-groups)
 - [health_and_arming_checks.h](https://github.com/mavlink/libevents/blob/main/libs/cpp/parse/health_and_arming_checks.h)
 
-QGC implementation: [HealthAndArmingCheckReport.cc](https://github.com/mavlink/qgroundcontrol/blob/master/src/MAVLink/LibEvents/HealthAndArmingCheckReport.cc).
+QGC реалізація: [HealthAndArmingCheckReport.cc](https://github.com/mavlink/qgroundcontrol/blob/master/src/MAVLink/LibEvents/HealthAndArmingCheckReport.cc).
 :::
 
-PX4 also emits a subset of the arming check information in the [SYS_STATUS](https://mavlink.io/en/messages/common.html#SYS_STATUS) message (see [MAV_SYS_STATUS_SENSOR](https://mavlink.io/en/messages/common.html#MAV_SYS_STATUS_SENSOR)).
+PX4 також видає підмножину інформації перевірки постановки на охорону в повідомленні [SYS_STATUS](https://mavlink.io/en/messages/common.html#SYS_STATUS) (див. [MAV_SYS_STATUS_SENSOR](https://mavlink.io/en/messages/common.html#MAV_SYS_STATUS_SENSOR)).
 
-## Arming Sequence: Pre Arm Mode & Safety Button
+## Послідовність: Режим попереднього озброєння & Кнопка безпеки
 
-The arming sequence depends on whether or not there is a _safety switch_, and is controlled by the parameters [COM_PREARM_MODE](#COM_PREARM_MODE) (Prearm mode) and [CBRK_IO_SAFETY](#CBRK_IO_SAFETY) (I/O safety circuit breaker).
+Послідовність озброєння залежить від наявності _захисного перемикача_ і контролюється параметрами [COM_PREARM_MODE](#COM_PREARM_MODE) (Режим передпуску) та [CBRK_IO_SAFETY](#CBRK_IO_SAFETY) (Вимикач безпеки введення/виведення).
 
-The [COM_PREARM_MODE](#COM_PREARM_MODE) parameter defines when/if pre-arm mode is enabled ("safe"/non-throttling actuators are able to move):
+Параметр [COM_PREARM_MODE](#COM_PREARM_MODE) визначає, коли/якщо передпусковий режим увімкнено ("безпечні"/приводи без збільшення газу можуть рухатися):
 
-- _Disabled_: Pre-arm mode disabled (there is no stage where only "safe"/non-throttling actuators are enabled).
-- _Safety Switch_ (Default): The pre-arm mode is enabled by the safety switch.
+- _Вимкнено_: Режим передпуску відключено (немає етапу, коли тільки "безпечні"/приводи без збільшення газу увімкнені).
+- _Захисний перемикач_ (За замовчуванням): Режим передпуску увімкнено за допомогою захисного перемикача.
   Якщо немає захисного перемикача, то режим передпуску не буде увімкнено.
-- _Always_: Prearm mode is enabled from power up.
+- _Завжди_: Режим передармування активований з моменту включення живлення.
 
 Якщо є засувка безпеки, то це буде передумовою для армування.
-If there is no safety switch the I/O safety circuit breaker must be engaged ([CBRK_IO_SAFETY](#CBRK_IO_SAFETY)), and arming will depend only on the arm command.
+Якщо немає захисного перемикача, то вимикач безпеки введення/виведення ([CBRK_IO_SAFETY](#CBRK_IO_SAFETY)) повинен бути активований, і озброєння буде залежати лише від команди озброєння.
 
 Нижче наведено деталі початкових послідовностей для різних конфігурацій.
 
@@ -148,7 +147,7 @@ If there is no safety switch the I/O safety circuit breaker must be engaged ([CB
 
 За замовчуванням використовується захисний перемикач для передпуску.
 З режиму передпуску ви можете перейти до режиму озброєння, щоб активувати всі мотори/приводи.
-It corresponds to: [COM_PREARM_MODE=1](#COM_PREARM_MODE) (safety switch) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
+Це відповідає: [COM_PREARM_MODE=1](#COM_PREARM_MODE) (захисний перемикач) та [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (вимикач безпеки введення/виведення вимкнено).
 
 Типова послідовність запуску:
 
@@ -165,8 +164,8 @@ It corresponds to: [COM_PREARM_MODE=1](#COM_PREARM_MODE) (safety switch) and [CB
 
 ### COM_PREARM_MODE=Disabled та Safety Switch
 
-When prearm mode is _Disabled_, engaging the safety switch does not unlock the "safe" actuators, though it does allow you to then arm the vehicle.
-This corresponds to [COM_PREARM_MODE=0](#COM_PREARM_MODE) (Disabled) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
+Коли режим передпуску встановлено на _Вимкнено_, увімкнення захисного перемикача не розблоковує "безпечні" приводи, але дозволяє озброїти транспортний засіб.
+Це відповідає [COM_PREARM_MODE=0](#COM_PREARM_MODE) (Вимкнено) та [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (Вимикач безпеки введення/виведення вимкнений).
 
 Послідовність запуску така:
 
@@ -183,9 +182,9 @@ This corresponds to [COM_PREARM_MODE=0](#COM_PREARM_MODE) (Disabled) and [CBRK_I
 
 ### COM_PREARM_MODE=Always and Safety Switch
 
-When prearm mode is _Always_, prearm mode is enabled from power up.
+Якщо для режиму попереднього озброєння встановлено значення _Always_, режим попереднього озброєння вмикається після ввімкнення.
 Для озброєння все ще потрібний захисний перемикач.
-This corresponds to [COM_PREARM_MODE=2](#COM_PREARM_MODE) (Always) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
+Це відповідає [COM_PREARM_MODE=2](#COM_PREARM_MODE) (завжди) і [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (захисний автомат вводу-виводу вимкнено).
 
 Послідовність запуску така:
 
@@ -200,8 +199,8 @@ This corresponds to [COM_PREARM_MODE=2](#COM_PREARM_MODE) (Always) and [CBRK_IO_
 
 ### COM_PREARM_MODE=Safety(Безпека) або вимкнено(Disabled) та без перемикача безпеки(No Safety Switch)
 
-With no safety switch, when `COM_PREARM_MODE` is set to _Safety_ or _Disabled_ prearm mode cannot be enabled (same as disarmed).
-This corresponds to [COM_PREARM_MODE=0 or 1](#COM_PREARM_MODE) (Disabled/Safety Switch) and [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (I/O safety circuit breaker engaged).
+Без захисного перемикача, коли `COM_PREARM_MODE` встановлено на _Захист(Safety)_ або _Вимкнено(Disabled)_, режим передпуску не може бути увімкнений (так само, як і вимкнено).
+Це відповідає [COM_PREARM_MODE=0 або 1](#COM_PREARM_MODE) (вимкнено/запобіжний перемикач) і [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (ввімкнено захисний вимикач вводу-виводу).
 
 Послідовність запуску така:
 
@@ -214,8 +213,8 @@ This corresponds to [COM_PREARM_MODE=0 or 1](#COM_PREARM_MODE) (Disabled/Safety 
 
 ### COM_PREARM_MODE=Завжди і без зміни безпеки
 
-When prearm mode is _Always_, prearm mode is enabled from power up.
-This corresponds to [COM_PREARM_MODE=2](#COM_PREARM_MODE) (Always) and [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (I/O safety circuit breaker engaged).
+Якщо для режиму попереднього озброєння встановлено значення _Always_, режим попереднього озброєння вмикається після ввімкнення.
+Це відповідає [COM_PREARM_MODE=2](#COM_PREARM_MODE) (Завжди) та [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (ввімкнено вимикач безпеки введення/виведення).
 
 Послідовність запуску така:
 
