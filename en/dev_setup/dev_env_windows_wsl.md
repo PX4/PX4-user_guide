@@ -248,7 +248,7 @@ QGroundControl will launch and automatically connect to a running simulation and
 
 You will not be able to use it to install PX4 firmware because WSL does not allow access to serial devices.
 
-### QGroundcontrol on Windows
+### QGroundControl on Windows
 
 Install [QGroundControl on Windows](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#windows) if you want to be able to update hardware with firmware created within PX4.
 
@@ -277,7 +277,13 @@ You will have to update the WSL comm link in QGC every time WSL restarts (becaus
 
 ## Flash a Flight Control Board
 
-Flashing a custom built PX4 binary has to be done using [QGroundControl for Windows](#qgroundcontrol-on-windows) since WSL2 does not natively offer direct access to serial devices like Pixhawk boards.
+Flashing a custom built PX4 binary has to be done using [QGroundControl for Windows](#qgroundcontrol-on-windows).
+
+::: info
+WSL2 does not natively offer direct access to serial/USB devices like Pixhawk flight controllers connected to your computer.
+That means you can't connect QGC running inside WSL2 to a flight controller to install firmware, or use the `upload` command to [upload firmware as it is built](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board).
+Instead you connect [QGroundControl for Windows](#qgroundcontrol-on-windows) to PX4 running in WSL2 and to the Flight controller in order to upload the firmware.
+:::
 
 Do the following steps to flash your custom binary built in WSL:
 
@@ -288,15 +294,17 @@ Do the following steps to flash your custom binary built in WSL:
    make px4_fmu-v5
    ```
 
-   Note: Use the correct target for your board.
-   "px4_fmu-v5" can be used for a Pixhawk 4 board.
+   ::: tip
+   Use the correct `make` target for your board.
+   `px4_fmu-v5` can be used for a Pixhawk 4 board.
+   :::
 
-1. Detach the USB cable of your Pixhawk board from the computer if it was plugged.
-1. Open QGC.
-1. In QGC go to **Q > Vehicle Setup > Firmware**
-1. Plug your pixhawk board via USB
-1. Once connected select "PX4 Flight Stack", check "Advanced settings" and choose "Custom firmware file ..." from the drop down below.
-1. Continue and select the firmware binary you just built before.
+1. Detach the USB cable of your Pixhawk board from the computer if it was connected.
+1. Open QGC and navigate to **Q > Vehicle Setup > Firmware**.
+1. Plug your Pixhawk board via USB
+1. Once connected select "PX4 Flight Stack", check **Advanced settings** and choose _Custom firmware file ..._ from the drop down below.
+1. Continue and select the firmware binary you just built in WSL.
+
    In the open dialog look for the "Linux" location with the penguin icon in the left pane.
    It's usually all the way at the bottom.
    Choose the file in the path: `Ubuntu\home\{your WSL user name}\PX4-Autopilot\build\{your build target}\{your build target}.px4`
@@ -306,6 +314,8 @@ Do the following steps to flash your custom binary built in WSL:
    :::
 
 1. Start the flashing.
+
+For more information see [Installing PX4 Main, Beta or Custom Firmware (Loading Firmware)](../config/firmware.html#installing-px4-main-beta-or-custom-firmware).
 
 ## Troubleshooting
 
