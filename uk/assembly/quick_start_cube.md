@@ -81,7 +81,7 @@ See [DroneCAN](../dronecan/index.md) for _Here3_ wiring and PX4 configuration in
 ![Here+ Connector Diagram](../../assets/flight_controller/cube/here_plus_connector.png)
 
 :::info
-The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle).
+Вбудований безпечний вимикач в GPS-модулі увімкнений _за замовчуванням_ (коли включений, PX4 не дозволить вам готувати до польоту).
 Щоб вимкнути безпеку, натисніть і утримуйте безпечний вимикач протягом 1 секунди. Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
 
@@ -166,7 +166,7 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 ![Cube - Mount SDCard](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
+Для отримання додаткової інформації див. [Основні концепції > SD-карти (знімна пам'ять)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
 ## Двигуни
@@ -201,7 +201,7 @@ After downloading, installing and running _QGroundControl_, connect the board to
 
 Basic/common configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+Конкретні конфігурації QuadPlane тут: [QuadPlane VTOL налаштування](../config_vtol/vtol_quad_configuration.md)
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
