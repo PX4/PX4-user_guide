@@ -217,7 +217,7 @@ vibration-damping foam pads (included in the kit). Вона повинна бу�
 ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
 :::info
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+Якщо контролер не може бути змонтований у рекомендованому/стандартному положенні (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 :::
 
 ### GPS + Компас
@@ -303,7 +303,7 @@ The wiring and configuration of other components is covered within the topics fo
 
 ### Налаштування
 
-General configuration information is covered in: [Autopilot Configuration](../config/index.md).
+Загальну інформацію про конфігурацію описано в: [Конфігурація автопілота](../config/index.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
