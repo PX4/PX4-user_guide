@@ -80,7 +80,7 @@ We first need to set the [Sensor Orientation](../config/flight_controller_orient
 
 PX4 може використовувати інші периферійні пристрої, такі як датчики відстані, оптичні датчики руху, сигнали уникання трафіку, камери тощо:
 
-- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
+- [Периферія контролера польоту](../peripherals/README.md) - налаштування конкретних датчиків, опціональних датчиків, приводів тощо.
 
 :::info
 Sensors that you don't need to calibrate/configure include:
@@ -164,10 +164,10 @@ Yes but it must be physically feasible. E.g. if you make a quadrotor where all m
 ## Дивіться також
 
 - [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
-- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
+- [Периферія контролера польоту](../peripherals/README.md) - налаштування конкретних датчиків, опціональних датчиків, приводів тощо.
 - [Advanced Configuration](../advanced_config/index.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Конфігурація/налаштування, що залежать від апарату:
   - **Multicopter Config/Tuning**
-  - [Helicopter Config/Tuning](../config_heli/index.md)
+  - [Конфігурація/налаштування гелікоптера](../config_heli/index.md)
   - [Fixed Wing Config/Tuning](../config_fw/index.md)
-  - [VTOL Config/Tuning](../config_vtol/index.md)
+  - [Конфігурація/налаштування VTOL](../config_vtol/index.md)
