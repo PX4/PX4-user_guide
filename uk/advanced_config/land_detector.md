@@ -1,4 +1,4 @@
-# Land Detector Configuration
+# Конфігурація детектора посадки
 
 Детектор посадки - динамічна модель транспортного засобу, що представляє ключові стани транспортного засобу від контакту з землею до посадки.
 Ця тема пояснює основні параметри, які ви, можливо, захочете налаштувати для покращення поведінки при посадці.
@@ -7,74 +7,72 @@
 
 Детектор посадки автоматично вимикає управління дроном при посадці.
 
-You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to specify the number of seconds after landing that the system should disarm (or turn off auto-disarming by setting the parameter to -1).
+Ви можете встановити [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) , щоб вказати кількість секунд після посадки, протягом яких система повинна вимкнутися (або вимкнути автоматичне вимикання, встановивши параметр на -1).
 
 ## Конфігурація мультикоптера
 
-The complete set of relevant landing detector parameters are listed in the parameter reference with the prefix [LNDMC](../advanced_config/parameter_reference.md#land-detector) (these can be edited in QGroundControl via the [parameter editor](../advanced_config/parameters.md)).
+Повний набір відповідних параметрів детектора приземлення перераховано в посиланні на параметри з префіксом [LNDMC](../advanced_config/parameter_reference.md#land-detector) (їх можна редагувати в QGroundControl через [редактор параметрів](../advanced_config/parameters.md)).
 
 :::tip
-Information about how the parameters affect landing can be found below in [Land Detector States](#mc-land-detector-states).
+Інформація про те, як параметри впливають на посадку, може бути знайдена нижче в [Стани виявлення посадки](#mc-land-detector-states).
 :::
 
 Інші ключові параметри, які вам може знадобитися налаштувати для покращення поведінки приземлення на конкретних повітряних суднах:
 
-- [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - the hover throttle of the system (default is 50%).
+- [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - дросельна заслінка системи (за замовчуванням 50%).
   Важливо правильно встановити це значення, оскільки це робить управління висотою більш точним та гарантує правильне виявлення посадки.
   Гоночний або великий квадрокоптер для зйомки без встановленого вантажу може потребувати набагато нижчого налаштування (наприклад, 35%).
 
-  ::: info
-  Incorrectly setting `MPC_THR_HOVER` may result in ground-contact or maybe-landed detection while still in air (in particular, while descending in [Position mode](../flight_modes_mc/position.md) or [Altitude mode](../flight_modes_mc/altitude.md)).
+  Неправильне встановлення параметра `MPC_THR_HOVER` може призвести до виявлення контакту з землею або, можливо, приземлення, коли транспортний засіб все ще знаходиться в повітрі (зокрема, під час спуску в режимі [Позиції](../flight_modes_mc/position.md) або [Висоти](../flight_modes_mc/altitude.md)).
   Це призводить до "тремтіння" транспортного засобу (зниження обертів двигуна, а потім негайне збільшення їх).
 
 :::
 
-- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - the overall minimum throttle of the system.
+- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - загальний мінімум газу системи.
   Це повинно бути встановлено для забезпечення контрольного спуску.
 
-- [MPC_LAND_CRWL](../advanced_config/parameter_reference.md#MPC_LAND_CRWL) - the vertical speed applied in the last stage of autonomous landing if the system has a distance sensor and it is present and working. Повинен бути встановлений більшим, ніж LNDMC_Z_VEL_MAX.
+- [MPC_LAND_CRWL](../advanced_config/parameter_reference.md#MPC_LAND_CRWL) - вертикальна швидкість, яка застосовується в останній стадії автономного приземлення, якщо система має датчик відстані, і він присутній і працює. Повинен бути встановлений більшим, ніж LNDMC_Z_VEL_MAX.
 
 ### MC Мультикоптер детектор землі
 
 Для виявлення посадки багтороте повітряне судно спочатку повинно пройти три різні стани, кожен з яких містить умови попередніх станів плюс більш жорсткі обмеження.
 Якщо умова не може бути досягнута через відсутність сенсорів, то умова, за замовчуванням, є істинною.
-For instance, in [Acro mode](../flight_modes_mc/acro.md) and no sensor is active except for the gyro sensor, then the detection solely relies on thrust output and time.
+Наприклад, у режимі [Acro](../flight_modes_mc/acro.md), коли жоден сенсор, крім гіроскопа, не активний, виявлення базується лише на виводі потужності і часі.
 
-In order to proceed to the next state, each condition has to be true for a third of the configured total land detector trigger time [LNDMC_TRIG_TIME](../advanced_config/parameter_reference.md#LNDMC_TRIG_TIME).
+Для переходу до наступного стану кожна умова повинна бути виконана протягом однієї третини загального налаштованого часу спрацювання детектора посадки [LNDMC_TRIG_TIME](../advanced_config/parameter_reference.md#LNDMC_TRIG_TIME).
 Якщо транспортний засіб обладнаний датчиком відстані, але відстань до землі в даний момент не вимірюється (зазвичай через те, що вона занадто велика), час спрацювання збільшується втричі.
 
 Якщо одна умова не виконується, виявник посадки негайно виходить з поточного стану.
 
 #### Контакт із землею
 
-Умови для цього стану:
+Якщо одна умова не виконується, виявник посадки негайно виходить з поточного стану.
 
-- no vertical movement ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
-- no horizontal movement ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
+- відсутність вертикального руху ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
+- немає горизонтального руху ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
 - lower thrust than [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + (hover throttle - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) \* (0.3, unless a hover thrust estimate is available, then 0.6),
 - додаткова перевірка, чи зараз транспортний засіб перебуває в режимі польоту з контрольованою висотою: транспортний засіб має мати намір знизитися (задане значення вертикальної швидкості вище LNDMC_Z_VEL_MAX).
 - додаткова перевірка для автомобілів з датчиком відстані: поточна відстань до землі менше 1 м.
 
-Якщо повітряне судно знаходиться у режимі керування позицією або швидкістю, і виявлено контакт з землею, контролер позиції встановить вектор тяги вздовж осі х-у тіла рівним нулю.
+Умови для цього стану:
 
 #### Може бути приземлена
 
-Умови для цього стану:
+Якщо одна умова не виконується, виявник посадки негайно виходить з поточного стану.
 
 - all conditions of the [ground contact](#ground-contact) state are true
 - is not rotating ([LNDMC_ROT_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
 - has low thrust `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
 - вільного падіння не виявлено
 
-Якщо транспортний засіб знає лише про тягу та кутову швидкість,
-щоб перейти до наступного стану, транспортний засіб повинен мати низьку тягу та відсутність обертання протягом 8,0 секунд.
+Умови для цього стану:
 
 Якщо транспортний засіб перебуває у керуванні положенням або швидкістю, і, можливо, виявлено приземлення,
 контролер положення встановить вектор тяги на нуль.
 
 #### Посадка
 
-Умови для цього стану:
+Якщо одна умова не виконується, виявник посадки негайно виходить з поточного стану.
 
 - all conditions of the [maybe landed](#maybe-landed) state are true
 
