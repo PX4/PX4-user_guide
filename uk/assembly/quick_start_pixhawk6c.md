@@ -21,10 +21,10 @@ _Pixhawk 6C_ can be mounted on the frame using double side tape included in the 
 <img src="../../assets/flight_controller/pixhawk6c/pixhawk6c_vehicle_front1.jpg" width="300px" title="Pixhawk6c - mounting orientation" />
 
 :::info
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+Якщо контролер не може бути змонтований у рекомендованому/стандартному положенні (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 :::
 
-## GPS + Compass + Buzzer + Safety Switch + LED
+## GPS + компас + зумер + захисний вимикач + світлодіод
 
 The _Pixhawk6C_ can be purchased with M8N or M9N GPS (10-pin connector) that should be connected to the **GPS1** port.
 Ці модулі GNSS мають вбудований компас, безпечний перемикач, дзвіночок та світлодіод.
@@ -48,7 +48,7 @@ Connect the output of the power module of your selection that comes with the Sta
 If using a plane or rover, the **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc. This can be done by connecting the 8 pin power (+) rail of the **FMU PWM-OUT** to a voltage regulator (for example, a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery).
 
 :::info
-The power rail voltage must be appropriate for the servo being used!
+Напруга шини живлення повинна бути відповідною для використаного сервоприводу!
 :::
 
 | PIN & Connector | Функція                                                                           |
@@ -74,9 +74,9 @@ The pinout of _Pixhawk 6C_’s power ports is shown below.
 
 ## Радіоуправління
 
-A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+Для того щоб керувати транспортним засобом _вручну_, потрібна система радіоуправління (RC) (PX4 не потребує системи радіоуправління для автономних режимів польоту).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Вам потрібно [вибрати сумісний передавач/приймач](../getting_started/rc_transmitter_receiver.md) і _зв'язати_ їх таким чином, щоб вони взаємодіяли (ознайомтеся з інструкціями, що додаються до вашого конкретного передавача/приймача).
 
 - Spektrum/DSM receivers connect to the **DSM** input.
 - PPM or SBUS receivers connect to the **PPM/SBUS** input port.
@@ -87,7 +87,7 @@ For more information about selecting a radio system, receiver compatibility, and
 
 ## Телеметричні радіостанції (Опціонально)
 
-[Telemetry radios](../telemetry/index.md) may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+[Телеметричні радіостанції](../telemetry/index.md) можуть використовуватися для зв'язку та управління транспортним засобом у польоті з наземної станції (наприклад, ви можете направляти БПЛА до певної позиції або завантажувати нове завдання).
 
 The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required).
 Інша радіостанція підключається до вашого комп'ютера або мобільного пристрою наземної станції (зазвичай за допомогою USB).
@@ -119,7 +119,7 @@ Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT*
 
 ## Інші периферійні пристрої
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Підключення та конфігурація додаткових/менш поширених компонентів описано в темах для окремих [периферійних пристроїв](../peripherals/index.md).
 
 ## Схема розташування виводів
 
@@ -127,7 +127,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 ## Налаштування
 
-General configuration information is covered in: [Autopilot Configuration](../config/index.md).
+Загальну інформацію про конфігурацію описано в: [Конфігурація автопілота](../config/index.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
