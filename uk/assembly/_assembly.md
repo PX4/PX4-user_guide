@@ -263,7 +263,7 @@ Among other things they are required for [recording and analyzing flight details
 A SD card is factory-installed on many flight controllers, but you should check the documentation for your FC.
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
+Для отримання додаткової інформації див. [Основні концепції > SD-карти (знімна пам'ять)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
 ## Power & Actuators
