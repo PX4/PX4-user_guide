@@ -513,7 +513,7 @@ The **.ulog** format data can be parsed in python by using the [PX4 pyulog libra
 
 ### Відхилення стану
 
-Refer to covariances\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg).
+Зверніться до коваріацій\[24\] у [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg).
 Індексна карта для коваріацій\[24\] така:
 
 - \[0 ... 3\] Quaternions
@@ -525,13 +525,13 @@ Refer to covariances\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autop
 - \[19 ... 21\] Body magnetic field XYZ \(gauss^2\)
 - \[22 ... 23\] Wind velocity NE \(m/s\)^2
 
-### Observation Innovations & Innovation Variances
+### Інновації спостережень & інноваційні варіанти
 
-The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [EstimatorInnovations.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).
+Поля спостережень `estimator_innovations`, `estimator_innovation_variances` і `estimator_innovation_test_ratios` визначено в [EstimatorInnovations.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).
 Усі повідомлення мають однакові назви/типи полів (але різні одиниці вимірювання).
 
 :::info
-The messages have the same fields because they are generated from the same field definition.
+Повідомлення мають однакові поля, оскільки вони генеруються з того самого визначення поля.
 The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg)) lists the names of the set of messages to be created):
 
 ```
@@ -542,13 +542,13 @@ The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopil
 
 Деякі з спостережень:
 
-- Magnetometer XYZ (gauss, gauss^2) : `mag_field[3]`
-- Yaw angle (rad, rad^2) : `heading`
-- True Airspeed (m/s, (m/s)^2) : `airspeed`
-- Synthetic sideslip (rad, rad^2) : `beta`
-- Optical flow XY (rad/sec, (rad/s)^2) : `flow`
-- Height above ground (m, m^2) : `hagl`
-- Drag specific force ((m/s)^2): `drag`
+- Магнітометр XYZ (гаус, гаус^2): `mag_field[3]`
+- Кут розвороту (рад, рад^2): `heading`
+- Швидкість повітря (м/с, (м/с)^2): `airspeed`
+- Синтетичний кут бокового зсуву (рад, рад^2): `beta`
+- Оптичний потік XY (рад/с, (рад/с)^2): `flow`
+- Висота над землею (м, м^2): `hagl`
+- Тягове специфічне зусилля ((м/с)^2): `drag`
 - Інновації швидкості та положення: для кожного сенсора
 
 Крім того, кожен сенсор має власні поля для горизонтального та вертикального положення та/або швидкості (за потреби).
@@ -585,22 +585,22 @@ float32    aux_vvel	# vertical auxiliary velocity innovation from landing target
 ### Додатковий фільтр виводу
 
 Вихідний додатковий фільтр використовується для поширення станів вперед від горизонту часу синтезу до поточного часу.
-To check the magnitude of the angular, velocity and position tracking errors measured at the fusion time horizon, refer to `output_tracking_error[3]` in the `ekf2_innovations` message.
+Щоб перевірити величину помилок відстеження кутової швидкості та положення, виміряних у момент злиття, зверніться до `output_tracking_error[3]` у повідомленні `ekf2_innovations`.
 
 Індексна карта виглядає наступним чином:
 
 - [0] Величина помилки відстеження кутового руху (рад)
 - [1] Величина помилки відстеження швидкості (м/с).
-  The velocity tracking time constant can be adjusted using the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) parameter.
+  Часова константа відстеження швидкості може бути налаштована за допомогою параметра [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL).
   Зменшення цього параметра зменшує сталі похибки, але збільшує кількість шуму спостереження на вихідних даних про швидкість NED.
 - [2] Величина помилки відстеження позиції \(m\).
-  The position tracking time constant can be adjusted using the [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameter.
+  Часова константа відстеження позиції може бути налаштована за допомогою параметра [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS).
   Зменшення цього параметра зменшує сталі похибки, але збільшує кількість шуму спостереження на вихідних даних про позицію NED.
 
 ### Помилки EKF
 
 EKF містить внутрішню перевірку помилок для погано обумовлених оновлень стану та коваріації.
-Refer to the `filter_fault_flags` in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
+Зверніться до `filter_fault_flags` in [Estimator](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
 
 ### Помилки спостереження
 
@@ -613,26 +613,26 @@ Refer to the `filter_fault_flags` in [EstimatorStatus](https://github.com/PX4/PX
 
 Обидва ці фактори можуть призвести до відкидання спостережень настільки довго, що ЕКФ спробує скинути стани, використовуючи спостереження датчика.
 До всіх спостережень застосовуються статистичні перевірки на впевненість у інноваціях.
-The number of standard deviations for the check are controlled by the `EKF2_*_GATE` parameter for each observation type.
+Кількість стандартних відхилень для перевірки контролюється параметром `EKF2_*_GATE` для кожного типу спостереження.
 
-Test levels are available in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) as follows:
+Рівні тестування доступні в [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) наступним чином:
 
-- `mag_test_ratio`: ratio of the largest magnetometer innovation component to the innovation test limit
-- `vel_test_ratio`: ratio of the largest velocity innovation component to the innovation test limit
-- `pos_test_ratio`: ratio of the largest horizontal position innovation component to the innovation test limit
-- `hgt_test_ratio`: ratio of the vertical position innovation to the innovation test limit
-- `tas_test_ratio`: ratio of the true airspeed innovation to the innovation test limit
-- `hagl_test_ratio`: ratio of the height above ground innovation to the innovation test limit
+- `mag_test_ratio`: співвідношення найбільшого компонента інновації магнітомера до межі тесту інновацій
+- `vel_test_ratio`: співвідношення найбільшого компонента інновації швидкості до межі тесту інновацій
+- `pos_test_ratio`: співвідношення найбільшого горизонтального компонента інновації позиції до межі тесту інновацій
+- `hgt_test_ratio`: співвідношення інновації вертикальної позиції до межі тесту інновацій
+- `tas_test_ratio`: співвідношення інновації істинної швидкості повітря до межі тесту інновацій
+- `hagl_test_ratio`: співвідношення інновації висоти над землею до межі тесту інновацій
 
-For a binary pass/fail summary for each sensor, refer to innovation_check_flags in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
+Для отримання бінарного підсумку "пройшов/не пройшов" для кожного датчика дивіться прапорці innovation_check_flags у [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
 
 ### Перевірка якості GPS
 
 EKF проводить кілька перевірок якості GPS перед початком допомоги GPS.
 Ці перевірки контролюються параметрами [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) і `EKF2_REQ_*`.
-The pass/fail status for these checks is logged in the [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).gps_check_fail_flags message.
+Статус успішності/невдачі цих перевірок реєструється у повідомленні [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).gps_check_fail_flags.
 Це ціле число буде рівне нулю, коли всі необхідні перевірки GPS будуть пройдені.
-If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition `gps_check_fail_flags` in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
+Якщо EKF не розпочинає вирівнювання GPS, перевірте значення цілочисельної величини порівняно з визначенням бітової маски `gps_check_fail_flags` у [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
 
 ### Числові помилки EKF
 
@@ -644,20 +644,20 @@ If the EKF is not commencing GPS alignment, check the value of the integer again
 - Якщо дисперсія інновацій менша за дисперсію спостереження (це потребує від'ємної дисперсії стану, що неможливо), або оновлення коваріації приведе до виникнення від'ємної дисперсії для будь-якого зі станів, тоді:
   - Оновлення стану та коваріації пропускається
   - Відповідні рядки та стовпці в матриці коваріації скидаються
-  - The failure is recorded in the [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) `filter_fault_flags` message
+  - Помилка реєструється у повідомленні [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) `filter_fault_flags`
 - Дисперсії стану (діагоналі в матриці коваріації) обмежені на невід'ємні значення.
 - Застосовується верхній ліміт до дисперсій стану.
 - На матрицю коваріації нав'язується симетрія.
 
-After re-tuning the filter, particularly re-tuning that involve reducing the noise variables, the value of `estimator_status.gps_check_fail_flags` should be checked to ensure that it remains zero.
+Після переналаштування фільтра, особливо переналаштування, що включають зменшення шумових змінних, слід перевірити значення `estimator_status.gps_check_fail_flags`, щоб переконатися, що воно залишається нульовим.
 
 ## Що робити, якщо оцінка висоти розходиться?
 
 Найбільш поширену причину відхилення висоти ЕКФ від GPS та вимірів альтиметра під час польоту становить обрізання і/або аліасинг вимірів ІМУ, спричинене вібрацією.
 Якщо це відбувається, то на даних мають бути видні наступні ознаки:
 
-- [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).vel_pos_innov\[2\] and [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).vel_pos_innov\[5\] will both have the same sign.
-- [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt_test_ratio will be greater than 1.0
+- [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).vel_pos_innov\[2\] та [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).vel_pos_innov\[5\] матимуть однаковий знак.
+- [Статус оцінювання](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt_test_ratio буде більшим за 1.0
 
 Рекомендований перший крок - переконатися, що автопілот відізолований від конструкції корпусу за допомогою ефективної системи кріплення з ізоляцією.
 Iзоляційний кріпиль має 6 ступенів свободи, і, отже, 6 резонансних частот.
@@ -668,8 +668,8 @@ Iзоляційний кріпиль має 6 ступенів свободи, �
 EKF можна зробити більш стійким до розходження висоти, викликаного вібрацією, змінивши наступні параметри:
 
 - Подвійне значення інноваційних воріт для основного датчика висоти.
-  If using barometric height this is [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE).
-- Increase the value of [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) to 0.5 initially.
+  Якщо використовується барометрична висота, це [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE).
+- Спочатку збільште значення [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) до 0,5.
   Якщо розбіжність все ще виникає, збільшуйте подальші кроки на 0,1, але не перевищуйте 1,0
 
 Зверніть увагу, що ці зміни зроблять EKF більш чутливим до помилок у вертикальній швидкості GPS та барометричному тиску.
@@ -680,7 +680,7 @@ EKF можна зробити більш стійким до розходжен�
 
 - Високі рівні вібрації.
   - Виправити, покращивши механічну ізоляцію автопілота.
-  - Increasing the value of [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) and [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) can help, but does make the EKF more vulnerable to GPS glitches.
+  - Збільшення значень [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) та [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) може допомогти, але робить ЕКФ більш вразливим до помилок GPS.
 - Великі зсуви зміщення гіроскопа.
   - Виправити шляхом повторної калібрування гіроскопа.
     Перевірте наявність надмірної температурної чутливості (> 3 град/сек зміни зміщення під час прогрівання після холодного запуску) і, в разі необхідності, замініть сенсор або ізолюйте, щоб сповільнити температурні зміни.
@@ -695,16 +695,16 @@ EKF можна зробити більш стійким до розходжен�
 
 Визначення того, яка з них є основною причиною, вимагає методичного підходу до аналізу журнальних даних EKF.
 
-- Plot the velocity innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vel_test_ratio
-- Plot the horizontal position innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).pos_test_ratio
-- Plot the height innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt_test_ratio
-- Plot the magnetometer innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).mag_test_ratio
-- Plot the GPS receiver reported speed accuracy - [SensorGps.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGps.msg).s_variance_m_s
-- Plot the IMU delta angle state estimates - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).states\[10\], states\[11\] and states\[12\]
+- Намалюйте відношення інноваційного тесту швидкості - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vel_test_ratio
+- Намалюйте відношення інноваційного тесту горизонтального положення - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).pos_test_ratio
+- Намалюйте відношення інноваційного тесту висоти - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt_test_ratio
+- Намалюйте відношення інноваційного тесту магнітометра - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).mag_test_ratio
+- Намалюйте точність швидкості, звіщену GPS-приймачем - [SensorGps.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGps.msg).s_variance_m_s
+- Намалюйте оцінки стану кутових зміщень IMU - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).states\[10\], states\[11\] та states\[12\]
 - Діаграма внутрішніх частотних частотних метрик EKF:
-  - Delta angle coning vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[0\]
-  - High frequency delta angle vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[1\]
-  - High frequency delta velocity vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[2\]
+  - Конічна вібрація під кутом дельта - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[0\]
+  - Вібрація конусу кутового зміщення - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[1\]
+  - Високочастотна вібрація кутового зміщення - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[2\]
 
 Під час нормальної роботи всі тестові відношення повинні залишатися нижче 0.5, і лише іноді вони можуть підніматися вище цього значення, як показано на прикладі успішного польоту нижче:
 
@@ -765,9 +765,9 @@ The rise in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg
 ### Визначення втрат даних GPS
 
 Втрата даних GPS буде відображатися стійким "заповзанням" в тестових відношеннях інновацій швидкості та позиції.
-If this occurs, check the other GPS status data in `vehicle_gps_position` for further information.
+Якщо це сталося, перевірте інші дані про статус GPS у `vehicle_gps_position` для отримання додаткової інформації.
 
-The following plot shows the NED GPS velocity innovations `ekf2_innovations_0.vel_pos_innov[0 ... 2]`, the GPS NE position innovations `ekf2_innovations_0.vel_pos_innov[3 ... 4]` and the Baro vertical position innovation `ekf2_innovations_0.vel_pos_innov[5]` generated from a simulated VTOL flight using SITL Gazebo.
+Наступний графік показує інновації швидкості GPS NED `ekf2_innovations_0.vel_pos_innov[0 ... 2]`, the GPS NE position innovations `ekf2_innovations_0.vel_pos_innov[3 ... 4]` and the Baro vertical position innovation `ekf2_innovations_0.vel_pos_innov[5]` generated from a simulated VTOL flight using SITL Gazebo.
 
 Симульований GPS був налаштований на втрату зв'язку о 73 секундах.
 Зверніть увагу, що інновації швидкості NED та інновації позиції NE "заповзають" після втрати зв'язку з GPS.
@@ -786,14 +786,14 @@ The following plot shows the NED GPS velocity innovations `ekf2_innovations_0.ve
 
 ![Barometer ground effect](../../assets/ecl/gnd_effect.png)
 
-You can enable _ground effect compensation_ to fix this problem:
+Ви можете ввімкнути _компенсацію ефекту землі_, щоб вирішити цю проблему:
 
 - З графіка оцініть величину зниження барометра під час зльоту або посадки. На графіку вище можна виокремити зниження барометра приблизно на 6 метрів під час посадки.
 - Then set the parameter [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) to that value and add a 10 percent margin. Отже, у цьому випадку значення 6,6 метра буде хорошою початковою точкою.
 
-If a terrain estimate is available (e.g. the vehicle is equipped with a range finder) then you can additionally specify [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT), the above ground-level altitude below which ground effect compensation should be activated.
+Якщо доступна оцінка рельєфу (наприклад, транспортний засіб обладнаний дальномером), то можна додатково вказати параметр [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT), висоту над рівнем землі, нижче якої компенсація ефекту землі повинна бути активована.
 Якщо оцінка рельєфу недоступна, цей параметр не буде мати впливу, і система використовуватиме евристику для визначення того, чи слід активувати компенсацію ефекту землі.
 
 ## Подальша інформація
 
-- [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ), _PX4 Developer Summit 2019_, Dr. Paul Riseborough): Overview of the estimator, and major changes from 2018/19, and the expected improvements through 2019/20.
+- [Огляд оцінки стану PX4](https://youtu.be/HkYRJJoyBwQ), _Саміт розробників PX4 2019_, д-р Пол Райзборо: Огляд оцінювача та основні зміни з 2018/19, а також очікувані покращення до 2019/ 20.
