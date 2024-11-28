@@ -17,242 +17,181 @@ These tunes are played during the boot sequence.
 
 #### 启动声音
 
-<audio controls>
-  <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- tune: 1, STARTUP -->
 
-- SD卡成功挂载（启动过程）。
+- microSD card successfully mounted (during boot).
 
-#### 错误声音
+#### Error Tune
 
-<audio controls>
-  <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- tune 2, ERROR_TUNE -->
 
-- 硬件错误导致系统重启。
-- 系统设置使用PX4IO但IO不存在。
-- UAVCAN已启用，但驱动无法启动。
+- Hard fault has caused a system reboot.
+- System set to use PX4IO but no IO present.
+- UAVCAN is enabled but driver can't start.
 - SITL/HITL enabled but _pwm_out_sim_ driver can't start.
-- FMU启动失败。
+- FMU startup failed.
 
-#### 创建文件系统
+#### Make File System
 
-<audio controls>
-  <source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 14, SD_INIT (previously tune 16) -->
 
-- 格式化SD卡。
-- 挂载失败（如果格式化成功，启动程序将尝试再次挂载）。
-- 未安装SD卡。
+- Formatting microSD card.
+- Mounting failed (if formatting succeeds boot sequence will try to mount again).
+- No microSD card.
 
-#### 格式化失败
+#### Format Failed
 
-<audio controls>
-  <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 15, SD_ERROR (previously 17) -->
 
-- 格式化SD卡失败（曾经试图挂载SD卡）。
+- Formatting microSD card failed (following previous attempt to mount card).
 
-#### 执行PX4IO
+#### Program PX4IO
 
-<audio controls>
-  <source src="../../assets/tunes/18_program_px4io.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/18_program_px4io.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 16, PROG_PX4IO (previously id 18) -->
 
-- 开始执行PX4IO程序。
+- Starting to program PX4IO.
 
-#### PX4IO执行成功
+#### Program PX4IO Success
 
-<audio controls>
-  <source src="../../assets/tunes/19_program_px4io_success.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/19_program_px4io_success.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 17, PROG_PX4IO_OK (previously tune 19) -->
 
-- PX4IO程序执行成功。
+- PX4IO programming succeeded.
 
-#### PX4IO程序执行失败
+#### Program PX4IO Fail
 
-<audio controls>
-  <source src="../../assets/tunes/20_program_px4io_fail.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/20_program_px4io_fail.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 18, PROG_PX4IO_ERR (previously tune 20) -->
 
-- PX4IO程序执行失败。
-- PX4IO无法执行。
-- 未找到AUX混控器。
+- PX4IO programming failed.
+- PX4IO couldn't start.
+- AUX Mixer not found.
 
-## 操作过程中
+## Operational
 
 These tones/tunes are emitted during normal operation.
 
 <a id="error_tune_operational"></a>
 
-#### 错误声音
+#### Error Tune
 
-<audio controls>
-  <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 2, ERROR_TUNE -->
 
-- 遥控丢失
+- RC Loss
 
-#### 正常通知声音
+#### Notify Positive Tone
 
-<audio controls>
-  <source src="../../assets/tunes/3_notify_positive_tone.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/3_notify_positive_tone.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 3, NOTIFY_POSITIVE -->
 
-- 校准成功。
-- 飞行模式成功改变。
-- 指令接收（例如，接收MAVlink命令协议）。
-- 安全开关关闭（飞行器已经解锁）。
+- Calibration succeeded.
+- Successful mode change.
+- Command accepted (e.g. from MAVLink command protocol).
+- Safety switch off (vehicle can be armed).
 
-#### 中立通知声音
+#### Notify Neutral Tone
 
-<audio controls>
-  <source src="../../assets/tunes/4_notify_neutral_tone.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/4_notify_neutral_tone.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 4, NOTIFY_NEUTRAL -->
 
-- 任务有效，没有警告。
-- 空速校准：提供更多气压或校准完成。
-- 安全开关打开/未解锁（可以安全靠近飞行器）。
+- Mission is valid and has no warnings.
+- Airspeed calibration: supply more air pressure, or calibration complete.
+- Safety switch turned on/disarmed (safe to approach vehicle).
 
-#### 负面通知声音
+#### Notify Negative Tone
 
-<audio controls>
-  <source src="../../assets/tunes/5_notify_negative_tone.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/5_notify_negative_tone.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 5, NOTIFY_NEGATIVE -->
 
-- 校准失败。
-- 校准已经完成。
-- 任务无效。
-- 指令拒绝，失败，暂时拒绝（例如，来自MAVLink命令协议）。
-- 解锁/加锁过程被拒绝（例如，起飞前检查失败，安全未禁用，系统不在手动模式）。
-- 拒绝模式过渡。
+- Calibration failed.
+- Calibration already completed.
+- Mission is invalid.
+- Command denied, failed, temporarily rejected (e.g. from MAVLink command protocol).
+- Arming/disarming transition denied (e.g. pre-flight checks failed, safety not disabled, system not in manual mode).
+- Reject mode transition.
 
-#### 加锁警告
+#### Arming Warning
 
-<audio controls>
-  <source src="../../assets/tunes/6_arming_warning.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/6_arming_warning.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 6, ARMING_WARNING -->
 
-- 飞行器正在加锁。
+- Vehicle is now armed.
 
-#### 加锁失败声音
+#### Arming Failure Tune
 
-<audio controls>
-  <source src="../../assets/tunes/10_arming_failure_tune.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/10_arming_failure_tune.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 10, ARMING_FAILURE -->
 
 - Arming failed
 
-#### 电池低电量警告
+#### Battery Warning Slow
 
-<audio controls>
-  <source src="../../assets/tunes/7_battery_warning_slow.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/7_battery_warning_slow.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 7,  BATTERY_WARNING_SLOW -->
 
 - Low battery warning ([failsafe](../config/safety.md#battery-level-failsafe)).
 
-#### 电量消耗过快警告
+#### Battery Warning Fast
 
-<audio controls>
-  <source src="../../assets/tunes/8_battery_warning_fast.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/8_battery_warning_fast.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 8, BATTERY_WARNING_FAST -->
 
 - Critical low battery warning ([failsafe](../config/safety.md#battery-level-failsafe)).
 
-#### GPS信号弱警告
+#### GPS Warning Slow
 
-<audio controls>
-  <source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 9,  GPS_WARNING -->
 
-#### 降落伞释放
+#### Parachute Release
 
-<audio controls>
-  <source src="../../assets/tunes/11_parachute_release.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/11_parachute_release.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 11, PARACHUTE_RELEASE -->
 
 - Parachute release triggered.
 
 #### Single Beep
 
-<audio controls>
-  <source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 12, SINGLE_BEEP (previously was id 14 -->
 
 - Magnetometer/Compass calibration: Notify user to start rotating vehicle.
 
 #### Home Set Tune
 
-<audio controls>
-  <source src="../../assets/tunes/15_home_set_tune.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/15_home_set_tune.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+
 <!-- 13, HOME_SET (previously id 15) -->
 
 - Home position initialised (first time only).
 
 #### Power Off Tune
 
-<audio controls>
-  <source src="../../assets/tunes/power_off_tune.mp3" type="audio/mpeg">
-  
-Your browser does not support the audio element.
-</audio>
+<audio controls><source src="../../assets/tunes/power_off_tune.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
 
 - Vehicle powering off.
 
