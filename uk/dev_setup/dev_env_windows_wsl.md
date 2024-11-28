@@ -261,7 +261,7 @@ QGroundControl запуститься та автоматично приєдна
 
 Ви не зможете використовувати його для встановлення прошивки PX4, оскільки WSL не надає доступу до послідовних пристроїв.
 
-### QGroundcontrol на Windows
+### QGroundControl on Windows
 
 Install [QGroundControl on Windows](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#windows) if you want to be able to update hardware with firmware created within PX4.
 
@@ -293,7 +293,13 @@ You will have to update the WSL comm link in QGC every time WSL restarts (becaus
 
 ## Прошивка плати керування польотом
 
-Flashing a custom built PX4 binary has to be done using [QGroundControl for Windows](#qgroundcontrol-on-windows) since WSL2 does not natively offer direct access to serial devices like Pixhawk boards.
+Flashing a custom built PX4 binary has to be done using [QGroundControl for Windows](#qgroundcontrol-on-windows).
+
+:::info
+WSL2 does not natively offer direct access to serial/USB devices like Pixhawk flight controllers connected to your computer.
+That means you can't connect QGC running inside WSL2 to a flight controller to install firmware, or use the `upload` command to [upload firmware as it is built](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board).
+Instead you connect [QGroundControl for Windows](#qgroundcontrol-on-windows) to PX4 running in WSL2 and to the Flight controller in order to upload the firmware.
+:::
 
 Зробіть наступні кроки для прошивки вашого бінарного файлу, зібраного у WSL:
 
@@ -304,20 +310,22 @@ Flashing a custom built PX4 binary has to be done using [QGroundControl for Wind
    make px4_fmu-v5
    ```
 
-   Примітка: використовуйте правильну ціль збірки для вашої плати.
-   Для плати Pixhawk 4 можна використати "px4_fmu-v5".
+   ::: tip
+   Use the correct `make` target for your board.
+   `px4_fmu-v5` can be used for a Pixhawk 4 board.
 
-2. Від'єднайте USB-кабель плати Pixhawk від комп'ютера, якщо він був підключений.
+:::
 
-3. Відкрийте QGC.
+2. Detach the USB cable of your Pixhawk board from the computer if it was connected.
 
-4. In QGC go to **Q > Vehicle Setup > Firmware**
+3. Open QGC and navigate to **Q > Vehicle Setup > Firmware**.
 
-5. Під'єднайте Pixhawk плату через USB
+4. Plug your Pixhawk board via USB
 
-6. Після підключення оберіть "Польотний набір PX4", відмітьте "Просунуті налаштування" і оберіть "Користувацький файл прошивки ..." зі списку що розкрився нижче.
+5. Once connected select "PX4 Flight Stack", check **Advanced settings** and choose _Custom firmware file ..._ from the drop down below.
 
-7. Оберіть бінарний файл прошивки, який ви щойно зібрали.
+6. Continue and select the firmware binary you just built in WSL.
+
    У відкритому діалозі знайдіть розташування "Linux" з іконкою пінгвіна на лівій панелі.
    Зазвичай, вона в самому низу.
    Choose the file in the path: `Ubuntu\home\{your WSL user name}\PX4-Autopilot\build\{your build target}\{your build target}.px4`
@@ -327,7 +335,9 @@ Flashing a custom built PX4 binary has to be done using [QGroundControl for Wind
 
 :::
 
-8. Почніть прошивку.
+7. Почніть прошивку.
+
+For more information see [Installing PX4 Main, Beta or Custom Firmware (Loading Firmware)](../config/firmware.html#installing-px4-main-beta-or-custom-firmware).
 
 ## Усунення проблем
 
