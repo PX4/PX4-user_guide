@@ -50,7 +50,7 @@
 
 - відсутність вертикального руху ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - немає горизонтального руху ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
-- lower thrust than [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + (hover throttle - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) \* (0.3, unless a hover thrust estimate is available, then 0.6),
+- нижча тяга, ніж [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + (дросель при зависанні - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) \* (0,3, якщо оцінка тяги зависання недоступна, тоді 0,6),
 - додаткова перевірка, чи зараз транспортний засіб перебуває в режимі польоту з контрольованою висотою: транспортний засіб має мати намір знизитися (задане значення вертикальної швидкості вище LNDMC_Z_VEL_MAX).
 - додаткова перевірка для автомобілів з датчиком відстані: поточна відстань до землі менше 1 м.
 
@@ -60,9 +60,9 @@
 
 Якщо одна умова не виконується, виявник посадки негайно виходить з поточного стану.
 
-- all conditions of the [ground contact](#ground-contact) state are true
-- is not rotating ([LNDMC_ROT_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
-- has low thrust `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
+- всі умови стану [контакту з землею](#ground-contact) виконані
+- не обертається ([LNDMC_ROT_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
+- має низький тяговий потік `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
 - вільного падіння не виявлено
 
 Умови для цього стану:
@@ -74,22 +74,22 @@
 
 Якщо одна умова не виконується, виявник посадки негайно виходить з поточного стану.
 
-- all conditions of the [maybe landed](#maybe-landed) state are true
+- усі умови стану [maybe landed](#maybe-landed) вірні
 
 ## Конфігурація фіксованого крила
 
 Параметри налаштування для визначення посадки фіксованим крилом:
 
-- [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) - the maximum airspeed allowed for the system still to be considered landed.
+- [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) - Максимальна швидкість повітря, яка дозволяє системі все ще вважатися приземленою.
   Це повинен бути компроміс між точністю вимірювання швидкості повітря та швидкістю спрацювання.
   Кращі датчики швидкості повітря дозволяють встановлювати менші значення цього параметра.
-- [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum horizontal velocity for the system to be still be considered landed.
-- [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum vertical velocity for the system to be still be considered landed.
-- [LNDFW_XYACC_MAX](../advanced_config/parameter_reference.md#LNDFW_XYACC_MAX) - the maximal horizontal acceleration for the system to still be considered landed.
-- [LNDFW_TRIG_TIME](../advanced_config/parameter_reference.md#LNDFW_TRIG_TIME) - Trigger time during which the conditions above have to be fulfilled to declare a landing.
+- [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - Максимальна горизонтальна швидкість, при якій система все ще вважається приземленою.
+- [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - Максимальна вертикальна швидкість, при якій система все ще вважається приземленою.
+- [LNDFW_XYACC_MAX](../advanced_config/parameter_reference.md#LNDFW_XYACC_MAX) - Максимальне горизонтальне прискорення, при якому система все ще вважається приземленою.
+- [LNDFW_TRIG_TIME](../advanced_config/parameter_reference.md#LNDFW_TRIG_TIME) - Час спрацювання, протягом якого вищезазначені умови повинні бути виконані для оголошення посадки.
 
 :::info
-When FW launch detection is enabled ([FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON)), the vehicle will stay in "landed" state until takeoff is detected (which is purely based on acceleration and not velocity).
+Коли виявлення запуску FW увімкнено ([FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON)), транспортний засіб залишиться в стані "приземлено" до виявлення зльоту (що базується виключно на прискоренні, а не на швидкості).
 :::
 
 ## VTOL детектор землі
