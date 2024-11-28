@@ -7,16 +7,16 @@
 
 Ця тема охоплює:
 
-- [PX4 Ethernet Setup](#px4-ethernet-setup)
-  - [Supported Flight Controllers](#supported-flight-controllers)
-  - [Setting up the Ethernet Network](#setting-up-the-ethernet-network)
-    - [PX4 Ethernet Network Setup](#px4-ethernet-network-setup)
-    - [Ubuntu Ethernet Network Setup](#ubuntu-ethernet-network-setup)
-    - [Companion Computer Ethernet Network Setup](#companion-computer-ethernet-network-setup)
-  - [PX4 MAVLink Serial Port Configuration](#px4-mavlink-serial-port-configuration)
-  - [QGroundControl Setup Example](#qgroundcontrol-setup-example)
-  - [MAVSDK-Python Setup Example](#mavsdk-python-setup-example)
-  - [ROS 2 Setup Example](#ros-2-setup-example)
+- [PX4 Ethernet Налаштування](#px4-ethernet-setup)
+  - [Підтримувані контролери польоту](#supported-flight-controllers)
+  - [Налаштування мережі Ethernet](#setting-up-the-ethernet-network)
+    - [Налаштування мережі PX4 Ethernet](#px4-ethernet-network-setup)
+    - [Налаштування мережі Ubuntu Ethernet](#ubuntu-ethernet-network-setup)
+    - [Комп’ютер-супутник Налаштування мережі Ethernet](#companion-computer-ethernet-network-setup)
+  - [Конфігурація послідовного порту PX4 MAVLink](#px4-mavlink-serial-port-configuration)
+  - [Приклад налаштування QGroundControl](#qgroundcontrol-setup-example)
+  - [Приклад налаштування MAVSDK-Python](#mavsdk-python-setup-example)
+  - [Приклад встановлення ROS 2](#ros-2-setup-example)
 
 ## Підтримувані контролери польоту
 
@@ -48,7 +48,7 @@ There is nothing "special" about the network configuration (other than perhaps t
 
 <!-- Information about NuttX network manager: https://github.com/PX4/PX4-Autopilot/pull/16330 -->
 
-PX4 uses the [netman](../modules/modules_system.md#netman) module to apply and update network settings.
+PX4 використовує модуль [netman](../modules/modules_system.md#netman) для застосування та оновлення налаштувань мережі.
 
 The default configuration first requests an IP address from DHCP, and if that fails will fallback to the default static address `10.41.10.2`.
 You can explicitly set any static IP address (including the default address), to bypass the initial DHCP check and make the connection a little faster.
@@ -74,18 +74,18 @@ DNS=10.41.10.254
 
 - `DEVICE`: Interface name. Default is `eth0`.
 - `BOOTPROTO`: Protocol for getting PX4 IP address. Valid values for proto are: `dhcp`, `static`, `fallback` (use DHCP but fall back to static address after time, if that fails)
-- `IPADDR`: Static IP address (used if BOOTPROTO is `static` or `fallback`)
-- `NETMASK`: Network mask
-- `ROUTER`: The address of the default route.
-- `DNS`: The address of the DNS server.
+- `IPADDR`: статична IP-адреса (використовується, якщо BOOTPROTO є `статичним` або `резервним`)
+- `NETMASK`: Мережна маска
+- `ROUTER`: Адреса маршруту за умовчанням.
+- `DNS`: Адреса DNS-сервера.
 
-To set the above "example" configuration using the _QGroundControl_:
+Щоб налаштувати вищезазначену "прикладну" конфігурацію за допомогою _QGroundControl_:
 
 1. Підключіть авіоніку до комп'ютера за допомогою USB-кабелю.
 
-2. Open **QGroundcontrol > Analyze Tools > MAVLink Console**
+2. Відкрийте **QGroundcontrol > Аналіз інструментів > MAVLink**
 
-3. Enter commands "like" the ones below into the _MAVLink Console_ (to write the values to the configuration file):
+3. Введіть команди "like" до наведених нижче у _Консоль MAVLink_ (щоб записати значення у файл конфігурації):
 
    ```sh
    echo DEVICE=eth0 > /fs/microsd/net.cfg
@@ -105,7 +105,7 @@ You also need to [configure the Ethernet port](#px4-mavlink-serial-port-configur
 
 ### Налаштування мережі Ubuntu Ethernet
 
-If you're using Ubuntu for your ground station (or companion computer) then you can use [netplan](https://netplan.io/) to configure the network.
+Якщо ви використовуєте Ubuntu для вашої земної станції (або компаньйон-комп'ютера), то ви можете використовувати [netplan](https://netplan.io/) для налаштування мережі.
 
 Below we show how you write a setup to the netplan configuration file "`/etc/netplan/01-network-manager-all.yaml`", which would run on the same network as used by the PX4 setup above.
 Note that there are many more [examples](https://netplan.io/examples/) and instructions in the [netplan](https://netplan.io/) documentation.
@@ -138,7 +138,7 @@ Note that there are many more [examples](https://netplan.io/examples/) and instr
 
    Збережіть і закрийте файл.
 
-3. Apply the _netplan_ configuration by entering the following command into the Ubuntu terminal.
+3. Застосуйте конфігурацію _netplan_, введіть наступну команду в термінал Ubuntu.
 
    ```
    sudo netplan apply
@@ -148,7 +148,7 @@ Note that there are many more [examples](https://netplan.io/examples/) and instr
 
 Налаштування компаньйонного комп'ютера залежить від операційної системи компаньйонного комп'ютера.
 
-A Linux operating system may support `netplan`, in which case the instructions would be the same as above, but using a unique IP address.
+Операційна система Linux може підтримувати `netplan`, у такому разі інструкції будуть такі ж, як вище, але з використанням унікальної IP-адреси.
 
 ## Конфігурація послідовного порту PX4 MAVLink
 
@@ -156,7 +156,7 @@ The Ethernet port configuration sets the properties of the _serial link_ (which 
 Це включає набір повідомлень MAVLink, які передаються, швидкість передачі даних, UDP-порти, на які може підключатися віддалена система, тощо.
 
 :::info
-You must separately configure the PX4 IP address and other _network settings_ ([as shown previously](#px4-ethernet-network-setup)).
+Ви повинні окремо налаштувати IP-адресу PX4 та інші _налаштування мережі_ ([як показано раніше](#px4-ethernet-network-setup)).
 :::
 
 PX4 налаштовує серійний порт для підключення до GCS через MAVLink, використовуючи параметри, показані нижче:
@@ -175,7 +175,7 @@ Normally a companion computer would use port `14540` (rather than `14550`) and s
 You can configure this setup by changing [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) and [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) to `14540` and [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to `2` (Onboard).
 Проте слід зауважити, що це все одно працюватиме, використовуючи профіль GCS.
 
-For more information on MAVLink serial port configuration see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md)
+Для отримання додаткової інформації про налаштування серійного порту MAVLink дивіться [Пристрої MAVLink (GCS/OSD/Супутник)](../peripherals/mavlink_peripherals.md).
 
 ## Приклад налаштування QGroundControl
 
@@ -183,11 +183,11 @@ Assuming you have already [Set up the Ethernet Network](#setting-up-the-ethernet
 
 Для підключення QGroundControl до PX4 по Ethernet:
 
-1. [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your ground station computer and PX4 run on the same network.
+1. [Налаштуйте мережу Ethernet](#setting-up-the-ethernet-network)  так, щоб ваш комп'ютер земної станції та PX4 працювали в одній мережі.
 
 2. Підключіть комп'ютер земної станції та PX4 за допомогою кабелю Ethernet.
 
-3. Start QGroundControl and [define a comm link](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/settings_view.html) (**Application Settings > Comm Links**) specifying the _server address_ and port as the IP address and port assigned in PX4, respectively.
+3. Запустіть QGroundControl та [визначте комунікаційний канал](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (**Налаштування додатка > Канали зв'язку**), вказавши _адресу сервера_ та порт як IP-адресу та порт, призначений в PX4, відповідно.
 
    Припускаючи, що значення встановлені так, як описано в решті цієї теми, налаштування виглядатиме наступним чином:
 
@@ -196,7 +196,7 @@ Assuming you have already [Set up the Ethernet Network](#setting-up-the-ethernet
 4. Після цього QGroundControl має підключитися, якщо ви виберете це посилання.
 
 :::info
-[PX4 Ethernet Port Configuration](#px4-ethernet-network-setup) should not be needed (the default are appropriate for a GCS).
+Конфігурація [порту Ethernet PX4](#px4-ethernet-network-setup) не повинна бути потрібною (за замовчуванням вона відповідна для GCS).
 :::
 
 ## Приклад налаштування MAVSDK-Python
@@ -206,7 +206,7 @@ Assuming you have already [Set up the Ethernet Network](#setting-up-the-ethernet
 1. [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your companion computer and PX4 run on the same network.
 2. Modify the [PX4 Ethernet Port Configuration](#px4-ethernet-network-setup) to connect to a companion computer.
    You might change the parameters [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) and [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) to `14540`, and [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to `2` (Onboard).
-3. Follow the instructions in [MAVSDK-python](https://github.com/mavlink/MAVSDK-Python) to install and use MAVSDK.
+3. Дотримуйтесь інструкцій у [MAVSDK-python](https://github.com/mavlink/MAVSDK-Python), щоб установити та використовувати MAVSDK.
 
    Наприклад, ваш код буде підключатися до PX4 за допомогою:
 
