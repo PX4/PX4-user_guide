@@ -1,6 +1,6 @@
 # Швидке підключення CUAV Pixhawk V6X
 
-This quick start guide shows how to power the [Pixhawk V6X<sup>&reg;</sup>](../flight_controller/cuav_pixhawk_v6x.md) flight controller and connect its most important peripherals.
+У цьому короткому посібнику показано, як увімкнути живлення польотного контролера [Pixhawk V6X<sup>&reg;</sup>](../flight_controller/cuav_pixhawk_v6x.md) та підключити до нього найважливіші периферійні пристрої.
 
 ## Огляд схеми підключення
 
@@ -39,7 +39,7 @@ This quick start guide shows how to power the [Pixhawk V6X<sup>&reg;</sup>](../f
 
 ## GPS + компас + зумер + захисний вимикач + світлодіод
 
-The Pixhawk<sup>&reg;</sup> V6X can be purchased with a [NEO3 GPS](https://store.cuav.net/shop/neo-3/) (10-pin connector) and should be connected to the **GPS1** port.
+Pixhawk<sup>®</sup> V6X можна придбати з GPS [NEO3](https://store.cuav.net/shop/neo-3/) (10-контактний роз'єм) та слід підключити до порту **GPS1**.
 Ці модулі GNSS мають вбудований компас, безпечний перемикач, дзвіночок та світлодіод.
 
 Якщо вам потрібно використовувати допоміжний GPS, підключіться до порту **GPS2**.
@@ -49,8 +49,8 @@ GPS/компас слід [монтувати на раму](../assembly/mount_g
 ![GPS](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_03.jpg)
 
 :::info
-Pixhawk V6X<sup>&amp;reg;</sup> is not compatible with NEO V2 GPS built-in buzzer: you should use [NEO3/NEO 3Pro](https://store.cuav.net/shop/neo-3/) instead.
-The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle).
+Pixhawk V6X<sup>®</sup> несумісний з NEO V2 GPS вбудованим дзвіночком: вам слід використовувати [NEO3/NEO 3Pro](https://store.cuav.net/shop/neo-3/) замість нього.
+Вбудований безпечний вимикач в GPS-модулі увімкнений _за замовчуванням_ (коли включений, PX4 не дозволить вам готувати до польоту).
 Щоб вимкнути безпеку, натисніть і утримуйте безпечний вимикач протягом 1 секунди.
 Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
@@ -64,7 +64,7 @@ The GPS module's integrated safety switch is enabled _by default_ (when enabled,
 - Приймачі Spektrum/DSM підключаються до входу **DSM/SBUS**.
 - Приймачі PPM підключаються до вхідного порту **PPM**.
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+Для отримання додаткової інформації про вибір радіосистеми, сумісність приймача та зв'язок вашої передавача/приймача, див. статтю: [Пульт керування передавачів & приймачів](../getting_started/rc_transmitter_receiver.md).
 
 ![RC control](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_04.jpg)
 
@@ -75,14 +75,14 @@ Connect the 6pin connector of the module to the flight control **Power C1** or *
 
 ![Power](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_05.jpg)
 
-_Pixhawk V6X_ power port receives Dronecan digital signal from CAN PMU lite power module for voltage, current and remaining battery data, the VCC line must provide at least 3A continuous current and should default to 5.2V.
+Порт живлення _Pixhawk V6X_ отримує цифровий сигнал Dronecan від модуля живлення CAN PMU lite для напруги, поточного струму та даних про залишкову ємність батареї, лінія VCC повинна забезпечувати принаймні 3А постійного струму та за замовчуванням повинна бути 5,2 В.
 Нижчий напруга 5V все ще прийнятний, але не рекомендується.
 
 ## Телеметрійна (радіо) система
 
 [Телеметричні радіостанції](../telemetry/index.md) можуть використовуватися для зв'язку та управління транспортним засобом у польоті з наземної станції (наприклад, ви можете направляти БПЛА до певної позиції або завантажувати нове завдання).
 
-The vehicle-based radio should be connected to the **TELEM1**/**TELEM2**/**TELEM3** port as shown below (if connected to **TELEM1**, no further configuration is required).
+Бортову радіостанцію слід підключити до порту **TELEM1**/**TELEM2**/**TELEM3**, як показано нижче (у разі підключення до **TELEM1**, подальша конфігурація не потрібна).
 Інша радіостанція підключається до вашого комп'ютера або мобільного пристрою наземної станції (зазвичай за допомогою USB).
 
 Ви також можете придбати телеметричні радіо з [магазину CUAV](https://store.cuav.net/uav-telemetry-module/).
@@ -91,11 +91,11 @@ The vehicle-based radio should be connected to the **TELEM1**/**TELEM2**/**TELEM
 
 ## SD-карта
 
-SD cards are highly recommended as they are required for [recording and analyzing flight details](../getting_started/flight_reporting.md), running tasks and using UAVCAN bus hardware.
+Картки SD настійно рекомендується, оскільки вони потрібні для [запису та аналізу даних польоту](../getting_started/flight_reporting.md), для виконання завдань та використання апаратного засобу UAVCAN bus.
 Карта пам'яті SD вже встановлена на Pixhawk V6X<sup>&reg;</sup>, коли вона залишає фабрику.
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
+Для отримання додаткової інформації див. [Основні концепції > SD-карти (знімна пам'ять)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
 ## Мотори/Сервоприводи
@@ -105,8 +105,8 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 ![Motors](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_07.jpg)
 
 :::info
-The **MAIN** outputs in the PX4 firmware are mapped to the Pixhawk V6X's M1~M8 ports (from IO), while the **AUX outputs** are mapped to the A1~A8 ports (from the FMU).
-For example, **MAIN1** maps to M1 pin and **AUX1** maps to A1 pin.
+**Основні** виходи в ПЗ PX4 відображені на портах M1~M8 Pixhawk V6X (від IO), тоді як виходи **AUX** допоміжних функцій відображені на портах A1~A8 (від FMU).
+Наприклад, **MAIN1** відображається на вивід M1, а **AUX1** відображається на вивід A1.
 Цей довідник містить зіставлення портів виводу до моторів/сервоприводів для всіх підтримуваних повітряних та наземних шасі (якщо ваше шасі не вказане в довіднику, то використовуйте "загальний" планер відповідного типу).
 :::
 
@@ -138,12 +138,12 @@ Pixhawk V6X<sup>&reg;</sup> не подає живлення на сервопр
 
 Загальну інформацію про конфігурацію описано в: [Конфігурація автопілота](../config/index.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+Конкретні конфігурації QuadPlane тут: [QuadPlane VTOL налаштування](../config_vtol/vtol_quad_configuration.md)
 
 ## Подальша інформація
 
 - [Документація CUAV](https://doc.cuav.net/) (CUAV)
 - [Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md) (Сторінка огляду документа PX4)
-- [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
+- [Pixhawk Автопілот FMUv6X Стандартний](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
 - [Стандарт шини автопілота Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
 - [Стандарт Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)
