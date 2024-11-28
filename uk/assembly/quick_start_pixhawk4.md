@@ -30,7 +30,7 @@ If the controller cannot be mounted in the recommended/default orientation (e.g.
 need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
-## GPS + Compass + Buzzer + Safety Switch + LED
+## GPS + компас + зумер + захисний вимикач + світлодіод
 
 Attach the provided GPS with integrated compass, safety switch, buzzer and LED to the **GPS MODULE** port.
 
@@ -121,9 +121,9 @@ You will have to update the _voltage divider_ if you are using any other power m
 
 ## Радіоуправління
 
-A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+Для того щоб керувати транспортним засобом _вручну_, потрібна система радіоуправління (RC) (PX4 не потребує системи радіоуправління для автономних режимів польоту).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Вам потрібно [вибрати сумісний передавач/приймач](../getting_started/rc_transmitter_receiver.md) і _зв'язати_ їх таким чином, щоб вони взаємодіяли (ознайомтеся з інструкціями, що додаються до вашого конкретного передавача/приймача).
 
 The instructions below show how to connect the different types of receivers to _Pixhawk 4_:
 
@@ -174,7 +174,7 @@ Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT*
 
 ## Інші периферійні пристрої
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Підключення та конфігурація додаткових/менш поширених компонентів описано в темах для окремих [периферійних пристроїв](../peripherals/index.md).
 
 ## Схема розташування виводів
 
@@ -182,7 +182,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 ## Налаштування
 
-General configuration information is covered in: [Autopilot Configuration](../config/index.md).
+Загальну інформацію про конфігурацію описано в: [Конфігурація автопілота](../config/index.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
