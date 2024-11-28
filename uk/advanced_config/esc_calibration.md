@@ -1,8 +1,8 @@
 # Калібрування ESC
 
 :::info
-These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md) and [OneShot ESCs](../peripherals/oneshot.md).
-[DShot](../peripherals/dshot.md) and [CAN](../can/index.md) ESCs ([DroneCAN](../dronecan/escs.md)/Cyphal) do not require this kind of calibration.
+Ці інструкції мають значення лише для [PWM ESCs](../peripherals/pwm_escs_and_servo.md) та [OneShot ESCs](../peripherals/oneshot.md).
+[DShot](../peripherals/dshot.md) та [CAN](../can/README.md) ЕР ([DroneCAN](../dronecan/escs.md)/Cyphal) не потребують такої калібрування.
 :::
 
 Електронні регулятори обертів (ЕР) регулюють швидкість (і напрямок) обертання моторів на основі вхідної команди від керуючого пристрою політів (КП).
@@ -14,7 +14,7 @@ These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_s
 Калібрування за допомогою цього інструменту рекомендується для всіх ЕР, що підтримують цей метод, які використовують PWM або OneShot.
 
 :::info
-Calibration is particularly important for low-cost ESC, as they commonly vary a lot in their response to input.
+Калібрування особливо важливе для недорогих ЕР, оскільки вони часто мають значні відмінності в реакції на вхідні сигнали.
 
 Проте його також рекомендується для високоякісних контролерів.
 Незважаючи на те, що вони заводськи калібруються і всі мають відреагувати однаково, на практиці діапазон вхідних сигналів може відрізнятися.
@@ -22,19 +22,19 @@ Calibration is particularly important for low-cost ESC, as they commonly vary a 
 :::
 
 :::warning
-If you want to use an ESC that does not support this calibration, then it must be factory calibrated and respond consistently out of the box.
-This should be verified using [Actuator Testing](../config/actuators.md#actuator-testing).
-Jump to the [actuator configuration step (7)](#actuatorconfig_step) (which is still important).
+Якщо ви хочете використовувати ESC, який не підтримує цю калібровку, то він повинен бути заводсько налаштований і реагувати послідовно відразу після вилучення з упаковки.
+Це слід перевірити за допомогою [Тестування приводів](../config/actuators.md#actuator-testing).
+Перейдіть до кроку [конфігурації приводу (7)](#actuatorconfig_step) (що все ще важливо).
 :::
 
-OneShot ESCs should be [configured to use OneShot](../peripherals/oneshot.md#px4-configuration) before calibration. Ви повинні провести калібрування ESC після переключення, навіть якщо ви вже раніше калібрували їх.
+ESC OneShot слід [налаштувати на використання режиму OneShot](../peripherals/oneshot.md#px4-configuration) перед калібруванням. Ви повинні провести калібрування ESC після переключення, навіть якщо ви вже раніше калібрували їх.
 
 ## Передумови
 
 Послідовність калібрування передбачає, що ви зможете тримати під напругою контролер польоту під час ручного вимикання та увімкнення ESC.
 
 Якщо використовуєте контролер польоту Pixhawk, рекомендується окремо живити контролер польоту через USB та підключати/відключати батарею для живлення ESC за потреби.
-Flight control systems that can't power the autopilot via USB will need a [different approach](#problem_power_module).
+Системи керування польотом, які не можуть живити автопілот через USB, потребуватимуть [іншого підходу](#problem_power_module).
 
 Якщо акумулятор підключений через модуль живлення, процедура калібрування може виявити підключення акумулятора та використовувати його для запуску послідовності калібрування.
 Якщо жодний акумулятор не виявлено, послідовність калібрування виконується на основі таймаутів.
@@ -45,10 +45,9 @@ Flight control systems that can't power the autopilot via USB will need a [diffe
 
 1. Видаліть пропелери.
 
-   :::warning
-   Never attempt ESC calibration with propellers on!
+   Ніколи не намагайтеся ESC калібрувати з пропелерами!
 
-   The motors _should_ not spin during ESC calibration.
+   Мотори не _повинні_ крутитися під час калібрування ESC.
    Однак, якщо калібрування починається, коли ESC вже живлені, або якщо ESC не правильно підтримує або не виявляє послідовність калібрування, то вони відповідатимуть на вхід PWM, запускаючи мотори з максимальною швидкістю.
 
 :::
@@ -59,7 +58,7 @@ Flight control systems that can't power the autopilot via USB will need a [diffe
 3. Відключіть живлення ESC, від'єднавши батарею.
    Контролер польоту має залишитися увімкненим, наприклад, тримаючи USB підключеним до наземної станції.
 
-4. Open the _QGroundControl_ **Settings > Power**, then press the **Calibrate** button.
+4. Відкрийте налаштування _QGroundControl_ > **Живлення > Power**, а потім натисніть кнопку **Калібрувати**.
 
    ![ESC Calibration step 1](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
 
@@ -78,21 +77,20 @@ Flight control systems that can't power the autopilot via USB will need a [diffe
    <a id="actuatorconfig_step"></a>
    ![ESC Calibration step 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
-7. Go back to the [Actuator Configuration](../config/actuators.md) section.
+7. Поверніться до розділу [Налаштування актуатора](../config/actuators.md).
 
    Після калібрування всі мотори з тими ж (пере)каліброваними ESC мають працювати однаково за тими ж вхідними даними. Значення налаштувань PWM за замовчуванням для вихідних даних моторів в налаштуваннях актуатора тепер повинні працювати зразу після розпакування.
 
    Вам потрібно переконатися, що мотори дійсно працюють правильно.
    Оскільки значення конфігурації за замовчуванням встановлені консервативно, ви також можете бажати налаштувати їх для вашого конкретного ESC.
 
-   ::: info
-   The steps below are similar to those described in [Actuator Configuration > Motor Configuration](../config/actuators.md#motor-configuration).
+   Нижче наведено аналогічні кроки, що описані в [Налаштування актуатора > Конфігурація мотора](../config/actuators.md#motor-configuration).
 
 :::
 
    Перевірте наступні значення:
 
-   - The minimum value for a motor (default: `1100us`) should make the motor spin slowly but reliably, and also spin up reliably after it was stopped.
+   - Мінімальне значення для мотора (за замовчуванням: 1100 мкс) повинно забезпечувати повільний, але надійний оберт мотора, а також надійно запускати його після зупинки.
 
      You can confirm that a motor spins at minimum (still without propellers) in [Actuator Testing](../config/actuators.md#actuator-testing), by enabling the sliders, and then moving the test output slider for the motor to the first snap position from the bottom.
      Правильне значення має зробити так, що мотор обертається негайно і надійно при пересуванні повзунка зі стану роззброєності до мінімуму.
