@@ -54,7 +54,7 @@ It connects directly to the **GPS port** using the 10 pin cable.
 GPS/Компас слід монтувати на раму якомога подалі від інших електронних пристроїв, з напрямком вперед транспортного засобу (відокремлення компаса від інших електронних пристроїв зменшить втручання).
 
 :::info
-The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle).
+Вбудований безпечний вимикач в GPS-модулі увімкнений _за замовчуванням_ (коли включений, PX4 не дозволить вам готувати до польоту).
 Щоб вимкнути безпеку, натисніть і утримуйте безпечний вимикач протягом 1 секунди.
 Ви можете натиснути безпечний вимикач знову, щоб увімкнути безпеку та відключити транспортний засіб (це може бути корисно, якщо, з якихось причин, ви не можете вимкнути транспортний засіб за допомогою вашого пульта дистанційного керування або наземної станції).
 :::
@@ -125,7 +125,7 @@ The instructions below show how to connect the different types of receivers to _
 
 - PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **PPM RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+Для отримання додаткової інформації про вибір радіосистеми, сумісність приймача та зв'язок вашої передавача/приймача, див. статтю: [Пульт керування передавачів & приймачів](../getting_started/rc_transmitter_receiver.md).
 
 ## Телеметричні радіостанції (Опціонально)
 
@@ -171,7 +171,7 @@ If your frame is not listed in the airframe reference then use a "generic" airfr
 
 Загальну інформацію про конфігурацію описано в: [Конфігурація автопілота](../config/index.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+Конкретні конфігурації QuadPlane тут: [QuadPlane VTOL налаштування](../config_vtol/vtol_quad_configuration.md)
 
 <!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
