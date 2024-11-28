@@ -192,6 +192,11 @@ Rebooting.
 [100%] Built target upload
 ```
 
+:::tip
+This is not supported when developing on WSL2.
+See [ Windows Development Environment (WSL2-Based) > Flash a Control Board](../dev_setup/dev_env_windows_wsl.md#flash-a-flight-control-board).
+:::
+
 ## その他のボード
 
 Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/index.md) (usually under a heading _Building Firmware_).
