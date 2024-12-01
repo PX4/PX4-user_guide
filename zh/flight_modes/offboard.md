@@ -122,6 +122,7 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 
 - [px4_msgs::msg::ActuatorMotors](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorMotors.msg) + [px4_msgs::msg::ActuatorServos](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorServos.msg)
   - 直接控制电机输出和/或伺服系统（舵机）输出。
+  - Currently works at lower level than then `control_allocator` module. Do not publish these messages when not in offboard mode.
   - 所有值归一化为\[-1, 1\]。 For outputs that do not support negative values, negative entries map to `NaN`.
   - `NaN` maps to disarmed.
 
