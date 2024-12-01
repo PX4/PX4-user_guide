@@ -9,9 +9,9 @@
 
 Для посилання на супутникове зв'язку потрібні наступні компоненти:
 
-- A [RockBlock 9603 Iridium Satellite Modem](https://www.iridium.com/products/rock-seven-rockblock-9603/) module connected to a Pixhawk flashed with the PX4 Autopilot.
+- Модуль [Супутникового модему RockBlock 9603 Iridium](https://www.iridium.com/products/rock-seven-rockblock-9603/), підключений до Pixhawk, спалахнув за допомогою автопілота PX4.
 - Сервер повторного повідомлення працює Ubuntu Linux.
-- A ground station computer running _QGroundControl_ on Ubuntu Linux
+- Автономний комп'ютер запущено _QGroundControl_ на Ubuntu Linux
 
 Нижче показана вся архітектура системи:
 
@@ -21,7 +21,7 @@
 The setup was tested with the current release of _QGroundControl_ running on Ubuntu 14.04 and 16.04.
 
 - Можливо, можна запустити систему на інших наземних станціях і операційних системах, але це не було перевірено (і не гарантовано працює).
-- The [RockBlock MK2](https://www.groundcontrol.com/us/product/rockblock-9602-satellite-modem/) module can also be used.
+- Також можна використовувати модуль [RockBlock MK2](https://www.groundcontrol.com/us/product/rockblock-9602-satellite-modem/).
   Модуль RockBlock 9603 рекомендується оскільки він є меншим та легшим, одночасно забезпечує той самий функціонал.
 
 :::
@@ -31,10 +31,10 @@ The setup was tested with the current release of _QGroundControl_ running on Ubu
 Посилання на посилання, що працює в Великобританії, складається з вартості оренди лінії та витрат на повідомлення:
 
 - Кожен модуль повинен бути активований, який коштує 10,00 в місяць
-- Each message transmitted over the system costs one _credit_ per 50 bytes.
+- Кожне повідомлення, передане через систему, коштує один _кредит_ за 50 байт.
   Пакети кредитів можна купити від RockBlock за £0.04-£0.11 за кредит, в залежності від розміру пакета.
 
-Refer to the [RockBlock Documentation](https://docs.rockblock.rock7.com/docs) for a detailed explanation of the modules, running costs and _RockBlock_ in general.
+Звертайтесь до [документації RockBlock](https://docs.rockblock.rock7.com/docs) для детального пояснення модулів, оперативних витрат та _RockBlock_ загалом.
 
 ## Налаштування транспорту
 
@@ -43,18 +43,18 @@ Refer to the [RockBlock Documentation](https://docs.rockblock.rock7.com/docs) fo
 Підключіть модуль RockBlock до послідовного порту Pixhawk.
 Через вимоги до живлення модуля його можна живити лише через високопотужний послідовний порт, оскільки для роботи необхідно максимум 0,5 А при 5 В.
 Якщо жоден з них недоступний або вільний, то інший джерело живлення, яке має той самий рівень землі, що й Pixhawk і може забезпечити необхідну потужність, повинно бути налаштоване.
-The details of the [connectors](https://docs.rockblock.rock7.com/docs/connectors) and the [power requirements](https://docs.rockblock.rock7.com/docs/power-supply) can be found in the RockBlock documentation.
+Деталі щодо [роз'ємів](https://docs.rockblock.rock7.com/docs/connectors) та вимог до [живлення](https://docs.rockblock.rock7.com/docs/power-supply) можна знайти в документації RockBlock.
 
 ### Модулі
 
 Модуль може використовувати як внутрішню антену, так і зовнішню, підключену до роз'єму SMA.
-To [switch between the two antennas modes](https://docs.rockblock.rock7.com/docs/switching-rockblock-9603-antenna-mode) the position of a small RF link cable needs to changed.
+Для [перемикання між двома режимами антен](https://docs.rockblock.rock7.com/docs/switching-rockblock-9603-antenna-mode) потрібно змінити положення невеликого кабелю RF.
 Якщо використовується зовнішня антена, завжди переконуйтеся, що антена підключена до модуля перед включенням живлення, щоб уникнути пошкодження модуля.
 
 Стандартна швидкість передачі даних модуля - 19200. However, the PX4 _iridiumsbd_ driver requires a baud rate of 115200 so it needs to be changed using the [AT commands](https://www.groundcontrol.com/en/wp-content/uploads/2022/02/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
 
 1. Connect to the module with using a 19200/8-N-1 setting and check if the communication is working using the command: `AT`.
-   The response should be: `OK`.
+   Відповідь має бути: `OK`.
 
 2. Змінити швидкість передачі:
 
@@ -72,11 +72,11 @@ To [switch between the two antennas modes](https://docs.rockblock.rock7.com/docs
 
 ### Програмне забезпечення
 
-[Configure the serial port](../peripherals/serial_configuration.md) on which the RockBlock module will run using [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG).
+[Налаштуйте послідовний порт](../peripherals/serial_configuration.md), на якому буде працювати модуль RockBlock, використовуючи [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG).
 Немає потреби встановлювати швидкість передачі для порту, оскільки це налаштовано драйвером.
 
 :::info
-If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+Якщо параметр конфігурації недоступний у _QGroundControl_, можливо, вам знадобиться [додати драйвер до мікропрограми](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
 ```
 drivers/telemetry/iridiumsbd
@@ -88,7 +88,7 @@ drivers/telemetry/iridiumsbd
 
 При придбанні першого модуля на RockBlock спочатку потрібно створити обліковий запис користувача.
 
-Log in to the [account](https://rockblock.rock7.com/Operations) and register the RockBlock module under the `My RockBLOCKs`.
+Увійдіть у [зобліковий запис](https://rockblock.rock7.com/Operations) та зареєструйте модуль RockBlock в розділі `Мої RockBLOCKs`.
 Активуйте оренду лінії для модуля та переконайтеся, що на обліковому записі є достатньо кредитів для очікуваного часу польоту.
 Якщо використовуються налаштування за замовчуванням, з апаратури відправляється одне повідомлення на хвилину на наземну станцію.
 
@@ -102,8 +102,8 @@ Log in to the [account](https://rockblock.rock7.com/Operations) and register the
 
 1. Сервер, який працює як ретранслятор повідомлень, повинен мати статичну IP-адресу та два загальнодоступних відкритих TCP-порти:
 
-   - `5672` for the _RabbitMQ_ message broker (can be changed in the _rabbitmq_ settings)
-   - `45679` for the HTTP POST interface (can be changed in the **relay.cfg** file)
+   - `5672` для брокера повідомлень _RabbitMQ_ (можна змінити в налаштуваннях _rabbitmq_)
+   - `45679` для інтерфейсу HTTP POST (можна змінити у файлі **relay.cfg**)
 
 2. Встановіть необхідні модулі python:
 
@@ -111,7 +111,7 @@ Log in to the [account](https://rockblock.rock7.com/Operations) and register the
    sudo pip install pika tornado future
    ```
 
-3. Install the `rabbitmq` message broker:
+3. Встановіть брокер повідомлень `rabbitmq`:
 
    ```sh
    sudo apt install rabbitmq-server
@@ -124,13 +124,13 @@ Log in to the [account](https://rockblock.rock7.com/Operations) and register the
    sudo rabbitmqctl set_permissions iridiumsbd ".*" ".*" ".*"
    ```
 
-5. Clone the [SatComInfrastructure](https://github.com/acfloria/SatComInfrastructure.git) repository:
+5. Клонувати репозиторій [SatComInfrastructure](https://github.com/acfloria/SatComInfrastructure.git):
 
    ```sh
    git clone https://github.com/acfloria/SatComInfrastructure.git
    ```
 
-6. Go to the location of the _SatComInfrastructure_ repo and configure the broker's queues:
+6. Перейдіть до розташування репозиторію _SatComInfrastructure_ і налаштуйте черги брокера:
 
    ```sh
    ./setup_rabbit.py localhost iridiumsbd PWD
@@ -142,7 +142,7 @@ Log in to the [account](https://rockblock.rock7.com/Operations) and register the
    sudo rabbitmqctl list_queues
    ```
 
-   This should give you a list of 4 queues: `MO`, `MO_LOG`, `MT`, `MT_LOG`
+   Це повинно дати вам список із 4 черг: `MO`, `MO_LOG`, `MT`, `MT_LOG`
 
 8. Edit the `relay.cfg` configuration file to reflect your settings.
 
@@ -188,9 +188,9 @@ Log in to the [account](https://rockblock.rock7.com/Operations) and register the
    git clone https://github.com/acfloria/SatComInfrastructure.git
    ```
 
-3. Edit the **udp2rabbit.cfg** configuration file to reflect your settings.
+3. Відредагуйте конфігураційний файл **udp2rabbit.cfg**, щоб відображати ваші налаштування.
 
-4. [Install _QGroundControl_](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html) (daily build).
+4. [Встановить _QGroundControl_](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html) (щоденна збірка).
 
 5. Додавайте UDP з'єднання в QGC з параметрами:
 
@@ -202,28 +202,28 @@ Log in to the [account](https://rockblock.rock7.com/Operations) and register the
 
 ### Перевірка
 
-1. Open a terminal on the ground station computer and change to the location of the _SatComInfrastructure_ repository.
-   Then start the **udp2rabbit.py** script:
+1. Відкрийте термінал на комп'ютері наземної станції та перейдіть до розташування репозиторію _SatComInfrastructure_.
+   Потім запустіть скрипт **udp2rabbit.py**:
 
    ```sh
    ./udp2rabbit.py
    ```
 
-2. Send a test message from [RockBlock Account](https://rockblock.rock7.com/Operations) to the created delivery group in the `Test Delivery Groups` tab.
+2. Надішліть тестове повідомлення з облікового запису [RockBlock](https://rockblock.rock7.com/Operations) до створеної групи доставки на вкладці `Тестові групи доставки`.
 
-If in the terminal where the `udp2rabbit.py` script is running within a couple of seconds the acknowledge for a message can be observed, then the RockBlock delivery group, the relay server and the udp2rabbit script are set up correctly:
+Якщо в терміналі, де запущений скрипт `udp2rabbit.py`, протягом кількох секунд можна спостерігати підтвердження для повідомлення, то група доставки RockBlock, реле-сервер та скрипт udp2rabbit налаштовані правильно:
 
 ![udp2rabbit message acknowledge](../../assets/satcom/verification.png)
 
 ## Запуск системи
 
-1. Start _QGroundControl_.
+1. Запустіть _QGroundControl_.
    Спочатку вручну підключіть високо запізнюваний зв'язок, а потім звичайний телеметрійний зв'язок:
 
    ![Connect the High Latency link](../../assets/satcom/linkconnect.png)
 
-2. Open a terminal on the ground station computer and change to the location of the _SatComInfrastructure_ repository.
-   Then start the **udp2rabbit.py** script:
+2. Відкрийте термінал на комп'ютері наземної станції та перейдіть до розташування репозиторію _SatComInfrastructure_.
+   Потім запустіть скрипт **udp2rabbit.py**:
 
    ```sh
    ./udp2rabbit.py
@@ -231,9 +231,9 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 
 3. Увімкніть транспортний засіб.
 
-4. Wait until the first `HIGH_LATENCY2` message is received on QGC.
-   This can be checked either using the _MAVLink Inspector_ widget or on the toolbar with the _LinkIndicator_.
-   If more than one link is connected to the active vehicle the _LinkIndicator_ shows all of them by clicking on the name of the shown link:
+4. Дочекайтеся, доки на QGC не буде отримано перше повідомлення `HIGH_LATENCY2`.
+   Це можна перевірити за допомогою віджету _Інспектора MAVLink_ або на панелі інструментів за допомогою _індикатора зв'язку(LinkIndicator)_.
+   Це можна перевірити за допомогою віджету _Інспектора MAVLink_ або на панелі інструментів за допомогою _індикатора зв'язку(LinkIndicator)_:
 
    ![Link Toolbar](../../assets/satcom/linkindicator.jpg)
 
@@ -245,7 +245,7 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
    - Якщо користувач не вказав зв'язок, звичайний радіо телеметрійний зв'язок віддається перевагу перед високозапізнюваним зв'язком.
    - Автопілот та QGC перехоплюватимуть звичайний радіо телеметрійний зв'язок на високозапізнюваний зв'язок, якщо транспортний засіб зброєний, а радіо телеметрійний зв'язок втрачений (не отримано жодного повідомлення MAVLink протягом певного часу).
      Як тільки радіо телеметрійний зв'язок відновлюється, QGC та автопілот повертаються до нього.
-   - The user can select a priority link over the `LinkIndicator` on the toolbar.
+   - Користувач може вибрати пріоритетний зв'язок через індикатор зв'язку на панелі інструментів.
      Це посилання зберігається як пріоритетне посилання, поки воно активне або користувач вибирає інше пріоритетне посилання:
 
      ![Prioritylink Selection](../../assets/satcom/linkselection.png)
@@ -257,20 +257,20 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 
 - Повідомлення з супутникового зв'язку від літака не надходять на наземну станцію:
 
-  - Check using the system console if the _iridiumsbd_ driver started and if it did that a signal from any satellite is received by the module:
+  - Перевірте за допомогою системної консолі, чи запущено драйвер _iridiumsbd_, і якщо так, чи приймається сигнал від будь-якого супутника модулем:
 
     ```sh
     iridiumsbd status
     ```
 
-  - Make sure using the verification steps from above that the relay server, the delivery group and the `udp2rabbit.py` script are set up correctly.
+  - Впевніться за допомогою перевірочних кроків вище, що реле-сервер, група доставки і скрипт `udp2rabbit.py` налаштовані правильно.
 
   - Перевірте, чи з'єднання активне, і чи налаштування в ньому правильні.
 
 - Драйвер IridiumSBD не запускається:
 
   - Перезапустіть транспортний засіб.
-    If that helps increase the sleep time in the `extras.txt` before the driver is started.
+    Якщо це допомагає, збільште час затримки в `extras.txt`, перед тим як драйвер буде запущений.
     Якщо це не допомагає, переконайтеся, що Pixhawk і модуль мають одинаковий рівень ґрунту. Підтвердіть також, що швидкість передачі даних модуля встановлена на 115200.
 
 - Перше повідомлення отримане на землі, але як тільки транспортний засіб літає, жодне повідомлення не може бути передане, або затримка значно збільшується (в розмірах хвилин)
