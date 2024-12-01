@@ -122,6 +122,7 @@ The following offboard control modes bypass all internal PX4 control loops and s
 
 - [px4_msgs::msg::ActuatorMotors](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorMotors.msg) + [px4_msgs::msg::ActuatorServos](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorServos.msg)
   - You directly control the motor outputs and/or servo outputs.
+  - Currently works at lower level than then `control_allocator` module. Do not publish these messages when not in offboard mode.
   - All the values normalized in \[-1, 1\]. For outputs that do not support negative values, negative entries map to `NaN`.
   - `NaN` maps to disarmed.
 
