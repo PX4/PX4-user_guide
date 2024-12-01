@@ -1,12 +1,12 @@
 # Точна посадка
 
-PX4 supports precision landing for _multicopters_ on either stationary or moving targets.
+PX4 підтримує точне приземлення для _Multicopters_ на стаціонарних або рухомих цілях.
 Ціль може бути надана вбудованим ІЧ-датчиком та приземленням, або зовнішньою системою позиціонування.
 
-Precision landing can be [started/initiated](#initiating-a-precision-landing) as part of a [mission](#mission), in a [Return mode](#return-mode-precision-landing) landing, or by entering the [_Precision Land_ flight mode](#precision-landing-flight-mode).
+Пристрій для точного приземлення може бути [запущений/ініційований](#initiating-a-precision-landing) як частина [місії](#mission), у режимі [повернення](#return-mode-precision-landing) на посадку або при вході у режим польоту [_Точна посадка_](#precision-landing-flight-mode).
 
 :::info
-Precision landing is only possible with a valid global position (due to a limitation in the current implementation of the position controller).
+Точна посадка можлива лише з дійсною глобальною позицією (через обмеження в поточній реалізації контролера позиції).
 :::
 
 ## Загальний огляд
@@ -18,14 +18,14 @@ Precision landing is only possible with a valid global position (due to a limita
 
 #### Необхідний режим
 
-In _Required Mode_ the vehicle will search for a target if none is visible when landing is initiated.
+У _Required Mode_ транспортний засіб буде шукати ціль, якщо нічого не видно під час початку посадки.
 Транспортний засіб виконає точну посадку, якщо ціль буде знайдена.
 
-The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)).
-If the target is still not visible at the search altitude and after a search timeout ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), a normal landing is initiated at the current position.
+Процедура пошуку полягає у підйомі на висоту пошуку ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)).
+Якщо мішень все ще не видно на висоті пошуку після закінчення часу пошуку ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), то ініціюється звичайна посадка на поточному місці.
 
 :::info
-If using an offboard positioning system PX4 assumes that the target is visible when it is receiving MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) messages.
+Якщо використовується позамежна система позиціонування, PX4 передбачає, що ціль буде видима, коли отримує повідомлення MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET).
 :::
 
 #### Опортуністичний режим
