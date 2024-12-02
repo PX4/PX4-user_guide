@@ -26796,16 +26796,6 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ## Rover Mecanum
 
-### RM_MAN_YAW_SCALE (`FLOAT`) {#RM_MAN_YAW_SCALE}
-
-Manual yaw rate scale.
-
-In Manual mode the setpoint for the yaw rate received from the control stick is scaled by this value.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0.01 | 1 | 0.01 | 1 |  
-
 ### RM_MAX_ACCEL (`FLOAT`) {#RM_MAX_ACCEL}
 
 Maximum acceleration.
@@ -26815,6 +26805,16 @@ Maximum acceleration is used to limit the acceleration of the rover
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 100 | 0.01 | 0.5 | m/s^2 
+
+### RM_MAX_DECEL (`FLOAT`) {#RM_MAX_DECEL}
+
+Maximum deceleration.
+
+Maximum decelaration is used to limit the deceleration of the rover. Set to -1 to disable, causing the rover to decelerate as fast as possible. Caution: Disabling the deceleration limit also disables the slow down effect in auto modes.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 100 | 0.01 | -1 | m/s^2 
 
 ### RM_MAX_JERK (`FLOAT`) {#RM_MAX_JERK}
 
@@ -26856,6 +26856,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 100 | 0.01 | 2 | m/s 
 
+### RM_MAX_YAW_ACCEL (`FLOAT`) {#RM_MAX_YAW_ACCEL}
+
+Maximum allowed yaw acceleration for the rover.
+
+This parameter is used to cap desired yaw acceleration. This is used to adjust incoming yaw rate setpoints to a feasible yaw rate setpoint based on the physical limitation on how fast the yaw rate can change. This leads to a smooth setpoint trajectory for the closed loop yaw rate controller to track. Set to -1 to disable.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 1000 | 0.01 | -1 | deg/s^2 
+
 ### RM_MAX_YAW_RATE (`FLOAT`) {#RM_MAX_YAW_RATE}
 
 Maximum allowed yaw rate for the rover.
@@ -26865,14 +26875,6 @@ This parameter is used to cap desired yaw rates and map controller inputs to des
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.01 | 1000 | 0.01 | 90 | deg/s 
-
-### RM_MISS_SPD_DEF (`FLOAT`) {#RM_MISS_SPD_DEF}
-
-Default rover speed during a mission.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 | m/s 
 
 ### RM_MISS_VEL_GAIN (`FLOAT`) {#RM_MISS_VEL_GAIN}
 
