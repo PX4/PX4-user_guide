@@ -87,8 +87,8 @@ To install the RPi CM4 companion computer:
 
 RPi CM4 та контролер польоту повинні бути живлені окремо:
 
-- The flight controller is powered via the CLIK-Mate cable to `POWER1` or `POWER2` port
-- The RPi CM4 is powered by the `USB C` (CM4 Slave) connection.
+- Контролер польоту живиться через кабель CLIK-Mate до порту `POWER1` або порту `POWER2`
+- RPi CM4 працює від підключення `USB C` (CM4 Slave).
   Ви також можете використовувати власний блок живлення для живлення базової плати RPi CM4.
 
 На зображенні нижче показана проводка більш детально.
@@ -117,11 +117,11 @@ RPi CM4 та контролер польоту повинні бути живл�
 
    ![](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/cm4_dip_switch.png)
 
-2. Connect computer to USB-C _CM4 Slave_ port used to power & flash the RPi.
+2. Підключіть комп'ютер до порту USB-C _CM4 Slave_, що використовується для живлення та прошивки RPi.
 
    ![](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/cm4_usbc_slave_port.png)
 
-3. Get `usbboot`, build it and run it.
+3. Отримайте `usbboot`, зберіть його та запустіть.
 
    ```sh
    sudo apt install libusb-1.0-0-dev
@@ -131,7 +131,7 @@ RPi CM4 та контролер польоту повинні бути живл�
    sudo ./rpiboot
    ```
 
-4. You can now install your preferred Linux distro using The `rpi-imager`.
+4. Тепер ви можете встановити свою перевагу Linux дистрибутив за допомогою `rpi-imager`.
    Переконайтеся, що ви додали налаштування WiFi та SSH (приховані за символом шестерні / розширеним).
 
    ```sh
@@ -141,7 +141,7 @@ RPi CM4 та контролер польоту повинні бути живл�
 
 5. Після завершення відключення USB-C CM4 Slave (це відмонтує томи та вимкне CM4).
 
-6. Switch Dip-Switch back to `EMMC`.
+6. Перемикач Dip-Switch поверніть на `EMMC`.
 
 7. Увімкніть CM4, надаючи живлення через порт USB-C CM4 Slave.
 
@@ -152,24 +152,24 @@ RPi CM4 та контролер польоту повинні бути живл�
 ## Налаштуйте послідовне підключення PX4 до CM4 MAVLink
 
 :::info
-If you are using [Ethernet](#ethernet-connection-optional) to connect the FC and RPi, this setup is not needed.
+Якщо ви використовуєте [Ethernet](#ethernet-connection-optional) для підключення FC та RPi, ця настройка не потрібна.
 :::
 
-The Pixhawk FC module is [internally connected to the RPi CM4](#rpi-cm4-fc-serial-connection) using `TELEM2` (`/dev/ttyS4`).
+Модуль Pixhawk FC [внутрішньо підключено до RPi CM4](#rpi-cm4-fc-serial-connection) за допомогою `TELEM2` (`/dev/ttyS4`).
 FC та RPi CM4 повинні бути налаштовані для зв'язку через цей порт.
 
 ### Налаштування послідовного порту FC
 
-The FC should be set up to connect to the `TELEM2` port correctly by default.
+FC повинен бути налаштований для підключення до порту `TELEM2` правильно за замовчуванням.
 Якщо ні, ви можете налаштувати порт за допомогою параметрів, як показано.
 
 Для активації цього екземпляру MAVLink на FC:
 
-1. Connect a computer running QGroundControl via USB Type C port on the baseboard labeled `FC`
+1. Підключіть комп'ютер, на якому працює QGroundControl, через порт USB Type C на базовій платі, позначеній як `FC`
 
    ![Image of baseboard showing FC USB-C connector](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_fc_usb_c.jpg)
 
-2. [Set the parameters](../advanced_config/parameters.md):
+2. [Встановіть параметри](../advanced_config/parameters.md):
 
    - `MAV_1_CONFIG` = `102`
    - `MAV_1_MODE = 2`
@@ -183,9 +183,9 @@ The FC should be set up to connect to the `TELEM2` port correctly by default.
 
 1. Connect to the RPi (using WiFi, a router, or a WiFi Dongle).
 
-2. Enable the RPi serial port by running `RPi-config`
+2. Увімкніть послідовний порт RPi, запустивши `RPi-config`
 
-   - Go to `3 Interface Options`, then `I6 Serial Port`.
+   - Перейдіть до `3 Варіанти інтерфейсу`, потім `I6 Серійний порт`.
      Потім введіть:
      - `login shell accessible over serial → No`
      - `serial port hardware enabled` → `Yes`
@@ -193,7 +193,7 @@ The FC should be set up to connect to the `TELEM2` port correctly by default.
 3. Завершіть і перезавантажте.
    This will add `enable_uart=1` to `/boot/config.txt`, and remove `console=serial0,115200` from `/boot/cmdline.txt`.
 
-4. Now MAVLink traffic should be available on `/dev/serial0` at a baudrate of 921600.
+4. Тепер MAVLink-трафік повинен бути доступний на `/dev/serial0` з швидкістю передачі даних 921600.
 
 ## Спробуйте MAVSDK-Python
 
@@ -205,9 +205,9 @@ The FC should be set up to connect to the `TELEM2` port correctly by default.
    python3 -m pip install mavsdk
    ```
 
-3. Copy an example from the [MAVSDK-Python examples](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
+3. Скопіюйте приклад з [прикладів MAVSDK-Python](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
 
-4. Change the `system_address="udp://:14540"` to `system_address="serial:///dev/serial0:921600"`
+4. Змініть `system_address="udp://:14540"` на `system_address="serial:///dev/serial0:921600"`
 
 5. Спробуйте приклад. Permission for the serial port should already be available through the `dialout` group.
 
@@ -358,7 +358,7 @@ mavlink start -o 14540 -t 10.41.10.1
 
 Це буде відправляти трафік MAVLink по UDP на порт 14540 (порт MAVSDK/MAVROS) на цей IP, що означає, що MAVSDK може просто слухати будь-який UDP, що надходить на цей типовий порт.
 
-To run a MAVSDK example, install mavsdk via pip, and try out an example from [MAVSDK-Python/examples](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
+Для запуску прикладу MAVSDK встановіть mavsdk через pip і спробуйте приклад з [MAVSDK-Python/examples](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
 
 #### XRCE-Client Ethernet Setup
 
@@ -420,5 +420,5 @@ And such output is expected if everything is set up correctly:
 
 ## Дивіться також
 
-- [Get The Pixhawk Raspberry Pi CM4 Baseboard By Holybro Talking With PX4](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/) (px4.io blog):
+- [Отримати базову плату Pixhawk Raspberry Pi CM4 від Holybro, яка спілкується з PX4](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/) (блог px4.io):
   - Урок, який показує, як підключити Pixhawk 6X + Raspberry Pi на базі CM4 через провідний Ethernet.
