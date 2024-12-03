@@ -2,7 +2,7 @@
 
 PX4, що працює на контролерах польоту серії Pixhawk, може підключатися до супутнього комп'ютера за допомогою будь-якого вільного конфігурованого послідовного порту, включаючи Ethernet-порт (якщо підтримується).
 
-See [Companion Computers](../companion_computer/index.md) for information about supported hardware and general setup.
+[Супутникові комп'ютери](../companion_computer/Readme.md) для інформації про підтримуваний обладнання та загальну настройку.
 
 ## Програмне забезпечення супутнього комп'ютера
 
@@ -13,7 +13,7 @@ Common options are listed in [Companion Computers > Companion Computer Setup](..
 ## Налаштування Ethernet
 
 Ethernet - рекомендоване з'єднання, якщо воно підтримується вашим польотним контролером.
-See [Ethernet Setup](../advanced_config/ethernet_setup.md) for instructions.
+У розділі [Налаштування Ethernet](../advanced_config/ethernet_setup.md).
 
 ## Налаштування послідовного порту
 
@@ -21,11 +21,11 @@ See [Ethernet Setup](../advanced_config/ethernet_setup.md) for instructions.
 
 ### Конфігурація Pixhawk
 
-PX4 expects companion computers to connect via `TELEM2` for offboard control.
+PX4 очікує, що супутні комп'ютери будуть підключатися через `TELEM2 `для віддаленого керування. Порт конфігурується за замовчуванням для інтерфейсу за допомогою MAVLink.
 Порт конфігурується за замовчуванням для інтерфейсу за допомогою MAVLink.
 
 Якщо використовується MAVLink, іншої конфігурації з боку PX4 не потрібно.
-To use MAVLink on another port, and/or disable it on `TELEM2`, see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) and [Serial Port Configuration](../peripherals/serial_configuration.md).
+Щоб використовувати MAVLink на іншому порту і/або вимкнути його на `TELEM2`, див. [Периферійні пристрої MAVLink (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) та [Налаштування послідовного порту](../peripherals/serial_configuration.md).
 
 To use [ROS 2/uXRCE-DDS](../ros2/user_guide.md) instead of MAVLink on `TELEM2`, disable MAVLink on the port and then enable the uXRCE-DDS client on `TELEM2`(see [uXRCE-DDS > Starting the client](../middleware/uxrce_dds.md#starting-the-client)).
 
@@ -35,13 +35,13 @@ To use [ROS 2/uXRCE-DDS](../ros2/user_guide.md) instead of MAVLink on `TELEM2`, 
 Всі послідовні порти Pixhawk працюють на напрузі 3,3 В і сумісні з рівнем 5 В.
 
 :::warning
-Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels.
+Багато сучасних супутникових комп'ютерів підтримують лише рівні 1,8 В на їх апаратному UART і можуть бути пошкоджені рівнями 3,3 В.
 Використовуйте рівні перетворювачі.
-In most cases the accessible hardware serial ports already have some function (modem or console) associated with them and need to be _reconfigured in Linux_ before they can be used.
+У більшості випадків до доступних апаратних послідовних портів вже призначена певна функція (модем або консоль), яка повинна бути _переконфігурована в Linux_ перед їх використанням.
 :::
 
-A safe and easy to set up option is to use an FTDI Chip USB-to-serial adapter board to connect from `TELEM2` on the Pixhawk to the USB port on the companion computer.
-The `TELEM2` to FTDI wiring map is shown below.
+Безпечним і легким у налаштуванні варіантом є використання плати адаптера USB-послідовного порту від FTDI Chip для підключення від `TELEM2` на Pixhawk до USB-порту на супутниковому комп'ютері.
+Нижче наведено зв'язку карту `TELEM2` до FTDI.
 
 | TELEM2 |                                | FTDI | &amp;nbsp;                               |
 | ------ | ------------------------------ | ---- | ------------------------------------------------------------ |
@@ -52,16 +52,16 @@ The `TELEM2` to FTDI wiring map is shown below.
 | 5      | RTS (вивід) | 2    | FTDI CTS (brown) (in)  |
 | 6      | GND                            | 1    | FTDI GND (black)                          |
 
-You may also be able to directly connect `TELEM2` directly to a companion computer serial port.
-This is demonstrated for the Raspberry Pi in [Raspberry Pi Companion with Pixhawk](../companion_computer/pixhawk_rpi.md).
+Ви також можете безпосередньо підключити `TELEM2` безпосередньо до послідовного порту супутнього комп'ютера.
+Це показано для Raspberry Pi в [Raspberry Pi Companion with Pixhawk](../companion_computer/pixhawk_rpi.md).
 
 ### Налаштування програмного забезпечення для USB-послідовного порту на Linux
 
-On Linux the default name of a USB FTDI would be like `\dev\ttyUSB0`.
-If you have a second FTDI linked on the USB or an Arduino, it will registered as `\dev\ttyUSB1`.
-To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from `ttyUSBx` to a friendly name, depending on the Vendor and Product ID of the USB device.
+У Linux за замовчуванням ім'я USB-послідовного порту буде таким, як `/dev/ttyUSB0`.
+Якщо у вас є другий FTDI, підключений через USB, або Arduino, він буде зареєстрований як `/dev/ttyUSB1`.
+Щоб уникнути плутанини між першим підключеним і другим підключеним пристроєм, ми рекомендуємо створити символічне посилання з `ttyUSBx` на дружнє ім'я, залежно від ідентифікатора виробника та продукту (Product ID) USB-пристрою.
 
-Using `lsusb` we can get the vendor and product IDs.
+За допомогою команди`lsusb` ми можемо отримати ідентифікатори виробника та продукту.
 
 ```sh
 $ lsusb
@@ -85,20 +85,20 @@ The Arduino is `Bus 003 Device 004: ID 2341:0042 Arduino SA Mega 2560 R3 (CDC AC
 The Pixhawk is `Bus 003 Device 005: ID 26ac:0011`
 
 :::info
-If you do not find your device, unplug it, execute `lsusb`, plug it, execute `lsusb` again and see the added device.
+Якщо ви не знайшли свій пристрій, відключіть його, виконайте `lsusb`, підключіть його, знову виконайте `lsusb` і перегляньте доданий пристрій.
 :::
 
-Therefore, we can create a new UDEV rule in a file called `/etc/udev/rules.d/99-pixhawk.rules` with the following content, changing the idVendor and idProduct to yours.
+Тому ми можемо створити нове правило UDEV у файлі під назвою `/etc/udev/rules.d/99-pixhawk.rules` із таким вмістом, змінивши idVendor та idProduct на ваші.
 
 ```sh
 SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0042", SYMLINK+="ttyArduino"
 SUBSYSTEM=="tty", ATTRS{idVendor}=="26ac", ATTRS{idProduct}=="0011", SYMLINK+="ttyPixhawk"
 ```
 
-Finally, after a **reboot** you can be sure to know which device is what and put `/dev/ttyPixhawk` instead of `/dev/ttyUSB0` in your scripts.
+Нарешті, після **перезавантаження** ви можете бути впевнені, що знаєте, який пристрій є яким, і вставте `/dev/ttyPixhawk` замість `/dev/ttyUSB0` у свій сценарії.
 
 :::info
-Be sure to add yourself in the `tty` and `dialout` groups via `usermod` to avoid to have to execute scripts as root.
+Обов’язково додайте себе до груп `tty` і `dialout` через `usermod`, щоб уникнути необхідності виконувати сценарії від імені користувача root.
 :::
 
 ```sh
