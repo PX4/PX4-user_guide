@@ -6,12 +6,12 @@ PX4 використовує системи комп'ютерного зору (
 
 - Оцінка положення/швидкості:
   - [Оптичний потік](../sensor/optical_flow.md) забезпечує оцінку швидкості у двох вимірах (з використанням камери, спрямованої вниз, та датчика відстані, спрямованого вниз).
-  - [Motion Capture](../computer_vision/motion_capture.md) provides 3D pose estimation using a vision system that is _external_ to the vehicle.
+  - [Motion Capture](../computer_vision/motion_capture.md) забезпечує 3D-оцінку положення за допомогою системи комп'ютерного зору, яка є _зовнішньою_ відносно апарату.
     Це переважно використовується для внутрішньої навігації.
-  - [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md) provides 3D pose and velocity estimation using an onboard vision system and IMU.
+  - [Візуальна інерційна одометрія (VIO)](../computer_vision/visual_inertial_odometry.md) забезпечує оцінку 3D-позиції та швидкості за допомогою бортової системи зору та IMU.
     Використовується для навігації, коли інформація про глобальне місцезнаходження відсутня або ненадійна.
 - Уникнення/планування шляху:
-  - [Collision Prevention](../computer_vision/collision_prevention.md) is used to stop MC vehicles before they can crash into an obstacle (primarily when flying in manual modes).
+  - [Collision Prevention](../computer_vision/collision_prevention.md) використовується для зупинки транспортних засобів до того, як вони можуть зіткнутися з перешкодою (переважно під час польоту в ручному режимі).
 
 :::tip
 [Набір для розвитку автономності візійної системи PX4](../complete_vehicles_mc/px4_vision_kit.md) (від Holybro) - це надійний та доступний набір для розробників, які працюють з комп'ютерним зором на PX4.
@@ -19,5 +19,5 @@ PX4 використовує системи комп'ютерного зору (
 
 ## Додаткові ресурси
 
-- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 v1.9 simulation environment for computer vision.
-  The [XTDrone Manual](https://www.yuque.com/xtdrone/manual_en) has everything you need to get started!
+- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - середовище моделювання ROS + PX4 v1.9 для комп'ютерного зору.
+  У посібнику [XTDrone](https://www.yuque.com/xtdrone/manual_en) є все необхідне для початку роботи!
