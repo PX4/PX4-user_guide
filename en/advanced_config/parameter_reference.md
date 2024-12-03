@@ -14386,16 +14386,6 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 0 |  
 
-### COM_POS_FS_DELAY (`INT32`) {#COM_POS_FS_DELAY}
-
-Loss of position failsafe activation delay.
-
-This sets number of seconds that the position checks need to be failed before the failsafe will activate. The default value has been optimised for rotary wing applications. For fixed wing applications, a larger value between 5 and 10 should be used.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 1 | 100 |  | 1 | s 
-
 ### COM_POS_FS_EPH (`FLOAT`) {#COM_POS_FS_EPH}
 
 Horizontal position error threshold.
