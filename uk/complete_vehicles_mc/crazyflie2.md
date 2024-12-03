@@ -23,7 +23,7 @@ _Crazyflie 2.0_ було [припинено/замінено](../flight_control
 ## Короткий опис
 
 :::info
-The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
+Основна документація з апаратного забезпечення тут: https://wiki.bitcraze.io/projects:crazyflie2:index
 :::
 
 - Основний System-on-Chip: STM32F405RG
