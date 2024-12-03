@@ -1,6 +1,6 @@
 # ARK Jetson PAB Carrier
 
-The [ARK Jetson Pixhawk Autopilot Bus (PAB) Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier) serves as a carrier board for NVIDIA Jetson Orin NX/Nano and any [Pixhawk Autopilot Bus (PAB)](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)-compliant flight controller, such as the [ARKV6X](../flight_controller/ark_v6x.md).
+The [ARK Jetson Pixhawk Autopilot Bus (PAB) Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier) serves as a carrier board for NVIDIA Jetson Orin NX/Nano and any [Pixhawk Autopilot Bus (PAB)](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)-compliant flight controller, such as the [ARKV6X](../flight_controller/arkv6x.md).
 
 ![ARK Jetson PAB Carrier](../../assets/companion_computer/ark_jetson_pab_carrier/ark_jetson_pab_carrier.jpg)
 

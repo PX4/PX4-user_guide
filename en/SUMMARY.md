@@ -164,7 +164,7 @@
     - [Manufacturer-Supported Autopilots](flight_controller/autopilot_manufacturer_supported.md)
       - [AirMind MindPX](flight_controller/mindpx.md)
       - [AirMind MindRacer](flight_controller/mindracer.md)
-      - [ARK Electronics ARKV6X](flight_controller/ark_v6x.md)
+      - [ARK Electronics ARKV6X](flight_controller/arkv6x.md)
       - [ARK FPV Flight Controller](flight_controller/ark_fpv.md) 
       - [ARK Pi6X Flow Flight Controller](flight_controller/ark_pi6x.md)
       - [CUAV X7](flight_controller/cuav_x7.md)
