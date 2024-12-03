@@ -4,15 +4,15 @@ Companion computers ("mission computers"), are separate on-vehicle computers tha
 
 На схемі нижче показана можлива архітектура безпілотного транспортного засобу, яка включає в себе контролер польоту і супутній комп'ютер.
 
-![PX4 architecture - FC + Companion Computer](../../assets/diagrams/px4_companion_computer_simple.svg)
+![Архітектура PX4 - система з політним контролером і супутнім комп'ютером](../../assets/diagrams/px4_companion_computer_simple.svg)
 
 <!-- source for drawing: https://docs.google.com/drawings/d/1ZDSyj5djKCEbabgx8K4ESdTeEUizgEt8spUWrMGbHUE/edit?usp=sharing -->
 
 Польотний контролер працює під керуванням PX4 на NuttX і забезпечує основний код польоту та безпеки.
 На комп'ютері-компаньйоні зазвичай працює Linux, оскільки це значно краща платформа для розробки "загального" програмного забезпечення.
-They are connected using a fast serial or Ethernet link, and typically communicate using the [MAVLink protocol](https://mavlink.io/en/) or uXRCE-DDS.
+Вони підключаються за допомогою швидкого послідовного або Ethernet-з'єднання і зазвичай взаємодіють за допомогою протоколу [MAVLink](https://mavlink.io/en/) або uXRCE-DDS.
 
-Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router)).
+Зв'язок з наземними станціями і хмарою зазвичай маршрутизується через супутній комп'ютер (наприклад, за допомогою [MAVLink Router](https://github.com/mavlink-router/mavlink-router)).
 
 ## Інтегровані плати супутнього компьютера/контролера польоту
 
@@ -50,7 +50,7 @@ PX4 можна використовувати з комп'ютерами, які
 - [Raspberry Pi](../companion_computer/pixhawk_rpi.md)
 
 :::info
-The choice of computer will depend on the usual tradeoffs: cost, weight, power consumption, ease of setup, and computational resources required.
+Вибір комп'ютера буде залежати від стандартних критеріїв: вартості, ваги, потужності, простоти налаштування та необхідних обчислювальних ресурсів.
 :::
 
 ## Програмне забезпечення супутнього комп'ютера
@@ -62,29 +62,29 @@ The choice of computer will depend on the usual tradeoffs: cost, weight, power c
 API та SDK для дронів дозволяють писати програмне забезпечення, яке може керувати PX4.
 Серед популярних альтернатив:
 
-- [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) - libraries in various programming languages to interface with MAVLink systems such as drones, cameras or ground systems.
+- [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) - бібліотеки на різних мовах програмування для взаємодії з системами MAVLink, такими як дрони, камери або наземні системи.
 - [ROS 2](../ros2/index.md) to communicate to ROS 2 nodes (may also be used).
-- [ROS 1 and MAVROS](../ros/mavros_installation.md)
+- [ROS 1 і MAVROS](../ros/mavros_installation.md)
 
 MAVSDK, як правило, є простішим у вивченні та використанні, в той час як ROS надає більше вбудованого програмного забезпечення для складних задач, таких як комп'ютерний зір.
-[Drone APIs and SDKs > What API Should I Use?](../robotics/index.md#what-api-should-i-use) explains the different options in detail.
+[API та SDK для дронів > Який API використовувати?](../robotics/README.md#what-api-should-i-use) детально описує можливі опції.
 
 Ви також можете написати власні бібліотеки MAVLink з нуля:
 
-- [C/C++ example code](https://github.com/mavlink/c_uart_interface_example) shows how to connect custom code
-- MAVLink also can also be used with [many other programming languages](https://mavlink.io/en/#mavlink-project-generatorslanguages)
+- [Приклад коду на C/C++](https://github.com/mavlink/c_uart_interface_example) показує, як підключити кастомний код
+- MAVLink також можна використовувати з [багатьма іншими мовами програмування](https://mavlink.io/en/#mavlink-project-generatorslanguages)
 
 #### Маршрутизатори
 
 Вам знадобиться маршрутизатор, якщо вам потрібен міст MAVLink від апарату до наземної станції або IP-мережі, або якщо вам потрібно кілька з'єднань:
 
-- [MAVLink Router](https://github.com/intel/mavlink-router) (recommended)
+- [MAVLink Router](https://github.com/intel/mavlink-router) (рекомендується)
 - [MAVProxy](https://ardupilot.org/mavproxy/)
 
 ## Налаштування Ethernet
 
 Ethernet - рекомендоване з'єднання, якщо воно підтримується вашим польотним контролером.
-See [Ethernet Setup](../advanced_config/ethernet_setup.md) for instructions.
+У розділі [Налаштування Ethernet](../advanced_config/ethernet_setup.md).
 
 ## Налаштування для окремих контролерів польоту
 
@@ -94,5 +94,5 @@ See [Ethernet Setup](../advanced_config/ethernet_setup.md) for instructions.
 
 ## Додаткова інформація
 
-- [Companion Computer Peripherals](../companion_computer/companion_computer_peripherals.md)
-- [PX4 System Architecture > FC and Companion Computer](../concept/px4_systems_architecture.md#fc-and-companion-computer)
+- [Периферійні пристрої супутнього комп'ютера](../companion_computer/companion_computer_peripherals.md)
+- [Архітектура системи PX4; FC і супутній комп'ютер](../concept/px4_systems_architecture.md#fc-and-companion-computer)
