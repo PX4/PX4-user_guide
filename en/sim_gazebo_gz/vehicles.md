@@ -142,24 +142,25 @@ make px4_sitl gz_standard_vtol
 
 ![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
 
-### Quadtailsitter
-A VTOL tailsitter model whichb uses differential thrust for pitch, roll yaw control.
+### Quad Tailsitter VTOL
+
+A VTOL tailsitter model that uses differential thrust for pitch, roll, and yaw control.
 
 ```sh
 make px4_sitl gz_quadtailsitter
 ```
 
-![Quadtailsitter in Gazebo](../../assets/simulation/gazebo/vehicles/quadtailsitter.png)
+![VTOL quad tailsitter in Gazebo](../../assets/simulation/gazebo/vehicles/vtol_quad_tailsitter.png)
 
+### Tiltrotor VTOL
 
-### Tiltrotor
 A VTOL Plane, where during the transition the front two motors will tilt forward and be used for forward thrust.
 
 ```sh
 make px4_sitl gz_tiltrotor
 ```
 
-![Tiltrotor in Gazebo](../../assets/simulation/gazebo/vehicles/tiltrotor.png)
+![VTOL Tiltrotor in Gazebo](../../assets/simulation/gazebo/vehicles/vtol_tiltrotor.png)
 
 ## Rover
 
@@ -182,4 +183,3 @@ make px4_sitl gz_rover_ackermann
 ```
 
 ![Ackermann Rover in Gazebo](../../assets/simulation/gazebo/vehicles/rover_ackermann.png)
-
