@@ -61,8 +61,8 @@ Note that all gazebo make targets have the prefix `gz_`.
 | [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                                                 | `make px4_sitl gz_advanced_plane`   | 4008                |
 | [Differential Rover](../sim_gazebo_gz/vehicles.md#differential-rover)                                                         | `make px4_sitl gz_r1_rover`         | 4009                |
 | [Ackermann Rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)                                                               | `make px4_sitl gz_rover_ackermann`  | 4012                |
-| [Quad Tailsitter VTOL](../sim_gazebo_gz/vehicles.md#quadtailsitter)                                                           | `make px4_sitl gz_quadtailsitter`   | 4017                |
-| [Tiltrotor VTOL](../sim_gazebo_gz/vehicles.md#tiltrotor)                                                                      | `make px4_sitl gz_tiltrotor`        | 4030                |
+| [Quad Tailsitter VTOL](../sim_gazebo_gz/vehicles.md#quad-tailsitter-vtol)                                                     | `make px4_sitl gz_quadtailsitter`   | 4017                |
+| [Tiltrotor VTOL](../sim_gazebo_gz/vehicles.md#tiltrotor-vtol)                                                                 | `make px4_sitl gz_tiltrotor`        | 4030                |
 
 All [vehicle models](../sim_gazebo_gz/vehicles.md) (and [worlds](#specify-world)) are included as a submodule from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md) repository.
 
