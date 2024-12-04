@@ -1,4 +1,4 @@
-# Path Planning Interface
+# Інтерфейс планування маршруту
 
 <Badge type="warning" text="Removed" />
 
