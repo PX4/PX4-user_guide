@@ -1,17 +1,17 @@
 # Режими польоту (для розробників)
 
-_Flight Modes_ define how the autopilot responds to user input and controls vehicle movement.
-They are loosely grouped into _manual_, _assisted_ and _auto_ modes, based on the level/type of control provided by the autopilot.
+_Режими польоту_ визначають як автопілот реагує на дії користувача та керує пересуванням рухомого засобу.
+Вони вільним чином згруповані у _ручні_, _допоміжні_ та _автономні_ режими, засновуючись на рівні/типі керування що надається автопілотом.
 Пілот перемикається між режимами польоту за допомогою перемикачів на пульті дистанційного керування або за допомогою наземної станції керування.
 
 Не всі режими польоту доступні на всіх типах апаратів, а деякі режими поводяться по-різному на різних типах апаратів (як описано нижче).
 Нарешті, деякі режими польоту мають сенс лише за особливих умов перед та під час польоту (напр. блокування GPS).
 Система не дозволить переходи в ці режими, поки не будуть виконані відповідні умови.
 
-The sections below provide an overview of the modes, followed by a [flight mode evaluation diagram](#flight-mode-evaluation-diagram) that shows the conditions under which PX4 will transition into a new mode.
+Подальші розділи надають огляд цих режимів, за якими йде [діаграма оцінки режимів польоту](#flight-mode-evaluation-diagram) яка показує умови за яких PX4 перейде до нового режиму.
 
 :::info
-User-facing flight mode documentation can be found in:
+Ви можете знайти документацію по режимах польоту орієнтовану на користувача в:
 
 - [Режими польоту (Мультикоптер)](../flight_modes_mc/index.md)
 - [Режими польоту (Фіксовані крила)](../flight_modes_fw/index.md)
@@ -68,20 +68,20 @@ User-facing flight mode documentation can be found in:
 "Допоміжні" режими також контролюються користувачем, але пропонують певний рівень "автоматичної" допомоги, наприклад автоматично тримаючи позицію/гапрямок проти вітру.
 Допоміжні режими часто полегшують здобуття або відновлення контрольованого польоту.
 
-- **ALTCTL** (Altitude Control)
+- **ALTCTL** (Управління висотою)
 
-  - **Fixed-wing aircraft:** When the roll, pitch and yaw (RPY) RC sticks are all centered (or less than some specified deadband range) the aircraft will return to straight and level flight and keep its current altitude.
+  - **Літальний апарат з фіксованим крилом:** коли органи керування пульту РК для крену, тангажу та рискання (КТР) центровані (або менше деякого визначеного граничного діапазону) апарат повернеться до прямого та вирівняного польоту та буде тримати поточну висоту.
     Його позиція по x та y буде плисти за вітром.
-  - **Multirotors:** Roll, pitch and yaw inputs are as in Stabilised mode.
+  - **Мультикоптери:** Команди крену, тангажу та рискання такі ж самі як у режимі Stabilised.
     Вхідні команди тяги вказують зростання або зменшення висоти із заздалегідь визначеною швидкістю.
     Тяга має велику мертву зону.
     Центрований орган керування тягою тримає стабільну висоту.
     Автопілот контролює тільки висоту, тому положення x,y може плисти через вітер.
 
-- **POSCTL** (Position Control)
+- **POSCTL** (Управління позицією)
 
-  - **Fixed-wing aircraft:** Neutral inputs (centered RC sticks) give level flight and it will crab against the wind if needed to maintain a straight line.
-  - **Multirotors** Roll controls left-right speed, pitch controls front-back speed over ground.
+  - **Літальний апарат з фіксованим крилом:** Нульові вхідні команди (центровані органи керування) дають рівномірний політ та він буде рухатися проти вітру якщо потрібно підтримувати пряму лінію.
+  - **Мультикоптери:** Крен керує швидкістю "вліво-вправо", тангаж контролює швидкість вперед-назад над землею.
     Рискання контролює швидкість рискання як в режимі MANUAL.
     Тяга контролює зростання/зменшення висоти як в режимі ALTCTL.
     Це означає що позиція апарату x, y, z утримується автопілотом стабільною проти будь-яких збурень вітру, коли органи управління КТР центровані.
@@ -90,22 +90,21 @@ User-facing flight mode documentation can be found in:
 
 "Автоматичні" режими - це ті, коли контролер майже не потребує користувацьких команд (наприклад зліт, посадка та польотні завдання).
 
-- **AUTO_LOITER** (Loiter)
+- **AUTO_LOITER** (Блукання)
 
-  - **Fixed-wing aircraft:** The aircraft loiters around the current position at the current altitude (or possibly slightly above the current altitude, good for 'I'm losing it').
-  - **Multirotors:** The multirotor hovers / loiters at the current position and altitude.
+  - **Літальний апарат з фіксованим крилом:** Літальний апарат блукає навколо поточної позиції на поточній висоті (або можливо дещо вище, що добре для ситуацій 'втрачаємо його').
+  - **Мультикоптери:** Мультикоптер ширяє/блукає у поточному положенні на поточній висоті.
 
-- **AUTO_RTL** (Return to Launch)
+- **AUTO_RTL** (Повернення до старту)
 
-  - **Fixed-wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position.
-  - **Multirotors:** The multirotor returns in a straight line on the current altitude (if the current altitude is higher than the home position + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)) or on the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (if the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) is higher than the current altitude), then lands automatically.
+  - **Літальний апарат з фіксованим крилом:** Літальний апарат повертається до домашньої позиції та блукає колами навколо цієї позиції.
+  - **Мультикоптери:** Мультикоптер повертається прямою лінією на поточній висоті (якщо поточна висота вища, ніж домашнє положення + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)або на висоті [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (якщо [RTL_RETURN_RETALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) вище за поточну висоту), а потім приземлиться автоматично.
 
-- **AUTO_MISSION** (Mission)
-  - **All system types:** The aircraft obeys the programmed mission sent by the ground control station (GCS).
+- **AUTO_MISSION** (Завдання)
+  - **Усі типи літальних апаратів:** Літальний апарат дотримується запрограмованого завдання що відправляється наземною станцією керування (GCS).
     Якщо завдання не отримано, замість цього ЛА буде в режимі LOITER в поточному положенні.
-  - **_OFFBOARD_** (Offboard)
-    In this mode the position, velocity or attitude reference / target / setpoint is provided by a companion computer connected via serial cable and MAVLink.
-    The offboard setpoint can be provided by APIs like [MAVSDK](http://mavsdk.mavlink.io) or [MAVROS](https://github.com/mavlink/mavros).
+  - **_OFFBOARD_** (Зовнішній комп'ютер) В цьому режимі опорне/цільове/задане значення позиції, швидкості або положення надається супутнім комп'ютером під'єднаним через послідовний кабель та MAVLink.
+    Заданні значення для зовнішніх комп'ютерів може бути надано API на зразок [MAVSDK](http://mavsdk.mavlink.io) або [MAVROS](https://github.com/mavlink/mavros).
 
 ## Діаграма оцінки режимів польоту
 
