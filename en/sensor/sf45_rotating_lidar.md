@@ -72,5 +72,5 @@ The data is then published to the [OBSTACLE_DISTANCE](https://mavlink.io/en/mess
 Start-up issues, jerky movements, or a lot of coms errors displayed with `lightware_sf45_serial status` could mean that the sensor is not getting enough power.
 
 According to its datasheet, the sensor needs 300 mA of current at 5V.
-The supplied cable is fairly long and when connected to a 5V supply, the voltage at the rangefinder may have dropped below the required level.
+The supplied cable is fairly long and when connected to the 5V supply from the FMU like the `TELEM2` port, the voltage at the rangefinder may have dropped below the required level.
 One mitigation/alternative is to power the SF45 via a separate step-down converter from battery voltage, ensuring that there are 5V across the rangefinder itself.
