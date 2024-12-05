@@ -55,9 +55,7 @@ LOCOSYS GPS pinout is provided below.
 
 | 针脚 | Hawk R2 GPS                   |
 | -- | ----------------------------- |
-| 1  | ```
-VCC_5V
-```                |
+| 1  | VCC_5V   |
 | 2  | GPS_RX   |
 | 3  | GPS_TX   |
 | 4  | GNSS_PPS |

@@ -46,9 +46,7 @@ For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and 
 
 | 针脚 | Freefly GPS                     |
 | -- | ------------------------------- |
-| 1  | ```
-VCC_5V
-```                  |
+| 1  | VCC_5V     |
 | 2  | GPS_RX     |
 | 3  | GPS_TX     |
 | 4  | I2C_SCL    |
