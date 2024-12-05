@@ -58,9 +58,7 @@ This can be used to help modify the connector for other autopilot boards.
 
 | 引脚 | Locosys GPS                 | 引脚 | Pixhawk GPS 2               |
 | -- | --------------------------- | -- | --------------------------- |
-| 1  | ```
-VCC_5V
-```              | 1  | VCC                         |
+| 1  | VCC_5V | 1  | VCC                         |
 | 2  | GPS_RX | 2  | GPS_TX |
 | 3  | GPS_TX | 3  | GPS_RX |
 | 4  | NC                          | 4  | SDA                         |
