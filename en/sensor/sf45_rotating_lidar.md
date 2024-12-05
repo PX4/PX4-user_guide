@@ -68,9 +68,9 @@ The measurements in each sector will correspond to the lowest measurement the se
 The data is then published to the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) MAVLink message.
 
 ## Debugging / Common problems
-If you are experiencing start-up issues, jerky movements or a lot of com errors displayed with `lightware_sf45_serial status` this could mean that you are having power issues.
 
-The Sensor seems to be quite sensitive in regard to whether he gets enough power.
-According to the Datasheet, the sensor needs 300 mA of current at 5V, whereby the stock cable is fairly long and can cause problems where the voltage drops too much.
-So it's important to make sure that the cable is kept as short as possible.
-As an alternative, you can power the SF45 via a separate Step-down converter from battery voltage. With this approach, you're able to eliminate all power-related issues.
+Start-up issues, jerky movements, or a lot of coms errors displayed with `lightware_sf45_serial status` could mean that the sensor is not getting enough power.
+
+According to its datasheet, the sensor needs 300 mA of current at 5V.
+The supplied cable is fairly long and when connected to a 5V supply, the voltage at the rangefinder may have dropped below the required level.
+One mitigation/alternative is to power the SF45 via a separate step-down converter from battery voltage, ensuring that there are 5V across the rangefinder itself.
