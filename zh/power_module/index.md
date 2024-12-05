@@ -1,15 +1,19 @@
 # Power Modules & Power Distribution Boards
 
-_Power Modules_ provide a regulated power supply for the flight controller (FC), along with information about battery voltage and current. The voltage/current information is used to determine the consumed power, and to hence to estimate remaining battery capacity. This in turn allows the flight controller to provide failsafe warnings and other actions in the event of low power: [Safety > Low Battery Failsafe](../config/safety.md#battery-level-failsafe).
+_Power Modules_ provide a regulated power supply for the flight controller (FC), along with information about battery voltage and current.
+The voltage/current information is used to determine the consumed power, and to hence to estimate remaining battery capacity.
+This in turn allows the flight controller to provide failsafe warnings and other actions in the event of low power: [Safety > Low Battery Failsafe](../config/safety.md#battery-level-failsafe).
 
-_Power Distribution Boards (PDB)_ are circuit boards that may be used to simplify splitting the output of the battery to various parts of the drone, and in particular motors. PDBs will sometimes include a power module for the FC, ESCs for motors, and a battery elimination circuit (BEC) for powering servos.
+_Power Distribution Boards (PDB)_ are circuit boards that may be used to simplify splitting the output of the battery to various parts of the drone, and in particular motors.
+PDBs will sometimes include a power module for the FC, ESCs for motors, and a battery elimination circuit (BEC) for powering servos.
 
 The PX4 battery/power module configuration (via the ADC interface) is covered in: [Battery Estimation Tuning](../config/battery.md).
 
-::: tip
+:::tip
 For easiest assembly use a power module or PDB recommended by your FC manufacturer, and sized for your power requirements.
 
-The Pixhawk connector standard requires that the VCC line must provide at least 2.5A continuous current and default to 5.3V. In in practice flight controllers may have different recommendations or preferences, so if you don't (or can't) use a recommended module, check that the module matches your FC's requirements.
+The Pixhawk connector standard requires that the VCC line must provide at least 2.5A continuous current and default to 5.3V.
+In in practice flight controllers may have different recommendations or preferences, so if you don't (or can't) use a recommended module, check that the module matches your FC's requirements.
 :::
 
 This section provides information about a number of power modules and power distribution boards (see FC manufacturer docs for more options):

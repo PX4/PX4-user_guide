@@ -2,12 +2,14 @@
 
 The [Pixhawk Autopilot Bus (PAB) Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) provides a standard interface design that allows any compliant Pixhawk flight controller to be used "plug-and-play" with any compliant base board.
 
-This modularity makes it easier to integrate flight controllers into different system-on-module designs. For example, the PAB means that you can use the same flight controller hardware on a more compact board with fewer outputs, or on a board that integrates with a companion computer, and so on.
+This modularity makes it easier to integrate flight controllers into different system-on-module designs.
+For example, the PAB means that you can use the same flight controller hardware on a more compact board with fewer outputs, or on a board that integrates with a companion computer, and so on.
 
 The following carriers and flight controllers are PAB-compliant, and can therefore be used interchangeably.
 
-::: info
-The "Mechanical Design" section of the standard provides specific recommendations for mechanical compatibility between vendors. The flight controllers and baseports listed here are expected to be compliant with all recommendations.
+:::info
+The "Mechanical Design" section of the standard provides specific recommendations for mechanical compatibility between vendors.
+The flight controllers and baseports listed here are expected to be compliant with all recommendations.
 :::
 
 ## PAB Compatible Carriers

@@ -1,41 +1,46 @@
 # Середовище розробки Windows (засноване на Cygwin)
 
 :::warning
-Це середовище розробки [підтримується та утримується спільнотою](../advanced/community_supported_dev_env.md). Воно може працювати або не працювати з поточними версіями PX4.
+This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md).
+Це може працювати або не працювати з поточними версіями PX4.
 
-Цей інструментарій був рекомендований раніше, але наразі не працює з PX4 v1.12 і новіше через проблеми з пакетами. Бажано використовувати [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md).
+Цей інструментарій був рекомендований раніше, але наразі не працює з PX4 v1.12 і новіше через проблеми з пакетами.
+The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) should be used by preference.
 
-Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для інформації про середовища та інструменти, що підтримуються основною командою розробників.
 :::
 
-Наступні інструкції пояснюють як налаштувати (на базі Cygwin) середовище розробки на Windows 10 для PX4. Це середовище можна використовувати для створення PX4:
+Наступні інструкції пояснюють як налаштувати (на базі Cygwin) середовище розробки на Windows 10 для PX4.
+Це середовище може бути використане для збірки PX4 для:
 
 - Pixhawk та іншого апаратного забезпечення на основі NuttX
-- [Симуляція jMAVSim](../sim_jmavsim/index.md)
+- [jMAVSim Simulation](../sim_jmavsim/index.md)
 
 <a id="installation"></a>
 
 ## Інструкції з установки
 
-1. Завантажте останню версію готового до використання MSI інсталятора з: [Github сторінки релізів](https://github.com/PX4/windows-toolchain/releases) або [Amazon S3](https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.9.msi) (швидке завантаження).
-1. Запустіть, оберіть потрібне місце установки, дочекайтесь встановлення:
+1. Download the latest version of the ready-to-use MSI installer from: [Github releases](https://github.com/PX4/windows-toolchain/releases) or [Amazon S3](https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.9.msi) (fast download).
+
+2. Запустіть, оберіть потрібне місце установки, дочекайтесь встановлення:
 
    ![jMAVSimOnWindows](../../assets/toolchain/cygwin_toolchain_installer.png)
 
-1. Позначте прапорець в кінці інсталяції _клонувати репозиторій PX4, зібрати та запустити симуляцію з jMAVSim_ (це спрощує процес, щоб ви могли почати).
+3. Tick the box at the end of the installation to _clone the PX4 repository, build and run simulation with jMAVSim_ (this simplifies the process to get you started).
 
-:::note
-Якщо ви пропустили цей крок, потрібно [клонувати репозиторій PX4-Autopilot вручну](#getting-started).
+   ::: info
+   If you missed this step you will need to [clone the PX4-Autopilot repository manually](#getting-started).
+
 :::
 
 :::warning
-На момент написання встановлювачу бракує деяких залежностей (й ви не можете зібрати та додати їх, дивіться [PX4-windows-toolchain#31](https://github.com/PX4/PX4-windows-toolchain/issues/31)).
+At time of writing the installer is missing some dependencies (and cannot yet be rebuilt to add them - see [PX4-windows-toolchain#31](https://github.com/PX4/PX4-windows-toolchain/issues/31)).
 
 Щоб додати їх самостійно:
 
 1. Перейдіть в директорію встановлення інструментів (за замовчуванням **C:\\PX4\\**)
-1. Запустіть **run-console.bat** (подвійний клік), щоб запустити bash консоль у середовищі Cygwin подібному до Linux.
-1. Введіть в консолі наступну команду:
+2. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console
+3. Введіть в консолі наступну команду:
 
    ```sh
    pip3 install --user kconfiglib jsonschema future
@@ -45,29 +50,33 @@
 
 ## Початок роботи
 
-Інструментарій використовує спеціально налаштовану консоль (яка запускається скриптом **run-console.bat**) з якої ви можете запускати звичайні команди збірки PX4:
+The toolchain uses a specially configured console window (started by running the **run-console.bat** script) from which you can call the normal PX4 build commands:
 
 1. Перейдіть в директорію встановлення інструментів (за замовчуванням **C:\\PX4\\**)
-1. Запустіть **run-console.bat** (подвійний клік), щоб запустити bash консоль у Cygwin  (потрібно використовувати цю консоль для збірки PX4).
-1. Клонуйте репозиторій PX4 PX4-Autopilot з цієї консолі:
 
-:::note
-Пропустіть цей крок, якщо ви обрали у встановлювачі _клонувати репозитарій PX4, зібрати та запустити симуляцію з jMAVSim_. Клонування потрібно зробити тільки один раз!
+2. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console (you must use this console to build PX4).
+
+3. Клонуйте репозиторій PX4 PX4-Autopilot з цієї консолі:
+
+   ::: info
+   Skip this step if you ticked the installer option to _clone the PX4 repository, build and run simulation with jMAVSim_.
+   Клонування потрібно зробити тільки один раз!
+
 :::
 
    ```sh
-   # Клонувати репозиторій PX4-Autopilot в домашню теку & підмодулі завантажують паралельно
+   # Clone the PX4-Autopilot repository into the home folder & loads submodules in parallel
    git clone --recursive -j8 https://github.com/PX4/PX4-Autopilot.git
    ```
 
    Тепер можна використовувати консоль/PX4-Autopilot репозиторій для збірки PX4.
 
-1. Наприклад, для запуску JMAVSim:
+4. Наприклад, для запуску JMAVSim:
 
    ```sh
-   # Перейдіть до репозиторію PX4-Autopilot
+   # Navigate to PX4-Autopilot repo
    cd Firmware
-   # Збирає і запускає SITL симуляцію з jMAVSim, щоб протестувати налаштування
+   # Build and runs SITL simulation with jMAVSim to test the setup
    make px4_sitl jmavsim
    ```
 
@@ -80,7 +89,7 @@
 Після того, як ви закінчите налаштування інструментів командного рядка:
 
 - Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md)
-- Переходьте до [інструкцій збірки](../dev_setup/building_px4.md).
+- Continue to the [build instructions](../dev_setup/building_px4.md).
 
 ## Усунення проблем
 
@@ -90,11 +99,13 @@
 
 Можливо знадобиться тимчасово зупинити їх під час збірки (на власний розсуд).
 
-### Особливі випадки Windows & Git
+### Windows & Git Special Cases
 
 #### Символи закінчення рядків Windows CR+LF проти Unix LF
 
-Ми рекомендуємо примусити використання закінчення рядків Unix LF для кожного репозиторію, з яким ви працюєте з цим інструментарієм (також використовуйте редактор, який залишає  їх незмінними під час збереження змін, тобто Eclipse або VSCode). Компіляція файлів вихідного коду також працює з закінченнями рядків CR+LF отриманих локально, але є випадки у Cygwin (наприклад виконання скриптів оболонки) які потребують закінчення рядків Unix (інакше ви отримаєте помилки типу `$'\r': Command not found.`). На щастя, git може це зробити для вас, якщо виконаєте дві команди в кореневому каталозі вашого репозиторію:
+Ми рекомендуємо примусити використання закінчення рядків Unix LF для кожного репозиторію, з яким ви працюєте з цим інструментарієм (також використовуйте редактор, який залишає  їх незмінними під час збереження змін, тобто Eclipse або VSCode).
+Compilation of source files also works with CR+LF endings checked out locally, but there are cases in Cygwin (e.g. execution of shell scripts) that require Unix line endings (otherwise you get errors like `$'\r': Command not found.`).
+На щастя, git може це зробити для вас, якщо виконаєте дві команди в кореневому каталозі вашого репозиторію:
 
 ```sh
 git config core.autocrlf false
@@ -111,7 +122,10 @@ git config --global ...
 
 #### Біт виконання прав доступу Unix
 
-Під Unix є прапорець в правах доступу кожного файлу, який вказує на те, чи дозволено файлу виконуватись. _git_ під Cygwin підтримує і враховує цей біт (навіть якщо файлова система Windows NTFS не використовує його). Це часто призводить до того що _git_ знаходить "хибнопозитивну" різницю в правах доступу. Вивід diff в результаті може виглядати так:
+Під Unix є прапорець в правах доступу кожного файлу, який вказує на те, чи дозволено файлу виконуватись.
+_git_ under Cygwin supports and cares about that bit (even though the Windows NTFS file system does not use it).
+This often results in _git_ finding "false-positive" differences in permissions.
+Вивід diff в результаті може виглядати так:
 
 ```sh
 diff --git ...
@@ -135,7 +149,6 @@ git config --unset core.filemode
 # прибрати локальну конфігурацію для всіх підмодулів
 git submodule foreach --recursive git config --unset core.filemode
 ```
-
 
 <!--
 Instructions for building/updating this toolchain are covered in [Windows Cygwin Development Environment (Maintenance Instructions)](../dev_setup/dev_env_windows_cygwin_packager_setup.md)

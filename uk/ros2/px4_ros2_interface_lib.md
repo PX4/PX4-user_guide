@@ -4,7 +4,8 @@
 
 :::warning
 Експериментальні налаштування
-На момент написання частини PX4 ROS 2 Interface Library є експериментальними і, отже, можуть бути змінені.:::
+На момент написання цієї статті, деякі частини бібліотеки інтерфейсу PX4 ROS 2 є експериментальними і, отже, можуть бути змінені.
+:::
 
 [PX4 ROS 2 Інтерфейс бібліотеки](https://github.com/Auterion/px4-ros2-interface-lib) є бібліотекою C+++, яка спрощує контроль і взаємодіє з PX4 з ROS 2.
 
@@ -31,8 +32,8 @@
    git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
    ```
 
-   ::: info
-   Щоб забезпечити сумісність, використовуйте останні гілки _main_ для PX4, _px4_msgs_ та бібліотеки.
+   :::info
+   Для забезпечення сумісності, використовуйте останні _main_ гілки для PX4, _px4_msgs_ та бібліотеки.
    Дивіться також [here](https://github.com/Auterion/px4-ros2-interface-lib#compatibility-with-px4).
 
 :::

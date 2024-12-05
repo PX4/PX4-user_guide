@@ -2,16 +2,20 @@
 
 This topic shows how to determine the mapping between USART/UART serial port device names (e.g. "ttyS0") and the associated ports on a flight controller, such as `TELEM1`, `TELEM2`, `GPS1`, `RC SBUS`, `Debug console`.
 
-The instructions are used to generate serial port mapping tables in flight controller documentation. For example: [Pixhawk 4 > Serial Port Mapping](../flight_controller/pixhawk4.md#serial-port-mapping).
+The instructions are used to generate serial port mapping tables in flight controller documentation.
+For example: [Pixhawk 4 > Serial Port Mapping](../flight_controller/pixhawk4.md#serial-port-mapping).
 
-::: info The function assigned to each port does not _have to_ match the name (in most cases), and is set using a [Serial Port Configuration](../peripherals/serial_configuration.md). Usually the port function is configured to match the name, which is why the port labelled `GPS1` will work with a GPS out of the box.
+:::info
+The function assigned to each port does not _have to_ match the name (in most cases), and is set using a [Serial Port Configuration](../peripherals/serial_configuration.md).
+Usually the port function is configured to match the name, which is why the port labelled `GPS1` will work with a GPS out of the box.
 :::
 
 ## NuttX on STMxxyyy
 
 <!-- instructions from DavidS here: https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-This section shows how to get the mappings for NuttX builds on STMxxyyy architectures by inspecting the board configuration files. The instructions use FMUv5, but can similarly be extended for other FMU versions/NuttX boards.
+This section shows how to get the mappings for NuttX builds on STMxxyyy architectures by inspecting the board configuration files.
+The instructions use FMUv5, but can similarly be extended for other FMU versions/NuttX boards.
 
 ### default.px4board
 
@@ -44,11 +48,13 @@ Alternatively you can launch boardconfig using `make px4_fmu-v5 boardconfig` and
 
 ### nsh/defconfig
 
-The _nsh/defconfig_ allows you to determine which ports are defined, whether they are UART or USARTs, and the mapping between USART/UART and device. You can also determine which port is used for the [serial/debug console](../debug/system_console.md).
+The _nsh/defconfig_ allows you to determine which ports are defined, whether they are UART or USARTs, and the mapping between USART/UART and device.
+You can also determine which port is used for the [serial/debug console](../debug/system_console.md).
 
 Open the board's defconfig file, for example: [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L215-L221)
 
-Search for the text "ART" until you find a section like with entries formatted like `CONFIG_STM32xx_USARTn=y` (where `xx` is a processor type and `n` is a port number). For example:
+Search for the text "ART" until you find a section like with entries formatted like `CONFIG_STM32xx_USARTn=y` (where `xx` is a processor type and `n` is a port number).
+For example:
 
 ```
 CONFIG_STM32F7_UART4=y
@@ -62,7 +68,8 @@ CONFIG_STM32F7_USART6=y
 
 The entries tell you which ports are defined, and whether they are UART or USART.
 
-Copy the section above and reorder numerically by "n". Increment the device number _ttyS**n**_ alongside (zero based) to get the device-to-serial-port mapping.
+Copy the section above and reorder numerically by "n".
+Increment the device number _ttyS**n**_ alongside (zero based) to get the device-to-serial-port mapping.
 
 ```
 ttyS0 CONFIG_STM32F7_USART1=y
@@ -74,7 +81,8 @@ ttyS5 CONFIG_STM32F7_UART7=y
 ttyS6 CONFIG_STM32F7_UART8=y
 ```
 
-To get the DEBUG console mapping we search the [defconfig file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L212) for `SERIAL_CONSOLE`. Below we see that the console is on UART7:
+To get the DEBUG console mapping we search the [defconfig file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L212) for `SERIAL_CONSOLE`.
+Below we see that the console is on UART7:
 
 ```
 CONFIG_UART7_SERIAL_CONSOLE=y
@@ -111,19 +119,19 @@ ttyS6 CONFIG_STM32F7_UART8=y PX4IO
 
 In the [flight controller docs](../flight_controller/pixhawk4.md#serial-port-mapping) the resulting table is:
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | GPS                   |
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
+| UART1  | /dev/ttyS0 | GPS                                      |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
 | USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  | /dev/ttyS3 | TELEM4                |
-| USART6 | /dev/ttyS4 | RC SBUS               |
-| UART7  | /dev/ttyS5 | Debug Console         |
-| UART8  | /dev/ttyS6 | PX4IO                 |
+| UART4  | /dev/ttyS3 | TELEM4                                   |
+| USART6 | /dev/ttyS4 | RC SBUS                                  |
+| UART7  | /dev/ttyS5 | Debug Console                            |
+| UART8  | /dev/ttyS6 | PX4IO                                    |
 
 ## Other Architectures
 
-::: info
+:::info
 Contributions welcome!
 :::
 

@@ -1,23 +1,28 @@
 # Holybro Durandal
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-_Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. It was designed and developed by Holybro.
+_Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers.
+It was designed and developed by Holybro.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
 
 At high level, some of the key features are:
 
 - Integrated temperature control for sensors.
-- Powerful STM32H7 microcontroller running at 480MHz. 2 MB of Flash memory and 1 MB of RAM.
+- Powerful STM32H7 microcontroller running at 480MHz.
+  2 MB of Flash memory and 1 MB of RAM.
 - New sensors with higher temperature stability.
 - Internal vibration isolation system.
 - Dual high-performance, low-noise IMUs on board are designed for demanding stabilization applications.
 
 A summary of the key features, [assembly](../assembly/quick_start_durandal.md), and [purchase](#purchase) links can be found below.
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Quick Summary
@@ -153,7 +158,8 @@ The [Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) provides 
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -186,7 +192,7 @@ The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debu
 
 For wiring and debugging information see the above links.
 
-::: info
+:::info
 No Debug port is exposed for the I/O board.
 :::
 
@@ -204,7 +210,8 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ## Pinouts
 
-_Durandal_ pinouts are listed below. These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
+_Durandal_ pinouts are listed below.
+These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
 
 ### Top Pinouts
 
@@ -216,93 +223,93 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### SUBS Out port
 
-| Pin        | Signal             | Volt  |
-| ---------- | ------------------ | ----- |
-| 1 (red)    | -                  | -     |
+| Pin                           | Signal                                                     | Volt                  |
+| ----------------------------- | ---------------------------------------------------------- | --------------------- |
+| 1 (red)    | -                                                          | -                     |
 | 2 (yellow) | SBUS_OUT/RSSI_IN | +3.3V |
-| 3 (black)  | GND                | GND   |
+| 3 (black)  | GND                                                        | GND                   |
 
 #### DSM RC port
 
-| Pin        | Signal  | Volt  |
-| ---------- | ------- | ----- |
+| Pin                           | Signal                       | Volt                  |
+| ----------------------------- | ---------------------------- | --------------------- |
 | 1 (red)    | VDD_3V3 | +3.3V |
 | 2 (yellow) | DSM_IN  | +3.3V |
-| 3 (black)  | GND     | GND   |
+| 3 (black)  | GND                          | GND                   |
 
 #### I2C A port
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
+| Pin                          | Signal | Volt                  |
+| ---------------------------- | ------ | --------------------- |
+| 1 (red)   | VCC    | +5V                   |
 | 2 (black) | SCL4   | +3.3V |
 | 3 (black) | SDA4   | +3.3V |
-| 4 (black) | GND    | GND   |
+| 4 (black) | GND    | GND                   |
 
 #### CAN1 port
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
+| Pin                          | Signal | Volt                  |
+| ---------------------------- | ------ | --------------------- |
+| 1 (red)   | VCC    | +5V                   |
 | 2 (black) | CAN H  | +3.3V |
 | 3 (black) | CAN L  | +3.3V |
-| 4 (black) | GND    | GND   |
+| 4 (black) | GND    | GND                   |
 
 <a id="gps"></a>
 
 #### GPS port
 
-| Pin        | Signal              | Volt  |
-| ---------- | ------------------- | ----- |
-| 1 (red)    | VCC                 | +5V   |
-| 2 (black)  | TX (out)            | +3.3V |
-| 3 (black)  | RX (in)             | +3.3V |
-| 4 (black)  | SCL1                | +3.3V |
-| 5 (black)  | SDA1                | +3.3V |
-| 6 (black)  | SAFETY_SWITCH       | +3.3V |
+| Pin                           | Signal                                                      | Volt                  |
+| ----------------------------- | ----------------------------------------------------------- | --------------------- |
+| 1 (red)    | VCC                                                         | +5V                   |
+| 2 (black)  | TX (out)                                 | +3.3V |
+| 3 (black)  | RX (in)                                  | +3.3V |
+| 4 (black)  | SCL1                                                        | +3.3V |
+| 5 (black)  | SDA1                                                        | +3.3V |
+| 6 (black)  | SAFETY_SWITCH                          | +3.3V |
 | 7 (black)  | SAFETY_SWITCH_LED | +3.3V |
-| 8 (black)  | VDD_3V3             | +3.3V |
-| 9 (black)  | BUZZER              | +5V   |
-| 10 (black) | GND                 | GND   |
+| 8 (black)  | VDD_3V3                                | +3.3V |
+| 9 (black)  | BUZZER                                                      | +5V                   |
+| 10 (black) | GND                                                         | GND                   |
 
 <a id="telem4_i2cb"></a>
 
 #### TELEM4 I2CB ports
 
-| Pin       | Signal   | Volt  |
-| --------- | -------- | ----- |
-| 1 (red)   | VCC      | +5V   |
+| Pin                          | Signal                      | Volt                  |
+| ---------------------------- | --------------------------- | --------------------- |
+| 1 (red)   | VCC                         | +5V                   |
 | 2 (black) | TX (out) | +3.3V |
-| 3 (black) | RX (in)  | -     |
-| 4 (black) | SCL2     | -     |
-| 5 (black) | SDA2     | +3.3V |
-| 6 (black) | GND      | GND   |
+| 3 (black) | RX (in)  | -                     |
+| 4 (black) | SCL2                        | -                     |
+| 5 (black) | SDA2                        | +3.3V |
+| 6 (black) | GND                         | GND                   |
 
 <a id="telem1_2_3"></a>
 
 #### TELEM3, TELEM2, TELEM1 port
 
-| Pin       | Signal    | Volt  |
-| --------- | --------- | ----- |
-| 1 (red)   | VCC       | +5V   |
+| Pin                          | Signal                       | Volt                  |
+| ---------------------------- | ---------------------------- | --------------------- |
+| 1 (red)   | VCC                          | +5V                   |
 | 2 (black) | TX (out)  | +3.3V |
 | 3 (black) | RX (in)   | +3.3V |
 | 4 (black) | CTS (in)  | +3.3V |
 | 5 (black) | RTS (out) | +3.3V |
-| 6 (black) | GND       | GND   |
+| 6 (black) | GND                          | GND                   |
 
 <a id="power"></a>
 
 #### POWER port
 
-| Pin       | Signal  | Volt  |
-| --------- | ------- | ----- |
-| 1 (red)   | VCC     | +5V   |
-| 2 (black) | VCC     | +5V   |
+| Pin                          | Signal  | Volt                  |
+| ---------------------------- | ------- | --------------------- |
+| 1 (red)   | VCC     | +5V                   |
+| 2 (black) | VCC     | +5V                   |
 | 3 (black) | CURRENT | +3.3V |
 | 4 (black) | VOLTAGE | +3.3V |
-| 5 (black) | GND     | GND   |
-| 6 (black) | GND     | GND   |
+| 5 (black) | GND     | GND                   |
+| 6 (black) | GND     | GND                   |
 
 ### Back Pinouts
 
@@ -310,8 +317,8 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### MAIN Out
 
-| Pin | Signal | Volt  | +         | -   |
-| --- | ------ | ----- | --------- | --- |
+| Pin | Signal                      | Volt                  | +                              | -   |
+| --- | --------------------------- | --------------------- | ------------------------------ | --- |
 | 1   | IO_CH1 | +3.3V | VDD_SERVO | GND |
 | 2   | IO_CH2 | +3.3V | VDD_SERVO | GND |
 | 3   | IO_CH3 | +3.3V | VDD_SERVO | GND |
@@ -323,8 +330,8 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### AUX Out
 
-| Pin | Signal  | Volt  | +         | -   |
-| --- | ------- | ----- | --------- | --- |
+| Pin | Signal                       | Volt                  | +                              | -   |
+| --- | ---------------------------- | --------------------- | ------------------------------ | --- |
 | 1   | FMU_CH1 | +3.3V | VDD_SERVO | GND |
 | 2   | FMU_CH2 | +3.3V | VDD_SERVO | GND |
 | 3   | FMU_CH3 | +3.3V | VDD_SERVO | GND |
@@ -333,11 +340,11 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### RC IN
 
-| Pin | Signal           | Volt  |
-| --- | ---------------- | ----- |
+| Pin | Signal                                                   | Volt                  |
+| --- | -------------------------------------------------------- | --------------------- |
 | S   | SBUS_IN/PPM_IN | +3.3V |
-| +   | VCC              | +5V   |
-| -   | GND              | GND   |
+| +   | VCC                                                      | +5V                   |
+| -   | GND                                                      | GND                   |
 
 ### Right-side Pinouts
 
@@ -345,27 +352,27 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### CAN2 port
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
+| Pin                          | Signal | Volt                  |
+| ---------------------------- | ------ | --------------------- |
+| 1 (red)   | VCC    | +5V                   |
 | 2 (black) | CAN H  | +3.3V |
 | 3 (black) | CAN L  | +3.3V |
-| 4 (black) | GND    | GND   |
+| 4 (black) | GND    | GND                   |
 
 #### CAP & ADC IN port
 
-| Pin        | Signal         | Volt                     |
-| ---------- | -------------- | ------------------------ |
-| 1 (red)    | VCC            | +5V                      |
-| 2 (black)  | FMU_CAP6       | +3.3V                    |
-| 3 (black)  | FMU_CAP5       | +3.3V                    |
-| 4 (black)  | FMU_CAP4       | +3.3V                    |
-| 5 (black)  | FMU_CAP3       | +3.3V                    |
-| 6 (black)  | FMU_CAP2       | +3.3V                    |
-| 7 (black)  | FMU_CAP1       | +3.3V                    |
+| Pin                           | Signal                                                 | Volt                                     |
+| ----------------------------- | ------------------------------------------------------ | ---------------------------------------- |
+| 1 (red)    | VCC                                                    | +5V                                      |
+| 2 (black)  | FMU_CAP6                          | +3.3V                    |
+| 3 (black)  | FMU_CAP5                          | +3.3V                    |
+| 4 (black)  | FMU_CAP4                          | +3.3V                    |
+| 5 (black)  | FMU_CAP3                          | +3.3V                    |
+| 6 (black)  | FMU_CAP2                          | +3.3V                    |
+| 7 (black)  | FMU_CAP1                          | +3.3V                    |
 | 8 (black)  | ADC1_SPARE_1 | +3.3V [++](#warn_sensor) |
 | 9 (black)  | ADC1_SPARE_2 | +6.6V [++](#warn_sensor) |
-| 10 (black) | GND            | GND                      |
+| 10 (black) | GND                                                    | GND                                      |
 
 <a id="warn_sensor"></a>
 
@@ -381,35 +388,35 @@ _Durandal_ pinouts are listed below. These can also be downloaded from [here](ht
 
 #### DEBUG port
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
+| Pin                          | Signal | Volt                  |
+| ---------------------------- | ------ | --------------------- |
 | 1 (red)   | VT     | +3.3V |
 | 2 (black) | TX     | +3.3V |
 | 3 (black) | RX     | +3.3V |
 | 4 (black) | SWDIO  | +3.3V |
 | 5 (black) | SWCLK  | +3.3V |
-| 6 (black) | GND    | GND   |
+| 6 (black) | GND    | GND                   |
 
 #### SPI port
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
+| Pin                          | Signal | Volt                  |
+| ---------------------------- | ------ | --------------------- |
+| 1 (red)   | VCC    | +5V                   |
 | 2 (black) | SCK    | +3.3V |
 | 3 (black) | MISO   | +3.3V |
 | 4 (black) | MOSI   | +3.3V |
 | 5 (black) | CS1    | +3.3V |
 | 6 (black) | CS2    | +3.3V |
-| 7 (black) | GND    | GND   |
+| 7 (black) | GND    | GND                   |
 
 #### USB port
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VBUS   | +5V   |
+| Pin                          | Signal | Volt                  |
+| ---------------------------- | ------ | --------------------- |
+| 1 (red)   | VBUS   | +5V                   |
 | 2 (black) | DM     | +3.3V |
 | 3 (black) | DP     | +3.3V |
-| 4 (black) | GND    | GND   |
+| 4 (black) | GND    | GND                   |
 
 ## Further info
 

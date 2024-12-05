@@ -1,7 +1,5 @@
 # NpfgStatus (UORB message)
 
-
-
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/NpfgStatus.msg)
 
 ```c
@@ -21,6 +19,6 @@ float32 min_ground_speed_ref    # minimum forward ground speed reference [m/s]
 float32 adapted_period          # adapted period (if auto-tuning enabled) [s]
 float32 p_gain                  # controller proportional gain [rad/s]
 float32 time_const              # controller time constant [s]
-float32 can_run_factor      # estimate of certainty of the correct functionality of the npfg roll setpoint in [0, 1]
+float32 can_run_factor 	 	# estimate of certainty of the correct functionality of the npfg roll setpoint in [0, 1]
 
 ```

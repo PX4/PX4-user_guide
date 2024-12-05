@@ -5,7 +5,7 @@ This build guide shows how to add a flight controller system using [Auterion Sky
 
 ![Photo of Loong VTOL in flight](../../assets/airframes/vtol/foxtech_loong_2160/01-foxtech-loong.jpg)
 
-## Overview
+## 개요
 
 Specifications:
 
@@ -25,12 +25,12 @@ Key Features:
 - Extended Flight Time: Up to 1 hour and 30 minutes, depending on weather conditions and takeoff weight
 - Versatile Payload Capacity: Spacious fuselage accommodates diverse payloads, including options like the Sony A7R for mapping applications.
 
-## Where to Buy
+## 구매처
 
 - [Foxtech FPV (ARF Combo)](https://www.foxtechfpv.com/foxtech-loong-2160-vtol.html) - recommended
 - [Alibaba](https://www.alibaba.com/product-detail/Loong-2160-Long-Endurance-VTOL-Mapping_1600280686653.html)
 
-## Flight Controller
+## 비행 콘트롤러
 
 The following options have been tested:
 
@@ -67,7 +67,7 @@ The following options have been tested:
 - [Antenna extension cable - matching your radio system](https://www.digikey.ch/de/products/detail/amphenol-rf/095-902-536-012/13246174)
 - [Recommended Battery (12S 22Ah)](https://genstattu.com/tattu-22-2v-30c-6s-22000mah-lipo-battery-with-xt90-s-plug-for-uav.html)
 
-## Tools
+## 도구
 
 The following tools were used for this build.
 
@@ -75,12 +75,12 @@ The following tools were used for this build.
 - Wrench set
 - [Soldering station](https://www.amazon.com/UY-CHAN-Programmable-Pocket-size-Soldering/dp/B07G71CKC4/ref=sr_1_7?crid=2S2XK6363XRDF\&keywords=ts+80+soldering+iron\&qid=1700644208\&sprefix=ts+80%2Caps%2C151\&sr=8-7)
 - Glue: Hot glue, 5 min Epoxy
-- Tape
+- 테이프
 - 3M Double sided tape ([3M VHB tape](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y))
 - 3D-Printer
 - [Blue Loctite](https://www.amazon.com/Loctite-Heavy-Duty-Threadlocker-Single/dp/B000I1RSNS?th=1)
 
-## Hardware Integration
+## 하드웨어 통합
 
 In this documentation the integration of a Auterion Skynode is described.
 The installation of a Pixhawk can be done similarly.
@@ -148,7 +148,7 @@ The 40A power module provides power for the avionics when using Skynode (and com
 
 If necessary, the 10V output of the radio port on the PM can also be exposed via an XT30 that can be mounted next to the 6S battery input XT60.
 
-### Sensors
+### 센서
 
 #### Pitot Tube
 
@@ -183,7 +183,7 @@ If no lidar is mounted you should disable using fixed-wing actuation in hover to
 
    ![Installed lidar](../../assets/airframes/vtol/foxtech_loong_2160/13-lidar-02.jpg)
 
-#### GPS/Compass
+#### GPS/나침반
 
 1. Use double sided tape to mount the GPS in the rear of the vehicle underneath the rear latch.
 
@@ -192,7 +192,7 @@ If no lidar is mounted you should disable using fixed-wing actuation in hover to
    The arrow on the GPS for the orientation can be ignored.
    The orientation will be detected by the flight controller during the calibration.
 
-### Flight Controller
+### 비행 콘트롤러
 
 Install either the Pixhawk or Skynode onto the baseplate.
 
@@ -249,7 +249,7 @@ The power module can be used as a 5V backup for Skynode.
 
 ![12S-Power-Module](../../assets/airframes/vtol/foxtech_loong_2160/18-12s-power-module.jpg)
 
-### Assembly
+### 조립
 
 The assembly steps are:
 
@@ -270,7 +270,7 @@ MAIN:
 4. Aileron left
 5. Elevator right
 6. Elevator left
-7. Rudder
+7. 방향타
 
 AUX:
 
@@ -281,9 +281,9 @@ AUX:
 
 If you wish connect the actuators to different outputs you will need to modify the Actuator Output mappings (see [Actuator Configuration](../config/actuators.md)).
 
-## Software Setup
+## 소프트웨어 설정
 
-### Select Airframe
+### 기체를 선택합니다.
 
 1. Open QGC, select the **Q** icon, and then select **Vehicle Setup**.
 2. Select the [Airframe](../config/airframe.md) tab
@@ -299,7 +299,7 @@ To load the file:
 1. Download the [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/foxtech_loong_2160/loong.params).
 2. Select the [Parameters](../advanced_config/parameters.md#finding-updating-parameters) tab and then click on **Tools** in the top right corner.
 3. Select **Load from file** and then choose the `loong.params` file you just downloaded.
-4. Reboot the vehicle.
+4. 기체를 재부팅합니다.
 
 ### Sensor Selection
 
@@ -376,7 +376,7 @@ Check the following reactions:
 increase the throttle a bit if you can't see a reaction since [Airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode-mixer-saturation) is not enabled for the yaw axis.
 :::
 
-## First Flight
+## 첫 번째 비행
 
 - Mount the propellers (use blue Loctite for the screws).
 - Check center of gravity (GG).

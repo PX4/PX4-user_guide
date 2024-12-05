@@ -1,13 +1,16 @@
 # Модуль WiFi ESP8266
 
-ESP8266 та його клони - це недорогі та легко доступні модулі Wi-Fi з повним стеком TCP/IP та можливістю мікроконтролера. Вони можуть використовуватись з будь-яким контролером Pixhawk.
+ESP8266 та його клони - це недорогі та легко доступні модулі Wi-Fi з повним стеком TCP/IP та можливістю мікроконтролера.
+Вони можуть використовуватись з будь-яким контролером Pixhawk.
 
-:::tip ESP8266 - це _defacto_ за замовчуванням WiFi модуль для використання з [Pixracer](../flight_controller/pixracer.md) (і, як правило, має вбудований з ним).
+:::tip
+ESP8266 is the _defacto_ default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
 :::
 
 ## Де купити
 
-Модуль ESP8266 легко доступний від ряду постачальників. Нижче наведено перелік кількох виконавців.
+Модуль ESP8266 легко доступний від ряду постачальників.
+Нижче наведено перелік кількох виконавців.
 
 Більшість модулів підтримують тільки 3.3 V у той час як деякі контролери польоту (наприклад, Pixhawk 4) вивід на 5V (вам потрібно перевірити сумісність і виконати зниження напруги при необхідності).
 
@@ -24,25 +27,30 @@ ESP8266 та його клони - це недорогі та легко дос�
 
   A plug and play ESP8266 module.
 
-  The Kahuna comes with a cable to connect directly to the Pixhawk-standard `TELEM1` or `TELEM2` ports. It is pre-flashed with the latest firmware, and has a u.fl connector for an external antenna. At most you may need to set the baud rate parameter, which for `TELEM1` is `SER_TEL1_BAUD = 57600 (57600 8N1)`. The [User Guide](https://docs.google.com/document/d/1VyOsp9_q6dIAdYdWuDFcWoqqrNy_vbFMANubZA3Uz5g/edit?pli=1&tab=t.0) include WiFi setup and other relevant information.
+  The Kahuna comes with a cable to connect directly to the Pixhawk-standard `TELEM1` or `TELEM2` ports.
+  It is pre-flashed with the latest firmware, and has a u.fl connector for an external antenna.
+  At most you may need to set the baud rate parameter, which for `TELEM1` is `SER_TEL1_BAUD = 57600 (57600 8N1)`.
+  The [User Guide](https://docs.google.com/document/d/1VyOsp9_q6dIAdYdWuDFcWoqqrNy_vbFMANubZA3Uz5g/edit?pli=1\&tab=t.0) include WiFi setup and other relevant information.
 
   ![Kahuna ESP8266 WiFi Module](../../assets/peripherals/telemetry/esp8266/beyond_robotics_kahuna_esp8266.png)
 
-## Встановлення Pixhawk/PX4 & конфігурації {#px4_config}
+## Pixhawk/PX4 Setup & Configuration {#px4_config}
 
 :::tip
-Спершу вам _може_ знадобитися оновити радіо з прошивкою ESP8266, сумісною з PX4 ([див. нижче](#esp8266-flashing-firmware-advanced)). Інструкції по виготовленню повинні пояснити, чи це потрібно.
+You _may_ first need to update the radio with PX4-compatible ESP8266 firmware ([see below](#esp8266-flashing-firmware-advanced)).
+Інструкції по виготовленню повинні пояснити, чи це потрібно.
 :::
 
 Підключіть свій ESP8266 до вашого польотного контролера серії Pixhawk (наприклад, Pixracer) на будь-якому вільному UART.
 
 Підключіть контролер польоту до вашої наземної станції через USB (так як WiFi ще не повністю налаштований).
 
-Використання _QGroundControl_:
+Використання Від _QGroundControl_:
 
-- [Завантажити останню прошивку PX4 на контролер польоту](../config/firmware.md).
-- [Налаштувати послідовний порт](../peripherals/serial_configuration.md), який використовується для підключення ESP8266. Не забудьте встановити швидкість передачі даних на 921600, щоб відповідати значенню, встановленому для ESP8266.
-- [Налаштуйте MAVLink](../peripherals/mavlink_peripherals.md) на відповідному послідовному порту для отримання телеметрії та передачі команд через ESP8266.
+- [Load recent PX4 firmware onto the flight controller](../config/firmware.md).
+- [Configure the serial port](../peripherals/serial_configuration.md) used to connect the ESP8266.
+  Не забудьте встановити швидкість передачі даних на 921600, щоб відповідати значенню, встановленому для ESP8266.
+- [Configure MAVLink](../peripherals/mavlink_peripherals.md) on the corresponding serial port in order to receive telemetry and transmit commands over the ESP8266.
 
 Після того, як ви налаштували послідовний порт керування польотом для підключення до радіо, ви можете від'єднати фізичне USB-підключення між наземною станцією та транспортним засобом.
 
@@ -50,7 +58,8 @@ ESP8266 та його клони - це недорогі та легко дос�
 
 Модуль надає точку доступу WiFi, яку ваш комп'ютер земної станції може використовувати для підключення до літального апарату.
 
-::: info Налаштування точки доступу ESP8266 повинні бути надані разом з платою (наприклад, зазвичай надруковані на зворотному боці плати або на упаковці).
+:::info
+The settings for the ESP8266 hotspot should be provided with the board (e.g. typically printed on the reverse side of the board or on the packaging).
 
 Типові налаштування заводської мережі:
 
@@ -68,24 +77,27 @@ ESP8266 та його клони - це недорогі та легко дос�
 
 Приклади дошок від AlphaUILink та DOITING показані нижче:
 
-<img src="../../assets/peripherals/telemetry/esp8266/alpha_uavlink_back.jpg" width="250px" alt="AlphaUAVLink - Back" /> <img src="../../assets/peripherals/telemetry/esp8266/alpha_uavlink_front.jpg" width="250px" alt="AlphaUAVLink - Front" /> <img src="../../assets/peripherals/telemetry/esp8266/doiting_eps_12f_back.jpg" width="250px" alt="DOITING EPS 12F - Back" /> <img src="../../assets/peripherals/telemetry/esp8266/doiting_eps_12f_front.jpg" width="250px" alt="DOITING EPS 12F - Front" />
+<img src="../../assets/peripherals/telemetry/esp8266/alpha_uavlink_back.jpg" width="250px" alt="AlphaUAVLink - Back"/> <img src="../../assets/peripherals/telemetry/esp8266/alpha_uavlink_front.jpg" width="250px" alt="AlphaUAVLink - Front"/> <img src="../../assets/peripherals/telemetry/esp8266/doiting_eps_12f_back.jpg" width="250px" alt="DOITING EPS 12F - Back"/> <img src="../../assets/peripherals/telemetry/esp8266/doiting_eps_12f_front.jpg" width="250px" alt="DOITING EPS 12F - Front"/>
 :::
 
-У Wi-Fi увімкнена _QGroundControl_ основний комп'ютер станцій/планшет, знайдіть і підключіться до відкритої бездротової мережі для ESP8266. На комп'ютері з Windows налаштування підключення до мережі з назвою **Pixracer** та типовим паролем **pixracer** будуть виглядати так:
+On your wifi-enabled _QGroundControl_ ground station computer/tablet, find and connect to the open wireless network for your ESP8266.
+On a Windows computer the connection settings for a network with name **Pixracer** and default password **pixracer** point will look like this:
 
-![Windows Network Setup: Connection](../../assets/peripherals/pixracer_network_setup_connection_windows.png) ![Windows Network Setup: Security](../../assets/peripherals/pixracer_network_setup_security_windows.png)
+![Windows Network Setup: Connection](../../assets/peripherals/pixracer_network_setup_connection_windows.png)
+![Windows Network Setup: Security](../../assets/peripherals/pixracer_network_setup_security_windows.png)
 
-_QGroundControl_ автоматично підключиться до літального апарату, коли комп'ютер наземної станції підключений до точки доступу WiFi з назвою "Pixracer".
+_QGroundControl_ will automatically connect to the vehicle when the ground station computer is attached to a WiFi access point named "Pixracer".
 
 Якщо ви використовуєте модуль з будь-яким іншим ім'ям WiFi, вам потрібно вручну налаштувати підключення WiFi QGroundControl, як показано в наступному розділі.
 
 ## Налаштувати QGC з нестандартними WiFi підключеннями
 
-_QGroundControl_ автоматично підключиться до транспортного засобу, коли комп'ютер наземної станції буде підключений до точки доступу WiFi "Pixracer". Для будь-якого іншого імені точки доступу вам потрібно буде вручну створити спеціальне комунікаційне посилання:
+_QGroundControl_ will automatically connect to the vehicle when the ground station computer is attached to the "Pixracer" WiFi access point.
+Для будь-якого іншого імені точки доступу вам потрібно буде вручну створити спеціальне комунікаційне посилання:
 
-1. Перейдіть у [Налаштування додатку > Канали зв'язку](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/settings_view.html)
+1. Go to [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/settings_view.html)
 2. Додайте нове підключення з відповідними налаштуваннями.
-3. Виберіть нове підключення та натисніть **Підключитися**.
+3. Select the new connection, and click **Connect**.
 4. Автомобіль тепер повинен підключатися
 
 ## Перевірити
@@ -95,12 +107,13 @@ _QGroundControl_ автоматично підключиться до транс
 ![QGC Summary showing Wifi Bridge](../../assets/qgc/summary/wifi_bridge.png)
 
 :::tip
-Якщо у вас виникли проблеми з підключенням, див. [Проблеми використання QGC](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/troubleshooting/qgc_usage.html).
+If you have any problem connecting, see [QGC Usage Problems](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/troubleshooting/qgc_usage.html).
 :::
 
 ## Прошивка/прошивка ESP8266 (розширений)
 
-Модулі ESP8266 від різних виробників можуть не мати встановленого відповідного прошивкового забезпечення ESP8266 наперед. Інструкції нижче пояснюють, як налаштувати та запустити тести локально.
+Модулі ESP8266 від різних виробників можуть не мати встановленого відповідного прошивкового забезпечення ESP8266 наперед.
+Інструкції нижче пояснюють, як налаштувати та запустити тести локально.
 
 ### Готові бінарні файли
 
@@ -108,19 +121,23 @@ _QGroundControl_ автоматично підключиться до транс
 
 ### Побудувати з Джерел
 
-У сховищі [прошивки](https://github.com/dogmaphobic/mavesp8266) містяться інструкції та всі необхідні інструменти для збирання та прошивки прошивки ESP8266.
+The [firmware repository](https://github.com/dogmaphobic/mavesp8266) contains instructions and all the tools needed for building and flashing the ESP8266 firmware.
 
 ### Оновлення прошивки OTA
 
-Якщо у вас встановлено мікропрограму 1.0.4 або новішої версії, ви можете виконати оновлення за допомогою функції _Over The Air Update_ ESP. Просто підключіться до його AP WiFi мережі та перейдіть за посиланням: `http://192.168.4.1/update`. Потім ви можете вибрати файл прошивки, який ви завантажили вище, та завантажити його на модуль WiFi.
+If you have firmware 1.0.4 or greater installed, you can do the update using the ESP's _Over The Air Update_ feature.
+Just connect to its AP WiFi link and browse to: `http://192.168.4.1/update`.
+Потім ви можете вибрати файл прошивки, який ви завантажили вище, та завантажити його на модуль WiFi.
 
 :::tip
-Це найпростіший спосіб оновити прошивку!
+This is the easiest way to update firmware!
 :::
 
 ### Прошивка прошивки ESP8266
 
-Перед прошивкою переконайтеся, що ви завантажили ESP8266 в _Режим прошивання_, як описано нижче. Якщо ви клонували репозиторій [MavESP8266](https://github.com/dogmaphobic/mavesp8266), ви можете зібрати та прошити прошивку, використовуючи надані інструменти та середовище [PlatformIO](http://platformio.org). Якщо ви завантажили заздалегідь побудоване вбудоване програмне забезпечення вище, завантажте утиліту [esptool](https://github.com/espressif/esptool) та скористайтеся наведеною нижче командною стрічкою:
+Before flashing, make sure you boot the ESP8266 in _Flash Mode_ as described below.
+If you cloned the [MavESP8266](https://github.com/dogmaphobic/mavesp8266) repository, you can build and flash the firmware using the provided [PlatformIO](http://platformio.org) tools and environment.
+If you downloaded the pre-built firmware above, download the [esptool](https://github.com/espressif/esptool) utility and use the command line below:
 
 ```sh
 esptool.py --baud 921600 --port /dev/your_serial_port write_flash 0x00000 firmware_xxxxx.bin
@@ -128,21 +145,24 @@ esptool.py --baud 921600 --port /dev/your_serial_port write_flash 0x00000 firmwa
 
 Де:
 
-- **firmware_xxxxx.bin** це прошивка, яку ви завантажили вище
-- **your_serial_port** - це назва серійного порту в якому ESP8266 підключений до (`/dev/cu.usbmodem`)
+- **firmware_xxxxx.bin** is the firmware you downloaded above
+- **your_serial_port** is the name of the serial port where the ESP8266 is connected to (`/dev/cu.usbmodem` for example)
 
 ### Проводка для Прошивання Програмного Забезпечення
 
 :::warning
-Більшість модулів ESP8266 підтримують напругу 3,3 вольти (лише), тоді як деякі контролери польоту (наприклад, Pixhawk 4) видають напругу на рівні 5 В.
+Most ESP8266 modules support 3.3 volts (only), while some flight controllers (e.g. Pixhawk 4) output at 5V.
 Перевірте сумісність та знизьте напругу, якщо це потрібно.
 :::
 
-Існують різні методи для встановлення ESP8266 у _Режим Прошивки_, але не всі USB/UART адаптери надають всі необхідні контакти для автоматичного перемикання режиму. Для того щоб завантажити ESP8266 у _режимі Flash_, пін GPIO-0 повинен бути встановлений у низьке положення (GND), а пін CH_PD повинен бути встановлений у високе положення (VCC). Ось як виглядає моя власна налаштування:
+There are various methods for setting the ESP8266 into _Flash Mode_ but not all USB/UART adapters provide all the necessary pins for automatic mode switching.
+In order to boot the ESP8266 in _Flash Mode_, the GPIO-0 pin must be set low (GND) and the CH_PD pin must be set high (VCC).
+Ось як виглядає моя власна налаштування:
 
 ![esp8266 flashing rig](../../assets/hardware/telemetry/esp8266_flashing_rig.jpg)
 
-Я побудував кабель, де RX, TX, VCC та GND правильно підключені безпосередньо від адаптера FTDI до ESP8266. З ESP8266 я залишив дві проводи, підключені до GPIO-0 та CH_PD вільними, щоб я міг завантажити його або зазвичай, або в режимі флеш, підключивши їх до GND та VCC відповідно.
+Я побудував кабель, де RX, TX, VCC та GND правильно підключені безпосередньо від адаптера FTDI до ESP8266.
+З ESP8266 я залишив дві проводи, підключені до GPIO-0 та CH_PD вільними, щоб я міг завантажити його або зазвичай, або в режимі флеш, підключивши їх до GND та VCC відповідно.
 
 #### ESP8266 (ESP-01) Pinout
 

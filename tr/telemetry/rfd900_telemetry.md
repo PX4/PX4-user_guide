@@ -1,11 +1,13 @@
 # RFD900 Long-Range Telemetry
 
-[jDrones](http://store.jDrones.com) and [RFDesign](http://rfdesign.com.au/) offer _long-range_ [SiK](../telemetry/sik_radio.md)-compatible telemetry radios. The radios provide reliable connectivity at greater than 5km ranges with normal antennas (and have been reported to achieve much greater ranges).
+[jDrones](http://store.jDrones.com) and [RFDesign](http://rfdesign.com.au/) offer _long-range_ [SiK](../telemetry/sik_radio.md)-compatible telemetry radios.
+The radios provide reliable connectivity at greater than 5km ranges with normal antennas (and have been reported to achieve much greater ranges).
 
 ![jDrones Long Range Telemetry](../../assets/hardware/telemetry/jdrones_long_range_uav_telemetry_rf900set02_2.jpg)
 
 :::tip
-_jDrones_ have productized _RFDesign_ modems (added a casing with power management, filtering and other electronics inside, along with cables to connect to popular flight controllers, and individually validated antennas). The first such modem was the _RFD900_, but both _RFDesign_ and _jDrones_ have since iterated to new versions.
+_jDrones_ have productized _RFDesign_ modems (added a casing with power management, filtering and other electronics inside, along with cables to connect to popular flight controllers, and individually validated antennas).
+The first such modem was the _RFD900_, but both _RFDesign_ and _jDrones_ have since iterated to new versions.
 :::
 
 The _jDrones_ radios have a JST-GH connector, and come with cables for: _JST-GH to JST-GH_ and _JST-GH to DF-13_. They can therefore be used in a "plug-n-play" way with most [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers (you might have to change/use an appropriate connector for some "non-standard" boards).

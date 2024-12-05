@@ -4,13 +4,13 @@
 
 ❏ 任务标准
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 整个任务期间高度的变化
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Changes in Altitude throughout the mission
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 任务应该在空中结束，而不是Land/RTL
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Mission should end in the air and NOT Land/RTL
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 持续时间为 3 到 4 分钟
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 3 to 4 minutes
 
-❏ 使用* QGroundControl *将任务上传到无人机
+❏ Upload mission to vehicle using _QGroundControl_
 
 ## 飞行
 
@@ -22,13 +22,13 @@
 
 ❏ 任务完成后，切换回位置模式
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 水平位置应以棒为中心保持当前值不变
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Horizontal position should hold current value with stick centered
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 垂直位置应以棒为中心保持当前值
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 将油门响应设置为爬升/下降速率
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 俯仰/翻转/偏航响应设置为俯仰/翻滚/偏航率
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response set to Pitch/Roll/Yaw rates
 
 ❏ 启动返航
 

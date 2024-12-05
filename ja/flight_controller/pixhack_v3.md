@@ -1,17 +1,21 @@
 # Pixhack V3
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 :::
 
 The CUAV _Pixhack V3_ flight controller board is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
-The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight controller, which is in turn based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS, and is fully compatible with both PX4 or ArduPilot<sup>&reg;</sup> (APM) firmware.
+The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight controller, which is in turn based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
+It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS, and is fully compatible with both PX4 or ArduPilot<sup>&reg;</sup> (APM) firmware.
 
 _Pixhack V3_ has significant improvements with respect to the original design, including better interface layout and the addition of vibration damping and a thermostat system.
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Quick Summary
@@ -49,13 +53,14 @@ _Pixhack V3_ has significant improvements with respect to the original design, i
 
 The board can be purchased from:
 
-- [store.cuav.net](http://store.cuav.net/index.php?id_product=8&id_product_attribute=0&rewrite=pixhack-v3-autopilot&controller=product&id_lang=3)
+- [store.cuav.net](http://store.cuav.net/index.php?id_product=8\&id_product_attribute=0\&rewrite=pixhack-v3-autopilot\&controller=product\&id_lang=3)
 - [leixun.aliexpress.com/store](https://leixun.aliexpress.com/store)
 
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -70,11 +75,11 @@ make px4_fmu-v3_default
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO debug              |
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
+| UART1  | /dev/ttyS0 | IO debug                                 |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
 | USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART4  |            |                                          |
+| UART7  | CONSOLE    |                                          |
+| UART8  | SERIAL4    |                                          |

@@ -6,6 +6,7 @@ They provide a gentle introduction to building drones, as all the parts are know
 
 :::tip
 Batteries not included!
+Kits generally do not include:
 
 - **Batteries** — shipping regulations mean that these must usually be source separately
 - **RC Controllers** — Transmitters/receivers are not included in kit builds to save costs.

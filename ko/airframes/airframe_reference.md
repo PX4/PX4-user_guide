@@ -1,11 +1,14 @@
-# 에어프레임 참조
+# 기체 프레임 정의서
 
-::: info **This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
+:::info
+**This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
 :::
 
-이 페이지에서 모터 할당와 번호 지정을 포함하여 모든 지원 기체 유형을 기술합니다. **녹색** 모터는 시계 방향으로 회전화며, **청색** 모터는 반시계 방향으로 회전합니다.
+이 페이지에서 모터 할당와 번호 지정을 포함하여 모든 지원 기체 유형을 기술합니다.
+The motors in **green** rotate clockwise, the ones in **blue** counterclockwise.
 
-일부 비행 컨트롤러에는 **AUX** 채널이 없을 수 있습니다. 해당 채널이 있다면, 보통 **AUX OUT** 라벨이 존재합니다.
+**AUX** channels may not be present on some flight controllers.
+If present, PWM AUX channels are commonly labelled **AUX OUT**.
 
 <style>
 div.frame_common table, div.frame_common table {
@@ -62,7 +65,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="airship_airship_cloudship">
@@ -93,16 +96,16 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td>유지보수: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>특정 출력:</b><ul><li><b>Servo3</b>: elevator</li><li><b>Servo4</b>: rudder</li><li><b>Servo5</b>: rudder (second, optional)</li><li><b>Servo6</b>: wheel</li></ul></p></td>
+ <td>유지보수: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><br><b>Specific Outputs:</b><ul><li><b>Servo3</b>: elevator</li><li><b>Servo4</b>: rudder</li><li><b>Servo5</b>: rudder (second, optional)</li><li><b>Servo6</b>: wheel</li></ul></td>
 </tr>
 <tr id="autogyro_autogyro_thunderfly_tf-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/TF-G2/">ThunderFly TF-G2</a></td>
- <td>유지보수: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><p><b>특정 출력:</b><ul><li><b>Servo3</b>: rudder</li></ul></p></td>
+ <td>유지보수: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><br><b>Specific Outputs:</b><ul><li><b>Servo3</b>: rudder</li></ul></td>
 </tr>
 </tbody>
 </table>
@@ -119,7 +122,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="balloon_balloon_thunderfly_balloon_tf-b1">
@@ -141,7 +144,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
@@ -161,7 +164,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_helicopter_generic_helicopter_(tail_esc)">
@@ -181,7 +184,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_hexarotor_+_generic_hexarotor_+_geometry">
@@ -210,7 +213,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
@@ -230,7 +233,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
@@ -254,7 +257,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
@@ -283,7 +286,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10__octo_coaxial_geometry">
@@ -303,7 +306,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
@@ -323,7 +326,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_quadrotor_+_generic_quad_+_geometry">
@@ -343,7 +346,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_quadrotor_h_betafpv_beta75x_2s_brushless_whoop">
@@ -363,7 +366,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_quadrotor_x_generic_quadcopter">
@@ -376,7 +379,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_holybro_s500">
  <td>Holybro S500</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4015</p></td>
+ <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4015</p></td>
 </tr>
 <tr id="copter_quadrotor_x_px4_vision_dev_kit_v1">
  <td>PX4 Vision Dev Kit v1</td>
@@ -404,7 +407,7 @@ div.frame_variant td, div.frame_variant th {
  <td>유지보수: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4052</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_kopis_2">
- <td>Holybro Kopis 2</td>
+ <td>홀리브로 코피스 2</td>
  <td>유지보수: Beat Kueng &lt;beat@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4053</p></td>
 </tr>
 <tr id="copter_quadrotor_x_advanced_technology_labs_(atl)_mantis_edu">
@@ -418,7 +421,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td>UVify IFO</td>
- <td>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4073</p></td>
+ <td>유지보수: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4073</p></td>
 </tr>
 <tr id="copter_quadrotor_x_coex_clover_4">
  <td>COEX Clover 4</td>
@@ -436,7 +439,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Simulation
+### 시뮬레이션
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
@@ -445,11 +448,11 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_simulation_hil_quadcopter_x">
- <td>HIL Quadcopter X</td>
+ <td>HIL 쿼드콥터  X</td>
  <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 1001</p></td>
 </tr>
 <tr id="copter_simulation_sih_quadcopter_x">
@@ -478,7 +481,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_tricopter_y+_generic_multirotor_with_tilt">
@@ -500,7 +503,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_flying_wing_generic_flying_wing">
@@ -529,7 +532,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_plane_a-tail_applied_aeronautics_albatross">
@@ -540,7 +543,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Simulation
+### 시뮬레이션
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
@@ -549,7 +552,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_simulation_sih_plane_aert">
@@ -570,7 +573,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_standard_plane_generic_standard_plane">
@@ -581,9 +584,9 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## 로버
+## 탐사선
 
-### 로버
+### 탐사선
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/Rover.svg"/>
@@ -592,7 +595,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="rover_rover_generic_rover_differential">
@@ -609,19 +612,19 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="rover_rover_axial_scx10_2_trail_honcho">
  <td><a href="https://www.axialadventure.com/product/1-10-scx10-ii-trail-honcho-4wd-rock-crawler-brushed-rtr/AXID9059.html">Axial SCX10 2 Trail Honcho</a></td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 51001</p></td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 51001</p></td>
 </tr>
 <tr id="rover_rover_generic_rover_mecanum">
  <td>Generic Rover Mecanum</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 52000</p></td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 52000</p></td>
 </tr>
 <tr id="rover_rover_generic_ground_vehicle_(deprecated)">
  <td>Generic Ground Vehicle (Deprecated)</td>
- <td><p><code>SYS_AUTOSTART</code> = 59000</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: throttle</li><li><b>Servo1</b>: steering</li></ul></p></td>
+ <td><p><code>SYS_AUTOSTART</code> = 59000</p><br><b>Specific Outputs:</b><ul><li><b>Motor1</b>: throttle</li><li><b>Servo1</b>: steering</li></ul></td>
 </tr>
 <tr id="rover_rover_nxp_cup_car:_df_robot_gpx_(deprecated)">
  <td>NXP Cup car: DF Robot GPX (Deprecated)</td>
- <td>유지보수: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 59001</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: Speed of left wheels</li><li><b>Servo1</b>: Steering servo</li></ul></p></td>
+ <td>유지보수: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 59001</p><br><b>Specific Outputs:</b><ul><li><b>Motor1</b>: Speed of left wheels</li><li><b>Servo1</b>: Steering servo</li></ul></td>
 </tr>
 </tbody>
 </table>
@@ -638,12 +641,12 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
  <td>일반 수중 로봇</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
  <td>HippoCampus UUV (무인 수중선)</td>
@@ -671,7 +674,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="underwater_robot_vectored_6_dof_uuv_bluerov2_(heavy_configuration)">
@@ -682,9 +685,9 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## 수직이착륙기
+## 수직이착륙기(VTOL)
 
-### Simulation
+### 시뮬레이션
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
@@ -702,7 +705,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_simulation_sih_tailsitter_duo">
@@ -723,7 +726,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
@@ -732,7 +735,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_standard_vtol_generic_standard_vtol">
  <td>Generic Standard VTOL</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
 </tr>
 </tbody>
 </table>
@@ -747,12 +750,12 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_vtol_tailsitter_generic_vtol_tailsitter">
  <td>Generic VTOL Tailsitter</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13200</p></td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13200</p></td>
 </tr>
 </tbody>
 </table>
@@ -767,7 +770,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>명칭</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor">
@@ -776,9 +779,8 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_vtol_tiltrotor_generic_tiltrotor_vtol">
  <td>Generic Tiltrotor VTOL</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-

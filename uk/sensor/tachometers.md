@@ -1,15 +1,16 @@
 # Тахометри (лічильники обертів)
 
-Тахометри (також відомі як [датчики обертань](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)) можуть бути використані для вимірювання швидкості обертання деталей транспортного засобу, таких як ротори, двигуни або колеса.
+Tachometers (also known as [revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)) can be used to measure the rate of rotation turning vehicle parts like rotors, engines, or wheels.
 
-:::note
-Наразі PX4 просто реєструє дані про оберти: вони не використовуються для оцінки стану або керування.
+:::info
+Currently PX4 just logs RPM data: it is not used for state estimation or control.
 :::
 
-Цей розділ містить список датчиків тахометра, підтриманих PX4 (посилання на більш докладну документацію). Додаткову інформацію щодо налаштування та конфігурації надається в темах, посилених нижче (та в бічній панелі).
+Цей розділ містить список датчиків тахометра, підтриманих PX4 (посилання на більш докладну документацію).
+Додаткову інформацію щодо налаштування та конфігурації надається в темах, посилених нижче (та в бічній панелі).
 
 ![TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
 ## Підтримуване обладнання
 
-- [Датчик тахометра ThunderFly TFRPM01](../sensor/thunderfly_tachometer.md)
+- [ThunderFly TFRPM01 Tachometer](../sensor/thunderfly_tachometer.md)

@@ -1,19 +1,17 @@
 # CellularStatus (UORB message)
 
-
-
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/CellularStatus.msg)
 
 ```c
-uint64 timestamp    # time since system start (microseconds)
+uint64 timestamp	# time since system start (microseconds)
 
 uint8 CELLULAR_STATUS_FLAG_UNKNOWN=0 # State unknown or not reportable
 uint8 CELLULAR_STATUS_FLAG_FAILED=1 # velocity setpoint
 uint8 CELLULAR_STATUS_FLAG_INITIALIZING=2 # Modem is being initialized
-uint8 CELLULAR_STATUS_FLAG_LOCKED=3 # Modem is locked
-uint8 CELLULAR_STATUS_FLAG_DISABLED=4   # Modem is not enabled and is powered down
-uint8 CELLULAR_STATUS_FLAG_DISABLING=5  # Modem is currently transitioning to the CELLULAR_STATUS_FLAG_DISABLED state
-uint8 CELLULAR_STATUS_FLAG_ENABLING=6   # Modem is currently transitioning to the CELLULAR_STATUS_FLAG_ENABLED state
+uint8 CELLULAR_STATUS_FLAG_LOCKED=3	# Modem is locked
+uint8 CELLULAR_STATUS_FLAG_DISABLED=4	# Modem is not enabled and is powered down
+uint8 CELLULAR_STATUS_FLAG_DISABLING=5	# Modem is currently transitioning to the CELLULAR_STATUS_FLAG_DISABLED state
+uint8 CELLULAR_STATUS_FLAG_ENABLING=6 	# Modem is currently transitioning to the CELLULAR_STATUS_FLAG_ENABLED state
 uint8 CELLULAR_STATUS_FLAG_ENABLED=7  # Modem is enabled and powered on but not registered with a network provider and not available for data connections
 uint8 CELLULAR_STATUS_FLAG_SEARCHING=8  # Modem is searching for a network provider to register
 uint8 CELLULAR_STATUS_FLAG_REGISTERED=9  # Modem is registered with a network provider, and data connections and messaging may be available for use
@@ -26,12 +24,12 @@ uint8 CELLULAR_NETWORK_FAILED_REASON_UNKNOWN=1 # Error state is unknown
 uint8 CELLULAR_NETWORK_FAILED_REASON_SIM_MISSING=2 # SIM is required for the modem but missing
 uint8 CELLULAR_NETWORK_FAILED_REASON_SIM_ERROR=3 # SIM is available, but not usable for connection
 
-uint16 status   # Status bitmap 1: Roaming is active
+uint16 status 	# Status bitmap 1: Roaming is active
 uint8 failure_reason #Failure reason when status in in CELLUAR_STATUS_FAILED
-uint8 type  # Cellular network radio type 0: none 1: gsm 2: cdma 3: wcdma 4: lte
-uint8 quality   # Cellular network RSSI/RSRP in dBm, absolute value
-uint16 mcc  # Mobile country code. If unknown, set to: UINT16_MAX
-uint16 mnc  # Mobile network code. If unknown, set to: UINT16_MAX
-uint16 lac  # Location area code. If unknown, set to: 0
+uint8 type 	# Cellular network radio type 0: none 1: gsm 2: cdma 3: wcdma 4: lte
+uint8 quality	# Cellular network RSSI/RSRP in dBm, absolute value
+uint16 mcc	# Mobile country code. If unknown, set to: UINT16_MAX
+uint16 mnc	# Mobile network code. If unknown, set to: UINT16_MAX
+uint16 lac	# Location area code. If unknown, set to: 0
 
 ```

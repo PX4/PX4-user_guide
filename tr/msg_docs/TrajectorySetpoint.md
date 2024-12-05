@@ -1,6 +1,9 @@
 # TrajectorySetpoint (UORB message)
 
-Trajectory setpoint in NED frame Input to PID position controller. Needs to be kinematically consistent and feasible for smooth flight. setting a value to NaN means the state should not be controlled
+Trajectory setpoint in NED frame
+Input to PID position controller.
+Needs to be kinematically consistent and feasible for smooth flight.
+setting a value to NaN means the state should not be controlled
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
 

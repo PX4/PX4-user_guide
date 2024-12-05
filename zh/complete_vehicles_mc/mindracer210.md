@@ -2,7 +2,7 @@
 
 ![MindRacer 210](../../assets/hardware/hardware-mindracer210.png)
 
-### Summary
+### 概要
 
 A ready-to-fly racing beast running full PX4/MindPX stack. Can reach maximum 10:1 thrust-to-weight ratio!
 
@@ -27,6 +27,6 @@ The user guide is [here](http://mindpx.net/assets/accessories/MR210usermanual_pd
 
 MindRacer 210 is available at [AirMind Store](https://airmind.mindpx.net/node/78). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
-### Support
+### 技术支持
 
 Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.

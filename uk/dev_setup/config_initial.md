@@ -1,11 +1,11 @@
-# Початкове налаштування та конфігурація
+# Initial Setup & Configuration
 
 Ми рекомендуємо розробникам отримати базове обладнання та програмне забезпечення, описане нижче (або подібне).
 
 ## Базове обладнання
 
 :::tip
-PX4 можна використовувати з набагато ширшим діапазоном обладнання, ніж описано тут, але для нових розробників корисніше працювати з одним із стандартних налаштувань.
+PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups.
 A Taranis RC and a mid-range Android tablet make a very inexpensive field kit.
 :::
 
@@ -13,25 +13,30 @@ A Taranis RC and a mid-range Android tablet make a very inexpensive field kit.
 
 - **RC controller** for the safety pilot
   - [Taranis Plus](https://www.frsky-rc.com/product/taranis-x9d-plus-2/) RC control (or equivalent)
+
 - **Development computer**
 
   ::: info
-The listed computers have acceptable performance, but a more recent and powerful computer is recommended.
+  The listed computers have acceptable performance, but a more recent and powerful computer is recommended.
+
 :::
 
   - Lenovo Thinkpad with i5-core running Windows 11
   - MacBook Pro (early 2015 and later) with macOS 10.15 or later
   - Lenovo Thinkpad i5 with Ubuntu Linux 20.04 or later
 
-- **Наземна станція керування** (комп'ютер або планшет):
+- **Ground control station** (computer or tablet):
   - iPad (may require Wifi telemetry adapter)
   - Будь-який ноутбук MacBook або Ubuntu Linux (може бути комп'ютером для розробки)
   - A recent mid-range Android tablet or phone with a large enough screen to run _QGroundControl_ effectively (6 inches).
-- **Рухомий засіб, здатний до роботи з PX4**:
-  - [Візьміть готовий рухомий засіб](../complete_vehicles_mc/index.md)
-  - [Створіть свій власний](../frames_multicopter/kits.md)
-- **Захисні окуляри**
-- **Трос** (тільки для мультикоптерів - для ризикованих експериментів)
+
+- **Vehicle capable of running PX4**:
+  - [Get a prebuilt vehicle](../complete_vehicles_mc/index.md)
+  - [Build your own](../frames_multicopter/kits.md)
+
+- **Safety glasses**
+
+- **Tether** (multicopter only - for more risky tests)
 
 ## Конфігурація рухомого засобу
 
@@ -39,15 +44,15 @@ Install the [QGroundControl Daily Build](../dev_setup/qgc_daily_build.md) for a 
 
 Для налаштування засобу:
 
-1. [Встановіть прошивку PX4](../config/firmware.md#installing-px4-main-beta-or-custom-firmware) (включаючи "спеціальну" прошивку з вашими змінами).
-1. [Почніть з планера](../config/airframe.md) що найбільше підходить до вашого засобу з [довідника планерів](../airframes/airframe_reference.md).
-1. [Основне налаштування](../config/README.md) пояснює як виконати основне налаштування.
-1. [Налаштування параметрів](../advanced_config/parameters.md) пояснює як знайти та змінити окремі параметри.
+1. [Install PX4 firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware) (including "custom" firmware with your own changes).
+2. [Start with the airframe](../config/airframe.md) that best-matches your vehicle from the [airframe reference](../airframes/airframe_reference.md).
+3. [Basic Configuration](../config/index.md) explains how to perform basic configuration.
+4. [Parameter Configuration](../advanced_config/parameters.md) explains how you can find and modify individual parameters.
 
-:::note
+::: info
 
-- Варіант _QGroundControl_ для мобільних пристроїв не підтримує налаштування рухомого засобу.
-- _Денні збірки_ включають інструменти розробника, а також нові можливості, які недоступні в офіційних релізах.
+- _QGroundControl_ mobile variants do not support vehicle configuration.
+- The _daily build_ includes development tools and new features that are not available in the official release.
 - Конфігурації в довіднику планерів літали на реальних засобах та є хорошою стартовою точкою для "відриву від землі".
 
 :::

@@ -2,7 +2,7 @@
 
 This topic lists configuration topics that are not particularly vehicle specific, for features that are more rarely modified, or that are specific only to manufacturers/OEMs.
 
-## Parameters
+## 매개변수
 
 - [Finding/Updating Parameters](../advanced_config/parameters.md)
 - [Full Parameter Reference](../advanced_config/parameter_reference.md)
@@ -28,7 +28,7 @@ This topic lists configuration topics that are not particularly vehicle specific
 - [MAVLink Telemetry (OSD/GCS)](../peripherals/mavlink_peripherals.md)
 - [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md)
 
-## Miscellaneous
+## 기타
 
 - [Bootloader Update](../advanced_config/bootloader_update.md)
   - [Bootloader Update FMUv6X-RT via USB](../advanced_config/bootloader_update_v6xrt.md)

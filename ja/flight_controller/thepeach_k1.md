@@ -1,7 +1,8 @@
 # ThePeach FCC-K1
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://thepeach.kr/) for hardware support or compliance issues.
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://thepeach.kr/) for hardware support or compliance issues.
 :::
 
 **ThePeach FCC-K1** is an advanced autopilot designed and manufactured in **ThePeach**.
@@ -47,28 +48,30 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
 
 ## Connectors
 
-![pinmap_top](../../assets/flight_controller/thepeach_k1/pinmap_top.png)
+![pinmap\_top](../../assets/flight_controller/thepeach_k1/pinmap_top.png)
 
-![pinmap_bottom](../../assets/flight_controller/thepeach_k1/pinmap_bottom.png)
+![pinmap\_bottom](../../assets/flight_controller/thepeach_k1/pinmap_bottom.png)
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| USART1 | /dev/ttyS0 | IO Processor Debug    |
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
+| USART1 | /dev/ttyS0 | IO Processor Debug                       |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
 | USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  | /dev/ttyS3 | GPS1                  |
-| USART6 | /dev/ttyS4 | PX4IO                 |
-| UART7  | /dev/ttyS5 | Debug Console         |
-| UART8  | /dev/ttyS6 | TELEM4                |
+| UART4  | /dev/ttyS3 | GPS1                                     |
+| USART6 | /dev/ttyS4 | PX4IO                                    |
+| UART7  | /dev/ttyS5 | Debug Console                            |
+| UART8  | /dev/ttyS6 | TELEM4                                   |
 
 ## Voltage Ratings
 
-**ThePeach FCC-K1** can be double-redundant on the power supply if two power sources are supplied. The two power rails are: **POWER** and **USB**.
+**ThePeach FCC-K1** can be double-redundant on the power supply if two power sources are supplied.
+The two power rails are: **POWER** and **USB**.
 
-::: info
-The output power rails **FMU PWM OUT** and **I/O PWM OUT** do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER** or **USB** or the board will be unpowered.
+:::info
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** do not power the flight controller board (and are not powered by it).
+You must supply power to one of **POWER** or **USB** or the board will be unpowered.
 :::
 
 **Normal Operation Maximum Ratings**

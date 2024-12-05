@@ -21,7 +21,7 @@ PX4 підтримує _доставку посилок у місіях_ за д
 - [Захоплювач](../peripherals/gripper.md)
 - [Політ > Планування місії доставки посилок](../flying/package_delivery_mission.md)
 
-::: info
+:::info
 Support for winches and other release mechanisms is also intended.
 
 Якщо вам необхідно здійснити доставлення вантажу, використовуючи апаратне забезпечення, яке ще не інтегроване, ви можете використати [Керування Загальним Приводом](../payloads/generic_actuator_control.md).

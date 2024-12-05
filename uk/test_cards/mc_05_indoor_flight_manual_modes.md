@@ -9,7 +9,7 @@
 
 ## Озброєння та зліт
 
-❏ Встановіть режим польоту на стабілізацію та запуск
+❏ Встановіть режим польоту на стабілізацію та поставте під охорону
 
 ❏ Зліт, піднявши дросель
 
@@ -17,23 +17,23 @@
 
 ❏ Стабілізований
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Відповідь на нахил/нахил/поворот 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Реакція дросельної заслінки 1:1 (Реакція на газ 1:1)
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response 1:1
 
 ❏ Висота
 
-&nbsp;&nbsp;&nbsp;&nbsp;Вертикальна позиція повинна містити поточне значення з ручкою в центрі
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
 
-&nbsp;&nbsp;&nbsp;&nbsp;Pitch/Roll/Yaw відповідь 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Відповідь дроселя встановлено на швидкість підйому / спуску
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
 
 ## Посадка
 
 ❏ Посадка в режимі Стабілізації або на висоті з дроселем нижче 40%
 
-❏ При дотику до землі коптер автоматично роззброюється протягом 2 секунд (час роззброювання встановлений параметром: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
 ## Очікувані результати
 

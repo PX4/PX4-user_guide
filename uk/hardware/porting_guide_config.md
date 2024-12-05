@@ -1,14 +1,18 @@
 # PX4 Конфігурація плати (kconfig)
 
-Прошивку автопілота PX4 можна налаштувати під час компіляції для пристосування його до спеціалізованих застосувань (фіксований крило, багатокоптер, рухомий об'єкт або інше), щоб увімкнути нові та експериментальні функції (такі як Cyphal) або заощадити використання флеш-пам'яті& RAM, вимкнувши деякі драйвери та підсистеми. Ця конфігурація обробляється через _Kconfig_, який є тим самим [системою конфігурації, що використовується NuttX](../hardware/porting_guide_nuttx.md#nuttx-menuconfig-setup).
+The PX4 Autopilot firmware can be configured at build time to adapt it for specialized applications (fixed-wing, multicopter, rover or more), to enable new and experimental features (such as Cyphal) or to save flash & RAM usage by disabling some drivers and subsystems.
+This configuration is handled through _Kconfig_, which is the same [configuration system used by NuttX](../hardware/porting_guide_nuttx.md#nuttx-menuconfig-setup).
 
-Опції конфігурації (часто називаються "символами" мовою _kconfig_) визначаються в файлах `Kconfig` у каталозі **/src**.
+The configuration options (often referred as "symbols" by the _kconfig_ language) are defined in `Kconfig` files under the **/src** directory.
 
 ## Конвенція найменування символів PX4 Kconfig
 
-За умовчанням символи для модулів/драйверів називаються на основі шляху папки модуля. Наприклад, символ для водія ADC у `src/drivers/adc/board_adc` повинен мати назву `DRIVERS_ADC_BOARD_ADC`.
+За умовчанням символи для модулів/драйверів називаються на основі шляху папки модуля.
+For example, the symbol for the ADC driver at `src/drivers/adc/board_adc` must be named `DRIVERS_ADC_BOARD_ADC`.
 
-Для додавання символів для параметрів, специфічних для драйвера/модуля, конвенція найменування полягає в тому, що за ім'ям модуля слідує назва параметра. Наприклад `UAVCAN_V1_GNSS_PUBLISHER`, який є варіантом `GNSS_PUBLISHER` для модуля `UAVCAN_V1`. Параметри повинні бути захищені за допомогою оператора `if`, щоб гарантувати, що вони будуть видимі лише тоді, коли сам модуль увімкнено.
+Для додавання символів для параметрів, специфічних для драйвера/модуля, конвенція найменування полягає в тому, що за ім'ям модуля слідує назва параметра.
+For example `UAVCAN_V1_GNSS_PUBLISHER` which is an option `GNSS_PUBLISHER` for the `UAVCAN_V1` module.
+The options have to be guarded behind an `if` statement to ensure that the options are only visible when the module itself is enabled.
 
 Наприклад:
 
@@ -26,19 +30,24 @@ if DRIVERS_UAVCAN_V1
 endif #DRIVERS_UAVCAN_V1
 ```
 
-:::info Збірки будуть беззвучно ігнорувати будь-які відсутні або неправильно написані модулі у конфігураційному файлі `*.px4board`
+:::info
+Builds will silently ignore any missing or miss-spelled modules in the `*.px4board` configuration file.
 :::
 
 ## Успадкування мітки PX4 Kconfig
 
-Кожній платі PX4 повинна мати конфігурацію `default.px4board` і може мати необов'язкову конфігурацію `bootloader.px4board configuration`. Проте ви також можете додати окремі конфігурації під іншою міткою, наприклад `cyphal.px4board`. Зверніть увагу, що за замовчуванням конфігурація `cyphal.px4board` успадковує всі налаштування, встановлені в `default.px4board`. При зміні `cyphal.px4board` воно зберігає лише дельту ключів Kconfig, які відрізняються від `default.px4board`, це корисно для спрощення управління конфігураціями
+Each PX4 board must have a `default.px4board` configuration and can have an optional `bootloader.px4board configuration`.
+However you can add also separate configurations under a different label e.g. `cyphal.px4board`.
+Note that by default the configuration of `cyphal.px4board` inherits all settings set in `default.px4board`.
+When changing the `cyphal.px4board` it only stores the delta of the Kconfig keys that are different compared to `default.px4board`, this is useful to simplify configurations management
 
-::::info При зміні ключа Kconfig in `за замовчуванням. x4board` буде змінено в усіх конфігураціях похідної таблиці з тими ж самими конфігураціями і в тому ж форматі.
+:::info
+When modifying a Kconfig key in `default.px4board` it will be modified in all derivative configurations of the same board that had the same config as well.
 :::
 
 ## Налаштування меню PX4 Menuconfig
 
-Інструмент [menuconfig](https://pypi.org/project/kconfiglib/#menuconfig-interfaces) використовується для зміни конфігурації плати PX4, додавання/видалення модулів, драйверів та інших функцій.
+The [menuconfig](https://pypi.org/project/kconfiglib/#menuconfig-interfaces) tool is used to modify the PX4 board configuration, adding/removing modules, drivers, and other features.
 
 Існують варіанти командного рядка та графічного інтерфейсу, які можна запустити за допомогою скорочень збірки PX4:
 
@@ -47,7 +56,9 @@ make px4_fmu-v5_default boardconfig
 make px4_fmu-v5_default boardguiconfig
 ```
 
-:::info _Kconfiglib_ та _menuconfig_ поставляються з пакетом python _kconfiglib_, який встановлюється звичайним сценарієм встановлення [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh). Якщо _kconfiglib_ не встановлено, ви можете це зробити за допомогою команди: `pip3 install kconfiglib`
+:::info
+_Kconfiglib_ and _menuconfig_ come with the _kconfiglib_ python package, which is installed by the normal [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) installation script.
+If _kconfiglib_ is not installed, you can do so using the command: `pip3 install kconfiglib`
 :::
 
 Інтерфейс командного рядка та графічного інтерфейсу показані нижче.

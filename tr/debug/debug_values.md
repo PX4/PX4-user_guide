@@ -1,16 +1,19 @@
 # Send and Receive Debug Values
 
-It is often necessary during software development to output individual important numbers. This is where the generic `NAMED_VALUE_FLOAT`, `DEBUG` and `DEBUG_VECT` packets of MAVLink come in.
+It is often necessary during software development to output individual important numbers.
+This is where the generic `NAMED_VALUE_FLOAT`, `DEBUG` and `DEBUG_VECT` packets of MAVLink come in.
 
 ## Mapping between MAVLink Debug Messages and uORB Topics
 
-MAVLink debug messages are translated to/from uORB topics. In order to send or receive a MAVLink debug message, you have to respectively publish or subscribe to the corresponding topic. Here is a table that summarizes the mapping between MAVLink debug messages and uORB topics:
+MAVLink debug messages are translated to/from uORB topics.
+In order to send or receive a MAVLink debug message, you have to respectively publish or subscribe to the corresponding topic.
+Here is a table that summarizes the mapping between MAVLink debug messages and uORB topics:
 
-| MAVLink message     | uORB topic        |
-| ------------------- | ----------------- |
+| MAVLink message                                             | uORB topic                                                |
+| ----------------------------------------------------------- | --------------------------------------------------------- |
 | NAMED_VALUE_FLOAT | debug_key_value |
-| DEBUG               | debug_value       |
-| DEBUG_VECT          | debug_vect        |
+| DEBUG                                                       | debug_value                          |
+| DEBUG_VECT                             | debug_vect                           |
 
 ## Tutorial: Send String / Float Pairs
 
@@ -21,7 +24,8 @@ The code for this tutorial is available here:
 - [Debug Tutorial Code](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
 - [Enable the tutorial app](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board) by ensuring the MAVLink debug app (**CONFIG_EXAMPLES_PX4_MAVLINK_DEBUG**) is in the config of your board and set set to 'y'.
 
-All required to set up a debug publication is this code snippet. First add the header file:
+All required to set up a debug publication is this code snippet.
+First add the header file:
 
 ```C
 #include <uORB/uORB.h>
@@ -29,7 +33,8 @@ All required to set up a debug publication is this code snippet. First add the h
 #include <string.h>
 ```
 
-Then advertise the debug value topic (one advertisement for different published names is sufficient). Put this in front of your main loop:
+Then advertise the debug value topic (one advertisement for different published names is sufficient).
+Put this in front of your main loop:
 
 ```C
 /* advertise debug value */

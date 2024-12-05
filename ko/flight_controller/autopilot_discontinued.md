@@ -1,9 +1,12 @@
 # 단종 자동비행장치와 기종
 
-:::tip PX4 프로젝트 자동조종장치의 지원 수준에 대한 자세한 내용은 [px4.io/autopilots](https://px4.io/autopilots/)를 참고하십시오.
+:::tip
+For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
 :::
 
-이 카테고리는 단종된 자동조종장치와 완제품에 대하여 설명합니다. These are no longer being manufactured, and may not be supported by their manufacturer. They are listed because you may be using them in an existing drone, and because they **may** still work with the head revision of PX4.
+이 카테고리는 단종된 자동조종장치와 완제품에 대하여 설명합니다.
+These are no longer being manufactured, and may not be supported by their manufacturer.
+They are listed because you may be using them in an existing drone, and because they **may** still work with the head revision of PX4.
 
 ## 자동조종장치
 
@@ -20,8 +23,8 @@
 - [NXP FMUK66](../flight_controller/nxp_rddrone_fmuk66.md) (Discontinued)
 - [3DR Pixhawk 1](../flight_controller/pixhawk.md) (Pixhawk FMUv2)
 
-## 완제품
+## 완성 기체
 
 - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles_mc/betafpv_beta75x.md)
-- [Intel® Aero RTF Drone](../complete_vehicles/intel_aero.md) ([완제품](../complete_vehicles/README.md))
-- [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) ([완제품](../complete_vehicles/README.md))
+- [Intel® Aero RTF Drone](../complete_vehicles_mc/intel_aero.md) ([Complete Vehicle](../complete_vehicles_mc/index.md))
+- [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) ([Complete Vehicle](../complete_vehicles_mc/index.md))

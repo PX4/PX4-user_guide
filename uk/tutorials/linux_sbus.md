@@ -1,36 +1,37 @@
 # Підключення RC-приймача до автопілота на базі Linux PX4
 
-Ця тема показує, як налаштувати автопілот на базі Linux PX4 для підключення та використання  [ підтримуваного RC-приймача](../getting_started/rc_transmitter_receiver.md)  на будь-якому серійному порту
+This topic shows how to setup a PX4 Linux-based autopilot to connect and use a [supported RC receiver](../getting_started/rc_transmitter_receiver.md) on any serial port.
 
 Для типів RC, крім S.Bus, ви можете просто під'єднати приймач безпосередньо до серійних портів або до USB через USB до TTY серійного кабелю (наприклад, PL2302 USB в Serial TTL)
 
-::: info Для отримувача S.Bus (або кодера - наприклад, від Futaba, RadioLink тощо) вам зазвичай потрібно підключити приймач та пристрій через [схему інвертування сигналу](#signal_inverter_circuit), але в іншому випадку налаштування залишається таким же.
+:::info
+For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.
 :::
 
-Тоді [Запустіть PX4 RC драйвер](#start_driver) на пристрої, як показано нижче.
+Then [Start the PX4 RC Driver](#start_driver) on the device, as shown below.
 
 <a id="start_driver"></a>
 
 ## Запуск драйвера
 
-Щоб запустити драйвер RC в певному UART (наприклад, в цьому випадку `/dev/ttyS2`):
+To start the RC driver on a particular UART (e.g. in this case `/dev/ttyS2`):
 
 ```sh
 rc_input start -d /dev/ttyS2
 ```
 
-Для іншої інформації про використання драйвера дивися: [rc_input](../modules/modules_driver.md#rc-input).
+For other driver usage information see: [rc_input](../modules/modules_driver.md#rc-input).
 
 <a id="signal_inverter_circuit"></a>
 
 ## Схема інвертування сигналу (лише для S.Bus)
 
-S.Bus - це _інвертований_ сигнал комунікації UART.
+S.Bus is an _inverted_ UART communication signal.
 
 Хоча деякі серійні порти / контролери польоту можуть читати інвертований сигнал UART, більшість вимагає схеми інвертування сигналу між приймачем та серійним портом для деінвертації сигналу.
 
 :::tip
-Ця схема також необхідна для зчитування сигналів дистанційного керування S.Bus через послідовний порт або USB-до-TTY конвертер послідовного порту.
+This circuit is also required to read S.Bus remote control signals through the serial port or USB-to-TTY serial converter.
 :::
 
 У цьому розділі показано, як створити відповідну схему.
@@ -41,8 +42,8 @@ S.Bus - це _інвертований_ сигнал комунікації UART
 - 1x 10K резистор
 - 1x 1K резистор
 
-::: info
-Можна використовувати будь-який тип/модель транзистора, оскільки струм споживання дуже низький.
+:::info
+Any type/model of transistor can be used because the current drain is very low.
 :::
 
 ### Схема Діаграми/Підключення

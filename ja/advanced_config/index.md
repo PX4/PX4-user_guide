@@ -1,4 +1,4 @@
-# Advanced Configuration
+# 応用設定
 
 This topic lists configuration topics that are not particularly vehicle specific, for features that are more rarely modified, or that are specific only to manufacturers/OEMs.
 

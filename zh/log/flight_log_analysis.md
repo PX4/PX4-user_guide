@@ -2,7 +2,8 @@
 
 This topic provide an overview of the tools and methods that can be used to analyze PX4 flight logs (more detailed topics are linked below in some cases).
 
-::: info INFO [Flight Reporting](../getting_started/flight_reporting.md) explains how to download a log and report/discuss issues about a flight with the development team.
+:::info INFO
+[Flight Reporting](../getting_started/flight_reporting.md) explains how to download a log and report/discuss issues about a flight with the development team.
 :::
 
 ## 结构化分析
@@ -10,7 +11,8 @@ This topic provide an overview of the tools and methods that can be used to anal
 在分析飞行日志之前，重要的是建立它的上下文：
 
 - 如果分析是在故障发生之后进行的，那么日志是捕捉到了这次故障还是在半空中停止了记录呢？
-- 所有的控制器都跟踪到了它的设定值吗？ 最简单的方法是将的横滚和俯仰的角速度与它们的设定值进行比较。
+- 所有的控制器都跟踪到了它的设定值吗？
+  最简单的方法是将的横滚和俯仰的角速度与它们的设定值进行比较。
 - 传感器数据看起来有效吗？ Was there very strong vibration (a reasonable threshold for strong vibration is anything with a peak-to-peak of more than 2-3 m/s/s).
 - If the root cause is not specific to the vehicle make sure to report it with a link to the log file (and video if one exists) on the [PX4 issue tracker](https://github.com/PX4/PX4-Autopilot/issues/new).
 
@@ -18,13 +20,16 @@ This topic provide an overview of the tools and methods that can be used to anal
 
 If a log file ends mid-air, two main causes are possible: a power failure _or_ a hard fault of the operating system.
 
-On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html), hard faults are logged to the SD card. These are located on the top level of the SD card and named _fault_date.log_, e.g. **fault_2017_04_03_00_26_05.log**. You should check for the presence of this file if a flight log ends abruptly.
+On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html), hard faults are logged to the SD card.
+These are located on the top level of the SD card and named _fault_date.log_, e.g. **fault_2017_04_03_00_26_05.log**.
+You should check for the presence of this file if a flight log ends abruptly.
 
 ## 分析工具
 
 ### Flight Review（在线工具）
 
-[Flight Review](http://logs.px4.io) is the successor of _Log Muncher_. 他能与新的 [ULog](../dev_log/ulog_file_format.md) 日志格式结合使用。
+[Flight Review](http://logs.px4.io) is the successor of _Log Muncher_.
+It is used in combination with the new [ULog](../dev_log/ulog_file_format.md) logging format.
 
 主要特性：
 
@@ -38,7 +43,8 @@ See [Log Analysis using Flight Review](../log/flight_review.md) for an introduct
 
 ### PlotJugler
 
-[PlotJuggler](https://github.com/facontidavide/PlotJuggler) is a desktop application that allows users to easily visualize and analyze data expressed in the form of time series. This is one of the best ULog analysis tools as it exposes all information in the log ([Flight Review](#flight-review-online-tool), by comparison, only shows a small subset of the data).
+[PlotJuggler](https://github.com/facontidavide/PlotJuggler) is a desktop application that allows users to easily visualize and analyze data expressed in the form of time series.
+This is one of the best ULog analysis tools as it exposes all information in the log ([Flight Review](#flight-review-online-tool), by comparison, only shows a small subset of the data).
 
 It supports ULog files (.ulg) since version 2.1.4.
 
@@ -52,13 +58,13 @@ It supports ULog files (.ulg) since version 2.1.4.
 
 Source code and downloads are available on [Github](https://github.com/facontidavide/PlotJuggler).
 
-![PlotJugler](../../assets/flight_log_analysis/plot_juggler/plotjuggler_example_view.png)
+![PlotJuggler](../../assets/flight_log_analysis/plot_juggler/plotjuggler_example_view.png)
 
 See [Log Analysis using Plot Juggler](../log/plotjuggler_log_analysis.md) for an introduction.
 
 ### pyulog
 
-[pyulog](https://github.com/PX4/pyulog) 是用于分析 ulog 文件的 python 包，以及一组用于提取/显示 ulog 信息并转换为其他文件格式的命令行脚本。
+[pyulog](https://github.com/PX4/pyulog) is a python package to parse ULog files, along with a set of command-line scripts to extract/display ULog information and convert them to other file formats.
 
 主要特性：
 
@@ -71,7 +77,7 @@ See [Log Analysis using Plot Juggler](../log/plotjuggler_log_analysis.md) for an
   - _ulog2csv_: convert ULog to (several) CSV files.
   - _ulog2kml_: convert ULog to (several) KML files.
 
-所有脚本都作为系统范围的应用程序安装 (例如，在命令行上调用它们-前提是安装了 Python)，并支持 `-h` 标志来获取使用说明。 例如：
+All scripts are installed as system-wide applications (i.e. they be called on the command line - provided Python is installed), and support the `-h` flag for getting usage instructions. 例如：
 
 ```sh
 $ ulog_info -h
@@ -132,7 +138,8 @@ Name (multi id, message size in bytes)    number of data points, total bytes
 
 ### PX4Tools
 
-[PX4Tools](https://github.com/dronecrew/px4tools) is a log analysis toolbox for the PX4 autopilot written in Python. The recommended installation procedure is to use [anaconda3](https://conda.io/docs/index.html). See [px4tools github page](https://github.com/dronecrew/px4tools) for details.
+[PX4Tools](https://github.com/dronecrew/px4tools) is a log analysis toolbox for the PX4 autopilot written in Python.
+The recommended installation procedure is to use [anaconda3](https://conda.io/docs/index.html). See [px4tools github page](https://github.com/dronecrew/px4tools) for details.
 
 主要特性：
 
@@ -145,7 +152,8 @@ Name (multi id, message size in bytes)    number of data points, total bytes
 
 ### MAVGCL
 
-[MAVGCL](https://github.com/ecmnet/MAVGCL) is an in-flight log analyzer for PX4. It can also be used in offline mode with downloaded uLog files.
+[MAVGCL](https://github.com/ecmnet/MAVGCL) is an in-flight log analyzer for PX4.
+It can also be used in offline mode with downloaded uLog files.
 
 主要特性：
 

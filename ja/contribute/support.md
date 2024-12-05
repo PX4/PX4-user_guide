@@ -35,7 +35,8 @@ If you are unsure what the problem is and you need help diagnosing
 ## Issue & Bug Reporting
 
 - Upload logs to [Flight Log Review](https://logs.px4.io/)
-- [Open a Github Issue](https://github.com/PX4/PX4-Autopilot/issues). This must include a flight report with as much detail as possible (enough for the issue to be reproduced) and links to your logs on Flight review.
+- [Open a Github Issue](https://github.com/PX4/PX4-Autopilot/issues).
+  This must include a flight report with as much detail as possible (enough for the issue to be reproduced) and links to your logs on Flight review.
 
 ## Weekly Dev Call
 

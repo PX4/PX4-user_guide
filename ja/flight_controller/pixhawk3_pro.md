@@ -1,13 +1,16 @@
 # Pixhawk 3 Pro (Discontinued)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store-drotek.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store-drotek.com/) for hardware support or compliance issues.
 :::
 
-The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades and additional features. The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
+The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades and additional features.
+The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
 
 ![Pixhawk 3 Pro hero image](../../assets/hardware/hardware-pixhawk3_pro.jpg)
 
-::: info
+:::info
 The main hardware documentation is here: https://drotek.gitbook.io/pixhawk-3-pro/hardware
 :::
 
@@ -45,7 +48,8 @@ From [readymaderc](https://www.readymaderc.com) (USA) :
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -62,14 +66,14 @@ The board has FMU and IO debug ports as shown below.
 
 The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
 
-| Pin     | Signal           | Volt  |
-| ------- | ---------------- | ----- |
-| 1 (red) | VCC TARGET SHIFT | +3.3V |
+| Pin                        | Signal                              | Volt                  |
+| -------------------------- | ----------------------------------- | --------------------- |
+| 1 (red) | VCC TARGET SHIFT                    | +3.3V |
 | 2 (blk) | CONSOLE TX (OUT) | +3.3V |
 | 3 (blk) | CONSOLE RX (IN)  | +3.3V |
-| 4 (blk) | SWDIO            | +3.3V |
-| 5 (blk) | SWCLK            | +3.3V |
-| 6 (blk) | GND              | GND   |
+| 4 (blk) | SWDIO                               | +3.3V |
+| 5 (blk) | SWCLK                               | +3.3V |
+| 6 (blk) | GND                                 | GND                   |
 
 For information about wiring and using this port see:
 
@@ -78,13 +82,13 @@ For information about wiring and using this port see:
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | WiFi                  |
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
+| UART1  | /dev/ttyS0 | WiFi                                     |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
 | USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART4  |            |                                          |
+| UART7  | CONSOLE    |                                          |
+| UART8  | SERIAL4    |                                          |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->

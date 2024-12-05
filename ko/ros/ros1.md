@@ -1,25 +1,28 @@
-# ROS 1 with MAVROS
+# ROS 1 (Deprecated)
 
-:::tip
+:::warning
 The PX4 development team recommend that users migrate to [ROS 2](../ros2/index.md) (i.e. skip this section)!
+
+ROS 1 is now "discommended" as the last LTS version is approaching end of life.
+ROS 2 has much deeper integration with PX4, enabling lower-latency communication with access to PX4 internal messaging.
 :::
 
-[ROS](../ros/README.md)(로봇 운영 체제)는 PX4 자동조종장치를 위한 강력한 드론 애플리케이션을 개발하는 범용 로봇 라이브러리입니다.
+[ROS (1)](http://www.ros.org/) is a general purpose robotics library that can be used with PX4 for drone application development.
 
-이 섹션에는 ROS의 원래 버전과 [MAVROS](../ros/mavros_installation.md) 패키지를 사용하여 [MAVLink](../middleware/mavlink.md)로 PX4 통신 관련 주제가 포함되어 있습니다(MAVROS는 ROS 주제를 MAVLink 및 PX4 규칙에 연결함).
+This version of ROS uses the [MAVROS](../ros/mavros_installation.md) package to communicate with PX4 over [MAVLink](../middleware/mavlink.md) (MAVROS bridges ROS topics to MAVLink and PX4 conventions).
 
-주요 주제는 다음과 같습니다.
+## Topics
+
 - [ROS/MAVROS Installation Guide](../ros/mavros_installation.md): Setup a PX4 development environment with ROS 1 and MAVROS.
 - [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md): Tutorial showing the main concepts related to writing a C++ MAVROS/ROS node.
-- [ROS/MAVROS 사용자 지정 메시지 전송](../ros/mavros_custom_messages.md)
+- [ROS MAVROS Sending Custom Messages](../ros/mavros_custom_messages.md)
 - [ROS with Gazebo Classic Simulation](../simulation/ros_interface.md)
 - [Gazebo Classic OctoMap Models with ROS](../sim_gazebo_classic/octomap.md)
-- [라즈베리파이 ROS 설치](../ros/raspberrypi_installation.md)
-- [외부 위치 추정(비전/모션 기반)](../ros/external_position_estimation.md)
+- [ROS Installation on RPi](../ros/raspberrypi_installation.md)
+- [External Position Estimation (Vision/Motion based)](../ros/external_position_estimation.md)
 
+## Further Infomration
 
-## 기타 자료
-
-- [PX4 ROS 설정](../ros/README.md#ros-setups).
-- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - 컴퓨터 비전을 위한 ROS + PX4 시뮬레이션 환경. [XTDrone 매뉴얼](https://www.yuque.com/xtdrone/manual_en)에는 시작하는 데 필요한 모든 내용이 포함되어 있습니다.
+- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 simulation environment for computer vision.
+  The [XTDrone Manual](https://www.yuque.com/xtdrone/manual_en) has everything you need to get started!
 - [Prometheus Autonomous Drone Project](https://github.com/amov-lab/Prometheus/blob/master/README_EN.md) - Prometheus is a ROS 1 based, BSD-3 licensed collection of autonomous drone software packages from [AMOVLab](https://github.com/amov-lab), which provides a full set of solutions for the intelligent and autonomous flight of drones, such as mapping, localization, planning, control, and target detection, fully integrated with the [Gazebo Classic](../sim_gazebo_classic/index.md) Simulator.

@@ -59,7 +59,7 @@ For more information see: [PX4 Board Configuration (Kconfig)](../hardware/portin
 Crypto uses large amounts of flash memory, and is therefore not included in the default PX4 make targets for each board (such as `make px4-fmu-v5`).
 The easiest way to add support for encrypted logs is to define a custom `make` target that includes the required modules and your public RSA keys.
 
-::: warning
+:::warning
 Crypto uses a lot of flash memory, and many builds are close to their maximum capacity.
 If you run into a build error telling you that you have gone above the maximum flash memory, you will need to disable other features in the `.px4board` file you are working on, or in the `default.px4board` file.
 Be careful not to disable something you need.

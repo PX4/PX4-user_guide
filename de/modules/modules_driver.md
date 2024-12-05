@@ -390,6 +390,7 @@ fake_gps <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -409,6 +410,7 @@ Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/main/src/e
 ### Usage
 ```
 fake_imu <command> [arguments...]
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -440,6 +442,7 @@ fake_magnetometer <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -493,6 +496,8 @@ This module does Ghost (GHST) RC input parsing.
 ### Usage
 ```
 ghst_rc <command> [arguments...]
+ crsf_rc <command> [arguments...]
+ crsf_rc <command> [arguments...]
  Commands:
    start
      [-d <val>]  RC device
@@ -715,6 +720,7 @@ If the INA228 module is not powered, then by default, initialization of the driv
 ### Usage
 ```
 ina228 <command> [arguments...]
+ ina238 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -841,6 +847,7 @@ linux_pwm_out <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -1034,6 +1041,7 @@ pm_selector_auterion <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -1090,6 +1098,7 @@ pps_capture <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -1116,6 +1125,7 @@ pwm_out <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -1209,6 +1219,8 @@ This module does the RC input parsing and auto-selecting the method. Supported m
 ### Usage
 ```
 rc_input <command> [arguments...]
+ rc_input <command> [arguments...]
+ rc_input <command> [arguments...]
  Commands:
    start
      [-d <val>]  RC device
@@ -1366,6 +1378,7 @@ safety_button <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -1386,6 +1399,8 @@ This module does SBUS RC input parsing.
 ### Usage
 ```
 sbus_rc <command> [arguments...]
+ crsf_rc <command> [arguments...]
+ crsf_rc <command> [arguments...]
  Commands:
    start
      [-d <val>]  RC device
@@ -1551,6 +1566,7 @@ tone_alarm <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 

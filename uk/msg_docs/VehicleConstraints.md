@@ -1,8 +1,9 @@
 # VehicleConstraints (повідомлення UORB)
 
-Обмеження локальної заданої точки в рамці NED встановлення чого-небудь на NaN означає, що обмеження не надано
+Обмеження локальної заданої точки в рамці NED
+встановлення чого-небудь на NaN означає, що обмеження не надано
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleConstraints.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleConstraints.msg)
 
 ```c
 # Local setpoint constraints in NED frame

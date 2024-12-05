@@ -1,6 +1,8 @@
 # SensorCombined (UORB message)
 
-Sensor readings in SI-unit form. These fields are scaled and offset-compensated where possible and do not change with board revisions and sensor updates.
+Sensor readings in SI-unit form.
+These fields are scaled and offset-compensated where possible and do not
+change with board revisions and sensor updates.
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg)
 

@@ -1,6 +1,7 @@
 # PWM_limit State Machine
 
-The`PWM_limit State Machine` controls PWM outputs as a function of pre-armed and armed inputs. Provides a delay between assertion of "armed" and a ramp-up of throttle on assertion of the armed signal.
+The`PWM_limit State Machine` controls PWM outputs as a function of pre-armed and armed inputs.
+Provides a delay between assertion of "armed" and a ramp-up of throttle on assertion of the armed signal.
 
 ## Quick Summary
 

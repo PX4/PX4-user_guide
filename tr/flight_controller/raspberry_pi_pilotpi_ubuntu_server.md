@@ -30,13 +30,15 @@ Please refer to official [cdimage](https://cdimage.ubuntu.com/releases/) page fo
 
 ### First boot
 
-When setting up RaPi's WiFi for the first time we recommended using a wired Ethernet connection between your home router and RPi, and a monitor and keyboard.
+When setting up RPi's WiFi for the first time we recommended using a wired Ethernet connection between your home router and RPi, and a monitor and keyboard.
 
 #### Before booting
 
-Mount the SD card onto your computer and modify the network settings. Please follow the official instruction [here](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet).
+Mount the SD card onto your computer and modify the network settings.
+Please follow the official instruction [here](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet).
 
-Now plug the SD card onto your Pi and boot for the first time. Make sure you have shell access to the RPi - either SSH connection over wired Ethernet, or direct accessing with keyboard and monitor.
+Now plug the SD card onto your Pi and boot for the first time.
+Make sure you have shell access to the RPi - either SSH connection over wired Ethernet, or direct accessing with keyboard and monitor.
 
 #### WiFi region
 
@@ -62,7 +64,8 @@ Let's set up hostname at first.
 sudo nano /etc/hostname
 ```
 
-Change the hostname to whatever you like. Then install the package required by mDNS:
+Change the hostname to whatever you like.
+Then install the package required by mDNS:
 
 ```sh
 sudo apt-get update
@@ -128,13 +131,15 @@ sudo nano /boot/firmware/nobtcmd.txt
 
 Find `console=/dev/ttyAMA0,115200` and remove that part to disable the login shell on serial interface.
 
-Append `isolcpus=2` after the last word. The whole file will then look like:
+Append `isolcpus=2` after the last word.
+The whole file will then look like:
 
 ```sh
 net.ifnames=0 dwc_otg.lpm_enable=0 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc isolcpus=2
 ```
 
-The above line tells the Linux kernel do not schedule any process on CPU core 2. We will manually run PX4 onto that core later.
+The above line tells the Linux kernel do not schedule any process on CPU core 2.
+We will manually run PX4 onto that core later.
 
 Reboot and SSH onto your Pi.
 
@@ -164,7 +169,8 @@ There should be `/dev/spidev0.0`.
 
 #### rc.local
 
-In this section we will configure the auto-start script in **rc.local**. Note that we need to create this file, as it is not present on a fresh Ubuntu OS.
+In this section we will configure the auto-start script in **rc.local**.
+Note that we need to create this file, as it is not present on a fresh Ubuntu OS.
 
 ```sh
 sudo nano /etc/rc.local
@@ -186,13 +192,14 @@ echo "25" > /sys/class/gpio/unexport
 exit 0
 ```
 
-Save and exit. Then set the correct permissions:
+Save and exit.
+Then set the correct permissions:
 
 ```sh
 sudo chmod +x /etc/rc.local
 ```
 
-::: info
+:::info
 Don't forget to turn off the switch when it is not needed!
 :::
 
@@ -220,7 +227,7 @@ To get the _very latest_ version onto your computer, enter the following command
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-::: info
+:::info
 This is all you need to do just to build the latest code.
 :::
 
@@ -269,11 +276,13 @@ Execute the command in firmware folder:
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
 
-::: info
+:::info
 mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 :::
 
-::: info If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
+:::info
+If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
+You can compile without uploading too. Just remove `upload` target.
 :::
 
 It is also possible to just compile the code with command:
@@ -284,7 +293,8 @@ It is also possible to just compile the code with command:
 
 #### Build for arm64 target
 
-::: info This step requires `aarch64-linux-gnu` tool-chain to be installed.
+:::info
+This step requires `aarch64-linux-gnu` tool-chain to be installed.
 :::
 
 Build the executable file:
@@ -310,11 +320,13 @@ Execute the command in `PX4-Autopilot` folder:
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_arm64 upload"
 ```
 
-::: info
+:::info
 mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 :::
 
-::: info If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too - just remove the `upload` target.
+:::info
+If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
+You can compile without uploading too - just remove the `upload` target.
 :::
 
 It is also possible to just compile the code with command:

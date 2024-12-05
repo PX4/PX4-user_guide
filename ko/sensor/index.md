@@ -2,7 +2,7 @@
 
 This section describes the mandatory and optional sensors and their setup/configuration.
 
-## Overview
+## 개요
 
 PX4-based systems use sensors to estimate vehicle state, which is needed for stabilization and to enable autonomous control.
 Vehicle state information includes: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, and so on.

@@ -2,11 +2,13 @@
 
 This section covers the common software configuration and calibration needed for most PX4 vehicles.
 
-You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection). Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
+You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection).
+Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
 
-## Preconditions
+## 操作前提
 
-Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer. Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
+Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer.
+Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
 
 ![QGC Main Menu Popup: highlighting Vehicle Setup](../../assets/qgc/setup/menu_setup.png)
 
@@ -24,17 +26,18 @@ Before starting you should [Download QGroundControl](http://qgroundcontrol.com/d
 
 ### Sensor Calibration
 
-- [传感器方向](../config/flight_controller_orientation.md)
-- [罗盘](../config/compass.md)
-- [陀螺仪](../config/gyroscope.md)
-- [加速度计 Accelerometer](../config/accelerometer.md)
+- [Sensor Orientation](../config/flight_controller_orientation.md)
+- [Magnetometer (Compass)](../config/compass.md)
+- [Gyroscope](../config/gyroscope.md)
+- [Accelerometer](../config/accelerometer.md)
 - [Level Horizon](../config/level_horizon_calibration.md)
 - [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
 
-::: info Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
+:::info
+Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
 :::
 
-### Manual Control Setup
+### 手动控制设置
 
 Radio Control:
 
@@ -43,14 +46,14 @@ Radio Control:
 
 Joystick/GamePad:
 
-- [操纵杆设置](../config/joystick.md)
+- [Joystick Setup](../config/joystick.md)
 
-### Safety Configuration
+### 安全配置
 
 - [Battery Estimation Tuning](../config/battery.md) (requires [Power Module](../power_module/index.md))
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
-### Tuning
+### 调试
 
 Auto-tuning is supported, and recommended, on the following frames:
 
@@ -58,13 +61,13 @@ Auto-tuning is supported, and recommended, on the following frames:
 - [Autotune (Fixed Wing)](../config/autotune_fw.md)
 - [Autotune (VTOL)](../config/autotune_vtol.md)
 
-## 视频教程
+## 一键安装脚本
 
 The video below shows most of the calibration process (it uses an older version of _QGroundControl_, but most of the process is unchanged).
 
 <lite-youtube videoid="91VGmdSlbo4" title="PX4 Autopilot Setup Tutorial Preview"/>
 
-## Support
+## 技术支持
 
 If you need help with the configuration you can ask for help on the [QGroundControl Support forum](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
 

@@ -28,7 +28,7 @@ To start using the mecanum rover:
 
 3. Use [Actuators Configuration & Testing](../config/actuators.md) to map the motor functions to flight controller outputs.
 
-## Manual Mode
+## 手动模式
 
 The basic setup (above) is all that is required to use the rover in [Manual mode](../flight_modes_rover/mecanum.md#manual-mode).
 
@@ -316,7 +316,7 @@ If the distance from the path to the rover is bigger than the lookahead distance
 
 To summarize, the following parameters can be used to tune the controller:
 
-| Parameter                                                                                                                                          | Description                             | Unit |
+| 参数                                                                                                                                                 | 描述                                      | Unit |
 | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---- |
 | <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN) | Main tuning parameter                   | -    |
 | <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)    | Maximum value for the look ahead radius | m    |
@@ -326,7 +326,7 @@ To summarize, the following parameters can be used to tune the controller:
 
 List of all parameters of the mecanum rover module:
 
-| Parameter                                                                                                                                                                                       | Description                                                            | Unit    |
+| 参数                                                                                                                                                                                              | 描述                                                                     | Unit    |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------- |
 | <a id="RM_WHEEL_TRACK"></a>[RM_WHEEL_TRACK](../advanced_config/parameter_reference.md#RM_WHEEL_TRACK)                                                 | Wheel track                                                            | m       |
 | <a id="RM_MAN_YAW_SCALE"></a>[RM_MAN_YAW_SCALE](../advanced_config/parameter_reference.md#RM_MAN_YAW_SCALE)                      | Manual yaw rate scale                                                  | -       |

@@ -1,18 +1,21 @@
 # Pixhack V3
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.cuav.net/)에 문의하십시오.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 :::
 
 The CUAV _Pixhack V3_ flight controller board is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
-이 보드는 SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) 비행 컨트롤러의 변형으로, 개방형 하드웨어 설계 [Pixhawk 프로젝트](https://pixhawk.org/) **FMUv3**를 기반으로합니다. [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행하며, PX4 또는 ArduPilot<sup>&reg;</sup> (APM) 펌웨어와 완벽하게 호환됩니다.
+The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight controller, which is in turn based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
+It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS, and is fully compatible with both PX4 or ArduPilot<sup>&reg;</sup> (APM) firmware.
 
 _Pixhack V3_ has significant improvements with respect to the original design, including better interface layout and the addition of vibration damping and a thermostat system.
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
-:::note
-이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## 요약
@@ -35,7 +38,7 @@ _Pixhack V3_ has significant improvements with respect to the original design, i
   - CAN 버스 (1)
   - ADC 입력: 3.3V X1 , 6.6V X1
   - PWM 출력: 8 PWM IO + 4 IO
-- 전원 시스템:
+- 전원시스템
   - PM 전원 입력: 4.5 ~ 5.5V
   - USB 전원 입력: 5.0V +- 0.25v
 - 중량과 크기
@@ -46,19 +49,21 @@ _Pixhack V3_ has significant improvements with respect to the original design, i
 - 기타 특성:
   - 작동 온도: -20 ~ 60°c
 
-## 유효성
+## 구매처
 
 보드는 아래에서 구입할 수 있습니다.
 
-- [store.cuav.net](http://store.cuav.net/index.php?id_product=8&id_product_attribute=0&rewrite=pixhack-v3-autopilot&controller=product&id_lang=3)
+- [store.cuav.net](http://store.cuav.net/index.php?id_product=8\&id_product_attribute=0\&rewrite=pixhack-v3-autopilot\&controller=product\&id_lang=3)
 - [leixun.aliexpress.com/store](https://leixun.aliexpress.com/store)
 
 ## 펌웨어 빌드
 
-::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make px4_fmu-v3_default
@@ -66,15 +71,15 @@ make px4_fmu-v3_default
 
 ## 핀배열과 회로도
 
-- [문서/배선 가이드](http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html)
+- [Documentation/wiring guides](http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html)
 
 ## 시리얼 포트 매핑
 
-| UART   | 장치         | 포트             |
-| ------ | ---------- | -------------- |
-| UART1  | /dev/ttyS0 | IO 디버그         |
+| UART   | 장치         | 포트                                |
+| ------ | ---------- | --------------------------------- |
+| UART1  | /dev/ttyS0 | IO 디버그                            |
 | USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
 | USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
-| UART4  |            |                |
-| UART7  | 콘솔         |                |
-| UART8  | SERIAL4    |                |
+| UART4  |            |                                   |
+| UART7  | 콘솔         |                                   |
+| UART8  | SERIAL4    |                                   |

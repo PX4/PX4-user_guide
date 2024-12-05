@@ -4,7 +4,7 @@
 
 ![ARK MOSAIC-X5 RTK GPS](../../assets/hardware/gps/ark/ark_mosaic_rtk_gps.jpg)
 
-## Where to Buy
+## 购买渠道
 
 Order this module from:
 
@@ -13,7 +13,7 @@ Order this module from:
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_MosaicX5_GPS)
-- Sensors
+- 传感器
   - [Septentrio Mosaic-X5 GPS](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-x5)
     - Triple Band L1/L2/L5
     - [AIM+ jamming protection](https://www.septentrio.com/en/learn-more/advanced-positioning-technology/aim-anti-jamming-protection)
@@ -38,7 +38,7 @@ Order this module from:
   - GPS Fix
   - RTK Status
   - RGB System Status LED
-- Additional Information
+- 附加信息
   - Includes 4 Pin Pixhawk Standard CAN Cable
   - Triple Band (L1/L2/L5) Helical GPS Antenna
   - USA Built

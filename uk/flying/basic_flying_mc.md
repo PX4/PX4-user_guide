@@ -52,7 +52,7 @@ The vehicle may disarm if you take too long to take off after arming (tune the t
 The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
 :::
 
-## Landing
+## Посадка
 
 Multicopters can be landed in any manual mode.
 Make sure to keep the throttle stick pulled down after touching down until the motors have switched off.
@@ -94,7 +94,7 @@ The following three modes are highly recommended for new users:
 You can also engage automatic modes on the _QGroundControl_ main flight screen.
 :::
 
-## See Also
+## Дивіться також
 
 - [Terrain Follow/Hold & Range Assistance](../flying/terrain_following_holding.md) — How to enable terrain following
-- [Missions](../flying/missions.md)
+- [Місії](../flying/missions.md)

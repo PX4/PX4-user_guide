@@ -1,7 +1,8 @@
 # 모듈 참조: 거리 센서(드라이버)
-## afbrs50
-소스: [drivers/distance_sensor/leddar_one](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/broadcom/afbrs50)
 
+## afbrs50
+
+Source: [drivers/distance_sensor/broadcom/afbrs50](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/broadcom/afbrs50)
 
 ### 설명
 
@@ -10,10 +11,13 @@ Broadcom AFBRS50용 드라이버입니다.
 ### 예
 
 지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
+
 ```
 afbrs50 start
 ```
+
 드라이버를 중지합니다.
+
 ```
 afbrs50 stop
 ```
@@ -21,6 +25,7 @@ afbrs50 stop
 <a id="afbrs50_usage"></a>
 
 ### 사용법
+
 ```
 afbrs50 <command> [arguments...]
  Commands:
@@ -29,14 +34,19 @@ afbrs50 <command> [arguments...]
      [-r <val>]  Sensor rotation - downward facing by default
                  default: 25
 
+   test          Test driver
+
    stop          Stop driver
 ```
+
 ## gy_us42
-소스: [drivers/distance_sensor/srf02](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/gy_us42)
+
+Source: [drivers/distance_sensor/gy_us42](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/gy_us42)
 
 <a id="gy_us42_usage"></a>
 
 ### 사용법
+
 ```
 gy_us42 <command> [arguments...]
  Commands:
@@ -54,9 +64,10 @@ gy_us42 <command> [arguments...]
 
    status        print status info
 ```
-## leddar_one
-소스: [drivers/distance_sensor/leddar_one](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/leddar_one)
 
+## leddar_one
+
+Source: [drivers/distance_sensor/leddar_one](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/leddar_one)
 
 ### 설명
 
@@ -69,10 +80,13 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/leddar_one.html
 ### 예
 
 지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
+
 ```
 leddar_one start -d /dev/ttyS1
 ```
+
 드라이버를 중지합니다.
+
 ```
 leddar_one stop
 ```
@@ -80,6 +94,7 @@ leddar_one stop
 <a id="leddar_one_usage"></a>
 
 ### 사용법
+
 ```
 leddar_one <command> [arguments...]
  Commands:
@@ -90,9 +105,10 @@ leddar_one <command> [arguments...]
 
    stop          Stop driver
 ```
-## lightware_laser_i2c
-소스: [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_i2c)
 
+## lightware_laser_i2c
+
+Source: [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_laser_i2c)
 
 ### 설명
 
@@ -103,6 +119,7 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
 <a id="lightware_laser_i2c_usage"></a>
 
 ### 사용법
+
 ```
 lightware_laser_i2c <command> [arguments...]
  Commands:
@@ -122,9 +139,10 @@ lightware_laser_i2c <command> [arguments...]
 
    status        print status info
 ```
-## lightware_laser_serial
-소스: [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_serial)
 
+## lightware_laser_serial
+
+Source: [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_laser_serial)
 
 ### 설명
 
@@ -137,10 +155,13 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
 ### 예
 
 지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
+
 ```
 lightware_laser_serial start -d /dev/ttyS1
 ```
+
 드라이버를 중지합니다.
+
 ```
 lightware_laser_serial stop
 ```
@@ -148,6 +169,7 @@ lightware_laser_serial stop
 <a id="lightware_laser_serial_usage"></a>
 
 ### 사용법
+
 ```
 lightware_laser_serial <command> [arguments...]
  Commands:
@@ -158,9 +180,10 @@ lightware_laser_serial <command> [arguments...]
 
    stop          Stop driver
 ```
-## lightware_sf45_serial
-Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_sf45_serial)
 
+## lightware_sf45_serial
+
+Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_sf45_serial)
 
 ### 설명
 
@@ -171,10 +194,13 @@ Serial bus driver for the Lightware SF45/b Laser rangefinder.
 ### 예
 
 지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
+
 ```
 lightware_sf45_serial start -d /dev/ttyS1
 ```
+
 드라이버를 중지합니다.
+
 ```
 lightware_sf45_serial stop
 ```
@@ -182,6 +208,7 @@ lightware_sf45_serial stop
 <a id="lightware_sf45_serial_usage"></a>
 
 ### 사용법
+
 ```
 lightware_sf45_serial <command> [arguments...]
  Commands:
@@ -191,9 +218,10 @@ lightware_sf45_serial <command> [arguments...]
 
    stop          Stop driver
 ```
-## ll40ls
-소스: [drivers/distance_sensor/ll40ls](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/ll40ls)
 
+## ll40ls
+
+Source: [drivers/distance_sensor/ll40ls](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/ll40ls)
 
 ### 설명
 
@@ -206,6 +234,7 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/lidar_lite.html
 <a id="ll40ls_usage"></a>
 
 ### 사용법
+
 ```
 ll40ls <command> [arguments...]
  Commands:
@@ -227,12 +256,15 @@ ll40ls <command> [arguments...]
 
    status        print status info
 ```
+
 ## mappydot
-소스: [drivers/distance_sensor/mappydot](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/mappydot)
+
+Source: [drivers/distance_sensor/mappydot](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/mappydot)
 
 <a id="mappydot_usage"></a>
 
 ### 사용법
+
 ```
 mappydot <command> [arguments...]
  Commands:
@@ -248,12 +280,15 @@ mappydot <command> [arguments...]
 
    status        print status info
 ```
+
 ## mb12xx
-소스: [drivers/distance_sensor/mb12xx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/mb12xx)
+
+Source: [drivers/distance_sensor/mb12xx](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/mb12xx)
 
 <a id="mb12xx_usage"></a>
 
 ### 사용법
+
 ```
 mb12xx <command> [arguments...]
  Commands:
@@ -273,9 +308,10 @@ mb12xx <command> [arguments...]
 
    status        print status info
 ```
-## pga460
-소스: [drivers/distance_sensor/pga460](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/pga460)
 
+## pga460
+
+Source: [drivers/distance_sensor/pga460](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/pga460)
 
 ### 설명
 
@@ -288,6 +324,7 @@ This driver is implemented as a NuttX task. 이 구현은 work_queue에서 지�
 <a id="pga460_usage"></a>
 
 ### 사용법
+
 ```
 pga460 <command> [arguments...]
  Commands:
@@ -300,12 +337,15 @@ pga460 <command> [arguments...]
 
    help
 ```
+
 ## srf02
-소스: [drivers/distance_sensor/srf02](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/srf02)
+
+Source: [drivers/distance_sensor/srf02](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/srf02)
 
 <a id="srf02_usage"></a>
 
 ### 사용법
+
 ```
 srf02 <command> [arguments...]
  Commands:
@@ -325,20 +365,21 @@ srf02 <command> [arguments...]
 
    status        print status info
 ```
+
 ## srf05
-소스: [drivers/distance_sensor/srf05](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/srf05)
 
+Source: [drivers/distance_sensor/srf05](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/srf05)
 
-  설명
+### 설명
 
-  HY-SRF05 / HC-SR05 및 HC-SR04 거리 측정기용 드라이버입니다.
+HY-SRF05 / HC-SR05 및 HC-SR04 거리 측정기용 드라이버입니다.
 
-  센서/드라이버는 SENS_EN_HXSRX0X 매개변수를 사용하여 활성화합니다.
-
+센서/드라이버는 SENS_EN_HXSRX0X 매개변수를 사용하여 활성화합니다.
 
 <a id="srf05_usage"></a>
 
 ### 사용법
+
 ```
 srf05 <command> [arguments...]
  Commands:
@@ -354,9 +395,10 @@ srf05 <command> [arguments...]
 
    status        print status info
 ```
-## teraranger
-소스: [drivers/distance_sensor/teraranger](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/teraranger)
 
+## teraranger
+
+Source: [drivers/distance_sensor/teraranger](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/teraranger)
 
 ### 설명
 
@@ -369,6 +411,7 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/rangefinders.html#te
 <a id="teraranger_usage"></a>
 
 ### 사용법
+
 ```
 teraranger <command> [arguments...]
  Commands:
@@ -388,12 +431,15 @@ teraranger <command> [arguments...]
 
    status        print status info
 ```
+
 ## tf02pro
+
 Source: [drivers/distance_sensor/tf02pro](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/tf02pro)
 
 <a id="tf02pro_usage"></a>
 
 ### 사용법
+
 ```
 tf02pro <command> [arguments...]
  Commands:
@@ -413,9 +459,10 @@ tf02pro <command> [arguments...]
 
    status        print status info
 ```
-## tfmini
-소스: [drivers/distance_sensor/tfmini](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/tfmini)
 
+## tfmini
+
+Source: [drivers/distance_sensor/tfmini](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/tfmini)
 
 ### 설명
 
@@ -428,10 +475,13 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/tfmini.html
 ### 예
 
 지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
+
 ```
 tfmini start -d /dev/ttyS1
 ```
+
 드라이버를 중지합니다.
+
 ```
 tfmini stop
 ```
@@ -439,6 +489,7 @@ tfmini stop
 <a id="tfmini_usage"></a>
 
 ### 사용법
+
 ```
 tfmini <command> [arguments...]
  Commands:
@@ -455,9 +506,10 @@ tfmini <command> [arguments...]
 
    status        Print driver status
 ```
-## ulanding_radar
-소스: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/ulanding_radar)
 
+## ulanding_radar
+
+Source: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/ulanding_radar)
 
 ### 설명
 
@@ -468,10 +520,13 @@ Aerotenna uLanding 레이더용 직렬 버스 드라이버입니다.
 ### 예
 
 지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
+
 ```
 ulanding_radar start -d /dev/ttyS1
 ```
+
 드라이버를 중지합니다.
+
 ```
 ulanding_radar stop
 ```
@@ -479,6 +534,7 @@ ulanding_radar stop
 <a id="ulanding_radar_usage"></a>
 
 ### 사용법
+
 ```
 ulanding_radar <command> [arguments...]
  Commands:
@@ -490,12 +546,15 @@ ulanding_radar <command> [arguments...]
 
    stop          Stop driver
 ```
+
 ## vl53l0x
-소스: [drivers/distance_sensor/vl53l0x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/vl53l0x)
+
+Source: [drivers/distance_sensor/vl53l0x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/vl53l0x)
 
 <a id="vl53l0x_usage"></a>
 
 ### 사용법
+
 ```
 vl53l0x <command> [arguments...]
  Commands:
@@ -515,12 +574,15 @@ vl53l0x <command> [arguments...]
 
    status        print status info
 ```
+
 ## vl53l1x
-소스: [drivers/distance_sensor/vl53l1x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/vl53l1x)
+
+Source: [drivers/distance_sensor/vl53l1x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/vl53l1x)
 
 <a id="vl53l1x_usage"></a>
 
 ### 사용법
+
 ```
 vl53l1x <command> [arguments...]
  Commands:

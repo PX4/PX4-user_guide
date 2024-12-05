@@ -112,7 +112,7 @@ Build the library locally to test that any changes you have made have rendered p
 1. Navigate to your local repository:
 
    ```sh
-   cd ~/wherever/PX4-user_guide
+   cd ~/wherever/px4_user_guide
    ```
 
 1. Install dependencies (including Vitepress):

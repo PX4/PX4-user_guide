@@ -2,9 +2,9 @@
 
 ## 开发者快速指南
 
-### 操作系统镜像
+### 操作系统映像
 
-总是推荐使用最新官方的 [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) 镜像。
+The latest official [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) image is always recommended.
 
 默认你已经通过ssh连接到了树莓派。
 
@@ -12,13 +12,15 @@
 
 #### 主机名和 mDNS
 
-mDNS 帮助您使用主机名替代IP地址连接到您的树莓派。
+mDNS helps you connect to your RPi with hostname instead of IP address.
 
 ```sh
 sudo raspi-config
 ```
 
-导航到 **Network Options > Hostname**。 设置并退出。 您也可能想要设置 [无密码认证](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md)。
+Navigate to **Network Options > Hostname**.
+设置并退出。
+You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well.
 
 ### 配置操作系统
 
@@ -51,21 +53,24 @@ dtoverlay=miniuart-bt
 sudo raspi-config
 ```
 
-**Interfacing Options > Serial > login shell = No > hardware = Yes**. 启用 UART 但禁用登陆shell。
+**Interfacing Options > Serial > login shell = No > hardware = Yes**.
+启用 UART 但禁用登陆shell。
 
 ```sh
 sudo nano /boot/cmdline.txt
 ```
 
-在最后添加 `isolcpus=2` 整个文件将是：
+Append `isolcpus=2` after the last word.
+整个文件将是：
 
 ```sh
 console=tty1 root=PARTUUID=xxxxxxxx-xx rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait isolcpus=2
 ```
 
-这告诉 Linux 内核不要在 CPU 核心2 上调度任何进程。 我们将在稍后手动在该核心运行 PX4。
+这告诉 Linux 内核不要在 CPU 核心2 上调度任何进程。
+我们将在稍后手动在该核心运行 PX4。
 
-重启并SSH登陆到您的树莓派。
+Reboot and SSH onto your RPi.
 
 检查串口：
 
@@ -73,7 +78,7 @@ console=tty1 root=PARTUUID=xxxxxxxx-xx rootfstype=ext4 elevator=deadline fsck.re
 ls /dev/tty*
 ```
 
-应该有 `/dev/ttyAMA0`, `/dev/ttySC0` 和 `/dev/ttySC1`。
+There should be `/dev/ttyAMA0`, `/dev/ttySC0` and `/dev/ttySC1`.
 
 检查 I2C：
 
@@ -81,7 +86,7 @@ ls /dev/tty*
 ls /dev/i2c*
 ```
 
-应该有 `/dev/i2c-0` 和 `/dev/i2c-1`
+There should be `/dev/i2c-0` and `/dev/i2c-1`
 
 检查SPI：
 
@@ -89,17 +94,17 @@ ls /dev/i2c*
 ls /dev/spidev*
 ```
 
-应该有 `/dev/spidev0.0`。
+There should be `/dev/spidev0.0`.
 
 #### rc.local
 
-在本节中，我们将在 **rc.local** 中配置自动启动脚本。
+In this section we will configure the auto-start script in **rc.local**.
 
 ```sh
 sudo nano /etc/rc.local
 ```
 
-把下面内容添加到文件中，且放在 `exit 0` 之上：
+Append below content to the file above `exit 0`:
 
 ```sh
 echo "25" > /sys/class/gpio/export
@@ -113,13 +118,13 @@ echo "25" > /sys/class/gpio/unexport
 
 保存并退出。
 
-::: info
+:::info
 Don't forget to turn off the switch when it is not needed.
 :::
 
 #### CSI 相机
 
-::: info
+:::info
 Enable CSI camera will stop anything works on I2C-0.
 :::
 
@@ -137,7 +142,7 @@ To get the _very latest_ version onto your computer, enter the following command
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-::: info
+:::info
 This is all you need to do just to build the latest code.
 :::
 
@@ -149,7 +154,7 @@ This is all you need to do just to build the latest code.
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
-通过 ssh 连接并运行它：
+或
 
 ```sh
 export AUTOPILOT_HOST=pi_hostname.local
@@ -162,7 +167,7 @@ cd PX4-Autopilot
 make scumaker_pilotpi_default
 ```
 
-如果在树莓派上运行PX4时遇到了以下问题：
+Then upload it with:
 
 ```sh
 make scumaker_pilotpi_default upload
@@ -177,13 +182,13 @@ sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 
 在执行下一步之前，先清除现有构建目录：
 
-以下方法可以获得与CI相同的编译工具与环境。
+If you encountered the similar problem executing `bin/px4` on your Pi as following:
 
 ```
 bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
 ```
 
-如果您是首次使用 Docker 进行编译，请参考[官方说明](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites)。
+如果您是首次使用 Docker 进行编译，请参考<a href="https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites">官方说明</a>。
 
 在 PX4-Autopilot 文件夹下执行：
 
@@ -197,16 +202,19 @@ rm -rf build/scumaker_pilotpi_default
 
 If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
-混控器在 `pilotpi_xx.conf` 文件中启用：
+混控器在 <code>pilotpi_xx.conf</code> 文件中启用：
 
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
 
-所有可用的混控配置都存储在 `etc/mixers` 中。 您也可以自己创建一个。
+:::info
+mDNS is not supported within docker. 您也可以自己创建一个。
 :::
 
-::: info If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
+:::info
+If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
+You can compile without uploading too. Just remove `upload` target.
 :::
 
 It is also possible to just compile the code with command:
@@ -223,7 +231,7 @@ It is also possible to just compile the code with command:
 
 First set the [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) parameter for your vehicle.
 
-You will then be able to assign outputs using the normal [Actuator Configuration](../config/actuators.md) configuration screen (an output tab will appear for the RasPi PWM output driver).
+You will then be able to assign outputs using the normal [Actuator Configuration](../config/actuators.md) configuration screen (an output tab will appear for the RPi PWM output driver).
 
 #### External Compass
 
@@ -236,7 +244,8 @@ gps start -d /dev/ttySC0 -i uart -p ubx -s
 #ist8310 start -X
 ```
 
-Uncomment the correct one for your case. Not sure which compass comes up with your GPS module? Execute the following commands and see the output:
+Uncomment the correct one for your case.
+Not sure which compass comes up with your GPS module? Execute the following commands and see the output:
 
 ```sh
 sudo apt-get update
@@ -260,5 +269,7 @@ Sample output:
 
 `1e` indicates a HMC5883 based compass is mounted on external I2C bus. Similarly, IST8310 has a value of `0e`.
 
-::: info Generally you only have one of them. Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
+:::info
+Generally you only have one of them.
+Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
 :::

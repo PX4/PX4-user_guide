@@ -1,32 +1,34 @@
 # Посібник з портування NuttX
 
-Для портування PX4 на NuttX на новий апаратний пристрій, цей апаратний пристрій повинен бути підтриманий NuttX. Проект NuttX зберігає відмінний [посібник з портативності](https://cwiki.apache.org/confluence/display/NUTTX/Porting+Guide) для портування NuttX на нову обчислювальну платформу.
+Для портування PX4 на NuttX на новий апаратний пристрій, цей апаратний пристрій повинен бути підтриманий NuttX.
+The NuttX project maintains an excellent [porting guide](https://cwiki.apache.org/confluence/display/NUTTX/Porting+Guide) for porting NuttX to a new computing platform.
 
-Наступний посібник передбачає, що ви використовуєте вже підтримувану апаратну мету або вже портували NuttX (включаючи [базовий рівень PX4](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/px4)).
+The following guide assumes you are using an already supported hardware target or have ported NuttX (including the [PX4 base layer](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/px4)) already.
 
-Налаштувальні файли для всіх плат, включаючи лінкерні сценарії та інші необхідні налаштування, розташовані під [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards/) у каталозі, що відповідає постачальнику та платі (тобто **boards/_VENDOR_/_MODEL_/**).
+The configuration files for all boards, including linker scripts and other required settings, are located under [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards/) in a vendor- and board-specific directory (i.e. **boards/_VENDOR_/_MODEL_/**).
 
-Наступний приклад використовує FMUv5, оскільки це остання [посилання конфігурації](../hardware/reference_design.md) для контролерів польоту на основі NuttX:
+The following example uses FMUv5 as it is a recent [reference configuration](../hardware/reference_design.md) for NuttX based flight controllers:
 
-- Виконайте `make px4_fmu-v5_default` з каталогу **PX4-Autopilot**, щоб збудувати конфігурацію FMUv5
-- Основні файлы конфігурації FMUv5 розташовані за адресою: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5).
-  - Шапка конкретної плати (конфігурація контактів NuttX та годинника): [/boards/px4/fmu-v5/nuttx-config/include/board.h](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/include/board.h).
-  - Специфічний заголовок дошки (конфігурація PX4): [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/src/board_config.h).
-  - Конфігурація операційної системи NuttX (створена за допомогою NuttX menuconfig): [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig).
-  - Налаштування збірки: [дошка/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board).
+- Running `make px4_fmu-v5_default` from the **PX4-Autopilot** directory will build the FMUv5 config
+- The base FMUv5 configuration files are located in: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5).
+  - Board specific header (NuttX pins and clock configuration): [/boards/px4/fmu-v5/nuttx-config/include/board.h](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/include/board.h).
+  - Board specific header (PX4 configuration): [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/src/board_config.h).
+  - NuttX OS config (created with NuttX menuconfig): [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig).
+  - Build configuration: [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board).
 
 ## Налаштування меню NuttX Menuconfig
 
-Щоб змінити конфігурацію операційної системи NuttX, ви можете використовувати [menuconfig](https://bitbucket.org/patacongo/nuttx/src/master/) за допомогою ярликів PX4:
+To modify the NuttX OS configuration, you can use [menuconfig](https://bitbucket.org/patacongo/nuttx/src/master/) using the PX4 shortcuts:
 
 ```sh
 make px4_fmu-v5_default menuconfig
 make px4_fmu-v5_default qconfig
 ```
 
-Для свіжих встановлень PX4 на Ubuntu з використанням [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> вам також потрібно буде встановити інструменти _kconfig_ з [інструментів NuttX](https://bitbucket.org/nuttx/tools/src/master/).
+For fresh installs of PX4 onto Ubuntu using [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> you will also need to install _kconfig_ tools from [NuttX tools](https://bitbucket.org/nuttx/tools/src/master/).
 
-:::info Наступні кроки не потрібні у разі використання [контейнера docker px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) або встановлення на macOS за нашими звичайними інструкціями (оскільки вони включають`kconfig-mconf`).
+:::info
+The following steps are not required if using the [px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) docker container or have installed to macOS using our normal instructions (as these include`kconfig-mconf`).
 :::
 
 Виконайте наступні команди з будь-якого каталогу:
@@ -40,21 +42,25 @@ make
 sudo make install
 ```
 
-`--префікс=/usr` визначає конкретне місце встановлення (яке повинно бути у змінній середовища `PATH`). Параметри `--enable-mconf` та `--enable-qconf` увімкнуть опції `menuconfig` та `qconfig` відповідно.
+The `--prefix=/usr` determines the specific installation location (which must be in the `PATH` environment variable).
+The `--enable-mconf` and `--enable-qconf` options will enable the `menuconfig` and `qconfig` options respectively.
 
-Для запуску `qconfig` може знадобитися встановити додаткові залежності Qt.
+To run `qconfig` you may need to install additional Qt dependencies.
 
 ### Завантажувач
 
 Спочатку вам знадобиться завантажувач, який залежить від цільового обладнання:
 
-- STM32H7: завантажувач базується на NuttX та включений в прошивку PX4. Дивіться [тут](https://github.com/PX4/PX4-Autopilot/tree/main/boards/holybro/durandal-v1/nuttx-config/bootloader) як приклад.
-- Для всіх інших цілей використовується https://github.com/PX4/Bootloader. Дивіться [тут](https://github.com/PX4/Bootloader/pull/155/files) для прикладу того, як додати нову ціль. Потім перейдіть за посиланням [інструкції з компіляції та прошивки](../software_update/stm32_bootloader.md).
+- STM32H7: завантажувач базується на NuttX та включений в прошивку PX4.
+  See [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/holybro/durandal-v1/nuttx-config/bootloader) for an example.
+- Для всіх інших цілей використовується https://github.com/PX4/Bootloader. See [here](https://github.com/PX4/Bootloader/pull/155/files) for an example how to add a new target.
+  Then checkout the [building and flashing instructions](../software_update/stm32_bootloader.md).
 
 ### Кроки портування прошивки
 
-1. Переконайтеся, що у вас працює [середовище розробки](../dev_setup/dev_env.md) та ви встановили інструмент конфігурації 'menuconfig` NuttX (див. вище).
-1. Завантажте вихідний код і переконайтеся, що ви можете зібрати існуючу ціль:
+1. Make sure you have a working [development setup](../dev_setup/dev_env.md) and installed the NuttX \`menuconfig\`\` tool (see above).
+
+2. Завантажте вихідний код і переконайтеся, що ви можете зібрати існуючу ціль:
 
    ```sh
    git clone --recursive https://github.com/PX4/PX4-Autopilot.git
@@ -62,20 +68,24 @@ sudo make install
    make px4_fmu-v5
    ```
 
-1. Знаходьте існуючу ціль, яка використовує той самий (або тісно пов'язаний) тип ЦП, і скопіюйте її. Наприклад для STM32F7:
+3. Знаходьте існуючу ціль, яка використовує той самий (або тісно пов'язаний) тип ЦП, і скопіюйте її.
+   Наприклад для STM32F7:
 
    ```sh
    mkdir boards/manufacturer
    cp -r boards/px4/fmu-v5 boards/manufacturer/my-target-v1
    ```
 
-   Змініть **виробника** на назву виробника та **my-target-v1** на назву вашої плати.
+   Change **manufacturer** to the manufacturer name and **my-target-v1** to your board name.
 
-Далі вам потрібно пройти через усі файли у **boards/manufacturer/my-target-v1** та оновити їх відповідно до вашої плати.
+Next you need to go through all files under **boards/manufacturer/my-target-v1** and update them according to your board.
 
-1. **прошивка.prototype**: оновлення ідентифікатора та назви плати
-1. **default.px4board**: оновіть **VENDOR** та **MODEL**, щоб відповідали іменам каталогів (**my-target-v1**). Налаштування послідовних портів.
-1. Налаштуйте NuttX (**defconfig**) через `make manufacturer_my-target-v1 menuconfig`: налаштуйте ЦП та мікросхему, налаштуйте периферійні пристрої (UART's, SPI, I2C, ADC).
-1. **nuttx-config/include/board.h**: Налаштуйте контакти NuttX. Для всіх зовнішніх пристроїв з кількома варіантами контактів, NuttX повинен знати контакт. Вони визначені у файлі шапки конкретного чіпу, наприклад [stm32f74xx75xx_pinmap.h](https://github.com/PX4/NuttX/blob/px4_firmware_nuttx-8.2/arch/arm/src/stm32f7/hardware/stm32f74xx75xx_pinmap.h).
-1. **src**: пройдіться по всім файлам у каталозі **src** та внесіть необхідні зміни, зокрема у файлі **board_config.h**.
-1. **init/rc.board_sensors**: запускає сенсори, які підключені до плати.
+1. **firmware.prototype**: update the board ID and name
+2. **default.px4board**: update the **VENDOR** and **MODEL** to match the directory names (**my-target-v1**).
+   Налаштування послідовних портів.
+3. Configure NuttX (**defconfig**) via `make manufacturer_my-target-v1 menuconfig`: Adjust the CPU and chip, configure the peripherals (UART's, SPI, I2C, ADC).
+4. **nuttx-config/include/board.h**: Configure the NuttX pins.
+   Для всіх зовнішніх пристроїв з кількома варіантами контактів, NuttX повинен знати контакт.
+   They are defined in the chip-specific pinmap header file, for example [stm32f74xx75xx_pinmap.h](https://github.com/PX4/NuttX/blob/px4_firmware_nuttx-8.2/arch/arm/src/stm32f7/hardware/stm32f74xx75xx_pinmap.h).
+5. **src**: go through all files under **src** and update them as needed, in particular **board_config.h**.
+6. **init/rc.board_sensors**: start the sensors that are attached to the board.

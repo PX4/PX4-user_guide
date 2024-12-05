@@ -1,8 +1,6 @@
 # EstimatorStatusFlags (повідомлення UORB)
 
-
-
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatusFlags.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatusFlags.msg)
 
 ```c
 uint64 timestamp                          # time since system start (microseconds)
@@ -52,6 +50,8 @@ bool cs_mag_heading_consistent  # 37 - true when the heading obtained from mag d
 bool cs_aux_gpos                # 38 - true if auxiliary global position measurement fusion is intended
 bool cs_rng_terrain             # 39 - true if we are fusing range finder data for terrain
 bool cs_opt_flow_terrain        # 40 - true if we are fusing flow data for terrain
+bool cs_valid_fake_pos          # 41 - true if a valid constant position is being fused
+bool cs_constant_pos            # 42 - true if the vehicle is at a constant position
 
 # fault status
 uint32 fault_status_changes   # number of filter fault status (fs) changes
@@ -64,7 +64,6 @@ bool fs_bad_airspeed          #  5 - true if fusion of the airspeed has encounte
 bool fs_bad_sideslip          #  6 - true if fusion of the synthetic sideslip constraint has encountered a numerical error
 bool fs_bad_optflow_x         #  7 - true if fusion of the optical flow X axis has encountered a numerical error
 bool fs_bad_optflow_y         #  8 - true if fusion of the optical flow Y axis has encountered a numerical error
-bool fs_bad_acc_bias          #  9 - true if bad delta velocity bias estimates have been detected
 bool fs_bad_acc_vertical      # 10 - true if bad vertical accelerometer data has been detected
 bool fs_bad_acc_clipping      # 11 - true if delta velocity data contains clipping (asymmetric railing)
 

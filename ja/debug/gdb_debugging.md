@@ -1,6 +1,8 @@
 # Debugging with GDB
 
-The [GNU DeBugger (GDB)](https://sourceware.org/gdb/documentation/) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary. The debugger reads the debug symbols inside an ELF file to understand the static and dynamic memory layout of the PX4 firmware. To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
+The [GNU DeBugger (GDB)](https://sourceware.org/gdb/documentation/) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary.
+The debugger reads the debug symbols inside an ELF file to understand the static and dynamic memory layout of the PX4 firmware.
+To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
 
 The flow of information looks like this:
 
@@ -13,7 +15,8 @@ Developer <=> GDB <=> GDB Server <=> Debug Probe <=> SWD <=> PX4 Autopilot.
 To start a debugging session you typically:
 
 1. Need a specialized [SWD debug probe](../debug/swd_debug.md#debug-probes).
-2. Find and connect to the [SWD debug port](../debug/swd_debug.md#autopilot-debug-ports). You may need a [debug adapter](swd_debug.md#debug-adapters).
+2. Find and connect to the [SWD debug port](../debug/swd_debug.md#autopilot-debug-ports).
+   You may need a [debug adapter](swd_debug.md#debug-adapters).
 3. Configure and start the debug probe to create a GDB server.
 4. Launch GDB and connect to the GDB server as a remote target.
 5. Debug your firmware interactively.
@@ -57,4 +60,5 @@ The [Embedded Debug Tools](https://pypi.org/project/emdbg/) connect several soft
 
 The library orchestrates the launch and configuration of hardware debug and trace probes, debuggers, logic analyzers, and waveform generators and provides analysis tools, converters, and plugins to provide significant insight into the software and hardware state during or after execution.
 
-The `emdbg` library contains [many useful GDB plugins](https://github.com/Auterion/embedded-debug-tools/blob/main/src/emdbg/debug/gdb.md#user-commands) that make debugging PX4 easier. It also provides tools for [profiling PX4 in real-time](https://github.com/Auterion/embedded-debug-tools/tree/main/ext/orbetto).
+The `emdbg` library contains [many useful GDB plugins](https://github.com/Auterion/embedded-debug-tools/blob/main/src/emdbg/debug/gdb.md#user-commands) that make debugging PX4 easier.
+It also provides tools for [profiling PX4 in real-time](https://github.com/Auterion/embedded-debug-tools/tree/main/ext/orbetto).

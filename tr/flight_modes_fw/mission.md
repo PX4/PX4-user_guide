@@ -180,7 +180,7 @@ Rally Points
 
 - [MAV_CMD_NAV_RALLY_POINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RALLY_POINT)
 
-::: info
+:::info
 Please add an issue report or PR if you find a missing/incorrect message.
 ::: info:
 

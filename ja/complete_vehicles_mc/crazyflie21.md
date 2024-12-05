@@ -8,7 +8,7 @@ Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or com
 :::
 
 :::warning
-Crazyflie 2.1 is only able to fly in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md).
+Crazyflie 2.1 is only able to fly in [Stabilized mode](../flight_modes_mc/manual_stabilized.md).
 :::
 
 The Crazyflie line of micro quads was created by Bitcraze AB.
@@ -239,7 +239,7 @@ make venv
 
 :::
 
-::: info
+:::info
 The Joystick menu in QGC, only appears after you connect the controller to the PC (for example a Playstation 3 controller).
 
 ![QGC joystick menu](../../assets/flight_controller/crazyflie21/joystick_menu_qgc.png)
@@ -301,6 +301,6 @@ To connect to Crazyflie 2.1 via MAVROS:
 
 - Restart QGroundControl if it doesn't connect.
 
-## Flying
+## フライト
 
 <lite-youtube videoid="0qy7O3fVN2c" title="Crazyflie 2.1 - PX4 Firmware (stabilized mode)"/>

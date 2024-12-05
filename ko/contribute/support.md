@@ -1,4 +1,4 @@
-# 지원 방법
+# 지원
 
 <script setup>
 import { useData } from 'vitepress'
@@ -28,21 +28,22 @@ The Discuss Forum is much preferred because it is indexed by search engines and 
 
 문제의 원인이 무엇인지 확실하지 않고 문제 분석의 도움을 원하시면,
 
-- [Flight Log Review](http://logs.px4.io/)에 로그를 업로드하십시오
+- Upload logs to [Flight Log Review](https://logs.px4.io/)
 - Open a discussion on [PX4 Discuss](https://discuss.px4.io/c/flight-testing/) with a flight report and links to logs.
 - The dev team may prompt you to [raise an issue](#issue-bug-reporting) if the problem is caused by a bug.
 
-## 문제와 버그 보고
+## Issue & Bug Reporting
 
-- [Flight Log Review](http://logs.px4.io/)에 로그를 업로드하십시오
-- [Open a Github Issue](https://github.com/PX4/PX4-Autopilot/issues). This must include a flight report with as much detail as possible (enough for the issue to be reproduced) and links to your logs on Flight review.
+- Upload logs to [Flight Log Review](https://logs.px4.io/)
+- [Open a Github Issue](https://github.com/PX4/PX4-Autopilot/issues).
+  This must include a flight report with as much detail as possible (enough for the issue to be reproduced) and links to your logs on Flight review.
 
 ## 주간 온라인 개발자 회의
 
 :::tip
-개발자 여러분들께서는 [주간 온라인 개발자 회의](../contribute/dev_call.md)와 [개발자 행사](../README.md#calendar)에 참여하여 프로젝트에 적극적으로 참여해주십시오.
+Developers are most welcome to attend the [weekly dev call](../contribute/dev_call.md) (and other [developer events](../index.md#calendar-events)) to engage more deeply with the project.
 :::
 
-[온라인 개발자 회의(Dev Call)](../contribute/dev_call.md)은 PX4 개발팀이 주관하는 주간 회의이며, 플랫폼 기술 상세, 활동 조정 및 심층 분석/수행 관련하여 논의합니다.
+The [Dev Call](../contribute/dev_call.md) is a weekly meeting attended by the PX4 dev team to discuss platform technical details, coordinate activities and perform in-depth analysis.
 
-Pull 요청, 주요 현안, Q&A를 의논하는 시간도 있습니다.
+There is also space in the agenda to discuss pull requests, major impacting issues and Q&A.

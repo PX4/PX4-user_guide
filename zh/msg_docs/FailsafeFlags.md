@@ -2,7 +2,8 @@
 
 Input flags for the failsafe state machine set by the arming & health checks.
 
-Flags must be named such that false == no failure (e.g. _invalid, _unhealthy, _lost) The flag comments are used as label for the failsafe state machine simulation
+Flags must be named such that false == no failure (e.g. _invalid, _unhealthy, _lost)
+The flag comments are used as label for the failsafe state machine simulation
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/FailsafeFlags.msg)
 
@@ -12,7 +13,7 @@ Flags must be named such that false == no failure (e.g. _invalid, _unhealthy, _l
 # Flags must be named such that false == no failure (e.g. _invalid, _unhealthy, _lost)
 # The flag comments are used as label for the failsafe state machine simulation
 
-uint64 timestamp                # time since system start (microseconds)
+uint64 timestamp				# time since system start (microseconds)
 
 # Per-mode requirements
 uint32 mode_req_angular_velocity
@@ -47,17 +48,18 @@ bool manual_control_signal_lost       # Manual control (RC) signal lost
 bool gcs_connection_lost              # GCS connection lost
 
 # Battery
-uint8 battery_warning                 # Battery warning level
+uint8 battery_warning                 # Battery warning level (see BatteryStatus.msg)
 bool battery_low_remaining_time       # Low battery based on remaining flight time
 bool battery_unhealthy                # Battery unhealthy
 
 # Other
-bool geofence_breached                # Geofence breached (one or multiple)
+bool geofence_breached        	      # Geofence breached (one or multiple)
 bool mission_failure                  # Mission failure
 bool vtol_fixed_wing_system_failure   # vehicle in fixed-wing system failure failsafe mode (after quad-chute)
 bool wind_limit_exceeded              # Wind limit exceeded
 bool flight_time_limit_exceeded       # Maximum flight time exceeded
 bool local_position_accuracy_low      # Local position estimate has dropped below threshold, but is currently still declared valid
+bool navigator_failure        	      # Navigator failed to execute a mode
 
 # Failure detector
 bool fd_critical_failure              # Critical failure (attitude/altitude limit exceeded, or external ATS)

@@ -1,25 +1,29 @@
 # Інжекція помилки системи
 
-Ін'єкція відмов системи дозволяє викликати різні типи відмов датчиків та систем, або програмно за допомогою [плагіну відмови MAVSDK](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html), або "вручну" через консоль PX4, таку як [оболонка MAVLink](../debug/mavlink_shell.md#mavlink-shell). This enables easier testing of [safety failsafe](../config/safety.md) behaviour, and more generally, of how PX4 behaves when systems and sensors stop working correctly.
+System failure injection allows you to induce different types of sensor and system failures, either programmatically using the [MAVSDK failure plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html), or "manually" via a PX4 console like the [MAVLink shell](../debug/mavlink_shell.md#mavlink-shell).
+This enables easier testing of [safety failsafe](../config/safety.md) behaviour, and more generally, of how PX4 behaves when systems and sensors stop working correctly.
 
-Впровадження відмов вимкнено за замовчуванням і може бути увімкнено за допомогою параметра [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
+Failure injection is disabled by default, and can be enabled using the [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN) parameter.
 
 :::warning
-Впровадження відмов все ще знаходиться в розробці. На момент написання (PX4 v1.14):
+Failure injection still in development.
+На момент написання (PX4 v1.14):
 
 - Це можна використовувати лише в симуляції (підтримка як для впровадження в реальному польоті запланована).
-- Потребує підтримки в симуляторі. Це підтримується в Gazebo Classic
-- Багато типів відмов не широко реалізовані. У таких випадках команда повернеться з повідомленням "unsupported".
+- Потребує підтримки в симуляторі.
+  Це підтримується в Gazebo Classic
+- Багато типів відмов не широко реалізовані.
+  У таких випадках команда повернеться з повідомленням "unsupported".
 
 :::
 
 ## Команда системи збою
 
-Помилки можна впроваджувати за допомогою [команди системи помилок](../modules/modules_command.md#failure) з будь-якої консолі/оболонки PX4, вказавши як ціль, так і тип помилки.
+Failures can be injected using the [failure system command](../modules/modules_command.md#failure) from any PX4 console/shell, specifying both the target and type of the failure.
 
 ### Синтаксис
 
-Повний синтаксис команди [failure](../modules/modules_command.md#failure) є:
+The full syntax of the [failure](../modules/modules_command.md#failure) command is:
 
 ```sh
 failure <component> <failure_type> [-i <instance_number>]
@@ -28,7 +32,7 @@ failure <component> <failure_type> [-i <instance_number>]
 де:
 
 - _component_:
-  - Сенсори:
+  - Датчики:
     - `gyro`: Gyro.
     - `accel`: Accelerometer.
     - `mag`: Magnetometer
@@ -36,32 +40,33 @@ failure <component> <failure_type> [-i <instance_number>]
     - `gps`: GPS
     - `optical_flow`: Optical flow.
     - `vio`: Visual inertial odometry.
-    - `distance_sensor`: Датчик відстані (дальніомір).
-    - `airspeed`: Датчик швидкості повітря.
+    - `distance_sensor`: Distance sensor (rangefinder).
+    - `airspeed`: Airspeed sensor.
   - Системи:
-    - `battery`: Акумулятор.
-    - `motor`: Двигун.
-    - `servo`: Сервопривід.
+    - `battery`: Battery.
+    - `motor`: Motor.
+    - `servo`: Servo.
     - `avoidance`: Avoidance.
-    - `rc_signal`: RC Сигнал.
-    - `mavlink_signal`: Сигнал MAVLink (телеметрія даних).
+    - `rc_signal`: RC Signal.
+    - `mavlink_signal`: MAVLink signal (data telemetry).
 - _failure_type_:
-  - `ok`: Опублікувати як звичайно (Вимкнути впровадження випадкових помилок).
-  - `off`: Зупинити публікацію.
-  - `stuck`: Повідомляє одне й те ж значення кожного разу (_може_ вказувати на несправність датчика).
-  - `garbage`: Опублікуйте випадковий шум. Це схоже на читання неініціалізованої пам'яті.
-  - `wrong`: Публікує недійсні значення (які все ще виглядають розумними / не є "сміттям").
-  - `slow`: Публікація зі зниженою швидкістю.
-  - `delayed`: Опублікуйте дійсні дані зі значним запізненням.
-  - `intermittent`: Публікувати періодично.
-- _instance number_ (необов'язково): Номер екземпляра пошкодженого датчика. 0 (за замовчуванням) вказує на всі сенсори вказаного типу.
+  - `ok`: Publish as normal (Disable failure injection).
+  - `off`: Stop publishing.
+  - `stuck`: Report same value every time (_could_ indicate a malfunctioning sensor).
+  - `garbage`: Publish random noise. Це схоже на читання неініціалізованої пам'яті.
+  - `wrong`: Publish invalid values (that still look reasonable/aren't "garbage").
+  - `slow`: Publish at a reduced rate.
+  - `delayed`: Publish valid data with a significant delay.
+  - `intermittent`: Publish intermittently.
+- _instance number_ (optional): Instance number of affected sensor.
+  0 (за замовчуванням) вказує на всі сенсори вказаного типу.
 
 ### Приклад
 
 Щоб симулювати втрату сигналу RC без вимкнення вашого пульта керування RC:
 
-1. Увімкніть параметр [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
-1. Введіть наступні команди e консолі MAVLink або SITL _pxh shell_:
+1. Enable the parameter [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
+2. Enter the following commands on the MAVLink console or SITL _pxh shell_:
 
    ```sh
    # Fail RC (turn publishing off)
@@ -73,6 +78,7 @@ failure <component> <failure_type> [-i <instance_number>]
 
 ## MAVSDK відлагоджувальний плагін
 
-[Плагін невдачі MAVSDK](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html) може бути використаний для програмного впровадження невдач. Використовується в [PX4 Інтеграційному тестуванні](../test_and_ci/integration_testing_mavsdk.md) для моделювання випадків відмов (наприклад, див. [PX4-Autopilot/test/mavsdk_tests/autopilot_tester.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.cpp)).
+The [MAVSDK failure plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html) can be used to programmatically inject failures.
+It is used in [PX4 Integration Testing](../test_and_ci/integration_testing_mavsdk.md) to simulate failure cases (for example, see [PX4-Autopilot/test/mavsdk_tests/autopilot_tester.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.cpp)).
 
 API плагіна - це пряме відображення команди збою, показаної вище, з деякими додатковими сигналами про помилки, пов'язані з підключенням.

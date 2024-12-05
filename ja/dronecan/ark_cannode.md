@@ -1,6 +1,8 @@
 # ARK CANnode
 
-[ARK CANnode](https://arkelectron.com/product/ark-cannode/) is an open source generic [DroneCAN](../dronecan/index.md) node that includes a 6 degree of freedom IMU. Its main purpose is to enable the use of non-CAN sensors (I2C, SPI, UART) on the CAN bus. It also has PWM outputs to expand a vehicle's control outputs in quantity and physical distance.
+[ARK CANnode](https://arkelectron.com/product/ark-cannode/) is an open source generic [DroneCAN](../dronecan/index.md) node that includes a 6 degree of freedom IMU.
+Its main purpose is to enable the use of non-CAN sensors (I2C, SPI, UART) on the CAN bus.
+It also has PWM outputs to expand a vehicle's control outputs in quantity and physical distance.
 
 ![ARK CANnode](../../assets/hardware/can_nodes/ark_cannode.jpg)
 
@@ -13,7 +15,7 @@ Order this module from:
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_CANNODE)
-- Sensors
+- センサー
   - Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
 - STM32F412CGU6 MCU
   - 1MB Flash
@@ -43,11 +45,13 @@ Order this module from:
 
 ### Wiring
 
-The ARK CANnode is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
+The ARK CANnode is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
+For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
 ## Firmware Setup
 
-ARK CANnode runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](index.md#node-id-allocation).
+ARK CANnode runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md).
+As such, it supports firmware update over the CAN bus and [dynamic node allocation](index.md#node-id-allocation).
 
 ARK CANnode boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
@@ -79,11 +83,11 @@ This is done using the the parameters named like `UAVCAN_SUB_*` in the parameter
 
 On the ARK CANnode, you may need to configure the following parameters:
 
-| Parameter                                                                                       | Description                   |
-| ----------------------------------------------------------------------------------------------- | ----------------------------- |
+| Parameter                                                                                                            | Description                                   |
+| -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
 
-## LED Meanings
+## LED表示の意味
 
 You will see both red and blue LEDs on the ARK CANnode when it is being flashed, and a solid blue LED if it is running properly.
 

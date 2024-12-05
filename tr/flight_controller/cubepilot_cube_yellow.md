@@ -1,13 +1,16 @@
 # CubePilot Cube Yellow Flight Controller
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 :::
 
 The Cube Yellow flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
 ![Cube Yellow](../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg)
 
-The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly. For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, while a carrier board for a racer could includes ESCs for the frame of the vehicle.
+The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly.
+For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, while a carrier board for a racer could includes ESCs for the frame of the vehicle.
 
 Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as a reference / backup.
 
@@ -95,17 +98,19 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
 | USART2 | /dev/ttyS0 | TELEM1 (flow control) |
 | USART3 | /dev/ttyS1 | TELEM2 (flow control) |
-| UART4  | /dev/ttyS2 | GPS1                  |
-| USART6 | /dev/ttyS3 | PX4IO                 |
-| UART7  | /dev/ttyS4 | CONSOLE/ADSB-IN       |
-| UART8  | /dev/ttyS5 | GPS2                  |
+| UART4  | /dev/ttyS2 | GPS1                                     |
+| USART6 | /dev/ttyS3 | PX4IO                                    |
+| UART7  | /dev/ttyS4 | CONSOLE/ADSB-IN                          |
+| UART8  | /dev/ttyS5 | GPS2                                     |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/hex/cube-orange/default.px4board -->
+
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/hex/cube-orange/nuttx-config/nsh/defconfig#L194-L200 -->
 
 ### Debug Ports
@@ -119,7 +124,8 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:

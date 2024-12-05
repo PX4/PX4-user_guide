@@ -6,7 +6,7 @@ This topic explains how to use PX4 with a MAVLink [camera](../camera/index.md) t
 This is the recommended way to integrate a camera with PX4!
 :::
 
-## Overview
+## 개요
 
 The [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) allows querying of what features are supported by a camera, and provides commands to control image and video capture, stream video, set zoom and focus, select between infrared and visible light feeds, set where captured data is saved, and so on.
 
@@ -98,7 +98,7 @@ Joystick buttons can be configured to trigger image capture or toggle video capt
 PX4 emits [MAVLink Camera Protocol v2](https://mavlink.io/en/services/camera.html) commands such as `MAV_CMD_IMAGE_START_CAPTURE` when the associated Joystick button is pressed.
 This feature only works for this kind of camera and joystick - there is no support for RC Controllers.
 
-## PX4 Configuration
+## PX4 설정
 
 ### MAVLink Port & Forwarding
 

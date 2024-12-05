@@ -2,11 +2,11 @@
 
 Інтерфейс подій
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Event.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Event.msg)
 
 ```c
 # Events interface
-uint64 timestamp            # time since system start (microseconds)
+uint64 timestamp			# time since system start (microseconds)
 
 uint32 id                   # Event ID
 uint16 event_sequence       # Event sequence number

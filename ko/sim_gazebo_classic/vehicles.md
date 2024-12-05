@@ -4,11 +4,11 @@ This topic lists/displays the vehicles supported by the PX4 [Gazebo Classic](../
 
 Supported vehicle types include: mutirotors, VTOL, VTOL Tailsitter, Plane, Rover, Submarine/UUV.
 
-::: info
+:::info
 The [Gazebo Classic](../sim_gazebo_classic/index.md) page shows how to install Gazebo Classic, how to enable video and load custom maps, and many other configuration options.
 :::
 
-## Multicopter
+## 멀티콥터
 
 ### Quadrotor (Default)
 
@@ -54,7 +54,7 @@ make px4_sitl gazebo-classic_typhoon_h480
 
 ![Typhoon H480 in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/typhoon.jpg)
 
-::: info
+:::info
 This target also supports [video streaming simulation](../sim_gazebo_classic/index.md#video-streaming).
 :::
 
@@ -62,7 +62,7 @@ This target also supports [video streaming simulation](../sim_gazebo_classic/ind
 
 ## Plane/Fixed-wing
 
-### Standard Plane
+### 표준 항공기
 
 ```sh
 make px4_sitl gazebo-classic_plane
@@ -80,9 +80,9 @@ This model simulates hand/catapult launch, which can be used for [fixed-wing tak
 
 The plane will automatically be launched as soon as the vehicle is armed.
 
-## VTOL
+## 수직이착륙기(VTOL)
 
-### Standard VTOL
+### 표준 VTOL
 
 ```sh
 make px4_sitl gazebo-classic_standard_vtol
@@ -90,7 +90,7 @@ make px4_sitl gazebo-classic_standard_vtol
 
 ![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/standard_vtol.png)
 
-### Tailsitter VTOL
+### 테일시터 VTOL
 
 ```sh
 make px4_sitl gazebo-classic_tailsitter
@@ -142,9 +142,9 @@ make px4_sitl gazebo-classic_boat
 
 <a id="airship"></a>
 
-## Airship
+## 비행선
 
-### Cloudship
+### 클라우드쉽
 
 ```sh
 make px4_sitl gazebo-classic_cloudship

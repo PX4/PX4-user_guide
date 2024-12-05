@@ -33,12 +33,12 @@
 
 本主题提供基本说明和链接，展示如何连接并组装运行 PX4 的典型无人系统 (UAS) 的核心组件。
 
-::: tip
+:::tip
 If you're interested in a specific vehicle, see the more targeted topics in each vehicle section:
 
 - [多旋翼飞行器](../assembly/assembly_mc.md)
 - [垂直起降飞行器](../assembly/assembly_vtol.md)
-- [固定翼飞行器](../assembly/assembly_vtol.md)
+- [Fixed-wing](../assembly/assembly_vtol.md)
 
 :::
 
@@ -50,7 +50,7 @@ A forward flying vehicle, such as a VTOL or Fixed-wing, will generally also have
 The instructions are focussed on systems that use [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers (FCs), and in particular those that have adopted the [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 For these FCs, much of the "wiring up" is as simple as connecting the components into the appropriately labelled ports using supplied cables.
 
-::: info If your FC does not use the connector standard ...
+:::info If your FC does not use the connector standard ...
 Pixhawk series flight controllers that don't follow the connector standard will often provide cables for interconnecting with Pixhawk standard components.
 For other controllers you may need to manually create cables and connectors.
 
@@ -89,7 +89,7 @@ Remove power from the flight controller before connecting peripherals!
 This is "best practice", even if it is not strictly necessary in all cases.
 :::
 
-## Mount and Orient Controller
+## 飞控的安装和方向
 
 The flight controller should ideally be [mounted on the frame](../assembly/mount_and_orient_controller.md) as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
@@ -118,7 +118,7 @@ A second GNSS/compass module, if present, is attached to the 6-pin port labeled 
 
 ![GPS Connections](../../assets/assembly/gnss_connections.png)
 
-::: details
+:::details
 The Pixhawk connector standard 10-pin _Full GPS plus Safety Switch Port_ is intended for connecting the primary GNSS.
 It includes a UART port for the GNSS, and I2C port for the Compass, and pins for the [buzzer](../getting_started/px4_basic_concepts.md#buzzer), [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), and [UI LED](../getting_started/led_meanings.md#ui-led).
 PX4 configures this UART for use as the primary GPS by default.
@@ -145,7 +145,7 @@ Note however that a separate base module is required for the ground station (see
 
 <div v-if="(($frontmatter.frame === 'Plane') || ($frontmatter.frame === 'VTOL'))">
 
-## Airspeed Sensor
+## 空速传感器
 
 [Airspeed sensors](../sensor/airspeed.md) are highly recommended for fixed-wing and VTOL frames.
 They are so important because the autopilot does not have other means to detect stall.
@@ -161,6 +161,50 @@ Note that if there are not enough free I2C ports for your peripherals, you can u
 Some I2C devices use 5V SCL/SDA lines, while the Pixhawk standard I2C port expects 3.3V.
 You can use an I2C level converter to connect these devices to a Pixhawk flight controller.
 :::
+
+</div>
+
+## 距离传感器
+
+<div v-if="(($frontmatter.frame === 'Multicopter') || ($frontmatter.frame === 'VTOL'))">
+
+[Distance sensors](../sensor/rangefinders.md) can significantly improve vehicle robustness and performance, and are required for some use cases:
+
+- Landing can be much improved with a distance sensor:
+  - Land detection is more robust.
+  - Smoother landings because the sensor can help detect the right point to slow down vehicle before touchdown.
+  - Reduced risk of very hard touchdown due to bad altitude estimate or incorrectly set touch point altitude.
+- Enables terrain following.
+- Required for robust state estimation when flying with GNSS-denied navigation (along with an [optical flow sensor](#optical-flow-sensor)).
+
+</div>
+<div v-if="$frontmatter.frame === 'VTOL'">
+
+- Allows disabling of "pusher assist" when close to the ground.
+
+</div>
+<div v-if="$frontmatter.frame === 'Plane'">
+
+[Distance sensors](../sensor/rangefinders.md) are highly recommended as they allow for proper flaring during landing, without which smooth automated fixed-wing landings are near-impossible.
+
+</div>
+
+Unlike for some other components, there is no particular bus or port that is commonly used for distance sensors.
+Different rangefinders will connect via I2C, CAN, serial ports, and even PWM inputs!
+
+See [Distance sensors](../sensor/rangefinders.md) and manufacturer documentation for instructions on how to integrate a specific sensor with PX4.
+
+<div v-if="(($frontmatter.frame === 'Multicopter') || ($frontmatter.frame === 'VTOL'))">
+
+## Optical Flow Sensor
+
+[Optical Flow](../sensor/optical_flow.md) is a computer vision technique that uses a downward facing camera and a downward facing distance sensor to estimate velocity over ground.
+It can be used to accurately estimate speed when navigating without GNSS — in buildings, underground, or in any other GNSS-denied environment.
+
+Optical flow sensors may integrate both a camera and distance sensor, or just a camera (in which case a separate distance sensor is needed).
+There is no standardisation on flow sensor connectivity options, and sensors may connect via I2C, CAN, MAVLink over serial ports, and so on.
+
+See [Optical Flow sensors](../sensor/optical_flow.md) and manufacturer documentation for instructions on how to integrate a specific sensor with PX4.
 
 </div>
 
@@ -279,7 +323,7 @@ A more capable PDB may incorporate a power module (in which case they replace a 
 
 </div>
 
-### Motors
+### 电机
 
 Brushless motors are powered and controlled via ESCs (electronic speed controllers).
 PWM ESCs are connected with two input wires from the battery for power, two input wires from the flight controller that provide control signals (via three pin connector), and three output wires that are connected to the motor.
@@ -288,7 +332,7 @@ The power wires should be twisted in order to reduce electromagnetic interferenc
 
 Any outputs on either PWM output bus can be connected to any actuators, motor, or other PWM controlled hardware, and later mapped to a particular actuator that is controlled by PX4 when configuring the [Actuator Outputs](../config/actuators.md#actuator-outputs).
 
-Note:
+注意：
 
 - By preference you should connect ESC to FMU PWM bus outputs because they are lower-latency than IO PWM outputs.
   Note that the PWM outputs are often labeled `AUX` or `MAIN`.
@@ -315,7 +359,7 @@ The power rail can only have the one voltage provided by your BEC.
 If you don't use servos that all accept the same voltage, you'll need to separately power those that use a different voltage.
 :::
 
-## Other Peripherals
+## 其它外设
 
 Other peripherals, such as high-power radios, cameras, and so on have their own power requirements.
 These will usually be supplied off a separate BEC.

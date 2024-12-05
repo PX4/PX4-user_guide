@@ -2,11 +2,13 @@
 
 This section covers the common software configuration and calibration needed for most PX4 vehicles.
 
-You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection). Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
+You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection).
+Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
 
 ## Preconditions
 
-Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer. Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
+Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer.
+Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
 
 ![QGC Main Menu Popup: highlighting Vehicle Setup](../../assets/qgc/setup/menu_setup.png)
 
@@ -31,7 +33,8 @@ Before starting you should [Download QGroundControl](http://qgroundcontrol.com/d
 - [Level Horizon](../config/level_horizon_calibration.md)
 - [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
 
-::: info Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
+:::info
+Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
 :::
 
 ### Manual Control Setup

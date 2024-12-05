@@ -1,31 +1,39 @@
 # Pixhawk Wiring Quick Start
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 This quick start guide shows how to power the _3DR Pixhawk_ flight controller and connect its most important peripherals.
 
 ![Pixhawk Image](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
 
-::: info The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
+:::info
+The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR.
+Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
 :::
 
 ## Wiring Chart Overview
 
-The image below shows standard Pixhawk connections (excepting the motor and servo outputs). We'll go through each main part in the following sections.
+The image below shows standard Pixhawk connections (excepting the motor and servo outputs).
+We'll go through each main part in the following sections.
 
 ![Pixhawk Wiring Overview](../../assets/flight_controller/pixhawk1/pixhawk_wiring_overview.jpg)
 
-::: info More detailed wiring information is [shown below](#detailed-wiring-infographic-copter).
+:::info
+More detailed wiring information is [shown below](#detailed-wiring-infographic-copter).
 :::
 
 ## Mount and Orient Controller
 
-The _Pixhawk_ should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow points towards the front of the vehicle.
+The _Pixhawk_ should be mounted on the frame using vibration-damping foam pads (included in the kit).
+It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow points towards the front of the vehicle.
 
 ![Pixhawk mounting and orientation](../../assets/flight_controller/pixhawk1/pixhawk_3dr_mounting_and_foam.jpg)
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::info
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
 ## Buzzer and Safety Switch
@@ -38,7 +46,7 @@ Connect the included buzzer and safety switch as shown below (these are mandator
 
 Attach a GPS (required) to the GPS port using the 6-wire cable supplied in the kit. Optionally attach a compass to the I2C port using a 4-wire cable (the Pixhawk has an internal compass, which can be used if necessary).
 
-::: info
+:::info
 The diagram shows a combined GPS and Compass.
 The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 :::
@@ -69,9 +77,11 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 The instructions below show how to connect the different types of receivers to Pixhawk:
 
-- Spektrum and DSM receivers connect to the **SPKT/DSM** input. ![Pixhawk - Radio port for Spektrum receivers](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_spektrum.jpg)
+- Spektrum and DSM receivers connect to the **SPKT/DSM** input.
+  ![Pixhawk - Radio port for Spektrum receivers](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_spektrum.jpg)
 
-- PPM-SUM and S.BUS receivers connect to the **RC** ground, power and signal pins as shown. ![Pixhawk - Radio port for PPM/S.BUS receivers](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_ppm_sbus.jpg)
+- PPM-SUM and S.BUS receivers connect to the **RC** ground, power and signal pins as shown.
+  ![Pixhawk - Radio port for PPM/S.BUS receivers](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_ppm_sbus.jpg)
 
 - PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
@@ -98,7 +108,8 @@ Make sure to use the correct mapping for your vehicle.
 If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 :::
 
-::: info The output rail must be separately powered, as discussed in the [Power](#power) section above.
+:::info
+The output rail must be separately powered, as discussed in the [Power](#power) section above.
 :::
 
 <!-- INSERT image of the motor AUX/MAIN ports? -->

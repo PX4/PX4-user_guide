@@ -1,19 +1,21 @@
 # Інтеграційне тестування за допомогою MAVSDK
 
-PX4 можна протестувати від початку до кінця за допомогою інтеграційних тестів на основі [MAVSDK](https://mavsdk.mavlink.io).
+PX4 can be tested end to end to using integration tests based on [MAVSDK](https://mavsdk.mavlink.io).
 
-Тести в основному розробляються для SITL і запускаються в режимі безперервної інтеграції (CI). В майбутньому ми плануємо зробити їх універсальними для будь-якої платформи/обладнання.
+Тести в основному розробляються для SITL і запускаються в режимі безперервної інтеграції (CI).
+В майбутньому ми плануємо зробити їх універсальними для будь-якої платформи/обладнання.
 
 Інструкції нижче пояснюють, як налаштувати та запустити тести локально.
 
-## Попередня підготовка
+## Вимоги
 
 ### Налаштування середовища розробника
 
 Якщо ви цього ще не зробили:
 
-- Встановіть набір інструментів розробки для [Linux](../dev_setup/dev_env_linux_ubuntu.md) або [macOS](../dev_setup/dev_env_mac.md) (Windows не підтримується). [Gazebo Classic](../sim_gazebo_classic/README.md) є обов'язковим і має бути встановлений за замовчуванням.
-- [Отримати код PX4](../dev_setup/building_px4.md#download-the-px4-source-code):
+- Install the development toolchain for [Linux](../dev_setup/dev_env_linux_ubuntu.md) or [macOS](../dev_setup/dev_env_mac.md) (Windows not supported).
+  [Gazebo Classic](../sim_gazebo_classic/index.md) is required, and should be installed by default.
+- [Get the PX4 source code](../dev_setup/building_px4.md#download-the-px4-source-code):
 
   ```sh
   git clone https://github.com/PX4/PX4-Autopilot.git --recursive
@@ -30,16 +32,16 @@ DONT_RUN=1 make px4_sitl gazebo-classic mavsdk_tests
 
 ### Встановлення бібліотеки C++ MAVSDK
 
-Для запуску тестів потрібна бібліотека C++ MAVSDK, встановлена у системі (наприклад, у `/usr/lib` або `/usr/local/lib`).
+The tests need the MAVSDK C++ library installed system-wide (e.g. in `/usr/lib` or `/usr/local/lib`).
 
 Встановлюйте або з бінарних файлів, або з джерела:
 
-- [MAVSDK > C++ > C++ QuickStart](https://mavsdk.mavlink.io/main/en/cpp/quickstart.html): Інсталювати як попередньо зібрану бібліотеку на підтримуваних платформах (рекомендовано)
-- [MAVSDK > C++ Guide > Building from Source](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html): Зберіть бібліотеку C++ з коду.
+- [MAVSDK > C++ > C++ QuickStart](https://mavsdk.mavlink.io/main/en/cpp/quickstart.html): Install as a prebuilt library on supported platforms (recommended)
+- [MAVSDK > C++ Guide > Building from Source](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html): Build C++ library from source.
 
 ## Запуск усіх PX4 тестів
 
-Щоб запустити всі тести SITL, визначені в [sitl.json](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/configs/sitl.json), виконайте:
+To run all SITL tests as defined in [sitl.json](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/configs/sitl.json), do:
 
 ```sh
 test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10
@@ -47,7 +49,7 @@ test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --sp
 
 Буде перелічено всі тести, а потім запущено їх послідовно.
 
-Щоб побачити всі можливі аргументи командного рядка, використовуйте аргумент `-h`:
+To see all possible command line arguments use the `-h` argument:
 
 ```sh
 test/mavsdk_tests/mavsdk_test_runner.py -h
@@ -76,13 +78,14 @@ optional arguments:
 
 ## Запуск одного тесту
 
-Запустіть один тест, вказавши `модель` і тест `кейс` як параметри командного рядка. Наприклад, щоб протестувати керування хвостовиком у місії, ви можете виконати:
+Run a single test by specifying the `model` and test `case` as command line options.
+Наприклад, щоб протестувати керування хвостовиком у місії, ви можете виконати:
 
 ```sh
 test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10 --model tailsitter --case 'Fly VTOL mission'
 ```
 
-Найпростіший спосіб дізнатися поточний набір моделей і пов'язаних з ними тестових випадків - запустити всі тести PX4 [, як показано вище](#run-all-px4-tests) (зауважте, що потім ви можете скасувати збірку, якщо хочете протестувати лише один).
+The easiest way to find out the current set of models and their associated test cases is to run all PX4 tests [as shown above](#run-all-px4-tests) (note, you can then cancel the build if you wish to test just one).
 
 На момент написання статті список, згенерований в результаті запуску всіх тестів, є таким:
 
@@ -134,20 +137,21 @@ About to run 39 test cases for 3 selected models (1 iteration):
 
 ## Примітки щодо реалізацій:
 
-- Тести викликаються зі скрипта запуску [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/mavsdk_test_runner.py), який написано на мові Python.
+- The tests are invoked from the test runner script [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/mavsdk_test_runner.py), which is written in Python.
 
-  Окрім MAVSDK, цей модуль запускає `px4`, а також Gazebo для SITL-тестів, і збирає логи цих процесів.
+  In addition to MAVSDK, this runner starts `px4` as well as Gazebo for SITL tests, and collects the logs of these processes.
 
 - Модуль виконання тесту - це бінарний файл на мові C++, який містить:
-  - Функція [main](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/test_main.cpp) для аналізу аргументів.
-  - Абстракція навколо MAVSDK з назвою [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.h).
-  - Тести з використанням абстракції навколо MAVSDK, наприклад, [test_multicopter_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/test_multicopter_mission.cpp).
-  - Тести використовують фреймворк модульного тестування [catch2](https://github.com/catchorg/Catch2). Причини використання цього фреймворку наступні:
-    - Оператори (`REQUIRE`), необхідні для переривання тесту, можуть бути всередині функцій (а не лише у тесті верхнього рівня, як у [випадку з gtest](https://github.com/google/googletest/blob/main/docs/advanced.md#assertion-placement)).
-    - Керування залежностями спрощується, оскільки _catch2_ можна просто включити як бібліотеку, що містить лише заголовки.
-    - _Catch2_ підтримує [теги](https://github.com/catchorg/Catch2/blob/devel/docs/test-cases-and-sections.md#tags), що дозволяє легко компонувати тести.
+  - The [main](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/test_main.cpp) function to parse the arguments.
+  - An abstraction around MAVSDK called [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.h).
+  - The actual tests using the abstraction around MAVSDK as e.g. [test_multicopter_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/test_multicopter_mission.cpp).
+  - The tests use the [catch2](https://github.com/catchorg/Catch2) unit testing framework.
+    Причини використання цього фреймворку наступні:
+    - Asserts (`REQUIRE`) which are needed to abort a test can be inside of functions (and not just in the top level test as is [the case with gtest](https://github.com/google/googletest/blob/main/docs/advanced.md#assertion-placement)).
+    - Dependency management is easier because _catch2_ can just be included as a header-only library.
+    - _Catch2_ supports [tags](https://github.com/catchorg/Catch2/blob/devel/docs/test-cases-and-sections.md#tags), which allows for flexible composition of tests.
 
 Терміни:
 
-- "модель": Це вибрана модель Gazebo, наприклад, `iris`.
-- "тест кейс": Це тест кейс [catch2](https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md).
+- "model": This is the selected Gazebo model, e.g. `iris`.
+- "test case": This is a [catch2 test case](https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md).

@@ -1,13 +1,13 @@
 # 우분투 서버 기반 파일럿파이
 
 :::warning
-라즈베리파이 4B의 우분투 서버는 많은 전류를 소비하고 많은 열을 발생합니다.
+Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat.
 이 하드웨어를 사용시에는 고열 방출과 고전력 소비 환경을 고려하여 설계되었습니다.
 :::
 
 ## 개발자 가이드
 
-### 운영체제 이미지
+### OS 이미지
 
 armhf와 arm64 arch가 모두 지원됩니다.
 
@@ -26,17 +26,19 @@ armhf와 arm64 arch가 모두 지원됩니다.
 
 #### 최신 운영체제
 
-새로운 업데이트 버전은 공식 [cdimage](https://cdimage.ubuntu.com/releases/) 페이지를 참조하십시오.
+Please refer to official [cdimage](https://cdimage.ubuntu.com/releases/) page for any new updates.
 
 ### 최초 부팅
 
-라즈베리파이의 WiFi를 처음 설정시 홈 라우터와 라즈벡리파이, 모니터와 키보드 사이에 유선 이더넷 연결을 사용하는 것이 편리합니다.
+When setting up RPi's WiFi for the first time we recommended using a wired Ethernet connection between your home router and RPi, and a monitor and keyboard.
 
 #### 부팅전 과정
 
-SD 카드를 컴퓨터에 장착하고 네트워크 설정을 수정합니다. [공식 가이드](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet)를 참고하십시오.
+SD 카드를 컴퓨터에 장착하고 네트워크 설정을 수정합니다.
+Please follow the official instruction [here](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet).
 
-이제 SD 카드를 라즈베리파이에 삽입하고, 처음으로 부팅하십시오. 유선 이더넷을 통한 SSH 연결하거나 또는 키보드 및 모니터를 통하여 라즈베리파이 쉘 액세스 권한을 확인하십시오.
+이제 SD 카드를 라즈베리파이에 삽입하고, 처음으로 부팅하십시오.
+유선 이더넷을 통한 SSH 연결하거나 또는 키보드 및 모니터를 통하여 라즈베리파이 쉘 액세스 권한을 확인하십시오.
 
 #### WiFi 지역
 
@@ -46,7 +48,7 @@ SD 카드를 컴퓨터에 장착하고 네트워크 설정을 수정합니다. [
 sudo apt-get install crda
 ```
 
-`/etc/default/crda` 파일을 편집하여 WiFi 지역을 설정하십시오. [참고 목록](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
+Edit the file `/etc/default/crda` to change the correct WiFi region. [Reference List](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
 
 ```sh
 sudo nano /etc/default/crda
@@ -62,7 +64,8 @@ sudo nano /etc/default/crda
 sudo nano /etc/hostname
 ```
 
-호스트 이름을 적절하게 변경하십시오. 그런 다음 mDNS에 필요한 패키지를 설치합니다.
+호스트 이름을 적절하게 변경하십시오.
+그런 다음 mDNS에 필요한 패키지를 설치합니다.
 
 ```sh
 sudo apt-get update
@@ -83,13 +86,13 @@ ssh ubuntu@pi_hostname.local
 
 #### 무 비밀번호 인증 (선택 사항)
 
-[비밀번호 없는 인증](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md)도 설정 가능합니다.
+You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well.
 
 ### 운영체제 설정
 
 #### config.txt
 
-우분투의 해당 파일은 `/boot/firmware/usercfg.txt` 입니다.
+The corresponding file in Ubuntu is `/boot/firmware/usercfg.txt`.
 
 ```sh
 sudo nano /boot/firmware/usercfg.txt
@@ -120,21 +123,23 @@ dtoverlay=miniuart-bt
 sudo nano /boot/firmware/cmdline.txt
 ```
 
-우분투 서버 18.04 이전 버전에서는 `nobtcmd.txt`와 `btcmd.txt`를 모두 수정하여야 합니다.
+On Ubuntu Server 18.04 or earlier, `nobtcmd.txt` and `btcmd.txt` should both be modified.
 
 ```sh
 sudo nano /boot/firmware/nobtcmd.txt
 ```
 
-`console=/dev/ttyAMA0,115200`을 찾아 제거하여, 직렬 인터페이스에서 로그인 쉘을 비활성화합니다.
+Find `console=/dev/ttyAMA0,115200` and remove that part to disable the login shell on serial interface.
 
-마지막 단어 뒤에 `isolcpus=2`를 추가합니다. 그러면 전체 파일이 다음과 같이 표시됩니다.
+Append `isolcpus=2` after the last word.
+그러면 전체 파일이 다음과 같이 표시됩니다.
 
 ```sh
 net.ifnames=0 dwc_otg.lpm_enable=0 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc isolcpus=2
 ```
 
-위의 줄은 Linux 커널이 CPU 코어 2에서 프로세스를 예약하지 않음을 나타냅니다. 나중에 해당 코어에서 PX4를 수동으로 실행합니다.
+위의 줄은 Linux 커널이 CPU 코어 2에서 프로세스를 예약하지 않음을 나타냅니다.
+나중에 해당 코어에서 PX4를 수동으로 실행합니다.
 
 재부팅하고 라즈베리파이에 SSH로 로그인합니다.
 
@@ -144,7 +149,7 @@ UART 인터페이스를 확인합니다.
 ls /dev/tty*
 ```
 
-`/dev/ttyAMA0`, `/dev/ttySC0` 및 `/dev/ttySC1` 파일이 있어야합니다.
+There should be `/dev/ttyAMA0`, `/dev/ttySC0` and `/dev/ttySC1`.
 
 I2C 인터페이스를 확인합니다.
 
@@ -152,7 +157,7 @@ I2C 인터페이스를 확인합니다.
 ls /dev/i2c*
 ```
 
-`/dev/i2c-0` 와 `/dev/i2c-1` 파일이 있어야 합니다.
+There should be `/dev/i2c-0` and `/dev/i2c-1`
 
 SPI 인터페이스를 확인합니다.
 
@@ -160,11 +165,12 @@ SPI 인터페이스를 확인합니다.
 ls /dev/spidev*
 ```
 
-`/dev/spidev0.0` 파일이 있어야 합니다.
+There should be `/dev/spidev0.0`.
 
 #### rc.local
 
-이 섹션에서는 **rc.local** 자동 시작 스크립트를 설정합니다. 이 파일은 Ubuntu OS에 설치시에는 존재하지 않으므로, 생성하여야합니다.
+In this section we will configure the auto-start script in **rc.local**.
+이 파일은 Ubuntu OS에 설치시에는 존재하지 않으므로, 생성하여야합니다.
 
 ```sh
 sudo nano /etc/rc.local
@@ -186,20 +192,21 @@ echo "25" > /sys/class/gpio/unexport
 exit 0
 ```
 
-저장후 종료합니다. 그런 다음 권한을 설정하십시오.
+저장후 종료합니다.
+그런 다음 권한을 설정하십시오.
 
 ```sh
 sudo chmod +x /etc/rc.local
 ```
 
-:::note
-필요 없는 경우에는 전원 스위치를 꺼는 것을 잊지 마십시오!
+:::info
+Don't forget to turn off the switch when it is not needed!
 :::
 
 #### CSI 카메라
 
 :::warning
-Enable CSI 카메라는 I2C-0에서 작동하는 모든 것을 중지합니다.
+Enable CSI camera will stop anything works on I2C-0.
 :::
 
 ```sh
@@ -220,8 +227,8 @@ To get the _very latest_ version onto your computer, enter the following command
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-:::note
-최신 코드를 빌드하는 과정입니다.
+:::info
+This is all you need to do just to build the latest code.
 :::
 
 #### 라즈베리파이 업로드 대상 설정
@@ -253,7 +260,7 @@ cd Firmware
 make scumaker_pilotpi_default
 ```
 
-다음 명령으로 업로드하십시오:
+다음 명령으로 업로드하십시오.
 
 ```sh
 make scumaker_pilotpi_default upload
@@ -269,11 +276,13 @@ firmware 폴더에서 다음 명령을 실행합니다.
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
 
-:::note
-mDNS는 docker에서 지원하지 않습니다. 업로드시에 올바른 IP 주소를 설정하여야합니다.
+:::info
+mDNS is not supported within docker. 업로드시에 올바른 IP 주소를 설정하여야합니다.
 :::
 
-:::note IDE가 ninja 빌드를 지원하지 않는 경우 `NO_NINJA_BUILD = 1` 옵션을 사용하십시오. 업로드하지 않고도 컴파일할 수 있습니다. `upload` 대상을 제거하십시오.
+:::info
+If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
+업로드하지 않고도 컴파일할 수 있습니다. Just remove `upload` target.
 :::
 
 다음 명령으로 코드를 컴파일합니다.
@@ -284,8 +293,8 @@ mDNS는 docker에서 지원하지 않습니다. 업로드시에 올바른 IP 주
 
 #### arm64 타겟용 빌드
 
-:::note
-이 단계에서는 `aarch64-linux-gnu` 도구 체인을 설치하여야 합니다.
+:::info
+This step requires `aarch64-linux-gnu` tool-chain to be installed.
 :::
 
 실행 파일을 빌드하십시오.
@@ -295,7 +304,7 @@ cd PX4-Autopilot
 make scumaker_pilotpi_arm64
 ```
 
-다음 명령으로 업로드하십시오:
+다음 명령으로 업로드하십시오.
 
 ```sh
 make scumaker_pilotpi_arm64 upload
@@ -305,17 +314,19 @@ make scumaker_pilotpi_arm64 upload
 
 If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
-`PX4-Autopilot` 폴더에서 다음 명령을 실행합니다.
+Execute the command in `PX4-Autopilot` folder:
 
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_arm64 upload"
 ```
 
-:::note
-mDNS는 docker에서 지원하지 않습니다. 업로드시에 올바른 IP 주소를 설정하여야합니다.
+:::info
+mDNS is not supported within docker. 업로드시에 올바른 IP 주소를 설정하여야합니다.
 :::
 
-:::note IDE가 ninja 빌드를 지원하지 않는 경우 `NO_NINJA_BUILD = 1` 옵션을 사용하십시오. `upload` 대상을 제거하면, 업로드하지 않고도 컴파일할 수 있습니다.
+:::info
+If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
+You can compile without uploading too - just remove the `upload` target.
 :::
 
 다음 명령으로 코드를 컴파일합니다.
@@ -335,7 +346,7 @@ sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 
 이제 PX4는 다중로터 설정으로 시작합니다.
 
-라즈베리파이에서 `bin/px4`를 실행시 다음과 같은 유사한 문제가 발생한 경우:
+If you encountered the similar problem executing `bin/px4` on your Pi as following:
 
 ```
 bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
@@ -353,4 +364,4 @@ rm -rf build/scumaker_pilotpi_*
 
 ### 사후 설정
 
-[여기](raspberry_pi_pilotpi_rpios.md)의 지침을 참조하십시오.
+Please refer to the instructions [here](raspberry_pi_pilotpi_rpios.md)

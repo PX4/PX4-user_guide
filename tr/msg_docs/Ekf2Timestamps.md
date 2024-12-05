@@ -1,8 +1,10 @@
 # Ekf2Timestamps (UORB message)
 
-this message contains the (relative) timestamps of the sensor inputs used by EKF2. It can be used for reproducible replay.
+this message contains the (relative) timestamps of the sensor inputs used by EKF2.
+It can be used for reproducible replay.
 
-the timestamp field is the ekf2 reference time and matches the timestamp of the sensor_combined topic.
+the timestamp field is the ekf2 reference time and matches the timestamp of
+the sensor_combined topic.
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Ekf2Timestamps.msg)
 
@@ -13,7 +15,7 @@ the timestamp field is the ekf2 reference time and matches the timestamp of the 
 # the timestamp field is the ekf2 reference time and matches the timestamp of
 # the sensor_combined topic.
 
-uint64 timestamp             # time since system start (microseconds)
+uint64 timestamp			 # time since system start (microseconds)
 
 int16 RELATIVE_TIMESTAMP_INVALID = 32767 # (0x7fff) If one of the relative timestamps
                                          # is set to this value, it means the associated sensor values did not update

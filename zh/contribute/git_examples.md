@@ -6,8 +6,10 @@
 
 Adding a feature to PX4 follows a defined workflow. In order to share your contributions on PX4, you can follow this example. 为了在 px4 上分享您的贡献, 您可以遵循此示例。
 
-- 如果您还没有注册，请先[Sign up](https://github.com/join) Github 账户
+- [Sign up](https://github.com/join) for github if you haven't already
+
 - Fork the PX4-Autopilot repo (see [here](https://docs.github.com/en/get-started/quickstart/fork-a-repo))
+
 - 将分支克隆到本地计算机
 
   ```sh
@@ -24,6 +26,7 @@ Adding a feature to PX4 follows a defined workflow. In order to share your contr
   ```
 
 - You should have now two remote repositories: One repository is called `upstream` that points to PX4/PX4-Autopilot, and one repository `origin` that points to your forked copy of the PX4 repository.
+
 - 这可以通过以下命令进行检查:
 
   ```sh
@@ -31,14 +34,14 @@ Adding a feature to PX4 follows a defined workflow. In order to share your contr
   ```
 
 - Make the changes that you want to add to the current main.
+
 - 使用代表您的功能的有意义的名称创建一个新分支
 
   ```sh
   git checkout -b <your feature branch name>
   ```
 
-  You can verify that the push was successful by going to your forked repository in your browser: `https://github.com/<your git name>/Firmware.git`  
-There you should see the message that a new branch has been pushed to your forked repository.
+  you can use the command `git branch` to make sure you're on the right branch.
 
 - 通过添加相应的文件添加您希望成为提交的一部分的更改
 
@@ -56,7 +59,9 @@ There you should see the message that a new branch has been pushed to your forke
 
   For a good commit message, please refer to the [Source Code Management](../contribute/code.md#commits-and-commit-messages) section.
 
-- Some time might have passed and the [upstream main](https://github.com/PX4/PX4-Autopilot.git) has changed. PX4 prefers a linear commit history and uses [git rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing). To include the newest changes from upstream in your local branch, switch to your main branch
+- Some time might have passed and the [upstream main](https://github.com/PX4/PX4-Autopilot.git) has changed.
+  PX4 prefers a linear commit history and uses [git rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing).
+  To include the newest changes from upstream in your local branch, switch to your main branch
 
   ```sh
   git checkout main
@@ -68,7 +73,8 @@ There you should see the message that a new branch has been pushed to your forke
   git pull upstream main
   ```
 
-  Now your local main is up to date. Switch back to your feature branch and rebase on your updated main
+  Now your local main is up to date.
+  Switch back to your feature branch and rebase on your updated main
 
   ```sh
   git checkout <your feature branch name>
@@ -85,12 +91,19 @@ There you should see the message that a new branch has been pushed to your forke
 
   There you should see the message that a new branch has been pushed to your forked repository.
 
-- 现在是时候创建一个拉取请求 (PR) 了。 Now it's time to create a pull request (PR). On the right hand side of the "new branch message" (see one step before), you should see a green button saying "Compare & Create Pull Request". Then it should list your changes and you can (must) add a meaningful title (in case of a one commit PR, it's usually the commit message) and message (<span style="color:orange">explain what you did for what reason</span>. Check [other pull requests](https://github.com/PX4/Firmware/pulls) for comparison) 然后, 它应该列出你的更改，你必须添加一个有意义的标题 (在提交 PR 的情况下, 它通常是提交消息) 和消息 (<span style="color:orange">解释你做了这些更改的原因 </span>， 检查 [其他拉取请求 ](https://github.com/PX4/PX4-Autopilot/pulls) 进行比较)。
-- 搞定！ You're done! Responsible members of PX4 will now have a look at your contribution and decide if they want to integrate it. Check if they have questions on your changes every once in a while. 每过一段时间，他们会检查你的更改，以确保没有疑义。
+- 现在是时候创建一个拉取请求 (PR) 了。
+  On the right hand side of the "new branch message" (see one step before), you should see a green button saying "Compare & Create Pull Request".
+  然后, 它应该列出你的更改，你必须添加一个有意义的标题 (在提交 PR 的情况下, 它通常是提交消息) 和消息 (<span style="color:orange">解释你做了这些更改的原因 </span>，
+  Check [other pull requests](https://github.com/PX4/PX4-Autopilot/pulls) for comparison)
+
+- You're done!
+  You're done! Responsible members of PX4 will now have a look at your contribution and decide if they want to integrate it. Check if they have questions on your changes every once in a while.
+  Check if they have questions on your changes every once in a while.
 
 ## Changing Source Trees
 
-We recommend using PX4 `make` commands to switch between source code branches. This saves you having to remember the commands to update submodules and clean up build artifacts (build files that are not removed will result in "untracked files" errors after the switch).
+We recommend using PX4 `make` commands to switch between source code branches.
+This saves you having to remember the commands to update submodules and clean up build artifacts (build files that are not removed will result in "untracked files" errors after the switch).
 
 To switch between branches:
 
@@ -101,14 +114,14 @@ To switch between branches:
    make distclean
    ```
 
-1. Switch to a new branch or tag (here we first fetch the fictional branch "PR_test_branch" from the `upstream` remote):
+2. Switch to a new branch or tag (here we first fetch the fictional branch "PR_test_branch" from the `upstream` remote):
 
    ```sh
    git fetch upstream PR_test_branch
    git checkout PR_test_branch
    ```
 
-1. Get the submodules for the new branch:
+3. Get the submodules for the new branch:
 
    ```sh
    make submodulesclean
@@ -118,7 +131,8 @@ To switch between branches:
 
 ## 更新子模块
 
-Specific PX4 point releases are made as tags of the [release branches](#get-a-release-branch), and are named using the format `v<release>`. These are [listed on Github here](https://github.com/PX4/PX4-Autopilot/releases?q=release&expanded=true) (or you can query all tags using `git tag -l`).
+Specific PX4 point releases are made as tags of the [release branches](#get-a-release-branch), and are named using the format `v<release>`.
+These are [listed on Github here](https://github.com/PX4/PX4-Autopilot/releases?q=release\&expanded=true) (or you can query all tags using `git tag -l`).
 
 To get the source code for a _specific older release_ (tag):
 
@@ -129,9 +143,10 @@ To get the source code for a _specific older release_ (tag):
    cd PX4-Autopilot
    ```
 
-   ::: info
+   :::note
 
-   You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
+   You can reuse an existing repo rather than cloning a new one.
+   In this case clean the build environment (see [changing source trees](#changing-source-trees)):
 
    ```sh
    make clean
@@ -141,13 +156,13 @@ To get the source code for a _specific older release_ (tag):
 
 :::
 
-1. Checkout code for particular tag (e.g. for tag v1.13.0-beta2)
+2. Checkout code for particular tag (e.g. for tag v1.13.0-beta2)
 
    ```sh
    git checkout v1.13.0-beta2
    ```
 
-1. Update submodules:
+3. Update submodules:
 
    ```sh
    make submodulesclean
@@ -155,7 +170,9 @@ To get the source code for a _specific older release_ (tag):
 
 ## Get a Release Branch
 
-Releases branches are branched of `main`, and used to backport necessary changes from main into a release. The branches are named using the format `release/<release_number>` (e.g. `release/v1.13`). The are [listed here](https://github.com/PX4/PX4-Autopilot/branches/all?query=release).
+Releases branches are branched of `main`, and used to backport necessary changes from main into a release.
+The branches are named using the format `release/<release_number>` (e.g. `release/v1.13`).
+The are [listed here](https://github.com/PX4/PX4-Autopilot/branches/all?query=release).
 
 To get a release branch:
 
@@ -166,9 +183,10 @@ To get a release branch:
   cd PX4-Autopilot
   ```
 
-  ::: info
+  :::note
 
-  You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
+  You can reuse an existing repo rather than cloning a new one.
+  In this case clean the build environment (see [changing source trees](#changing-source-trees)):
 
   ```sh
   make clean
@@ -178,7 +196,8 @@ To get a release branch:
 
 :::
 
-- Fetch the desired release branch. For example, assuming you want the source for PX4 v1.14:
+- Fetch the desired release branch.
+  For example, assuming you want the source for PX4 v1.14:
 
   ```sh
   git fetch origin release/1.14
@@ -198,7 +217,8 @@ To get a release branch:
 
 ## 更新子模块
 
-有几种方法可以更新子模块。 There are several ways to update a submodule. Either you clone the repository or you go in the submodule directory and follow the same procedure as in [Contributing code to PX4](#Contributing-code-to-PX4).
+有几种方法可以更新子模块。
+Either you clone the repository or you go in the submodule directory and follow the same procedure as in [Contributing code to PX4](#contributing_code).
 
 ## 为子模块更新执行 PR
 
@@ -244,7 +264,7 @@ You can test someone's pull request (changes are not yet merged) even if the bra
 git fetch upstream  pull/<PR ID>/head:<branch name>
 ```
 
-PR ID is the number right next to the PR's title (without the #) and the ```&lt;branch name&gt;``` can also be found right below the ```PR ID```, e.g. ```&lt;the other persons git name&gt;:&lt;branch name&gt;```. After that you can see the newly created branch locally with 之后, 您可以看到新创建的分支在本地
+`PR ID` is the number right next to the PR's title (without the #) and the `<branch name>` can also be found right below the `PR ID`, e.g. `<the other persons git name>:<branch name>`. 之后, 您可以看到新创建的分支在本地
 
 ```sh
 git branch
@@ -276,7 +296,7 @@ If a conflict occurs during a `git pull`, please refer to [this guide](https://h
 
 ### Build error due to git tags out of date
 
-After having done the first PR, people from the PX4 community will review your changes. In most cases this means that you have to fix your local branch according to the review. After changing the files locally, the feature branch needs to be rebased again with the most recent upstream/master. However, after the rebase, it is no longer possible to push the feature branch to your forked repository directly, but instead you need to use a force push:
+The build error `Error: PX4 version too low, expected at least vx.x.x` occurs if git tags are out of date.
 
 This can be solved by fetching the upstream repository tags:
 

@@ -6,7 +6,7 @@ This topic provides a brief overview of how PX4 camera support is **implemented*
 See [Camera](../camera/index.md) for information about _using_ cameras.
 :::
 
-## Overview
+## 综述
 
 PX4 integrates with three types of cameras:
 
@@ -100,7 +100,7 @@ The MAVLink command is sent irrespective of whether the camera is a MAVLink came
 The `camera_trigger` driver, if enabled, also monitors for changes to the `VehicleCommand`.
 If it is configured with a backend for a camera connected to the flight controller outputs, it will trigger those outputs appropriately.
 
-## Logging
+## 日志
 
 `CameraCapture` topics are logged when there is a `CameraTrigger` update.
 The logged topic will depend on whether or not the camera capture pin is enabled.

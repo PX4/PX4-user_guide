@@ -6,13 +6,13 @@
 
 改动的数量，因此对文件所做的更改次数可以指示哪些文件/部件可能需要重构。
 
-要查找流失指标，可以使用 [Churn](https://github.com/danmayer/churn) 等工具：
+To find churn metrics a tool such as [Churn](https://github.com/danmayer/churn) can be used:
 
 ```sh
 gem install churn
 ```
 
-从 `v1.6.0-rc2` 开始的示例输出将是：
+An example output as of `v1.6.0-rc2` would be:
 
 ```sh
 cd src/Firmware

@@ -4,6 +4,7 @@
 
 :::warning
 Experimental
+At the time of writing, parts of the PX4 ROS 2 Control Interface are experimental, and hence subject to change:
 
 - The architecture and core interfaces for defining modes in ROS 2 modes are largely stable, and are tested in CI.
   The library offers significant benefits over using offboard mode in its current state.
@@ -344,7 +345,7 @@ The following sections provide a list of supported setpoint types:
 - [DirectActuatorsSetpointType](#direct-actuator-control-setpoint-directactuatorssetpointtype): Direct control of motors and flight surface servo setpoints
 
 :::tip
-The other setpoint types are currently experimental, and can be found in: [px4\_ros2/control/setpoint\_types/experimental](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/experimental).
+The other setpoint types are currently experimental, and can be found in: [px4_ros2/control/setpoint_types/experimental](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/experimental).
 
 You can add your own setpoint types by adding a class that inherits from `px4_ros2::SetpointBase`, sets the configuration flags according to what the setpoint requires, and then publishes any topic containing a setpoint.
 :::

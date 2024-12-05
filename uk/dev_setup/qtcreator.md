@@ -1,18 +1,20 @@
 # Qt Creator IDE
 
 :::warning
-Це середовище розробки [підтримується та утримується спільнотою](../advanced/community_supported_dev_env.md). Воно може працювати або не працювати з поточними версіями PX4.
+This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md).
+Це може працювати або не працювати з поточними версіями PX4.
 
-Qt Creator було замінено на [VSCode](../dev_setup/vscode.md), який офіційно підтримується (і рекомендується) в якості IDE для розробки з PX4. Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
+Qt Creator has been replaced by [VSCode](../dev_setup/vscode.md) as the officially supported (and recommended) IDE for PX4 development.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для інформації про середовища та інструменти, що підтримуються основною командою розробників.
 :::
 
-[Qt Creator](https://www.qt.io/download-open-source) - це популярний IDE для багатьох платформ з відкритим вихідним кодом, який може бути використаний для компіляції та налагодження PX4.
+[Qt Creator](https://www.qt.io/download-open-source) is a popular cross-platform open-source IDE that can be used to compile and debug PX4.
 
 ## Функціональні можливості Qt Creator
 
 Qt creator пропонує роботу із символами мови Сі за допомогою миші, автодоповнення для всієї бази коду, збірки та запису прошивки.
 
-![Знімок екрану Qt Creator](../../assets/toolchain/qtcreator.png)
+![Screenshot of Qt Creator](../../assets/toolchain/qtcreator.png)
 
 Наведене нижче відео показує, як воно використовується.
 
@@ -22,7 +24,7 @@ Qt creator пропонує роботу із символами мови Сі �
 
 ### Qt Creator на Linux
 
-Перед запуском Qt Creator, потрібно створити [файл проєкту](https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator):
+Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
 
 ```sh
 cd ~/src/PX4-Autopilot
@@ -31,19 +33,19 @@ cd ../Firmware-build
 cmake ../PX4-Autopilot -G "CodeBlocks - Unix Makefiles"
 ```
 
-Потім завантажте файл CMakeLists.txt в кореневій директорії PX4-Autopilot через **File > Open File or Project** (Виберіть файл CMakeLists.txt).
+Then load the CMakeLists.txt in the root PX4-Autopilot folder via **File > Open File or Project** (Select the CMakeLists.txt file).
 
-Після завантаження, кнопку **play** можна налаштувати для запуску проєкту обравши 'користувацький виконуваний файл' у налаштуванні для цілі запуску та введені 'make' як виконуваного файлу та 'upload' як аргументу.
+After loading, the **play** button can be configured to run the project by selecting 'custom executable' in the run target configuration and entering 'make' as executable and 'upload' as argument.
 
 ### Qt Creator на Windows
 
-:::note
-Windows не було протестовано для розробки PX4 з Qt Creator.
+:::info
+Windows has not been tested for PX4 development with Qt Creator.
 :::
 
 ### Qt Creator на macOS
 
-Перед запуском Qt Creator, потрібно створити [файл проєкту](https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator):
+Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
 
 ```sh
 cd ~/src/PX4-Autopilot

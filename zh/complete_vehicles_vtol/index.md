@@ -22,7 +22,7 @@ This section lists VTOL vehicles that are sold fully assembled and ready to fly 
 
 <!-- ## PX4 Compatible -->
 
-## Custom PX4
+## 定制 PX4
 
 This section contains consumer vehicles that run a _custom_ version of PX4 (supported by their vendors).
 These may or may not be updatable to run "vanilla" PX4.

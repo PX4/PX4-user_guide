@@ -1,29 +1,32 @@
 # Точки безпеки (точки збору)
 
-Точки безпеки — це альтернативні пункти призначення/посадки в [режимі повернення](../flight_modes/return.md). Коли активовано, апарат обере *найближчий пункт повернення* з: домашньої локації, місця посадки за місією або *точки безпеки*.
+Safety points are alternative [Return Mode](../flight_modes/return.md) destinations/landing points.
+When enabled, the vehicle will choose the _closest return destination_ of: home location, mission landing pattern or a _safety point_.
 
-![Точки безпеки](../../assets/qgc/plan/rally_point/rally_points.jpg)
+![Safety Points](../../assets/qgc/plan/rally_point/rally_points.jpg)
 
 ## Створення / визначення точок безпеки
 
-Точки безпеки створюються в *QGroundControl* (який називає їх "точками збору").
+Safety points are created in _QGroundControl_ (which calls them "Rally Points").
 
 На загальному рівні:
-1. Відкрийте **QGroundControl > Plan View**
-1. Виберіть вкладку/кнопку **Rally** в *Plan Editor* (праворуч на екрані).
-1. Виберіть **Rally Point** на панелі інструментів (ліворуч на екрані).
-1. Натисніть будь-де на карті, щоб додати точку збору/безпеки.
-   - *Plan Editor* відображає та дозволяє редагувати поточну точку збору (позначену зеленим **R** на карті).
-   - Ви можете вибрати іншу точку збору (позначену на карті більш помаранчевим/жовтим **R**), щоб змінити її.
-1. Виберіть **Upload Required**, щоб завантажити точки збору (разом із будь-якою [місією](../flying/missions.md) та [геозоною](../flying/geofence.md)) на апарат.
+
+1. Open **QGroundControl > Plan View**
+2. Select the **Rally** tab/button on the _Plan Editor_ (right of screen).
+3. Select the **Rally Point** button on the toolbar (left of screen).
+4. Натисніть будь-де на карті, щоб додати точку збору/безпеки.
+   - The _Plan Editor_ displays and lets you edit the current rally point (shown as a green **R** on the map).
+   - You can select another rally point (shown as a more orange/yellow **R** on the map) to edit it instead.
+5. Select the **Upload Required** button to upload the rally points (along with any [mission](../flying/missions.md) and [geofence](../flying/geofence.md)) to the vehicle.
 
 :::tip
-Більш повну документацію можна знайти в *Посібнику користувача QGroundControl*: [Екран плану - Точки збору](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_rally_points.html).
+More complete documentation can be found in the _QGroundControl User Guide_: [Plan View - Rally Points](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_rally_points.html).
 :::
 
 ## Використання точок безпеки
 
-Точки безпеки не активовано за замовчанням (існує кілька різних [типів режиму повернення](../flight_modes/return.md#return_types)).
+Safety points are not enabled by default (there are a number of different [Return Mode Types](../flight_modes/return.md#return_types)).
 
 Щоб активувати точки безпеки:
-1. [Використовуйте редактор параметрів QGroundControl](../advanced_config/parameters.md), щоб встановити параметр: [RTL_TYPE=3](../advanced_config/parameter_reference.md#RTL_TYPE).
+
+1. [Use the QGroundControl Parameter Editor](../advanced_config/parameters.md) to set parameter: [RTL_TYPE=3](../advanced_config/parameter_reference.md#RTL_TYPE).

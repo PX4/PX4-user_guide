@@ -1,12 +1,14 @@
 # CentOS 개발 환경
 
 :::warning
-This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md).
+It may or may not work with current versions of PX4.
 
 See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
 
-빌드에는 Python 2.7.5가 필요합니다. 따라서, 이 글을 쓰는 시점에서 Centos 7을 사용하여야 합니다. (이전 Centos 릴리스의 경우 Python v2.7.5를 설치할 수 있습니다. 하지만 yum을 깨뜨릴 수 있으므로 권장하지 않습니다.)
+빌드에는 Python 2.7.5가 필요합니다. 따라서, 이 글을 쓰는 시점에서 Centos 7을 사용하여야 합니다.
+(이전 Centos 릴리스의 경우 Python v2.7.5를 설치할 수 있습니다. 하지만 yum을 깨뜨릴 수 있으므로 권장하지 않습니다.)
 
 ## 공통 종속성
 
@@ -26,8 +28,8 @@ easy_install cerberus
 yum install openocd libftdi-devel libftdi-python python-argparse flex bison-devel ncurses-devel ncurses-libs autoconf texinfo libtool zlib-devel cmake vim-common
 ```
 
-:::note
-`python-pip`와 `screen`을 설치할 수 있습니다.
+:::info
+You may want to also install `python-pip` and `screen`.
 :::
 
 ## GCC 툴체인 설치
@@ -37,7 +39,8 @@ yum install openocd libftdi-devel libftdi-python python-argparse flex bison-deve
 아래 스크립트로 GCC 7-2017-q4를 설치합니다.
 
 :::warning
-이 GCC 버전은 최신 버전이 아닙니다. At time of writing the current version on Ubuntu is `9-2020-q2-update` (see [focal nuttx docker file](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
+This version of GCC is out of date.
+At time of writing the current version on Ubuntu is `9-2020-q2-update` (see [focal nuttx docker file](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
 :::
 
 ```sh
@@ -52,7 +55,7 @@ popd
 
 이제 시스템을 다시 시작하십시오.
 
-**문제 해결**
+**Troubleshooting**
 
 다음 명령을 입력하여 버전을 확인하십시오.
 
@@ -81,7 +84,8 @@ Ubuntu Linux에서는 일반 저장소에서 자동으로 설치할 수 있습�
 sudo apt-get install ninja-build -y
 ```
 
-다른 시스템은 패키지 관리자에 Ninja를 포함하지 않을 수 있습니다. 이 경우 대안은 바이너리를 다운로드하여 경로에 추가하는 것입니다.
+다른 시스템은 패키지 관리자에 Ninja를 포함하지 않을 수 있습니다.
+이 경우 대안은 바이너리를 다운로드하여 경로에 추가하는 것입니다.
 
 ```sh
 mkdir -p $HOME/ninja

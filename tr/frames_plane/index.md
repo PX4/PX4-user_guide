@@ -2,8 +2,10 @@
 
 PX4 supports numerous plane geometries, including normal planes, flying wings, inverted V-tail planes, and so on.
 
-::: tip
-The generic configurations can be seen in [Airframes Reference > Plane](../airframes/airframe_reference.md#plane). These can be customized during configuration. :::
+:::tip
+The generic configurations can be seen in [Airframes Reference > Plane](../airframes/airframe_reference.md#plane).
+These can be customized during configuration.
+:::
 
 ## Overview
 
@@ -19,7 +21,6 @@ The linked sections instructions for assembling and configuring fixed-wing frame
 - [DIY Builds](../frames_plane/diy_builds.md)
 
 ## Videos
-
 
 <lite-youtube videoid="VqNWwIPWJb0" params="ab_channel=ChrisSeto" title="Reptile Dragon 2 Demo Flight For Px4 Log Review"/>
 

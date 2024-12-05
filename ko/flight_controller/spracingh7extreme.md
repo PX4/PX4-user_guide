@@ -1,23 +1,29 @@
 # SPRacingH7EXTREME (PX4 판)
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.seriouslypro.com)에 문의하십시오. :::
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://shop.seriouslypro.com) for hardware support or compliance issues.
+:::
 
-[SPRacingH7EXTREME](https://shop.seriouslypro.com/sp-racing-h7-extreme)는 DUAL ICM20602 자이로, H7 400/480Mhz (+) CPU, 고정밀 BMP388 기압계, SD 카드 소켓, 전류 센서, 쉽게 액세스 할 수있는 8 개의 모터 출력, OSD, 마이크, 오디오 출력 등이 포함된 FC/PDB입니다.
+The [SPRacingH7EXTREME](https://shop.seriouslypro.com/sp-racing-h7-extreme) is a feature packed FC/PDB with DUAL ICM20602 gyros, H7 400/480Mhz(+) CPU, high-precision BMP388 barometer, SD Card socket, current sensor, 8 easily accessible motor outputs, OSD, Microphone, Audio output, and more.
 
-소형에서 대형 쿼드, 평면, 옥토 콥터 및 고급 프레임에 쉽게 사용할 수 있습니다. 내장형 배전판(PDB)이 특징이므로 별도의 ESC와 함께 사용하는 것이 가장 좋습니다. 4in1 ESC 배선도 쉽습니다.
+소형에서 대형 쿼드, 평면, 옥토 콥터 및 고급 프레임에 쉽게 사용할 수 있습니다.
+내장형 배전판(PDB)이 특징이므로 별도의 ESC와 함께 사용하는 것이 가장 좋습니다.
+4in1 ESC 배선도 쉽습니다.
 
 4 개의 추가 모터 출력, SPI 및 UART 연결을 제공하는 12핀 스택 커넥터도 있습니다.
 
-![SPRacingH7EXTREME PCB 상단](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-top.jpg)
+![SPRacingH7EXTREME PCB Top](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-top.jpg)
 
-![SPRacingH7EXTREME PCB 하단](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
+![SPRacingH7EXTREME PCB Bottom](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
 
-:::note
-이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다. :::
+:::info
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## 주요 특징
 
-- 메인 시스템 온칩: [STM32H750VBT6 rev.y/v](https://www.st.com/en/microcontrollers-microprocessors/stm32h750vb.html)
+- Main System-on-Chip: [STM32H750VBT6 rev.y/v](https://www.st.com/en/microcontrollers-microprocessors/stm32h750vb.html)
   - CPU: 400/480Mhz (+) ARM Cortex M7 (단정밀도 FPU 포함). (Rev V CPU 사용시 + 480Mhz)
   - RAM: 1MB
   - 16MB External Flash 4-bit QuadSPI in Memory Mapped mode for code _and_ config.
@@ -38,7 +44,7 @@
   - RSSI (아날로그/PWM)
   - 12개의 모터 출력(모터 패드에 의해 4개, 중간에 4개, 스태킹 커넥터에 4개).
   - 스태킹 커넥터에 대한 1x SPI 브레이크아웃
-  - 직렬 포트 6개 (TX 및 RX 5 개, 텔레메트리 TX 전용 양방향 1 개)
+  - 6 Serial Ports (5x TX & RX, 1x TX-only bi-directional for telemetry)
   - 부팅 버튼 (측면 누름)
   - 바인딩/사용자 버튼 (측면 누름)
   - 수신기 포트 (모든 일반적인 프로토콜, 인버터 필요 없음)
@@ -68,16 +74,18 @@
 
 ## 구매처
 
-SPRacingH7EXTREME은 [Seriously Pro 상점](https://shop.seriouslypro.com/sp-racing-h7-extreme)에서 구입할 수 있습니다.
+The SPRacingH7EXTREME is available from the [Seriously Pro shop](https://shop.seriouslypro.com/sp-racing-h7-extreme).
 
-:::note
-구매시 PX4 에디션을 선택하십시오.
+:::info
+Select the PX4 edition when purchasing!
 :::
 
 ## 매뉴얼, 핀배열 및 연결 다이어그램
 
-핀배열과 설명서는 [여기](http://seriouslypro.com/files/SPRacingH7EXTREME-Manual-latest.pdf)에서 다운로드할 수 있습니다. 다른 다이어그램은 [SPRacingH7EXTREME 웹 사이트](http://seriouslypro.com/spracingh7extreme)를 참조하십시오.
+The manual with pinouts can be downloaded from [here](http://seriouslypro.com/files/SPRacingH7EXTREME-Manual-latest.pdf).
+See the [SPRacingH7EXTREME website](http://seriouslypro.com/spracingh7extreme) for other diagrams.
 
-## 개발자
+## Credits
 
-이 디자인은 [Dominic Clifton](https://github.com/hydra)에 의해 만들어졌습니다. [Igor-Misic](https://github.com/Igor-Misic)의 초기 PX4 지원.
+This design was created by [Dominic Clifton](https://github.com/hydra)
+Initial PX4 support by [Igor-Misic](https://github.com/Igor-Misic)

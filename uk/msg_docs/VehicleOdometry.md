@@ -2,11 +2,11 @@
 
 Дані odometry Техніки. Відповідає ROS REP 147 для повітряних суден
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleOdometry.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleOdometry.msg)
 
 ```c
-# Дані odometry Техніки. Fits ROS REP 147 for aerial vehicles
-uint64 timestamp        # time since system start (microseconds)
+# Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
+uint64 timestamp		# time since system start (microseconds)
 uint64 timestamp_sample
 
 uint8 POSE_FRAME_UNKNOWN = 0
@@ -14,7 +14,7 @@ uint8 POSE_FRAME_NED     = 1 # NED earth-fixed frame
 uint8 POSE_FRAME_FRD     = 2 # FRD world-fixed frame, arbitrary heading reference
 uint8 pose_frame            # Position and orientation frame of reference
 
-float32[3] position         # Position in meters. Каркас посилання, визначений місцевим каркасом. NaN if invalid/unknown
+float32[3] position         # Position in meters. Frame of reference defined by local_frame. NaN if invalid/unknown
 float32[4] q                # Quaternion rotation from FRD body frame to reference frame. First value NaN if invalid/unknown
 
 uint8 VELOCITY_FRAME_UNKNOWN  = 0
@@ -23,7 +23,7 @@ uint8 VELOCITY_FRAME_FRD      = 2 # FRD world-fixed frame, arbitrary heading ref
 uint8 VELOCITY_FRAME_BODY_FRD = 3 # FRD body-fixed frame
 uint8 velocity_frame        # Reference frame of the velocity data
 
-float32[3] velocity         # Velocity in meters/sec. Каркас посилання, визначений змінною velocity_frame. NaN if invalid/unknown
+float32[3] velocity         # Velocity in meters/sec. Frame of reference defined by velocity_frame variable. NaN if invalid/unknown
 
 float32[3] angular_velocity # Angular velocity in body-fixed frame (rad/s). NaN if invalid/unknown
 

@@ -33,14 +33,13 @@
 - Vehicle should automatically take-off upon engaging Auto
 - Upon landing, copter should not bounce on the ground
 
-
 <!--
 MC_002 - Full autonomous
 
--   Make sure the auto-disarm is enabled
--   QGC open test1_mission.plan and sync to the vehicle
--   Takeoff from QGC start mission slider
--   Check the vehicle completes the mission
--   Let the vehicle to auto land, take manual control if needed and explain the reason in log description.
--   Check the vehicle disarms by itself.
+-	Make sure the auto-disarm is enabled
+-	QGC open test1_mission.plan and sync to the vehicle
+-	Takeoff from QGC start mission slider
+-	Check the vehicle completes the mission
+-	Let the vehicle to auto land, take manual control if needed and explain the reason in log description.
+-	Check the vehicle disarms by itself.
 -->

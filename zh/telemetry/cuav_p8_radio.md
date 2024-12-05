@@ -6,7 +6,7 @@ It supports multiple modes such as point-to-point, point-to-multipoint, and rela
 
 ![CUAV P8 Radio](../../assets/hardware/telemetry/cuav_p8_hero.png)
 
-## Key Features
+## 主要特性
 
 - Long range: >60km (depending on the antenna and environment, up to 100 km).
 - Supports point-to-point, point-to-multipoint, and repeater modes.
@@ -17,14 +17,15 @@ It supports multiple modes such as point-to-point, point-to-multipoint, and rela
 - Independent power supply for more stable operation
 - USB Type-C port, integrated USB to UART converter
 
-## Where to Buy
+## 购买渠道
 
 - [CUAV store](https://www.cuav.net/en/p8-2/)
 - [CUAV alibaba](https://www.alibaba.com/product-detail/Free-shipping-CUAV-UAV-P8-Radio_1600324379418.html?spm=a2747.manage.0.0.2dca71d2bY4B0M)
 
-## PX4 Configuration
+## PX4 配置
 
-The CUAV P8 Radio comes pre-configured (baud rate 57600, broadcast mode) for use with PX4. It should require no additional setup if connected to `TELEM1` OR `TELEM2`.
+The CUAV P8 Radio comes pre-configured (baud rate 57600, broadcast mode) for use with PX4.
+It should require no additional setup if connected to `TELEM1` OR `TELEM2`.
 
 On some flight controllers, or if used with a different serial port, you may need to [configure the port for MAVLink communication](../peripherals/mavlink_peripherals.md).
 
@@ -32,26 +33,27 @@ On some flight controllers, or if used with a different serial port, you may nee
 [P8 Configuration](https://doc.cuav.net/data-transmission/p8-radio/en/config.html) provides full information about radio configuration, if required.
 :::
 
-## Pinouts
+## 针脚定义
 
 ![P8 pinouts](../../assets/hardware/telemetry/cuav_p8_pinouts.png)
 
 ### Data Port
 
-| pin | C-RTK GPS 6P | pin | Pixhawk standard pins |
-| --- | ------------ | --- | --------------------- |
-| 1   | 5V+(NC)      | 1   | VCC                   |
-| 2   | RX           | 2   | TX                    |
-| 3   | TX           | 3   | RX                    |
-| 4   | RTS          | 4   | RTS                   |
-| 5   | CTS          | 5   | CTS                   |
-| 6   | GND          | 6   | GND                   |
+| 引脚 | C-RTK GPS 6P               | 引脚 | Pixhawk standard pins |
+| -- | -------------------------- | -- | --------------------- |
+| 1  | 5V+(NC) | 1  | VCC                   |
+| 2  | RX                         | 2  | TX                    |
+| 3  | TX                         | 3  | RX                    |
+| 4  | RTS:       | 4  | RTS:  |
+| 5  | CTS                        | 5  | CTS                   |
+| 6  | GND                        | 6  | GND                   |
 
-## Wiring
+## 布线
 
 ![P8 wiring](../../assets/hardware/telemetry/cuav_p8_connect.png)
 
-Connect the CUAV P8 Radio to the `TELEM1`/`TELEM2` interface of the flight controller and use a battery or BEC to power the module. The required cables are included in the package.
+Connect the CUAV P8 Radio to the `TELEM1`/`TELEM2` interface of the flight controller and use a battery or BEC to power the module.
+The required cables are included in the package.
 
 :::tip
 CUAV P8 Radio does not support power supply from the flight controller, it needs to be connected to a 12~60v battery or BEC.

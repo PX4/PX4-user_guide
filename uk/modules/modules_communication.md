@@ -1,12 +1,13 @@
 # Modules Reference: Communication
 
 ## frsky_telemetry
-Джерело: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/frsky_telemetry)
 
-Підтримка FrSky Telemetry. Автоматичне визначення протоколу D або S.PORT.
-<a id="frsky_telemetry_usage"></a>
+Source: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/frsky_telemetry)
+
+Підтримка FrSky Telemetry. Автоматичне визначення протоколу D або S.PORT. <a id="frsky_telemetry_usage"></a>
 
 ### Використання
+
 ```
 frsky_telemetry <command> [arguments...]
  Commands:
@@ -23,29 +24,41 @@ frsky_telemetry <command> [arguments...]
 
    status
 ```
+
 ## mavlink
+
 Source: [modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink)
 
-
 ### Опис
-Цей модуль реалізує протокол MAVLink, який можна використовувати на послідовному каналі або мережевому з'єднанні UDP. Він взаємодіє з системою через uORB: деякі повідомлення обробляються безпосередньо в модулі (наприклад, протокол місії), інші публікуються через uORB (наприклад, vehicle_command).
 
-Потоки використовуються для надсилання періодичних повідомлень з певною частотою, наприклад, про положення транспортного засобу. При запуску екземпляра mavlink можна вказати режим, який визначає набір увімкнених потоків з їхніми швидкостями. Для запущеного екземпляра потоки можна налаштувати за допомогою команди `mavlink stream`.
+Цей модуль реалізує протокол MAVLink, який можна використовувати на послідовному каналі або мережевому з'єднанні UDP.
+Він взаємодіє з системою через uORB: деякі повідомлення обробляються безпосередньо в модулі (наприклад, протокол місії), інші публікуються через uORB (наприклад, vehicle_command).
+
+Потоки використовуються для надсилання періодичних повідомлень з певною частотою, наприклад, про положення транспортного засобу.
+При запуску екземпляра mavlink можна вказати режим, який визначає набір увімкнених потоків з їхніми швидкостями.
+For a running instance, streams can be configured via `mavlink stream` command.
 
 Може бути декілька незалежних екземплярів модуля, кожен з яких підключений до одного послідовного пристрою або мережевого порту.
 
-### Реалізація
-Реалізація використовує 2 потоки, потік відправлення та потік отримання. Відправник працює на фіксованій швидкості і динамічно зменшує швидкість потоків, якщо сумарна пропускна здатність перевищує задану (`-r`) або якщо фізичний канал перевантажений. Це можна перевірити за допомогою `mavlink status`, подивіться, чи `rate mult` менше 1.
+### Імплементація
 
-**Обережно**: доступ до деяких даних здійснюється з обох потоків, тому при зміні коду або розширенні функціональності, це потрібно враховувати, щоб уникнути стану перевантаження та пошкодження даних.
+Реалізація використовує 2 потоки, потік відправлення та потік отримання. The sender runs at a fixed rate and dynamically
+reduces the rates of the streams if the combined bandwidth is higher than the configured rate (`-r`) or the
+physical link becomes saturated. This can be checked with `mavlink status`, see if `rate mult` is less than 1.
+
+**Careful**: some of the data is accessed and modified from both threads, so when changing code or extend the
+functionality, this needs to be take into account, in order to avoid race conditions and corrupt data.
 
 ### Приклади
+
 Запустіть mavlink на послідовному каналі ttyS1 з швидкістю передачі даних 921600 і максимальною швидкістю надсилання 80 кБ/с:
+
 ```
 mavlink start -d /dev/ttyS1 -b 921600 -m onboard -r 80000
 ```
 
 Запустіть mavlink на UDP-порт 14556 і увімкніть повідомлення HIGHRES_IMU з частотою 50 Гц:
+
 ```
 mavlink start -u 14556 -r 1000000
 mavlink stream -u 14556 -s HIGHRES_IMU -r 50
@@ -54,6 +67,7 @@ mavlink stream -u 14556 -s HIGHRES_IMU -r 50
 <a id="mavlink_usage"></a>
 
 ### Використання
+
 ```
 mavlink <command> [arguments...]
  Commands:
@@ -108,24 +122,31 @@ mavlink <command> [arguments...]
    boot_complete Enable sending of messages. (Must be) called as last step in
                  startup script.
 ```
+
 ## uorb
+
 Source: [systemcmds/uorb](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/uorb)
 
-
 ### Опис
+
 uORB - це внутрішня система обміну повідомленнями pub-sub, яка використовується для комунікації між модулями.
 
-### Реалізація
-Реалізація є асинхронною та безблоковою, тобто видавець не чекає на підписника і навпаки. Це досягається завдяки наявності окремого буфера між публікатором і підписником.
+### Імплементація
+
+Реалізація є асинхронною та безблоковою, тобто видавець не чекає на підписника і навпаки.
+Це досягається завдяки наявності окремого буфера між публікатором і підписником.
 
 Код оптимізовано для мінімізації використання пам'яті та затримок при обміні повідомленнями.
 
-Повідомлення визначені в каталозі `/msg`. Вони перетворюються в код C/C++ під час збірки.
+Messages are defined in the `/msg` directory. Вони перетворюються в код C/C++ під час збірки.
 
-Якщо ви компілюєте з ORB_USE_PUBLISHER_RULES, файл з правилами публікації uORB можна використовувати для налаштування того, яким модулям дозволено публікувати які теми. Це використовується для загальносистемного відтворення.
+Якщо ви компілюєте з ORB_USE_PUBLISHER_RULES, файл з правилами публікації uORB можна використовувати для налаштування того, яким
+модулям дозволено публікувати які теми. Це використовується для загальносистемного відтворення.
 
 ### Приклади
-Відстежуйте показники публікацій тем. До того ж `top` є важливою командою для загальної перевірки системи:
+
+Відстежуйте показники публікацій тем. Besides `top`, this is an important command for general system inspection:
+
 ```
 uorb top
 ```
@@ -133,6 +154,7 @@ uorb top
 <a id="uorb_usage"></a>
 
 ### Використання
+
 ```
 uorb <command> [arguments...]
  Commands:

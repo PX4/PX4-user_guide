@@ -1,4 +1,4 @@
-# Щотижневий дзвінок спільноти Q&A Call (Раніше "Dev Call")
+# Weekly Community Q&A Call (Previously "Dev Call")
 
 <script setup>
 import { useData } from 'vitepress'
@@ -22,18 +22,18 @@ const { site } = useData();
 - Члени спільноти (ви!)
 
 :::tip
-Запитання та відповіді спільноти відкритий для всіх зацікавлених учасників спільноти.
+The Community Q&A call is open to all interested community members.
 
 Це чудова можливість зустрітися з командою і зробити свій внесок у розвиток платформи.
 :::
 
 ## Що буде обговорюватись?
 
-Ми розміщуємо пост на конкретну зустріч за тиждень до дзвінка про [PX4 Discuss - тижневий виклик](https://discuss.px4.io/c/weekly-dev-call) та відслідковуємо обговорення за добу до запланованого дзвінка. Ми будемо раді будь-яким темам, про які ви, як учасник спільноти хочете задати питання чи просто обговорити!
+We publish a forum post per meeting a week before the call on [PX4 Discuss - weekly-dev-call](https://discuss.px4.io/c/weekly-dev-call) and track the agenda write down the discussion for the day. Ми будемо раді будь-яким темам, про які ви, як учасник спільноти хочете задати питання чи просто обговорити!
 
 Будь ласка, додайте ваші теми для обговорення до порядку денного перед початком зустрічі, відповівши на нотатку зустрічі. Це допоможе вам сформулювати ваші запитання більш чітко, і дозволить нам подумати про них заздалегідь.
 
 ## Розклад
 
-- Час: середа 17h00 CET ([підписатись на календар](https://www.dronecode.org/calendar/))
-- **Приєднуйтесь до дзвінка**: [https://discord.gg/BDYmr6FA6Q](https://discord.gg/BDYmr6FA6Q)
+- TIME: Wednesday 17h00 CET ([subscribe to calendar](https://www.dronecode.org/calendar/))
+- **Join the call**: [https://discord.gg/BDYmr6FA6Q](https://discord.gg/BDYmr6FA6Q)

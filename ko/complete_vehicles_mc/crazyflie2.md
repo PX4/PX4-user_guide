@@ -20,20 +20,20 @@ An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/cra
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
-## Quick Summary
+## 요약
 
-::: info
+:::info
 The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
 :::
 
 - Main System-on-Chip: STM32F405RG
-  - CPU: 168 MHz ARM Cortex M4 with single-precision FPU
-  - RAM: 192 KB SRAM
+  - CPU : 단정밀도 FPU의 168MHz ARM Cortex M4
+  - RAM : 192KB SRAM
 - nRF51822 radio and power management MCU
 - MPU9250 Accel / Gyro / Mag
 - LPS25H barometer
 
-## Where to Buy
+## 구매처
 
 - [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0).
 - [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between _QGroundControl_ and Crazyflie 2.0.
@@ -104,7 +104,7 @@ After setting up the PX4 development environment, follow these steps to install 
 
 10. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors.html).
 
-::: info
+:::info
 If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/main/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`.
 This should be done using _menuconfig_:
 
@@ -229,7 +229,7 @@ This is the rate at which Joystick commands are sent from QGroundControl to Craz
 
 ![](../../assets/hardware/joystick-message-frequency.png)
 
-## Hardware Setup
+## 하드웨어 설정
 
 Crazyflie 2.0 is able to fly with precise control in [Stabilized mode](../flight_modes_mc/manual_stabilized.md), [Altitude mode](../flight_modes_mc/altitude.md) and [Position mode](../flight_modes_mc/position.md).
 

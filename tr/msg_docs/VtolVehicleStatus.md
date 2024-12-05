@@ -12,10 +12,10 @@ uint8 VEHICLE_VTOL_STATE_TRANSITION_TO_MC = 2
 uint8 VEHICLE_VTOL_STATE_MC = 3
 uint8 VEHICLE_VTOL_STATE_FW = 4
 
-uint64 timestamp            # time since system start (microseconds)
+uint64 timestamp			# time since system start (microseconds)
 
-uint8 vehicle_vtol_state        # current state of the vtol, see VEHICLE_VTOL_STATE
+uint8 vehicle_vtol_state		# current state of the vtol, see VEHICLE_VTOL_STATE
 
-bool fixed_wing_system_failure      # vehicle in fixed-wing system failure failsafe mode (after quad-chute)
+bool fixed_wing_system_failure		# vehicle in fixed-wing system failure failsafe mode (after quad-chute)
 
 ```

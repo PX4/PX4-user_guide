@@ -4,26 +4,35 @@ This page documents how to flash the PX4 bootloader onto boards that are already
 
 There are three tools that can be used to flash the PX4 bootloader: _Betaflight Configurator_, [dfu-util](http://dfu-util.sourceforge.net/) command line tool, or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) (Windows only).
 
-::: info The _Betaflight Configurator_ is easiest, but newer versions may not support non-betaflight bootloader update. You might try it first, but use the other methods if firmware update does not work.
+:::info
+The _Betaflight Configurator_ is easiest, but newer versions may not support non-betaflight bootloader update.
+You might try it first, but use the other methods if firmware update does not work.
 :::
 
 ## Betaflight Configurator Bootloader Update
 
-::: info _Betaflight Configurator_ may not support PX4 Bootloader update, as of May 2023. Older versions should work, though the precise versions are not known.
+:::info
+_Betaflight Configurator_ may not support PX4 Bootloader update, as of May 2023.
+Older versions should work, though the precise versions are not known.
 :::
 
 To install the PX4 bootloader using the _Betaflight Configurator_:
 
 1. Download or build [bootloader firmware](#bootloader-firmware) for the board you want to flash.
-1. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform.
 
-:::tip
-If using the _Chrome_ web browser, a simple cross-platform alternative is to install the configurator as an [extension from here](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao).
+2. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform.
+
+   :::tip
+   If using the _Chrome_ web browser, a simple cross-platform alternative is to install the configurator as an [extension from here](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao).
+
 :::
 
-1. Connect the board to your PC and start the Configurator.
-1. Press the **Load Firmware [Local]** button ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
-1. Select the bootloader binary from the file system and then flash the board.
+3. Connect the board to your PC and start the Configurator.
+
+4. Press the **Load Firmware [Local]** button
+   ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
+
+5. Select the bootloader binary from the file system and then flash the board.
 
 You should now be able to install PX4 firmware on the board.
 
@@ -33,24 +42,28 @@ This section explains how to flash the PX4 bootloader using the [dfu-util](http:
 
 You will first need to download or build [bootloader firmware](#bootloader-firmware) for the board you want to flash (below, this is referred to as `<target.bin>`).
 
-::: info
+:::info
 All of the methods below are safe as the STM32 MCU cannot be bricked!
 DFU cannot be overwritten by flashing and will always allow you to install a new firmware, even if flashing fails.
 :::
 
 ### DFU mode
 
-Both tools require the board to be in DFU mode. To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. The button can be released after the board has powered up.
+Both tools require the board to be in DFU mode.
+To enter DFU mode, hold the boot button down while connecting the USB cable to your computer.
+The button can be released after the board has powered up.
 
 ### dfu-util
 
-::: info The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md), [Holybro Kakute H7](../flight_controller/kakuteh7.md) and [mini](../flight_controller/kakuteh7mini.md) flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
+:::info
+The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md), [Holybro Kakute H7](../flight_controller/kakuteh7.md) and [mini](../flight_controller/kakuteh7mini.md) flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
 
 ```
 dfu-util -a 0 --dfuse-address 0x08000000:force:mass-erase:leave -D build/<target>/<target>.bin
 ```
 
-The command may generate an error which can be ignored. Once completed, enter DFU mode again to complete the regular flashing.
+The command may generate an error which can be ignored.
+Once completed, enter DFU mode again to complete the regular flashing.
 :::
 
 To flash the bootloader onto the flight controller:
@@ -69,9 +82,11 @@ Use the tool to flash the `<target>.bin` file.
 
 ## Bootloader Firmware
 
-The tools above flash pre-built bootloader firmware. Bootloader firmware can be built for most targets using the normal PX4 source code, while other targets can only be build using source in the bootloader repository.
+The tools above flash pre-built bootloader firmware.
+Bootloader firmware can be built for most targets using the normal PX4 source code, while other targets can only be build using source in the bootloader repository.
 
-Flight controllers that have bootloader PX4-Autopilot `make` targets, can build the bootloader from the PX4-Autopilot source. The list of controllers for which this applies can be obtained by running the following `make` command, and noting the `make` targets that end in `_bootloader`
+Flight controllers that have bootloader PX4-Autopilot `make` targets, can build the bootloader from the PX4-Autopilot source.
+The list of controllers for which this applies can be obtained by running the following `make` command, and noting the `make` targets that end in `_bootloader`
 
 ```
 $make list_config_targets
@@ -115,6 +130,7 @@ make <target> # For example: omnibusf4sd_bl or kakutef7_bl
 
 In order to switch back to _Betaflight_:
 
-1. Backup the PX4 parameters. You can do this by [exporting](../advanced/parameters_and_configurations.md#exporting-and-loading-parameters) them to an SD card.
-1. Keep the **bootloader** button pressed while attaching the USB cable
-1. Flash _Betaflight_ as usual with the _Betaflight-configurator_
+1. Backup the PX4 parameters.
+   You can do this by [exporting](../advanced/parameters_and_configurations.md#exporting-and-loading-parameters) them to an SD card.
+2. Keep the **bootloader** button pressed while attaching the USB cable
+3. Flash _Betaflight_ as usual with the _Betaflight-configurator_

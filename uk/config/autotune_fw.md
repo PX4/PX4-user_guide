@@ -1,6 +1,6 @@
 ---
 title: Fixed-wing Auto-Tuning
-frame: Plane
+frame: Літак
 newEditLink: en/config/_autotune.md
 ---
 

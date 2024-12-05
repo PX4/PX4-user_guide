@@ -6,13 +6,13 @@
 
 ❏ 验证电池是否安全
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 行动是返回土地
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Action is Return to Land
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 电池警告等级为 25％
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Warn Level is 25%
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 电池故障安全等级为 20％
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Failsafe Level is 20%
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 电池紧急等级为 15％
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Emergency Level is 15%
 
 ❏ 在高度模式下起飞
 
@@ -20,7 +20,7 @@
 
 ❏ RC 损失
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 关闭 RC 并检查设备返回原位，等待下降并打开 RC 并接管。
+&nbsp;&nbsp;&nbsp;&nbsp;❏Turn off RC and check the vehicle returns to home position, wait for the descent and turn on the RC and take over.
 
 ## 数据链路丢失
 

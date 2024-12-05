@@ -17,11 +17,11 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 Order from [Ark Electronics](https://arkelectron.com/product/arkv6x/) (US)
 
-## Documentation
+## 문서
 
 See the documentation [Ark Electronics GitBook](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-fpv)
 
-## Sensors
+## 센서
 
 - [Invensense IIM-42653 Industrial IMU](https://invensense.tdk.com/products/motion-tracking/6-axis/iim-42653/)
 - [Bosch BMP390 Barometer](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/)
@@ -34,7 +34,7 @@ See the documentation [Ark Electronics GitBook](https://arkelectron.gitbook.io/a
   - 2 MB Flash
   - 1 MB RAM
 
-## Connectors
+## 커넥터
 
 - USB C
   - VBUS In, USB
@@ -74,7 +74,7 @@ See the documentation [Ark Electronics GitBook](https://arkelectron.gitbook.io/a
 - 5.5V - 54V
 - 500 mA (300 mA main system, 200 mA heater)
 
-## Additional Information
+## 추가 정보
 
 - Weight: 7.5 g g with MicroSD card
 - Dimensions: 3.6 x 3.6 x 0.8 cm
@@ -83,6 +83,6 @@ See the documentation [Ark Electronics GitBook](https://arkelectron.gitbook.io/a
 - LED Indicators
 - MicroSD Slot
 
-## Pinout
+## 핀배열
 
 See the [DS-10 Pixhawk Autopilot Bus Standard](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-fpv/pinout)

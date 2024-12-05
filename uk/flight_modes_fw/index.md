@@ -56,4 +56,5 @@ PX4 не дозволить переходити до цих режимів, д�
 - [Базова конфігурація > Режими польоту](../config/flight_mode.md) - Як відповідати перемикачі керування RC конкретним режимам польоту
 - [Режими польоту (Мультикоптер)](../flight_modes_mc/index.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/index.md)
-- [Flight Modes (Rover)](../flight_modes_rover/index.md)
+- [Drive Modes (Differential Rover)](../flight_modes_rover/differential.md)
+- [Drive Modes (Ackermann Rover)](../flight_modes_rover/ackermann.md)

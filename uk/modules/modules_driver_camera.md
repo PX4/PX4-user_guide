@@ -4,7 +4,7 @@
 
 Source: [drivers/camera_trigger](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger)
 
-### Description
+### Опис
 
 Camera trigger driver.
 
@@ -27,7 +27,7 @@ The incoming commands must be forwarded to the MAVLink camera, and are automatic
 when found in missions.
 
 The driver is configured using [Camera Trigger parameters](../advanced_config/parameter_reference.md#camera-trigger).
-In particular:
+Зокрема:
 
 - `TRIG_INTERFACE` - How the camera is connected to flight controller (PWM, GPIO, Seagull, MAVLink)
 - `TRIG_MODE` - Distance or time based triggering, with values set by `TRIG_DISTANCE` and `TRIG_INTERVAL`.
@@ -36,7 +36,7 @@ In particular:
 
 <a id="camera_trigger_usage"></a>
 
-### Usage
+### Використання
 
 ```
 camera_trigger <command> [arguments...]

@@ -1,7 +1,8 @@
 # Modules Reference: Optical Flow (Driver)
-## thoneflow
-Джерело: [drivers/optical_flow/thoneflow](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/thoneflow)
 
+## thoneflow
+
+Source: [drivers/optical_flow/thoneflow](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/thoneflow)
 
 ### Опис
 
@@ -14,10 +15,13 @@
 ### Приклади
 
 Спроба запустити драйвер на вказаному послідовному пристрої.
+
 ```
 thoneflow start -d /dev/ttyS1
 ```
-Зупинити драйвер
+
+Stop driver
+
 ```
 thoneflow stop
 ```
@@ -25,6 +29,7 @@ thoneflow stop
 <a id="thoneflow_usage"></a>
 
 ### Використання
+
 ```
 thoneflow <command> [arguments...]
  Commands:

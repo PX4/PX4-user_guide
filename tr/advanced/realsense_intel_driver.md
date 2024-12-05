@@ -1,10 +1,12 @@
 # Installing driver on Ubuntu for Intel RealSense R200
 
-This tutorial aims to give instructions on how to install the camera driver of the Intel RealSense R200 camera head in Linux environment such that the gathered images can be accessed via the Robot Operation System (ROS). The RealSense R200 camera head is depicted below:
+This tutorial aims to give instructions on how to install the camera driver of the Intel RealSense R200 camera head in Linux environment such that the gathered images can be accessed via the Robot Operation System (ROS).
+The RealSense R200 camera head is depicted below:
 
 ![Intel Realsense Camera front view](../../assets/hardware/sensors/realsense/intel_realsense.png)
 
-The installation of the driver package is executed on a Ubuntu operation system (OS) that runs as a guest OS in a Virtual Box. The specifications of the host computer where the Virtual Box is running, the Virtual Box and the guest system are given below:
+The installation of the driver package is executed on a Ubuntu operation system (OS) that runs as a guest OS in a Virtual Box.
+The specifications of the host computer where the Virtual Box is running, the Virtual Box and the guest system are given below:
 
 - Host Operation System: Windows 8
 - Processor: Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
@@ -28,11 +30,13 @@ The tutorial is ordered in the following way: In a first part it is shown how to
 - After the installation you might need to enable the Virtual Box to display Ubuntu on the whole desktop:
   - Start VM Ubuntu and login, Click on **Devices->Insert Guest Additions CD image** in the menu bar of the Virtual Box.
   - Click on **Run** and enter password on the windows that pop up in Ubuntu.
-  - Wait until the installation is completed and then restart. Now, it should be possible to display the VM on the whole desktop.
+  - Wait until the installation is completed and then restart.
+    Now, it should be possible to display the VM on the whole desktop.
   - If a window pops up in Ubuntu that asks whether to update, reject to update at this point.
 - Enable USB 3 Controller in Virtual Box:
   - Shut down Virtual Machine.
-  - Go to the settings of the Virtual Machine to the menu selection USB and choose: "USB 3.0(xHCI)". This is only possible if you have installed the extension package for the Virtual Box.
+  - Go to the settings of the Virtual Machine to the menu selection USB and choose: "USB 3.0(xHCI)".
+    This is only possible if you have installed the extension package for the Virtual Box.
   - Start the Virtual Machine again.
 
 ## Installing ROS Indigo

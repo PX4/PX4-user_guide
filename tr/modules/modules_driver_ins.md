@@ -1,7 +1,8 @@
 # Modules Reference: Ins (Driver)
-## vectornav
-Source: [drivers/ins/vectornav](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/ins/vectornav)
 
+## vectornav
+
+Source: [drivers/ins/vectornav](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/ins/vectornav)
 
 ### Description
 
@@ -14,10 +15,13 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/vectornav.html
 ### Examples
 
 Attempt to start driver on a specified serial device.
+
 ```
 vectornav start -d /dev/ttyS1
 ```
+
 Stop driver
+
 ```
 vectornav stop
 ```
@@ -25,6 +29,7 @@ vectornav stop
 <a id="vectornav_usage"></a>
 
 ### Usage
+
 ```
 vectornav <command> [arguments...]
  Commands:

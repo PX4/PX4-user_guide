@@ -22,9 +22,7 @@ An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/cra
 
 ## Quick Summary
 
-::: info
-The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
-:::
+:::info:::
 
 - Main System-on-Chip: STM32F405RG
   - CPU: 168 MHz ARM Cortex M4 with single-precision FPU

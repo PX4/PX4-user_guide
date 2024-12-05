@@ -21,20 +21,20 @@ In particular the following systems are recommended:
 - **VN-200 GNSS/INS:** Recommended for fixed-wing systems without hovering, where static heading is not necessary.
 - **VN-300 DUAL GNSS/INS:** Recommended for multicopter systems where hovering and low dynamics requires the use of static heading.
 
-## Where to Buy
+## 구매처
 
 VectorNav IMU/AHRS, GNSS/INS, and Dual GNSS/INS solutions are available directly from [VectorNav Technologies](https://www.vectornav.com/store/products) (US) or through their Global Sales Representatives. For more information on their solutions or for international orders, please contact sales@vectornav.com.
 
 [Purchase VN-200 Development Kit](https://www.vectornav.com/store/products/gnss-ins/p/vn-200-rugged-development-kit) (GNSS/INS)
 [Purchase VN-300 Development Kit](https://www.vectornav.com/store/products/dual-gnss-ins/p/vn-300-rugged-development-kit) (Dual GNSS/INS)
 
-## Hardware Setup
+## 하드웨어 설정
 
-### Wiring
+### 배선
 
 Connect any unused flight controller serial interface, such as a spare `GPS` or `TELEM` port, to the VectorNav UART2 port (required by PX4).
 
-### Mounting
+### 장착
 
 The VectorNav sensor can be mounted in any orientation, in any position on the vehicle, without regard to center of gravity.
 All VectorNav sensors default to a coordinate system of x-forward, y-right, and z-down, making the default mounting as connector-back, base down.
@@ -44,9 +44,9 @@ If using a GNSS-enabled product, the GNSS antenna must be mounted rigidly with r
 
 For more mounting requirements and recommendations, see the relevant [Quick Start Guide](https://www.vectornav.com/resources/quick-start-guides).
 
-## Firmware Configuration
+## 펌웨어 설정
 
-### PX4 Configuration
+### PX4 설정
 
 To use the VectorNav driver:
 

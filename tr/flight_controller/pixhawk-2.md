@@ -1,21 +1,29 @@
 # Hex Cube Black Flight Controller
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 :::
 
 :::tip
-The [Cube Orange](cubepilot_cube_orange.md) is the successor to this product. We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](autopilot_pixhawk_standard.md). This flight controller is not following the standard and uses a patented connector.
+The [Cube Orange](cubepilot_cube_orange.md) is the successor to this product.
+We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](autopilot_pixhawk_standard.md).
+This flight controller is not following the standard and uses a patented connector.
 :::
 
-The [Hex Cube Black](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+The [Hex Cube Black](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems.
+It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
 ![Cube Black](../../assets/flight_controller/cube/cube_black_hero.png)
 
-The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly. For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, while a carrier board for a racer could includes ESCs form the frame of the vehicle.
+The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly.
+For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer,
+while a carrier board for a racer could includes ESCs form the frame of the vehicle.
 
 Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as a reference / Backup.
 
-::: info The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
+:::info
+The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
 :::
 
 :::tip
@@ -116,17 +124,18 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ### Serial Port Mapping
 
-| UART   | Device     | Port                         |
-| ------ | ---------- | ---------------------------- |
-| USART1 | /dev/ttyS0 | <!-- IO debug? -->    |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control)        |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control)        |
-| UART4  | /dev/ttyS3 | GPS1                         |
-| USART6 | /dev/ttyS4 | PX4IO                        |
-| UART7  | /dev/ttyS5 | CONSOLE                      |
-| UART8  | /dev/ttyS6 | <!-- unknown -->      |
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
+| USART1 | /dev/ttyS0 | <!-- IO debug? -->                       |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  | /dev/ttyS3 | GPS1                                     |
+| USART6 | /dev/ttyS4 | PX4IO                                    |
+| UART7  | /dev/ttyS5 | CONSOLE                                  |
+| UART8  | /dev/ttyS6 | <!-- unknown -->                         |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+
 <!-- This originally said " **TEL4:** /dev/ttyS6 (ttyS4 UART):  **Note** `TEL4` is labeled as `GPS2` on Cube." -->
 
 ### Debug Ports
@@ -140,7 +149,8 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:

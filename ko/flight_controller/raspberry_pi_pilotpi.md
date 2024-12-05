@@ -3,10 +3,14 @@
 <LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.html"/>
 
 :::warning
-이 비행 콘트롤러에 대한 PX4는 [테스트 단계](../flight_controller/autopilot_experimental.md)입니다. Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
 :::
 
-The _PilotPi_ shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. 리눅스와 PX4 측면에서 지속적으로 업데이트되고 있는, 저비용 고확장성의 플랫폼입니다. 모든 구성 요소가 라즈베리파이와 PX4 커뮤니티의 업스트림 지원을 제공하므로, 독점 드라이버가 필요하지 않습니다. PCB와 회로도도 오픈 소스입니다.
+The _PilotPi_ shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi.
+리눅스와 PX4 측면에서 지속적으로 업데이트되고 있는, 저비용 고확장성의 플랫폼입니다.
+모든 구성 요소가 라즈베리파이와 PX4 커뮤니티의 업스트림 지원을 제공하므로, 독점 드라이버가 필요하지 않습니다.
+PCB와 회로도도 오픈 소스입니다.
 
 ![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
 
@@ -39,7 +43,7 @@ Shield는 다음을 제공합니다.
 - PWM 출력 채널 16개
 - GPS 커넥터
 - 텔레메트리 커넥터
-- 외부 I2C 버스 커넥터(**참고:** CSI 카메라와 충돌)
+- External I2C bus connector (**Note:** conflicts with CSI camera)
 - RC 입력 포트(SBUS)
 - ADC 채널 범위 0 ~ 5V 3개
 - 2\*8 2.54mm 미사용 GPIO 커넥터
@@ -47,27 +51,27 @@ Shield는 다음을 제공합니다.
 라즈베리파이 직접 액세스
 
 - USB 커넥터 4개
-- CSI 커넥터(**참고:** 외부 I2C 버스와 충돌)
+- CSI connector(**Note:** conflict with external I2C bus)
 - 기타
 
 ## 권장 배선
 
-![PilotPi PowerPart 배선](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
+![PilotPi PowerPart wiring](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
 
-![PilotPi SensorPart 배선](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
+![PilotPi SensorPart wiring](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
 
 ## 핀배열
 
 :::warning
-구형 GH1.25 커넥터를 사용합니다.
-배선은 Pixhawk 2.4.8과 호환됩니다.
+It still uses old GH1.25 connectors.
+Wiring is compatible with Pixhawk 2.4.8
 :::
 
 ### 커넥터
 
 #### GPS 커넥터
 
-`/dev/ttySC0`에 매핑됨
+Mapped to `/dev/ttySC0`
 
 | 핀 | 신호  | 전압   |
 | - | --- | ---- |
@@ -80,7 +84,7 @@ Shield는 다음을 제공합니다.
 
 #### 텔레메트리 커넥터
 
-`/dev/ttySC1`에 매핑됨
+Mapped to `/dev/ttySC1`
 
 | 핀 | 신호  | 전압   |
 | - | --- | ---- |
@@ -93,39 +97,39 @@ Shield는 다음을 제공합니다.
 
 #### 외부 I2C 커넥터
 
-`/dev/i2c-0`에 매핑됨
+Mapped to `/dev/i2c-0`
 
-| 핀 | 신호  | 전압       |
-| - | --- | -------- |
-| 1 | VCC | +5V      |
+| 핀 | 신호  | 전압                          |
+| - | --- | --------------------------- |
+| 1 | VCC | +5V                         |
 | 2 | SCL | +3v3(풀업) |
 | 3 | SDA | +3v3(풀업) |
-| 4 | GND | GND      |
+| 4 | GND | GND                         |
 
-#### RC 및 ADC2/3/4
+#### RC & ADC2/3/4
 
-RC는 RX 라인의 신호 인버터 스위치로 `/dev/ttyAMA0`에 매핑됩니다.
+RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 
-| 핀 | 신호  | 전압         |
-| - | --- | ---------- |
+| 핀 | 신호  | 전압                         |
+| - | --- | -------------------------- |
 | 1 | RC  | +3V3 ~ +5V |
-| 2 | VCC | +5V        |
-| 3 | GND | GND        |
+| 2 | VCC | +5V                        |
+| 3 | GND | GND                        |
 
 - ADC1은 배터리 전압 모니터링을 위해 전압 분배기에 내부적으로 연결됩니다.
 - ADC2는 사용되지 않습니다.
 - ADC3는 아날로그 속도 센서에 연결할 수 있습니다.
 - ADC4에는 시스템 전압 레벨을 모니터링하기 위하여 ADC와 VCC 사이에 점퍼 캡이 있습니다.
 
-| 핀 | 신호   | 전압       |
-| - | ---- | -------- |
+| 핀 | 신호   | 전압                       |
+| - | ---- | ------------------------ |
 | 1 | ADCx | 0V ~ +5V |
-| 2 | VCC  | +5V      |
-| 3 | GND  | GND      |
+| 2 | VCC  | +5V                      |
+| 3 | GND  | GND                      |
 
-:::note
-ADC 3과 4는 대체 VCC 소스가 있습니다.
-'Vref' 스위치가 켜져 있으면 'VCC' 핀이 REF5050에 의해 구동됩니다.
+:::info
+ADC3 & 4 have an alternative VCC source
+When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
 :::
 
 #### 보드 상단의 미사용 GPIO
@@ -153,21 +157,22 @@ ADC 3과 4는 대체 VCC 소스가 있습니다.
 
 #### RC 인버터
 
-이 스위치는 RX 라인의 신호 극성을 결정합니다. `UART_RX = SW xor RC_INPUT`
+This switch will decide the signal polarity of RX line: `UART_RX = SW xor RC_INPUT`
 
 - 켜짐: SBUS (신호 반전)에 적합
 - 꺼짐: 보존됨
 
 #### Vref
 
-ADC 3과 4는 다음에 의해 구동되는 VCC를 갖습니다.
+ADC 3 & 4 will have VCC driven by:
 
 - 켜진 경우 REF5050에서 Vref 출력
 - 꺼져있는 경우 라즈베리파이에서 직접 5V 핀
 
 #### 부팅 모드
 
-이 스위치는 Pin22(BCM25)에 연결됩니다. 시스템 rc 스크립트는 해당 값을 확인하고, PX4가 시스템 부팅시 시작 여부를 결정합니다.
+이 스위치는 Pin22(BCM25)에 연결됩니다.
+시스템 rc 스크립트는 해당 값을 확인하고, PX4가 시스템 부팅시 시작 여부를 결정합니다.
 
 - 켜짐: 자동으로 PX4 시작
 - 꺼짐: PX4를 시작하지 않습니다.
@@ -177,4 +182,4 @@ ADC 3과 4는 다음에 의해 구동되는 VCC를 갖습니다.
 라즈베리파이 OS에 대한 특정 지침을 참고하십시오.
 
 - [Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
-- [우분투 서버 (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
+- [Ubuntu Server (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)

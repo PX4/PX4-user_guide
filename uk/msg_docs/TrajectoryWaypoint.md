@@ -1,14 +1,15 @@
 # TrajectoryWaypoint (Повідомлення UORB)
 
-Опис траекторії точки маршруту. Див. також Повідомлення Mavlink TRAJECTORY Тема trajectory_waypoint описує кожну точку маршруту, визначену в vehicle_trajectory_waypoint
+Опис траекторії точки маршруту. Див. також Повідомлення Mavlink TRAJECTORY
+Тема trajectory_waypoint описує кожну точку маршруту, визначену в vehicle_trajectory_waypoint
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectoryWaypoint.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectoryWaypoint.msg)
 
 ```c
 # Waypoint Trajectory description. See also Mavlink TRAJECTORY msg
 # The topic trajectory_waypoint describe each waypoint defined in vehicle_trajectory_waypoint
 
-uint64 timestamp        # time since system start (microseconds)
+uint64 timestamp		# time since system start (microseconds)
 
 float32[3] position
 float32[3] velocity

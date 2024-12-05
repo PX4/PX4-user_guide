@@ -1,67 +1,74 @@
 # Adding a Frame Configuration
 
-PX4 [файли конфігурації фреймів](#configuration-file-overview) - це скрипти оболонки, які встановлюють деякі (або всі) з параметрів, контролери та додатки необхідні для певної системи транспортного засобу, наприклад, квадрокоптер, наземний транспорт або човен. Ці сценарії виконуються, коли відповідна [конфігурація рами обрана та застосована](../config/airframe.md) в _QGroundControl_.
+PX4 [frame configuration files](#configuration-file-overview) are shell scripts that set up some (or all) of the parameters, controllers and apps needed for a particular vehicle frame, such as a quadcopter, ground vehicle, or boat.
+These scripts are executed when the corresponding [airframe is selected and applied](../config/airframe.md) in _QGroundControl_.
 
-Файли конфігурації, які компілюються в прошивку для цілей NuttX, розташовані в папці [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) (файли конфігурації для POSIX симуляторів зберігаються в [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix/airframes)). Папка містить як повні конфігурації для конкретних транспортних засобів, так і часткові "загальні конфігурації" для різних типів транспортних засобів. Загальні конфігурації часто використовуються як вихідна точка для створення нових файлів конфігурації.
+The configuration files that are compiled into firmware for NuttX targets are located in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) folder (configuration files for POSIX simulators are stored in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix/airframes)).
+Папка містить як повні конфігурації для конкретних транспортних засобів, так і часткові "загальні конфігурації" для різних типів транспортних засобів.
+Загальні конфігурації часто використовуються як вихідна точка для створення нових файлів конфігурації.
 
 Додатково, файл конфігурації рами також може бути завантажений з SD-карти.
 
-:::note
-Ви також можете "налаштувати" поточну конфігурацію рами, використовуючи текстові файли на SD-карті. Це описано на сторінці [Початок роботи системи > Налаштування запуску системи](../concept/system_startup.md#customizing-the-system-startup).
+:::info
+You can also "tweak" the current frame configuration using text files on the SD card.
+This is covered in [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) page.
 :::
 
-:::note
-Щоб визначити, які параметри/значення потрібно встановити в конфігураційному файлі, спочатку визначте загальний тип літального апарату та налаштуйте транспортний засіб, а потім використовуйте [`param show-for-airframe`](../modules/modules_command.md#param) для переліку параметрів, які були змінені.
+:::info
+To determine which parameters/values need to be set in the configuration file, you can first assign a generic airframe and tune the vehicle, and then use [`param show-for-airframe`](../modules/modules_command.md#param) to list the parameters that changed.
 :::
 
 ## Налаштування кадру в розробці
 
 Рекомендований процес розробки нової конфігурації кадру:
 
-1. Почніть із вибору відповідної "загальної конфігурації" для цільового типу транспортного засобу в QGC, наприклад _Загальний квадрокоптер_.
-1. Налаштуйте [виходи геометрії та приводу](../config/actuators.md).
-1. Виконайте інші [основні налаштування](../config/index.md).
-1. Налаштуйте транспортний засіб.
-1. Виконайте наступну консольну команду: `[`param show-for-airframe`](../modules/modules_command.md#param)`. Вона відобразить різницю параметрів порівняно з оригінальною загальною конфігурацією платформи.
+1. Start by selecting an appropriate "generic configuration" for the target vehicle type in QGC, such as _Generic Quadcopter_.
+2. Configure the [geometry and actuator outputs](../config/actuators.md).
+3. Perform other [basic configuration](../config/index.md).
+4. Налаштуйте транспортний засіб.
+5. Run the [`param show-for-airframe`](../modules/modules_command.md#param) console command to list the parameter difference compared to the original generic airfame.
 
 Після того, як ви маєте параметри, ви можете створити новий файл конфігурації рами, скопіювавши файл конфігурації для загальної конфігурації та додавши нові параметри.
 
-За іншою альтернативою, ви можете просто додати змінені параметри до файлів конфігурації запуску, описаних у [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) ("налаштування загальної конфігурації").
+Alternatively you can just append the modified parameters to the startup configuration files described in [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) ("tweaking the generic configuration").
 
 ## Як додати конфігурацію до прошивки
 
 Як додати конфігурацію до прошивки:
 
-1. Створіть новий файл конфігурації в папці [init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes).
-   - Дайте йому коротке описове ім'я файлу і перед ім'ям файла додайте не використаний ID для автозапуску (наприклад, `1033092_superfast_vtol`).
+1. Create a new config file in the [init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes) folder.
+   - Give it a short descriptive filename and prepend the filename with an unused autostart ID (for example, `1033092_superfast_vtol`).
    - Оновіть файл з параметрами конфігурації та програмами (див. вище).
-1. Додайте назву нового файлу конфігурації к [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) в відповідний розділ для типу транспортного засобу
-1. [Збудуйте та завантажте](../dev_setup/building_px4.md) програмне забезпечення.
+2. Add the name of the new frame config file to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) in the relevant section for the type of vehicle
+3. [Build and upload](../dev_setup/building_px4.md) the software.
 
 ## Як додати конфігурацію на SD-карту
 
 Файл конфігурації рами, що буде запущений з SD-карти, такий самий, як той, що зберігається в прошивці.
 
-Щоб запустити PX4 із конфігурацією кадру, перейменуйте його на `rc.autostart` і скопіюйте на SD-карту за адресою `/ext_autostart/rc.autostart`. PX4 знайде будь-які пов’язані файли у мікропрограмі.
+To make PX4 launch with a frame configuration, renamed it to `rc.autostart` and copy it to the SD card at `/ext_autostart/rc.autostart`.
+PX4 знайде будь-які пов’язані файли у мікропрограмі.
 
 ## Огляд файлу конфігурації
 
 Файл конфігурації складається з кількох основних блоків:
 
-- Документація (використовується в [довіднику з конфігурацій](../airframes/airframe_reference.md) апаратури та _QGroundControl_). Специфічні налаштування параметрів планера
-  - Конфігурація та геометрія за допомогою параметрів[ розподілу керування](../concept/control_allocation.md)
-  - [Налаштування коефіцієнтів](#tuning-gains)
+- Documentation (used in the [Airframes Reference](../airframes/airframe_reference.md) and _QGroundControl_).
+  Специфічні налаштування параметрів планера
+  - The configuration and geometry using [control allocation](../concept/control_allocation.md) parameters
+  - [Tuning gains](#tuning-gains)
 - Контролери та програми, які мають запускатися, такі як контролери багатороторників або фіксованих крил, детектори посадки та інше.
 
 Ці аспекти в основному незалежні, що означає, що багато конфігурацій використовують ту саму фізичну конструкцію літального апарату, запускають ті ж самі додатки і відрізняються переважно у своїх налаштуваннях.
 
-::: info
-Нові файли конфігурації фрейму автоматично додаються до системи збирання лише після чистого збирання (запустіть `make clean`).
+:::info
+New frame configuration files are only automatically added to the build system after a clean build (run `make clean`).
 :::
 
 ### Приклад - загальна конфігурація рами квадрокоптера
 
-Файл конфігурації для типового коптера Quad X показано нижче ([оригінальний файл тут](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/4001_quad_x)). Це дуже просто, оскільки воно визначає лише мінімальні налаштування, загальні для всіх квадрокоптерів.
+The configuration file for a generic Quad X copter is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/4001_quad_x)).
+Це дуже просто, оскільки воно визначає лише мінімальні налаштування, загальні для всіх квадрокоптерів.
 
 Перший рядок — це shebang, який повідомляє операційній системі NuttX (на якій працює PX4), що файл конфігурації є виконуваним сценарієм оболонки.
 
@@ -69,7 +76,8 @@ PX4 [файли конфігурації фреймів](#configuration-file-ove
 #!/bin/sh
 ```
 
-Далі йде кадрова документація. `@name`, `@type` і `@class` використовуються для ідентифікації та групування кадру в [довіднику API](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) та Вибір планера QGroundControl.
+Далі йде кадрова документація.
+The `@name`, `@type` and `@class` are used to identify and group the frame in the [API Reference](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) and QGroundControl Airframe Selection.
 
 ```plain
 # @name Generic Quadcopter
@@ -81,13 +89,14 @@ PX4 [файли конфігурації фреймів](#configuration-file-ove
 #
 ```
 
-Наступний рядок імпортує загальні параметри, які підходять для всіх транспортних засобів зазначеного типу (див. [init.d/rc.mc_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rc.mc_defaults)).
+The next line imports generic parameters that are appropriate for all vehicles of the specified type (see [init.d/rc.mc_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rc.mc_defaults)).
 
 ```plain
 . ${R}etc/init.d/rc.mc_defaults
 ```
 
-Нарешті, у файлі перераховано параметри розподілу керування (починаючи з `CA_`, які визначають типову геометрію для рами. Їх можна змінити відповідно до геометрії вашої рами в [Конфігурації приводів](../config/actuators.md), а також можна додати відображення вихідних даних.
+Finally the file lists the control allocation parameters (starting with `CA_` that define the default geometry for the frame.
+These may be modified for your frame geometry in the [Actuators Configuration](../config/actuators.md), and output mappings may be added.
 
 ```sh
 param set-default CA_ROTOR_COUNT 4
@@ -105,9 +114,11 @@ param set-default CA_ROTOR3_KM -0.05
 
 ### Приклад – Повний транспортний засіб Babyshark VTOL
 
-Нижче наведено більш складний файл конфігурації для повного транспортного засобу. Це конфігурація для Baby Shark [Standard VTOL](../frames_vtol/standardvtol.md) ([оригінальний файл тут](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13014_vtol_babyshark)).
+Нижче наведено більш складний файл конфігурації для повного транспортного засобу.
+This is the configuration for the Baby Shark [Standard VTOL](../frames_vtol/standardvtol.md) ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13014_vtol_babyshark)).
 
-Розділи shebang і документація подібні до розділів загальної рами, але тут ми також документуємо, які `виходи` відображаються для кожного двигуна та приводу. Зверніть увагу, що ці результати є лише документацією; фактичне відображення виконується за допомогою параметрів.
+The shebang and documentation sections are similar to those for the generic frame, but here we also document what `outputs` are mapped to each motor and actuator.
+Зверніть увагу, що ці результати є лише документацією; фактичне відображення виконується за допомогою параметрів.
 
 ```sh
 #!/bin/sh
@@ -140,7 +151,7 @@ param set-default CA_ROTOR3_KM -0.05
 . ${R}etc/init.d/rc.vtol_defaults
 ```
 
-Потім ми визначаємо параметри конфігурації та налаштування [tuning gains](#tuning-gains):
+Then we define configuration parameters and [tuning gains](#tuning-gains):
 
 ```sh
 param set-default MAV_TYPE 22
@@ -255,16 +266,19 @@ param set-default PWM_MAIN_DIS4 1500
 
 ## Додавання нової групи планера
 
-Повітряні каркаси "групуються", щоб об'єднати схожі повітряні каркаси для вибору у програмі [QGroundControl](https://docs.qgroundcontrol.com/master/en/SetupView/Airframe.html) та в [Довіднику з повітряних каркасів](../airframes/airframe_reference.md). Кожна група має назву та пов'язаний з нею зображення у форматі Svg, яке показує загальну геометрію, кількість двигунів та напрямок обертання двигунів для повітряних каркасів, що належать до цієї групи.
+Airframe "groups" are used to group similar airframes for selection in [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/airframe.html) and in the [Airframe Reference](../airframes/airframe_reference.md).
+Кожна група має назву та пов'язаний з нею зображення у форматі Svg, яке показує загальну геометрію, кількість двигунів та напрямок обертання двигунів для повітряних каркасів, що належать до цієї групи.
 
-Файли метаданих конструкції повітряного каркасу, які використовуються в _QGroundControl_ та вихідний код документації, генеруються з опису конструкції повітряного каркасу за допомогою скрипту за допомогою команди збірки: `make airframe_metadata`
+The airframe metadata files used by _QGroundControl_ and the documentation source code are generated from the airframe description, via a script, using the build command: `make airframe_metadata`
 
-Для нового каркасу, який належить до існуючої групи, вам не потрібно робити нічого більше, крім надання документації у описі каркасу, розташованому за шляхом [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d).
+For a new frame belonging to an existing group, you don't need to do anything more than provide documentation in the airframe description located at
+[ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d).
 
-Якщо планер призначено для **нової групи**, додатково потрібно:
+If the airframe is for a **new group** you additionally need to:
 
-1. Додайте зображення svg для групи до документації посібника користувача (якщо не надано зображення, відображається зображення заповнювача): [assets/airframes/types](https://github.com/PX4/PX4-user_guide/tree/master/assets/airframes/types)
-1. Додайте зіставлення між новою назвою групи та назвою файлу зображення в методі [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/srcparser.py) `GetImageName()` (дотримуйтесь шаблону нижче):
+1. Add the svg image for the group into user guide documentation (if no image is provided a placeholder image is displayed): [assets/airframes/types](https://github.com/PX4/PX4-user_guide/tree/master/assets/airframes/types)
+
+2. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below):
 
    ```python
    def GetImageName(self):
@@ -280,10 +294,10 @@ param set-default PWM_MAIN_DIS4 1500
        return "AirframeUnknown"
    ```
 
-1. Оновіть _QGroundControl_:
+3. Update _QGroundControl_:
 
-   - Додайте зображення svg для групи в: [src/AutopilotPlugins/Common/images](https://github.com/mavlink/qgroundcontrol/tree/master/src/AutoPilotPlugins/Common/Images)
-   - Додайте посилання на зображення svg у [qgcimages.qrc](https://github.com/mavlink/qgroundcontrol/blob/master/qgcimages.qrc), дотримуючись шаблону нижче:
+   - Add the svg image for the group into: [src/AutopilotPlugins/Common/images](https://github.com/mavlink/qgroundcontrol/tree/master/src/AutoPilotPlugins/Common/Images)
+   - Add reference to the svg image into [qgcimages.qrc](https://github.com/mavlink/qgroundcontrol/blob/master/qgcimages.qrc), following the pattern below:
 
      ```xml
      <qresource prefix="/qmlimages">
@@ -295,8 +309,9 @@ param set-default PWM_MAIN_DIS4 1500
         ...
      ```
 
-:::note
-Залишена метадані про конфігурацію повинна автоматично включатися в прошивку (як тільки файл **srcparser.py** буде оновлено).
+     ::: info
+     The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
+
 :::
 
 ## Підвищення налаштування
@@ -309,17 +324,17 @@ param set-default PWM_MAIN_DIS4 1500
 
 ## Додайте фрейм до QGroundControl
 
-Щоб зробити новий літальний апарат доступним для вибору в розділі _Конфігурація рами_ в [QGroundControl](../config/airframe.md):
+To make a new airframe available for section in the _QGroundControl_ [frame configuration](../config/airframe.md):
 
-1. Зробіть чисту збірку (наприклад, запустивши `make clean`, а потім `make px4_fmu-v5_default`)
-1. Відкрийте QGC і виберіть **Custom firmware file...** як показано нижче:
+1. Make a clean build (e.g. by running `make clean` and then `make px4_fmu-v5_default`)
+2. Open QGC and select **Custom firmware file...** as shown below:
 
 ![QGC flash custom firmware](../../assets/gcs/qgc_flash_custom_firmware.png)
 
-Вас буде запрошено вибрати файл прошивки **.px4** для прошивки (цей файл є стислим JSON файлом і містить метадані про конфігурацію повітряного каркасу).
+You will be asked to choose the **.px4** firmware file to flash (this file is a zipped JSON file and contains the airframe metadata).
 
-1. Перейдіть до папки збірки та виберіть файл прошивки (наприклад, **PX4-Autopilot/build/px4_fmu-v5_default/px4_fmu-v5_default.px4**).
-1. Натисніть **OK**, щоб розпочати перезавантаження мікропрограми.
-1. Перезапустіть _QGroundControl_.
+1. Navigate to the build folder and select the firmware file (e.g. **PX4-Autopilot/build/px4_fmu-v5_default/px4_fmu-v5_default.px4**).
+2. Press **OK** to start flashing the firmware.
+3. Restart _QGroundControl_.
 
-Після цього новий кадр стане доступним для вибору в _QGroundControl_.
+The new frame will then be available for selection in _QGroundControl_.

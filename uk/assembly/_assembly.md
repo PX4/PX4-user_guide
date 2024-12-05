@@ -33,7 +33,7 @@ These consist of a flight controller, GPS, external compass, airspeed sensor, ma
 
 This topic provides basic instructions and links showing how to connect and assemble the core components of a typical unmanned system (UAS) running PX4.
 
-::: tip
+:::tip
 If you're interested in a specific vehicle, see the more targeted topics in each vehicle section:
 
 - [Multicopter](../assembly/assembly_mc.md)
@@ -50,7 +50,7 @@ A forward flying vehicle, such as a VTOL or Fixed-wing, will generally also have
 The instructions are focussed on systems that use [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers (FCs), and in particular those that have adopted the [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 For these FCs, much of the "wiring up" is as simple as connecting the components into the appropriately labelled ports using supplied cables.
 
-::: info If your FC does not use the connector standard ...
+:::info If your FC does not use the connector standard ...
 Pixhawk series flight controllers that don't follow the connector standard will often provide cables for interconnecting with Pixhawk standard components.
 For other controllers you may need to manually create cables and connectors.
 
@@ -67,12 +67,12 @@ Their available ports are very similar because they are both [Pixhawk standard a
 The connector standard ports are listed below, along with their labels on each of the FCs, and what they are used for.
 The FCs have much the same ports with similar names, and core peripherals are connected in the same way.
 
-| Pixhawk Connector Standard  | Holybro                          | CUAV                             | Connect to ...                      |
+| Стандарт роз'ємів Pixhawk   | Holybro                          | CUAV                             | Connect to ...                      |
 | --------------------------- | -------------------------------- | -------------------------------- | ----------------------------------------------------------------------------------- |
 | Full GPS plus Safety Switch | GPS1                             | GPS&SAFETY   | Primary GNSS module (GPS, compass, safety switch, buzzer, LED)   |
 | Basic GPS                   | GPS2                             | GPS2                             | Secondary GNSS module (GNSS/compass)                             |
 | CAN                         | CAN1/CAN2                        | CAN1/CAN2                        | DroneCAN devices, such as GNSS modules, motors, etc                                 |
-| Telemetry                   | TELEM (1,2,3) | TELEM (1,2,3) | Telemetry radios, companion computers, MAVLink cameras, etc.        |
+| Телеметрія                  | TELEM (1,2,3) | TELEM (1,2,3) | Telemetry radios, companion computers, MAVLink cameras, etc.        |
 | Analog Power                | POWER (1,2)   | POWER (1,2)   | SMbus (I2C) power modules                                        |
 | I2C                         | I2C                              | None                             | Other I2C peripherals                                                               |
 | SPI                         | SPI                              | SPI6                             | SPI devices (note: 11 pin, not 6 as in standard) |
@@ -89,14 +89,14 @@ Remove power from the flight controller before connecting peripherals!
 This is "best practice", even if it is not strictly necessary in all cases.
 :::
 
-## Mount and Orient Controller
+## Монтаж та орієнтація контролера
 
 The flight controller should ideally be [mounted on the frame](../assembly/mount_and_orient_controller.md) as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
 To reduce the impact of vibration on the flight controllers internal IMU(s) and gyroscope(s) you should mount the controller using mounting foam if provided, and otherwise follow manufacturer guidance.
 
 :::info
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+Якщо контролер не може бути змонтований у рекомендованому/стандартному положенні (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../config/flight_controller_orientation.md).
 :::
 
 ## GNSS/Compass (+ Buzzer + Safety Switch + LED)
@@ -118,7 +118,7 @@ A second GNSS/compass module, if present, is attached to the 6-pin port labeled 
 
 ![GPS Connections](../../assets/assembly/gnss_connections.png)
 
-::: details
+:::details
 The Pixhawk connector standard 10-pin _Full GPS plus Safety Switch Port_ is intended for connecting the primary GNSS.
 It includes a UART port for the GNSS, and I2C port for the Compass, and pins for the [buzzer](../getting_started/px4_basic_concepts.md#buzzer), [safety switch](../getting_started/px4_basic_concepts.md#safety-switch), and [UI LED](../getting_started/led_meanings.md#ui-led).
 PX4 configures this UART for use as the primary GPS by default.
@@ -145,10 +145,10 @@ Note however that a separate base module is required for the ground station (see
 
 <div v-if="(($frontmatter.frame === 'Plane') || ($frontmatter.frame === 'VTOL'))">
 
-## Airspeed Sensor
+## Датчик швидкості
 
 [Airspeed sensors](../sensor/airspeed.md) are highly recommended for fixed-wing and VTOL frames.
-They are so important because the autopilot does not have other means to detect stall.
+Це важливо, туму що автопілот не має інших засобів для виявлення звалювання.
 
 Almost all airspeeds sensors are connected support connection via the [I2C bus](../sensor_bus/i2c_general.md) and can be plugged into the Pixhawk standard I2C port as shown below (for a Holybro Airspeed sensor and Pixhawk 6C).
 There is no need to separately power the sensor.
@@ -161,6 +161,50 @@ Note that if there are not enough free I2C ports for your peripherals, you can u
 Some I2C devices use 5V SCL/SDA lines, while the Pixhawk standard I2C port expects 3.3V.
 You can use an I2C level converter to connect these devices to a Pixhawk flight controller.
 :::
+
+</div>
+
+## Датчик відстані
+
+<div v-if="(($frontmatter.frame === 'Multicopter') || ($frontmatter.frame === 'VTOL'))">
+
+[Distance sensors](../sensor/rangefinders.md) can significantly improve vehicle robustness and performance, and are required for some use cases:
+
+- Landing can be much improved with a distance sensor:
+  - Land detection is more robust.
+  - Smoother landings because the sensor can help detect the right point to slow down vehicle before touchdown.
+  - Reduced risk of very hard touchdown due to bad altitude estimate or incorrectly set touch point altitude.
+- Enables terrain following.
+- Required for robust state estimation when flying with GNSS-denied navigation (along with an [optical flow sensor](#optical-flow-sensor)).
+
+</div>
+<div v-if="$frontmatter.frame === 'VTOL'">
+
+- Allows disabling of "pusher assist" when close to the ground.
+
+</div>
+<div v-if="$frontmatter.frame === 'Plane'">
+
+[Distance sensors](../sensor/rangefinders.md) are highly recommended as they allow for proper flaring during landing, without which smooth automated fixed-wing landings are near-impossible.
+
+</div>
+
+Unlike for some other components, there is no particular bus or port that is commonly used for distance sensors.
+Different rangefinders will connect via I2C, CAN, serial ports, and even PWM inputs!
+
+See [Distance sensors](../sensor/rangefinders.md) and manufacturer documentation for instructions on how to integrate a specific sensor with PX4.
+
+<div v-if="(($frontmatter.frame === 'Multicopter') || ($frontmatter.frame === 'VTOL'))">
+
+## Оптичний потік Sensor
+
+[Optical Flow](../sensor/optical_flow.md) is a computer vision technique that uses a downward facing camera and a downward facing distance sensor to estimate velocity over ground.
+It can be used to accurately estimate speed when navigating without GNSS — in buildings, underground, or in any other GNSS-denied environment.
+
+Optical flow sensors may integrate both a camera and distance sensor, or just a camera (in which case a separate distance sensor is needed).
+There is no standardisation on flow sensor connectivity options, and sensors may connect via I2C, CAN, MAVLink over serial ports, and so on.
+
+See [Optical Flow sensors](../sensor/optical_flow.md) and manufacturer documentation for instructions on how to integrate a specific sensor with PX4.
 
 </div>
 
@@ -186,13 +230,13 @@ Generally the correct port is easy to infer from the labels on the flight contro
 - PPM or SBUS receivers connect to the RC input, which is most commonly labeled `RC IN`, but may be a port with `SBUS` or `PPM` in the label.
 - Pixhawk flight controllers usually come with cables for connecting to the common RC receiver types.
 
-## Telemetry Radios (Optional)
+## Телеметричні радіостанції (Опціонально)
 
 [Telemetry radios](../telemetry/index.md) can be used by [ground control stations](../getting_started/px4_basic_concepts.md#ground-control-stations) (GCS) to communicate with vehicles in flight.
 A GCS allows you to monitor and control the UAS via a graphical interface, edit, upload, and run missions, view video from a connected camera, capture video and images, and so on.
 
 Connect the vehicle-based radio to the `TELEM1` port as shown below.
-The other radio is connected to your ground station computer or mobile device (usually by USB).
+Інша радіостанція підключається до вашого комп'ютера або мобільного пристрою наземної станції (зазвичай за допомогою USB).
 
 ![Telemetry Connections](../../assets/assembly/telemetry_connections.png)
 
@@ -212,14 +256,14 @@ You may also need to configure the radio itself, and for IP radios you may need 
 
 :::
 
-## SD Card
+## SD-карта
 
 SD cards are highly recommended.
 Among other things they are required for [recording and analyzing flight details](../getting_started/flight_reporting.md) and using DroneCan/UAVCAN bus hardware.
 A SD card is factory-installed on many flight controllers, but you should check the documentation for your FC.
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
+Для отримання додаткової інформації див. [Основні концепції > SD-карти (знімна пам'ять)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
 ## Power & Actuators
@@ -279,7 +323,7 @@ A more capable PDB may incorporate a power module (in which case they replace a 
 
 </div>
 
-### Motors
+### Двигуни
 
 Brushless motors are powered and controlled via ESCs (electronic speed controllers).
 PWM ESCs are connected with two input wires from the battery for power, two input wires from the flight controller that provide control signals (via three pin connector), and three output wires that are connected to the motor.
@@ -288,7 +332,7 @@ The power wires should be twisted in order to reduce electromagnetic interferenc
 
 Any outputs on either PWM output bus can be connected to any actuators, motor, or other PWM controlled hardware, and later mapped to a particular actuator that is controlled by PX4 when configuring the [Actuator Outputs](../config/actuators.md#actuator-outputs).
 
-Note:
+Примітка:
 
 - By preference you should connect ESC to FMU PWM bus outputs because they are lower-latency than IO PWM outputs.
   Note that the PWM outputs are often labeled `AUX` or `MAIN`.
@@ -297,7 +341,7 @@ Note:
 - Motor outputs should be grouped together as much as possible rather than spread randomly across both the FMU and IO busses.
   This is because if you assign some function to an output, such as DShot ESC, you can't then assign adjacent unused pins for anything other than a DShot ESC.
 
-### Servos
+### Сервоприводи
 
 Servos are used to move flight control surfaces and payload actuators.
 Typical wiring for power and control is shown below.
@@ -315,7 +359,7 @@ The power rail can only have the one voltage provided by your BEC.
 If you don't use servos that all accept the same voltage, you'll need to separately power those that use a different voltage.
 :::
 
-## Other Peripherals
+## Інші периферійні пристрої
 
 Other peripherals, such as high-power radios, cameras, and so on have their own power requirements.
 These will usually be supplied off a separate BEC.
@@ -333,7 +377,7 @@ These show end-to-end setup and configuration of a number of vehicles.
 <div v-if="$frontmatter.frame === 'Multicopter'">
 
 - [Kits](../frames_multicopter/kits.md)
-- [DIY Builds](../frames_multicopter/diy_builds.md)
+- [DIY Збірки](../frames_multicopter/diy_builds.md)
 
 </div>
 <div v-else-if="$frontmatter.frame === 'Plane'">
@@ -377,7 +421,7 @@ They recommend sensors, power systems, and other components from the same manufa
 - [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
 - [mRo (3DR) Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
 
-## See Also
+## Дивіться також
 
 - [Drone Components & Parts](../getting_started/px4_basic_concepts.md#drone-components-parts) (Basic Concepts)
 - [Payloads](../getting_started/px4_basic_concepts.md#payloads) (Basic Concepts)

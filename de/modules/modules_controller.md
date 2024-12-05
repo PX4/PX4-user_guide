@@ -24,6 +24,7 @@ airship_att_control <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -49,6 +50,7 @@ control_allocator <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -74,6 +76,7 @@ differential_drive_control <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -100,6 +103,7 @@ flight_mode_manager <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -127,6 +131,7 @@ fw_att_control <command> [arguments...]
    stop
 
    status        print status info
+ fw_autotune_attitude_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode
@@ -155,6 +160,7 @@ fw_pos_control <command> [arguments...]
    stop
 
    status        print status info
+ fw_autotune_attitude_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode
@@ -183,6 +189,7 @@ fw_rate_control <command> [arguments...]
    stop
 
    status        print status info
+ fw_autotune_attitude_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode
@@ -210,6 +217,7 @@ https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth
 ### Usage
 ```
 mc_att_control <command> [arguments...]
+ fw_autotune_attitude_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode
@@ -232,6 +240,7 @@ The controller doesn't use Euler angles for its work, they are generated only fo
 ### Usage
 ```
 mc_pos_control <command> [arguments...]
+ fw_autotune_attitude_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode
@@ -312,6 +321,7 @@ Rover ackermann module.
 ### Usage
 ```
 rover_ackermann <command> [arguments...]
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -355,6 +365,7 @@ rover_pos_control <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
@@ -434,6 +445,7 @@ uuv_pos_control <command> [arguments...]
    stop
 
    status        print status info
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 

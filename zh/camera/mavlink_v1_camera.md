@@ -7,7 +7,7 @@
 此方法保留用于旧的 MAVLink 相机。
 :::
 
-## 概述
+## 综述
 
 [相机协议v1](https://mavlink.io/zh/services/camera_v1.html) 定义了一小组命令，允许用于触发相机进行拍摄：
 
@@ -55,7 +55,7 @@ MAVLink 摄像头将支持这些命令的一些子集。
 
 理论上，您也可以直接向相机发送命令。
 
-### 任务中的相机命令
+### Camera Commands in Missions
 
 以下[Camera Protocol v1 (简单触发协议)](https://mavlink.io/en/services/camera_v1.html)命令可在任务中使用(这与上面的命令列表相同)。
 
@@ -70,7 +70,7 @@ PX4 重新使用与自驾仪相同的系统 ID 和组件 ID [MAV_COMP_ID_ALL](ht
 
 <!-- See camera_architecture.md topic for detail on how this is implemented -->
 
-### 手动控制
+### Manual Control
 
 这些相机不支持手动触发（无论是摇杆还是遥控器）。
 
@@ -106,7 +106,7 @@ PX4 重新使用与自驾仪相同的系统 ID 和组件 ID [MAV_COMP_ID_ALL](ht
 
   ![相机设置界面 - 触发模式和 MAVLink 接口](../../assets/camera/mavlink_camera_settings.png)
 
-::: info
+:::info
 You can also [set the parameters directly](../advanced_config/parameters.md):
 
 - [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) — `4`: 基于距离，按命令触发 (勘测模式)

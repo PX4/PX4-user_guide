@@ -25,7 +25,7 @@ An AHRS system that includes both an IMU and a processing system that can provid
 An INS is a navigation device that uses accelerometers, gyroscopes, possibly magnetometers, and a computer to calculate the attitude, position, and velocity of a moving object without the need for external references.
 Essentially it is an AHRS that also includes position/velocity estimation.
 
-## Further Information
+## 추가 정보
 
 - [What is an Inertial Navigation System?](https://www.vectornav.com/resources/inertial-navigation-articles/what-is-an-ins) (VectorNav)
 - [Inertial Navigation Primer](https://www.vectornav.com/resources/inertial-navigation-primer) (VectorNav)

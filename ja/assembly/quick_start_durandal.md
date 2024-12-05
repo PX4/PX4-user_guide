@@ -2,7 +2,9 @@
 
 <Badge type="tip" text="PX4 v1.11" />
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 This quick start guide shows how to power the Holybro [Durandal](../flight_controller/durandal.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
@@ -19,7 +21,8 @@ The content of the box with the _PM02 V3_ power module is shown below (the box a
 
 ## Wiring Chart Overview
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs).
+We'll go through each of these in detail in the following sections.
 
 ![Durandal Wiring Overview](../../assets/flight_controller/durandal/durandal_wiring_overview.jpg)
 
@@ -42,24 +45,30 @@ Do not use vibration-isolation foam to mount the controller (double sided tape i
 
 ## GPS + Compass + Buzzer + Safety Switch + LED
 
-Durandal is designed to work well with the _Pixhawk 4 GPS module_, which has an integrated compass, safety switch, buzzer and LED. It connects directly to the [GPS port](../flight_controller/durandal.md#gps) using the 10 pin cable.
+Durandal is designed to work well with the _Pixhawk 4 GPS module_, which has an integrated compass, safety switch, buzzer and LED.
+It connects directly to the [GPS port](../flight_controller/durandal.md#gps) using the 10 pin cable.
 
 The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
 ![Connect compass/GPS to Durandal](../../assets/flight_controller/durandal/connection_gps_compass.jpg)
 
-::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::info
+The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle).
+To disable the safety press and hold the safety switch for 1 second.
+You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 :::
 
 ## Power
 
-You can use a power module or power distribution board to power motors/servos and measure power consumption. The recommended power modules are shown below.
+You can use a power module or power distribution board to power motors/servos and measure power consumption.
+The recommended power modules are shown below.
 
 <a id="pm02_v3"></a>
 
 ### PM02 v3 Power Module
 
-The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with _Durandal_. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
+The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with _Durandal_.
+It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
 
 Connect the output of the _Power Module_ as shown.
 
@@ -74,7 +83,9 @@ As this power module does not include power distribution wiring, you would norma
 :::
 
 :::tip
-The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
+The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller.
+If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery.
+Ensure the voltage of servo you are going to use is appropriate.
 :::
 
 The power module has the following characteristics/limits:
@@ -92,7 +103,8 @@ The power module has the following characteristics/limits:
 
 ### Pixhawk 4 Power Module (PM07)
 
-The [Pixhawk 4 Power Module (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07) can be bundled/used with _Durandal_. It acts as both a power module and power distribution board, providing regulated power to flight controller and the ESCs, and sending battery voltage/current to the flight controller.
+The [Pixhawk 4 Power Module (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07) can be bundled/used with _Durandal_.
+It acts as both a power module and power distribution board, providing regulated power to flight controller and the ESCs, and sending battery voltage/current to the flight controller.
 
 This is wired up in the same way as described in the [Pixhawk 4 Quick Start > Power](../assembly/quick_start_pixhawk4.md#power) documentation.
 
@@ -101,19 +113,21 @@ It has the following characteristics/limits:
 - PCB Current: total 120A outputs (MAX)
 - UBEC 5V output current: 3A
 - UBEC input voltage : 7~51v (2~12s LiPo)
-- Dimensions: 68*50*8 mm
+- Dimensions: 68_50_8 mm
 - Mounting Holes: 45\*45mm
 - Weight: 36g
 - Package includes:
   - PM07 board (1)
   - 80mm XT60 connector wire (1)
 
-::: info See also [PM07 Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro).
+:::info
+See also [PM07 Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro).
 :::
 
 ### Battery Configuration
 
-The battery/power setup must be configured in [Battery Estimation Tuning](../config/battery.md). For either Power Module you will need to configure the _Number of Cells_.
+The battery/power setup must be configured in [Battery Estimation Tuning](../config/battery.md).
+For either Power Module you will need to configure the _Number of Cells_.
 
 You will not need to update the _voltage divider_ unless you are using some other power module (e.g. the one from the Pixracer).
 
@@ -141,13 +155,15 @@ For more information about selecting a radio system, receiver compatibility, and
 
 Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
-The vehicle-based radio should be connected to the [TELEM1](../flight_controller/durandal.md#telem1_2_3) port as shown below using one of the 6-pos connectors (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
+The vehicle-based radio should be connected to the [TELEM1](../flight_controller/durandal.md#telem1_2_3) port as shown below using one of the 6-pos connectors (if connected to this port, no further configuration is required).
+The other radio is connected to your ground station computer or mobile device (usually by USB).
 
 ![Durandal/Telemetry Radio](../../assets/flight_controller/durandal/holybro_telemetry_radio.jpg)
 
 ## SD Card (Optional)
 
-SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert an SD card into the _Durandal_ where indicated below.
+SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware.
+Insert an SD card into the _Durandal_ where indicated below.
 
 ![Durandal SD Card](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
 
@@ -163,7 +179,7 @@ Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN OUT**
 
 The motors must be separately [powered](#power).
 
-::: info
+:::info
 If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
 :::
 
@@ -185,7 +201,8 @@ The wiring and configuration of optional/less common components is covered withi
 
 First you will need to install [PX4 "Master" Firmware](../config/firmware.md#custom) onto the controller using _QGroundControl_.
 
-::: info Durandal support will be in the _stable_ PX4 release that follows PX4 v1.10.
+:::info
+Durandal support will be in the _stable_ PX4 release that follows PX4 v1.10.
 :::
 
 Further general configuration information is covered in: [Autopilot Configuration](../config/index.md).

@@ -148,7 +148,7 @@ The 40A power module provides power for the avionics when using Skynode (and com
 
 If necessary, the 10V output of the radio port on the PM can also be exposed via an XT30 that can be mounted next to the 6S battery input XT60.
 
-### Sensors
+### センサー
 
 #### Pitot Tube
 

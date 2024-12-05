@@ -1,7 +1,5 @@
 # ManualControlSetpoint (UORB message)
 
-
-
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ManualControlSetpoint.msg)
 
 ```c
@@ -11,13 +9,13 @@ uint64 timestamp_sample                 # the timestamp of the raw data (microse
 bool valid
 
 uint8 SOURCE_UNKNOWN   = 0
-uint8 SOURCE_RC        = 1      # radio control (input_rc)
-uint8 SOURCE_MAVLINK_0 = 2      # mavlink instance 0
-uint8 SOURCE_MAVLINK_1 = 3      # mavlink instance 1
-uint8 SOURCE_MAVLINK_2 = 4      # mavlink instance 2
-uint8 SOURCE_MAVLINK_3 = 5      # mavlink instance 3
-uint8 SOURCE_MAVLINK_4 = 6      # mavlink instance 4
-uint8 SOURCE_MAVLINK_5 = 7      # mavlink instance 5
+uint8 SOURCE_RC        = 1		# radio control (input_rc)
+uint8 SOURCE_MAVLINK_0 = 2		# mavlink instance 0
+uint8 SOURCE_MAVLINK_1 = 3		# mavlink instance 1
+uint8 SOURCE_MAVLINK_2 = 4		# mavlink instance 2
+uint8 SOURCE_MAVLINK_3 = 5		# mavlink instance 3
+uint8 SOURCE_MAVLINK_4 = 6		# mavlink instance 4
+uint8 SOURCE_MAVLINK_5 = 7		# mavlink instance 5
 
 uint8 data_source
 
@@ -33,7 +31,7 @@ float32 pitch    # move forward, negative pitch rotation, nose down
 float32 yaw      #               positive yaw rotation,   clockwise when seen top down
 float32 throttle # move up,      positive thrust,         -1 is minimum available 0% or -100% +1 is 100% thrust
 
-float32 flaps            # position of flaps switch/knob/lever [-1, 1]
+float32 flaps			 # position of flaps switch/knob/lever [-1, 1]
 
 float32 aux1
 float32 aux2
@@ -44,7 +42,7 @@ float32 aux6
 
 bool sticks_moving
 
-uint16 buttons      # From uint16 buttons field of Mavlink manual_control message
+uint16 buttons		# From uint16 buttons field of Mavlink manual_control message
 
 # TOPICS manual_control_setpoint manual_control_input
 # DEPRECATED: float32 x

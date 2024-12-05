@@ -17,23 +17,23 @@
 
 ❏ 안정화 상태
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 상하/좌우/방위 회전각 응답 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 추진력 응답 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response 1:1
 
 ❏ 고도
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 스틱을 가운데 두었을 때 현재 상태에서 수직 위치를 유지해야 함
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 상하/좌우/방위 회전각 응답 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 상승 하강 속도 설정시 추력부의 반응
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
 
 ## 착륙
 
 ❏ 안정화 상태 또는 추진력을 40% 이하로 둔 상태의 고도 제어 모드에서 착륙
 
-❏ 콥터가 지면에 닿을 때, 2초 안에 제동해야 함(착륙 후 제동 시간은 [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)로 설정)
+❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
 ## 예상 결과
 

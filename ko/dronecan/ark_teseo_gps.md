@@ -4,7 +4,7 @@
 
 ![ARK TESEO GPS](../../assets/hardware/gps/ark/ark_teseo_gps.jpg)
 
-## Where to Buy
+## 구매처
 
 Order this module from:
 
@@ -13,7 +13,7 @@ Order this module from:
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Teseo_GPS)
-- Sensors
+- 센서
   - [ST TESEO LIV4F GPS](https://www.st.com/en/positioning/teseo-liv4f.html)
     - L1/L5 bands
     - Simultaneous multi-constellation and multi-band GNSS (GPS, Galileo, GLONASS, BeiDou, QZSS)
@@ -37,11 +37,11 @@ Order this module from:
 - USA Built
 - NDAA Compliant
 
-## Pinout
+## 핀배열
 
 ### CAN - 4 Pin JST-GH
 
-| Pin Number | Signal Name                | Voltage              |
+| Pin Number | Signal Name                | 전압                   |
 | ---------- | -------------------------- | -------------------- |
 | 1          | 5V                         | 5.0V |
 | 2          | CAN_P | 5.0V |
@@ -50,7 +50,7 @@ Order this module from:
 
 ### I2C + Timepulse - 5 Pin JST-GH
 
-| Pin Number | Signal Name                                         | Voltage              |
+| Pin Number | Signal Name                                         | 전압                   |
 | ---------- | --------------------------------------------------- | -------------------- |
 | 1          | 5.0V Out (500mA) | 5.0V |
 | 2          | I2C2_SCL                       | 3.3V |
@@ -60,7 +60,7 @@ Order this module from:
 
 ### Debug - 6 Pin JST-SH
 
-| Pin Number | Signal Name                    | Voltage              |
+| Pin Number | Signal Name                    | 전압                   |
 | ---------- | ------------------------------ | -------------------- |
 | 1          | 3.3V           | 3.3V |
 | 2          | USART2_TX | 3.3V |

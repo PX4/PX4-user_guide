@@ -2,13 +2,13 @@
 
 Відстані перешкод перед сенсором.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ObstacleDistance.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ObstacleDistance.msg)
 
 ```c
-# Відстані перешкод перед сенсором.
-uint64 timestamp        # time since system start (microseconds)
+# Obstacle distances in front of the sensor.
+uint64 timestamp		# time since system start (microseconds)
 
-uint8 frame     #Coordinate frame of reference for the yaw rotation and offset of the sensor data. Defaults to MAV_FRAME_GLOBAL, which is North aligned. For body-mounted sensors use MAV_FRAME_BODY_FRD, which is vehicle front aligned.
+uint8 frame		#Coordinate frame of reference for the yaw rotation and offset of the sensor data. Defaults to MAV_FRAME_GLOBAL, which is North aligned. For body-mounted sensors use MAV_FRAME_BODY_FRD, which is vehicle front aligned.
 uint8 MAV_FRAME_GLOBAL = 0
 uint8 MAV_FRAME_LOCAL_NED = 1
 uint8 MAV_FRAME_BODY_FRD = 12

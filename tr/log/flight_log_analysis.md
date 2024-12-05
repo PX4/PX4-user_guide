@@ -2,7 +2,8 @@
 
 This topic provide an overview of the tools and methods that can be used to analyze PX4 flight logs (more detailed topics are linked below in some cases).
 
-::: info INFO [Flight Reporting](../getting_started/flight_reporting.md) explains how to download a log and report/discuss issues about a flight with the development team.
+:::info INFO
+[Flight Reporting](../getting_started/flight_reporting.md) explains how to download a log and report/discuss issues about a flight with the development team.
 :::
 
 ## Structured Analysis
@@ -10,7 +11,8 @@ This topic provide an overview of the tools and methods that can be used to anal
 Before analyzing a flight log it is important to establish its context:
 
 - If the analysis is done after a malfunction, did the log capture the crash or did it stop mid-air?
-- Did all controllers track their references? The easiest way to establish this is to compare attitude roll and pitch rates to their set points.
+- Did all controllers track their references?
+  The easiest way to establish this is to compare attitude roll and pitch rates to their set points.
 - Does the sensor data look valid? Was there very strong vibration (a reasonable threshold for strong vibration is anything with a peak-to-peak of more than 2-3 m/s/s).
 - If the root cause is not specific to the vehicle make sure to report it with a link to the log file (and video if one exists) on the [PX4 issue tracker](https://github.com/PX4/PX4-Autopilot/issues/new).
 
@@ -18,13 +20,16 @@ Before analyzing a flight log it is important to establish its context:
 
 If a log file ends mid-air, two main causes are possible: a power failure _or_ a hard fault of the operating system.
 
-On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html), hard faults are logged to the SD card. These are located on the top level of the SD card and named _fault_date.log_, e.g. **fault_2017_04_03_00_26_05.log**. You should check for the presence of this file if a flight log ends abruptly.
+On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html), hard faults are logged to the SD card.
+These are located on the top level of the SD card and named _fault_date.log_, e.g. **fault_2017_04_03_00_26_05.log**.
+You should check for the presence of this file if a flight log ends abruptly.
 
 ## Analysis Tools
 
 ### Flight Review (Online Tool)
 
-[Flight Review](http://logs.px4.io) is the successor of _Log Muncher_. It is used in combination with the new [ULog](../dev_log/ulog_file_format.md) logging format.
+[Flight Review](http://logs.px4.io) is the successor of _Log Muncher_.
+It is used in combination with the new [ULog](../dev_log/ulog_file_format.md) logging format.
 
 Key features:
 
@@ -38,7 +43,8 @@ See [Log Analysis using Flight Review](../log/flight_review.md) for an introduct
 
 ### PlotJuggler
 
-[PlotJuggler](https://github.com/facontidavide/PlotJuggler) is a desktop application that allows users to easily visualize and analyze data expressed in the form of time series. This is one of the best ULog analysis tools as it exposes all information in the log ([Flight Review](#flight-review-online-tool), by comparison, only shows a small subset of the data).
+[PlotJuggler](https://github.com/facontidavide/PlotJuggler) is a desktop application that allows users to easily visualize and analyze data expressed in the form of time series.
+This is one of the best ULog analysis tools as it exposes all information in the log ([Flight Review](#flight-review-online-tool), by comparison, only shows a small subset of the data).
 
 It supports ULog files (.ulg) since version 2.1.4.
 
@@ -132,7 +138,8 @@ Key features:
 
 ### PX4Tools
 
-[PX4Tools](https://github.com/dronecrew/px4tools) is a log analysis toolbox for the PX4 autopilot written in Python. The recommended installation procedure is to use [anaconda3](https://conda.io/docs/index.html). See [px4tools github page](https://github.com/dronecrew/px4tools) for details.
+[PX4Tools](https://github.com/dronecrew/px4tools) is a log analysis toolbox for the PX4 autopilot written in Python.
+The recommended installation procedure is to use [anaconda3](https://conda.io/docs/index.html). See [px4tools github page](https://github.com/dronecrew/px4tools) for details.
 
 Key features:
 
@@ -145,7 +152,8 @@ Key features:
 
 ### MAVGCL
 
-[MAVGCL](https://github.com/ecmnet/MAVGCL) is an in-flight log analyzer for PX4. It can also be used in offline mode with downloaded uLog files.
+[MAVGCL](https://github.com/ecmnet/MAVGCL) is an in-flight log analyzer for PX4.
+It can also be used in offline mode with downloaded uLog files.
 
 Key features:
 

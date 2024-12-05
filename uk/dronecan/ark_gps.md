@@ -1,19 +1,19 @@
 # ARK GPS (DroneCAN)
 
-ARK GPS проєкт із відкритим кодом [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.md), магнітометром, ІВП, барометром, сигналом звукового оповіщення та модулем безпеки.
+ARK GPS is an open source [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.md), magnetometer, IMU, barometer, buzzer, and safety switch module.
 
 ![ARK GPS](../../assets/hardware/gps/ark/ark_gps.jpg)
 
-## Де придбати
+## Де купити
 
 Замовте цей модуль з:
 
 - [ARK Electronics](https://arkelectron.com/product/ark-gps/) (US)
 
-## Характеристики апаратного забезпечення
+## Характеристики обладнання
 
-- [Схема з відкритим кодом та BOM](https://github.com/ARK-Electronics/ARK_GPS)
-- Сенсори
+- [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_GPS)
+- Датчики
   - Ublox M9N GPS
     - Надзвичайно надійна геоприв'язка на рівні метра за допомогою супутникової навігації
     - Максимальна доступність позиції з одночасним прийомом 4 супутників
@@ -21,10 +21,10 @@ ARK GPS проєкт із відкритим кодом [DroneCAN](index.md) [GN
     - Відмінне запобігання RF-перешкодам
   - Bosch BMM150 Magnetometer
   - Bosch BMP388 Barometer
-  - Dual Invensense ICM-42688-P IMUs 6-вісний IMU
+  - Invensense ICM-42688-P 6-Axis IMU
 - STM32F412CEU6 MCU
 - Кнопка безпеки
-- Динамік
+- Зумер
 - Два роз'єми стандарту CAN для Pixhawk (4 контакти JST GH)
 - Роз'єм для відлагодження стандарту Pixhawk (6 контактів JST SH)
 - Малий форм-фактор
@@ -35,60 +35,64 @@ ARK GPS проєкт із відкритим кодом [DroneCAN](index.md) [GN
   - RGB Статус системи
 - USA Built
 - Вимоги до живлення
-  - 5В
+  - 5V
   - Середній струм 110мA
   - 117мА Макс.
 
-## Встановлення обладнання
+## Налаштування програмного забезпечення
 
 ### Підключення
 
-ARK GPS підключений до шини CAN за допомогою стандартного кабелю Pixhawk 4 pin JST GH. Для отримання додаткової інформації, зверніться до інструкцій з [проводки CAN](../can/index.md#wiring).
+ARK GPS підключений до шини CAN за допомогою стандартного кабелю Pixhawk 4 pin JST GH.
+For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
-### Монтаж
+### Встановлення
 
-Рекомендоване положення монтажу є таким, щоб конектори на платі вказували у напрямку **задньої частини дрону**.
+The recommended mounting orientation is with the connectors on the board pointing towards the **back of vehicle**.
 
-Датчик може бути встановлений де завгодно на каркасі, але ви повинні вказати його позицію, відносно центру мас транспортного засобу, під час [налаштування PX4](#px4-configuration).
+The sensor can be mounted anywhere on the frame, but you will need to specify its position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
-## Встановлення прошивки
+## Налаштування прошивки
 
-ARK GPS працює з [Прошивкою PX4 DroneCAN](px4_cannode_fw.md). Таким чином, він підтримує оновлення прошивки через шину CAN та [dynamic node allocation](../dronecan/index.md#node-id-allocation).
+ARK GPS runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md).
+As such, it supports firmware update over the CAN bus and [dynamic node allocation](../dronecan/index.md#node-id-allocation).
 
-Плати ARK GPS поставляються з останнім вбудованим програмним забезпеченням, але якщо ви хочете побудувати й прошити останнє програмне забезпечення самостійно, див. [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
+ARK GPS boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
-- Ціль прошивки: `ark_can-gps_default`
-- Ціль завантажувача: `ark_can-gps_canbootloader`
+- Firmware target: `ark_can-gps_default`
+- Bootloader target: `ark_can-gps_canbootloader`
 
-## Налаштування PX4
+## Конфігурація PX4
 
-Вам потрібно встановити необхідні [параметри DroneCAN](index.md) та визначити зсуви, якщо датчик не знаходиться у центрі транспортного засобу. Необхідні налаштування наведено нижче.
+You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle.
+Необхідні налаштування наведено нижче.
 
-::: info
-GPS ARK не буде завантажуватися, якщо SD-карти немає у контролері польоту під час запуску.
+:::info
+The ARK GPS will not boot if there is no SD card in the flight controller when powered on.
 :::
 
-### Увімкнення DroneCAN
+### Увімкнути DroneCAN
 
-Для використання плати ARK GPS підключіть її до шини CAN Pixhawk та увімкніть драйвер DroneCAN, встановивши параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) на `2` для динамічного розподілу вузла (або `3`, якщо Ви використовуєте [DroneCAN ESCs](../dronecan/escs.md)).
+In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
 Кроки наступні:
 
-- У _QGroundControl_ встановіть параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) на `2` або `3` та перезавантажте (див. [Finding/Updating Parameters](../advanced_config/parameters.md)).
+- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Підключіть ARK GPS CAN до Pixhawk CAN.
 
-Після активації модуль буде виявлено при завантаженні. Дані GPS повинні надходити з частотою 10 Гц.
+Після активації модуль буде виявлено при завантаженні.
+Дані GPS повинні надходити з частотою 10 Гц.
 
-Конфігурацію DroneCAN в PX4 пояснено більш детально в [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
+DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
 ### Конфігурація позиції датчика
 
-Якщо датчик не знаходиться у центрі автомобіля, вам також потрібно буде визначити зміщення датчика:
+Якщо датчик не знаходиться у центрі пристрою, вам також потрібно буде визначити зміщення датчика:
 
-- Увімкніть GPS сигнал, встановивши біт 3 [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) на true.
-- Увімкніть [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS), [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG) та [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO).
-- Встановіть [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) на `1` якщо це останній вузол на шині CAN.
-- Параметри [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) та [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z) можуть бути встановлені для врахування зміщення ARK GPS від центру мас транспортного засобу.
+- Enable GPS yaw fusion by setting bit 3 of [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to true.
+- Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS), [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG), and [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO).
+- Set [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) to `1` if this is that last node on the CAN bus.
+- The parameters [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z) can be set to account for the offset of the ARK GPS from the vehicles centre of gravity.
 
 ## Значення LED індикаторів
 
@@ -97,9 +101,9 @@ GPS ARK не буде завантажуватися, якщо SD-карти н�
 Якщо ви бачите червоний світлодіод, це означає, що виникла помилка, і вам слід перевірити наступне:
 
 - Переконайтеся, що у польотному контролері встановлено SD-картку.
-- Перевірте, що ARK GPS має встановлене `ark_can-gps_canbootloader` перед тим, як прошивати `ark_can-gps_default`.
+- Make sure the ARK GPS has `ark_can-gps_canbootloader` installed prior to flashing `ark_can-gps_default`.
 - Видаліть бінарні файли з кореневих та ufw директорій SD-карти та спробуйте зібрати та знову прошити.
 
-## See Also
+## Дивіться також
 
 - [ARK GPS](https://arkelectron.gitbook.io/ark-documentation/sensors/ark-gps) (ARK Docs)

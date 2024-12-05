@@ -6,13 +6,13 @@
 
 ❏ 배터리 안전 장치 검증
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 안전 조치 동작은 회귀 지점 착륙 동작
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Action is Return to Land
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 배터리 경고 잔여량이 25% 인가
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Warn Level is 25%
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 배터리 안전 장치 가동 잔여량이 20% 인가
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Failsafe Level is 20%
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 배터리 응급 상태 잔여량이 15% 인가
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Emergency Level is 15%
 
 ❏ 고도 제어 모드에서 이륙
 
@@ -20,7 +20,7 @@
 
 ❏ 원격 조종기 연결 유실
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 원격 조종 장치를 끄고 기체가 시작점으로 돌아오는지 확인, 하강 대기 후 원격 조종 장치를 켜서 제어권을 넘겨받음
+&nbsp;&nbsp;&nbsp;&nbsp;❏Turn off RC and check the vehicle returns to home position, wait for the descent and turn on the RC and take over.
 
 ## 데이터 연결 유실
 

@@ -1,13 +1,14 @@
 # SensorCombined (Повідомлення UORB)
 
-Вимірювання сенсорів у вигляді одиниць SI. Ці поля масштабуються та компенсуються зміщенням, де це можливо, і не змінюються з ревізіями плати та оновленнями сенсора.
+Вимірювання сенсорів у вигляді одиниць SI.
+Ці поля масштабуються та компенсуються зміщенням, де це можливо, і не змінюються з ревізіями плати та оновленнями сенсора.
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg)
 
 ```c
-# Вимірювання сенсорів у вигляді одиниць SI.
-# Ці поля масштабуються та компенсуються зміщенням, 
-#де це можливо, і не змінюються з ревізіями плати та оновленнями сенсора.
+# Sensor readings in SI-unit form.
+# These fields are scaled and offset-compensated where possible and do not
+# change with board revisions and sensor updates.
 
 uint64 timestamp                                # time since system start (microseconds)
 

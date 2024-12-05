@@ -29,7 +29,7 @@ To configure the Ackermann rover frame and outputs:
 
 3. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
 
-## Manual Mode
+## 手动模式
 
 :::warning
 For this mode to work properly the [Basic Setup](#basic-setup) must've already been completed!
@@ -333,7 +333,7 @@ If the distance from the path to the rover is bigger than the lookahead distance
 
 To summarize, the following parameters can be used to tune the controller:
 
-| Parameter                                                                                                                                          | Description                             | Unit |
+| 参数                                                                                                                                                 | 描述                                      | Unit |
 | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---- |
 | <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN) | Main tuning parameter                   | -    |
 | <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)    | Maximum value for the look ahead radius | m    |
@@ -359,7 +359,7 @@ r_{acc} &= \frac{r_{min}}{\tan\left( \theta\right) }
 \end{align*}
 $$
 
-| Symbol                              | Description                        | Unit |
+| Symbol                              | 描述                                 | Unit |
 | ----------------------------------- | ---------------------------------- | ---- |
 | $\vec{a}$                           | Vector from current to previous WP | m    |
 | $\vec{b}$                           | Vector from current to next WP     | m    |
@@ -393,7 +393,7 @@ with $w_b:$ Wheel base ([RA_WHEEL_BASE](#RA_WHEEL_BASE)), $a_{lat, max}:$ Maximu
 
 List of all parameters of the ackermann rover module:
 
-| Parameter                                                                                                                                                                  | Description                                                           | Unit    |
+| 参数                                                                                                                                                                         | 描述                                                                    | Unit    |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------- |
 | <a id="RA_WHEEL_BASE"></a>[RA_WHEEL_BASE](../advanced_config/parameter_reference.md#RA_WHEEL_BASE)                               | Wheel base                                                            | m       |
 | <a id="RA_MAX_STR_ANG"></a>[RA_MAX_STR_ANG](../advanced_config/parameter_reference.md#RA_MAX_STR_ANG)       | Maximum steering angle                                                | deg     |

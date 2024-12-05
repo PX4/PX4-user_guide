@@ -1,9 +1,9 @@
 # Периферійні пристрої
 
-Цей розділ містить теми про периферійне обладнання, яке може бути підключене до контролера польоту (не включаючи [камери та інші корисні навантаження](../payloads/index.md)).
+This section contains topics about peripheral hardware that can be connected to a flight controller (not including [cameras and other payloads](../payloads/index.md)).
 
-Периферійні пристрої не є _обов'язковими_ для польоту, але можуть підтримувати його, забезпечуючи покращену безпеку або дозволяючи транспортному засобу відповідати вимогам регулювання:
+The peripherals are not _required_ for flight, but may support it by providing improved safety, or allowing the vehicle to meet regulartory requirements:
 
-- [Приймачі ADS-B/FLARM/UTM (Уникнення повітряного трафіку)](../peripherals/adsb_flarm.md)
-- [Парашут](../peripherals/parachute.md)
-- [Віддалений ID](../peripherals/remote_id.md)
+- [ADSB/FLARM/UTM (Traffic Avoidance)](../peripherals/adsb_flarm.md)
+- [Parachute](../peripherals/parachute.md)
+- [Remote ID](../peripherals/remote_id.md)

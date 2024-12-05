@@ -3,8 +3,8 @@
 PX4 릴리스 노트는 각 릴리스의 변경 사항들을 설명합니다.
 
 - [main](../releases/main.md) (changes since v1.15)
-- [v1.15](../releases/1.15.md) <Badge type="warning" text="Beta"/>
-- [v1.14](../releases/1.14.md) <Badge type="info" text="Stable"/>
+- [v1.15](../releases/1.15.md)
+- [v1.14](../releases/1.14.md)
 - [v1.13](../releases/1.13.md)
 - [v1.12](../releases/1.12.md)
 

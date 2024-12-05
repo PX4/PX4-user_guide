@@ -1,12 +1,13 @@
 # WiFi Телеметрійне радіо
 
-WiFi телеметрія дозволяє здійснювати комунікацію MAVLink між WiFi радіо на транспортному засобі та GCS.  
-WiFi зазвичай пропонує менший діапазон, ніж звичайне телеметрійне радіо, але підтримує вищі швидкості передачі даних і полегшує підтримку FPV/відеопотоків. Зазвичай для транспортного засобу потрібен лише один радіоприймач (з умовою, що наземна станція вже має WiFi).
+WiFi telemetry enables MAVLink communication between a WiFi radio on a vehicle and a GCS.\
+WiFi typically offers shorter range than a normal telemetry radio, but supports higher data rates, and makes it easier to support FPV/video feeds.
+Зазвичай для транспортного засобу потрібен лише один радіоприймач (з умовою, що наземна станція вже має WiFi).
 
 PX4 підтримує телеметрію через UDP та Wifi. Він транслює сигнал серцебиття на порт 14550 за адресою 255.255.255.255, доки не отримає перший сигнал серцебиття від земної станції керування, після чого він буде надсилати дані лише на цю земну станцію керування.
 
 Сумісні модулі телеметрії WiFi включають в себе:
 
-- [Модуль WiFi ESP8266](../telemetry/esp8266_wifi_module.md)
-- [Модуль WiFi ESP32](../telemetry/esp32_wifi_module.md)
-- [3DR Телеметр Wifi](../telemetry/3dr_telemetry_wifi.md) (Скасовано)
+- [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md)
+- [ESP32 WiFi Module](../telemetry/esp32_wifi_module.md)
+- [3DR Telemetry Wifi](../telemetry/3dr_telemetry_wifi.md) (Discontinued)

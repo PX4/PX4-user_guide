@@ -1,28 +1,32 @@
 # 多旋翼的加加速度限制型轨迹
 
-加加速度有限的轨迹类型能响应用户摇杆输入或任务的变化（例如：航拍，测绘，货运）并为机体提供平滑的运动。 它能产生对称的平滑 S-曲线使加加速度和加速度的极限始终得到保证。
+加加速度有限的轨迹类型能响应用户摇杆输入或任务的变化（例如：航拍，测绘，货运）并为机体提供平滑的运动。
+它能产生对称的平滑 S-曲线使加加速度和加速度的极限始终得到保证。
 
-此轨迹类型始终在[任务模式](../flight_modes/mission.md)下启用。 To enable it in [Position mode](../flight_modes_mc/position.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+This trajectory type is always enabled in [Mission mode](../flight_modes_mc/mission.md).
+To enable it in [Position mode](../flight_modes_mc/position.md) set the parameter [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) to `Smoothed velocity`.
 
-::: info The jerk-limited type is not used _by default_ in position mode. 但它可能不适合于那些需要较快响应的机体/使用案例——例如穿越机。
+:::info
+The jerk-limited type is not used _by default_ in position mode.
+但它可能不适合于那些需要较快响应的机体/使用案例——例如穿越机。
 :::
 
 ## 轨迹生成器
 
 下图显示了具有如下约束的典型加加速度限制剖面：
 
-- `jMax`：最大抖动
-- `a0`：初始加速度
-- `aMax`：最大加速度
-- `a3`：最终加速度（始终为 0）
-- `v0`：初始速度
-- `vRef`：期望速度
+- `jMax`: maximum jerk
+- `a0`: initial acceleration
+- `aMax`: maximum acceleration
+- `a3`: final acceleration (always 0)
+- `v0`: initial velocity
+- `vRef`: desired velocity
 
-其中，约束 `jMax`、`aMax` 由用户通过参数页配置，在手动定点控制和自动模式下可能有所不同。
+The constraints `jMax`, `aMax` are configurable by the user via parameters and can be different in manual position control and auto mode.
 
 所得的速度剖面通常称为“S-曲线”。
 
-![加加速度限制型轨迹](../../assets/config/mc/jerk_limited_trajectory_1d.png)
+![Jerk-limited trajectory](../../assets/config/mc/jerk_limited_trajectory_1d.png)
 
 ## 手动模式
 
@@ -32,31 +36,32 @@ In manual position mode, the sticks are mapped to velocity where a full XY-stick
 
 XY平面：
 
-- `jMax`：[MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
+- `jMax`: [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
 - `aMax`: [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX)
 
 Z轴：
 
-- `jMax`：[MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
-- `aMax`（上升动作）：[MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
-- `aMax`（下降动作）：[MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
+- `jMax`: [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
+- `aMax` (upward motion): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
+- `aMax` (downward motion): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
 
 ## 自动模式
 
-In auto mode, the desired velocity is [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE) but this value is automatically adjusted depending on the distance to the next waypoint, the maximum possible velocity in the waypoint and the maximum desired acceleration and jerk. The vertical speed is defined by [MPC_Z_V_AUTO_UP](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_UP) (upward motion) and [MPC_Z_V_AUTO_DN](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_DN) (downward motion).
+In auto mode, the desired velocity is [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE) but this value is automatically adjusted depending on the distance to the next waypoint, the maximum possible velocity in the waypoint and the maximum desired acceleration and jerk.
+The vertical speed is defined by [MPC_Z_V_AUTO_UP](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_UP) (upward motion) and [MPC_Z_V_AUTO_DN](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_DN) (downward motion).
 
 ### 约束
 
 XY平面：
 
-- `jMax`：[MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
-- `aMax`：[MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR)
+- `jMax`: [MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
+- `aMax`: [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR)
 
 Z轴：
 
-- `jMax`：[MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
-- `aMax`（上升动作）：[MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
-- `aMax`（下降动作）：[MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
+- `jMax`: [MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
+- `aMax` (upward motion): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
+- `aMax` (downward motion): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
 
 渐进某个航点时的距离-速度增益：
 

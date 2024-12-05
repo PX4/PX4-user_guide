@@ -106,7 +106,7 @@
 Плагін Advanced Lift Drag містить більше деталей про те, що роблять кожен з цих параметрів.
 
 :::info
-Параметри не були підтверджені експертом, тому ви повинні перевірити їх у плагіні.
+The parameters have not been verified by an expert, so you should check them in the plugin.
 :::
 
 З файлу журналу похідних стійкості беруться наступні параметри плагіну advanced lift drag:

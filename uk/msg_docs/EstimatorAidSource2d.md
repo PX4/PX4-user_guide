@@ -1,8 +1,6 @@
 # EstimatorAidSource2d (повідомлення UORB)
 
-
-
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorAidSource2d.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorAidSource2d.msg)
 
 ```c
 uint64 timestamp                # time since system start (microseconds)
@@ -14,7 +12,7 @@ uint32 device_id
 
 uint64 time_last_fuse
 
-float32[2] observation
+float64[2] observation
 float32[2] observation_variance
 
 float32[2] innovation

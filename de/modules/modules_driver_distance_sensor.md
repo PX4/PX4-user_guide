@@ -268,6 +268,7 @@ Source: [drivers/distance_sensor/mappydot](https://github.com/PX4/PX4-Autopilot/
 ### Usage
 ```
 mappydot <command> [arguments...]
+ ms5837 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)

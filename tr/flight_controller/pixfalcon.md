@@ -6,7 +6,9 @@
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](https://holybro.com/)) is binary-compatible (FMUv2) derivative of the [Pixhawk 1](../flight_controller/pixhawk.md) design that has been optimized for space-constrained applications such as FPV racers. It has less IO to allow for the reduction in size.
@@ -47,7 +49,8 @@ Optional hardware:
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -64,10 +67,10 @@ Developers will need to solder wires to the board test pads for SWD, and to the 
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                     |
-| ------ | ---------- | ------------------------ |
-| UART1  | /dev/ttyS0 | IO Debug                 |
+| UART   | Device     | Port                                        |
+| ------ | ---------- | ------------------------------------------- |
+| UART1  | /dev/ttyS0 | IO Debug                                    |
 | USART2 | /dev/ttyS1 | TELEM1 (No flow control) |
-| UART4  | /dev/ttyS2 | GPS                      |
+| UART4  | /dev/ttyS2 | GPS                                         |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->

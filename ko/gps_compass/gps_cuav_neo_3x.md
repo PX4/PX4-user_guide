@@ -15,12 +15,12 @@ Main features :
 
 ## Technical Specification
 
-| Hardware                                     | Type                                                                                                                              |
+| 하드웨어                                         | 형식                                                                                                                                |
 | :------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
 | MUC                                          | STM32F412                                                                                                                         |
 | Protocol                                     | DroneCAN                                                                                                                          |
-| Compass                                      | RM3100                                                                                                                            |
-| Barometer                                    | ICP-20100                                                                                                                         |
+| 나침반                                          | RM3100                                                                                                                            |
+| 기압계                                          | ICP-20100                                                                                                                         |
 | GNSS receiver                                | Ublox M9N                                                                                                                         |
 | Frequency band                               | GPS: L1C/A<br>GLONASS:L10F <br>Beidou:B1I<br>Galileo:E1B/C        |
 | Number of concurrent GNSS                    | 4                                                                                                                                 |
@@ -33,19 +33,19 @@ Main features :
 | Input voltage                                | 4.7~5.2V                                                                          |
 | Operating temperature                        | -10~70℃                                                                                                           |
 | Size                                         | 67_67_21.2mm                                                                                                      |
-| Weight                                       | 46g (without cable）                                                                                            |
+| 중량                                           | 46g (without cable）                                                                                            |
 
-## Where to Buy
+## 구매처
 
 - [CUAV](https://www.alibaba.com/product-detail/Free-shipping-CUAV-NEO-3X-GPS_1601004167114.html?spm=a2747.manage.0.0.6aa271d2urCPnP)
 
-## Wiring and Connections
+## 배선
 
 NEO 3X connected to autopilot CAN1/CAN2 interface
 
 ![NEO 3X connected to autopilot CAN1/CAN2 interface](../../assets/hardware/gps/cuav_gps_neo3/neo_3x_connect.jpg)
 
-## PX4 Configuration
+## PX4 설정
 
 Open **QGroundControl > Parameters** and modify the following parameters:
 

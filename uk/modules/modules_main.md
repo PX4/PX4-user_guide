@@ -1,27 +1,34 @@
+# Modules & Commands Reference
 
-# Довідник по модулям та командам
+На наступних сторінках описано модулі, драйвери та команди PX4.Вони описують надані функціональні можливості, загальний огляд реалізації на високому рівні та способи використання інтерфейсу командного рядка.
 
-На наступних сторінках описано модулі, драйвери та команди PX4. Вони описують надані функціональні можливості, загальний огляд реалізації на високому рівні та способи використання інтерфейсу командного рядка.
-
-:::info **Це автоматично згенеровано з вихідного коду** і містить найновішу документацію модулів.
+:::info
+**This is auto-generated from the source code** and contains the most recent modules documentation.
 :::
 
-Це не повний список, і NuttX надає деякі додаткові команди (такі як `free`). Використовуйте `help` в консолі, щоб отримати список всіх доступних команд, і в більшості випадків `help команди` виведе використання.
+It is not a complete list and NuttX provides some additional commands
+as well (such as `free`). Use `help` on the console to get a list of all
+available commands, and in most cases `command help` will print the usage.
 
-Оскільки це генерується з вихідного коду, помилки повинні бути повідомлені/виправлені у репозиторії [PX4-Autopilot](https://github.com/PX4/PX4-Autopilot). Сторінки документації можуть бути згенеровані шляхом виконання наступної команди з кореневого каталогу PX4-Autopilot :
+Since this is generated from source, errors must be reported/fixed
+in the [PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository.
+Сторінки документації можуть бути згенеровані шляхом виконання наступної команди з
+кореневого каталогу PX4-Autopilot :
 
 ```
 make module_documentation
 ```
-Згенеровані файли будуть записані до каталогу `modules`.
+
+The generated files will be written to the `modules` directory.
 
 ## Категорії
-- [Автоналаштування](modules_autotune.md)
-- [Команда](modules_command.md)
-- [Зв’язок](modules_communication.md)
-- [Контролер](modules_controller.md)
-- [Драйвер](modules_driver.md)
-- [Оцінювач](modules_estimator.md)
-- [Моделювання](modules_simulation.md)
-- [Система](modules_system.md)
-- [Шаблони](modules_template.md)
+
+- [Autotune](modules_autotune.md)
+- [Command](modules_command.md)
+- [Communication](modules_communication.md)
+- [Controller](modules_controller.md)
+- [Driver](modules_driver.md)
+- [Estimator](modules_estimator.md)
+- [Simulation](modules_simulation.md)
+- [System](modules_system.md)
+- [Template](modules_template.md)

@@ -1,27 +1,31 @@
 # 디버그 값 송수신
 
-소프트웨어 개발시에 개별 중요 숫자를 출력하는 경우가 종종 있습니다. 이 때가 보통 MAVLink 패킷이 들어올 때 `NAMED_VALUE_FLOAT`, `DEBUG`, `DEBUG_VECT` 패킷을 활용할 수 있는 경우입니다.
+소프트웨어 개발시에 개별 중요 숫자를 출력하는 경우가 종종 있습니다.
+This is where the generic `NAMED_VALUE_FLOAT`, `DEBUG` and `DEBUG_VECT` packets of MAVLink come in.
 
 ## MAVLink 디버그 메시지와 uORB 주제 간의 매핑
 
-MAVLink 디버그 메시지는 uORB 주제로/에서 번역됩니다. MAVLink 디버그 메시지를 보내거나 받으려면, 해당 주제를 각각 게시하거나 구독해야 합니다. 다음은 MAVLink 디버그 메시지와 uORB 주제 간의 매핑을 요약한 표입니다.
+MAVLink 디버그 메시지는 uORB 주제로/에서 번역됩니다.
+MAVLink 디버그 메시지를 보내거나 받으려면, 해당 주제를 각각 게시하거나 구독해야 합니다.
+다음은 MAVLink 디버그 메시지와 uORB 주제 간의 매핑을 요약한 표입니다.
 
-| MAVLink 메시지         | uORB 주제           |
-| ------------------- | ----------------- |
+| MAVLink 메시지                                                 | uORB 주제                                                   |
+| ----------------------------------------------------------- | --------------------------------------------------------- |
 | NAMED_VALUE_FLOAT | debug_key_value |
-| DEBUG               | debug_value       |
-| DEBUG_VECT          | debug_vect        |
+| DEBUG                                                       | debug_value                          |
+| DEBUG_VECT                             | debug_vect                           |
 
 ## 튜토리얼: 문자열 / 부동 소수점 쌍 보내기
 
-이 튜토리얼은 관련 uORB 주제 `debug_key_value`를 사용하여 MAVLink 메시지 `NAMED_VALUE_FLOAT`를 전송하는 방법을 설명합니다.
+This tutorial shows how to send the MAVLink message `NAMED_VALUE_FLOAT` using the associated uORB topic `debug_key_value`.
 
 이 자습서의 코드는 다음에서 사용할 수 있습니다.
 
-- [튜토리얼 코드 디버그](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
-- 보드 구성에서 MAVLink 디버그 앱(**px4_mavlink_debug**)의 주석 처리를 제거하여 [튜토리얼 앱을 활성화](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)합니다.
+- [Debug Tutorial Code](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
+- [Enable the tutorial app](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board) by ensuring the MAVLink debug app (**CONFIG_EXAMPLES_PX4_MAVLINK_DEBUG**) is in the config of your board and set set to 'y'.
 
-디버그 게시를 설정에 필요한 것은 아래의 코드입니다. 먼저 헤더 파일을 추가합니다.
+디버그 게시를 설정에 필요한 것은 아래의 코드입니다.
+먼저 헤더 파일을 추가합니다.
 
 ```C
 #include <uORB/uORB.h>
@@ -29,7 +33,8 @@ MAVLink 디버그 메시지는 uORB 주제로/에서 번역됩니다. MAVLink �
 #include <string.h>
 ```
 
-그런 다음 디버그 값 주제를 광고합니다(공개된 다른 이름에 대해 하나의 광고로 충분함). 이 코드를 메인 루프 앞에 추가합니다.
+그런 다음 디버그 값 주제를 광고합니다(공개된 다른 이름에 대해 하나의 광고로 충분함).
+이 코드를 메인 루프 앞에 추가합니다.
 
 ```C
 /* advertise debug value */
@@ -53,13 +58,13 @@ Multiple debug messages must have enough time between their respective publishin
 
 QGroundControl의 결과는 실시간 플롯에서 다음과 같습니다.
 
-![QGC 디버그값 플롯](../../assets/gcs/qgc-debugval-plot.jpg)
+![QGC debugvalue plot](../../assets/gcs/qgc-debugval-plot.jpg)
 
 ## 튜토리얼: 문자열 / 부동 소수점 쌍 수신
 
-다음 코드는 이전 튜토리얼에서 전송된 `velx` 디버그 변수를 수신하는 방법을 설명합니다.
+The following code snippets show how to receive the `velx` debug variable that was sent in the previous tutorial.
 
-먼저 `debug_key_value` 주제를 구독하십시오.
+First, subscribe to the topic `debug_key_value`:
 
 ```C
 #include <poll.h>
@@ -85,7 +90,7 @@ while (true) {
     [...]
 ```
 
-`debug_key_value` 주제에서 새 메시지를 사용할 수 있는 경우 `velx`와 다른 키를 가진 메시지를 삭제하기 위하여, 키 속성을 기준으로 메시지를 필터링하는 것을 잊지 마십시오.
+When a new message is available on the `debug_key_value` topic, do not forget to filter it based on its key attribute in order to discard the messages with key different than `velx`:
 
 ```C
     [...]

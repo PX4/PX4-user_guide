@@ -4,13 +4,14 @@ QuadPlane VTOL Fun Cub є стандартним повітряним судно
 
 Основна Інформація:
 
-- **Каркас:** Multiplex FunCub
-- **Контролер польоту:** Pixhawk
+- **Frame:** Multiplex FunCub
+- **Flight controller:** Pixhawk
 
 ![Fun Cub VTOL](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_vtol_complete.jpg)
 
-Без змін, Fun Cub - це відносно доступний літак і відносно легкий у польоті. Після конвертації літак стає значно важчим і менш аеродинамічним. Він все ще досить добре літає, але потребує близько 75% газу у польоті вперед.
-
+Без змін, Fun Cub - це відносно доступний літак і відносно легкий у польоті.
+Після конвертації літак стає значно важчим і менш аеродинамічним.
+Він все ще досить добре літає, але потребує близько 75% газу у польоті вперед.
 
 ## Специфікація матеріалів
 
@@ -29,45 +30,46 @@ QuadPlane VTOL Fun Cub є стандартним повітряним судно
 - Алюмінієва рама для кріплення двигунів квадрокоптера (квадратна труба 10х10 мм, стінка 1 мм)
 - TOW важить ~2.3кг з батареєю 4S на 4200mAh
 
-
 ## Структура
 
 Структура виготовлена з алюмінієвих стрижнів, як показано нижче.
 
-![quad_frame](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol.jpg) ![Fun Cub -frame for vtol mounted](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
+![quad\_frame](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol.jpg)
+![Fun Cub -frame for vtol mounted](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
 
 ## Підключення
 
-Проводка двигуна та сервоприводу практично взагалі залежить від вас, але повинна відповідати конфігурації [Загального стандартного VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), як показано в посиланні на конструкцію корпусу. Геометрія та призначення виводу можуть бути налаштовані в [Конфігурації приводів](../config/actuators.md#actuator-outputs)
+Motor and servo wiring is nearly entirely up to you, but should match the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) configuration, as shown in the airframe reference.
+The geometry and output assignment can be configured in the [Actuators Configuration](../config/actuators.md#actuator-outputs)
 
 Наприклад, ви можете з’єднати його так, як у цьому прикладі (орієнтація як у "сидячи в літаку"):
 
-
-| Порт   | Підключення                 |
-| ------ | --------------------------- |
+| Порт   | Підключення                                    |
+| ------ | ---------------------------------------------- |
 | MAIN 1 | Передній правий мотор (CCW) |
 | MAIN 2 | Задній лівий мотор (CCW)    |
 | MAIN 3 | Передній лівий мотор (CW)   |
 | MAIN 4 | Правий задній мотор (CW)    |
-| AUX 1  | Лівий елерон TODO           |
-| AUX 2  | Правий елерон               |
-| AUX 3  | Elevator                    |
-| AUX 4  | Rudder                      |
-| AUX 5  | Тяга                        |
+| AUX 1  | Лівий елерон TODO                              |
+| AUX 2  | Правий елерон                                  |
+| AUX 3  | Elevator                                       |
+| AUX 4  | Rudder                                         |
+| AUX 5  | Тяга                                           |
 
-Для подальших інструкцій щодо проводки та конфігурацій дивіться: [Стандартна Проводка та Налаштування VTOL](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
+For further instructions on wiring and configurations please see:
+[Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
 
 ## Конфігурація планера
 
-1. Для [планера](../config/airframe.md) виберіть групу/тип транспортного засобу як *Standard VTOL* та конкретний транспортний засіб як [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), як показано нижче (не забудьте натиснути **Застосувати та перезапустити** зверху).
+1. For [Airframe](../config/airframe.md) select the vehicle group/type as _Standard VTOL_ and the specific vehicle as [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) as shown below (do not forget to click **Apply and Restart** in the top).
 
    ![QCG - Select Generic Standard VTOL](../../assets/qgc/setup/airframe/px4_frame_generic_standard_vtol.png)
 
-1. Налаштуйте виводи та геометрію, дотримуючись інструкцій у [Налаштування приводів](../config/actuators.md)
-1. За замовчуванням параметри часто достатні для стабільного польоту. Для отримання докладнішої інформації з настройки дивіться [Стандартна Проводка та Налаштування VTOL](../config_vtol/vtol_quad_configuration.md).
+2. Configure the outputs and geometry following the instructions in [Actuators Configuration](../config/actuators.md)
+
+3. За замовчуванням параметри часто достатні для стабільного польоту. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md).
 
 Після завершення калібрування, VTOL готовий до польоту.
-
 
 ## Відео
 
@@ -75,5 +77,4 @@ QuadPlane VTOL Fun Cub є стандартним повітряним судно
 
 ## Підтримка
 
-Якщо у вас виникли запитання щодо перетворення або конфігурації VTOL, зайдіть на <https://discuss.px4.io/c/px4/vtol>.
-
+If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.

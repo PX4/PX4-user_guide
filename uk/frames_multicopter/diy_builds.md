@@ -2,7 +2,7 @@
 
 Саморобні (DIY) збірки описують, як скласти транспортний засіб з частин, які закуповуються окремо.
 
-::: info
+:::info
 [Kits](../frames_multicopter/kits.md) provide a gentler introduction to building a drone, and should be considered if you are just starting out!
 
 Зверніть увагу, що деякі частини, які використовуються в збірках, посилання на які подано нижче, можуть бути вже недоступні.

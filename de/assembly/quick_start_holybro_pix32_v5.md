@@ -36,7 +36,8 @@ _Pix32 v5_ should be mounted on the frame positioned as close to your vehicle’
 
 :::tip
 The board has internal vibration-isolation.
-Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
+:::tip
+The board has internal vibration-isolation.
 :::
 
 ## GPS + Compass + Buzzer + Safety Switch + LED

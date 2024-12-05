@@ -42,7 +42,7 @@ Order this module from:
   - Debug (SWD, UART Console)
   - MicroSD slot for data storage
 
-### Sensors
+### センサー
 
 - 2x ICM-42688-P Accelerometer/Gyroscope (includes Heater)
 - PAW3902 Optical Flow Sensor

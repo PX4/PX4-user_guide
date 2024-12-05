@@ -1,7 +1,8 @@
 # Modules Reference: Ins (Driver)
-## vectornav
-Джерело: [drivers/ins/vectornav](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/ins/vectornav)
 
+## vectornav
+
+Source: [drivers/ins/vectornav](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/ins/vectornav)
 
 ### Опис
 
@@ -14,10 +15,13 @@
 ### Приклади
 
 Спроба запустити драйвер на вказаному послідовному пристрої.
+
 ```
 vectornav start -d /dev/ttyS1
 ```
-Зупинити драйвер
+
+Stop driver
+
 ```
 vectornav stop
 ```
@@ -25,6 +29,7 @@ vectornav stop
 <a id="vectornav_usage"></a>
 
 ### Використання
+
 ```
 vectornav <command> [arguments...]
  Commands:

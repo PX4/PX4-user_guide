@@ -166,7 +166,7 @@ _MR-VMU-RT1176_ connectors (following [Pixhawk Connector Standard](https://githu
 ![MR-VMU-RT1176 Leftside Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_left.jpg)
 ![MR-VMU-RT1176 Rightside Image](../../assets/flight_controller/nxp_mr-vmu-rt1176/mr-vmu-rt1176_right.jpg)
 
-For more information see:
+それぞれの詳細は以下を参照ください：
 
 - [NXP MR-VMU-RT1176 Baseboard Connections](https://nxp.gitbook.io/vmu-rt1176/production-v1-carrier-board-connectors) (nxp.gitbook.io)
 

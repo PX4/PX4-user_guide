@@ -1,6 +1,7 @@
 # DroneCAN Development
 
-::: info This article is a stub.
+:::info
+This article is a stub.
 
 Additional documentation on how to use Babel/other SLCAN adapters, the DroneCAN GUI tool, and PX4's upcoming slcan passthrough is coming soon.
 :::

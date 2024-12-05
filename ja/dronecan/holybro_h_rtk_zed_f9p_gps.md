@@ -2,7 +2,7 @@
 
 The [H-RTK ZED-F9P Rover](https://holybro.com/collections/h-rtk-gps/products/h-rtk-zed-f9p-rover) RTK GNSS is an upgraded version of the original [H-RTK F9P Rover](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md).
 
-::: tip
+:::tip
 This topic covers the [DroneCAN](../dronecan/#enabling-dronecan) variant of the module.
 
 Variants of this module also exist with connectors for the `GPS1` and `GPS2 UART` ports.
@@ -27,7 +27,7 @@ The high-precision PNI RM3100 compass ensures accurate orientation and stability
 
 ## Hardware Specifications
 
-- Sensors
+- センサー
   - Ublox ZED-F9P GPS
     - Centimetre-level accuracy RTK positioning
     - IP66 Dust and Water Resistant

@@ -4,7 +4,7 @@ Flight modes provide autopilot support to make it easier to manually fly the veh
 
 This topic provides an overview of the available flight modes for multicopters and helicopters.
 
-## Overview
+## 综述
 
 Flight Modes are either _manual_ or _autonomous_.
 Manual modes provide different levels of autopilot support when flying manually (using RC control sticks or a joystick), while _autonomous_ modes can be fully controlled by the autopilot.
@@ -18,8 +18,9 @@ Manual-Easy:
   This is primarily used to temporarily limit speed when flying near obstacles, or when required by regulation.
 - [Altitude mode](../flight_modes_mc/altitude.md) — Easiest and safest _non-GPS_ manual mode.
   The main difference when compared to _Position mode_ is that when the sticks are released the vehicle will level and maintain altitude, but there is no active breaking or holding of horizontal position (the vehicle moves with it's current momentum and drifts with wind).
-- [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) — Releasing the sticks levels and maintains the vehicle horizontal posture (but not altitude or position).
+- [Stabilized mode](../flight_modes_mc/manual_stabilized.md) — Releasing the sticks levels and maintains the vehicle horizontal posture (but not altitude or position).
   The vehicle will continue to move with momentum, and both altitude and horizontal position may be affected by wind.
+  This mode is also used if "Manual mode" is selected in a ground station.
 
 Manual-Acrobatic
 
@@ -47,9 +48,10 @@ PX4 will not allow transitions to those modes until the right conditions are met
 
 Select the mode-specific sidebar topics for more detailed technical information.
 
-## Further Information
+## 更多信息
 
 - [Basic Configuration > Flight Modes](../config/flight_mode.md) - How to map RC control switches to specific flight modes
 - [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/index.md)
-- [Flight Modes (Rover)](../flight_modes_rover/index.md)
+- [Drive Modes (Differential Rover)](../flight_modes_rover/differential.md)
+- [Drive Modes (Ackermann Rover)](../flight_modes_rover/ackermann.md)

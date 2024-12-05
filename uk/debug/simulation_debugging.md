@@ -39,14 +39,16 @@ make px4_sitl_default gazebo-classic
 make px4_sitl_default jmavsim
 ```
 
-Для Gazebo Classic (тільки) ви також можете запустити симулятор з прикріпленим відладчиком. Зверніть увагу, що ви повинні вказати тип транспортного засобу в цільовому симуляторі, як показано нижче:
+Для Gazebo Classic (тільки) ви також можете запустити симулятор з прикріпленим відладчиком.
+Зверніть увагу, що ви повинні вказати тип транспортного засобу в цільовому симуляторі, як показано нижче:
 
 ```sh
 make px4_sitl_default gazebo-classic_iris_gdb
 make px4_sitl_default gazebo-classic_iris_lldb
 ```
 
-Це запустить відлагоджувач та запустить додаток SITL з Gazebo та симулятором Iris. Для того щоб увійти в оболонку відладки та зупинити виконання, натисніть `CTRL-C`:
+Це запустить відлагоджувач та запустить додаток SITL з Gazebo та симулятором Iris.
+In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
 
 ```sh
 Process 16529 stopped
@@ -60,7 +62,7 @@ libsystem_kernel.dylib`__read_nocancel:
 (lldb)
 ```
 
-Щоб не дозволити плануванню DriverFrameworks втручатися у сеанс налагодження, `SIGCONT` повинен бути замаскований у LLDB та GDB:
+In order to not have the DriverFrameworks scheduling interfere with the debugging session `SIGCONT` should be masked in LLDB and GDB:
 
 ```sh
 (lldb) process handle SIGCONT -n false -p false -s false
@@ -83,7 +85,7 @@ make px4_sitl_default gazebo-classic_iris_gdb
 еквівалентний з
 
 ```sh
-make px4_sitl_default   # Configure with cmake
+make px4_sitl_default	# Configure with cmake
 make -C build/px4_sitl_default classic_iris_gdb
 ```
 
@@ -95,7 +97,7 @@ make help
 
 ## Прикріплення GDB до запущеного SITL
 
-Ви також можете розпочати симуляцію, а _потім_ прикріпити `gdb`:
+You can also start your simulation, and _then_ attach `gdb`:
 
 1. У одному термінальному вікні введіть команду для запуску вашої симуляції:
 
@@ -103,7 +105,8 @@ make help
    make px4_sitl_default gazebo-classic
    ```
 
-   Під час виконання сценарію зверніть увагу на вихідний текст **SITL COMMAND:**, розташований праворуч від великого тексту "PX4". Він перерахує місце розташування вашого файлу px4 bin для подальшого використання.
+   As the script runs, note the **SITL COMMAND:** output text located right above the large "PX4" text.
+   Він перерахує місце розташування вашого файлу px4 bin для подальшого використання.
 
    ```sh
    SITL COMMAND: "<px4 bin file>" "<build dir>"/etc
@@ -169,9 +172,12 @@ make help
 
 ## Оптимізація компілятора
 
-Можливо приглушити оптимізацію компілятора для вказаних виконуваних файлів та/або модулів (доданих за допомогою cmake з `add_executable` або `add_library`) при налаштуванні для `posix_sitl_*`. Це може бути зручним, коли необхідно пройтися по коду з відлагоджувачем або роздрукувати змінні, які інакше були б оптимізовані.
+It is possible to suppress compiler optimization for given executables and/or modules (as added by cmake with `add_executable` or `add_library`) when configuring
+for `posix_sitl_*`.
+Це може бути зручним, коли необхідно пройтися по коду з відлагоджувачем або роздрукувати змінні, які інакше були б оптимізовані.
 
-Для цього встановіть змінну середовища `PX4_NO_OPTIMIZATION` як список регулярних виразів, розділених крапкою з комою, які відповідають цілям, які потрібно компілювати без оптимізації. Ця змінна середовища ігнорується, коли конфігурація не є `posix_sitl_*`.
+To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization.
+This environment variable is ignored when the configuration isn't `posix_sitl_*`.
 
 Наприклад,
 

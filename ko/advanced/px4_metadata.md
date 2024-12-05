@@ -47,7 +47,7 @@ Binaries for flight controller targets with constrained memory do not store the 
 This applies, for example, to the [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md).
 The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into main).
 
-::: info
+:::info
 You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
 
 If doing custom development on a FLASH-constrained board you can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
@@ -80,7 +80,7 @@ The following diagram shows how actuator metadata is assembled from the source c
   There is also [schema file](https://github.com/mavlink/mavlink/blob/master/component_metadata/actuators.schema.json) for this.
 - **Right**: At runtime, the JSON file is requested by QGroundControl via MAVLink Component Metadata API (described above).
 
-## Further Information
+## 추가 정보
 
 - [Parameters & Configurations](../advanced/parameters_and_configurations.md)
 - [Events Interface](../concept/events_interface.md)

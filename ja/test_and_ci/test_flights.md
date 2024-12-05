@@ -19,7 +19,8 @@ For significant changes to the system you should also run general flight tests u
 
 ## Test Cards
 
-These test cards define "standard" flight tests. These are run by the test team as part of release testing, and for more significant system changes.
+These test cards define "standard" flight tests.
+These are run by the test team as part of release testing, and for more significant system changes.
 
 - [MC_01 - Manual modes](../test_cards/mc_01_manual_modes.md)
 - [MC_02 - Full Autonomous](../test_cards/mc_02_full_autonomous.md)

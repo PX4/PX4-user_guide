@@ -1,6 +1,8 @@
 # ULog File Format
 
-ULog is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged. This document is meant to be the ULog File Format Spec Documentation. It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
+ULog is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged.
+This document is meant to be the ULog File Format Spec Documentation.
+It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
 
 PX4 uses ULog to log uORB topics as messages related to (but not limited to) the following sources:
 
@@ -14,21 +16,22 @@ The format uses [little endian](https://en.wikipedia.org/wiki/Endianness) memory
 
 The following binary types are used for logging. They all correspond to the types in C.
 
-| Type                | Size in Bytes |
-| ------------------- | ------------- |
+| Type                                                        | Size in Bytes |
+| ----------------------------------------------------------- | ------------- |
 | int8_t, uint8_t   | 1             |
 | int16_t, uint16_t | 2             |
 | int32_t, uint32_t | 4             |
 | int64_t, uint64_t | 8             |
-| float               | 4             |
-| double              | 8             |
-| bool, char          | 1             |
+| float                                                       | 4             |
+| double                                                      | 8             |
+| bool, char                                                  | 1             |
 
 Additionally the types can be used as a fixed-size array: e.g. `float[5]`.
 
 Strings (`char[length]`) do not contain the termination NULL character `'\0'` at the end.
 
-::: info String comparisons are case sensitive, which should be taken into account when comparing message names when [adding subscriptions](#a-subscription-message).
+:::info
+String comparisons are case sensitive, which should be taken into account when comparing message names when [adding subscriptions](#a-subscription-message).
 :::
 
 ## ULog File Structure
@@ -76,7 +79,8 @@ struct message_header_s {
 - `msg_size` is the size of the message in bytes without the header.
 - `msg_type` defines the content, and is a single byte.
 
-::: info Message sections below are prefixed with the character that corresponds to it's `msg_type`.
+:::info
+Message sections below are prefixed with the character that corresponds to it's `msg_type`.
 :::
 
 ### Definitions Section
@@ -94,7 +98,8 @@ The message types in this section are:
 
 #### 'B': Flag Bits Message
 
-::: info This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
+:::info
+This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
 :::
 
 This message provides information to the log parser whether the log is parsable or not.
@@ -113,15 +118,23 @@ struct ulog_message_flag_bits_s {
   - These flags indicate the presence of features in the log file that are compatible with any ULog parser.
   - `compat_flags[0]`: _DEFAULT_PARAMETERS_ (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
 
-  The rest of the bits are currently not defined and must be set to 0. These bits can be used for future ULog changes that are compatible with existing parsers. For example, adding a new message type can be indicated by defining a new bit in the standard, and existing parsers will ignore the new message type. It means parsers can just ignore the bits if one of the unknown bits is set.
+  The rest of the bits are currently not defined and must be set to 0.
+  These bits can be used for future ULog changes that are compatible with existing parsers.
+  For example, adding a new message type can be indicated by defining a new bit in the standard, and existing parsers will ignore the new message type.
+  It means parsers can just ignore the bits if one of the unknown bits is set.
 
 - `incompat_flags`: incompatible flag bits.
 
   - `incompat_flags[0]`: _DATA_APPENDED_ (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
 
-  The rest of the bits are currently not defined and must be set to 0. This can be used to introduce breaking changes that existing parsers cannot handle. For example, when an old ULog parser that didn't have the concept of _DATA_APPENDED_ reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts. If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
+  The rest of the bits are currently not defined and must be set to 0.
+  This can be used to introduce breaking changes that existing parsers cannot handle. For example, when an old ULog parser that didn't have the concept of _DATA_APPENDED_ reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts.
+  If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
 
-- `appended_offsets`: File offset (0-based) for appended data. If no data is appended, all offsets must be zero. This can be used to reliably append data for logs that may stop in the middle of a message. For example, crash dumps.
+- `appended_offsets`: File offset (0-based) for appended data.
+  If no data is appended, all offsets must be zero.
+  This can be used to reliably append data for logs that may stop in the middle of a message.
+  For example, crash dumps.
 
   A process appending data should do:
 
@@ -129,7 +142,9 @@ struct ulog_message_flag_bits_s {
   - set the first `appended_offsets` that is currently 0 to the length of the log file without the appended data, as that is where the new data will start
   - append any type of messages that are valid for the Data section.
 
-It is possible that there are more fields appended at the end of this message in future ULog specifications. This means a parser must not assume a fixed length of this message. If the `msg_size` is bigger than expected (currently 40), any additional bytes must be ignored/discarded.
+It is possible that there are more fields appended at the end of this message in future ULog specifications.
+This means a parser must not assume a fixed length of this message.
+If the `msg_size` is bigger than expected (currently 40), any additional bytes must be ignored/discarded.
 
 #### 'F': Format Message
 
@@ -146,7 +161,8 @@ struct message_format_s {
   - There can be an arbitrary amount of fields (minimum 1), separated by `;`.
   - `message_name`: an arbitrary non-empty string with these allowed characters: `a-zA-Z0-9_-/` (and different from any of the [basic types](#data-types)).
 
-A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported). `field_name` must consist of the characters in the set `a-zA-Z0-9_`.
+A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported).
+`field_name` must consist of the characters in the set `a-zA-Z0-9_`.
 
 A `type` is one of the [basic binary types](#data-types) or a `message_name` of another format definition (nested usage).
 
@@ -185,7 +201,7 @@ struct ulog_message_info_header_s {
 - `key`: Contains the key string in the form`type name`, e.g. `char[value_len] sys_toolchain_ver`. Valid characters for the name: `a-zA-Z0-9_-/`. The type may be one of the [basic types including arrays](#data-types).
 - `value`: Contains the data (with the length `value_len`) corresponding to the `key` e.g. `9.4.0`.
 
-::: info
+:::info
 A key defined in the Information message must be unique. Meaning there must not be more than one definition with the same key value.
 :::
 
@@ -193,26 +209,27 @@ Parsers can store information messages as a dictionary.
 
 Predefined information messages are:
 
-| key                                 | Description                                 | Example for value  |
-| ----------------------------------- | ------------------------------------------- | ------------------ |
-| `char[value_len] sys_name`          | Name of the system                          | "PX4"              |
-| `char[value_len] ver_hw`            | Hardware version (board)                    | "PX4FMU_V4"        |
-| `char[value_len] ver_hw_subtype`    | Board subversion (variation)                | "V2"               |
-| `char[value_len] ver_sw`            | Software version (git tag)                  | "7f65e01"          |
-| `char[value_len] ver_sw_branch`     | git branch                                  | "master"           |
-| `uint32_t ver_sw_release`           | Software version (see below)                | 0x010401ff         |
-| `char[value_len] sys_os_name`       | Operating System Name                       | "Linux"            |
-| `char[value_len] sys_os_ve`r        | OS version (git tag)                        | "9f82919"          |
-| `uint32_t ver_os_release`           | OS version (see below)                      | 0x010401ff         |
-| `char[value_len] sys_toolchain`     | Toolchain Name                              | "GNU GCC"          |
-| `char[value_len] sys_toolchain_ver` | Toolchain Version                           | "6.2.1"            |
-| `char[value_len] sys_mcu`           | Chip name and revision                      | "STM32F42x, rev A" |
-| `char[value_len] sys_uuid`          | Unique identifier for vehicle (eg. MCU ID)  | "392a93e32fa3"...  |
-| `char[value_len] log_type`          | Type of the log (full log if not specified) | "mission"          |
-| `char[value_len] replay`            | File name of replayed log if in replay mode | "log001.ulg"       |
-| `int32_t time_ref_utc`              | UTC Time offset in seconds                  | -3600              |
+| key                                 | Description                                                                   | Example for value                                                 |
+| ----------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `char[value_len] sys_name`          | Name of the system                                                            | "PX4"                                                             |
+| `char[value_len] ver_hw`            | Hardware version (board)                                   | "PX4FMU_V4"                                  |
+| `char[value_len] ver_hw_subtype`    | Board subversion (variation)                               | "V2"                                                              |
+| `char[value_len] ver_sw`            | Software version (git tag)                                 | "7f65e01"                                                         |
+| `char[value_len] ver_sw_branch`     | git branch                                                                    | "master"                                                          |
+| `uint32_t ver_sw_release`           | Software version (see below)                               | 0x010401ff                                                        |
+| `char[value_len] sys_os_name`       | Operating System Name                                                         | "Linux"                                                           |
+| `char[value_len] sys_os_ve`r        | OS version (git tag)                                       | "9f82919"                                                         |
+| `uint32_t ver_os_release`           | OS version (see below)                                     | 0x010401ff                                                        |
+| `char[value_len] sys_toolchain`     | Toolchain Name                                                                | "GNU GCC"                                                         |
+| `char[value_len] sys_toolchain_ver` | Toolchain Version                                                             | "6.2.1"                           |
+| `char[value_len] sys_mcu`           | Chip name and revision                                                        | "STM32F42x, rev A"                                                |
+| `char[value_len] sys_uuid`          | Unique identifier for vehicle (eg. MCU ID) | "392a93e32fa3"... |
+| `char[value_len] log_type`          | Type of the log (full log if not specified)                | "mission"                                                         |
+| `char[value_len] replay`            | File name of replayed log if in replay mode                                   | "log001.ulg"                                      |
+| `int32_t time_ref_utc`              | UTC Time offset in seconds                                                    | -3600                                                             |
 
-::: info `value_len` represents the data size of the `value`. This is described in the `key`.
+:::info
+`value_len` represents the data size of the `value`. This is described in the `key`.
 :::
 
 - The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is **major**, BB is **minor**, CC is patch and TT is the **type**.
@@ -277,7 +294,8 @@ struct ulog_message_parameter_default_header_s {
     - `1<<0`: system wide default
     - `1<<1`: default for the current configuration (e.g. an airframe)
 
-A log may not contain default values for all parameters. In those cases the default is equal to the parameter value, and different default types are treated independently.
+A log may not contain default values for all parameters.
+In those cases the default is equal to the parameter value, and different default types are treated independently.
 
 This message can also be used in the Data section, and the same data type and naming applies as for the Parameter message.
 
@@ -301,7 +319,8 @@ The message types in the _Data_ section are:
 
 #### `A`: Subscription Message
 
-Subscribe a message by name and give it an id that is used in [Logged data Message](#d-logged-data-message). This must come before the first corresponding [Logged data Message](#d-logged-data-message).
+Subscribe a message by name and give it an id that is used in [Logged data Message](#d-logged-data-message).
+This must come before the first corresponding [Logged data Message](#d-logged-data-message).
 
 ```c
 struct message_add_logged_s {
@@ -315,7 +334,8 @@ struct message_add_logged_s {
 - `multi_id`: the same message format can have multiple instances, for example if the system has two sensors of the same type. The default and first instance must be 0.
 - `msg_id`: unique id to match [Logged data Message](#d-logged-data-message) data. The first use must set this to 0, then increase it.
   - The same `msg_id` must not be used twice for different subscriptions.
-- `message_name`: message name to subscribe to. Must match one of the [Format Message](#f-format-message) definitions.
+- `message_name`: message name to subscribe to.
+  Must match one of the [Format Message](#f-format-message) definitions.
 
 #### `R`: Unsubscription Message
 
@@ -402,6 +422,7 @@ struct message_logging_tagged_s {
   ```
 
 - `timestamp`: in microseconds
+
 - `log_level`: same as in the Linux kernel:
 
 | Name    | Level value | Meaning                          |
@@ -458,7 +479,8 @@ A valid ULog parser must fulfill the following requirements:
 - Must ignore unknown messages (but it can print a warning)
 - Parse future/unknown file format versions as well (but it can print a warning).
 - Must refuse to parse a log which contains unknown incompatibility bits set (`incompat_flags` of [Flag Bits Message](#b-flag-bits-message)), meaning the log contains breaking changes that the parser cannot handle.
-- A parser must be able to correctly handle logs that end abruptly, in the middle of a message. The unfinished message should just be discarded.
+- A parser must be able to correctly handle logs that end abruptly, in the middle of a message.
+  The unfinished message should just be discarded.
 - For appended data: a parser can assume the Data section exists, i.e. the offset points to a place after the Definitions section.
   - Appended data must be treated as if it was part of the regular Data section.
 
@@ -477,7 +499,8 @@ A valid ULog parser must fulfill the following requirements:
 - [MAVGAnalysis](https://github.com/ecmnet/MAVGCL): Java, ULog streaming via MAVLink and parser for plotting and analysis.
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler): C++/Qt application to plot logs and time series. Supports ULog since version 2.1.3.
 - [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog reader and parser outputs log in JSON object format.
-- [Foxglove Studio](https://github.com/foxglove/studio): an integrated visualization and diagnosis tool for robotics (Typescript ULog parser: https://github.com/foxglove/ulog).
+- [Foxglove Studio](https://github.com/foxglove/studio): an integrated visualization and diagnosis tool for robotics
+  (Typescript ULog parser: https://github.com/foxglove/ulog).
 
 ## File Format Version History
 

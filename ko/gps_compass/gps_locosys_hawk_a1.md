@@ -2,7 +2,7 @@
 
 The [LOCOSYS HAWK A1 GPS/GNSS receiver](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) is a dual frequency multi-constellation GNSS/GPS receiver compatible with PX4.
 
-Main features include:
+주요 특징은 다음과 같습니다.
 
 - Concurrent reception of L1 and L5 band signals
 - Supports GPS, GLONASS,BEIDOU, GALILEO, QZSS
@@ -16,64 +16,66 @@ Main features include:
 
 ![Hawk A1](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
-## Where to Buy
+## 구매처
 
 - [LOCOSYS](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) (Taiwan)
 
-## Configuration
+## 설정
 
-You can use the Hawk A1 as either main (primary) or secondary GPS system. The PX4 parameters should be set as below for each case.
+You can use the Hawk A1 as either main (primary) or secondary GPS system.
+The PX4 parameters should be set as below for each case.
 
 ### Main GNSS
 
 To use the Hawk A1 your main GPS device:
 
-| Parameter                                                                    | Value                                          | Description                                                                             |
-| ---------------------------------------------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------- |
-| [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)     | 102 (Telem 2 or another available serial port) | Configure main GPS port                                                                 |
-| [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) | 1 (u-blox)                                     | Configure GPS protocol                                                                  |
-| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                         | Configure the serial port baudrate (here the GPS is connected to `TELEM2` for instance) |
+| 매개변수                                                                                                                 | Value                                                             | 설명                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)     | 102 (Telem 2 or another available serial port) | Configure main GPS port                                                                                    |
+| [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) | 1 (u-blox)                                     | Configure GPS protocol                                                                                     |
+| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                                            | Configure the serial port baudrate (here the GPS is connected to `TELEM2` for instance) |
 
 ### Secondary GNSS
 
 To use the Hawk A1 as an auxiliary GPS device (in addition to the main GPS):
 
-| Parameter                                                                    | Value                                          | Description                                                                           |
-| ---------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------- |
-| [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)     | 102 (Telem 2 or another available serial port) | Configure main GPS port                                                               |
-| [GPS_2_PROTOCOL](../advanced_config/parameter_reference.md#GPS_2_PROTOCOL) | 1 (u-blox)                                     | Configure GPS protocol                                                                |
-| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                         | Configure the serial port baudrate (here the GPS is connected to TELEM2 for instance) |
+| 매개변수                                                                                                                 | Value                                                             | 설명                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)     | 102 (Telem 2 or another available serial port) | Configure main GPS port                                                                                  |
+| [GPS_2_PROTOCOL](../advanced_config/parameter_reference.md#GPS_2_PROTOCOL) | 1 (u-blox)                                     | Configure GPS protocol                                                                                   |
+| [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)   | 230400                                                            | Configure the serial port baudrate (here the GPS is connected to TELEM2 for instance) |
 
-## Wiring and Connections
+## 배선
 
 The Locosys GPS comes with an 6-pin JST-GH Pixhawk-standard connector that can be inserted directly into either the GPS1 UART port (or GPS2 UART ports from Pixhawk FMUv5).
 
 ![GPS cable](../../assets/hardware/gps/locosys_hawk_a1/locosys_gps_cable.png)
 
-### Pinout
+### 핀배열
 
-The LOCOSYS GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
+The LOCOSYS GPS pinout is provided below.
+이것은 다른 자동조종보드용 커넥터를 수정할 수 있습니다.
 
-| pin | Locosys GPS | pin | Pixhawk GPS 2 |
-| --- | ----------- | --- | ------------- |
-| 1   | VCC_5V      | 1   | VCC           |
-| 2   | GPS_RX      | 2   | GPS_TX        |
-| 3   | GPS_TX      | 3   | GPS_RX        |
-| 4   | NC          | 4   | SDA           |
-| 5   | NC          | 5   | SCL           |
-| 6   | GND         | 6   | GND           |
+| 핀 | Locosys GPS                 | 핀 | Pixhawk GPS 2               |
+| - | --------------------------- | - | --------------------------- |
+| 1 | VCC_5V | 1 | VCC                         |
+| 2 | GPS_RX | 2 | GPS_TX |
+| 3 | GPS_TX | 3 | GPS_RX |
+| 4 | NC                          | 4 | SDA                         |
+| 5 | NC                          | 5 | SCL                         |
+| 6 | GND                         | 6 | GND                         |
 
 ## Status LEDs
 
-| Color | Name            | Description                        |
-| ----- | --------------- | ---------------------------------- |
-| Green | TX Indicator    | GNSS Data transmission             |
-| Red   | Power Indicator | Power                              |
-| Blue  | PPS             | Precise Positioning Service active |
+| 색상 | 명칭              | 설명                                 |
+| -- | --------------- | ---------------------------------- |
+| 녹색 | TX Indicator    | GNSS Data transmission             |
+| 빨강 | Power Indicator | 전원                                 |
+| 청색 | PPS             | Precise Positioning Service active |
 
 ![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
 
-## Specifications
+## 사양
 
 - **Receiver Type:** 135-channel LOCOSYS MC-1612-V2b engine, GPS/QZSS L1 C/A, L5C, GLONASS L1OF, BeiDou B1I, B2a Galileo:E1, E5a SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
 - **Navigation Update Rate:** Max: 5Hz default Max: 10 Hz
@@ -91,6 +93,6 @@ The LOCOSYS GPS pinout is provided below. This can be used to help modify the co
 - **Protocols & Interfaces:**
   - **UART/I2C:** JST_GH Main interface, Switch internally.
 
-## Further info
+## 추가 정보
 
 - [LOCOSYS GPS User Manual](https://www.locosystech.com/Templates/att/LU23031-V2%20datasheet_v0.2.pdf?lng=en)

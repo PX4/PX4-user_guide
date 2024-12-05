@@ -3,11 +3,14 @@
 <Badge type="info" text="Discontinued" />
 
 :::warning
-Польотний автопілот Snapdragon був [знятий з виробництва](../flight_controller/autopilot_experimental.md) і більше не є комерційно доступним. Для отримання інформації про те, як він використовується/використовувався, див. [PX4 Посібник користувача v1.11](https://docs.px4.io/v1.11/en/flight_controller/snapdragon_flight.html)
+The Snapdragon Flight Autopilot has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+For information about how it is/was used see [PX4 User Guide v1.11](https://docs.px4.io/v1.11/en/flight_controller/snapdragon_flight.html)
 
-PX4 не розробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://www.intrinsyc.com/) щодо підтримки апаратного забезпечення чи питань відповідності вимогам.
+PX4 не розробляє цей (або будь-який інший) автопілот.
+Contact the [manufacturer](https://www.intrinsyc.com/) for hardware support or compliance issues.
 :::
 
-Платформа _Qualcomm Snapdragon Flight_ - це висококласний автопілот / бортовий комп'ютер, який запускає стек PX4 Flight Stack на DSP в операційній системі реального часу QuRT з використанням [DSPAL API](https://github.com/ATLFlight/dspal) для сумісності з POSIX. У порівнянні з [Pixhawk](../flight_controller/pixhawk.md) він має камеру і WiFi, високу обчислювальну потужність і різні типи вводу-виводу.
+The _Qualcomm Snapdragon Flight_ platform is a high-end autopilot / onboard computer which runs the PX4 Flight Stack on the DSP on the QuRT real time operating system using the [DSPAL API](https://github.com/ATLFlight/dspal) for POSIX compatibility.
+In comparison to [Pixhawk](../flight_controller/pixhawk.md) it adds a camera and WiFi and high-end processing power, and different IO.
 
 ![Snapdragon Hero Doc](../../assets/hardware/snapdragon/hardware-snapdragon.jpg)

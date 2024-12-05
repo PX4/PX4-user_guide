@@ -1,6 +1,7 @@
 # DroneCAN ESCs
 
-PX4 supports DroneCAN compliant ESCs. For more information, see the following articles for specific hardware/firmware:
+PX4 supports DroneCAN compliant ESCs.
+For more information, see the following articles for specific hardware/firmware:
 
 - [PX4 Sapog ESC Firmware](sapog.md)
   - [Zubax Orel 20/21](zubax_orel.md)

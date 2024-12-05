@@ -1,10 +1,12 @@
 # ARK CANnode
 
-[ARK CANnode](https://arkelectron.com/product/ark-cannode/) is an open source generic [DroneCAN](../dronecan/index.md) node that includes a 6 degree of freedom IMU. Its main purpose is to enable the use of non-CAN sensors (I2C, SPI, UART) on the CAN bus. It also has PWM outputs to expand a vehicle's control outputs in quantity and physical distance.
+[ARK CANnode](https://arkelectron.com/product/ark-cannode/) is an open source generic [DroneCAN](../dronecan/index.md) node that includes a 6 degree of freedom IMU.
+Its main purpose is to enable the use of non-CAN sensors (I2C, SPI, UART) on the CAN bus.
+It also has PWM outputs to expand a vehicle's control outputs in quantity and physical distance.
 
 ![ARK CANnode](../../assets/hardware/can_nodes/ark_cannode.jpg)
 
-## Where to Buy
+## 购买渠道
 
 Order this module from:
 
@@ -13,7 +15,7 @@ Order this module from:
 ## Hardware Specifications
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_CANNODE)
-- Sensors
+- 传感器
   - Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
 - STM32F412CGU6 MCU
   - 1MB Flash
@@ -39,15 +41,17 @@ Order this module from:
   - 5V
   - Current dependent on connected peripherals
 
-## Hardware Setup
+## 硬件安装
 
-### Wiring
+### 布线
 
-The ARK CANnode is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
+The ARK CANnode is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
+For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
 ## Firmware Setup
 
-ARK CANnode runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](index.md#node-id-allocation).
+ARK CANnode runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md).
+As such, it supports firmware update over the CAN bus and [dynamic node allocation](index.md#node-id-allocation).
 
 ARK CANnode boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
@@ -60,7 +64,7 @@ ARK CANnode boards ship with recent firmware pre-installed, but if you want to b
 
 In order to use the ARK CANnode board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
-The steps are:
+步骤如下：
 
 - In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK CANnode CAN to the Pixhawk CAN.
@@ -79,11 +83,11 @@ This is done using the the parameters named like `UAVCAN_SUB_*` in the parameter
 
 On the ARK CANnode, you may need to configure the following parameters:
 
-| Parameter                                                                                       | Description                   |
-| ----------------------------------------------------------------------------------------------- | ----------------------------- |
+| 参数                                                                                                                   | 描述                                            |
+| -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
 
-## LED Meanings
+## LED含义
 
 You will see both red and blue LEDs on the ARK CANnode when it is being flashed, and a solid blue LED if it is running properly.
 

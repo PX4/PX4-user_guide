@@ -10,14 +10,14 @@ The [BetaFPV Beta75X](https://betafpv.com/products/beta75x-2s-whoop-quadcopter) 
 
 ![BetaFPV Beta75X](../../assets/hardware/betafpv_beta75x.jpg)
 
-## Where to Buy
+## 구매처
 
 The _Beta75X_ can be bought from a number of vendors, including:
 
 - [GetFPV](https://www.getfpv.com/beta75x-2s-brushless-whoop-micro-quadcopter-xt30-frsky.html)
 - [Amazon](https://www.amazon.com/BETAFPV-Beta75X-Brushless-Quadcopter-Smartaudio/dp/B07H86XSPW)
 
-In addition you will need:
+추가로 다음과 같은 것들이 필요합니다.
 
 - An RC transmitter. _Beta75X_ can ship with a number of receivers. PX4 is compatible with all of them, but make sure to select the version that matches your transmitter.
 - LiPo battery charger (vehicle ships with one battery, but you may want spares).
@@ -54,6 +54,6 @@ To install and configure PX4:
 - [Set the Airframe](../config/airframe.md) to _BetaFPV Beta75X 2S Brushless Whoop_.
 - Continue with [basic configuration](../config/index.md), including sensor calibration and radio setup.
 
-## Video
+## 비디오
 
 <lite-youtube videoid="_-O0kv0Qsh4" title="PX4 running on the BetaFPV Whoop"/>

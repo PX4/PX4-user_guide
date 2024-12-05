@@ -1,24 +1,26 @@
 # CUAV HV PM (High-Voltage модуль живлення)
 
-Модуль живлення CUAV<sup>&reg;</sup> *HV_PM* є модулем живлення "високого напруги", розробленим незалежно від CUAV.
+The CUAV<sup>&reg;</sup> _HV_PM_ power module is a "high voltage" power module independently developed by CUAV.
 
 :::tip
-*HV_PM* включено в комплект CUAV V5+/V5 nano kit, але також може бути продано окремо. Існують різні кабелі в залежності від контролера польоту (Pixhack v3, V5+/V5 nano, Pixhawk). Це може бути використано з іншими контролерами польоту, але вам може знадобитися змінити контактний пін.
+The _HV_PM_ is included in the CUAV V5+/V5 nano kit, but is also be sold separately.
+Існують різні кабелі в залежності від контролера польоту (Pixhack v3, V5+/V5 nano, Pixhawk).
+Це може бути використано з іншими контролерами польоту, але вам може знадобитися змінити контактний пін.
 :::
 
 ## Характеристики
 
-- **Вхідна напруга:** 10V-60V (3s~14s акумулятор)
-- **Точний монітор акумулятора:**
-  - **Точність вимірювання напруги:** +-0.1 В;
-  - **Точність вимірювання струму:** +-0.2 А
-- **Максимальний струм BEC (5В):** 5А
-- **Максимальний (виявлення) струм:** 60А
-- **Максимальний вихідний струм (ПОРТ ESC/MOTOR):** 60A
+- **Higher voltage input:** 10V-60V (3s~14s battery)
+- **Accurate battery monitor:**
+  - **Voltage detection accuracy:** +-0.1v;
+  - **Current detection accuracy:** +-0.2A
+- **BEC (5v) max current:** 5A
+- **Max (detection) current:** 60A
+- **Max output current (ESC/MOTOR PORT):** 60A
 
 ## Де купити
 
-[CUAV Інтернет-магазин](https://www.aliexpress.com/item/32841805115.html?spm=2114.12010615.8148356.1.64165998hPvTKQ)
+[CUAV aliexpress store](https://www.aliexpress.com/item/32841805115.html?spm=2114.12010615.8148356.1.64165998hPvTKQ)
 
 ## Схема розташування виводів
 
@@ -26,8 +28,9 @@
 
 ## Увімкнути HV PM
 
-[Налаштування оцінювання батареї](../config/battery.md) описує як налаштувати модуль акумулятора і живлення.
+[Battery Estimation Tuning](../config/battery.md) describes how to configure the battery and power module.
 
-Основні налаштування конфігурації для `HV_PM` є:
-- **Подільник напруги:** 18
-- **Ампери на вольт:** 24 A/V
+The key configuration settings for `HV_PM` are:
+
+- **Voltage divider:** 18
+- **Amps per volt:** 24 A/V

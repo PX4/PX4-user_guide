@@ -6,7 +6,7 @@
 [Камери MAVLink](../camera/mavlink_v2_camera.md), які використовують [Протокол камери MAVLink v2](https://mavlink.io/en/services/camera.html), рекомендовані.
 :::
 
-## Огляд
+## Загальний огляд
 
 PX4 може викликати [camera](../camera/index.md), підключену до виходів керування польотом за допомогою [команд камери](#mavlink-command-interface) в місіях або відправлений наземними станціями.
 Підтримувані команди є підмножиною тих, що визначені в MAVLink [Протоколі камери v1](https://mavlink.io/en/services/camera.html).
@@ -129,7 +129,7 @@ PX4 підтримує наступні команди MAVLink для камер
 
 Однак зверніть увагу, якщо вивід _ШІМ_ було використано для спуску камери (наприклад як у Seagull MAP2), уся група ШІМ не може бути використана для чого-небудь ще (ви не зможете використати інший вивід в групі для приводу, двигуна або захоплення камери, оскільки таймер вже використано).
 
-::: info
+:::info
 At time of writing triggering only works on FMU pins:
 
 - На контролері польоту Pixhawk, який має як FMU, так і плати вводу-виводу, контакти FMU призначені на виходи `AUX` (наприклад Pixhawk 4, CUAV v5+).
@@ -157,7 +157,7 @@ At time of writing triggering only works on FMU pins:
 
 Зверніть увагу, якщо _вивід ШІМ_ було використано як вхід захоплення камерою, уся група ШІМ не може бути використана для чого-небудь ще (ви не зможете використати інший вивід в групі для приводу, двигуна або спуску камери, оскільки таймер вже використано).
 
-::: info
+:::info
 At time of writing camera capture only works on FMU pins:
 
 - На контролері польоту Pixhawk, який має як FMU, так і плати вводу-виводу, контакти FMU призначені на виходи `AUX` (наприклад Pixhawk 4, CUAV v5+).
@@ -312,5 +312,5 @@ end
 
 ## Дивіться також
 
-- Тригер драйверу камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger)<!-- no module doc -->
+- Драйвер Тригера камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger) <!-- no module doc -->
 - Драйвер захоплення камери: [вихідний код](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture) <!-- no module doc -->

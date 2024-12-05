@@ -5,14 +5,16 @@
 PX4 项目使用三分支 Git 模型：
 
 - [main](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
-- [beta](https://github.com/PX4/PX4-Autopilot/tree/beta) 经过全面测试。 它是供飞行测试人员使用的。
-- [stable](https://github.com/PX4/PX4-Autopilot/tree/stable) 是最新发行版本。
+- [beta](https://github.com/PX4/PX4-Autopilot/tree/beta) has been thoroughly tested. 它是供飞行测试人员使用的。
+- [stable](https://github.com/PX4/PX4-Autopilot/tree/stable) points to the last release.
 
-We try to retain a [linear history through rebases](https://www.atlassian.com/git/tutorials/rewriting-history) and avoid the [Github flow](https://docs.github.com/en/get-started/quickstart/github-flow). 然而，由于全球团队和快速的发展，我们可能有时会进行合并。
+We try to retain a [linear history through rebases](https://www.atlassian.com/git/tutorials/rewriting-history) and avoid the [Github flow](https://docs.github.com/en/get-started/quickstart/github-flow).
+然而，由于全球团队和快速的发展，我们可能有时会进行合并。
 
-To contribute new functionality, [sign up for Github](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account), then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository, [create a new branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository), add your [changes as commits](#commits-and-commit-messages), and finally [send a pull request](#pull-requests). 更改将在通过我们的 [持续整合](https://en.wikipedia.org/wiki/Continuous_integration) 测试时合并。
+To contribute new functionality, [sign up for Github](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account), then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository, [create a new branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository), add your [changes as commits](#commits-and-commit-messages), and finally [send a pull request](#pull-requests).
+Changes will be merged when they pass our [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) tests.
 
-所有代码贡献都必须在许可的 [BSD 3 条款的许可证 ](https://opensource.org/licenses/BSD-3-Clause) 下进行，不得对其使用施加任何进一步的限制。
+All code contributions have to be under the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause) and all code must not impose any further constraints on the use.
 
 ## Code Style
 
@@ -20,7 +22,8 @@ PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppgui
 
 ::: info
 
-Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files. If you update an existing file you are not required to make the whole file comply with the style guide, just the code you've modified.
+Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files.
+If you update an existing file you are not required to make the whole file comply with the style guide, just the code you've modified.
 
 :::
 
@@ -89,7 +92,8 @@ PX4 developers are encouraged to create appropriate in-source documentation.
 
 ::: info
 
-Source-code documentation standards are not enforced, and the code is currently inconsistently documented. We'd like to do better!
+Source-code documentation standards are not enforced, and the code is currently inconsistently documented.
+We'd like to do better!
 
 :::
 
@@ -110,7 +114,8 @@ Currently we have two types of source-based documentation:
   - Do not add documentation that can trivially be inferred from C++ entity names.
   - ALWAYS specify units of variables, constants, and input/return parameters where they are defined.
   - Commonly you may want to add information about corner cases and error handling.
-  - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/events/send_event.h).
+  - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`.
+    A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/events/send_event.h).
 
 Please avoid "magic numbers", for example, where does this number in the conditional come from? What about the multiplier on yaw stick input?
 
@@ -146,24 +151,31 @@ else {
 
 ## Commits and Commit Messages
 
-Use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
+Use descriptive, multi-paragraph commit messages for all non-trivial changes.
+Structure them well so they make sense in the one-line summary but also provide full detail.
 
 ```plain
-组成部分：在一个句子中解释这一更改。 修复 #1234
+Component: Explain the change in one sentence. Fixes #1234
 
-将软件组件添加到摘要行的开头，或者通过模块名称或它的描述。
-(例如，"mc_att_ctrl" 或 "multicopter 姿态控制器")。
+Prepend the software component to the start of the summary
+line, either by the module name or a description of it.
+(e.g. "mc_att_ctrl" or "multicopter attitude controller").
 
-如果问题编号作为<Fixes #1234>添加，Github 将在提交合并到主分支时自动关闭问题。
+If the issue number is appended as <Fixes #1234>, Github
+will automatically close the issue when the commit is
+merged to the master branch.
 
-电文正文可以包含几个段落。
-详细描述您的变更。 链接问题和飞行日志或与此项提交的测试结果有关联。
+The body of the message can contain several paragraphs.
+Describe in detail what you changed. Link issues and flight
+logs either related to this fix or to the testing results
+of this commit.
 
-描述这个变化以及你为什么做了修改，而不是只有代码更改内容 (很好: "为低质量GPS 接收的车辆添加额外
-安全检查"。
-坏: "添加 gps_reception_check() 函数").
+Describe the change and why you changed it, avoid to
+paraphrase the code change (Good: "Adds an additional
+safety check for vehicles with low quality GPS reception".
+Bad: "Add gps_reception_check() function").
 
-已上报：名字 <email@px4.io>
+Reported-by: Name <email@px4.io>
 ```
 
 **Use **`git commit -s`** to sign off on all of your commits.** This will add `signed-off-by:` with your name and email as the last line.

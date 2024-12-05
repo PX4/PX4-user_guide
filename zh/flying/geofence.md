@@ -1,20 +1,23 @@
 # 地理围栏
 
-围栏是一个虚拟边界，用于定义机体可以在哪些地方行驶。 围栏可用于防止机体飞出遥控器的范围，或进入不安全或受限制的空域。
+围栏是一个虚拟边界，用于定义机体可以在哪些地方行驶。
+围栏可用于防止机体飞出遥控器的范围，或进入不安全或受限制的空域。
 
 PX4提供了两个独立的机制来指定围栏：
 
 - 一个是基本的“故障保护”地理围栏，定义了一个简单的圆柱体。
-- 可以使用围栏规划(*QGroundControl*)定义更复杂的几何图形。
+- More complicated geometries can be defined using a Geofence Plan (_QGroundControl_).
 
-地理围栏适用于所有模式，包括任务和手动飞行。
+:::info
+GeoFences apply in all modes, including both missions and manual flight.
 :::
 
 ## 故障保护地理围栏
 
-故障保护围栏定义了一个圆心在home点的圆柱，它具有指定的最大半径和高度。
+The [Geofence Failsafe](../config/safety.md#geofence-failsafe) defines a cylinder centered on the home position, with a specified maximum radius and altitude.
 
-设置中还包括越界时的故障保护动作。 可能只是一个警告通知，但更常见的是机体会立即[返回](../flight_modes/return.md)一个安全位置。
+设置中还包括越界时的故障保护动作。
+This may simply be a warning notification, but more commonly a vehicle will immediately [Return](../flight_modes/return.md) to a safe location.
 
 For more information see: [Safety > Geofence Failsafe](../config/safety.md#geofence-failsafe).
 
@@ -22,30 +25,35 @@ For more information see: [Safety > Geofence Failsafe](../config/safety.md#geofe
 
 PX4 支持由多个圆形和多边形区域组成的复杂地理围栏边界，这些区域可以定义为包含（禁出）或排除（禁入）区域。
 
-围栏被放置在*QGroundControl*与任务和集结并列。
+The Geofence is planned in _QGroundControl_ alongside the mission and rally points.
 
-![围栏规划](../../assets/qgc/plan_geofence/geofence_overview.jpg)
+![Geofence Plan](../../assets/qgc/plan_geofence/geofence_overview.jpg)
 
 Geofence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_geofence.html) (QGroundControl User Guide).
 
 总结：
 
 1. Open _QGroundControl > Plan View_.
-1. 选择 *规划类型* 单选按钮： **围栏**。 这将显示 *地理围栏编辑器*。 ![地理围栏规划](../../assets/qgc/plan_geofence/geofence_editor.jpg)
-1. 选择多边形围栏或圆形围栏按钮，可将添加所需基本类型的围栏到地图中。 这也在编辑器中增加了此类围栏的条目。
-1. 在地图上调整围栏的形状和位置。
+2. Select the _Plan Type_ radio button: **Fence**.
+   This will display the _GeoFence Editor_.
+   ![Geofence Plan](../../assets/qgc/plan_geofence/geofence_editor.jpg)
+3. Select the **Polygon Fence** or **Circular Fence** button to add a _basic_ fence of the desired type to the map.
+   这也在编辑器中增加了此类围栏的条目。
+4. 在地图上调整围栏的形状和位置。
    - 围栏中心的圆点可以用来调整围栏的位置。
    - 边界上的圆点可以用来调整半径。
-   - 角（顶点）上的圆点可以用来改变多边形的形状。 点击线段中间可以在两个顶点中添加新的顶点。
-1. *围栏编辑器*可以设置围栏是包含还是排除，还可以通过（**编辑**单选按钮）选择一个围栏来编辑或者通过（**删除**按钮）来删除。
-1. 可添加任意数量的围栏
-1. 完成后，点击(右上角) **上传** 按钮向车辆发送围栏(连同集结和任务)。
-1. 在围栏故障保护中设置越界动作。
+   - 角（顶点）上的圆点可以用来改变多边形的形状。
+     点击线段中间可以在两个顶点中添加新的顶点。
+5. Use the _Geofence Editor_ to set a fence as an inclusion or exclusion, and to select a fence to edit (**Edit** radio button) or Delete (**Del** button).
+6. 可添加任意数量的围栏
+7. Once finished, click on the **Upload** button (top right) to send the fence (along with rally points and mission) to the vehicle.
+8. Set the breach action in the [Geofence Failsafe](../config/safety.md#geofence-failsafe).
 
-::: info
+:::info
 Any geofence that does not include the Home position will be rejected by the flight controller and not uploaded.
 If the vehicle is flying, also any geofence that would immediately get breached after the upload is rejected.
 :::
 
-:::note PX4 实现了 MAVLink [微服务](https://mavlink.io/en/services/mission.html), 其中包括支持围栏.
+:::info
+PX4 implements the MAVLink [Mission microservice](https://mavlink.io/en/services/mission.html), which includes support for GeoFences.
 :::

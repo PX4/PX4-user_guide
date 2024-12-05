@@ -1,14 +1,16 @@
 # 3D Моделі OctoMap з ROS/Gazebo Classic
 
-[Бібліотека OctoMap](http://octomap.github.io/) - це бібліотека з відкритим кодом для генерації об'ємних моделей 3D середовища з даних датчиків. Дані цієї моделі потім можуть використовуватись дроном для навігації та уникнення перешкод.
+The [OctoMap library](http://octomap.github.io/) is an open source library for generating volumetric 3D environment models from sensor data.
+Дані цієї моделі потім можуть використовуватись дроном для навігації та уникнення перешкод.
 
-У цьому посібнику описано як використовувати _OctoMap_ з [Gazebo Classic](../sim_gazebo_classic/README.md) [Симулятором роторів](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator) та ROS.
+This guide covers how to use _OctoMap_ with the [Gazebo Classic](../sim_gazebo_classic/index.md) [Rotors Simulator](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator) and ROS.
 
 ## Встановлення
 
-Встановлення потребує ROS, [Gazebo Classic](../sim_gazebo_classic/README.md) та плагін симулятора роторів. Дотримуйтесь [інструкцій Симулятора роторів](https://github.com/ethz-asl/rotors_simulator) для встановлення.
+The installation requires ROS, [Gazebo Classic](../sim_gazebo_classic/index.md) and the Rotors Simulator plugin.
+Follow the [Rotors Simulator instructions](https://github.com/ethz-asl/rotors_simulator) to install.
 
-Далі - встановіть бібліотеку _OctoMap_:
+Next, install the _OctoMap_ library:
 
 ```sh
 sudo apt-get install ros-indigo-octomap ros-indigo-octomap-mapping
@@ -16,7 +18,7 @@ rosdep install octomap_mapping
 rosmake octomap_mapping
 ```
 
-Тепер відкрийте `~/catkin_ws/src/rotors_simulator/rotors_gazebo/CMakeLists.txt` та додайте наступні рядки в кінець файлу:
+Now, open `~/catkin_ws/src/rotors_simulator/rotors_gazebo/CMakeLists.txt` and add the following lines to the bottom of the file:
 
 ```sh
 find_package(octomap REQUIRED)
@@ -24,7 +26,7 @@ include_directories(${OCTOMAP_INCLUDE_DIRS})
 link_libraries(${OCTOMAP_LIBRARIES})
 ```
 
-Відкрийте `~/catkin_ws/src/rotors_simulator/rotors_gazebo/package.xml` та додайте наступні рядки:
+Open `~/catkin_ws/src/rotors_simulator/rotors_gazebo/package.xml` and add the following lines:
 
 ```xml
 <build_depend>octomap</build_depend>
@@ -33,8 +35,8 @@ link_libraries(${OCTOMAP_LIBRARIES})
 
 Виконайте наступні два рядки:
 
-::: info
-Перший зміню ваш редактор оболонки за замовчуванням на _gedit_. Це рекомендується для користувачів, які мають мало досвіду роботи з _vim_ (редактор за замовчування), в іншому випадку його можна опустити.
+:::info
+The first line changes your default shell editor to _gedit_. This is recommended for users who have little experience with _vim_ (the default editor), but can otherwise be omitted.
 :::
 
 ```sh
@@ -60,7 +62,8 @@ rosed octomap_server octomap_tracking_server.launch
 
 ## Запуск симуляції
 
-Виконайте наступні три рядки в _окремих_ терміналах. Це відкриє [Gazebo Classic](../sim_gazebo_classic/README.md), _Rviz_ та сервер octomap.
+Run the following three lines in _separate_ terminal windows.
+This opens up [Gazebo Classic](../sim_gazebo_classic/index.md), _Rviz_ and an octomap server.
 
 ```sh
 roslaunch rotors_gazebo mav_hovering_example_with_vi_sensor.launch  mav_name:=firefly
@@ -68,10 +71,11 @@ rviz
 roslaunch octomap_server octomap_tracking_server.launch
 ```
 
-У _Rviz_ змінить поле 'Fixed Frame' з 'map' на 'world' у верхній правій частині вікна. Тепер натисніть кнопку "Додати" в нижньому лівому куті та оберіть MarkerArray. Потім двічі натисніть на MarkerArray та змініть 'Marker Topic' з `/free_cells_vis_array` на `/occupied_cells_vis_array`.
+In _Rviz_, change the field 'Fixed Frame' from 'map' to 'world' in the top left of the window.
+Тепер натисніть кнопку "Додати" в нижньому лівому куті та оберіть MarkerArray. Then double click the MarkerArray and change 'Marker Topic' from `/free_cells_vis_array` to `/occupied_cells_vis_array`.
 
 Тепер ви повинні побачити частину підлоги.
 
-У вікні _Gazebo Classic_ вставте куб перед червоними роторами, який ви повинні побачити у _Rviz_.
+In the _Gazebo Classic_ window, insert a cube in front of the red rotors and you should see it in _Rviz_.
 
-![Приклад OctoMap в Gazebo](../../assets/simulation/gazebo_classic/octomap.png)
+![OctoMap Example in Gazebo](../../assets/simulation/gazebo_classic/octomap.png)

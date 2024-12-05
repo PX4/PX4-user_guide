@@ -1,12 +1,14 @@
 # 使用侦听器命令进行传感器/主题调试
 
-uORB 是用于进程间通信的异步 `publish()`/`subscribe()` 消息传递 API。 The `listener` command can be used from the _QGroundControl MAVLink Console_ to inspect topic (message) values, including the current values published by sensors.
+The uORB is an asynchronous `publish()` / `subscribe()` messaging API used for
+inter-thread/inter-process communication. The `listener` command can be used from the _QGroundControl MAVLink Console_ to inspect topic (message) values, including the current values published by sensors.
 
 :::tip
-This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying).
+这是一个非常实用的调试工具，应为它可以在QGC通过无线连接的时候使用（例如，当机体在飞行中）。
 :::
 
-::: info The `listener` command is also available through the [System Console](../debug/system_console.md) and the [MAVLink Shell](../debug/mavlink_shell.md).
+:::info
+The `listener` command is also available through the [System Console](../debug/system_console.md) and the [MAVLink Shell](../debug/mavlink_shell.md).
 :::
 
 :::tip

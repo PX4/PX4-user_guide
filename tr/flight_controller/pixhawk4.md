@@ -1,9 +1,12 @@
 # Holybro Pixhawk 4
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-_Pixhawk 4_<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 v1.7 and later, and is suitable for academic and commercial developers.
+_Pixhawk 4_<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
+It is optimized to run PX4 v1.7 and later, and is suitable for academic and commercial developers.
 
 It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
@@ -57,27 +60,30 @@ Order from [Holybro](https://holybro.com/products/pixhawk-4).
 ![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
 :::warning
-The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
+The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only.
+These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
 :::
 
 ## Pinouts
 
 Download _Pixhawk 4_ pinouts from [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf).
 
-::: info Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin). The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
+:::info
+Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
+The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
 :::
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | GPS                   |
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
+| UART1  | /dev/ttyS0 | GPS                                      |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
 | USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  | /dev/ttyS3 | TELEM4                |
-| USART6 | /dev/ttyS4 | RC SBUS               |
-| UART7  | /dev/ttyS5 | Debug Console         |
-| UART8  | /dev/ttyS6 | PX4IO                 |
+| UART4  | /dev/ttyS3 | TELEM4                                   |
+| USART6 | /dev/ttyS4 | RC SBUS                                  |
+| UART7  | /dev/ttyS5 | Debug Console                            |
+| UART8  | /dev/ttyS6 | PX4IO                                    |
 
 ## Dimensions
 
@@ -87,7 +93,9 @@ Download _Pixhawk 4_ pinouts from [here](https://cdn.shopify.com/s/files/1/0604/
 
 _Pixhawk 4_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-::: info The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::info
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
+You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 :::
 
 **Normal Operation Maximum Ratings**
@@ -95,15 +103,15 @@ _Pixhawk 4_ can be triple-redundant on the power supply if three power sources a
 Under these conditions all power sources will be used in this order to power the system:
 
 1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+2. **USB** input (4.75V to 5.25V)
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
 1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
+3. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
 ## Assembly/Setup
 
@@ -112,7 +120,8 @@ The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -125,11 +134,13 @@ make px4_fmu-v5_default
 
 ## Debug Port
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. In order to access these ports, the user must remove the _Pixhawk 4_ casing.
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port.
+In order to access these ports, the user must remove the _Pixhawk 4_ casing.
 
 ![Pixhawk 4 Debug Ports](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
 
-The pinout uses the standard [Pixhawk debug connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). For wiring information see:
+The pinout uses the standard [Pixhawk debug connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+For wiring information see:
 
 - [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port)
 
@@ -141,7 +152,8 @@ The pinout uses the standard [Pixhawk debug connector pinout](https://github.com
 
 ## Supported Platforms / Airframes
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## Further info
 

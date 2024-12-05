@@ -1,5 +1,5 @@
 ---
-frame: Multicopter
+frame: Мультикоптер
 title: Assembling a Multicopter
 newEditLink: en/assembly/_assembly.md
 ---

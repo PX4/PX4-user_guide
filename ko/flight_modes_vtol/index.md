@@ -15,6 +15,6 @@ For other flight modes see the vehicle-specific behaviour:
 - [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
 - [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
 
-## Further Information
+## 추가 정보
 
 - [Basic Configuration > Flight Modes](../config/flight_mode.md) - How to map RC control switches to specific flight modes

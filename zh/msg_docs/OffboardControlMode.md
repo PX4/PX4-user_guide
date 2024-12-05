@@ -2,18 +2,19 @@
 
 Offboard控制模式
 
-[源文件](https://github.com/PX4/PX4-Autopilot/blob/main/msg/OffboardControlMode.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/OffboardControlMode.msg)
 
 ```c
 # Off-board control mode
 
-uint64 timestamp        # time since system start (microseconds)
+uint64 timestamp		# time since system start (microseconds)
 
 bool position
 bool velocity
 bool acceleration
 bool attitude
 bool body_rate
-bool actuator
+bool thrust_and_torque
+bool direct_actuator
 
 ```

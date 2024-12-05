@@ -4,17 +4,17 @@
 
 Linux 사용자는 JTAG 프로그래밍 어댑터용 USB 버스에 대한 액세스를 허용하여야 합니다.
 
-:::note
-Archlinux의 경우: 다음 명령에서 그룹 plugdev를 uucp로 변경합니다.
+:::info
+For Archlinux: replace the group plugdev with uucp in the following commands
 :::
 
-`sudo` 모드에서 간단한 `ls`를 실행하여, 아래 명령이 실행되는 지 확인합니다.
+Run a simple `ls` in `sudo` mode to ensure the commands below succeed:
 
 ```sh
 sudo ls
 ```
 
-그런 다음 `sudo` 권한을 일시적으로 부여한 후에, 다음 명령을 실행합니다.
+Then with `sudo` rights temporarily granted, run this command:
 
 ```sh
 cat > $HOME/rule.tmp <<_EOF
@@ -29,7 +29,7 @@ sudo mv $HOME/rule.tmp /etc/udev/rules.d/10-px4.rules
 sudo /etc/init.d/udev restart
 ```
 
-사용자를 **plugdev** 그룹에 추가하여야 합니다.
+The user needs to be added to the group **plugdev**:
 
 ```sh
 sudo usermod -a -G plugdev $USER

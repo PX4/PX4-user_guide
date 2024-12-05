@@ -1,27 +1,31 @@
 # Надсилання та отримання дебажних значень
 
-Часто під час розробки програмного забезпечення необхідно виводити окремі важливі числа. Ось де відбувається використання загальних пакетів `NAMED_VALUE_FLOAT`, `DEBUG` та `DEBUG_VECT` у MAVLink.
+Часто під час розробки програмного забезпечення необхідно виводити окремі важливі числа.
+This is where the generic `NAMED_VALUE_FLOAT`, `DEBUG` and `DEBUG_VECT` packets of MAVLink come in.
 
 ## Відображення між Повідомленнями відлагодження MAVLink та Темами uORB
 
-Повідомлення для налагодження MAVLink перекладаються в/з тем uORB. Для того щоб надіслати або отримати відлагоджувальне повідомлення MAVLink, вам потрібно відповідно опублікувати або підписатися на відповідну тему. Ось таблиці, яка узагальнює відповідність між повідомленнями відладки MAVLink та темами uORB:
+Повідомлення для налагодження MAVLink перекладаються в/з тем uORB.
+Для того щоб надіслати або отримати відлагоджувальне повідомлення MAVLink, вам потрібно відповідно опублікувати або підписатися на відповідну тему.
+Ось таблиці, яка узагальнює відповідність між повідомленнями відладки MAVLink та темами uORB:
 
-| Повідомлення MAVLink | Тема uORB         |
-| -------------------- | ----------------- |
-| NAMED_VALUE_FLOAT  | debug_key_value |
-| DEBUG                | debug_value       |
-| DEBUG_VECT           | debug_vect        |
+| Повідомлення MAVLink                                        | Тема uORB                                                 |
+| ----------------------------------------------------------- | --------------------------------------------------------- |
+| NAMED_VALUE_FLOAT | debug_key_value |
+| DEBUG                                                       | debug_value                          |
+| DEBUG_VECT                             | debug_vect                           |
 
 ## Посібник: Надсилання Стрічок / Плаваючих пар
 
-Цей посібник показує, як надіслати повідомлення MAVLink `NAMED_VALUE_FLOAT`, використовуючи пов'язану тему uORB `debug_key_value`.
+This tutorial shows how to send the MAVLink message `NAMED_VALUE_FLOAT` using the associated uORB topic `debug_key_value`.
 
 Код для цього посібника доступний тут:
 
-- [Код відлагоджування](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
-- [Увімкніть додаток-посібник](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board), переконавшись, що додаток для відлагодження MAVLink (**CONFIG_EXAMPLES_PX4_MAVLINK_DEBUG**) знаходиться в конфігурації вашої плати та встановлений на 'y'.
+- [Debug Tutorial Code](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
+- [Enable the tutorial app](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board) by ensuring the MAVLink debug app (**CONFIG_EXAMPLES_PX4_MAVLINK_DEBUG**) is in the config of your board and set set to 'y'.
 
-Все необхідне для налаштування відлагодження публікації - це цей фрагмент коду. Спочатку додайте файл заголовка:
+Все необхідне для налаштування відлагодження публікації - це цей фрагмент коду.
+Спочатку додайте файл заголовка:
 
 ```C
 #include <uORB/uORB.h>
@@ -29,7 +33,8 @@
 #include <string.h>
 ```
 
-Потім рекламуйте тему значення налагодження (одна реклама для різних опублікованих назв достатня). Поставте це перед вашим головним циклом:
+Потім рекламуйте тему значення налагодження (одна реклама для різних опублікованих назв достатня).
+Поставте це перед вашим головним циклом:
 
 ```C
 /* advertise debug value */
@@ -47,7 +52,7 @@ orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 ```
 
 :::warning
-Декілька відлагоджувальних повідомлень повинні мати достатньо часу між їх відповідними публікаціями, щоб Mavlink міг їх обробити.
+Multiple debug messages must have enough time between their respective publishings for Mavlink to process them.
 Це означає, що код повинен чекати між публікацією кількох відлагоджувальних повідомлень або чергувати повідомлення при кожному виклику функції.
 :::
 
@@ -57,9 +62,9 @@ orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 
 ## Посібник: Отримання Стрічок / Плаваючих пар
 
-Наведені нижче уривки коду показують, як отримати змінну відлагодження `velx`, яка була відправлена в попередньому посібнику.
+The following code snippets show how to receive the `velx` debug variable that was sent in the previous tutorial.
 
-Спочатку підпишіться на тему `debug_key_value`:
+First, subscribe to the topic `debug_key_value`:
 
 ```C
 #include <poll.h>
@@ -85,7 +90,7 @@ while (true) {
     [...]
 ```
 
-Коли нове повідомлення доступне на темі `debug_key_value`, не забудьте фільтрувати його за атрибутом ключа, щоб відкинути повідомлення з ключем, відмінним від `velx`:
+When a new message is available on the `debug_key_value` topic, do not forget to filter it based on its key attribute in order to discard the messages with key different than `velx`:
 
 ```C
     [...]

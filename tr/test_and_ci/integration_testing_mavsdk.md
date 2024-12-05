@@ -2,7 +2,8 @@
 
 PX4 can be tested end to end to using integration tests based on [MAVSDK](https://mavsdk.mavlink.io).
 
-The tests are primarily developed against SITL and run in continuous integration (CI). In future we plan to generalise them for any platform/hardware.
+The tests are primarily developed against SITL and run in continuous integration (CI).
+In future we plan to generalise them for any platform/hardware.
 
 The instructions below explain how to setup and run the tests locally.
 
@@ -12,7 +13,8 @@ The instructions below explain how to setup and run the tests locally.
 
 If you haven't done so already:
 
-- Install the development toolchain for [Linux](../dev_setup/dev_env_linux_ubuntu.md) or [macOS](../dev_setup/dev_env_mac.md) (Windows not supported). [Gazebo Classic](../sim_gazebo_classic/index.md) is required, and should be installed by default.
+- Install the development toolchain for [Linux](../dev_setup/dev_env_linux_ubuntu.md) or [macOS](../dev_setup/dev_env_mac.md) (Windows not supported).
+  [Gazebo Classic](../sim_gazebo_classic/index.md) is required, and should be installed by default.
 - [Get the PX4 source code](../dev_setup/building_px4.md#download-the-px4-source-code):
 
   ```sh
@@ -76,7 +78,8 @@ optional arguments:
 
 ## Run a Single Test
 
-Run a single test by specifying the `model` and test `case` as command line options. For example, to test flying a tailsitter in a mission you might run:
+Run a single test by specifying the `model` and test `case` as command line options.
+For example, to test flying a tailsitter in a mission you might run:
 
 ```sh
 test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10 --model tailsitter --case 'Fly VTOL mission'
@@ -142,7 +145,8 @@ About to run 39 test cases for 3 selected models (1 iteration):
   - The [main](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/test_main.cpp) function to parse the arguments.
   - An abstraction around MAVSDK called [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.h).
   - The actual tests using the abstraction around MAVSDK as e.g. [test_multicopter_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/test_multicopter_mission.cpp).
-  - The tests use the [catch2](https://github.com/catchorg/Catch2) unit testing framework. The reasons for using this framework are:
+  - The tests use the [catch2](https://github.com/catchorg/Catch2) unit testing framework.
+    The reasons for using this framework are:
     - Asserts (`REQUIRE`) which are needed to abort a test can be inside of functions (and not just in the top level test as is [the case with gtest](https://github.com/google/googletest/blob/main/docs/advanced.md#assertion-placement)).
     - Dependency management is easier because _catch2_ can just be included as a header-only library.
     - _Catch2_ supports [tags](https://github.com/catchorg/Catch2/blob/devel/docs/test-cases-and-sections.md#tags), which allows for flexible composition of tests.

@@ -3,7 +3,8 @@
 <Badge type="tip" text="PX4 v1.15" /> <Badge type="warning" text="Experimental" />
 
 :::warning
-Experimental
+실험
+This feature was introduced in PX4 v1.15.
 
 - It has not yet been broadly tested on different vehicle configurations or scenarios.
 - The majority of testing has been done in position mode.
@@ -12,16 +13,16 @@ Experimental
 :::
 
 This feature allows a multicopter to be started by arming it from a fixed position and then throwing it into the air.
-The vehicle then turns on the motors and operates according to its current mode.
+The vehicle turns on the motors only after the launch is detected, and then operates according to its current mode.
 
-When throw launch is enabled, arming the vehicle does not cause the propellers to spin.
+When throw launch is enabled, the vehicle is initially armed in a "lockdown" state, in which the propellers do not spin.
 The propellors will not activate until the vehicle is thrown or is disarmed, and the arming tone will continue playing during this time.
 The vehicle will not automatically disarm after arming, and must be manually disarmed if you choose not to throw it.
 
 The vehicle detects that it has been thrown based on reaching a certain speed (5m/s), and then starts the motors at the apex of the throw (once it determines that it has started to fall).
 You need to throw the vehicle high enough so that it can stabilize its height well before falling anywhere near people or obstacles.
 
-Notes:
+참고:
 
 - The mode is disabled by default, and must be enabled using a [parameter](#parameters) before arming.
 - When enabled you cannot take off from the ground using the normal modes.
@@ -30,7 +31,7 @@ Notes:
   The reason for this is that the condition to start the motors depends on absolute speed of the multicopter and does not account for any additional movement.
   Trying to throw the drone from a moving platform might result in the motors being started prematurely.
 
-## Safety
+## 안전 설정
 
 :::warning
 Throw launch is dangerous as it requires the operator to hold an armed multicopter and be in proximity when it is flying.
@@ -86,7 +87,7 @@ The steps for a throw launch are:
      The exact meaning of "excessive rotation" depends on the platform: for instance, [PX4Vision](../complete_vehicles_mc/px4_vision_kit.md) used for the testing, still managed to recover after 2-3 full rotations.
 4. After a downward velocity is detected (the vehicle reaches its apex and starts falling down), the motors should turn on and the vehicle will start flying in the current mode.
 
-## Parameters
+## 매개변수
 
 The following parameters can be used to enable and configure throw launch:
 
@@ -97,3 +98,9 @@ The following parameters can be used to enable and configure throw launch:
 ## See Also
 
 - [Takeoff Mode (Fixed-Wing) > Catapult/Hand Launch](../flight_modes_fw/takeoff.md#catapult-hand-launch).
+
+<!--
+Notes:
+https://github.com/PX4/PX4-Autopilot/pull/23822
+https://github.com/PX4/PX4-Autopilot/blob/371a99c3221dd09dce0b218c45df405188d96cfd/src/modules/commander/Commander.cpp#L1894-L1896 - lockdown setting
+-->

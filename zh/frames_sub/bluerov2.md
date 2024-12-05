@@ -8,7 +8,7 @@ PX4 provides [experimental support](index.md) for an 8-thrust vectored configura
 
 ![Hero](../../assets/airframes/sub/bluerov/bluerov_hero.jpg)
 
-## Where to Buy
+## 购买渠道
 
 [BlueROV2](https://bluerobotics.com/store/rov/bluerov2/) + [BlueROV2 Heavy Configuration Retrofit Kit](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/)
 
@@ -18,7 +18,7 @@ The motors must be wired to the flight controller following the standard instruc
 
 The vehicle will then match the configuration documented in the [Airframe Reference](../airframes/airframe_reference.md#vectored-6-dof-uuv):
 
-<img src="../../assets/airframes/types/Vectored6DofUUV.svg" width="29%" style="max-height: 180px;" />
+<img src="../../assets/airframes/types/Vectored6DofUUV.svg" width="29%" style="max-height: 180px;"/>
 
 - **MAIN1:** motor 1 CCW, bow starboard horizontal, , propeller CCW
 - **MAIN2:** motor 2 CCW, bow port horizontal, propeller CCW
@@ -31,14 +31,17 @@ The vehicle will then match the configuration documented in the [Airframe Refere
 
 ## Airframe Configuration
 
-BlueROV2 does not come with PX4 installed. You will need to:
+BlueROV2 does not come with PX4 installed.
+You will need to:
 
 1. [Install PX4 Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)
-1. [Set the Airframe](../config/airframe.md). You will need to select the "BlueROV2 Heavy Configuration" as shown: ![QGC - select airframe for BlueROV2 Heay configuration](../../assets/airframes/sub/bluerov/qgc_airframe.jpg)
+2. [Set the Airframe](../config/airframe.md).
+   You will need to select the "BlueROV2 Heavy Configuration" as shown:
+   ![QGC - select airframe for BlueROV2 Heay configuration](../../assets/airframes/sub/bluerov/qgc_airframe.jpg)
 
 <!-- what other tuning/testing/ etc? -->
 
-## Video
+## 视频
 
 <lite-youtube videoid="1sUaURmlmT8" title="PX4 on BlueRov Demo"/>
 

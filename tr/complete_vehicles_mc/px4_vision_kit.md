@@ -4,14 +4,23 @@ The [_PX4 Vision Autonomy Development Kit_](https://holybro.com/collections/mult
 
 ![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_front.png)
 
-The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a _Pixhawk 4_ or _Pixhawk 6C_ (on V1.5) flight controller, a _UP Core_ companion computer (4GB memory & 64GB eMMC), and a Occipital _Structure Core_ depth camera sensor.
-
-:::info
-This vehicle comes with no pre-installed software.
-A USB stick is included in the kit with an example of an [obstacle avoidance](../computer_vision/obstacle_avoidance.md) feature implementation, based on the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project. This example is intended as a reference only and serves to demonstrate the capabilities of the platform. The software is not compatible with the latest version of PX4, nor is it actively maintained or supported.
-:::
+The kit contains a near-ready-to-fly carbon-fibre quadcopter equipped with a _Pixhawk 4_ or _Pixhawk 6C_ (on V1.5) flight controller, a _UP Core_ companion computer (4GB memory & 64GB eMMC), and a Occipital _Structure Core_ depth camera sensor.
 
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
+
+:::warning
+PX4 no longer supports the avoidance software described in this document:
+
+- [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) is archived
+- [Path Planning Interface](../computer_vision/path_planning_interface.md), along with obstacle avoidance in missions, and safe landing.
+
+A USB stick is included in the kit with an example of an obstacle avoidance feature implementation based on this software.
+This example is intended as a reference only and serves to demonstrate the capabilities of the platform.
+:::
+
+:::tip
+This kit is still highly recommended for developing and testing vision solutions (that don't rely on the legacy integrations).
+:::
 
 ## Where to Buy
 
@@ -33,7 +42,7 @@ The guide explains the minimal additional setup required to get the vehicle read
 ## Warnings and Notifications
 
 1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras).
-   Consequently it can't be used (without modification) for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
+   Consequently it can't be used (without modification) for testing features that require a downward-facing camera.
 
 2. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS coordinates).
    Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
@@ -230,7 +239,7 @@ When the vehicle setup described above is complete:
 7. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes_mc/position.md) and fly manually towards an obstacle.
    The vehicle should slow down and then stop within 6m of the obstacle (the distance can be [changed](../advanced_config/parameters.md) using the [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) parameter).
 
-8. To test [obstacle avoidance](../computer_vision/obstacle_avoidance.md), create a mission where the path is blocked by an obstacle.
+8. To test obstacle avoidance, create a mission where the path is blocked by an obstacle.
    Then switch to [Mission Mode](../flight_modes_mc/mission.md) to run the mission, and observe the vehicle moving around the obstacle and then returning to the planned course.
 
 ## Development using the Kit
@@ -238,6 +247,10 @@ When the vehicle setup described above is complete:
 The following sections explain how to use the kit as an environment for developing computer vision software.
 
 ### PX4 Avoidance Overview
+
+:::warning
+This feature is no [longer supported by PX4](../computer_vision/path_planning_interface.md).
+:::
 
 The _PX4 Avoidance_ system consists of computer vision software running on a companion computer (with attached depth camera) that provides obstacle and/or route information to the PX4 flight stack running on a _flight controller_.
 
@@ -382,18 +395,11 @@ For reference on developing in ROS and using the catkin workspace, see the [ROS 
 
 ### Developing PX4 Firmware
 
-The kit is designed for creating computer vision software that runs on the companion computer, and which integrates with PX4’s flexible path planning and collision prevention interfaces.
-
-You can also modify PX4 itself, and [install it as custom firmware](../config/firmware.md#custom):
+You can modify PX4 itself, and [install it as custom firmware](../config/firmware.md#custom):
 
 - You will need to connect _QGroundControl_ to the kit's _Pixhawk_ **via USB** in order to update firmware.
 - Select the _PX4 Vision DevKit_ airframe after loading new firmware:
   ![Airframe Selection - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
-
-:::info
-Modification of PX4 code is not _needed_ to meet most computer vision use cases.
-To discuss the interfaces or how to integrate other features join the [PX4 support channels](../contribute/support.md).
-:::
 
 ## PX4 Vision Carrier Board Pinouts
 
@@ -406,8 +412,6 @@ The carrier board pinouts and other information are in the [downloads section](h
 - [Occipital Developer Forum](https://structure.io/developers) - _Structure Core_ camera information
 - [Pixhawk 4 Overview](../flight_controller/pixhawk4.md)
 - [Pixhawk 6C Overview](../flight_controller/pixhawk6c.md)
-- [PX4 Avoidance software/documentation](https://github.com/PX4/PX4-Avoidance)
-- [Path Planning Interface](../computer_vision/path_planning_interface.md)
 
 ## How to get Technical Support
 

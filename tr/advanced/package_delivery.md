@@ -4,14 +4,17 @@
 
 A package delivery mission is an extension of a waypoint mission, where a user can plan delivering a package as a waypoint.
 
-This topic explains the architecture for the package delivery feature. It is intended for developers working on extending the architecture, for example to support new payload delivery mechanisms.
+This topic explains the architecture for the package delivery feature.
+It is intended for developers working on extending the architecture, for example to support new payload delivery mechanisms.
 
-::: info
-Currently only [Grippers](../peripherals/gripper.md) can be used for package delivery. Winches are not yet supported.
+:::info
+Currently only [Grippers](../peripherals/gripper.md) can be used for package delivery.
+Winches are not yet supported.
 :::
 
-::: info
-The detailed documentation on how to setup a package delivery mission plan can be found [here](../flying/package_delivery_mission.md). Setup for the `payload_deliverer` module is covered in the documentation for the delivery mechanism, such as [Gripper](../peripherals/gripper.md#px4-configuration).
+:::info
+The detailed documentation on how to setup a package delivery mission plan can be found [here](../flying/package_delivery_mission.md).
+Setup for the `payload_deliverer` module is covered in the documentation for the delivery mechanism, such as [Gripper](../peripherals/gripper.md#px4-configuration).
 :::
 
 ## Package Delivery Architecture Diagram
@@ -30,7 +33,8 @@ Below, each entity involved in the package delivery architecture is explained.
 
 ## Navigator
 
-Navigator handles the reception of the vehicle command ACK (described below). Upon reception of a successful deployment ack message, it sets the flag in Mission block level to signal that the payload deployment has been successful.
+Navigator handles the reception of the vehicle command ACK (described below).
+Upon reception of a successful deployment ack message, it sets the flag in Mission block level to signal that the payload deployment has been successful.
 
 This allows the mission to proceed to a next item (e.g. Waypoint) safely, as we are sure with the acknowledgement that the deployment has been successful.
 
@@ -40,11 +44,13 @@ We are waiting for the ACK coming from either internally (via `payload_deliverer
 
 ## Mission
 
-The Gripper / Winch command is placed as a `Mission Item`. This is possible since all the Mission item has the `MAV_CMD` to execute (e.g. Land, Takeoff, Waypoint, etc) which can get set to either `DO_GRIPPER` or `DO_WINCH`.
+The Gripper / Winch command is placed as a `Mission Item`.
+This is possible since all the Mission item has the `MAV_CMD` to execute (e.g. Land, Takeoff, Waypoint, etc) which can get set to either `DO_GRIPPER` or `DO_WINCH`.
 
 In the Mission logic (green box above) if either Gripper/Winch mission item is reached, it implements brake_for_hold functionality (which sets the `valid` flag of the next mission item waypoint to `false`) for rotary wings (e.g. Multicopter) so that the vehicle would hold it's position while the deployment is getting executed.
 
-For fixed-wing and other vehicles, no special braking condition is considered. So if you have a loiter mission item for a fixed-wing, it will execute the delivery whilst doing the loiter, and won’t come to a stop (as it’s impossible)
+For fixed-wing and other vehicles, no special braking condition is considered.
+So if you have a loiter mission item for a fixed-wing, it will execute the delivery whilst doing the loiter, and won’t come to a stop (as it’s impossible)
 
 ## Mission Block
 

@@ -2,7 +2,7 @@
 
 ![nanomind 11](../../assets/hardware/hardware-nanomind110.png)
 
-### Підсумок
+### Опис
 
 Готовий до польоту квадрокоптер готовий до польоту у приміщенні / на гонках з діагоналлю 110 мм.
 NanoMind використовує MindRacer як керування польотом, яке запускає повний стек польоту PX4/MindPX.
@@ -26,8 +26,8 @@ NanoMind використовує MindRacer як керування польот
 
 ### Де купити
 
-NanoMind 110 доступний в [AirMind<sup>®</sup> Store](https://airmind.mindpx.net/node/92). Ви також можете знайти MindRacer в Amazon<sup>&reg;</sup> або eBay<sup>&reg;</sup>.
+NanoMind 110 доступний в [AirMind<sup>®</sup> Store](https://airmind.mindpx.net/node/92). Ви також можете знайти MindRacer на Amazon<sup>&reg;</sup> або на eBay<sup>&reg;</sup>.
 
 ### Підтримка
 
-Будь ласка, відвідайте http://www.mindpx.org для отримання додаткової інформації. Або ви можете надіслати email на [support@mindpx.net](mailto:support@mindpx.net) для будь-яких запитів або допомоги.
+Будь ласка, зайдіть на http://www.mindpx.org для отримання додаткової інформації. Або ви можете надіслати email на [support@mindpx.net](mailto:support@mindpx.net) для будь-яких запитів або допомоги.

@@ -8,18 +8,20 @@ PX4 almost exclusively consumes data from [uORB](../middleware/uorb.md). Drivers
 
 The best approach for creating a new driver is to start with a similar driver as a template (see [src/drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers)).
 
-::: info More detailed information about working with specific I/O buses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/index.md) section.
+:::info
+More detailed information about working with specific I/O buses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/index.md) section.
 :::
 
-::: info Publishing the correct uORB topics is the only pattern that drivers *must* follow.
+:::info
+Publishing the correct uORB topics is the only pattern that drivers _must_ follow.
 :::
 
 ## Core Architecture
 
 PX4 is a [reactive system](../concept/architecture.md) and uses [uORB](../middleware/uorb.md) publish/subscribe to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used:
 
-* The publish / subscribe system which has a file, network or shared memory backend depending on the system PX4 runs on.
-* The global device registry, which can be used to enumerate devices and get/set their configuration. This can be as simple as a linked list or map to the file system.
+- The publish / subscribe system which has a file, network or shared memory backend depending on the system PX4 runs on.
+- The global device registry, which can be used to enumerate devices and get/set their configuration. This can be as simple as a linked list or map to the file system.
 
 ## Device IDs
 
@@ -30,7 +32,6 @@ The order of sensors (e.g. if there is a `/dev/mag0` and an alternate `/dev/mag1
 ### Decoding example
 
 For the example of three magnetometers on a system, use the flight log (.px4log) to dump the parameters. The three parameters encode the sensor IDs and `MAG_PRIME` identifies which magnetometer is selected as the primary sensor. Each MAGx_ID is a 24bit number and should be padded left with zeros for manual decoding.
-
 
 ```
 CAL_MAG0_ID = 73225.0
@@ -81,6 +82,7 @@ struct DeviceStructure {
   uint8_t devtype;   // device class specific device type
 };
 ```
+
 The `bus_type` is decoded according to:
 
 ```C
@@ -123,23 +125,26 @@ Drivers (and other modules) output minimally verbose logs strings by default (e.
 
 Log verbosity is defined at build time using the `RELEASE_BUILD` (default), `DEBUG_BUILD` (verbose) or `TRACE_BUILD` (extremely verbose) macros.
 
-Change the logging level using `COMPILE_FLAGS` in the driver `px4_add_module` function (**CMakeLists.txt**). The code fragment below shows the required change to enable DEBUG_BUILD level debugging for a single module or driver.
+Change the logging level using `COMPILE_FLAGS` in the driver `px4_add_module` function (**CMakeLists.txt**).
+The code fragment below shows the required change to enable DEBUG_BUILD level debugging for a single module or driver.
 
 ```
 px4_add_module(
-    MODULE templates__module
-    MAIN module
+	MODULE templates__module
+	MAIN module
 ```
+
 ```
-    COMPILE_FLAGS
-        -DDEBUG_BUILD
+	COMPILE_FLAGS
+		-DDEBUG_BUILD
 ```
+
 ```
-    SRCS
-        module.cpp
-    DEPENDS
-        modules__uORB
-    )
+	SRCS
+		module.cpp
+	DEPENDS
+		modules__uORB
+	)
 ```
 
 :::tip
