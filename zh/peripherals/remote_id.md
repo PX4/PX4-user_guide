@@ -55,9 +55,7 @@ The TX and RX on the flight controller must be connected to the RX and TX on the
 
 | 针脚   | 信号                          | 电压 |
 | ---- | --------------------------- | -- |
-| 1（红） | ```
-VCC_5V
-```              | 5V |
+| 1（红） | VCC_5V | 5V |
 | 2    | TX (OUT) |    |
 | 3    | RX (IN)  |    |
 | 4（黑） | GND                         | 0  |
@@ -66,14 +64,12 @@ VCC_5V
 
 ![Cube ID CAN port](../../assets/hardware/remote_id/cube_id/can_connector.png)
 
-| 针脚                         | 信号                         | 电压 |
-| -------------------------- | -------------------------- | -- |
-| 1（红）                       | ```
-VCC_5V
-```             | 5V |
-| 2 (red) | CAN_H |    |
-| 3                          | CAN_L |    |
-| 4（黑）                       | GND                        | 0  |
+| 针脚                         | 信号                          | 电压 |
+| -------------------------- | --------------------------- | -- |
+| 1（红）                       | VCC_5V | 5V |
+| 2 (red) | CAN_H  |    |
+| 3                          | CAN_L  |    |
+| 4（黑）                       | GND                         | 0  |
 
 #### Cube ID Firmware
 
