@@ -69,6 +69,8 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
   - New vehicle model `r1_rover` — [Aion Robotics R1 Rover](../sim_gazebo_gz/vehicles.md#differential-rover) ([PX4-Autopilot#22402](https://github.com/PX4/PX4-Autopilot/pull/22402) and [PX4-gazebo-models#21](https://github.com/PX4/PX4-gazebo-models/pull/21)).
   - New vehicle model `rover_ackermann` — [Ackermann Rover](../sim_gazebo_gz/vehicles.md#ackermann-rover) ([PX4-Autopilot#23383](https://github.com/PX4/PX4-Autopilot/pull/23383) and [PX4-gazebo-models#46](https://github.com/PX4/PX4-gazebo-models/pull/46)).
   - New vehicle model `x500_gimbal` — [Quadrotor(x500) with gimbal (Front-facing) in Gazebo](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-gimbal-front-facing) ([PX4-Autopilot#23382](https://github.com/PX4/PX4-Autopilot/pull/23382) and [PX4-gazebo-models#47](https://github.com/PX4/PX4-gazebo-models/pull/47) and [PX4-gazebo-models#70](https://github.com/PX4/PX4-gazebo-models/pull/70)).
+  - New vehicle model `quadtailsitter` — [Quad Tailsitter VTOL](../sim_gazebo_gz/vehicles.md#quad-tailsitter-vtol) ([PX4-Autopilot#23943](https://github.com/PX4/PX4-Autopilot/pull/23943) and [PX4-gazebo-models#65]( https://github.com/PX4/PX4-gazebo-models/pull/65)).
+  - New vehicle model `tiltrotor` — [Tiltrotor VTOL](../sim_gazebo_gz/vehicles.md#tiltrotor-vtol) ([PX4-Autopilot#24028](https://github.com/PX4/PX4-Autopilot/pull/24028) and [PX4-gazebo-models#66](https://github.com/PX4/PX4-gazebo-models/pull/66)).
 
 ### Ethernet
 
