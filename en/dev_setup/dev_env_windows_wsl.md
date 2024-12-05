@@ -315,7 +315,7 @@ Do the following steps to flash your custom binary built in WSL:
 
 1. Start the flashing.
 
-For more information see [Installing PX4 Main, Beta or Custom Firmware (Loading Firmware)](../config/firmware.html#installing-px4-main-beta-or-custom-firmware).
+For more information see [Installing PX4 Main, Beta or Custom Firmware (Loading Firmware)](../config/firmware.md#installing-px4-main-beta-or-custom-firmware).
 
 ## Troubleshooting
 
