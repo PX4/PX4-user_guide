@@ -49,9 +49,7 @@ The Here2 GPS pinout is provided below. This can be used to help modify the conn
 
 | 引脚 | Here2 GPS                       | 引脚 | Pixhawk 3 Pro GPS           |
 | -- | ------------------------------- | -- | --------------------------- |
-| 1  | ```
-VCC_5V
-```                  | 1  | VCC                         |
+| 1  | VCC_5V     | 1  | VCC                         |
 | 2  | GPS_RX     | 2  | GPS_TX |
 | 3  | GPS_TX     | 3  | GPS_RX |
 | 4  | SCL                             | 4  | SCL                         |
