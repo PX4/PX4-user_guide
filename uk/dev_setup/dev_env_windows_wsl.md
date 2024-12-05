@@ -337,7 +337,7 @@ Instead you connect [QGroundControl for Windows](#qgroundcontrol-on-windows) to 
 
 7. Почніть прошивку.
 
-For more information see [Installing PX4 Main, Beta or Custom Firmware (Loading Firmware)](../config/firmware.html#installing-px4-main-beta-or-custom-firmware).
+For more information see [Installing PX4 Main, Beta or Custom Firmware (Loading Firmware)](../config/firmware.md#installing-px4-main-beta-or-custom-firmware).
 
 ## Усунення проблем
 
