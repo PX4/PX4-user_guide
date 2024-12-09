@@ -71,7 +71,7 @@ World with walls that is designed for testing [collision prevention](../computer
 
 [Empty world](#default) with wind enabled.
 
-[PX4-gazebo-models/main/worlds/walls.sdf](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/windy.sdf)
+[PX4-gazebo-models/main/worlds/windy.sdf](https://github.com/PX4/PX4-gazebo-models/blob/main/worlds/windy.sdf)
 
 ## Model Specific Worlds {#model_specific_worlds}
 
