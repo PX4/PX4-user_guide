@@ -38,6 +38,7 @@ These have been tested by the PX4 dev team, or which are popular within the PX4 
 | [Holybro M8N GPS](../gps_compass/gps_holybro_m8n_m9n.md)     |     M8N     |          IST8310          |                             |        &check;        |                             |
 | [Holybro M9N GPS](../gps_compass/gps_holybro_m8n_m9n.md)     |     M9N     |          IST8310          |                             |        &check;        |                             |
 | [Holybro DroneCAN M9N GPS][hb_can_m9n]                       |     M9N     |          BMM150           |           &check;           |        &check;        |                             |
+| [Holybro M10 GPS][hb_m10]                                    |     M10     |          IST8310          |                             |        &check;        |                             |
 | [Hobbyking u-blox Neo-M8N GPS & Compass][hk_ublox_neo_8mn]   |     M8N     |          &check;          |                             |        &cross;        |                             |
 | [LOCOSYS Hawk A1 GNSS receiver][LOCOSYS Hawk A1]             | MC-1612-V2b |         optional          |                             | &cross;&cross;&check; |                             |
 | [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)      | MC-1612-V2b |                           |                             | &cross;&cross;&check; |                             |
@@ -53,6 +54,7 @@ These have been tested by the PX4 dev team, or which are popular within the PX4 
 [hk_ublox_neo_8mn]: https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html
 [mro_neo8mn_dual_mag]: https://store.mrobotics.io/product-p/m10034-8308.htm
 [hb_nano_m8_5883]: https://holybro.com/products/nano-m8-5883-gps-module
+[hb_m10]: https://holybro.com/collections/gps/products/m10-gps
 [hb_can_m9n]: https://holybro.com/products/dronecan-m9n-gps
 [RccnLabGNSS250]: https://docs.raccoonlab.co/guide/gps_mag_baro/gnss_v250.html
 [LOCOSYS Hawk A1]: ../gps_compass/gps_locosys_hawk_a1.md
