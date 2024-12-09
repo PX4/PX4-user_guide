@@ -1,4 +1,7 @@
-# Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor
+# Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor [EOL]
+
+:::warning 
+The Lanbao Lidar is End of Life, and not manufactured anymore
 
 The [Lanbao PSK-CM8JL65-CC5](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html) is a very small IR distance sensor with a 0.17m-8m range and millimeter resolution.
 It must be connected to a UART/serial bus.

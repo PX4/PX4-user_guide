@@ -36,14 +36,14 @@ The rangefinders are enabled using the parameter [SENS_EN_MB12XX](../advanced_co
 
 ### Lightware LIDARs
 
-[Lightware SFxx Lidar](../sensor/sfxx_lidar.md) provide a broad range of lightweight "laser altimeters" that are suitable for many drone applications.
+[Lightware SFxx Lidar](../sensor/sfxx_lidar.md) provide a broad range of lightweight “laser altimeters” that are suitable for many drone applications.
 
 PX4 supports: SF11/c and SF/LW20.
 PX4 can also be used with the following discontinued models: SF02, SF10/a, SF10/b, SF10/c.
 
 Others may be supported via the [RaccoonLab Cyphal and DroneCAN Rangefinder Adapter](#raccoonlab-cyphal-and-dronecan-rangefinder-adapter) described below.
 
-PX4 also supports the [LightWare LiDAR SF45 Rotating Lidar](https://www.lightwarelidar.com/shop/sf45-b-50-m/) for [collision prevention](../computer_vision/collision_prevention.md#lightware-lidar-sf45-rotating-lidar) applications.
+PX4 also supports the [LightWare LiDAR SF45 Rotating Lidar](../sensor/sf45_rotating_lidar.md) for [collision prevention](../computer_vision/collision_prevention.md) applications.
 
 ### TeraRanger Rangefinders
 
@@ -67,7 +67,7 @@ It has a sensing range from 1cm to 40m and needs to be connected to a UART/seria
 
 The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low power LIDAR with 12m range.
 
-### PSK-CM8JL65-CC5
+### PSK-CM8JL65-CC5 [EOL]
 
 The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm8jl65_ir_distance_sensor.md) is a very small (38 mm x 18mm x 7mm, <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution.
 It must be connected to a UART/serial bus.
