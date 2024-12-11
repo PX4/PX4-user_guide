@@ -15,7 +15,7 @@ The [ARK Pi6X Flow](\(https://arkelectron.gitbook.io/ark-documentation/flight-co
 ### Raspberry Pi Compute Module 4 Carrier
 
 - Autopilot Firmware: PX4
-- Функції:
+- Features:
   - MicroSD slot (for CM4 Lite)
   - Micro HDMI
   - Ethernet
