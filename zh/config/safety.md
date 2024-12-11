@@ -196,10 +196,9 @@ If VTOLs have are configured to switch to hover for landing ([NAV_FORCE_VT](../a
 
 The relevant parameters for all vehicles shown below.
 
-| 参数                                                                                                                                                                         | 描述                                        |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| <a id="COM_POS_FS_DELAY"></a>[COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | 失去位置后到触发故障保护前的延迟。                         |
-| <a id="COM_POSCTL_NAVL"></a>[COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)                         | 执行任务期间的位置控制导航丢失响应。 值：0——假设使用遥控，1——假设没有遥控。 |
+\| Parameter | Description |
+\| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | |
+\| <a id="COM_POSCTL_NAVL"></a>[COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL) | Position control navigation loss response during mission. 值：0——假设使用遥控，1——假设没有遥控。 |
 
 Parameters that only affect Fixed-wing vehicles:
 
