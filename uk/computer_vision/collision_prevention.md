@@ -198,7 +198,7 @@ The minimum rate at which messages _must_ be sent depends on vehicle speed - at 
 Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 10Hz (the maximum rate supported by the vision system).
 Система може добре працювати при значно вищих швидкостях і менших частотах оновлення відстані.
 
-## Симуляція Gazebo
+## Gazebo Simulation
 
 _Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar_2d](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model.
 To do this, start a simulation with the x500 lidar model by running the following command:
