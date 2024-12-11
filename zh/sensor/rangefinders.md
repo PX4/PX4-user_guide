@@ -69,10 +69,12 @@ The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low po
 
 ### PSK-CM8JL65-CC5
 
+<Badge type="info" text="Discontinued" />
+
 The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm8jl65_ir_distance_sensor.md) is a very small (38 mm x 18mm x 7mm, <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution.
 It must be connected to a UART/serial bus.
 
-### Avionics Anonymous UAVCAN 激光高度计接口
+### Avionics Anonymous UAVCAN Laser Altimeter Interface
 
 The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../dronecan/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the [CAN](../can/index.md) bus via [DroneCAN](../dronecan/index.md), a more robust interface than I2C.
 
@@ -101,30 +103,30 @@ Features:
 
 ## Configuration/Setup {#configuration}
 
-测距仪通常连接到串口(PWM)或者 I2C 接口(取决于设备驱动），并通过设置特定的参数在端口上启用。
+Rangefinders are usually connected to either a serial (PWM) or I2C port (depending on the device driver), and are enabled on the port by setting a particular parameter.
 
 The hardware and software setup that is _specific to each distance sensor_ is covered in their individual topics.
 
 The generic configuration that is _common to all distance sensors_, covering both the physical setup and usage, is given below.
 
-### 常规配置
+### Generic Configuration
 
 The common rangefinder configuration is specified using [EKF2_RNG\_\*](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) parameters.
-这些包括（非详尽）：
+These include (non exhaustively):
 
 - [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - offset of the rangefinder from the vehicle centre of gravity in X, Y, Z directions.
 - [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_PITCH) - A value of 0 degrees (default) corresponds to the range finder being exactly aligned with the vehicle vertical axis (i.e. straight down), while 90 degrees indicates that the range finder is pointing forward.
-  如果使用非零间距，则使用简单的三角法计算到地面的距离。
+  Simple trigonometry is used to calculate the distance to ground if a non-zero pitch is used.
 - [EKF2_RNG_DELAY](../advanced_config/parameter_reference.md#EKF2_RNG_DELAY) - approximate delay of data reaching the estimator from the sensor.
 - [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - Range finder range dependent noise scaler.
 - [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE) - Measurement noise for range finder fusion
 
 ## 测试
 
-测试测距仪最简单的方法是改变距离并与 PX4 检测到的值进行比较
-以下部分显示了一些获取测量范围的方法。
+The easiest way to test the rangefinder is to vary the range and compare to the values detected by PX4.
+The sections below show some approaches to getting the measured range.
 
-### QGroundControl MAVLink 检查器
+### QGroundControl MAVLink Inspector
 
 The _QGroundControl MAVLink Inspector_ lets you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder.
 The main difference between the tools is that the _Analyze_ tool can plot values in a graph.
@@ -134,7 +136,7 @@ The messages that are sent depend on the vehicle configuration.
 You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rangefinder installed and is publishing sensor values.
 :::
 
-查看测距仪输出：
+To view the rangefinder output:
 
 1. Open the menu **Q > Select Tool > Analyze Tools**:
 
@@ -144,7 +146,7 @@ You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rang
    The tool will then plot the result:
    ![QGC Analyze DISTANCE\_SENSOR value](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
 
-### QGroundControl MAVLink 控制台
+### QGroundControl MAVLink Console
 
 You can also use the _QGroundControl MAVLink Console_ to observe the `distance_sensor` uORB topic:
 
@@ -154,17 +156,17 @@ listener distance_sensor 5
 
 :::info
 The _QGroundControl MAVLink Console_ works when connected to Pixhawk or other NuttX targets, but not the Simulator.
-在模拟器上可以直接在终端中运行命令。
+On the Simulator you can run the commands directly in the terminal.
 :::
 
 For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
 
 ## 仿真
 
-### Gazebo 仿真
+### Gazebo Simulation
 
 Lidar and sonar rangefinders can be used in the [Gazebo](../sim_gazebo_gz/index.md) simulator.
-要做到这一点，你必须在启动模拟器时使用一个拥有测距仪的机体模型。
+To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
 Downward facing sensors that write to the [DistanceSensor](../msg_docs/DistanceSensor.md) UORB topic can be used to test use cases such as [landing](../flight_modes_mc/land.md) and [terrain following](../flying/terrain_following_holding.md):
 
@@ -191,22 +193,22 @@ Front-facing sensors that write to [ObstacleDistance](../msg_docs/ObstacleDistan
 ### Gazebo-Classic Simulation
 
 Lidar and sonar rangefinders can be used in the [Gazebo Classic](../sim_gazebo_classic/index.md) simulator.
-要做到这一点，你必须在启动模拟器时使用一个拥有测距仪的机体模型。
+To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
-iris 光流模型包括激光雷达测距仪：
+The iris optical flow model includes a Lidar rangefinder:
 
 ```sh
 make px4_sitl gazebo-classic_iris_opt_flow
 ```
 
-typhoon_h480 包括一个声纳测距仪：
+The typhoon_h480 includes a sonar rangefinder:
 
 ```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-如果你需要使用一个不同的车辆，你可以在它的配置文件中包含此模型。
-你可以看到如何在相应的 Iris 和 Typhoon 配置文件：
+If you need to use a different vehicle you can include the model in its configuration file.
+You can see how in the respective Iris and Typhoon configuration files:
 
 - [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/iris_opt_flow/iris_opt_flow.sdf)
 
