@@ -144,7 +144,7 @@ All relevant parameters are listed below:
 The data from all sensors are fused into an internal representation of 72 sectors around the vehicle, each containing either the sensor data and information about when it was last observed, or an indication that no data for the sector was available.
 When the vehicle is commanded to move in a particular direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer than allowed to any obstacles. If so, the vehicle velocity is restricted.
 
-The Algorithm then can be split intwo two parts, the constraining of the acceleration setpoint coming from the operator, and the compensation of the current velocity of the vehicle.
+The Algorithm then can be split into two parts, the constraining of the acceleration setpoint coming from the operator, and the compensation of the current velocity of the vehicle.
 
 ::: info
 If there is no sensor data in a particular direction, movement in that direction is restricted to 0 (preventing the vehicle from crashing into unseen objects).
@@ -153,7 +153,8 @@ If you wish to move freely into directions without sensor coverage, this can be 
 
 ### Acceleration Constraining
 
-For this we split out Acceleration Setpoint into two components, one parallel to the closest distance to the obstacle and one normal to it. Then we scale each of these components according the the figure below.
+For this we split out the acceleration setpoint into two components, one parallel to the closest distance to the obstacle and one normal to it. Then we scale each of these components according the the figure below.
+
 ![Scalefactor](../../assets/computer_vision/collision_prevention/scalefactor.png)
 
  <!-- the code for this figure is at the end of this file -->
@@ -213,7 +214,104 @@ The diagram below shows a simulation of collision prevention as viewed in Gazebo
 
 ![RViz image of collision detection using the x500_lidar_2d model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d_viz.png)
 
-## Sensor Data Overview (Implementation Details)
+## Development Information/Tools
+
+### Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler
+
+[PlotJuggler](../log/plotjuggler_log_analysis.md) can be used to monitor and visualize obstacle distances in a real-time plot, including the minimum distance to the closest obstacle.
+
+<lite-youtube videoid="amLheoHgwc4" title="Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler"/>
+
+To use this feature you need to add a reactive Lua script to PlotJuggler, and also configure PX4 to export [`obstacle_distance_fused`](../msg_docs/ObstacleDistance.md) UORB topic data.
+The Lua script works by extracting the `obstacle_distance_fused` data at each time step, converting the distance values into Cartesian coordinates, and pushing them to PlotJuggler.
+
+The steps are:
+
+1. Follow the instructions in [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md)
+2. Configure PX4 to publish obstacle distance data (so that it is available to PlotJuggler):
+
+   Add the [`obstacle_distance_fused`](../msg_docs/ObstacleDistance.md) UORB topic to your [`dds_topics.yaml`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) so that it is published by PX4:
+
+   ```sh
+   - topic: /fmu/out/obstacle_distance_fused
+     type: px4_msgs::msg::ObstacleDistance
+   ```
+
+   For more information see [DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml) in _uXRCE-DDS (PX4-ROS 2/DDS Bridge)_.
+
+3. Open PlotJuggler and navigate to the **Tools > Reactive Script Editor** section.
+   In the **Script Editor** tab, add following scripts in the appropriate sections:
+
+   - **Global code, executed once:**
+
+     ```lua
+     obs_dist_fused_xy = ScatterXY.new("obstacle_distance_fused_xy")
+     obs_dist_min = Timeseries.new("obstacle_distance_minimum")
+     ```
+
+   - **function(tracker_time)**
+
+     ```lua
+     obs_dist_fused_xy:clear()
+
+     i = 0
+     angle_offset = TimeseriesView.find("/fmu/out/obstacle_distance_fused/angle_offset")
+     increment = TimeseriesView.find("/fmu/out/obstacle_distance_fused/increment")
+     min_dist = 65535
+
+     -- Cache increment and angle_offset values at tracker_time to avoid repeated calls
+     local angle_offset_value = angle_offset:atTime(tracker_time)
+     local increment_value = increment:atTime(tracker_time)
+
+     if increment_value == nil or increment_value <= 0 then
+         print("Invalid increment value: " .. tostring(increment_value))
+         return
+     end
+
+     local max_steps = math.floor(360 / increment_value)
+
+     while i < max_steps do
+         local str = string.format("/fmu/out/obstacle_distance_fused/distances[%d]", i)
+         local distance = TimeseriesView.find(str)
+         if distance == nil then
+             print("No distance data for: " .. str)
+             break
+         end
+
+         local dist = distance:atTime(tracker_time)
+         if dist ~= nil and dist < 65535 then
+             -- Calculate angle and Cartesian coordinates
+             local angle = angle_offset_value + i * increment_value
+             local y = dist * math.cos(math.rad(angle))
+             local x = dist * math.sin(math.rad(angle))
+
+             obs_dist_fused_xy:push_back(x, y)
+
+             -- Update minimum distance
+             if dist < min_dist then
+                 min_dist = dist
+             end
+         end
+
+         i = i + 1
+     end
+
+     -- Push minimum distance once after the loop
+     if min_dist < 65535 then
+         obs_dist_min:push_back(tracker_time, min_dist)
+     else
+         print("No valid minimum distance found")
+     end
+     ```
+
+4. Enter a name for the script on the top right, and press **Save**.
+   Once saved, the script should appear in the _Active Scripts_ section.
+5. Start streaming the data using the approach described in [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md).
+   You should see the `obstacle_distance_fused_xy` and `obstacle_distance_minimum` timeseries on the left.
+
+Note that to run the script again after clearing the data, you have to press **Save** again.
+
+### Sensor Data Overview
 
 Collision Prevention has an internal obstacle distance map that divides the plane around the drone into 72 Sectors.
 Internally this information is stored in the [`obstacle_distance`](../msg_docs/ObstacleDistance.md) UORB topic.
@@ -225,11 +323,11 @@ The angles in the `obstacle_distance` topic are defined as follows:
 
 The data from rangefinders, rotary lidars, or companion computers, is processed differently, as described below.
 
-### Rotary Lidars
+#### Rotary Lidars
 
 Rotary Lidars add their data directly to the [`obstacle_distance`](../msg_docs/ObstacleDistance.md) uORB topic.
 
-### Rangefinders
+#### Rangefinders
 
 Rangefinders publish their data to the [`distance_sensor`](../msg_docs/DistanceSensor.md) uORB topic.
 
@@ -241,10 +339,9 @@ For example, a distance sensor measuring from 9.99° to 10.01° the measurements
 the quaternion `q` is only used if the `orientation` is set to `ROTATION_CUSTOM`.
 :::
 
-### Companion Computers
+#### Companion Computers
 
 Companion computers update the `obstacle_distance` topic using ROS2 or the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) MAVLink message.
-
 
 <!-- to edit the image, open it in inkscape -->
 <!-- Code to generate the scalefactor plot
