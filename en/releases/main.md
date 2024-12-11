@@ -32,7 +32,10 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 - [Battery level estimation improvements](../config/battery.md) ([PX4-Autopilot#23205](https://github.com/PX4/PX4-Autopilot/pull/23205)).
   - [Voltage-based estimation with load compensation](../config/battery.md#voltage-based-estimation-with-load-compensation) now uses a real-time estimate of the internal resistance of the battery to compensate voltage drops under load (with increased current), providing a better capacity estimate than with the raw measured voltage.
   - Thrust-based load compensation has been removed (along with the `BATn_V_LOAD_DROP` parameters, where `n` is the battery number).
-
+- [Log Encryption](../dev_log/log_encryption.html) now generates an encrypted log that contains the public-key-encrypted symmetric key that can be used to decrypt it, instead of putting the key into a separate file.
+  This makes log decryption much easier, as there is no need to download or identify a separate key file.
+  ([PX4-Autopilot#24024](https://github.com/PX4/PX4-Autopilot/pull/24024)).
+  
 ### Control
 
 - TBD
