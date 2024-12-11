@@ -247,7 +247,7 @@
       - [Benewake TFmini 라이다](sensor/tfmini.md)
       - [Lidar-Lite](sensor/lidar_lite.md)
       - [TeraRanger ](sensor/teraranger.md)
-      - [Lanbao PSK-CM8JL65-CC5 ](sensor/cm8jl65_ir_distance_sensor.md)
+      - [✘ Lanbao PSK-CM8JL65-CC5](sensor/cm8jl65_ir_distance_sensor.md)
       - [Avionics Anonymous Laser Altimeter UAVCAN Interface (CAN)](dronecan/avanon_laser_interface.md)
     - [GNSS (GPS)](gps_compass/index.md)
       - [ARK GPS (CAN)](dronecan/ark_gps.md)
