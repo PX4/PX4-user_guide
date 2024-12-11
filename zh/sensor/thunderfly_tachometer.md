@@ -100,7 +100,7 @@ listener rpm
 
 For periodic display, you can add `-n 50` parameter after the command, which prints the next 50 messages.
 
-#### QGroundControl MAVLink 检查器
+#### QGroundControl MAVLink Inspector
 
 The QGroundControl [Mavlink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) can be used to observe MAVLink messages from PX4, including [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM) emitted by the driver:
 

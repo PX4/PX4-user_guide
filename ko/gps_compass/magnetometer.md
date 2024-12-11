@@ -38,15 +38,15 @@ If GNSS is required, then a combined GNSS/Compass module will be preferred over 
 
 This list contains stand-alone magnetometer modules (without GNSS).
 
-| 장치                                                                                                               |   나침반  |             DroneCan            |
-| :--------------------------------------------------------------------------------------------------------------- | :----: | :-----------------------------: |
-| [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?   |                                 |
-| [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             | RM3100 | &amp;check; |
-| [RaccoonLab DroneCAN/Cyphal Magnetometer RM3100](https://holybro.com/products/dronecan-rm3100-compass)           | RM3100 | &amp;check; |
+| 장치                                                                                                               |   나침반  | DroneCan |
+| :--------------------------------------------------------------------------------------------------------------- | :----: | :------: |
+| [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?   |          |
+| [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             | RM3100 |     ✓    |
+| [RaccoonLab DroneCAN/Cyphal Magnetometer RM3100](https://holybro.com/products/dronecan-rm3100-compass)           | RM3100 |     ✓    |
 
 참고:
 
-- &check; 또는 특정 부품 번호는 기능이 지원되는 것을 나타내며, &cross; 또는 비어 있으면 해당 기능이 지원되지 않는 것을 나타냅니다.
+- ✓ or a specific part number indicate that a features is supported, while ✘ or empty show that the feature is not supported.
   "?"는 "알 수 없음"을 나타냅니다.
 - A compass that is not "DroneCAN" can be assumed to be SPI or I2C.
 

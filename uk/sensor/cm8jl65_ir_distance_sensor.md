@@ -1,4 +1,10 @@
-# Lanbao PSK-CM8JL65-CC5 ІЧ-датчик вимірювання відстані ToF
+# Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor (Discontinued)
+
+<Badge type="info" text="Discontinued" />
+
+:::warning
+This product has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
 
 The [Lanbao PSK-CM8JL65-CC5](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html) is a very small IR distance sensor with a 0.17m-8m range and millimeter resolution.
 Це повинно бути підключено до шини UART/серійного порту.
@@ -10,7 +16,7 @@ The [Lanbao PSK-CM8JL65-CC5](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrare
 
 ## Налаштування програмного забезпечення
 
-PSK-CM8JL65-CC5 can be connected to any unused _serial port_, e.g.: TELEM2, TELEM3, GPS2 etc.
+PSK-CM8JL65-CC5 can be connected to any unused _serial port_, e.g.: `TELEM2`, `TELEM3`, `GPS2` etc.
 
 Виводи позначені знизу сенсора:
 
@@ -20,8 +26,7 @@ PSK-CM8JL65-CC5 can be connected to any unused _serial port_, e.g.: TELEM2, TELE
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG).
 
-::: info
-
+:::info
 If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
 ```plain
