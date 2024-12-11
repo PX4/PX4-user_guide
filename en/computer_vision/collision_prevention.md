@@ -214,102 +214,102 @@ The diagram below shows a simulation of collision prevention as viewed in Gazebo
 
 ![RViz image of collision detection using the x500_lidar_2d model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d_viz.png)
 
-## Development Tools
+## Development Information/Tools
 
 ### Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler
 
+[PlotJuggler](../log/plotjuggler_log_analysis.md) can be used to monitor and visualize obstacle distances in a real-time plot, including the minimum distance to the closest obstacle.
+
 <lite-youtube videoid="amLheoHgwc4" title="Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler"/>
 
-To visualize the real-time obstacle distance data and minimum distance using PlotJuggler, you can use the reactive Lua script along with the necessary configuration in PX4.
-This allows you to monitor the obstacle distances and the closest obstacle (minimum distance) in a real-time plot. Below are the steps to integrate and use the script.
+To use this feature you need to add a reactive Lua script to PlotJuggler, and also configure PX4 to export [`obstacle_distance_fused`](../msg_docs/ObstacleDistance.md) UORB topic data.
+The Lua script works by extracting the `obstacle_distance_fused` data at each time step, converting the distance values into Cartesian coordinates, and pushing them to PlotJuggler.
 
-#### Prerequisites
+The steps are:
 
-- The setup described in [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md)
-- DDS Topic Configuration: You need to add the appropriate topic to your dds_topics.yaml file to ensure the obstacle distance data is published and available for visualization.
+1. Follow the instructions in [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md)
+2. Configure PX4 to publish obstacle distance data (so that it is available to PlotJuggler):
 
-Add the following to your `dds_topics.yaml`:
+   Add the [`obstacle_distance_fused`](../msg_docs/ObstacleDistance.md) UORB topic to your [`dds_topics.yaml`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) so that it is published by PX4:
 
-```sh
-- topic: /fmu/out/obstacle_distance_fused
-  type: px4_msgs::msg::ObstacleDistance
-```
+   ```sh
+   - topic: /fmu/out/obstacle_distance_fused
+     type: px4_msgs::msg::ObstacleDistance
+   ```
 
-This ensures that the ObstacleDistance data is published by the flight stack and can be used by PlotJuggler.
+   For more information see [DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml) in _uXRCE-DDS (PX4-ROS 2/DDS Bridge)_.
 
-#### Script Overview
+3. Open PlotJuggler and navigate to the **Tools > Reactive Script Editor** section.
+   In the **Script Editor** tab, add following scripts in the appropriate sections:
 
-The Lua script works by extracting the obstacle_distance_fused data at each time step, converting the distance values into Cartesian coordinates, and pushing them to PlotJuggler. Additionally, the script tracks the minimum distance found in the dataset.
+   - **Global code, executed once:**
 
-For the script to work you need to go under **Tools -> Reactive Script Editor** in Plotjuggler.
-Then in the **Script Editor** Tab, Add followings sections accordingly:
+     ```lua
+     obs_dist_fused_xy = ScatterXY.new("obstacle_distance_fused_xy")
+     obs_dist_min = Timeseries.new("obstacle_distance_minimum")
+     ```
 
-**Global code, executed once:**
+   - **function(tracker_time)**
 
-```lua
-obs_dist_fused_xy = ScatterXY.new("obstacle_distance_fused_xy")
-obs_dist_min = Timeseries.new("obstacle_distance_minimum")
-```
+     ```lua
+     obs_dist_fused_xy:clear()
 
-**function(tracker_time)**
+     i = 0
+     angle_offset = TimeseriesView.find("/fmu/out/obstacle_distance_fused/angle_offset")
+     increment = TimeseriesView.find("/fmu/out/obstacle_distance_fused/increment")
+     min_dist = 65535
 
-```lua
-obs_dist_fused_xy:clear()
+     -- Cache increment and angle_offset values at tracker_time to avoid repeated calls
+     local angle_offset_value = angle_offset:atTime(tracker_time)
+     local increment_value = increment:atTime(tracker_time)
 
-i = 0
-angle_offset = TimeseriesView.find("/fmu/out/obstacle_distance_fused/angle_offset")
-increment = TimeseriesView.find("/fmu/out/obstacle_distance_fused/increment")
-min_dist = 65535
+     if increment_value == nil or increment_value <= 0 then
+         print("Invalid increment value: " .. tostring(increment_value))
+         return
+     end
 
--- Cache increment and angle_offset values at tracker_time to avoid repeated calls
-local angle_offset_value = angle_offset:atTime(tracker_time)
-local increment_value = increment:atTime(tracker_time)
+     local max_steps = math.floor(360 / increment_value)
 
-if increment_value == nil or increment_value <= 0 then
-    print("Invalid increment value: " .. tostring(increment_value))
-    return
-end
+     while i < max_steps do
+         local str = string.format("/fmu/out/obstacle_distance_fused/distances[%d]", i)
+         local distance = TimeseriesView.find(str)
+         if distance == nil then
+             print("No distance data for: " .. str)
+             break
+         end
 
-local max_steps = math.floor(360 / increment_value)
+         local dist = distance:atTime(tracker_time)
+         if dist ~= nil and dist < 65535 then
+             -- Calculate angle and Cartesian coordinates
+             local angle = angle_offset_value + i * increment_value
+             local y = dist * math.cos(math.rad(angle))
+             local x = dist * math.sin(math.rad(angle))
 
-while i < max_steps do
-    local str = string.format("/fmu/out/obstacle_distance_fused/distances[%d]", i)
-    local distance = TimeseriesView.find(str)
-    if distance == nil then
-        print("No distance data for: " .. str)
-        break
-    end
+             obs_dist_fused_xy:push_back(x, y)
 
-    local dist = distance:atTime(tracker_time)
-    if dist ~= nil and dist < 65535 then
-        -- Calculate angle and Cartesian coordinates
-        local angle = angle_offset_value + i * increment_value
-        local y = dist * math.cos(math.rad(angle))
-        local x = dist * math.sin(math.rad(angle))
+             -- Update minimum distance
+             if dist < min_dist then
+                 min_dist = dist
+             end
+         end
 
-        obs_dist_fused_xy:push_back(x, y)
+         i = i + 1
+     end
 
-        -- Update minimum distance
-        if dist < min_dist then
-            min_dist = dist
-        end
-    end
+     -- Push minimum distance once after the loop
+     if min_dist < 65535 then
+         obs_dist_min:push_back(tracker_time, min_dist)
+     else
+         print("No valid minimum distance found")
+     end
+     ```
 
-    i = i + 1
-end
+4. Enter a name for the script on the top right, and press **Save**.
+   Once saved, the script should appear in the _Active Scripts_ section.
+5. Start streaming the data using the approach described in [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md).
+   You should see the `obstacle_distance_fused_xy` and `obstacle_distance_minimum` timeseries on the left.
 
--- Push minimum distance once after the loop
-if min_dist < 65535 then
-    obs_dist_min:push_back(tracker_time, min_dist)
-else
-    print("No valid minimum distance found")
-end
-```
-
-after this, enter a Name on the Top right, and press save. Once saved, the script should appear in the "Active Scripts" Section.
-If you then start streaming the Data as explained in the [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md) Section, you should be able to see the `obstacle_distance_fused_xy` and `obstacle_distance_minimum` Timeseries on the Left.
-
-To Run the script again after Clearing the Data, you have to press **Save** again.
+Note that to run the script again after clearing the data, you have to press **Save** again.
 
 ### Sensor Data Overview
 
