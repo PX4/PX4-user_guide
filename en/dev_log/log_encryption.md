@@ -89,7 +89,7 @@ This is not used in the current PX4 implementation and can be ignored.
 
 | Argument                     | Description                                                                                               |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------- |
-| CONFIG_BOARD_CRYPTO          | Include crypto module in firmware.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption. |
+| CONFIG_BOARD_CRYPTO          | Include crypto module in firmware.<br>= `y`: Enable log encryption.<br />= `n`: Disable log encryption. |
 | CONFIG_DRIVERS_SW_CRYPTO     | Include the PX4 crypto backend library (used by above library).<br />= `y`: Enable<br />= `n`: Disable    |
 | CONFIG_DRIVERS_STUB_KEYSTORE | Includes the PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable                             |
 | CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0.                                                              |
