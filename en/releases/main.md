@@ -34,7 +34,10 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
   - Thrust-based load compensation has been removed (along with the `BATn_V_LOAD_DROP` parameters, where `n` is the battery number).
 - The [Position (GNSS) loss failsafe](../config/safety.md#position-gnss-loss-failsafe) configurable delay (`COM_POS_FS_DELAY`) has been removed.
   The failsafe will now trigger 1 second after position has been lost. ([PX4-Autopilot#24063](https://github.com/PX4/PX4-Autopilot/pull/24063)).
-
+- [Log Encryption](../dev_log/log_encryption.md) now generates an encrypted log that contains the public-key-encrypted symmetric key that can be used to decrypt it, instead of putting the key into a separate file.
+  This makes log decryption much easier, as there is no need to download or identify a separate key file.
+  ([PX4-Autopilot#24024](https://github.com/PX4/PX4-Autopilot/pull/24024)).
+  
 ### Control
 
 - TBD
