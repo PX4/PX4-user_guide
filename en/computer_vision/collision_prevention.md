@@ -144,7 +144,7 @@ All relevant parameters are listed below:
 The data from all sensors are fused into an internal representation of 72 sectors around the vehicle, each containing either the sensor data and information about when it was last observed, or an indication that no data for the sector was available.
 When the vehicle is commanded to move in a particular direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer than allowed to any obstacles. If so, the vehicle velocity is restricted.
 
-The Algorithm then can be split intwo two parts, the constraining of the acceleration setpoint coming from the operator, and the compensation of the current velocity of the vehicle.
+The Algorithm then can be split into two parts, the constraining of the acceleration setpoint coming from the operator, and the compensation of the current velocity of the vehicle.
 
 ::: info
 If there is no sensor data in a particular direction, movement in that direction is restricted to 0 (preventing the vehicle from crashing into unseen objects).
@@ -153,7 +153,8 @@ If you wish to move freely into directions without sensor coverage, this can be 
 
 ### Acceleration Constraining
 
-For this we split out Acceleration Setpoint into two components, one parallel to the closest distance to the obstacle and one normal to it. Then we scale each of these components according the the figure below.
+For this we split out the acceleration setpoint into two components, one parallel to the closest distance to the obstacle and one normal to it. Then we scale each of these components according the the figure below.
+
 ![Scalefactor](../../assets/computer_vision/collision_prevention/scalefactor.png)
 
  <!-- the code for this figure is at the end of this file -->
@@ -213,23 +214,29 @@ The diagram below shows a simulation of collision prevention as viewed in Gazebo
 
 ![RViz image of collision detection using the x500_lidar_2d model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d_viz.png)
 
-
 ## Development Tools
-### Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler
-<video src="../../assets/computer_vision/collision_prevention/collision_prevention_plotjuggler_realtime.mp4" width="720" controls></video>
 
-To visualize the real-time obstacle distance data and minimum distance using PlotJuggler, you can use the reactive Lua script along with the necessary configuration in PX4. This allows you to monitor the obstacle distances and the closest obstacle (minimum distance) in a real-time plot. Below are the steps to integrate and use the script.
+### Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler
+
+<lite-youtube videoid="amLheoHgwc4" title="Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler"/>
+
+To visualize the real-time obstacle distance data and minimum distance using PlotJuggler, you can use the reactive Lua script along with the necessary configuration in PX4.
+This allows you to monitor the obstacle distances and the closest obstacle (minimum distance) in a real-time plot. Below are the steps to integrate and use the script.
+
 #### Prerequisites
 
 - The setup described in [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md)
 - DDS Topic Configuration: You need to add the appropriate topic to your dds_topics.yaml file to ensure the obstacle distance data is published and available for visualization.
 
 Add the following to your `dds_topics.yaml`:
+
 ```sh
 - topic: /fmu/out/obstacle_distance_fused
   type: px4_msgs::msg::ObstacleDistance
 ```
+
 This ensures that the ObstacleDistance data is published by the flight stack and can be used by PlotJuggler.
+
 #### Script Overview
 
 The Lua script works by extracting the obstacle_distance_fused data at each time step, converting the distance values into Cartesian coordinates, and pushing them to PlotJuggler. Additionally, the script tracks the minimum distance found in the dataset.
@@ -238,11 +245,14 @@ For the script to work you need to go under **Tools -> Reactive Script Editor** 
 Then in the **Script Editor** Tab, Add followings sections accordingly:
 
 **Global code, executed once:**
+
 ```lua
 obs_dist_fused_xy = ScatterXY.new("obstacle_distance_fused_xy")
 obs_dist_min = Timeseries.new("obstacle_distance_minimum")
 ```
+
 **function(tracker_time)**
+
 ```lua
 obs_dist_fused_xy:clear()
 
@@ -295,12 +305,14 @@ else
     print("No valid minimum distance found")
 end
 ```
-after this, enter a Name on the Top right, and press save. Once saved, the  script should appear in the "Active Scripts" Section.
+
+after this, enter a Name on the Top right, and press save. Once saved, the script should appear in the "Active Scripts" Section.
 If you then start streaming the Data as explained in the [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md) Section, you should be able to see the `obstacle_distance_fused_xy` and `obstacle_distance_minimum` Timeseries on the Left.
 
 To Run the script again after Clearing the Data, you have to press **Save** again.
 
 ### Sensor Data Overview
+
 Collision Prevention has an internal obstacle distance map that divides the plane around the drone into 72 Sectors.
 Internally this information is stored in the [`obstacle_distance`](../msg_docs/ObstacleDistance.md) UORB topic.
 New sensor data is compared to the existing map, and used to update any sections that has changed.
@@ -330,7 +342,6 @@ the quaternion `q` is only used if the `orientation` is set to `ROTATION_CUSTOM`
 #### Companion Computers
 
 Companion computers update the `obstacle_distance` topic using ROS2 or the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) MAVLink message.
-
 
 <!-- to edit the image, open it in inkscape -->
 <!-- Code to generate the scalefactor plot
