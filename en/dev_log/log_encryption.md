@@ -26,19 +26,21 @@ If another [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALG
 The encryption process for each new ULog is:
 
 1. A XChaCha20 symmetric key is generated and encrypted using an RSA2048 public key.
-   This encrypted/wrapped key is stored on the SD card in the beginning of a file that has the suffix `.ulge` (ulog encrypted).
-2. A ULog data is encrypted with unwrapped symmetric key and the resulting data is appended into the end of the `.ulge` file immediately after the stored key data.
+   This wrapped (encrypted) key is stored on the SD card in the beginning of a file that has the suffix `.ulge` ("ulog encrypted").
+2. When a log is captured, the ULog data is encrypted with the unwrapped symmetric key and the resulting data is appended into the end of the `.ulge` file immediately after the wrapped key data.
 
-After the flight, the `.ulge` file containing both symmetric key and the encrypted log data can be found on the SD card.
+After the flight, the `.ulge` file containing both the wrapped symmetric key and the encrypted log data can be found on the SD card.
 
 In order to extract the log file, a user must first decrypt the wrapped symmetric key, which can then be used to decrypt the log.
-Note that decrypting the symmetric key file is only possible if the user has the appropriate RSA private key (corresponding to the public key that was used to wrap it).
-This process is covered in [Download & Decrypt Log Files](#download-decrypt-log-files) below.
+Decrypting the wrapped symmetric key file is only possible if the user has the corresponding RSA private key for the public key that was used to wrap it.
 
-## File structure
+This process is covered in more detail in [Download & Decrypt Log Files](#download-decrypt-log-files) below.
+
+## File Structure
 
 Encrypted `.ulge` file contains following sections:
-```
+
+```plain
 -------------------------
 | Header                |
 -------------------------
@@ -51,18 +53,18 @@ Encrypted `.ulge` file contains following sections:
 
 Header section (22 bytes) contains following fields:
 
-| Bytes  | Field                  |
-|--------|------------------------|
-| 0..6   | File magic identifier  |
-| 7      | Header version         |
-| 8..15  | Timestamp              |
-| 16     | exchange algorithm     |
-| 17     | exchange key index     |
-| 18..19 | key size               |
-| 20..21 | nonce size             |
+| Bytes  | Field                 |
+| ------ | --------------------- |
+| 0..6   | File magic identifier |
+| 7      | Header version        |
+| 8..15  | Timestamp             |
+| 16     | exchange algorithm    |
+| 17     | exchange key index    |
+| 18..19 | key size              |
+| 20..21 | nonce size            |
 
 The header part begins with magic string: `"ULogEnc"`, which identifies this is encrypted ulog file.
-File offset of the symmetric key section is 22 and file offset of the log data section is 22+key_size+nonce_size (key_size and nonce_size are taken from header section).
+The file offset of the symmetric key section is `22` and the file offset of the log data section is `22 + key_size + nonce_size` (`key_size` and `nonce_size` are taken from the header section).
 
 ## Custom PX4 Firmware with Log Encryption
 
@@ -84,7 +86,7 @@ Crypto uses large amounts of flash memory, and is therefore not included in the 
 The easiest way to add support for encrypted logs is to define a custom `make` target that includes the required modules and your public RSA keys.
 
 ::: warning
-Crypto uses a lot of flash memory, and many builds are close to their maximum capacity.
+Many builds are close to their maximum capacity.
 If you run into a build error telling you that you have gone above the maximum flash memory, you will need to disable other features in the `.px4board` file you are working on, or in the `default.px4board` file.
 Be careful not to disable something you need.
 
@@ -111,21 +113,21 @@ This is not used in the current PX4 implementation and can be ignored.
 
 ::: details Overview of crypto-relevant keys
 
-| Argument                     | Description                                                                                               |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------- |
-| CONFIG_BOARD_CRYPTO          | Include crypto module in firmware.<br />= `y`: Enable log encryption.<br />= `n`: Disable log encryption. |
-| CONFIG_DRIVERS_SW_CRYPTO     | Include the PX4 crypto backend library (used by above library).<br />= `y`: Enable<br />= `n`: Disable    |
-| CONFIG_DRIVERS_STUB_KEYSTORE | Includes the PX4 stub keystore driver.<br />= `y`: Enable<br />= `n`: Disable                             |
-| CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0.                                                              |
-| CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1.<br />= `{path to key1}`                                      |
-| CONFIG_PUBLIC_KEY2           | Location of public key for keystore index 2.<br />= `{path to key2}`                                      |
-| CONFIG_PUBLIC_KEY3           | Location of public key for keystore index 3.<br />= `{path to key3}`                                      |
+| Argument                     | Description                                                                                           |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------- |
+| CONFIG_BOARD_CRYPTO          | Include crypto module in firmware.<br>= `y`: Enable log encryption.<br>= `n`: Disable log encryption. |
+| CONFIG_DRIVERS_SW_CRYPTO     | Include the PX4 crypto backend library (used by above library).<br>= `y`: Enable<br>= `n`: Disable    |
+| CONFIG_DRIVERS_STUB_KEYSTORE | Includes the PX4 stub keystore driver.<br>= `y`: Enable<br>= `n`: Disable                             |
+| CONFIG_PUBLIC_KEY0           | Location of public key for keystore index 0.                                                          |
+| CONFIG_PUBLIC_KEY1           | Location of public key for keystore index 1.<br>= `{path to key1}`                                    |
+| CONFIG_PUBLIC_KEY2           | Location of public key for keystore index 2.<br>= `{path to key2}`                                    |
+| CONFIG_PUBLIC_KEY3           | Location of public key for keystore index 3.<br>= `{path to key3}`                                    |
 
 The stub keystore is a keystore implementation that can store up to four keys.
 The initial values of these keys are set in the locations defined by `CONFIG_PUBLIC_KEY0` to `CONFIG_PUBLIC_KEY3`.
 The keys can be used for different cryptographic purposes, which are determined by parameters.
 
-The _exchange key_, which is the public key used for encrypting the symmetric key stored in the beginning of `.ulge` file, is specified using [SDLOG_EXCH_KEY](../advanced_config/parameter_reference.md#SDLOG_EXCH_KEY) as an index value into the key store.
+The _exchange key_, which is the public key used for encrypting the symmetric key stored in the beginning of the `.ulge` file, is specified using [SDLOG_EXCH_KEY](../advanced_config/parameter_reference.md#SDLOG_EXCH_KEY) as an index value into the key store.
 The value is `1` by default, which maps to the key defined in `CONFIG_PUBLIC_KEY1`.
 
 The _logging key_ is the unencrypted symmetric key.
@@ -195,7 +197,7 @@ There is a Python script that can be used to decrypt logs in `Tools/decrypt_ulog
 `decrypt_ulog.py` takes 3 arguments:
 
 1. The encrypted ulog file. Supporting both `.ulge` and the old legacy `.ulgc` file format.
-2. Optional symmetric key `.ulgk` file. Give empty string  `''` for decrypting `.ulge`. This is for supporting legacy `.ulgc/.ulgk` log files.
+2. Optional symmetric key `.ulgk` file. Give empty string `''` for decrypting `.ulge`. This is for supporting legacy `.ulgc/.ulgk` log files.
 3. The decryption key (the RSA2048 `.pem` private key which is used to unwrap the symmetric key).
 
 ```sh
