@@ -38,15 +38,15 @@ PX4 можна використовувати з багатьма деталям
 
 Цей список містить самостійні модулі магнітометрів (без ГНСС).
 
-| Пристрій                                                                                                        | Компас |             DroneCan            |
-| :-------------------------------------------------------------------------------------------------------------- | :----: | :-----------------------------: |
-| [Магнітометр UAVCAN Avionics Anonymous](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?   |                                 |
-| [Компас/Магнітометр Holybro DroneCAN RM3100](https://holybro.com/products/dronecan-rm3100-compass)              | RM3100 | &amp;check; |
-| [RaccoonLab DroneCAN/Cyphal Magnetometer RM3100](https://holybro.com/products/dronecan-rm3100-compass)          | RM3100 | &amp;check; |
+| Пристрій                                                                                                        | Компас | DroneCan |
+| :-------------------------------------------------------------------------------------------------------------- | :----: | :------: |
+| [Магнітометр UAVCAN Avionics Anonymous](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?   |          |
+| [Компас/Магнітометр Holybro DroneCAN RM3100](https://holybro.com/products/dronecan-rm3100-compass)              | RM3100 |     ✓    |
+| [RaccoonLab DroneCAN/Cyphal Magnetometer RM3100](https://holybro.com/products/dronecan-rm3100-compass)          | RM3100 |     ✓    |
 
 Примітка:
 
-- &check; або конкретний номер артикулу вказує на те, що функція підтримується, тоді як &cross; або пусте поле вказує на те, що функція не підтримується.
+- ✓ or a specific part number indicate that a features is supported, while ✘ or empty show that the feature is not supported.
   "?" означає "невідомо".
 - Компас, який не є "DroneCAN", можна вважати SPI або I2C.
 
