@@ -14,7 +14,7 @@ If the system does not start properly you should instead use the [System Console
 
 <a id="qgroundcontrol"></a>
 
-### Консоль QGroundControl MAVLink
+### QGroundControl MAVLink Console
 
 The easiest way to access shell is to use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (see **Analyze View > Mavlink Console**).
 
