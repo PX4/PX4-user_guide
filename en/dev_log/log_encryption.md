@@ -198,7 +198,7 @@ Note that the encrypted files will be downloaded with the `.ulg` suffix, instead
 Before you can analyze your encrypted logs, you will need to decrypt them.
 There is a Python script that can be used to decrypt logs in `Tools/decrypt_ulog.py`.
 
-When decrypting a `.uloge` file the script takes 3 arguments:
+When decrypting a `.ulge` file the script takes 3 arguments:
 
 1. The encrypted log file.
 2. An empty string `''`.
