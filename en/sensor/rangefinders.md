@@ -67,7 +67,7 @@ It has a sensing range from 1cm to 40m and needs to be connected to a UART/seria
 
 The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low power LIDAR with 12m range.
 
-### PSK-CM8JL65-CC5 [EOL]
+### PSK-CM8JL65-CC5
 
 <Badge type="info" text="Discontinued" />
 

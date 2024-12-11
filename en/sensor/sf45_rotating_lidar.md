@@ -67,31 +67,36 @@ The [sensor driver](../modules/modules_driver_distance_sensor.md#lightware-sf45-
 The measurements in each sector will correspond to the lowest measurement the sensor had in that corresponding sector.
 The data is then published to the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) MAVLink message.
 
-## Debugging
+## Troubleshooting
 
 ### Common problems
 
-Start-up issues, jerky movements, or a lot of coms errors displayed with `lightware_sf45_serial status` could mean that the sensor is not getting enough power.
+Start-up issues, jerky movements, or a lot of communication errors displayed with `lightware_sf45_serial status` could mean that the sensor is not getting enough power.
 
 According to its datasheet, the sensor needs 300 mA of current at 5V.
-The supplied cable is fairly long and when connected to the 5V supply from the FMU like the `TELEM2` port, the voltage at the rangefinder may have dropped below the required level.
+The supplied cable is fairly long and when connected to the 5V supply, such as the flight controller `TELEM2` port, the voltage at the rangefinder may drop below the required level.
 One mitigation/alternative is to power the SF45 via a separate step-down converter from battery voltage, ensuring that there are 5V across the rangefinder itself.
 
 ### Debugging with PlotJuggler
 
-Below are two reactive scripts for Plotjuggler, with which you can plot the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messaage in an xy plot.
-which greatly helps debugging as you directly see the orientation of the measurement in respect of the drone.
+Debugging problems with distance sensors is much easier if you can plot the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message in an x-y plot, because this lets you directly see the orientation of the measurement in respect of the drone.
 
- <video src="../../assets/hardware/sensors/lidar_lightware/sf45_plotjuggler.mp4" width="720" controls></video>
+The video below shows how you can view such a plot in PlotJuggler.
 
- For this you need to add follwing Reactive Scripts to Plotjuggler:
+<video src="../../assets/hardware/sensors/lidar_lightware/sf45_plotjuggler.mp4" width="720" controls></video>
+
+In order to generate this kind of plot you will need to add the following Reactive Scripts to PlotJuggler.
+If you save these scripts and then add new data, you will see a new timeseries called `obstacle_distance_xy`, which is the same as is displayed in the video.
 
 **Global code, executed once:**
- ```
+
+```reactive
 obs_dist_xy = ScatterXY.new("obstacle_distance_xy")
- ```
+```
+
 **function(tracker_time)**
- ```
+
+```reactive
 obs_dist_xy:clear()
 
 i = 0
@@ -114,6 +119,7 @@ obs_dist_xy:push_back(x, y)
 i = i + 1
 end
 ```
-if you then save it, and load new data, you will see a new timeseries called `obstacle_distance_xy`, which is what you see above.
-to also see the fused obstacle_distance, you can just adapt the script to work on the `obstacle_distance_fused` message
 
+::: tip
+To also see the fused `obstacle_distance`, you can just adapt the script to work on the `obstacle_distance_fused` message.
+:::
