@@ -11,16 +11,20 @@ Log encryption is not enabled by default in PX4 firmware builds.
 To use it you will need to build firmware with this feature enabled and then upload it to the flight controller (see instructions below).
 :::
 
-::: info
-The encryption algorithm used is set in [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALGORITHM).
-At time of writing, only `XChaCha20` is supported (AES can be selected, but there is no implementation).
+::: tip
+Log encryption was has been improved in PX4 main (v1.16+) to generate a single encrypted log file that contains both encrypted log data, and an encrypted symmetric key that you can use to decrypt it (provided you can decrypt the symmetric key).
+
+In earlier versions the encrypted symmetric key was stored in a separate file.
+For more information see the [Log Encryption (PX4 v1.15)](https://docs.px4.io/v1.15/en/dev_log/log_encryption.html).
 :::
 
 ## How ULog Encryption Works
 
 ::: info
-This process assumes the default XChaCha20 algorithm is used.
-If another [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALGORITHM) is used, the process is _likely_ to remain the same.
+The encryption algorithm used is set in [SDLOG_ALGORITHM](../advanced_config/parameter_reference.md#SDLOG_ALGORITHM).
+At time of writing, only `XChaCha20` is supported (AES can be selected, but there is no implementation).
+
+If another algorithm is supported in future, the process is _likely_ to remain the same as documented here.
 :::
 
 The encryption process for each new ULog is:
@@ -194,11 +198,25 @@ Note that the encrypted files will be downloaded with the `.ulg` suffix, instead
 Before you can analyze your encrypted logs, you will need to decrypt them.
 There is a Python script that can be used to decrypt logs in `Tools/decrypt_ulog.py`.
 
-`decrypt_ulog.py` takes 3 arguments:
+When decrypting a `.uloge` file the script takes 3 arguments:
 
-1. The encrypted ulog file. Supporting both `.ulge` and the old legacy `.ulgc` file format.
-2. Optional symmetric key `.ulgk` file. Give empty string `''` for decrypting `.ulge`. This is for supporting legacy `.ulgc/.ulgk` log files.
+1. The encrypted log file.
+2. An empty string `''`.
 3. The decryption key (the RSA2048 `.pem` private key which is used to unwrap the symmetric key).
+
+For example:
+
+```sh
+python3 decrypt_ulog.py \
+/home/john/Downloads/log_24_2024-10-6-23-39-50.ulg '' \
+new_keys/private_key.pem
+```
+
+On success the decrypted log file is created with the `.ulog` suffix.
+
+::: info
+The script can be used with both `.ulge` logs and the `.ulgc`/`.ulgk` files used in [PX4 v1.15 Log Encryption](https://docs.px4.io/v1.15/en/dev_log/log_encryption.html).
+The full command line syntax is given below:
 
 ```sh
 usage: decrypt_ulog.py [-h] [ulog_file] [ulog_key] [rsa_key]
@@ -212,22 +230,13 @@ positional arguments:
 
 optional arguments:
   -h, --help  show this help message and exit
-
 ```
 
-As an example:
-
-```sh
-python3 decrypt_ulog.py \
-/home/john/Downloads/log_24_2024-10-6-23-39-50.ulg '' \
-new_keys/private_key.pem
-```
-
-On success the decrypted log file is created with the `.ulog` suffix.
+:::
 
 ## Generate RSA Public & Private Keys
 
-To generate a rsa2048 private and public key, you can use OpenSSL:
+To generate a RSA2048 private and public key, you can use OpenSSL:
 
 ```sh
 openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
@@ -238,7 +247,7 @@ Then you can create a public key from this private key:
 ```sh
 # Convert private_key.pem to a DER file
 openssl rsa -pubout -in private_key.pem -outform DER -out public_key.der
-# From the DER file, generate a public key in hex format, seperated by commas
+# From the DER file, generate a public key in hex format, separated by commas
 xxd -p public_key.der | tr -d '\n' | sed 's/\(..\)/0x\1, /g' > public_key.pub
 ```
 
