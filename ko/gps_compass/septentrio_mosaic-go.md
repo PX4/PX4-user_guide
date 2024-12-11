@@ -125,14 +125,14 @@ The web interface also uses easy-to-read quality indicators ideal to monitor the
 
 ## LED Status
 
-| LED Color     |              Powered             |          SD card mounted         |           PVT Solution           |          Logging enabled         |
-| ------------- | :------------------------------: | :------------------------------: | :------------------------------: | :------------------------------: |
-| 빨강            | &amp;check;️ |                                  |                                  |                                  |
-| 녹색            | &amp;check;️ | &amp;check;️ |                                  |                                  |
-| 청색            | &amp;check;️ | &amp;check;️ | &amp;check;️ |                                  |
-| Purple        | &amp;check;️ |                                  | &amp;check;️ |                                  |
-| Purple + Blue | &amp;check;️ | &amp;check;️ | &amp;check;️ | &amp;check;️ |
-| Red + Green   | &amp;check;️ | &amp;check;️ |                                  | &amp;check;️ |
+| LED Color     | Powered | SD card mounted | PVT Solution | Logging enabled |
+| ------------- | :-----: | :-------------: | :----------: | :-------------: |
+| 빨강            |    ✓    |                 |              |                 |
+| 녹색            |    ✓    |        ✓        |              |                 |
+| 청색            |    ✓    |        ✓        |       ✓      |                 |
+| Purple        |    ✓    |                 |       ✓      |                 |
+| Purple + Blue |    ✓    |        ✓        |       ✓      |        ✓        |
+| Red + Green   |    ✓    |        ✓        |              |        ✓        |
 
 :::tip
 For more detailed information about the mosaic-go and its module, please refer to the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrrd) or the [Septentrio Support](https://support.septentrio.com/l/858493/2022-04-19/xgrrl) page.
