@@ -28,9 +28,9 @@ PX4 software setup is covered in the next section.
 If you are using a distance sensor attached to your flight controller for collision prevention, it will need to be attached and configured as described in [PX4 Distance Sensor](#rangefinder).
 If you are using a companion computer to provide obstacle information see [companion setup](#companion
 
-## PX4 Distance Sensor {#rangefinder}
+## Supported Rangefinders  {#rangefinder}
 
-### Lanbao PSK-CM8JL65-CC5 [EOL]
+### Lanbao PSK-CM8JL65-CC5 [Discontinued]
 
 At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention “out of the box”, with minimal additional configuration:
 
