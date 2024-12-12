@@ -104,6 +104,22 @@ make px4_sitl gz_x500_lidar_2d
 The sensor information is written to the [ObstacleDistance](../msg_docs/ObstacleDistance.md) UORB message used by collision prevention.
 :::
 
+### X500 Quadrotor with Gimbal (Front-facing)
+
+This model have a gimbal attached to the front with angular ranges of
+- roll: [- $\frac{\pi}{4}$, $\frac{\pi}{4}$]
+- pitch: [- $\pi$, $\frac{\pi}{4}$]
+- yaw: infinite rotation
+
+The gimbal joints uses position control with a kinematic chain ZXY.
+
+![[Quadrotor(x500) with gimbal (Front-facing) in Gazebo]](../../assets/simulation/gazebo/vehicles/x500_gimbal.png).
+
+
+```sh
+make px4_sitl gz_x500_gimbal
+```
+
 ## Plane/Fixed-wing
 
 ### Standard Plane
