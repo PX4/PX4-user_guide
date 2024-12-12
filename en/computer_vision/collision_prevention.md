@@ -26,7 +26,31 @@ Users are notified through _QGroundControl_ while _Collision Prevention_ is acti
 
 PX4 software setup is covered in the next section.
 If you are using a distance sensor attached to your flight controller for collision prevention, it will need to be attached and configured as described in [PX4 Distance Sensor](#rangefinder).
-If you are using a companion computer to provide obstacle information see [companion setup](#companion).
+If you are using a companion computer to provide obstacle information see [companion setup](#companion
+
+## PX4 Distance Sensor {#rangefinder}
+
+### Lanbao PSK-CM8JL65-CC5 [EOL]
+
+At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention “out of the box”, with minimal additional configuration:
+
+
+- First [attach and configure the sensor](../sensor/cm8jl65_ir_distance_sensor.md), and enable collision prevention (as described above, using [CP_DIST](#CP_DIST)).
+- Set the sensor orientation using [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0).
+
+### LightWare LiDAR SF45 Rotating Lidar
+
+PX4 v1.14 (and later) supports the [LightWare LiDAR SF45](../sensor/sf45_rotating_lidar.md) rotating lidar which provides 320 degree sensing.
+
+### Other Rangefinders
+
+Other sensors may be enabled, but this requires modification of driver code to set the sensor orientation and field of view.
+
+- Attach and configure the distance sensor on a particular port (see [sensor-specific docs](../sensor/rangefinders.md)) and enable collision prevention using [CP_DIST](#CP_DIST).
+- Modify the driver to set the orientation.
+  This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor _module.yaml_ file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
+- Modify the driver to set the _field of view_ in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
+
 
 ## PX4 (Software) Setup
 
@@ -107,32 +131,36 @@ The guidance feature will never direct the vehicle in a direction without sensor
 If the vehicle feels stuck with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
 :::
 
-## PX4 Distance Sensor {#rangefinder}
 
-### Lanbao PSK-CM8JL65-CC5 [EOL]
+## Algorithm Description
 
-At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention “out of the box”, with minimal additional configuration:
+The data from all sensors are fused into an internal representation of 72 sectors around the vehicle, each containing either the sensor data and information about when it was last observed, or an indication that no data for the sector was available.
+When the vehicle is commanded to move in a particular direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer than allowed to any obstacles. If so, the vehicle velocity is restricted.
 
-- First [attach and configure the sensor](../sensor/cm8jl65_ir_distance_sensor.md), and enable collision prevention (as described above, using [CP_DIST](#CP_DIST)).
-- Set the sensor orientation using [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0).
+The Algorithm then can be split into two parts, the constraining of the acceleration setpoint coming from the operator, and the compensation of the current velocity of the vehicle.
 
-### LightWare LiDAR SF45 Rotating Lidar
-
-PX4 v1.14 (and later) supports the [LightWare LiDAR SF45](../sensor/sf45_rotating_lidar.md) rotating lidar which provides 320 degree sensing.
-
-### Other Rangefinders
-
-Other sensors may be enabled, but this requires modification of driver code to set the sensor orientation and field of view.
-
-- Attach and configure the distance sensor on a particular port (see [sensor-specific docs](../sensor/rangefinders.md)) and enable collision prevention using [CP_DIST](#CP_DIST).
-- Modify the driver to set the orientation.
-  This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor _module.yaml_ file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
-- Modify the driver to set the _field of view_ in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
-
-:::tip
-You can see the required modifications from the [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179).
-Please contribute back your changes!
+::: info
+If there is no sensor data in a particular direction, movement in that direction is restricted to 0 (preventing the vehicle from crashing into unseen objects).
+If you wish to move freely into directions without sensor coverage, this can be enabled by setting [CP_GO_NO_DATA](#CP_GO_NO_DATA) to 1.
 :::
+
+### Acceleration Constraining
+
+For this we split out the acceleration setpoint into two components, one parallel to the closest distance to the obstacle and one normal to it. Then we scale each of these components according the the figure below.
+
+![Scalefactor](../../assets/computer_vision/collision_prevention/scalefactor.png)
+
+ <!-- the code for this figure is at the end of this file -->
+
+### Velocity compensation
+
+This velocity restriction takes into account the [jerk-optimal velocity controller](../config_mc/mc_jerk_limited_type_trajectory.md) via [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) and [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR). Whereby <!--this is only partially valid anymore... check -->
+The current velocity is compared with the maximum allowed velocity so that we are still able to break based on the maximal allowed jerk, acceleration and delay. from this we are able to use the proportional gain of the acceleration controller([MPC_XY_VEL_P_ACC](../advanced_config/parameter_reference.md#MPC_XY_VEL_P_ACC)) to transform it into an acceleration.
+
+### Delay
+
+The delay associated with collision prevention, both in the vehicle tracking velocity setpoints and in receiving sensor data from external sources, is conservatively estimated via the [CP_DELAY](#CP_DELAY) parameter.
+This should be [tuned](#delay_tuning) to the specific vehicle.
 
 ## Companion Setup {#companion}
 
@@ -161,7 +189,104 @@ The diagram below shows a simulation of collision prevention as viewed in Gazebo
 
 ![RViz image of collision detection using the x500_lidar_2d model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d_viz.png)
 
-## Sensor Data Overview (Implementation Details)
+## Development Information/Tools
+
+### Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler
+
+[PlotJuggler](../log/plotjuggler_log_analysis.md) can be used to monitor and visualize obstacle distances in a real-time plot, including the minimum distance to the closest obstacle.
+
+<lite-youtube videoid="amLheoHgwc4" title="Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler"/>
+
+To use this feature you need to add a reactive Lua script to PlotJuggler, and also configure PX4 to export [`obstacle_distance_fused`](../msg_docs/ObstacleDistance.md) UORB topic data.
+The Lua script works by extracting the `obstacle_distance_fused` data at each time step, converting the distance values into Cartesian coordinates, and pushing them to PlotJuggler.
+
+The steps are:
+
+1. Follow the instructions in [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md)
+2. Configure PX4 to publish obstacle distance data (so that it is available to PlotJuggler):
+
+   Add the [`obstacle_distance_fused`](../msg_docs/ObstacleDistance.md) UORB topic to your [`dds_topics.yaml`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) so that it is published by PX4:
+
+   ```sh
+   - topic: /fmu/out/obstacle_distance_fused
+     type: px4_msgs::msg::ObstacleDistance
+   ```
+
+   For more information see [DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml) in _uXRCE-DDS (PX4-ROS 2/DDS Bridge)_.
+
+3. Open PlotJuggler and navigate to the **Tools > Reactive Script Editor** section.
+   In the **Script Editor** tab, add following scripts in the appropriate sections:
+
+   - **Global code, executed once:**
+
+     ```lua
+     obs_dist_fused_xy = ScatterXY.new("obstacle_distance_fused_xy")
+     obs_dist_min = Timeseries.new("obstacle_distance_minimum")
+     ```
+
+   - **function(tracker_time)**
+
+     ```lua
+     obs_dist_fused_xy:clear()
+
+     i = 0
+     angle_offset = TimeseriesView.find("/fmu/out/obstacle_distance_fused/angle_offset")
+     increment = TimeseriesView.find("/fmu/out/obstacle_distance_fused/increment")
+     min_dist = 65535
+
+     -- Cache increment and angle_offset values at tracker_time to avoid repeated calls
+     local angle_offset_value = angle_offset:atTime(tracker_time)
+     local increment_value = increment:atTime(tracker_time)
+
+     if increment_value == nil or increment_value <= 0 then
+         print("Invalid increment value: " .. tostring(increment_value))
+         return
+     end
+
+     local max_steps = math.floor(360 / increment_value)
+
+     while i < max_steps do
+         local str = string.format("/fmu/out/obstacle_distance_fused/distances[%d]", i)
+         local distance = TimeseriesView.find(str)
+         if distance == nil then
+             print("No distance data for: " .. str)
+             break
+         end
+
+         local dist = distance:atTime(tracker_time)
+         if dist ~= nil and dist < 65535 then
+             -- Calculate angle and Cartesian coordinates
+             local angle = angle_offset_value + i * increment_value
+             local y = dist * math.cos(math.rad(angle))
+             local x = dist * math.sin(math.rad(angle))
+
+             obs_dist_fused_xy:push_back(x, y)
+
+             -- Update minimum distance
+             if dist < min_dist then
+                 min_dist = dist
+             end
+         end
+
+         i = i + 1
+     end
+
+     -- Push minimum distance once after the loop
+     if min_dist < 65535 then
+         obs_dist_min:push_back(tracker_time, min_dist)
+     else
+         print("No valid minimum distance found")
+     end
+     ```
+
+4. Enter a name for the script on the top right, and press **Save**.
+   Once saved, the script should appear in the _Active Scripts_ section.
+5. Start streaming the data using the approach described in [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md).
+   You should see the `obstacle_distance_fused_xy` and `obstacle_distance_minimum` timeseries on the left.
+
+Note that to run the script again after clearing the data, you have to press **Save** again.
+
+### Sensor Data Overview
 
 Collision Prevention has an internal obstacle distance map that divides the plane around the drone into 72 Sectors.
 Internally this information is stored in the [`obstacle_distance`](../msg_docs/ObstacleDistance.md) UORB topic.
@@ -173,11 +298,11 @@ The angles in the `obstacle_distance` topic are defined as follows:
 
 The data from rangefinders, rotary lidars, or companion computers, is processed differently, as described below.
 
-### Rotary Lidars
+#### Rotary Lidars
 
 Rotary Lidars add their data directly to the [`obstacle_distance`](../msg_docs/ObstacleDistance.md) uORB topic.
 
-### Rangefinders
+#### Rangefinders
 
 Rangefinders publish their data to the [`distance_sensor`](../msg_docs/DistanceSensor.md) uORB topic.
 
@@ -189,10 +314,9 @@ For example, a distance sensor measuring from 9.99° to 10.01° the measurements
 the quaternion `q` is only used if the `orientation` is set to `ROTATION_CUSTOM`.
 :::
 
-### Companion Computers
+#### Companion Computers
 
 Companion computers update the `obstacle_distance` topic using ROS2 or the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) MAVLink message.
-
 
 <!-- to edit the image, open it in inkscape -->
 <!-- Code to generate the scalefactor plot

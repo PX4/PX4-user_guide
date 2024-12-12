@@ -69,6 +69,8 @@ The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low po
 
 ### PSK-CM8JL65-CC5
 
+<Badge type="info" text="Discontinued" />
+
 The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm8jl65_ir_distance_sensor.md) is a very small (38 mm x 18mm x 7mm, <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution.
 UART/직렬 버스에 연결됩니다.
 
@@ -107,14 +109,14 @@ The hardware and software setup that is _specific to each distance sensor_ is co
 
 The generic configuration that is _common to all distance sensors_, covering both the physical setup and usage, is given below.
 
-### 일반 설정
+### Generic Configuration
 
 The common rangefinder configuration is specified using [EKF2_RNG\_\*](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) parameters.
 These include (non exhaustively):
 
 - [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - offset of the rangefinder from the vehicle centre of gravity in X, Y, Z directions.
 - [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_PITCH) - A value of 0 degrees (default) corresponds to the range finder being exactly aligned with the vehicle vertical axis (i.e. straight down), while 90 degrees indicates that the range finder is pointing forward.
-  0이 아닌 피치가 사용되는 경우 간단한 삼각법을 사용하여 지면까지의 거리를 계산합니다.
+  Simple trigonometry is used to calculate the distance to ground if a non-zero pitch is used.
 - [EKF2_RNG_DELAY](../advanced_config/parameter_reference.md#EKF2_RNG_DELAY) - approximate delay of data reaching the estimator from the sensor.
 - [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - Range finder range dependent noise scaler.
 - [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE) - Measurement noise for range finder fusion
@@ -144,7 +146,7 @@ To view the rangefinder output:
    The tool will then plot the result:
    ![QGC Analyze DISTANCE\_SENSOR value](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
 
-### QGroundControl MAVLink 콘솔
+### QGroundControl MAVLink Console
 
 You can also use the _QGroundControl MAVLink Console_ to observe the `distance_sensor` uORB topic:
 
@@ -161,7 +163,7 @@ For more information see: [Development > Debugging/Logging > Sensor/Topic Debugg
 
 ## 시뮬레이션
 
-### Gazebo 시뮬레이션
+### Gazebo Simulation
 
 Lidar and sonar rangefinders can be used in the [Gazebo](../sim_gazebo_gz/index.md) simulator.
 To do this you must start the simulator using a vehicle model that includes the rangefinder.

@@ -371,8 +371,7 @@ The camera also supports video streaming.
 It can be used to test camera capture, in particular within survey missions.
 
 The camera emits the [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) message every time an image is captured.
-The captured images are saved to: `PX4-Autopilot/build/px4_sitl_default/tmp/frames/DSC_n.jpg` (where _n_ starts as 00000 and is iterated by one on each capture).
-
+The captured images are saved to: `PX4-Autopilot/build/px4_sitl_default/src/modules/simulation/simulator_mavlink/frames/DSC_n.jpg` (where _n_ starts as 00000 and is iterated by one on each capture).
 To simulate a plane with this camera:
 
 ```sh
@@ -428,7 +427,7 @@ For example, you could do this by forcing a [Geofence violation](../config/safet
 - [Parachute](../peripherals/parachute.md)
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
-## 视频流
+## Video Streaming
 
 PX4 SITL for Gazebo Classic supports UDP video streaming from a camera sensor attached to a simulated vehicle model.
 When streaming is enabled, you can connect to this stream from _QGroundControl_ (on UDP port 5600) and view video of the Gazebo Classic environment from the simulated vehicle - just as you would from a real camera.

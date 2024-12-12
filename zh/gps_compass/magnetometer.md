@@ -38,15 +38,15 @@ If GNSS is required, then a combined GNSS/Compass module will be preferred over 
 
 This list contains stand-alone magnetometer modules (without GNSS).
 
-| 设备                                                                                                               |   罗盘   |             DroneCan            |
-| :--------------------------------------------------------------------------------------------------------------- | :----: | :-----------------------------: |
-| [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?   |                                 |
-| [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             | RM3100 | &amp;check; |
-| [RaccoonLab DroneCAN/Cyphal Magnetometer RM3100](https://holybro.com/products/dronecan-rm3100-compass)           | RM3100 | &amp;check; |
+| 设备                                                                                                               |   罗盘   |           DroneCan          |
+| :--------------------------------------------------------------------------------------------------------------- | :----: | :-------------------------: |
+| [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?   |                             |
+| [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             | RM3100 | &check; |
+| [RaccoonLab DroneCAN/Cyphal Magnetometer RM3100](https://holybro.com/products/dronecan-rm3100-compass)           | RM3100 | &check; |
 
 注意：
 
-- &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported.
+- ✓ or a specific part number indicate that a features is supported, while ✘ or empty show that the feature is not supported.
   "?" indicates "unknown".
 - A compass that is not "DroneCAN" can be assumed to be SPI or I2C.
 

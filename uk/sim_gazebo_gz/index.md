@@ -1,4 +1,4 @@
-# Симуляція Gazebo
+# Gazebo Simulation
 
 :::warning
 Gazebo was previously known as "Gazebo Ignition" (while _Gazebo Classic_ was previously known as Gazebo).

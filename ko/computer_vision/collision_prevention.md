@@ -144,7 +144,7 @@ All relevant parameters are listed below:
 The data from all sensors are fused into an internal representation of 72 sectors around the vehicle, each containing either the sensor data and information about when it was last observed, or an indication that no data for the sector was available.
 When the vehicle is commanded to move in a particular direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer than allowed to any obstacles. 그러한 경우에는, 차량 속도가 제한됩니다.
 
-The Algorithm then can be split intwo two parts, the constraining of the acceleration setpoint coming from the operator, and the compensation of the current velocity of the vehicle.
+The Algorithm then can be split into two parts, the constraining of the acceleration setpoint coming from the operator, and the compensation of the current velocity of the vehicle.
 
 :::info
 If there is no sensor data in a particular direction, movement in that direction is restricted to 0 (preventing the vehicle from crashing into unseen objects).
@@ -153,7 +153,8 @@ If you wish to move freely into directions without sensor coverage, this can be 
 
 ### Acceleration Constraining
 
-For this we split out Acceleration Setpoint into two components, one parallel to the closest distance to the obstacle and one normal to it. Then we scale each of these components according the the figure below.
+For this we split out the acceleration setpoint into two components, one parallel to the closest distance to the obstacle and one normal to it. Then we scale each of these components according the the figure below.
+
 ![Scalefactor](../../assets/computer_vision/collision_prevention/scalefactor.png)
 
  <!-- the code for this figure is at the end of this file -->
@@ -169,21 +170,21 @@ The delay associated with collision prevention, both in the vehicle tracking vel
 This should be [tuned](#delay_tuning) to the specific vehicle.
 
 If the sectors adjacent to the commanded sectors are 'better' by a significant margin, the direction of the requested input can be modified by up to the angle specified in [CP_GUIDE_ANG](#CP_GUIDE_ANG).
-이는 장애물에 걸리지 않고 장애물 주변으로 차량을 '안내'하기 위하여 사용자 입력을 미세 조정하는 데 도움이 됩니다.
+This helps to fine-tune user input to 'guide' the vehicle around obstacles rather than getting stuck against them.
 
-### 범위 데이터 손실
+### Range Data Loss
 
 If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning _No range data received, no movement allowed_.
-이렇게하면 xy의 속도 설정값이 0이 됩니다.
+This will force the velocity setpoints in xy to zero.
 After 5 seconds of not receiving any data, the vehicle will switch into [HOLD mode](../flight_modes_mc/hold.md).
 If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes_mc/position.md) (e.g. to _Altitude mode_ or _Stabilized mode_).
 
-여러 센서가 연결되어 있고, 그 중 하나와의 연결이 끊어진 경우에도 보고 센서의 시야 (FOV) 내부를 비행할 수 있습니다.
-결함이 있는 센서의 데이터가 만료되고, 이 센서가 포함하는 영역이 커버되지 않은 것으로 처리되므로 그 곳으로 이동할 수 없습니다.
+If you have multiple sensors connected and you lose connection to one of them, you will still be able to fly inside the field of view (FOV) of the reporting sensors.
+The data of the faulty sensor will expire and the region covered by this sensor will be treated as uncovered, meaning you will not be able to move there.
 
 :::warning
 Be careful when enabling [CP_GO_NO_DATA=1](#CP_GO_NO_DATA), which allows the vehicle to fly outside the area with sensor coverage.
-여러 센서 중 하나라도 연결이 끊어지면 결함이있는 센서의 영역이 무시되어, 제약없이 이동할 수 있습니다.
+If you lose connection to one of multiple sensors, the area covered by the faulty sensor is also treated as uncovered and you will be able to move there without constraint.
 :::
 
 ## Companion Setup {#companion}
@@ -196,9 +197,9 @@ If using a companion computer or external sensor, it needs to supply a stream of
 
 The minimum rate at which messages _must_ be sent depends on vehicle speed - at higher rates the vehicle will have a longer time to respond to detected obstacles.
 Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 10Hz (the maximum rate supported by the vision system).
-시스템은 상당히 빠른 속도와 낮은 주파수 거리 업데이트에서 잘 작동 할 수 있습니다.
+The system may work well at significantly higher speeds and lower frequency distance updates.
 
-## Gazebo 시뮬레이션
+## Gazebo Simulation
 
 _Collision Prevention_ can be tested using [Gazebo](../sim_gazebo_gz/index.md) with the [x500_lidar_2d](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar) model.
 To do this, start a simulation with the x500 lidar model by running the following command:
@@ -213,7 +214,106 @@ The diagram below shows a simulation of collision prevention as viewed in Gazebo
 
 ![RViz image of collision detection using the x500\_lidar\_2d model in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_2d_viz.png)
 
-## Sensor Data Overview (Implementation Details)
+## Development Information/Tools
+
+### Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler
+
+[PlotJuggler](../log/plotjuggler_log_analysis.md) can be used to monitor and visualize obstacle distances in a real-time plot, including the minimum distance to the closest obstacle.
+
+<lite-youtube videoid="amLheoHgwc4" title="Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler"/>
+
+To use this feature you need to add a reactive Lua script to PlotJuggler, and also configure PX4 to export [`obstacle_distance_fused`](../msg_docs/ObstacleDistance.md) UORB topic data.
+The Lua script works by extracting the `obstacle_distance_fused` data at each time step, converting the distance values into Cartesian coordinates, and pushing them to PlotJuggler.
+
+단계는 다음과 같습니다:
+
+1. Follow the instructions in [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md)
+
+2. Configure PX4 to publish obstacle distance data (so that it is available to PlotJuggler):
+
+   Add the [`obstacle_distance_fused`](../msg_docs/ObstacleDistance.md) UORB topic to your [`dds_topics.yaml`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) so that it is published by PX4:
+
+   ```sh
+   - topic: /fmu/out/obstacle_distance_fused
+     type: px4_msgs::msg::ObstacleDistance
+   ```
+
+   For more information see [DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml) in _uXRCE-DDS (PX4-ROS 2/DDS Bridge)_.
+
+3. Open PlotJuggler and navigate to the **Tools > Reactive Script Editor** section.
+   In the **Script Editor** tab, add following scripts in the appropriate sections:
+
+   - **Global code, executed once:**
+
+     ```lua
+     obs_dist_fused_xy = ScatterXY.new("obstacle_distance_fused_xy")
+     obs_dist_min = Timeseries.new("obstacle_distance_minimum")
+     ```
+
+   - **function(tracker_time)**
+
+     ```lua
+     obs_dist_fused_xy:clear()
+
+     i = 0
+     angle_offset = TimeseriesView.find("/fmu/out/obstacle_distance_fused/angle_offset")
+     increment = TimeseriesView.find("/fmu/out/obstacle_distance_fused/increment")
+     min_dist = 65535
+
+     -- Cache increment and angle_offset values at tracker_time to avoid repeated calls
+     local angle_offset_value = angle_offset:atTime(tracker_time)
+     local increment_value = increment:atTime(tracker_time)
+
+     if increment_value == nil or increment_value <= 0 then
+         print("Invalid increment value: " .. tostring(increment_value))
+         return
+     end
+
+     local max_steps = math.floor(360 / increment_value)
+
+     while i < max_steps do
+         local str = string.format("/fmu/out/obstacle_distance_fused/distances[%d]", i)
+         local distance = TimeseriesView.find(str)
+         if distance == nil then
+             print("No distance data for: " .. str)
+             break
+         end
+
+         local dist = distance:atTime(tracker_time)
+         if dist ~= nil and dist < 65535 then
+             -- Calculate angle and Cartesian coordinates
+             local angle = angle_offset_value + i * increment_value
+             local y = dist * math.cos(math.rad(angle))
+             local x = dist * math.sin(math.rad(angle))
+
+             obs_dist_fused_xy:push_back(x, y)
+
+             -- Update minimum distance
+             if dist < min_dist then
+                 min_dist = dist
+             end
+         end
+
+         i = i + 1
+     end
+
+     -- Push minimum distance once after the loop
+     if min_dist < 65535 then
+         obs_dist_min:push_back(tracker_time, min_dist)
+     else
+         print("No valid minimum distance found")
+     end
+     ```
+
+4. Enter a name for the script on the top right, and press **Save**.
+   Once saved, the script should appear in the _Active Scripts_ section.
+
+5. Start streaming the data using the approach described in [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md).
+   You should see the `obstacle_distance_fused_xy` and `obstacle_distance_minimum` timeseries on the left.
+
+Note that to run the script again after clearing the data, you have to press **Save** again.
+
+### Sensor Data Overview
 
 Collision Prevention has an internal obstacle distance map that divides the plane around the drone into 72 Sectors.
 Internally this information is stored in the [`obstacle_distance`](../msg_docs/ObstacleDistance.md) UORB topic.
@@ -225,11 +325,11 @@ The angles in the `obstacle_distance` topic are defined as follows:
 
 The data from rangefinders, rotary lidars, or companion computers, is processed differently, as described below.
 
-### Rotary Lidars
+#### Rotary Lidars
 
 Rotary Lidars add their data directly to the [`obstacle_distance`](../msg_docs/ObstacleDistance.md) uORB topic.
 
-### Rangefinders
+#### Rangefinders
 
 Rangefinders publish their data to the [`distance_sensor`](../msg_docs/DistanceSensor.md) uORB topic.
 
@@ -241,7 +341,7 @@ For example, a distance sensor measuring from 9.99° to 10.01° the measurements
 the quaternion `q` is only used if the `orientation` is set to `ROTATION_CUSTOM`.
 :::
 
-### 보조 컴퓨터
+#### 보조 컴퓨터
 
 Companion computers update the `obstacle_distance` topic using ROS2 or the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) MAVLink message.
 

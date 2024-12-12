@@ -76,7 +76,7 @@ For example, if the `acceleration` field is the first non-zero value, then PX4 r
 | 推力和力矩(FRD)  | &cross; | &cross; | &cross; | &cross; | &cross; | &check; | -                           | 无      | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
 | 直接给电机和舵机                       | &cross; | &cross; | &cross; | &cross; | &cross; | &cross; | &check; | 无      | [ActuatorMotors](../msg_docs/ActuatorMotors.md) and [ActuatorServos](../msg_docs/ActuatorServos.md)                             |
 
-where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
+where ✓ means that the bit is set, ✘ means that the bit is not set and `-` means that the bit is value is irrelevant.
 
 :::info
 Before using offboard mode with ROS 2, please spend a few minutes understanding the different [frame conventions](../ros2/user_guide.md#ros-2-px4-frame-conventions) that PX4 and ROS 2 use.
@@ -87,6 +87,7 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 - [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
 
   - 支持以下输入组合：
+
     - Position setpoint (`position` different from `NaN`). Non-`NaN` values of velocity and acceleration are used as feedforward terms for the inner loop controllers.
     - Velocity setpoint (`velocity` different from `NaN` and `position` set to `NaN`). Non-`NaN` values acceleration are used as feedforward terms for the inner loop controllers.
     - Acceleration setpoint (`acceleration` different from `NaN` and `position` and `velocity` set to `NaN`)

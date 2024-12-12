@@ -371,9 +371,8 @@ The _Gazebo Classic_ survey camera simulates a [MAVLink camera](https://mavlink.
 Вона може бути використана для перевірки захоплення камери, зокрема в політних завданнях спостереження.
 
 The camera emits the [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) message every time an image is captured.
-The captured images are saved to: `PX4-Autopilot/build/px4_sitl_default/tmp/frames/DSC_n.jpg` (where _n_ starts as 00000 and is iterated by one on each capture).
-
-Для симуляції літака з цією камерою:
+The captured images are saved to: `PX4-Autopilot/build/px4_sitl_default/src/modules/simulation/simulator_mavlink/frames/DSC_n.jpg` (where _n_ starts as 00000 and is iterated by one on each capture).
+To simulate a plane with this camera:
 
 ```sh
 make px4_sitl_default gazebo-classic_plane_cam
@@ -387,33 +386,33 @@ The camera also supports/responds to the following MAVLink commands: [MAV_CMD_RE
 The simulated camera is implemented in [PX4/PX4-SITL_gazebo-classic/main/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/src/gazebo_camera_manager_plugin.cpp).
 :::
 
-## Симуляція камери глибини
+## Simulated Depth Camera
 
 The _Gazebo Classic_ [depth camera model](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/depth_camera/depth_camera.sdf.jinja) simulates an Intel® RealSense™ D455 stereo depth camera using the [Openni Kinect plugin](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#OpenniKinect).
 
 This publishes depth images and camera information on the `/camera/depth/image_raw` and `/camera/depth/camera_info` ROS topics respectively.
 
-Щоб використовувати ці зображення, потрібно встановити ROS або ROS 2.
-Зверніть увагу на попередження зверху цієї сторінки про те, як "уникнути конфліктів встановлення" під час встановлення ROS і Gazebo.
+To use these images, you will need to install ROS or ROS 2.
+Note the warning at the top of this page about how to "avoid installation conflicts" when installing ROS and Gazebo.
 
-Можна симулювати квадрокоптер з камерою глибини що дивиться вперед:
+You can simulate a quadrotor with a forward-facing depth camera:
 
 ```sh
 make px4_sitl gazebo-classic_iris_depth_camera
 ```
 
-або квадрокоптер з камерою глибини, що дивиться вниз:
+or a quadrotor with a downward-facing depth camera:
 
 ```sh
 make px4_sitl gazebo-classic_iris_downward_depth_camera
 ```
 
-## Симуляція парашутування при припиненні польоту
+## Simulated Parachute/Flight Termination
 
 _Gazebo Classic_ can be used to simulate deploying a [parachute](../peripherals/parachute.md) during [Flight Termination](../advanced_config/flight_termination.md) (flight termination is triggered by the PWM command that is simulated in _Gazebo Classic_).
 
 The `if750a` target has a parachute attached to the vehicle.
-Для симуляції засобу виконайте наступну команду:
+To simulate the vehicle, run the following command:
 
 ```sh
 make px4_sitl gazebo-classic_if750a
@@ -428,13 +427,13 @@ For example, you could do this by forcing a [Geofence violation](../config/safet
 - [Parachute](../peripherals/parachute.md)
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
-## Трансляція відео
+## Video Streaming
 
-PX4 SITL для Gazebo Classic підтримує трансляцію відео по UDP з датчика камери, приєднаної до симуляції моделі рухомого засобу.
+PX4 SITL for Gazebo Classic supports UDP video streaming from a camera sensor attached to a simulated vehicle model.
 When streaming is enabled, you can connect to this stream from _QGroundControl_ (on UDP port 5600) and view video of the Gazebo Classic environment from the simulated vehicle - just as you would from a real camera.
 The video is streamed using a _gstreamer_ pipeline and can be enabled/disabled using a button in the Gazebo Classic UI.
 
-Симуляція датчику камери підтримується/увімкненно на наступних планерах:
+The simulated camera sensor is supported/enabled on the following frames:
 
 - [Typhoon H480](#typhoon_h480)
 
@@ -447,10 +446,10 @@ The required dependencies should already have been [installed when you set up Ga
 FYI only, the dependencies include: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
 :::
 
-### Запустити/Зупинити відеотрансляцію
+### Start/Stop Video Streaming
 
-Трансляція відео автоматично запускається, якщо підтримується цільовим засобом.
-Наприклад, щоб розпочати трансляцію відео на Typhoon H480:
+Video streaming is automatically started when supported by the target vehicle.
+For example, to start streaming video on the Typhoon H480:
 
 ```sh
 make px4_sitl gazebo-classic_typhoon_h480
@@ -460,7 +459,7 @@ Streaming can be paused/restarted using the Gazebo UI _Video ON/OFF_ button..
 
 ![Video ON/OFF button](../../assets/simulation/gazebo_classic/sitl_video_stream.png)
 
-### Як переглянути відео Gazebo
+### How to View Gazebo Video
 
 The easiest way to view the SITL/Gazebo Classic camera video stream is in _QGroundControl_.
 Simply open **Application Settings > General** and set **Video Source** to _UDP h.264 Video Stream_ and **UDP Port** to _5600_:
@@ -476,7 +475,7 @@ The Typhoon world is not very interesting.
 :::
 
 It is also possible to view the video using the _Gstreamer Pipeline_.
-Просто введіть наступну команду терміналу:
+Simply enter the following terminal command:
 
 ```sh
 gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264' \
@@ -485,7 +484,7 @@ gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video
 
 ### Докладне ведення журналу
 
-SITL нічого не виводить при помилці, коли щось не так з моделлю.
+SITL fails silently when there is something wrong with the model.
 You can enable more verbose logging using `VERBOSE_SIM`, as shown:
 
 ```sh
@@ -506,7 +505,7 @@ The code is available on the [sitl_gazebo repository](https://github.com/PX4/PX4
 
 :::info
 The build system enforces the correct GIT submodules, including the simulator.
-Вона перезапише зміни в файлах та директоріях.
+It will not overwrite changes in files in the directory.
 :::
 
 ## Подальша інформація
