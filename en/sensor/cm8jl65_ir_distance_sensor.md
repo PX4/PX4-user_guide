@@ -3,7 +3,7 @@
 <Badge type="info" text="Discontinued" />
 
 :::warning
-This product has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+This product has been discontinued and is no longer commercially available.
 :::
 
 The [Lanbao PSK-CM8JL65-CC5](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html) is a very small IR distance sensor with a 0.17m-8m range and millimeter resolution.
