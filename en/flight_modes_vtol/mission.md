@@ -30,6 +30,16 @@ In fixed-wing mode there are the following exceptions:
 - [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) is transformed into [MAV_CMD_NAV_VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND) unless [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT) is set to `0` (disabled).
 - [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) is not supported.
 
+## Mission Command Timeouts
+
+Some mission commands/items can take time to complete, such as a gripper opening and closing, a winch extending or retracting, or a gimbal moving to point at a region of interest.
+
+Where provided PX4 may use sensor feedback from the hardware to determine when the action has completed and then move to the next mission item.
+If not provided, or if the feedback is lost, a mission command timeout can be used to ensure that these kinds of actions will progress to the next mission item rather than blocking progression.
+
+The timeout is set using the [MIS_COMMAND_TOUT](../advanced_config/parameter_reference.md#MIS_COMMAND_TOUT) parameter.
+This should be set to be a small amount greater than the time required for the longest long-running action in the mission to complete.
+
 ## Mission Takeoff
 
 Plan a VTOL mission takeoff by adding a `VTOL Takeoff` mission item to the map.
