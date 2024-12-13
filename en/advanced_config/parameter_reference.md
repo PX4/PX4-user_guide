@@ -30098,6 +30098,20 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; |  |  |  | Disabled (0) |  
 
+### SENS_EN_AGPSIM (`INT32`) {#SENS_EN_AGPSIM}
+
+Simulate Aux Global Position (AGP).
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; | 0 | 1 |  | 0 |  
+
 ### SENS_EN_ARSPDSIM (`INT32`) {#SENS_EN_ARSPDSIM}
 
 Enable simulated airspeed sensor instance.
@@ -32647,6 +32661,22 @@ Reboot | minValue | maxValue | increment | default | unit
 &check; |  |  |  | 0 |  
 
 ## Simulator
+
+### SIM_AGP_FAIL (`INT32`) {#SIM_AGP_FAIL}
+
+AGP failure mode.
+
+Stuck: freeze the measurement to the current location Drift: add a linearly growing bias to the sensor data
+
+**Bitmask:**
+
+- `0`: Stuck
+- `1`: Drift
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 3 |  | 0 |  
 
 ### SIM_BARO_OFF_P (`FLOAT`) {#SIM_BARO_OFF_P}
 
