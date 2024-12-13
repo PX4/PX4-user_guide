@@ -4,12 +4,14 @@
 Використовується для підтвердження отримання команди для транспортного засобу.
 Дотримується визначення MAVLink COMMAND_ACK повідомлення
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleCommandAck.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/versioned/VehicleCommandAck.msg)
 
 ```c
 # Vehicle Command Ackonwledgement uORB message.
 # Used for acknowledging the vehicle command being received.
 # Follows the MAVLink COMMAND_ACK message definition
+
+uint32 MESSAGE_VERSION = 0
 
 uint64 timestamp		# time since system start (microseconds)
 
