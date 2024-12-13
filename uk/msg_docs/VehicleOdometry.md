@@ -2,10 +2,13 @@
 
 Дані odometry Техніки. Відповідає ROS REP 147 для повітряних суден
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleOdometry.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/versioned/VehicleOdometry.msg)
 
 ```c
 # Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
+
+uint32 MESSAGE_VERSION = 0
+
 uint64 timestamp		# time since system start (microseconds)
 uint64 timestamp_sample
 
