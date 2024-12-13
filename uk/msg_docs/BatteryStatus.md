@@ -1,8 +1,10 @@
 # BatteryStatus (повідомлення UORB)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/BatteryStatus.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/versioned/BatteryStatus.msg)
 
 ```c
+uint32 MESSAGE_VERSION = 0
+
 uint64 timestamp				# time since system start (microseconds)
 bool connected					# Whether or not a battery is connected, based on a voltage threshold
 float32 voltage_v				# Battery voltage in volts, 0 if unknown
