@@ -2,10 +2,12 @@
 
 Кодує стан системи транспортного засобу, опублікований командиром
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleStatus.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/versioned/VehicleStatus.msg)
 
 ```c
 # Encodes the system state of the vehicle published by commander
+
+uint32 MESSAGE_VERSION = 0
 
 uint64 timestamp # time since system start (microseconds)
 

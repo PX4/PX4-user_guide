@@ -1,8 +1,10 @@
 # ArmingCheckReply (UORB message)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ArmingCheckReply.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/versioned/ArmingCheckReply.msg)
 
 ```c
+uint32 MESSAGE_VERSION = 0
+
 uint64 timestamp # time since system start (microseconds)
 
 uint8 request_id

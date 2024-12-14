@@ -68,7 +68,7 @@ Pixhawk® 6C Mini ідеально підходить для розробник�
 
 ### **Interfaces**
 
-- 16- PWM серво виводів (8 з IO, 6 з FMU)
+- 14- PWM servo outputs (8 from IO, 6 from FMU)
 
 - 3 загальних послідовних портів
   - `TELEM1` - Full flow control, separate 1A current limit

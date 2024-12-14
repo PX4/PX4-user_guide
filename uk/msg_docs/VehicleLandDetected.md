@@ -1,8 +1,10 @@
 # VehicleLandDetected (повідомлення UORB)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLandDetected.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/versioned/VehicleLandDetected.msg)
 
 ```c
+uint32 MESSAGE_VERSION = 0
+
 uint64 timestamp	# time since system start (microseconds)
 
 bool freefall		# true if vehicle is currently in free-fall

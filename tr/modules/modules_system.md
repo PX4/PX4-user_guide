@@ -716,6 +716,28 @@ send_event <command> [arguments...]
    status        print status info
 ```
 
+## sensor_agp_sim
+
+Source: [modules/simulation/sensor_agp_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_agp_sim)
+
+### Description
+
+Module to simulate auxiliary global position measurements with optional failure modes for SIH simulation.
+
+<a id="sensor_agp_sim_usage"></a>
+
+### Usage
+
+```
+sensor_agp_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+
 ## sensor_arispeed_sim
 
 Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)

@@ -2,10 +2,13 @@
 
 Повідомлення про керування двигуном
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorMotors.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/versioned/ActuatorMotors.msg)
 
 ```c
 # Motor control message
+
+uint32 MESSAGE_VERSION = 0
+
 uint64 timestamp			# time since system start (microseconds)
 uint64 timestamp_sample	    # the timestamp the data this control response is based on was sampled
 

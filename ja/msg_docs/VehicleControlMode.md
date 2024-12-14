@@ -1,8 +1,10 @@
 # VehicleControlMode (UORB message)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleControlMode.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/versioned/VehicleControlMode.msg)
 
 ```c
+uint32 MESSAGE_VERSION = 0
+
 uint64 timestamp		# time since system start (microseconds)
 bool flag_armed			# synonym for actuator_armed.armed
 

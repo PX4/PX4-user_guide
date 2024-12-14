@@ -5,7 +5,63 @@ This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Too
 :::
 
 This topic lists the UORB messages available in PX4 (some of which may be may be shared by the [PX4-ROS 2 Bridge](../ros/ros2_comm.md)).
+
+[Versioned messages](../middleware/uorb.md#message-versioning) track changes to their definitions, with each modification resulting in a version increment.
+These messages are most likely shared through the PX4-ROS 2 Bridge.
+
 Graphs showing how these are used [can be found here](../middleware/uorb_graph.md).
+
+## Versioned Messages
+
+- [ActuatorMotors](ActuatorMotors.md) — Motor control message
+- [ActuatorServos](ActuatorServos.md) — Servo control message
+- [ArmingCheckReply](ArmingCheckReply.md)
+- [ArmingCheckRequest](ArmingCheckRequest.md)
+- [BatteryStatus](BatteryStatus.md)
+- [ConfigOverrides](ConfigOverrides.md) — Configurable overrides by (external) modes or mode executors
+- [GotoSetpoint](GotoSetpoint.md) — Position and (optional) heading setpoints with corresponding speed constraints
+  Setpoints are intended as inputs to position and heading smoothers, respectively
+  Setpoints do not need to be kinematically consistent
+  Optional heading setpoints may be specified as controlled by the respective flag
+  Unset optional setpoints are not controlled
+  Unset optional constraints default to vehicle specifications
+- [HomePosition](HomePosition.md) — GPS home position in WGS84 coordinates.
+- [ManualControlSetpoint](ManualControlSetpoint.md)
+- [ModeCompleted](ModeCompleted.md) — Mode completion result, published by an active mode.
+  The possible values of nav_state are defined in the VehicleStatus msg.
+  Note that this is not always published (e.g. when a user switches modes or on
+  failsafe activation)
+- [RegisterExtComponentReply](RegisterExtComponentReply.md)
+- [RegisterExtComponentRequest](RegisterExtComponentRequest.md) — Request to register an external component
+- [TrajectorySetpoint](TrajectorySetpoint.md) — Trajectory setpoint in NED frame
+  Input to PID position controller.
+  Needs to be kinematically consistent and feasible for smooth flight.
+  setting a value to NaN means the state should not be controlled
+- [UnregisterExtComponent](UnregisterExtComponent.md)
+- [VehicleAngularVelocity](VehicleAngularVelocity.md)
+- [VehicleAttitude](VehicleAttitude.md) — This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use
+  The quaternion uses the Hamilton convention, and the order is q(w, x, y, z)
+- [VehicleAttitudeSetpoint](VehicleAttitudeSetpoint.md)
+- [VehicleCommand](VehicleCommand.md) — Vehicle Command uORB message. Used for commanding a mission / action / etc.
+  Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
+- [VehicleCommandAck](VehicleCommandAck.md) — Vehicle Command Ackonwledgement uORB message.
+  Used for acknowledging the vehicle command being received.
+  Follows the MAVLink COMMAND_ACK message definition
+- [VehicleControlMode](VehicleControlMode.md)
+- [VehicleGlobalPosition](VehicleGlobalPosition.md) — Fused global position in WGS84.
+  This struct contains global position estimation. It is not the raw GPS
+  measurement (@see vehicle_gps_position). This topic is usually published by the position
+  estimator, which will take more sources of information into account than just GPS,
+  e.g. control inputs of the vehicle in a Kalman-filter implementation.
+- [VehicleLandDetected](VehicleLandDetected.md)
+- [VehicleLocalPosition](VehicleLocalPosition.md) — Fused local position in NED.
+  The coordinate system origin is the vehicle position at the time when the EKF2-module was started.
+- [VehicleOdometry](VehicleOdometry.md) — Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
+- [VehicleRatesSetpoint](VehicleRatesSetpoint.md)
+- [VehicleStatus](VehicleStatus.md) — Encodes the system state of the vehicle published by commander
+- [VtolVehicleStatus](VtolVehicleStatus.md) — VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE
+
+## Unversioned Messages
 
 - [ActionRequest](ActionRequest.md)
 
@@ -13,11 +69,7 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [ActuatorControlsStatus](ActuatorControlsStatus.md)
 
-- [ActuatorMotors](ActuatorMotors.md) — Motor control message
-
 - [ActuatorOutputs](ActuatorOutputs.md)
-
-- [ActuatorServos](ActuatorServos.md) — Servo control message
 
 - [ActuatorServosTrim](ActuatorServosTrim.md) — Servo trims, added as offset to servo outputs
 
@@ -31,13 +83,7 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [AirspeedWind](AirspeedWind.md)
 
-- [ArmingCheckReply](ArmingCheckReply.md)
-
-- [ArmingCheckRequest](ArmingCheckRequest.md)
-
 - [AutotuneAttitudeControlStatus](AutotuneAttitudeControlStatus.md)
-
-- [BatteryStatus](BatteryStatus.md)
 
 - [Buffer128](Buffer128.md)
 
@@ -55,8 +101,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [CollisionConstraints](CollisionConstraints.md) — Local setpoint constraints in NED frame
   setting something to NaN means that no limit is provided
-
-- [ConfigOverrides](ConfigOverrides.md) — Configurable overrides by (external) modes or mode executors
 
 - [ControlAllocatorStatus](ControlAllocatorStatus.md)
 
@@ -154,13 +198,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [GimbalManagerStatus](GimbalManagerStatus.md)
 
-- [GotoSetpoint](GotoSetpoint.md) — Position and (optional) heading setpoints with corresponding speed constraints
-  Setpoints are intended as inputs to position and heading smoothers, respectively
-  Setpoints do not need to be kinematically consistent
-  Optional heading setpoints may be specified as controlled by the respective flag
-  Unset optional setpoints are not controlled
-  Unset optional constraints default to vehicle specifications
-
 - [GpioConfig](GpioConfig.md) — GPIO configuration
 
 - [GpioIn](GpioIn.md) — GPIO mask and state
@@ -178,8 +215,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [HealthReport](HealthReport.md)
 
 - [HeaterStatus](HeaterStatus.md)
-
-- [HomePosition](HomePosition.md) — GPS home position in WGS84 coordinates.
 
 - [HoverThrustEstimate](HoverThrustEstimate.md)
 
@@ -212,8 +247,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [MagnetometerBiasEstimate](MagnetometerBiasEstimate.md)
 
-- [ManualControlSetpoint](ManualControlSetpoint.md)
-
 - [ManualControlSwitches](ManualControlSwitches.md)
 
 - [MavlinkLog](MavlinkLog.md)
@@ -227,11 +260,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [Mission](Mission.md)
 
 - [MissionResult](MissionResult.md)
-
-- [ModeCompleted](ModeCompleted.md) — Mode completion result, published by an active mode.
-  The possible values of nav_state are defined in the VehicleStatus msg.
-  Note that this is not always published (e.g. when a user switches modes or on
-  failsafe activation)
 
 - [MountOrientation](MountOrientation.md)
 
@@ -308,10 +336,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [RcChannels](RcChannels.md)
 
 - [RcParameterMap](RcParameterMap.md)
-
-- [RegisterExtComponentReply](RegisterExtComponentReply.md)
-
-- [RegisterExtComponentRequest](RegisterExtComponentRequest.md) — Request to register an external component
 
 - [RoverAckermannGuidanceStatus](RoverAckermannGuidanceStatus.md)
 
@@ -400,11 +424,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [TrajectoryBezier](TrajectoryBezier.md) — Bezier Trajectory description. See also Mavlink TRAJECTORY msg
   The topic trajectory_bezier describe each waypoint defined in vehicle_trajectory_bezier
 
-- [TrajectorySetpoint](TrajectorySetpoint.md) — Trajectory setpoint in NED frame
-  Input to PID position controller.
-  Needs to be kinematically consistent and feasible for smooth flight.
-  setting a value to NaN means the state should not be controlled
-
 - [TrajectoryWaypoint](TrajectoryWaypoint.md) — Waypoint Trajectory description. See also Mavlink TRAJECTORY msg
   The topic trajectory_waypoint describe each waypoint defined in vehicle_trajectory_waypoint
 
@@ -423,47 +442,18 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [UlogStreamAck](UlogStreamAck.md) — Ack a previously sent ulog_stream message that had
   the NEED_ACK flag set
 
-- [UnregisterExtComponent](UnregisterExtComponent.md)
-
 - [VehicleAcceleration](VehicleAcceleration.md)
 
 - [VehicleAirData](VehicleAirData.md)
 
 - [VehicleAngularAccelerationSetpoint](VehicleAngularAccelerationSetpoint.md)
 
-- [VehicleAngularVelocity](VehicleAngularVelocity.md)
-
-- [VehicleAttitude](VehicleAttitude.md) — This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use
-  The quaternion uses the Hamilton convention, and the order is q(w, x, y, z)
-
-- [VehicleAttitudeSetpoint](VehicleAttitudeSetpoint.md)
-
-- [VehicleCommand](VehicleCommand.md) — Vehicle Command uORB message. Used for commanding a mission / action / etc.
-  Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
-
-- [VehicleCommandAck](VehicleCommandAck.md) — Vehicle Command Ackonwledgement uORB message.
-  Used for acknowledging the vehicle command being received.
-  Follows the MAVLink COMMAND_ACK message definition
-
 - [VehicleConstraints](VehicleConstraints.md) — Local setpoint constraints in NED frame
   setting something to NaN means that no limit is provided
-
-- [VehicleControlMode](VehicleControlMode.md)
-
-- [VehicleGlobalPosition](VehicleGlobalPosition.md) — Fused global position in WGS84.
-  This struct contains global position estimation. It is not the raw GPS
-  measurement (@see vehicle_gps_position). This topic is usually published by the position
-  estimator, which will take more sources of information into account than just GPS,
-  e.g. control inputs of the vehicle in a Kalman-filter implementation.
 
 - [VehicleImu](VehicleImu.md) — IMU readings in SI-unit form.
 
 - [VehicleImuStatus](VehicleImuStatus.md)
-
-- [VehicleLandDetected](VehicleLandDetected.md)
-
-- [VehicleLocalPosition](VehicleLocalPosition.md) — Fused local position in NED.
-  The coordinate system origin is the vehicle position at the time when the EKF2-module was started.
 
 - [VehicleLocalPositionSetpoint](VehicleLocalPositionSetpoint.md) — Local position setpoint in NED frame
   Telemetry of PID position controller to monitor tracking.
@@ -471,17 +461,11 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [VehicleMagnetometer](VehicleMagnetometer.md)
 
-- [VehicleOdometry](VehicleOdometry.md) — Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
-
 - [VehicleOpticalFlow](VehicleOpticalFlow.md) — Optical flow in XYZ body frame in SI units.
 
 - [VehicleOpticalFlowVel](VehicleOpticalFlowVel.md)
 
-- [VehicleRatesSetpoint](VehicleRatesSetpoint.md)
-
 - [VehicleRoi](VehicleRoi.md) — Vehicle Region Of Interest (ROI)
-
-- [VehicleStatus](VehicleStatus.md) — Encodes the system state of the vehicle published by commander
 
 - [VehicleThrustSetpoint](VehicleThrustSetpoint.md)
 
@@ -496,8 +480,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
   The topic vehicle_trajectory_waypoint is used to send the adjusted waypoints from the companion computer / avoidance module to the position controller.
 
 - [VelocityLimits](VelocityLimits.md) — Velocity and yaw rate limits for a multicopter position slow mode only
-
-- [VtolVehicleStatus](VtolVehicleStatus.md) — VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE
 
 - [WheelEncoders](WheelEncoders.md)
 

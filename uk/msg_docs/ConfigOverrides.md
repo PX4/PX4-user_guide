@@ -2,10 +2,13 @@
 
 Конфігуровані перевизначення (зовнішніми) режимами або виконавцями режимів
 
-[вихідний файл](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ConfigOverrides.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/versioned/ConfigOverrides.msg)
 
 ```c
 # Configurable overrides by (external) modes or mode executors
+
+uint32 MESSAGE_VERSION = 0
+
 uint64 timestamp		# time since system start (microseconds)
 
 bool disable_auto_disarm         # Prevent the drone from automatically disarming after landing (if configured)

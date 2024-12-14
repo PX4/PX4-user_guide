@@ -3,11 +3,13 @@
 Vehicle Command uORB message. Used for commanding a mission / action / etc.
 Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleCommand.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/versioned/VehicleCommand.msg)
 
 ```c
 # Vehicle Command uORB message. Used for commanding a mission / action / etc.
 # Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
+
+uint32 MESSAGE_VERSION = 0
 
 uint64 timestamp					# time since system start (microseconds)
 

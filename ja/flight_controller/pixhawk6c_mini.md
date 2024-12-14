@@ -68,7 +68,7 @@ The Pixhawk® 6C Mini is perfect for developers at corporate research labs, star
 
 ### **Interfaces**
 
-- 16- PWM servo outputs (8 from IO, 6 from FMU)
+- 14- PWM servo outputs (8 from IO, 6 from FMU)
 
 - 3 general purpose serial ports
   - `TELEM1` - Full flow control, separate 1A current limit
