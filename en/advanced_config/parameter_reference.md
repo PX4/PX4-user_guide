@@ -31514,13 +31514,13 @@ The SF45 mounted facing upward or downward on the frame
 
 **Values:**
 
-- `0`: Rotation upward
-- `1`: Rotation downward
+- `24`: Rotation upward
+- `25`: Rotation downward
 
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; |  |  |  | 0 |  
+&check; |  |  |  | 24 |  
 
 ### SF45_UPDATE_CFG (`INT32`) {#SF45_UPDATE_CFG}
 
@@ -31546,7 +31546,7 @@ The SF45 sets the update rate in Hz to allow greater resolution
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; |  |  |  | 1 |  
+&check; |  |  |  | 5 |  
 
 ### SF45_YAW_CFG (`INT32`) {#SF45_YAW_CFG}
 
@@ -31557,9 +31557,9 @@ The usb port on the sensor indicates 180deg, opposite usb is forward facing
 **Values:**
 
 - `0`: Rotation forward
-- `1`: Rotation backward
 - `2`: Rotation right
-- `3`: Rotation left
+- `4`: Rotation backward
+- `6`: Rotation left
 
 
 Reboot | minValue | maxValue | increment | default | unit
