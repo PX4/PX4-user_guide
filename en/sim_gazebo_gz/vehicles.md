@@ -108,7 +108,7 @@ The sensor information is written to the [ObstacleDistance](../msg_docs/Obstacle
 
 This model have a gimbal attached to the front with angular ranges of
 - roll: [- $\frac{\pi}{4}$, $\frac{\pi}{4}$]
-- pitch: [- $\pi$, $\frac{\pi}{4}$]
+- pitch: [- $frac{3\pi}{4}$, $\frac{\pi}{4}$]
 - yaw: infinite rotation
 
 The gimbal joints uses position control with a kinematic chain ZXY.
