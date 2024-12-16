@@ -249,7 +249,7 @@ When you add a new page you must also add it to `en/SUMMARY.md`!
    - The page title should be a first level heading (`#`).
      All other headings should be h2 (`##`) or lower.
    - Don't add any style to headings.
-   - Don't translate the _first part_ of an `info`, `tip` or `warning` declaration (e.g. `::: tip`) as this precise text is required to render the note properly.
+   - Don't translate the text indicating the name of an `info`, `tip` or `warning` declaration (e.g. `::: tip`) as this precise text is required to render the aside properly.
    - Break lines on sentences by preference.
      Don't break lines based on some arbitrary line length.
    - Format using _prettier_ (_VSCode_ is a has extensions can be used for this).
