@@ -8,7 +8,7 @@ PX4 사용자 가이드에 대한 기여를 매우 환영합니다.
 
 :::tip
 Note
-You will need a (free) [Github](https://github.com/) account to contribute to the guides.
+You will need a (free) [GitHub](https://github.com/) account to contribute to the guides.
 :::
 
 ## Github의 빠른 변경 사항
@@ -151,18 +151,7 @@ For these kinds of changes we suggest using the same approach as for _code_:
      This will be something like: `http://localhost:5173/px4_user_guide/`.
    - Stop serving using **CTRL+C** in the terminal prompt.
 
-5. Open previewed pages in your local editor:
-
-   First specify a local text editor file using the `EDITOR` environment variable, before calling `yarn start` to preview the library.
-   For example, on Windows command line you can enable VSCode as your default editor by entering:
-
-   ```sh
-   set EDITOR=code
-   ```
-
-   The **Open in your editor** link at the bottom of each page will then open the current page in the editor (this replaces the _Open in GitHub_ link).
-
-6. 다음을 사용하여 라이브러리를 빌드합니다.
+5. 다음을 사용하여 라이브러리를 빌드합니다.
 
    ```sh
    # Ubuntu
