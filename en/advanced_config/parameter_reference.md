@@ -16746,7 +16746,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Use terrain estimation during landing.
 
-This is critical for detecting when to flare, and should be enabled if possible. NOTE: terrain estimate is currently solely derived from a distance sensor. If enabled and no measurement is found within a given timeout, the landing waypoint altitude will be used OR the landing will be aborted, depending on the criteria set in FW_LND_ABORT. If disabled, FW_LND_ABORT terrain based criteria are ignored.
+This is critical for detecting when to flare, and should be enabled if possible. If enabled and no measurement is found within a given timeout, the landing waypoint altitude will be used OR the landing will be aborted, depending on the criteria set in FW_LND_ABORT. If disabled, FW_LND_ABORT terrain based criteria are ignored.
 
 **Values:**
 
@@ -16829,7 +16829,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 NPFG damping ratio.
 
-Damping ratio of the NPFG control law.
+Damping ratio of NPFG control law.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -16857,7 +16857,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Enable automatic lower bound on the NPFG period.
 
-Avoids limit cycling from a too aggressively tuned period/damping combination. If set to false, also disables the upper bound NPFG_PERIOD_UB.
+Avoids limit cycling from a too aggressively tuned period/damping combination. If false, also disables upper bound NPFG_PERIOD_UB.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -16867,7 +16867,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 NPFG period.
 
-Period of the NPFG control law.
+Period of NPFG control law.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -16937,7 +16937,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Path navigation roll slew rate limit.
 
-The maximum change in roll angle setpoint per second. This limit is applied in all Auto modes, plus manual Position and Altitude modes.
+Maximum change in roll angle setpoint per second. Applied in all Auto modes, plus manual Position & Altitude modes.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -17588,8 +17588,6 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Maximum descent rate.
 
-This sets the maximum descent rate that the controller will use.
-
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 1.0 | 15.0 | 0.5 | 5.0 | m/s 
@@ -17606,9 +17604,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### FW_T_SPDWEIGHT (`FLOAT`) {#FW_T_SPDWEIGHT}
 
-Speed <--> Altitude priority.
+Speed <--> Altitude weight.
 
-Adjusts the amount of weighting that the pitch control applies to speed vs height errors. Setting it to 0.0 will cause the pitch control to control height and ignore speed errors. Setting it to 2.0 will cause the pitch control loop to control speed and ignore height errors. The default value of 1.0 allows the pitch control to simultaneously control height and speed. Set to 2 for gliders.
+Adjusts the amount of weighting that the pitch control applies to speed vs height errors. 0 -> control height only 2 -> control speed only (gliders)
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -17686,7 +17684,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Low-height threshold for tighter altitude tracking.
 
-Defines the height (distance to bottom) threshold below which tighter altitude tracking gets enabled (see FW_LND_THRTC_SC). Below this height, TECS smoothly (1 sec / sec) transitions the altitude tracking time constant from FW_T_ALT_TC to FW_LND_THRTC_SC*FW_T_ALT_TC. If equal to -1, low-height traking is disabled.
+Height above ground threshold below which tighter altitude tracking gets enabled (see FW_LND_THRTC_SC). Below this height, TECS smoothly (1 sec / sec) transitions the altitude tracking time constant from FW_T_ALT_TC to FW_LND_THRTC_SC*FW_T_ALT_TC. -1 to disable.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
