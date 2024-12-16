@@ -7,7 +7,7 @@ Towards the end there is a basic style guide.
 
 :::tip
 Note
-You will need a (free) [Github](https://github.com/) account to contribute to the guides.
+You will need a (free) [GitHub](https://github.com/) account to contribute to the guides.
 :::
 
 ## Quick Changes in Github
@@ -150,18 +150,7 @@ Build the library locally to test that any changes you have made have rendered p
      This will be something like: `http://localhost:5173/px4_user_guide/`.
    - Stop serving using **CTRL+C** in the terminal prompt.
 
-5. Open previewed pages in your local editor:
-
-   First specify a local text editor file using the `EDITOR` environment variable, before calling `yarn start` to preview the library.
-   For example, on Windows command line you can enable VSCode as your default editor by entering:
-
-   ```sh
-   set EDITOR=code
-   ```
-
-   The **Open in your editor** link at the bottom of each page will then open the current page in the editor (this replaces the _Open in GitHub_ link).
-
-6. You can build the library as it would be done for deployment:
+5. You can build the library as it would be done for deployment:
 
    ```sh
    # Ubuntu
