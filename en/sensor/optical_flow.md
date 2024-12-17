@@ -41,13 +41,16 @@ The approach used for fusing sensor data and any offsets from the center of the 
 
 ## Flow Sensors/Cameras
 
-### Holybro H-flow
-The [Holybro H-Flow](https://holybro.com/products/h-flow) is a compact [DroneCAN](../dronecan/index.md) optical flow and [distance sensor](../sensor/rangefinders.md) module. It combines a PixArt PAA3905 optical flow sensor, a Broadcom AFBR-S50LV85D distance sensor, and an InvenSense ICM-42688-P 6-axis IMU. An all-in-one design that simplifies installation, with an onboard infrared LED enhances visibility in low-light conditions.
-
 ### ARK Flow
 
 [ARK Flow](../dronecan/ark_flow.md) is a [DroneCAN](../dronecan/index.md) optical flow sensor, [distance sensor](../sensor/rangefinders.md), and IMU.
 It has a PAW3902 optical flow sensor, Broadcom AFBR-S50LV85D 30 meter distance sensor, and BMI088 IMU.
+
+### Holybro H-Flow
+
+The [Holybro H-Flow](https://holybro.com/products/h-flow) is a compact [DroneCAN](../dronecan/index.md) optical flow and [distance sensor](../sensor/rangefinders.md) module.
+It combines a PixArt PAA3905 optical flow sensor, a Broadcom AFBR-S50LV85D distance sensor, and an InvenSense ICM-42688-P 6-axis IMU.
+An all-in-one design that simplifies installation, with an onboard infrared LED enhances visibility in low-light conditions.
 
 ### PMW3901-Based Sensors
 
