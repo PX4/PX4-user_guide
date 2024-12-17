@@ -37,7 +37,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 - [Log Encryption](../dev_log/log_encryption.md) now generates an encrypted log that contains the public-key-encrypted symmetric key that can be used to decrypt it, instead of putting the key into a separate file.
   This makes log decryption much easier, as there is no need to download or identify a separate key file.
   ([PX4-Autopilot#24024](https://github.com/PX4/PX4-Autopilot/pull/24024)).
-  
+
 ### Control
 
 - TBD
