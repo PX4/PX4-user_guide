@@ -432,6 +432,10 @@ A good tuning is obtained as follows:
 - [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL) is set.
 - The quality metric returned by the flow sensor is greater than the minimum requirement set by the [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) parameter.
 
+For better performance, set the location of the optical flow sensor as described [here](../sensor/optical_flow.md#ekf2).
+
+If a stable hover can be achieved at low altitude above ground (< 10m) but slow oscillations occur at higher altitude, consider adjusting the [optical flow scale factor](../sensor/optical_flow.md#scale-factor).
+
 ### External Vision System
 
 Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used.
