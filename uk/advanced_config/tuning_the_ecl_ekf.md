@@ -429,6 +429,10 @@ PX4 дозволяє постійно об'єднувати дальномер �
 - [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL) встановлено.
 - Якість метрики, поверненої датчиком потоку, більше мінімальних вимог, встановлених параметром [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN).
 
+For better performance, set the location of the optical flow sensor as described [here](../sensor/optical_flow.md#ekf2).
+
+If a stable hover can be achieved at low altitude above ground (< 10m) but slow oscillations occur at higher altitude, consider adjusting the [optical flow scale factor](../sensor/optical_flow.md#scale-factor).
+
 ### Зовнішня система бачення
 
 Дані про положення, швидкість або орієнтацію від зовнішньої системи бачення, наприклад, Vicon, можуть бути використані.
