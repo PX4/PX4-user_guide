@@ -69,7 +69,7 @@ The data is then published to the [OBSTACLE_DISTANCE](https://mavlink.io/en/mess
 
 ## Troubleshooting
 
-### Common problems
+### Errors and Jerky Movements
 
 Start-up issues, jerky movements, or a lot of communication errors displayed with `lightware_sf45_serial status` could mean that the sensor is not getting enough power.
 
