@@ -85,8 +85,12 @@ The video below shows how you can view such a plot in PlotJuggler.
 
 <lite-youtube videoid="VwEd_7aiLEo" title="PX4 Autopilot: SF45 rangefinder - collision prevention "/>
 
-In order to generate this kind of plot you will need to add the following Reactive Scripts to PlotJuggler.
+In order to generate this kind of plot you will need to add the following reactive Lua scripts to PlotJuggler.
 If you save these scripts and then add new data, you will see a new timeseries called `obstacle_distance_xy`, which is the same as is displayed in the video.
+
+::: tip
+The [Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler](../computer_vision/collision_prevention.md#plotting-obstacle-distance-and-minimum-distance-in-real-time-with-plotjuggler) in the _Collision Prevention_ topic has a more detailed example of how use Reactive scripts in PlotJuggler.
+:::
 
 **Global code, executed once:**
 
