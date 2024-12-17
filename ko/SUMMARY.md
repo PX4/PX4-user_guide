@@ -242,6 +242,7 @@
     - [Barometers](sensor/barometer.md)
     - [거리 센서](sensor/rangefinders.md)
       - [Lightware Lidars (SF/LW)](sensor/sfxx_lidar.md)
+        - [Lightware SF45 Rotary Lidar](sensor/sf45_rotating_lidar.md)
       - [Ainstein US-D1 Standard Radar Altimeter](sensor/ulanding_radar.md)
       - [LeddarOne 라이다](sensor/leddar_one.md)
       - [Benewake TFmini 라이다](sensor/tfmini.md)
