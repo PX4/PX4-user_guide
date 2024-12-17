@@ -38,11 +38,13 @@ Sensor data from the optical flow device is fused with other velocity data sourc
 The approach used for fusing sensor data and any offsets from the center of the vehicle must be configured in the [estimator](#estimators).
 
 ### Scale factor
+
 For pure rotations the `integrated_xgyro` and `integrated_x` (respectively `integrated_ygyro` and `integrated_y`) have to be the same.
 If this is not the case, the optical flow scale factor can be adjusted using [SENS_FLOW_SCALE](../advanced_config/parameter_reference.md#SENS_FLOW_SCALE).
 
 :::tip
-The low resolution of common optical flow sensors can cause slow oscillations when hovering at a high altitude above ground (> 20m). Reducing the optical flow scale factor can improve the situation.
+The low resolution of common optical flow sensors can cause slow oscillations when hovering at a high altitude above ground (> 20m). 
+Reducing the optical flow scale factor can improve the situation.
 :::
 
 ## Flow Sensors/Cameras
