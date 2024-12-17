@@ -16,7 +16,7 @@ The image below shows an optical flow setup with a separate flow sensor ([PX4Flo
 ## 设置
 
 An Optical Flow setup requires a downward facing camera and a downward facing [distance sensor](../sensor/rangefinders.md) (preferably a LiDAR).
-These can be combined in a single product, such as the [Ark Flow](#ark-flow), or they may be separate sensors.
+These can be combined in a single product, such as the [Ark Flow](#ark-flow) and [Holybro H-Flow](https://holybro.com/products/h-flow), or they may be separate sensors.
 
 The sensor(s) can be connected via MAVLink, I2C or any other bus that supports the peripheral.
 
@@ -53,6 +53,12 @@ Reducing the optical flow scale factor can improve the situation.
 
 [ARK Flow](../dronecan/ark_flow.md) is a [DroneCAN](../dronecan/index.md) optical flow sensor, [distance sensor](../sensor/rangefinders.md), and IMU.
 It has a PAW3902 optical flow sensor, Broadcom AFBR-S50LV85D 30 meter distance sensor, and BMI088 IMU.
+
+### Holybro H-Flow
+
+The [Holybro H-Flow](https://holybro.com/products/h-flow) is a compact [DroneCAN](../dronecan/index.md) optical flow and [distance sensor](../sensor/rangefinders.md) module.
+It combines a PixArt PAA3905 optical flow sensor, a Broadcom AFBR-S50LV85D distance sensor, and an InvenSense ICM-42688-P 6-axis IMU.
+An all-in-one design that simplifies installation, with an onboard infrared LED enhances visibility in low-light conditions.
 
 ### PMW3901-Based Sensors
 
