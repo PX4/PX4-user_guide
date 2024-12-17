@@ -89,8 +89,8 @@ jobs:
           git config --global user.name "${{ secrets.PX4BUILDBOT_USER }}"
           git config --global user.email "${{ secrets.PX4BUILDBOT_EMAIL }}"
           git add ${BRANCH_NAME}
-          git add .
           git commit -a -m "PX4 docs build update (vitepress) `date`"
+          #git add .
           #git commit --amend -m "PX4 docs build update (vitepress) `date`"
           #git commit --allow-empty -m "Empty commit to force rebuild"
           git push origin main -f
