@@ -36,6 +36,7 @@ DroneCAN was previously known as UAVCAN v0 (or just UAVCAN).
 
 - [ESC/Motor controllers](../dronecan/escs.md)
 - Датчики швидкості повітря
+  - [Holybro High Precision DroneCAN Airspeed Sensor - DLVR](https://holybro.com/collections/sensors/products/high-precision-dronecan-airspeed-sensor-dlvr)
   - [RaccoonLab airspeed sensor](https://docs.raccoonlab.co/guide/airspeed)
   - [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
 - Приймачі ГНСС для ГНСС (GPS, GLONASS, BeiDou та інше)
