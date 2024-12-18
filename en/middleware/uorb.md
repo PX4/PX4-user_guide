@@ -141,9 +141,28 @@ Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topi
 
 The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
 
+## Message Versioning
 
+<Badge type="tip" text="main (PX4 v1.16+)" />
+
+Message versioning was introduced to address the challenges of maintaining compatibility across systems where different versions of message definitions may be in use, such as between PX4 and external systems like ROS 2 applications.
+
+This versioning mechanism supports the [ROS 2 Message Translation Node](../ros2/px4_ros2_msg_translation_node.md), which enables seamless communication between PX4 and ROS 2 applications; when different versions of message definitions are in use, the ROS 2 translation node ensures that messages can be converted and exchanged correctly.
+
+Versioned messages are stored in the `msg/versioned/` directory, distinct from their non-versioned counterparts, which reside directly in the `msg/` directory.
+Each versioned message definition includes an additional field: `uint32 MESSAGE_VERSION = X`, where `X` corresponds to the current version of the message.
+When a versioned message definition is modified, the version number should be incremented to reflect changes in its structure or semantics.
+Additionally, [message translations](../ros2/px4_ros2_msg_translation_node.md#updating-a-message) must also be updated for versioned messages.
+
+Versioned messages are designed to remain more stable over time compared to their non-versioned counterparts, as they are intended to be used across multiple releases of PX4 and external systems, ensuring greater compatibility over longer periods.
+
+For the full list of versioned and non-versioned messages, refer to the full [uORB Message Reference](../msg_docs/index.md).
+
+For more on PX4 and ROS 2 communication, refer to the page about the [PX4-ROS 2 Bridge](../ros/ros2_comm.md).
 
 ## Message/Field Deprecation {#deprecation}
+
+(TODO: Is this section still relevant? Not seeing any `# DEPRECATED: ...` fields or msgs in latest PX4)
 
 As there are external tools using uORB messages from log files, such as [Flight Review](https://github.com/PX4/flight_review), certain aspects need to be considered when updating existing messages:
 
