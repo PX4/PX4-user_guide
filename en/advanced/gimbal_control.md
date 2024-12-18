@@ -77,15 +77,25 @@ The PWM values to use for the disarmed, maximum and minimum values can be determ
 The values may also be provided in gimbal documentation.
 
 ## SITL
+The simulation comes with a preconfigured simulated gimbal.
 
-The [Gazebo Classic](../sim_gazebo_classic/index.md) simulation [Typhoon H480 model](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor) comes with a preconfigured simulated gimbal.
+### Gazebo Classic
+To run the [Gazebo Classic](../sim_gazebo_classic/index.md) simulation [Typhoon H480 model](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor), use:
 
-To run it, use:
 
 ```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
+### Gazebo
+
+To run the [Gazebo](../sim_gazebo_gz/index.md) simulation [Quadrotor(x500) with gimbal (Front-facing) in Gazebo](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-gimbal-front-facing), use:
+
+```sh
+make px4_sitl gz_x500_gimbal
+```
+
+### Gimbal driver
 To just test the [gimbal driver](../modules/modules_driver.md#gimbal) on other models or simulators, make sure the driver runs (using `gimbal start`), then configure its parameters.
 
 ## Testing
@@ -94,6 +104,8 @@ The driver provides a simple test command.
 The following describes testing in SITL, but the commands also work on a real device.
 
 Start the simulation with (no parameter needs to be changed for that):
+
+### Gazebo Classic
 
 ```sh
 make px4_sitl gazebo-classic_typhoon_h480
@@ -108,3 +120,32 @@ gimbal test yaw 30
 Note that the simulated gimbal stabilizes itself, so if you send MAVLink commands, set the `stabilize` flags to `false`.
 
 ![Gazebo Gimbal Simulation](../../assets/simulation/gazebo_classic/gimbal-simulation.png)
+#### Gazebo
+```sh
+make px4_sitl gz_x500_gimbal
+```
+![[Quadrotor(x500) with gimbal (Front-facing) in Gazebo]](../../assets/simulation/gazebo/vehicles/x500_gimbal_gz.png)
+
+In QGC enable on screen camera control. To change target attitude, click in the QGC gui up/down/left/right or by the gimbal control buttons (Center/Tilt 90/Yaw lock).
+
+To set angle or angular rate command via MAVLink Console:
+```sh
+gimbal test <axis> <value>
+```
+- axis:
+  - <roll|pitch|yaw> for angles
+  - <rollrate|pitchrate|yawrate> for angular rates
+- value:
+  - <degrees> for angles
+  - <degrees / second> for angular rates
+
+To check gimbal status via MAVLink Console:
+```sh
+gimbal status
+```
+To set who is in control via MAVLink Console:
+```sh
+gimbal primary-control <sysid> <compid>
+```
+- sysid: MAVLink system ID
+- compid: MAVLink component ID
