@@ -182,7 +182,6 @@ PX4 "приймає" наступні команди місії MAVLink у ре�
 
 :::info
 Please add an issue report or PR if you find a missing/incorrect message.
-::: info:
 
 - PX4 аналізує вищезазначені повідомлення, але на них не обов'язково _реагує_. Наприклад, деякі повідомлення є специфічними для типу транспортного засобу.
 - PX4 не підтримує локальні координати для команд місій (наприклад, [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
@@ -190,6 +189,18 @@ Please add an issue report or PR if you find a missing/incorrect message.
 - Список може стати застарілим, оскільки додаються повідомлення.
   Ви можете перевірити поточний набір, оглянувши код.
   Підтримка - `MavlinkMissionManager::parse_mavlink_mission_item` у [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp).
+
+:::
+
+## Mission Command Timeouts
+
+Some mission commands/items can take time to complete, such as a gripper opening and closing, a winch extending or retracting, or a gimbal moving to point at a region of interest.
+
+Where provided PX4 may use sensor feedback from the hardware to determine when the action has completed and then move to the next mission item.
+If not provided, or if the feedback is lost, a mission command timeout can be used to ensure that these kinds of actions will progress to the next mission item rather than blocking progression.
+
+The timeout is set using the [MIS_COMMAND_TOUT](../advanced_config/parameter_reference.md#MIS_COMMAND_TOUT) parameter.
+This should be set to be a small amount greater than the time required for the longest long-running action in the mission to complete.
 
 ## Закруглені повороти: Траєкторія міжточкового маршруту
 
@@ -227,7 +238,7 @@ $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}_{ 
 Якщо можливо, завжди здійснюйте взліт транспортного засобу проти вітру.
 
 :::info
-Для виконання місії з фіксованим крилом потрібно додати елемент місії `Takeoff`, щоб взяти на озброєння; однак, якщо транспортний засіб вже знаходиться у повітрі, коли місія починається, елемент взяття на озброєння буде оброблено як звичайна точка маршруту.
+A fixed-wing mission requires a `Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
 :::
 
 Для отримання додаткової інформації про поведінку взльоту та конфігурацію див. [Режим взльоту (FW)](../flight_modes_fw/takeoff.md).
