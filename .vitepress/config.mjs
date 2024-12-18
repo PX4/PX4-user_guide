@@ -1,6 +1,8 @@
 import { defineConfig } from "vitepress";
 const getSidebar = require("./get_sidebar.js");
 
+import openEditor from "open-editor"; // Open file locally via edit
+
 // Tabs: https://github.com/Red-Asuka/vitepress-plugin-tabs
 import tabsPlugin from "@red-asuka/vitepress-plugin-tabs";
 
@@ -29,23 +31,65 @@ export default defineConfig({
       tabsPlugin(md); //https://github.com/Red-Asuka/vitepress-plugin-tabs
     },
   },
+
+  vite: {
+    plugins: [
+      {
+        // Open file locally via edit
+        name: "open-in-editor",
+        configureServer(server) {
+          server.middlewares.use("/__open-in-editor", (req, res, next) => {
+            if (!req.url) return next();
+            const q = new URL(req.url, "http://a.com").searchParams;
+            const file = q.get("file");
+            if (!file) return next();
+            const line = Number.parseInt(q.get("line")) || 1;
+            const column = Number.parseInt(q.get("column")) || 1;
+            // Open editor if EDITOR environment variable is set
+            if (typeof process.env.EDITOR !== "undefined") {
+              openEditor([{ file, line, column }]);
+            } else {
+              console.warn(
+                "EDITOR environment variable is not set. Skipping opening file."
+              );
+            }
+            res.statusCode = 204;
+            res.end();
+          });
+        },
+      },
+    ],
+  },
+
   locales: {
     en: {
       label: "English",
       // other locale specific properties...
       themeConfig: {
         sidebar: getSidebar.sidebar("en"),
-
         editLink: {
-          pattern: ({ filePath, frontmatter }) => {
-            if (frontmatter.newEditLink) {
-              //newEditLink defines a frontmatter key you can use to append a path to main
-              return `https://github.com/PX4/PX4-user_guide/edit/main/${frontmatter.newEditLink}`;
-            } else {
-              return `https://github.com/PX4/PX4-user_guide/edit/main/${filePath}`;
-            }
-          },
-          text: "Edit on GitHub",
+          text:
+            /* We get a github link if CI env is defined,
+            or if it isn't defined and a local editor isn't defined) */
+            typeof process.env.CI !== "undefined" ||
+            typeof process.env.EDITOR === "undefined"
+              ? "Edit on GitHub"
+              : "Open in your editor",
+          pattern:
+            typeof process.env.CI !== "undefined" ||
+            typeof process.env.EDITOR === "undefined"
+              ? ({ filePath, frontmatter }) => {
+                  if (frontmatter.newEditLink) {
+                    //newEditLink defines a frontmatter key you can use to append a path to main
+                    return `https://github.com/PX4/PX4-user_guide/edit/main/${frontmatter.newEditLink}`;
+                  } else {
+                    return `https://github.com/PX4/PX4-user_guide/edit/main/${filePath}`;
+                  }
+                }
+              : (c) =>
+                  `${
+                    window.location.origin
+                  }/__open-in-editor?file=${encodeURIComponent(c.filePath)}`,
         },
       },
     },
