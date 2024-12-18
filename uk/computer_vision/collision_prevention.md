@@ -283,7 +283,7 @@ The Lua script works by extracting the `obstacle_distance_fused` data at each ti
 5. Start streaming the data using the approach described in [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md).
    You should see the `obstacle_distance_fused_xy` and `obstacle_distance_minimum` timeseries on the left.
 
-Note that to run the script again after clearing the data, you have to press **Save** again.
+Note that you have to press **Save** again to re-enable the scripts after loading a new log file or otherwise clearing data.
 
 ### Sensor Data Overview
 
