@@ -75,6 +75,18 @@ Gimbal також можна контролювати шляхом підклю�
 PWM значення для використання при відблокованому, максимальному та мінімальному значеннях можна визначити так само, як і для інших сервоприводів, використовуючи [повзунки тесту приводу](../config/actuators.md#actuator-testing), щоб підтвердити, що кожний повзунок переміщує відповідну вісь, і змінюючи значення так, щоб гімбал знаходився у відповідному положенні при відблокованому стані, низькому і високому положенні повзунка.
 Значення також можуть бути наведені у документації гімбала.
 
+## Gimbal Control in Missions
+
+[Gimbal Manager commands](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) may be used in missions if supported by the vehicle type.
+For example [MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW) is supported in [multicopter mission mode](../flight_modes_mc/mission.md).
+
+In theory you can address commands to a particular gimbal, specifying its component id using the "Gimbal device id" parameter.
+However at time of writing (December 2024) this is [not supported](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/gimbal/input_mavlink.cpp#L889): all mission commands are sent to the gimbal managed by the PX4 gimbal manager (if this is a MAVLink gimbal, it will be the gimbal with component id defined in the parameter [MNT_MAV_COMPID](../advanced_config/parameter_reference.md#MNT_MAV_COMPID), which is set by default to [MAV_COMP_ID_GIMBAL (154)](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_GIMBAL)).
+
+Gimbal movement is not immediate.
+To ensure that the gimbal has time to move into position before the mission progresses to the next item (if gimbal feedback is not provided or lost), you should set [MIS_COMMAND_TOUT](../advanced_config/parameter_reference.md#MIS_COMMAND_TOUT) to be greater than the time taken for the gimbal to traverse its full range.
+After this timeout the mission will proceed to the next item.
+
 ## SITL
 
 Симуляція [Gazebo Classic](../sim_gazebo_classic/README.md) моделі [Typhoon H480](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor) поставляється з передконфігурованим симульованим гімбалем.
