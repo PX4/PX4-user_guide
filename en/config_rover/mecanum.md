@@ -35,7 +35,7 @@ The basic setup (above) is all that is required to use the rover in [Manual mode
 In manual mode the stick inputs are directly mapped to motor commands.
 Especially moving the stick that controls the yaw rate all the way to one side will cause the wheels on the left and right to spin at full speed in opposite directions.
 Depending on the rover this can lead to a very aggressive rotation.
-The parameter [RM_MAN_YAW_SCALE](#RM_MAN_YAW_SCALE) can be used to scale the manual input for the yaw rate.
+The parameters [RM_MAX_YAW_RATE](#RM_MAX_YAW_RATE) and [RM_MAX_THR_YAW_R](#RM_MAX_THR_YAW_R) can be used to scale the manual input for the yaw rate.
 By reducing the parameter from the default value of 1 this behaviour can be tuned.
 Note that this parameter only affects this mode, not any of the following ones.
 :::
@@ -57,7 +57,6 @@ To set up [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) navigate to [P
    A rover has a maximum possible yaw rate which is determined by the rover geometry and the maximum torque the motors can supply.
    If you have no reason to limit the yaw rate of your rover, you can set this parameter equal to the highest yaw rate observed in testing:
 
-   1. First make sure [RM_MAN_YAW_SCALE](#RM_MAN_YAW_SCALE) is set to 1 (you can set it back to the previous value after completing this tuning step).
    2. In [Manual Mode](../flight_modes_rover/mecanum.md#manual-mode) move the right-stick of your controller all the way to the left or right.
       Disarm the rover and from the flight log plot the `actual_yaw_rate` from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumStatus.md).
    3. Set `RM_MAX_YAW_RATE` to the highest observed yaw rate.
@@ -69,7 +68,6 @@ To set up [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) navigate to [P
    5. Move the right-stick of your controller all the way to the left or right and observe the behaviour of the rover.
       Keep reducing the value of [RM_MAX_YAW_RATE](#RM_MAX_YAW_RATE) until you are satisfied with the maximum turn rate.
 
-   Remember to reset [RM_MAN_YAW_SCALE](#RM_MAN_YAW_SCALE) back to its original value.
    :::
 
 3. [RM_MAX_THR_YAW_R](#RM_MAX_THR_YAW_R) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop yaw rate control.
@@ -357,7 +355,6 @@ List of all parameters of the mecanum rover module:
 | Parameter                                                                                                   | Description                                                            | Unit    |
 | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------- |
 | <a id="RM_WHEEL_TRACK"></a>[RM_WHEEL_TRACK](../advanced_config/parameter_reference.md#RM_WHEEL_TRACK)       | Wheel track                                                            | m       |
-| <a id="RM_MAN_YAW_SCALE"></a>[RM_MAN_YAW_SCALE](../advanced_config/parameter_reference.md#RM_MAN_YAW_SCALE) | Manual yaw rate scale                                                  | -       |
 | <a id="RM_MAX_THR_YAW_R"></a>[RM_MAX_THR_YAW_R](../advanced_config/parameter_reference.md#RM_MAX_THR_YAW_R) | Yaw rate turning left/right wheels at max speed in opposite directions | m/s     |
 | <a id="RM_MAX_YAW_RATE"></a>[RM_MAX_YAW_RATE](../advanced_config/parameter_reference.md#RM_MAX_YAW_RATE)    | Maximum allowed yaw rate for the rover                                 | deg/s   |
 | <a id="RM_YAW_RATE_P"></a>[RM_YAW_RATE_P](../advanced_config/parameter_reference.md#RM_YAW_RATE_P)          | Proportional gain for yaw rate controller                              | -       |
