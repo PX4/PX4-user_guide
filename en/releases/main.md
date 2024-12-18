@@ -37,7 +37,11 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 - [Log Encryption](../dev_log/log_encryption.md) now generates an encrypted log that contains the public-key-encrypted symmetric key that can be used to decrypt it, instead of putting the key into a separate file.
   This makes log decryption much easier, as there is no need to download or identify a separate key file.
   ([PX4-Autopilot#24024](https://github.com/PX4/PX4-Autopilot/pull/24024)).
-  
+- The generic mission command timeout [MIS_COMMAND_TOUT](../advanced_config/parameter_reference.md#MIS_COMMAND_TOUT) parameter replaces the delivery-specific `MIS_PD_TO` parameter.
+  Mission commands that may take some time to complete, such as those for controlling gimbals, winches, and grippers, will progress to the next item when either feedback is received or the timeout expires.
+  This is often used to provide a minimum delay for hardware that does not provide completion feedback, so that it can reach the commanded state before the mission progresses.
+  ([PX4-Autopilot#23960](https://github.com/PX4/PX4-Autopilot/pull/23960)).
+
 ### Control
 
 - TBD
