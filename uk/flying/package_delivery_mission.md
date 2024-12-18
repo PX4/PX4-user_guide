@@ -89,7 +89,7 @@ For safety reasons "Return To Launch" is disabled when vehicle is landed ([relat
 A gripper can be [manually controlled using a joystick button](../peripherals/gripper.md#qgc-joystick-configuration) (if configured) in any mode, including during a mission.
 
 Проте зауважте, що якщо ви вручну командуєте закриття захвату, тоді як місія з доставки відкриває захват, захват не зможе завершити дію відкриття.
-The mission will resume after the payload delivery mission item timeout ([MIS_PD_TO](../advanced_config/parameter_reference.md#MIS_PD_TO) expires, even if it has not released the package.
+The mission will resume after the mission command timeout ([MIS_COMMAND_TOUT](../advanced_config/parameter_reference.md#MIS_COMMAND_TOUT)) expires, even if it has not released the package.
 
 #### Автоматичне вимкнення відключено в місіях
 
