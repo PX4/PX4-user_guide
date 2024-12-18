@@ -94,13 +94,13 @@ The [Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggl
 
 **Global code, executed once:**
 
-```reactive
+```lua
 obs_dist_xy = ScatterXY.new("obstacle_distance_xy")
 ```
 
 **function(tracker_time)**
 
-```reactive
+```lua
 obs_dist_xy:clear()
 
 i = 0
