@@ -44,6 +44,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 - [Compass calibration for large vehicles](../config/compass.md#large-vehicle-calibration).
   This method is designed for vehicles where full rotation is impractical or impossible.
   ([PX4-Autopilot#23185](https://github.com/PX4/PX4-Autopilot/pull/23185)).
+- **[uORB]** Introduce a [version field](../middleware/uorb.md#message-versioning) for a subset of uORB messages ([PX4-Autopilot#23850](https://github.com/PX4/PX4-Autopilot/pull/23850))
 
 ### Control
 
@@ -84,7 +85,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### uXRCE-DDS / ROS2
 
-- TBD
+- **[Feature]** <Badge type="warning" text="Experimental"/> [ROS 2 Message Translation Node](../ros2/px4_ros2_msg_translation_node.md) to translate PX4 messages from one defintion version to another dynamically ([PX4-Autopilot#24113](https://github.com/PX4/PX4-Autopilot/pull/24113))
 
 ### MAVLink
 

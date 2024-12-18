@@ -34,6 +34,9 @@ The generator uses the uORB message definitions in the source tree: [PX4-Autopil
 ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware.
 You can include these by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace (branches in the repo correspond to the messages for different PX4 releases).
 
+Starting from PX4 v1.16 (main) in which [message versioning](../middleware/uorb.md#message-versioning) was introduced, ROS2 applications may use a different version of message definitions than those used to build PX4.
+This requires the [ROS 2 Message Translation Node](../ros2/px4_ros2_msg_translation_node.md) to be running to ensure that messages can be converted and exchanged correctly.
+
 Note that the micro XRCE-DDS _agent_ itself has no dependency on client-side code.
 It can be built from [source](https://github.com/eProsima/Micro-XRCE-DDS-Agent) either standalone or as part of a ROS build, or installed as a snap.
 
@@ -231,7 +234,7 @@ The micro XRCE-DDS agent terminal should also start to show output, as equivalen
 
 ### Build ROS 2 Workspace
 
-This section shows how create a ROS 2 workspace hosted in your home directory (modify the commands as needed to put the source code elsewhere).
+This section shows how to create a ROS 2 workspace hosted in your home directory (modify the commands as needed to put the source code elsewhere).
 
 The [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) packages are cloned to a workspace folder, and then the `colcon` tool is used to build the workspace.
 The example is run using `ros2 launch`.
@@ -262,6 +265,13 @@ To create and build the workspace:
    ```sh
    git clone https://github.com/PX4/px4_msgs.git
    git clone https://github.com/PX4/px4_ros_com.git
+   ```
+
+1. __(Optional)__ From PX4 v1.16 (main), include the [Message Translation Node](../ros2/px4_ros2_msg_translation_node.md) into your workspace by running the following script.
+This step is useful only if using a PX4 and px4_msgs which contain different message versions.
+
+   ```sh
+   /path/to/PX4-Autopilot/Tools/copy_to_ros_ws.sh ../
    ```
 
 1. Source the ROS 2 development environment into the current terminal and compile the workspace using `colcon`:
@@ -332,6 +342,12 @@ In a new terminal:
 
    ```sh
    source install/local_setup.bash
+   ```
+
+1. __(Optional)__ If the [Message Translation Node](../ros2/px4_ros2_msg_translation_node.md) was added to the workspace in the previous steps, run the translation node:
+
+   ```sh
+   ros2 run translation_node translation_node_bin
    ```
 
 1. Now launch the example.

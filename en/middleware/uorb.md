@@ -141,7 +141,33 @@ Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topi
 
 The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
 
+## Message Versioning
 
+<Badge type="tip" text="main (PX4 v1.16+)" />
+
+Message versioning has been in introduced in PX4 v1.16 (main) to make it easier to maintain compatibility between PX4 and ROS 2 versions.
+
+Versioned messages include an additional field `uint32 MESSAGE_VERSION = x`, where `x` corresponds to the current version of the message.
+Versioned message files are stored separately from their non-versioned counterpart.
+Topic message files are located under `msg/versioned` and service message files are located under `srv/versioned`.
+Non-versioned messages remain in the `msg/` and `srv/` directories respectively.
+
+This versioning mechanism supports the [ROS 2 Message Translation Node](../ros2/px4_ros2_msg_translation_node.md), which enables seamless communication between PX4 and ROS 2 applications; when different versions of message definitions are in use, the ROS 2 translation node ensures that messages can be converted and exchanged correctly.
+
+Versioned messages are designed to remain more stable over time compared to their non-versioned counterparts, as they are intended to be used across multiple releases of PX4 and external systems, ensuring greater compatibility over longer periods.
+
+Updating a versioned message involves more steps compared to updating a non-versioned one.
+Please see the section on [Updating a Versioned Message](../ros2/px4_ros2_msg_translation_node.md#updating-a-versioned-message).
+
+For the full list of versioned and non-versioned messages, refer to the [uORB Message Reference](../msg_docs/index.md).
+
+For more on PX4 and ROS 2 communication, refer to the page about the [PX4-ROS 2 Bridge](../ros/ros2_comm.md).
+
+::: note
+ROS 2 plans to natively support message versioning in the future, but this is not implememented yet.
+See the related ROS Enhancement Proposal ([REP 2011](https://github.com/ros-infrastructure/rep/pull/358)).
+See also this [Foxglove post](https://foxglove.dev/blog/sending-ros2-message-types-over-the-wire) on message hashing and type fetching.
+:::
 
 ## Message/Field Deprecation {#deprecation}
 
