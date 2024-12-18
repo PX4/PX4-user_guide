@@ -189,8 +189,6 @@ Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/P
 
 Драйвер послідовної шини для лазерного далекоміра Lightware SF45/b.
 
-Інформація про налаштування/використання: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
-
 ### Приклади
 
 Спроба запустити драйвер на вказаному послідовному пристрої.
@@ -214,7 +212,6 @@ lightware_sf45_serial <command> [arguments...]
  Commands:
    start         Start driver
      -d <val>    Serial device
-     -R <val>    Sensor rotation - downward facing by default
 
    stop          Stop driver
 ```

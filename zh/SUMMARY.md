@@ -242,6 +242,7 @@
     - [Barometers](sensor/barometer.md)
     - [距离传感器 \(测距仪\)](sensor/rangefinders.md)
       - [Lightware Lidars (SF/LW)](sensor/sfxx_lidar.md)
+        - [Lightware SF45 Rotary Lidar](sensor/sf45_rotating_lidar.md)
       - [Ainstein US-D1 标准雷达高度计](sensor/ulanding_radar.md)
       - [LeddarOne 激光雷达](sensor/leddar_one.md)
       - [北醒 TFmini 激光雷达](sensor/tfmini.md)

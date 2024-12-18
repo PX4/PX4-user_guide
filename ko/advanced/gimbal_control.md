@@ -51,13 +51,12 @@ For example, if the `TELEM2` port on the flight controller is unused you can con
 PX4 can automatically create a gimbal manager for a connected PWM gimbal or the first MAVLink gimbal device with the same system id it detects on any interface.
 It does not automatically create gimbal manager for any other MAVLink gimbal devices that it detects.
 
-You can support additional gimbals provided that they:
+You can support additional MAVLink gimbals provided that they:
 
-- implement the gimbal _manager_ protocol
+- Implement the gimbal _manager_ protocol.
 - Are visible to the ground station and PX4 on the MAVLink network.
   This may require that traffic forwarding be configured between PX4, the GCS, and the gimbal.
-- Each gimbal must have a unique component id.
-  For a PWM connected gimbal this will be the component ID of the autopilot
+- Have a unique component id, and this component id must be in the range 7 - 255.
 
 ## Gimbal on FC PWM Output (MNT_MODE_OUT=AUX)
 

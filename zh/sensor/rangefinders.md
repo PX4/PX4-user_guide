@@ -36,14 +36,14 @@ The rangefinders are enabled using the parameter [SENS_EN_MB12XX](../advanced_co
 
 ### Lightware LIDARs
 
-[Lightware SFxx Lidar](../sensor/sfxx_lidar.md) provide a broad range of lightweight "laser altimeters" that are suitable for many drone applications.
+[Lightware SFxx Lidar](../sensor/sfxx_lidar.md) provide a broad range of lightweight “laser altimeters” that are suitable for many drone applications.
 
 PX4 支持: SF11/c 和 SF/LW20.
 PX4 也可用于一下停产的型号: SF02, SF10/a, SF10/b, SF10/c.
 
 Others may be supported via the [RaccoonLab Cyphal and DroneCAN Rangefinder Adapter](#raccoonlab-cyphal-and-dronecan-rangefinder-adapter) described below.
 
-PX4 also supports the [LightWare LiDAR SF45 Rotating Lidar](https://www.lightwarelidar.com/shop/sf45-b-50-m/) for [collision prevention](../computer_vision/collision_prevention.md#lightware-lidar-sf45-rotating-lidar) applications.
+PX4 also supports the [LightWare LiDAR SF45 Rotating Lidar](../sensor/sf45_rotating_lidar.md) for [collision prevention](../computer_vision/collision_prevention.md) applications.
 
 ### TeraRanger 测距仪
 

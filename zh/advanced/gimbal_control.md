@@ -51,13 +51,12 @@ For example, if the `TELEM2` port on the flight controller is unused you can con
 PX4 可以自动为已连接的 PWM 云台或第一个在任何接口上检测到相同的系统 id 的 MAVLink 云台设备创建一个云台管理器。
 它不会自动为它检测到的其他MAVLink云台设备创建云台管理器。
 
-您可以支持额外的云台 ，但他们必须：
+You can support additional MAVLink gimbals provided that they:
 
-- implement the gimbal _manager_ protocol
+- Implement the gimbal _manager_ protocol.
 - 在 MAVLink 网络上对地面站和 PX4 可见。
   这可能需要在PX4、GCS和云台之间配置流量转接。
-- 每个云台必须有一个独特的ID。
-  对于已连接的 PWM 云台，这将是飞控系统的组件 ID
+- Have a unique component id, and this component id must be in the range 7 - 255.
 
 ## 飞控 PWM 输出上的云台 (MNT_MODE_OUT=AUX)
 

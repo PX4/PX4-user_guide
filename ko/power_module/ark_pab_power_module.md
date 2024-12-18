@@ -16,7 +16,7 @@ Order this module from:
 
 - **TI INA226 Digital Power Monitor**
 
-  - 500μOhm Shunt
+  - 0.0005 Ohm Shunt
   - I2C Interface
 
 - **5.2V 6A Step-Down Regulator**
