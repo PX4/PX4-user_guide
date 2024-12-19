@@ -19,7 +19,7 @@ _Режим місії_ змушує транспортний засіб вик�
 ## Опис
 
 Місії зазвичай створюються в земній контрольній станції (наприклад, [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html)) та завантажуються перед запуском.
-Вони також можуть бути створені за допомогою розробника API або завантажені під час польоту.
+They may also be created by a MAVLink API such as [MAVSDK](../robotics/mavsdk.md), and/or uploaded in flight.
 
 Індивідуальні [команди місії](#mission-commands) обробляються таким чином, який є відповідним для характеристик багтороторного польоту (наприклад, обертання виконується у вигляді _залишання на місці_).
 
@@ -195,6 +195,16 @@ Please add an issue report or PR if you find a missing/incorrect message.
   Підтримка - `MavlinkMissionManager::parse_mavlink_mission_item` у [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp).
 
 :::
+
+## Mission Command Timeouts
+
+Some mission commands/items can take time to complete, such as a gripper opening and closing, a winch extending or retracting, or a gimbal moving to point at a region of interest.
+
+Where provided PX4 may use sensor feedback from the hardware to determine when the action has completed and then move to the next mission item.
+If not provided, or if the feedback is lost, a mission command timeout can be used to ensure that these kinds of actions will progress to the next mission item rather than blocking progression.
+
+The timeout is set using the [MIS_COMMAND_TOUT](../advanced_config/parameter_reference.md#MIS_COMMAND_TOUT) parameter.
+This should be set to be a small amount greater than the time required for the longest long-running action in the mission to complete.
 
 ## Закруглені повороти: Траєкторія міжточкового маршруту
 

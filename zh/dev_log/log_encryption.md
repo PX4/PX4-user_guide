@@ -103,7 +103,7 @@ The FMUv5 board already has a custom make target `px4-fmu-v5_cryptotest` that yo
 The configuration file that enables the above make target is [`cryptotest.px4board`](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/cryptotest.px4board) file in `boards/px4/fmu-v5`.
 The relevant keys in that file are reproduced below:
 
-```config
+```plain
 CONFIG_BOARD_CRYPTO=y
 CONFIG_DRIVERS_STUB_KEYSTORE=y
 CONFIG_DRIVERS_SW_CRYPTO=y
