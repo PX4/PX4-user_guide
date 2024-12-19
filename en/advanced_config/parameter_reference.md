@@ -20824,6 +20824,166 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 0 |  
 
+### SIM_GZ_SV_MAXA1 (`FLOAT`) {#SIM_GZ_SV_MAXA1}
+
+Servo 1 Angle at Maximum.
+
+Defines the angle when the servo is at the maximum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MAXA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | 45.0 | deg 
+
+### SIM_GZ_SV_MAXA2 (`FLOAT`) {#SIM_GZ_SV_MAXA2}
+
+Servo 2 Angle at Maximum.
+
+Defines the angle when the servo is at the maximum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MAXA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | 45.0 | deg 
+
+### SIM_GZ_SV_MAXA3 (`FLOAT`) {#SIM_GZ_SV_MAXA3}
+
+Servo 3 Angle at Maximum.
+
+Defines the angle when the servo is at the maximum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MAXA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | 45.0 | deg 
+
+### SIM_GZ_SV_MAXA4 (`FLOAT`) {#SIM_GZ_SV_MAXA4}
+
+Servo 4 Angle at Maximum.
+
+Defines the angle when the servo is at the maximum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MAXA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | 45.0 | deg 
+
+### SIM_GZ_SV_MAXA5 (`FLOAT`) {#SIM_GZ_SV_MAXA5}
+
+Servo 5 Angle at Maximum.
+
+Defines the angle when the servo is at the maximum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MAXA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | 45.0 | deg 
+
+### SIM_GZ_SV_MAXA6 (`FLOAT`) {#SIM_GZ_SV_MAXA6}
+
+Servo 6 Angle at Maximum.
+
+Defines the angle when the servo is at the maximum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MAXA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | 45.0 | deg 
+
+### SIM_GZ_SV_MAXA7 (`FLOAT`) {#SIM_GZ_SV_MAXA7}
+
+Servo 7 Angle at Maximum.
+
+Defines the angle when the servo is at the maximum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MAXA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | 45.0 | deg 
+
+### SIM_GZ_SV_MAXA8 (`FLOAT`) {#SIM_GZ_SV_MAXA8}
+
+Servo 8 Angle at Maximum.
+
+Defines the angle when the servo is at the maximum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MAXA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | 45.0 | deg 
+
+### SIM_GZ_SV_MINA1 (`FLOAT`) {#SIM_GZ_SV_MINA1}
+
+Servo 1 Angle at Minimum.
+
+Defines the angle when the servo is at the minimum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MINA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | -45.0 | deg 
+
+### SIM_GZ_SV_MINA2 (`FLOAT`) {#SIM_GZ_SV_MINA2}
+
+Servo 2 Angle at Minimum.
+
+Defines the angle when the servo is at the minimum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MINA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | -45.0 | deg 
+
+### SIM_GZ_SV_MINA3 (`FLOAT`) {#SIM_GZ_SV_MINA3}
+
+Servo 3 Angle at Minimum.
+
+Defines the angle when the servo is at the minimum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MINA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | -45.0 | deg 
+
+### SIM_GZ_SV_MINA4 (`FLOAT`) {#SIM_GZ_SV_MINA4}
+
+Servo 4 Angle at Minimum.
+
+Defines the angle when the servo is at the minimum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MINA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | -45.0 | deg 
+
+### SIM_GZ_SV_MINA5 (`FLOAT`) {#SIM_GZ_SV_MINA5}
+
+Servo 5 Angle at Minimum.
+
+Defines the angle when the servo is at the minimum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MINA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | -45.0 | deg 
+
+### SIM_GZ_SV_MINA6 (`FLOAT`) {#SIM_GZ_SV_MINA6}
+
+Servo 6 Angle at Minimum.
+
+Defines the angle when the servo is at the minimum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MINA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | -45.0 | deg 
+
+### SIM_GZ_SV_MINA7 (`FLOAT`) {#SIM_GZ_SV_MINA7}
+
+Servo 7 Angle at Minimum.
+
+Defines the angle when the servo is at the minimum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MINA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | -45.0 | deg 
+
+### SIM_GZ_SV_MINA8 (`FLOAT`) {#SIM_GZ_SV_MINA8}
+
+Servo 8 Angle at Minimum.
+
+Defines the angle when the servo is at the minimum. Currently only supported in gz simulation and must be coherent with .sdf file and CA_SV_TL{n}_MINA.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -180.0 | 180.0 |  | -45.0 | deg 
+
 ## Hover Thrust Estimator
 
 ### HTE_ACC_GATE (`FLOAT`) {#HTE_ACC_GATE}
