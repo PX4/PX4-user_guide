@@ -56,6 +56,7 @@ Note that all gazebo make targets have the prefix `gz_`.
 | [Quadrotor(x500) with 1D LIDAR (Down-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-down-facing)          | `make px4_sitl gz_x500_lidar_down`  | 4016                |
 | [Quadrotor(x500) with 2D LIDAR](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-2d-lidar)                                    | `make px4_sitl gz_x500_lidar_2d`    | 4013                |
 | [Quadrotor(x500) with 1D LIDAR (Front-facing)](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-1d-lidar-front-facing)        | `make px4_sitl gz_x500_lidar_front` | 4017                |
+| [Quadrotor(x500) with gimbal (Front-facing) in Gazebo](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-gimbal-front-facing)  | `make px4_sitl gz_x500_gimbal`      | 4019                |
 | [VTOL](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                                            | `make px4_sitl gz_standard_vtol`    | 4004                |
 | [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                                          | `make px4_sitl gz_rc_cessna`        | 4003                |
 | [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                                                 | `make px4_sitl gz_advanced_plane`   | 4008                |
