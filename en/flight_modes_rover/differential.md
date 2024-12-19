@@ -16,7 +16,21 @@ Manual modes require stick inputs from the user to drive the vehicle.
 
 ![Manual Controls](../../assets/airframes/rover/flight_modes/manual_controls_differential_rover.png)
 
-The manual modes listed below provide increasing levels of autopilot support:
+The sticks provide the same "high level" control effects over direction and rate of movement in all manual modes:
+
+- `Left stick up/down`: Drive the rover forwards/backwards (controlling forward speed)
+- `Right stick left/right`: Rotate the rover to the left/right (controlling yaw rate).
+
+The manual modes provide progressively increasing levels of autopilot support for maintaining a course, speed, and rate of turn, compensating for external factors such as slopes or uneven terrain.
+
+| Mode                           | Features                                                                                                                                                                         |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Manual](#manual-mode)         | No autopilot support. User is responsible for keeping the rover on the desired course and maintaining speed and rate of turn.                                                    |
+| [Acro](#acro-mode)             | + Maintains the yaw rate (This makes it slightly better at holding a straight line in uneven terrain). <br>+ Allows maximum yaw rate to be limited.                              |
+| [Stabilized](#stabilized-mode) | + Maintans the yaw (This makes it significantly better at holding a straight line).                                                                                              |
+| [Position](#position-mode)     | + Maintains the course (Best mode for driving a straight line).<br>+ Maintains speed against disturbances, e.g. when driving up a hill.<br>+ Allows maximum speed to be limited. |
+
+::: details Overview mode mapping to control effect
 
 | Mode                           | Forward speed                                                            | Yaw rate                                                                                                                                                                                          | Required measurements                           |
 | ------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -24,6 +38,8 @@ The manual modes listed below provide increasing levels of autopilot support:
 | [Acro](#acro-mode)             | Directly map stick input to motor commands.                              | Stick input creates a yaw rate setpoint for the control system to regulate.                                                                                                                       | Yaw rate.                                       |
 | [Stabilized](#stabilized-mode) | Directly map stick input to motor commands.                              | Stick input creates a yaw rate setpoint for the control system to regulate. If this setpoint is zero (stick is centered) the control system will maintain the current yaw (heading) of the rover. | Yaw rate and yaw.                               |
 | [Position](#position-mode)     | Stick input creates a speed setpoint for the control system to regulate. | Stick input creates a yaw rate setpoint for the control system to regulate. If this setpoint is zero (stick is centered) the control system will keep the rover driving in a straight line.       | Yaw rate, yaw, speed and global position (GPS). |
+
+:::
 
 ### Manual Mode
 
