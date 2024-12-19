@@ -3,76 +3,43 @@
 _Collision Prevention_ may be used to automatically slow and stop a vehicle before it can crash into an obstacle.
 It can be enabled for multicopter vehicles when using acceleration-based [Position mode](../flight_modes_mc/position.md) (or VTOL vehicles in MC mode).
 
+It can be enabled for multicopter vehicles in [Position mode](../flight_modes_mc/position.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
+
+Collision prevention may restrict vehicle maximum speed if the sensor range isn't large enough!
+It also prevents motion in directions where no sensor data is available (i.e. if you have no rear-sensor data, you will not be able to fly backwards).
+
+:::tip
+If high flight speeds are critical, consider disabling collision prevention when not needed.
+:::
+
+:::tip
+Ensure that you have sensors/sensor data in all directions that you want to fly (when collision prevention is enabled).
+:::
+
 ## Загальний огляд
 
 The vehicle restricts the current velocity in order to slow down as it gets closer to obstacles and adapts the acceleration setpoint in order to disallow collision trajectories.
 Для того, щоб відійти від перешкоди (або паралельно їй), користувач повинен наказати транспортному засобу рухатися до заданої точки, яка не наближає транспортний засіб до перешкоди.
-Алгоритм внесе незначні корективи в напрямок заданого значення, якщо буде визначено, що "краще" значення існує в межах фіксованого запасу по обидва боки від запитуваного заданого значення.
+The algorithm will make minor adjustments to the setpoint direction if it is determined that a “better” setpoint exists within a fixed margin on either side of the requested setpoint.
 
-Collision prevention prevents motion in directions where no sensor data is available (i.e. if you have no rear-sensor data, you will not be able to fly backwards).
-It may also restrict vehicle maximum speed if the sensor range isn't large enough!
+Users are notified through _QGroundControl_ while _Collision Prevention_ is actively controlling velocity setpoints.
 
-Multiple sensors can be used to get information about, and prevent collisions with, objects _around_ the vehicle.
-If multiple sources supply data for the _same_ orientation, the system uses the data that reports the smallest distance to an object.
+PX4 software setup is covered in the next section.
+If you are using a distance sensor attached to your flight controller for collision prevention, it will need to be attached and configured as described in [PX4 Distance Sensor](#rangefinder).
+If you are using a companion computer to provide obstacle information see [companion setup](#companion
 
-The feature requires obstacle information from a [distance sensor](../sensor/rangefinders.md).
-The sensor may be connected to the flight controller (recommended).
-It can also be used with distance information provided by an external system via MAVLink, but this is currently untested (see [companion setup](#companion) below).
+## Supported Rangefinders  {#rangefinder}
 
-The [rangefinders](#rangefinder) that have been tested when directly connected to PX4 are listed below, along with setup instructions.
-The [PX4 Configuration](#px4-configuration) specific to collision-prevention is the same for all sensors and independent of whether data is provided by a connected sensor or MAVLink.
+### Lanbao PSK-CM8JL65-CC5 [Discontinued]
 
-:::tip
+At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention “out of the box”, with minimal additional configuration:
 
-- If high flight speeds are critical, consider disabling collision prevention when not needed.
-- Ensure that you have sensors/sensor data in all directions that you want to fly, including backwards (when collision prevention is enabled).
-
-:::
-
-## Supported Rangefinders {#rangefinder}
-
-Collision Prevention has been tested with the following rangefinders attached to PX4 (not for providing data [supplied over MAVLink](#companion)).
-
-### Lanbao PSK-CM8JL65-CC5
-
-At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention "out of the box", with minimal additional configuration:
-
-1. [Attach and configure the sensor](../sensor/cm8jl65_ir_distance_sensor.md).
-2. Set the sensor orientation using [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0).
-3. [Configure and enable collision prevention](#px4-configuration)
+- First [attach and configure the sensor](../sensor/cm8jl65_ir_distance_sensor.md), and enable collision prevention (as described above, using [CP_DIST](#CP_DIST)).
+- Set the sensor orientation using [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0).
 
 ### LightWare LiDAR SF45 Поворотний лідар
 
-PX4 v1.14 (and later) supports the [LightWare LiDAR SF45](https://www.lightwarelidar.com/shop/sf45-b-50-m/) rotating lidar which provides 320 degree sensing.
-
-The SF45 must be connected via a UART/serial port and configured as described below:
-
-1. [LightWare Studio](https://www.lightwarelidar.com/resources-software) configuration:
-
-   - In the LightWare Studio app enable scanning, set the scan angle, and change the baud rate to `921600`.
-
-2. Add [lightware_sf45_serial](../modules/modules_driver_distance_sensor.md#lightware-sf45-serial) driver to PX4 firmware:
-
-   1. Open [menuconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup)
-   2. Under **drivers > Distance sensors** select `lightware_sf45_serial`.
-   3. Перекомпілюйте та завантажте на контролер польоту.
-
-3. [Set the following parameters](../advanced_config/parameters.md) via QGC to configure the driver:
-
-   - [SENS_EN_SF45_CFG](../advanced_config/parameter_reference.md#SENS_EN_SF45_CFG): Set to the serial port you have the sensor connected to.
-     Переконайтеся, що GPS або телеметрія не активовані на цьому порті.
-   - [SF45_ORIENT_CFG](../advanced_config/parameter_reference.md#SF45_ORIENT_CFG): Set the orientation of the sensor (facing up or down)
-   - [SF45_UPDATE_CFG](../advanced_config/parameter_reference.md#SF45_UPDATE_CFG): Set the update rate
-   - [SF45_YAW_CFG](../advanced_config/parameter_reference.md#SF45_YAW_CFG): Set the yaw orientation
-
-4. [Configure and enable collision prevention](#px4-configuration)
-
-PX4 will emit the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message when collision prevention is enabled.
-In QGroundControl you should this in the [MAVLink console](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console) if collision prevention is configured correctly and active.
-
-Налаштування перешкод в QGC буде виглядати так:
-
-![sf45](../../assets/sf45/sf45_obstacle_map.png)
+PX4 v1.14 (and later) supports the [LightWare LiDAR SF45](../sensor/sf45_rotating_lidar.md) rotating lidar which provides 320 degree sensing.
 
 ### Other Rangefinders
 
@@ -83,18 +50,53 @@ In QGroundControl you should this in the [MAVLink console](../debug/mavlink_shel
   This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor _module.yaml_ file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
 - Modify the driver to set the _field of view_ in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
 
-:::tip
-You can see the required modifications from the [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179).
-Будь ласка, внесіть свої зміни!
+## PX4 (Software) Setup
+
+Configure collision prevention by [setting the following parameters](../advanced_config/parameters.md) in _QGroundControl_:
+
+| Параметр                                                                                                                                                          | Опис                                                                                                                                                                                                                                                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <a id="CP_DIST"></a>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)                                                             | Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle). Set negative to disable _collision prevention_. <br>> **Warning** This value is the distance to the sensors, not the outside of your vehicle or propellers. Be sure to leave a safe margin! |
+| <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)                                                          | Set the sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.                                                                                                                                                                                                                                      |
+| <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)                         | Set the angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below.                                                                                                                 |
+| <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to 1 to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).                                                                                                                                                                                                                   |
+| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)                         | Set to `Direct velocity` or `Smoothed velocity` to enable Collision Prevention in Position Mode (default is `Acceleration based`).                                                                                                                                                                                              |
+
+## Опис алгоритму
+
+The data from all sensors are fused into an internal representation of 36 sectors around the vehicle, each containing either the sensor data and information about when it was last observed, or an indication that no data for the sector was available.
+When the vehicle is commanded to move in a particular direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer to any obstacles.
+Якщо так, то швидкість транспортного засобу буде обмежена.
+
+This velocity restriction takes into account both the inner velocity loop tuned by [MPC_XY_P](../advanced_config/parameter_reference.md#MPC_XY_P), as well as the [jerk-optimal velocity controller](../config_mc/mc_jerk_limited_type_trajectory.md) via [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) and [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR).
+The velocity is restricted such that the vehicle will stop in time to maintain the distance specified in [CP_DIST](#CP_DIST).
+The range of the sensors for each sector is also taken into account, limiting the velocity via the same mechanism.
+
+:::info
+If there is no sensor data in a particular direction, velocity in that direction is restricted to 0 (preventing the vehicle from crashing into unseen objects).
+If you wish to move freely into directions without sensor coverage, this can be enabled by setting [CP_GO_NO_DATA](#CP_GO_NO_DATA) to 1.
 :::
 
-## Конфігурація PX4
+Delay, both in the vehicle tracking velocity setpoints and in receiving sensor data from external sources, is conservatively estimated via the [CP_DELAY](#CP_DELAY) parameter.
+This should be [tuned](#delay_tuning) to the specific vehicle.
 
-_Collision Prevention_ is enabled on PX4 by [setting the parameter](../advanced_config/parameters.md) for minimum allowed approach distance in QGroundControl to a positive value ([CP_DIST](#CP_DIST)).
-Note that this value is the distance to the sensors, not the outside of your vehicle or propellers (set a safe margin!).
+If the sectors adjacent to the commanded sectors are 'better' by a significant margin, the direction of the requested input can be modified by up to the angle specified in [CP_GUIDE_ANG](#CP_GUIDE_ANG).
+This helps to fine-tune user input to 'guide' the vehicle around obstacles rather than getting stuck against them.
 
-In addition you will need to tune the [sendor delay](#delay_tuning) and [angle change tuning](#angle_change_tuning).
-You may choose to enable [CP_GO_NO_DATA](#CP_GO_NO_DATA) in order to allow unprotected movement in directions where there is no rangefinder data/sensor.
+### Range Data Loss
+
+If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning _No range data received, no movement allowed_.
+This will force the velocity setpoints in xy to zero.
+After 5 seconds of not receiving any data, the vehicle will switch into [HOLD mode](../flight_modes_mc/hold.md).
+If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes_mc/position.md) (e.g. to _Altitude mode_ or _Stabilized mode_).
+
+If you have multiple sensors connected and you lose connection to one of them, you will still be able to fly inside the field of view (FOV) of the reporting sensors.
+The data of the faulty sensor will expire and the region covered by this sensor will be treated as uncovered, meaning you will not be able to move there.
+
+:::warning
+Be careful when enabling [CP_GO_NO_DATA=1](#CP_GO_NO_DATA), which allows the vehicle to fly outside the area with sensor coverage.
+If you lose connection to one of multiple sensors, the area covered by the faulty sensor is also treated as uncovered and you will be able to move there without constraint.
+:::
 
 ### CP_DELAY Delay Tuning {#delay_tuning}
 
@@ -118,26 +120,14 @@ If vehicle speed oscillates as it approaches the obstacle (i.e. it slows down, s
 Setting the [CP_GUIDE_ANG](#CP_GUIDE_ANG) parameter to 0 will disable the guidance, resulting in the vehicle only moving exactly in the directions commanded.
 Збільшення цього параметра дозволить транспортному засобу вибирати оптимальні напрямки для уникнення перешкод, що полегшує прохід через вузькі проміжки і точне збереження мінімальної відстані при об'єзді об'єктів.
 
-Якщо цей параметр занадто малий, транспортний засіб може відчуватися "застряглим" біля перешкод, оскільки дозволено тільки рух від перешкод на мінімальній відстані.
-Якщо параметр занадто великий, транспортний засіб може відчуватися, як "слайд", віддаляючись від перешкод в напрямках, які не задані оператором.
+If this parameter is too small the vehicle may feel "stuck" when close to obstacles, because only movement away from obstacles at minimum distance are allowed.
+If the parameter is too large the vehicle may feel like it slides away from obstacles in directions not commanded by the operator.
 Згідно з тестуванням, 30 градусів - це хороший баланс, хоча різні транспортні засоби можуть мати різні вимоги.
 
 :::info
 The guidance feature will never direct the vehicle in a direction without sensor data.
-Якщо транспортний засіб відчуває "застряглим" з одним лише датчиком відстані, що спрямованим вперед, це, ймовірно, через те, що керування не може безпечно адаптувати напрямок через відсутність інформації.
+If the vehicle feels stuck with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
 :::
-
-### Параметри
-
-All relevant parameters are listed below:
-
-| Параметр                                                                                                                                                          | Опис                                                                                                                                                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <a id="CP_DIST"></a>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)                                                             | Minimum allowed distance from the sensor (the closest distance that the vehicle can approach the obstacle). Set negative to _disable_ collision prevention.                             |
-| <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)                                                          | Sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.                                                                                                                      |
-| <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)                         | Angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below. |
-| <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to `1` to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).                                                                                         |
-| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)                         | Set to `Acceleration based` (default). Collision prevention is disabled for `Direct velocity` and `Smoothed velocity`.                                                                  |
 
 ## Опис алгоритму
 
@@ -168,24 +158,6 @@ The current velocity is compared with the maximum allowed velocity so that we ar
 
 The delay associated with collision prevention, both in the vehicle tracking velocity setpoints and in receiving sensor data from external sources, is conservatively estimated via the [CP_DELAY](#CP_DELAY) parameter.
 This should be [tuned](#delay_tuning) to the specific vehicle.
-
-If the sectors adjacent to the commanded sectors are 'better' by a significant margin, the direction of the requested input can be modified by up to the angle specified in [CP_GUIDE_ANG](#CP_GUIDE_ANG).
-This helps to fine-tune user input to 'guide' the vehicle around obstacles rather than getting stuck against them.
-
-### Range Data Loss
-
-If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning _No range data received, no movement allowed_.
-This will force the velocity setpoints in xy to zero.
-After 5 seconds of not receiving any data, the vehicle will switch into [HOLD mode](../flight_modes_mc/hold.md).
-If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes_mc/position.md) (e.g. to _Altitude mode_ or _Stabilized mode_).
-
-If you have multiple sensors connected and you lose connection to one of them, you will still be able to fly inside the field of view (FOV) of the reporting sensors.
-The data of the faulty sensor will expire and the region covered by this sensor will be treated as uncovered, meaning you will not be able to move there.
-
-:::warning
-Be careful when enabling [CP_GO_NO_DATA=1](#CP_GO_NO_DATA), which allows the vehicle to fly outside the area with sensor coverage.
-If you lose connection to one of multiple sensors, the area covered by the faulty sensor is also treated as uncovered and you will be able to move there without constraint.
-:::
 
 ## Companion Setup {#companion}
 
@@ -311,7 +283,7 @@ The Lua script works by extracting the `obstacle_distance_fused` data at each ti
 5. Start streaming the data using the approach described in [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md).
    You should see the `obstacle_distance_fused_xy` and `obstacle_distance_minimum` timeseries on the left.
 
-Note that to run the script again after clearing the data, you have to press **Save** again.
+Note that you have to press **Save** again to re-enable the scripts after loading a new log file or otherwise clearing data.
 
 ### Sensor Data Overview
 

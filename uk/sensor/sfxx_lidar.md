@@ -1,18 +1,19 @@
-# Лідар LightWare SF1X/SF02/LW20
+# LightWare Lidar (SF1X/SF02/LW20/SF45)
 
 LightWare розробляє широкий спектр легких, загального призначення лазерних альтиметрів ("Lidar"), які підходять для установки на БПЛА.
 Ці інструменти корисні для застосувань, включаючи слідування за рельєфом, точне зависання у повітрі (наприклад, для фотографії), попередження про регуляторні висотні обмеження, антиколізійний датчик тощо.
 
-![LightWare SF11/C Lidar](../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg)
+<img src="../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg" width="350px" alt="LightWare SF11/C Lidar"/>![LightWare SF45 rotating Lidar](../../assets/hardware/sensors/lidar_lightware/sf45.png)
 
 ## Підтримувані плати
 
 Наступні моделі підтримуються PX4 та можуть бути підключені до шини I2C або Serial (таблиці нижче показують, яку шину можна використовувати для кожної моделі).
 
-| Модель                                                     | Range (m) | Шина                 | Опис                                                                                                      |
-| ---------------------------------------------------------- | ---------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------- |
-| [SF11/C](https://lightwarelidar.com/products/sf11-c-100-m) | 100                          | Серійна або I2C шина |                                                                                                           |
-| [LW20/C](https://lightware.co.za/products/lw20-c-100-m)    | 100                          | Шина I2C             | Водонепроникний (IP67) з сервоприводом для додатків з детекцією та уникненням перешкод |
+| Модель                                                     | Range (m) | Шина                 | Опис                                                                                                          |
+| ---------------------------------------------------------- | ---------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------- |
+| [SF11/C](https://lightwarelidar.com/products/sf11-c-100-m) | 100                          | Серійна або I2C шина |                                                                                                               |
+| [LW20/C](https://lightware.co.za/products/lw20-c-100-m)    | 100                          | Шина I2C             | Водонепроникний (IP67) з сервоприводом для додатків з детекцією та уникненням перешкод     |
+| [SF45/B](../sensor/sf45_rotating_lidar.md)                 | 50                           | Серія                | Rotary Lidar (Used for [Collision Prevention](../computer_vision/collision_prevention.md)) |
 
 :::details
 Discontinued
@@ -63,15 +64,17 @@ VTOL vehicles may choose to also set [SF1XX_MODE](../advanced_config/parameter_r
 
 ## Serial Setup {#serial_hardware_setup}
 
+:::tip
+[SF45/B](../sensor/sf45_rotating_lidar.md) setup is covered in the linked document.
+:::
+
 ### Апаратне забезпечення(Hardware)
 
 The lidar can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
 <!-- Would be good to show serial setup! -->
 
-<a id="serial_parameter_setup"></a>
-
-### Налаштування параметрів
+### Parameter Setup {#serial_parameter_setup}
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG).
 Немає потреби встановлювати швидкість передачі для порту, оскільки це налаштовано драйвером.

@@ -51,13 +51,12 @@ For example, if the `TELEM2` port on the flight controller is unused you can con
 PX4 可以自动为已连接的 PWM 云台或第一个在任何接口上检测到相同的系统 id 的 MAVLink 云台设备创建一个云台管理器。
 它不会自动为它检测到的其他MAVLink云台设备创建云台管理器。
 
-您可以支持额外的云台 ，但他们必须：
+You can support additional MAVLink gimbals provided that they:
 
-- implement the gimbal _manager_ protocol
+- Implement the gimbal _manager_ protocol.
 - 在 MAVLink 网络上对地面站和 PX4 可见。
   这可能需要在PX4、GCS和云台之间配置流量转接。
-- 每个云台必须有一个独特的ID。
-  对于已连接的 PWM 云台，这将是飞控系统的组件 ID
+- Have a unique component id, and this component id must be in the range 7 - 255.
 
 ## 飞控 PWM 输出上的云台 (MNT_MODE_OUT=AUX)
 
@@ -75,6 +74,18 @@ The output pins that are used to control the gimbal are set in the [Acuator Conf
 
 The PWM values to use for the disarmed, maximum and minimum values can be determined in the same way as other servo, using the [Actuator Test sliders](../config/actuators.md#actuator-testing) to confirm that each slider moves the appropriate axis, and changing the values so that the gimbal is in the appropriate position at the disarmed, low and high position in the slider.
 这些数值也可以在云台文档中提供。
+
+## Gimbal Control in Missions
+
+[Gimbal Manager commands](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) may be used in missions if supported by the vehicle type.
+For example [MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW) is supported in [multicopter mission mode](../flight_modes_mc/mission.md).
+
+In theory you can address commands to a particular gimbal, specifying its component id using the "Gimbal device id" parameter.
+However at time of writing (December 2024) this is [not supported](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/gimbal/input_mavlink.cpp#L889): all mission commands are sent to the gimbal managed by the PX4 gimbal manager (if this is a MAVLink gimbal, it will be the gimbal with component id defined in the parameter [MNT_MAV_COMPID](../advanced_config/parameter_reference.md#MNT_MAV_COMPID), which is set by default to [MAV_COMP_ID_GIMBAL (154)](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_GIMBAL)).
+
+Gimbal movement is not immediate.
+To ensure that the gimbal has time to move into position before the mission progresses to the next item (if gimbal feedback is not provided or lost), you should set [MIS_COMMAND_TOUT](../advanced_config/parameter_reference.md#MIS_COMMAND_TOUT) to be greater than the time taken for the gimbal to traverse its full range.
+After this timeout the mission will proceed to the next item.
 
 ## SITL (Software In The Loop)
 

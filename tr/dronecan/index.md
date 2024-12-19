@@ -36,6 +36,7 @@ Supported hardware includes (this is not an exhaustive list):
 
 - [ESC/Motor controllers](../dronecan/escs.md)
 - Airspeed sensors
+  - [Holybro High Precision DroneCAN Airspeed Sensor - DLVR](https://holybro.com/collections/sensors/products/high-precision-dronecan-airspeed-sensor-dlvr)
   - [RaccoonLab airspeed sensor](https://docs.raccoonlab.co/guide/airspeed)
   - [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
 - GNSS receivers for GNSS (GPS, GLONASS, BeiDou, and so on)

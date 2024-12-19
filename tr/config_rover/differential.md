@@ -211,7 +211,7 @@ The required parameters are separated into the following sections:
 
 These parameters are used to calculate the speed setpoint in auto modes:
 
-1. [RD_MISS_SPD_DEF](#RD_MISS_SPD_DEF): Sets the default velocity ($m/s$) for the rover during the mission.
+1. [RM_MAX_SPEED](#RM_MAX_SPEED): Sets the default velocity ($m/s$) for the rover during the mission (as well as the maximum speed)..
 
 2. [RD_MAX_ACCEL](#RD_MAX_ACCEL) ($m/s^2$) and [RD_MAX_JERK](#RD_MAX_JERK) ($m/s^3$) are used to calculate a velocity trajectory such that the rover comes to a smooth stop as it reaches a waypoint.
 
@@ -287,27 +287,27 @@ To summarize, the following parameters can be used to tune the controller:
 
 List of all parameters of the differential rover module:
 
-| Parameter                                                                                                                                                                                       | Description                                                            | Unit    |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------- |
-| <a id="RD_WHEEL_TRACK"></a>[RD_WHEEL_TRACK](../advanced_config/parameter_reference.md#RD_WHEEL_TRACK)                                                 | Wheel track                                                            | m       |
-| <a id="RD_MAX_THR_YAW_R"></a>[RD_MAX_THR_YAW_R](../advanced_config/parameter_reference.md#RD_MAX_THR_YAW_R) | Yaw rate turning left/right wheels at max speed in opposite directions | m/s     |
-| <a id="RD_MAX_YAW_RATE"></a>[RD_MAX_YAW_RATE](../advanced_config/parameter_reference.md#RD_MAX_YAW_RATE)                         | Maximum allowed yaw rate for the rover                                 | deg/s   |
-| <a id="RD_YAW_RATE_P"></a>[RD_YAW_RATE_P](../advanced_config/parameter_reference.md#RD_YAW_RATE_P)                               | Proportional gain for yaw rate controller                              | -       |
-| <a id="RD_YAW_RATE_I"></a>[RD_YAW_RATE_I](../advanced_config/parameter_reference.md#RD_YAW_RATE_I)                               | Integral gain for yaw rate controller                                  | -       |
-| <a id="RD_YAW_P"></a>[RD_YAW_P](../advanced_config/parameter_reference.md#RD_YAW_P)                                                                   | Proportional gain for yaw controller                                   | -       |
-| <a id="RD_YAW_I"></a>[RD_YAW_I](../advanced_config/parameter_reference.md#RD_YAW_I)                                                                   | Integral gain for yaw controller                                       | -       |
-| <a id="RD_MAX_SPEED"></a>[RD_MAX_SPEED](../advanced_config/parameter_reference.md#RD_MAX_SPEED)                                                       | Maximum allowed speed for the rover                                    | m/s     |
-| <a id="RD_MAX_THR_SPD"></a>[RD_MAX_THR_SPD](../advanced_config/parameter_reference.md#RD_MAX_THR_SPD)                            | Speed the rover drives at maximum throttle                             | m/s     |
-| <a id="RD_SPEED_P"></a>[RD_SPEED_P](../advanced_config/parameter_reference.md#RD_SPEED_P)                                                             | Proportional gain for speed controller                                 | -       |
-| <a id="RD_SPEED_I"></a>[RD_SPEED_I](../advanced_config/parameter_reference.md#RD_SPEED_I)                                                             | Integral gain for speed controller                                     | -       |
-| <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN)                                              | Main tuning parameter for pure pursuit                                 | -       |
-| <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)                                                 | Maximum value for the look ahead radius of the pure pursuit algorithm  | m       |
-| <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)                                                 | Minimum value for the look ahead radius of the pure pursuit algorithm  | m       |
-| <a id="RD_MISS_SPD_DEF"></a>[RD_MISS_SPD_DEF](../advanced_config/parameter_reference.md#RD_MISS_SPD_DEF)                         | Mission speed for the rover                                            | $m/s$   |
-| <a id="RD_MAX_ACCEL"></a>[RD_MAX_ACCEL](../advanced_config/parameter_reference.md#RD_MAX_ACCEL)                                                       | Maximum acceleration for the rover                                     | $m/s^2$ |
-| <a id="RD_MAX_JERK"></a>[RD_MAX_JERK](../advanced_config/parameter_reference.md#RD_MAX_JERK)                                                          | Maximum jerk for the rover                                             | $m/s^3$ |
-| <a id="RD_TRANS_DRV_TRN"></a>[RD_TRANS_DRV_TRN](../advanced_config/parameter_reference.md#RD_TRANS_DRV_TRN)                      | Heading error threshold to switch from driving to spot turning         | deg     |
-| <a id="RD_TRANS_TRN_DRV"></a>[RD_TRANS_TRN_DRV](../advanced_config/parameter_reference.md#RD_TRANS_TRN_DRV)                      | Heading error threshold to switch from spot turning to driving         | deg     |
+| Parameter                                                                                                                                                                                       | Description                                                                                         | Unit    |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------- |
+| <a id="RD_WHEEL_TRACK"></a>[RD_WHEEL_TRACK](../advanced_config/parameter_reference.md#RD_WHEEL_TRACK)                                                 | Wheel track                                                                                         | m       |
+| <a id="RD_MAX_THR_YAW_R"></a>[RD_MAX_THR_YAW_R](../advanced_config/parameter_reference.md#RD_MAX_THR_YAW_R) | Yaw rate turning left/right wheels at max speed in opposite directions                              | m/s     |
+| <a id="RD_MAX_YAW_RATE"></a>[RD_MAX_YAW_RATE](../advanced_config/parameter_reference.md#RD_MAX_YAW_RATE)                         | Maximum allowed yaw rate for the rover                                                              | deg/s   |
+| <a id="RD_YAW_RATE_P"></a>[RD_YAW_RATE_P](../advanced_config/parameter_reference.md#RD_YAW_RATE_P)                               | Proportional gain for yaw rate controller                                                           | -       |
+| <a id="RD_YAW_RATE_I"></a>[RD_YAW_RATE_I](../advanced_config/parameter_reference.md#RD_YAW_RATE_I)                               | Integral gain for yaw rate controller                                                               | -       |
+| <a id="RD_YAW_P"></a>[RD_YAW_P](../advanced_config/parameter_reference.md#RD_YAW_P)                                                                   | Proportional gain for yaw controller                                                                | -       |
+| <a id="RD_YAW_I"></a>[RD_YAW_I](../advanced_config/parameter_reference.md#RD_YAW_I)                                                                   | Integral gain for yaw controller                                                                    | -       |
+| <a id="RD_MAX_SPEED"></a>[RD_MAX_SPEED](../advanced_config/parameter_reference.md#RD_MAX_SPEED)                                                       | Maximum allowed speed for the rover                                                                 | m/s     |
+| <a id="RD_MAX_THR_SPD"></a>[RD_MAX_THR_SPD](../advanced_config/parameter_reference.md#RD_MAX_THR_SPD)                            | Speed the rover drives at maximum throttle                                                          | m/s     |
+| <a id="RD_SPEED_P"></a>[RD_SPEED_P](../advanced_config/parameter_reference.md#RD_SPEED_P)                                                             | Proportional gain for speed controller                                                              | -       |
+| <a id="RD_SPEED_I"></a>[RD_SPEED_I](../advanced_config/parameter_reference.md#RD_SPEED_I)                                                             | Integral gain for speed controller                                                                  | -       |
+| <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN)                                              | Main tuning parameter for pure pursuit                                                              | -       |
+| <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)                                                 | Maximum value for the look ahead radius of the pure pursuit algorithm                               | m       |
+| <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)                                                 | Minimum value for the look ahead radius of the pure pursuit algorithm                               | m       |
+| <a id="RM_MAX_SPEED"></a>[RM_MAX_SPEED](../advanced_config/parameter_reference.md#RM_MAX_SPEED)                                                       | Maximum allowed speed for the rover (and default mission speed). | m/s     |
+| <a id="RD_MAX_ACCEL"></a>[RD_MAX_ACCEL](../advanced_config/parameter_reference.md#RD_MAX_ACCEL)                                                       | Maximum acceleration for the rover                                                                  | $m/s^2$ |
+| <a id="RD_MAX_JERK"></a>[RD_MAX_JERK](../advanced_config/parameter_reference.md#RD_MAX_JERK)                                                          | Maximum jerk for the rover                                                                          | $m/s^3$ |
+| <a id="RD_TRANS_DRV_TRN"></a>[RD_TRANS_DRV_TRN](../advanced_config/parameter_reference.md#RD_TRANS_DRV_TRN)                      | Heading error threshold to switch from driving to spot turning                                      | deg     |
+| <a id="RD_TRANS_TRN_DRV"></a>[RD_TRANS_TRN_DRV](../advanced_config/parameter_reference.md#RD_TRANS_TRN_DRV)                      | Heading error threshold to switch from spot turning to driving                                      | deg     |
 
 ## See Also
 

@@ -12,9 +12,9 @@ Order this module from:
 
 ## Hardware Specifications
 
-- **TI INA226 Digital Power Monitor**
+- **TI INA238 Digital Power Monitor**
 
-  - 0.1mOhm Shunt
+  - 0.0001 Ohm Shunt
   - I2C Interface
 
 - **5.2V 6A Step-Down Regulator**

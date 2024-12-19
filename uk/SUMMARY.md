@@ -242,6 +242,7 @@
     - [Барометри](sensor/barometer.md)
     - [Датчики відстані \(далекодобива\)](sensor/rangefinders.md)
       - [Lightware Lidars (SF/LW)](sensor/sfxx_lidar.md)
+        - [Lightware SF45 Rotary Lidar](sensor/sf45_rotating_lidar.md)
       - [Стандартний радарний висотомір Ainstein US-D1](sensor/ulanding_radar.md)
       - [LeddarOne Lidar](sensor/leddar_one.md)
       - [Benewake TFmini Lidar](sensor/tfmini.md)

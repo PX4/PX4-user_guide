@@ -16,7 +16,7 @@ Note that at 60A and 20°C without cooling, the 5V regulator is de-rated to a 3A
 
 - **TI INA226 Digital Power Monitor**
 
-  - 500μOhm Shunt
+  - 0.0005 Ohm Shunt
   - I2C Interface
 
 - **5.2V 6A Step-Down Regulator**

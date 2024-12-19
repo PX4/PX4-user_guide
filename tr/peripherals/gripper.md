@@ -75,7 +75,7 @@ To set the actuation timeout:
 
    - Run the `payload_deliverer` test in the QGC [MAVLink Shell](../debug/mavlink_shell.md):
 
-     ```
+     ```sh
      > payload_deliverer gripper_test
      ```
 
@@ -89,20 +89,21 @@ To set the actuation timeout:
 
 2. Set [PD_GRIPPER_TO](../advanced_config/parameter_reference.md#PD_GRIPPER_TO) to whichever of the gripper open and close time is larger.
 
-### Mission Delivery Timeout
+### Mission Command Timeout
 
 When running a [Payload Delivery Mission](../flying/package_delivery_mission.md) it is important that the mission is not halted in the case where the gripper does not report that it has opened (or closed).
-This might happen if a gripper feedback sensor was damaged or UORB dropped the gripper actuator timout message.
+This might happen if a gripper does not have a feedback sensor, if the feedback sensor was damaged, or if UORB dropped the gripper actuator timeout message.
 
 :::info
 Gripper state feedback from a sensor is not actually supported yet, but it may be in future.
 :::
 
-The mission-delivery timout provides an additional safeguard, continuing the mission if the gripper's successful actuation acknowledgement is not received.
+The mission command timeout provides an additional safeguard, continuing the mission if the gripper's successful actuation acknowledgement is not received.
+This timeout is also used to provide a sufficient delay for other commands to complete in the case where sensor feedback is not provided or received, such as for winch deployment/retraction, and gimbal movement to a mission-commanded orientation.
 
 To set the timeout:
 
-1. Set [MIS_PD_TO](../advanced_config/parameter_reference.md#MIS_PD_TO) to a value greater than the [gripper actuation timeout](#gripper-actuation-timeout).
+1. Set [MIS_COMMAND_TOUT](../advanced_config/parameter_reference.md#MIS_COMMAND_TOUT) to a value greater than the [gripper actuation timeout](#gripper-actuation-timeout).
 
 ## QGC Joystick Configuration
 

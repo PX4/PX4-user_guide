@@ -46,12 +46,12 @@ You will need to configure PX4 to indicate the serial port to which the sensor i
 
 The [parameters to change](../advanced_config/parameters.md) are listed in the table.
 
-| Parameter                                                                                                   | Description                                              |
-| ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Parameter                                                                                                                                                                  | Description                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
 | <a id="SENS_EN_SF45_CFG"></a>[SENS_EN_SF45_CFG](../advanced_config/parameter_reference.md#SENS_EN_SF45_CFG) | Set to the serial port you have the sensor connected to. |
-| <a id="SF45_ORIENT_CFG"></a>[SF45_ORIENT_CFG](../advanced_config/parameter_reference.md#SF45_ORIENT_CFG)    | Set the orientation of the sensor (facing up or down)    |
-| <a id="SF45_UPDATE_CFG"></a>[SF45_UPDATE_CFG](../advanced_config/parameter_reference.md#SF45_UPDATE_CFG)    | Set the update rate                                      |
-| <a id="SF45_YAW_CFG"></a>[SF45_YAW_CFG](../advanced_config/parameter_reference.md#SF45_YAW_CFG)             | Set the yaw orientation                                  |
+| <a id="SF45_ORIENT_CFG"></a>[SF45_ORIENT_CFG](../advanced_config/parameter_reference.md#SF45_ORIENT_CFG)                         | Set the orientation of the sensor (facing up or down) |
+| <a id="SF45_UPDATE_CFG"></a>[SF45_UPDATE_CFG](../advanced_config/parameter_reference.md#SF45_UPDATE_CFG)                         | Set the update rate                                                      |
+| <a id="SF45_YAW_CFG"></a>[SF45_YAW_CFG](../advanced_config/parameter_reference.md#SF45_YAW_CFG)                                  | Set the yaw orientation                                                  |
 
 ## Testing
 
@@ -88,7 +88,7 @@ The video below shows how you can view such a plot in PlotJuggler.
 In order to generate this kind of plot you will need to add the following reactive Lua scripts to PlotJuggler.
 If you save these scripts and then add new data, you will see a new timeseries called `obstacle_distance_xy`, which is the same as is displayed in the video.
 
-::: tip
+:::tip
 The [Plotting Obstacle Distance and Minimum Distance in Real-Time with PlotJuggler](../computer_vision/collision_prevention.md#plotting-obstacle-distance-and-minimum-distance-in-real-time-with-plotjuggler) in the _Collision Prevention_ topic has a more detailed example of how use Reactive scripts in PlotJuggler.
 :::
 
@@ -124,6 +124,6 @@ i = i + 1
 end
 ```
 
-::: tip
+:::tip
 To also see the fused `obstacle_distance`, you can just adapt the script to work on the `obstacle_distance_fused` message.
 :::

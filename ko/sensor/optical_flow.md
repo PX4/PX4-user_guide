@@ -16,7 +16,7 @@ The image below shows an optical flow setup with a separate flow sensor ([PX4Flo
 ## 설정
 
 An Optical Flow setup requires a downward facing camera and a downward facing [distance sensor](../sensor/rangefinders.md) (preferably a LiDAR).
-These can be combined in a single product, such as the [Ark Flow](#ark-flow), or they may be separate sensors.
+These can be combined in a single product, such as the [Ark Flow](#ark-flow) and [Holybro H-Flow](https://holybro.com/products/h-flow), or they may be separate sensors.
 
 The sensor(s) can be connected via MAVLink, I2C or any other bus that supports the peripheral.
 
@@ -34,10 +34,18 @@ The information is written to the corresponding uORB topics: [DistanceSensor](..
 | 우측    | - X   |
 | 좌측    | + X   |
 
-For pure rotations the `integrated_xgyro` and `integrated_x` (respectively `integrated_ygyro` and `integrated_y`) have to be the same.
-
 광류 데이터는 다른 속도 데이터 소스와 융합됩니다.
 The approach used for fusing sensor data and any offsets from the center of the vehicle must be configured in the [estimator](#estimators).
+
+### Scale Factor
+
+For pure rotations the `integrated_xgyro` and `integrated_x` (respectively `integrated_ygyro` and `integrated_y`) have to be the same.
+If this is not the case, the optical flow scale factor can be adjusted using [SENS_FLOW_SCALE](../advanced_config/parameter_reference.md#SENS_FLOW_SCALE).
+
+:::tip
+The low resolution of common optical flow sensors can cause slow oscillations when hovering at a high altitude above ground (> 20m).
+Reducing the optical flow scale factor can improve the situation.
+:::
 
 ## 유량 센서/카메라
 
@@ -45,6 +53,12 @@ The approach used for fusing sensor data and any offsets from the center of the 
 
 [ARK Flow](../dronecan/ark_flow.md) is a [DroneCAN](../dronecan/index.md) optical flow sensor, [distance sensor](../sensor/rangefinders.md), and IMU.
 PAW3902 광학 유량 센서, Broadcom AFBR-S50LV85D 30m 거리 센서 및 BMI088 IMU가 있습니다.
+
+### Holybro H-Flow
+
+The [Holybro H-Flow](https://holybro.com/products/h-flow) is a compact [DroneCAN](../dronecan/index.md) optical flow and [distance sensor](../sensor/rangefinders.md) module.
+It combines a PixArt PAA3905 optical flow sensor, a Broadcom AFBR-S50LV85D distance sensor, and an InvenSense ICM-42688-P 6-axis IMU.
+An all-in-one design that simplifies installation, with an onboard infrared LED enhances visibility in low-light conditions.
 
 ### PMW3901 기반 센서
 
