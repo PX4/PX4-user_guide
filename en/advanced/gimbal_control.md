@@ -81,22 +81,21 @@ The values may also be provided in gimbal documentation.
 For example [MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW) is supported in [multicopter mission mode](../flight_modes_mc/mission.md).
 
 In theory you can address commands to a particular gimbal, specifying its component id using the "Gimbal device id" parameter.
-However at time of writing (December 2024) this is [not supported](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/gimbal/input_mavlink.cpp#L889): all mission commands are sent to the gimbal managed by the PX4 gimbal manager (if this is a MAVLink gimbal, it will be the gimbal with component id defined in the parameter [MNT_MAV_COMPID](../advanced_config/parameter_reference.md#MNT_MAV_COMPID), which is set by default to [MAV_COMP_ID_GIMBAL (154)](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_GIMBAL)).
+However at time of writing (December 2024) this is [not supported](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/gimbal/input_mavlink.cpp#L889): all mission commands are sent to the (only) gimbal managed by the PX4 gimbal manager (if this is a MAVLink gimbal, it will be the gimbal with component id defined in the parameter [MNT_MAV_COMPID](../advanced_config/parameter_reference.md#MNT_MAV_COMPID), which is set by default to [MAV_COMP_ID_GIMBAL (154)](https://mavlink.io/en/messages/common.html#MAV_COMP_ID_GIMBAL)).
 
 Gimbal movement is not immediate.
 To ensure that the gimbal has time to move into position before the mission progresses to the next item (if gimbal feedback is not provided or lost), you should set [MIS_COMMAND_TOUT](../advanced_config/parameter_reference.md#MIS_COMMAND_TOUT) to be greater than the time taken for the gimbal to traverse its full range.
 After this timeout the mission will proceed to the next item.
 
-## SITL
-The simulation comes with a preconfigured simulated gimbal.
+## Simulation / SITL
 
-### Gazebo Classic
-To run the [Gazebo Classic](../sim_gazebo_classic/index.md) simulation [Typhoon H480 model](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor), use:
+The following simulation environments come with a preconfigured simulated gimbal.
+You can test the gimbal using the [QGroundControl UI](#qgc-testing) or by sending [driver commands](#driver-testing)
 
-
-```sh
-make px4_sitl gazebo-classic_typhoon_h480
-```
+::: tip
+If you only need to test the [gimbal driver](../modules/modules_driver.md#gimbal), then you can do this on any model or simulators.
+Just make sure that the driver runs, using `gimbal start` in the MAVLink console, then configure the driver parameters.
+:::
 
 ### Gazebo
 
@@ -106,57 +105,81 @@ To run the [Gazebo](../sim_gazebo_gz/index.md) simulation [Quadrotor(x500) with 
 make px4_sitl gz_x500_gimbal
 ```
 
-### Gimbal driver
-To just test the [gimbal driver](../modules/modules_driver.md#gimbal) on other models or simulators, make sure the driver runs (using `gimbal start`), then configure its parameters.
-
-## Testing
-
-The driver provides a simple test command.
-The following describes testing in SITL, but the commands also work on a real device.
-
-Start the simulation with (no parameter needs to be changed for that):
+![[Quadrotor(x500) with gimbal (Front-facing) in Gazebo]](../../assets/simulation/gazebo/vehicles/x500_gimbal.png)
 
 ### Gazebo Classic
+
+To run the [Gazebo Classic](../sim_gazebo_classic/index.md) simulation [Typhoon H480 model](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor), use:
 
 ```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-Make sure it's armed, eg. with `commander takeoff`, then use the following command to control the gimbal (for example):
+![Typhoon H480 in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/typhoon.jpg)
+
+![Gazebo Gimbal Simulation](../../assets/simulation/gazebo_classic/gimbal-simulation.png)
+
+## Testing
+
+### QGC Testing
+
+The on-screen gimbal control can be used to move/test a connected MAVLink camera:
+
+1. Start your preferred [simulator](#simulation-sitl) or connect to a real device.
+2. Open QGroundControl and enable the on-screen camera control (Application settings).
+
+   ![Quadrotor(x500) with gimbal (Front-facing) in Gazebo](../../assets/qgc/fly/gimbal_control_x500gz.png)
+
+3. Make sure the vehicle is armed and flying, e.g. by entering with `commander takeoff`.
+4. To change gimbal target position, click in the QGC GUI up, down, left, right, or use the buttons on the gimbal control (**Center**, **Tilt 90**, **Yaw lock**).
+
+### Driver Testing
+
+You can test a gimbal by sending `gimbal` driver commands in the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html):
+
+1. Start your preferred [simulator](#simulation-sitl) or connect to a real device.
+2. Open QGroundControl and connect to your vehicle.
+3. Open the MAVLink Console using the menu: **Analyze > Mavlink Console**.
+4. Make sure the vehicle is armed and flying, e.g. by entering the command: `commander takeoff`.
+
+To check gimbal status enter:
+
+```sh
+gimbal status
+```
+
+To set the gimbal yaw to 30 degrees, use the command:
 
 ```sh
 gimbal test yaw 30
 ```
 
-Note that the simulated gimbal stabilizes itself, so if you send MAVLink commands, set the `stabilize` flags to `false`.
+More generally, you can set the angle or angular rate command using a command with this format:
 
-![Gazebo Gimbal Simulation](../../assets/simulation/gazebo_classic/gimbal-simulation.png)
-#### Gazebo
-```sh
-make px4_sitl gz_x500_gimbal
-```
-![[Quadrotor(x500) with gimbal (Front-facing) in Gazebo]](../../assets/simulation/gazebo/vehicles/x500_gimbal_gz.png)
-
-In QGC enable on screen camera control. To change target attitude, click in the QGC gui up/down/left/right or by the gimbal control buttons (Center/Tilt 90/Yaw lock).
-
-To set angle or angular rate command via MAVLink Console:
 ```sh
 gimbal test <axis> <value>
 ```
-- axis:
-  - <roll|pitch|yaw> for angles
-  - <rollrate|pitchrate|yawrate> for angular rates
-- value:
-  - <degrees> for angles
-  - <degrees / second> for angular rates
 
-To check gimbal status via MAVLink Console:
+- `axis`:
+  - `<roll|pitch|yaw>` for angles
+  - `<rollrate|pitchrate|yawrate>` for angular rates
+- `value`:
+  - `<degrees>` for angles
+  - `<degrees / second>` for angular rates
+
+To set the MAVLink component that is in primary control of the gimbal:
+
 ```sh
-gimbal status
+gimbal primary-control <sys_id> <comp_id>
 ```
-To set who is in control via MAVLink Console:
-```sh
-gimbal primary-control <sysid> <compid>
-```
-- sysid: MAVLink system ID
-- compid: MAVLink component ID
+
+- `sys_id`: MAVLink system ID
+- `comp_id`: MAVLink component ID
+
+For other commands, see the [`gimbal`](../modules/modules_driver.md#gimbal) driver module document.
+
+### MAVLink Testing
+
+The gimbal can be tested by sending MAVLink gimbal manager commands using [MAVSDK](../robotics/mavsdk.md) or some other MAVLink library.
+
+Note that the simulated gimbal stabilizes itself, so if you send MAVLink commands, set the `stabilize` flags to `false`.
