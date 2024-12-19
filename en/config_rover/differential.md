@@ -287,6 +287,7 @@ List of all parameters of the differential rover module:
 | <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN)    | Main tuning parameter for pure pursuit                                 | -       |
 | <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)       | Maximum value for the look ahead radius of the pure pursuit algorithm  | m       |
 | <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)       | Minimum value for the look ahead radius of the pure pursuit algorithm  | m       |
+| <a id="RM_MAX_SPEED"></a>[RM_MAX_SPEED](../advanced_config/parameter_reference.md#RM_MAX_SPEED)             | Maximum allowed speed for the rover (and default mission speed).       | m/s     |
 | <a id="RD_MAX_ACCEL"></a>[RD_MAX_ACCEL](../advanced_config/parameter_reference.md#RD_MAX_ACCEL)             | Maximum acceleration for the rover                                     | $m/s^2$ |
 | <a id="RD_MAX_JERK"></a>[RD_MAX_JERK](../advanced_config/parameter_reference.md#RD_MAX_JERK)                | Maximum jerk for the rover                                             | $m/s^3$ |
 | <a id="RD_TRANS_DRV_TRN"></a>[RD_TRANS_DRV_TRN](../advanced_config/parameter_reference.md#RD_TRANS_DRV_TRN) | Heading error threshold to switch from driving to spot turning         | deg     |
