@@ -105,7 +105,7 @@ To run the [Gazebo](../sim_gazebo_gz/index.md) simulation [Quadrotor(x500) with 
 make px4_sitl gz_x500_gimbal
 ```
 
-![[Quadrotor(x500) with gimbal (Front-facing) in Gazebo]](../../assets/simulation/gazebo/vehicles/x500_gimbal.png)
+![Quadrotor(x500) with gimbal (Front-facing) in Gazebo](../../assets/simulation/gazebo/vehicles/x500_gimbal.png)
 
 ### Gazebo Classic
 
