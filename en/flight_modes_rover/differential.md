@@ -49,9 +49,7 @@ The user is responsible for making the necessary adjustments to the stick inputs
 | Stick                  | Effect                              |
 | ---------------------- | ----------------------------------- |
 | Left stick up/down     | Drive the rover forwards/backwards. |
-| Left stick centered    | Zero forward speed input.           |
 | Right stick left/right | Yaw the rover to the left/right.    |
-| Right stick centered   | Zero yaw rate input                 |
 
 For the configuration/tuning of this mode see [Manual mode](../config_rover/differential.md#manual-mode).
 
@@ -63,12 +61,10 @@ This mode requires a yaw rate measurement.
 
 In this mode the vehicle regulates its yaw rate to a setpoint (but does not stabilize heading or regulate speed).
 
-| Stick                  | Effect                                                                                      |
-| ---------------------- | ------------------------------------------------------------------------------------------- |
-| Left stick up/down     | Drive the rover forwards/backwards.                                                         |
-| Left stick centered    | Zero forward speed input.                                                                   |
-| Right stick left/right | Create a yaw rate setpoint for the control system to regulate.                              |
-| Right stick centered   | The control system will attempt to maintain a zero yaw rate (minimal disturbance rejection) |
+| Stick                  | Effect                                                                                                                                                                           |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Left stick up/down     | Drive the rover forwards/backwards.                                                                                                                                              |
+| Right stick left/right | Create a yaw rate setpoint for the control system to regulate. If this input is zero the control system will attempt to maintain a zero yaw rate (minimal disturbance rejection) |
 
 For the configuration/tuning of this mode see [Acro mode](../config_rover/differential.md#acro-mode).
 
@@ -81,12 +77,10 @@ This mode requires a yaw rate and yaw estimate.
 In this mode the vehicle regulates its yaw rate to a setpoint and will maintain its heading if this setpoint is zero (but does not regulate speed).
 Compared to [Acro mode](#acro-mode), this mode is much better at driving in a straight line as it can more effectively reject disturbances.
 
-| Stick                  | Effect                                                         |
-| ---------------------- | -------------------------------------------------------------- |
-| Left stick up/down     | Drive the rover forwards/backwards.                            |
-| Left stick centered    | Zero forward speed input.                                      |
-| Right stick left/right | Create a yaw rate setpoint for the control system to regulate. |
-| Right stick centered   | The control system will maintain the current heading.          |
+| Stick                  | Effect                                                                                                                                 |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Left stick up/down     | Drive the rover forwards/backwards.                                                                                                    |
+| Right stick left/right | Create a yaw rate setpoint for the control system to regulate. If this input is zero the control system will maintain the current yaw. |
 
 For the configuration/tuning of this mode see [Stabilized mode](../config_rover/differential.md#stabilized-mode).
 
@@ -101,12 +95,10 @@ The vehicle regulates its yaw rate and speed to a setpoint.
 If the yaw rate setpoint is zero, the controller will remember the GNSS coordinates and yaw (heading) of the vehicle and use those to construct a line that the rover will then follow (course control).
 This offers the highest amount of disturbance rejection, which leads to the best straight line driving behavior.
 
-| Stick                  | Effect                                                         |
-| ---------------------- | -------------------------------------------------------------- |
-| Left stick up/down     | Create a speed setpoint for the control system to regulate.    |
-| Left stick centered    | Zero forward speed input.                                      |
-| Right stick left/right | Create a yaw rate setpoint for the control system to regulate. |
-| Right stick centered   | The control system will maintain the course of the rover.      |
+| Stick                  | Effect                                                                                                                                         |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Left stick up/down     | Create a speed setpoint for the control system to regulate.                                                                                    |
+| Right stick left/right | Create a yaw rate setpoint for the control system to regulate. If this input is zero the control system will maintain the course of the rover. |
 
 For the configuration/tuning of this mode see [Position mode](../config_rover/differential.md#position-mode).
 
