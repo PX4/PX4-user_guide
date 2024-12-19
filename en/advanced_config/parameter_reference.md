@@ -23141,7 +23141,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Altitude reference mode.
 
-Set to 0 to control height relative to the earth frame origin. This origin may move up and down in flight due to sensor drift. Set to 1 to control height relative to estimated distance to ground. The vehicle will move up and down with terrain height variation. Requires a distance to ground sensor. The height controller will revert to using height above origin if the distance to ground estimate becomes invalid as indicated by the local_position.distance_bottom_valid message being false. Set to 2 to control height relative to ground (requires a distance sensor) when stationary and relative to earth frame origin when moving horizontally. The speed threshold is controlled by the MPC_HOLD_MAX_XY parameter.
+Control height 0: relative earth frame origin which may drift due to sensors 1: relative to ground (requires distance sensor) which changes with terrain variation. It will revert to relative earth frame if the distance to ground estimate becomes invalid. 2: relative to ground (requires distance sensor) when stationary and relative to earth frame when moving horizontally. The speed threshold is MPC_HOLD_MAX_XY
 
 **Values:**
 
@@ -23198,7 +23198,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Maximum horizontal and vertical jerk in Position/Altitude mode.
 
-Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother motions but limits agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Only used with MPC_POS_MODE Acceleration based.
+Limit the maximum jerk (acceleration change) of the vehicle. A lower value leads to smoother motions but limits agility. Setting this to the maximum value essentially disables the limit. Only used with MPC_POS_MODE Acceleration based.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -23318,7 +23318,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Position/Altitude mode variant.
 
-The supported sub-modes are: - "Direct velocity": Sticks directly map to velocity setpoints without smoothing. Also applies to vertical direction and Altitude mode. Useful for velocity control tuning. - "Acceleration based": Sticks map to acceleration and there's a virtual brake drag
+The supported sub-modes are: Direct velocity: Sticks directly map to velocity setpoints without smoothing. Also applies to vertical direction and Altitude mode. Useful for velocity control tuning. Acceleration based: Sticks map to acceleration and there's a virtual brake drag
 
 **Values:**
 
@@ -23334,7 +23334,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Thrust curve mapping in Stabilized Mode.
 
-This parameter defines how the throttle stick input is mapped to collective thrust in Stabilized mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, then 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.
+Defines how the throttle stick is mapped to collective thrust in Stabilized mode. Rescale to hover thrust: Stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). No Rescale: Directly map the stick 1:1 to the output. Can be useful with very low hover thrust which leads to much distortion and the upper half getting sensitive. With MPC_THR_HOVER 0.5 both modes are the same.
 
 **Values:**
 
