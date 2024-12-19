@@ -31,6 +31,13 @@ To configure the differential rover frame and outputs:
 
 The basic setup (above) is all that is required to use the rover in [Manual mode](../flight_modes_rover/differential.md#manual-mode).
 
+::: info
+In manual mode the stick inputs are directly mapped to motor commands.
+Especially moving the stick that controls the yaw rate all the way to one side will cause the wheels on the left and right to spin at full speed in opposite directions.
+Depending on the rover this can lead to a very aggressive rotation.
+The parameters [RD_MAX_YAW_RATE](#RD_MAX_YAW_RATE) and [RD_MAX_THR_YAW_R](#RD_MAX_THR_YAW_R) can be used to scale the manual input for the yaw rate.
+:::
+
 ## Acro Mode
 
 ::: warning
@@ -125,7 +132,7 @@ To configure set the following parameters:
 
 1. [RD_MAX_SPEED](#RD_MAX_SPEED) [m/s]: This is the maximum speed you want to allow for your rover.
    This will define the stick-to-speed mapping for position mode and set an upper limit for the speed setpoint for all [auto modes](#auto-modes).
-2. [RD_MAX_THR_SPD](#RD_MAX_SPEED) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
+2. [RD_MAX_THR_SPD](#RD_MAX_THR_SPD) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
    A good starting point is the observed ground speed when the rover drives at maximum throttle in [Manual mode](../flight_modes_rover/differential.md#manual-mode).
 
    <a id="RD_SPEED_P_TUNING"></a>
@@ -197,13 +204,13 @@ The required parameters are separated into the following sections:
 
 These parameters are used to calculate the speed setpoint in auto modes:
 
-1. [RM_MAX_SPEED](#RM_MAX_SPEED): Sets the default velocity ($m/s$) for the rover during the mission (as well as the maximum speed)..
-2. [RD_MAX_ACCEL](#RD_MAX_ACCEL) ($m/s^2$) and [RD_MAX_JERK](#RD_MAX_JERK) ($m/s^3$) are used to calculate a velocity trajectory such that the rover comes to a smooth stop as it reaches a waypoint.
+1. [RD_MAX_SPEED](#RD_MAX_SPEED): Sets the default velocity ($m/s$) for the rover during the mission (as well as the maximum speed)..
+2. [RD_MAX_DECEL](#RD_MAX_DECEL) ($m/s^2$) and [RD_MAX_JERK](#RD_MAX_JERK) ($m/s^3$) are used to calculate a velocity trajectory such that the rover comes to a smooth stop as it reaches a waypoint.
 
    ::: tip
    Plan a mission for the rover to drive a square and observe how it slows down when approaching a waypoint.
-   If the rover decelerates too quickly decrease the [RD_MAX_ACCEL](#RD_MAX_ACCEL) parameter, if it starts slowing down too early increase the parameter.
-   If you observe a jerking motion as the rover slows down, decrease the [RD_MAX_JERK](#RD_MAX_JERK) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RD_MAX_ACCEL](#RD_MAX_ACCEL).
+   If the rover decelerates too quickly decrease the [RD_MAX_DECEL](#RD_MAX_DECEL) parameter, if it starts slowing down too early increase the parameter.
+   If you observe a jerking motion as the rover slows down, decrease the [RD_MAX_JERK](#RD_MAX_JERK) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RD_MAX_DECEL](#RD_MAX_DECEL).
    These two parameters have to be tuned as a pair, repeat until you are satisfied with the behaviour.
    :::
 
@@ -287,8 +294,9 @@ List of all parameters of the differential rover module:
 | <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN)    | Main tuning parameter for pure pursuit                                 | -       |
 | <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)       | Maximum value for the look ahead radius of the pure pursuit algorithm  | m       |
 | <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)       | Minimum value for the look ahead radius of the pure pursuit algorithm  | m       |
-| <a id="RM_MAX_SPEED"></a>[RM_MAX_SPEED](../advanced_config/parameter_reference.md#RM_MAX_SPEED)             | Maximum allowed speed for the rover (and default mission speed).       | m/s     |
+| <a id="RD_MAX_SPEED"></a>[RD_MAX_SPEED](../advanced_config/parameter_reference.md#RD_MAX_SPEED)             | Maximum allowed speed for the rover (and default mission speed).       | m/s     |
 | <a id="RD_MAX_ACCEL"></a>[RD_MAX_ACCEL](../advanced_config/parameter_reference.md#RD_MAX_ACCEL)             | Maximum acceleration for the rover                                     | $m/s^2$ |
+| <a id="RD_MAX_DECEL"></a>[RD_MAX_DECEL](../advanced_config/parameter_reference.md#RD_MAX_DECEL)             | Maximum deceleration for the rover                                     | $m/s^2$ |
 | <a id="RD_MAX_JERK"></a>[RD_MAX_JERK](../advanced_config/parameter_reference.md#RD_MAX_JERK)                | Maximum jerk for the rover                                             | $m/s^3$ |
 | <a id="RD_TRANS_DRV_TRN"></a>[RD_TRANS_DRV_TRN](../advanced_config/parameter_reference.md#RD_TRANS_DRV_TRN) | Heading error threshold to switch from driving to spot turning         | deg     |
 | <a id="RD_TRANS_TRN_DRV"></a>[RD_TRANS_TRN_DRV](../advanced_config/parameter_reference.md#RD_TRANS_TRN_DRV) | Heading error threshold to switch from spot turning to driving         | deg     |
