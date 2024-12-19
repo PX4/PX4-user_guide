@@ -2,49 +2,54 @@
 
 <Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="warning" text="Experimental" />
 
-The message translation node allows to run applications that are compiled with one set of message versions against a PX4 with another set of message versions, without having to change either the application or the PX4 side.
+The message translation node allows ROS 2 applications that were compiled against different versions of the PX4 messages to interwork with newer versions of PX4, and vice versa, without having to change either the application or the PX4 side.
 
 Specifically for this to work, topic publication/subscription/service names contain a message version in the form of `<topic_name>_v<version>`.
 
-The translation node knows about all existing message versions, and dynamically monitors the publications, subscriptions and services, and then creates translations as needed.
+Specifically, the translation node knows about all message versions previously defined by PX4, and dynamically monitors the publications, subscriptions and services, translating them into the current versions expected by the application and PX4 as needed.
 
-## Installation and First Test
+## Installation
 
-Create a ROS 2 workspace in which to build the message translation node and its dependencies.
+1. Create a ROS 2 workspace in which to build the message translation node and its dependencies.
 
-```bash
-mkdir -p /path/to/ros_ws/src
-```
+   ```sh
+   mkdir -p /path/to/ros_ws/src
+   ```
 
-Run the following helper script, it will copy the message definitions and translation node to your ROS workspace directory.
+2. Run the following helper script to copy the message definitions and translation node into your ROS workspace directory.
 
-```bash
-cd /path/to/ros_ws
-/path/to/PX4-Autopilot/Tools/copy_to_ros_ws.sh .
-```
+   ```sh
+   cd /path/to/ros_ws
+   /path/to/PX4-Autopilot/Tools/copy_to_ros_ws.sh .
+   ```
 
-Build and source the workspace.
+3. Build and source the workspace.
 
-```bash
-colcon build
-source /path/to/ros_ws/install/setup.bash
-```
+   ```sh
+   colcon build
+   source /path/to/ros_ws/install/setup.bash
+   ```
+4. Finally, run the translation node.
 
-Finally, run the translation node. You should see an output similar to:
+   ```sh
+   ros2 run translation_node translation_node_bin
+   ```
 
-```bash
-ros2 run translation_node translation_node_bin
-[INFO] [1734525720.729530513] [translation_node]: Registered pub/sub topics and versions:
-[INFO] [1734525720.729594413] [translation_node]: Registered services and versions:
-```
+    You should see an output similar to:
+
+   ```sh
+   [INFO] [1734525720.729530513] [translation_node]: Registered pub/sub topics and versions:
+   [INFO] [1734525720.729594413] [translation_node]: Registered services and versions:
+   ```
 
 ## Updating a Message
 
 When changing a message, a new version needs to be added.
 
-The steps include:
+The steps are:
 
-- Copy the versioned message file (`.msg`/`.srv`) to `px4_msgs_old/msg/` (or `px4_msgs_old/srv/`) and add the current version to the file name.
+- Increment `MESSAGE_VERSION` in the current message definition (the one in `msg/versioned/`).
+  Make the other changes to message fields that prompted the version change.
   For example `msg/versioned/VehicleAttitude.msg` becomes `px4_msgs_old/msg/VehicleAttitudeV3.msg`.
   Update the existing translations that use the current topic version to the now old version.
   For example `px4_msgs::msg::VehicleAttitude` becomes `px4_msgs_old::msg::VehicleAttitudeV3`.
@@ -64,7 +69,7 @@ For the second last step and for topics, there are two options:
   Or for example when moving a field from one message to another, a single translation should be added with the two older message versions as input and the two newer versions as output.
   This way there is no information lost when translating forward or backward.
 
-::: info
+::: warning
 If a nested message definition changes, all messages including that message also require a version update.
 This is primarily important for services.
 :::
