@@ -81,7 +81,8 @@ Where `T` is the message type, e.g. `px4_msgs::msg::VehicleAttitude`.
 
 The DDS client in PX4 automatically adds the version suffix if a message contains the field `uint32 MESSAGE_VERSION = x`.
 
-::: info Version 0 of a topic means that no `_v<version>` suffix should be added.
+::: info
+Version 0 of a topic means that no `_v<version>` suffix should be added.
 :::
 
 ## Implementation Details
