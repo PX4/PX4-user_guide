@@ -2468,6 +2468,7 @@ Select what should be output on PWM Aux 1. The default failsafe value is set acc
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
+- `2070`: RPM Input
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -2532,6 +2533,7 @@ Select what should be output on PWM Capture 2. The default failsafe value is set
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
+- `2070`: RPM Input
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -2596,6 +2598,7 @@ Select what should be output on PWM Capture 3. The default failsafe value is set
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
+- `2070`: RPM Input
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -2660,6 +2663,7 @@ Select what should be output on PWM Aux 2. The default failsafe value is set acc
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
+- `2070`: RPM Input
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -2724,6 +2728,7 @@ Select what should be output on PWM Aux 3. The default failsafe value is set acc
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
+- `2070`: RPM Input
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -2788,6 +2793,7 @@ Select what should be output on PWM Aux 4. The default failsafe value is set acc
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
+- `2070`: RPM Input
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -2852,6 +2858,7 @@ Select what should be output on PWM Aux 5. The default failsafe value is set acc
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
+- `2070`: RPM Input
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -2916,6 +2923,7 @@ Select what should be output on PWM Aux 6. The default failsafe value is set acc
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
+- `2070`: RPM Input
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -2980,6 +2988,7 @@ Select what should be output on PWM Aux 7. The default failsafe value is set acc
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
+- `2070`: RPM Input
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -3044,6 +3053,7 @@ Select what should be output on PWM Aux 8. The default failsafe value is set acc
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
+- `2070`: RPM Input
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -3108,6 +3118,7 @@ Select what should be output on PWM Capture 1. The default failsafe value is set
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
+- `2070`: RPM Input
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -32725,6 +32736,26 @@ Reboot | minValue | maxValue | increment | default | unit
 &nbsp; |  |  |  | 0.0 | gauss 
 
 ## System
+
+### RPM_CAP_ENABLE (`INT32`) {#RPM_CAP_ENABLE}
+
+RPM Capture Enable.
+
+Enables the RPM capture module on FMU channel 5.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | Disabled (0) |  
+
+### RPM_PULS_PER_REV (`INT32`) {#RPM_PULS_PER_REV}
+
+Voltage pulses per revolution.
+
+Number of voltage pulses per one rotor revolution on the capturing pin.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; | 1 | 50 |  | 1 |  
 
 ### SYS_AUTOCONFIG (`INT32`) {#SYS_AUTOCONFIG}
 
