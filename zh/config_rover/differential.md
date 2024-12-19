@@ -211,7 +211,7 @@ The required parameters are separated into the following sections:
 
 These parameters are used to calculate the speed setpoint in auto modes:
 
-1. [RD_MISS_SPD_DEF](#RD_MISS_SPD_DEF): Sets the default velocity ($m/s$) for the rover during the mission.
+1. [RM_MAX_SPEED](#RM_MAX_SPEED): Sets the default velocity ($m/s$) for the rover during the mission (as well as the maximum speed)..
 
 2. [RD_MAX_ACCEL](#RD_MAX_ACCEL) ($m/s^2$) and [RD_MAX_JERK](#RD_MAX_JERK) ($m/s^3$) are used to calculate a velocity trajectory such that the rover comes to a smooth stop as it reaches a waypoint.
 
@@ -303,7 +303,6 @@ List of all parameters of the differential rover module:
 | <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN)                                              | Main tuning parameter for pure pursuit                                 | -       |
 | <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)                                                 | Maximum value for the look ahead radius of the pure pursuit algorithm  | m       |
 | <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)                                                 | Minimum value for the look ahead radius of the pure pursuit algorithm  | m       |
-| <a id="RD_MISS_SPD_DEF"></a>[RD_MISS_SPD_DEF](../advanced_config/parameter_reference.md#RD_MISS_SPD_DEF)                         | Mission speed for the rover                                            | $m/s$   |
 | <a id="RD_MAX_ACCEL"></a>[RD_MAX_ACCEL](../advanced_config/parameter_reference.md#RD_MAX_ACCEL)                                                       | Maximum acceleration for the rover                                     | $m/s^2$ |
 | <a id="RD_MAX_JERK"></a>[RD_MAX_JERK](../advanced_config/parameter_reference.md#RD_MAX_JERK)                                                          | Maximum jerk for the rover                                             | $m/s^3$ |
 | <a id="RD_TRANS_DRV_TRN"></a>[RD_TRANS_DRV_TRN](../advanced_config/parameter_reference.md#RD_TRANS_DRV_TRN)                      | Heading error threshold to switch from driving to spot turning         | deg     |
