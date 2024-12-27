@@ -30038,6 +30038,42 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; |  |  |  | 500000 |  
 
+### SBG_BAUDRATE (`INT32`) {#SBG_BAUDRATE}
+
+sbgECom serial baudrate.
+
+This parameter defines the baudrate of sbgECom serial.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; | 9600 | 921600 |  | 921600 | bit/s
+
+### SBG_CONFIGURATION_EN (`INT32`) {#SBG_CONFIGURATION_EN}
+
+sbgECom driver INS configuration enable.
+
+Enable SBG Systems INS configuration through sbgECom driver on start.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | Disabled (0) |  
+
+### SBG_MODE (`INT32`) {#SBG_MODE}
+
+sbgECom driver mode.
+
+This parameter defines the mode of sbgECom driver.
+
+**Values:**
+
+- `0`: Sensors Only (default)
+- `1`: GNSS
+- `2`: INS
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 2 |  | 0 |
+
 ### SENS_AFBR_HYSTER (`INT32`) {#SENS_AFBR_HYSTER}
 
 AFBR Rangefinder Short/Long Range Threshold Hysteresis.
@@ -31536,6 +31572,33 @@ Analog Devices ADIS16448 IMU Orientation(external SPI).
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; | 0 | 101 |  | 0 |  
+
+### SENS_SBG_CFG (`INT32`) {#SENS_SBG_CFG}
+
+Serial Configuration for SBG Systems products.
+
+Configure on which serial port to run sbgECom.
+
+WARNING: Depending on the used baudrate, UART RX DMA may be required.
+
+**Values:**
+
+- `0`: Disabled
+- `6`: UART 6
+- `101`: TELEM 1
+- `102`: TELEM 2
+- `103`: TELEM 3
+- `104`: TELEM/SERIAL 4
+- `201`: GPS 1
+- `202`: GPS 2
+- `203`: GPS 3
+- `300`: Radio Controller
+- `301`: Wifi Port
+- `401`: EXT2
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
 
 ### SENS_SF0X_CFG (`INT32`) {#SENS_SF0X_CFG}
 
