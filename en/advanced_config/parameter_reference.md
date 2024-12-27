@@ -35547,7 +35547,7 @@ This parameter defines the maximum valid range for a rangefinder connected via U
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 200.0 | m 
+&nbsp; |  |  |  | 999.0 | m 
 
 ### UAVCAN_RNG_MIN (`FLOAT`) {#UAVCAN_RNG_MIN}
 
@@ -35557,7 +35557,7 @@ This parameter defines the minimum valid range for a rangefinder connected via U
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.3 | m 
+&nbsp; |  |  |  | 0.0 | m 
 
 ### UAVCAN_SUB_ASPD (`INT32`) {#UAVCAN_SUB_ASPD}
 
