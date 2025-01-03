@@ -1443,6 +1443,24 @@ roboclaw <command> [arguments...]
    status        print status info
 ```
 
+## rpm_capture
+
+Source: [drivers/rpm_capture](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rpm_capture)
+
+<a id="rpm_capture_usage"></a>
+
+### 사용법
+
+```
+rpm_capture <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+
 ## safety_button
 
 Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)
