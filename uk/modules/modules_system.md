@@ -852,6 +852,26 @@ sensors <command> [arguments...]
    status        print status info
 ```
 
+## system_power_simulation
+
+Source: [modules/simulation/system_power_simulator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/system_power_simulator)
+
+### Опис
+
+<a id="system_power_simulation_usage"></a>
+
+### Використання
+
+```
+system_power_simulation <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+
 ## tattu_can
 
 Source: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tattu_can)
