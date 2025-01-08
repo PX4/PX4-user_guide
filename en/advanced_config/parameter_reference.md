@@ -26508,7 +26508,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 RTL precision land mode.
 
-Use precision landing when doing an RTL landing phase.
+Use precision landing when doing an RTL landing phase. This setting does not apply for RTL destinations planned as part of a mission.
 
 **Values:**
 
