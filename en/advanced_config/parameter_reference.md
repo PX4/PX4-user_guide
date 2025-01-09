@@ -32833,6 +32833,7 @@ Vehicle type.
 - `0`: Multicopter
 - `1`: Fixed-Wing
 - `2`: Tailsitter
+- `3`: Standard VTOL
 
 
 Reboot | minValue | maxValue | increment | default | unit
