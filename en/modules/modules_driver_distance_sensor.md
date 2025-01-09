@@ -452,7 +452,7 @@ Source: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Auto
 
 Serial bus driver for the Aerotenna uLanding radar.
 
-Setup/usage information: https://docs.px4.io/v1.9.0/en/sensor/ulanding_radar.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/ulanding_radar.html
 
 ### Examples
 
