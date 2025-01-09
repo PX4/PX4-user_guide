@@ -688,15 +688,6 @@ div.frame_variant td, div.frame_variant th {
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
-<table>
- <thead>
-   <tr><th>Common Outputs</th></tr>
- </thead>
- <tbody>
-<tr>
- <td><ul><li><b>Motor1</b>: motor right</li><li><b>Motor2</b>: motor left</li><li><b>Servo1</b>: elevon right</li><li><b>Servo2</b>: elevon left</li></ul></td>
-</tr>
-</tbody></table>
 </div>
 
 <div class="frame_variant">
@@ -707,7 +698,11 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="vtol_simulation_sih_tailsitter_duo">
  <td>SIH Tailsitter Duo</td>
- <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1102</p></td>
+ <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1102</p><br><b>Specific Outputs:</b><ul><li><b>Motor1</b>: motor right</li><li><b>Motor2</b>: motor left</li><li><b>Servo1</b>: elevon right</li><li><b>Servo2</b>: elevon left</li></ul></td>
+</tr>
+<tr id="vtol_simulation_sih_standard_vtol_quadplane">
+ <td>SIH Standard VTOL QuadPlane</td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 1103</p><br><b>Specific Outputs:</b><ul><li><b>Motor1</b>: MC motor front right</li><li><b>Motor2</b>: MC motor back left</li><li><b>Motor3</b>: MC motor front left</li><li><b>Motor4</b>: MC motor back right</li><li><b>Motor5</b>: Forward thrust motor</li><li><b>Servo1</b>: Aileron</li><li><b>Servo2</b>: Elevator</li><li><b>Servo3</b>: Rudder</li></ul></td>
 </tr>
 </tbody>
 </table>
@@ -727,7 +722,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
  <td>HIL Standard VTOL QuadPlane</td>
- <td>Maintainer: Roman Bapst &lt;roman@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 1002</p></td>
+ <td>Maintainer: Roman Bapst &lt;roman@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 1002</p><br><b>Specific Outputs:</b><ul><li><b>Motor1</b>: MC motor front right</li><li><b>Motor2</b>: MC motor back left</li><li><b>Motor3</b>: MC motor front left</li><li><b>Motor4</b>: MC motor back right</li><li><b>Motor5</b>: Forward thrust motor</li><li><b>Servo1</b>: Aileron</li><li><b>Servo2</b>: Elevator</li><li><b>Servo3</b>: Rudder</li></ul></td>
 </tr>
 <tr id="vtol_standard_vtol_generic_standard_vtol">
  <td>Generic Standard VTOL</td>
