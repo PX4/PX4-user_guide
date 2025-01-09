@@ -516,7 +516,7 @@ Source: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Auto
 
 Серійний драйвер шини для радара Aerotenna uLanding.
 
-Інформація про налаштування/використання: https://docs.px4.io/v1.9.0/en/sensor/ulanding_radar.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/ulanding_radar.html
 
 ### Приклади
 
