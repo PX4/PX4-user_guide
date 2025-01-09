@@ -33087,9 +33087,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### SYS_HAS_MAG (`INT32`) {#SYS_HAS_MAG}
 
-Control if the vehicle has a magnetometer.
+Control if and how many magnetometers are expected.
 
-Set this to 0 if the board has no magnetometer. If set to 0, the preflight checks will not check for the presence of a magnetometer, otherwise N sensors are required.
+0: System has no magnetometer, preflight checks should pass without one. 1-N: Require the presence of N magnetometer sensors for check to pass.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
