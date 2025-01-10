@@ -17,12 +17,13 @@ Indications of a poor compass calibration include multicopter circling during ho
 _QGroundControl_ should also notify the error `mag sensors inconsistent`.
 :::
 
-Two types of compass calibration are available:
+Several types of compass calibration are available:
 
 1. [Complete](#complete-calibration): This calibration is required after installing the autopilot on an airframe for the first time or when the configuration of the vehicle has changed significantly.
    It compensates for hard and soft iron effects by estimating an offset and a scale factor for each axis.
-1. [Partial](#partial-quick-calibration) ("Quick Calibration"): This calibration can be performed as a routine when preparing the vehicle for a flight, after changing the payload, or simply when the compass rose seems inaccurate.
+1. [Partial](#partial-quick-calibration): This calibration can be performed as a routine when preparing the vehicle for a flight, after changing the payload, or simply when the compass rose seems inaccurate.
    This type of calibration only estimates the offsets to compensate for a hard iron effect.
+1. [Large vehicle](#large-vehicle-calibration): This calibration can be performed when the vehicle is too large or heavy to perform a complete calibration. This type of calibration only estimates the offsets to compensate for a hard iron effect.
 
 ## Performing the Calibration
 
@@ -76,6 +77,22 @@ Notes:
 - The calibration is immediately applied to the data (no reboot is required) but is saved to the calibration parameters after disarming the vehicle only (the calibration is lost if no arming/disarming sequence is performed between calibration and shutdown).
 - The amplitude and the speed of the partial rotations done in step 1 can affect the calibration quality.
   Following the advice above is usually enough.
+
+### Large vehicle calibration
+This calibration process leverages external knownledge of vehicle's orientation and location, and a World Magnetic Model (WMM) to calibrate the hard iron biases.
+
+1. Ensure GNSS Fix: Required to find the expected Earth magnetic field in WMM tables
+
+2. Align the vehicle to face True North: Try to be as accurate as possible for best results
+
+3. Open the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) and send the following command:  
+   ```
+   calibrate mag quick
+   ```
+
+#### Notes
+- This method is specifically designed for vehicles where full rotation is impractical or impossible. If this is not your case, we recommend to use the [complete calibration](#complete-calibration) instead.
+- The vehicle doesn't need to be exactly leveled as this is automatically compensated using the tilt estimate.
 
 ## Verification
 
