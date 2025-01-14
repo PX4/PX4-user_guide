@@ -166,6 +166,38 @@ export PX4_HOME_ALT=28.5
 make px4_sitl sihsim_quadx
 ```
 
+
+### Adding new airframes
+
+When adding new airframes for use in SIH simulation, there are some differences with respect to ususal airframe files. 
+
+For all variants of SIH:
+
+  - Set the [physical model parameters](../advanced_config/parameter_reference.md#simulation-in-hardware).
+  - `param set-default SYS_HITL 2` to enable SIH on the next boot.
+  - `param set-default CBRK_SUPPLY_CHK 894281` to disable power valid check.
+  - `param set-default CBRK_IO_SAFETY 22027` to disable IO safety check.
+  - `param set-default EKF2_GPS_DELAY 0` to improve state estimator performance in the otherwise unrealistic scenario instant GPS measurements. 
+
+For SIH on FC: 
+
+  - Airframe file goes in `ROMFS/px4fmu_common/init.d/airframes` and follows the naming template `${ID}_${model_name}.hil`, where `ID` is the `SYS_AUTOSTART_ID` used to select the airframe, and `model_name` is the airframe model name.
+  - Add the model name in `ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt` to generate a corresponding make target. 
+  - Actuators are configured with `HIL_ACT_FUNC*`, rather than `PWM_MAIN_FUNC*` as usual. This is to avoid using the actual actuators in SIH. Similarly, the bitfield for inverting individual actuator output ranges is `HIL_ACT_REV`, rather than `PWM_MAIN_REV`.
+
+For SIH as SITL (no FC):
+
+ - Airframe file goes in `ROMFS/px4fmu_common/init.d-posix/airframes` and follows the naming template `${ID}_sihsim_${model_name}`, where `ID` is the `SYS_AUTOSTART_ID` used to select the airframe, and `model_name` is the airframe model name.
+ - Add the model name in `src/modules/simulation/simulator_sih/CMakeLists.txt` to generate a corresponding make target.
+ - Actuators are configured as usual with `PWM_MAIN_FUNC*` and `PWM_MAIN_REV`.
+ - Additionally, set:
+   - `PX4_SIMULATOR=${PX4_SIMULATOR:=sihsim}`
+   - `PX4_SIM_MODEL=${PX4_SIM_MODEL:=svtol}` (replacing `svtol` with the airframe model name)
+   - `param set-default SENS_EN_GPSSIM 1`
+   - `param set-default SENS_EN_BAROSIM 1`
+   - `param set-default SENS_EN_MAGSIM 1`
+
+
 ## Dynamic Models
 
 The dynamic models for the various vehicles are:
