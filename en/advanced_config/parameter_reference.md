@@ -18353,6 +18353,36 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | -1 | 1 | 0.1 | 0.45 |  
 
+### CA_HELI_RPM_I (`FLOAT`) {#CA_HELI_RPM_I}
+
+Integral gain for rpm control.
+
+Same definition as the proportional gain but for integral.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 10 | 0.1 | 0.0 |  
+
+### CA_HELI_RPM_P (`FLOAT`) {#CA_HELI_RPM_P}
+
+Proportional gain for rpm control.
+
+Ratio between rpm error devided by 1000 to how much normalized output gets added to correct for it. motor_command = throttle_curve + CA_HELI_RPM_P * (rpm_setpoint - rpm_measurement) / 1000
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 10 | 0.1 | 0.0 |  
+
+### CA_HELI_RPM_SP (`FLOAT`) {#CA_HELI_RPM_SP}
+
+Setpoint for main rotor rpm.
+
+Requires rpm feedback for the controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 100 | 10000 | 1 | 1500 |  
+
 ### CA_HELI_THR_C0 (`FLOAT`) {#CA_HELI_THR_C0}
 
 Throttle curve at position 0.
