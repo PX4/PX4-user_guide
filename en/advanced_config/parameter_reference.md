@@ -24087,6 +24087,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.0 | 0.6 | 0.01 | 0.2 |  
 
+### MC_YAW_TQ_CUTOFF (`FLOAT`) {#MC_YAW_TQ_CUTOFF}
+
+Low pass filter cutoff frequency for yaw torque setpoint.
+
+Reduces vibrations by lowering high frequency torque caused by rotor acceleration. 0 disables the filter
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 10 |  | 2. | Hz 
+
 ### MC_YR_INT_LIM (`FLOAT`) {#MC_YR_INT_LIM}
 
 Yaw rate integrator limit.
