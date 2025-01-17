@@ -25455,8 +25455,6 @@ Reboot | minValue | maxValue | increment | default | unit
 
 AUX1 Passthrough RC channel.
 
-Default function: Camera pitch
-
 **Values:**
 
 - `0`: Unassigned
@@ -25488,8 +25486,6 @@ Reboot | minValue | maxValue | increment | default | unit
 
 AUX2 Passthrough RC channel.
 
-Default function: Camera roll
-
 **Values:**
 
 - `0`: Unassigned
@@ -25520,8 +25516,6 @@ Reboot | minValue | maxValue | increment | default | unit
 ### RC_MAP_AUX3 (`INT32`) {#RC_MAP_AUX3}
 
 AUX3 Passthrough RC channel.
-
-Default function: Camera azimuth / yaw
 
 **Values:**
 
