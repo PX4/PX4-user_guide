@@ -512,7 +512,7 @@ Source: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Auto
 
 Aerotenna uLanding 레이더용 직렬 버스 드라이버입니다.
 
-설정/사용 정보: https://docs.px4.io/v1.9.0/en/sensor/ulanding_radar.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/ulanding_radar.html
 
 ### 예
 

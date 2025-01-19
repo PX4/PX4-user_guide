@@ -62,7 +62,7 @@ make px4_sitl gz_x500_mono_cam_down
 
 ### X500 Quadrotor with 1D LIDAR (Down-facing)
 
-This model have a LIDAR attached to the bottom, modelled on the [Lightware LW20/C](../sensor/sfxx_lidar.md).
+This model has a LIDAR attached to the bottom, modelled on the [Lightware LW20/C](../sensor/sfxx_lidar.md).
 
 It has a range between 0.1 and 100m.
 
@@ -76,7 +76,7 @@ make px4_sitl gz_x500_lidar_front
 
 ### X500 Quadrotor with 1D LIDAR (Front-facing)
 
-This model have a LIDAR attached to the front, modelled on the [Lightware LW20/C](../sensor/sfxx_lidar.md).
+This model has a LIDAR attached to the front, modelled on the [Lightware LW20/C](../sensor/sfxx_lidar.md).
 
 It has a range between 0.2 and 100m.
 
@@ -86,11 +86,11 @@ The model can be used for testing [Collision Prevention](../computer_vision/coll
 make px4_sitl gz_x500_lidar_front
 ```
 
-![x500 with frontfacing 1D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_front.png)
+![x500 with front-facing 1D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_front.png)
 
 ### X500 Quadrotor with 2D LIDAR
 
-This model have a 2D LIDAR attached, modelled on the [Hokuyo UTM-30LX](https://www.hokuyo-aut.jp/search/single.php?serial=169).
+This model has a 2D LIDAR attached, modelled on the [Hokuyo UTM-30LX](https://www.hokuyo-aut.jp/search/single.php?serial=169).
 It has a range between 0.1 and 30m, and scans in a 270° arc.
 The model can be used for testing [Collision Prevention](../computer_vision/collision_prevention.md#gazebo-simulation).
 
@@ -103,6 +103,22 @@ make px4_sitl gz_x500_lidar_2d
 :::info
 The sensor information is written to the [ObstacleDistance](../msg_docs/ObstacleDistance.md) UORB message used by collision prevention.
 :::
+
+### X500 Quadrotor with Gimbal (Front-facing)
+
+This model has a [gimbal](../advanced/gimbal_control.md) attached to the front with angular ranges of
+
+- roll: [- $\frac{\pi}{4}$, $\frac{\pi}{4}$]
+- pitch: [- $frac{3\pi}{4}$, $\frac{\pi}{4}$]
+- yaw: infinite rotation
+
+The gimbal joints uses position control with a kinematic chain ZXY.
+
+![Quadrotor(x500) with gimbal (Front-facing) in Gazebo](../../assets/simulation/gazebo/vehicles/x500_gimbal.png).
+
+```sh
+make px4_sitl gz_x500_gimbal
+```
 
 ## Літак/Фіксоване крило
 
@@ -141,6 +157,26 @@ make px4_sitl gz_standard_vtol
 ```
 
 ![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
+
+### Quad Tailsitter VTOL
+
+A VTOL tailsitter model that uses differential thrust for pitch, roll, and yaw control.
+
+```sh
+make px4_sitl gz_quadtailsitter
+```
+
+![VTOL quad tailsitter in Gazebo](../../assets/simulation/gazebo/vehicles/vtol_quad_tailsitter.png)
+
+### Tiltrotor VTOL
+
+A VTOL Plane, where during the transition the front two motors will tilt forward and be used for forward thrust.
+
+```sh
+make px4_sitl gz_tiltrotor
+```
+
+![VTOL Tiltrotor in Gazebo](../../assets/simulation/gazebo/vehicles/vtol_tiltrotor.png)
 
 ## Ровер
 

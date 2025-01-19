@@ -37,8 +37,6 @@ In manual mode the stick inputs are directly mapped to motor commands.
 Especially moving the stick that controls the yaw rate all the way to one side will cause the wheels on the left and right to spin at full speed in opposite directions.
 Depending on the rover this can lead to a very aggressive rotation.
 The parameters [RM_MAX_YAW_RATE](#RM_MAX_YAW_RATE) and [RM_MAX_THR_YAW_R](#RM_MAX_THR_YAW_R) can be used to scale the manual input for the yaw rate.
-By reducing the parameter from the default value of 1 this behaviour can be tuned.
-Note that this parameter only affects this mode, not any of the following ones.
 :::
 
 ## Acro Mode
@@ -293,13 +291,13 @@ These parameters are used to calculate the velocity setpoint in auto modes:
 1. [RM_MAX_SPEED](#RM_MAX_SPEED): Sets the default speed ($m/s$) for the rover during the mission (as well as the maximum speed).
    For mecanum rovers the speed is defined in the direction of travel (magnitude of the velocity vector consisting of the forward and lateral speed).
 
-2. [RM_MAX_ACCEL](#RM_MAX_ACCEL) ($m/s^2$) and [RM_MAX_JERK](#RM_MAX_JERK) ($m/s^3$) are used to calculate a velocity trajectory such that the rover comes to a smooth stop as it reaches a waypoint.
+2. [RM_MAX_DECEL](#RM_MAX_DECEL) ($m/s^2$) and [RM_MAX_JERK](#RM_MAX_JERK) ($m/s^3$) are used to calculate a velocity trajectory such that the rover comes to a smooth stop as it reaches a waypoint.
 
    ::: tip
    Plan a mission for the rover to drive a square and observe how it slows down when approaching a waypoint:
 
-   - If the rover decelerates too quickly decrease the [RM_MAX_ACCEL](#RM_MAX_ACCEL) parameter, if it starts slowing down too early increase the parameter.
-   - If you observe a jerking motion as the rover slows down, decrease the [RM_MAX_JERK](#RM_MAX_JERK) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RM_MAX_ACCEL](#RM_MAX_ACCEL).
+   - If the rover decelerates too quickly decrease the [RM_MAX_DECEL](#RM_MAX_DECEL) parameter, if it starts slowing down too early increase the parameter.
+   - If you observe a jerking motion as the rover slows down, decrease the [RM_MAX_JERK](#RM_MAX_JERK) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RM_MAX_DECEL](#RM_MAX_DECEL).
 
    These two parameters have to be tuned as a pair, repeat until you are satisfied with the behaviour.
 
@@ -385,6 +383,7 @@ List of all parameters of the mecanum rover module:
 | <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)                                                 | Maximum value for the look ahead radius of the pure pursuit algorithm                               | m       |
 | <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)                                                 | Minimum value for the look ahead radius of the pure pursuit algorithm                               | m       |
 | <a id="RM_MAX_ACCEL"></a>[RM_MAX_ACCEL](../advanced_config/parameter_reference.md#RM_MAX_ACCEL)                                                       | Maximum acceleration for the rover                                                                  | $m/s^2$ |
+| <a id="RM_MAX_DECEL"></a>[RM_MAX_DECEL](../advanced_config/parameter_reference.md#RM_MAX_DECEL)                                                       | Maximum deceleration for the rover                                                                  | $m/s^2$ |
 | <a id="RM_MAX_JERK"></a>[RM_MAX_JERK](../advanced_config/parameter_reference.md#RM_MAX_JERK)                                                          | Maximum jerk for the rover                                                                          | $m/s^3$ |
 | <a id="RM_MISS_VEL_GAIN"></a>[RM_MISS_VEL_GAIN](../advanced_config/parameter_reference.md#RM_MISS_VEL_GAIN)                      | Tuning parameter for the velocity reduction during waypoint transition                              | -       |
 
