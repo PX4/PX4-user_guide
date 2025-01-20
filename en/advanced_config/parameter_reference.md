@@ -16194,7 +16194,7 @@ Limit for fog detection. If the range finder measures a distance greater than th
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.0 | 20.0 |  | 1.0 | m 
+&nbsp; | 0.0 | 20.0 |  | 3.0 | m 
 
 ### EKF2_RNG_GATE (`FLOAT`) {#EKF2_RNG_GATE}
 
