@@ -36624,7 +36624,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Minimum pitch angle during hover.
 
-Any pitch setpoint below this value is translated to a forward force by the fixed-wing forward actuation if VT_FW_TRHUST_EN is set to 1.
+Any pitch setpoint below this value is translated to a forward force by the fixed-wing forward actuation if VT_FWD_TRHUST_EN is set.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
