@@ -2,5 +2,4 @@ files:
   - source: /en/**/*.md
     ignore:
       - /en/_sidebar.md
-      - /en/advanced_config/parameter_reference.md
     translation: /%two_letters_code%/**/%original_file_name%
