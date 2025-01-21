@@ -183,7 +183,9 @@ For SIH on FC:
 
   - Airframe file goes in `ROMFS/px4fmu_common/init.d/airframes` and follows the naming template `${ID}_${model_name}.hil`, where `ID` is the `SYS_AUTOSTART_ID` used to select the airframe, and `model_name` is the airframe model name.
   - Add the model name in `ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt` to generate a corresponding make target. 
-  - Actuators are configured with `HIL_ACT_FUNC*`, rather than `PWM_MAIN_FUNC*` as usual. This is to avoid using the actual actuators in SIH. Similarly, the bitfield for inverting individual actuator output ranges is `HIL_ACT_REV`, rather than `PWM_MAIN_REV`.
+  - Actuators are configured with `HIL_ACT_FUNC*`, rather than `PWM_MAIN_FUNC*` as usual.
+    This is to avoid using the actual actuators in SIH.
+    Similarly, the bitfield for inverting individual actuator output ranges is `HIL_ACT_REV`, rather than `PWM_MAIN_REV`.
 
 For SIH as SITL (no FC):
 
