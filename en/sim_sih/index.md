@@ -169,7 +169,10 @@ make px4_sitl sihsim_quadx
 
 ### Adding new airframes
 
-When adding new airframes for use in SIH simulation, there are some differences with respect to ususal airframe files. 
+[Adding a new airframe](../dev_airframes/adding_a_new_frame.html) for use in SIH simulation is much the same as for other use cases.
+You still need to configure your vehicle type and [geometry](../config/actuators.md) (`CA_` parameters) and start any other defaults for that vehicle type.
+
+The specific differences for SIH simulation airframes are listed in the sections below.
 
 For all variants of SIH:
 
