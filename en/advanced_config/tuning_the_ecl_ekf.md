@@ -20,7 +20,8 @@ PX4's Navigation filter uses an Extended Kalman Filter (EKF) algorithm to proces
 - Wind velocity - North, East \(m/s\)
 - Terrain altitude (m)
 
-To improve stability, an "error-state" formulation is implemented. This is especially relevant when estimating the uncertainty of a rotation which is a 3D vector (tangent space of SO(3)).
+To improve stability, an "error-state" formulation is implemented
+This is especially relevant when estimating the uncertainty of a rotation which is a 3D vector (tangent space of SO(3)).
 
 The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU.
 Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time.
@@ -35,18 +36,22 @@ This value should be at least as large as the longest delay `EKF2\_\*\_DELAY`.
 Reducing the 'fusion time horizon' delay reduces errors in the complementary filter used to propagate states forward to current time.
 :::
 
-The EKF uses the IMU data for state prediction only. IMU data is not used as an observation in the EKF derivation.
+The EKF uses the IMU data for state prediction only.
+IMU data is not used as an observation in the EKF derivation.
 The algebraic equations for the covariance prediction and measurement jacobians are derived using [SymForce](https://symforce.org/) and can be found here: [Symbolic Derivation](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/ekf2/EKF/python/ekf_derivation/derivation.py).
 Covariance update is done using the Joseph Stabilized form to improve numerical stability and allow conditional update of independent states.
 
 ### Precisions about the position output
-The position is estimated as latitude, longitude and altitude and the INS integration is performed using the WGS84 ellipsoid mode. However, the position uncertainty is defined in the local navigation frame at the current position (i.e.: NED error in meters).
+
+The position is estimated as latitude, longitude and altitude and the INS integration is performed using the WGS84 ellipsoid mode.
+However, the position uncertainty is defined in the local navigation frame at the current position (i.e.: NED error in meters).
 
 The position and velocity states are adjusted to account for the offset between the IMU and the body frame before they are output to the control loops.
 
 The position of the IMU relative to the body frame is set by the `EKF2_IMU_POS_X,Y,Z` parameters.
 
-In addition to the global position estimate in latitude/longitude/altitude, the filter also provides a local position estimate (NED in meters) by projecting the global position estimate using an [azimuthal_equidistant_projection](https://en.wikipedia.org/wiki/Azimuthal_equidistant_projection) centered on an arbitrary origin. This origin is automatically set when global position measurements are fused but can also be specified manually.
+In addition to the global position estimate in latitude/longitude/altitude, the filter also provides a local position estimate (NED in meters) by projecting the global position estimate using an [azimuthal_equidistant_projection](https://en.wikipedia.org/wiki/Azimuthal_equidistant_projection) centred on an arbitrary origin.
+This origin is automatically set when global position measurements are fused but can also be specified manually.
 If no global position information is provided, only the local position is available and the INS integration is performed on a spherical Earth.
 
 ## Running a Single EKF Instance
@@ -129,7 +134,8 @@ The EKF has different modes of operation that allow for different combinations o
 On start-up the filter checks for a minimum viable combination of sensors and after initial tilt, yaw and height alignment is completed, enters a mode that provides rotation, vertical velocity, vertical position, IMU delta angle bias and IMU delta velocity bias estimates.
 
 This mode requires IMU data, a source of yaw (magnetometer or external vision) and a source of height data.
-This minimum data set is required for all EKF modes of operation. Other sensor data can then be used to estimate additional states.
+This minimum data set is required for all EKF modes of operation.
+Other sensor data can then be used to estimate additional states.
 
 ### IMU
 
