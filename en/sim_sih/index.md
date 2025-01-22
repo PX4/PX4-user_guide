@@ -180,7 +180,7 @@ For all variants of SIH:
   - `param set-default SYS_HITL 2` to enable SIH on the next boot.
   - `param set-default CBRK_SUPPLY_CHK 894281` to disable power valid check.
   - `param set-default CBRK_IO_SAFETY 22027` to disable IO safety check.
-  - `param set-default EKF2_GPS_DELAY 0` to improve state estimator performance in the otherwise unrealistic scenario instant GPS measurements. 
+  - `param set-default EKF2_GPS_DELAY 0` to improve state estimator performance (the assumption of instant GPS measurements would normally be unrealistic, but is accurate for SIH).
 
 For SIH on FC: 
 
