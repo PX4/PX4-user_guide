@@ -291,20 +291,21 @@ Example directory structure (coherent with example above):
 
 This section provides a step-by-step walkthrough and a basic working example of what the process of changing a versioned message looks like.
 
-When making changes to a versioned message, a new version of the message must be created and a translation from the older version must be added.
+Before making changes to a versioned message (in `msg/versioned/` or `srv/versioned/`), we first create an archived copy of it, and update existing translation code to point to the archived version definition.
+We then update versioned message definition to increment the version number, add any new fields or other changes, and then add a new translation file to convert between it and the previous (now archived) version.
 
 The example describes the process of updating the `VehicleAttitude` message definition to contain an additional `new_field` entry, incrementing the message version from `3` to `4`, and creating a new direct translation in the process.
 
-1. **Archive the Current Versioned Definition**
+1. **Create an Archived Definition of the Current Versioned Message**
 
-   Copy the versioned `.msg` topic message file (or `.srv` service message file) to `px4_msgs_old/msg/` (or `px4_msgs_old/srv/`), and append the current version to the file name.
+   Copy the versioned `.msg` topic message file (or `.srv` service message file) to `px4_msgs_old/msg/` (or `px4_msgs_old/srv/`), and append its message version to the file name.
 
    For example:<br>
    Copy `msg/versioned/VehicleAttitude.msg` → `msg/versioned/px4_msgs_old/msg/VehicleAttitudeV3.msg`
 
 1. **Update Translation References to the Archived Definition**
 
-   Update the existing translations header files `msg/translation_node/translations/*.h` to reference the newly archived version.
+   Update the existing translations header files `msg/translation_node/translations/*.h` to reference the newly archived message definition.
 
    For example, update references in those files:<br>
 
@@ -315,7 +316,7 @@ The example describes the process of updating the `VehicleAttitude` message defi
 
    Update the versioned `.msg` topic message file (or `.srv` service message file) with required changes.
 
-   First increment the `MESSAGE_VERSION` field in the new message definition.
+   First increment the `MESSAGE_VERSION` field.
    Then update the message fields that prompted the version change.
 
    For example, update `msg/versioned/VehicleAttitude.msg` from:
@@ -337,7 +338,7 @@ The example describes the process of updating the `VehicleAttitude` message defi
 
 1. **Add a New Translation Header**
 
-   Add a new version translation to bridge the archived version and the new version, by creating a new translation header.
+   Add a new version translation to bridge the archived version and the updated current version, by creating a new translation header.
 
    For example, create a direct translation header `translation_node/translations/translation_vehicle_attitude_v4.h`:
 
@@ -395,7 +396,7 @@ The example describes the process of updating the `VehicleAttitude` message defi
 
 1. **Include New Headers in `all_translations.h`**
 
-   <!-- TODO: update GitHub url -->
+   <!-- TODO: update GitHub URL -->
 
    Add all newly created headers to [`translations/all_translations.h`](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/all_translations.h) so that the translation node can find them.
 
