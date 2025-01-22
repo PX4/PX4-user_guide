@@ -8,13 +8,16 @@ The message translation node allows ROS 2 applications that were compiled agains
 
 The translation of messages from one definition version to another is possible thanks to the introduction of [message versioning](../middleware/uorb.md#message-versioning).
 
-The translation node has access to all message versions previously defined by PX4. It dynamically observes the DDS data space, monitoring the publications, subscriptions and services originating from either PX4 via the [uXRCE-DDS Bridge](../middleware/uxrce_dds.md), or ROS 2 applications. When necessary, it converts messages to the current versions expected by both applications and PX4, ensuring compatibility.
+The translation node has access to all message versions previously defined by PX4.
+It dynamically observes the DDS data space, monitoring the publications, subscriptions and services originating from either PX4 via the [uXRCE-DDS Bridge](../middleware/uxrce_dds.md), or ROS 2 applications.
+When necessary, it converts messages to the current versions expected by both applications and PX4, ensuring compatibility.
 
 ![Overview ROS 2 Message Translation Node](../../assets/middleware/ros2/px4_ros2_interface_lib/translation_node.svg)
 
 <!-- doc source: ../../assets/middleware/ros2/px4_ros2_interface_lib/translation_node.drawio -->
 
-To support the coexistence of different versions of the same messages within the ROS 2 domain, the ROS 2 topic-names for publications, subscriptions, and services include their respective message version as a suffix. This naming convention takes the form `<topic_name>_v<version>`, as shown in the diagram above.
+To support the coexistence of different versions of the same messages within the ROS 2 domain, the ROS 2 topic-names for publications, subscriptions, and services include their respective message version as a suffix.
+This naming convention takes the form `<topic_name>_v<version>`, as shown in the diagram above.
 
 ## Usage
 
@@ -48,7 +51,7 @@ The following steps describe how to install and run the translation node on your
    ros2 run translation_node translation_node_bin
    ```
 
-    You should see an output similar to:
+   You should see an output similar to:
 
    ```sh
    [INFO] [1734525720.729530513] [translation_node]: Registered pub/sub topics and versions:
@@ -58,8 +61,8 @@ The following steps describe how to install and run the translation node on your
 With the translation node running, any simultaneously running ROS 2 application designed to communicate with PX4 can do so, as long as it uses message versions recognized by the node.
 The translation node will print a warning if it encounters an unknown topic version.
 
-::: note
-After making a modification in PX4 to the message definitions and/or translation node code, you will need to rerun the steps above from point 2. to update your ROS workspace accordingly.
+::: info
+After making a modification in PX4 to the message definitions and/or translation node code, you will need to rerun the steps above from point 2 to update your ROS workspace accordingly.
 :::
 
 ### In ROS Applications
@@ -187,19 +190,20 @@ Version 0 of a topic means that no `_v<version>` suffix should be added.
 
 ### Definitions
 
-A __message__ defines the data format used for communication, whether over a topic or a service.
+A **message** defines the data format used for communication, whether over a topic or a service.
 Therefore a message can be either a _topic_ message defined by a `.msg` file, or a _service_ message defined by a `.srv` file.
 
-A __versioned message__ is a message for which changes are tracked and each change results in a version bump, with the previous state of the definition being stored in history.
-The latest version of every message is stored in `msg/versioned/` for topics (or `srv/versioned` for services), and all older versions are stored in `msg/px4_msgs_old/msg/` (or `msg/px4_msgs_old/srv/`). 
+A **versioned message** is a message for which changes are tracked and each change results in a version bump, with the previous state of the definition being stored in history.
+The latest version of every message is stored in `msg/versioned/` for topics (or `srv/versioned` for services), and all older versions are stored in `msg/px4_msgs_old/msg/` (or `msg/px4_msgs_old/srv/`).
 
-A __version translation__ defines a bidirectional mapping of the contents of one or more message definition across different versions.
+A **version translation** defines a bidirectional mapping of the contents of one or more message definition across different versions.
 Each translation is stored as a separate `.h` header file under `msg/translation_node/translations/`.
 Message translations can be either _direct_ or _generic_.
-- A __direct translation__ defines a bidirectional mapping of the contents of a _single_ message between two of its versions.
+
+- A **direct translation** defines a bidirectional mapping of the contents of a _single_ message between two of its versions.
   This is the simpler case and should be preferred if possible.
-- A __generic translation__ defines a bidirectional mapping of the contents of `n` input messages to `m` output messages across different versions.
-This can be used for merging or splitting a message, or when moving a field from one message to another.
+- A **generic translation** defines a bidirectional mapping of the contents of `n` input messages to `m` output messages across different versions.
+  This can be used for merging or splitting a message, or when moving a field from one message to another.
 
 ### File Structure
 
@@ -246,7 +250,7 @@ PX4-Autopilot
 - Each file includes a `MESSAGE_VERSION` field.
 - File names reflect the message's version with a suffix (e.g., `V1`, `V2`).
 
-Example directory structure (coherent with example above):
+Example directory structure (matching the example above):
 
 ```
   ...
@@ -291,111 +295,117 @@ When making changes to a versioned message, a new version of the message must be
 
 The example describes the process of updating the `VehicleAttitude` message definition to contain an additional `new_field` entry, incrementing the message version from `3` to `4`, and creating a new direct translation in the process.
 
-1. **Archive the Current Definition**
+1. **Archive the Current Versioned Definition**
 
-    Copy the versioned `.msg` topic message file (or `.srv` service message file) to `px4_msgs_old/msg/` (or `px4_msgs_old/srv/`), and append the current version to the file name.
+   Copy the versioned `.msg` topic message file (or `.srv` service message file) to `px4_msgs_old/msg/` (or `px4_msgs_old/srv/`), and append the current version to the file name.
 
-    For example:<br>
-    Copy `msg/versioned/VehicleAttitude.msg` → `px4_msgs_old/msg/VehicleAttitudeV3.msg`
+   For example:<br>
+   Copy `msg/versioned/VehicleAttitude.msg` → `msg/versioned/px4_msgs_old/msg/VehicleAttitudeV3.msg`
 
 1. **Update Translation References to the Archived Definition**
 
-    Update the existing translations header files `msg/translation_node/translations/*.h` to reference the newly archived version.
+   Update the existing translations header files `msg/translation_node/translations/*.h` to reference the newly archived version.
 
-    For example, update references in those files:<br>
-    - Replace `px4_msgs::msg::VehicleAttitude` → `px4_msgs_old::msg::VehicleAttitudeV3`
-    - Replace `#include <px4_msgs/msg/vehicle_attitude.hpp>` → `#include <px4_msgs_old/msg/vehicle_attitude_v3.hpp>`
+   For example, update references in those files:<br>
 
-1. **Increment `MESSAGE_VERSION` and Modify Fields of the New Definition**
+   - Replace `px4_msgs::msg::VehicleAttitude` → `px4_msgs_old::msg::VehicleAttitudeV3`
+   - Replace `#include <px4_msgs/msg/vehicle_attitude.hpp>` → `#include <px4_msgs_old/msg/vehicle_attitude_v3.hpp>`
 
-    Increment the `MESSAGE_VERSION` field in the new message definition and update the message fields that prompted the version change.
+1. **Update the Versioned Definition**
 
-    For example, update `msg/versioned/VehicleAttitude.msg` from:
+   Update the versioned `.msg` topic message file (or `.srv` service message file) with required changes.
 
-    ```c++
-    uint32 MESSAGE_VERSION = 3
-    uint64 timestamp
-    ...
-    ```
+   First increment the `MESSAGE_VERSION` field in the new message definition.
+   Then update the message fields that prompted the version change.
 
-    to
+   For example, update `msg/versioned/VehicleAttitude.msg` from:
 
-    ```c++
-    uint32 MESSAGE_VERSION = 4  # Increment
-    uint64 timestamp
-    float32 new_field           # Make definition changes
-    ...
-    ```
+   ```c++
+   uint32 MESSAGE_VERSION = 3
+   uint64 timestamp
+   ...
+   ```
+
+   to
+
+   ```c++
+   uint32 MESSAGE_VERSION = 4  # Increment
+   uint64 timestamp
+   float32 new_field           # Make definition changes
+   ...
+   ```
 
 1. **Add a New Translation Header**
 
-    Add a new version translation to bridge the archived version and the new version, by creating a new translation header.
+   Add a new version translation to bridge the archived version and the new version, by creating a new translation header.
 
-    For example, create a direct translation header `translation_node/translations/translation_vehicle_attitude_v4.h`:
+   For example, create a direct translation header `translation_node/translations/translation_vehicle_attitude_v4.h`:
 
-    ```c++
-    // Translate VehicleAttitude v3 <--> v4
-    #include <px4_msgs_old/msg/vehicle_attitude_v3.hpp>
-    #include <px4_msgs/msg/vehicle_attitude.hpp>
+   ```c++
+   // Translate VehicleAttitude v3 <--> v4
+   #include <px4_msgs_old/msg/vehicle_attitude_v3.hpp>
+   #include <px4_msgs/msg/vehicle_attitude.hpp>
 
-    class VehicleAttitudeV4Translation {
-    public:
-      using MessageOlder = px4_msgs_old::msg::VehicleAttitudeV3;
-      static_assert(MessageOlder::MESSAGE_VERSION == 3);
+   class VehicleAttitudeV4Translation {
+   public:
+     using MessageOlder = px4_msgs_old::msg::VehicleAttitudeV3;
+     static_assert(MessageOlder::MESSAGE_VERSION == 3);
 
-      using MessageNewer = px4_msgs::msg::VehicleAttitude;
-      static_assert(MessageNewer::MESSAGE_VERSION == 4);
+     using MessageNewer = px4_msgs::msg::VehicleAttitude;
+     static_assert(MessageNewer::MESSAGE_VERSION == 4);
 
-      static constexpr const char* kTopic = "fmu/out/vehicle_attitude";
+     static constexpr const char* kTopic = "fmu/out/vehicle_attitude";
 
-      static void fromOlder(const MessageOlder &msg_older, MessageNewer &msg_newer) {
-        msg_newer.timestamp = msg_older.timestamp;
-        msg_newer.timestamp_sample = msg_older.timestamp_sample;
-        msg_newer.q[0] = msg_older.q[0];
-        msg_newer.q[1] = msg_older.q[1];
-        msg_newer.q[2] = msg_older.q[2];
-        msg_newer.q[3] = msg_older.q[3];
-        msg_newer.delta_q_reset = msg_older.delta_q_reset;
-        msg_newer.quat_reset_counter = msg_older.quat_reset_counter;
+     static void fromOlder(const MessageOlder &msg_older, MessageNewer &msg_newer) {
+       msg_newer.timestamp = msg_older.timestamp;
+       msg_newer.timestamp_sample = msg_older.timestamp_sample;
+       msg_newer.q[0] = msg_older.q[0];
+       msg_newer.q[1] = msg_older.q[1];
+       msg_newer.q[2] = msg_older.q[2];
+       msg_newer.q[3] = msg_older.q[3];
+       msg_newer.delta_q_reset = msg_older.delta_q_reset;
+       msg_newer.quat_reset_counter = msg_older.quat_reset_counter;
 
-        // Populate `new_field` with some value
-        msg_newer.new_field = -1;
-      }
+       // Populate `new_field` with some value
+       msg_newer.new_field = -1;
+     }
 
-      static void toOlder(const MessageNewer &msg_newer, MessageOlder &msg_older) {
-        msg_older.timestamp = msg_newer.timestamp;
-        msg_older.timestamp_sample = msg_newer.timestamp_sample;
-        msg_older.q[0] = msg_newer.q[0];
-        msg_older.q[1] = msg_newer.q[1];
-        msg_older.q[2] = msg_newer.q[2];
-        msg_older.q[3] = msg_newer.q[3];
-        msg_older.delta_q_reset = msg_newer.delta_q_reset;
-        msg_older.quat_reset_counter = msg_newer.quat_reset_counter;
+     static void toOlder(const MessageNewer &msg_newer, MessageOlder &msg_older) {
+       msg_older.timestamp = msg_newer.timestamp;
+       msg_older.timestamp_sample = msg_newer.timestamp_sample;
+       msg_older.q[0] = msg_newer.q[0];
+       msg_older.q[1] = msg_newer.q[1];
+       msg_older.q[2] = msg_newer.q[2];
+       msg_older.q[3] = msg_newer.q[3];
+       msg_older.delta_q_reset = msg_newer.delta_q_reset;
+       msg_older.quat_reset_counter = msg_newer.quat_reset_counter;
 
-        // Discards `new_field` from MessageNewer
-      }
-    };
+       // Discards `new_field` from MessageNewer
+     }
+   };
 
-    REGISTER_TOPIC_TRANSLATION_DIRECT(VehicleAttitudeV4Translation);
-    ```
+   REGISTER_TOPIC_TRANSLATION_DIRECT(VehicleAttitudeV4Translation);
+   ```
 
-    Version translation templates are provided here: <!-- TODO: update GitHub urls -->
-      - [Direct Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_direct_v1.h)
-      - [Generic Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_multi_v2.h)
-      - [Direct Service Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_service_v1.h)
+   Version translation templates are provided here: <!-- TODO: update GitHub urls -->
+
+   - [Direct Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_direct_v1.h)
+   - [Generic Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_multi_v2.h)
+   - [Direct Service Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_service_v1.h)
 
 1. **Include New Headers in `all_translations.h`**
 
-    <!-- TODO: update GitHub url -->
-    Add all newly created headers to [`translations/all_translations.h`](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/all_translations.h) so that the translation node can find them.
+   <!-- TODO: update GitHub url -->
 
-    For example, append the following line to `all_translation.h`:
+   Add all newly created headers to [`translations/all_translations.h`](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/all_translations.h) so that the translation node can find them.
 
-    ```c++
-    #include "translation_vehicle_attitude_v4.h"
-    ```
+   For example, append the following line to `all_translation.h`:
 
-Note that in the example above and in most cases, step 4. only requires the developer to create a direct translation for the definition change.
+   ```c++
+   #include "translation_vehicle_attitude_v4.h"
+   ```
+
+Note that in the example above and in most cases, step 4 only requires the developer to create a direct translation for the definition change.
 This is because the changes only involved a single message.
 In more complex cases of splitting, merging and/or moving definitions then a generic translation must be created.
 
@@ -411,7 +421,7 @@ This is primarily important for services which are more likely reference other m
 ## Implementation Details
 
 The translation node dynamically monitors the topics and services.
-It then instantiates the countersides of the publications and subscribers as required.
+It then instantiates the counterside of the publications and subscribers as required.
 For example if there is an external publisher for version 1 of a topic and subscriber for version 2.
 
 Internally, it maintains a graph of all known topic and version tuples (which are the graph nodes).

@@ -145,7 +145,7 @@ The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://gi
 
 <Badge type="tip" text="main (PX4 v1.16+)" />
 
-Optional message versioning was introduced in PX4 v1.16 (main) to make it easier to maintain compatibility between PX4 and ROS 2 versions.
+Optional message versioning was introduced in PX4 v1.16 (main) to make it easier to maintain compatibility between PX4 and ROS 2 versions compiled against different message definitions.
 Versioned messages are designed to remain more stable over time compared to their non-versioned counterparts, as they are intended to be used across multiple releases of PX4 and external systems, ensuring greater compatibility over longer periods.
 
 Versioned messages include an additional field `uint32 MESSAGE_VERSION = x`, where `x` corresponds to the current version of the message.
