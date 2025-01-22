@@ -88,7 +88,7 @@ This calibration process leverages external knowledge of vehicle's orientation a
 3. Open the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) and send the following command:
 
    ```sh
-   calibrate mag quick
+   commander calibrate mag quick
    ```
 
 Notes:
