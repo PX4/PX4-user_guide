@@ -176,7 +176,7 @@ The specific differences for SIH simulation airframes are listed in the sections
 
 For all variants of SIH:
 
-  - Set the [physical model parameters](../advanced_config/parameter_reference.md#simulation-in-hardware).
+  - Set all the [Simulation In Hardware](../advanced_config/parameter_reference.md#simulation-in-hardware) parameters (prefixed with `SIH_`) in order to configure the physical model of the vehicle.
   - `param set-default SYS_HITL 2` to enable SIH on the next boot.
   - `param set-default CBRK_SUPPLY_CHK 894281` to disable power valid check.
   - `param set-default CBRK_IO_SAFETY 22027` to disable IO safety check.
