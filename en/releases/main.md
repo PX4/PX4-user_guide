@@ -56,8 +56,11 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### Simulation
 
-- [SIH]: The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7.
+- [SIH]:
+  - The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7.
   ([PX4-Autopilot#23363](https://github.com/PX4/PX4-Autopilot/pull/23363)).
+  - SIH now supports the standard VTOL airframe
+    ([PX4-Autopilot#24175](https://github.com/PX4/PX4-Autopilot/pull/24175)). 
 - [Gazebo]:
   - Gazebo Harmonic LTS release replaces Gazebo Garden as the version supported by PX4.
     The default installer scripts (used for CI) and documentation have been updated.
