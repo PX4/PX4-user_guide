@@ -292,7 +292,7 @@ Example directory structure (coherent with example above):
 This section provides a step-by-step walkthrough and a basic working example of what the process of changing a versioned message looks like.
 
 Before making changes to a versioned message (in `msg/versioned/` or `srv/versioned/`), we first create an archived copy of it, and update existing translation code to point to the archived version definition.
-We then update versioned message definition to increment the version number, add any new fields or other changes, and then add a new translation file to convert between it and the previous (now archived) version.
+We then update the versioned message definition to increment the version number, add any new fields or other changes, and then add a new translation file to convert between it and the previous (now archived) version.
 
 The example describes the process of updating the `VehicleAttitude` message definition to contain an additional `new_field` entry, incrementing the message version from `3` to `4`, and creating a new direct translation in the process.
 
