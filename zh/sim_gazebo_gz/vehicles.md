@@ -69,7 +69,7 @@ It has a range between 0.1 and 100m.
 The model can be used for testing [rangefinder](../sensor/rangefinders.md) use cases like [landing](../flight_modes_mc/land.md) or [terrain following](../flying/terrain_following_holding.md).
 
 ```sh
-make px4_sitl gz_x500_lidar_front
+make px4_sitl gz_x500_lidar_down
 ```
 
 ![x500 with down-facing 1D LIDAR in Gazebo](../../assets/simulation/gazebo/vehicles/x500_lidar_down.png)
