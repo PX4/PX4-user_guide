@@ -1,23 +1,27 @@
-# Using the ECL EKF
+# Using PX4's Navigation Filter (EKF2)
 
-This tutorial answers common questions about use of the ECL EKF algorithm.
+This tutorial answers common questions about use of the EKF algorithm used for navigation.
 
 :::tip
-The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the _PX4 Developer Summit 2019_ (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
+The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the _PX4 Developer Summit 2019_ (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, major changes and improvements were added since then.
 :::
 
-## What is the ECL EKF?
+## Overview
 
-The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
+PX4's Navigation filter uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
 
-- Quaternion defining the rotation from North, East, Down local earth frame to X, Y, Z body frame
+- Quaternion defining the rotation from North, East, Down local navigation frame to X, Y, Z body frame
 - Velocity at the IMU - North, East, Down (m/s)
-- Position at the IMU - North, East, Down (m)
-- IMU delta angle bias estimates - X, Y, Z (rad)
-- IMU delta velocity bias estimates - X, Y, Z (m/s)
+- Position at the IMU - Latitude (rad), Longitude (rad), Altitude (m)
+- IMU gyro bias estimates - X, Y, Z (rad/s)
+- IMU accelerometer bias estimates - X, Y, Z (m/s<sup>2</sup>)
 - Earth Magnetic field components - North, East, Down \(gauss\)
 - Vehicle body frame magnetic field bias - X, Y, Z \(gauss\)
 - Wind velocity - North, East \(m/s\)
+- Terrain altitude (m)
+
+To improve stability, an "error-state" formulation is implemented
+This is especially relevant when estimating the uncertainty of a rotation which is a 3D vector (tangent space of SO(3)).
 
 The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU.
 Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time.
@@ -27,16 +31,28 @@ A complementary filter is used to propagate the states forward from the 'fusion 
 The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameters.
 
 ::: info
-The 'fusion time horizon' delay and length of the buffers is determined by the largest of the `EKF2_*_DELAY` parameters.
-If a sensor is not being used, it is recommended to set its time delay to zero.
+The 'fusion time horizon' delay and length of the buffers is determined by [EKF2_DELAY_MAX](../advanced_config/parameter_reference.md#EKF2_DELAY_MAX).
+This value should be at least as large as the longest delay `EKF2\_\*\_DELAY`.
 Reducing the 'fusion time horizon' delay reduces errors in the complementary filter used to propagate states forward to current time.
 :::
 
+The EKF uses the IMU data for state prediction only.
+IMU data is not used as an observation in the EKF derivation.
+The algebraic equations for the covariance prediction and measurement jacobians are derived using [SymForce](https://symforce.org/) and can be found here: [Symbolic Derivation](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/ekf2/EKF/python/ekf_derivation/derivation.py).
+Covariance update is done using the [Joseph Stabilized form](https://en.wikipedia.org/wiki/Kalman_filter#Deriving_the_posteriori_estimate_covariance_matrix) to improve numerical stability and allow conditional update of independent states.
+
+### Precisions about the position output
+
+The position is estimated as latitude, longitude and altitude and the INS integration is performed using the WGS84 ellipsoid mode.
+However, the position uncertainty is defined in the local navigation frame at the current position (i.e.: NED error in meters).
+
 The position and velocity states are adjusted to account for the offset between the IMU and the body frame before they are output to the control loops.
+
 The position of the IMU relative to the body frame is set by the `EKF2_IMU_POS_X,Y,Z` parameters.
 
-The EKF uses the IMU data for state prediction only. IMU data is not used as an observation in the EKF derivation.
-The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m).
+In addition to the global position estimate in latitude/longitude/altitude, the filter also provides a local position estimate (NED in meters) by projecting the global position estimate using an [azimuthal_equidistant_projection](https://en.wikipedia.org/wiki/Azimuthal_equidistant_projection) centred on an arbitrary origin.
+This origin is automatically set when global position measurements are fused but can also be specified manually.
+If no global position information is provided, only the local position is available and the INS integration is performed on a spherical Earth.
 
 ## Running a Single EKF Instance
 
@@ -118,7 +134,8 @@ The EKF has different modes of operation that allow for different combinations o
 On start-up the filter checks for a minimum viable combination of sensors and after initial tilt, yaw and height alignment is completed, enters a mode that provides rotation, vertical velocity, vertical position, IMU delta angle bias and IMU delta velocity bias estimates.
 
 This mode requires IMU data, a source of yaw (magnetometer or external vision) and a source of height data.
-This minimum data set is required for all EKF modes of operation. Other sensor data can then be used to estimate additional states.
+This minimum data set is required for all EKF modes of operation.
+Other sensor data can then be used to estimate additional states.
 
 ### IMU
 

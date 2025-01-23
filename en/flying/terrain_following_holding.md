@@ -24,7 +24,7 @@ As the distance to ground changes, the altitude setpoint adjusts to keep the hei
 At higher altitudes (when the estimator reports that the distance sensor data is invalid) the vehicle switches to *altitude following*, and will typically fly at a near-constant height above mean sea level (AMSL) using an absolute height sensor for altitude data.
 
 ::: info
-More precisely, the vehicle will use the available selected sources of altitude data as defined [here](../advanced_config/tuning_the_ecl_ekf.md#height).
+More precisely, the vehicle will use the available selected sources of altitude data as defined in [Using PX4's Navigation Filter (EKF2) > Height](../advanced_config/tuning_the_ecl_ekf.md#height).
 :::
 
 Terrain following is enabled by setting [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) to `1`.

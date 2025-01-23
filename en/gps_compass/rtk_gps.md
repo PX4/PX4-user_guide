@@ -212,7 +212,7 @@ For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_re
 #### Dual Receivers
 
 A second GPS receiver can be used as a backup (either RTK or non RTK).
-See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
+See the [Using PX4's Navigation Filter (EKF2) > GPS](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
 
 <!--
 - Video demonstration would be nice.
