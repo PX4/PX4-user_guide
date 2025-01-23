@@ -78,7 +78,7 @@ The following parameters should be set to enable and configure dynamic notch fil
 
 | Parameter                                                                                                     | Description                                                              |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| <a href="IMU_GYRO_DNF_EN"></a>[IMU_GYRO_DNF_EN](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_EN)    | Enable IMU gyro dynamic notch filtering. `0`: ESK RPM, `1`: Onboard FFT. |
+| <a href="IMU_GYRO_DNF_EN"></a>[IMU_GYRO_DNF_EN](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_EN)    | Enable IMU gyro dynamic notch filtering. `0`: ESC RPM, `1`: Onboard FFT. |
 | <a href="IMU_GYRO_FFT_EN"></a>[IMU_GYRO_FFT_EN](../advanced_config/parameter_reference.md#IMU_GYRO_FFT_EN)    | Enable onboard FFT (required if `IMU_GYRO_DNF_EN` is set to `1`).        |
 | <a href="IMU_GYRO_DNF_MIN"></a>[IMU_GYRO_DNF_MIN](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_MIN) | Minimum dynamic notch frequency in Hz.                                   |
 | <a href="IMU_GYRO_DNF_BW"></a>[IMU_GYRO_DNF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_BW)    | Bandwidth for each notch filter in Hz.                                   |
