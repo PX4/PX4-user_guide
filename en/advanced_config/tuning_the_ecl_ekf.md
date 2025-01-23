@@ -39,7 +39,7 @@ Reducing the 'fusion time horizon' delay reduces errors in the complementary fil
 The EKF uses the IMU data for state prediction only.
 IMU data is not used as an observation in the EKF derivation.
 The algebraic equations for the covariance prediction and measurement jacobians are derived using [SymForce](https://symforce.org/) and can be found here: [Symbolic Derivation](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/ekf2/EKF/python/ekf_derivation/derivation.py).
-Covariance update is done using the Joseph Stabilized form to improve numerical stability and allow conditional update of independent states.
+Covariance update is done using the [Joseph Stabilized form](https://en.wikipedia.org/wiki/Kalman_filter#Deriving_the_posteriori_estimate_covariance_matrix) to improve numerical stability and allow conditional update of independent states.
 
 ### Precisions about the position output
 
