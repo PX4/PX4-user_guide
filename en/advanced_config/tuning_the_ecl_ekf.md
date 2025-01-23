@@ -132,7 +132,8 @@ Three axis body fixed magnetometer data at a minimum rate of 5Hz is required to 
 ::: info
 
 - The magnetometer **biases** are only observable while the drone is rotating
-- The true heading is observable when the vehicle is accelerating (linear acceleration) while absolute position or velocity measurements are fused (e.g. GPS). This means that heading measurements are optional after initialization if those conditions are met often enough to constrain the heading drift (caused by gyro bias).
+- The true heading is observable when the vehicle is accelerating (linear acceleration) while absolute position or velocity measurements are fused (e.g. GPS).
+  This means that magnetometer heading measurements are optional after initialization if those conditions are met often enough to constrain the heading drift (caused by gyro bias).
 
 :::
 
