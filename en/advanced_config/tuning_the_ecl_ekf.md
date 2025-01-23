@@ -130,33 +130,37 @@ This minimum data set is required for all EKF modes of operation. Other sensor d
 Three axis body fixed magnetometer data at a minimum rate of 5Hz is required to be considered by the estimator.
 
 ::: info
-  - The magnetometer **biases** are only observable while the drone is rotating
-  - The true heading is observable when the vehicle is accelerating (linear acceleration) while absolute position or velocity measurements are fused (e.g. GPS). This means that heading measurements are optional after initialization if those conditions are met ofter enough to constrain the heading drift (caused by gyro bias).
+
+- The magnetometer **biases** are only observable while the drone is rotating
+- The true heading is observable when the vehicle is accelerating (linear acceleration) while absolute position or velocity measurements are fused (e.g. GPS). This means that heading measurements are optional after initialization if those conditions are met often enough to constrain the heading drift (caused by gyro bias).
+
 :::
 
 Magnetometer data fusion can be configured using [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE):
-0. Automatic: 
-  - The magnetometer readings are only affecting the heading estimate before arming and the whole attitude after arming.
-  - Heading and tilt errors are compensated when using this method.
-  - Incorrect magnetic field measurements can degrade the tilt estimate.
-  - The magnetometer biases are estimated whenever observable.
+
+0. Automatic:
+   - The magnetometer readings are only affecting the heading estimate before arming and the whole attitude after arming.
+   - Heading and tilt errors are compensated when using this method.
+   - Incorrect magnetic field measurements can degrade the tilt estimate.
+   - The magnetometer biases are estimated whenever observable.
 1. Magnetic heading:
-  - This method ensures that only the heading is corrected and that the tilt estimate is never affected by incorrect magnetic field measurements,
-  - Tilt errors that could arise when flying without velocity/position aiding are not corrected when using this method.
-  - The magnetometer biases are estimated whenever observable.
+   - This method ensures that only the heading is corrected and that the tilt estimate is never affected by incorrect magnetic field measurements,
+   - Tilt errors that could arise when flying without velocity/position aiding are not corrected when using this method.
+   - The magnetometer biases are estimated whenever observable.
 2. Deprecated
 3. Deprecated
 4. Deprecated
 5. None:
-  - The magnetic data is never used. This is useful when the data can never be trusted (e.g.: high current close to the sensor, external anomalies).
-  - The estimator will use other sources of heading: [GPS heading](#yaw-measurements) or external vision.
-  - When using GPS measurements without another source of heading, the heading can only be initialized after sufficient horizontal acceleration. See ["estimate yaw from vehicle movement"](#yaw-from-gps-velocity)
+   - The magnetic data is never used. This is useful when the data can never be trusted (e.g.: high current close to the sensor, external anomalies).
+   - The estimator will use other sources of heading: [GPS heading](#yaw-measurements) or external vision.
+   - When using GPS measurements without another source of heading, the heading can only be initialized after sufficient horizontal acceleration. See ["estimate yaw from vehicle movement"](#yaw-from-gps-velocity)
 6. Init only:
-  - The magnetic data is only used to initialize the heading estimate. This is useful when the data can be used before arming but not afterwards (e.g.: high current after the vehicle is being armed).
-  - After initialization, the heading is constained using other observations.
-  - Unlike mag type "None", when combined with GPS measurements, this method allows position controlled modes to run directly during takeoff.
+   - The magnetic data is only used to initialize the heading estimate. This is useful when the data can be used before arming but not afterwards (e.g.: high current after the vehicle is being armed).
+   - After initialization, the heading is constrained using other observations.
+   - Unlike mag type "None", when combined with GPS measurements, this method allows position controlled modes to run directly during takeoff.
 
 The following selection tree can be used to select the right option:
+
 ![image](https://github.com/user-attachments/assets/c5a4e899-8084-4065-b233-7998af31dbcf)
 
 ### Height
