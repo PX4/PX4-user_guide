@@ -189,7 +189,7 @@ For SIH on FC:
   - Actuators are configured with `HIL_ACT_FUNC*`, rather than `PWM_MAIN_FUNC*` as usual.
     This is to avoid using the actual actuators in SIH.
     Similarly, the bitfield for inverting individual actuator output ranges is `HIL_ACT_REV`, rather than `PWM_MAIN_REV`.
-  - `param set CBRK_USB_CHK 894281` to disable USB link check. 
+  - `param set CBRK_USB_CHK 894281` to disable USB link check.
 
 For SIH as SITL (no FC):
 
@@ -199,9 +199,11 @@ For SIH as SITL (no FC):
  - Additionally, set:
    - `PX4_SIMULATOR=${PX4_SIMULATOR:=sihsim}`
    - `PX4_SIM_MODEL=${PX4_SIM_MODEL:=svtol}` (replacing `svtol` with the airframe model name)
+ - Enable the simulated sensors. This is only necessary for SIH-as-SITL -- if running SIH on FC, then the simulated sensors are automatically enabled. 
    - `param set-default SENS_EN_GPSSIM 1`
    - `param set-default SENS_EN_BAROSIM 1`
    - `param set-default SENS_EN_MAGSIM 1`
+
 
 For specific examples see the `_sihsim_` airframes in [ROMFS/px4fmu_common/init.d-posix/airframes](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/) (SIH as SITL) and [ROMFS/px4fmu_common/init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes) (SIH on FC).
 
