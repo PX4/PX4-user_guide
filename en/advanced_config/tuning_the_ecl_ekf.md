@@ -127,26 +127,46 @@ This minimum data set is required for all EKF modes of operation. Other sensor d
 
 ### Magnetometer
 
-Three axis body fixed magnetometer data (or external vision system pose data) at a minimum rate of 5Hz is required.
+Three axis body fixed magnetometer data at a minimum rate of 5Hz is required to be considered by the estimator.
 
-Magnetometer data can be used in two ways:
+::: info
 
-- Magnetometer measurements are converted to a yaw angle using the tilt estimate and magnetic declination.
-  The yaw angle is then used as an observation by the EKF.
-  - This method is less accurate and does not allow for learning of body frame field offsets, however it is more robust to magnetic anomalies and large start-up gyro biases.
-  - It is the default method used during start-up and on ground.
-- The XYZ magnetometer readings are used as separate observations.
-  - This method is more accurate but requires that the magnetometer biases are correctly estimated.
-    - The biases are observable while the drone is rotating and the true heading is observable when the vehicle is accelerating (linear acceleration).
-    - Since the biases can change and are only observable when moving, it is safer to switch back to heading fusion when not moving.
-  - It assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
-  - This is the default method used when the vehicle is moving.
+- The magnetometer **biases** are only observable while the drone is rotating
+- The true heading is observable when the vehicle is accelerating (linear acceleration) while absolute position or velocity measurements are fused (e.g. GPS).
+  This means that magnetometer heading measurements are optional after initialization if those conditions are met often enough to constrain the heading drift (caused by gyro bias).
 
-The logic used to select these modes is set by the [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) parameter.
-The default 'Automatic' mode (`EKF2_MAG_TYPE=0`) is recommended as it uses the more robust magnetometer yaw on the ground, and more accurate 3-axis magnetometer when moving.
-Setting '3-axis' mode all the time (`EKF2_MAG_TYPE=2`) is more error-prone, and requires that all the IMUs are well calibrated.
+:::
 
-The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#yaw-measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#yaw-from-gps-velocity).
+Magnetometer data fusion can be configured using [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE):
+
+0. Automatic:
+   - The magnetometer readings only affect the heading estimate before arming, and the whole attitude after arming.
+   - Heading and tilt errors are compensated when using this method.
+   - Incorrect magnetic field measurements can degrade the tilt estimate.
+   - The magnetometer biases are estimated whenever observable.
+1. Magnetic heading:
+   - Only the heading is corrected.
+     The tilt estimate is never affected by incorrect magnetic field measurements.
+   - Tilt errors that could arise when flying without velocity/position aiding are not corrected when using this method.
+   - The magnetometer biases are estimated whenever observable.
+2. Deprecated
+3. Deprecated
+4. Deprecated
+5. None:
+   - Magnetometer data is never used.
+     This is useful when the data can never be trusted (e.g.: high current close to the sensor, external anomalies).
+   - The estimator will use other sources of heading: [GPS heading](#yaw-measurements) or external vision.
+   - When using GPS measurements without another source of heading, the heading can only be initialized after sufficient horizontal acceleration.
+     See [Estimate yaw from vehicle movement](#yaw-from-gps-velocity) below.
+6. Init only:
+   - Magnetometer data is only used to initialize the heading estimate.
+     This is useful when the data can be used before arming but not afterwards (e.g.: high current after the vehicle is armed).
+   - After initialization, the heading is constrained using other observations.
+   - Unlike mag type `None`, when combined with GPS measurements, this method allows position controlled modes to run directly during takeoff.
+
+The following selection tree can be used to select the right option:
+
+![EKF mag type selection tree](../../assets/config/ekf/ekf_mag_type_selection_tree.png)
 
 ### Height
 
