@@ -139,29 +139,33 @@ Three axis body fixed magnetometer data at a minimum rate of 5Hz is required to 
 Magnetometer data fusion can be configured using [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE):
 
 0. Automatic:
-   - The magnetometer readings are only affecting the heading estimate before arming and the whole attitude after arming.
+   - The magnetometer readings only affect the heading estimate before arming, and the whole attitude after arming.
    - Heading and tilt errors are compensated when using this method.
    - Incorrect magnetic field measurements can degrade the tilt estimate.
    - The magnetometer biases are estimated whenever observable.
 1. Magnetic heading:
-   - This method ensures that only the heading is corrected and that the tilt estimate is never affected by incorrect magnetic field measurements,
+   - Only the heading is corrected.
+     The tilt estimate is never affected by incorrect magnetic field measurements.
    - Tilt errors that could arise when flying without velocity/position aiding are not corrected when using this method.
    - The magnetometer biases are estimated whenever observable.
 2. Deprecated
 3. Deprecated
 4. Deprecated
 5. None:
-   - The magnetic data is never used. This is useful when the data can never be trusted (e.g.: high current close to the sensor, external anomalies).
+   - Magnetometer data is never used.
+     This is useful when the data can never be trusted (e.g.: high current close to the sensor, external anomalies).
    - The estimator will use other sources of heading: [GPS heading](#yaw-measurements) or external vision.
-   - When using GPS measurements without another source of heading, the heading can only be initialized after sufficient horizontal acceleration. See ["estimate yaw from vehicle movement"](#yaw-from-gps-velocity)
+   - When using GPS measurements without another source of heading, the heading can only be initialized after sufficient horizontal acceleration.
+     See [Estimate yaw from vehicle movement](#yaw-from-gps-velocity) below.
 6. Init only:
-   - The magnetic data is only used to initialize the heading estimate. This is useful when the data can be used before arming but not afterwards (e.g.: high current after the vehicle is being armed).
+   - Magnetometer data is only used to initialize the heading estimate.
+     This is useful when the data can be used before arming but not afterwards (e.g.: high current after the vehicle is armed).
    - After initialization, the heading is constrained using other observations.
-   - Unlike mag type "None", when combined with GPS measurements, this method allows position controlled modes to run directly during takeoff.
+   - Unlike mag type `None`, when combined with GPS measurements, this method allows position controlled modes to run directly during takeoff.
 
 The following selection tree can be used to select the right option:
 
-![image](https://github.com/user-attachments/assets/c5a4e899-8084-4065-b233-7998af31dbcf)
+![EKF mag type selection tree](../../assets/config/ekf/ekf_mag_type_selection_tree.png)
 
 ### Height
 
