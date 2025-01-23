@@ -91,7 +91,7 @@ A low pass filter on the gyro data can be configured with the [IMU_GYRO_CUTOFF](
 To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters.
 The effect on latency of increasing `IMU_GYRO_CUTOFF` is approximated below.
 
-| Cuttoff (Hz) | Delay approx. (ms) |
+| Cutoff (Hz) | Delay approx. (ms) |
 | ------------ | ------------------ |
 | 30           | 8                  |
 | 60           | 3.8                |
