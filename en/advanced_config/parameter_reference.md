@@ -3381,7 +3381,6 @@ Select which Output Protocol to use for outputs PWM Aux 1-4. Custom PWM rates ca
 - `-5`: DShot150
 - `-4`: DShot300
 - `-3`: DShot600
-- `-2`: DShot1200
 - `-1`: OneShot
 - `50`: PWM 50 Hz
 - `100`: PWM 100 Hz
