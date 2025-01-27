@@ -270,7 +270,7 @@ Example directory structure (matching the example above):
 - Each translation (direct or generic) is a single `.h` header file.
 - The header `all_translation.h` acts as the main header, and includes all subsequent translation headers.
 
-Example directory structure (coherent with example above):
+Example directory structure (matching the example above):
 
 ```
   ...
@@ -290,9 +290,6 @@ Example directory structure (coherent with example above):
 ### Updating a Versioned Message
 
 This section provides a step-by-step walkthrough and a basic working example of what the process of changing a versioned message looks like.
-
-Before making changes to a versioned message (in `msg/versioned/` or `srv/versioned/`), we first create an archived copy of it, and update existing translation code to point to the archived version definition.
-We then update the versioned message definition to increment the version number, add any new fields or other changes, and then add a new translation file to convert between it and the previous (now archived) version.
 
 The example describes the process of updating the `VehicleAttitude` message definition to contain an additional `new_field` entry, incrementing the message version from `3` to `4`, and creating a new direct translation in the process.
 
@@ -321,7 +318,7 @@ The example describes the process of updating the `VehicleAttitude` message defi
 
    For example, update `msg/versioned/VehicleAttitude.msg` from:
 
-   ```c++
+   ```.msg
    uint32 MESSAGE_VERSION = 3
    uint64 timestamp
    ...
@@ -329,7 +326,7 @@ The example describes the process of updating the `VehicleAttitude` message defi
 
    to
 
-   ```c++
+   ```.msg
    uint32 MESSAGE_VERSION = 4  # Increment
    uint64 timestamp
    float32 new_field           # Make definition changes

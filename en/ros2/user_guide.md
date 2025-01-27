@@ -239,6 +239,10 @@ This section shows how to create a ROS 2 workspace hosted in your home directory
 The [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) packages are cloned to a workspace folder, and then the `colcon` tool is used to build the workspace.
 The example is run using `ros2 launch`.
 
+You should use a version of the px4_msgs package with the _same_ message defintions as the PX4 firmware you have installed in the step above.
+Branches in the px4_msgs repo are named to correspond to the message definitions for different PX4 releases.
+If for any reason you cannot ensure the same message definitions between your PX4 firmware and ROS 2 px4_msgs package, you will additionally need to [start the message translation node](#starting-the-translation-node) as part of your setup process.
+
 ::: info
 The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com).
 [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics.
@@ -265,13 +269,6 @@ To create and build the workspace:
    ```sh
    git clone https://github.com/PX4/px4_msgs.git
    git clone https://github.com/PX4/px4_ros_com.git
-   ```
-
-1. **(Optional)** From PX4 v1.16 (main), include the [Message Translation Node](../ros2/px4_ros2_msg_translation_node.md) into your workspace by running the following script.
-   This step is needed only if using `px4_msgs` that do not match your target version of PX4.
-
-   ```sh
-   /path/to/PX4-Autopilot/Tools/copy_to_ros_ws.sh ../
    ```
 
 1. Source the ROS 2 development environment into the current terminal and compile the workspace using `colcon`:
@@ -344,12 +341,6 @@ In a new terminal:
    source install/local_setup.bash
    ```
 
-1. **(Optional)** If the [Message Translation Node](../ros2/px4_ros2_msg_translation_node.md) was added to the workspace when [building the workspace](#building-the-workspace) (step 4), run the translation node:
-
-   ```sh
-   ros2 run translation_node translation_node_bin
-   ```
-
 1. Now launch the example.
    Note here that we use `ros2 launch`, which is described below.
 
@@ -373,6 +364,28 @@ accelerometer_m_s2[1]: 0.0949186
 accelerometer_m_s2[2]: -9.76044
 accelerometer_integral_dt: 4739
 ```
+
+#### (Optional) Starting the Translation Node
+
+<Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="tip" />  <Badge type="warning" text="Experimental" />
+
+This example is built with PX4 and ROS2 versions that use the same message definitions.
+If you were to use incompatible [message versions](../middleware/uorb.md#message-versioning) you would need to install and run the [Message Translation Node](./px4_ros2_msg_translation_node.md) as well, before running the example:
+
+1. Include the [Message Translation Node](../ros2/px4_ros2_msg_translation_node.md) into the example workspace or a separate workspace by running the following script:
+
+   ```sh
+   cd /path/to/ros_ws
+   /path/to/PX4-Autopilot/Tools/copy_to_ros_ws.sh .
+   ```
+
+1. Build and run the translation node:
+
+   ```sh
+   colcon build
+   source install/local_setup.bash
+   ros2 run translation_node translation_node_bin
+   ```
 
 ## Controlling a Vehicle
 
