@@ -14314,6 +14314,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 0 |  
 
+### COM_MODE_ARM_CHK (`INT32`) {#COM_MODE_ARM_CHK}
+
+Allow external mode registration while armed.
+
+By default disabled for safety reasons
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | Disabled (0) |  
+
 ### COM_MOT_TEST_EN (`INT32`) {#COM_MOT_TEST_EN}
 
 Enable Actuator Testing.
