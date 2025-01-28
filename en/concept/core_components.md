@@ -40,7 +40,7 @@ For many of the core components that has a corresponding label in Github, you ca
 | [Jenkins (Continuous Integration)][Jenkins (Continuous Integration)]               |                                      |                                                  |
 | Linux (Toolchain)                                                                  |                                      |                                                  |
 | Mac OS (Toolchain)                                                                 |                                      |                                                  |
-| [Windows (Toolchain)][Windows (Toolchain)]                                         | WSL2                                 |                                                  |
+| [Windows (Toolchain)][Windows (Toolchain)]                                         |                                      |                                                  |
 | [ROS2][ROS2]                                                                       |                                      |                                                  |
 | [Gazebo Classic (Simulation)][Gazebo Classic (Simulation)]                         |                                      |                                                  |
 | [Gazebo (Simulation)][Gazebo (Simulation)]                                         |                                      |                                                  |
