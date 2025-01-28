@@ -33,7 +33,7 @@ For many of the core components that has a corresponding label in Github, you ca
 | RTK GPS (Driver)                                                                   | Heading estimate from dual RTK GPS   | [Alex Klimaj](https://github.com/AlexKlimaj)     |
 | [Documentation][Documentation]                                                     | PX4, MAVLink, QGC, MAVSDK            | [Hamish Willee](https://github.com/hamishwillee) |
 | Battery (Library)                                                                  |                                      |                                                  |
-| Flight Task (Library)                                                              |                                      |                                                  |
+| Flight Task (Library)                                                              |                                      | [Matthias Grob](https://github.com/MaEtUgR) |
 | Matrix (Library)                                                                   |                                      |                                                  |
 | Autotuning (Library)                                                               |                                      |                                                  |
 | [Github Actions (Continuous Integration)][Github Actions (Continuous Integration)] |                                      |                                                  |
