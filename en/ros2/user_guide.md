@@ -241,7 +241,7 @@ The example is run using `ros2 launch`.
 
 You should use a version of the px4_msgs package with the _same_ message defintions as the PX4 firmware you have installed in the step above.
 Branches in the px4_msgs repo are named to correspond to the message definitions for different PX4 releases.
-If for any reason you cannot ensure the same message definitions between your PX4 firmware and ROS 2 px4_msgs package, you will additionally need to [start the message translation node](#starting-the-translation-node) as part of your setup process.
+If for any reason you cannot ensure the same message definitions between your PX4 firmware and ROS 2 px4_msgs package, you will additionally need to [start the message translation node](#optional-starting-the-translation-node) as part of your setup process.
 
 ::: info
 The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com).
