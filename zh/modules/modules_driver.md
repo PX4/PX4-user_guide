@@ -306,7 +306,7 @@ It skips all pins already in use (e.g. by a camera trigger module).
 
 It supports:
 
-- DShot150, DShot300, DShot600, DShot1200
+- DShot150, DShot300, DShot600
 - 通过独立的串口遥控，并且发布esc_status消息
 - 通过命令行接口发送 DShot 命令
 
