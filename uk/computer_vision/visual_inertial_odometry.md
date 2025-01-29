@@ -80,7 +80,7 @@ ROS використовується для зчитування інформа�
 
 Їх можна встановити в _QGroundControl_ > **Налаштування автомобіля > Параметри > EKF2** (не забудьте перезавантажити контролер польоту, щоб зміни параметрів набули чинності).
 
-Для отримання додаткової детальної інформації дивіться: [ECL/EKF огляд і налаштування & Tuning> Зовнішня система візуальної оцінки](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
+For more detailed/additional information, see: [Using PX4's Navigation Filter (EKF2) > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
 
 <a id="tuning-EKF2_EV_DELAY"></a>
 
@@ -173,4 +173,4 @@ ROS використовується для зчитування інформа�
 
 ## Подальша інформація
 
-- [Огляд та налаштування & ECL/EKF > Зовнішня візійна система](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [Using PX4's Navigation Filter (EKF2) > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
