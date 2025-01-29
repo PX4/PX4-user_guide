@@ -9,6 +9,12 @@ This section lists the distance sensors supported by PX4 (linked to more detaile
 
 ## 지원되는 거리 측정기
 
+:::tip
+This is a subset of the rangefinders that can be used with PX4.
+[Modules: Distance Sensors](../modules/modules_driver_distance_sensor.md) lists PX4 drivers for other non-CAN rangefinders.
+There may also be other DroneCAN rangefinders than those listed here.
+:::
+
 ### ARK Flow
 
 [ARK Flow](../dronecan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m.
@@ -20,7 +26,7 @@ It supports [DroneCAN](../dronecan/index.md), runs [PX4 DroneCAN Firmware](../dr
 The [VL53L1X](https://holybro.com/products/st-vl53l1x-lidar) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family.
 최대 4m의 정확한 범위와 최대 50Hz의 빠른 범위 주파수를 제공하는 시장에서 가장 빠른 소형 ToF 센서입니다.
 
-It comes with a JST GHR 4 pin connector that is compatible with the I2C port on [Pixhawk 4](../flight_controller/pixhawk4.md), [Pixhawk 5X](../flight_controller/pixhawk5x.md), and other flight controllers that follow the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)).
+It comes with a JST GHR 4 pin connector that is compatible with the I2C port on [Pixhawk 4](../flight_controller/pixhawk4.md), [Pixhawk 5X](../flight_controller/pixhawk5x.md), and other flight controllers that follow the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 ### Lidar-Lite
 
