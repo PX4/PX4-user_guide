@@ -1,6 +1,6 @@
 # PX4 ROS 2 Message Translation Node
 
-<Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="tip" text="ROS Jazzy+" />  <Badge type="warning" text="Experimental" />
+<Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="warning" text="Experimental" />
 
 The message translation node allows ROS 2 applications that were compiled against different versions of the PX4 messages to interwork with newer versions of PX4, and vice versa, without having to change either the application or the PX4 side.
 
@@ -387,9 +387,9 @@ The example describes the process of updating the `VehicleAttitude` message defi
 
    Version translation templates are provided here: <!-- TODO: update GitHub urls -->
 
-   - [Direct Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_direct_v1.h)
-   - [Generic Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_multi_v2.h)
-   - [Direct Service Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_service_v1.h)
+   - [Direct Topic Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_direct_v1.h)
+   - [Generic Topic Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_multi_v2.h)
+   - [Direct Service Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_service_v1.h)
 
 1. **Include New Headers in `all_translations.h`**
 
@@ -434,8 +434,10 @@ For translations with multiple input topics, the translation continues once all 
 
 ## Limitations
 
-- The current implementation depends on a service API that is not yet available in ROS Humble, and therefore does not support services when built for ROS Humble.
-- Services only support a linear history, i.e. no message splitting or merging.
+- Translation of service messages does not work on ROS Humble, but does on ROS Jazzy.
+  This is because the current implementation depends on a service API that is not yet available in ROS Humble.
+  Translation of topic messages is fully supported.
+- Services messages only support a linear history, i.e. no message splitting or merging.
 - Having both publishers and subscribers for two different versions of a topic is currently not handled by the translation node and would trigger infinite circular publications.
   This could be extended if required.
 
