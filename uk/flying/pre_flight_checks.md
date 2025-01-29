@@ -47,7 +47,7 @@ Note that the [Arming Check Report](#qgc-arming-check-report) is a much easier w
 
 ## Передпольотні перевірки/помилки EKF
 
-This sections lists errors, with associated checks and parameters, that are reported by the [EKF](../advanced_config/tuning_the_ecl_ekf.md) (and propagate to _QGroundControl_).
+This sections lists errors, with associated checks and parameters, that are reported by [EKF2](../advanced_config/tuning_the_ecl_ekf.md) (and propagate to _QGroundControl_).
 These are provided for information only (the QGC Arming Checks UI is the best way to get error and solution information).
 
 #### PREFLIGHT FAIL: EKF HIGH IMU ACCEL BIAS
