@@ -80,6 +80,8 @@ Notes:
 
 ### Large Vehicle Calibration
 
+<Badge type="tip" text="main (PX4 v1.16+)" />
+
 This calibration process leverages external knowledge of vehicle's orientation and location, and a World Magnetic Model (WMM) to calibrate the hard iron biases.
 
 1. Ensure GNSS Fix. This is required to find the expected Earth magnetic field in WMM tables.
