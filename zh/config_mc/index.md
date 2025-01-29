@@ -80,7 +80,7 @@ The core sensor setup is covered in these topics:
 
 PX4 can use other peripherals, such as distance sensors, optical flow sensors, traffic avoidance alarms, cameras, and so on:
 
-- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
+- [飞控外设](../peripherals/index.md) - 设置特定传感器、可选传感器、执行器等。
 
 :::info
 Sensors that you don't need to calibrate/configure include:
@@ -164,10 +164,10 @@ Yes but it must be physically feasible. E.g. if you make a quadrotor where all m
 ## See Also
 
 - [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
-- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
+- [飞控外设](../peripherals/index.md) - 设置特定传感器、可选传感器、执行器等。
 - [Advanced Configuration](../advanced_config/index.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Vehicle-Centric Config/Tuning:
   - **Multicopter Config/Tuning**
-  - [Helicopter Config/Tuning](../config_heli/index.md)
+  - [直升机配置/调参](../config_heli/index.md)
   - [Fixed Wing Config/Tuning](../config_fw/index.md)
-  - [VTOL Config/Tuning](../config_vtol/index.md)
+  - [VTOL 配置/调参](../config_vtol/index.md)
