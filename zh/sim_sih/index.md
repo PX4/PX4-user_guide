@@ -168,6 +168,63 @@ export PX4_HOME_ALT=28.5
 make px4_sitl sihsim_quadx
 ```
 
+## Adding New Airframes
+
+[Adding a new airframe](../dev_airframes/adding_a_new_frame.md) for use in SIH simulation is much the same as for other use cases.
+You still need to configure your vehicle type and [geometry](../config/actuators.md) (`CA_` parameters) and start any other defaults for that specific vehicle.
+
+:::warning
+Not every vehicle can be simulated with SIH — there are currently [four supported vehicle types](../advanced_config/parameter_reference.md#SIH_VEHICLE_TYPE), each of which has a relatively rigid implementation in [`sih.cpp`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/simulator_sih/sih.cpp).
+:::
+
+The specific differences for SIH simulation airframes are listed in the sections below.
+
+For all variants of SIH:
+
+- Set all the [Simulation In Hardware](../advanced_config/parameter_reference.md#simulation-in-hardware) parameters (prefixed with `SIH_`) in order to configure the physical model of the vehicle.
+
+  ::: tip
+  Make sure that the `SIH_*` parameters and the `CA_*` parameters describe the same vehicle.
+  Note that some of these parameters are redundant!
+
+:::
+
+- `param set-default SYS_HITL 2` to enable SIH on the next boot.
+
+  ::: info
+  This also disables input from real sensors.
+  For SIH on the FC (only), it also enables the simulated GPS, barometer, magnetometer, and airspeed sensor.
+
+  For SIH on SITL you will need to explicitly enable these sensors as shown below.
+
+:::
+
+- `param set-default EKF2_GPS_DELAY 0` to improve state estimator performance (the assumption of instant GPS measurements would normally be unrealistic, but is accurate for SIH).
+
+For SIH on FC:
+
+- Airframe file goes in `ROMFS/px4fmu_common/init.d/airframes` and follows the naming template `${ID}_${model_name}.hil`, where `ID` is the `SYS_AUTOSTART_ID` used to select the airframe, and `model_name` is the airframe model name.
+- Add the model name in `ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt` to generate a corresponding make target.
+- Actuators are configured with `HIL_ACT_FUNC*` parameters (not the usual `PWM_MAIN_FUNC*` parameters).
+  This is to avoid using the real actuator outputs in SIH.
+  Similarly, the bitfield for inverting individual actuator output ranges is `HIL_ACT_REV`, rather than `PWM_MAIN_REV`.
+
+For SIH as SITL (no FC):
+
+- Airframe file goes in `ROMFS/px4fmu_common/init.d-posix/airframes` and follows the naming template `${ID}_sihsim_${model_name}`, where `ID` is the `SYS_AUTOSTART_ID` used to select the airframe, and `model_name` is the airframe model name.
+- Add the model name in `src/modules/simulation/simulator_sih/CMakeLists.txt` to generate a corresponding make target.
+- Actuators are configured as usual with `PWM_MAIN_FUNC*` and `PWM_MAIN_REV`.
+- Additionally, set:
+  - `PX4_SIMULATOR=${PX4_SIMULATOR:=sihsim}`
+  - `PX4_SIM_MODEL=${PX4_SIM_MODEL:=svtol}` (replacing `svtol` with the airframe model name)
+- Enable the simulated sensors using [SENS_EN_GPSSIM](../advanced_config/parameter_reference.md#SENS_EN_GPSSIM), [SENS_EN_BAROSIM](../advanced_config/parameter_reference.md#SENS_EN_BAROSIM), [SENS_EN_MAGSIM](../advanced_config/parameter_reference.md#SENS_EN_MAGSIM), and [SENS_EN_ARSPDSIM](../advanced_config/parameter_reference.md#SENS_EN_ARSPDSIM) (this is only needed for SIH-as-SITL):
+  - `param set-default SENS_EN_GPSSIM 1`
+  - `param set-default SENS_EN_BAROSIM 1`
+  - `param set-default SENS_EN_MAGSIM 1`
+  - `param set-default SENS_EN_ARSPDSIM 1` (if it is a fixed-wing or VTOL airframe with airspeed sensor)
+
+For specific examples see the `_sihsim_` airframes in [ROMFS/px4fmu_common/init.d-posix/airframes](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/) (SIH as SITL) and [ROMFS/px4fmu_common/init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes) (SIH on FC).
+
 ## Dynamic Models
 
 The dynamic models for the various vehicles are:
