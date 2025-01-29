@@ -8,7 +8,7 @@ You can't video stream directly from a camera connected to PX4.
 
 GStreamer is used to send the video to _QGroundControl_ over an IP link.
 To support streaming use cases you will need to install _GStreamer_ development packages on both your companion computer and on the system running _QGroundControl_.
-_QGroundControl_ uses GStreamer 1.14.4 and a stripped down version of _QtGstreamer_ to support UDP RTP and RSTP video streaming.
+_QGroundControl_ uses GStreamer 1.18.1 and a stripped down version of _QtGstreamer_ to support UDP RTP and RSTP video streaming.
 
 ## Companion Computer Setup
 
@@ -30,7 +30,7 @@ To setup and use video steaming with QGC:
    sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
    ```
 
-   For other platforms follow the instructions in [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/index.md).
+   For other platforms follow the instructions in [QGroundControl VideoReceiver GStreamer README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoManager/VideoReceiver/GStreamer/README.md).
 
 1. Enable video in _Fly View_: [QGroundControl > General Settings (Settings View) > Video](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/general.html#video)
 1. If everything works, you should see the video stream displayed in the QGC Video Switcher (QGC Fly View bottom left corner).
