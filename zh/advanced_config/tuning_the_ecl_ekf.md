@@ -1,23 +1,27 @@
-# 使用 ECL EKF
+# Using PX4's Navigation Filter (EKF2)
 
-本文主要回答使用 ECL EKF 算法的常见问题。
+This tutorial answers common questions about use of the EKF algorithm used for navigation.
 
 :::tip
-The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the _PX4 Developer Summit 2019_ (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
+The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the _PX4 Developer Summit 2019_ (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, major changes and improvements were added since then.
 :::
 
-## 什么是 ecl EKF？
+## 综述
 
-估计和控制库（ECL）使用扩展卡尔曼滤波算法（EKF）来处理传感器的测量信息，并提供如下状态量的估计值：
+PX4's Navigation filter uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
 
-- 四元数定义从北，东，地局部地球坐标系到 X，Y，Z 机体坐标系的旋转
+- Quaternion defining the rotation from North, East, Down local navigation frame to X, Y, Z body frame
 - IMU 处的速度 - 北，东，地 \(m/s)
-- IMU 处的位置 - 北，东，地 \(m)
-- IMU 增量角度偏差估计 - X, Y, Z \(rad)
-- IMU 增量速度偏差估计 - X, Y, Z\(m/s)
+- Position at the IMU - Latitude (rad), Longitude (rad), Altitude (m)
+- IMU gyro bias estimates - X, Y, Z (rad/s)
+- IMU accelerometer bias estimates - X, Y, Z (m/s<sup>2</sup>)
 - 地球磁场组分 - 北，东，地 \(gauss\)
 - 飞行器机体坐标系磁场偏差 - X, Y, Z \(gauss\)
 - 风速-北, 东\(m/s\)
+- Terrain altitude (m)
+
+To improve stability, an "error-state" formulation is implemented
+This is especially relevant when estimating the uncertainty of a rotation which is a 3D vector (tangent space of SO(3)).
 
 EKF 在延迟的“融合时间范围”上运行，以允许相对于 IMU 的每次测量的不同时间延迟。
 为了保证所有传感器数据都能在正确的时间内使用，每个传感器的数据都是按照先入先出（FIFO）队列进行缓存，并由EKF从缓存区中读取。
@@ -27,16 +31,28 @@ The delay compensation for each sensor is controlled by the [EKF2\_\*\_DELAY](..
 The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameters.
 
 :::info
-The 'fusion time horizon' delay and length of the buffers is determined by the largest of the `EKF2_*_DELAY` parameters.
-如果未使用传感器，建议将其时间延迟设置为零。
+The 'fusion time horizon' delay and length of the buffers is determined by [EKF2_DELAY_MAX](../advanced_config/parameter_reference.md#EKF2_DELAY_MAX).
+This value should be at least as large as the longest delay `EKF2\_\*\_DELAY`.
 减少“融合时间范围”延迟减少了用于将状态向前传播到当前时间的互补滤波器中的误差。
 :::
 
+EKF仅将IMU数据用于状态预测。
+在EKF推导中，IMU数据不作为观测值使用。
+The algebraic equations for the covariance prediction and measurement jacobians are derived using [SymForce](https://symforce.org/) and can be found here: [Symbolic Derivation](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/ekf2/EKF/python/ekf_derivation/derivation.py).
+Covariance update is done using the [Joseph Stabilized form](https://en.wikipedia.org/wiki/Kalman_filter#Deriving_the_posteriori_estimate_covariance_matrix) to improve numerical stability and allow conditional update of independent states.
+
+### Precisions about the position output
+
+The position is estimated as latitude, longitude and altitude and the INS integration is performed using the WGS84 ellipsoid mode.
+However, the position uncertainty is defined in the local navigation frame at the current position (i.e.: NED error in meters).
+
 位置及速度状态变量在输出至控制回路之前会根据IMU与机体坐标系之间的偏差量进行修正。
+
 The position of the IMU relative to the body frame is set by the `EKF2_IMU_POS_X,Y,Z` parameters.
 
-EKF仅将IMU数据用于状态预测。 在EKF推导中，IMU数据不作为观测值使用。
-The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m).
+In addition to the global position estimate in latitude/longitude/altitude, the filter also provides a local position estimate (NED in meters) by projecting the global position estimate using an [azimuthal_equidistant_projection](https://en.wikipedia.org/wiki/Azimuthal_equidistant_projection) centred on an arbitrary origin.
+This origin is automatically set when global position measurements are fused but can also be specified manually.
+If no global position information is provided, only the local position is available and the INS integration is performed on a spherical Earth.
 
 ## 运行单个EKF实例
 
@@ -118,7 +134,8 @@ EKF 具有不同的操作模式，以允许不同的传感器测量组合。
 滤波器在启动时会检查传感器的最小可行组合，并且在完成初始倾斜，偏航和高度对准之后，进入提供旋转，垂直速度，垂直位置，IMU 增量角度偏差和 IMU 增量速度偏差估计的模式。
 
 此模式需要 IMU 数据，一个偏航源（磁力计或外部视觉）和一个高度数据源。
-所有EKF操作模式都需要这个最小数据集。 在此基础上可以使用其它传感器数据来估计额外的状态变量。
+所有EKF操作模式都需要这个最小数据集。
+在此基础上可以使用其它传感器数据来估计额外的状态变量。
 
 ### IMU
 
@@ -127,26 +144,46 @@ EKF 具有不同的操作模式，以允许不同的传感器测量组合。
 
 ### 磁罗盘
 
-需要以最小 5Hz 的速率的三轴机体固连磁力计数据（或外部视觉系统姿势数据）。
+Three axis body fixed magnetometer data at a minimum rate of 5Hz is required to be considered by the estimator.
 
-磁力计数据可以用于两种方式：
+::: info
 
-- 使用倾角估计和磁偏角将磁力计测量值转换为偏航角。
-  The yaw angle is then used as an observation by the EKF.
-  - 该方法精度较低并且不允许学习机体坐标系场偏移，但是它对于磁场异常和大的初置陀螺偏差更有鲁棒性。
-  - 它是启动期间和在地面时的默认方法。
-- XYZ 磁力计读数用作单独的观测值。
-  - This method is more accurate but requires that the magnetometer biases are correctly estimated.
-    - The biases are observable while the drone is rotating and the true heading is observable when the vehicle is accelerating (linear acceleration).
-    - Since the biases can change and are only observable when moving, it is safer to switch back to heading fusion when not moving.
-  - It assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
-  - This is the default method used when the vehicle is moving.
+- The magnetometer **biases** are only observable while the drone is rotating
+- The true heading is observable when the vehicle is accelerating (linear acceleration) while absolute position or velocity measurements are fused (e.g. GPS).
+  This means that magnetometer heading measurements are optional after initialization if those conditions are met often enough to constrain the heading drift (caused by gyro bias).
 
-The logic used to select these modes is set by the [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) parameter.
-The default 'Automatic' mode (`EKF2_MAG_TYPE=0`) is recommended as it uses the more robust magnetometer yaw on the ground, and more accurate 3-axis magnetometer when moving.
-Setting '3-axis' mode all the time (`EKF2_MAG_TYPE=2`) is more error-prone, and requires that all the IMUs are well calibrated.
+:::
 
-The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#yaw-measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#yaw-from-gps-velocity).
+Magnetometer data fusion can be configured using [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE):
+
+0. Automatic:
+   - The magnetometer readings only affect the heading estimate before arming, and the whole attitude after arming.
+   - Heading and tilt errors are compensated when using this method.
+   - Incorrect magnetic field measurements can degrade the tilt estimate.
+   - The magnetometer biases are estimated whenever observable.
+1. Magnetic heading:
+   - Only the heading is corrected.
+     The tilt estimate is never affected by incorrect magnetic field measurements.
+   - Tilt errors that could arise when flying without velocity/position aiding are not corrected when using this method.
+   - The magnetometer biases are estimated whenever observable.
+2. Deprecated
+3. Deprecated
+4. Deprecated
+5. None:
+   - Magnetometer data is never used.
+     This is useful when the data can never be trusted (e.g.: high current close to the sensor, external anomalies).
+   - The estimator will use other sources of heading: [GPS heading](#yaw-measurements) or external vision.
+   - When using GPS measurements without another source of heading, the heading can only be initialized after sufficient horizontal acceleration.
+     See [Estimate yaw from vehicle movement](#yaw-from-gps-velocity) below.
+6. Init only:
+   - Magnetometer data is only used to initialize the heading estimate.
+     This is useful when the data can be used before arming but not afterwards (e.g.: high current after the vehicle is armed).
+   - After initialization, the heading is constrained using other observations.
+   - Unlike mag type `None`, when combined with GPS measurements, this method allows position controlled modes to run directly during takeoff.
+
+The following selection tree can be used to select the right option:
+
+![EKF mag type selection tree](../../assets/config/ekf/ekf_mag_type_selection_tree.png)
 
 ### 高度
 
@@ -295,18 +332,18 @@ Minima are defined in the [EKF2_REQ_\*](../advanced_config/parameter_reference.m
 下表显示了从全球导航卫星系统数据中直接报告或计算的各种衡量标准，以及ECL使用的数据的最低要求值。
 In addition, the _Average Value_ column shows typical values that might reasonably be obtained from a standard GNSS module (e.g. u-blox M8 series) - i.e. values that are considered good/acceptable.
 
-| 指标                   | 最小需求                                                                                                                                                                                                                    | 平均值                  | 单位  | 备注                                                                                                                                                                                              |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eph                  | <&amp;nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))                         | 0.8  | m   | 水平位置误差的标准偏差                                                                                                                                                                                     |
-| epv                  | <&amp;nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))                         | 1.5  | m   | 垂直位置误差的标准偏差                                                                                                                                                                                     |
-| Number of satellites | ≥6&amp;nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))                                               | 14                   | -   |                                                                                                                                                                                                 |
-| sacc                 | <&amp;nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2  | m/s | 水平速度误差的标准偏差                                                                                                                                                                                     |
-| fix type             | ≥&amp;nbsp;3                                                                                                                                                                                        | 4                    | -   | 0-1: 不修正, 2: 2D 修正, 3: 3D 修正, 4: RTCM 编码差分, 5: 实时动态定位, 浮动, 6: 实时动态定位, 固定, 8: 外推 |
-| PDOP                 | <&amp;nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0  | -   | 精度降低位置                                                                                                                                                                                          |
-| hpos drift rate      | <&amp;nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | 根据所报告的全球导航卫星系统位置计算出的漂移率（在固定状态时）。                                                                                                                                                                |
-| vpos drift rate      | <&amp;nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | 根据所报告的全球导航卫星系统高度计算出的漂移率（在固定时）。                                                                                                                                                                  |
-| hspd                 | <&amp;nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | 所报告的全球导航卫星系统横向速度的筛选星等。                                                                                                                                                                          |
-| vspd                 | <&amp;nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | 所报告的全球导航卫星系统垂直速度的滤波量级。                                                                                                                                                                          |
+| 指标                   | 最小需求                                                                                                                                                                                                                | 平均值                  | 单位  | 备注                                                                                                                                                                                              |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| eph                  | <&nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))                         | 0.8  | m   | 水平位置误差的标准偏差                                                                                                                                                                                     |
+| epv                  | <&nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))                         | 1.5  | m   | 垂直位置误差的标准偏差                                                                                                                                                                                     |
+| Number of satellites | ≥6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))                                               | 14                   | -   |                                                                                                                                                                                                 |
+| sacc                 | <&nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2  | m/s | 水平速度误差的标准偏差                                                                                                                                                                                     |
+| fix type             | ≥&nbsp;3                                                                                                                                                                                        | 4                    | -   | 0-1: 不修正, 2: 2D 修正, 3: 3D 修正, 4: RTCM 编码差分, 5: 实时动态定位, 浮动, 6: 实时动态定位, 固定, 8: 外推 |
+| PDOP                 | <&nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0  | -   | 精度降低位置                                                                                                                                                                                          |
+| hpos drift rate      | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | 根据所报告的全球导航卫星系统位置计算出的漂移率（在固定状态时）。                                                                                                                                                                |
+| vpos drift rate      | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | 根据所报告的全球导航卫星系统高度计算出的漂移率（在固定时）。                                                                                                                                                                  |
+| hspd                 | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | 所报告的全球导航卫星系统横向速度的筛选星等。                                                                                                                                                                          |
+| vspd                 | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | 所报告的全球导航卫星系统垂直速度的滤波量级。                                                                                                                                                                          |
 
 :::info
 The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic.
