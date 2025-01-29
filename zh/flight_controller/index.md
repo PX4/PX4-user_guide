@@ -27,5 +27,5 @@ Information about how to mount the flight controller, upload firmware (replacing
 - [Updating Firmware](../config/firmware.md)
 - [Sensor Orientation](../config/flight_controller_orientation.md)
 - [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Advanced Controller Orientation](../advanced_config/advanced_flight_controller_orientation_leveling.md)
-- [Bootloader Update](../advanced_config/bootloader_update.md)
+- [飞控方向高级配置](../advanced_config/advanced_flight_controller_orientation_leveling.md)
+- [Bootloader 更新](../advanced_config/bootloader_update.md)
