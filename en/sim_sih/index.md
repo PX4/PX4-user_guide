@@ -166,13 +166,13 @@ export PX4_HOME_ALT=28.5
 make px4_sitl sihsim_quadx
 ```
 
-### Adding New Airframes
+## Adding New Airframes
 
 [Adding a new airframe](../dev_airframes/adding_a_new_frame.md) for use in SIH simulation is much the same as for other use cases.
 You still need to configure your vehicle type and [geometry](../config/actuators.md) (`CA_` parameters) and start any other defaults for that specific vehicle.
 
 ::: warning
-Not every vehicle can be simulated with SIH — there are [four vehicle types](../advanced_config/parameter_reference.md#SIH_VEHICLE_TYPE), each of which has a relatively rigid implementation in [`sih.cpp`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/simulator_sih/sih.cpp).
+Not every vehicle can be simulated with SIH — there are currently [four supported vehicle types](../advanced_config/parameter_reference.md#SIH_VEHICLE_TYPE), each of which has a relatively rigid implementation in [`sih.cpp`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/simulator_sih/sih.cpp).
 :::
 
 The specific differences for SIH simulation airframes are listed in the sections below.
@@ -216,7 +216,7 @@ For SIH as SITL (no FC):
 - Additionally, set:
   - `PX4_SIMULATOR=${PX4_SIMULATOR:=sihsim}`
   - `PX4_SIM_MODEL=${PX4_SIM_MODEL:=svtol}` (replacing `svtol` with the airframe model name)
-- Enable the simulated sensors using [SENS_EN_GPSSIM](../advanced_config/parameter_reference.md#simulation-in-SENS_EN_GPSSIM), [SENS_EN_BAROSIM](../advanced_config/parameter_reference.md#simulation-in-SENS_EN_BAROSIM), [SENS_EN_MAGSIM](../advanced_config/parameter_reference.md#simulation-in-SENS_EN_MAGSIM), and [SENS_EN_ARSPDSIM](../advanced_config/parameter_reference.md#simulation-in-SENS_EN_ARSPDSIM) (this is only needed for SIH-as-SITL):
+- Enable the simulated sensors using [SENS_EN_GPSSIM](../advanced_config/parameter_reference.md#SENS_EN_GPSSIM), [SENS_EN_BAROSIM](../advanced_config/parameter_reference.md#SENS_EN_BAROSIM), [SENS_EN_MAGSIM](../advanced_config/parameter_reference.md#SENS_EN_MAGSIM), and [SENS_EN_ARSPDSIM](../advanced_config/parameter_reference.md#SENS_EN_ARSPDSIM) (this is only needed for SIH-as-SITL):
   - `param set-default SENS_EN_GPSSIM 1`
   - `param set-default SENS_EN_BAROSIM 1`
   - `param set-default SENS_EN_MAGSIM 1`
