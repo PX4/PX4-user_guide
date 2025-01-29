@@ -11,8 +11,8 @@ These are covered in the following topics:
 - [Failsafe Simulation](../config/safety_simulation.md)
 - [Geofence](../flying/geofence.md)
 - [Safe Points (Rally)](../flying/plan_safety_points.md)
-- [Prearm/Arm/Disarm Configuration](../advanced_config/prearm_arm_disarm.md)
-- [Flight Termination Configuration](../advanced_config/flight_termination.md)
+- [解锁前/解锁/加锁 配置](../advanced_config/prearm_arm_disarm.md)
+- [飞行终止配置](../advanced_config/flight_termination.md)
 - [First Flight Guidelines](../flying/first_flight_guidelines.md)
 
 :::tip
