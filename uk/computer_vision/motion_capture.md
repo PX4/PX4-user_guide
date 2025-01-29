@@ -16,4 +16,4 @@ _MoCap_ концептуально схожий на [Visual Inertial Odometry (
 
 - [Використання Vision або Motion Capture систем для Position Estimation](../ros/external_position_estimation.md). <!-- bring across info into user guide? -->
 - [Політ з Motion Capture (VICON, NOKOV, Optitrack)](../tutorials/motion-capture.md). <!-- bring across info into user guide? -->
-- [EKF > Зовнішня візійна система ](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [Using PX4's Navigation Filter (EKF2) > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
