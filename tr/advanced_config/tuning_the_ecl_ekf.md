@@ -1,23 +1,27 @@
-# Using the ECL EKF
+# Using PX4's Navigation Filter (EKF2)
 
-This tutorial answers common questions about use of the ECL EKF algorithm.
+This tutorial answers common questions about use of the EKF algorithm used for navigation.
 
 :::tip
-The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the _PX4 Developer Summit 2019_ (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
+The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the _PX4 Developer Summit 2019_ (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, major changes and improvements were added since then.
 :::
 
-## What is the ECL EKF?
+## Overview
 
-The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
+PX4's Navigation filter uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
 
-- Quaternion defining the rotation from North, East, Down local earth frame to X, Y, Z body frame
+- Quaternion defining the rotation from North, East, Down local navigation frame to X, Y, Z body frame
 - Velocity at the IMU - North, East, Down (m/s)
-- Position at the IMU - North, East, Down (m)
-- IMU delta angle bias estimates - X, Y, Z (rad)
-- IMU delta velocity bias estimates - X, Y, Z (m/s)
+- Position at the IMU - Latitude (rad), Longitude (rad), Altitude (m)
+- IMU gyro bias estimates - X, Y, Z (rad/s)
+- IMU accelerometer bias estimates - X, Y, Z (m/s<sup>2</sup>)
 - Earth Magnetic field components - North, East, Down \(gauss\)
 - Vehicle body frame magnetic field bias - X, Y, Z \(gauss\)
 - Wind velocity - North, East \(m/s\)
+- Terrain altitude (m)
+
+To improve stability, an "error-state" formulation is implemented
+This is especially relevant when estimating the uncertainty of a rotation which is a 3D vector (tangent space of SO(3)).
 
 The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU.
 Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time.
@@ -27,16 +31,28 @@ A complementary filter is used to propagate the states forward from the 'fusion 
 The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameters.
 
 :::info
-The 'fusion time horizon' delay and length of the buffers is determined by the largest of the `EKF2_*_DELAY` parameters.
-If a sensor is not being used, it is recommended to set its time delay to zero.
+The 'fusion time horizon' delay and length of the buffers is determined by [EKF2_DELAY_MAX](../advanced_config/parameter_reference.md#EKF2_DELAY_MAX).
+This value should be at least as large as the longest delay `EKF2\_\*\_DELAY`.
 Reducing the 'fusion time horizon' delay reduces errors in the complementary filter used to propagate states forward to current time.
 :::
 
+The EKF uses the IMU data for state prediction only.
+IMU data is not used as an observation in the EKF derivation.
+The algebraic equations for the covariance prediction and measurement jacobians are derived using [SymForce](https://symforce.org/) and can be found here: [Symbolic Derivation](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/ekf2/EKF/python/ekf_derivation/derivation.py).
+Covariance update is done using the [Joseph Stabilized form](https://en.wikipedia.org/wiki/Kalman_filter#Deriving_the_posteriori_estimate_covariance_matrix) to improve numerical stability and allow conditional update of independent states.
+
+### Precisions about the position output
+
+The position is estimated as latitude, longitude and altitude and the INS integration is performed using the WGS84 ellipsoid mode.
+However, the position uncertainty is defined in the local navigation frame at the current position (i.e.: NED error in meters).
+
 The position and velocity states are adjusted to account for the offset between the IMU and the body frame before they are output to the control loops.
+
 The position of the IMU relative to the body frame is set by the `EKF2_IMU_POS_X,Y,Z` parameters.
 
-The EKF uses the IMU data for state prediction only. IMU data is not used as an observation in the EKF derivation.
-The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m).
+In addition to the global position estimate in latitude/longitude/altitude, the filter also provides a local position estimate (NED in meters) by projecting the global position estimate using an [azimuthal_equidistant_projection](https://en.wikipedia.org/wiki/Azimuthal_equidistant_projection) centred on an arbitrary origin.
+This origin is automatically set when global position measurements are fused but can also be specified manually.
+If no global position information is provided, only the local position is available and the INS integration is performed on a spherical Earth.
 
 ## Running a Single EKF Instance
 
@@ -118,7 +134,8 @@ The EKF has different modes of operation that allow for different combinations o
 On start-up the filter checks for a minimum viable combination of sensors and after initial tilt, yaw and height alignment is completed, enters a mode that provides rotation, vertical velocity, vertical position, IMU delta angle bias and IMU delta velocity bias estimates.
 
 This mode requires IMU data, a source of yaw (magnetometer or external vision) and a source of height data.
-This minimum data set is required for all EKF modes of operation. Other sensor data can then be used to estimate additional states.
+This minimum data set is required for all EKF modes of operation.
+Other sensor data can then be used to estimate additional states.
 
 ### IMU
 
@@ -127,26 +144,46 @@ This minimum data set is required for all EKF modes of operation. Other sensor d
 
 ### Magnetometer
 
-Three axis body fixed magnetometer data (or external vision system pose data) at a minimum rate of 5Hz is required.
+Three axis body fixed magnetometer data at a minimum rate of 5Hz is required to be considered by the estimator.
 
-Magnetometer data can be used in two ways:
+::: info
 
-- Magnetometer measurements are converted to a yaw angle using the tilt estimate and magnetic declination.
-  The yaw angle is then used as an observation by the EKF.
-  - This method is less accurate and does not allow for learning of body frame field offsets, however it is more robust to magnetic anomalies and large start-up gyro biases.
-  - It is the default method used during start-up and on ground.
-- The XYZ magnetometer readings are used as separate observations.
-  - This method is more accurate but requires that the magnetometer biases are correctly estimated.
-    - The biases are observable while the drone is rotating and the true heading is observable when the vehicle is accelerating (linear acceleration).
-    - Since the biases can change and are only observable when moving, it is safer to switch back to heading fusion when not moving.
-  - It assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
-  - This is the default method used when the vehicle is moving.
+- The magnetometer **biases** are only observable while the drone is rotating
+- The true heading is observable when the vehicle is accelerating (linear acceleration) while absolute position or velocity measurements are fused (e.g. GPS).
+  This means that magnetometer heading measurements are optional after initialization if those conditions are met often enough to constrain the heading drift (caused by gyro bias).
 
-The logic used to select these modes is set by the [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) parameter.
-The default 'Automatic' mode (`EKF2_MAG_TYPE=0`) is recommended as it uses the more robust magnetometer yaw on the ground, and more accurate 3-axis magnetometer when moving.
-Setting '3-axis' mode all the time (`EKF2_MAG_TYPE=2`) is more error-prone, and requires that all the IMUs are well calibrated.
+:::
 
-The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#yaw-measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#yaw-from-gps-velocity).
+Magnetometer data fusion can be configured using [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE):
+
+0. Automatic:
+   - The magnetometer readings only affect the heading estimate before arming, and the whole attitude after arming.
+   - Heading and tilt errors are compensated when using this method.
+   - Incorrect magnetic field measurements can degrade the tilt estimate.
+   - The magnetometer biases are estimated whenever observable.
+1. Magnetic heading:
+   - Only the heading is corrected.
+     The tilt estimate is never affected by incorrect magnetic field measurements.
+   - Tilt errors that could arise when flying without velocity/position aiding are not corrected when using this method.
+   - The magnetometer biases are estimated whenever observable.
+2. Deprecated
+3. Deprecated
+4. Deprecated
+5. None:
+   - Magnetometer data is never used.
+     This is useful when the data can never be trusted (e.g.: high current close to the sensor, external anomalies).
+   - The estimator will use other sources of heading: [GPS heading](#yaw-measurements) or external vision.
+   - When using GPS measurements without another source of heading, the heading can only be initialized after sufficient horizontal acceleration.
+     See [Estimate yaw from vehicle movement](#yaw-from-gps-velocity) below.
+6. Init only:
+   - Magnetometer data is only used to initialize the heading estimate.
+     This is useful when the data can be used before arming but not afterwards (e.g.: high current after the vehicle is armed).
+   - After initialization, the heading is constrained using other observations.
+   - Unlike mag type `None`, when combined with GPS measurements, this method allows position controlled modes to run directly during takeoff.
+
+The following selection tree can be used to select the right option:
+
+![EKF mag type selection tree](../../assets/config/ekf/ekf_mag_type_selection_tree.png)
 
 ### Height
 
@@ -295,18 +332,18 @@ Minima are defined in the [EKF2_REQ_\*](../advanced_config/parameter_reference.m
 The table below shows the different metrics directly reported or calculated from the GNSS data, and the minimum required values for the data to be used by ECL.
 In addition, the _Average Value_ column shows typical values that might reasonably be obtained from a standard GNSS module (e.g. u-blox M8 series) - i.e. values that are considered good/acceptable.
 
-| Metric               | Minimum required                                                                                                                                                                                                        | Average Value        | Units | Notes                                                                                                                                                                                                                                                       |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eph                  | <&amp;nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))                         | 0.8  | m     | Standard deviation of horizontal position error                                                                                                                                                                                                             |
-| epv                  | <&amp;nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))                         | 1.5  | m     | Standard deviation of vertical position error                                                                                                                                                                                                               |
-| Number of satellites | ≥6&amp;nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))                                               | 14                   | -     |                                                                                                                                                                                                                                                             |
-| sacc                 | <&amp;nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2  | m/s   | Standard deviation of horizontal speed error                                                                                                                                                                                                                |
-| fix type             | ≥&amp;nbsp;3                                                                                                                                                                                        | 4                    | -     | 0-1: no fix, 2: 2D fix, 3: 3D fix, 4: RTCM code differential, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, fixed, 8: Extrapolated |
-| PDOP                 | <&amp;nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0  | -     | Position dilution of precision                                                                                                                                                                                                                              |
-| hpos drift rate      | <&amp;nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s   | Drift rate calculated from reported GNSS position (when stationary).                                                                                                                                                     |
-| vpos drift rate      | <&amp;nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s   | Drift rate calculated from reported GNSS altitude (when stationary).                                                                                                                                                     |
-| hspd                 | <&amp;nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s   | Filtered magnitude of reported GNSS horizontal velocity.                                                                                                                                                                                    |
-| vspd                 | <&amp;nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s   | Filtered magnitude of reported GNSS vertical velocity.                                                                                                                                                                                      |
+| Metric               | Minimum required                                                                                                                                                                                                    | Average Value        | Units | Notes                                                                                                                                                                                                                                                       |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| eph                  | <&nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))                         | 0.8  | m     | Standard deviation of horizontal position error                                                                                                                                                                                                             |
+| epv                  | <&nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))                         | 1.5  | m     | Standard deviation of vertical position error                                                                                                                                                                                                               |
+| Number of satellites | ≥6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))                                               | 14                   | -     |                                                                                                                                                                                                                                                             |
+| sacc                 | <&nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2  | m/s   | Standard deviation of horizontal speed error                                                                                                                                                                                                                |
+| fix type             | ≥&nbsp;3                                                                                                                                                                                        | 4                    | -     | 0-1: no fix, 2: 2D fix, 3: 3D fix, 4: RTCM code differential, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, fixed, 8: Extrapolated |
+| PDOP                 | <&nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0  | -     | Position dilution of precision                                                                                                                                                                                                                              |
+| hpos drift rate      | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s   | Drift rate calculated from reported GNSS position (when stationary).                                                                                                                                                     |
+| vpos drift rate      | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s   | Drift rate calculated from reported GNSS altitude (when stationary).                                                                                                                                                     |
+| hspd                 | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s   | Filtered magnitude of reported GNSS horizontal velocity.                                                                                                                                                                                    |
+| vspd                 | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s   | Filtered magnitude of reported GNSS vertical velocity.                                                                                                                                                                                      |
 
 :::info
 The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic.

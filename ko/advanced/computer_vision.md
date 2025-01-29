@@ -28,7 +28,7 @@ MoCap is commonly used to navigate a vehicle in situations where GPS is absent (
 
 - [External Position Estimation](../ros/external_position_estimation.md)
 - [Flying with Motion Capture (VICON, NOKOV, Optitrack)](../tutorials/motion-capture.md)
-- [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [Using PX4's Navigation Filter (EKF2) > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 
 ## Visual Inertial Odometry (VIO)
 
@@ -43,7 +43,7 @@ One difference between VIO and [MoCap](#motion-capture) is that VIO cameras/IMU 
 
 PX4의 VIO 설정 방법을 더 알아보려면 다음을 참고하십시오:
 
-- [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [Using PX4's Navigation Filter (EKF2) > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 - [T265 Setup guide](../peripherals/camera_t265_vio.md)
 
 ## 광류 센서
@@ -53,7 +53,7 @@ PX4의 VIO 설정 방법을 더 알아보려면 다음을 참고하십시오:
 광류 센서 기술을 더 알아보려면 다음을 참고하십시오.
 
 - [Optical Flow](../sensor/optical_flow.md)
-- [EKF > Optical Flow](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
+- [Using PX4's Navigation Filter (EKF2) > Optical Flow](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
 ## Comparisons
 

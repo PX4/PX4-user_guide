@@ -388,7 +388,7 @@
   - [PX4 Ethernet Setup](advanced_config/ethernet_setup.md)
   - [Стандартна конфігурація](config/index.md)
   - [Розширені налаштування](advanced_config/index.md)
-    - [ECL/EKF Overview & Tuning](advanced_config/tuning_the_ecl_ekf.md)
+    - [Using PX4's Navigation Filter (EKF2)](advanced_config/tuning_the_ecl_ekf.md)
     - [Finding/Updating Parameters](advanced_config/parameters.md)
     - [Full Parameter Reference](advanced_config/parameter_reference.md)
 
@@ -752,6 +752,7 @@
     - [Профілювання розміру бінаря](debug/binary_size_profiling.md)
     - [Логування](dev_log/logging.md)
     - [Аналіз логу польоту](dev_log/flight_log_analysis.md)
+      - [Statistical Analysis](dev_log/flight_log_analysis_statistical.md)
     - [Формат файлу ULog](dev_log/ulog_file_format.md)
     - [Log Encryption](dev_log/log_encryption.md)
   - [Просунуті теми](advanced/index.md)

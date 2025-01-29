@@ -41,6 +41,9 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
   Mission commands that may take some time to complete, such as those for controlling gimbals, winches, and grippers, will progress to the next item when either feedback is received or the timeout expires.
   This is often used to provide a minimum delay for hardware that does not provide completion feedback, so that it can reach the commanded state before the mission progresses.
   ([PX4-Autopilot#23960](https://github.com/PX4/PX4-Autopilot/pull/23960)).
+- [Compass calibration for large vehicles](../config/compass.md#large-vehicle-calibration).
+  This method is designed for vehicles where full rotation is impractical or impossible.
+  ([PX4-Autopilot#23185](https://github.com/PX4/PX4-Autopilot/pull/23185)).
 
 ### Control
 
@@ -56,8 +59,11 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### 仿真
 
-- [SIH]: The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7.
-  ([PX4-Autopilot#23363](https://github.com/PX4/PX4-Autopilot/pull/23363)).
+- [SIH]:
+  - The SIH on SITL [custom takeoff location](../sim_sih/index.md#set-custom-takeoff-location) in now set using the normal unscaled GPS position values, where previously the value needed to be multiplied by 1E7.
+    ([PX4-Autopilot#23363](https://github.com/PX4/PX4-Autopilot/pull/23363)).
+  - SIH now supports the standard VTOL airframe
+    ([PX4-Autopilot#24175](https://github.com/PX4/PX4-Autopilot/pull/24175)).
 - [Gazebo]:
   - Gazebo Harmonic LTS release replaces Gazebo Garden as the version supported by PX4.
     The default installer scripts (used for CI) and documentation have been updated.

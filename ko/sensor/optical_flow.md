@@ -98,4 +98,4 @@ For optical flow fusion using EKF2, set [EKF2_OF_CTRL](../advanced_config/parame
 | <a id="EKF2_OF_POS_Y"></a>[EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) | 바디 프레임에서 광류 초점의 Y 위치 (기본값은 0.0m). |
 | <a id="EKF2_OF_POS_Z"></a>[EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) | 바디 프레임에서 광류 초점의 Z 위치 (기본값은 0.0m). |
 
-See [Using the ECL EKF > Optical flow](../advanced_config/tuning_the_ecl_ekf.md#optical-flow) for more information.
+See [Using PX4's Navigation Filter (EKF2) > Optical flow](../advanced_config/tuning_the_ecl_ekf.md#optical-flow) for more information.

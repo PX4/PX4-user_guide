@@ -214,7 +214,7 @@ For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_re
 #### Подвійні приймачі
 
 Другий приймач GPS може бути використаний як резервний (RTK або не RTK).
-See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
+See the [Using PX4's Navigation Filter (EKF2) > GPS](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
 
 <!--
 - Video demonstration would be nice.

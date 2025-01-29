@@ -74,11 +74,11 @@ If you need help with the configuration you can ask for help on the [QGroundCont
 ## See Also
 
 - [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
-- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
+- [飞控外设](../peripherals/index.md) - 设置特定传感器、可选传感器、执行器等。
 - [Advanced Configuration](../advanced_config/index.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Vehicle-Centric Config/Tuning:
 
-  - [Multicopter Config/Tuning](../config_mc/index.md)
-  - [Helicopter Config/Tuning](../config_heli/index.md)
-  - [Fixed-wing Config/Tuning](../config_fw/index.md)
-  - [VTOL Config/Tuning](../config_vtol/index.md)
+  - [多旋翼配置/调参](../config_mc/index.md)
+  - [直升机配置/调参](../config_heli/index.md)
+  - [固定翼配置/调参](../config_fw/index.md)
+  - [VTOL 配置/调参](../config_vtol/index.md)

@@ -28,7 +28,7 @@ MoCap is commonly used to navigate a vehicle in situations where GPS is absent (
 
 - [Оцінка зовнішньої позиції ](../ros/external_position_estimation.md)
 - [Літання з використанням захоплення руху (VICON, NOKOV, Optitrack) ](../tutorials/motion-capture.md)
-- [EKF > Зовнішня візійна система ](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [Using PX4's Navigation Filter (EKF2) > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 
 ## Візуальна інерціальна оцінка положення (VIO)
 
@@ -43,7 +43,7 @@ MoCap is commonly used to navigate a vehicle in situations where GPS is absent (
 
 Для отримання інформації щодо налаштування VIO на PX4 дивіться:
 
-- [EKF > Зовнішня візійна система ](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [Using PX4's Navigation Filter (EKF2) > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 - [Керівництво з налаштування T265](../peripherals/camera_t265_vio.md)
 
 ## Оптичний потік(Optical Flow)
@@ -53,7 +53,7 @@ MoCap is commonly used to navigate a vehicle in situations where GPS is absent (
 [Оптичний потік](../sensor/optical_flow.md) забезпечує оцінку швидкості у двох вимірах (з використанням камери, спрямованої вниз, та датчика відстані, спрямованого вниз).
 
 - [Оптичний потік](../sensor/optical_flow.md)
-- [EKF > Оптичний потік](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
+- [Using PX4's Navigation Filter (EKF2) > Optical Flow](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
 ## Порівняння
 

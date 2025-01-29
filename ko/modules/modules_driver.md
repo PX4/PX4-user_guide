@@ -305,7 +305,7 @@ It skips all pins already in use (e.g. by a camera trigger module).
 
 모터 1 영구 역회전 :
 
-- DShot150, DShot300, DShot600, DShot1200
+- DShot150, DShot300, DShot600
 - 별도의 UART를 통한 텔레메트리와 esc_status 메시지로 게시
 - CLI를 통해 DShot 명령 보내기
 

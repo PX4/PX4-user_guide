@@ -178,7 +178,7 @@ for `posix_sitl_*`.
 This can be handy when it is necessary to step through code with a debugger or print variables that would otherwise be optimized out.
 
 To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization.
-This environment variable is ignored when the configuration isn't `posix_sitl_*`.
+This environment variable is ignored when the configuration isn&#39;t `posix_sitl_*`.
 
 would suppress optimization of the targets: platforms\*\_posix<strong x-id="1">px4\_layer, modules</strong>systemlib, modules<strong x-id="1">uORB, examples</strong>px4\_simple\_app, modules\*\*uORB\*\_uORB\_tests and px4.
 

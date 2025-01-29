@@ -388,7 +388,7 @@
   - [PX4 이더넷 설정](advanced_config/ethernet_setup.md)
   - [Standard Configuration](config/index.md)
   - [고급 설정](advanced_config/index.md)
-    - [ECL/EKF 개요 및 튜닝](advanced_config/tuning_the_ecl_ekf.md)
+    - [Using PX4's Navigation Filter (EKF2)](advanced_config/tuning_the_ecl_ekf.md)
     - [매개변수 검색 및 수정](advanced_config/parameters.md)
     - [전체 매개변수 정의서](advanced_config/parameter_reference.md)
 
@@ -752,6 +752,7 @@
     - [이진 크기 프로파일링](debug/binary_size_profiling.md)
     - [로깅](dev_log/logging.md)
     - [비행 로그 분석](dev_log/flight_log_analysis.md)
+      - [Statistical Analysis](dev_log/flight_log_analysis_statistical.md)
     - [ULog 파일 포맷](dev_log/ulog_file_format.md)
     - [Log Encryption](dev_log/log_encryption.md)
   - [고급 주제](advanced/index.md)

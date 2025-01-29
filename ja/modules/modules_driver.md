@@ -307,7 +307,7 @@ It skips all pins already in use (e.g. by a camera trigger module).
 
 It supports:
 
-- DShot150, DShot300, DShot600, DShot1200
+- DShot150, DShot300, DShot600
 - telemetry via separate UART and publishing as esc_status message
 - sending DShot commands via CLI
 

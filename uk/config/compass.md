@@ -17,12 +17,13 @@ Indications of a poor compass calibration include multicopter circling during ho
 _QGroundControl_ should also notify the error `mag sensors inconsistent`.
 :::
 
-Доступні два типи калібрування компаса:
+Several types of compass calibration are available:
 
 1. [Complete](#complete-calibration): This calibration is required after installing the autopilot on an airframe for the first time or when the configuration of the vehicle has changed significantly.
    Воно компенсує впливи твердого та м'якого заліза, оцінюючи зміщення та коефіцієнт масштабу для кожної вісі.
-2. [Partial](#partial-quick-calibration) ("Quick Calibration"): This calibration can be performed as a routine when preparing the vehicle for a flight, after changing the payload, or simply when the compass rose seems inaccurate.
+2. [Partial](#partial-quick-calibration): This calibration can be performed as a routine when preparing the vehicle for a flight, after changing the payload, or simply when the compass rose seems inaccurate.
    Цей тип калібрування лише оцінює зміщення для компенсації ефекту твердого заліза.
+3. [Large vehicle](#large-vehicle-calibration): This calibration can be performed when the vehicle is too large or heavy to perform a complete calibration. Цей тип калібрування лише оцінює зміщення для компенсації ефекту твердого заліза.
 
 ## Виконання калібрування
 
@@ -81,6 +82,28 @@ Once you've calibrated the vehicle in all the positions _QGroundControl_ will di
 - Калібрування негайно застосовується до даних (перезавантаження не потрібно), але зберігається в параметрах калібрування лише після відброшення транспортного засобу (калібрування втрачається, якщо між калібруванням і вимкненням не виконана послідовність увімкнення/вимкнення).
 - Амплітуда та швидкість часткових обертань, виконаних на кроці 1, можуть впливати на якість калібрування.
   Найчастіше вище зазначені поради виявляються досить ефективними.
+
+### Large Vehicle Calibration
+
+<Badge type="tip" text="main (PX4 v1.16+)" />
+
+This calibration process leverages external knowledge of vehicle's orientation and location, and a World Magnetic Model (WMM) to calibrate the hard iron biases.
+
+1. Ensure GNSS Fix. This is required to find the expected Earth magnetic field in WMM tables.
+2. Align the vehicle to face True North.
+   Be as accurate as possible for best results.
+3. Open the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) and send the following command:
+
+   ```sh
+   commander calibrate mag quick
+   ```
+
+Примітки:
+
+- This method is specifically designed for vehicles where full rotation is impractical or impossible.
+  If full rotation is possible, use the [complete calibration](#complete-calibration) instead.
+- The vehicle doesn't need to be exactly levelled as this is automatically compensated using the tilt estimate.
+- This calibration can also be triggered using the MAVLink command [MAV_CMD_FIXED_MAG_CAL_YAW](https://mavlink.io/en/messages/common.html#MAV_CMD_FIXED_MAG_CAL_YAW).
 
 ## Перевірка
 

@@ -388,7 +388,7 @@
   - [PX4 Ethernet Setup](advanced_config/ethernet_setup.md)
   - [Standard Configuration](config/index.md)
   - [応用設定](advanced_config/index.md)
-    - [ECL/EKF 概要 & チューニング](advanced_config/tuning_the_ecl_ekf.md)
+    - [Using PX4's Navigation Filter (EKF2)](advanced_config/tuning_the_ecl_ekf.md)
     - [パラメータの検索/更新](advanced_config/parameters.md)
     - [Full Parameter Reference](advanced_config/parameter_reference.md)
 
@@ -752,6 +752,7 @@
     - [Binary Size Profiling](debug/binary_size_profiling.md)
     - [Logging](dev_log/logging.md)
     - [フライトログ分析](dev_log/flight_log_analysis.md)
+      - [Statistical Analysis](dev_log/flight_log_analysis_statistical.md)
     - [ULog File Format](dev_log/ulog_file_format.md)
     - [Log Encryption](dev_log/log_encryption.md)
   - [Advanced Topics](advanced/index.md)

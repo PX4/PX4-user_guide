@@ -1,23 +1,27 @@
-# Використання ECL EKF
+# Using PX4's Navigation Filter (EKF2)
 
-Цей підручник відповідає на поширені запитання щодо використання алгоритму ECL EKF.
+This tutorial answers common questions about use of the EKF algorithm used for navigation.
 
 :::tip
-Відео [Огляд оцінки стану PX4](https://youtu.be/HkYRJJoyBwQ) з _Саміту розробників PX4 2019_ (доктор Пол Райсборо) надає огляд оцінювача, а також описує як основні зміни з 2018/2019 року, так і очікувані поліпшення до 2020 року.
+The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the _PX4 Developer Summit 2019_ (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, major changes and improvements were added since then.
 :::
 
-## Що таке ECL EKF?
+## Загальний огляд
 
-Бібліотека оцінок і керування (ECL) використовує алгоритм розширеного фільтра Калмана (EKF) для обробки вимірювань датчиків і надання оцінки таких станів:
+PX4's Navigation filter uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
 
-- Кватерніон, який визначає обертання від локальної земельної системи координат Північ, Схід, Вниз до тіла в системі координат X, Y, Z
+- Quaternion defining the rotation from North, East, Down local navigation frame to X, Y, Z body frame
 - Швидкість в IMU - Північ, Схід, Вниз (м/с)
-- Положення в IMU - Північ, Схід, Вниз (м)
-- Оцінки зміщення кута дельти IMU - X, Y, Z (рад)
-- Оцінки зміщення швидкості дельти IMU - X, Y, Z (м/с)
+- Position at the IMU - Latitude (rad), Longitude (rad), Altitude (m)
+- IMU gyro bias estimates - X, Y, Z (rad/s)
+- IMU accelerometer bias estimates - X, Y, Z (m/s<sup>2</sup>)
 - Компоненти земного магнітного поля - Північ, Схід, Вниз (гаусс)
 - Зміщення магнітного поля тіла транспортного засобу - X, Y, Z (гаусс)
 - Швидкість вітру - північний, східний \(м/с\)
+- Terrain altitude (m)
+
+To improve stability, an "error-state" formulation is implemented
+This is especially relevant when estimating the uncertainty of a rotation which is a 3D vector (tangent space of SO(3)).
 
 EKF працює зі затримкою 'горизонту злиття часу', щоб дозволити різним затримкам часу для кожного вимірювання відносно ІМП.
 Дані для кожного датчика зберігаються у буфері FIFO та забираються з буфера ЕКФ для використання в потрібний час.
@@ -27,16 +31,28 @@ EKF працює зі затримкою 'горизонту злиття час
 Часова константа цього фільтру контролюється параметрами [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) та [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS).
 
 :::info
-Затримка "горизонту злиття" та довжина буферів визначається найбільшим з параметрів `EKF2_*_DELAY`.
-Якщо датчик не використовується, рекомендується встановити для нього затримку часу на рівні нуля.
+The 'fusion time horizon' delay and length of the buffers is determined by [EKF2_DELAY_MAX](../advanced_config/parameter_reference.md#EKF2_DELAY_MAX).
+This value should be at least as large as the longest delay `EKF2\_\*\_DELAY`.
 Зменшення затримки "горизонту злиття" зменшує помилки в доповнювальному фільтрі, що використовується для передачі станів до поточного часу.
 :::
 
+ЕКФ використовує дані ІМУ лише для передбачення стану.
+Дані ІМУ не використовуються як спостереження при похідництві ЕКФ.
+The algebraic equations for the covariance prediction and measurement jacobians are derived using [SymForce](https://symforce.org/) and can be found here: [Symbolic Derivation](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/ekf2/EKF/python/ekf_derivation/derivation.py).
+Covariance update is done using the [Joseph Stabilized form](https://en.wikipedia.org/wiki/Kalman_filter#Deriving_the_posteriori_estimate_covariance_matrix) to improve numerical stability and allow conditional update of independent states.
+
+### Precisions about the position output
+
+The position is estimated as latitude, longitude and altitude and the INS integration is performed using the WGS84 ellipsoid mode.
+However, the position uncertainty is defined in the local navigation frame at the current position (i.e.: NED error in meters).
+
 Стани положення та швидкості налаштовуються з урахуванням зсуву між IMU та каркасом тіла перед тим, як вони виводяться на контури керування.
+
 Положення ІМУ відносно тіла задається параметрами `EKF2_IMU_POS_X,Y,Z`.
 
-ЕКФ використовує дані ІМУ лише для передбачення стану. Дані ІМУ не використовуються як спостереження при похідництві ЕКФ.
-Алгебраїчні рівняння для передбачення коваріації, оновлення стану та оновлення коваріації були отримані за допомогою пакету символьних обчислень Matlab і можуть бути знайдені тут: [Matlab Symbolic Derivation](https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m).
+In addition to the global position estimate in latitude/longitude/altitude, the filter also provides a local position estimate (NED in meters) by projecting the global position estimate using an [azimuthal_equidistant_projection](https://en.wikipedia.org/wiki/Azimuthal_equidistant_projection) centred on an arbitrary origin.
+This origin is automatically set when global position measurements are fused but can also be specified manually.
+If no global position information is provided, only the local position is available and the INS integration is performed on a spherical Earth.
 
 ## Запуск одного EKF екземпляра
 
@@ -113,7 +129,8 @@ EKF має різні режими роботи, які дозволяють в�
 Під час запуску фільтр перевіряє мінімально можливу комбінацію датчиків, і після завершення початкового вирівнювання кута нахилу, кута розвороту та висоти, входить у режим, що забезпечує оцінки обертання, вертикальної швидкості, вертикального положення, зміщення кута та швидкості IMU.
 
 Цей режим потребує даних від IMU, джерела кута розвороту (магнітометра або зовнішнього бачення) та джерела даних про висоту.
-Цей мінімальний набір даних потрібний для всіх режимів роботи EKF. Інші дані датчика можуть бути використані для оцінки додаткових станів.
+Цей мінімальний набір даних потрібний для всіх режимів роботи EKF.
+Інші дані датчика можуть бути використані для оцінки додаткових станів.
 
 ### IMU
 
@@ -122,26 +139,46 @@ EKF має різні режими роботи, які дозволяють в�
 
 ### Магнітометр
 
-Дані магнітометра, закріплені на тілі (або дані положення зовнішньої системи бачення), мінімум з частотою 5 Гц, необхідні.
+Three axis body fixed magnetometer data at a minimum rate of 5Hz is required to be considered by the estimator.
 
-Дані магнітометра можна використовувати двома способами:
+::: info
 
-- Вимірювання магнітометра перетворюються в кут розвороту за допомогою оцінки нахилу та магнітного нахилу.
-  Кут розвороту потім використовується як спостереження для EKF.
-  - Цей метод менш точний і не дозволяє вивчити зміщення поля тіла, однак він більш стійкий до магнітних аномалій і великих початкових зміщень гіроскопа.
-  - Це метод, який використовується за замовчуванням під час запуску і на землі.
-- Вимірювання магнітометра XYZ використовуються як окремі спостереження.
-  - Цей метод більш точний, але вимагає правильної оцінки зміщень магнітометра.
-    - Зміщення спостерігаються під час обертання дрону, а справжній кут розвороту спостерігається при прискоренні транспортного засобу (лінійне прискорення).
-    - Оскільки зміщення можуть змінюватися і спостерігаються тільки під час руху, безпечніше повернутися до фільтрації кута розвороту, коли транспортний засіб не рухається.
-  - Вона передбачає, що навколишнє магнітне поле Землі змінюється повільно і працює менш ефективно, коли є значні зовнішні магнітні аномалії.
-  - Це метод, який використовується за замовчуванням, коли транспортний засіб рухається.
+- The magnetometer **biases** are only observable while the drone is rotating
+- The true heading is observable when the vehicle is accelerating (linear acceleration) while absolute position or velocity measurements are fused (e.g. GPS).
+  This means that magnetometer heading measurements are optional after initialization if those conditions are met often enough to constrain the heading drift (caused by gyro bias).
 
-Логіка вибору цих режимів встановлюється параметром [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE).
-The default 'Automatic' mode (`EKF2_MAG_TYPE=0`) is recommended as it uses the more robust magnetometer yaw on the ground, and more accurate 3-axis magnetometer when moving.
-Setting '3-axis' mode all the time (`EKF2_MAG_TYPE=2`) is more error-prone, and requires that all the IMUs are well calibrated.
+:::
 
-Існує можливість працювати без магнітного компасу, або заміни його за допомогою [кута розвороту від подвійного антенного GPS](#yaw-measurements), або використовувати виміри IMU та дані швидкості GPS для [оцінки кута розвороту від руху транспортного засобу](#yaw-from-gps-velocity).
+Magnetometer data fusion can be configured using [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE):
+
+0. Automatic:
+   - The magnetometer readings only affect the heading estimate before arming, and the whole attitude after arming.
+   - Heading and tilt errors are compensated when using this method.
+   - Incorrect magnetic field measurements can degrade the tilt estimate.
+   - The magnetometer biases are estimated whenever observable.
+1. Magnetic heading:
+   - Only the heading is corrected.
+     The tilt estimate is never affected by incorrect magnetic field measurements.
+   - Tilt errors that could arise when flying without velocity/position aiding are not corrected when using this method.
+   - The magnetometer biases are estimated whenever observable.
+2. Deprecated
+3. Deprecated
+4. Deprecated
+5. None:
+   - Magnetometer data is never used.
+     This is useful when the data can never be trusted (e.g.: high current close to the sensor, external anomalies).
+   - The estimator will use other sources of heading: [GPS heading](#yaw-measurements) or external vision.
+   - When using GPS measurements without another source of heading, the heading can only be initialized after sufficient horizontal acceleration.
+     See [Estimate yaw from vehicle movement](#yaw-from-gps-velocity) below.
+6. Init only:
+   - Magnetometer data is only used to initialize the heading estimate.
+     This is useful when the data can be used before arming but not afterwards (e.g.: high current after the vehicle is armed).
+   - After initialization, the heading is constrained using other observations.
+   - Unlike mag type `None`, when combined with GPS measurements, this method allows position controlled modes to run directly during takeoff.
+
+The following selection tree can be used to select the right option:
+
+![EKF mag type selection tree](../../assets/config/ekf/ekf_mag_type_selection_tree.png)
 
 ### Висота
 
@@ -289,18 +326,18 @@ Weightings applied by the GSF to the individual 3-state EKF outputs are in the`w
 Нижче наведена таблиця, яка показує різні метри, які безпосередньо повідомляються або обчислюються на основі даних GNSS, а також мінімальні значення, необхідні для того, щоб ці дані використовувалися ECL.
 Крім того, стовпчик _Середнє значення_ показує типові значення, які можуть бути розумними для отримання зі стандартного модуля GNSS (наприклад, серія u-blox M8) - тобто значення, які вважаються хорошими/прийнятними.
 
-| Метрика               | Мінімальна вимога                                                                                                                                                                                                       | Середнє значення     | Units | Примітки                                                                                                                                                                                                                                                                                        |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eph                   | <&amp;nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))                         | 0.8  | m     | Стандартне відхилення помилки горизонтальної позиції                                                                                                                                                                                                                                            |
-| epv                   | <&amp;nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))                         | 1.5  | m     | Стандартне відхилення помилки вертикальної позиції                                                                                                                                                                                                                                              |
-| Кількість супутників  | ≥6&amp;nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))                                               | 14                   | -     |                                                                                                                                                                                                                                                                                                 |
-| sacc                  | <&amp;nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2  | m/s   | Стандартне відхилення помилки горизонтальної швидкості                                                                                                                                                                                                                                          |
-| fix type              | ≥&amp;nbsp;3                                                                                                                                                                                        | 4                    | -     | 0-1: відсутній фікс, 2: 2D фікс, 3: 3D фікс, 4: диференційний код RTCM, 5: кінематика в реальному часі, плаваюча, 6: кінематика в реальному часі, фіксована, 8: екстрапольована |
-| PDOP                  | <&amp;nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0  | -     | Дільник точності положення                                                                                                                                                                                                                                                                      |
-| hpos швидкість дрейфу | <&amp;nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s   | Швидкість дрейфу, обчислена з відомого положення GNSS (при безрухомості).                                                                                                                                                                                    |
-| vpos швидкість дрейфу | <&amp;nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s   | Швидкість дрейфу, обчислена з відомої висоти GNSS (при безрухомості).                                                                                                                                                                                        |
-| hspd                  | <&amp;nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s   | Фільтрована величина звітної горизонтальної швидкості GNSS.                                                                                                                                                                                                                     |
-| vspd                  | <&amp;nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s   | Фільтрована величина звітної вертикальної швидкості GNSS.                                                                                                                                                                                                                       |
+| Метрика               | Мінімальна вимога                                                                                                                                                                                                   | Середнє значення     | Units | Примітки                                                                                                                                                                                                                                                                                        |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| eph                   | <&nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))                         | 0.8  | m     | Стандартне відхилення помилки горизонтальної позиції                                                                                                                                                                                                                                            |
+| epv                   | <&nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))                         | 1.5  | m     | Стандартне відхилення помилки вертикальної позиції                                                                                                                                                                                                                                              |
+| Кількість супутників  | ≥6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))                                               | 14                   | -     |                                                                                                                                                                                                                                                                                                 |
+| sacc                  | <&nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2  | m/s   | Стандартне відхилення помилки горизонтальної швидкості                                                                                                                                                                                                                                          |
+| fix type              | ≥&nbsp;3                                                                                                                                                                                        | 4                    | -     | 0-1: відсутній фікс, 2: 2D фікс, 3: 3D фікс, 4: диференційний код RTCM, 5: кінематика в реальному часі, плаваюча, 6: кінематика в реальному часі, фіксована, 8: екстрапольована |
+| PDOP                  | <&nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0  | -     | Дільник точності положення                                                                                                                                                                                                                                                                      |
+| hpos швидкість дрейфу | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s   | Швидкість дрейфу, обчислена з відомого положення GNSS (при безрухомості).                                                                                                                                                                                    |
+| vpos швидкість дрейфу | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s   | Швидкість дрейфу, обчислена з відомої висоти GNSS (при безрухомості).                                                                                                                                                                                        |
+| hspd                  | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s   | Фільтрована величина звітної горизонтальної швидкості GNSS.                                                                                                                                                                                                                     |
+| vspd                  | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s   | Фільтрована величина звітної вертикальної швидкості GNSS.                                                                                                                                                                                                                       |
 
 :::info
 Параметри `hpos_drift_rate`, `vpos_drift_rate` та `hspd` обчислюються протягом 10 секунд і публікуються у темі `ekf2_gps_drift`.

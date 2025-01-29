@@ -68,7 +68,7 @@ Airframes with more than two frequency noise spikes typically clean the first tw
 #### Dynamic Notch Filters
 
 Dynamic notch filters use ESC RPM feedback and/or the onboard FFT analysis.
-The ESC RPM feedback is used to track the rotor blade pass frequency and its harmonics, while the FFT analysis can be used to track a frequency of another vibration source, such a fuel engine.
+The ESC RPM feedback is used to track the rotor blade pass frequency and its harmonics, while the FFT analysis can be used to track a frequency of another vibration source, such as a fuel engine.
 
 ESC RPM feedback requires ESCs capable of providing RPM feedback such as [DShot](../peripherals/esc_motors.md#dshot) with telemetry connected, a bidirectional DShot set up ([work in progress](https://github.com/PX4/PX4-Autopilot/pull/23863)), or [UAVCAN/DroneCAN ESCs](../dronecan/escs.md).
 Before enabling, make sure that the ESC RPM is correct.
@@ -78,7 +78,7 @@ The following parameters should be set to enable and configure dynamic notch fil
 
 | Параметр                                                                                                                                                                     | Опис                                                                                                                                     |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| <a href="IMU_GYRO_DNF_EN"></a>[IMU_GYRO_DNF_EN](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_EN)    | Enable IMU gyro dynamic notch filtering. `0`: ESK RPM, `1`: Onboard FFT. |
+| <a href="IMU_GYRO_DNF_EN"></a>[IMU_GYRO_DNF_EN](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_EN)    | Enable IMU gyro dynamic notch filtering. `0`: ESC RPM, `1`: Onboard FFT. |
 | <a href="IMU_GYRO_FFT_EN"></a>[IMU_GYRO_FFT_EN](../advanced_config/parameter_reference.md#IMU_GYRO_FFT_EN)    | Enable onboard FFT (required if `IMU_GYRO_DNF_EN` is set to `1`).                                     |
 | <a href="IMU_GYRO_DNF_MIN"></a>[IMU_GYRO_DNF_MIN](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_MIN) | Minimum dynamic notch frequency in Hz.                                                                                   |
 | <a href="IMU_GYRO_DNF_BW"></a>[IMU_GYRO_DNF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_DNF_BW)    | Bandwidth for each notch filter in Hz.                                                                                   |
@@ -91,11 +91,11 @@ A low pass filter on the gyro data can be configured with the [IMU_GYRO_CUTOFF](
 Для зменшення затримки керування ми хочемо збільшити частоту відсічки для фільтрів нижніх частот.
 The effect on latency of increasing `IMU_GYRO_CUTOFF` is approximated below.
 
-| Частота відсічки (Гц) | Затримка (мс) |
-| ---------------------------------------- | -------------------------------- |
-| 30                                       | 8                                |
-| 60                                       | 3.8              |
-| 120                                      | 1.9              |
+| Cutoff (Hz) | Затримка (мс) |
+| ------------------------------ | -------------------------------- |
+| 30                             | 8                                |
+| 60                             | 3.8              |
+| 120                            | 1.9              |
 
 However this is a trade-off as increasing `IMU_GYRO_CUTOFF` will also increase the noise of the signal that is fed to the motors.
 Шум на двигунах має наступні наслідки:

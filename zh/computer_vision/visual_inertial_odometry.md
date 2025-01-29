@@ -81,7 +81,7 @@ System status messages of the type [`mavros_msgs/CompanionProcessStatus`](https:
 
 These can be set in _QGroundControl_ > **Vehicle Setup > Parameters > EKF2** (remember to reboot the flight controller in order for parameter changes to take effect).
 
-For more detailed/additional information, see: [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
+For more detailed/additional information, see: [Using PX4's Navigation Filter (EKF2) > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
 
 <a id="tuning-EKF2_EV_DELAY"></a>
 
@@ -173,4 +173,4 @@ Developers who are interested in extending this implementation (or writing a dif
 
 ## 更多信息
 
-- [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [Using PX4's Navigation Filter (EKF2) > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)

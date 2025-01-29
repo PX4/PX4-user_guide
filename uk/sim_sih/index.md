@@ -26,6 +26,7 @@ The Desktop computer is only used to display the virtual vehicle.
 - SIH для квадрокоптера підтримується з версії PX4 v1.9.
 - SIH для фіксованих крил (літака) та VTOL-конвертоплана підтримується з версії PX4 v1.13.
 - SIH як SITL (без апаратного забезпечення) з версії PX4 v1.14.
+- SIH for Standard VTOL from PX4 v1.16.
 
 ### Переваги
 
@@ -59,6 +60,7 @@ To set up/start SIH:
    - [SIH Quadcopter X](../airframes/airframe_reference.md#copter_simulation_sih_quadcopter_x)
    - [SIH plane AERT](../airframes/airframe_reference.md#plane_simulation_sih_plane_aert)
    - [SIH Tailsitter Duo](../airframes/airframe_reference.md#vtol_simulation_sih_tailsitter_duo)
+   - [SIH Standard VTOL QuadPlane](../airframes/airframe_reference.md#vtol_simulation_sih_standard_vtol_quadplane)
 
 Потім автопілот перезавантажиться.
 The `sih` module is started on reboot, and the vehicle should be displayed on the ground control station map.

@@ -9,7 +9,7 @@ This topic lists configuration topics that are not particularly vehicle specific
 
 ## Feature configuration
 
-- [Огляд ECL/EKF та налаштування](../advanced_config/tuning_the_ecl_ekf.md)
+- [Using PX4's Navigation Filter (EKF2)](../advanced_config/tuning_the_ecl_ekf.md)
 - [Конфігурація завершення польоту](../advanced_config/flight_termination.md)
 - [Конфігурація датчика землі](../advanced_config/land_detector.md)
 - [Prearm/Arm/Disarm Configuration](../advanced_config/prearm_arm_disarm.md)

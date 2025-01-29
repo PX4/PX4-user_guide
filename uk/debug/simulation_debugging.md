@@ -177,7 +177,7 @@ for `posix_sitl_*`.
 Це може бути зручним, коли необхідно пройтися по коду з відлагоджувачем або роздрукувати змінні, які інакше були б оптимізовані.
 
 To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization.
-This environment variable is ignored when the configuration isn't `posix_sitl_*`.
+This environment variable is ignored when the configuration isn&#39;t `posix_sitl_*`.
 
 Наприклад,
 

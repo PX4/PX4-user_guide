@@ -34,7 +34,7 @@
 ## Динамічне калібрування
 
 Після модифікації апаратної частини ви можете використовувати параметри [EKF2_PCOEF_\*](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN), щоб налаштувати очікувану варіацію барометра на основі відносної швидкості повітря.
-Для отримання додаткової інформації дивіться [Огляд та Налаштування ECL/EKF &gt; Корекція Помилки Позиції зі Статичним Тиском](../advanced_config/tuning_the_ecl_ekf.md#correction-for-static-pressure-position-error).
+For more information see [Using PX4's Navigation Filter (EKF2) > Correction for Static Pressure Position Error](../advanced_config/tuning_the_ecl_ekf.md#correction-for-static-pressure-position-error).
 
 :::info
 Даний підхід працює добре, якщо зв'язок між помилкою, спричиненою статичним тиском, та швидкістю змінюється лінійно.
