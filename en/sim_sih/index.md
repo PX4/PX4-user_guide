@@ -195,8 +195,6 @@ For all variants of SIH:
   For SIH on SITL you will need to explicitly enable these sensors as shown below.
   :::
 
-- `param set-default CBRK_SUPPLY_CHK 894281` to disable power valid check.
-- `param set-default CBRK_IO_SAFETY 22027` to disable IO safety check.
 - `param set-default EKF2_GPS_DELAY 0` to improve state estimator performance (the assumption of instant GPS measurements would normally be unrealistic, but is accurate for SIH).
 
 For SIH on FC:
@@ -206,7 +204,6 @@ For SIH on FC:
 - Actuators are configured with `HIL_ACT_FUNC*` parameters (not the usual `PWM_MAIN_FUNC*` parameters).
   This is to avoid using the real actuator outputs in SIH.
   Similarly, the bitfield for inverting individual actuator output ranges is `HIL_ACT_REV`, rather than `PWM_MAIN_REV`.
-- `param set CBRK_USB_CHK 894281` to disable USB link check.
 
 For SIH as SITL (no FC):
 
@@ -220,7 +217,7 @@ For SIH as SITL (no FC):
   - `param set-default SENS_EN_GPSSIM 1`
   - `param set-default SENS_EN_BAROSIM 1`
   - `param set-default SENS_EN_MAGSIM 1`
-  - `param set-default SENS_EN_ARSPDSIM 1`
+  - `param set-default SENS_EN_ARSPDSIM 1` (if it is a fixed-wing or VTOL airframe with airspeed sensor)
 
 For specific examples see the `_sihsim_` airframes in [ROMFS/px4fmu_common/init.d-posix/airframes](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/) (SIH as SITL) and [ROMFS/px4fmu_common/init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes) (SIH on FC).
 
