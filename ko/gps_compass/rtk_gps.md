@@ -215,7 +215,7 @@ For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_re
 #### 이중 수신기
 
 두 번째 GPS 수신기는 백업으로 사용할 수 있습니다 (RTK 또는 비 RTK).
-See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
+See the [Using PX4's Navigation Filter (EKF2) > GPS](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
 
 <!--
 - Video demonstration would be nice.
