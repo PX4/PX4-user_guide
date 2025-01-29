@@ -388,7 +388,7 @@
   - [PX4 Ethernet Setup](advanced_config/ethernet_setup.md)
   - [Standard Configuration](config/index.md)
   - [高级配置](advanced_config/index.md)
-    - [ECL/EKF 概述 &调试](advanced_config/tuning_the_ecl_ekf.md)
+    - [Using PX4's Navigation Filter (EKF2)](advanced_config/tuning_the_ecl_ekf.md)
     - [查找/更新参数](advanced_config/parameters.md)
     - [Full Parameter Reference](advanced_config/parameter_reference.md)
 
@@ -752,6 +752,7 @@
     - [二进制大小分析](debug/binary_size_profiling.md)
     - [日志](dev_log/logging.md)
     - [飞行日志分析](dev_log/flight_log_analysis.md)
+      - [Statistical Analysis](dev_log/flight_log_analysis_statistical.md)
     - [ULog 文件格式](dev_log/ulog_file_format.md)
     - [Log Encryption](dev_log/log_encryption.md)
   - [高级主题](advanced/index.md)
