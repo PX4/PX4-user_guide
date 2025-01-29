@@ -77,6 +77,6 @@ Airspeed sensors should be calibrated by following the instructions: [Basic Conf
 
 ## Дивіться також
 
-- [Using the ECL EKF > Airspeed](../advanced_config/tuning_the_ecl_ekf.md#airspeed)
+- [Using PX4's Navigation Filter (EKF2) > Airspeed](../advanced_config/tuning_the_ecl_ekf.md#airspeed)
 - [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure) (source code)
 - [VTOL Without an Airspeed Sensor](../config_vtol/vtol_without_airspeed_sensor.md)
