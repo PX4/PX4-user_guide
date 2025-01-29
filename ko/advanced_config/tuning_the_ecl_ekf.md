@@ -1,23 +1,27 @@
-# ECL EKF 사용
+# Using PX4's Navigation Filter (EKF2)
 
-이 섹션은 ECL EKF 알고리즘에 관한 질문에 대한 답변들입니다.
+This tutorial answers common questions about use of the EKF algorithm used for navigation.
 
 :::tip
-The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the _PX4 Developer Summit 2019_ (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
+The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the _PX4 Developer Summit 2019_ (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, major changes and improvements were added since then.
 :::
 
-## ECL EKF는 무엇입니까?
+## 개요
 
-ECL(Estimation and Control Library)은 EKF(Extended Kalman Filter) 알고리즘으로 센서 측정 데이터를 처리하여 상태의 추정치를 제공합니다.
+PX4's Navigation filter uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
 
-- 북쪽, 동쪽, 아래쪽 지역 지구 프레임에서 X, Y, Z 본체의 회전을 정의하는 쿼터니언
+- Quaternion defining the rotation from North, East, Down local navigation frame to X, Y, Z body frame
 - IMU의 속도 - 북쪽, 동쪽, 아래쪽 (m/s)
-- IMU에서의 위치 - 북쪽, 동쪽, 아래쪽 (m)
-- IMU 델타 각도 편향 추정값 - X, Y, Z (rad)
-- IMU 델타 속도 바이어스 추정값 - X, Y, Z (m/s)
+- Position at the IMU - Latitude (rad), Longitude (rad), Altitude (m)
+- IMU gyro bias estimates - X, Y, Z (rad/s)
+- IMU accelerometer bias estimates - X, Y, Z (m/s<sup>2</sup>)
 - 지구 자기장 요소 - 북쪽, 동쪽, 아래쪽 \(gauss\)
 - 기체 프레임 자기장 바이어스 - X,Y,Z \(gauss\)
 - 풍속 - 북쪽, 동쪽 \(m/s\)
+- Terrain altitude (m)
+
+To improve stability, an "error-state" formulation is implemented
+This is especially relevant when estimating the uncertainty of a rotation which is a 3D vector (tangent space of SO(3)).
 
 EKF는 IMU와 관련된 각 측정에서 다른 시간 지연을 허용하기 위하여, 지연된 '융합 시간 지평'에서 실행됩니다.
 각 센서의 데이터는 FIFO 버퍼링되고, EKF에 의해 버퍼에서 검색되어 적절한 시간에 사용됩니다.
@@ -27,16 +31,28 @@ The delay compensation for each sensor is controlled by the [EKF2\_\*\_DELAY](..
 The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameters.
 
 :::info
-The 'fusion time horizon' delay and length of the buffers is determined by the largest of the `EKF2_*_DELAY` parameters.
-센서를 사용하지 않는 경우에는 시간 지연을 0으로 설정하는 것이 좋습니다.
+The 'fusion time horizon' delay and length of the buffers is determined by [EKF2_DELAY_MAX](../advanced_config/parameter_reference.md#EKF2_DELAY_MAX).
+This value should be at least as large as the longest delay `EKF2\_\*\_DELAY`.
 '퓨전 시간 지평' 지연을 줄이면 상태를 현재 시간으로 전달하는 데 사용되는 보완 필터의 오류가 줄어 듭니다.
 :::
 
+EKF는 상태 예측에만 IMU 데이터를 사용합니다.
+IMU 데이터는 EKF 유도에서 관측치로 사용되지 않습니다.
+The algebraic equations for the covariance prediction and measurement jacobians are derived using [SymForce](https://symforce.org/) and can be found here: [Symbolic Derivation](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/ekf2/EKF/python/ekf_derivation/derivation.py).
+Covariance update is done using the [Joseph Stabilized form](https://en.wikipedia.org/wiki/Kalman_filter#Deriving_the_posteriori_estimate_covariance_matrix) to improve numerical stability and allow conditional update of independent states.
+
+### Precisions about the position output
+
+The position is estimated as latitude, longitude and altitude and the INS integration is performed using the WGS84 ellipsoid mode.
+However, the position uncertainty is defined in the local navigation frame at the current position (i.e.: NED error in meters).
+
 위치와 속도 상태는 제어 루프로 출력되기 전에 IMU와 본체 프레임 간의 오프셋을 고려하여 조정됩니다.
+
 The position of the IMU relative to the body frame is set by the `EKF2_IMU_POS_X,Y,Z` parameters.
 
-EKF는 상태 예측에만 IMU 데이터를 사용합니다. IMU 데이터는 EKF 유도에서 관측치로 사용되지 않습니다.
-The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m).
+In addition to the global position estimate in latitude/longitude/altitude, the filter also provides a local position estimate (NED in meters) by projecting the global position estimate using an [azimuthal_equidistant_projection](https://en.wikipedia.org/wiki/Azimuthal_equidistant_projection) centred on an arbitrary origin.
+This origin is automatically set when global position measurements are fused but can also be specified manually.
+If no global position information is provided, only the local position is available and the INS integration is performed on a spherical Earth.
 
 ## 단일 EKF 인스턴스 실행
 
@@ -118,7 +134,8 @@ EKF에는 다양한 센서 측정 조합으로 작동하는 여러가지 모드�
 시작시 필터는 센서의 최소 가능한 조합을 확인하고 초기 기울기, 편 요각 및 높이 정렬이 완료된 후 회전, 수직 속도, 수직 위치, IMU 델타 각도 바이어스 및 IMU 델타 속도 바이어스 추정치를 제공하는 모드로 들어갑니다.
 
 이 모드에는 IMU 데이터, 요(자기계 또는 외부 비전) 소스와 고도 데이터 소스가 필요합니다.
-이 최소 데이터 세트는 모든 EKF 모드에 필요합니다. 그런 다음 다른 센서 데이터를 사용하여 추가 상태를 추정할 수 있습니다.
+이 최소 데이터 세트는 모든 EKF 모드에 필요합니다.
+그런 다음 다른 센서 데이터를 사용하여 추가 상태를 추정할 수 있습니다.
 
 ### 관성 센서
 
@@ -128,26 +145,46 @@ EKF에는 다양한 센서 측정 조합으로 작동하는 여러가지 모드�
 
 ### 자기 센서
 
-최소 5Hz 속도의 3축 본체 고정 자력계 데이터 (또는 외부 비전 시스템 포즈 데이터)가 필요합니다.
+Three axis body fixed magnetometer data at a minimum rate of 5Hz is required to be considered by the estimator.
 
-자력계 데이터는 두 가지 방법으로 사용할 수 있습니다.
+::: info
 
-- 자력계는 기울기 추정과 자기 편각을 사용하여 요 각도를 측정합니다.
-  The yaw angle is then used as an observation by the EKF.
-  - 이 방법은 정확도가 떨어지고, 본체 필드 오프셋의 학습을 허용하지 않지만, 자기 이상과 대규모 스타트업 자이로 바이어스에 더 강력합니다.
-  - 지상에서 시동에 사용되는 기본 방법입니다.
-- XYZ 자력계 판독 값은 별도의 관측치로 사용됩니다.
-  - This method is more accurate but requires that the magnetometer biases are correctly estimated.
-    - The biases are observable while the drone is rotating and the true heading is observable when the vehicle is accelerating (linear acceleration).
-    - Since the biases can change and are only observable when moving, it is safer to switch back to heading fusion when not moving.
-  - It assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
-  - This is the default method used when the vehicle is moving.
+- The magnetometer **biases** are only observable while the drone is rotating
+- The true heading is observable when the vehicle is accelerating (linear acceleration) while absolute position or velocity measurements are fused (e.g. GPS).
+  This means that magnetometer heading measurements are optional after initialization if those conditions are met often enough to constrain the heading drift (caused by gyro bias).
 
-The logic used to select these modes is set by the [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) parameter.
-The default 'Automatic' mode (`EKF2_MAG_TYPE=0`) is recommended as it uses the more robust magnetometer yaw on the ground, and more accurate 3-axis magnetometer when moving.
-Setting '3-axis' mode all the time (`EKF2_MAG_TYPE=2`) is more error-prone, and requires that all the IMUs are well calibrated.
+:::
 
-The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#yaw-measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#yaw-from-gps-velocity).
+Magnetometer data fusion can be configured using [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE):
+
+0. Automatic:
+   - The magnetometer readings only affect the heading estimate before arming, and the whole attitude after arming.
+   - Heading and tilt errors are compensated when using this method.
+   - Incorrect magnetic field measurements can degrade the tilt estimate.
+   - The magnetometer biases are estimated whenever observable.
+1. Magnetic heading:
+   - Only the heading is corrected.
+     The tilt estimate is never affected by incorrect magnetic field measurements.
+   - Tilt errors that could arise when flying without velocity/position aiding are not corrected when using this method.
+   - The magnetometer biases are estimated whenever observable.
+2. Deprecated
+3. Deprecated
+4. Deprecated
+5. None:
+   - Magnetometer data is never used.
+     This is useful when the data can never be trusted (e.g.: high current close to the sensor, external anomalies).
+   - The estimator will use other sources of heading: [GPS heading](#yaw-measurements) or external vision.
+   - When using GPS measurements without another source of heading, the heading can only be initialized after sufficient horizontal acceleration.
+     See [Estimate yaw from vehicle movement](#yaw-from-gps-velocity) below.
+6. Init only:
+   - Magnetometer data is only used to initialize the heading estimate.
+     This is useful when the data can be used before arming but not afterwards (e.g.: high current after the vehicle is armed).
+   - After initialization, the heading is constrained using other observations.
+   - Unlike mag type `None`, when combined with GPS measurements, this method allows position controlled modes to run directly during takeoff.
+
+The following selection tree can be used to select the right option:
+
+![EKF mag type selection tree](../../assets/config/ekf/ekf_mag_type_selection_tree.png)
 
 ### 고도
 
@@ -296,18 +333,18 @@ Minima are defined in the [EKF2_REQ_\*](../advanced_config/parameter_reference.m
 The table below shows the different metrics directly reported or calculated from the GNSS data, and the minimum required values for the data to be used by ECL.
 In addition, the _Average Value_ column shows typical values that might reasonably be obtained from a standard GNSS module (e.g. u-blox M8 series) - i.e. values that are considered good/acceptable.
 
-| 메트릭             | 최소 요구 사항                                                                                                                                                                                                                | 평균                   | 단위  | 참고                                                                                                                                                                                                                              |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eph             | <&amp;nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))                         | 0.8  | m   | 수평 위치의 표준 편차                                                                                                                                                                                                                    |
-| epv             | <&amp;nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))                         | 1.5  | m   | 수직 위치의 표준 편차                                                                                                                                                                                                                    |
-| 위성 개수           | ≥6&amp;nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))                                               | 14                   | -   |                                                                                                                                                                                                                                 |
-| sacc            | <&amp;nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2  | m/s | 수평 속도의 표준 편차                                                                                                                                                                                                                    |
-| fix type        | ≥&amp;nbsp;3                                                                                                                                                                                        | 4                    | -   | 0-1: 수정 없음, 2: 2D 수정, 3: 3D 수정, 4: RTCM 차등 코드, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, 고정, 8: 외삽 |
-| PDOP            | <&amp;nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0  | -   | 정밀도의 위치 희석                                                                                                                                                                                                                      |
-| hpos drift rate | <&amp;nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | 보고된 GNSS 위치에서 계산된 드리프트 율 (정지시).                                                                                                                                                              |
-| vpos drift rate | <&amp;nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | 보고된 GNSS 고도에서 계산된 드리프트 율 (정지시).                                                                                                                                                              |
-| hspd            | <&amp;nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | 보고된 GNSS 수평 속도의 필터링 크기.                                                                                                                                                                                         |
-| vspd            | <&amp;nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | 보고된 GNSS 수직 속도의 필터링 크기.                                                                                                                                                                                         |
+| 메트릭             | 최소 요구 사항                                                                                                                                                                                                            | 평균                   | 단위  | 참고                                                                                                                                                                                                                              |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| eph             | <&nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))                         | 0.8  | m   | 수평 위치의 표준 편차                                                                                                                                                                                                                    |
+| epv             | <&nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))                         | 1.5  | m   | 수직 위치의 표준 편차                                                                                                                                                                                                                    |
+| 위성 개수           | ≥6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))                                               | 14                   | -   |                                                                                                                                                                                                                                 |
+| sacc            | <&nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2  | m/s | 수평 속도의 표준 편차                                                                                                                                                                                                                    |
+| fix type        | ≥&nbsp;3                                                                                                                                                                                        | 4                    | -   | 0-1: 수정 없음, 2: 2D 수정, 3: 3D 수정, 4: RTCM 차등 코드, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, 고정, 8: 외삽 |
+| PDOP            | <&nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0  | -   | 정밀도의 위치 희석                                                                                                                                                                                                                      |
+| hpos drift rate | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | 보고된 GNSS 위치에서 계산된 드리프트 율 (정지시).                                                                                                                                                              |
+| vpos drift rate | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | 보고된 GNSS 고도에서 계산된 드리프트 율 (정지시).                                                                                                                                                              |
+| hspd            | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | 보고된 GNSS 수평 속도의 필터링 크기.                                                                                                                                                                                         |
+| vspd            | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | 보고된 GNSS 수직 속도의 필터링 크기.                                                                                                                                                                                         |
 
 :::info
 The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic.
