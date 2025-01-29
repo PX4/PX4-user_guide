@@ -73,7 +73,7 @@ Regarding the orientation, keep the scalar part _w_ of the quaternion the same a
 ## Конфігурація та налаштування EKF2
 
 Примітка: це короткий огляд.
-For more detailed information, check the [EKF2 tuning guide](../advanced_config/tuning_the_ecl_ekf.md)
+For more detailed information, check the [Using PX4's Navigation Filter (EKF2)](../advanced_config/tuning_the_ecl_ekf.md)
 
 The following parameters must be set to use external position information with EKF2 (these can be set in _QGroundControl_ > **Vehicle Setup > Parameters > EKF2**).
 
