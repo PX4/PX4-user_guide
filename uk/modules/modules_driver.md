@@ -307,7 +307,7 @@ Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/main/src/drive
 
 Він підтримує:
 
-- DShot150, DShot300, DShot600, DShot1200
+- DShot150, DShot300, DShot600
 - телеметрія через окремий UART та публікація у вигляді повідомлення esc_status
 - надсилання команд DShot через CLI
 
