@@ -410,6 +410,8 @@ In more complex cases of splitting, merging and/or moving definitions then a gen
 For example when moving a field from one message to another, a single generic translation should be added with the two older message versions as input, and the two newer versions as output.
 This ensures there is no information lost when translating forward or backward.
 
+This is exactly the approach shown by the [Generic Topic Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_multi_v2.h), omitting only the code for actually modifying fields in the `fromOlder()` and `toOlder()` methods.
+
 ::: warning
 If a nested message definition changes, all messages including that message also require a version update.
 For example this would be the case for message [PositionSetpointTriplet](../msg_docs/PositionSetpointTriplet.md) if it were versioned.
@@ -438,7 +440,13 @@ For translations with multiple input topics, the translation continues once all 
   This is because the current implementation depends on a service API that is not yet available in ROS Humble.
   Translation of topic messages is fully supported.
 - Services messages only support a linear history, i.e. no message splitting or merging.
-- Having both publishers and subscribers for two different versions of a topic is currently not handled by the translation node and would trigger infinite circular publications.
-  This could be extended if required.
+- Having both publishers and subscribers for two different versions of the same topic is currently not handled by the translation node and would trigger infinite circular publications.
+  This refers to the following problematic configuration:
+  ```
+  app 1: pub topic_v1, sub topic_v1
+  app 2: pub topic_v2, sub topic_v2
+  ```
+  In practice this configuration is unlikely to occur because ROS topics shared with the FMU are intended to be directional (e.g. `/fmu/out/vehicle_status` or `/fmu/in/trajectory_setpoint`), therefore apps typically do not publish and subscribe simultaneously to the same topic.
+  The translation node could be extended to handle this corner-case if required.
 
 Original document with requirements: https://docs.google.com/document/d/18_RxV1eEjt4haaa5QkFZAlIAJNv9w5HED2aUEiG7PVQ/edit?usp=sharing
