@@ -7,7 +7,7 @@ While simple, it shows the main principles of how to use offboard control and ho
 
 It has been tested on Ubuntu 20.04 with ROS 2 Foxy and PX4 v1.14.
 
-:::warning
+::: warning
 _Offboard_ control is dangerous.
 If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
 :::
@@ -213,3 +213,7 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1, fl
 [VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful.
 The param and command fields map to [MAVLink commands](https://mavlink.io/en/messages/common.html#mav_commands) and their parameter values.
 :::
+
+## See Also
+
+- [Python ROS2 offboard examples with PX4](https://github.com/Jaeyoung-Lim/px4-offboard) (Jaeyoung-Lim/px4-offboard).
