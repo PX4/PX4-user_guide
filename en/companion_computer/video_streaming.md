@@ -26,7 +26,7 @@ To setup and use video steaming with QGC:
 1. Install GStreamer before running QGC.
 
    ::: tip
-   This is not needed for the latest QGroundControl _daily builds_ on Ubuntu (and won't be required for releases after version 4).
+   This step is not needed for the latest QGroundControl _daily builds_ on Ubuntu (and won't be required for releases after version 4).
    :::
 
    On Ubuntu you can install the runtime dependencies using the command:
