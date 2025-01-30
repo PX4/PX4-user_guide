@@ -12,7 +12,7 @@ _QGroundControl_ uses GStreamer 1.18.1 and a stripped down version of _QtGstream
 
 ## Companion Computer Setup
 
-General instructions for installing _GStreamer_ and starting the stream on a companion computer are provided in the [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/index.md).
+General instructions for installing _GStreamer_ and starting the stream on a companion computer are provided in the [QGroundControl VideoReceiver GStreamer README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoManager/VideoReceiver/GStreamer/README.md).
 
 The setup of cameras and data links depends on many factors.
 Examples in this library are listed below (note, these are options, not "recommended"):
@@ -24,7 +24,12 @@ Examples in this library are listed below (note, these are options, not "recomme
 To setup and use video steaming with QGC:
 
 1. Install GStreamer before running QGC.
-   On Ubuntu this is done with the command:
+
+   ::: tip
+   This is not needed for the latest QGroundControl _daily builds_ on Ubuntu (and won't be required for releases after version 4).
+   :::
+
+   On Ubuntu you can install the runtime dependencies using the command:
 
    ```sh
    sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
