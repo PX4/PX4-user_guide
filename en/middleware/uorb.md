@@ -18,7 +18,7 @@ To add a new topic, you need to create a new **.msg** file in the `msg/` directo
 From this, the needed C/C++ code is automatically generated.
 
 Have a look at the existing `msg` files for supported types.
-A message can also be used nested in other messages.
+A message can also be used [nested in other messages](#nested-messages).
 
 To each generated C/C++ struct, a field `uint64_t timestamp` will be added.
 This is used for the logger, so make sure to fill it in when publishing the message.
@@ -141,6 +141,11 @@ Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topi
 
 The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
 
+## Nested Messages
+
+In PX4, messages can be nested within other messages to create complex data structures. This allows for more organized and modular message definitions.
+
+To nest a message, simply include the nested message type in the parent message definition. For example, [`PositionSetpoint.msg`](../msg_docs/PositionSetpoint.md) is used as a nested message in the [`PositionSetpointTriplet.msg`](../msg_docs/PositionSetpointTriplet.md) topic message definition.
 
 
 ## Message/Field Deprecation {#deprecation}
