@@ -442,10 +442,12 @@ For translations with multiple input topics, the translation continues once all 
 - Services messages only support a linear history, i.e. no message splitting or merging.
 - Having both publishers and subscribers for two different versions of the same topic is currently not handled by the translation node and would trigger infinite circular publications.
   This refers to the following problematic configuration:
+  
   ```
   app 1: pub topic_v1, sub topic_v1
   app 2: pub topic_v2, sub topic_v2
   ```
+
   In practice this configuration is unlikely to occur because ROS topics shared with the FMU are intended to be directional (e.g. `/fmu/out/vehicle_status` or `/fmu/in/trajectory_setpoint`), therefore apps typically do not publish and subscribe simultaneously to the same topic.
   The translation node could be extended to handle this corner-case if required.
 
