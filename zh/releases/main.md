@@ -41,9 +41,6 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
   Mission commands that may take some time to complete, such as those for controlling gimbals, winches, and grippers, will progress to the next item when either feedback is received or the timeout expires.
   This is often used to provide a minimum delay for hardware that does not provide completion feedback, so that it can reach the commanded state before the mission progresses.
   ([PX4-Autopilot#23960](https://github.com/PX4/PX4-Autopilot/pull/23960)).
-- [Compass calibration for large vehicles](../config/compass.md#large-vehicle-calibration).
-  This method is designed for vehicles where full rotation is impractical or impossible.
-  ([PX4-Autopilot#23185](https://github.com/PX4/PX4-Autopilot/pull/23185)).
 
 ### Control
 
