@@ -80,7 +80,7 @@ Notes:
 
 ### Large Vehicle Calibration
 
-<Badge type="tip" text="main (PX4 v1.16+)" />
+<Badge type="tip" text="PX4 v1.15" />
 
 This calibration process leverages external knowledge of vehicle's orientation and location, and a World Magnetic Model (WMM) to calibrate the hard iron biases.
 
