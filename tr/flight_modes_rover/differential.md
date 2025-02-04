@@ -18,7 +18,7 @@ Manual modes require stick inputs from the user to drive the vehicle.
 
 The sticks provide the same "high level" control effects over direction and rate of movement in all manual modes:
 
-- `Left stick up/down`: Drive the rover forwards/backwards (controlling forward speed)
+- `Left stick up/down`: Drive the rover forwards/backwards (controlling speed)
 - `Right stick left/right`: Rotate the rover to the left/right (controlling yaw rate).
 
 The manual modes provide progressively increasing levels of autopilot support for maintaining a course, speed, and rate of turn, compensating for external factors such as slopes or uneven terrain.
@@ -33,7 +33,7 @@ The manual modes provide progressively increasing levels of autopilot support fo
 :::details
 Overview mode mapping to control effect
 
-| Mode                           | Forward speed                                                                            | Yaw rate                                                                                                                                                                                                                                                                | Required measurements                                                              |
+| Mode                           | Forwards/backwards speed                                                                 | Yaw rate                                                                                                                                                                                                                                                                | Required measurements                                                              |
 | ------------------------------ | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | [Manual](#manual-mode)         | Directly map stick input to motor commands.                              | Directly map stick input to motor commands.                                                                                                                                                                                                             | None.                                                              |
 | [Acro](#acro-mode)             | Directly map stick input to motor commands.                              | Stick input creates a yaw rate setpoint for the control system to regulate.                                                                                                                                                                             | Yaw rate.                                                          |
