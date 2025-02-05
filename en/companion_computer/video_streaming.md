@@ -43,7 +43,7 @@ DEBIAN_FRONTEND=noninteractive apt-get -y --quiet install \
 ```
 
 ::: tip
-For other companion platforms you can mirror the instructions in the [corresponding installation scripts](QGC).
+For other companion platforms you can mirror the instructions in the [corresponding installation scripts](https://github.com/mavlink/qgroundcontrol/tree/master/tools/setup).
 :::
 
 General instructions for starting the stream on a companion computer are provided in the [QGroundControl VideoReceiver GStreamer README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoManager/VideoReceiver/GStreamer/README.md).
