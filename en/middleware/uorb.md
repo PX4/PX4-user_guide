@@ -22,7 +22,7 @@ From the message definitions, the needed C/C++ code is automatically generated.
 To each generated C/C++ struct, a field `uint64_t timestamp` will be added.
 This is used for the logger, so make sure to fill it in when publishing the message.
 
-To use the topic in the code, first include the generated header, which will be named using the snake-cased version of the (CamelCase) message definition file name.
+To use the topic in the code, first include the generated header, which will be named using the snake_cased version of the (CamelCase) message definition file name.
 For example, for a message named `VelocityLimits` you would include `velocity_limits.h` as shown:
 
 ```cpp
@@ -51,7 +51,7 @@ float32 vertical_velocity # [m/s]
 float32 yaw_rate # [rad/s]
 ```
 
-By default this message definition will be compiled to a single topic with an id `velocity_limits`, a direct conversion from the CamelCase name to a snake-case version.
+By default this message definition will be compiled to a single topic with an id `velocity_limits`, a direct conversion from the CamelCase name to a snake_case version.
 
 This is the simplest form of a message.
 See the existing [`msg`](../msg_docs/index.md) files for other examples of how messages are defined.
@@ -60,7 +60,7 @@ See the existing [`msg`](../msg_docs/index.md) files for other examples of how m
 
 Sometimes it is useful to use the same message definition for multiple topics.
 This can be specified at the end of the message using a line prefixed with `# TOPICS `, followed by space-separated topic ids.
-For example, the [ActuatorOutputs](../msg_docs/ActuatorOutputs.md) message definition is used to define the topic IDs as shown:
+For example, the [ActuatorOutputs](../msg_docs/ActuatorOutputs.md) message definition is used to define the topic ids as shown:
 
 ```
 # TOPICS actuator_outputs actuator_outputs_sim actuator_outputs_debug
