@@ -15,27 +15,73 @@ New uORB topics can be added either within the main PX4/PX4-Autopilot repository
 For information on adding out-of-tree uORB message definitions, please see [this section](../advanced/out_of_tree_modules.md#out-of-tree-uorb-message-definitions).
 
 To add a new topic, you need to create a new **.msg** file in the `msg/` directory and add the file name to the `msg/CMakeLists.txt` list.
-From this, the needed C/C++ code is automatically generated.
+The section [Message Definitions](#message-definitions) below describes the message format.
 
-Have a look at the existing `msg` files for supported types.
-A message can also be used [nested in other messages](#nested-messages).
+From the message definitions, the needed C/C++ code is automatically generated.
 
 To each generated C/C++ struct, a field `uint64_t timestamp` will be added.
 This is used for the logger, so make sure to fill it in when publishing the message.
 
-To use the topic in the code, include the header:
+To use the topic in the code, first include the generated header, which will be named using the snake-cased version of the (CamelCase) message definition file name.
+For example, for a message named `VelocityLimits` you would include `velocity_limits.h` as shown:
 
 ```cpp
-#include <uORB/topics/topic_name.h>
+#include <uORB/topics/velocity_limits.h>
 ```
 
-By adding a line like the following in the `.msg` file, a single message definition can be used for multiple independent topics:
+In code your refer to the topic using its id, which by default is also the snake_cased version of the message file name: `ORB_ID(velocity_limits)`.
+If needed you can have multiple topics defined from the same message, as described below in [Multi-Topic Messages](#multi-topic-messages).
 
-```cpp
-# TOPICS mission offboard_mission onboard_mission
+## Message Definitions
+
+The message definition should start with a descriptive _comment_ (a comment starts with the `#` symbol and goes to the end of the line).
+The message will then define one or more fields, which are defined with a _type_, such as `bool`, `uint8`, and `float32`, followed by a _name_.
+By convention, each field is followed by a descriptive _comment_, which is any text from the `#` symbol to the end of the line.
+
+For example the [VelocityLimits](../msg_docs/VelocityLimits.md) message definition shown below has a descriptive comment, followed by a number of fields, which each have a comment.
+
+```
+# Velocity and yaw rate limits for a multicopter position slow mode only
+
+uint64 timestamp # time since system start (microseconds)
+
+# absolute speeds, NAN means use default limit
+float32 horizontal_velocity # [m/s]
+float32 vertical_velocity # [m/s]
+float32 yaw_rate # [rad/s]
 ```
 
-Then in the code, use them as topic id: `ORB_ID(offboard_mission)`.
+By default this message definition will be compiled to a single topic with an id `velocity_limits`, a direct conversion from the CamelCase name to a snake-case version.
+
+This is the simplest form of a message.
+See the existing [`msg`](../msg_docs/index.md) files for other examples of how messages are defined.
+
+### Multi-Topic Messages
+
+Sometimes it is useful to use the same message definition for multiple topics.
+This can be specified at the end of the message using a line prefixed with `# TOPICS `, followed by space-separated topic ids.
+For example, the [ActuatorOutputs](../msg_docs/ActuatorOutputs.md) message definition is used to define the topic IDs as shown:
+
+```
+# TOPICS actuator_outputs actuator_outputs_sim actuator_outputs_debug
+```
+
+### Nested Messages
+
+Message definitions can be nested within other messages to create complex data structures.
+
+To nest a message, simply include the nested message type in the parent message definition. For example, [`PositionSetpoint.msg`](../msg_docs/PositionSetpoint.md) is used as a nested message in the [`PositionSetpointTriplet.msg`](../msg_docs/PositionSetpointTriplet.md) topic message definition.
+
+```
+# Global position setpoint triplet in WGS84 coordinates.
+# This are the three next waypoints (or just the next two or one).
+
+uint64 timestamp		# time since system start (microseconds)
+
+PositionSetpoint previous
+PositionSetpoint current
+PositionSetpoint next
+```
 
 ## Publishing
 
@@ -140,13 +186,6 @@ Having multiple instances is useful for example if the system has several sensor
 Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic.
 
 The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
-
-## Nested Messages
-
-In PX4, messages can be nested within other messages to create complex data structures. This allows for more organized and modular message definitions.
-
-To nest a message, simply include the nested message type in the parent message definition. For example, [`PositionSetpoint.msg`](../msg_docs/PositionSetpoint.md) is used as a nested message in the [`PositionSetpointTriplet.msg`](../msg_docs/PositionSetpointTriplet.md) topic message definition.
-
 
 ## Message/Field Deprecation {#deprecation}
 
