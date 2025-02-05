@@ -133,7 +133,7 @@ commander <command> [arguments...]
 
    calibrate     Run sensor calibration
      mag|baro|accel|gyro|level|esc|airspeed Calibration type
-     quick       Quick calibration (accel only, not recommended)
+     quick       Quick calibration [mag, accel (not recommended)]
 
    check         Run preflight checks
 
