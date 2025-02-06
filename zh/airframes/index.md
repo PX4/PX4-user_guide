@@ -30,10 +30,10 @@ PX4 支持多种类型的机体，包括不同配置的多旋翼、固定翼、�
 
 - [飞艇](../frames_airship/index.md)
 - [自旋翼机](../frames_autogyro/index.md)
-- [Balloons](../frames_balloon/index.md)
-- [Helicopter](../frames_helicopter/index.md)
-- [Rovers](../frames_rover/index.md)
-- [Submarines](../frames_sub/index.md)
+- [热气球](../frames_balloon/index.md)
+- [直升机](../frames_helicopter/index.md)
+- [无人车](../frames_rover/index.md)
+- [潜艇](../frames_sub/index.md)
 
 :::info
 Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
@@ -41,4 +41,4 @@ Maintainer volunteers, [contribution](../contribute/index.md) of new features, n
 
 ## 其他载具
 
-The complete set of supported vehicle types and their configurations can be found in the [Airframes Reference](../airframes/airframe_reference.md).
+全部可支持的机型以及相关配置可见 [机架参考](../airframes/airframe_reference.md)。
