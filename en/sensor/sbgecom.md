@@ -1,8 +1,12 @@
-# SBG Systems
+# SBG Systems INS/AHRS (Pulse, Ellipse, etc.)
 
-[SBG-Systems](https://www.sbg-systems.com/) designs, manufactures, and support an extensive range of state-of-the-art inertial sensors such as Inertial Measurement Units (IMU), Attitude and Heading Reference Systems (AHRS), Inertial Navigation Systems with embedded GNSS (INS/GNSS) …
+[SBG-Systems](https://www.sbg-systems.com/) designs, manufactures, and support an extensive range of state-of-the-art inertial sensors such as Inertial Measurement Units (IMU), Attitude and Heading Reference Systems (AHRS), Inertial Navigation Systems with embedded GNSS (INS/GNSS), and so on.
+
+PX4 supports [all SBG Systems products](https://www.sbg-systems.com/products/) and can use these as an [external INS](../sensor/inertial_navigation_systems.md) (bypassing/replacing the EKF2 estimator), or as a source of raw sensor data provided to the navigation estimator.
 
 ![Ellipse](../../assets/hardware/sensors/inertial/ellipse-inertial-navigation-system.png)
+
+## Overview
 
 SBG Systems products provide a range of benefits to PX4 users and can be integrated for:
 
@@ -11,9 +15,7 @@ SBG Systems products provide a range of benefits to PX4 users and can be integra
 - Improved positioning and attitude performance in GNSS-contested environments
 - Performance under challenging dynamic conditions (e.g. catapult launches, VTOL operations, high-g or high angular rate operations)
 
-The sbgECom PX4 Driver is streamlined to provide a simple plug-and-play architecture, removing engineering obstacles and allowing the acceleration of the design, development, and launch of platforms to keep pace with the rapid rate of innovation.
-
-PX4 can use these as an [external INS](../sensor/inertial_navigation_systems.md), bypassing/replacing the EKF2 estimator, or as a source of raw sensor data provided to the estimator.
+The sbgECom PX4 driver is streamlined to provide a simple plug-and-play architecture, removing engineering obstacles and allowing the acceleration of the design, development, and launch of platforms to keep pace with the rapid rate of innovation.
 
 The driver supports [all SBG Systems products](https://www.sbg-systems.com/products/).
 In particular the following systems are recommended:
@@ -77,7 +79,7 @@ To use the sbgECom driver:
    If you don't want to have this fallback mechanism, you must disable unwanted sensors.
    :::
 
-   4. If using the sbgECom as an INS, disable EKF2 using [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN)
+   4. If using the sbgECom as an INS, disable EKF2 using [EKF2_EN](../advanced_config/parameter_reference.md#EKF2_EN).
 
 6. Restart PX4.
 
@@ -89,7 +91,7 @@ IMU data should be published at 200Hz.
 All High Performance and Ellipse 3.0 and higher SBG Systems INS can be configured directly from PX4 firmware:
 
 1. Enable [SBG_CONFIGURATION_EN](../advanced_config/parameter_reference.md#SBG_CONFIGURATION_EN)
-2. Provide a JSON file `sbg_settings.json` containing SBG Sysytems INS settings to be applied in your PX4 board `extras` directory (ex: `boards/px4/fmu-v5/extras`). The settings JSON file will be installed in `/etc/extras/sbg_settings.json` on the board.
+2. Provide a JSON file `sbg_settings.json` containing SBG Systems INS settings to be applied in your PX4 board `extras` directory (ex: `boards/px4/fmu-v5/extras`). The settings JSON file will be installed in `/etc/extras/sbg_settings.json` on the board.
 
    ::: tip
    The settings can be retrieved using [sbgEComAPI](https://github.com/SBG-Systems/sbgECom/tree/main/tools/sbgEComApi) or [sbgInsRestApi](https://developer.sbg-systems.com/sbgInsRestApi/1.3/#tag/Settings) and then modified as a JSON file.
@@ -107,7 +109,7 @@ All High Performance and Ellipse 3.0 and higher SBG Systems INS can be configure
 For older Ellipse SBG Systems INS or to configure any SBG Systems INS directly, all commands and registers can be found in the [SBG SUPPORT CENTER](https://support.sbg-systems.com/sc).
 
 ::: warning
-When changing SBG Systems INS settings, if the baudrate of the serial port used to communicate with PX4 autopilot is changed, the parameter [SBG_BAUDRATE](../advanced_config/parameter_reference.md#SBG_BAUDRATE) must be changed in accordance after settings change.
+If the baudrate of the serial port on the INS product (used to communicate with PX4) is changed, the parameter [SBG_BAUDRATE](../advanced_config/parameter_reference.md#SBG_BAUDRATE) must be changed to match.
 :::
 
 ## Published Data
