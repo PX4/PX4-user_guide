@@ -26,9 +26,6 @@ The section [Message Definitions](#message-definitions) below describes the mess
 
 From the message definitions, the needed C/C++ code is automatically generated.
 
-All message definitions **must** include the `uint64_t timestamp` field as shown, and this should be filled in when publishing the associated topic(s).
-This field is needed in order for the logger to be able to record UORB topics.
-
 To use the topic in the code, first include the generated header, which will be named using the snake_case version of the (CamelCase) message definition file name.
 For example, for a message named `VelocityLimits` you would include `velocity_limits.h` as shown:
 
@@ -43,6 +40,11 @@ In code you refer to the topic using its id, which in this example would be: `OR
 The message definition should start with a descriptive _comment_ that outlines its purpose (a comment starts with the `#` symbol and goes to the end of the line).
 The message will then define one or more fields, which are defined with a _type_, such as `bool`, `uint8`, and `float32`, followed by a _name_.
 By convention, each field is followed by a descriptive _comment_, which is any text from the `#` symbol to the end of the line.
+
+::: warning
+All message definitions **must** include the `uint64_t timestamp` field, and this should be filled in when publishing the associated topic(s).
+This field is needed in order for the logger to be able to record UORB topics.
+:::
 
 For example the [VelocityLimits](../msg_docs/VelocityLimits.md) message definition shown below has a descriptive comment, followed by a number of fields, which each have a comment.
 
@@ -97,7 +99,8 @@ However, the topic needs to be advertised and published outside of an interrupt 
 ## Listing Topics and Listening in
 
 ::: info
-The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
+The `listener` command available on most boards after FMUv4.
+You can check for a particular board by searching for the `CONFIG_SYSTEMCMDS_TOPIC_LISTENER` key in the [kconfig](../hardware/porting_guide_config.md) board configuration (for example, see the FMUv6 [default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v6x/default.px4board#L100) file).
 :::
 
 To list all topics, list the file handles:
