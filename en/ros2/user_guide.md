@@ -655,7 +655,12 @@ int main(int argc, char *argv[])
 
 ### Offboard Control
 
-For a complete reference example on how to use Offboard control with PX4, see: [ROS 2 Offboard control example](../ros2/offboard_control.md).
+[ROS 2 Offboard control example](../ros2/offboard_control.md) provides a complete C++ reference example of how to use [offboard control](../flight_modes/offboard.md) of PX4 with ROS2.
+
+[Python ROS2 offboard examples with PX4](https://github.com/Jaeyoung-Lim/px4-offboard) (Jaeyoung-Lim/px4-offboard) provides a similar example for Python, and includes the scripts:
+
+- `offboard_control.py`: Example of offboard position control using position setpoints
+- `visualizer.py`: Used for visualizing vehicle states in Rviz
 
 ## Using Flight Controller Hardware
 
