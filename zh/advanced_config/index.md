@@ -9,7 +9,7 @@
 
 ## 功能配置
 
-- [Using PX4's Navigation Filter (EKF2)](../advanced_config/tuning_the_ecl_ekf.md)
+- [使用 PX4 的导航滤波器 (EKF2)](../advanced_config/tuning_the_ecl_ekf.md)
 - [飞行终止配置](../advanced_config/flight_termination.md)
 - [着陆探测器配置](../advanced_config/land_detector.md)
 - [解锁前/解锁/加锁 配置](../advanced_config/prearm_arm_disarm.md)

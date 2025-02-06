@@ -15,7 +15,7 @@ This category is for experimental autopilots (and autopilot "platforms") that ar
 Boards in this category must work with at least one PX4 release for a defined vehicle type.
 They may not be compatible with the current PX4 release, and compatibility is not maintained by the project for future releases.
 
-## Experimental Vehicles
+## 实验机体
 
 These are [complete vehicles](../complete_vehicles_mc/index.md) that have a fully integrated autopilot and other hardware (i.e. unlike the other autopilots listed, you can't use them in your own builds).
 They are listed in this page because from a PX4 software perspective, they are another autopilot.
