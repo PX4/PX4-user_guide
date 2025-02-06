@@ -26,8 +26,8 @@ The section [Message Definitions](#message-definitions) below describes the mess
 
 From the message definitions, the needed C/C++ code is automatically generated.
 
-To each generated C/C++ struct, a field `uint64_t timestamp` will be added.
-This is used for the logger, so make sure to fill it in when publishing the message.
+All message definitions **must** include the `uint64_t timestamp` field as shown, and this should be filled in when publishing the associated topic(s).
+This field is needed in order for the logger to be able to record UORB topics.
 
 To use the topic in the code, first include the generated header, which will be named using the snake_case version of the (CamelCase) message definition file name.
 For example, for a message named `VelocityLimits` you would include `velocity_limits.h` as shown:
