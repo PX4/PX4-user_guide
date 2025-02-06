@@ -138,7 +138,6 @@ To run SIH as SITL:
      make px4_sitl sihsim_standard_vtol
      ```
 
-
 ### Change Simulation Speed
 
 SITL allows the simulation to be run faster than real time.
