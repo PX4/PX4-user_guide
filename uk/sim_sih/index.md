@@ -134,6 +134,12 @@ In this case you don't need the flight controller hardware.
      make px4_sitl sihsim_xvert
      ```
 
+   - Standard VTOL:
+
+     ```sh
+     make px4_sitl sihsim_standard_vtol
+     ```
+
 ### Зміна швидкості симуляції
 
 SITL дозволяє виконувати симуляцію швидше, ніж у реальному часі.
