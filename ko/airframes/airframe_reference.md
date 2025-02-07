@@ -45,6 +45,28 @@ div.frame_variant td, div.frame_variant th {
 }
 </style>
 
+## 2D Space Robot
+
+### Space Robot
+
+<div class="frame_common">
+<img src="../../assets/airframes/types/AirframeUnknown.svg"/>
+</div>
+
+<div class="frame_variant">
+<table>
+ <thead>
+   <tr><th>명칭</th><th></th></tr>
+ </thead>
+<tbody>
+<tr id="2d_space_robot_space_robot_kth_space_robot">
+ <td>KTH Space Robot</td>
+ <td>Maintainer: DISCOWER<p><code>SYS_AUTOSTART</code> = 70000</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
 ## 비행선
 
 ### 비행선
