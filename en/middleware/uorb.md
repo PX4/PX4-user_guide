@@ -46,6 +46,11 @@ All message definitions **must** include the `uint64_t timestamp` field, and thi
 This field is needed in order for the logger to be able to record UORB topics.
 :::
 
+::: info
+All *versioned* messages definitions must include the `uint32 MESSAGE_VERSION` field.
+For more information, refer to the [Message Versioning](#message-versioning) section.
+:::
+
 For example the [VelocityLimits](../msg_docs/VelocityLimits.md) message definition shown below has a descriptive comment, followed by a number of fields, which each have a comment.
 
 ```text

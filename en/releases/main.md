@@ -82,7 +82,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### uXRCE-DDS / ROS2
 
-- **[Feature]** <Badge type="warning" text="Experimental"/> [ROS 2 Message Translation Node](../ros2/px4_ros2_msg_translation_node.md) to translate PX4 messages from one defintion version to another dynamically ([PX4-Autopilot#24113](https://github.com/PX4/PX4-Autopilot/pull/24113))
+- **[Feature]** <Badge type="warning" text="Experimental"/> [ROS 2 Message Translation Node](../ros2/px4_ros2_msg_translation_node.md) to translate PX4 messages from one definition version to another dynamically ([PX4-Autopilot#24113](https://github.com/PX4/PX4-Autopilot/pull/24113))
 
 ### MAVLink
 
