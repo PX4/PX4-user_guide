@@ -4,38 +4,92 @@
 
 The uORB is an asynchronous `publish()` / `subscribe()` messaging API used for inter-thread/inter-process communication.
 
-Look at the [tutorial](../modules/hello_sky.md) to learn how to use it in C++.
+uORB is implemented in the [`uorb` module](../modules/modules_communication.md#uorb).
+It is started automatically (with `uorb start`) early in the PX4 boot sequence, as many applications depend on it.
+Unit tests can be started with `uorb_tests`.
 
-uORB автоматично запускається при завантаженні, оскільки багато програм залежать від нього.
-It is started with `uorb start`. Unit tests can be started with `uorb_tests`.
+This document explains how to add uORB message definitions and their corresponding topic(s), how to use reference a topic in code, and how to view topics as they change in PX4.
+The [First Application Tutorial (Hello Sky)](../modules/hello_sky.md) provides more comprehensive instructions for how to use topics in C++.
 
-## Додавання нової теми
+## Adding a New Topic
 
-Нові теми uORB можуть бути додані або в основний репозиторій PX4/PX4-Autopilot, або до визначень повідомлень поза деревом.
-For information on adding out-of-tree uORB message definitions, please see [this section](../advanced/out_of_tree_modules.md#out-of-tree-uorb-message-definitions).
+New uORB topics can be added either within the main PX4/PX4-Autopilot repository, or can be added in an [out-of-tree message definition](../advanced/out_of_tree_modules.md#out-of-tree-uorb-message-definitions).
 
-To add a new topic, you need to create a new **.msg** file in the `msg/` directory and add the file name to the `msg/CMakeLists.txt` list.
-З цього автоматично генерується потрібний C/C++ код.
+To add new topics, you need to create a new **.msg** "message definition file" in the `msg/` directory, and add the file name to the `msg/CMakeLists.txt` list.
+The new file name should follow the CamelCase convention.
 
-Have a look at the existing `msg` files for supported types.
-Повідомлення також можна використовувати вкладеним в інші повідомлення.
+A message definition file can define one or more _topics_, which all have the same fields and structure.
+By default a definition maps to a single topic that is named using a snake_case version of the message definition file name (for example, `TopicName.msg` would define a topic `topic_name`).
+You can also specify multiple topics to be created by the message definition, which is useful when you need several topics that have the same fields and structure (see [Multi-Topic Messages](#multi-topic-messages) below).
 
-To each generated C/C++ struct, a field `uint64_t timestamp` will be added.
-Це використовується в логері, тому переконайтеся, що він заповнюється при публікації повідомлення.
+The section [Message Definitions](#message-definitions) below describes the message format.
 
-Щоб використовувати тему у коді, додайте заголовок:
+From the message definitions, the needed C/C++ code is automatically generated.
 
-```cpp
-#include <uORB/topics/topic_name.h>
-```
-
-By adding a line like the following in the `.msg` file, a single message definition can be used for multiple independent topics:
+To use the topic in the code, first include the generated header, which will be named using the snake_case version of the (CamelCase) message definition file name.
+For example, for a message named `VelocityLimits` you would include `velocity_limits.h` as shown:
 
 ```cpp
-# TOPICS mission offboard_mission onboard_mission
+#include <uORB/topics/velocity_limits.h>
 ```
 
-Then in the code, use them as topic id: `ORB_ID(offboard_mission)`.
+In code you refer to the topic using its id, which in this example would be: `ORB_ID(velocity_limits)`.
+
+## Message Definitions
+
+The message definition should start with a descriptive _comment_ that outlines its purpose (a comment starts with the `#` symbol and goes to the end of the line).
+The message will then define one or more fields, which are defined with a _type_, such as `bool`, `uint8`, and `float32`, followed by a _name_.
+By convention, each field is followed by a descriptive _comment_, which is any text from the `#` symbol to the end of the line.
+
+:::warning
+All message definitions **must** include the `uint64_t timestamp` field, and this should be filled in when publishing the associated topic(s).
+This field is needed in order for the logger to be able to record UORB topics.
+:::
+
+For example the [VelocityLimits](../msg_docs/VelocityLimits.md) message definition shown below has a descriptive comment, followed by a number of fields, which each have a comment.
+
+```text
+# Velocity and yaw rate limits for a multicopter position slow mode only
+
+uint64 timestamp # time since system start (microseconds)
+
+# absolute speeds, NAN means use default limit
+float32 horizontal_velocity # [m/s]
+float32 vertical_velocity # [m/s]
+float32 yaw_rate # [rad/s]
+```
+
+By default this message definition will be compiled to a single topic with an id `velocity_limits`, a direct conversion from the CamelCase name to a snake_case version.
+
+This is the simplest form of a message.
+See the existing [`msg`](../msg_docs/index.md) files for other examples of how messages are defined.
+
+### Multi-Topic Messages
+
+Sometimes it is useful to use the same message definition for multiple topics.
+This can be specified at the end of the message using a line prefixed with `# TOPICS `, followed by space-separated topic ids.
+For example, the [ActuatorOutputs](../msg_docs/ActuatorOutputs.md) message definition is used to define the topic ids as shown:
+
+```text
+# TOPICS actuator_outputs actuator_outputs_sim actuator_outputs_debug
+```
+
+### Nested Messages
+
+Message definitions can be nested within other messages to create complex data structures.
+
+To nest a message, simply include the nested message type in the parent message definition. For example, [`PositionSetpoint.msg`](../msg_docs/PositionSetpoint.md) is used as a nested message in the [`PositionSetpointTriplet.msg`](../msg_docs/PositionSetpointTriplet.md) topic message definition.
+
+```text
+# Global position setpoint triplet in WGS84 coordinates.
+# This are the three next waypoints (or just the next two or one).
+
+uint64 timestamp		# time since system start (microseconds)
+
+PositionSetpoint previous
+PositionSetpoint current
+PositionSetpoint next
+```
 
 ## Публікація
 
@@ -45,7 +99,8 @@ Publishing a topic can be done from anywhere in the system, including interrupt 
 ## Перелік тем та їх прослуховування
 
 :::info
-The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
+The `listener` command available on most boards after FMUv4.
+You can check for a particular board by searching for the `CONFIG_SYSTEMCMDS_TOPIC_LISTENER` key in the [kconfig](../hardware/porting_guide_config.md) board configuration (for example, see the FMUv6 [default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.15/boards/px4/fmu-v6x/default.px4board#L100) file).
 :::
 
 Щоб перерахувати всі теми, перерахуйте файлові дескриптори:
@@ -132,12 +187,17 @@ For more information see: [Plotting uORB Topic Data in Real Time using PlotJuggl
 
 ## Багатоекземплярний режим
 
-uORB provides a mechanism to publish multiple independent instances of the same topic through `orb_advertise_multi`.
-Він поверне публікувачу індекс екземпляра.
-A subscriber will then have to choose to which instance to subscribe to using `orb_subscribe_multi` (`orb_subscribe` subscribes to the first instance).
-Наявність декількох екземплярів корисна, наприклад, якщо система має кілька сенсорів одного типу.
+uORB provides a mechanism to publish multiple independent instances of the _same_ topic.
+This is useful, for example, if the system has several sensors of the same type.
 
-Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic.
+:::info
+This differs from [Multi-Topic Messages](#multi-topic-messages), where we create different topics that happen to have the same structure.
+:::
+
+A publisher can call `orb_advertise_multi` to create a new topic instance and get its instance index.
+A subscriber will then have to choose to which instance to subscribe to using `orb_subscribe_multi` (`orb_subscribe` subscribes to the first instance).
+
+Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic!
 
 The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
 
@@ -153,3 +213,10 @@ As there are external tools using uORB messages from log files, such as [Flight 
     For example `uint8 quat_reset_counter` would become `# DEPRECATED: uint8 quat_reset_counter`.
     Це робиться для того, щоб гарантувати, що видалені поля (або повідомлення) не будуть додані повторно в майбутньому.
   - У разі семантичної зміни (наприклад, одиниця виміру змінюється з градусів на радіани), поле також має бути перейменоване, а попереднє позначене як застаріле, як зазначено вище.
+
+## Дивіться також
+
+- _PX4 uORB Explained_ Blog series
+  - [Part 1](https://px4.io/px4-uorb-explained-part-1/)
+  - [Part 2](https://px4.io/px4-uorb-explained-part-2/)
+  - [Part 3 (The deep stuff)](https://px4.io/px4-uorb-explained-part-3-the-deep-stuff/)
