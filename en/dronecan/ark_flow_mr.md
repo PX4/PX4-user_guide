@@ -27,7 +27,7 @@ Order this module from:
 - Invensense IIM-42653 6-Axis IMU
 - Two Pixhawk Standard CAN Connectors (4 Pin JST GH)
 - Pixhawk Standard Debug Connector (6 Pin JST SH)
-- Software-toggleable built in CAN termination resistor
+- Software controlled built-in CAN termination resistor via node parameter (CANNODE_TERM)  
 - Small Form Factor
   - 3cm x 3cm x 1.4cm
 - LED Indicators
@@ -69,15 +69,15 @@ The Ark Flow MR will not boot if there is no SD card in the flight controller wh
 
 ### Enable DroneCAN
 
-In order to use the ARK Flow MR board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
 The steps are:
 
-- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
+- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)) and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK Flow MR CAN to the Pixhawk CAN.
 
 Once enabled, the module will be detected on boot.
-Flow data should arrive at 10Hz.
+Flow data should arrive at 100Hz.
+Distance sensor data should arrive at 40Hz
 
 DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 

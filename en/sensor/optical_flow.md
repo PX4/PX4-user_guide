@@ -3,7 +3,7 @@
 _Optical Flow_ uses a downward facing camera and a downward facing distance sensor for velocity estimation.
 It can be used to determine speed when navigating without GNSS — in buildings, underground, or in any other GNSS-denied environment.
 
-The video below shows PX4 holding position using the [Ark Flow](#ark-flow) sensor for velocity estimation in [Position Mode](../flight_modes_mc/position.md):
+The video below shows PX4 holding position using the [Ark Flow](../dronecan/ark_flow.md) sensor for velocity estimation in [Position Mode](../flight_modes_mc/position.md):
 
 <lite-youtube videoid="aPQKgUof3Pc" title="ARK Flow with PX4 Optical Flow Position Hold"/>
 
