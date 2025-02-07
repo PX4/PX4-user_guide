@@ -324,6 +324,26 @@ rover_pos_control <command> [arguments...]
 
    status        print status info
 ```
+## spacecraft
+Source: [modules/spacecraft](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/spacecraft)
+
+
+	### Description
+	This implements control allocation for spacecraft vehicles.
+	It takes torque and thrust setpoints as inputs and outputs
+	actuator setpoint messages.
+	
+<a id="spacecraft_usage"></a>
+### Usage
+```
+spacecraft <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## uuv_att_control
 Source: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_att_control)
 

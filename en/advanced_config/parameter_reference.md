@@ -18290,6 +18290,8 @@ Defines which mixer implementation to use. Some are generic, while others are sp
 - `11`: Helicopter (tail Servo)
 - `12`: Helicopter (Coaxial)
 - `13`: Rover (Mecanum)
+- `14`: Spacecraft 2D
+- `15`: Spacecraft 3D
 
 
 Reboot | minValue | maxValue | increment | default | unit
