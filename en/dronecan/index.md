@@ -63,10 +63,13 @@ Supported hardware includes (this is not an exhaustive list):
   - [RaccoonLab RM3100 Magnetometer](https://docs.raccoonlab.co/guide/gps_mag_baro/mag_rm3100.html)
 - Distance sensors
   - [ARK Flow](ark_flow.md)
+  - [Ark Flow MR](ark_flow_mr.md)
   - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../dronecan/avanon_laser_interface.md)
   - [RaccoonLab uRangefidner and Rangefinders Adapter](https://docs.raccoonlab.co/guide/rangefinder)
 - Optical Flow
   - [Ark Flow](ark_flow.md)
+  - [Ark Flow MR](ark_flow_mr.md)
+
 - Generic CAN Node (enables use of I2C, SPI, UART sensors on the CAN bus).
   - [ARK CANnode](../dronecan/ark_cannode.md)
   - [RaccoonLab Nodes](../dronecan/raccoonlab_nodes.md)
