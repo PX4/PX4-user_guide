@@ -490,6 +490,17 @@ Add a topic to the `subscriptions_multi` section to:
 You can arbitrarily change the configuration.
 For example, you could use different default namespaces or use a custom package to store the message definitions.
 
+## DDS Services support
+
+PX4 uXRCE-DDS middleware supports [ROS 2 services](https://docs.ros.org/en/jazzy/Concepts/Basic/About-Services.html) through the following service servers:
+
+- `/fmu/vehicle_command`.
+Service type: [`px4_msgs::srv::VehicleCommand`](https://github.com/PX4/px4_msgs/blob/main/srv/VehicleCommand.srv).
+This service can be called by ROS 2 applications to send PX4 `vehicle_command` uORB messages and receive PX4 `vehicle_command_ack` uORB messages in response.
+
+For further details and examples please refer to the [service documentation](../ros2/user_guide.md#px4-ros-2-service-servers).
+When new servers will be added, the list will be updated accordingly.
+
 ## Fast-RTPS to uXRCE-DDS Migration Guidelines
 
 These guidelines explain how to migrate from using PX4 v1.13 [Fast-RTPS](../middleware/micrortps.md) middleware to PX4 v1.14 `uXRCE-DDS` middleware.

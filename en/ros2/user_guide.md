@@ -239,7 +239,7 @@ This section shows how to create a ROS 2 workspace hosted in your home directory
 The [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) packages are cloned to a workspace folder, and then the `colcon` tool is used to build the workspace.
 The example is run using `ros2 launch`.
 
-You should use a version of the px4_msgs package with the _same_ message defintions as the PX4 firmware you have installed in the step above.
+You should use a version of the px4_msgs package with the _same_ message definitions as the PX4 firmware you have installed in the step above.
 Branches in the px4_msgs repo are named to correspond to the message definitions for different PX4 releases.
 If for any reason you cannot ensure the same message definitions between your PX4 firmware and ROS 2 px4_msgs package, you will additionally need to [start the message translation node](#optional-starting-the-translation-node) as part of your setup process.
 
@@ -561,28 +561,28 @@ This creates a callback function for when the `SensorCombined` uORB messages are
 
 ```cpp
 public:
-	explicit SensorCombinedListener() : Node("sensor_combined_listener")
-	{
-		rmw_qos_profile_t qos_profile = rmw_qos_profile_sensor_data;
-		auto qos = rclcpp::QoS(rclcpp::QoSInitialization(qos_profile.history, 5), qos_profile);
+  explicit SensorCombinedListener() : Node("sensor_combined_listener")
+  {
+    rmw_qos_profile_t qos_profile = rmw_qos_profile_sensor_data;
+    auto qos = rclcpp::QoS(rclcpp::QoSInitialization(qos_profile.history, 5), qos_profile);
 
-		subscription_ = this->create_subscription<px4_msgs::msg::SensorCombined>("/fmu/out/sensor_combined", qos,
-		[this](const px4_msgs::msg::SensorCombined::UniquePtr msg) {
-			std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-			std::cout << "RECEIVED SENSOR COMBINED DATA"   << std::endl;
-			std::cout << "============================="   << std::endl;
-			std::cout << "ts: "          << msg->timestamp    << std::endl;
-			std::cout << "gyro_rad[0]: " << msg->gyro_rad[0]  << std::endl;
-			std::cout << "gyro_rad[1]: " << msg->gyro_rad[1]  << std::endl;
-			std::cout << "gyro_rad[2]: " << msg->gyro_rad[2]  << std::endl;
-			std::cout << "gyro_integral_dt: " << msg->gyro_integral_dt << std::endl;
-			std::cout << "accelerometer_timestamp_relative: " << msg->accelerometer_timestamp_relative << std::endl;
-			std::cout << "accelerometer_m_s2[0]: " << msg->accelerometer_m_s2[0] << std::endl;
-			std::cout << "accelerometer_m_s2[1]: " << msg->accelerometer_m_s2[1] << std::endl;
-			std::cout << "accelerometer_m_s2[2]: " << msg->accelerometer_m_s2[2] << std::endl;
-			std::cout << "accelerometer_integral_dt: " << msg->accelerometer_integral_dt << std::endl;
-		});
-	}
+    subscription_ = this->create_subscription<px4_msgs::msg::SensorCombined>("/fmu/out/sensor_combined", qos,
+    [this](const px4_msgs::msg::SensorCombined::UniquePtr msg) {
+      std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+      std::cout << "RECEIVED SENSOR COMBINED DATA"   << std::endl;
+      std::cout << "============================="   << std::endl;
+      std::cout << "ts: "          << msg->timestamp    << std::endl;
+      std::cout << "gyro_rad[0]: " << msg->gyro_rad[0]  << std::endl;
+      std::cout << "gyro_rad[1]: " << msg->gyro_rad[1]  << std::endl;
+      std::cout << "gyro_rad[2]: " << msg->gyro_rad[2]  << std::endl;
+      std::cout << "gyro_integral_dt: " << msg->gyro_integral_dt << std::endl;
+      std::cout << "accelerometer_timestamp_relative: " << msg->accelerometer_timestamp_relative << std::endl;
+      std::cout << "accelerometer_m_s2[0]: " << msg->accelerometer_m_s2[0] << std::endl;
+      std::cout << "accelerometer_m_s2[1]: " << msg->accelerometer_m_s2[1] << std::endl;
+      std::cout << "accelerometer_m_s2[2]: " << msg->accelerometer_m_s2[2] << std::endl;
+      std::cout << "accelerometer_integral_dt: " << msg->accelerometer_integral_dt << std::endl;
+    });
+  }
 ```
 
 ::: info
@@ -595,7 +595,7 @@ The lines below create a publisher to the `SensorCombined` uORB topic, which can
 
 ````cpp
 private:
-	rclcpp::Subscription<px4_msgs::msg::SensorCombined>::SharedPtr subscription_;
+ rclcpp::Subscription<px4_msgs::msg::SensorCombined>::SharedPtr subscription_;
 };
 ```s
 
@@ -604,13 +604,13 @@ The instantiation of the `SensorCombinedListener` class as a ROS node is done on
 ```cpp
 int main(int argc, char *argv[])
 {
-	std::cout << "Starting sensor_combined listener node..." << std::endl;
-	setvbuf(stdout, NULL, _IONBF, BUFSIZ);
-	rclcpp::init(argc, argv);
-	rclcpp::spin(std::make_shared<SensorCombinedListener>());
+  std::cout << "Starting sensor_combined listener node..." << std::endl;
+  setvbuf(stdout, NULL, _IONBF, BUFSIZ);
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<SensorCombinedListener>());
 
-	rclcpp::shutdown();
-	return 0;
+  rclcpp::shutdown();
+  return 0;
 }
 ````
 
@@ -643,27 +643,27 @@ The messages are sent based on a timed callback, which sends two messages per se
 
 ```cpp
 public:
-	DebugVectAdvertiser() : Node("debug_vect_advertiser") {
-		publisher_ = this->create_publisher<px4_msgs::msg::DebugVect>("fmu/debug_vect/in", 10);
-		auto timer_callback =
-		[this]()->void {
-			auto debug_vect = px4_msgs::msg::DebugVect();
-			debug_vect.timestamp = std::chrono::time_point_cast<std::chrono::microseconds>(std::chrono::steady_clock::now()).time_since_epoch().count();
-			std::string name = "test";
-			std::copy(name.begin(), name.end(), debug_vect.name.begin());
-			debug_vect.x = 1.0;
-			debug_vect.y = 2.0;
-			debug_vect.z = 3.0;
-			RCLCPP_INFO(this->get_logger(), "\033[97m Publishing debug_vect: time: %llu x: %f y: %f z: %f \033[0m",
-                                debug_vect.timestamp, debug_vect.x, debug_vect.y, debug_vect.z);
-			this->publisher_->publish(debug_vect);
-		};
-		timer_ = this->create_wall_timer(500ms, timer_callback);
-	}
+  DebugVectAdvertiser() : Node("debug_vect_advertiser") {
+    publisher_ = this->create_publisher<px4_msgs::msg::DebugVect>("fmu/debug_vect/in", 10);
+    auto timer_callback =
+    [this]()->void {
+      auto debug_vect = px4_msgs::msg::DebugVect();
+      debug_vect.timestamp = std::chrono::time_point_cast<std::chrono::microseconds>(std::chrono::steady_clock::now()).time_since_epoch().count();
+      std::string name = "test";
+      std::copy(name.begin(), name.end(), debug_vect.name.begin());
+      debug_vect.x = 1.0;
+      debug_vect.y = 2.0;
+      debug_vect.z = 3.0;
+      RCLCPP_INFO(this->get_logger(), "\033[97m Publishing debug_vect: time: %llu x: %f y: %f z: %f \033[0m",
+                                    debug_vect.timestamp, debug_vect.x, debug_vect.y, debug_vect.z);
+      this->publisher_->publish(debug_vect);
+    };
+    timer_ = this->create_wall_timer(500ms, timer_callback);
+  }
 
 private:
-	rclcpp::TimerBase::SharedPtr timer_;
-	rclcpp::Publisher<px4_msgs::msg::DebugVect>::SharedPtr publisher_;
+  rclcpp::TimerBase::SharedPtr timer_;
+  rclcpp::Publisher<px4_msgs::msg::DebugVect>::SharedPtr publisher_;
 };
 ```
 
@@ -672,13 +672,13 @@ The instantiation of the `DebugVectAdvertiser` class as a ROS node is done on th
 ```cpp
 int main(int argc, char *argv[])
 {
-	std::cout << "Starting debug_vect advertiser node..." << std::endl;
-	setvbuf(stdout, NULL, _IONBF, BUFSIZ);
-	rclcpp::init(argc, argv);
-	rclcpp::spin(std::make_shared<DebugVectAdvertiser>());
+  std::cout << "Starting debug_vect advertiser node..." << std::endl;
+  setvbuf(stdout, NULL, _IONBF, BUFSIZ);
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<DebugVectAdvertiser>());
 
-	rclcpp::shutdown();
-	return 0;
+  rclcpp::shutdown();
+  return 0;
 }
 ```
 
@@ -750,6 +750,101 @@ will generate topics under the namespaces:
 ```
 
 :::
+
+## PX4 ROS 2 service servers
+
+<Badge type="tip" text="PX4 v1.15" />
+
+The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) provides ROS 2 service servers to simplify communication between ROS 2 nodes and the FCU.
+
+### VehicleCommand service
+
+This service is available under `/fmu/vehicle_command` which can be changed through custom namespaces just like the other PX4 topics.
+
+The service type is
+
+```srv
+VehicleCommand request
+---
+VehicleCommandAck reply
+```
+
+and user can make service request sending `VehicleCommand` messages end receive `VehicleCommandAck` in response.
+This is an helpful alternative to having to create a topic publisher for `/fmu/in/vehicle_command` and a topic subscriber for `/fmu/out/vehicle_command_ack`.
+On top of that, the service ensures that only the `VehicleCommandAck` reply generated for the request made by the user is sent back, thus removing on the user application side to filter out unwanted `VehicleCommandAck` messages.
+
+#### VehicleCommand service example
+
+A complete _offboard control_ example using the VehicleCommand service is provided by the [offboard_control_srv](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control_srv.cpp) node available in the `px4_ros_com` package.
+
+The example closely follows the _offboard control_ example described in [ROS 2 Offboard Control Example](./offboard_control.md) but uses the `VehicleCommand` service to request mode changes, vehicle arming and vehicle disarming.
+
+Like for any other ROS 2 service client, the ROS 2 application needs to declare a service client of type `px4_msgs::srv::VehicleCommand`
+
+```cpp
+rclcpp::Client<px4_msgs::srv::VehicleCommand>::SharedPtr vehicle_command_client_;
+```
+
+and then initialize it to the right ROS 2 service.
+As the application assumes the standard PX4 namespace is used, this results in
+
+```cpp
+vehicle_command_client_{this->create_client<px4_msgs::srv::VehicleCommand>("/fmu/vehicle_command")}
+```
+
+After that, the client can be used to send any vehicle command request.
+For example, the `arm()` function is used to request the vehicle to arm:
+
+```cpp
+void OffboardControl::arm()
+{
+  RCLCPP_INFO(this->get_logger(), "requesting arm");
+  request_vehicle_command(VehicleCommand::VEHICLE_CMD_COMPONENT_ARM_DISARM, 1.0);
+}
+```
+
+where `request_vehicle_command` handles formatting the request and sending it over in _asynchronous_ [mode](https://docs.ros.org/en/humble/How-To-Guides/Sync-Vs-Async.html#asynchronous-calls):
+
+```cpp
+void OffboardControl::request_vehicle_command(uint16_t command, float param1, float param2)
+{
+  auto request = std::make_shared<px4_msgs::srv::VehicleCommand::Request>();
+
+  VehicleCommand msg{};
+  msg.param1 = param1;
+  msg.param2 = param2;
+  msg.command = command;
+  msg.target_system = 1;
+  msg.target_component = 1;
+  msg.source_system = 1;
+  msg.source_component = 1;
+  msg.from_external = true;
+  msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
+  request->request = msg;
+
+  service_done_ = false;
+  auto result = vehicle_command_client_->async_send_request(request, std::bind(&OffboardControl::response_callback, this,
+                           std::placeholders::_1));
+  RCLCPP_INFO(this->get_logger(), "Command send");
+}
+```
+
+The response is finally captured asynchronously by the `response_callback` method which checks for the request result:
+
+```cpp
+void OffboardControl::response_callback(
+      rclcpp::Client<px4_msgs::srv::VehicleCommand>::SharedFuture future) {
+    auto status = future.wait_for(1s);
+    if (status == std::future_status::ready) {
+      auto reply = future.get()->reply;
+      service_result_ = reply.result;
+      // make decision based on service_result_
+      service_done_ = true;
+    } else {
+      RCLCPP_INFO(this->get_logger(), "Service In-Progress...");
+    }
+  }
+```
 
 ## ros2 CLI
 
