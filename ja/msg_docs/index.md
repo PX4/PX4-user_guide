@@ -337,11 +337,9 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [RcParameterMap](RcParameterMap.md)
 
-- [RoverAckermannGuidanceStatus](RoverAckermannGuidanceStatus.md)
+- [RoverAttitudeSetpoint](RoverAttitudeSetpoint.md)
 
-- [RoverAckermannSetpoint](RoverAckermannSetpoint.md)
-
-- [RoverAckermannStatus](RoverAckermannStatus.md)
+- [RoverAttitudeStatus](RoverAttitudeStatus.md)
 
 - [RoverDifferentialGuidanceStatus](RoverDifferentialGuidanceStatus.md)
 
@@ -354,6 +352,16 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [RoverMecanumSetpoint](RoverMecanumSetpoint.md)
 
 - [RoverMecanumStatus](RoverMecanumStatus.md)
+
+- [RoverRateSetpoint](RoverRateSetpoint.md)
+
+- [RoverRateStatus](RoverRateStatus.md)
+
+- [RoverSteeringSetpoint](RoverSteeringSetpoint.md)
+
+- [RoverThrottleSetpoint](RoverThrottleSetpoint.md)
+
+- [RoverVelocityStatus](RoverVelocityStatus.md)
 
 - [Rpm](Rpm.md)
 
