@@ -26708,7 +26708,7 @@ The geometric ideal acceptance radius is multiplied by this factor to account fo
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 1 | 100 | 0.01 | 2 |  
+&nbsp; | 1 | 100 | 0.01 | 1 |  
 
 ### RA_ACC_RAD_MAX (`FLOAT`) {#RA_ACC_RAD_MAX}
 
@@ -26718,127 +26718,117 @@ The controller scales the acceptance radius based on the angle between the previ
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | 3 | m 
-
-### RA_LAT_ACCEL_I (`FLOAT`) {#RA_LAT_ACCEL_I}
-
-Integral gain for lateral acceleration controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.001 | 0 |  
-
-### RA_LAT_ACCEL_P (`FLOAT`) {#RA_LAT_ACCEL_P}
-
-Proportional gain for lateral acceleration controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 |  
-
-### RA_MAX_ACCEL (`FLOAT`) {#RA_MAX_ACCEL}
-
-Maximum acceleration for the rover.
-
-This is used for the acceleration slew rate.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 | m/s^2 
-
-### RA_MAX_DECEL (`FLOAT`) {#RA_MAX_DECEL}
-
-Maximum deceleration for the rover.
-
-This is used for the deceleration slew rate, the feed-forward term for the speed controller during missions and the corner slow down effect. Note: For the corner slow down effect RA_MAX_JERK also has to be set.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 | m/s^2 
-
-### RA_MAX_JERK (`FLOAT`) {#RA_MAX_JERK}
-
-Maximum jerk.
-
-Limit for forwards acc/deceleration change. This is used for the corner slow down effect. Note: RA_MAX_DECEL also has to be set for this to be enabled.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 | m/s^3 
-
-### RA_MAX_LAT_ACCEL (`FLOAT`) {#RA_MAX_LAT_ACCEL}
-
-Maximum allowed lateral acceleration.
-
-This parameter is used to cap the lateral acceleration and map controller inputs to desired lateral acceleration in Acro, Stabilized and Position mode.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0.01 | 1000 | 0.01 | 0.01 | m/s^2 
-
-### RA_MAX_SPEED (`FLOAT`) {#RA_MAX_SPEED}
-
-Maximum allowed speed.
-
-This is the maximum allowed speed setpoint when driving in a mode that uses closed loop speed control.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 | m/s 
+&nbsp; | -1 | 100 | 0.01 | -1 | m 
 
 ### RA_MAX_STR_ANG (`FLOAT`) {#RA_MAX_STR_ANG}
 
 Maximum steering angle.
 
-The maximum angle that the rover can steer
-
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.1 | 1.5708 | 0.01 | 0.5236 | rad 
+&nbsp; | 0 | 1.5708 | 0.01 | 0 | rad 
 
-### RA_MAX_STR_RATE (`FLOAT`) {#RA_MAX_STR_RATE}
+### RA_STR_RATE_LIM (`FLOAT`) {#RA_STR_RATE_LIM}
 
-Maximum steering rate for the rover.
+Steering rate limit.
+
+Set to -1 to disable.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | -1 | 1000 | 0.01 | -1 | deg/s 
 
-### RA_MAX_THR_SPEED (`FLOAT`) {#RA_MAX_THR_SPEED}
-
-Speed the rover drives at maximum throttle.
-
-This parameter is used to calculate the feedforward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands [-1. 1]. A good starting point is the observed ground speed when the rover drives at maximum throttle in manual mode. Increase this parameter if the rover is faster than the setpoint, and decrease if the rover is slower.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 | m/s 
-
-### RA_SPEED_I (`FLOAT`) {#RA_SPEED_I}
-
-Integral gain for ground speed controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.001 | 1 |  
-
-### RA_SPEED_P (`FLOAT`) {#RA_SPEED_P}
-
-Proportional gain for ground speed controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 |  
-
 ### RA_WHEEL_BASE (`FLOAT`) {#RA_WHEEL_BASE}
 
 Wheel base.
 
-Distance from the front to the rear axle
+Distance from the front to the rear axle.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.001 | 100 | 0.001 | 0.5 | m 
+&nbsp; | 0 | 100 | 0.001 | 0 | m 
+
+## Rover Attitude Control
+
+### RO_YAW_P (`FLOAT`) {#RO_YAW_P}
+
+Proportional gain for closed loop yaw controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0 |  
+
+## Rover Control
+
+### RO_ACCEL_LIM (`FLOAT`) {#RO_ACCEL_LIM}
+
+Acceleration limit.
+
+Set to -1 to disable. For mecanum rovers this limit is used for longitudinal and lateral acceleration.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 100 | 0.01 | -1 | m/s^2 
+
+### RO_DECEL_LIM (`FLOAT`) {#RO_DECEL_LIM}
+
+Deceleration limit.
+
+Set to -1 to disable. Note that if it is disabled the rover will not slow down when approaching waypoints in auto modes. For mecanum rovers this limit is used for longitudinal and lateral deceleration.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 100 | 0.01 | -1 | m/s^2 
+
+### RO_JERK_LIM (`FLOAT`) {#RO_JERK_LIM}
+
+Jerk limit.
+
+Set to -1 to disable. Note that if it is disabled the rover will not slow down when approaching waypoints in auto modes. For mecanum rovers this limit is used for longitudinal and lateral jerk.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 100 | 0.01 | -1 | m/s^3 
+
+### RO_MAX_THR_SPEED (`FLOAT`) {#RO_MAX_THR_SPEED}
+
+Speed the rover drives at maximum throttle.
+
+Used to linearly map speeds [m/s] to throttle values [-1. 1].
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0 | m/s 
+
+### RO_SPEED_TH (`FLOAT`) {#RO_SPEED_TH}
+
+Speed measurement threshold.
+
+The minimum threshold for the speed measurement not to be interpreted as zero.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0.1 | m/s 
+
+### RO_YAW_RATE_TH (`FLOAT`) {#RO_YAW_RATE_TH}
+
+Yaw rate measurement threshold.
+
+The minimum threshold for the yaw rate measurement not to be interpreted as zero.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 3 | deg/s 
+
+### RO_YAW_STICK_DZ (`FLOAT`) {#RO_YAW_STICK_DZ}
+
+Yaw stick deadzone.
+
+Percentage of stick input range that will be interpreted as zero around the stick centered value.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 1 | 0.01 | 0.1 |  
 
 ## Rover Differential
 
@@ -27158,7 +27148,7 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 100 | 0.01 | 1 |  
 
-## Rover Position Control
+## Rover Position Control (Deprecated)
 
 ### GND_L1_DAMPING (`FLOAT`) {#GND_L1_DAMPING}
 
@@ -27329,6 +27319,72 @@ A value of 0.31 is typical for 1/10 RC cars.
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.0 |  | 0.01 | 0.31 | m 
+
+## Rover Rate Control
+
+### RO_YAW_ACCEL_LIM (`FLOAT`) {#RO_YAW_ACCEL_LIM}
+
+Yaw acceleration limit.
+
+Set to -1 to disable.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 10000 | 0.01 | -1 | deg/s^2 
+
+### RO_YAW_RATE_I (`FLOAT`) {#RO_YAW_RATE_I}
+
+Integral gain for closed loop yaw rate controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0 |  
+
+### RO_YAW_RATE_LIM (`FLOAT`) {#RO_YAW_RATE_LIM}
+
+Yaw rate limit.
+
+Used to cap yaw rate setpoints and map controller inputs to yaw rate setpoints in Acro, Stabilized and Position mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 10000 | 0.01 | 0 | deg/s 
+
+### RO_YAW_RATE_P (`FLOAT`) {#RO_YAW_RATE_P}
+
+Proportional gain for closed loop yaw rate controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0 |  
+
+## Rover Velocity Control
+
+### RO_SPEED_I (`FLOAT`) {#RO_SPEED_I}
+
+Integral gain for ground speed controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.001 | 0 |  
+
+### RO_SPEED_LIM (`FLOAT`) {#RO_SPEED_LIM}
+
+Speed limit.
+
+Used to cap speed setpoints and map controller inputs to speed setpoints in Position mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 100 | 0.01 | -1 | m/s 
+
+### RO_SPEED_P (`FLOAT`) {#RO_SPEED_P}
+
+Proportional gain for ground speed controller.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0 |  
 
 ## Runway Takeoff
 
