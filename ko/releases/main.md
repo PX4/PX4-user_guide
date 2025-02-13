@@ -41,6 +41,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
   Mission commands that may take some time to complete, such as those for controlling gimbals, winches, and grippers, will progress to the next item when either feedback is received or the timeout expires.
   This is often used to provide a minimum delay for hardware that does not provide completion feedback, so that it can reach the commanded state before the mission progresses.
   ([PX4-Autopilot#23960](https://github.com/PX4/PX4-Autopilot/pull/23960)).
+- **[uORB]** Introduce a [version field](../middleware/uorb.md#message-versioning) for a subset of uORB messages ([PX4-Autopilot#23850](https://github.com/PX4/PX4-Autopilot/pull/23850))
 
 ### 제어
 
@@ -81,7 +82,7 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
 
 ### uXRCE-DDS / ROS2
 
-- TBD
+- **[Feature]** <Badge type="warning" text="Experimental"/> [ROS 2 Message Translation Node](../ros2/px4_ros2_msg_translation_node.md) to translate PX4 messages from one definition version to another dynamically ([PX4-Autopilot#24113](https://github.com/PX4/PX4-Autopilot/pull/24113))
 
 ### MAVLink
 

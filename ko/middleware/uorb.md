@@ -15,8 +15,13 @@ The [First Application Tutorial (Hello Sky)](../modules/hello_sky.md) provides m
 
 New uORB topics can be added either within the main PX4/PX4-Autopilot repository, or can be added in an [out-of-tree message definition](../advanced/out_of_tree_modules.md#out-of-tree-uorb-message-definitions).
 
-To add new topics, you need to create a new **.msg** "message definition file" in the `msg/` directory, and add the file name to the `msg/CMakeLists.txt` list.
-The new file name should follow the CamelCase convention.
+To add new topics, you need to create a new **.msg** "message definition file" named following the CamelCase convention.
+The file should be added to the [msg/](https://github.com/PX4/PX4-Autopilot/tree/main/msg/) directory (or [msg/versioned](https://github.com/PX4/PX4-Autopilot/tree/main/msg/versioned) if it needs to be versioned) and then listed in the `msg/CMakeLists.txt` file.
+
+:::tip
+Messages need to be versioned if they are exposed to ROS 2 and needs to remain compatible across multiple ROS and PX4 versions.
+See [Message Versioning](#message-versioning) for more information.
+:::
 
 A message definition file can define one or more _topics_, which all have the same fields and structure.
 By default a definition maps to a single topic that is named using a snake_case version of the message definition file name (for example, `TopicName.msg` would define a topic `topic_name`).
@@ -44,6 +49,11 @@ By convention, each field is followed by a descriptive _comment_, which is any t
 :::warning
 All message definitions **must** include the `uint64_t timestamp` field, and this should be filled in when publishing the associated topic(s).
 This field is needed in order for the logger to be able to record UORB topics.
+:::
+
+:::info
+All _versioned_ messages definitions must include the `uint32 MESSAGE_VERSION` field.
+For more information, refer to the [Message Versioning](#message-versioning) section.
 :::
 
 For example the [VelocityLimits](../msg_docs/VelocityLimits.md) message definition shown below has a descriptive comment, followed by a number of fields, which each have a comment.
@@ -91,10 +101,74 @@ PositionSetpoint current
 PositionSetpoint next
 ```
 
+### Message/Field Deprecation {#deprecation}
+
+As there are external tools using uORB messages from log files, such as [Flight Review](https://github.com/PX4/flight_review), certain aspects need to be considered when updating existing messages:
+
+- 업데이트에 대한 타당한 이유가 있는 경우에는, 외부 도구가 의존하는 기존 필드 또는 메시지를 변경하는 것이 일반적으로 허용됩니다.
+  In particular for breaking changes to _Flight Review_, _Flight Review_ must be updated before code is merged to `master`.
+- 외부 도구가 두 메시지 버전을 확실하게 구별하려면, 다음 단계를 따라야 합니다.
+  - Removed or renamed messages must be added to the `deprecated_msgs` list in [msg/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/c5a6a60903455c3600f47e3c45ecaa48614559c8/msg/CMakeLists.txt#L189) and the **.msg** file needs to be deleted.
+  - 제거되거나 이름이 변경된 필드는 주석을 달고 더 이상 사용되지 않는 것으로 표시하여야 합니다.
+    For example `uint8 quat_reset_counter` would become `# DEPRECATED: uint8 quat_reset_counter`.
+    이것은 제거된 필드(또는 메시지)가 다시 추가되지 않도록 하기 위한 것입니다.
+  - 의미 변경의 경우(예: 단위가 도에서 라디안으로 변경) 필드 이름도 변경하여야 하며, 이전 필드도 위와 같이 더 이상 사용되지 않는 것으로 표시되어야 합니다.
+
+## Message Versioning
+
+<Badge type="tip" text="main (PX4 v1.16+)" />
+
+Optional message versioning was introduced in PX4 v1.16 (main) to make it easier to maintain compatibility between PX4 and ROS 2 versions compiled against different message definitions.
+Versioned messages are designed to remain more stable over time compared to their non-versioned counterparts, as they are intended to be used across multiple releases of PX4 and external systems, ensuring greater compatibility over longer periods.
+
+Versioned messages include an additional field `uint32 MESSAGE_VERSION = x`, where `x` corresponds to the current version of the message.
+
+Versioned and non-versioned messages are separated in the file system:
+
+- Non-versioned topic message files and service message files remain in the [`msg/`](https://github.com/PX4/PX4-Autopilot/tree/main/msg) and [`srv/`](https://github.com/PX4/PX4-Autopilot/tree/main/srv) directories, respectively.
+- The current (highest) version of message files are located in the `versioned` subfolders ([`msg/versioned`](https://github.com/PX4/PX4-Autopilot/tree/main/msg/versioned) and [`srv/versioned`](https://github.com/PX4/PX4-Autopilot/tree/main/srv/versioned)).
+- Older versions of messages are stored in nested `px4_msgs_old/msg/` subfolders ([`msg/versioned/px4_msgs_old/msg/`](https://github.com/PX4/PX4-Autopilot/tree/main/msg/versioned/px4_msgs_old/msg) and [`srv/versioned`](https://github.com/PX4/PX4-Autopilot/tree/main/srv/versioned/px4_msgs_old/srv/)).
+  The files are also renamed with a suffix to indicate their version number.
+
+:::tip
+The file structure is outlined in more detail in [File structure (ROS 2 Message Translation Node)](../ros2/px4_ros2_msg_translation_node.md#file-structure).
+:::
+
+The [ROS 2 Message Translation Node](../ros2/px4_ros2_msg_translation_node.md) uses the above message definitions to seamlessly convert messages sent between PX4 and ROS 2 applications that have been compiled against different message versions.
+
+Updating a versioned message involves more steps compared to updating a non-versioned one.
+For more information see [Updating a Versioned Message](../ros2/px4_ros2_msg_translation_node.md#updating-a-versioned-message).
+
+For the full list of versioned and non-versioned messages see: [uORB Message Reference](../msg_docs/index.md).
+
+For more on PX4 and ROS 2 communication, see [PX4-ROS 2 Bridge](../ros/ros2_comm.md).
+
+:::info
+ROS 2 plans to natively support message versioning in the future, but this is not implememented yet.
+See the related ROS Enhancement Proposal ([REP 2011](https://github.com/ros-infrastructure/rep/pull/358)).
+See also this [Foxglove post](https://foxglove.dev/blog/sending-ros2-message-types-over-the-wire) on message hashing and type fetching.
+:::
+
 ## 퍼블리시(게시)
 
 Publishing a topic can be done from anywhere in the system, including interrupt context (functions called by the `hrt_call` API).
 However, the topic needs to be advertised and published outside of an interrupt context (at least once) before it can be published in an interrupt context.
+
+### 다중 인스턴스
+
+uORB provides a mechanism to publish multiple independent instances of the _same_ topic.
+This is useful, for example, if the system has several sensors of the same type.
+
+:::info
+This differs from [Multi-Topic Messages](#multi-topic-messages), where we create different topics that happen to have the same structure.
+:::
+
+A publisher can call `orb_advertise_multi` to create a new topic instance and get its instance index.
+A subscriber will then have to choose to which instance to subscribe to using `orb_subscribe_multi` (`orb_subscribe` subscribes to the first instance).
+
+Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic!
+
+The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
 
 ## 토픽 나열 및 듣기
 
@@ -184,35 +258,6 @@ Topic changes can be plotted in realtime using PlotJuggler and the PX4 ROS 2 int
 For more information see: [Plotting uORB Topic Data in Real Time using PlotJuggler](../debug/plotting_realtime_uorb_data.md).
 
 <video src="../../assets/debug/realtime_debugging/realtime_debugging.mp4" width="720" controls></video>
-
-## 다중 인스턴스
-
-uORB provides a mechanism to publish multiple independent instances of the _same_ topic.
-This is useful, for example, if the system has several sensors of the same type.
-
-:::info
-This differs from [Multi-Topic Messages](#multi-topic-messages), where we create different topics that happen to have the same structure.
-:::
-
-A publisher can call `orb_advertise_multi` to create a new topic instance and get its instance index.
-A subscriber will then have to choose to which instance to subscribe to using `orb_subscribe_multi` (`orb_subscribe` subscribes to the first instance).
-
-Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic!
-
-The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
-
-## Message/Field Deprecation {#deprecation}
-
-As there are external tools using uORB messages from log files, such as [Flight Review](https://github.com/PX4/flight_review), certain aspects need to be considered when updating existing messages:
-
-- 업데이트에 대한 타당한 이유가 있는 경우에는, 외부 도구가 의존하는 기존 필드 또는 메시지를 변경하는 것이 일반적으로 허용됩니다.
-  In particular for breaking changes to _Flight Review_, _Flight Review_ must be updated before code is merged to `master`.
-- 외부 도구가 두 메시지 버전을 확실하게 구별하려면, 다음 단계를 따라야 합니다.
-  - Removed or renamed messages must be added to the `deprecated_msgs` list in [msg/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/c5a6a60903455c3600f47e3c45ecaa48614559c8/msg/CMakeLists.txt#L189) and the **.msg** file needs to be deleted.
-  - 제거되거나 이름이 변경된 필드는 주석을 달고 더 이상 사용되지 않는 것으로 표시하여야 합니다.
-    For example `uint8 quat_reset_counter` would become `# DEPRECATED: uint8 quat_reset_counter`.
-    이것은 제거된 필드(또는 메시지)가 다시 추가되지 않도록 하기 위한 것입니다.
-  - 의미 변경의 경우(예: 단위가 도에서 라디안으로 변경) 필드 이름도 변경하여야 하며, 이전 필드도 위와 같이 더 이상 사용되지 않는 것으로 표시되어야 합니다.
 
 ## See Also
 

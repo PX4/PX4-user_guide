@@ -3,7 +3,7 @@
 PX4提供基于机载视觉（LED）和声音（蜂鸣器）的高级飞行状态和飞行准备提示。
 例如，这些提示表明飞行器是否正确校准，是否有SD卡，是否有位置锁定，是否可以安全起飞，是否解锁，是否可以起飞等。
 
-In addition, PX4 provides more fine-grained information about readiness to fly in QGroundControl.
+此外，PX4 还在 QGroundControl 中提供了更精细的飞行准备信息。
 
 The LED, tune, and GCS notifications are linked below:
 
