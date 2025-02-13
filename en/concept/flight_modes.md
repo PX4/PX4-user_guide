@@ -1,111 +1,215 @@
-# Flight Modes (Developers) 
+# Flight Modes (Developers)
 
-_Flight Modes_ define how the autopilot responds to user input and controls vehicle movement.
+Flight modes are special operational states that control how the autopilot responds to user input and controls vehicle movement.
 They are loosely grouped into _manual_, _assisted_ and _auto_ modes, based on the level/type of control provided by the autopilot.
 The pilot transitions between flight modes using switches on the remote control or with a ground control station.
 
-Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types (as described below).
-Finally, some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock).
-The system will not allow transitions to those modes until the right conditions are met.
+Flight modes can be implemented in the PX4 flight stack running on the flight controller, or as PX4 ROS 2 modes running on a companion computer.
+From an external perspective (MAVLink/GCS), the origin of a mode is indistinguishable.
 
-The sections below provide an overview of the modes, followed by a [flight mode evaluation diagram](#flight-mode-evaluation-diagram) that shows the conditions under which PX4 will transition into a new mode.
+This topic links to documentation for the supported modes, compares PX4 FC and ROS2 modes, provides implementation hints, and provides an overview of PX4 modes can be used with MAVLink.
 
-::: info
-User-facing flight mode documentation can be found in:
+## Supported Flight Modes
+
+Not all flight modes are available (or makes sense), on all vehicle types, and some modes behave differently on different vehicle types.
+
+Flight mode documentation for the modes running on the flight controller are listed below:
 
 - [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
 - [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/index.md)
 - [Drive Modes (Differential Rover)](../flight_modes_rover/differential.md)
 - [Drive Modes (Ackermann Rover)](../flight_modes_rover/ackermann.md)
+- [Basic Configuration > Flight Modes](../config/flight_mode.md)
 
+::: info
+At time of writing there are no PX4 ROS 2 flight modes that are considered "supported as an integral part of the PX4 open source offering".
 :::
 
-## Flight Mode Summary
+## PX4 FC Modes vs PX4 ROS2 Flight Modes
 
-### Manual Flight Modes
+With some exceptions it is possible to write a mode in either the FC and companion computer.
+The main considerations are listed below.
 
-"Manual" modes are those where the user has direct control over the vehicle via the RC control (or joystick).
-Vehicle movement always follows stick movement, but the level/type of response changes depending on the mode.
-For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.
+ROS 2 modes cannot be used in the following cases:
 
-- **Rovers / Boats:**
+- Modes that need to run on vehicles that don't have a companion computer.
+- Modes that require low-level access, strict timing, and/or high update rate requirements.
+  For example, a multicopter mode that implements direct motor control.
+- Safety critical modes, such as [Return mode](../flight_modes_mc/return.md).
+- When you can't use ROS (for any reason).
 
-  - **MANUAL/STABILIZED/ACRO:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to control allocation.
+PX4 ROS 2 modes should be considered for all other cases.
+They have the following benefits:
 
-- **Fixed-wing aircraft:**
+- Easier to implement as there is no need to deal with low-level embedded constraints and requirements (such as restricted stack sizes).
+- Easier to maintain as the integration API is small, well defined, and stable (porting custom PX4 modes on the flight controller between PX4 versions is much harder).
+- Crashing the app does not crash the vehicle.
+- They can override existing modes to provide more advanced features.
+  You can even override a safety-critical mode with a better versions: if the ROS 2 mode crashes the original mode will be engaged.
+- High-level functionality is available, including a better-feature programming environment, and many useful Linux and ROS libraries.
+- More available compute to do more advanced processing (e.g. computer vision).
 
-  - **MANUAL:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to control allocation.
-  - **STABILIZED:** The pilot's pitch and roll inputs are passed as angle commands to the autopilot, while the yaw input is sent directly via control allocation to the rudder (manual control).
-    If the RC roll and pitch sticks are centered, the autopilot regulates the roll and pitch angles to zero, hence stabilizing (leveling-out) the attitude against any wind disturbances.
-    However, in this mode the position of the aircraft is not controlled by the autopilot, hence the position can drift due to wind.
-    With nonzero roll input the vehicle does a coordinated turn to achieve zero sideslip (the acceleration in y-direction (sidewards) is zero).
-    During a coordinated turn, the rudder is used to control the sideslip and any manual yaw input is added to that.
-  - **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw _rate_ commands to the autopilot.
-    The autopilot controls the angular rates.
-    Throttle is passed directly to control allocation.
+Note that there are some negatives to keep in mind:
 
-- **Multirotors:**
+- There is no CI environment for testing ROS 2 applications with PX4 in CI (it is easier to automate testing of PX4 flight modes running on the FC).
+- The [PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md) that is used to define the modes is experimental
+- There is no formal "PX4 companion computer flight stack", so there is nowhere to contribute PX4 ROS2 modes such that they are become a part of the standard offering available to all users.
 
-  - **STABILIZED** (**MANUAL** also selects this mode): The pilot's inputs are passed as roll and pitch _angle_ commands and a yaw _rate_ command.
-    Throttle is passed directly to control allocation.
-    The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude.
-    However, in this mode the position of the vehicle is not controlled by the autopilot, hence the position can drift due to wind.
+## PX4 ROS 2 Flight Modes (Companion)
 
-    ::: info
-    For Multirotors, Manual and Stabilized modes are the same.
-    :::
+[PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md) documents how to create flight modes running on a companion computer.
 
-  - **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw _rate_ commands to the autopilot.
-    The autopilot controls the angular rates, but not the attitude.
-    Hence, if the RC sticks are centered the vehicle will not level-out.
-    This allows the multirotor to become completely inverted.
-    Throttle is passed directly to control allocation.
+## PX Flight Modes (FC)
 
-### Assisted flight modes
+The specific control behaviour of a flight mode at any time is determined by a [Flight Task](../concept/flight_tasks.md).
+A flight mode might define one or more tasks that define variations of the mode behavior.
+The actual behaviour that is used is normally defined in a parameter, and selected in [src/modules/flight_mode_manager/FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285)
 
-"Assisted" modes are also user controlled but offer some level of "automatic" assistance - for example, automatically holding position/direction, against wind.
-Assisted modes often make it much easier to gain or restore controlled flight.
+### Flight mode restrictions
 
-- **ALTCTL** (Altitude Control)
+Some flight modes only make sense only under specific pre-flight and in-flight conditions.
+For example, a manual control mode should not be used unless the system has a manual controller.
 
-  - **Fixed-wing aircraft:** When the roll, pitch and yaw (RPY) RC sticks are all centered (or less than some specified deadband range) the aircraft will return to straight and level flight and keep its current altitude.
-    Its x and y position will drift with the wind.
-  - **Multirotors:** Roll, pitch and yaw inputs are as in Stabilised mode.
-    Throttle inputs indicate climb or sink at a predetermined maximum rate.
-    Throttle has large deadzone.
-    Centered Throttle holds altitude steady.
-    The autopilot only controls altitude so the x,y position of the vehicle can drift due to wind.
+PX4 modes can specify these conditions as _restrictions_.
+The types of restrictions are listed in the [FailsafeFlags](../msg_docs/FailsafeFlags.md) uORB topic under "Per mode requirements" (duplicated below)
 
-- **POSCTL** (Position Control)
+```text
+# Per-mode requirements
+mode_req_angular_velocity
+mode_req_attitude
+mode_req_local_alt
+mode_req_local_position
+mode_req_local_position_relaxed
+mode_req_global_position
+mode_req_mission
+mode_req_offboard_signal
+mode_req_home_position
+mode_req_wind_and_flight_time_compliance # if set, mode cannot be entered if wind or flight time limit exceeded
+mode_req_prevent_arming    # if set, cannot arm while in this mode
+mode_req_manual_control
+mode_req_other             # other requirements, not covered above (for external modes)
+```
 
-  - **Fixed-wing aircraft:** Neutral inputs (centered RC sticks) give level flight and it will crab against the wind if needed to maintain a straight line.
-  - **Multirotors** Roll controls left-right speed, pitch controls front-back speed over ground.
-    Yaw controls yaw rate as in MANUAL mode.
-    Throttle controls climb/descent rate as in ALTCTL mode.
-    This means that the x, y, z position of the vehicle is held steady by the autopilot against any wind disturbances, when the roll, pitch and throttle sticks are centered.
+If the condition of restriction is not met:
 
-### Auto flight modes
+- arming is not allowed, while the mode is selected
+- when already armed, the mode cannot be selected
+- when armed and the mode is selected, the relevant failsafe is triggered (e.g. RC loss for the manual control requirement).
+  Check [Safety (Failsafe) Configuration](../config/safety.md) for how to configure failsafe behavior.
 
-"Auto" modes are those where the controller requires little to no user input (e.g. to takeoff, land and fly missions).
+This is the corresponding flow diagram for the manual control flag (`mode_req_manual_control`):
 
-- **AUTO_LOITER** (Loiter)
+![Mode requirements diagram](../../assets/middleware/ros2/px4_ros2_interface_lib/mode_requirements_diagram.png)
 
-  - **Fixed-wing aircraft:** The aircraft loiters around the current position at the current altitude (or possibly slightly above the current altitude, good for 'I'm losing it').
-  - **Multirotors:** The multirotor hovers / loiters at the current position and altitude.
+The requirements for all modes are set in `getModeRequirements()` in [src/modules/commander/ModeUtil/mode_requirements.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp#L46).
+When adding a new mode you will need to add appropriate requirements in that method.
 
-- **AUTO_RTL** (Return to Launch)
+::: tip
+Readers may note that this image is from [PX4 ROS2 Control Interface > Failsafes and mode requirements](../ros2/px4_ros2_control_interface.md#failsafes-and-mode-requirements).
+The requirements and concepts are essentially the same (though defined in different places).
+The main difference is that ROS 2 modes _infer_ the correct requirements to use, while modes in PX4 source code must explicitly specify them.
+:::
 
-  - **Fixed-wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position.
-  - **Multirotors:** The multirotor returns in a straight line on the current altitude (if the current altitude is higher than the home position + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)) or on the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (if the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) is higher than the current altitude), then lands automatically.
+## MAVLink Integration
 
-- **AUTO_MISSION** (Mission)
-  - **All system types:** The aircraft obeys the programmed mission sent by the ground control station (GCS).
-    If no mission received, aircraft will LOITER at current position instead.
-  - **_OFFBOARD_** (Offboard)
-    In this mode the position, velocity or attitude reference / target / setpoint is provided by a companion computer connected via serial cable and MAVLink.
-    The offboard setpoint can be provided by APIs like [MAVSDK](http://mavsdk.mavlink.io) or [MAVROS](https://github.com/mavlink/mavros).
+### Standard Modes Protocol
 
-## Flight Mode Evaluation Diagram
+PX4 implements the MAVLink [Standard Modes Protocol](https://mavlink.io/en/services/standard_modes.md) from PX4 v1.15, with a corresponding implementation in QGroundControl Daily builds (and future release builds).
 
-![Commander Flow diagram](../../assets/diagrams/commander-flow-diagram.png)
+Modes can be "standard" or "custom".
+The standard modes ([MAV_STANDARD_MODE](https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE)) are those that are common to most flight stacks with broadly the same behaviour, whereas custom modes are flight-stack specific.
+
+This protocol allows:
+
+- Discovery of all modes supported by a system from both PX4 and ROS 2 ([MAV_CMD_REQUEST_MESSAGE](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE) and [AVAILABLE_MODES](https://mavlink.io/en/messages/common.html#AVAILABLE_MODES)).
+- Discovery of the current mode ([CURRENT_MODE](https://mavlink.io/en/messages/common.html#CURRENT_MODE)).
+- Setting of standard modes using [MAV_CMD_DO_SET_STANDARD_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_STANDARD_MODE) (recommended)
+- Setting of custom modes using [SET_MODE](https://mavlink.io/en/messages/common.html#SET_MODE) (using information from `AVAILABLE_MODES`). At time of writing [MAV_CMD_DO_SET_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_MODE) is not supported).
+- Notification when the set of modes changes ([AVAILABLE_MODES_MONITOR](https://mavlink.io/en/messages/common.html#AVAILABLE_MODES_MONITOR))
+
+PX4 advertises support for the following standard flight modes, which means that you can start them by calling [MAV_CMD_DO_SET_STANDARD_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_STANDARD_MODE) and the appropriate enum values:
+
+All vehicle types:
+
+| Standard Mode                                                      | PX4 Mode                                      | Internal Mode |
+| ------------------------------------------------------------------ | --------------------------------------------- | ------------- |
+| [MAV_STANDARD_MODE_SAFE_RECOVERY][MAV_STANDARD_MODE_SAFE_RECOVERY] | [Return mode](../flight_modes/return.md)      | AUTO_RTL      |
+| [MAV_STANDARD_MODE_MISSION][MAV_STANDARD_MODE_MISSION]             | [Mission mode](../flight_modes_mc/mission.md) | AUTO_MISSION  |
+| [MAV_STANDARD_MODE_LAND][MAV_STANDARD_MODE_LAND]                   | [Land mode](../flight_modes_mc/land.md)       | AUTO_LAND     |
+| [MAV_STANDARD_MODE_TAKEOFF][MAV_STANDARD_MODE_TAKEOFF]             | [Takeoff mode](../flight_modes_mc/takeoff.md) | AUTO_TAKEOFF  |
+
+[MAV_STANDARD_MODE_SAFE_RECOVERY]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_SAFE_RECOVERY
+[MAV_STANDARD_MODE_MISSION]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_MISSION
+[MAV_STANDARD_MODE_LAND]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_LAND
+[MAV_STANDARD_MODE_TAKEOFF]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_TAKEOFF
+
+MC vehicles support the following standard modes (in addition to the ones that are supported by all vehicles):
+
+| Standard Mode                                                      | PX4 Mode                                           | Internal Mode |
+| ------------------------------------------------------------------ | -------------------------------------------------- | ------------- |
+| [MAV_STANDARD_MODE_POSITION_HOLD][MAV_STANDARD_MODE_POSITION_HOLD] | [MC Position mode](../flight_modes_mc/position.md) | POSCTL        |
+| [MAV_STANDARD_MODE_ALTITUDE_HOLD][MAV_STANDARD_MODE_ALTITUDE_HOLD] | [MC Altitude mode](../flight_modes_mc/altitude.md) | ALTCTL        |
+| [MAV_STANDARD_MODE_ORBIT][MAV_STANDARD_MODE_ORBIT]                 | [FW Orbit mode](../flight_modes_mc/orbit.md)       | POSCTL        |
+
+[MAV_STANDARD_MODE_POSITION_HOLD]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_POSITION_HOLD
+[MAV_STANDARD_MODE_ORBIT]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_ORBIT
+[MAV_STANDARD_MODE_ALTITUDE_HOLD]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_ALTITUDE_HOLD
+
+FW vehicles support the following standard modes (in addition to the ones that are supported by all vehicles):
+
+| Standard Mode                                                      | PX4 Mode                                             | Internal Mode |
+| ------------------------------------------------------------------ | ---------------------------------------------------- | ------------- |
+| [MAV_STANDARD_MODE_CRUISE][MAV_STANDARD_MODE_CRUISE]               | [FW Position mode](../flight_modes_fw/position.html) | POSCTL        |
+| [MAV_STANDARD_MODE_ALTITUDE_HOLD][MAV_STANDARD_MODE_ALTITUDE_HOLD] | [FW Altitude mode](../flight_modes_fw/altitude.md)   | ALTCTL        |
+| [MAV_STANDARD_MODE_ORBIT][MAV_STANDARD_MODE_ORBIT]                 | [FW Hold mode](../flight_modes_fw/hold.md)           | AUTO_LOITER   |
+
+[MAV_STANDARD_MODE_CRUISE]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_CRUISE
+[MAV_STANDARD_MODE_ALTITUDE_HOLD]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_ALTITUDE_HOLD
+[MAV_STANDARD_MODE_ORBIT]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_ORBIT
+
+VTOL vehicles also support the following standard modes (in addition to the ones that are supported by all vehicles):
+
+| Standard Mode                                                      | PX4 Mode                                           | Internal Mode |
+| ------------------------------------------------------------------ | -------------------------------------------------- | ------------- |
+| [MAV_STANDARD_MODE_ALTITUDE_HOLD][MAV_STANDARD_MODE_ALTITUDE_HOLD] | [FW Altitude mode](../flight_modes_fw/altitude.md) | ALTCTL        |
+
+::: info
+Note that VTOL vehicles could also support `MAV_STANDARD_MODE_CRUISE` (FW) or `MAV_STANDARD_MODE_POSITION_HOLD` (MC) and `MAV_STANDARD_MODE_ORBIT` in respective modes, but this has not been implemented.
+:::
+
+When implementing a mapping to a standard mode, see [src/lib/modes/standard_modes.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/modes/standard_modes.hpp), and in particular the implementation of `getNavStateFromStandardMode()`.
+
+<!--
+- How are modes added to available modes - does a developer need to do anything particular when defining a new mode?
+- How are their characteristics set?
+- How do I notify when the set of modes changes? Do I need to do anything when I create a new mode?
+
+- [PX4-Autopilot#24011: standard_modes: add vehicle-type specific standard modes](https://github.com/PX4/PX4-Autopilot/pull/24011)
+
+-->
+
+### Other MAVLink Mode-changing Commands
+
+<!--
+Check these are supported
+Add info about what mode they put the vehicle into.
+-->
+
+Some modes, both standard and custom, can also be set using specific commands and messages.
+This can be more convenient that just starting the mode, in particular when the message allows additional settings to be configured.
+
+The following are supported:
+
+PX4 supports:
+
+- [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF)
+- [MAV_CMD_NAV_RETURN_TO_LAUNCH](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH) - Put into return mode. Equivalent to ....
+- [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)
+- [MAV_CMD_DO_FOLLOW_REPOSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_FOLLOW_REPOSITION)
+- [MAV_CMD_DO_FOLLOW](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_FOLLOW)
+- [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_ORBIT) - Orbit in MC mode only.
+- [MAV_CMD_NAV_VTOL_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_TAKEOFF)
+- [MAV_CMD_DO_REPOSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_REPOSITION)
+- [MAV_CMD_DO_PAUSE_CONTINUE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_PAUSE_CONTINUE) - Pauses a mission by putting the vehicle into Hold/Loiter
+- [MAV_CMD_MISSION_START](https://mavlink.io/en/messages/common.html#MAV_CMD_MISSION_START)
