@@ -22,6 +22,9 @@ They can even replace the default modes in PX4 with enhanced ROS 2 versions, fal
 The library also provides classes for sending different types of setpoints, ranging from high-level navigation tasks all the way down to direct actuator controls.
 These classes abstract the internal setpoints used by PX4, and that can therefore be used to provide a consistent ROS 2 interface for future PX4 and ROS releases.
 
+PX4 ROS 2 modes are easier to implement and maintain than PX4 internal modes, and provide more resources for developers in terms of processing power and pre-existing  libraries.
+Unless the mode is safety-critical, requires strict timing or very high update rates, or your vehicle doesn't have a companion computer, you should [consider using PX4 ROS 2 modes in preference to PX4 internal modes](../concept/flight_modes.md#px4-fc-modes-vs-px4-ros2-flight-modes).
+
 ## Overview
 
 This diagram provides a conceptual overview of how the control interface modes and mode executors interact with PX4.

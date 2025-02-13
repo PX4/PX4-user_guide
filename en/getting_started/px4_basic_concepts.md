@@ -16,13 +16,12 @@ Drones are more formally referred to as Unmanned Aerial Vehicles (UAV), Unmanned
 The term Unmanned Aerial System (UAS) typically refers to a UAV and all of the other components of a complete system, including a ground control station and/or radio controller, and any other systems used to control the drone, capture, and process data.
 :::
 
-
 ## Drone Types
 
 There are many different vehicle frames (types), and within the types there are many variations.
 Some of the types, along with the use cases for which they are most suited are listed below.
 
-- [Multicopters](../frames_multicopter/index.md) — Multi-rotors offer precision hovering and vertical takeoff, at the cost of shorter and generally slower flight. 
+- [Multicopters](../frames_multicopter/index.md) — Multi-rotors offer precision hovering and vertical takeoff, at the cost of shorter and generally slower flight.
   They are the most popular type of flying vehicle, in part because they are easy to assemble, and PX4 has modes that make them easy to fly and very suitable as a camera platform.
 - [Helicopters](../frames_helicopter/index.md) — Helicopters similar benefits to Multicopters but are mechanically more complex and more efficient.
   They are also much harder to fly.
@@ -37,7 +36,6 @@ Some of the types, along with the use cases for which they are most suited are l
   They can't travel as fast as most aircraft, but can carry heavier payloads, and don't use much power when still.
 - **Boats** — Water-surface vehicles.
 - [Submersibles](../frames_sub/index.md) — Underwater vehicles.
-
 
 For more information see:
 
@@ -54,7 +52,6 @@ The flight stack provides essential stabilisation and safety features, and usual
 
 Some autopilots also include a general-purpose computing system that can provide "higher level" command and control, and that can support more advanced networking, computer vision, and other features.
 This might be implemented as a separate [companion computer](#offboard-companion-computer), but in future it is increasingly likely to be a fully integrated component.
-
 
 ## PX4 Flight Stack
 
@@ -128,6 +125,7 @@ The following sensors are recommended:
 - A [GNSS/GPS](../gps_compass/index.md) or other source of global position is needed to enable all automatic modes, and some manual/assisted modes.
 
   Typically a module that combines a GNSS and Compass is used, as an external compass can be made less susceptible to electromomagnetic interference than the internal compass in the flight controller.
+
 - [Airspeed sensors](../sensor/airspeed.md) are highly recommended for fixed-wing and VTOL-vehicles.
 - [Distance Sensors \(Rangefinders\)](../sensor/rangefinders.md) are highly recommended for all vehicle types, as they allow smoother and more robust landings, and enable features such as terrain following on multicopters.
 - [Optical Flow Sensors](../sensor/optical_flow.md) can be used with distance sensors on multcopters and VTOL to support navigation in GNSS-denied environments.
@@ -316,7 +314,8 @@ A detailed overview of arming and disarming configuration can be found here: [Pr
 
 ## Flight Modes
 
-Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot).
+Flight modes are special operational states that provide different types/levels of vehicle automation and autopilot assistance to the user (pilot).
+
 _Autonomous modes_ are fully controlled by the autopilot, and require no pilot/remote control input.
 These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing.
 Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
@@ -329,7 +328,7 @@ while others are impossible to flip and will hold position/course against wind.
 Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
 :::
 
-An overview of the available flight modes for each vehicle can be found below:
+An overview of the flight modes implemented within PX4 for each vehicle can be found below:
 
 - [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
 - [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
@@ -338,6 +337,11 @@ An overview of the available flight modes for each vehicle can be found below:
 - [Drive Modes (Ackermann Rover)](../flight_modes_rover/ackermann.md)
 
 Instructions for how to set up your remote control switches to enable different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
+
+PX4 also supports flight modes implemented in [ROS 2](../ros2/index.md) using the [PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md).
+These are indistinguishable from PX4 internal modes, and can be used to override internal modes with a more advanced version, or to create entirely new functionality.
+Note that these depend on ROS 2 and can therefore only run on systems that have a [companion computer](#offboard-companion-computer).
+At time of writing there are no ROS 2 flight modes that are considered an integral part of the PX4 open source offering.
 
 ## Safety Settings (Failsafe)
 
