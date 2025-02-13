@@ -1007,7 +1007,7 @@ The module publishes `InternalCombustionEngineControl.msg` containing:
 | `throttle_control` | [0, 1] | Motor should idle with 0. Includes slew rate if enabled. |
 | `choke_control` | [0, 1] | 1 closes the air inlet |
 | `starter_engine_control` | [0, 1] | 1 if engine start should be delayed |
-| `user_request` | On/Off/Keep | User intent |
+| `user_request` | On/Off | User intent |
 |   |   |  |
 
 ### Implementation
