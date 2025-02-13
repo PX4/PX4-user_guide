@@ -10,10 +10,10 @@ This section is for software developers and (new) hardware integrators.
 它解释了如何：
 
 - Get a [minimum developer setup](../dev_setup/config_initial.md), [build PX4 from source](../dev_setup/building_px4.md) and deploy on [numerous supported autopilots](../flight_controller/index.md).
-- Understand the [PX4 System Architecture](../concept/architecture.md) and other core concepts.
+- 理解[PX4系统架构](../concept/architecture.md)及其他核心概念。
 - 学习如何更改飞行栈及中间层：
-  - Modify flight algorithms and add new [flight modes](../concept/flight_modes.md).
-  - Support new [airframes](../dev_airframes/index.md).
+  - 修改飞行算法并添加新的 [飞行模式](../concept/flight_modes.md)。
+  - 支持新的 [airframes](../dev_airframes/index.md)。
 - 学习如何将PX4集成到新的硬件上：
   - 支持新的传感器和执行器, 包括摄像头、测距仪等。
   - 修改PX4使之能够在新的自驾仪硬件上运行。
