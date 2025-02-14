@@ -36177,6 +36177,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; | 0 | 2 |  | 0 |  
 
+### UXRCE_DDS_RX_TO (`INT32`) {#UXRCE_DDS_RX_TO}
+
+RX rate timeout configuration.
+
+Specifies after how many seconds without receiving data the DDS connection is reestablished. A value less than one disables the RX rate timeout.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | -1 | s 
+
 ### UXRCE_DDS_SYNCC (`INT32`) {#UXRCE_DDS_SYNCC}
 
 Enable uXRCE-DDS system clock synchronization.
@@ -36196,6 +36206,16 @@ When enabled, uxrce_dds_client will synchronize the timestamps of the incoming a
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; |  |  |  | Enabled (1) |  
+
+### UXRCE_DDS_TX_TO (`INT32`) {#UXRCE_DDS_TX_TO}
+
+TX rate timeout configuration.
+
+Specifies after how many seconds without sending data the DDS connection is reestablished. A value less than one disables the TX rate timeout.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 3 | s 
 
 ## VOXL ESC
 
