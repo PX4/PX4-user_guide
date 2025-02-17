@@ -385,17 +385,15 @@ The example describes the process of updating the `VehicleAttitude` message defi
    REGISTER_TOPIC_TRANSLATION_DIRECT(VehicleAttitudeV4Translation);
    ```
 
-   Version translation templates are provided here: <!-- TODO: update GitHub urls -->
+   Version translation templates are provided here:
 
-   - [Direct Topic Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_direct_v1.h)
-   - [Generic Topic Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_multi_v2.h)
-   - [Direct Service Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_service_v1.h)
+   - [Direct Topic Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/main/msg/translation_node/translations/example_translation_direct_v1.h)
+   - [Generic Topic Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/main/msg/translation_node/translations/example_translation_multi_v2.h)
+   - [Direct Service Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/main/msg/translation_node/translations/example_translation_service_v1.h)
 
 5. **Include New Headers in `all_translations.h`**
 
-   <!-- TODO: update GitHub URL -->
-
-   Add all newly created headers to [`translations/all_translations.h`](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/all_translations.h) so that the translation node can find them.
+   Add all newly created headers to [`translations/all_translations.h`](https://github.com/PX4/PX4-Autopilot/blob/main/msg/translation_node/translations/all_translations.h) so that the translation node can find them.
 
    For example, append the following line to `all_translation.h`:
 
@@ -410,7 +408,7 @@ In more complex cases of splitting, merging and/or moving definitions then a gen
 For example when moving a field from one message to another, a single generic translation should be added with the two older message versions as input, and the two newer versions as output.
 This ensures there is no information lost when translating forward or backward.
 
-This is exactly the approach shown by the [Generic Topic Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/message_versioning_and_translation/msg/translation_node/translations/example_translation_multi_v2.h), omitting only the code for actually modifying fields in the `fromOlder()` and `toOlder()` methods.
+This is exactly the approach shown by the [Generic Topic Message Translation Template](https://github.com/PX4/PX4-Autopilot/blob/main/msg/translation_node/translations/example_translation_multi_v2.h), omitting only the code for actually modifying fields in the `fromOlder()` and `toOlder()` methods.
 
 :::warning
 If a nested message definition changes, all messages including that message also require a version update.
