@@ -810,6 +810,7 @@
     - [Інтерфейсна бібліотека PX4 ROS 2](ros2/px4_ros2_interface_lib.md)
       - [Керування інтерфейсом](ros2/px4_ros2_control_interface.md)
       - [Навігаційний інтерфейс](ros2/px4_ros2_navigation_interface.md)
+    - [ROS 2 Message Translation Node](ros2/px4_ros2_msg_translation_node.md)
   - [ROS 1 (Deprecated)](ros/ros1.md)
     - [Посібник із встановлення ROS/MAVROS](ros/mavros_installation.md)
     - [ROS/MAVROS Offboard Приклад (C++)](ros/mavros_offboard_cpp.md)

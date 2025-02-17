@@ -3,18 +3,18 @@
 无论对于模拟器还是硬件目标设备，PX4固件可以在控制台或者IDE中从源码构建
 
 You need to build PX4 in order to use [simulators](../simulation/index.md), or if you want to modify PX4 and create a custom build.
-If you just want to try out PX4 on real hardware then [load the prebuilt binaries](../config/firmware.md) using QGroundControl (there is no need to follow these instructions).
+如果您只想在实际硬件上试试 PX4，那么可以使用 QGroundControl[烧录预构建的二进制文件](../config/firmware.md)(无需跟着下面的指导)。
 
 :::info
-Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware.
-If you have any problems after following these steps see the [Troubleshooting](#troubleshooting) section below.
+在跟着这些指导之前，你必须先为主机操作系统和目标硬件安装 [开发者工具链](../dev_setup/dev_env.md)。
+如果您在跟着这些步骤操作后有任何问题，请参阅下面的 [Troubleshooting](#troubleshooting)。
 :::
 
 ## 下载 PX4 源代码
 
-The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository.
+PX4 源代码存储在 Github 上的 [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) 仓库中。
 
-To get the _very latest_ (`main` branch) version onto your computer, enter the following command into a terminal:
+如果要在您的计算机上获得 _最新的_（main分支）版本，请在终端中输入以下命令：
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
@@ -33,13 +33,13 @@ If needed you can also [get the source code specific to a particular release](..
 首先我们要用控制台环境来构建一个模拟器目标
 这使我们能够在转移到真正的硬件和 IDE 之前验证系统设置。
 
-Navigate into the **PX4-Autopilot** directory.
+切换到 **PX4-Autopilot** 目录。
 Depending on your operating system you will have installed either [Gazebo SITL](../sim_gazebo_gz/index.md) or [Gazebo Classic SITL](../sim_gazebo_classic/index.md) (if you don't know which you can try both).
 
 :::: tabs
 
 :::tab Gazebo
-Start [Gazebo SITL](../sim_gazebo_gz/index.md) using the following command:
+使用以下命令启动 [Gazebo SITL](../sim_gazebo_gz/index.md)：
 
 ```sh
 make px4_sitl gz_x500
@@ -48,7 +48,7 @@ make px4_sitl gz_x500
 :::
 
 :::tab Gazebo-Classic
-Start [Gazebo SITL](../sim_gazebo_gz/index.md) using the following command:
+使用以下命令启动 [Gazebo SITL](../sim_gazebo_gz/index.md)：
 
 ```sh
 make px4_sitl gazebo-classic
@@ -73,7 +73,7 @@ This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/qgc
 pxh> commander takeoff
 ```
 
-该机体将起飞，您将在模拟器UI中看到：
+该载具将起飞，您将在模拟器UI中看到：
 
 :::: tabs
 
