@@ -296,7 +296,7 @@ Source: [modules/rover_differential](https://github.com/PX4/PX4-Autopilot/tree/m
 
 ### Опис
 
-Rover Differential controller.
+Rover differential module.
 
 <a id="rover_differential_usage"></a>
 
