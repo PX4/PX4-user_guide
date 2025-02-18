@@ -217,6 +217,8 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [InputRc](InputRc.md)
 
+- [InternalCombustionEngineControl](InternalCombustionEngineControl.md)
+
 - [InternalCombustionEngineStatus](InternalCombustionEngineStatus.md)
 
 - [IridiumsbdStatus](IridiumsbdStatus.md)
