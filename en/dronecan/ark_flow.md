@@ -86,7 +86,7 @@ DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enablin
 
 ### PX4 Configuration
 
-You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [DroneCAN](index.md) parameters, and define offsets if the sensor is not centred within the vehicle.
+You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [DroneCAN](index.md) parameters (see above), and define offsets if the sensor is not centred within the vehicle.
 
 Set the following parameters in _QGroundControl_:
 
@@ -102,6 +102,8 @@ Set the following parameters in _QGroundControl_:
 - Set [SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) to `25`.
 - Set [SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR) to `7.4` to match the PAW3902 maximum angular flow rate.
 - The parameters [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) and [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) can be set to account for the offset of the Ark Flow from the vehicle centre of gravity.
+
+When optical flow is the only source of horizontal position/velocity, then lowering the [MPC_XY_P]() (e.g. to 0.5) is recommended to reduce oscillations.
 
 ## Ark Flow Configuration
 
