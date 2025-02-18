@@ -425,12 +425,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [TimesyncStatus](TimesyncStatus.md)
 
-- [TrajectoryBezier](TrajectoryBezier.md) — Bezier Trajectory description. Див. також Повідомлення Mavlink TRAJECTORY
-  Тема trajectory_bezier описує кожну точку маршруту, визначену в vehicle_trajectory_bezier
-
-- [TrajectoryWaypoint](TrajectoryWaypoint.md) — Waypoint Trajectory description. Див. також Повідомлення Mavlink TRAJECTORY
-  Тема trajectory_waypoint описує кожну точку маршруту, визначену в vehicle_trajectory_waypoint
-
 - [TransponderReport](TransponderReport.md)
 
 - [TuneControl](TuneControl.md) — This message is used to control the tunes, when the tune_id is set to CUSTOM
@@ -475,14 +469,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [VehicleTorqueSetpoint](VehicleTorqueSetpoint.md)
 
-- [VehicleTrajectoryBezier](VehicleTrajectoryBezier.md) — Vehicle Waypoints Trajectory description. Дивіться також MAVLink MAV_TRAJECTORY_REPRESENTATION msg
-  Тема vehicle_trajectory_bezier використовується для надсилання плавної траєкторії польоту від
-  комп'ютера-супутника/модуля уникання перешкод до контролера положення.
-
-- [VehicleTrajectoryWaypoint](VehicleTrajectoryWaypoint.md) — Vehicle Waypoints Trajectory description. Дивіться також MAVLink MAV_TRAJECTORY_REPRESENTATION msg
-  Тема vehicle_trajectory_waypoint_desired використовується для надсилання користувачем бажаних точок шляху від контролера положення до комп'ютера-супутника/модуля уникання перешкод.
-  Тема vehicle_trajectory_waypoint використовується для надсилання відкоригованих точок маршруту від комп'ютера-супутника/модуля уникання перешкод до контролера положення.
-
 - [VelocityLimits](VelocityLimits.md) — Velocity and yaw rate limits for a multicopter position slow mode only
 
 - [WheelEncoders](WheelEncoders.md)
@@ -490,3 +476,5 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [Wind](Wind.md)
 
 - [YawEstimatorStatus](YawEstimatorStatus.md)
+
+- [VehicleStatusV0](VehicleStatusV0.md) — Encodes the system state of the vehicle published by commander
