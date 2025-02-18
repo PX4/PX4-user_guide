@@ -899,6 +899,10 @@ Select what should be output on PCA9685 Output Channel 1. The default failsafe v
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -960,6 +964,10 @@ Select what should be output on PCA9685 Output Channel 10. The default failsafe 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1021,6 +1029,10 @@ Select what should be output on PCA9685 Output Channel 11. The default failsafe 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1082,6 +1094,10 @@ Select what should be output on PCA9685 Output Channel 12. The default failsafe 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1143,6 +1159,10 @@ Select what should be output on PCA9685 Output Channel 13. The default failsafe 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1204,6 +1224,10 @@ Select what should be output on PCA9685 Output Channel 14. The default failsafe 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1265,6 +1289,10 @@ Select what should be output on PCA9685 Output Channel 15. The default failsafe 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1326,6 +1354,10 @@ Select what should be output on PCA9685 Output Channel 16. The default failsafe 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1387,6 +1419,10 @@ Select what should be output on PCA9685 Output Channel 2. The default failsafe v
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1448,6 +1484,10 @@ Select what should be output on PCA9685 Output Channel 3. The default failsafe v
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1509,6 +1549,10 @@ Select what should be output on PCA9685 Output Channel 4. The default failsafe v
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1570,6 +1614,10 @@ Select what should be output on PCA9685 Output Channel 5. The default failsafe v
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1631,6 +1679,10 @@ Select what should be output on PCA9685 Output Channel 6. The default failsafe v
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1692,6 +1744,10 @@ Select what should be output on PCA9685 Output Channel 7. The default failsafe v
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1753,6 +1809,10 @@ Select what should be output on PCA9685 Output Channel 8. The default failsafe v
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -1814,6 +1874,10 @@ Select what should be output on PCA9685 Output Channel 9. The default failsafe v
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -2465,6 +2529,10 @@ Select what should be output on PWM Aux 1. The default failsafe value is set acc
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
@@ -2530,6 +2598,10 @@ Select what should be output on PWM Capture 2. The default failsafe value is set
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
@@ -2595,6 +2667,10 @@ Select what should be output on PWM Capture 3. The default failsafe value is set
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
@@ -2660,6 +2736,10 @@ Select what should be output on PWM Aux 2. The default failsafe value is set acc
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
@@ -2725,6 +2805,10 @@ Select what should be output on PWM Aux 3. The default failsafe value is set acc
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
@@ -2790,6 +2874,10 @@ Select what should be output on PWM Aux 4. The default failsafe value is set acc
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
@@ -2855,6 +2943,10 @@ Select what should be output on PWM Aux 5. The default failsafe value is set acc
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
@@ -2920,6 +3012,10 @@ Select what should be output on PWM Aux 6. The default failsafe value is set acc
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
@@ -2985,6 +3081,10 @@ Select what should be output on PWM Aux 7. The default failsafe value is set acc
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
@@ -3050,6 +3150,10 @@ Select what should be output on PWM Aux 8. The default failsafe value is set acc
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
@@ -3115,6 +3219,10 @@ Select what should be output on PWM Capture 1. The default failsafe value is set
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 - `2000`: Camera Trigger
 - `2032`: Camera Capture
 - `2064`: PPS Input
@@ -3664,6 +3772,10 @@ Select what should be output on MAIN 1. The default failsafe value is set accord
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -3725,6 +3837,10 @@ Select what should be output on MAIN 2. The default failsafe value is set accord
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -3786,6 +3902,10 @@ Select what should be output on MAIN 3. The default failsafe value is set accord
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -3847,6 +3967,10 @@ Select what should be output on MAIN 4. The default failsafe value is set accord
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -3908,6 +4032,10 @@ Select what should be output on MAIN 5. The default failsafe value is set accord
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -3969,6 +4097,10 @@ Select what should be output on MAIN 6. The default failsafe value is set accord
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -4030,6 +4162,10 @@ Select what should be output on MAIN 7. The default failsafe value is set accord
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -4091,6 +4227,10 @@ Select what should be output on MAIN 8. The default failsafe value is set accord
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -4431,6 +4571,10 @@ Select what should be output on Roboclaw Driver Channel 1. The default failsafe 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -4492,6 +4636,10 @@ Select what should be output on Roboclaw Driver Channel 2. The default failsafe 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -4769,6 +4917,10 @@ Select what should be output on SIM_GZ ESC 1. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -4830,6 +4982,10 @@ Select what should be output on SIM_GZ ESC 2. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -4891,6 +5047,10 @@ Select what should be output on SIM_GZ ESC 3. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -4952,6 +5112,10 @@ Select what should be output on SIM_GZ ESC 4. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -5013,6 +5177,10 @@ Select what should be output on SIM_GZ ESC 5. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -5074,6 +5242,10 @@ Select what should be output on SIM_GZ ESC 6. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -5135,6 +5307,10 @@ Select what should be output on SIM_GZ ESC 7. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -5196,6 +5372,10 @@ Select what should be output on SIM_GZ ESC 8. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -5599,6 +5779,10 @@ Select what should be output on SIM_GZ Servo 1. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -5660,6 +5844,10 @@ Select what should be output on SIM_GZ Servo 2. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -5721,6 +5909,10 @@ Select what should be output on SIM_GZ Servo 3. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -5782,6 +5974,10 @@ Select what should be output on SIM_GZ Servo 4. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -5843,6 +6039,10 @@ Select what should be output on SIM_GZ Servo 5. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -5904,6 +6104,10 @@ Select what should be output on SIM_GZ Servo 6. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -5965,6 +6169,10 @@ Select what should be output on SIM_GZ Servo 7. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -6026,6 +6234,10 @@ Select what should be output on SIM_GZ Servo 8. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -6349,6 +6561,10 @@ Select what should be output on SIM_GZ Wheels 1. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -6410,6 +6626,10 @@ Select what should be output on SIM_GZ Wheels 2. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -6471,6 +6691,10 @@ Select what should be output on SIM_GZ Wheels 3. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -6532,6 +6756,10 @@ Select what should be output on SIM_GZ Wheels 4. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -6691,6 +6919,10 @@ Select what should be output on TAP ESC Output ESC 1. The default failsafe value
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -6752,6 +6984,10 @@ Select what should be output on TAP ESC Output ESC 2. The default failsafe value
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -6813,6 +7049,10 @@ Select what should be output on TAP ESC Output ESC 3. The default failsafe value
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -6874,6 +7114,10 @@ Select what should be output on TAP ESC Output ESC 4. The default failsafe value
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -6935,6 +7179,10 @@ Select what should be output on TAP ESC Output ESC 5. The default failsafe value
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -6996,6 +7244,10 @@ Select what should be output on TAP ESC Output ESC 6. The default failsafe value
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -7057,6 +7309,10 @@ Select what should be output on TAP ESC Output ESC 7. The default failsafe value
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -7118,6 +7374,10 @@ Select what should be output on TAP ESC Output ESC 8. The default failsafe value
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -7281,6 +7541,10 @@ Select what should be output on UAVCAN ESC 1. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -7342,6 +7606,10 @@ Select what should be output on UAVCAN ESC 2. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -7403,6 +7671,10 @@ Select what should be output on UAVCAN ESC 3. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -7464,6 +7736,10 @@ Select what should be output on UAVCAN ESC 4. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -7525,6 +7801,10 @@ Select what should be output on UAVCAN ESC 5. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -7586,6 +7866,10 @@ Select what should be output on UAVCAN ESC 6. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -7647,6 +7931,10 @@ Select what should be output on UAVCAN ESC 7. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -7708,6 +7996,10 @@ Select what should be output on UAVCAN ESC 8. The default failsafe value is set 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -8111,6 +8403,10 @@ Select what should be output on UAVCAN Servo 1. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -8172,6 +8468,10 @@ Select what should be output on UAVCAN Servo 2. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -8233,6 +8533,10 @@ Select what should be output on UAVCAN Servo 3. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -8294,6 +8598,10 @@ Select what should be output on UAVCAN Servo 4. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -8355,6 +8663,10 @@ Select what should be output on UAVCAN Servo 5. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -8416,6 +8728,10 @@ Select what should be output on UAVCAN Servo 6. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -8477,6 +8793,10 @@ Select what should be output on UAVCAN Servo 7. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -8538,6 +8858,10 @@ Select what should be output on UAVCAN Servo 8. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -8941,6 +9265,10 @@ Select what should be output on UAVCANv1 ESC 1. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9002,6 +9330,10 @@ Select what should be output on UAVCANv1 ESC 10. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9063,6 +9395,10 @@ Select what should be output on UAVCANv1 ESC 11. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9124,6 +9460,10 @@ Select what should be output on UAVCANv1 ESC 12. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9185,6 +9525,10 @@ Select what should be output on UAVCANv1 ESC 13. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9246,6 +9590,10 @@ Select what should be output on UAVCANv1 ESC 14. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9307,6 +9655,10 @@ Select what should be output on UAVCANv1 ESC 15. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9368,6 +9720,10 @@ Select what should be output on UAVCANv1 ESC 16. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9429,6 +9785,10 @@ Select what should be output on UAVCANv1 ESC 2. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9490,6 +9850,10 @@ Select what should be output on UAVCANv1 ESC 3. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9551,6 +9915,10 @@ Select what should be output on UAVCANv1 ESC 4. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9612,6 +9980,10 @@ Select what should be output on UAVCANv1 ESC 5. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9673,6 +10045,10 @@ Select what should be output on UAVCANv1 ESC 6. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9734,6 +10110,10 @@ Select what should be output on UAVCANv1 ESC 7. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9795,6 +10175,10 @@ Select what should be output on UAVCANv1 ESC 8. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -9856,6 +10240,10 @@ Select what should be output on UAVCANv1 ESC 9. The default failsafe value is se
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -10267,6 +10655,10 @@ Select what should be output on VOXL2 IO Output PWM Channel 1. The default fails
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -10328,6 +10720,10 @@ Select what should be output on VOXL2 IO Output PWM Channel 2. The default fails
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -10389,6 +10785,10 @@ Select what should be output on VOXL2 IO Output PWM Channel 3. The default fails
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -10450,6 +10850,10 @@ Select what should be output on VOXL2 IO Output PWM Channel 4. The default fails
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -10511,6 +10915,10 @@ Select what should be output on VOXL2 IO Output PWM Channel 5. The default fails
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -10572,6 +10980,10 @@ Select what should be output on VOXL2 IO Output PWM Channel 6. The default fails
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -10633,6 +11045,10 @@ Select what should be output on VOXL2 IO Output PWM Channel 7. The default fails
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -10694,6 +11110,10 @@ Select what should be output on VOXL2 IO Output PWM Channel 8. The default fails
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -10777,6 +11197,10 @@ Select what should be output on VOXL ESC Output ESC 1. The default failsafe valu
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -10838,6 +11262,10 @@ Select what should be output on VOXL ESC Output ESC 2. The default failsafe valu
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -10899,6 +11327,10 @@ Select what should be output on VOXL ESC Output ESC 3. The default failsafe valu
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -10960,6 +11392,10 @@ Select what should be output on VOXL ESC Output ESC 4. The default failsafe valu
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -11359,6 +11795,10 @@ Select what should be output on Vertiq IO CVI 0. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -11420,6 +11860,10 @@ Select what should be output on Vertiq IO CVI 1. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -11481,6 +11925,10 @@ Select what should be output on Vertiq IO CVI 10. The default failsafe value is 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -11542,6 +11990,10 @@ Select what should be output on Vertiq IO CVI 11. The default failsafe value is 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -11603,6 +12055,10 @@ Select what should be output on Vertiq IO CVI 12. The default failsafe value is 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -11664,6 +12120,10 @@ Select what should be output on Vertiq IO CVI 13. The default failsafe value is 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -11725,6 +12185,10 @@ Select what should be output on Vertiq IO CVI 14. The default failsafe value is 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -11786,6 +12250,10 @@ Select what should be output on Vertiq IO CVI 15. The default failsafe value is 
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -11847,6 +12315,10 @@ Select what should be output on Vertiq IO CVI 2. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -11908,6 +12380,10 @@ Select what should be output on Vertiq IO CVI 3. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -11969,6 +12445,10 @@ Select what should be output on Vertiq IO CVI 4. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -12030,6 +12510,10 @@ Select what should be output on Vertiq IO CVI 5. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -12091,6 +12575,10 @@ Select what should be output on Vertiq IO CVI 6. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -12152,6 +12640,10 @@ Select what should be output on Vertiq IO CVI 7. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -12213,6 +12705,10 @@ Select what should be output on Vertiq IO CVI 8. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -12274,6 +12770,10 @@ Select what should be output on Vertiq IO CVI 9. The default failsafe value is s
 - `422`: Gimbal Yaw
 - `430`: Gripper
 - `440`: Landing Gear Wheel
+- `450`: IC Engine Ignition
+- `451`: IC Engine Throttle
+- `452`: IC Engine Choke
+- `453`: IC Engine Starter
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -21326,6 +21826,115 @@ Above this speed, the measurement noise is linearly increased to reduce the sens
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 1.0 | 10.0 |  | 2.0 | m/s 
+
+## ICE
+
+### ICE_CHOKE_ST_DUR (`FLOAT`) {#ICE_CHOKE_ST_DUR}
+
+Duration of choking during startup.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 10 | 0.1 | 5 | s 
+
+### ICE_EN (`INT32`) {#ICE_EN}
+
+Enable internal combustion engine.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | Enabled (1) |  
+
+### ICE_IGN_DELAY (`FLOAT`) {#ICE_IGN_DELAY}
+
+Cold-start delay after ignition before engaging starter.
+
+In case that the ignition takes a moment to be up and running, this parameter can be set to account for that.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 10 | 0.1 | 0 | s 
+
+### ICE_MIN_RUN_RPM (`FLOAT`) {#ICE_MIN_RUN_RPM}
+
+Minimum RPM for engine to be declared running.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 10000 | 1 | 2000 | rpm 
+
+### ICE_ON_SOURCE (`INT32`) {#ICE_ON_SOURCE}
+
+Engine start/stop input source.
+
+**Values:**
+
+- `0`: On arming - disarming
+- `1`: Aux1
+- `2`: Aux2
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### ICE_RUN_FAULT_D (`INT32`) {#ICE_RUN_FAULT_D}
+
+Fault detection if it stops in running state.
+
+Enables restart if a fault is detected during the running state. Otherwise commands continues in running state until given an user request off.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | Enabled (1) |  
+
+### ICE_STOP_CHOKE (`INT32`) {#ICE_STOP_CHOKE}
+
+Apply choke when stopping engine.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | Enabled (1) |  
+
+### ICE_STRT_ATTEMPT (`INT32`) {#ICE_STRT_ATTEMPT}
+
+Number attempts for starting the engine.
+
+Number of accepted attempts for starting the engine before declaring a fault.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 10 |  | 3 |  
+
+### ICE_STRT_DUR (`FLOAT`) {#ICE_STRT_DUR}
+
+Duration of single starting attempt (excl. choking).
+
+Maximum expected time for startup before declaring timeout.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 10 | 0.1 | 5 | s 
+
+### ICE_STRT_THR (`FLOAT`) {#ICE_STRT_THR}
+
+Throttle value for starting engine.
+
+During the choking and the starting phase, the throttle value is set to this value.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 1 | 0.01 | 0.1 | norm 
+
+### ICE_THR_SLEW (`FLOAT`) {#ICE_THR_SLEW}
+
+Throttle slew rate.
+
+Maximum rate of change of throttle value per second.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 1 | 0.01 | 0.5 | 1/s 
 
 ## Iridium SBD
 

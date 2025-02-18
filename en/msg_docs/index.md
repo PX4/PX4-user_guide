@@ -144,6 +144,7 @@ scale errors, in-run bias and thermal drift (if thermal compensation is enabled 
 - [HeaterStatus](HeaterStatus.md)
 - [HoverThrustEstimate](HoverThrustEstimate.md)
 - [InputRc](InputRc.md)
+- [InternalCombustionEngineControl](InternalCombustionEngineControl.md)
 - [InternalCombustionEngineStatus](InternalCombustionEngineStatus.md)
 - [IridiumsbdStatus](IridiumsbdStatus.md)
 - [IrlockReport](IrlockReport.md) — IRLOCK_REPORT message data
