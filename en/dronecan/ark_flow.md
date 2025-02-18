@@ -103,7 +103,7 @@ Set the following parameters in _QGroundControl_:
 - Set [SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR) to `7.4` to match the PAW3902 maximum angular flow rate.
 - The parameters [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) and [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) can be set to account for the offset of the Ark Flow from the vehicle centre of gravity.
 
-When optical flow is the only source of horizontal position/velocity, then lowering the [MPC_XY_P]() (e.g. to 0.5) is recommended to reduce oscillations.
+When optical flow is the only source of horizontal position/velocity, then lowering the gain for controller response to horizontal position error [MPC_XY_P]() (e.g. to 0.5) is recommended to reduce oscillations.
 
 ## Ark Flow Configuration
 
