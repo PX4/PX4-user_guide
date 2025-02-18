@@ -24088,6 +24088,25 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 0 |  
 
+### MC_SLOW_MAP_PTCH (`INT32`) {#MC_SLOW_MAP_PTCH}
+
+RC_MAP_AUX{N} to allow for gimbal pitch rate control in position slow mode.
+
+**Values:**
+
+- `0`: No pitch rate input
+- `1`: AUX1
+- `2`: AUX2
+- `3`: AUX3
+- `4`: AUX4
+- `5`: AUX5
+- `6`: AUX6
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
 ### MC_SLOW_MAP_VVEL (`INT32`) {#MC_SLOW_MAP_VVEL}
 
 Manual input mapped to scale vertical velocity in position slow mode.
