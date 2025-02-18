@@ -1766,13 +1766,7 @@ voxl2_io <command> [arguments...]
 
    calibrate_escs Calibrate ESCs min/max range
 
-   calibrate_escs Calibrate ESCs min/max range
-
-   pwm           Open-Loop PWM test control request
-     -c <val>    PWM OUTPUT Channel, 0-3
-     -r <val>    Duty Cycle value, 0 to 800
-     -n <val>    Command repeat count, 0 to INT_MAX
-     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
+   enable_debug  Enables driver debugging
 
    stop
 
