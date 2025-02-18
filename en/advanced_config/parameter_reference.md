@@ -27700,111 +27700,25 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ## Rover Differential
 
-### RD_MAX_ACCEL (`FLOAT`) {#RD_MAX_ACCEL}
-
-Maximum acceleration.
-
-Maximum acceleration is used to limit the acceleration of the rover
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0.5 | m/s^2 
-
-### RD_MAX_DECEL (`FLOAT`) {#RD_MAX_DECEL}
-
-Maximum deceleration.
-
-Maximum decelaration is used to limit the deceleration of the rover. Set to -1 to disable, causing the rover to decelerate as fast as possible. Caution: This disables the slow down effect in auto modes.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 | m/s^2 
-
-### RD_MAX_JERK (`FLOAT`) {#RD_MAX_JERK}
-
-Maximum jerk.
-
-Limit for forwards acc/deceleration change.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0.5 | m/s^3 
-
-### RD_MAX_SPEED (`FLOAT`) {#RD_MAX_SPEED}
-
-Maximum speed setpoint.
-
-This parameter is used to cap desired forward speed and map controller inputs to desired speeds in Position mode.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 | m/s 
-
-### RD_MAX_THR_SPD (`FLOAT`) {#RD_MAX_THR_SPD}
-
-Speed the rover drives at maximum throttle.
-
-This parameter is used to calculate the feedforward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands [-1. 1]. A good starting point is the observed ground speed when the rover drives at maximum throttle in manual mode. Increase this parameter if the rover is faster than the setpoint, and decrease if the rover is slower.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 | m/s 
-
 ### RD_MAX_THR_YAW_R (`FLOAT`) {#RD_MAX_THR_YAW_R}
 
 Yaw rate turning left/right wheels at max speed in opposite directions.
 
-This parameter is used to calculate the feedforward term of the closed loop yaw rate control. The controller first calculates the required speed difference between the left and right motor to achieve the desired yaw rate. This desired speed difference is then linearly mapped to normalized motor commands. A good starting point is twice the speed the rover drives at maximum throttle (RD_MAX_THR_SPD)). Increase this parameter if the rover turns faster than the setpoint, and decrease if the rover turns slower.
+This parameter is used to calculate the feedforward term of the closed loop yaw rate control. The controller first calculates the required speed difference between the left and right motor to achieve the desired yaw rate. This desired speed difference is then linearly mapped to normalized motor commands. A good starting point is half the speed the rover drives at maximum throttle (RD_MAX_THR_SPD)). Increase this parameter if the rover turns faster than the setpoint, and decrease if the rover turns slower.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 2 | m/s 
-
-### RD_MAX_YAW_ACCEL (`FLOAT`) {#RD_MAX_YAW_ACCEL}
-
-Maximum allowed yaw acceleration for the rover.
-
-This parameter is used to cap desired yaw acceleration. This is used to adjust incoming yaw rate setpoints to a feasible yaw rate setpoint based on the physical limitation on how fast the yaw rate can change. This leads to a smooth setpoint trajectory for the closed loop yaw rate controller to track. Set to -1 to disable.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 1000 | 0.01 | -1 | deg/s^2 
-
-### RD_MAX_YAW_RATE (`FLOAT`) {#RD_MAX_YAW_RATE}
-
-Maximum allowed yaw rate for the rover.
-
-This parameter is used to cap desired yaw rates and map controller inputs to desired yaw rates in Acro,Stabilized and Position mode.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0.01 | 1000 | 0.01 | 90 | deg/s 
+&nbsp; | 0 | 100 | 0.01 | 0 | m/s 
 
 ### RD_MISS_SPD_GAIN (`FLOAT`) {#RD_MISS_SPD_GAIN}
 
 Tuning parameter for the speed reduction during waypoint transition.
 
-The waypoint transition speed is calculated as: Transition_speed = Maximum_speed * (1 - normalized_transition_angle * RM_MISS_VEL_GAIN) The normalized transition angle is the angle between the line segment from prev-curr WP and curr-next WP interpolated from [0, 180] -> [0, 1]. Higher value -> More speed reduction during waypoint transitions.
+The waypoint transition speed is calculated as: Transition_speed = Maximum_speed * (1 - normalized_transition_angle * RM_MISS_VEL_GAIN) The normalized transition angle is the angle between the line segment from prev-curr WP and curr-next WP interpolated from [0, 180] -> [0, 1]. Higher value -> More speed reduction during waypoint transitions. Set to -1 to disable any speed reduction during waypoint transition.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.05 | 100 | 0.01 | 1 |  
-
-### RD_SPEED_I (`FLOAT`) {#RD_SPEED_I}
-
-Integral gain for closed loop forward speed controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 |  
-
-### RD_SPEED_P (`FLOAT`) {#RD_SPEED_P}
-
-Proportional gain for closed loop forward speed controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 |  
+&nbsp; | -1 | 100 | 0.01 | -1 |  
 
 ### RD_TRANS_DRV_TRN (`FLOAT`) {#RD_TRANS_DRV_TRN}
 
@@ -27820,6 +27734,8 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Yaw error threshhold to switch from spot turning to driving.
 
+This threshold is used for the state machine to switch from turning to driving based on the error between the desired and actual yaw.
+
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.001 | 3.14159 | 0.01 | 0.0872665 | rad 
@@ -27828,43 +27744,11 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Wheel track.
 
-Distance from the center of the right wheel to the center of the left wheel
+Distance from the center of the right wheel to the center of the left wheel.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.001 | 100 | 0.001 | 0.5 | m 
-
-### RD_YAW_I (`FLOAT`) {#RD_YAW_I}
-
-Integral gain for closed loop yaw controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 |  
-
-### RD_YAW_P (`FLOAT`) {#RD_YAW_P}
-
-Proportional gain for closed loop yaw controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 |  
-
-### RD_YAW_RATE_I (`FLOAT`) {#RD_YAW_RATE_I}
-
-Integral gain for closed loop yaw rate controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 |  
-
-### RD_YAW_RATE_P (`FLOAT`) {#RD_YAW_RATE_P}
-
-Proportional gain for closed loop yaw rate controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 |  
+&nbsp; | 0 | 100 | 0.001 | 0 | m 
 
 ## Rover Mecanum
 
@@ -28194,7 +28078,17 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Yaw acceleration limit.
 
-Set to -1 to disable.
+Used to cap how quickly the magnitude of yaw rate setpoints can increase. Set to -1 to disable.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 10000 | 0.01 | -1 | deg/s^2 
+
+### RO_YAW_DECEL_LIM (`FLOAT`) {#RO_YAW_DECEL_LIM}
+
+Yaw deceleration limit.
+
+Used to cap how quickly the magnitude of yaw rate setpoints can decrease. Set to -1 to disable.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
