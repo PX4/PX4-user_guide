@@ -196,9 +196,9 @@ If VTOLs have are configured to switch to hover for landing ([NAV_FORCE_VT](../a
 
 The relevant parameters for all vehicles shown below.
 
-\| Parameter | Description |
-\| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | |
-\| <a id="COM_POSCTL_NAVL"></a>[COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL) | Position control navigation loss response during mission. 값 : 0 - RC 사용 가정, 1 - RC 없음 가정. |
+| 매개변수                                                                                                                                               | 설명                                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="COM_POSCTL_NAVL"></a>[COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL) | Position control navigation loss response during mission. Values: `0` - assume use of RC, `1` - Assume no RC. |
 
 Parameters that only affect Fixed-wing vehicles:
 
