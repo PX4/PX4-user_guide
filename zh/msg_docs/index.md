@@ -220,6 +220,8 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [InputRc](InputRc.md)
 
+- [InternalCombustionEngineControl](InternalCombustionEngineControl.md)
+
 - [InternalCombustionEngineStatus](InternalCombustionEngineStatus.md)
 
 - [IridiumsbdStatus](IridiumsbdStatus.md)
@@ -341,12 +343,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [RoverAttitudeStatus](RoverAttitudeStatus.md)
 
-- [RoverDifferentialGuidanceStatus](RoverDifferentialGuidanceStatus.md)
-
-- [RoverDifferentialSetpoint](RoverDifferentialSetpoint.md)
-
-- [RoverDifferentialStatus](RoverDifferentialStatus.md)
-
 - [RoverMecanumGuidanceStatus](RoverMecanumGuidanceStatus.md)
 
 - [RoverMecanumSetpoint](RoverMecanumSetpoint.md)
@@ -429,12 +425,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [TimesyncStatus](TimesyncStatus.md)
 
-- [TrajectoryBezier](TrajectoryBezier.md) — Bezier Trajectory description. See also Mavlink TRAJECTORY msg
-  The topic trajectory_bezier describe each waypoint defined in vehicle_trajectory_bezier
-
-- [TrajectoryWaypoint](TrajectoryWaypoint.md) — Waypoint Trajectory description. See also Mavlink TRAJECTORY msg
-  The topic trajectory_waypoint describe each waypoint defined in vehicle_trajectory_waypoint
-
 - [TransponderReport](TransponderReport.md)
 
 - [TuneControl](TuneControl.md) — This message is used to control the tunes, when the tune_id is set to CUSTOM
@@ -479,14 +469,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [VehicleTorqueSetpoint](VehicleTorqueSetpoint.md)
 
-- [VehicleTrajectoryBezier](VehicleTrajectoryBezier.md) — Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg
-  The topic vehicle_trajectory_bezier is used to send a smooth flight path from the
-  companion computer / avoidance module to the position controller.
-
-- [VehicleTrajectoryWaypoint](VehicleTrajectoryWaypoint.md) — Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg
-  The topic vehicle_trajectory_waypoint_desired is used to send the user desired waypoints from the position controller to the companion computer / avoidance module.
-  The topic vehicle_trajectory_waypoint is used to send the adjusted waypoints from the companion computer / avoidance module to the position controller.
-
 - [VelocityLimits](VelocityLimits.md) — Velocity and yaw rate limits for a multicopter position slow mode only
 
 - [WheelEncoders](WheelEncoders.md)
@@ -494,3 +476,5 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [Wind](Wind.md)
 
 - [YawEstimatorStatus](YawEstimatorStatus.md)
+
+- [VehicleStatusV0](VehicleStatusV0.md) — Encodes the system state of the vehicle published by commander
