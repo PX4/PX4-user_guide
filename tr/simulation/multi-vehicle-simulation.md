@@ -19,4 +19,4 @@ The choice of the simulator depends on the vehicle to be simulated, how "good" t
 - [Gazebo Classic](../sim_gazebo_classic/index.md) is less accurate and less heavy-weight and supports many features and vehicles that aren't available for FlightGear.
   It can simulate many more vehicles at a time than FlightGear and it allows for different types of vehicles to be simulated at the same time.
 - JMAVSim is a very light-weight simulator that supports only quadcopters.
-  It is recommended if you need to support a lot of quadcopters, and the simulation only needs to be approximate.
+  Eğer çok sayıda quadcopter simüle etmeniz veya desteklemeniz gerekiyorsa ve simülasyon doğruluğu "idare eder" şeklindeyse, önerilir.
