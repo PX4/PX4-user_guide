@@ -118,7 +118,7 @@ As there are external tools using uORB messages from log files, such as [Flight 
 
 <Badge type="tip" text="main (PX4 v1.16+)" />
 
-Optional message versioning was introduced in PX4 v1.16 (main) to make it easier to maintain compatibility between PX4 and ROS 2 versions compiled against different message definitions.
+Optional message versioning was introduced in the main branch (PX4 v1.16+) to make it easier to maintain compatibility between PX4 and ROS 2 versions compiled against different message definitions.
 Versioned messages are designed to remain more stable over time compared to their non-versioned counterparts, as they are intended to be used across multiple releases of PX4 and external systems, ensuring greater compatibility over longer periods.
 
 Versioned messages include an additional field `uint32 MESSAGE_VERSION = x`, where `x` corresponds to the current version of the message.
@@ -127,7 +127,7 @@ Versioned and non-versioned messages are separated in the file system:
 
 - Non-versioned topic message files and service message files remain in the [`msg/`](https://github.com/PX4/PX4-Autopilot/tree/main/msg) and [`srv/`](https://github.com/PX4/PX4-Autopilot/tree/main/srv) directories, respectively.
 - The current (highest) version of message files are located in the `versioned` subfolders ([`msg/versioned`](https://github.com/PX4/PX4-Autopilot/tree/main/msg/versioned) and [`srv/versioned`](https://github.com/PX4/PX4-Autopilot/tree/main/srv/versioned)).
-- Older versions of messages are stored in nested `px4_msgs_old/msg/` subfolders ([`msg/versioned/px4_msgs_old/msg/`](https://github.com/PX4/PX4-Autopilot/tree/main/msg/versioned/px4_msgs_old/msg) and [`srv/versioned`](https://github.com/PX4/PX4-Autopilot/tree/main/srv/versioned/px4_msgs_old/srv/)).
+- Older versions of messages are stored in nested `msg/px4_msgs_old/` subfolders ([`msg/px4_msgs_old/msg/`](https://github.com/PX4/PX4-Autopilot/tree/main/msg/px4_msgs_old/msg) and [`msg/px4_msgs_old/srv/`](https://github.com/PX4/PX4-Autopilot/tree/main/msg/px4_msgs_old/srv)).
   The files are also renamed with a suffix to indicate their version number.
 
 :::tip
