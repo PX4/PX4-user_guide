@@ -127,7 +127,7 @@ Versioned and non-versioned messages are separated in the file system:
 
 - Non-versioned topic message files and service message files remain in the [`msg/`](https://github.com/PX4/PX4-Autopilot/tree/main/msg) and [`srv/`](https://github.com/PX4/PX4-Autopilot/tree/main/srv) directories, respectively.
 - The current (highest) version of message files are located in the `versioned` subfolders ([`msg/versioned`](https://github.com/PX4/PX4-Autopilot/tree/main/msg/versioned) and [`srv/versioned`](https://github.com/PX4/PX4-Autopilot/tree/main/srv/versioned)).
-- Older versions of messages are stored in nested `px4_msgs_old/msg/` subfolders ([`msg/versioned/px4_msgs_old/msg/`](https://github.com/PX4/PX4-Autopilot/tree/main/msg/versioned/px4_msgs_old/msg) and [`srv/versioned`](https://github.com/PX4/PX4-Autopilot/tree/main/srv/versioned/px4_msgs_old/srv/)).
+- Older versions of messages are stored in nested `msg/px4_msgs_old/` subfolders ([`msg/px4_msgs_old/msg/`](https://github.com/PX4/PX4-Autopilot/tree/main/msg/px4_msgs_old/msg) and [`msg/px4_msgs_old/srv/`](https://github.com/PX4/PX4-Autopilot/tree/main/msg/px4_msgs_old/srv)).
   The files are also renamed with a suffix to indicate their version number.
 
 :::tip
