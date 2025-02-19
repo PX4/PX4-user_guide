@@ -60,7 +60,7 @@ Note that there are some negatives to keep in mind:
 
 [PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md) documents how to create flight modes running on a companion computer.
 
-## PX Flight Modes (FC)
+## PX4 Flight Modes (FC)
 
 The specific control behaviour of a flight mode at any time is determined by a [Flight Task](../concept/flight_tasks.md).
 A flight mode might define one or more tasks that define variations of the mode behavior.
