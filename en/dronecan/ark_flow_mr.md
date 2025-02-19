@@ -1,6 +1,7 @@
 # ARK Flow MR
 
-ARK Flow MR is an open source [DroneCAN](index.md) [optical flow](../sensor/optical_flow.md), [distance sensor](../sensor/rangefinders.md), and IMU module. Next Generation of the [Ark Flow](ark_flow.md), designed for mid-range applications.
+ARK Flow MR ("Mid Range") is an open source [DroneCAN](index.md) [optical flow](../sensor/optical_flow.md), [distance sensor](../sensor/rangefinders.md), and IMU module. 
+It is the next generation of the [Ark Flow](ark_flow.md), designed for mid-range applications.
 
 ![ARK Flow MR](../../assets/hardware/sensors/optical_flow/ark_flow_mr.jpg)
 
@@ -22,7 +23,7 @@ Order this module from:
   - Broadcom AFBR-S50LX85D Time-of-Flight Distance Sensor
     - Laser Opening Angle of 2° x 2°
     - Typical distance range up to 50m
-    - Operation of up to 200k Lux ambient light
+    - Operation in up to 200 kilolux ambient light
     - Works well on all surface conditions
 - Invensense IIM-42653 6-Axis IMU
 - Two Pixhawk Standard CAN Connectors (4 Pin JST GH)
@@ -77,7 +78,7 @@ The steps are:
 
 Once enabled, the module will be detected on boot.
 Flow data should arrive at 100Hz.
-Distance sensor data should arrive at 40Hz
+Distance sensor data should arrive at 40Hz.
 
 DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
@@ -102,7 +103,7 @@ Set the following parameters in _QGroundControl_:
 
 ## Ark Flow MR Configuration
 
-On the ARK Flow MR, you may need to configure the following parameters:
+You may need to [configure the following parameters](../dronecan/index.md#qgc-cannode-parameter-configuration) on the ARK Flow MR itself:
 
 | Parameter                                                                                       | Description                   |
 | ----------------------------------------------------------------------------------------------- | ----------------------------- |

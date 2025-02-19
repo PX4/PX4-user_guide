@@ -76,7 +76,7 @@ The Ark Flow will not boot if there is no SD card in the flight controller when 
 The steps are:
 
 - In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)) and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
-- Connect ARK Flow MR CAN to the Pixhawk CAN.
+- Connect ARK Flow CAN to the Pixhawk CAN.
 
 Once enabled, the module will be detected on boot.
 Flow data should arrive at 100Hz.
