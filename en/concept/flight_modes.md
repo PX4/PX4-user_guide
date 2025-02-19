@@ -43,7 +43,8 @@ PX4 ROS 2 modes should be considered for all other cases.
 They have the following benefits:
 
 - Easier to implement as there is no need to deal with low-level embedded constraints and requirements (such as restricted stack sizes).
-- Easier to maintain as the integration API is small, well defined, and stable (porting custom PX4 modes on the flight controller between PX4 versions is much harder).
+- Easier to maintain as the integration API is small, well defined, and stable.
+- Porting custom PX4 modes on the flight controller between PX4 versions can be much harder, as often flight modes use interfaces that are considered internal, and allowed to change. 
 - Process termination of a ROS 2 mode results in a fallback to an internal flight mode (while termination of an internal mode may well crash the vehicle).
 - They can override existing modes to provide more advanced features.
   You can even override a safety-critical mode with a better versions: if the ROS 2 mode crashes the original mode will be engaged.
