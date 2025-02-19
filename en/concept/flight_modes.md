@@ -44,7 +44,7 @@ They have the following benefits:
 
 - Easier to implement as there is no need to deal with low-level embedded constraints and requirements (such as restricted stack sizes).
 - Easier to maintain as the integration API is small, well defined, and stable (porting custom PX4 modes on the flight controller between PX4 versions is much harder).
-- Crashing the app does not crash the vehicle.
+- Process termination of a ROS 2 mode results in a fallback to an internal flight mode (while termination of an internal mode may well crash the vehicle).
 - They can override existing modes to provide more advanced features.
   You can even override a safety-critical mode with a better versions: if the ROS 2 mode crashes the original mode will be engaged.
 - High-level functionality is available, including a better-feature programming environment, and many useful Linux and ROS libraries.
