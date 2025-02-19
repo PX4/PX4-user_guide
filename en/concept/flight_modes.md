@@ -1,19 +1,19 @@
 # Flight Modes (Developers)
 
-Flight modes are special operational states that control how the autopilot responds to user input and controls vehicle movement.
+Modes ("flight modes", "drive modes", and so on) are special operational states that control how the autopilot responds to user input and controls vehicle movement.
 They are loosely grouped into _manual_, _assisted_ and _auto_ modes, based on the level/type of control provided by the autopilot.
 The pilot transitions between flight modes using switches on the remote control or with a ground control station.
 
-Flight modes can be implemented in the PX4 flight stack running on the flight controller, or as PX4 ROS 2 modes running on a companion computer.
-From an external perspective (MAVLink/GCS), the origin of a mode is indistinguishable.
+Modes can be implemented as [PX4 internal modes](#px4-internal-modes) running on the flight controller, or as [PX4 external (ROS2) modes](#px4-external-modes) running on a companion computer.
+From the perspective of a ground station (MAVLink), the origin of a mode is indistinguishable.
 
-This topic links to documentation for the supported modes, compares PX4 FC and ROS2 modes, provides implementation hints, and provides an overview of PX4 modes can be used with MAVLink.
+This topic links to documentation for the supported modes, compares PX4 internal and external modes, provides implementation hints, and provides an overview of how PX4 modes can be used with MAVLink.
 
-## Supported Flight Modes
+## Supported Modes
 
-Not all flight modes are available (or makes sense), on all vehicle types, and some modes behave differently on different vehicle types.
+Not all modes are available (or makes sense), on all vehicle types, and some modes behave differently on different vehicle types.
 
-Flight mode documentation for the modes running on the flight controller are listed below:
+Mode documentation for the PX4 internal modes are listed below:
 
 - [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
 - [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
@@ -22,16 +22,12 @@ Flight mode documentation for the modes running on the flight controller are lis
 - [Drive Modes (Ackermann Rover)](../flight_modes_rover/ackermann.md)
 - [Basic Configuration > Flight Modes](../config/flight_mode.md)
 
-::: info
-At time of writing there are no PX4 ROS 2 flight modes that are considered "supported as an integral part of the PX4 open source offering".
-:::
+## Internal vs External Modes
 
-## PX4 FC Modes vs PX4 ROS2 Flight Modes
-
-With some exceptions it is possible to write a mode in either the FC and companion computer.
+With some exceptions a mode can be implemented in either the FC or companion computer.
 The main considerations are listed below.
 
-ROS 2 modes cannot be used in the following cases:
+PX4 external modes cannot be used in the following cases:
 
 - Modes that need to run on vehicles that don't have a companion computer.
 - Modes that require low-level access, strict timing, and/or high update rate requirements.
@@ -39,41 +35,39 @@ ROS 2 modes cannot be used in the following cases:
 - Safety critical modes, such as [Return mode](../flight_modes_mc/return.md).
 - When you can't use ROS (for any reason).
 
-PX4 ROS 2 modes should be considered for all other cases.
+External modes should be considered for all other cases.
 They have the following benefits:
 
 - Easier to implement as there is no need to deal with low-level embedded constraints and requirements (such as restricted stack sizes).
 - Easier to maintain as the integration API is small, well defined, and stable.
-- Porting custom PX4 modes on the flight controller between PX4 versions can be much harder, as often flight modes use interfaces that are considered internal, and allowed to change. 
+- Porting custom PX4 modes on the flight controller between PX4 versions can be much harder, as often flight modes use interfaces that are considered internal, and allowed to change.
 - Process termination of a ROS 2 mode results in a fallback to an internal flight mode (while termination of an internal mode may well crash the vehicle).
 - They can override existing modes to provide more advanced features.
   You can even override a safety-critical mode with a better versions: if the ROS 2 mode crashes the original mode will be engaged.
 - High-level functionality is available, including a better-feature programming environment, and many useful Linux and ROS libraries.
 - More available compute to do more advanced processing (e.g. computer vision).
 
-Note that there are some negatives to keep in mind:
+Note that the [PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md) used to create external modes first appeared in PX4 v1.15 and is still considered experimental.
+There are still some limitations, but expect changes and ongoing enhancement.
 
-- There is no CI environment for testing ROS 2 applications with PX4 in CI (it is easier to automate testing of PX4 flight modes running on the FC).
-- The [PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md) that is used to define the modes is experimental
-- There is no formal "PX4 companion computer flight stack", so there is nowhere to contribute PX4 ROS2 modes such that they are become a part of the standard offering available to all users.
+## PX4 External Modes
 
-## PX4 ROS 2 Flight Modes (Companion)
+PX4 external modes, are written in ROS 2 using the [PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md) (see link for instructions).
 
-[PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md) documents how to create flight modes running on a companion computer.
+## PX4 Internal Modes
 
-## PX4 Flight Modes (FC)
+The specific control behaviour of a mode at any time is determined by a [Flight Task](../concept/flight_tasks.md).
+A mode might define one or more tasks that define variations of the mode behavior, for example whether inputs are treated as acceleration or velocity setpoints.
 
-The specific control behaviour of a flight mode at any time is determined by a [Flight Task](../concept/flight_tasks.md).
-A flight mode might define one or more tasks that define variations of the mode behavior.
-The actual behaviour that is used is normally defined in a parameter, and selected in [src/modules/flight_mode_manager/FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285)
+The task that is used is normally defined in a parameter, and selected in [src/modules/flight_mode_manager/FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285)
 
-### Flight mode restrictions
+### Mode Restrictions
 
-Some flight modes only make sense only under specific pre-flight and in-flight conditions.
+Some modes only make sense only under specific pre-flight and in-flight conditions.
 For example, a manual control mode should not be used unless the system has a manual controller.
 
 PX4 modes can specify these conditions as _restrictions_.
-The types of restrictions are listed in the [FailsafeFlags](../msg_docs/FailsafeFlags.md) uORB topic under "Per mode requirements" (duplicated below)
+For internal modes the types of restrictions are listed in the [FailsafeFlags](../msg_docs/FailsafeFlags.md) uORB topic under "Per mode requirements" (duplicated below)
 
 ```text
 # Per-mode requirements
@@ -97,7 +91,7 @@ If the condition of restriction is not met:
 - arming is not allowed, while the mode is selected
 - when already armed, the mode cannot be selected
 - when armed and the mode is selected, the relevant failsafe is triggered (e.g. RC loss for the manual control requirement).
-  Check [Safety (Failsafe) Configuration](../config/safety.md) for how to configure failsafe behavior.
+  Check [Safety (Failsafe) Configuration](../config/safety.md) for how to configure failsafe behaviour.
 
 This is the corresponding flow diagram for the manual control flag (`mode_req_manual_control`):
 
@@ -192,25 +186,22 @@ When implementing a mapping to a standard mode, see [src/lib/modes/standard_mode
 
 ### Other MAVLink Mode-changing Commands
 
-<!--
-Check these are supported
-Add info about what mode they put the vehicle into.
--->
-
 Some modes, both standard and custom, can also be set using specific commands and messages.
 This can be more convenient that just starting the mode, in particular when the message allows additional settings to be configured.
 
-The following are supported:
+PX4 supports these commands for changing modes on some vehicle types:
 
-PX4 supports:
-
-- [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF)
-- [MAV_CMD_NAV_RETURN_TO_LAUNCH](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH) - Put into return mode. Equivalent to ....
-- [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)
-- [MAV_CMD_DO_FOLLOW_REPOSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_FOLLOW_REPOSITION)
-- [MAV_CMD_DO_FOLLOW](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_FOLLOW)
-- [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_ORBIT) - Orbit in MC mode only.
-- [MAV_CMD_NAV_VTOL_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_TAKEOFF)
+- [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) — Takeoff mode
+- [MAV_CMD_NAV_RETURN_TO_LAUNCH](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH) — Return mode
+- [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) — Land mode
+- [MAV_CMD_DO_FOLLOW](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_FOLLOW) — MC Follow mode
+- [MAV_CMD_DO_FOLLOW_REPOSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_FOLLOW_REPOSITION) — Follow mode (from new position)
+- [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_ORBIT) — MC Orbit mode
+- [MAV_CMD_NAV_VTOL_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_TAKEOFF) — VTOL specific takeoff mode
 - [MAV_CMD_DO_REPOSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_REPOSITION)
-- [MAV_CMD_DO_PAUSE_CONTINUE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_PAUSE_CONTINUE) - Pauses a mission by putting the vehicle into Hold/Loiter
-- [MAV_CMD_MISSION_START](https://mavlink.io/en/messages/common.html#MAV_CMD_MISSION_START)
+- [MAV_CMD_DO_PAUSE_CONTINUE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_PAUSE_CONTINUE) — Pauses a mission by putting the vehicle into Hold/Loiter
+- [MAV_CMD_MISSION_START](https://mavlink.io/en/messages/common.html#MAV_CMD_MISSION_START) — Starts a mission.
+
+Note that these commands predate "standard modes" and are mapped to vehicle-specific custom modes.
+What that means is that even though the standard mode may be applicable to multiple vehicle types, the mode may only work for particular vehicles.
+For example, the Orbit standard mode maps to Orbit mode on MC and Hold/Loiter on FW: but at time of writing the `MAV_CMD_DO_ORBIT` would start orbit mode in MC and be ignored on FW.
