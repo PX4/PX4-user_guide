@@ -46,7 +46,7 @@ Device | GPS | Compass | [DroneCAN](../dronecan/index.md) | [GPS Yaw](#configuri
 [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md) | MC-1612-V2b | | | |
 [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md) | MC-1612-V2b | IST8310 | | |
 [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm) | F9P | ✓ | | [Dual F9P][DualF9P] |
-[Navisys L1/L2 ZED-F9P RTK Base](https://www.navisys.com.tw/productdetail?name=GR901&class=RTK) | F9P | | | |
+[Navisys L1/L2 ZED-F9P RTK - Base only](https://www.navisys.com.tw/productdetail?name=GR901&class=RTK) | F9P | | | |
 [RaccoonLab L1/L2 ZED-F9P][RaccoonLab L1/L2 ZED-F9P] | F9P |  RM3100 | ✓ | | |
 [RaccoonLab L1/L2 ZED-F9P with external antenna][RaccnLabL1L2ZED-F9P ext_ant] | F9P |  RM3100 | ✓ | |
 [Septentrio AsteRx-m3 Pro](../gps_compass/septentrio_asterx-rib.md) | AsteRx | ✓ | | [Septentrio Dual Antenna][SeptDualAnt] | ✓ |
