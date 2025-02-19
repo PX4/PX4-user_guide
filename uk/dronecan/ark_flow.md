@@ -72,15 +72,14 @@ The Ark Flow will not boot if there is no SD card in the flight controller when 
 
 ### Увімкнути DroneCAN
 
-In order to use the ARK Flow board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
-
 Кроки наступні:
 
-- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
+- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)) and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Підключіть ARK Flow CAN до шини CAN Pixhawk.
 
 Після активації модуль буде виявлено при завантаженні.
-Дані потоку повинні надходити з частотою 10 Гц.
+Flow data should arrive at 100Hz.
+Distance sensor data should arrive at 40Hz
 
 DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
@@ -106,9 +105,9 @@ Set the following parameters in _QGroundControl_:
 
 When optical flow is the only source of horizontal position/velocity, then lowering the gain for controller response to horizontal position error [MPC_XY_P](../advanced_config/parameter_reference.md#MPC_XY_P) (e.g. to 0.5) is recommended to reduce oscillations.
 
-## Конфігурування потоку Ark
+## Ark Flow Configuration
 
-На ARK Flow можливо вам доведеться налаштувати наступні параметри:
+On the ARK Flow, you may need to configure the following parameters:
 
 | Параметр                                                                                                             | Опис                                           |
 | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
@@ -116,7 +115,7 @@ When optical flow is the only source of horizontal position/velocity, then lower
 
 ## Значення LED індикаторів
 
-Ви побачите як червоні, так і сині світлодіоди на ARK Flow коли він прошивається, і постійний синій світлодіод, якщо він працює належним чином.
+You will see both red and blue LEDs on the ARK Flow when it is being flashed, and a solid blue LED if it is running properly.
 
 Якщо ви бачите червоний світлодіод, це означає, що виникла помилка, і вам слід перевірити наступне:
 
