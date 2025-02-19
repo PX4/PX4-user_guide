@@ -286,6 +286,7 @@
       - [VectorNav](sensor/vectornav.md)
     - [Optical Flow](sensor/optical_flow.md)
       - [ARK Flow](dronecan/ark_flow.md)
+      - [ARK Flow MR](dronecan/ark_flow_mr.md)
       - [PMW3901](sensor/pmw3901.md)
       - [PX4FLOW (Застаріла версія)](sensor/px4flow.md)
     - [Тахометри (лічильники обертів)](sensor/tachometers.md)
