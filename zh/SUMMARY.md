@@ -286,6 +286,7 @@
       - [VectorNav](sensor/vectornav.md)
     - [光流](sensor/optical_flow.md)
       - [ARK 光流](dronecan/ark_flow.md)
+      - [ARK Flow MR](dronecan/ark_flow_mr.md)
       - [PMW3901](sensor/pmw3901.md)
       - [PX4FLOW (Deprecated)](sensor/px4flow.md)
     - [转速计（转数计数器）](sensor/tachometers.md)

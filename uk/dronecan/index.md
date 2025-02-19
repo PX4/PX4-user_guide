@@ -35,10 +35,12 @@ DroneCAN was previously known as UAVCAN v0 (or just UAVCAN).
 Підтримувана апаратура включає (це не є вичерпним списком):
 
 - [ESC/Motor controllers](../dronecan/escs.md)
+
 - Датчики швидкості повітря
   - [Holybro High Precision DroneCAN Airspeed Sensor - DLVR](https://holybro.com/collections/sensors/products/high-precision-dronecan-airspeed-sensor-dlvr)
   - [RaccoonLab airspeed sensor](https://docs.raccoonlab.co/guide/airspeed)
   - [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
+
 - Приймачі ГНСС для ГНСС (GPS, GLONASS, BeiDou та інше)
   - [ARK GPS](../dronecan/ark_gps.md)
   - [ARK RTK GPS](../dronecan/ark_rtk_gps.md)
@@ -54,19 +56,26 @@ DroneCAN was previously known as UAVCAN v0 (or just UAVCAN).
   - [Holybro DroneCAN H-RTK F9P Helical](https://holybro.com/products/dronecan-h-rtk-f9p-helical)
   - [RaccoonLab GNSS Modules](https://docs.raccoonlab.co/guide/gps_mag_baro/)
   - [Zubax GNSS](https://zubax.com/products/gnss_2)
+
 - Монітори живлення
   - [Pomegranate Systems Power Module](../dronecan/pomegranate_systems_pm.md)
   - [CUAV CAN PMU Power Module](../dronecan/cuav_can_pmu.md)
   - [RaccoonLab CAN Power Connectors and Management Units](../dronecan/raccoonlab_power.md)
+
 - Компас
   - [Holybro RM3100 Professional Grade Compass](https://holybro.com/products/dronecan-rm3100-compass)
   - [RaccoonLab RM3100 Magnetometer](https://docs.raccoonlab.co/guide/gps_mag_baro/mag_rm3100.html)
+
 - Датчики відстані
   - [ARK Flow](ark_flow.md)
+  - [Ark Flow MR](ark_flow_mr.md)
   - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../dronecan/avanon_laser_interface.md)
   - [RaccoonLab uRangefidner and Rangefinders Adapter](https://docs.raccoonlab.co/guide/rangefinder)
+
 - Оптичний потік(Optical Flow)
   - [Ark Flow](ark_flow.md)
+  - [Ark Flow MR](ark_flow_mr.md)
+
 - Загальний вузол CAN (дозволяє використання датчиків I2C, SPI, UART на шині CAN).
   - [ARK CANnode](../dronecan/ark_cannode.md)
   - [RaccoonLab Nodes](../dronecan/raccoonlab_nodes.md)
