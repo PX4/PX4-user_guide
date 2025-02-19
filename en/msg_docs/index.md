@@ -75,7 +75,6 @@ The coordinate system origin is the vehicle position at the time when the EKF2-m
 - [AirspeedValidated](AirspeedValidated.md)
 - [AirspeedWind](AirspeedWind.md)
 - [AutotuneAttitudeControlStatus](AutotuneAttitudeControlStatus.md)
-- [Buffer128](Buffer128.md)
 - [ButtonEvent](ButtonEvent.md)
 - [CameraCapture](CameraCapture.md)
 - [CameraStatus](CameraStatus.md)

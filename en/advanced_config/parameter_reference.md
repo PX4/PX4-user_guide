@@ -37007,6 +37007,19 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; | 0 | 1 |  | 0 |  
 
+### VOXL_ESC_GPIO_CH (`INT32`) {#VOXL_ESC_GPIO_CH}
+
+GPIO Control Channel.
+
+**Values:**
+
+- `0`: - Disabled
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; | 0 | 6 |  | 0 |  
+
 ### VOXL_ESC_MODE (`INT32`) {#VOXL_ESC_MODE}
 
 UART ESC Mode.
