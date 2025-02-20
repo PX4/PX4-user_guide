@@ -63,10 +63,10 @@ If _kconfiglib_ is not installed, you can do so using the command: `pip3 install
 
 Інтерфейс командного рядка та графічного інтерфейсу показані нижче.
 
-### Інтерфейс командного рядка menuconfig
-
-![menuconfig command line interface](../../assets/hardware/kconfig-menuconfig.png)
-
 ### Інтерфейс користувача menuconfig GUI
 
-![menuconfig GUI interface](../../assets/hardware/kconfig-guiconfig.png)
+![menuconfig GUI interface](../../assets/hardware/kconfig-menuconfig.png)
+
+### Інтерфейс командного рядка menuconfig
+
+![menuconfig command line interface](../../assets/hardware/kconfig-guiconfig.png)
