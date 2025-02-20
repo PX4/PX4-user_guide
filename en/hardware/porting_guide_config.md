@@ -63,10 +63,10 @@ If _kconfiglib_ is not installed, you can do so using the command: `pip3 install
 
 The command line and GUI interfaces are shown below.
 
-### menuconfig Command Line Interface
-
-![menuconfig command line interface](../../assets/hardware/kconfig-menuconfig.png)
-
 ### menuconfig GUI Interface
 
-![menuconfig GUI interface](../../assets/hardware/kconfig-guiconfig.png)
+![menuconfig GUI interface](../../assets/hardware/kconfig-menuconfig.png)
+
+### menuconfig Command Line Interface
+
+![menuconfig command line interface](../../assets/hardware/kconfig-guiconfig.png)
