@@ -33773,9 +33773,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### RPM_CAP_ENABLE (`INT32`) {#RPM_CAP_ENABLE}
 
-RPM Capture Enable.
+RPM capture enable.
 
-Enables the RPM capture module on FMU channel 5.
+Enables the RPM capture module to estimate RPM from pulses detected on a PWM pin configured as "RPM Input".
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
