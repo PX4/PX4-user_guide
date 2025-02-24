@@ -49,11 +49,15 @@ Note that all code generation associated with the messages is handled by ROS 2.
 ## Micro XRCE-DDS Agent Installation
 
 The Micro XRCE-DDS Agent can be installed on the companion computer using a binary package, built and installed from source, or built and run from within a ROS 2 workspace.
-All of these methods fetch _all_ the dependencies needed to communicate with the client (such as FastCDR)
+All of these methods fetch _all_ the dependencies needed to communicate with the client (such as FastCDR).
 
 ::: info
 The official (and more complete) installation guide is the Eprosima: [micro XRCE-DDS Installation Guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html).
 This section summarises the options that have been tested with PX4 during creation of these docs.
+:::
+
+::: warning
+PX4 Micro XRCE-DDS Client is based on version `v2.x` which is not compatible with the latest `v3.x` Agent version.
 :::
 
 ### Install Standalone from Source
@@ -61,7 +65,7 @@ This section summarises the options that have been tested with PX4 during creati
 On Ubuntu you can build from source and install the Agent standalone using the following commands:
 
 ```sh
-git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+git clone -b v2.4.2 https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
 cd Micro-XRCE-DDS-Agent
 mkdir build
 cd build
@@ -105,6 +109,11 @@ The development version, fetched using `--edge` above, does work.
 The agent can be built and launched within a ROS 2 workspace (or build standalone and launched from a workspace.
 You must already have installed ROS 2 following the instructions in: [ROS 2 User Guide > Install ROS 2](../ros2/user_guide.md#install-ros-2).
 
+::: warning
+This approach will use the existing ROS 2 versions of the Agent dependencies, such as `fastcdr` and `fastdds`.
+This considerably speeds up the build process but requires that the Agent dependency versions match the ROS 2 ones.
+:::
+
 To build the agent within ROS:
 
 1. Create a workspace directory for the agent:
@@ -117,7 +126,7 @@ To build the agent within ROS:
 
    ```sh
    cd ~/px4_ros_uxrce_dds_ws/src
-   git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+   git clone -b 2.4.2 https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
    ```
 
 1. Source the ROS 2 development environment, and compile the workspace using `colcon`:
