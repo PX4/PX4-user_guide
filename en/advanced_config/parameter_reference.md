@@ -19224,6 +19224,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | -2 | 2 | 0.1 | 0.0 |  
 
+### CA_MAX_SVO_THROW (`FLOAT`) {#CA_MAX_SVO_THROW}
+
+Throw angle of swashplate servo at maximum commands for linearization.
+
+Used to linearize mechanical output of swashplate servos to avoid axis coupling and binding with 4 servo redundancy. This requires a symmetric setup where the servo horn is exactly centered with a 0 command. Setting to zero disables feature.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 75 | 0.1 | 0.0 | deg 
+
 ### CA_METHOD (`INT32`) {#CA_METHOD}
 
 Control allocation method.
