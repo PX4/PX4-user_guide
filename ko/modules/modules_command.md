@@ -335,6 +335,27 @@ mfd <command> [arguments...]
    query         Returns true if not existed
 ```
 
+## mft_cfg
+
+Source: [systemcmds/mft_cfg](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mft_cfg)
+
+Tool to set and get manifest configuration <a id="mft_cfg_usage"></a>
+
+### 사용법
+
+```
+mft_cfg <command> [arguments...]
+ Commands:
+   get           get manifest configuration
+
+   set           set manifest configuration
+
+   reset         reset manifest configuration
+     hwver|hwrev Select type: MTD_MTF_VER|MTD_MTF_REV
+     -i <val>    argument to set extended hardware id (id == version for
+                 <hwver>, id == revision for <hwrev> )
+```
+
 ## mtd
 
 Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mtd)
