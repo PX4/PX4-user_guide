@@ -5,7 +5,7 @@
 或者，也可以直接从 bash 运行完整的单元测试：
 
 1. Unit tests with [Google Test](https://github.com/google/googletest/blob/main/docs/primer.md) ("GTest") - tests that have minimal, internal-only dependencies
-2. 在 <strong x-id="1">test_[description].cpp</strong> 中包括基本 unittest-class<code>&amp;lt;unit_test.h&amp;gt;</code> 以及为新功能编写测试所需的所有文件。
+2. 使用GTest的功能性测试 - 依赖parameters和 uORB消息的测试
 3. 软件在环(SITL)单元测试。 这些测试需要运行在完整的SITL环境中， 运行起来更慢，更难调试，所以建议尽可能使用GTest代替。
 
 ## 编写测试
