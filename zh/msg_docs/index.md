@@ -341,12 +341,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [RoverAttitudeStatus](RoverAttitudeStatus.md)
 
-- [RoverMecanumGuidanceStatus](RoverMecanumGuidanceStatus.md)
-
-- [RoverMecanumSetpoint](RoverMecanumSetpoint.md)
-
-- [RoverMecanumStatus](RoverMecanumStatus.md)
-
 - [RoverRateSetpoint](RoverRateSetpoint.md)
 
 - [RoverRateStatus](RoverRateStatus.md)
