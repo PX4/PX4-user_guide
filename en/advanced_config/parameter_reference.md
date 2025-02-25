@@ -27762,153 +27762,45 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ## Rover Mecanum
 
-### RM_MAX_ACCEL (`FLOAT`) {#RM_MAX_ACCEL}
+### RM_COURSE_CTL_TH (`FLOAT`) {#RM_COURSE_CTL_TH}
 
-Maximum acceleration.
+Threshold to update course control in manual position mode.
 
-Maximum acceleration is used to limit the acceleration of the rover
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0.5 | m/s^2 
-
-### RM_MAX_DECEL (`FLOAT`) {#RM_MAX_DECEL}
-
-Maximum deceleration.
-
-Maximum decelaration is used to limit the deceleration of the rover. Set to -1 to disable, causing the rover to decelerate as fast as possible. Caution: Disabling the deceleration limit also disables the slow down effect in auto modes.
+Threshold for the angle between the active cruise direction and the cruise direction given by the stick inputs. This can be understood as a deadzone for the combined stick inputs for forward/backwards and lateral speed which defines a course direction.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 | m/s^2 
-
-### RM_MAX_JERK (`FLOAT`) {#RM_MAX_JERK}
-
-Maximum jerk.
-
-Limit for forwards acc/deceleration change.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0.5 | m/s^3 
-
-### RM_MAX_SPEED (`FLOAT`) {#RM_MAX_SPEED}
-
-Maximum speed the rover is allowed to drive.
-
-This parameter is used cap the maximum speed the rover is allowed to drive and to map stick inputs to desired speeds in position mode.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 7 | m/s 
-
-### RM_MAX_THR_SPD (`FLOAT`) {#RM_MAX_THR_SPD}
-
-Speed the rover drives at maximum throttle.
-
-This parameter is used to calculate the feedforward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands [-1. 1]. A good starting point is the observed ground speed when the rover drives at maximum throttle in manual mode. Increase this parameter if the rover is faster than the setpoint, and decrease if the rover is slower.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 | m/s 
+&nbsp; | 0 | 3.14 | 0.01 | 0.17 | rad 
 
 ### RM_MAX_THR_YAW_R (`FLOAT`) {#RM_MAX_THR_YAW_R}
 
 Yaw rate turning left/right wheels at max speed in opposite directions.
 
-This parameter is used to calculate the feedforward term of the closed loop yaw rate control. The controller first calculates the required speed difference between the left and right motor to achieve the desired yaw rate. This desired speed difference is then linearly mapped to normalized motor commands. A good starting point is twice the speed the rover drives at maximum throttle (RM_MAX_THRTL_SPD)). Increase this parameter if the rover turns faster than the setpoint, and decrease if the rover turns slower.
+This parameter is used to calculate the feedforward term of the closed loop yaw rate control. The controller first calculates the required speed difference between the left and right motor to achieve the desired yaw rate. This desired speed difference is then linearly mapped to normalized motor commands. A good starting point is half the speed the rover drives at maximum throttle (RD_MAX_THR_SPD)). Increase this parameter if the rover turns faster than the setpoint, and decrease if the rover turns slower.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 2 | m/s 
+&nbsp; | 0 | 100 | 0.01 | 0 | m/s 
 
-### RM_MAX_YAW_ACCEL (`FLOAT`) {#RM_MAX_YAW_ACCEL}
+### RM_MISS_SPD_GAIN (`FLOAT`) {#RM_MISS_SPD_GAIN}
 
-Maximum allowed yaw acceleration for the rover.
+Tuning parameter for the speed reduction during waypoint transition.
 
-This parameter is used to cap desired yaw acceleration. This is used to adjust incoming yaw rate setpoints to a feasible yaw rate setpoint based on the physical limitation on how fast the yaw rate can change. This leads to a smooth setpoint trajectory for the closed loop yaw rate controller to track. Set to -1 to disable.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 1000 | 0.01 | -1 | deg/s^2 
-
-### RM_MAX_YAW_RATE (`FLOAT`) {#RM_MAX_YAW_RATE}
-
-Maximum allowed yaw rate for the rover.
-
-This parameter is used to cap desired yaw rates and map controller inputs to desired yaw rates in acro mode.
+The waypoint transition speed is calculated as: Transition_speed = Maximum_speed * (1 - normalized_transition_angle * RM_MISS_VEL_GAIN) The normalized transition angle is the angle between the line segment from prev-curr waypoint and curr-next waypoint interpolated from [0, 180] -> [0, 1]. Higher value -> More speed reduction during waypoint transitions. Set to -1 to disable any speed reduction during waypoint transition.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.01 | 1000 | 0.01 | 90 | deg/s 
-
-### RM_MISS_VEL_GAIN (`FLOAT`) {#RM_MISS_VEL_GAIN}
-
-Tuning parameter for the velocity reduction during waypoint transition.
-
-The waypoint transition speed is calculated as: Transition_speed = Maximum_speed * (1 - normalized_transition_angle * RM_MISS_VEL_GAIN) The normalized transition angle is the angle between the line segment from prev-curr WP and curr-next WP interpolated from [0, 180] -> [0, 1]. Higher value -> More velocity reduction during cornering.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0.05 | 100 | 0.01 | 1 |  
-
-### RM_SPEED_I (`FLOAT`) {#RM_SPEED_I}
-
-Integral gain for ground speed controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 |  
-
-### RM_SPEED_P (`FLOAT`) {#RM_SPEED_P}
-
-Proportional gain for speed controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 |  
+&nbsp; | -1 | 100 | 0.01 | -1 |  
 
 ### RM_WHEEL_TRACK (`FLOAT`) {#RM_WHEEL_TRACK}
 
 Wheel track.
 
-Distance from the center of the right wheels to the center of the left wheels.
+Distance from the center of the right wheel to the center of the left wheel.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.001 | 100 | 0.001 | 0.5 | m 
-
-### RM_YAW_I (`FLOAT`) {#RM_YAW_I}
-
-Integral gain for closed loop yaw controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0.1 |  
-
-### RM_YAW_P (`FLOAT`) {#RM_YAW_P}
-
-Proportional gain for closed loop yaw controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 |  
-
-### RM_YAW_RATE_I (`FLOAT`) {#RM_YAW_RATE_I}
-
-Integral gain for the closed-loop yaw rate controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 |  
-
-### RM_YAW_RATE_P (`FLOAT`) {#RM_YAW_RATE_P}
-
-Proportional gain for the closed-loop yaw rate controller.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 1 |  
+&nbsp; | 0 | 100 | 0.001 | 0 | m 
 
 ## Rover Position Control (Deprecated)
 
