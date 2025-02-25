@@ -315,7 +315,7 @@ Source: [modules/rover_mecanum](https://github.com/PX4/PX4-Autopilot/tree/main/s
 
 ### 描述
 
-Rover Mecanum controller.
+Rover mecanum module.
 
 <a id="rover_mecanum_usage"></a>
 
