@@ -40,7 +40,7 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
 
 1. [RD_WHEEL_TRACK](#RD_WHEEL_TRACK) [m]: Measure the distance from the centre of the right wheel to the centre of the left wheel.
 
-   ![Wheel track](../../assets/airframes/rover/rover_differential/wheel_track.png)2. [RA_MAX_STR_ANG](#RA_MAX_STR_ANG) [deg]: Measure the maximum steering angle.
+   ![Wheel track](../../assets/airframes/rover/rover_differential/wheel_track.png)
 
 2. [RO_MAX_THR_SPEED](#RO_MAX_THR_SPEED) [m/s]: Drive the rover at full throttle and set this parameter to the observed value of the ground speed.
 

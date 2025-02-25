@@ -40,7 +40,7 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
 
 1. [RM_WHEEL_TRACK](#RM_WHEEL_TRACK) [m]: Measure the distance from the centre of the right wheel to the centre of the left wheel.
 
-   ![Wheel track](../../assets/airframes/rover/rover_differential/wheel_track.png)2. [RA_MAX_STR_ANG](#RA_MAX_STR_ANG) [deg]: Measure the maximum steering angle.
+   ![Wheel track](../../assets/airframes/rover/rover_differential/wheel_track.png)
 
 2. [RO_MAX_THR_SPEED](#RO_MAX_THR_SPEED) [m/s]: Drive the rover at full throttle and set this parameter to the observed value of the ground speed.
 
@@ -350,7 +350,7 @@ List of all parameters of the mecanum rover module:
 | <a id="RO_YAW_RATE_I"></a>[RO_YAW_RATE_I](../advanced_config/parameter_reference.md#RO_YAW_RATE_I)          | Integral gain for yaw rate controller                                  | -       |
 | <a id="RO_YAW_P"></a>[RO_YAW_P](../advanced_config/parameter_reference.md#RO_YAW_P)                         | Proportional gain for yaw controller                                   | -       |
 | <a id="RO_SPEED_LIM"></a>[RO_SPEED_LIM](../advanced_config/parameter_reference.md#RO_SPEED_LIM)             | Maximum allowed speed for the rover (and default mission speed).       | m/s     |
-| <a id="RO_MAX_THR_SPD"></a>[RO_MAX_THR_SPD](../advanced_config/parameter_reference.md#RO_MAX_THR_SPD)       | Speed the rover drives at maximum throttle                             | m/s     |
+| <a id="RO_MAX_THR_SPEED"></a>[RO_MAX_THR_SPEED](../advanced_config/parameter_reference.md#RO_MAX_THR_SPEED) | Speed the rover drives at maximum throttle                             | m/s     |
 | <a id="RO_SPEED_P"></a>[RO_SPEED_P](../advanced_config/parameter_reference.md#RO_SPEED_P)                   | Proportional gain for speed controller                                 | -       |
 | <a id="RO_SPEED_I"></a>[RO_SPEED_I](../advanced_config/parameter_reference.md#RO_SPEED_I)                   | Integral gain for speed controller                                     | -       |
 | <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN)    | Main tuning parameter for pure pursuit                                 | -       |
