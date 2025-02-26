@@ -1,112 +1,120 @@
 # 飞行模式
 
-_Flight Modes_ define how the autopilot responds to user input and controls vehicle movement.
+Modes ("flight modes", "drive modes", and so on) are special operational states that control how the autopilot responds to user input and controls vehicle movement.
 They are loosely grouped into _manual_, _assisted_ and _auto_ modes, based on the level/type of control provided by the autopilot.
 飞手使用遥控器上的开关或者 ground control station 在飞行模式之间进行切换。
 
-需要注意的是并非所有类型的飞机都具备全部的飞行模式，同时部分模式在不同类型的飞机上的行为模式也不相同（见下文）。
-Finally, some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock).
-系统只会在特定条件下才能进行一些模式之间的切换。
+Modes can be implemented as [PX4 internal modes](#px4-internal-modes) running on the flight controller, or as [PX4 external (ROS2) modes](#px4-external-modes) running on a companion computer.
+From the perspective of a ground station (MAVLink), the origin of a mode is indistinguishable.
 
-The sections below provide an overview of the modes, followed by a [flight mode evaluation diagram](#flight-mode-evaluation-diagram) that shows the conditions under which PX4 will transition into a new mode.
+This topic links to documentation for the supported modes, compares PX4 internal and external modes, provides implementation hints, and provides links to how PX4 modes can be used with MAVLink.
 
-:::info
-User-facing flight mode documentation can be found in:
+## Supported Modes
+
+Not all modes are available (or makes sense), on all vehicle types, and some modes behave differently on different vehicle types.
+
+Mode documentation for the PX4 internal modes are listed below:
 
 - [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
 - [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/index.md)
 - [Drive Modes (Differential Rover)](../flight_modes_rover/differential.md)
 - [Drive Modes (Ackermann Rover)](../flight_modes_rover/ackermann.md)
+- [Basic Configuration > Flight Modes](../config/flight_mode.md)
 
+## Internal vs External Modes
+
+With some exceptions a mode can be implemented in either the FC or companion computer.
+The main considerations are listed below.
+
+PX4 external modes cannot be used in the following cases:
+
+- Modes that need to run on vehicles that don't have a companion computer.
+- Modes that require low-level access, strict timing, and/or high update rate requirements.
+  For example, a multicopter mode that implements direct motor control.
+- Safety critical modes, such as [Return mode](../flight_modes_mc/return.md).
+- When you can't use ROS (for any reason).
+
+External modes should be considered for all other cases.
+They have the following benefits:
+
+- Easier to implement as there is no need to deal with low-level embedded constraints and requirements (such as restricted stack sizes).
+- Easier to maintain as the integration API is small, well defined, and stable.
+- Porting custom PX4 modes on the flight controller between PX4 versions can be much harder, as often flight modes use interfaces that are considered internal, and allowed to change.
+- Process termination of a ROS 2 mode results in a fallback to an internal flight mode (while termination of an internal mode may well crash the vehicle).
+- They can override existing modes to provide more advanced features.
+  You can even override a safety-critical mode with a better versions: if the ROS 2 mode crashes the original mode will be engaged.
+- High-level functionality is available, including a better-feature programming environment, and many useful Linux and ROS libraries.
+- More available compute to do more advanced processing (e.g. computer vision).
+
+Note that the [PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md) used to create external modes first appeared in PX4 v1.15 and is still considered experimental.
+There are still some limitations, but expect changes and ongoing enhancement.
+
+## PX4 External Modes
+
+PX4 external modes, are written in ROS 2 using the [PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md) (see link for instructions).
+
+## PX4 Internal Modes
+
+<!--
+The specific control behaviour of a mode at any time is determined by a [Flight Task](../concept/flight_tasks.md).
+A mode might define one or more tasks that define variations of the mode behavior, for example whether inputs are treated as acceleration or velocity setpoints.
+
+The task that is used is normally defined in a parameter, and selected in [src/modules/flight_mode_manager/FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285)
+
+
+Name the relevant modules in which code directly related to flight modes is defined.
+Name any base classes that modes must/should derive from
+Explain the core things you need to do to make a mode work
+Very high level architecture
+-->
+
+### Mode Restrictions
+
+Some modes only make sense only under specific pre-flight and in-flight conditions.
+For example, a manual control mode should not be used unless the system has a manual controller.
+
+PX4 modes can specify these conditions as _restrictions_.
+For internal modes the types of restrictions are listed in the [FailsafeFlags](../msg_docs/FailsafeFlags.md) uORB topic under "Per mode requirements" (duplicated below)
+
+```text
+# Per-mode requirements
+mode_req_angular_velocity
+mode_req_attitude
+mode_req_local_alt
+mode_req_local_position
+mode_req_local_position_relaxed
+mode_req_global_position
+mode_req_mission
+mode_req_offboard_signal
+mode_req_home_position
+mode_req_wind_and_flight_time_compliance # if set, mode cannot be entered if wind or flight time limit exceeded
+mode_req_prevent_arming    # if set, cannot arm while in this mode
+mode_req_manual_control
+mode_req_other             # other requirements, not covered above (for external modes)
+```
+
+If the condition of restriction is not met:
+
+- arming is not allowed, while the mode is selected
+- when already armed, the mode cannot be selected
+- when armed and the mode is selected, the relevant failsafe is triggered (e.g. RC loss for the manual control requirement).
+  Check [Safety (Failsafe) Configuration](../config/safety.md) for how to configure failsafe behaviour.
+
+This is the corresponding flow diagram for the manual control flag (`mode_req_manual_control`):
+
+![Mode requirements diagram](../../assets/middleware/ros2/px4_ros2_interface_lib/mode_requirements_diagram.png)
+
+The requirements for all modes are set in `getModeRequirements()` in [src/modules/commander/ModeUtil/mode_requirements.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp#L46).
+When adding a new mode you will need to add appropriate requirements in that method.
+
+:::tip
+Readers may note that this image is from [PX4 ROS2 Control Interface > Failsafes and mode requirements](../ros2/px4_ros2_control_interface.md#failsafes-and-mode-requirements).
+The requirements and concepts are the same (though defined in different places).
+The main difference is that ROS 2 modes _infer_ the correct requirements to use, while modes in PX4 source code must explicitly specify them.
 :::
 
-## 飞行模式概要
+## MAVLink Integration
 
-### Manual Flight Modes
-
-"Manual" modes are those where the user has direct control over the vehicle via the RC control (or joystick).
-Vehicle movement always follows stick movement, but the level/type of response changes depending on the mode.
-For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.
-
-- **Rovers / Boats:**
-
-  - **MANUAL/STABILIZED/ACRO:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to control allocation.
-
-- **Fixed-wing aircraft:**
-
-  - **MANUAL:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to control allocation.
-  - **STABILIZED:** The pilot's pitch and roll inputs are passed as angle commands to the autopilot, while the yaw input is sent directly via control allocation to the rudder (manual control).
-    If the RC roll and pitch sticks are centered, the autopilot regulates the roll and pitch angles to zero, hence stabilizing (leveling-out) the attitude against any wind disturbances.
-    However, in this mode the position of the aircraft is not controlled by the autopilot, hence the position can drift due to wind.
-    With nonzero roll input the vehicle does a coordinated turn to achieve zero sideslip (the acceleration in y-direction (sidewards) is zero).
-    During a coordinated turn, the rudder is used to control the sideslip and any manual yaw input is added to that.
-  - **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw _rate_ commands to the autopilot.
-    反之，飞手的操作输入会作为滚转和俯仰<1>角度</1>指令和偏航<1>角速率</1> 指令。
-    Throttle is passed directly to control allocation.
-
-- **Multirotors:**
-
-  - **STABILIZED** (**MANUAL** also selects this mode): The pilot's inputs are passed as roll and pitch _angle_ commands and a yaw _rate_ command.
-    Throttle is passed directly to control allocation.
-    The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude.
-    However, in this mode the position of the vehicle is not controlled by the autopilot, hence the position can drift due to wind.
-
-    ::: info
-    For Multirotors, Manual and Stabilized modes are the same.
-
-:::
-
-  - **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw _rate_ commands to the autopilot.
-    The autopilot controls the angular rates, but not the attitude.
-    Hence, if the RC sticks are centered the vehicle will not level-out.
-    This allows the multirotor to become completely inverted.
-    Throttle is passed directly to control allocation.
-
-### 辅助飞行模式
-
-"Assisted" modes are also user controlled but offer some level of "automatic" assistance - for example, automatically holding position/direction, against wind.
-Assisted modes often make it much easier to gain or restore controlled flight.
-
-- **ALTCTL** (Altitude Control)
-
-  - **Fixed-wing aircraft:** When the roll, pitch and yaw (RPY) RC sticks are all centered (or less than some specified deadband range) the aircraft will return to straight and level flight and keep its current altitude.
-    飞机的的 X 和 Y 方向的位置会随风漂移。
-  - **Multirotors:** Roll, pitch and yaw inputs are as in Stabilised mode.
-    油门输入会令飞机按照预定的最大速率爬升或下降。
-    油门的输入有很大的死区。
-    油门居中表示保持当前高度。
-    飞控程序仅控制高度，所以飞机的 X、Y 位置会随风漂移。
-
-- **POSCTL** (Position Control)
-
-  - **Fixed-wing aircraft:** Neutral inputs (centered RC sticks) give level flight and it will crab against the wind if needed to maintain a straight line.
-  - **Multirotors** Roll controls left-right speed, pitch controls front-back speed over ground.
-    偏航与手动控制模式一样，控制的是偏航角速率。
-    油门与定高模式 模式一样控制飞机的爬升/下降速率。
-    这意味着当滚转、俯仰和油门杆居中时，飞控程序会在任意风的干扰下稳定地保持飞机的X、Y、Z 位置。
-
-### 自动飞行模式
-
-"Auto" modes are those where the controller requires little to no user input (e.g. to takeoff, land and fly missions).
-
-- **AUTO_LOITER** (Loiter)
-
-  - **Fixed-wing aircraft:** The aircraft loiters around the current position at the current altitude (or possibly slightly above the current altitude, good for 'I'm losing it').
-  - **Multirotors:** The multirotor hovers / loiters at the current position and altitude.
-
-- **AUTO_RTL** (Return to Launch)
-
-  - **Fixed-wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position.
-  - **Multirotors:** The multirotor returns in a straight line on the current altitude (if the current altitude is higher than the home position + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)) or on the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (if the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) is higher than the current altitude), then lands automatically.
-
-- **AUTO_MISSION** (Mission)
-  - **All system types:** The aircraft obeys the programmed mission sent by the ground control station (GCS).
-    如果没有收到任务, 飞机将会在当前的的位置上停留/盘旋。
-  - **_OFFBOARD_** (Offboard)
-    In this mode the position, velocity or attitude reference / target / setpoint is provided by a companion computer connected via serial cable and MAVLink.
-    The offboard setpoint can be provided by APIs like [MAVSDK](http://mavsdk.mavlink.io) or [MAVROS](https://github.com/mavlink/mavros).
-
-## 飞行模式评估图
-
-![Commander Flow diagram](../../assets/diagrams/commander-flow-diagram.png)
+PX4 implements the MAVLink [Standard Modes Protocol](../mavlink/standard_modes.md) from PX4 v1.15.
+This can be used to discover all modes and the current mode, and to set the current mode.
