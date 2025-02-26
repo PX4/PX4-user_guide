@@ -4,8 +4,8 @@
 
 Для отримання інформації про режими польоту, доступні для певних моделей, дивіться наступні теми:
 
-- [Режими польоту (Мультикоптер)](../flight_modes_mc/index.md)
-- [Режими польоту (Фіксовані крила)](../flight_modes_fw/index.md)
+- [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
+- [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
 - [Режими польоту (VTOL)](../flight_modes_vtol/index.md)
 - [Drive Modes (Differential Rover)](../flight_modes_rover/differential.md)
 - [Drive Modes (Ackermann Rover)](../flight_modes_rover/ackermann.md)

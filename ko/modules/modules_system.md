@@ -178,7 +178,7 @@ Source: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/main/src/mod
 ### 설명
 
 C API를 통해 간단한 데이터베이스 형태로 시스템에 영구 저장소를 제공하는 모듈입니다.
-다중 백엔드가 지원됩니다.
+Multiple backends are supported depending on the board:
 
 - 파일(예: SD 카드)
 - RAM (영구적이지 않음)

@@ -708,6 +708,7 @@
         - [YawEstimatorStatus](msg_docs/YawEstimatorStatus.md)
         - [VehicleStatusV0](msg_docs/VehicleStatusV0.md)
     - [MAVLink Messaging](middleware/mavlink.md)
+      - [Standard Modes Protocol](mavlink/standard_modes.md)
     - [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](middleware/uxrce_dds.md)
   - [Modules & Commands](modules/modules_main.md)
     - [Autotune](modules/modules_autotune.md)

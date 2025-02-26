@@ -62,7 +62,7 @@ Some of PX4's key features are:
 - Supports many different vehicle frames/types, including: [multicopters](../frames_multicopter/index.md), [fixed-wing aircraft](../frames_plane/index.md) (planes), [VTOLs](../frames_vtol/index.md) (hybrid multicopter/fixed-wing), [ground vehicles](../frames_rover/index.md), and [underwater vehicles](../frames_sub/index.md).
 - Great choice of drone components for [flight controller](#flight-controller), [sensors](#sensors), [payloads](#payloads), and other peripherals.
 - Flexible and powerful [flight modes](#flight-modes) and [safety features](#safety-settings-failsafe).
-- Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/index.md) such as [ROS 2](../ros2/user_guide.md) and [MAVSDK](http://mavsdk.mavlink.io)).
+- Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/index.md) such as [ROS 2](../ros2/user_guide.md) and [MAVSDK](http://mavsdk.mavlink.io).
 
 PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol.
 PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
@@ -125,8 +125,11 @@ The following sensors are recommended:
 - A [GNSS/GPS](../gps_compass/index.md) or other source of global position is needed to enable all automatic modes, and some manual/assisted modes.
 
   Typically a module that combines a GNSS and Compass is used, as an external compass can be made less susceptible to electromomagnetic interference than the internal compass in the flight controller.
+
 - [Airspeed sensors](../sensor/airspeed.md) are highly recommended for fixed-wing and VTOL-vehicles.
+
 - [Distance Sensors \(Rangefinders\)](../sensor/rangefinders.md) are highly recommended for all vehicle types, as they allow smoother and more robust landings, and enable features such as terrain following on multicopters.
+
 - [Optical Flow Sensors](../sensor/optical_flow.md) can be used with distance sensors on multcopters and VTOL to support navigation in GNSS-denied environments.
 
 For more information about sensors see: [Sensor Hardware & Setup](../sensor/index.md).
@@ -313,7 +316,8 @@ A detailed overview of arming and disarming configuration can be found here: [Pr
 
 ## Flight Modes
 
-Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot).
+Modes are special operational states that provide different types/levels of vehicle automation and autopilot assistance to the user (pilot).
+
 _Autonomous modes_ are fully controlled by the autopilot, and require no pilot/remote control input.
 These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing.
 Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
@@ -323,10 +327,10 @@ Different manual modes enable different flight characteristics - for example, so
 while others are impossible to flip and will hold position/course against wind.
 
 :::tip
-Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
+Not all modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
 :::
 
-An overview of the available flight modes for each vehicle can be found below:
+An overview of the flight modes implemented within PX4 for each vehicle can be found below:
 
 - [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
 - [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
@@ -335,6 +339,10 @@ An overview of the available flight modes for each vehicle can be found below:
 - [Drive Modes (Ackermann Rover)](../flight_modes_rover/ackermann.md)
 
 Instructions for how to set up your remote control switches to enable different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
+
+PX4 also supports external modes implemented in [ROS 2](../ros2/index.md) using the [PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md).
+These are indistinguishable from PX4 internal modes, and can be used to override internal modes with a more advanced version, or to create entirely new functionality.
+Note that these depend on ROS 2 and can therefore only run on systems that have a [companion computer](#offboard-companion-computer).
 
 ## Safety Settings (Failsafe)
 
@@ -371,10 +379,10 @@ For a VTOL Tailsitter the heading is relative to the multirotor configuration (i
 
 It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement.
 Multicopters have a heading even when they are symmetrical from all sides!
-Usually manufacturers use a colored props or colored arms to indicate the heading.
+Usually manufacturers use a coloured props or coloured arms to indicate the heading.
 
 ![Frame Heading TOP](../../assets/concepts/frame_heading_top.png)
 
-In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
+In our illustrations we will use red colouring for the front propellers of multicopter to show heading.
 
 You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
