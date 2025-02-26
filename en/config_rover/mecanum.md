@@ -35,8 +35,9 @@ For this mode to work properly the [Basic Setup](#basic-setup) must've already b
 
 The basic setup already covers the minimum setup required to use the rover in [Manual mode](../flight_modes_rover/mecanum.md#manual-mode).
 
-However, this mode is also affected by acceleration/deceleration limits
-This configuration becomes mandatory for subsequent modes, which is why we do this setup here.
+This mode is also affected by (optional) acceleration/deceleration limits.
+As configuration of these limits becomes mandatory for subsequent modes, we do this setup here.
+
 Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
 
 1. [RM_WHEEL_TRACK](#RM_WHEEL_TRACK) [m]: Measure the distance from the centre of the right wheel to the centre of the left wheel.
@@ -112,7 +113,7 @@ To set up [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) navigate to [P
 1. [RO_YAW_RATE_P](#RO_YAW_RATE_P) [-]: Proportional gain of the closed loop yaw rate controller.
    Unlike the feed-forward part of the controller, the closed loop yaw rate control will compare the yaw rate setpoint with the measured yaw rate and adapt to motor commands based on the error between them.
    The proportional gain is multiplied with this error and that value is added to the motor command.
-   This way disturbances like uneven grounds or external forces can be compensated.
+   This compensates for disturbances such as uneven ground and external forces.
 
    ::: tip
    This parameter can be tuned the same way as [RM_MAX_THR_YAW_R](#RM_YAW_RATE_P_TUNING).
@@ -168,7 +169,7 @@ Therefore you only need to tune the closed loop gains:
    Increase/Decrease the parameter until you are satisfied with the setpoint tracking.
    :::
 
-::: tip
+::: info
 For the closed loop yaw control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint.
 Since the yaw and yaw rate controllers are cascaded, there only needs to be one integrator which is in the yaw rate controller.
 If you observe a steady state error in the yaw setpoint increase the [RO_YAW_RATE_I](#RO_YAW_RATE_I) parameter.

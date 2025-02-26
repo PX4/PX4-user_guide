@@ -36,8 +36,9 @@ For this mode to work properly the [Basic Setup](#basic-setup) must've already b
 
 The basic setup already covers the minimum setup required to use the rover in [Manual mode](../flight_modes_rover/ackermann.md#manual-mode).
 
-However, this mode is also affected by the steering slew rate and acceleration/deceleration limits.
-This configuration becomes mandatory for subsequent modes, which is why we do this setup here.
+This mode is also affected by (optional) acceleration/deceleration limits.
+As configuration of these limits becomes mandatory for subsequent modes, we do this setup here.
+
 Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
 
 1. [RA_WHEEL_BASE](#RA_WHEEL_BASE) [m]: Measure the distance from the back to the front wheels.
@@ -128,7 +129,7 @@ To set up [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) configure th
 2. [RO_YAW_RATE_P](#RO_YAW_RATE_P) [-]: Proportional gain of the closed loop yaw rate controller.
    The closed loop acceleration control will compare the yaw rate setpoint with the measured yaw rate and adapt the motor commands based on the error between them.
    The proportional gain is multiplied with this error and that value is added to the motor command.
-   This way disturbances like uneven grounds or external forces can be compensated.
+   This compensates for disturbances such as uneven ground and external forces.
 
    :::tip
    To tune this parameter:
@@ -143,7 +144,7 @@ To set up [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) configure th
    The integral gain accumulates the error between the desired and actual yaw rate scaled by the integral gain over time and that value is added to the motor command.
 
    ::: tip
-   An integrator might not be neccessary at this stage, but it will become important for subsequent modes.
+   An integrator might not be necessary at this stage, but it will become important for subsequent modes.
    :::
 
 The rover is now ready to drive in [Acro mode](../flight_modes_rover/ackermann.md#acro-mode).
@@ -171,7 +172,7 @@ Therefore you only need to tune the closed loop gains:
    Increase/Decrease the parameter until you are satisfied with the setpoint tracking.
    :::
 
-::: tip
+::: info
 For the closed loop yaw control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint.
 Since the yaw and yaw rate controllers are cascaded, there only needs to be one integrator which is in the yaw rate controller. If you observe a steady state error in the yaw setpoint increase the [RO_YAW_RATE_I](#RO_YAW_RATE_I) parameter.
 :::
@@ -272,9 +273,10 @@ The required parameter configuration is discussed in the following sections.
 1. [RO_DECEL_LIM](#RO_DECEL_LIM) [m/s^2] and [RO_JERK_LIM](#RO_JERK_LIM) [m/s^3] are used to calculate a speed trajectory such that the rover reaches the next waypoint with the correct [cornering speed](#cornering-speed).
 
    ::: tip
-   Plan a mission for the rover to drive a square and observe how it slows down when approaching a waypoint.
-   If the rover decelerates too quickly decrease the [RO_DECEL_LIM](#RO_DECEL_LIM) parameter, if it starts slowing down too early increase the parameter.
-   If you observe a jerking motion as the rover slows down, decrease the [RO_JERK_LIM](#RO_JERK_LIM) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RO_DECEL_LIM](#RO_DECEL_LIM).
+   Plan a mission for the rover to drive a square and observe how it slows down when approaching a waypoint:
+
+   - If the rover decelerates too quickly decrease the [RO_DECEL_LIM](#RO_DECEL_LIM) parameter, if it starts slowing down too early increase the parameter.
+   - If you observe a jerking motion as the rover slows down, decrease the [RO_JERK_LIM](#RO_JERK_LIM) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RO_DECEL_LIM](#RO_DECEL_LIM).
 
    These two parameters have to be tuned as a pair, repeat until you are satisfied with the behaviour.
    :::

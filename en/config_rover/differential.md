@@ -35,8 +35,9 @@ For this mode to work properly the [Basic Setup](#basic-setup) must've already b
 
 The basic setup already covers the minimum setup required to use the rover in [Manual mode](../flight_modes_rover/differential.md#manual-mode).
 
-However, this mode is also affected by acceleration/deceleration limits.
-This configuration becomes mandatory for subsequent modes, which is why we do this setup here.
+This mode is also affected by (optional) acceleration/deceleration limits.
+As configuration of these limits becomes mandatory for subsequent modes, we do this setup here.
+
 Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
 
 1. [RD_WHEEL_TRACK](#RD_WHEEL_TRACK) [m]: Measure the distance from the centre of the right wheel to the centre of the left wheel.
@@ -89,7 +90,7 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
 For this mode to work properly [Manual mode](#manual-mode) must've already been configured!
 :::
 
-To set up [Acro mode](../flight_modes_rover/differential.md#acro-mode) navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
+To set up [Acro mode](../flight_modes_rover/differential.md#acro-mode), navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
 
 1. [RO_YAW_RATE_LIM](#RO_YAW_RATE_LIM) [deg/s]: This is the maximum yaw rate you want to allow for your rover.
    This will define the stick-to-yaw-rate mapping for all manual modes using closed loop yaw control and set an upper limit for the yaw rate setpoint for all [auto modes](#auto-modes).
@@ -112,7 +113,7 @@ To set up [Acro mode](../flight_modes_rover/differential.md#acro-mode) navigate 
 1. [RO_YAW_RATE_P](#RO_YAW_RATE_P) [-]: Proportional gain of the closed loop yaw rate controller.
    Unlike the feed-forward part of the controller, the closed loop yaw rate control will compare the yaw rate setpoint with the measured yaw rate and adapt to motor commands based on the error between them.
    The proportional gain is multiplied with this error and that value is added to the motor command.
-   This way disturbances like uneven grounds or external forces can be compensated.
+   This compensates for disturbances such as uneven ground and external forces.
 
    ::: tip
    This parameter can be tuned the same way as [RD_MAX_THR_YAW_R](#RD_YAW_RATE_P_TUNING).
@@ -126,8 +127,10 @@ To set up [Acro mode](../flight_modes_rover/differential.md#acro-mode) navigate 
    An integrator might not be neccessary at this stage, but it will become important for subsequent modes.
    :::
 
-1. (Optional) [RO_YAW_ACCEL_LIM](#RO_YAW_ACCEL_LIM) and [RO_YAW_DECEL_LIM](#RO_YAW_DECEL_LIM) [deg/s^2]: This is the maximum yaw acceleration and deceleration you want to allow for your rover.
-   This can be used to smooth the `yaw_rate` setpoints and make their trajectory feasible based on the physical limitation on the rover to improve tracking and avoid integrator build up.
+1. (Optional) [RO_YAW_ACCEL_LIM](#RO_YAW_ACCEL_LIM) and [RO_YAW_DECEL_LIM](#RO_YAW_DECEL_LIM) [deg/s^2]:
+   This is the maximum yaw acceleration and deceleration you want to allow for your rover.
+   This can be used to smooth the `yaw_rate` setpoints and make their trajectory feasible based on the physical limitations of the rover.
+   It also improves tracking and avoid integrator build up.
 
    ::: tip
    Your rover has a maximum possible yaw acceleration/deceleration which is determined by the maximum torque the motor can supply.
@@ -162,13 +165,14 @@ Therefore you only need to tune the closed loop gains:
 
    ::: tip
    In stabilized mode the closed loop yaw control is only active when driving a straight line (no yaw rate input).
-   Start with a value of 1 for [RO_YAW_P](#RO_YAW_P).
-   Put the rover into stabilized mode and move the left stick of your controller up and/or down to drive forwards/backwards.
-   Disarm the rover and from the flight log plot the `measured_yaw` and the `adjusted_yaw_setpoint` from the [RoverAttitudeStatus](../msg_docs/RoverAttitudeStatus.md) message over each other.
-   Increase/Decrease the parameter until you are satisfied with the setpoint tracking.
-   :::
 
-::: tip
+   1. Start with a value of 1 for [RO_YAW_P](#RO_YAW_P).
+   2. Put the rover into stabilized mode and move the left stick of your controller up and/or down to drive forwards/backwards.
+   3. Disarm the rover and from the flight log plot the `measured_yaw` and the `adjusted_yaw_setpoint` from the [RoverAttitudeStatus](../msg_docs/RoverAttitudeStatus.md) message over each other.
+   4. Increase/Decrease the parameter until you are satisfied with the setpoint tracking.
+      :::
+
+::: info
 For the closed loop yaw control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint.
 Since the yaw and yaw rate controllers are cascaded, there only needs to be one integrator which is in the yaw rate controller.
 If you observe a steady state error in the yaw setpoint increase the [RO_YAW_RATE_I](#RO_YAW_RATE_I) parameter.
@@ -271,9 +275,11 @@ These parameters are used to calculate the speed setpoint in auto modes:
 1. [RO_DECEL_LIM](#RO_DECEL_LIM) ($m/s^2$) and [RO_JERK_LIM](#RO_JERK_LIM) ($m/s^3$) are used to calculate a velocity trajectory such that the rover comes to a smooth stop as it reaches a waypoint.
 
    ::: tip
-   Plan a mission for the rover to drive a square and observe how it slows down when approaching a waypoint.
-   If the rover decelerates too quickly decrease the [RO_DECEL_LIM](#RO_DECEL_LIM) parameter, if it starts slowing down too early increase the parameter.
-   If you observe a jerking motion as the rover slows down, decrease the [RO_JERK_LIM](#RO_JERK_LIM) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RO_DECEL_LIM](#RO_DECEL_LIM).
+   Plan a mission for the rover to drive a square and observe how it slows down when approaching a waypoint:
+
+   - If the rover decelerates too quickly decrease the [RO_DECEL_LIM](#RO_DECEL_LIM) parameter, if it starts slowing down too early increase the parameter.
+   - If you observe a jerking motion as the rover slows down, decrease the [RO_JERK_LIM](#RO_JERK_LIM) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RO_DECEL_LIM](#RO_DECEL_LIM).
+
    These two parameters have to be tuned as a pair, repeat until you are satisfied with the behaviour.
    :::
 
