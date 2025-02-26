@@ -49,6 +49,7 @@ Rovers use a custom build that must be flashed onto your flight controller inste
 ## Simulation
 
 [Gazebo](../sim_gazebo_gz/index.md) provides simulations for ackermann and differential rovers:
+
 - [Ackermann rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)
 - [Differential rover](../sim_gazebo_gz/vehicles.md#differential-rover)
 

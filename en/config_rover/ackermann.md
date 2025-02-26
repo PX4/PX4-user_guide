@@ -36,7 +36,8 @@ For this mode to work properly the [Basic Setup](#basic-setup) must've already b
 
 The basic setup already covers the minimum setup required to use the rover in [Manual mode](../flight_modes_rover/ackermann.md#manual-mode).
 
-However, this mode is also affected by the steering slew rate and acceleration/deceleration limits. This configuration becomes mandatory for subsequent modes, which is why we do this setup here.
+However, this mode is also affected by the steering slew rate and acceleration/deceleration limits.
+This configuration becomes mandatory for subsequent modes, which is why we do this setup here.
 Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
 
 1. [RA_WHEEL_BASE](#RA_WHEEL_BASE) [m]: Measure the distance from the back to the front wheels.
@@ -47,7 +48,8 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
 3. [RO_MAX_THR_SPEED](#RO_MAX_THR_SPEED) [m/s]: Drive the rover at full throttle and set this parameter to the observed value of the ground speed.
 
    :::info
-   This parameter is also used for the feed-forward term of the speed control. It will be further tuned in the configuration of [Position mode](#position-mode).
+   This parameter is also used for the feed-forward term of the speed control.
+   It will be further tuned in the configuration of [Position mode](#position-mode).
    :::
 
 4. (Optional) [RO_ACCEL_LIM](#RO_ACCEL_LIM) [m/s^2]: Maximum acceleration you want to allow for your rover.
@@ -125,7 +127,8 @@ To set up [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) configure th
 
 2. [RO_YAW_RATE_P](#RO_YAW_RATE_P) [-]: Proportional gain of the closed loop yaw rate controller.
    The closed loop acceleration control will compare the yaw rate setpoint with the measured yaw rate and adapt the motor commands based on the error between them.
-   The proportional gain is multiplied with this error and that value is added to the motor command. This way disturbances like uneven grounds or external forces can be compensated.
+   The proportional gain is multiplied with this error and that value is added to the motor command.
+   This way disturbances like uneven grounds or external forces can be compensated.
 
    :::tip
    To tune this parameter:
@@ -292,8 +295,10 @@ The degree to which corner cutting is allowed can be tuned, or disabled, with th
 The corner cutting effect is a tradeoff between how close you get to the waypoint and the smoothness of the trajectory.
 :::
 
-1. [NAV_ACC_RAD](#NAV_ACC_RAD) [m]: Default acceptance radius. This is also used as a lower bound for the acceptance radius scaling.
-2. [RA_ACC_RAD_MAX](#RA_ACC_RAD_MAX) [m]: The maximum the acceptance radius can be scaled to. Set equal to [NAV_ACC_RAD](#NAV_ACC_RAD) to disable the corner cutting effect.
+1. [NAV_ACC_RAD](#NAV_ACC_RAD) [m]: Default acceptance radius
+   This is also used as a lower bound for the acceptance radius scaling.
+2. [RA_ACC_RAD_MAX](#RA_ACC_RAD_MAX) [m]: The maximum the acceptance radius can be scaled to.
+   Set equal to [NAV_ACC_RAD](#NAV_ACC_RAD) to disable the corner cutting effect.
 3. [RA_ACC_RAD_GAIN](#RA_ACC_RAD_GAIN) [-]: This tuning parameter is a multiplicand on the [calculated ideal acceptance radius](#corner-cutting-logic) to account for dynamic effects.
 
    :::tip

@@ -41,7 +41,8 @@ The manual modes provide progressively increasing levels of autopilot support fo
 
 ### Manual Mode
 
-In this mode the stick inputs are directly mapped to motor commands. The rover does not attempt to maintain a specific orientation or compensate for external factors like slopes or uneven terrain!
+In this mode the stick inputs are directly mapped to motor commands.
+The rover does not attempt to maintain a specific orientation or compensate for external factors like slopes or uneven terrain!
 The user is responsible for making the necessary adjustments to the stick inputs to keep the rover on the desired course.
 
 | Stick                  | Effect                                     |
@@ -76,7 +77,8 @@ By limiting the maximum yaw rate, we can restrict the steering angle based on th
 This mode will feel more like "driving a car" than [Manual mode](#manual-mode).
 
 ::: info
-The yaw rate is only close loop controlled when driving forwards. When driving backwards the yaw rate setpoint is directly mapped to a steering angle using the equation above.
+The yaw rate is only close loop controlled when driving forwards.
+When driving backwards the yaw rate setpoint is directly mapped to a steering angle using the equation above.
 This is due to the fact that rear wheel steering (driving a car with front-wheel steering backwards) is non-minimum-phase w.r.t to the yaw rate which leads to instabilities when doing closed loop control.
 :::
 
@@ -109,7 +111,9 @@ For the configuration/tuning of this mode see [Stabilized mode](../config_rover/
 This mode requires a yaw rate, yaw, speed and global position estimate.
 :::
 
-This is the manual mode with the most autopilot support. The vehicle regulates its yaw rate and speed to a setpoint. If the yaw rate setpoint is zero, the controller will remember the gps coordinates and yaw (heading) of the vehicle and use those to construct a line that the rover will then follow (course control).
+This is the manual mode with the most autopilot support.
+The vehicle regulates its yaw rate and speed to a setpoint.
+If the yaw rate setpoint is zero, the controller will remember the GPS coordinates and yaw (heading) of the vehicle and use those to construct a line that the rover will then follow (course control).
 This offers the highest amount of disturbance rejection, which leads to the best straight line driving behavior.
 
 | Stick                  | Effect                                                                                                                                         |
