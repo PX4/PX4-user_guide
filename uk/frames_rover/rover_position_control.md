@@ -92,7 +92,7 @@ This mode is intended for vehicle control from companion computers and ground st
 ## Подальша інформація
 
 - [Базова конфігурація > Режими польоту](../config/flight_mode.md) - Як відповідати перемикачі керування RC конкретним режимам польоту
-- [Режими польоту (Мультикоптер)](../flight_modes_mc/index.md)
+- [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
 - [Flight Modes (Fixed-wing)](../flight_modes_fw/index.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/index.md)
 
