@@ -7,7 +7,7 @@ The pilot transitions between flight modes using switches on the remote control 
 Modes can be implemented as [PX4 internal modes](#px4-internal-modes) running on the flight controller, or as [PX4 external (ROS2) modes](#px4-external-modes) running on a companion computer.
 From the perspective of a ground station (MAVLink), the origin of a mode is indistinguishable.
 
-This topic links to documentation for the supported modes, compares PX4 internal and external modes, provides implementation hints, and provides an overview of how PX4 modes can be used with MAVLink.
+This topic links to documentation for the supported modes, compares PX4 internal and external modes, provides implementation hints, and provides links to how PX4 modes can be used with MAVLink.
 
 ## Supported Modes
 
@@ -56,10 +56,18 @@ PX4 external modes, are written in ROS 2 using the [PX4 ROS 2 Control Interface]
 
 ## PX4 Internal Modes
 
+<!--
 The specific control behaviour of a mode at any time is determined by a [Flight Task](../concept/flight_tasks.md).
 A mode might define one or more tasks that define variations of the mode behavior, for example whether inputs are treated as acceleration or velocity setpoints.
 
 The task that is used is normally defined in a parameter, and selected in [src/modules/flight_mode_manager/FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285)
+
+
+Name the relevant modules in which code directly related to flight modes is defined.
+Name any base classes that modes must/should derive from
+Explain the core things you need to do to make a mode work
+Very high level architecture
+-->
 
 ### Mode Restrictions
 
@@ -102,104 +110,11 @@ When adding a new mode you will need to add appropriate requirements in that met
 
 ::: tip
 Readers may note that this image is from [PX4 ROS2 Control Interface > Failsafes and mode requirements](../ros2/px4_ros2_control_interface.md#failsafes-and-mode-requirements).
-The requirements and concepts are essentially the same (though defined in different places).
+The requirements and concepts are the same (though defined in different places).
 The main difference is that ROS 2 modes _infer_ the correct requirements to use, while modes in PX4 source code must explicitly specify them.
 :::
 
 ## MAVLink Integration
 
-### Standard Modes Protocol
-
-PX4 implements the MAVLink [Standard Modes Protocol](https://mavlink.io/en/services/standard_modes.md) from PX4 v1.15, with a corresponding implementation in QGroundControl Daily builds (and future release builds).
-
-Modes can be "standard" or "custom".
-The standard modes ([MAV_STANDARD_MODE](https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE)) are those that are common to most flight stacks with broadly the same behaviour, whereas custom modes are flight-stack specific.
-
-This protocol allows:
-
-- Discovery of all modes supported by a system from both PX4 and ROS 2 ([MAV_CMD_REQUEST_MESSAGE](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE) and [AVAILABLE_MODES](https://mavlink.io/en/messages/common.html#AVAILABLE_MODES)).
-- Discovery of the current mode ([CURRENT_MODE](https://mavlink.io/en/messages/common.html#CURRENT_MODE)).
-- Setting of standard modes using [MAV_CMD_DO_SET_STANDARD_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_STANDARD_MODE) (recommended)
-- Setting of custom modes using [SET_MODE](https://mavlink.io/en/messages/common.html#SET_MODE) (using information from `AVAILABLE_MODES`). At time of writing [MAV_CMD_DO_SET_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_MODE) is not supported.
-- Notification when the set of modes changes ([AVAILABLE_MODES_MONITOR](https://mavlink.io/en/messages/common.html#AVAILABLE_MODES_MONITOR))
-
-PX4 advertises support for the following standard flight modes, which means that you can start them by calling [MAV_CMD_DO_SET_STANDARD_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_STANDARD_MODE) and the appropriate enum values:
-
-All vehicle types:
-
-| Standard Mode                                                      | PX4 Mode                                      | Internal Mode |
-| ------------------------------------------------------------------ | --------------------------------------------- | ------------- |
-| [MAV_STANDARD_MODE_SAFE_RECOVERY][MAV_STANDARD_MODE_SAFE_RECOVERY] | [Return mode](../flight_modes/return.md)      | AUTO_RTL      |
-| [MAV_STANDARD_MODE_MISSION][MAV_STANDARD_MODE_MISSION]             | [Mission mode](../flight_modes_mc/mission.md) | AUTO_MISSION  |
-| [MAV_STANDARD_MODE_LAND][MAV_STANDARD_MODE_LAND]                   | [Land mode](../flight_modes_mc/land.md)       | AUTO_LAND     |
-| [MAV_STANDARD_MODE_TAKEOFF][MAV_STANDARD_MODE_TAKEOFF]             | [Takeoff mode](../flight_modes_mc/takeoff.md) | AUTO_TAKEOFF  |
-
-[MAV_STANDARD_MODE_SAFE_RECOVERY]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_SAFE_RECOVERY
-[MAV_STANDARD_MODE_MISSION]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_MISSION
-[MAV_STANDARD_MODE_LAND]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_LAND
-[MAV_STANDARD_MODE_TAKEOFF]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_TAKEOFF
-
-MC vehicles support the following standard modes (in addition to the ones that are supported by all vehicles):
-
-| Standard Mode                                                      | PX4 Mode                                           | Internal Mode |
-| ------------------------------------------------------------------ | -------------------------------------------------- | ------------- |
-| [MAV_STANDARD_MODE_POSITION_HOLD][MAV_STANDARD_MODE_POSITION_HOLD] | [MC Position mode](../flight_modes_mc/position.md) | POSCTL        |
-| [MAV_STANDARD_MODE_ALTITUDE_HOLD][MAV_STANDARD_MODE_ALTITUDE_HOLD] | [MC Altitude mode](../flight_modes_mc/altitude.md) | ALTCTL        |
-| [MAV_STANDARD_MODE_ORBIT][MAV_STANDARD_MODE_ORBIT]                 | [FW Orbit mode](../flight_modes_mc/orbit.md)       | POSCTL        |
-
-[MAV_STANDARD_MODE_POSITION_HOLD]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_POSITION_HOLD
-[MAV_STANDARD_MODE_ORBIT]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_ORBIT
-[MAV_STANDARD_MODE_ALTITUDE_HOLD]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_ALTITUDE_HOLD
-
-FW vehicles support the following standard modes (in addition to the ones that are supported by all vehicles):
-
-| Standard Mode                                                      | PX4 Mode                                           | Internal Mode |
-| ------------------------------------------------------------------ | -------------------------------------------------- | ------------- |
-| [MAV_STANDARD_MODE_CRUISE][MAV_STANDARD_MODE_CRUISE]               | [FW Position mode](../flight_modes_fw/position.md) | POSCTL        |
-| [MAV_STANDARD_MODE_ALTITUDE_HOLD][MAV_STANDARD_MODE_ALTITUDE_HOLD] | [FW Altitude mode](../flight_modes_fw/altitude.md) | ALTCTL        |
-| [MAV_STANDARD_MODE_ORBIT][MAV_STANDARD_MODE_ORBIT]                 | [FW Hold mode](../flight_modes_fw/hold.md)         | AUTO_LOITER   |
-
-[MAV_STANDARD_MODE_CRUISE]: https://mavlink.io/en/messages/common.html#MAV_STANDARD_MODE_CRUISE
-
-VTOL vehicles also support the following standard modes (in addition to the ones that are supported by all vehicles):
-
-| Standard Mode                                                      | PX4 Mode                                           | Internal Mode |
-| ------------------------------------------------------------------ | -------------------------------------------------- | ------------- |
-| [MAV_STANDARD_MODE_ALTITUDE_HOLD][MAV_STANDARD_MODE_ALTITUDE_HOLD] | [FW Altitude mode](../flight_modes_fw/altitude.md) | ALTCTL        |
-
-::: info
-Note that VTOL vehicles could also support `MAV_STANDARD_MODE_CRUISE` (FW) or `MAV_STANDARD_MODE_POSITION_HOLD` (MC) and `MAV_STANDARD_MODE_ORBIT` in respective modes, but this has not been implemented.
-:::
-
-When implementing a mapping to a standard mode, see [src/lib/modes/standard_modes.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/modes/standard_modes.hpp), and in particular the implementation of `getNavStateFromStandardMode()`.
-
-<!--
-- How are modes added to available modes - does a developer need to do anything particular when defining a new mode?
-- How are their characteristics set?
-- How do I notify when the set of modes changes? Do I need to do anything when I create a new mode?
-
-- [PX4-Autopilot#24011: standard_modes: add vehicle-type specific standard modes](https://github.com/PX4/PX4-Autopilot/pull/24011)
-
--->
-
-### Other MAVLink Mode-changing Commands
-
-Some modes, both standard and custom, can also be set using specific commands and messages.
-This can be more convenient that just starting the mode, in particular when the message allows additional settings to be configured.
-
-PX4 supports these commands for changing modes on some vehicle types:
-
-- [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) — Takeoff mode
-- [MAV_CMD_NAV_RETURN_TO_LAUNCH](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH) — Return mode
-- [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) — Land mode
-- [MAV_CMD_DO_FOLLOW](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_FOLLOW) — MC Follow mode
-- [MAV_CMD_DO_FOLLOW_REPOSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_FOLLOW_REPOSITION) — Follow mode (from new position)
-- [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_ORBIT) — MC Orbit mode
-- [MAV_CMD_NAV_VTOL_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_TAKEOFF) — VTOL specific takeoff mode
-- [MAV_CMD_DO_REPOSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_REPOSITION)
-- [MAV_CMD_DO_PAUSE_CONTINUE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_PAUSE_CONTINUE) — Pauses a mission by putting the vehicle into Hold/Loiter
-- [MAV_CMD_MISSION_START](https://mavlink.io/en/messages/common.html#MAV_CMD_MISSION_START) — Starts a mission.
-
-Note that these commands predate "standard modes" and are mapped to vehicle-specific custom modes.
-What that means is that even though the standard mode may be applicable to multiple vehicle types, the mode may only work for particular vehicles.
-For example, the Orbit standard mode maps to Orbit mode on MC and Hold/Loiter on FW: but at time of writing the `MAV_CMD_DO_ORBIT` would start orbit mode in MC and be ignored on FW.
+PX4 implements the MAVLink [Standard Modes Protocol](../mavlink/standard_modes.md) from PX4 v1.15.
+This can be used to discover all modes and the current mode, and to set the current mode.
