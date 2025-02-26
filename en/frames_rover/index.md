@@ -33,7 +33,7 @@ Rovers use a custom build that must be flashed onto your flight controller inste
    ```
 
    ::: info
-   You can also enable the modules in default builds by adding the respective line to your [board configuration](../hardware/porting_guide_config.md) (e.g. for fmu-v6x you might add one of these lines to [`main/boards/px4/fmu-v6x/default.px4board`](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v6x/default.px4board)):
+   You can also enable the modules in default builds by adding these lines to your [board configuration](../hardware/porting_guide_config.md) (e.g. for fmu-v6x you might add them to [`main/boards/px4/fmu-v6x/default.px4board`](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v6x/default.px4board)):
 
    ```sh
    CONFIG_MODULES_ROVER_ACKERMANN=y
@@ -41,14 +41,15 @@ Rovers use a custom build that must be flashed onto your flight controller inste
    CONFIG_MODULES_ROVER_MECANUM=y
    ```
 
-   Note that adding the rover module may lead to flash overflow, in which case you will need to disable modules that you do not plan to use (such as those related to multicopter or fixed wing).
+   Note that adding the rover modules may lead to flash overflow, in which case you will need to disable modules that you do not plan to use (such as those related to multicopter or fixed wing).
    :::
 
 2. Load the **custom firmware** that you just built onto your flight controller (see [Loading Firmware > Installing PX4 Main, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)).
 
 ## Simulation
 
-[Gazebo](../sim_gazebo_gz/index.md) provides simulations for both types of steering:
+[Gazebo](../sim_gazebo_gz/index.md) provides simulations for ackermann and differential rovers:
+
 - [Ackermann rover](../sim_gazebo_gz/vehicles.md#ackermann-rover)
 - [Differential rover](../sim_gazebo_gz/vehicles.md#differential-rover)
 
