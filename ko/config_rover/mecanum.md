@@ -30,88 +30,126 @@ To start using the mecanum rover:
 
 ## 수동 모드
 
-The basic setup (above) is all that is required to use the rover in [Manual mode](../flight_modes_rover/mecanum.md#manual-mode).
-
-:::info
-In manual mode the stick inputs are directly mapped to motor commands.
-Especially moving the stick that controls the yaw rate all the way to one side will cause the wheels on the left and right to spin at full speed in opposite directions.
-Depending on the rover this can lead to a very aggressive rotation.
-The parameters [RM_MAX_YAW_RATE](#RM_MAX_YAW_RATE) and [RM_MAX_THR_YAW_R](#RM_MAX_THR_YAW_R) can be used to scale the manual input for the yaw rate.
+:::warning
+For this mode to work properly the [Basic Setup](#basic-setup) must've already been completed!
 :::
 
-## Acro Mode
+The basic setup already covers the minimum setup required to use the rover in [Manual mode](../flight_modes_rover/mecanum.md#manual-mode).
 
-To set up [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
+This mode is also affected by (optional) acceleration/deceleration limits.
+As configuration of these limits becomes mandatory for subsequent modes, we do this setup here.
+
+Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
 
 1. [RM_WHEEL_TRACK](#RM_WHEEL_TRACK) [m]: Measure the distance from the centre of the right wheel to the centre of the left wheel.
 
    ![Wheel track](../../assets/airframes/rover/rover_differential/wheel_track.png)
 
-2. [RM_MAX_YAW_RATE](#RM_MAX_YAW_RATE) [deg/s]: This is the maximum yaw rate you want to allow for your rover.
-   This will define the stick-to-yaw-rate mapping for all manual modes using closed loop yaw control and set an upper limit for the yaw rate setpoint for all [auto modes](#auto-modes).
+2. [RO_MAX_THR_SPEED](#RO_MAX_THR_SPEED) [m/s]: Drive the rover at full throttle and set this parameter to the observed value of the ground speed.
 
-   This value is set to your preference, there is no general rule of thumb since it depends entirely on your rover and use case.
+   :::info
+   This parameter is also used for the feed-forward term of the speed control.
+   It will be further tuned in the configuration of [Position mode](#position-mode).
+
+:::
+
+3. (Optional) [RO_ACCEL_LIM](#RO_ACCEL_LIM) [m/s^2]: Maximum acceleration you want to allow for your rover.
+
+   <a id="RO_ACCEL_LIM_CONSIDERATIONS"></a>
 
    :::tip
-   A rover has a maximum possible yaw rate which is determined by the rover geometry and the maximum torque the motors can supply.
-   If you have no reason to limit the yaw rate of your rover, you can set this parameter equal to the highest yaw rate observed in testing:
+   Your rover has a maximum possible acceleration which is determined by the maximum torque the motor can supply.
+   This may or may not be appropriate for your vehicle and use case.
 
-   2. In [Manual Mode](../flight_modes_rover/mecanum.md#manual-mode) move the right-stick of your controller all the way to the left or right.
-      Disarm the rover and from the flight log plot the `actual_yaw_rate` from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumStatus.md).
-   3. Set `RM_MAX_YAW_RATE` to the highest observed yaw rate.
-      Note that in the log the yaw rate is given in rad/s but the parameter is in deg/s, so you need to transform the value first.
+   One approach to determine an appropriate value is:
 
-   If the rover turns are too aggressive for your use case:
+   1. From a standstill, give the rover full throttle until it reaches the maximum speed.
+   2. Disarm the rover and plot the `measured_speed_body_x` from [RoverVelocityStatus](../msg_docs/RoverVelocityStatus.md).
+   3. Divide the maximum speed by the time it took to reach it and set this as the value for [RO_ACCEL_LIM](#RO_ACCEL_LIM).
 
-   4. Switch to [Acro Mode](../flight_modes_rover/mecanum.md#acro-mode).
-   5. Move the right-stick of your controller all the way to the left or right and observe the behaviour of the rover.
-      Keep reducing the value of [RM_MAX_YAW_RATE](#RM_MAX_YAW_RATE) until you are satisfied with the maximum turn rate.
+   Some RC rovers have enough torque to lift up if the maximum acceleration is not limited.
+   If that is the case:
+
+   4. Set [RO_ACCEL_LIM](#RO_ACCEL_LIM) to a low value, give the rover full throttle from a standstill and observe its behaviour.
+   5. Increase [RO_ACCEL_LIM](#RO_ACCEL_LIM) until the rover starts to lift up during the acceleration.
+   6. Set [RO_ACCEL_LIM](#RO_ACCEL_LIM) to the highest value that does not cause the rover to lift up.
 
 
 :::
 
-3. [RM_MAX_THR_YAW_R](#RM_MAX_THR_YAW_R) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop yaw rate control.
+4. (Optional) [RO_DECEL_LIM](#RO_DECEL_LIM) [m/s^2]: Maximum deceleration you want to allow for your rover.
+
+   :::tip
+   The same [considerations](#RO_ACCEL_LIM_CONSIDERATIONS) as in the configuration of [RO_ACCEL_LIM](#RO_ACCEL_LIM) apply.
+
+:::
+
+   :::info
+   This parameter is also used for the calculation of the speed setpoint during [Auto modes](#auto-modes).
+
+:::
+
+## Acro Mode
+
+:::warning
+For this mode to work properly [Manual mode](#manual-mode) must've already been configured!
+:::
+
+To set up [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
+
+1. [RO_YAW_RATE_LIM](#RO_YAW_RATE_LIM) [deg/s]: This is the maximum yaw rate you want to allow for your rover.
+   This will define the stick-to-yaw-rate mapping for all manual modes using closed loop yaw control and set an upper limit for the yaw rate setpoint for all [auto modes](#auto-modes).
+
+2. [RM_MAX_THR_YAW_R](#RM_MAX_THR_YAW_R) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop yaw rate control.
    The controller calculates the required speed difference between the left and right motor to achieve the desired yaw rate.
    This desired speed difference is then linearly mapped to normalized motor commands.
-
    To get a good starting value for this parameter drive the rover in manual mode forwards at full throttle and note the ground speed of the vehicle.
-   Then enter _twice_ this value for the parameter.
+   Then enter _half_ this value for the parameter. <a id="RM_YAW_RATE_P_TUNING"></a>
 
    ::: tip
-   To further tune this parameter, first make sure you set [RM_YAW_RATE_P](#RM_YAW_RATE_P) and [RM_YAW_RATE_I](#RM_YAW_RATE_I) to zero.
+   To further tune this parameter, first make sure you set [RO_YAW_RATE_P](#RO_YAW_RATE_P) and [RO_YAW_RATE_I](#RO_YAW_RATE_I) to zero.
    This way the yaw rate is only controlled by the feed-forward term, which makes it easier to tune.
    Now put the rover in [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) and then move the right-stick of your controller to the right and/or left and hold it at a few different levels for a couple of seconds each.
-   Disarm the rover and from the flight log plot the _yaw_rate_setpoint_ and _actual_yaw_rate_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumStatus.md) over each other.
-   If the actual yaw rate of the rover is higher than the yaw rate setpoint, increase [RM_MAX_THR_YAW_R](#RM_MAX_YAW_RATE).
+   Disarm the rover and from the flight log plot the `adjusted_yaw_rate_setpoint` from [RoverRateStatus](../msg_docs/RoverRateStatus.md) and the `measured_yaw_rate` from [RoverRateStatus](../msg_docs/RoverRateStatus.md) over each other.
+   If the actual yaw rate of the rover is higher than the yaw rate setpoint, increase [RM_MAX_THR_YAW_R](#RM_MAX_THR_YAW_R).
    If it is the other way around decrease the parameter and repeat until you are satisfied with the setpoint tracking.
 
 :::
 
-4. [RM_YAW_RATE_P](#RM_YAW_RATE_P) [-]: Proportional gain of the closed loop yaw rate controller.
+3. [RO_YAW_RATE_P](#RO_YAW_RATE_P) [-]: Proportional gain of the closed loop yaw rate controller.
    Unlike the feed-forward part of the controller, the closed loop yaw rate control will compare the yaw rate setpoint with the measured yaw rate and adapt to motor commands based on the error between them.
    The proportional gain is multiplied with this error and that value is added to the motor command.
    This compensates for disturbances such as uneven ground and external forces.
 
    ::: tip
-   When tuning this parameter consider that increasing the value improves the disturbance rejection but can lead to an overshoot or oscillations around the setpoint.
-
-   To tune the value:
-
-   1. Set [RM_YAW_RATE_P](#RM_YAW_RATE_P) to `0.1`.
-   2. Put the rover in [Acro mode](../flight_modes_rover/mecanum.md#acro-mode) and then move the right-stick of your controller to the right and/or left and hold it at a few different levels for a couple of seconds each.
-   3. Disarm the rover and from the flight log plot the `yaw_rate_setpoint` and `actual_yaw_rate` from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumStatus.md) over each other.
-   4. If the `actual_yaw_rate` overshoots the `yaw_rate_setpoint` or oscillates around it, reduce the value of [RM_YAW_RATE_P](#RM_YAW_RATE_P). Otherwise you _can_ increase this value.
-
-   Note that if you drive on flat ground you might not observe an improvement in setpoint tracking by increasing this value, since its main purpose is disturbance rejection (which is generally more effective with a higher value for [RM_YAW_RATE_P](#RM_YAW_RATE_P)).
+   This parameter can be tuned the same way as [RM_MAX_THR_YAW_R](#RM_YAW_RATE_P_TUNING).
+   If you tuned [RM_MAX_THR_YAW_R](#RM_MAX_THR_YAW_R) well, you might only need a very small value.
 
 :::
 
-5. (Optional) [RM_YAW_RATE_I](#RM_YAW_RATE_I) [-]: Integral gain of the closed loop yaw controller.
-   The integral gain accumulates the error between the desired and actual yaw rate over time and that value is added to the motor command.
+4. [RO_YAW_RATE_I](#RO_YAW_RATE_I) [-]: Integral gain of the closed loop yaw controller.
+   The integral gain accumulates the error between the desired and actual yaw rate scaled by the integral gain over time and that value is added to the motor command.
 
    ::: tip
-   The integrator gain is usually not necessary for the yaw rate setpoint as this is usually a fast changing value.
-   Leave this parameter at zero unless necessary, as it can have negative side effects such as overshooting or oscillating around the setpoint.
+   An integrator might not be neccessary at this stage, but it will become important for subsequent modes.
+
+:::
+
+5. (Optional) [RO_YAW_ACCEL_LIM](#RO_YAW_ACCEL_LIM) and [RO_YAW_DECEL_LIM](#RO_YAW_DECEL_LIM) [deg/s^2]: This is the maximum yaw acceleration and deceleration you want to allow for your rover.
+   This can be used to smooth the `yaw_rate` setpoints and make their trajectory feasible based on the physical limitation on the rover to improve tracking and avoid integrator build up.
+
+   ::: tip
+   Your rover has a maximum possible yaw acceleration/deceleration which is determined by the maximum torque the motor can supply.
+   This may or may not be appropriate for your vehicle and use case.
+
+   One approach to determine an appropriate value is:
+
+   1. Put the rover into [Manual mode](../flight_modes_rover/mecanum.md#manual-mode).
+   2. From a standstill, move the right stick all the way to the right or left until the rover reaches the maximum yaw rate then return the right stick to the middle.
+   3. Disarm the rover and plot the `measured_yaw_rate` from [RoverRateStatus](../msg_docs/RoverRateStatus.md).
+   4. Divide the maximum yaw rate by the time it took to reach it and set this as the value for [RO_YAW_ACCEL_LIM](#RO_YAW_ACCEL_LIM).
+   5. Divide the maximum yaw rate by the time it took to return to a standstill and set this as the value for [RO_YAW_ACCEL_LIM](#RO_YAW_ACCEL_LIM).
+
 
 :::
 
@@ -123,36 +161,28 @@ The rover is now ready to drive in [Acro mode](../flight_modes_rover/mecanum.md#
 For this mode to work properly [Acro mode](#acro-mode) must've already been configured!
 :::
 
-For [Stabilized mode](../flight_modes_rover/mecanum.md#stabilized-mode) the controller utilizes a closed loop yaw controller, which creates a yaw rate setpoint to control the yaw when driving in a straight line (no yaw rate input).
+For [Stabilized mode](../flight_modes_rover/mecanum.md#stabilized-mode) the controller utilizes a closed loop yaw controller, which creates a yaw rate setpoint to control the yaw when it is active:
 
 ![Cascaded PID for yaw control](../../assets/airframes/rover/rover_differential/cascaded_pid_for_yaw.png)
 
 Unlike the closed loop yaw rate, this controller has no feed-forward term.
 Therefore you only need to tune the closed loop gains:
 
-<a id="RM_YAW_TUNING"></a>
-
-1. [RM_YAW_P](#RM_YAW_P) and [RM_YAW_I](#RM_YAW_I) [-]: Proportional and integral gain for the closed loop yaw controller.
+1. [RO_YAW_P](#RO_YAW_P) [-]: Proportional gain for the closed loop yaw controller.
 
    ::: tip
    In stabilized mode the closed loop yaw control is only active when driving a straight line (no yaw rate input).
+   Start with a value of 1 for [RO_YAW_P](#RO_YAW_P).
+   Put the rover into stabilized mode and move the left stick of your controller up and/or down to drive forwards/backwards.
+   Disarm the rover and from the flight log plot the `measured_yaw` and the `adjusted_yaw_setpoint` from the [RoverAttitudeStatus](../msg_docs/RoverAttitudeStatus.md) message over each other.
+   Increase/Decrease the parameter until you are satisfied with the setpoint tracking.
 
-   To tune it:
+:::
 
-   1. Set [RM_YAW_I](#RM_YAW_I) to zero and start with a value of 1 for [RM_YAW_P](#RM_YAW_P).
-   2. Put the rover into stabilized mode and move the left stick of your controller up and/or down to drive forwards/backwards.
-   3. Disarm the rover and from the flight log plot the _yaw_setpoint_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumSetpoint.md) message and the _actual_yaw_ from the [RoverMecanumStatus](../msg_docs/RoverMecanumStatus.md) message over each other.
-   4. Increase/Decrease [RM_YAW_P](#RM_YAW_P) until you are satisfied with the setpoint tracking.
-
-      If you observe a constant offset between the _yaw_setpoint_ and _actual_yaw_ you might need the integrator term [RM_YAW_I](#RM_YAW_I).
-
-   For the closed loop yaw control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint:
-
-   1. First set [RM_YAW_I](#RM_YAW_I) to 0.01 and observe the setpoint tracking again.
-   2. If the _actual_yaw_ starts to overshoot the setpoint, reduce the value of [RM_YAW_I](#RM_YAW_I).
-      Otherwise you _can_ increase the value until you are satisfied with the setpoint tracking.
-
-
+:::info
+For the closed loop yaw control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint.
+Since the yaw and yaw rate controllers are cascaded, there only needs to be one integrator which is in the yaw rate controller.
+If you observe a steady state error in the yaw setpoint increase the [RO_YAW_RATE_I](#RO_YAW_RATE_I) parameter.
 :::
 
 The rover is now ready to drive in [Stabilized mode](../flight_modes_rover/mecanum.md#stabilized-mode).
@@ -160,44 +190,34 @@ The rover is now ready to drive in [Stabilized mode](../flight_modes_rover/mecan
 ## Position Mode
 
 :::warning
-For this mode to work properly [Acro mode](#acro-mode) and [Stabilized mode](#stabilized-mode) must already be configured!
+For this mode to work properly [Stabilized mode](#stabilized-mode) must already be configured!
 :::
 
 [Position mode](../flight_modes_rover/mecanum.md#position-mode) is the most advanced manual mode, utilizing closed loop yaw rate, yaw and speed control and leveraging position estimates.
 
 To configure set the following parameters:
 
-1. [RM_MAX_SPEED](#RM_MAX_SPEED) [m/s]: This is the maximum speed you want to allow for your rover.
-   This will define the stick-to-speed mapping for position mode and set an upper limit for the speed setpoint for all [auto modes](#auto-modes).
-
-   :::tip
-   This value is set to your preference, there is no general rule of thumb since it depends entirely on your rover and use case.
-
-   The most straightforward approach is the following: Your rover has a maximum possible speed which is determined by the maximum torque the motors can supply.
-   In [Manual Mode](../flight_modes_rover/mecanum.md#manual-mode) move the left-stick of your controller all the way up or down.
-   Disarm the rover and from the flight log plot the _forward_speed_setpoint_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumSetpoint.md) message and the _measured_forward_speed_ from the [RoverMecanumStatus](../msg_docs/RoverMecanumStatus.md) message over each other.
-   If you have no reason to limit the speed of your rover, simply set this parameter equal to the highest observed speed.
-
-   If you want to limit the maximum speed, you need to first complete Step 2.
-   After that in [Position Mode](../flight_modes_rover/mecanum.md#position-mode) move the left-stick of your controller all the way up or down and observe the behaviour of the rover.
-   Keep reducing the value of [RM_MAX_SPEED](#RM_MAX_SPEED) until you are satisfied with the maximum speed.
-
+:::info
+The speed control in longitudinal and lateral direction use the same tuning parameters.
 :::
 
-2. [RM_MAX_THR_SPD](#RM_MAX_THR_SPD) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
+1. [RO_SPEED_LIM](#RO_SPEED_LIM) [m/s]: This is the maximum speed you want to allow for your rover.
+   This will define the stick-to-speed mapping for position mode and set an upper limit for the speed setpoint for all [auto modes](#auto-modes).
+   For mecanum rovers the speed is defined in the direction of travel (magnitude of the velocity vector consisting of the longitudinal and lateral speed).
+
+2. [RO_MAX_THR_SPEED](#RO_MAX_THR_SPEED) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
    A good starting point is the observed ground speed when the rover drives at maximum throttle in [Manual mode](../flight_modes_rover/mecanum.md#manual-mode).
 
-   <a id="RM_SPEED_P_TUNING"></a>
+   <a id="RD_SPEED_P_TUNING"></a>
 
    ::: tip
    To further tune this parameter:
 
-   1. First make sure you set [RM_SPEED_P](#RM_YAW_RATE_P) and [RM_SPEED_I](#RM_SPEED_I) to zero.
-      This ensures the speed is only controlled by the feed-forward term, which makes it easier to tune.
-   2. Now put the rover in [Position mode](../flight_modes_rover/mecanum.md#position-mode) and then move the left stick of your controller up and/or down and hold it at a few different levels for a couple of seconds each.
-   3. Disarm the rover and from the flight log plot the _forward_speed_setpoint_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumSetpoint.md) message and the _measured_forward_speed_ from the [RoverMecanumStatus](../msg_docs/RoverMecanumStatus.md) message over each other.
-
-      If the actual speed of the rover is higher than the speed setpoint, increase [RM_MAX_THR_SPD](#RM_MAX_THR_SPD).
+   1. Set [RO_SPEED_P](#RO_SPEED_P) and [RO_SPEED_I](#RO_SPEED_I) to zero.
+      This way the speed is only controlled by the feed-forward term, which makes it easier to tune.
+   2. Put the rover in [Position mode](../flight_modes_rover/mecanum.md#position-mode) and then move the left stick of your controller up and/or down and hold it at a few different levels for a couple of seconds each.
+   3. Disarm the rover and from the flight log plot the `adjusted_speed_body_x_setpoint` and the `measured_speed_body_x` from the [RoverVelocityStatus](../msg_docs/RoverVelocityStatus.md) message over each other.
+   4. If the actual speed of the rover is higher than the speed setpoint, increase [RO_MAX_THR_SPEED](#RO_MAX_THR_SPEED).
       If it is the other way around decrease the parameter and repeat until you are satisfied with the setpoint tracking.
 
 
@@ -208,59 +228,45 @@ To configure set the following parameters:
 
 :::
 
-3. [RM_SPEED_P](#RM_SPEED_P) and [RM_SPEED_I](#RM_SPEED_I) [-]: Proportional and integral gain of the closed loop speed controller.
+3. [RO_SPEED_P](#RO_SPEED_P) [-]: Proportional gain of the closed loop speed controller.
 
    ::: tip
-   When tuning this parameter we need to consider the following trade-off: Increasing the value of this parameter improves the disturbance rejection but can lead to an overshoot or oscillations around the setpoint.
-   To tune:
-
-   1. Start with a value of 0.1 for [RM_SPEED_P](#RM_SPEED_P).
-   2. Put the rover in [Position mode](../flight_modes_rover/mecanum.md#position-mode) and then move the left-stick of your controller up/down and hold it at a few different levels for a couple of seconds each.
-   3. Disarm the rover and from the flight log plot the _forward_speed_setpoint_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumSetpoint.md) message and the _measured_forward_speed_ from the [RoverMecanumStatus](../msg_docs/RoverMecanumStatus.md) message over each other.
-
-      If the _measured_forward_speed_ overshoots the _forward_speed_setpoint_ or oscillates around it, reduce the value of [RM_SPEED_P](#RM_SPEED_P).
-      Otherwise you _can_ increase this value.
-
-      Note that if you drive on flat ground you might not observe an improvement in setpoint tracking by increasing this value, since its main purpose is disturbance rejection (which is generally more effective with a higher value for [RM_SPEED_P](#RM_SPEED_P)).
-
-      If you observe a constant offset between the _measured_forward_speed_ and _forward_speed_setpoint_ you might need the integrator term [RM_SPEED_I](#RM_SPEED_I).
-
-   For the closed loop speed control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint:
-
-   1. First set [RM_SPEED_I](#RM_SPEED_I) to 0.01 and observe the setpoint tracking again.
-   2. If the _measured_forward_speed_ starts to overshoot the setpoint, reduce the value of [RM_SPEED_I](#RM_SPEED_I).
-      Otherwise you _can_ increase the value until you are satisfied with the setpoint tracking.
-
+   This parameter can be tuned the same way as [RO_MAX_THR_SPEED](#RD_SPEED_P_TUNING).
+   If you tuned [RO_MAX_THR_SPEED](#RO_MAX_THR_SPEED) well, you might only need a very small value.
 
 :::
 
-4. [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN): When driving in a straight line (no yaw rate input) position mode leverages the same path following algorithm used in [auto modes](#auto-modes) called [pure pursuit](#pure-pursuit-guidance-logic) to achieve the best possible straight line driving behaviour ([Illustration of control architecture](#pure_pursuit_controller)).
+4. [RO_SPEED_I](#RO_SPEED_I) [-]: Integral gain for the closed loop speed controller.
+
+   ::: tip
+   For the closed loop speed control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint.
+
+:::
+
+5. [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN): When driving in a straight line (no yaw rate input) position mode leverages the same path following algorithm used in [auto modes](#auto-modes) called [pure pursuit](#pure-pursuit-guidance-logic) to achieve the best possible straight line driving behaviour ([Illustration of control architecture](#pure_pursuit_controller)).
    This parameter determines how aggressive the controller will steer towards the path.
 
    ::: tip
-   Decreasing the parameter makes it more aggressive but can lead to oscillations:
+   Decreasing the parameter makes it more aggressive but can lead to oscillations.
+
+   To tune this:
 
    1. Start with a value of 1 for [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN)
-
    2. Put the rover in [Position mode](../flight_modes_rover/mecanum.md#position-mode) and while driving a straight line at approximately half the maximum speed observe its behaviour.
+   3. If the rover does not drive in a straight line, reduce the value of the parameter, if it oscillates around the path increase the value.
+   4. Repeat until you are satisfied with the behaviour.
 
-      If the rover does not drive in a straight line, reduce the value of the parameter, if it oscillates around the path increase the value.
-
-   3. Repeat until you are satisfied with the behaviour.
-
-   Note that by increasing/decreasing the value of this parameter you change the _yaw_setpoint_ the control system attempts to track.
-   Make sure you check whether the system is actually able to track that setpoint, otherwise you need to further tune the closed loop yaw controller (this was initially done in the setup of [Stabilized Mode](#RM_YAW_TUNING)).
 
 :::
 
-5. [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN): Minimum threshold for the lookahead distance used by the [pure pursuit algorithm](#pure-pursuit-guidance-logic).
+6. [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN): Minimum threshold for the lookahead distance used by the [pure pursuit algorithm](#pure-pursuit-guidance-logic).
 
    ::: tip
    Put the rover in [Position mode](../flight_modes_rover/mecanum.md#position-mode) and drive at very low speeds, if the rover starts to oscillate even though the tuning of [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN) was good for medium speeds, then increase the value of [PP_LOOKAHD_MIN](#PP_LOOKAHD_MIN).
 
 :::
 
-6. [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX): Maximum threshold for the lookahead distance used by [pure pursuit](#pure-pursuit-guidance-logic).
+7. [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX): Maximum threshold for the lookahead distance used by [pure pursuit](#pure-pursuit-guidance-logic).
 
    ::: tip
    Put the rover in [Position mode](../flight_modes_rover/mecanum.md#position-mode) and drive at very high speeds, if the rover does not drive in a straight line even though the tuning of [PP_LOOKAHD_GAIN](#PP_LOOKAHD_GAIN) was good for medium speeds, then decrease the value of [PP_LOOKAHD_MAX](#PP_LOOKAHD_MAX).
@@ -272,7 +278,7 @@ The rover is now ready to drive in [Position mode](../flight_modes_rover/mecanum
 ## Auto Modes
 
 :::warning
-For this mode to work properly [Acro mode](#acro-mode), [Stabilized mode](#stabilized-mode) and [Position mode](#position-mode) must already be configured!
+For this mode to work properly [Position mode](#position-mode) must already be configured!
 :::
 
 <a id="pure_pursuit_controller"></a>
@@ -284,58 +290,54 @@ The mecanum module fully leverages the omnidirectionality of this type of rover 
 
 The required parameters are separated into the following sections:
 
-### Velocity
+### Speed
 
 These parameters are used to calculate the velocity setpoint in auto modes:
 
-1. [RM_MAX_SPEED](#RM_MAX_SPEED): Sets the default speed ($m/s$) for the rover during the mission (as well as the maximum speed).
-   For mecanum rovers the speed is defined in the direction of travel (magnitude of the velocity vector consisting of the forward and lateral speed).
+1. [RO_SPEED_LIM](#RO_SPEED_LIM): Sets the default speed ($m/s$) for the rover during the mission (as well as the maximum speed).
+   For mecanum rovers the speed is defined in the direction of travel (magnitude of the velocity vector consisting of the longitudinal and lateral speed).
 
-2. [RM_MAX_DECEL](#RM_MAX_DECEL) ($m/s^2$) and [RM_MAX_JERK](#RM_MAX_JERK) ($m/s^3$) are used to calculate a velocity trajectory such that the rover comes to a smooth stop as it reaches a waypoint.
+2. [RO_DECEL_LIM](#RO_DECEL_LIM) ($m/s^2$) and [RO_JERK_LIM](#RO_JERK_LIM) ($m/s^3$) are used to calculate a velocity trajectory such that the rover comes to a smooth stop as it reaches a waypoint.
 
    ::: tip
    Plan a mission for the rover to drive a square and observe how it slows down when approaching a waypoint:
 
-   - If the rover decelerates too quickly decrease the [RM_MAX_DECEL](#RM_MAX_DECEL) parameter, if it starts slowing down too early increase the parameter.
-   - If you observe a jerking motion as the rover slows down, decrease the [RM_MAX_JERK](#RM_MAX_JERK) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RM_MAX_DECEL](#RM_MAX_DECEL).
+   - If the rover decelerates too quickly decrease the [RO_DECEL_LIM](#RO_DECEL_LIM) parameter, if it starts slowing down too early increase the parameter.
+   - If you observe a jerking motion as the rover slows down, decrease the [RO_JERK_LIM](#RO_JERK_LIM) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RO_DECEL_LIM](#RO_DECEL_LIM).
 
    These two parameters have to be tuned as a pair, repeat until you are satisfied with the behaviour.
 
 :::
 
-3. [RM_MISS_VEL_GAIN](#RM_MISS_VEL_GAIN): The rover slows down when approaching a waypoint based on the angle between the line segment from the previous to current waypoint and current to next waypoint.
+3. [RM_MISS_SPD_GAIN](#RM_MISS_SPD_GAIN): The rover slows down when approaching a waypoint based on the angle between the line segment from the previous to current waypoint and current to next waypoint.
    How much the rover slows down can be tuned with this parameter:
 
    $$
     v_{transition} = v_{max} \cdot (1 - \theta_{normalized} * k)
    $$
 
-   with
+   with:
 
    - $v_{transition}:$ Transition speed
-   - $v_{max}:$ Maximum speed ([RM_MAX_SPEED](#RM_MAX_SPEED))
+   - $v_{max}:$ Maximum speed ([RO_SPEED_LIM](#RO_SPEED_LIM))
    - $\theta_{normalized}:$ Angle between the line segment of the prev-current and current-next waypoints, normalized from $[0\degree, 180\degree]$ to $[0, 1]$
-   - $k:$ Tuning parameter ([RM_MISS_VEL_GAIN](#RM_MISS_VEL_GAIN)).
+   - $k:$ Tuning parameter ([RM_MISS_SPD_GAIN](#RM_MISS_SPD_GAIN)).
 
-4. Plot the _forward_speed_setpoint_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumSetpoint.md) message and the _measured_forward_speed_ from the [RoverMecanumStatus](../msg_docs/RoverMecanumStatus.md) message over each other.
-   If the tracking of these setpoints is not satisfactory adjust the values for [RM_SPEED_P](#RM_SPEED_P) and [RM_SPEED_I](#RM_SPEED_I).
+4. Plot the `adjusted_speed_body_x_setpoint` and `measured_speed_body_x` from the [RoverVelocityStatus](../msg_docs/RoverVelocityStatus.md) message over each other.
+   If the tracking of these setpoints is not satisfactory adjust the values for [RO_SPEED_P](#RO_SPEED_P) and [RO_SPEED_I](#RO_SPEED_I).
 
 ### Path Following
 
-The [pure pursuit](#pure-pursuit-guidance-logic) algorithm is used to calculate a desired yaw for the vehicle that is then close loop controlled.
-The close loop yaw rate was tuned in the configuration of the [Stabilized mode](#stabilized-mode) and the pure pursuit was tuned when setting up the [Position mode](#position-mode).
-During any auto navigation task observe the behaviour of the rover.
-If you are unsatisfied with the path following, there are 3 steps to take:
+The [pure pursuit](#pure-pursuit-guidance-logic) algorithm is used to calculate a desired bearing for the vehicle that is then close loop controlled.
+For mecanum rovers the path following is achieved by directly controlling the velocity of the rover in direction of the desired bearing.
+During any auto navigation task observe the behaviour of the rover:
 
-1. Plot the _yaw_rate_setpoint_ and _actual_yaw_rate_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumStatus.md) over each other.
-   If the tracking of these setpoints is not satisfactory adjust the values for [RM_YAW_RATE_P](#RM_YAW_RATE_P) and [RM_YAW_RATE_I](#RM_YAW_RATE_I).
-2. Plot the _yaw_setpoint_ from the [RoverMecanumSetpoint](../msg_docs/RoverMecanumSetpoint.md) message and the _actual_yaw_ from the [RoverMecanumStatus](../msg_docs/RoverMecanumStatus.md) message over each other.
-   If the tracking of these setpoints is not satisfactory adjust the values for [RM_YAW_P](#RM_YAW_P) and [RM_YAW_I](#RM_YAW_P).
-3. Steps 1 and 2 ensure accurate setpoint tracking, if the path following is still unsatisfactory you need to further tune the [pure pursuit](#pure-pursuit-guidance-logic) parameters.
+1. If you are unsatisfied with the path following you need to further tune the [pure pursuit](#pure-pursuit-guidance-logic) parameters.
+2. If the rover does not maintain its initial heading well enough, adjust the value for [RO_YAW_P](#RO_YAW_RATE_P) and potentially further tune [RO_YAW_RATE_I](#RO_YAW_RATE_I).
 
 ## Pure Pursuit Guidance Logic
 
-The desired yaw setpoints are generated using a pure pursuit algorithm:
+The desired bearing setpoints are generated using a pure pursuit algorithm:
 The controller takes the intersection point between a circle around the vehicle and a line segment.
 In mission mode this line is usually constructed by connecting the previous and current waypoint:
 
@@ -370,23 +372,25 @@ List of all parameters of the mecanum rover module:
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------- |
 | <a id="RM_WHEEL_TRACK"></a>[RM_WHEEL_TRACK](../advanced_config/parameter_reference.md#RM_WHEEL_TRACK)                                                 | Wheel track                                                                                         | m       |
 | <a id="RM_MAX_THR_YAW_R"></a>[RM_MAX_THR_YAW_R](../advanced_config/parameter_reference.md#RM_MAX_THR_YAW_R) | Yaw rate turning left/right wheels at max speed in opposite directions                              | m/s     |
-| <a id="RM_MAX_YAW_RATE"></a>[RM_MAX_YAW_RATE](../advanced_config/parameter_reference.md#RM_MAX_YAW_RATE)                         | Maximum allowed yaw rate for the rover                                                              | deg/s   |
-| <a id="RM_YAW_RATE_P"></a>[RM_YAW_RATE_P](../advanced_config/parameter_reference.md#RM_YAW_RATE_P)                               | Proportional gain for yaw rate controller                                                           | -       |
-| <a id="RM_YAW_RATE_I"></a>[RM_YAW_RATE_I](../advanced_config/parameter_reference.md#RM_YAW_RATE_I)                               | Integral gain for yaw rate controller                                                               | -       |
-| <a id="RM_YAW_P"></a>[RM_YAW_P](../advanced_config/parameter_reference.md#RM_YAW_P)                                                                   | Proportional gain for yaw controller                                                                | -       |
-| <a id="RM_YAW_I"></a>[RM_YAW_I](../advanced_config/parameter_reference.md#RM_YAW_I)                                                                   | Integral gain for yaw controller                                                                    | -       |
-| <a id="RM_MAX_SPEED"></a>[RM_MAX_SPEED](../advanced_config/parameter_reference.md#RM_MAX_SPEED)                                                       | Maximum allowed speed for the rover (and default mission speed). | m/s     |
-| <a id="RM_MAX_THR_SPD"></a>[RM_MAX_THR_SPD](../advanced_config/parameter_reference.md#RM_MAX_THR_SPD)                            | Speed the rover drives at maximum throttle                                                          | m/s     |
-| <a id="RM_SPEED_P"></a>[RM_SPEED_P](../advanced_config/parameter_reference.md#RM_SPEED_P)                                                             | Proportional gain for speed controller                                                              | -       |
-| <a id="RM_SPEED_I"></a>[RM_SPEED_I](../advanced_config/parameter_reference.md#RM_SPEED_I)                                                             | Integral gain for speed controller                                                                  | -       |
+| <a id="RM_MISS_SPD_GAIN"></a>[RM_MISS_SPD_GAIN](../advanced_config/parameter_reference.md#RM_MISS_SPD_GAIN)                      | Tuning parameter for the velocity reduction during waypoint transition                              | -       |
+| <a id="RM_COURSE_CTL_TH"></a>[RM_COURSE_CTL_TH](../advanced_config/parameter_reference.md#RM_COURSE_CTL_TH)                      | Threshold to update course control in manual position mode                                          | rad     |
+| <a id="RO_YAW_RATE_LIM"></a>[RO_YAW_RATE_LIM](../advanced_config/parameter_reference.md#RO_YAW_RATE_LIM)                         | Maximum allowed yaw rate for the rover                                                              | deg/s   |
+| <a id="RO_YAW_RATE_P"></a>[RO_YAW_RATE_P](../advanced_config/parameter_reference.md#RO_YAW_RATE_P)                               | Proportional gain for yaw rate controller                                                           | -       |
+| <a id="RO_YAW_RATE_I"></a>[RO_YAW_RATE_I](../advanced_config/parameter_reference.md#RO_YAW_RATE_I)                               | Integral gain for yaw rate controller                                                               | -       |
+| <a id="RO_YAW_P"></a>[RO_YAW_P](../advanced_config/parameter_reference.md#RO_YAW_P)                                                                   | Proportional gain for yaw controller                                                                | -       |
+| <a id="RO_SPEED_LIM"></a>[RO_SPEED_LIM](../advanced_config/parameter_reference.md#RO_SPEED_LIM)                                                       | Maximum allowed speed for the rover (and default mission speed). | m/s     |
+| <a id="RO_MAX_THR_SPEED"></a>[RO_MAX_THR_SPEED](../advanced_config/parameter_reference.md#RO_MAX_THR_SPEED)                      | Speed the rover drives at maximum throttle                                                          | m/s     |
+| <a id="RO_SPEED_P"></a>[RO_SPEED_P](../advanced_config/parameter_reference.md#RO_SPEED_P)                                                             | Proportional gain for speed controller                                                              | -       |
+| <a id="RO_SPEED_I"></a>[RO_SPEED_I](../advanced_config/parameter_reference.md#RO_SPEED_I)                                                             | Integral gain for speed controller                                                                  | -       |
 | <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN)                                              | Main tuning parameter for pure pursuit                                                              | -       |
 | <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)                                                 | Maximum value for the look ahead radius of the pure pursuit algorithm                               | m       |
 | <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)                                                 | Minimum value for the look ahead radius of the pure pursuit algorithm                               | m       |
-| <a id="RM_MAX_ACCEL"></a>[RM_MAX_ACCEL](../advanced_config/parameter_reference.md#RM_MAX_ACCEL)                                                       | Maximum acceleration for the rover                                                                  | $m/s^2$ |
-| <a id="RM_MAX_DECEL"></a>[RM_MAX_DECEL](../advanced_config/parameter_reference.md#RM_MAX_DECEL)                                                       | Maximum deceleration for the rover                                                                  | $m/s^2$ |
-| <a id="RM_MAX_JERK"></a>[RM_MAX_JERK](../advanced_config/parameter_reference.md#RM_MAX_JERK)                                                          | Maximum jerk for the rover                                                                          | $m/s^3$ |
-| <a id="RM_MISS_VEL_GAIN"></a>[RM_MISS_VEL_GAIN](../advanced_config/parameter_reference.md#RM_MISS_VEL_GAIN)                      | Tuning parameter for the velocity reduction during waypoint transition                              | -       |
+| <a id="RO_ACCEL_LIM"></a>[RO_ACCEL_LIM](../advanced_config/parameter_reference.md#RO_ACCEL_LIM)                                                       | (Optional) Maximum allowed acceleration                                          | m/s^2   |
+| <a id="RO_DECEL_LIM"></a>[RO_DECEL_LIM](../advanced_config/parameter_reference.md#RO_DECEL_LIM)                                                       | (Optional) Maximum allowed deceleration                                          | m/s^2   |
+| <a id="RO_JERK_LIM"></a>[RO_JERK_LIM](../advanced_config/parameter_reference.md#RO_JERK_LIM)                                                          | (Optional) Maximum allowed jerk                                                  | $m/s^3$ |
+| <a id="RO_YAW_ACCEL_LIM"></a>[RO_YAW_ACCEL_LIM](../advanced_config/parameter_reference.md#RO_YAW_ACCEL_LIM)                      | (Optional) Maximum allowed yaw acceleration                                      | m/s^2   |
+| <a id="RO_YAW_DECEL_LIM"></a>[RO_YAW_DECEL_LIM](../advanced_config/parameter_reference.md#RO_YAW_DECEL_LIM)                      | (Optional) Maximum allowed yaw deceleration                                      | m/s^2   |
 
 ## See Also
 
-- [Drive Modes (Mecanum Rover)](../flight_modes_rover/differential.md).
+- [Drive Modes (Mecanum Rover)](../flight_modes_rover/mecanum.md).

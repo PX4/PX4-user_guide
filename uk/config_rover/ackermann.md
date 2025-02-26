@@ -37,7 +37,9 @@ For this mode to work properly the [Basic Setup](#basic-setup) must've already b
 
 The basic setup already covers the minimum setup required to use the rover in [Manual mode](../flight_modes_rover/ackermann.md#manual-mode).
 
-However, this mode is also affected by the steering slew rate and acceleration/deceleration limits. This configuration becomes mandatory for subsequent modes, which is why we do this setup here.
+This mode is also affected by (optional) acceleration/deceleration limits.
+As configuration of these limits becomes mandatory for subsequent modes, we do this setup here.
+
 Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and set the following parameters:
 
 1. [RA_WHEEL_BASE](#RA_WHEEL_BASE) [m]: Measure the distance from the back to the front wheels.
@@ -46,16 +48,17 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
 
    ![Geometric parameters](../../assets/airframes/rover/rover_ackermann/geometric_parameters.png)
 
-3. [RA_MAX_THR_SPEED](#RA_MAX_THR_SPEED) [m/s]: Drive the rover at full throttle and set this parameter to the observed value of the ground speed.
+3. [RO_MAX_THR_SPEED](#RO_MAX_THR_SPEED) [m/s]: Drive the rover at full throttle and set this parameter to the observed value of the ground speed.
 
    :::info
-   This parameter is also used for the feed-forward term of the speed control. It will be further tuned in the configuration of [Position mode](#position-mode).
+   This parameter is also used for the feed-forward term of the speed control.
+   It will be further tuned in the configuration of [Position mode](#position-mode).
 
 :::
 
-4. [RA_MAX_ACCEL](#RA_MAX_ACCEL) [m/s^2]: Maximum acceleration you want to allow for your rover.
+4. (Optional) [RO_ACCEL_LIM](#RO_ACCEL_LIM) [m/s^2]: Maximum acceleration you want to allow for your rover.
 
-   <a id="RA_MAX_ACCEL_CONSIDERATIONS"></a>
+   <a id="RO_ACCEL_LIM_CONSIDERATIONS"></a>
 
    :::tip
    Your rover has a maximum possible acceleration which is determined by the maximum torque the motor can supply.
@@ -64,22 +67,22 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
    One approach to determine an appropriate value is:
 
    1. From a standstill, give the rover full throttle until it reaches the maximum speed.
-   2. Disarm the rover and plot the `measured_forward_speed` from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md).
-   3. Divide the maximum speed by the time it took to reach it and set this as the value for [RA_MAX_ACCEL](#RA_MAX_ACCEL).
+   2. Disarm the rover and plot the `measured_speed_body_x` from [RoverVelocityStatus](../msg_docs/RoverVelocityStatus.md).
+   3. Divide the maximum speed by the time it took to reach it and set this as the value for [RO_ACCEL_LIM](#RO_ACCEL_LIM).
 
    Some RC rovers have enough torque to lift up if the maximum acceleration is not limited.
    If that is the case:
 
-   1. Set [RA_MAX_ACCEL](#RA_MAX_ACCEL) to a low value, give the rover full throttle from a standstill and observe its behaviour.
-   2. Increase [RA_MAX_ACCEL](#RA_MAX_ACCEL) until the rover starts to lift up during the acceleration.
-   3. Set [RA_MAX_ACCEL](#RA_MAX_ACCEL) to the highest value that does not cause the rover to lift up.
+   1. Set [RO_ACCEL_LIM](#RO_ACCEL_LIM) to a low value, give the rover full throttle from a standstill and observe its behaviour.
+   2. Increase [RO_ACCEL_LIM](#RO_ACCEL_LIM) until the rover starts to lift up during the acceleration.
+   3. Set [RO_ACCEL_LIM](#RO_ACCEL_LIM) to the highest value that does not cause the rover to lift up.
 
 :::
 
-5. [RA_MAX_DECEL](#RA_MAX_DECEL) [m/s^2]: Maximum deceleration you want to allow for your rover.
+5. (Optional) [RO_DECEL_LIM](#RO_DECEL_LIM) [m/s^2]: Maximum deceleration you want to allow for your rover.
 
    :::tip
-   The same [considerations](#RA_MAX_ACCEL_CONSIDERATIONS) as in the configuration of [RA_MAX_ACCEL](#RA_MAX_ACCEL) apply.
+   The same [considerations](#RO_ACCEL_LIM_CONSIDERATIONS) as in the configuration of [RO_ACCEL_LIM](#RO_ACCEL_LIM) apply.
 
 :::
 
@@ -88,13 +91,13 @@ Navigate to [Parameters](../advanced_config/parameters.md) in QGroundControl and
 
 :::
 
-6. (Optional) [RA_MAX_STR_RATE](#RA_MAX_STR_RATE) [deg/s]: Maximum steering rate you want to allow for your rover.
+6. (Optional) [RA_STR_RATE_LIM](#RA_STR_RATE_LIM) [deg/s]: Maximum steering rate you want to allow for your rover.
 
    :::tip
    This value depends on your rover and use case.
    For bigger rovers there might be a mechanical limit that is easy to identify by steering the rover at a standstill and increasing
-   [RA_MAX_STR_RATE](#RA_MAX_STR_RATE) until you observe the steering rate to no longer be limited by the parameter.
-   For smaller rovers you might observe the steering to be too aggressive. Set [RA_MAX_STR_RATE](#RA_MAX_STR_RATE) to a low value and steer the rover at a standstill.
+   [RA_STR_RATE_LIM](#RA_STR_RATE_LIM) until you observe the steering rate to no longer be limited by the parameter.
+   For smaller rovers you might observe the steering to be too aggressive. Set [RA_STR_RATE_LIM](#RA_STR_RATE_LIM) to a low value and steer the rover at a standstill.
    Increase the parameter until you reach the maximum steering rate you are comfortable with.
 
 :::
@@ -112,68 +115,96 @@ For this mode to work properly [Manual mode](#acro-mode) must've already been co
 
 To set up [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) configure the following [parameters](../advanced_config/parameters.md) in QGroundControl:
 
-1. [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL): Maximum lateral acceleration you want to allow for your rover.
+1. [RO_YAW_RATE_LIM](#RO_YAW_RATE_LIM): Maximum yaw rate you want to allow for your rover.
 
    :::tip
-   Limiting the lateral acceleration is necessary if the rover is prone rolling over, loosing traction at high speeds or if passenger comfort is important.
+   Limiting the yaw rate is necessary if the rover is prone rolling over, loosing traction at high speeds or if passenger comfort is important.
    Small rovers especially can be prone to rolling over when steering aggressively at high speeds.
 
    If this is the case:
 
-   1. In [Acro mode](../flight_modes_rover/ackermann.md#acro-mode), set [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) to a small value and drive the rover at full throttle and with the right stick all the way to the left or right.
-   2. Increase [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) until the wheels of the rover start to lift up.
-   3. Set [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL) to the highest value that does not cause the rover to lift up.
+   1. In [Acro mode](../flight_modes_rover/ackermann.md#acro-mode), set [RO_YAW_RATE_LIM](#RO_YAW_RATE_LIM) to a small value and drive the rover at full throttle and with the right stick all the way to the left or right.
+   2. Increase [RO_YAW_RATE_LIM](#RO_YAW_RATE_LIM) until the wheels of the rover start to lift up.
+   3. Set [RO_YAW_RATE_LIM](#RO_YAW_RATE_LIM) to the highest value that does not cause the rover to lift up.
 
-   If you see no need to limit the lateral acceleration, set this parameter to the maximum lateral acceleration the rover can achieve:
+   If you see no need to limit the yaw rate, set this parameter to the maximum yaw rate the rover can achieve:
 
    1. In [Manual mode](#manual-mode) drive the rover at full throttle and with the maximum steering angle.
-   2. Plot the `measured_lateral_acceleration` from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) and enter the highest observed value for [RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL).
+   2. Plot the `measured_yaw_rate` from [RoverRateStatus](../msg_docs/RoverRateStatus.md) and enter the highest observed value for [RO_YAW_RATE_LIM](#RO_YAW_RATE_LIM).
 
 
 :::
 
-2. [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) [-]: Proportional gain of the closed loop lateral acceleration controller.
-   The closed loop acceleration control will compare the lateral acceleration setpoint with the measured lateral acceleration and adapt the motor commands based on the error between them.
-   The proportional gain is multiplied with this error and that value is added to the motor command. This way disturbances like uneven grounds or external forces can be compensated.
+2. [RO_YAW_RATE_P](#RO_YAW_RATE_P) [-]: Proportional gain of the closed loop yaw rate controller.
+   The closed loop acceleration control will compare the yaw rate setpoint with the measured yaw rate and adapt the motor commands based on the error between them.
+   The proportional gain is multiplied with this error and that value is added to the motor command.
+   This compensates for disturbances such as uneven ground and external forces.
 
    :::tip
    To tune this parameter:
 
    1. Put the rover in [Acro mode](../flight_modes_rover/ackermann.md#acro-mode) and hold the throttle stick and the right stick at a few different levels for a couple of seconds each.
-   2. Disarm the rover and from the flight log plot the `lateral_acceleration_setpoint` from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the `measured_lateral_acceleration` from [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other.
-   3. Increase [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) if the measured value does not track the setpoint fast enough or decrease it if the measurement overshoots the setpoint by too much.
+   2. Disarm the rover and from the flight log plot the `adjusted_yaw_rate_setpoint` from [RoverRateStatus](../msg_docs/RoverRateStatus.md) and the `measured_yaw_rate` from [RoverRateStatus](../msg_docs/RoverRateStatus.md) over each other.
+   3. Increase [RO_YAW_RATE_P](#RO_YAW_RATE_P) if the measured value does not track the setpoint fast enough or decrease it if the measurement overshoots the setpoint by too much.
    4. Repeat until you are satisfied with the behaviour.
-
-   Note that the lateral acceleration measurement is very noisy and therefore needs to be heavily filtered.
-   This means that the measurement is slightly delayed, so if you observe a slight offset in time between the setpoint and measurement, that is not something that can be fixed with tuning.
 
 :::
 
-3. (Optional) [RA_LAT_ACCEL_I](#RA_LAT_ACCEL_I) [-]: Integral gain of the closed loop lateral acceleration controller.
-   The integral gain accumulates the error between the desired and actual lateral acceleration scaled by the integral gain over time and that value is added to the motor command.
+3. [RO_YAW_RATE_I](#RO_YAW_RATE_I) [-]: Integral gain of the closed loop yaw rate controller.
+   The integral gain accumulates the error between the desired and actual yaw rate scaled by the integral gain over time and that value is added to the motor command.
 
    ::: tip
-   The integrator gain is usually not necessary for the lateral acceleration setpoint as this is usually a fast changing value.
-   Leave this parameter at zero unless necessary, as it can have negative side effects such as overshooting or oscillating around the setpoint.
+   An integrator might not be necessary at this stage, but it will become important for subsequent modes.
 
 :::
 
 The rover is now ready to drive in [Acro mode](../flight_modes_rover/ackermann.md#acro-mode).
 
+## Stabilized Mode
+
+:::warning
+For this mode to work properly [Acro mode](#acro-mode) must've already been configured!
+:::
+
+For [Stabilized mode](../flight_modes_rover/differential.md#stabilized-mode) the controller utilizes a closed loop yaw controller, which creates a yaw rate setpoint to control the yaw when it is active:
+
+![Cascaded PID for yaw control](../../assets/airframes/rover/rover_differential/cascaded_pid_for_yaw.png)
+
+Unlike the closed loop yaw rate, this controller has no feed-forward term.
+Therefore you only need to tune the closed loop gains:
+
+1. [RO_YAW_P](#RO_YAW_P) [-]: Proportional gain for the closed loop yaw controller.
+
+   ::: tip
+   In stabilized mode the closed loop yaw control is only active when driving a straight line (no yaw rate input).
+   To tune it start with a value of 1 for [RO_YAW_P](#RO_YAW_P).
+   Put the rover into stabilized mode and move the left stick of your controller up to drive forwards.
+   Disarm the rover and from the flight log plot the `measured_yaw` and the `adjusted_yaw_setpoint` from the [RoverAttitudeStatus](../msg_docs/RoverAttitudeStatus.md) message over each other.
+   Increase/Decrease the parameter until you are satisfied with the setpoint tracking.
+
+:::
+
+:::info
+For the closed loop yaw control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint.
+Since the yaw and yaw rate controllers are cascaded, there only needs to be one integrator which is in the yaw rate controller. If you observe a steady state error in the yaw setpoint increase the [RO_YAW_RATE_I](#RO_YAW_RATE_I) parameter.
+:::
+
+The rover is now ready to drive in [Stabilized mode](../flight_modes_rover/ackermann.md#stabilized-mode).
+
 ## Position Mode
 
 :::warning
-For this mode to work properly [Acro mode](#acro-mode) must already be configured!
+For this mode to work properly [Stabilized mode](#stabilized-mode) must already be configured!
 :::
 
-[Position mode](../flight_modes_rover/ackermann.md#position-mode) is the most advanced manual mode, utilizing closed loop lateral acceleration and speed control and leveraging position estimates.
+[Position mode](../flight_modes_rover/ackermann.md#position-mode) is the most advanced manual mode, utilizing closed loop yaw rate and speed control and leveraging position estimates.
 
 To configure set the following parameters:
 
-1. [RA_MAX_SPEED](#RA_MAX_SPEED) [m/s]: This is the maximum speed you want to allow for your rover.
+1. [RO_SPEED_LIM](#RO_SPEED_LIM) [m/s]: This is the maximum speed you want to allow for your rover.
    This will define the stick-to-speed mapping for position mode and set an upper limit for the speed setpoint for all [auto modes](#auto-modes).
 
-2. [RA_MAX_THR_SPEED](#RA_MAX_THR_SPEED) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
+2. [RO_MAX_THR_SPEED](#RO_MAX_THR_SPEED) [m/s]: This parameter is used to calculate the feed-forward term of the closed loop speed control which linearly maps desired speeds to normalized motor commands.
    As mentioned in the [Manual mode](../flight_modes_rover/ackermann.md#manual-mode) configuration , a good starting point is the observed ground speed when the rover drives at maximum throttle in [Manual mode](../flight_modes_rover/ackermann.md#manual-mode).
 
    <a id="RA_SPEED_TUNING"></a>
@@ -181,11 +212,11 @@ To configure set the following parameters:
    ::: tip
    To further tune this parameter:
 
-   1. Set [RA_SPEED_P](#RA_SPEED_P) and [RA_SPEED_I](#RA_SPEED_I) to zero.
+   1. Set [RO_SPEED_P](#RO_SPEED_P) and [RO_SPEED_I](#RO_SPEED_I) to zero.
       This way the speed is only controlled by the feed-forward term, which makes it easier to tune.
    2. Put the rover in [Position mode](../flight_modes_rover/ackermann.md#position-mode) and then move the left stick of your controller up and/or down and hold it at a few different levels for a couple of seconds each.
-   3. Disarm the rover and from the flight log plot the `adjusted_forward_speed_setpoint` and the `measured_forward_speed` from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) message over each other.
-   4. If the actual speed of the rover is higher than the speed setpoint, increase [RA_MAX_THR_SPEED](#RA_MAX_THR_SPEED).
+   3. Disarm the rover and from the flight log plot the `adjusted_speed_body_x_setpoint` and the `measured_speed_body_x` from the [RoverVelocityStatus](../msg_docs/RoverVelocityStatus.md) message over each other.
+   4. If the actual speed of the rover is higher than the speed setpoint, increase [RO_MAX_THR_SPEED](#RO_MAX_THR_SPEED).
       If it is the other way around decrease the parameter and repeat until you are satisfied with the setpoint tracking.
 
 
@@ -196,15 +227,15 @@ To configure set the following parameters:
 
 :::
 
-3. [RA_SPEED_P](#RA_SPEED_P) [-]: Proportional gain of the closed loop speed controller.
+3. [RO_SPEED_P](#RO_SPEED_P) [-]: Proportional gain of the closed loop speed controller.
 
    ::: tip
-   This parameter can be tuned the same way as [RA_MAX_THR_SPEED](#RA_SPEED_TUNING).
-   If you tuned [RA_MAX_THR_SPEED](#RA_MAX_THR_SPEED) well, you might only need a very small value.
+   This parameter can be tuned the same way as [RO_MAX_THR_SPEED](#RA_SPEED_TUNING).
+   If you tuned [RO_MAX_THR_SPEED](#RO_MAX_THR_SPEED) well, you might only need a very small value.
 
 :::
 
-4. [RA_SPEED_I](#RA_SPEED_I) [-]: Integral gain for the closed loop speed controller.
+4. [RO_SPEED_I](#RO_SPEED_I) [-]: Integral gain for the closed loop speed controller.
 
    ::: tip
    For the closed loop speed control an integrator gain is useful because this setpoint is often constant for a while and an integrator eliminates steady state errors that can cause the rover to never reach the setpoint.
@@ -259,19 +290,20 @@ The required parameter configuration is discussed in the following sections.
 
 ### Speed
 
-1. [RA_MAX_DECEL](#RA_MAX_DECEL) [m/s^2] and [RA_MAX_JERK](#RA_MAX_JERK) [m/s^3] are used to calculate a speed trajectory such that the rover reaches the next waypoint with the correct [cornering speed](#cornering-speed).
+1. [RO_DECEL_LIM](#RO_DECEL_LIM) [m/s^2] and [RO_JERK_LIM](#RO_JERK_LIM) [m/s^3] are used to calculate a speed trajectory such that the rover reaches the next waypoint with the correct [cornering speed](#cornering-speed).
 
    ::: tip
-   Plan a mission for the rover to drive a square and observe how it slows down when approaching a waypoint.
-   If the rover decelerates too quickly decrease the [RA_MAX_DECEL](#RA_MAX_DECEL) parameter, if it starts slowing down too early increase the parameter.
-   If you observe a jerking motion as the rover slows down, decrease the [RA_MAX_JERK](#RA_MAX_JERK) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RA_MAX_DECEL](#RA_MAX_DECEL).
+   Plan a mission for the rover to drive a square and observe how it slows down when approaching a waypoint:
+
+   - If the rover decelerates too quickly decrease the [RO_DECEL_LIM](#RO_DECEL_LIM) parameter, if it starts slowing down too early increase the parameter.
+   - If you observe a jerking motion as the rover slows down, decrease the [RO_JERK_LIM](#RO_JERK_LIM) parameter otherwise increase it as much as possible as it can interfere with the tuning of [RO_DECEL_LIM](#RO_DECEL_LIM).
 
    These two parameters have to be tuned as a pair, repeat until you are satisfied with the behaviour.
 
 :::
 
-2. Plot the `adjusted_forward_speed_setpoint` and `measured_forward_speed` from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) message over each other.
-   If the tracking of these setpoints is not satisfactory adjust the values for [RA_SPEED_P](#RA_SPEED_P) and [RA_SPEED_I](#RA_SPEED_I).
+2. Plot the `adjusted_speed_body_x_setpoint` and `measured_speed_body_x` from the [RoverVelocityStatus](../msg_docs/RoverVelocityStatus.md) message over each other.
+   If the tracking of these setpoints is not satisfactory adjust the values for [RO_SPEED_P](#RO_SPEED_P) and [RO_SPEED_I](#RO_SPEED_I).
 
 ### Corner Cutting
 
@@ -286,8 +318,10 @@ The degree to which corner cutting is allowed can be tuned, or disabled, with th
 The corner cutting effect is a tradeoff between how close you get to the waypoint and the smoothness of the trajectory.
 :::
 
-1. [NAV_ACC_RAD](#NAV_ACC_RAD) [m]: Default acceptance radius. This is also used as a lower bound for the acceptance radius scaling.
-2. [RA_ACC_RAD_MAX](#RA_ACC_RAD_MAX) [m]: The maximum the acceptance radius can be scaled to. Set equal to [NAV_ACC_RAD](#NAV_ACC_RAD) to disable the corner cutting effect.
+1. [NAV_ACC_RAD](#NAV_ACC_RAD) [m]: Default acceptance radius
+   This is also used as a lower bound for the acceptance radius scaling.
+2. [RA_ACC_RAD_MAX](#RA_ACC_RAD_MAX) [m]: The maximum the acceptance radius can be scaled to.
+   Set equal to [NAV_ACC_RAD](#NAV_ACC_RAD) to disable the corner cutting effect.
 3. [RA_ACC_RAD_GAIN](#RA_ACC_RAD_GAIN) [-]: This tuning parameter is a multiplicand on the [calculated ideal acceptance radius](#corner-cutting-logic) to account for dynamic effects.
 
    :::tip
@@ -299,15 +333,17 @@ The corner cutting effect is a tradeoff between how close you get to the waypoin
 
 ### Path Following
 
-The [pure pursuit](#pure-pursuit-guidance-logic) algorithm is used to calculate a lateral acceleration setpoint for the vehicle that is then close loop controlled.
-The close loop lateral acceleration was tuned in the configuration of the [Acro mode](#acro-mode), and the pure pursuit was tuned when setting up the [Position mode](#position-mode).
+The [pure pursuit](#pure-pursuit-guidance-logic) algorithm is used to calculate a yaw rate setpoint for the vehicle that is then close loop controlled.
+The close loop yaw rate was tuned in the configuration of the [Acro mode](#acro-mode), and the pure pursuit was tuned when setting up the [Position mode](#position-mode).
 During any auto navigation task observe the behaviour of the rover.
 
 If you are unsatisfied with the path following, there are 2 steps to take:
 
-1. Plot the `lateral_acceleration_setpoint` from [RoverAckermannSetpoint](../msg_docs/RoverAckermannSetpoint.md) and the `measured_lateral_acceleration` from the [RoverAckermannStatus](../msg_docs/RoverAckermannStatus.md) over each other.
-   If the tracking of these setpoints is not satisfactory adjust the values for [RA_LAT_ACCEL_P](#RA_LAT_ACCEL_P) and [RA_LAT_ACCEL_I](#RA_LAT_ACCEL_I).
-2. Step 1 ensures accurate setpoint tracking, if the path following is still unsatisfactory you need to further tune the [pure pursuit](#pure-pursuit-guidance-logic) parameters.
+1. Plot the `adjusted_yaw_rate_setpoint` and the `measured_yaw_rate` from the [RoverRateStatus](../msg_docs/RoverRateStatus.md) over each other.
+   If the tracking of these setpoints is not satisfactory adjust the values for [RO_YAW_RATE_P](#RO_YAW_RATE_P) and [RO_YAW_RATE_I](#RO_YAW_RATE_I).
+2. Plot the `adjusted_yaw_setpoint` and the `measured_yaw` from the [RoverAttitudeStatus](../msg_docs/RoverAttitudeStatus.md) over each other.
+   If the tracking of these setpoints is not satisfactory adjust the value for [RO_YAW_P](#RO_YAW_RATE_P) and potentially further tune [RO_YAW_RATE_I](#RO_YAW_RATE_I).
+3. Steps 1 and 2 ensures accurate setpoint tracking, if the path following is still unsatisfactory you need to further tune the [pure pursuit](#pure-pursuit-guidance-logic) parameters.
 
 ## Pure Pursuit Guidance Logic
 
@@ -375,45 +411,46 @@ To smoothen the trajectory further and reduce the risk of the rover rolling over
 
    <!-- prettier-ignore -->
 
-   $$v_{cor, max} = \sqrt{r \cdot a_{lat, max}}$$
+   $$v_{cor, max} = \dot{\psi}_{max} \cdot r$$
 
-   with $r:$ Turning radius for the upcoming corner and $a_{lat, max}:$ Maximum lateral acceleration ([RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL)).
+   with $r:$ Turning radius for the upcoming corner and $\dot{\psi}_{max}:$ Maximum yaw rate ([RO_YAW_RATE_LIM](#RO_YAW_RATE_LIM)).
 
 2. In between waypoints (straight line) the rover speed is regulated such that it will arrive at the acceptance radius of the waypoint with the desired cornering speed.
 
-The rover is constrained between the maximum speed [RA_MAX_SPEED](#RA_MAX_SPEED) and the speed where the maximum steering angle does not cause the rover to exceed the lateral acceleration limit:
+The rover is constrained between the maximum speed [RO_SPEED_LIM](#RO_SPEED_LIM) and the speed where the maximum steering angle does not cause the rover to exceed the yaw rate limit:
 
 <!-- prettier-ignore -->
 
-$$v_{min} = \sqrt{\frac{w_b \cdot a_{lat, max}}{tan(\theta_{max})}}$$
+$$v_{min} = \frac{w_b \cdot \dot{\psi}_{max}}{tan(\delta_{max})}$$
 
-with $w_b:$ Wheel base ([RA_WHEEL_BASE](#RA_WHEEL_BASE)), $a_{lat, max}:$ Maximum lateral acceleration ([RA_MAX_LAT_ACCEL](#RA_MAX_LAT_ACCEL)) and $\theta_{max}:$ Maximum steering angle ([RA_MAX_STR_ANG](#RA_MAX_STR_ANG)).
+with $w_b:$ Wheel base ([RA_WHEEL_BASE](#RA_WHEEL_BASE)), $\dot{\psi}_{max}:$ Maximum yaw rate ([RO_YAW_RATE_LIM](#RO_YAW_RATE_LIM)) and $\delta_{max}:$ Maximum steering angle ([RA_MAX_STR_ANG](#RA_MAX_STR_ANG)).
 
 ## Огляд параметрів
 
 List of all parameters of the ackermann rover module:
 
-| Параметр                                                                                                                                                                   | Опис                                                                  | Unit    |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------- |
-| <a id="RA_WHEEL_BASE"></a>[RA_WHEEL_BASE](../advanced_config/parameter_reference.md#RA_WHEEL_BASE)                               | Wheel base                                                            | m       |
-| <a id="RA_MAX_STR_ANG"></a>[RA_MAX_STR_ANG](../advanced_config/parameter_reference.md#RA_MAX_STR_ANG)       | Maximum steering angle                                                | deg     |
-| <a id="RA_MAX_THR_SPEED"></a>[RA_MAX_THR_SPEED](../advanced_config/parameter_reference.md#RA_MAX_THR_SPEED) | Speed the rover drives at maximum throttle                            | m/s     |
-| <a id="RA_MAX_ACCEL"></a>[RA_MAX_ACCEL](../advanced_config/parameter_reference.md#RA_MAX_ACCEL)                                  | Maximum allowed acceleration                                          | m/s^2   |
-| <a id="RA_MAX_DECEL"></a>[RA_MAX_DECEL](../advanced_config/parameter_reference.md#RA_MAX_DECEL)                                  | Maximum allowed deceleration                                          | m/s^2   |
-| <a id="RA_MAX_JERK"></a>[RA_MAX_JERK](../advanced_config/parameter_reference.md#RA_MAX_JERK)                                     | Maximum allowed jerk for the rover                                    | $m/s^3$ |
-| <a id="RA_MAX_STR_RATE"></a>[RA_MAX_STR_RATE](../advanced_config/parameter_reference.md#RA_MAX_STR_RATE)    | Maximum allowed steering rate                                         | deg/s   |
-| <a id="RA_MAX_LAT_ACCEL"></a>[RA_MAX_LAT_ACCEL](../advanced_config/parameter_reference.md#RA_MAX_LAT_ACCEL) | Maximum allowed lateral acceleration                                  | m/s^2   |
-| <a id="RA_LAT_ACCEL_P"></a>[RA_LAT_ACCEL_P](../advanced_config/parameter_reference.md#RA_LAT_ACCEL_P)       | Proportional gain for lateral acceleration controller                 | -       |
-| <a id="RA_LAT_ACCEL_I"></a>[RA_LAT_ACCEL_I](../advanced_config/parameter_reference.md#RA_LAT_ACCEL_I)       | Integral gain for lateral acceleration controller                     | -       |
-| <a id="RA_MAX_SPEED"></a>[RA_MAX_SPEED](../advanced_config/parameter_reference.md#RA_MAX_SPEED)                                  | Maximum allowed speed                                                 | m/s     |
-| <a id="RA_SPEED_P"></a>[RA_SPEED_P](../advanced_config/parameter_reference.md#RA_SPEED_P)                                        | Proportional gain for speed controller                                | -       |
-| <a id="RA_SPEED_I"></a>[RA_SPEED_I](../advanced_config/parameter_reference.md#RA_SPEED_I)                                        | Integral gain for speed controller                                    | -       |
-| <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN)                         | Main tuning parameter for pure pursuit                                | -       |
-| <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)                            | Maximum value for the look ahead radius of the pure pursuit algorithm | m       |
-| <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)                            | Minimum value for the look ahead radius of the pure pursuit algorithm | m       |
-| <a id="NAV_ACC_RAD"></a>[NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)                                     | Default acceptance radius                                             | m       |
-| <a id="RA_ACC_RAD_MAX"></a>[RA_ACC_RAD_MAX](../advanced_config/parameter_reference.md#RA_ACC_RAD_MAX)       | Maximum radius the acceptance radius can be scaled to                 | m       |
-| <a id="RA_ACC_RAD_GAIN"></a>[RA_ACC_RAD_GAIN](../advanced_config/parameter_reference.md#RA_ACC_RAD_GAIN)    | Tuning parameter                                                      | -       |
+| Параметр                                                                                                                                                                   | Опис                                                                                | Unit    |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------- |
+| <a id="RA_WHEEL_BASE"></a>[RA_WHEEL_BASE](../advanced_config/parameter_reference.md#RA_WHEEL_BASE)                               | Wheel base                                                                          | m       |
+| <a id="RA_MAX_STR_ANG"></a>[RA_MAX_STR_ANG](../advanced_config/parameter_reference.md#RA_MAX_STR_ANG)       | Maximum steering angle                                                              | deg     |
+| <a id="RO_MAX_THR_SPEED"></a>[RO_MAX_THR_SPEED](../advanced_config/parameter_reference.md#RO_MAX_THR_SPEED) | Speed the rover drives at maximum throttle                                          | m/s     |
+| <a id="RO_YAW_RATE_LIM"></a>[RO_YAW_RATE_LIM](../advanced_config/parameter_reference.md#RO_YAW_RATE_LIM)    | Maximum allowed yaw rate                                                            | m/s^2   |
+| <a id="RO_YAW_RATE_P"></a>[RO_YAW_RATE_P](../advanced_config/parameter_reference.md#RO_YAW_RATE_P)          | Proportional gain for yaw rate controller                                           | -       |
+| <a id="RO_YAW_RATE_I"></a>[RO_YAW_RATE_I](../advanced_config/parameter_reference.md#RO_YAW_RATE_I)          | Integral gain for yaw rate controller                                               | -       |
+| <a id="RO_YAW_P"></a>[RO_YAW_P](../advanced_config/parameter_reference.md#RO_YAW_P)                                              | Proportional gain for yaw controller                                                | -       |
+| <a id="RO_SPEED_LIM"></a>[RO_SPEED_LIM](../advanced_config/parameter_reference.md#RO_SPEED_LIM)                                  | Maximum allowed speed                                                               | m/s     |
+| <a id="RO_SPEED_P"></a>[RO_SPEED_P](../advanced_config/parameter_reference.md#RO_SPEED_P)                                        | Proportional gain for speed controller                                              | -       |
+| <a id="RO_SPEED_I"></a>[RO_SPEED_I](../advanced_config/parameter_reference.md#RO_SPEED_I)                                        | Integral gain for speed controller                                                  | -       |
+| <a id="PP_LOOKAHD_GAIN"></a>[PP_LOOKAHD_GAIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_GAIN)                         | Main tuning parameter for pure pursuit                                              | -       |
+| <a id="PP_LOOKAHD_MAX"></a>[PP_LOOKAHD_MAX](../advanced_config/parameter_reference.md#PP_LOOKAHD_MAX)                            | Maximum value for the look ahead radius of the pure pursuit algorithm               | m       |
+| <a id="PP_LOOKAHD_MIN"></a>[PP_LOOKAHD_MIN](../advanced_config/parameter_reference.md#PP_LOOKAHD_MIN)                            | Minimum value for the look ahead radius of the pure pursuit algorithm               | m       |
+| <a id="NAV_ACC_RAD"></a>[NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)                                     | Default acceptance radius                                                           | m       |
+| <a id="RA_STR_RATE_LIM"></a>[RA_STR_RATE_LIM](../advanced_config/parameter_reference.md#RA_STR_RATE_LIM)    | (Optional) Maximum allowed steering rate                         | deg/s   |
+| <a id="RO_ACCEL_LIM"></a>[RO_ACCEL_LIM](../advanced_config/parameter_reference.md#RO_ACCEL_LIM)                                  | (Optional) Maximum allowed acceleration                          | m/s^2   |
+| <a id="RO_DECEL_LIM"></a>[RO_DECEL_LIM](../advanced_config/parameter_reference.md#RO_DECEL_LIM)                                  | (Optional) Maximum allowed deceleration                          | m/s^2   |
+| <a id="RO_JERK_LIM"></a>[RO_JERK_LIM](../advanced_config/parameter_reference.md#RO_JERK_LIM)                                     | (Optional) Maximum allowed jerk                                  | $m/s^3$ |
+| <a id="RA_ACC_RAD_MAX"></a>[RA_ACC_RAD_MAX](../advanced_config/parameter_reference.md#RA_ACC_RAD_MAX)       | (Optional) Maximum radius the acceptance radius can be scaled to | m       |
+| <a id="RA_ACC_RAD_GAIN"></a>[RA_ACC_RAD_GAIN](../advanced_config/parameter_reference.md#RA_ACC_RAD_GAIN)    | (Optional) Tuning parameter for the acceptance radius scaling    | -       |
 
 ## Дивіться також
 
