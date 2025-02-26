@@ -26,4 +26,7 @@ uint8 target_component   # Component ID (can be 0 for broadcast, but this is dis
 uint8 payload_length     # Length of the data transported in payload
 uint8[128] payload       # Data itself
 
+# Topic aliases for known payload types
+# TOPICS mavlink_tunnel esc_serial_passthru
+
 ```
