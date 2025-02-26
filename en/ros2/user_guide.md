@@ -787,8 +787,6 @@ VehicleCommandAck reply
 Users can make service requests by sending [VehicleCommand](../msg_docs/VehicleCommand.md) messages, and receive a [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) message in response.
 The service ensures that only the `VehicleCommandAck` reply generated for the specific request made by the user is sent back.
 
-This is an helpful alternative to having to create a topic publisher for `/fmu/in/vehicle_command` and a topic subscriber for `/fmu/out/vehicle_command_ack`, and then having to filter out unwanted `VehicleCommandAck` messages.
-
 #### VehicleCommand Service Offboard Control Example
 
 A complete _offboard control_ example using the VehicleCommand service is provided by the [offboard_control_srv](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control_srv.cpp) node available in the `px4_ros_com` package.
