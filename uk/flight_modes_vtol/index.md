@@ -12,8 +12,8 @@
 
 Для інших режимів польоту дивіться специфічну для транспортного засобу поведінку:
 
-- [Режими польоту (Мультикоптер)](../flight_modes_mc/index.md)
-- [Режими польоту (Фіксовані крила)](../flight_modes_fw/index.md)
+- [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
+- [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
 
 ## Подальша інформація
 
