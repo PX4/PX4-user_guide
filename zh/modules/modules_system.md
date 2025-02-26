@@ -178,7 +178,7 @@ Source: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/main/src/mod
 ### 描述
 
 该模块通过基于C语言的API以简单数据库的形式为系统的其他部分提供持续性存储功能。
-支持多种后端：
+Multiple backends are supported depending on the board:
 
 - a file (eg. on the SD card)
 - FLASH(需要飞控板支持)
