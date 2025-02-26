@@ -33881,6 +33881,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 4 |  | 0 |  
 
+### SYS_HAS_NUM_OF (`INT32`) {#SYS_HAS_NUM_OF}
+
+Number of optical flow sensors required to be available.
+
+The preflight check will fail if fewer than this number of optical flow sensors with valid data are present.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 1 |  | 0 |  
+
 ### SYS_HITL (`INT32`) {#SYS_HITL}
 
 Enable HITL/SIH mode on next boot.
