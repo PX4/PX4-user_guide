@@ -1,111 +1,120 @@
 # Режими польоту (для розробників)
 
-_Режими польоту_ визначають як автопілот реагує на дії користувача та керує пересуванням рухомого засобу.
+Modes ("flight modes", "drive modes", and so on) are special operational states that control how the autopilot responds to user input and controls vehicle movement.
 Вони вільним чином згруповані у _ручні_, _допоміжні_ та _автономні_ режими, засновуючись на рівні/типі керування що надається автопілотом.
 Пілот перемикається між режимами польоту за допомогою перемикачів на пульті дистанційного керування або за допомогою наземної станції керування.
 
-Не всі режими польоту доступні на всіх типах апаратів, а деякі режими поводяться по-різному на різних типах апаратів (як описано нижче).
-Нарешті, деякі режими польоту мають сенс лише за особливих умов перед та під час польоту (напр. блокування GPS).
-Система не дозволить переходи в ці режими, поки не будуть виконані відповідні умови.
+Modes can be implemented as [PX4 internal modes](#px4-internal-modes) running on the flight controller, or as [PX4 external (ROS2) modes](#px4-external-modes) running on a companion computer.
+From the perspective of a ground station (MAVLink), the origin of a mode is indistinguishable.
 
-Подальші розділи надають огляд цих режимів, за якими йде [діаграма оцінки режимів польоту](#flight-mode-evaluation-diagram) яка показує умови за яких PX4 перейде до нового режиму.
+This topic links to documentation for the supported modes, compares PX4 internal and external modes, provides implementation hints, and provides links to how PX4 modes can be used with MAVLink.
 
-:::info
-Ви можете знайти документацію по режимах польоту орієнтовану на користувача в:
+## Supported Modes
 
-- [Режими польоту (Мультикоптер)](../flight_modes_mc/index.md)
-- [Режими польоту (Фіксовані крила)](../flight_modes_fw/index.md)
+Not all modes are available (or makes sense), on all vehicle types, and some modes behave differently on different vehicle types.
+
+Mode documentation for the PX4 internal modes are listed below:
+
+- [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
+- [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/index.md)
 - [Drive Modes (Differential Rover)](../flight_modes_rover/differential.md)
 - [Drive Modes (Ackermann Rover)](../flight_modes_rover/ackermann.md)
+- [Basic Configuration > Flight Modes](../config/flight_mode.md)
 
+## Internal vs External Modes
+
+With some exceptions a mode can be implemented in either the FC or companion computer.
+The main considerations are listed below.
+
+PX4 external modes cannot be used in the following cases:
+
+- Modes that need to run on vehicles that don't have a companion computer.
+- Modes that require low-level access, strict timing, and/or high update rate requirements.
+  For example, a multicopter mode that implements direct motor control.
+- Safety critical modes, such as [Return mode](../flight_modes_mc/return.md).
+- When you can't use ROS (for any reason).
+
+External modes should be considered for all other cases.
+They have the following benefits:
+
+- Easier to implement as there is no need to deal with low-level embedded constraints and requirements (such as restricted stack sizes).
+- Easier to maintain as the integration API is small, well defined, and stable.
+- Porting custom PX4 modes on the flight controller between PX4 versions can be much harder, as often flight modes use interfaces that are considered internal, and allowed to change.
+- Process termination of a ROS 2 mode results in a fallback to an internal flight mode (while termination of an internal mode may well crash the vehicle).
+- They can override existing modes to provide more advanced features.
+  You can even override a safety-critical mode with a better versions: if the ROS 2 mode crashes the original mode will be engaged.
+- High-level functionality is available, including a better-feature programming environment, and many useful Linux and ROS libraries.
+- More available compute to do more advanced processing (e.g. computer vision).
+
+Note that the [PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md) used to create external modes first appeared in PX4 v1.15 and is still considered experimental.
+There are still some limitations, but expect changes and ongoing enhancement.
+
+## PX4 External Modes
+
+PX4 external modes, are written in ROS 2 using the [PX4 ROS 2 Control Interface](../ros2/px4_ros2_control_interface.md) (see link for instructions).
+
+## PX4 Internal Modes
+
+<!--
+The specific control behaviour of a mode at any time is determined by a [Flight Task](../concept/flight_tasks.md).
+A mode might define one or more tasks that define variations of the mode behavior, for example whether inputs are treated as acceleration or velocity setpoints.
+
+The task that is used is normally defined in a parameter, and selected in [src/modules/flight_mode_manager/FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285)
+
+
+Name the relevant modules in which code directly related to flight modes is defined.
+Name any base classes that modes must/should derive from
+Explain the core things you need to do to make a mode work
+Very high level architecture
+-->
+
+### Mode Restrictions
+
+Some modes only make sense only under specific pre-flight and in-flight conditions.
+For example, a manual control mode should not be used unless the system has a manual controller.
+
+PX4 modes can specify these conditions as _restrictions_.
+For internal modes the types of restrictions are listed in the [FailsafeFlags](../msg_docs/FailsafeFlags.md) uORB topic under "Per mode requirements" (duplicated below)
+
+```text
+# Per-mode requirements
+mode_req_angular_velocity
+mode_req_attitude
+mode_req_local_alt
+mode_req_local_position
+mode_req_local_position_relaxed
+mode_req_global_position
+mode_req_mission
+mode_req_offboard_signal
+mode_req_home_position
+mode_req_wind_and_flight_time_compliance # if set, mode cannot be entered if wind or flight time limit exceeded
+mode_req_prevent_arming    # if set, cannot arm while in this mode
+mode_req_manual_control
+mode_req_other             # other requirements, not covered above (for external modes)
+```
+
+If the condition of restriction is not met:
+
+- Озброєння неможливе, коли вибрано режим
+- коли вже озброєний, режим не можна вибрати
+- коли озброєний і обраний режим, відповідний аварійний режим спрацьовує (наприклад, втрата RC для вимоги до керування вручну).
+  Check [Safety (Failsafe) Configuration](../config/safety.md) for how to configure failsafe behaviour.
+
+This is the corresponding flow diagram for the manual control flag (`mode_req_manual_control`):
+
+
+
+The requirements for all modes are set in `getModeRequirements()` in [src/modules/commander/ModeUtil/mode_requirements.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp#L46).
+When adding a new mode you will need to add appropriate requirements in that method.
+
+:::tip
+Readers may note that this image is from [PX4 ROS2 Control Interface > Failsafes and mode requirements](../ros2/px4_ros2_control_interface.md#failsafes-and-mode-requirements).
+The requirements and concepts are the same (though defined in different places).
+The main difference is that ROS 2 modes _infer_ the correct requirements to use, while modes in PX4 source code must explicitly specify them.
 :::
 
-## Опис режимів польоту
+## MAVLink Integration
 
-### Ручні режими польотів
-
-"Ручні" режими - це ті, де користувач має прямий контроль над засобом за допомогою пульту радіо керування (або джойстика).
-Рух рухомого засобу завжди слідує за рухом органів управління, але рівень/тип реакція змінюється в залежності від режиму.
-Наприклад, досвідчені пілоти можуть використовувати режими, які дають пряму передачу позицій органів управління до приводів, тоді як початківці часто будуть обирати режими, яки менше реагують на раптові зміни положень органів управління.
-
-- **Rovers / Boats:**
-
-  - **MANUAL/STABILIZED/ACRO:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to control allocation.
-
-- **Fixed-wing aircraft:**
-
-  - **MANUAL:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to control allocation.
-  - **STABILIZED:** The pilot's pitch and roll inputs are passed as angle commands to the autopilot, while the yaw input is sent directly via control allocation to the rudder (manual control).
-    Якщо органи управління для крену та тангажу пульту РК центровані, автопілот регулює кути нахилу крену та тангажу до нуля, отже стабілізуючи (вирівнюючи) положення відносно будь-яких збурень вітру.
-    Однак у цьому режимі положення літального апарату не контролюється автопілотом, тому положення може плисти через вітер.
-    З ненульовими значеннями крену, рухомий засіб здійснює скоординований поворот щоб досягти нульового бічного зсуву (прискорення у напрямку осі Y, тобто вбік є нульовим).
-    Під час скоординованого повороту для керування бічним зсувом використовується кермо, а будь-які ручні команди рискання додаються до цього.
-  - **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw _rate_ commands to the autopilot.
-    Автопілот контролює кутові швидкості.
-    Передача дроселя здійснюється безпосередньо для керування розподілом.
-
-- **Multirotors:**
-
-  - **STABILIZED** (**MANUAL** also selects this mode): The pilot's inputs are passed as roll and pitch _angle_ commands and a yaw _rate_ command.
-    Передача дроселя здійснюється безпосередньо для керування розподілом.
-    Автопілот контролює положення, це означає що він регулює кути крену та тангажу до нуля коли органи керування пульту РК центровані, як наслідок вирівнюючи положення.
-    Однак у цьому режимі положення літального апарату не контролюється автопілотом, тому положення може плисти через вітер.
-
-    ::: info
-    For Multirotors, Manual and Stabilized modes are the same.
-
-:::
-
-  - **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw _rate_ commands to the autopilot.
-    Автопілот контролює кутові швидкості, але не положення.
-    Отже, якщо органи керування пульту РК центровані, рухомий засіб не буде вирівняно.
-    Це дозволяє мультиротору повністю обернутись.
-    Передача дроселя здійснюється безпосередньо для керування розподілом.
-
-### Допоміжні режими польоту
-
-"Допоміжні" режими також контролюються користувачем, але пропонують певний рівень "автоматичної" допомоги, наприклад автоматично тримаючи позицію/гапрямок проти вітру.
-Допоміжні режими часто полегшують здобуття або відновлення контрольованого польоту.
-
-- **ALTCTL** (Управління висотою)
-
-  - **Літальний апарат з фіксованим крилом:** коли органи керування пульту РК для крену, тангажу та рискання (КТР) центровані (або менше деякого визначеного граничного діапазону) апарат повернеться до прямого та вирівняного польоту та буде тримати поточну висоту.
-    Його позиція по x та y буде плисти за вітром.
-  - **Мультикоптери:** Команди крену, тангажу та рискання такі ж самі як у режимі Stabilised.
-    Вхідні команди тяги вказують зростання або зменшення висоти із заздалегідь визначеною швидкістю.
-    Тяга має велику мертву зону.
-    Центрований орган керування тягою тримає стабільну висоту.
-    Автопілот контролює тільки висоту, тому положення x,y може плисти через вітер.
-
-- **POSCTL** (Управління позицією)
-
-  - **Літальний апарат з фіксованим крилом:** Нульові вхідні команди (центровані органи керування) дають рівномірний політ та він буде рухатися проти вітру якщо потрібно підтримувати пряму лінію.
-  - **Мультикоптери:** Крен керує швидкістю "вліво-вправо", тангаж контролює швидкість вперед-назад над землею.
-    Рискання контролює швидкість рискання як в режимі MANUAL.
-    Тяга контролює зростання/зменшення висоти як в режимі ALTCTL.
-    Це означає що позиція апарату x, y, z утримується автопілотом стабільною проти будь-яких збурень вітру, коли органи управління КТР центровані.
-
-### Режими автоматичного польоту
-
-"Автоматичні" режими - це ті, коли контролер майже не потребує користувацьких команд (наприклад зліт, посадка та польотні завдання).
-
-- **AUTO_LOITER** (Блукання)
-
-  - **Літальний апарат з фіксованим крилом:** Літальний апарат блукає навколо поточної позиції на поточній висоті (або можливо дещо вище, що добре для ситуацій 'втрачаємо його').
-  - **Мультикоптери:** Мультикоптер ширяє/блукає у поточному положенні на поточній висоті.
-
-- **AUTO_RTL** (Повернення до старту)
-
-  - **Літальний апарат з фіксованим крилом:** Літальний апарат повертається до домашньої позиції та блукає колами навколо цієї позиції.
-  - **Мультикоптери:** Мультикоптер повертається прямою лінією на поточній висоті (якщо поточна висота вища, ніж домашнє положення + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)або на висоті [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (якщо [RTL_RETURN_RETALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) вище за поточну висоту), а потім приземлиться автоматично.
-
-- **AUTO_MISSION** (Завдання)
-  - **Усі типи літальних апаратів:** Літальний апарат дотримується запрограмованого завдання що відправляється наземною станцією керування (GCS).
-    Якщо завдання не отримано, замість цього ЛА буде в режимі LOITER в поточному положенні.
-  - **_OFFBOARD_** (Зовнішній комп'ютер) В цьому режимі опорне/цільове/задане значення позиції, швидкості або положення надається супутнім комп'ютером під'єднаним через послідовний кабель та MAVLink.
-    Заданні значення для зовнішніх комп'ютерів може бути надано API на зразок [MAVSDK](http://mavsdk.mavlink.io) або [MAVROS](https://github.com/mavlink/mavros).
-
-## Діаграма оцінки режимів польоту
-
-![Commander Flow diagram](../../assets/diagrams/commander-flow-diagram.png)
+PX4 implements the MAVLink [Standard Modes Protocol](../mavlink/standard_modes.md) from PX4 v1.15.
+This can be used to discover all modes and the current mode, and to set the current mode.
