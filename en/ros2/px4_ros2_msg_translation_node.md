@@ -318,7 +318,7 @@ The example describes the process of updating the `VehicleAttitude` message defi
 
    For example, update `msg/versioned/VehicleAttitude.msg` from:
 
-   ```.msg
+   ```txt
    uint32 MESSAGE_VERSION = 3
    uint64 timestamp
    ...
@@ -326,7 +326,7 @@ The example describes the process of updating the `VehicleAttitude` message defi
 
    to
 
-   ```.msg
+   ```txt
    uint32 MESSAGE_VERSION = 4  # Increment
    uint64 timestamp
    float32 new_field           # Make definition changes
