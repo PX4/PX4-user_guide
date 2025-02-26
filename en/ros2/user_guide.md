@@ -751,35 +751,51 @@ will generate topics under the namespaces:
 
 :::
 
-## PX4 ROS 2 service servers
+## PX4 ROS 2 Service Servers
 
 <Badge type="tip" text="PX4 v1.15" />
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) provides ROS 2 service servers to simplify communication between ROS 2 nodes and the FCU.
+PX4 uXRCE-DDS middleware supports [ROS 2 services](https://docs.ros.org/en/jazzy/Concepts/Basic/About-Services.html).
+Services are remote procedure calls, from one node to another, that return a result.
+
+A service server is the entity that will accept a remote procedure request, perform some computation on it, and return the result.
+They simplify communication between ROS 2 nodes and PX4 by encapsulating and associating the request and response topics, and ensuring that replies are only returned to the specific requesting user.
+This is much easier that publishing the request, subscribing to the reply, and filtering out any unwanted responses.
+
+The service servers that are built into the PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module include:
+
+- `/fmu/vehicle_command` (definition: [`px4_msgs::srv::VehicleCommand`](https://github.com/PX4/px4_msgs/blob/main/srv/VehicleCommand.srv).)
+
+  This service can be called by ROS 2 applications to send PX4 [VehicleCommand](../msg_docs/VehicleCommand.md) uORB messages and receive PX4 [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) uORB messages in response.
+
+Details and specific examples are provided in the following sections.
+
 
 ### VehicleCommand service
 
-This service is available under `/fmu/vehicle_command` which can be changed through custom namespaces just like the other PX4 topics.
+This can be used to send commands to the vehicle, such as "take off", "land", change mode, and "orbit", and receive a response.
 
-The service type is
+The service is available under `/fmu/vehicle_command`, which can be changed through custom namespaces just like the other PX4 topics.
+The service type is defined in [`px4_msgs::srv::VehicleCommand`](https://github.com/PX4/px4_msgs/blob/main/srv/VehicleCommand.srv) as:
 
-```srv
+```txt
 VehicleCommand request
 ---
 VehicleCommandAck reply
 ```
 
-and user can make service request sending `VehicleCommand` messages end receive `VehicleCommandAck` in response.
-This is an helpful alternative to having to create a topic publisher for `/fmu/in/vehicle_command` and a topic subscriber for `/fmu/out/vehicle_command_ack`.
-On top of that, the service ensures that only the `VehicleCommandAck` reply generated for the request made by the user is sent back, thus removing on the user application side to filter out unwanted `VehicleCommandAck` messages.
+Users can make service requests by sending [VehicleCommand](../msg_docs/VehicleCommand.md) messages, and receive a [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) message in response.
+The service ensures that only the `VehicleCommandAck` reply generated for the specific request made by the user is sent back.
 
-#### VehicleCommand service example
+This is an helpful alternative to having to create a topic publisher for `/fmu/in/vehicle_command` and a topic subscriber for `/fmu/out/vehicle_command_ack`, and then having to filter out unwanted `VehicleCommandAck` messages.
+
+#### VehicleCommand Service Offboard Control Example
 
 A complete _offboard control_ example using the VehicleCommand service is provided by the [offboard_control_srv](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control_srv.cpp) node available in the `px4_ros_com` package.
 
-The example closely follows the _offboard control_ example described in [ROS 2 Offboard Control Example](./offboard_control.md) but uses the `VehicleCommand` service to request mode changes, vehicle arming and vehicle disarming.
+The example closely follows the _offboard control_ example described in [ROS 2 Offboard Control Example](../ros2/offboard_control.md) but uses the `VehicleCommand` service to request mode changes, vehicle arming and vehicle disarming.
 
-Like for any other ROS 2 service client, the ROS 2 application needs to declare a service client of type `px4_msgs::srv::VehicleCommand`
+Like for any other ROS 2 service client, the ROS 2 application needs to declare a service client of type `px4_msgs::srv::VehicleCommand`:
 
 ```cpp
 rclcpp::Client<px4_msgs::srv::VehicleCommand>::SharedPtr vehicle_command_client_;

@@ -490,16 +490,16 @@ Add a topic to the `subscriptions_multi` section to:
 You can arbitrarily change the configuration.
 For example, you could use different default namespaces or use a custom package to store the message definitions.
 
-## DDS Services support
+## DDS (ROS 2) Services
 
-PX4 uXRCE-DDS middleware supports [ROS 2 services](https://docs.ros.org/en/jazzy/Concepts/Basic/About-Services.html) through the following service servers:
+PX4 uXRCE-DDS middleware supports [ROS 2 services](https://docs.ros.org/en/jazzy/Concepts/Basic/About-Services.html).
+These are remote procedure calls, from one node to another, which return a result.
+They simplify communication between ROS 2 nodes and PX4 by encapsulating and associating the request and response topics, ensuring that replies are only returned to the specific requesting user.
 
-- `/fmu/vehicle_command`.
-Service type: [`px4_msgs::srv::VehicleCommand`](https://github.com/PX4/px4_msgs/blob/main/srv/VehicleCommand.srv).
-This service can be called by ROS 2 applications to send PX4 `vehicle_command` uORB messages and receive PX4 `vehicle_command_ack` uORB messages in response.
+A service server is the entity that will accept a remote procedure request, perform some computation on it, and return the result.
+For example, the `/fmu/vehicle_command` service server defined in [`px4_msgs::srv::VehicleCommand`](https://github.com/PX4/px4_msgs/blob/main/srv/VehicleCommand.srv) can be called by ROS 2 applications to send PX4 [VehicleCommand](../msg_docs/VehicleCommand.md) uORB messages and receive PX4 [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) uORB messages in response.
 
-For further details and examples please refer to the [service documentation](../ros2/user_guide.md#px4-ros-2-service-servers).
-When new servers will be added, the list will be updated accordingly.
+For a list of services, details and examples see the [service documentation](../ros2/user_guide.md#px4-ros-2-service-servers) in the ROS 2 User Guide.
 
 ## Fast-RTPS to uXRCE-DDS Migration Guidelines
 
