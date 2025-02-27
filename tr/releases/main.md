@@ -42,6 +42,9 @@ Please continue reading for [upgrade instructions](#upgrade-guide).
   This is often used to provide a minimum delay for hardware that does not provide completion feedback, so that it can reach the commanded state before the mission progresses.
   ([PX4-Autopilot#23960](https://github.com/PX4/PX4-Autopilot/pull/23960)).
 - **[uORB]** Introduce a [version field](../middleware/uorb.md#message-versioning) for a subset of uORB messages ([PX4-Autopilot#23850](https://github.com/PX4/PX4-Autopilot/pull/23850))
+- [Compass calibration](../config/compass.md) disables internal compasses if an external compass is available.
+  This typically reduces false warnings due to magnetometer inconsistencies.
+  ([PX4-Autopilot#24316](https://github.com/PX4/PX4-Autopilot/pull/24316)).
 
 ### Control
 
