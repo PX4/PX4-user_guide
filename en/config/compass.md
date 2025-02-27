@@ -18,7 +18,7 @@ _QGroundControl_ should also notify the error `mag sensors inconsistent`.
 :::
 
 The process calibrates all compasses and autodetects the orientation of any external compasses.
-If any external magnetometers are available, it then disables the internal magnetometers (these are detrimental when using an external magnetometer).
+If any external magnetometers are available, it then disables the internal magnetometers (these are primarily needed for automatic rotation detection of external magnetometers).
 
 Several types of compass calibration are available:
 
