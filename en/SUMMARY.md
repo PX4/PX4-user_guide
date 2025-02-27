@@ -37,6 +37,7 @@
   - [Flying (Basics)](flying/basic_flying_mc.md)
   - [Complete Vehicles](complete_vehicles_mc/index.md)
     - [ModalAI Starling](complete_vehicles_mc/modalai_starling.md)
+    - [Amovlab SU17 Drone](complete_vehicles_mc/amov_su17_drone.md)
     - [PX4 Vision Kit](complete_vehicles_mc/px4_vision_kit.md)
     - [MindRacer BNF & RTF](complete_vehicles_mc/mindracer_BNF_RTF.md)
       - [MindRacer 210](complete_vehicles_mc/mindracer210.md)

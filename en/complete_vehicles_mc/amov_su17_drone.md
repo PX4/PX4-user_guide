@@ -1,11 +1,12 @@
 # Amovlab SU17 Drone
 
 The [Amov SU17](https://docs.amovlab.com/su17u-v2-wiki/#/en-src/) is a brand-new quadrotor drone development platform based on PX4 developed by Amovlab integrating the latest hardware devices.
+
+![Overview](../../assets/flight_controller/amovlab_su17/su17_hero.png)
+
 It supports four-camera SLAM, RTK, 3D LiDAR, optical flow altitude sensors, gimbal pods, and other sensor equipment, specifically providing a drone development platform for drone developers and industry users.
 This drone has a high level of integration, incorporating our self-developed flight control, image telemetry, high-performance onboard computer, four MIPI time-synchronized cameras, and one 2-megapixel primary camera.
 The main PCB board is a 10-layer board, and the main components are all electromagnetic shielded.
-
-![Overview](https://qiniu.md.amovlab.com/img/m/202411/20241127/1612371224097390617788416.png)
 
 ## Where to Buy
 
@@ -13,7 +14,7 @@ Please send email to service@amovauto.com
 
 ## Hardware Overview
 
-![Hardware Overview](https://qiniu.md.amovlab.com/img/m/202412/20241216/1751148569433076076216320.png)
+![Hardware Overview](../../assets/flight_controller/amovlab_su17/su17_overview.png)
 
 | Callout | Description                    |
 | ------- | ------------------------------ |
