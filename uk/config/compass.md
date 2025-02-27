@@ -1,21 +1,24 @@
 # Калібрування компасу
 
-The compass calibration process configures all connected internal and external [magnetometers](../gps_compass/index.md).
+This process calibrates and configures all [magnetometers](../gps_compass/index.md).
 _QGroundControl_ will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.
 
 :::info
-Compass calibration also auto-detects the compass orientation ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)).
+It also auto-detects the compass orientation for external magnetometers ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)).
 If you have [mounted the compass](../assembly/mount_gps_compass.md#compass-orientation) at a non-standard angle you will need to [manually set the compass orientation](../config/flight_controller_orientation.md#setting-the-compass-orientation) before calibrating.
 :::
 
 ## Загальний огляд
 
-Вам потрібно буде калібрувати ваш компас при першому використанні, і можливо, вам доведеться повторно калібрувати його, якщо транспортний засіб коли-небудь викладений на дуже сильне магнітне поле, або якщо він використовується в області з аномальними магнітними характеристиками.
+You will need to calibrate your compass(es) when you first setup your vehicle, and you may need to recalibrate it if the vehicles is ever exposed to a very strong magnetic field, or if it is used in an area with abnormal magnetic characteristics.
 
 :::tip
 Indications of a poor compass calibration include multicopter circling during hover, toilet bowling (circling at increasing radius/spiraling-out, usually constant altitude, leading to fly-way), or veering off-path when attempting to fly straight.
 _QGroundControl_ should also notify the error `mag sensors inconsistent`.
 :::
+
+The process calibrates all compasses and autodetects the orientation of any external compasses.
+If any external magnetometers are available, it then disables the internal magnetometers (these are primarily needed for automatic rotation detection of external magnetometers).
 
 Several types of compass calibration are available:
 
@@ -111,27 +114,19 @@ This calibration process leverages external knowledge of vehicle's orientation a
 
 ## Додаткова калібрування/конфігурація
 
-The process above will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all connected magnetometers.
+The process above will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all available magnetometers.
+If external magnetometers are available, internal magnetometers are disabled.
 
 Додаткова конфігурація компаса, як правило, не повинна бути потрібною.
 
-:::info
-All external compasses are given the same priority by default, which is higher than the priority shared by all internal compasses.
-:::
+### Enable/Disable a Compass
 
-### Вимкнути Компас
+While no further configuration should be _required_, developers who wish to disable/enable compasses for any reason, such as testing, can do so using the compass parameters.
+These are prefixed with [CAL_MAGx_](../advanced_config/parameter_reference.md#CAL_MAG0_ID) (where `x=0-3`):
 
-Як вже зазначено вище, як правило, додаткова конфігурація не потрібна.
-
-Зазначимо, розробники можуть вимкнути внутрішні компаси за потреби, використовуючи параметри компасу.
-These are prefixed with [CAL_MAGx_](../advanced_config/parameter_reference.md#CAL_MAG0_ID) (where `x=0-3`).
-
-Щоб вимкнути внутрішній компас:
-
-- Use [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) to determine which compasses are internal.
+- [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) can be used to determine which compasses are internal.
   A compass is internal if `CAL_MAGn_ROT==1`.
-- Then use [CAL_MAGx_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO) to disable the compass.
-  Це також може бути використано для зміни відносного пріоритету компаса.
+- [CAL_MAGx_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO) sets the relative compass priority and can be used to disable a compass.
 
 ## Відлагодження
 
