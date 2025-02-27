@@ -2,9 +2,9 @@
 
 PX4 використовує магнітометр (компас) для визначення курсу та напрямку руху транспортного засобу відносно магнітного поля Землі.
 
-[Серія Pixhawk](../flight_controller/pixhawk_series.md) контролерів польоту, а також багато інших, включають внутрішній компас.
-На невеликих літальних апаратах робота внутрішнього компаса майже завжди погана, оскільки контролер польоту повинен бути встановлений близько до кабелів живлення двигуна/ЕСК та інших джерел електромагнітних завад.
-Внутрішній компас може бути корисним на великих апаратах (наприклад, VTOL), де можна зменшити електромагнітні перешкоди, встановивши контролер польоту на великій відстані від джерел живлення.
+[Pixhawk series](../flight_controller/pixhawk_series.md) flight controllers, and many others, include an [internal compass](#internal-compass).
+This is used for automatic rotation detection of external magnetometers and for autopilot bench testing.
+It should not be used otherwise, and is automatically disabled after [calibration](../config/compass.md) if an external compass is available.
 
 На більшості апаратів, особливо на малих, ми рекомендуємо використовувати _комбінований GPS + компас_ [встановлений якомога далі від джерел живлення двигуна/ЕСК] (../assembly/mount_gps_compass.md) - як правило, на підставці або крилі (для літаків з фіксованим крилом).
 Хоча ви можете використовувати [автономний зовнішній компас] (#stand-alone-compass-modules) (як вказано нижче), набагато частіше використовують [комбінований модуль GPS/компас] (#combined-gnss-compass-modules).
@@ -49,6 +49,19 @@ PX4 можна використовувати з багатьма деталям
 - ✓ or a specific part number indicate that a features is supported, while ✘ or empty show that the feature is not supported.
   "?" означає "невідомо".
 - Компас, який не є "DroneCAN", можна вважати SPI або I2C.
+
+### Internal Compass
+
+Internal compasses are not recommended for real use as a heading source, because the performance is almost always very poor.
+
+This is particularly true on on small vehicles where the flight controller has to be mounted close to motor/ESC power lines and other sources of electromagnetic interference.
+While they may be better on larger vehicles (e.g. VTOL), where it is possible to reduce electromagnetic interference by mounting the flight controller a long way from power supply lines, an external compass will almost always be better.
+
+:::tip
+They might in theory be used if there is no external magnetometer. but only with [EKF2_MAG_TYPE_INIT = Init (`6`)](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE), and only if their measurements are roughly ok before arming.
+:::
+
+Internal compasses are disabled by default if an external compass is available.
 
 ## Встановлення
 
