@@ -367,7 +367,7 @@ accelerometer_integral_dt: 4739
 
 #### (Optional) Starting the Translation Node
 
-<Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="tip" />  <Badge type="warning" text="Experimental" />
+<Badge type="tip" text="main (planned for: PX4 v1.16+)" /> <Badge type="tip" />  <Badge type="warning" text="Experimental" />
 
 This example is built with PX4 and ROS2 versions that use the same message definitions.
 If you were to use incompatible [message versions](../middleware/uorb.md#message-versioning) you would need to install and run the [Message Translation Node](./px4_ros2_msg_translation_node.md) as well, before running the example:

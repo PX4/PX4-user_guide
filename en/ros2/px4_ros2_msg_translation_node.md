@@ -1,6 +1,6 @@
 # PX4 ROS 2 Message Translation Node
 
-<Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="warning" text="Experimental" />
+<Badge type="tip" text="main (planned for: PX4 v1.16+)" /> <Badge type="warning" text="Experimental" />
 
 The message translation node allows ROS 2 applications that were compiled against different versions of the PX4 messages to interwork with newer versions of PX4, and vice versa, without having to change either the application or the PX4 side.
 
