@@ -644,11 +644,8 @@ Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree
 gz_bridge <command> [arguments...]
  Commands:
    start
-     -m <val>    Fuel model name
-     -p <val>    Model Pose
-     -n <val>    Model name
-     -i <val>    PX4 instance
      [-w <val>]  World name
+     -n <val>    Model name
 
    stop
 
