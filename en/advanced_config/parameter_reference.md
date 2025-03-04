@@ -27634,79 +27634,7 @@ Proportional gain for closed loop yaw controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 |  
-
-## Rover Control
-
-### RO_ACCEL_LIM (`FLOAT`) {#RO_ACCEL_LIM}
-
-Acceleration limit.
-
-Set to -1 to disable. For mecanum rovers this limit is used for longitudinal and lateral acceleration.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 | m/s^2 
-
-### RO_DECEL_LIM (`FLOAT`) {#RO_DECEL_LIM}
-
-Deceleration limit.
-
-Set to -1 to disable. Note that if it is disabled the rover will not slow down when approaching waypoints in auto modes. For mecanum rovers this limit is used for longitudinal and lateral deceleration.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 | m/s^2 
-
-### RO_JERK_LIM (`FLOAT`) {#RO_JERK_LIM}
-
-Jerk limit.
-
-Set to -1 to disable. Note that if it is disabled the rover will not slow down when approaching waypoints in auto modes. For mecanum rovers this limit is used for longitudinal and lateral jerk.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 | m/s^3 
-
-### RO_MAX_THR_SPEED (`FLOAT`) {#RO_MAX_THR_SPEED}
-
-Speed the rover drives at maximum throttle.
-
-Used to linearly map speeds [m/s] to throttle values [-1. 1].
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 | m/s 
-
-### RO_SPEED_TH (`FLOAT`) {#RO_SPEED_TH}
-
-Speed measurement threshold.
-
-The minimum threshold for the speed measurement not to be interpreted as zero.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0.1 | m/s 
-
-### RO_YAW_RATE_TH (`FLOAT`) {#RO_YAW_RATE_TH}
-
-Yaw rate measurement threshold.
-
-The minimum threshold for the yaw rate measurement not to be interpreted as zero.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 3 | deg/s 
-
-### RO_YAW_STICK_DZ (`FLOAT`) {#RO_YAW_STICK_DZ}
-
-Yaw stick deadzone.
-
-Percentage of stick input range that will be interpreted as zero around the stick centered value.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 1 | 0.01 | 0.1 |  
+&nbsp; | 0 | 100 | 0.01 | 0. |  
 
 ## Rover Differential
 
@@ -27984,7 +27912,7 @@ Used to cap how quickly the magnitude of yaw rate setpoints can increase. Set to
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 10000 | 0.01 | -1 | deg/s^2 
+&nbsp; | -1 | 10000 | 0.01 | -1. | deg/s^2 
 
 ### RO_YAW_DECEL_LIM (`FLOAT`) {#RO_YAW_DECEL_LIM}
 
@@ -27994,7 +27922,7 @@ Used to cap how quickly the magnitude of yaw rate setpoints can decrease. Set to
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 10000 | 0.01 | -1 | deg/s^2 
+&nbsp; | -1 | 10000 | 0.01 | -1. | deg/s^2 
 
 ### RO_YAW_RATE_I (`FLOAT`) {#RO_YAW_RATE_I}
 
@@ -28002,7 +27930,7 @@ Integral gain for closed loop yaw rate controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 |  
+&nbsp; | 0 | 100 | 0.01 | 0. |  
 
 ### RO_YAW_RATE_LIM (`FLOAT`) {#RO_YAW_RATE_LIM}
 
@@ -28012,7 +27940,7 @@ Used to cap yaw rate setpoints and map controller inputs to yaw rate setpoints i
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 10000 | 0.01 | 0 | deg/s 
+&nbsp; | 0 | 10000 | 0.01 | 0. | deg/s 
 
 ### RO_YAW_RATE_P (`FLOAT`) {#RO_YAW_RATE_P}
 
@@ -28020,9 +27948,69 @@ Proportional gain for closed loop yaw rate controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 |  
+&nbsp; | 0 | 100 | 0.01 | 0. |  
+
+### RO_YAW_RATE_TH (`FLOAT`) {#RO_YAW_RATE_TH}
+
+Yaw rate measurement threshold.
+
+The minimum threshold for the yaw rate measurement not to be interpreted as zero.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 3. | deg/s 
+
+### RO_YAW_STICK_DZ (`FLOAT`) {#RO_YAW_STICK_DZ}
+
+Yaw stick deadzone.
+
+Percentage of stick input range that will be interpreted as zero around the stick centered value.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 1 | 0.01 | 0.1 |  
 
 ## Rover Velocity Control
+
+### RO_ACCEL_LIM (`FLOAT`) {#RO_ACCEL_LIM}
+
+Acceleration limit.
+
+Set to -1 to disable. For mecanum rovers this limit is used for longitudinal and lateral acceleration.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 100 | 0.01 | -1. | m/s^2 
+
+### RO_DECEL_LIM (`FLOAT`) {#RO_DECEL_LIM}
+
+Deceleration limit.
+
+Set to -1 to disable. Note that if it is disabled the rover will not slow down when approaching waypoints in auto modes. For mecanum rovers this limit is used for longitudinal and lateral deceleration.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 100 | 0.01 | -1. | m/s^2 
+
+### RO_JERK_LIM (`FLOAT`) {#RO_JERK_LIM}
+
+Jerk limit.
+
+Set to -1 to disable. Note that if it is disabled the rover will not slow down when approaching waypoints in auto modes. For mecanum rovers this limit is used for longitudinal and lateral jerk.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 100 | 0.01 | -1. | m/s^3 
+
+### RO_MAX_THR_SPEED (`FLOAT`) {#RO_MAX_THR_SPEED}
+
+Speed the rover drives at maximum throttle.
+
+Used to linearly map speeds [m/s] to throttle values [-1. 1].
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0. | m/s 
 
 ### RO_SPEED_I (`FLOAT`) {#RO_SPEED_I}
 
@@ -28030,7 +28018,7 @@ Integral gain for ground speed controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.001 | 0 |  
+&nbsp; | 0 | 100 | 0.001 | 0. |  
 
 ### RO_SPEED_LIM (`FLOAT`) {#RO_SPEED_LIM}
 
@@ -28040,7 +28028,7 @@ Used to cap speed setpoints and map controller inputs to speed setpoints in Posi
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 | m/s 
+&nbsp; | -1 | 100 | 0.01 | -1. | m/s 
 
 ### RO_SPEED_P (`FLOAT`) {#RO_SPEED_P}
 
@@ -28048,7 +28036,17 @@ Proportional gain for ground speed controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 |  
+&nbsp; | 0 | 100 | 0.01 | 0. |  
+
+### RO_SPEED_TH (`FLOAT`) {#RO_SPEED_TH}
+
+Speed measurement threshold.
+
+Set to -1 to disable. The minimum threshold for the speed measurement not to be interpreted as zero.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 100 | 0.01 | 0.1 | m/s 
 
 ## Runway Takeoff
 
