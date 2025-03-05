@@ -148,8 +148,6 @@ The easiest way to calibrate the divider is by using _QGroundControl_ and follow
 This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
 :::
 
-<a id=""></a>
-
 ### Amps per volt {#current_divider}
 
 :::tip
@@ -164,9 +162,7 @@ The easiest way to calibrate the dividers is by using _QGroundControl_ and follo
 This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
 :::
 
-<a id="load_compensation"></a>
-
-## Voltage-based Estimation with Load Compensation
+## Voltage-based Estimation with Load Compensation {#load_compensation}
 
 With well configured load compensation, the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
 
@@ -189,9 +185,7 @@ By default `BAT1_R_INTERNAL` is set to `-1` which enables the estimation algorit
 Setting it to `0` disables load compensation.
 :::
 
-<a id="current_integration"></a>
-
-## Voltage-based Estimation Fused with Current Integration
+## Voltage-based Estimation Fused with Current Integration {#current_integration}
 
 This method is the most accurate way to measure relative battery consumption.
 If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
