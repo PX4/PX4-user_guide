@@ -4,7 +4,9 @@ This topic explains how to configure power settings so that PX4 can estimate the
 
 ::: info
 These instructions require that the vehicle has a [Power Module (PM)](../power_module/index.md), or other hardware that can measure the battery voltage and (optionally) the current.
+:::
 
+::: tip
 This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/index.md).
 :::
 
@@ -139,9 +141,11 @@ This setting corresponds to [parameter](../advanced_config/parameters.md): [BAT1
 
 ### Voltage Divider
 
-If you have a vehicle that measures voltage through a power module and the ADC of the flight controller then you should check and calibrate the measurements once per board. To calibrate you'll need a multimeter.
+If you have a vehicle that measures voltage through a power module and the ADC of the flight controller then you should calibrate the measurements once per power module.
+To calibrate, the actual voltage from the battery is measured (using a multimeter) and compared to the value provided by the power module.
+This is used to calculate a "voltage divider" value, which can subsequently be used to scale the power module measurement to the correct value.
 
-The easiest way to calibrate the divider is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
+The easiest way to perform this calibration is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
 
 ::: info
 This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
@@ -150,10 +154,11 @@ This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/paramete
 ### Amps per volt {#current_divider}
 
 :::tip
-This setting is not needed if you are using the basic configuration (without load compensation etc.)
+This calibration is not needed if your power module does not provide current measurements.
 :::
 
-If you are using [Load Compensation](#load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated.
+Current measurements are used (by default) for [Load Compensation](#load_compensation) and [Current Integration](#current_integration) if provided by the power module.
+The amps per volt divider must be calibrated to ensure an accurate current measurement.
 
 The easiest way to calibrate the dividers is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
 
