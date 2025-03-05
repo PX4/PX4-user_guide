@@ -1,12 +1,14 @@
 # 测试 MC_01 - 手动模式
 
-## 解锁并起飞
+## Objective
 
-❏ 设置飞行模式以稳定和布防
+To test that manual flight modes work as expected
 
-❏ 升高油门起飞
+## Preflight
 
-## 飞行
+Ensure that the drone can go into Stabilized, Altitude, Position mode while still on the ground
+
+## Flight Tests
 
 ❏ 自稳
 
@@ -32,11 +34,11 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response set to Pitch/Roll/Yaw rates
 
-## 降落
+❏ Landing
 
-❏ 降落位置模式，油门低于 40％
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Land in Position mode with the throttle below 40%
 
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
 ## 预期成果
 
