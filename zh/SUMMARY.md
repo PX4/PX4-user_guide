@@ -331,6 +331,7 @@
     - [Satellite Comms (Iridium/RockBlock)](advanced_features/satcom_roadblock.md)
   - [Power Systems](power_systems/index.md)
     - [Battery Estimation Tuning](config/battery.md)
+    - [Battery Chemistry Overview](power_systems/battery_chemistry.md)
     - [Power Modules/PDB](power_module/index.md)
       - [雷迅 HV pm](power_module/cuav_hv_pm.md)
       - [雷迅 CAN PMU](dronecan/cuav_can_pmu.md)
