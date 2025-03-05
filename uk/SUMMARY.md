@@ -331,6 +331,7 @@
     - [Супутниковий зв'язок (Iridium/RockBlock)](advanced_features/satcom_roadblock.md)
   - [Енергетичні системи](power_systems/index.md)
     - [Налаштування оцінки батареї](config/battery.md)
+    - [Battery Chemistry Overview](power_systems/battery_chemistry.md)
     - [Силові модулі/PDB](power_module/index.md)
       - [CUAV HV pm](power_module/cuav_hv_pm.md)
       - [CUAV CAN PMU](dronecan/cuav_can_pmu.md)
