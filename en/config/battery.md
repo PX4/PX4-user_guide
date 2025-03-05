@@ -39,7 +39,6 @@ This ensures that the battery failsafe behaviour is managed by PX4, and that ESC
 [Battery Chemistry Overview](../power_systems/battery_chemistry.md) explains the difference between the main battery types, and how that impacts the battery settings.
 :::
 
-
 ## Basic Battery Settings (default) {#basic_settings}
 
 The basic battery settings configure PX4 to use the default method for capacity estimate.
@@ -164,25 +163,24 @@ This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/para
 
 ## Voltage-based Estimation with Load Compensation {#load_compensation}
 
-With well configured load compensation, the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
+When a current flows through a battery, the internal resistance causes a voltage drop, reducing the measured output voltage of the battery compared to its open-circuit (no-load) voltage.
+When using the [basic configuration](#basic_settings), the measured output voltage is what is used to estimate the available capacity, which means that the battery level will appear to fluctuate when you fly up and down, or otherwise change the load on the battery.
 
-PX4 implements a current-based load compensation that uses a real-time estimate of the internal resistance of the battery.
-When a current flows through a battery, the internal resistance causes a voltage drop, reducing the output voltage (measured voltage) of the battery compared to its open-circuit voltage (no-load voltage).
-By estimating the internal resistance, the fluctuation in measured voltage under load that occurs when using the [basic configuration](#basic_settings) can be compensated.
-This leads to a much more accurate estimation of the remaining capacity.
+_Load compensation_ uses a measured or estimated value for the internal resistance to correct for changes under load, resulting in far less variation in the estimated capacity when flying.
 
-To use the load compensation you will still need to set the [basic configuration](#basic_settings).
+To use the load compensation first set the [basic configuration](#basic_settings).
 The _Empty Voltage_ ([BATn_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY), where `n` is the battery number) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
-You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
 
-::: info
-Alternatively, the value for the internal resistance can be [set manually](../advanced_config/parameters.md) using [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) (advanced).
+To enable load compensation you will then need to calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
+
+By default PX4 uses a current-based load compensation, which uses a real-time estimate of the internal resistance of the battery (this is enabled if [BAT1_R_INTERNAL=-1](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL))
+
+The internal resistance can also be measured and [set manually](../advanced_config/parameters.md) in [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) (advanced).
 A positive value in this parameter will be used for the internal resistance instead of the estimated value.
+
+:::info
 There are LiPo chargers that can measure the internal resistance of your battery.
 A typical value for LiPo batteries is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
-
-By default `BAT1_R_INTERNAL` is set to `-1` which enables the estimation algorithm.
-Setting it to `0` disables load compensation.
 :::
 
 ## Voltage-based Estimation Fused with Current Integration {#current_integration}
