@@ -36,12 +36,10 @@ In addition to PX4 configuration discussed here, you should ensure that the ESC'
 :::
 
 :::tip
-[Battery-Type Comparison](#battery-chemistry-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
+[Battery Chemistry Overview](../power_systems/battery_chemistry.md) explains the difference between the main battery types, and how that impacts the battery settings.
 :::
 
-<a id="basic_settings"></a>
-
-## 基本电池设置(默认)
+## Basic Battery Settings (default) {#basic_settings}
 
 基本电池设置将PX4配置为使用默认方法进行容量估算。
 此方法将测得的原始电池电压与“空”和“满”电芯的电池电压范围进行比较（按芯数量缩放）。
@@ -149,9 +147,7 @@ The easiest way to calibrate the divider is by using _QGroundControl_ and follow
 This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
 :::
 
-<a id="current_divider"></a>
-
-### 安培/伏特
+### Amps per volt {#current_divider}
 
 :::tip
 This setting is not needed if you are using the basic configuration (without load compensation etc.)
@@ -165,9 +161,7 @@ The easiest way to calibrate the dividers is by using _QGroundControl_ and follo
 This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
 :::
 
-<a id="load_compensation"></a>
-
-## 基于电压估计的负载补偿
+## Voltage-based Estimation with Load Compensation {#load_compensation}
 
 With well configured load compensation, the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
 
@@ -190,9 +184,7 @@ By default `BAT1_R_INTERNAL` is set to `-1` which enables the estimation algorit
 Setting it to `0` disables load compensation.
 :::
 
-<a id="current_integration"></a>
-
-## Voltage-based Estimation Fused with Current Integration
+## Voltage-based Estimation Fused with Current Integration {#current_integration}
 
 This method is the most accurate way to measure relative battery consumption.
 If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
@@ -232,74 +224,3 @@ If you always start with a healthy full battery, this approach is similar to tha
 Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity.
 Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
 :::
-
-## Battery-Chemistry Comparison
-
-This section provides a comparative overview of several different battery types (in particular LiPo and Li-Ion).
-
-### 综述
-
-- Li-Ion batteries have a higher energy density than Lipo battery packs but that comes at the expense of lower discharge rates and increased battery cost.
-- LiPo batteries are readily available and can withstand higher discharge rates that are common in multi-rotor aircraft.
-- The choice needs to be made based on the vehicle and the mission being flown.
-  If absolute endurance is the aim then there is more of a benefit to flying to a Li-Ion battery but similarly, more caution needs to be taken.
-  As such, the decision should be made based on the factors surrounding the flight.
-
-### 优势
-
-LiPo
-
-- Very common
-- Wide range of sizes, capacities and voltages
-- Inexpensive
-- High discharge rates relative to capacity (high C ratings)
-- Higher charge rates
-
-Li-Ion
-
-- Much higher energy density (up to 60% higher)
-
-### 缺点:
-
-LiPo
-
-- Low (relative) energy density
-- Quality can vary given abundance of suppliers
-
-Li-Ion
-
-- Not as common
-- Much more expensive
-- Not as widely available in large sizes and configurations
-- All cells are relatively small so larger packs are made up of many cells tied in series and parallel to create the required voltage and capacity
-- Lower discharge rates relative to battery size (C rating)
-- More difficult to adapt to vehicles that require high currents
-- Lower charging rates (relative to capacity)
-- Requires more stringent temperature monitoring during charge and discharge
-- Requires settings changes on the ESC to utilize max capacity ("standard" ESC low voltage settings are too high).
-- At close-to-empty the voltage of the battery is such that a ~3V difference is possible between a Lipo to Li-ion (while using a 6S battery).
-  This could have implications on thrust expectations.
-
-### C Ratings
-
-- A C rating is simply a multiple of the stated capacity of any battery type.
-- A C rating is relevant (and differs) for both charge and discharge rates.
-  - For example, a 2000 mAh battery (irrespective of voltage) with a 10C discharge rate can safely and continuously discharge 20 amps of current (2000/1000=2Ah x 10C = 20 amps).
-- C Ratings are always given by the manufacturer (often on the outside of the battery pack).
-  While they can actually be calculated, you need several pieces of information, and to measure the internal resistance of the cells.
-- LiPo batteries will always have a higher C rating than a Li-Ion battery.
-  This is due to chemistry type but also to the internal resistance per cell (which is due to the chemistry type) leading to higher discharge rates for LiPo batteries.
-- Following manufacturer guidelines for both charge and discharge C ratings is very important for the health of your battery and to operate your vehicle safely (i.e. reduce fires, “puffing” packs and other suboptimal states during charging and discharging).
-
-### Energy Density
-
-- Energy density is how much energy is able to be stored relative to battery weight.
-  It is generally measured and compared in Watt Hour per Kilogram (Wh/Kg).
-  - Watt-hours are simply calculated by taking the nominal (i.e. not the fully charged voltage) multiplied by the capacity, e.g. 3.7v X 5 Ah = 18.5Wh.
-    If you had a 3 cell battery pack your pack would be 18.5Wh X 3 = 55 Wh of stored energy.
-- When you take battery weight into account you calculate energy density by taking the watt-hours and dividing them by weight.
-  - E.g. 55 Wh divided by (battery weight in grams divided by 1000).
-    Assuming this battery weighed 300 grams then 55/(300/1000)=185 Wh/Kg.
-- This number 185 Wh/Kg would be on the very high-end for a LiPo battery.
-  A Li-Ion battery on the other hand can reach 260 Wh/Kg, meaning per kilogram of battery onboard you can carry 75 more watt-hours.
-  - If you know how many watts your vehicle takes to fly (which a battery current module can show you), you can equate this increased storage at no additional weight into increased flight time.
