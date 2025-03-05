@@ -252,6 +252,7 @@
       - [Avionics Anonymous Laser Altimeter UAVCAN Interface (CAN)](dronecan/avanon_laser_interface.md)
     - [GNSS (GPS)](gps_compass/index.md)
       - [ARK GPS (CAN)](dronecan/ark_gps.md)
+      - [ARK SAM GPS](gps_compass/ark_sam_gps)
       - [ARK TESEO GPS](dronecan/ark_teseo_gps.md) 
       - [CUAV NEO 3 GPS](gps_compass/gps_cuav_neo_3.md)
       - [CUAV NEO 3 Pro GPS (CAN)](gps_compass/gps_cuav_neo_3pro.md)
