@@ -11,6 +11,8 @@ To test switching between various modes
 - Last waypoint is a NOT RTL, but a normal waypoint
 - Duration of 5 to 6 minutes
 
+## Flight Tests
+
 ❏ Position + Mission
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Arm and take-off in Position mode
