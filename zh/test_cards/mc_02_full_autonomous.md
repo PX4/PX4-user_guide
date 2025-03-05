@@ -1,8 +1,19 @@
 # 测试 MC_02-完全自主
 
-## 创建和上传任务
+## Objective
 
-❏ 任务标准
+To test the auto modes such as Mission, RTL, etc...
+
+## Preflight
+
+Plan a mission on the ground. Ensure the mission has
+
+- Takeoff as first waypoint
+- Changes in Altitude throughout the mission
+- Last waypoint is an RTL
+- Duration of 5 to 6 minutes
+
+❏ Mission
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Auto take-off
 
@@ -14,23 +25,34 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 5 to 6 minutes
 
-❏ Upload mission to vehicle using _QGroundControl_
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Auto Disarm on land
 
-## 解锁并起飞
+❏ Mission + Manual arm
 
-❏ 在任何手动模式下解锁
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Arm in any manual mode
 
-❏ 接合自动触发起飞
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Engage Auto (Mission Mode) to trigger take-off
 
-❏ 观察跟踪，转弯和正确的 RTL 性能
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Observe tracking, cornering and proper RTL performance
 
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+
+❏ RTL
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Arm and takeoff in position mode
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Fly out ~10m from start point
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Engage RTL Mode
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Observe tracking, cornering and proper RTL performance
 
 ## 预期成果
 
 - 当油门升高时，起飞应该是平稳的
 - 任务应该在第一次尝试时上传
 - 使用 Auto 时飞机应自动起飞
+- Vehicle shoud adjust height to RTL altitude before returning home
 - 着陆时，直升机不应在地面上反弹
 
 <!--
