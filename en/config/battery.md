@@ -69,7 +69,7 @@ This sets the number of cells connected in series in the battery.
 Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5S").
 
 ::: info
-The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type.
+The voltage across a single galvanic battery cell is dependent on the [chemical properties of the battery type](../power_systems/battery_chemistry.md).
 Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same _nominal_ cell voltage of 3.7V.
 In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in _series_.
 The battery voltage at the terminals is then a multiple of the cell voltage.
@@ -167,16 +167,23 @@ When a current flows through a battery, the internal resistance causes a voltage
 When using the [basic configuration](#basic_settings), the measured output voltage is what is used to estimate the available capacity, which means that the battery level will appear to fluctuate when you fly up and down, or otherwise change the load on the battery.
 
 _Load compensation_ uses a measured or estimated value for the internal resistance to correct for changes under load, resulting in far less variation in the estimated capacity when flying.
+This is enabled by default when using a power module that provides current measurements.
 
 To use the load compensation first set the [basic configuration](#basic_settings).
 The _Empty Voltage_ ([BATn_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY), where `n` is the battery number) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
 
-To enable load compensation you will then need to calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
+You will then need to calibrate the [Amps per volt divider](#current_divider) in the basic settings screen (in order to get reliable current measurements).
 
-By default PX4 uses a current-based load compensation, which uses a real-time estimate of the internal resistance of the battery (this is enabled if [BAT1_R_INTERNAL=-1](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL))
+PX4 uses current-based load compensation based on a _real-time estimate_ of the internal resistance of the battery by default (real time estimates are enabled if [BAT1_R_INTERNAL=-1](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL)).
+Using a real time estimate allows the compensation to adapt to changes in the internal resistance of the battery due to temperature changes during flight, as well as over time as the battery degrades.
 
-The internal resistance can also be measured and [set manually](../advanced_config/parameters.md) in [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) (advanced).
-A positive value in this parameter will be used for the internal resistance instead of the estimated value.
+The internal resistance can also be measured and [set manually](../advanced_config/parameters.md) in [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL).
+A positive value in this parameter will be used for the internal resistance instead of the estimated value (`0` disables load compensation altogether).
+
+::: tip
+The default approach of using the real-time estimate is preferred.
+While in theory this might not converge to a value for the internal resistance, testing has not show this to be a problem.
+:::
 
 :::info
 There are LiPo chargers that can measure the internal resistance of your battery.
