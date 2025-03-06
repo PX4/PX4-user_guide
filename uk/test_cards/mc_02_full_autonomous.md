@@ -13,6 +13,8 @@ Plan a mission on the ground. Ensure the mission has
 - Last waypoint is an RTL
 - Duration of 5 to 6 minutes
 
+## Flight Tests
+
 ❏ Mission
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Auto take-off
