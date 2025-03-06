@@ -126,7 +126,7 @@ To build the agent within ROS:
 
    ```sh
    cd ~/px4_ros_uxrce_dds_ws/src
-   git clone -b 2.4.2 https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+   git clone -b v2.4.2 https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
    ```
 
 1. Source the ROS 2 development environment, and compile the workspace using `colcon`:
