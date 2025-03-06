@@ -218,6 +218,7 @@ First update the firmware, airframe, and actuator mappings:
 
 Then perform the mandatory setup/calibration:
 
+- [Actuator Assignment](../config/actuators.md#actuator-outputs)
 - [Sensor Orientation](../config/flight_controller_orientation.md)
 - [Compass](../config/compass.md)
 - [Accelerometer](../config/accelerometer.md)
